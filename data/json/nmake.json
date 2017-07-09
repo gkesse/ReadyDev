@@ -1,0 +1,408 @@
+{
+    "links":
+    [
+        {"name":"Tutoriels","link":"/tutoriels/"},
+        {"name":"C++","link":"/tutoriels/cpp"},
+        {"name":"NMake","link":"/tutoriels/cpp/nmake"}
+    ],
+    "details":
+    [
+        {
+            "id":"introduction",
+            "name":"Introduction",
+            "description":
+            [
+                "NMake est un outil fourni avec l'IDE Visual Studio de Microsoft.", 
+                "Il permet de compiler un projet C/C++ à partir d'un fichier Makefile.",
+                "Il est similaire à l'outil Make utilisé sur les distributions UNIX.",
+                "Dans ce tutoriel, nous apprendrons à utliser l'outil NMake dans différents",
+                "cas de figure pour compiler nos projets C/C++ à partir d'un fichier Makefile."  
+            ]
+            
+        },
+        {
+            "id":"summary",
+            "name":"Sommaire",
+            "menu":
+            [
+                {"name":"Prérequis","link":"#prerequisites"},
+                {"name":"Programme Simple","link":"#simple_program"},
+                {"name":"Fichier Entête","link":"#header_file"},
+                {"name":"Librairie Statique Création","link":"#static_lib_creating"},
+                {"name":"Librairie Statique Utilisation","link":"#static_lib_using"},
+                {"name":"Librairie Dynamique Création","link":"#dynamic_lib_creating"},
+                {"name":"Librairie Dynamique Utilisation","link":"#dynamic_lib_using"}
+            ]
+        },
+        {
+            "id":"prerequisites",
+            "name":"Prérequis",
+            "section":
+            [
+                {
+                    "name":"Environnements",
+                    "tools":
+                    [
+                        "Windows",
+                        "Visual Studio",
+                        "Notepad++"
+                    ]
+                },
+                {
+                    "name":"Compilation",
+                    "description":
+                    [
+                        "Le script de compilation positionne les variables d'environnement PATH,",
+                        "INCLUDE, LIB nécessaires à la compilation du projet avant de lancer",
+                        "la commande de compilation. Il permet de générer les fichiers objet, ainsi que",
+                        "le fichier exécutable du projet. Il utilise la règle all définie dans le fichier Makefile."
+                    ],
+                    "file":"cmd_compile.bat",
+                    "code":"tutoriels/cpp/nmake/simple_program/cmd_compile.bat"            
+                },
+                {
+                    "name":"Exécution",
+                    "description":
+                    [
+                        "Le script d'exécution lance le fichier exécutable généré après la compilation",
+                        "du projet. Le fichier exécutable est localisé dans le répertoire bin.",
+                        "Dans certains cas, il faudra positionner la variable d'environnement PATH pour",
+                        "pointer les DLLs nécessaires à l'exécution du projet."
+                    ],
+                    "file":"cmd_run.bat",
+                    "code":"tutoriels/cpp/nmake/simple_program/cmd_run.bat"            
+                },
+                {
+                    "name":"Nettoyage",
+                    "description":
+                    [
+                        "Le script de nettoyage positionne la variable d'environnement PATH avant de lancer",
+                        "la commande de nettoyage du projet. Il permet de supprimer les fichiers objet",
+                        "et exécutable générés après la compilation du projet. Il utilise la règle clean",
+                        "définie dans le fichier Makefile."
+                    ],
+                    "file":"cmd_clean.bat",
+                    "code":"tutoriels/cpp/nmake/simple_program/cmd_clean.bat"            
+                },
+                {
+                    "name":"Construction",
+                    "description":
+                    [
+                        "Le script de construction lance dans l'ordre les scripts de nettoyage, de compilation,",
+                        "d'exécution du projet avant de marquer une pause pour permettre de visualiser les résultats."
+                    ],
+                    "file":"cmd_build.bat",
+                    "code":"tutoriels/cpp/nmake/simple_program/cmd_build.bat"            
+                }
+            ]
+        },
+        {
+            "id":"simple_program",
+            "name":"Programme Simple",
+            "section":
+            [
+                {
+                    "name":"Main",
+                    "description":
+                    [
+                        "Le programme principal affiche un message dans la console."
+                    ],
+                    "file":"main.cpp",
+                    "code":"tutoriels/cpp/nmake/simple_program/main.cpp"            
+                },
+                {
+                    "name":"Makefile",
+                    "description":
+                    [
+                        "Le fichier Makefile définit un ensemble de règles nécessaires à la compilation",
+                        "du projet. Il définit le répertoire des fichiers binaire (BIN), le",
+                        "répertoire des fichiers objet (BUILD), le nom du fichier exécutable (TARGET).",
+                        "Il spécifie la liste des fichiers objet (OBJS). Il lance la commande de génération",
+                        " des fichiers objet (cl). Il démarre la commande de linkage des fichiers objet (link)",
+                        "pour construire le fichier exécutable."
+                    ],
+                    "file":"Makefile",
+                    "code":"tutoriels/cpp/nmake/simple_program/Makefile"            
+                },
+                {
+                    "name":"Compilation",
+                    "description":
+                    [
+                        "Il suffit de lancer le fichier de compilation."
+                    ],
+                    "file":"cmd_compile.bat"
+                },
+                {
+                    "name":"Exécution",
+                    "description":
+                    [
+                        "Il suffit de lancer le fichier d'exécution."
+                    ],
+                    "file":"cmd_run.bat",
+                    "resultat":"/tutoriels/cpp/nmake/simple_program/img/resultat.png"            
+                }
+            ]
+        },
+        {
+            "id":"header_file",
+            "name":"Fichier Entête",
+            "section":
+            [
+                {
+                    "name":"Main",
+                    "description":
+                    [
+                        "Le programme principal affiche un message dans la console."
+                    ],
+                    "file":"main.cpp",
+                    "code":"tutoriels/cpp/nmake/header_file/main.cpp"            
+                },
+                {
+                    "name":"GShow",
+                    "description":
+                    [
+                        "Le programme principal affiche un message dans la console."
+                    ],
+                    "file":"manager/GShow.h",
+                    "code":"tutoriels/cpp/nmake/header_file/manager/GShow.h"            
+                },
+                {
+                    "file":"manager/GShow.cpp",
+                    "code":"tutoriels/cpp/nmake/header_file/manager/GShow.cpp"            
+                },
+                {
+                    "name":"GMath",
+                    "description":
+                    [
+                        "Le programme principal affiche un message dans la console."
+                    ],
+                    "file":"manager/GMath.h",
+                    "code":"tutoriels/cpp/nmake/header_file/manager/GMath.h"            
+                },
+                {
+                    "file":"manager/GMath.cpp",
+                    "code":"tutoriels/cpp/nmake/header_file/manager/GMath.cpp"            
+                },
+                {
+                    "name":"Makefile",
+                    "description":
+                    [
+                        "Le fichier Makefile définit un ensemble de règles nécessaires à la compilation",
+                        "du projet. Il définit le répertoire des fichiers binaire (BIN), le",
+                        "répertoire des fichiers objet (BUILD), le nom du fichier exécutable (TARGET).",
+                        "Il spécifie la liste des fichiers objet (OBJS). Il lance la commande de génération",
+                        " des fichiers objet (cl). Il démarre la commande de linkage des fichiers objet (link)",
+                        "pour construire le fichier exécutable."
+                    ],
+                    "file":"Makefile",
+                    "code":"tutoriels/cpp/nmake/header_file/Makefile"            
+                },
+                {
+                    "name":"Compilation",
+                    "description":
+                    [
+                        "Il suffit de lancer le fichier de compilation."
+                    ],
+                    "file":"cmd_compile.bat"
+                },
+                {
+                    "name":"Exécution",
+                    "description":
+                    [
+                        "Il suffit de lancer le fichier d'exécution."
+                    ],
+                    "file":"cmd_run.bat",
+                    "resultat":"/tutoriels/cpp/nmake/header_file/img/resultat.png"            
+                }
+            ]
+        },
+        {
+            "id":"static_lib_creating",
+            "name":"Librairie Statique Création",
+            "section":
+            [
+                {
+                    "name":"Main",
+                    "description":
+                    [
+                        "Le programme principal affiche un message dans la console."
+                    ],
+                    "file":"main.cpp",
+                    "code":"tutoriels/cpp/nmake/simple_program/main.cpp"            
+                },
+                {
+                    "name":"Makefile",
+                    "description":
+                    [
+                        "Le fichier Makefile définit un ensemble de règles nécessaires à la compilation",
+                        "du projet. Il définit le répertoire des fichiers binaire (BIN), le",
+                        "répertoire des fichiers objet (BUILD), le nom du fichier exécutable (TARGET).",
+                        "Il spécifie la liste des fichiers objet (OBJS). Il lance la commande de génération",
+                        " des fichiers objet (cl). Il démarre la commande de linkage des fichiers objet (link)",
+                        "pour construire le fichier exécutable."
+                    ],
+                    "file":"Makefile",
+                    "code":"tutoriels/cpp/nmake/simple_program/Makefile"            
+                },
+                {
+                    "name":"Compilation",
+                    "description":
+                    [
+                        "Il suffit de lancer le fichier de compilation."
+                    ],
+                    "file":"cmd_compile.bat"
+                },
+                {
+                    "name":"Exécution",
+                    "description":
+                    [
+                        "Il suffit de lancer le fichier d'exécution."
+                    ],
+                    "file":"cmd_run.bat",
+                    "resultat":"/tutoriels/cpp/nmake/simple_program/img/resultat.png"            
+                }
+            ]
+        },
+        {
+            "id":"static_lib_using",
+            "name":"Librairie Statique Utilisation",
+            "section":
+            [
+                {
+                    "name":"Main",
+                    "description":
+                    [
+                        "Le programme principal affiche un message dans la console."
+                    ],
+                    "file":"main.cpp",
+                    "code":"tutoriels/cpp/nmake/simple_program/main.cpp"            
+                },
+                {
+                    "name":"Makefile",
+                    "description":
+                    [
+                        "Le fichier Makefile définit un ensemble de règles nécessaires à la compilation",
+                        "du projet. Il définit le répertoire des fichiers binaire (BIN), le",
+                        "répertoire des fichiers objet (BUILD), le nom du fichier exécutable (TARGET).",
+                        "Il spécifie la liste des fichiers objet (OBJS). Il lance la commande de génération",
+                        " des fichiers objet (cl). Il démarre la commande de linkage des fichiers objet (link)",
+                        "pour construire le fichier exécutable."
+                    ],
+                    "file":"Makefile",
+                    "code":"tutoriels/cpp/nmake/simple_program/Makefile"            
+                },
+                {
+                    "name":"Compilation",
+                    "description":
+                    [
+                        "Il suffit de lancer le fichier de compilation."
+                    ],
+                    "file":"cmd_compile.bat"
+                },
+                {
+                    "name":"Exécution",
+                    "description":
+                    [
+                        "Il suffit de lancer le fichier d'exécution."
+                    ],
+                    "file":"cmd_run.bat",
+                    "resultat":"/tutoriels/cpp/nmake/simple_program/img/resultat.png"            
+                }
+            ]
+        },        
+        {
+            "id":"dynamic_lib_creating",
+            "name":"Dynamique Statique Création",
+            "section":
+            [
+                {
+                    "name":"Main",
+                    "description":
+                    [
+                        "Le programme principal affiche un message dans la console."
+                    ],
+                    "file":"main.cpp",
+                    "code":"tutoriels/cpp/nmake/simple_program/main.cpp"            
+                },
+                {
+                    "name":"Makefile",
+                    "description":
+                    [
+                        "Le fichier Makefile définit un ensemble de règles nécessaires à la compilation",
+                        "du projet. Il définit le répertoire des fichiers binaire (BIN), le",
+                        "répertoire des fichiers objet (BUILD), le nom du fichier exécutable (TARGET).",
+                        "Il spécifie la liste des fichiers objet (OBJS). Il lance la commande de génération",
+                        " des fichiers objet (cl). Il démarre la commande de linkage des fichiers objet (link)",
+                        "pour construire le fichier exécutable."
+                    ],
+                    "file":"Makefile",
+                    "code":"tutoriels/cpp/nmake/simple_program/Makefile"            
+                },
+                {
+                    "name":"Compilation",
+                    "description":
+                    [
+                        "Il suffit de lancer le fichier de compilation."
+                    ],
+                    "file":"cmd_compile.bat"
+                },
+                {
+                    "name":"Exécution",
+                    "description":
+                    [
+                        "Il suffit de lancer le fichier d'exécution."
+                    ],
+                    "file":"cmd_run.bat",
+                    "resultat":"/tutoriels/cpp/nmake/simple_program/img/resultat.png"            
+                }
+            ]
+        },
+        {
+            "id":"dynamic_lib_using",
+            "name":"Dynamique Statique Utilisation",
+            "section":
+            [
+                {
+                    "name":"Main",
+                    "description":
+                    [
+                        "Le programme principal affiche un message dans la console."
+                    ],
+                    "file":"main.cpp",
+                    "code":"tutoriels/cpp/nmake/simple_program/main.cpp"            
+                },
+                {
+                    "name":"Makefile",
+                    "description":
+                    [
+                        "Le fichier Makefile définit un ensemble de règles nécessaires à la compilation",
+                        "du projet. Il définit le répertoire des fichiers binaire (BIN), le",
+                        "répertoire des fichiers objet (BUILD), le nom du fichier exécutable (TARGET).",
+                        "Il spécifie la liste des fichiers objet (OBJS). Il lance la commande de génération",
+                        " des fichiers objet (cl). Il démarre la commande de linkage des fichiers objet (link)",
+                        "pour construire le fichier exécutable."
+                    ],
+                    "file":"Makefile",
+                    "code":"tutoriels/cpp/nmake/simple_program/Makefile"            
+                },
+                {
+                    "name":"Compilation",
+                    "description":
+                    [
+                        "Il suffit de lancer le fichier de compilation."
+                    ],
+                    "file":"cmd_compile.bat"
+                },
+                {
+                    "name":"Exécution",
+                    "description":
+                    [
+                        "Il suffit de lancer le fichier d'exécution."
+                    ],
+                    "file":"cmd_run.bat",
+                    "resultat":"/tutoriels/cpp/nmake/simple_program/img/resultat.png"            
+                }
+            ]
+        }        
+    ]
+}

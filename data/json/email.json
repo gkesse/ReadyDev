@@ -1,0 +1,44 @@
+{
+    "site":
+    {
+        "name":"ReadyDev",
+        "link":"http://89.80.46.24:8855",
+        "img":"http://img4.hostingpics.net/thumbs/mini_142079logotitle.png"
+    },
+    "networks":
+    [
+        {
+            "name":"Facebook",
+            "link":"#",
+            "img":"http://img4.hostingpics.net/thumbs/mini_831811facebook.png"
+        },
+        {
+            "name":"Twitter",
+            "link":"#",
+            "img":"http://img4.hostingpics.net/thumbs/mini_559993twitter.png"
+        },
+        {
+            "name":"Skype",
+            "link":"#",
+            "img":"http://img4.hostingpics.net/thumbs/mini_537712skype.png"
+        },
+        {
+            "name":"Linkedin",
+            "link":"https://www.linkedin.com/in/tia-gerard-kesse/",
+            "img":"http://img4.hostingpics.net/thumbs/mini_470488linkedin.png"
+        }
+    ],
+    "copyright":
+    {
+        "date":"2007",
+        "site":
+        {
+            "name":"ReadyDev"
+        },
+        "description":
+        [
+            "Plateforme de Développement Continu",
+            "Produit par Gerard KESSE"
+        ]
+    }
+}        

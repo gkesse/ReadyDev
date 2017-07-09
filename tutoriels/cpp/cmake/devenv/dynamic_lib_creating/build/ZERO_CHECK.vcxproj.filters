@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\TiaGerard\Programs\ZairStudio\ReadyDev\tutoriels\cpp\cmake\devenv\dynamic_lib_creating\build\CMakeFiles\0b472cbac38b202d7cc6675ebcfc63b2\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{BAD2980D-1C60-3A15-B547-8857F29DC713}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

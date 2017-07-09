@@ -1,0 +1,33 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ALL_BUILD", "ALL_BUILD.vcxproj", "{AAFB144D-7FA1-3E7F-A6C9-C3BC301D2414}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DA3165B4-ED06-35B7-8F7B-E23334C06C93} = {DA3165B4-ED06-35B7-8F7B-E23334C06C93}
+		{89C529C9-0805-38EE-9F34-893D46CF83DE} = {89C529C9-0805-38EE-9F34-893D46CF83DE}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Hello", "manager\Hello.vcxproj", "{DA3165B4-ED06-35B7-8F7B-E23334C06C93}"
+	ProjectSection(ProjectDependencies) = postProject
+		{89C529C9-0805-38EE-9F34-893D46CF83DE} = {89C529C9-0805-38EE-9F34-893D46CF83DE}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ZERO_CHECK", "ZERO_CHECK.vcxproj", "{89C529C9-0805-38EE-9F34-893D46CF83DE}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		RELEASE|Win32 = RELEASE|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AAFB144D-7FA1-3E7F-A6C9-C3BC301D2414}.RELEASE|Win32.ActiveCfg = RELEASE|Win32
+		{DA3165B4-ED06-35B7-8F7B-E23334C06C93}.RELEASE|Win32.ActiveCfg = RELEASE|Win32
+		{DA3165B4-ED06-35B7-8F7B-E23334C06C93}.RELEASE|Win32.Build.0 = RELEASE|Win32
+		{89C529C9-0805-38EE-9F34-893D46CF83DE}.RELEASE|Win32.ActiveCfg = RELEASE|Win32
+		{89C529C9-0805-38EE-9F34-893D46CF83DE}.RELEASE|Win32.Build.0 = RELEASE|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

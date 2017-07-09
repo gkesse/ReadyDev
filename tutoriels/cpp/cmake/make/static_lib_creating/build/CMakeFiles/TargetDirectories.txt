@@ -1,0 +1,5 @@
+/home/pi/Programs/RaspberryPi/rpi/ZairStudio/ReadyDev/tutoriels/cpp/cmake/make/static_lib_creating/build/CMakeFiles/edit_cache.dir
+/home/pi/Programs/RaspberryPi/rpi/ZairStudio/ReadyDev/tutoriels/cpp/cmake/make/static_lib_creating/build/CMakeFiles/rebuild_cache.dir
+/home/pi/Programs/RaspberryPi/rpi/ZairStudio/ReadyDev/tutoriels/cpp/cmake/make/static_lib_creating/build/manager/CMakeFiles/edit_cache.dir
+/home/pi/Programs/RaspberryPi/rpi/ZairStudio/ReadyDev/tutoriels/cpp/cmake/make/static_lib_creating/build/manager/CMakeFiles/rebuild_cache.dir
+/home/pi/Programs/RaspberryPi/rpi/ZairStudio/ReadyDev/tutoriels/cpp/cmake/make/static_lib_creating/build/manager/CMakeFiles/Hello.dir

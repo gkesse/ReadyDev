@@ -1,0 +1,3 @@
+echo
+bin/main
+echo

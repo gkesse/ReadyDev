@@ -1,0 +1,1 @@
+/usr/bin/g++  -fPIC -O3 -DNDEBUG  -shared -Wl,-soname,libHello.so -o libHello.so CMakeFiles/Hello.dir/GShow.cpp.o CMakeFiles/Hello.dir/GMath.cpp.o 

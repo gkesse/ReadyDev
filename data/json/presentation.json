@@ -1,0 +1,398 @@
+{
+    "details":
+    [
+        {
+            "id":"present",
+            "name":"Je me présente",
+            "intro":
+            {
+                "img":
+                {
+                    "src":"/img/img_avatar.png",
+                    "alt":"Avatar",
+                    "width":"40"
+                },
+                "description":
+                [
+                    "Je suis <b>Gerard KESSE,</b><br/>",
+                    "Ingénieur en Développement Informatique C/C++/Qt,<br/>",
+                    "Avec à la fois des compétences en Systèmes Embarqués et en Robotique."
+                ]
+            }
+        },
+        {
+            "id":"summary",
+            "name":"Je vous propose",
+            "description":
+            [
+                "Pour ma présentation, Je propose de vous présenter :"
+            ],
+            "menu":
+            [
+                {"name":"Mon parcours scolaire","link":"#graduations"},
+                {"name":"Mes expériences professionnelles","link":"#experiences"},
+                {"name":"Mes compétences","link":"#skills"},
+                {"name":"Mes atouts","link":"#qualities"}
+            ]
+        },
+        {
+            "id":"graduations",
+            "name":"Mon parcours scolaire",
+            "description":
+            [
+                "Pour ce qui est de mon parcours scolaire :"
+            ],
+            "section":
+            [
+                {
+                    "description":
+                    [
+                        "J'ai été en Tunisie pour la préparation d'un diplôme de Technicien",
+                        "en Electronique Industrielle, ce qui m'a permis d'assimiler les bases de :"
+                    ],
+                    "article":
+                    [
+                        ["L'Electronique de Puissance : pour la conception de systèmes d'alimentation",
+                        "de cartes électroniques."],
+                        ["L'Electrotechnique : pour la gestion de moteurs."],
+                        ["L'Automatique : pour la commande de moteurs."],
+                        ["Les Systèmes Embarqués : pour la programmation de microcontrôleurs."]                       
+                    ]
+                },
+                {
+                    "description":
+                    [
+                        "A la suite de cette formation, J'ai été fasciné par la facilité apportée par",
+                        "l'informatique embarquée dans l'élaboration de systèmes électroniques complexes,",
+                        "ce qui m'a conduit en France pour la préparation d'un diplôme d'Ingénieur en Electronique",
+                        "Robotique et Informatique Industrielle à Polytech'Montpellier.",
+                        "Ça été pour moi une belle occasion d'approfondir mes connaissances à la fois",
+                        "en Systèmes Embarqués et en Robotique.<br/>",
+                        "J'ai appris à maîtriser :"
+                    ],
+                    "article":
+                    [
+                        ["La modélisation de robots :",
+                        "Modèle Géométrique, Modèle Cinématique, Modèle Dynamique."],
+                        ["La conception de systèmes de commande de robots :",
+                        "Commande Prédictive, Commande par Régulation PID."],
+                        ["Le développement de systèmes de génération de trajectoire de robots."]
+                    ]
+                },
+                {
+                    "description":
+                    [
+                        
+                        "À cela s'ajoute un certificat en Informatique et Gestion pour la maîtrise des bases",
+                        "du traitement de grands volumes de données Big Data sur des des systèmes distribués",
+                        "Cloud Computing avec l'utilisation des technologies Hadoop et MapReduce."
+                    ]
+                }
+            ]
+        },
+        {
+            "id":"experiences",
+            "name":"Mes expériences professionnelles",
+            "description":
+            [
+                "En ce qui concerne mes expériences professionnelles :"
+            ],
+            "article":
+            [
+                {
+                    "company":"ELECTRONIQUE LAB : Mars 2009,",
+                    "section":
+                    [
+                        {
+                            "description":
+                            [
+                                "En 2009, J'ai travaillé chez ELECTRONIQUE LAB en tant que Développeur Système Embarqué,",
+                                "pour la conception d'une Horloge Numérique à base de Microcontrôleur 8051.<br/>"
+                            ],
+                            "section":
+                            [
+                                {
+                                    "transition":"Ma mission a été de :",
+                                    "article":
+                                    [
+                                        ["Réaliser les cartes électroniques des systèmes d'alimentation, de calcul et d'affichage."],
+                                        ["Implémenter les protocoles de communication I2C et RS232."],
+                                        ["Développer la structure logicielle de l'ordonnanceur multitâche temps réel : Time-Triggered Architecture,",
+                                        "une architecture logicielle certitifié pour le développement de systèmes de sécurité critique."]
+                                    ]
+                                },
+                                {
+                                    "transition":"Ça été pour moi l'occasion de me familiariser avec :",
+                                    "article":
+                                    [
+                                        ["Proteus : pour la simulation de circuits électriques."],
+                                        ["Eagle : pour le traçage de circuits imprimés."],
+                                        ["Keil µVision : pour la programmation de microcontrôleurs."]
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "company":"SITARAIL : Janvier 2010,",
+                    "section":
+                    [
+                        {
+                            "description":
+                            [
+                                "En 2010, J'ai travaillé auprès de SITARAIL, en tant que Technicien en Maintenance Télécom",
+                                "pour assurer la maintenance du canal de transmission téléphonique par fibre optique",
+                                "entre différentes stations férroviaires."                            
+                            ],
+                            "section":
+                            [
+                                {
+                                    "transition":"Ça été pour moi l'occasion d'appréhender :",
+                                    "article":
+                                    [
+                                        
+                                        ["L'installation de postes téléphoniques."],
+                                        ["La configuration de postes téléphoniques."],
+                                        ["La soudure de fibres optiques."]
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "company":"ROBOTECH'MONTPELLIER : Septembre 2011,",
+                    "section":
+                    [
+                        {
+                            "description":
+                            [
+                                "En 2011, J'ai intégré l'équipe de ROBOTECH'MONTPELLIER, en tant que Développeur Robot Mobile",
+                                "Vision par Ordinateur, pour la conception d'un logiciel d'identification et de",
+                                "réconnaissance d'objets à partir d'une Caméra USB embarquée."
+                            ],
+                            "section":
+                            [
+                                {
+                                    "transition":"J'ai été conduit à :",
+                                    "article":
+                                    [
+                                        ["Développer les systèmes d'acquisition et de traitement d'image vidéo."],
+                                        ["Implémenter les algorithmes de binarisation, de détection de contours, de détection d'objets."],
+                                        ["Réaliser le module de calcul des positons cartésiennes des objets."]
+                                    ]
+                                },
+                                {
+                                    "transition":"Ça été pour moi l'occasion de monter en compétences en :",
+                                    "article":
+                                    [
+                                        ["OpenCV : pour le traitement d'image vidéo."],
+                                        ["Socket : pour l'implémentation de l'architecture Client/Serveur."],
+                                        ["Multithreading : pour l'exécution de processus en parallèle."],
+                                        ["Xenomai : pour apporter des concepts de temps réel au noyau UNIX utilisé, Debian."]
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "company":"CYLEONE : Septembre 2012,",
+                    "section":
+                    [
+                        {
+                            "description":
+                            [
+                                "En 2012, J'ai travaillé chez CYLEONE, en tant que Développeur Drone Vision par Ordinateur,",
+                                "pour la conception de 3 logiciels en Vision Industrielle :"
+                            ],
+                            "section":
+                            [
+                                {
+                                    "article":
+                                    [
+                                        ["Un logiciel d'identification et de recensement de colonie d'oiseaux."],
+                                        ["Un logiciel de calcul de pourcentage de dégâts de verses de blé."],
+                                        ["Un logiciel de calcul de stress hydrique de plants de blé."] 
+                                    ]
+                                },
+                                {
+                                    "transition":"Ça été pour moi l'occasion d'approfondir mes compétences en :",
+                                    "article":
+                                    [
+                                        ["OpenCV : pour le traitement d'image vidéo."],
+                                        ["Qt : pour la création d'interface homme-machine."],
+                                        ["Multithreading : pour l'exécution de processus en parallèle."],
+                                        ["SQL : pour la gestion de base de données des caméras compatibles."],
+                                        ["C++ : pour l'utilisation des concepts de la programmation orientée objet."]
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "company":"TECHMAHINDRA : Mai 2015,",
+                    "section":
+                    [
+                        {
+                            "description":
+                            [
+                                "En 2015, J'ai intégré l'équipe de TECHMAHINDRA, en tant que Développeur Aéronautique,",
+                                "pour l'évolution et l'optimisation du simulateur de test de vol des avions AIRBUS allant de l'A320 à l'A380."
+                            ],
+                            "section":
+                            [
+                                {
+                                    "transition":"J'ai été amené à :",
+                                    "article":
+                                    [
+                                        ["Assurer la portabilité de code sources sur plusieurs cibles."],
+                                        ["Elaborer un script d'identification de logiciels."],
+                                        ["Développer un système d'impression des pages de tests."],
+                                        ["Implémenter une stratégie d'affichage des données en fonction du type."]
+                                    ]
+                                },
+                                {
+                                    "transition":"Ça été pour moi l'occasion de renforcer mes capacités en :",
+                                    "article":
+                                    [
+                                        ["Qt/ILog Views : pour la création d'interface homme-machine."],
+                                        ["Multithreading : pour l'exécution de processus en parallèle."],
+                                        ["DBUS : pour la communication de données inter-processus."],
+                                        ["Batch : pour l'élaboration de srcipts WINDOWS."],
+                                        ["Shell : pour l'élaboration de srcipts UNIX."],
+                                        ["C++ : pour l'utilisation des patrons de conception."]
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "company":"ADENTIS : Février 2016,",
+                    "section":
+                    [
+                        {
+                            "description":
+                            [
+                                "En 2016, J'ai travaillé auprès  de ADENTIS, en tant que Développeur Informatique,",
+                                "pour l'élaboration d'un logiciel de gestion clients à base Qt et Excel."
+                            ],
+                            "section":
+                            [
+                                {
+                                    "transition":"Ma mission à été de développer les interfaces de :",
+                                    "article":
+                                    [
+                                        ["Création de clients."],
+                                        ["Recherche de clients."],
+                                        ["Modification de clients."],
+                                        ["Suppression de clients."]
+                                    ]
+                                },
+                                {
+                                    "transition":"Ça été pour moi l'occasion d'affiner mes compétences en :",
+                                    "article":
+                                    [
+                                        ["Qt : pour la création d'interface homme-machine."],
+                                        ["SQL : pour la gestion de base de données."],
+                                        ["VBA : pour la création de Macros et de UserForms sous Excel."],
+                                        ["Access : pour la gestion de base données sous Excel."]
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "company":"SOLDATA : Septembre 2016,",
+                    "section":
+                    [
+                        {
+                            "description":
+                            [
+                                "En 2016, J'ai aussi travaillé chez SOLDATA, en tant que Développeur Génie Civil,",
+                                "pour la conception d'un logiciel de génération automatique de rapport capteur au format Excel."
+                            ],
+                            "section":
+                            [
+                                {
+                                    "transition":"Ma mission a été de :",
+                                    "article":
+                                    [
+                                        ["Développer un systéme de collecte de données à partir plusieurs bases de données."],
+                                        ["Implémenter un système de calcul de fidélité, de bruit et de panne capteur."],
+                                        ["Réaliser un système de génération de rapport capteur au format Excel."]
+                                    ]
+                                },
+                                {
+                                    "transition":"Ça été pour moi l'occasion de monter en compétences en :",
+                                    "article":
+                                    [
+                                        ["Qt : pour la création d'interface homme-machine."],
+                                        ["Multithreading : pour l'exécution de processus en parallèle."],
+                                        ["SQL : pour la gestion des bases de données."],
+                                        ["GSL : pour les calculs scientifiques."],
+                                        ["LibXL : pour la génération de feuille Excel."],
+                                        ["Gestion de mémoire : avec l'utilistation de pointeurs intelligents."]
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id":"skills",
+            "name":"Mes compétences",
+            "description":
+            [
+                "À propos de mes compétences, Je possède de solides connaissances",
+                "en développement C/C++ et dans les technologies liées à ces langages :"
+            ],
+            "box":
+            [
+                ["Je maîtrise les concepts de la programmation orientée objet:<br/>",
+                "Polymorphisme, Classes Abstraites, Interfaces."],
+                ["J'ai une bonne connaissance de la bibliothèque STL:<br/>",
+                "Template, Vector, List, Map."],
+                ["J'ai un bon savoir-faire en gestion de mémoire:<br/>",
+                "Pointeurs Intelligents, ScopedPointer, SharedPointer."],
+                ["J'ai une bonne connaissance de la bibliothèque Boost:<br/>",
+                "BoostThread, BoostSerialization."],
+                ["J'ai une bonne maîtrise des patrons de conception:<br/>",
+                "Design Patterns, Singleton, Fabrique, Observateur, Strategie."],
+                ["J'ai un bon savoir-faire en programmation multithreading:<br/>",
+                "Threads, Mutex, Semaphores."],
+                ["Je maitrîse les concepts de la programmation réseau:<br/>",
+                "Sockets, TCP/IP, UDP."],
+                ["J'ai de solides connaissances en création d'interface homme-machine avec Qt:<br/>",
+                "QtDesigner, QtWidgets, QtCore, QtNetwork, QtSql."],
+                ["Je possède une bonne maîtrise de la vision par ordinateur avec OpenCV:<br/>",
+                "Filtrage, Seuillage, Segmentation, Détection, Contours, Objets, Mouvements."],
+                ["J'ai un bon savoir-faire en gestion de bases de données:<br/>",
+                "SQL, SQLite, MySQL, PostgreSQL, Firebird / NoSQL, MongoDB, LevelDB."]
+            ]
+        },
+        {
+            "id":"qualities",
+            "name":"Mes atouts",
+            "description":
+            [
+                "Quant à mes atouts, Au fil de mes expériences professionnelles, J'ai appris à :"
+            ],
+            "box":
+            [
+                ["Être autonome."],
+                ["Aimer le travail en équipe."],
+                ["Intégrer les valeurs de la méthodologie Agile/Scrum/Sprint."],
+                ["Travailler au sein d'un groupe où plusieurs compétences se confrontent."],
+                ["Développer une grande capacité d'adaptation et d'intégration au sein d'un groupe",
+                "d'envergure internationale."]
+            ]
+        }
+    ]
+}                                                                                                                                                                                                                                            

@@ -1,0 +1,33 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ALL_BUILD", "ALL_BUILD.vcxproj", "{E48A3547-6284-3F23-A82E-F0317B1AA0FB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C722F306-6381-36F6-BFCF-48B4BD730B03} = {C722F306-6381-36F6-BFCF-48B4BD730B03}
+		{DEF24A5B-FF01-3C61-B7AF-3499A094C0D9} = {DEF24A5B-FF01-3C61-B7AF-3499A094C0D9}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ZERO_CHECK", "ZERO_CHECK.vcxproj", "{C722F306-6381-36F6-BFCF-48B4BD730B03}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "main", "main.vcxproj", "{DEF24A5B-FF01-3C61-B7AF-3499A094C0D9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C722F306-6381-36F6-BFCF-48B4BD730B03} = {C722F306-6381-36F6-BFCF-48B4BD730B03}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		RELEASE|Win32 = RELEASE|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E48A3547-6284-3F23-A82E-F0317B1AA0FB}.RELEASE|Win32.ActiveCfg = RELEASE|Win32
+		{C722F306-6381-36F6-BFCF-48B4BD730B03}.RELEASE|Win32.ActiveCfg = RELEASE|Win32
+		{C722F306-6381-36F6-BFCF-48B4BD730B03}.RELEASE|Win32.Build.0 = RELEASE|Win32
+		{DEF24A5B-FF01-3C61-B7AF-3499A094C0D9}.RELEASE|Win32.ActiveCfg = RELEASE|Win32
+		{DEF24A5B-FF01-3C61-B7AF-3499A094C0D9}.RELEASE|Win32.Build.0 = RELEASE|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,240 @@
+{
+    "links":
+    [
+        {"name":"Tutoriels","link":"/tutoriels/"},
+        {"name":"C++","link":"/tutoriels/cpp"}
+    ],
+    "details":
+    [
+        {
+            "id":"summary",
+            "name":"Vitrine",
+            "menu":
+            [
+                {"name":"Compilation d'un Projet C/C++","link":"#compilation"},
+                {"name":"Programmation Orientée Objet","link":"#poo"},
+                {"name":"Patrons de Conception","link":"#design_patterns"}
+            ]
+            
+        },
+        {
+            "id":"compilation",
+            "name":"Compilation d'un Projet C/C++",
+            "box":
+            [
+                {
+                    "icon":"fa fa-cogs",
+                    "theme":"NMake",
+                    "description":"Compilez avec<br/> NMake",
+                    "link":"/tutoriels/cpp/nmake/"
+                },
+                {
+                    "icon":"fa fa-cogs",
+                    "theme":"MinGW",
+                    "description":"Compilez avec<br/> MinGW",
+                    "link":"#"
+                },
+                {
+                    "icon":"fa fa-cogs",
+                    "theme":"Cygwin",
+                    "description":"Compilez avec<br/> Cygwin",
+                    "link":"#"
+                },
+                {
+                    "icon":"fa fa-cogs",
+                    "theme":"Make",
+                    "description":"Compilez avec<br/> Make",
+                    "link":"#"
+                },
+                {
+                    "icon":"fa fa-cogs",
+                    "theme":"CMake",
+                    "description":"Compilez avec<br/> CMake",
+                    "link":"#"
+                },
+                {
+                    "icon":"fa fa-cogs",
+                    "theme":"QMake",
+                    "description":"Compilez avec<br/> QMake",
+                    "link":"#"
+                }
+            ]
+        },
+        {
+            "id":"poo",
+            "name":"Programmation Orientée Objet",
+            "box":
+            [
+                {
+                    "icon":"fa fa-signal",
+                    "theme":"POO",
+                    "description":"Apprenez la<br/> POO",
+                    "link":"#"
+                }
+            ]
+        },
+        {
+            "id":"design_patterns",
+            "name":"Patrons de Conception",
+            "box":
+            [
+                {
+                    "icon":"fa fa-line-chart",
+                    "theme":"Design Patterns",
+                    "description":"Apprenez les<br/> Design Patterns",
+                    "link":"#"
+                }
+            ]
+        }
+    ],
+    "details2":
+    [
+        {
+            "title":
+            [
+                "<span class='clrb' id='dashboard'>",
+            "Tableau de Bord",
+            "</span>"
+            ],
+            "description":
+            [
+                "<ul class='lstc ple tal'>",
+                "<li><a href='#compilation'>C++ Compilation de Projets</a></li>",
+            "<li><a href='#poo'>C++ Programmation Orientée Objet</a></li>",
+            "<li><a href='#design_patterns'>C++ Patrons de Conception</a></li>",
+            "</ul>"
+            ]
+        },
+        {
+            "title":
+            [
+                "<a class='clrb' id='compilation' href='#dashboard'>",
+                "C++ Compilation de Projets",
+                "</a>"
+            ],
+            "description":
+            [
+                "<div class='pageRow'>",
+                
+                "<div class='rsa pageCol06'>",
+                "<a class='bgd dibm bdb evtc' href='/tutoriels/cpp/nmake/'>",
+                "<div class='bgg'>",
+                "<div class='bga htb tac dtlf'>",
+                "<div class='dtcm'><i class='fse fa fa-cogs'></i></div></div>",
+                "<div class='htc tac dtlf'>",
+                "<div class='dtcm'>",
+                "<p class='fsd ffb pdb'>NMake</p></div></div></div>",
+                "<div class='pdb clrd'>Compilez avec NMake</div>",
+                "</a></div>",
+                
+                "<div class='rsa pageCol06'>",
+                "<a class='bgd dibm bdb evtc' href='#'>",
+                "<div class='bgg'>",
+                "<div class='bga htb tac dtlf'>",
+                "<div class='dtcm'><i class='fse fa fa-cogs'></i></div></div>",
+                "<div class='htc tac dtlf'>",
+            "<div class='dtcm'>",
+            "<p class='fsd ffb pdb'>MinGW</p></div></div></div>",
+            "<div class='pdb clrd'>Compilez avec MinGW</div>",
+            "</a></div>",
+            
+            "<div class='rsa pageCol06'>",
+            "<a class='bgd dibm bdb evtc' href='#'>",
+            "<div class='bgg'>",
+            "<div class='bga htb tac dtlf'>",
+            "<div class='dtcm'><i class='fse fa fa-cogs'></i></div></div>",
+            "<div class='htc tac dtlf'>",
+            "<div class='dtcm'>",
+            "<p class='fsd ffb pdb'>Cygwin</p></div></div></div>",
+            "<div class='pdb clrd'>Compilez avec Cygwin</div>",
+            "</a></div>",
+            
+            "<div class='rsa pageCol06'>",
+            "<a class='bgd dibm bdb evtc' href='#'>",
+            "<div class='bgg'>",
+            "<div class='bga htb tac dtlf'>",
+            "<div class='dtcm'><i class='fse fa fa-cogs'></i></div></div>",
+            "<div class='htc tac dtlf'>",
+            "<div class='dtcm'>",
+            "<p class='fsd ffb pdb'>Make</p></div></div></div>",
+            "<div class='pdb clrd'>Compilez avec Make</div>",
+            "</a></div>",
+            
+            "<div class='rsa pageCol06'>",
+            "<a class='bgd dibm bdb evtc' href='#'>",
+            "<div class='bgg'>",
+            "<div class='bga htb tac dtlf'>",
+            "<div class='dtcm'><i class='fse fa fa-cogs'></i></div></div>",
+            "<div class='htc tac dtlf'>",
+            "<div class='dtcm'>",
+            "<p class='fsd ffb pdb'>CMake</p></div></div></div>",
+            "<div class='pdb clrd'>Compilez avec CMake</div>",
+            "</a></div>",
+            
+            "<div class='rsa pageCol06'>",
+            "<a class='bgd dibm bdb evtc' href='#'>",
+            "<div class='bgg'>",
+            "<div class='bga htb tac dtlf'>",
+            "<div class='dtcm'><i class='fse fa fa-cogs'></i></div></div>",
+            "<div class='htc tac dtlf'>",
+            "<div class='dtcm'>",
+            "<p class='fsd ffb pdb'>QMake</p></div></div></div>",
+            "<div class='pdb clrd'>Compilez avec QMake</div>",
+            "</a></div>",
+            
+            "</div>"
+            ]
+            },
+            {
+            "title":
+            [
+            "<a class='clrb' id='poo' href='#dashboard'>",
+            "C++ Programmation Orientée Objet",
+            "</a>"
+            ],
+            "description":
+            [
+            "<div class='pageRow'>",
+            
+            "<div class='rsa pageCol06'>",
+            "<a class='bgd dibm bdb evtc' href='#'>",
+            "<div class='bgg'>",
+            "<div class='bga htb tac dtlf'>",
+            "<div class='dtcm'><i class='fse fa fa-line-chart'></i></div></div>",
+            "<div class='htc tac dtlf'>",
+            "<div class='dtcm'>",
+            "<p class='fsd ffb pdb'>POO</p></div></div></div>",
+            "<div class='pdb clrd'>Programmation Orientée Objet</div>",
+            "</a></div>",
+            
+            "</div>"
+            ]
+            },
+            {
+            "title":
+            [
+            "<a class='clrb' id='design_patterns' href='#dashboard'>",
+            "C++ Patrons de Conception",
+            "</a>"
+            ],
+            "description":
+            [
+            "<div class='pageRow'>",
+            
+            "<div class='rsa pageCol06'>",
+            "<a class='bgd dibm bdb evtc' href='#'>",
+            "<div class='bgg'>",
+            "<div class='bga htb tac dtlf'>",
+            "<div class='dtcm'><i class='fse fa fa-signal'></i></div></div>",
+            "<div class='htc tac dtlf'>",
+            "<div class='dtcm'>",
+            "<p class='fsd ffb pdb'>Design Patterns</p></div></div></div>",
+            "<div class='pdb clrd'>Patrons de Conception</div>",
+            "</a></div>",
+            
+            "</div>"
+            ]
+            }
+            ]
+            }
+                        

@@ -1,0 +1,104 @@
+{
+    "details":
+    [
+        {
+            "id":"summary",
+            "name":"Tableau de Bord",
+            "menu":
+            [
+                {"name":"Développement Logiciel","link":"#softwares"},
+                {"name":"Développement Web","link":"#web"},
+                {"name":"Systèmes de Gestion de Versions","link":"#versions"}
+            ]
+            
+        },
+        {
+            "id":"softwares",
+            "name":"Développement Logiciel",
+            "box":
+            [
+                {
+                    "icon":"fa fa-desktop",
+                    "theme":"C/C++",
+                    "description":"Programmez en<br/> C/C++",
+                    "link":"/tutoriels/cpp/"
+                },
+                {
+                    "icon":"fa fa-desktop",
+                    "theme":"C#",
+                    "description":"Programmez en<br/> C#",
+                    "link":"#"
+                },
+                {
+                    "icon":"fa fa-desktop",
+                    "theme":"Java",
+                    "description":"Programmez en<br/> Java",
+                    "link":"#"
+                },
+                {
+                    "icon":"fa fa-desktop",
+                    "theme":"Python",
+                    "description":"Programmez en<br/> Python",
+                    "link":"#"
+                }
+            ]
+        },
+        {
+            "id":"web",
+            "name":"Développement Web",
+            "box":
+            [
+                {
+                    "icon":"fa fa-globe",
+                    "theme":"HTML",
+                    "description":"Programmez en<br/> HTML",
+                    "link":"#"
+                },
+                {
+                    "icon":"fa fa-globe",
+                    "theme":"CSS",
+                    "description":"Apprenez le<br/> CSS",
+                    "link":"#"
+                },
+                {
+                    "icon":"fa fa-globe",
+                    "theme":"JavaScript",
+                    "description":"Programmez en<br/> JavaScript",
+                    "link":"#"
+                },
+                {
+                    "icon":"fa fa-globe",
+                    "theme":"PHP",
+                    "description":"Programmez en<br/> PHP",
+                    "link":"#"
+                }
+            ]
+        },
+        {
+            "id":"versions",
+            "name":"Systèmes de Gestion de Versions",
+            "box":
+            [
+                {
+                    "icon":"fa fa-sitemap",
+                    "theme":"Git",
+                    "description":"Apprenez le<br/> Git",
+                    "link":"#"
+                },
+                {
+                    "icon":"fa fa-sitemap",
+                    "theme":"CVS",
+                    "description":"Apprenez le<br/> CVS",
+                    "link":"#"
+                },
+                {
+                    "icon":"fa fa-sitemap",
+                    "theme":"SVN",
+                    "description":"Apprenez le<br/> SVN",
+                    "link":"#"
+                }
+            ]
+        }
+    ]
+}
+                        

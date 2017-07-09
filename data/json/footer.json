@@ -1,0 +1,22 @@
+{
+    "networks":
+    [
+        {"name":"Facebook","icon":"fa fa-facebook","link":"#"},
+        {"name":"Twitter","icon":"fa fa-twitter","link":"#"},
+        {"name":"Skype","icon":"fa fa-skype","link":"#"},
+        {"name":"Linkedin","icon":"fa fa-linkedin","link":"https://www.linkedin.com/in/tia-gerard-kesse/"}
+    ],
+    "copyright":
+    {
+        "date":"2007",
+        "site":
+        {
+            "name":"ReadyDev"
+        },
+        "description":
+        [
+            "Plateforme de Développement Continu<br/>",
+            "Produit par Gerard KESSE"
+        ]
+    }
+}

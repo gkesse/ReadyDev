@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../manager/GMath.h
+
+../manager/GShow.h
+string
+-
+
+/home/pi/Programs/RaspberryPi/rpi/ZairStudio/ReadyDev/tutoriels/cpp/cmake/make/header_file/main.cpp
+GShow.h
+/home/pi/Programs/RaspberryPi/rpi/ZairStudio/ReadyDev/tutoriels/cpp/cmake/make/header_file/GShow.h
+GMath.h
+/home/pi/Programs/RaspberryPi/rpi/ZairStudio/ReadyDev/tutoriels/cpp/cmake/make/header_file/GMath.h
+

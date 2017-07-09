@@ -1,0 +1,75 @@
+{
+    "details":
+    [
+        {
+            "name":"Formulaire",
+            "form":
+            [
+                {
+                    "input":
+                    {
+                        "name":"name",
+                        "label":"Nom",
+                        "placeholder":"Entrez votre nom",
+                        "icon":"fa fa-user"
+                    }
+                },
+                {
+                    "input":
+                    {
+                        "name":"email",
+                        "label":"Email",
+                        "placeholder":"Entrez votre email",
+                        "icon":"fa fa-envelope"
+                    }
+                },
+                {
+                    "input":
+                    {
+                        "name":"subject",
+                        "label":"Objet",
+                        "placeholder":"Entrez votre objet",
+                        "icon":"fa fa-pencil"
+                    }
+                },
+                {
+                    "textarea":
+                    {
+                        "name":"message",
+                        "label":"Message",
+                        "placeholder":"Entrez votre message",
+                        "icon":"fa fa-comments",
+                        "max":"1000"
+                    }
+                },
+                {
+                    "button":
+                    {
+                        "name":"submit",
+                        "label":"Envoyer",
+                        "icon":"fa fa-paper-plane"
+                    }
+                }
+            ]
+        },
+        {
+            "name":"Carte Profesionnelle",
+            "width":"mxwa",
+            "img":{"src":"/img/img_avatar.png","alt":"Avatar","width":"100%"},
+            "description":
+            [
+                "<b>Gerard KESSE</b><br/>",
+                "Ingénieur Développeur Logiciel<br/>",
+                "C/C++/Qt"
+            ],
+            "mail":
+            { 
+                "mailto":"tiakagerard@hotmail.com",
+                "subject":"Prise de contact",
+                "body":"Bonjour M. KESSE,",
+                "icon":"fa fa-envelope"
+            }
+        }
+    ]
+}
+        

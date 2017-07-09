@@ -1,0 +1,2 @@
+C:/cygwin/bin/ar.exe qc libGManager.a  CMakeFiles/GManager.dir/GProcess.cpp.o
+C:/cygwin/bin/ranlib.exe libGManager.a

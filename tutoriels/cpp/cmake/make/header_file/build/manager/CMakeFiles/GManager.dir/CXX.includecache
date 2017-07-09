@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/pi/Programs/RaspberryPi/rpi/ZairStudio/ReadyDev/tutoriels/cpp/cmake/make/header_file/manager/GMath.cpp
+GMath.h
+/home/pi/Programs/RaspberryPi/rpi/ZairStudio/ReadyDev/tutoriels/cpp/cmake/make/header_file/manager/GMath.h
+cmath
+-
+
+/home/pi/Programs/RaspberryPi/rpi/ZairStudio/ReadyDev/tutoriels/cpp/cmake/make/header_file/manager/GMath.h
+
+/home/pi/Programs/RaspberryPi/rpi/ZairStudio/ReadyDev/tutoriels/cpp/cmake/make/header_file/manager/GShow.cpp
+GShow.h
+/home/pi/Programs/RaspberryPi/rpi/ZairStudio/ReadyDev/tutoriels/cpp/cmake/make/header_file/manager/GShow.h
+iostream
+-
+iomanip
+-
+
+/home/pi/Programs/RaspberryPi/rpi/ZairStudio/ReadyDev/tutoriels/cpp/cmake/make/header_file/manager/GShow.h
+string
+-
+

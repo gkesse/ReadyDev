@@ -1,0 +1,11 @@
+﻿Build started 21/06/2017 15:16:16.
+     1>Project "C:\Users\TiaGerard\Programs\ZairStudio\ReadyDev\tutoriels\cpp\cmake\devenv\static_lib_creating\build\ZERO_CHECK.vcxproj" on node 2 (Rebuild target(s)).
+     1>CustomBuild:
+         Checking Build System
+         CMake does not need to re-run because C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/devenv/static_lib_creating/build/CMakeFiles/generate.stamp is up-to-date.
+         CMake does not need to re-run because C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/devenv/static_lib_creating/build/manager/CMakeFiles/generate.stamp is up-to-date.
+     1>Done Building Project "C:\Users\TiaGerard\Programs\ZairStudio\ReadyDev\tutoriels\cpp\cmake\devenv\static_lib_creating\build\ZERO_CHECK.vcxproj" (Rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.41

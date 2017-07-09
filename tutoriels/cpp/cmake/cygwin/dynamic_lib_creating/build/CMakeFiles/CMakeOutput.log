@@ -1,0 +1,591 @@
+The system is: Windows - 10.0.14393 - AMD64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: C:/cygwin/bin/gcc.exe 
+Build flags: 
+Id flags: 
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.exe"
+
+The C compiler identification is GNU, found in "C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/cygwin/dynamic_lib_creating/build/CMakeFiles/3.5.2/CompilerIdC/a.exe"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: C:/cygwin/bin/g++.exe 
+Build flags: 
+Id flags: 
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.exe"
+
+The CXX compiler identification is GNU, found in "C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/cygwin/dynamic_lib_creating/build/CMakeFiles/3.5.2/CompilerIdCXX/a.exe"
+
+Determining if the C compiler works passed with the following output:
+Change Dir: C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/cygwin/dynamic_lib_creating/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/cygwin/bin/make.exe" "cmTC_42f26/fast"
+/usr/bin/make -f CMakeFiles/cmTC_42f26.dir/build.make CMakeFiles/cmTC_42f26.dir/build
+make[1]: Entering directory '/cygdrive/c/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/cygwin/dynamic_lib_creating/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_42f26.dir/testCCompiler.c.obj
+C:/cygwin/bin/gcc.exe     -o CMakeFiles/cmTC_42f26.dir/testCCompiler.c.obj   -c C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/cygwin/dynamic_lib_creating/build/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_42f26.exe
+"C:/Program Files (x86)/CMake/bin/cmake.exe" -E remove -f CMakeFiles/cmTC_42f26.dir/objects.a
+C:/cygwin/bin/ar.exe cr CMakeFiles/cmTC_42f26.dir/objects.a @CMakeFiles/cmTC_42f26.dir/objects1.rsp
+C:/cygwin/bin/gcc.exe       -Wl,--whole-archive CMakeFiles/cmTC_42f26.dir/objects.a -Wl,--no-whole-archive  -o cmTC_42f26.exe -Wl,--out-implib,libcmTC_42f26.dll.a -Wl,--major-image-version,0,--minor-image-version,0  
+make[1]: Leaving directory '/cygdrive/c/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/cygwin/dynamic_lib_creating/build/CMakeFiles/CMakeTmp'
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/cygwin/dynamic_lib_creating/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/cygwin/bin/make.exe" "cmTC_d8a60/fast"
+/usr/bin/make -f CMakeFiles/cmTC_d8a60.dir/build.make CMakeFiles/cmTC_d8a60.dir/build
+make[1]: Entering directory '/cygdrive/c/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/cygwin/dynamic_lib_creating/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d8a60.dir/CMakeCCompilerABI.c.obj
+C:/cygwin/bin/gcc.exe     -o CMakeFiles/cmTC_d8a60.dir/CMakeCCompilerABI.c.obj   -c "C:/Program Files (x86)/CMake/share/cmake-3.5/Modules/CMakeCCompilerABI.c"
+Linking C executable cmTC_d8a60.exe
+"C:/Program Files (x86)/CMake/bin/cmake.exe" -E remove -f CMakeFiles/cmTC_d8a60.dir/objects.a
+C:/cygwin/bin/ar.exe cr CMakeFiles/cmTC_d8a60.dir/objects.a @CMakeFiles/cmTC_d8a60.dir/objects1.rsp
+C:/cygwin/bin/gcc.exe      -v -Wl,--whole-archive CMakeFiles/cmTC_d8a60.dir/objects.a -Wl,--no-whole-archive  -o cmTC_d8a60.exe -Wl,--out-implib,libcmTC_d8a60.dll.a -Wl,--major-image-version,0,--minor-image-version,0   
+Using built-in specs.
+COLLECT_GCC=C:/cygwin/bin/gcc
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/i686-pc-cygwin/5.3.0/lto-wrapper.exe
+Target: i686-pc-cygwin
+Configured with: /cygdrive/i/szsz/tmpp/gcc/gcc-5.3.0-5.i686/src/gcc-5.3.0/configure --srcdir=/cygdrive/i/szsz/tmpp/gcc/gcc-5.3.0-5.i686/src/gcc-5.3.0 --prefix=/usr --exec-prefix=/usr --localstatedir=/var --sysconfdir=/etc --docdir=/usr/share/doc/gcc --htmldir=/usr/share/doc/gcc/html -C --build=i686-pc-cygwin --host=i686-pc-cygwin --target=i686-pc-cygwin --without-libiconv-prefix --without-libintl-prefix --libexecdir=/usr/lib --enable-shared --enable-shared-libgcc --enable-static --enable-version-specific-runtime-libs --enable-bootstrap --enable-__cxa_atexit --with-dwarf2 --with-arch=i686 --with-tune=generic --disable-sjlj-exceptions --enable-languages=ada,c,c++,fortran,java,lto,objc,obj-c++ --enable-graphite --enable-threads=posix --enable-libatomic --enable-libcilkrts --enable-libgomp --enable-libitm --enable-libquadmath --enable-libquadmath-support --enable-libssp --enable-libada --enable-libjava --enable-libgcj-sublibs --disable-java-awt --disable-symvers --with-ecj-jar=/usr/share/java/ecj.jar --with-gnu-ld --with-gnu-as --with-cloog-include=/usr/include/cloog-isl --without-libiconv-prefix --without-libintl-prefix --with-system-zlib --enable-linker-build-id --with-default-libstdcxx-abi=gcc4-compatible
+Thread model: posix
+gcc version 5.3.0 (GCC) 
+COMPILER_PATH=/usr/lib/gcc/i686-pc-cygwin/5.3.0/:/usr/lib/gcc/i686-pc-cygwin/5.3.0/:/usr/lib/gcc/i686-pc-cygwin/:/usr/lib/gcc/i686-pc-cygwin/5.3.0/:/usr/lib/gcc/i686-pc-cygwin/:/usr/lib/gcc/i686-pc-cygwin/5.3.0/../../../../i686-pc-cygwin/bin/
+LIBRARY_PATH=/usr/lib/gcc/i686-pc-cygwin/5.3.0/:/usr/lib/gcc/i686-pc-cygwin/5.3.0/../../../../i686-pc-cygwin/lib/:/usr/lib/gcc/i686-pc-cygwin/5.3.0/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_d8a60.exe' '-mtune=generic' '-march=i686'
+ /usr/lib/gcc/i686-pc-cygwin/5.3.0/collect2.exe -plugin /usr/lib/gcc/i686-pc-cygwin/5.3.0/cyglto_plugin.dll -plugin-opt=/usr/lib/gcc/i686-pc-cygwin/5.3.0/lto-wrapper.exe -plugin-opt=-fresolution=/cygdrive/c/Users/TIAGER~1/AppData/Local/Temp/ccFrAsRM.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lcygwin -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --wrap _Znwj --wrap _Znaj --wrap _ZdlPv --wrap _ZdaPv --wrap _ZnwjRKSt9nothrow_t --wrap _ZnajRKSt9nothrow_t --wrap _ZdlPvRKSt9nothrow_t --wrap _ZdaPvRKSt9nothrow_t -Bdynamic --dll-search-prefix=cyg --large-address-aware --tsaware -o cmTC_d8a60.exe /usr/lib/gcc/i686-pc-cygwin/5.3.0/../../../crt0.o /usr/lib/gcc/i686-pc-cygwin/5.3.0/crtbegin.o -L/usr/lib/gcc/i686-pc-cygwin/5.3.0 -L/usr/lib/gcc/i686-pc-cygwin/5.3.0/../../../../i686-pc-cygwin/lib -L/usr/lib/gcc/i686-pc-cygwin/5.3.0/../../.. --whole-archive CMakeFiles/cmTC_d8a60.dir/objects.a --no-whole-archive --out-implib libcmTC_d8a60.dll.a --major-image-version 0 --minor-image-version 0 -lgcc_s -lgcc -lcygwin -ladvapi32 -lshell32 -luser32 -lkernel32 -lgcc_s -lgcc /usr/lib/gcc/i686-pc-cygwin/5.3.0/../../../default-manifest.o /usr/lib/gcc/i686-pc-cygwin/5.3.0/crtend.o
+make[1]: Leaving directory '/cygdrive/c/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/cygwin/dynamic_lib_creating/build/CMakeFiles/CMakeTmp'
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld\.exe|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/cygwin/dynamic_lib_creating/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:"C:/cygwin/bin/make.exe" "cmTC_d8a60/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_d8a60.dir/build.make CMakeFiles/cmTC_d8a60.dir/build]
+  ignore line: [make[1]: Entering directory '/cygdrive/c/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/cygwin/dynamic_lib_creating/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building C object CMakeFiles/cmTC_d8a60.dir/CMakeCCompilerABI.c.obj]
+  ignore line: [C:/cygwin/bin/gcc.exe     -o CMakeFiles/cmTC_d8a60.dir/CMakeCCompilerABI.c.obj   -c "C:/Program Files (x86)/CMake/share/cmake-3.5/Modules/CMakeCCompilerABI.c"]
+  ignore line: [Linking C executable cmTC_d8a60.exe]
+  ignore line: ["C:/Program Files (x86)/CMake/bin/cmake.exe" -E remove -f CMakeFiles/cmTC_d8a60.dir/objects.a]
+  ignore line: [C:/cygwin/bin/ar.exe cr CMakeFiles/cmTC_d8a60.dir/objects.a @CMakeFiles/cmTC_d8a60.dir/objects1.rsp]
+  ignore line: [C:/cygwin/bin/gcc.exe      -v -Wl,--whole-archive CMakeFiles/cmTC_d8a60.dir/objects.a -Wl,--no-whole-archive  -o cmTC_d8a60.exe -Wl,--out-implib,libcmTC_d8a60.dll.a -Wl,--major-image-version,0,--minor-image-version,0   ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=C:/cygwin/bin/gcc]
+  ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/i686-pc-cygwin/5.3.0/lto-wrapper.exe]
+  ignore line: [Target: i686-pc-cygwin]
+  ignore line: [Configured with: /cygdrive/i/szsz/tmpp/gcc/gcc-5.3.0-5.i686/src/gcc-5.3.0/configure --srcdir=/cygdrive/i/szsz/tmpp/gcc/gcc-5.3.0-5.i686/src/gcc-5.3.0 --prefix=/usr --exec-prefix=/usr --localstatedir=/var --sysconfdir=/etc --docdir=/usr/share/doc/gcc --htmldir=/usr/share/doc/gcc/html -C --build=i686-pc-cygwin --host=i686-pc-cygwin --target=i686-pc-cygwin --without-libiconv-prefix --without-libintl-prefix --libexecdir=/usr/lib --enable-shared --enable-shared-libgcc --enable-static --enable-version-specific-runtime-libs --enable-bootstrap --enable-__cxa_atexit --with-dwarf2 --with-arch=i686 --with-tune=generic --disable-sjlj-exceptions --enable-languages=ada,c,c++,fortran,java,lto,objc,obj-c++ --enable-graphite --enable-threads=posix --enable-libatomic --enable-libcilkrts --enable-libgomp --enable-libitm --enable-libquadmath --enable-libquadmath-support --enable-libssp --enable-libada --enable-libjava --enable-libgcj-sublibs --disable-java-awt --disable-symvers --with-ecj-jar=/usr/share/java/ecj.jar --with-gnu-ld --with-gnu-as --with-cloog-include=/usr/include/cloog-isl --without-libiconv-prefix --without-libintl-prefix --with-system-zlib --enable-linker-build-id --with-default-libstdcxx-abi=gcc4-compatible]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 5.3.0 (GCC) ]
+  ignore line: [COMPILER_PATH=/usr/lib/gcc/i686-pc-cygwin/5.3.0/:/usr/lib/gcc/i686-pc-cygwin/5.3.0/:/usr/lib/gcc/i686-pc-cygwin/:/usr/lib/gcc/i686-pc-cygwin/5.3.0/:/usr/lib/gcc/i686-pc-cygwin/:/usr/lib/gcc/i686-pc-cygwin/5.3.0/../../../../i686-pc-cygwin/bin/]
+  ignore line: [LIBRARY_PATH=/usr/lib/gcc/i686-pc-cygwin/5.3.0/:/usr/lib/gcc/i686-pc-cygwin/5.3.0/../../../../i686-pc-cygwin/lib/:/usr/lib/gcc/i686-pc-cygwin/5.3.0/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_d8a60.exe' '-mtune=generic' '-march=i686']
+  link line: [ /usr/lib/gcc/i686-pc-cygwin/5.3.0/collect2.exe -plugin /usr/lib/gcc/i686-pc-cygwin/5.3.0/cyglto_plugin.dll -plugin-opt=/usr/lib/gcc/i686-pc-cygwin/5.3.0/lto-wrapper.exe -plugin-opt=-fresolution=/cygdrive/c/Users/TIAGER~1/AppData/Local/Temp/ccFrAsRM.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lcygwin -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --wrap _Znwj --wrap _Znaj --wrap _ZdlPv --wrap _ZdaPv --wrap _ZnwjRKSt9nothrow_t --wrap _ZnajRKSt9nothrow_t --wrap _ZdlPvRKSt9nothrow_t --wrap _ZdaPvRKSt9nothrow_t -Bdynamic --dll-search-prefix=cyg --large-address-aware --tsaware -o cmTC_d8a60.exe /usr/lib/gcc/i686-pc-cygwin/5.3.0/../../../crt0.o /usr/lib/gcc/i686-pc-cygwin/5.3.0/crtbegin.o -L/usr/lib/gcc/i686-pc-cygwin/5.3.0 -L/usr/lib/gcc/i686-pc-cygwin/5.3.0/../../../../i686-pc-cygwin/lib -L/usr/lib/gcc/i686-pc-cygwin/5.3.0/../../.. --whole-archive CMakeFiles/cmTC_d8a60.dir/objects.a --no-whole-archive --out-implib libcmTC_d8a60.dll.a --major-image-version 0 --minor-image-version 0 -lgcc_s -lgcc -lcygwin -ladvapi32 -lshell32 -luser32 -lkernel32 -lgcc_s -lgcc /usr/lib/gcc/i686-pc-cygwin/5.3.0/../../../default-manifest.o /usr/lib/gcc/i686-pc-cygwin/5.3.0/crtend.o]
+    arg [/usr/lib/gcc/i686-pc-cygwin/5.3.0/collect2.exe] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/usr/lib/gcc/i686-pc-cygwin/5.3.0/cyglto_plugin.dll] ==> ignore
+    arg [-plugin-opt=/usr/lib/gcc/i686-pc-cygwin/5.3.0/lto-wrapper.exe] ==> ignore
+    arg [-plugin-opt=-fresolution=/cygdrive/c/Users/TIAGER~1/AppData/Local/Temp/ccFrAsRM.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lcygwin] ==> ignore
+    arg [-plugin-opt=-pass-through=-ladvapi32] ==> ignore
+    arg [-plugin-opt=-pass-through=-lshell32] ==> ignore
+    arg [-plugin-opt=-pass-through=-luser32] ==> ignore
+    arg [-plugin-opt=-pass-through=-lkernel32] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [--build-id] ==> ignore
+    arg [--wrap] ==> ignore
+    arg [_Znwj] ==> ignore
+    arg [--wrap] ==> ignore
+    arg [_Znaj] ==> ignore
+    arg [--wrap] ==> ignore
+    arg [_ZdlPv] ==> ignore
+    arg [--wrap] ==> ignore
+    arg [_ZdaPv] ==> ignore
+    arg [--wrap] ==> ignore
+    arg [_ZnwjRKSt9nothrow_t] ==> ignore
+    arg [--wrap] ==> ignore
+    arg [_ZnajRKSt9nothrow_t] ==> ignore
+    arg [--wrap] ==> ignore
+    arg [_ZdlPvRKSt9nothrow_t] ==> ignore
+    arg [--wrap] ==> ignore
+    arg [_ZdaPvRKSt9nothrow_t] ==> ignore
+    arg [-Bdynamic] ==> ignore
+    arg [--dll-search-prefix=cyg] ==> ignore
+    arg [--large-address-aware] ==> ignore
+    arg [--tsaware] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_d8a60.exe] ==> ignore
+    arg [/usr/lib/gcc/i686-pc-cygwin/5.3.0/../../../crt0.o] ==> ignore
+    arg [/usr/lib/gcc/i686-pc-cygwin/5.3.0/crtbegin.o] ==> ignore
+    arg [-L/usr/lib/gcc/i686-pc-cygwin/5.3.0] ==> dir [/usr/lib/gcc/i686-pc-cygwin/5.3.0]
+    arg [-L/usr/lib/gcc/i686-pc-cygwin/5.3.0/../../../../i686-pc-cygwin/lib] ==> dir [/usr/lib/gcc/i686-pc-cygwin/5.3.0/../../../../i686-pc-cygwin/lib]
+    arg [-L/usr/lib/gcc/i686-pc-cygwin/5.3.0/../../..] ==> dir [/usr/lib/gcc/i686-pc-cygwin/5.3.0/../../..]
+    arg [--whole-archive] ==> ignore
+    arg [CMakeFiles/cmTC_d8a60.dir/objects.a] ==> ignore
+    arg [--no-whole-archive] ==> ignore
+    arg [--out-implib] ==> ignore
+    arg [libcmTC_d8a60.dll.a] ==> ignore
+    arg [--major-image-version] ==> ignore
+    arg [0] ==> ignore
+    arg [--minor-image-version] ==> ignore
+    arg [0] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lcygwin] ==> lib [cygwin]
+    arg [-ladvapi32] ==> lib [advapi32]
+    arg [-lshell32] ==> lib [shell32]
+    arg [-luser32] ==> lib [user32]
+    arg [-lkernel32] ==> lib [kernel32]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [/usr/lib/gcc/i686-pc-cygwin/5.3.0/../../../default-manifest.o] ==> ignore
+    arg [/usr/lib/gcc/i686-pc-cygwin/5.3.0/crtend.o] ==> ignore
+  remove lib [gcc_s]
+  remove lib [gcc]
+  remove lib [gcc_s]
+  remove lib [gcc]
+  collapse library dir [/usr/lib/gcc/i686-pc-cygwin/5.3.0] ==> [/usr/lib/gcc/i686-pc-cygwin/5.3.0]
+  collapse library dir [/usr/lib/gcc/i686-pc-cygwin/5.3.0/../../../../i686-pc-cygwin/lib] ==> [/usr/i686-pc-cygwin/lib]
+  collapse library dir [/usr/lib/gcc/i686-pc-cygwin/5.3.0/../../..] ==> [/usr/lib]
+  implicit libs: [cygwin;advapi32;shell32;user32;kernel32]
+  implicit dirs: [/usr/lib/gcc/i686-pc-cygwin/5.3.0;/usr/i686-pc-cygwin/lib;/usr/lib]
+  implicit fwks: []
+
+
+
+
+Detecting C [-std=c11] compiler features compiled with the following output:
+Change Dir: C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/cygwin/dynamic_lib_creating/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/cygwin/bin/make.exe" "cmTC_53835/fast"
+/usr/bin/make -f CMakeFiles/cmTC_53835.dir/build.make CMakeFiles/cmTC_53835.dir/build
+make[1]: Entering directory '/cygdrive/c/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/cygwin/dynamic_lib_creating/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_53835.dir/feature_tests.c.obj
+C:/cygwin/bin/gcc.exe    -std=c11 -o CMakeFiles/cmTC_53835.dir/feature_tests.c.obj   -c C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/cygwin/dynamic_lib_creating/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_53835.exe
+"C:/Program Files (x86)/CMake/bin/cmake.exe" -E remove -f CMakeFiles/cmTC_53835.dir/objects.a
+C:/cygwin/bin/ar.exe cr CMakeFiles/cmTC_53835.dir/objects.a @CMakeFiles/cmTC_53835.dir/objects1.rsp
+C:/cygwin/bin/gcc.exe       -Wl,--whole-archive CMakeFiles/cmTC_53835.dir/objects.a -Wl,--no-whole-archive  -o cmTC_53835.exe -Wl,--out-implib,libcmTC_53835.dll.a -Wl,--major-image-version,0,--minor-image-version,0  
+make[1]: Leaving directory '/cygdrive/c/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/cygwin/dynamic_lib_creating/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:1c_restrict
+    Feature record: C_FEATURE:1c_static_assert
+    Feature record: C_FEATURE:1c_variadic_macros
+
+
+Detecting C [-std=c99] compiler features compiled with the following output:
+Change Dir: C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/cygwin/dynamic_lib_creating/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/cygwin/bin/make.exe" "cmTC_32d3c/fast"
+/usr/bin/make -f CMakeFiles/cmTC_32d3c.dir/build.make CMakeFiles/cmTC_32d3c.dir/build
+make[1]: Entering directory '/cygdrive/c/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/cygwin/dynamic_lib_creating/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_32d3c.dir/feature_tests.c.obj
+C:/cygwin/bin/gcc.exe    -std=c99 -o CMakeFiles/cmTC_32d3c.dir/feature_tests.c.obj   -c C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/cygwin/dynamic_lib_creating/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_32d3c.exe
+"C:/Program Files (x86)/CMake/bin/cmake.exe" -E remove -f CMakeFiles/cmTC_32d3c.dir/objects.a
+C:/cygwin/bin/ar.exe cr CMakeFiles/cmTC_32d3c.dir/objects.a @CMakeFiles/cmTC_32d3c.dir/objects1.rsp
+C:/cygwin/bin/gcc.exe       -Wl,--whole-archive CMakeFiles/cmTC_32d3c.dir/objects.a -Wl,--no-whole-archive  -o cmTC_32d3c.exe -Wl,--out-implib,libcmTC_32d3c.dll.a -Wl,--major-image-version,0,--minor-image-version,0  
+make[1]: Leaving directory '/cygdrive/c/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/cygwin/dynamic_lib_creating/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:1c_restrict
+    Feature record: C_FEATURE:0c_static_assert
+    Feature record: C_FEATURE:1c_variadic_macros
+
+
+Detecting C [-std=c90] compiler features compiled with the following output:
+Change Dir: C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/cygwin/dynamic_lib_creating/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/cygwin/bin/make.exe" "cmTC_f8839/fast"
+/usr/bin/make -f CMakeFiles/cmTC_f8839.dir/build.make CMakeFiles/cmTC_f8839.dir/build
+make[1]: Entering directory '/cygdrive/c/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/cygwin/dynamic_lib_creating/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f8839.dir/feature_tests.c.obj
+C:/cygwin/bin/gcc.exe    -std=c90 -o CMakeFiles/cmTC_f8839.dir/feature_tests.c.obj   -c C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/cygwin/dynamic_lib_creating/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_f8839.exe
+"C:/Program Files (x86)/CMake/bin/cmake.exe" -E remove -f CMakeFiles/cmTC_f8839.dir/objects.a
+C:/cygwin/bin/ar.exe cr CMakeFiles/cmTC_f8839.dir/objects.a @CMakeFiles/cmTC_f8839.dir/objects1.rsp
+C:/cygwin/bin/gcc.exe       -Wl,--whole-archive CMakeFiles/cmTC_f8839.dir/objects.a -Wl,--no-whole-archive  -o cmTC_f8839.exe -Wl,--out-implib,libcmTC_f8839.dll.a -Wl,--major-image-version,0,--minor-image-version,0  
+make[1]: Leaving directory '/cygdrive/c/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/cygwin/dynamic_lib_creating/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:0c_restrict
+    Feature record: C_FEATURE:0c_static_assert
+    Feature record: C_FEATURE:0c_variadic_macros
+Determining if the CXX compiler works passed with the following output:
+Change Dir: C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/cygwin/dynamic_lib_creating/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/cygwin/bin/make.exe" "cmTC_b73e6/fast"
+/usr/bin/make -f CMakeFiles/cmTC_b73e6.dir/build.make CMakeFiles/cmTC_b73e6.dir/build
+make[1]: Entering directory '/cygdrive/c/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/cygwin/dynamic_lib_creating/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_b73e6.dir/testCXXCompiler.cxx.o
+C:/cygwin/bin/g++.exe      -o CMakeFiles/cmTC_b73e6.dir/testCXXCompiler.cxx.o -c C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/cygwin/dynamic_lib_creating/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_b73e6.exe
+"C:/Program Files (x86)/CMake/bin/cmake.exe" -E remove -f CMakeFiles/cmTC_b73e6.dir/objects.a
+C:/cygwin/bin/ar.exe cr CMakeFiles/cmTC_b73e6.dir/objects.a @CMakeFiles/cmTC_b73e6.dir/objects1.rsp
+C:/cygwin/bin/g++.exe       -Wl,--whole-archive CMakeFiles/cmTC_b73e6.dir/objects.a -Wl,--no-whole-archive  -o cmTC_b73e6.exe -Wl,--out-implib,libcmTC_b73e6.dll.a -Wl,--major-image-version,0,--minor-image-version,0  
+make[1]: Leaving directory '/cygdrive/c/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/cygwin/dynamic_lib_creating/build/CMakeFiles/CMakeTmp'
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/cygwin/dynamic_lib_creating/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/cygwin/bin/make.exe" "cmTC_44384/fast"
+/usr/bin/make -f CMakeFiles/cmTC_44384.dir/build.make CMakeFiles/cmTC_44384.dir/build
+make[1]: Entering directory '/cygdrive/c/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/cygwin/dynamic_lib_creating/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_44384.dir/CMakeCXXCompilerABI.cpp.o
+C:/cygwin/bin/g++.exe      -o CMakeFiles/cmTC_44384.dir/CMakeCXXCompilerABI.cpp.o -c "C:/Program Files (x86)/CMake/share/cmake-3.5/Modules/CMakeCXXCompilerABI.cpp"
+Linking CXX executable cmTC_44384.exe
+"C:/Program Files (x86)/CMake/bin/cmake.exe" -E remove -f CMakeFiles/cmTC_44384.dir/objects.a
+C:/cygwin/bin/ar.exe cr CMakeFiles/cmTC_44384.dir/objects.a @CMakeFiles/cmTC_44384.dir/objects1.rsp
+C:/cygwin/bin/g++.exe      -v -Wl,--whole-archive CMakeFiles/cmTC_44384.dir/objects.a -Wl,--no-whole-archive  -o cmTC_44384.exe -Wl,--out-implib,libcmTC_44384.dll.a -Wl,--major-image-version,0,--minor-image-version,0   
+Using built-in specs.
+COLLECT_GCC=C:/cygwin/bin/g++
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/i686-pc-cygwin/5.3.0/lto-wrapper.exe
+Target: i686-pc-cygwin
+Configured with: /cygdrive/i/szsz/tmpp/gcc/gcc-5.3.0-5.i686/src/gcc-5.3.0/configure --srcdir=/cygdrive/i/szsz/tmpp/gcc/gcc-5.3.0-5.i686/src/gcc-5.3.0 --prefix=/usr --exec-prefix=/usr --localstatedir=/var --sysconfdir=/etc --docdir=/usr/share/doc/gcc --htmldir=/usr/share/doc/gcc/html -C --build=i686-pc-cygwin --host=i686-pc-cygwin --target=i686-pc-cygwin --without-libiconv-prefix --without-libintl-prefix --libexecdir=/usr/lib --enable-shared --enable-shared-libgcc --enable-static --enable-version-specific-runtime-libs --enable-bootstrap --enable-__cxa_atexit --with-dwarf2 --with-arch=i686 --with-tune=generic --disable-sjlj-exceptions --enable-languages=ada,c,c++,fortran,java,lto,objc,obj-c++ --enable-graphite --enable-threads=posix --enable-libatomic --enable-libcilkrts --enable-libgomp --enable-libitm --enable-libquadmath --enable-libquadmath-support --enable-libssp --enable-libada --enable-libjava --enable-libgcj-sublibs --disable-java-awt --disable-symvers --with-ecj-jar=/usr/share/java/ecj.jar --with-gnu-ld --with-gnu-as --with-cloog-include=/usr/include/cloog-isl --without-libiconv-prefix --without-libintl-prefix --with-system-zlib --enable-linker-build-id --with-default-libstdcxx-abi=gcc4-compatible
+Thread model: posix
+gcc version 5.3.0 (GCC) 
+COMPILER_PATH=/usr/lib/gcc/i686-pc-cygwin/5.3.0/:/usr/lib/gcc/i686-pc-cygwin/5.3.0/:/usr/lib/gcc/i686-pc-cygwin/:/usr/lib/gcc/i686-pc-cygwin/5.3.0/:/usr/lib/gcc/i686-pc-cygwin/:/usr/lib/gcc/i686-pc-cygwin/5.3.0/../../../../i686-pc-cygwin/bin/
+LIBRARY_PATH=/usr/lib/gcc/i686-pc-cygwin/5.3.0/:/usr/lib/gcc/i686-pc-cygwin/5.3.0/../../../../i686-pc-cygwin/lib/:/usr/lib/gcc/i686-pc-cygwin/5.3.0/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_44384.exe' '-shared-libgcc' '-mtune=generic' '-march=i686'
+ /usr/lib/gcc/i686-pc-cygwin/5.3.0/collect2.exe -plugin /usr/lib/gcc/i686-pc-cygwin/5.3.0/cyglto_plugin.dll -plugin-opt=/usr/lib/gcc/i686-pc-cygwin/5.3.0/lto-wrapper.exe -plugin-opt=-fresolution=/cygdrive/c/Users/TIAGER~1/AppData/Local/Temp/ccgAvNOn.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lcygwin -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --wrap _Znwj --wrap _Znaj --wrap _ZdlPv --wrap _ZdaPv --wrap _ZnwjRKSt9nothrow_t --wrap _ZnajRKSt9nothrow_t --wrap _ZdlPvRKSt9nothrow_t --wrap _ZdaPvRKSt9nothrow_t -Bdynamic --dll-search-prefix=cyg --large-address-aware --tsaware -o cmTC_44384.exe /usr/lib/gcc/i686-pc-cygwin/5.3.0/../../../crt0.o /usr/lib/gcc/i686-pc-cygwin/5.3.0/crtbegin.o -L/usr/lib/gcc/i686-pc-cygwin/5.3.0 -L/usr/lib/gcc/i686-pc-cygwin/5.3.0/../../../../i686-pc-cygwin/lib -L/usr/lib/gcc/i686-pc-cygwin/5.3.0/../../.. --whole-archive CMakeFiles/cmTC_44384.dir/objects.a --no-whole-archive --out-implib libcmTC_44384.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lgcc_s -lgcc -lcygwin -ladvapi32 -lshell32 -luser32 -lkernel32 -lgcc_s -lgcc /usr/lib/gcc/i686-pc-cygwin/5.3.0/../../../default-manifest.o /usr/lib/gcc/i686-pc-cygwin/5.3.0/crtend.o
+make[1]: Leaving directory '/cygdrive/c/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/cygwin/dynamic_lib_creating/build/CMakeFiles/CMakeTmp'
+
+
+Parsed CXX implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld\.exe|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/cygwin/dynamic_lib_creating/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:"C:/cygwin/bin/make.exe" "cmTC_44384/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_44384.dir/build.make CMakeFiles/cmTC_44384.dir/build]
+  ignore line: [make[1]: Entering directory '/cygdrive/c/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/cygwin/dynamic_lib_creating/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building CXX object CMakeFiles/cmTC_44384.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [C:/cygwin/bin/g++.exe      -o CMakeFiles/cmTC_44384.dir/CMakeCXXCompilerABI.cpp.o -c "C:/Program Files (x86)/CMake/share/cmake-3.5/Modules/CMakeCXXCompilerABI.cpp"]
+  ignore line: [Linking CXX executable cmTC_44384.exe]
+  ignore line: ["C:/Program Files (x86)/CMake/bin/cmake.exe" -E remove -f CMakeFiles/cmTC_44384.dir/objects.a]
+  ignore line: [C:/cygwin/bin/ar.exe cr CMakeFiles/cmTC_44384.dir/objects.a @CMakeFiles/cmTC_44384.dir/objects1.rsp]
+  ignore line: [C:/cygwin/bin/g++.exe      -v -Wl,--whole-archive CMakeFiles/cmTC_44384.dir/objects.a -Wl,--no-whole-archive  -o cmTC_44384.exe -Wl,--out-implib,libcmTC_44384.dll.a -Wl,--major-image-version,0,--minor-image-version,0   ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=C:/cygwin/bin/g++]
+  ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/i686-pc-cygwin/5.3.0/lto-wrapper.exe]
+  ignore line: [Target: i686-pc-cygwin]
+  ignore line: [Configured with: /cygdrive/i/szsz/tmpp/gcc/gcc-5.3.0-5.i686/src/gcc-5.3.0/configure --srcdir=/cygdrive/i/szsz/tmpp/gcc/gcc-5.3.0-5.i686/src/gcc-5.3.0 --prefix=/usr --exec-prefix=/usr --localstatedir=/var --sysconfdir=/etc --docdir=/usr/share/doc/gcc --htmldir=/usr/share/doc/gcc/html -C --build=i686-pc-cygwin --host=i686-pc-cygwin --target=i686-pc-cygwin --without-libiconv-prefix --without-libintl-prefix --libexecdir=/usr/lib --enable-shared --enable-shared-libgcc --enable-static --enable-version-specific-runtime-libs --enable-bootstrap --enable-__cxa_atexit --with-dwarf2 --with-arch=i686 --with-tune=generic --disable-sjlj-exceptions --enable-languages=ada,c,c++,fortran,java,lto,objc,obj-c++ --enable-graphite --enable-threads=posix --enable-libatomic --enable-libcilkrts --enable-libgomp --enable-libitm --enable-libquadmath --enable-libquadmath-support --enable-libssp --enable-libada --enable-libjava --enable-libgcj-sublibs --disable-java-awt --disable-symvers --with-ecj-jar=/usr/share/java/ecj.jar --with-gnu-ld --with-gnu-as --with-cloog-include=/usr/include/cloog-isl --without-libiconv-prefix --without-libintl-prefix --with-system-zlib --enable-linker-build-id --with-default-libstdcxx-abi=gcc4-compatible]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 5.3.0 (GCC) ]
+  ignore line: [COMPILER_PATH=/usr/lib/gcc/i686-pc-cygwin/5.3.0/:/usr/lib/gcc/i686-pc-cygwin/5.3.0/:/usr/lib/gcc/i686-pc-cygwin/:/usr/lib/gcc/i686-pc-cygwin/5.3.0/:/usr/lib/gcc/i686-pc-cygwin/:/usr/lib/gcc/i686-pc-cygwin/5.3.0/../../../../i686-pc-cygwin/bin/]
+  ignore line: [LIBRARY_PATH=/usr/lib/gcc/i686-pc-cygwin/5.3.0/:/usr/lib/gcc/i686-pc-cygwin/5.3.0/../../../../i686-pc-cygwin/lib/:/usr/lib/gcc/i686-pc-cygwin/5.3.0/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_44384.exe' '-shared-libgcc' '-mtune=generic' '-march=i686']
+  link line: [ /usr/lib/gcc/i686-pc-cygwin/5.3.0/collect2.exe -plugin /usr/lib/gcc/i686-pc-cygwin/5.3.0/cyglto_plugin.dll -plugin-opt=/usr/lib/gcc/i686-pc-cygwin/5.3.0/lto-wrapper.exe -plugin-opt=-fresolution=/cygdrive/c/Users/TIAGER~1/AppData/Local/Temp/ccgAvNOn.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lcygwin -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --wrap _Znwj --wrap _Znaj --wrap _ZdlPv --wrap _ZdaPv --wrap _ZnwjRKSt9nothrow_t --wrap _ZnajRKSt9nothrow_t --wrap _ZdlPvRKSt9nothrow_t --wrap _ZdaPvRKSt9nothrow_t -Bdynamic --dll-search-prefix=cyg --large-address-aware --tsaware -o cmTC_44384.exe /usr/lib/gcc/i686-pc-cygwin/5.3.0/../../../crt0.o /usr/lib/gcc/i686-pc-cygwin/5.3.0/crtbegin.o -L/usr/lib/gcc/i686-pc-cygwin/5.3.0 -L/usr/lib/gcc/i686-pc-cygwin/5.3.0/../../../../i686-pc-cygwin/lib -L/usr/lib/gcc/i686-pc-cygwin/5.3.0/../../.. --whole-archive CMakeFiles/cmTC_44384.dir/objects.a --no-whole-archive --out-implib libcmTC_44384.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lgcc_s -lgcc -lcygwin -ladvapi32 -lshell32 -luser32 -lkernel32 -lgcc_s -lgcc /usr/lib/gcc/i686-pc-cygwin/5.3.0/../../../default-manifest.o /usr/lib/gcc/i686-pc-cygwin/5.3.0/crtend.o]
+    arg [/usr/lib/gcc/i686-pc-cygwin/5.3.0/collect2.exe] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/usr/lib/gcc/i686-pc-cygwin/5.3.0/cyglto_plugin.dll] ==> ignore
+    arg [-plugin-opt=/usr/lib/gcc/i686-pc-cygwin/5.3.0/lto-wrapper.exe] ==> ignore
+    arg [-plugin-opt=-fresolution=/cygdrive/c/Users/TIAGER~1/AppData/Local/Temp/ccgAvNOn.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lcygwin] ==> ignore
+    arg [-plugin-opt=-pass-through=-ladvapi32] ==> ignore
+    arg [-plugin-opt=-pass-through=-lshell32] ==> ignore
+    arg [-plugin-opt=-pass-through=-luser32] ==> ignore
+    arg [-plugin-opt=-pass-through=-lkernel32] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [--build-id] ==> ignore
+    arg [--wrap] ==> ignore
+    arg [_Znwj] ==> ignore
+    arg [--wrap] ==> ignore
+    arg [_Znaj] ==> ignore
+    arg [--wrap] ==> ignore
+    arg [_ZdlPv] ==> ignore
+    arg [--wrap] ==> ignore
+    arg [_ZdaPv] ==> ignore
+    arg [--wrap] ==> ignore
+    arg [_ZnwjRKSt9nothrow_t] ==> ignore
+    arg [--wrap] ==> ignore
+    arg [_ZnajRKSt9nothrow_t] ==> ignore
+    arg [--wrap] ==> ignore
+    arg [_ZdlPvRKSt9nothrow_t] ==> ignore
+    arg [--wrap] ==> ignore
+    arg [_ZdaPvRKSt9nothrow_t] ==> ignore
+    arg [-Bdynamic] ==> ignore
+    arg [--dll-search-prefix=cyg] ==> ignore
+    arg [--large-address-aware] ==> ignore
+    arg [--tsaware] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_44384.exe] ==> ignore
+    arg [/usr/lib/gcc/i686-pc-cygwin/5.3.0/../../../crt0.o] ==> ignore
+    arg [/usr/lib/gcc/i686-pc-cygwin/5.3.0/crtbegin.o] ==> ignore
+    arg [-L/usr/lib/gcc/i686-pc-cygwin/5.3.0] ==> dir [/usr/lib/gcc/i686-pc-cygwin/5.3.0]
+    arg [-L/usr/lib/gcc/i686-pc-cygwin/5.3.0/../../../../i686-pc-cygwin/lib] ==> dir [/usr/lib/gcc/i686-pc-cygwin/5.3.0/../../../../i686-pc-cygwin/lib]
+    arg [-L/usr/lib/gcc/i686-pc-cygwin/5.3.0/../../..] ==> dir [/usr/lib/gcc/i686-pc-cygwin/5.3.0/../../..]
+    arg [--whole-archive] ==> ignore
+    arg [CMakeFiles/cmTC_44384.dir/objects.a] ==> ignore
+    arg [--no-whole-archive] ==> ignore
+    arg [--out-implib] ==> ignore
+    arg [libcmTC_44384.dll.a] ==> ignore
+    arg [--major-image-version] ==> ignore
+    arg [0] ==> ignore
+    arg [--minor-image-version] ==> ignore
+    arg [0] ==> ignore
+    arg [-lstdc++] ==> lib [stdc++]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lcygwin] ==> lib [cygwin]
+    arg [-ladvapi32] ==> lib [advapi32]
+    arg [-lshell32] ==> lib [shell32]
+    arg [-luser32] ==> lib [user32]
+    arg [-lkernel32] ==> lib [kernel32]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [/usr/lib/gcc/i686-pc-cygwin/5.3.0/../../../default-manifest.o] ==> ignore
+    arg [/usr/lib/gcc/i686-pc-cygwin/5.3.0/crtend.o] ==> ignore
+  remove lib [gcc_s]
+  remove lib [gcc]
+  remove lib [gcc_s]
+  remove lib [gcc]
+  collapse library dir [/usr/lib/gcc/i686-pc-cygwin/5.3.0] ==> [/usr/lib/gcc/i686-pc-cygwin/5.3.0]
+  collapse library dir [/usr/lib/gcc/i686-pc-cygwin/5.3.0/../../../../i686-pc-cygwin/lib] ==> [/usr/i686-pc-cygwin/lib]
+  collapse library dir [/usr/lib/gcc/i686-pc-cygwin/5.3.0/../../..] ==> [/usr/lib]
+  implicit libs: [stdc++;cygwin;advapi32;shell32;user32;kernel32]
+  implicit dirs: [/usr/lib/gcc/i686-pc-cygwin/5.3.0;/usr/i686-pc-cygwin/lib;/usr/lib]
+  implicit fwks: []
+
+
+
+
+Detecting CXX [-std=c++14] compiler features compiled with the following output:
+Change Dir: C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/cygwin/dynamic_lib_creating/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/cygwin/bin/make.exe" "cmTC_bac23/fast"
+/usr/bin/make -f CMakeFiles/cmTC_bac23.dir/build.make CMakeFiles/cmTC_bac23.dir/build
+make[1]: Entering directory '/cygdrive/c/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/cygwin/dynamic_lib_creating/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_bac23.dir/feature_tests.cxx.o
+C:/cygwin/bin/g++.exe     -std=c++14 -o CMakeFiles/cmTC_bac23.dir/feature_tests.cxx.o -c C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/cygwin/dynamic_lib_creating/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_bac23.exe
+"C:/Program Files (x86)/CMake/bin/cmake.exe" -E remove -f CMakeFiles/cmTC_bac23.dir/objects.a
+C:/cygwin/bin/ar.exe cr CMakeFiles/cmTC_bac23.dir/objects.a @CMakeFiles/cmTC_bac23.dir/objects1.rsp
+C:/cygwin/bin/g++.exe       -Wl,--whole-archive CMakeFiles/cmTC_bac23.dir/objects.a -Wl,--no-whole-archive  -o cmTC_bac23.exe -Wl,--out-implib,libcmTC_bac23.dll.a -Wl,--major-image-version,0,--minor-image-version,0  
+make[1]: Leaving directory '/cygdrive/c/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/cygwin/dynamic_lib_creating/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:1cxx_alias_templates
+    Feature record: CXX_FEATURE:1cxx_alignas
+    Feature record: CXX_FEATURE:1cxx_alignof
+    Feature record: CXX_FEATURE:1cxx_attributes
+    Feature record: CXX_FEATURE:1cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:1cxx_auto_type
+    Feature record: CXX_FEATURE:1cxx_binary_literals
+    Feature record: CXX_FEATURE:1cxx_constexpr
+    Feature record: CXX_FEATURE:1cxx_contextual_conversions
+    Feature record: CXX_FEATURE:1cxx_decltype
+    Feature record: CXX_FEATURE:1cxx_decltype_auto
+    Feature record: CXX_FEATURE:1cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:1cxx_default_function_template_args
+    Feature record: CXX_FEATURE:1cxx_defaulted_functions
+    Feature record: CXX_FEATURE:1cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:1cxx_delegating_constructors
+    Feature record: CXX_FEATURE:1cxx_deleted_functions
+    Feature record: CXX_FEATURE:1cxx_digit_separators
+    Feature record: CXX_FEATURE:1cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:1cxx_explicit_conversions
+    Feature record: CXX_FEATURE:1cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:1cxx_extern_templates
+    Feature record: CXX_FEATURE:1cxx_final
+    Feature record: CXX_FEATURE:1cxx_func_identifier
+    Feature record: CXX_FEATURE:1cxx_generalized_initializers
+    Feature record: CXX_FEATURE:1cxx_generic_lambdas
+    Feature record: CXX_FEATURE:1cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:1cxx_inline_namespaces
+    Feature record: CXX_FEATURE:1cxx_lambdas
+    Feature record: CXX_FEATURE:1cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:1cxx_local_type_template_args
+    Feature record: CXX_FEATURE:1cxx_long_long_type
+    Feature record: CXX_FEATURE:1cxx_noexcept
+    Feature record: CXX_FEATURE:1cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:1cxx_nullptr
+    Feature record: CXX_FEATURE:1cxx_override
+    Feature record: CXX_FEATURE:1cxx_range_for
+    Feature record: CXX_FEATURE:1cxx_raw_string_literals
+    Feature record: CXX_FEATURE:1cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:1cxx_relaxed_constexpr
+    Feature record: CXX_FEATURE:1cxx_return_type_deduction
+    Feature record: CXX_FEATURE:1cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:1cxx_rvalue_references
+    Feature record: CXX_FEATURE:1cxx_sizeof_member
+    Feature record: CXX_FEATURE:1cxx_static_assert
+    Feature record: CXX_FEATURE:1cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:1cxx_thread_local
+    Feature record: CXX_FEATURE:1cxx_trailing_return_types
+    Feature record: CXX_FEATURE:1cxx_unicode_literals
+    Feature record: CXX_FEATURE:1cxx_uniform_initialization
+    Feature record: CXX_FEATURE:1cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:1cxx_user_literals
+    Feature record: CXX_FEATURE:1cxx_variable_templates
+    Feature record: CXX_FEATURE:1cxx_variadic_macros
+    Feature record: CXX_FEATURE:1cxx_variadic_templates
+
+
+Detecting CXX [-std=c++11] compiler features compiled with the following output:
+Change Dir: C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/cygwin/dynamic_lib_creating/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/cygwin/bin/make.exe" "cmTC_bd008/fast"
+/usr/bin/make -f CMakeFiles/cmTC_bd008.dir/build.make CMakeFiles/cmTC_bd008.dir/build
+make[1]: Entering directory '/cygdrive/c/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/cygwin/dynamic_lib_creating/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_bd008.dir/feature_tests.cxx.o
+C:/cygwin/bin/g++.exe     -std=c++11 -o CMakeFiles/cmTC_bd008.dir/feature_tests.cxx.o -c C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/cygwin/dynamic_lib_creating/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_bd008.exe
+"C:/Program Files (x86)/CMake/bin/cmake.exe" -E remove -f CMakeFiles/cmTC_bd008.dir/objects.a
+C:/cygwin/bin/ar.exe cr CMakeFiles/cmTC_bd008.dir/objects.a @CMakeFiles/cmTC_bd008.dir/objects1.rsp
+C:/cygwin/bin/g++.exe       -Wl,--whole-archive CMakeFiles/cmTC_bd008.dir/objects.a -Wl,--no-whole-archive  -o cmTC_bd008.exe -Wl,--out-implib,libcmTC_bd008.dll.a -Wl,--major-image-version,0,--minor-image-version,0  
+make[1]: Leaving directory '/cygdrive/c/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/cygwin/dynamic_lib_creating/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:1cxx_alias_templates
+    Feature record: CXX_FEATURE:1cxx_alignas
+    Feature record: CXX_FEATURE:1cxx_alignof
+    Feature record: CXX_FEATURE:1cxx_attributes
+    Feature record: CXX_FEATURE:0cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:1cxx_auto_type
+    Feature record: CXX_FEATURE:0cxx_binary_literals
+    Feature record: CXX_FEATURE:1cxx_constexpr
+    Feature record: CXX_FEATURE:0cxx_contextual_conversions
+    Feature record: CXX_FEATURE:1cxx_decltype
+    Feature record: CXX_FEATURE:0cxx_decltype_auto
+    Feature record: CXX_FEATURE:1cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:1cxx_default_function_template_args
+    Feature record: CXX_FEATURE:1cxx_defaulted_functions
+    Feature record: CXX_FEATURE:1cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:1cxx_delegating_constructors
+    Feature record: CXX_FEATURE:1cxx_deleted_functions
+    Feature record: CXX_FEATURE:0cxx_digit_separators
+    Feature record: CXX_FEATURE:1cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:1cxx_explicit_conversions
+    Feature record: CXX_FEATURE:1cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:1cxx_extern_templates
+    Feature record: CXX_FEATURE:1cxx_final
+    Feature record: CXX_FEATURE:1cxx_func_identifier
+    Feature record: CXX_FEATURE:1cxx_generalized_initializers
+    Feature record: CXX_FEATURE:0cxx_generic_lambdas
+    Feature record: CXX_FEATURE:1cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:1cxx_inline_namespaces
+    Feature record: CXX_FEATURE:1cxx_lambdas
+    Feature record: CXX_FEATURE:0cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:1cxx_local_type_template_args
+    Feature record: CXX_FEATURE:1cxx_long_long_type
+    Feature record: CXX_FEATURE:1cxx_noexcept
+    Feature record: CXX_FEATURE:1cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:1cxx_nullptr
+    Feature record: CXX_FEATURE:1cxx_override
+    Feature record: CXX_FEATURE:1cxx_range_for
+    Feature record: CXX_FEATURE:1cxx_raw_string_literals
+    Feature record: CXX_FEATURE:1cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:0cxx_relaxed_constexpr
+    Feature record: CXX_FEATURE:0cxx_return_type_deduction
+    Feature record: CXX_FEATURE:1cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:1cxx_rvalue_references
+    Feature record: CXX_FEATURE:1cxx_sizeof_member
+    Feature record: CXX_FEATURE:1cxx_static_assert
+    Feature record: CXX_FEATURE:1cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:1cxx_thread_local
+    Feature record: CXX_FEATURE:1cxx_trailing_return_types
+    Feature record: CXX_FEATURE:1cxx_unicode_literals
+    Feature record: CXX_FEATURE:1cxx_uniform_initialization
+    Feature record: CXX_FEATURE:1cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:1cxx_user_literals
+    Feature record: CXX_FEATURE:0cxx_variable_templates
+    Feature record: CXX_FEATURE:1cxx_variadic_macros
+    Feature record: CXX_FEATURE:1cxx_variadic_templates
+
+
+Detecting CXX [-std=c++98] compiler features compiled with the following output:
+Change Dir: C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/cygwin/dynamic_lib_creating/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/cygwin/bin/make.exe" "cmTC_e7649/fast"
+/usr/bin/make -f CMakeFiles/cmTC_e7649.dir/build.make CMakeFiles/cmTC_e7649.dir/build
+make[1]: Entering directory '/cygdrive/c/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/cygwin/dynamic_lib_creating/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_e7649.dir/feature_tests.cxx.o
+C:/cygwin/bin/g++.exe     -std=c++98 -o CMakeFiles/cmTC_e7649.dir/feature_tests.cxx.o -c C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/cygwin/dynamic_lib_creating/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_e7649.exe
+"C:/Program Files (x86)/CMake/bin/cmake.exe" -E remove -f CMakeFiles/cmTC_e7649.dir/objects.a
+C:/cygwin/bin/ar.exe cr CMakeFiles/cmTC_e7649.dir/objects.a @CMakeFiles/cmTC_e7649.dir/objects1.rsp
+C:/cygwin/bin/g++.exe       -Wl,--whole-archive CMakeFiles/cmTC_e7649.dir/objects.a -Wl,--no-whole-archive  -o cmTC_e7649.exe -Wl,--out-implib,libcmTC_e7649.dll.a -Wl,--major-image-version,0,--minor-image-version,0  
+make[1]: Leaving directory '/cygdrive/c/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/cygwin/dynamic_lib_creating/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:0cxx_alias_templates
+    Feature record: CXX_FEATURE:0cxx_alignas
+    Feature record: CXX_FEATURE:0cxx_alignof
+    Feature record: CXX_FEATURE:0cxx_attributes
+    Feature record: CXX_FEATURE:0cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:0cxx_auto_type
+    Feature record: CXX_FEATURE:0cxx_binary_literals
+    Feature record: CXX_FEATURE:0cxx_constexpr
+    Feature record: CXX_FEATURE:0cxx_contextual_conversions
+    Feature record: CXX_FEATURE:0cxx_decltype
+    Feature record: CXX_FEATURE:0cxx_decltype_auto
+    Feature record: CXX_FEATURE:0cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:0cxx_default_function_template_args
+    Feature record: CXX_FEATURE:0cxx_defaulted_functions
+    Feature record: CXX_FEATURE:0cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:0cxx_delegating_constructors
+    Feature record: CXX_FEATURE:0cxx_deleted_functions
+    Feature record: CXX_FEATURE:0cxx_digit_separators
+    Feature record: CXX_FEATURE:0cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:0cxx_explicit_conversions
+    Feature record: CXX_FEATURE:0cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:0cxx_extern_templates
+    Feature record: CXX_FEATURE:0cxx_final
+    Feature record: CXX_FEATURE:0cxx_func_identifier
+    Feature record: CXX_FEATURE:0cxx_generalized_initializers
+    Feature record: CXX_FEATURE:0cxx_generic_lambdas
+    Feature record: CXX_FEATURE:0cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:0cxx_inline_namespaces
+    Feature record: CXX_FEATURE:0cxx_lambdas
+    Feature record: CXX_FEATURE:0cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:0cxx_local_type_template_args
+    Feature record: CXX_FEATURE:0cxx_long_long_type
+    Feature record: CXX_FEATURE:0cxx_noexcept
+    Feature record: CXX_FEATURE:0cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:0cxx_nullptr
+    Feature record: CXX_FEATURE:0cxx_override
+    Feature record: CXX_FEATURE:0cxx_range_for
+    Feature record: CXX_FEATURE:0cxx_raw_string_literals
+    Feature record: CXX_FEATURE:0cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:0cxx_relaxed_constexpr
+    Feature record: CXX_FEATURE:0cxx_return_type_deduction
+    Feature record: CXX_FEATURE:0cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:0cxx_rvalue_references
+    Feature record: CXX_FEATURE:0cxx_sizeof_member
+    Feature record: CXX_FEATURE:0cxx_static_assert
+    Feature record: CXX_FEATURE:0cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:0cxx_thread_local
+    Feature record: CXX_FEATURE:0cxx_trailing_return_types
+    Feature record: CXX_FEATURE:0cxx_unicode_literals
+    Feature record: CXX_FEATURE:0cxx_uniform_initialization
+    Feature record: CXX_FEATURE:0cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:0cxx_user_literals
+    Feature record: CXX_FEATURE:0cxx_variable_templates
+    Feature record: CXX_FEATURE:0cxx_variadic_macros
+    Feature record: CXX_FEATURE:0cxx_variadic_templates

@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../manager/GProcess.h
+
+/home/pi/Programs/RaspberryPi/rpi/ZairStudio/ReadyDev/tutoriels/cpp/cmake/make/full_project/main.cpp
+GProcess.h
+/home/pi/Programs/RaspberryPi/rpi/ZairStudio/ReadyDev/tutoriels/cpp/cmake/make/full_project/GProcess.h
+

@@ -1,0 +1,13 @@
+{
+    "site":
+    {
+        "name":"ReadyDev"
+    },
+    "menu":
+    [
+        {"name":"CV","link":"/"},
+        {"name":"Contacts","link":"/contacts/"},
+        {"name":"Présentation","link":"/presentation/"},
+        {"name":"Tutoriels","link":"/tutoriels/"}
+    ]
+}

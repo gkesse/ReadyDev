@@ -1,0 +1,844 @@
+{
+    "details":
+    [
+        {
+            "id":"summary",
+            "name":"Ingénieur Développeur Logiciel C/C++/Qt",
+            "menu":
+            [
+                {"name":"Diplômes","link":"#graduations"},
+                {"name":"Certificats","link":"#certificates"},
+                {"name":"Parcours professionnels ","link":"#careers"},
+                {"name":"Compétences Informatiques","link":"#skills"},
+                {"name":"Langues","link":"#languages"},
+                {"name":"Expériences Professionnelles","link":"#experiences"}
+            ]
+        },
+        {
+            "id":"graduations",
+            "name":"Diplômes",
+            "section":
+            [
+                {
+                    "icon":"fa fa-graduation-cap",
+                    "description":
+                    [
+                        "2010 - 2013,<br/>",
+                        "Ingénieur Electronique Robotique et Informatique Industrielle,<br/>",
+                        "Polytech'Montpellier,<br/>",
+                        "France."
+                    ]
+                },
+                {
+                    "icon":"fa fa-graduation-cap",
+                    "description":
+                    [
+                        "2006 - 2009,<br/>",
+                        "DUT Electronique Industrielle,<br/>",
+                        "Faculté des Sciences de Bizerte,<br/>",
+                        "Tunisie."
+                    ]
+                },
+                {
+                    "icon":"fa fa-graduation-cap",
+                    "description":
+                    [
+                        "2004 - 2005,<br/>",
+                        "Baccalauréat Mathématiques,<br/>",
+                        "Lycée Moderne de Guiglo,<br/>",
+                        "Côte d'Ivoire."
+                    ]
+                }
+            ]
+        },
+        {
+            "id":"certificates",
+            "name":"Certificats",
+            "section":
+            [
+                {
+                    "icon":"fa fa-certificate",
+                    "description":
+                    [
+                        "2013 - 2014,<br/>",
+                        "Certificat Informatique et Gestion,<br/>",
+                        "Polytech'Montpellier,<br/>",
+                        "France."
+                    ]
+                }
+            ]
+        },
+        {
+            "id":"careers",
+            "name":"Parcours professionnels",
+            "section":
+            [
+                {
+                    "icon":"fa fa-building-o",
+                    "description":
+                    [
+                        "SOLDATA,<br/>",
+                        "Développeur Génie Civil,<br/>",
+                        "Interface de Contrôle Environnemental,<br/>",
+                        "3 mois de développement,<br/>",
+                        "Setpembre 2016 - Décembre 2016,<br/>",
+                        "C/C++/Qt, SQL/Firebird/SQLite, LibXL, GSL, Git, Wiki, Agile/Scrum/Sprint."
+                    ]
+                },
+                {
+                    "icon":"fa fa-building-o",
+                    "description":
+                    [
+                        "ADENTIS,<br/>",
+                        "Consultant Informatique,<br/>",
+                        "Outil de Gestion de Clients,<br/>",
+                        "4 mois de développement,<br/>",
+                        "Février 2016 - Juin 2016,<br/>",
+                        "C/C++/Qt/SQLite, Excel/VBA/Access."
+                    ]
+                },
+                {
+                    "icon":"fa fa-building-o",
+                    "description":
+                    [
+                        "PHILES,<br/>",
+                        "Développeur Web Emailing,<br/>",
+                        "Réseau Social Live,<br/>",
+                        "1 mois de développement,<br/>",
+                        "Novembre 2015 - Décembre 2015,<br/>",
+                        "PHP/HTML/CSS/JS, Symfony, Bootstrap, jQuery, AngularJS, ChartJS, Google Maps, SVN."
+                    ]
+                },
+                {
+                    "icon":"fa fa-building-o",
+                    "description":
+                    [
+                        "TECHMAHINDRA / AIRBUS,<br/>",
+                        "Développeur Aéronautique,<br/>",
+                        "Simulateur de Test de Vol,<br/>",
+                        "6 mois de développement,<br/>",
+                        "Mai 2015 - Novembre 2015,<br/>",
+                        "C/C++/Qt, ILog Views, IPC/DBus, Scripts/Bash/Batch, CVS, Wiki, Agile/Scrum/Sprint."
+                    ]
+                },
+                {
+                    "icon":"fa fa-building-o",
+                    "description":
+                    [
+                        "CYLEONE,<br/>",
+                        "Développeur Drone,<br/>",
+                        "Vision par Ordinateur, Identification Recensement,<br/>",
+                        "2 ans de développement<br/>",
+                        "Septembre 2012 - Septembre 2014,<br/>",
+                        "C/C++/Qt, OpenCV, MultiThreading, SQL/SQLite, SSH, Doxygen."
+                    ]
+                },
+                {
+                    "icon":"fa fa-building-o",
+                    "description":
+                    [
+                        "ROBOTECH'MONTPELLIER,<br/>",
+                        "Développeur Robot Mobile,<br/>",
+                        "Vision par Ordinateur, Identification Reconnaissance,<br/>",
+                        "1 an de développement,<br/>",
+                        "Septembre 2011 - Septembre 2012,<br/>",
+                        "C/C++, OpenCV, MultiThreading, UNIX/Xenomai, ARMadeus."
+                    ]
+                },
+                {
+                    "icon":"fa fa-building-o",
+                    "description":
+                    [
+                        "SITARAIL,<br/>",
+                        "Technicien Maintenance Transport Ferroviaire,<br/>",
+                        "Autocommutateur Téléphonique Privé,<br/>",
+                        "3 mois de maintenance télécom,<br/>",
+                        "Janvier 2010 - Avril 2010,<br/>",
+                        "Téléphone, Fibre Optique, PBX, Câbles Coaxiaux, Soudeuse, Coffret à Outils."
+                    ]
+                },                               
+                {
+                    "icon":"fa fa-building-o",
+                    "description":
+                    [
+                        "ELECTRONIQUE LAB,<br/>",
+                        "Développeur Système Embarqué,<br/>",
+                        "Horloge Numérique,<br/>",
+                        "3 mois de développement,<br/>",
+                        "Mars 2009 - Juin 2009,<br/>",
+                        "C/8051, sEOS/Scheduler, I2C, RS232, Keil μVision, Eagle, Proteus."
+                    ]
+                }                                
+            ]
+        },
+        {
+            "id":"skills",
+            "name":"Compétences Informatiques",
+            "section":
+            [
+                {
+                    "icon":"fa fa-check",
+                    "description":
+                    [
+                        "Développement Logiciel :<br/>",
+                        "C/C++, C#, Java, Python."                
+                    ]
+                },
+                {
+                    "icon":"fa fa-check",
+                    "description":
+                    [
+                        "Développement Interface Homme-Machine :<br/>",
+                        "Qt, QtQuick, QML, ILog Views, WinForms, WPF."
+                    ]
+                },
+                {
+                    "icon":"fa fa-check",
+                    "description":
+                    [
+                        "Développement Vision par Ordinateur & Traitement d'Image :<br/>",
+                        "OpenCV, EmguCV, VTK."
+                    ]
+                },
+                {
+                    "icon":"fa fa-check",
+                    "description":
+                    [
+                        "Développement Rendu de Scène 2D :<br/>",
+                        "SDL."
+                    ]
+                },
+                {
+                    "icon":"fa fa-check",
+                    "description":
+                    [
+                        "Développement Rendu de Scène 3D :<br/>",
+                        "OpenGL, OpenScenGraph, Ogre3D."
+                    ]
+                },
+                {
+                    "icon":"fa fa-check",
+                    "description":
+                    [
+                        "Développement Base de Données :<br/>",
+                        "SQL, SQLite, MySQL, PostgreSQL, Firebird / NoSQL, MongoDB, LevelDB."
+                    ]
+                },
+                {
+                    "icon":"fa fa-check",
+                    "description":
+                    [
+                        "Développement Communication Inter Processus :<br/>",
+                        "IPC, Socket, MultiThreading, DBus, SOAP, ZeroMQ."
+                    ]
+                },
+                {
+                    "icon":"fa fa-check",
+                    "description":
+                    [
+                        "Développement Patron de Conception :<br/>",
+                        "Singleton, Fabrique, Observateur, Stratégie."
+                    ]
+                },
+                {
+                    "icon":"fa fa-check",
+                    "description":
+                    [
+                        "Développement Système d’Exploitation Temps Réel :<br/>",
+                        "Time Triggered Architecture, FreeRTOS, Xenomai, ROS."
+                    ]
+                },
+                {
+                    "icon":"fa fa-check",
+                    "description":
+                    [
+                        "Développement Système Embarqué :<br/>",
+                        "8051, PIC, ARM, Arduino, RaspbarryPi, BeagleBone."
+                    ]
+                },
+                {
+                    "icon":"fa fa-check",
+                    "description":
+                    [
+                        "Développement Web Application :<br/>",
+                        "PHP, HTML, CSS, JavaScript."
+                    ]
+                },
+                {
+                    "icon":"fa fa-check",
+                    "description":
+                    [
+                        "Développement Mobile :<br/>",
+                        "Android."
+                    ]
+                }
+            ]
+        },
+        {
+            "id":"languages",
+            "name":"Langues",
+            "section":
+            [
+                {
+                    "icon":"fa fa-language",
+                    "description":
+                    [
+                        "Français :<br/>",
+                        "Langue Maternelle."
+                    ]
+                },
+                {
+                    "icon":"fa fa-language",
+                    "description":
+                    [
+                        "Espagnol :<br/>",
+                        "Niveau Scolaire."
+                    ]
+                },
+                {
+                    "icon":"fa fa-language",
+                    "description":
+                    [
+                        "Anglais :<br/>",
+                        "Niveau Technique."
+                    ]
+                },
+                {
+                    "icon":"fa fa-language",
+                    "description":
+                    [
+                        "Arabe :<br/>",
+                        "Notions."
+                    ]
+                }
+            ]
+        },
+        {
+            "id":"experiences",
+            "name":"Expériences Professionnelles",
+            "section":
+            [
+                {
+                    "section":
+                    [
+                        {
+                            "icon":"fa fa-signal",
+                            "intro":
+                            [
+                                "SOLDATA,<br/>",
+                                "Développeur Génie Civil,<br/>",
+                                "Interface de Contrôle Environnemental,<br/>",
+                                "3 mois de développement,<br/>",
+                                "Setpembre 2016 - Décembre 2016."
+                            ]
+                        },
+                        {
+                            "name":"Contexte",
+                            "description":
+                            [
+                                "Consultant Informatique auprès de SOLDATA, société de conception de logiciels de contrôle environnemental,",
+                                "Je suis chargé de réaliser un logiciel de collecte de grand volume de données, de calculs scientifiques",
+                                "et de génération automatique de rapport capteur au format Excel."
+                            ]
+                        },
+                        {
+                            "name":"Responsabilités",
+                            "icon":"fa fa-check",
+                            "article":
+                            [
+                                "Chargé Développement Système de Collecte de Données Multidatabase.",
+                                "Chargé Développement Système de Calcul de Fidélité Capteur.",
+                                "Chargé Développement Système de Calcul de Bruit Capteur.",
+                                "Chargé Développement Système de Calcul de Panne Capteur.",
+                                "Chargé Développement Système de Génération de Rapport Excel."
+                            ]
+                        },
+                        {
+                            "name":"Résultats",
+                            "icon":"fa fa-check",
+                            "article":
+                            [
+                                "Projets réalisés avec succès.",
+                                "Création du Système de Collecte Automatique de Données.",
+                                "Je monte en compétence en GSL/Calcul Scientifique."
+                            ]
+                        },
+                        {
+                            "name":"Environnements",
+                            "icon":"fa fa-check",
+                            "article":
+                            [
+                                "C/C++/Qt, SQL/Firebird/SQLite, LibXL, GSL, Git, Wiki, Agile/Scrum/Sprint.",
+                                "Langages : C/C++, SQL.",
+                                "Interface Homme-Machine : Qt.",
+                                "Génération de Fichier Excel : LibXL.",
+                                "Calcul Scientifique : GSL.",
+                                "Base de Données : Firebird, SQLite.",
+                                "Gestion de Version : Git.",
+                                "Documentation Wiki : Confluence.",
+                                "Méthodologie : Agile, Scrum, Sprint."
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "section":
+                    [
+                        {
+                            "icon":"fa fa-signal",
+                            "intro":
+                            [
+                                "ADENTIS,<br/>",
+                                "Développeur Logiciel,<br/>",
+                                "Outil de Gestion de Clients,<br/>",
+                                "4 mois de développement,<br/>",
+                                "Février 2016 - Juin 2016."
+                            ]
+                        },
+                        {
+                            "name":"Contexte",
+                            "description":
+                            [
+                                "Consultant Informatique auprès de ADENTIS, société de services en ingéniérie informatique,",
+                                "Je suis chargé de réaliser un Outil de Gestion de Clients sous Excel puis sous Qt."
+                            ]
+                        },
+                        {
+                            "name":"Responsabilités",
+                            "icon":"fa fa-check",
+                            "article":
+                            [
+                                "Chargé Développement Interface Ajout de Client.",
+                                "Chargé Développement Interface Recherche de Client.",
+                                "Chargé Développement Interface Modification de Client.",
+                                "Chargé Développement Interface Suppression de Client."
+                            ]
+                        },
+                        {
+                            "name":"Résultats",
+                            "icon":"fa fa-check",
+                            "article":
+                            [
+                                "Projets réalisés avec succès.",
+                                "Création Outil de Gestion de Clients.",
+                                "Je monte en compétence en Macros/UserForms/Excel."
+                            ]
+                        },
+                        {
+                            "name":"Environnements",
+                            "icon":"fa fa-check",
+                            "article":
+                            [
+                                "C/C++/Qt/SQLite, Excel/VBA/Access",
+                                "Langages : C/C++, SQL, VBA.",
+                                "Interface Homme-Machine : Qt, Macros/UserForms/Excel.",
+                                "Base de Données : Access, SQLite.",
+                                "Méthodologie : Agile, Scrum, Sprint."
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "section":
+                    [
+                        {
+                            "icon":"fa fa-signal",
+                            "intro":
+                            [
+                                "PHILES,<br/>",
+                                "Développeur Web Emailing,<br/>",
+                                "Réseau Social Live,<br/>",
+                                "1 mois de développement,<br/>",
+                                "Novembre 2015 - Décembre 2015."         
+                            ]
+                        },
+                        {
+                            "name":"Contexte",
+                            "description":
+                            [
+                                "Consultant Informatique auprès de PHILES, société de services en ingéniérie informatique,",
+                                "Je suis chargé de réaliser des Emailings et le Dashboard du Réseau Social Live."
+                            ]
+                        },
+                        {
+                            "name":"Responsabilités",
+                            "icon":"fa fa-check",
+                            "article":
+                            [
+                                "Chargé Développement Emailing Inscription.",
+                                "Chargé Développement Emailing Newsletter.",
+                                "Chargé Développement Emailing Evènement.",
+                                "Chargé Développement Dashboard Statistique.",
+                                "Chargé Développement Dashboard Graphique.",
+                                "Chargé Développement Dashboard Etat Serveur.",
+                                "Chargé développement Dashboard Géolocalisation."                            
+                            ]
+                        },
+                        {
+                            "name":"Résultats",
+                            "icon":"fa fa-check",
+                            "article":
+                            [
+                                "Projets réalisés avec succès.",
+                                "Création Emailings et Dashboard.",
+                                "Je monte en compétence en PHP/HTML/CSS/JS."                         
+                            ]
+                        },
+                        {
+                            "name":"Environnements",
+                            "icon":"fa fa-check",
+                            "article":
+                            [
+                                "PHP/HTML/CSS/JS, Symfony, Bootstrap, jQuery, AngularJS, ChartJS, Google Maps, SVN",
+                                "Langages : PHP, HTML, CSS, JS.",
+                                "Framework PHP : Symfony.",
+                                "Framework CSS : Bootstrap.",
+                                "Framework JS : jQuery, AngularJS, ChartJS, GoogleMaps.",
+                                "Framework PHP : Symfony.",
+                                "Gestion de Version : SVN.",
+                                "Architecture Web : Responsive.",
+                                "Cible : Bureau, Mobile.",
+                                "Méthodologie : Agile, Scrum, Sprint."    
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "section":
+                    [
+                        {
+                            "icon":"fa fa-signal",
+                            "intro":
+                            [
+                                "TECHMAHINDRA / AIRBUS,<br/>",
+                                "Développeur Aéronautique,<br/>",
+                                "Simulateur de Test de Vol,<br/>",
+                                "6 mois de développement,<br/>",
+                                "Mai 2015 - Novembre 2015."
+                            ]
+                        },
+                        {
+                            "name":"Contexte",
+                            "description":
+                            [
+                                "Consultant Informatique auprès de TECHMAHINDRA, société de conception de logiciels",
+                                "pour l'aéronautique, Je suis chargé de réaliser l'Evolution et l'Optimisation",
+                                "du Simulateur de Test de Vol des avions AIRBUS allant du A320 au A380."
+                            ]
+                        },
+                        {
+                            "name":"Responsabilités",
+                            "icon":"fa fa-check",
+                            "article":
+                            [
+                                "Chargé Evolution du Simulateur Ajout Nouvelles Fonctionalités.",
+                                "Chargé Optimisation du Simulateur Modification Structure Logicielle.",
+                                "Chargé Optimisation du Simulateur Correction Module Mal Codé.",
+                                "Chargé Portabilité du Simulateur Adaptation Multicible.",
+                                "Chargé Correction de Bugs Module Non Fonctionnel.",
+                                "Chargé Développement Stratégie Affichage de Paramètres Réel/Booléen.",
+                                "Chargé Développement Script Identification Logiciel.",
+                                "Chargé Développement Rafraichissement de Plots Statique/Dynamique.",
+                                "Chargé Développement Impression Pages Graphiques de Test."
+                            ]
+                        },
+                        {
+                            "name":"Résultats",
+                            "icon":"fa fa-check",
+                            "article":
+                            [
+                                "Projets réalisés avec succès.",
+                                "Évolution et Optimisation du Simulateur de Test de Vol.",
+                            "Je monte en compétence en IPC/DBus."                            ]
+                        },
+                        {
+                            "name":"Environnements",
+                            "icon":"fa fa-check",
+                            "article":
+                            [
+                                "C/C++/Qt, ILog Views, IPC/DBus, Scripts/Bash/Batch, CVS, Wiki, Agile/Scrum/Sprint",
+                                "Langages : C/C++.",
+                                "Interface Homme-Machine : Qt, ILog Views.",
+                                "Communication Inter-Processus : IPC, DBus.",
+                                "Scripts : Bash/UNIX, Batch/WINDOWS.",
+                                "Environnement de Développement : Eclipse.",
+                                "Gestion de Version : CVS.",
+                                "Documentation Wiki : MediaWiki.",
+                                "Méthodologie : Agile, Scrum, Sprint."
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "section":
+                    [
+                        {
+                            "icon":"fa fa-signal",
+                            "intro":
+                            [
+                                "CYLEONE,<br/>",
+                                "Développeur Drone,<br/>",
+                                "Vision par Ordinateur, Identification Recensement,<br/>",
+                                "2 ans de développement,<br/>",
+                                "Septembre 2012 - Septembre 2014."
+                            ]
+                        },
+                        {
+                            "name":"Contexte",
+                            "description":
+                            [
+                                "Employé chez CYLEONE, société de conception de Systèmes Embarqués pour drone,",
+                                "Je suis chargé de réaliser des logiciels dédiés à la Vision Industrielle",
+                                "pour le compte de la CEFE et la Coopérative Agricole de Dijon."
+                            ]
+                        },
+                        {
+                            "name":"Responsabilités",
+                            "icon":"fa fa-check",
+                            "article":
+                            [
+                                "Chargé Développement Acquisition Image Vidéo.",
+                                "Chargé Développement Traitement Image Vidéo.",
+                                "Chargé Développement Algorithme Identification Colonie.",
+                                "Chargé Développement Algorithme Recensement Colonie.",
+                                "Chargé Développement Calcul Stress Hydrique de Plants.",
+                                "Chargé Développement Calcul Pourcentage Dégâts de Verses.",
+                                "Chargé Développement Gestion Base de Données Caméras.",
+                                "Chargé Encadrement Stagiaire Licence Vision Industrielle.",
+                                "Chargé Rédaction de Documentation Technique.",
+                                "Chargé Rédaction de Documentation Code Source.",
+                                "Chargé Rédaction de Documentation Guide Utilisation."
+                            ]
+                        },
+                        {
+                            "name":"Résultats",
+                            "icon":"fa fa-check",
+                            "article":
+                            [
+                                "Projets réalisés avec succès.",
+                                "Création de Logiciels en Vision Industrielle.",
+                                "Je monte en compétence en Qt/OpenCV."
+                            ]
+                        },
+                        {
+                            "name":"Environnements",
+                            "icon":"fa fa-check",
+                            "article":
+                            [
+                                "C/C++/Qt, OpenCV, MultiThreading, SQL/SQLite, SSH, Doxygen",
+                                "Langages : C/C++, SQL.",
+                                "Interface Homme-Machine : Qt.",
+                                "Vision par Ordinateur : OpenCV.",
+                                "Communication Inter-Processus : Multithreading.",
+                                "Base de Données : SQLite.",
+                                "Architecture Logicielle : MVC.",
+                                "Patron de Conception : Singleton, Fabrique, Stratégie.",
+                                "Protocole Console Distant : SSH.",
+                                "Gestion de Version : Git.",
+                                "Documentation Code Source : Doxygen.",
+                                "Méthodologie : Agile, Scrum, Sprint."
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "section":
+                    [
+                        {
+                            "icon":"fa fa-signal",
+                            "intro":
+                            [
+                                "ROBOTECH'MONTPELLIER,<br/>",
+                                "Développeur Robot Mobile,<br/>",
+                                "Vision par Ordinateur, Identification Reconnaissance,<br/>",
+                                "1 an de développement,<br/>",
+                                "Septembre 2011 - Septembre 2012."
+                            ]
+                        },
+                        {
+                            "name":"Contexte",
+                            "description":
+                            [
+                                "Membre du Club ROBOTECH'MONTPELLIER, reprsentant la ville de Montpellier à la coupe de France",
+                                "de Robotique, Je suis chargé de réaliser un logiciel d'Identification et de Reconnaissance",
+                                "d'Objets en temps réel à partir de la vision du robot mobile."
+                            ]
+                        },
+                        {
+                            "name":"Responsabilités",
+                            "icon":"fa fa-check",
+                            "article":
+                            [
+                                "Chargé Développement Acquisition Image Vidéo.",
+                                "Chargé Développement Traitement Image Vidéo.",
+                                "Chargé Développement Algorithme Identification Objet.",
+                                "Chargé Développement Algorithme Reconnaissance Objet.",
+                                "Chargé Développement Calcul Barycentre Objet.",
+                                "Chargé Développement Service Géolocalisation Objet."
+                            ]
+                        },
+                        {
+                            "name":"Résultats",
+                            "icon":"fa fa-check",
+                            "article":
+                            [
+                                "Projets réalisés avec succès.",
+                                "Création Logiciel Identification & Reconnaissance Objet.",
+                                "Je monte en compétence en C++/OpenCV."
+                            ]
+                        },
+                        {
+                            "name":"Environnements",
+                            "icon":"fa fa-check",
+                            "article":
+                            [
+                                "C/C++, OpenCV, MultiThreading, UNIX/Xenomai, ARMadeus",
+                                "Langages : C/C++.",
+                                "Vision par Ordinateur : OpenCV.",
+                                "Communication Inter-Processus : Multithreading.",
+                                "Système RTOS : UNIX/Xenomai.",
+                                "Système Embarqué : ARMadeus.",
+                                "Architecture Logicielle : Client/Serveur.",
+                                "Gestion de Version : Git.",
+                                "Méthodologie : Agile, Scrum, Sprint."
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "section":
+                    [
+                        {
+                            "icon":"fa fa-signal",
+                            "intro":
+                            [
+                                "SITARAIL,<br/>",
+                                "Technicien Maintenance Transport Ferroviaire,<br/>",
+                                "Autocommutateur Téléphonique Privé,<br/>",
+                                "3 mois de maintenance télécom,<br/>",
+                                "Janvier 2010 - Avril 2010."
+                            ]
+                        },
+                        {
+                            "name":"Contexte",
+                            "description":
+                            [
+                                "Technicien chez SITARAIL, société de transport ferroviaire, J’intègre l’équipe technique",
+                                "chargée de la maintenance de la baie de transmission téléphonique par fibre optique entre",
+                                "différentes stations ferroviaires."
+                            ]
+                        },
+                        {
+                            "name":"Responsabilités",
+                            "icon":"fa fa-check",
+                            "article":
+                            [
+                                "Maintenance Baie de Transmission Téléphonique par Fibre Optique.",
+                                "Installation, Configuration et Interconnexion de Postes Téléphoniques."
+                            ]
+                        },
+                        {
+                            "name":"Résultats",
+                            "icon":"fa fa-check",
+                            "article":
+                            [
+                                "Projets réalisés avec succès.",
+                                "Maintenance, Installation et Configuration de postes Téléphoniques.",
+                                "Je monte en compétence en Soudure de Fibre Optique."
+                            ]
+                        },
+                        {
+                            "name":"Environnements",
+                            "icon":"fa fa-check",
+                            "article":
+                            [
+                                "Téléphone, Fibre Optique, PBX, Câbles Coaxiaux, Soudeuse, Coffret à Outils",
+                                "Baie de Transmission Téléphonique : PBX.",
+                                "Canal de Transmission Haut Débit : Fibres Optiques.",
+                                "Canal de Transmission Téléphonique : Fibres Optiques, Câbles coaxiaux.",
+                                "Appareil de Communication : Téléphones Fixes.",
+                                "Appareil de Soudure : Soudeuse Fibre Optique.",
+                                "Maintenance Palliative : Dépannage.",
+                                "Maintenance Curative : Remplacement.",
+                                "Outillage : Coffret à Outils."
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "section":
+                    [
+                        {
+                            "icon":"fa fa-signal",
+                            "intro":
+                            [
+                                "ELECTRONIQUE LAB,<br/>",
+                                "Développeur Système Embarqué,<br/>",
+                                "Horloge Numérique,<br/>",
+                                "3 mois de développement,<br/>",
+                                "Mars 2009 - Juin 2009."
+                            ]
+                        },
+                        {
+                            "name":"Contexte",
+                            "description":
+                            [
+                                "Technicien chez ELECTRONIQUE LAB, laboratoire d'électronique,",
+                                "Je suis chargé de réaliser une Horloge Numérique à base de microcontrôleur 8051",
+                                "permettant d’afficher de manière cyclique l’heure, la température et l’humidité",
+                                "sur un réseau de 4 afficheurs 7-segment de puissance."
+                            ]
+                        },
+                        {
+                            "name":"Responsabilités",
+                            "icon":"fa fa-check",
+                            "article":
+                            [
+                                "Chargé Conception Carte Alimentation.",
+                                "Chargé Conception Carte Réseau Afficheurs 7-segment.",
+                                "Chargé Conception Carte Mère Microcontrôleur/Capteurs.",
+                                "Chargé Développement Structure Logicielle Ordonnancement Multitâche.",
+                                "Chargé Développement Acquisition Données Capteurs.",
+                                "Chargé Développement Traitement Données Capteurs.",
+                                "Chargé Développement Affichage Données Capteurs.",
+                                "Chargé Développement Protocole de Communication I2C.",
+                                "Chargé Développement Protocole de Communication RS232.",
+                                "Chargé Développement Réglage Heure après Coupure Electrique.",
+                                "Chargé Développement Programmation & Déclenchement de Réveils."
+                            ]
+                        },
+                        {
+                            "name":"Résultats",
+                            "icon":"fa fa-check",
+                            "article":
+                            [
+                                "Projets réalisés avec succès.",
+                                "Réalisation de l'Horloge Numérique.",
+                                "Je monte en compétence en C/Système Embarqué."
+                            ]
+                        },
+                        {
+                            "name":"Environnements",
+                            "icon":"fa fa-check",
+                            "article":
+                            [
+                                "C/8051, sEOS/Scheduler, I2C, RS232, Keil μVision, Eagle, Proteus",
+                                "Langages : C/8051.",
+                                "Microcontrôleur 8-bit : AT89C4051.",
+                                "Environnement de Développement : Keil µVision.",
+                                "Architecture Logicielle : Time Triggered Architecture.",
+                                "Communication Inter-Circuit : I2C.",
+                                "Communication Carte/PC : RS232.",
+                                "Simulation Circuit Electrique : Proteus.",
+                                "Traçage Circuit Imprimé : Eagle.",
+                                "Capteur Humidité : H25K5A.",
+                                "Capteur Température : LM335.",
+                                "Méthodologie : Agile, Scrum, Sprint."
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

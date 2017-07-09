@@ -1,0 +1,1 @@
+/usr/bin/g++   -O3 -DNDEBUG   CMakeFiles/main.dir/main.cpp.o  -o main  -L/home/pi/Programs/RaspberryPi/rpi/ZairStudio/ReadyDev/tutoriels/cpp/cmake/make/static_lib_using/lib/hello -rdynamic -lHello -Wl,-rpath,/home/pi/Programs/RaspberryPi/rpi/ZairStudio/ReadyDev/tutoriels/cpp/cmake/make/static_lib_using/lib/hello 
