@@ -12,15 +12,20 @@ Avec à la fois des compétences en Systèmes Embarqués et en Robotique.
 
 ReadyDev est une Plateforme de Développement Continu.  
 C'est un site web développé et maintenu par **Gérard KESSE**.  
-Il propose des tutoriels permettant de monter en compétences  
+Il propose des tutoriels permettant de monter en compétences
 de manière éfficace en :
 
 * Dévloppement Logiciel C/C++/Qt
-* Dévloppement d'Interface Homme-Machine
-* Dévloppement Vision par Ordinateur
-* Dévloppement Rendu de Scène 2D et 3D
-* Développement Système Embarqué
-* Développement Web HTML/CSS/JS/PHP
+* Interface Homme-Machine
+* Vision par Ordinateur
+* Rendu de Scène 2D et 3D
+* Systèmes Embarqués
+* Multithreading
+* Patrons de conception
+* Gestion de base de données
+* Gestion de versions
+* Développement Web PHP
+* Développement Mobile Android
 
 ReadyDev est conçu sur la base de la technologie **Responsive Web Design**,  
 ce qui lui rend consultable sur toutes les plateformes fixes ou mobiles.  
