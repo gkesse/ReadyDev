@@ -35,11 +35,12 @@ ce qui lui rend consultable sur toutes les plateformes fixes ou mobiles.
 Le développement du site web **ReadyDev** a nécessité les technologies suivantes :
 
 * Langages : **HTML/CSS/JS/PHP**
-* Framework PHP Gestion de Mails : **PHPMailer**
-* Framework CSS Gestion de Pictogrammes : **FontAwesome**
-* Framework CSS Gestion de Drapeaux de Pays : **Flags**
-* Framework JS Gestion de Requêtes JS : **jQuery**
+* Gestion de Mails : **PHPMailer**
+* Gestion de Pictogrammes : **FontAwesome**
+* Gestion de Drapeaux de Pays : **Flags**
+* Gestion de Requêtes JS : **jQuery**
 * Format de Données : **JSON**
+* Base de données : **MySQL**
 * Patron de Conception : **Singleton, Post Redirect Get**
 * Architecture : **Responsive Web Design**
 * Cible : **Bureau, Mobile**
