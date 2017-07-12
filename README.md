@@ -1,17 +1,19 @@
 # Auteur
 
-Je suis Gerard KESSE,  
+Je suis 
+[Gerard KESSE](http://89.80.46.24:8855/presentation/ "Accédez à mon site web (ReadyDev)"),  
 Ingénieur en Développement Informatique C/C++/Qt,  
 Avec à la fois des compétences en Systèmes Embarqués et en Robotique.  
 
-* Site Web : [ReadyDev](http://89.80.46.24:8855 "Accédez à mon site web")
+* Site Web : [ReadyDev](http://89.80.46.24:8855 "Accédez à mon site web (ReadyDev)")
 * Email : [tiakagerard@hotmail.com](mailto:tiakagerard@hotmail.com?subject=Contact&body=Bonjour "Me contactez par email")
 * Localité : **Toulouse - France**
 
 # ReadyDev
 
-ReadyDev est une Plateforme de Développement Continu.  
-C'est un site web développé et maintenu par **Gérard KESSE**.  
+**ReadyDev** est une Plateforme de Développement Continu.  
+C'est un site web développé et maintenu par 
+[Gerard KESSE](http://89.80.46.24:8855/presentation/ "Accédez à mon site web (ReadyDev)").  
 Il propose des tutoriels permettant de monter en compétences
 de manière éfficace en :
 
@@ -27,8 +29,12 @@ de manière éfficace en :
 * Développement Web PHP
 * Développement Mobile Android
 
-ReadyDev est conçu sur la base de la technologie **Responsive Web Design**,  
-ce qui lui rend consultable sur toutes les plateformes fixes ou mobiles.  
+**ReadyDev** est un site web conçu sur la base de la technologie **Responsive Web Design**,  
+ce qui le rend consultable sur toutes les plateformes fixes ou mobiles.  
+
+Construit sur le concept de l'architecture Modèle vue-Contrôleur **MVC**, 
+**ReadyDev** peut servir de support de base de développement de votre site internet, 
+où les données sont configurées dans des formats de fichier JSON.
 
 # Technologies
 
