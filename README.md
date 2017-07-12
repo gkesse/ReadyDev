@@ -30,7 +30,7 @@ de manière éfficace en :
 * Développement Mobile Android
 
 **ReadyDev** est un site web conçu sur la base de la technologie **Responsive Web Design**,  
-ce qui le rend consultable sur toutes les plateformes fixes ou mobiles.  
+ce qui le rend totalement consultable sur toutes les plateformes fixes ou mobiles.  
 
 ### Support de développement
 
