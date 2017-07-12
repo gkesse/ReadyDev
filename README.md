@@ -34,7 +34,7 @@ ce qui le rend totalement consultable sur toutes les plateformes fixes ou mobile
 
 ### Support de développement
 
-Construit sur le concept de l'architecture Modèle vue-Contrôleur **MVC**, 
+Construit sur le concept de l'architecture Modèle Vue-Contrôleur **MVC**, 
 où les données sont configurées dans des formats de fichier JSON. 
 Le code source de **ReadyDev** peut servir de support de base de développement de votre site internet.
 
