@@ -12,7 +12,7 @@ Avec à la fois des compétences en Systèmes Embarqués et en Robotique.
 # ReadyDev
 
 **ReadyDev** est une Plateforme de Développement Continu.  
-C'est un site web développé et maintenu par 
+C'est un site web développé en PHP et maintenu par 
 [Gerard KESSE](http://31.33.37.71:8855/presentation/ "Accédez à mon site web (ReadyDev)").  
 Il propose des tutoriels permettant de monter en compétences
 de manière éfficace en :
@@ -32,7 +32,19 @@ de manière éfficace en :
 **ReadyDev** est un site web conçu sur la base de la technologie **Responsive Web Design**,  
 ce qui le rend totalement consultable sur toutes les plateformes fixes ou mobiles.  
 
-### Support de développement
+* **ReadyDev Desktop View**
+
+![ReadyDB-SplashScreen](https://raw.githubusercontent.com/gkesse/ReadyDev/master/img/desktop.png)
+
+* **ReadyDev Mobile View (Close)**
+
+![ReadyDB-SplashScreen](https://raw.githubusercontent.com/gkesse/ReadyDev/master/img/mobile_close.png)
+
+* **ReadyDev Mobile View (Open)**
+
+![ReadyDB-SplashScreen](https://raw.githubusercontent.com/gkesse/ReadyDev/master/img/mobile_open.png)
+
+* **Support de développement
 
 Construit sur le concept de l'architecture Modèle Vue-Contrôleur **MVC**, 
 où les données sont configurées dans des formats de fichier JSON. 
