@@ -44,7 +44,7 @@ ce qui le rend totalement consultable sur toutes les plateformes fixes ou mobile
 
 ![ReadyDB-SplashScreen](https://raw.githubusercontent.com/gkesse/ReadyDev/master/img/mobile_open.png)
 
-* **Support de développement
+* **Support de développement**
 
 Construit sur le concept de l'architecture Modèle Vue-Contrôleur **MVC**, 
 où les données sont configurées dans des formats de fichier JSON. 
