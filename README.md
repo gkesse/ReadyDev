@@ -1,11 +1,11 @@
 # Auteur
 
 Je suis 
-[Gerard KESSE](http://89.80.46.24:8855/presentation/ "Accédez à mon site web (ReadyDev)"),  
+[Gerard KESSE](http://31.33.37.71:8855/presentation/ "Accédez à mon site web (ReadyDev)"),  
 Ingénieur en Développement Informatique C/C++/Qt,  
 Avec à la fois des compétences en Systèmes Embarqués et en Robotique.  
 
-* Site Web : [ReadyDev](http://89.80.46.24:8855 "Accédez à mon site web (ReadyDev)")
+* Site Web : [ReadyDev](http://31.33.37.71:8855 "Accédez à mon site web (ReadyDev)")
 * Email : [tiakagerard@hotmail.com](mailto:tiakagerard@hotmail.com?subject=Contact&body=Bonjour "Me contactez par email")
 * Localité : **Toulouse - France**
 
@@ -13,7 +13,7 @@ Avec à la fois des compétences en Systèmes Embarqués et en Robotique.
 
 **ReadyDev** est une Plateforme de Développement Continu.  
 C'est un site web développé et maintenu par 
-[Gerard KESSE](http://89.80.46.24:8855/presentation/ "Accédez à mon site web (ReadyDev)").  
+[Gerard KESSE](http://31.33.37.71:8855/presentation/ "Accédez à mon site web (ReadyDev)").  
 Il propose des tutoriels permettant de monter en compétences
 de manière éfficace en :
 
