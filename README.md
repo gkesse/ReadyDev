@@ -29,20 +29,20 @@ de manière éfficace en :
 * Développement Web PHP
 * Développement Mobile Android
 
-**ReadyDev** est un site web conçu sur la base de la technologie **Responsive Web Design**,  
+**ReadyDev** est un site web conçu sur la base de la technologie **Responsive Web Design**,
 ce qui le rend totalement consultable sur toutes les plateformes fixes ou mobiles.  
 
 * **ReadyDev Desktop View**
 
-![ReadyDB-SplashScreen](https://raw.githubusercontent.com/gkesse/ReadyDev/master/img/desktop.png)
+![ReadyDev Desktop View](https://raw.githubusercontent.com/gkesse/ReadyDev/master/img/desktop.png)
 
 * **ReadyDev Mobile View (Close)**
 
-![ReadyDB-SplashScreen](https://raw.githubusercontent.com/gkesse/ReadyDev/master/img/mobile_close.png)
+![ReadyDev Mobile View (Close)](https://raw.githubusercontent.com/gkesse/ReadyDev/master/img/mobile_close.png)
 
 * **ReadyDev Mobile View (Open)**
 
-![ReadyDB-SplashScreen](https://raw.githubusercontent.com/gkesse/ReadyDev/master/img/mobile_open.png)
+![ReadyDev Mobile View (Open)](https://raw.githubusercontent.com/gkesse/ReadyDev/master/img/mobile_open.png)
 
 * **Support de développement**
 
