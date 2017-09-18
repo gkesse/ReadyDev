@@ -2,7 +2,7 @@
     "links":
     [
         {"name":"Tutoriels","link":"/tutoriels/"},
-        {"name":"C++","link":"/tutoriels/cpp"}
+        {"name":"C++","link":"/tutoriels/cpp/"}
     ],
     "details":
     [

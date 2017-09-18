@@ -1,0 +1,25 @@
+<VirtualHost localhost:80>
+    ServerName localhost
+    DocumentRoot "C:/wamp/www/"
+    
+    <Directory "C:/wamp/www/">
+        Options All
+        AllowOverride All
+        Order allow,deny
+        Allow from all
+        require all granted
+    </Directory>
+</VirtualHost>
+
+<VirtualHost www.readydev.com:80>
+    ServerName www.readydev.com
+    DocumentRoot "C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/"
+    
+    <Directory "C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/">
+        Options All
+        AllowOverride All
+        Order allow,deny
+        Allow from all
+        require all granted
+    </Directory>
+</VirtualHost>

@@ -54,11 +54,11 @@
                             ?>
                             <!-- ============================================ -->
                             <?php if(isset($m_dj["name"])) { ?>
-                            <div class="pgCt10">
-                                <a class="bga dibm ffb clra pgCt10" href="#summary">
-                                    <?php echo $m_dj["name"]; ?>
-                                </a>    
-                            </div>
+                                <div class="pgCt10">
+                                    <a class="bga dibm ffb clra pgCt10" href="#summary">
+                                        <?php echo $m_dj["name"]; ?>
+                                    </a>    
+                                </div>
                             <?php } ?>
                             <!-- ============================================ -->
                             <?php if(isset($m_dj["tools"])) { ?>
@@ -95,24 +95,25 @@
                                         <?php $m_code = GFile::Instance()->getData($m_dj["code"]); ?>
                                         <pre><xmp class="prettyprint linenums"><?php echo $m_code; ?></xmp></pre>
                                     </div>
-                                </div>
-                            <?php } ?>
-                            <!-- ============================================ -->
-                            <?php if(isset($m_dj["resultat"])) { ?>
-                                <div class="ova pgCt10">
+                                    </div>
+                                    <?php } ?>
+                                    <!-- ============================================ -->
+                                    <?php if(isset($m_dj["resultat"])) { ?>
+                                    <div class="ova pgCt10">
                                     <img src="<?php echo $m_dj["resultat"]; ?>" alt="resultat.png"/>
-                                </div>
-                            <?php } ?>
-                            <!-- ============================================ -->
-                        <?php } ?>
-                    <?php } ?>
-                    <!-- ============================================ -->
-                </div>
-            </div>
-            <!-- ============================================ -->
-        <?php } ?>
-        <!-- ============================================ -->
-    </div>
-</div>
-<!-- ============================================ -->
-<?php require $_SERVER["DOCUMENT_ROOT"]."/php/footer.php"; ?>
+                                    </div>
+                                    <?php } ?>
+                                    <!-- ============================================ -->
+                                    <?php } ?>
+                                    <?php } ?>
+                                    <!-- ============================================ -->
+                                    </div>
+                                    </div>
+                                    <!-- ============================================ -->
+                                    <?php } ?>
+                                    <!-- ============================================ -->
+                                    </div>
+                                    </div>
+                                    <!-- ============================================ -->
+                                    <?php require $_SERVER["DOCUMENT_ROOT"]."/php/footer.php"; ?>
+                                                                        

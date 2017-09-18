@@ -2,20 +2,20 @@
     "networks":
     [
         {"name":"Facebook","icon":"fa fa-facebook","link":"#"},
+        {"name":"Twitter","icon":"fa fa-twitter","link":"#"},
         {"name":"Skype","icon":"fa fa-skype","link":"#"},
-        {"name":"GitHub","icon":"fa fa-github","link":"https://github.com/gkesse/"},
         {"name":"Linkedin","icon":"fa fa-linkedin","link":"https://www.linkedin.com/in/tia-gerard-kesse/"}
     ],
     "copyright":
     {
-        "date":"2017",
+        "date":"2007",
         "site":
         {
             "name":"ReadyDev"
         },
         "description":
         [
-            "Plateforme de Développement Continu<br/>",
+            "Plateforme de Développement Continue<br/>",
             "Produit par Gerard KESSE"
         ]
     }

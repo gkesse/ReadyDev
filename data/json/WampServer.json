@@ -1,0 +1,99 @@
+{
+    "links":
+    [
+        {"name":"Tutoriels","link":"/tutoriels/"},
+        {"name":"PHP","link":"/tutoriels/PHP/"},
+        {"name":"WampServer","link":"/tutoriels/PHP/WampServer/"}
+    ],
+    "details":
+    [
+        {
+            "id":"WampServer",
+            "name":"WampServer",
+            "description":
+            [
+                "WampServer est un serveur Web PHP.<br/><br/>",
+                "Pour configurer WampServer, sous Windows :"
+            ],
+            "tools":
+            [
+                "Téléchargez et Installez WampServer",
+                "Configurez le nom de la machine",
+                "Configurez WampServer"
+            ]
+        },
+        {
+            "id":"Determiner_adresse_IP_machine",
+            "name":"Déterminer l'adresse IP de la machine",
+            "description":
+            [
+                "Pour déterminer l'adresse IP de la machine, sous Windows :"
+            ],
+            "tools":
+            [
+                "Ouvrez un terminal",
+                "Exécutez le script ci-dessous"
+            ],
+            "code":
+            [
+                "ipconfig\n"
+            ],
+            "img":"/tutoriels/PHP/WampServer/img/Ip_Address.png"
+        },
+        {
+            "id":"Configurer_nom_machine",
+            "name":"Configurer le nom de la machine",
+            "description":
+            [
+                "Pour configurer le nom de la machine, sous Windows :"
+            ],
+            "tools":
+            [
+                "Ouvrez le fichier hosts <b>(C:\\Windows\\System32\\drivers\\etc\\hosts)</b>",
+                "Ajoutez les instructions ci-dessous",
+                "Enregistrez le fichier hosts"
+            ],
+            "code":
+            [
+                "127.0.0.1       localhost\n",
+                "::1             localhost\n",
+                "127.0.0.1       www.readydev.com\n",
+                "192.168.0.11    www.readydev.com\n"
+            ]
+        },
+        {
+            "id":"Activer_utilisation_serveurs_virtuels",
+            "name":"Activer l'utilisation des serveurs virtuels",
+            "description":
+            [
+                "Pour activer l'utilisation des serveurs virtuels, sous Windows :"
+            ],
+            "tools":
+            [
+                "Ouvrez le fichier de configuration <b>(C:\\wamp\\bin\\apache\\apache2.4.9\\conf\\httpd.conf)</b>",
+                "Ajoutez les instructions ci-dessous",
+                "Enregistrez le fichier hosts"
+            ],
+            "code":
+            [
+                "# Virtual hosts\n",
+                "Include conf/extra/httpd-vhosts.conf\n"
+            ]
+        },
+        {
+            "id":"Configurer_serveurs_virtuels",
+            "name":"Configurer les serveurs virtuels",
+            "description":
+            [
+                "Pour configurer les serveurs virtuels, sous Windows :"
+            ],
+            "tools":
+            [
+                "Ouvrez le fichier de configuration <b>(C:\\wamp\\bin\\apache\\apache2.4.9\\conf\\extra\\httpd-vhosts.conf)</b>",
+                "Ajoutez les instructions ci-dessous",
+                "Enregistrez le fichier hosts"
+            ],
+            "codefile":"tutoriels/PHP/WampServer/code/code1.txt"
+        }
+    ]
+}
