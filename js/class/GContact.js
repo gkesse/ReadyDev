@@ -10,8 +10,8 @@ var GContact = (function() {
     var Container = function() {
         return {
             init: function() {
-                $.getJSON("/data/json/contacts.json", function(data) {
-                    var m_data = data["details"][0]["form"][3]["textarea"]["max"];
+                $.getJSON("/data/json/Contacts.json", function(data) {
+                    var m_data = data["message"]["max"];
                     GSetting.Instance().setData("ContactMax", m_data);
                     $(".contacts .message").trigger("propertychange");
                 });

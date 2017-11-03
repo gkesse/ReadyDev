@@ -1,240 +1,43 @@
 {
     "links":
     [
-        {"name":"Tutoriels","link":"/tutoriels/"},
-        {"name":"C++","link":"/tutoriels/cpp/"}
+        {"name":"Tutoriels","link":"/Tutoriels/"},
+        {"name":"C/C++","link":""}
     ],
-    "details":
+    "summary":
     [
-        {
-            "id":"summary",
-            "name":"Vitrine",
-            "menu":
-            [
-                {"name":"Compilation d'un Projet C/C++","link":"#compilation"},
-                {"name":"Programmation Orientée Objet","link":"#poo"},
-                {"name":"Patrons de Conception","link":"#design_patterns"}
-            ]
-            
-        },
-        {
-            "id":"compilation",
-            "name":"Compilation d'un Projet C/C++",
-            "box":
-            [
-                {
-                    "icon":"fa fa-cogs",
-                    "theme":"NMake",
-                    "description":"Compilez avec<br/> NMake",
-                    "link":"/tutoriels/cpp/nmake/"
-                },
-                {
-                    "icon":"fa fa-cogs",
-                    "theme":"MinGW",
-                    "description":"Compilez avec<br/> MinGW",
-                    "link":"#"
-                },
-                {
-                    "icon":"fa fa-cogs",
-                    "theme":"Cygwin",
-                    "description":"Compilez avec<br/> Cygwin",
-                    "link":"#"
-                },
-                {
-                    "icon":"fa fa-cogs",
-                    "theme":"Make",
-                    "description":"Compilez avec<br/> Make",
-                    "link":"#"
-                },
-                {
-                    "icon":"fa fa-cogs",
-                    "theme":"CMake",
-                    "description":"Compilez avec<br/> CMake",
-                    "link":"#"
-                },
-                {
-                    "icon":"fa fa-cogs",
-                    "theme":"QMake",
-                    "description":"Compilez avec<br/> QMake",
-                    "link":"#"
-                }
-            ]
-        },
-        {
-            "id":"poo",
-            "name":"Programmation Orientée Objet",
-            "box":
-            [
-                {
-                    "icon":"fa fa-signal",
-                    "theme":"POO",
-                    "description":"Apprenez la<br/> POO",
-                    "link":"#"
-                }
-            ]
-        },
-        {
-            "id":"design_patterns",
-            "name":"Patrons de Conception",
-            "box":
-            [
-                {
-                    "icon":"fa fa-line-chart",
-                    "theme":"Design Patterns",
-                    "description":"Apprenez les<br/> Design Patterns",
-                    "link":"#"
-                }
-            ]
-        }
+        {"name":"Compilation","link":"/Tutoriels/Cpp/#Compilation"},
+        {"name":"Notions de Base","link":"/Tutoriels/Cpp/#Notions"},
+        {"name":"Patron de Conception","link":"/Tutoriels/Cpp/#Patron_Conception"}
     ],
-    "details2":
+    "compilation":
+    {
+        "compiler":
+        [
+            {"name":"Programme Simple","link":"/Tutoriels/Cpp/Compilation/NMake/Programme_Simple"},
+            {"name":"Fichier Header","link":"/Tutoriels/Cpp/Compilation/NMake/Fichier_Header"},
+            {"name":"Création Librairie Statique","link":"/Tutoriels/Cpp/Compilation/NMake/Librairie_Statique_Creation"},
+            {"name":"Utilisation Librairie Statique","link":"/Tutoriels/Cpp/Compilation/NMake/Librairie_Statique_Utilisation"},
+            {"name":"Création Librairie Dynamique","link":"/Tutoriels/Cpp/Compilation/NMake/Librairie_Dynamique_Creation"},
+            {"name":"Utilisation Librairie Dynamique","link":"/Tutoriels/Cpp/Compilation/NMake/Librairie_Dynamique_Utilisation"},
+            {"name":"Programme Complet","link":"/Tutoriels/Cpp/Compilation/NMake/Programme_Complet"}
+        ]
+    },
+    "basics":
     [
-        {
-            "title":
-            [
-                "<span class='clrb' id='dashboard'>",
-            "Tableau de Bord",
-            "</span>"
-            ],
-            "description":
-            [
-                "<ul class='lstc ple tal'>",
-                "<li><a href='#compilation'>C++ Compilation de Projets</a></li>",
-            "<li><a href='#poo'>C++ Programmation Orientée Objet</a></li>",
-            "<li><a href='#design_patterns'>C++ Patrons de Conception</a></li>",
-            "</ul>"
-            ]
-        },
-        {
-            "title":
-            [
-                "<a class='clrb' id='compilation' href='#dashboard'>",
-                "C++ Compilation de Projets",
-                "</a>"
-            ],
-            "description":
-            [
-                "<div class='pageRow'>",
-                
-                "<div class='rsa pageCol06'>",
-                "<a class='bgd dibm bdb evtc' href='/tutoriels/cpp/nmake/'>",
-                "<div class='bgg'>",
-                "<div class='bga htb tac dtlf'>",
-                "<div class='dtcm'><i class='fse fa fa-cogs'></i></div></div>",
-                "<div class='htc tac dtlf'>",
-                "<div class='dtcm'>",
-                "<p class='fsd ffb pdb'>NMake</p></div></div></div>",
-                "<div class='pdb clrd'>Compilez avec NMake</div>",
-                "</a></div>",
-                
-                "<div class='rsa pageCol06'>",
-                "<a class='bgd dibm bdb evtc' href='#'>",
-                "<div class='bgg'>",
-                "<div class='bga htb tac dtlf'>",
-                "<div class='dtcm'><i class='fse fa fa-cogs'></i></div></div>",
-                "<div class='htc tac dtlf'>",
-            "<div class='dtcm'>",
-            "<p class='fsd ffb pdb'>MinGW</p></div></div></div>",
-            "<div class='pdb clrd'>Compilez avec MinGW</div>",
-            "</a></div>",
-            
-            "<div class='rsa pageCol06'>",
-            "<a class='bgd dibm bdb evtc' href='#'>",
-            "<div class='bgg'>",
-            "<div class='bga htb tac dtlf'>",
-            "<div class='dtcm'><i class='fse fa fa-cogs'></i></div></div>",
-            "<div class='htc tac dtlf'>",
-            "<div class='dtcm'>",
-            "<p class='fsd ffb pdb'>Cygwin</p></div></div></div>",
-            "<div class='pdb clrd'>Compilez avec Cygwin</div>",
-            "</a></div>",
-            
-            "<div class='rsa pageCol06'>",
-            "<a class='bgd dibm bdb evtc' href='#'>",
-            "<div class='bgg'>",
-            "<div class='bga htb tac dtlf'>",
-            "<div class='dtcm'><i class='fse fa fa-cogs'></i></div></div>",
-            "<div class='htc tac dtlf'>",
-            "<div class='dtcm'>",
-            "<p class='fsd ffb pdb'>Make</p></div></div></div>",
-            "<div class='pdb clrd'>Compilez avec Make</div>",
-            "</a></div>",
-            
-            "<div class='rsa pageCol06'>",
-            "<a class='bgd dibm bdb evtc' href='#'>",
-            "<div class='bgg'>",
-            "<div class='bga htb tac dtlf'>",
-            "<div class='dtcm'><i class='fse fa fa-cogs'></i></div></div>",
-            "<div class='htc tac dtlf'>",
-            "<div class='dtcm'>",
-            "<p class='fsd ffb pdb'>CMake</p></div></div></div>",
-            "<div class='pdb clrd'>Compilez avec CMake</div>",
-            "</a></div>",
-            
-            "<div class='rsa pageCol06'>",
-            "<a class='bgd dibm bdb evtc' href='#'>",
-            "<div class='bgg'>",
-            "<div class='bga htb tac dtlf'>",
-            "<div class='dtcm'><i class='fse fa fa-cogs'></i></div></div>",
-            "<div class='htc tac dtlf'>",
-            "<div class='dtcm'>",
-            "<p class='fsd ffb pdb'>QMake</p></div></div></div>",
-            "<div class='pdb clrd'>Compilez avec QMake</div>",
-            "</a></div>",
-            
-            "</div>"
-            ]
-            },
-            {
-            "title":
-            [
-            "<a class='clrb' id='poo' href='#dashboard'>",
-            "C++ Programmation Orientée Objet",
-            "</a>"
-            ],
-            "description":
-            [
-            "<div class='pageRow'>",
-            
-            "<div class='rsa pageCol06'>",
-            "<a class='bgd dibm bdb evtc' href='#'>",
-            "<div class='bgg'>",
-            "<div class='bga htb tac dtlf'>",
-            "<div class='dtcm'><i class='fse fa fa-line-chart'></i></div></div>",
-            "<div class='htc tac dtlf'>",
-            "<div class='dtcm'>",
-            "<p class='fsd ffb pdb'>POO</p></div></div></div>",
-            "<div class='pdb clrd'>Programmation Orientée Objet</div>",
-            "</a></div>",
-            
-            "</div>"
-            ]
-            },
-            {
-            "title":
-            [
-            "<a class='clrb' id='design_patterns' href='#dashboard'>",
-            "C++ Patrons de Conception",
-            "</a>"
-            ],
-            "description":
-            [
-            "<div class='pageRow'>",
-            
-            "<div class='rsa pageCol06'>",
-            "<a class='bgd dibm bdb evtc' href='#'>",
-            "<div class='bgg'>",
-            "<div class='bga htb tac dtlf'>",
-            "<div class='dtcm'><i class='fse fa fa-signal'></i></div></div>",
-            "<div class='htc tac dtlf'>",
-            "<div class='dtcm'>",
-            "<p class='fsd ffb pdb'>Design Patterns</p></div></div></div>",
-            "<div class='pdb clrd'>Patrons de Conception</div>",
-            "</a></div>",
-            
-            "</div>"
-            ]
-            }
-            ]
-            }
+        {"name":"Notions de Base","link":"/Tutoriels/Cpp/#Notions"},
+        {"name":"Patron de Conception","link":"/Tutoriels/Cpp/#Patron_Conception"}
+    ],
+    "design_pattern":
+    {
+        "creational":
+        [
+            {"name":"Singleton","link":"/Tutoriels/Cpp/Patron_Conception/Creation/Singleton"},
+            {"name":"Fabrique","link":"/Tutoriels/Cpp/Patron_Conception/Creation/Fabrique"},
+            {"name":"Fabrique Abstraite","link":"/Tutoriels/Cpp/Patron_Conception/Creation/Fabrique_Abstraite"},
+            {"name":"Prototype","link":"/Tutoriels/Cpp/Patron_Conception/Creation/Prototype"},
+            {"name":"Monteur","link":"/Tutoriels/Cpp/Patron_Conception/Creation/Monteur"}
+        ]
+    }
+}
                         

@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/Cpp/Compilation/CMake/NMake/Librairie_Dynamique_Creation/src/manager/GMath.cpp
+GMath.h
+C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/Cpp/Compilation/CMake/NMake/Librairie_Dynamique_Creation/src/manager/GMath.h
+
+C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/Cpp/Compilation/CMake/NMake/Librairie_Dynamique_Creation/src/manager/GMath.h
+cmath
+-
+
+C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/Cpp/Compilation/CMake/NMake/Librairie_Dynamique_Creation/src/manager/GShow.cpp
+GShow.h
+C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/Cpp/Compilation/CMake/NMake/Librairie_Dynamique_Creation/src/manager/GShow.h
+
+C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/Cpp/Compilation/CMake/NMake/Librairie_Dynamique_Creation/src/manager/GShow.h
+iostream
+-
+iomanip
+-
+string
+-
+

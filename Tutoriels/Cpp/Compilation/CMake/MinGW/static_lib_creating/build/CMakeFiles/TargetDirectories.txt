@@ -1,0 +1,5 @@
+C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/mingw/static_lib_creating/build/CMakeFiles/edit_cache.dir
+C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/mingw/static_lib_creating/build/CMakeFiles/rebuild_cache.dir
+C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/mingw/static_lib_creating/build/manager/CMakeFiles/Hello.dir
+C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/mingw/static_lib_creating/build/manager/CMakeFiles/edit_cache.dir
+C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/mingw/static_lib_creating/build/manager/CMakeFiles/rebuild_cache.dir

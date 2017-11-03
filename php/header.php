@@ -1,3 +1,4 @@
+<!-- ============================================ -->
 <?php     
     $m_title = GHeader::Instance()->getTitle(); 
     $m_menu = GHeader::Instance()->getMenu(); 
@@ -8,7 +9,7 @@
     
     $m_header = GJson::Instance()->getData("data/json/header.json"); 
 ?>
-
+<!-- ============================================ -->
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -28,7 +29,7 @@
         <script src="/js/class/GSetting.js"></script>        
     </head>
     <body>
-        <header id="main_menu">
+        <header>
             <!-- ============================================ -->
             <ul class="menu">
                 <li><a class="logo" href="/"><?php echo $m_ds["name"]; ?></a></li>
@@ -78,4 +79,4 @@
             </div>
             <!-- ============================================ -->
         </header>
-        
+        <!-- ============================================ -->

@@ -1,0 +1,16 @@
+﻿Build started 21/06/2017 15:18:02.
+     1>Project "C:\Users\TiaGerard\Programs\ZairStudio\ReadyDev\tutoriels\cpp\cmake\devenv\static_lib_using\build\main.vcxproj" on node 2 (Rebuild target(s)).
+     1>CustomBuild:
+         Building Custom Rule C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/devenv/static_lib_using/CMakeLists.txt
+         CMake does not need to re-run because C:\Users\TiaGerard\Programs\ZairStudio\ReadyDev\tutoriels\cpp\cmake\devenv\static_lib_using\build\CMakeFiles\generate.stamp is up-to-date.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\Users\TiaGerard\Programs\ZairStudio\ReadyDev\tutoriels\cpp\cmake\devenv\static_lib_using\lib\hello /nologo /W3 /WX- /O2 /Ob2 /Oy- /D WIN32 /D _WINDOWS /D NDEBUG /D "CMAKE_INTDIR=\"RELEASE\"" /D _MBCS /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"main.dir\RELEASE\\" /Fd"main.dir\RELEASE\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt C:\Users\TiaGerard\Programs\ZairStudio\ReadyDev\tutoriels\cpp\cmake\devenv\static_lib_using\main.cpp
+         main.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\TiaGerard\Programs\ZairStudio\ReadyDev\tutoriels\cpp\cmake\devenv\static_lib_using\build\RELEASE\main.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/devenv/static_lib_using/lib/hello /LIBPATH:C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/devenv/static_lib_using/lib/hello/RELEASE kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib Hello.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:"C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/devenv/static_lib_using/build/RELEASE/main.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/devenv/static_lib_using/build/RELEASE/main.lib" /MACHINE:X86 /SAFESEH  /machine:X86 main.dir\RELEASE\main.obj
+         main.vcxproj -> C:\Users\TiaGerard\Programs\ZairStudio\ReadyDev\tutoriels\cpp\cmake\devenv\static_lib_using\build\RELEASE\main.exe
+     1>Done Building Project "C:\Users\TiaGerard\Programs\ZairStudio\ReadyDev\tutoriels\cpp\cmake\devenv\static_lib_using\build\main.vcxproj" (Rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:04.24

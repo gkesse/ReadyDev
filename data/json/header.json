@@ -6,8 +6,8 @@
     "menu":
     [
         {"name":"CV","link":"/"},
-        {"name":"Contacts","link":"/contacts/"},
-        {"name":"Présentation","link":"/presentation/"},
-        {"name":"Tutoriels","link":"/tutoriels/"}
+        {"name":"Présentation","link":"/Presentation/"},
+        {"name":"Tutoriels","link":"/Tutoriels/"},
+        {"name":"Contacts","link":"/Contacts/"}
     ]
 }

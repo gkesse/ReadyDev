@@ -20,7 +20,7 @@
         //===============================================
         // public methods
         public function saveData($file, $data) {
-            $m_file = $_SERVER["DOCUMENT_ROOT"].$file;
+            $m_file = $_SERVER["DOCUMENT_ROOT"] . "/" . $file;
             $m_json = json_encode($data);
             file_put_contents($m_file, $m_json);
         }

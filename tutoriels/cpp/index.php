@@ -1,84 +1,202 @@
-<?php
-    require $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoloadRegister.php";
-    
-    $m_data = GJson::Instance()->getData("data/json/cpp.json");
+<!-- ============================================ -->
+<?php require $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoloadRegister.php"; ?>
+<!-- ============================================ -->
+<?php    
+    $m_data = GJson::Instance()->getData("data/json/Cpp.json");
     
     GHeader::Instance()->setTitle("C/C++");
     GHeader::Instance()->setMenu("Tutoriels");
     GHeader::Instance()->setView("Cpp");
     GHeader::Instance()->setLink($m_data["links"]);
-    require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";   
 ?>
 <!-- ============================================ -->
+<?php require $_SERVER["DOCUMENT_ROOT"]."/php/header.php"; ?>
+<!-- ============================================ -->
 <div class="pgBg">
-    <!-- ============================================ -->
-    <div class="mrga pgBd">
+    <div class="mrga pgBd pgCr10">
         <!-- ============================================ -->
-        <?php
-            $m_ds = $m_data["details"];
-            for($i = 0; $i < count($m_ds); $i++) {
-                $m_di = $m_ds[$i];
-            ?>
-            <!-- ============================================ -->
-            <div class="pgCt20 tal">
-                <div class="bga">
-                    <h1 class="bga pgCt20 tac">
-                        <a class="clrb" href="#main_menu" id="<?php echo $m_di["id"]; ?>">
-                            <?php echo $m_di["name"]; ?>
-                        </a>
-                    </h1>
-                    <!-- ============================================ -->
-                    <?php if(isset($m_di["menu"])) { ?>
-                        <div class="pgCt10">
-                            <ul class="fa-ul">
-                                <?php 
-                                    for($j = 0; $j < count($m_di["menu"]); $j++) {
-                                        $m_dj = $m_di["menu"][$j];
-                                    ?>
-                                    <li class="mbb"><i class="fa-li fa fa-chevron-right"></i>
-                                        <a href="<?php echo $m_dj["link"]; ?>">
-                                            <?php echo $m_dj["name"]; ?>
-                                        </a>
-                                    </li>
-                                <?php } ?>
-                            </ul>
-                        </div>
-                    <?php } ?>
-                    <!-- ============================================ -->
-                    <?php if(isset($m_di["box"])) { ?>
-                        <div class="pgRw tac">
-                            <?php 
-                                for($j = 0; $j < count($m_di["box"]); $j++) {
-                                    $m_dj = $m_di["box"][$j];
-                                ?>
-                                <!-- ============================================ -->
-                                <div class="rsa pgCl06">
-                                    <a class="bgd dibm bdb evtc" href="<?php echo $m_dj["link"]; ?>">
-                                        <div class="bgg">
-                                            <div class="bga htb tac dtlf">
-                                                <div class="dtcm">
-                                                    <i class="fse fa <?php echo $m_dj["icon"]; ?>"></i>
-                                                </div>
-                                            </div>
-                                            <div class="htc tac dtlf">
-                                                <div class="dtcm">
-                                                    <div class="fsd ffb pdb"><?php echo $m_dj["theme"]; ?></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="pdc fsc clrd tac"><?php echo $m_dj["description"]; ?></div>
-                                    </a>
-                                </div>
-                                <!-- ============================================ -->
-                            <?php } ?>
-                        </div>
-                    <?php } ?>
-                    <!-- ============================================ -->
+        <div class="pgCt10">
+            <div class="bga">
+                <h1 class="bga clrb pgCt20" id="Sommaire">Sommaire</h1>
+                <div class="tal pgCt10">
+                    <ul class="fa-ul">
+                        <?php 
+                            $m_ds = $m_data["summary"];
+                            foreach($m_ds as $m_di) {
+                            ?>
+                            <li>
+                                <i class="fa-li fa fa-book clrg"></i>
+                                <a class="hvra clrg" href="<?php echo $m_di["link"]; ?>">
+                                    <?php echo $m_di["name"]; ?>
+                                </a>
+                            </li>
+                        <?php } ?>
+                    </ul>            
                 </div>
             </div>
-            <!-- ============================================ -->
-        <?php } ?>
+        </div>
+        <!-- ============================================ -->
+        <div class="pgCt10">
+            <div class="bga">
+                <h1 class="bga clrb pgCt20" id="Compilation">Compilation</h1>
+                <!-- ============================================ -->
+                <div class="tal pgCt10">
+                    <h3 class="clra" id="NMake">Compilez avec NMake</h3>
+                    <ul class="fa-ul">
+                        <?php 
+                            $m_ds = $m_data["compilation"]["compiler"];
+                            foreach($m_ds as $m_di) {
+                            ?>
+                            <li class="mrgb"><i class="fa-li fa fa-chevron-right"></i>
+                                <a class="hvra" href="<?php echo $m_di["link"]; ?>">
+                                    <?php echo $m_di["name"]; ?>
+                                </a>
+                            </li>
+                        <?php } ?>
+                    </ul>            
+                </div>
+                <!-- ============================================ -->
+                <div class="tal pgCt10">
+                    <h3 class="clra" id="MinGW">Compilez avec MinGW</h3>
+                    <ul class="fa-ul">
+                        <?php 
+                            $m_ds = $m_data["compilation"]["compiler"];
+                            foreach($m_ds as $m_di) {
+                            $m_link = str_replace("/NMake/", "/MinGW/", $m_di["link"]);
+                            ?>
+                            <li class="mrgb"><i class="fa-li fa fa-chevron-right"></i>
+                                <a class="hvra" href="<?php echo $m_link; ?>">
+                                    <?php echo $m_di["name"]; ?>
+                                </a>
+                            </li>
+                        <?php } ?>
+                    </ul>            
+                </div>
+                <!-- ============================================ -->
+                <div class="tal pgCt10">
+                    <h3 class="clra" id="Cygwin">Compilez avec Cygwin</h3>
+                    <ul class="fa-ul">
+                        <?php 
+                            $m_ds = $m_data["compilation"]["compiler"];
+                            foreach($m_ds as $m_di) {
+                            $m_link = str_replace("/NMake/", "/Cygwin/", $m_di["link"]);
+                            ?>
+                            <li class="mrgb"><i class="fa-li fa fa-chevron-right"></i>
+                                <a class="hvra" href="<?php echo $m_link; ?>">
+                                    <?php echo $m_di["name"]; ?>
+                                </a>
+                            </li>
+                        <?php } ?>
+                    </ul>            
+                </div>
+                <!-- ============================================ -->
+                <div class="tal pgCt10">
+                    <h3 class="clra" id="Make">Compilez avec Make</h3>
+                    <ul class="fa-ul">
+                        <?php 
+                            $m_ds = $m_data["compilation"]["compiler"];
+                            foreach($m_ds as $m_di) {
+                            $m_link = str_replace("/NMake/", "/Make/", $m_di["link"]);
+                            ?>
+                            <li class="mrgb"><i class="fa-li fa fa-chevron-right"></i>
+                                <a class="hvra" href="<?php echo $m_link; ?>">
+                                    <?php echo $m_di["name"]; ?>
+                                </a>
+                            </li>
+                        <?php } ?>
+                    </ul>            
+                </div>
+                <!-- ============================================ -->
+                <div class="tal pgCt10">
+                    <h3 class="clra" id="CMake">Compilez avec CMake</h3>
+                    <ul class="fa-ul">
+                        <?php 
+                            $m_ds = $m_data["compilation"]["compiler"];
+                            foreach($m_ds as $m_di) {
+                            $m_link = str_replace("/NMake/", "/CMake/NMake/", $m_di["link"]);
+                            ?>
+                            <li class="mrgb"><i class="fa-li fa fa-chevron-right"></i>
+                                <a class="hvra" href="<?php echo $m_link; ?>">
+                                    <?php echo $m_di["name"]; ?>
+                                </a>
+                            </li>
+                        <?php } ?>
+                    </ul>            
+                </div>
+                <!-- ============================================ -->
+                <div class="tal pgCt10">
+                    <h3 class="clra" id="QMake">Compilez avec QMake</h3>
+                    <ul class="fa-ul">
+                        <?php 
+                            $m_ds = $m_data["compilation"]["compiler"];
+                            foreach($m_ds as $m_di) {
+                            $m_link = str_replace("/NMake/", "/QMake/NMake/", $m_di["link"]);
+                            ?>
+                            <li class="mrgb"><i class="fa-li fa fa-chevron-right"></i>
+                                <a class="hvra" href="<?php echo $m_link; ?>">
+                                    <?php echo $m_di["name"]; ?>
+                                </a>
+                            </li>
+                        <?php } ?>
+                    </ul>            
+                </div>
+                <!-- ============================================ -->
+            </div>
+        </div>
+        <!-- ============================================ -->
+        <div class="pgCt10">
+            <div class="bga">
+                <h1 class="bga clrb pgCt20" id="Notions">Notions de Base</h1>
+                <div class="tal pgCt10">
+                    <ul class="fa-ul">
+                        <?php 
+                            $m_ds = $m_data["basics"];
+                            foreach($m_ds as $m_di) {
+                            ?>
+                            <li class="mrgb"><i class="fa-li fa fa-chevron-right"></i>
+                                <a class="hvra" href="<?php echo $m_di["link"]; ?>">
+                                    <?php echo $m_di["name"]; ?>
+                                </a>
+                            </li>
+                        <?php } ?>
+                    </ul>            
+                </div>
+            </div>
+        </div>
+        <!-- ============================================ -->
+        <div class="pgCt10">
+            <div class="bga">
+                <h1 class="bga pgCt20" id="Patron_Conception">
+                    <a class="clrb" href="#Sommaire">
+                        Patron de Conception
+                    </a>
+                </h1>
+                <!-- ============================================ -->
+                <div class="tal pgCt10">
+                    <h3 id="Patron_Creation">
+                        <a class="clra" href="#Patron_Conception">
+                            Patron de Création
+                        </a>
+                    </h3>
+                    <ul class="fa-ul">
+                        <?php 
+                            $m_ds = $m_data["design_pattern"]["creational"];
+                            foreach($m_ds as $m_di) {
+                            ?>
+                            <li class="mrgb"><i class="fa-li fa fa-chevron-right"></i>
+                                <a class="hvra" href="<?php echo $m_di["link"]; ?>">
+                                    <?php echo $m_di["name"]; ?>
+                                </a>
+                            </li>
+                        <?php } ?>
+                    </ul>            
+                </div>
+                <!-- ============================================ -->
+            </div>
+        </div>
+        <!-- ============================================ -->
     </div>
 </div>
 <!-- ============================================ -->
 <?php require $_SERVER["DOCUMENT_ROOT"]."/php/footer.php"; ?>
+<!-- ============================================ -->

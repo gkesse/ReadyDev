@@ -1,9 +1,9 @@
 {
     "links":
     [
-        {"name":"Tutoriels","link":"/tutoriels/"},
-        {"name":"PHP","link":"/tutoriels/PHP/"},
-        {"name":"WampServer","link":"/tutoriels/PHP/WampServer/"}
+        {"name":"Tutoriels","link":"/Tutoriels/"},
+        {"name":"PHP","link":"/Tutoriels/PHP/"},
+        {"name":"WampServer","link":""}
     ],
     "details":
     [
@@ -38,7 +38,7 @@
             [
                 "ipconfig\n"
             ],
-            "img":"/tutoriels/PHP/WampServer/img/Ip_Address.png"
+            "img":"/Tutoriels/PHP/WampServer/img/Ip_Address.png"
         },
         {
             "id":"Configurer_nom_machine",

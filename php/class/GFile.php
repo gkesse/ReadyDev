@@ -20,8 +20,13 @@
         //===============================================
         // public methods
         public function getData($file) {
-            $m_file = $_SERVER["DOCUMENT_ROOT"].$file;
+            $m_file = $_SERVER["DOCUMENT_ROOT"] . "/" . $file;
             $m_data = file_get_contents($m_file);
+            return $m_data;
+        }
+        //===============================================
+        public function getData2($file) {
+            $m_data = file_get_contents($file);
             return $m_data;
         }
         //===============================================

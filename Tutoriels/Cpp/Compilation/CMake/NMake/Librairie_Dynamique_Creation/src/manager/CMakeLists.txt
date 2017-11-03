@@ -1,0 +1,5 @@
+set(GTARGET Hello)
+set(GSOURCES GShow.cpp GMath.cpp)
+set(GHEADERS GShow.h GMath.h)
+add_library(${GTARGET} SHARED ${GSOURCES} ${GHEADERS})
+set_target_properties(${GTARGET} PROPERTIES DEFINE_SYMBOL DLL_APP)

@@ -1,7 +1,8 @@
+<!-- ============================================ -->
 <?php
     $m_data = GJson::Instance()->getData("data/json/footer.json"); 
 ?>
-
+<!-- ============================================ -->
 <footer>
     <hr/>
     <div class="pgCt20">
@@ -10,16 +11,18 @@
             <div>Réseaux Sociaux - Réjoignez-nous</div>
             <?php 
                 $m_ds = $m_data["networks"];
-                for($i = 0; $i < count($m_ds); $i++) {
-                    $m_di = $m_ds[$i];
+                foreach($m_ds as $m_di) {
                 ?>
-                <a href="<?php echo $m_di["link"]; ?>"><i class="fad <?php echo $m_di["icon"]; ?>"></i></a>
+                <a href="<?php echo $m_di["link"]; ?>">
+                    <i class="fad <?php echo $m_di["icon"]; ?>"></i>
+                </a>
             <?php } ?>
         </div>
         <!-- ============================================ -->
         <div class="pgCr10">
             <?php $m_ds = $m_data["copyright"]; ?>
-            <div><i class='fa fa-copyright'></i>
+            <div>
+                <i class='fa fa-copyright'></i>
                 <?php echo $m_ds["date"]; ?> - <?php echo $m_ds["site"]["name"]; ?>
             </div>
             <div><?php echo join(" ",$m_ds["description"]); ?></div>

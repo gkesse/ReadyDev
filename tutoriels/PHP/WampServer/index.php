@@ -22,7 +22,7 @@
             ?>
             <!-- ============================================ -->
             <p  id="<?php echo $m_di["id"]; ?>"></p>
-            <div class="pgCt20 tal wwbw">
+            <div class="pgCt20 tal">
                 <div class="bga">
                     <h1 class="bga pgCt20 tac">
                         <a class="clrb" href="#summary">
@@ -54,7 +54,7 @@
                     <?php } ?>
                     <!-- ============================================ -->
                     <?php if(isset($m_di["tools"])) { ?>
-                        <div class="pgCt10">
+                        <div class="pgCt10 wwbw">
                             <ul class="fa-ul">
                                 <?php 
                                     for($j = 0; $j < count($m_di["tools"]); $j++) {

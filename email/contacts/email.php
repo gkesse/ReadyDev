@@ -1,8 +1,10 @@
+<!-- ============================================ -->
+<?php require_once $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoloadRegister.php"; ?>
+<!-- ============================================ -->
 <?php
-    require_once $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoloadRegister.php";
     $m_data = GJson::Instance()->getData("data/json/email.json"); 
 ?>
-
+<!-- ============================================ -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html style="-webkit-text-size-adjust:100%" xmlns:v="urn:schemas-microsoft-com:vml">
@@ -221,7 +223,7 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td height="30px" style="font-size:30px;line-height:30px">&nbsp;</td>
+                                                    <td height="20px" style="font-size:20px;line-height:20px">&nbsp;</td>
                                                 </tr>
                                                 <tr>
                                                     <td style="font-size:14px" align="center">Réseaux Sociaux - Réjoignez-nous</td>
@@ -234,23 +236,48 @@
                                                         <table border="0" cellspacing="0" cellpadding="0" align="center">
                                                             <tbody>
                                                                 <tr>
-                                                                    <td width="20">&nbsp;</td>
-                                                                    <?php 
-                                                                        $m_ds = $m_data["networks"];
-                                                                        for($i = 0; $i < count($m_ds); $i++) { 
-                                                                            $m_di = $m_ds[$i];
-                                                                            $m_target = "target='_blank'";
-                                                                        ?>
-                                                                        <td align="center">
-                                                                            <a <?php if($m_di["link"] != "#") {echo $m_target;} ?>
-                                                                            style="text-decoration:none"
-                                                                            href="<?php echo $m_di["link"]; ?>">
-                                                                                <img src="<?php echo $m_di["img"]; ?>"
-                                                                                alt="<?php echo $m_di["name"]; ?>"/>
-                                                                            </a>
-                                                                        </td>
-                                                                        <td width="20">&nbsp;</td>
-                                                                    <?php } ?>
+                                                                    <td width="10">&nbsp;</td>
+                                                                    <!-- ============================================ -->
+                                                                    <?php $m_di = $m_data["facebook"]; ?>
+                                                                    <td align="center">
+                                                                        <a <?php if($m_di["link"] != "#") { ?> target="_blank" <?php } ?>
+                                                                        style="text-decoration:none"  href="<?php echo $m_di["link"]; ?>">
+                                                                            <img src="<?php echo $m_di["img"]; ?>"
+                                                                            alt="<?php echo $m_di["name"]; ?>"/>
+                                                                        </a>
+                                                                    </td>
+                                                                    <td width="10">&nbsp;</td>
+                                                                    <!-- ============================================ -->
+                                                                    <?php $m_di = $m_data["skype"]; ?>
+                                                                    <td align="center">
+                                                                        <a <?php if($m_di["link"] != "#") { ?> target="_blank" <?php } ?>
+                                                                        style="text-decoration:none"  href="<?php echo $m_di["link"]; ?>">
+                                                                            <img src="<?php echo $m_di["img"]; ?>"
+                                                                            alt="<?php echo $m_di["name"]; ?>"/>
+                                                                        </a>
+                                                                    </td>
+                                                                    <td width="10">&nbsp;</td>
+                                                                    <!-- ============================================ -->
+                                                                    <?php $m_di = $m_data["github"]; ?>
+                                                                    <td align="center">
+                                                                        <a <?php if($m_di["link"] != "#") { ?> target="_blank" <?php } ?>
+                                                                        style="text-decoration:none"  href="<?php echo $m_di["link"]; ?>">
+                                                                            <img src="<?php echo $m_di["img"]; ?>"
+                                                                            alt="<?php echo $m_di["name"]; ?>"/>
+                                                                        </a>
+                                                                    </td>
+                                                                    <td width="10">&nbsp;</td>
+                                                                    <!-- ============================================ -->
+                                                                    <?php $m_di = $m_data["linkedin"]; ?>
+                                                                    <td align="center">
+                                                                        <a <?php if($m_di["link"] != "#") { ?> target="_blank" <?php } ?>
+                                                                        style="text-decoration:none"  href="<?php echo $m_di["link"]; ?>">
+                                                                            <img src="<?php echo $m_di["img"]; ?>"
+                                                                            alt="<?php echo $m_di["name"]; ?>"/>
+                                                                        </a>
+                                                                    </td>
+                                                                    <td width="10">&nbsp;</td>
+                                                                    <!-- ============================================ -->
                                                                 </tr>
                                                             </tbody>
                                                         </table>
@@ -258,7 +285,7 @@
                                                 </tr>
                                                 
                                                 <tr>
-                                                    <td height="30px" style="font-size:30px;line-height:30px">&nbsp;</td>
+                                                    <td height="10px" style="font-size:10px;line-height:10px">&nbsp;</td>
                                                 </tr>
                                                 <tr>
                                                     <?php $m_ds = $m_data["copyright"]; ?>
@@ -278,7 +305,7 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td height="30px" style="font-size:30px;line-height:30px">&nbsp;</td>
+                                                    <td height="10px" style="font-size:10px;line-height:10px">&nbsp;</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -292,3 +319,4 @@
         </table>
     </body>
 </html>
+<!-- ============================================ -->

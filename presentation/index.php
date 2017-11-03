@@ -1,173 +1,265 @@
-<?php
-    require $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoloadRegister.php";
-    
-    $m_data = GJson::Instance()->getData("data/json/presentation.json");
+<!-- ============================================ -->
+<?php require $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoloadRegister.php"; ?>
+<!-- ============================================ -->
+<?php    
+    $m_data = GJson::Instance()->getData("data/json/Presentation.json");
     
     GHeader::Instance()->setTitle("Présentation");
     GHeader::Instance()->setMenu("Présentation");
     GHeader::Instance()->setView("Presentation");
-    require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";   
 ?>
 <!-- ============================================ -->
+<?php require $_SERVER["DOCUMENT_ROOT"]."/php/header.php"; ?>
+<!-- ============================================ -->
 <div class="pgBg">
-    <!-- ============================================ -->
-    <div class="mrga pgBd">
+    <div class="mrga pgBd pgCr10">
         <!-- ============================================ -->
-        <?php
-            $m_ds = $m_data["details"];
-            for($i = 0; $i < count($m_ds); $i++) {
-                $m_di = $m_ds[$i];
-            ?>
-            <!-- ============================================ -->
-            <div class="pgCt20 tal">
-                <div class="bga">
-                    <h1 class="bga pgCt20 tac">
-                        <a class="clrb" href="#main_menu" id="<?php echo $m_di["id"]; ?>">
-                            <?php echo $m_di["name"]; ?>
-                        </a>
-                    </h1>
-                    <!-- ============================================ -->
-                    <?php if(isset($m_di["intro"])) { ?>
-                        <div class="pgCt10">
-                            <?php $m_dj = $m_di["intro"]["img"]; ?>
-                            <img class="fl brb" src="<?php echo $m_dj["src"]; ?>" 
-                            alt="<?php echo $m_dj["alt"]; ?>"
-                            width="<?php echo $m_dj["width"]; ?>"/>
-                            <?php $m_dj = $m_di["intro"]; ?>
-                            <div class="mla"><?php echo join(" ", $m_dj["description"]); ?></div>
-                        </div>
-                    <?php } ?>
-                    <!-- ============================================ -->
-                    <?php if(isset($m_di["description"])) { ?>
-                        <div class="pgCt10">
-                            <div><?php echo join(" ", $m_di["description"]); ?></div>
-                        </div>
-                    <?php } ?>
-                    <!-- ============================================ -->
-                    <?php if(isset($m_di["menu"])) { ?>
-                        <div class="pgCt10">
-                            <ul class="fa-ul">
-                                <?php 
-                                    for($j = 0; $j < count($m_di["menu"]); $j++) {
-                                        $m_dj = $m_di["menu"][$j];
-                                    ?>
-                                    <li class="mbb"><i class="fa-li fa fa-chevron-right"></i><a href="<?php echo $m_dj["link"]; ?>"><?php echo $m_dj["name"]; ?></a></li>
-                                <?php } ?>
-                            </ul>
-                        </div>
-                    <?php } ?>
-                    <!-- ============================================ -->
-                    <?php if(isset($m_di["section"])) { ?>
-                        <?php 
-                            for($j = 0; $j < count($m_di["section"]); $j++) {
-                                $m_dj = $m_di["section"][$j];
-                            ?>
-                            <!-- ============================================ -->
-                            <?php if(isset($m_dj["description"])) { ?>
-                                <div class="pgCt10">
-                                    <div><?php echo join(" ", $m_dj["description"]); ?></div>
-                                </div>
-                            <?php } ?>
-                            <!-- ============================================ -->
-                            <?php if(isset($m_dj["article"])) { ?>
-                                <div class="pgCt10">
-                                    <ul class="fa-ul">
-                                        <?php 
-                                            for($k = 0; $k < count($m_dj["article"]); $k++) {
-                                                $m_dk = $m_dj["article"][$k];
-                                            ?>
-                                            <li><i class="fa-li fa fa-check"></i><?php echo join(" ", $m_dk); ?></li>
-                                        <?php } ?>
-                                    </ul>
-                                </div>
-                            <?php } ?>
-                            <!-- ============================================ -->
-                        <?php } ?>
-                    <?php } ?>
-                    <!-- ============================================ -->
-                    <?php if(isset($m_di["article"])) { ?>
+        <div class="pgCt10">
+            <div class="bga">
+                <h1 class="bga pgCt20" id="Intro">
+                    <a class="clrb" href="#">
+                        Je me présente 
+                    </a>
+                </h1>
+                <div class="tal pgCt10">
+                    <?php $m_ds = $m_data["avatar"]; ?>
+                    <img class="fl brb" src="<?php echo $m_ds["src"]; ?>" 
+                    alt="<?php echo $m_ds["alt"]; ?>"
+                    width="<?php echo $m_ds["width"]; ?>"/>
+                    <?php $m_ds = $m_data["intro"]; ?>
+                    <div class="mla"><?php echo join(" ", $m_ds); ?></div>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================ -->
+        <div class="pgCt10">
+            <div class="bga">
+                <h1 class="bga pgCt20" id="Sommaire">
+                    <a class="clrb" href="#Intro">
+                        Je vous propose 
+                    </a>
+                </h1>
+                <div class="tal pgCt10">
+                    <?php 
+                        $m_ds = $m_data["summary"];
+                        echo $m_ds["msg"]; 
+                        ?>
+                    <div class="pgCr10">
                         <ul class="fa-ul">
                             <?php 
-                                for($j = 0; $j < count($m_di["article"]); $j++) {
-                                    $m_dj = $m_di["article"][$j];
+                                $m_dsi = $m_ds["list"];
+                                foreach($m_dsi as $m_di) {
                                 ?>
-                                <li class="pgCr10"><i class="fa-li fa fa-building-o pgCr10"></i>
-                                    <!-- ============================================ -->
-                                    <?php if(isset($m_dj["company"])) { ?>
-                                        <div class="psr">
-                                            <?php echo $m_dj["company"]; ?>
-                                            <span class="psaa clrb">
-                                                <?php 
-                                                    $m_dt = count($m_di["article"]);
-                                                    echo ($j+1)."/".$m_dt; 
-                                                ?>
-                                            </span>
-                                        </div>
-                                    <?php } ?>
-                                    <!-- ============================================ -->
-                                    <?php if(isset($m_dj["section"])) { ?>
-                                        <?php 
-                                            for($k = 0; $k < count($m_dj["section"]); $k++) {
-                                                $m_dk = $m_dj["section"][$k];
-                                            ?>
-                                            <!-- ============================================ -->
-                                            <?php if(isset($m_dk["description"])) { ?>
-                                                <div class="pgCr05"><?php echo join(" ", $m_dk["description"]); ?></div>
-                                            <?php } ?>
-                                            <!-- ============================================ -->
-                                            <?php if(isset($m_dk["section"])) { ?>
-                                                <?php 
-                                                    for($p = 0; $p < count($m_dk["section"]); $p++) {
-                                                        $m_dp = $m_dk["section"][$p];
-                                                    ?>
-                                                    <!-- ============================================ -->
-                                                    <?php if(isset($m_dp["transition"])) { ?>
-                                                        <div class="pgCr05"><?php echo $m_dp["transition"]; ?></div>
-                                                    <?php } ?>
-                                                    <!-- ============================================ -->
-                                                    <?php if(isset($m_dp["article"])) { ?>
-                                                        <div class="pgCr05">
-                                                            <ul class="fa-ul">
-                                                                <?php 
-                                                                    for($q = 0; $q < count($m_dp["article"]); $q++) {
-                                                                        $m_dq = $m_dp["article"][$q];
-                                                                    ?>
-                                                                    <li><i class="fa-li fa fa-check"></i><?php echo join(" ", $m_dq); ?></li>
-                                                                <?php } ?>
-                                                            </ul>
-                                                        </div>
-                                                    <?php } ?>
-                                                    <!-- ============================================ -->
-                                                <?php } ?>
-                                            <?php } ?>
-                                            <!-- ============================================ -->
-                                        <?php } ?>
-                                    <?php } ?>
-                                    <!-- ============================================ -->
+                                <li class=""><i class="fa-li fa fa-book clrg"></i>
+                                    <a class="hvra clrg" href="<?php echo $m_di["link"]; ?>">
+                                        <?php echo $m_di["name"]; ?>
+                                    </a>
                                 </li>
                             <?php } ?>
-                        </ul>
-                        <!-- ============================================ -->
-                    <?php } ?>
+                        </ul>            
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================ -->
+        <div class="pgCt10">
+            <div class="bga">
+                <h1 class="bga pgCt20" id="Parcours">
+                    <a class="clrb" href="#Intro">
+                        Mon parcours scolaire 
+                    </a>
+                </h1>
+                <div class="tal pgCt10">
+                    <?php $m_ds = $m_data["cursus"]; ?>
+                    <div class="pgCr10">
+                        <div><?php echo join(" ", $m_ds["msg"]); ?></div>
+                    </div>
                     <!-- ============================================ -->
-                    <?php if(isset($m_di["box"])) { ?>
-                        <div class="pgCt10">
-                            <ul class="fa-ul">
-                                <?php 
-                                    for($j = 0; $j < count($m_di["box"]); $j++) {
-                                        $m_dj = $m_di["box"][$j];
-                                    ?>
-                                    <li><i class="fa-li fa fa-check"></i><?php echo join(" ", $m_dj); ?></li>
-                                <?php } ?>
-                            </ul>
-                        </div>
-                    <?php } ?>
+                    <div class="pgCr10">
+                        <div><?php echo join(" ", $m_ds["msg2"]); ?></div>
+                    </div>
+                    <!-- ============================================ -->
+                    <div class="pgCr10">
+                        <ul class="fa-ul">
+                            <?php 
+                                $m_dsi = $m_ds["list"];
+                                foreach($m_dsi as $m_dj) {
+                                ?>
+                                <li class="">
+                                    <i class="fa-li fa fa-check"></i>
+                                    <?php echo join(" ", $m_dj); ?>
+                                </li>
+                            <?php } ?>
+                        </ul>            
+                    </div>
+                    <!-- ============================================ -->
+                    <div class="pgCr10">
+                        <div><?php echo join(" ", $m_ds["msg3"]); ?></div>
+                    </div>
+                    <!-- ============================================ -->
+                    <div class="pgCr10">
+                        <ul class="fa-ul">
+                            <?php 
+                                $m_dsi = $m_ds["list2"];
+                                foreach($m_dsi as $m_dj) {
+                                ?>
+                                <li class="">
+                                    <i class="fa-li fa fa-check"></i>
+                                    <?php echo join(" ", $m_dj); ?>
+                                </li>
+                            <?php } ?>
+                        </ul>            
+                    </div>
+                    <!-- ============================================ -->
+                    <div class="pgCr10">
+                        <div><?php echo join(" ", $m_ds["msg4"]); ?></div>
+                    </div>
                     <!-- ============================================ -->
                 </div>
             </div>
-        <?php } ?>
+        </div>
+        <!-- ============================================ -->
+        <div class="pgCt10">
+            <div class="bga">
+                <h1 class="bga pgCt20" id="Experiences">
+                    <a class="clrb" href="#Intro">
+                        Mes expériences professionnelles 
+                    </a>
+                </h1>
+                <div class="tal">
+                    <?php $m_ds = $m_data["experience"]; ?>
+                    <!-- ============================================ -->
+                    <div class="pgCt10">
+                        <?php echo join(" ", $m_ds["msg"]); ?>
+                    </div>
+                    <!-- ============================================ -->
+                    <ul class="fa-ul">
+                        <?php 
+                            $m_dsi = $m_ds["array"];
+                            $m_count = count($m_dsi);
+                            $i = 0;
+                            foreach($m_dsi as $m_dj) {
+                                if($i != 0) {echo "<hr/><br/>";} $i++;
+                            ?>
+                            <!-- ============================================ -->
+                            <li class="pgCr10">
+                                <i class="fa-li fa fa-building-o pgCr10"></i>
+                                <div class="psr">
+                                    <?php echo $m_dj["company"]; ?>,<br/>
+                                    <!-- ============================================ -->
+                                    <?php echo join(" ", $m_dj["description"]); ?>
+                                    <!-- ============================================ -->
+                                    <span class="psaa clrb">
+                                        <?php echo $i . "/" . $m_count; ?>
+                                    </span>
+                                    <!-- ============================================ -->
+                                    <?php if(isset($m_dj["info"])) { ?>
+                                        <div class="pgCr10">
+                                            <?php echo $m_dj["info"]; ?>
+                                        </div>
+                                    <?php } ?>
+                                    <!-- ============================================ -->
+                                    <?php if(isset($m_dj["list"])) { ?>
+                                        <ul class="fa-ul">
+                                            <?php 
+                                                $m_dsj = $m_dj["list"];
+                                                foreach($m_dsj as $m_dk) {
+                                                ?>
+                                                <li class="">
+                                                    <i class="fa-li fa fa-check"></i>
+                                                    <?php echo join(" ", $m_dk); ?>
+                                                </li>
+                                            <?php } ?>
+                                        </ul>            
+                                    <?php } ?>
+                                    <!-- ============================================ -->
+                                    <?php if(isset($m_dj["info2"])) { ?>
+                                        <div class="pgCr10">
+                                            <?php echo $m_dj["info2"]; ?>
+                                        </div>
+                                    <?php } ?>
+                                    <!-- ============================================ -->
+                                    <?php if(isset($m_dj["list2"])) { ?>
+                                        <ul class="fa-ul">
+                                            <?php 
+                                                $m_dsj = $m_dj["list2"];
+                                                foreach($m_dsj as $m_dk) {
+                                                ?>
+                                                <li class="">
+                                                    <i class="fa-li fa fa-check"></i>
+                                                    <?php echo join(" ", $m_dk); ?>
+                                                </li>
+                                            <?php } ?>
+                                        </ul>            
+                                    <?php } ?>
+                                    <!-- ============================================ -->
+                                </div>
+                                <!-- ============================================ -->
+                            </li>
+                            <!-- ============================================ -->
+                        <?php } ?>
+                    </ul>
+                    <!-- ============================================ -->
+                </div>
+            </div>
+        </div>
+        <!-- ============================================ -->
+        <div class="pgCt10">
+            <div class="bga">
+                <h1 class="bga pgCt20" id="Competences">
+                    <a class="clrb" href="#Sommaire">
+                        Mes compétences 
+                    </a>
+                </h1>
+                <?php $m_ds = $m_data["skill"]; ?>
+                <div class="tal pgCt10">
+                    <?php echo join(" ", $m_ds["description"]); ?>
+                </div>
+                <div class="tal pgCt10">
+                    <ul class="fa-ul">
+                        <?php 
+                            $m_dsi = $m_ds["list"];
+                            foreach($m_dsi as $m_di) {
+                            ?>
+                            <li class="">
+                                <i class="fa-li fa fa-check"></i>
+                                <?php echo join(" ", $m_di); ?>
+                            </li>
+                        <?php } ?>
+                    </ul>            
+                </div>
+            </div>
+        </div>
+        <!-- ============================================ -->
+        <div class="pgCt10">
+            <div class="bga">
+                <h1 class="bga pgCt20" id="Atouts">
+                    <a class="clrb" href="#Sommaire">
+                        Mes atouts 
+                    </a>
+                </h1>
+                <?php $m_ds = $m_data["asset"]; ?>
+                <div class="tal pgCt10">
+                    <?php echo join(" ", $m_ds["description"]); ?>
+                </div>
+                <div class="tal pgCt10">
+                    <ul class="fa-ul">
+                        <?php 
+                            $m_dsi = $m_ds["list"];
+                            foreach($m_dsi as $m_di) {
+                            ?>
+                            <li class="">
+                                <i class="fa-li fa fa-check"></i>
+                                <?php echo join(" ", $m_di); ?>
+                            </li>
+                        <?php } ?>
+                    </ul>            
+                </div>
+            </div>
+        </div>
         <!-- ============================================ -->
     </div>
 </div>
 <!-- ============================================ -->
 <?php require $_SERVER["DOCUMENT_ROOT"]."/php/footer.php"; ?>
+<!-- ============================================ -->

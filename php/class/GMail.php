@@ -23,7 +23,7 @@
             date_default_timezone_set("Etc/UTC");
             require_once $_SERVER["DOCUMENT_ROOT"]."/lib/phpmailer/PHPMailerAutoload.php";
             
-            $m_file = $_SERVER["DOCUMENT_ROOT"]."email/contacts/email.php";
+            $m_file = $_SERVER["DOCUMENT_ROOT"]."/email/contacts/email.php";
             $m_content = GFile::Instance()->getInclude($m_file, $data);
             
             $mail = new PHPMailer;
@@ -50,7 +50,7 @@
             date_default_timezone_set("Etc/UTC");
             require_once $_SERVER["DOCUMENT_ROOT"]."/lib/phpmailer/PHPMailerAutoload.php";
             
-            $m_file = $_SERVER["DOCUMENT_ROOT"]."email/contacts/email.php";
+            $m_file = $_SERVER["DOCUMENT_ROOT"]."/email/contacts/email.php";
             $m_content = GFile::Instance()->getInclude($m_file, $data);
             
             $mail = new PHPMailer;

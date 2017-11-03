@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/Cpp/Compilation/CMake/NMake/Librairie_Statique_Utilisation/src/../cmake/lib/hello/include/GMath.h
+
+C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/Cpp/Compilation/CMake/NMake/Librairie_Statique_Utilisation/src/../cmake/lib/hello/include/GShow.h
+string
+-
+
+C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/Cpp/Compilation/CMake/NMake/Librairie_Statique_Utilisation/src/main.cpp
+GShow.h
+C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/Cpp/Compilation/CMake/NMake/Librairie_Statique_Utilisation/src/GShow.h
+GMath.h
+C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/Cpp/Compilation/CMake/NMake/Librairie_Statique_Utilisation/src/GMath.h
+

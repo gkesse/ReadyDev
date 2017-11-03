@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\TiaGerard\Programs\ZairStudio\ReadyDev\tutoriels\cpp\cmake\devenv\full_project\manager\GProcess.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\TiaGerard\Programs\ZairStudio\ReadyDev\tutoriels\cpp\cmake\devenv\full_project\manager\GProcess.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\TiaGerard\Programs\ZairStudio\ReadyDev\tutoriels\cpp\cmake\devenv\full_project\manager\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{ACD5D385-3E3F-38DA-84C9-40E8629F0880}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{BBB7F2C8-DE01-3950-9843-CC07742A864E}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

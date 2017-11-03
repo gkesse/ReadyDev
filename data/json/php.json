@@ -1,8 +1,8 @@
 {
     "links":
     [
-        {"name":"Tutoriels","link":"/tutoriels/"},
-        {"name":"PHP","link":"/tutoriels/PHP/"}
+        {"name":"Tutoriels","link":"/Tutoriels/"},
+        {"name":"PHP","link":""}
     ],
     "details":
     [
@@ -63,11 +63,11 @@
             ],
             "menu":
             [
-                {"name":"WampServer","link":"/tutoriels/PHP/WampServer/#WampServer"},
-                {"name":"Déterminer l'adresse IP de la machine","link":"/tutoriels/PHP/WampServer/#Determiner_adresse_IP_machine"},
-                {"name":"Configurer le nom de la machine","link":"/tutoriels/PHP/WampServer/#Configurer_nom_machine"},
-                {"name":"Activer l'utilisation des serveurs virtuels","link":"/tutoriels/PHP/WampServer/#Activer_utilisation_serveurs_virtuels"},
-                {"name":"Configurer les serveurs virtuels","link":"/tutoriels/PHP/WampServer/#Configurer_serveurs_virtuels"}
+                {"name":"WampServer","link":"/Tutoriels/PHP/WampServer/#WampServer"},
+                {"name":"Déterminer l'adresse IP de la machine","link":"/Tutoriels/PHP/WampServer/#Determiner_adresse_IP_machine"},
+                {"name":"Configurer le nom de la machine","link":"/Tutoriels/PHP/WampServer/#Configurer_nom_machine"},
+                {"name":"Activer l'utilisation des serveurs virtuels","link":"/Tutoriels/PHP/WampServer/#Activer_utilisation_serveurs_virtuels"},
+                {"name":"Configurer les serveurs virtuels","link":"/Tutoriels/PHP/WampServer/#Configurer_serveurs_virtuels"}
             ]
         }
     ]

@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="RELEASE|Win32">
+      <Configuration>RELEASE</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGUID>{14547901-2DA1-393D-A335-E2B95FDFC24D}</ProjectGUID>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>Win32</Platform>
+    <ProjectName>Hello</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RELEASE|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+    <PropertyGroup>
+      <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='RELEASE|Win32'">C:\Users\TiaGerard\Programs\ZairStudio\ReadyDev\tutoriels\cpp\cmake\devenv\static_lib_creating\build\manager\RELEASE\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='RELEASE|Win32'">Hello.dir\RELEASE\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='RELEASE|Win32'">Hello</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='RELEASE|Win32'">.lib</TargetExt>
+    </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RELEASE|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>RELEASE/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="RELEASE";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat></DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"RELEASE\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions> /machine:X86 %(AdditionalOptions)</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\TiaGerard\Programs\ZairStudio\ReadyDev\tutoriels\cpp\cmake\devenv\static_lib_creating\manager\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='RELEASE|Win32'">Building Custom Rule C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/devenv/static_lib_creating/manager/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RELEASE|Win32'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -HC:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/devenv/static_lib_creating -BC:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/devenv/static_lib_creating/build --check-stamp-file C:\Users\TiaGerard\Programs\ZairStudio\ReadyDev\tutoriels\cpp\cmake\devenv\static_lib_creating\build\manager\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RELEASE|Win32'">C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/devenv/static_lib_creating/manager/CMakeLists.txt;C:\Users\TiaGerard\Programs\ZairStudio\ReadyDev\tutoriels\cpp\cmake\devenv\static_lib_creating\manager\CMakeLists.txt;C:\Users\TiaGerard\Programs\ZairStudio\ReadyDev\tutoriels\cpp\cmake\devenv\static_lib_creating\manager\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RELEASE|Win32'">C:\Users\TiaGerard\Programs\ZairStudio\ReadyDev\tutoriels\cpp\cmake\devenv\static_lib_creating\build\manager\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RELEASE|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\TiaGerard\Programs\ZairStudio\ReadyDev\tutoriels\cpp\cmake\devenv\static_lib_creating\manager\GShow.h" />
+    <ClInclude Include="C:\Users\TiaGerard\Programs\ZairStudio\ReadyDev\tutoriels\cpp\cmake\devenv\static_lib_creating\manager\GMath.h" />
+    <ClCompile Include="C:\Users\TiaGerard\Programs\ZairStudio\ReadyDev\tutoriels\cpp\cmake\devenv\static_lib_creating\manager\GShow.cpp"  />
+    <ClCompile Include="C:\Users\TiaGerard\Programs\ZairStudio\ReadyDev\tutoriels\cpp\cmake\devenv\static_lib_creating\manager\GMath.cpp"  />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/devenv/static_lib_creating/build/ZERO_CHECK.vcxproj">
+      <Project>A1E6C761-63E8-35B5-99A3-C826EF716B92</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

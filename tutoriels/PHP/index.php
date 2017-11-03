@@ -30,6 +30,12 @@
                         </a>
                     </h1>
                     <!-- ============================================ -->
+                    <?php if(isset($m_di["description"])) { ?>
+                        <div class="pgCt10">
+                            <?php echo join(" ", $m_di["description"]); ?>
+                        </div>
+                    <?php } ?>
+                    <!-- ============================================ -->
                     <?php if(isset($m_di["menu"])) { ?>
                         <div class="pgCt10">
                             <ul class="fa-ul">
@@ -74,39 +80,40 @@
                                             for($k = 0; $k < count($m_dj["menu"]); $k++) {
                                                 $m_dk = $m_dj["menu"][$k];
                                             ?>
-                                            <li class="mbb"><i class="fa-li fa fa-chevron-right"></i>
-                                                <a href="<?php echo $m_dk["link"]; ?>">
-                                                    <?php echo $m_dk["name"]; ?>
-                                                </a>
-                                            </li>
+                                        <li class="mbb"><i class="fa-li fa fa-chevron-right"></i>
+                                        <a href="<?php echo $m_dk["link"]; ?>">
+                                        <?php echo $m_dk["name"]; ?>
+                                        </a>
+                                        </li>
                                         <?php } ?>
-                                    </ul>
-                                </div>
-                            <?php } ?>
-                            <!-- ============================================ -->
-                            <?php if(isset($m_dj["tools"])) { ?>
-                                <div class="pgCt10">
-                                    <ul class="fa-ul">
+                                        </ul>
+                                        </div>
+                                        <?php } ?>
+                                        <!-- ============================================ -->
+                                        <?php if(isset($m_dj["tools"])) { ?>
+                                        <div class="pgCt10">
+                                        <ul class="fa-ul">
                                         <?php 
-                                            for($k = 0; $k < count($m_dj["tools"]); $k++) {
-                                                $m_dk = $m_dj["tools"][$k];
-                                            ?>
-                                            <li><i class="fa-li fa fa-check"></i><?php echo $m_dk; ?></li>
+                                        for($k = 0; $k < count($m_dj["tools"]); $k++) {
+                                        $m_dk = $m_dj["tools"][$k];
+                                        ?>
+                                        <li><i class="fa-li fa fa-check"></i><?php echo $m_dk; ?></li>
                                         <?php } ?>
-                                    </ul>
-                                </div>
-                            <?php } ?>
-                            <!-- ============================================ -->
-                        <?php } ?>
-                        <!-- ============================================ -->
-                    <?php } ?>
-                    <!-- ============================================ -->
-                </div>
-            </div>
-            <!-- ============================================ -->
-        <?php } ?>
-    </div>
-</div>
-<!-- ============================================ -->
-<?php require $_SERVER["DOCUMENT_ROOT"]."/php/footer.php"; ?>
-<!-- ============================================ -->
+                                        </ul>
+                                        </div>
+                                        <?php } ?>
+                                        <!-- ============================================ -->
+                                        <?php } ?>
+                                        <!-- ============================================ -->
+                                        <?php } ?>
+                                        <!-- ============================================ -->
+                                        </div>
+                                        </div>
+                                        <!-- ============================================ -->
+                                        <?php } ?>
+                                        </div>
+                                        </div>
+                                        <!-- ============================================ -->
+                                        <?php require $_SERVER["DOCUMENT_ROOT"]."/php/footer.php"; ?>
+                                        <!-- ============================================ -->
+                                                                                

@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/mingw/dynamic_lib_creating/manager/GMath.cpp
+GMath.h
+C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/mingw/dynamic_lib_creating/manager/GMath.h
+cmath
+-
+
+C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/mingw/dynamic_lib_creating/manager/GMath.h
+
+C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/mingw/dynamic_lib_creating/manager/GShow.cpp
+GShow.h
+C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/mingw/dynamic_lib_creating/manager/GShow.h
+iostream
+-
+iomanip
+-
+
+C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/mingw/dynamic_lib_creating/manager/GShow.h
+string
+-
+

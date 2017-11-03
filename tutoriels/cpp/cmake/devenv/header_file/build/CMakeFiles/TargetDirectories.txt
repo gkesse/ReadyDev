@@ -1,4 +1,0 @@
-C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/devenv/header_file/build/CMakeFiles/main.dir
-C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/devenv/header_file/build/CMakeFiles/ALL_BUILD.dir
-C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/devenv/header_file/build/CMakeFiles/ZERO_CHECK.dir
-C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/devenv/header_file/build/manager/CMakeFiles/GManager.dir
