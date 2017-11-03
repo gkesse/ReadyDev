@@ -1,0 +1,32 @@
+{
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/"},
+        {"name":"C/C++","link":"/Tutoriels/Cpp/"},
+        {"name":"MinGW","link":"/Tutoriels/Cpp/#MinGW"},
+        {"name":"Utilisation Librairie Dynamique","link":""}
+    ],
+    "definition":
+    [
+        "MinGW est une adaptation des logiciels de développement GNU à la plateforme Win32.",
+        "Contrairement à Cygwin, les programmes générés avec MinGW n'ont pas besoin de DLL.",
+        "MinGW inclut un ensemble de fichiers d'entête de Windows pour le développement",
+        "d'applications natives Win32."
+    ],
+    "img":
+    {
+        "results":"img/Resultats.png"
+    },
+    "see_also":
+    [
+        {"name":"MinGW","link":"/Tutoriels/Cpp/#MinGW"},
+        {"name":"Programme Simple","link":"/Tutoriels/Cpp/Compilation/MinGW/Programme_Simple"},
+        {"name":"Fichier Header","link":"/Tutoriels/Cpp/Compilation/MinGW/Fichier_Header"},
+        {"name":"Creation Librairie Statique","link":"/Tutoriels/Cpp/Compilation/MinGW/Librairie_Statique_Creation"},
+        {"name":"Utilisation Librairie Statique","link":"/Tutoriels/Cpp/Compilation/MinGW/Librairie_Statique_Utilisation"},
+        {"name":"Creation Librairie Dynamique","link":"/Tutoriels/Cpp/Compilation/MinGW/Librairie_Dynamique_Creation"},
+        {"name":"Utilisation Librairie Dynamique","link":"/Tutoriels/Cpp/Compilation/MinGW/Librairie_Dynamique_Utilisation"},
+        {"name":"Programme Complet","link":"/Tutoriels/Cpp/Compilation/MinGW/Programme_Complet"}
+    ]
+}
+                        

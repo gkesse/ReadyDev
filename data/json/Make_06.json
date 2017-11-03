@@ -1,0 +1,31 @@
+{
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/"},
+        {"name":"C/C++","link":"/Tutoriels/Cpp/"},
+        {"name":"Make","link":"/Tutoriels/Cpp/#Make"},
+        {"name":"Utilisation Librairie Dynamique","link":""}
+    ],
+    "definition":
+    [
+        "Make est un outil qui permet de construire automatiquement des fichiers",
+        "exécutables ou des librairies à partir de codes sources sur des systèmes Linux.",
+        "Il utilise un fichier Makefile qui spécifie comment construire les fichiers cibles."
+    ],
+    "img":
+    {
+        "results":"img/Resultats.png"
+    },
+    "see_also":
+    [
+        {"name":"Make","link":"/Tutoriels/Cpp/#Make"},
+        {"name":"Programme Simple","link":"/Tutoriels/Cpp/Compilation/Make/Programme_Simple"},
+        {"name":"Fichier Header","link":"/Tutoriels/Cpp/Compilation/Make/Fichier_Header"},
+        {"name":"Creation Librairie Statique","link":"/Tutoriels/Cpp/Compilation/Make/Librairie_Statique_Creation"},
+        {"name":"Utilisation Librairie Statique","link":"/Tutoriels/Cpp/Compilation/Make/Librairie_Statique_Utilisation"},
+        {"name":"Creation Librairie Dynamique","link":"/Tutoriels/Cpp/Compilation/Make/Librairie_Dynamique_Creation"},
+        {"name":"Utilisation Librairie Dynamique","link":"/Tutoriels/Cpp/Compilation/Make/Librairie_Dynamique_Utilisation"},
+        {"name":"Programme Complet","link":"/Tutoriels/Cpp/Compilation/Make/Programme_Complet"}
+    ]
+}
+                        

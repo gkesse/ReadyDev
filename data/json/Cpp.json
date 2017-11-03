@@ -1,0 +1,43 @@
+{
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/"},
+        {"name":"C/C++","link":""}
+    ],
+    "summary":
+    [
+        {"name":"Compilation","link":"/Tutoriels/Cpp/#Compilation"},
+        {"name":"Notions de Base","link":"/Tutoriels/Cpp/#Notions"},
+        {"name":"Patron de Conception","link":"/Tutoriels/Cpp/#Patron_Conception"}
+    ],
+    "compilation":
+    {
+        "compiler":
+        [
+            {"name":"Programme Simple","link":"/Tutoriels/Cpp/Compilation/NMake/Programme_Simple"},
+            {"name":"Fichier Header","link":"/Tutoriels/Cpp/Compilation/NMake/Fichier_Header"},
+            {"name":"Création Librairie Statique","link":"/Tutoriels/Cpp/Compilation/NMake/Librairie_Statique_Creation"},
+            {"name":"Utilisation Librairie Statique","link":"/Tutoriels/Cpp/Compilation/NMake/Librairie_Statique_Utilisation"},
+            {"name":"Création Librairie Dynamique","link":"/Tutoriels/Cpp/Compilation/NMake/Librairie_Dynamique_Creation"},
+            {"name":"Utilisation Librairie Dynamique","link":"/Tutoriels/Cpp/Compilation/NMake/Librairie_Dynamique_Utilisation"},
+            {"name":"Programme Complet","link":"/Tutoriels/Cpp/Compilation/NMake/Programme_Complet"}
+        ]
+    },
+    "basics":
+    [
+        {"name":"Notions de Base","link":"/Tutoriels/Cpp/#Notions"},
+        {"name":"Patron de Conception","link":"/Tutoriels/Cpp/#Patron_Conception"}
+    ],
+    "design_pattern":
+    {
+        "creational":
+        [
+            {"name":"Singleton","link":"/Tutoriels/Cpp/Patron_Conception/Creation/Singleton"},
+            {"name":"Fabrique","link":"/Tutoriels/Cpp/Patron_Conception/Creation/Fabrique"},
+            {"name":"Fabrique Abstraite","link":"/Tutoriels/Cpp/Patron_Conception/Creation/Fabrique_Abstraite"},
+            {"name":"Prototype","link":"/Tutoriels/Cpp/Patron_Conception/Creation/Prototype"},
+            {"name":"Monteur","link":"/Tutoriels/Cpp/Patron_Conception/Creation/Monteur"}
+        ]
+    }
+}
+                        
