@@ -1,6 +1,0 @@
-/home/pi/Programs/RaspberryPi/rpi/ZairStudio/ReadyDev/tutoriels/cpp/cmake/make/header_file/build/CMakeFiles/edit_cache.dir
-/home/pi/Programs/RaspberryPi/rpi/ZairStudio/ReadyDev/tutoriels/cpp/cmake/make/header_file/build/CMakeFiles/rebuild_cache.dir
-/home/pi/Programs/RaspberryPi/rpi/ZairStudio/ReadyDev/tutoriels/cpp/cmake/make/header_file/build/CMakeFiles/main.dir
-/home/pi/Programs/RaspberryPi/rpi/ZairStudio/ReadyDev/tutoriels/cpp/cmake/make/header_file/build/manager/CMakeFiles/edit_cache.dir
-/home/pi/Programs/RaspberryPi/rpi/ZairStudio/ReadyDev/tutoriels/cpp/cmake/make/header_file/build/manager/CMakeFiles/rebuild_cache.dir
-/home/pi/Programs/RaspberryPi/rpi/ZairStudio/ReadyDev/tutoriels/cpp/cmake/make/header_file/build/manager/CMakeFiles/GManager.dir

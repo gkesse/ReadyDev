@@ -1,2 +1,0 @@
-C:/cygwin/bin/ar.exe qc libHello.a  CMakeFiles/Hello.dir/GShow.cpp.o CMakeFiles/Hello.dir/GMath.cpp.o
-C:/cygwin/bin/ranlib.exe libHello.a

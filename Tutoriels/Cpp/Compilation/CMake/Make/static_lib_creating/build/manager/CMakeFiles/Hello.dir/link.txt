@@ -1,2 +1,0 @@
-/usr/bin/ar qc libHello.a  CMakeFiles/Hello.dir/GShow.cpp.o CMakeFiles/Hello.dir/GMath.cpp.o
-/usr/bin/ranlib libHello.a

@@ -1,3 +1,0 @@
-/home/pi/Programs/RaspberryPi/rpi/ZairStudio/ReadyDev/tutoriels/cpp/cmake/make/static_lib_using/build/CMakeFiles/edit_cache.dir
-/home/pi/Programs/RaspberryPi/rpi/ZairStudio/ReadyDev/tutoriels/cpp/cmake/make/static_lib_using/build/CMakeFiles/rebuild_cache.dir
-/home/pi/Programs/RaspberryPi/rpi/ZairStudio/ReadyDev/tutoriels/cpp/cmake/make/static_lib_using/build/CMakeFiles/main.dir

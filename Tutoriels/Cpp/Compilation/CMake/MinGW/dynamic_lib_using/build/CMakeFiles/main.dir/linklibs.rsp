@@ -1,1 +1,0 @@
- -LC:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/mingw/dynamic_lib_using/lib/hello  -lHello -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 

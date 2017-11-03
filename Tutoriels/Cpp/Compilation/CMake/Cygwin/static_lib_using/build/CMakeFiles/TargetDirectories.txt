@@ -1,3 +1,0 @@
-C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/cygwin/static_lib_using/build/CMakeFiles/edit_cache.dir
-C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/cygwin/static_lib_using/build/CMakeFiles/main.dir
-C:/Users/TiaGerard/Programs/ZairStudio/ReadyDev/tutoriels/cpp/cmake/cygwin/static_lib_using/build/CMakeFiles/rebuild_cache.dir

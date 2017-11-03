@@ -1,2 +1,0 @@
-C:/cygwin/bin/ar.exe qc libGManager.a  CMakeFiles/GManager.dir/GShow.cpp.o CMakeFiles/GManager.dir/GMath.cpp.o
-C:/cygwin/bin/ranlib.exe libGManager.a

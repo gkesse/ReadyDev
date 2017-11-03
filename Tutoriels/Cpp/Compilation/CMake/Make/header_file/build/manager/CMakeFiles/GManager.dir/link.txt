@@ -1,2 +1,0 @@
-/usr/bin/ar qc libGManager.a  CMakeFiles/GManager.dir/GShow.cpp.o CMakeFiles/GManager.dir/GMath.cpp.o
-/usr/bin/ranlib libGManager.a
