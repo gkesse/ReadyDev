@@ -1,0 +1,3 @@
+echo
+build/main
+echo

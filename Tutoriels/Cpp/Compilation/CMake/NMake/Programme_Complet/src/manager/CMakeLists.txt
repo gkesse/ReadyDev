@@ -1,0 +1,6 @@
+set(GTARGET Manager)
+set(GSOURCES GProcess.cpp)
+set(GHEADERS GProcess.h)
+set(GINCLUDEPATH ../../cmake/lib/hello/include)
+include_directories(${GINCLUDEPATH})
+add_library(${GTARGET} ${GSOURCES} ${GHEADERS})
