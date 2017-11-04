@@ -1,11 +1,9 @@
-<!-- ============================================ -->
 <?php
     GFileSystem::Instance()->run();
     $m_directoryMap = GFileSystem::Instance()->getDirectoryMap();
     $m_linkMap = GFileSystem::Instance()->getLinks();
     $m_status = GFileSystem::Instance()->getStatus();
     $m_filename = GFileSystem::Instance()->getFileName();
-    $m_imageName = GFileSystem::Instance()->getImageName();
 ?>
 <!-- ============================================ -->
 <div class="pgCt10">
@@ -36,7 +34,7 @@
                 <!-- ============================================ -->
                 <?php } elseif($m_status == "IMAGE") { ?>
                 <div class="pde mxha ova bba">
-                    <img src="<?php echo $m_imageName; ?>" alt="Image"/>
+                    <img src="<?php echo $m_filename; ?>" alt="Image"/>
                 </div>
                 <!-- ============================================ -->
                 <?php } else { ?>

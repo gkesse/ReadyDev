@@ -112,13 +112,7 @@
         }
         //===============================================
         public function getFileName() {
-            return $this->m_directory;
-        }
-        //===============================================
-        public function getImageName() {
-            $m_rootLenght = strlen($_SERVER["DOCUMENT_ROOT"]);
-            $m_imageName =  substr($this->m_directory, $m_rootLenght);
-            return $m_imageName;
+            return $this->m_link;
         }
         //===============================================
         public function setDirectory($file) {
