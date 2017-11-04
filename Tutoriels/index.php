@@ -1,8 +1,7 @@
-<!-- ============================================ -->
 <?php require $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoloadRegister.php"; ?>
 <!-- ============================================ -->
 <?php    
-    $m_data = GJson::Instance()->getData("data/json/tutoriels.json");
+    $m_data = GJson::Instance()->getData("data/json/Tutoriels.json");
     
     GHeader::Instance()->setTitle("Tutoriels");
     GHeader::Instance()->setMenu("Tutoriels");

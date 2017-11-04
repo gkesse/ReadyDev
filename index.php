@@ -1,8 +1,7 @@
-<!-- ============================================ -->
 <?php require $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoloadRegister.php"; ?>
 <!-- ============================================ -->
 <?php    
-    $m_data = GJson::Instance()->getData("data/json/cv.json");
+    $m_data = GJson::Instance()->getData("data/json/CV.json");
     
     GHeader::Instance()->setTitle("CV");
     GHeader::Instance()->setMenu("CV");

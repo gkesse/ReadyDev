@@ -1,7 +1,6 @@
-<!-- ============================================ -->
-<?php require $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoloadRegister.php"; ?>
-<!-- ============================================ -->
 <?php
+    require $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoloadRegister.php";
+    
     GPostRedirectGet::Instance()->redirect();
     
     $m_check = GContact::Instance()->check();
