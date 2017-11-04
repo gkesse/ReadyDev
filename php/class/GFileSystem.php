@@ -24,7 +24,6 @@
             $this->m_unused = array(
             "/^index.php$/", 
             "/^build$/", 
-            "/^bin$/", 
             "/debug$/", 
             "/release$/", 
             "/user$/");
