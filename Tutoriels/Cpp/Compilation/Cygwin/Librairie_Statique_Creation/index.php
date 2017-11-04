@@ -1,15 +1,15 @@
-<?php require $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoloadRegister.php"; ?>
-<!-- ============================================ -->
 <?php
+    require $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoloadRegister.php";
+    
     $m_data = GJson::Instance()->getData("data/json/Cygwin_03.json");
     
     GHeader::Instance()->setTitle("NMake");
     GHeader::Instance()->setMenu("Tutoriels");
     GHeader::Instance()->setView("Cygwin_03");
     GHeader::Instance()->setLink($m_data["links"]);
+
+    require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";
 ?>
-<!-- ============================================ -->
-<?php require $_SERVER["DOCUMENT_ROOT"]."/php/header.php"; ?>
 <!-- ============================================ -->
 <div class="pgBg">
     <div class="mrga pgBd pgCr10">

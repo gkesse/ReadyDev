@@ -23,20 +23,45 @@
             {"name":"Programme Complet","link":"/Tutoriels/Cpp/Compilation/NMake/Programme_Complet"}
         ]
     },
-    "basics":
-    [
-        {"name":"Notions de Base","link":"/Tutoriels/Cpp/#Notions"},
-        {"name":"Patron de Conception","link":"/Tutoriels/Cpp/#Patron_Conception"}
-    ],
+    "notion":
+    {
+        "basic":
+        [
+            {"name":"Boucle","link":"#"},
+            {"name":"Clavier","link":"#"},
+            {"name":"Condition","link":"#"},
+            {"name":"Console","link":"#"},
+            {"name":"Foncteur","link":"#"},
+            {"name":"Fonction","link":"#"},
+            {"name":"Iterateur","link":"#"},
+            {"name":"Pointeur","link":"#"},
+            {"name":"Référence","link":"#"},
+            {"name":"Tableau","link":"#"},
+            {"name":"Variable","link":"#"}
+        ],
+        "exception":
+        [
+            {"name":"Exception","link":"#"},
+            {"name":"Classe Exception","link":"#"},
+            {"name":"Exception Prédéfinie","link":"#"},
+            {"name":"Exception Préconfigurée","link":"#"}
+        ],
+        "template":
+        [
+            {"name":"Template","link":"#"},
+            {"name":"Classe Template","link":"#"},
+            {"name":"Fonction Template","link":"#"}
+        ]
+    },
     "design_pattern":
     {
-        "creational":
+        "creation":
         [
             {"name":"Singleton","link":"/Tutoriels/Cpp/Patron_Conception/Creation/Singleton"},
-            {"name":"Fabrique","link":"/Tutoriels/Cpp/Patron_Conception/Creation/Fabrique"},
-            {"name":"Fabrique Abstraite","link":"/Tutoriels/Cpp/Patron_Conception/Creation/Fabrique_Abstraite"},
-            {"name":"Prototype","link":"/Tutoriels/Cpp/Patron_Conception/Creation/Prototype"},
-            {"name":"Monteur","link":"/Tutoriels/Cpp/Patron_Conception/Creation/Monteur"}
+            {"name":"Fabrique","link":"#"},
+            {"name":"Fabrique Abstraite","link":"#"},
+            {"name":"Prototype","link":"#"},
+            {"name":"Monteur","link":"#"}
         ]
     }
 }

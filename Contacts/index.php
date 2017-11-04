@@ -9,9 +9,9 @@
     GHeader::Instance()->setTitle("Contacts");
     GHeader::Instance()->setMenu("Contacts");
     GHeader::Instance()->setView("Contacts");
+
+    require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";
 ?>
-<!-- ============================================ -->
-<?php require $_SERVER["DOCUMENT_ROOT"]."/php/header.php"; ?>
 <!-- ============================================ -->
 <div class="pgBg contacts">
     <div class="mrga pgBd pgCr10">

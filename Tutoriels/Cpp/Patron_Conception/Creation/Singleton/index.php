@@ -1,16 +1,16 @@
-<?php require $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoloadRegister.php"; ?>
-<!-- ============================================ -->
 <?php
+    require $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoloadRegister.php";
+    
     $m_data = GJson::Instance()->getData("data/json/Singleton.json");
     
     GHeader::Instance()->setTitle("Singleton");
     GHeader::Instance()->setMenu("Tutoriels");
     GHeader::Instance()->setView("Singleton");
     GHeader::Instance()->setLink($m_data["links"]);
+
+    require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";
 ?>
-<!-- ============================================ -->
-<?php require $_SERVER["DOCUMENT_ROOT"]."/php/header.php"; ?>
-<!-- ============================================ -->
+    <!-- ============================================ -->
 <div class="pgBg">
     <div class="mrga pgBd pgCr10">
         <!-- ============================================ -->
@@ -69,7 +69,7 @@ GSingleton* GSingleton::Instance() {
         <!-- ============================================ -->
         <div class="pgCt10">
         <div class="bga">
-        <h1 class="bga clrb pgCt20">Resultats</h1>
+        <h1 class="bga clrb pgCt20">Résultats</h1>
         <div class="tal ova pgCt10">
                     <?php $m_ds = $m_data["img"]["results"]; ?>
                     <img src="<?php echo $m_ds; ?>" alt="Resultats" />

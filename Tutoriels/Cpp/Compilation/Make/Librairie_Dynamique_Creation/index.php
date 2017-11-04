@@ -1,15 +1,15 @@
-<?php require $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoloadRegister.php"; ?>
-<!-- ============================================ -->
 <?php
+    require $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoloadRegister.php";
+    
     $m_data = GJson::Instance()->getData("data/json/Make_05.json");
     
     GHeader::Instance()->setTitle("Make");
     GHeader::Instance()->setMenu("Tutoriels");
     GHeader::Instance()->setView("Make_05");
     GHeader::Instance()->setLink($m_data["links"]);
+
+    require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";
 ?>
-<!-- ============================================ -->
-<?php require $_SERVER["DOCUMENT_ROOT"]."/php/header.php"; ?>
 <!-- ============================================ -->
 <div class="pgBg">
     <div class="mrga pgBd pgCr10">

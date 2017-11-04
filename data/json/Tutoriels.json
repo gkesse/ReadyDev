@@ -56,7 +56,7 @@
             "icon":"fa fa-globe",
             "theme":"PHP",
             "description":"Programmez en<br/> PHP",
-            "link":"/Tutoriels/PHP/"
+            "link":"#"
         }
     ],
     "version":

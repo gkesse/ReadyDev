@@ -1,14 +1,14 @@
-<?php require $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoloadRegister.php"; ?>
-<!-- ============================================ -->
-<?php    
+<?php
+    require $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoloadRegister.php";
+    
     $m_data = GJson::Instance()->getData("data/json/Presentation.json");
     
     GHeader::Instance()->setTitle("Présentation");
     GHeader::Instance()->setMenu("Présentation");
     GHeader::Instance()->setView("Presentation");
+
+    require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";
 ?>
-<!-- ============================================ -->
-<?php require $_SERVER["DOCUMENT_ROOT"]."/php/header.php"; ?>
 <!-- ============================================ -->
 <div class="pgBg">
     <div class="mrga pgBd pgCr10">
