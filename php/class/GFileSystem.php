@@ -1,4 +1,7 @@
 <?php   
+    //===============================================
+    require $_SERVER["DOCUMENT_ROOT"]."/php/functions.php";
+    //===============================================
     class GFileSystem {
         //===============================================
         // private members
@@ -55,10 +58,11 @@
                             if($m_readdir != "." && $m_isUnused == false) {
                                 if($m_readdir == ".." && $this->m_link == "") continue;
                                 $m_fullname = $this->m_directory . "/" . $m_readdir;
-                                $m_isDir2 = is_dir($m_fullname);
+                                $m_isDir2 = is_dir($m_fullname) ? 1 : 0;
                                 if($m_readdir == "..") $m_url = $this->m_redo;
                                 else $m_url = $this->m_link . "/" . $m_readdir;
                                 $this->m_directoryMap[] = array($m_isDir2, $m_readdir, $m_url);
+                                usort($this->m_directoryMap, "SortDirectory");
                             }
                         }
                         closedir($m_opendir);
