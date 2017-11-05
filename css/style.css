@@ -292,6 +292,11 @@ header ul li a.icon {
     border-bottom: 1px solid rgba(255,255,255,0.3);
 }
 
+/* border-right */
+.brga {
+    border-right: 1px solid rgba(255,255,255,0.3);
+}
+
 /* border radius */
 .bra {
     border-radius: 5px;
@@ -634,6 +639,10 @@ header ul li a.icon {
 
 .pde {
     padding: 10px 10px 5px 10px;
+}
+
+.pdf {
+    padding: 0 0 10px 10px;
 }
 
 /* padding left */

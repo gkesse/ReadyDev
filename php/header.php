@@ -21,11 +21,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
         <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Aclonica"/>
         <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Akronim"/>
-        <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=css&amp;skin=sunburst"></script>
-        
         <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css"/>
-        <link rel="stylesheet" href="/css/style.css"/>
+        <link rel="stylesheet" href="/lib/easyshare/dist/jquery.kyco.easyshare.css">
+        
+        <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=css&amp;skin=sunburst"></script>
         <script src="/lib/jquery/jquery.min.js"></script>
+        <script src="/lib/easyshare/dist/jquery.kyco.easyshare.js"></script>
+        
+        <link rel="stylesheet" href="/css/style.css"/>
         <script src="/js/class/GSetting.js"></script>        
     </head>
     <body>
@@ -50,8 +53,8 @@
             <div class="pgCt20">
                 <div class="bga">
                     <h1 class="bga clra pgCt20"><?php echo $m_title; ?></h1>
+                    <!-- ============================================ -->
                     <div class="pgCt10">
-                        <!-- ============================================ -->
                         <div class="bga dibm fsc">
                             <div class="bga fl pgCt05">
                                 <i class="fsb fa fa-eye"></i>
@@ -61,22 +64,38 @@
                                 <span><?php echo $m_views; ?></span>
                             </div>
                         </div>
-                        <!-- ============================================ -->
                     </div>
+                    <!-- ============================================ -->
+                    <div class="dibm pba">
+                        <?php $m_url = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; ?>
+                        <div data-easyshare data-easyshare-url="<?php echo $m_url; ?>">
+                            <button data-easyshare-button="facebook">
+                                <span class="fa fa-facebook"></span>
+                            </button>
+                            <span data-easyshare-button-count="facebook">0</span>
+                            <!-- ============================================ -->
+                            <button data-easyshare-button="linkedin">
+                                <span class="fa fa-linkedin"></span>
+                            </button>
+                            <span data-easyshare-button-count="linkedin">0</span>
+                        </div>
+                    </div>
+                    <!-- ============================================ -->
                 </div>
             </div>
             <!-- ============================================ -->
             <div class="ffb pgCt00">
                 <?php 
                     for($i = 0; $i < count($m_link); $i++) {
-                        $m_di = $m_link[$i]; 
-                        if($i != 0) { 
-                        ?>
-                        <i class="fa fa-chevron-right pdc dibm mbb"></i>
-                    <?php } ?>
-                    <a class="bga dibm pdc mbb" href="<?php echo $m_di["link"]; ?>"><?php echo $m_di["name"]; ?></a>
+                    $m_di = $m_link[$i]; 
+                    if($i != 0) { 
+                    ?>
+                    <i class="fa fa-chevron-right pdc dibm mbb"></i>
+                <?php } ?>
+                <a class="bga dibm pdc mbb" href="<?php echo $m_di["link"]; ?>"><?php echo $m_di["name"]; ?></a>
                 <?php } ?>
             </div>
             <!-- ============================================ -->
         </header>
         <!-- ============================================ -->
+        
