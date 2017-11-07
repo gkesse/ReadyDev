@@ -11,7 +11,7 @@
 ?>
 <!-- ============================================ -->
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" xmlns:og="http://ogp.me/ns#">
     <head>
         <?php 
             $m_ds = $m_header["site"];
@@ -19,6 +19,12 @@
         <title><?php echo $m_ds["name"]; ?> - <?php echo $m_title; ?></title>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+        <meta property="og:title" content="ReadyDev | Développement Logiciel" />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="http://5.48.215.193:8855/" />
+        <meta property="og:image" content="https://github.com/gkesse/ReadyDev/blob/master/img/logo_title.png" />
+
         <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Aclonica"/>
         <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Akronim"/>
         <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css"/>
@@ -68,16 +74,15 @@
                     <!-- ============================================ -->
                     <div class="dibm pba">
                         <?php $m_url = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; ?>
-                        <div data-easyshare data-easyshare-url="<?php echo $m_url; ?>">
-                            <button data-easyshare-button="facebook">
-                                <span class="fa fa-facebook"></span>
-                            </button>
-                            <span data-easyshare-button-count="facebook">0</span>
-                            <!-- ============================================ -->
-                            <button data-easyshare-button="linkedin">
-                                <span class="fa fa-linkedin"></span>
-                            </button>
-                            <span data-easyshare-button-count="linkedin">0</span>
+                        <div class="fl mra">
+                            <a href="http://www.facebook.com/sharer.php?u=<?php echo $m_url; ?>" target="_blank">
+                                <i class="faa fa fa-facebook sna"></i>
+                            </a>
+                        </div>
+                        <div class="fl">
+                            <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo $m_url; ?>" target="_blank">
+                                <i class="faa fa fa-linkedin snb"></i>
+                            </a>
                         </div>
                     </div>
                     <!-- ============================================ -->
@@ -87,15 +92,15 @@
             <div class="ffb pgCt00">
                 <?php 
                     for($i = 0; $i < count($m_link); $i++) {
-                    $m_di = $m_link[$i]; 
-                    if($i != 0) { 
-                    ?>
-                    <i class="fa fa-chevron-right pdc dibm mbb"></i>
-                <?php } ?>
-                <a class="bga dibm pdc mbb" href="<?php echo $m_di["link"]; ?>"><?php echo $m_di["name"]; ?></a>
-                <?php } ?>
-            </div>
+                        $m_di = $m_link[$i]; 
+                        if($i != 0) { 
+                        ?>
+                        <i class="fa fa-chevron-right pdc dibm mbb"></i>
+                    <?php } ?>
+                    <a class="bga dibm pdc mbb" href="<?php echo $m_di["link"]; ?>"><?php echo $m_di["name"]; ?></a>
+                    <?php } ?>
+                </div>
+                <!-- ============================================ -->
+            </header>
             <!-- ============================================ -->
-        </header>
-        <!-- ============================================ -->
-        
+                

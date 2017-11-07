@@ -707,6 +707,22 @@ header ul li a.icon {
     text-align: left;
 }
 
+/* social network */
+.sna {
+    background: #3b5998;
+}
+
+.sna:hover {
+    opacity: 0.8;
+}
+
+.snb {
+    background: #0e76a8;
+}
+
+.snb:hover {
+    opacity: 0.8;
+}
 /* text-align */
 .tal {
     text-align: left;
