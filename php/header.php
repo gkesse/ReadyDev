@@ -20,7 +20,7 @@
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
-        <meta property="og:title" content="ReadyDev | Développement Logiciel" />
+        <meta property="og:title" content="ReadyDev | DÃ©veloppement Logiciel" />
         <meta property="og:type" content="article" />
         <meta property="og:url" content="http://5.48.215.193:8855/" />
         <meta property="og:image" content="https://github.com/gkesse/ReadyDev/blob/master/img/logo_title.png" />
