@@ -23,7 +23,7 @@
         <meta property="og:title" content="ReadyDev Développement Logiciel" />
         <meta property="og:type" content="article" />
         <meta property="og:url" content="http://5.48.215.193:8855/" />
-        <meta property="og:image" content="https://github.com/gkesse/ReadyDev/blob/master/img/logo_title.png" />
+        <meta property="og:image" content="https://raw.githubusercontent.com/gkesse/ReadyDev/master/img/logo_title.png" />
 
         <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Aclonica"/>
         <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Akronim"/>
