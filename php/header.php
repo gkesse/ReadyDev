@@ -11,7 +11,7 @@
 ?>
 <!-- ============================================ -->
 <!DOCTYPE html>
-<html lang="fr" xmlns:og="http://ogp.me/ns#">
+<html lang="fr">
     <head>
         <?php 
             $m_ds = $m_header["site"];
@@ -20,11 +20,8 @@
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
-        <meta property="og:title" content="ReadyDev Développement Logiciel" />
-        <meta property="og:type" content="article" />
-        <meta property="og:url" content="http://5.48.215.193:8855/" />
-        <meta property="og:image" content="https://raw.githubusercontent.com/gkesse/ReadyDev/master/img/logo_title.png" />
-
+        <link rel="icon" type="image/png" href="/img/logo_title.png" />
+        
         <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Aclonica"/>
         <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Akronim"/>
         <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css"/>
