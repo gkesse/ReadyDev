@@ -69,7 +69,7 @@ GSingleton* GSingleton::Instance() {
         <!-- ============================================ -->
         <div class="pgCt10">
         <div class="bga">
-        <h1 class="bga clrb pgCt20">Résultats</h1>
+        <h1 class="bga clrb pgCt20">RÃ©sultats</h1>
         <div class="tal ova pgCt10">
                     <?php $m_ds = $m_data["img"]["results"]; ?>
                     <img src="<?php echo $m_ds; ?>" alt="Resultats" />
