@@ -344,6 +344,10 @@ header ul li a.icon {
     color: red;
 }
 
+.clri {
+    color: yellow;
+}
+
 /* display inline-block */
 .dibm {
     display: inline-block;

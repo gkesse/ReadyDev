@@ -1,4 +1,3 @@
-<!-- ============================================ -->
 <?php     
     $m_title = GHeader::Instance()->getTitle(); 
     $m_menu = GHeader::Instance()->getMenu(); 
@@ -19,7 +18,7 @@
         <title><?php echo $m_ds["name"]; ?> - <?php echo $m_title; ?></title>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
+        
         <link rel="icon" type="image/png" href="/img/logo_title.png" />
         
         <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Aclonica"/>
@@ -56,48 +55,52 @@
             <div class="pgCt20">
                 <div class="bga">
                     <h1 class="bga clra pgCt20"><?php echo $m_title; ?></h1>
-                    <!-- ============================================ -->
-                    <div class="pgCt10">
-                        <div class="bga dibm fsc">
-                            <div class="bga fl pgCt05">
-                                <i class="fsb fa fa-eye"></i>
-                                <span>Vues</span>
+                    <?php if(strtolower($m_title) != "erreur") { ?>
+                        <!-- ============================================ -->
+                        <div class="pgCt10">
+                            <div class="bga dibm fsc">
+                                <div class="bga fl pgCt05">
+                                    <i class="fsb fa fa-eye"></i>
+                                    <span>Vues</span>
+                                </div>
+                                <div class="fl pgCt05">
+                                    <span><?php echo $m_views; ?></span>
+                                </div>
                             </div>
-                            <div class="fl pgCt05">
-                                <span><?php echo $m_views; ?></span>
+                        </div>
+                        <!-- ============================================ -->
+                        <div class="dibm pba">
+                            <?php $m_url = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; ?>
+                            <div class="fl mra">
+                                <a href="http://www.facebook.com/sharer.php?u=<?php echo $m_url; ?>" target="_blank">
+                                    <i class="faa fa fa-facebook sna"></i>
+                                </a>
+                            </div>
+                            <div class="fl">
+                                <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo $m_url; ?>" target="_blank">
+                                    <i class="faa fa fa-linkedin snb"></i>
+                                </a>
                             </div>
                         </div>
-                    </div>
-                    <!-- ============================================ -->
-                    <div class="dibm pba">
-                        <?php $m_url = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; ?>
-                        <div class="fl mra">
-                            <a href="http://www.facebook.com/sharer.php?u=<?php echo $m_url; ?>" target="_blank">
-                                <i class="faa fa fa-facebook sna"></i>
-                            </a>
-                        </div>
-                        <div class="fl">
-                            <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo $m_url; ?>" target="_blank">
-                                <i class="faa fa fa-linkedin snb"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- ============================================ -->
+                        <!-- ============================================ -->
+                    <?php } ?>
                 </div>
             </div>
             <!-- ============================================ -->
-            <div class="ffb pgCt00">
-                <?php 
-                    for($i = 0; $i < count($m_link); $i++) {
-                        $m_di = $m_link[$i]; 
-                        if($i != 0) { 
-                        ?>
-                        <i class="fa fa-chevron-right pdc dibm mbb"></i>
-                    <?php } ?>
-                    <a class="bga dibm pdc mbb" href="<?php echo $m_di["link"]; ?>"><?php echo $m_di["name"]; ?></a>
+            <?php if(strtolower($m_title) != "erreur") { ?>
+                <div class="ffb pgCt00">
+                    <?php 
+                        for($i = 0; $i < count($m_link); $i++) {
+                            $m_di = $m_link[$i]; 
+                            if($i != 0) { 
+                            ?>
+                            <i class="fa fa-chevron-right pdc dibm mbb"></i>
+                        <?php } ?>
+                        <a class="bga dibm pdc mbb" href="<?php echo $m_di["link"]; ?>"><?php echo $m_di["name"]; ?></a>
                     <?php } ?>
                 </div>
-                <!-- ============================================ -->
-            </header>
+            <?php } ?>
             <!-- ============================================ -->
-                
+        </header>
+        <!-- ============================================ -->
+        
