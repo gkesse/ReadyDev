@@ -26,9 +26,19 @@
         <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css"/>
         <link rel="stylesheet" href="/lib/easyshare/dist/jquery.kyco.easyshare.css">
         
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-109595989-1"></script>
         <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=css&amp;skin=sunburst"></script>
         <script src="/lib/jquery/jquery.min.js"></script>
         <script src="/lib/easyshare/dist/jquery.kyco.easyshare.js"></script>
+        
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            
+            gtag('config', 'UA-109595989-1');
+        </script>
         
         <link rel="stylesheet" href="/css/style.css"/>
         <script src="/js/class/GSetting.js"></script>        
