@@ -1,61 +1,66 @@
 <?php     
+    GMetaData::Instance()->getData();
+    
     $m_title = GConfig::Instance()->getData("title"); 
     
-    $m_existMenu = GConfig::Instance()->existData("menu");
-    if($m_existMenu == true) {
+    $m_existstMenu = GConfig::Instance()->existData("menu");
+    if($m_existstMenu == true) {
         $m_menu = GConfig::Instance()->getData("menu"); 
     }
     
-    $m_existLink = GConfig::Instance()->existData("link");
-    if($m_existLink == true) {
+    $m_existstLink = GConfig::Instance()->existData("link");
+    if($m_existstLink == true) {
         $m_link = GConfig::Instance()->getData("link"); 
     }
     
-    $m_existView = GConfig::Instance()->existData("view");
-    if($m_existView == true) {
+    $m_existstView = GConfig::Instance()->existData("view");
+    if($m_existstView == true) {
         $m_viewTag = GConfig::Instance()->getData("view"); 
         $m_viewNum = GView::Instance()->getView($m_viewTag);
     }
     
-    $m_exiMetaDesc = GConfig::Instance()->existData("meta_desc");
-    if($m_exiMetaDesc == true) {
-        $m_metaDesc = GConfig::Instance()->getData("meta_desc"); 
+    $m_existMetaDesc = GConfig::Instance()->existData("meta_desc");
+    if($m_existMetaDesc == true) {
+        $m_metaDesc = join(" ", GConfig::Instance()->getData("meta_desc")); 
+        $m_metaDesc = mb_strimwidth($m_metaDesc, 0, 160, "...");
     }
     
-    $m_exiMetaRobots = GConfig::Instance()->existData("meta_desc");
-    if($m_exiMetaRobots == true) {
-        $m_metaRobots = GConfig::Instance()->getData("meta_robots"); 
+    $m_existMetaRobots = GConfig::Instance()->existData("meta_robo");
+    if($m_existMetaRobots == true) {
+        $m_metaRobots = GConfig::Instance()->getData("meta_robo"); 
     }
     
-    $m_exiLinkCano = GConfig::Instance()->existData("link_cano");
-    if($m_exiLinkCano == true) {
-        $m_linkCano = GConfig::Instance()->getData("link_cano"); 
-        }
+    $m_existMetaCano = GConfig::Instance()->existData("meta_cano");
+    if($m_existMetaCano == true) {
+        $m_metaCano = GConfig::Instance()->getData("meta_cano"); 
+        $m_metaCano = GGlobal::Instance()->getUrl($m_metaCano); 
+    }
     
     $m_headerData = GJson::Instance()->getData("data/json/header.json"); 
 ?>
 <!-- ============================================ -->
 <!DOCTYPE html>
-<html xmlns:og="http://ogp.me/ns#">
+<html lang="fr">
     <head>
         <?php 
             $m_ds = $m_headerData["site"];
         ?>
         <!-- ============================================ -->
-        <title><?php echo $m_ds["name"]; ?> - <?php echo $m_title; ?></title>
+        <title><?php echo $m_title; ?> | <?php echo $m_ds["name"]; ?></title>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+        <link rel="icon" type="image/png" href="/img/readydev.png" />
         <!-- ============================================ -->
-        <?php if($m_exiMetaDesc == true) { ?>
+        <!-- Google -->
+        <?php if($m_existMetaDesc == true) { ?>
             <meta name="description" content="<?php echo $m_metaDesc; ?>"/>
         <?php } ?>
-        <?php if($m_exiMetaRobots == true) { ?>
+        <?php if($m_existMetaRobots == true) { ?>
             <meta name="robots" content="<?php echo $m_metaRobots; ?>"/>
         <?php } ?>
-        <?php if($m_exiLinkCano == true) { ?>
-            <link rel="canonical" href="<?php echo $m_linkCano; ?>" />
+        <?php if($m_existMetaCano == true) { ?>
+            <link rel="canonical" href="<?php echo $m_metaCano; ?>" />
         <?php } ?>
-        <link rel="icon" type="image/png" href="/img/logo_title.png" />
         <!-- ============================================ -->
         <meta property="og:title" content="Ingénieur Développeur Logiciel C/C++/Qt" />
         <meta property="og:type" content="article" />
@@ -100,7 +105,7 @@
                     for($i = 0; $i < count($m_ds); $i++) { 
                         $m_di = $m_ds[$i];
                         $m_active = "";
-                        if($m_existMenu == true) {
+                        if($m_existstMenu == true) {
                             if($m_di["name"] == $m_menu) {
                                 $m_active = "active";
                             }
@@ -120,7 +125,7 @@
                 <div class="bgra">
                     <h1 class="bgra clra pgCt20"><?php echo $m_title; ?></h1>
                     <!-- ============================================ -->
-                    <?php if($m_existView == true) { ?>
+                    <?php if($m_existstView == true) { ?>
                         <div class="pgCt10">
                             <div class="bgra dibm ftsc">
                                 <div class="bgra fltl pgCt05">
@@ -151,7 +156,7 @@
                 </div>
             </div>
             <!-- ============================================ -->
-            <?php if($m_existLink == true) { ?>
+            <?php if($m_existstLink == true) { ?>
                 <div class="pdda">
                     <?php 
                         for($i = 0; $i < count($m_link); $i++) {

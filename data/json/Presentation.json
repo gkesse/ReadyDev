@@ -1,4 +1,14 @@
 {
+    "meta_data":
+    {
+        "meta_desc":
+        [
+            "ReadyDev propose un CV et une présentation détaillée de son rédacteur,",
+            "Ingénieur Electronicien Roboticien et Informaticien Industriel",
+            "Polytech'Montpellier."
+        ],
+        "meta_cano":"/Presentation/"
+    },    
     "avatar":
     {
         "src":"/img/img_avatar.png",

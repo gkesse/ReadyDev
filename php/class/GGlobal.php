@@ -14,13 +14,18 @@
             return self::$m_instance;
         }
         //===============================================
-        // public methods
         public function getText($data) {
             $data = trim($data);
             $data = stripslashes($data);
             $data = htmlspecialchars($data);
-            //$data = nl2br($data);
             return $data;        
+        }
+        //===============================================
+        public function getUrl($data) {
+            $m_url = "http://";
+            $m_url .= $_SERVER['HTTP_HOST'];
+            $m_url .= $data;
+            return $m_url;        
         }
         //===============================================
     }

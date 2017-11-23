@@ -1,4 +1,13 @@
 {
+    "meta_data":
+    {
+        "meta_desc":
+        [
+            "ReadyDev propose des Tutoriels permettant de monter en compétences de",
+            "manière éfficace en Dévloppement Logiciel, Systèmes Embarqués, Robotique."
+        ],
+        "meta_cano":"/Tutoriels/"
+    },    
     "summary":
     [
         {"name":"Développement Logiciel","link":"#Developpement_Logiciel"},
