@@ -30,7 +30,7 @@
     $m_exiLinkCano = GConfig::Instance()->existData("link_cano");
     if($m_exiLinkCano == true) {
         $m_linkCano = GConfig::Instance()->getData("link_cano"); 
-    }
+        }
     
     $m_headerData = GJson::Instance()->getData("data/json/header.json"); 
 ?>
@@ -59,11 +59,9 @@
         <!-- ============================================ -->
         <meta property="og:title" content="Ingénieur Développeur Logiciel C/C++/Qt" />
         <meta property="og:type" content="article" />
-        <meta property="og:description" content="Je suis Gerard KESSE,
-        Ingénieur en Développement Informatique C/C++/Qt,
-        Avec à la fois des compétences en Systèmes Embarqués et en Robotique." />
-        <meta property="og:url" content="http://5.48.215.193:8855/Presentation/" />
-        <meta property="og:image" content="http://5.48.215.193:8855/img/logo_title.png" />
+        <meta property="og:description" content="Electronique Robotique Informatique Industrielle" />
+        <meta property="og:url" content="http://5.48.215.193:8855/Tutoriels/" />
+        <meta property="og:image" content="http://5.48.215.193:8855/img/readydev.png" />
         <!-- ============================================ -->
         <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Aclonica"/>
         <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Akronim"/>
@@ -98,75 +96,75 @@
                     </a>
                 </li>
                 <?php 
-                $m_ds = $m_headerData["menu"];
-                for($i = 0; $i < count($m_ds); $i++) { 
-                $m_di = $m_ds[$i];
-                $m_active = "";
-                if($m_existMenu == true) {
-                if($m_di["name"] == $m_menu) {
-                $m_active = "active";
-                }
-                }
-                ?>
-                <li class="hdml">
-                <a class="hdmi <?php echo $m_active; ?>" 
-                href="<?php echo $m_di["link"]; ?>">
-                <?php echo $m_di["name"]; ?>
-                </a>
-                </li>
+                    $m_ds = $m_headerData["menu"];
+                    for($i = 0; $i < count($m_ds); $i++) { 
+                        $m_di = $m_ds[$i];
+                        $m_active = "";
+                        if($m_existMenu == true) {
+                            if($m_di["name"] == $m_menu) {
+                                $m_active = "active";
+                            }
+                        }
+                    ?>
+                    <li class="hdml">
+                        <a class="hdmi <?php echo $m_active; ?>" 
+                        href="<?php echo $m_di["link"]; ?>">
+                            <?php echo $m_di["name"]; ?>
+                        </a>
+                    </li>
                 <?php } ?>
                 <li class="hdmb"><i class="fa fa-bars"></i></li>
-                </ul>
-                <!-- ============================================ -->
-                <div class="pgCt10">
+            </ul>
+            <!-- ============================================ -->
+            <div class="pgCt10">
                 <div class="bgra">
-                <h1 class="bgra clra pgCt20"><?php echo $m_title; ?></h1>
-                <!-- ============================================ -->
-                <?php if($m_existView == true) { ?>
-                <div class="pgCt10">
-                <div class="bgra dibm ftsc">
-                <div class="bgra fltl pgCt05">
-                <i class="ftsb fa fa-eye"></i>
-                <span>Vues</span>
+                    <h1 class="bgra clra pgCt20"><?php echo $m_title; ?></h1>
+                    <!-- ============================================ -->
+                    <?php if($m_existView == true) { ?>
+                        <div class="pgCt10">
+                            <div class="bgra dibm ftsc">
+                                <div class="bgra fltl pgCt05">
+                                    <i class="ftsb fa fa-eye"></i>
+                                    <span>Vues</span>
+                                </div>
+                                <div class="fltl pgCt05">
+                                    <span><?php echo $m_viewNum; ?></span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ============================================ -->
+                        <div class="dibm pdba">
+                            <?php $m_url = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; ?>
+                            <div class="fltl mgra">
+                                <a href="http://www.facebook.com/sharer.php?u=<?php echo $m_url; ?>" target="_blank">
+                                    <i class="ftaa fa fa-facebook scna"></i>
+                                </a>
+                            </div>
+                            <div class="fltl">
+                                <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo $m_url; ?>" target="_blank">
+                                    <i class="ftaa fa fa-linkedin scnb"></i>
+                                </a>
+                            </div>
+                        </div>
+                    <?php } ?>
+                    <!-- ============================================ -->
                 </div>
-                <div class="fltl pgCt05">
-                <span><?php echo $m_viewNum; ?></span>
-                </div>
-                </div>
-                </div>
-                <!-- ============================================ -->
-                <div class="dibm pdba">
-                <?php $m_url = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; ?>
-                <div class="fltl mgra">
-                <a href="http://www.facebook.com/sharer.php?u=<?php echo $m_url; ?>" target="_blank">
-                <i class="ftaa fa fa-facebook scna"></i>
-                </a>
-                </div>
-                <div class="fltl">
-                <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo $m_url; ?>" target="_blank">
-                <i class="ftaa fa fa-linkedin scnb"></i>
-                </a>
-                </div>
-                </div>
-                <?php } ?>
-                <!-- ============================================ -->
-                </div>
-                </div>
-                <!-- ============================================ -->
-                <?php if($m_existLink == true) { ?>
+            </div>
+            <!-- ============================================ -->
+            <?php if($m_existLink == true) { ?>
                 <div class="pdda">
-                <?php 
-                for($i = 0; $i < count($m_link); $i++) {
-                $m_di = $m_link[$i]; 
-                if($i != 0) { 
-                ?>
-                <i class="fa fa-chevron-right pddc dibm mgbb"></i>
-                <?php } ?>
-                <a class="ftfb bgra dibm pddc mgbb" href="<?php echo $m_di["link"]; ?>"><?php echo $m_di["name"]; ?></a>
-                <?php } ?>
+                    <?php 
+                        for($i = 0; $i < count($m_link); $i++) {
+                            $m_di = $m_link[$i]; 
+                            if($i != 0) { 
+                            ?>
+                            <i class="fa fa-chevron-right pddc dibm mgbb"></i>
+                        <?php } ?>
+                        <a class="ftfb bgra dibm pddc mgbb" href="<?php echo $m_di["link"]; ?>"><?php echo $m_di["name"]; ?></a>
+                    <?php } ?>
                 </div>
-                <?php } ?>
-                <!-- ============================================ -->
-                </header>
-                <!-- ============================================ -->
-                                
+            <?php } ?>
+            <!-- ============================================ -->
+        </header>
+        <!-- ============================================ -->
+        

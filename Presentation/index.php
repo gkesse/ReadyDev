@@ -22,7 +22,7 @@
                 </h1>
                 <div class="txal pgCt10">
                     <?php $m_ds = $m_data["avatar"]; ?>
-                    <img class="fltl brdb" src="<?php echo $m_ds["src"]; ?>" 
+                    <img class="fltl brrb" src="<?php echo $m_ds["src"]; ?>" 
                     alt="<?php echo $m_ds["alt"]; ?>"
                     width="<?php echo $m_ds["width"]; ?>"/>
                     <?php $m_ds = $m_data["intro"]; ?>
