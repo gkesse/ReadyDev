@@ -1,5 +1,5 @@
 <?php
     header('HTTP/1.1 404 Not Found');
-    header('Location: /CV/');
+    header('Location: /Tutoriels/');
     exit;
 ?>

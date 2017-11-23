@@ -3,20 +3,20 @@
     
     $m_data = GJson::Instance()->getData("data/json/Tutoriels.json");
     
-    GHeader::Instance()->setTitle("Tutoriels");
-    GHeader::Instance()->setMenu("Tutoriels");
-    GHeader::Instance()->setView("Tutoriels");
+    GConfig::Instance()->setData("title", "Tutoriels");
+    GConfig::Instance()->setData("menu", "Tutoriels");
+    GConfig::Instance()->setData("view", "Tutoriels");
 
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";
 ?>
 <!-- ============================================ -->
 <div class="pgBg">
-    <div class="mrga pgBd pgCr10">
+    <div class="mrga pgBd">
         <!-- ============================================ -->
         <div class="pgCt10">
-            <div class="bga">
-                <h1 class="bga clrb pgCt20" id="Sommaire">Sommaire</h1>
-                <div class="tal pgCt10">
+            <div class="bgra">
+                <h1 class="bgra clrb pgCt20" id="Sommaire">Sommaire</h1>
+                <div class="txal pgCt10">
                     <ul class="fa-ul">
                         <?php 
                             $m_ds = $m_data["summary"];
@@ -35,28 +35,28 @@
         </div>
         <!-- ============================================ -->
         <div class="pgCt10">
-            <div class="bga">
-                <h1 class="bga clrb pgCt20" id="Developpement_Logiciel">Développement Logiciel</h1>
+            <div class="bgra">
+                <h1 class="bgra clrb pgCt20" id="Developpement_Logiciel">Développement Logiciel</h1>
                 <div class="pgRw">
                     <?php 
                         $m_ds = $m_data["software"];
                         foreach($m_ds as $m_di) {
                         ?>
-                        <div class="rsa pgCl06">
-                            <a class="bgf dibm bdb evtb" href="<?php echo $m_di["link"]; ?>">
-                                <div class="bgg">
-                                    <div class="bga htb tac dtlf">
+                        <div class="rwda pgCl06">
+                            <a class="bgrf dibm brdb evtb" href="<?php echo $m_di["link"]; ?>">
+                                <div class="bgrg">
+                                    <div class="bgra hghb txac dtlf">
                                         <div class="dtcm">
-                                            <i class="fse fa <?php echo $m_di["icon"]; ?>"></i>
+                                            <i class="ftse fa <?php echo $m_di["icon"]; ?>"></i>
                                         </div>
                                     </div>
-                                    <div class="htc tac dtlf">
+                                    <div class="hghc txac dtlf">
                                         <div class="dtcm">
-                                            <div class="fsd ffb pdb"><?php echo $m_di["theme"]; ?></div>
+                                            <div class="ftsd ftfb pddb"><?php echo $m_di["theme"]; ?></div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="pdc fsc clrd tac"><?php echo $m_di["description"]; ?></div>
+                                <div class="pddc ftsc clrd txac"><?php echo $m_di["description"]; ?></div>
                             </a>
                         </div>
                     <?php } ?>
@@ -65,28 +65,28 @@
         </div>
         <!-- ============================================ -->
         <div class="pgCt10">
-            <div class="bga">
-                <h1 class="bga clrb pgCt20" id="Developpement_Web">Développement Web</h1>
+            <div class="bgra">
+                <h1 class="bgra clrb pgCt20" id="Developpement_Web">Développement Web</h1>
                 <div class="pgRw">
                     <?php 
                         $m_ds = $m_data["web"];
                         foreach($m_ds as $m_di) {
                         ?>
-                        <div class="rsa pgCl06">
-                            <a class="bgf dibm bdb evtb" href="<?php echo $m_di["link"]; ?>">
-                                <div class="bgg">
-                                    <div class="bga htb tac dtlf">
+                        <div class="rwda pgCl06">
+                            <a class="bgrf dibm brdb evtb" href="<?php echo $m_di["link"]; ?>">
+                                <div class="bgrg">
+                                    <div class="bgra hghb txac dtlf">
                                         <div class="dtcm">
-                                            <i class="fse fa <?php echo $m_di["icon"]; ?>"></i>
+                                            <i class="ftse fa <?php echo $m_di["icon"]; ?>"></i>
                                         </div>
                                     </div>
-                                    <div class="htc tac dtlf">
+                                    <div class="hghc txac dtlf">
                                         <div class="dtcm">
-                                            <div class="fsd ffb pdb"><?php echo $m_di["theme"]; ?></div>
+                                            <div class="ftsd ftfb pddb"><?php echo $m_di["theme"]; ?></div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="pdc fsc clrd tac"><?php echo $m_di["description"]; ?></div>
+                                <div class="pddc ftsc clrd txac"><?php echo $m_di["description"]; ?></div>
                             </a>
                         </div>
                     <?php } ?>
@@ -95,28 +95,28 @@
         </div>
         <!-- ============================================ -->
         <div class="pgCt10">
-            <div class="bga">
-                <h1 class="bga clrb pgCt20" id="Systeme_Gestion_Version">Système de Gestion de Version</h1>
+            <div class="bgra">
+                <h1 class="bgra clrb pgCt20" id="Systeme_Gestion_Version">Système de Gestion de Version</h1>
                 <div class="pgRw">
                     <?php 
                         $m_ds = $m_data["version"];
                         foreach($m_ds as $m_di) {
                         ?>
-                        <div class="rsa pgCl06">
-                            <a class="bgf dibm bdb evtb" href="<?php echo $m_di["link"]; ?>">
-                                <div class="bgg">
-                                    <div class="bga htb tac dtlf">
+                        <div class="rwda pgCl06">
+                            <a class="bgrf dibm brdb evtb" href="<?php echo $m_di["link"]; ?>">
+                                <div class="bgrg">
+                                    <div class="bgra hghb txac dtlf">
                                         <div class="dtcm">
-                                            <i class="fse fa <?php echo $m_di["icon"]; ?>"></i>
+                                            <i class="ftse fa <?php echo $m_di["icon"]; ?>"></i>
                                         </div>
                                     </div>
-                                    <div class="htc tac dtlf">
+                                    <div class="hghc txac dtlf">
                                         <div class="dtcm">
-                                            <div class="fsd ffb pdb"><?php echo $m_di["theme"]; ?></div>
+                                            <div class="ftsd ftfb pddb"><?php echo $m_di["theme"]; ?></div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="pdc fsc clrd tac"><?php echo $m_di["description"]; ?></div>
+                                <div class="pddc ftsc clrd txac"><?php echo $m_di["description"]; ?></div>
                             </a>
                         </div>
                     <?php } ?>

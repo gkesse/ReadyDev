@@ -1,10 +1,7 @@
 <?php   
     //===============================================
-    require $_SERVER["DOCUMENT_ROOT"]."/php/functions.php";
-    //===============================================
     class GFileSystem {
         //===============================================
-        // private members
         private static $m_instance = null;
         private $m_directoryMap = array();
         private $m_unused;
@@ -17,28 +14,36 @@
         private $m_linkMap = array();
         private $m_status;
         private $m_isValid;
+        private $m_iconMap = array();
+        private $m_binMap = array();
         //===============================================
-        // contructor
         private function __construct() {
-            $this->m_linkMap[] = array("Root", ".");
             $this->m_unused = array(
             "/^index.php$/", 
             "/^build$/", 
             "/debug$/", 
             "/release$/", 
             "/user$/");
-            $this->setDirectory($_SERVER["DOCUMENT_ROOT"]);
+            
+            $this->m_iconMap = array(
+            "file" => array("file-o"),
+            "dir" => array("folder"),
+            "img" => array("file-image-o", "png", "bmp", "jpeg", "jpg", "gif", "tiff"),
+            "txt" => array("file-text-o"),
+            "bin" => array("tasks", "exe", "dll", "lib", "so", "a"),
+            "bat" => array("cogs", "bat", "sh")
+            );
+            
+            $this->m_binMap = $this->m_iconMap["bin"];
         }
         //===============================================
-        // static methods
         public static function Instance() {
             if(is_null(self::$m_instance)) {
-                self::$m_instance = new GFileSystem();  
-            }
-            return self::$m_instance;
+            self::$m_instance = new GFileSystem();  
+        }
+        return self::$m_instance;
         }
         //===============================================
-        // public methods
         public function run() {
             $this->getDirectory();
             $m_fileExists = file_exists($this->m_directory);
@@ -60,8 +65,13 @@
                                 $m_isDir2 = is_dir($m_fullname) ? 1 : 0;
                                 if($m_readdir == "..") $m_url = $this->m_redo;
                                 else $m_url = $this->m_link . "/" . $m_readdir;
-                                $this->m_directoryMap[] = array($m_isDir2, $m_readdir, $m_url);
-                                usort($this->m_directoryMap, "SortDirectory");
+                                $m_docpath = dirname($_SERVER["PHP_SELF"]);
+                                if($m_url != "") {if($m_url[0] != "/") $m_url = "/" . $m_url;}
+                                if($m_url != "") $m_docpath = $m_docpath."/doc/path" . $m_url;
+                                $m_icon = $this->getIcon($m_fullname);
+                                if($this->isBinary($m_fullname)) $m_docpath = "javascript:void(0);";
+                                $this->m_directoryMap[] = array($m_isDir2, $m_readdir, $m_docpath, $m_icon);
+                                usort($this->m_directoryMap, array("GFileSystem", "SortDirectory"));
                             }
                         }
                         closedir($m_opendir);
@@ -70,8 +80,10 @@
                 }
                 else {
                     $this->m_status = "FILE";
-                    $m_isImage = exif_imagetype($this->m_directory);
-                    if($m_isImage != false) $this->m_status = "IMAGE";
+                    $m_ext = pathinfo($this->m_directory, PATHINFO_EXTENSION);
+                    $m_ext = strtolower($m_ext);
+                    $m_isImage = in_array($m_ext, $this->m_iconMap["img"]);
+                    if($m_isImage == true) $this->m_status = "IMAGE";
                 }
             }
             else {
@@ -80,6 +92,7 @@
         }
         //===============================================
         public function getDirectory() {
+            $this->setDirectory();
             if(isset($_GET["doc"]) == true) {
                 $this->m_directory .= "/" . htmlspecialchars($_GET["doc"]);
                 $this->m_directory = realpath($this->m_directory);
@@ -99,13 +112,16 @@
         }
         //===============================================
         public function getLinks() {
+            $m_docroot = dirname($_SERVER["PHP_SELF"]);
+            $this->m_linkMap[] = array("Root", $m_docroot);    
             for($i = 0; $i < count($this->m_links); $i++) {
                 $m_path = "";
                 for($j = 0; $j <= $i; $j++) {
                     if($j != 0) $m_path .= "/";
                     $m_path .= $this->m_links[$j];
                 }
-                $this->m_linkMap[] = array($this->m_links[$i], $m_path);
+                $m_docpath = $m_docroot."/doc/path/".$m_path;
+                $this->m_linkMap[] = array($this->m_links[$i], $m_docpath);
             }
             return $this->m_linkMap;
         }
@@ -118,8 +134,11 @@
             return $this->m_link;
         }
         //===============================================
-        public function setDirectory($file) {
-            $this->m_root = dirname($file);
+        public function setDirectory() {
+            $m_file = $_SERVER["DOCUMENT_ROOT"];
+            $m_existDir = GConfig::Instance()->existData("dir");
+            if($m_existDir == true) $m_file = GConfig::Instance()->getData("dir");
+            $this->m_root = dirname($m_file);
             $this->m_directory = $this->m_root;
             $this->m_length = strlen($this->m_directory);
         }
@@ -130,6 +149,37 @@
                 if($m_isFound == 1) return true;
             }
             return false;
+        }
+        //===============================================
+        public function getIcon($filename) {
+            $m_ext = pathinfo($filename, PATHINFO_EXTENSION);
+            $m_ext = strtolower($m_ext);
+            $m_icon = "file";
+            
+            if(is_dir($filename)) {$m_icon = "dir";}
+            else if(in_array($m_ext, $this->m_iconMap["img"])) {$m_icon = "img";}
+            else if(in_array($m_ext, $this->m_iconMap["bin"])) {$m_icon = "bin";}
+            else if(in_array($m_ext, $this->m_iconMap["bat"])) {$m_icon = "bat";}
+            else if($m_ext != "") {$m_icon = "txt";}
+            
+            return $this->m_iconMap[$m_icon][0];
+        }
+        //===============================================
+        public function isBinary($filename) {
+            $m_ext = pathinfo($filename, PATHINFO_EXTENSION);
+            $m_isBinary = false;
+            if(in_array($m_ext, $this->m_binMap)) {$m_isBinary = true;}           
+            return $m_isBinary;
+        }
+        //===============================================
+        private static function SortDirectory($dataA, $dataB) {
+            $m_sort = false;
+            if($dataA[0] < $dataB[0]) $m_sort = !$m_sort; 
+            else if($dataA[0] == $dataB[0]) {
+                $m_strcmp = strcmp(strtolower($dataA[1]), strtolower($dataB[1]));
+                if($m_strcmp > 0) $m_sort = !$m_sort;
+            }
+            return $m_sort;
         }
         //===============================================
     }

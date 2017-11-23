@@ -3,42 +3,42 @@
     
     $m_data = GJson::Instance()->getData("data/json/Presentation.json");
     
-    GHeader::Instance()->setTitle("Présentation");
-    GHeader::Instance()->setMenu("Présentation");
-    GHeader::Instance()->setView("Presentation");
+    GConfig::Instance()->setData("title", "Présentation");
+    GConfig::Instance()->setData("menu", "Présentation");
+    GConfig::Instance()->setData("view", "Presentation");
 
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";
 ?>
 <!-- ============================================ -->
 <div class="pgBg">
-    <div class="mrga pgBd pgCr10">
+    <div class="mrga pgBd">
         <!-- ============================================ -->
         <div class="pgCt10">
-            <div class="bga">
-                <h1 class="bga pgCt20" id="Intro">
+            <div class="bgra">
+                <h1 class="bgra pgCt20" id="Intro">
                     <a class="clrb" href="#">
                         Je me présente 
                     </a>
                 </h1>
-                <div class="tal pgCt10">
+                <div class="txal pgCt10">
                     <?php $m_ds = $m_data["avatar"]; ?>
-                    <img class="fl brb" src="<?php echo $m_ds["src"]; ?>" 
+                    <img class="fltl brdb" src="<?php echo $m_ds["src"]; ?>" 
                     alt="<?php echo $m_ds["alt"]; ?>"
                     width="<?php echo $m_ds["width"]; ?>"/>
                     <?php $m_ds = $m_data["intro"]; ?>
-                    <div class="mla"><?php echo join(" ", $m_ds); ?></div>
+                    <div class="mgla"><?php echo join(" ", $m_ds); ?></div>
                 </div>
             </div>
         </div>
         <!-- ============================================ -->
         <div class="pgCt10">
-            <div class="bga">
-                <h1 class="bga pgCt20" id="Sommaire">
+            <div class="bgra">
+                <h1 class="bgra pgCt20" id="Sommaire">
                     <a class="clrb" href="#Intro">
                         Je vous propose 
                     </a>
                 </h1>
-                <div class="tal pgCt10">
+                <div class="txal pgCt10">
                     <?php 
                         $m_ds = $m_data["summary"];
                         echo $m_ds["msg"]; 
@@ -62,13 +62,13 @@
         </div>
         <!-- ============================================ -->
         <div class="pgCt10">
-            <div class="bga">
-                <h1 class="bga pgCt20" id="Parcours">
+            <div class="bgra">
+                <h1 class="bgra pgCt20" id="Parcours">
                     <a class="clrb" href="#Intro">
                         Mon parcours scolaire 
                     </a>
                 </h1>
-                <div class="tal pgCt10">
+                <div class="txal pgCt10">
                     <?php $m_ds = $m_data["cursus"]; ?>
                     <div class="pgCr10">
                         <div><?php echo join(" ", $m_ds["msg"]); ?></div>
@@ -119,13 +119,13 @@
         </div>
         <!-- ============================================ -->
         <div class="pgCt10">
-            <div class="bga">
-                <h1 class="bga pgCt20" id="Experiences">
+            <div class="bgra">
+                <h1 class="bgra pgCt20" id="Experiences">
                     <a class="clrb" href="#Intro">
                         Mes expériences professionnelles 
                     </a>
                 </h1>
-                <div class="tal">
+                <div class="txal">
                     <?php $m_ds = $m_data["experience"]; ?>
                     <!-- ============================================ -->
                     <div class="pgCt10">
@@ -143,7 +143,7 @@
                             <!-- ============================================ -->
                             <li class="pgCr10">
                                 <i class="fa-li fa fa-building-o pgCr10"></i>
-                                <div class="psr">
+                                <div class="psra">
                                     <?php echo $m_dj["company"]; ?>,<br/>
                                     <!-- ============================================ -->
                                     <?php echo join(" ", $m_dj["description"]); ?>
@@ -204,17 +204,17 @@
         </div>
         <!-- ============================================ -->
         <div class="pgCt10">
-            <div class="bga">
-                <h1 class="bga pgCt20" id="Competences">
+            <div class="bgra">
+                <h1 class="bgra pgCt20" id="Competences">
                     <a class="clrb" href="#Sommaire">
                         Mes compétences 
                     </a>
                 </h1>
                 <?php $m_ds = $m_data["skill"]; ?>
-                <div class="tal pgCt10">
+                <div class="txal pgCt10">
                     <?php echo join(" ", $m_ds["description"]); ?>
                 </div>
-                <div class="tal pgCt10">
+                <div class="txal pgCt10">
                     <ul class="fa-ul">
                         <?php 
                             $m_dsi = $m_ds["list"];
@@ -231,17 +231,17 @@
         </div>
         <!-- ============================================ -->
         <div class="pgCt10">
-            <div class="bga">
-                <h1 class="bga pgCt20" id="Atouts">
+            <div class="bgra">
+                <h1 class="bgra pgCt20" id="Atouts">
                     <a class="clrb" href="#Sommaire">
                         Mes atouts 
                     </a>
                 </h1>
                 <?php $m_ds = $m_data["asset"]; ?>
-                <div class="tal pgCt10">
+                <div class="txal pgCt10">
                     <?php echo join(" ", $m_ds["description"]); ?>
                 </div>
-                <div class="tal pgCt10">
+                <div class="txal pgCt10">
                     <ul class="fa-ul">
                         <?php 
                             $m_dsi = $m_ds["list"];

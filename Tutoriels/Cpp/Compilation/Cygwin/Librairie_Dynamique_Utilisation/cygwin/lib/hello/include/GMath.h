@@ -1,12 +1,13 @@
+//===============================================
 #ifndef _GMath_
 #define _GMath_
-
+//===============================================
 #ifdef DLL_APP  
 #define DLL_API __declspec(dllexport)   
 #else  
 #define DLL_API __declspec(dllimport)   
 #endif 
-
+//===============================================
 class DLL_API GMath {
 private:
     GMath();
@@ -28,5 +29,6 @@ public:
 private:
     static GMath* m_instance;
 };
-
+//===============================================
 #endif
+//===============================================

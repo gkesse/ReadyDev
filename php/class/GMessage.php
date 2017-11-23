@@ -1,10 +1,8 @@
 <?php   
     class GMessage {
         //===============================================
-        // private members
         private static $m_instance = null;
         //===============================================
-        // contructor
         private function __construct() {
             
         }
@@ -14,11 +12,9 @@
             if(is_null(self::$m_instance)) {
                 self::$m_instance = new GMessage();  
             }
-            
             return self::$m_instance;
         }
         //===============================================
-        // public methods
         public function saveMessage($data) {
             $m_file = "data/json/messages.json";
             $m_data = GJson::Instance()->getData($m_file);

@@ -1,16 +1,17 @@
+//===============================================
 #ifndef _GShow_
 #define _GShow_
-
+//===============================================
 #include <string>
-
+//===============================================
 #ifdef DLL_APP  
 #define DLL_API __declspec(dllexport)   
 #else  
 #define DLL_API __declspec(dllimport)   
 #endif 
-
+//===============================================
 using namespace std;
-
+//===============================================
 class GShow {
 private:
     GShow();
@@ -28,5 +29,6 @@ public:
 private:
     static GShow* m_instance;
 };
-
+//===============================================
 #endif
+//===============================================

@@ -1,19 +1,19 @@
 <?php
      require $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoloadRegister.php";
         
-    GHeader::Instance()->setTitle("ERREUR");
-    GHeader::Instance()->setMenu("CV");
-    GHeader::Instance()->setView("ERREUR");
+    GConfig::Instance()->setData("title", "ERREUR");
 
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";
 ?>
 <!-- ============================================ -->
 <div class="pgBg">
-    <div class="mrga pgBd pgCt10">
+    <div class="mrga pgBd">
         <!-- ============================================ -->
-        <div class="bga pgCt20 clri">
-            <i class="fa fa-exclamation-triangle"></i>
-            <span class="">PAGE NON TROUVEE</span>
+        <div class="pgCt10">
+            <div class="bgra pgCt20">
+                <i class="clri fa fa-exclamation-triangle"></i>
+                <span class="clri">PAGE NON TROUVEE</span>
+            </div>
         </div>
         <!-- ============================================ -->
     </div>

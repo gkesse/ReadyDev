@@ -1,6 +1,6 @@
 <?php
     session_start();
-    
+    //===============================================
     function GAutoloadRegister($classname) {
         $m_filename = dirname(__FILE__).DIRECTORY_SEPARATOR.$classname.".php";
 
@@ -8,7 +8,7 @@
             require $m_filename;
         }    
     }       
-    
+    //===============================================
     if (version_compare(PHP_VERSION, "5.1.2", ">=")) {
         if (version_compare(PHP_VERSION, "5.3.0", ">=")) {
             spl_autoload_register("GAutoloadRegister", true, true);
@@ -22,4 +22,5 @@
             include $class_name.".php";
         }       
     }
+    //===============================================
 ?>

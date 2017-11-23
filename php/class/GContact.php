@@ -1,25 +1,20 @@
 <?php   
     class GContact {
         //===============================================
-        // private members
         private static $m_instance = null;
         private $m_data = array();
         //===============================================
-        // contructor
         private function __construct() {
             
         }
         //===============================================
-        // static methods
         public static function Instance() {
             if(is_null(self::$m_instance)) {
                 self::$m_instance = new GContact();  
             }
-            
             return self::$m_instance;
         }
         //===============================================
-        // private methods
         private function reset() {
             $this->m_data["nameValue"] = "";
             $this->m_data["emailValue"] = "";
@@ -27,7 +22,6 @@
             $this->m_data["messageValue"] = "";
         }
         //===============================================
-        // public methods
         public function check() {
             $this->m_data["name"] = "";
             $this->m_data["nameError"] = "";
@@ -42,7 +36,7 @@
             $this->m_data["messageError"] = "";
             $this->m_data["messageValue"] = "";
             $m_validate = true;
-            $this->m_data["validate"] = "<div class='scca'><i class='fa fa-check-circle'></i> SUCCES : Votre message a bien été envoyé</div>";
+            $this->m_data["validate"] = "<div class='scca'><i class='clrb fa fa-check-circle'></i> SUCCES : Votre message a bien été envoyé</div>";
             
             if(empty($_POST)) {
                 $m_validate = false;
@@ -98,7 +92,7 @@
             }
             
             if(!$m_validate) {
-                $this->m_data["validate"] = "<div class='errb'><i class='fa fa-exclamation-triangle'></i> ERREUR : Impossible d'envoyer votre message</div>";
+                $this->m_data["validate"] = "<div class='errb'><i class='clra fa fa-exclamation-triangle'></i> ERREUR : Impossible d'envoyer votre message</div>";
             }
             
             if(!empty($_POST)) {

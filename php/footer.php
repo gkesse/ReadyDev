@@ -14,7 +14,7 @@
                 foreach($m_ds as $m_di) {
                 ?>
                 <a href="<?php echo $m_di["link"]; ?>">
-                    <i class="fad <?php echo $m_di["icon"]; ?>"></i>
+                    <i class="ftad <?php echo $m_di["icon"]; ?>"></i>
                 </a>
             <?php } ?>
         </div>

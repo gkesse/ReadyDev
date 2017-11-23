@@ -5,7 +5,7 @@
     },
     "menu":
     [
-        {"name":"CV","link":"/"},
+        {"name":"CV","link":"/CV/"},
         {"name":"Présentation","link":"/Presentation/"},
         {"name":"Tutoriels","link":"/Tutoriels/"},
         {"name":"Contacts","link":"/Contacts/"}
