@@ -57,11 +57,11 @@
         <?php } ?>
         <link rel="icon" type="image/png" href="/img/logo_title.png" />
         <!-- ============================================ -->
-        <meta property="og:title" content="Ingénieur Développeur Logiciel C/C++/Qt" />
+        <meta property="og:title" content="IngÃ©nieur DÃ©veloppeur Logiciel C/C++/Qt" />
         <meta property="og:type" content="article" />
         <meta property="og:description" content="Je suis Gerard KESSE,
-        Ingénieur en Développement Informatique C/C++/Qt,
-        Avec à la fois des compétences en Systèmes Embarqués et en Robotique." />
+        IngÃ©nieur en DÃ©veloppement Informatique C/C++/Qt,
+        Avec Ã  la fois des compÃ©tences en SystÃ¨mes EmbarquÃ©s et en Robotique." />
         <meta property="og:url" content="http://5.48.215.193:8855/Presentation/" />
         <meta property="og:image" content="http://5.48.215.193:8855/img/logo_title.png" />
         <!-- ============================================ -->
