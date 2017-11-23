@@ -3,25 +3,25 @@
     
     $m_data = GJson::Instance()->getData("data/json/Cpp.json");
     
-    GHeader::Instance()->setTitle("C/C++");
-    GHeader::Instance()->setMenu("Tutoriels");
-    GHeader::Instance()->setView("Cpp");
-    GHeader::Instance()->setLink($m_data["links"]);
+    GConfig::Instance()->setData("title", "C/C++");
+    GConfig::Instance()->setData("menu", "Tutoriels");
+    GConfig::Instance()->setData("view", "Cpp");
+    GConfig::Instance()->setData("link", $m_data["links"]);
 
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";
 ?>
 <!-- ============================================ -->
 <div class="pgBg">
-    <div class="mrga pgBd pgCr10">
+    <div class="mrga pgBd">
         <!-- ============================================ -->
         <div class="pgCt10">
-            <div class="bga">
-                <h1 class="bga pgCt20" id="Sommaire">
+            <div class="bgra">
+                <h1 class="bgra pgCt20" id="Sommaire">
                     <a class="clrb" href="#">
                         Sommaire
                     </a>
                 </h1>
-                <div class="tal pgCt10">
+                <div class="txal pgCt10">
                     <ul class="fa-ul">
                         <?php 
                             $m_ds = $m_data["summary"];
@@ -40,14 +40,14 @@
         </div>
         <!-- ============================================ -->
         <div class="pgCt10">
-            <div class="bga">
-                <h1 class="bga pgCt20" id="Compilation">
+            <div class="bgra">
+                <h1 class="bgra pgCt20" id="Compilation">
                     <a class="clrb" href="#Sommaire">
                         Compilation
                     </a>
                 </h1>
                 <!-- ============================================ -->
-                <div class="tal pgCt10">
+                <div class="txal pgCt10">
                     <h3 class="pgCr05" id="NMake">
                         <a class="clra" href="#Compilation">
                             Compilez avec NMake
@@ -67,7 +67,7 @@
                     </ul>            
                 </div>
                 <!-- ============================================ -->
-                <div class="tal pgCt10">
+                <div class="txal pgCt10">
                     <h3 class="pgCr05" id="MinGW">
                         <a class="clra" href="#Compilation">
                             Compilez avec MinGW
@@ -88,7 +88,7 @@
                     </ul>            
                 </div>
                 <!-- ============================================ -->
-                <div class="tal pgCt10">
+                <div class="txal pgCt10">
                     <h3 class="pgCr05" id="Cygwin">
                         <a class="clra" href="#Compilation">
                             Compilez avec Cygwin
@@ -109,7 +109,7 @@
                     </ul>            
                 </div>
                 <!-- ============================================ -->
-                <div class="tal pgCt10">
+                <div class="txal pgCt10">
                     <h3 class="pgCr05" id="Make">
                         <a class="clra" href="#Compilation">
                             Compilez avec Make
@@ -130,7 +130,7 @@
                     </ul>            
                 </div>
                 <!-- ============================================ -->
-                <div class="tal pgCt10">
+                <div class="txal pgCt10">
                     <h3 class="pgCr05" id="CMake">
                         <a class="clra" href="#Compilation">
                             Compilez avec CMake
@@ -151,7 +151,7 @@
                     </ul>            
                 </div>
                 <!-- ============================================ -->
-                <div class="tal pgCt10">
+                <div class="txal pgCt10">
                     <h3 class="pgCr05" id="QMake">
                         <a class="clra" href="#Compilation">
                             Compilez avec QMake
@@ -176,14 +176,14 @@
         </div>
         <!-- ============================================ -->
         <div class="pgCt10">
-            <div class="bga">
-                <h1 class="bga pgCt20" id="Notions">
+            <div class="bgra">
+                <h1 class="bgra pgCt20" id="Notions">
                     <a class="clrb" href="#Sommaire">
                         Notions de Base
                     </a>
                 </h1>
                 <!-- ============================================ -->
-                <div class="tal pgCt10">
+                <div class="txal pgCt10">
                     <h3 class="pgCr05" id="Bases">
                         <a class="clra" href="#Notions">
                             Les Bases
@@ -203,7 +203,7 @@
                     </ul>            
                 </div>
                 <!-- ============================================ -->
-                <div class="tal pgCt10">
+                <div class="txal pgCt10">
                     <h3 class="pgCr05" id="Exceptions">
                         <a class="clra" href="#Notions">
                             Les Exceptions
@@ -223,7 +223,7 @@
                     </ul>            
                 </div>
                 <!-- ============================================ -->
-                <div class="tal pgCt10">
+                <div class="txal pgCt10">
                     <h3 class="pgCr05" id="Templates">
                         <a class="clra" href="#Notions">
                             Les Templates
@@ -247,14 +247,14 @@
         </div>
         <!-- ============================================ -->
         <div class="pgCt10">
-            <div class="bga">
-                <h1 class="bga pgCt20" id="Patron_Conception">
+            <div class="bgra">
+                <h1 class="bgra pgCt20" id="Patron_Conception">
                     <a class="clrb" href="#Sommaire">
                         Patron de Conception
                     </a>
                 </h1>
                 <!-- ============================================ -->
-                <div class="tal pgCt10">
+                <div class="txal pgCt10">
                     <h3 class="pgCr05" id="Patron_Creation">
                         <a class="clra" href="#Patron_Conception">
                             Patron de Création

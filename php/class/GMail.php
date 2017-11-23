@@ -1,24 +1,19 @@
 <?php   
     class GMail {
         //===============================================
-        // private members
         private static $m_instance = null;
         //===============================================
-        // contructor
         private function __construct() {
             
         }
         //===============================================
-        // static methods
         public static function Instance() {
             if(is_null(self::$m_instance)) {
                 self::$m_instance = new GMail();  
             }
-            
             return self::$m_instance;
         }
         //===============================================
-        // public methods
         public function receiveMail($data) {
             date_default_timezone_set("Etc/UTC");
             require_once $_SERVER["DOCUMENT_ROOT"]."/lib/phpmailer/PHPMailerAutoload.php";

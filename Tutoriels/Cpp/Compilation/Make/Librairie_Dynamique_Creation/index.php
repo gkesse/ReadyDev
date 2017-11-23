@@ -3,24 +3,24 @@
     
     $m_data = GJson::Instance()->getData("data/json/Make_05.json");
     
-    GHeader::Instance()->setTitle("Make");
-    GHeader::Instance()->setMenu("Tutoriels");
-    GHeader::Instance()->setView("Make_05");
-    GHeader::Instance()->setLink($m_data["links"]);
+    GConfig::Instance()->setData("title", "Make");
+    GConfig::Instance()->setData("menu", "Tutoriels");
+    GConfig::Instance()->setData("view", "Make_05");
+    GConfig::Instance()->setData("link", $m_data["links"]);
+    GConfig::Instance()->setData("dir", __FILE__);
 
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";
 ?>
 <!-- ============================================ -->
 <div class="pgBg">
-    <div class="mrga pgBd pgCr10">
+    <div class="mrga pgBd">
         <!-- ============================================ -->
-        <?php GFileSystem::Instance()->setDirectory(__FILE__); ?>
         <?php require $_SERVER["DOCUMENT_ROOT"]."/php/file_system.php"; ?>  
         <!-- ============================================ -->
         <div class="pgCt10">
-            <div class="bga">
-                <h1 class="bga clrb pgCt20">Make</h1>
-                <div class="tal pgCt10">
+            <div class="bgra">
+                <h1 class="bgra clrb pgCt20">Make</h1>
+                <div class="txal pgCt10">
                     <?php $m_ds = $m_data["definition"]; ?>
                     <div class=""><?php echo join(" ", $m_ds) ?></div>
                 </div>
@@ -28,11 +28,11 @@
         </div>
         <!-- ============================================ -->
         <div class="pgCt10">
-            <div class="bga">
-                <h1 class="bga clrb pgCt20">Programmation</h1>
-                <div class="tal pgCt10">
+            <div class="bgra">
+                <h1 class="bgra clrb pgCt20">Programmation</h1>
+                <div class="txal pgCt10">
                     <h3 class="clra">Programme Création Librairie Dynamique:</h3>
-                    <pre><xmp class="ova prettyprint linenums">
+                    <pre><xmp class="ovfa prettyprint linenums">
 //===============================================
 #ifndef _GMath_
 #define _GMath_
@@ -53,9 +53,9 @@ class DLL_API GMath {
 //===============================================
                     </xmp></pre>
                 </div>
-                <div class="tal pgCt10">
+                <div class="txal pgCt10">
                     <h3 class="clra">Programme Création Librairie Dynamique:</h3>
-                    <pre><xmp class="ova prettyprint linenums">
+                    <pre><xmp class="ovfa prettyprint linenums">
 //===============================================
 #ifndef _GShow_
 #define _GShow_
@@ -80,30 +80,30 @@ class DLL_API GShow {
 //===============================================
                     </xmp></pre>
                 </div>
-                <div class="tal pgCt10">
+                <div class="txal pgCt10">
                     <h3 class="clra">Règles Création Librairie Dynamique:</h3>
-                    <pre><xmp class="ova prettyprint linenums">
+                    <pre><xmp class="ovfa prettyprint linenums">
 all: $(GOBJS)
 	g++ -shared -o $(GTARGET) $(GOBJS)
                     </xmp></pre>
                 </div>
-                <div class="tal pgCt10">
+                <div class="txal pgCt10">
                     <h3 class="clra">Règles Création Librairie Dynamique:</h3>
-                    <pre><xmp class="ova prettyprint linenums">
+                    <pre><xmp class="ovfa prettyprint linenums">
 $(GBUILD)/GMath.o: $(GSRC)/manager/GMath.cpp
 	g++ -c -fPIC $(GSRC)/manager/GMath.cpp -o $(GBUILD)/GMath.o $(GINCS)
                     </xmp></pre>
                 </div>
-                <div class="tal pgCt10">
+                <div class="txal pgCt10">
                     <h3 class="clra">Règles Création Librairie Dynamique:</h3>
-                    <pre><xmp class="ova prettyprint linenums">
+                    <pre><xmp class="ovfa prettyprint linenums">
 $(GBUILD)/GShow.o: $(GSRC)/manager/GShow.cpp
 	g++ -c -fPIC $(GSRC)/manager/GShow.cpp -o $(GBUILD)/GShow.o $(GINCS)
                     </xmp></pre>
                 </div>
-                <div class="tal pgCt10">
+                <div class="txal pgCt10">
                     <h3 class="clra">Règles Makefile:</h3>
-                    <pre><xmp class="ova prettyprint linenums">
+                    <pre><xmp class="ovfa prettyprint linenums">
 GSRC = ../src
 GBIN = lib
 GBUILD = build
@@ -130,19 +130,22 @@ clean:
         </div>
         <!-- ============================================ -->
         <div class="pgCt10">
-        <div class="bga">
-        <h1 class="bga clrb pgCt20">Résultats</h1>
-        <div class="tal ova pgCt10">
-                    <?php $m_ds = $m_data["img"]["results"]; ?>
+            <div class="bgra">
+                <h1 class="bgra clrb pgCt20">Résultats</h1>
+                <div class="txal ovfa pgCt10">
+                    <?php 
+                        $m_ds = dirname($_SERVER['PHP_SELF'])."/".
+                        $m_data["img"]["results"];
+                    ?>
                     <img src="<?php echo $m_ds; ?>" alt="Resultats" />
                 </div>
             </div>
         </div>
         <!-- ============================================ -->
         <div class="pgCt10">
-            <div class="bga">
-                <h1 class="bga clrb pgCt20">Voir Aussi</h1>
-                <div class="tal pgCt10">
+            <div class="bgra">
+                <h1 class="bgra clrb pgCt20">Voir Aussi</h1>
+                <div class="txal pgCt10">
                     <ul class="fa-ul">
                         <?php 
                             $m_ds = $m_data["see_also"];

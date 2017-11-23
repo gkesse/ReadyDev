@@ -6,14 +6,14 @@ $(document).ready(function () {
     // header
     //===============================================
     // header icon
-    $("header .icon").click(function () {
-        $("header .menu").toggleClass("responsive");
+    $(".hdmb").click(function () {
+        $(".hdmn").toggleClass("rwd");
         
-        if($("header .icon").html() == '<i class="fa fa-bars"></i>'){
-            $("header .icon").html('<i class="fa fa-close"></i>');
+        if($(".hdmb").html() == '<i class="fa fa-bars"></i>'){
+            $(".hdmb").html('<i class="fa fa-close"></i>');
         }
         else {
-            $("header .icon").html('<i class="fa fa-bars"></i>');
+            $(".hdmb").html('<i class="fa fa-bars"></i>');
         }
     });
     //===============================================

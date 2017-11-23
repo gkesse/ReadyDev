@@ -1,24 +1,19 @@
 <?php   
     class GPostRedirectGet {
         //===============================================
-        // private members
         private static $m_instance = null;
         //===============================================
-        // contructor
         private function __construct() {
             
         }
         //===============================================
-        // static methods
         public static function Instance() {
             if(is_null(self::$m_instance)) {
                 self::$m_instance = new GPostRedirectGet();  
             }
-            
             return self::$m_instance;
         }
         //===============================================
-        // public methods
         public function redirect() {
             if(!empty($_POST) OR !empty($_FILES))
             {
