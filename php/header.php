@@ -48,10 +48,14 @@
         <!-- ============================================ -->
         <title><?php echo $m_title; ?> | <?php echo $m_ds["name"]; ?></title>
         <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-        <link rel="icon" type="image/png" href="/img/readydev.png" />
+        <link rel="shortcut icon" type="image/png" href="/img/readydev.png" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <!-- ============================================ -->
+        <!-- Responsive Web Design -->
+        <meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1.0, user-scalable=no">
         <!-- ============================================ -->
         <!-- Google -->
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <?php if($m_existMetaDesc == true) { ?>
             <meta name="description" content="<?php echo $m_metaDesc; ?>"/>
         <?php } ?>
@@ -72,7 +76,6 @@
         <?php if($m_existMetaCano == true) { ?>
             <meta property="og:url" content="<?php echo $m_metaCano; ?>"/>
         <?php } ?>
-        <meta property="og:url" content="https://kyco.io" />
         <meta property="og:title" content="<?php echo $m_title; ?> | <?php echo $m_ds["name"]; ?>"/>
         <?php if($m_existMetaDesc == true) { ?>
             <meta property="og:description" content="<?php echo $m_metaDesc; ?>"/>
