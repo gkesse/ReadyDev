@@ -1,4 +1,12 @@
 {
+    "meta_data":
+    {
+        "meta_desc":
+        [
+            "Implémentez le patron de conception Singleton en C/C++"
+        ],
+        "meta_cano":"/Tutoriels/Cpp/Patron_Conception/Creation/Singleton/"
+    },    
     "links":
     [
         {"name":"Tutoriels","link":"/Tutoriels/"},

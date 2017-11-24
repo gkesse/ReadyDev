@@ -1,4 +1,21 @@
 {
+    "meta_data":
+    {
+        "meta_desc":
+        [
+            "Implémentez le patron de conception Singleton en C/C++."
+        ],
+        "meta_cano":"/Tutoriels/Cpp/Patron_Conception/Creation/Singleton/"
+    },    
+    "meta_data":
+    {
+        "meta_desc":
+        [
+            "Compilez vos projets C/C++ avec QMake, utilisez des fichiers headers,",
+            "créez et utilisez des librairies statiques et dynamiques."
+        ],
+        "meta_cano":"/Tutoriels/Cpp/Compilation/QMake/NMake/Programme_Simple/"
+    },    
     "links":
     [
         {"name":"Tutoriels","link":"/Tutoriels/"},

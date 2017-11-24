@@ -1,4 +1,13 @@
 {
+    "meta_data":
+    {
+        "meta_desc":
+        [
+            "Démarrez la programmation C/C++, compilez vos projets, utilisez des fichiers", 
+            "headers, créez et utilisez des librairies statiques et dynamiques."
+        ],
+        "meta_cano":"/Tutoriels/Cpp/"
+    },    
     "links":
     [
         {"name":"Tutoriels","link":"/Tutoriels/"},

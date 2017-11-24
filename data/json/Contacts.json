@@ -1,4 +1,13 @@
 {
+    "meta_data":
+    {
+        "meta_desc":
+        [
+            "ReadyDev propose un formulaire de contact par lequel vous pouvez lui",
+            "laissez un message."
+        ],
+        "meta_cano":"/Contacts/"
+    },    
     "name":
     {
         "id":"name",

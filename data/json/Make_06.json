@@ -1,4 +1,13 @@
 {
+    "meta_data":
+    {
+        "meta_desc":
+        [
+            "Compilez vos projets C/C++ avec Make, utilisez des fichiers headers,",
+            "créez et utilisez des librairies statiques et dynamiques."
+        ],
+        "meta_cano":"/Tutoriels/Cpp/Compilation/Make/Programme_Simple/"
+    },    
     "links":
     [
         {"name":"Tutoriels","link":"/Tutoriels/"},
