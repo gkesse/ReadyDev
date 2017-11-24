@@ -15,15 +15,17 @@
         }
         //===============================================
         public function getData() {
-            $m_file = "/data/json/";
-            $m_file .= GConfig::Instance()->getData("view"); 
-            $m_file .= ".json";
-            $m_data = GJson::Instance()->getData($m_file);
-            if(isset($m_data["meta_data"]) == true) {
-                $m_metaData = $m_data["meta_data"];
-                
-                foreach($m_metaData as $key => $value) {
-                    GConfig::Instance()->setData($key, $value);
+            if(GConfig::Instance()->existData("view") == true) {
+                $m_file = "/data/json/";
+                $m_file .= GConfig::Instance()->getData("view"); 
+                $m_file .= ".json";
+                $m_data = GJson::Instance()->getData($m_file);
+                if(isset($m_data["meta_data"]) == true) {
+                    $m_metaData = $m_data["meta_data"];
+                    
+                    foreach($m_metaData as $key => $value) {
+                        GConfig::Instance()->setData($key, $value);
+                    }
                 }
             }
         }
