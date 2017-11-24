@@ -2,7 +2,6 @@
     GMetaData::Instance()->getData();
     
     $m_title = GConfig::Instance()->getData("title"); 
-    $m_logo = GGlobal::Instance()->getUrl("img/readydev.png"); 
     
     $m_existstMenu = GConfig::Instance()->existData("menu");
     if($m_existstMenu == true) {
@@ -69,7 +68,7 @@
         <!-- ============================================ -->
         <!-- OpenGraph -->
         <meta property="og:type" content="website" />
-        <meta property="og:image" content='<?php echo $m_logo; ?>'>
+        <meta property="og:image" content='/img/readydev-440x440.png'>
         <meta property="og:image:type" content="image/png" />
         <meta property="og:image:width" content="400" />
         <meta property="og:image:height" content="300" />
