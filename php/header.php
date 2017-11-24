@@ -67,17 +67,17 @@
         <?php } ?>
         <!-- ============================================ -->
         <!-- OpenGraph -->
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content='/img/readydev-440x440.png'>
-        <meta property="og:locale" content="fr_FR" />
+        <meta prefix="og: http://ogp.me/ns#" property="og:type" content="website" />
+        <meta prefix="og: http://ogp.me/ns#" property="og:image" content='/img/readydev-440x440.png'>
+        <meta prefix="og: http://ogp.me/ns#" property="og:locale" content="fr_FR" />
         <?php if($m_existMetaCano == true) { ?>
-            <meta property="og:url" content="<?php echo $m_metaCano; ?>"/>
+            <meta prefix="og: http://ogp.me/ns#" property="og:url" content="<?php echo $m_metaCano; ?>"/>
         <?php } ?>
-        <meta property="og:title" content="<?php echo $m_title; ?> | <?php echo $m_ds["name"]; ?>"/>
+        <meta prefix="og: http://ogp.me/ns#" property="og:title" content="<?php echo $m_title; ?> | <?php echo $m_ds["name"]; ?>"/>
         <?php if($m_existMetaDesc == true) { ?>
-            <meta property="og:description" content="<?php echo $m_metaDesc; ?>"/>
+            <meta prefix="og: http://ogp.me/ns#" property="og:description" content="<?php echo $m_metaDesc; ?>"/>
         <?php } ?>
-        <meta property="og:site_name" content="<?php echo $m_ds["name"]; ?>"/>
+        <meta prefix="og: http://ogp.me/ns#" property="og:site_name" content="<?php echo $m_ds["name"]; ?>"/>
         <!-- ============================================ -->
         <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Aclonica"/>
         <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Akronim"/>
