@@ -22,6 +22,9 @@
         }
         //===============================================
         public function getUrl($data) {
+            if(empty($data) == false) {
+                if($data[0] != "/") $data = "/".$data;
+            }
             $m_url = "http://";
             $m_url .= $_SERVER['HTTP_HOST'];
             $m_url .= $data;

@@ -62,11 +62,18 @@
             <link rel="canonical" href="<?php echo $m_metaCano; ?>" />
         <?php } ?>
         <!-- ============================================ -->
-        <meta property="og:title" content="Ingénieur Développeur Logiciel C/C++/Qt" />
-        <meta property="og:type" content="article" />
-        <meta property="og:description" content="Electronique Robotique Informatique Industrielle" />
-        <meta property="og:url" content="http://5.48.215.193:8855/Tutoriels/" />
-        <meta property="og:image" content="http://5.48.215.193:8855/img/readydev.png" />
+        <!-- OpenGraph -->
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="fr_FR" />
+        <?php if($m_existMetaCano == true) { ?>
+            <meta property="og:url" content="<?php echo $m_metaCano; ?>"/>
+        <?php } ?>
+        <meta property="og:url" content="https://kyco.io" />
+        <meta property="og:title" content="<?php echo $m_title; ?> | <?php echo $m_ds["name"]; ?>"/>
+        <?php if($m_existMetaDesc == true) { ?>
+            <meta property="og:description" content="<?php echo $m_metaDesc; ?>"/>
+        <?php } ?>
+        <meta property="og:site_name" content="<?php echo $m_ds["name"]; ?>"/>
         <!-- ============================================ -->
         <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Aclonica"/>
         <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Akronim"/>

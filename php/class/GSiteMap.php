@@ -4,6 +4,7 @@
         private static $m_instance = null;
         private $m_change = array();
         private $m_xml;
+        private $m_file;
         //===============================================
         private function __construct() {
             $this->m_change = array(
@@ -19,7 +20,9 @@
             $this->m_xml->openMemory();
             $this->m_xml->setIndent(TRUE);
             $this->m_xml->setIndentString('    ');*/
-            echo $_SERVER["SERVER_NAME"];
+            
+            $this->m_file = GGlobal::Instance()->getUrl("data/sitemaps/sitemap.xml");
+            echo $this->m_file;
         }
         //===============================================
         public static function Instance() {
