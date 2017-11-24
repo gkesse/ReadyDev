@@ -157,7 +157,7 @@
                                 </a>
                             </div>
                             <div class="fltl">
-                                <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo $m_url; ?>" target="_blank">
+                                <a href="https://www.linkedin.com/cws/share?url=<?php echo $m_url; ?>" target="_blank">
                                     <i class="ftaa fa fa-linkedin scnb"></i>
                                 </a>
                             </div>
