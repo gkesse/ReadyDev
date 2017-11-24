@@ -68,14 +68,14 @@
         <!-- ============================================ -->
         <!-- OpenGraph -->
         <meta property="og:type" content="website" />
-        <meta property="og:image" content='/img/readydev-440x440.png'>
+        <meta property="og:image" itemprop="image primaryImageOfPage" content='/img/readydev-440x440.png'>
         <meta property="og:locale" content="fr_FR" />
         <?php if($m_existMetaCano == true) { ?>
             <meta property="og:url" content="<?php echo $m_metaCano; ?>"/>
         <?php } ?>
-        <meta property="og:title" content="<?php echo $m_title; ?> | <?php echo $m_ds["name"]; ?>"/>
+        <meta property="og:title" itemprop="title name" content="<?php echo $m_title; ?> | <?php echo $m_ds["name"]; ?>"/>
         <?php if($m_existMetaDesc == true) { ?>
-            <meta property="og:description" content="<?php echo $m_metaDesc; ?>"/>
+            <meta property="og:description" itemprop="description" content="<?php echo $m_metaDesc; ?>"/>
         <?php } ?>
         <meta property="og:site_name" content="<?php echo $m_ds["name"]; ?>"/>
         <!-- ============================================ -->
