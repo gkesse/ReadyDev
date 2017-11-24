@@ -46,22 +46,10 @@
             $m_ds = $m_headerData["site"];
         ?>
         <!-- ============================================ -->
+        <title><?php echo $m_title; ?> | <?php echo $m_ds["name"]; ?></title>
         <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1.0, user-scalable=no">    
-        <meta property="og:image" content='/img/readydev.png'>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <link rel="shortcut icon" type="image/png" href="/img/readydev.png"/>
-        <!-- ============================================ -->
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-109595989-1"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            
-            gtag('config', 'UA-109595989-1');
-        </script>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+        <link rel="icon" type="image/png" href="/img/readydev.png" />
         <!-- ============================================ -->
         <!-- Google -->
         <?php if($m_existMetaDesc == true) { ?>
@@ -74,10 +62,9 @@
             <link rel="canonical" href="<?php echo $m_metaCano; ?>" />
         <?php } ?>
         <!-- ============================================ -->
-        <title><?php echo $m_title; ?> | <?php echo $m_ds["name"]; ?></title>
-        <!-- ============================================ -->
         <!-- OpenGraph -->
         <meta property="og:type" content="website" />
+        <meta property="og:image" content='/img/readydev.png'>
         <meta property="og:locale" content="fr_FR" />
         <?php if($m_existMetaCano == true) { ?>
             <meta property="og:url" content="<?php echo $m_metaCano; ?>"/>
@@ -97,6 +84,16 @@
         <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=css&amp;skin=sunburst"></script>
         <script src="/lib/jquery/jquery.min.js"></script>
         <script src="/lib/easyshare/dist/jquery.kyco.easyshare.js"></script>
+        <!-- ============================================ -->
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-109595989-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            
+            gtag('config', 'UA-109595989-1');
+        </script>
         <!-- ============================================ -->
         <link rel="stylesheet" href="/css/style.css"/>
         <script src="/js/class/GSetting.js"></script>        
