@@ -64,7 +64,7 @@
         <!-- ============================================ -->
         <!-- OpenGraph -->
         <meta property="og:type" content="website" />
-        <meta property="og:image" content='/img/logo-440x440.png'>
+        <meta property="og:image" content='/img/readydev.png'>
         <meta property="og:locale" content="fr_FR" />
         <?php if($m_existMetaCano == true) { ?>
             <meta property="og:url" content="<?php echo $m_metaCano; ?>"/>
