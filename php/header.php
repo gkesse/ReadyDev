@@ -20,6 +20,7 @@
     }
     
     $m_existMetaDesc = GConfig::Instance()->existData("meta_desc");
+    $m_metaDesc = "";
     if($m_existMetaDesc == true) {
         $m_metaDesc = join(" ", GConfig::Instance()->getData("meta_desc")); 
         $m_metaDesc = mb_strimwidth($m_metaDesc, 0, 160, "...");
@@ -44,6 +45,7 @@
     <head>
         <?php 
             $m_ds = $m_headerData["site"];
+            $m_siteName = $m_ds["name"];
         ?>
         <!-- ============================================ -->
         <title><?php echo $m_title; ?> | <?php echo $m_ds["name"]; ?></title>
@@ -68,14 +70,17 @@
         <!-- ============================================ -->
         <!-- OpenGraph -->
         <meta property="og:type" content="website" />
-        <meta property="og:image" itemprop="image primaryImageOfPage" content='/img/readydev-440x440.png'>
-        <meta property="og:locale" content="fr_FR" />
+        <meta property="og:image" content='/img/readydev-440x440.png'>
+        <meta property="og:image:secure_url" content="/img/readydev-440x440.png" />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:width" content="440" />
+        <meta property="og:image:height" content="440" />        <meta property="og:locale" content="fr_FR" />
         <?php if($m_existMetaCano == true) { ?>
             <meta property="og:url" content="<?php echo $m_metaCano; ?>"/>
         <?php } ?>
-        <meta property="og:title" itemprop="title name" content="<?php echo $m_title; ?> | <?php echo $m_ds["name"]; ?>"/>
+        <meta property="og:title" content="<?php echo $m_title; ?> | <?php echo $m_ds["name"]; ?>"/>
         <?php if($m_existMetaDesc == true) { ?>
-            <meta property="og:description" itemprop="description" content="<?php echo $m_metaDesc; ?>"/>
+            <meta property="og:description" content="<?php echo $m_metaDesc; ?>"/>
         <?php } ?>
         <meta property="og:site_name" content="<?php echo $m_ds["name"]; ?>"/>
         <!-- ============================================ -->
@@ -157,7 +162,7 @@
                                 </a>
                             </div>
                             <div class="fltl">
-                                <a href="https://www.linkedin.com/cws/share?url=<?php echo $m_url; ?>" target="_blank">
+                                <a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo $m_url; ?>&title=<?php echo urlencode($m_title." | ".$m_siteName); ?>&summary=<?php echo urlencode($m_metaDesc); ?>" target="_blank">
                                     <i class="ftaa fa fa-linkedin scnb"></i>
                                 </a>
                             </div>
