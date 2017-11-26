@@ -33,5 +33,13 @@
             return $m_content;
         }
         //===============================================
+        public function getDate($file) {
+            if($file[0] != "/") $file = "/".$file;
+            $m_file = $_SERVER["DOCUMENT_ROOT"].$file."index.php";
+            $m_date = filemtime($m_file);
+            $m_date = date ("Y-m-d", $m_date);
+            return $m_date;
+        }
+        //===============================================
     }
 ?>

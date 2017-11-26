@@ -1,13 +1,14 @@
 {
+    "sitemap":"yes",
     "site":
     {
         "name":"ReadyDev"
-    },
+    },  
     "menu":
     [
         {"name":"CV","link":"/CV/"},
         {"name":"Présentation","link":"/Presentation/"},
-        {"name":"Tutoriels","link":"/Tutoriels/"},
+        {"name":"Tutoriels","link":"/Tutoriels/","prio":"1.0","freq":"daily"},
         {"name":"Contacts","link":"/Contacts/"}
     ]
 }
