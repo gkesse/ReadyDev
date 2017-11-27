@@ -1,5 +1,5 @@
 # Sitemaps
-Sitemap: http://5.48.215.193:8855/data/sitemaps/sitemap.xml
+Sitemap: http://5.48.215.193:8855/data/sitemaps/sitemaps.xml
 
 # Allow All
 User-agent: *
