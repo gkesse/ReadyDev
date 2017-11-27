@@ -36,7 +36,7 @@
                         href="/php/sitemap/urls/generer">Générer URLs</a>
                     </div>
                 </div>
-                <div class="pgCt10">
+                <div class="pgCt10 ovfa">
                     <?php if(empty($_GET)) { ?>
                         <div class="pdba"><?php echo join(" ", $m_data["description"]); ?></div>
                         <ul class="fa-ul">
