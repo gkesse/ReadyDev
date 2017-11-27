@@ -31,6 +31,11 @@
             "/Make/", 
             "/CMake/NMake/", 
             "/QMake/NMake/");
+            
+            $this->m_urlMap[] = array(
+            "link" => "/",
+            "freq" => "daily",
+            "prio" => "1.0");
         }
         //===============================================
         public static function Instance() {
@@ -42,6 +47,7 @@
         //===============================================
         public function generate() {            
             $this->getUrls();
+            $this->addUrls();
             $this->deleteXml();
             
             foreach($this->m_urls as $m_url) {
@@ -81,7 +87,6 @@
                     }
                 }
             }
-            $this->addUrls();
         }
         //===============================================
         public function getData($data) {
@@ -189,6 +194,15 @@
                 $this->m_xml->endElement();
             }
             $this->closeXml();
+        }
+        //===============================================
+        public function getInfos() { 
+            $m_infos = array();
+            $this->getUrls();
+            $m_infos["url_number"] = count($this->m_urlMap);
+            $m_infos["sitemap_number"] = (int)($m_infos["url_number"] / 50000) + 1;
+            $m_infos["url_list"] = $this->m_urlMap;
+            return $m_infos;
         }
         //===============================================
     }
