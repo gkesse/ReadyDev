@@ -31,5 +31,14 @@
             return $m_url;        
         }
         //===============================================
+        public function getPath($data) {
+            if(empty($data) == false) {
+                if($data[0] != "/") $data = "/".$data;
+            }
+            $m_url = $_SERVER['DOCUMENT_ROOT'];
+            $m_url .= $data;
+            return $m_url;        
+        }
+        //===============================================
     }
 ?>        

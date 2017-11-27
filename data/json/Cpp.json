@@ -1,4 +1,5 @@
 {
+    "sitemap":"yes",
     "meta_data":
     {
         "meta_desc":
@@ -15,21 +16,21 @@
     ],
     "summary":
     [
-        {"name":"Compilation","link":"/Tutoriels/Cpp/#Compilation"},
-        {"name":"Notions de Base","link":"/Tutoriels/Cpp/#Notions"},
-        {"name":"Patron de Conception","link":"/Tutoriels/Cpp/#Patron_Conception"}
+        {"name":"Compilation","link":"#Compilation"},
+        {"name":"Notions de Base","link":"#Notions"},
+        {"name":"Patron de Conception","link":"#Patron_Conception"}
     ],
     "compilation":
     {
         "compiler":
         [
-            {"name":"Programme Simple","link":"/Tutoriels/Cpp/Compilation/NMake/Programme_Simple"},
-            {"name":"Fichier Header","link":"/Tutoriels/Cpp/Compilation/NMake/Fichier_Header"},
-            {"name":"Création Librairie Statique","link":"/Tutoriels/Cpp/Compilation/NMake/Librairie_Statique_Creation"},
-            {"name":"Utilisation Librairie Statique","link":"/Tutoriels/Cpp/Compilation/NMake/Librairie_Statique_Utilisation"},
-            {"name":"Création Librairie Dynamique","link":"/Tutoriels/Cpp/Compilation/NMake/Librairie_Dynamique_Creation"},
-            {"name":"Utilisation Librairie Dynamique","link":"/Tutoriels/Cpp/Compilation/NMake/Librairie_Dynamique_Utilisation"},
-            {"name":"Programme Complet","link":"/Tutoriels/Cpp/Compilation/NMake/Programme_Complet"}
+            {"name":"Programme Simple","link":"/Tutoriels/Cpp/Compilation/NMake/Programme_Simple/"},
+            {"name":"Fichier Header","link":"/Tutoriels/Cpp/Compilation/NMake/Fichier_Header/"},
+            {"name":"Création Librairie Statique","link":"/Tutoriels/Cpp/Compilation/NMake/Librairie_Statique_Creation/"},
+            {"name":"Utilisation Librairie Statique","link":"/Tutoriels/Cpp/Compilation/NMake/Librairie_Statique_Utilisation/"},
+            {"name":"Création Librairie Dynamique","link":"/Tutoriels/Cpp/Compilation/NMake/Librairie_Dynamique_Creation/"},
+            {"name":"Utilisation Librairie Dynamique","link":"/Tutoriels/Cpp/Compilation/NMake/Librairie_Dynamique_Utilisation/"},
+            {"name":"Programme Complet","link":"/Tutoriels/Cpp/Compilation/NMake/Programme_Complet/"}
         ]
     },
     "notion":
@@ -66,7 +67,7 @@
     {
         "creation":
         [
-            {"name":"Singleton","link":"/Tutoriels/Cpp/Patron_Conception/Creation/Singleton"},
+            {"name":"Singleton","link":"/Tutoriels/Cpp/Patron_Conception/Creation/Singleton/"},
             {"name":"Fabrique","link":"#"},
             {"name":"Fabrique Abstraite","link":"#"},
             {"name":"Prototype","link":"#"},
