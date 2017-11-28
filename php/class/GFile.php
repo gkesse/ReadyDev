@@ -15,7 +15,8 @@
         }
         //===============================================
         public function getData($file) {
-            $m_file = $_SERVER["DOCUMENT_ROOT"]."/".$file;
+            if($file[0] != "/") $file = "/".$file;
+            $m_file = $_SERVER["DOCUMENT_ROOT"].$file;
             $m_data = file_get_contents($m_file);
             return $m_data;
         }

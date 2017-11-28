@@ -4,7 +4,6 @@
     GConfig::Instance()->setData("title", "Sitemap");
     
     $m_data = GJson::Instance()->getData("/data/json/sitemap.json");
-    $m_infos = GSiteMap::Instance()->getInfos();
     
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";
 ?>
@@ -27,16 +26,22 @@
                     </div>
                     <div class="pddc dibm">
                         <a class="bgra dibm pgCt05 ftsb hvra 
-                        <?php if(isset($_GET["action"]) && $_GET["action"] == "liste") echo "bgrc"; ?>" 
-                        href="/php/sitemap/urls/liste">Liste URLs</a>
+                        <?php if(isset($_GET["action"]) && $_GET["action"] == "list") echo "bgrc"; ?>" 
+                        href="/php/sitemap/urls/list">Liste URLs</a>
                     </div>
                     <div class="pddc dibm">
                         <a class="bgra dibm pgCt05 ftsb hvra 
                         <?php if(isset($_GET["action"]) && $_GET["action"] == "generer") echo "bgrc"; ?>" 
                         href="/php/sitemap/urls/generer">Générer URLs</a>
                     </div>
+                    <div class="pddc dibm">
+                        <a class="bgra dibm pgCt05 ftsb hvra 
+                        <?php if(isset($_GET["action"]) && $_GET["action"] == "visualiser") echo "bgrc"; ?>" 
+                        href="/php/sitemap/urls/visualiser">Visualiser URLs</a>
+                    </div>
                 </div>
-                <div class="pgCt10 ovfa">
+                <!-- ============================================ -->
+                <div class="pgCt10">
                     <?php if(empty($_GET)) { ?>
                         <div class="pdba"><?php echo join(" ", $m_data["description"]); ?></div>
                         <ul class="fa-ul">
@@ -53,17 +58,36 @@
                                 Générer le sitemap
                             </li>
                         </ul>
+                        <!-- ============================================ -->
                         <?php } else if(isset($_GET["action"]) && $_GET["action"] == "nombre") { ?>
+                        <?php $m_infos = GSiteMap::Instance()->getInfos(); ?>
                         <div>Nombre d'URLs: <span class="clrg"><?php echo $m_infos["url_number"]; ?></span></div>
                         <div>Nombre Maximal d'URLs: <span class="clrg">50.000</span></div>
                         <div>Nombre de Sitemap: <span class="clrg"><?php echo $m_infos["sitemap_number"]; ?></span></div>
-                        <?php } else if(isset($_GET["action"]) && $_GET["action"] == "liste") { ?>
-                        <?php foreach($m_infos["url_list"] as $m_url) { ?>
-                            <div><?php echo $m_url["link"]; ?></div>
-                        <?php } ?>
+                        <!-- ============================================ -->
+                        <?php } else if(isset($_GET["action"]) && $_GET["action"] == "list") { ?>
+                        <?php $m_infos = GSiteMap::Instance()->getInfos(); ?>
+                        <div class="ovfa mxha">
+                            <?php foreach($m_infos["url_list"] as $m_url) { ?>
+                                <div ><?php echo $m_url["link"]; ?></div>
+                            <?php } ?>
+                        </div>
+                        <!-- ============================================ -->
                         <?php } else if(isset($_GET["action"]) && $_GET["action"] == "generer") { ?>
                         <?php GSiteMap::Instance()->generate(); ?>
                         <div>La Génération du Sitemap s'est déroulée avec succès...</div>
+                        <!-- ============================================ -->
+                        <?php } else if(isset($_GET["action"]) && $_GET["action"] == "visualiser") { ?>
+                        <div class="pgCt10">
+                            <h3 class="clra">sitemaps.xml:</h3>
+                            <?php $m_code = GFile::Instance()->getData("/data/sitemaps/sitemaps.xml"); ?>
+                            <pre><xmp class="ovfa mxha prettyprint linenums"><?php echo $m_code; ?></xmp></pre>
+                        </div>
+                        <div class="pgCt10">
+                            <h3 class="clra">sitemap.xml:</h3>
+                            <?php $m_code = GFile::Instance()->getData("/data/sitemaps/sitemap.xml"); ?>
+                            <pre><xmp class="ovfa mxha prettyprint linenums"><?php echo $m_code; ?></xmp></pre>
+                        </div>
                     <?php } ?>
                 </div>
             </div>
