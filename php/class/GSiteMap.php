@@ -61,7 +61,6 @@
                 }
                 $this->m_xml->endElement();
                 $this->m_countUrl++;
-                echo $this->m_countUrl;
             }
             
             $this->closeXml();
