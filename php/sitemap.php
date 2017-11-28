@@ -46,16 +46,20 @@
                         <div class="pdba"><?php echo join(" ", $m_data["description"]); ?></div>
                         <ul class="fa-ul">
                             <li>
-                                <i class="fa-li fa fa-check"></i>
-                                Déterminer le nombre d'Urls
+                                <i class="fa-li fa fa-hand-o-right clrg"></i>
+                                <a class="hvra clrg" href="/php/sitemap/urls/nombre">Déterminer le nombre d'Urls</a>
                             </li>
                             <li>
-                                <i class="fa-li fa fa-check"></i>
-                                Lister tous les Urls
+                                <i class="fa-li fa fa-hand-o-right clrg"></i>
+                                <a class="hvra clrg" href="/php/sitemap/urls/liste">Lister tous les Urls</a>
                             </li>
                             <li>
-                                <i class="fa-li fa fa-check"></i>
-                                Générer le sitemap
+                                <i class="fa-li fa fa-hand-o-right clrg"></i>
+                                <a class="hvra clrg" href="/php/sitemap/urls/generer">Générer le sitemap</a>
+                            </li>
+                            <li>
+                                <i class="fa-li fa fa-hand-o-right clrg"></i>
+                                <a class="hvra clrg" href="/php/sitemap/urls/visualiser">Visualiser le sitemap</a>
                             </li>
                         </ul>
                         <!-- ============================================ -->
