@@ -1,27 +1,25 @@
 //===============================================
-#ifndef _GSingleton_
-#define _GSingleton_
+#ifndef _GObservable_
+#define _GObservable_
+//===============================================
+#include "GObserver.h"
 //===============================================
 #include <iostream>
 #include <string>
+#include <vector>
 //===============================================
 using namespace std;
 //===============================================
-class GSingleton {
-private:
-    GSingleton();
+class GObservable {
+public:
+    static GObservable* Instance();
 
 public:
-    ~GSingleton();
-    static GSingleton* Instance();
-
-public:
-    void setData(const string& data);
-    void showData() const;
+    void addObserver(GObserver* observer);
+    void notify(const string& data);
 
 private:
-    static GSingleton* m_instance;
-    string m_data;
+    vector<GObserver*> m_observerMap;
 };
 //===============================================
 #endif

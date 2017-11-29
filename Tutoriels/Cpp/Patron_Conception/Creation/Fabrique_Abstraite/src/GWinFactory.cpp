@@ -1,28 +1,25 @@
 //===============================================
-#include "GSingleton.h"
+#include "GWinFactory.h"
+#include "GWinButton.h"
 //===============================================
-GSingleton* GSingleton::m_instance = 0;
+GWinFactory* GWinFactory::m_instance = 0;
 //===============================================
-GSingleton::GSingleton() {
-    m_data = "_NO_DATA_";
-}
-//===============================================
-GSingleton::~GSingleton() {
+GWinFactory::GWinFactory() {
 
 }
 //===============================================
-GSingleton* GSingleton::Instance() {
+GWinFactory::~GWinFactory() {
+
+}
+//===============================================
+GWinFactory* GWinFactory::Instance() {
     if(m_instance == 0) {
-        m_instance = new GSingleton;
+        m_instance = new GWinFactory;
     }
     return m_instance;
 }
 //===============================================
-void GSingleton::setData(const string& data) {
-    m_data = data;
-}
-//===============================================
-void GSingleton::showData() const {
-    cout << m_data << "\n";
+GButton* GWinFactory::createButton() {
+    return new GWinButton;
 }
 //===============================================

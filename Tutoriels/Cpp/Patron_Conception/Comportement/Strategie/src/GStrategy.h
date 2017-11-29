@@ -1,27 +1,18 @@
 //===============================================
-#ifndef _GSingleton_
-#define _GSingleton_
+#ifndef _GStrategy_
+#define _GStrategy_
 //===============================================
 #include <iostream>
 #include <string>
 //===============================================
 using namespace std;
 //===============================================
-class GSingleton {
-private:
-    GSingleton();
+class GStrategy {
+public:
+    static GStrategy* Instance();
 
 public:
-    ~GSingleton();
-    static GSingleton* Instance();
-
-public:
-    void setData(const string& data);
-    void showData() const;
-
-private:
-    static GSingleton* m_instance;
-    string m_data;
+    virtual void execute() = 0;
 };
 //===============================================
 #endif

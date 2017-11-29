@@ -1,27 +1,27 @@
 //===============================================
-#ifndef _GSingleton_
-#define _GSingleton_
+#ifndef _GPizza_
+#define _GPizza_
 //===============================================
 #include <iostream>
 #include <string>
 //===============================================
 using namespace std;
 //===============================================
-class GSingleton {
-private:
-    GSingleton();
+class GPizza {
+public:
+    GPizza();
+    ~GPizza();
 
 public:
-    ~GSingleton();
-    static GSingleton* Instance();
-
-public:
-    void setData(const string& data);
-    void showData() const;
+    void setDough(const string& dough);
+    void setSauce(const string& sauce);
+    void setGarnish(const string& garnish);
+    void print() const;
 
 private:
-    static GSingleton* m_instance;
-    string m_data;
+    string m_dough;
+    string m_sauce;
+    string m_garnish;
 };
 //===============================================
 #endif

@@ -1,27 +1,15 @@
 //===============================================
-#ifndef _GSingleton_
-#define _GSingleton_
+#ifndef _GButton_
+#define _GButton_
 //===============================================
 #include <iostream>
 #include <string>
 //===============================================
 using namespace std;
 //===============================================
-class GSingleton {
-private:
-    GSingleton();
-
+class GButton {
 public:
-    ~GSingleton();
-    static GSingleton* Instance();
-
-public:
-    void setData(const string& data);
-    void showData() const;
-
-private:
-    static GSingleton* m_instance;
-    string m_data;
+    virtual void paint() = 0;
 };
 //===============================================
 #endif

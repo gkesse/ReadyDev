@@ -1,28 +1,28 @@
 //===============================================
-#include "GSingleton.h"
+#include "GConfig.h"
 //===============================================
-GSingleton* GSingleton::m_instance = 0;
+GConfig* GConfig::m_instance = 0;
 //===============================================
-GSingleton::GSingleton() {
-    m_data = "_NO_DATA_";
-}
-//===============================================
-GSingleton::~GSingleton() {
+GConfig::GConfig() {
 
 }
 //===============================================
-GSingleton* GSingleton::Instance() {
+GConfig::~GConfig() {
+
+}
+//===============================================
+GConfig* GConfig::Instance() {
     if(m_instance == 0) {
-        m_instance = new GSingleton;
+        m_instance = new GConfig;
     }
     return m_instance;
 }
 //===============================================
-void GSingleton::setData(const string& data) {
-    m_data = data;
+void GConfig::setData(const string& key, const string& value) {
+    m_dataMap[key] = value;
 }
 //===============================================
-void GSingleton::showData() const {
-    cout << m_data << "\n";
+string GConfig::getData(const string& key) {
+    return m_dataMap[key];
 }
 //===============================================

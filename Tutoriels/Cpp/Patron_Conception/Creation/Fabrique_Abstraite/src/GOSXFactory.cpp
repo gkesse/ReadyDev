@@ -1,28 +1,25 @@
 //===============================================
-#include "GSingleton.h"
+#include "GOSXFactory.h"
+#include "GOSXButton.h"
 //===============================================
-GSingleton* GSingleton::m_instance = 0;
+GOSXFactory* GOSXFactory::m_instance = 0;
 //===============================================
-GSingleton::GSingleton() {
-    m_data = "_NO_DATA_";
-}
-//===============================================
-GSingleton::~GSingleton() {
+GOSXFactory::GOSXFactory() {
 
 }
 //===============================================
-GSingleton* GSingleton::Instance() {
+GOSXFactory::~GOSXFactory() {
+
+}
+//===============================================
+GOSXFactory* GOSXFactory::Instance() {
     if(m_instance == 0) {
-        m_instance = new GSingleton;
+        m_instance = new GOSXFactory;
     }
     return m_instance;
 }
 //===============================================
-void GSingleton::setData(const string& data) {
-    m_data = data;
-}
-//===============================================
-void GSingleton::showData() const {
-    cout << m_data << "\n";
+GButton* GOSXFactory::createButton() {
+    return new GOSXButton;
 }
 //===============================================

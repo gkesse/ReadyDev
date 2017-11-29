@@ -1,17 +1,12 @@
 SOURCES += \
     $$PWD/main.cpp \
-    $$PWD/GEllipse.cpp \
-    $$PWD/GFactory.cpp \
-    $$PWD/GLine.cpp \
-    $$PWD/GPoint.cpp \
-    $$PWD/GRectangle.cpp \
-    $$PWD/GShape.cpp
+    $$PWD/GAnimal.cpp \
+    $$PWD/GCat.cpp \
+    $$PWD/GDog.cpp \
+    $$PWD/GConfig.cpp
 
 HEADERS += \
-    $$PWD/GEllipse.h \
-    $$PWD/GFactory.h \
-    $$PWD/GLine.h \
-    $$PWD/GPoint.h \
-    $$PWD/GRectangle.h \
-    $$PWD/GShape.h \
-    $$PWD/GTypeDef.h
+    $$PWD/GAnimal.h \
+    $$PWD/GCat.h \
+    $$PWD/GDog.h \
+    $$PWD/GConfig.h

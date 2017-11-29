@@ -1,27 +1,25 @@
 //===============================================
-#ifndef _GSingleton_
-#define _GSingleton_
+#ifndef _GConfig_
+#define _GConfig_
 //===============================================
-#include <iostream>
+#include <map>
 #include <string>
 //===============================================
 using namespace std;
 //===============================================
-class GSingleton {
+class GConfig {
 private:
-    GSingleton();
+    GConfig();
 
 public:
-    ~GSingleton();
-    static GSingleton* Instance();
-
-public:
-    void setData(const string& data);
-    void showData() const;
+    ~GConfig();
+    static GConfig* Instance();
+    void setData(const string& key, const string& value);
+    string getData(const string& key);
 
 private:
-    static GSingleton* m_instance;
-    string m_data;
+    static GConfig* m_instance;
+    map<string, string> m_dataMap;
 };
 //===============================================
 #endif

@@ -1,28 +1,24 @@
 //===============================================
-#include "GSingleton.h"
+#include "GAlgorithmA.h"
 //===============================================
-GSingleton* GSingleton::m_instance = 0;
+GAlgorithmA* GAlgorithmA::m_instance = 0;
 //===============================================
-GSingleton::GSingleton() {
-    m_data = "_NO_DATA_";
-}
-//===============================================
-GSingleton::~GSingleton() {
+GAlgorithmA::GAlgorithmA() {
 
 }
 //===============================================
-GSingleton* GSingleton::Instance() {
+GAlgorithmA::~GAlgorithmA() {
+
+}
+//===============================================
+GAlgorithmA* GAlgorithmA::Instance() {
     if(m_instance == 0) {
-        m_instance = new GSingleton;
+        m_instance = new GAlgorithmA;
     }
     return m_instance;
 }
 //===============================================
-void GSingleton::setData(const string& data) {
-    m_data = data;
-}
-//===============================================
-void GSingleton::showData() const {
-    cout << m_data << "\n";
+void GAlgorithmA::execute() {
+    cout << "Strategy : Algorithm A\n";
 }
 //===============================================
