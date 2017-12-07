@@ -1,16 +1,22 @@
 //===============================================
-#ifndef _GObserver_
-#define _GObserver_
+#ifndef _GChartView_
+#define _GChartView_
 //===============================================
-#include <iostream>
-#include <string>
-#include <memory>
+#include "GCommand.h"
 //===============================================
-using namespace std;
+class GMediator;
 //===============================================
-class GObserver {
+class GChartView : public GCommand {
 public:
-    virtual void update(const string& data) = 0;
+    GChartView();
+    GChartView(GMediator* mediator);
+    ~GChartView();
+
+public:
+    void execute();
+
+private:
+    GMediator* m_mediator;
 };
 //===============================================
 #endif

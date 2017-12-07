@@ -1,26 +1,27 @@
 //===============================================
-#ifndef _GObservable_
-#define _GObservable_
+#ifndef _GOriginator_
+#define _GOriginator_
 //===============================================
-#include "GObserver.h"
+#include "GMomento.h"
 //===============================================
 #include <iostream>
 #include <string>
 #include <memory>
-#include <vector>
 //===============================================
 using namespace std;
 //===============================================
-class GObservable {
+class GOriginator{
 public:
-    static GObservable* Instance();
+    GOriginator();
+    ~GOriginator();
 
 public:
-    void addObserver(GObserver* observer);
-    void notify(const string& data);
+    void setState(const string& state);
+    GMomento* saveToMomemto();
+    void restoreFromMomemto(GMomento* momemto);
 
 private:
-    vector<GObserver*> m_observerMap;
+    string m_state;
 };
 //===============================================
 #endif

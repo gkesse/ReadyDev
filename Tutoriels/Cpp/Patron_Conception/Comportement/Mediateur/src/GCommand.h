@@ -1,26 +1,20 @@
 //===============================================
-#ifndef _GObservable_
-#define _GObservable_
-//===============================================
-#include "GObserver.h"
+#ifndef _GCommand_
+#define _GCommand_
 //===============================================
 #include <iostream>
 #include <string>
 #include <memory>
-#include <vector>
 //===============================================
 using namespace std;
 //===============================================
-class GObservable {
+class GCommand {
 public:
-    static GObservable* Instance();
+    string getName() const;
+    virtual void execute() = 0;
 
-public:
-    void addObserver(GObserver* observer);
-    void notify(const string& data);
-
-private:
-    vector<GObserver*> m_observerMap;
+protected:
+    string m_name;
 };
 //===============================================
 #endif

@@ -1,8 +1,8 @@
 //===============================================
-#ifndef _GObservable_
-#define _GObservable_
+#ifndef _GCareTaker_
+#define _GCareTaker_
 //===============================================
-#include "GObserver.h"
+#include "GMomento.h"
 //===============================================
 #include <iostream>
 #include <string>
@@ -11,16 +11,17 @@
 //===============================================
 using namespace std;
 //===============================================
-class GObservable {
+class GCareTaker {
 public:
-    static GObservable* Instance();
+    GCareTaker();
+    ~GCareTaker();
 
 public:
-    void addObserver(GObserver* observer);
-    void notify(const string& data);
+    void addMomento(GMomento* momento);
+    GMomento* getMomento(const int& index);
 
-private:
-    vector<GObserver*> m_observerMap;
+protected:
+    vector<GMomento*> m_momentoMap;
 };
 //===============================================
 #endif

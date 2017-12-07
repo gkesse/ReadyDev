@@ -1,16 +1,19 @@
 //===============================================
-#ifndef _GObserver_
-#define _GObserver_
+#ifndef _GCar_
+#define _GCar_
 //===============================================
-#include <iostream>
-#include <string>
-#include <memory>
+#include "GCarItem.h"
 //===============================================
-using namespace std;
-//===============================================
-class GObserver {
+class GCar {
 public:
-    virtual void update(const string& data) = 0;
+    GCar();
+    ~GCar();
+
+public:
+    vector<GCarItem*> getCarItemMap() const;
+
+private:
+    vector<GCarItem*> m_carItemMap;
 };
 //===============================================
 #endif

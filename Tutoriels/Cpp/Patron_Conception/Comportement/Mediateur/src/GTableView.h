@@ -1,16 +1,22 @@
 //===============================================
-#ifndef _GObserver_
-#define _GObserver_
+#ifndef _GTableView_
+#define _GTableView_
 //===============================================
-#include <iostream>
-#include <string>
-#include <memory>
+#include "GCommand.h"
 //===============================================
-using namespace std;
+class GMediator;
 //===============================================
-class GObserver {
+class GTableView : public GCommand {
 public:
-    virtual void update(const string& data) = 0;
+    GTableView();
+    GTableView(GMediator* mediator);
+    ~GTableView();
+
+public:
+    void execute();
+
+private:
+    GMediator* m_mediator;
 };
 //===============================================
 #endif

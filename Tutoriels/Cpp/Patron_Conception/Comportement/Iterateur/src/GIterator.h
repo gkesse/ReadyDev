@@ -1,26 +1,19 @@
 //===============================================
-#ifndef _GObservable_
-#define _GObservable_
-//===============================================
-#include "GObserver.h"
+#ifndef _GIterator_
+#define _GIterator_
 //===============================================
 #include <iostream>
 #include <string>
 #include <memory>
-#include <vector>
 //===============================================
 using namespace std;
 //===============================================
-class GObservable {
+template<class T>
+class GIterator {
 public:
-    static GObservable* Instance();
-
-public:
-    void addObserver(GObserver* observer);
-    void notify(const string& data);
-
-private:
-    vector<GObserver*> m_observerMap;
+    virtual void reset() = 0;
+    virtual bool next() = 0;
+    virtual T current() = 0;
 };
 //===============================================
 #endif

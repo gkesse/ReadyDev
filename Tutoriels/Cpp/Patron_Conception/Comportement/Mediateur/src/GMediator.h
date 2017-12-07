@@ -1,26 +1,30 @@
 //===============================================
-#ifndef _GObservable_
-#define _GObservable_
-//===============================================
-#include "GObserver.h"
+#ifndef _GMediator_
+#define _GMediator_
 //===============================================
 #include <iostream>
 #include <string>
 #include <memory>
-#include <vector>
 //===============================================
 using namespace std;
 //===============================================
-class GObservable {
+class GChartView;
+class GTableView;
+//===============================================
+class GMediator {
 public:
-    static GObservable* Instance();
+    GMediator();
+    ~GMediator();
 
 public:
-    void addObserver(GObserver* observer);
-    void notify(const string& data);
+    void setChartView(GChartView* chartView);
+    void setTableView(GTableView* tableView);
+    void executeChartView();
+    void executeTableView();
 
 private:
-    vector<GObserver*> m_observerMap;
+    GChartView* m_chartView;
+    GTableView* m_tableView;
 };
 //===============================================
 #endif

@@ -1,26 +1,23 @@
 //===============================================
-#ifndef _GObservable_
-#define _GObservable_
-//===============================================
-#include "GObserver.h"
+#ifndef _GMomento_
+#define _GMomento_
 //===============================================
 #include <iostream>
 #include <string>
 #include <memory>
-#include <vector>
 //===============================================
 using namespace std;
 //===============================================
-class GObservable {
+class GMomento {
 public:
-    static GObservable* Instance();
+    GMomento(const string& state);
+    ~GMomento();
 
 public:
-    void addObserver(GObserver* observer);
-    void notify(const string& data);
+    string getState() const;
 
 private:
-    vector<GObserver*> m_observerMap;
+    string m_state;
 };
 //===============================================
 #endif

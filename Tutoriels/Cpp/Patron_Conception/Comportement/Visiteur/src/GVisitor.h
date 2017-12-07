@@ -1,8 +1,6 @@
 //===============================================
-#ifndef _GObservable_
-#define _GObservable_
-//===============================================
-#include "GObserver.h"
+#ifndef _GVisitor_
+#define _GVisitor_
 //===============================================
 #include <iostream>
 #include <string>
@@ -11,16 +9,17 @@
 //===============================================
 using namespace std;
 //===============================================
-class GObservable {
+class GWheel;
+class GEngine;
+class GBody;
+class GCar;
+//===============================================
+class GVisitor {
 public:
-    static GObservable* Instance();
-
-public:
-    void addObserver(GObserver* observer);
-    void notify(const string& data);
-
-private:
-    vector<GObserver*> m_observerMap;
+    virtual void visit(GWheel* wheel) = 0;
+    virtual void visit(GBody* body) = 0;
+    virtual void visit(GEngine* engine) = 0;
+    virtual void visit(GCar* car) = 0;
 };
 //===============================================
 #endif

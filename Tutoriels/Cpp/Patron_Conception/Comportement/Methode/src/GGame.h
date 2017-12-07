@@ -1,26 +1,25 @@
 //===============================================
-#ifndef _GObservable_
-#define _GObservable_
-//===============================================
-#include "GObserver.h"
+#ifndef _GGame_
+#define _GGame_
 //===============================================
 #include <iostream>
 #include <string>
 #include <memory>
-#include <vector>
 //===============================================
 using namespace std;
 //===============================================
-class GObservable {
+class GGame {
 public:
-    static GObservable* Instance();
+    static GGame* Create(const string& game);
+    void playOneGame(const int& playersCount);
+    virtual void initializeGame() = 0;
+    virtual void makePlay(const int& player) = 0;
+    virtual bool endOfGame() = 0;
+    virtual void printWinner() = 0;
 
-public:
-    void addObserver(GObserver* observer);
-    void notify(const string& data);
-
-private:
-    vector<GObserver*> m_observerMap;
+protected:
+    int m_playersCount;
+    int m_endTime;
 };
 //===============================================
 #endif

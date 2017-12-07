@@ -1,16 +1,12 @@
 //===============================================
-#ifndef _GObserver_
-#define _GObserver_
+#ifndef _GCarItem_
+#define _GCarItem_
 //===============================================
-#include <iostream>
-#include <string>
-#include <memory>
+#include "GVisitor.h"
 //===============================================
-using namespace std;
-//===============================================
-class GObserver {
+class GCarItem {
 public:
-    virtual void update(const string& data) = 0;
+    virtual void accept(GVisitor* visitor) = 0;
 };
 //===============================================
 #endif

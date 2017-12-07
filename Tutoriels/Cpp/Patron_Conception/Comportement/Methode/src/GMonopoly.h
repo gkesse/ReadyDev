@@ -1,16 +1,19 @@
 //===============================================
-#ifndef _GObserver_
-#define _GObserver_
+#ifndef _GMonopoly_
+#define _GMonopoly_
 //===============================================
-#include <iostream>
-#include <string>
-#include <memory>
+#include "GGame.h"
 //===============================================
-using namespace std;
-//===============================================
-class GObserver {
+class GMonopoly : public GGame {
 public:
-    virtual void update(const string& data) = 0;
+    GMonopoly();
+    ~GMonopoly();
+
+public:
+    void initializeGame();
+    void makePlay(const int& player);
+    bool endOfGame();
+    void printWinner();
 };
 //===============================================
 #endif

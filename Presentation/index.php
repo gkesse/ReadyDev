@@ -132,7 +132,7 @@
                         <?php echo join(" ", $m_ds["msg"]); ?>
                     </div>
                     <!-- ============================================ -->
-                    <ul class="fa-ul">
+                    <ul class="fa-ul pdra">
                         <?php 
                             $m_dsi = $m_ds["array"];
                             $m_count = count($m_dsi);

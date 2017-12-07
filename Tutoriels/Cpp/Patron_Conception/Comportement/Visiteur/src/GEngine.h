@@ -1,16 +1,16 @@
 //===============================================
-#ifndef _GObserver_
-#define _GObserver_
+#ifndef _GEngine_
+#define _GEngine_
 //===============================================
-#include <iostream>
-#include <string>
-#include <memory>
+#include "GCarItem.h"
 //===============================================
-using namespace std;
-//===============================================
-class GObserver {
+class GEngine : public GCarItem {
 public:
-    virtual void update(const string& data) = 0;
+    GEngine();
+    ~GEngine();
+
+public:
+    void accept(GVisitor* visitor);
 };
 //===============================================
 #endif

@@ -1,26 +1,28 @@
 //===============================================
-#ifndef _GObservable_
-#define _GObservable_
-//===============================================
-#include "GObserver.h"
+#ifndef _GWheel_
+#define _GWheel_
 //===============================================
 #include <iostream>
 #include <string>
 #include <memory>
-#include <vector>
 //===============================================
 using namespace std;
 //===============================================
-class GObservable {
+#include "GCarItem.h"
+//===============================================
+class GWheel : public GCarItem {
 public:
-    static GObservable* Instance();
+    GWheel();
+    GWheel(const string& name);
+    ~GWheel();
 
 public:
-    void addObserver(GObserver* observer);
-    void notify(const string& data);
+    void setName(const string& name);
+    string getName() const;
+    void accept(GVisitor* visitor);
 
 private:
-    vector<GObserver*> m_observerMap;
+    string m_name;
 };
 //===============================================
 #endif
