@@ -17,32 +17,39 @@ C'est un site web développé en PHP et maintenu par
 Vous trouverez sur ce site des tutoriels permettant de monter en compétences
 de manière éfficace en :
 
-* Dévloppement Logiciel C/C++/Qt
+* Dévloppement Logiciel C/C++, C#, Java, Python
 * Interface Homme-Machine
 * Vision par Ordinateur
 * Rendu de Scène 2D et 3D
 * Systèmes Embarqués
 * Multithreading
 * Patrons de conception
-* Gestion de base de données
-* Gestion de versions
 * Développement Web PHP
 * Développement Mobile Android
+* Gestion de Base de Données
+* Gestion de Versions
+* Gestion de Projets
+* Intégration Continue
 
-# ReadyDev Responsive Web Design
 
-**ReadyDev** est un site web conçu sur la base de la technologie **Responsive Web Design**,
+# Responsive Web Design
+
+**ReadyDev** est conçu sur la base de la technologie **Responsive Web Design**,
 ce qui le rend totalement consultable sur toutes les plateformes fixes ou mobiles.  
 
-* **ReadyDev Desktop View**
+### Interface Bureau
+
+Vous remarquerez les menus CV, Présentation, Tutoriels, Contacts
 
 ![ReadyDev Desktop View](https://raw.githubusercontent.com/gkesse/ReadyDev/master/img/desktop.png)
 
-* **ReadyDev Mobile View (Close)**
+### Interface Mobile
+
+##### Mode Fermé
 
 ![ReadyDev Mobile View (Close)](https://raw.githubusercontent.com/gkesse/ReadyDev/master/img/mobile_close.png)
 
-* **ReadyDev Mobile View (Open)**
+##### Mode Ouvert
 
 ![ReadyDev Mobile View (Open)](https://raw.githubusercontent.com/gkesse/ReadyDev/master/img/mobile_open.png)
 
