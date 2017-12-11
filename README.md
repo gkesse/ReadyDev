@@ -72,4 +72,5 @@ Le développement du site web **ReadyDev** a nécessité les technologies suivantes
 * Gestion de Drapeaux de Pays : **Flags**
 * Gestion de Requêtes JS : **jQuery**
 * Gestion de Affichage Code : **Prettify**
+* Gestion de Fonts Police : **Google Fonts**
 * Format de Données : **JSON**
