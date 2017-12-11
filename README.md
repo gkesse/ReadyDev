@@ -53,7 +53,7 @@ Dans le mode fermé, les menus du site sont inaccessibles.
 
 ##### Mode Ouvert
 
-Dans le mode ouvert, les menus du site sont inaccessibles.
+Dans le mode ouvert, les menus du site sont accessibles.
 
 ![ReadyDev Mobile View (Open)](https://raw.githubusercontent.com/gkesse/ReadyDev/master/img/mobile_open.png)
 
