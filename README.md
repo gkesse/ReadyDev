@@ -60,7 +60,7 @@ Dans le mode ouvert, les menus du site sont accessibles.
 # Support de Développement
 
 Construit autour de l'architecture Modèle Vue-Contrôleur **MVC**, 
-où les données sont stockées dans des fichiers au format de données JSON. 
+où les données sont stockées dans des fichiers au format de données **JSON**. 
 Le code source de **ReadyDev** peut servir de support de base de développement de votre site internet.
 
 # Technologies
