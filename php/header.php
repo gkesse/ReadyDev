@@ -87,7 +87,6 @@
         <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Aclonica"/>
         <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Akronim"/>
         <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css"/>
-        <link rel="stylesheet" href="/lib/easyshare/dist/jquery.kyco.easyshare.css">
         <!-- ============================================ -->
         <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=css&amp;skin=sunburst"></script>
         <script src="/lib/jquery/jquery.min.js"></script>

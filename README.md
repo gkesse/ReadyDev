@@ -47,29 +47,29 @@ Vous remarquerez les menus CV, Présentation, Tutoriels, Contacts
 
 ##### Mode Fermé
 
+Dans le mode fermé, les menus du site sont inaccessibles.
+
 ![ReadyDev Mobile View (Close)](https://raw.githubusercontent.com/gkesse/ReadyDev/master/img/mobile_close.png)
 
 ##### Mode Ouvert
 
+Dans le mode ouvert, les menus du site sont inaccessibles.
+
 ![ReadyDev Mobile View (Open)](https://raw.githubusercontent.com/gkesse/ReadyDev/master/img/mobile_open.png)
 
-* **Support de développement**
+# Support de Développement
 
-Construit sur le concept de l'architecture Modèle Vue-Contrôleur **MVC**, 
-où les données sont configurées dans des formats de fichier JSON. 
+Construit autour de l'architecture Modèle Vue-Contrôleur **MVC**, 
+où les données sont stockées dans des fichiers au format de données JSON. 
 Le code source de **ReadyDev** peut servir de support de base de développement de votre site internet.
 
 # Technologies
 
 Le développement du site web **ReadyDev** a nécessité les technologies suivantes :
 
-* Langages : **HTML/CSS/JS/PHP**
 * Gestion de Mails : **PHPMailer**
 * Gestion de Pictogrammes : **FontAwesome**
 * Gestion de Drapeaux de Pays : **Flags**
 * Gestion de Requêtes JS : **jQuery**
+* Gestion de Affichage Code : **Prettify**
 * Format de Données : **JSON**
-* Base de données : **MySQL**
-* Patron de Conception : **Singleton, Post Redirect Get**
-* Architecture : **Responsive Web Design**
-* Cible : **Bureau, Mobile**
