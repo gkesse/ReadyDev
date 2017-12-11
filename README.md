@@ -1,7 +1,7 @@
 # Auteur
 
 Je suis 
-[Gerard KESSE](http://5.48.215.193:8855/presentation/ "Accédez à mon site web (ReadyDev)"),  
+[Gerard KESSE](http://5.48.215.193:8855/Presentation/ "Accédez à mon site web (ReadyDev)"),  
 Ingénieur en Développement Informatique C/C++/Qt,  
 Avec à la fois des compétences en Systèmes Embarqués et en Robotique.  
 
@@ -13,8 +13,8 @@ Avec à la fois des compétences en Systèmes Embarqués et en Robotique.
 
 **ReadyDev** est une Plateforme de Développement Continu.  
 C'est un site web développé en PHP et maintenu par 
-[Gerard KESSE](http://5.48.215.193:8855/presentation/ "Accédez à mon site web (ReadyDev)").  
-Il propose des tutoriels permettant de monter en compétences
+[Gerard KESSE](http://5.48.215.193:8855/Presentation/ "Accédez à mon site web (ReadyDev)").  
+Vous trouverez sur ce site des tutoriels permettant de monter en compétences
 de manière éfficace en :
 
 * Dévloppement Logiciel C/C++/Qt
@@ -28,6 +28,8 @@ de manière éfficace en :
 * Gestion de versions
 * Développement Web PHP
 * Développement Mobile Android
+
+# ReadyDev Responsive Web Design
 
 **ReadyDev** est un site web conçu sur la base de la technologie **Responsive Web Design**,
 ce qui le rend totalement consultable sur toutes les plateformes fixes ou mobiles.  
