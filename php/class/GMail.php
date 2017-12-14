@@ -31,7 +31,7 @@
             $mail->SMTPAuth = true;
             $mail->CharSet = "UTF-8";
             $mail->Username = "readydevz@gmail.com";
-            $mail->Password = "gma17@RDv";
+            $mail->Password = "gma25@RDv";
             $mail->setFrom("readydevz@gmail.com", "ReadyDev");
             $mail->addReplyTo($data["emailValue"], $data["nameValue"]);
             $mail->addAddress("readydevz@gmail.com", "ReadyDev");
@@ -58,7 +58,7 @@
             $mail->SMTPAuth = true;
             $mail->CharSet = "UTF-8";
             $mail->Username = "readydevz@gmail.com";
-            $mail->Password = "gma17@RDv";
+            $mail->Password = "gma25@RDv";
             $mail->setFrom("readydevz@gmail.com", "ReadyDev");
             $mail->addAddress($data["emailValue"], $data["nameValue"]);
             $mail->addReplyTo("readydevz@gmail.com", "ReadyDev");
