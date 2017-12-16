@@ -4,15 +4,15 @@
     {
         "meta_desc":
         [
-            "Démarrez la programmation en PHP, commencez par les notions de base", 
+            "Démarrez la programmation en C#, commencez par les notions de base", 
             "allez à la programmation orientée objet, maîtrisez les patrons de conception."
         ],
-        "meta_cano":"/Tutoriels/PHP/"
+        "meta_cano":"/Tutoriels/CSharp/"
     },    
     "links":
     [
         {"name":"Tutoriels","link":"/Tutoriels/"},
-        {"name":"PHP","link":""}
+        {"name":"C#","link":""}
     ],
     "summary":
     [

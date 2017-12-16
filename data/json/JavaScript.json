@@ -4,20 +4,19 @@
     {
         "meta_desc":
         [
-            "Démarrez la programmation en PHP, commencez par les notions de base", 
-            "allez à la programmation orientée objet, maîtrisez les patrons de conception."
+            "Démarrez la programmation en JavaScript, commencez par les notions de base", 
+            "créez vos pages web, dynamisez vos contenus web."
         ],
-        "meta_cano":"/Tutoriels/PHP/"
+        "meta_cano":"/Tutoriels/JavaScript/"
     },    
     "links":
     [
         {"name":"Tutoriels","link":"/Tutoriels/"},
-        {"name":"PHP","link":""}
+        {"name":"JavaScript","link":""}
     ],
     "summary":
     [
-        {"name":"Notions de Base","link":"#Notions"},
-        {"name":"Programmation Orientée Objet","link":"#"}
+        {"name":"Notions de Base","link":"#Notions"}
     ],
     "notion":
     {

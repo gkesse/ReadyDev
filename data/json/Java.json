@@ -4,15 +4,15 @@
     {
         "meta_desc":
         [
-            "Démarrez la programmation en PHP, commencez par les notions de base", 
+            "Démarrez la programmation en Java, commencez par les notions de base", 
             "allez à la programmation orientée objet, maîtrisez les patrons de conception."
         ],
-        "meta_cano":"/Tutoriels/PHP/"
+        "meta_cano":"/Tutoriels/Java/"
     },    
     "links":
     [
         {"name":"Tutoriels","link":"/Tutoriels/"},
-        {"name":"PHP","link":""}
+        {"name":"Java","link":""}
     ],
     "summary":
     [

@@ -4,20 +4,19 @@
     {
         "meta_desc":
         [
-            "Démarrez la programmation en PHP, commencez par les notions de base", 
-            "allez à la programmation orientée objet, maîtrisez les patrons de conception."
+            "Démarrez la gestion de versions en CVS, commencez par les notions de base", 
+            "gérez aisement les différentes versions de vos projets, maîtrisez l'intégration continue."
         ],
-        "meta_cano":"/Tutoriels/PHP/"
+        "meta_cano":"/Tutoriels/CVS/"
     },    
     "links":
     [
         {"name":"Tutoriels","link":"/Tutoriels/"},
-        {"name":"PHP","link":""}
+        {"name":"CVS","link":""}
     ],
     "summary":
     [
-        {"name":"Notions de Base","link":"#Notions"},
-        {"name":"Programmation Orientée Objet","link":"#"}
+        {"name":"Notions de Base","link":"#Notions"}
     ],
     "notion":
     {

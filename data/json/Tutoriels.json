@@ -27,19 +27,19 @@
             "icon":"fa fa-desktop",
             "theme":"C#",
             "description":"Programmez en<br/> C#",
-            "link":"#"
+            "link":"/Tutoriels/CSharp/"
         },
         {
             "icon":"fa fa-desktop",
             "theme":"Java",
             "description":"Programmez en<br/> Java",
-            "link":"#"
+            "link":"/Tutoriels/Java/"
         },
         {
             "icon":"fa fa-desktop",
             "theme":"Python",
             "description":"Programmez en<br/> Python",
-            "link":"#"
+            "link":"/Tutoriels/Python/"
         }
     ],
     "web":
@@ -48,25 +48,25 @@
             "icon":"fa fa-globe",
             "theme":"HTML",
             "description":"Programmez en<br/> HTML",
-            "link":"#"
+            "link":"/Tutoriels/HTML/"
         },
         {
             "icon":"fa fa-globe",
             "theme":"CSS",
             "description":"Apprenez le<br/> CSS",
-            "link":"#"
+            "link":"/Tutoriels/CSS/"
         },
         {
             "icon":"fa fa-globe",
             "theme":"JavaScript",
             "description":"Programmez en<br/> JavaScript",
-            "link":"#"
+            "link":"/Tutoriels/JavaScript/"
         },
         {
             "icon":"fa fa-globe",
             "theme":"PHP",
             "description":"Programmez en<br/> PHP",
-            "link":"#"
+            "link":"/Tutoriels/PHP/"
         }
     ],
     "version":
@@ -75,19 +75,19 @@
             "icon":"fa fa-sitemap",
             "theme":"Git",
             "description":"Apprenez le<br/> Git",
-            "link":"#"
+            "link":"/Tutoriels/Git/"
         },
         {
             "icon":"fa fa-sitemap",
             "theme":"CVS",
             "description":"Apprenez le<br/> CVS",
-            "link":"#"
+            "link":"/Tutoriels/CVS/"
         },
         {
             "icon":"fa fa-sitemap",
             "theme":"SVN",
             "description":"Apprenez le<br/> SVN",
-            "link":"#"
+            "link":"/Tutoriels/SVN/"
         }
     ]
 }

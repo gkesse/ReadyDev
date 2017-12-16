@@ -4,20 +4,19 @@
     {
         "meta_desc":
         [
-            "Démarrez la programmation en PHP, commencez par les notions de base", 
-            "allez à la programmation orientée objet, maîtrisez les patrons de conception."
+            "Démarrez la mise en forme en CSS, commencez par les notions de base", 
+            "créez vos pages webs, ajoutez du style à vos contenus web."
         ],
-        "meta_cano":"/Tutoriels/PHP/"
+        "meta_cano":"/Tutoriels/CSS/"
     },    
     "links":
     [
         {"name":"Tutoriels","link":"/Tutoriels/"},
-        {"name":"PHP","link":""}
+        {"name":"CSS","link":""}
     ],
     "summary":
     [
-        {"name":"Notions de Base","link":"#Notions"},
-        {"name":"Programmation Orientée Objet","link":"#"}
+        {"name":"Notions de Base","link":"#Notions"}
     ],
     "notion":
     {
