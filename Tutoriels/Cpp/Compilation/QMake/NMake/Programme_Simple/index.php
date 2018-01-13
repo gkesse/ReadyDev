@@ -5,7 +5,7 @@
     
     GConfig::Instance()->setData("title", "QMake");
     GConfig::Instance()->setData("menu", "Tutoriels");
-    GConfig::Instance()->setData("view", "QMake_02");
+    GConfig::Instance()->setData("view", "QMake_01");
     GConfig::Instance()->setData("link", $m_data["links"]);
     GConfig::Instance()->setData("dir", __FILE__);
 
