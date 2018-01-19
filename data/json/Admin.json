@@ -3,33 +3,12 @@
     {
         "meta_desc":
         [
-            "ReadyDev propose un formulaire de contact par lequel vous pouvez lui",
-            "laissez un message."
+            "ReadyDev Administration Interface"
         ],
         "meta_cano":"/Admin/"
     },    
-    "email":
-    {
-        "id":"email",
-        "label":"Email",
-        "placeholder":"Entrez votre email",
-        "icon":"fa fa-envelope"
-    },
-    "password":
-    {
-        "id":"password",
-        "label":"Mot de passe",
-        "placeholder":"Entrez votre mot de passe",
-        "icon":"fa fa-lock"
-    },
-    "submit":
-    {
-        "id":"submit",
-        "label":"Se Connecter",
-        "icon":"fa fa-paper-plane"
-    },
-    "login":
+    "summary":
     [
-        {"pass":"a0f35460f435b0b2aea7b29633a6c492","group":"admin"}
+        {"name":"Sitemaps","link":"#Sitemaps"}
     ]
 }

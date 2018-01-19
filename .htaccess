@@ -7,7 +7,7 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)/doc/path/(.*)$ $1/?doc=$2 [L,QSA]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^php/sitemap/urls/(.*)$ php/sitemap.php?action=$1 [L,QSA]
+RewriteRule ^Admin/Sitemaps/Urls/(.*)$ Admin/?action=$1 [L,QSA]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^Connexion/(.*)$ Connexion/?action=$1 [L,QSA]

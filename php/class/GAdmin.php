@@ -123,7 +123,7 @@
             else if($_SESSION["login"]["group"] != "admin") $m_validate = false;
             
             if(!$m_validate) {
-                header("Location: ".$_SESSION["lasturl"]);
+                header("Location: /Connexion/");
             }
         }
         //===============================================

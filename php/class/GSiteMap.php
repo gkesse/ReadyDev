@@ -97,9 +97,10 @@
                     }
                     else {
                         if($key == "link" && !is_numeric($key)) {
-                            if(!empty($value)) {
+                            if($value != "") {
                                 if($value[0] != "#") {
-                                    if(!in_array($value, $this->m_urlMap)) {
+                                    $m_search = GGlobal::Instance()->search($this->m_urlMap, "link", $value);
+                                    if(empty($m_search)) {
                                         $m_isCompiler = preg_match("#.*/NMake/.*#", $value);
                                         if($m_isCompiler == true) {
                                             foreach($this->m_compiler as $m_item) {

@@ -15,7 +15,11 @@
         <!-- ============================================ -->
         <div class="pgCt10">
             <div class="bgra">
-                <h1 class="bgra clrb pgCt20" id="Sommaire">Sommaire</h1>
+                <h1 class="bgra pgCt20" id="Sommaire">
+                    <a class="clrb" href="#">
+                        Sommaire
+                    </a>
+                </h1>
                 <div class="txal pgCt10">
                     <ul class="fa-ul">
                         <?php 
@@ -36,7 +40,11 @@
         <!-- ============================================ -->
         <div class="pgCt10">
             <div class="bgra">
-                <h1 class="bgra clrb pgCt20" id="Developpement_Logiciel">Développement Logiciel</h1>
+                <h1 class="bgra pgCt20" id="Developpement_Logiciel">
+                    <a class="clrb" href="#Sommaire">
+                        Développement Logiciel
+                    </a>
+                </h1>
                 <div class="pgRw">
                     <?php 
                         $m_ds = $m_data["software"];
@@ -66,7 +74,11 @@
         <!-- ============================================ -->
         <div class="pgCt10">
             <div class="bgra">
-                <h1 class="bgra clrb pgCt20" id="Developpement_Web">Développement Web</h1>
+                <h1 class="bgra pgCt20" id="Developpement_Web">
+                    <a class="clrb" href="#Sommaire">
+                        Développement Web
+                    </a>
+                </h1>
                 <div class="pgRw">
                     <?php 
                         $m_ds = $m_data["web"];
@@ -96,7 +108,11 @@
         <!-- ============================================ -->
         <div class="pgCt10">
             <div class="bgra">
-                <h1 class="bgra clrb pgCt20" id="Systeme_Gestion_Version">Système de Gestion de Version</h1>
+                <h1 class="bgra pgCt20" id="Systeme_Gestion_Version">
+                    <a class="clrb" href="#Sommaire">
+                        Système de Gestion de Version
+                    </a>
+                </h1>
                 <div class="pgRw">
                     <?php 
                         $m_ds = $m_data["version"];
