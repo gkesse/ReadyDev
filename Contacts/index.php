@@ -111,12 +111,12 @@
                         <!-- ============================================ -->
                         <div class="txar pgCr05">
                             <?php $m_ds = $m_data["submit"]; ?>
-                            <div class="bgra brra pdla dibm evta">
+                            <button class="bgra brra evta"
+                            type="submit" name="<?php echo $m_ds["id"]; ?>" 
+                            value="<?php echo $m_ds["label"]; ?>">
                                 <i class="<?php echo $m_ds["icon"]; ?>"></i>
-                                <button type="submit" 
-                                name="<?php echo $m_ds["id"]; ?>" 
-                                value="<?php echo $m_ds["label"]; ?>"><?php echo $m_ds["label"]; ?></button>
-                            </div>
+                                <?php echo $m_ds["label"]; ?>
+                            </button>
                         </div>
                         <!-- ============================================ -->
                     </form>

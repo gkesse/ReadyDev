@@ -40,5 +40,15 @@
             return $m_url;        
         }
         //===============================================
+        public function search($arrayMap, $field, $value) {
+            $m_dataMap = array();
+            foreach($arrayMap as $key => $dataMap) {
+                if($dataMap[$field] == $value) {
+                    $m_dataMap = $dataMap;
+                }
+            }
+            return $m_dataMap;
+        }
+        //===============================================
     }
 ?>        

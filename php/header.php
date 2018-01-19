@@ -1,7 +1,8 @@
 <?php     
     GMetaData::Instance()->getData();
-    
+
     $m_title = GConfig::Instance()->getData("title"); 
+    GUrl::Instance()->lastUrl();
     
     $m_existstMenu = GConfig::Instance()->existData("menu");
     if($m_existstMenu == true) {
@@ -11,7 +12,7 @@
     $m_existstLink = GConfig::Instance()->existData("link");
     if($m_existstLink == true) {
         $m_link = GConfig::Instance()->getData("link"); 
-    }
+        }
     
     $m_existstView = GConfig::Instance()->existData("view");
     if($m_existstView == true) {
@@ -126,12 +127,24 @@
                             }
                         }
                     ?>
+                    <?php 
+                        if($m_di["name"] == "Admin") {
+                            if(!isset($_SESSION["login"])) continue;
+                            else if($_SESSION["login"]["group"] != "admin") continue;
+                        }
+                        else if($m_di["name"] == "Connexion") {
+                            if(isset($_SESSION["login"])) continue;
+                        }
+                    ?>
                     <li class="hdml">
                         <a class="hdmi <?php echo $m_active; ?>" 
                         href="<?php echo $m_di["link"]; ?>">
                             <?php echo $m_di["name"]; ?>
                         </a>
                     </li>
+                <?php } ?>
+                <?php if(isset($_SESSION["login"])) { ?>
+                    <li class="hdml"><span class="admd hdmi cspt">Déconnexion</span> </li>
                 <?php } ?>
                 <li class="hdmb"><i class="fa fa-bars"></i></li>
             </ul>
@@ -184,6 +197,8 @@
                     <?php } ?>
                 </div>
             <?php } ?>
+            <!-- ============================================ -->
+            <?php require $_SERVER["DOCUMENT_ROOT"]."/php/modal.php"; ?>
             <!-- ============================================ -->
         </header>
         <!-- ============================================ -->

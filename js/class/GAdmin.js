@@ -1,7 +1,7 @@
 //===============================================
-// GContact
+// GAdmin
 //===============================================
-var GContact = (function() {
+var GAdmin = (function() {
     //===============================================
     var m_instance;
     //===============================================
@@ -9,17 +9,13 @@ var GContact = (function() {
         return {
             //===============================================
             init: function() {
-                $.getJSON("/data/json/Contacts.json", function(data) {
-                    var m_data = data["message"]["max"];
-                    GSetting.Instance().setData("ContactMax", m_data);
-                    $(".contacts .message").trigger("propertychange");
+                    
                 });
             }
             //===============================================
         };
     }
     //===============================================
-    // instance
     return {
         Instance: function () {
             if (!m_instance) {
@@ -32,5 +28,7 @@ var GContact = (function() {
     //===============================================
 })();
 //===============================================
-GContact.Instance().init();
+// Initialization
+//===============================================
+GAdmin.Instance().init();
 //===============================================

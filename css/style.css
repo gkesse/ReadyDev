@@ -347,6 +347,11 @@ b {
     color: yellow;
 }
 
+/* cursor pointer */
+.cspt {
+    cursor: pointer;
+}
+
 /* display inline-block */
 .dibm {
     display: inline-block;
@@ -462,6 +467,15 @@ b {
     border-radius: 20px;
     text-align: center;
     margin: 5px 5px 0 5px;
+}
+
+.ftae {
+    background: rgba(255,255,255,0.2);
+    width: 24px;
+    line-height: 24px;
+    font-size: 16px;
+    border-radius: 12px;
+    text-align: center;
 }
 
 /* float */
@@ -610,6 +624,44 @@ b {
     min-height: 20px;
 }
 
+/* modal */
+.mdla {
+    display: none;
+    background: rgba(100,10,100,0.5);
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    padding-top: 155px;
+    overflow: auto;
+}
+
+/* modal-content */
+.mdca {
+    background: #373f60;
+    position: relative;
+    margin: auto;
+    max-width: 680px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+}
+
+@keyframes animatetop {
+    from {top:-400px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+
 /* max-height */
 .mxha {
     max-height: 400px;
@@ -703,22 +755,32 @@ b {
     padding-bottom: 5px;
 }
 
-/* position */
+.pdbc {
+    padding-bottom: 20px;
+}
+
+/* position relative */
 .psra {
     position: relative;
 }
 
+/* position absolute */
 .psaa {
     position: absolute;
     top: 25px;
     left: -28px;
 }
 
+.psab {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
 /* succes */
 .scca {
     background: rgba(255,255,255,0.2);
     border-radius: 5px;
-    color: lime;
     color: #89a830;
     padding: 10px;
     text-align: left;
@@ -765,6 +827,11 @@ b {
 /* word-wrap */
 .wwbw {
     word-wrap: break-word;
+}
+
+/* word-spacing */
+.wspa {
+    word-spacing: 5px;
 }
 
 /* ============================================== */
