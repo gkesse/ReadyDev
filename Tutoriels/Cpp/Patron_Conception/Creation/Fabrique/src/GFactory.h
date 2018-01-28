@@ -1,15 +1,12 @@
 //===============================================
-#ifndef _GAnimal_
-#define _GAnimal_
+#ifndef _GFactory_
+#define _GFactory_
 //===============================================
-#include <iostream>
-#include <string>
+#include "GAnimal.h"
 //===============================================
-using namespace std;
-//===============================================
-class GAnimal {
+class GFactory {
 public:
-    virtual void showName() = 0;
+    static GAnimal* Create(const string& animal);
 };
 //===============================================
 #endif

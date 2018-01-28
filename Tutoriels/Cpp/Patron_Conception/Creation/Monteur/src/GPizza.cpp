@@ -22,6 +22,7 @@ void GPizza::setGarnish(const string& garnish) {
 }
 //===============================================
 void GPizza::print() const {
+    cout << "Pizza : ";
     cout << m_dough << " | ";
     cout << m_sauce << " | ";
     cout << m_garnish << "\n";

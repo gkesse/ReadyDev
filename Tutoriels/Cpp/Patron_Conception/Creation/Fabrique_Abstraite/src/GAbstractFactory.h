@@ -6,7 +6,7 @@
 //===============================================
 class GAbstractFactory {
 public:
-    static GAbstractFactory* Instance();
+    static GAbstractFactory* Create(const string& factory);
 
 public:
     virtual GButton* createButton() = 0;

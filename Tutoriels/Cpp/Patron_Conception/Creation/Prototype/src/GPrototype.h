@@ -1,18 +1,16 @@
 //===============================================
-#ifndef _GRecord_
-#define _GRecord_
+#ifndef _GPrototype_
+#define _GPrototype_
 //===============================================
 #include <iostream>
 #include <string>
 //===============================================
 using namespace std;
 //===============================================
-class GRecord {
+class GPrototype {
 public:
-    static GRecord* Instance();
-
-public:
-    virtual GRecord* clone() = 0;
+    virtual GPrototype* clone() = 0;
+    virtual void print() = 0;
 };
 //===============================================
 #endif

@@ -1,13 +1,16 @@
 //===============================================
+#include "GFactory.h"
 #include "GAnimal.h"
-#include "GConfig.h"
 //===============================================
 int main(int argc, char** argv) {
-    GConfig::Instance()->setData("Animal", "Cat");
-    GAnimal::Instance()->showName();
+    GAnimal* m_animal = 0;
 
-    GConfig::Instance()->setData("Animal", "Dog");
-    GAnimal::Instance()->showName();
+    m_animal = GFactory::Create("Cat");
+    m_animal->showName();
+
+    m_animal = GFactory::Create("Dog");
+    m_animal->showName();
+
     return 0;
 }
 //===============================================

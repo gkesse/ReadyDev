@@ -4,8 +4,7 @@ HEADERS += \
     $$PWD/GWinButton.h \
     $$PWD/GAbstractFactory.h \
     $$PWD/GOSXFactory.h \
-    $$PWD/GWinFactory.h \
-    $$PWD/GConfig.h \
+    $$PWD/GWinFactory.h
 
 SOURCES += \
     $$PWD/GButton.cpp \
@@ -14,5 +13,4 @@ SOURCES += \
     $$PWD/main.cpp \
     $$PWD/GAbstractFactory.cpp \
     $$PWD/GOSXFactory.cpp \
-    $$PWD/GWinFactory.cpp \
-    $$PWD/GConfig.cpp
+    $$PWD/GWinFactory.cpp

@@ -1,27 +1,24 @@
 //===============================================
-#ifndef _GRecordPerson_
-#define _GRecordPerson_
+#ifndef _GAnimal_
+#define _GAnimal_
 //===============================================
-#include "GRecord.h"
+#include "GPrototype.h"
 //===============================================
-class GRecordPerson : public GRecord {
-private:
-    GRecordPerson();
+class GAnimal : public GPrototype {
+public:
+    GAnimal();
+    GAnimal(const GAnimal& animal);
+    ~GAnimal();
 
 public:
-    ~GRecordPerson();
-    static GRecordPerson* Instance();
-
-public:
-    GRecord* clone();
-    void print() const;
+    GPrototype* clone();
+    void print();
+    void setFamily(const string& family);
     void setName(const string& name);
-    void setCity(const string& city);
 
 private:
-    static GRecordPerson* m_instance;
+    string m_family;
     string m_name;
-    string m_city;
 };
 //===============================================
 #endif

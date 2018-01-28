@@ -1,21 +1,12 @@
 //===============================================
 #include "GPizzaRoyal.h"
 //===============================================
-GPizzaRoyal* GPizzaRoyal::m_instance = 0;
-//===============================================
 GPizzaRoyal::GPizzaRoyal() {
 
 }
 //===============================================
 GPizzaRoyal::~GPizzaRoyal() {
 
-}
-//===============================================
-GPizzaRoyal* GPizzaRoyal::Instance() {
-    if(m_instance == 0) {
-        m_instance = new GPizzaRoyal;
-    }
-    return m_instance;
 }
 //===============================================
 void GPizzaRoyal::buildDough() {

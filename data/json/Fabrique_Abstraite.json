@@ -1,0 +1,45 @@
+{
+    "meta_data":
+    {
+        "meta_desc":
+        [
+            "Implémentez le patron de conception Fabrique Abstraite en C/C++."
+        ],
+        "meta_cano":"/Tutoriels/Cpp/Patron_Conception/Creation/Fabrique_Abstraite/"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/"},
+        {"name":"C/C++","link":"/Tutoriels/Cpp/"},
+        {"name":"Patron Conception","link":"/Tutoriels/Cpp#Patron_Creation"},
+        {"name":"Fabrique Abstraite","link":""}
+    ],
+    "definition":
+    [
+        "Le Patron Fabrique Abstraite est utilisé pour sélectionner la fabrique concrète",
+        "permettant de créer des instances concrètes de classes abstraites",
+        "en fonction des paramètres passés à la Fabrique Abstraite.",
+        "Il permet de créer une fabrique concrète en fonction d'un paramètre.",
+        "<br/><br/>",
+        "<h3 class='clra pgCr10'>Implémentation</h3>",
+        "Pour comprendre son implémentation, nous allons considérer, une Fabrique Abstraite (GAbstractFactory)",
+        "permettant de créer des fabriques concrètes pour différentes plateformes, Windows (GWinFactory)",
+        ", OSX (GOSXFactory), utilisées pour créer des Boutons (GButton)",
+        "pour différentes plateformes, Windows (GWinButton), OSX (GOSXButton).",
+        "Chaque bouton pourra être paint (paint())."
+    ],
+    "img":
+    {
+        "results":"img/Resultats.png"
+    },
+    "see_also":
+    [
+        {"name":"Patron de Création","link":"/Tutoriels/Cpp#Patron_Creation"},
+        {"name":"Singleton","link":"/Tutoriels/Cpp/Patron_Conception/Creation/Singleton"},
+        {"name":"Fabrique","link":"/Tutoriels/Cpp/Patron_Conception/Creation/Fabrique"},
+        {"name":"Fabrique Abstraite","link":"/Tutoriels/Cpp/Patron_Conception/Creation/Fabrique_Abstraite"},
+        {"name":"Prototype","link":"/Tutoriels/Cpp/Patron_Conception/Creation/Prototype"},
+        {"name":"Monteur","link":"/Tutoriels/Cpp/Patron_Conception/Creation/Monteur"}
+    ]
+}
+                        

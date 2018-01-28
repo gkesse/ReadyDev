@@ -1,15 +1,16 @@
 //===============================================
 #include "GBuilder.h"
-#include "GConfig.h"
 //===============================================
 int main(int argc, char** argv) {
-    GConfig::Instance()->setData("Pizza", "Royal");
-    GBuilder::Instance()->build();
-    GBuilder::Instance()->getPizza()->print();
+    GBuilder* m_builder = 0;
 
-    GConfig::Instance()->setData("Pizza", "Hawaii");
-    GBuilder::Instance()->build();
-    GBuilder::Instance()->getPizza()->print();
+    m_builder = GBuilder::Create("Royal");
+    m_builder->build();
+    m_builder->getPizza()->print();
+
+    m_builder = GBuilder::Create("Hawaii");
+    m_builder->build();
+    m_builder->getPizza()->print();
     return 0;
 }
 //===============================================

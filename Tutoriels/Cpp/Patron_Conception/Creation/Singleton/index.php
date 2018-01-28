@@ -8,10 +8,10 @@
     GConfig::Instance()->setData("view", "Singleton");
     GConfig::Instance()->setData("link", $m_data["links"]);
     GConfig::Instance()->setData("dir", __FILE__);
-
-    require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";
+    
+    require $_SERVER["DOCUMENT_ROOT"]."/php/header.php"; 
 ?>
-    <!-- ============================================ -->
+<!-- ============================================ -->
 <div class="pgBg">
     <div class="mrga pgBd">
         <!-- ============================================ -->
@@ -26,7 +26,7 @@
                 </div>
             </div>
         </div>
-        <!-- ============================================ -->
+          <!-- ============================================ -->
         <div class="pgCt10">
             <div class="bgra">
                 <h1 class="bgra clrb pgCt20">Programmation</h1>
@@ -46,13 +46,34 @@ int main(int argc, char** argv) {
 }
 //===============================================
                     </xmp></pre>
-                    <h3 class="clra">Programme Initialisation:</h3>
+                    <h3 class="clra">Programme Singleton:</h3>
+                    <pre><xmp class="ovfa prettyprint linenums">
+//===============================================
+class GSingleton {
+private:
+    GSingleton();
+
+public:
+    ~GSingleton();
+    static GSingleton* Instance();
+
+public:
+    void setData(const string& data);
+    void showData() const;
+
+private:
+    static GSingleton* m_instance;
+    string m_data;
+};
+//===============================================
+                    </xmp></pre>
+                    <h3 class="clra">Programme Initialisation Singleton:</h3>
                     <pre><xmp class="ovfa prettyprint linenums">
 //===============================================
 GSingleton* GSingleton::m_instance = 0;
 //===============================================
                     </xmp></pre>
-                    <h3 class="clra">Programme Instanciation:</h3>
+                    <h3 class="clra">Programme Instanciation Singleton:</h3>
                     <pre><xmp class="ovfa prettyprint linenums">
 //===============================================
 GSingleton* GSingleton::Instance() {
@@ -105,3 +126,4 @@ GSingleton* GSingleton::Instance() {
 <!-- ============================================ -->
 <?php require $_SERVER["DOCUMENT_ROOT"]."/php/footer.php"; ?>
 <!-- ============================================ -->
+      

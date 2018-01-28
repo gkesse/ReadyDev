@@ -1,27 +1,26 @@
 //===============================================
-#ifndef _GRecordCar_
-#define _GRecordCar_
+#ifndef _GCar_
+#define _GCar_
 //===============================================
-#include "GRecord.h"
+#include "GPrototype.h"
 //===============================================
-class GRecordCar : public GRecord {
-private:
-    GRecordCar();
+class GCar : public GPrototype {
+public:
+    GCar();
+    GCar(const GCar& car);
+    ~GCar();
 
 public:
-    ~GRecordCar();
-    static GRecordCar* Instance();
-
-public:
-    GRecord* clone();
+    GPrototype* clone();
     void print();
-    void setBrand(const string& brand);
+    void setMaker(const string& maker);
     void setName(const string& name);
+    void setPrice(const string &price);
 
 private:
-    static GRecordCar* m_instance;
-    string m_brand;
+    string m_maker;
     string m_name;
+    string m_price;
 };
 //===============================================
 #endif

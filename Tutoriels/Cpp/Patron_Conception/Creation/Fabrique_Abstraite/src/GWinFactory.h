@@ -5,18 +5,12 @@
 #include "GAbstractFactory.h"
 //===============================================
 class GWinFactory : public GAbstractFactory {
-private:
-    GWinFactory();
-
 public:
+    GWinFactory();
     ~GWinFactory();
-    static GWinFactory* Instance();
 
 public:
     GButton* createButton();
-
-private:
-    static GWinFactory* m_instance;
 };
 //===============================================
 #endif

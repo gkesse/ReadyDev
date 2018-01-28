@@ -5,18 +5,12 @@
 #include "GAbstractFactory.h"
 //===============================================
 class GOSXFactory : public GAbstractFactory {
-private:
-    GOSXFactory();
-
 public:
+    GOSXFactory();
     ~GOSXFactory();
-    static GOSXFactory* Instance();
 
 public:
     GButton* createButton();
-
-private:
-    static GOSXFactory* m_instance;
 };
 //===============================================
 #endif

@@ -8,8 +8,8 @@ class GBuilder {
 public:
     void createPizza();
     GPizza* getPizza() const;
-    static GBuilder* Instance();
     void build();
+    static GBuilder* Create(const string& pizza);
 
 public:
     virtual void buildDough() = 0;

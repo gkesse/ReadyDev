@@ -5,18 +5,12 @@
 #include "GAnimal.h"
 //===============================================
 class GCat : public GAnimal {
-private:
-    GCat();
-
 public:
+    GCat();
     ~GCat();
-    static GCat* Instance();
 
 public:
     void showName();
-
-private:
-    static GCat* m_instance;
 };
 //===============================================
 #endif

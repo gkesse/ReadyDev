@@ -1,13 +1,19 @@
 //===============================================
 #include "GAbstractFactory.h"
-#include "GConfig.h"
+#include "GButton.h"
 //===============================================
 int main(int argc, char** argv) {
-    GConfig::Instance()->setData("Factory", "Win");
-    GAbstractFactory::Instance()->createButton()->paint();
+    GAbstractFactory* m_absFactory = 0;
+    GButton* m_button = 0;
 
-    GConfig::Instance()->setData("Factory", "OSX");
-    GAbstractFactory::Instance()->createButton()->paint();
+    m_absFactory = GAbstractFactory::Create("Win");
+    m_button = m_absFactory->createButton();
+    m_button->paint();
+
+    m_absFactory = GAbstractFactory::Create("OSX");
+    m_button = m_absFactory->createButton();
+    m_button->paint();
+
     return 0;
 }
 //===============================================

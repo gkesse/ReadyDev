@@ -3,25 +3,31 @@
     {
         "meta_desc":
         [
-            "Implémentez le patron de conception Singleton en C/C++."
+            "Implémentez le patron de conception Monteur en C/C++."
         ],
-        "meta_cano":"/Tutoriels/Cpp/Patron_Conception/Creation/Singleton/"
+        "meta_cano":"/Tutoriels/Cpp/Patron_Conception/Creation/Monteur/"
     },    
     "links":
     [
         {"name":"Tutoriels","link":"/Tutoriels/"},
         {"name":"C/C++","link":"/Tutoriels/Cpp/"},
         {"name":"Patron Conception","link":"/Tutoriels/Cpp#Patron_Creation"},
-        {"name":"Singleton","link":""}
+        {"name":"Monteur","link":""}
     ],
     "definition":
     [
-        "Le Patron Singleton est utilisé pour restreindre l'instanciation d'une classe",
-        "à un seul objet. Il permet de partager un objet entre plusieurs programmes.",
+        "Le Patron Monteur est utilisé pour construire un objet complexe partie",
+        "par partie, à l'aide de différents monteurs possibles.",
+        "Il permet de créer un objet en utilisant plusieurs méthodes.",
         "<br/><br/>",
         "<h3 class='clra pgCr05'>Implémentation</h3>",
-        "Pour comprendre son implémentation, nous allons considérer, un Singleton (GSingleton)",
-        "permettant d'enregistrer des données (setData()) et d'afficher des données (showData())."
+        "Pour comprendre son implémentation, nous allons considérer, un Monteur (GBuilder)",
+        "permettant de construire des Pizzas (GPizza), de différents types, Pizza Hawaii (GPizzaHawaii),",
+        "Pizza Royal (GPizzaRoyal).",
+        "La construction de chaque pizza est réalisée à travers plusieurs monteurs,",
+        "monteur de pate (buildDough()), monteur de sauce (buildSauce()),",
+        "monteur de garniture (buildGarnish()).",
+        "Chaque pizza pourra afficher sa description (print())."
     ],
     "img":
     {

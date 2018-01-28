@@ -68,10 +68,10 @@
         "creation":
         [
             {"name":"Singleton","link":"/Tutoriels/Cpp/Patron_Conception/Creation/Singleton/"},
-            {"name":"Fabrique","link":"#"},
-            {"name":"Fabrique Abstraite","link":"#"},
-            {"name":"Prototype","link":"#"},
-            {"name":"Monteur","link":"#"}
+            {"name":"Fabrique","link":"/Tutoriels/Cpp/Patron_Conception/Creation/Fabrique/"},
+            {"name":"Fabrique Abstraite","link":"/Tutoriels/Cpp/Patron_Conception/Creation/Fabrique_Abstraite/"},
+            {"name":"Prototype","link":"/Tutoriels/Cpp/Patron_Conception/Creation/Prototype/"},
+            {"name":"Monteur","link":"/Tutoriels/Cpp/Patron_Conception/Creation/Monteur/"}
         ]
     }
 }

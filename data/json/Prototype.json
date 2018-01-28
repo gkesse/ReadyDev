@@ -3,25 +3,29 @@
     {
         "meta_desc":
         [
-            "Implémentez le patron de conception Singleton en C/C++."
+            "Implémentez le patron de conception Prototype en C/C++."
         ],
-        "meta_cano":"/Tutoriels/Cpp/Patron_Conception/Creation/Singleton/"
+        "meta_cano":"/Tutoriels/Cpp/Patron_Conception/Creation/Prototype/"
     },    
     "links":
     [
         {"name":"Tutoriels","link":"/Tutoriels/"},
         {"name":"C/C++","link":"/Tutoriels/Cpp/"},
         {"name":"Patron Conception","link":"/Tutoriels/Cpp#Patron_Creation"},
-        {"name":"Singleton","link":""}
+        {"name":"Prototype","link":""}
     ],
     "definition":
     [
-        "Le Patron Singleton est utilisé pour restreindre l'instanciation d'une classe",
-        "à un seul objet. Il permet de partager un objet entre plusieurs programmes.",
+        "Le Patron Prototype est utilisé pour simplifier la création d'une instance",
+        "d'une classe en recopiant un objet existant. Il permet de créer un objet",
+        "en recopiant les attributs d'un objet existant.",
         "<br/><br/>",
         "<h3 class='clra pgCr05'>Implémentation</h3>",
-        "Pour comprendre son implémentation, nous allons considérer, un Singleton (GSingleton)",
-        "permettant d'enregistrer des données (setData()) et d'afficher des données (showData())."
+        "Pour comprendre son implémentation, nous allons considérer, un Prototype (GPrototype)",
+        "permettant de cloner des Animaux (GAnimal) et des voitures (GCar).",
+        "Chaque animal possède comme attributs, une famille (m_family) et un nom (m_name).",
+        "Chaque voiture possède comme attributs, un constructeur (m_maker), un nom (m_name) et un prix (m_price).",        
+        "Chaque animal ou chaque voiture pourra afficher sa description (print())."
     ],
     "img":
     {
