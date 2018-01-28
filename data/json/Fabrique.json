@@ -19,7 +19,7 @@
         "Le Patron Fabrique est utilisé pour créer dynamiquement des objets en fonction",
         "des paramètres passés à la Fabrique. Il permet de créer un objet en fonction d'un paramètre.",
         "<br/><br/>",
-        "<h3 class='clra pgCr05'>Implémentation</h3>",
+        "<h3 class='clra pgCr10'>Implémentation</h3>",
         "Pour comprendre son implémentation, nous allons considérer, une Fabrique (GFactory)",
         "permettant de créer des Animaux (GAnimal), Chat (GCat), Chien (GDog).",
         "Chaque animal pourra afficher son nom (showName())."

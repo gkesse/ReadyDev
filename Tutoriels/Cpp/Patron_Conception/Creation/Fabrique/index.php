@@ -31,7 +31,7 @@
             <div class="bgra">
                 <h1 class="bgra clrb pgCt20">Programmation</h1>
                 <div class="txal pgCt10">
-                    <h3 class="clra">Programme Principal:</h3>
+                    <h3 class="clra pgCr10">Programme Principal:</h3>
                     <pre><xmp class="ovfa prettyprint linenums">
 //===============================================
 #include "GFactory.h"
@@ -50,7 +50,22 @@ int main(int argc, char** argv) {
 }
 //===============================================
                     </xmp></pre>
-                    <h3 class="clra">Programme Interface:</h3>
+                    <h3 class="clra pgCr10">Programme Fabrique:</h3>
+                    <pre><xmp class="ovfa prettyprint linenums">
+//===============================================
+class GFactory {
+public:
+    static GAnimal* Create(const string& animal);
+};
+//===============================================
+GAnimal* GFactory::Create(const string& animal) {
+    if(animal == "Cat") {return new GCat;}
+    else if(animal == "Dog") {return new GDog;}
+    return 0;
+}
+//===============================================
+                    </xmp></pre>
+                    <h3 class="clra pgCr10">Programme Interface Animal:</h3>
                     <pre><xmp class="ovfa prettyprint linenums">
 //===============================================
 class GAnimal {
@@ -59,7 +74,7 @@ public:
 };
 //===============================================
                     </xmp></pre>
-                    <h3 class="clra">Programme Objet Concret:</h3>
+                    <h3 class="clra pgCr10">Programme Animal Concret Chat:</h3>
                     <pre><xmp class="ovfa prettyprint linenums">
 //===============================================
 class GCat : public GAnimal {
@@ -76,7 +91,7 @@ void GCat::showName() {
 }
 //===============================================
                     </xmp></pre>
-                    <h3 class="clra">Programme Objet Concret:</h3>
+                    <h3 class="clra pgCr10">Programme Animal Concret Chien:</h3>
                     <pre><xmp class="ovfa prettyprint linenums">
 //===============================================
 class GDog : public GAnimal {
@@ -90,21 +105,6 @@ public:
 //===============================================
 void GDog::showName() {
     cout << "Animal : Dog\n";
-}
-//===============================================
-                    </xmp></pre>
-                    <h3 class="clra">Programme Fabrique:</h3>
-                    <pre><xmp class="ovfa prettyprint linenums">
-//===============================================
-class GFactory {
-public:
-    static GAnimal* Create(const string& animal);
-};
-//===============================================
-GAnimal* GFactory::Create(const string& animal) {
-    if(animal == "Cat") {return new GCat;}
-    else if(animal == "Dog") {return new GDog;}
-    return 0;
 }
 //===============================================
                     </xmp></pre>

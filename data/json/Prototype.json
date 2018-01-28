@@ -20,7 +20,7 @@
         "d'une classe en recopiant un objet existant. Il permet de créer un objet",
         "en recopiant les attributs d'un objet existant.",
         "<br/><br/>",
-        "<h3 class='clra pgCr05'>Implémentation</h3>",
+        "<h3 class='clra pgCr10'>Implémentation</h3>",
         "Pour comprendre son implémentation, nous allons considérer, un Prototype (GPrototype)",
         "permettant de cloner des Animaux (GAnimal) et des voitures (GCar).",
         "Chaque animal possède comme attributs, une famille (m_family) et un nom (m_name).",

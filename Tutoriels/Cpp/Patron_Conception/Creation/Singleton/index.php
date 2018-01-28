@@ -31,7 +31,7 @@
             <div class="bgra">
                 <h1 class="bgra clrb pgCt20">Programmation</h1>
                 <div class="txal pgCt10">
-                    <h3 class="clra">Programme Principal:</h3>
+                    <h3 class="clra pgCr10">Programme Principal:</h3>
                     <pre><xmp class="ovfa prettyprint linenums">
 //===============================================
 #include "GSingleton.h"
@@ -46,7 +46,7 @@ int main(int argc, char** argv) {
 }
 //===============================================
                     </xmp></pre>
-                    <h3 class="clra">Programme Singleton:</h3>
+                    <h3 class="clra pgCr10">Programme Singleton:</h3>
                     <pre><xmp class="ovfa prettyprint linenums">
 //===============================================
 class GSingleton {
@@ -67,13 +67,13 @@ private:
 };
 //===============================================
                     </xmp></pre>
-                    <h3 class="clra">Programme Initialisation Singleton:</h3>
+                    <h3 class="clra pgCr10">Programme Initialisation Singleton:</h3>
                     <pre><xmp class="ovfa prettyprint linenums">
 //===============================================
 GSingleton* GSingleton::m_instance = 0;
 //===============================================
                     </xmp></pre>
-                    <h3 class="clra">Programme Instanciation Singleton:</h3>
+                    <h3 class="clra pgCr10">Programme Instanciation Singleton:</h3>
                     <pre><xmp class="ovfa prettyprint linenums">
 //===============================================
 GSingleton* GSingleton::Instance() {
@@ -81,6 +81,18 @@ GSingleton* GSingleton::Instance() {
         m_instance = new GSingleton;
     }
     return m_instance;
+}
+//===============================================
+                    </xmp></pre>
+                    <h3 class="clra pgCr10">Programme Méthodes Publiques Singleton:</h3>
+                    <pre><xmp class="ovfa prettyprint linenums">
+//===============================================
+void GSingleton::setData(const string& data) {
+    m_data = data;
+}
+//===============================================
+void GSingleton::showData() const {
+    cout << m_data << "\n";
 }
 //===============================================
                     </xmp></pre>

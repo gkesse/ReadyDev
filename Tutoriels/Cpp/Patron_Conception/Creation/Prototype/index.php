@@ -31,56 +31,131 @@
             <div class="bgra">
                 <h1 class="bgra clrb pgCt20">Programmation</h1>
                 <div class="txal pgCt10">
-                    <h3 class="clra">Programme Principal:</h3>
+                    <h3 class="clra pgCr10">Programme Principal:</h3>
                     <pre><xmp class="ovfa prettyprint linenums">
 //===============================================
-#include "GSingleton.h"
+#include "GAnimal.h"
+#include "GCar.h"
 //===============================================
 int main(int argc, char** argv) {
-    GSingleton::Instance()->showData();
-    GSingleton::Instance()->setData("Hello World");
-    GSingleton::Instance()->showData();
-    GSingleton::Instance()->setData("Welcome Singleton");
-    GSingleton::Instance()->showData();
+    GAnimal* m_animal = 0;
+    GAnimal* m_animal2 = 0;
+    GAnimal* m_animal3 = 0;
+
+    GCar* m_car = 0;
+    GCar* m_car2 = 0;
+    GCar* m_car3 = 0;
+
+    m_animal = new GAnimal;
+    m_animal->print();
+    cout << "\n";
+
+    m_animal2 = (GAnimal*)m_animal->clone();
+    m_animal2->setFamily("Chien");
+    m_animal2->setName("Berger Allemand");
+    m_animal2->print();
+    cout << "\n";
+
+    m_animal3 = (GAnimal*)m_animal2->clone();
+    m_animal3->setFamily("Chat");
+    m_animal3->setName("British Shorthair");
+    m_animal3->print();
+    cout << "\n";
+
+    m_car = new GCar;
+    m_car->print();
+    cout << "\n";
+
+    m_car2 = (GCar*)m_car->clone();
+    m_car2->setMaker("Peugeot");
+    m_car2->setName("Peugeot 308");
+    m_car2->setPrice("20.550 Euro");
+    m_car2->print();
+    cout << "\n";
+
+    m_car3 = (GCar*)m_car2->clone();
+    m_car3->setMaker("Renault");
+    m_car3->setName("Renault Clio");
+    m_car3->setPrice("14.100 Euro");
+    m_car3->print();
+    cout << "\n";
+
     return 0;
 }
 //===============================================
                     </xmp></pre>
-                    <h3 class="clra">Programme Singleton:</h3>
+                    <h3 class="clra pgCr10">Programme Interface Prototype:</h3>
                     <pre><xmp class="ovfa prettyprint linenums">
 //===============================================
-class GSingleton {
-private:
-    GSingleton();
-
+class GPrototype {
 public:
-    ~GSingleton();
-    static GSingleton* Instance();
-
-public:
-    void setData(const string& data);
-    void showData() const;
-
-private:
-    static GSingleton* m_instance;
-    string m_data;
+    virtual GPrototype* clone() = 0;
+    virtual void print() = 0;
 };
 //===============================================
                     </xmp></pre>
-                    <h3 class="clra">Programme Initialisation Singleton:</h3>
+                    <h3 class="clra pgCr10">Programme Prototype Concret Animal:</h3>
                     <pre><xmp class="ovfa prettyprint linenums">
 //===============================================
-GSingleton* GSingleton::m_instance = 0;
+class GAnimal : public GPrototype {
+public:
+    GAnimal();
+    GAnimal(const GAnimal& animal);
+    ~GAnimal();
+
+public:
+    GPrototype* clone();
+    void print();
+    void setFamily(const string& family);
+    void setName(const string& name);
+
+private:
+    string m_family;
+    string m_name;
+};
+//===============================================
+GPrototype* GAnimal::clone() {
+    return new GAnimal(*this);
+}
+//===============================================
+void GAnimal::print() {
+    cout << "Prototype : Animal" << "\n";
+    cout << "Family : " << m_family << "\n";
+    cout << "Name : " << m_name << "\n";
+}
 //===============================================
                     </xmp></pre>
-                    <h3 class="clra">Programme Instanciation Singleton:</h3>
+                    <h3 class="clra pgCr10">Programme Prototype Concret Voiture:</h3>
                     <pre><xmp class="ovfa prettyprint linenums">
 //===============================================
-GSingleton* GSingleton::Instance() {
-    if(m_instance == 0) {
-        m_instance = new GSingleton;
-    }
-    return m_instance;
+class GCar : public GPrototype {
+public:
+    GCar();
+    GCar(const GCar& car);
+    ~GCar();
+
+public:
+    GPrototype* clone();
+    void print();
+    void setMaker(const string& maker);
+    void setName(const string& name);
+    void setPrice(const string &price);
+
+private:
+    string m_maker;
+    string m_name;
+    string m_price;
+};
+//===============================================
+GPrototype* GCar::clone() {
+    return new GCar(*this);
+}
+//===============================================
+void GCar::print() {
+    cout << "Prototype : Car" << "\n";
+    cout << "Maker : " << m_maker << "\n";
+    cout << "Name : " << m_name << "\n";
+    cout << "Price : " << m_price << "\n";
 }
 //===============================================
                     </xmp></pre>

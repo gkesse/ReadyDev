@@ -20,7 +20,7 @@
         "par partie, à l'aide de différents monteurs possibles.",
         "Il permet de créer un objet en utilisant plusieurs méthodes.",
         "<br/><br/>",
-        "<h3 class='clra pgCr05'>Implémentation</h3>",
+        "<h3 class='clra pgCr10'>Implémentation</h3>",
         "Pour comprendre son implémentation, nous allons considérer, un Monteur (GBuilder)",
         "permettant de construire des Pizzas (GPizza), de différents types, Pizza Hawaii (GPizzaHawaii),",
         "Pizza Royal (GPizzaRoyal).",

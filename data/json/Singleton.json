@@ -19,7 +19,7 @@
         "Le Patron Singleton est utilisé pour restreindre l'instanciation d'une classe",
         "à un seul objet. Il permet de partager un objet entre plusieurs programmes.",
         "<br/><br/>",
-        "<h3 class='clra pgCr05'>Implémentation</h3>",
+        "<h3 class='clra pgCr10'>Implémentation</h3>",
         "Pour comprendre son implémentation, nous allons considérer, un Singleton (GSingleton)",
         "permettant d'enregistrer des données (setData()) et d'afficher des données (showData())."
     ],
