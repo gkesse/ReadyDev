@@ -1,0 +1,33 @@
+{
+    "sitemap":"yes",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+            "Démarrez la programmation système embarqué avec le RaspberryPi, commencez par les notions de base", 
+            "allez à la création de serveur web, maîtrisez le développement de station météo."
+        ],
+        "meta_cano":"/Tutoriels/RaspberryPi/"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/"},
+        {"name":"RaspberryPi","link":""}
+    ],
+    "summary":
+    [
+        {"name":"Notions de Base","link":"#Notions"},
+        {"name":"Serveur Web","link":"#Serveur_Web"}
+    ],
+    "notion":
+    {
+        "installation":
+        [
+            {"name":"SDFormatter, Formatage CarteSD","link":"/Tutoriels/RaspberryPi/RPI/SDFormatter/"},
+            {"name":"Fat32 Format, Formatage Fat32 CarteSD","link":"#"},
+            {"name":"Win32DiskImager, Gravure Raspbian","link":"#"},
+            {"name":"Adresse IP, Configuration Statique Ethernet Cmdline","link":"#"}
+        ]
+    }
+}
+                        

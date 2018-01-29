@@ -6,14 +6,15 @@
         [
             "ReadyDev propose des Tutoriels permettant de monter en compétences de",
             "manière éfficace en Dévloppement Logiciel, Systèmes Embarqués, Robotique."
-        ],
+            ],
         "meta_cano":"/Tutoriels/"
     },    
     "summary":
     [
         {"name":"Développement Logiciel","link":"#Developpement_Logiciel"},
         {"name":"Développement Web","link":"#Developpement_Web"},
-        {"name":"Système de Gestion de Version","link":"#Systeme_Gestion_Version"}
+        {"name":"Système de Gestion de Version","link":"#Systeme_Gestion_Version"},
+        {"name":"Système Embarqué","link":"#Systeme_Embarque"}
     ],
     "software":
     [
@@ -88,6 +89,15 @@
             "theme":"SVN",
             "description":"Apprenez le<br/> SVN",
             "link":"/Tutoriels/SVN/"
+        }
+    ],
+    "embedded":
+    [
+        {
+            "icon":"fa fa-microchip",
+            "theme":"RaspberryPi",
+            "description":"Programmez avec le<br/> RaspberryPi",
+            "link":"/Tutoriels/RaspberryPi/"
         }
     ]
 }

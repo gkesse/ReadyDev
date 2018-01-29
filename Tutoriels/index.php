@@ -140,6 +140,40 @@
             </div>
         </div>
         <!-- ============================================ -->
+        <div class="pgCt10">
+            <div class="bgra">
+                <h1 class="bgra pgCt20" id="Systeme_Embarque">
+                    <a class="clrb" href="#Sommaire">
+                        Système Embarqué
+                    </a>
+                </h1>
+                <div class="pgRw">
+                    <?php 
+                        $m_ds = $m_data["embedded"];
+                        foreach($m_ds as $m_di) {
+                        ?>
+                        <div class="rwda pgCl06">
+                            <a class="bgrf dibm brdb evtb" href="<?php echo $m_di["link"]; ?>">
+                                <div class="bgrg">
+                                    <div class="bgra hghb txac dtlf">
+                                        <div class="dtcm">
+                                            <i class="ftse fa <?php echo $m_di["icon"]; ?>"></i>
+                                        </div>
+                                    </div>
+                                    <div class="hghc txac dtlf">
+                                        <div class="dtcm">
+                                            <div class="ftsd ftfb pddb"><?php echo $m_di["theme"]; ?></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pddc ftsc clrd txac"><?php echo $m_di["description"]; ?></div>
+                            </a>
+                        </div>
+                    <?php } ?>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================ -->
     </div>
 </div>
 <!-- ============================================ -->

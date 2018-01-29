@@ -1,0 +1,37 @@
+{
+    "meta_data":
+    {
+        "meta_desc":
+        [
+            "Apprenez à graver votre carte SD avec SDFormatter",
+            "Apprenez à progrommer avec le RaspberryPi."
+        ],
+        "meta_cano":"/Tutoriels/RaspberryPi/RPI/SDFormatter/"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/"},
+        {"name":"RaspberryPi","link":"/Tutoriels/RaspberryPi/"},
+        {"name":"SDFormatter","link":""}
+    ],
+    "definition":
+    [
+        "SDFormatter est un outil multi-plateforme utilisé pour formater correctement et efficacement des cartes SD.",
+        "Il permet de préparer votre carte SD en y inscrivant un système de fichier, de façon qu'elle soit reconnue",
+        "par le système d'exploitation Raspbian.",
+        "Le formatage supprimera toutes les données précédemment présentes sur la carte SD."
+    ],
+    "img":
+    {
+        "Image_01":"img/Image_01.png"
+    },
+    "see_also":
+    [
+        {"name":"Installation RPI","link":"/Tutoriels/RaspberryPi/#Installation_RPI"},
+        {"name":"SDFormatter, Formatage CarteSD","link":"/Tutoriels/RaspberryPi/RPI/SDFormatter/"},
+        {"name":"Fat32 Format, Formatage Fat32 CarteSD","link":"#"},
+        {"name":"Win32DiskImager, Gravure Raspbian","link":"#"},
+        {"name":"Adresse IP, Configuration Statique Ethernet Cmdline","link":"#"}
+    ]
+}
+                        
