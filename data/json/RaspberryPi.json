@@ -23,10 +23,36 @@
     {
         "installation":
         [
-            {"name":"SDFormatter, Formatage CarteSD","link":"/Tutoriels/RaspberryPi/RPI/SDFormatter/"},
-            {"name":"Fat32 Format, Formatage Fat32 CarteSD","link":"#"},
-            {"name":"Win32DiskImager, Gravure Raspbian","link":"#"},
-            {"name":"Adresse IP, Configuration Statique Ethernet Cmdline","link":"#"}
+            {"name":"Formatage CarteSD","link":"/Tutoriels/RaspberryPi/RPI/SDFormatter/"},
+            {"name":"Formatage Fat32 CarteSD","link":"#"},
+            {"name":"Gravure Raspbian","link":"#"},
+            {"name":"Configuration Adresse IP","link":"#"},
+            {"name":"Mise à Jour Raspbian","link":"#"}
+        ],
+        "raspi_config":
+        [
+            {"name":"Mise à Jour Raspi-Config","link":"#"},
+            {"name":"Extension Système de Fichier","link":"#"},
+            {"name":"Partionnement Mémoire","link":"#"},
+            {"name":"Changement Mot de Passe","link":"#"},
+            {"name":"Login Console Mot de Passe","link":"#"},
+            {"name":"Autorisation SSH","link":"#"}
+        ],
+        "git":
+        [
+            {"name":"Installation Git","link":"#"},
+            {"name":"Clonage Dépôt","link":"#"},
+            {"name":"Récupération Dépôt","link":"#"},
+            {"name":"Fusion Dépôt","link":"#"}
+        ]
+    },
+    "web":
+    {
+        "apache":
+        [
+            {"name":"Installation Apache","link":"#"},
+            {"name":"Configuraton Port","link":"#"},
+            {"name":"Configuration Serveur","link":"#"}
         ]
     }
 }

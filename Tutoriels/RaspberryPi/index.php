@@ -50,12 +50,52 @@
                 <div class="txal pgCt10">
                     <h3 class="pgCr05" id="Installation_RPI">
                         <a class="clra" href="#Notions">
-                            Installation
+                            Installation RPI
                         </a>
                     </h3>
                     <ul class="fa-ul">
                         <?php 
                             $m_ds = $m_data["notion"]["installation"];
+                            foreach($m_ds as $m_di) {
+                            ?>
+                            <li class="mrgb"><i class="fa-li fa fa-chevron-right"></i>
+                                <a class="hvra" href="<?php echo $m_di["link"]; ?>">
+                                    <?php echo $m_di["name"]; ?>
+                                </a>
+                            </li>
+                        <?php } ?>
+                    </ul>            
+                </div>
+                <!-- ============================================ -->
+                <div class="txal pgCt10">
+                    <h3 class="pgCr05" id="Raspi_Config">
+                        <a class="clra" href="#Notions">
+                            Utilitaire Raspi-Config
+                        </a>
+                    </h3>
+                    <ul class="fa-ul">
+                        <?php 
+                            $m_ds = $m_data["notion"]["raspi_config"];
+                            foreach($m_ds as $m_di) {
+                            ?>
+                            <li class="mrgb"><i class="fa-li fa fa-chevron-right"></i>
+                                <a class="hvra" href="<?php echo $m_di["link"]; ?>">
+                                    <?php echo $m_di["name"]; ?>
+                                </a>
+                            </li>
+                        <?php } ?>
+                    </ul>            
+                </div>
+                <!-- ============================================ -->
+                <div class="txal pgCt10">
+                    <h3 class="pgCr05" id="Git">
+                        <a class="clra" href="#Notions">
+                            Utilitaire Git
+                        </a>
+                    </h3>
+                    <ul class="fa-ul">
+                        <?php 
+                            $m_ds = $m_data["notion"]["git"];
                             foreach($m_ds as $m_di) {
                             ?>
                             <li class="mrgb"><i class="fa-li fa fa-chevron-right"></i>
@@ -79,11 +119,23 @@
                 </h1>
                 <!-- ============================================ -->
                 <div class="txal pgCt10">
-                    <h3 class="pgCr05" id="Installation_Web">
+                    <h3 class="pgCr05" id="Apache">
                         <a class="clra" href="#Serveur_Web">
-                            Installation
+                            Utilitaire Apache
                         </a>
                     </h3>
+                    <ul class="fa-ul">
+                        <?php 
+                            $m_ds = $m_data["web"]["apache"];
+                            foreach($m_ds as $m_di) {
+                            ?>
+                            <li class="mrgb"><i class="fa-li fa fa-chevron-right"></i>
+                                <a class="hvra" href="<?php echo $m_di["link"]; ?>">
+                                    <?php echo $m_di["name"]; ?>
+                                </a>
+                            </li>
+                        <?php } ?>
+                    </ul>            
                 </div>
                 <!-- ============================================ -->
             </div>
