@@ -41,16 +41,16 @@
         <!-- ============================================ -->
        <div class="pgCt10">
             <div class="bgra">
-                <h1 class="bgra pgCt20" id="Notions">
+                <h1 class="bgra pgCt20" id="Notions_Base">
                     <a class="clrb" href="#Sommaire">
                         Notions de Base
                     </a>
                 </h1>
                 <!-- ============================================ -->
                 <div class="txal pgCt10">
-                    <h3 class="pgCr05" id="Installation_RPI">
-                        <a class="clra" href="#Notions">
-                            Installation RPI
+                    <h3 class="pgCr05" id="Installation_Raspbian">
+                        <a class="clra" href="#Notions_Base">
+                            Installation Raspbian
                         </a>
                     </h3>
                     <ul class="fa-ul">
@@ -69,7 +69,7 @@
                 <!-- ============================================ -->
                 <div class="txal pgCt10">
                     <h3 class="pgCr05" id="Raspi_Config">
-                        <a class="clra" href="#Notions">
+                        <a class="clra" href="#Notions_Base">
                             Utilitaire Raspi-Config
                         </a>
                     </h3>
@@ -87,15 +87,26 @@
                     </ul>            
                 </div>
                 <!-- ============================================ -->
+            </div>
+        </div>
+        <!-- ============================================ -->
+       <div class="pgCt10">
+            <div class="bgra">
+                <h1 class="bgra pgCt20" id="Gestion_Versions">
+                    <a class="clrb" href="#Sommaire">
+                        Gestion de Versions
+                    </a>
+                </h1>
+                <!-- ============================================ -->
                 <div class="txal pgCt10">
-                    <h3 class="pgCr05" id="Git">
-                        <a class="clra" href="#Notions">
+                    <h3 class="pgCr05" id="Utilitaire_Git">
+                        <a class="clra" href="#Notions_Base">
                             Utilitaire Git
                         </a>
                     </h3>
                     <ul class="fa-ul">
                         <?php 
-                            $m_ds = $m_data["notion"]["git"];
+                            $m_ds = $m_data["version"]["git"];
                             foreach($m_ds as $m_di) {
                             ?>
                             <li class="mrgb"><i class="fa-li fa fa-chevron-right"></i>
@@ -112,9 +123,9 @@
         <!-- ============================================ -->
         <div class="pgCt10">
             <div class="bgra">
-                <h1 class="bgra pgCt20" id="Serveur_Web">
+                <h1 class="bgra pgCt20" id="Programmation_PHP">
                     <a class="clrb" href="#Sommaire">
-                        Serveur Web
+                        Programmation PHP
                     </a>
                 </h1>
                 <!-- ============================================ -->
@@ -127,6 +138,26 @@
                     <ul class="fa-ul">
                         <?php 
                             $m_ds = $m_data["web"]["apache"];
+                            foreach($m_ds as $m_di) {
+                            ?>
+                            <li class="mrgb"><i class="fa-li fa fa-chevron-right"></i>
+                                <a class="hvra" href="<?php echo $m_di["link"]; ?>">
+                                    <?php echo $m_di["name"]; ?>
+                                </a>
+                            </li>
+                        <?php } ?>
+                    </ul>            
+                </div>
+                <!-- ============================================ -->
+                <div class="txal pgCt10">
+                    <h3 class="pgCr05" id="Apache">
+                        <a class="clra" href="#Serveur_Web">
+                            Utilitaire PHP
+                        </a>
+                    </h3>
+                    <ul class="fa-ul">
+                        <?php 
+                            $m_ds = $m_data["web"]["php"];
                             foreach($m_ds as $m_di) {
                             ?>
                             <li class="mrgb"><i class="fa-li fa fa-chevron-right"></i>
