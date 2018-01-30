@@ -16,8 +16,9 @@
     ],
     "summary":
     [
-        {"name":"Notions de Base","link":"#Notions"},
-        {"name":"Serveur Web","link":"#Serveur_Web"}
+        {"name":"Notions de Base","link":"#Notions_Base"},
+        {"name":"Gestion de Versions","link":"#Gestion_Versions"},
+        {"name":"Programmation PHP","link":"#Programmation_PHP"}
     ],
     "notion":
     {
@@ -26,18 +27,27 @@
             {"name":"Formatage CarteSD","link":"/Tutoriels/RaspberryPi/RPI/SDFormatter/"},
             {"name":"Formatage Fat32 CarteSD","link":"#"},
             {"name":"Gravure Raspbian","link":"#"},
-            {"name":"Configuration Adresse IP","link":"#"},
-            {"name":"Mise à Jour Raspbian","link":"#"}
+            {"name":"Configuration Adresse IP Cmdline","link":"#"},
+            {"name":"Autorisation SSH Cmdline","link":"#"},
+            {"name":"Espace Disque Disponible","link":"#"},
+            {"name":"Mise à Jour Raspbian","link":"#"},
+            {"name":"Rédemarrage","link":"#"}
         ],
         "raspi_config":
         [
             {"name":"Mise à Jour Raspi-Config","link":"#"},
-            {"name":"Extension Système de Fichier","link":"#"},
             {"name":"Partionnement Mémoire","link":"#"},
+            {"name":"Extension Système de Fichier","link":"#"},
+            {"name":"Autorisation Recadrage Ecran","link":"#"},
             {"name":"Changement Mot de Passe","link":"#"},
             {"name":"Login Console Mot de Passe","link":"#"},
+            {"name":"Changement Localisation","link":"#"},
+            {"name":"Changement Nom Machine","link":"#"},
             {"name":"Autorisation SSH","link":"#"}
-        ],
+        ]
+    },
+    "version":
+    {
         "git":
         [
             {"name":"Installation Git","link":"#"},
@@ -52,7 +62,13 @@
         [
             {"name":"Installation Apache","link":"#"},
             {"name":"Configuraton Port","link":"#"},
-            {"name":"Configuration Serveur","link":"#"}
+            {"name":"Configuration Serveur","link":"#"},
+            {"name":"Test Apache","link":"#"}
+        ],
+        "php":
+        [
+            {"name":"Installation PHP","link":"#"},
+            {"name":"Test PHP","link":"#"}
         ]
     }
 }
