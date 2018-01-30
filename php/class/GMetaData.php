@@ -20,7 +20,7 @@
                 $m_file .= GConfig::Instance()->getData("view"); 
                 $m_file .= ".json";
                 $m_data = GJson::Instance()->getData($m_file);
-                if(isset($m_data["meta_data"]) == true) {
+                if(isset($m_data["meta_data"])) {
                     $m_metaData = $m_data["meta_data"];
                     
                     foreach($m_metaData as $key => $value) {

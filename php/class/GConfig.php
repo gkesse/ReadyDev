@@ -24,7 +24,7 @@
         }
         //===============================================
         public function existData($key) {
-            return isset($this->m_dataMap[$key]);        
+            return array_key_exists($key, $this->m_dataMap);        
         }
         //===============================================
     }
