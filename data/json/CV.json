@@ -57,8 +57,10 @@
                 "2013 - 2014,<br/>",
                 "Certificat Informatique et Gestion,<br/>",
                 "Polytech'Montpellier, France.<br/>",
-                "<span style='color:gray'>Data Mining, Database, Big Data,",
-                "Cloud Computing, Hadoop, MapReduce.</span>"
+                "<span class='clrc'>",
+                "Data Mining, Database, Big Data,",
+                "Cloud Computing, Hadoop, MapReduce.",
+                "</span>"
             ]
         }
     ],
@@ -73,7 +75,11 @@
                 "Interface de Contrôle Environnemental,<br/>",
                 "3 mois de développement,<br/>",
                 "Setpembre 2016 - Décembre 2016,<br/>",
-                "C/C++/Qt, SQL/Firebird/SQLite, LibXL, GSL, Git, Wiki, Agile/Scrum/Sprint."
+                "C/C++/Qt, SQL/Firebird/SQLite, LibXL, GSL, Git, JIRA, Confluence.<br/>",
+                "<span class='clrc'>",
+                "Développement, système de collecte automatique de grand volume de données,",
+                "de calculs scientifiques et de génération de rapport capteur au format Excel.",
+                "</span>"
             ]
         },
         {
@@ -85,7 +91,11 @@
                 "Outil de Gestion de Clients,<br/>",
                 "4 mois de développement,<br/>",
                 "Février 2016 - Juin 2016,<br/>",
-                "C/C++/Qt/SQLite, Excel/VBA/Access."
+                "C/C++/Qt/SQLite, VBA/Access, Excel/Macros/UserForms.<br/>",
+                "<span class='clrc'>",
+                "Développement, interface de création, de recherche, de modification",
+                "et de suppression de clients.",
+                "</span>"
             ]
         },
         {
@@ -97,7 +107,10 @@
                 "Réseau Social Live,<br/>",
                 "1 mois de développement,<br/>",
                 "Novembre 2015 - Décembre 2015,<br/>",
-                "PHP/HTML/CSS/JS, Symfony, Bootstrap, jQuery, AngularJS, ChartJS, Google Maps, SVN."
+                "PHP/HTML/CSS/JS, Symfony, jQuery, AngularJS, Google Maps, SVN.<br/>",
+                "<span class='clrc'>",
+                "Développement, emailing, dashboard, chart, système de géolocalisation.",
+                "</span>"
             ]
         },
         {
@@ -109,7 +122,11 @@
                 "Simulateur de Test de Vol,<br/>",
                 "6 mois de développement,<br/>",
                 "Mai 2015 - Novembre 2015,<br/>",
-                "C/C++/Qt, ILog Views, IPC/DBus, Scripts/Bash/Batch, CVS, Wiki, Agile/Scrum/Sprint."
+                "C/C++/Qt, ILog Views, IPC/DBus, Scripts/Bash/Batch, CVS, JIRA, MediaWiki.<br/>",
+                "<span class='clrc'>",
+                "Développement, évolution et optimisation du simulateur de test de vol",
+                "des avions AIRBUS allant du A320 au A380, portable sur plusieurs cibles.",
+                "</span>"
             ]
         },
         {
@@ -121,7 +138,12 @@
                 "Vision par Ordinateur, Identification Recensement,<br/>",
                 "2 ans de développement<br/>",
                 "Septembre 2012 - Septembre 2014,<br/>",
-                "C/C++/Qt, OpenCV, MultiThreading, SQL/SQLite, SSH, Doxygen."
+                "C/C++/Qt, OpenCV, MultiThreading, SQL/SQLite, SSH,  GanttProject, Trello.<br/>",
+                "<span class='clrc'>",
+                "Développement, logiciels de recensement d’oiseaux, de calcul de pourcentage",
+                "de dégât de verses de blé, de calcul de stress hydrique de plants de blé,",
+                "à partir de la vision d'une caméra IP intégrée à un drone.",
+                "</span>"
             ]
         },
         {
@@ -133,7 +155,11 @@
                 "Vision par Ordinateur, Identification Reconnaissance,<br/>",
                 "1 an de développement,<br/>",
                 "Septembre 2011 - Septembre 2012,<br/>",
-                "C/C++, OpenCV, MultiThreading, UNIX/Xenomai, ARMadeus."
+                "C/C++, OpenCV, MultiThreading, UNIX/Xenomai, ARMadeus.<br/>",
+                "<span class='clrc'>",
+                "Développement, logiciel d’identification et de reconnaissance d'objets à partir de",
+                "la vision d'une caméra USB embarquée à un robot mobile.",
+                "</span>"
             ]
         },
         {
@@ -145,7 +171,10 @@
                 "Autocommutateur Téléphonique Privé,<br/>",
                 "3 mois de maintenance télécom,<br/>",
                 "Janvier 2010 - Avril 2010,<br/>",
-                "Téléphone, Fibre Optique, PBX, Câbles Coaxiaux, Soudeuse, Coffret à Outils."
+                "Téléphone, PBX, Fibre Optique, Câbles Coaxiaux, Soudeuse, Coffret à Outils.<br/>",
+                "<span class='clrc'>",
+                "Installation et Configuration de postes téléphoniques, Soudure de fibre optique.",
+                "</span>"
             ]
         },                               
         {
@@ -157,7 +186,11 @@
                 "Horloge Numérique,<br/>",
                 "3 mois de développement,<br/>",
                 "Mars 2009 - Juin 2009,<br/>",
-                "C/8051, sEOS/Scheduler, I2C, RS232, Keil μVision, Eagle, Proteus."
+                "C/8051, sEOS/Scheduler, I2C, RS232, Keil μVision, Eagle, Proteus.<br/>",
+                "<span class='clrc'>",
+                "Développement, acquisition, traitement et affichage de l’heure, la température",
+                "et l’humidité sur un réseau de 4 afficheurs 7-segment de puissance.",
+                "</span>"
             ]
         }                                
     ],
