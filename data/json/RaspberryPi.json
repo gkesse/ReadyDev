@@ -18,13 +18,17 @@
     [
         {"name":"Notions de Base","link":"#Notions_Base"},
         {"name":"Gestion de Versions","link":"#Gestion_Versions"},
-        {"name":"Programmation PHP","link":"#Programmation_PHP"}
+        {"name":"Serveur de Fichiers","link":"#Serveur_Fichiers"},
+        {"name":"Serveur Web","link":"#Serveur_Web"},
+        {"name":"Programmation PHP","link":"#Programmation_PHP"},
+        {"name":"Programmation MySQL","link":"#Programmation_MySQL"},
+        {"name":"Programmation Python","link":"#Programmation_Python"}
     ],
     "notion":
     {
         "installation":
         [
-            {"name":"Formatage CarteSD","link":"/Tutoriels/RaspberryPi/RPI/SDFormatter/"},
+            {"name":"Formatage CarteSD","link":"/Tutoriels/RaspberryPi/Raspbian/SDFormatter/"},
             {"name":"Formatage Fat32 CarteSD","link":"#"},
             {"name":"Gravure Raspbian","link":"#"},
             {"name":"Configuration Adresse IP Cmdline","link":"#"},
@@ -73,7 +77,16 @@
             {"name":"Fusion Dépôt","link":"#"}
         ]
     },
-    "web":
+    "server_file":
+    {
+        "samba":
+        [
+            {"name":"Installation Samba","link":"#"},
+            {"name":"Configuration Mode Lecture Ecriture","link":"#"},
+            {"name":"Configuration Mot de Passe","link":"#"}
+        ]
+    },
+    "server_web":
     {
         "apache":
         [
@@ -81,11 +94,33 @@
             {"name":"Configuraton Port","link":"#"},
             {"name":"Configuration Serveur","link":"#"},
             {"name":"Test Apache","link":"#"}
-        ],
-        "php":
+        ]
+    },
+    "php":
+    {
+        "intro":
         [
             {"name":"Installation PHP","link":"#"},
-            {"name":"Test PHP","link":"#"}
+            {"name":"Test PHP","link":"#"},
+            {"name":"Apprenez le PHP","link":"#"}
+        ]
+    },
+    "mysql":
+    {
+        "intro":
+        [
+            {"name":"Installation MySQL","link":"#"},
+            {"name":"Test MySQL","link":"#"},
+            {"name":"Apprenez MySQL","link":"#"}
+        ]
+    },
+    "python":
+    {
+        "intro":
+        [
+            {"name":"Installation Python","link":"#"},
+            {"name":"Test Python","link":"#"},
+            {"name":"Apprenez le Python","link":"#"}
         ]
     }
 }
