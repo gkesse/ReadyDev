@@ -140,13 +140,75 @@
                 <!-- ============================================ -->
                 <div class="txal pgCt10">
                     <h3 class="pgCr05" id="Utilitaire_Git">
-                        <a class="clra" href="#Notions_Base">
+                        <a class="clra" href="#Gestion_Versions">
                             Utilitaire Git
                         </a>
                     </h3>
                     <ul class="fa-ul">
                         <?php 
                             $m_ds = $m_data["version"]["git"];
+                            foreach($m_ds as $m_di) {
+                            ?>
+                            <li class="mrgb"><i class="fa-li fa fa-chevron-right"></i>
+                                <a class="hvra" href="<?php echo $m_di["link"]; ?>">
+                                    <?php echo $m_di["name"]; ?>
+                                </a>
+                            </li>
+                        <?php } ?>
+                    </ul>            
+                </div>
+                <!-- ============================================ -->
+            </div>
+        </div>
+        <!-- ============================================ -->
+        <div class="pgCt10">
+            <div class="bgra">
+                <h1 class="bgra pgCt20" id="Serveur_Fichiers">
+                    <a class="clrb" href="#Sommaire">
+                        Serveur de Fichiers
+                    </a>
+                </h1>
+                <!-- ============================================ -->
+                <div class="txal pgCt10">
+                    <h3 class="pgCr05" id="Apache">
+                        <a class="clra" href="#Serveur_Fichiers">
+                            Utilitaire Samba
+                        </a>
+                    </h3>
+                    <ul class="fa-ul">
+                        <?php 
+                            $m_ds = $m_data["server_file"]["samba"];
+                            foreach($m_ds as $m_di) {
+                            ?>
+                            <li class="mrgb"><i class="fa-li fa fa-chevron-right"></i>
+                                <a class="hvra" href="<?php echo $m_di["link"]; ?>">
+                                    <?php echo $m_di["name"]; ?>
+                                </a>
+                            </li>
+                        <?php } ?>
+                    </ul>            
+                </div>
+                <!-- ============================================ -->
+            </div>
+        </div>
+        <!-- ============================================ -->
+        <div class="pgCt10">
+            <div class="bgra">
+                <h1 class="bgra pgCt20" id="Serveur_Web">
+                    <a class="clrb" href="#Sommaire">
+                        Serveur Web
+                    </a>
+                </h1>
+                <!-- ============================================ -->
+                <div class="txal pgCt10">
+                    <h3 class="pgCr05" id="Apache">
+                        <a class="clra" href="#Serveur_Web">
+                            Utilitaire Apache
+                        </a>
+                    </h3>
+                    <ul class="fa-ul">
+                        <?php 
+                            $m_ds = $m_data["server_web"]["apache"];
                             foreach($m_ds as $m_di) {
                             ?>
                             <li class="mrgb"><i class="fa-li fa fa-chevron-right"></i>
@@ -171,13 +233,13 @@
                 <!-- ============================================ -->
                 <div class="txal pgCt10">
                     <h3 class="pgCr05" id="Apache">
-                        <a class="clra" href="#Serveur_Web">
-                            Utilitaire Apache
+                        <a class="clra" href="#Programmation_PHP">
+                            Utilitaire PHP
                         </a>
                     </h3>
                     <ul class="fa-ul">
                         <?php 
-                            $m_ds = $m_data["web"]["apache"];
+                            $m_ds = $m_data["php"]["intro"];
                             foreach($m_ds as $m_di) {
                             ?>
                             <li class="mrgb"><i class="fa-li fa fa-chevron-right"></i>
@@ -189,15 +251,57 @@
                     </ul>            
                 </div>
                 <!-- ============================================ -->
+            </div>
+        </div>
+        <!-- ============================================ -->
+        <div class="pgCt10">
+            <div class="bgra">
+                <h1 class="bgra pgCt20" id="Programmation_MySQL">
+                    <a class="clrb" href="#Sommaire">
+                        Programmation MySQL
+                    </a>
+                </h1>
+                <!-- ============================================ -->
                 <div class="txal pgCt10">
                     <h3 class="pgCr05" id="Apache">
-                        <a class="clra" href="#Serveur_Web">
-                            Utilitaire PHP
+                        <a class="clra" href="#Programmation_MySQL">
+                            Utilitaire MySQL
                         </a>
                     </h3>
                     <ul class="fa-ul">
                         <?php 
-                            $m_ds = $m_data["web"]["php"];
+                            $m_ds = $m_data["mysql"]["intro"];
+                            foreach($m_ds as $m_di) {
+                            ?>
+                            <li class="mrgb"><i class="fa-li fa fa-chevron-right"></i>
+                                <a class="hvra" href="<?php echo $m_di["link"]; ?>">
+                                    <?php echo $m_di["name"]; ?>
+                                </a>
+                            </li>
+                        <?php } ?>
+                    </ul>            
+                </div>
+                <!-- ============================================ -->
+            </div>
+        </div>
+        <!-- ============================================ -->
+        <div class="pgCt10">
+            <div class="bgra">
+                <h1 class="bgra pgCt20" id="Programmation_Python">
+                    <a class="clrb" href="#Sommaire">
+                        Programmation Python
+                    </a>
+                </h1>
+                <!-- ============================================ -->
+                <div class="txal pgCt10">
+                    <h3 class="pgCr05" id="Apache">
+                        <a class="clra" href="#Programmation_Python">
+                            Utilitaire Python
+                        </a>
+                    </h3>
+                    <ul class="fa-ul">
+                        <?php 
+                            $m_ds = $m_data["python"]["intro"];
                             foreach($m_ds as $m_di) {
                             ?>
                             <li class="mrgb"><i class="fa-li fa fa-chevron-right"></i>

@@ -95,8 +95,8 @@
     [
         {
             "icon":"fa fa-microchip",
-            "theme":"RaspberryPi",
-            "description":"Programmez avec le<br/> RaspberryPi",
+            "theme":"Raspberry Pi",
+            "description":"Programmez le<br/> RaspberryPi",
             "link":"/Tutoriels/RaspberryPi/"
         }
     ]
