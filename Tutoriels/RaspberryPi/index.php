@@ -87,6 +87,46 @@
                     </ul>            
                 </div>
                 <!-- ============================================ -->
+                <div class="txal pgCt10">
+                    <h3 class="pgCr05" id="Connexion_WiFi">
+                        <a class="clra" href="#Notions_Base">
+                            Connexion WiFi
+                        </a>
+                    </h3>
+                    <ul class="fa-ul">
+                        <?php 
+                            $m_ds = $m_data["notion"]["wifi"];
+                            foreach($m_ds as $m_di) {
+                            ?>
+                            <li class="mrgb"><i class="fa-li fa fa-chevron-right"></i>
+                                <a class="hvra" href="<?php echo $m_di["link"]; ?>">
+                                    <?php echo $m_di["name"]; ?>
+                                </a>
+                            </li>
+                        <?php } ?>
+                    </ul>            
+                </div>
+                <!-- ============================================ -->
+                <div class="txal pgCt10">
+                    <h3 class="pgCr05" id="Connexion_WiFi">
+                        <a class="clra" href="#Notions_Base">
+                            Connexion Ethernet
+                        </a>
+                    </h3>
+                    <ul class="fa-ul">
+                        <?php 
+                            $m_ds = $m_data["notion"]["ethernet"];
+                            foreach($m_ds as $m_di) {
+                            ?>
+                            <li class="mrgb"><i class="fa-li fa fa-chevron-right"></i>
+                                <a class="hvra" href="<?php echo $m_di["link"]; ?>">
+                                    <?php echo $m_di["name"]; ?>
+                                </a>
+                            </li>
+                        <?php } ?>
+                    </ul>            
+                </div>
+                <!-- ============================================ -->
             </div>
         </div>
         <!-- ============================================ -->
