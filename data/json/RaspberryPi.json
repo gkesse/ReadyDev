@@ -36,14 +36,28 @@
         "raspi_config":
         [
             {"name":"Mise à Jour Raspi-Config","link":"#"},
-            {"name":"Partionnement Mémoire","link":"#"},
-            {"name":"Extension Système de Fichier","link":"#"},
-            {"name":"Autorisation Recadrage Ecran","link":"#"},
             {"name":"Changement Mot de Passe","link":"#"},
-            {"name":"Login Console Mot de Passe","link":"#"},
-            {"name":"Changement Localisation","link":"#"},
             {"name":"Changement Nom Machine","link":"#"},
-            {"name":"Autorisation SSH","link":"#"}
+            {"name":"Login Console Mot de Passe","link":"#"},
+            {"name":"Configuration Langue Locale","link":"#"},
+            {"name":"Configuration Fuseau Horaire","link":"#"},
+            {"name":"Configuration Clavier","link":"#"},
+            {"name":"Configuration Pays","link":"#"},
+            {"name":"Configuration SSH","link":"#"},
+            {"name":"Configuration Fréquence","link":"#"},
+            {"name":"Extension Système de Fichier","link":"#"},
+            {"name":"Configuration Recadrage Ecran","link":"#"},
+            {"name":"Partionnement Mémoire","link":"#"}
+        ],
+        "wifi":
+        [
+            {"name":"Configuration Adresse IP Statique","link":"#"},
+            {"name":"Configuration Adresse IP Dynamique","link":"#"}
+        ],
+        "ethernet":
+        [
+            {"name":"Configuration Adresse IP Statique","link":"#"},
+            {"name":"Configuration Adresse IP Dynamique","link":"#"}
         ]
     },
     "version":
@@ -51,6 +65,9 @@
         "git":
         [
             {"name":"Installation Git","link":"#"},
+            {"name":"Configuration Nom Utilisateur","link":"#"},
+            {"name":"Configuration Email Utilisateur","link":"#"},
+            {"name":"Configuration Editeur de Texte","link":"#"},
             {"name":"Clonage Dépôt","link":"#"},
             {"name":"Récupération Dépôt","link":"#"},
             {"name":"Fusion Dépôt","link":"#"}

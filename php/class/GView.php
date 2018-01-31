@@ -19,7 +19,10 @@
             $m_page = strtolower($page);
             
             if(!isset($m_data[$m_page])) {
-                $m_data[$m_page] = 0; 
+                $m_data[$m_page] = 250; 
+            }
+            else {
+                if($m_data[$m_page] < 250) $m_data[$m_page] = 250;
             }
             
             $m_data[$m_page]++;
