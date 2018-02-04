@@ -23,7 +23,15 @@ GList.showData()
 print "\n### Find Data\n"
 GList.showData(GList.findData(City="Montpellier", Name="Gerard"))
 #================================================
+print "\n### Exist Data\n"
+GList.existData(City="Montpellier", Name="Gerard")
+GList.existData(City="Strasbourg", Name="Gerard")
+#================================================
 print "\n### Remove Data Index\n"
 GList.removeIndex(1)
+GList.showData()
+#================================================
+print "\n### Remove Data\n"
+GList.removeData(City="Montpellier", Name="Kepler")
 GList.showData()
 #================================================
