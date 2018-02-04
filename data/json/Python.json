@@ -18,7 +18,7 @@
     [
         {"name":"Utilisation","link":"#Utilisation"},
         {"name":"Notions de Base","link":"#Notions_Base"},
-        {"name":"Programmation Orientée Objet","link":"#"}
+        {"name":"Programmation Orientée Objet","link":"#POO"}
     ],
     "execute":
     {
@@ -57,21 +57,24 @@
         ],
         "import":
         [
-            {"name":"Importation Methode","link":"#"},
-            {"name":"Importation Methode Multiple","link":"#"},
-            {"name":"Import As","link":"#"}
+            {"name":"Importation Module","link":"#"},
+            {"name":"Importation Multiple","link":"#"},
+            {"name":"Importation As","link":"#"},
+            {"name":"Importation Package","link":"#"}
         ],
         "condition":
         [
             {"name":"Condition If","link":"#"},
             {"name":"Condition Else","link":"#"},
             {"name":"Condition Elif","link":"#"},
-            {"name":"Predicats","link":"#"}
+            {"name":"Predicat","link":"#"}
         ],
         "loop":
         [
             {"name":"Boucle For","link":"#"},
-            {"name":"Boucle While","link":"#"}
+            {"name":"Boucle While","link":"#"},
+            {"name":"Boucle Continue","link":"#"},
+            {"name":"Boucle Break","link":"#"}
         ],
         "list":
         [

@@ -1,5 +1,5 @@
 #================================================
-def sayHello(name = "Gerard"):
+def sayHello(name="Gerard"):
     m_format = "Hello {}".format(name)
     print m_format
 #================================================
