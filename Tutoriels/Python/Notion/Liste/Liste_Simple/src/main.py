@@ -24,6 +24,10 @@ print "\n### Remove Data Index\n"
 GList.removeIndex(2)
 GList.showData()
 #================================================
+print "\n### Find Data\n"
+GList.findData("Gerard")
+GList.findData("Kepler")
+#================================================
 print "\n### Exist Data\n"
 GList.existData("Gerard")
 GList.existData("Newton")
