@@ -89,11 +89,6 @@
         ],
         "set":
         [
-            {"name":"Création Dictionnaire","link":"#"},
-            {"name":"Ajout Elément Dictionnaire","link":"#"},
-            {"name":"Accès Elément Dictionnaire","link":"#"},
-            {"name":"Modification Elément Dictionnaire","link":"#"},
-            {"name":"Suppression Elément Dictionnaire","link":"#"},
             {"name":"Recherche Elément Dictionnaire","link":"#"},
             {"name":"Parcours Eléments Dictionnaire","link":"#"}
         ],

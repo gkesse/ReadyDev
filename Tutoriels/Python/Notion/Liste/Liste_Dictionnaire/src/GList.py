@@ -29,6 +29,7 @@ def findData(**data):
     m_data = dict(data)
     m_findMap = []
     m_findMap[:] = [val for val in m_dataMap if findPred(val, **m_data)]
+    showData(m_findMap)
     return m_findMap
 #================================================
 def changeData(i, **data):

@@ -1,0 +1,27 @@
+#================================================
+import GSet
+#================================================
+A = set([1,2,3,4,5,6,7])
+B = set([5,6,7,8,9,10,11])
+#================================================
+print "\n### Intersection\n"
+GSet.showData(A, "A")
+GSet.showData(B, "B")
+GSet.intersect(A, B, "C")
+#================================================
+print "\n### Union\n"
+GSet.showData(A, "A")
+GSet.showData(B, "B")
+GSet.union(A, B, "C")
+#================================================
+print "\n### Symmetric Difference\n"
+GSet.showData(A, "A")
+GSet.showData(B, "B")
+GSet.differenceSym(A, B, "C")
+#================================================
+print "\n### Difference\n"
+GSet.showData(A, "A")
+GSet.showData(B, "B")
+GSet.difference(A, B, "C")
+GSet.difference(B, A, "D")
+#================================================
