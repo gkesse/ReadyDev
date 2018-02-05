@@ -7,7 +7,7 @@
         <div class="pddc dibm">
             <a class="bgra dibm pgCt05 ftsb hvra 
             <?php if(empty($_GET)) echo "bgrc"; ?>" 
-            href="/php/sitemap.php"><i class="fa fa-home"></i></a>
+            href="/Admin/"><i class="fa fa-home"></i></a>
         </div>
         <div class="pddc dibm">
             <a class="bgra dibm pgCt05 ftsb hvra 
