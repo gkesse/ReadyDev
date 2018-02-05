@@ -142,9 +142,9 @@
         <!-- ============================================ -->
         <div class="pgCt10">
             <div class="bgra">
-                <h1 class="bgra pgCt20" id="Systeme_Embarque">
+                <h1 class="bgra pgCt20" id="Systemes_Embarques">
                     <a class="clrb" href="#Sommaire">
-                        Système Embarqué
+                        Systèmes Embarqués
                     </a>
                 </h1>
                 <div class="pgRw">

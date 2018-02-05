@@ -47,9 +47,9 @@
             {"name":"Fonction Argument Indéfini","link":"#"},
             {"name":"Fonction Argument Défini Indéfini","link":"#"},
             {"name":"Fonction Argument Défaut","link":"#"},
-            {"name":"Fonction Argument List","link":"#"},
+            {"name":"Fonction Argument Liste","link":"#"},
             {"name":"Fonction Argument Dictionnaire","link":"#"},
-            {"name":"Fonction Argument List Dictionnaire","link":"#"},
+            {"name":"Fonction Argument Liste Dictionnaire","link":"#"},
             {"name":"Fonction Retour","link":"#"},
             {"name":"Fonction Retour Multiple","link":"#"},
             {"name":"Fonction Lambda","link":"#"},
@@ -78,49 +78,22 @@
         ],
         "list":
         [
-            {"name":"Création Liste","link":"#"},
-            {"name":"Ajout Elément Liste","link":"#"},
-            {"name":"Accès Elément Liste","link":"#"},
-            {"name":"Modification Elément Liste","link":"#"},
-            {"name":"Suppression Elément Liste","link":"#"},
-            {"name":"Recherche Elément Liste","link":"#"},
-            {"name":"Insertion Elément Liste","link":"#"},
-            {"name":"Parcours Liste For","link":"#"},
-            {"name":"Parcours Liste For Enumerate","link":"#"},
-            {"name":"Concaténation Listes","link":"#"},
-            {"name":"Insertion Elément Liste","link":"#"},
-            {"name":"Insertion Elément Liste","link":"#"},
-            {"name":"Parcours Eléments Liste","link":"#"}
+            {"name":"Liste Simple","link":"#"},
+            {"name":"Liste Multiple","link":"#"},
+            {"name":"Liste Dictionnaire","link":"#"}
         ],
         "tuple":
         [
-            {"name":"Création Dictionnaire","link":"#"},
-            {"name":"Ajout Elément Dictionnaire","link":"#"},
-            {"name":"Accès Elément Dictionnaire","link":"#"},
-            {"name":"Modification Elément Dictionnaire","link":"#"},
-            {"name":"Suppression Elément Dictionnaire","link":"#"},
-            {"name":"Recherche Elément Dictionnaire","link":"#"},
-            {"name":"Parcours Eléments Dictionnaire","link":"#"}
+            {"name":"Tuple Simple","link":"#"}
         ],
         "set":
         [
-            {"name":"Création Dictionnaire","link":"#"},
-            {"name":"Ajout Elément Dictionnaire","link":"#"},
-            {"name":"Accès Elément Dictionnaire","link":"#"},
-            {"name":"Modification Elément Dictionnaire","link":"#"},
-            {"name":"Suppression Elément Dictionnaire","link":"#"},
-            {"name":"Recherche Elément Dictionnaire","link":"#"},
-            {"name":"Parcours Eléments Dictionnaire","link":"#"}
+            {"name":"Ensemble Simple","link":"#"},
+            {"name":"Opérations Ensemble","link":"#"}
         ],
         "dictionary":
         [
-            {"name":"Création Dictionnaire","link":"#"},
-            {"name":"Ajout Elément Dictionnaire","link":"#"},
-            {"name":"Accès Elément Dictionnaire","link":"#"},
-            {"name":"Modification Elément Dictionnaire","link":"#"},
-            {"name":"Suppression Elément Dictionnaire","link":"#"},
-            {"name":"Recherche Elément Dictionnaire","link":"#"},
-            {"name":"Parcours Eléments Dictionnaire","link":"#"}
+            {"name":"Dictionnaire Simple","link":"#"}
         ],
         "assert":
         [

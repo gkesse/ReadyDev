@@ -21,7 +21,7 @@ GList.sortData("City", rev=True)
 GList.showData()
 #================================================
 print "\n### Find Data\n"
-GList.showData(GList.findData(City="Montpellier", Name="Gerard"))
+GList.findData(City="Montpellier", Name="Gerard")
 #================================================
 print "\n### Exist Data\n"
 GList.existData(City="Montpellier", Name="Gerard")
