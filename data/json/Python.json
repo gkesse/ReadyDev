@@ -84,18 +84,16 @@
         ],
         "tuple":
         [
-            {"name":"Dictionnaire Simple","link":"#"},
-            {"name":"Dictionnaire Multiple","link":"#"}
+            {"name":"Tuple Simple","link":"#"}
         ],
         "set":
         [
-            {"name":"Recherche Elément Dictionnaire","link":"#"},
-            {"name":"Parcours Eléments Dictionnaire","link":"#"}
+            {"name":"Ensemble Simple","link":"#"},
+            {"name":"Opérations Ensemble","link":"#"}
         ],
         "dictionary":
         [
-            {"name":"Dictionnaire Simple","link":"#"},
-            {"name":"Dictionnaire Multiple","link":"#"}
+            {"name":"Dictionnaire Simple","link":"#"}
         ],
         "assert":
         [
