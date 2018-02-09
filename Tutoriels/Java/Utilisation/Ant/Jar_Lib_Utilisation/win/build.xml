@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="run">
+    <!-- ============================================ -->
+    <property name="GSRC" value="../src"/>
+    <property name="GBUILD" value="build"/>
+    <property name="GJAR" value="jar"/>
+    <property name="GJARFILE" value="jar/GMain.jar"/>
+    <property name="GVERSION" value="1.0"/>
+    <property name="GAUTHOR" value="Gerard KESSE"/>
+    <property name="GMAIN" value="GMain"/>
+    <!-- ============================================ -->
+    <path id="classpath">
+        <fileset dir="lib" includes="**/*.jar"/>
+    </path>
+    <!-- ============================================ -->
+    <target name="clean">
+        <delete dir="${GBUILD}"/>
+        <delete dir="${GJAR}"/>
+    </target>
+    <!-- ============================================ -->
+    <target name="compile" depends="clean">
+        <mkdir dir="${GBUILD}"/>
+        <javac srcdir="${GSRC}" destdir="${GBUILD}" classpathref="classpath"/>
+    </target>
+    <!-- ============================================ -->
+    <target name="jar" depends="compile">
+        <mkdir dir="${GJAR}"/>
+        <jar destfile="${GJARFILE}" basedir="${GBUILD}">
+            <manifest>
+                <attribute name="Manifest-Version" value="${GVERSION}"/>
+                <attribute name="Created-By" value="${GAUTHOR}"/>
+                <attribute name="Main-Class" value="${GMAIN}"/>
+            </manifest>
+        </jar>
+    </target>
+    <!-- ============================================ -->
+    <target name="run" depends="jar">
+        <java classname="${GMAIN}" fork="true">
+            <classpath>
+                <path refid="classpath"/>
+                <path location="${GJARFILE}"/>
+            </classpath>
+        </java>
+    </target>
+    <!-- ============================================ -->
+</project>
