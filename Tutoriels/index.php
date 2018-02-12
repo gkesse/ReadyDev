@@ -2,7 +2,7 @@
     require $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoloadRegister.php";
     
     $m_data = GJson::Instance()->getData("data/json/Tutoriels.json");
-    
+
     GConfig::Instance()->setData("title", "Tutoriels");
     GConfig::Instance()->setData("menu", "Tutoriels");
     GConfig::Instance()->setData("view", "Tutoriels");
