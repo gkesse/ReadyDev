@@ -9,6 +9,7 @@
         {"name":"CV","link":"/CV/"},
         {"name":"Présentation","link":"/Presentation/"},
         {"name":"Tutoriels","link":"/Tutoriels/","prio":"1.0","freq":"daily"},
+        {"name":"Cours","link":"/Cours/","prio":"1.0","freq":"daily"},
         {"name":"Contacts","link":"/Contacts/"},
         {"name":"Admin","link":"/Admin/"},
         {"name":"Connexion","link":"/Connexion/"}

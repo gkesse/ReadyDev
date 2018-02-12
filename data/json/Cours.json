@@ -1,0 +1,27 @@
+{
+    "sitemap":"yes",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+            "Cours Mathématiques, Physique, disponibles gratuitement sur le site",
+            "sur ReadyDev. Formez-vous et montez en compétences. Gerard KESSE !!!"
+        ],
+        "meta_cano":"/Tutoriels/"
+    },    
+    "summary":
+    [
+        {"name":"Cours de Physique","link":"#Physique"},
+        {"name":"Cours de Mathématiques","link":"#"},
+        {"name":"Cours d'Electronique","link":"#"},
+        {"name":"Cours d'Automatique","link":"#"}
+    ],
+    "physics":
+    [
+        {"name":"Interférences","link":"/lib/pdfjs/web/viewer.html?file=/Cours/Physique/Interferences/Interferences.pdf"},
+        {"name":"Effet Doppler","link":"#"},
+        {"name":"Mouvement Rectiligne Uniforme","link":"#"},
+        {"name":"Mouvement Circulaire Uniforme","link":"#"}
+    ]
+}
+                        

@@ -30,7 +30,7 @@
             "dir" => array("folder"),
             "img" => array("file-image-o", "png", "bmp", "jpeg", "jpg", "gif", "tiff"),
             "txt" => array("file-text-o"),
-            "bin" => array("tasks", "exe", "dll", "lib", "so", "a"),
+            "bin" => array("tasks", "exe", "dll", "lib", "so", "a", "jar"),
             "bat" => array("cogs", "bat", "sh")
             );
             
