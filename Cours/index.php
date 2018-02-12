@@ -40,7 +40,7 @@
         <!-- ============================================ -->
         <div class="pgCt10">
             <div class="bgra">
-                <h1 class="bgra pgCt20" id="Cours_Physique">
+                <h1 class="bgra pgCt20" id="Physique">
                     <a class="clrb" href="#Sommaire">
                         Cours de Physique
                     </a>
