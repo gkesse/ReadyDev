@@ -65,7 +65,7 @@
         <!-- ============================================ -->
         <div class="pgCt10">
             <div class="bgra">
-                <h1 class="bgra pgCt20" id="Mathématiques">
+                <h1 class="bgra pgCt20" id="Mathematiques">
                     <a class="clrb" href="#Sommaire">
                         Mathématiques
                     </a>

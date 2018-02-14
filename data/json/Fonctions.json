@@ -1,0 +1,18 @@
+{
+    "meta_data":
+    {
+        "meta_desc":
+        [
+            "Apprenez les fonctions, Image, Antécédent, Représentation graphique,",
+            "Sens de variation, Point appartenant à une courbe représentative."
+        ],
+        "meta_cano":"/Cours/Mathematiques/Fonctions/"
+    },    
+    "links":
+    [
+        {"name":"Cours","link":"/Cours/"},
+        {"name":"Mathématiques","link":"/Cours/#Mathematiques"},
+        {"name":"Fonctions","link":""}
+    ]
+}
+                        
