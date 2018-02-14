@@ -12,20 +12,20 @@
     "summary":
     [
         {"name":"Physique","link":"#Physique"},
-        {"name":"Mathématiques","link":"#Mathématiques"},
+        {"name":"Mathématiques","link":"#Mathematiques"},
         {"name":"Electronique","link":"#"},
         {"name":"Automatique","link":"#"}
     ],
     "physics":
     [
-        {"name":"Interférences","link":"/lib/pdfjs/web/viewer.html?file=/Cours/Physique/Interferences/Interferences.pdf"},
+        {"name":"Interférences","link":"/Cours/Physique/Interferences/"},
         {"name":"Effet Doppler","link":"#"},
         {"name":"Mouvement Rectiligne Uniforme","link":"#"},
         {"name":"Mouvement Circulaire Uniforme","link":"#"}
     ],
     "maths":
     [
-        {"name":"Fonctions","link":"/lib/pdfjs/web/viewer.html?file=/Cours/Mathematiques/Fonctions/Fonctions.pdf"},
+        {"name":"Fonctions","link":"/Cours/Mathematiques/Fonctions/"},
         {"name":"Vecteurs","link":"#"},
         {"name":"Barycentre","link":"#"},
         {"name":"Produit Scalaire","link":"#"}
