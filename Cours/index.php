@@ -42,13 +42,38 @@
             <div class="bgra">
                 <h1 class="bgra pgCt20" id="Physique">
                     <a class="clrb" href="#Sommaire">
-                        Cours de Physique
+                        Physique
                     </a>
                 </h1>
                 <div class="txal pgCt10">
                     <ul class="fa-ul">
                         <?php 
                             $m_ds = $m_data["physics"];
+                            foreach($m_ds as $m_di) {
+                            ?>
+                            <li class="mrgb">
+                                <i class="fa-li fa fa-chevron-right"></i>
+                                <a class="hvra" href="<?php echo $m_di["link"]; ?>">
+                                    <?php echo $m_di["name"]; ?>
+                                </a>
+                            </li>
+                        <?php } ?>
+                    </ul>            
+                </div>
+            </div>
+        </div>
+        <!-- ============================================ -->
+        <div class="pgCt10">
+            <div class="bgra">
+                <h1 class="bgra pgCt20" id="Mathématiques">
+                    <a class="clrb" href="#Sommaire">
+                        Mathématiques
+                    </a>
+                </h1>
+                <div class="txal pgCt10">
+                    <ul class="fa-ul">
+                        <?php 
+                            $m_ds = $m_data["maths"];
                             foreach($m_ds as $m_di) {
                             ?>
                             <li class="mrgb">

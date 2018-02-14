@@ -11,10 +11,10 @@
     },    
     "summary":
     [
-        {"name":"Cours de Physique","link":"#Physique"},
-        {"name":"Cours de Mathématiques","link":"#"},
-        {"name":"Cours d'Electronique","link":"#"},
-        {"name":"Cours d'Automatique","link":"#"}
+        {"name":"Physique","link":"#Physique"},
+        {"name":"Mathématiques","link":"#Mathématiques"},
+        {"name":"Electronique","link":"#"},
+        {"name":"Automatique","link":"#"}
     ],
     "physics":
     [
@@ -22,6 +22,13 @@
         {"name":"Effet Doppler","link":"#"},
         {"name":"Mouvement Rectiligne Uniforme","link":"#"},
         {"name":"Mouvement Circulaire Uniforme","link":"#"}
+    ],
+    "maths":
+    [
+        {"name":"Fonctions","link":"/lib/pdfjs/web/viewer.html?file=/Cours/Mathematiques/Fonctions/Fonctions.pdf"},
+        {"name":"Vecteurs","link":"#"},
+        {"name":"Barycentre","link":"#"},
+        {"name":"Produit Scalaire","link":"#"}
     ]
 }
                         
