@@ -34,6 +34,17 @@
                         <?php } ?>
                     </ul>            
                 </div>
+                <div class="pgCt10">
+                    <a class="dibm" href="/CV/Simplifie/">
+                        <div class="ftsc ftfd">CV<br/>Simplifié</div>
+                        <i class="evta ftaa fa fa-file-pdf-o"></i>
+                    </a> 
+                    &nbsp;
+                    <a class="dibm" href="/CV/Detaille/">
+                        <div class="ftsc ftfd">CV<br/>Détaillé</div>
+                        <i class="evta ftaa fa fa-file-pdf-o"></i>
+                    </a>                        
+                </div>
             </div>
         </div>
         <!-- ============================================ -->

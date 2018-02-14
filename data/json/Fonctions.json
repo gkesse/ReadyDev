@@ -3,7 +3,7 @@
     {
         "meta_desc":
         [
-            "Apprenez les fonctions, Image, Antécédent, Représentation graphique,",
+            "Apprenez les Fonctions, Image, Antécédent, Représentation graphique,",
             "Sens de variation, Point appartenant à une courbe représentative."
         ],
         "meta_cano":"/Cours/Mathematiques/Fonctions/"
@@ -13,6 +13,7 @@
         {"name":"Cours","link":"/Cours/"},
         {"name":"Mathématiques","link":"/Cours/#Mathematiques"},
         {"name":"Fonctions","link":""}
-    ]
+    ],
+    "pdf":"/Cours/Mathematiques/Fonctions/Fonctions.pdf"
 }
                         

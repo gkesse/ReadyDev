@@ -15,8 +15,9 @@
     <div class="mrga pdfBd">
         <!-- ============================================ -->
         <div class="pgCt10">
+            <?php $m_pdf = GPdf::Instance()->getUrl($m_data["pdf"]);  ?>
             <object id="pdf" width="100%" height="640"
-            data="/lib/pdfjs/web/viewer.html?file=/Cours/Physique/Interferences/Interferences.pdf#zoom=page-width" 
+            data="<?php echo $m_pdf; ?>" 
             type="text/html">
                 La visualisation n’est pas encore disponible sur votre navigateur,
                 veillez à le mettre à jour.
