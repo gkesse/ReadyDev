@@ -17,7 +17,7 @@
         <!-- ============================================ -->
         <div class="pgCt10">
             <?php $m_pdf = GPdf::Instance()->getUrl($m_data["pdf"]);  ?>
-            <object id="pdf" width="100%" height="640"
+            <object id="pdf" width="100%" class="pdfHt"
             data="<?php echo $m_pdf; ?>" 
             type="text/html">
                 La visualisation n’est pas encore disponible sur votre navigateur,
