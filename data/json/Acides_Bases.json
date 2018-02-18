@@ -11,7 +11,7 @@
     "links":
     [
         {"name":"Cours","link":"/Cours/"},
-        {"name":"Physique","link":"/Cours/#Chimie"},
+        {"name":"Chimie","link":"/Cours/#Chimie"},
         {"name":"Acides et Bases","link":""}
     ],
     "pdf":"/Cours/Chimie/Acides_Bases/Acides_Bases.pdf"
