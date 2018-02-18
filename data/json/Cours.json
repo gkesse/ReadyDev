@@ -11,10 +11,18 @@
     },    
     "summary":
     [
-        {"name":"Physique","link":"#Physique"},
         {"name":"Mathématiques","link":"#Mathematiques"},
+        {"name":"Physique","link":"#Physique"},
+        {"name":"Chimie","link":"#Chimie"},
         {"name":"Electronique","link":"#"},
         {"name":"Automatique","link":"#"}
+    ],
+    "maths":
+    [
+        {"name":"Fonctions","link":"/Cours/Mathematiques/Fonctions/"},
+        {"name":"Vecteurs","link":"#"},
+        {"name":"Barycentre","link":"#"},
+        {"name":"Produit Scalaire","link":"#"}
     ],
     "physics":
     [
@@ -23,12 +31,10 @@
         {"name":"Mouvement Rectiligne Uniforme","link":"#"},
         {"name":"Mouvement Circulaire Uniforme","link":"#"}
     ],
-    "maths":
+    "chemistry":
     [
-        {"name":"Fonctions","link":"/Cours/Mathematiques/Fonctions/"},
-        {"name":"Vecteurs","link":"#"},
-        {"name":"Barycentre","link":"#"},
-        {"name":"Produit Scalaire","link":"#"}
+        {"name":"Acides et Bases","link":"/Cours/Chimie/Acides_Bases/"},
+        {"name":"PH","link":"#"}
     ]
 }
                         

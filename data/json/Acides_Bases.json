@@ -1,0 +1,19 @@
+{
+    "meta_data":
+    {
+        "meta_desc":
+        [
+            "Apprenez les Acides et les Bases, Demi-équation de la réaction d'un acide ou d'une base,",
+            "Couple Acide-Base, Amplholyte, Equation de la réaction entre un acide et une base."
+        ],
+        "meta_cano":"/Cours/Chimie/Acides_Bases/"
+    },    
+    "links":
+    [
+        {"name":"Cours","link":"/Cours/"},
+        {"name":"Physique","link":"/Cours/#Chimie"},
+        {"name":"Acides et Bases","link":""}
+    ],
+    "pdf":"/Cours/Chimie/Acides_Bases/Acides_Bases.pdf"
+}
+                        
