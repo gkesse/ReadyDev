@@ -1,0 +1,19 @@
+{
+    "meta_data":
+    {
+        "meta_desc":
+        [
+            "Apprenez le pH, Calcul du pH, Calcul du pOH, Solution d'acide fort",
+            "Solution de base forte, Ion hydronium, Ion hydroxyde."
+        ],
+        "meta_cano":"/Cours/Chimie/PH/"
+    },    
+    "links":
+    [
+        {"name":"Cours","link":"/Cours/"},
+        {"name":"Chimie","link":"/Cours/#Chimie"},
+        {"name":"Le pH","link":""}
+    ],
+    "pdf":"/Cours/Chimie/PH/PH.pdf"
+}
+                        
