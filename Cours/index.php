@@ -23,7 +23,7 @@
                 <div class="txal pgCt10">
                     <ul class="fa-ul">
                         <?php 
-                            $m_ds = $m_data["summary"];
+                            $m_ds = GSort::Instance()->sortData($m_data["summary"]);
                             foreach($m_ds as $m_di) {
                             ?>
                             <li>
@@ -48,7 +48,7 @@
                 <div class="txal pgCt10">
                     <ul class="fa-ul">
                         <?php 
-                            $m_ds = $m_data["maths"];
+                            $m_ds = GSort::Instance()->sortData($m_data["maths"]);
                             foreach($m_ds as $m_di) {
                             ?>
                             <li class="mrgb">
@@ -73,7 +73,7 @@
                 <div class="txal pgCt10">
                     <ul class="fa-ul">
                         <?php 
-                            $m_ds = $m_data["physics"];
+                            $m_ds = GSort::Instance()->sortData($m_data["physics"]);
                             foreach($m_ds as $m_di) {
                             ?>
                             <li class="mrgb">
@@ -98,7 +98,7 @@
                 <div class="txal pgCt10">
                     <ul class="fa-ul">
                         <?php 
-                            $m_ds = $m_data["chemistry"];
+                            $m_ds = GSort::Instance()->sortData($m_data["chemistry"]);
                             foreach($m_ds as $m_di) {
                             ?>
                             <li class="mrgb">
