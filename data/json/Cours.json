@@ -19,22 +19,27 @@
     ],
     "maths":
     [
+        {"name":"Barycentres","link":"/Cours/Mathematiques/Barycentres/"},
         {"name":"Fonctions","link":"/Cours/Mathematiques/Fonctions/"},
         {"name":"Vecteurs","link":"#"},
-        {"name":"Barycentre","link":"#"},
         {"name":"Produit Scalaire","link":"#"}
     ],
     "physics":
     [
         {"name":"Interférences","link":"/Cours/Physique/Interferences/"},
         {"name":"Effet Doppler","link":"#"},
-        {"name":"Mouvement Rectiligne Uniforme","link":"#"},
-        {"name":"Mouvement Circulaire Uniforme","link":"#"}
+        {"name":"Mouvements Rectilignes Uniformes","link":"#"},
+        {"name":"Mouvements Rectilignes Uniformément Variés","link":"#"},
+        {"name":"Mouvements Circulaires Uniformes","link":"#"}
     ],
     "chemistry":
     [
         {"name":"Acides et Bases","link":"/Cours/Chimie/Acides_Bases/"},
-        {"name":"Le pH","link":"/Cours/Chimie/PH/"}
+        {"name":"Formules Topologiques","link":"/Cours/Chimie/Formules_Topologiques/"},
+        {"name":"Groupes Caractéristiques","link":"/Cours/Chimie/Groupes_Caracteristiques/"},
+        {"name":"Le pH","link":"/Cours/Chimie/PH/"},
+        {"name":"Autoprotolyse et Produit Ionique de l’Eau","link":"/Cours/Chimie/Autoprotolyse_Produit_Ionique_Eau/"},
+        {"name":"Réaction Chimique","link":"/Cours/Chimie/Reaction_Chimique/"}
     ]
 }
                         
