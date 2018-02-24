@@ -1,0 +1,19 @@
+{
+    "meta_data":
+    {
+        "meta_desc":
+        [
+            "Apprenez les Formules Topologiques, Méthode de construction, Nombre de carbones,",
+            "Formule Éthane, Propane, Butane, But-1-ène, Éthanol, Acétone (Propanone), 2-Chloro-propan-1-ol,",
+            "Cyclohexane, Benzène."
+        ],
+        "meta_cano":"/Cours/Chimie/Formules_Topologiques/"
+    },    
+    "links":
+    [
+        {"name":"Cours","link":"/Cours/"},
+        {"name":"Chimie","link":"/Cours/#Chimie"},
+        {"name":"Formules Topologiques","link":""}
+    ],
+    "pdf":"/Cours/Chimie/Formules_Topologiques/Formules_Topologiques.pdf"
+}

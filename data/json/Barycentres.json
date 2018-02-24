@@ -1,0 +1,19 @@
+{
+    "meta_data":
+    {
+        "meta_desc":
+        [
+            "Apprenez les Barycentres, Barycentre de deux ou trois points pondérés,",
+            "Isobarycentre, Multiplication des coefficients par un scalaire, Points alignés",
+            "Expression d’un point du plan."
+        ],
+        "meta_cano":"/Cours/Mathematiques/Barycentres/"
+    },    
+    "links":
+    [
+        {"name":"Cours","link":"/Cours/"},
+        {"name":"Mathématiques","link":"/Cours/#Mathematiques"},
+        {"name":"Barycentres","link":""}
+    ],
+    "pdf":"/Cours/Mathematiques/Barycentres/Barycentres.pdf"
+}
