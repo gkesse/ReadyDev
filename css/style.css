@@ -83,7 +83,7 @@ ul {
 }
 
 xmp {
-    padding: 10px 10px 0px 50px;
+    padding-left: 50px;
 }
 
 b {
@@ -618,6 +618,10 @@ b {
     margin: 10px 5px 10px 5px;
 }
 
+.mrgd {
+    margin: -15px 0px 0px 0px;
+}
+
 /* margin-left */
 .mgla {
     margin-left: 50px;
@@ -719,6 +723,10 @@ b {
 /* overflow auto */
 .ovfa {
     overflow: auto;
+}
+
+.ovfx {
+    overflow-y: auto;
 }
 
 /* overflow hidden */
