@@ -65,21 +65,50 @@ win/build/
 </pre>
 			</div>
 			<!-- ============================================ -->
-			<div class="pgCr10">
-				<div><b class="ftsg">src/main.cpp</b></div>
-				<pre><xmp class="ovfa prettyprint linenums">
+            <div class="pgCr10">
+                <div><b class="ftsg">src/main.cpp</b></div>
+                <pre><xmp class="ovfa prettyprint linenums">
+//===============================================
+#include "hello.h"
+//===============================================
+int main(int argc, char** argv) {
+    sayHello();
+    return 0;
+}
+//===============================================
+                </xmp></pre>
+            </div>
+            <!-- ============================================ -->
+            <div class="pgCr10">
+                <div><b class="ftsg">src/manager/hello.h</b></div>
+                <pre><xmp class="ovfa prettyprint linenums">
+//===============================================
+#ifndef _hello_
+#define _hello_
 //===============================================
 #include <iostream>
 //===============================================
 using namespace std;
 //===============================================
-int main(int argc, char** argv) {
+void sayHello();
+//===============================================
+#endif
+//===============================================
+                </xmp></pre>
+            </div>
+            <!-- ============================================ -->
+            <div class="pgCr10">
+                <div><b class="ftsg">src/manager/hello.cpp</b></div>
+                <pre><xmp class="ovfa prettyprint linenums">
+//===============================================
+#include "hello.h"
+//===============================================
+void sayHello() {
     cout << "Bonjour tout le monde\n";
-    return 0;
 }
 //===============================================
-				</xmp></pre>
-			</div>
+                </xmp></pre>
+            </div>
 			<!-- ============================================ -->
 			<div class="pgCr10">
 				<div><b class="ftsg">win/Makefile</b></div>
@@ -114,7 +143,7 @@ GSRC : répertoire des fichiers sources
 GBIN : répertoire du fichier exécutable
 GBUILD : répertoire de génération des fichiers objets
 GTARGET : chemin du fichier exécutable
-GINCS : liste de répertoires des fichiers entêtes
+GINCS : liste des répertoires de fichiers entêtes
 GOBJS : liste des fichiers objets
 </pre>
 			</div>
