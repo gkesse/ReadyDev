@@ -42,6 +42,18 @@
 		"Sur le site <b>ReadyDev</b>, la Plateforme de Développement Continu,",
 		"dont j'en suis le concepteur, vous trouverez des cours et des tutoriels",
 		"adaptés aux sciences de l’ingénieur."
+    ],
+    "summary_02":
+    [
+        {"name":"Téléchargements","link":"#Telechargements"},
+        {"name":"Installation de MinGW","link":"#Installation_de_MinGW"},
+        {"name":"Installation de Notepad++","link":"#Installation_de_Notepad_pp"}
+    ],
+    "summary_03":
+    [
+        {"name":"Compiler un projet C++ avec un seul fichier source","link":"#Compiler_un_projet_Cpp_avec_un_seul_fichier_source"},
+        {"name":"Compiler un projet C++ avec plusieurs fichiers sources","link":"#Compiler_un_projet_Cpp_avec_plusieurs_fichiers_sources"},
+        {"name":"Nouveau","link":"#"}
     ]
 }
                         

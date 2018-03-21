@@ -79,6 +79,24 @@
 				</h1>
 				<!-- ============================================ -->
 				<div class="txal pgCt10">
+					<!-- ============================================ -->
+					<!-- ============================================ -->
+					<div class="txal pgCr10">
+						<ul class="fa-ul">
+							<?php 
+								$m_ds = $m_data["summary_02"];
+								foreach($m_ds as $m_di) {
+								?>
+							<li>
+								<i class="fa-li fa fa-book clrg"></i>
+								<a class="hvra clrg" href="<?php echo $m_di["link"]; ?>">
+									<?php echo $m_di["name"]; ?>
+								</a>
+							</li>
+							<?php } ?>
+						</ul>            
+					</div>
+					<!-- ============================================ -->
 					<div class="pgCr10" id="Telechargements">
 						<a class="bgra dibm ftfb ftsg clra pgCt10" href="#Installation_sous_Windows_avec_MinGW">
 							Téléchargements
@@ -140,6 +158,24 @@ NppExport
 				</h1>
 				<!-- ============================================ -->
 				<div class="txal pgCt10">
+					<!-- ============================================ -->
+					<!-- ============================================ -->
+					<div class="txal pgCr10">
+						<ul class="fa-ul">
+							<?php 
+								$m_ds = $m_data["summary_03"];
+								foreach($m_ds as $m_di) {
+								?>
+							<li>
+								<i class="fa-li fa fa-book clrg"></i>
+								<a class="hvra clrg" href="<?php echo $m_di["link"]; ?>">
+									<?php echo $m_di["name"]; ?>
+								</a>
+							</li>
+							<?php } ?>
+						</ul>            
+					</div>
+					<!-- ============================================ -->
 					<div class="pgCr10" id="Compiler_un_projet_Cpp_avec_un_seul_fichier_source">
 						<a class="bgra dibm ftfb ftsg clra pgCt10" href="#Compilation_d_un_projet_Cpp_avec_MinGW">
 							Compiler un projet C++ avec un seul fichier source
@@ -163,7 +199,7 @@ NppExport
 					<div class="pgCr10">
 						<div><b class="ftsg">Résultat</b></div>
 						<div class="txal ovfa">
-							<img src="/img/readydev.png" alt="Image.png" />
+							<img src="img/Image_01.png" alt="Image.png" />
 						</div>
 					</div>
 					<!-- ============================================ -->
@@ -206,6 +242,76 @@ g++ -o bin/GProject.exe build/main.o
 bin/GProject.exe
 </pre>
 					</div>
+					<!-- ============================================ -->
+					<!-- ============================================ -->
+					<div class="pgCr10" id="Compiler_un_projet_Cpp_avec_plusieurs_fichiers_sources">
+						<a class="bgra dibm ftfb ftsg clra pgCt10" href="#Compilation_d_un_projet_Cpp_avec_MinGW">
+							Compiler un projet C++ avec plusieurs fichiers sources
+						</a>    
+					</div>
+					<!-- ============================================ -->
+					<div class="pgCr10">
+						<div><b class="ftsg">Objectif</b></div>
+						<div class="">
+							Compiler un projet C++ avec plusieurs fichiers sources.
+						</div>
+					</div>
+					<!-- ============================================ -->
+					<div class="pgCr10">
+						<div><b class="ftsg">Implémentation</b></div>
+						<div class="">
+							Afficher un message dans la console (Bonjour tout le monde).
+						</div>
+					</div>
+					<!-- ============================================ -->
+					<div class="pgCr10">
+						<div><b class="ftsg">Résultat</b></div>
+						<div class="txal ovfa">
+							<img src="img/Image_01.png" alt="Image.png" />
+						</div>
+					</div>
+					<!-- ============================================ -->
+					<div class="pgCr10">
+						<div><b class="ftsg">Dossier projet</b></div>
+<pre class="ovfa">
+src/main.cpp
+win/bin/
+win/build/
+</pre>
+					</div>
+					<!-- ============================================ -->
+					<div class="pgCr10">
+						<div><b class="ftsg">src/main.cpp</b></div>
+						<pre><xmp class="ovfa prettyprint linenums">
+//===============================================
+#include <iostream>
+//===============================================
+using namespace std;
+//===============================================
+int main(int argc, char** argv) {
+    cout << "Hello World\n";
+    return 0;
+}
+//===============================================
+						</xmp></pre>
+					</div>
+					<!-- ============================================ -->
+					<div class="pgCr10">
+						<div><b class="ftsg">Compilation du projet</b></div>
+<pre class="ovfa">
+g++ -c src/main.cpp -o build/main.o
+g++ -o bin/GProject.exe build/main.o
+</pre>
+					</div>
+					<!-- ============================================ -->
+					<div class="pgCr10">
+						<div><b class="ftsg">Exécution du projet</b></div>
+<pre class="ovfa">
+bin/GProject.exe
+</pre>
+					</div>
+					<!-- ============================================ -->
+					<!-- ============================================ -->
 				</div>
 				<!-- ============================================ -->
 			</div>
