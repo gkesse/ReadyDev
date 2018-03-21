@@ -69,7 +69,7 @@ win/build/
 using namespace std;
 //===============================================
 int main(int argc, char** argv) {
-    cout << "Hello World\n";
+    cout << "Bonjour tout le monde\n";
     return 0;
 }
 //===============================================
