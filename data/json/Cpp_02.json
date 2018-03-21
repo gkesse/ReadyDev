@@ -71,7 +71,7 @@
     "Clavier":
     [
         {"name":"Lire des données à partir du clavier","link":"#Lire_des_donnees_a_partir_du_clavier"},
-        {"name":"Gérer le problème d’espace lors de la saisie de données à partir du clavier","link":"#Gerer_le_probleme_d_espace_lors_de_la_saisie_de_donnees_a_partir_du_clavier"}
+        {"name":"Gérer le problème d’espace lors de la saisie de données","link":"#Gerer_le_probleme_d_espace_lors_de_la_saisie_de_donnees"}
     ],
     "Condition":
     [
