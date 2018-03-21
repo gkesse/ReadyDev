@@ -1,7 +1,7 @@
 //===============================================
-// GAdmin
+// GEditor
 //===============================================
-var GAdmin = (function() {
+var GEditor = (function() {
     //===============================================
     var m_instance;
     //===============================================
@@ -9,12 +9,17 @@ var GAdmin = (function() {
         return {
             //===============================================
             init: function() {
-                    
+                $.getJSON("/data/json/Contacts.json", function(data) {
+                    var m_data = data["message"]["max"];
+                    GSetting.Instance().setData("ContactMax", m_data);
+                    $(".contacts .message").trigger("propertychange");
+                });
             }
             //===============================================
         };
     }
     //===============================================
+    // instance
     return {
         Instance: function () {
             if (!m_instance) {
@@ -27,7 +32,5 @@ var GAdmin = (function() {
     //===============================================
 })();
 //===============================================
-// Initialization
-//===============================================
-GAdmin.Instance().init();
+GEditor.Instance().init();
 //===============================================

@@ -16,6 +16,7 @@
     ],
     "summary":
     [
+        {"name":"Apprendre à Programmer en C++","link":"/Tutoriels/Cpp/Apprendre_a_Programmer_en_Cpp"},
         {"name":"Compilation","link":"#Compilation"},
         {"name":"Notions de Base","link":"#Notions"},
         {"name":"Patron de Conception","link":"#Patron_Conception"}

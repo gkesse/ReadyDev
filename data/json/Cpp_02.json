@@ -1,0 +1,45 @@
+{
+    "sitemap":"yes",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+            "Le C++ est un langage de programmation orientée objet.",
+			"Le but de ce tutoriel est de vous apprendre à programmer en C++" 
+        ],
+        "meta_cano":"/Tutoriels/Cpp/Apprendre_a_Programmer_en_Cpp"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/"},
+        {"name":"C/C++","link":"/Tutoriels/Cpp"},
+        {"name":"Apprendre à Programmer en C++","link":""}
+    ],
+    "summary":
+    [
+        {"name":"Introduction","link":"#Introduction"},
+        {"name":"Auteur","link":"#Auteur"},
+        {"name":"Installation sous Windows avec MinGW","link":"#Installation_sous_Windows_avec_MinGW"}
+    ],
+    "intro":
+    [
+		"Le C++ est un langage de programmation orientée objet.",
+		"Le but de ce tutoriel est de vous apprendre à programmer en C++."
+    ],
+    "author":
+    [
+		"Je suis <b>Gerard KESSE</b>,<br/>",
+		"Ingénieur en Développement Informatique C/C++/Qt,<br/>",
+		"Avec à la fois des compétences en Systèmes Embarqués et en Robotique.<br/><br/>",
+		
+		"Formé à Polytech'Montpellier, Je suis un professionnel de conception de projets",
+		"logiciel applicatif ou embarqué dans les secteurs de l'Aéronautique, de la Robotique,",
+		"des Drones et de la Vision par Ordinateur. Aussi, Je reste ouvert à d'autres types",
+		"de secteurs tels que l'Energie et les Finances.<br/><br/>",
+
+		"Les Sciences de l’Ingénieur sont au cœur du métier d’ingénieur. Sur le site", 
+		"<b>ReadyDev</b>, la Plateforme de Développement Continu, dont j'en suis le concepteur,",
+		"vous trouverez des cours et des tutoriels adaptés aux sciences de l’ingénieur."
+    ]
+}
+                        
