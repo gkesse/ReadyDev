@@ -11,7 +11,7 @@
 			<div class="txal pgCr10">
 				<ul class="fa-ul">
 					<?php 
-						$m_ds = $m_data["summary_02"];
+						$m_ds = $m_data["Installation"];
 						foreach($m_ds as $m_di) {
 						?>
 					<li>
