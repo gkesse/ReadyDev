@@ -45,6 +45,7 @@
 		<?php require "page/Compilation.php"; ?>
 		<?php require "page/Makefile.php"; ?>
 		<?php require "page/Console.php"; ?>
+		<?php require "page/Clavier.php"; ?>
         <!-- ============================================ -->
     </div>
 </div>
