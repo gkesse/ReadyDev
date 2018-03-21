@@ -15,13 +15,6 @@
         {"name":"C/C++","link":"/Tutoriels/Cpp"},
         {"name":"Apprendre à Programmer en C++","link":""}
     ],
-    "summary":
-    [
-        {"name":"Introduction","link":"#Introduction"},
-        {"name":"Auteur","link":"#Auteur"},
-        {"name":"Installation sous Windows avec MinGW","link":"#Installation_sous_Windows_avec_MinGW"},
-        {"name":"Compilation d’un projet C++ avec MinGW","link":"#Compilation_d_un_projet_Cpp_avec_MinGW"}
-    ],
     "intro":
     [
 		"Le C++ est un langage de programmation orientée objet.",
@@ -43,6 +36,14 @@
 		"dont j'en suis le concepteur, vous trouverez des cours et des tutoriels",
 		"adaptés aux sciences de l’ingénieur."
     ],
+    "summary":
+    [
+        {"name":"Introduction","link":"#Introduction"},
+        {"name":"Auteur","link":"#Auteur"},
+        {"name":"Installation sous Windows avec MinGW","link":"#Installation_sous_Windows_avec_MinGW"},
+        {"name":"Compilation d’un projet C++ avec MinGW","link":"#Compilation_d_un_projet_Cpp_avec_MinGW"},
+        {"name":"Comprendre la structure d’un fichier Makefile","link":"#Comprendre_la_structure_d_un_fichier_Makefile"}
+    ],
     "summary_02":
     [
         {"name":"Téléchargements","link":"#Telechargements"},
@@ -53,6 +54,20 @@
     [
         {"name":"Compiler un projet C++ avec un seul fichier source","link":"#Compiler_un_projet_Cpp_avec_un_seul_fichier_source"},
         {"name":"Compiler un projet C++ avec plusieurs fichiers sources","link":"#Compiler_un_projet_Cpp_avec_plusieurs_fichiers_sources"},
+        {"name":"Compiler un projet C++ à partir d’un fichier Makefile","link":"#Compiler_un_projet_Cpp_a_partir_d_un_fichier_Makefile"}
+    ],
+    "summary_04":
+    [
+        {"name":"Nouveau","link":"#"},
+        {"name":"Nouveau","link":"#"},
+        {"name":"Nouveau","link":"#"},
+        {"name":"Nouveau","link":"#"}
+    ],
+    "summary_99":
+    [
+        {"name":"Nouveau","link":"#"},
+        {"name":"Nouveau","link":"#"},
+        {"name":"Nouveau","link":"#"},
         {"name":"Nouveau","link":"#"}
     ]
 }
