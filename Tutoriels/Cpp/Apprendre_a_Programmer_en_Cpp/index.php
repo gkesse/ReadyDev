@@ -44,6 +44,7 @@
 		<?php require "page/Installation.php"; ?>
 		<?php require "page/Compilation.php"; ?>
 		<?php require "page/Makefile.php"; ?>
+		<?php require "page/Console.php"; ?>
         <!-- ============================================ -->
     </div>
 </div>
