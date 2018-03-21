@@ -88,11 +88,12 @@
         <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Aclonica"/>
         <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Akronim"/>
         <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Allan"/>
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Archivo Narrow"/>
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Anton"/>
         <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css"/>
         <!-- ============================================ -->
         <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=css&amp;skin=sunburst"></script>
         <script src="/lib/jquery/jquery.min.js"></script>
-        <script src="/lib/easyshare/dist/jquery.kyco.easyshare.js"></script>
         <!-- ============================================ -->
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-109595989-1"></script>

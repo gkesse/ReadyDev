@@ -83,7 +83,7 @@ ul {
 }
 
 xmp {
-    padding: 10px 10px 10px 50px;
+    padding-left: 50px;
 }
 
 b {
@@ -528,7 +528,15 @@ b {
     font-size: 40px;
 }
 
+.ftsg {
+    font-size: 18px;
+}
+
 /* font-family */
+.ftf0 {
+    font-family: Arial;
+}
+
 .ftfa {
     font-family: Akronim;
 }
@@ -543,6 +551,14 @@ b {
 
 .ftfd {
     font-family: Allan;
+}
+
+.ftfe {
+    font-family: Archivo Narrow;
+}
+
+.ftff {
+    font-family: Anton;
 }
 
 /* height */
@@ -586,6 +602,10 @@ b {
 }
 
 /* margin */
+.mrg0 {
+    margin: 0;
+}
+
 .mrga {
     margin: auto;
 }
@@ -596,6 +616,10 @@ b {
 
 .mrgc {
     margin: 10px 5px 10px 5px;
+}
+
+.mrgd {
+    margin: -15px 0px 0px 0px;
 }
 
 /* margin-left */
@@ -701,12 +725,20 @@ b {
     overflow: auto;
 }
 
+.ovfx {
+    overflow-y: auto;
+}
+
 /* overflow hidden */
 .ovfh {
     overflow: hidden;
 }
 
 /* padding */
+.pdd0 {
+    padding: 0;
+}
+
 .pdda {
     padding: 10px 0 5px 0;
 }
@@ -852,6 +884,11 @@ b {
 /* word-spacing */
 .wspa {
     word-spacing: 5px;
+}
+
+/* white-space */
+.wspl {
+	white-space: pre-line;
 }
 
 /* ============================================== */
