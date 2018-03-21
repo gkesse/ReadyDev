@@ -83,12 +83,7 @@ ul {
 }
 
 xmp {
-    padding: 10px 10px 10px 50px;
-	white-space: pre-line;
-}
-
-pre {
-	white-space: pre-line;
+    padding: 10px 10px 0px 50px;
 }
 
 b {
@@ -607,6 +602,10 @@ b {
 }
 
 /* margin */
+.mrg0 {
+    margin: 0;
+}
+
 .mrga {
     margin: auto;
 }
@@ -728,6 +727,10 @@ b {
 }
 
 /* padding */
+.pdd0 {
+    padding: 0;
+}
+
 .pdda {
     padding: 10px 0 5px 0;
 }
@@ -873,6 +876,11 @@ b {
 /* word-spacing */
 .wspa {
     word-spacing: 5px;
+}
+
+/* white-space */
+.wspl {
+	white-space: pre-line;
 }
 
 /* ============================================== */

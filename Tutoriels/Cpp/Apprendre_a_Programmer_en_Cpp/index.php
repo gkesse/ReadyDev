@@ -109,10 +109,10 @@
 					<!-- ============================================ -->
 					<div class="pgCr10">
 						<b class="ftsg">Packages MinGW</b><br/>
-						<div class="">
-							mingw33-base<br/>
-							mingw32-gcc-g++<br/>
-						</div>
+						<pre class="ovfa mrg0">
+mingw33-base
+mingw32-gcc-g++
+						</pre>
 					</div>
 				</div>
 				<!-- ============================================ -->
@@ -125,10 +125,10 @@
 					<!-- ============================================ -->
 					<div class="pgCr10">
 						<b class="ftsg">Plugins Notepad++</b><br/>
-						<div class="">
-							TextFX<br/>
-							NppExport<br/>
-						</div>
+						<pre class="ovfa mrg0">
+TextFX
+NppExport
+						</pre>
 					</div>
 				</div>
 				<!-- ============================================ -->
@@ -173,70 +173,42 @@
 					<!-- ============================================ -->
 					<div class="pgCr10">
 						<b class="ftsg">Dossier projet</b><br/>
-						<pre class="clrb">
-							src/main.cpp
-							win/bin/
-							win/build/
+						<pre class="ovfa mrg0">
+src/main.cpp
+win/bin/
+win/build/
 						</pre>
 					</div>
 					<!-- ============================================ -->
 					<div class="pgCr10">
 						<b class="ftsg">src/main.cpp</b><br/>
 						<pre><xmp class="ovfa prettyprint linenums">
-							//===============================================
-							#include <iostream>
-							//===============================================
-							using namespace std;
-							//===============================================
-							int main(int argc, char** argv) {
-								cout << "Hello World\n";
-								return 0;
-							}
-							//===============================================
+//===============================================
+#include <iostream>
+//===============================================
+using namespace std;
+//===============================================
+int main(int argc, char** argv) {
+    cout << "Hello World\n";
+    return 0;
+}
+//===============================================
 						</xmp></pre>
 					</div>
 					<!-- ============================================ -->
 					<div class="pgCr10">
 						<b class="ftsg">Compilation du projet</b><br/>
-						<pre class="clrb">
-							g++ -c src/main.cpp -o build/main.o
-							g++ -o bin/GProject.exe build/main.o
+						<pre class="ovfa">
+g++ -c src/main.cpp -o build/main.o
+g++ -o bin/GProject.exe build/main.o
 						</pre>
 					</div>
 					<!-- ============================================ -->
 					<div class="pgCr10">
 						<b class="ftsg">Exécution du projet</b><br/>
-						<pre class="clrb">
-							bin/GProject.exe
+						<pre class="ovfa mrg0">
+bin/GProject.exe
 						</pre>
-					</div>
-					<!-- ============================================ -->
-					<div class="pgCr10">
-						<b class="ftsg">Objectif</b><br/>
-						<div class="">
-							Compiler un projet C++ avec un seul fichier source.
-						</div>
-					</div>
-					<!-- ============================================ -->
-					<div class="pgCr10">
-						<b class="ftsg">Objectif</b><br/>
-						<div class="">
-							Compiler un projet C++ avec un seul fichier source.
-						</div>
-					</div>
-					<!-- ============================================ -->
-					<div class="pgCr10">
-						<b class="ftsg">Objectif</b><br/>
-						<div class="">
-							Compiler un projet C++ avec un seul fichier source.
-						</div>
-					</div>
-					<!-- ============================================ -->
-					<div class="pgCr10">
-						<b class="ftsg">Objectif</b><br/>
-						<div class="">
-							Compiler un projet C++ avec un seul fichier source.
-						</div>
 					</div>
 				</div>
 				<!-- ============================================ -->
