@@ -78,34 +78,34 @@
 					</a>
 				</h1>
 				<!-- ============================================ -->
-				<div class="txal pgCt05">
-					<div class="pgCr20" id="Telechargements">
+				<div class="txal pgCt10">
+					<div class="pgCr10" id="Telechargements">
 						<a class="bgra dibm ftfb ftsg clra pgCt10" href="#Installation_sous_Windows_avec_MinGW">
 							Téléchargements
 						</a>    
 					</div>
 					<!-- ============================================ -->
-					<div class="pgCr05">
-						<b class="ftsg">Notepad++</b><br/>
+					<div class="pgCr10">
+						<div><b class="ftsg">Notepad++</b></div>
 						<a class="clrb hvra" href="https://notepad-plus-plus.org/fr/">
 							https://notepad-plus-plus.org/fr/
 						</a>
 					</div>
 					<!-- ============================================ -->
-					<div class="pgCr05">
-						<b class="ftsg">MinGW</b><br/>
+					<div class="pgCr10">
+						<div><b class="ftsg">MinGW</b></div>
 						<a class="clrb hvra" href="http://www.mingw.org/">
 							http://www.mingw.org/
 						</a>
 					</div>
 					<!-- ============================================ -->
-					<div class="pgCr20" id="Installation_de_MinGW">
+					<div class="pgCr10" id="Installation_de_MinGW">
 						<a class="bgra dibm ftfb ftsg clra pgCt10" href="#Installation_sous_Windows_avec_MinGW">
 							Installation de MinGW
 						</a>    
 					</div>
 					<!-- ============================================ -->
-					<div class="pgCr05">
+					<div class="pgCr10">
 						<div><b class="ftsg">Packages MinGW</b></div>
 <pre class="ovfa">
 mingw33-base
@@ -113,7 +113,7 @@ mingw32-gcc-g++
 </pre>
 					</div>
 					<!-- ============================================ -->
-					<div class="pgCr20" id="Installation_de_Notepad_pp">
+					<div class="pgCr10" id="Installation_de_Notepad_pp">
 						<a class="bgra dibm ftfb ftsg clra pgCt10" href="#Installation_sous_Windows_avec_MinGW">
 							Installation de Notepad++
 						</a>    
@@ -127,6 +127,7 @@ NppExport
 </pre>
 					</div>
 				</div>
+				<!-- ============================================ -->
 			</div>
 		</div>
 		<!-- ============================================ -->
@@ -146,37 +147,37 @@ NppExport
 					</div>
 					<!-- ============================================ -->
 					<div class="pgCr10">
-						<b class="ftsg">Objectif</b><br/>
+						<div><b class="ftsg">Objectif</b></div>
 						<div class="">
 							Compiler un projet C++ avec un seul fichier source.
 						</div>
 					</div>
 					<!-- ============================================ -->
 					<div class="pgCr10">
-						<b class="ftsg">Implémentation</b><br/>
+						<div><b class="ftsg">Implémentation</b></div>
 						<div class="">
 							Afficher un message dans la console (Bonjour tout le monde).
 						</div>
 					</div>
 					<!-- ============================================ -->
 					<div class="pgCr10">
-						<b class="ftsg">Résultat</b><br/>
+						<div><b class="ftsg">Résultat</b></div>
 						<div class="txal ovfa">
 							<img src="/img/readydev.png" alt="Image.png" />
 						</div>
 					</div>
 					<!-- ============================================ -->
-					<div class="pgCr00">
-						<b class="ftsg">Dossier projet</b><br/>
-						<pre class="ovfa"><xmp class="pdd0 mrgd">
+					<div class="pgCr10">
+						<div><b class="ftsg">Dossier projet</b></div>
+<pre class="ovfa">
 src/main.cpp
 win/bin/
 win/build/
-						</xmp></pre>
+</pre>
 					</div>
 					<!-- ============================================ -->
-					<div class="pgCr00">
-						<b class="ftsg">src/main.cpp</b><br/>
+					<div class="pgCr10">
+						<div><b class="ftsg">src/main.cpp</b></div>
 						<pre><xmp class="ovfa prettyprint linenums">
 //===============================================
 #include <iostream>
@@ -191,19 +192,19 @@ int main(int argc, char** argv) {
 						</xmp></pre>
 					</div>
 					<!-- ============================================ -->
-					<div class="pgCr00">
-						<b class="ftsg">Compilation du projet</b><br/>
-						<pre class="ovfa"><xmp class="pdd0 mrgd">
+					<div class="pgCr10">
+						<div><b class="ftsg">Compilation du projet</b></div>
+<pre class="ovfa">
 g++ -c src/main.cpp -o build/main.o
 g++ -o bin/GProject.exe build/main.o
-						</xmp></pre>
+</pre>
 					</div>
 					<!-- ============================================ -->
-					<div class="pgCr00">
-						<b class="ftsg">Exécution du projet</b><br/>
-						<pre class="ovfa"><xmp class="pdd0 mrgd">
+					<div class="pgCr10">
+						<div><b class="ftsg">Exécution du projet</b></div>
+<pre class="ovfa">
 bin/GProject.exe
-						</xmp></pre>
+</pre>
 					</div>
 				</div>
 				<!-- ============================================ -->
