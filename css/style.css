@@ -84,6 +84,11 @@ ul {
 
 xmp {
     padding: 10px 10px 10px 50px;
+	white-space: pre-line;
+}
+
+pre {
+	white-space: pre-line;
 }
 
 b {
@@ -533,6 +538,10 @@ b {
 }
 
 /* font-family */
+.ftf0 {
+    font-family: Arial;
+}
+
 .ftfa {
     font-family: Akronim;
 }

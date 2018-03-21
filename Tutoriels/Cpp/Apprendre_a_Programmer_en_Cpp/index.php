@@ -117,7 +117,7 @@
 				</div>
 				<!-- ============================================ -->
 				<div class="txal pgCt10">
-					<div class="pgCr10" id="Installation_de_Notepad++">
+					<div class="pgCr10" id="Installation_de_Notepad_pp">
 						<a class="bgra dibm ftfb ftsg clra pgCt10" href="#Installation_sous_Windows_avec_MinGW">
 							Installation de Notepad++
 						</a>    
@@ -128,6 +128,114 @@
 						<div class="">
 							TextFX<br/>
 							NppExport<br/>
+						</div>
+					</div>
+				</div>
+				<!-- ============================================ -->
+			</div>
+		</div>
+		<!-- ============================================ -->
+		<div class="pgCt10">
+			<div class="bgra">
+				<h1 class="bgra pgCt20" id="Compilation_d_un_projet_Cpp_avec_MinGW">
+					<a class="clrb" href="#Sommaire">
+						Compilation d’un projet C++ avec MinGW
+					</a>
+				</h1>
+				<!-- ============================================ -->
+				<div class="txal pgCt10">
+					<div class="pgCr10" id="Compiler_un_projet_Cpp_avec_un_seul_fichier_source">
+						<a class="bgra dibm ftfb ftsg clra pgCt10" href="#Compilation_d_un_projet_Cpp_avec_MinGW">
+							Compiler un projet C++ avec un seul fichier source
+						</a>    
+					</div>
+					<!-- ============================================ -->
+					<div class="pgCr10">
+						<b class="ftsg">Objectif</b><br/>
+						<div class="">
+							Compiler un projet C++ avec un seul fichier source.
+						</div>
+					</div>
+					<!-- ============================================ -->
+					<div class="pgCr10">
+						<b class="ftsg">Implémentation</b><br/>
+						<div class="">
+							Afficher un message dans la console (Bonjour tout le monde).
+						</div>
+					</div>
+					<!-- ============================================ -->
+					<div class="pgCr10">
+						<b class="ftsg">Résultat</b><br/>
+						<div class="txal ovfa">
+							<img src="/img/readydev.png" alt="Image.png" />
+						</div>
+					</div>
+					<!-- ============================================ -->
+					<div class="pgCr10">
+						<b class="ftsg">Dossier projet</b><br/>
+						<pre class="clrb">
+							src/main.cpp
+							win/bin/
+							win/build/
+						</pre>
+					</div>
+					<!-- ============================================ -->
+					<div class="pgCr10">
+						<b class="ftsg">src/main.cpp</b><br/>
+						<pre><xmp class="ovfa prettyprint linenums">
+							//===============================================
+							#include <iostream>
+							//===============================================
+							using namespace std;
+							//===============================================
+							int main(int argc, char** argv) {
+								cout << "Hello World\n";
+								return 0;
+							}
+							//===============================================
+						</xmp></pre>
+					</div>
+					<!-- ============================================ -->
+					<div class="pgCr10">
+						<b class="ftsg">Compilation du projet</b><br/>
+						<pre class="clrb">
+							g++ -c src/main.cpp -o build/main.o
+							g++ -o bin/GProject.exe build/main.o
+						</pre>
+					</div>
+					<!-- ============================================ -->
+					<div class="pgCr10">
+						<b class="ftsg">Exécution du projet</b><br/>
+						<pre class="clrb">
+							bin/GProject.exe
+						</pre>
+					</div>
+					<!-- ============================================ -->
+					<div class="pgCr10">
+						<b class="ftsg">Objectif</b><br/>
+						<div class="">
+							Compiler un projet C++ avec un seul fichier source.
+						</div>
+					</div>
+					<!-- ============================================ -->
+					<div class="pgCr10">
+						<b class="ftsg">Objectif</b><br/>
+						<div class="">
+							Compiler un projet C++ avec un seul fichier source.
+						</div>
+					</div>
+					<!-- ============================================ -->
+					<div class="pgCr10">
+						<b class="ftsg">Objectif</b><br/>
+						<div class="">
+							Compiler un projet C++ avec un seul fichier source.
+						</div>
+					</div>
+					<!-- ============================================ -->
+					<div class="pgCr10">
+						<b class="ftsg">Objectif</b><br/>
+						<div class="">
+							Compiler un projet C++ avec un seul fichier source.
 						</div>
 					</div>
 				</div>

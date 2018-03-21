@@ -19,7 +19,8 @@
     [
         {"name":"Introduction","link":"#Introduction"},
         {"name":"Auteur","link":"#Auteur"},
-        {"name":"Installation sous Windows avec MinGW","link":"#Installation_sous_Windows_avec_MinGW"}
+        {"name":"Installation sous Windows avec MinGW","link":"#Installation_sous_Windows_avec_MinGW"},
+        {"name":"Compilation d’un projet C++ avec MinGW","link":"#Compilation_d_un_projet_Cpp_avec_MinGW"}
     ],
     "intro":
     [
