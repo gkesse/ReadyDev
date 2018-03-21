@@ -77,15 +77,61 @@
 						Installation sous Windows avec MinGW
 					</a>
 				</h1>
+				<!-- ============================================ -->
 				<div class="txal pgCt10">
-					<!-- ============================================ -->
-					<div class="pgCr10">
-						<a class="bgra dibm ftfb clra pgCt10" href="#Experiences">
-							Environnements
+					<div class="pgCr10" id="Telechargements">
+						<a class="bgra dibm ftfb ftsg clra pgCt10" href="#Installation_sous_Windows_avec_MinGW">
+							Téléchargements
 						</a>    
 					</div>
 					<!-- ============================================ -->
+					<div class="pgCr10">
+						<b class="ftsg">Notepad++</b><br/>
+						<a class="clrb hvra" href="https://notepad-plus-plus.org/fr/">
+							https://notepad-plus-plus.org/fr/
+						</a>
+					</div>
+					<!-- ============================================ -->
+					<div class="pgCr10">
+						<b class="ftsg">MinGW</b><br/>
+						<a class="clrb hvra" href="http://www.mingw.org/">
+							http://www.mingw.org/
+						</a>
+					</div>
 				</div>
+				<!-- ============================================ -->
+				<div class="txal pgCt10">
+					<div class="pgCr10" id="Installation_de_MinGW">
+						<a class="bgra dibm ftfb ftsg clra pgCt10" href="#Installation_sous_Windows_avec_MinGW">
+							Installation de MinGW
+						</a>    
+					</div>
+					<!-- ============================================ -->
+					<div class="pgCr10">
+						<b class="ftsg">Packages MinGW</b><br/>
+						<div class="">
+							mingw33-base<br/>
+							mingw32-gcc-g++<br/>
+						</div>
+					</div>
+				</div>
+				<!-- ============================================ -->
+				<div class="txal pgCt10">
+					<div class="pgCr10" id="Installation_de_Notepad++">
+						<a class="bgra dibm ftfb ftsg clra pgCt10" href="#Installation_sous_Windows_avec_MinGW">
+							Installation de Notepad++
+						</a>    
+					</div>
+					<!-- ============================================ -->
+					<div class="pgCr10">
+						<b class="ftsg">Plugins Notepad++</b><br/>
+						<div class="">
+							TextFX<br/>
+							NppExport<br/>
+						</div>
+					</div>
+				</div>
+				<!-- ============================================ -->
 			</div>
 		</div>
 		<!-- ============================================ -->
