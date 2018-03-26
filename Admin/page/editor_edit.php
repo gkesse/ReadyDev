@@ -1,6 +1,6 @@
 <!-- ============================================ -->
 <div class="">
-	<div class="fts0 txac">
+	<div class="fts0 txac bdbb">
 		<button class="evta pddc ftsb ftwb" type="button" title="Texte en Gras" onclick="getCommand('bold');">G</button>
 		<button class="evta pddc ftsb ftti" type="button" title="Texte en Italic" onclick="getCommand('italic');">I</button>
 		<button class="evta pddc ftsb txdu" type="button" title="Souligner Texte" onclick="getCommand('underline');">S</button> 
@@ -32,8 +32,8 @@
 		</select>
 	</div>
 	<!-- ============================================ -->
-	<div class="pgCr10 ovfa txal bgrc bdbb bdta">
-		<div class="hghd EditorEdit" id="EditorEditId" 
+	<div class="pgCr10 ovfa txal bgrc">
+		<div class="hghd" id="EditorEditId" 
 		onpaste="pasteText(event);" 
 		contentEditable="true"></div> 
 	</div>

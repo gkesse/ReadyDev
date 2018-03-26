@@ -6,6 +6,7 @@
 	if($m_req == "SAVE_FILE") {
 		$m_file = $_REQUEST["f"];
 		$m_data = $_REQUEST["d"];
+		GFile::Instance()->saveData($m_file, $m_data);
 		print_r($m_data);
 	}
 	//===============================================

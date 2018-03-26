@@ -7,6 +7,7 @@
     GConfig::Instance()->setData("title", "Administration");
     GConfig::Instance()->setData("menu", "Admin");
     GConfig::Instance()->setData("view", "Admin");
+    GConfig::Instance()->setData("code_prettify", false);
     
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";
 ?>

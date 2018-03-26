@@ -37,7 +37,7 @@
         $m_metaCano = GConfig::Instance()->getData("meta_cano"); 
         $m_metaCano = GGlobal::Instance()->getUrl($m_metaCano); 
     }
-    
+    $m_codePrettify = GConfig::Instance()->getData("code_prettify");
     $m_headerData = GJson::Instance()->getData("data/json/header.json"); 
 ?>
 <!-- ============================================ -->
@@ -92,8 +92,10 @@
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Anton"/>
         <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css"/>
         <!-- ============================================ -->
+		<?php if($m_codePrettify) { ?>
         <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=css&amp;skin=sunburst"></script>
-        <script src="/lib/jquery/jquery.min.js"></script>
+        <?php } ?>
+		<script src="/lib/jquery/jquery.min.js"></script>
         <!-- ============================================ -->
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-109595989-1"></script>

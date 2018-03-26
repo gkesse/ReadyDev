@@ -40,7 +40,8 @@
 			</div>
 		</div>
 		<!-- ============================================ -->
-		<div class="pgCt10 txal EditorTabCtn" id="EditorTabEdit">
+		<div class="pgCt10 txal EditorTabCtn" id="EditorTabEdit"
+			onkeypress="saveFileKey(event);">
 			<h2 class="pdbb clra bdbb">
 				Édition
 			</h2>
@@ -60,8 +61,11 @@
 			<h2 class="pdbb clra bdbb">
 				Vue
 			</h2>
-			<div class="pgCr10">
-				L'interface ReadyHTMLEditor vous permet d'éditer vos différentes pages web.
+			<div class="bdbb txac">
+				<button class="evta pddc dibm" type="button" onclick="viewPage();"><i class="fa fa-eye"></i> Vue</button>
+			</div>
+			<div class="ovfa bgrc bdbb">
+				<div class="hghd" id="EditorViewId"></div> 
 			</div>
 		</div>
 		<!-- ============================================ -->

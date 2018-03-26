@@ -26,6 +26,12 @@
             return $m_data;
         }
         //===============================================
+        public function saveData($file, $data) {
+            if($file[0] != "/") $file = "/".$file;
+            $m_file = $_SERVER["DOCUMENT_ROOT"].$file;
+            file_put_contents($m_file, $data);
+        }
+        //===============================================
         public function getInclude($file, $data) {
             ob_start();                    
             include($file);  

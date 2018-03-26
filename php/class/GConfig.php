@@ -5,7 +5,7 @@
         private $m_dataMap = array();
         //===============================================
         private function __construct() {
-
+			$this->m_dataMap["code_prettify"] = true;
         }
         //===============================================
         public static function Instance() {
