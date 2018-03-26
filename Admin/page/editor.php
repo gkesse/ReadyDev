@@ -44,9 +44,7 @@
 			<h2 class="pdbb clra bdbb">
 				Édition
 			</h2>
-			<div class="pgCr10">
-				L'interface ReadyHTMLEditor vous permet d'éditer vos différentes pages web.
-			</div>
+			<?php require "page/editor_edit.php" ?>
 		</div>
 		<!-- ============================================ -->
 		<div class="pgCt10 txal EditorTabCtn" id="EditorTabPage">
