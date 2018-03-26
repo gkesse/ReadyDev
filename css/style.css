@@ -60,6 +60,14 @@ input:-webkit-autofill:focus {
     transition: background-color 5000s ease-in-out 0s;
 }
 
+select {
+    background: transparent;
+    border: none;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+}
+
 textarea {
     background: transparent;
     border: none;
@@ -83,11 +91,13 @@ ul {
 }
 
 xmp {
-    padding-left: 50px;
+    padding: 10px 10px 10px 50px;
+	font-size: 16px;
 }
 
 b {
     color: cyan;
+	font-size: 18px;
 }
 
 /* ============================================== */
@@ -118,7 +128,7 @@ b {
     border-top: 5px solid transparent;
     border-bottom: 5px solid transparent;
     font-size: 25px;
-    font-family: AKronim;
+    font-family: Akronim;
     color: cyan;
     padding: 0 20px 0 10px;
     display: inline-block;
@@ -155,7 +165,7 @@ b {
     border-top: 5px solid transparent;
     border-bottom: 5px solid transparent;
     font-size: 25px;
-    font-family: AKronim;
+    font-family: Akronim;
     color: white;
     padding: 0 10px 0 10px;
     display: none;
@@ -208,6 +218,11 @@ b {
 
 .pgCr20 {
     padding: 20px 0px;
+}
+
+/* Page Constant */
+.pgCc05 {
+    padding: 5px;
 }
 
  /* Page Row */
@@ -294,6 +309,10 @@ b {
     background: #333333;
 }
 
+.bgrh {
+    background: #374061;
+}
+
 /* border */
 .brda {
     border: 1px solid rgba(255,255,255,0.2);
@@ -306,6 +325,14 @@ b {
 /* border-bottom */
 .bdba {
     border-bottom: 1px solid rgba(255,255,255,0.3);
+}
+
+.bdbb {
+    border-bottom: 5px solid #051039;
+}
+
+.bdbc {
+    border-bottom: 5px solid cyan;
 }
 
 /* border-right */
@@ -361,6 +388,10 @@ b {
 
 .clrj {
     color: gray;
+}
+
+.clrk {
+    color: #374061;
 }
 
 /* cursor pointer */
@@ -450,9 +481,18 @@ b {
     border: 2px solid #f67b20;
 }
 
+/* font-style */
+.ftti {
+    font-style: italic;
+}
+
 /* font-weight */
 .ftwb {
     font-weight: bold;
+}
+
+.ftwn {
+    font-weight: normal;
 }
 
 /* font awesome */
@@ -533,10 +573,6 @@ b {
 }
 
 /* font-family */
-.ftf0 {
-    font-family: Arial;
-}
-
 .ftfa {
     font-family: Akronim;
 }
@@ -557,10 +593,6 @@ b {
     font-family: Archivo Narrow;
 }
 
-.ftff {
-    font-family: Anton;
-}
-
 /* height */
 .hgha {
     height: 150px;
@@ -572,6 +604,10 @@ b {
 
 .hghc {
     height: 100px;
+}
+
+.hghd {
+    height: 400px;
 }
 
 /* hover */
@@ -602,10 +638,6 @@ b {
 }
 
 /* margin */
-.mrg0 {
-    margin: 0;
-}
-
 .mrga {
     margin: auto;
 }
@@ -619,7 +651,7 @@ b {
 }
 
 .mrgd {
-    margin: -15px 0px 0px 0px;
+    margin: 0 5px;
 }
 
 /* margin-left */
@@ -666,6 +698,11 @@ b {
 
 .mnhd {
     min-height: 20px;
+}
+
+/* min-width */
+.mnwa {
+    min-width: 100px;
 }
 
 /* modal */
@@ -725,7 +762,8 @@ b {
     overflow: auto;
 }
 
-.ovfx {
+/* overflow-y auto */
+.ovfy {
     overflow-y: auto;
 }
 
@@ -735,10 +773,6 @@ b {
 }
 
 /* padding */
-.pdd0 {
-    padding: 0;
-}
-
 .pdda {
     padding: 10px 0 5px 0;
 }
@@ -767,6 +801,14 @@ b {
     padding: 20px 10px;
 }
 
+.pddh {
+    padding: 10px 5px;
+}
+
+.pddi {
+    padding: 5px 0;
+}
+
 /* padding left */
 .pdla {
     padding-left: 5px;
@@ -788,6 +830,10 @@ b {
     padding-left: 18px;
 }
 
+.pdlf {
+    padding-left: 50px;
+}
+
 /* padding right */
 .pdra {
     padding-right: 10px;
@@ -796,6 +842,10 @@ b {
 /* padding top */
 .pdta {
     padding-top: 10px;
+}
+
+.pdtb {
+    padding-top: 35px;
 }
 
 /* padding bottom */
@@ -827,6 +877,14 @@ b {
     position: absolute;
     top: 10px;
     right: 10px;
+}
+
+/* position fixed */
+.psfa {
+    position: fixed;
+    top: 0;
+    left: 0;
+	right: 0;
 }
 
 /* succes */
@@ -867,6 +925,15 @@ b {
     text-align: center;
 }
 
+/* text-decoration */
+.txdu {
+    text-decoration: underline;
+}
+
+.txdl {
+	text-decoration: line-through;
+}
+
 /* width */
 .wdha {
     width: 100%; 
@@ -886,18 +953,15 @@ b {
     word-spacing: 5px;
 }
 
-/* white-space */
-.wspl {
-	white-space: pre-line;
-}
-
 /* ============================================== */
 /* Mobile */ 
 /* ============================================== */
 
 /* Tablet Landscape */
 @media (max-width:1024px) {
-    
+    .toolBar {
+		padding-top: 100px;
+	}
 }
 /* ---------------------------------------------- */
 @media (max-width:960px) {

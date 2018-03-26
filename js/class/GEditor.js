@@ -1,6 +1,4 @@
 //===============================================
-// GEditor
-//===============================================
 var GEditor = (function() {
     //===============================================
     var m_instance;
@@ -8,29 +6,37 @@ var GEditor = (function() {
     var Container = function() {
         return {
             //===============================================
-            init: function() {
-                $.getJSON("/data/json/Contacts.json", function(data) {
-                    var m_data = data["message"]["max"];
-                    GSetting.Instance().setData("ContactMax", m_data);
-                    $(".contacts .message").trigger("propertychange");
-                });
+            selectTab: function(obj, name) {
+				var m_tab = document.getElementsByClassName("EditorTab");
+				for(var i = 0; i < m_tab.length; i++) {
+					var m_tabId = m_tab[i];
+					m_tabId.className = m_tabId.className.replace(" clra", "");
+				}
+				obj.className += " clra";
+				var m_tabCtn = document.getElementsByClassName("EditorTabCtn");
+				for(var i = 0; i < m_tabCtn.length; i++) {
+					var m_tabCtnId = m_tabCtn[i];
+					m_tabCtnId.style.display = "none";
+				}
+				var m_tabId = document.getElementById(name);
+				m_tabId.style.display = "block";
             }
             //===============================================
         };
     }
     //===============================================
-    // instance
     return {
-        Instance: function () {
-            if (!m_instance) {
+        Instance: function() {
+            if(!m_instance) {
                 m_instance = Container();
             }
-            
             return m_instance;
         }
     };
     //===============================================
 })();
 //===============================================
-GEditor.Instance().init();
+var m_tabCtn = document.getElementsByClassName("EditorTabCtn");
+var m_obj = m_tabCtn[0];
+GEditor.Instance().selectTab(m_obj, "EditorTab0");
 //===============================================

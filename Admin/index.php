@@ -16,7 +16,7 @@
         <!-- ============================================ -->
         <div class="pgCt10">
             <div class="bgra">
-                <h1 class="bgra pgCt20" id="Sommaire">
+                <h1 class="bgra pgCt20" id="Sommaire-Admin">
                     <a class="clrb" href="#">
                         Sommaire
                     </a>
@@ -29,7 +29,11 @@
                             ?>
                             <li>
                                 <i class="fa-li fa fa-book clrg"></i>
-                                <a class="hvra clrg" href="<?php echo $m_di["link"]; ?>">
+								<?php 
+									$m_link = "#";
+									$m_link .= GGlobal::Instance()->getLink($m_di["name"]); 
+								?>
+                                <a class="hvra clrg" href="<?php echo $m_link; ?>">
                                     <?php echo $m_di["name"]; ?>
                                 </a>
                             </li>
@@ -39,20 +43,12 @@
             </div>
         </div>
         <!-- ============================================ -->
-        <div class="pgCt10">
-            <div class="bgra">
-                <h1 class="bgra pgCt20" id="Sitemaps">
-                    <a class="clrb" href="#Sommaire">
-                        Sitemaps
-                    </a>
-                </h1>
-                <?php require $_SERVER["DOCUMENT_ROOT"]."/php/sitemap.php"; ?>
-            </div>
-        </div>
+		<?php require "page/sitemap.php"; ?>
+		<?php require "page/editor.php"; ?>
         <!-- ============================================ -->
     </div>
 </div>
 <!-- ============================================ -->
-    <?php require $_SERVER["DOCUMENT_ROOT"]."/php/footer.php"; ?>
-    <!-- ============================================ -->
+<?php require $_SERVER["DOCUMENT_ROOT"]."/php/footer.php"; ?>
+<!-- ============================================ -->
         
