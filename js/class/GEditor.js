@@ -10,9 +10,9 @@ var GEditor = (function() {
 				var m_tab = document.getElementsByClassName("EditorTab");
 				for(var i = 0; i < m_tab.length; i++) {
 					var m_tabId = m_tab[i];
-					m_tabId.className = m_tabId.className.replace(" clra", "");
+					m_tabId.className = m_tabId.className.replace(" bgrc", "");
 				}
-				obj.className += " clra";
+				obj.className += " bgrc";
 				var m_tabCtn = document.getElementsByClassName("EditorTabCtn");
 				for(var i = 0; i < m_tabCtn.length; i++) {
 					var m_tabCtnId = m_tabCtn[i];
@@ -36,7 +36,7 @@ var GEditor = (function() {
     //===============================================
 })();
 //===============================================
-var m_tabCtn = document.getElementsByClassName("EditorTabCtn");
+var m_tabCtn = document.getElementsByClassName("EditorTab");
 var m_obj = m_tabCtn[0];
 GEditor.Instance().selectTab(m_obj, "EditorTab0");
 //===============================================
