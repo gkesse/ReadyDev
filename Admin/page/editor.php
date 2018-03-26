@@ -12,49 +12,64 @@
 		<!-- ============================================ -->
 		<div class="pgCc05 fts0 txal">
 			<div class="pddc dibm ftsb">
-				<button class="bgra pgCt05 hvra EditorTab" onclick="openEditorTab(this, 'EditorTab0')">Accueil</button>
+				<button class="bgra pgCt05 hvra EditorTab" onclick="openEditorTab(this, 'EditorTabHome')">Accueil</button>
 			</div>
 			<div class="pddc dibm ftsb">
-				<button class="bgra pgCt05 hvra EditorTab" onclick="openEditorTab(this, 'EditorTab1')">Interface Edition</button>
+				<button class="bgra pgCt05 hvra EditorTab" onclick="openEditorTab(this, 'EditorTabPage')">Page</button>
 			</div>
 			<div class="pddc dibm ftsb">
-				<button class="bgra pgCt05 hvra EditorTab" onclick="openEditorTab(this, 'EditorTab2')">Interface Vue</button>
+				<button class="bgra pgCt05 hvra EditorTab" onclick="openEditorTab(this, 'EditorTabEdit')">Édition</button>
 			</div>
 			<div class="pddc dibm ftsb">
-				<button class="bgra pgCt05 hvra EditorTab" onclick="openEditorTab(this, 'EditorTab3')">Interface HTML</button>
+				<button class="bgra pgCt05 hvra EditorTab" onclick="openEditorTab(this, 'EditorTabView')">Vue</button>
+			</div>
+			<div class="pddc dibm ftsb">
+				<button class="bgra pgCt05 hvra EditorTab" onclick="openEditorTab(this, 'EditorTabHTML')">HTML</button>
 			</div>
 		</div>
 		<!-- ============================================ -->
-		<div class="pgCt10 txal EditorTabCtn" id="EditorTab0">
+		<div class="pgCt10 txal EditorTabCtn" id="EditorTabHome">
 			<h2 class="pdbb clra bdbb">
-				Accueil
+				ReadyHTMLEditor
+			</h2>
+			<div class="pgCr10">
+				L'interface <b>ReadyHTMLEditor</b> vous permet d'éditer rapidement
+				et éfficacement vos différentes pages web. C'est une interface développée
+				en <b>PHP</b> et maintenue par <b>Gérard KESSE</b>, concepteur du site <b>ReadyDev</b>,
+				la Plateforme de Développement Continu.
+			</div>
+		</div>
+		<!-- ============================================ -->
+		<div class="pgCt10 txal EditorTabCtn" id="EditorTabEdit">
+			<h2 class="pdbb clra bdbb">
+				Édition
 			</h2>
 			<div class="pgCr10">
 				L'interface ReadyHTMLEditor vous permet d'éditer vos différentes pages web.
 			</div>
 		</div>
 		<!-- ============================================ -->
-		<div class="pgCt10 txal EditorTabCtn" id="EditorTab1">
+		<div class="pgCt10 txal EditorTabCtn" id="EditorTabPage">
 			<h2 class="pdbb clra bdbb">
-				Interface Edition
+				Page
 			</h2>
 			<div class="pgCr10">
 				L'interface ReadyHTMLEditor vous permet d'éditer vos différentes pages web.
 			</div>
 		</div>
 		<!-- ============================================ -->
-		<div class="pgCt10 txal EditorTabCtn" id="EditorTab2">
+		<div class="pgCt10 txal EditorTabCtn" id="EditorTabView">
 			<h2 class="pdbb clra bdbb">
-				Interface Vue
+				Vue
 			</h2>
 			<div class="pgCr10">
 				L'interface ReadyHTMLEditor vous permet d'éditer vos différentes pages web.
 			</div>
 		</div>
 		<!-- ============================================ -->
-		<div class="pgCt10 txal EditorTabCtn" id="EditorTab3">
+		<div class="pgCt10 txal EditorTabCtn" id="EditorTabHTML">
 			<h2 class="pdbb clra bdbb">
-				Interface HTML
+				HTML
 			</h2>
 			<div class="pgCr10">
 				L'interface ReadyHTMLEditor vous permet d'éditer vos différentes pages web.

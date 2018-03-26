@@ -38,5 +38,5 @@ var GEditor = (function() {
 //===============================================
 var m_tabCtn = document.getElementsByClassName("EditorTab");
 var m_obj = m_tabCtn[0];
-GEditor.Instance().selectTab(m_obj, "EditorTab0");
+GEditor.Instance().selectTab(m_obj, "EditorTabHome");
 //===============================================
