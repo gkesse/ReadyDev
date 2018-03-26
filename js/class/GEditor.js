@@ -414,46 +414,9 @@ var GEditor = (function() {
             },
             //===============================================
             viewCode: function() {
-                var m_viewCodeId = document.getElementById("viewCodeId");
-                var m_codeEditorId = document.getElementById("codeEditorId");
-                m_viewCodeId.value = m_codeEditorId.innerHTML;
-            },
-            //===============================================
-            saveFile: function() {
-                var m_codeEditorId = document.getElementById("codeEditorId");
-                var m_data = encodeURIComponent(m_codeEditorId.innerHTML);
-                var m_xmlhttp = new XMLHttpRequest();
-                m_xmlhttp.onreadystatechange = function() {
-                    if(this.readyState == 4 && this.status == 200) {
-
-                    }
-                }
-                m_xmlhttp.open("POST", "ajax.php", true);
-                m_xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                m_xmlhttp.send("r="+"SAVE_FILE"+"&f="+"text.php"+"&d="+m_data);
-            },
-            //===============================================
-            saveFileKey: function(e) {
-                if (e.code == 'KeyS' && (e.ctrlKey || e.metaKey)) {
-                    e.preventDefault();
-                    saveFile();
-                }
-            },
-            //===============================================
-            saveFileText: function() {
-                var m_res = confirm("Êtes vous sûr de vouloir enregistrer les modifications ?");
-                if(!m_res) return;
-                var m_viewCodeId = document.getElementById("viewCodeId");
-                var m_data = encodeURIComponent(m_viewCodeId.value);
-                var m_xmlhttp = new XMLHttpRequest();
-                m_xmlhttp.onreadystatechange = function() {
-                    if(this.readyState == 4 && this.status == 200) {
-
-                    }
-                }
-                m_xmlhttp.open("POST", "ajax.php", true);
-                m_xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                m_xmlhttp.send("r="+"SAVE_FILE"+"&f="+"text.php"+"&d="+m_data);
+                var m_EditorHTMLId = document.getElementById("EditorHTMLId");
+                var m_EditorEditId = document.getElementById("EditorEditId");
+                m_EditorHTMLId.value = m_EditorEditId.innerHTML;
             },
             //===============================================
             selectTab: function(obj, name) {
@@ -490,6 +453,30 @@ var GEditor = (function() {
                 var m_EditorEditId = document.getElementById("EditorEditId");
 				var m_filename = "/Tutoriels/Cpp/Apprendre_le_Cpp/page/main.php";
                 var m_data = encodeURIComponent(m_EditorEditId.innerHTML);
+                var m_xmlhttp = new XMLHttpRequest();
+                m_xmlhttp.onreadystatechange = function() {
+                    if(this.readyState == 4 && this.status == 200) {
+
+                    }
+                }
+                m_xmlhttp.open("POST", "/php/editor.php", true);
+                m_xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                m_xmlhttp.send("r="+"SAVE_FILE"+"&f="+m_filename+"&d="+m_data);
+            },
+            //===============================================
+            saveFileKey: function(e) {
+                if (e.code == 'KeyS' && (e.ctrlKey || e.metaKey)) {
+                    e.preventDefault();
+                    saveFile();
+                }
+            },
+            //===============================================
+            saveFileText: function() {
+                var m_res = confirm("Êtes vous sûr de vouloir enregistrer les modifications ?");
+                if(!m_res) return;
+                var m_EditorHTMLId = document.getElementById("EditorHTMLId");
+				var m_filename = "/Tutoriels/Cpp/Apprendre_le_Cpp/page/main.php";
+                var m_data = encodeURIComponent(m_EditorHTMLId.value);
                 var m_xmlhttp = new XMLHttpRequest();
                 m_xmlhttp.onreadystatechange = function() {
                     if(this.readyState == 4 && this.status == 200) {
