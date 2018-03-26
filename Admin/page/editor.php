@@ -12,19 +12,19 @@
 		<!-- ============================================ -->
 		<div class="pgCc05 fts0 txal">
 			<div class="pddc dibm ftsb">
-				<button class="bgra pgCt05 hvra EditorTab" onclick="openEditorTab(this, 'EditorTabHome')">Accueil</button>
+				<button class="bgra pgCt05 hvra EditorTab" title="Page d'accueil" onclick="openEditorTab(this, 'EditorTabHome')">Accueil</button>
 			</div>
 			<div class="pddc dibm ftsb">
-				<button class="bgra pgCt05 hvra EditorTab" onclick="openEditorTab(this, 'EditorTabPage')">Page</button>
+				<button class="bgra pgCt05 hvra EditorTab" title="Page de configuration" onclick="openEditorTab(this, 'EditorTabPage')">Page</button>
 			</div>
 			<div class="pddc dibm ftsb">
-				<button class="bgra pgCt05 hvra EditorTab" onclick="openEditorTab(this, 'EditorTabEdit')">Édition</button>
+				<button class="bgra pgCt05 hvra EditorTab" title="Interface d'édition" onclick="openEditorTab(this, 'EditorTabEdit')">Édition</button>
 			</div>
 			<div class="pddc dibm ftsb">
-				<button class="bgra pgCt05 hvra EditorTab" onclick="openEditorTab(this, 'EditorTabView')">Vue</button>
+				<button class="bgra pgCt05 hvra EditorTab" title="Aperçu de la page web" onclick="openEditorTab(this, 'EditorTabView')">Vue</button>
 			</div>
 			<div class="pddc dibm ftsb">
-				<button class="bgra pgCt05 hvra EditorTab" onclick="openEditorTab(this, 'EditorTabHTML')">HTML</button>
+				<button class="bgra pgCt05 hvra EditorTab" title="Aperçu du code HTML" onclick="openEditorTab(this, 'EditorTabHTML')">HTML</button>
 			</div>
 		</div>
 		<!-- ============================================ -->
@@ -62,7 +62,7 @@
 				Vue
 			</h2>
 			<div class="bdbb txac">
-				<button class="evta pddc dibm" type="button" onclick="viewPage();"><i class="fa fa-eye"></i> Vue</button>
+				<button class="evta pddc dibm" type="button" title="Aperçu de la page web" onclick="viewPage();">Vue</button>
 			</div>
 			<div class="ovfa bgrc bdbb">
 				<div class="hghd" id="EditorViewId"></div> 
