@@ -20,6 +20,20 @@ var GEditor = (function() {
 				}
 				var m_tabId = document.getElementById(name);
 				m_tabId.style.display = "block";
+            },
+            //===============================================
+            readFile: function() {
+                var m_EditorEditId = document.getElementById("EditorEditId");
+				var m_filename = "/Tutoriels/Cpp/Apprendre_le_Cpp/page/main.php";
+                var m_xmlhttp = new XMLHttpRequest();
+                m_xmlhttp.onreadystatechange = function() {
+                    if(this.readyState == 4 && this.status == 200) {
+                        m_EditorEditId.innerHTML = this.responseText;
+                    }
+                }
+                m_xmlhttp.open("POST", "/php/editor.php", true);
+                m_xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                m_xmlhttp.send("r="+"READ_FILE"+"&f="+m_filename);
             }
             //===============================================
         };
@@ -39,4 +53,6 @@ var GEditor = (function() {
 var m_tabCtn = document.getElementsByClassName("EditorTab");
 var m_obj = m_tabCtn[2];
 GEditor.Instance().selectTab(m_obj, "EditorTabEdit");
+//===============================================
+GEditor.Instance().readFile();
 //===============================================

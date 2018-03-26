@@ -14,7 +14,7 @@
 <div class="pgBg">
     <div class="mrga pgBd">
         <!-- ============================================ -->
-		<?php require "text.php"; ?>
+		<?php require "page/main.php"; ?>
         <!-- ============================================ -->
     </div>
 </div>
