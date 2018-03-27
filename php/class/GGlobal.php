@@ -14,7 +14,7 @@
             return self::$m_instance;
         }
         //===============================================
-        public function getText($data) {
+        public function getTextTrim($data) {
             $data = trim($data);
             $data = stripslashes($data);
             $data = htmlspecialchars($data);

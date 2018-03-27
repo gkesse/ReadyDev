@@ -6,6 +6,7 @@
         //===============================================
         private function __construct() {
 			$this->m_dataMap["code_prettify"] = true;
+			$this->m_dataMap["lock_page"] = true;
         }
         //===============================================
         public static function Instance() {

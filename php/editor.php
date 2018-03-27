@@ -1,6 +1,6 @@
 <?php
-    require $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoloadRegister.php";
-	
+    require $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoloadRegister.php";	
+	//===============================================
 	$m_req = $_REQUEST["r"];
 	//===============================================
 	if($m_req == "SAVE_FILE") {

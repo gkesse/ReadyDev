@@ -125,7 +125,7 @@
             foreach($this->m_urlMap as $m_link) {
                 $m_url = array();
                 if(isset($m_link["link"])) $m_url["loc"] = GGlobal::Instance()->getUrl($m_link["link"]);
-                if(isset($m_link["link"])) $m_url["lastmod"] = GFile::Instance()->getDate($m_link["link"]);
+                if(isset($m_link["link"])) $m_url["lastmod"] = GFile::Instance()->getDateTime($m_link["link"]);
                 $m_url["changefreq"] = "weekly";
                 if(isset($m_link["freq"])) $m_url["changefreq"] = $m_link["freq"];
                 $m_url["priority"] = "0.8";

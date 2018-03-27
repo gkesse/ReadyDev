@@ -1,6 +1,3 @@
-<?php 
-    $m_data = GJson::Instance()->getData("/data/json/sitemap.json");
-?>
 <!-- ============================================ -->
 <div class="pgCt10">
 	<div class="bgra">
