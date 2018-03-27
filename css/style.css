@@ -156,10 +156,6 @@ b {
     border-bottom: 5px solid #89a830;
 }
 
-.hdmi.active {
-    border-bottom: 5px solid #f67b20;
-}
-
 /* Header Menu Bars */
 .hdmb {
     border-top: 5px solid transparent;
@@ -333,6 +329,10 @@ b {
 
 .bdbc {
     border-bottom: 5px solid cyan;
+}
+
+.bdbd {
+	border-bottom: 5px solid #f67b20;
 }
 
 /* border-right */
@@ -963,9 +963,7 @@ b {
 
 /* Tablet Landscape */
 @media (max-width:1024px) {
-    .toolBar {
-		padding-top: 100px;
-	}
+
 }
 /* ---------------------------------------------- */
 @media (max-width:960px) {
@@ -983,7 +981,7 @@ b {
         display: inline-block;
     }
 
-    .rwd .hdml {
+    .HeaderMenuRwd .hdml {
         display: block;
     }
     

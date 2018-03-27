@@ -419,7 +419,7 @@ var GEditor = (function() {
                 m_EditorHTMLId.value = m_EditorEditId.innerHTML;
             },
             //===============================================
-            selectTab: function(obj, name) {
+            openEditorTab: function(obj, name) {
 				var m_tab = document.getElementsByClassName("EditorTab");
 				for(var i = 0; i < m_tab.length; i++) {
 					var m_tabId = m_tab[i];
@@ -504,7 +504,7 @@ var GEditor = (function() {
 //===============================================
 var m_tabCtn = document.getElementsByClassName("EditorTab");
 var m_obj = m_tabCtn[2];
-GEditor.Instance().selectTab(m_obj, "EditorTabEdit");
+GEditor.Instance().openEditorTab(m_obj, "EditorTabEdit");
 //===============================================
 GEditor.Instance().readFile();
 //===============================================
