@@ -273,6 +273,47 @@ b {
 }
 
 /* ============================================== */
+/* Modal */ 
+/* ============================================== */
+
+/* Modal Anim Show */
+.ModalAnimShow {
+    animation-name: ModalAnimShowName;
+    animation-duration: 0.4s;
+    -webkit-animation-name: ModalAnimShowName;
+    -webkit-animation-duration: 0.4s;
+}
+
+@keyframes ModalAnimShowName {
+    from {top:-400px; opacity:0;}
+    to {top:0; opacity:1}
+}
+
+@-webkit-keyframes ModalAnimShowName {
+    from {top:-400px; opacity:0;} 
+    to {top:0; opacity:1;}
+}
+
+
+/* Modal Anim Hide */
+.ModalAnimHide {
+    animation-name: ModalAnimHideName;
+    animation-duration: 0.4s;
+    -webkit-animation-name: ModalAnimHideName;
+    -webkit-animation-duration: 0.4s;
+}
+
+@keyframes ModalAnimHideName {
+    from {top:0; opacity:1}
+    to {top:-400px; opacity:0}
+}
+
+@-webkit-keyframes ModalAnimHideName {
+    from {top:0; opacity:1}
+    to {top:-400px; opacity:0}
+}
+
+/* ============================================== */
 /* Custom */ 
 /* ============================================== */
 
@@ -712,7 +753,7 @@ b {
 /* modal */
 .mdla {
     display: none;
-    background: rgba(100,10,100,0.5);
+    background: rgba(1,1,1,0.8);
     position: fixed;
     z-index: 1;
     left: 0;
@@ -731,20 +772,6 @@ b {
     margin: auto;
     max-width: 680px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-    animation-name: animatetop;
-    animation-duration: 0.4s;
-    -webkit-animation-name: animatetop;
-    -webkit-animation-duration: 0.4s;
-}
-
-@keyframes animatetop {
-    from {top:-400px; opacity:0}
-    to {top:0; opacity:1}
-}
-
-@-webkit-keyframes animatetop {
-    from {top:-300px; opacity:0} 
-    to {top:0; opacity:1}
 }
 
 /* max-height */

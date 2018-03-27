@@ -18,6 +18,34 @@ var GHeader = (function() {
 					m_HeaderMenuId.className = m_className.replace(" HeaderMenuRwd", "");
 				}
 				obj.innerHTML = m_bars;	
+            },
+            //===============================================
+            openDisconnect: function() {
+				var m_LogoutId = document.getElementById("LogoutId");
+				var m_ModalCtnId = document.getElementById("ModalCtnId");
+				var m_className = m_ModalCtnId.className;
+				m_ModalCtnId.className = m_className.replace(" ModalAnimHide", " ModalAnimShow");
+				m_LogoutId.style.display = "block";
+            },
+            //===============================================
+            disconnectClose: function() {
+				var m_LogoutId = document.getElementById("LogoutId");
+				var m_ModalCtnId = document.getElementById("ModalCtnId");
+				var m_className = m_ModalCtnId.className;
+				m_ModalCtnId.className = m_className.replace(" ModalAnimShow", " ModalAnimHide");
+				setTimeout(function() {
+					m_LogoutId.style.display = "none";
+				}, 400);
+            },
+            //===============================================
+            windowEvent: function() {
+				window.onclick = function(event) {
+					var m_LogoutId = document.getElementById("LogoutId");
+					var m_target = event.target;
+					if(m_target == m_LogoutId) {
+						disconnectClose();
+					}
+				};
             }
             //===============================================
         };
@@ -33,4 +61,6 @@ var GHeader = (function() {
     };
     //===============================================
 })();
+//===============================================
+GHeader.Instance().windowEvent();
 //===============================================

@@ -150,7 +150,7 @@
                     </li>
                 <?php } ?>
                 <?php if(isset($_SESSION["login"])) { ?>
-                    <li class="hdml"><span class="admd hdmi cspt">Déconnexion</span> </li>
+                    <li class="hdml"><span class="hdmi cspt" onclick="openDisconnect();">Déconnexion</span> </li>
                 <?php } ?>
                 <li class="hdmb" onclick="openHeaderMenu(this);"><i class="fa fa-bars"></i></li>
             </ul>
@@ -204,7 +204,7 @@
                 </div>
             <?php } ?>
             <!-- ============================================ -->
-            <?php require $_SERVER["DOCUMENT_ROOT"]."/php/modal.php"; ?>
+            <?php require $_SERVER["DOCUMENT_ROOT"]."/php/logout.php";  ?>
             <!-- ============================================ -->
         </header>
         <!-- ============================================ -->

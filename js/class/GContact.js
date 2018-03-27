@@ -1,6 +1,4 @@
 //===============================================
-// GContact
-//===============================================
 var GContact = (function() {
     //===============================================
     var m_instance;
@@ -19,13 +17,11 @@ var GContact = (function() {
         };
     }
     //===============================================
-    // instance
     return {
-        Instance: function () {
+        Instance: function() {
             if (!m_instance) {
                 m_instance = Container();
             }
-            
             return m_instance;
         }
     };

@@ -32,7 +32,7 @@
 		</select>
 	</div>
 	<!-- ============================================ -->
-	<div class="pgCr10 ovfa txal bgrc">
+	<div class="pgCr10 ovfa txal bgrc bdbb">
 		<div class="hghd" id="EditorEditId" 
 		onpaste="pasteText(event);" 
 		contentEditable="true"></div> 
