@@ -76,8 +76,16 @@
 			<h2 class="pdbb clra bdbb">
 				Liste
 			</h2>
-			<div class="pgCr10">
-				TEST
+			<div class="txac">
+				<button class="evta pddc dibm" type="button" title="Démarrer le listing d'URLs" 
+				onclick="listUrl();"><i class="fa fa-list"></i> Ls</button>
+				<button class="evta pddc dibm" type="button" title="Supprimer le listing d'URLs" 
+				onclick="listClear();"><i class="fa fa-trash"></i> Tr</button>
+			</div>
+			<div class="pgCt10 bgrc">
+				<div class="pgCr05">
+					<div class="" id="ListUrl"></div> 
+				</div>
 			</div>
 		</div>
 		<!-- ============================================ -->
@@ -85,8 +93,16 @@
 			<h2 class="pdbb clra bdbb">
 				Génération
 			</h2>
-			<div class="pgCr10">
-				TEST
+			<div class="txac">
+				<button class="evta pddc dibm" type="button" title="Démarrer la génération du sitemap" 
+				onclick="generateUrl();"><i class="fa fa-list"></i> Ls</button>
+				<button class="evta pddc dibm" type="button" title="Supprimer la génération du sitemap" 
+				onclick="generateClear();"><i class="fa fa-trash"></i> Tr</button>
+			</div>
+			<div class="pgCt10 bgrc">
+				<div class="pgCr05">
+					<div class="" id="GenerateUrl"></div> 
+				</div>
 			</div>
 		</div>
 		<!-- ============================================ -->
@@ -94,8 +110,16 @@
 			<h2 class="pdbb clra bdbb">
 				Visualisation
 			</h2>
-			<div class="pgCr10">
-				TEST
+			<div class="txac">
+				<button class="evta pddc dibm" type="button" title="Démarrer la visualisation du sitemap" 
+				onclick="visualizeUrl();"><i class="fa fa-list"></i> Ls</button>
+				<button class="evta pddc dibm" type="button" title="Supprimer la visualisation du sitemap" 
+				onclick="visualizeClear();"><i class="fa fa-trash"></i> Tr</button>
+			</div>
+			<div class="pgCt10 bgrc">
+				<div class="pgCr05">
+					<div class="" id="VisualizeUrl"></div> 
+				</div>
 			</div>
 		</div>
 		<!-- ============================================ -->

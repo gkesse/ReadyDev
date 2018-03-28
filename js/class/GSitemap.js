@@ -44,6 +44,36 @@ var GSitemap = (function() {
 				m_UrlMax.innerHTML = "";
 				m_UrlSite.innerHTML = "";
 				m_SitemapTotal.innerHTML = "";
+            },
+            //===============================================
+            listUrl: function() {
+				var m_ListUrl = document.getElementById("ListUrl");
+				m_ListUrl.innerHTML = "Hello World";
+            },
+            //===============================================
+            listClear: function() {
+				var m_ListUrl = document.getElementById("ListUrl");
+				m_ListUrl.innerHTML = "";
+            },
+            //===============================================
+            generateUrl: function() {
+				var m_GenerateUrl = document.getElementById("GenerateUrl");
+				m_GenerateUrl.innerHTML = "Hello World";
+            },
+            //===============================================
+            generateClear: function() {
+				var m_GenerateUrl = document.getElementById("GenerateUrl");
+				m_GenerateUrl.innerHTML = "";
+            },
+            //===============================================
+            visualizeUrl: function() {
+				var m_VisualizeUrl = document.getElementById("VisualizeUrl");
+				m_VisualizeUrl.innerHTML = "Hello World";
+            },
+            //===============================================
+            visualizeClear: function() {
+				var m_VisualizeUrl = document.getElementById("VisualizeUrl");
+				m_VisualizeUrl.innerHTML = "";
             }
             //===============================================
         };
