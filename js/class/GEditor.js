@@ -1,12 +1,17 @@
 //===============================================
-// GEditor
-//===============================================
 var GEditor = (function() {
     //===============================================
     var m_instance;
     //===============================================
     var Container = function() {
         return {
+            //===============================================
+            init: function() {
+                var m_tabCtn = document.getElementsByClassName("EditorTab");
+				var m_obj = m_tabCtn[2];
+				this.openEditorTab(m_obj, "EditorTab2");
+				this.readFile();
+            },
             //===============================================
             editCode: function() {
                 var m_selection = '';
@@ -492,7 +497,7 @@ var GEditor = (function() {
     }
     //===============================================
     return {
-        Instance: function () {
+        Instance: function() {
             if (!m_instance) {
                 m_instance = Container();
             }
@@ -502,9 +507,5 @@ var GEditor = (function() {
     //===============================================
 })();
 //===============================================
-var m_tabCtn = document.getElementsByClassName("EditorTab");
-var m_obj = m_tabCtn[2];
-GEditor.Instance().openEditorTab(m_obj, "EditorTabEdit");
-//===============================================
-GEditor.Instance().readFile();
+GEditor.Instance().init();
 //===============================================

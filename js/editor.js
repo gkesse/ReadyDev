@@ -28,7 +28,7 @@ function getCommand(name, arg){
 }
 //===============================================
 function openEditorTab(obj, name) {
-	GEditor.Instance().selectTab(obj, name);
+	GEditor.Instance().openEditorTab(obj, name);
 }
 //===============================================
 function viewCode(){

@@ -9,23 +9,28 @@
 		<!-- ============================================ -->
 		<div class="pgCc05 fts0 txal">
 			<div class="pddc dibm ftsb">
-				<button class="bgra pgCt05 hvra EditorTab" title="Page d'accueil" onclick="openEditorTab(this, 'EditorTabHome')">Accueil</button>
+				<button class="bgra pgCt05 hvra EditorTab" title="Page d'accueil" 
+				onclick="openEditorTab(this, 'EditorTab0')"><i class="fa fa-home"></i></button>
 			</div>
 			<div class="pddc dibm ftsb">
-				<button class="bgra pgCt05 hvra EditorTab" title="Page de configuration" onclick="openEditorTab(this, 'EditorTabPage')">Page</button>
+				<button class="bgra pgCt05 hvra EditorTab" title="Page de configuration" 
+				onclick="openEditorTab(this, 'EditorTab1')">Page</button>
 			</div>
 			<div class="pddc dibm ftsb">
-				<button class="bgra pgCt05 hvra EditorTab" title="Interface d'édition" onclick="openEditorTab(this, 'EditorTabEdit')">Édition</button>
+				<button class="bgra pgCt05 hvra EditorTab" title="Page d'édition" 
+				onclick="openEditorTab(this, 'EditorTab2')">Édition</button>
 			</div>
 			<div class="pddc dibm ftsb">
-				<button class="bgra pgCt05 hvra EditorTab" title="Aperçu de la page web" onclick="openEditorTab(this, 'EditorTabView')">Vue</button>
+				<button class="bgra pgCt05 hvra EditorTab" title="Aperçu de la page web" 
+				onclick="openEditorTab(this, 'EditorTab3')">Vue</button>
 			</div>
 			<div class="pddc dibm ftsb">
-				<button class="bgra pgCt05 hvra EditorTab" title="Aperçu du code HTML" onclick="openEditorTab(this, 'EditorTabHTML')">HTML</button>
+				<button class="bgra pgCt05 hvra EditorTab" title="Aperçu du code HTML" 
+				onclick="openEditorTab(this, 'EditorTab4')">HTML</button>
 			</div>
 		</div>
 		<!-- ============================================ -->
-		<div class="pgCt10 txal EditorTabCtn" id="EditorTabHome">
+		<div class="pgCt10 txal EditorTabCtn" id="EditorTab0">
 			<h2 class="pdbb clra bdbb">
 				ReadyHTMLEditor
 			</h2>
@@ -37,15 +42,7 @@
 			</div>
 		</div>
 		<!-- ============================================ -->
-		<div class="pgCt10 txal EditorTabCtn" id="EditorTabEdit"
-			onkeypress="saveFileKey(event);">
-			<h2 class="pdbb clra bdbb">
-				Édition
-			</h2>
-			<?php require "page/editor_edit.php" ?>
-		</div>
-		<!-- ============================================ -->
-		<div class="pgCt10 txal EditorTabCtn" id="EditorTabPage">
+		<div class="pgCt10 txal EditorTabCtn" id="EditorTab1">
 			<h2 class="pdbb clra bdbb">
 				Page
 			</h2>
@@ -54,7 +51,15 @@
 			</div>
 		</div>
 		<!-- ============================================ -->
-		<div class="pgCt10 txal EditorTabCtn" id="EditorTabView">
+		<div class="pgCt10 txal EditorTabCtn" id="EditorTab2"
+			onkeypress="saveFileKey(event);">
+			<h2 class="pdbb clra bdbb">
+				Édition
+			</h2>
+			<?php require "page/editor_edit.php" ?>
+		</div>
+		<!-- ============================================ -->
+		<div class="pgCt10 txal EditorTabCtn" id="EditorTab3">
 			<h2 class="pdbb clra bdbb">
 				Vue
 			</h2>
@@ -66,7 +71,7 @@
 			</div>
 		</div>
 		<!-- ============================================ -->
-		<div class="pgCt10 txal EditorTabCtn" id="EditorTabHTML">
+		<div class="pgCt10 txal EditorTabCtn" id="EditorTab4">
 			<h2 class="pdbb clra bdbb">
 				HTML
 			</h2>
