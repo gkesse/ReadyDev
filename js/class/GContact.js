@@ -154,7 +154,6 @@ var GContact = (function() {
 				var m_email = m_MessageEmail.value;
 				var m_subject = m_MessageSubject.value;
 				var m_message = m_MessageEdit.value;
-                //var m_data = encodeURIComponent(m_EditorEditId.innerHTML);
                 var m_xmlhttp = new XMLHttpRequest();
                 m_xmlhttp.onreadystatechange = function() {
                     if(this.readyState == 4 && this.status == 200) {

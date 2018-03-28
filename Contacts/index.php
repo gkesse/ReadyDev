@@ -3,7 +3,6 @@
     
     //GPostRedirectGet::Instance()->redirect();
     
-    //$m_check = GContact::Instance()->check();
     $m_data = GJson::Instance()->getData("data/json/Contacts.json");
     
     GConfig::Instance()->setData("title", "Contacts");
@@ -108,18 +107,23 @@
                     </a>
                 </h1>
                 <div class="">
-                    <?php $m_ds = $m_data["card"]; ?>
-                    <img src="<?php echo $m_ds["src"]; ?>" 
-                    alt="<?php echo $m_ds["src"]; ?>" 
-                    width="<?php echo $m_ds["width"]; ?>"/>
+                    <img src="/img/img_avatar.png" 
+                    alt="Avatar" 
+                    width="100%"/>
                 </div>
                 <div class="pgCt05">
-                    <?php echo join(" ", $m_ds["description"]); ?>
+					<b>Gerard KESSE</b><br/>
+					Ingénieur Développeur Logiciel<br/>
+					C/C++/Qt<br/>
+					-<br/>
+					Strasbourg<br/>
+					-
                 </div>
-                <?php $m_di = $m_ds["mail"]; ?>
                 <div class="pgCt10">
-                    <a href="mailto:<?php echo $m_di["mailto"]; ?>?subject=<?php echo $m_di["subject"]; ?>&body=<?php echo $m_di["body"]; ?>">
-                        <i class="evta ftaa <?php echo $m_di["icon"]; ?>"></i>
+                    <a href="mailto:tiakagerard@hotmail.com?
+					subject=Prise de contact
+					&body=Bonjour M. KESSE,">
+                        <i class="evta ftaa fa fa-envelope"></i>
                     </a>                        
                 </div>
             </div>
