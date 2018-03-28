@@ -750,6 +750,10 @@ b {
     min-width: 100px;
 }
 
+.mnwb {
+    min-width: 150px;
+}
+
 /* modal */
 .mdla {
     display: none;

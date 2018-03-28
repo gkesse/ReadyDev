@@ -76,8 +76,10 @@
 				HTML
 			</h2>
 			<div class="bdbb txac">
-				<button class="evta pddc dibm" type="button" title="Aperçu du code HTML" onclick="viewCode();">HTML</button>
-				<button class="evta pddc dibm" type="button" title="Enregistrement du code HTML" onclick="saveFileText();"><i class="fa fa-save"></i></button>
+				<button class="evta pddc dibm" type="button" title="Aperçu du code HTML" 
+				onclick="viewCode();">HTML</button>
+				<button class="evta pddc dibm" type="button" title="Enregistrement du code HTML" 
+				onclick="saveFileText();"><i class="fa fa-save"></i></button>
 			</div>
 			<div class="ovfa bgrc bdbb">
 				<textarea class="hghd pgCt10" rows="20" id="EditorHTMLId"></textarea>
