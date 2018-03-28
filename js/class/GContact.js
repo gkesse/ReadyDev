@@ -150,10 +150,25 @@ var GContact = (function() {
                 var m_MessageEmail = document.getElementById("MessageEmail");
                 var m_MessageSubject = document.getElementById("MessageSubject");
                 var m_MessageEdit = document.getElementById("MessageEdit");
-				m_MessageName.value = "";
-				m_MessageEmail.value = "";
-				m_MessageSubject.value = "";
-				m_MessageEdit.value = "";
+				var m_name = m_MessageName.value;
+				var m_email = m_MessageEmail.value;
+				var m_subject = m_MessageSubject.value;
+				var m_message = m_MessageEdit.value;
+                //var m_data = encodeURIComponent(m_EditorEditId.innerHTML);
+                var m_xmlhttp = new XMLHttpRequest();
+                m_xmlhttp.onreadystatechange = function() {
+                    if(this.readyState == 4 && this.status == 200) {
+
+                    }
+                }
+                m_xmlhttp.open("POST", "/php/contact.php", true);
+                m_xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                m_xmlhttp.send(
+					"nameValue="+m_name+
+					"&emailValue="+m_email+
+					"&subjectValue="+m_subject+
+					"&messageValue="+m_message
+				);
             }
             //===============================================
         };

@@ -1,9 +1,9 @@
 <?php
     require $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoloadRegister.php";
     
-    GPostRedirectGet::Instance()->redirect();
+    //GPostRedirectGet::Instance()->redirect();
     
-    $m_check = GContact::Instance()->check();
+    //$m_check = GContact::Instance()->check();
     $m_data = GJson::Instance()->getData("data/json/Contacts.json");
     
     GConfig::Instance()->setData("title", "Contacts");
