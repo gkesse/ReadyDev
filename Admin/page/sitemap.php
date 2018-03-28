@@ -50,22 +50,22 @@
 			<h2 class="pdbb clra bdbb">
 				Énumération
 			</h2>
-			<div class="bdbb txac">
+			<div class="txac">
 				<button class="evta pddc dibm" type="button" title="Aperçu du code HTML" 
 				onclick="enumerateUrl();">Énumérer</button>
 			</div>
-			<div class="pgCr10">
+			<div class="pgCt10 bgrc">
 				<div class="pgCr05">
 					<span class="dibm mnwb pgCt05 bgra">URLs maximal:</span>
-					<span class="dibm pgCt05  bgra" id="UrlMax">50.000</span>
+					<span class="dibm mnwa pgCt05 bgra" id="UrlMax"></span>
 				</div>
 				<div class="pgCr05">
 					<span class="dibm mnwb pgCt05 bgra">URLs du site:</span>
-					<span class="dibm pgCt05  bgra" id="UrlSite">50.000</span>
+					<span class="dibm mnwa pgCt05 bgra" id="UrlSite"></span>
 				</div>
 				<div class="pgCr05">
 					<span class="dibm mnwb pgCt05 bgra">Sitemap total:</span>
-					<span class="dibm pgCt05  bgra" id="SitemapTotal">50.000</span>
+					<span class="dibm mnwa pgCt05 bgra" id="SitemapTotal"></span>
 				</div>
 			</div>
 		</div>
