@@ -97,17 +97,17 @@ var GContact = (function() {
             },
             //===============================================
             messageSubjectValid: function() {
-                var m_MessageId = document.getElementById("MessageSubject");
-				var m_MessageMsg = document.getElementById("MessageSubjectMsg");
-				var m_MessageBrd = document.getElementById("MessageSubjectBrd");
-				var m_message = m_MessageId.value;
+                var m_MessageSubjectId = document.getElementById("MessageSubject");
+				var m_MessageSubjectMsg = document.getElementById("MessageSubjectMsg");
+				var m_MessageSubjectBrd = document.getElementById("MessageSubjectBrd");
+				var m_message = m_MessageSubjectId.value;
 				var m_length = m_message.length;
-				var m_className = m_MessageBrd.className;
-				m_MessageMsg.innerHTML = "";
-				m_MessageBrd.className = m_className.replace(" errc", "");
+				var m_className = m_MessageSubjectBrd.className;
+				m_MessageSubjectMsg.innerHTML = "";
+				m_MessageSubjectBrd.className = m_className.replace(" errc", "");
 				if(!m_length) {
-					m_MessageMsg.innerHTML = "Objet est obligatoire";
-					m_MessageBrd.className += " errc";
+					m_MessageSubjectMsg.innerHTML = "Objet est obligatoire";
+					m_MessageSubjectBrd.className += " errc";
 					return false;
 				}
 				return true;
