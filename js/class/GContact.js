@@ -52,6 +52,10 @@ var GContact = (function() {
 					m_MessageSendResVal += "</div>";
 				}
 				m_MessageSendRes.innerHTML = m_MessageSendResVal;
+				if(m_valid) {
+					this.messageSendMail();
+					this.messageClear();
+				}
             },
             //===============================================
             messageNameValid: function() {
@@ -135,10 +139,21 @@ var GContact = (function() {
                 var m_MessageEmail = document.getElementById("MessageEmail");
                 var m_MessageSubject = document.getElementById("MessageSubject");
                 var m_MessageEdit = document.getElementById("MessageEdit");
-				m_MessageName.innerHTML = "";
-				m_MessageEmail.innerHTML = "";
-				m_MessageSubject.innerHTML = "";
-				m_MessageEdit.innerHTML = "";
+				m_MessageName.value = "";
+				m_MessageEmail.value = "";
+				m_MessageSubject.value = "";
+				m_MessageEdit.value = "";
+            },
+            //===============================================
+            messageSendMail: function() {
+                var m_MessageName = document.getElementById("MessageName");
+                var m_MessageEmail = document.getElementById("MessageEmail");
+                var m_MessageSubject = document.getElementById("MessageSubject");
+                var m_MessageEdit = document.getElementById("MessageEdit");
+				m_MessageName.value = "";
+				m_MessageEmail.value = "";
+				m_MessageSubject.value = "";
+				m_MessageEdit.value = "";
             }
             //===============================================
         };
