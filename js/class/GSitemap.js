@@ -29,7 +29,21 @@ var GSitemap = (function() {
             },
             //===============================================
             enumerateUrl: function() {
-
+				var m_UrlMax = document.getElementById("UrlMax");
+				var m_UrlSite = document.getElementById("UrlSite");
+				var m_SitemapTotal = document.getElementById("SitemapTotal");
+				m_UrlMax.innerHTML = "50.000";
+				m_UrlSite.innerHTML = "50.000";
+				m_SitemapTotal.innerHTML = "50.000";
+            },
+            //===============================================
+            enumerateClear: function() {
+				var m_UrlMax = document.getElementById("UrlMax");
+				var m_UrlSite = document.getElementById("UrlSite");
+				var m_SitemapTotal = document.getElementById("SitemapTotal");
+				m_UrlMax.innerHTML = "";
+				m_UrlSite.innerHTML = "";
+				m_SitemapTotal.innerHTML = "";
             }
             //===============================================
         };

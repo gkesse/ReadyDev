@@ -51,21 +51,23 @@
 				Énumération
 			</h2>
 			<div class="txac">
-				<button class="evta pddc dibm" type="button" title="Aperçu du code HTML" 
-				onclick="enumerateUrl();">Énumérer</button>
+				<button class="evta pddc dibm" type="button" title="Démarrer l'énumération d'URLs" 
+				onclick="enumerateUrl();"><i class="fa fa-list"></i> En</button>
+				<button class="evta pddc dibm" type="button" title="Supprimer l'énumération d'URLs" 
+				onclick="enumerateClear();"><i class="fa fa-trash"></i> Tr</button>
 			</div>
 			<div class="pgCt10 bgrc">
 				<div class="pgCr05">
-					<span class="dibm mnwb pgCt05 bgra">URLs maximal:</span>
-					<span class="dibm mnwa pgCt05 bgra" id="UrlMax"></span>
+					<span class="dibm mnwb pgCt05 bgra hghe">URLs maximal:</span>
+					<span class="dibm mnwa pgCt05 bgra hghe" id="UrlMax"></span>
 				</div>
 				<div class="pgCr05">
-					<span class="dibm mnwb pgCt05 bgra">URLs du site:</span>
-					<span class="dibm mnwa pgCt05 bgra" id="UrlSite"></span>
+					<span class="dibm mnwb pgCt05 bgra hghe">URLs du site:</span>
+					<span class="dibm mnwa pgCt05 bgra hghe" id="UrlSite"></span>
 				</div>
 				<div class="pgCr05">
-					<span class="dibm mnwb pgCt05 bgra">Sitemap total:</span>
-					<span class="dibm mnwa pgCt05 bgra" id="SitemapTotal"></span>
+					<span class="dibm mnwb pgCt05 bgra hghe">Sitemap total:</span>
+					<span class="dibm mnwa pgCt05 bgra hghe" id="SitemapTotal"></span>
 				</div>
 			</div>
 		</div>

@@ -655,6 +655,10 @@ b {
     height: 400px;
 }
 
+.hghe {
+    height: 30px;
+}
+
 /* hover */
 .hvra:hover {
     text-decoration: underline;
@@ -671,6 +675,10 @@ b {
 
 .lnhc {
     line-height: 20px;
+}
+
+.lnhd {
+    line-height: 30px;
 }
 
 /* list-style-type */
@@ -743,6 +751,10 @@ b {
 
 .mnhd {
     min-height: 20px;
+}
+
+.mnhe {
+    min-height: 40px;
 }
 
 /* min-width */

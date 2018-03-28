@@ -4,6 +4,10 @@ function openSitemapTab(obj, name) {
 }
 //===============================================
 function enumerateUrl() {
-	GSitemap.Instance().enumerateUrl(obj, name);
+	GSitemap.Instance().enumerateUrl();
+}
+//===============================================
+function enumerateClear() {
+	GSitemap.Instance().enumerateClear();
 }
 //===============================================
