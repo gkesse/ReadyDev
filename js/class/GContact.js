@@ -128,6 +128,17 @@ var GContact = (function() {
 					return false;
 				}
 				return true;
+            },
+            //===============================================
+            messageClear: function() {
+                var m_MessageName = document.getElementById("MessageName");
+                var m_MessageEmail = document.getElementById("MessageEmail");
+                var m_MessageSubject = document.getElementById("MessageSubject");
+                var m_MessageEdit = document.getElementById("MessageEdit");
+				m_MessageName.innerHTML = "";
+				m_MessageEmail.innerHTML = "";
+				m_MessageSubject.innerHTML = "";
+				m_MessageEdit.innerHTML = "";
             }
             //===============================================
         };
