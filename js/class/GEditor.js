@@ -413,15 +413,15 @@ var GEditor = (function() {
             //===============================================
             viewPage: function() {
                 var m_EditorView = document.getElementById("EditorView");
-                var m_EditorEditId = document.getElementById("EditorEditId");
-                m_EditorView.innerHTML = m_EditorEditId.innerHTML;
+                var m_EditorEdit = document.getElementById("EditorEdit");
+                m_EditorView.innerHTML = m_EditorEdit.innerHTML;
 
             },
             //===============================================
             viewCode: function() {
                 var m_EditorHTML = document.getElementById("EditorHTML");
-                var m_EditorEditId = document.getElementById("EditorEditId");
-                m_EditorHTML.value = m_EditorEditId.innerHTML;
+                var m_EditorEdit = document.getElementById("EditorEdit");
+                m_EditorHTML.value = m_EditorEdit.innerHTML;
             },
             //===============================================
             openEditorTab: function(obj, name) {
@@ -441,12 +441,12 @@ var GEditor = (function() {
             },
             //===============================================
             readFile: function() {
-                var m_EditorEditId = document.getElementById("EditorEditId");
+                var m_EditorEdit = document.getElementById("EditorEdit");
 				var m_filename = "/Tutoriels/Cpp/Apprendre_le_Cpp/page/main.php";
                 var m_xmlhttp = new XMLHttpRequest();
                 m_xmlhttp.onreadystatechange = function() {
                     if(this.readyState == 4 && this.status == 200) {
-                        m_EditorEditId.innerHTML = this.responseText;
+                        m_EditorEdit.innerHTML = this.responseText;
                     }
                 }
                 m_xmlhttp.open("POST", "/php/editor.php", true);
@@ -458,9 +458,9 @@ var GEditor = (function() {
             },
             //===============================================
             saveFile: function() {
-                var m_EditorEditId = document.getElementById("EditorEditId");
+                var m_EditorEdit = document.getElementById("EditorEdit");
 				var m_filename = "/Tutoriels/Cpp/Apprendre_le_Cpp/page/main.php";
-                var m_data = encodeURIComponent(m_EditorEditId.innerHTML);
+                var m_data = encodeURIComponent(m_EditorEdit.innerHTML);
                 var m_xmlhttp = new XMLHttpRequest();
                 m_xmlhttp.onreadystatechange = function() {
                     if(this.readyState == 4 && this.status == 200) {

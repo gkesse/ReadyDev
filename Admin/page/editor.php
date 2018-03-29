@@ -68,7 +68,8 @@
 				Vue
 			</h2>
 			<div class="bdbb txac">
-				<button class="evta pddc dibm" type="button" title="Aperçu de la page web" onclick="viewPage();">Vue</button>
+				<button class="evta pddc dibm" type="button" title="Afficher la page web" 
+				onclick="viewPage();">Vue</button>
 			</div>
 			<div class="ovfa bgrc bdbb">
 				<div class="hghd" id="EditorView"></div> 
@@ -80,9 +81,9 @@
 				HTML
 			</h2>
 			<div class="bdbb txac">
-				<button class="evta pddc dibm" type="button" title="Aperçu du code HTML" 
+				<button class="evta pddc dibm" type="button" title="Afficher le code HTML" 
 				onclick="viewCode();">HTML</button>
-				<button class="evta pddc dibm" type="button" title="Enregistrement du code HTML" 
+				<button class="evta pddc dibm" type="button" title="Enregistrer le code HTML" 
 				onclick="saveFileText();"><i class="fa fa-save"></i></button>
 			</div>
 			<div class="ovfa bgrc bdbb">
