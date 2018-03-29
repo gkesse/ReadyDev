@@ -48,7 +48,13 @@ var GSitemap = (function() {
             //===============================================
             listUrl: function() {
 				var m_ListUrl = document.getElementById("ListUrl");
-				m_ListUrl.innerHTML = "Hello World";
+				var m_data = "";
+				m_data += "<ol class='pdlc'>";
+				m_data += "<li>List URL</li>";
+				m_data += "<li>List URL</li>";
+				m_data += "<li>List URL</li>";
+				m_data += "</ol>";
+				m_ListUrl.innerHTML = m_data;
             },
             //===============================================
             listClear: function() {

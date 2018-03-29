@@ -37,11 +37,13 @@
 			<h2 class="pdbb clra bdbb">
 				ReadySitemap
 			</h2>
-			<div class="pgCr10">
-				L'interface <b>ReadySitemap</b> vous permet de générer automatiquement
-				le sitemap de votre site web. C'est une interface développée en <b>PHP</b>
-				et maintenue par <b>Gérard KESSE</b>, concepteur du site <b>ReadyDev</b>,
-				la Plateforme de Développement Continu.
+			<div class="pgCr10 ovfa">
+				<div class="hghd">
+					L'interface <b>ReadySitemap</b> vous permet de générer automatiquement
+					le sitemap de votre site web. C'est une interface développée en <b>PHP</b>
+					et maintenue par <b>Gérard KESSE</b>, concepteur du site <b>ReadyDev</b>,
+					la Plateforme de Développement Continu.
+				</div>
 			</div>
 		</div>
 		<!-- ============================================ -->
@@ -54,20 +56,22 @@
 				<button class="evta pddc dibm" type="button" title="Démarrer l'énumération d'URLs" 
 				onclick="enumerateUrl();"><i class="fa fa-list"></i> En</button>
 				<button class="evta pddc dibm" type="button" title="Supprimer l'énumération d'URLs" 
-				onclick="enumerateClear();"><i class="fa fa-trash"></i> Tr</button>
+				onclick="enumerateClear();"><i class="fa fa-trash"></i> Sp</button>
 			</div>
-			<div class="pgCt10 bgrc">
-				<div class="pgCr05">
-					<span class="dibm mnwb pgCt05 bgra hghe">URLs maximal:</span>
-					<span class="dibm mnwa pgCt05 bgra hghe" id="UrlMax"></span>
-				</div>
-				<div class="pgCr05">
-					<span class="dibm mnwb pgCt05 bgra hghe">URLs du site:</span>
-					<span class="dibm mnwa pgCt05 bgra hghe" id="UrlSite"></span>
-				</div>
-				<div class="pgCr05">
-					<span class="dibm mnwb pgCt05 bgra hghe">Sitemap total:</span>
-					<span class="dibm mnwa pgCt05 bgra hghe" id="SitemapTotal"></span>
+			<div class="pgCt10 bgrc ovfa">
+				<div class="hghd">
+					<div class="pgCr05">
+						<span class="dibm mnwb pgCt05 bgra hghe">URLs maximal:</span>
+						<span class="dibm mnwa pgCt05 bgra hghe" id="UrlMax"></span>
+					</div>
+					<div class="pgCr05">
+						<span class="dibm mnwb pgCt05 bgra hghe">URLs du site:</span>
+						<span class="dibm mnwa pgCt05 bgra hghe" id="UrlSite"></span>
+					</div>
+					<div class="pgCr05">
+						<span class="dibm mnwb pgCt05 bgra hghe">Sitemap total:</span>
+						<span class="dibm mnwa pgCt05 bgra hghe" id="SitemapTotal"></span>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -80,11 +84,11 @@
 				<button class="evta pddc dibm" type="button" title="Démarrer le listing d'URLs" 
 				onclick="listUrl();"><i class="fa fa-list"></i> Ls</button>
 				<button class="evta pddc dibm" type="button" title="Supprimer le listing d'URLs" 
-				onclick="listClear();"><i class="fa fa-trash"></i> Tr</button>
+				onclick="listClear();"><i class="fa fa-trash"></i> Sp</button>
 			</div>
 			<div class="pgCt10 bgrc">
-				<div class="pgCr05">
-					<div class="" id="ListUrl"></div> 
+				<div class="pgCr05 ovfa">
+					<div class="hghd" id="ListUrl"></div> 
 				</div>
 			</div>
 		</div>
@@ -95,13 +99,13 @@
 			</h2>
 			<div class="txac">
 				<button class="evta pddc dibm" type="button" title="Démarrer la génération du sitemap" 
-				onclick="generateUrl();"><i class="fa fa-list"></i> Ls</button>
+				onclick="generateUrl();"><i class="fa fa-list"></i> Gn</button>
 				<button class="evta pddc dibm" type="button" title="Supprimer la génération du sitemap" 
-				onclick="generateClear();"><i class="fa fa-trash"></i> Tr</button>
+				onclick="generateClear();"><i class="fa fa-trash"></i> Sp</button>
 			</div>
 			<div class="pgCt10 bgrc">
-				<div class="pgCr05">
-					<div class="" id="GenerateUrl"></div> 
+				<div class="pgCr05 ovfa">
+					<div class="hghd" id="GenerateUrl"></div> 
 				</div>
 			</div>
 		</div>
@@ -112,13 +116,13 @@
 			</h2>
 			<div class="txac">
 				<button class="evta pddc dibm" type="button" title="Démarrer la visualisation du sitemap" 
-				onclick="visualizeUrl();"><i class="fa fa-list"></i> Ls</button>
+				onclick="visualizeUrl();"><i class="fa fa-list"></i> Vs</button>
 				<button class="evta pddc dibm" type="button" title="Supprimer la visualisation du sitemap" 
-				onclick="visualizeClear();"><i class="fa fa-trash"></i> Tr</button>
+				onclick="visualizeClear();"><i class="fa fa-trash"></i> Sp</button>
 			</div>
 			<div class="pgCt10 bgrc">
-				<div class="pgCr05">
-					<div class="" id="VisualizeUrl"></div> 
+				<div class="pgCr05 ovfa">
+					<div class="hghd" id="VisualizeUrl"></div> 
 				</div>
 			</div>
 		</div>
