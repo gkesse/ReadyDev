@@ -412,16 +412,16 @@ var GEditor = (function() {
             },
             //===============================================
             viewPage: function() {
-                var m_EditorViewId = document.getElementById("EditorViewId");
+                var m_EditorView = document.getElementById("EditorView");
                 var m_EditorEditId = document.getElementById("EditorEditId");
-                m_EditorViewId.innerHTML = m_EditorEditId.innerHTML;
+                m_EditorView.innerHTML = m_EditorEditId.innerHTML;
 
             },
             //===============================================
             viewCode: function() {
-                var m_EditorHTMLId = document.getElementById("EditorHTMLId");
+                var m_EditorHTML = document.getElementById("EditorHTML");
                 var m_EditorEditId = document.getElementById("EditorEditId");
-                m_EditorHTMLId.value = m_EditorEditId.innerHTML;
+                m_EditorHTML.value = m_EditorEditId.innerHTML;
             },
             //===============================================
             openEditorTab: function(obj, name) {
@@ -486,9 +486,9 @@ var GEditor = (function() {
             saveFileText: function() {
                 var m_res = confirm("Êtes vous sûr de vouloir enregistrer les modifications ?");
                 if(!m_res) return;
-                var m_EditorHTMLId = document.getElementById("EditorHTMLId");
+                var m_EditorHTML = document.getElementById("EditorHTML");
 				var m_filename = "/Tutoriels/Cpp/Apprendre_le_Cpp/page/main.php";
-                var m_data = encodeURIComponent(m_EditorHTMLId.value);
+                var m_data = encodeURIComponent(m_EditorHTML.value);
                 var m_xmlhttp = new XMLHttpRequest();
                 m_xmlhttp.onreadystatechange = function() {
                     if(this.readyState == 4 && this.status == 200) {

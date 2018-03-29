@@ -71,7 +71,7 @@
 				<button class="evta pddc dibm" type="button" title="Aperçu de la page web" onclick="viewPage();">Vue</button>
 			</div>
 			<div class="ovfa bgrc bdbb">
-				<div class="hghd" id="EditorViewId"></div> 
+				<div class="hghd" id="EditorView"></div> 
 			</div>
 		</div>
 		<!-- ============================================ -->
@@ -86,7 +86,7 @@
 				onclick="saveFileText();"><i class="fa fa-save"></i></button>
 			</div>
 			<div class="ovfa bgrc bdbb">
-				<textarea class="hghd pgCt10" rows="20" id="EditorHTMLId"></textarea>
+				<textarea class="hghd pgCt10" rows="20" id="EditorHTML"></textarea>
 			</div>
 		</div>
 		<!-- ============================================ -->
