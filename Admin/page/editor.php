@@ -48,10 +48,12 @@
 			<h2 class="pdbb clra bdbb">
 				Page
 			</h2>
-			<div class="pgCr10 ovfa">
-				<div class="hghd">
-					L'interface ReadyHTMLEditor vous permet d'éditer vos différentes pages web.
-				</div>
+			<div class="txac bdbb">
+				<button class="pgCt05 evta" title="Sélectionner un fichier" 
+				onclick="selectFile()">File</button>
+			</div>
+			<div class="pgCr10 mnhf ovfa">
+				<div id="EditorFile"></div>
 			</div>
 		</div>
 		<!-- ============================================ -->

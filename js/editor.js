@@ -55,3 +55,11 @@ function pasteText(e) {
 	GEditor.Instance().pasteText(e);
 }
 //===============================================
+function selectFile() {
+	GEditor.Instance().selectFile();
+}
+//===============================================
+function openFile(obj) {
+	GEditor.Instance().openFile(obj);
+}
+//===============================================

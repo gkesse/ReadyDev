@@ -1,13 +1,15 @@
 //===============================================
-// GSetting
-//===============================================
-var GSetting = (function() {
+var GConfig = (function() {
     //===============================================
     var m_instance;
     var m_dataMap = {};
     //===============================================
     var Container = function() {
         return {
+            //===============================================
+            init: function() {
+                
+            },
             //===============================================
             setData: function(key, value) {
                 m_dataMap[key] = value;
@@ -21,14 +23,15 @@ var GSetting = (function() {
     }
     //===============================================
     return {
-        Instance: function () {
+        Instance: function() {
             if (!m_instance) {
                 m_instance = Container();
             }
-            
             return m_instance;
         }
     };
     //===============================================
 })();
+//===============================================
+GConfig.Instance().init();
 //===============================================

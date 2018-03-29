@@ -359,6 +359,10 @@ b {
     border: 2px solid #373f60;
 }
 
+.brdc {
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
 /* border-bottom */
 .bdba {
     border-bottom: 1px solid rgba(255,255,255,0.3);
@@ -755,6 +759,10 @@ b {
 
 .mnhe {
     min-height: 40px;
+}
+
+.mnhf {
+    min-height: 400px;
 }
 
 /* min-width */

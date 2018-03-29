@@ -2,15 +2,17 @@
 var GEditor = (function() {
     //===============================================
     var m_instance;
+	var m_dirCur;
     //===============================================
     var Container = function() {
         return {
             //===============================================
             init: function() {
                 var m_tabCtn = document.getElementsByClassName("EditorTab");
-				var m_obj = m_tabCtn[0];
-				this.openEditorTab(m_obj, "EditorTab0");
+				var m_obj = m_tabCtn[1];
+				this.openEditorTab(m_obj, "EditorTab1");
 				this.readFile();
+				this.selectFile();
             },
             //===============================================
             editCode: function() {
@@ -452,8 +454,8 @@ var GEditor = (function() {
                 m_xmlhttp.open("POST", "/php/editor.php", true);
                 m_xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 m_xmlhttp.send(
-				"r=" + "READ_FILE" +
-				"&f=" + m_filename
+				"req=" + "READ_FILE" +
+				"&file=" + m_filename
 				);
             },
             //===============================================
@@ -470,9 +472,9 @@ var GEditor = (function() {
                 m_xmlhttp.open("POST", "/php/editor.php", true);
                 m_xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 m_xmlhttp.send(
-				"r=" + "SAVE_FILE" +
-				"&f=" + m_filename +
-				"&d=" + m_data
+				"req=" + "SAVE_FILE" +
+				"&file=" + m_filename +
+				"&data=" + m_data
 				);
             },
             //===============================================
@@ -498,10 +500,34 @@ var GEditor = (function() {
                 m_xmlhttp.open("POST", "/php/editor.php", true);
                 m_xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 m_xmlhttp.send(
-				"r=" + "SAVE_FILE" + 
-				"&f=" + m_filename + 
-				"&d="+m_data
+				"req=" + "SAVE_FILE" + 
+				"&file=" + m_filename + 
+				"&data="+m_data
 				);
+            },
+            //===============================================
+            selectFile: function(dir="") {
+                var m_EditorFile = document.getElementById("EditorFile");
+                var m_xmlhttp = new XMLHttpRequest();
+				m_dirCur = dir;
+                m_xmlhttp.onreadystatechange = function() {
+                    if(this.readyState == 4 && this.status == 200) {
+						var m_data = this.responseText;
+						m_EditorFile.innerHTML = m_data;
+                    }
+                }
+                m_xmlhttp.open("POST", "/php/editor.php", true);
+                m_xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                m_xmlhttp.send(
+				"req=" + "GET_FILE" + 
+				"&dir=" + dir
+				);
+            },
+            //===============================================
+            openFile: function(obj) {
+                var m_dirName = obj.innerHTML;
+				var m_dirPath = m_dirCur + "/" + m_dirName;
+				this.selectFile(m_dirPath);
             }
             //===============================================
         };
