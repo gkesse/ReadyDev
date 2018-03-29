@@ -114,15 +114,30 @@
 			<h2 class="pdbb clra bdbb">
 				Visualisation
 			</h2>
-			<div class="txac">
+			<div class="txac bdbb">
 				<button class="evta pddc dibm" type="button" title="Démarrer la visualisation du sitemap" 
 				onclick="visualizeUrl();"><i class="fa fa-list"></i> Vs</button>
 				<button class="evta pddc dibm" type="button" title="Supprimer la visualisation du sitemap" 
 				onclick="visualizeClear();"><i class="fa fa-trash"></i> Sp</button>
 			</div>
+			<div class="txac">
+				<button class="hvra pddc dibm bgrc" type="button" title="Afficher le fichier sitemaps.xml" 
+				onclick="openSitemapFileTab(this, 'SitemapFileTab0');">sitemaps.xml</button>
+				<button class="hvra pddc dibm" type="button" title="Afficher le fichier sitemap.xml" 
+				onclick="openSitemapFileTab(this, 'SitemapFileTab0');">sitemap.xml</button>
+			</div>
 			<div class="pgCt10 bgrc">
-				<div class="pgCr05 ovfa">
-					<div class="hghd" id="VisualizeUrl"></div> 
+				<div class="pgCr05 ovfaO">
+					<h3 class="clrg">sitemaps.xml:</h3>
+					<div class="pgCt05 ovfaO">
+						<div class="hghdO" id="VisualizeUrl"></div> 
+					</div>
+				</div>
+				<div class="pgCr05">
+					<h3 class="clrg">sitemap.xml:</h3>
+					<div class="pgCt05 ovfa">
+						<div class="hghd" id="VisualizeUrlId"></div> 
+					</div>
 				</div>
 			</div>
 		</div>

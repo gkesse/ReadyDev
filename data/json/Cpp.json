@@ -16,7 +16,7 @@
     ],
     "summary":
     [
-        {"name":"Apprendre le C++","link":"/Tutoriels/Cpp/Apprendre_le_Cpp"},
+        {"name":"Apprendre le C++","link":"/Tutoriels/Cpp/Apprendre_le_Cpp/"},
         {"name":"Compilation","link":"#Compilation"},
         {"name":"Notions de Base","link":"#Notions"},
         {"name":"Patron de Conception","link":"#Patron_Conception"}

@@ -7,12 +7,12 @@
             "Le C++ est un langage de programmation orientée objet.",
 			"Le but de ce tutoriel est de vous apprendre à programmer en C++" 
         ],
-        "meta_cano":"/Tutoriels/Cpp/Apprendre_a_Programmer_en_Cpp"
+        "meta_cano":"/Tutoriels/Cpp/Apprendre_le_Cpp"
     },    
     "links":
     [
         {"name":"Tutoriels","link":"/Tutoriels/"},
-        {"name":"C/C++","link":"/Tutoriels/Cpp"},
+        {"name":"C/C++","link":"/Tutoriels/Cpp/"},
         {"name":"Apprendre à Programmer en C++","link":""}
     ],
     "intro":

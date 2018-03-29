@@ -28,17 +28,33 @@ var GSitemap = (function() {
 				m_tabId.style.display = "block";
             },
             //===============================================
+            openSitemapFileTab: function(obj, name) {
+				var m_tab = document.getElementsByClassName("SitemapFileTab");
+				for(var i = 0; i < m_tab.length; i++) {
+					var m_tabId = m_tab[i];
+					m_tabId.className = m_tabId.className.replace(" bgrc", "");
+				}
+				obj.className += " bgrc";
+				var m_tabCtn = document.getElementsByClassName("SitemapTabFileCtn");
+				for(var i = 0; i < m_tabCtn.length; i++) {
+					var m_tabCtnId = m_tabCtn[i];
+					m_tabCtnId.style.display = "none";
+				}
+				var m_tabId = document.getElementById(name);
+				m_tabId.style.display = "block";
+            },
+            //===============================================
             enumerateUrl: function() {
-				var m_UrlMax = document.getElementById("UrlMax");
 				var m_UrlSite = document.getElementById("UrlSite");
+				var m_UrlMax = document.getElementById("UrlMax");
 				var m_SitemapTotal = document.getElementById("SitemapTotal");
 				var m_xmlhttp = new XMLHttpRequest();
                 m_xmlhttp.onreadystatechange = function() {
                     if(this.readyState == 4 && this.status == 200) {
-						var m_json = this.responseText
-						var m_data = JSON.parse(m_json);
-						m_UrlMax.innerHTML = String(50000);
+						var m_res = this.responseText;
+						var m_data = JSON.parse(m_res);
 						m_UrlSite.innerHTML = String(m_data["url_number"]);
+						m_UrlMax.innerHTML = String(50000);
 						m_SitemapTotal.innerHTML = String(m_data["sitemap_number"]);
                     }
                 }
@@ -50,23 +66,28 @@ var GSitemap = (function() {
             },
             //===============================================
             enumerateClear: function() {
-				var m_UrlMax = document.getElementById("UrlMax");
 				var m_UrlSite = document.getElementById("UrlSite");
+				var m_UrlMax = document.getElementById("UrlMax");
 				var m_SitemapTotal = document.getElementById("SitemapTotal");
-				m_UrlMax.innerHTML = "";
 				m_UrlSite.innerHTML = "";
+				m_UrlMax.innerHTML = "";
 				m_SitemapTotal.innerHTML = "";
             },
             //===============================================
             listUrl: function() {
 				var m_ListUrl = document.getElementById("ListUrl");
-				var m_data = "";
-				m_data += "<ol class='pdlc'>";
-				m_data += "<li>List URL</li>";
-				m_data += "<li>List URL</li>";
-				m_data += "<li>List URL</li>";
-				m_data += "</ol>";
-				m_ListUrl.innerHTML = m_data;
+				var m_xmlhttp = new XMLHttpRequest();
+                m_xmlhttp.onreadystatechange = function() {
+                    if(this.readyState == 4 && this.status == 200) {
+						var m_data = this.responseText;
+						m_ListUrl.innerHTML = m_data;
+                    }
+                }
+                m_xmlhttp.open("POST", "/php/sitemap.php", true);
+                m_xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                m_xmlhttp.send(
+				"req=" + "LIST"
+				);
             },
             //===============================================
             listClear: function() {
@@ -76,7 +97,18 @@ var GSitemap = (function() {
             //===============================================
             generateUrl: function() {
 				var m_GenerateUrl = document.getElementById("GenerateUrl");
-				m_GenerateUrl.innerHTML = "Hello World";
+				var m_xmlhttp = new XMLHttpRequest();
+                m_xmlhttp.onreadystatechange = function() {
+                    if(this.readyState == 4 && this.status == 200) {
+						var m_res = this.responseText;
+						m_GenerateUrl.innerHTML = m_res;
+                    }
+                }
+                m_xmlhttp.open("POST", "/php/sitemap.php", true);
+                m_xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                m_xmlhttp.send(
+				"req=" + "GENERATE"
+				);
             },
             //===============================================
             generateClear: function() {
@@ -86,12 +118,28 @@ var GSitemap = (function() {
             //===============================================
             visualizeUrl: function() {
 				var m_VisualizeUrl = document.getElementById("VisualizeUrl");
-				m_VisualizeUrl.innerHTML = "Hello World";
+				var m_VisualizeUrlId = document.getElementById("VisualizeUrlId");
+				var m_xmlhttp = new XMLHttpRequest();
+                m_xmlhttp.onreadystatechange = function() {
+                    if(this.readyState == 4 && this.status == 200) {
+						var m_data = this.responseText;
+						var m_dataArr = JSON.parse(m_data);
+						m_VisualizeUrl.innerHTML = m_dataArr["sitemaps"];
+						m_VisualizeUrlId.innerHTML = m_dataArr["sitemap"];
+                    }
+                }
+                m_xmlhttp.open("POST", "/php/sitemap.php", true);
+                m_xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                m_xmlhttp.send(
+				"req=" + "VISUALIZE"
+				);
             },
             //===============================================
             visualizeClear: function() {
 				var m_VisualizeUrl = document.getElementById("VisualizeUrl");
+				var m_VisualizeUrlId = document.getElementById("VisualizeUrlId");
 				m_VisualizeUrl.innerHTML = "";
+				m_VisualizeUrlId.innerHTML = "";
             }
             //===============================================
         };
