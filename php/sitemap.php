@@ -40,7 +40,7 @@
 			$m_data = GFile::Instance()->getData($m_file);
 			$m_dataVal = '';
 			$m_dataVal .= '<pre>';
-			$m_dataVal .= '<xmp class="ovfa">';
+			$m_dataVal .= '<xmp class="ovfa mxha">';
 			$m_dataVal .= $m_data;
 			$m_dataVal .= '</xmp>';
 			$m_dataVal .= '</pre>';

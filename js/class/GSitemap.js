@@ -10,6 +10,9 @@ var GSitemap = (function() {
                 var m_tabCtn = document.getElementsByClassName("SitemapTab");
 				var m_obj = m_tabCtn[1];
 				this.openSitemapTab(m_obj, "SitemapTab1");
+                m_tabCtn = document.getElementsByClassName("SitemapFileTab");
+				m_obj = m_tabCtn[0];
+				this.openSitemapFileTab(m_obj, "SitemapFileTab0");
             },
             //===============================================
             openSitemapTab: function(obj, name) {
@@ -35,7 +38,7 @@ var GSitemap = (function() {
 					m_tabId.className = m_tabId.className.replace(" bgrc", "");
 				}
 				obj.className += " bgrc";
-				var m_tabCtn = document.getElementsByClassName("SitemapTabFileCtn");
+				var m_tabCtn = document.getElementsByClassName("SitemapFileTabCtn");
 				for(var i = 0; i < m_tabCtn.length; i++) {
 					var m_tabCtnId = m_tabCtn[i];
 					m_tabCtnId.style.display = "none";
