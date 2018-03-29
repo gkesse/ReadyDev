@@ -32,9 +32,21 @@ var GSitemap = (function() {
 				var m_UrlMax = document.getElementById("UrlMax");
 				var m_UrlSite = document.getElementById("UrlSite");
 				var m_SitemapTotal = document.getElementById("SitemapTotal");
-				m_UrlMax.innerHTML = "50.000";
-				m_UrlSite.innerHTML = "50.000";
-				m_SitemapTotal.innerHTML = "50.000";
+				var m_xmlhttp = new XMLHttpRequest();
+                m_xmlhttp.onreadystatechange = function() {
+                    if(this.readyState == 4 && this.status == 200) {
+						var m_json = this.responseText
+						var m_data = JSON.parse(m_json);
+						m_UrlMax.innerHTML = String(50000);
+						m_UrlSite.innerHTML = String(m_data["url_number"]);
+						m_SitemapTotal.innerHTML = String(m_data["sitemap_number"]);
+                    }
+                }
+                m_xmlhttp.open("POST", "/php/sitemap.php", true);
+                m_xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                m_xmlhttp.send(
+				"req=" + "ENUMERATE"
+				);
             },
             //===============================================
             enumerateClear: function() {

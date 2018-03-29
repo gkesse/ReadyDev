@@ -61,12 +61,12 @@
 			<div class="pgCt10 bgrc ovfa">
 				<div class="hghd">
 					<div class="pgCr05">
-						<span class="dibm mnwb pgCt05 bgra hghe">URLs maximal:</span>
-						<span class="dibm mnwa pgCt05 bgra hghe" id="UrlMax"></span>
-					</div>
-					<div class="pgCr05">
 						<span class="dibm mnwb pgCt05 bgra hghe">URLs du site:</span>
 						<span class="dibm mnwa pgCt05 bgra hghe" id="UrlSite"></span>
+					</div>
+					<div class="pgCr05">
+						<span class="dibm mnwb pgCt05 bgra hghe">URLs maximal:</span>
+						<span class="dibm mnwa pgCt05 bgra hghe" id="UrlMax"></span>
 					</div>
 					<div class="pgCr05">
 						<span class="dibm mnwb pgCt05 bgra hghe">Sitemap total:</span>

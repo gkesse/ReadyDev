@@ -1,5 +1,5 @@
 <?php   
-    class GSiteMap {
+    class GSitemap {
         //===============================================
         private static $m_instance = null;
         private $m_change = array();
@@ -40,7 +40,7 @@
         //===============================================
         public static function Instance() {
             if(is_null(self::$m_instance)) {
-                self::$m_instance = new GSiteMap();  
+                self::$m_instance = new GSitemap();  
             }
             return self::$m_instance;
         }

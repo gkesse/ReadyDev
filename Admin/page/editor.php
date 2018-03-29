@@ -34,11 +34,13 @@
 			<h2 class="pdbb clra bdbb">
 				ReadyHTMLEditor
 			</h2>
-			<div class="pgCr10">
-				L'interface <b>ReadyHTMLEditor</b> vous permet d'éditer rapidement
-				et éfficacement vos différentes pages web. C'est une interface développée
-				en <b>PHP</b> et maintenue par <b>Gérard KESSE</b>, concepteur du site <b>ReadyDev</b>,
-				la Plateforme de Développement Continu.
+			<div class="pgCr10 ovfa">
+				<div class="hghd">
+					L'interface <b>ReadyHTMLEditor</b> vous permet d'éditer rapidement
+					et éfficacement vos différentes pages web. C'est une interface développée
+					en <b>PHP</b> et maintenue par <b>Gérard KESSE</b>, concepteur du site <b>ReadyDev</b>,
+					la Plateforme de Développement Continu.
+				</div>
 			</div>
 		</div>
 		<!-- ============================================ -->
@@ -46,8 +48,10 @@
 			<h2 class="pdbb clra bdbb">
 				Page
 			</h2>
-			<div class="pgCr10">
-				L'interface ReadyHTMLEditor vous permet d'éditer vos différentes pages web.
+			<div class="pgCr10 ovfa">
+				<div class="hghd">
+					L'interface ReadyHTMLEditor vous permet d'éditer vos différentes pages web.
+				</div>
 			</div>
 		</div>
 		<!-- ============================================ -->

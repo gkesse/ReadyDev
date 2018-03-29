@@ -451,7 +451,10 @@ var GEditor = (function() {
                 }
                 m_xmlhttp.open("POST", "/php/editor.php", true);
                 m_xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                m_xmlhttp.send("r="+"READ_FILE"+"&f="+m_filename);
+                m_xmlhttp.send(
+				"r=" + "READ_FILE" +
+				"&f=" + m_filename
+				);
             },
             //===============================================
             saveFile: function() {
@@ -466,7 +469,11 @@ var GEditor = (function() {
                 }
                 m_xmlhttp.open("POST", "/php/editor.php", true);
                 m_xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                m_xmlhttp.send("r="+"SAVE_FILE"+"&f="+m_filename+"&d="+m_data);
+                m_xmlhttp.send(
+				"r=" + "SAVE_FILE" +
+				"&f=" + m_filename +
+				"&d=" + m_data
+				);
             },
             //===============================================
             saveFileKey: function(e) {
@@ -490,7 +497,11 @@ var GEditor = (function() {
                 }
                 m_xmlhttp.open("POST", "/php/editor.php", true);
                 m_xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                m_xmlhttp.send("r="+"SAVE_FILE"+"&f="+m_filename+"&d="+m_data);
+                m_xmlhttp.send(
+				"r=" + "SAVE_FILE" + 
+				"&f=" + m_filename + 
+				"&d="+m_data
+				);
             }
             //===============================================
         };
