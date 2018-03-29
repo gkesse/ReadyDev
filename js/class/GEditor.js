@@ -509,11 +509,12 @@ var GEditor = (function() {
             selectFile: function(dir="") {
                 var m_EditorFile = document.getElementById("EditorFile");
                 var m_xmlhttp = new XMLHttpRequest();
-				m_dirCur = dir;
                 m_xmlhttp.onreadystatechange = function() {
                     if(this.readyState == 4 && this.status == 200) {
 						var m_data = this.responseText;
+						if(!m_data) return;
 						m_EditorFile.innerHTML = m_data;
+						m_dirCur = dir;
                     }
                 }
                 m_xmlhttp.open("POST", "/php/editor.php", true);
