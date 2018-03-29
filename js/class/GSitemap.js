@@ -8,8 +8,8 @@ var GSitemap = (function() {
             //===============================================
             init: function() {
                 var m_tabCtn = document.getElementsByClassName("SitemapTab");
-				var m_obj = m_tabCtn[1];
-				this.openSitemapTab(m_obj, "SitemapTab1");
+				var m_obj = m_tabCtn[0];
+				this.openSitemapTab(m_obj, "SitemapTab0");
                 m_tabCtn = document.getElementsByClassName("SitemapFileTab");
 				m_obj = m_tabCtn[0];
 				this.openSitemapFileTab(m_obj, "SitemapFileTab0");

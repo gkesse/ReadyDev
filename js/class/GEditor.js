@@ -8,8 +8,8 @@ var GEditor = (function() {
             //===============================================
             init: function() {
                 var m_tabCtn = document.getElementsByClassName("EditorTab");
-				var m_obj = m_tabCtn[2];
-				this.openEditorTab(m_obj, "EditorTab2");
+				var m_obj = m_tabCtn[0];
+				this.openEditorTab(m_obj, "EditorTab0");
 				this.readFile();
             },
             //===============================================
