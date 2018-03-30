@@ -35,11 +35,13 @@
 				if($m_find) continue;
 				if($m_dirName == ".." && $m_rootLen == $m_dirLen) continue;
 				$m_dirPath = $m_dir."/".$m_dirName;
-				$m_isdir = is_dir($m_dirPath);
-				$m_dirIcon = "file-o";
-				if($m_isdir) $m_dirIcon = "folder";
-				$m_dirNameArr[] = array($m_dirIcon, $m_dirName);
+				$m_dirCheck = is_dir($m_dirPath);
+				$m_dirIcon = ($m_dirCheck) ? "folder" : "file-o";
+				$m_dirType = ($m_dirCheck) ? 1 : 0;
+				$m_dirNameArr[] = array($m_dirType, $m_dirName, $m_dirIcon);
 			}
+			closedir($m_dirPtr);
+			usort($m_dirNameArr, array("GFilesystem", "SortDirectory"));
 			return $m_dirNameArr;
         }
         //===============================================
@@ -49,6 +51,16 @@
                 if($m_match) return true;
             }
             return false;
+        }
+        //===============================================
+        private static function SortDirectory($dataA, $dataB) {
+            $m_sort = false;
+            if($dataA[0] < $dataB[0]) $m_sort = !$m_sort; 
+            else if($dataA[0] == $dataB[0]) {
+                $m_strcmp = strcmp(strtolower($dataA[1]), strtolower($dataB[1]));
+                if($m_strcmp > 0) $m_sort = !$m_sort;
+            }
+            return $m_sort;
         }
         //===============================================
     }

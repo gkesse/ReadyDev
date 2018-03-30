@@ -59,7 +59,7 @@ function selectFile() {
 	GEditor.Instance().selectFile();
 }
 //===============================================
-function openFile(obj) {
-	GEditor.Instance().openFile(obj);
+function openFile(obj, dir) {
+	GEditor.Instance().openFile(obj, dir);
 }
 //===============================================

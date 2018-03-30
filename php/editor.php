@@ -24,10 +24,10 @@
 		$m_data .= "<div class='brdc mxha ovfa'>";
 		for($i = 0; $i < count($m_dirNameArr); $i++) {
 			$m_dirName = $m_dirNameArr[$i];
-			$m_data .= "<div class='pddd bdba'>";
-			$m_data .= "<i class='fa fa-".$m_dirName[0]."'></i> ";
+			$m_data .= "<div class='pddd bdba FileList'>";
+			$m_data .= "<i class='fa fa-".$m_dirName[2]."'></i> ";
 			$m_data .= "<div class='hvra cspt dibm'";
-			$m_data .= "onclick='openFile(this);'>";
+			$m_data .= "onclick='openFile(this, ".$m_dirName[0].");'>";
 			$m_data .= $m_dirName[1];
 			$m_data .= "</div>";
 			$m_data .= "</div>";

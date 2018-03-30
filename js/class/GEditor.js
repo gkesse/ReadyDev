@@ -525,9 +525,19 @@ var GEditor = (function() {
 				);
             },
             //===============================================
-            openFile: function(obj) {
+            openFile: function(obj, dir) {
+				var m_FileList = document.getElementsByClassName("FileList");
                 var m_dirName = obj.innerHTML;
 				var m_dirPath = m_dirCur + "/" + m_dirName;
+				var m_objParent = obj.parentNode;
+				for(var i = 0; i < m_FileList.length; i++) {
+					var m_node = m_FileList[i];
+					m_node.className = m_node.className.replace(" bgrc", "");
+				}
+				if(!dir) {
+					m_objParent.className += " bgrc";
+					return;
+				}
 				this.selectFile(m_dirPath);
             }
             //===============================================
