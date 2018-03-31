@@ -14,7 +14,7 @@ var GEditor = (function() {
 				var m_EditorDir = GConfig.Instance().getData("EditorDir");
 				var m_EditorFile = GConfig.Instance().getData("EditorFile");
 				this.openEditorTab(m_obj, "EditorTab1");
-				this.readFile(m_EditorFile);
+				this.readFile();
 				if(!m_EditorDir) m_EditorDir = "";
 				if(!m_EditorFile) m_EditorFile = "";
 				this.selectFile(m_EditorDir);
@@ -446,9 +446,10 @@ var GEditor = (function() {
 				m_tabId.style.display = "block";
             },
             //===============================================
-            readFile: function(filename) {
+            readFile: function() {
                 var m_EditorEdit = document.getElementById("EditorEdit");
-				if(filename == "") return;
+				var m_filename = GConfig.Instance().getData("EditorFile");
+				if(m_filename == "") return;
                 var m_xmlhttp = new XMLHttpRequest();
                 m_xmlhttp.onreadystatechange = function() {
                     if(this.readyState == 4 && this.status == 200) {
@@ -459,13 +460,14 @@ var GEditor = (function() {
                 m_xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 m_xmlhttp.send(
 				"req=" + "READ_FILE" +
-				"&file=" + filename
+				"&file=" + m_filename
 				);
             },
             //===============================================
             saveFile: function() {
                 var m_EditorEdit = document.getElementById("EditorEdit");
-				var m_filename = "/Tutoriels/Cpp/Apprendre_le_Cpp/page/main.php";
+				var m_filename = GConfig.Instance().getData("EditorFile");
+				if(m_filename == "") return;
                 var m_data = encodeURIComponent(m_EditorEdit.innerHTML);
                 var m_xmlhttp = new XMLHttpRequest();
                 m_xmlhttp.onreadystatechange = function() {
@@ -493,7 +495,8 @@ var GEditor = (function() {
                 var m_res = confirm("Êtes vous sûr de vouloir enregistrer les modifications ?");
                 if(!m_res) return;
                 var m_EditorHTML = document.getElementById("EditorHTML");
-				var m_filename = "/Tutoriels/Cpp/Apprendre_le_Cpp/page/main.php";
+				var m_filename = GConfig.Instance().getData("EditorFile");
+				if(m_filename == "") return;
                 var m_data = encodeURIComponent(m_EditorHTML.value);
                 var m_xmlhttp = new XMLHttpRequest();
                 m_xmlhttp.onreadystatechange = function() {
@@ -552,7 +555,7 @@ var GEditor = (function() {
 					m_EditorFile = m_EditorFile.replace(/\\/gi, "/");
 					m_FileEdit.innerHTML = m_EditorFile;
 					GConfig.Instance().setData("EditorFile", m_EditorFile);
-					this.readFile(m_EditorFile);
+					this.readFile();
 					return;
 				}
 				this.selectFile(m_dirPath);
