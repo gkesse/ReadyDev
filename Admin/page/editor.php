@@ -48,10 +48,9 @@
 			<h2 class="pdbb clra bdbb">
 				Page
 			</h2>
-			<div class="txal bdbb clrg psra">
-				<div class="pgCt05 dibm psac">Fichier:</div>
-				<input class="pgCt05 dibm clrg pdlg" id="FileEdit"
-				type="text" readonly="true"/>
+			<div class="txal bdbb">
+				<div class="pgCr05 dibm clrb">Fichier:</div>
+				<div class="ovfa"><div class="pgCr05 dibm clrg" id="FileEdit"></div></div>
 			</div>
 			<div class="txal bdbb" id="EditorMenu"></div>
 			<div class="pgCr10 mnhf ovfa">

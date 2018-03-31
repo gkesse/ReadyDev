@@ -1013,9 +1013,19 @@ b {
     word-wrap: break-word;
 }
 
+/* word-break */
+.wbba {
+    word-break: break-all;
+}
+
 /* word-spacing */
 .wspa {
     word-spacing: 5px;
+}
+
+/* white-space */
+.whpr {
+    white-space: pre-wrap;
 }
 
 /* ============================================== */

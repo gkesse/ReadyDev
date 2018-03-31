@@ -18,7 +18,7 @@ var GEditor = (function() {
 				if(!m_EditorDir) m_EditorDir = "";
 				if(!m_EditorFile) m_EditorFile = "";
 				this.selectFile(m_EditorDir);
-				m_FileEdit.value = m_EditorFile;
+				m_FileEdit.innerHTML = m_EditorFile;
 			},
             //===============================================
             editCode: function() {
@@ -550,7 +550,7 @@ var GEditor = (function() {
 					m_objParent.className += " bgrc";
 					var m_EditorFile = m_dirPath;
 					m_EditorFile = m_EditorFile.replace(/\\/gi, "/");
-					m_FileEdit.value = m_EditorFile;
+					m_FileEdit.innerHTML = m_EditorFile;
 					GConfig.Instance().setData("EditorFile", m_EditorFile);
 					return;
 				}
