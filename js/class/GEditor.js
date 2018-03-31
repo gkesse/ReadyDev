@@ -508,12 +508,16 @@ var GEditor = (function() {
             //===============================================
             selectFile: function(dir="") {
                 var m_EditorFile = document.getElementById("EditorFile");
+                var m_EditorMenu = document.getElementById("EditorMenu");
                 var m_xmlhttp = new XMLHttpRequest();
+				var m_menuHtml = m_EditorMenu.innerHTML;
                 m_xmlhttp.onreadystatechange = function() {
                     if(this.readyState == 4 && this.status == 200) {
 						var m_data = this.responseText;
+						var m_dataArr = JSON.parse(m_data);
 						if(!m_data) return;
-						m_EditorFile.innerHTML = m_data;
+						m_EditorFile.innerHTML = m_dataArr["file"];
+						m_EditorMenu.innerHTML = m_dataArr["menu"];
 						m_dirCur = dir;
                     }
                 }
@@ -539,6 +543,11 @@ var GEditor = (function() {
 					return;
 				}
 				this.selectFile(m_dirPath);
+            },
+            //===============================================
+            openLink: function(obj) {
+                var m_dirName = obj.innerText;
+				this.selectFile(m_dirName);
             }
             //===============================================
         };

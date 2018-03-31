@@ -63,3 +63,7 @@ function openFile(obj, dir) {
 	GEditor.Instance().openFile(obj, dir);
 }
 //===============================================
+function openLink(obj) {
+	GEditor.Instance().openLink(obj);
+}
+//===============================================

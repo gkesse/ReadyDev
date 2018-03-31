@@ -48,10 +48,7 @@
 			<h2 class="pdbb clra bdbb">
 				Page
 			</h2>
-			<div class="txac bdbb">
-				<button class="pgCt05 evta" title="Sélectionner un fichier" 
-				onclick="selectFile()">File</button>
-			</div>
+			<div class="txac bdbb" id="EditorMenu"></div>
 			<div class="pgCr10 mnhf ovfa">
 				<div id="EditorFile"></div>
 			</div>
