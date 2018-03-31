@@ -8,16 +8,16 @@ var GConfig = (function() {
         return {
             //===============================================
             init: function() {
-                
+
             },
             //===============================================
             setData: function(key, value) {
-                m_dataMap[key] = value;
+                localStorage.setItem(key, value);
             },
             //===============================================
             getData: function(key) {
-                return m_dataMap[key];
-            }
+                return localStorage.getItem(key);
+            },
             //===============================================
         };
     }

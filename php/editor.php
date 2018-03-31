@@ -50,6 +50,7 @@
 		$m_dataArr = array();
 		$m_dataArr["menu"] = $m_dataMenu;
 		$m_dataArr["file"] = $m_dataFile;
+		$m_dataArr["dir"] = $m_dirRel;
 		$m_dataJson = json_encode($m_dataArr);
 		print_r($m_dataJson);
 	}

@@ -10,10 +10,12 @@ var GEditor = (function() {
             init: function() {
                 var m_tabCtn = document.getElementsByClassName("EditorTab");
 				var m_obj = m_tabCtn[1];
+				var m_EditorDir = localStorage.getItem("EditorDir");
 				this.openEditorTab(m_obj, "EditorTab1");
 				this.readFile();
-				this.selectFile();
-            },
+				if(!m_EditorDir) m_EditorDir = "";
+				this.selectFile(m_EditorDir);
+			},
             //===============================================
             editCode: function() {
                 var m_selection = '';
@@ -509,8 +511,8 @@ var GEditor = (function() {
             selectFile: function(dir="") {
                 var m_EditorFile = document.getElementById("EditorFile");
                 var m_EditorMenu = document.getElementById("EditorMenu");
-                var m_xmlhttp = new XMLHttpRequest();
 				var m_menuHtml = m_EditorMenu.innerHTML;
+                var m_xmlhttp = new XMLHttpRequest();
                 m_xmlhttp.onreadystatechange = function() {
                     if(this.readyState == 4 && this.status == 200) {
 						var m_data = this.responseText;
@@ -518,7 +520,8 @@ var GEditor = (function() {
 						if(!m_data) return;
 						m_EditorFile.innerHTML = m_dataArr["file"];
 						m_EditorMenu.innerHTML = m_dataArr["menu"];
-						m_dirCur = dir;
+						m_dirCur = m_dataArr["dir"];
+						GConfig.Instance().setData("EditorDir", m_dirCur);
                     }
                 }
                 m_xmlhttp.open("POST", "/php/editor.php", true);
