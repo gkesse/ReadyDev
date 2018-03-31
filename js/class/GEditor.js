@@ -9,12 +9,16 @@ var GEditor = (function() {
             //===============================================
             init: function() {
                 var m_tabCtn = document.getElementsByClassName("EditorTab");
+				var m_FileEdit = document.getElementById("FileEdit");
 				var m_obj = m_tabCtn[1];
-				var m_EditorDir = localStorage.getItem("EditorDir");
+				var m_EditorDir = GConfig.Instance().getData("EditorDir");
+				var m_EditorFile = GConfig.Instance().getData("EditorFile");
 				this.openEditorTab(m_obj, "EditorTab1");
 				this.readFile();
 				if(!m_EditorDir) m_EditorDir = "";
+				if(!m_EditorFile) m_EditorFile = "";
 				this.selectFile(m_EditorDir);
+				m_FileEdit.value = m_EditorFile;
 			},
             //===============================================
             editCode: function() {
@@ -534,6 +538,7 @@ var GEditor = (function() {
             //===============================================
             openFile: function(obj, dir) {
 				var m_FileList = document.getElementsByClassName("FileList");
+				var m_FileEdit = document.getElementById("FileEdit");
                 var m_dirName = obj.innerHTML;
 				var m_dirPath = m_dirCur + "/" + m_dirName;
 				var m_objParent = obj.parentNode;
@@ -543,6 +548,10 @@ var GEditor = (function() {
 				}
 				if(!dir) {
 					m_objParent.className += " bgrc";
+					var m_EditorFile = m_dirPath;
+					m_EditorFile = m_EditorFile.replace(/\\/gi, "/");
+					m_FileEdit.value = m_EditorFile;
+					GConfig.Instance().setData("EditorFile", m_EditorFile);
 					return;
 				}
 				this.selectFile(m_dirPath);
