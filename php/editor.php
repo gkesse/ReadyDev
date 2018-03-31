@@ -43,7 +43,7 @@
 				$m_dirRelItem = $m_dirRelArr[$i];
 				if($m_dirRelItem == "") continue;
 				$m_dataMenu .= '<div class="pgCr05 dibm"><i class="fa fa-chevron-right"></i></div> ';
-				$m_dataMenu .= '<div class="pgCr05 dibm hvra cspt" onclick="openLink(this);">';
+				$m_dataMenu .= '<div class="pgCr05 dibm hvra cspt FileLink" onclick="openLink(this);">';
 				$m_dataMenu .= $m_dirRelItem.'</div> ';
 			}
 		}

@@ -546,8 +546,16 @@ var GEditor = (function() {
             },
             //===============================================
             openLink: function(obj) {
+				var m_FileLink = document.getElementsByClassName("FileLink");
                 var m_dirName = obj.innerText;
-				this.selectFile(m_dirName);
+				var m_filename = "";
+				for(var i = 0; i < m_FileLink.length; i ++) {
+					var m_linkItem = m_FileLink[i];
+					var m_linkName = m_linkItem.innerText;
+					m_filename += "/" + m_linkName;
+					if(m_linkName == m_dirName) break;
+				}
+				this.selectFile(m_filename);
             }
             //===============================================
         };
