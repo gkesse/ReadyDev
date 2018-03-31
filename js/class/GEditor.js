@@ -14,7 +14,7 @@ var GEditor = (function() {
 				var m_EditorDir = GConfig.Instance().getData("EditorDir");
 				var m_EditorFile = GConfig.Instance().getData("EditorFile");
 				this.openEditorTab(m_obj, "EditorTab1");
-				this.readFile();
+				this.readFile(m_EditorFile);
 				if(!m_EditorDir) m_EditorDir = "";
 				if(!m_EditorFile) m_EditorFile = "";
 				this.selectFile(m_EditorDir);
@@ -410,8 +410,6 @@ var GEditor = (function() {
             },
             //===============================================
             pasteText: function(e) {
-                //var m_res = confirm("Voulez-vous supprimer le style ?");
-                //if(!m_res) return;
                 e.preventDefault();
                 var m_clipboardData = e.clipboardData || window.clipboardData;
                 var m_data = m_clipboardData.getData("text");
@@ -448,9 +446,9 @@ var GEditor = (function() {
 				m_tabId.style.display = "block";
             },
             //===============================================
-            readFile: function() {
+            readFile: function(filename) {
                 var m_EditorEdit = document.getElementById("EditorEdit");
-				var m_filename = "/Tutoriels/Cpp/Apprendre_le_Cpp/page/main.php";
+				if(filename == "") return;
                 var m_xmlhttp = new XMLHttpRequest();
                 m_xmlhttp.onreadystatechange = function() {
                     if(this.readyState == 4 && this.status == 200) {
@@ -461,7 +459,7 @@ var GEditor = (function() {
                 m_xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 m_xmlhttp.send(
 				"req=" + "READ_FILE" +
-				"&file=" + m_filename
+				"&file=" + filename
 				);
             },
             //===============================================
@@ -547,11 +545,14 @@ var GEditor = (function() {
 					m_node.className = m_node.className.replace(" bgrc", "");
 				}
 				if(!dir) {
+					var m_res = confirm("Êtes-vous sûr de vouloir sélectionner ce fichier ?");
+					if(!m_res) return;
 					m_objParent.className += " bgrc";
 					var m_EditorFile = m_dirPath;
 					m_EditorFile = m_EditorFile.replace(/\\/gi, "/");
 					m_FileEdit.innerHTML = m_EditorFile;
 					GConfig.Instance().setData("EditorFile", m_EditorFile);
+					this.readFile(m_EditorFile);
 					return;
 				}
 				this.selectFile(m_dirPath);
