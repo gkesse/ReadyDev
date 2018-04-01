@@ -49,8 +49,8 @@
 				Page
 			</h2>
 			<div class="txal bdbb psra">
-				<div class="pgCr05 dibm clrb psac">Fichier:</div>
-				<div class="ovfa"><div class="pgCr05 dibm clrg pdlg" id="FileEdit"></div></div>
+				<div class="pgCr05 dibm clrb psac"><i class="fa fa-file-text-o"> :</i></div>
+				<div class="ovfa mglb"><div class="pgCr05 dibm clrg" id="FileEdit"></div></div>
 			</div>
 			<div class="txal bdbb" id="EditorMenu"></div>
 			<div class="pgCr10 mnhf ovfa">
