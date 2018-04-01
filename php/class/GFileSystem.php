@@ -56,6 +56,33 @@
 			return $m_dirNameArr;
         }
         //===============================================
+        public function getFile2($dir, $file="") {
+			$m_dir = $_SERVER["DOCUMENT_ROOT"];
+			$m_dir .= $dir;
+			$m_dir = realpath($m_dir);
+			$m_rootLen = strlen($m_dir);
+			$m_dir .= $file;
+			$m_dirLen = strlen($m_dir);
+			if($m_dirLen < $m_rootLen) return array();
+			$this->m_dirRel = "";
+			if($m_dirLen > $m_rootLen) $this->m_dirRel .= substr($m_dir, $m_rootLen);
+			$m_dirPtr = opendir($m_dir);
+			$m_dirNameArr = array();
+			while(1) {
+				$m_dirName = readdir($m_dirPtr);
+				if(!$m_dirName) break;
+				if($m_dirName == ".." && $m_rootLen == $m_dirLen) continue;
+				$m_dirPath = $m_dir."/".$m_dirName;
+				$m_dirCheck = is_dir($m_dirPath);
+				$m_dirIcon = ($m_dirCheck) ? "folder" : "file-o";
+				$m_dirType = ($m_dirCheck) ? 1 : 0;
+				$m_dirNameArr[] = array($m_dirType, $m_dirName, $m_dirIcon);
+			}
+			closedir($m_dirPtr);
+			usort($m_dirNameArr, array("GFilesystem", "SortDirectory"));
+			return $m_dirNameArr;
+        }
+        //===============================================
         public function findData($data, $dataMap) {
             foreach($dataMap as $pattern) {
                 $m_match = preg_match($pattern, $data);
