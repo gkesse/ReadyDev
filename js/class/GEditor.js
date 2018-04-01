@@ -31,7 +31,7 @@ var GEditor = (function() {
             //===============================================
             editImage: function(arg) {
                 var m_command = '';
-                m_command += '<div class="txal ovfa">';
+                m_command += '<div class="ovfa">';
                 m_command += '<img src="';
                 m_command += arg;
                 m_command += '" alt="Image.png" />';
@@ -517,6 +517,8 @@ var GEditor = (function() {
                 var m_EditorFile = document.getElementById("EditorFile");
                 var m_EditorMenu = document.getElementById("EditorMenu");
 				var m_menuHtml = m_EditorMenu.innerHTML;
+				var m_FileEdit = GConfig.Instance().getData("EditorFile");
+				if(!m_FileEdit) m_FileEdit = "";
                 var m_xmlhttp = new XMLHttpRequest();
                 m_xmlhttp.onreadystatechange = function() {
                     if(this.readyState == 4 && this.status == 200) {
@@ -533,7 +535,8 @@ var GEditor = (function() {
                 m_xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 m_xmlhttp.send(
 				"req=" + "GET_FILE" + 
-				"&dir=" + dir
+				"&dir=" + dir +
+				"&file=" + m_FileEdit
 				);
             },
             //===============================================

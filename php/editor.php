@@ -18,13 +18,18 @@
 	//===============================================
 	else if($m_req == "GET_FILE") {
 		$m_dir = $_REQUEST["dir"];
+		$m_file = $_REQUEST["file"];
 		$m_dirNameArr = GFilesystem::Instance()->getFile($m_dir);
 		if(empty($m_dirNameArr)) return;
+		$m_dirRel = GFilesystem::Instance()->getDirRel();
 		$m_dataFile = "";
 		$m_dataFile .= "<div class='brdc mxha ovfa'>";
 		for($i = 0; $i < count($m_dirNameArr); $i++) {
 			$m_dirName = $m_dirNameArr[$i];
-			$m_dataFile .= "<div class='pddd bdba FileList'>";
+			$m_filePath = str_replace("\\", "/", $m_dirRel);
+			$m_filePath .= "/".$m_dirName[1];
+			if($m_filePath == $m_file) {$m_dataFile .= "<div class='pddd bdba FileList bgrc'>";}
+			else {$m_dataFile .= "<div class='pddd bdba FileList'>";}
 			$m_dataFile .= "<i class='fa fa-".$m_dirName[2]."'></i> ";
 			$m_dataFile .= "<div class='hvra cspt dibm'";
 			$m_dataFile .= "onclick='openFile(this, ".$m_dirName[0].");'>";
@@ -33,9 +38,8 @@
 			$m_dataFile .= "</div>";
 		}
 		$m_dataFile .= "</div>";
-		$m_dirRel = GFilesystem::Instance()->getDirRel();
 		$m_dataMenu = '';
-		$m_dataMenu .= '<div class="pgCr05 dibm cspt" onclick="openLink(this);">';
+		$m_dataMenu .= '<div class="pgCr05 dibm cspt FileLink" onclick="openLink(this);">';
 		$m_dataMenu .= '<i class="fa fa-folder"></i></div> ';
 		if($m_dirRel != "") {
 			$m_dirRelArr = explode("\\", $m_dirRel);
