@@ -1,8 +1,8 @@
 <!-- ============================================ -->
 <div class="pgCt10">
-	<div class="brdc">
-		<div class="bgrc txac bdba" id="FileMenu"></div>
-		<div class="bgra txal ovfa" id="FileList"></div>
+	<div class="bgra">
+		<div class="bgra txac" id="FileMenu"></div>
+		<div class="txal ovfa mxha" id="FileList"></div>
 	</div>
 </div>
 <!-- ============================================ -->

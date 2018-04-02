@@ -53,12 +53,12 @@
 		$m_content .= $m_data;
 		$m_content .= '</xmp></pre>';
 		
-		$m_dirRel = $m_filePath;
+		$m_dirRel = GFilesystem::Instance()->getPath($m_rootPath, $m_filePath);
 		$m_dataMenu = '';
 		$m_dataMenu .= '<div class="pgCr05 dibm cspt FileLink" onclick="openLink(this);">';
 		$m_dataMenu .= '<i class="fa fa-folder clrg"></i></div> ';
 		if($m_dirRel != "") {
-			$m_dirRelArr = explode("/", $m_dirRel);
+			$m_dirRelArr = explode("\\", $m_dirRel);
 			for($i = 0; $i < count($m_dirRelArr); $i++) {
 				$m_dirRelItem = $m_dirRelArr[$i];
 				if($m_dirRelItem == "") continue;

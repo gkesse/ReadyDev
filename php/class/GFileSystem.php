@@ -101,6 +101,17 @@
             return $this->m_dirRel;
         }
         //===============================================
+        public function getPath($m_rootPath, $m_filePath) {
+			$m_dir = $_SERVER["DOCUMENT_ROOT"];
+			$m_dir .= "/".$m_rootPath;
+			$m_dir = realpath($m_dir);
+			$m_rootLen = strlen($m_dir);
+			$m_dir .= "/".$m_filePath;
+			$m_dir = realpath($m_dir);
+			$m_dir = substr($m_dir, $m_rootLen);;
+            return $m_dir;
+        }
+        //===============================================
         private static function SortDirectory($dataA, $dataB) {
             $m_sort = false;
             if($dataA[0] < $dataB[0]) $m_sort = !$m_sort; 
