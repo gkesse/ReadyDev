@@ -12,6 +12,9 @@
 			"/^robots.txt$/i","/^README.md$/i","/^google/i","/^css$/i",
 			"/^data$/i","/^email$/i","/^js$/i","/^lib$/i","/^img$/i","/^php$/i"
 			);
+			$this->m_dirFilter2 = array(
+			"/^.$/i","/^.git$/i","/^index.php$/i"
+			);
 			$this->m_fileEdit = array(
 			"/.php$/i", "/.html$/i"
 			);
@@ -56,12 +59,13 @@
 			return $m_dirNameArr;
         }
         //===============================================
-        public function getFile2($dir, $file="") {
+        public function getFile2($root, $dir) {
 			$m_dir = $_SERVER["DOCUMENT_ROOT"];
-			$m_dir .= $dir;
+			$m_dir .= $root;
 			$m_dir = realpath($m_dir);
 			$m_rootLen = strlen($m_dir);
-			$m_dir .= $file;
+			$m_dir .= "/".$dir;
+			$m_dir = realpath($m_dir);
 			$m_dirLen = strlen($m_dir);
 			if($m_dirLen < $m_rootLen) return array();
 			$this->m_dirRel = "";
@@ -71,6 +75,8 @@
 			while(1) {
 				$m_dirName = readdir($m_dirPtr);
 				if(!$m_dirName) break;
+				$m_find = $this->findData($m_dirName, $this->m_dirFilter2);
+				if($m_find) continue;
 				if($m_dirName == ".." && $m_rootLen == $m_dirLen) continue;
 				$m_dirPath = $m_dir."/".$m_dirName;
 				$m_dirCheck = is_dir($m_dirPath);
