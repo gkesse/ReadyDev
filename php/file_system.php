@@ -1,7 +1,9 @@
 <!-- ============================================ -->
 <div class="pgCt10">
-    <div class="bgra txal" id="FileList">
-    </div>
+	<div class="brdc">
+		<div class="bgrc txac bdba" id="FileMenu"></div>
+		<div class="bgra txal ovfa" id="FileList"></div>
+	</div>
 </div>
 <!-- ============================================ -->
 <script src="/js/filesystem.js"></script>

@@ -26,6 +26,15 @@
             return $m_data;
         }
         //===============================================
+        public function getData3($root, $file) {
+            $m_file = $_SERVER["DOCUMENT_ROOT"];
+			$m_file .= "/".$root;
+			$m_file .= "/".$file;
+			$m_file = realpath($m_file);
+            $m_data = file_get_contents($m_file);
+            return $m_data;
+        }
+        //===============================================
         public function saveData($file, $data) {
             if($file[0] != "/") $file = "/".$file;
             $m_file = $_SERVER["DOCUMENT_ROOT"].$file;

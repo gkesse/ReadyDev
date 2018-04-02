@@ -35,7 +35,7 @@
 			$m_dirLen = strlen($m_dir);
 			if($m_dirLen < $m_rootLen) return array();
 			$this->m_dirRel = "";
-			if($m_dirLen > $m_rootLen) $this->m_dirRel .= substr($m_dir, $m_rootLen);
+			if($m_dirLen > $m_rootLen) $this->m_dirRel = substr($m_dir, $m_rootLen);
 			$m_dirPtr = opendir($m_dir);
 			$m_dirNameArr = array();
 			while(1) {
@@ -69,7 +69,7 @@
 			$m_dirLen = strlen($m_dir);
 			if($m_dirLen < $m_rootLen) return array();
 			$this->m_dirRel = "";
-			if($m_dirLen > $m_rootLen) $this->m_dirRel .= substr($m_dir, $m_rootLen);
+			if($m_dirLen > $m_rootLen) $this->m_dirRel = substr($m_dir, $m_rootLen);
 			$m_dirPtr = opendir($m_dir);
 			$m_dirNameArr = array();
 			while(1) {
