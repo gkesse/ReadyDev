@@ -14,7 +14,7 @@
 			$m_dataFile .= "<div class='pddd bdba'>";
 			$m_dataFile .= "<i class='fa fa-".$m_dirName[2]."'></i> ";
 			$m_dataFile .= "<div class='hvra cspt dibm FileItem'";
-			$m_dataFile .= "onclick='openFile(this, ".$m_dirName[0].");'>";
+			$m_dataFile .= "onclick='openFile(this, \"".$m_dirName[3]."\");'>";
 			$m_dataFile .= $m_dirName[1];
 			$m_dataFile .= "</div>";
 			$m_dataFile .= "</div>";
@@ -47,12 +47,20 @@
 	else if($m_req == "GET_CONTENT") {
 		$m_rootPath = $_REQUEST["root"];
 		$m_filePath = $_REQUEST["file"];
-		$m_data = GFile::Instance()->getData3($m_rootPath, $m_filePath);
+		$m_fileType = $_REQUEST["type"];
 		$m_content = '';
-		$m_content .= '<pre><xmp class="prettyprint linenums">';
-		$m_content .= $m_data;
-		$m_content .= '</xmp></pre>';
-		
+		if($m_fileType == "img") {
+			if($m_filePath[0] == "/") $m_data = substr($m_filePath, 1);
+			$m_content .= '<div class="txal ovfa pgCt10">';
+			$m_content .= '<img src="'.$m_data.'" alt="Image.png"/>';
+			$m_content .= '</div>';
+		}
+		else {
+			$m_data = GFile::Instance()->getData3($m_rootPath, $m_filePath);
+			$m_content .= '<pre><xmp class="prettyprint linenums">';
+			$m_content .= $m_data;
+			$m_content .= '</xmp></pre>';
+		}
 		$m_dirRel = GFilesystem::Instance()->getPath($m_rootPath, $m_filePath);
 		$m_dataMenu = '';
 		$m_dataMenu .= '<div class="pgCr05 dibm cspt FileLink" onclick="openLink(this);">';

@@ -5,6 +5,7 @@
 		private $m_dirFilter;
 		private $m_fileEdit;
 		private $m_dirRel;
+        private $m_iconMap = array();
         //===============================================
         private function __construct() {
 			$this->m_dirFilter = array(
@@ -18,6 +19,14 @@
 			$this->m_fileEdit = array(
 			"/.php$/i", "/.html$/i"
 			);
+            $this->m_iconMap = array(
+            "dir" => array("folder"),
+            "file" => array("file-o"),
+            "img" => array("file-image-o", "png", "bmp", "jpeg", "jpg", "gif", "tiff"),
+            "txt" => array("file-text-o"),
+            "bin" => array("tasks", "exe", "dll", "lib", "so", "a", "jar"),
+            "bat" => array("cogs", "bat", "sh")
+            );
         }
         //===============================================
         public static function Instance() {
@@ -79,10 +88,11 @@
 				if($m_find) continue;
 				if($m_dirName == ".." && $m_rootLen == $m_dirLen) continue;
 				$m_dirPath = $m_dir."/".$m_dirName;
-				$m_dirCheck = is_dir($m_dirPath);
-				$m_dirIcon = ($m_dirCheck) ? "folder" : "file-o";
-				$m_dirType = ($m_dirCheck) ? 1 : 0;
-				$m_dirNameArr[] = array($m_dirType, $m_dirName, $m_dirIcon);
+				$m_dirPath = realpath($m_dirPath);
+				$m_dirCheck = is_dir($m_dirPath) ? 1: 0;
+				$m_dirType = $this->getIcon($m_dirPath);
+				$m_dirIcon = $this->m_iconMap[$m_dirType][0];
+				$m_dirNameArr[] = array($m_dirCheck, $m_dirName, $m_dirIcon, $m_dirType);
 			}
 			closedir($m_dirPtr);
 			usort($m_dirNameArr, array("GFilesystem", "SortDirectory"));
@@ -110,6 +120,18 @@
 			$m_dir = realpath($m_dir);
 			$m_dir = substr($m_dir, $m_rootLen);;
             return $m_dir;
+        }
+        //===============================================
+        public function getIcon($filename) {
+            $m_ext = pathinfo($filename, PATHINFO_EXTENSION);
+            $m_ext = strtolower($m_ext);
+            $m_icon = "file";
+            if(is_dir($filename)) {$m_icon = "dir";}
+            else if(in_array($m_ext, $this->m_iconMap["img"])) {$m_icon = "img";}
+            else if(in_array($m_ext, $this->m_iconMap["bin"])) {$m_icon = "bin";}
+            else if(in_array($m_ext, $this->m_iconMap["bat"])) {$m_icon = "bat";}
+            else if($m_ext != "") {$m_icon = "txt";}
+            return $m_icon;
         }
         //===============================================
         private static function SortDirectory($dataA, $dataB) {

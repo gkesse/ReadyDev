@@ -39,19 +39,17 @@ var GFilesystem = (function() {
 				);
             },
             //===============================================
-            openFile: function(obj, dir) {
-				//var m_FileItem = document.getElementsByClassName("FileItem");
-				//var m_FileEdit = document.getElementById("FileEdit");
+            openFile: function(obj, type) {
                 var m_dirName = obj.innerHTML;
 				var m_dirPath = m_dirCur + "/" + m_dirName;
-				if(!dir) {
-					this.openContent(m_dirPath);
+				if(type != "dir") {
+					this.openContent(m_dirPath, type);
 					return;
 				}
 				this.selectFile(m_dirPath);
             },
             //===============================================
-            openContent: function(file) {
+            openContent: function(file, type) {
 				var m_FileMenu = document.getElementById("FileMenu");
 				var m_FileList = document.getElementById("FileList");
                 var m_xmlhttp = new XMLHttpRequest();
@@ -68,7 +66,8 @@ var GFilesystem = (function() {
                 m_xmlhttp.send(
 				"req=" + "GET_CONTENT" +
 				"&root=" + m_dirRoot +
-				"&file=" + file
+				"&file=" + file +
+				"&type=" + type
 				);
             },
             //===============================================
