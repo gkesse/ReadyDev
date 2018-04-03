@@ -38,7 +38,6 @@
         //===============================================
         public function getFile($dir) {
 			$m_dir = $_SERVER["DOCUMENT_ROOT"];
-			$m_dir .= "/";
 			$m_rootLen = strlen($m_dir);
 			$m_dir .= $dir;
 			$m_dir = realpath($m_dir);
@@ -66,7 +65,7 @@
         //===============================================
         public function getFile2($root, $dir) {
 			$m_dir = $_SERVER["DOCUMENT_ROOT"];
-			$m_dir .= $root;
+			$m_dir .= "/".$root;
 			$m_dir = realpath($m_dir);
 			$m_rootLen = strlen($m_dir);
 			$m_dir .= "/".$dir;

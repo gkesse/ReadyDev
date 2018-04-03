@@ -50,7 +50,7 @@
 			</h2>
 			<div class="txal bdbb psra">
 				<div class="pgCr05 dibm psac"><i class="clrb fa fa-file-text-o"> :</i></div>
-				<div class="ovfa mglb"><div class="pgCr05 dibm clrg" id="FileEdit"></div></div>
+				<div class="ovfa mglb pgCr05"><div class="dibm clrb" id="FileEdit"></div></div>
 			</div>
 			<div class="txal bdbb ovfa" id="EditorMenu"></div>
 			<div class="pgCr10 mnhf ovfa">
@@ -97,8 +97,8 @@
 	</div>
 </div>
 <!-- ============================================ -->
+<script src="/js/class/GConfig.js"></script>
 <script src="/js/editor.js"></script>
 <script src="/js/class/GEditor.js"></script>
-<script src="/js/class/GConfig.js"></script>
 <!-- ============================================ -->
 

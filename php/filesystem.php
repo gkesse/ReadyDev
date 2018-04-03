@@ -50,10 +50,10 @@
 		$m_fileType = $_REQUEST["type"];
 		$m_content = '';
 		if($m_fileType == "img") {
-			$m_filePath = GFilesystem::Instance()->getPath2($m_rootPath, $m_filePath);
-			if($m_filePath[0] == "/") $m_filePath = substr($m_filePath, 1);
+			$m_fileName = GFilesystem::Instance()->getPath2($m_rootPath, $m_filePath);
+			if($m_fileName[0] == "/") $m_fileName = substr($m_fileName, 1);
 			$m_content .= '<div class="txal ovfa pgCt10">';
-			$m_content .= '<img src="'.$m_filePath.'" alt="Image.png"/>';
+			$m_content .= '<img src="'.$m_fileName.'" alt="Image.png"/>';
 			$m_content .= '</div>';
 		}
 		else {
@@ -62,19 +62,19 @@
 			$m_content .= $m_data;
 			$m_content .= '</xmp></pre>';
 		}
-		$m_dirRel = GFilesystem::Instance()->getPath2($m_rootPath, $m_filePath);
+		$m_fileName = GFilesystem::Instance()->getPath2($m_rootPath, $m_filePath);
 		$m_dataMenu = '';
 		$m_dataMenu .= '<div class="pgCr05 dibm cspt FileLink" onclick="openLink(this);">';
 		$m_dataMenu .= '<i class="fa fa-folder clrg"></i></div> ';
-		if($m_dirRel != "") {
-			$m_dirRelArr = explode("/", $m_dirRel);
-			for($i = 0; $i < count($m_dirRelArr); $i++) {
-				$m_dirRelItem = $m_dirRelArr[$i];
-				if($m_dirRelItem == "") continue;
+		if($m_fileName != "") {
+			$m_fileNameArr = explode("/", $m_fileName);
+			for($i = 0; $i < count($m_fileNameArr); $i++) {
+				$m_fileNameItem = $m_fileNameArr[$i];
+				if($m_fileNameItem == "") continue;
 				$m_dataMenu .= '<div class="pgCr05 dibm">';
 				$m_dataMenu .= '<i class="fa fa-chevron-right clrg"></i></div> ';
 				$m_dataMenu .= '<div class="pgCr05 dibm hvra cspt clrg FileLink" onclick="openLink(this);">';
-				$m_dataMenu .= $m_dirRelItem.'</div> ';
+				$m_dataMenu .= $m_fileNameItem.'</div> ';
 			}
 		}
 		$m_dataArr = array();
