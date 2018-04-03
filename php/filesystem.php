@@ -21,25 +21,25 @@
 		}
 		$m_dataFile .= "</div>";
 		
-		$m_dirRel = GFilesystem::Instance()->getDirRel();
+		$m_filePath = GFilesystem::Instance()->getPath2($m_rootPath, $m_dirPath);
 		$m_dataMenu = '';
 		$m_dataMenu .= '<div class="pgCr05 dibm cspt FileLink" onclick="openLink(this);">';
 		$m_dataMenu .= '<i class="fa fa-folder clrg"></i></div> ';
-		if($m_dirRel != "") {
-			$m_dirRelArr = explode("\\", $m_dirRel);
-			for($i = 0; $i < count($m_dirRelArr); $i++) {
-				$m_dirRelItem = $m_dirRelArr[$i];
-				if($m_dirRelItem == "") continue;
+		if($m_filePath != "") {
+			$m_filePathArr = explode("/", $m_filePath);
+			for($i = 0; $i < count($m_filePathArr); $i++) {
+				$m_filePathItem = $m_filePathArr[$i];
+				if($m_filePathItem == "") continue;
 				$m_dataMenu .= '<div class="pgCr05 dibm">';
 				$m_dataMenu .= '<i class="fa fa-chevron-right clrg"></i></div> ';
 				$m_dataMenu .= '<div class="pgCr05 dibm hvra cspt clrg FileLink" onclick="openLink(this);">';
-				$m_dataMenu .= $m_dirRelItem.'</div> ';
+				$m_dataMenu .= $m_filePathItem.'</div> ';
 			}
 		}
 		$m_dataArr = array();
 		$m_dataArr["menu"] = $m_dataMenu;
 		$m_dataArr["file"] = $m_dataFile;
-		$m_dataArr["dir"] = $m_dirRel;
+		$m_dataArr["dir"] = $m_filePath;
 		$m_dataJson = json_encode($m_dataArr);
 		print_r($m_dataJson);		
 	}
@@ -50,9 +50,10 @@
 		$m_fileType = $_REQUEST["type"];
 		$m_content = '';
 		if($m_fileType == "img") {
-			if($m_filePath[0] == "/") $m_data = substr($m_filePath, 1);
+			$m_filePath = GFilesystem::Instance()->getPath2($m_rootPath, $m_filePath);
+			if($m_filePath[0] == "/") $m_filePath = substr($m_filePath, 1);
 			$m_content .= '<div class="txal ovfa pgCt10">';
-			$m_content .= '<img src="'.$m_data.'" alt="Image.png"/>';
+			$m_content .= '<img src="'.$m_filePath.'" alt="Image.png"/>';
 			$m_content .= '</div>';
 		}
 		else {
@@ -61,12 +62,12 @@
 			$m_content .= $m_data;
 			$m_content .= '</xmp></pre>';
 		}
-		$m_dirRel = GFilesystem::Instance()->getPath($m_rootPath, $m_filePath);
+		$m_dirRel = GFilesystem::Instance()->getPath2($m_rootPath, $m_filePath);
 		$m_dataMenu = '';
 		$m_dataMenu .= '<div class="pgCr05 dibm cspt FileLink" onclick="openLink(this);">';
 		$m_dataMenu .= '<i class="fa fa-folder clrg"></i></div> ';
 		if($m_dirRel != "") {
-			$m_dirRelArr = explode("\\", $m_dirRel);
+			$m_dirRelArr = explode("/", $m_dirRel);
 			for($i = 0; $i < count($m_dirRelArr); $i++) {
 				$m_dirRelItem = $m_dirRelArr[$i];
 				if($m_dirRelItem == "") continue;

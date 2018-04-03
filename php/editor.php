@@ -26,7 +26,8 @@
 		$m_dataFile .= "<div class='brdc mxha ovfa'>";
 		for($i = 0; $i < count($m_dirNameArr); $i++) {
 			$m_dirName = $m_dirNameArr[$i];
-			$m_filePath = str_replace("\\", "/", $m_dirRel);
+			$m_filePath = $m_dirRel;
+			//$m_filePath = str_replace("\\", "/", $m_dirRel);
 			$m_filePath .= "/".$m_dirName[1];
 			if($m_filePath == $m_file) {$m_dataFile .= "<div class='pddd bdba FileList bgrc'>";}
 			else {$m_dataFile .= "<div class='pddd bdba FileList'>";}
@@ -42,7 +43,7 @@
 		$m_dataMenu .= '<div class="pgCr05 dibm cspt FileLink" onclick="openLink(this);">';
 		$m_dataMenu .= '<i class="fa fa-folder"></i></div> ';
 		if($m_dirRel != "") {
-			$m_dirRelArr = explode("\\", $m_dirRel);
+			$m_dirRelArr = explode("/", $m_dirRel);
 			for($i = 0; $i < count($m_dirRelArr); $i++) {
 				$m_dirRelItem = $m_dirRelArr[$i];
 				if($m_dirRelItem == "") continue;

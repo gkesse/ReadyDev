@@ -3,8 +3,8 @@
         //===============================================
         private static $m_instance = null;
 		private $m_dirFilter;
-		private $m_fileEdit;
-		private $m_dirRel;
+		private $m_dirFilter2;
+		private $m_dirFilter3;
         private $m_iconMap = array();
         //===============================================
         private function __construct() {
@@ -16,7 +16,7 @@
 			$this->m_dirFilter2 = array(
 			"/^.$/i","/^.git$/i","/^index.php$/i"
 			);
-			$this->m_fileEdit = array(
+			$this->m_dirFilter3 = array(
 			"/.php$/i", "/.html$/i"
 			);
             $this->m_iconMap = array(
@@ -38,13 +38,12 @@
         //===============================================
         public function getFile($dir) {
 			$m_dir = $_SERVER["DOCUMENT_ROOT"];
+			$m_dir .= "/";
 			$m_rootLen = strlen($m_dir);
-			$m_dir .= "/".$dir;
+			$m_dir .= $dir;
 			$m_dir = realpath($m_dir);
 			$m_dirLen = strlen($m_dir);
 			if($m_dirLen < $m_rootLen) return array();
-			$this->m_dirRel = "";
-			if($m_dirLen > $m_rootLen) $this->m_dirRel = substr($m_dir, $m_rootLen);
 			$m_dirPtr = opendir($m_dir);
 			$m_dirNameArr = array();
 			while(1) {
@@ -54,14 +53,11 @@
 				if($m_find) continue;
 				if($m_dirName == ".." && $m_rootLen == $m_dirLen) continue;
 				$m_dirPath = $m_dir."/".$m_dirName;
-				$m_dirCheck = is_dir($m_dirPath);
-				$m_dirIcon = ($m_dirCheck) ? "folder" : "file-o";
-				$m_dirType = ($m_dirCheck) ? 1 : 0;
-				if(!$m_dirType) {
-					$m_find = $this->findData($m_dirName, $this->m_fileEdit);
-					if(!$m_find) continue;
-				}
-				$m_dirNameArr[] = array($m_dirType, $m_dirName, $m_dirIcon);
+				$m_dirPath = realpath($m_dirPath);
+				$m_dirCheck = is_dir($m_dirPath) ? 1: 0;
+				$m_dirType = $this->getIcon($m_dirPath);
+				$m_dirIcon = $this->m_iconMap[$m_dirType][0];
+				$m_dirNameArr[] = array($m_dirCheck, $m_dirName, $m_dirIcon, $m_dirType);
 			}
 			closedir($m_dirPtr);
 			usort($m_dirNameArr, array("GFilesystem", "SortDirectory"));
@@ -77,8 +73,6 @@
 			$m_dir = realpath($m_dir);
 			$m_dirLen = strlen($m_dir);
 			if($m_dirLen < $m_rootLen) return array();
-			$this->m_dirRel = "";
-			if($m_dirLen > $m_rootLen) $this->m_dirRel = substr($m_dir, $m_rootLen);
 			$m_dirPtr = opendir($m_dir);
 			$m_dirNameArr = array();
 			while(1) {
@@ -107,18 +101,29 @@
             return false;
         }
         //===============================================
-        public function getDirRel() {
-            return $this->m_dirRel;
+        public function getPath($dir) {
+			$m_dir = $_SERVER["DOCUMENT_ROOT"];
+			$m_rootLen = strlen($m_dir);
+			$m_dir .= "/".$dir;
+			$m_dir = realpath($m_dir);
+			$m_dirLen = strlen($m_dir);
+			if($m_dirLen <= $m_rootLen) return "";
+			$m_dir = substr($m_dir, $m_rootLen);
+			$m_dir = str_replace("\\", "/", $m_dir);
+            return $m_dir;
         }
         //===============================================
-        public function getPath($m_rootPath, $m_filePath) {
+        public function getPath2($rootPath, $filePath) {
 			$m_dir = $_SERVER["DOCUMENT_ROOT"];
-			$m_dir .= "/".$m_rootPath;
+			$m_dir .= "/".$rootPath;
 			$m_dir = realpath($m_dir);
 			$m_rootLen = strlen($m_dir);
-			$m_dir .= "/".$m_filePath;
+			$m_dir .= "/".$filePath;
 			$m_dir = realpath($m_dir);
-			$m_dir = substr($m_dir, $m_rootLen);;
+			$m_dirLen = strlen($m_dir);
+			if($m_dirLen <= $m_rootLen) return "";
+			$m_dir = substr($m_dir, $m_rootLen);
+			$m_dir = str_replace("\\", "/", $m_dir);
             return $m_dir;
         }
         //===============================================

@@ -155,13 +155,11 @@
             $m_ext = pathinfo($filename, PATHINFO_EXTENSION);
             $m_ext = strtolower($m_ext);
             $m_icon = "file";
-            
             if(is_dir($filename)) {$m_icon = "dir";}
             else if(in_array($m_ext, $this->m_iconMap["img"])) {$m_icon = "img";}
             else if(in_array($m_ext, $this->m_iconMap["bin"])) {$m_icon = "bin";}
             else if(in_array($m_ext, $this->m_iconMap["bat"])) {$m_icon = "bat";}
             else if($m_ext != "") {$m_icon = "txt";}
-            
             return $this->m_iconMap[$m_icon][0];
         }
         //===============================================
