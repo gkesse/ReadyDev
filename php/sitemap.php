@@ -15,7 +15,7 @@
 	else if($m_req == "LIST") {
 		$m_infos = GSitemap::Instance()->getInfos();
 		$m_data = array_column($m_infos["url_list"], "link");
-		sort($m_data);
+		//sort($m_data);
 		$m_dataVal = "";
 		$m_dataVal .= "<ol class='pdlc'>";
 		for($i = 0; $i < count($m_data); $i++) {

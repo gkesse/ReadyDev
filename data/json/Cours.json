@@ -19,14 +19,14 @@
     ],
     "maths":
     [
-        {"name":"Barycentres","link":"/Cours/Mathematiques/Barycentres/"},
-        {"name":"Fonctions","link":"/Cours/Mathematiques/Fonctions/"},
+        {"name":"Barycentres","link":"/Cours/Mathematiques/Barycentres/","follow":"yes"},
+        {"name":"Fonctions","link":"/Cours/Mathematiques/Fonctions/","follow":"yes"},
         {"name":"Vecteurs","link":"#"},
         {"name":"Produit Scalaire","link":"#"}
     ],
     "physics":
     [
-        {"name":"Interférences","link":"/Cours/Physique/Interferences/"},
+        {"name":"Interférences","link":"/Cours/Physique/Interferences/","follow":"yes"},
         {"name":"Effet Doppler","link":"#"},
         {"name":"Mouvements Rectilignes Uniformes","link":"#"},
         {"name":"Mouvements Rectilignes Uniformément Variés","link":"#"},
@@ -34,12 +34,12 @@
     ],
     "chemistry":
     [
-        {"name":"Acides et Bases","link":"/Cours/Chimie/Acides_Bases/"},
-        {"name":"Formules Topologiques","link":"/Cours/Chimie/Formules_Topologiques/"},
-        {"name":"Groupes Caractéristiques","link":"/Cours/Chimie/Groupes_Caracteristiques/"},
-        {"name":"Le pH","link":"/Cours/Chimie/PH/"},
-        {"name":"Autoprotolyse et Produit Ionique de l’Eau","link":"/Cours/Chimie/Autoprotolyse_Produit_Ionique_Eau/"},
-        {"name":"Réaction Chimique","link":"/Cours/Chimie/Reaction_Chimique/"}
+        {"name":"Acides et Bases","link":"/Cours/Chimie/Acides_Bases/","follow":"yes"},
+        {"name":"Formules Topologiques","link":"/Cours/Chimie/Formules_Topologiques/","follow":"yes"},
+        {"name":"Groupes Caractéristiques","link":"/Cours/Chimie/Groupes_Caracteristiques/","follow":"yes"},
+        {"name":"Le pH","link":"/Cours/Chimie/PH/","follow":"yes"},
+        {"name":"Autoprotolyse et Produit Ionique de l’Eau","link":"/Cours/Chimie/Autoprotolyse_Produit_Ionique_Eau/","follow":"yes"},
+        {"name":"Réaction Chimique","link":"/Cours/Chimie/Reaction_Chimique/","follow":"yes"}
     ]
 }
                         

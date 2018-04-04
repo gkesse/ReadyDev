@@ -1,16 +1,16 @@
 {
-    "sitemap":"yes",
+	"sitemap":"yes",
     "site":
     {
         "name":"ReadyDev"
     },  
     "menu":
     [
-        {"name":"CV","link":"/CV/"},
-        {"name":"Présentation","link":"/Presentation/"},
-        {"name":"Tutoriels","link":"/Tutoriels/","prio":"1.0","freq":"daily"},
-        {"name":"Cours","link":"/Cours/","prio":"1.0","freq":"daily"},
-        {"name":"Contacts","link":"/Contacts/"},
+        {"name":"CV","link":"/CV/","follow":"yes"},
+        {"name":"Présentation","link":"/Presentation/","follow":"yes"},
+        {"name":"Tutoriels","link":"/Tutoriels/","prio":"1.0","freq":"daily","follow":"yes"},
+        {"name":"Cours","link":"/Cours/","prio":"1.0","freq":"daily","follow":"yes"},
+        {"name":"Contacts","link":"/Contacts/","follow":"yes"},
         {"name":"Admin","link":"/Admin/"},
         {"name":"Connexion","link":"/Connexion/"}
     ]

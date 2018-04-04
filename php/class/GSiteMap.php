@@ -87,6 +87,33 @@
                     }
                 }
             }
+			$m_urlCol = array();
+			foreach ($this->m_urlMap as $key => $row) {
+				$m_urlCol[$key]  = $row['link'];
+			}
+			array_multisort($m_urlCol, SORT_ASC, $this->m_urlMap);
+        }
+        //===============================================
+        public function getUrls2() {
+            $m_root = "/data/json/";
+            $m_path = GGlobal::Instance()->getPath($m_root);
+            $m_handle = opendir($m_path);
+            if($m_handle == true) { 
+                while(1) {
+                    $m_doc = readdir($m_handle);
+                    if($m_doc == false) break;
+                    if($m_doc == "." || $m_doc == "..") continue;
+                    $m_ext = pathinfo($m_doc, PATHINFO_EXTENSION);
+                    if($m_ext != "json") continue; 
+                    $m_path = $m_root.$m_doc;
+                    $m_data = GJson::Instance()->getData($m_path);
+                    if(isset($m_data["sitemap"])) {
+                        if($m_data["sitemap"] == "yes") {
+                            $this->getData($m_data);
+                        }
+                    }
+                }
+            }
         }
         //===============================================
         public function getData($data) {
@@ -96,7 +123,37 @@
                         $this->getData($value);
                     }
                     else {
-                        if($key == "link" && !is_numeric($key)) {
+                        if(!is_numeric($key) && $key == "follow") {
+                            if($value == "yes") {
+								$m_search = GGlobal::Instance()->searchData($this->m_urlMap, "link", $data["link"]);
+								if(empty($m_search)) {
+									$m_isCompiler = preg_match("#.*/NMake/.*#", $value);
+									if($m_isCompiler == true) {
+										foreach($this->m_compiler as $m_item) {
+											$m_result = str_replace("/NMake/", $m_item, $value);
+											$data["link"] = $m_result;
+											$this->m_urlMap[] = $data;
+										}
+									}
+									else {
+										$this->m_urlMap[] = $data;
+									}
+								}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        //===============================================
+        public function getData2($data) {
+            if(is_array($data)) {
+                foreach($data as $key => $value) {
+                    if(is_array($value)) {
+                        $this->getData($value);
+                    }
+                    else {
+                        if(!is_numeric($key) && $key == "link") {
                             if($value != "") {
                                 if($value[0] != "#") {
                                     $m_search = GGlobal::Instance()->search($this->m_urlMap, "link", $value);
