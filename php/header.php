@@ -93,7 +93,7 @@
         <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css"/>
         <!-- ============================================ -->
 		<?php if($m_codePrettify) { ?>
-        <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=css&amp;skin=sunburst"></script>
+        <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=css&amp;skin=sunburst" async></script>
         <?php } ?>
 		<script src="/lib/jquery/jquery.min.js"></script>
         <!-- ============================================ -->

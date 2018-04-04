@@ -50,6 +50,7 @@ var GFilesystem = (function() {
             },
             //===============================================
             openContent: function(file, type) {
+				if(type == "bin") return;
 				var m_FileMenu = document.getElementById("FileMenu");
 				var m_FileList = document.getElementById("FileList");
                 var m_xmlhttp = new XMLHttpRequest();
@@ -59,6 +60,9 @@ var GFilesystem = (function() {
 						var m_dataArr = JSON.parse(m_data);
 						m_FileMenu.innerHTML = m_dataArr["menu"];
 						m_FileList.innerHTML = m_dataArr["content"];
+						if(type == "file" || type == "txt") {
+							PR.prettyPrint();
+						}
                     }
                 }
                 m_xmlhttp.open("POST", "/php/filesystem.php", true);

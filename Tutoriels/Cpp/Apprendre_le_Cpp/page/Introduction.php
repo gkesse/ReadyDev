@@ -7,8 +7,8 @@
 			</a>
 		</h1>
 		<div class="txal pgCt10">
-			<?php $m_ds = $m_data["intro"]; ?>
-			<div class=""><?php echo join(" ", $m_ds) ?></div>
+			<!--?php $m_ds = $m_data["intro"]; ?-->
+			<div class=""><!--?php echo join(" ", $m_ds) ?--></div>
 		</div>
 	</div>
 </div>
