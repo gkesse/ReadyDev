@@ -129,11 +129,11 @@
 			<div class="pgCt10 bgrc">
 				<div class="pgCr05 SitemapFileTabCtn" id="SitemapFileTab0">
 					<h3 class="clrg">sitemaps.xml:</h3>
-					<div class="hghd" id="VisualizeUrl"></div> 
+					<div class="hghd" id="VisualizeSite"></div> 
 				</div>
 				<div class="pgCr05 SitemapFileTabCtn" id="SitemapFileTab1">
 					<h3 class="clrg">sitemap.xml:</h3>
-					<div class="hghd" id="VisualizeUrlId"></div> 
+					<div class="hghd" id="VisualizeUrl"></div> 
 				</div>
 			</div>
 		</div>
@@ -141,8 +141,8 @@
 	</div>
 </div>
 <!-- ============================================ -->
-<script src="/js/sitemap.js"></script>
 <script src="/js/class/GSitemap.js"></script>
+<script src="/js/sitemap.js"></script>
 <!-- ============================================ -->
 
 

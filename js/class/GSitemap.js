@@ -120,15 +120,16 @@ var GSitemap = (function() {
             },
             //===============================================
             visualizeUrl: function() {
+				var m_VisualizeSite = document.getElementById("VisualizeSite");
 				var m_VisualizeUrl = document.getElementById("VisualizeUrl");
-				var m_VisualizeUrlId = document.getElementById("VisualizeUrlId");
 				var m_xmlhttp = new XMLHttpRequest();
                 m_xmlhttp.onreadystatechange = function() {
                     if(this.readyState == 4 && this.status == 200) {
 						var m_data = this.responseText;
 						var m_dataArr = JSON.parse(m_data);
-						m_VisualizeUrl.innerHTML = m_dataArr["sitemaps"];
-						m_VisualizeUrlId.innerHTML = m_dataArr["sitemap"];
+						m_VisualizeSite.innerHTML = m_dataArr["sitemaps"];
+						m_VisualizeUrl.innerHTML = m_dataArr["sitemap"];
+						PR.prettyPrint();
                     }
                 }
                 m_xmlhttp.open("POST", "/php/sitemap.php", true);
@@ -139,10 +140,10 @@ var GSitemap = (function() {
             },
             //===============================================
             visualizeClear: function() {
+				var m_VisualizeSite = document.getElementById("VisualizeSite");
 				var m_VisualizeUrl = document.getElementById("VisualizeUrl");
-				var m_VisualizeUrlId = document.getElementById("VisualizeUrlId");
+				m_VisualizeSite.innerHTML = "";
 				m_VisualizeUrl.innerHTML = "";
-				m_VisualizeUrlId.innerHTML = "";
             }
             //===============================================
         };

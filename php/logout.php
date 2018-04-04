@@ -1,6 +1,6 @@
 <!-- ============================================ -->
-<div class="mdla" id="LogoutId">
-    <div class="mdca ModalAnimShow" id="ModalCtnId">
+<div class="mdla" id="Logout">
+    <div class="mdca ModalAnimShow" id="LogoutCtn">
         <!-- ============================================ -->
         <div class="psra">
             <h1 class="bgra clrb pgCt20">Déconnexion</h1>

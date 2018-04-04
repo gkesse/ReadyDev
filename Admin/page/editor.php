@@ -98,7 +98,7 @@
 </div>
 <!-- ============================================ -->
 <script src="/js/class/GConfig.js"></script>
-<script src="/js/editor.js"></script>
 <script src="/js/class/GEditor.js"></script>
+<script src="/js/editor.js"></script>
 <!-- ============================================ -->
 

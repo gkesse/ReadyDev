@@ -93,7 +93,7 @@
         <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css"/>
         <!-- ============================================ -->
 		<?php if($m_codePrettify) { ?>
-        <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=css&amp;skin=sunburst" async></script>
+        <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=css&amp;skin=sunburst"></script>
         <?php } ?>
 		<script src="/lib/jquery/jquery.min.js"></script>
         <!-- ============================================ -->
@@ -109,14 +109,14 @@
         <!-- ============================================ -->
         <link rel="stylesheet" href="/css/style.css"/>
 		<!-- ============================================ -->
-		<script src="/js/header.js"></script>
 		<script src="/js/class/GHeader.js"></script>
+		<script src="/js/header.js"></script>
         <!-- ============================================ -->
     </head>
     <body>
         <header>
             <!-- ============================================ -->
-            <ul class="hdmn" id="HeaderMenuId">
+            <ul class="hdmn" id="HeaderMenu">
                 <li class="dibm">
                     <a class="hdmt" href="/">
                         <?php echo $m_ds["name"]; ?>

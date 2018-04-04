@@ -2,7 +2,6 @@
 var GEditor = (function() {
     //===============================================
     var m_instance;
-	var m_dirCur;
     //===============================================
     var Container = function() {
         return {
@@ -527,8 +526,8 @@ var GEditor = (function() {
 						if(!m_data) return;
 						m_EditorFile.innerHTML = m_dataArr["file"];
 						m_EditorMenu.innerHTML = m_dataArr["menu"];
-						m_dirCur = m_dataArr["dir"];
-						GConfig.Instance().setData("EditorDir", m_dirCur);
+						var m_EditorDir = m_dataArr["dir"];
+						GConfig.Instance().setData("EditorDir", m_EditorDir);
                     }
                 }
                 m_xmlhttp.open("POST", "/php/editor.php", true);
@@ -544,7 +543,8 @@ var GEditor = (function() {
 				var m_FileList = document.getElementsByClassName("FileList");
 				var m_FileEdit = document.getElementById("FileEdit");
                 var m_dirName = obj.innerHTML;
-				var m_dirPath = m_dirCur + "/" + m_dirName;
+				var m_EditorDir = GConfig.Instance().getData("EditorDir");
+				var m_dirPath = m_EditorDir + "/" + m_dirName;
 				var m_objParent = obj.parentNode;
 				for(var i = 0; i < m_FileList.length; i++) {
 					var m_node = m_FileList[i];

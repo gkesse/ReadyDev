@@ -6,6 +6,6 @@
 	</div>
 </div>
 <!-- ============================================ -->
-<script src="/js/filesystem.js"></script>
 <script src="/js/class/GFilesystem.js"></script>
+<script src="/js/filesystem.js"></script>
 <!-- ============================================ -->
