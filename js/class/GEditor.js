@@ -33,7 +33,7 @@ var GEditor = (function() {
                 m_command += '<div class="ovfa">';
                 m_command += '<img src="';
                 m_command += arg;
-                m_command += '" alt="Image.png" />';
+                m_command += '" alt="'+arg+'" />';
                 m_command += '</div>';
                 document.execCommand("insertHTML", false, m_command);
             },
