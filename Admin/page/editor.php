@@ -79,7 +79,8 @@
 			</div>
 		</div>
 		<!-- ============================================ -->
-		<div class="pgCt10 txal EditorTabCtn" id="EditorTab4">
+		<div class="pgCt10 txal EditorTabCtn" id="EditorTab4"
+			onkeypress="saveFileTextKey(event);">
 			<h2 class="pdbb clra bdbb">
 				HTML
 			</h2>

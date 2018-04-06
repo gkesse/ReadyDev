@@ -12,11 +12,14 @@ function getCommand(name, arg){
 	}
 	//===============================================
 	switch(name){
-	case "code":
-		GEditor.Instance().editCode();
+	case "createLink":
+		GEditor.Instance().editLink(arg);
 		break;
 	case "insertImage":
 		GEditor.Instance().editImage(arg);
+		break;
+	case "code":
+		GEditor.Instance().editReadyStyle("Code1");
 		break;
 	case "readystyle":
 		GEditor.Instance().editReadyStyle(arg);
@@ -49,6 +52,10 @@ function saveFileText() {
 //===============================================
 function saveFileKey(e) {
 	GEditor.Instance().saveFileKey(e);
+}
+//===============================================
+function saveFileTextKey(e) {
+	GEditor.Instance().saveFileTextKey(e);
 }
 //===============================================
 function pasteText(e) {

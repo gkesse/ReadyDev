@@ -9,10 +9,10 @@ var GEditor = (function() {
             init: function() {
                 var m_tabCtn = document.getElementsByClassName("EditorTab");
 				var m_FileEdit = document.getElementById("FileEdit");
-				var m_obj = m_tabCtn[1];
+				var m_obj = m_tabCtn[2];
 				var m_EditorDir = GConfig.Instance().getData("EditorDir");
 				var m_EditorFile = GConfig.Instance().getData("EditorFile");
-				this.openEditorTab(m_obj, "EditorTab1");
+				this.openEditorTab(m_obj, "EditorTab2");
 				this.readFile();
 				if(!m_EditorDir) m_EditorDir = "";
 				if(!m_EditorFile) m_EditorFile = "";
@@ -20,12 +20,16 @@ var GEditor = (function() {
 				m_FileEdit.innerHTML = m_EditorFile;
 			},
             //===============================================
-            editCode: function() {
-                var m_selection = '';
-                m_selection += '<pre><xmp class="ovfa prettyprint linenums">';
-                m_selection += document.getSelection();
-                m_selection += '</xmp></pre>';
-                document.execCommand("insertHTML",false,m_selection);
+            editLink: function(arg) {
+				if(arg == "") return;
+				var m_selection = document.getSelection();
+				if(m_selection == "") return;
+                var m_command = '';
+                m_command += '<a class="hvra" ';
+                m_command += 'href="'+arg+'">';
+                m_command += m_selection;
+                m_command += '</a>';
+                document.execCommand("insertHTML", false, m_command);
             },
             //===============================================
             editImage: function(arg) {
@@ -168,7 +172,7 @@ var GEditor = (function() {
                         var m_title = m_child.firstChild.firstChild.innerText;
                         m_command += '<div class="pdlb">';
                         m_command += '<span class="fa fa-book clrg pdra"></span>';
-                        m_command += '<a class="clrg" href="#'+m_title+'">';
+                        m_command += '<a class="hvra clrg" href="#'+m_title+'">';
                         m_command += m_title;
                         m_command += '</a>';
                         m_command += '</div>';
@@ -210,7 +214,7 @@ var GEditor = (function() {
                         var m_title = m_child.firstChild.innerText
                         m_command += '<div class="pdlb">';
                         m_command += '<span class="fa fa-book clrg pdra"></span>';
-                        m_command += '<a class="clrg" href="#'+m_title+'">';
+                        m_command += '<a class="hvra clrg" href="#'+m_title+'">';
                         m_command += m_title;
                         m_command += '</a>';
                         m_command += '</div>';
@@ -483,13 +487,6 @@ var GEditor = (function() {
 				);
             },
             //===============================================
-            saveFileKey: function(e) {
-                if (e.code == 'KeyS' && (e.ctrlKey || e.metaKey)) {
-                    e.preventDefault();
-                    saveFile();
-                }
-            },
-            //===============================================
             saveFileText: function() {
                 var m_res = confirm("Êtes vous sûr de vouloir enregistrer les modifications ?");
                 if(!m_res) return;
@@ -510,6 +507,20 @@ var GEditor = (function() {
 				"&file=" + m_filename + 
 				"&data="+m_data
 				);
+            },
+            //===============================================
+            saveFileKey: function(e) {
+                if (e.code == 'KeyS' && (e.ctrlKey || e.metaKey)) {
+                    e.preventDefault();
+                    saveFile();
+                }
+            },
+            //===============================================
+            saveFileTextKey: function(e) {
+                if (e.code == 'KeyS' && (e.ctrlKey || e.metaKey)) {
+                    e.preventDefault();
+                    saveFileText();
+                }
             },
             //===============================================
             selectFile: function(dir="") {

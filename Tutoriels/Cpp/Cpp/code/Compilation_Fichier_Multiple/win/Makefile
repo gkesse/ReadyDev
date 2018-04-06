@@ -1,9 +1,21 @@
-all: build\main.o build\hello.o
-	g++ -o bin\GProject.exe build\main.o build\hello.o
-build\main.o: ..\src\main.cpp
-	g++ -c ..\src\main.cpp -o build\main.o -I..\src\manager
-build\hello.o: ..\src\manager\hello.cpp
-	g++ -c ..\src\manager\hello.cpp -o build\hello.o -I..\src\manager
+GSRC = ../src
+GBIN = bin
+GBUILD = build
+GTARGET = $(GBIN)/GProject.exe
+
+GINCS = \
+	-I../src/manager
+
+GOBJS = \
+	$(GBUILD)/main.o \
+	$(GBUILD)/hello.o
+
+all: $(GOBJS)
+	g++ -o $(GTARGET) $(GOBJS)
+$(GBUILD)/main.o: $(GSRC)/main.cpp
+	g++ -c $(GSRC)/main.cpp -o $(GBUILD)/main.o $(GINCS)
+$(GBUILD)/hello.o: $(GSRC)/manager/hello.cpp
+	g++ -c $(GSRC)/manager/hello.cpp -o $(GBUILD)/hello.o $(GINCS)
 clean:
-	del /q bin\* build\*
+	del /q $(GBIN)\* $(GBUILD)\*
 	
