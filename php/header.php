@@ -37,7 +37,7 @@
         $m_metaCano = GConfig::Instance()->getData("meta_cano"); 
         $m_metaCano = GGlobal::Instance()->getUrl($m_metaCano); 
     }
-    
+    $m_codePrettify = GConfig::Instance()->getData("code_prettify");
     $m_headerData = GJson::Instance()->getData("data/json/header.json"); 
 ?>
 <!-- ============================================ -->
@@ -92,8 +92,10 @@
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Anton"/>
         <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css"/>
         <!-- ============================================ -->
+		<?php if($m_codePrettify) { ?>
         <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=css&amp;skin=sunburst"></script>
-        <script src="/lib/jquery/jquery.min.js"></script>
+        <?php } ?>
+		<script src="/lib/jquery/jquery.min.js"></script>
         <!-- ============================================ -->
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-109595989-1"></script>
@@ -106,13 +108,15 @@
         </script>
         <!-- ============================================ -->
         <link rel="stylesheet" href="/css/style.css"/>
-        <script src="/js/class/GSetting.js"></script>        
+		<!-- ============================================ -->
+		<script src="/js/class/GHeader.js"></script>
+		<script src="/js/header.js"></script>
         <!-- ============================================ -->
     </head>
     <body>
         <header>
             <!-- ============================================ -->
-            <ul class="hdmn">
+            <ul class="hdmn" id="HeaderMenu">
                 <li class="dibm">
                     <a class="hdmt" href="/">
                         <?php echo $m_ds["name"]; ?>
@@ -125,7 +129,7 @@
                         $m_active = "";
                         if($m_existstMenu == true) {
                             if($m_di["name"] == $m_menu) {
-                                $m_active = "active";
+                                $m_active = " bdbd";
                             }
                         }
                     ?>
@@ -139,16 +143,16 @@
                         }
                     ?>
                     <li class="hdml">
-                        <a class="hdmi <?php echo $m_active; ?>" 
+                        <a class="hdmi<?php echo $m_active; ?>"
                         href="<?php echo $m_di["link"]; ?>">
                             <?php echo $m_di["name"]; ?>
                         </a>
                     </li>
                 <?php } ?>
                 <?php if(isset($_SESSION["login"])) { ?>
-                    <li class="hdml"><span class="admd hdmi cspt">Déconnexion</span> </li>
+                    <li class="hdml"><span class="hdmi cspt" onclick="openDisconnect();">Déconnexion</span> </li>
                 <?php } ?>
-                <li class="hdmb"><i class="fa fa-bars"></i></li>
+                <li class="hdmb" onclick="openHeaderMenu(this);"><i class="fa fa-bars"></i></li>
             </ul>
             <!-- ============================================ -->
             <div class="pgCt10">
@@ -200,7 +204,7 @@
                 </div>
             <?php } ?>
             <!-- ============================================ -->
-            <?php require $_SERVER["DOCUMENT_ROOT"]."/php/modal.php"; ?>
+            <?php require $_SERVER["DOCUMENT_ROOT"]."/php/logout.php";  ?>
             <!-- ============================================ -->
         </header>
         <!-- ============================================ -->

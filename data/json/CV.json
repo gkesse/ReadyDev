@@ -1,4 +1,5 @@
 {
+	"sitemap":"yes",
     "meta_data":
     {
         "meta_desc":
@@ -18,6 +19,11 @@
         {"name":"Langues","link":"#Langues"},
         {"name":"Expériences Professionnelles","link":"#Experiences"}
     ],
+	"urls":
+    [
+        {"name":"Diplômes","link":"/CV/Simplifie/","follow":"yes"},
+        {"name":"Certificats","link":"/CV/Detaille/","follow":"yes"}
+	],
     "graduation":
     [
         {

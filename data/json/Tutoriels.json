@@ -22,25 +22,29 @@
             "icon":"fa fa-desktop",
             "theme":"C/C++",
             "description":"Programmez en<br/> C/C++",
-            "link":"/Tutoriels/Cpp/"
+            "link":"/Tutoriels/Cpp/",
+			"follow":"yes"
         },
         {
             "icon":"fa fa-desktop",
             "theme":"C#",
             "description":"Programmez en<br/> C#",
-            "link":"/Tutoriels/CSharp/"
+            "link":"/Tutoriels/CSharp/",
+			"follow":"yes"
         },
         {
             "icon":"fa fa-desktop",
             "theme":"Java",
             "description":"Programmez en<br/> Java",
-            "link":"/Tutoriels/Java/"
+            "link":"/Tutoriels/Java/",
+			"follow":"yes"
         },
         {
             "icon":"fa fa-desktop",
             "theme":"Python",
             "description":"Programmez en<br/> Python",
-            "link":"/Tutoriels/Python/"
+            "link":"/Tutoriels/Python/",
+			"follow":"yes"
         }
     ],
     "web":
@@ -49,25 +53,29 @@
             "icon":"fa fa-globe",
             "theme":"HTML",
             "description":"Programmez en<br/> HTML",
-            "link":"/Tutoriels/HTML/"
+            "link":"/Tutoriels/HTML/",
+			"follow":"yes"
         },
         {
             "icon":"fa fa-globe",
             "theme":"CSS",
             "description":"Apprenez le<br/> CSS",
-            "link":"/Tutoriels/CSS/"
+            "link":"/Tutoriels/CSS/",
+			"follow":"yes"
         },
         {
             "icon":"fa fa-globe",
             "theme":"JavaScript",
             "description":"Programmez en<br/> JavaScript",
-            "link":"/Tutoriels/JavaScript/"
+            "link":"/Tutoriels/JavaScript/",
+			"follow":"yes"
         },
         {
             "icon":"fa fa-globe",
             "theme":"PHP",
             "description":"Programmez en<br/> PHP",
-            "link":"/Tutoriels/PHP/"
+            "link":"/Tutoriels/PHP/",
+			"follow":"yes"
         }
     ],
     "version":
@@ -76,19 +84,22 @@
             "icon":"fa fa-sitemap",
             "theme":"Git",
             "description":"Apprenez le<br/> Git",
-            "link":"/Tutoriels/Git/"
+            "link":"/Tutoriels/Git/",
+			"follow":"yes"
         },
         {
             "icon":"fa fa-sitemap",
             "theme":"CVS",
             "description":"Apprenez le<br/> CVS",
-            "link":"/Tutoriels/CVS/"
+            "link":"/Tutoriels/CVS/",
+			"follow":"yes"
         },
         {
             "icon":"fa fa-sitemap",
             "theme":"SVN",
             "description":"Apprenez le<br/> SVN",
-            "link":"/Tutoriels/SVN/"
+            "link":"/Tutoriels/SVN/",
+			"follow":"yes"
         }
     ],
     "embedded":
@@ -97,7 +108,8 @@
             "icon":"fa fa-microchip",
             "theme":"Raspberry Pi",
             "description":"Programmez le<br/> RaspberryPi",
-            "link":"/Tutoriels/RaspberryPi/"
+            "link":"/Tutoriels/RaspberryPi/",
+			"follow":"yes"
         }
     ]
 }

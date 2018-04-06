@@ -43,7 +43,7 @@
             }
             
             if(isset($_POST["name"])) {
-                $this->m_data["nameValue"] = GGlobal::Instance()->getText($_POST["name"]);
+                $this->m_data["nameValue"] = GGlobal::Instance()->getTextTrim($_POST["name"]);
                 
                 if(empty($_POST["name"])) {
                     $this->m_data["name"] = "errc";
@@ -53,7 +53,7 @@
             }
             
             if(isset($_POST["email"])) {
-                $this->m_data["emailValue"] = GGlobal::Instance()->getText($_POST["email"]);
+                $this->m_data["emailValue"] = GGlobal::Instance()->getTextTrim($_POST["email"]);
                 
                 if(empty($_POST["email"])) {
                     $this->m_data["email"] = "errc";
@@ -72,7 +72,7 @@
             }
             
             if(isset($_POST["subject"])) {
-                $this->m_data["subjectValue"] = GGlobal::Instance()->getText($_POST["subject"]);
+                $this->m_data["subjectValue"] = GGlobal::Instance()->getTextTrim($_POST["subject"]);
                 
                 if(empty($_POST["subject"])) {
                     $this->m_data["subject"] = "errc";
@@ -82,7 +82,7 @@
             }
             
             if(isset($_POST["message"])) {
-                $this->m_data["messageValue"] = GGlobal::Instance()->getText($_POST["message"]);
+                $this->m_data["messageValue"] = GGlobal::Instance()->getTextTrim($_POST["message"]);
                 
                 if(empty($_POST["message"])) {
                     $this->m_data["message"] = "errc";

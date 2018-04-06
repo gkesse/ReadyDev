@@ -1,11 +1,6 @@
 <?php
     require $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoloadRegister.php";
     
-    GPostRedirectGet::Instance()->redirect();
-    
-    $m_check = GContact::Instance()->check();
-    $m_data = GJson::Instance()->getData("data/json/Contacts.json");
-    
     GConfig::Instance()->setData("title", "Contacts");
     GConfig::Instance()->setData("menu", "Contacts");
     GConfig::Instance()->setData("view", "Contacts");
@@ -25,101 +20,77 @@
                 </h1>
                 <div class="txal pgCt10">
                     <!-- ============================================ -->
-                    <?php if(!empty($_POST)) { ?>
-                        <div class="pgCr05">
-                            <?php echo $m_check["validate"]; ?>
-                        </div>
-                    <?php } ?>
+					<div class="pgCr05" id="MessageSendRes"></div>
                     <!-- ============================================ -->
-                    <form method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
-                        <!-- ============================================ -->
-                        <div class="pgCr05">
-                            <?php $m_ds = $m_data["name"]; ?>
-                            <div class="pgCr05">
-                                <?php echo $m_ds["label"]; ?>
-                                <span class="erra">(*)
-                                    <?php echo $m_check[$m_ds["id"]."Error"]; ?>
-                                </span>
-                            </div>
-                            <div class="bgra brda brra <?php echo $m_check[$m_ds["id"]]; ?>">
-                                <i class="fltl ftac <?php echo $m_ds["icon"]; ?>"></i>
-                                <div class="mglb">
-                                    <input value="<?php echo $m_check[$m_ds["id"]."Value"]; ?>" type="text"
-                                    name="<?php echo $m_ds["id"]; ?>"
-                                    placeholder="<?php echo $m_ds["placeholder"]; ?>"/>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- ============================================ -->
-                        <div class="pgCr05">
-                            <?php $m_ds = $m_data["email"]; ?>
-                            <div class="pgCr05">
-                                <?php echo $m_ds["label"]; ?>
-                                <span class="erra">(*)
-                                    <?php echo $m_check[$m_ds["id"]."Error"]; ?>
-                                </span>
-                            </div>
-                            <div class="bgra brda brra <?php echo $m_check[$m_ds["id"]]; ?>">
-                                <i class="fltl ftac <?php echo $m_ds["icon"]; ?>"></i>
-                                <div class="mglb">
-                                    <input value="<?php echo $m_check[$m_ds["id"]."Value"]; ?>" type="text"
-                                    name="<?php echo $m_ds["id"]; ?>"
-                                    placeholder="<?php echo $m_ds["placeholder"]; ?>"/>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- ============================================ -->
-                        <div class="pgCr05">
-                            <?php $m_ds = $m_data["subject"]; ?>
-                            <div class="pgCr05">
-                                <?php echo $m_ds["label"]; ?>
-                                <span class="erra">(*)
-                                    <?php echo $m_check[$m_ds["id"]."Error"]; ?>
-                                </span>
-                            </div>
-                            <div class="bgra brda brra <?php echo $m_check[$m_ds["id"]]; ?>">
-                                <i class="fltl ftac <?php echo $m_ds["icon"]; ?>"></i>
-                                <div class="mglb">
-                                    <input value="<?php echo $m_check[$m_ds["id"]."Value"]; ?>" type="text"
-                                    name="<?php echo $m_ds["id"]; ?>"
-                                    placeholder="<?php echo $m_ds["placeholder"]; ?>"/>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- ============================================ -->
-                        <div class="pgCr05">
-                            <?php $m_ds = $m_data["message"]; ?>
-                            <div class="pgCr05">
-                                <?php echo $m_ds["label"]; ?>
-                                <span class="erra">(*)
-                                    <?php echo $m_check[$m_ds["id"]."Error"]; ?>
-                                </span>
-                            </div>
-                            <div class="bgra brda brra <?php echo $m_check[$m_ds["id"]]; ?>">
-                                <i class="fltl ftac <?php echo $m_ds["icon"]; ?>"></i>
-                                <div class="mglb">
-                                    <textarea class="message" rows="11" cols="100"
-                                    name="<?php echo $m_ds["id"]; ?>" 
-                                    maxlength="<?php echo $m_ds["max"]; ?>" 
-                                    placeholder="<?php echo $m_ds["placeholder"]; ?>"><?php echo $m_check[$m_ds["id"]."Value"]; ?></textarea>
-                                </div>
-                                <div class="pddc">
-                                    <label class="number"></label>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- ============================================ -->
-                        <div class="txar pgCr05">
-                            <?php $m_ds = $m_data["submit"]; ?>
-                            <button class="bgra brra evta"
-                            type="submit" name="<?php echo $m_ds["id"]; ?>" 
-                            value="<?php echo $m_ds["label"]; ?>">
-                                <i class="<?php echo $m_ds["icon"]; ?>"></i>
-                                <?php echo $m_ds["label"]; ?>
-                            </button>
-                        </div>
-                        <!-- ============================================ -->
-                    </form>
+					<div class="pgCr05">
+						<label class="pgCr05 dibm" for="name">
+							Nom <span class="erra">(*)</span>
+							<span class="erra" id="MessageNameMsg"></span>
+						</label>
+						<div class="bgra brda brra" id="MessageNameBrd">
+							<i class="fltl ftac fa fa-user"></i>
+							<div class="mglb">
+								<input type="text" name="name" id="MessageName"
+								placeholder="Entrez votre nom"/>
+							</div>
+						</div>
+					</div>
+                    <!-- ============================================ -->
+					<div class="pgCr05">
+						<label class="pgCr05 dibm" for="email">
+							Email <span class="erra">(*)</span>
+							<span class="erra" id="MessageEmailMsg"></span>
+						</label>
+						<div class="bgra brda brra" id="MessageEmailBrd">
+							<i class="fltl ftac fa fa-envelope"></i>
+							<div class="mglb">
+								<input type="text" name="email" id="MessageEmail"
+								placeholder="Entrez votre email"/>
+							</div>
+						</div>
+					</div>
+                    <!-- ============================================ -->
+					<div class="pgCr05">
+						<label class="pgCr05 dibm" for="subject">
+							Objet <span class="erra">(*)</span>
+							<span class="erra" id="MessageSubjectMsg"></span>
+						</label>
+						<div class="bgra brda brra" id="MessageSubjectBrd">
+							<i class="fltl ftac fa fa-pencil"></i>
+							<div class="mglb">
+								<input type="text" name="subject" id="MessageSubject"
+								placeholder="Entrez votre objet"/>
+							</div>
+						</div>
+					</div>
+					<!-- ============================================ -->
+					<div class="pgCr05">
+						<label class="pgCr05 dibm" for="message">
+							Message <span class="erra">(*)</span>
+							<span class="erra" id="MessageEditMsg"></span>
+						</label>
+						<div class="bgra brda brra" id="MessageEditBrd">
+							<i class="fltl ftac fa fa-comments"></i>
+							<div class="mglb">
+								<textarea class="message" rows="11" cols="100"
+								name="message" id="MessageEdit"
+								placeholder="Entrez votre message"
+								oninput="messageChange();"></textarea>
+							</div>
+							<div class="pddc">
+								<label id="MessageCount"></label>
+							</div>
+						</div>
+					</div>
+					<!-- ============================================ -->
+					<div class="txar pgCr05">
+						<button class="bgra brra evta"
+						type="submit" name="submit" 
+						value="Envoyer" onclick="messageSend();">
+							<i class="fa fa-paper-plane"></i> Envoyer
+						</button>
+					</div>
+					<!-- ============================================ -->
                 </div>
             </div>
         </div>
@@ -132,18 +103,23 @@
                     </a>
                 </h1>
                 <div class="">
-                    <?php $m_ds = $m_data["card"]; ?>
-                    <img src="<?php echo $m_ds["src"]; ?>" 
-                    alt="<?php echo $m_ds["src"]; ?>" 
-                    width="<?php echo $m_ds["width"]; ?>"/>
+                    <img src="/img/img_avatar.png" 
+                    alt="Avatar" 
+                    width="100%"/>
                 </div>
                 <div class="pgCt05">
-                    <?php echo join(" ", $m_ds["description"]); ?>
+					<b>Gerard KESSE</b><br/>
+					Ingénieur Développeur Logiciel<br/>
+					C/C++/Qt<br/>
+					-<br/>
+					Strasbourg<br/>
+					-
                 </div>
-                <?php $m_di = $m_ds["mail"]; ?>
                 <div class="pgCt10">
-                    <a href="mailto:<?php echo $m_di["mailto"]; ?>?subject=<?php echo $m_di["subject"]; ?>&body=<?php echo $m_di["body"]; ?>">
-                        <i class="evta ftaa <?php echo $m_di["icon"]; ?>"></i>
+                    <a href="mailto:tiakagerard@hotmail.com?
+					subject=Prise de contact
+					&body=Bonjour M. KESSE,">
+                        <i class="evta ftaa fa fa-envelope"></i>
                     </a>                        
                 </div>
             </div>
@@ -152,6 +128,7 @@
     </div>
 </div>
 <!-- ============================================ -->
+<script src="/js/contact.js"></script>
 <script src="/js/class/GContact.js"></script>
 <!-- ============================================ -->
 <?php require $_SERVER["DOCUMENT_ROOT"]."/php/footer.php"; ?>

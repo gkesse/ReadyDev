@@ -36,7 +36,7 @@
             }
             
             if(isset($_POST["email"])) {
-                $this->m_data["emailValue"] = GGlobal::Instance()->getText($_POST["email"]);
+                $this->m_data["emailValue"] = GGlobal::Instance()->getTextTrim($_POST["email"]);
                 
                 if(empty($_POST["email"])) {
                     $this->m_data["email"] = "errc";
@@ -55,7 +55,7 @@
             }
             
             if(isset($_POST["password"])) {
-                $this->m_data["passwordValue"] = GGlobal::Instance()->getText($_POST["password"]);
+                $this->m_data["passwordValue"] = GGlobal::Instance()->getTextTrim($_POST["password"]);
                 
                 if(empty($_POST["password"])) {
                     $this->m_data["password"] = "errc";

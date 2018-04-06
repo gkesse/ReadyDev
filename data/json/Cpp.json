@@ -16,7 +16,8 @@
     ],
     "summary":
     [
-        {"name":"Apprendre à Programmer en C++","link":"/Tutoriels/Cpp/Apprendre_a_Programmer_en_Cpp"},
+        {"name":"Apprendre le C++","link":"/Tutoriels/Cpp/Cpp/","follow":"yes"},
+        {"name":"Apprendre à compiler un projet C++ avec MinGW","link":"/Tutoriels/Cpp/MinGW/","follow":"yes"},
         {"name":"Compilation","link":"#Compilation"},
         {"name":"Notions de Base","link":"#Notions"},
         {"name":"Patron de Conception","link":"#Patron_Conception"}

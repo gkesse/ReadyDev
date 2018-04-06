@@ -14,7 +14,7 @@
             return self::$m_instance;
         }
         //===============================================
-        public function getText($data) {
+        public function getTextTrim($data) {
             $data = trim($data);
             $data = stripslashes($data);
             $data = htmlspecialchars($data);
@@ -31,6 +31,15 @@
             return $m_url;        
         }
         //===============================================
+        public function getLink($data, $charset="UTF-8") {
+            $m_link = htmlentities($data, ENT_NOQUOTES, $charset);
+			$m_link = preg_replace('#&([A-za-z])(?:acute|cedil|caron|circ|grave|orn|ring|slash|th|tilde|uml);#', '\1', $m_link);
+			$m_link = preg_replace('#&([A-za-z]{2})(?:lig);#', '\1', $m_link);
+			$m_link = preg_replace('#&[^;]+;#', '', $m_link);
+			$m_link = preg_replace('#[ \']#', '-', $m_link);
+            return $m_link;        
+        }
+        //===============================================
         public function getPath($data) {
             if(empty($data) == false) {
                 if($data[0] != "/") $data = "/".$data;
@@ -40,7 +49,7 @@
             return $m_url;        
         }
         //===============================================
-        public function search($arrayMap, $field, $value) {
+        public function searchData($arrayMap, $field, $value) {
             $m_dataMap = array();
             foreach($arrayMap as $key => $dataMap) {
                 if($dataMap[$field] == $value) {

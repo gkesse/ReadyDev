@@ -7,7 +7,6 @@
             
         }
         //===============================================
-        // static methods
         public static function Instance() {
             if(is_null(self::$m_instance)) {
                 self::$m_instance = new GMessage();  

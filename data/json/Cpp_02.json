@@ -1,89 +1,18 @@
 {
-    "sitemap":"yes",
     "meta_data":
     {
         "meta_desc":
         [
             "Le C++ est un langage de programmation orientée objet.",
-			"Le but de ce tutoriel est de vous apprendre à programmer en C++" 
+			"Le but de ce tutoriel est de vous apprendre le C++" 
         ],
-        "meta_cano":"/Tutoriels/Cpp/Apprendre_a_Programmer_en_Cpp"
+        "meta_cano":"/Tutoriels/Cpp/Cpp/"
     },    
     "links":
     [
         {"name":"Tutoriels","link":"/Tutoriels/"},
-        {"name":"C/C++","link":"/Tutoriels/Cpp"},
-        {"name":"Apprendre à Programmer en C++","link":""}
-    ],
-    "intro":
-    [
-		"Le C++ est un langage de programmation orientée objet.",
-		"Le but de ce tutoriel est de vous apprendre à programmer en C++."
-    ],
-    "author":
-    [
-		"Je suis <b>Gerard KESSE</b>,<br/>",
-		"Ingénieur en Développement Informatique C/C++/Qt,<br/>",
-		"Avec à la fois des compétences en Systèmes Embarqués et en Robotique.<br/><br/>",
-		
-		"Formé à Polytech'Montpellier, Je suis un professionnel de conception de projets",
-		"logiciel applicatif ou embarqué dans les secteurs de l'Aéronautique, de la Robotique,",
-		"des Drones et de la Vision par Ordinateur. Aussi, Je reste ouvert à d'autres types",
-		"de secteurs tels que l'Energie et les Finances.<br/><br/>",
-
-		"Les Sciences de l’Ingénieur sont au cœur du métier d’ingénieur.<br/>",
-		"Sur le site <b>ReadyDev</b>, la Plateforme de Développement Continu,",
-		"dont j'en suis le concepteur, vous trouverez des cours et des tutoriels",
-		"adaptés aux sciences de l’ingénieur."
-    ],
-    "summary":
-    [
-        {"name":"Introduction","link":"#Introduction"},
-        {"name":"Auteur","link":"#Auteur"},
-        {"name":"Installation sous Windows avec MinGW","link":"#Installation_sous_Windows_avec_MinGW"},
-        {"name":"Compilation d’un projet C++ avec MinGW","link":"#Compilation_d_un_projet_Cpp_avec_MinGW"},
-        {"name":"Comprendre la structure d’un fichier Makefile","link":"#Comprendre_la_structure_d_un_fichier_Makefile"},
-        {"name":"Communiquer avec la console","link":"#Communiquer_avec_la_console"},
-        {"name":"Communiquer avec le clavier","link":"#Communiquer_avec_le_clavier"},
-        {"name":"Gérer les conditions","link":"#Gerer_les_conditions"},
-        {"name":"Gérer les boucles","link":"#Gerer_les_boucles"}
-    ],
-    "Installation":
-    [
-        {"name":"Téléchargements","link":"#Telechargements"},
-        {"name":"Installation de MinGW","link":"#Installation_de_MinGW"},
-        {"name":"Installation de Notepad++","link":"#Installation_de_Notepad_pp"}
-    ],
-    "Compilation":
-    [
-        {"name":"Compiler un projet C++ avec un seul fichier source","link":"#Compiler_un_projet_Cpp_avec_un_seul_fichier_source"},
-        {"name":"Compiler un projet C++ avec plusieurs fichiers sources","link":"#Compiler_un_projet_Cpp_avec_plusieurs_fichiers_sources"},
-        {"name":"Compiler un projet C++ à partir d’un fichier Makefile","link":"#Compiler_un_projet_Cpp_a_partir_d_un_fichier_Makefile"}
-    ],
-    "Makefile":
-    [
-        {"name":"Optimiser la structure d’un fichier Makefile","link":"#Optimiser_la_structure_d_un_fichier_Makefile"}
-    ],
-    "Console":
-    [
-        {"name":"Afficher un message","link":"#Afficher_un_message"}
-    ],
-    "Clavier":
-    [
-        {"name":"Lire des données à partir du clavier","link":"#Lire_des_donnees_a_partir_du_clavier"},
-        {"name":"Gérer le problème d’espace lors de la saisie de données","link":"#Gerer_le_probleme_d_espace_lors_de_la_saisie_de_donnees"}
-    ],
-    "Condition":
-    [
-        {"name":"Condition If (Si)","link":"#Condition_If_Si"},
-        {"name":"Condition Else (Sinon)","link":"#Condition_Else_Sinon"},
-        {"name":"Condition Else If (Sinon Si)","link":"#Condition_Else_If_Sinon_Si"}
-    ],
-    "Boucle":
-    [
-        {"name":"Boucle For (Pour Tout)","link":"#Boucle_For_Pour_Tout"},
-        {"name":"Boucle While (Tant Que)","link":"#Boucle_While_Tant_Que"},
-        {"name":"Afficher","link":"#Boucle_Do_While_Faire_Tant_Que"}
+        {"name":"C/C++","link":"/Tutoriels/Cpp/"},
+        {"name":"Apprendre le C++","link":""}
     ]
 }
                         
