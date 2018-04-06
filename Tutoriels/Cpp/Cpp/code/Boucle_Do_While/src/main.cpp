@@ -10,12 +10,15 @@ int main(int argc, char** argv) {
     
     cout << "### Table de multiplication par 9\n\n";
     
-	for(int i = 0; i <= ROW_MAX; i++) {
+    int i = 0;
+    
+    do {
         int m_data = i * FACTOR;
         cout << setw(2) << i << " x ";
         cout << FACTOR << " = ";
         cout << setw(2) << m_data << "\n";
-    }
+        i++;
+    } while(i <= ROW_MAX);
 	return 0;
 }
 //===============================================
