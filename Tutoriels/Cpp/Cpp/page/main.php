@@ -205,4 +205,67 @@ int main(int argc, char** argv) {
 	}
 	return 0;
 }
-//===============================================</xmp></pre></div></div></div></div><br><div class="pgCt00"><div class="bgra"><h1 class="bgra pgCt20 txac Title1" id="Gérer les boucles"><a class="clrb" href="#Sommaire">Gérer les boucles</a></h1><div class="txal pgCt10"><div class="dibm Summary2"><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Boucle For (Pour Tout)">Boucle For (Pour Tout)</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Boucle While (Tant Que)">Boucle While (Tant Que)</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Boucle Do While (Faire Tant Que)">Boucle Do While (Faire Tant Que)</a></div></div><br><br><h2 class="ftwn Title2" id="Boucle For (Pour Tout)"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Gérer les boucles">Boucle For (Pour Tout)</a></h2><br><br><h2 class="ftwn Title2" id="Boucle While (Tant Que)"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Gérer les boucles">Boucle While (Tant Que)</a></h2><br><br><h2 class="ftwn Title2" id="Boucle Do While (Faire Tant Que)"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Gérer les boucles">Boucle Do While (Faire Tant Que)</a></h2><br><br><br></div></div></div><br><!-- ============================================ --><!-- ============================================ --><!-- ============================================ --><!-- ============================================ --><!-- ============================================ --><!-- ============================================ --><!-- ============================================ --><!-- ============================================ -->
+//===============================================</xmp></pre></div></div></div></div><br><div class="pgCt00"><div class="bgra"><h1 class="bgra pgCt20 txac Title1" id="Gérer les boucles"><a class="clrb" href="#Sommaire">Gérer les boucles</a></h1><div class="txal pgCt10"><div class="dibm Summary2"><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Boucle For (Pour Tout)">Boucle For (Pour Tout)</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Boucle While (Tant Que)">Boucle While (Tant Que)</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Boucle Do While (Faire Tant Que)">Boucle Do While (Faire Tant Que)</a></div></div><br><br><h2 class="ftwn Title2" id="Boucle For (Pour Tout)"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Gérer les boucles">Boucle For (Pour Tout)</a></h2><br><b>Objectif :</b><br>Exécuter une instruction en boucle.<br><br><b>Implémentation :</b><br>Créer une table de multiplication par 9. <br>Les lignes allant de (0 à 10).<br><br><b>Résultat :</b><br> <div class="ovfa"><div class="ovfa"><img src="img/Image_09.png" alt="img/Image_09.png"></div></div><br><b>Dossier projet :</b><br>src/main.cpp<br>win/bin/<br>win/build/<br><br><b>src/main.cpp</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums">//===============================================
+#include <iostream>
+#include <iomanip>
+//===============================================
+using namespace std;
+//===============================================
+int main(int argc, char** argv) {
+    int ROW_MAX = 10;
+    int FACTOR = 9;
+    
+    cout << "### Table de multiplication par 9\n\n";
+    
+    for(int i = 0; i <= ROW_MAX; i++) {
+        int m_data = i * FACTOR;
+        cout << setw(2) << i << " x ";
+        cout << FACTOR << " = ";
+        cout << setw(2) << m_data << "\n";
+    }<br><br> return 0;
+}
+//===============================================</xmp></pre></div><br><h2 class="ftwn Title2" id="Boucle While (Tant Que)"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Gérer les boucles">Boucle While (Tant Que)</a></h2><br><b>Objectif :</b><br>Exécuter une instruction en boucle.<br><b><br>Implémentation :</b><br>Créer une table de multiplication par 9. <br>Les lignes allant de (0 à 10).<br><br><b>Résultat :</b><br> <div class="ovfa"><img src="img/Image_09.png" alt="img/Image_09.png"></div><br><b>Dossier projet :</b><br>src/main.cpp<br>win/bin/<br>win/build/<br><br><b>src/main.cpp</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums">//===============================================
+#include <iostream>
+#include <iomanip>
+//===============================================
+using namespace std;
+//===============================================
+int main(int argc, char** argv) {
+    int ROW_MAX = 10;
+    int FACTOR = 9;
+    
+    cout << "### Table de multiplication par 9\n\n";
+    
+    int i = 0;
+    
+    while(i <= ROW_MAX) {
+        int m_data = i * FACTOR;
+        cout << setw(2) << i << " x ";
+        cout << FACTOR << " = ";
+        cout << setw(2) << m_data << "\n";
+        i++;
+    }<br><br> return 0;
+}
+//===============================================</xmp></pre></div><br><h2 class="ftwn Title2" id="Boucle Do While (Faire Tant Que)"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Gérer les boucles">Boucle Do While (Faire Tant Que)</a></h2><br><b>Objectif :</b><br>Exécuter une instruction en boucle.<br><br><b>Implémentation :</b><br>Créer une table de multiplication par 9. <br>Les lignes allant de (0 à 10).<br><br><b>Résultat :</b><br> <div class="ovfa"><div class="ovfa"><img src="img/Image_09.png" alt="img/Image_09.png"></div></div><br><b>Dossier projet :</b><br>src/main.cpp<br>win/bin/<br>win/build/<br><br><b>src/main.cpp</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums">//===============================================
+#include <iostream>
+#include <iomanip>
+//===============================================
+using namespace std;
+//===============================================
+int main(int argc, char** argv) {
+    int ROW_MAX = 10;
+    int FACTOR = 9;
+    
+    cout << "### Table de multiplication par 9\n\n";
+    
+    int i = 0;
+    
+    do {
+        int m_data = i * FACTOR;
+        cout << setw(2) << i << " x ";
+        cout << FACTOR << " = ";
+        cout << setw(2) << m_data << "\n";
+        i++;
+    } while(i <= ROW_MAX);<br><br> return 0;
+}
+//===============================================</xmp></pre></div></div></div></div><br><!-- ============================================ --><!-- ============================================ --><!-- ============================================ --><!-- ============================================ --><!-- ============================================ --><!-- ============================================ --><!-- ============================================ --><!-- ============================================ -->
