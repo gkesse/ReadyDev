@@ -80,7 +80,7 @@
             $m_email = $this->m_data["emailValue"];
             $m_password = $this->m_data["passwordValue"];
             $m_loginIn = md5($m_email."|".$m_password);
-            $m_search = GGlobal::Instance()->search($m_loginMap, "pass", $m_loginIn);
+            $m_search = GGlobal::Instance()->searchData($m_loginMap, "pass", $m_loginIn);
             if(empty($m_search)) {
                 $this->m_data["validate"] = "<div class='errb'><i class='clra fa fa-exclamation-triangle'></i> ERREUR : Les informations saisies sont incorrectes</div>";
             }
