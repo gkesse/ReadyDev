@@ -14,8 +14,8 @@ var GEditor = (function() {
 				var m_EditorFile = GConfig.Instance().getData("EditorFile");
 				this.openEditorTab(m_obj, "EditorTab2");
 				this.readFile();
-				if(!m_EditorDir) m_EditorDir = "";
-				if(!m_EditorFile) m_EditorFile = "";
+				if(m_EditorDir == "undefined") m_EditorDir = "";
+				if(m_EditorFile == "undefined") m_EditorFile = "";
 				this.selectFile(m_EditorDir);
 				m_FileEdit.innerHTML = m_EditorFile;
 			},

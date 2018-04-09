@@ -41,11 +41,10 @@
         }
         //===============================================
         public function getPath($data) {
-            if(empty($data) == false) {
-                if($data[0] != "/") $data = "/".$data;
-            }
             $m_url = $_SERVER['DOCUMENT_ROOT'];
-            $m_url .= $data;
+			$m_url = realpath($m_url);
+            $m_url .= "/".$data;
+			$m_url = realpath($m_url);
             return $m_url;        
         }
         //===============================================
