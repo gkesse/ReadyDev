@@ -15,8 +15,10 @@
         }
         //===============================================
         public function getData($file) {
-            if($file[0] != "/") $file = "/".$file;
-            $m_file = $_SERVER["DOCUMENT_ROOT"].$file;
+            $m_file = $_SERVER["DOCUMENT_ROOT"];
+			$m_file = realpath($m_file);
+			$m_file .= "/".$file;
+			$m_file = realpath($m_file);
             $m_data = file_get_contents($m_file);
             return $m_data;
         }
@@ -28,7 +30,9 @@
         //===============================================
         public function getData3($root, $file) {
             $m_file = $_SERVER["DOCUMENT_ROOT"];
+			$m_file = realpath($m_file);
 			$m_file .= "/".$root;
+			$m_file = realpath($m_file);
 			$m_file .= "/".$file;
 			$m_file = realpath($m_file);
             $m_data = file_get_contents($m_file);
@@ -36,8 +40,9 @@
         }
         //===============================================
         public function saveData($file, $data) {
-            if($file[0] != "/") $file = "/".$file;
-            $m_file = $_SERVER["DOCUMENT_ROOT"].$file;
+            $m_file = $_SERVER["DOCUMENT_ROOT"];
+			$m_file = realpath($m_file);
+            $m_file .= "/".$file;
             file_put_contents($m_file, $data);
         }
         //===============================================
@@ -50,8 +55,11 @@
         }
         //===============================================
         public function getDateTime($file) {
-            if($file[0] != "/") $file = "/".$file;
-            $m_file = $_SERVER["DOCUMENT_ROOT"].$file."index.php";
+            $m_file = $_SERVER["DOCUMENT_ROOT"];
+			$m_file = realpath($m_file);
+            $m_file .= "/".$file;
+			$m_file = realpath($m_file);
+            $m_file .= "/"."index.php";
             $m_date = filemtime($m_file);
             $m_date = date ("Y-m-d", $m_date);
             return $m_date;

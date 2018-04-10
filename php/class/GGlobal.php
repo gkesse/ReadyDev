@@ -48,6 +48,13 @@
             return $m_url;        
         }
         //===============================================
+        public function getPath2($data) {
+            $m_url = $_SERVER['DOCUMENT_ROOT'];
+			$m_url = realpath($m_url);
+            $m_url .= "/".$data;
+            return $m_url;        
+        }
+        //===============================================
         public function searchData($arrayMap, $field, $value) {
             $m_dataMap = array();
             foreach($arrayMap as $key => $dataMap) {

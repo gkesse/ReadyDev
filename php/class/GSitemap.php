@@ -50,7 +50,7 @@
             $this->addUrls();
             $this->deleteXml();
             
-            foreach($this->m_urls as $m_url) {
+             foreach($this->m_urls as $m_url) {
                 if($this->m_countUrl % self::URL_MAX == 0) {
                     $this->closeXml();
                     $this->openXml();
@@ -210,7 +210,7 @@
                 $this->m_xml->startElement("sitemapindex");
             }
             
-            $this->m_filename = GGlobal::Instance()->getPath($m_path);
+            $this->m_filename = GGlobal::Instance()->getPath2($m_path);
             $this->m_file = fopen($this->m_filename, "w");
             
             $this->m_xml->writeAttribute("xmlns", 
@@ -237,7 +237,8 @@
                     $m_doc = readdir($m_handle);
                     if($m_doc == false) break;
                     if($m_doc == "." || $m_doc == ".." || $m_doc == "index.php") continue;
-                    $m_fullname = $m_path.$m_doc;
+                    $m_fullname = $m_path."/".$m_doc;
+					$m_fullname = realpath($m_fullname);
                     unlink($m_fullname);
                 }
             }
