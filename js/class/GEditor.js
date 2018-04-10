@@ -221,6 +221,28 @@ var GEditor = (function() {
                     document.execCommand("insertHTML", false, m_command);
                     break;
                 //===============================================
+                case 'Summary3':
+					var m_arg = prompt("Quelle est l'adresse ?");
+					var m_argArr = m_arg.split(";");
+					var m_filename = m_argArr[0];
+					var m_summary = m_argArr[1];
+					if(m_filename == "" || m_summary == "") return;
+					var m_xmlhttp = new XMLHttpRequest();
+					m_xmlhttp.onreadystatechange = function() {
+						if(this.readyState == 4 && this.status == 200) {
+							var m_data = this.responseText;
+							document.execCommand("insertHTML", false, m_data);
+						}
+					}
+					m_xmlhttp.open("POST", "/php/editor.php", true);
+					m_xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+					m_xmlhttp.send(
+					"req=" + "SUMMARY" +
+					"&file=" + m_filename +
+					"&summary=" + m_summary
+					);
+                    break;
+                //===============================================
                 case 'LineBreak1':
                     var m_parentNode = m_startNode;
                     if(!m_data) {

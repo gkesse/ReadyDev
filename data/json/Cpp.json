@@ -17,7 +17,10 @@
     "summary":
     [
         {"name":"Apprendre le C++","link":"/Tutoriels/Cpp/Cpp/","follow":"yes"},
-        {"name":"Apprendre à compiler un projet C++ avec MinGW","link":"/Tutoriels/Cpp/MinGW/","follow":"yes"},
+        {"name":"Apprendre à compiler un projet C++ avec MinGW","link":"/Tutoriels/Cpp/MinGW/","follow":"yes"}
+    ],
+    "summary_02":
+    [
         {"name":"Apprendre les patrons de conception en C++","link":"/Tutoriels/Cpp/Patrons_Conception/","follow":"yes"}
     ]
 }
