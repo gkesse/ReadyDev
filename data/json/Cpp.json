@@ -18,63 +18,7 @@
     [
         {"name":"Apprendre le C++","link":"/Tutoriels/Cpp/Cpp/","follow":"yes"},
         {"name":"Apprendre à compiler un projet C++ avec MinGW","link":"/Tutoriels/Cpp/MinGW/","follow":"yes"},
-        {"name":"Compilation","link":"#Compilation"},
-        {"name":"Notions de Base","link":"#Notions"},
-        {"name":"Patron de Conception","link":"#Patron_Conception"}
-    ],
-    "compilation":
-    {
-        "compiler":
-        [
-            {"name":"Programme Simple","link":"/Tutoriels/Cpp/Compilation/NMake/Programme_Simple/"},
-            {"name":"Fichier Header","link":"/Tutoriels/Cpp/Compilation/NMake/Fichier_Header/"},
-            {"name":"Création Librairie Statique","link":"/Tutoriels/Cpp/Compilation/NMake/Librairie_Statique_Creation/"},
-            {"name":"Utilisation Librairie Statique","link":"/Tutoriels/Cpp/Compilation/NMake/Librairie_Statique_Utilisation/"},
-            {"name":"Création Librairie Dynamique","link":"/Tutoriels/Cpp/Compilation/NMake/Librairie_Dynamique_Creation/"},
-            {"name":"Utilisation Librairie Dynamique","link":"/Tutoriels/Cpp/Compilation/NMake/Librairie_Dynamique_Utilisation/"},
-            {"name":"Programme Complet","link":"/Tutoriels/Cpp/Compilation/NMake/Programme_Complet/"}
-        ]
-    },
-    "notion":
-    {
-        "basic":
-        [
-            {"name":"Boucle","link":"#"},
-            {"name":"Clavier","link":"#"},
-            {"name":"Condition","link":"#"},
-            {"name":"Console","link":"#"},
-            {"name":"Foncteur","link":"#"},
-            {"name":"Fonction","link":"#"},
-            {"name":"Iterateur","link":"#"},
-            {"name":"Pointeur","link":"#"},
-            {"name":"Référence","link":"#"},
-            {"name":"Tableau","link":"#"},
-            {"name":"Variable","link":"#"}
-        ],
-        "exception":
-        [
-            {"name":"Exception","link":"#"},
-            {"name":"Classe Exception","link":"#"},
-            {"name":"Exception Prédéfinie","link":"#"},
-            {"name":"Exception Préconfigurée","link":"#"}
-        ],
-        "template":
-        [
-            {"name":"Template","link":"#"},
-            {"name":"Classe Template","link":"#"},
-            {"name":"Fonction Template","link":"#"}
-        ]
-    },
-    "design_pattern":
-    {
-        "creation":
-        [
-            {"name":"Singleton","link":"/Tutoriels/Cpp/Patron_Conception/Creation/Singleton/"},
-            {"name":"Fabrique","link":"/Tutoriels/Cpp/Patron_Conception/Creation/Fabrique/"},
-            {"name":"Fabrique Abstraite","link":"/Tutoriels/Cpp/Patron_Conception/Creation/Fabrique_Abstraite/"},
-            {"name":"Prototype","link":"/Tutoriels/Cpp/Patron_Conception/Creation/Prototype/"},
-            {"name":"Monteur","link":"/Tutoriels/Cpp/Patron_Conception/Creation/Monteur/"}
-        ]
-    }
+        {"name":"Apprendre les patrons de conception en C++","link":"/Tutoriels/Cpp/Patrons_Conception/","follow":"yes"}
+    ]
 }
                         
