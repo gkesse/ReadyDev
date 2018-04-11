@@ -226,7 +226,10 @@ var GEditor = (function() {
 					var m_argArr = m_arg.split(";");
 					var m_filename = m_argArr[0];
 					var m_summary = m_argArr[1];
-					if(m_filename == "" || m_summary == "") return;
+                    var m_valid = true;
+                    m_valid &= (typeof(m_filename) == "undefined");
+                    m_valid &= (typeof(m_summary) == "undefined");
+					if(m_valid) return;
 					var m_xmlhttp = new XMLHttpRequest();
 					m_xmlhttp.onreadystatechange = function() {
 						if(this.readyState == 4 && this.status == 200) {

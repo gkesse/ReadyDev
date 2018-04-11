@@ -63,6 +63,7 @@
 		$m_file = $_REQUEST["file"];
 		$m_summary = $_REQUEST["summary"];
 		$m_file = "data/json/".$m_file.".json";
+        $m_summary = "summary_".$m_summary;
 		$m_data = GJson::Instance()->getData($m_file);
 		$m_dataArr = $m_data[$m_summary];
 		$m_dataSum = '';
@@ -72,8 +73,8 @@
 			$m_name = $m_dataObj["name"];
 			$m_link = $m_dataObj["link"];
 			$m_dataSum .= '<div class="pdlb">';
-			$m_dataSum .= '<span class="fa fa-book clrb pdra"></span>';
-			$m_dataSum .= '<a class="hvra clrb" href="'.$m_link.'">';
+			$m_dataSum .= '<span class="fa fa-book clrg pdra"></span>';
+			$m_dataSum .= '<a class="hvra clrg" href="'.$m_link.'">';
 			$m_dataSum .= $m_name;
 			$m_dataSum .= '</a>';
 			$m_dataSum .= '</div>';

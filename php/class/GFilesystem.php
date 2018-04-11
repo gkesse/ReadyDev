@@ -11,7 +11,7 @@
 			$this->m_dirFilter = array(
 			"/^.$/i","/^.git$/i","/^.gitignore$/i","/^.htaccess$/i",
 			"/^robots.txt$/i","/^README.md$/i","/^google/i","/^css$/i",
-			"/^data$/i","/^email$/i","/^js$/i","/^lib$/i","/^img$/i","/^php$/i"
+			"/^data$/i","/^email$/i","/^js$/i","/^lib$/i","/^img$/i","/^php$/"
 			);
 			$this->m_dirFilter2 = array(
 			"/^.$/i","/^.git$/i","/^index.php$/i"
