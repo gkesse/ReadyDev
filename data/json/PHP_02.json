@@ -1,0 +1,19 @@
+{
+    "meta_data":
+    {
+        "meta_desc":
+        [
+            "Le PHP est un langage de programmation orienté objet",
+			"utilisé côté serveur pour la création de pages web dynamiques.",
+			"Le but de ce tutoriel est de vous apprendre le PHP."
+        ],
+        "meta_cano":"/Tutoriels/PHP/PHP/"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/"},
+        {"name":"PHP","link":"/Tutoriels/PHP/"},
+        {"name":"Apprendre le PHP","link":""}
+    ]
+}
+                        

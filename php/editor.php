@@ -72,8 +72,8 @@
 			$m_name = $m_dataObj["name"];
 			$m_link = $m_dataObj["link"];
 			$m_dataSum .= '<div class="pdlb">';
-			$m_dataSum .= '<span class="fa fa-book clrb pdra"></span>';
-			$m_dataSum .= '<a class="hvra clrb" href="'.$m_link.'">';
+			$m_dataSum .= '<span class="fa fa-book clrg pdra"></span>';
+			$m_dataSum .= '<a class="hvra clrg" href="'.$m_link.'">';
 			$m_dataSum .= $m_name;
 			$m_dataSum .= '</a>';
 			$m_dataSum .= '</div>';

@@ -4,8 +4,9 @@
     {
         "meta_desc":
         [
-            "Démarrez la programmation en PHP, commencez par les notions de base", 
-            "allez à la programmation orientée objet, maîtrisez les patrons de conception."
+            "Le PHP est un langage de programmation orienté objet",
+			"utilisé côté serveur pour la création de pages web dynamiques.",
+			"Le but de ce tutoriel est de vous apprendre le PHP."
         ],
         "meta_cano":"/Tutoriels/PHP/"
     },    
@@ -16,21 +17,7 @@
     ],
     "summary":
     [
-        {"name":"Notions de Base","link":"#Notions"},
-        {"name":"Programmation Orientée Objet","link":"#"}
-    ],
-    "notion":
-    {
-        "basic":
-        [
-            {"name":"Boucle","link":"#"},
-            {"name":"Clavier","link":"#"},
-            {"name":"Condition","link":"#"},
-            {"name":"Console","link":"#"},
-            {"name":"Fonction","link":"#"},
-            {"name":"Tableau","link":"#"},
-            {"name":"Variable","link":"#"}
-        ]
-    }
+        {"name":"Apprendre le PHP","link":"/Tutoriels/PHP/PHP/","follow":"yes"}
+    ]
 }
                         
