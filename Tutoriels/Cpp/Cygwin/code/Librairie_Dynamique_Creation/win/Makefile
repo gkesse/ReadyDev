@@ -17,4 +17,4 @@ $(GBUILD)/GShow.o: $(GSRC)/manager/GShow.cpp
 $(GBUILD)/GMath.o: $(GSRC)/manager/GMath.cpp
 	g++ -c -DDLL_APP $(GSRC)/manager/GMath.cpp -o $(GBUILD)/GMath.o $(GINCS)
 clean:
-	del /q $(GBUILD)\* $(GBIN)\*
+	rm -f $(GBUILD)/* $(GBIN)/*

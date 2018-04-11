@@ -14,14 +14,84 @@
         {"name":"Tutoriels","link":"/Tutoriels/"},
         {"name":"C/C++","link":""}
     ],
-    "summary":
+    "summary_dev":
     [
+        {"name":"Apprendre le C","link":"/Tutoriels/Cpp/C/","follow":"no"},
         {"name":"Apprendre le C++","link":"/Tutoriels/Cpp/Cpp/","follow":"yes"},
-        {"name":"Apprendre à compiler un projet C++ avec MinGW","link":"/Tutoriels/Cpp/MinGW/","follow":"yes"}
+        {"name":"Apprendre la bibliothèque STL en C++","link":"/Tutoriels/Cpp/STL/","follow":"no"}
     ],
-    "summary_02":
+    "summary_com":
     [
-        {"name":"Apprendre les patrons de conception en C++","link":"/Tutoriels/Cpp/Patrons_Conception/","follow":"yes"}
+        {"name":"Apprendre à compiler un projet C++ avec MinGW","link":"/Tutoriels/Cpp/MinGW/","follow":"yes"},
+        {"name":"Apprendre à compiler un projet C++ avec Cygwin","link":"/Tutoriels/Cpp/Cygwin/","follow":"no"},
+        {"name":"Apprendre à compiler un projet C++ avec NMake","link":"/Tutoriels/Cpp/NMake/","follow":"no"},
+        {"name":"Apprendre à compiler un projet C++ avec Make","link":"/Tutoriels/Cpp/Make/","follow":"no"},
+        {"name":"Apprendre à compiler un projet C++ avec CMake","link":"/Tutoriels/Cpp/CMake/","follow":"no"},
+        {"name":"Apprendre à compiler un projet C++ avec QMake","link":"/Tutoriels/Cpp/QMake/","follow":"no"}
+    ],
+    "summary_pat":
+    [
+        {"name":"Apprendre les patrons de conception en C++","link":"/Tutoriels/Cpp/Patrons_Conception/","follow":"no"}
+    ],
+    "summary_ihm":
+    [
+        {"name":"Apprendre les interfaces homme-machine en C++ avec Qt","link":"/Tutoriels/Cpp/Qt/IHM/","follow":"no"}
+    ],
+    "summary_vis":
+    [
+        {"name":"Apprendre la vision par ordinateur en C++ avec OpenCV","link":"/Tutoriels/Cpp/OpenCV/","follow":"no"}
+    ],
+    "summary_bas":
+    [
+        {"name":"Apprendre les bases de données SQLite en C++ avec Qt","link":"/Tutoriels/Cpp/Qt/SQLite/","follow":"no"},
+        {"name":"Apprendre les bases de données MySQL en C++ avec Qt","link":"/Tutoriels/Cpp/Qt/MySQL/","follow":"no"},
+        {"name":"Apprendre les bases de données PostgreSQL en C++ avec Qt","link":"/Tutoriels/Cpp/Qt/PostgreSQL/","follow":"no"},
+        {"name":"Apprendre les bases de données Firebird en C++ avec Qt","link":"/Tutoriels/Cpp/Qt/Firebird/","follow":"no"},
+        {"name":"Apprendre les bases de données MongoDB en C++ avec Qt","link":"/Tutoriels/Cpp/Qt/MongoDB/","follow":"no"},
+        {"name":"Apprendre les bases de données LevelDB en C++ avec Qt","link":"/Tutoriels/Cpp/Qt/MongoDB/","follow":"no"}
+    ],
+    "summary_for":
+    [
+        {"name":"Apprendre le format de données XML en C++ avec Qt","link":"/Tutoriels/Cpp/Qt/XML/","follow":"no"},
+        {"name":"Apprendre le format de données JSON en C++ avec Qt","link":"/Tutoriels/Cpp/Qt/JSON/","follow":"no"},
+        {"name":"Apprendre le format de données CSV en C++ avec Qt","link":"/Tutoriels/Cpp/Qt/CSV/","follow":"no"}
+    ],
+    "summary_mul":
+    [
+        {"name":"Apprendre le multithreading en C++ avec Qt","link":"/Tutoriels/Cpp/Qt/Thread/","follow":"no"}
+    ],
+    "summary_res":
+    [
+        {"name":"Apprendre la communication réseau en C++ avec Qt","link":"/Tutoriels/Cpp/Qt/Network/","follow":"no"}
+    ],
+    "summary_mid":
+    [
+        {"name":"Apprendre la communication middleware ZeroMQ en C++ avec Qt","link":"/Tutoriels/Cpp/Qt/ZeroMQ/","follow":"no"},
+        {"name":"Apprendre la communication middleware RabbitMQ en C++ avec Qt","link":"/Tutoriels/Cpp/Qt/RabbitMQ/","follow":"no"}
+    ],
+    "summary_ipc":
+    [
+        {"name":"Apprendre la communication inter-processus DBus en C++ avec Qt","link":"/Tutoriels/Cpp/Qt/DBus/","follow":"no"},
+        {"name":"Apprendre la communication inter-processus SOAP en C++ avec Qt","link":"/Tutoriels/Cpp/Qt/CORBA/","follow":"no"},
+        {"name":"Apprendre la communication inter-processus CORBA en C++ avec Qt","link":"/Tutoriels/Cpp/Qt/CORBA/","follow":"no"},
+        {"name":"Apprendre la communication inter-processus DCOP en C++ avec Qt","link":"/Tutoriels/Cpp/Qt/DCOP/","follow":"no"}
+    ],
+    "summary_a2d":
+    [
+        {"name":"Apprendre la programmation 2D en C++ avec SDL","link":"/Tutoriels/Cpp/Qt/Network/","follow":"no"}
+    ],
+    "summary_a3d":
+    [
+        {"name":"Apprendre la programmation 3D en C++ avec OpenGL","link":"/Tutoriels/Cpp/Qt/Network/","follow":"no"}
+    ],
+    "summary_viz":
+    [
+        {"name":"Apprendre la visualisation de données en C++ avec QCustomPlot","link":"/Tutoriels/Cpp/Qt/QCustomPlot/","follow":"no"},
+        {"name":"Apprendre la visualisation de données en C++ avec Qwt","link":"/Tutoriels/Cpp/Qt/Qwt/","follow":"no"}
+    ],
+    "summary_scr":
+    [
+        {"name":"Apprendre les scripts en C++ avec Qt","link":"/Tutoriels/Cpp/Qt/Scripts/","follow":"no"}
     ]
 }
                         

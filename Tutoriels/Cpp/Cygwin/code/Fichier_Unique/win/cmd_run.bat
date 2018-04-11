@@ -1,6 +1,6 @@
 @echo off
 
-set PATH=C:\MinGW\bin
+set PATH=C:\cygwin\bin
 
 echo.
 bin\GProject.exe

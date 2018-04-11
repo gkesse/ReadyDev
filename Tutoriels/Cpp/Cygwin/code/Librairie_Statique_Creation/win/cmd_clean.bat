@@ -1,5 +1,5 @@
 @echo off
 
-set PATH=C:\MinGW\bin
+set PATH=C:\cygwin\bin
 
-mingw32-make clean
+make clean

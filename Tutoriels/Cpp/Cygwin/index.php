@@ -1,11 +1,11 @@
 <?php
     require $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoloadRegister.php";
     
-    $m_data = GJson::Instance()->getData("data/json/MinGW.json");
+    $m_data = GJson::Instance()->getData("data/json/Cygwin.json");
     
-    GConfig::Instance()->setData("title", "Apprendre à comipler un projet C++ avec MinGW");
+    GConfig::Instance()->setData("title", "Apprendre à comipler un projet C++ avec Cygwin");
     GConfig::Instance()->setData("menu", "Tutoriels");
-    GConfig::Instance()->setData("view", "MinGW");
+    GConfig::Instance()->setData("view", "Cygwin");
     GConfig::Instance()->setData("link", $m_data["links"]);
 
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";

@@ -63,6 +63,7 @@
 		$m_file = $_REQUEST["file"];
 		$m_summary = $_REQUEST["summary"];
 		$m_file = "data/json/".$m_file.".json";
+        $m_summary = "summary_".$m_summary;
 		$m_data = GJson::Instance()->getData($m_file);
 		$m_dataArr = $m_data[$m_summary];
 		$m_dataSum = '';
