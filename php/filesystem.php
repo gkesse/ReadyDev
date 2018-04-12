@@ -13,7 +13,7 @@
 			$m_dirName = $m_dirArr[$i];
 			$m_dataFile .= "<div class='pddd bdba'>";
 			$m_dataFile .= "<i class='fa fa-".$m_dirName[2]."'></i> ";
-			$m_dataFile .= "<div class='hvra cspt dibm FileItem'";
+			$m_dataFile .= "<div class='hvra cspt dibm FilesystemItem'";
 			$m_dataFile .= "onclick='openFile(this, \"".$m_dirName[3]."\");'>";
 			$m_dataFile .= $m_dirName[1];
 			$m_dataFile .= "</div>";
@@ -23,7 +23,7 @@
 		
 		$m_filePath = GFilesystem::Instance()->getPath2($m_rootPath, $m_dirPath);
 		$m_dataMenu = '';
-		$m_dataMenu .= '<div class="pgCr05 dibm cspt FileLink" onclick="openLink(this);">';
+		$m_dataMenu .= '<div class="pgCr05 dibm cspt FilesystemLink" onclick="openLink(this);">';
 		$m_dataMenu .= '<i class="fa fa-folder clrg"></i></div> ';
 		if($m_filePath != "") {
 			$m_filePathArr = explode("/", $m_filePath);
@@ -32,7 +32,7 @@
 				if($m_filePathItem == "") continue;
 				$m_dataMenu .= '<div class="pgCr05 dibm">';
 				$m_dataMenu .= '<i class="fa fa-chevron-right clrg"></i></div> ';
-				$m_dataMenu .= '<div class="pgCr05 dibm hvra cspt clrg FileLink" onclick="openLink(this);">';
+				$m_dataMenu .= '<div class="pgCr05 dibm hvra cspt clrg FilesystemLink" onclick="openLink(this);">';
 				$m_dataMenu .= $m_filePathItem.'</div> ';
 			}
 		}
@@ -56,6 +56,12 @@
 			$m_content .= '<img src="'.$m_fileName.'" alt="Image.png"/>';
 			$m_content .= '</div>';
 		}
+		else if($m_fileType == "bat" || $m_fileType == "file") {
+			$m_data = GFile::Instance()->getData3($m_rootPath, $m_filePath);
+			$m_content .= '<pre><xmp class="prettyprint linenums lang-sh">';
+			$m_content .= $m_data;
+			$m_content .= '</xmp></pre>';
+		}
 		else {
 			$m_data = GFile::Instance()->getData3($m_rootPath, $m_filePath);
 			$m_content .= '<pre><xmp class="prettyprint linenums">';
@@ -64,7 +70,7 @@
 		}
 		$m_fileName = GFilesystem::Instance()->getPath2($m_rootPath, $m_filePath);
 		$m_dataMenu = '';
-		$m_dataMenu .= '<div class="pgCr05 dibm cspt FileLink" onclick="openLink(this);">';
+		$m_dataMenu .= '<div class="pgCr05 dibm cspt FilesystemLink" onclick="openLink(this);">';
 		$m_dataMenu .= '<i class="fa fa-folder clrg"></i></div> ';
 		if($m_fileName != "") {
 			$m_fileNameArr = explode("/", $m_fileName);
@@ -73,7 +79,7 @@
 				if($m_fileNameItem == "") continue;
 				$m_dataMenu .= '<div class="pgCr05 dibm">';
 				$m_dataMenu .= '<i class="fa fa-chevron-right clrg"></i></div> ';
-				$m_dataMenu .= '<div class="pgCr05 dibm hvra cspt clrg FileLink" onclick="openLink(this);">';
+				$m_dataMenu .= '<div class="pgCr05 dibm hvra cspt clrg FilesystemLink" onclick="openLink(this);">';
 				$m_dataMenu .= $m_fileNameItem.'</div> ';
 			}
 		}

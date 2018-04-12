@@ -15,18 +15,19 @@ var GFilesystem = (function() {
             //===============================================
             getCurrentDir: function() {
                 m_dirRoot = window.location.pathname;
+                m_dirRoot += "/code";
             },
             //===============================================
             selectFile: function(dir="") {
-				var m_FileMenu = document.getElementById("FileMenu");
-				var m_FileList = document.getElementById("FileList");
+				var m_FilesystemMenu = document.getElementById("FilesystemMenu");
+				var m_FilesystemList = document.getElementById("FilesystemList");
                 var m_xmlhttp = new XMLHttpRequest();
                 m_xmlhttp.onreadystatechange = function() {
                     if(this.readyState == 4 && this.status == 200) {
                         var m_data = this.responseText;
 						var m_dataArr = JSON.parse(m_data);
-						m_FileMenu.innerHTML = m_dataArr["menu"];
-						m_FileList.innerHTML = m_dataArr["file"];
+						m_FilesystemMenu.innerHTML = m_dataArr["menu"];
+						m_FilesystemList.innerHTML = m_dataArr["file"];
 						m_dirCur = dir;
                     }
                 }
@@ -51,16 +52,16 @@ var GFilesystem = (function() {
             //===============================================
             openContent: function(file, type) {
 				if(type == "bin") return;
-				var m_FileMenu = document.getElementById("FileMenu");
-				var m_FileList = document.getElementById("FileList");
+				var m_FilesystemMenu = document.getElementById("FilesystemMenu");
+				var m_FilesystemList = document.getElementById("FilesystemList");
                 var m_xmlhttp = new XMLHttpRequest();
                 m_xmlhttp.onreadystatechange = function() {
                     if(this.readyState == 4 && this.status == 200) {
                         var m_data = this.responseText;
 						var m_dataArr = JSON.parse(m_data);
-						m_FileMenu.innerHTML = m_dataArr["menu"];
-						m_FileList.innerHTML = m_dataArr["content"];
-						if(type == "file" || type == "txt") {
+						m_FilesystemMenu.innerHTML = m_dataArr["menu"];
+						m_FilesystemList.innerHTML = m_dataArr["content"];
+						if(type != "img") {
 							PR.prettyPrint();
 						}
                     }
@@ -76,11 +77,11 @@ var GFilesystem = (function() {
             },
             //===============================================
             openLink: function(obj) {
-				var m_FileLink = document.getElementsByClassName("FileLink");
+				var m_FilesystemLink = document.getElementsByClassName("FilesystemLink");
                 var m_dirName = obj.innerText;
 				var m_dirPath = "";
-				for(var i = 0; i < m_FileLink.length; i ++) {
-					var m_linkItem = m_FileLink[i];
+				for(var i = 0; i < m_FilesystemLink.length; i ++) {
+					var m_linkItem = m_FilesystemLink[i];
 					var m_linkName = m_linkItem.innerText;
 					m_dirPath += "/" + m_linkName;
 					if(m_linkName == m_dirName) break;
