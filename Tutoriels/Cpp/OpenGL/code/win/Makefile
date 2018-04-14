@@ -196,6 +196,7 @@ Makefile: GProject.pro C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/win32-g++/qmake.conf
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/qt_config.prf \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/win32-g++/qmake.conf \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/exclusive_builds.prf \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/toolchain.prf \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/default_pre.prf \
@@ -203,6 +204,7 @@ Makefile: GProject.pro C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/win32-g++/qmake.conf
 		C:/Users/gerar/Downloads/OpenGL/freeglut-3.0.0/freeglut-3.0.0/GFreeGLUT.pri \
 		C:/Users/gerar/Downloads/OpenGL/glew-2.1.0-win32/glew-2.1.0/GGLEW.pri \
 		C:/Users/gerar/Downloads/SDL/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/GSDL.pri \
+		C:/Users/gerar/Downloads/OpenGL/bullet3-master/bullet3-master/GBullet.pri \
 		../src/manager/GManager.pri \
 		../src/GMain.pri \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/resolve_config.prf \
@@ -363,6 +365,7 @@ C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/qt_functions.prf:
 C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/qt_config.prf:
 C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/win32-g++/qmake.conf:
 C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/spec_post.prf:
+.qmake.stash:
 C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/exclusive_builds.prf:
 C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/toolchain.prf:
 C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/default_pre.prf:
@@ -370,6 +373,7 @@ C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/win32/default_pre.prf:
 C:/Users/gerar/Downloads/OpenGL/freeglut-3.0.0/freeglut-3.0.0/GFreeGLUT.pri:
 C:/Users/gerar/Downloads/OpenGL/glew-2.1.0-win32/glew-2.1.0/GGLEW.pri:
 C:/Users/gerar/Downloads/SDL/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/GSDL.pri:
+C:/Users/gerar/Downloads/OpenGL/bullet3-master/bullet3-master/GBullet.pri:
 ../src/manager/GManager.pri:
 ../src/GMain.pri:
 C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/resolve_config.prf:
@@ -402,6 +406,7 @@ all: release-all debug-all  FORCE
 clean: release-clean debug-clean  FORCE
 distclean: release-distclean debug-distclean  FORCE
 	-$(DEL_FILE) Makefile
+	-$(DEL_FILE) .qmake.stash
 
 release-mocclean:
 	$(MAKE) -f $(MAKEFILE).Release mocclean

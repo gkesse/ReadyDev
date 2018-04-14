@@ -34,7 +34,7 @@ void GWindow::setBackground() {
 //===============================================
 void GWindow::setVertices() {
     QString m_drawFlag = GConfig::Instance()->getData("DRAW_FLAG");
-    if(m_drawFlag == "TRUE") return;
+    if(m_drawFlag == "FALSE") return;
     GDraw::Instance()->setVertices();
 }
 //===============================================
