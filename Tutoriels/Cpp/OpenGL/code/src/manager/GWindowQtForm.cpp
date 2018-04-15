@@ -21,6 +21,10 @@ GWindowQtForm::~GWindowQtForm() {
 void GWindowQtForm::createObjects() {
     setWindowTitle(m_title);
     resize(m_w, m_h);
+    QGLFormat m_format;
+    m_format.setVersion(4,0);
+    m_format.setProfile(QGLFormat::CoreProfile);
+    ui->m_glWindow->setFormat(m_format);
 }
 //===============================================
 void GWindowQtForm::createConnections() {

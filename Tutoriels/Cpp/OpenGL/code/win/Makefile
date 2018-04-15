@@ -205,6 +205,8 @@ Makefile: GProject.pro C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/win32-g++/qmake.conf
 		C:/Users/gerar/Downloads/OpenGL/glew-2.1.0-win32/glew-2.1.0/GGLEW.pri \
 		C:/Users/gerar/Downloads/SDL/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/GSDL.pri \
 		C:/Users/gerar/Downloads/OpenGL/bullet3-master/bullet3-master/GBullet.pri \
+		C:/Users/gerar/Downloads/OpenGL/glfw-3.2.1/glfw-3.2.1/GGLFW.pri \
+		C:/Users/gerar/Downloads/OpenGL/gl3w-master/gl3w-master/GL3W.pri \
 		../src/manager/GManager.pri \
 		../src/GMain.pri \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/resolve_config.prf \
@@ -377,6 +379,8 @@ C:/Users/gerar/Downloads/OpenGL/freeglut-3.0.0/freeglut-3.0.0/GFreeGLUT.pri:
 C:/Users/gerar/Downloads/OpenGL/glew-2.1.0-win32/glew-2.1.0/GGLEW.pri:
 C:/Users/gerar/Downloads/SDL/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/GSDL.pri:
 C:/Users/gerar/Downloads/OpenGL/bullet3-master/bullet3-master/GBullet.pri:
+C:/Users/gerar/Downloads/OpenGL/glfw-3.2.1/glfw-3.2.1/GGLFW.pri:
+C:/Users/gerar/Downloads/OpenGL/gl3w-master/gl3w-master/GL3W.pri:
 ../src/manager/GManager.pri:
 ../src/GMain.pri:
 C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/resolve_config.prf:

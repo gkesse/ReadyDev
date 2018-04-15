@@ -1,4 +1,5 @@
 INPUT(
+./build\gl3w.o
 ./build\GWindow.o
 ./build\GConfig.o
 ./build\GWindowGLUT.o
@@ -14,6 +15,8 @@ INPUT(
 ./build\GWindowQt.o
 ./build\GWindowQtForm.o
 ./build\GWindowQtFormGL.o
+./build\GWindowGLFW.o
 ./build\main.o
 ./build\moc_GWindowQtForm.o
+./build\moc_GWindowQtFormGL.o
 );

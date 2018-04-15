@@ -18,6 +18,7 @@ GDraw* GDraw::Instance() {
     QString m_windowType = GConfig::Instance()->getData("WINDOW_TYPE");
     if(m_windowType == "OPENGL_GLUT") return GDrawGLUT::Instance();
     if(m_windowType == "OPENGL_SDL_GLEW") return GDrawSDL::Instance();
+    if(m_windowType == "OPENGL_QT") return GDrawSDL::Instance();
     return 0;
 }
 //===============================================

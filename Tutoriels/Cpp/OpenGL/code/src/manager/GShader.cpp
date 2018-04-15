@@ -22,25 +22,25 @@ GShader* GShader::Instance() {
 GLuint GShader::loadShader(GShaderInfo* shaderInfo) {
 	if(shaderInfo == NULL) return 0;
 	
-    GLuint n_program = glCreateProgram();
-    GShaderInfo* n_shaderInfo = shaderInfo;
+    GLuint m_program = glCreateProgram();
+    GShaderInfo* m_shaderInfo = shaderInfo;
 	
-    while(n_shaderInfo->type != GL_NONE) {
-        GLuint n_shader = glCreateShader(n_shaderInfo->type);
-        n_shaderInfo->shader = n_shader;
-        GLchar* n_source = GFile::Instance()->getFileContent(n_shaderInfo->filename);
-        glShaderSource(n_shader, 1, &n_source, NULL);
-        delete[] n_source;
-        glCompileShader(n_shader);
-        GLint n_compiled;
-        glGetShaderiv(n_shader, GL_COMPILE_STATUS, &n_compiled);
-        glAttachShader(n_program, n_shader);
-        n_shaderInfo++;
+    while(m_shaderInfo->type != GL_NONE) {
+        GLuint m_shader = glCreateShader(m_shaderInfo->type);
+        m_shaderInfo->shader = m_shader;
+        GLchar* m_source = GFile::Instance()->getFileContent(m_shaderInfo->filename);
+        glShaderSource(m_shader, 1, &m_source, NULL);
+        delete[] m_source;
+        glCompileShader(m_shader);
+        GLint m_compiled;
+        glGetShaderiv(m_shader, GL_COMPILE_STATUS, &m_compiled);
+        glAttachShader(m_program, m_shader);
+        m_shaderInfo++;
 	}
 	
-    glLinkProgram(n_program);
-    GLint n_linked;
-    glGetProgramiv(n_program, GL_LINK_STATUS, &n_linked);
-    return n_program;
+    glLinkProgram(m_program);
+    GLint m_linked;
+    glGetProgramiv(m_program, GL_LINK_STATUS, &m_linked);
+    return m_program;
 }
 //================================================
