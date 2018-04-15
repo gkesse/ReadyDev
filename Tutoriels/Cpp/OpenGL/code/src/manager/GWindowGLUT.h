@@ -2,9 +2,8 @@
 #ifndef _GWindowGLUT_
 #define _GWindowGLUT_
 //===============================================
+#include "GOpenGL.h"
 #include "GWindow.h"
-//===============================================
-#include <GL/freeglut.h>
 //===============================================
 class GWindowGLUT : public GWindow {
 public:

@@ -31,9 +31,9 @@ void GDrawSDL::initDraw() {
     };
     GVertex::Instance()->loadVertex1D(m_colors, n_colors, 0, 9);
     GShaderInfo m_shaders[] = {
-        {GL_VERTEX_SHADER, "res/shaders/color/color.vert"},
-        {GL_FRAGMENT_SHADER, "res/shaders/color/color.frag"},
-        {GL_NONE}
+        {GL_VERTEX_SHADER, "res/shaders/color/color.vert", 0},
+        {GL_FRAGMENT_SHADER, "res/shaders/color/color.frag", 0},
+        {GL_NONE, "", 0}
     };
     m_program =  GShader::Instance()->loadShader(m_shaders);
 }

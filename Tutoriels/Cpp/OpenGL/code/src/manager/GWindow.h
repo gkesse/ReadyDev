@@ -14,7 +14,7 @@ public:
 public:
     static GWindow* Instance();
     virtual void show(int* argc, char** argv) = 0;
-    void setBackground();
+    virtual void setBackground();
     void initDraw();
     void draw();
 

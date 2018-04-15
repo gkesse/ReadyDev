@@ -1,5 +1,4 @@
 INPUT(
-./build\gl3w.o
 ./build\GWindow.o
 ./build\GConfig.o
 ./build\GWindowGLUT.o

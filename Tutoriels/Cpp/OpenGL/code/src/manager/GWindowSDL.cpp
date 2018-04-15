@@ -30,7 +30,7 @@ void GWindowSDL::show(int* argc, char** argv) {
     SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
     m_window = SDL_CreateWindow(m_title.c_str(), m_x, m_y, m_w, m_h, SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL);
     SDL_GLContext m_context = SDL_GL_CreateContext(m_window);
-    glewInit();
+    //glewInit();
     initDraw();
     SDL_Event m_event;
     while(1) {

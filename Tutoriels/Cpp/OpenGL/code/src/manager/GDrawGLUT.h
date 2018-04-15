@@ -2,10 +2,8 @@
 #ifndef _GDrawGLUT_
 #define _GDrawGLUT_
 //================================================
+#include "GOpenGL.h"
 #include "GDraw.h"
-//===============================================
-#include <GL/freeglut.h>
-#include <BulletDynamics/Dynamics/btDynamicsWorld.h>
 //===============================================
 #define VERTICES_BUFFER_MAX (256)
 //===============================================

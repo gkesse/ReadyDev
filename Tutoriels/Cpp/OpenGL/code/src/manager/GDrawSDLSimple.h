@@ -2,10 +2,8 @@
 #ifndef _GDrawSDLSimple_
 #define _GDrawSDLSimple_
 //================================================
+#include "GOpenGL.h"
 #include "GDraw.h"
-//===============================================
-#include <SDL2/SDL.h>
-#include <GL/glew.h>
 //===============================================
 #include <QString>
 //===============================================

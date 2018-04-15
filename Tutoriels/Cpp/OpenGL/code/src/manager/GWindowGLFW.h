@@ -2,9 +2,8 @@
 #ifndef _GWindowGLFW_
 #define _GWindowGLFW_
 //===============================================
+#include "GOpenGL.h"
 #include "GWindow.h"
-//===============================================
-#include <GLFW/glfw3.h>
 //===============================================
 class GWindowGLFW : public GWindow {
 public:
@@ -14,6 +13,7 @@ public:
 public:
     static GWindowGLFW* Instance();
     void show(int* argc, char** argv);
+    void setBackground();
 
 private:
     static GWindowGLFW* m_instance;

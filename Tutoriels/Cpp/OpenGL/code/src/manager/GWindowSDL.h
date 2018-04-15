@@ -2,10 +2,8 @@
 #ifndef _GWindowSDL_
 #define _GWindowSDL_
 //===============================================
+#include "GOpenGL.h"
 #include "GWindow.h"
-//===============================================
-#include <SDL2/SDL.h>
-#include <GL/glew.h>
 //===============================================
 class GWindowSDL : public GWindow {
 public:
