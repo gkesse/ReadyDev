@@ -18,7 +18,7 @@ GDrawGLUT* GDrawGLUT::Instance() {
     return m_instance;
 }
 //===============================================
-void GDrawGLUT::setVertices() {
+void GDrawGLUT::initDraw() {
 
 }
 //===============================================

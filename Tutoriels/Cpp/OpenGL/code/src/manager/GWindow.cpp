@@ -2,6 +2,7 @@
 #include "GWindow.h"
 #include "GWindowSDL.h"
 #include "GWindowGLUT.h"
+#include "GWindowQt.h"
 #include "GDraw.h"
 #include "GConfig.h"
 //===============================================
@@ -17,6 +18,7 @@ GWindow* GWindow::Instance() {
     QString m_windowType = GConfig::Instance()->getData("WINDOW_TYPE");
     if(m_windowType == "OPENGL_GLUT") return GWindowGLUT::Instance();
     if(m_windowType == "OPENGL_SDL_GLEW") return GWindowSDL::Instance();
+    if(m_windowType == "OPENGL_QT") return GWindowQt::Instance();
     return 0;
 }
 //===============================================
@@ -32,10 +34,10 @@ void GWindow::setBackground() {
     glClearColor(m_red, m_green, m_blue, m_alpha);
 }
 //===============================================
-void GWindow::setVertices() {
+void GWindow::initDraw() {
     QString m_drawFlag = GConfig::Instance()->getData("DRAW_FLAG");
     if(m_drawFlag == "FALSE") return;
-    GDraw::Instance()->setVertices();
+    GDraw::Instance()->initDraw();
 }
 //===============================================
 void GWindow::draw() {

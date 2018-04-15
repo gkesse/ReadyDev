@@ -1,23 +1,20 @@
 //===============================================
-#ifndef _GDraw_
-#define _GDraw_
-//================================================
+#ifndef _GWindowQtFormGL_
+#define _GWindowQtFormGL_
+//===============================================
 #include <iostream>
+//===============================================
+#include <QGLWidget>
 //===============================================
 using namespace std;
 //===============================================
-class GDraw {
+class GWindowQtFormGL : public QGLWidget {
 public:
-    GDraw();
-    ~GDraw();
-
-public:
-    static GDraw* Instance();
-    virtual void initDraw() = 0;
-    virtual void draw() = 0;
+    GWindowQtFormGL(QWidget* parent = 0);
+    ~GWindowQtFormGL();
 
 private:
-    static GDraw* m_instance;
+
 };
 //===============================================
 #endif

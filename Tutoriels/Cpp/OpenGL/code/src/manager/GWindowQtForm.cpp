@@ -1,0 +1,38 @@
+//===============================================
+#include "GWindowQtForm.h"
+#include "ui_GWindowQtForm.h"
+//===============================================
+GWindowQtForm::GWindowQtForm(QWidget *parent) :
+    QWidget(parent), ui(new Ui::GWindowQtForm) {
+    ui->setupUi(this);
+    m_x = 0;
+    m_y = 0;
+    m_w = 400;
+    m_h = 400;
+    m_title = "OpenGL | Qt | ReadyDev";
+    createObjects();
+    createConnections();
+}
+//===============================================
+GWindowQtForm::~GWindowQtForm() {
+
+}
+//===============================================
+void GWindowQtForm::createObjects() {
+    setWindowTitle(m_title);
+    resize(m_w, m_h);
+}
+//===============================================
+void GWindowQtForm::createConnections() {
+    connect(ui->m_photoButton, SIGNAL(clicked()), this, SLOT(slotPhotoClicked()));
+    connect(ui->m_animateButton, SIGNAL(clicked()), this, SLOT(slotAnimateClicked()));
+}
+//===============================================
+void GWindowQtForm::slotPhotoClicked() {
+    cout << "slotPhotoClicked...\n";
+}
+//===============================================
+void GWindowQtForm::slotAnimateClicked() {
+    cout << "slotAnimateClicked...\n";
+}
+//===============================================

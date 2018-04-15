@@ -17,7 +17,15 @@ HEADERS += \
     $$PWD/GWindowSDL.h \
     $$PWD/GDraw.h \
     $$PWD/GDrawSDL.h \
-    $$PWD/GDrawGLUT.h
+    $$PWD/GDrawGLUT.h \
+    $$PWD/GVertex.h \
+    $$PWD/GShader.h \
+    $$PWD/GFile.h \
+    $$PWD/GDrawSDLSimple.h \
+    $$PWD/GDrawSDLColor.h \
+    $$PWD/GWindowQt.h \
+    $$PWD/GWindowQtForm.h \
+    $$PWD/GWindowQtFormGL.h
 
 SOURCES += \
     $$PWD/GWindow.cpp \
@@ -26,4 +34,15 @@ SOURCES += \
     $$PWD/GWindowSDL.cpp \
     $$PWD/GDraw.cpp \
     $$PWD/GDrawSDL.cpp \
-    $$PWD/GDrawGLUT.cpp
+    $$PWD/GDrawGLUT.cpp \
+    $$PWD/GVertex.cpp \
+    $$PWD/GShader.cpp \
+    $$PWD/GFile.cpp \
+    $$PWD/GDrawSDLSimple.cpp \
+    $$PWD/GDrawSDLColor.cpp \
+    $$PWD/GWindowQt.cpp \
+    $$PWD/GWindowQtForm.cpp \
+    $$PWD/GWindowQtFormGL.cpp
+
+FORMS += \
+    $$PWD/GWindowQtForm.ui

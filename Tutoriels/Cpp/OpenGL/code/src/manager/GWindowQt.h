@@ -1,25 +1,24 @@
 //===============================================
-#ifndef _GWindow_
-#define _GWindow_
+#ifndef _GWindowQt_
+#define _GWindowQt_
 //===============================================
-#include <iostream>
+#include "GWindow.h"
+#include "GWindowQtForm.h"
 //===============================================
-using namespace std;
+#include <QWidget>
 //===============================================
-class GWindow {
+class GWindowQt : public GWindow {
 public:
-    GWindow();
-    ~GWindow();
+    GWindowQt();
+    ~GWindowQt();
 
 public:
-    static GWindow* Instance();
-    virtual void show(int* argc, char** argv) = 0;
-    void setBackground();
-    void initDraw();
-    void draw();
+    static GWindowQt* Instance();
+    void show(int* argc=0, char** argv=0);
 
 private:
-    static GWindow* m_instance;
+    static GWindowQt* m_instance;
+    GWindowQtForm* m_window;
 };
 //===============================================
 #endif

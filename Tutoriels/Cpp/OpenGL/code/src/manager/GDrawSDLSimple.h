@@ -1,27 +1,31 @@
 //===============================================
-#ifndef _GDrawGLUT_
-#define _GDrawGLUT_
+#ifndef _GDrawSDLSimple_
+#define _GDrawSDLSimple_
 //================================================
 #include "GDraw.h"
 //===============================================
-#include <GL/freeglut.h>
-#include <BulletDynamics/Dynamics/btDynamicsWorld.h>
+#include <SDL2/SDL.h>
+#include <GL/glew.h>
+//===============================================
+#include <QString>
 //===============================================
 #define VERTICES_BUFFER_MAX (256)
 //===============================================
-class GDrawGLUT : public GDraw {
+class GDrawSDLSimple : public GDraw {
 public:
-    GDrawGLUT();
-    ~GDrawGLUT();
+    GDrawSDLSimple();
+    ~GDrawSDLSimple();
 
 public:
-    static GDrawGLUT* Instance();
+    static GDrawSDLSimple* Instance();
     void initDraw();
     void draw();
 
 private:
-    static GDrawGLUT* m_instance;
-    float m_verticesMap[VERTICES_BUFFER_MAX];
+    static GDrawSDLSimple* m_instance;
+    float m_vertices[VERTICES_BUFFER_MAX];
+    float m_colors[VERTICES_BUFFER_MAX];
+    GLuint m_program;
 };
 //===============================================
 #endif
