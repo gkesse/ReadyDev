@@ -4,26 +4,18 @@
 //================================================
 #include <iostream>
 //================================================
-#include "GInclude.h"
+#include "GShader.h"
 //================================================
 using namespace std;
 //================================================
-typedef struct {
-    GLenum type;
-    const char* filename;
-    GLuint shader;
-    GLuint attribLoc;
-    const char* attribName;
-} GShaderBindInfo;
-//================================================
-class GShaderBind {
+class GShaderBind : public GShader {
 public:
     GShaderBind();
     ~GShaderBind();
 	
 public:
     static GShaderBind* Instance();
-    GLuint loadShader(GShaderBindInfo* shaderInfo);
+    GLuint loadShader(GShaderInfo* shaderInfo);
 	
 private:
     static GShaderBind* m_instance;

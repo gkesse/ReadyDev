@@ -11,6 +11,7 @@ GConfig::GConfig() {
     setData("COLOR_FLAG", "FALSE");
     setData("COLOR_VAL", "55;63;96;255");
     setData("DRAW_TYPE", "SIMPLE");
+    setData("SHADER_LOAD_METHOD", "LAYOUT");
 }
 //================================================
 GConfig::~GConfig() {

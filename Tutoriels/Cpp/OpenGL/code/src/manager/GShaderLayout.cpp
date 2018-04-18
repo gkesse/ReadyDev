@@ -19,11 +19,11 @@ GShaderLayout* GShaderLayout::Instance() {
 	return m_instance;
 }
 //================================================
-GLuint GShaderLayout::loadShader(GShaderLayoutInfo* shaderInfo) {
+GLuint GShaderLayout::loadShader(GShaderInfo *shaderInfo) {
 	if(shaderInfo == NULL) return 0;
 	
     GLuint m_program = glCreateProgram();
-    GShaderLayoutInfo* m_shaderInfo = shaderInfo;
+    GShaderInfo* m_shaderInfo = shaderInfo;
 	
     while(m_shaderInfo->type != GL_NONE) {
         GLuint m_shader = glCreateShader(m_shaderInfo->type);

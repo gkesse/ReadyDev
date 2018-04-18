@@ -19,11 +19,11 @@ GShaderBind* GShaderBind::Instance() {
 	return m_instance;
 }
 //================================================
-GLuint GShaderBind::loadShader(GShaderBindInfo* shaderInfo) {
+GLuint GShaderBind::loadShader(GShaderInfo* shaderInfo) {
 	if(shaderInfo == NULL) return 0;
 	
     GLuint m_program = glCreateProgram();
-    GShaderBindInfo* m_shaderInfo = shaderInfo;
+    GShaderInfo* m_shaderInfo = shaderInfo;
 	
     while(m_shaderInfo->type != GL_NONE) {
         GLuint m_shader = glCreateShader(m_shaderInfo->type);

@@ -12,8 +12,6 @@ typedef struct {
     GLenum type;
     const char* filename;
     GLuint shader;
-    GLuint attribLoc;
-    const char* attribName;
 } GShaderInfo;
 //================================================
 class GShader {
@@ -23,8 +21,8 @@ public:
 	
 public:
 	static GShader* Instance();
-	GLuint loadShader(GShaderInfo* shaderInfo);
-	
+    virtual GLuint loadShader(GShaderInfo* shaderInfo) = 0;
+
 private:
 	static GShader* m_instance;
 };

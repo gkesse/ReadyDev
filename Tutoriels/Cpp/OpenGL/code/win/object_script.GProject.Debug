@@ -19,6 +19,9 @@ INPUT(
 ./build\GDrawQt.o
 ./build\GDrawQtSimple.o
 ./build\GDrawQtLayout.o
+./build\GDrawQtBind.o
+./build\GShaderBind.o
+./build\GShaderLayout.o
 ./build\main.o
 ./build\moc_GWindowQtForm.o
 ./build\moc_GWindowQtFormGL.o
