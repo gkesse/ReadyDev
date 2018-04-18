@@ -37,6 +37,7 @@ void GWindow::setBackground() {
 }
 //===============================================
 void GWindow::initDraw() {
+    showVersion();
     QString m_drawFlag = GConfig::Instance()->getData("DRAW_FLAG");
     if(m_drawFlag == "FALSE") return;
     GDraw::Instance()->initDraw();
@@ -46,5 +47,15 @@ void GWindow::draw() {
     QString m_drawFlag = GConfig::Instance()->getData("DRAW_FLAG");
     if(m_drawFlag == "FALSE") return;
     GDraw::Instance()->draw();
+}
+//===============================================
+void GWindow::showVersion() {
+    QString m_flag = GConfig::Instance()->getData("VERSION_SHOW_FLAG");
+    if(m_flag != "TRUE") return;
+    GLint m_major, m_minor;
+    glGetIntegerv(GL_MAJOR_VERSION, &m_major);
+    glGetIntegerv(GL_MINOR_VERSION, &m_minor);
+    cout << "GL_MAJOR_VERSION: " << m_major << "\n";
+    cout << "GL_MINOR_VERSION: " << m_minor << "\n";
 }
 //===============================================

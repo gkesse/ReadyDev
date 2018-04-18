@@ -9,5 +9,7 @@
 #include <QGLWidget>
 #include <BulletDynamics/Dynamics/btDynamicsWorld.h>
 //================================================
+#define BUFFER_OFFSET(offset) ((char*)NULL + (offset))
+//================================================
 #endif
 //================================================

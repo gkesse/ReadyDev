@@ -17,6 +17,7 @@ public:
     virtual void setBackground();
     void initDraw();
     void draw();
+    void showVersion();
 
 private:
     static GWindow* m_instance;

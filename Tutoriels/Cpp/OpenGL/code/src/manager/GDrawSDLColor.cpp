@@ -22,9 +22,11 @@ GDrawSDLColor* GDrawSDLColor::Instance() {
 }
 //===============================================
 void GDrawSDLColor::initDraw() {
-    float m_verticesIn[] = {-0.5, -0.5, 0.0, 0.5, 0.5, -0.5};
-    GVertex::Instance()->loadVertex1D(m_vertices, m_verticesIn, 0, 6);
-    glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, m_vertices);
+    float m_vertices[] = {-0.5, -0.5, 0.0, 0.5, 0.5, -0.5};
+
+    glGenBuffers(1, m_buffers);
+    glBindBuffer(GL_ARRAY_BUFFER, m_buffers[0]);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(m_vertices), m_vertices, GL_STATIC_DRAW);
 
     GShaderInfo  m_shaders[] = {
         {GL_VERTEX_SHADER, "res/shaders/color/color_read.vert", 0},
@@ -34,12 +36,13 @@ void GDrawSDLColor::initDraw() {
 
     GLuint m_program = GShader::Instance()->loadShader(m_shaders);
     glUseProgram(m_program);
-
-    glEnableVertexAttribArray(0);
 }
 //===============================================
 void GDrawSDLColor::draw() {
-    glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, m_vertices);
+    glEnableVertexAttribArray(1);
+    glBindBuffer(GL_ARRAY_BUFFER, m_buffers[0]);
+    glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(0));
     glDrawArrays(GL_TRIANGLES, 0, 3);
+    glDisableVertexAttribArray(0);
 }
 //===============================================

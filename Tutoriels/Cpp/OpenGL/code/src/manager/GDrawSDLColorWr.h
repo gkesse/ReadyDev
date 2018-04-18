@@ -1,23 +1,26 @@
 //===============================================
-#ifndef _GDrawSDLColor_
-#define _GDrawSDLColor_
+#ifndef _GDrawSDLColorWr_
+#define _GDrawSDLColorWr_
 //================================================
 #include "GInclude.h"
 #include "GDrawSDL.h"
 //===============================================
-class GDrawSDLColor : public GDrawSDL {
+class GDrawSDLColorWr : public GDrawSDL {
 public:
-    GDrawSDLColor();
-    ~GDrawSDLColor();
+    GDrawSDLColorWr();
+    ~GDrawSDLColorWr();
 
 public:
-    static GDrawSDLColor* Instance();
+    static GDrawSDLColorWr* Instance();
     void initDraw();
     void draw();
 
 private:
-    static GDrawSDLColor* m_instance;
-    GLuint m_buffers[1];
+    static GDrawSDLColorWr* m_instance;
+    float m_vertices[6];
+    float m_colors[9];
+    GLuint m_buffers[2];
+    GLuint m_program;
 };
 //===============================================
 #endif

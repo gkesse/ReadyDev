@@ -28,7 +28,8 @@ HEADERS += \
     $$PWD/GWindowQtForm.h \
     $$PWD/GWindowQtFormGL.h \
     $$PWD/GWindowGLFW.h \
-    $$PWD/GInclude.h
+    $$PWD/GInclude.h \
+    $$PWD/GDrawSDLColorWr.h
 
 SOURCES += \
     $$PWD/GWindow.cpp \
@@ -46,7 +47,8 @@ SOURCES += \
     $$PWD/GWindowQt.cpp \
     $$PWD/GWindowQtForm.cpp \
     $$PWD/GWindowQtFormGL.cpp \
-    $$PWD/GWindowGLFW.cpp
+    $$PWD/GWindowGLFW.cpp \
+    $$PWD/GDrawSDLColorWr.cpp
 
 FORMS += \
     $$PWD/GWindowQtForm.ui
