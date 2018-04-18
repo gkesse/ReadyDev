@@ -18,6 +18,7 @@ public:
 private:
     static GDrawSDLColor* m_instance;
     float m_vertices[6];
+    float m_colors[9];
 };
 //===============================================
 #endif
