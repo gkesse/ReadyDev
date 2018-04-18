@@ -3,13 +3,9 @@
 #define _GDrawSDLColor_
 //================================================
 #include "GInclude.h"
-#include "GDraw.h"
+#include "GDrawSDL.h"
 //===============================================
-#include <QString>
-//===============================================
-#define VERTICES_BUFFER_MAX (256)
-//===============================================
-class GDrawSDLColor : public GDraw {
+class GDrawSDLColor : public GDrawSDL {
 public:
     GDrawSDLColor();
     ~GDrawSDLColor();
@@ -21,9 +17,7 @@ public:
 
 private:
     static GDrawSDLColor* m_instance;
-    float m_vertices[VERTICES_BUFFER_MAX];
-    float m_colors[VERTICES_BUFFER_MAX];
-    GLuint m_program;
+    float m_vertices[6];
 };
 //===============================================
 #endif

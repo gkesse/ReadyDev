@@ -3,13 +3,9 @@
 #define _GDrawSDLSimple_
 //================================================
 #include "GInclude.h"
-#include "GDraw.h"
+#include "GDrawSDL.h"
 //===============================================
-#include <QString>
-//===============================================
-#define VERTICES_BUFFER_MAX (256)
-//===============================================
-class GDrawSDLSimple : public GDraw {
+class GDrawSDLSimple : public GDrawSDL {
 public:
     GDrawSDLSimple();
     ~GDrawSDLSimple();
@@ -21,9 +17,7 @@ public:
 
 private:
     static GDrawSDLSimple* m_instance;
-    float m_vertices[VERTICES_BUFFER_MAX];
-    float m_colors[VERTICES_BUFFER_MAX];
-    GLuint m_program;
+    float m_vertices[6];
 };
 //===============================================
 #endif
