@@ -2,7 +2,7 @@
 #include "GDrawQt.h"
 #include "GDrawQtSimple.h"
 #include "GDrawQtLayout.h"
-//#include "GDrawQtColorWr.h"
+#include "GDrawQtBind.h"
 #include "GConfig.h"
 //===============================================
 GDrawQt* GDrawQt::m_instance = 0;
