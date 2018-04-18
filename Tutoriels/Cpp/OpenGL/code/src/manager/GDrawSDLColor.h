@@ -2,7 +2,7 @@
 #ifndef _GDrawSDLColor_
 #define _GDrawSDLColor_
 //================================================
-#include "GOpenGL.h"
+#include "GInclude.h"
 #include "GDraw.h"
 //===============================================
 #include <QString>

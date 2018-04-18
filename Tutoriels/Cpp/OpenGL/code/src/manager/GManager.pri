@@ -28,7 +28,7 @@ HEADERS += \
     $$PWD/GWindowQtForm.h \
     $$PWD/GWindowQtFormGL.h \
     $$PWD/GWindowGLFW.h \
-    $$PWD/GOpenGL.h
+    $$PWD/GInclude.h
 
 SOURCES += \
     $$PWD/GWindow.cpp \

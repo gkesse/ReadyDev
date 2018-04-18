@@ -2,7 +2,7 @@
 #ifndef _GDrawSDLSimple_
 #define _GDrawSDLSimple_
 //================================================
-#include "GOpenGL.h"
+#include "GInclude.h"
 #include "GDraw.h"
 //===============================================
 #include <QString>

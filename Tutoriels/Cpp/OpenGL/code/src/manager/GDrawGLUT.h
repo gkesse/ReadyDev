@@ -2,7 +2,7 @@
 #ifndef _GDrawGLUT_
 #define _GDrawGLUT_
 //================================================
-#include "GOpenGL.h"
+#include "GInclude.h"
 #include "GDraw.h"
 //===============================================
 #define VERTICES_BUFFER_MAX (256)

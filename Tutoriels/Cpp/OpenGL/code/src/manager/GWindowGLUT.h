@@ -2,7 +2,7 @@
 #ifndef _GWindowGLUT_
 #define _GWindowGLUT_
 //===============================================
-#include "GOpenGL.h"
+#include "GInclude.h"
 #include "GWindow.h"
 //===============================================
 class GWindowGLUT : public GWindow {

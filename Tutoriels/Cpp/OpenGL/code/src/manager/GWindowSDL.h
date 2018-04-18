@@ -2,7 +2,7 @@
 #ifndef _GWindowSDL_
 #define _GWindowSDL_
 //===============================================
-#include "GOpenGL.h"
+#include "GInclude.h"
 #include "GWindow.h"
 //===============================================
 class GWindowSDL : public GWindow {

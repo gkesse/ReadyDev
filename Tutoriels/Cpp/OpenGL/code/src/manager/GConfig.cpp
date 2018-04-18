@@ -9,6 +9,8 @@ GConfig::GConfig() {
     setData("BACKGROUND_COLOR", "5;16;57;255");
     setData("DRAW_FLAG", "FALSE");
     setData("COLOR_FLAG", "FALSE");
+    setData("COLOR_VAL", "55;63;96;255");
+    setData("DRAW_TYPE", "SIMPLE");
 }
 //================================================
 GConfig::~GConfig() {

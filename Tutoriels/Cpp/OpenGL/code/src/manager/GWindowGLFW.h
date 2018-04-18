@@ -2,7 +2,7 @@
 #ifndef _GWindowGLFW_
 #define _GWindowGLFW_
 //===============================================
-#include "GOpenGL.h"
+#include "GInclude.h"
 #include "GWindow.h"
 //===============================================
 class GWindowGLFW : public GWindow {
