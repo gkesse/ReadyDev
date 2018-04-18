@@ -4,7 +4,8 @@
 GConfig* GConfig::m_instance = 0;
 //================================================
 GConfig::GConfig() {
-    setData("THREAD_TYPE", "WINDOWS");
+    setData("PROCESS_ID_SHOW_FLAG", "FALSE");
+    setData("LIBRARY_LOAD_FLAG", "FALSE");
 }
 //================================================
 GConfig::~GConfig() {

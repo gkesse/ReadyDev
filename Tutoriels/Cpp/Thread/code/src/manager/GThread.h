@@ -16,10 +16,14 @@ public:
 public:
     static GThread* Instance();
     void runThread();
+    void showProcessId();
+    void loadLibrary();
 
 private:
     static GThread* m_instance;
     LPCWSTR m_appName;
+    LPCWSTR m_libName;
+    PROCESS_INFORMATION m_processInformation = {0};
 };
 //================================================
 #endif

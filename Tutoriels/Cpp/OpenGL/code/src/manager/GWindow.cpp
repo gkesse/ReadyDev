@@ -18,7 +18,7 @@ GWindow::~GWindow() {
 GWindow* GWindow::Instance() {
     QString m_windowType = GConfig::Instance()->getData("WINDOW_TYPE");
     if(m_windowType == "OPENGL_GLUT") return GWindowGLUT::Instance();
-    if(m_windowType == "OPENGL_SDL_GLEW") return GWindowSDL::Instance();
+    if(m_windowType == "OPENGL_SDL") return GWindowSDL::Instance();
     if(m_windowType == "OPENGL_QT") return GWindowQt::Instance();
     if(m_windowType == "OPENGL_GLFW") return GWindowGLFW::Instance();
     return 0;
