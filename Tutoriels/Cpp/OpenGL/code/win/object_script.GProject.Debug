@@ -16,6 +16,8 @@ INPUT(
 ./build\GWindowQtFormGL.o
 ./build\GWindowGLFW.o
 ./build\GDrawSDLColorWr.o
+./build\GDrawQt.o
+./build\GDrawQtSimple.o
 ./build\main.o
 ./build\moc_GWindowQtForm.o
 ./build\moc_GWindowQtFormGL.o

@@ -28,10 +28,11 @@ void GWindowQtFormGL::setTimer() {
     m_timer = new QTimer(this);
     connect(m_timer, SIGNAL(timeout()), this, SLOT(slotTimerUpdate()));
     m_timer->start(50);
+
 }
 //===============================================
 void GWindowQtFormGL::slotTimerUpdate() {
-    //updateGL();
+    updateGL();
 }
 //===============================================
 void GWindowQtFormGL::initializeGL() {
