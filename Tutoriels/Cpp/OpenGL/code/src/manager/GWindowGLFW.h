@@ -14,6 +14,7 @@ public:
     static GWindowGLFW* Instance();
     void show(int* argc, char** argv);
     void setBackground();
+    void setCenter();
 
 private:
     static GWindowGLFW* m_instance;

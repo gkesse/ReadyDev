@@ -24,8 +24,17 @@ GWindowGLFW* GWindowGLFW::Instance() {
 }
 //===============================================
 void GWindowGLFW::show(int* argc, char** argv) {
+    glutInit(argc, argv);
     glfwInit();
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, true);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+    glfwWindowHint(GLFW_RESIZABLE, false);
+    glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, true);
     m_window = glfwCreateWindow(m_w, m_h, m_title.c_str(), NULL, NULL);
+    setCenter();
+    glfwSetWindowPos(m_window, m_x, m_y);
     glfwMakeContextCurrent(m_window);
     glewInit();
     while(1) {
@@ -49,5 +58,12 @@ void GWindowGLFW::setBackground() {
     float m_alpha = QString(m_backgroundColorMap[3]).toFloat()/255.0;
     static const float m_backgroundColorVal[] = {m_red, m_green, m_blue, m_alpha};
     glClearBufferfv(GL_COLOR, 0, m_backgroundColorVal);
+}
+//===============================================
+void GWindowGLFW::setCenter() {
+    int m_sceenW = glutGet(GLUT_SCREEN_WIDTH);
+    int m_sceenH = glutGet(GLUT_SCREEN_HEIGHT);
+    m_x = (m_sceenW - m_w)/2;
+    m_y = (m_sceenH - m_h)/2;
 }
 //===============================================
