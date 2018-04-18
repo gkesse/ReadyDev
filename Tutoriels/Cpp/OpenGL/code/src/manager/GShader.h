@@ -12,6 +12,8 @@ typedef struct {
     GLenum type;
     const char* filename;
     GLuint shader;
+    GLuint attribLoc;
+    const char* attribName;
 } GShaderInfo;
 //================================================
 class GShader {

@@ -37,7 +37,7 @@ GLuint GShader::loadShader(GShaderInfo* shaderInfo) {
         glAttachShader(m_program, m_shader);
         m_shaderInfo++;
 	}
-	
+
     glLinkProgram(m_program);
     GLint m_linked;
     glGetProgramiv(m_program, GL_LINK_STATUS, &m_linked);

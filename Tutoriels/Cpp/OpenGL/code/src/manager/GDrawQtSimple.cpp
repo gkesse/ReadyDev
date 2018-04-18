@@ -35,8 +35,8 @@ void GDrawQtSimple::initDraw() {
     GLuint m_buffers[2];
 
     GShaderInfo  m_shaders[] = {
-        {GL_VERTEX_SHADER, "res/shaders/color/color_read.vert", 0},
-        {GL_FRAGMENT_SHADER, "res/shaders/color/color_read.frag", 0},
+        {GL_VERTEX_SHADER, "res/shaders/4.0/color/color_write.vert", 0},
+        {GL_FRAGMENT_SHADER, "res/shaders/4.0/color/color_write.frag", 0},
         {GL_NONE, "", 0}
     };
 
@@ -60,7 +60,6 @@ void GDrawQtSimple::initDraw() {
 
     glBindBuffer(GL_ARRAY_BUFFER, m_buffers[1]);
     glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, (GLubyte *)NULL);
-    cout << "helllllllllllllll\n";
 }
 //===============================================
 void GDrawQtSimple::draw() {

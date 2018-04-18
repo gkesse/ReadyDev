@@ -16,7 +16,6 @@ GDrawQt::~GDrawQt() {
 }
 //===============================================
 GDrawQt* GDrawQt::Instance() {
-    cout << "helllllllllllllll\n";
     QString m_type = GConfig::Instance()->getData("DRAW_TYPE");
     if(m_type == "SIMPLE") return GDrawQtSimple::Instance();
     //if(m_type == "COLOR") return GDrawQtColor::Instance();
