@@ -29,6 +29,15 @@ void GDrawQtSimple::initDraw() {
     };
     GLuint m_buffers[1];
 
+    GShaderInfo  m_shaders[] = {
+        {GL_VERTEX_SHADER, "res/shaders/4.0/color_simple.vert", 0},
+        {GL_FRAGMENT_SHADER, "res/shaders/4.0/color_simple.frag", 0},
+        {GL_NONE, "", 0}
+    };
+
+    GLuint m_program = GShader::Instance()->loadShader(m_shaders);
+    glUseProgram(m_program);
+
     glGenBuffers(1, m_buffers);
     glBindBuffer(GL_ARRAY_BUFFER, m_buffers[0]);
     glBufferData(GL_ARRAY_BUFFER, sizeof(m_vertices), m_vertices, GL_STATIC_DRAW);
