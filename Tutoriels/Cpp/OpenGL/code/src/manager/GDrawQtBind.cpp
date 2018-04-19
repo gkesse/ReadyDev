@@ -1,6 +1,5 @@
 //===============================================
 #include "GDrawQtBind.h"
-#include "GVertex.h"
 #include "GShader.h"
 #include "GConfig.h"
 //===============================================
@@ -28,7 +27,7 @@ void GDrawQtBind::initDraw() {
          0.0f,  0.8f, 0.0f
     };
     float m_colors[] = {
-        1.0f, 0.0f, 0.0f,
+        1.0f, 1.0f, 0.0f,
         0.0f, 1.0f, 0.0f,
         0.0f, 0.0f, 1.0f
     };

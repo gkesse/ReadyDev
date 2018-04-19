@@ -1,6 +1,5 @@
 //===============================================
 #include "GDrawQtLayout.h"
-#include "GVertex.h"
 #include "GShader.h"
 #include "GConfig.h"
 //===============================================
