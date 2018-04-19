@@ -14,10 +14,13 @@ public:
     static GDrawQtUniform* Instance();
     void initDraw();
     void draw();
+    void updateDraw();
 
 private:
     static GDrawQtUniform* m_instance;
+    GLuint m_program;
     GLuint m_vertexArrays[1];
+    float m_angle;
 };
 //===============================================
 #endif

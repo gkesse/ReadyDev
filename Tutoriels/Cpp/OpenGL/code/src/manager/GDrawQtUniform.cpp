@@ -10,7 +10,7 @@ GDrawQtUniform::GDrawQtUniform() {
 }
 //===============================================
 GDrawQtUniform::~GDrawQtUniform() {
-
+    m_angle = 0.0;
 }
 //===============================================
 GDrawQtUniform* GDrawQtUniform::Instance() {
@@ -23,8 +23,8 @@ GDrawQtUniform* GDrawQtUniform::Instance() {
 void GDrawQtUniform::initDraw() {
     float m_vertices[] = {
         -0.8f, -0.8f, 0.0f,
-         0.8f, -0.8f, 0.0f,
-         0.0f,  0.8f, 0.0f
+        0.8f, -0.8f, 0.0f,
+        0.0f,  0.8f, 0.0f
     };
     float m_colors[] = {
         1.0f, 0.0f, 0.0f,
@@ -39,7 +39,7 @@ void GDrawQtUniform::initDraw() {
         {GL_NONE, "", 0}
     };
 
-    GLuint m_program = GShader::Instance()->loadShader(m_shaders);
+    m_program = GShader::Instance()->loadShader(m_shaders);
     glUseProgram(m_program);
 
     glGenBuffers(2, m_buffers);
@@ -62,7 +62,15 @@ void GDrawQtUniform::initDraw() {
 }
 //===============================================
 void GDrawQtUniform::draw() {
+    glm::mat4 m_rotationMatrix = glm::rotate(glm::mat4(1.0f), m_angle, glm::vec3(0.0f,0.0f,1.0f));
+    GLuint m_location = glGetUniformLocation(m_program, "RotationMatrix");
+    glUniformMatrix4fv(m_location, 1, GL_FALSE, &m_rotationMatrix[0][0]);
     glBindVertexArray(m_vertexArrays[0]);
     glDrawArrays(GL_TRIANGLES, 0, 3);
+}
+//===============================================
+void GDrawQtUniform::updateDraw() {
+    m_angle += 1.0f;
+    if(m_angle >= 360.0f) m_angle -= 360.0f;
 }
 //===============================================

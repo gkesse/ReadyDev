@@ -32,6 +32,7 @@ void GWindowQtFormGL::setTimer() {
 }
 //===============================================
 void GWindowQtFormGL::slotTimerUpdate() {
+    GDraw::Instance()->updateDraw();
     updateGL();
 }
 //===============================================

@@ -8,6 +8,7 @@
 #include <SDL2/SDL.h>
 #include <QGLWidget>
 #include <BulletDynamics/Dynamics/btDynamicsWorld.h>
+#include <glm/gtc/matrix_transform.hpp>
 //================================================
 #define BUFFER_OFFSET(a) ((void*)(a))
 //================================================
