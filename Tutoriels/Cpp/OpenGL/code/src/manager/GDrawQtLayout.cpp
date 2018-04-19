@@ -34,8 +34,8 @@ void GDrawQtLayout::initDraw() {
     GLuint m_buffers[2];
 
     GShaderInfo  m_shaders[] = {
-        {GL_VERTEX_SHADER, "res/shaders/4.0/color/color_layout.vert", 0},
-        {GL_FRAGMENT_SHADER, "res/shaders/4.0/color/color_layout.frag", 0},
+        {GL_VERTEX_SHADER, "res/shaders/4.0/color_layout.vert", 0},
+        {GL_FRAGMENT_SHADER, "res/shaders/4.0/color_layout.frag", 0},
         {GL_NONE, "", 0}
     };
 

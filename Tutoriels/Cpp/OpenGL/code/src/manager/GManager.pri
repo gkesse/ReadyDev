@@ -35,7 +35,8 @@ HEADERS += \
     $$PWD/GDrawQtLayout.h \
     $$PWD/GDrawQtBind.h \
     $$PWD/GShaderBind.h \
-    $$PWD/GShaderLayout.h
+    $$PWD/GShaderLayout.h \
+    $$PWD/GDrawQtUniform.h
 
 SOURCES += \
     $$PWD/GWindow.cpp \
@@ -60,7 +61,8 @@ SOURCES += \
     $$PWD/GDrawQtLayout.cpp \
     $$PWD/GDrawQtBind.cpp \
     $$PWD/GShaderBind.cpp \
-    $$PWD/GShaderLayout.cpp
+    $$PWD/GShaderLayout.cpp \
+    $$PWD/GDrawQtUniform.cpp
 
 FORMS += \
     $$PWD/GWindowQtForm.ui

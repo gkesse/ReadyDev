@@ -34,8 +34,8 @@ void GDrawQtBind::initDraw() {
     GLuint m_buffers[2];
 
     GShaderInfo m_shaders[] = {
-        {GL_VERTEX_SHADER, "res/shaders/4.0/color/color_bind.vert", 0},
-        {GL_FRAGMENT_SHADER, "res/shaders/4.0/color/color_bind.frag", 0},
+        {GL_VERTEX_SHADER, "res/shaders/4.0/color_bind.vert", 0},
+        {GL_FRAGMENT_SHADER, "res/shaders/4.0/color_bind.frag", 0},
         {GL_NONE, "", 0}
     };
 

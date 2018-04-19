@@ -3,6 +3,7 @@
 #include "GDrawQtSimple.h"
 #include "GDrawQtLayout.h"
 #include "GDrawQtBind.h"
+#include "GDrawQtUniform.h"
 #include "GConfig.h"
 //===============================================
 GDrawQt* GDrawQt::m_instance = 0;
@@ -20,6 +21,7 @@ GDrawQt* GDrawQt::Instance() {
     if(m_type == "SIMPLE") return GDrawQtSimple::Instance();
     if(m_type == "LAYOUT") return GDrawQtLayout::Instance();
     if(m_type == "BIND") return GDrawQtBind::Instance();
+    if(m_type == "UNIFORM") return GDrawQtUniform::Instance();
     return 0;
 }
 //===============================================
