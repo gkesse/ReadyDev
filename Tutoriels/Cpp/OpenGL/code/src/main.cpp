@@ -4,8 +4,7 @@
 //===============================================
 int main(int argc, char** argv) {
     GConfig::Instance()->setData("WINDOW_TYPE", "OPENGL_QT");
-    GConfig::Instance()->setData("DRAW_FLAG", "TRUE");
-    GConfig::Instance()->setData("DRAW_TYPE", "UNIFORM");
+    GConfig::Instance()->setData("DRAW_TYPE", "READ");
     GConfig::Instance()->setData("SHADER_LOAD_METHOD", "LAYOUT");
     GConfig::Instance()->setData("COLOR_VAL", "55;63;96;255");
     GWindow::Instance()->show(&argc, argv);

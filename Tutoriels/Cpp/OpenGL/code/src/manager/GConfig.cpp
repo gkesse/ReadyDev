@@ -5,9 +5,6 @@ GConfig* GConfig::m_instance = 0;
 //================================================
 GConfig::GConfig() {
     setData("WINDOW_TYPE", "OPENGL_GLUT");
-    setData("DRAW_FLAG", "FALSE");
-    setData("COLOR_FLAG", "FALSE");
-    setData("COLOR_VAL", "55;63;96;255");
     setData("DRAW_TYPE", "SIMPLE");
     setData("SHADER_LOAD_METHOD", "LAYOUT");
 }
