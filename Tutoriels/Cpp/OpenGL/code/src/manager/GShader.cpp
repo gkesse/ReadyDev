@@ -21,3 +21,7 @@ GShader* GShader::Instance() {
     return 0;
 }
 //================================================
+void GShader::setAttribInfo(GAttribInfo* attribInfo) {
+    m_attribInfo = attribInfo;
+}
+//================================================

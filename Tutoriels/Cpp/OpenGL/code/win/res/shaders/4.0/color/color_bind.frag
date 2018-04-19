@@ -1,4 +1,4 @@
-#version 300
+#version 400
 
 in vec3 Color;
 

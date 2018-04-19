@@ -8,12 +8,6 @@
 //================================================
 using namespace std;
 //================================================
-typedef struct {
-    GLenum type;
-    const char* filename;
-    GLuint shader;
-} GShaderInfo;
-//================================================
 class GShader {
 public:
 	GShader();
@@ -21,10 +15,14 @@ public:
 	
 public:
 	static GShader* Instance();
+    void setAttribInfo(GAttribInfo* attribInfo);
     virtual GLuint loadShader(GShaderInfo* shaderInfo) = 0;
 
 private:
 	static GShader* m_instance;
+
+protected:
+    GAttribInfo* m_attribInfo;
 };
 //================================================
 #endif

@@ -24,7 +24,8 @@ GLuint GShaderBind::loadShader(GShaderInfo* shaderInfo) {
 	
     GLuint m_program = glCreateProgram();
     GShaderInfo* m_shaderInfo = shaderInfo;
-	
+    GAttribInfo* m_attribs = m_attribInfo;
+
     while(m_shaderInfo->type != GL_NONE) {
         GLuint m_shader = glCreateShader(m_shaderInfo->type);
         m_shaderInfo->shader = m_shader;
@@ -34,9 +35,11 @@ GLuint GShaderBind::loadShader(GShaderInfo* shaderInfo) {
         glCompileShader(m_shader);
         GLint m_compiled;
         glGetShaderiv(m_shader, GL_COMPILE_STATUS, &m_compiled);
+        glBindAttribLocation(m_program, m_attribs->loc, m_attribs->name);
         glAttachShader(m_program, m_shader);
         m_shaderInfo++;
-	}
+        m_attribs++;
+    }
 
     glLinkProgram(m_program);
     GLint m_linked;

@@ -11,5 +11,16 @@
 //================================================
 #define BUFFER_OFFSET(a) ((void*)(a))
 //================================================
+typedef struct {
+    GLenum type;
+    const char* filename;
+    GLuint shader;
+} GShaderInfo;
+//================================================
+typedef struct {
+    GLuint loc;
+    const char* name;
+} GAttribInfo;
+//================================================
 #endif
 //================================================
