@@ -61,10 +61,10 @@ void GDrawQtBind::initDraw() {
     glEnableVertexAttribArray(1);
 
     glBindBuffer(GL_ARRAY_BUFFER, m_buffers[0]);
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, (GLubyte *)NULL);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(0));
 
     glBindBuffer(GL_ARRAY_BUFFER, m_buffers[1]);
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, (GLubyte *)NULL);
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(0));
 }
 //===============================================
 void GDrawQtBind::draw() {
