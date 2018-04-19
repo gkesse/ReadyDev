@@ -1,5 +1,6 @@
 //===============================================
 #include "GDrawQt.h"
+#include "GDrawQtBackground.h"
 #include "GDrawQtSimple.h"
 #include "GDrawQtLayout.h"
 #include "GDrawQtBind.h"
@@ -18,6 +19,7 @@ GDrawQt::~GDrawQt() {
 //===============================================
 GDrawQt* GDrawQt::Instance() {
     QString m_type = GConfig::Instance()->getData("DRAW_TYPE");
+    if(m_type == "BACKGROUND") return GDrawQtBackground::Instance();
     if(m_type == "SIMPLE") return GDrawQtSimple::Instance();
     if(m_type == "LAYOUT") return GDrawQtLayout::Instance();
     if(m_type == "BIND") return GDrawQtBind::Instance();

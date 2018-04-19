@@ -23,5 +23,7 @@ GDraw* GDraw::Instance() {
     return 0;
 }
 //===============================================
+void GDraw::initDraw() {}
+void GDraw::draw() {}
 void GDraw::updateDraw() {}
 //===============================================

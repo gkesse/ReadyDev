@@ -23,6 +23,7 @@ INPUT(
 ./build\GShaderBind.o
 ./build\GShaderLayout.o
 ./build\GDrawQtUniform.o
+./build\GDrawQtBackground.o
 ./build\main.o
 ./build\moc_GWindowQtForm.o
 ./build\moc_GWindowQtFormGL.o
