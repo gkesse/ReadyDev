@@ -72,7 +72,7 @@ void GDrawQtUniform::draw() {
 }
 //===============================================
 void GDrawQtUniform::updateDraw() {
-    m_angle += 1.0f;
+    m_angle += 1.0f*0.1f;
     if(m_angle >= 360.0f) m_angle -= 360.0f;
 }
 //===============================================
