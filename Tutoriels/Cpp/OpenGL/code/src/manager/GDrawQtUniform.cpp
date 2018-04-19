@@ -64,7 +64,9 @@ void GDrawQtUniform::initDraw() {
 void GDrawQtUniform::draw() {
     glm::mat4 m_rotationMatrix = glm::rotate(glm::mat4(1.0f), m_angle, glm::vec3(0.0f,0.0f,1.0f));
     GLuint m_location = glGetUniformLocation(m_program, "RotationMatrix");
-    glUniformMatrix4fv(m_location, 1, GL_FALSE, &m_rotationMatrix[0][0]);
+    if(m_location >= 0) {
+        glUniformMatrix4fv(m_location, 1, GL_FALSE, &m_rotationMatrix[0][0]);
+    }
     glBindVertexArray(m_vertexArrays[0]);
     glDrawArrays(GL_TRIANGLES, 0, 3);
 }
@@ -72,6 +74,5 @@ void GDrawQtUniform::draw() {
 void GDrawQtUniform::updateDraw() {
     m_angle += 1.0f;
     if(m_angle >= 360.0f) m_angle -= 360.0f;
-    cout << "hhhhhhhhhhhhh\n";
 }
 //===============================================
