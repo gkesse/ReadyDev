@@ -48,14 +48,10 @@ void GWindowGLFW::show(int* argc, char** argv) {
 }
 //===============================================
 void GWindowGLFW::setBackground() {
-    QString m_backgroundFlag = GConfig::Instance()->getData("BACKGROUND_FLAG");
-    if(m_backgroundFlag == "FALSE") return;
-    QString m_backgroundColor = GConfig::Instance()->getData("BACKGROUND_COLOR");
-    QStringList m_backgroundColorMap = m_backgroundColor.split(";");
-    float m_red = QString(m_backgroundColorMap[0]).toFloat()/255.0;
-    float m_green = QString(m_backgroundColorMap[1]).toFloat()/255.0;
-    float m_blue = QString(m_backgroundColorMap[2]).toFloat()/255.0;
-    float m_alpha = QString(m_backgroundColorMap[3]).toFloat()/255.0;
+    float m_red = 5.0f/255.0f;
+    float m_green = 16.0f/255.0f;
+    float m_blue = 57.0f/255.0f;
+    float m_alpha = 255.0f/255.0f;
     static const float m_backgroundColorVal[] = {m_red, m_green, m_blue, m_alpha};
     glClearBufferfv(GL_COLOR, 0, m_backgroundColorVal);
 }
