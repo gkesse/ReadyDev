@@ -40,8 +40,8 @@ void GDrawQtFuzzy::initDraw() {
     GLuint m_buffers[2];
 
     GShaderInfo  m_shaders[] = {
-        {GL_VERTEX_SHADER, "res/shaders/4.0/color_fuzzy.vert", 0},
-        {GL_FRAGMENT_SHADER, "res/shaders/4.0/color_fuzzy.frag", 0},
+        {GL_VERTEX_SHADER, "res/shaders/4.0/color_uniform_block.vert", 0},
+        {GL_FRAGMENT_SHADER, "res/shaders/4.0/color_uniform_block.frag", 0},
         {GL_NONE, "", 0}
     };
 
@@ -114,8 +114,8 @@ void GDrawQtFuzzy::initUniformBlockBuffer() {
     GLint m_offset[4];
     glGetActiveUniformsiv(m_program, 4, m_indices, GL_UNIFORM_OFFSET, m_offset);
 
-    GLfloat m_outerColor[] = {0.0f, 0.0f, 0.0f, 0.0f};
-    GLfloat m_innerColor[] = {1.0f, 1.0f, 0.75f, 1.0f};
+    GLfloat m_outerColor[] = {0.0f, 0.0f, 0.0f, 0.0f, 1.0f};
+    GLfloat m_innerColor[] = {1.0f, 1.0f, 0.75f, 1.0f, 1.0f};
     GLfloat m_innerRadius = 0.25f;
     GLfloat m_outerRadius = 0.45f;
 
