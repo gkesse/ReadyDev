@@ -1,26 +1,26 @@
 //===============================================
-#include "GDrawQtUniformBlock.h"
+#include "GDrawQtShading.h"
 #include "GShader.h"
 #include "GConfig.h"
 //===============================================
-GDrawQtUniformBlock* GDrawQtUniformBlock::m_instance = 0;
+GDrawQtShading* GDrawQtShading::m_instance = 0;
 //===============================================
-GDrawQtUniformBlock::GDrawQtUniformBlock() {
+GDrawQtShading::GDrawQtShading() {
 
 }
 //===============================================
-GDrawQtUniformBlock::~GDrawQtUniformBlock() {
+GDrawQtShading::~GDrawQtShading() {
     m_angle = 0.0;
 }
 //===============================================
-GDrawQtUniformBlock* GDrawQtUniformBlock::Instance() {
+GDrawQtShading* GDrawQtShading::Instance() {
     if(m_instance == 0) {
-        m_instance = new GDrawQtUniformBlock;
+        m_instance = new GDrawQtShading;
     }
     return m_instance;
 }
 //===============================================
-void GDrawQtUniformBlock::initDraw() {
+void GDrawQtShading::initDraw() {
     float m_vertices[] = {
         -0.8f, -0.8f, 0.0f,
         0.8f, -0.8f, 0.0f,
@@ -72,12 +72,12 @@ void GDrawQtUniformBlock::initDraw() {
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 }
 //===============================================
-void GDrawQtUniformBlock::draw() {
+void GDrawQtShading::draw() {
     glBindVertexArray(m_vertexArrays[0]);
     glDrawArrays(GL_TRIANGLES, 0, 6 );
 }
 //===============================================
-void GDrawQtUniformBlock::showActiveUniforms() {
+void GDrawQtShading::showActiveUniforms() {
     GLint m_uniforms, m_size, m_location, m_maxLen;
     GLchar* m_name;
     GLsizei m_written;
@@ -98,7 +98,7 @@ void GDrawQtUniformBlock::showActiveUniforms() {
     delete[] m_name;
 }
 //===============================================
-void GDrawQtUniformBlock::initUniformBlockBuffer() {
+void GDrawQtShading::initUniformBlockBuffer() {
     GLuint m_blockIndex = glGetUniformBlockIndex(m_program, "BlobSettings");
 
     GLint m_blockSize;

@@ -39,7 +39,8 @@ HEADERS += \
     $$PWD/GDrawQtUniform.h \
     $$PWD/GDrawQtBackground.h \
     $$PWD/GDrawQtRead.h \
-    $$PWD/GDrawQtUniformBlock.h
+    $$PWD/GDrawQtUniformBlock.h \
+    $$PWD/GDrawQtShading.h
 
 SOURCES += \
     $$PWD/GWindow.cpp \
@@ -68,7 +69,8 @@ SOURCES += \
     $$PWD/GDrawQtUniform.cpp \
     $$PWD/GDrawQtBackground.cpp \
     $$PWD/GDrawQtRead.cpp \
-    $$PWD/GDrawQtUniformBlock.cpp
+    $$PWD/GDrawQtUniformBlock.cpp \
+    $$PWD/GDrawQtShading.cpp
 
 FORMS += \
     $$PWD/GWindowQtForm.ui

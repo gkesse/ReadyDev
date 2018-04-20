@@ -1,24 +1,24 @@
 //===============================================
-#ifndef _GDrawQtUniformBlock_
-#define _GDrawQtUniformBlock_
+#ifndef _GDrawQtShading_
+#define _GDrawQtShading_
 //================================================
 #include "GInclude.h"
 #include "GDrawQt.h"
 //===============================================
-class GDrawQtUniformBlock : public GDrawQt {
+class GDrawQtShading : public GDrawQt {
 public:
-    GDrawQtUniformBlock();
-    ~GDrawQtUniformBlock();
+    GDrawQtShading();
+    ~GDrawQtShading();
 
 public:
-    static GDrawQtUniformBlock* Instance();
+    static GDrawQtShading* Instance();
     void initDraw();
     void draw();
     void showActiveUniforms();
     void initUniformBlockBuffer();
 
 private:
-    static GDrawQtUniformBlock* m_instance;
+    static GDrawQtShading* m_instance;
     GLuint m_program;
     GLuint m_vertexArrays[1];
     float m_angle;

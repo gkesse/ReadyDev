@@ -27,7 +27,7 @@ GDrawQt* GDrawQt::Instance() {
     if(m_type == "LAYOUT") return GDrawQtLayout::Instance();
     if(m_type == "BIND") return GDrawQtBind::Instance();
     if(m_type == "UNIFORM") return GDrawQtUniform::Instance();
-    if(m_type == "FUZZY") return GDrawQtFuzzy::Instance();
+    if(m_type == "UNIFORM_BLOCK") return GDrawQtUniformBlock::Instance();
     return 0;
 }
 //===============================================
