@@ -29,7 +29,7 @@ void GDrawQtFuzzy::initDraw() {
         0.8f, 0.8f, 0.0f,
         -0.8f, 0.8f, 0.0f
     };
-    float tcData[] = {
+    float m_coords[] = {
         0.0f, 0.0f,
         1.0f, 0.0f,
         1.0f, 1.0f,
@@ -54,7 +54,7 @@ void GDrawQtFuzzy::initDraw() {
     glBindBuffer(GL_ARRAY_BUFFER, m_buffers[0]);
     glBufferData(GL_ARRAY_BUFFER, sizeof(m_vertices), m_vertices, GL_STATIC_DRAW);
     glBindBuffer(GL_ARRAY_BUFFER, m_buffers[1]);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(tcData), tcData, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(m_coords), m_coords, GL_STATIC_DRAW);
 
     glGenVertexArrays( 1, m_vertexArrays);
     glBindVertexArray(m_vertexArrays[0]);
