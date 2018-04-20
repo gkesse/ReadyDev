@@ -6,7 +6,7 @@
 #include "GDrawQtLayout.h"
 #include "GDrawQtBind.h"
 #include "GDrawQtUniform.h"
-#include "GDrawQtFuzzy.h"
+#include "GDrawQtUniformBlock.h"
 #include "GConfig.h"
 //===============================================
 GDrawQt* GDrawQt::m_instance = 0;

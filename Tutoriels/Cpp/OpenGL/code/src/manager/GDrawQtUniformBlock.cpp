@@ -1,5 +1,5 @@
 //===============================================
-#include "GDrawQtFuzzy.h"
+#include "GDrawQtUniformBlock.h"
 #include "GShader.h"
 #include "GConfig.h"
 //===============================================

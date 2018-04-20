@@ -25,7 +25,7 @@ INPUT(
 ./build\GDrawQtUniform.o
 ./build\GDrawQtBackground.o
 ./build\GDrawQtRead.o
-./build\GDrawQtFuzzy.o
+./build\GDrawQtUniformBlock.o
 ./build\main.o
 ./build\moc_GWindowQtForm.o
 ./build\moc_GWindowQtFormGL.o
