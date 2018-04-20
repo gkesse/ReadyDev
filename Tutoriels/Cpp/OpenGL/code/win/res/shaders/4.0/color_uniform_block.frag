@@ -14,5 +14,5 @@ void main() {
     float dx = TexCoord.x - 0.5;
     float dy = TexCoord.y - 0.5;
     float dist = sqrt(dx * dx + dy * dy);
-    FragColor = mix(InnerColor, OuterColor, smoothstep( RadiusInner, RadiusOuter, dist ));
+    FragColor = mix(InnerColor, OuterColor, smoothstep(RadiusInner, RadiusOuter, dist));
 }
