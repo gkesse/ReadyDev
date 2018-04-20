@@ -77,11 +77,6 @@ void GDrawQtFuzzy::draw() {
     glDrawArrays(GL_TRIANGLES, 0, 6 );
 }
 //===============================================
-void GDrawQtFuzzy::updateDraw() {
-    m_angle += 1.0f*0.1f;
-    if(m_angle >= 360.0f) m_angle -= 360.0f;
-}
-//===============================================
 void GDrawQtFuzzy::showActiveUniforms() {
     GLint m_uniforms, m_size, m_location, m_maxLen;
     GLchar* m_name;
@@ -103,44 +98,36 @@ void GDrawQtFuzzy::showActiveUniforms() {
     delete[] m_name;
 }
 //===============================================
-void GDrawQtFuzzy::initUniformBlockBuffer()
-{
-    GLuint blockIndex = glGetUniformBlockIndex(m_program, "BlobSettings");
+void GDrawQtFuzzy::initUniformBlockBuffer() {
+    GLuint m_blockIndex = glGetUniformBlockIndex(m_program, "BlobSettings");
 
-    // Allocate space for the buffer
-    GLint blockSize;
-    glGetActiveUniformBlockiv(m_program, blockIndex,
-                              GL_UNIFORM_BLOCK_DATA_SIZE, &blockSize);
-    GLubyte * blockBuffer;
-    blockBuffer = (GLubyte *) malloc(blockSize);
+    GLint m_blockSize;
+    glGetActiveUniformBlockiv(m_program, m_blockIndex, GL_UNIFORM_BLOCK_DATA_SIZE, &m_blockSize);
 
-    // Query for the offsets of each block variable
-    const GLchar *names[] = { "InnerColor", "OuterColor",
-                              "RadiusInner", "RadiusOuter" };
+    GLubyte* m_blockBuffer = new GLubyte[m_blockSize];
 
-    GLuint indices[4];
-    glGetUniformIndices(m_program, 4, names, indices);
+    const GLchar* m_names[] = {"InnerColor", "OuterColor", "RadiusInner", "RadiusOuter"};
 
-    GLint offset[4];
-    glGetActiveUniformsiv(m_program, 4, indices, GL_UNIFORM_OFFSET, offset);
+    GLuint m_indices[4];
+    glGetUniformIndices(m_program, 4, m_names, m_indices);
 
-    // Store data within the buffer at the appropriate offsets
-    GLfloat outerColor[] = {0.0f, 0.0f, 0.0f, 0.0f};
-    GLfloat innerColor[] = {1.0f, 1.0f, 0.75f, 1.0f};
-    GLfloat innerRadius = 0.25f, outerRadius = 0.45f;
+    GLint m_offset[4];
+    glGetActiveUniformsiv(m_program, 4, m_indices, GL_UNIFORM_OFFSET, m_offset);
 
-    memcpy(blockBuffer + offset[0], innerColor, 4 * sizeof(GLfloat));
-    memcpy(blockBuffer + offset[1], outerColor, 4 * sizeof(GLfloat));
-    memcpy(blockBuffer + offset[2], &innerRadius, sizeof(GLfloat));
-    memcpy(blockBuffer + offset[3], &outerRadius, sizeof(GLfloat));
+    GLfloat m_outerColor[] = {0.0f, 0.0f, 0.0f, 0.0f};
+    GLfloat m_innerColor[] = {1.0f, 1.0f, 0.75f, 1.0f};
+    GLfloat m_innerRadius = 0.25f;
+    GLfloat m_outerRadius = 0.45f;
 
-    // Create the buffer object and copy the data
-    GLuint uboHandle;
-    glGenBuffers( 1, &uboHandle );
-    glBindBuffer( GL_UNIFORM_BUFFER, uboHandle );
-    glBufferData( GL_UNIFORM_BUFFER, blockSize, blockBuffer, GL_DYNAMIC_DRAW );
+    memcpy(m_blockBuffer + m_offset[0], m_innerColor, sizeof(m_innerColor));
+    memcpy(m_blockBuffer + m_offset[1], m_outerColor, sizeof(m_outerColor));
+    memcpy(m_blockBuffer + m_offset[2], &m_innerRadius, sizeof(m_innerRadius));
+    memcpy(m_blockBuffer + m_offset[3], &m_outerRadius, sizeof(m_outerRadius));
 
-    // Bind the buffer object to the uniform block
-    glBindBufferBase( GL_UNIFORM_BUFFER, blockIndex, uboHandle );
+    GLuint m_buffers[1];
+    glGenBuffers(1, m_buffers);
+    glBindBuffer(GL_UNIFORM_BUFFER, m_buffers[0]);
+    glBufferData(GL_UNIFORM_BUFFER, m_blockSize, m_blockBuffer, GL_DYNAMIC_DRAW);
+    glBindBufferBase(GL_UNIFORM_BUFFER, m_blockIndex, m_buffers[0]);
 }
 //===============================================

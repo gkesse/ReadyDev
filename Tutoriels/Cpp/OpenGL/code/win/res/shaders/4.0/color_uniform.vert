@@ -5,13 +5,7 @@ layout (location = 1) in vec3 VertexColor;
 
 out vec3 Color;
 
-//uniform struct {
-//  mat4 RotationMatrix;
-//  mat4 ViewMatrix; } MyMats;
-
 uniform mat4 RotationMatrix;
-
-//uniform mat4 Mats[2];
 
 void main()
 {

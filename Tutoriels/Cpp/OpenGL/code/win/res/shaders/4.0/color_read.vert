@@ -1,6 +1,6 @@
 #version 400
 
-layout(location = 0) in vec3 VertexPosition;
+layout (location = 0) in vec3 VertexPosition;
 
 void main()
 {

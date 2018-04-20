@@ -14,7 +14,6 @@ public:
     static GDrawQtFuzzy* Instance();
     void initDraw();
     void draw();
-    void updateDraw();
     void showActiveUniforms();
     void initUniformBlockBuffer();
 
