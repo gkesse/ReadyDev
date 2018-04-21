@@ -14,7 +14,7 @@ public:
     void render() const;
 
 private:
-    void generateVerts(float* verts, float* norms, float* tex,unsigned int* el, float outerRadius, float innerRadius);
+    void generateVerts(float* verts, float* norms, float* tex, unsigned int* el, float outerRadius, float innerRadius);
 
 private:
     GLuint m_vertexArrays[1];

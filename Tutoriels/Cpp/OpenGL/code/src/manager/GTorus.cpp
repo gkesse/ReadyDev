@@ -12,40 +12,40 @@ GTorus::GTorus(float outerRadius, float innerRadius, int nsides, int nrings) {
     int nVerts  = sides * (rings + 1);   // One extra ring to duplicate first ring
 
     // Verts
-    float* v = new float[3 * nVerts];
+    float* m_vertices = new float[3 * nVerts];
     // Normals
-    float* n = new float[3 * nVerts];
+    float* m_normals = new float[3 * nVerts];
     // Tex coords
-    float* tex = new float[2 * nVerts];
+    float* m_texCoords = new float[2 * nVerts];
     // Elements
-    unsigned int* el = new unsigned int[6 * faces];
+    unsigned int* m_elements = new unsigned int[6 * faces];
 
     // Generate the vertex data
-    generateVerts(v, n, tex, el, outerRadius, innerRadius);
+    generateVerts(m_vertices, m_normals, m_texCoords, m_elements, outerRadius, innerRadius);
 
     // Create and populate the buffer objects
-    unsigned int m_buffers[4];
+    GLuint m_buffers[4];
     glGenBuffers(4, m_buffers);
 
     glBindBuffer(GL_ARRAY_BUFFER, m_buffers[0]);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(v), v, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, (3 * nVerts) * sizeof(float), m_vertices, GL_STATIC_DRAW);
 
     glBindBuffer(GL_ARRAY_BUFFER, m_buffers[1]);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(n), n, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, (3 * nVerts) * sizeof(float), m_normals, GL_STATIC_DRAW);
 
     glBindBuffer(GL_ARRAY_BUFFER, m_buffers[2]);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(tex), tex, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, (2 * nVerts) * sizeof(float), m_texCoords, GL_STATIC_DRAW);
 
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_buffers[3]);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(el), el, GL_STATIC_DRAW);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, 6 * faces * sizeof(unsigned int), m_elements, GL_STATIC_DRAW);
 
-    delete [] v;
-    delete [] n;
-    delete [] el;
-    delete [] tex;
+    delete [] m_vertices;
+    delete [] m_normals;
+    delete [] m_texCoords;
+    delete [] m_elements;
 
     // Create the VAO
-    glGenVertexArrays(1, m_vertexArrays);
+    glGenVertexArrays( 1, m_vertexArrays);
     glBindVertexArray(m_vertexArrays[0]);
 
     glEnableVertexAttribArray(0);  // Vertex position
@@ -68,7 +68,7 @@ GTorus::~GTorus() {
 
 }
 //===============================================
-void GTorus::generateVerts(float* verts, float* norms, float* tex,unsigned int* el, float outerRadius, float innerRadius) {
+void GTorus::generateVerts(float* verts, float* norms, float* tex, unsigned int* el, float outerRadius, float innerRadius) {
     float ringFactor  = (float)(TWOPI / rings);
     float sideFactor = (float)(TWOPI / sides);
     int idx = 0, tidx = 0;
