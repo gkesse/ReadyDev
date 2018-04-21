@@ -31,7 +31,7 @@ GTorus::GTorus(float outerRadius, float innerRadius, int nSides, int nRings) {
     glBufferData(GL_ARRAY_BUFFER, (2 * nVertices) * sizeof(float), m_texCoords, GL_STATIC_DRAW);
 
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_buffers[3]);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, 6 * m_faces * sizeof(unsigned int), m_indices, GL_STATIC_DRAW);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, 6 * m_faces * sizeof(GLuint), m_indices, GL_STATIC_DRAW);
 
     delete [] m_vertices;
     delete [] m_normals;
@@ -61,7 +61,7 @@ GTorus::~GTorus() {
 
 }
 //===============================================
-void GTorus::generateVertex(float* vertices, float* normals, float* texCoords, unsigned int* indices, float outerRadius, float innerRadius) {
+void GTorus::generateVertex(float* vertices, float* normals, float* texCoords, GLuint* indices, float outerRadius, float innerRadius) {
     float ringFactor  = (float)(TWOPI / m_rings);
     float sideFactor = (float)(TWOPI / m_sides);
     int idx = 0, tidx = 0;
@@ -92,7 +92,7 @@ void GTorus::generateVertex(float* vertices, float* normals, float* texCoords, u
     }
 
     idx = 0;
-    for(int ring = 0; ring < m_rings; ring++) {
+    for(int ring = 0; ring <= m_rings; ring++) {
         int ringStart = ring * m_sides;
         int nextRingStart = (ring + 1) * m_sides;
         for( int side = 0; side < m_sides; side++ ) {
