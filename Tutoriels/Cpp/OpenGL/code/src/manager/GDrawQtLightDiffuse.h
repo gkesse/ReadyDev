@@ -25,10 +25,10 @@ private:
     int width, height;
 
     float m_angle;
-    GTorus* torus;
-    glm::mat4 model;
-    glm::mat4 view;
-    glm::mat4 projection;
+    GTorus* m_torus;
+    glm::mat4 m_model;
+    glm::mat4 m_view;
+    glm::mat4 m_projection;
 };
 //===============================================
 #endif
