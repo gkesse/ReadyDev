@@ -35,7 +35,7 @@ void GDrawQtLightDiffuse::initDraw() {
     m_torus = new GTorus(0.7f, 0.3f, 30, 30);
 
     m_model = glm::mat4(1.0f);
-    m_model *= glm::rotate(0.0f, glm::vec3(1.0f,0.0f,0.0f));
+    m_model *= glm::rotate(-35.0f, glm::vec3(1.0f,0.0f,0.0f));
     m_model *= glm::rotate(0.0f, glm::vec3(0.0f,1.0f,0.0f));
     m_view = glm::lookAt(glm::vec3(0.0f,0.0f,3.0f), glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,1.0f,0.0f));
     m_projection = glm::mat4(1.0f);
@@ -43,7 +43,6 @@ void GDrawQtLightDiffuse::initDraw() {
     GShader::Instance()->setUniform("Kd", 0.9f, 0.5f, 0.3f);
     GShader::Instance()->setUniform("Ld", 1.0f, 1.0f, 1.0f);
     GShader::Instance()->setUniform("LightPosition", m_view * glm::vec4(5.0f,5.0f,2.0f,1.0f));
-
 }
 //===============================================
 void GDrawQtLightDiffuse::draw() {
