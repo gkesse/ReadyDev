@@ -65,7 +65,7 @@ void GTorus::generateVertex(float* vertices, float* normals, float* texCoords, G
     float ringFactor  = (float)(TWOPI / m_rings);
     float sideFactor = (float)(TWOPI / m_sides);
     int idx = 0, tidx = 0;
-    for( int ring = 0; ring < m_rings; ring++ ) {
+    for( int ring = 0; ring <= m_rings; ring++ ) {
         float u = ring * ringFactor;
         float cu = cos(u);
         float su = sin(u);
@@ -92,19 +92,18 @@ void GTorus::generateVertex(float* vertices, float* normals, float* texCoords, G
     }
 
     idx = 0;
-    for(int ring = 0; ring <= m_rings; ring++) {
+    for(int ring = 0; ring < m_rings; ring++) {
         int ringStart = ring * m_sides;
         int nextRingStart = (ring + 1) * m_sides;
         for( int side = 0; side < m_sides; side++ ) {
             int nextSide = (side + 1) % m_sides;
-
+            // The quad
             indices[idx] = (ringStart + side);
             indices[idx + 1] = (nextRingStart + side);
             indices[idx + 2] = (nextRingStart + nextSide);
             indices[idx + 3] = ringStart + side;
             indices[idx + 4] = nextRingStart + nextSide;
             indices[idx + 5] = (ringStart + nextSide);
-
             idx += 6;
         }
     }
