@@ -16,6 +16,7 @@ public:
 public:
 	static GShader* Instance();
     void setAttribInfo(GAttribInfo* attribInfo);
+    void showActiveUniforms();
     int getUniformLocation(const char * name );
     void setUniform(const char *name, float x, float y, float z);
     void setUniform(const char *name, const glm::vec3 & v);

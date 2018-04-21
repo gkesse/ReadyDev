@@ -47,7 +47,7 @@ void GDrawQtUniformBlock::initDraw() {
 
     m_program = GShader::Instance()->loadShader(m_shaders);
     glUseProgram(m_program);
-    showActiveUniforms();
+    GShader::Instance()->showActiveUniforms();
     initUniformBlockBuffer();
 
     glGenBuffers(2, m_buffers);
@@ -75,27 +75,6 @@ void GDrawQtUniformBlock::initDraw() {
 void GDrawQtUniformBlock::draw() {
     glBindVertexArray(m_vertexArrays[0]);
     glDrawArrays(GL_TRIANGLES, 0, 6 );
-}
-//===============================================
-void GDrawQtUniformBlock::showActiveUniforms() {
-    GLint m_uniforms, m_size, m_location, m_maxLen;
-    GLchar* m_name;
-    GLsizei m_written;
-    GLenum m_type;
-
-    glGetProgramiv(m_program, GL_ACTIVE_UNIFORM_MAX_LENGTH, &m_maxLen);
-    glGetProgramiv(m_program, GL_ACTIVE_UNIFORMS, &m_uniforms);
-
-    m_name = new GLchar[m_maxLen];
-
-    for( int i = 0; i < m_uniforms; ++i ) {
-        glGetActiveUniform(m_program, i, m_maxLen, &m_written, &m_size, &m_type, m_name);
-        m_location = glGetUniformLocation(m_program, m_name);
-        cout << "LOCATION: " << m_location << " | ";
-        cout << "NAME: " << m_name << "\n";
-    }
-
-    delete[] m_name;
 }
 //===============================================
 void GDrawQtUniformBlock::initUniformBlockBuffer() {

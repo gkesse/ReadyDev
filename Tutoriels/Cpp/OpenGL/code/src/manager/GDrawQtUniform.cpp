@@ -41,7 +41,7 @@ void GDrawQtUniform::initDraw() {
 
     m_program = GShader::Instance()->loadShader(m_shaders);
     glUseProgram(m_program);
-    showActiveUniforms();
+    GShader::Instance()->showActiveUniforms();
 
     glGenBuffers(2, m_buffers);
     glBindBuffer(GL_ARRAY_BUFFER, m_buffers[0]);
@@ -75,26 +75,5 @@ void GDrawQtUniform::draw() {
 void GDrawQtUniform::updateDraw() {
     m_angle += 1.0f*0.1f;
     if(m_angle >= 360.0f) m_angle -= 360.0f;
-}
-//===============================================
-void GDrawQtUniform::showActiveUniforms() {
-    GLint m_uniforms, m_size, m_location, m_maxLen;
-    GLchar* m_name;
-    GLsizei m_written;
-    GLenum m_type;
-
-    glGetProgramiv(m_program, GL_ACTIVE_UNIFORM_MAX_LENGTH, &m_maxLen);
-    glGetProgramiv(m_program, GL_ACTIVE_UNIFORMS, &m_uniforms);
-
-    m_name = new GLchar[m_maxLen];
-
-    for( int i = 0; i < m_uniforms; ++i ) {
-        glGetActiveUniform(m_program, i, m_maxLen, &m_written, &m_size, &m_type, m_name);
-        m_location = glGetUniformLocation(m_program, m_name);
-        cout << "LOCATION: " << m_location << " | ";
-        cout << "NAME: " << m_name << "\n";
-    }
-
-    delete[] m_name;
 }
 //===============================================

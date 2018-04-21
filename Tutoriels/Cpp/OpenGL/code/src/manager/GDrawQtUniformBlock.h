@@ -14,7 +14,6 @@ public:
     static GDrawQtUniformBlock* Instance();
     void initDraw();
     void draw();
-    void showActiveUniforms();
     void initUniformBlockBuffer();
 
 private:

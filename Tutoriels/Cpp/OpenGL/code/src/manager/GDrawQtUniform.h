@@ -15,7 +15,6 @@ public:
     void initDraw();
     void draw();
     void updateDraw();
-    void showActiveUniforms();
 
 private:
     static GDrawQtUniform* m_instance;

@@ -25,73 +25,82 @@ void GShader::setAttribInfo(GAttribInfo* attribInfo) {
     m_attribInfo = attribInfo;
 }
 //================================================
-int GShader::getUniformLocation(const char * name )
-{
+void GShader::showActiveUniforms() {
+    GLint m_uniforms, m_size, m_location, m_maxLen;
+    GLchar* m_name;
+    GLsizei m_written;
+    GLenum m_type;
+
+    glGetProgramiv(m_program, GL_ACTIVE_UNIFORM_MAX_LENGTH, &m_maxLen);
+    glGetProgramiv(m_program, GL_ACTIVE_UNIFORMS, &m_uniforms);
+
+    m_name = new GLchar[m_maxLen];
+
+    for( int i = 0; i < m_uniforms; ++i ) {
+        glGetActiveUniform(m_program, i, m_maxLen, &m_written, &m_size, &m_type, m_name);
+        m_location = glGetUniformLocation(m_program, m_name);
+        cout << "LOCATION: " << m_location << " | ";
+        cout << "NAME: " << m_name << "\n";
+    }
+
+    delete[] m_name;
+}
+//===============================================
+int GShader::getUniformLocation(const char * name) {
     return glGetUniformLocation(m_program, name);
 }
 //================================================
 void GShader::setUniform(const char *name, float x, float y, float z) {
     int m_loc = getUniformLocation(name);
-    if(m_loc >= 0 ) {
+    if(m_loc >= 0) {
         glUniform3f(m_loc, x, y, z);
     }
 }
 //===============================================
-void GShader::setUniform(const char *name, const glm::vec3 & v)
-{
-    this->setUniform(name,v.x,v.y,v.z);
+void GShader::setUniform(const char *name, const glm::vec3 & v) {
+    setUniform(name, v.x, v.y, v.z);
 }
 //===============================================
-void GShader::setUniform(const char *name, const glm::vec4 & v)
-{
-    int loc = getUniformLocation(name);
-    if(loc >= 0 ) {
-        glUniform4f(loc,v.x,v.y,v.z,v.w);
+void GShader::setUniform(const char *name, const glm::vec4 & v) {
+    int m_loc = getUniformLocation(name);
+    if(m_loc >= 0) {
+        glUniform4f(m_loc,v.x,v.y,v.z,v.w);
     }
 }
 //===============================================
-void GShader::setUniform(const char *name, const glm::mat4 & m)
-{
-    int loc = getUniformLocation(name);
-    if(loc >= 0 )
-    {
-        glUniformMatrix4fv(loc, 1, GL_FALSE, &m[0][0]);
+void GShader::setUniform(const char *name, const glm::mat4 & m) {
+    int m_loc = getUniformLocation(name);
+    if(m_loc >= 0) {
+        glUniformMatrix4fv(m_loc, 1, GL_FALSE, &m[0][0]);
     }
 }
 //===============================================
-void GShader::setUniform(const char *name, const glm::mat3 & m)
-{
-    int loc = getUniformLocation(name);
-    if(loc >= 0 )
-    {
-        glUniformMatrix3fv(loc, 1, GL_FALSE, &m[0][0]);
+void GShader::setUniform(const char *name, const glm::mat3 & m) {
+    int m_loc = getUniformLocation(name);
+    if(m_loc >= 0) {
+        glUniformMatrix3fv(m_loc, 1, GL_FALSE, &m[0][0]);
     }
 }
 //===============================================
-void GShader::setUniform(const char *name, float val )
-{
-    int loc = getUniformLocation(name);
-    if(loc >= 0 )
+void GShader::setUniform(const char *name, float val) {
+    int m_loc = getUniformLocation(name);
+    if(m_loc >= 0)
     {
-        glUniform1f(loc, val);
+        glUniform1f(m_loc, val);
     }
 }
 //===============================================
-void GShader::setUniform(const char *name, int val )
-{
-    int loc = getUniformLocation(name);
-    if(loc >= 0 )
-    {
-        glUniform1i(loc, val);
+void GShader::setUniform(const char *name, int val) {
+    int m_loc = getUniformLocation(name);
+    if(m_loc >= 0) {
+        glUniform1i(m_loc, val);
     }
 }
 //===============================================
-void GShader::setUniform(const char *name, bool val )
-{
-    int loc = getUniformLocation(name);
-    if(loc >= 0 )
-    {
-        glUniform1i(loc, val);
+void GShader::setUniform(const char *name, bool val) {
+    int m_loc = getUniformLocation(name);
+    if(m_loc >= 0) {
+        glUniform1i(m_loc, val);
     }
 }
 //===============================================
