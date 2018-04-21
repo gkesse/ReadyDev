@@ -32,6 +32,18 @@ void GWindowQtFormGL::slotTimerUpdate() {
     updateGL();
 }
 //===============================================
+void GWindowQtFormGL::slotPhotoClicked() {
+    QImage m_img = grabFrameBuffer(true);
+    m_img.save("res/img/torus.png", "PNG");
+}
+//===============================================
+void GWindowQtFormGL::slotAnimateClicked() {
+    if(m_timer->isActive())
+        m_timer->stop();
+    else
+        m_timer->start();
+}
+//===============================================
 void GWindowQtFormGL::initializeGL() {
     glewInit();
     setBackground();

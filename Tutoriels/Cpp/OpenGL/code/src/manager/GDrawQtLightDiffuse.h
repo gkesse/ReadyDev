@@ -16,7 +16,7 @@ public:
     void initDraw();
     void draw();
     void resize(int w, int h);
-void setMatrices();
+    void setMatrices();
 
 private:
     static GDrawQtLightDiffuse* m_instance;

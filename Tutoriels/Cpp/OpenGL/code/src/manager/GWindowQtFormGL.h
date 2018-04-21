@@ -23,6 +23,8 @@ public:
 
 public slots:
     void slotTimerUpdate();
+    void slotPhotoClicked();
+    void slotAnimateClicked();
 
 protected:
     void initializeGL();

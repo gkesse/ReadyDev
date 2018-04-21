@@ -23,10 +23,6 @@ private:
     void createObjects();
     void createConnections();
 
-public slots:
-    void slotPhotoClicked();
-    void slotAnimateClicked();
-
 private:
     Ui::GWindowQtForm* ui;
     int m_x;

@@ -28,15 +28,7 @@ void GWindowQtForm::createObjects() {
 }
 //===============================================
 void GWindowQtForm::createConnections() {
-    connect(ui->m_photoButton, SIGNAL(clicked()), this, SLOT(slotPhotoClicked()));
-    connect(ui->m_animateButton, SIGNAL(clicked()), this, SLOT(slotAnimateClicked()));
-}
-//===============================================
-void GWindowQtForm::slotPhotoClicked() {
-    cout << "slotPhotoClicked...\n";
-}
-//===============================================
-void GWindowQtForm::slotAnimateClicked() {
-    cout << "slotAnimateClicked...\n";
+    connect(ui->m_photoButton, SIGNAL(clicked()), ui->m_glWindow, SLOT(slotPhotoClicked()));
+    connect(ui->m_animateButton, SIGNAL(clicked()), ui->m_glWindow, SLOT(slotAnimateClicked()));
 }
 //===============================================
