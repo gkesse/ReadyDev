@@ -27,3 +27,6 @@ void GDraw::initDraw() {}
 void GDraw::draw() {}
 void GDraw::updateDraw() {}
 //===============================================
+void GDraw::resize(int w, int h) {
+    glViewport(0, 0, w, h);
+}

@@ -26,7 +26,8 @@ INPUT(
 ./build\GDrawQtBackground.o
 ./build\GDrawQtRead.o
 ./build\GDrawQtUniformBlock.o
-./build\GDrawQtShading.o
+./build\GTorus.o
+./build\GDrawQtLightDiffuse.o
 ./build\main.o
 ./build\moc_GWindowQtForm.o
 ./build\moc_GWindowQtFormGL.o

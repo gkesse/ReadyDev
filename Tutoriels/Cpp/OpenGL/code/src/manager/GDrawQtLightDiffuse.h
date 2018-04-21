@@ -1,27 +1,34 @@
 //===============================================
-#ifndef _GDrawQtShading_
-#define _GDrawQtShading_
+#ifndef _GDrawQtLightDiffuse_
+#define _GDrawQtLightDiffuse_
 //================================================
 #include "GInclude.h"
 #include "GDrawQt.h"
+#include "GTorus.h"
 //===============================================
-class GDrawQtShading : public GDrawQt {
+class GDrawQtLightDiffuse : public GDrawQt {
 public:
-    GDrawQtShading();
-    ~GDrawQtShading();
+    GDrawQtLightDiffuse();
+    ~GDrawQtLightDiffuse();
 
 public:
-    static GDrawQtShading* Instance();
+    static GDrawQtLightDiffuse* Instance();
     void initDraw();
     void draw();
-    void showActiveUniforms();
-    void initUniformBlockBuffer();
+    void resize(int w, int h);
+void setMatrices();
 
 private:
-    static GDrawQtShading* m_instance;
+    static GDrawQtLightDiffuse* m_instance;
     GLuint m_program;
     GLuint m_vertexArrays[1];
+    int width, height;
+
     float m_angle;
+    GTorus* torus;
+    glm::mat4 model;
+    glm::mat4 view;
+    glm::mat4 projection;
 };
 //===============================================
 #endif

@@ -22,7 +22,7 @@ GShaderLayout* GShaderLayout::Instance() {
 GLuint GShaderLayout::loadShader(GShaderInfo *shaderInfo) {
 	if(shaderInfo == NULL) return 0;
 	
-    GLuint m_program = glCreateProgram();
+    m_program = glCreateProgram();
     GShaderInfo* m_shaderInfo = shaderInfo;
 	
     while(m_shaderInfo->type != GL_NONE) {

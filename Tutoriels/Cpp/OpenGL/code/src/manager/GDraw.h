@@ -16,6 +16,7 @@ public:
     virtual void initDraw();
     virtual void draw();
     virtual void updateDraw();
+    virtual void resize(int w, int h);
 
 private:
     static GDraw* m_instance;

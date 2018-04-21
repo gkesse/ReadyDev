@@ -1,6 +1,8 @@
 //================================================
-#ifndef _GOpenGL_
-#define _GOpenGL_
+#ifndef _GInclude_
+#define _GInclude_
+//================================================
+#define GLM_ENABLE_EXPERIMENTAL
 //================================================
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
@@ -9,8 +11,15 @@
 #include <QGLWidget>
 #include <BulletDynamics/Dynamics/btDynamicsWorld.h>
 #include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtx/transform2.hpp>
+#include <glm/gtc/quaternion.hpp>
 //================================================
 #define BUFFER_OFFSET(a) ((void*)(a))
+//================================================
+#define PI (3.141592653589793)
+#define TWOPI (6.2831853071795862)
+#define TO_RADIANS(x) (x * 0.017453292519943295)
+#define TO_DEGREES(x) (x * 57.29577951308232)
 //================================================
 typedef struct {
     GLenum type;
