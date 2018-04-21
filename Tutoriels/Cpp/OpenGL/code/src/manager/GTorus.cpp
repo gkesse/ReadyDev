@@ -97,13 +97,14 @@ void GTorus::generateVertex(float* vertices, float* normals, float* texCoords, G
         int nextRingStart = (ring + 1) * m_sides;
         for( int side = 0; side < m_sides; side++ ) {
             int nextSide = (side + 1) % m_sides;
-            // The quad
+
             indices[idx] = (ringStart + side);
             indices[idx + 1] = (nextRingStart + side);
             indices[idx + 2] = (nextRingStart + nextSide);
             indices[idx + 3] = ringStart + side;
             indices[idx + 4] = nextRingStart + nextSide;
             indices[idx + 5] = (ringStart + nextSide);
+
             idx += 6;
         }
     }
