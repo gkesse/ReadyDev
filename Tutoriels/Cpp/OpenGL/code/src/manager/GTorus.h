@@ -7,18 +7,20 @@
 class GTorus {
 public:
     GTorus();
-    GTorus(float outerRadius, float innerRadius, int nsides, int nrings) ;
+    GTorus(float outerRadius, float innerRadius, int nSides, int nRings) ;
     ~GTorus();
 
 public:
     void render() const;
 
 private:
-    void generateVerts(float* verts, float* norms, float* tex, unsigned int* el, float outerRadius, float innerRadius);
+    void generateVertex(float* vertices, float* normals, float* texCoords, unsigned int* indices, float outerRadius, float innerRadius);
 
 private:
     GLuint m_vertexArrays[1];
-    int faces, rings, sides;
+    int m_rings;
+    int m_sides;
+    int m_faces;
 };
 //===============================================
 #endif

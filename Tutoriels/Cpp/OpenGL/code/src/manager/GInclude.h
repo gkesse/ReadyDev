@@ -4,6 +4,10 @@
 //================================================
 #define GLM_ENABLE_EXPERIMENTAL
 //================================================
+#include <iostream>
+//===============================================
+using namespace std;
+//===============================================
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <GL/freeglut.h>
