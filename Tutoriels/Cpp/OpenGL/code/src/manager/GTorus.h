@@ -14,10 +14,10 @@ public:
     void render() const;
 
 private:
-    void generateVerts(float * , float * ,float *, unsigned int *,
-                           float , float);
+    void generateVerts(float* verts, float* norms, float* tex,unsigned int* el, float outerRadius, float innerRadius);
+
 private:
-    unsigned int vaoHandle;
+    GLuint m_vertexArrays[1];
     int faces, rings, sides;
 };
 //===============================================

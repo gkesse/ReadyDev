@@ -5,38 +5,39 @@ GTorus::GTorus() {
 
 }
 //===============================================
-GTorus::GTorus(float outerRadius, float innerRadius, int nsides, int nrings) :
-rings(nrings), sides(nsides){
+GTorus::GTorus(float outerRadius, float innerRadius, int nsides, int nrings) {
+    rings = nrings;
+    sides = nsides;
     faces = sides * rings;
-    int nVerts  = sides * (rings+1);   // One extra ring to duplicate first ring
+    int nVerts  = sides * (rings + 1);   // One extra ring to duplicate first ring
 
     // Verts
-    float * v = new float[3 * nVerts];
+    float* v = new float[3 * nVerts];
     // Normals
-    float * n = new float[3 * nVerts];
+    float* n = new float[3 * nVerts];
     // Tex coords
-    float * tex = new float[2 * nVerts];
+    float* tex = new float[2 * nVerts];
     // Elements
-    unsigned int * el = new unsigned int[6 * faces];
+    unsigned int* el = new unsigned int[6 * faces];
 
     // Generate the vertex data
     generateVerts(v, n, tex, el, outerRadius, innerRadius);
 
     // Create and populate the buffer objects
-    unsigned int handle[4];
-    glGenBuffers(4, handle);
+    unsigned int m_buffers[4];
+    glGenBuffers(4, m_buffers);
 
-    glBindBuffer(GL_ARRAY_BUFFER, handle[0]);
-    glBufferData(GL_ARRAY_BUFFER, (3 * nVerts) * sizeof(float), v, GL_STATIC_DRAW);
+    glBindBuffer(GL_ARRAY_BUFFER, m_buffers[0]);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(v), v, GL_STATIC_DRAW);
 
-    glBindBuffer(GL_ARRAY_BUFFER, handle[1]);
-    glBufferData(GL_ARRAY_BUFFER, (3 * nVerts) * sizeof(float), n, GL_STATIC_DRAW);
+    glBindBuffer(GL_ARRAY_BUFFER, m_buffers[1]);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(n), n, GL_STATIC_DRAW);
 
-    glBindBuffer(GL_ARRAY_BUFFER, handle[2]);
-    glBufferData(GL_ARRAY_BUFFER, (2 * nVerts) * sizeof(float), tex, GL_STATIC_DRAW);
+    glBindBuffer(GL_ARRAY_BUFFER, m_buffers[2]);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(tex), tex, GL_STATIC_DRAW);
 
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, handle[3]);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, 6 * faces * sizeof(unsigned int), el, GL_STATIC_DRAW);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_buffers[3]);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(el), el, GL_STATIC_DRAW);
 
     delete [] v;
     delete [] n;
@@ -44,23 +45,22 @@ rings(nrings), sides(nsides){
     delete [] tex;
 
     // Create the VAO
-    glGenVertexArrays( 1, &vaoHandle );
-    glBindVertexArray(vaoHandle);
+    glGenVertexArrays(1, m_vertexArrays);
+    glBindVertexArray(m_vertexArrays[0]);
 
     glEnableVertexAttribArray(0);  // Vertex position
-    glBindBuffer(GL_ARRAY_BUFFER, handle[0]);
-    glVertexAttribPointer( (GLuint)0, 3, GL_FLOAT, GL_FALSE, 0, ((GLubyte *)NULL + (0)) );
+    glBindBuffer(GL_ARRAY_BUFFER, m_buffers[0]);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(0));
 
     glEnableVertexAttribArray(1);  // Vertex normal
-    glBindBuffer(GL_ARRAY_BUFFER, handle[1]);
-    glVertexAttribPointer( (GLuint)1, 3, GL_FLOAT, GL_FALSE, 0, ((GLubyte *)NULL + (0)) );
+    glBindBuffer(GL_ARRAY_BUFFER, m_buffers[1]);
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(0));
 
-    glBindBuffer(GL_ARRAY_BUFFER, handle[2]);
+    glBindBuffer(GL_ARRAY_BUFFER, m_buffers[2]);
     glEnableVertexAttribArray(2);  // Texture coords
-    glVertexAttribPointer( (GLuint)2, 2, GL_FLOAT, GL_FALSE, 0, ((GLubyte *)NULL + (0)) );
+    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(0));
 
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, handle[3]);
-
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_buffers[3]);
     glBindVertexArray(0);
 }
 //===============================================
@@ -68,10 +68,7 @@ GTorus::~GTorus() {
 
 }
 //===============================================
-void GTorus::generateVerts(float * verts, float * norms, float * tex,
-                             unsigned int * el,
-                             float outerRadius, float innerRadius)
-{
+void GTorus::generateVerts(float* verts, float* norms, float* tex,unsigned int* el, float outerRadius, float innerRadius) {
     float ringFactor  = (float)(TWOPI / rings);
     float sideFactor = (float)(TWOPI / sides);
     int idx = 0, tidx = 0;
@@ -94,9 +91,7 @@ void GTorus::generateVerts(float * verts, float * norms, float * tex,
             tex[tidx+1] = (float)(v / TWOPI);
             tidx += 2;
             // Normalize
-            float len = sqrt( norms[idx] * norms[idx] +
-                              norms[idx+1] * norms[idx+1] +
-                              norms[idx+2] * norms[idx+2] );
+            float len = sqrt(norms[idx] * norms[idx] + norms[idx+1] * norms[idx+1] + norms[idx+2] * norms[idx+2]);
             norms[idx] /= len;
             norms[idx+1] /= len;
             norms[idx+2] /= len;
@@ -124,6 +119,6 @@ void GTorus::generateVerts(float * verts, float * norms, float * tex,
 
 }
 void GTorus::render() const {
-    glBindVertexArray(vaoHandle);
-    glDrawElements(GL_TRIANGLES, 6 * faces, GL_UNSIGNED_INT, ((GLubyte *)NULL + (0)));
+    glBindVertexArray(m_vertexArrays[0]);
+    glDrawElements(GL_TRIANGLES, 6 * faces, GL_UNSIGNED_INT, BUFFER_OFFSET(0));
 }

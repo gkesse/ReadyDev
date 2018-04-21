@@ -37,7 +37,7 @@ void GDrawQtLightDiffuse::initDraw() {
     model = glm::mat4(1.0f);
     model *= glm::rotate(-35.0f, glm::vec3(1.0f,0.0f,0.0f));
     model *= glm::rotate(35.0f, glm::vec3(0.0f,1.0f,0.0f));
-    view = glm::lookAt(glm::vec3(0.0f,0.0f,2.0f), glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,1.0f,0.0f));
+    view = glm::lookAt(glm::vec3(0.0f,0.0f,3.0f), glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,1.0f,0.0f));
     projection = glm::mat4(1.0f);
 
     GShader::Instance()->setUniform("Kd", 0.9f, 0.5f, 0.3f);
