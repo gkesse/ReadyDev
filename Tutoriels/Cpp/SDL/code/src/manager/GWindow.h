@@ -14,6 +14,7 @@ public:
 public:
     static GWindow* Instance();
     void show();
+    void initDraw();
     void setCenter();
     void clean();
     void render();

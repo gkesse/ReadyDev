@@ -1,6 +1,7 @@
 //================================================
 #include "GWindow.h"
 #include "GDraw.h"
+#include "GTexture.h"
 //================================================
 GWindow* GWindow::m_instance = 0;
 //================================================
@@ -30,13 +31,19 @@ void GWindow::show() {
     m_window = SDL_CreateWindow(m_title.toStdString().c_str(), m_xPos, m_yPos, m_width, m_height, m_flags);
     setCenter();
     m_renderer = SDL_CreateRenderer(m_window, -1, SDL_RENDERER_ACCELERATED);
-    GDraw::Instance()->initDraw();
+    initDraw();
     while(m_running) {
         handleEvents();
         update();
         render();
     }
     clean();
+}
+//================================================
+void GWindow::initDraw() {
+    GTexture::Instance()->setRenderer(m_renderer);
+    GDraw::Instance()->setRenderer(m_renderer);
+    GDraw::Instance()->initDraw();
 }
 //================================================
 void GWindow::setCenter() {

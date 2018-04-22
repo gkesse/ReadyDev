@@ -18,14 +18,18 @@ GTexture* GTexture::Instance() {
     return m_instance;
 }
 //================================================
-void GTexture::loadTexture(GTextureInfo* textureInfo, SDL_Renderer* renderer) {
+void GTexture::setRenderer(SDL_Renderer* renderer) {
+    m_renderer = renderer;
+}
+//================================================
+void GTexture::loadTexture(GTextureInfo* textureInfo) {
     GTextureInfo* lTextureInfo = textureInfo;
     while(1) {
         if(QString(lTextureInfo->id) == "END") break;
         SDL_Surface* lSurface = IMG_Load(lTextureInfo->filename);
-        SDL_Texture* lTexture = SDL_CreateTextureFromSurface(renderer, lSurface);
+        SDL_Texture* lTexture = SDL_CreateTextureFromSurface(m_renderer, lSurface);
         m_textureMap[QString(lTextureInfo->id)] = lTexture;
-        SDL_FreeSurface(lTexture);
+        SDL_FreeSurface(lSurface);
         lTextureInfo++;
     }
 }
