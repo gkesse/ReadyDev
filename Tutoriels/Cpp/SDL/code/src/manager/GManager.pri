@@ -15,7 +15,8 @@ HEADERS += \
     $$PWD/GDraw.h \
     $$PWD/GTexture.h \
     $$PWD/GDrawTexture.h \
-    $$PWD/GDrawAnimate.h
+    $$PWD/GDrawAnimate.h \
+    $$PWD/GDrawTextureBmp.h
 
 SOURCES += \
     $$PWD/GConfig.cpp \
@@ -23,4 +24,5 @@ SOURCES += \
     $$PWD/GDraw.cpp \
     $$PWD/GTexture.cpp \
     $$PWD/GDrawTexture.cpp \
-    $$PWD/GDrawAnimate.cpp
+    $$PWD/GDrawAnimate.cpp \
+    $$PWD/GDrawTextureBmp.cpp
