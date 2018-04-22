@@ -13,6 +13,7 @@ public:
 
 public:
     static GWindow* Instance();
+    SDL_Window* getWindow();
     SDL_Renderer* getRenderer();
     void setFullscreen();
     void show();

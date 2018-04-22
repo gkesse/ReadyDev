@@ -26,6 +26,10 @@ GWindow* GWindow::Instance() {
     return m_instance;
 }
 //================================================
+SDL_Window* GWindow::getWindow() {
+    return m_window;
+}
+//================================================
 SDL_Renderer* GWindow::getRenderer() {
     return m_renderer;
 }
@@ -34,7 +38,7 @@ void GWindow::show() {
     setFullscreen();
     SDL_Init(SDL_INIT_EVERYTHING);
     m_window = SDL_CreateWindow(m_title.toStdString().c_str(), m_xPos, m_yPos, m_width, m_height, m_flags);
-    m_renderer = SDL_CreateRenderer(m_window, -1, 0);
+    m_renderer = SDL_CreateRenderer(m_window, -1, SDL_RENDERER_ACCELERATED);
     initDraw();
     while(m_running) {
         Uint32 lFrameStart = SDL_GetTicks();
@@ -90,6 +94,6 @@ void GWindow::handleEvents() {
 }
 //================================================
 void GWindow::update() {
-
+    GDraw::Instance()->update();
 }
 //================================================
