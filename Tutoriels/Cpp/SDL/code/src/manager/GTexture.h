@@ -2,11 +2,9 @@
 #ifndef _GTexture_
 #define _GTexture_
 //================================================
-#include <iostream>
+#include "GInclude.h"
 //================================================
 #include <QMap>
-//================================================
-using namespace std;
 //================================================
 class GTexture {
 public:
@@ -15,11 +13,11 @@ public:
 
 public:
     static GTexture* Instance();
-    void loadTexture();
-    void draw();
+    void loadTexture(GTextureInfo* textureInfo, SDL_Renderer* renderer);
 
 private:
     static GTexture* m_instance;
+    QMap<QString, SDL_Texture*> m_textureMap;
 };
 //================================================
 #endif

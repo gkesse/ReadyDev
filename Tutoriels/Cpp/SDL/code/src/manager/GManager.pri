@@ -1,8 +1,9 @@
 include(C:\Users\sabine\Downloads\Gerard\SDL2-devel-2.0.8-mingw\SDL2-2.0.8\i686-w64-mingw32\GSDL.pri)
+include(C:\Users\sabine\Downloads\Gerard\SDL2_image-devel-2.0.3-mingw\SDL2_image-2.0.3\i686-w64-mingw32\GSDLImage.pri)
 
 LIBS += \
     -lmingw32 \
-    -lSDL2main -lSDL2
+    -lSDL2main -lSDL2 -lSDL2_image.dll
 
 INCLUDEPATH += \
     $$PWD
