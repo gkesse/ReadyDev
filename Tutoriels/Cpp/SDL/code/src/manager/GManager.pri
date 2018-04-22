@@ -10,8 +10,10 @@ INCLUDEPATH += \
 HEADERS += \
     $$PWD/GConfig.h \
     $$PWD/GInclude.h \
-    $$PWD/GWindow.h
+    $$PWD/GWindow.h \
+    $$PWD/GDraw.h
 
 SOURCES += \
     $$PWD/GConfig.cpp \
-    $$PWD/GWindow.cpp
+    $$PWD/GWindow.cpp \
+    $$PWD/GDraw.cpp

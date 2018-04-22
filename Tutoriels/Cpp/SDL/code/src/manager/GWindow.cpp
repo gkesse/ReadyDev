@@ -1,6 +1,6 @@
 //================================================
 #include "GWindow.h"
-#include "GConfig.h"
+#include "GDraw.h"
 //================================================
 GWindow* GWindow::m_instance = 0;
 //================================================
@@ -30,6 +30,7 @@ void GWindow::show() {
     m_window = SDL_CreateWindow(m_title.toStdString().c_str(), m_xPos, m_yPos, m_width, m_height, m_flags);
     setCenter();
     m_renderer = SDL_CreateRenderer(m_window, -1, SDL_RENDERER_ACCELERATED);
+    GDraw::Instance()->initDraw();
     while(m_running) {
         handleEvents();
         update();
@@ -57,7 +58,7 @@ void GWindow::clean() {
 void GWindow::render() {
     SDL_RenderClear(m_renderer);
     SDL_SetRenderDrawColor(m_renderer, 5, 16, 57, 255);
-
+    GDraw::Instance()->draw();
     SDL_RenderPresent(m_renderer);
 }
 //================================================
