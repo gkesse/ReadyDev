@@ -11,6 +11,7 @@ GWindow::GWindow() {
     m_width = 400;
     m_height = 400;
     m_flags = 0;
+    m_running = true;
 }
 //================================================
 GWindow::~GWindow() {
@@ -29,7 +30,11 @@ void GWindow::show() {
     m_window = SDL_CreateWindow(m_title.toStdString().c_str(), m_xPos, m_yPos, m_width, m_height, m_flags);
     setCenter();
     m_renderer = SDL_CreateRenderer(m_window, -1, SDL_RENDERER_ACCELERATED);
-    render();
+    while(m_running) {
+        handleEvents();
+        update();
+        render();
+    }
     clean();
 }
 //================================================
@@ -50,8 +55,27 @@ void GWindow::clean() {
 }
 //================================================
 void GWindow::render() {
-    SDL_SetRenderDrawColor(m_renderer, 0, 0, 0, 255);
     SDL_RenderClear(m_renderer);
+    SDL_SetRenderDrawColor(m_renderer, 5, 16, 57, 255);
+
     SDL_RenderPresent(m_renderer);
+}
+//================================================
+void GWindow::handleEvents() {
+    SDL_Event lEvent;
+
+    if(SDL_PollEvent(&lEvent)){
+        switch(lEvent.type){
+        case SDL_QUIT:
+            m_running = false;
+            break;
+        default:
+            break;
+        }
+    }
+}
+//================================================
+void GWindow::update() {
+
 }
 //================================================

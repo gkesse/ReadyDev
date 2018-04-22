@@ -15,6 +15,8 @@ public:
     void setCenter();
     void clean();
     void render();
+    void handleEvents();
+    void update();
 
 private:
     static GWindow* m_instance;
@@ -26,6 +28,7 @@ private:
     int m_width;
     int m_height;
     Uint32 m_flags;
+    bool m_running;
 };
 //================================================
 #endif
