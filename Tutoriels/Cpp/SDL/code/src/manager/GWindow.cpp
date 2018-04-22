@@ -26,6 +26,10 @@ GWindow* GWindow::Instance() {
     return m_instance;
 }
 //================================================
+SDL_Renderer* GWindow::getRenderer() {
+    return m_renderer;
+}
+//================================================
 void GWindow::show() {
     SDL_Init(SDL_INIT_EVERYTHING);
     m_window = SDL_CreateWindow(m_title.toStdString().c_str(), m_xPos, m_yPos, m_width, m_height, m_flags);
@@ -41,8 +45,6 @@ void GWindow::show() {
 }
 //================================================
 void GWindow::initDraw() {
-    GTexture::Instance()->setRenderer(m_renderer);
-    GDraw::Instance()->setRenderer(m_renderer);
     GDraw::Instance()->initDraw();
 }
 //================================================

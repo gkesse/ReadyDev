@@ -13,12 +13,11 @@ public:
 
 public:
     static GTexture* Instance();
-    void setRenderer(SDL_Renderer* renderer);
     void loadTexture(GTextureInfo* textureInfo);
+    SDL_Texture* getTexture(const QString& id);
 
 private:
     static GTexture* m_instance;
-    SDL_Renderer* m_renderer;
     QMap<QString, SDL_Texture*> m_textureMap;
 };
 //================================================

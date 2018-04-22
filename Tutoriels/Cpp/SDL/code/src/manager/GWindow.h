@@ -13,6 +13,7 @@ public:
 
 public:
     static GWindow* Instance();
+    SDL_Renderer* getRenderer();
     void show();
     void initDraw();
     void setCenter();
