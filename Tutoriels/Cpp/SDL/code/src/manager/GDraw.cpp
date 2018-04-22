@@ -23,7 +23,7 @@ GDraw* GDraw::Instance() {
 void GDraw::initDraw() {
     GTextureInfo lTextureInfo[] {
         {"ANIMATE", "res/img/animate-alpha.png"},
-        {"END"}
+        {"END", ""}
     };
     GTexture::Instance()->loadTexture(lTextureInfo);
 }

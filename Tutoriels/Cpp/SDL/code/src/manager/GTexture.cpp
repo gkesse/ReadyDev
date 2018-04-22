@@ -28,11 +28,12 @@ void GTexture::loadTexture(GTextureInfo* textureInfo) {
         SDL_Texture* lTexture = SDL_CreateTextureFromSurface(lRenderer, lSurface);
         m_textureMap[QString(lTextureInfo->id)] = lTexture;
         SDL_FreeSurface(lSurface);
+        cout << "ID: " << lTextureInfo->id << "\n";
         lTextureInfo++;
     }
 }
 //================================================
 SDL_Texture* GTexture::getTexture(const QString& id) {
-    m_textureMap[id];
+    return m_textureMap[id];
 }
 //================================================
