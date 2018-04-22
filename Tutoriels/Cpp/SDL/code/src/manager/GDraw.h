@@ -2,8 +2,6 @@
 #ifndef _GDraw_
 #define _GDraw_
 //================================================
-#include "GInclude.h"
-//================================================
 class GDraw {
 public:
     GDraw();
@@ -11,11 +9,8 @@ public:
 
 public:
     static GDraw* Instance();
-    void initDraw();
-    void draw();
-
-private:
-    static GDraw* m_instance;
+    virtual void initDraw() = 0;
+    virtual void draw() = 0;
 };
 //================================================
 #endif

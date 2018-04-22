@@ -1,17 +1,17 @@
 //================================================
 #include "GWindow.h"
 #include "GDraw.h"
-#include "GTexture.h"
+#include "GConfig.h"
 //================================================
 GWindow* GWindow::m_instance = 0;
 //================================================
 GWindow::GWindow() {
     m_title = "SDL | ReadyDev";
-    m_xPos = 0;
-    m_yPos = 0;
+    m_xPos = SDL_WINDOWPOS_CENTERED;
+    m_yPos = SDL_WINDOWPOS_CENTERED;
     m_width = 400;
     m_height = 400;
-    m_flags = 0;
+    m_flags = SDL_WINDOW_SHOWN;
     m_running = true;
 }
 //================================================
@@ -31,31 +31,35 @@ SDL_Renderer* GWindow::getRenderer() {
 }
 //================================================
 void GWindow::show() {
-    SDL_Init(SDL_INIT_VIDEO);
+    setFullscreen();
+    SDL_Init(SDL_INIT_EVERYTHING);
     m_window = SDL_CreateWindow(m_title.toStdString().c_str(), m_xPos, m_yPos, m_width, m_height, m_flags);
-    setCenter();
-    m_renderer = SDL_CreateRenderer(m_window, -1, SDL_RENDERER_ACCELERATED);
+    m_renderer = SDL_CreateRenderer(m_window, -1, 0);
     initDraw();
     while(m_running) {
+        Uint32 lFrameStart = SDL_GetTicks();
+
         handleEvents();
         update();
         render();
+
+        Uint32 lFrameTime = SDL_GetTicks() - lFrameStart;
+
+        if (lFrameTime < DELAY_TIME) {
+            SDL_Delay((int)(DELAY_TIME - lFrameTime));
+        }
     }
     clean();
 }
 //================================================
-void GWindow::initDraw() {
-    GDraw::Instance()->initDraw();
+void GWindow::setFullscreen() {
+    QString lFlag = GConfig::Instance()->getData("FULLSCREEN_FLAG");
+    if(lFlag != "TRUE") return;
+    m_flags = SDL_WINDOW_FULLSCREEN;
 }
 //================================================
-void GWindow::setCenter() {
-    SDL_DisplayMode lDM;
-    SDL_GetCurrentDisplayMode(0, &lDM);
-    int lWidth = lDM.w;
-    int lHeight = lDM.h;
-    m_xPos = (lWidth - m_width) / 2;
-    m_yPos = (lHeight - m_height) / 2;
-    SDL_SetWindowPosition(m_window, m_xPos, m_yPos);
+void GWindow::initDraw() {
+    GDraw::Instance()->initDraw();
 }
 //================================================
 void GWindow::clean() {

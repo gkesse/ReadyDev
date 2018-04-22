@@ -14,13 +14,17 @@ public:
 public:
     static GWindow* Instance();
     SDL_Renderer* getRenderer();
+    void setFullscreen();
     void show();
     void initDraw();
-    void setCenter();
     void clean();
     void render();
     void handleEvents();
     void update();
+
+private:
+    const Uint32 FPS = 60;
+    const Uint32 DELAY_TIME = 1000 / FPS;
 
 private:
     static GWindow* m_instance;

@@ -13,10 +13,14 @@ HEADERS += \
     $$PWD/GInclude.h \
     $$PWD/GWindow.h \
     $$PWD/GDraw.h \
-    $$PWD/GTexture.h
+    $$PWD/GTexture.h \
+    $$PWD/GDrawTexture.h \
+    $$PWD/GDrawAnimate.h
 
 SOURCES += \
     $$PWD/GConfig.cpp \
     $$PWD/GWindow.cpp \
     $$PWD/GDraw.cpp \
-    $$PWD/GTexture.cpp
+    $$PWD/GTexture.cpp \
+    $$PWD/GDrawTexture.cpp \
+    $$PWD/GDrawAnimate.cpp

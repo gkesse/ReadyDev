@@ -4,7 +4,8 @@
 GConfig* GConfig::m_instance = 0;
 //================================================
 GConfig::GConfig() {
-
+    setData("FULLSCREEN_FLAG", "FALSE");
+    setData("DRAW_TYPE", "TEXTURE");
 }
 //================================================
 GConfig::~GConfig() {
