@@ -1,26 +1,26 @@
 //===============================================
-#include "GDrawQtLightDiffuse.h"
+#include "GDrawQtLightADS.h"
 #include "GShader.h"
 #include "GConfig.h"
 //===============================================
-GDrawQtLightDiffuse* GDrawQtLightDiffuse::m_instance = 0;
+GDrawQtLightADS* GDrawQtLightADS::m_instance = 0;
 //===============================================
-GDrawQtLightDiffuse::GDrawQtLightDiffuse() {
+GDrawQtLightADS::GDrawQtLightADS() {
 
 }
 //===============================================
-GDrawQtLightDiffuse::~GDrawQtLightDiffuse() {
+GDrawQtLightADS::~GDrawQtLightADS() {
     m_angle = 0.0;
 }
 //===============================================
-GDrawQtLightDiffuse* GDrawQtLightDiffuse::Instance() {
+GDrawQtLightADS* GDrawQtLightADS::Instance() {
     if(m_instance == 0) {
-        m_instance = new GDrawQtLightDiffuse;
+        m_instance = new GDrawQtLightADS;
     }
     return m_instance;
 }
 //===============================================
-void GDrawQtLightDiffuse::initDraw() {
+void GDrawQtLightADS::initDraw() {
     GShaderInfo  m_shaders[] = {
         {GL_VERTEX_SHADER, "res/shaders/4.0/color_light_diffuse.vert", 0},
         {GL_FRAGMENT_SHADER, "res/shaders/4.0/color_light_diffuse.frag", 0},
@@ -45,19 +45,19 @@ void GDrawQtLightDiffuse::initDraw() {
     GShader::Instance()->setUniform("LightPosition", m_view * glm::vec4(5.0f,5.0f,2.0f,1.0f));
 }
 //===============================================
-void GDrawQtLightDiffuse::draw() {
+void GDrawQtLightADS::draw() {
     setMatrices();
     m_torus->render();
 }
 //===============================================
-void GDrawQtLightDiffuse::resize(int w, int h) {
+void GDrawQtLightADS::resize(int w, int h) {
     glViewport(0,0,w,h);
     width = w;
     height = h;
     m_projection = glm::perspective(70.0f, (float)w/h, 0.3f, 100.0f);
 }
 //===============================================
-void GDrawQtLightDiffuse::setMatrices() {
+void GDrawQtLightADS::setMatrices() {
     glm::mat4 mv = m_view * m_model;
     GShader::Instance()->setUniform("ModelViewMatrix", mv);
     GShader::Instance()->setUniform("NormalMatrix", glm::mat3(glm::vec3(mv[0]), glm::vec3(mv[1]), glm::vec3(mv[2])));

@@ -1,0 +1,32 @@
+//================================================
+#ifndef _GWindow_
+#define _GWindow_
+//================================================
+#include "GInclude.h"
+//================================================
+class GWindow {
+public:
+    GWindow();
+    ~GWindow();
+
+public:
+    static GWindow* Instance();
+    void show();
+    void setCenter();
+    void clean();
+    void render();
+
+private:
+    static GWindow* m_instance;
+    SDL_Window* m_window;
+    SDL_Renderer* m_renderer;
+    QString m_title;
+    int m_xPos;
+    int m_yPos;
+    int m_width;
+    int m_height;
+    Uint32 m_flags;
+};
+//================================================
+#endif
+//================================================
