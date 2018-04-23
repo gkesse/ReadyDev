@@ -32,10 +32,10 @@ void GWindowGLFW::show(int* argc, char** argv) {
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
     glfwWindowHint(GLFW_RESIZABLE, false);
     glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, true);
+    glewInit();
     setCenter();
     m_window = glfwCreateWindow(m_w, m_h, m_title.c_str(), NULL, NULL);
     glfwMakeContextCurrent(m_window);
-    glewInit();
     while(1) {
         if(glfwWindowShouldClose(m_window)) break;
         setBackground();
