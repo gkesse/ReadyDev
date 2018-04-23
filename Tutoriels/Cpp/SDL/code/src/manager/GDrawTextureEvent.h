@@ -15,6 +15,7 @@ public:
     void initDraw();
     void draw();
     void update();
+    void handleEvents(SDL_Event *event);
 
 private:
     static GDrawTextureEvent* m_instance;

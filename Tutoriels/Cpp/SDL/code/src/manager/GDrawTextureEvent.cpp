@@ -2,6 +2,7 @@
 #include "GDrawTextureEvent.h"
 #include "GTexture.h"
 #include "GWindow.h"
+#include "GEvent.h"
 //================================================
 GDrawTextureEvent* GDrawTextureEvent::m_instance = 0;
 //================================================
@@ -49,5 +50,9 @@ void GDrawTextureEvent::draw() {
 //================================================
 void GDrawTextureEvent::update() {
     m_srcRect.x = 128 * int(((SDL_GetTicks() / 100) % 6));
+}
+//================================================
+void GDrawTextureEvent::handleEvents(SDL_Event* event) {
+    GEvent::Instance()->handleEvents(event);
 }
 //================================================
