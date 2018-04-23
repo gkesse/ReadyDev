@@ -14,8 +14,8 @@ GDrawGLFW::~GDrawGLFW() {
 }
 //===============================================
 GDrawGLFW* GDrawGLFW::Instance() {
-    QString m_type = GConfig::Instance()->getData("DRAW_TYPE");
-    if(m_type == "BACKGROUND") return GDrawGLFWBackground::Instance();
+    QString lType = GConfig::Instance()->getData("DRAW_TYPE");
+    if(lType == "BACKGROUND") return GDrawGLFWBackground::Instance();
     return 0;
 }
 //===============================================

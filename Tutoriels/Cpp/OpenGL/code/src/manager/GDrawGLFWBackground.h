@@ -2,10 +2,9 @@
 #ifndef _GDrawGLFWBackground_
 #define _GDrawGLFWBackground_
 //================================================
-#include "GInclude.h"
-#include "GDrawQt.h"
+#include "GDrawGLFW.h"
 //===============================================
-class GDrawGLFWBackground : public GDrawQt {
+class GDrawGLFWBackground : public GDrawGLFW {
 public:
     GDrawGLFWBackground();
     ~GDrawGLFWBackground();
