@@ -11,5 +11,7 @@ INPUT(
 ./build\GDrawTextureFull.o
 ./build\GDrawTextureAnimate.o
 ./build\GDrawTextureFlip.o
+./build\GEvent.o
+./build\GDrawTextureEvent.o
 ./build\main.o
 );

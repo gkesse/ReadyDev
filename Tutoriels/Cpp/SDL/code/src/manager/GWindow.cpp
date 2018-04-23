@@ -86,6 +86,7 @@ void GWindow::handleEvents() {
             m_running = false;
             break;
         default:
+            GDraw::Instance()->handleEvents(&lEvent);
             break;
         }
     }

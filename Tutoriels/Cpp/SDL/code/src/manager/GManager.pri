@@ -21,7 +21,9 @@ HEADERS += \
     $$PWD/GWindowFullscreen.h \
     $$PWD/GDrawTextureFull.h \
     $$PWD/GDrawTextureAnimate.h \
-    $$PWD/GDrawTextureFlip.h
+    $$PWD/GDrawTextureFlip.h \
+    $$PWD/GEvent.h \
+    $$PWD/GDrawTextureEvent.h
 
 SOURCES += \
     $$PWD/GConfig.cpp \
@@ -35,4 +37,6 @@ SOURCES += \
     $$PWD/GWindowFullscreen.cpp \
     $$PWD/GDrawTextureFull.cpp \
     $$PWD/GDrawTextureAnimate.cpp \
-    $$PWD/GDrawTextureFlip.cpp
+    $$PWD/GDrawTextureFlip.cpp \
+    $$PWD/GEvent.cpp \
+    $$PWD/GDrawTextureEvent.cpp

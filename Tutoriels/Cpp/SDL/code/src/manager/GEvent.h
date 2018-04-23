@@ -1,20 +1,20 @@
 //================================================
-#ifndef _GDraw_
-#define _GDraw_
+#ifndef _GEvent_
+#define _GEvent_
 //================================================
 #include "GInclude.h"
 //================================================
-class GDraw {
+class GEvent {
 public:
-    GDraw();
-    ~GDraw();
+    GEvent();
+    ~GEvent();
 
 public:
-    static GDraw* Instance();
-    virtual void initDraw();
-    virtual void draw();
-    virtual void update();
-    virtual void handleEvents(SDL_Event* event);
+    static GEvent* Instance();
+    void handleEvents(SDL_Event* event);
+
+private:
+    static GEvent* m_instance;
 };
 //================================================
 #endif

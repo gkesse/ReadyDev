@@ -6,6 +6,7 @@
 #include "GDrawTextureFull.h"
 #include "GDrawTextureAnimate.h"
 #include "GDrawTextureFlip.h"
+#include "GDrawTextureEvent.h"
 #include "GConfig.h"
 //================================================
 GDraw::GDraw() {
@@ -24,11 +25,12 @@ GDraw* GDraw::Instance() {
     if(m_type == "TEXTURE_FULL") return GDrawTextureFull::Instance();
     if(m_type == "TEXTURE_ANIMATE") return GDrawTextureAnimate::Instance();
     if(m_type == "TEXTURE_FLIP") return GDrawTextureFlip::Instance();
-
+    if(m_type == "TEXTURE_EVENT") return GDrawTextureEvent::Instance();
     return 0;
 }
 //================================================
 void GDraw::initDraw() {}
 void GDraw::draw() {}
 void GDraw::update() {}
+void GDraw::handleEvents(SDL_Event* event) {}
 //================================================
