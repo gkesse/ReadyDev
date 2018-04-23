@@ -32,10 +32,10 @@ void GWindowGLFW::show(int* argc, char** argv) {
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
     glfwWindowHint(GLFW_RESIZABLE, false);
     glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, true);
-    glewInit();
-    setCenter();
     m_window = glfwCreateWindow(m_w, m_h, m_title.c_str(), NULL, NULL);
     glfwMakeContextCurrent(m_window);
+    glewInit();
+    setCenter();
     while(1) {
         if(glfwWindowShouldClose(m_window)) break;
         setBackground();
@@ -56,9 +56,10 @@ void GWindowGLFW::setBackground() {
 }
 //===============================================
 void GWindowGLFW::setCenter() {
-    int m_sceenW = glutGet(GLUT_SCREEN_WIDTH);
-    int m_sceenH = glutGet(GLUT_SCREEN_HEIGHT);
-    m_x = (m_sceenW - m_w)/2;
-    m_y = (m_sceenH - m_h)/2;
+    int lScreenW = glutGet(GLUT_SCREEN_WIDTH);
+    int lScreenH = glutGet(GLUT_SCREEN_HEIGHT);
+    m_x = (lScreenW - m_w)/2;
+    m_y = (lScreenH - m_h)/2;
+    glfwSetWindowPos(m_window, m_x, m_y);
 }
 //===============================================
