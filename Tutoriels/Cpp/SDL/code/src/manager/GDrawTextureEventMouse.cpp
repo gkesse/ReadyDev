@@ -4,6 +4,8 @@
 #include "GWindow.h"
 #include "GEvent.h"
 //================================================
+#include <QtMath>
+//================================================
 GDrawTextureEventMouse* GDrawTextureEventMouse::m_instance = 0;
 //================================================
 GDrawTextureEventMouse::GDrawTextureEventMouse() {
@@ -57,6 +59,9 @@ void GDrawTextureEventMouse::onMouseMotion(SDL_Event* event) {
     int lY = event->motion.y;
     int lXrel = event->motion.xrel;
     int lYrel = event->motion.yrel;
+    float lRrel = qSqrt(lXrel * lXrel + lYrel * lYrel);
+    if(lRrel < 3.0) return;
+    cout << "lRrel: " << lRrel << "\n";
     m_dstRect.x = lX - (128 / 2);
     m_dstRect.y = lY - (82 / 2);
 }
@@ -73,5 +78,12 @@ void GDrawTextureEventMouse::onMouseButtonDown(SDL_Event* event) {
         m_flip = SDL_FLIP_NONE;
         break;
     }
+}
+//================================================
+void GDrawTextureEventMouse::onMouseWheel(SDL_Event* event) {
+    int lFactor = 3;
+    int lDirection = event->wheel.y;
+    int lAdd = lFactor * lDirection;
+    m_dstRect.x += lAdd;
 }
 //================================================

@@ -16,6 +16,7 @@ public:
     void update();
     void onMouseMotion(SDL_Event* event);
     void onMouseButtonDown(SDL_Event* event);
+    void onMouseWheel(SDL_Event* event);
 
 private:
     static GDrawTextureEventMouse* m_instance;
