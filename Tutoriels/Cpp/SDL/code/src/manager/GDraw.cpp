@@ -1,5 +1,6 @@
 //================================================
 #include "GDraw.h"
+#include "GDrawBackground.h"
 #include "GDrawTexture.h"
 #include "GDrawTextureBmp.h"
 #include "GDrawAnimate.h"
@@ -15,8 +16,9 @@ GDraw::~GDraw() {
 //================================================
 GDraw* GDraw::Instance() {
     QString m_type = GConfig::Instance()->getData("DRAW_TYPE");
+    if(m_type == "BACKGROUND") return GDrawBackground::Instance();
     if(m_type == "TEXTURE") return GDrawTexture::Instance();
-    if(m_type == "TEXTURE_BMP") return GDrawTextureBmp::Instance();
+    if(m_type == "FLIP") return GDrawTextureBmp::Instance();
     if(m_type == "ANIMATE") return GDrawAnimate::Instance();
 
     return 0;
