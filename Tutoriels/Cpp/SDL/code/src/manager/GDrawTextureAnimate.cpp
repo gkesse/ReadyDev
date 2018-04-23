@@ -1,26 +1,26 @@
 //================================================
-#include "GDrawAnimate.h"
+#include "GDrawTextureAnimate.h"
 #include "GTexture.h"
 #include "GWindow.h"
 //================================================
-GDrawAnimate* GDrawAnimate::m_instance = 0;
+GDrawTextureAnimate* GDrawTextureAnimate::m_instance = 0;
 //================================================
-GDrawAnimate::GDrawAnimate() {
+GDrawTextureAnimate::GDrawTextureAnimate() {
 
 }
 //================================================
-GDrawAnimate::~GDrawAnimate() {
+GDrawTextureAnimate::~GDrawTextureAnimate() {
 
 }
 //================================================
-GDrawAnimate* GDrawAnimate::Instance() {
+GDrawTextureAnimate* GDrawTextureAnimate::Instance() {
     if(m_instance == 0) {
-        m_instance = new GDrawAnimate;
+        m_instance = new GDrawTextureAnimate;
     }
     return m_instance;
 }
 //================================================
-void GDrawAnimate::initDraw() {
+void GDrawTextureAnimate::initDraw() {
     SDL_Window* lWindow = GWindow::Instance()->getWindow();
 
     GTextureInfo lTextureInfo[] {
@@ -42,22 +42,16 @@ void GDrawAnimate::initDraw() {
     m_dstRect.y = 0;
     m_dstRect.w = 128;
     m_dstRect.h = 82;
-
-    m_dstRect2.x = lWidth - 128;
-    m_dstRect2.y = 100;
-    m_dstRect2.w = 128;
-    m_dstRect2.h = 82;
 }
 //================================================
-void GDrawAnimate::draw() {
+void GDrawTextureAnimate::draw() {
     SDL_Renderer* lRenderer = GWindow::Instance()->getRenderer();
     SDL_Texture* lTexture = GTexture::Instance()->getTexture("TEXTURE");
 
     SDL_RenderCopy(lRenderer, lTexture, &m_srcRect, &m_dstRect);
-    SDL_RenderCopyEx(lRenderer, lTexture, &m_srcRect, &m_dstRect2, 0, 0, SDL_FLIP_HORIZONTAL);
 }
 //================================================
-void GDrawAnimate::update() {
+void GDrawTextureAnimate::update() {
     m_srcRect.x = 128 * int(((SDL_GetTicks() / 100) % 6));
 }
 //================================================

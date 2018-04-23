@@ -1,27 +1,25 @@
 //================================================
-#ifndef _GDrawAnimate_
-#define _GDrawAnimate_
+#ifndef _GDrawTextureAnimate_
+#define _GDrawTextureAnimate_
 //================================================
 #include "GDraw.h"
 #include "GInclude.h"
 //================================================
-class GDrawAnimate : public GDraw {
+class GDrawTextureAnimate : public GDraw {
 public:
-    GDrawAnimate();
-    ~GDrawAnimate();
+    GDrawTextureAnimate();
+    ~GDrawTextureAnimate();
 
 public:
-    static GDrawAnimate* Instance();
+    static GDrawTextureAnimate* Instance();
     void initDraw();
     void draw();
     void update();
 
 private:
-    static GDrawAnimate* m_instance;
+    static GDrawTextureAnimate* m_instance;
     SDL_Rect m_srcRect;
     SDL_Rect m_dstRect;
-    SDL_Rect m_srcRect2;
-    SDL_Rect m_dstRect2;
 };
 //================================================
 #endif

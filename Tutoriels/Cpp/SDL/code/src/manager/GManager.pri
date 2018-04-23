@@ -15,12 +15,12 @@ HEADERS += \
     $$PWD/GDraw.h \
     $$PWD/GTexture.h \
     $$PWD/GDrawTexture.h \
-    $$PWD/GDrawAnimate.h \
     $$PWD/GDrawBackground.h \
     $$PWD/GDrawTextureReduceMove.h \
     $$PWD/GWindowNormal.h \
     $$PWD/GWindowFullscreen.h \
-    $$PWD/GDrawTextureFull.h
+    $$PWD/GDrawTextureFull.h \
+    $$PWD/GDrawTextureAnimate.h
 
 SOURCES += \
     $$PWD/GConfig.cpp \
@@ -28,9 +28,9 @@ SOURCES += \
     $$PWD/GDraw.cpp \
     $$PWD/GTexture.cpp \
     $$PWD/GDrawTexture.cpp \
-    $$PWD/GDrawAnimate.cpp \
     $$PWD/GDrawBackground.cpp \
     $$PWD/GDrawTextureReduceMove.cpp \
     $$PWD/GWindowNormal.cpp \
     $$PWD/GWindowFullscreen.cpp \
-    $$PWD/GDrawTextureFull.cpp
+    $$PWD/GDrawTextureFull.cpp \
+    $$PWD/GDrawTextureAnimate.cpp
