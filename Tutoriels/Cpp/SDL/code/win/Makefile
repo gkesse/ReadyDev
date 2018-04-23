@@ -203,6 +203,7 @@ Makefile: GProject.pro C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/win32-g++/qmake.conf
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/win32/default_pre.prf \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/GSDL.pri \
 		C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/GSDLImage.pri \
+		C:/Users/sabine/Downloads/Gerard/SDL2_mixer-devel-2.0.2-mingw/SDL2_mixer-2.0.2/i686-w64-mingw32/GSDLMixer.pri \
 		../src/manager/GManager.pri \
 		../src/GMain.pri \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/resolve_config.prf \
@@ -370,6 +371,7 @@ C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/default_pre.prf:
 C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/win32/default_pre.prf:
 C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/GSDL.pri:
 C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/GSDLImage.pri:
+C:/Users/sabine/Downloads/Gerard/SDL2_mixer-devel-2.0.2-mingw/SDL2_mixer-2.0.2/i686-w64-mingw32/GSDLMixer.pri:
 ../src/manager/GManager.pri:
 ../src/GMain.pri:
 C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/resolve_config.prf:
