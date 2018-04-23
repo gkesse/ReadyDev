@@ -1,6 +1,5 @@
 //================================================
 #include "GSound.h"
-#include "GWindow.h"
 //================================================
 GSound* GSound::m_instance = 0;
 //================================================
@@ -20,17 +19,26 @@ GSound* GSound::Instance() {
 }
 //================================================
 void GSound::loadSound(GSoundInfo* soundInfo) {
-    SDL_Renderer* lRenderer = GWindow::Instance()->getRenderer();
-    GSoundInfo* lSourceInfo = soundInfo;
+    GSoundInfo* lSoundInfo = soundInfo;
     while(1) {
-        if(QString(lSourceInfo->id) == "END") break;
-        Mix_Music* lMusic = Mix_LoadMUS(lSourceInfo->filename);
-        Mix_Chunk* lChunk = Mix_LoadWAV(lSourceInfo->filename);
-        lSourceInfo++;
+        if(QString(lSoundInfo->id) == "END") break;
+        if(QString(lSoundInfo->type) == "MUSIC") {
+            Mix_Music* lMusic = Mix_LoadMUS(lSoundInfo->filename);
+            m_musicMap[QString(lSoundInfo->id)] = lMusic;
+        }
+        else if(QString(lSoundInfo->type) == "CHUNK") {
+            Mix_Chunk* lChunk = Mix_LoadWAV(lSoundInfo->filename);
+            m_chunkMap[QString(lSoundInfo->id)] = lChunk;
+        }
+        lSoundInfo++;
     }
 }
 //================================================
-SDL_Texture* GSound::getTexture(const QString& id) {
-    return m_textureMap[id];
+void GSound::playMusic(const QString& id, const int& loop) {
+    Mix_PlayMusic(m_musicMap[id], loop);
+}
+//================================================
+void GSound::playChunk(const QString& id, const int& loop) {
+    Mix_PlayChannel(-1, m_chunkMap[id], loop);
 }
 //================================================

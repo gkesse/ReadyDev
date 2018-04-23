@@ -14,11 +14,13 @@ public:
 public:
     static GSound* Instance();
     void loadSound(GSoundInfo* soundInfo);
-    SDL_Texture* getTexture(const QString& id);
+    void playMusic(const QString& id, const int& loop);
+    void playChunk(const QString& id, const int& loop);
 
 private:
     static GSound* m_instance;
-    QMap<QString, SDL_Texture*> m_soundMap;
+    QMap<QString, Mix_Music*> m_musicMap;
+    QMap<QString, Mix_Chunk*> m_chunkMap;
 };
 //================================================
 #endif

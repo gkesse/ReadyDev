@@ -27,7 +27,7 @@ HEADERS += \
     $$PWD/GDrawTextureEvent.h \
     $$PWD/GDrawTextureEventMouse.h \
     $$PWD/GSound.h \
-    $$PWD/GSoundMusic.h
+    $$PWD/GDrawTextureSound.h
 
 SOURCES += \
     $$PWD/GConfig.cpp \
@@ -46,4 +46,4 @@ SOURCES += \
     $$PWD/GDrawTextureEvent.cpp \
     $$PWD/GDrawTextureEventMouse.cpp \
     $$PWD/GSound.cpp \
-    $$PWD/GSoundMusic.cpp
+    $$PWD/GDrawTextureSound.cpp
