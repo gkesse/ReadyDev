@@ -9,5 +9,6 @@ INPUT(
 ./build\GDrawTextureReduceMove.o
 ./build\GWindowNormal.o
 ./build\GWindowFullscreen.o
+./build\GDrawTextureFull.o
 ./build\main.o
 );

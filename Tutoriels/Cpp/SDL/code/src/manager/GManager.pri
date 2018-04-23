@@ -19,7 +19,8 @@ HEADERS += \
     $$PWD/GDrawBackground.h \
     $$PWD/GDrawTextureReduceMove.h \
     $$PWD/GWindowNormal.h \
-    $$PWD/GWindowFullscreen.h
+    $$PWD/GWindowFullscreen.h \
+    $$PWD/GDrawTextureFull.h
 
 SOURCES += \
     $$PWD/GConfig.cpp \
@@ -31,4 +32,5 @@ SOURCES += \
     $$PWD/GDrawBackground.cpp \
     $$PWD/GDrawTextureReduceMove.cpp \
     $$PWD/GWindowNormal.cpp \
-    $$PWD/GWindowFullscreen.cpp
+    $$PWD/GWindowFullscreen.cpp \
+    $$PWD/GDrawTextureFull.cpp
