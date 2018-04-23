@@ -42,4 +42,5 @@ void GDraw::update() {}
 void GDraw::onKeyDown(SDL_Event* event) {}
 void GDraw::onMouseMotion(SDL_Event* event) {}
 void GDraw::onMouseButtonDown(SDL_Event* event) {}
+void GDraw::onMouseWheel(SDL_Event* event) {}
 //================================================
