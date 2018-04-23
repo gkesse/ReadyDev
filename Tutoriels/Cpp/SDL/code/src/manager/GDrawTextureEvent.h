@@ -16,6 +16,7 @@ public:
     void draw();
     void update();
     void handleEvents(SDL_Event *event);
+    void onKeyDown(SDL_Keycode keycode);
 
 private:
     static GDrawTextureEvent* m_instance;

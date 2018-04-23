@@ -56,3 +56,21 @@ void GDrawTextureEvent::handleEvents(SDL_Event* event) {
     GEvent::Instance()->handleEvents(event);
 }
 //================================================
+void GDrawTextureEvent::onKeyDown(SDL_Keycode keycode) {
+    int lFactor = 3;
+    switch(keycode) {
+    case SDLK_UP:
+        m_dstRect.y -= 1 * lFactor;
+        break;
+    case SDLK_DOWN:
+        m_dstRect.y += 1 * lFactor;
+        break;
+    case SDLK_RIGHT:
+        m_dstRect.x += 1 * lFactor;
+        break;
+    case SDLK_LEFT:
+        m_dstRect.x -= 1 * lFactor;
+        break;
+    }
+}
+//================================================
