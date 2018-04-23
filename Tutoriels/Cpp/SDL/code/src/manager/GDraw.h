@@ -15,6 +15,7 @@ public:
     virtual void initDraw();
     virtual void draw();
     virtual void update();
+    virtual void clean();
     virtual void onKeyDown(SDL_Event* event);
     virtual void onMouseMotion(SDL_Event* event);
     virtual void onMouseButtonDown(SDL_Event* event);

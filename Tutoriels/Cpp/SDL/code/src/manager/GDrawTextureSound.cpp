@@ -57,3 +57,7 @@ void GDrawTextureSound::update() {
     m_srcRect.x = 128 * int(((SDL_GetTicks() / 100) % 6));
 }
 //================================================
+void GDrawTextureSound::clean() {
+    GTexture::Instance()->clear();
+}
+//================================================

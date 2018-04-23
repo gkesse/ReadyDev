@@ -36,3 +36,7 @@ SDL_Texture* GTexture::getTexture(const QString& id) {
     return m_textureMap[id];
 }
 //================================================
+void GTexture::clear() {
+    m_textureMap.clear();
+}
+//================================================
