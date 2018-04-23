@@ -60,16 +60,20 @@ void GDrawTextureEvent::onKeyDown(SDL_Keycode keycode) {
     int lFactor = 3;
     switch(keycode) {
     case SDLK_UP:
-        m_dstRect.y -= 1 * lFactor;
+        if(m_dstRect.y <= 0) m_dstRect.y = 0;
+        else m_dstRect.y -= 1 * lFactor;
         break;
     case SDLK_DOWN:
-        m_dstRect.y += 1 * lFactor;
-        break;
-    case SDLK_RIGHT:
-        m_dstRect.x += 1 * lFactor;
+        if(m_dstRect.y >= 400 - 82) m_dstRect.y = 400 - 82;
+        else m_dstRect.y += 1 * lFactor;
         break;
     case SDLK_LEFT:
-        m_dstRect.x -= 1 * lFactor;
+        if(m_dstRect.x <= 0) m_dstRect.x = 0;
+        else m_dstRect.x -= 1 * lFactor;
+        break;
+    case SDLK_RIGHT:
+        if(m_dstRect.x >= 400 - 128) m_dstRect.x = 400 - 128;
+        else m_dstRect.x += 1 * lFactor;
         break;
     }
 }
