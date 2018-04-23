@@ -20,7 +20,8 @@ HEADERS += \
     $$PWD/GWindowNormal.h \
     $$PWD/GWindowFullscreen.h \
     $$PWD/GDrawTextureFull.h \
-    $$PWD/GDrawTextureAnimate.h
+    $$PWD/GDrawTextureAnimate.h \
+    $$PWD/GDrawTextureFlip.h
 
 SOURCES += \
     $$PWD/GConfig.cpp \
@@ -33,4 +34,5 @@ SOURCES += \
     $$PWD/GWindowNormal.cpp \
     $$PWD/GWindowFullscreen.cpp \
     $$PWD/GDrawTextureFull.cpp \
-    $$PWD/GDrawTextureAnimate.cpp
+    $$PWD/GDrawTextureAnimate.cpp \
+    $$PWD/GDrawTextureFlip.cpp

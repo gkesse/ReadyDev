@@ -5,6 +5,7 @@
 #include "GDrawTextureReduceMove.h"
 #include "GDrawTextureFull.h"
 #include "GDrawTextureAnimate.h"
+#include "GDrawTextureFlip.h"
 #include "GConfig.h"
 //================================================
 GDraw::GDraw() {
@@ -22,6 +23,7 @@ GDraw* GDraw::Instance() {
     if(m_type == "TEXTURE_REDUCE_MOVE") return GDrawTextureReduceMove::Instance();
     if(m_type == "TEXTURE_FULL") return GDrawTextureFull::Instance();
     if(m_type == "TEXTURE_ANIMATE") return GDrawTextureAnimate::Instance();
+    if(m_type == "TEXTURE_FLIP") return GDrawTextureFlip::Instance();
 
     return 0;
 }

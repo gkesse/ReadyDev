@@ -10,5 +10,6 @@ INPUT(
 ./build\GWindowFullscreen.o
 ./build\GDrawTextureFull.o
 ./build\GDrawTextureAnimate.o
+./build\GDrawTextureFlip.o
 ./build\main.o
 );
