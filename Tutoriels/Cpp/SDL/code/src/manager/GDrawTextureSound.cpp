@@ -30,7 +30,7 @@ void GDrawTextureSound::initDraw() {
 
     GSoundInfo lSoundInfo[] {
         {"MUSIC", "res/audio/DST_ElectroRock.ogg", "MUSIC"},
-        {"END", ""}
+        {"END", "", ""}
     };
     GSound::Instance()->loadSound(lSoundInfo);
     GSound::Instance()->playMusic("MUSIC", -1);
