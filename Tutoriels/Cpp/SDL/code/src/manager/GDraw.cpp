@@ -33,5 +33,6 @@ void GDraw::initDraw() {}
 void GDraw::draw() {}
 void GDraw::update() {}
 void GDraw::handleEvents(SDL_Event* event) {}
-void GDraw::onKeyDown(SDL_Keycode keycode) {}
+void GDraw::onKeyDown(SDL_Event* event) {}
+void GDraw::onMouseMotion(SDL_Event* event) {}
 //================================================

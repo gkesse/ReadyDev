@@ -1,27 +1,27 @@
 //================================================
-#include "GDrawTextureEvent.h"
+#include "GDrawTextureEventMouse.h"
 #include "GTexture.h"
 #include "GWindow.h"
 #include "GEvent.h"
 //================================================
-GDrawTextureEvent* GDrawTextureEvent::m_instance = 0;
+GDrawTextureEventMouse* GDrawTextureEventMouse::m_instance = 0;
 //================================================
-GDrawTextureEvent::GDrawTextureEvent() {
+GDrawTextureEventMouse::GDrawTextureEventMouse() {
 
 }
 //================================================
-GDrawTextureEvent::~GDrawTextureEvent() {
+GDrawTextureEventMouse::~GDrawTextureEventMouse() {
 
 }
 //================================================
-GDrawTextureEvent* GDrawTextureEvent::Instance() {
+GDrawTextureEventMouse* GDrawTextureEventMouse::Instance() {
     if(m_instance == 0) {
-        m_instance = new GDrawTextureEvent;
+        m_instance = new GDrawTextureEventMouse;
     }
     return m_instance;
 }
 //================================================
-void GDrawTextureEvent::initDraw() {
+void GDrawTextureEventMouse::initDraw() {
     SDL_Window* lWindow = GWindow::Instance()->getWindow();
 
     GTextureInfo lTextureInfo[] {
@@ -41,24 +41,24 @@ void GDrawTextureEvent::initDraw() {
     m_dstRect.h = 82;
 }
 //================================================
-void GDrawTextureEvent::draw() {
+void GDrawTextureEventMouse::draw() {
     SDL_Renderer* lRenderer = GWindow::Instance()->getRenderer();
     SDL_Texture* lTexture = GTexture::Instance()->getTexture("TEXTURE");
 
     SDL_RenderCopy(lRenderer, lTexture, &m_srcRect, &m_dstRect);
 }
 //================================================
-void GDrawTextureEvent::update() {
+void GDrawTextureEventMouse::update() {
     m_srcRect.x = 128 * int(((SDL_GetTicks() / 100) % 6));
 }
 //================================================
-void GDrawTextureEvent::handleEvents(SDL_Event* event) {
+void GDrawTextureEventMouse::handleEvents(SDL_Event* event) {
     GEvent::Instance()->handleEvents(event);
 }
 //================================================
-void GDrawTextureEvent::onKeyDown(SDL_Event* event) {
+void GDrawTextureEventMouse::onKeyDown(SDL_Keycode keycode) {
     int lFactor = 3;
-    switch(event->key.keysym.sym) {
+    switch(keycode) {
     case SDLK_UP:
         if(m_dstRect.y <= 0) m_dstRect.y = 0;
         else m_dstRect.y -= 1 * lFactor;

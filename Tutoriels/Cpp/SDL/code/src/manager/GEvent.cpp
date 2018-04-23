@@ -22,7 +22,10 @@ GEvent* GEvent::Instance() {
 void GEvent::handleEvents(SDL_Event* event) {
     switch(event->type){
     case SDL_KEYDOWN:
-        GDraw::Instance()->onKeyDown(event->key.keysym.sym);
+        GDraw::Instance()->onKeyDown(event);
+        break;
+    case SDL_MOUSEMOTION:
+        GDraw::Instance()->onMouseMotion(event);
         break;
     }
 }

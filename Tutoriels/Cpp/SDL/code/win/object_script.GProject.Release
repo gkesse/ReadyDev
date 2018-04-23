@@ -13,5 +13,6 @@ INPUT(
 ./build\GDrawTextureFlip.o
 ./build\GEvent.o
 ./build\GDrawTextureEvent.o
+./build\GDrawTextureEventMouse.o
 ./build\main.o
 );

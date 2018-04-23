@@ -23,7 +23,8 @@ HEADERS += \
     $$PWD/GDrawTextureAnimate.h \
     $$PWD/GDrawTextureFlip.h \
     $$PWD/GEvent.h \
-    $$PWD/GDrawTextureEvent.h
+    $$PWD/GDrawTextureEvent.h \
+    $$PWD/GDrawTextureEventMouse.h
 
 SOURCES += \
     $$PWD/GConfig.cpp \
@@ -39,4 +40,5 @@ SOURCES += \
     $$PWD/GDrawTextureAnimate.cpp \
     $$PWD/GDrawTextureFlip.cpp \
     $$PWD/GEvent.cpp \
-    $$PWD/GDrawTextureEvent.cpp
+    $$PWD/GDrawTextureEvent.cpp \
+    $$PWD/GDrawTextureEventMouse.cpp

@@ -1,25 +1,25 @@
 //================================================
-#ifndef _GDrawTextureEvent_
-#define _GDrawTextureEvent_
+#ifndef _GDrawTextureEventMouse_
+#define _GDrawTextureEventMouse_
 //================================================
 #include "GDraw.h"
 #include "GInclude.h"
 //================================================
-class GDrawTextureEvent : public GDraw {
+class GDrawTextureEventMouse : public GDraw {
 public:
-    GDrawTextureEvent();
-    ~GDrawTextureEvent();
+    GDrawTextureEventMouse();
+    ~GDrawTextureEventMouse();
 
 public:
-    static GDrawTextureEvent* Instance();
+    static GDrawTextureEventMouse* Instance();
     void initDraw();
     void draw();
     void update();
     void handleEvents(SDL_Event *event);
-    void onKeyDown(SDL_Event* event);
+    void onKeyDown(SDL_Keycode keycode);
 
 private:
-    static GDrawTextureEvent* m_instance;
+    static GDrawTextureEventMouse* m_instance;
     SDL_Rect m_srcRect;
     SDL_Rect m_dstRect;
 };
