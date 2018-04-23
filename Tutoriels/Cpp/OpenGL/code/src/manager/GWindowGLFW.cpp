@@ -1,5 +1,6 @@
 //===============================================
 #include "GWindowGLFW.h"
+#include "GDraw.h"
 #include "GConfig.h"
 //===============================================
 GWindowGLFW* GWindowGLFW::m_instance = 0;
@@ -24,42 +25,50 @@ GWindowGLFW* GWindowGLFW::Instance() {
 }
 //===============================================
 void GWindowGLFW::show(int* argc, char** argv) {
-    glutInit(argc, argv);
     glfwInit();
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, true);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-    glfwWindowHint(GLFW_RESIZABLE, false);
-    glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, true);
     m_window = glfwCreateWindow(m_w, m_h, m_title.c_str(), NULL, NULL);
     glfwMakeContextCurrent(m_window);
-    glewInit();
-    setCenter();
-    while(1) {
-        if(glfwWindowShouldClose(m_window)) break;
-        setBackground();
+    while(!glfwWindowShouldClose(m_window)) {
+        float ratio;
+        int width, height;
+
+        //get the current width and height of the window,
+        //in case the window is resized by the user
+        glfwGetFramebufferSize(m_window, &width, &height);
+        ratio = width / (float)height;
+
+        //Set up the viewport (using the width and height of the window)
+        //and clear the screen color buffer.
+        glViewport(0, 0, width, height);
+        glClear(GL_COLOR_BUFFER_BIT);
+        //Set up the camera matrix. Note: further details on the camera model will be discussed in Chapter 3
+        glMatrixMode(GL_PROJECTION);
+        glLoadIdentity();
+        glOrtho(-ratio, ratio, -1.f, 1.f, 1.f, -1.f);
+        glMatrixMode(GL_MODELVIEW);
+        glLoadIdentity();
+
+        //Draw a rotating triangle and set a different color (red, green, and blue channels) for each vertex (x, y, z) of the triangle.
+        glRotatef((float)glfwGetTime() * 50.f, 0.f, 0.f, 1.f); //Rotate the triangle over time.
+
+        GDraw::Instance()->draw();
         glfwSwapBuffers(m_window);
         glfwPollEvents();
     }
+
     glfwDestroyWindow(m_window);
     glfwTerminate();
 }
 //===============================================
 void GWindowGLFW::setBackground() {
-    float m_red = 5.0f/255.0f;
-    float m_green = 16.0f/255.0f;
-    float m_blue = 57.0f/255.0f;
-    float m_alpha = 255.0f/255.0f;
-    static const float m_backgroundColorVal[] = {m_red, m_green, m_blue, m_alpha};
-    glClearBufferfv(GL_COLOR, 0, m_backgroundColorVal);
+    float lRed = 5.0f/255.0f;
+    float lGreen = 16.0f/255.0f;
+    float lBlue = 57.0f/255.0f;
+    float lAlpha = 255.0f/255.0f;
+    static float lBackgroundColor[] = {lRed, lGreen, lBlue, lAlpha};
+    glClearBufferfv(GL_COLOR, 0, lBackgroundColor);
 }
 //===============================================
 void GWindowGLFW::setCenter() {
-    int lScreenW = glutGet(GLUT_SCREEN_WIDTH);
-    int lScreenH = glutGet(GLUT_SCREEN_HEIGHT);
-    m_x = (lScreenW - m_w)/2;
-    m_y = (lScreenH - m_h)/2;
-    glfwSetWindowPos(m_window, m_x, m_y);
 }
 //===============================================

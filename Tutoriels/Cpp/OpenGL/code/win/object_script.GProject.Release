@@ -31,6 +31,7 @@ INPUT(
 ./build\GDrawQtLightADS.o
 ./build\GDrawGLFW.o
 ./build\GDrawGLFWBackground.o
+./build\GDrawGLFWSimple.o
 ./build\main.o
 ./build\moc_GWindowQtForm.o
 ./build\moc_GWindowQtFormGL.o

@@ -6,7 +6,7 @@ include(C:\Users\sabine\Downloads\Gerard\glfw-3.2.1\glfw-3.2.1\GGLFW.pri)
 include(C:\Users\sabine\Downloads\Gerard\glm-master\glm-master\GGLM.pri)
 
 LIBS += \
-    -lopengl32 -lfreeglut.dll -lSDL2main -lSDL2 -lglew32  -lglfw3 -lgdi32
+     -lopengl32 -lmingw32 -lfreeglut.dll -lSDL2main -lSDL2 -lglew32 -lglfw3 -lgdi32
 
 INCLUDEPATH += \
     $$PWD
@@ -44,7 +44,8 @@ HEADERS += \
     $$PWD/GDrawQtLightDiffuse.h \
     $$PWD/GDrawQtLightADS.h \
     $$PWD/GDrawGLFW.h \
-    $$PWD/GDrawGLFWBackground.h
+    $$PWD/GDrawGLFWBackground.h \
+    $$PWD/GDrawGLFWSimple.h
 
 SOURCES += \
     $$PWD/GWindow.cpp \
@@ -78,7 +79,8 @@ SOURCES += \
     $$PWD/GDrawQtLightDiffuse.cpp \
     $$PWD/GDrawQtLightADS.cpp \
     $$PWD/GDrawGLFW.cpp \
-    $$PWD/GDrawGLFWBackground.cpp
+    $$PWD/GDrawGLFWBackground.cpp \
+    $$PWD/GDrawGLFWSimple.cpp
 
 FORMS += \
     $$PWD/GWindowQtForm.ui

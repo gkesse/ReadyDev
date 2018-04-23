@@ -2,9 +2,7 @@
 #ifndef _GWindow_
 #define _GWindow_
 //===============================================
-#include <iostream>
-//===============================================
-using namespace std;
+#include "GInclude.h"
 //===============================================
 class GWindow {
 public:
