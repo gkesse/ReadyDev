@@ -3,7 +3,6 @@
 #define _GDrawTextureReduceMove_
 //================================================
 #include "GDraw.h"
-#include "GInclude.h"
 //================================================
 class GDrawTextureReduceMove : public GDraw {
 public:

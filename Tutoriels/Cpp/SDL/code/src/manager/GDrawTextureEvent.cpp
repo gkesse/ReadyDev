@@ -52,10 +52,6 @@ void GDrawTextureEvent::update() {
     m_srcRect.x = 128 * int(((SDL_GetTicks() / 100) % 6));
 }
 //================================================
-void GDrawTextureEvent::handleEvents(SDL_Event* event) {
-    GEvent::Instance()->handleEvents(event);
-}
-//================================================
 void GDrawTextureEvent::onKeyDown(SDL_Event* event) {
     int lFactor = 3;
     switch(event->key.keysym.sym) {

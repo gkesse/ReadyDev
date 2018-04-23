@@ -27,6 +27,9 @@ void GEvent::handleEvents(SDL_Event* event) {
     case SDL_MOUSEMOTION:
         GDraw::Instance()->onMouseMotion(event);
         break;
+    case SDL_MOUSEBUTTONDOWN:
+        GDraw::Instance()->onMouseButtonDown(event);
+        break;
     }
 }
 //================================================

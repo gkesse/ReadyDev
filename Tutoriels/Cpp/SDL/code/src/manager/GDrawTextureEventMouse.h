@@ -3,7 +3,6 @@
 #define _GDrawTextureEventMouse_
 //================================================
 #include "GDraw.h"
-#include "GInclude.h"
 //================================================
 class GDrawTextureEventMouse : public GDraw {
 public:
@@ -15,11 +14,12 @@ public:
     void initDraw();
     void draw();
     void update();
-    void handleEvents(SDL_Event *event);
-    void onKeyDown(SDL_Keycode keycode);
+    void onMouseMotion(SDL_Event* event);
+    void onMouseButtonDown(SDL_Event* event);
 
 private:
     static GDrawTextureEventMouse* m_instance;
+    SDL_RendererFlip m_flip;
     SDL_Rect m_srcRect;
     SDL_Rect m_dstRect;
 };

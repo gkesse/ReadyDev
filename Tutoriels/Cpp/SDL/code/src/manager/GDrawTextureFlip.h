@@ -3,7 +3,6 @@
 #define _GDrawTextureFlip_
 //================================================
 #include "GDraw.h"
-#include "GInclude.h"
 //================================================
 class GDrawTextureFlip : public GDraw {
 public:

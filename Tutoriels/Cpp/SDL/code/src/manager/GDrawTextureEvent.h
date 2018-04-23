@@ -3,7 +3,6 @@
 #define _GDrawTextureEvent_
 //================================================
 #include "GDraw.h"
-#include "GInclude.h"
 //================================================
 class GDrawTextureEvent : public GDraw {
 public:
@@ -15,7 +14,6 @@ public:
     void initDraw();
     void draw();
     void update();
-    void handleEvents(SDL_Event *event);
     void onKeyDown(SDL_Event* event);
 
 private:

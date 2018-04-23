@@ -3,7 +3,6 @@
 #define _GDrawBackground_
 //================================================
 #include "GDraw.h"
-#include "GInclude.h"
 //================================================
 class GDrawBackground : public GDraw {
 public:

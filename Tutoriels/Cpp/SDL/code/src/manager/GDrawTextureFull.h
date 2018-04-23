@@ -3,7 +3,6 @@
 #define _GDrawTextureFull_
 //================================================
 #include "GDraw.h"
-#include "GInclude.h"
 //================================================
 class GDrawTextureFull : public GDraw {
 public:

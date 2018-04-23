@@ -4,7 +4,7 @@
 //===============================================
 int main(int argc, char** argv) {
     GConfig::Instance()->setData("WINDOW_TYPE", "NORMAL");
-    GConfig::Instance()->setData("DRAW_TYPE", "TEXTURE_EVENT");
+    GConfig::Instance()->setData("DRAW_TYPE", "TEXTURE_EVENT_MOUSE");
     GWindow::Instance()->show();
     return 0;
 }

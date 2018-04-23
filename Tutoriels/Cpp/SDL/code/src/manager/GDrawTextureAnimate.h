@@ -3,7 +3,6 @@
 #define _GDrawTextureAnimate_
 //================================================
 #include "GDraw.h"
-#include "GInclude.h"
 //================================================
 class GDrawTextureAnimate : public GDraw {
 public:
