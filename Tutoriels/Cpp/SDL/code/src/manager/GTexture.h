@@ -15,6 +15,7 @@ public:
     static GTexture* Instance();
     void loadTexture(GTextureInfo* textureInfo);
     SDL_Texture* getTexture(const QString& id);
+    void clear();
 
 private:
     static GTexture* m_instance;

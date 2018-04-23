@@ -14,6 +14,7 @@ public:
     void initDraw();
     void draw();
     void update();
+    void clean();
 
 private:
     static GDrawTextureSound* m_instance;

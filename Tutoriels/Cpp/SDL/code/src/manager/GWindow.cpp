@@ -65,6 +65,7 @@ void GWindow::initDraw() {
 }
 //================================================
 void GWindow::clean() {
+    GDraw::Instance()->clean();
     SDL_DestroyRenderer(m_renderer);
     SDL_DestroyWindow(m_window);
     SDL_Quit();

@@ -20,6 +20,7 @@ GDraw* GDraw::Instance() {
     if(m_type == "OPENGL_GLUT") return GDrawGLUT::Instance();
     if(m_type == "OPENGL_SDL") return GDrawSDL::Instance();
     if(m_type == "OPENGL_QT") return GDrawQt::Instance();
+    if(m_type == "OPENGL_GLFW") return GDrawQt::Instance();
     return 0;
 }
 //===============================================

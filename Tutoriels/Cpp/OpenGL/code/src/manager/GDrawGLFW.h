@@ -1,23 +1,19 @@
 //===============================================
-#ifndef _GDraw_
-#define _GDraw_
+#ifndef _GDrawGLFW_
+#define _GDrawGLFW_
 //================================================
-#include "GInclude.h"
+#include "GDraw.h"
 //===============================================
-class GDraw {
+class GDrawGLFW : public GDraw {
 public:
-    GDraw();
-    ~GDraw();
+    GDrawGLFW();
+    ~GDrawGLFW();
 
 public:
-    static GDraw* Instance();
-    virtual void initDraw();
-    virtual void draw();
-    virtual void updateDraw();
-    virtual void resize(int w, int h);
+    static GDrawGLFW* Instance();
 
 private:
-    static GDraw* m_instance;
+    static GDrawGLFW* m_instance;
 };
 //===============================================
 #endif

@@ -1,23 +1,20 @@
 //===============================================
-#ifndef _GDraw_
-#define _GDraw_
+#ifndef _GDrawGLFWBackground_
+#define _GDrawGLFWBackground_
 //================================================
 #include "GInclude.h"
+#include "GDrawQt.h"
 //===============================================
-class GDraw {
+class GDrawGLFWBackground : public GDrawQt {
 public:
-    GDraw();
-    ~GDraw();
+    GDrawGLFWBackground();
+    ~GDrawGLFWBackground();
 
 public:
-    static GDraw* Instance();
-    virtual void initDraw();
-    virtual void draw();
-    virtual void updateDraw();
-    virtual void resize(int w, int h);
+    static GDrawGLFWBackground* Instance();
 
 private:
-    static GDraw* m_instance;
+    static GDrawGLFWBackground* m_instance;
 };
 //===============================================
 #endif
