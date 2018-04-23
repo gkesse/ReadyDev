@@ -12,7 +12,7 @@ public:
 public:
     static GWindowGLFW* Instance();
     void show(int* argc, char** argv);
-    void setBackground();
+    //void setBackground();
     void setCenter();
 
 private:

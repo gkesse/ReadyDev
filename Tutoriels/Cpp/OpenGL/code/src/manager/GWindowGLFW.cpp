@@ -50,7 +50,7 @@ void GWindowGLFW::show(int* argc, char** argv) {
 
         //Draw a rotating triangle and set a different color (red, green, and blue channels) for each vertex (x, y, z) of the triangle.
         glRotatef((float)glfwGetTime() * 50.f, 0.f, 0.f, 1.f); //Rotate the triangle over time.
-
+        setBackground();
         GDraw::Instance()->draw();
         glfwSwapBuffers(m_window);
         glfwPollEvents();
@@ -58,15 +58,6 @@ void GWindowGLFW::show(int* argc, char** argv) {
 
     glfwDestroyWindow(m_window);
     glfwTerminate();
-}
-//===============================================
-void GWindowGLFW::setBackground() {
-    float lRed = 5.0f/255.0f;
-    float lGreen = 16.0f/255.0f;
-    float lBlue = 57.0f/255.0f;
-    float lAlpha = 255.0f/255.0f;
-    static float lBackgroundColor[] = {lRed, lGreen, lBlue, lAlpha};
-    glClearBufferfv(GL_COLOR, 0, lBackgroundColor);
 }
 //===============================================
 void GWindowGLFW::setCenter() {
