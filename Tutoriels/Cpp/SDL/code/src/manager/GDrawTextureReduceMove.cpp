@@ -1,26 +1,26 @@
 //================================================
-#include "GDrawTextureBmp.h"
+#include "GDrawTextureReduceMove.h"
 #include "GTexture.h"
 #include "GWindow.h"
 //================================================
-GDrawTextureBmp* GDrawTextureBmp::m_instance = 0;
+GDrawTextureReduceMove* GDrawTextureReduceMove::m_instance = 0;
 //================================================
-GDrawTextureBmp::GDrawTextureBmp() {
+GDrawTextureReduceMove::GDrawTextureReduceMove() {
 
 }
 //================================================
-GDrawTextureBmp::~GDrawTextureBmp() {
+GDrawTextureReduceMove::~GDrawTextureReduceMove() {
 
 }
 //================================================
-GDrawTextureBmp* GDrawTextureBmp::Instance() {
+GDrawTextureReduceMove* GDrawTextureReduceMove::Instance() {
     if(m_instance == 0) {
-        m_instance = new GDrawTextureBmp;
+        m_instance = new GDrawTextureReduceMove;
     }
     return m_instance;
 }
 //================================================
-void GDrawTextureBmp::initDraw() {
+void GDrawTextureReduceMove::initDraw() {
     GTextureInfo lTextureInfo[] {
         {"TEXTURE", "res/img/rider.bmp"},
         {"END", ""}
@@ -28,23 +28,27 @@ void GDrawTextureBmp::initDraw() {
     GTexture::Instance()->loadTexture(lTextureInfo);
 }
 //================================================
-void GDrawTextureBmp::draw() {
+void GDrawTextureReduceMove::draw() {
     SDL_Renderer* lRenderer = GWindow::Instance()->getRenderer();
     SDL_Texture* lTexture = GTexture::Instance()->getTexture("TEXTURE");
 
     SDL_Rect lSrcRect;
     SDL_Rect lDstRect;
+    int lWidth;
+    int lHeight;
 
-    SDL_QueryTexture(lTexture, NULL, NULL, &lSrcRect.w, &lSrcRect.h);
+    SDL_QueryTexture(lTexture, NULL, NULL, &lWidth, &lHeight);
 
     lSrcRect.x = 0;
     lSrcRect.y = 0;
+    lSrcRect.w = lWidth / 2;
+    lSrcRect.h = lHeight / 2;
 
-    lDstRect.x = 0;
-    lDstRect.y = 0;
+    lDstRect.x = 100;
+    lDstRect.y = 100;
     lDstRect.w = lSrcRect.w;
-    lDstRect.h = lSrcRect.w;
+    lDstRect.h = lSrcRect.h;
 
-    SDL_RenderCopyEx(lRenderer, lTexture, &lSrcRect, &lDstRect, 0, 0, SDL_FLIP_NONE);
+    SDL_RenderCopy(lRenderer, lTexture, &lSrcRect, &lDstRect);
 }
 //================================================

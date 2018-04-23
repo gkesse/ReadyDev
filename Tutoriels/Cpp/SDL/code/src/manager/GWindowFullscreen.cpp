@@ -1,29 +1,26 @@
 //================================================
+#include "GWindowFullscreen.h"
+#include "GDraw.h"
 #include "GConfig.h"
 //================================================
-GConfig* GConfig::m_instance = 0;
+GWindowFullscreen* GWindowFullscreen::m_instance = 0;
 //================================================
-GConfig::GConfig() {
-    setData("WINDOW_TYPE", "NORMAL");
-    setData("DRAW_TYPE", "TEXTURE");
-}
-//================================================
-GConfig::~GConfig() {
+GWindowFullscreen::GWindowFullscreen() {
 
 }
 //================================================
-GConfig* GConfig::Instance() {
+GWindowFullscreen::~GWindowFullscreen() {
+
+}
+//================================================
+GWindowFullscreen* GWindowFullscreen::Instance() {
     if(m_instance == 0) {
-        m_instance = new GConfig;
+        m_instance = new GWindowFullscreen;
     }
     return m_instance;
 }
 //================================================
-void GConfig::setData(const QString& key, const QString& data) {
-    m_data[key] = data;
-}
-//================================================
-QString GConfig::getData(const QString& key) {
-    return m_data[key];
+void GWindowFullscreen::setFlags() {
+    m_flags = SDL_WINDOW_FULLSCREEN;
 }
 //================================================

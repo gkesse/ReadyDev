@@ -15,7 +15,7 @@ public:
     static GWindow* Instance();
     SDL_Window* getWindow();
     SDL_Renderer* getRenderer();
-    void setFullscreen();
+    virtual void setFlags();
     void show();
     void initDraw();
     void clean();
@@ -27,7 +27,7 @@ private:
     const Uint32 FPS = 60;
     const Uint32 DELAY_TIME = 1000 / FPS;
 
-private:
+protected:
     static GWindow* m_instance;
     SDL_Window* m_window;
     SDL_Renderer* m_renderer;

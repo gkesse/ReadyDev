@@ -22,7 +22,7 @@ GDrawTexture* GDrawTexture::Instance() {
 //================================================
 void GDrawTexture::initDraw() {
     GTextureInfo lTextureInfo[] {
-        {"TEXTURE", "res/img/animate-alpha.png"},
+        {"TEXTURE", "res/img/rider.bmp"},
         {"END", ""}
     };
     GTexture::Instance()->loadTexture(lTextureInfo);
@@ -34,17 +34,21 @@ void GDrawTexture::draw() {
 
     SDL_Rect lSrcRect;
     SDL_Rect lDstRect;
+    int lWidth;
+    int lHeight;
+
+    SDL_QueryTexture(lTexture, NULL, NULL, &lWidth, &lHeight);
 
     lSrcRect.x = 0;
     lSrcRect.y = 0;
-    lSrcRect.w = 128;
-    lSrcRect.h = 0;
+    lSrcRect.w = lWidth;
+    lSrcRect.h = lHeight;
 
     lDstRect.x = 0;
     lDstRect.y = 0;
-    lDstRect.w = 128;
-    lDstRect.h = 82;
+    lDstRect.w = lSrcRect.w;
+    lDstRect.h = lSrcRect.h;
 
-    SDL_RenderCopyEx(lRenderer, lTexture, &lSrcRect, &lDstRect, 0, 0, SDL_FLIP_NONE);
+    SDL_RenderCopy(lRenderer, lTexture, &lSrcRect, &lDstRect);
 }
 //================================================

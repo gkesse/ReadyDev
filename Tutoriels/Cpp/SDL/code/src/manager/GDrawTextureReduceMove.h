@@ -1,22 +1,22 @@
 //================================================
-#ifndef _GDrawTextureBmp_
-#define _GDrawTextureBmp_
+#ifndef _GDrawTextureReduceMove_
+#define _GDrawTextureReduceMove_
 //================================================
 #include "GDraw.h"
 #include "GInclude.h"
 //================================================
-class GDrawTextureBmp : public GDraw {
+class GDrawTextureReduceMove : public GDraw {
 public:
-    GDrawTextureBmp();
-    ~GDrawTextureBmp();
+    GDrawTextureReduceMove();
+    ~GDrawTextureReduceMove();
 
 public:
-    static GDrawTextureBmp* Instance();
+    static GDrawTextureReduceMove* Instance();
     void initDraw();
     void draw();
 
 private:
-    static GDrawTextureBmp* m_instance;
+    static GDrawTextureReduceMove* m_instance;
 };
 //================================================
 #endif

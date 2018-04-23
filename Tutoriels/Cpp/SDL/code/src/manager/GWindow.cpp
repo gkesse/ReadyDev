@@ -1,5 +1,7 @@
 //================================================
 #include "GWindow.h"
+#include "GWindowNormal.h"
+#include "GWindowFullscreen.h"
 #include "GDraw.h"
 #include "GConfig.h"
 //================================================
@@ -20,10 +22,10 @@ GWindow::~GWindow() {
 }
 //================================================
 GWindow* GWindow::Instance() {
-    if(m_instance == 0) {
-        m_instance = new GWindow;
-    }
-    return m_instance;
+    QString lType = GConfig::Instance()->getData("WINDOW_TYPE");
+    if(lType == "NORMAL") return GWindowNormal::Instance();
+    if(lType == "FULLSCREEN") return GWindowFullscreen::Instance();
+    return 0;
 }
 //================================================
 SDL_Window* GWindow::getWindow() {
@@ -35,7 +37,7 @@ SDL_Renderer* GWindow::getRenderer() {
 }
 //================================================
 void GWindow::show() {
-    setFullscreen();
+    setFlags();
     SDL_Init(SDL_INIT_EVERYTHING);
     m_window = SDL_CreateWindow(m_title.toStdString().c_str(), m_xPos, m_yPos, m_width, m_height, m_flags);
     m_renderer = SDL_CreateRenderer(m_window, -1, SDL_RENDERER_ACCELERATED);
@@ -56,11 +58,7 @@ void GWindow::show() {
     clean();
 }
 //================================================
-void GWindow::setFullscreen() {
-    QString lFlag = GConfig::Instance()->getData("FULLSCREEN_FLAG");
-    if(lFlag != "TRUE") return;
-    m_flags = SDL_WINDOW_FULLSCREEN;
-}
+void GWindow::setFlags() {}
 //================================================
 void GWindow::initDraw() {
     GDraw::Instance()->initDraw();

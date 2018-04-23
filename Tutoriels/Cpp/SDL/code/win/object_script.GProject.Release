@@ -1,0 +1,13 @@
+INPUT(
+./build\GConfig.o
+./build\GWindow.o
+./build\GDraw.o
+./build\GTexture.o
+./build\GDrawTexture.o
+./build\GDrawAnimate.o
+./build\GDrawBackground.o
+./build\GDrawTextureReduceMove.o
+./build\GWindowNormal.o
+./build\GWindowFullscreen.o
+./build\main.o
+);
