@@ -8,6 +8,7 @@
 #include "GDrawTextureFlip.h"
 #include "GDrawTextureEvent.h"
 #include "GDrawTextureEventMouse.h"
+#include "GDrawTextureSound.h"
 #include "GConfig.h"
 #include "GEvent.h"
 //================================================
@@ -29,6 +30,7 @@ GDraw* GDraw::Instance() {
     if(m_type == "TEXTURE_FLIP") return GDrawTextureFlip::Instance();
     if(m_type == "TEXTURE_EVENT") return GDrawTextureEvent::Instance();
     if(m_type == "TEXTURE_EVENT_MOUSE") return GDrawTextureEventMouse::Instance();
+    if(m_type == "TEXTURE_SOUND") return GDrawTextureSound::Instance();
     return 0;
 }
 //================================================

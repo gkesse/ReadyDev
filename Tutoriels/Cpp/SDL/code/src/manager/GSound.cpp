@@ -4,11 +4,11 @@
 GSound* GSound::m_instance = 0;
 //================================================
 GSound::GSound() {
-
+    Mix_OpenAudio(22050, AUDIO_S16, 2, (4096 / 2));
 }
 //================================================
 GSound::~GSound() {
-
+    Mix_CloseAudio();
 }
 //================================================
 GSound* GSound::Instance() {

@@ -15,6 +15,6 @@ INPUT(
 ./build\GDrawTextureEvent.o
 ./build\GDrawTextureEventMouse.o
 ./build\GSound.o
-./build\GSoundMusic.o
+./build\GDrawTextureSound.o
 ./build\main.o
 );

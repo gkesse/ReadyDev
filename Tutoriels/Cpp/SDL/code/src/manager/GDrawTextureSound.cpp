@@ -33,6 +33,7 @@ void GDrawTextureSound::initDraw() {
         {"END", ""}
     };
     GSound::Instance()->loadSound(lSoundInfo);
+    GSound::Instance()->playMusic("MUSIC", -1);
 
     m_srcRect.x = 0;
     m_srcRect.y = 0;

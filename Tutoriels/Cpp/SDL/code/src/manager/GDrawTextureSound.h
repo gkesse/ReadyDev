@@ -1,22 +1,22 @@
 //================================================
-#ifndef _GDrawTextureAnimate_
-#define _GDrawTextureAnimate_
+#ifndef _GDrawTextureSound_
+#define _GDrawTextureSound_
 //================================================
 #include "GDraw.h"
 //================================================
-class GDrawTextureAnimate : public GDraw {
+class GDrawTextureSound : public GDraw {
 public:
-    GDrawTextureAnimate();
-    ~GDrawTextureAnimate();
+    GDrawTextureSound();
+    ~GDrawTextureSound();
 
 public:
-    static GDrawTextureAnimate* Instance();
+    static GDrawTextureSound* Instance();
     void initDraw();
     void draw();
     void update();
 
 private:
-    static GDrawTextureAnimate* m_instance;
+    static GDrawTextureSound* m_instance;
     SDL_Rect m_srcRect;
     SDL_Rect m_dstRect;
 };
