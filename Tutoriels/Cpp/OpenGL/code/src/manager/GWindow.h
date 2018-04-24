@@ -11,11 +11,8 @@ public:
 
 public:
     static GWindow* Instance();
-    void initDraw();
-    void draw();
     void showVersion();
     virtual void setBackground();
-    virtual GLFWwindow* getWindowGLFW();
     virtual void show(int* argc, char** argv) = 0;
 
 private:

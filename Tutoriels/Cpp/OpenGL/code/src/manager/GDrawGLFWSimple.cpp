@@ -20,14 +20,6 @@ GDrawGLFWSimple* GDrawGLFWSimple::Instance() {
     return m_instance;
 }
 //===============================================
-void GDrawGLFWSimple::updateCamera() {
-    GLFWwindow* lWindow = GWindow::Instance()->getWindowGLFW();
-    int lWidth;
-    int lHeight;
-    glfwGetFramebufferSize(lWindow, &lWidth, &lHeight);
-    GCamera::Instance()->update(lWidth, lHeight);
-}
-//===============================================
 void GDrawGLFWSimple::updateDraw() {
     float lTime = glfwGetTime();
     float lAngle = lTime * 100.0f;

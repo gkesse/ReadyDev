@@ -25,11 +25,14 @@ GWindowGLFW* GWindowGLFW::Instance() {
 }
 //===============================================
 void GWindowGLFW::show(int* argc, char** argv) {
+    glutInit(argc, argv);
     glfwInit();
     m_window = glfwCreateWindow(m_w, m_h, m_title.c_str(), NULL, NULL);
     glfwMakeContextCurrent(m_window);
+    setCenter();
     showVersion();
     setBackground();
+    GDraw::Instance()->initDraw();
     while(!glfwWindowShouldClose(m_window)) {
         int lWidth, lHeight;
         glfwGetFramebufferSize(m_window, &lWidth, &lHeight);
@@ -50,5 +53,10 @@ GLFWwindow* GWindowGLFW::getWindowGLFW() {
 }
 //===============================================
 void GWindowGLFW::setCenter() {
+    int lScreenW = glutGet(GLUT_SCREEN_WIDTH);
+    int lScreenH = glutGet(GLUT_SCREEN_HEIGHT);
+    m_x = (lScreenW - m_w)/2;
+    m_y = (lScreenH - m_h)/2;
+    glfwSetWindowPos(m_window, m_x, m_y);
 }
 //===============================================

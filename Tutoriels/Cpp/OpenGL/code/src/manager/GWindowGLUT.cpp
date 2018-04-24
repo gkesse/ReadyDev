@@ -1,5 +1,6 @@
 //===============================================
 #include "GWindowGLUT.h"
+#include "GDraw.h"
 //===============================================
 GWindowGLUT* GWindowGLUT::m_instance = 0;
 //===============================================
@@ -73,7 +74,7 @@ void GWindowGLUT::ReshapeFunc(int w, int h) {
 //===============================================
 void GWindowGLUT::IdleFunc() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    GWindow::Instance()->draw();
+    GDraw::Instance()->draw();
     glutSwapBuffers();
 }
 //===============================================

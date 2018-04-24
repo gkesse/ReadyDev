@@ -50,7 +50,8 @@ HEADERS += \
     $$PWD/GDrawGLFWPoint.h \
     $$PWD/GDrawGLFWLine.h \
     $$PWD/GObjPoint.h \
-    $$PWD/GDrawGLFWObject.h
+    $$PWD/GDrawGLFWObject.h \
+    $$PWD/GDrawSDLBackground.h
 
 SOURCES += \
     $$PWD/GWindow.cpp \
@@ -90,7 +91,8 @@ SOURCES += \
     $$PWD/GDrawGLFWPoint.cpp \
     $$PWD/GDrawGLFWLine.cpp \
     $$PWD/GObjPoint.cpp \
-    $$PWD/GDrawGLFWObject.cpp
+    $$PWD/GDrawGLFWObject.cpp \
+    $$PWD/GDrawSDLBackground.cpp
 
 FORMS += \
     $$PWD/GWindowQtForm.ui

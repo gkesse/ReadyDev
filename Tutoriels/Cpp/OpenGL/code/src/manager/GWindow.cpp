@@ -32,22 +32,11 @@ void GWindow::setBackground() {
     glClearColor(lRed, lGreen, lBlue, lAlpha);
 }
 //===============================================
-GLFWwindow* GWindow::getWindowGLFW() {}
-//===============================================
 void GWindow::showVersion() {
-    GLint m_major, m_minor;
-    glGetIntegerv(GL_MAJOR_VERSION, &m_major);
-    glGetIntegerv(GL_MINOR_VERSION, &m_minor);
-    cout << "GL_MAJOR_VERSION: " << m_major << "\n";
-    cout << "GL_MINOR_VERSION: " << m_minor << "\n";
-}
-//===============================================
-void GWindow::initDraw() {
-    showVersion();
-    GDraw::Instance()->initDraw();
-}
-//===============================================
-void GWindow::draw() {
-    GDraw::Instance()->draw();
+    GLint lMajor, lMinor;
+    glGetIntegerv(GL_MAJOR_VERSION, &lMajor);
+    glGetIntegerv(GL_MINOR_VERSION, &lMinor);
+    cout << "GL_MAJOR_VERSION: " << lMajor << "\n";
+    cout << "GL_MINOR_VERSION: " << lMinor << "\n";
 }
 //===============================================

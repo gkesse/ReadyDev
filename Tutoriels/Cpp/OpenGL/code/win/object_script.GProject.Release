@@ -37,6 +37,7 @@ INPUT(
 ./build\GDrawGLFWLine.o
 ./build\GObjPoint.o
 ./build\GDrawGLFWObject.o
+./build\GDrawSDLBackground.o
 ./build\main.o
 ./build\moc_GWindowQtForm.o
 ./build\moc_GWindowQtFormGL.o

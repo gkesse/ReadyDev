@@ -1,5 +1,6 @@
 //===============================================
 #include "GDrawSDL.h"
+#include "GDrawSDLBackground.h"
 #include "GDrawSDLSimple.h"
 #include "GDrawSDLColor.h"
 #include "GDrawSDLColorWr.h"
@@ -17,9 +18,10 @@ GDrawSDL::~GDrawSDL() {
 //===============================================
 GDrawSDL* GDrawSDL::Instance() {
     QString m_type = GConfig::Instance()->getData("DRAW_TYPE");
+    if(m_type == "BACKGROUND") return GDrawSDLBackground::Instance();
     if(m_type == "SIMPLE") return GDrawSDLSimple::Instance();
     if(m_type == "COLOR") return GDrawSDLColor::Instance();
     if(m_type == "COLOR_WR") return GDrawSDLColorWr::Instance();
-    return 0;
+    return GDrawSDLBackground::Instance();
 }
 //===============================================
