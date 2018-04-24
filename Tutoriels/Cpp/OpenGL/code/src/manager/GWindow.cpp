@@ -16,20 +16,28 @@ GWindow::~GWindow() {
 }
 //===============================================
 GWindow* GWindow::Instance() {
-    QString m_windowType = GConfig::Instance()->getData("WINDOW_TYPE");
-    if(m_windowType == "OPENGL_GLUT") return GWindowGLUT::Instance();
-    if(m_windowType == "OPENGL_SDL") return GWindowSDL::Instance();
-    if(m_windowType == "OPENGL_QT") return GWindowQt::Instance();
-    if(m_windowType == "OPENGL_GLFW") return GWindowGLFW::Instance();
+    QString lType = GConfig::Instance()->getData("WINDOW_TYPE");
+    if(lType == "OPENGL_GLUT") return GWindowGLUT::Instance();
+    if(lType == "OPENGL_SDL") return GWindowSDL::Instance();
+    if(lType == "OPENGL_QT") return GWindowQt::Instance();
+    if(lType == "OPENGL_GLFW") return GWindowGLFW::Instance();
     return 0;
 }
 //===============================================
 void GWindow::setBackground() {
-    float m_red = 5.0f/255.0f;
-    float m_green = 16.0f/255.0f;
-    float m_blue = 57.0f/255.0f;
-    float m_alpha = 255.0f/255.0f;
-    glClearColor(m_red, m_green, m_blue, m_alpha);
+    float lRed = 5.0f/255.0f;
+    float lGreen = 16.0f/255.0f;
+    float lBlue = 57.0f/255.0f;
+    float lAlpha = 255.0f/255.0f;
+    glClearColor(lRed, lGreen, lBlue, lAlpha);
+}
+//===============================================
+void GWindow::showVersion() {
+    GLint m_major, m_minor;
+    glGetIntegerv(GL_MAJOR_VERSION, &m_major);
+    glGetIntegerv(GL_MINOR_VERSION, &m_minor);
+    cout << "GL_MAJOR_VERSION: " << m_major << "\n";
+    cout << "GL_MINOR_VERSION: " << m_minor << "\n";
 }
 //===============================================
 void GWindow::initDraw() {
@@ -39,13 +47,5 @@ void GWindow::initDraw() {
 //===============================================
 void GWindow::draw() {
     GDraw::Instance()->draw();
-}
-//===============================================
-void GWindow::showVersion() {
-    GLint m_major, m_minor;
-    glGetIntegerv(GL_MAJOR_VERSION, &m_major);
-    glGetIntegerv(GL_MINOR_VERSION, &m_minor);
-    cout << "GL_MAJOR_VERSION: " << m_major << "\n";
-    cout << "GL_MINOR_VERSION: " << m_minor << "\n";
 }
 //===============================================

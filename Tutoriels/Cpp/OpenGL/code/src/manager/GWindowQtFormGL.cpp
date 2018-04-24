@@ -13,11 +13,11 @@ GWindowQtFormGL::~GWindowQtFormGL() {
 }
 //===============================================
 void GWindowQtFormGL::setBackground() {
-    float m_red = 5.0f/255.0f;
-    float m_green = 16.0f/255.0f;
-    float m_blue = 57.0f/255.0f;
-    float m_alpha = 255.0f/255.0f;
-    glClearColor(m_red, m_green, m_blue, m_alpha);
+    float lRed = 5.0f/255.0f;
+    float lGreen = 16.0f/255.0f;
+    float lBlue = 57.0f/255.0f;
+    float lAlpha = 255.0f/255.0f;
+    glClearColor(lRed, lGreen, lBlue, lAlpha);
 }
 //===============================================
 void GWindowQtFormGL::setTimer() {
