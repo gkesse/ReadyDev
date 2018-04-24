@@ -1,5 +1,7 @@
 //===============================================
 #include "GDrawGLFWSimple.h"
+#include "GWindow.h"
+#include "GCamera.h"
 //===============================================
 GDrawGLFWSimple* GDrawGLFWSimple::m_instance = 0;
 //===============================================
@@ -18,8 +20,15 @@ GDrawGLFWSimple* GDrawGLFWSimple::Instance() {
     return m_instance;
 }
 //===============================================
+void GDrawGLFWSimple::updateCamera() {
+    GLFWwindow* lWindow = GWindow::Instance()->getWindowGLFW();
+    int lWidth;
+    int lHeight;
+    glfwGetFramebufferSize(lWindow, &lWidth, &lHeight);
+    GCamera::Instance()->update(lWidth, lHeight);
+}
+//===============================================
 void GDrawGLFWSimple::draw() {
-    cout << "kkkkkkkkkkkkkkkkkkk\n";
     glBegin(GL_TRIANGLES);
     glColor3f(1.f, 0.f, 0.f);
     glVertex3f(-0.6f, -0.4f, 0.f);

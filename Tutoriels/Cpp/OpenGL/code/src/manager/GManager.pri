@@ -45,7 +45,8 @@ HEADERS += \
     $$PWD/GDrawQtLightADS.h \
     $$PWD/GDrawGLFW.h \
     $$PWD/GDrawGLFWBackground.h \
-    $$PWD/GDrawGLFWSimple.h
+    $$PWD/GDrawGLFWSimple.h \
+    $$PWD/GCamera.h
 
 SOURCES += \
     $$PWD/GWindow.cpp \
@@ -80,7 +81,8 @@ SOURCES += \
     $$PWD/GDrawQtLightADS.cpp \
     $$PWD/GDrawGLFW.cpp \
     $$PWD/GDrawGLFWBackground.cpp \
-    $$PWD/GDrawGLFWSimple.cpp
+    $$PWD/GDrawGLFWSimple.cpp \
+    $$PWD/GCamera.cpp
 
 FORMS += \
     $$PWD/GWindowQtForm.ui

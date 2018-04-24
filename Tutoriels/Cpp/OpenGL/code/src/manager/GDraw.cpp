@@ -30,6 +30,7 @@ void GDraw::resize(int w, int h) {
 }
 //===============================================
 void GDraw::initDraw() {}
-void GDraw::draw() {}
+void GDraw::updateCamera() {}
 void GDraw::updateDraw() {}
+void GDraw::draw() {}
 //===============================================

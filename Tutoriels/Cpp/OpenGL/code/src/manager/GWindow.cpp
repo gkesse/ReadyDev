@@ -32,6 +32,8 @@ void GWindow::setBackground() {
     glClearColor(lRed, lGreen, lBlue, lAlpha);
 }
 //===============================================
+GLFWwindow* GWindow::getWindowGLFW() {}
+//===============================================
 void GWindow::showVersion() {
     GLint m_major, m_minor;
     glGetIntegerv(GL_MAJOR_VERSION, &m_major);

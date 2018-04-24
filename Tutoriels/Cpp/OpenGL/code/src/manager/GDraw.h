@@ -12,8 +12,9 @@ public:
 public:
     static GDraw* Instance();
     virtual void initDraw();
-    virtual void draw();
+    virtual void updateCamera();
     virtual void updateDraw();
+    virtual void draw();
     virtual void resize(int w, int h);
 
 private:

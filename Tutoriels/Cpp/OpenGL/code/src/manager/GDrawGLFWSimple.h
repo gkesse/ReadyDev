@@ -11,6 +11,7 @@ public:
 
 public:
     static GDrawGLFWSimple* Instance();
+    void updateCamera();
     void draw();
 
 private:
