@@ -2,6 +2,7 @@
 #include "GWindowQtFormGL.h"
 #include "GDraw.h"
 #include "GConfig.h"
+#include "GCamera.h"
 //===============================================
 GWindowQtFormGL::GWindowQtFormGL(QWidget* parent) :
     QGLWidget(parent) {
@@ -56,6 +57,6 @@ void GWindowQtFormGL::paintGL() {
 }
 //===============================================
 void GWindowQtFormGL::resizeGL(int w, int h) {
-    GDraw::Instance()->resize(w, h);
+    GDraw::Instance()->updateCamera(w, h);
 }
 //===============================================

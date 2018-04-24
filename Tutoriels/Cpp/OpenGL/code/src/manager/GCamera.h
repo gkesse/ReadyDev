@@ -11,16 +11,12 @@ public:
 
 public:
     static GCamera* Instance();
-    void update(int witdh, int height);
-    void initCamera(int witdh, int height);
-    void updateViewport();
-    void updateMVP();
+    void update(int width, int height);
+    void updateViewport(int width, int height);
+    void updateOrtho(int width, int height);
 
 private:
     static GCamera* m_instance;
-    int m_width;
-    int m_height;
-    float m_ratio;
 };
 //===============================================
 #endif

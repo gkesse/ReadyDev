@@ -12,7 +12,7 @@ public:
 public:
     static GDrawGLFWPoint* Instance();
     void initDraw();
-    void updateCamera();
+    void updateCamera(int width, int height);
     void updateDraw();
     void draw();
 

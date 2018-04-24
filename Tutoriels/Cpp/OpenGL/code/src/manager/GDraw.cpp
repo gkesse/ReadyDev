@@ -25,12 +25,15 @@ GDraw* GDraw::Instance() {
     return 0;
 }
 //===============================================
-void GDraw::resize(int w, int h) {
-    glViewport(0, 0, w, h);
+void GDraw::setAntiAliasing() {
+    glEnable(GL_POINT_SMOOTH);
+    glHint(GL_POINT_SMOOTH_HINT, GL_NICEST);
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 }
 //===============================================
 void GDraw::initDraw() {}
-void GDraw::updateCamera() {}
+void GDraw::updateCamera(int width, int height) {}
 void GDraw::updateDraw() {}
 void GDraw::draw() {}
 //===============================================

@@ -18,27 +18,21 @@ GCamera* GCamera::Instance() {
     return m_instance;
 }
 //===============================================
-void GCamera::update(int witdh, int height) {
-    initCamera(witdh, height);
-    updateViewport();
-    updateMVP();
+void GCamera::update(int width, int height) {
+    updateViewport(width, height);
+    updateOrtho(width, height);
 }
 //===============================================
-void GCamera::initCamera(int witdh, int height) {
-    m_width = witdh;
-    m_height = height;
-    m_ratio = (float)m_width/m_height;
+void GCamera::updateViewport(int width, int height) {
+    glViewport(0, 0, width, height);
 }
 //===============================================
-void GCamera::updateViewport() {
-    glViewport(0, 0, m_width, m_height);
-}
-//===============================================
-void GCamera::updateMVP() {
+void GCamera::updateOrtho(int width, int height) {
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    float lLeft = -m_ratio;
-    float lRight = m_ratio;
+    float lRatio = (float)width/height;
+    float lLeft = -lRatio;
+    float lRight = lRatio;
     float lBottom = -1.0f;
     float lTop = 1.0f;
     float lZNear = -1.0f;

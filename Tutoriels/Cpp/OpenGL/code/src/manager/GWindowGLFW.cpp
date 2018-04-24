@@ -29,10 +29,12 @@ void GWindowGLFW::show(int* argc, char** argv) {
     m_window = glfwCreateWindow(m_w, m_h, m_title.c_str(), NULL, NULL);
     glfwMakeContextCurrent(m_window);
     showVersion();
+    setBackground();
     while(!glfwWindowShouldClose(m_window)) {
-        setBackground();
+        int lWidth, lHeight;
+        glfwGetFramebufferSize(m_window, &lWidth, &lHeight);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        GDraw::Instance()->updateCamera();
+        GDraw::Instance()->updateCamera(lWidth, lHeight);
         GDraw::Instance()->updateDraw();
         GDraw::Instance()->draw();
         glfwSwapBuffers(m_window);

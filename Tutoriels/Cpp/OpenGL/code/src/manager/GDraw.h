@@ -11,11 +11,11 @@ public:
 
 public:
     static GDraw* Instance();
+    void setAntiAliasing();
     virtual void initDraw();
-    virtual void updateCamera();
+    virtual void updateCamera(int width, int height);
     virtual void updateDraw();
     virtual void draw();
-    virtual void resize(int w, int h);
 
 private:
     static GDraw* m_instance;
