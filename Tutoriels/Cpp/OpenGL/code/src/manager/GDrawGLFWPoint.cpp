@@ -43,6 +43,7 @@ void GDrawGLFWPoint::draw() {
     float dr = 0.95f/lRmax;
     for(int i = 0; i < lUmax; i++) {
         for(int j = 0; j < lRmax; j++) {
+            if(j == 0 && i != 0) continue;
             float u = i*du;
             float uRad = u*M_PI/180;
             float r = j*dr;
