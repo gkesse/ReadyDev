@@ -1,24 +1,13 @@
 //===============================================
-#ifndef _GDraw_
-#define _GDraw_
+#ifndef _GObjPoint_
+#define _GObjPoint_
 //================================================
-#include "GInclude.h"
+#include "GDraw.h"
 //===============================================
-class GDraw {
+class GObjPoint : public GDraw {
 public:
-    GDraw();
-    ~GDraw();
-
-public:
-    static GDraw* Instance();
-    void setAntiAliasing();
-    virtual void initDraw();
-    virtual void updateCamera(int width, int height);
-    virtual void updateDraw();
-    virtual void draw();
-
-private:
-    static GDraw* m_instance;
+    GObjPoint(int Umax, int Rmax, float PointSize);
+    ~GObjPoint();
 };
 //===============================================
 #endif

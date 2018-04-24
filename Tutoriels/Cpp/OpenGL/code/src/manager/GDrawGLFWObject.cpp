@@ -1,42 +1,42 @@
 //===============================================
-#include "GDrawGLFWLine.h"
+#include "GDrawGLFWObject.h"
 #include "GCamera.h"
 #include "GObjPoint.h"
 //===============================================
 #include <QtMath>
 //===============================================
-GDrawGLFWLine* GDrawGLFWLine::m_instance = 0;
+GDrawGLFWObject* GDrawGLFWObject::m_instance = 0;
 //===============================================
-GDrawGLFWLine::GDrawGLFWLine() {
+GDrawGLFWObject::GDrawGLFWObject() {
 
 }
 //===============================================
-GDrawGLFWLine::~GDrawGLFWLine() {
+GDrawGLFWObject::~GDrawGLFWObject() {
 
 }
 //===============================================
-GDrawGLFWLine* GDrawGLFWLine::Instance() {
+GDrawGLFWObject* GDrawGLFWObject::Instance() {
     if(m_instance == 0) {
-        m_instance = new GDrawGLFWLine;
+        m_instance = new GDrawGLFWObject;
     }
     return m_instance;
 }
 //===============================================
-void GDrawGLFWLine::initDraw() {
+void GDrawGLFWObject::initDraw() {
 
 }
 //===============================================
-void GDrawGLFWLine::updateCamera(int width, int height) {
+void GDrawGLFWObject::updateCamera(int width, int height) {
     GCamera::Instance()->update(width, height);
 }
 //===============================================
-void GDrawGLFWLine::updateDraw() {
+void GDrawGLFWObject::updateDraw() {
     float lTime = glfwGetTime();
     float lAngle = lTime * 100.0f;
     glRotatef(lAngle, 0.0f, 0.0f, 1.0f);
 }
 //===============================================
-void GDrawGLFWLine::draw() {
+void GDrawGLFWObject::draw() {
     GObjPoint lObjPoint(9, 10, 8.0f);
 }
 //===============================================

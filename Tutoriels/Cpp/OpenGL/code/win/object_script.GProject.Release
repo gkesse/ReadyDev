@@ -34,6 +34,9 @@ INPUT(
 ./build\GDrawGLFWSimple.o
 ./build\GCamera.o
 ./build\GDrawGLFWPoint.o
+./build\GDrawGLFWLine.o
+./build\GObjPoint.o
+./build\GDrawGLFWObject.o
 ./build\main.o
 ./build\moc_GWindowQtForm.o
 ./build\moc_GWindowQtFormGL.o

@@ -1,23 +1,23 @@
 //===============================================
-#ifndef _GDrawGLFWPoint_
-#define _GDrawGLFWPoint_
+#ifndef _GDrawGLFWLine_
+#define _GDrawGLFWLine_
 //================================================
 #include "GDrawGLFW.h"
 //===============================================
-class GDrawGLFWPoint : public GDrawGLFW {
+class GDrawGLFWLine : public GDrawGLFW {
 public:
-    GDrawGLFWPoint();
-    ~GDrawGLFWPoint();
+    GDrawGLFWLine();
+    ~GDrawGLFWLine();
 
 public:
-    static GDrawGLFWPoint* Instance();
+    static GDrawGLFWLine* Instance();
     void initDraw();
     void updateCamera(int width, int height);
     void updateDraw();
     void draw();
 
 private:
-    static GDrawGLFWPoint* m_instance;
+    static GDrawGLFWLine* m_instance;
 };
 //===============================================
 #endif
