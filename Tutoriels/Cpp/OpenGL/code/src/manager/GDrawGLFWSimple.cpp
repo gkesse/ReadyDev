@@ -28,14 +28,20 @@ void GDrawGLFWSimple::updateCamera() {
     GCamera::Instance()->update(lWidth, lHeight);
 }
 //===============================================
+void GDrawGLFWSimple::updateDraw() {
+    float lTime = glfwGetTime();
+    float lAngle = lTime * 75.0f;
+    glRotatef(lAngle, 0.0f, 0.0f, 1.0f);
+}
+//===============================================
 void GDrawGLFWSimple::draw() {
     glBegin(GL_TRIANGLES);
-    glColor3f(1.f, 0.f, 0.f);
-    glVertex3f(-0.6f, -0.4f, 0.f);
-    glColor3f(0.f, 1.f, 0.f);
-    glVertex3f(0.6f, -0.4f, 0.f);
-    glColor3f(0.f, 0.f, 1.f);
-    glVertex3f(0.f, 0.6f, 0.f);
+    glColor3f(1.0f, 0.0f, 0.0f);
+    glVertex3f(-0.6f, -0.4f, 0.0f);
+    glColor3f(0.0f, 1.0f, 0.0f);
+    glVertex3f(0.6f, -0.4f, 0.0f);
+    glColor3f(0.0f, 0.0f, 1.0f);
+    glVertex3f(0.0f, 0.6f, 0.0f);
     glEnd();
 }
 //===============================================

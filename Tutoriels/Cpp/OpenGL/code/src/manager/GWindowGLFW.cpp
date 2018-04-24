@@ -33,7 +33,7 @@ void GWindowGLFW::show(int* argc, char** argv) {
         setBackground();
         glClear(GL_COLOR_BUFFER_BIT);
         GDraw::Instance()->updateCamera();
-        glRotatef((float)glfwGetTime() * 50.f, 0.f, 0.f, 1.f);
+        GDraw::Instance()->updateDraw();
         GDraw::Instance()->draw();
         glfwSwapBuffers(m_window);
         glfwPollEvents();
