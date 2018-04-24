@@ -57,6 +57,6 @@ void GWindowQtFormGL::paintGL() {
 }
 //===============================================
 void GWindowQtFormGL::resizeGL(int w, int h) {
-    GDraw::Instance()->updateCamera(w, h);
+    GCamera::Instance()->updateViewport(w, h);
 }
 //===============================================
