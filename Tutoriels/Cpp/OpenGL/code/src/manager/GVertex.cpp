@@ -19,8 +19,8 @@ GVertex* GVertex::Instance() {
 }
 //================================================
 void GVertex::loadVertex1D(float vertex[], float data[], const int& index, const int& size) {
-    int n_size = size + index;
-    for(int i = index; i < n_size; i++) {
+    int lSize = size + index;
+    for(int i = index; i < lSize; i++) {
         vertex[i] = data[i];
     }
 }

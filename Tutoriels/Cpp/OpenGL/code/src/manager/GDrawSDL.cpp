@@ -17,11 +17,11 @@ GDrawSDL::~GDrawSDL() {
 }
 //===============================================
 GDrawSDL* GDrawSDL::Instance() {
-    QString m_type = GConfig::Instance()->getData("DRAW_TYPE");
-    if(m_type == "BACKGROUND") return GDrawSDLBackground::Instance();
-    if(m_type == "SIMPLE") return GDrawSDLSimple::Instance();
-    if(m_type == "COLOR") return GDrawSDLColor::Instance();
-    if(m_type == "COLOR_WR") return GDrawSDLColorWr::Instance();
+    QString lType = GConfig::Instance()->getData("DRAW_TYPE");
+    if(lType == "BACKGROUND") return GDrawSDLBackground::Instance();
+    if(lType == "SIMPLE") return GDrawSDLSimple::Instance();
+    if(lType == "COLOR") return GDrawSDLColor::Instance();
+    if(lType == "COLOR_WR") return GDrawSDLColorWr::Instance();
     return GDrawSDLBackground::Instance();
 }
 //===============================================

@@ -17,7 +17,7 @@ public:
 
 private:
     static GDrawSDLColor* m_instance;
-    GLuint m_buffers[1];
+    GLuint m_program;
 };
 //===============================================
 #endif
