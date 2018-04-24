@@ -36,6 +36,17 @@ void GDraw::setAntiAliasing() {
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 }
 //===============================================
+void GDraw::drawLine(GVertexInfo v1, GVertexInfo v2, float width) {
+    setAntiAliasing();
+    glLineWidth(width);
+    glBegin(GL_LINES);
+    glColor4f(v1.r, v1.g, v1.b, v1.a);
+    glVertex3f(v1.x, v1.y, v1.z);
+    glColor4f(v2.r, v2.g, v2.b, v2.a);
+    glVertex3f(v2.x, v2.y, v2.z);
+    glEnd();
+}
+//===============================================
 void GDraw::initDraw() {}
 void GDraw::updateCamera(int width, int height) {}
 void GDraw::updateDraw() {}

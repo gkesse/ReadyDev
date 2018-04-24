@@ -35,8 +35,8 @@ void GCamera::updateOrtho(int width, int height) {
     float lRight = lRatio;
     float lBottom = -1.0f;
     float lTop = 1.0f;
-    float lZNear = -1.0f;
-    float lZFar = 1.0f;
+    float lZNear = 1.0f;
+    float lZFar = -1.0f;
     glOrtho(lLeft, lRight, lBottom, lTop, lZNear, lZFar);
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();

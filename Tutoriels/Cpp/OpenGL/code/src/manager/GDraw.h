@@ -12,6 +12,7 @@ public:
 public:
     static GDraw* Instance();
     void setAntiAliasing();
+    void drawLine(GVertexInfo v1, GVertexInfo v2, float width=1.0f);
     virtual void initDraw();
     virtual void updateCamera(int width, int height);
     virtual void updateDraw();
