@@ -1,22 +1,23 @@
 //===============================================
-#ifndef _GDrawQtRead_
-#define _GDrawQtRead_
+#ifndef _GDrawGLFWPoint_
+#define _GDrawGLFWPoint_
 //================================================
-#include "GDrawQt.h"
+#include "GDrawGLFW.h"
 //===============================================
-class GDrawQtRead : public GDrawQt {
+class GDrawGLFWPoint : public GDrawGLFW {
 public:
-    GDrawQtRead();
-    ~GDrawQtRead();
+    GDrawGLFWPoint();
+    ~GDrawGLFWPoint();
 
 public:
-    static GDrawQtRead* Instance();
+    static GDrawGLFWPoint* Instance();
     void initDraw();
+    void updateCamera();
+    void updateDraw();
     void draw();
 
 private:
-    static GDrawQtRead* m_instance;
-    GLuint m_vertexArrays[1];
+    static GDrawGLFWPoint* m_instance;
 };
 //===============================================
 #endif

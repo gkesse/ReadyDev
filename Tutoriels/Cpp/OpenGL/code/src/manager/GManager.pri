@@ -46,7 +46,8 @@ HEADERS += \
     $$PWD/GDrawGLFW.h \
     $$PWD/GDrawGLFWBackground.h \
     $$PWD/GDrawGLFWSimple.h \
-    $$PWD/GCamera.h
+    $$PWD/GCamera.h \
+    $$PWD/GDrawGLFWPoint.h
 
 SOURCES += \
     $$PWD/GWindow.cpp \
@@ -82,7 +83,8 @@ SOURCES += \
     $$PWD/GDrawGLFW.cpp \
     $$PWD/GDrawGLFWBackground.cpp \
     $$PWD/GDrawGLFWSimple.cpp \
-    $$PWD/GCamera.cpp
+    $$PWD/GCamera.cpp \
+    $$PWD/GDrawGLFWPoint.cpp
 
 FORMS += \
     $$PWD/GWindowQtForm.ui

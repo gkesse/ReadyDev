@@ -33,6 +33,7 @@ INPUT(
 ./build\GDrawGLFWBackground.o
 ./build\GDrawGLFWSimple.o
 ./build\GCamera.o
+./build\GDrawGLFWPoint.o
 ./build\main.o
 ./build\moc_GWindowQtForm.o
 ./build\moc_GWindowQtFormGL.o

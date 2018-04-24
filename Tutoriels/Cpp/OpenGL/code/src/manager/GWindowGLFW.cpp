@@ -31,7 +31,7 @@ void GWindowGLFW::show(int* argc, char** argv) {
     showVersion();
     while(!glfwWindowShouldClose(m_window)) {
         setBackground();
-        glClear(GL_COLOR_BUFFER_BIT);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         GDraw::Instance()->updateCamera();
         GDraw::Instance()->updateDraw();
         GDraw::Instance()->draw();

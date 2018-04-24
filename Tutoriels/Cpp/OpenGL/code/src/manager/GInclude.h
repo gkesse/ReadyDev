@@ -36,5 +36,10 @@ typedef struct {
     const char* name;
 } GAttribInfo;
 //================================================
+typedef struct {
+    float x, y, z;
+    float r, g, b, a;
+} GVertexInfo;
+//================================================
 #endif
 //================================================

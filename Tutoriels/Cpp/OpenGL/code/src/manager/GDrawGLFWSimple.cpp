@@ -30,7 +30,7 @@ void GDrawGLFWSimple::updateCamera() {
 //===============================================
 void GDrawGLFWSimple::updateDraw() {
     float lTime = glfwGetTime();
-    float lAngle = lTime * 75.0f;
+    float lAngle = lTime * 100.0f;
     glRotatef(lAngle, 0.0f, 0.0f, 1.0f);
 }
 //===============================================
