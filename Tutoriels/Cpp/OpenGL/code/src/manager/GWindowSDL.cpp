@@ -38,12 +38,19 @@ void GWindowSDL::show(int* argc, char** argv) {
     GDraw::Instance()->initCamera(m_w, m_h);
     glEnable(GL_DEPTH_TEST);
     SDL_Event lEvent;
+    int FPS = 50;
+    int DELAY_TIME = 1000/FPS;
     while(1) {
-        SDL_WaitEvent(&lEvent);
+        Uint32 lStartTime = SDL_GetTicks();
+        SDL_PollEvent(&lEvent);
         if(lEvent.window.event == SDL_WINDOWEVENT_CLOSE) break;
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         GDraw::Instance()->draw();
         SDL_GL_SwapWindow(m_window);
+        Uint32 lEndTime = SDL_GetTicks();
+        Uint32 lDelayTime = lEndTime - lStartTime;
+        if(lDelayTime < DELAY_TIME)
+        SDL_Delay(DELAY_TIME - lDelayTime);
     }
     SDL_GL_DeleteContext(lContext);
     SDL_DestroyWindow(m_window);

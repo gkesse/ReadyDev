@@ -45,6 +45,7 @@ INPUT(
 ./build\GDrawSDLCube.o
 ./build\GObjCube.o
 ./build\GDrawSDLCubeObj.o
+./build\GDrawSDLCubeAnimate.o
 ./build\main.o
 ./build\moc_GWindowQtForm.o
 ./build\moc_GWindowQtFormGL.o
