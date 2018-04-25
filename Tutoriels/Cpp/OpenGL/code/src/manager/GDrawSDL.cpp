@@ -4,6 +4,7 @@
 #include "GDrawSDLSimple.h"
 #include "GDrawSDLColor.h"
 #include "GDrawSDLMatrix.h"
+#include "GDrawSDLRotation.h"
 #include "GConfig.h"
 //===============================================
 GDrawSDL* GDrawSDL::m_instance = 0;
@@ -22,6 +23,7 @@ GDrawSDL* GDrawSDL::Instance() {
     if(lType == "SIMPLE") return GDrawSDLSimple::Instance();
     if(lType == "COLOR") return GDrawSDLColor::Instance();
     if(lType == "MATRIX") return GDrawSDLMatrix::Instance();
+    if(lType == "ROTATION") return GDrawSDLRotation::Instance();
     return GDrawSDLBackground::Instance();
 }
 //===============================================

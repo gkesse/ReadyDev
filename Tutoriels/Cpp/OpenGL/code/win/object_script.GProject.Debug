@@ -38,6 +38,7 @@ INPUT(
 ./build\GDrawGLFWObject.o
 ./build\GDrawSDLBackground.o
 ./build\GDrawSDLMatrix.o
+./build\GDrawSDLRotation.o
 ./build\main.o
 ./build\moc_GWindowQtForm.o
 ./build\moc_GWindowQtFormGL.o

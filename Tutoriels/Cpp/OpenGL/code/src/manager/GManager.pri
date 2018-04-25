@@ -51,7 +51,8 @@ HEADERS += \
     $$PWD/GObjPoint.h \
     $$PWD/GDrawGLFWObject.h \
     $$PWD/GDrawSDLBackground.h \
-    $$PWD/GDrawSDLMatrix.h
+    $$PWD/GDrawSDLMatrix.h \
+    $$PWD/GDrawSDLRotation.h
 
 SOURCES += \
     $$PWD/GWindow.cpp \
@@ -92,7 +93,8 @@ SOURCES += \
     $$PWD/GObjPoint.cpp \
     $$PWD/GDrawGLFWObject.cpp \
     $$PWD/GDrawSDLBackground.cpp \
-    $$PWD/GDrawSDLMatrix.cpp
+    $$PWD/GDrawSDLMatrix.cpp \
+    $$PWD/GDrawSDLRotation.cpp
 
 FORMS += \
     $$PWD/GWindowQtForm.ui
