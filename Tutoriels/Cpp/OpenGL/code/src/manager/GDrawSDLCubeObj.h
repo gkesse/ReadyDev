@@ -3,6 +3,7 @@
 #define _GDrawSDLCubeObj_
 //================================================
 #include "GDrawSDL.h"
+#include "GObjCube.h"
 //===============================================
 class GDrawSDLCubeObj : public GDrawSDL {
 public:
@@ -20,6 +21,7 @@ private:
     glm::mat4 m_projection;
     glm::mat4 m_modelView;
     GLuint m_program;
+    GObjCube m_objCube;
 };
 //===============================================
 #endif
