@@ -63,7 +63,8 @@ HEADERS += \
     $$PWD/GDrawSDLMatrixSave.h \
     $$PWD/GDrawSDLEvent.h \
     $$PWD/GEvent.h \
-    $$PWD/GDrawSDLTexture.h
+    $$PWD/GDrawSDLTexture.h \
+    $$PWD/GTexture.h
 
 SOURCES += \
     $$PWD/GWindow.cpp \
@@ -116,7 +117,8 @@ SOURCES += \
     $$PWD/GDrawSDLMatrixSave.cpp \
     $$PWD/GDrawSDLEvent.cpp \
     $$PWD/GEvent.cpp \
-    $$PWD/GDrawSDLTexture.cpp
+    $$PWD/GDrawSDLTexture.cpp \
+    $$PWD/GTexture.cpp
 
 FORMS += \
     $$PWD/GWindowQtForm.ui
