@@ -29,7 +29,6 @@ HEADERS += \
     $$PWD/GWindowQtFormGL.h \
     $$PWD/GWindowGLFW.h \
     $$PWD/GInclude.h \
-    $$PWD/GDrawSDLColorWr.h \
     $$PWD/GDrawQt.h \
     $$PWD/GDrawQtSimple.h \
     $$PWD/GDrawQtLayout.h \
@@ -51,7 +50,8 @@ HEADERS += \
     $$PWD/GDrawGLFWLine.h \
     $$PWD/GObjPoint.h \
     $$PWD/GDrawGLFWObject.h \
-    $$PWD/GDrawSDLBackground.h
+    $$PWD/GDrawSDLBackground.h \
+    $$PWD/GDrawSDLMatrix.h
 
 SOURCES += \
     $$PWD/GWindow.cpp \
@@ -70,7 +70,6 @@ SOURCES += \
     $$PWD/GWindowQtForm.cpp \
     $$PWD/GWindowQtFormGL.cpp \
     $$PWD/GWindowGLFW.cpp \
-    $$PWD/GDrawSDLColorWr.cpp \
     $$PWD/GDrawQt.cpp \
     $$PWD/GDrawQtSimple.cpp \
     $$PWD/GDrawQtLayout.cpp \
@@ -92,7 +91,8 @@ SOURCES += \
     $$PWD/GDrawGLFWLine.cpp \
     $$PWD/GObjPoint.cpp \
     $$PWD/GDrawGLFWObject.cpp \
-    $$PWD/GDrawSDLBackground.cpp
+    $$PWD/GDrawSDLBackground.cpp \
+    $$PWD/GDrawSDLMatrix.cpp
 
 FORMS += \
     $$PWD/GWindowQtForm.ui

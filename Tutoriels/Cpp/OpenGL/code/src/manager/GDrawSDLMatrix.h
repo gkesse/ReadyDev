@@ -1,22 +1,23 @@
 //===============================================
-#ifndef _GDrawSDLColorWr_
-#define _GDrawSDLColorWr_
+#ifndef _GDrawSDLMatrix_
+#define _GDrawSDLMatrix_
 //================================================
-#include "GInclude.h"
 #include "GDrawSDL.h"
 //===============================================
-class GDrawSDLColorWr : public GDrawSDL {
+class GDrawSDLMatrix : public GDrawSDL {
 public:
-    GDrawSDLColorWr();
-    ~GDrawSDLColorWr();
+    GDrawSDLMatrix();
+    ~GDrawSDLMatrix();
 
 public:
-    static GDrawSDLColorWr* Instance();
+    static GDrawSDLMatrix* Instance();
     void initDraw();
     void draw();
 
 private:
-    static GDrawSDLColorWr* m_instance;
+    static GDrawSDLMatrix* m_instance;
+    glm::mat4 m_projection;
+    glm::mat4 m_modelView;
     float m_vertices[6];
     float m_colors[9];
     GLuint m_buffers[2];

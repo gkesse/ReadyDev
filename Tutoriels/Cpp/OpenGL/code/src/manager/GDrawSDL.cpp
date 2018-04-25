@@ -3,7 +3,7 @@
 #include "GDrawSDLBackground.h"
 #include "GDrawSDLSimple.h"
 #include "GDrawSDLColor.h"
-#include "GDrawSDLColorWr.h"
+#include "GDrawSDLMatrix.h"
 #include "GConfig.h"
 //===============================================
 GDrawSDL* GDrawSDL::m_instance = 0;
@@ -21,7 +21,7 @@ GDrawSDL* GDrawSDL::Instance() {
     if(lType == "BACKGROUND") return GDrawSDLBackground::Instance();
     if(lType == "SIMPLE") return GDrawSDLSimple::Instance();
     if(lType == "COLOR") return GDrawSDLColor::Instance();
-    if(lType == "COLOR_WR") return GDrawSDLColorWr::Instance();
+    if(lType == "MATRIX") return GDrawSDLMatrix::Instance();
     return GDrawSDLBackground::Instance();
 }
 //===============================================
