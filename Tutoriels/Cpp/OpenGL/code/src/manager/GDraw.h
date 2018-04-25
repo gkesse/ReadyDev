@@ -19,6 +19,7 @@ public:
     virtual void updateDraw();
     virtual void draw();
     virtual void handleEvents(SDL_Event* event);
+    virtual void onKeyDown(SDL_Event* event);
 
 private:
     static GDraw* m_instance;

@@ -1,5 +1,6 @@
 //===============================================
 #include "GEvent.h"
+#include "GDraw.h"
 //===============================================
 GEvent* GEvent::m_instance = 0;
 //===============================================
@@ -19,6 +20,10 @@ GEvent* GEvent::Instance() {
 }
 //===============================================
 void GEvent::handleEvents(SDL_Event* event) {
-
+    switch(event->type) {
+    case SDL_KEYDOWN:
+        GDraw::Instance()->onKeyDown(event);
+        break;
+    }
 }
 //===============================================

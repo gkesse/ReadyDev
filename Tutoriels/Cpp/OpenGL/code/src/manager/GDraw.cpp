@@ -53,4 +53,5 @@ void GDraw::updateCamera(int width, int height) {}
 void GDraw::updateDraw() {}
 void GDraw::draw() {}
 void GDraw::handleEvents(SDL_Event* event) {}
+void GDraw::onKeyDown(SDL_Event* event) {}
 //===============================================
