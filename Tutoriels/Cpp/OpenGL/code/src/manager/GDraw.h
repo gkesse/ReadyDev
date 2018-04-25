@@ -20,6 +20,9 @@ public:
     virtual void draw();
     virtual void handleEvents(SDL_Event* event);
     virtual void onKeyDown(SDL_Event* event);
+    virtual void onMouseMotion(SDL_Event* event);
+    virtual void onMouseButtonDown(SDL_Event* event);
+    virtual void onMouseWheel(SDL_Event* event);
 
 private:
     static GDraw* m_instance;

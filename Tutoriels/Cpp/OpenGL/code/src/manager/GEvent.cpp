@@ -20,10 +20,18 @@ GEvent* GEvent::Instance() {
 }
 //===============================================
 void GEvent::handleEvents(SDL_Event* event) {
-    switch(event->type) {
-    case SDL_KEYDOWN:
-        GDraw::Instance()->onKeyDown(event);
-        break;
-    }
-}
+    switch(event->type){
+        case SDL_KEYDOWN:
+            GDraw::Instance()->onKeyDown(event);
+            break;
+        case SDL_MOUSEMOTION:
+            GDraw::Instance()->onMouseMotion(event);
+            break;
+        case SDL_MOUSEBUTTONDOWN:
+            GDraw::Instance()->onMouseButtonDown(event);
+            break;
+        case SDL_MOUSEWHEEL:
+            GDraw::Instance()->onMouseWheel(event);
+            break;
+    }}
 //===============================================
