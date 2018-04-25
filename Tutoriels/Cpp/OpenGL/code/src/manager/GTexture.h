@@ -11,7 +11,7 @@ public:
 
 public:
     static GTexture* Instance();
-    void loadTexture(const char* filename);
+    GLuint loadTexture(const char* filename);
 
 private:
     static GTexture* m_instance;

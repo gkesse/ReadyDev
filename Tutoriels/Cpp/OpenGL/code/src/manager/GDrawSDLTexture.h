@@ -20,6 +20,7 @@ private:
     glm::mat4 m_projection;
     glm::mat4 m_modelView;
     GLuint m_program;
+    GLuint m_textureId;
 };
 //===============================================
 #endif
