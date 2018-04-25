@@ -35,6 +35,7 @@ void GWindowSDL::show(int* argc, char** argv) {
     showVersion();
     setBackground();
     GDraw::Instance()->initDraw();
+    GDraw::Instance()->initCamera(m_w, m_h);
     SDL_Event lEvent;
     while(1) {
         SDL_WaitEvent(&lEvent);

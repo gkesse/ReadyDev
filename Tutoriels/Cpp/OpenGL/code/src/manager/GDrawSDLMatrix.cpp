@@ -28,19 +28,15 @@ void GDrawSDLMatrix::initDraw() {
     };
 
     m_program = GShader::Instance()->loadShader(lShaders);
-
-    SDL_DisplayMode lDM;
-    SDL_GetCurrentDisplayMode(0, &lDM);
-    int lWidth = lDM.w;
-    int lHeight = lDM.h;
-    float lRatio = (float)lWidth/lHeight;
+    m_angle = 0.0f;
+}
+//===============================================
+void GDrawSDLMatrix::initCamera(int width, int height) {
+    float lRatio = (float)width/height;
     float lFoV = 70.0f;
     float lZNear = 1.0f;
     float lZFar = 100.0f;
     m_projection = glm::perspective(lFoV, lRatio, lZNear, lZFar);
-    //m_modelView = glm::mat4(1.0f);
-    m_modelView = glm::lookAt(glm::vec3(0.0f, 0.0f, 1.5f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-    //m_modelView = glm::rotate(m_modelView, glm::radians(90.0f), glm::vec3(0.0f,0.0f,1.0f));
 }
 //===============================================
 void GDrawSDLMatrix::draw() {
@@ -50,11 +46,16 @@ void GDrawSDLMatrix::draw() {
         0.0f, 1.0f, 0.0f,
         0.0f, 0.0f, 1.0f,
     };
+    m_modelView = glm::lookAt(glm::vec3(0.0f, 0.0f, 1.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
     glUseProgram(m_program);
     glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, lVertices);
     glEnableVertexAttribArray(0);
     glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, lColors);
     glEnableVertexAttribArray(1);
+    GShader::Instance()->setUniform("ModelViewMatrix", m_modelView);
+    GShader::Instance()->setUniform("ProjectionMatrix", m_projection);
+    glDrawArrays(GL_TRIANGLES, 0, 3);
+    m_modelView = glm::rotate(m_modelView, glm::radians(180.0f), glm::vec3(0.0f,0.0f,1.0f));
     GShader::Instance()->setUniform("ModelViewMatrix", m_modelView);
     GShader::Instance()->setUniform("ProjectionMatrix", m_projection);
     glDrawArrays(GL_TRIANGLES, 0, 3);

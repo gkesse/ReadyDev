@@ -48,6 +48,7 @@ void GDraw::drawLine(GVertexInfo v1, GVertexInfo v2, float width) {
 }
 //===============================================
 void GDraw::initDraw() {}
+void GDraw::initCamera(int width, int height) {}
 void GDraw::updateCamera(int width, int height) {}
 void GDraw::updateDraw() {}
 void GDraw::draw() {}
