@@ -1,25 +1,25 @@
 //===============================================
-#include "GDrawSDLCube.h"
+#include "GDrawSDLTexture.h"
 #include "GShader.h"
 //===============================================
-GDrawSDLCube* GDrawSDLCube::m_instance = 0;
+GDrawSDLTexture* GDrawSDLTexture::m_instance = 0;
 //===============================================
-GDrawSDLCube::GDrawSDLCube() {
+GDrawSDLTexture::GDrawSDLTexture() {
 
 }
 //===============================================
-GDrawSDLCube::~GDrawSDLCube() {
+GDrawSDLTexture::~GDrawSDLTexture() {
 
 }
 //===============================================
-GDrawSDLCube* GDrawSDLCube::Instance() {
+GDrawSDLTexture* GDrawSDLTexture::Instance() {
     if(m_instance == 0) {
-        m_instance = new GDrawSDLCube;
+        m_instance = new GDrawSDLTexture;
     }
     return m_instance;
 }
 //===============================================
-void GDrawSDLCube::initDraw() {
+void GDrawSDLTexture::initDraw() {
     GShaderInfo  lShaders[] = {
         {GL_VERTEX_SHADER, "res/shaders/3.1/color_matrix.vert", 0},
         {GL_FRAGMENT_SHADER, "res/shaders/3.1/color_matrix.frag", 0},
@@ -29,7 +29,7 @@ void GDrawSDLCube::initDraw() {
     m_program = GShader::Instance()->loadShader(lShaders);
 }
 //===============================================
-void GDrawSDLCube::initCamera(int width, int height) {
+void GDrawSDLTexture::initCamera(int width, int height) {
     float lRatio = (float)width/height;
     float lFoV = 70.0f;
     float lZNear = 0.1f;
@@ -37,7 +37,7 @@ void GDrawSDLCube::initCamera(int width, int height) {
     m_projection = glm::perspective(lFoV, lRatio, lZNear, lZFar);
 }
 //===============================================
-void GDrawSDLCube::draw() {
+void GDrawSDLTexture::draw() {
     float lVertices[] = {
         -1.0f, -1.0f, -1.0f, 1.0f, -1.0f, -1.0f, 1.0f, 1.0f, -1.0f,
         -1.0f, -1.0f, -1.0f, -1.0f, 1.0f, -1.0f, 1.0f, 1.0f, -1.0f,
