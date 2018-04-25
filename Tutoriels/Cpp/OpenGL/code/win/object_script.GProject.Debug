@@ -41,6 +41,7 @@ INPUT(
 ./build\GDrawSDLRotate.o
 ./build\GDrawSDLTranslate.o
 ./build\GDrawSDLScale.o
+./build\GDrawSDLComposite.o
 ./build\main.o
 ./build\moc_GWindowQtForm.o
 ./build\moc_GWindowQtFormGL.o

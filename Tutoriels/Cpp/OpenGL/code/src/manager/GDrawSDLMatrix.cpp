@@ -1,7 +1,6 @@
 //===============================================
 #include "GDrawSDLMatrix.h"
 #include "GShader.h"
-#include "GCamera.h"
 //===============================================
 GDrawSDLMatrix* GDrawSDLMatrix::m_instance = 0;
 //===============================================
