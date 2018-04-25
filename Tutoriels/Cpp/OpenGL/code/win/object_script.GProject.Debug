@@ -43,6 +43,8 @@ INPUT(
 ./build\GDrawSDLScale.o
 ./build\GDrawSDLComposite.o
 ./build\GDrawSDLCube.o
+./build\GObjCube.o
+./build\GDrawSDLCubeObj.o
 ./build\main.o
 ./build\moc_GWindowQtForm.o
 ./build\moc_GWindowQtFormGL.o

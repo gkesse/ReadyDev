@@ -56,7 +56,10 @@ HEADERS += \
     $$PWD/GDrawSDLTranslate.h \
     $$PWD/GDrawSDLScale.h \
     $$PWD/GDrawSDLComposite.h \
-    $$PWD/GDrawSDLCube.h
+    $$PWD/GDrawSDLCube.h \
+    $$PWD/GObjCube.h \
+    $$PWD/GDrawSDLCubeObj.h \
+    $$PWD/GShaderObj.h
 
 SOURCES += \
     $$PWD/GWindow.cpp \
@@ -102,7 +105,10 @@ SOURCES += \
     $$PWD/GDrawSDLTranslate.cpp \
     $$PWD/GDrawSDLScale.cpp \
     $$PWD/GDrawSDLComposite.cpp \
-    $$PWD/GDrawSDLCube.cpp
+    $$PWD/GDrawSDLCube.cpp \
+    $$PWD/GObjCube.cpp \
+    $$PWD/GDrawSDLCubeObj.cpp \
+    $$PWD/GShaderObj.cpp
 
 FORMS += \
     $$PWD/GWindowQtForm.ui
