@@ -20,7 +20,6 @@ private:
     glm::mat4 m_projection;
     glm::mat4 m_modelView;
     GLuint m_program;
-    float m_angle;
 };
 //===============================================
 #endif

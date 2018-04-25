@@ -6,6 +6,7 @@
 #include "GDrawSDLMatrix.h"
 #include "GDrawSDLRotate.h"
 #include "GDrawSDLTranslate.h"
+#include "GDrawSDLScale.h"
 #include "GConfig.h"
 //===============================================
 GDrawSDL* GDrawSDL::m_instance = 0;
@@ -26,6 +27,7 @@ GDrawSDL* GDrawSDL::Instance() {
     if(lType == "MATRIX") return GDrawSDLMatrix::Instance();
     if(lType == "ROTATE") return GDrawSDLRotate::Instance();
     if(lType == "TRANSLATE") return GDrawSDLTranslate::Instance();
+    if(lType == "SCALE") return GDrawSDLScale::Instance();
     return GDrawSDLBackground::Instance();
 }
 //===============================================

@@ -28,7 +28,6 @@ void GDrawSDLRotate::initDraw() {
     };
 
     m_program = GShader::Instance()->loadShader(lShaders);
-    m_angle = 0.0f;
 }
 //===============================================
 void GDrawSDLRotate::initCamera(int width, int height) {

@@ -28,7 +28,6 @@ void GDrawSDLTranslate::initDraw() {
     };
 
     m_program = GShader::Instance()->loadShader(lShaders);
-    m_angle = 0.0f;
 }
 //===============================================
 void GDrawSDLTranslate::initCamera(int width, int height) {

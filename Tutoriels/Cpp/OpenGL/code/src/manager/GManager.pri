@@ -53,7 +53,8 @@ HEADERS += \
     $$PWD/GDrawSDLBackground.h \
     $$PWD/GDrawSDLMatrix.h \
     $$PWD/GDrawSDLRotate.h \
-    $$PWD/GDrawSDLTranslate.h
+    $$PWD/GDrawSDLTranslate.h \
+    $$PWD/GDrawSDLScale.h
 
 SOURCES += \
     $$PWD/GWindow.cpp \
@@ -96,7 +97,8 @@ SOURCES += \
     $$PWD/GDrawSDLBackground.cpp \
     $$PWD/GDrawSDLMatrix.cpp \
     $$PWD/GDrawSDLRotate.cpp \
-    $$PWD/GDrawSDLTranslate.cpp
+    $$PWD/GDrawSDLTranslate.cpp \
+    $$PWD/GDrawSDLScale.cpp
 
 FORMS += \
     $$PWD/GWindowQtForm.ui

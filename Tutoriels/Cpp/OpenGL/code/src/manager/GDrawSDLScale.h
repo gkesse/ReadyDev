@@ -1,22 +1,22 @@
 //===============================================
-#ifndef _GDrawSDLMatrix_
-#define _GDrawSDLMatrix_
+#ifndef _GDrawSDLScale_
+#define _GDrawSDLScale_
 //================================================
 #include "GDrawSDL.h"
 //===============================================
-class GDrawSDLMatrix : public GDrawSDL {
+class GDrawSDLScale : public GDrawSDL {
 public:
-    GDrawSDLMatrix();
-    ~GDrawSDLMatrix();
+    GDrawSDLScale();
+    ~GDrawSDLScale();
 
 public:
-    static GDrawSDLMatrix* Instance();
+    static GDrawSDLScale* Instance();
     void initDraw();
     void initCamera(int width, int height);
     void draw();
 
 private:
-    static GDrawSDLMatrix* m_instance;
+    static GDrawSDLScale* m_instance;
     glm::mat4 m_projection;
     glm::mat4 m_modelView;
     GLuint m_program;
