@@ -207,6 +207,7 @@ Makefile: GProject.pro C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/win32-g++/qmake.conf
 		C:/Users/sabine/Downloads/Gerard/bullet3-master/bullet3-master/GBullet.pri \
 		C:/Users/sabine/Downloads/Gerard/glfw-3.2.1/glfw-3.2.1/GGLFW.pri \
 		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/GGLM.pri \
+		C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/GSDLImage.pri \
 		../src/manager/GManager.pri \
 		../src/GMain.pri \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/resolve_config.prf \
@@ -381,6 +382,7 @@ C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-ming
 C:/Users/sabine/Downloads/Gerard/bullet3-master/bullet3-master/GBullet.pri:
 C:/Users/sabine/Downloads/Gerard/glfw-3.2.1/glfw-3.2.1/GGLFW.pri:
 C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/GGLM.pri:
+C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/GSDLImage.pri:
 ../src/manager/GManager.pri:
 ../src/GMain.pri:
 C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/resolve_config.prf:
