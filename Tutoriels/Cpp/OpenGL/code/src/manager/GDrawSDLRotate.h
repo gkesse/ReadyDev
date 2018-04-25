@@ -1,22 +1,22 @@
 //===============================================
-#ifndef _GDrawSDLRotation_
-#define _GDrawSDLRotation_
+#ifndef _GDrawSDLRotate_
+#define _GDrawSDLRotate_
 //================================================
 #include "GDrawSDL.h"
 //===============================================
-class GDrawSDLRotation : public GDrawSDL {
+class GDrawSDLRotate : public GDrawSDL {
 public:
-    GDrawSDLRotation();
-    ~GDrawSDLRotation();
+    GDrawSDLRotate();
+    ~GDrawSDLRotate();
 
 public:
-    static GDrawSDLRotation* Instance();
+    static GDrawSDLRotate* Instance();
     void initDraw();
     void initCamera(int width, int height);
     void draw();
 
 private:
-    static GDrawSDLRotation* m_instance;
+    static GDrawSDLRotate* m_instance;
     glm::mat4 m_projection;
     glm::mat4 m_modelView;
     GLuint m_program;

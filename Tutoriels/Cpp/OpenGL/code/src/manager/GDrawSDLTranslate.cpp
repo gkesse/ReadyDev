@@ -1,26 +1,26 @@
 //===============================================
-#include "GDrawSDLRotation.h"
+#include "GDrawSDLTranslate.h"
 #include "GShader.h"
 #include "GCamera.h"
 //===============================================
-GDrawSDLRotation* GDrawSDLRotation::m_instance = 0;
+GDrawSDLTranslate* GDrawSDLTranslate::m_instance = 0;
 //===============================================
-GDrawSDLRotation::GDrawSDLRotation() {
+GDrawSDLTranslate::GDrawSDLTranslate() {
 
 }
 //===============================================
-GDrawSDLRotation::~GDrawSDLRotation() {
+GDrawSDLTranslate::~GDrawSDLTranslate() {
 
 }
 //===============================================
-GDrawSDLRotation* GDrawSDLRotation::Instance() {
+GDrawSDLTranslate* GDrawSDLTranslate::Instance() {
     if(m_instance == 0) {
-        m_instance = new GDrawSDLRotation;
+        m_instance = new GDrawSDLTranslate;
     }
     return m_instance;
 }
 //===============================================
-void GDrawSDLRotation::initDraw() {
+void GDrawSDLTranslate::initDraw() {
     GShaderInfo  lShaders[] = {
         {GL_VERTEX_SHADER, "res/shaders/3.1/color_matrix.vert", 0},
         {GL_FRAGMENT_SHADER, "res/shaders/3.1/color_matrix.frag", 0},
@@ -31,7 +31,7 @@ void GDrawSDLRotation::initDraw() {
     m_angle = 0.0f;
 }
 //===============================================
-void GDrawSDLRotation::initCamera(int width, int height) {
+void GDrawSDLTranslate::initCamera(int width, int height) {
     float lRatio = (float)width/height;
     float lFoV = 70.0f;
     float lZNear = 0.1f;
@@ -39,20 +39,20 @@ void GDrawSDLRotation::initCamera(int width, int height) {
     m_projection = glm::perspective(lFoV, lRatio, lZNear, lZFar);
 }
 //===============================================
-void GDrawSDLRotation::draw() {
+void GDrawSDLTranslate::draw() {
     float lVertices[] = {-0.5f, -0.5f, 0.0f, 0.5f, 0.5f, -0.5f};
     float lColors[] = {
         1.0f, 0.0f, 0.0f,
         0.0f, 1.0f, 0.0f,
         0.0f, 0.0f, 1.0f,
     };
-    m_modelView = glm::lookAt(glm::vec3(0.0f, 0.0f, 2.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+    m_modelView = glm::lookAt(glm::vec3(0.0f, 0.0f, 2.5f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
     glUseProgram(m_program);
     glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, lVertices);
     glEnableVertexAttribArray(0);
     glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, lColors);
     glEnableVertexAttribArray(1);
-    m_modelView = glm::rotate(m_modelView, glm::radians(90.0f), glm::vec3(0.0f,0.0f,1.0f));
+    m_modelView = glm::translate(m_modelView, glm::vec3(0.0f,0.5f,0.0f));
     GShader::Instance()->setUniform("ModelViewMatrix", m_modelView);
     GShader::Instance()->setUniform("ProjectionMatrix", m_projection);
     glDrawArrays(GL_TRIANGLES, 0, 3);
