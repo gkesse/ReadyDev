@@ -36,11 +36,12 @@ void GWindowSDL::show(int* argc, char** argv) {
     setBackground();
     GDraw::Instance()->initDraw();
     GDraw::Instance()->initCamera(m_w, m_h);
+    glEnable(GL_DEPTH_TEST);
     SDL_Event lEvent;
     while(1) {
         SDL_WaitEvent(&lEvent);
         if(lEvent.window.event == SDL_WINDOWEVENT_CLOSE) break;
-        glClear(GL_COLOR_BUFFER_BIT);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         GDraw::Instance()->draw();
         SDL_GL_SwapWindow(m_window);
     }
