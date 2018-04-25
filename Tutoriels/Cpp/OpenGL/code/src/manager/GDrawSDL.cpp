@@ -8,6 +8,7 @@
 #include "GDrawSDLTranslate.h"
 #include "GDrawSDLScale.h"
 #include "GDrawSDLComposite.h"
+#include "GDrawSDLCube.h"
 #include "GConfig.h"
 //===============================================
 GDrawSDL* GDrawSDL::m_instance = 0;
@@ -30,6 +31,7 @@ GDrawSDL* GDrawSDL::Instance() {
     if(lType == "TRANSLATE") return GDrawSDLTranslate::Instance();
     if(lType == "SCALE") return GDrawSDLScale::Instance();
     if(lType == "COMPOSITE") return GDrawSDLComposite::Instance();
+    if(lType == "CUBE") return GDrawSDLCube::Instance();
     return GDrawSDLBackground::Instance();
 }
 //===============================================
