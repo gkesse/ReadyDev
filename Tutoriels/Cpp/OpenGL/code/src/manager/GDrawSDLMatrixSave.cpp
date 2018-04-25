@@ -40,10 +40,14 @@ void GDrawSDLMatrixSave::updateDraw() {
 }
 //===============================================
 void GDrawSDLMatrixSave::draw() {
-    m_modelView = glm::lookAt(glm::vec3(5.0f, 5.0f, 5.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-    m_modelView = glm::rotate(m_modelView, glm::radians(m_angle), glm::vec3(0.0f, 1.0f, 0.0f));
+    m_modelView = glm::lookAt(glm::vec3(5.0f, 5.0f, 17.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+    glm::mat4 lModelView = m_modelView;
     m_objCube.draw(m_projection, m_modelView);
-    m_modelView = glm::translate(m_modelView, glm::vec3(1.0f, 1.0f, 1.0f));
+    m_modelView = glm::rotate(m_modelView, glm::radians(m_angle), glm::vec3(0.0f, 1.0f, 0.0f));
+    m_modelView = glm::translate(m_modelView, glm::vec3(3.0f, 0.0f, 0.0f));
+    m_objCube.draw(m_projection, m_modelView);
+    m_modelView = lModelView;
+    m_modelView = glm::translate(m_modelView, glm::vec3(6.0f, 0.0f, 0.0f));
     m_objCube.draw(m_projection, m_modelView);
 }
 //===============================================
