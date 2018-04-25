@@ -33,7 +33,7 @@ void GDrawSDLCubeAnimate::initCamera(int width, int height) {
 }
 //===============================================
 void GDrawSDLCubeAnimate::updateDraw() {
-    m_angle += 4.0f;
+    m_angle += 20*0.1f;
     if(m_angle >= 360.0f) {
         m_angle -= 360.0f;
     }
@@ -41,8 +41,7 @@ void GDrawSDLCubeAnimate::updateDraw() {
 //===============================================
 void GDrawSDLCubeAnimate::draw() {
     m_modelView = glm::lookAt(glm::vec3(3.0f, 3.0f, 2.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-    m_modelView = glm::rotate(m_modelView, m_angle, glm::vec3(0.0f, 1.0f, 0.0f));
+    m_modelView = glm::rotate(m_modelView, glm::radians(m_angle), glm::vec3(0.0f, 1.0f, 0.0f));
     m_objCube.draw(m_projection, m_modelView);
-    cout << "ggggggggggggggggggg\n";
 }
 //===============================================
