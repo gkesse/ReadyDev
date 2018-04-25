@@ -61,7 +61,8 @@ HEADERS += \
     $$PWD/GDrawSDLCubeObj.h \
     $$PWD/GDrawSDLCubeAnimate.h \
     $$PWD/GDrawSDLMatrixSave.h \
-    $$PWD/GDrawSDLEvent.h
+    $$PWD/GDrawSDLEvent.h \
+    $$PWD/GEvent.h
 
 SOURCES += \
     $$PWD/GWindow.cpp \
@@ -112,7 +113,8 @@ SOURCES += \
     $$PWD/GDrawSDLCubeObj.cpp \
     $$PWD/GDrawSDLCubeAnimate.cpp \
     $$PWD/GDrawSDLMatrixSave.cpp \
-    $$PWD/GDrawSDLEvent.cpp
+    $$PWD/GDrawSDLEvent.cpp \
+    $$PWD/GEvent.cpp
 
 FORMS += \
     $$PWD/GWindowQtForm.ui

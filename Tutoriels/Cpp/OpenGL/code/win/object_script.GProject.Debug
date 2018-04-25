@@ -48,6 +48,7 @@ INPUT(
 ./build\GDrawSDLCubeAnimate.o
 ./build\GDrawSDLMatrixSave.o
 ./build\GDrawSDLEvent.o
+./build\GEvent.o
 ./build\main.o
 ./build\moc_GWindowQtForm.o
 ./build\moc_GWindowQtFormGL.o

@@ -16,6 +16,7 @@ public:
     void initCamera(int width, int height);
     void updateDraw();
     void draw();
+    void handleEvents(SDL_Event* event);
 
 private:
     static GDrawSDLEvent* m_instance;

@@ -51,3 +51,7 @@ void GDrawSDLEvent::draw() {
     m_objCube.draw(m_projection, m_modelView);
 }
 //===============================================
+void GDrawSDLEvent::handleEvents(SDL_Event* event) {
+
+}
+//===============================================
