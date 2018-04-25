@@ -52,4 +52,5 @@ void GDraw::initCamera(int width, int height) {}
 void GDraw::updateCamera(int width, int height) {}
 void GDraw::updateDraw() {}
 void GDraw::draw() {}
+void GDraw::handleEvents(SDL_Event* event) {}
 //===============================================

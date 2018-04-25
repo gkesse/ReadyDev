@@ -18,6 +18,7 @@ public:
     virtual void updateCamera(int width, int height);
     virtual void updateDraw();
     virtual void draw();
+    virtual void handleEvents();
 
 private:
     static GDraw* m_instance;
