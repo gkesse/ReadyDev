@@ -40,9 +40,9 @@ void GDrawQtLightDiffuse::initDraw() {
     m_view = glm::lookAt(glm::vec3(0.0f,0.0f,3.0f), glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,1.0f,0.0f));
     m_projection = glm::mat4(1.0f);
 
-    GShader::Instance()->setUniform("Kd", 0.9f, 0.5f, 0.3f);
-    GShader::Instance()->setUniform("Ld", 1.0f, 1.0f, 1.0f);
-    GShader::Instance()->setUniform("LightPosition", m_view * glm::vec4(5.0f,5.0f,2.0f,1.0f));
+    GShader::Instance()->setUniform(m_program, "Kd", 0.9f, 0.5f, 0.3f);
+    GShader::Instance()->setUniform(m_program, "Ld", 1.0f, 1.0f, 1.0f);
+    GShader::Instance()->setUniform(m_program, "LightPosition", m_view * glm::vec4(5.0f,5.0f,2.0f,1.0f));
 }
 //===============================================
 void GDrawQtLightDiffuse::draw() {
@@ -59,8 +59,8 @@ void GDrawQtLightDiffuse::resize(int w, int h) {
 //===============================================
 void GDrawQtLightDiffuse::setMatrices() {
     glm::mat4 mv = m_view * m_model;
-    GShader::Instance()->setUniform("ModelViewMatrix", mv);
-    GShader::Instance()->setUniform("NormalMatrix", glm::mat3(glm::vec3(mv[0]), glm::vec3(mv[1]), glm::vec3(mv[2])));
-    GShader::Instance()->setUniform("MVP", m_projection * mv);
+    GShader::Instance()->setUniform(m_program, "ModelViewMatrix", mv);
+    GShader::Instance()->setUniform(m_program, "NormalMatrix", glm::mat3(glm::vec3(mv[0]), glm::vec3(mv[1]), glm::vec3(mv[2])));
+    GShader::Instance()->setUniform(m_program, "MVP", m_projection * mv);
 }
 //===============================================

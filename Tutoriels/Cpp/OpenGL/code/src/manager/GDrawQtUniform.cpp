@@ -41,7 +41,7 @@ void GDrawQtUniform::initDraw() {
 
     m_program = GShader::Instance()->loadShader(m_shaders);
     glUseProgram(m_program);
-    GShader::Instance()->showActiveUniforms();
+    GShader::Instance()->showActiveUniforms(m_program);
 
     glGenBuffers(2, m_buffers);
     glBindBuffer(GL_ARRAY_BUFFER, m_buffers[0]);

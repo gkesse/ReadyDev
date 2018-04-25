@@ -52,8 +52,8 @@ void GDrawSDLTranslate::draw() {
     glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, lColors);
     glEnableVertexAttribArray(1);
     m_modelView = glm::translate(m_modelView, glm::vec3(0.0f,0.5f,0.0f));
-    GShader::Instance()->setUniform("ModelViewMatrix", m_modelView);
-    GShader::Instance()->setUniform("ProjectionMatrix", m_projection);
+    GShader::Instance()->setUniform(m_program, "ModelViewMatrix", m_modelView);
+    GShader::Instance()->setUniform(m_program, "ProjectionMatrix", m_projection);
     glDrawArrays(GL_TRIANGLES, 0, 3);
     glDisableVertexAttribArray(1);
     glDisableVertexAttribArray(0);

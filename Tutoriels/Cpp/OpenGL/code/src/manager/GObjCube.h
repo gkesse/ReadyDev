@@ -12,7 +12,7 @@ public:
 private:
     float m_vertices[108];
     float m_colors[108];
-    GLuint m_programs;
+    GLuint m_program;
 };
 //===============================================
 #endif

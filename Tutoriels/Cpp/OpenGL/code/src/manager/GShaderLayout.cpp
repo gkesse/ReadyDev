@@ -22,7 +22,7 @@ GShaderLayout* GShaderLayout::Instance() {
 GLuint GShaderLayout::loadShader(GShaderInfo *shaderInfo) {
 	if(shaderInfo == NULL) return 0;
 	
-    m_program = glCreateProgram();
+    GLuint lProgram = glCreateProgram();
     GShaderInfo* m_shaderInfo = shaderInfo;
 	
     while(m_shaderInfo->type != GL_NONE) {
@@ -34,13 +34,13 @@ GLuint GShaderLayout::loadShader(GShaderInfo *shaderInfo) {
         glCompileShader(m_shader);
         GLint m_compiled;
         glGetShaderiv(m_shader, GL_COMPILE_STATUS, &m_compiled);
-        glAttachShader(m_program, m_shader);
+        glAttachShader(lProgram, m_shader);
         m_shaderInfo++;
 	}
 
-    glLinkProgram(m_program);
+    glLinkProgram(lProgram);
     GLint m_linked;
-    glGetProgramiv(m_program, GL_LINK_STATUS, &m_linked);
-    return m_program;
+    glGetProgramiv(lProgram, GL_LINK_STATUS, &m_linked);
+    return lProgram;
 }
 //================================================

@@ -15,9 +15,9 @@ GShader::~GShader() {
 }
 //================================================
 GShader* GShader::Instance() {
-    QString m_method = GConfig::Instance()->getData("SHADER_LOAD_METHOD");
-    if(m_method == "BIND") return GShaderBind::Instance();
-    if(m_method == "LAYOUT") return GShaderLayout::Instance();
+    QString lMethod = GConfig::Instance()->getData("SHADER_LOAD_METHOD");
+    if(lMethod == "BIND") return GShaderBind::Instance();
+    if(lMethod == "LAYOUT") return GShaderLayout::Instance();
     return 0;
 }
 //================================================
@@ -25,80 +25,80 @@ void GShader::setAttribInfo(GAttribInfo* attribInfo) {
     m_attribInfo = attribInfo;
 }
 //================================================
-void GShader::showActiveUniforms() {
-    GLint m_uniforms, m_size, lLocation, m_maxLen;
-    GLchar* m_name;
-    GLsizei m_written;
-    GLenum m_type;
+void GShader::showActiveUniforms(GLuint program) {
+    GLint lUniforms, lSize, lLocation, lMaxLen;
+    GLchar* lName;
+    GLsizei lWritten;
+    GLenum lType;
 
-    glGetProgramiv(m_program, GL_ACTIVE_UNIFORM_MAX_LENGTH, &m_maxLen);
-    glGetProgramiv(m_program, GL_ACTIVE_UNIFORMS, &m_uniforms);
+    glGetProgramiv(program, GL_ACTIVE_UNIFORM_MAX_LENGTH, &lMaxLen);
+    glGetProgramiv(program, GL_ACTIVE_UNIFORMS, &lUniforms);
 
-    m_name = new GLchar[m_maxLen];
+    lName = new GLchar[lMaxLen];
 
-    for( int i = 0; i < m_uniforms; ++i ) {
-        glGetActiveUniform(m_program, i, m_maxLen, &m_written, &m_size, &m_type, m_name);
-        lLocation = glGetUniformLocation(m_program, m_name);
+    for( int i = 0; i < lUniforms; ++i ) {
+        glGetActiveUniform(program, i, lMaxLen, &lWritten, &lSize, &lType, lName);
+        lLocation = glGetUniformLocation(program, lName);
         cout << "LOCATION: " << lLocation << " | ";
-        cout << "NAME: " << m_name << "\n";
+        cout << "NAME: " << lName << "\n";
     }
 
-    delete[] m_name;
+    delete[] lName;
 }
 //===============================================
-int GShader::getUniformLocation(const char * name) {
-    return glGetUniformLocation(m_program, name);
+int GShader::getUniformLocation(GLuint program, const char * name) {
+    return glGetUniformLocation(program, name);
 }
 //================================================
-void GShader::setUniform(const char *name, float x, float y, float z) {
-    int lLocation = getUniformLocation(name);
+void GShader::setUniform(GLuint program, const char* name, float x, float y, float z) {
+    int lLocation = glGetUniformLocation(program, name);
     if(lLocation >= 0) {
         glUniform3f(lLocation, x, y, z);
     }
 }
 //===============================================
-void GShader::setUniform(const char *name, const glm::vec3 & v) {
-    setUniform(name, v.x, v.y, v.z);
+void GShader::setUniform(GLuint program, const char *name, const glm::vec3 & v) {
+    setUniform(program, name, v.x, v.y, v.z);
 }
 //===============================================
-void GShader::setUniform(const char *name, const glm::vec4 & v) {
-    int lLocation = getUniformLocation(name);
+void GShader::setUniform(GLuint program, const char *name, const glm::vec4 & v) {
+    int lLocation = glGetUniformLocation(program, name);
     if(lLocation >= 0) {
         glUniform4f(lLocation, v.x, v.y, v.z, v.w);
     }
 }
 //===============================================
-void GShader::setUniform(const char *name, const glm::mat4 & m) {
-    int lLocation = getUniformLocation(name);
+void GShader::setUniform(GLuint program, const char *name, const glm::mat4 & m) {
+    int lLocation = glGetUniformLocation(program, name);
     if(lLocation >= 0) {
         glUniformMatrix4fv(lLocation, 1, GL_FALSE, &m[0][0]);
     }
 }
 //===============================================
-void GShader::setUniform(const char *name, const glm::mat3 & m) {
-    int lLocation = getUniformLocation(name);
+void GShader::setUniform(GLuint program, const char *name, const glm::mat3 & m) {
+    int lLocation = glGetUniformLocation(program, name);
     if(lLocation >= 0) {
         glUniformMatrix3fv(lLocation, 1, GL_FALSE, &m[0][0]);
     }
 }
 //===============================================
-void GShader::setUniform(const char *name, float val) {
-    int lLocation = getUniformLocation(name);
+void GShader::setUniform(GLuint program, const char *name, float val) {
+    int lLocation = glGetUniformLocation(program, name);
     if(lLocation >= 0)
     {
         glUniform1f(lLocation, val);
     }
 }
 //===============================================
-void GShader::setUniform(const char *name, int val) {
-    int lLocation = getUniformLocation(name);
+void GShader::setUniform(GLuint program, const char *name, int val) {
+    int lLocation = glGetUniformLocation(program, name);
     if(lLocation >= 0) {
         glUniform1i(lLocation, val);
     }
 }
 //===============================================
-void GShader::setUniform(const char *name, bool val) {
-    int lLocation = getUniformLocation(name);
+void GShader::setUniform(GLuint program, const char *name, bool val) {
+    int lLocation = glGetUniformLocation(program, name);
     if(lLocation >= 0) {
         glUniform1i(lLocation, val);
     }

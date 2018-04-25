@@ -75,8 +75,8 @@ void GDrawSDLCube::draw() {
     //m_modelView = glm::scale(m_modelView, glm::vec3(0.8f,0.8f,0.8f));
     //m_modelView = glm::translate(m_modelView, glm::vec3(0.0f,0.5f,0.0f));
     //m_modelView = glm::rotate(m_modelView, glm::radians(180.0f), glm::vec3(0.0f,0.0f,1.0f));
-    GShader::Instance()->setUniform("ModelViewMatrix", m_modelView);
-    GShader::Instance()->setUniform("ProjectionMatrix", m_projection);
+    GShader::Instance()->setUniform(m_program, "ModelViewMatrix", m_modelView);
+    GShader::Instance()->setUniform(m_program, "ProjectionMatrix", m_projection);
     glDrawArrays(GL_TRIANGLES, 0, 36);
     glDisableVertexAttribArray(1);
     glDisableVertexAttribArray(0);
