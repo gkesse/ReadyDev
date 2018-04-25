@@ -12,6 +12,7 @@ using namespace std;
 #include <GLFW/glfw3.h>
 #include <GL/freeglut.h>
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
 #include <QGLWidget>
 #include <BulletDynamics/Dynamics/btDynamicsWorld.h>
 #include <glm/gtc/matrix_transform.hpp>
