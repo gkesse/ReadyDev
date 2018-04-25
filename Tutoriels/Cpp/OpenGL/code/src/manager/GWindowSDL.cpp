@@ -45,6 +45,7 @@ void GWindowSDL::show(int* argc, char** argv) {
         SDL_PollEvent(&lEvent);
         if(lEvent.window.event == SDL_WINDOWEVENT_CLOSE) break;
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        GDraw::Instance()->updateDraw();
         GDraw::Instance()->draw();
         SDL_GL_SwapWindow(m_window);
         Uint32 lEndTime = SDL_GetTicks();

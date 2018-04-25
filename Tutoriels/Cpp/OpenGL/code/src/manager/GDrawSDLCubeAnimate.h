@@ -14,6 +14,7 @@ public:
     static GDrawSDLCubeAnimate* Instance();
     void initDraw();
     void initCamera(int width, int height);
+    void updateDraw();
     void draw();
 
 private:
@@ -22,6 +23,7 @@ private:
     glm::mat4 m_modelView;
     GLuint m_program;
     GObjCube m_objCube;
+    float m_angle;
 };
 //===============================================
 #endif
