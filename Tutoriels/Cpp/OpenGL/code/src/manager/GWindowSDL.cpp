@@ -7,8 +7,8 @@ GWindowSDL* GWindowSDL::m_instance = 0;
 GWindowSDL::GWindowSDL() {
     m_x = SDL_WINDOWPOS_CENTERED;
     m_y = SDL_WINDOWPOS_CENTERED;
-    m_w = 400;
-    m_h = 400;
+    m_w = 800;
+    m_h = 800;
     m_title = "OpenGL | SDL | ReadyDev";
 }
 //===============================================

@@ -25,6 +25,7 @@ private:
     float m_angleU;
     float m_angleV;
     GObjBox m_objBox;
+    GObjBox m_objBox2;
 };
 //===============================================
 #endif
