@@ -14,6 +14,8 @@ public:
     void initDraw();
     void initCamera(int width, int height);
     void draw();
+    void handleEvents(SDL_Event* event);
+    void onKeyDown(SDL_Event* event);
 
 private:
     static GDrawSDLTexture* m_instance;
@@ -21,6 +23,7 @@ private:
     glm::mat4 m_modelView;
     GLuint m_program;
     GLuint m_textureId;
+    float m_angle;
 };
 //===============================================
 #endif

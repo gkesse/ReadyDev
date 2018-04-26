@@ -2,6 +2,7 @@
 #include "GDrawSDLTexture.h"
 #include "GShader.h"
 #include "GTexture.h"
+#include "GEvent.h"
 //===============================================
 GDrawSDLTexture* GDrawSDLTexture::m_instance = 0;
 //===============================================
@@ -29,6 +30,7 @@ void GDrawSDLTexture::initDraw() {
 
     m_program = GShader::Instance()->loadShader(lShaders);
     m_textureId = GTexture::Instance()->loadTexture("res/img/box.png");
+    m_angle = 0.0f;
 }
 //===============================================
 void GDrawSDLTexture::initCamera(int width, int height) {
@@ -55,8 +57,8 @@ void GDrawSDLTexture::draw() {
         -1.0f, 1.0f, 1.0f, -1.0f, 1.0f, -1.0f, 1.0f, 1.0f, -1.0f
     };
     float lTexCoords[] = {
-        0.0f, 0.0f,  1.0f, 0.0f,  1.0f, 1.0f,
-        0.0f, 0.0f,  0.0f, 1.0f,  1.0f, 1.0f,
+        1.0f, 0.0f,  0.0f, 0.0f,  0.0f, 1.0f,
+        1.0f, 0.0f,  1.0f, 1.0f,  0.0f, 1.0f,
         0.0f, 0.0f,  1.0f, 0.0f,  1.0f, 1.0f,
         0.0f, 0.0f,  0.0f, 1.0f,  1.0f, 1.0f,
         0.0f, 0.0f,  1.0f, 0.0f,  1.0f, 1.0f,
@@ -76,6 +78,7 @@ void GDrawSDLTexture::draw() {
     glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 0, lTexCoords);
     glEnableVertexAttribArray(1);
     glBindTexture(GL_TEXTURE_2D, m_textureId);
+    m_modelView = glm::rotate(m_modelView, glm::radians(m_angle), glm::vec3(0.0f,1.0f,0.0f));
     GShader::Instance()->setUniform(m_program, "ModelViewMatrix", m_modelView);
     GShader::Instance()->setUniform(m_program, "ProjectionMatrix", m_projection);
     GShader::Instance()->setUniform(m_program, "Tex", 0);
@@ -84,5 +87,26 @@ void GDrawSDLTexture::draw() {
     glDisableVertexAttribArray(1);
     glDisableVertexAttribArray(0);
     glUseProgram(0);
+}
+//===============================================
+void GDrawSDLTexture::handleEvents(SDL_Event* event) {
+    GEvent::Instance()->handleEvents(event);
+}
+//===============================================
+void GDrawSDLTexture::onKeyDown(SDL_Event* event) {
+    switch (event->key.keysym.sym) {
+    case SDLK_RIGHT:
+        m_angle += 20*0.1f;
+        if(m_angle >= 360.0f) {
+            m_angle -= 360.0f;
+        }
+        break;
+    case SDLK_LEFT:
+        m_angle -= 20*0.1f;
+        if(m_angle <= 0) {
+            m_angle += 360.0f;
+        }
+        break;
+    }
 }
 //===============================================
