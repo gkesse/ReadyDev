@@ -27,8 +27,8 @@ void GDrawSDLTexture::initDraw() {
         {GL_NONE, "", 0}
     };
 
-    m_textureId = GTexture::Instance()->loadTexture("res/img/box.png");
     m_program = GShader::Instance()->loadShader(lShaders);
+    m_textureId = GTexture::Instance()->loadTexture("res/img/box.png");
 }
 //===============================================
 void GDrawSDLTexture::initCamera(int width, int height) {
@@ -56,6 +56,16 @@ void GDrawSDLTexture::draw() {
     };
     float lTexCoords[] = {
         0.0f, 0.0f,  1.0f, 0.0f,  1.0f, 1.0f,
+        0.0f, 0.0f,  0.0f, 1.0f,  1.0f, 1.0f,
+        0.0f, 0.0f,  1.0f, 0.0f,  1.0f, 1.0f,
+        0.0f, 0.0f,  0.0f, 1.0f,  1.0f, 1.0f,
+        0.0f, 0.0f,  1.0f, 0.0f,  1.0f, 1.0f,
+        0.0f, 0.0f,  0.0f, 1.0f,  1.0f, 1.0f,
+        0.0f, 0.0f,  1.0f, 0.0f,  1.0f, 1.0f,
+        0.0f, 0.0f,  0.0f, 1.0f,  1.0f, 1.0f,
+        0.0f, 0.0f,  1.0f, 0.0f,  1.0f, 1.0f,
+        0.0f, 0.0f,  0.0f, 1.0f,  1.0f, 1.0f,
+        0.0f, 0.0f,  1.0f, 0.0f,  1.0f, 1.0f,
         0.0f, 0.0f,  0.0f, 1.0f,  1.0f, 1.0f
     };
 
@@ -65,12 +75,11 @@ void GDrawSDLTexture::draw() {
     glEnableVertexAttribArray(0);
     glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 0, lTexCoords);
     glEnableVertexAttribArray(1);
-    glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, m_textureId);
     GShader::Instance()->setUniform(m_program, "ModelViewMatrix", m_modelView);
     GShader::Instance()->setUniform(m_program, "ProjectionMatrix", m_projection);
     GShader::Instance()->setUniform(m_program, "Tex", 0);
-    glDrawArrays(GL_TRIANGLES, 0, 6);
+    glDrawArrays(GL_TRIANGLES, 0, 36);
     glBindTexture(GL_TEXTURE_2D, 0);
     glDisableVertexAttribArray(1);
     glDisableVertexAttribArray(0);

@@ -64,7 +64,7 @@ void GDrawQtTexture::initDraw() {
 //===============================================
 void GDrawQtTexture::draw() {
     glBindVertexArray(m_VOA);
-    GShader::Instance()->setUniform(m_program, "Tex1", 0);
+    GShader::Instance()->setUniform(m_program, "Tex", 0);
     glDrawArrays(GL_TRIANGLES, 0, 6);
 }
 //===============================================
