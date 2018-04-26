@@ -4,6 +4,7 @@
 //================================================
 #include "GDrawSDL.h"
 #include "GObjBox.h"
+#include "GObjLand.h"
 //===============================================
 class GDrawSDLTextureObj : public GDrawSDL {
 public:
@@ -26,6 +27,7 @@ private:
     float m_angleV;
     GObjBox m_objBox;
     GObjBox m_objBox2;
+    GObjLand m_objLand;
 };
 //===============================================
 #endif

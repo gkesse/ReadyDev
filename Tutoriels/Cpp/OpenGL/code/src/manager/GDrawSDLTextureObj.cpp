@@ -22,6 +22,7 @@ GDrawSDLTextureObj* GDrawSDLTextureObj::Instance() {
 void GDrawSDLTextureObj::initDraw() {
     m_objBox = GObjBox(1.0f);
     m_objBox2 = GObjBox(1.0f, "res/img/box2.jpg");
+    m_objLand = GObjLand(20.0f);
     m_angleU = 0.0f;
     m_angleV = 0.0f;
 }
@@ -43,6 +44,9 @@ void GDrawSDLTextureObj::draw() {
     m_modelView = lModelView;
     m_modelView = glm::translate(m_modelView, glm::vec3(3.0f,0.0f,0.0f));
     m_objBox2.draw(m_projection, m_modelView);
+    m_modelView = lModelView;
+    m_modelView = glm::translate(m_modelView, glm::vec3(0.0f,-3.0f,0.0f));
+    m_objLand.draw(m_projection, m_modelView);
 }
 //===============================================
 void GDrawSDLTextureObj::handleEvents(SDL_Event* event) {

@@ -21,7 +21,7 @@ GObjBox::~GObjBox() {
 
 }
 //===============================================
-void GObjBox::initObject(int Size, const char* img) {
+void GObjBox::initObject(float Size, const char* img) {
     float lVertices[] = {
         -Size, -Size, -Size, Size, -Size, -Size, Size, Size, -Size,
         -Size, -Size, -Size, -Size, Size, -Size, Size, Size, -Size,

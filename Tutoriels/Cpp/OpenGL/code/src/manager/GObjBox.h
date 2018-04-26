@@ -12,7 +12,7 @@ public:
     ~GObjBox();
 
 public:
-    void initObject(int Size, const char* img);
+    void initObject(float Size, const char* img);
     void draw(glm::mat4& projection, glm::mat4& modelview);
 
 private:
