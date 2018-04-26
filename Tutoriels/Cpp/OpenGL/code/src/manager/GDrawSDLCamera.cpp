@@ -1,6 +1,7 @@
 //===============================================
 #include "GDrawSDLCamera.h"
 #include "GEvent.h"
+#include "GCameraSDL.h"
 //===============================================
 GDrawSDLCamera* GDrawSDLCamera::m_instance = 0;
 //===============================================
@@ -33,10 +34,11 @@ void GDrawSDLCamera::initCamera(int width, int height) {
     float lZNear = 0.1f;
     float lZFar = 100.0f;
     m_projection = glm::perspective(lFoV, lRatio, lZNear, lZFar);
+    GCameraSDL::Instance()->initCamera(glm::vec3(10.0f, 10.0f, 10.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 }
 //===============================================
 void GDrawSDLCamera::draw() {
-    m_modelView = glm::lookAt(glm::vec3(10.0f, 10.0f, 10.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+    GCameraSDL::Instance()->lookAt(m_modelView);
     glm::mat4 lModelView = m_modelView;
     m_modelView = glm::translate(m_modelView, glm::vec3(0.0f,3.0f,0.0f));
     m_modelView = glm::rotate(m_modelView, glm::radians(m_angleU), glm::vec3(0.0f,1.0f,0.0f));
@@ -67,31 +69,29 @@ void GDrawSDLCamera::handleEvents(SDL_Event* event) {
 }
 //===============================================
 void GDrawSDLCamera::onKeyDown(SDL_Event* event) {
-    switch (event->key.keysym.sym) {
-    case SDLK_RIGHT:
+    if(event->key.keysym.sym == SDLK_RIGHT) {
         m_angleU += 20*0.1f;
         if(m_angleU >= 360.0f) {
             m_angleU -= 360.0f;
         }
-        break;
-    case SDLK_LEFT:
+    }
+    if(event->key.keysym.sym == SDLK_LEFT) {
         m_angleU -= 20*0.1f;
         if(m_angleU <= 0) {
             m_angleU += 360.0f;
         }
-        break;
-    case SDLK_UP:
+    }
+    if(event->key.keysym.sym == SDLK_UP) {
         m_angleV += 20*0.1f;
         if(m_angleV >= 360.0f) {
             m_angleV -= 360.0f;
         }
-        break;
-    case SDLK_DOWN:
+    }
+    if(event->key.keysym.sym == SDLK_DOWN) {
         m_angleV -= 20*0.1f;
         if(m_angleV <= 0) {
             m_angleV += 360.0f;
         }
-        break;
     }
 }
 //===============================================
