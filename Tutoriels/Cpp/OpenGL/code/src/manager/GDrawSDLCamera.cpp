@@ -93,5 +93,21 @@ void GDrawSDLCamera::onKeyDown(SDL_Event* event) {
             m_angleV += 360.0f;
         }
     }
+    if(event->key.keysym.sym == SDLK_z) {
+        GCameraSDL::Instance()->deplacer(1);
+    }
+    if(event->key.keysym.sym == SDLK_w) {
+        GCameraSDL::Instance()->deplacer(2);
+    }
+    if(event->key.keysym.sym == SDLK_q) {
+        GCameraSDL::Instance()->deplacer(3);
+    }
+    if(event->key.keysym.sym == SDLK_s) {
+        GCameraSDL::Instance()->deplacer(4);
+    }
+}
+//===============================================
+void GDrawSDLCamera::onMouseMotion(SDL_Event* event) {
+
 }
 //===============================================

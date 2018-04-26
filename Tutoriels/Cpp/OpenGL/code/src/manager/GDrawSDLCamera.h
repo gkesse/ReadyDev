@@ -18,6 +18,7 @@ public:
     void draw();
     void handleEvents(SDL_Event* event);
     void onKeyDown(SDL_Event* event);
+    void onMouseMotion(SDL_Event* event);
 
 private:
     static GDrawSDLCamera* m_instance;

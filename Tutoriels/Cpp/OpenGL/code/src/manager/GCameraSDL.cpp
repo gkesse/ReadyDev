@@ -82,3 +82,39 @@ void GCameraSDL::lookAt(glm::mat4& modelView) {
     modelView = glm::lookAt(m_position, m_pointCible, m_axeVertical);
 }
 //===============================================
+void GCameraSDL::setPointcible(glm::vec3 pointCible) {
+    // Calcul du vecteur orientation
+    m_orientation = m_pointCible - m_position;
+    m_orientation = normalize(m_orientation);
+    // Si l'axe vertical est l'axe X
+    if(m_axeVertical.x == 1.0)
+    {
+        // Calcul des angles
+        m_phi = asin(m_orientation.x);
+        m_theta = acos(m_orientation.y / cos(m_phi));
+        if(m_orientation.y < 0)
+            m_theta *= -1;
+    }
+    // Si c'est l'axe Y
+    else if(m_axeVertical.y == 1.0)
+    {
+        // Calcul des angles
+        m_phi = asin(m_orientation.y);
+        m_theta = acos(m_orientation.z / cos(m_phi));
+        if(m_orientation.z < 0)
+            m_theta *= -1;
+    }
+    // Sinon c'est l'axe Z
+    else
+    {
+        // Calcul des angles
+        m_phi = asin(m_orientation.x);
+        m_theta = acos(m_orientation.z / cos(m_phi));
+        if(m_orientation.z < 0)
+            m_theta *= -1;
+    }
+    // Conversion en degrés
+    m_phi = m_phi * 180 / M_PI;
+    m_theta = m_theta * 180 / M_PI;
+}
+//===============================================

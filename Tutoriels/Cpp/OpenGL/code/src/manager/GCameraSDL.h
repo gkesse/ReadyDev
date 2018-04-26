@@ -15,6 +15,7 @@ public:
     void orienter(int xRel, int yRel);
     void deplacer(int direction, int xRel=0, int yRel=0);
     void lookAt(glm::mat4& modelView);
+    void setPointcible(glm::vec3 pointCible);
 
 private:
     static GCameraSDL* m_instance;
