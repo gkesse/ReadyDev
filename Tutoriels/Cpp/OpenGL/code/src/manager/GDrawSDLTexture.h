@@ -24,6 +24,9 @@ private:
     GLuint m_program;
     GLuint m_textureId;
     float m_angle;
+    float m_angleU;
+    float m_angleV;
+    glm::vec3 m_vec;
 };
 //===============================================
 #endif
