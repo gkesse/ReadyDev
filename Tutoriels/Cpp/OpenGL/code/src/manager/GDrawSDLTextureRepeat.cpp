@@ -29,7 +29,7 @@ void GDrawSDLTextureRepeat::initDraw() {
     };
 
     m_program = GShader::Instance()->loadShader(lShaders);
-    m_textureId = GTexture::Instance()->loadTexture("res/img/grass.jpg");
+    m_texture = GTexture::Instance()->loadTexture("res/img/grass.jpg");
     m_angleU = 0.0f;
     m_angleV = 0.0f;
 }
@@ -63,7 +63,7 @@ void GDrawSDLTextureRepeat::draw() {
     GShader::Instance()->setUniform(m_program, "ModelViewMatrix", m_modelView);
     GShader::Instance()->setUniform(m_program, "ProjectionMatrix", m_projection);
     GShader::Instance()->setUniform(m_program, "Tex", 0);
-    glBindTexture(GL_TEXTURE_2D, m_textureId);
+    glBindTexture(GL_TEXTURE_2D, m_texture);
     glDrawArrays(GL_TRIANGLES, 0, 6);
     glBindTexture(GL_TEXTURE_2D, 0);
     glDisableVertexAttribArray(1);
