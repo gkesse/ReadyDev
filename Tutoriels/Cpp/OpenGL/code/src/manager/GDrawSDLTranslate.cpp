@@ -3,6 +3,8 @@
 #include "GShader.h"
 #include "GCamera.h"
 //===============================================
+#include <QtMath>
+//===============================================
 GDrawSDLTranslate* GDrawSDLTranslate::m_instance = 0;
 //===============================================
 GDrawSDLTranslate::GDrawSDLTranslate() {
@@ -28,6 +30,7 @@ void GDrawSDLTranslate::initDraw() {
     };
 
     m_program = GShader::Instance()->loadShader(lShaders);
+    m_angle = 0.0f;
 }
 //===============================================
 void GDrawSDLTranslate::initCamera(int width, int height) {
@@ -38,6 +41,18 @@ void GDrawSDLTranslate::initCamera(int width, int height) {
     m_projection = glm::perspective(lFoV, lRatio, lZNear, lZFar);
 }
 //===============================================
+void GDrawSDLTranslate::updateDraw() {
+    m_angle += 1.0f;
+    if(m_angle >= 360.0f) {
+        m_angle -= 360.0f;
+    }
+    float lRmax = 5.0f;
+    float lR = lRmax*qSin(qDegreesToRadians(m_angle));
+    float lU = 15.0f;
+    m_x = lR*qSin(qDegreesToRadians(lU));
+    m_z = lR*qCos(qDegreesToRadians(lU));
+}
+//===============================================
 void GDrawSDLTranslate::draw() {
     float lVertices[] = {-0.5f, -0.5f, 0.0f, 0.5f, 0.5f, -0.5f};
     float lColors[] = {
@@ -45,13 +60,13 @@ void GDrawSDLTranslate::draw() {
         0.0f, 1.0f, 0.0f,
         0.0f, 0.0f, 1.0f,
     };
-    m_modelView = glm::lookAt(glm::vec3(0.0f, 0.0f, 2.5f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+    m_modelView = glm::lookAt(glm::vec3(0.0f, 0.0f, 8.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
     glUseProgram(m_program);
     glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, lVertices);
     glEnableVertexAttribArray(0);
     glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, lColors);
     glEnableVertexAttribArray(1);
-    m_modelView = glm::translate(m_modelView, glm::vec3(0.0f,0.5f,0.0f));
+    m_modelView = glm::translate(m_modelView, glm::vec3(m_x,0.0f,m_z));
     GShader::Instance()->setUniform(m_program, "ModelViewMatrix", m_modelView);
     GShader::Instance()->setUniform(m_program, "ProjectionMatrix", m_projection);
     glDrawArrays(GL_TRIANGLES, 0, 3);

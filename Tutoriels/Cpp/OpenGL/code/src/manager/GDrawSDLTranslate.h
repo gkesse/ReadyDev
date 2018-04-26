@@ -13,6 +13,7 @@ public:
     static GDrawSDLTranslate* Instance();
     void initDraw();
     void initCamera(int width, int height);
+    void updateDraw();
     void draw();
 
 private:
@@ -20,6 +21,9 @@ private:
     glm::mat4 m_projection;
     glm::mat4 m_modelView;
     GLuint m_program;
+    float m_angle;
+    float m_x;
+    float m_z;
 };
 //===============================================
 #endif
