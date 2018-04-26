@@ -1,16 +1,16 @@
 //===============================================
-#ifndef _GDrawSDLTexture_
-#define _GDrawSDLTexture_
+#ifndef _GDrawSDLTextureRepeat_
+#define _GDrawSDLTextureRepeat_
 //================================================
 #include "GDrawSDL.h"
 //===============================================
-class GDrawSDLTexture : public GDrawSDL {
+class GDrawSDLTextureRepeat : public GDrawSDL {
 public:
-    GDrawSDLTexture();
-    ~GDrawSDLTexture();
+    GDrawSDLTextureRepeat();
+    ~GDrawSDLTextureRepeat();
 
 public:
-    static GDrawSDLTexture* Instance();
+    static GDrawSDLTextureRepeat* Instance();
     void initDraw();
     void initCamera(int width, int height);
     void draw();
@@ -18,7 +18,7 @@ public:
     void onKeyDown(SDL_Event* event);
 
 private:
-    static GDrawSDLTexture* m_instance;
+    static GDrawSDLTextureRepeat* m_instance;
     glm::mat4 m_projection;
     glm::mat4 m_modelView;
     GLuint m_program;

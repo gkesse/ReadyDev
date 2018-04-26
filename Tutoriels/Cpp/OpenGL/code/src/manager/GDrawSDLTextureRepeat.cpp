@@ -1,27 +1,27 @@
 //===============================================
-#include "GDrawSDLTexture.h"
+#include "GDrawSDLTextureRepeat.h"
 #include "GShader.h"
 #include "GTexture.h"
 #include "GEvent.h"
 //===============================================
-GDrawSDLTexture* GDrawSDLTexture::m_instance = 0;
+GDrawSDLTextureRepeat* GDrawSDLTextureRepeat::m_instance = 0;
 //===============================================
-GDrawSDLTexture::GDrawSDLTexture() {
+GDrawSDLTextureRepeat::GDrawSDLTextureRepeat() {
 
 }
 //===============================================
-GDrawSDLTexture::~GDrawSDLTexture() {
+GDrawSDLTextureRepeat::~GDrawSDLTextureRepeat() {
 
 }
 //===============================================
-GDrawSDLTexture* GDrawSDLTexture::Instance() {
+GDrawSDLTextureRepeat* GDrawSDLTextureRepeat::Instance() {
     if(m_instance == 0) {
-        m_instance = new GDrawSDLTexture;
+        m_instance = new GDrawSDLTextureRepeat;
     }
     return m_instance;
 }
 //===============================================
-void GDrawSDLTexture::initDraw() {
+void GDrawSDLTextureRepeat::initDraw() {
     GShaderInfo  lShaders[] = {
         {GL_VERTEX_SHADER, "res/shaders/3.1/color_texture.vert", 0},
         {GL_FRAGMENT_SHADER, "res/shaders/3.1/color_texture.frag", 0},
@@ -29,12 +29,12 @@ void GDrawSDLTexture::initDraw() {
     };
 
     m_program = GShader::Instance()->loadShader(lShaders);
-    m_textureId = GTexture::Instance()->loadTexture("res/img/box.png");
+    m_textureId = GTexture::Instance()->loadTexture("res/img/gazon.jpg");
     m_angleU = 0.0f;
     m_angleV = 0.0f;
 }
 //===============================================
-void GDrawSDLTexture::initCamera(int width, int height) {
+void GDrawSDLTextureRepeat::initCamera(int width, int height) {
     float lRatio = (float)width/height;
     float lFoV = 70.0f;
     float lZNear = 0.1f;
@@ -42,37 +42,17 @@ void GDrawSDLTexture::initCamera(int width, int height) {
     m_projection = glm::perspective(lFoV, lRatio, lZNear, lZFar);
 }
 //===============================================
-void GDrawSDLTexture::draw() {
+void GDrawSDLTextureRepeat::draw() {
     float lVertices[] = {
-        -1.0f, -1.0f, -1.0f, 1.0f, -1.0f, -1.0f, 1.0f, 1.0f, -1.0f,
-        -1.0f, -1.0f, -1.0f, -1.0f, 1.0f, -1.0f, 1.0f, 1.0f, -1.0f,
-        1.0f, -1.0f, 1.0f, 1.0f, -1.0f, -1.0f, 1.0f, 1.0f, -1.0f,
-        1.0f, -1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, -1.0f,
-        -1.0f, -1.0f, 1.0f, 1.0f, -1.0f, 1.0f, 1.0f, -1.0f, -1.0f,
-        -1.0f, -1.0f, 1.0f, -1.0f, -1.0f, -1.0f, 1.0f, -1.0f, -1.0f,
-        -1.0f, -1.0f, 1.0f, 1.0f, -1.0f, 1.0f, 1.0f, 1.0f, 1.0f,
-        -1.0f, -1.0f, 1.0f, -1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f,
-        -1.0f, -1.0f, -1.0f, -1.0f, -1.0f, 1.0f, -1.0f, 1.0f, 1.0f,
-        -1.0f, -1.0f, -1.0f, -1.0f, 1.0f, -1.0f, -1.0f, 1.0f, 1.0f,
-        -1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, -1.0f,
-        -1.0f, 1.0f, 1.0f, -1.0f, 1.0f, -1.0f, 1.0f, 1.0f, -1.0f
+        -10.0f, 0.0f, -10.0f, 10.0f, 0.0f, -10.0f, 10.0f, 0.0f, 10.0f,
+        -10.0f, 0.0f, -10.0f, -10.0f, 0.0f, 10.0f, 10.0f, 0.0f, 10.0f
     };
     float lTexCoords[] = {
-        1.0f, 0.0f,  0.0f, 0.0f,  0.0f, 1.0f,
-        1.0f, 0.0f,  1.0f, 1.0f,  0.0f, 1.0f,
-        0.0f, 0.0f,  1.0f, 0.0f,  1.0f, 1.0f,
-        0.0f, 0.0f,  0.0f, 1.0f,  1.0f, 1.0f,
-        0.0f, 1.0f,  1.0f, 1.0f,  1.0f, 0.0f,
-        0.0f, 1.0f,  0.0f, 0.0f,  1.0f, 0.0f,
-        0.0f, 0.0f,  1.0f, 0.0f,  1.0f, 1.0f,
-        0.0f, 0.0f,  0.0f, 1.0f,  1.0f, 1.0f,
-        0.0f, 0.0f,  1.0f, 0.0f,  1.0f, 1.0f,
-        0.0f, 0.0f,  0.0f, 1.0f,  1.0f, 1.0f,
-        0.0f, 0.0f,  1.0f, 0.0f,  1.0f, 1.0f,
-        0.0f, 0.0f,  0.0f, 1.0f,  1.0f, 1.0f
+        0.0f, 10.0f, 10.0f, 10.0f, 10.0f, 0.0f,
+        0.0f, 10.0f, 0.0f, 0.0f, 10.0f, 0.0f,
     };
 
-    m_modelView = glm::lookAt(glm::vec3(3.0f, 3.0f, 2.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+    m_modelView = glm::lookAt(glm::vec3(10.0f, 5.0f, 10.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
     glUseProgram(m_program);
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, lVertices);
     glEnableVertexAttribArray(0);
@@ -84,18 +64,18 @@ void GDrawSDLTexture::draw() {
     GShader::Instance()->setUniform(m_program, "ModelViewMatrix", m_modelView);
     GShader::Instance()->setUniform(m_program, "ProjectionMatrix", m_projection);
     GShader::Instance()->setUniform(m_program, "Tex", 0);
-    glDrawArrays(GL_TRIANGLES, 0, 36);
+    glDrawArrays(GL_TRIANGLES, 0, 6);
     glBindTexture(GL_TEXTURE_2D, 0);
     glDisableVertexAttribArray(1);
     glDisableVertexAttribArray(0);
     glUseProgram(0);
 }
 //===============================================
-void GDrawSDLTexture::handleEvents(SDL_Event* event) {
+void GDrawSDLTextureRepeat::handleEvents(SDL_Event* event) {
     GEvent::Instance()->handleEvents(event);
 }
 //===============================================
-void GDrawSDLTexture::onKeyDown(SDL_Event* event) {
+void GDrawSDLTextureRepeat::onKeyDown(SDL_Event* event) {
     switch (event->key.keysym.sym) {
     case SDLK_RIGHT:
         m_angleU += 20*0.1f;
