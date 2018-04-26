@@ -141,3 +141,19 @@ void GCameraSDL::setPosition(glm::vec3 position) {
     m_pointCible = m_position + m_orientation;
 }
 //===============================================
+void GCameraSDL::capturerPointeur(bool reponse)
+{
+    if(reponse)
+        SDL_SetRelativeMouseMode(SDL_TRUE);
+    else
+        SDL_SetRelativeMouseMode(SDL_FALSE);
+}
+//===============================================
+void GCameraSDL::afficherPointeur(bool reponse)
+{
+    if(reponse)
+        SDL_ShowCursor(SDL_ENABLE);
+    else
+        SDL_ShowCursor(SDL_DISABLE);
+}
+//===============================================

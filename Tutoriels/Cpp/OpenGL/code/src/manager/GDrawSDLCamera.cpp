@@ -36,7 +36,9 @@ void GDrawSDLCamera::initCamera(int width, int height) {
     float lZNear = 0.1f;
     float lZFar = 100.0f;
     m_projection = glm::perspective(lFoV, lRatio, lZNear, lZFar);
-    GCameraSDL::Instance()->initCamera(glm::vec3(10.0f, 10.0f, 10.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f), 0.5f, 0.01f);
+    GCameraSDL::Instance()->initCamera(glm::vec3(10.0f, 10.0f, 10.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f), 0.5f, 0.5f);
+    GCameraSDL::Instance()->afficherPointeur(false);
+    GCameraSDL::Instance()->capturerPointeur(true);
 }
 //===============================================
 void GDrawSDLCamera::draw() {
@@ -106,6 +108,10 @@ void GDrawSDLCamera::onKeyDown(SDL_Event* event) {
     }
     if(event->key.keysym.sym == SDLK_s) {
         GCameraSDL::Instance()->deplacer(4);
+    }
+    if(event->key.keysym.sym == SDLK_ESCAPE) {
+        GCameraSDL::Instance()->afficherPointeur(true);
+        GCameraSDL::Instance()->capturerPointeur(false);
     }
 }
 //===============================================

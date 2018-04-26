@@ -17,6 +17,8 @@ public:
     void lookAt(glm::mat4& modelView);
     void setPointcible(glm::vec3 pointCible);
     void setPosition(glm::vec3 position);
+    void capturerPointeur(bool reponse);
+    void afficherPointeur(bool reponse);
 
 private:
     static GCameraSDL* m_instance;
