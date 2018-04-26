@@ -1,4 +1,5 @@
 INPUT(
+./build\SDL2_rotozoom.o
 ./build\GWindow.o
 ./build\GConfig.o
 ./build\GWindowGLUT.o

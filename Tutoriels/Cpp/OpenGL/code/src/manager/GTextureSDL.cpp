@@ -20,7 +20,10 @@ GTextureSDL* GTextureSDL::Instance() {
 //===============================================
 GLuint GTextureSDL::loadTexture(const char* filename) {
     GLuint lTextureId;
-    SDL_Surface *lSurface = IMG_Load(filename);
+    SDL_Surface *lLoad = IMG_Load(filename);
+    SDL_Surface *lSurface = rotateSurface90Degrees(lLoad, 0);
+    SDL_FreeSurface(lLoad);
+
     glActiveTexture(GL_TEXTURE0);
     glGenTextures(1, &lTextureId);
     glBindTexture(GL_TEXTURE_2D, lTextureId);

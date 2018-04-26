@@ -14,7 +14,7 @@ CXX           = g++
 DEFINES       = -DUNICODE -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -fno-keep-inline-dllexport -g -Wall -Wextra $(DEFINES)
 CXXFLAGS      = -pipe -fno-keep-inline-dllexport -g -std=gnu++11 -frtti -Wall -Wextra -fexceptions -mthreads $(DEFINES)
-INCPATH       = -I. -IC:\Users\sabine\Downloads\Gerard\freeglut-3.0.0\freeglut-3.0.0\include -IC:\Users\sabine\Downloads\Gerard\glew-2.1.0-win32\glew-2.1.0\include -IC:\Users\sabine\Downloads\Gerard\SDL2-devel-2.0.8-mingw\SDL2-2.0.8\i686-w64-mingw32\include -IC:\Users\sabine\Downloads\Gerard\SDL2-devel-2.0.8-mingw\SDL2-2.0.8\i686-w64-mingw32\include\SDL2 -IC:\Users\sabine\Downloads\Gerard\bullet3-master\bullet3-master\src -IC:\Users\sabine\Downloads\Gerard\glfw-3.2.1\glfw-3.2.1\include -IC:\Users\sabine\Downloads\Gerard\glm-master\glm-master -IC:\Users\sabine\Downloads\Gerard\SDL2_image-devel-2.0.3-mingw\SDL2_image-2.0.3\i686-w64-mingw32\include -I..\src\manager -IC:\Qt\Qt5.8.0\5.8\mingw53_32\include -IC:\Qt\Qt5.8.0\5.8\mingw53_32\include\QtOpenGL -IC:\Qt\Qt5.8.0\5.8\mingw53_32\include\QtWidgets -IC:\Qt\Qt5.8.0\5.8\mingw53_32\include\QtGui -IC:\Qt\Qt5.8.0\5.8\mingw53_32\include\QtANGLE -IC:\Qt\Qt5.8.0\5.8\mingw53_32\include\QtCore -Ibuild -Ibuild -IC:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\win32-g++ 
+INCPATH       = -I. -IC:\Users\sabine\Downloads\Gerard\freeglut-3.0.0\freeglut-3.0.0\include -IC:\Users\sabine\Downloads\Gerard\glew-2.1.0-win32\glew-2.1.0\include -IC:\Users\sabine\Downloads\Gerard\SDL2-devel-2.0.8-mingw\SDL2-2.0.8\i686-w64-mingw32\include -IC:\Users\sabine\Downloads\Gerard\SDL2-devel-2.0.8-mingw\SDL2-2.0.8\i686-w64-mingw32\include\SDL2 -IC:\Users\sabine\Downloads\Gerard\bullet3-master\bullet3-master\src -IC:\Users\sabine\Downloads\Gerard\glfw-3.2.1\glfw-3.2.1\include -IC:\Users\sabine\Downloads\Gerard\glm-master\glm-master -IC:\Users\sabine\Downloads\Gerard\SDL2_image-devel-2.0.3-mingw\SDL2_image-2.0.3\i686-w64-mingw32\include -IC:\Users\sabine\Downloads\Gerard\SDL2_gfx-1.0.4\SDL2_gfx-1.0.4 -I..\src\manager -IC:\Qt\Qt5.8.0\5.8\mingw53_32\include -IC:\Qt\Qt5.8.0\5.8\mingw53_32\include\QtOpenGL -IC:\Qt\Qt5.8.0\5.8\mingw53_32\include\QtWidgets -IC:\Qt\Qt5.8.0\5.8\mingw53_32\include\QtGui -IC:\Qt\Qt5.8.0\5.8\mingw53_32\include\QtANGLE -IC:\Qt\Qt5.8.0\5.8\mingw53_32\include\QtCore -Ibuild -Ibuild -IC:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\win32-g++ 
 LINKER      =        g++
 LFLAGS        =        -Wl,-subsystem,console -mthreads
 LIBS        =        -LC:\Users\sabine\Downloads\Gerard\freeglut-3.0.0\freeglut-3.0.0\build\lib -LC:\Users\sabine\Downloads\Gerard\glew-2.1.0-win32\glew-2.1.0\lib\Release\Win32 -LC:\Users\sabine\Downloads\Gerard\SDL2-devel-2.0.8-mingw\SDL2-2.0.8\i686-w64-mingw32\lib -LC:\Users\sabine\Downloads\Gerard\glfw-3.2.1\glfw-3.2.1\build\src -LC:\Users\sabine\Downloads\Gerard\SDL2_image-devel-2.0.3-mingw\SDL2_image-2.0.3\i686-w64-mingw32\lib -lopengl32 -lmingw32 -lfreeglut.dll -lSDL2main -lSDL2 -lSDL2_image.dll -lglew32 -lglfw3 -lgdi32 -LC:\Qt\Qt5.8.0\5.8\mingw53_32\lib C:\Qt\Qt5.8.0\5.8\mingw53_32\lib\libQt5OpenGLd.a C:\Qt\Qt5.8.0\5.8\mingw53_32\lib\libQt5Widgetsd.a C:\Qt\Qt5.8.0\5.8\mingw53_32\lib\libQt5Guid.a C:\Qt\Qt5.8.0\5.8\mingw53_32\lib\libQt5Cored.a 
@@ -43,7 +43,8 @@ OBJECTS_DIR   = build
 
 ####### Files
 
-SOURCES       = ..\src\manager\GWindow.cpp \
+SOURCES       = C:\Users\sabine\Downloads\Gerard\SDL2_gfx-1.0.4\SDL2_gfx-1.0.4\SDL2_rotozoom.c \
+		..\src\manager\GWindow.cpp \
 		..\src\manager\GConfig.cpp \
 		..\src\manager\GWindowGLUT.cpp \
 		..\src\manager\GWindowSDL.cpp \
@@ -100,7 +101,8 @@ SOURCES       = ..\src\manager\GWindow.cpp \
 		..\src\manager\GDrawQtTexture.cpp \
 		..\src\main.cpp build\moc_GWindowQtForm.cpp \
 		build\moc_GWindowQtFormGL.cpp
-OBJECTS       = build/GWindow.o \
+OBJECTS       = build/SDL2_rotozoom.o \
+		build/GWindow.o \
 		build/GConfig.o \
 		build/GWindowGLUT.o \
 		build/GWindowSDL.o \
@@ -214,7 +216,8 @@ DIST          =  ..\src\manager\GWindow.h \
 		..\src\manager\GTexture.h \
 		..\src\manager\GTextureQt.h \
 		..\src\manager\GTextureSDL.h \
-		..\src\manager\GDrawQtTexture.h ..\src\manager\GWindow.cpp \
+		..\src\manager\GDrawQtTexture.h C:\Users\sabine\Downloads\Gerard\SDL2_gfx-1.0.4\SDL2_gfx-1.0.4\SDL2_rotozoom.c \
+		..\src\manager\GWindow.cpp \
 		..\src\manager\GConfig.cpp \
 		..\src\manager\GWindowGLUT.cpp \
 		..\src\manager\GWindowSDL.cpp \
@@ -289,10 +292,10 @@ qmake: FORCE
 qmake_all: FORCE
 
 dist:
-	$(ZIP) GProject.zip $(SOURCES) $(DIST) GProject.pro C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\spec_pre.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\qdevice.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\device_config.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\common\angle.conf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\qconfig.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dcore.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dcore_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dextras.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dextras_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dinput.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dinput_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dlogic.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dlogic_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dquick.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dquick_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dquickextras.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dquickextras_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dquickinput.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dquickinput_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dquickrender.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dquickrender_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3drender.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3drender_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_accessibility_support_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_axbase.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_axbase_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_axcontainer.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_axcontainer_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_axserver.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_axserver_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_bluetooth.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_bluetooth_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_bootstrap_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_charts.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_charts_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_clucene_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_concurrent.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_concurrent_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_core.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_core_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_datavisualization.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_datavisualization_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_dbus.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_dbus_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_designer.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_designer_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_designercomponents_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_devicediscovery_support_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_egl_support_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_eventdispatcher_support_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_fb_support_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_fontdatabase_support_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_gamepad.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_gamepad_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_gui.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_gui_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_help.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_help_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_location.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_location_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_multimedia.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_multimedia_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_multimediawidgets.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_multimediawidgets_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_network.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_network_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_networkauth.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_networkauth_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_nfc.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_nfc_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_opengl.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_opengl_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_openglextensions.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_openglextensions_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_packetprotocol_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_platformcompositor_support_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_positioning.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_positioning_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_printsupport.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_printsupport_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_purchasing.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_purchasing_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_qml.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_qml_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_qmldebug_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_qmldevtools_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_qmltest.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_qmltest_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_quick.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_quick_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_quickcontrols2.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_quickcontrols2_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_quickparticles_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_quicktemplates2_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_quickwidgets.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_quickwidgets_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_script.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_script_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_scripttools.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_scripttools_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_scxml.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_scxml_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_sensors.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_sensors_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_serialbus.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_serialbus_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_serialport.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_serialport_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_sql.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_sql_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_svg.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_svg_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_testlib.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_testlib_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_texttospeech.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_texttospeech_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_theme_support_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_uiplugin.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_uitools.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_uitools_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_webchannel.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_webchannel_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_websockets.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_websockets_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_widgets.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_widgets_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_winextras.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_winextras_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_xml.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_xml_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_xmlpatterns.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_xmlpatterns_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\qt_functions.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\qt_config.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\win32-g++\qmake.conf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\spec_post.prf .qmake.stash C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\exclusive_builds.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\toolchain.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\default_pre.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\win32\default_pre.prf C:\Users\sabine\Downloads\Gerard\freeglut-3.0.0\freeglut-3.0.0\GFreeGLUT.pri C:\Users\sabine\Downloads\Gerard\glew-2.1.0-win32\glew-2.1.0\GGLEW.pri C:\Users\sabine\Downloads\Gerard\SDL2-devel-2.0.8-mingw\SDL2-2.0.8\i686-w64-mingw32\GSDL.pri C:\Users\sabine\Downloads\Gerard\bullet3-master\bullet3-master\GBullet.pri C:\Users\sabine\Downloads\Gerard\glfw-3.2.1\glfw-3.2.1\GGLFW.pri C:\Users\sabine\Downloads\Gerard\glm-master\glm-master\GGLM.pri C:\Users\sabine\Downloads\Gerard\SDL2_image-devel-2.0.3-mingw\SDL2_image-2.0.3\i686-w64-mingw32\GSDLImage.pri ..\src\manager\GManager.pri ..\src\GMain.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\resolve_config.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\exclusive_builds_post.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\default_post.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\build_pass.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\win32\console.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\win32\rtti.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\precompile_header.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\warn_on.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\qt.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\resources.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\moc.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\win32\opengl.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\uic.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\qmake_use.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\file_copies.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\testcase_targets.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\exceptions.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\yacc.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\lex.prf GProject.pro C:\Qt\Qt5.8.0\5.8\mingw53_32\lib\Qt5OpenGLd.prl C:\Qt\Qt5.8.0\5.8\mingw53_32\lib\Qt5Widgetsd.prl C:\Qt\Qt5.8.0\5.8\mingw53_32\lib\Qt5Guid.prl C:\Qt\Qt5.8.0\5.8\mingw53_32\lib\Qt5Cored.prl    C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\data\dummy.cpp ..\src\manager\GWindow.h ..\src\manager\GConfig.h ..\src\manager\GWindowGLUT.h ..\src\manager\GWindowSDL.h ..\src\manager\GDraw.h ..\src\manager\GDrawSDL.h ..\src\manager\GDrawGLUT.h ..\src\manager\GVertex.h ..\src\manager\GShader.h ..\src\manager\GFile.h ..\src\manager\GDrawSDLSimple.h ..\src\manager\GDrawSDLColor.h ..\src\manager\GWindowQt.h ..\src\manager\GWindowQtForm.h ..\src\manager\GWindowQtFormGL.h ..\src\manager\GWindowGLFW.h ..\src\manager\GInclude.h ..\src\manager\GDrawQt.h ..\src\manager\GDrawQtSimple.h ..\src\manager\GDrawQtLayout.h ..\src\manager\GDrawQtBind.h ..\src\manager\GShaderBind.h ..\src\manager\GShaderLayout.h ..\src\manager\GDrawQtUniform.h ..\src\manager\GDrawQtBackground.h ..\src\manager\GDrawQtRead.h ..\src\manager\GDrawQtUniformBlock.h ..\src\manager\GTorus.h ..\src\manager\GDrawQtLightDiffuse.h ..\src\manager\GDrawQtLightADS.h ..\src\manager\GDrawGLFW.h ..\src\manager\GDrawGLFWBackground.h ..\src\manager\GDrawGLFWSimple.h ..\src\manager\GCamera.h ..\src\manager\GDrawGLFWPoint.h ..\src\manager\GDrawGLFWLine.h ..\src\manager\GObjPoint.h ..\src\manager\GDrawGLFWObject.h ..\src\manager\GDrawSDLBackground.h ..\src\manager\GDrawSDLMatrix.h ..\src\manager\GDrawSDLRotate.h ..\src\manager\GDrawSDLTranslate.h ..\src\manager\GDrawSDLScale.h ..\src\manager\GDrawSDLComposite.h ..\src\manager\GDrawSDLCube.h ..\src\manager\GObjCube.h ..\src\manager\GDrawSDLCubeObj.h ..\src\manager\GDrawSDLCubeAnimate.h ..\src\manager\GDrawSDLMatrixSave.h ..\src\manager\GDrawSDLEvent.h ..\src\manager\GEvent.h ..\src\manager\GDrawSDLTexture.h ..\src\manager\GTexture.h ..\src\manager\GTextureQt.h ..\src\manager\GTextureSDL.h ..\src\manager\GDrawQtTexture.h ..\src\manager\GWindow.cpp ..\src\manager\GConfig.cpp ..\src\manager\GWindowGLUT.cpp ..\src\manager\GWindowSDL.cpp ..\src\manager\GDraw.cpp ..\src\manager\GDrawSDL.cpp ..\src\manager\GDrawGLUT.cpp ..\src\manager\GVertex.cpp ..\src\manager\GShader.cpp ..\src\manager\GFile.cpp ..\src\manager\GDrawSDLSimple.cpp ..\src\manager\GDrawSDLColor.cpp ..\src\manager\GWindowQt.cpp ..\src\manager\GWindowQtForm.cpp ..\src\manager\GWindowQtFormGL.cpp ..\src\manager\GWindowGLFW.cpp ..\src\manager\GDrawQt.cpp ..\src\manager\GDrawQtSimple.cpp ..\src\manager\GDrawQtLayout.cpp ..\src\manager\GDrawQtBind.cpp ..\src\manager\GShaderBind.cpp ..\src\manager\GShaderLayout.cpp ..\src\manager\GDrawQtUniform.cpp ..\src\manager\GDrawQtBackground.cpp ..\src\manager\GDrawQtRead.cpp ..\src\manager\GDrawQtUniformBlock.cpp ..\src\manager\GTorus.cpp ..\src\manager\GDrawQtLightDiffuse.cpp ..\src\manager\GDrawQtLightADS.cpp ..\src\manager\GDrawGLFW.cpp ..\src\manager\GDrawGLFWBackground.cpp ..\src\manager\GDrawGLFWSimple.cpp ..\src\manager\GCamera.cpp ..\src\manager\GDrawGLFWPoint.cpp ..\src\manager\GDrawGLFWLine.cpp ..\src\manager\GObjPoint.cpp ..\src\manager\GDrawGLFWObject.cpp ..\src\manager\GDrawSDLBackground.cpp ..\src\manager\GDrawSDLMatrix.cpp ..\src\manager\GDrawSDLRotate.cpp ..\src\manager\GDrawSDLTranslate.cpp ..\src\manager\GDrawSDLScale.cpp ..\src\manager\GDrawSDLComposite.cpp ..\src\manager\GDrawSDLCube.cpp ..\src\manager\GObjCube.cpp ..\src\manager\GDrawSDLCubeObj.cpp ..\src\manager\GDrawSDLCubeAnimate.cpp ..\src\manager\GDrawSDLMatrixSave.cpp ..\src\manager\GDrawSDLEvent.cpp ..\src\manager\GEvent.cpp ..\src\manager\GDrawSDLTexture.cpp ..\src\manager\GTexture.cpp ..\src\manager\GTextureQt.cpp ..\src\manager\GTextureSDL.cpp ..\src\manager\GDrawQtTexture.cpp ..\src\main.cpp ..\src\manager\GWindowQtForm.ui    
+	$(ZIP) GProject.zip $(SOURCES) $(DIST) GProject.pro C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\spec_pre.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\qdevice.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\device_config.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\common\angle.conf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\qconfig.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dcore.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dcore_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dextras.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dextras_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dinput.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dinput_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dlogic.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dlogic_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dquick.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dquick_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dquickextras.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dquickextras_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dquickinput.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dquickinput_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dquickrender.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dquickrender_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3drender.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3drender_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_accessibility_support_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_axbase.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_axbase_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_axcontainer.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_axcontainer_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_axserver.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_axserver_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_bluetooth.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_bluetooth_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_bootstrap_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_charts.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_charts_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_clucene_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_concurrent.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_concurrent_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_core.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_core_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_datavisualization.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_datavisualization_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_dbus.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_dbus_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_designer.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_designer_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_designercomponents_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_devicediscovery_support_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_egl_support_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_eventdispatcher_support_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_fb_support_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_fontdatabase_support_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_gamepad.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_gamepad_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_gui.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_gui_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_help.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_help_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_location.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_location_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_multimedia.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_multimedia_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_multimediawidgets.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_multimediawidgets_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_network.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_network_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_networkauth.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_networkauth_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_nfc.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_nfc_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_opengl.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_opengl_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_openglextensions.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_openglextensions_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_packetprotocol_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_platformcompositor_support_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_positioning.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_positioning_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_printsupport.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_printsupport_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_purchasing.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_purchasing_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_qml.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_qml_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_qmldebug_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_qmldevtools_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_qmltest.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_qmltest_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_quick.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_quick_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_quickcontrols2.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_quickcontrols2_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_quickparticles_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_quicktemplates2_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_quickwidgets.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_quickwidgets_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_script.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_script_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_scripttools.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_scripttools_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_scxml.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_scxml_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_sensors.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_sensors_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_serialbus.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_serialbus_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_serialport.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_serialport_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_sql.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_sql_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_svg.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_svg_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_testlib.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_testlib_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_texttospeech.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_texttospeech_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_theme_support_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_uiplugin.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_uitools.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_uitools_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_webchannel.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_webchannel_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_websockets.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_websockets_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_widgets.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_widgets_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_winextras.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_winextras_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_xml.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_xml_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_xmlpatterns.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_xmlpatterns_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\qt_functions.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\qt_config.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\win32-g++\qmake.conf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\spec_post.prf .qmake.stash C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\exclusive_builds.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\toolchain.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\default_pre.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\win32\default_pre.prf C:\Users\sabine\Downloads\Gerard\freeglut-3.0.0\freeglut-3.0.0\GFreeGLUT.pri C:\Users\sabine\Downloads\Gerard\glew-2.1.0-win32\glew-2.1.0\GGLEW.pri C:\Users\sabine\Downloads\Gerard\SDL2-devel-2.0.8-mingw\SDL2-2.0.8\i686-w64-mingw32\GSDL.pri C:\Users\sabine\Downloads\Gerard\bullet3-master\bullet3-master\GBullet.pri C:\Users\sabine\Downloads\Gerard\glfw-3.2.1\glfw-3.2.1\GGLFW.pri C:\Users\sabine\Downloads\Gerard\glm-master\glm-master\GGLM.pri C:\Users\sabine\Downloads\Gerard\SDL2_image-devel-2.0.3-mingw\SDL2_image-2.0.3\i686-w64-mingw32\GSDLImage.pri C:\Users\sabine\Downloads\Gerard\SDL2_gfx-1.0.4\SDL2_gfx-1.0.4\GSDLGfx.pri ..\src\manager\GManager.pri ..\src\GMain.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\resolve_config.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\exclusive_builds_post.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\default_post.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\build_pass.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\win32\console.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\win32\rtti.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\precompile_header.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\warn_on.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\qt.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\resources.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\moc.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\win32\opengl.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\uic.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\qmake_use.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\file_copies.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\testcase_targets.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\exceptions.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\yacc.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\lex.prf GProject.pro C:\Qt\Qt5.8.0\5.8\mingw53_32\lib\Qt5OpenGLd.prl C:\Qt\Qt5.8.0\5.8\mingw53_32\lib\Qt5Widgetsd.prl C:\Qt\Qt5.8.0\5.8\mingw53_32\lib\Qt5Guid.prl C:\Qt\Qt5.8.0\5.8\mingw53_32\lib\Qt5Cored.prl    C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\data\dummy.cpp ..\src\manager\GWindow.h ..\src\manager\GConfig.h ..\src\manager\GWindowGLUT.h ..\src\manager\GWindowSDL.h ..\src\manager\GDraw.h ..\src\manager\GDrawSDL.h ..\src\manager\GDrawGLUT.h ..\src\manager\GVertex.h ..\src\manager\GShader.h ..\src\manager\GFile.h ..\src\manager\GDrawSDLSimple.h ..\src\manager\GDrawSDLColor.h ..\src\manager\GWindowQt.h ..\src\manager\GWindowQtForm.h ..\src\manager\GWindowQtFormGL.h ..\src\manager\GWindowGLFW.h ..\src\manager\GInclude.h ..\src\manager\GDrawQt.h ..\src\manager\GDrawQtSimple.h ..\src\manager\GDrawQtLayout.h ..\src\manager\GDrawQtBind.h ..\src\manager\GShaderBind.h ..\src\manager\GShaderLayout.h ..\src\manager\GDrawQtUniform.h ..\src\manager\GDrawQtBackground.h ..\src\manager\GDrawQtRead.h ..\src\manager\GDrawQtUniformBlock.h ..\src\manager\GTorus.h ..\src\manager\GDrawQtLightDiffuse.h ..\src\manager\GDrawQtLightADS.h ..\src\manager\GDrawGLFW.h ..\src\manager\GDrawGLFWBackground.h ..\src\manager\GDrawGLFWSimple.h ..\src\manager\GCamera.h ..\src\manager\GDrawGLFWPoint.h ..\src\manager\GDrawGLFWLine.h ..\src\manager\GObjPoint.h ..\src\manager\GDrawGLFWObject.h ..\src\manager\GDrawSDLBackground.h ..\src\manager\GDrawSDLMatrix.h ..\src\manager\GDrawSDLRotate.h ..\src\manager\GDrawSDLTranslate.h ..\src\manager\GDrawSDLScale.h ..\src\manager\GDrawSDLComposite.h ..\src\manager\GDrawSDLCube.h ..\src\manager\GObjCube.h ..\src\manager\GDrawSDLCubeObj.h ..\src\manager\GDrawSDLCubeAnimate.h ..\src\manager\GDrawSDLMatrixSave.h ..\src\manager\GDrawSDLEvent.h ..\src\manager\GEvent.h ..\src\manager\GDrawSDLTexture.h ..\src\manager\GTexture.h ..\src\manager\GTextureQt.h ..\src\manager\GTextureSDL.h ..\src\manager\GDrawQtTexture.h C:\Users\sabine\Downloads\Gerard\SDL2_gfx-1.0.4\SDL2_gfx-1.0.4\SDL2_rotozoom.c ..\src\manager\GWindow.cpp ..\src\manager\GConfig.cpp ..\src\manager\GWindowGLUT.cpp ..\src\manager\GWindowSDL.cpp ..\src\manager\GDraw.cpp ..\src\manager\GDrawSDL.cpp ..\src\manager\GDrawGLUT.cpp ..\src\manager\GVertex.cpp ..\src\manager\GShader.cpp ..\src\manager\GFile.cpp ..\src\manager\GDrawSDLSimple.cpp ..\src\manager\GDrawSDLColor.cpp ..\src\manager\GWindowQt.cpp ..\src\manager\GWindowQtForm.cpp ..\src\manager\GWindowQtFormGL.cpp ..\src\manager\GWindowGLFW.cpp ..\src\manager\GDrawQt.cpp ..\src\manager\GDrawQtSimple.cpp ..\src\manager\GDrawQtLayout.cpp ..\src\manager\GDrawQtBind.cpp ..\src\manager\GShaderBind.cpp ..\src\manager\GShaderLayout.cpp ..\src\manager\GDrawQtUniform.cpp ..\src\manager\GDrawQtBackground.cpp ..\src\manager\GDrawQtRead.cpp ..\src\manager\GDrawQtUniformBlock.cpp ..\src\manager\GTorus.cpp ..\src\manager\GDrawQtLightDiffuse.cpp ..\src\manager\GDrawQtLightADS.cpp ..\src\manager\GDrawGLFW.cpp ..\src\manager\GDrawGLFWBackground.cpp ..\src\manager\GDrawGLFWSimple.cpp ..\src\manager\GCamera.cpp ..\src\manager\GDrawGLFWPoint.cpp ..\src\manager\GDrawGLFWLine.cpp ..\src\manager\GObjPoint.cpp ..\src\manager\GDrawGLFWObject.cpp ..\src\manager\GDrawSDLBackground.cpp ..\src\manager\GDrawSDLMatrix.cpp ..\src\manager\GDrawSDLRotate.cpp ..\src\manager\GDrawSDLTranslate.cpp ..\src\manager\GDrawSDLScale.cpp ..\src\manager\GDrawSDLComposite.cpp ..\src\manager\GDrawSDLCube.cpp ..\src\manager\GObjCube.cpp ..\src\manager\GDrawSDLCubeObj.cpp ..\src\manager\GDrawSDLCubeAnimate.cpp ..\src\manager\GDrawSDLMatrixSave.cpp ..\src\manager\GDrawSDLEvent.cpp ..\src\manager\GEvent.cpp ..\src\manager\GDrawSDLTexture.cpp ..\src\manager\GTexture.cpp ..\src\manager\GTextureQt.cpp ..\src\manager\GTextureSDL.cpp ..\src\manager\GDrawQtTexture.cpp ..\src\main.cpp ..\src\manager\GWindowQtForm.ui    
 
 clean: compiler_clean 
-	-$(DEL_FILE) build\GWindow.o build\GConfig.o build\GWindowGLUT.o build\GWindowSDL.o build\GDraw.o build\GDrawSDL.o build\GDrawGLUT.o build\GVertex.o build\GShader.o build\GFile.o build\GDrawSDLSimple.o build\GDrawSDLColor.o build\GWindowQt.o build\GWindowQtForm.o build\GWindowQtFormGL.o build\GWindowGLFW.o build\GDrawQt.o build\GDrawQtSimple.o build\GDrawQtLayout.o build\GDrawQtBind.o build\GShaderBind.o build\GShaderLayout.o build\GDrawQtUniform.o build\GDrawQtBackground.o build\GDrawQtRead.o build\GDrawQtUniformBlock.o build\GTorus.o build\GDrawQtLightDiffuse.o build\GDrawQtLightADS.o build\GDrawGLFW.o build\GDrawGLFWBackground.o build\GDrawGLFWSimple.o build\GCamera.o build\GDrawGLFWPoint.o build\GDrawGLFWLine.o build\GObjPoint.o build\GDrawGLFWObject.o build\GDrawSDLBackground.o build\GDrawSDLMatrix.o build\GDrawSDLRotate.o build\GDrawSDLTranslate.o build\GDrawSDLScale.o build\GDrawSDLComposite.o build\GDrawSDLCube.o build\GObjCube.o build\GDrawSDLCubeObj.o build\GDrawSDLCubeAnimate.o build\GDrawSDLMatrixSave.o build\GDrawSDLEvent.o build\GEvent.o build\GDrawSDLTexture.o build\GTexture.o build\GTextureQt.o build\GTextureSDL.o build\GDrawQtTexture.o build\main.o build\moc_GWindowQtForm.o build\moc_GWindowQtFormGL.o
+	-$(DEL_FILE) build\SDL2_rotozoom.o build\GWindow.o build\GConfig.o build\GWindowGLUT.o build\GWindowSDL.o build\GDraw.o build\GDrawSDL.o build\GDrawGLUT.o build\GVertex.o build\GShader.o build\GFile.o build\GDrawSDLSimple.o build\GDrawSDLColor.o build\GWindowQt.o build\GWindowQtForm.o build\GWindowQtFormGL.o build\GWindowGLFW.o build\GDrawQt.o build\GDrawQtSimple.o build\GDrawQtLayout.o build\GDrawQtBind.o build\GShaderBind.o build\GShaderLayout.o build\GDrawQtUniform.o build\GDrawQtBackground.o build\GDrawQtRead.o build\GDrawQtUniformBlock.o build\GTorus.o build\GDrawQtLightDiffuse.o build\GDrawQtLightADS.o build\GDrawGLFW.o build\GDrawGLFWBackground.o build\GDrawGLFWSimple.o build\GCamera.o build\GDrawGLFWPoint.o build\GDrawGLFWLine.o build\GObjPoint.o build\GDrawGLFWObject.o build\GDrawSDLBackground.o build\GDrawSDLMatrix.o build\GDrawSDLRotate.o build\GDrawSDLTranslate.o build\GDrawSDLScale.o build\GDrawSDLComposite.o build\GDrawSDLCube.o build\GObjCube.o build\GDrawSDLCubeObj.o build\GDrawSDLCubeAnimate.o build\GDrawSDLMatrixSave.o build\GDrawSDLEvent.o build\GEvent.o build\GDrawSDLTexture.o build\GTexture.o build\GTextureQt.o build\GTextureSDL.o build\GDrawQtTexture.o build\main.o build\moc_GWindowQtForm.o build\moc_GWindowQtFormGL.o
 
 distclean: clean 
 	-$(DEL_FILE) .qmake.stash
@@ -424,7 +427,7 @@ build/moc_GWindowQtForm.cpp: C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtWidgets/QWid
 		../src/manager/GWindowQtForm.h \
 		build/moc_predefs.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/bin/moc.exe
-	C:\Qt\Qt5.8.0\5.8\mingw53_32\bin\moc.exe $(DEFINES) --include build/moc_predefs.h -IC:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/win32-g++ -IC:/Users/sabine/Downloads/Gerard/Programs/ReadyDev/Tutoriels/Cpp/OpenGL/code/win -IC:/Users/sabine/Downloads/Gerard/freeglut-3.0.0/freeglut-3.0.0/include -IC:/Users/sabine/Downloads/Gerard/glew-2.1.0-win32/glew-2.1.0/include -IC:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include -IC:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2 -IC:/Users/sabine/Downloads/Gerard/bullet3-master/bullet3-master/src -IC:/Users/sabine/Downloads/Gerard/glfw-3.2.1/glfw-3.2.1/include -IC:/Users/sabine/Downloads/Gerard/glm-master/glm-master -IC:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include -IC:/Users/sabine/Downloads/Gerard/Programs/ReadyDev/Tutoriels/Cpp/OpenGL/code/src/manager -IC:/Qt/Qt5.8.0/5.8/mingw53_32/include -IC:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL -IC:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtWidgets -IC:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui -IC:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtANGLE -IC:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore -IC:/Qt/Qt5.8.0/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Qt5.8.0/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\src\manager\GWindowQtForm.h -o build\moc_GWindowQtForm.cpp
+	C:\Qt\Qt5.8.0\5.8\mingw53_32\bin\moc.exe $(DEFINES) --include build/moc_predefs.h -IC:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/win32-g++ -IC:/Users/sabine/Downloads/Gerard/Programs/ReadyDev/Tutoriels/Cpp/OpenGL/code/win -IC:/Users/sabine/Downloads/Gerard/freeglut-3.0.0/freeglut-3.0.0/include -IC:/Users/sabine/Downloads/Gerard/glew-2.1.0-win32/glew-2.1.0/include -IC:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include -IC:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2 -IC:/Users/sabine/Downloads/Gerard/bullet3-master/bullet3-master/src -IC:/Users/sabine/Downloads/Gerard/glfw-3.2.1/glfw-3.2.1/include -IC:/Users/sabine/Downloads/Gerard/glm-master/glm-master -IC:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include -IC:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4 -IC:/Users/sabine/Downloads/Gerard/Programs/ReadyDev/Tutoriels/Cpp/OpenGL/code/src/manager -IC:/Qt/Qt5.8.0/5.8/mingw53_32/include -IC:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL -IC:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtWidgets -IC:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui -IC:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtANGLE -IC:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore -IC:/Qt/Qt5.8.0/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Qt5.8.0/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\src\manager\GWindowQtForm.h -o build\moc_GWindowQtForm.cpp
 
 build/moc_GWindowQtFormGL.cpp: ../src/manager/GInclude.h \
 		C:/Users/sabine/Downloads/Gerard/glew-2.1.0-win32/glew-2.1.0/include/GL/glew.h \
@@ -485,6 +488,7 @@ build/moc_GWindowQtFormGL.cpp: ../src/manager/GInclude.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_timer.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_version.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2/SDL_image.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4/SDL2_rotozoom.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/QGLWidget \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/qgl.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qopengl.h \
@@ -731,7 +735,7 @@ build/moc_GWindowQtFormGL.cpp: ../src/manager/GInclude.h \
 		../src/manager/GWindowQtFormGL.h \
 		build/moc_predefs.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/bin/moc.exe
-	C:\Qt\Qt5.8.0\5.8\mingw53_32\bin\moc.exe $(DEFINES) --include build/moc_predefs.h -IC:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/win32-g++ -IC:/Users/sabine/Downloads/Gerard/Programs/ReadyDev/Tutoriels/Cpp/OpenGL/code/win -IC:/Users/sabine/Downloads/Gerard/freeglut-3.0.0/freeglut-3.0.0/include -IC:/Users/sabine/Downloads/Gerard/glew-2.1.0-win32/glew-2.1.0/include -IC:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include -IC:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2 -IC:/Users/sabine/Downloads/Gerard/bullet3-master/bullet3-master/src -IC:/Users/sabine/Downloads/Gerard/glfw-3.2.1/glfw-3.2.1/include -IC:/Users/sabine/Downloads/Gerard/glm-master/glm-master -IC:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include -IC:/Users/sabine/Downloads/Gerard/Programs/ReadyDev/Tutoriels/Cpp/OpenGL/code/src/manager -IC:/Qt/Qt5.8.0/5.8/mingw53_32/include -IC:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL -IC:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtWidgets -IC:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui -IC:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtANGLE -IC:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore -IC:/Qt/Qt5.8.0/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Qt5.8.0/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\src\manager\GWindowQtFormGL.h -o build\moc_GWindowQtFormGL.cpp
+	C:\Qt\Qt5.8.0\5.8\mingw53_32\bin\moc.exe $(DEFINES) --include build/moc_predefs.h -IC:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/win32-g++ -IC:/Users/sabine/Downloads/Gerard/Programs/ReadyDev/Tutoriels/Cpp/OpenGL/code/win -IC:/Users/sabine/Downloads/Gerard/freeglut-3.0.0/freeglut-3.0.0/include -IC:/Users/sabine/Downloads/Gerard/glew-2.1.0-win32/glew-2.1.0/include -IC:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include -IC:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2 -IC:/Users/sabine/Downloads/Gerard/bullet3-master/bullet3-master/src -IC:/Users/sabine/Downloads/Gerard/glfw-3.2.1/glfw-3.2.1/include -IC:/Users/sabine/Downloads/Gerard/glm-master/glm-master -IC:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include -IC:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4 -IC:/Users/sabine/Downloads/Gerard/Programs/ReadyDev/Tutoriels/Cpp/OpenGL/code/src/manager -IC:/Qt/Qt5.8.0/5.8/mingw53_32/include -IC:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL -IC:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtWidgets -IC:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui -IC:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtANGLE -IC:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore -IC:/Qt/Qt5.8.0/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Qt5.8.0/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\src\manager\GWindowQtFormGL.h -o build\moc_GWindowQtFormGL.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
@@ -800,6 +804,7 @@ build/ui_GWindowQtForm.h: ../src/manager/GWindowQtForm.ui \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_timer.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_version.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2/SDL_image.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4/SDL2_rotozoom.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/QGLWidget \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/qgl.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qopengl.h \
@@ -1057,6 +1062,53 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_ui
 
 ####### Compile
 
+build/SDL2_rotozoom.o: C:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4/SDL2_rotozoom.c C:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4/SDL2_rotozoom.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_main.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_stdinc.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_config.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_platform.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/begin_code.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/close_code.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_assert.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_atomic.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_audio.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_error.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_endian.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_mutex.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_thread.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_rwops.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_clipboard.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_cpuinfo.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_events.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_video.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_pixels.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_rect.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_surface.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_blendmode.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_keyboard.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_keycode.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_scancode.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_mouse.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_joystick.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_gamecontroller.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_quit.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_gesture.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_touch.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_filesystem.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_haptic.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_hints.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_loadso.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_log.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_messagebox.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_power.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_render.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_shape.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_system.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_timer.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_version.h
+	$(CC) -c $(CFLAGS) $(INCPATH) -o build\SDL2_rotozoom.o C:\Users\sabine\Downloads\Gerard\SDL2_gfx-1.0.4\SDL2_gfx-1.0.4\SDL2_rotozoom.c
+
 build/GWindow.o: ../src/manager/GWindow.cpp ../src/manager/GWindow.h \
 		../src/manager/GInclude.h \
 		C:/Users/sabine/Downloads/Gerard/glew-2.1.0-win32/glew-2.1.0/include/GL/glew.h \
@@ -1117,6 +1169,7 @@ build/GWindow.o: ../src/manager/GWindow.cpp ../src/manager/GWindow.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_timer.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_version.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2/SDL_image.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4/SDL2_rotozoom.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/QGLWidget \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/qgl.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qopengl.h \
@@ -1493,6 +1546,7 @@ build/GWindowGLUT.o: ../src/manager/GWindowGLUT.cpp ../src/manager/GWindowGLUT.h
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_timer.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_version.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2/SDL_image.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4/SDL2_rotozoom.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/QGLWidget \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/qgl.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qopengl.h \
@@ -1797,6 +1851,7 @@ build/GWindowSDL.o: ../src/manager/GWindowSDL.cpp ../src/manager/GWindowSDL.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_timer.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_version.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2/SDL_image.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4/SDL2_rotozoom.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/QGLWidget \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/qgl.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qopengl.h \
@@ -2101,6 +2156,7 @@ build/GDraw.o: ../src/manager/GDraw.cpp ../src/manager/GDraw.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_timer.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_version.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2/SDL_image.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4/SDL2_rotozoom.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/QGLWidget \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/qgl.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qopengl.h \
@@ -2410,6 +2466,7 @@ build/GDrawSDL.o: ../src/manager/GDrawSDL.cpp ../src/manager/GDrawSDL.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_timer.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_version.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2/SDL_image.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4/SDL2_rotozoom.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/QGLWidget \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/qgl.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qopengl.h \
@@ -2729,6 +2786,7 @@ build/GDrawGLUT.o: ../src/manager/GDrawGLUT.cpp ../src/manager/GDrawGLUT.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_timer.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_version.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2/SDL_image.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4/SDL2_rotozoom.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/QGLWidget \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/qgl.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qopengl.h \
@@ -3035,6 +3093,7 @@ build/GShader.o: ../src/manager/GShader.cpp ../src/manager/GShader.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_timer.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_version.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2/SDL_image.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4/SDL2_rotozoom.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/QGLWidget \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/qgl.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qopengl.h \
@@ -3346,6 +3405,7 @@ build/GDrawSDLSimple.o: ../src/manager/GDrawSDLSimple.cpp ../src/manager/GDrawSD
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_timer.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_version.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2/SDL_image.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4/SDL2_rotozoom.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/QGLWidget \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/qgl.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qopengl.h \
@@ -3648,6 +3708,7 @@ build/GDrawSDLColor.o: ../src/manager/GDrawSDLColor.cpp ../src/manager/GDrawSDLC
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_timer.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_version.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2/SDL_image.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4/SDL2_rotozoom.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/QGLWidget \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/qgl.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qopengl.h \
@@ -3954,6 +4015,7 @@ build/GWindowQt.o: ../src/manager/GWindowQt.cpp ../src/manager/GWindowQt.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_timer.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_version.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2/SDL_image.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4/SDL2_rotozoom.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/QGLWidget \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/qgl.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qopengl.h \
@@ -4410,6 +4472,7 @@ build/GWindowQtForm.o: ../src/manager/GWindowQtForm.cpp ../src/manager/GWindowQt
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_timer.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_version.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2/SDL_image.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4/SDL2_rotozoom.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/QGLWidget \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/qgl.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qopengl.h \
@@ -4615,6 +4678,7 @@ build/GWindowQtFormGL.o: ../src/manager/GWindowQtFormGL.cpp ../src/manager/GWind
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_timer.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_version.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2/SDL_image.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4/SDL2_rotozoom.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/QGLWidget \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/qgl.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qopengl.h \
@@ -4925,6 +4989,7 @@ build/GWindowGLFW.o: ../src/manager/GWindowGLFW.cpp ../src/manager/GWindowGLFW.h
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_timer.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_version.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2/SDL_image.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4/SDL2_rotozoom.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/QGLWidget \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/qgl.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qopengl.h \
@@ -5231,6 +5296,7 @@ build/GDrawQt.o: ../src/manager/GDrawQt.cpp ../src/manager/GDrawQt.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_timer.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_version.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2/SDL_image.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4/SDL2_rotozoom.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/QGLWidget \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/qgl.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qopengl.h \
@@ -5481,6 +5547,7 @@ build/GDrawQt.o: ../src/manager/GDrawQt.cpp ../src/manager/GDrawQt.h \
 		../src/manager/GDrawQtLightDiffuse.h \
 		../src/manager/GTorus.h \
 		../src/manager/GDrawQtLightADS.h \
+		../src/manager/GDrawQtTexture.h \
 		../src/manager/GConfig.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/QMap
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build\GDrawQt.o ..\src\manager\GDrawQt.cpp
@@ -5545,6 +5612,7 @@ build/GDrawQtSimple.o: ../src/manager/GDrawQtSimple.cpp ../src/manager/GDrawQtSi
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_timer.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_version.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2/SDL_image.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4/SDL2_rotozoom.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/QGLWidget \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/qgl.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qopengl.h \
@@ -5853,6 +5921,7 @@ build/GDrawQtLayout.o: ../src/manager/GDrawQtLayout.cpp ../src/manager/GDrawQtLa
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_timer.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_version.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2/SDL_image.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4/SDL2_rotozoom.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/QGLWidget \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/qgl.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qopengl.h \
@@ -6160,6 +6229,7 @@ build/GDrawQtBind.o: ../src/manager/GDrawQtBind.cpp ../src/manager/GDrawQtBind.h
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_timer.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_version.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2/SDL_image.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4/SDL2_rotozoom.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/QGLWidget \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/qgl.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qopengl.h \
@@ -6468,6 +6538,7 @@ build/GShaderBind.o: ../src/manager/GShaderBind.cpp ../src/manager/GShaderBind.h
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_timer.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_version.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2/SDL_image.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4/SDL2_rotozoom.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/QGLWidget \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/qgl.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qopengl.h \
@@ -6772,6 +6843,7 @@ build/GShaderLayout.o: ../src/manager/GShaderLayout.cpp ../src/manager/GShaderLa
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_timer.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_version.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2/SDL_image.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4/SDL2_rotozoom.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/QGLWidget \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/qgl.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qopengl.h \
@@ -7075,6 +7147,7 @@ build/GDrawQtUniform.o: ../src/manager/GDrawQtUniform.cpp ../src/manager/GDrawQt
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_timer.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_version.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2/SDL_image.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4/SDL2_rotozoom.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/QGLWidget \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/qgl.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qopengl.h \
@@ -7382,6 +7455,7 @@ build/GDrawQtBackground.o: ../src/manager/GDrawQtBackground.cpp ../src/manager/G
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_timer.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_version.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2/SDL_image.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4/SDL2_rotozoom.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/QGLWidget \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/qgl.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qopengl.h \
@@ -7691,6 +7765,7 @@ build/GDrawQtRead.o: ../src/manager/GDrawQtRead.cpp ../src/manager/GDrawQtRead.h
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_timer.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_version.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2/SDL_image.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4/SDL2_rotozoom.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/QGLWidget \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/qgl.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qopengl.h \
@@ -7997,6 +8072,7 @@ build/GDrawQtUniformBlock.o: ../src/manager/GDrawQtUniformBlock.cpp ../src/manag
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_timer.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_version.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2/SDL_image.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4/SDL2_rotozoom.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/QGLWidget \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/qgl.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qopengl.h \
@@ -8304,6 +8380,7 @@ build/GTorus.o: ../src/manager/GTorus.cpp ../src/manager/GTorus.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_timer.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_version.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2/SDL_image.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4/SDL2_rotozoom.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/QGLWidget \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/qgl.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qopengl.h \
@@ -8606,6 +8683,7 @@ build/GDrawQtLightDiffuse.o: ../src/manager/GDrawQtLightDiffuse.cpp ../src/manag
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_timer.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_version.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2/SDL_image.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4/SDL2_rotozoom.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/QGLWidget \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/qgl.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qopengl.h \
@@ -8914,6 +8992,7 @@ build/GDrawQtLightADS.o: ../src/manager/GDrawQtLightADS.cpp ../src/manager/GDraw
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_timer.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_version.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2/SDL_image.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4/SDL2_rotozoom.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/QGLWidget \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/qgl.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qopengl.h \
@@ -9223,6 +9302,7 @@ build/GDrawGLFW.o: ../src/manager/GDrawGLFW.cpp ../src/manager/GDrawGLFW.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_timer.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_version.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2/SDL_image.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4/SDL2_rotozoom.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/QGLWidget \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/qgl.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qopengl.h \
@@ -9534,6 +9614,7 @@ build/GDrawGLFWBackground.o: ../src/manager/GDrawGLFWBackground.cpp ../src/manag
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_timer.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_version.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2/SDL_image.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4/SDL2_rotozoom.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/QGLWidget \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/qgl.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qopengl.h \
@@ -9838,6 +9919,7 @@ build/GDrawGLFWSimple.o: ../src/manager/GDrawGLFWSimple.cpp ../src/manager/GDraw
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_timer.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_version.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2/SDL_image.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4/SDL2_rotozoom.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/QGLWidget \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/qgl.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qopengl.h \
@@ -10142,6 +10224,7 @@ build/GCamera.o: ../src/manager/GCamera.cpp ../src/manager/GCamera.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_timer.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_version.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2/SDL_image.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4/SDL2_rotozoom.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/QGLWidget \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/qgl.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qopengl.h \
@@ -10446,6 +10529,7 @@ build/GDrawGLFWPoint.o: ../src/manager/GDrawGLFWPoint.cpp ../src/manager/GDrawGL
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_timer.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_version.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2/SDL_image.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4/SDL2_rotozoom.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/QGLWidget \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/qgl.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qopengl.h \
@@ -10753,6 +10837,7 @@ build/GDrawGLFWLine.o: ../src/manager/GDrawGLFWLine.cpp ../src/manager/GDrawGLFW
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_timer.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_version.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2/SDL_image.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4/SDL2_rotozoom.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/QGLWidget \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/qgl.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qopengl.h \
@@ -11060,6 +11145,7 @@ build/GObjPoint.o: ../src/manager/GObjPoint.cpp ../src/manager/GObjPoint.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_timer.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_version.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2/SDL_image.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4/SDL2_rotozoom.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/QGLWidget \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/qgl.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qopengl.h \
@@ -11366,6 +11452,7 @@ build/GDrawGLFWObject.o: ../src/manager/GDrawGLFWObject.cpp ../src/manager/GDraw
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_timer.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_version.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2/SDL_image.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4/SDL2_rotozoom.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/QGLWidget \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/qgl.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qopengl.h \
@@ -11674,6 +11761,7 @@ build/GDrawSDLBackground.o: ../src/manager/GDrawSDLBackground.cpp ../src/manager
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_timer.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_version.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2/SDL_image.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4/SDL2_rotozoom.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/QGLWidget \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/qgl.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qopengl.h \
@@ -11978,6 +12066,7 @@ build/GDrawSDLMatrix.o: ../src/manager/GDrawSDLMatrix.cpp ../src/manager/GDrawSD
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_timer.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_version.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2/SDL_image.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4/SDL2_rotozoom.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/QGLWidget \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/qgl.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qopengl.h \
@@ -12283,6 +12372,7 @@ build/GDrawSDLRotate.o: ../src/manager/GDrawSDLRotate.cpp ../src/manager/GDrawSD
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_timer.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_version.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2/SDL_image.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4/SDL2_rotozoom.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/QGLWidget \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/qgl.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qopengl.h \
@@ -12588,6 +12678,7 @@ build/GDrawSDLTranslate.o: ../src/manager/GDrawSDLTranslate.cpp ../src/manager/G
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_timer.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_version.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2/SDL_image.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4/SDL2_rotozoom.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/QGLWidget \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/qgl.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qopengl.h \
@@ -12894,6 +12985,7 @@ build/GDrawSDLScale.o: ../src/manager/GDrawSDLScale.cpp ../src/manager/GDrawSDLS
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_timer.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_version.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2/SDL_image.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4/SDL2_rotozoom.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/QGLWidget \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/qgl.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qopengl.h \
@@ -13200,6 +13292,7 @@ build/GDrawSDLComposite.o: ../src/manager/GDrawSDLComposite.cpp ../src/manager/G
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_timer.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_version.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2/SDL_image.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4/SDL2_rotozoom.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/QGLWidget \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/qgl.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qopengl.h \
@@ -13505,6 +13598,7 @@ build/GDrawSDLCube.o: ../src/manager/GDrawSDLCube.cpp ../src/manager/GDrawSDLCub
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_timer.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_version.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2/SDL_image.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4/SDL2_rotozoom.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/QGLWidget \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/qgl.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qopengl.h \
@@ -13808,6 +13902,7 @@ build/GObjCube.o: ../src/manager/GObjCube.cpp ../src/manager/GObjCube.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_timer.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_version.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2/SDL_image.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4/SDL2_rotozoom.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/QGLWidget \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/qgl.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qopengl.h \
@@ -14114,6 +14209,7 @@ build/GDrawSDLCubeObj.o: ../src/manager/GDrawSDLCubeObj.cpp ../src/manager/GDraw
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_timer.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_version.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2/SDL_image.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4/SDL2_rotozoom.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/QGLWidget \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/qgl.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qopengl.h \
@@ -14420,6 +14516,7 @@ build/GDrawSDLCubeAnimate.o: ../src/manager/GDrawSDLCubeAnimate.cpp ../src/manag
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_timer.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_version.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2/SDL_image.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4/SDL2_rotozoom.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/QGLWidget \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/qgl.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qopengl.h \
@@ -14726,6 +14823,7 @@ build/GDrawSDLMatrixSave.o: ../src/manager/GDrawSDLMatrixSave.cpp ../src/manager
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_timer.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_version.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2/SDL_image.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4/SDL2_rotozoom.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/QGLWidget \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/qgl.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qopengl.h \
@@ -15032,6 +15130,7 @@ build/GDrawSDLEvent.o: ../src/manager/GDrawSDLEvent.cpp ../src/manager/GDrawSDLE
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_timer.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_version.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2/SDL_image.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4/SDL2_rotozoom.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/QGLWidget \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/qgl.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qopengl.h \
@@ -15337,6 +15436,7 @@ build/GEvent.o: ../src/manager/GEvent.cpp ../src/manager/GEvent.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_timer.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_version.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2/SDL_image.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4/SDL2_rotozoom.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/QGLWidget \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/qgl.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qopengl.h \
@@ -15642,6 +15742,7 @@ build/GDrawSDLTexture.o: ../src/manager/GDrawSDLTexture.cpp ../src/manager/GDraw
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_timer.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_version.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2/SDL_image.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4/SDL2_rotozoom.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/QGLWidget \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/qgl.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qopengl.h \
@@ -15946,6 +16047,7 @@ build/GTexture.o: ../src/manager/GTexture.cpp ../src/manager/GTexture.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_timer.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_version.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2/SDL_image.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4/SDL2_rotozoom.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/QGLWidget \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/qgl.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qopengl.h \
@@ -16253,6 +16355,7 @@ build/GTextureQt.o: ../src/manager/GTextureQt.cpp ../src/manager/GTextureQt.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_timer.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_version.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2/SDL_image.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4/SDL2_rotozoom.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/QGLWidget \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/qgl.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qopengl.h \
@@ -16556,6 +16659,7 @@ build/GTextureSDL.o: ../src/manager/GTextureSDL.cpp ../src/manager/GTextureSDL.h
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_timer.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_version.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2/SDL_image.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4/SDL2_rotozoom.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/QGLWidget \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/qgl.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qopengl.h \
@@ -16858,6 +16962,7 @@ build/GDrawQtTexture.o: ../src/manager/GDrawQtTexture.cpp ../src/manager/GDrawQt
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_timer.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_version.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2/SDL_image.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4/SDL2_rotozoom.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/QGLWidget \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/qgl.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qopengl.h \
@@ -17101,6 +17206,7 @@ build/GDrawQtTexture.o: ../src/manager/GDrawQtTexture.cpp ../src/manager/GDrawQt
 		../src/manager/GDrawQt.h \
 		../src/manager/GDraw.h \
 		../src/manager/GShader.h \
+		../src/manager/GTexture.h \
 		../src/manager/GConfig.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/QMap
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build\GDrawQtTexture.o ..\src\manager\GDrawQtTexture.cpp
@@ -17165,6 +17271,7 @@ build/main.o: ../src/main.cpp ../src/manager/GWindow.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_timer.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_version.h \
 		C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2/SDL_image.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4/SDL2_rotozoom.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/QGLWidget \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/qgl.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qopengl.h \

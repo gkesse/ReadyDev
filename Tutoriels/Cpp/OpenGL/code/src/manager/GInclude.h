@@ -13,6 +13,7 @@ using namespace std;
 #include <GL/freeglut.h>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
+#include <SDL2_rotozoom.h>
 #include <QGLWidget>
 #include <BulletDynamics/Dynamics/btDynamicsWorld.h>
 #include <glm/gtc/matrix_transform.hpp>
