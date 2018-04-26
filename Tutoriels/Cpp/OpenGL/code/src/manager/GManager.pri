@@ -73,7 +73,8 @@ HEADERS += \
     $$PWD/GDrawSDLTextureRepeat.h \
     $$PWD/GObjBox.h \
     $$PWD/GDrawSDLTextureObj.h \
-    $$PWD/GObjLand.h
+    $$PWD/GObjLand.h \
+    $$PWD/GDrawSDLCamera.h
 
 SOURCES += \
     $$PWD/GWindow.cpp \
@@ -134,7 +135,8 @@ SOURCES += \
     $$PWD/GDrawSDLTextureRepeat.cpp \
     $$PWD/GObjBox.cpp \
     $$PWD/GDrawSDLTextureObj.cpp \
-    $$PWD/GObjLand.cpp
+    $$PWD/GObjLand.cpp \
+    $$PWD/GDrawSDLCamera.cpp
 
 FORMS += \
     $$PWD/GWindowQtForm.ui
