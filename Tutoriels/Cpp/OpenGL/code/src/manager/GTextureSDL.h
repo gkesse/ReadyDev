@@ -11,6 +11,7 @@ public:
 
 public:
     static GTextureSDL* Instance();
+    SDL_Surface* flipVertical(SDL_Surface* srcImg);
     GLuint loadTexture(const char* filename);
 
 private:

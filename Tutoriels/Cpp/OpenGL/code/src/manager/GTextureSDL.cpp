@@ -18,10 +18,25 @@ GTextureSDL* GTextureSDL::Instance() {
     return m_instance;
 }
 //===============================================
+SDL_Surface* GTextureSDL::flipVertical(SDL_Surface* srcImg) {
+    SDL_Surface* lDstImg = SDL_CreateRGBSurface(srcImg->flags, srcImg->w, srcImg->h, srcImg->format->BytesPerPixel * 8, srcImg->format->Rmask, srcImg->format->Gmask, srcImg->format->Bmask, srcImg->format->Amask);
+    int lSrcPitch = srcImg->pitch;
+    int lSrcLineLength = lSrcPitch*srcImg->h;
+    uchar* lSrcPixels = static_cast<unsigned char*>(srcImg->pixels) + lSrcLineLength;
+    uchar* lDstPixels = static_cast<unsigned char*>(lDstImg->pixels) ;
+    for(int line = 0; line < srcImg->h; ++line) {
+        memcpy(lDstPixels, lSrcPixels, lSrcPitch);
+        lSrcPixels -= lSrcPitch;
+        lDstPixels += lSrcPitch;
+    }
+    return lDstImg;
+}
+//===============================================
 GLuint GTextureSDL::loadTexture(const char* filename) {
     GLuint lTextureId;
     SDL_Surface *lLoad = IMG_Load(filename);
-    SDL_Surface *lSurface = rotateSurface90Degrees(lLoad, 0);
+    //SDL_Surface *lSurface = IMG_Load(filename);
+    SDL_Surface *lSurface = flipVertical(lLoad);
     SDL_FreeSurface(lLoad);
 
     glActiveTexture(GL_TEXTURE0);
