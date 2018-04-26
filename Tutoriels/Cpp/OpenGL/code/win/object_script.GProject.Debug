@@ -51,6 +51,8 @@ INPUT(
 ./build\GEvent.o
 ./build\GDrawSDLTexture.o
 ./build\GTexture.o
+./build\GTextureQt.o
+./build\GTextureSDL.o
 ./build\main.o
 ./build\moc_GWindowQtForm.o
 ./build\moc_GWindowQtFormGL.o

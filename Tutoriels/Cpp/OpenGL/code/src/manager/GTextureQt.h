@@ -1,20 +1,20 @@
 //===============================================
-#ifndef _GTexture_
-#define _GTexture_
+#ifndef _GTextureQt_
+#define _GTextureQt_
 //================================================
-#include "GInclude.h"
+#include "GTexture.h"
 //===============================================
-class GTexture {
+class GTextureQt : public GTexture {
 public:
-    GTexture();
-    ~GTexture();
+    GTextureQt();
+    ~GTextureQt();
 
 public:
-    static GTexture* Instance();
-    virtual GLuint loadTexture(const char* filename) = 0;
+    static GTextureQt* Instance();
+    GLuint loadTexture(const char* filename);
 
 private:
-    static GTexture* m_instance;
+    static GTextureQt* m_instance;
 };
 //===============================================
 #endif

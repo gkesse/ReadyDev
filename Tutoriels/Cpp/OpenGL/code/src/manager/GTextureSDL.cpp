@@ -1,0 +1,47 @@
+//===============================================
+#include "GTextureSDL.h"
+//===============================================
+GTextureSDL* GTextureSDL::m_instance = 0;
+//===============================================
+GTextureSDL::GTextureSDL() {
+
+}
+//===============================================
+GTextureSDL::~GTextureSDL() {
+
+}
+//===============================================
+GTextureSDL* GTextureSDL::Instance() {
+    if(m_instance == 0) {
+        m_instance = new GTextureSDL;
+    }
+    return m_instance;
+}
+//===============================================
+GLuint GTextureSDL::loadTexture(const char* filename) {
+    GLuint lTextureId;
+    SDL_Surface *lSurface = IMG_Load(filename);
+    glGenTextures(1, &lTextureId);
+    glBindTexture(GL_TEXTURE_2D, lTextureId);
+
+    GLenum lInternalFormat(0);
+    GLenum lFormat(0);
+
+    if(lSurface->format->BytesPerPixel == 3)  {
+        lInternalFormat = GL_RGB;
+        if(lSurface->format->Rmask == 0xff) lFormat = GL_RGB;
+        else lFormat = GL_BGR;
+    }
+    else if(lSurface->format->BytesPerPixel == 4) {
+        lInternalFormat = GL_RGBA;
+        if(lSurface->format->Rmask == 0xff) lFormat = GL_RGBA;
+        else lFormat = GL_BGRA;
+    }
+    glTexImage2D(GL_TEXTURE_2D, 0, lInternalFormat, lSurface->w,lSurface->h, 0, lFormat, GL_UNSIGNED_BYTE, lSurface->pixels);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+    glBindTexture(GL_TEXTURE_2D, 0);
+    SDL_FreeSurface(lSurface);
+    return lTextureId;
+}
+//===============================================

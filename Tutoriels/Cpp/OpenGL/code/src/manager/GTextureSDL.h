@@ -1,20 +1,20 @@
 //===============================================
-#ifndef _GTexture_
-#define _GTexture_
+#ifndef _GTextureSDL_
+#define _GTextureSDL_
 //================================================
-#include "GInclude.h"
+#include "GTexture.h"
 //===============================================
-class GTexture {
+class GTextureSDL : public GTexture {
 public:
-    GTexture();
-    ~GTexture();
+    GTextureSDL();
+    ~GTextureSDL();
 
 public:
-    static GTexture* Instance();
-    virtual GLuint loadTexture(const char* filename) = 0;
+    static GTextureSDL* Instance();
+    GLuint loadTexture(const char* filename);
 
 private:
-    static GTexture* m_instance;
+    static GTextureSDL* m_instance;
 };
 //===============================================
 #endif
