@@ -46,14 +46,15 @@ void GDrawSDLTranslate::updateDraw() {
     if(m_angle >= 360.0f) {
         m_angle -= 360.0f;
     }
-    float lRmax = 5.0f;
+    float lRmax = 3.8f;
     float lR = lRmax*qSin(qDegreesToRadians(m_angle));
-    float lU = 10.0f;
-    m_x = lR*qSin(qDegreesToRadians(lU));
-    m_z = lR*qCos(qDegreesToRadians(lU));
-    float lV = 10.0f;
+    float lU = 0.0f;
+    float x = lR*qSin(qDegreesToRadians(lU));
+    float z = lR*qCos(qDegreesToRadians(lU));
+    float lV = 0.0f;
     float lP = lR/qCos(qDegreesToRadians(lV));
-    m_y = lP*qSin(qDegreesToRadians(lV));
+    float y = lP*qSin(qDegreesToRadians(lV));
+    m_vec = glm::vec3(x, y, z);
 }
 //===============================================
 void GDrawSDLTranslate::draw() {
@@ -63,13 +64,13 @@ void GDrawSDLTranslate::draw() {
         0.0f, 1.0f, 0.0f,
         0.0f, 0.0f, 1.0f,
     };
-    m_modelView = glm::lookAt(glm::vec3(0.0f, 0.0f, 8.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+    m_modelView = glm::lookAt(glm::vec3(0.0f, 0.0f, 5.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
     glUseProgram(m_program);
     glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, lVertices);
     glEnableVertexAttribArray(0);
     glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, lColors);
     glEnableVertexAttribArray(1);
-    m_modelView = glm::translate(m_modelView, glm::vec3(m_x, m_y, m_z));
+    m_modelView = glm::translate(m_modelView, m_vec);
     GShader::Instance()->setUniform(m_program, "ModelViewMatrix", m_modelView);
     GShader::Instance()->setUniform(m_program, "ProjectionMatrix", m_projection);
     glDrawArrays(GL_TRIANGLES, 0, 3);

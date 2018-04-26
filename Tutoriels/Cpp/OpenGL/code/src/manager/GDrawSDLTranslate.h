@@ -22,9 +22,7 @@ private:
     glm::mat4 m_modelView;
     GLuint m_program;
     float m_angle;
-    float m_x;
-    float m_y;
-    float m_z;
+    glm::vec3 m_vec;
 };
 //===============================================
 #endif

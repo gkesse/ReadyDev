@@ -3,6 +3,8 @@
 #include "GShader.h"
 #include "GCamera.h"
 //===============================================
+#include <QtMath>
+//===============================================
 GDrawSDLScale* GDrawSDLScale::m_instance = 0;
 //===============================================
 GDrawSDLScale::GDrawSDLScale() {
@@ -38,6 +40,17 @@ void GDrawSDLScale::initCamera(int width, int height) {
     m_projection = glm::perspective(lFoV, lRatio, lZNear, lZFar);
 }
 //===============================================
+void GDrawSDLScale::updateDraw() {
+    m_angle += 1.0f;
+    if(m_angle >= 360.0f) {
+        m_angle -= 360.0f;
+    }
+    float lRmax = 2.0f;
+    float lR = lRmax*qSin(qDegreesToRadians(m_angle));
+    float lS = lR;
+    m_vec = glm::vec3(lS, lS, lS);
+}
+//===============================================
 void GDrawSDLScale::draw() {
     float lVertices[] = {-0.5f, -0.5f, 0.0f, 0.5f, 0.5f, -0.5f};
     float lColors[] = {
@@ -51,7 +64,7 @@ void GDrawSDLScale::draw() {
     glEnableVertexAttribArray(0);
     glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, lColors);
     glEnableVertexAttribArray(1);
-    m_modelView = glm::scale(m_modelView, glm::vec3(2.0f,2.0f,2.0f));
+    m_modelView = glm::scale(m_modelView, m_vec);
     GShader::Instance()->setUniform(m_program, "ModelViewMatrix", m_modelView);
     GShader::Instance()->setUniform(m_program, "ProjectionMatrix", m_projection);
     glDrawArrays(GL_TRIANGLES, 0, 3);
