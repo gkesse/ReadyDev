@@ -15,6 +15,7 @@
 #include "GDrawSDLEvent.h"
 #include "GDrawSDLTexture.h"
 #include "GDrawSDLTextureRepeat.h"
+#include "GDrawSDLTextureObj.h"
 #include "GConfig.h"
 //===============================================
 GDrawSDL* GDrawSDL::m_instance = 0;
@@ -39,11 +40,12 @@ GDrawSDL* GDrawSDL::Instance() {
     if(lType == "SCALE") return GDrawSDLScale::Instance();
     if(lType == "COMPOSITE") return GDrawSDLComposite::Instance();
     if(lType == "CUBE") return GDrawSDLCube::Instance();
-    if(lType == "CUBE_OBJECT") return GDrawSDLCubeObj::Instance();
+    if(lType == "CUBE_OBJ") return GDrawSDLCubeObj::Instance();
     if(lType == "CUBE_ANIMATE") return GDrawSDLCubeAnimate::Instance();
     if(lType == "EVENT") return GDrawSDLEvent::Instance();
     if(lType == "TEXTURE") return GDrawSDLTexture::Instance();
     if(lType == "TEXTURE_REPEAT") return GDrawSDLTextureRepeat::Instance();
+    if(lType == "TEXTURE_OBJ") return GDrawSDLTextureObj::Instance();
     return GDrawSDLBackground::Instance();
 }
 //===============================================

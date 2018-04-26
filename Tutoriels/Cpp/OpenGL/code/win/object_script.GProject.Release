@@ -56,6 +56,8 @@ INPUT(
 ./build\GTextureSDL.o
 ./build\GDrawQtTexture.o
 ./build\GDrawSDLTextureRepeat.o
+./build\GObjBox.o
+./build\GDrawSDLTextureObj.o
 ./build\main.o
 ./build\moc_GWindowQtForm.o
 ./build\moc_GWindowQtFormGL.o

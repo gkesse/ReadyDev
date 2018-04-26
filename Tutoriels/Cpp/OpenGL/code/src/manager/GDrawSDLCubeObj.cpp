@@ -29,7 +29,6 @@ void GDrawSDLCubeObj::initCamera(int width, int height) {
     float lZNear = 0.1f;
     float lZFar = 100.0f;
     m_projection = glm::perspective(lFoV, lRatio, lZNear, lZFar);
-    m_modelView = glm::mat4(1.0f);
 }
 //===============================================
 void GDrawSDLCubeObj::draw() {
