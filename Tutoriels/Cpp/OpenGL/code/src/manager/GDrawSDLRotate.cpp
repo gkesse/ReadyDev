@@ -27,6 +27,7 @@ void GDrawSDLRotate::initDraw() {
     };
 
     m_program = GShader::Instance()->loadShader(lShaders);
+    m_angle = 0.0f;
 }
 //===============================================
 void GDrawSDLRotate::initCamera(int width, int height) {
@@ -35,6 +36,13 @@ void GDrawSDLRotate::initCamera(int width, int height) {
     float lZNear = 0.1f;
     float lZFar = 100.0f;
     m_projection = glm::perspective(lFoV, lRatio, lZNear, lZFar);
+}
+//===============================================
+void GDrawSDLRotate::updateDraw() {
+    m_angle += 1.0f;
+    if(m_angle >= 360.0f) {
+        m_angle -= 360.0f;
+    }
 }
 //===============================================
 void GDrawSDLRotate::draw() {
@@ -50,7 +58,7 @@ void GDrawSDLRotate::draw() {
     glEnableVertexAttribArray(0);
     glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, lColors);
     glEnableVertexAttribArray(1);
-    m_modelView = glm::rotate(m_modelView, glm::radians(90.0f), glm::vec3(0.0f,0.0f,1.0f));
+    m_modelView = glm::rotate(m_modelView, glm::radians(m_angle), glm::vec3(0.0f,0.0f,1.0f));
     GShader::Instance()->setUniform(m_program, "ModelViewMatrix", m_modelView);
     GShader::Instance()->setUniform(m_program, "ProjectionMatrix", m_projection);
     glDrawArrays(GL_TRIANGLES, 0, 3);
