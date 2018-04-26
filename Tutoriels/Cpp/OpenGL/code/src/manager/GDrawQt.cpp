@@ -9,6 +9,7 @@
 #include "GDrawQtUniformBlock.h"
 #include "GDrawQtLightDiffuse.h"
 #include "GDrawQtLightADS.h"
+#include "GDrawQtTexture.h"
 #include "GConfig.h"
 //===============================================
 GDrawQt* GDrawQt::m_instance = 0;
@@ -32,6 +33,7 @@ GDrawQt* GDrawQt::Instance() {
     if(m_type == "UNIFORM_BLOCK") return GDrawQtUniformBlock::Instance();
     if(m_type == "LIGHT_DIFFUSE") return GDrawQtLightDiffuse::Instance();
     if(m_type == "LIGHT_ADS") return GDrawQtLightADS::Instance();
+    if(m_type == "TEXTURE") return GDrawQtTexture::Instance();
     return 0;
 }
 //===============================================

@@ -23,9 +23,7 @@ GDrawQtSimple* GDrawQtSimple::Instance() {
 //===============================================
 void GDrawQtSimple::initDraw() {
     float m_vertices[] = {
-        -0.8f, -0.8f, 0.0f,
-         0.8f, -0.8f, 0.0f,
-         0.0f,  0.8f, 0.0f
+        -0.8f, -0.8f, 0.0f, 0.8f, -0.8f, 0.0f, 0.0f,  0.8f, 0.0f
     };
     GLuint m_buffers[1];
 

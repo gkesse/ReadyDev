@@ -53,6 +53,7 @@ INPUT(
 ./build\GTexture.o
 ./build\GTextureQt.o
 ./build\GTextureSDL.o
+./build\GDrawQtTexture.o
 ./build\main.o
 ./build\moc_GWindowQtForm.o
 ./build\moc_GWindowQtFormGL.o

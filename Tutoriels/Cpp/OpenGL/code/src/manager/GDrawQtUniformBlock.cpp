@@ -10,7 +10,7 @@ GDrawQtUniformBlock::GDrawQtUniformBlock() {
 }
 //===============================================
 GDrawQtUniformBlock::~GDrawQtUniformBlock() {
-    m_angle = 0.0;
+
 }
 //===============================================
 GDrawQtUniformBlock* GDrawQtUniformBlock::Instance() {
@@ -70,6 +70,8 @@ void GDrawQtUniformBlock::initDraw() {
 
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+    m_angle = 0.0;
 }
 //===============================================
 void GDrawQtUniformBlock::draw() {
