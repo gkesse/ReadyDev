@@ -24,6 +24,7 @@ SDL_Surface* GTextureSDL::flipVertical(SDL_Surface* srcImg) {
     int lSrcLength = lSrcPitch*srcImg->h;
     uchar* lSrcPixels = static_cast<unsigned char*>(srcImg->pixels) + lSrcLength;
     uchar* lDstPixels = static_cast<unsigned char*>(lDstImg->pixels) ;
+    lSrcPixels -= lSrcPitch;
     for(int line = 0; line < srcImg->h; ++line) {
         memcpy(lDstPixels, lSrcPixels, lSrcPitch);
         lSrcPixels -= lSrcPitch;

@@ -52,7 +52,7 @@ void GDrawSDLTextureRepeat::draw() {
         0.0f, 10.0f, 0.0f, 0.0f, 10.0f, 0.0f,
     };
 
-    m_modelView = glm::lookAt(glm::vec3(10.0f, 5.0f, 10.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+    m_modelView = glm::lookAt(glm::vec3(0.2f, 5.0f, 0.2f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
     glUseProgram(m_program);
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, lVertices);
     glEnableVertexAttribArray(0);
