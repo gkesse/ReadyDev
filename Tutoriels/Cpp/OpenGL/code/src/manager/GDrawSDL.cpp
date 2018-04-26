@@ -16,6 +16,7 @@
 #include "GDrawSDLTexture.h"
 #include "GDrawSDLTextureRepeat.h"
 #include "GDrawSDLTextureObj.h"
+#include "GDrawSDLCamera.h"
 #include "GConfig.h"
 //===============================================
 GDrawSDL* GDrawSDL::m_instance = 0;
@@ -46,6 +47,7 @@ GDrawSDL* GDrawSDL::Instance() {
     if(lType == "TEXTURE") return GDrawSDLTexture::Instance();
     if(lType == "TEXTURE_REPEAT") return GDrawSDLTextureRepeat::Instance();
     if(lType == "TEXTURE_OBJ") return GDrawSDLTextureObj::Instance();
+    if(lType == "CAMERA") return GDrawSDLCamera::Instance();
     return GDrawSDLBackground::Instance();
 }
 //===============================================
