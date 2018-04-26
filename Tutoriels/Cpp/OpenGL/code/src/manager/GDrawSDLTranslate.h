@@ -23,6 +23,7 @@ private:
     GLuint m_program;
     float m_angle;
     float m_x;
+    float m_y;
     float m_z;
 };
 //===============================================
