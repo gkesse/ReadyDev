@@ -3,6 +3,8 @@
 #include "GEvent.h"
 #include "GCameraSDL.h"
 //===============================================
+#include <QtMath>
+//===============================================
 GDrawSDLCamera* GDrawSDLCamera::m_instance = 0;
 //===============================================
 GDrawSDLCamera::GDrawSDLCamera() {
@@ -34,7 +36,7 @@ void GDrawSDLCamera::initCamera(int width, int height) {
     float lZNear = 0.1f;
     float lZFar = 100.0f;
     m_projection = glm::perspective(lFoV, lRatio, lZNear, lZFar);
-    GCameraSDL::Instance()->initCamera(glm::vec3(10.0f, 10.0f, 10.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+    GCameraSDL::Instance()->initCamera(glm::vec3(10.0f, 10.0f, 10.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f), 0.5f, 0.01f);
 }
 //===============================================
 void GDrawSDLCamera::draw() {
@@ -108,6 +110,10 @@ void GDrawSDLCamera::onKeyDown(SDL_Event* event) {
 }
 //===============================================
 void GDrawSDLCamera::onMouseMotion(SDL_Event* event) {
-
+    int lXrel = event->motion.xrel;
+    int lYrel = event->motion.yrel;
+    float lRrel = qSqrt(lXrel * lXrel + lYrel * lYrel);
+    if(lRrel < 3.0f) return;
+    GCameraSDL::Instance()->deplacer(0, lXrel, lYrel);
 }
 //===============================================
