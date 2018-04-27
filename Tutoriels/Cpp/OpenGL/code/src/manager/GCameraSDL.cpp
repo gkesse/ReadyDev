@@ -19,25 +19,33 @@ GCameraSDL* GCameraSDL::Instance() {
 }
 //===============================================
 void GCameraSDL::initCamera(glm::vec3 position, glm::vec3 pointCible, glm::vec3 axeVertical, float sensibilite, float vitesse) {
-    m_phi = 0.0f;
-    m_theta = 0.0f;
     m_axeVertical = axeVertical;
     m_position = position;
     m_pointCible = pointCible;
     m_sensibilite = sensibilite;
     m_vitesse = vitesse;
-    setPointcible(pointCible);
+    computeSettings();
 }
 //===============================================
-void GCameraSDL::orienter(int xRel, int yRel) {
-    // Récupération des angles
-    m_phi += -yRel * m_sensibilite;
-    m_theta += -xRel * m_sensibilite;
-    // Limitation de l'angle phi
-    if(m_phi > 89.0)
-        m_phi = 89.0;
-    else if(m_phi < -89.0)
-        m_phi = -89.0;
+void GCameraSDL::orienter(int direction) {
+    float lFactor = 1.0f;
+    if(direction == 1) {
+        m_phi -= lFactor * m_sensibilite;
+    }
+    if(direction == 2) {
+        m_phi += lFactor * m_sensibilite;
+    }
+    if(direction == 3) {
+        m_theta += lFactor * m_sensibilite;
+    }
+    if(direction == 4) {
+        m_theta -= lFactor * m_sensibilite;
+    }
+    if(m_phi > 89.0) m_phi = 89.0;
+    else if(m_phi < -89.0) m_phi = -89.0;
+    if(m_theta >= 360.0f) m_theta -= 360.0f;
+    else if(m_theta <= 0) m_theta += 360.0f;
+
     // Conversion des angles en radian
     float phiRadian = m_phi * M_PI / 180;
     float thetaRadian = m_theta * M_PI / 180;
@@ -72,16 +80,13 @@ void GCameraSDL::orienter(int xRel, int yRel) {
     m_pointCible = m_position + m_orientation;
 }
 //===============================================
-void GCameraSDL::deplacer(int direction, int xRel, int yRel) {
-    if(direction == 0) {
-        orienter(xRel, yRel);
-    }
+void GCameraSDL::deplacer(int direction) {
     if(direction == 1) {
-        m_position = m_position + m_orientation * m_vitesse;
+        m_position += m_orientation * m_vitesse;
         m_pointCible = m_position + m_orientation;
     }
     if(direction == 2) {
-        m_position = m_position - m_orientation * m_vitesse;
+        m_position -= m_orientation * m_vitesse;
         m_pointCible = m_position + m_orientation;
     }
     if(direction == 3) {
@@ -98,7 +103,7 @@ void GCameraSDL::lookAt(glm::mat4& modelView) {
     modelView = glm::lookAt(m_position, m_pointCible, m_axeVertical);
 }
 //===============================================
-void GCameraSDL::setPointcible(glm::vec3 pointCible) {
+void GCameraSDL::computeSettings() {
     // Calcul du vecteur orientation
     m_orientation = m_pointCible - m_position;
     m_orientation = normalize(m_orientation);
@@ -132,28 +137,27 @@ void GCameraSDL::setPointcible(glm::vec3 pointCible) {
     // Conversion en degrés
     m_phi = m_phi * 180 / M_PI;
     m_theta = m_theta * 180 / M_PI;
+    m_deplacementLateral = cross(m_axeVertical, m_orientation);
+    m_deplacementLateral = normalize(m_deplacementLateral);
+}
+//===============================================
+void GCameraSDL::setPointcible(glm::vec3 pointCible) {
+    m_pointCible = pointCible;
+    computeSettings();
 }
 //===============================================
 void GCameraSDL::setPosition(glm::vec3 position) {
-    // Mise à jour de la position
     m_position = position;
-    // Actualisation du point ciblé
     m_pointCible = m_position + m_orientation;
 }
 //===============================================
-void GCameraSDL::capturerPointeur(bool reponse)
-{
-    if(reponse)
-        SDL_SetRelativeMouseMode(SDL_TRUE);
-    else
-        SDL_SetRelativeMouseMode(SDL_FALSE);
+void GCameraSDL::capturerPointeur(bool reponse) {
+    if(reponse) SDL_SetRelativeMouseMode(SDL_TRUE);
+    else SDL_SetRelativeMouseMode(SDL_FALSE);
 }
 //===============================================
-void GCameraSDL::afficherPointeur(bool reponse)
-{
-    if(reponse)
-        SDL_ShowCursor(SDL_ENABLE);
-    else
-        SDL_ShowCursor(SDL_DISABLE);
+void GCameraSDL::afficherPointeur(bool reponse) {
+    if(reponse) SDL_ShowCursor(SDL_ENABLE);
+    else SDL_ShowCursor(SDL_DISABLE);
 }
 //===============================================

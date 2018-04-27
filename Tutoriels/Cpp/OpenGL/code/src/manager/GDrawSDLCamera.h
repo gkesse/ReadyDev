@@ -16,9 +16,9 @@ public:
     void initDraw();
     void initCamera(int width, int height);
     void draw();
+    void orientateBox(const char* direction);
     void handleEvents(SDL_Event* event);
     void onKeyDown(SDL_Event* event);
-    void onMouseMotion(SDL_Event* event);
 
 private:
     static GDrawSDLCamera* m_instance;

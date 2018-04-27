@@ -36,9 +36,7 @@ void GDrawSDLCamera::initCamera(int width, int height) {
     float lZNear = 0.1f;
     float lZFar = 100.0f;
     m_projection = glm::perspective(lFoV, lRatio, lZNear, lZFar);
-    GCameraSDL::Instance()->initCamera(glm::vec3(10.0f, 10.0f, 10.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f), 0.5f, 0.5f);
-    GCameraSDL::Instance()->afficherPointeur(false);
-    GCameraSDL::Instance()->capturerPointeur(true);
+    GCameraSDL::Instance()->initCamera(glm::vec3(10.0f, 10.0f, 10.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f), 1.0f, 0.5f);
 }
 //===============================================
 void GDrawSDLCamera::draw() {
@@ -68,58 +66,58 @@ void GDrawSDLCamera::draw() {
     m_objLand.draw(m_projection, m_modelView);
 }
 //===============================================
+void GDrawSDLCamera::orientateBox(const char* direction) {
+    float lAngle = 2.0f;
+    if(QString(direction) == "UP") {m_angleV += lAngle;}
+    if(QString(direction) == "DOWN") {m_angleV -= lAngle;}
+    if(QString(direction) == "LEFT") {m_angleU += lAngle;}
+    if(QString(direction) == "RIGHT") {m_angleU -= lAngle;}
+    if(m_angleU >= 360.0f) {m_angleU -= 360.0f;}
+    if(m_angleU <= 0.0f) {m_angleU += 360.0f;}
+    if(m_angleV >= 360.0f) {m_angleV -= 360.0f;}
+    if(m_angleV <= 0.0f) {m_angleV += 360.0f;}
+}
+//===============================================
 void GDrawSDLCamera::handleEvents(SDL_Event* event) {
     GEvent::Instance()->handleEvents(event);
 }
 //===============================================
 void GDrawSDLCamera::onKeyDown(SDL_Event* event) {
-    if(event->key.keysym.sym == SDLK_RIGHT) {
-        m_angleU += 20*0.1f;
-        if(m_angleU >= 360.0f) {
-            m_angleU -= 360.0f;
-        }
+    if(event->key.keysym.sym == SDLK_r) {
+        orientateBox("UP");
     }
-    if(event->key.keysym.sym == SDLK_LEFT) {
-        m_angleU -= 20*0.1f;
-        if(m_angleU <= 0) {
-            m_angleU += 360.0f;
-        }
+    if(event->key.keysym.sym == SDLK_c) {
+        orientateBox("DOWN");
+    }
+    if(event->key.keysym.sym == SDLK_d) {
+        orientateBox("LEFT");
+    }
+    if(event->key.keysym.sym == SDLK_g) {
+        orientateBox("RIGHT");
     }
     if(event->key.keysym.sym == SDLK_UP) {
-        m_angleV += 20*0.1f;
-        if(m_angleV >= 360.0f) {
-            m_angleV -= 360.0f;
-        }
-    }
-    if(event->key.keysym.sym == SDLK_DOWN) {
-        m_angleV -= 20*0.1f;
-        if(m_angleV <= 0) {
-            m_angleV += 360.0f;
-        }
-    }
-    if(event->key.keysym.sym == SDLK_z) {
         GCameraSDL::Instance()->deplacer(1);
     }
-    if(event->key.keysym.sym == SDLK_w) {
+    if(event->key.keysym.sym == SDLK_DOWN) {
         GCameraSDL::Instance()->deplacer(2);
     }
-    if(event->key.keysym.sym == SDLK_q) {
+    if(event->key.keysym.sym == SDLK_LEFT) {
         GCameraSDL::Instance()->deplacer(3);
     }
-    if(event->key.keysym.sym == SDLK_s) {
+    if(event->key.keysym.sym == SDLK_RIGHT) {
         GCameraSDL::Instance()->deplacer(4);
     }
-    if(event->key.keysym.sym == SDLK_ESCAPE) {
-        GCameraSDL::Instance()->afficherPointeur(true);
-        GCameraSDL::Instance()->capturerPointeur(false);
+    if(event->key.keysym.sym == SDLK_z) {
+        GCameraSDL::Instance()->orienter(1);
     }
-}
-//===============================================
-void GDrawSDLCamera::onMouseMotion(SDL_Event* event) {
-    int lXrel = event->motion.xrel;
-    int lYrel = event->motion.yrel;
-    float lRrel = qSqrt(lXrel * lXrel + lYrel * lYrel);
-    if(lRrel < 3.0f) return;
-    GCameraSDL::Instance()->deplacer(0, lXrel, lYrel);
+    if(event->key.keysym.sym == SDLK_w) {
+        GCameraSDL::Instance()->orienter(2);
+    }
+    if(event->key.keysym.sym == SDLK_q) {
+        GCameraSDL::Instance()->orienter(3);
+    }
+    if(event->key.keysym.sym == SDLK_s) {
+        GCameraSDL::Instance()->orienter(4);
+    }
 }
 //===============================================
