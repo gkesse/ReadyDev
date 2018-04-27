@@ -22,6 +22,7 @@ GEvent* GEvent::Instance() {
 void GEvent::handleEvents(SDL_Event* event) {
     switch(event->type){
         case SDL_KEYDOWN:
+            cout << SDL_GetKeyName(event->key.keysym.sym);
             GDraw::Instance()->onKeyDown(event);
             break;
         case SDL_MOUSEMOTION:

@@ -82,19 +82,27 @@ void GCamera::rotate(const char* direction) {
 //===============================================
 void GCamera::move(const char* direction) {
     if(QString(direction) == "UP") {
-        m_cameraPosition += m_orientation * m_translateSpeed;
+        m_cameraPosition += m_verticalAxis * m_translateSpeed;
         m_targetPosition = m_cameraPosition + m_orientation;
     }
     if(QString(direction) == "DOWN") {
+        m_cameraPosition -= m_verticalAxis * m_translateSpeed;
+        m_targetPosition = m_cameraPosition + m_orientation;
+    }
+    if(QString(direction) == "FORWARD") {
+        m_cameraPosition += m_orientation * m_translateSpeed;
+        m_targetPosition = m_cameraPosition + m_orientation;
+    }
+    if(QString(direction) == "BACKWARD") {
         m_cameraPosition -= m_orientation * m_translateSpeed;
         m_targetPosition = m_cameraPosition + m_orientation;
     }
     if(QString(direction) == "LEFT") {
-        m_cameraPosition = m_cameraPosition + m_sideShift * m_translateSpeed;
+        m_cameraPosition += m_sideShift * m_translateSpeed;
         m_targetPosition = m_cameraPosition + m_orientation;
     }
     if(QString(direction) == "RIGHT") {
-        m_cameraPosition = m_cameraPosition - m_sideShift * m_translateSpeed;
+        m_cameraPosition -= m_sideShift * m_translateSpeed;
         m_targetPosition = m_cameraPosition + m_orientation;
     }
 }

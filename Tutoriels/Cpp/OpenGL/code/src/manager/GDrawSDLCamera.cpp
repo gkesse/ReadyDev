@@ -91,11 +91,18 @@ void GDrawSDLCamera::onKeyDown(SDL_Event* event) {
     if(event->key.keysym.sym == SDLK_f) {
         rotateBox("RIGHT");
     }
-    if(event->key.keysym.sym == SDLK_UP) {
+    // move camera
+    if(event->key.keysym.sym == SDLK_KP_8) {
         GCamera::Instance()->move("UP");
     }
-    if(event->key.keysym.sym == SDLK_DOWN) {
+    if(event->key.keysym.sym == SDLK_KP_0) {
         GCamera::Instance()->move("DOWN");
+    }
+    if(event->key.keysym.sym == SDLK_UP) {
+        GCamera::Instance()->move("FORWARD");
+    }
+    if(event->key.keysym.sym == SDLK_DOWN) {
+        GCamera::Instance()->move("BACKWARD");
     }
     if(event->key.keysym.sym == SDLK_LEFT) {
         GCamera::Instance()->move("LEFT");
@@ -106,6 +113,7 @@ void GDrawSDLCamera::onKeyDown(SDL_Event* event) {
     if(event->key.keysym.sym == SDLK_z) {
         GCamera::Instance()->rotate("UP");
     }
+    // rotate camera
     if(event->key.keysym.sym == SDLK_w) {
         GCamera::Instance()->rotate("DOWN");
     }
