@@ -31,12 +31,8 @@ void GDrawSDLCamera::initDraw() {
 }
 //===============================================
 void GDrawSDLCamera::initCamera(int width, int height) {
-    float lRatio = (float)width/height;
-    float lFoV = 70.0f;
-    float lZNear = 0.1f;
-    float lZFar = 100.0f;
-    m_projection = glm::perspective(lFoV, lRatio, lZNear, lZFar);
-    GCameraSDL::Instance()->initCamera(glm::vec3(10.0f, 10.0f, 10.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f), 1.0f, 0.5f);
+    GCameraSDL::Instance()->initCamera(glm::vec3(10.0f, 10.0f, 10.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f), 4.0f, 0.5f);
+    GCameraSDL::Instance()->perspective(m_projection, width, height);
 }
 //===============================================
 void GDrawSDLCamera::draw() {

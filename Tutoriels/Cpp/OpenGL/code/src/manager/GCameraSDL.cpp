@@ -90,6 +90,14 @@ void GCameraSDL::deplacer(const char* direction) {
     }
 }
 //===============================================
+void GCameraSDL::perspective(glm::mat4& projection, int width, int height) {
+    float lRatio = (float)width/height;
+    float lFoV = 70.0f;
+    float lZNear = 0.1f;
+    float lZFar = 100.0f;
+    projection = glm::perspective(lFoV, lRatio, lZNear, lZFar);
+}
+//===============================================
 void GCameraSDL::lookAt(glm::mat4& modelView) {
     modelView = glm::lookAt(m_position, m_pointCible, m_axeVertical);
 }
