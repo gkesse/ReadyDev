@@ -11,9 +11,8 @@ public:
 
 public:
     static GCamera* Instance();
-    void update(int width, int height);
-    void updateViewport(int width, int height);
-    void updateOrtho(int width, int height);
+    void viewport(int width, int height);
+    void perspectiveOrtho(int width, int height);
     void initCamera(glm::vec3 cameraPosition, glm::vec3 targetPosition, glm::vec3 verticalAxis, float rotateSpeed, float translateSpeed);
     void rotate(const char* direction);
     void move(const char* direction);

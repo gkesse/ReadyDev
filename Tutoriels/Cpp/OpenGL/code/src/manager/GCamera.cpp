@@ -18,16 +18,11 @@ GCamera* GCamera::Instance() {
     return m_instance;
 }
 //===============================================
-void GCamera::update(int width, int height) {
-    updateViewport(width, height);
-    updateOrtho(width, height);
-}
-//===============================================
-void GCamera::updateViewport(int width, int height) {
+void GCamera::viewport(int width, int height) {
     glViewport(0, 0, width, height);
 }
 //===============================================
-void GCamera::updateOrtho(int width, int height) {
+void GCamera::perspectiveOrtho(int width, int height) {
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     float lRatio = (float)width/height;

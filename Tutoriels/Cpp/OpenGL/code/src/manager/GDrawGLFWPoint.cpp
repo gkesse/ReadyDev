@@ -26,7 +26,8 @@ void GDrawGLFWPoint::initDraw() {
 }
 //===============================================
 void GDrawGLFWPoint::updateCamera(int width, int height) {
-    GCamera::Instance()->update(width, height);
+    GCamera::Instance()->viewport(width, height);
+    GCamera::Instance()->perspectiveOrtho(width, height);
 }
 //===============================================
 void GDrawGLFWPoint::updateDraw() {
