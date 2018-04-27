@@ -1,7 +1,7 @@
 //===============================================
 #include "GDrawSDLCamera.h"
 #include "GEvent.h"
-#include "GCameraSDL.h"
+#include "GCamera.h"
 //===============================================
 #include <QtMath>
 //===============================================
@@ -31,12 +31,12 @@ void GDrawSDLCamera::initDraw() {
 }
 //===============================================
 void GDrawSDLCamera::initCamera(int width, int height) {
-    GCameraSDL::Instance()->initCamera(glm::vec3(10.0f, 10.0f, 10.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f), 4.0f, 0.5f);
-    GCameraSDL::Instance()->perspective(m_projection, width, height);
+    GCamera::Instance()->initCamera(glm::vec3(10.0f, 10.0f, 10.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f), 4.0f, 0.5f);
+    GCamera::Instance()->perspective(m_projection, width, height);
 }
 //===============================================
 void GDrawSDLCamera::draw() {
-    GCameraSDL::Instance()->lookAt(m_modelView);
+    GCamera::Instance()->lookAt(m_modelView);
     glm::mat4 lModelView = m_modelView;
     m_modelView = glm::translate(m_modelView, glm::vec3(0.0f,3.0f,0.0f));
     m_modelView = glm::rotate(m_modelView, glm::radians(m_angleU), glm::vec3(0.0f,1.0f,0.0f));
@@ -92,28 +92,28 @@ void GDrawSDLCamera::onKeyDown(SDL_Event* event) {
         orientateBox("RIGHT");
     }
     if(event->key.keysym.sym == SDLK_UP) {
-        GCameraSDL::Instance()->deplacer("UP");
+        GCamera::Instance()->move("UP");
     }
     if(event->key.keysym.sym == SDLK_DOWN) {
-        GCameraSDL::Instance()->deplacer("DOWN");
+        GCamera::Instance()->move("DOWN");
     }
     if(event->key.keysym.sym == SDLK_LEFT) {
-        GCameraSDL::Instance()->deplacer("LEFT");
+        GCamera::Instance()->move("LEFT");
     }
     if(event->key.keysym.sym == SDLK_RIGHT) {
-        GCameraSDL::Instance()->deplacer("RIGHT");
+        GCamera::Instance()->move("RIGHT");
     }
     if(event->key.keysym.sym == SDLK_z) {
-        GCameraSDL::Instance()->orienter("UP");
+        GCamera::Instance()->rotate("UP");
     }
     if(event->key.keysym.sym == SDLK_w) {
-        GCameraSDL::Instance()->orienter("DOWN");
+        GCamera::Instance()->rotate("DOWN");
     }
     if(event->key.keysym.sym == SDLK_q) {
-        GCameraSDL::Instance()->orienter("LEFT");
+        GCamera::Instance()->rotate("LEFT");
     }
     if(event->key.keysym.sym == SDLK_s) {
-        GCameraSDL::Instance()->orienter("RIGHT");
+        GCamera::Instance()->rotate("RIGHT");
     }
 }
 //===============================================

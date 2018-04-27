@@ -137,8 +137,7 @@ SOURCES += \
     $$PWD/GObjBox.cpp \
     $$PWD/GDrawSDLTextureObj.cpp \
     $$PWD/GObjLand.cpp \
-    $$PWD/GDrawSDLCamera.cpp \
-    $$PWD/GCameraSDL.cpp
+    $$PWD/GDrawSDLCamera.cpp
 
 FORMS += \
     $$PWD/GWindowQtForm.ui
