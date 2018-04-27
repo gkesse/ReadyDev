@@ -27,20 +27,11 @@ void GCameraSDL::initCamera(glm::vec3 position, glm::vec3 pointCible, glm::vec3 
     computeSettings();
 }
 //===============================================
-void GCameraSDL::orienter(int direction) {
-    float lFactor = 1.0f;
-    if(direction == 1) {
-        m_phi -= lFactor * m_sensibilite;
-    }
-    if(direction == 2) {
-        m_phi += lFactor * m_sensibilite;
-    }
-    if(direction == 3) {
-        m_theta += lFactor * m_sensibilite;
-    }
-    if(direction == 4) {
-        m_theta -= lFactor * m_sensibilite;
-    }
+void GCameraSDL::orienter(const char* direction) {
+    if(QString(direction) == "UP") {m_phi += m_sensibilite;}
+    if(QString(direction) == "DOWN") {m_phi -= m_sensibilite;}
+    if(QString(direction) == "LEFT") {m_theta += m_sensibilite;}
+    if(QString(direction) == "RIGHT") {m_theta -= m_sensibilite;}
     if(m_phi > 89.0) m_phi = 89.0;
     else if(m_phi < -89.0) m_phi = -89.0;
     if(m_theta >= 360.0f) m_theta -= 360.0f;
@@ -80,20 +71,20 @@ void GCameraSDL::orienter(int direction) {
     m_pointCible = m_position + m_orientation;
 }
 //===============================================
-void GCameraSDL::deplacer(int direction) {
-    if(direction == 1) {
+void GCameraSDL::deplacer(const char* direction) {
+    if(QString(direction) == "UP") {
         m_position += m_orientation * m_vitesse;
         m_pointCible = m_position + m_orientation;
     }
-    if(direction == 2) {
+    if(QString(direction) == "DOWN") {
         m_position -= m_orientation * m_vitesse;
         m_pointCible = m_position + m_orientation;
     }
-    if(direction == 3) {
+    if(QString(direction) == "LEFT") {
         m_position = m_position + m_deplacementLateral * m_vitesse;
         m_pointCible = m_position + m_orientation;
     }
-    if(direction == 4) {
+    if(QString(direction) == "RIGHT") {
         m_position = m_position - m_deplacementLateral * m_vitesse;
         m_pointCible = m_position + m_orientation;
     }

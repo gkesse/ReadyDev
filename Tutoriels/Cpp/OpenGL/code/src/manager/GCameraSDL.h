@@ -12,8 +12,8 @@ public:
 public:
     static GCameraSDL* Instance();
     void initCamera(glm::vec3 position, glm::vec3 pointCible, glm::vec3 axeVertical, float sensibilite, float vitesse);
-    void orienter(int direction);
-    void deplacer(int direction);
+    void orienter(const char* direction);
+    void deplacer(const char* direction);
     void lookAt(glm::mat4& modelView);
     void computeSettings();
     void setPointcible(glm::vec3 pointCible);

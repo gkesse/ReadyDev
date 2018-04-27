@@ -67,11 +67,11 @@ void GDrawSDLCamera::draw() {
 }
 //===============================================
 void GDrawSDLCamera::orientateBox(const char* direction) {
-    float lAngle = 2.0f;
+    float lAngle = 10.0f;
     if(QString(direction) == "UP") {m_angleV += lAngle;}
     if(QString(direction) == "DOWN") {m_angleV -= lAngle;}
-    if(QString(direction) == "LEFT") {m_angleU += lAngle;}
-    if(QString(direction) == "RIGHT") {m_angleU -= lAngle;}
+    if(QString(direction) == "LEFT") {m_angleU -= lAngle;}
+    if(QString(direction) == "RIGHT") {m_angleU += lAngle;}
     if(m_angleU >= 360.0f) {m_angleU -= 360.0f;}
     if(m_angleU <= 0.0f) {m_angleU += 360.0f;}
     if(m_angleV >= 360.0f) {m_angleV -= 360.0f;}
@@ -92,32 +92,32 @@ void GDrawSDLCamera::onKeyDown(SDL_Event* event) {
     if(event->key.keysym.sym == SDLK_d) {
         orientateBox("LEFT");
     }
-    if(event->key.keysym.sym == SDLK_g) {
+    if(event->key.keysym.sym == SDLK_f) {
         orientateBox("RIGHT");
     }
     if(event->key.keysym.sym == SDLK_UP) {
-        GCameraSDL::Instance()->deplacer(1);
+        GCameraSDL::Instance()->deplacer("UP");
     }
     if(event->key.keysym.sym == SDLK_DOWN) {
-        GCameraSDL::Instance()->deplacer(2);
+        GCameraSDL::Instance()->deplacer("DOWN");
     }
     if(event->key.keysym.sym == SDLK_LEFT) {
-        GCameraSDL::Instance()->deplacer(3);
+        GCameraSDL::Instance()->deplacer("LEFT");
     }
     if(event->key.keysym.sym == SDLK_RIGHT) {
-        GCameraSDL::Instance()->deplacer(4);
+        GCameraSDL::Instance()->deplacer("RIGHT");
     }
     if(event->key.keysym.sym == SDLK_z) {
-        GCameraSDL::Instance()->orienter(1);
+        GCameraSDL::Instance()->orienter("UP");
     }
     if(event->key.keysym.sym == SDLK_w) {
-        GCameraSDL::Instance()->orienter(2);
+        GCameraSDL::Instance()->orienter("DOWN");
     }
     if(event->key.keysym.sym == SDLK_q) {
-        GCameraSDL::Instance()->orienter(3);
+        GCameraSDL::Instance()->orienter("LEFT");
     }
     if(event->key.keysym.sym == SDLK_s) {
-        GCameraSDL::Instance()->orienter(4);
+        GCameraSDL::Instance()->orienter("RIGHT");
     }
 }
 //===============================================
