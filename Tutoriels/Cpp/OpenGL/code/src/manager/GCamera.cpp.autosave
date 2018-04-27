@@ -57,6 +57,8 @@ void GCamera::rotate(const char* direction) {
     else if(m_phi < -PHI_MAX) m_phi = -PHI_MAX;
     if(m_theta >= 360.0f) m_theta -= 360.0f;
     else if(m_theta <= 0) m_theta += 360.0f;
+    if(m_theta >= 360.0f) m_theta -= 360.0f;
+    else if(m_theta <= 0) m_theta += 360.0f;
 
     float lPhi = TO_RADIANS(m_phi);
     float lTheta = TO_RADIANS(m_theta);
@@ -135,6 +137,7 @@ void GCamera::computeSettings() {
         m_theta = acos(m_orientation.z / cos(m_phi));
         if(m_orientation.z < 0.0f) {m_theta *= -1.0f;}
         m_omega = acos(-m_orientation.z);
+        if(m_orientation.z < 0.0f) {m_theta *= -1.0f;}
     }
     else {
         m_phi = asin(m_orientation.x);

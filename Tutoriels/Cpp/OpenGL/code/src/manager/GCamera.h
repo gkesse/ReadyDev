@@ -38,6 +38,7 @@ private:
     //===============================================
     float m_phi;
     float m_theta;
+    float m_omega;
     glm::vec3 m_orientation;
     glm::vec3 m_sideShift;
     glm::vec3 m_verticalShift;
