@@ -16,7 +16,7 @@ public:
     void initDraw();
     void initCamera(int width, int height);
     void draw();
-    void orientateBox(const char* direction);
+    void rotateBox(const char* direction);
     void handleEvents(SDL_Event* event);
     void onKeyDown(SDL_Event* event);
 

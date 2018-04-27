@@ -74,8 +74,7 @@ HEADERS += \
     $$PWD/GObjBox.h \
     $$PWD/GDrawSDLTextureObj.h \
     $$PWD/GObjLand.h \
-    $$PWD/GDrawSDLCamera.h \
-    $$PWD/GCameraSDL.h
+    $$PWD/GDrawSDLCamera.h
 
 SOURCES += \
     $$PWD/GWindow.cpp \

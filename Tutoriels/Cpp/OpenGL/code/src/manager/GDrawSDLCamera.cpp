@@ -62,7 +62,7 @@ void GDrawSDLCamera::draw() {
     m_objLand.draw(m_projection, m_modelView);
 }
 //===============================================
-void GDrawSDLCamera::orientateBox(const char* direction) {
+void GDrawSDLCamera::rotateBox(const char* direction) {
     float lAngle = 10.0f;
     if(QString(direction) == "UP") {m_angleV += lAngle;}
     if(QString(direction) == "DOWN") {m_angleV -= lAngle;}
@@ -80,16 +80,16 @@ void GDrawSDLCamera::handleEvents(SDL_Event* event) {
 //===============================================
 void GDrawSDLCamera::onKeyDown(SDL_Event* event) {
     if(event->key.keysym.sym == SDLK_r) {
-        orientateBox("UP");
+        rotateBox("UP");
     }
     if(event->key.keysym.sym == SDLK_c) {
-        orientateBox("DOWN");
+        rotateBox("DOWN");
     }
     if(event->key.keysym.sym == SDLK_d) {
-        orientateBox("LEFT");
+        rotateBox("LEFT");
     }
     if(event->key.keysym.sym == SDLK_f) {
-        orientateBox("RIGHT");
+        rotateBox("RIGHT");
     }
     if(event->key.keysym.sym == SDLK_UP) {
         GCamera::Instance()->move("UP");
