@@ -76,17 +76,18 @@ void GCamera::rotate(const char* direction) {
     }
     m_sideShift = cross(m_verticalAxis, m_orientation);
     m_sideShift = normalize(m_sideShift);
-
+    m_verticalShift = cross(m_orientation, m_sideShift);
+    m_verticalShift = normalize(m_verticalShift);
     m_targetPosition = m_cameraPosition + m_orientation;
 }
 //===============================================
 void GCamera::move(const char* direction) {
     if(QString(direction) == "UP") {
-        m_cameraPosition += m_verticalAxis * m_translateSpeed;
+        m_cameraPosition += m_verticalShift * m_translateSpeed;
         m_targetPosition = m_cameraPosition + m_orientation;
     }
     if(QString(direction) == "DOWN") {
-        m_cameraPosition -= m_verticalAxis * m_translateSpeed;
+        m_cameraPosition -= m_verticalShift * m_translateSpeed;
         m_targetPosition = m_cameraPosition + m_orientation;
     }
     if(QString(direction) == "FORWARD") {
@@ -141,6 +142,8 @@ void GCamera::computeSettings() {
     m_theta = TO_DEGREES(m_theta);
     m_sideShift = cross(m_verticalAxis, m_orientation);
     m_sideShift = normalize(m_sideShift);
+    m_verticalShift = cross(m_orientation, m_sideShift);
+    m_verticalShift = normalize(m_verticalShift);
 }
 //===============================================
 void GCamera::setTargetPosition(glm::vec3 targetPosition) {

@@ -40,6 +40,7 @@ private:
     float m_theta;
     glm::vec3 m_orientation;
     glm::vec3 m_sideShift;
+    glm::vec3 m_verticalShift;
 };
 //===============================================
 #endif
