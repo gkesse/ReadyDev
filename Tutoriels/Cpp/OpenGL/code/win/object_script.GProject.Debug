@@ -60,6 +60,8 @@ INPUT(
 ./build\GDrawSDLTextureObj.o
 ./build\GObjLand.o
 ./build\GDrawSDLCamera.o
+./build\GObjCabin.o
+./build\GDrawSDLRelic.o
 ./build\main.o
 ./build\moc_GWindowQtForm.o
 ./build\moc_GWindowQtFormGL.o
