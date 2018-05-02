@@ -51,12 +51,8 @@ void GCamera::rotate(const char* direction) {
     if(QString(direction) == "DOWN") {m_phi -= m_rotateSpeed;}
     if(QString(direction) == "LEFT") {m_theta += m_rotateSpeed;}
     if(QString(direction) == "RIGHT") {m_theta -= m_rotateSpeed;}
-    if(QString(direction) == "LEFT_TURN") {m_omega += m_rotateSpeed;}
-    if(QString(direction) == "RIGHT_TURN") {m_omega -= m_rotateSpeed;}
     if(m_phi > PHI_MAX) m_phi = PHI_MAX;
     else if(m_phi < -PHI_MAX) m_phi = -PHI_MAX;
-    if(m_theta >= 360.0f) m_theta -= 360.0f;
-    else if(m_theta <= 0) m_theta += 360.0f;
     if(m_theta >= 360.0f) m_theta -= 360.0f;
     else if(m_theta <= 0) m_theta += 360.0f;
 
@@ -135,8 +131,6 @@ void GCamera::computeSettings() {
     else if(m_verticalAxis.y == 1.0f) {
         m_phi = asin(m_orientation.y);
         m_theta = acos(m_orientation.z / cos(m_phi));
-        if(m_orientation.z < 0.0f) {m_theta *= -1.0f;}
-        m_omega = acos(-m_orientation.z);
         if(m_orientation.z < 0.0f) {m_theta *= -1.0f;}
     }
     else {

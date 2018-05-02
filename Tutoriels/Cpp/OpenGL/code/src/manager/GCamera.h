@@ -15,6 +15,7 @@ public:
     void perspectiveOrtho(int width, int height);
     void initCamera(glm::vec3 cameraPosition, glm::vec3 targetPosition, glm::vec3 verticalAxis, float rotateSpeed, float translateSpeed);
     void rotate(const char* direction);
+    void turn(const char* direction);
     void move(const char* direction);
     void perspective(glm::mat4& projection, int width, int height);
     void lookAt(glm::mat4& modelView);
@@ -38,7 +39,6 @@ private:
     //===============================================
     float m_phi;
     float m_theta;
-    float m_omega;
     glm::vec3 m_orientation;
     glm::vec3 m_sideShift;
     glm::vec3 m_verticalShift;
