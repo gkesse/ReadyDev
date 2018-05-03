@@ -24,6 +24,7 @@ GDrawSDLRelic* GDrawSDLRelic::Instance() {
 //===============================================
 void GDrawSDLRelic::initDraw() {
     m_objGround = GObjGround(30, 30, "res/img/ground.jpg");
+    m_objGround2 = GObjGround(60, 60, "res/img/grass.jpg");
 }
 //===============================================
 void GDrawSDLRelic::initCamera(int width, int height) {
@@ -33,9 +34,12 @@ void GDrawSDLRelic::initCamera(int width, int height) {
 //===============================================
 void GDrawSDLRelic::draw() {
     GCamera::Instance()->lookAt(m_modelView);
-    //glm::mat4 lModelView = m_modelView;
+    glm::mat4 lModelView = m_modelView;
     m_objCabin.draw(m_projection, m_modelView);
     m_objGround.draw(m_projection, m_modelView);
+    m_modelView = lModelView;
+    m_modelView = glm::translate(m_modelView, glm::vec3(0.0f,-0.01f,0.0f));
+    m_objGround2.draw(m_projection, m_modelView);
 }
 //===============================================
 void GDrawSDLRelic::handleEvents(SDL_Event* event) {

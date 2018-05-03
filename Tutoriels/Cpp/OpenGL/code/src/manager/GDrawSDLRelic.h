@@ -26,6 +26,7 @@ private:
     glm::mat4 m_modelView;
     GObjCabin m_objCabin;
     GObjGround m_objGround;
+    GObjGround m_objGround2;
 };
 //===============================================
 #endif
