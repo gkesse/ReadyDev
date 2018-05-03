@@ -8,11 +8,6 @@ GObjGround::GObjGround() {
 
 }
 //===============================================
-GObjGround::GObjGround(float Size) {
-    const char* lGround = "res/img/ground.jpg";
-    initObject(30, 30, lGround);
-}
-//===============================================
 GObjGround::GObjGround(float Width, float Height, const char* Ground) {
     initObject(Width, Height, Ground);
 }

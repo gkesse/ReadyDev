@@ -7,7 +7,6 @@
 class GObjGround {
 public:
     GObjGround();
-    GObjGround(float Size);
     GObjGround(float Width, float Height, const char* Ground);
     ~GObjGround();
 
