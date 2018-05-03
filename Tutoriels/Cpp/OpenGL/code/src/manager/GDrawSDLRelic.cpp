@@ -26,7 +26,7 @@ void GDrawSDLRelic::initDraw() {
     m_objCabin = GObjCabin("res/img/wall.jpg", "res/img/roof.jpg");
     m_objGround = GObjGround(30, 30, "res/img/ground.jpg");
     m_objGround2 = GObjGround(60, 60, "res/img/grass.jpg");
-    m_objCrystal = GObjCrystal("res/img/grass.jpg");
+    m_objCrystal = GObjCrystal("res/img/crystal.tga");
 }
 //===============================================
 void GDrawSDLRelic::initCamera(int width, int height) {
