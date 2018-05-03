@@ -26,6 +26,7 @@ void GDrawSDLRelic::initDraw() {
     m_objCabin = GObjCabin("res/img/wall.jpg", "res/img/roof.jpg");
     m_objGround = GObjGround(30, 30, "res/img/ground.jpg");
     m_objGround2 = GObjGround(60, 60, "res/img/grass.jpg");
+    m_objCrystal = GObjCrystal("res/img/grass.jpg");
 }
 //===============================================
 void GDrawSDLRelic::initCamera(int width, int height) {
@@ -41,6 +42,8 @@ void GDrawSDLRelic::draw() {
     m_modelView = lModelView;
     m_modelView = glm::translate(m_modelView, glm::vec3(0.0f,-0.01f,0.0f));
     m_objGround2.draw(m_projection, m_modelView);
+    m_modelView = lModelView;
+    m_objCrystal.draw(m_projection, m_modelView);
 }
 //===============================================
 void GDrawSDLRelic::handleEvents(SDL_Event* event) {

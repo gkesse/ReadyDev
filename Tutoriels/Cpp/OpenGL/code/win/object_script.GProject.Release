@@ -63,6 +63,7 @@ INPUT(
 ./build\GObjCabin.o
 ./build\GDrawSDLRelic.o
 ./build\GObjGround.o
+./build\GObjCrystal.o
 ./build\main.o
 ./build\moc_GWindowQtForm.o
 ./build\moc_GWindowQtFormGL.o

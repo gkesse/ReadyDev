@@ -5,6 +5,7 @@
 #include "GDrawSDL.h"
 #include "GObjCabin.h"
 #include "GObjGround.h"
+#include "GObjCrystal.h"
 //===============================================
 class GDrawSDLRelic : public GDrawSDL {
 public:
@@ -27,6 +28,7 @@ private:
     GObjCabin m_objCabin;
     GObjGround m_objGround;
     GObjGround m_objGround2;
+    GObjCrystal m_objCrystal;
 };
 //===============================================
 #endif

@@ -77,7 +77,8 @@ HEADERS += \
     $$PWD/GDrawSDLCamera.h \
     $$PWD/GObjCabin.h \
     $$PWD/GDrawSDLRelic.h \
-    $$PWD/GObjGround.h
+    $$PWD/GObjGround.h \
+    $$PWD/GObjCrystal.h
 
 SOURCES += \
     $$PWD/GWindow.cpp \
@@ -142,7 +143,8 @@ SOURCES += \
     $$PWD/GDrawSDLCamera.cpp \
     $$PWD/GObjCabin.cpp \
     $$PWD/GDrawSDLRelic.cpp \
-    $$PWD/GObjGround.cpp
+    $$PWD/GObjGround.cpp \
+    $$PWD/GObjCrystal.cpp
 
 FORMS += \
     $$PWD/GWindowQtForm.ui
