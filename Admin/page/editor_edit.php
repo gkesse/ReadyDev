@@ -30,6 +30,7 @@
 			<option value="Shift1">Décalage 1</option>
 			<option value="Shift2">Décalage 2</option>
 			<option value="Code1">Code 1</option>
+			<option value="Code2">Code 2</option>
 		</select>
 	</div>
 	<!-- ============================================ -->

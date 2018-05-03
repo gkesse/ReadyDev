@@ -1,4 +1,4 @@
-<div class="pgCt00"><div class="bgra"><h1 class="bgra pgCt20 txac  Title1" id="Sommaire"><a class="clrb" href="#">Sommaire</a></h1><div class="txal pgCt10"><div class="dibm Summary1"><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Introduction">Introduction</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Auteur">Auteur</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Installation sous Windows avec MinGW">Installation sous Windows avec MinGW</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Compiler un projet C++ avec MinGW">Compiler un projet C++ avec MinGW</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Gérer les librairies statiques avec MinGW">Gérer les librairies statiques avec MinGW</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Gérer les librairies dynamiques avec MinGW">Gérer les librairies dynamiques avec MinGW</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Gérer un projet complet avec MinGW">Gérer un projet complet avec MinGW</a></div></div></div></div></div><br><div class="pgCt00"><div class="bgra"><h1 class="bgra pgCt20 txac  Title1" id="Introduction"><a class="clrb" href="#Sommaire">Introduction</a></h1><div class="txal pgCt10">Le C++ est un langage de programmation orienté objet. MinGW est un outil de compilation de projet C++. Le but de ce tutoriel est de vous apprendre à compiler un projet C++ avec MinGW.<br><br><b>Prérequis :</b><br>Aucun prérequis n'est nécessaire.<br></div></div></div><br><div class="pgCt00"><div class="bgra"><h1 class="bgra pgCt20 txac  Title1" id="Auteur"><a class="clrb" href="#Sommaire">Auteur</a></h1><div class="txal pgCt10">Je suis <b>Gérard KESSE</b>, <br>Ingénieur en Développement Informatique C/C++/Qt, <br>Avec à la fois des compétences en Systèmes Embarqués et en Robotique.<br><br>Formé à Polytech'Montpellier, Je suis un professionnel de conception de projets logiciel applicatif ou embarqué dans les secteurs de l'Aéronautique, de la Robotique, des Drones et de la Vision par Ordinateur. Aussi, Je reste ouvert à d'autres types de secteurs tels que l'Énergie et les Finances.<br><br>Les Sciences de l’Ingénieur sont au cœur du métier d’ingénieur. Sur le site <br><b>ReadyDev</b>, la Plateforme de Développement Continu, dont j'en suis le concepteur, vous trouverez des cours et des tutoriels adaptés aux sciences de l’ingénieur.<br><br><div align="center">Comprendre la Théorie pour mieux Pratiquer.<br>Montez en Compétences sur ReadyDev.<br>J'aime, Je partage.<br><br><b>Gérard KESSE</b><br><b></b><div class="ovfa"><img src="/img/readydev.png" alt="Image.png"><br><a class="hvra" href="http://github.com/gkesse">GitHub</a> | <a class="hvra" href="https://www.linkedin.com/in/tia-gerard-kesse/">LinkedIn</a> | <a class="hvra" href="/CV/">CV</a></div></div></div></div></div><br><div class="pgCt00"><div class="bgra"><h1 class="bgra pgCt20 txac Title1" id="Installation sous Windows avec MinGW"><a class="clrb" href="#Sommaire">Installation sous Windows avec MinGW</a></h1><div class="txal pgCt10"><div class="dibm Summary2"><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Téléchargements">Téléchargements</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Installation de MinGW">Installation de MinGW</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Installation de Notepad++">Installation de Notepad++</a></div></div><br><br><h2 class="ftwn Title2" id="Téléchargements"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Installation sous Windows avec MinGW">Téléchargements</a></h2><br><b>Notepad++ :</b><br><a class="hvra" href="https://notepad-plus-plus.org/fr/">https://notepad-plus-plus.org/fr/</a><br><br><b>MinGW :</b><br><a class="hvra" href="http://www.mingw.org/">http://www.mingw.org/</a><br><br><h2 class="ftwn Title2" id="Installation de MinGW"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Installation sous Windows avec MinGW">Installation de MinGW</a></h2><br><b>Packages MinGW :</b><br>mingw32-base<br>mingw32-gcc-g++<br><br><h2 class="ftwn Title2" id="Installation de Notepad++"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Installation sous Windows avec MinGW">Installation de Notepad++</a></h2><br><b>Plugins Notepad++ :</b><br>TextFX<br>NppExport<br><br></div></div></div><br><div class="pgCt00"><div class="bgra"><h1 class="bgra pgCt20 txac Title1" id="Compiler un projet C++ avec MinGW"><a class="clrb" href="#Sommaire">Compiler un projet C++ avec MinGW</a></h1><div class="txal pgCt10"><div class="dibm Summary2"><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Compiler un projet C++ avec un seul fichier source">Compiler un projet C++ avec un seul fichier source</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Compiler un projet C++ avec plusieurs fichiers sources">Compiler un projet C++ avec plusieurs fichiers sources</a></div></div><br><br><h2 class="ftwn Title2" id="Compiler un projet C++ avec un seul fichier source"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Compiler un projet C++ avec MinGW">Compiler un projet C++ avec un seul fichier source</a></h2><br><b>Objectif :</b><br>Compiler un projet C++ avec un seul fichier source.<br>Créer un fichier source en C++.<br>Créer un fichier de construction Makefile.<br><br><b>Implémentation :</b><br>Afficher un message dans la console (Bonjour tout le monde).<br><br><b>Résultat :</b><br> <div class="ovfa"><img src="img/Image_01.png" alt="img/Image_01.png"></div><br><b>Dossier projet :</b><br>src/main.cpp<br>win/Makefile<br>win/cmd_build.bat<br>win/cmd_clean.bat<br>win/cmd_compile.bat<br>win/cmd_run.bat<br>win/bin/<br>win/build/<br><br><b>src/main.cpp</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums">//===============================================
+<div class="pgCt00"><div class="bgra"><h1 class="bgra pgCt20 txac  Title1" id="Sommaire"><a class="clrb" href="#">Sommaire</a></h1><div class="txal pgCt10">Le C++ est un langage de programmation orienté objet. MinGW est un outil de compilation de projet C++. Le but de ce tutoriel est de vous apprendre à compiler un projet C++ avec MinGW.<br><br><div class="dibm Summary1"><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Introduction">Introduction</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Auteur">Auteur</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Installation sous Windows avec MinGW">Installation sous Windows avec MinGW</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Compiler un projet C++ avec MinGW">Compiler un projet C++ avec MinGW</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Gérer les librairies statiques avec MinGW">Gérer les librairies statiques avec MinGW</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Gérer les librairies dynamiques avec MinGW">Gérer les librairies dynamiques avec MinGW</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Gérer un projet complet avec MinGW">Gérer un projet complet avec MinGW</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Codes sources">Codes sources</a></div></div></div></div></div><br><div class="pgCt00"><div class="bgra"><h1 class="bgra pgCt20 txac  Title1" id="Introduction"><a class="clrb" href="#Sommaire">Introduction</a></h1><div class="txal pgCt10">Le C++ est un langage de programmation orienté objet. MinGW est un outil de compilation de projet C++. Le but de ce tutoriel est de vous apprendre à compiler un projet C++ avec MinGW.<br><br><b>Prérequis :</b><br>Aucun prérequis n'est nécessaire.<br></div></div></div><br><div class="pgCt00"><div class="bgra"><h1 class="bgra pgCt20 txac  Title1" id="Auteur"><a class="clrb" href="#Sommaire">Auteur</a></h1><div class="txal pgCt10">Je suis <b>Gérard KESSE</b>, <br>Ingénieur en Développement Informatique C/C++/Qt, <br>Avec à la fois des compétences en Systèmes Embarqués et en Robotique.<br><br>Formé à Polytech'Montpellier, Je suis un professionnel de conception de projets logiciel applicatif ou embarqué dans les secteurs de l'Aéronautique, de la Robotique, des Drones et de la Vision par Ordinateur. Aussi, Je reste ouvert à d'autres types de secteurs tels que l'Énergie et les Finances.<br><br>Les Sciences de l’Ingénieur sont au cœur du métier d’ingénieur. Sur le site <br><b>ReadyDev</b>, la Plateforme de Développement Continu, dont j'en suis le concepteur, vous trouverez des cours et des tutoriels adaptés aux sciences de l’ingénieur.<br><br><div align="center">Comprendre la Théorie pour mieux Pratiquer.<br>Montez en Compétences sur ReadyDev.<br>J'aime, Je partage.<br><br><b>Gérard KESSE</b><br><b></b><div class="ovfa"><img src="/img/readydev.png" alt="Image.png"><br><a class="hvra" href="http://github.com/gkesse">GitHub</a> | <a class="hvra" href="https://www.linkedin.com/in/tia-gerard-kesse/">LinkedIn</a> | <a class="hvra" href="/CV/">CV</a></div></div></div></div></div><br><div class="pgCt00"><div class="bgra"><h1 class="bgra pgCt20 txac Title1" id="Installation sous Windows avec MinGW"><a class="clrb" href="#Sommaire">Installation sous Windows avec MinGW</a></h1><div class="txal pgCt10"><div class="dibm Summary2"><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Téléchargements">Téléchargements</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Installation de Notepad++">Installation de Notepad++</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Installation de MinGW">Installation de MinGW</a></div></div><br><br><h2 class="ftwn Title2" id="Téléchargements"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Installation sous Windows avec MinGW">Téléchargements</a></h2><br><b>Notepad++ :</b><br><a class="hvra" href="https://notepad-plus-plus.org/fr/">https://notepad-plus-plus.org/fr/</a><br><br><b>MinGW :</b><br><a class="hvra" href="http://www.mingw.org/">http://www.mingw.org/</a><br><br><h2 class="ftwn Title2" id="Installation de Notepad++"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Installation sous Windows avec MinGW">Installation de Notepad++</a></h2><b><br>Plugins Notepad++ :</b><br>TextFX<br>NppExport<br><br><h2 class="ftwn Title2" id="Installation de MinGW"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Installation sous Windows avec MinGW">Installation de MinGW</a></h2><br><b>Packages MinGW :</b><br>mingw32-base<br>mingw32-gcc-g++<br></div></div></div><br><div class="pgCt00"><div class="bgra"><h1 class="bgra pgCt20 txac Title1" id="Compiler un projet C++ avec MinGW"><a class="clrb" href="#Sommaire">Compiler un projet C++ avec MinGW</a></h1><div class="txal pgCt10"><div class="dibm Summary2"><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Compiler un projet C++ avec un seul fichier source">Compiler un projet C++ avec un seul fichier source</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Compiler un projet C++ avec plusieurs fichiers sources">Compiler un projet C++ avec plusieurs fichiers sources</a></div></div><br><br><h2 class="ftwn Title2" id="Compiler un projet C++ avec un seul fichier source"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Compiler un projet C++ avec MinGW">Compiler un projet C++ avec un seul fichier source</a></h2><br><b>Objectif :</b><br>Compiler un projet C++ avec un seul fichier source.<br>Créer un fichier source en C++.<br>Créer un fichier de construction Makefile.<br><br><b>Implémentation :</b><br>Afficher un message dans la console (Bonjour tout le monde).<br><br><b>Résultat :</b><br> <div class="ovfa"><img src="img/Image_01.png" alt="img/Image_01.png"></div><br><b>Dossier projet :</b><br>src/main.cpp<br>win/Makefile<br>win/cmd_build.bat<br>win/cmd_clean.bat<br>win/cmd_compile.bat<br>win/cmd_run.bat<br>win/bin/<br>win/build/<br><br><b>src/main.cpp</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums lang-cpp">//===============================================
 #include <iostream>
 //===============================================
 using namespace std;
@@ -16,9 +16,9 @@ GOBJS = \
     $(GBUILD)/main.o
     
 all: $(GOBJS)
-	g++ -o $(GTARGET) $(GOBJS)
+    g++ -o $(GTARGET) $(GOBJS)
 $(GBUILD)/main.o: $(GSRC)/main.cpp
-	g++ -c $(GSRC)/main.cpp -o $(GBUILD)/main.o
+    g++ -c $(GSRC)/main.cpp -o $(GBUILD)/main.o
 clean:
     del /q $(GBUILD)\* $(GBIN)\*</xmp></pre></div><br><b>win/cmd_build.bat</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums">@echo off
 
@@ -42,7 +42,7 @@ bin\GProject.exe
 echo.
 pause</xmp></pre></div><br><b>Nettoyage du projet :</b><br>cmd_clean.bat<br><br><b>Compilation du projet :</b><br>cmd_compile.bat<br><br><b>Exécution du projet :</b><br>cmd_run.bat<br><br><b>Construction du projet :</b><br>cmd_build.bat<br><br><b>Construction manuel :</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums">del /q build\* bin\*
 g++ -c ../src/main.cpp -o build/main.o
-g++ -o bin/GProject.exe build/main.o</xmp></pre></div><br><h2 class="ftwn Title2" id="Compiler un projet C++ avec plusieurs fichiers sources"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Compiler un projet C++ avec MinGW">Compiler un projet C++ avec plusieurs fichiers sources</a></h2><br><b>Objectif :</b><br>Compiler un projet C++ avec plusieurs fichiers sources.<br>Créer un fichier entête en C++.<br>Créer une classe en C++.<br>Créer un patron Singleton en C++.<br><br><b>Implémentation :</b><br>Créer une classe (GMath) permettant de réaliser des opérations arithmétiques sur deux nombres données,  Additionner (add()), Soustraire (substract()), Multiplier (multiply()), Diviser (divide()), Déterminer le Quotient (quotient()), Déterminer le Modulo  (modulo()). Créer une classe (GShow) permettant d’afficher des données dans la console (show()). Utiliser la classe (GMath) pour réaliser des opérations arithmétiques sur deux nombres données (22, 7). Utiliser la classe (GShow) pour afficher les résultats de calculs.<br><br><b>Résultat :</b><br> <div class="ovfa"><img src="img/Image_02.png" alt="img/Image_02.png"></div><br><b>Dossier projet :</b><br>src/main.cpp<br>src/manager/GMath.h<br>src/manager/GMath.cpp<br>src/manager/GSow.h<br>src/manager/GShow.cpp<br>win/Makefile<br>win/bin/<br>win/build/<br><br><b>src/main.cpp</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums">//===============================================
+g++ -o bin/GProject.exe build/main.o</xmp></pre></div><br><h2 class="ftwn Title2" id="Compiler un projet C++ avec plusieurs fichiers sources"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Compiler un projet C++ avec MinGW">Compiler un projet C++ avec plusieurs fichiers sources</a></h2><br><b>Objectif :</b><br>Compiler un projet C++ avec plusieurs fichiers sources.<br>Créer un fichier entête en C++.<br>Créer une classe en C++.<br>Créer un patron Singleton en C++.<br><br><b>Implémentation :</b><br>Créer une classe (GMath) permettant de réaliser des opérations arithmétiques sur deux nombres données,  Additionner (add()), Soustraire (substract()), Multiplier (multiply()), Diviser (divide()), Déterminer le Quotient (quotient()), Déterminer le Modulo  (modulo()). Créer une classe (GShow) permettant d’afficher des données dans la console (show()). Utiliser la classe (GMath) pour réaliser des opérations arithmétiques sur deux nombres données (22, 7). Utiliser la classe (GShow) pour afficher les résultats de calculs.<br><br><b>Résultat :</b><br> <div class="ovfa"><img src="img/Image_02.png" alt="img/Image_02.png"></div><br><b>Dossier projet :</b><br>src/main.cpp<br>src/manager/GMath.h<br>src/manager/GMath.cpp<br>src/manager/GSow.h<br>src/manager/GShow.cpp<br>win/Makefile<br>win/bin/<br>win/build/<br><br><b>src/main.cpp</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums lang-cpp">//===============================================
 #include "GShow.h"
 #include "GMath.h"
 //===============================================
@@ -70,7 +70,7 @@ int main(int argc, char** argv) {
     GShow::Instance()->show(m_data, "modulo(22, 7)");    
     return 0;
 }
-//===============================================</xmp></pre></div><br><b>src/manager/GMath.h</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums">//===============================================
+//===============================================</xmp></pre></div><br><b>src/manager/GMath.h</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums lang-cpp">//===============================================
 #ifndef _GMath_
 #define _GMath_
 //===============================================
@@ -99,7 +99,7 @@ private:
 };
 //===============================================
 #endif
-//===============================================</xmp></pre></div><br><b>src/manager/GMath.cpp</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums">//===============================================
+//===============================================</xmp></pre></div><br><b>src/manager/GMath.cpp</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums lang-cpp">//===============================================
 #include "GMath.h"
 //===============================================
 GMath* GMath::m_instance = 0;
@@ -149,7 +149,7 @@ double GMath::modulo(const int& a, const int& b) {
     int m_data = a % b;
     return double(m_data);
 }
-//===============================================</xmp></pre></div><br><b>src/manager/GShow.h</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums">//===============================================
+//===============================================</xmp></pre></div><br><b>src/manager/GShow.h</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums lang-cpp">//===============================================
 #ifndef _GShow_
 #define _GShow_
 //===============================================
@@ -178,7 +178,7 @@ private:
 };
 //===============================================
 #endif
-//===============================================</xmp></pre></div><br><b>src/manager/GShow.cpp</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums">//===============================================
+//===============================================</xmp></pre></div><br><b>src/manager/GShow.cpp</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums lang-cpp">//===============================================
 #include "GShow.h"
 //===============================================
 GShow* GShow::m_instance = 0;
@@ -222,19 +222,19 @@ GOBJS = \
     $(GBUILD)/GMath.o
     
 all: $(GOBJS)
-	g++ -o $(GTARGET) $(GOBJS)
+    g++ -o $(GTARGET) $(GOBJS)
 $(GBUILD)/main.o: $(GSRC)/main.cpp
-	g++ -c $(GSRC)/main.cpp -o $(GBUILD)/main.o $(GINCS)
+    g++ -c $(GSRC)/main.cpp -o $(GBUILD)/main.o $(GINCS)
 $(GBUILD)/GShow.o: $(GSRC)/manager/GShow.cpp
-	g++ -c $(GSRC)/manager/GShow.cpp -o $(GBUILD)/GShow.o $(GINCS)
+    g++ -c $(GSRC)/manager/GShow.cpp -o $(GBUILD)/GShow.o $(GINCS)
 $(GBUILD)/GMath.o: $(GSRC)/manager/GMath.cpp
-	g++ -c $(GSRC)/manager/GMath.cpp -o $(GBUILD)/GMath.o $(GINCS)
+    g++ -c $(GSRC)/manager/GMath.cpp -o $(GBUILD)/GMath.o $(GINCS)
 clean:
-	del /q $(GBUILD)\* $(GBIN)\*</xmp></pre></div><br><b>Construction du projet :</b><br>cmd_build.bat<br><br><b>Construction manuel :</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums">del /q build\* bin\*
+    del /q $(GBUILD)\* $(GBIN)\*</xmp></pre></div><br><b>Construction du projet :</b><br>cmd_build.bat<br><br><b>Construction manuel :</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums">del /q build\* bin\*
 g++ -c ../src/main.cpp -o build/main.o -I../src/manager
 g++ -c ../src/manager/GShow.cpp -o build/GShow.o -I../src/manager
 g++ -c ../src/manager/GMath.cpp -o build/GMath.o -I../src/manager
-g++ -o bin/GProject.exe build/main.o build/GShow.o build/GMath.o</xmp></pre></div></div></div></div><br><div class="pgCt00"><div class="bgra"><h1 class="bgra pgCt20 txac Title1" id="Gérer les librairies statiques avec MinGW"><a class="clrb" href="#Sommaire">Gérer les librairies statiques avec MinGW</a></h1><div class="txal pgCt10"><div class="dibm Summary2"><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Créer une librairie statique en C++">Créer une librairie statique en C++</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Utiliser une librairie statique en C++">Utiliser une librairie statique en C++</a></div></div><br><br><h2 class="ftwn Title2" id="Créer une librairie statique en C++"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Gérer les librairies statiques avec MinGW">Créer une librairie statique en C++</a></h2><br><b>Objectif :</b><br>Créer une librairie statique en C++.<br><br><b>Implémentation :</b><br>Créer une classe (GMath) permettant de réaliser des opérations arithmétiques sur deux nombres données,  Additionner (add()), Soustraire (substract()), Multiplier (multiply()), Diviser (divide()), Déterminer le Quotient (quotient()), Déterminer le Modulo  (modulo()).<br>Créer une classe (GShow) permettant d’afficher des données dans la console (show()).<br>Regrouper ces deux classes dans une librairie statique (libHello.a).<br><br><b>Résultat :</b><br> <div class="ovfa"><img src="img/Image_03.png" alt="img/Image_03.png"></div><br><b>Dossier projet :</b><br>src/manager/GMath.h<br>src/manager/GMath.cpp<br>src/manager/GSow.h<br>src/manager/GShow.cpp<br>win/Makefile<br>win/bin/<br>win/build/<br><br><b>src/manager/GMath.h</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums">//===============================================
+g++ -o bin/GProject.exe build/main.o build/GShow.o build/GMath.o</xmp></pre></div></div></div></div><br><div class="pgCt00"><div class="bgra"><h1 class="bgra pgCt20 txac Title1" id="Gérer les librairies statiques avec MinGW"><a class="clrb" href="#Sommaire">Gérer les librairies statiques avec MinGW</a></h1><div class="txal pgCt10"><div class="dibm Summary2"><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Créer une librairie statique en C++">Créer une librairie statique en C++</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Utiliser une librairie statique en C++">Utiliser une librairie statique en C++</a></div></div><br><br><h2 class="ftwn Title2" id="Créer une librairie statique en C++"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Gérer les librairies statiques avec MinGW">Créer une librairie statique en C++</a></h2><br><b>Objectif :</b><br>Créer une librairie statique en C++.<br><br><b>Implémentation :</b><br>Créer une classe (GMath) permettant de réaliser des opérations arithmétiques sur deux nombres données,  Additionner (add()), Soustraire (substract()), Multiplier (multiply()), Diviser (divide()), Déterminer le Quotient (quotient()), Déterminer le Modulo  (modulo()).<br>Créer une classe (GShow) permettant d’afficher des données dans la console (show()).<br>Regrouper ces deux classes dans une librairie statique (libHello.a).<br><br><b>Résultat :</b><br> <div class="ovfa"><img src="img/Image_03.png" alt="img/Image_03.png"></div><br><b>Dossier projet :</b><br>src/manager/GMath.h<br>src/manager/GMath.cpp<br>src/manager/GSow.h<br>src/manager/GShow.cpp<br>win/Makefile<br>win/bin/<br>win/build/<br><br><b>src/manager/GMath.h</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums lang-cpp">//===============================================
 #ifndef _GMath_
 #define _GMath_
 //===============================================
@@ -263,7 +263,7 @@ private:
 };
 //===============================================
 #endif
-//===============================================</xmp></pre></div><br><b>src/manager/GMath.cpp</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums">//===============================================
+//===============================================</xmp></pre></div><br><b>src/manager/GMath.cpp</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums lang-cpp">//===============================================
 #include "GMath.h"
 //===============================================
 GMath* GMath::m_instance = 0;
@@ -313,7 +313,7 @@ double GMath::modulo(const int& a, const int& b) {
     int m_data = a % b;
     return double(m_data);
 }
-//===============================================</xmp></pre></div><br><b>src/manager/GShow.h</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums">//===============================================
+//===============================================</xmp></pre></div><br><b>src/manager/GShow.h</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums lang-cpp">//===============================================
 #ifndef _GShow_
 #define _GShow_
 //===============================================
@@ -342,7 +342,7 @@ private:
 };
 //===============================================
 #endif
-//===============================================</xmp></pre></div><br><b>src/manager/GShow.cpp</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums">//===============================================
+//===============================================</xmp></pre></div><br><b>src/manager/GShow.cpp</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums lang-cpp">//===============================================
 #include "GShow.h"
 //===============================================
 GShow* GShow::m_instance = 0;
@@ -385,16 +385,16 @@ GOBJS = \
     $(GBUILD)/GMath.o
     
 all: $(GOBJS)
-	ar rcs $(GTARGET) $(GOBJS)
+    ar rcs $(GTARGET) $(GOBJS)
 $(GBUILD)/GShow.o: $(GSRC)/manager/GShow.cpp
-	g++ -c $(GSRC)/manager/GShow.cpp -o $(GBUILD)/GShow.o $(GINCS)
+    g++ -c $(GSRC)/manager/GShow.cpp -o $(GBUILD)/GShow.o $(GINCS)
 $(GBUILD)/GMath.o: $(GSRC)/manager/GMath.cpp
-	g++ -c $(GSRC)/manager/GMath.cpp -o $(GBUILD)/GMath.o $(GINCS)
+    g++ -c $(GSRC)/manager/GMath.cpp -o $(GBUILD)/GMath.o $(GINCS)
 clean:
-	del /q $(GBUILD)\* $(GBIN)\*</xmp></pre></div><br><b>Construction du projet :</b><br>cmd_build.bat<br><br><b>Construction manuel :</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums">del /q build\* bin\*
+    del /q $(GBUILD)\* $(GBIN)\*</xmp></pre></div><br><b>Construction du projet :</b><br>cmd_build.bat<br><br><b>Construction manuel :</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums">del /q build\* bin\*
 g++ -c ../src/manager/GShow.cpp -o build/GShow.o -I../src/manager
 g++ -c ../src/manager/GMath.cpp -o build/GMath.o -I../src/manager
-ar rcs bin/libHello.a build/GShow.o build/GMath.o</xmp></pre></div><br><h2 class="ftwn Title2" id="Utiliser une librairie statique en C++"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Gérer les librairies statiques avec MinGW">Utiliser une librairie statique en C++</a></h2><br><b>Objectif :</b><br>Utiliser une librairie statique en C++.<br><br><b>Implémentation :</b><br>Utiliser la classe (GMath) de la librairie statique (libHello.a) pour réaliser des opérations arithmétiques sur deux nombres données (22, 7).<br>Utiliser la classe (GShow) de la librairie statique (libHello.a) pour afficher les résultats de calculs.<br><br><b>Résultat :</b><br> <div class="ovfa"><img src="img/Image_02.png" alt="img/Image_02.png"></div><br><b>Dossier projet :</b><br>src/main.cpp<br>win/Makeifle<br>win/bin/<br>win/build/<br><br><b>Dossier librairie :</b><br>win/lib/<br>win/lib/Hello/include/GMath.h<br>win/lib/Hello/include/GShow.h<br>win/lib/Hello/lib/libHello.a<br><br><b>src/main.cpp</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums">//===============================================
+ar rcs bin/libHello.a build/GShow.o build/GMath.o</xmp></pre></div><br><h2 class="ftwn Title2" id="Utiliser une librairie statique en C++"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Gérer les librairies statiques avec MinGW">Utiliser une librairie statique en C++</a></h2><br><b>Objectif :</b><br>Utiliser une librairie statique en C++.<br><br><b>Implémentation :</b><br>Utiliser la classe (GMath) de la librairie statique (libHello.a) pour réaliser des opérations arithmétiques sur deux nombres données (22, 7).<br>Utiliser la classe (GShow) de la librairie statique (libHello.a) pour afficher les résultats de calculs.<br><br><b>Résultat :</b><br> <div class="ovfa"><img src="img/Image_02.png" alt="img/Image_02.png"></div><br><b>Dossier projet :</b><br>src/main.cpp<br>win/Makeifle<br>win/bin/<br>win/build/<br><br><b>Dossier librairie :</b><br>win/lib/<br>win/lib/Hello/include/GMath.h<br>win/lib/Hello/include/GShow.h<br>win/lib/Hello/lib/libHello.a<br><br><b>src/main.cpp</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums lang-cpp">//===============================================
 #include "GShow.h"
 #include "GMath.h"
 //===============================================
@@ -439,13 +439,13 @@ GOBJS = \
     $(GBUILD)/main.o
     
 all: $(GOBJS)
-	g++ -o $(GTARGET) $(GOBJS) $(GLIBS)
+    g++ -o $(GTARGET) $(GOBJS) $(GLIBS)
 $(GBUILD)/main.o: $(GSRC)/main.cpp
-	g++ -c $(GSRC)/main.cpp -o $(GBUILD)/main.o $(GINCS)
+    g++ -c $(GSRC)/main.cpp -o $(GBUILD)/main.o $(GINCS)
 clean:
-	del /q $(GBUILD)\* $(GBIN)\*</xmp></pre></div><br><b>Construction du projet :</b><br>cmd_build.bat<br><br><b>Construction manuel :</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums">del /q build\* bin\*
+    del /q $(GBUILD)\* $(GBIN)\*</xmp></pre></div><br><b>Construction du projet :</b><br>cmd_build.bat<br><br><b>Construction manuel :</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums">del /q build\* bin\*
 g++ -c ../src/main.cpp -o build/main.o -Ilib/Hello/include
-g++ -o bin/GProject.exe build/main.o -Llib/Hello/lib –lHello</xmp></pre></div></div></div></div><br><div class="pgCt00"><div class="bgra"><h1 class="bgra pgCt20 txac Title1" id="Gérer les librairies dynamiques avec MinGW"><a class="clrb" href="#Sommaire">Gérer les librairies dynamiques avec MinGW</a></h1><div class="txal pgCt10"><div class="dibm Summary2"><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Créer une librairie dynamique en C++">Créer une librairie dynamique en C++</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Utiliser une librairie dynamique en C++">Utiliser une librairie dynamique en C++</a></div></div><br><br><h2 class="ftwn Title2" id="Créer une librairie dynamique en C++"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Gérer les librairies dynamiques avec MinGW">Créer une librairie dynamique en C++</a></h2><br><b>Objectif :</b><br>Créer une librairie dynamique en C++.<br><br><b>Implémentation :</b><br>Créer une classe (GMath) permettant de réaliser des opérations arithmétiques sur deux nombres données,  Additionner (add()), Soustraire (substract()), Multiplier (multiply()), Diviser (divide()), Déterminer le Quotient (quotient()), Déterminer le Modulo  (modulo()).<br>Créer une classe (GShow) permettant d’afficher des données dans la console (show()).<br>Regrouper ces deux classes dans une librairie dynamique (libHello.dll).<br><br><b>Résultat :</b><br> <div class="ovfa"><img src="img/Image_04.png" alt="img/Image_04.png"></div><br><b>Dossier projet :</b><br>src/manager/GMath.h<br>src/manager/GMath.cpp<br>src/manager/GSow.h<br>src/manager/GShow.cpp<br>win/Makefile<br>win/bin/<br>win/build/<br><b><br>src/manager/GMath.h</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums">//===============================================
+g++ -o bin/GProject.exe build/main.o -Llib/Hello/lib –lHello</xmp></pre></div></div></div></div><br><div class="pgCt00"><div class="bgra"><h1 class="bgra pgCt20 txac Title1" id="Gérer les librairies dynamiques avec MinGW"><a class="clrb" href="#Sommaire">Gérer les librairies dynamiques avec MinGW</a></h1><div class="txal pgCt10"><div class="dibm Summary2"><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Créer une librairie dynamique en C++">Créer une librairie dynamique en C++</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Utiliser une librairie dynamique en C++">Utiliser une librairie dynamique en C++</a></div></div><br><br><h2 class="ftwn Title2" id="Créer une librairie dynamique en C++"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Gérer les librairies dynamiques avec MinGW">Créer une librairie dynamique en C++</a></h2><br><b>Objectif :</b><br>Créer une librairie dynamique en C++.<br><br><b>Implémentation :</b><br>Créer une classe (GMath) permettant de réaliser des opérations arithmétiques sur deux nombres données,  Additionner (add()), Soustraire (substract()), Multiplier (multiply()), Diviser (divide()), Déterminer le Quotient (quotient()), Déterminer le Modulo  (modulo()).<br>Créer une classe (GShow) permettant d’afficher des données dans la console (show()).<br>Regrouper ces deux classes dans une librairie dynamique (libHello.dll).<br><br><b>Résultat :</b><br> <div class="ovfa"><img src="img/Image_04.png" alt="img/Image_04.png"></div><br><b>Dossier projet :</b><br>src/manager/GMath.h<br>src/manager/GMath.cpp<br>src/manager/GSow.h<br>src/manager/GShow.cpp<br>win/Makefile<br>win/bin/<br>win/build/<br><b><br>src/manager/GMath.h</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums lang-cpp">//===============================================
 #ifndef _GMath_
 #define _GMath_
 //===============================================
@@ -480,7 +480,7 @@ private:
 };
 //===============================================
 #endif
-//===============================================</xmp></pre></div><br><b>src/manager/GMath.cpp</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums">//===============================================
+//===============================================</xmp></pre></div><br><b>src/manager/GMath.cpp</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums lang-cpp">//===============================================
 #include "GMath.h"
 //===============================================
 GMath* GMath::m_instance = 0;
@@ -530,7 +530,7 @@ double GMath::modulo(const int& a, const int& b) {
     int m_data = a % b;
     return double(m_data);
 }
-//===============================================</xmp></pre></div><b><br>src/manager/GShow.h</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums">//===============================================
+//===============================================</xmp></pre></div><b><br>src/manager/GShow.h</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums lang-cpp">//===============================================
 #ifndef _GShow_
 #define _GShow_
 //===============================================
@@ -565,7 +565,7 @@ private:
 };
 //===============================================
 #endif
-//===============================================</xmp></pre></div><br><b>src/manager/GShow.cpp</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums">//===============================================
+//===============================================</xmp></pre></div><br><b>src/manager/GShow.cpp</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums lang-cpp">//===============================================
 #include "GShow.h"
 //===============================================
 GShow* GShow::m_instance = 0;
@@ -608,16 +608,16 @@ GOBJS = \
     $(GBUILD)/GMath.o
     
 all: $(GOBJS)
-	g++ -shared -o $(GTARGET) $(GOBJS)
+    g++ -shared -o $(GTARGET) $(GOBJS)
 $(GBUILD)/GShow.o: $(GSRC)/manager/GShow.cpp
-	g++ -c -DDLL_APP $(GSRC)/manager/GShow.cpp -o $(GBUILD)/GShow.o $(GINCS)
+    g++ -c -DDLL_APP $(GSRC)/manager/GShow.cpp -o $(GBUILD)/GShow.o $(GINCS)
 $(GBUILD)/GMath.o: $(GSRC)/manager/GMath.cpp
-	g++ -c -DDLL_APP $(GSRC)/manager/GMath.cpp -o $(GBUILD)/GMath.o $(GINCS)
+    g++ -c -DDLL_APP $(GSRC)/manager/GMath.cpp -o $(GBUILD)/GMath.o $(GINCS)
 clean:
-	del /q $(GBUILD)\* $(GBIN)\*</xmp></pre></div><br><b>Construction du projet :</b><br>cmd_build.bat<br><br><b>Construction manuel :</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums">del /q build\* bin\*
+    del /q $(GBUILD)\* $(GBIN)\*</xmp></pre></div><br><b>Construction du projet :</b><br>cmd_build.bat<br><br><b>Construction manuel :</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums">del /q build\* bin\*
 g++ -c -DDLL_APP ../src/manager/GShow.cpp -o build/GShow.o -I../src/manager
 g++ -c -DDLL_APP ../src/manager/GMath.cpp -o build/GMath.o -I../src/manager
-g++ -shared -o bin/libHello.dll build/GShow.o build/GMath.o</xmp></pre></div><br><h2 class="ftwn Title2" id="Utiliser une librairie dynamique en C++"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Gérer les librairies dynamiques avec MinGW">Utiliser une librairie dynamique en C++</a></h2><br><b>Objectif :</b><br>Utiliser une librairie dynamique en C++.<br><br><b>Implémentation :</b><br>Utiliser la classe (GMath) de la librairie dynamique (libHello.dll) pour réaliser des opérations arithmétiques sur deux nombres données (22, 7).<br>Utiliser la classe (GShow) de la librairie dynamique (libHello.dll) pour afficher les résultats de calculs.<br><br><b>Résultat :</b><br> <div class="ovfa"><img src="img/Image_02.png" alt="img/Image_02.png"></div><br><b>Dossier projet :</b><br>src/main.cpp<br>win/Makeifle<br>win/bin/<br>win/build/<br><br><b>Dossier librairie :</b><br>win/lib/<br>win/lib/Hello/include/GMath.h<br>win/lib/Hello/include/GShow.h<br>win/lib/Hello/lib/libHello.dll<br><b><br>src/main.cpp</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums">//===============================================
+g++ -shared -o bin/libHello.dll build/GShow.o build/GMath.o</xmp></pre></div><br><h2 class="ftwn Title2" id="Utiliser une librairie dynamique en C++"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Gérer les librairies dynamiques avec MinGW">Utiliser une librairie dynamique en C++</a></h2><br><b>Objectif :</b><br>Utiliser une librairie dynamique en C++.<br><br><b>Implémentation :</b><br>Utiliser la classe (GMath) de la librairie dynamique (libHello.dll) pour réaliser des opérations arithmétiques sur deux nombres données (22, 7).<br>Utiliser la classe (GShow) de la librairie dynamique (libHello.dll) pour afficher les résultats de calculs.<br><br><b>Résultat :</b><br> <div class="ovfa"><img src="img/Image_02.png" alt="img/Image_02.png"></div><br><b>Dossier projet :</b><br>src/main.cpp<br>win/Makeifle<br>win/bin/<br>win/build/<br><br><b>Dossier librairie :</b><br>win/lib/<br>win/lib/Hello/include/GMath.h<br>win/lib/Hello/include/GShow.h<br>win/lib/Hello/bin/libHello.dll<br><b><br>src/main.cpp</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums lang-cpp">//===============================================
 #include "GShow.h"
 #include "GMath.h"
 //===============================================
@@ -656,17 +656,17 @@ GINCS = \
     -Ilib/Hello/include
     
 GLIBS = \
-    -Llib/Hello/lib -lHello
+    -Llib/Hello/bin -lHello
     
 GOBJS = \
     $(GBUILD)/main.o
     
 all: $(GOBJS)
-	g++ -o $(GTARGET) $(GOBJS) $(GLIBS)
+    g++ -o $(GTARGET) $(GOBJS) $(GLIBS)
 $(GBUILD)/main.o: $(GSRC)/main.cpp
-	g++ -c $(GSRC)/main.cpp -o $(GBUILD)/main.o $(GINCS)
+    g++ -c $(GSRC)/main.cpp -o $(GBUILD)/main.o $(GINCS)
 clean:
-	del /q $(GBUILD)\* $(GBIN)\*</xmp></pre></div><br><b>win/cmd_run.bat</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums">@echo off
+    del /q $(GBUILD)\* $(GBIN)\*</xmp></pre></div><br><b>win/cmd_run.bat</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums">@echo off
 
 set PATH=C:\MinGW\bin
 set PATH=lib\Hello\bin;%PATH%
@@ -676,14 +676,14 @@ bin\GProject.exe
 echo.
 pause</xmp></pre></div><br><b>Construction du projet :</b><br>cmd_build.bat<br><br><b>Construction manuel :</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums">del /q build\* bin\*
 g++ -c ../src/main.cpp -o build/main.o -Ilib/Hello/include
-g++ -o bin/GProject.exe build/main.o -Llib/Hello/bin -lHello </xmp></pre></div></div></div></div><br><div class="pgCt00"><div class="bgra"><h1 class="bgra pgCt20 txac Title1" id="Gérer un projet complet avec MinGW"><a class="clrb" href="#Sommaire">Gérer un projet complet avec MinGW</a></h1><div class="txal pgCt10"><div class="dibm Summary2"><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Compiler un projet complet C++ avec MinGW">Compiler un projet complet C++ avec MinGW</a></div></div><br><br><h2 class="ftwn Title2" id="Compiler un projet complet C++ avec MinGW"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Gérer un projet complet avec MinGW">Compiler un projet complet C++ avec MinGW</a></h2><br><b>Objectif :</b><br>Compiler un projet complet C++ avec MinGW.<br>Utiliser un fichier entête en C++.<br>Utiliser une librairie dynamique en C++.<br>Utiliser un fichier de construction Makefile.<br><br><b>Implémentation :</b><br>Créer une classe (GProcess)  utilisant la classe (GMath) de la librairie dynamique (libHello.dll) pour réaliser des opérations arithmétiques sur deux nombres données (22, 7) et la classe (GShow) de la librairie dynamique (libHello.dll) pour afficher les résultats de calculs.<br><br><b>Résultat :</b><br> <div class="ovfa"><img src="img/Image_02.png" alt="img/Image_02.png"></div><br><b>Dossier projet :</b><br>src/main.cpp<br>src/manager/GProcess.h<br>src/manager/GProcess.cpp<br>win/Makeifle<br>win/bin/<br>win/build/<br><br><b>Dossier librairie :</b><br>win/lib/<br>win/lib/Hello/include/GMath.h<br>win/lib/Hello/include/GShow.h<br>win/lib/Hello/lib/libHello.dll<br><br><b>src/main.cpp</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums">//===============================================
+g++ -o bin/GProject.exe build/main.o -Llib/Hello/bin -lHello </xmp></pre></div></div></div></div><br><div class="pgCt00"><div class="bgra"><h1 class="bgra pgCt20 txac Title1" id="Gérer un projet complet avec MinGW"><a class="clrb" href="#Sommaire">Gérer un projet complet avec MinGW</a></h1><div class="txal pgCt10"><div class="dibm Summary2"><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Compiler un projet complet C++ avec MinGW">Compiler un projet complet C++ avec MinGW</a></div></div><br><br><h2 class="ftwn Title2" id="Compiler un projet complet C++ avec MinGW"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Gérer un projet complet avec MinGW">Compiler un projet complet C++ avec MinGW</a></h2><br><b>Objectif :</b><br>Compiler un projet complet C++ avec MinGW.<br>Utiliser un fichier entête en C++.<br>Utiliser une librairie dynamique en C++.<br>Utiliser un fichier de construction Makefile.<br><br><b>Implémentation :</b><br>Créer une classe (GProcess)  utilisant la classe (GMath) de la librairie dynamique (libHello.dll) pour réaliser des opérations arithmétiques sur deux nombres données (22, 7) et la classe (GShow) de la librairie dynamique (libHello.dll) pour afficher les résultats de calculs.<br><br><b>Résultat :</b><br> <div class="ovfa"><img src="img/Image_02.png" alt="img/Image_02.png"></div><br><b>Dossier projet :</b><br>src/main.cpp<br>src/manager/GProcess.h<br>src/manager/GProcess.cpp<br>win/Makeifle<br>win/bin/<br>win/build/<br><br><b>Dossier librairie :</b><br>win/lib/<br>win/lib/Hello/include/GMath.h<br>win/lib/Hello/include/GShow.h<br>win/lib/Hello/bin/libHello.dll<br><br><b>src/main.cpp</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums lang-cpp">//===============================================
 #include "GProcess.h"
 //===============================================
 int main(int argc, char** argv) {
     GProcess::Instance()->run();
     return 0;
 }
-//===============================================</xmp></pre></div><br><b>src/manager/GProcess.h</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums">//===============================================
+//===============================================</xmp></pre></div><br><b>src/manager/GProcess.h</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums lang-cpp">//===============================================
 #ifndef _GProcess_
 #define _GProcess_
 //===============================================
@@ -705,7 +705,7 @@ private:
 };
 //===============================================
 #endif
-//===============================================</xmp></pre></div><br><b>src/manager/GProcess.cpp</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums">//===============================================
+//===============================================</xmp></pre></div><br><b>src/manager/GProcess.cpp</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums lang-cpp">//===============================================
 #include "GProcess.h"
 #include "GShow.h"
 #include "GMath.h"
@@ -767,13 +767,13 @@ GOBJS = \
     $(patsubst $(GSRC)/manager/%.cpp, $(GBUILD)/%.o, $(wildcard $(GSRC)/manager/*.cpp))
     
 all: $(GOBJS)
-	g++ -o $(GTARGET) $(GOBJS) $(GLIBS)
+    g++ -o $(GTARGET) $(GOBJS) $(GLIBS)
 $(GBUILD)/%.o: $(GSRC)/%.cpp
-	g++ -c $< -o $@ $(GINCS)
+    g++ -c $< -o $@ $(GINCS)
 $(GBUILD)/%.o: $(GSRC)/manager/%.cpp
-	g++ -c $< -o $@ $(GINCS)
+    g++ -c $< -o $@ $(GINCS)
 clean:
-	del /q $(GBUILD)\* $(GBIN)\*</xmp></pre></div><br><b>win/cmd_run.bat</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums">@echo off
+    del /q $(GBUILD)\* $(GBIN)\*</xmp></pre></div><br><b>win/cmd_run.bat</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums">@echo off
 
 set PATH=C:\MinGW\bin
 set PATH=lib\Hello\bin;%PATH%
@@ -784,4 +784,4 @@ echo.
 pause</xmp></pre></div><br><b>Construction du projet :</b><br>cmd_build.bat<br><br><b>Construction manuel :</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums">del /q build\* bin\*
 g++ -c ../src/main.cpp -o build/main.o -I../src/manager -Ilib/Hello/include
 g++ -c ../src/manager/GProcess.cpp -o build/GProcess.o -I../src/manager -Ilib/Hello/include
-g++ -o bin/GProject.exe  build/main.o  build/GProcess.o -Llib/Hello/bin –lHello</xmp></pre></div></div></div></div>
+g++ -o bin/GProject.exe  build/main.o  build/GProcess.o -Llib/Hello/bin –lHello</xmp></pre></div></div></div></div><br><div class="pgCt00"><div class="bgra"><h1 class="bgra pgCt20 txac Title1" id="Codes sources"><a class="clrb" href="#Sommaire">Codes sources</a></h1><div class="txal pgCt10"><b>ReadyDev</b> met à votre disposition,<br>l'ensemble des codes sources abordés dans ce tutoriel.<br><br><div class="brda Code2"><div class="bgra txal pgCt00" id="FilesystemMenu">...</div><div class="txal ovfa mxha" id="FilesystemList">...</div></div><script src="/js/class/GFilesystem.js"></script><script src="/js/filesystem.js"></script></div></div></div>

@@ -22,22 +22,22 @@ var GEditor = (function() {
 				if(arg == "") return;
 				var m_selection = document.getSelection();
 				if(m_selection == "") return;
-                var m_command = '';
-                m_command += '<a class="hvra" ';
-                m_command += 'href="'+arg+'">';
-                m_command += m_selection;
-                m_command += '</a>';
-                document.execCommand("insertHTML", false, m_command);
+                var m_html = '';
+                m_html += '<a class="hvra" ';
+                m_html += 'href="'+arg+'">';
+                m_html += m_selection;
+                m_html += '</a>';
+                document.execCommand("insertHTML", false, m_html);
             },
             //===============================================
             editImage: function(arg) {
-                var m_command = '';
-                m_command += '<div class="ovfa">';
-                m_command += '<img src="';
-                m_command += arg;
-                m_command += '" alt="'+arg+'" />';
-                m_command += '</div>';
-                document.execCommand("insertHTML", false, m_command);
+                var m_html = '';
+                m_html += '<div class="ovfa">';
+                m_html += '<img src="';
+                m_html += arg;
+                m_html += '" alt="'+arg+'" />';
+                m_html += '</div>';
+                document.execCommand("insertHTML", false, m_html);
             },
             //===============================================
             editReadyStyle: function(arg) {
@@ -67,20 +67,20 @@ var GEditor = (function() {
                     m_range.setStart(m_startNode, 0);
                     m_range.setEnd(m_startNode, m_length);
                     m_selection.addRange(m_range);
-                    var m_command = '';
-                    m_command += '<div class="pgCt00">';
-                    m_command += '<div class="bgra">';
-                    m_command += '<h1 class="bgra pgCt20 txac Title1" id="'+m_data+'">';
-                    m_command += '<a class="clrb" href="#Sommaire">';
-                    m_command += m_data;
-                    m_command += '</a>';
-                    m_command += '</h1>';
-                    m_command += '<div class="txal pgCt10">';
-                    m_command += 'Ajouter un texte ici...';
-                    m_command += '</div>';
-                    m_command += '</div>';
-                    m_command += '</div>';
-                    document.execCommand("insertHTML", false, m_command);
+                    var m_html = '';
+                    m_html += '<div class="pgCt00">';
+                    m_html += '<div class="bgra">';
+                    m_html += '<h1 class="bgra pgCt20 txac Title1" id="'+m_data+'">';
+                    m_html += '<a class="clrb" href="#Sommaire">';
+                    m_html += m_data;
+                    m_html += '</a>';
+                    m_html += '</h1>';
+                    m_html += '<div class="txal pgCt10">';
+                    m_html += 'Ajouter un texte ici...';
+                    m_html += '</div>';
+                    m_html += '</div>';
+                    m_html += '</div>';
+                    document.execCommand("insertHTML", false, m_html);
                     break;
                 //===============================================
                 case 'Title2':
@@ -103,13 +103,13 @@ var GEditor = (function() {
                     m_range.setStart(m_startNode, 0);
                     m_range.setEnd(m_startNode, m_length);
                     m_selection.addRange(m_range);
-                    var m_command = '';
-                    m_command += '<h2 class="ftwn Title2" id="'+m_data+'">';
-                    m_command += '<a class="bgra dibm ftfb ftsg clra pgCt10" href="#'+m_title+'">';
-                    m_command += m_data;
-                    m_command += '</a>';
-                    m_command += '</h2>';
-                    document.execCommand("insertHTML", false, m_command);
+                    var m_html = '';
+                    m_html += '<h2 class="ftwn Title2" id="'+m_data+'">';
+                    m_html += '<a class="bgra dibm ftfb ftsg clra pgCt10" href="#'+m_title+'">';
+                    m_html += m_data;
+                    m_html += '</a>';
+                    m_html += '</h2>';
+                    document.execCommand("insertHTML", false, m_html);
                     break;
                 //===============================================
                 case 'Title3':
@@ -125,11 +125,11 @@ var GEditor = (function() {
                     m_range.setStart(m_startNode, 0);
                     m_range.setEnd(m_startNode, m_length);
                     m_selection.addRange(m_range);
-                    var m_command = '';
-                    m_command += '<b>';
-                    m_command += m_data;
-                    m_command += '</b>';
-                    document.execCommand("insertHTML", false, m_command);
+                    var m_html = '';
+                    m_html += '<b>';
+                    m_html += m_data;
+                    m_html += '</b>';
+                    document.execCommand("insertHTML", false, m_html);
                     break;
                 //===============================================
                 case 'Summary1':
@@ -163,20 +163,20 @@ var GEditor = (function() {
                         return false;
                     });
                     if(!m_childTitles.length) break;
-                    var m_command = '';
-                    m_command += '<div class="dibm Summary1">';
+                    var m_html = '';
+                    m_html += '<div class="dibm Summary1">';
                     for(var i = 1; i < m_childTitles.length; i++) {
                         var m_child = m_childTitles[i];
                         var m_title = m_child.firstChild.firstChild.innerText;
-                        m_command += '<div class="pdlb">';
-                        m_command += '<span class="fa fa-book clrg pdra"></span>';
-                        m_command += '<a class="hvra clrg" href="#'+m_title+'">';
-                        m_command += m_title;
-                        m_command += '</a>';
-                        m_command += '</div>';
+                        m_html += '<div class="pdlb">';
+                        m_html += '<span class="fa fa-book clrg pdra"></span>';
+                        m_html += '<a class="hvra clrg" href="#'+m_title+'">';
+                        m_html += m_title;
+                        m_html += '</a>';
+                        m_html += '</div>';
                     }
-                    m_command += '</div>';
-                    document.execCommand("insertHTML", false, m_command);
+                    m_html += '</div>';
+                    document.execCommand("insertHTML", false, m_html);
                     break;
                 //===============================================
                 case 'Summary2':
@@ -205,20 +205,20 @@ var GEditor = (function() {
                         return false;
                     });
                     if(!m_childTitles.length) break;
-                    var m_command = '';
-                    m_command += '<div class="dibm Summary2">';
+                    var m_html = '';
+                    m_html += '<div class="dibm Summary2">';
                     for(var i = 0; i < m_childTitles.length; i++) {
                         var m_child = m_childTitles[i];
                         var m_title = m_child.firstChild.innerText
-                        m_command += '<div class="pdlb">';
-                        m_command += '<span class="fa fa-book clrg pdra"></span>';
-                        m_command += '<a class="hvra clrg" href="#'+m_title+'">';
-                        m_command += m_title;
-                        m_command += '</a>';
-                        m_command += '</div>';
+                        m_html += '<div class="pdlb">';
+                        m_html += '<span class="fa fa-book clrg pdra"></span>';
+                        m_html += '<a class="hvra clrg" href="#'+m_title+'">';
+                        m_html += m_title;
+                        m_html += '</a>';
+                        m_html += '</div>';
                     }
-                    m_command += '</div>';
-                    document.execCommand("insertHTML", false, m_command);
+                    m_html += '</div>';
+                    document.execCommand("insertHTML", false, m_html);
                     break;
                 //===============================================
                 case 'Summary3':
@@ -328,13 +328,13 @@ var GEditor = (function() {
                         else {
                             m_data = 'Ajouter un texte...';
                         }
-                        var m_command = '';
-                        m_command += '<div class="dibm Shift">';
-                        m_command += '<div class="dibm pdld ShiftB">';
-                        m_command += m_data;
-                        m_command += '</div>';
-                        m_command += '</div>';
-                        document.execCommand("insertHTML", false, m_command);                
+                        var m_html = '';
+                        m_html += '<div class="dibm Shift">';
+                        m_html += '<div class="dibm pdld ShiftB">';
+                        m_html += m_data;
+                        m_html += '</div>';
+                        m_html += '</div>';
+                        document.execCommand("insertHTML", false, m_html);                
                     }
                     else {
                         for(var i = 0; i < m_position; i++) {
@@ -377,13 +377,27 @@ var GEditor = (function() {
                     else {
                         m_data = 'Ajouter un code...';
                     }
-                    var m_command = '';
-                    m_command += '<div class="Code1">';
-                    m_command += '<pre><xmp class="ovfa prettyprint linenums">';
-                    m_command += m_data;
-                    m_command += '</xmp></pre>';
-                    m_command += '</div>';
-                    document.execCommand("insertHTML", false, m_command);
+                    var m_html = '';
+                    m_html += '<div class="Code1">';
+                    m_html += '<pre><xmp class="ovfa prettyprint linenums">';
+                    m_html += m_data;
+                    m_html += '</xmp></pre>';
+                    m_html += '</div>';
+                    document.execCommand("insertHTML", false, m_html);
+                    break;
+                //===============================================
+                case 'Code2':
+                    var m_html = '';
+                    m_html += '<b>ReadyDev</b> met à votre disposition,<br>';
+                    m_html += 'l\'ensemble des codes sources abordés dans ce tutoriel.';
+                    m_html += '<br><br>';
+                    m_html += '<div class="brda Code2">';
+                    m_html += '<div class="bgra txal pgCt00" id="FilesystemMenu">...</div>';
+                    m_html += '<div class="txal ovfa mxha" id="FilesystemList">...</div>';
+                    m_html += '</div>';
+                    m_html += '<script src="/js/class/GFilesystem.js"></script>';
+                    m_html += '<script src="/js/filesystem.js"></script>';
+                    document.execCommand("insertHTML", false, m_html);
                     break;
                 }
             },
@@ -514,8 +528,10 @@ var GEditor = (function() {
                 var m_res = confirm("Êtes vous sûr de vouloir enregistrer les modifications ?");
                 if(!m_res) return;
                 var m_EditorHTML = document.getElementById("EditorHTML");
+                var m_EditorEdit = document.getElementById("EditorEdit");
 				var m_filename = GConfig.Instance().getData("EditorFile");
 				if(m_filename == "") return;
+                m_EditorEdit.innerHTML = m_EditorHTML.value;
                 var m_data = encodeURIComponent(m_EditorHTML.value);
                 var m_xmlhttp = new XMLHttpRequest();
                 m_xmlhttp.onreadystatechange = function() {
