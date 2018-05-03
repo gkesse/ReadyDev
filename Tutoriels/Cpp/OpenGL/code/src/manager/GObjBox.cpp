@@ -8,20 +8,15 @@ GObjBox::GObjBox() {
 
 }
 //===============================================
-GObjBox::GObjBox(float Size) {
-    const char* lImg = "res/img/box.jpg";
-    initObject(Size, lImg);
-}
-//===============================================
-GObjBox::GObjBox(float Size, const char* img) {
-    initObject(Size, img);
+GObjBox::GObjBox(float Size, const char* Box) {
+    initObject(Size, Box);
 }
 //===============================================
 GObjBox::~GObjBox() {
 
 }
 //===============================================
-void GObjBox::initObject(float Size, const char* img) {
+void GObjBox::initObject(float Size, const char* Box) {
     float lVertices[] = {
         -Size, -Size, -Size, Size, -Size, -Size, Size, Size, -Size,
         -Size, -Size, -Size, -Size, Size, -Size, Size, Size, -Size,
@@ -50,8 +45,8 @@ void GObjBox::initObject(float Size, const char* img) {
         0.0f, 0.0f,  1.0f, 0.0f,  1.0f, 1.0f,
         0.0f, 0.0f,  0.0f, 1.0f,  1.0f, 1.0f
     };
-    GVertex::Instance()->loadVertex1D(m_vertices, lVertices, 0, 108);
-    GVertex::Instance()->loadVertex1D(m_texCoords, lTexCoords, 0, 72);
+    GVertex::Instance()->loadVertex1D(m_vertices, lVertices, 0, VERTEX_MAX*3);
+    GVertex::Instance()->loadVertex1D(m_texCoords, lTexCoords, 0, VERTEX_MAX*2);
 
     GShaderInfo  lShaders[] = {
         {GL_VERTEX_SHADER, "res/shaders/3.1/color_texture.vert", 0},
@@ -60,7 +55,7 @@ void GObjBox::initObject(float Size, const char* img) {
     };
 
     m_program = GShader::Instance()->loadShader(lShaders);
-    m_texture = GTexture::Instance()->loadTexture(img);
+    m_textureMap["BOX"] = GTexture::Instance()->loadTexture(Box);
 }
 //===============================================
 void GObjBox::draw(glm::mat4& projection, glm::mat4& modelview) {
@@ -72,8 +67,8 @@ void GObjBox::draw(glm::mat4& projection, glm::mat4& modelview) {
     GShader::Instance()->setUniform(m_program, "ModelViewMatrix", modelview);
     GShader::Instance()->setUniform(m_program, "ProjectionMatrix", projection);
     GShader::Instance()->setUniform(m_program, "Tex", 0);
-    glBindTexture(GL_TEXTURE_2D, m_texture);
-    glDrawArrays(GL_TRIANGLES, 0, 36);
+    glBindTexture(GL_TEXTURE_2D, m_textureMap["BOX"]);
+    glDrawArrays(GL_TRIANGLES, 0, VERTEX_MAX);
     glBindTexture(GL_TEXTURE_2D, 0);
     glDisableVertexAttribArray(1);
     glDisableVertexAttribArray(0);
