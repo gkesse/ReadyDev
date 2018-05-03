@@ -5,26 +5,32 @@
 #include "GVertex.h"
 //===============================================
 GObjCabin::GObjCabin() {
-    const char* lImg = "res/img/grass.jpg";
-    initObject(lImg);
+    const char* lWall = "res/img/wall.jpg";
+    const char* lRoof = "res/img/wall.jpg";
+    initObject(lWall, lRoof);
 }
 //===============================================
-GObjCabin::GObjCabin(const char* img) {
-    initObject(img);
+GObjCabin::GObjCabin(const char* Wall, const char* Roof) {
+    initObject(Wall, Roof);
 }
 //===============================================
 GObjCabin::~GObjCabin() {
 
 }
 //===============================================
-void GObjCabin::initObject(const char* img) {
+void GObjCabin::initObject(const char* Wall, const char* Roof) {
     float lVertices[] = {
         -5.0f, 0.0f, -5.0f, 5.0f, 0.0f, -5.0f, 5.0f, 5.0f, -5.0f,
         -5.0f, 0.0f, -5.0f, -5.0f, 5.0f, -5.0f, 5.0f, 5.0f, -5.0f,
         -5.0f, 0.0f, -5.0f, -5.0f, 0.0f, 5.0f, -5.0f, 5.0f, 5.0f,
         -5.0f, 0.0f, -5.0f, -5.0f, 5.0f, -5.0f, -5.0f, 5.0f, 5.0f,
         5.0f, 0.0f, -5.0f, 5.0f, 0.0f, 5.0f, 5.0f, 5.0f, 5.0f,
-        5.0f, 0.0f, -5.0f, 5.0f, 5.0f, -5.0f, 5.0f, 5.0f, 5.0f
+        5.0f, 0.0f, -5.0f, 5.0f, 5.0f, -5.0f, 5.0f, 5.0f, 5.0f,
+        -5.0f, 5.0f, -5.0f, 5.0f, 5.0f, -5.0f, 0.0f, 6.0f, -5.0f,
+        -6.0f, 4.8f, -6.0f, -6.0f, 4.8f, 6.0f, 0.0f, 6.0f, 6.0f,
+        -6.0f, 4.8f, -6.0f, 0.0f, 6.0f, -6.0f, 0.0f, 6.0f, 6.0f,
+        6.0f, 4.8f, -6.0f, 6.0f, 4.8f, 6.0f, 0.0f, 6.0f, 6.0f,
+        6.0f, 4.8f, -6.0f, 0.0f, 6.0f, -6.0f, 0.0f, 6.0f, 6.0f
     };
     float lTexCoords[] = {
         0.0f, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f,
@@ -32,8 +38,14 @@ void GObjCabin::initObject(const char* img) {
         0.0f, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f,
         0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f,
         0.0f, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f,
+        0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f,
+        0.0f, 0.0f, 1.0f, 0.0f, 0.5f, 0.5f,
+        0.0f, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f,
+        0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f,
+        0.0f, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f,
         0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f
     };
+
     GVertex::Instance()->loadVertex1D(m_vertices, lVertices, 0, VERTEX_MAX*3);
     GVertex::Instance()->loadVertex1D(m_texCoords, lTexCoords, 0, VERTEX_MAX*2);
 
@@ -44,7 +56,8 @@ void GObjCabin::initObject(const char* img) {
     };
 
     m_program = GShader::Instance()->loadShader(lShaders);
-    m_texture = GTexture::Instance()->loadTexture(img);
+    m_textureMap["WALL"] = GTexture::Instance()->loadTexture(Wall);
+    m_textureMap["ROOF"] = GTexture::Instance()->loadTexture(Roof);
 }
 //===============================================
 void GObjCabin::draw(glm::mat4& projection, glm::mat4& modelview) {
@@ -56,8 +69,11 @@ void GObjCabin::draw(glm::mat4& projection, glm::mat4& modelview) {
     GShader::Instance()->setUniform(m_program, "ModelViewMatrix", modelview);
     GShader::Instance()->setUniform(m_program, "ProjectionMatrix", projection);
     GShader::Instance()->setUniform(m_program, "Tex", 0);
-    glBindTexture(GL_TEXTURE_2D, m_texture);
-    glDrawArrays(GL_TRIANGLES, 0, VERTEX_MAX);
+    glBindTexture(GL_TEXTURE_2D, m_textureMap["WALL"]);
+    glDrawArrays(GL_TRIANGLES, 0, 21);
+    glBindTexture(GL_TEXTURE_2D, 0);
+    glBindTexture(GL_TEXTURE_2D, m_textureMap["ROOF"]);
+    glDrawArrays(GL_TRIANGLES, 21, 12);
     glBindTexture(GL_TEXTURE_2D, 0);
     glDisableVertexAttribArray(1);
     glDisableVertexAttribArray(0);

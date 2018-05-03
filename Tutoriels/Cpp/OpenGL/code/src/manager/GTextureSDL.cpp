@@ -35,8 +35,8 @@ SDL_Surface* GTextureSDL::flipVertical(SDL_Surface* srcImg) {
 //===============================================
 GLuint GTextureSDL::loadTexture(const char* filename) {
     GLuint lTextureId;
-    SDL_Surface *lLoad = IMG_Load(filename);
-    SDL_Surface *lSurface = flipVertical(lLoad);
+    SDL_Surface* lLoad = IMG_Load(filename);
+    SDL_Surface* lSurface = flipVertical(lLoad);
     SDL_FreeSurface(lLoad);
 
     glActiveTexture(GL_TEXTURE0);
