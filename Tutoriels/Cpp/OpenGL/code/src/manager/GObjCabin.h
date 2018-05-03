@@ -15,7 +15,7 @@ public:
     void draw(glm::mat4& projection, glm::mat4& modelview);
 
 private:
-    static const int VERTEX_MAX = 12;
+    static const int VERTEX_MAX = 18;
     //===============================================
     float m_vertices[VERTEX_MAX*3];
     float m_texCoords[VERTEX_MAX*2];

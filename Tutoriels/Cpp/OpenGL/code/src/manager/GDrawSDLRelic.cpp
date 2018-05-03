@@ -23,7 +23,7 @@ GDrawSDLRelic* GDrawSDLRelic::Instance() {
 }
 //===============================================
 void GDrawSDLRelic::initDraw() {
-
+    m_objCabin = GObjCabin();
 }
 //===============================================
 void GDrawSDLRelic::initCamera(int width, int height) {
