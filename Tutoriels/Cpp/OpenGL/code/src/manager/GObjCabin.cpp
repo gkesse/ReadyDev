@@ -6,7 +6,7 @@
 //===============================================
 GObjCabin::GObjCabin() {
     const char* lWall = "res/img/wall.jpg";
-    const char* lRoof = "res/img/wall.jpg";
+    const char* lRoof = "res/img/roof.jpg";
     initObject(lWall, lRoof);
 }
 //===============================================
