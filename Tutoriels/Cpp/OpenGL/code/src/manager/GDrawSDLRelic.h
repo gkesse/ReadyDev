@@ -3,9 +3,8 @@
 #define _GDrawSDLRelic_
 //================================================
 #include "GDrawSDL.h"
-#include "GObjBox.h"
-#include "GObjLand.h"
 #include "GObjCabin.h"
+#include "GObjGround.h"
 //===============================================
 class GDrawSDLRelic : public GDrawSDL {
 public:
@@ -26,6 +25,7 @@ private:
     glm::mat4 m_projection;
     glm::mat4 m_modelView;
     GObjCabin m_objCabin;
+    GObjGround m_objGround;
 };
 //===============================================
 #endif
