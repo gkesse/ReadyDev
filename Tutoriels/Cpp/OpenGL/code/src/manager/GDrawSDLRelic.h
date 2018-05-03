@@ -17,6 +17,7 @@ public:
     static GDrawSDLRelic* Instance();
     void initDraw();
     void initCamera(int width, int height);
+    void updateDraw();
     void draw();
     void rotateBox(const char* direction);
     void handleEvents(SDL_Event* event);
@@ -32,6 +33,7 @@ private:
     GObjCrystal m_objCrystal;
     GObjBox m_objBox;
     GObjBox m_objBox2;
+    float m_angleBox;
 };
 //===============================================
 #endif
