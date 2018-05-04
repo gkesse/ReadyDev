@@ -11,6 +11,8 @@
 using namespace std;
 //===============================================
 class GWindowQtFormGL : public QGLWidget {
+    Q_OBJECT
+
 public:
     GWindowQtFormGL(QWidget* parent = 0);
     ~GWindowQtFormGL();
