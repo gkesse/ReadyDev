@@ -14,7 +14,7 @@ GWindowQt::~GWindowQt() {
 
 }
 //===============================================
-GWindowQt *GWindowQt::Instance() {
+GWindowQt* GWindowQt::Instance() {
     if(m_instance == 0) {
         m_instance = new GWindowQt;
     }
