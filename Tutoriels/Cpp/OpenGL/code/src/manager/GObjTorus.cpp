@@ -77,48 +77,48 @@ void GObjTorus::initObject(float outerRadius, float innerRadius, int verticalSid
 }
 //===============================================
 void GObjTorus::generateVertex(float* vertices, float* normals, float* texCoords, GLuint* indices, float outerRadius, float innerRadius) {
-    float lHorizontalSides  = (float)(TWOPI / m_horizontalSides);
-    float lVerticalSides = (float)(TWOPI / m_verticalSides);
-    int idx = 0, tidx = 0;
+    float lHorizontalSide  = (float)(TWOPI / m_horizontalSides);
+    float lVerticalSide = (float)(TWOPI / m_verticalSides);
+    int idx = 0, Tidx = 0;
     for(int i = 0; i <= m_horizontalSides; i++) {
-        float u = i * lHorizontalSides;
+        float u = i * lHorizontalSide;
         float cu = cos(u);
         float su = sin(u);
         for(int j = 0; j < m_verticalSides; j++) {
-            float v = j * lVerticalSides;
+            float v = j * lVerticalSide;
             float cv = cos(v);
             float sv = sin(v);
             float r = (outerRadius + innerRadius * cv);
 
-            vertices[idx] = r * cu;
+            vertices[idx + 0] = r * cu;
             vertices[idx + 1] = r * su;
             vertices[idx + 2] = innerRadius * sv;
 
-            normals[idx] = cv * cu * r;
+            normals[idx + 0] = cv * cu * r;
             normals[idx + 1] = cv * su * r;
             normals[idx + 2] = sv * r;
 
-            texCoords[tidx] = (float)(u / TWOPI);
-            texCoords[tidx + 1] = (float)(v / TWOPI);
+            texCoords[Tidx + 0] = (float)(u / TWOPI);
+            texCoords[Tidx + 1] = (float)(v / TWOPI);
 
-            tidx += 2;
+            Tidx += 2;
             idx += 3;
         }
     }
 
     idx = 0;
-    for(int ring = 0; ring < m_horizontalSides; ring++) {
-        int ringStart = ring * m_verticalSides;
-        int nextRingStart = (ring + 1) * m_verticalSides;
-        for(int side = 0; side < m_verticalSides; side++) {
-            int nextSide = (side + 1) % m_verticalSides;
+    for(int i = 0; i < m_horizontalSides; i++) {
+        int lHorizontalSide = i * m_verticalSides;
+        int lNextHorizontalSide = (i + 1) * m_verticalSides;
+        for(int j = 0; j < m_verticalSides; j++) {
+            int lNextVerticalSide = (j + 1) % m_verticalSides;
 
-            indices[idx] = (ringStart + side);
-            indices[idx + 1] = (nextRingStart + side);
-            indices[idx + 2] = (nextRingStart + nextSide);
-            indices[idx + 3] = ringStart + side;
-            indices[idx + 4] = nextRingStart + nextSide;
-            indices[idx + 5] = (ringStart + nextSide);
+            indices[idx + 0] = (lHorizontalSide + j);
+            indices[idx + 1] = (lNextHorizontalSide + j);
+            indices[idx + 2] = (lNextHorizontalSide + lNextVerticalSide);
+            indices[idx + 3] = lHorizontalSide + j;
+            indices[idx + 4] = lNextHorizontalSide + lNextVerticalSide;
+            indices[idx + 5] = (lHorizontalSide + lNextVerticalSide);
 
             idx += 6;
         }
