@@ -14,21 +14,16 @@ public:
 public:
     static GDrawQtLightADS* Instance();
     void initDraw();
+    void initCamera(int width, int height);
+    void updateCamera(int w, int h);
     void draw();
-    void resize(int w, int h);
-    void setMatrices();
 
 private:
     static GDrawQtLightADS* m_instance;
-    GLuint m_program;
-    GLuint m_vertexArrays[1];
-    int width, height;
-
-    float m_angle;
-    GObjTorus* m_torus;
-    glm::mat4 m_model;
-    glm::mat4 m_view;
     glm::mat4 m_projection;
+    glm::mat4 m_modelView;
+    glm::mat4 m_view;
+    GObjTorus* m_objTorus;
 };
 //===============================================
 #endif

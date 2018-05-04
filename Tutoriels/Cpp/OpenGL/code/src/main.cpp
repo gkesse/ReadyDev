@@ -4,7 +4,7 @@
 //===============================================
 int main(int argc, char** argv) {
     GConfig::Instance()->setData("WINDOW_TYPE", "OPENGL_QT");
-    GConfig::Instance()->setData("DRAW_TYPE", "LIGHT_DIFFUSE");
+    GConfig::Instance()->setData("DRAW_TYPE", "LIGHT_ADS");
     GConfig::Instance()->setData("SHADER_LOAD_METHOD", "LAYOUT");
     GWindow::Instance()->show(&argc, argv);
     return 0;
