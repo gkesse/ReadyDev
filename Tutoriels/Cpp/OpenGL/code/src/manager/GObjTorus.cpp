@@ -77,15 +77,15 @@ void GObjTorus::initObject(float outerRadius, float innerRadius, int verticalSid
 }
 //===============================================
 void GObjTorus::generateVertex(float* vertices, float* normals, float* texCoords, GLuint* indices, float outerRadius, float innerRadius) {
-    float ringFactor  = (float)(TWOPI / m_horizontalSides);
-    float sideFactor = (float)(TWOPI / m_verticalSides);
+    float lHorizontalSides  = (float)(TWOPI / m_horizontalSides);
+    float lVerticalSides = (float)(TWOPI / m_verticalSides);
     int idx = 0, tidx = 0;
-    for( int ring = 0; ring <= m_horizontalSides; ring++ ) {
-        float u = ring * ringFactor;
+    for(int i = 0; i <= m_horizontalSides; i++) {
+        float u = i * lHorizontalSides;
         float cu = cos(u);
         float su = sin(u);
-        for( int side = 0; side < m_verticalSides; side++ ) {
-            float v = side * sideFactor;
+        for(int j = 0; j < m_verticalSides; j++) {
+            float v = j * lVerticalSides;
             float cv = cos(v);
             float sv = sin(v);
             float r = (outerRadius + innerRadius * cv);
@@ -110,7 +110,7 @@ void GObjTorus::generateVertex(float* vertices, float* normals, float* texCoords
     for(int ring = 0; ring < m_horizontalSides; ring++) {
         int ringStart = ring * m_verticalSides;
         int nextRingStart = (ring + 1) * m_verticalSides;
-        for( int side = 0; side < m_verticalSides; side++ ) {
+        for(int side = 0; side < m_verticalSides; side++) {
             int nextSide = (side + 1) % m_verticalSides;
 
             indices[idx] = (ringStart + side);
