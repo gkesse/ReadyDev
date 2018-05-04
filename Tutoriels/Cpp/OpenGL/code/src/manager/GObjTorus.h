@@ -7,19 +7,19 @@
 class GObjTorus {
 public:
     GObjTorus();
-    GObjTorus(float outerRadius, float innerRadius, int nSides, int nRings) ;
+    GObjTorus(float outerRadius, float innerRadius, int verticalSides, int horizontalSides) ;
     ~GObjTorus();
 
 public:
-    void draw();
-
-private:
+    void initObject(float outerRadius, float innerRadius, int verticalSides, int horizontalSides);
     void generateVertex(float* vertices, float* normals, float* texCoords, GLuint* indices, float outerRadius, float innerRadius);
+    void draw(const glm::mat4& projection, const glm::mat4& modelView, const glm::mat4& view);
 
 private:
-    GLuint m_vertexArrays[1];
-    int m_rings;
-    int m_sides;
+    GLuint m_VAO;
+    GLuint m_program;
+    int m_horizontalSides;
+    int m_verticalSides;
     int m_faces;
 };
 //===============================================

@@ -21,15 +21,6 @@ GDrawQtLightDiffuse* GDrawQtLightDiffuse::Instance() {
 }
 //===============================================
 void GDrawQtLightDiffuse::initDraw() {
-    GShaderInfo  m_shaders[] = {
-        {GL_VERTEX_SHADER, "res/shaders/4.0/color_light_diffuse.vert", 0},
-        {GL_FRAGMENT_SHADER, "res/shaders/4.0/color_light_diffuse.frag", 0},
-        {GL_NONE, "", 0}
-    };
-
-    m_program = GShader::Instance()->loadShader(m_shaders);
-    glUseProgram(m_program);
-
     m_objTorus = new GObjTorus(0.7f, 0.3f, 30, 30);
     m_angle = 0.0f;
 }
@@ -48,16 +39,6 @@ void GDrawQtLightDiffuse::draw() {
     m_modelView = m_view;
     m_modelView = glm::rotate(m_modelView, glm::radians(-35.0f), glm::vec3(1.0f,0.0f,0.0f));
     m_modelView = glm::rotate(m_modelView, glm::radians(35.0f), glm::vec3(0.0f,1.0f,0.0f));
-    setMatrices();
-    m_objTorus->draw();
-}
-//===============================================
-void GDrawQtLightDiffuse::setMatrices() {
-    GShader::Instance()->setUniform(m_program, "Kd", 0.9f, 0.5f, 0.3f);
-    GShader::Instance()->setUniform(m_program, "Ld", 1.0f, 1.0f, 1.0f);
-    GShader::Instance()->setUniform(m_program, "LightPosition", glm::vec4(5.0f,5.0f,2.0f,1.0f));
-    GShader::Instance()->setUniform(m_program, "ModelViewMatrix", m_modelView);
-    GShader::Instance()->setUniform(m_program, "ProjectionMatrix", m_projection);
-    GShader::Instance()->setUniform(m_program, "ViewMatrix", m_view);
+    m_objTorus->draw(m_projection, m_modelView, m_view);
 }
 //===============================================

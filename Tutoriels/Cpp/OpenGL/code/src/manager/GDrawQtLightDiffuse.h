@@ -17,11 +17,9 @@ public:
     void initCamera(int width, int height);
     void updateCamera(int w, int h);
     void draw();
-    void setMatrices();
 
 private:
     static GDrawQtLightDiffuse* m_instance;
-    GLuint m_program;
     GLuint m_vertexArrays[1];
     int width, height;
 

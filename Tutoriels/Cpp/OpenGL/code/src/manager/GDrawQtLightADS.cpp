@@ -47,7 +47,7 @@ void GDrawQtLightADS::initDraw() {
 //===============================================
 void GDrawQtLightADS::draw() {
     setMatrices();
-    m_torus->draw();
+    //m_torus->draw();
 }
 //===============================================
 void GDrawQtLightADS::resize(int w, int h) {
