@@ -14,8 +14,9 @@ public:
 public:
     static GDrawQtLightDiffuse* Instance();
     void initDraw();
+    void initCamera(int width, int height);
+    void updateCamera(int w, int h);
     void draw();
-    void resize(int w, int h);
     void setMatrices();
 
 private:
@@ -25,10 +26,11 @@ private:
     int width, height;
 
     float m_angle;
-    GObjTorus* m_torus;
+    GObjTorus* m_objTorus;
     glm::mat4 m_model;
     glm::mat4 m_view;
     glm::mat4 m_projection;
+    glm::mat4 m_modelView;
 };
 //===============================================
 #endif

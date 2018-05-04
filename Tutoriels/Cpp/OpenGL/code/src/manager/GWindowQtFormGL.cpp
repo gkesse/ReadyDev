@@ -32,6 +32,8 @@ void GWindowQtFormGL::initializeGL() {
     glewInit();
     setBackground();
     GDraw::Instance()->initDraw();
+    GDraw::Instance()->initCamera(width(), height());
+    glEnable(GL_DEPTH_TEST);
 }
 //===============================================
 void GWindowQtFormGL::paintGL() {
@@ -41,6 +43,7 @@ void GWindowQtFormGL::paintGL() {
 //===============================================
 void GWindowQtFormGL::resizeGL(int w, int h) {
     GCamera::Instance()->viewport(w, h);
+    GDraw::Instance()->updateCamera(w, h);
 }
 //===============================================
 void GWindowQtFormGL::slotTimerUpdate() {

@@ -21,12 +21,12 @@ GDrawQtLayout* GDrawQtLayout::Instance() {
 }
 //===============================================
 void GDrawQtLayout::initDraw() {
-    float m_vertices[] = {
+    float lVertices[] = {
         -0.8f, -0.8f, 0.0f,
          0.8f, -0.8f, 0.0f,
          0.0f,  0.8f, 0.0f
     };
-    float m_colors[] = {
+    float lColors[] = {
         1.0f, 0.0f, 0.0f,
         0.0f, 1.0f, 0.0f,
         0.0f, 0.0f, 1.0f
@@ -44,9 +44,9 @@ void GDrawQtLayout::initDraw() {
 
     glGenBuffers(2, m_buffers);
     glBindBuffer(GL_ARRAY_BUFFER, m_buffers[0]);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(m_vertices), m_vertices, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(lVertices), lVertices, GL_STATIC_DRAW);
     glBindBuffer(GL_ARRAY_BUFFER, m_buffers[1]);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(m_colors), m_colors, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(lColors), lColors, GL_STATIC_DRAW);
 
     glGenVertexArrays( 1, m_vertexArrays);
     glBindVertexArray(m_vertexArrays[0]);

@@ -11,7 +11,7 @@ public:
     ~GObjTorus();
 
 public:
-    void render() const;
+    void draw();
 
 private:
     void generateVertex(float* vertices, float* normals, float* texCoords, GLuint* indices, float outerRadius, float innerRadius);

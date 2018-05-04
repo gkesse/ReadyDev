@@ -25,6 +25,7 @@ void GWindowQt::show(int* argc, char** argv) {
     QApplication app(*argc, argv);
     m_window = new GWindowQtForm;
     m_window->show();
+    showVersion();
     app.exec();
     delete m_window;
 }

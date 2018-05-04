@@ -111,7 +111,7 @@ void GObjTorus::generateVertex(float* vertices, float* normals, float* texCoords
 
 
 }
-void GObjTorus::render() const {
+void GObjTorus::draw() {
     glBindVertexArray(m_vertexArrays[0]);
     glDrawElements(GL_TRIANGLES, 6 * m_faces, GL_UNSIGNED_INT, BUFFER_OFFSET(0));
 }
