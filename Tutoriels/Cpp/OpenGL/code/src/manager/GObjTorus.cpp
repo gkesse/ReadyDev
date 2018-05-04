@@ -32,7 +32,7 @@ void GObjTorus::initObject(float outerRadius, float innerRadius, int verticalSid
     float* lVertices = new float[3 * lVertexNum];
     float* lNormals = new float[3 * lVertexNum];
     float* lTexCoords = new float[2 * lVertexNum];
-    GLuint* lIndices = new GLuint[6 * m_faces];
+    uint* lIndices = new uint[6 * m_faces];
 
     generateVertex(lVertices, lNormals, lTexCoords, lIndices, outerRadius, innerRadius);
 
@@ -49,26 +49,27 @@ void GObjTorus::initObject(float outerRadius, float innerRadius, int verticalSid
     glBufferData(GL_ARRAY_BUFFER, (2 * lVertexNum) * sizeof(float), lTexCoords, GL_STATIC_DRAW);
 
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, lBuffers[3]);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, 6 * m_faces * sizeof(GLuint), lIndices, GL_STATIC_DRAW);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, 6 * m_faces * sizeof(uint), lIndices, GL_STATIC_DRAW);
 
-    delete [] lVertices;
-    delete [] lNormals;
-    delete [] lTexCoords;
-    delete [] lIndices;
+    delete[] lVertices;
+    delete[] lNormals;
+    delete[] lTexCoords;
+    delete[] lIndices;
 
     glGenVertexArrays(1, &m_VAO);
     glBindVertexArray(m_VAO);
 
     glEnableVertexAttribArray(0);
+    glEnableVertexAttribArray(1);
+    glEnableVertexAttribArray(2);
+
     glBindBuffer(GL_ARRAY_BUFFER, lBuffers[0]);
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(0));
 
-    glEnableVertexAttribArray(1);
     glBindBuffer(GL_ARRAY_BUFFER, lBuffers[1]);
     glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(0));
 
     glBindBuffer(GL_ARRAY_BUFFER, lBuffers[2]);
-    glEnableVertexAttribArray(2);
     glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(0));
 
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, lBuffers[3]);
