@@ -32,7 +32,7 @@ void GDrawQtLightDiffuse::initDraw() {
 
     glEnable(GL_DEPTH_TEST);
 
-    m_torus = new GTorus(0.7f, 0.3f, 30, 30);
+    m_torus = new GObjTorus(0.7f, 0.3f, 30, 30);
 
     m_model = glm::mat4(1.0f);
     m_model *= glm::rotate(-35.0f, glm::vec3(1.0f,0.0f,0.0f));

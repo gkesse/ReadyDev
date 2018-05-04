@@ -41,7 +41,6 @@ HEADERS += \
     $$PWD/GDrawQtBackground.h \
     $$PWD/GDrawQtRead.h \
     $$PWD/GDrawQtUniformBlock.h \
-    $$PWD/GTorus.h \
     $$PWD/GDrawQtLightDiffuse.h \
     $$PWD/GDrawQtLightADS.h \
     $$PWD/GDrawGLFW.h \
@@ -78,7 +77,10 @@ HEADERS += \
     $$PWD/GObjCabin.h \
     $$PWD/GDrawSDLRelic.h \
     $$PWD/GObjGround.h \
-    $$PWD/GObjCrystal.h
+    $$PWD/GObjCrystal.h \
+    $$PWD/GObjTorus.h \
+    $$PWD/GObjCubeVbo.h \
+    $$PWD/GDrawSDLCubeVbo.h
 
 SOURCES += \
     $$PWD/GWindow.cpp \
@@ -107,7 +109,6 @@ SOURCES += \
     $$PWD/GDrawQtBackground.cpp \
     $$PWD/GDrawQtRead.cpp \
     $$PWD/GDrawQtUniformBlock.cpp \
-    $$PWD/GTorus.cpp \
     $$PWD/GDrawQtLightDiffuse.cpp \
     $$PWD/GDrawQtLightADS.cpp \
     $$PWD/GDrawGLFW.cpp \
@@ -144,7 +145,10 @@ SOURCES += \
     $$PWD/GObjCabin.cpp \
     $$PWD/GDrawSDLRelic.cpp \
     $$PWD/GObjGround.cpp \
-    $$PWD/GObjCrystal.cpp
+    $$PWD/GObjCrystal.cpp \
+    $$PWD/GObjTorus.cpp \
+    $$PWD/GObjCubeVbo.cpp \
+    $$PWD/GDrawSDLCubeVbo.cpp
 
 FORMS += \
     $$PWD/GWindowQtForm.ui

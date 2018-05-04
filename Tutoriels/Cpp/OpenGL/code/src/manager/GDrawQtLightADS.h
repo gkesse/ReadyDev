@@ -4,7 +4,7 @@
 //================================================
 #include "GInclude.h"
 #include "GDrawQt.h"
-#include "GTorus.h"
+#include "GObjTorus.h"
 //===============================================
 class GDrawQtLightADS : public GDrawQt {
 public:
@@ -25,7 +25,7 @@ private:
     int width, height;
 
     float m_angle;
-    GTorus* m_torus;
+    GObjTorus* m_torus;
     glm::mat4 m_model;
     glm::mat4 m_view;
     glm::mat4 m_projection;

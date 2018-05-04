@@ -1,14 +1,14 @@
 //===============================================
-#ifndef _GTorus_
-#define _GTorus_
+#ifndef _GObjTorus_
+#define _GObjTorus_
 //================================================
 #include "GInclude.h"
 //===============================================
-class GTorus {
+class GObjTorus {
 public:
-    GTorus();
-    GTorus(float outerRadius, float innerRadius, int nSides, int nRings) ;
-    ~GTorus();
+    GObjTorus();
+    GObjTorus(float outerRadius, float innerRadius, int nSides, int nRings) ;
+    ~GObjTorus();
 
 public:
     void render() const;

@@ -11,6 +11,7 @@
 #include "GDrawSDLComposite.h"
 #include "GDrawSDLCube.h"
 #include "GDrawSDLCubeObj.h"
+#include "GDrawSDLCubeVbo.h"
 #include "GDrawSDLCubeAnimate.h"
 #include "GDrawSDLEvent.h"
 #include "GDrawSDLTexture.h"
@@ -43,6 +44,7 @@ GDrawSDL* GDrawSDL::Instance() {
     if(lType == "COMPOSITE") return GDrawSDLComposite::Instance();
     if(lType == "CUBE") return GDrawSDLCube::Instance();
     if(lType == "CUBE_OBJ") return GDrawSDLCubeObj::Instance();
+    if(lType == "CUBE_VBO") return GDrawSDLCubeVbo::Instance();
     if(lType == "CUBE_ANIMATE") return GDrawSDLCubeAnimate::Instance();
     if(lType == "EVENT") return GDrawSDLEvent::Instance();
     if(lType == "TEXTURE") return GDrawSDLTexture::Instance();

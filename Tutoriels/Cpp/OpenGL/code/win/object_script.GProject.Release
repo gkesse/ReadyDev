@@ -26,7 +26,6 @@ INPUT(
 ./build\GDrawQtBackground.o
 ./build\GDrawQtRead.o
 ./build\GDrawQtUniformBlock.o
-./build\GTorus.o
 ./build\GDrawQtLightDiffuse.o
 ./build\GDrawQtLightADS.o
 ./build\GDrawGLFW.o
@@ -64,6 +63,9 @@ INPUT(
 ./build\GDrawSDLRelic.o
 ./build\GObjGround.o
 ./build\GObjCrystal.o
+./build\GObjTorus.o
+./build\GObjCubeVbo.o
+./build\GDrawSDLCubeVbo.o
 ./build\main.o
 ./build\moc_GWindowQtForm.o
 ./build\moc_GWindowQtFormGL.o

@@ -1,11 +1,11 @@
 //===============================================
-#include "GTorus.h"
+#include "GObjTorus.h"
 //===============================================
-GTorus::GTorus() {
+GObjTorus::GObjTorus() {
 
 }
 //===============================================
-GTorus::GTorus(float outerRadius, float innerRadius, int nSides, int nRings) {
+GObjTorus::GObjTorus(float outerRadius, float innerRadius, int nSides, int nRings) {
     m_rings = nRings;
     m_sides = nSides;
     m_faces = m_sides * m_rings;
@@ -57,11 +57,11 @@ GTorus::GTorus(float outerRadius, float innerRadius, int nSides, int nRings) {
     glBindVertexArray(0);
 }
 //===============================================
-GTorus::~GTorus() {
+GObjTorus::~GObjTorus() {
 
 }
 //===============================================
-void GTorus::generateVertex(float* vertices, float* normals, float* texCoords, GLuint* indices, float outerRadius, float innerRadius) {
+void GObjTorus::generateVertex(float* vertices, float* normals, float* texCoords, GLuint* indices, float outerRadius, float innerRadius) {
     float ringFactor  = (float)(TWOPI / m_rings);
     float sideFactor = (float)(TWOPI / m_sides);
     int idx = 0, tidx = 0;
@@ -111,7 +111,7 @@ void GTorus::generateVertex(float* vertices, float* normals, float* texCoords, G
 
 
 }
-void GTorus::render() const {
+void GObjTorus::render() const {
     glBindVertexArray(m_vertexArrays[0]);
     glDrawElements(GL_TRIANGLES, 6 * m_faces, GL_UNSIGNED_INT, BUFFER_OFFSET(0));
 }
