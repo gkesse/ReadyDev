@@ -129,10 +129,9 @@ void GObjTorus::draw(const glm::mat4& projection, const glm::mat4& modelView, co
     glBindVertexArray(m_VAO);
     GShader::Instance()->setUniform(m_program, "Kd", 0.9f, 0.5f, 0.3f);
     GShader::Instance()->setUniform(m_program, "Ld", 1.0f, 1.0f, 1.0f);
-    GShader::Instance()->setUniform(m_program, "LightPosition", glm::vec3(5.0f,5.0f,2.0f));
+    GShader::Instance()->setUniform(m_program, "LightPosition", view * glm::vec4(5.0f,5.0f,2.0f,1.0f));
     GShader::Instance()->setUniform(m_program, "ModelViewMatrix", modelView);
     GShader::Instance()->setUniform(m_program, "ProjectionMatrix", projection);
-    GShader::Instance()->setUniform(m_program, "ViewMatrix", view);
     glDrawElements(GL_TRIANGLES, 6 * m_faces, GL_UNSIGNED_INT, BUFFER_OFFSET(0));
 }
 //===============================================

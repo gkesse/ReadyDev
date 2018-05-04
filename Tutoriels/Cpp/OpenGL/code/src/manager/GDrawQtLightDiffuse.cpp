@@ -22,7 +22,6 @@ GDrawQtLightDiffuse* GDrawQtLightDiffuse::Instance() {
 //===============================================
 void GDrawQtLightDiffuse::initDraw() {
     m_objTorus = new GObjTorus(0.7f, 0.3f, 30, 30);
-    m_angle = 0.0f;
 }
 //===============================================
 void GDrawQtLightDiffuse::initCamera(int width, int height) {
