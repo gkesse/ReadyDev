@@ -33,6 +33,7 @@ void GDrawQtLightTwoSided::initDraw() {
 
     glm::mat4 transform = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f,1.5f,0.25f));
     m_objTeapot = new GObjTeapot(13, transform);
+    m_angle = 0.0f;
 }
 //===============================================
 void GDrawQtLightTwoSided::initCamera(int width, int height) {
@@ -44,13 +45,20 @@ void GDrawQtLightTwoSided::updateCamera(int w, int h) {
     GCamera::Instance()->perspective(m_projection, w, h);
 }
 //===============================================
+void GDrawQtLightTwoSided::updateDraw() {
+    m_angle += 1.0f;
+    if(m_angle >= 360.0f) {m_angle -= 360.0f;}
+}
+//===============================================
 void GDrawQtLightTwoSided::draw() {
     glm::mat4 lView;
     GCamera::Instance()->lookAt(lView);
-    GLight::Instance()->draw(m_program, lView);
+    m_modelView = lView;
+    GLight::Instance()->draw(m_program, m_modelView);
     m_modelView = lView;
     m_modelView = glm::rotate(m_modelView, glm::radians(-35.0f), glm::vec3(1.0f,0.0f,0.0f));
     m_modelView = glm::rotate(m_modelView, glm::radians(35.0f), glm::vec3(0.0f,1.0f,0.0f));
+    m_modelView = glm::rotate(m_modelView, glm::radians(m_angle), glm::vec3(1.0f,0.0f,0.0f));
     m_objTeapot->draw(m_program, m_projection, m_modelView);
 }
 //===============================================
