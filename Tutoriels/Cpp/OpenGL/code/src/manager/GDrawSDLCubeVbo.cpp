@@ -22,6 +22,7 @@ GDrawSDLCubeVbo* GDrawSDLCubeVbo::Instance() {
 //===============================================
 void GDrawSDLCubeVbo::initDraw() {
     m_objCubeVbo = GObjCubeVbo(1.0f);
+    m_angle = 0.0f;
 }
 //===============================================
 void GDrawSDLCubeVbo::initCamera(int width, int height) {
@@ -29,10 +30,16 @@ void GDrawSDLCubeVbo::initCamera(int width, int height) {
     GCamera::Instance()->perspective(m_projection, width, height);
 }
 //===============================================
+void GDrawSDLCubeVbo::updateDraw() {
+    m_angle += 1.0f;
+    if(m_angle >= 360.0f) {m_angle -= 360.0f;}
+}
+//===============================================
 void GDrawSDLCubeVbo::draw() {
     glm::mat4 lView;
     GCamera::Instance()->lookAt(lView);
     m_modelView = lView;
+    m_modelView = glm::rotate(m_modelView, glm::radians(m_angle), glm::vec3(0.0f,1.0f,0.0f));
     m_objCubeVbo.draw(m_projection, m_modelView);
 }
 //===============================================

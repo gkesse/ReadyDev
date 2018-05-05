@@ -14,6 +14,7 @@ public:
     static GDrawSDLCubeVbo* Instance();
     void initDraw();
     void initCamera(int width, int height);
+    void updateDraw();
     void draw();
     void handleEvents(SDL_Event* event);
     void onKeyDown(SDL_Event* event);
@@ -24,6 +25,7 @@ private:
     glm::mat4 m_modelView;
     GLuint m_program;
     GObjCubeVbo m_objCubeVbo;
+    float m_angle;
 };
 //===============================================
 #endif
