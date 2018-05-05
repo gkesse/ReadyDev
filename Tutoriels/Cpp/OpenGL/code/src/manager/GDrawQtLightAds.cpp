@@ -23,13 +23,14 @@ GDrawQtLightAds* GDrawQtLightAds::Instance() {
 //===============================================
 void GDrawQtLightAds::initDraw() {
     GShaderInfo  m_shaders[] = {
-        {GL_VERTEX_SHADER, "res/shaders/4.0/color_light_diffuse.vert", 0},
-        {GL_FRAGMENT_SHADER, "res/shaders/4.0/color_light_diffuse.frag", 0},
+        {GL_VERTEX_SHADER, "res/shaders/4.0/color_light_ads.vert", 0},
+        {GL_FRAGMENT_SHADER, "res/shaders/4.0/color_light_ads.frag", 0},
         {GL_NONE, "", 0}
     };
 
     m_program = GShader::Instance()->loadShader(m_shaders);
     glUseProgram(m_program);
+    GLight::Instance()->initLight(m_program);
 
     m_objTorus = new GObjTorus(0.7f, 0.3f, 30, 30);
 }
