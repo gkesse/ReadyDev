@@ -7,8 +7,8 @@ GWindowQtForm::GWindowQtForm(QWidget *parent) :
     ui->setupUi(this);
     m_x = 0;
     m_y = 0;
-    m_w = 400;
-    m_h = 400;
+    m_w = 800;
+    m_h = 800;
     m_title = "OpenGL | Qt | ReadyDev";
     createObjects();
     createConnections();

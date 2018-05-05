@@ -75,6 +75,8 @@ INPUT(
 ./build\GLightDiffuse.o
 ./build\GLightAds.o
 ./build\GDrawQtLightAds.o
+./build\GDrawQtLightTwoSided.o
+./build\GObjTeapot.o
 ./build\main.o
 ./build\moc_GWindowQtForm.o
 ./build\moc_GWindowQtFormGL.o

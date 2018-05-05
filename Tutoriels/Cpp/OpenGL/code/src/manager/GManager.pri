@@ -89,7 +89,10 @@ HEADERS += \
     $$PWD/GLight.h \
     $$PWD/GLightDiffuse.h \
     $$PWD/GLightAds.h \
-    $$PWD/GDrawQtLightAds.h
+    $$PWD/GDrawQtLightAds.h \
+    $$PWD/GDrawQtLightTwoSided.h \
+    $$PWD/GObjTeapot.h \
+    $$PWD/GDataTeapot.h
 
 SOURCES += \
     $$PWD/GWindow.cpp \
@@ -166,7 +169,9 @@ SOURCES += \
     $$PWD/GLight.cpp \
     $$PWD/GLightDiffuse.cpp \
     $$PWD/GLightAds.cpp \
-    $$PWD/GDrawQtLightAds.cpp
+    $$PWD/GDrawQtLightAds.cpp \
+    $$PWD/GDrawQtLightTwoSided.cpp \
+    $$PWD/GObjTeapot.cpp
 
 FORMS += \
     $$PWD/GWindowQtForm.ui
