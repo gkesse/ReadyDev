@@ -68,6 +68,8 @@ INPUT(
 ./build\GDrawSDLCubeVbo.o
 ./build\GDrawSDLTextureVbo.o
 ./build\GObjBoxVbo.o
+./build\GDrawSDLCubeVao.o
+./build\GObjCubeVao.o
 ./build\main.o
 ./build\moc_GWindowQtForm.o
 ./build\moc_GWindowQtFormGL.o

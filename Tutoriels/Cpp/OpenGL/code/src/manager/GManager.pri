@@ -82,7 +82,9 @@ HEADERS += \
     $$PWD/GObjCubeVbo.h \
     $$PWD/GDrawSDLCubeVbo.h \
     $$PWD/GDrawSDLTextureVbo.h \
-    $$PWD/GObjBoxVbo.h
+    $$PWD/GObjBoxVbo.h \
+    $$PWD/GDrawSDLCubeVao.h \
+    $$PWD/GObjCubeVao.h
 
 SOURCES += \
     $$PWD/GWindow.cpp \
@@ -152,7 +154,9 @@ SOURCES += \
     $$PWD/GObjCubeVbo.cpp \
     $$PWD/GDrawSDLCubeVbo.cpp \
     $$PWD/GDrawSDLTextureVbo.cpp \
-    $$PWD/GObjBoxVbo.cpp
+    $$PWD/GObjBoxVbo.cpp \
+    $$PWD/GDrawSDLCubeVao.cpp \
+    $$PWD/GObjCubeVao.cpp
 
 FORMS += \
     $$PWD/GWindowQtForm.ui
