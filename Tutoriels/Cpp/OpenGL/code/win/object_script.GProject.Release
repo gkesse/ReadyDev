@@ -70,6 +70,8 @@ INPUT(
 ./build\GObjBoxVbo.o
 ./build\GDrawSDLCubeVao.o
 ./build\GObjCubeVao.o
+./build\GDrawSDLTextureVao.o
+./build\GObjBoxVao.o
 ./build\main.o
 ./build\moc_GWindowQtForm.o
 ./build\moc_GWindowQtFormGL.o

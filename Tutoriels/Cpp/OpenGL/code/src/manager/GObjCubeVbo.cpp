@@ -58,6 +58,7 @@ void GObjCubeVbo::initObject(float Size) {
     glBufferData(GL_ARRAY_BUFFER, sizeof(lVertices), lVertices, GL_STATIC_DRAW);
     glBindBuffer(GL_ARRAY_BUFFER, m_VBO[1]);
     glBufferData(GL_ARRAY_BUFFER, sizeof(lColors), lColors, GL_STATIC_DRAW);
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
 //===============================================
 void GObjCubeVbo::draw(glm::mat4& projection, glm::mat4& modelview) {

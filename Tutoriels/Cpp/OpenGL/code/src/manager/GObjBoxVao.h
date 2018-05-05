@@ -1,16 +1,16 @@
 //===============================================
-#ifndef _GObjBoxVbo_
-#define _GObjBoxVbo_
+#ifndef _GObjBoxVao_
+#define _GObjBoxVao_
 //================================================
 #include "GInclude.h"
 //================================================
 #include <QMap>
 //===============================================
-class GObjBoxVbo {
+class GObjBoxVao {
 public:
-    GObjBoxVbo();
-    GObjBoxVbo(float Size, const char* Box);
-    ~GObjBoxVbo();
+    GObjBoxVao();
+    GObjBoxVao(float Size, const char* Box);
+    ~GObjBoxVao();
 
 public:
     void initObject(float Size, const char* Box);
@@ -19,7 +19,7 @@ public:
 private:
     static const int VERTEX_MAX = 36;
     GLuint m_program;
-    GLuint m_VBO[2];
+    GLuint m_VAO;
     QMap<QString, GLuint> m_textureMap;
 };
 //===============================================

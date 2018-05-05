@@ -19,6 +19,7 @@
 #include "GDrawSDLTextureRepeat.h"
 #include "GDrawSDLTextureObj.h"
 #include "GDrawSDLTextureVbo.h"
+#include "GDrawSDLTextureVao.h"
 #include "GDrawSDLCamera.h"
 #include "GDrawSDLRelic.h"
 #include "GConfig.h"
@@ -54,6 +55,7 @@ GDrawSDL* GDrawSDL::Instance() {
     if(lType == "TEXTURE_REPEAT") return GDrawSDLTextureRepeat::Instance();
     if(lType == "TEXTURE_OBJ") return GDrawSDLTextureObj::Instance();
     if(lType == "TEXTURE_VBO") return GDrawSDLTextureVbo::Instance();
+    if(lType == "TEXTURE_VAO") return GDrawSDLTextureVao::Instance();
     if(lType == "CAMERA") return GDrawSDLCamera::Instance();
     if(lType == "RELIC") return GDrawSDLRelic::Instance();
     return GDrawSDLBackground::Instance();
