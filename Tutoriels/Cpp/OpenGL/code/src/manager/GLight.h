@@ -11,7 +11,6 @@ public:
 	
 public:
     static GLight* Instance();
-    virtual void initLight(GLuint program) = 0;
     virtual void draw(GLuint program, const glm::mat4& view) = 0;
 
 private:

@@ -24,7 +24,6 @@ uniform LightInfo Light;
 uniform MaterialInfo Material;
 //===============================================
 uniform mat4 ModelViewMatrix;
-uniform mat3 NormalMatrix;
 uniform mat4 ProjectionMatrix;
 //===============================================
 void main() {

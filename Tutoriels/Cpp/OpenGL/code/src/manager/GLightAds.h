@@ -11,7 +11,6 @@ public:
 	
 public:
     static GLightAds* Instance();
-    void initLight(GLuint program);
     void draw(GLuint program, const glm::mat4& view);
 
 private:

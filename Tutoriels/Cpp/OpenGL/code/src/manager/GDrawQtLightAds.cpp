@@ -30,7 +30,6 @@ void GDrawQtLightAds::initDraw() {
 
     m_program = GShader::Instance()->loadShader(m_shaders);
     glUseProgram(m_program);
-    GLight::Instance()->initLight(m_program);
 
     m_objTorus = new GObjTorus(0.7f, 0.3f, 30, 30);
 }
