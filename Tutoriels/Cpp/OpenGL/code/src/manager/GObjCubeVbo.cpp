@@ -12,7 +12,7 @@ GObjCubeVbo::GObjCubeVbo(float Size) {
 }
 //===============================================
 GObjCubeVbo::~GObjCubeVbo() {
-    glDeleteBuffers(1, m_buffers);
+
 }
 //===============================================
 void GObjCubeVbo::initObject(float Size) {
@@ -44,8 +44,6 @@ void GObjCubeVbo::initObject(float Size) {
         0.0f, 1.0f, 1.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f, 1.0f,
         0.0f, 1.0f, 1.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f, 1.0f
     };
-    m_sizes[0] = sizeof(lVertices);
-    m_sizes[1] = sizeof(lColors);
 
     GShaderInfo  lShaders[] = {
         {GL_VERTEX_SHADER, "res/shaders/3.1/color_matrix.vert", 0},
@@ -54,29 +52,32 @@ void GObjCubeVbo::initObject(float Size) {
     };
 
     m_program = GShader::Instance()->loadShader(lShaders);
+    glUseProgram(m_program);
 
-    glGenBuffers(1, m_buffers);
+    GLuint m_buffers[2];
+    glGenBuffers(2, m_buffers);
 
     glBindBuffer(GL_ARRAY_BUFFER, m_buffers[0]);
-    glBufferData(GL_ARRAY_BUFFER, m_sizes[0] + m_sizes[1], 0, GL_STATIC_DRAW);
-    glBufferSubData(GL_ARRAY_BUFFER, 0, m_sizes[0], lVertices);
-    glBufferSubData(GL_ARRAY_BUFFER, m_sizes[0], m_sizes[1], lColors);
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(lVertices), lVertices, GL_STATIC_DRAW);
+    glBindBuffer(GL_ARRAY_BUFFER, m_buffers[1]);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(lColors), lColors, GL_STATIC_DRAW);
+
+    glGenVertexArrays(1, &m_VAO);
+    glBindVertexArray(m_VAO);
+
+    glEnableVertexAttribArray(0);
+    glEnableVertexAttribArray(1);
+
+    glBindBuffer(GL_ARRAY_BUFFER, m_buffers[0]);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(0));
+    glBindBuffer(GL_ARRAY_BUFFER, m_buffers[1]);
+    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(0));
 }
 //===============================================
 void GObjCubeVbo::draw(glm::mat4& projection, glm::mat4& modelview) {
-    glUseProgram(m_program);
-    glBindBuffer(GL_ARRAY_BUFFER, m_buffers[0]);
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(0));
-    glEnableVertexAttribArray(0);
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(m_sizes[0]));
-    glEnableVertexAttribArray(1);
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    glBindVertexArray(m_VAO);
     GShader::Instance()->setUniform(m_program, "ModelViewMatrix", modelview);
     GShader::Instance()->setUniform(m_program, "ProjectionMatrix", projection);
     glDrawArrays(GL_TRIANGLES, 0, VERTEX_MAX);
-    glDisableVertexAttribArray(1);
-    glDisableVertexAttribArray(0);
-    glUseProgram(0);
 }
 //===============================================

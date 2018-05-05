@@ -31,7 +31,7 @@ void GDrawQtLayout::initDraw() {
         0.0f, 1.0f, 0.0f,
         0.0f, 0.0f, 1.0f
     };
-    GLuint m_buffers[2];
+
 
     GShaderInfo  m_shaders[] = {
         {GL_VERTEX_SHADER, "res/shaders/4.0/color_layout.vert", 0},
@@ -42,7 +42,9 @@ void GDrawQtLayout::initDraw() {
     GLuint m_program = GShader::Instance()->loadShader(m_shaders);
     glUseProgram(m_program);
 
+    GLuint m_buffers[2];
     glGenBuffers(2, m_buffers);
+
     glBindBuffer(GL_ARRAY_BUFFER, m_buffers[0]);
     glBufferData(GL_ARRAY_BUFFER, sizeof(lVertices), lVertices, GL_STATIC_DRAW);
     glBindBuffer(GL_ARRAY_BUFFER, m_buffers[1]);

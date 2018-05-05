@@ -15,6 +15,8 @@ public:
     void initDraw();
     void initCamera(int width, int height);
     void draw();
+    void handleEvents(SDL_Event* event);
+    void onKeyDown(SDL_Event* event);
 
 private:
     static GDrawSDLCubeVbo* m_instance;
