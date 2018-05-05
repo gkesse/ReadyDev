@@ -66,6 +66,8 @@ INPUT(
 ./build\GObjTorus.o
 ./build\GObjCubeVbo.o
 ./build\GDrawSDLCubeVbo.o
+./build\GDrawSDLTextureVbo.o
+./build\GObjBoxVbo.o
 ./build\main.o
 ./build\moc_GWindowQtForm.o
 ./build\moc_GWindowQtFormGL.o

@@ -80,7 +80,9 @@ HEADERS += \
     $$PWD/GObjCrystal.h \
     $$PWD/GObjTorus.h \
     $$PWD/GObjCubeVbo.h \
-    $$PWD/GDrawSDLCubeVbo.h
+    $$PWD/GDrawSDLCubeVbo.h \
+    $$PWD/GDrawSDLTextureVbo.h \
+    $$PWD/GObjBoxVbo.h
 
 SOURCES += \
     $$PWD/GWindow.cpp \
@@ -148,7 +150,9 @@ SOURCES += \
     $$PWD/GObjCrystal.cpp \
     $$PWD/GObjTorus.cpp \
     $$PWD/GObjCubeVbo.cpp \
-    $$PWD/GDrawSDLCubeVbo.cpp
+    $$PWD/GDrawSDLCubeVbo.cpp \
+    $$PWD/GDrawSDLTextureVbo.cpp \
+    $$PWD/GObjBoxVbo.cpp
 
 FORMS += \
     $$PWD/GWindowQtForm.ui
