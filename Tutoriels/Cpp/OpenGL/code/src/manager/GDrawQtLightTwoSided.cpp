@@ -54,11 +54,11 @@ void GDrawQtLightTwoSided::draw() {
     glm::mat4 lView;
     GCamera::Instance()->lookAt(lView);
     m_modelView = lView;
+    m_modelView = glm::rotate(m_modelView, glm::radians(m_angle), glm::vec3(0.0f,1.0f,0.0f));
     GLight::Instance()->draw(m_program, m_modelView);
     m_modelView = lView;
     m_modelView = glm::rotate(m_modelView, glm::radians(-35.0f), glm::vec3(1.0f,0.0f,0.0f));
     m_modelView = glm::rotate(m_modelView, glm::radians(35.0f), glm::vec3(0.0f,1.0f,0.0f));
-    m_modelView = glm::rotate(m_modelView, glm::radians(m_angle), glm::vec3(1.0f,0.0f,0.0f));
     m_objTeapot->draw(m_program, m_projection, m_modelView);
 }
 //===============================================
