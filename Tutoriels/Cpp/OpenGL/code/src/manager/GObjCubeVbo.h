@@ -15,9 +15,9 @@ public:
     void draw(glm::mat4& projection, glm::mat4& modelview);
 
 private:
-    static const int VERTEX_MAX = 3;
+    static const int VERTEX_MAX = 36;
     GLuint m_program;
-    GLuint m_VAO;
+    GLuint m_VBO[2];
 };
 //===============================================
 #endif
