@@ -25,7 +25,7 @@ void GDrawSDLCubeVbo::initDraw() {
 }
 //===============================================
 void GDrawSDLCubeVbo::initCamera(int width, int height) {
-    GCamera::Instance()->initCamera(glm::vec3(3.0f, 3.0f, 3.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f), 4.0f, 0.5f);
+    GCamera::Instance()->initCamera(glm::vec3(3.0f, 3.0f, 3.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f), 5.0f, 0.5f);
     GCamera::Instance()->perspective(m_projection, width, height);
 }
 //===============================================
