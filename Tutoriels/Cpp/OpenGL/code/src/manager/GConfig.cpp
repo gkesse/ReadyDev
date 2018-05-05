@@ -7,6 +7,7 @@ GConfig::GConfig() {
     setData("WINDOW_TYPE", "OPENGL_GLUT");
     setData("DRAW_TYPE", "SIMPLE");
     setData("SHADER_LOAD_METHOD", "LAYOUT");
+    setData("LIGHT_TYPE", "LIGHT_DIFFUSE");
 }
 //================================================
 GConfig::~GConfig() {

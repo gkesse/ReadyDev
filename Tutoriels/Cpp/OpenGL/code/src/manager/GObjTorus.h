@@ -13,7 +13,7 @@ public:
 public:
     void initObject(float outerRadius, float innerRadius, int verticalSides, int horizontalSides);
     void generateVertex(float* vertices, float* normals, float* texCoords, GLuint* indices, float outerRadius, float innerRadius);
-    void draw(const glm::mat4& projection, const glm::mat4& modelView, const glm::mat4& view);
+    void draw(const GLuint program, const glm::mat4& projection, const glm::mat4& modelView);
 
 private:
     GLuint m_VAO;

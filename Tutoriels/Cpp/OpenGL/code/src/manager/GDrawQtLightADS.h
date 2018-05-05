@@ -20,9 +20,9 @@ public:
 
 private:
     static GDrawQtLightADS* m_instance;
+    GLuint m_program;
     glm::mat4 m_projection;
     glm::mat4 m_modelView;
-    glm::mat4 m_view;
     GObjTorus* m_objTorus;
 };
 //===============================================

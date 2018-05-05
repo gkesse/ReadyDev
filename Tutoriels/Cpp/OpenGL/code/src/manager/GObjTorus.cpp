@@ -15,15 +15,6 @@ GObjTorus::~GObjTorus() {
 }
 //===============================================
 void GObjTorus::initObject(float outerRadius, float innerRadius, int verticalSides, int horizontalSides) {
-    GShaderInfo  m_shaders[] = {
-        {GL_VERTEX_SHADER, "res/shaders/4.0/color_light_diffuse.vert", 0},
-        {GL_FRAGMENT_SHADER, "res/shaders/4.0/color_light_diffuse.frag", 0},
-        {GL_NONE, "", 0}
-    };
-
-    m_program = GShader::Instance()->loadShader(m_shaders);
-    glUseProgram(m_program);
-
     m_horizontalSides = horizontalSides;
     m_verticalSides = verticalSides;
     m_faces = m_verticalSides * m_horizontalSides;
@@ -125,13 +116,10 @@ void GObjTorus::generateVertex(float* vertices, float* normals, float* texCoords
     }
 }
 //===============================================
-void GObjTorus::draw(const glm::mat4& projection, const glm::mat4& modelView, const glm::mat4& view) {
+void GObjTorus::draw(const GLuint program, const glm::mat4& projection, const glm::mat4& modelView) {
     glBindVertexArray(m_VAO);
-    GShader::Instance()->setUniform(m_program, "Kd", 0.9f, 0.5f, 0.3f);
-    GShader::Instance()->setUniform(m_program, "Ld", 1.0f, 1.0f, 1.0f);
-    GShader::Instance()->setUniform(m_program, "LightPosition", view * glm::vec4(5.0f,5.0f,2.0f,1.0f));
-    GShader::Instance()->setUniform(m_program, "ModelViewMatrix", modelView);
-    GShader::Instance()->setUniform(m_program, "ProjectionMatrix", projection);
+    GShader::Instance()->setUniform(program, "ModelViewMatrix", modelView);
+    GShader::Instance()->setUniform(program, "ProjectionMatrix", projection);
     glDrawElements(GL_TRIANGLES, 6 * m_faces, GL_UNSIGNED_INT, BUFFER_OFFSET(0));
 }
 //===============================================

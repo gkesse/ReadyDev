@@ -86,7 +86,9 @@ HEADERS += \
     $$PWD/GDrawSDLCubeVao.h \
     $$PWD/GObjCubeVao.h \
     $$PWD/GDrawSDLTextureVao.h \
-    $$PWD/GObjBoxVao.h
+    $$PWD/GObjBoxVao.h \
+    $$PWD/GLight.h \
+    $$PWD/GLightDiffuse.h
 
 SOURCES += \
     $$PWD/GWindow.cpp \
@@ -160,7 +162,9 @@ SOURCES += \
     $$PWD/GDrawSDLCubeVao.cpp \
     $$PWD/GObjCubeVao.cpp \
     $$PWD/GDrawSDLTextureVao.cpp \
-    $$PWD/GObjBoxVao.cpp
+    $$PWD/GObjBoxVao.cpp \
+    $$PWD/GLight.cpp \
+    $$PWD/GLightDiffuse.cpp
 
 FORMS += \
     $$PWD/GWindowQtForm.ui
