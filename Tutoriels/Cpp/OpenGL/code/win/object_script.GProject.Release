@@ -27,7 +27,6 @@ INPUT(
 ./build\GDrawQtRead.o
 ./build\GDrawQtUniformBlock.o
 ./build\GDrawQtLightDiffuse.o
-./build\GDrawQtLightADS.o
 ./build\GDrawGLFW.o
 ./build\GDrawGLFWBackground.o
 ./build\GDrawGLFWSimple.o
@@ -74,6 +73,8 @@ INPUT(
 ./build\GObjBoxVao.o
 ./build\GLight.o
 ./build\GLightDiffuse.o
+./build\GLightAds.o
+./build\GDrawQtLightAds.o
 ./build\main.o
 ./build\moc_GWindowQtForm.o
 ./build\moc_GWindowQtFormGL.o

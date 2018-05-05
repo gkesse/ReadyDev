@@ -1,27 +1,27 @@
 //===============================================
-#include "GDrawQtLightADS.h"
+#include "GDrawQtLightAds.h"
 #include "GShader.h"
 #include "GCamera.h"
 #include "GLight.h"
 //===============================================
-GDrawQtLightADS* GDrawQtLightADS::m_instance = 0;
+GDrawQtLightAds* GDrawQtLightAds::m_instance = 0;
 //===============================================
-GDrawQtLightADS::GDrawQtLightADS() {
+GDrawQtLightAds::GDrawQtLightAds() {
 
 }
 //===============================================
-GDrawQtLightADS::~GDrawQtLightADS() {
+GDrawQtLightAds::~GDrawQtLightAds() {
 
 }
 //===============================================
-GDrawQtLightADS* GDrawQtLightADS::Instance() {
+GDrawQtLightAds* GDrawQtLightAds::Instance() {
     if(m_instance == 0) {
-        m_instance = new GDrawQtLightADS;
+        m_instance = new GDrawQtLightAds;
     }
     return m_instance;
 }
 //===============================================
-void GDrawQtLightADS::initDraw() {
+void GDrawQtLightAds::initDraw() {
     GShaderInfo  m_shaders[] = {
         {GL_VERTEX_SHADER, "res/shaders/4.0/color_light_diffuse.vert", 0},
         {GL_FRAGMENT_SHADER, "res/shaders/4.0/color_light_diffuse.frag", 0},
@@ -34,16 +34,16 @@ void GDrawQtLightADS::initDraw() {
     m_objTorus = new GObjTorus(0.7f, 0.3f, 30, 30);
 }
 //===============================================
-void GDrawQtLightADS::initCamera(int width, int height) {
+void GDrawQtLightAds::initCamera(int width, int height) {
     GCamera::Instance()->initCamera(glm::vec3(0.0f,0.0f,3.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f), 5.0f, 0.5f);
     GCamera::Instance()->perspective(m_projection, width, height);
 }
 //===============================================
-void GDrawQtLightADS::updateCamera(int w, int h) {
+void GDrawQtLightAds::updateCamera(int w, int h) {
     GCamera::Instance()->perspective(m_projection, w, h);
 }
 //===============================================
-void GDrawQtLightADS::draw() {
+void GDrawQtLightAds::draw() {
     glm::mat4 lView;
     GCamera::Instance()->lookAt(lView);
     GLight::Instance()->draw(m_program, lView);

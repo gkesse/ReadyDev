@@ -42,7 +42,6 @@ HEADERS += \
     $$PWD/GDrawQtRead.h \
     $$PWD/GDrawQtUniformBlock.h \
     $$PWD/GDrawQtLightDiffuse.h \
-    $$PWD/GDrawQtLightADS.h \
     $$PWD/GDrawGLFW.h \
     $$PWD/GDrawGLFWBackground.h \
     $$PWD/GDrawGLFWSimple.h \
@@ -88,7 +87,9 @@ HEADERS += \
     $$PWD/GDrawSDLTextureVao.h \
     $$PWD/GObjBoxVao.h \
     $$PWD/GLight.h \
-    $$PWD/GLightDiffuse.h
+    $$PWD/GLightDiffuse.h \
+    $$PWD/GLightAds.h \
+    $$PWD/GDrawQtLightAds.h
 
 SOURCES += \
     $$PWD/GWindow.cpp \
@@ -118,7 +119,6 @@ SOURCES += \
     $$PWD/GDrawQtRead.cpp \
     $$PWD/GDrawQtUniformBlock.cpp \
     $$PWD/GDrawQtLightDiffuse.cpp \
-    $$PWD/GDrawQtLightADS.cpp \
     $$PWD/GDrawGLFW.cpp \
     $$PWD/GDrawGLFWBackground.cpp \
     $$PWD/GDrawGLFWSimple.cpp \
@@ -164,7 +164,9 @@ SOURCES += \
     $$PWD/GDrawSDLTextureVao.cpp \
     $$PWD/GObjBoxVao.cpp \
     $$PWD/GLight.cpp \
-    $$PWD/GLightDiffuse.cpp
+    $$PWD/GLightDiffuse.cpp \
+    $$PWD/GLightAds.cpp \
+    $$PWD/GDrawQtLightAds.cpp
 
 FORMS += \
     $$PWD/GWindowQtForm.ui

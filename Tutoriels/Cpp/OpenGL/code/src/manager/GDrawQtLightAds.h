@@ -1,25 +1,25 @@
 //===============================================
-#ifndef _GDrawQtLightADS_
-#define _GDrawQtLightADS_
+#ifndef _GDrawQtLightAds_
+#define _GDrawQtLightAds_
 //================================================
 #include "GInclude.h"
 #include "GDrawQt.h"
 #include "GObjTorus.h"
 //===============================================
-class GDrawQtLightADS : public GDrawQt {
+class GDrawQtLightAds : public GDrawQt {
 public:
-    GDrawQtLightADS();
-    ~GDrawQtLightADS();
+    GDrawQtLightAds();
+    ~GDrawQtLightAds();
 
 public:
-    static GDrawQtLightADS* Instance();
+    static GDrawQtLightAds* Instance();
     void initDraw();
     void initCamera(int width, int height);
     void updateCamera(int w, int h);
     void draw();
 
 private:
-    static GDrawQtLightADS* m_instance;
+    static GDrawQtLightAds* m_instance;
     GLuint m_program;
     glm::mat4 m_projection;
     glm::mat4 m_modelView;
