@@ -21,7 +21,7 @@ private:
     glm::mat4 m_projection;
     glm::mat4 m_modelView;
     GLuint m_program;
-    GObjCubeVbo m_objCube;
+    GObjCubeVbo m_objCubeVbo;
 };
 //===============================================
 #endif

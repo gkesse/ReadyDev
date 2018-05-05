@@ -20,7 +20,7 @@ GDrawSDLCubeVbo* GDrawSDLCubeVbo::Instance() {
 }
 //===============================================
 void GDrawSDLCubeVbo::initDraw() {
-    m_objCube = GObjCubeVbo(1.0f);
+    m_objCubeVbo = GObjCubeVbo(1.0f);
 }
 //===============================================
 void GDrawSDLCubeVbo::initCamera(int width, int height) {
@@ -33,6 +33,6 @@ void GDrawSDLCubeVbo::initCamera(int width, int height) {
 //===============================================
 void GDrawSDLCubeVbo::draw() {
     m_modelView = glm::lookAt(glm::vec3(3.0f, 3.0f, 2.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-    m_objCube.draw(m_projection, m_modelView);
+    m_objCubeVbo.draw(m_projection, m_modelView);
 }
 //===============================================
