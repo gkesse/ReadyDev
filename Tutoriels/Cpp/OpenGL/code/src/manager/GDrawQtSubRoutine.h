@@ -5,6 +5,7 @@
 #include "GInclude.h"
 #include "GDrawQt.h"
 #include "GObjTeapot.h"
+#include "GObjTorus.h"
 //===============================================
 class GDrawQtSubRoutine : public GDrawQt {
 public:
@@ -25,6 +26,7 @@ private:
     glm::mat4 m_projection;
     glm::mat4 m_modelView;
     GObjTeapot* m_objTeapot;
+    GObjTorus* m_objTorus;
     float m_angle;
 };
 //===============================================
