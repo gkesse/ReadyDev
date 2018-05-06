@@ -82,6 +82,7 @@ INPUT(
 ./build\GDrawQtLookPerforate.o
 ./build\GDrawQtLightSmooth.o
 ./build\GDrawQtLightTwoSide.o
+./build\GDrawQtLightTwoSideMix.o
 ./build\main.o
 ./build\moc_GWindowQtForm.o
 ./build\moc_GWindowQtFormGL.o

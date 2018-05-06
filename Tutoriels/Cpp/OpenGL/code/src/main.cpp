@@ -4,7 +4,7 @@
 //===============================================
 int main(int argc, char** argv) {
     GConfig::Instance()->setData("WINDOW_TYPE", "OPENGL_QT");
-    GConfig::Instance()->setData("DRAW_TYPE", "LIGHT_TWO_SIDE");
+    GConfig::Instance()->setData("DRAW_TYPE", "LIGHT_TWO_SIDE_MIX");
     GConfig::Instance()->setData("SHADER_LOAD_METHOD", "LAYOUT");
     GConfig::Instance()->setData("LIGHT_TYPE", "LIGHT_ADS");
     GWindow::Instance()->show(&argc, argv);

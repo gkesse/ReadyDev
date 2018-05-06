@@ -11,6 +11,7 @@
 #include "GDrawQtLightDiffuse.h"
 #include "GDrawQtLightAds.h"
 #include "GDrawQtLightTwoSide.h"
+#include "GDrawQtLightTwoSideMix.h"
 #include "GDrawQtLightFlat.h"
 #include "GDrawQtLightSmooth.h"
 #include "GDrawQtTexture.h"
@@ -40,6 +41,7 @@ GDrawQt* GDrawQt::Instance() {
     if(m_type == "LIGHT_DIFFUSE") return GDrawQtLightDiffuse::Instance();
     if(m_type == "LIGHT_ADS") return GDrawQtLightAds::Instance();
     if(m_type == "LIGHT_TWO_SIDE") return GDrawQtLightTwoSide::Instance();
+    if(m_type == "LIGHT_TWO_SIDE_MIX") return GDrawQtLightTwoSideMix::Instance();
     if(m_type == "LIGHT_FLAT") return GDrawQtLightFlat::Instance();
     if(m_type == "LIGHT_SMOOTH") return GDrawQtLightSmooth::Instance();
     if(m_type == "TEXTURE") return GDrawQtTexture::Instance();
