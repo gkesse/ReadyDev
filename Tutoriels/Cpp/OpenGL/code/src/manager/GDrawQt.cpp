@@ -8,6 +8,7 @@
 #include "GDrawQtUniform.h"
 #include "GDrawQtUniformBlock.h"
 #include "GDrawQtSubRoutine.h"
+#include "GDrawQtShaderFunction.h"
 #include "GDrawQtLightDiffuse.h"
 #include "GDrawQtLightAds.h"
 #include "GDrawQtLightTwoSide.h"
@@ -38,6 +39,7 @@ GDrawQt* GDrawQt::Instance() {
     if(m_type == "UNIFORM") return GDrawQtUniform::Instance();
     if(m_type == "UNIFORM_BLOCK") return GDrawQtUniformBlock::Instance();
     if(m_type == "SUB_ROUTINE") return GDrawQtSubRoutine::Instance();
+    if(m_type == "SHADER_FUNCTION") return GDrawQtShaderFunction::Instance();
     if(m_type == "LIGHT_DIFFUSE") return GDrawQtLightDiffuse::Instance();
     if(m_type == "LIGHT_ADS") return GDrawQtLightAds::Instance();
     if(m_type == "LIGHT_TWO_SIDE") return GDrawQtLightTwoSide::Instance();

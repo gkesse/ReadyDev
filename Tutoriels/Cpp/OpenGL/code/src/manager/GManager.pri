@@ -98,7 +98,8 @@ HEADERS += \
     $$PWD/GDrawQtLookPerforate.h \
     $$PWD/GDrawQtLightSmooth.h \
     $$PWD/GDrawQtLightTwoSide.h \
-    $$PWD/GDrawQtLightTwoSideMix.h
+    $$PWD/GDrawQtLightTwoSideMix.h \
+    $$PWD/GDrawQtShaderFunction.h
 
 SOURCES += \
     $$PWD/GWindow.cpp \
@@ -183,7 +184,8 @@ SOURCES += \
     $$PWD/GDrawQtLookPerforate.cpp \
     $$PWD/GDrawQtLightSmooth.cpp \
     $$PWD/GDrawQtLightTwoSide.cpp \
-    $$PWD/GDrawQtLightTwoSideMix.cpp
+    $$PWD/GDrawQtLightTwoSideMix.cpp \
+    $$PWD/GDrawQtShaderFunction.cpp
 
 FORMS += \
     $$PWD/GWindowQtForm.ui
