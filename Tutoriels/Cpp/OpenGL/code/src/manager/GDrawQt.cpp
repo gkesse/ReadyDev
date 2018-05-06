@@ -7,11 +7,13 @@
 #include "GDrawQtBind.h"
 #include "GDrawQtUniform.h"
 #include "GDrawQtUniformBlock.h"
+#include "GDrawQtSubRoutine.h"
 #include "GDrawQtLightDiffuse.h"
 #include "GDrawQtLightAds.h"
 #include "GDrawQtLightTwoSided.h"
 #include "GDrawQtLightFlat.h"
 #include "GDrawQtTexture.h"
+#include "GDrawQtLookPerforate.h"
 #include "GConfig.h"
 //===============================================
 GDrawQt* GDrawQt::m_instance = 0;
@@ -33,11 +35,13 @@ GDrawQt* GDrawQt::Instance() {
     if(m_type == "BIND") return GDrawQtBind::Instance();
     if(m_type == "UNIFORM") return GDrawQtUniform::Instance();
     if(m_type == "UNIFORM_BLOCK") return GDrawQtUniformBlock::Instance();
+    if(m_type == "SUB_ROUTINE") return GDrawQtSubRoutine::Instance();
     if(m_type == "LIGHT_DIFFUSE") return GDrawQtLightDiffuse::Instance();
     if(m_type == "LIGHT_ADS") return GDrawQtLightAds::Instance();
     if(m_type == "LIGHT_TWO_SIDED") return GDrawQtLightTwoSided::Instance();
     if(m_type == "LIGHT_FLAT") return GDrawQtLightFlat::Instance();
     if(m_type == "TEXTURE") return GDrawQtTexture::Instance();
+    if(m_type == "LOOK_PERFORATE") return GDrawQtLookPerforate::Instance();
     return 0;
 }
 //===============================================

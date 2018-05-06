@@ -93,7 +93,10 @@ HEADERS += \
     $$PWD/GDrawQtLightTwoSided.h \
     $$PWD/GObjTeapot.h \
     $$PWD/GDataTeapot.h \
-    $$PWD/GDrawQtLightFlat.h
+    $$PWD/GDrawQtLightFlat.h \
+    $$PWD/GObjOgre.h \
+    $$PWD/GDrawQtSubRoutine.h \
+    $$PWD/GDrawQtLookPerforate.h
 
 SOURCES += \
     $$PWD/GWindow.cpp \
@@ -173,7 +176,10 @@ SOURCES += \
     $$PWD/GDrawQtLightAds.cpp \
     $$PWD/GDrawQtLightTwoSided.cpp \
     $$PWD/GObjTeapot.cpp \
-    $$PWD/GDrawQtLightFlat.cpp
+    $$PWD/GDrawQtLightFlat.cpp \
+    $$PWD/GObjOgre.cpp \
+    $$PWD/GDrawQtSubRoutine.cpp \
+    $$PWD/GDrawQtLookPerforate.cpp
 
 FORMS += \
     $$PWD/GWindowQtForm.ui

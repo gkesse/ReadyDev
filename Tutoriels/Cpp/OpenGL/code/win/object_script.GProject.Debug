@@ -78,6 +78,9 @@ INPUT(
 ./build\GDrawQtLightTwoSided.o
 ./build\GObjTeapot.o
 ./build\GDrawQtLightFlat.o
+./build\GObjOgre.o
+./build\GDrawQtSubRoutine.o
+./build\GDrawQtLookPerforate.o
 ./build\main.o
 ./build\moc_GWindowQtForm.o
 ./build\moc_GWindowQtFormGL.o
