@@ -4,7 +4,7 @@
 //================================================
 #include "GInclude.h"
 #include "GDrawQt.h"
-#include "GObjTeapot.h"
+#include "GObjOgre.h"
 //===============================================
 class GDrawQtLightFlat : public GDrawQt {
 public:
@@ -24,7 +24,7 @@ private:
     GLuint m_program;
     glm::mat4 m_projection;
     glm::mat4 m_modelView;
-    GObjTeapot* m_objTeapot;
+    GObjOgre* m_objOgre;
     float m_angle;
 };
 //===============================================

@@ -6,6 +6,8 @@
 //===============================================
 #include <fstream>
 #include <sstream>
+#include <QFile>
+#include <QTextStream>
 //===============================================
 GObjOgre::GObjOgre() {
 
@@ -31,18 +33,17 @@ void GObjOgre::loadOBJ(const char* fileName) {
 
     int nFaces = 0;
 
-    ifstream objStream( fileName, std::ios::in );
-
-    if( !objStream ) {
-        cerr << "Unable to open OBJ file: " << fileName << endl;
-        exit(1);
-    }
+    QFile  lFile( fileName);
+    lFile.open(QIODevice::ReadOnly);
 
     string line, token;
     vector<int> face;
 
-    getline( objStream, line );
-    while( !objStream.eof() ) {
+    QTextStream objStream(&lFile);
+
+    line = objStream.readLine().toStdString();
+
+    while( !objStream.atEnd() ) {
         trimString(line);
         if( line.length( ) > 0 && line.at(0) != '#' ) {
             istringstream lineStream( line );
@@ -108,10 +109,10 @@ void GObjOgre::loadOBJ(const char* fileName) {
                 }
             }
         }
-        getline( objStream, line );
+        line = objStream.readLine().toStdString();
     }
 
-    objStream.close();
+    lFile.close();
 
     vector<glm::vec3> tan1Accum;
     vector<glm::vec3> tan2Accum;
@@ -185,10 +186,10 @@ void GObjOgre::trimString(string& str) {
 }
 //===============================================
 void GObjOgre::storeVBO(
-        const vector<vec3> & points,
-        const vector<vec3> & normals,
-        const vector<vec2> &texCoords,
-        const vector<vec4> &tangents,
+        const vector<glm::vec3> & points,
+        const vector<glm::vec3> & normals,
+        const vector<glm::vec2> &texCoords,
+        const vector<glm::vec4> &tangents,
         const vector<int> &elements ) {
     int nVerts  = points.size();
     faces = elements.size() / 3;
@@ -258,20 +259,10 @@ void GObjOgre::storeVBO(
     delete [] tang;
 }
 //===============================================
-void GObjOgre::draw(glm::mat4& projection, glm::mat4& modelview) {
-    glUseProgram(m_program);
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, m_vertices);
-    glEnableVertexAttribArray(0);
-    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 0, m_texCoords);
-    glEnableVertexAttribArray(1);
-    GShader::Instance()->setUniform(m_program, "ModelViewMatrix", modelview);
-    GShader::Instance()->setUniform(m_program, "ProjectionMatrix", projection);
-    GShader::Instance()->setUniform(m_program, "Tex", 0);
-    glBindTexture(GL_TEXTURE_2D, m_textureMap["BOX"]);
-    glDrawArrays(GL_TRIANGLES, 0, VERTEX_MAX);
-    glBindTexture(GL_TEXTURE_2D, 0);
-    glDisableVertexAttribArray(1);
-    glDisableVertexAttribArray(0);
-    glUseProgram(0);
+void GObjOgre::draw(GLuint program, glm::mat4& projection, glm::mat4& modelView) {
+    glBindVertexArray(vaoHandle);
+    GShader::Instance()->setUniform(program, "ModelViewMatrix", modelView);
+    GShader::Instance()->setUniform(program, "ProjectionMatrix", projection);
+    glDrawElements(GL_TRIANGLES, 3 * faces, GL_UNSIGNED_INT, BUFFER_OFFSET(0));
 }
 //===============================================

@@ -17,19 +17,16 @@ public:
     void loadOBJ(const char* fileName);
     void trimString(string & str );
     void storeVBO(
-            const vector<vec3> & points,
-            const vector<vec3> & normals,
-            const vector<vec2> &texCoords,
-            const vector<vec4> &tangents,
+            const vector<glm::vec3> & points,
+            const vector<glm::vec3> & normals,
+            const vector<glm::vec2> &texCoords,
+            const vector<glm::vec4> &tangents,
             const vector<int> &elements );
-    void draw(glm::mat4& projection, glm::mat4& modelview);
+    void draw(GLuint program, glm::mat4& projection, glm::mat4& modelView);
 
 private:
-    static const int VERTEX_MAX = 36;
-    float m_vertices[VERTEX_MAX*3];
-    float m_texCoords[VERTEX_MAX*2];
-    GLuint m_program;
-    QMap<QString, GLuint> m_textureMap;
+    unsigned int faces;
+    unsigned int vaoHandle;
 };
 //===============================================
 #endif
