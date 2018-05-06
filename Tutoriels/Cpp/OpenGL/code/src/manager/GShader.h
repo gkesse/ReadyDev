@@ -17,15 +17,16 @@ public:
 	static GShader* Instance();
     void setAttribInfo(GAttribInfo* attribInfo);
     void showActiveUniforms(GLuint program);
-    int getUniformLocation(GLuint program, const char * name );
-    void setUniform(GLuint program, const char *name, float x, float y, float z);
-    void setUniform(GLuint program, const char *name, const glm::vec3 & v);
-    void setUniform(GLuint program, const char *name, const glm::vec4 & v);
-    void setUniform(GLuint program, const char *name, const glm::mat4 & m);
-    void setUniform(GLuint program, const char *name, const glm::mat3 & m);
-    void setUniform(GLuint program, const char *name, float val );
-    void setUniform(GLuint program, const char *name, int val);
-    void setUniform(GLuint program, const char *name, bool val);
+    int getUniformLocation(GLuint program, const char* name);
+    void setUniform(GLuint program, const char* name, float x, float y, float z);
+    void setUniform(GLuint program, const char* name, const glm::vec3& v);
+    void setUniform(GLuint program, const char* name, const glm::vec4& v);
+    void setUniform(GLuint program, const char* name, const glm::mat4& m);
+    void setUniform(GLuint program, const char* name, const glm::mat3& m);
+    void setUniform(GLuint program, const char* name, float val );
+    void setUniform(GLuint program, const char* name, int val);
+    void setUniform(GLuint program, const char* name, bool val);
+    void setSubroutine(GLuint program, const char* name);
     virtual GLuint loadShader(GShaderInfo* shaderInfo) = 0;
 
 private:
