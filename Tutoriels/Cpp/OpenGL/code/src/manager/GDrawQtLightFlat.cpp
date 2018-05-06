@@ -33,7 +33,6 @@ void GDrawQtLightFlat::initDraw() {
 
     m_objOgre = new GObjOgre("res/mesh/bs_ears.obj");
     m_angle = 0.0f;
-    m_angle2 = 0.0f;
 }
 //===============================================
 void GDrawQtLightFlat::initCamera(int width, int height) {
@@ -48,18 +47,15 @@ void GDrawQtLightFlat::updateCamera(int w, int h) {
 void GDrawQtLightFlat::updateDraw() {
     m_angle += 1.0f;
     if(m_angle >= 360.0f) {m_angle -= 360.0f;}
-    m_angle2 += 1.0f;
-    if(m_angle2 >= 360.0f) {m_angle2 -= 360.0f;}
 }
 //===============================================
 void GDrawQtLightFlat::draw() {
     glm::mat4 lView;
     GCamera::Instance()->lookAt(lView);
     m_modelView = lView;
-    m_modelView = glm::rotate(m_modelView, glm::radians(m_angle), glm::vec3(0.0f,1.0f,0.0f));
     GLight::Instance()->draw(m_program, m_modelView);
     m_modelView = lView;
-    m_modelView = glm::rotate(m_modelView, glm::radians(m_angle2), glm::vec3(0.0f,1.0f,0.0f));
+    m_modelView = glm::rotate(m_modelView, glm::radians(m_angle), glm::vec3(0.0f,1.0f,0.0f));
     m_objOgre->draw(m_program, m_projection, m_modelView);
 }
 //===============================================

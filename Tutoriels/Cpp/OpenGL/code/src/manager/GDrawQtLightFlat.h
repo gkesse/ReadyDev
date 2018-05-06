@@ -26,7 +26,6 @@ private:
     glm::mat4 m_modelView;
     GObjOgre* m_objOgre;
     float m_angle;
-    float m_angle2;
 };
 //===============================================
 #endif
