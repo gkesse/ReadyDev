@@ -10,8 +10,9 @@
 #include "GDrawQtSubRoutine.h"
 #include "GDrawQtLightDiffuse.h"
 #include "GDrawQtLightAds.h"
-#include "GDrawQtLightTwoSided.h"
+#include "GDrawQtLightTwoSide.h"
 #include "GDrawQtLightFlat.h"
+#include "GDrawQtLightSmooth.h"
 #include "GDrawQtTexture.h"
 #include "GDrawQtLookPerforate.h"
 #include "GConfig.h"
@@ -38,8 +39,9 @@ GDrawQt* GDrawQt::Instance() {
     if(m_type == "SUB_ROUTINE") return GDrawQtSubRoutine::Instance();
     if(m_type == "LIGHT_DIFFUSE") return GDrawQtLightDiffuse::Instance();
     if(m_type == "LIGHT_ADS") return GDrawQtLightAds::Instance();
-    if(m_type == "LIGHT_TWO_SIDED") return GDrawQtLightTwoSided::Instance();
+    if(m_type == "LIGHT_TWO_SIDE") return GDrawQtLightTwoSide::Instance();
     if(m_type == "LIGHT_FLAT") return GDrawQtLightFlat::Instance();
+    if(m_type == "LIGHT_SMOOTH") return GDrawQtLightSmooth::Instance();
     if(m_type == "TEXTURE") return GDrawQtTexture::Instance();
     if(m_type == "LOOK_PERFORATE") return GDrawQtLookPerforate::Instance();
     return 0;

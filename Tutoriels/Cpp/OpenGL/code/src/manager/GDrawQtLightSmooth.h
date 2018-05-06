@@ -1,18 +1,18 @@
 //===============================================
-#ifndef _GDrawQtLightTwoSided_
-#define _GDrawQtLightTwoSided_
+#ifndef _GDrawQtLightSmooth_
+#define _GDrawQtLightSmooth_
 //================================================
 #include "GInclude.h"
 #include "GDrawQt.h"
-#include "GObjTeapot.h"
+#include "GObjOgre.h"
 //===============================================
-class GDrawQtLightTwoSided : public GDrawQt {
+class GDrawQtLightSmooth : public GDrawQt {
 public:
-    GDrawQtLightTwoSided();
-    ~GDrawQtLightTwoSided();
+    GDrawQtLightSmooth();
+    ~GDrawQtLightSmooth();
 
 public:
-    static GDrawQtLightTwoSided* Instance();
+    static GDrawQtLightSmooth* Instance();
     void initDraw();
     void initCamera(int width, int height);
     void updateCamera(int w, int h);
@@ -20,11 +20,11 @@ public:
     void draw();
 
 private:
-    static GDrawQtLightTwoSided* m_instance;
+    static GDrawQtLightSmooth* m_instance;
     GLuint m_program;
     glm::mat4 m_projection;
     glm::mat4 m_modelView;
-    GObjTeapot* m_objTeapot;
+    GObjOgre* m_objOgre;
     float m_angle;
 };
 //===============================================
