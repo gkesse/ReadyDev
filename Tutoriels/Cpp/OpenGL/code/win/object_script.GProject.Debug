@@ -84,6 +84,7 @@ INPUT(
 ./build\GDrawQtLightTwoSideMix.o
 ./build\GDrawQtShaderFunction.o
 ./build\GDrawQtFragDiscard.o
+./build\GDrawQtLightMultiPosition.o
 ./build\main.o
 ./build\moc_GWindowQtForm.o
 ./build\moc_GWindowQtFormGL.o
