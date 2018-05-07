@@ -31,8 +31,7 @@ void GDrawQtFragDiscard::initDraw() {
     m_program = GShader::Instance()->loadShader(m_shaders);
     glUseProgram(m_program);
 
-    glm::mat4 transform = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f,1.5f,0.25f));
-    m_objTeapot = new GObjTeapot(13, transform);
+    m_objTeapot = new GObjTeapot(13, glm::mat4(1.0f));
     m_angle = 0.0f;
 }
 //===============================================
