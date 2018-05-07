@@ -100,7 +100,8 @@ HEADERS += \
     $$PWD/GDrawQtLightTwoSideMix.h \
     $$PWD/GDrawQtShaderFunction.h \
     $$PWD/GDrawQtFragDiscard.h \
-    $$PWD/GDrawQtLightMultiPosition.h
+    $$PWD/GDrawQtLightMultiPosition.h \
+    $$PWD/GObjPlane.h
 
 SOURCES += \
     $$PWD/GWindow.cpp \
@@ -187,7 +188,8 @@ SOURCES += \
     $$PWD/GDrawQtLightTwoSideMix.cpp \
     $$PWD/GDrawQtShaderFunction.cpp \
     $$PWD/GDrawQtFragDiscard.cpp \
-    $$PWD/GDrawQtLightMultiPosition.cpp
+    $$PWD/GDrawQtLightMultiPosition.cpp \
+    $$PWD/GObjPlane.cpp
 
 FORMS += \
     $$PWD/GWindowQtForm.ui

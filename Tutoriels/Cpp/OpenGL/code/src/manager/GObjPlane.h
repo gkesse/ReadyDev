@@ -1,25 +1,22 @@
 //===============================================
-#ifndef _GObjLand_
-#define _GObjLand_
+#ifndef _GObjPlane_
+#define _GObjPlane_
 //================================================
 #include "GInclude.h"
 //===============================================
-class GObjLand {
+class GObjPlane {
 public:
-    GObjLand();
-    GObjLand(float Size);
-    GObjLand(float Size, const char* img);
-    ~GObjLand();
+    GObjPlane();
+    GObjPlane(float, float, int, int);
+    ~GObjPlane();
 
 public:
-    void initObject(float Size, const char* img);
-    void draw(glm::mat4& projection, glm::mat4& modelview);
+    void initObject(float, float, int, int);
+    void draw(GLuint program, glm::mat4& projection, glm::mat4& modelview);
 
 private:
-    float m_vertices[18];
-    float m_texCoords[12];
-    GLuint m_program;
-    GLuint m_texture;
+    unsigned int vaoHandle;
+    int faces;
 };
 //===============================================
 #endif

@@ -129,6 +129,7 @@ SOURCES       = C:\Users\sabine\Downloads\Gerard\SDL2_gfx-1.0.4\SDL2_gfx-1.0.4\S
 		..\src\manager\GDrawQtShaderFunction.cpp \
 		..\src\manager\GDrawQtFragDiscard.cpp \
 		..\src\manager\GDrawQtLightMultiPosition.cpp \
+		..\src\manager\GObjPlane.cpp \
 		..\src\main.cpp build\moc_GWindowQtForm.cpp \
 		build\moc_GWindowQtFormGL.cpp
 OBJECTS       = build/SDL2_rotozoom.o \
@@ -217,6 +218,7 @@ OBJECTS       = build/SDL2_rotozoom.o \
 		build/GDrawQtShaderFunction.o \
 		build/GDrawQtFragDiscard.o \
 		build/GDrawQtLightMultiPosition.o \
+		build/GObjPlane.o \
 		build/main.o \
 		build/moc_GWindowQtForm.o \
 		build/moc_GWindowQtFormGL.o
@@ -307,7 +309,8 @@ DIST          =  ..\src\manager\GWindow.h \
 		..\src\manager\GDrawQtLightTwoSideMix.h \
 		..\src\manager\GDrawQtShaderFunction.h \
 		..\src\manager\GDrawQtFragDiscard.h \
-		..\src\manager\GDrawQtLightMultiPosition.h C:\Users\sabine\Downloads\Gerard\SDL2_gfx-1.0.4\SDL2_gfx-1.0.4\SDL2_rotozoom.c \
+		..\src\manager\GDrawQtLightMultiPosition.h \
+		..\src\manager\GObjPlane.h C:\Users\sabine\Downloads\Gerard\SDL2_gfx-1.0.4\SDL2_gfx-1.0.4\SDL2_rotozoom.c \
 		..\src\manager\GWindow.cpp \
 		..\src\manager\GConfig.cpp \
 		..\src\manager\GWindowGLUT.cpp \
@@ -393,6 +396,7 @@ DIST          =  ..\src\manager\GWindow.h \
 		..\src\manager\GDrawQtShaderFunction.cpp \
 		..\src\manager\GDrawQtFragDiscard.cpp \
 		..\src\manager\GDrawQtLightMultiPosition.cpp \
+		..\src\manager\GObjPlane.cpp \
 		..\src\main.cpp
 QMAKE_TARGET  = GProject
 DESTDIR        = bin\ #avoid trailing-slash linebreak
@@ -413,10 +417,10 @@ qmake: FORCE
 qmake_all: FORCE
 
 dist:
-	$(ZIP) GProject.zip $(SOURCES) $(DIST) GProject.pro C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\spec_pre.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\qdevice.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\device_config.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\common\angle.conf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\qconfig.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dcore.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dcore_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dextras.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dextras_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dinput.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dinput_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dlogic.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dlogic_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dquick.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dquick_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dquickextras.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dquickextras_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dquickinput.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dquickinput_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dquickrender.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dquickrender_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3drender.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3drender_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_accessibility_support_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_axbase.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_axbase_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_axcontainer.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_axcontainer_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_axserver.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_axserver_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_bluetooth.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_bluetooth_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_bootstrap_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_charts.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_charts_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_clucene_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_concurrent.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_concurrent_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_core.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_core_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_datavisualization.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_datavisualization_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_dbus.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_dbus_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_designer.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_designer_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_designercomponents_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_devicediscovery_support_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_egl_support_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_eventdispatcher_support_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_fb_support_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_fontdatabase_support_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_gamepad.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_gamepad_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_gui.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_gui_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_help.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_help_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_location.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_location_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_multimedia.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_multimedia_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_multimediawidgets.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_multimediawidgets_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_network.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_network_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_networkauth.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_networkauth_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_nfc.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_nfc_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_opengl.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_opengl_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_openglextensions.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_openglextensions_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_packetprotocol_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_platformcompositor_support_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_positioning.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_positioning_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_printsupport.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_printsupport_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_purchasing.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_purchasing_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_qml.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_qml_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_qmldebug_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_qmldevtools_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_qmltest.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_qmltest_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_quick.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_quick_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_quickcontrols2.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_quickcontrols2_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_quickparticles_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_quicktemplates2_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_quickwidgets.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_quickwidgets_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_script.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_script_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_scripttools.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_scripttools_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_scxml.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_scxml_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_sensors.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_sensors_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_serialbus.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_serialbus_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_serialport.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_serialport_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_sql.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_sql_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_svg.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_svg_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_testlib.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_testlib_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_texttospeech.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_texttospeech_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_theme_support_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_uiplugin.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_uitools.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_uitools_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_webchannel.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_webchannel_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_websockets.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_websockets_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_widgets.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_widgets_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_winextras.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_winextras_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_xml.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_xml_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_xmlpatterns.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_xmlpatterns_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\qt_functions.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\qt_config.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\win32-g++\qmake.conf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\spec_post.prf .qmake.stash C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\exclusive_builds.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\toolchain.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\default_pre.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\win32\default_pre.prf C:\Users\sabine\Downloads\Gerard\freeglut-3.0.0\freeglut-3.0.0\GFreeGLUT.pri C:\Users\sabine\Downloads\Gerard\glew-2.1.0-win32\glew-2.1.0\GGLEW.pri C:\Users\sabine\Downloads\Gerard\SDL2-devel-2.0.8-mingw\SDL2-2.0.8\i686-w64-mingw32\GSDL.pri C:\Users\sabine\Downloads\Gerard\bullet3-master\bullet3-master\GBullet.pri C:\Users\sabine\Downloads\Gerard\glfw-3.2.1\glfw-3.2.1\GGLFW.pri C:\Users\sabine\Downloads\Gerard\glm-master\glm-master\GGLM.pri C:\Users\sabine\Downloads\Gerard\SDL2_image-devel-2.0.3-mingw\SDL2_image-2.0.3\i686-w64-mingw32\GSDLImage.pri C:\Users\sabine\Downloads\Gerard\SDL2_gfx-1.0.4\SDL2_gfx-1.0.4\GSDLGfx.pri ..\src\manager\GManager.pri ..\src\GMain.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\resolve_config.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\exclusive_builds_post.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\default_post.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\build_pass.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\win32\console.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\win32\rtti.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\precompile_header.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\warn_on.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\qt.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\resources.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\moc.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\win32\opengl.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\uic.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\qmake_use.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\file_copies.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\testcase_targets.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\exceptions.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\yacc.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\lex.prf GProject.pro C:\Qt\Qt5.8.0\5.8\mingw53_32\lib\Qt5OpenGL.prl C:\Qt\Qt5.8.0\5.8\mingw53_32\lib\Qt5Widgets.prl C:\Qt\Qt5.8.0\5.8\mingw53_32\lib\Qt5Gui.prl C:\Qt\Qt5.8.0\5.8\mingw53_32\lib\Qt5Core.prl    C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\data\dummy.cpp ..\src\manager\GWindow.h ..\src\manager\GConfig.h ..\src\manager\GWindowGLUT.h ..\src\manager\GWindowSDL.h ..\src\manager\GDraw.h ..\src\manager\GDrawSDL.h ..\src\manager\GDrawGLUT.h ..\src\manager\GVertex.h ..\src\manager\GShader.h ..\src\manager\GFile.h ..\src\manager\GDrawSDLSimple.h ..\src\manager\GDrawSDLColor.h ..\src\manager\GWindowQt.h ..\src\manager\GWindowQtForm.h ..\src\manager\GWindowQtFormGL.h ..\src\manager\GWindowGLFW.h ..\src\manager\GInclude.h ..\src\manager\GDrawQt.h ..\src\manager\GDrawQtSimple.h ..\src\manager\GDrawQtLayout.h ..\src\manager\GDrawQtBind.h ..\src\manager\GShaderBind.h ..\src\manager\GShaderLayout.h ..\src\manager\GDrawQtUniform.h ..\src\manager\GDrawQtBackground.h ..\src\manager\GDrawQtRead.h ..\src\manager\GDrawQtUniformBlock.h ..\src\manager\GDrawQtLightDiffuse.h ..\src\manager\GDrawGLFW.h ..\src\manager\GDrawGLFWBackground.h ..\src\manager\GDrawGLFWSimple.h ..\src\manager\GCamera.h ..\src\manager\GDrawGLFWPoint.h ..\src\manager\GDrawGLFWLine.h ..\src\manager\GObjPoint.h ..\src\manager\GDrawGLFWObject.h ..\src\manager\GDrawSDLBackground.h ..\src\manager\GDrawSDLMatrix.h ..\src\manager\GDrawSDLRotate.h ..\src\manager\GDrawSDLTranslate.h ..\src\manager\GDrawSDLScale.h ..\src\manager\GDrawSDLComposite.h ..\src\manager\GDrawSDLCube.h ..\src\manager\GObjCube.h ..\src\manager\GDrawSDLCubeObj.h ..\src\manager\GDrawSDLCubeAnimate.h ..\src\manager\GDrawSDLMatrixSave.h ..\src\manager\GDrawSDLEvent.h ..\src\manager\GEvent.h ..\src\manager\GDrawSDLTexture.h ..\src\manager\GTexture.h ..\src\manager\GTextureQt.h ..\src\manager\GTextureSDL.h ..\src\manager\GDrawQtTexture.h ..\src\manager\GDrawSDLTextureRepeat.h ..\src\manager\GObjBox.h ..\src\manager\GDrawSDLTextureObj.h ..\src\manager\GObjLand.h ..\src\manager\GDrawSDLCamera.h ..\src\manager\GObjCabin.h ..\src\manager\GDrawSDLRelic.h ..\src\manager\GObjGround.h ..\src\manager\GObjCrystal.h ..\src\manager\GObjTorus.h ..\src\manager\GObjCubeVbo.h ..\src\manager\GDrawSDLCubeVbo.h ..\src\manager\GDrawSDLTextureVbo.h ..\src\manager\GObjBoxVbo.h ..\src\manager\GDrawSDLCubeVao.h ..\src\manager\GObjCubeVao.h ..\src\manager\GDrawSDLTextureVao.h ..\src\manager\GObjBoxVao.h ..\src\manager\GLight.h ..\src\manager\GLightDiffuse.h ..\src\manager\GLightAds.h ..\src\manager\GDrawQtLightAds.h ..\src\manager\GObjTeapot.h ..\src\manager\GDataTeapot.h ..\src\manager\GDrawQtLightFlat.h ..\src\manager\GObjOgre.h ..\src\manager\GDrawQtSubRoutine.h ..\src\manager\GDrawQtLightSmooth.h ..\src\manager\GDrawQtLightTwoSide.h ..\src\manager\GDrawQtLightTwoSideMix.h ..\src\manager\GDrawQtShaderFunction.h ..\src\manager\GDrawQtFragDiscard.h ..\src\manager\GDrawQtLightMultiPosition.h C:\Users\sabine\Downloads\Gerard\SDL2_gfx-1.0.4\SDL2_gfx-1.0.4\SDL2_rotozoom.c ..\src\manager\GWindow.cpp ..\src\manager\GConfig.cpp ..\src\manager\GWindowGLUT.cpp ..\src\manager\GWindowSDL.cpp ..\src\manager\GDraw.cpp ..\src\manager\GDrawSDL.cpp ..\src\manager\GDrawGLUT.cpp ..\src\manager\GVertex.cpp ..\src\manager\GShader.cpp ..\src\manager\GFile.cpp ..\src\manager\GDrawSDLSimple.cpp ..\src\manager\GDrawSDLColor.cpp ..\src\manager\GWindowQt.cpp ..\src\manager\GWindowQtForm.cpp ..\src\manager\GWindowQtFormGL.cpp ..\src\manager\GWindowGLFW.cpp ..\src\manager\GDrawQt.cpp ..\src\manager\GDrawQtSimple.cpp ..\src\manager\GDrawQtLayout.cpp ..\src\manager\GDrawQtBind.cpp ..\src\manager\GShaderBind.cpp ..\src\manager\GShaderLayout.cpp ..\src\manager\GDrawQtUniform.cpp ..\src\manager\GDrawQtBackground.cpp ..\src\manager\GDrawQtRead.cpp ..\src\manager\GDrawQtUniformBlock.cpp ..\src\manager\GDrawQtLightDiffuse.cpp ..\src\manager\GDrawGLFW.cpp ..\src\manager\GDrawGLFWBackground.cpp ..\src\manager\GDrawGLFWSimple.cpp ..\src\manager\GCamera.cpp ..\src\manager\GDrawGLFWPoint.cpp ..\src\manager\GDrawGLFWLine.cpp ..\src\manager\GObjPoint.cpp ..\src\manager\GDrawGLFWObject.cpp ..\src\manager\GDrawSDLBackground.cpp ..\src\manager\GDrawSDLMatrix.cpp ..\src\manager\GDrawSDLRotate.cpp ..\src\manager\GDrawSDLTranslate.cpp ..\src\manager\GDrawSDLScale.cpp ..\src\manager\GDrawSDLComposite.cpp ..\src\manager\GDrawSDLCube.cpp ..\src\manager\GObjCube.cpp ..\src\manager\GDrawSDLCubeObj.cpp ..\src\manager\GDrawSDLCubeAnimate.cpp ..\src\manager\GDrawSDLMatrixSave.cpp ..\src\manager\GDrawSDLEvent.cpp ..\src\manager\GEvent.cpp ..\src\manager\GDrawSDLTexture.cpp ..\src\manager\GTexture.cpp ..\src\manager\GTextureQt.cpp ..\src\manager\GTextureSDL.cpp ..\src\manager\GDrawQtTexture.cpp ..\src\manager\GDrawSDLTextureRepeat.cpp ..\src\manager\GObjBox.cpp ..\src\manager\GDrawSDLTextureObj.cpp ..\src\manager\GObjLand.cpp ..\src\manager\GDrawSDLCamera.cpp ..\src\manager\GObjCabin.cpp ..\src\manager\GDrawSDLRelic.cpp ..\src\manager\GObjGround.cpp ..\src\manager\GObjCrystal.cpp ..\src\manager\GObjTorus.cpp ..\src\manager\GObjCubeVbo.cpp ..\src\manager\GDrawSDLCubeVbo.cpp ..\src\manager\GDrawSDLTextureVbo.cpp ..\src\manager\GObjBoxVbo.cpp ..\src\manager\GDrawSDLCubeVao.cpp ..\src\manager\GObjCubeVao.cpp ..\src\manager\GDrawSDLTextureVao.cpp ..\src\manager\GObjBoxVao.cpp ..\src\manager\GLight.cpp ..\src\manager\GLightDiffuse.cpp ..\src\manager\GLightAds.cpp ..\src\manager\GDrawQtLightAds.cpp ..\src\manager\GObjTeapot.cpp ..\src\manager\GDrawQtLightFlat.cpp ..\src\manager\GObjOgre.cpp ..\src\manager\GDrawQtSubRoutine.cpp ..\src\manager\GDrawQtLightSmooth.cpp ..\src\manager\GDrawQtLightTwoSide.cpp ..\src\manager\GDrawQtLightTwoSideMix.cpp ..\src\manager\GDrawQtShaderFunction.cpp ..\src\manager\GDrawQtFragDiscard.cpp ..\src\manager\GDrawQtLightMultiPosition.cpp ..\src\main.cpp ..\src\manager\GWindowQtForm.ui    
+	$(ZIP) GProject.zip $(SOURCES) $(DIST) GProject.pro C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\spec_pre.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\qdevice.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\device_config.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\common\angle.conf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\qconfig.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dcore.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dcore_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dextras.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dextras_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dinput.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dinput_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dlogic.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dlogic_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dquick.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dquick_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dquickextras.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dquickextras_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dquickinput.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dquickinput_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dquickrender.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3dquickrender_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3drender.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_3drender_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_accessibility_support_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_axbase.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_axbase_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_axcontainer.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_axcontainer_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_axserver.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_axserver_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_bluetooth.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_bluetooth_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_bootstrap_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_charts.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_charts_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_clucene_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_concurrent.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_concurrent_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_core.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_core_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_datavisualization.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_datavisualization_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_dbus.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_dbus_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_designer.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_designer_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_designercomponents_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_devicediscovery_support_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_egl_support_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_eventdispatcher_support_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_fb_support_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_fontdatabase_support_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_gamepad.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_gamepad_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_gui.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_gui_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_help.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_help_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_location.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_location_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_multimedia.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_multimedia_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_multimediawidgets.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_multimediawidgets_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_network.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_network_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_networkauth.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_networkauth_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_nfc.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_nfc_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_opengl.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_opengl_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_openglextensions.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_openglextensions_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_packetprotocol_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_platformcompositor_support_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_positioning.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_positioning_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_printsupport.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_printsupport_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_purchasing.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_purchasing_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_qml.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_qml_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_qmldebug_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_qmldevtools_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_qmltest.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_qmltest_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_quick.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_quick_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_quickcontrols2.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_quickcontrols2_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_quickparticles_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_quicktemplates2_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_quickwidgets.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_quickwidgets_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_script.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_script_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_scripttools.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_scripttools_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_scxml.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_scxml_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_sensors.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_sensors_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_serialbus.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_serialbus_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_serialport.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_serialport_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_sql.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_sql_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_svg.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_svg_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_testlib.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_testlib_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_texttospeech.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_texttospeech_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_theme_support_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_uiplugin.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_uitools.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_uitools_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_webchannel.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_webchannel_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_websockets.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_websockets_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_widgets.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_widgets_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_winextras.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_winextras_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_xml.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_xml_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_xmlpatterns.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\modules\qt_lib_xmlpatterns_private.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\qt_functions.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\qt_config.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\win32-g++\qmake.conf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\spec_post.prf .qmake.stash C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\exclusive_builds.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\toolchain.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\default_pre.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\win32\default_pre.prf C:\Users\sabine\Downloads\Gerard\freeglut-3.0.0\freeglut-3.0.0\GFreeGLUT.pri C:\Users\sabine\Downloads\Gerard\glew-2.1.0-win32\glew-2.1.0\GGLEW.pri C:\Users\sabine\Downloads\Gerard\SDL2-devel-2.0.8-mingw\SDL2-2.0.8\i686-w64-mingw32\GSDL.pri C:\Users\sabine\Downloads\Gerard\bullet3-master\bullet3-master\GBullet.pri C:\Users\sabine\Downloads\Gerard\glfw-3.2.1\glfw-3.2.1\GGLFW.pri C:\Users\sabine\Downloads\Gerard\glm-master\glm-master\GGLM.pri C:\Users\sabine\Downloads\Gerard\SDL2_image-devel-2.0.3-mingw\SDL2_image-2.0.3\i686-w64-mingw32\GSDLImage.pri C:\Users\sabine\Downloads\Gerard\SDL2_gfx-1.0.4\SDL2_gfx-1.0.4\GSDLGfx.pri ..\src\manager\GManager.pri ..\src\GMain.pri C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\resolve_config.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\exclusive_builds_post.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\default_post.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\build_pass.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\win32\console.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\win32\rtti.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\precompile_header.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\warn_on.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\qt.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\resources.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\moc.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\win32\opengl.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\uic.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\qmake_use.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\file_copies.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\testcase_targets.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\exceptions.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\yacc.prf C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\lex.prf GProject.pro C:\Qt\Qt5.8.0\5.8\mingw53_32\lib\Qt5OpenGL.prl C:\Qt\Qt5.8.0\5.8\mingw53_32\lib\Qt5Widgets.prl C:\Qt\Qt5.8.0\5.8\mingw53_32\lib\Qt5Gui.prl C:\Qt\Qt5.8.0\5.8\mingw53_32\lib\Qt5Core.prl    C:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\features\data\dummy.cpp ..\src\manager\GWindow.h ..\src\manager\GConfig.h ..\src\manager\GWindowGLUT.h ..\src\manager\GWindowSDL.h ..\src\manager\GDraw.h ..\src\manager\GDrawSDL.h ..\src\manager\GDrawGLUT.h ..\src\manager\GVertex.h ..\src\manager\GShader.h ..\src\manager\GFile.h ..\src\manager\GDrawSDLSimple.h ..\src\manager\GDrawSDLColor.h ..\src\manager\GWindowQt.h ..\src\manager\GWindowQtForm.h ..\src\manager\GWindowQtFormGL.h ..\src\manager\GWindowGLFW.h ..\src\manager\GInclude.h ..\src\manager\GDrawQt.h ..\src\manager\GDrawQtSimple.h ..\src\manager\GDrawQtLayout.h ..\src\manager\GDrawQtBind.h ..\src\manager\GShaderBind.h ..\src\manager\GShaderLayout.h ..\src\manager\GDrawQtUniform.h ..\src\manager\GDrawQtBackground.h ..\src\manager\GDrawQtRead.h ..\src\manager\GDrawQtUniformBlock.h ..\src\manager\GDrawQtLightDiffuse.h ..\src\manager\GDrawGLFW.h ..\src\manager\GDrawGLFWBackground.h ..\src\manager\GDrawGLFWSimple.h ..\src\manager\GCamera.h ..\src\manager\GDrawGLFWPoint.h ..\src\manager\GDrawGLFWLine.h ..\src\manager\GObjPoint.h ..\src\manager\GDrawGLFWObject.h ..\src\manager\GDrawSDLBackground.h ..\src\manager\GDrawSDLMatrix.h ..\src\manager\GDrawSDLRotate.h ..\src\manager\GDrawSDLTranslate.h ..\src\manager\GDrawSDLScale.h ..\src\manager\GDrawSDLComposite.h ..\src\manager\GDrawSDLCube.h ..\src\manager\GObjCube.h ..\src\manager\GDrawSDLCubeObj.h ..\src\manager\GDrawSDLCubeAnimate.h ..\src\manager\GDrawSDLMatrixSave.h ..\src\manager\GDrawSDLEvent.h ..\src\manager\GEvent.h ..\src\manager\GDrawSDLTexture.h ..\src\manager\GTexture.h ..\src\manager\GTextureQt.h ..\src\manager\GTextureSDL.h ..\src\manager\GDrawQtTexture.h ..\src\manager\GDrawSDLTextureRepeat.h ..\src\manager\GObjBox.h ..\src\manager\GDrawSDLTextureObj.h ..\src\manager\GObjLand.h ..\src\manager\GDrawSDLCamera.h ..\src\manager\GObjCabin.h ..\src\manager\GDrawSDLRelic.h ..\src\manager\GObjGround.h ..\src\manager\GObjCrystal.h ..\src\manager\GObjTorus.h ..\src\manager\GObjCubeVbo.h ..\src\manager\GDrawSDLCubeVbo.h ..\src\manager\GDrawSDLTextureVbo.h ..\src\manager\GObjBoxVbo.h ..\src\manager\GDrawSDLCubeVao.h ..\src\manager\GObjCubeVao.h ..\src\manager\GDrawSDLTextureVao.h ..\src\manager\GObjBoxVao.h ..\src\manager\GLight.h ..\src\manager\GLightDiffuse.h ..\src\manager\GLightAds.h ..\src\manager\GDrawQtLightAds.h ..\src\manager\GObjTeapot.h ..\src\manager\GDataTeapot.h ..\src\manager\GDrawQtLightFlat.h ..\src\manager\GObjOgre.h ..\src\manager\GDrawQtSubRoutine.h ..\src\manager\GDrawQtLightSmooth.h ..\src\manager\GDrawQtLightTwoSide.h ..\src\manager\GDrawQtLightTwoSideMix.h ..\src\manager\GDrawQtShaderFunction.h ..\src\manager\GDrawQtFragDiscard.h ..\src\manager\GDrawQtLightMultiPosition.h ..\src\manager\GObjPlane.h C:\Users\sabine\Downloads\Gerard\SDL2_gfx-1.0.4\SDL2_gfx-1.0.4\SDL2_rotozoom.c ..\src\manager\GWindow.cpp ..\src\manager\GConfig.cpp ..\src\manager\GWindowGLUT.cpp ..\src\manager\GWindowSDL.cpp ..\src\manager\GDraw.cpp ..\src\manager\GDrawSDL.cpp ..\src\manager\GDrawGLUT.cpp ..\src\manager\GVertex.cpp ..\src\manager\GShader.cpp ..\src\manager\GFile.cpp ..\src\manager\GDrawSDLSimple.cpp ..\src\manager\GDrawSDLColor.cpp ..\src\manager\GWindowQt.cpp ..\src\manager\GWindowQtForm.cpp ..\src\manager\GWindowQtFormGL.cpp ..\src\manager\GWindowGLFW.cpp ..\src\manager\GDrawQt.cpp ..\src\manager\GDrawQtSimple.cpp ..\src\manager\GDrawQtLayout.cpp ..\src\manager\GDrawQtBind.cpp ..\src\manager\GShaderBind.cpp ..\src\manager\GShaderLayout.cpp ..\src\manager\GDrawQtUniform.cpp ..\src\manager\GDrawQtBackground.cpp ..\src\manager\GDrawQtRead.cpp ..\src\manager\GDrawQtUniformBlock.cpp ..\src\manager\GDrawQtLightDiffuse.cpp ..\src\manager\GDrawGLFW.cpp ..\src\manager\GDrawGLFWBackground.cpp ..\src\manager\GDrawGLFWSimple.cpp ..\src\manager\GCamera.cpp ..\src\manager\GDrawGLFWPoint.cpp ..\src\manager\GDrawGLFWLine.cpp ..\src\manager\GObjPoint.cpp ..\src\manager\GDrawGLFWObject.cpp ..\src\manager\GDrawSDLBackground.cpp ..\src\manager\GDrawSDLMatrix.cpp ..\src\manager\GDrawSDLRotate.cpp ..\src\manager\GDrawSDLTranslate.cpp ..\src\manager\GDrawSDLScale.cpp ..\src\manager\GDrawSDLComposite.cpp ..\src\manager\GDrawSDLCube.cpp ..\src\manager\GObjCube.cpp ..\src\manager\GDrawSDLCubeObj.cpp ..\src\manager\GDrawSDLCubeAnimate.cpp ..\src\manager\GDrawSDLMatrixSave.cpp ..\src\manager\GDrawSDLEvent.cpp ..\src\manager\GEvent.cpp ..\src\manager\GDrawSDLTexture.cpp ..\src\manager\GTexture.cpp ..\src\manager\GTextureQt.cpp ..\src\manager\GTextureSDL.cpp ..\src\manager\GDrawQtTexture.cpp ..\src\manager\GDrawSDLTextureRepeat.cpp ..\src\manager\GObjBox.cpp ..\src\manager\GDrawSDLTextureObj.cpp ..\src\manager\GObjLand.cpp ..\src\manager\GDrawSDLCamera.cpp ..\src\manager\GObjCabin.cpp ..\src\manager\GDrawSDLRelic.cpp ..\src\manager\GObjGround.cpp ..\src\manager\GObjCrystal.cpp ..\src\manager\GObjTorus.cpp ..\src\manager\GObjCubeVbo.cpp ..\src\manager\GDrawSDLCubeVbo.cpp ..\src\manager\GDrawSDLTextureVbo.cpp ..\src\manager\GObjBoxVbo.cpp ..\src\manager\GDrawSDLCubeVao.cpp ..\src\manager\GObjCubeVao.cpp ..\src\manager\GDrawSDLTextureVao.cpp ..\src\manager\GObjBoxVao.cpp ..\src\manager\GLight.cpp ..\src\manager\GLightDiffuse.cpp ..\src\manager\GLightAds.cpp ..\src\manager\GDrawQtLightAds.cpp ..\src\manager\GObjTeapot.cpp ..\src\manager\GDrawQtLightFlat.cpp ..\src\manager\GObjOgre.cpp ..\src\manager\GDrawQtSubRoutine.cpp ..\src\manager\GDrawQtLightSmooth.cpp ..\src\manager\GDrawQtLightTwoSide.cpp ..\src\manager\GDrawQtLightTwoSideMix.cpp ..\src\manager\GDrawQtShaderFunction.cpp ..\src\manager\GDrawQtFragDiscard.cpp ..\src\manager\GDrawQtLightMultiPosition.cpp ..\src\manager\GObjPlane.cpp ..\src\main.cpp ..\src\manager\GWindowQtForm.ui    
 
 clean: compiler_clean 
-	-$(DEL_FILE) build\SDL2_rotozoom.o build\GWindow.o build\GConfig.o build\GWindowGLUT.o build\GWindowSDL.o build\GDraw.o build\GDrawSDL.o build\GDrawGLUT.o build\GVertex.o build\GShader.o build\GFile.o build\GDrawSDLSimple.o build\GDrawSDLColor.o build\GWindowQt.o build\GWindowQtForm.o build\GWindowQtFormGL.o build\GWindowGLFW.o build\GDrawQt.o build\GDrawQtSimple.o build\GDrawQtLayout.o build\GDrawQtBind.o build\GShaderBind.o build\GShaderLayout.o build\GDrawQtUniform.o build\GDrawQtBackground.o build\GDrawQtRead.o build\GDrawQtUniformBlock.o build\GDrawQtLightDiffuse.o build\GDrawGLFW.o build\GDrawGLFWBackground.o build\GDrawGLFWSimple.o build\GCamera.o build\GDrawGLFWPoint.o build\GDrawGLFWLine.o build\GObjPoint.o build\GDrawGLFWObject.o build\GDrawSDLBackground.o build\GDrawSDLMatrix.o build\GDrawSDLRotate.o build\GDrawSDLTranslate.o build\GDrawSDLScale.o build\GDrawSDLComposite.o build\GDrawSDLCube.o build\GObjCube.o build\GDrawSDLCubeObj.o build\GDrawSDLCubeAnimate.o build\GDrawSDLMatrixSave.o build\GDrawSDLEvent.o build\GEvent.o build\GDrawSDLTexture.o build\GTexture.o build\GTextureQt.o build\GTextureSDL.o build\GDrawQtTexture.o build\GDrawSDLTextureRepeat.o build\GObjBox.o build\GDrawSDLTextureObj.o build\GObjLand.o build\GDrawSDLCamera.o build\GObjCabin.o build\GDrawSDLRelic.o build\GObjGround.o build\GObjCrystal.o build\GObjTorus.o build\GObjCubeVbo.o build\GDrawSDLCubeVbo.o build\GDrawSDLTextureVbo.o build\GObjBoxVbo.o build\GDrawSDLCubeVao.o build\GObjCubeVao.o build\GDrawSDLTextureVao.o build\GObjBoxVao.o build\GLight.o build\GLightDiffuse.o build\GLightAds.o build\GDrawQtLightAds.o build\GObjTeapot.o build\GDrawQtLightFlat.o build\GObjOgre.o build\GDrawQtSubRoutine.o build\GDrawQtLightSmooth.o build\GDrawQtLightTwoSide.o build\GDrawQtLightTwoSideMix.o build\GDrawQtShaderFunction.o build\GDrawQtFragDiscard.o build\GDrawQtLightMultiPosition.o build\main.o build\moc_GWindowQtForm.o build\moc_GWindowQtFormGL.o
+	-$(DEL_FILE) build\SDL2_rotozoom.o build\GWindow.o build\GConfig.o build\GWindowGLUT.o build\GWindowSDL.o build\GDraw.o build\GDrawSDL.o build\GDrawGLUT.o build\GVertex.o build\GShader.o build\GFile.o build\GDrawSDLSimple.o build\GDrawSDLColor.o build\GWindowQt.o build\GWindowQtForm.o build\GWindowQtFormGL.o build\GWindowGLFW.o build\GDrawQt.o build\GDrawQtSimple.o build\GDrawQtLayout.o build\GDrawQtBind.o build\GShaderBind.o build\GShaderLayout.o build\GDrawQtUniform.o build\GDrawQtBackground.o build\GDrawQtRead.o build\GDrawQtUniformBlock.o build\GDrawQtLightDiffuse.o build\GDrawGLFW.o build\GDrawGLFWBackground.o build\GDrawGLFWSimple.o build\GCamera.o build\GDrawGLFWPoint.o build\GDrawGLFWLine.o build\GObjPoint.o build\GDrawGLFWObject.o build\GDrawSDLBackground.o build\GDrawSDLMatrix.o build\GDrawSDLRotate.o build\GDrawSDLTranslate.o build\GDrawSDLScale.o build\GDrawSDLComposite.o build\GDrawSDLCube.o build\GObjCube.o build\GDrawSDLCubeObj.o build\GDrawSDLCubeAnimate.o build\GDrawSDLMatrixSave.o build\GDrawSDLEvent.o build\GEvent.o build\GDrawSDLTexture.o build\GTexture.o build\GTextureQt.o build\GTextureSDL.o build\GDrawQtTexture.o build\GDrawSDLTextureRepeat.o build\GObjBox.o build\GDrawSDLTextureObj.o build\GObjLand.o build\GDrawSDLCamera.o build\GObjCabin.o build\GDrawSDLRelic.o build\GObjGround.o build\GObjCrystal.o build\GObjTorus.o build\GObjCubeVbo.o build\GDrawSDLCubeVbo.o build\GDrawSDLTextureVbo.o build\GObjBoxVbo.o build\GDrawSDLCubeVao.o build\GObjCubeVao.o build\GDrawSDLTextureVao.o build\GObjBoxVao.o build\GLight.o build\GLightDiffuse.o build\GLightAds.o build\GDrawQtLightAds.o build\GObjTeapot.o build\GDrawQtLightFlat.o build\GObjOgre.o build\GDrawQtSubRoutine.o build\GDrawQtLightSmooth.o build\GDrawQtLightTwoSide.o build\GDrawQtLightTwoSideMix.o build\GDrawQtShaderFunction.o build\GDrawQtFragDiscard.o build\GDrawQtLightMultiPosition.o build\GObjPlane.o build\main.o build\moc_GWindowQtForm.o build\moc_GWindowQtFormGL.o
 
 distclean: clean 
 	-$(DEL_FILE) .qmake.stash
@@ -5695,6 +5699,7 @@ build/GDrawQt.o: ../src/manager/GDrawQt.cpp ../src/manager/GDrawQt.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/QMap \
 		../src/manager/GDrawQtLightSmooth.h \
 		../src/manager/GDrawQtLightMultiPosition.h \
+		../src/manager/GObjPlane.h \
 		../src/manager/GDrawQtTexture.h \
 		../src/manager/GDrawQtFragDiscard.h \
 		../src/manager/GConfig.h
@@ -26596,11 +26601,317 @@ build/GDrawQtLightMultiPosition.o: ../src/manager/GDrawQtLightMultiPosition.cpp 
 		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/gtc/quaternion_simd.inl \
 		../src/manager/GDrawQt.h \
 		../src/manager/GDraw.h \
-		../src/manager/GObjTeapot.h \
+		../src/manager/GObjPlane.h \
 		../src/manager/GShader.h \
 		../src/manager/GCamera.h \
 		../src/manager/GLight.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build\GDrawQtLightMultiPosition.o ..\src\manager\GDrawQtLightMultiPosition.cpp
+
+build/GObjPlane.o: ../src/manager/GObjPlane.cpp ../src/manager/GObjPlane.h \
+		../src/manager/GInclude.h \
+		C:/Users/sabine/Downloads/Gerard/glew-2.1.0-win32/glew-2.1.0/include/GL/glew.h \
+		C:/Users/sabine/Downloads/Gerard/glfw-3.2.1/glfw-3.2.1/include/GLFW/glfw3.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtANGLE/GLES2/gl2.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtANGLE/GLES2/gl2platform.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtANGLE/KHR/khrplatform.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtANGLE/GLES2/gl2ext.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtANGLE/GLES3/gl3.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtANGLE/GLES3/gl3platform.h \
+		C:/Users/sabine/Downloads/Gerard/freeglut-3.0.0/freeglut-3.0.0/include/GL/freeglut.h \
+		C:/Users/sabine/Downloads/Gerard/freeglut-3.0.0/freeglut-3.0.0/include/GL/freeglut_std.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtANGLE/EGL/egl.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtANGLE/EGL/eglplatform.h \
+		C:/Users/sabine/Downloads/Gerard/freeglut-3.0.0/freeglut-3.0.0/include/GL/freeglut_ext.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_main.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_stdinc.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_config.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_platform.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/begin_code.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/close_code.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_assert.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_atomic.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_audio.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_error.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_endian.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_mutex.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_thread.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_rwops.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_clipboard.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_cpuinfo.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_events.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_video.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_pixels.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_rect.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_surface.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_blendmode.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_keyboard.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_keycode.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_scancode.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_mouse.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_joystick.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_gamecontroller.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_quit.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_gesture.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_touch.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_filesystem.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_haptic.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_hints.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_loadso.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_log.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_messagebox.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_power.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_render.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_shape.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_system.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_timer.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2-devel-2.0.8-mingw/SDL2-2.0.8/i686-w64-mingw32/include/SDL2/SDL_version.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2_image-devel-2.0.3-mingw/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2/SDL_image.h \
+		C:/Users/sabine/Downloads/Gerard/SDL2_gfx-1.0.4/SDL2_gfx-1.0.4/SDL2_rotozoom.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/QGLWidget \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/qgl.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qopengl.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qtguiglobal.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qglobal.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qconfig-bootstrapped.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qconfig.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qtcore-config.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qsystemdetection.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qprocessordetection.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qcompilerdetection.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qtypeinfo.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qsysinfo.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qlogging.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qflags.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qtypetraits.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qatomic.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qbasicatomic.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qatomic_bootstrap.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qgenericatomic.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qatomic_cxx11.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qatomic_msvc.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qglobalstatic.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qmutex.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qnumeric.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qversiontagging.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qtgui-config.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qt_windows.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qopengles2ext.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qopenglext.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtWidgets/qwidget.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtWidgets/qtwidgetsglobal.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtWidgets/qtwidgets-config.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qwindowdefs.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qobjectdefs.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qnamespace.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qobjectdefs_impl.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qwindowdefs_win.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qobject.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qstring.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qchar.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qbytearray.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qrefcount.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qarraydata.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qstringbuilder.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qlist.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qalgorithms.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qiterator.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qhashfunctions.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qpair.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qbytearraylist.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qstringlist.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qregexp.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qstringmatcher.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qcoreevent.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qscopedpointer.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qmetatype.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qvarlengtharray.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qcontainerfwd.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qobject_impl.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qmargins.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qpaintdevice.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qrect.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qsize.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qpoint.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qpalette.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qcolor.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qrgb.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qrgba64.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qbrush.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qvector.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qmatrix.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qpolygon.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qregion.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qdatastream.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qiodevice.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qline.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qtransform.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qpainterpath.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qimage.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qpixelformat.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qpixmap.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qsharedpointer.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qshareddata.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qhash.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qsharedpointer_impl.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qfont.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qfontmetrics.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qfontinfo.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtWidgets/qsizepolicy.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qcursor.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qkeysequence.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qevent.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qvariant.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qmap.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qdebug.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qtextstream.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qlocale.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qset.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qcontiguouscache.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qurl.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qurlquery.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qfile.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qfiledevice.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qvector2d.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qtouchdevice.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qpaintengine.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qpainter.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qtextoption.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qpen.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/qglcolormap.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/qtopenglglobal.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/QSurfaceFormat \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qsurfaceformat.h \
+		C:/Users/sabine/Downloads/Gerard/bullet3-master/bullet3-master/src/BulletDynamics/Dynamics/btDynamicsWorld.h \
+		C:/Users/sabine/Downloads/Gerard/bullet3-master/bullet3-master/src/BulletCollision/CollisionDispatch/btCollisionWorld.h \
+		C:/Users/sabine/Downloads/Gerard/bullet3-master/bullet3-master/src/LinearMath/btVector3.h \
+		C:/Users/sabine/Downloads/Gerard/bullet3-master/bullet3-master/src/LinearMath/btScalar.h \
+		C:/Users/sabine/Downloads/Gerard/bullet3-master/bullet3-master/src/LinearMath/btMinMax.h \
+		C:/Users/sabine/Downloads/Gerard/bullet3-master/bullet3-master/src/LinearMath/btAlignedAllocator.h \
+		C:/Users/sabine/Downloads/Gerard/bullet3-master/bullet3-master/src/LinearMath/btTransform.h \
+		C:/Users/sabine/Downloads/Gerard/bullet3-master/bullet3-master/src/LinearMath/btMatrix3x3.h \
+		C:/Users/sabine/Downloads/Gerard/bullet3-master/bullet3-master/src/LinearMath/btQuaternion.h \
+		C:/Users/sabine/Downloads/Gerard/bullet3-master/bullet3-master/src/LinearMath/btQuadWord.h \
+		C:/Users/sabine/Downloads/Gerard/bullet3-master/bullet3-master/src/BulletCollision/CollisionDispatch/btCollisionObject.h \
+		C:/Users/sabine/Downloads/Gerard/bullet3-master/bullet3-master/src/LinearMath/btMotionState.h \
+		C:/Users/sabine/Downloads/Gerard/bullet3-master/bullet3-master/src/LinearMath/btAlignedObjectArray.h \
+		C:/Users/sabine/Downloads/Gerard/bullet3-master/bullet3-master/src/BulletCollision/CollisionDispatch/btCollisionDispatcher.h \
+		C:/Users/sabine/Downloads/Gerard/bullet3-master/bullet3-master/src/BulletCollision/BroadphaseCollision/btDispatcher.h \
+		C:/Users/sabine/Downloads/Gerard/bullet3-master/bullet3-master/src/BulletCollision/NarrowPhaseCollision/btPersistentManifold.h \
+		C:/Users/sabine/Downloads/Gerard/bullet3-master/bullet3-master/src/BulletCollision/NarrowPhaseCollision/btManifoldPoint.h \
+		C:/Users/sabine/Downloads/Gerard/bullet3-master/bullet3-master/src/LinearMath/btTransformUtil.h \
+		C:/Users/sabine/Downloads/Gerard/bullet3-master/bullet3-master/src/BulletCollision/CollisionDispatch/btManifoldResult.h \
+		C:/Users/sabine/Downloads/Gerard/bullet3-master/bullet3-master/src/BulletCollision/NarrowPhaseCollision/btDiscreteCollisionDetectorInterface.h \
+		C:/Users/sabine/Downloads/Gerard/bullet3-master/bullet3-master/src/BulletCollision/CollisionDispatch/btCollisionObjectWrapper.h \
+		C:/Users/sabine/Downloads/Gerard/bullet3-master/bullet3-master/src/BulletCollision/BroadphaseCollision/btBroadphaseProxy.h \
+		C:/Users/sabine/Downloads/Gerard/bullet3-master/bullet3-master/src/BulletCollision/CollisionDispatch/btCollisionCreateFunc.h \
+		C:/Users/sabine/Downloads/Gerard/bullet3-master/bullet3-master/src/BulletCollision/BroadphaseCollision/btOverlappingPairCache.h \
+		C:/Users/sabine/Downloads/Gerard/bullet3-master/bullet3-master/src/BulletCollision/BroadphaseCollision/btBroadphaseInterface.h \
+		C:/Users/sabine/Downloads/Gerard/bullet3-master/bullet3-master/src/BulletCollision/BroadphaseCollision/btOverlappingPairCallback.h \
+		C:/Users/sabine/Downloads/Gerard/bullet3-master/bullet3-master/src/BulletDynamics/ConstraintSolver/btContactSolverInfo.h \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/gtc/matrix_transform.hpp \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/mat4x4.hpp \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/detail/setup.hpp \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/simd/platform.h \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/detail/type_mat4x4.hpp \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/fwd.hpp \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/detail/type_int.hpp \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/detail/type_float.hpp \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/detail/type_vec.hpp \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/detail/qualifier.hpp \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/detail/compute_vector_relational.hpp \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/detail/type_mat.hpp \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/detail/type_vec4.hpp \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/detail/_swizzle.hpp \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/detail/_swizzle_func.hpp \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/detail/type_vec4.inl \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/detail/type_vec4_simd.inl \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/detail/type_mat4x4.inl \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/matrix.hpp \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/vec2.hpp \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/detail/type_vec2.hpp \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/detail/type_vec2.inl \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/vec3.hpp \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/detail/type_vec3.hpp \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/detail/type_vec3.inl \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/vec4.hpp \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/mat2x2.hpp \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/detail/type_mat2x2.hpp \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/detail/type_mat2x2.inl \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/mat2x3.hpp \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/detail/type_mat2x3.hpp \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/detail/type_mat2x3.inl \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/mat2x4.hpp \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/detail/type_mat2x4.hpp \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/detail/type_mat2x4.inl \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/mat3x2.hpp \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/detail/type_mat3x2.hpp \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/detail/type_mat3x2.inl \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/mat3x3.hpp \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/detail/type_mat3x3.hpp \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/detail/type_mat3x3.inl \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/mat3x4.hpp \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/detail/type_mat3x4.hpp \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/detail/type_mat3x4.inl \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/mat4x2.hpp \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/detail/type_mat4x2.hpp \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/detail/type_mat4x2.inl \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/mat4x3.hpp \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/detail/type_mat4x3.hpp \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/detail/type_mat4x3.inl \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/detail/func_matrix.inl \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/geometric.hpp \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/detail/func_geometric.inl \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/exponential.hpp \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/detail/type_vec1.hpp \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/detail/func_exponential.inl \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/vector_relational.hpp \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/detail/func_vector_relational.inl \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/detail/func_vector_relational_simd.inl \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/detail/_vectorize.hpp \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/detail/func_exponential_simd.inl \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/simd/exponential.h \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/common.hpp \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/detail/_fixes.hpp \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/detail/func_common.inl \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/detail/func_common_simd.inl \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/simd/common.h \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/detail/func_geometric_simd.inl \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/simd/geometric.h \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/detail/func_matrix_simd.inl \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/simd/matrix.h \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/detail/type_mat4x4_simd.inl \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/gtc/constants.hpp \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/gtc/constants.inl \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/gtc/matrix_transform.inl \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/trigonometric.hpp \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/detail/func_trigonometric.inl \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/detail/func_trigonometric_simd.inl \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/gtx/transform2.hpp \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/glm.hpp \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/packing.hpp \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/detail/func_packing.inl \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/detail/type_half.hpp \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/detail/type_half.inl \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/detail/func_packing_simd.inl \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/integer.hpp \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/detail/func_integer.inl \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/ext/vec1.hpp \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/detail/type_vec1.inl \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/detail/func_integer_simd.inl \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/simd/integer.h \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/gtx/transform.hpp \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/gtx/transform.inl \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/gtx/transform2.inl \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/gtc/quaternion.hpp \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/gtc/quaternion.inl \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/gtc/epsilon.hpp \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/gtc/epsilon.inl \
+		C:/Users/sabine/Downloads/Gerard/glm-master/glm-master/glm/gtc/quaternion_simd.inl \
+		../src/manager/GShader.h \
+		../src/manager/GTexture.h \
+		../src/manager/GVertex.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build\GObjPlane.o ..\src\manager\GObjPlane.cpp
 
 build/main.o: ../src/main.cpp ../src/manager/GWindow.h \
 		../src/manager/GInclude.h \
