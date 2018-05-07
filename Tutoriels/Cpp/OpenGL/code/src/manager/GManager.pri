@@ -95,11 +95,11 @@ HEADERS += \
     $$PWD/GDrawQtLightFlat.h \
     $$PWD/GObjOgre.h \
     $$PWD/GDrawQtSubRoutine.h \
-    $$PWD/GDrawQtLookPerforate.h \
     $$PWD/GDrawQtLightSmooth.h \
     $$PWD/GDrawQtLightTwoSide.h \
     $$PWD/GDrawQtLightTwoSideMix.h \
-    $$PWD/GDrawQtShaderFunction.h
+    $$PWD/GDrawQtShaderFunction.h \
+    $$PWD/GDrawQtFragDiscard.h
 
 SOURCES += \
     $$PWD/GWindow.cpp \
@@ -181,11 +181,11 @@ SOURCES += \
     $$PWD/GDrawQtLightFlat.cpp \
     $$PWD/GObjOgre.cpp \
     $$PWD/GDrawQtSubRoutine.cpp \
-    $$PWD/GDrawQtLookPerforate.cpp \
     $$PWD/GDrawQtLightSmooth.cpp \
     $$PWD/GDrawQtLightTwoSide.cpp \
     $$PWD/GDrawQtLightTwoSideMix.cpp \
-    $$PWD/GDrawQtShaderFunction.cpp
+    $$PWD/GDrawQtShaderFunction.cpp \
+    $$PWD/GDrawQtFragDiscard.cpp
 
 FORMS += \
     $$PWD/GWindowQtForm.ui

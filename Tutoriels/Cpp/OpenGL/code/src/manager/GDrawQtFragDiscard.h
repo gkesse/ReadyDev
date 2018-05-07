@@ -1,18 +1,18 @@
 //===============================================
-#ifndef _GDrawQtLookPerforate_
-#define _GDrawQtLookPerforate_
+#ifndef _GDrawQtFragDiscard_
+#define _GDrawQtFragDiscard_
 //================================================
 #include "GInclude.h"
 #include "GDrawQt.h"
 #include "GObjTeapot.h"
 //===============================================
-class GDrawQtLookPerforate : public GDrawQt {
+class GDrawQtFragDiscard : public GDrawQt {
 public:
-    GDrawQtLookPerforate();
-    ~GDrawQtLookPerforate();
+    GDrawQtFragDiscard();
+    ~GDrawQtFragDiscard();
 
 public:
-    static GDrawQtLookPerforate* Instance();
+    static GDrawQtFragDiscard* Instance();
     void initDraw();
     void initCamera(int width, int height);
     void updateCamera(int w, int h);
@@ -20,7 +20,7 @@ public:
     void draw();
 
 private:
-    static GDrawQtLookPerforate* m_instance;
+    static GDrawQtFragDiscard* m_instance;
     GLuint m_program;
     glm::mat4 m_projection;
     glm::mat4 m_modelView;

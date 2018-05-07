@@ -16,6 +16,7 @@ public:
     void initDraw();
     void initCamera(int width, int height);
     void updateCamera(int w, int h);
+    void updateDraw();
     void draw();
 
 private:

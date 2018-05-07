@@ -3,8 +3,11 @@
 //===============================================
 layout(location = 0) in vec3 VertexPosition;
 layout(location = 1) in vec3 VertexNormal;
+layout(location = 2) in vec2 VertexTexCoord;
 //===============================================
-out vec3 LightIntensity;
+out vec3 FrontColor;
+out vec3 BackColor;
+out vec2 TexCoord;
 //===============================================
 struct LightInfo {
 	vec4 Position; // Light position in eye coords.
@@ -39,8 +42,8 @@ vec3 phongModel(vec4 position, vec3 norm) {
 	float sDotN = max( dot(s,norm), 0.0 );
 	vec3 diffuse = Light.Ld * Material.Kd * sDotN;
 	vec3 spec = vec3(0.0);
-	if( sDotN > 0.0 ) {
-		spec = Light.Ls * Material.Ks * pow(max(dot(r,v), 0.0), Material.Shininess);
+	if(sDotN > 0.0) {
+		spec = Light.Ls * Material.Ks * pow( max( dot(r,v), 0.0 ), Material.Shininess );
 	}
 	return ambient + diffuse + spec;
 }
@@ -49,14 +52,15 @@ void main() {
 	vec3 eyeNorm;
 	vec4 eyePosition;
 
+	TexCoord = VertexTexCoord;
+
 	// Get the position and normal in eye space
 	getEyeSpace(eyeNorm, eyePosition);
 
-	// Evaluate the lighting equation.
-	LightIntensity = phongModel(eyePosition, eyeNorm);
-	
+	FrontColor = phongModel(eyePosition, eyeNorm);
+	BackColor = phongModel(eyePosition, -eyeNorm);
+
 	mat4 MVP = ProjectionMatrix * ModelViewMatrix;
 	gl_Position = MVP * vec4(VertexPosition,1.0);
 }
 //===============================================
-

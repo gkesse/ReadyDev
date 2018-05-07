@@ -16,7 +16,7 @@
 #include "GDrawQtLightFlat.h"
 #include "GDrawQtLightSmooth.h"
 #include "GDrawQtTexture.h"
-#include "GDrawQtLookPerforate.h"
+#include "GDrawQtFragDiscard.h"
 #include "GConfig.h"
 //===============================================
 GDrawQt* GDrawQt::m_instance = 0;
@@ -47,7 +47,7 @@ GDrawQt* GDrawQt::Instance() {
     if(m_type == "LIGHT_FLAT") return GDrawQtLightFlat::Instance();
     if(m_type == "LIGHT_SMOOTH") return GDrawQtLightSmooth::Instance();
     if(m_type == "TEXTURE") return GDrawQtTexture::Instance();
-    if(m_type == "LOOK_PERFORATE") return GDrawQtLookPerforate::Instance();
+    if(m_type == "FRAG_DISCARD") return GDrawQtFragDiscard::Instance();
     return 0;
 }
 //===============================================
