@@ -59,8 +59,6 @@ void GDrawQtLightMultiPosition::draw() {
     glm::mat4 lView;
     GCamera::Instance()->lookAt(lView);
     m_modelView = lView;
-    //GLight::Instance()->draw(m_program, m_modelView);
-    m_modelView = lView;
     m_modelView = glm::rotate(m_modelView, glm::radians(m_angle), glm::vec3(0.0f,1.0f,0.0f));
     GShader::Instance()->setUniform(m_program, "Kd", 0.4f, 0.4f, 0.4f);
     GShader::Instance()->setUniform(m_program, "Ks", 0.9f, 0.9f, 0.9f);

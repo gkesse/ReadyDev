@@ -101,7 +101,8 @@ HEADERS += \
     $$PWD/GDrawQtShaderFunction.h \
     $$PWD/GDrawQtFragDiscard.h \
     $$PWD/GDrawQtLightMultiPosition.h \
-    $$PWD/GObjPlane.h
+    $$PWD/GObjPlane.h \
+    $$PWD/GObjPig.h
 
 SOURCES += \
     $$PWD/GWindow.cpp \
@@ -189,7 +190,8 @@ SOURCES += \
     $$PWD/GDrawQtShaderFunction.cpp \
     $$PWD/GDrawQtFragDiscard.cpp \
     $$PWD/GDrawQtLightMultiPosition.cpp \
-    $$PWD/GObjPlane.cpp
+    $$PWD/GObjPlane.cpp \
+    $$PWD/GObjPig.cpp
 
 FORMS += \
     $$PWD/GWindowQtForm.ui
