@@ -49,6 +49,17 @@ QPushButton:pressed {
 
 QPushButton[active=true] {
 	background-color: rgb(170, 0, 0);
+}
+
+QLabel {
+	background-color: rgba(255, 255, 255, 0.2);
+	padding: 0px 10px;
+}
+
+QToolTip {
+	background-color: rgb(5, 16, 57);
+	border: none;
+	padding: 1px;
 }</string>
   </property>
   <layout class="QGridLayout" name="gridLayout_2">
@@ -70,67 +81,14 @@ QPushButton[active=true] {
       <item row="0" column="0">
        <layout class="QHBoxLayout" name="horizontalLayout">
         <item>
-         <widget class="QPushButton" name="m_createButton">
-          <property name="cursor">
-           <cursorShape>PointingHandCursor</cursorShape>
-          </property>
+         <widget class="QLabel" name="label">
           <property name="text">
-           <string>Créer</string>
-          </property>
-          <property name="flat">
-           <bool>false</bool>
+           <string>15/05/2018 - 16:49</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="m_readButton">
-          <property name="cursor">
-           <cursorShape>PointingHandCursor</cursorShape>
-          </property>
-          <property name="text">
-           <string>Lire</string>
-          </property>
-          <property name="flat">
-           <bool>false</bool>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="m_updateButton">
-          <property name="cursor">
-           <cursorShape>PointingHandCursor</cursorShape>
-          </property>
-          <property name="text">
-           <string>Modifier</string>
-          </property>
-          <property name="icon">
-           <iconset resource="../../win/resource.qrc">
-            <normaloff>:/img/restart_icon.png</normaloff>:/img/restart_icon.png</iconset>
-          </property>
-          <property name="flat">
-           <bool>false</bool>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="m_deleteButton">
-          <property name="cursor">
-           <cursorShape>PointingHandCursor</cursorShape>
-          </property>
-          <property name="text">
-           <string>Supprimer</string>
-          </property>
-          <property name="icon">
-           <iconset resource="../../win/resource.qrc">
-            <normaloff>:/img/shutdown_icon.png</normaloff>:/img/shutdown_icon.png</iconset>
-          </property>
-          <property name="flat">
-           <bool>false</bool>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer">
+         <spacer name="horizontalSpacer_2">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
@@ -141,6 +99,58 @@ QPushButton[active=true] {
            </size>
           </property>
          </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="m_restartButton">
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="toolTip">
+           <string>Redémarrer le système</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="../../win/resource.qrc">
+            <normaloff>:/img/restart_icon.png</normaloff>:/img/restart_icon.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="flat">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="m_quitButton">
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="toolTip">
+           <string>Eteindre le système</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="../../win/resource.qrc">
+            <normaloff>:/img/shutdown_icon.png</normaloff>:/img/shutdown_icon.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="flat">
+           <bool>false</bool>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>

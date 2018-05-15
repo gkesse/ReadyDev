@@ -18,13 +18,6 @@ public:
 public:
     static GWindowResource* Instance();
     void run();
-    void updateButtonProperty(const int& index);
-
-public slots:
-    void slotCreateButtonClicked();
-    void slotReadButtonClicked();
-    void slotUpdateButtonClicked();
-    void slotDeleteButtonClicked();
 
 private:
     Ui::GWindowResource* ui;
