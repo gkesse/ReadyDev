@@ -5,7 +5,7 @@
 //===============================================
 int main(int argc, char** argv) {
     QApplication app(argc, argv);
-    GConfig::Instance()->setData("WINDOW_TYPE", "STYLE_DESIGNER");
+    GConfig::Instance()->setData("WINDOW_TYPE", "STYLE_DESIGNER_GLOBAL");
     GWindow::Instance()->run();
     return app.exec();
 }
