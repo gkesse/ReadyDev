@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>638</width>
-    <height>400</height>
+    <height>480</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -80,7 +80,7 @@ QToolTip {
    </property>
    <item>
     <widget class="QWidget" name="centralWidget" native="true">
-     <layout class="QGridLayout" name="gridLayout">
+     <layout class="QGridLayout" name="gridLayout" rowminimumheight="0,1,0,0,1">
       <item row="4" column="0">
        <spacer name="verticalSpacer">
         <property name="orientation">
@@ -189,8 +189,8 @@ QToolTip {
          <widget class="QWidget" name="loginForm" native="true">
           <property name="minimumSize">
            <size>
-            <width>200</width>
-            <height>100</height>
+            <width>300</width>
+            <height>200</height>
            </size>
           </property>
          </widget>
