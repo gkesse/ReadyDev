@@ -3,6 +3,8 @@
 #include "GWindowSimple.h"
 #include "GWindowStyleDesigner.h"
 #include "GWindowStyleDesignerGlobal.h"
+#include "GWindowStyleDesignerProperty.h"
+#include "GWindowQml.h"
 #include "GConfig.h"
 //===============================================
 GWindow* GWindow::m_instance = 0;
@@ -19,7 +21,9 @@ GWindow* GWindow::Instance() {
     QString lType = GConfig::Instance()->getData("WINDOW_TYPE");
     if(lType == "SIMPLE") return GWindowSimple::Instance();
     if(lType == "STYLE_DESIGNER") return GWindowStyleDesigner::Instance();
-    if(lType == "STYLE_DESIGNER_GLOBAL") return GWindowStyleDesigner::Instance();
+    if(lType == "STYLE_DESIGNER_GLOBAL") return GWindowStyleDesignerGlobal::Instance();
+    if(lType == "STYLE_DESIGNER_PROPERTY") return GWindowStyleDesignerProperty::Instance();
+    if(lType == "QML") return GWindowQml::Instance();
     return GWindowSimple::Instance();
 }
 //===============================================

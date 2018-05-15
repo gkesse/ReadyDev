@@ -10,17 +10,44 @@
     <height>400</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>400</width>
+    <height>400</height>
+   </size>
+  </property>
   <property name="windowTitle">
    <string>Qt | ReadyDev</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(5, 16, 57);</string>
+   <string notr="true">* {
+	background-color: rgb(5, 16, 57);
+	color: rgb(255, 255, 255);
+	font: 75 14pt &quot;Arial Narrow&quot;;
+}
+
+QPushButton {
+	background-color: rgba(255, 255, 255, 0.2);
+	border: none;
+	padding: 5px 10px;
+}
+
+QPushButton:hover {
+	background-color: rgba(255, 255, 255, 0.4);
+}
+
+QPushButton:pressed {
+	background-color: rgba(255, 255, 255, 0.2);
+}</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
       <widget class="QPushButton" name="pushButton">
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
        <property name="text">
         <string>Créer</string>
        </property>
@@ -31,6 +58,9 @@
      </item>
      <item>
       <widget class="QPushButton" name="pushButton_2">
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
        <property name="text">
         <string>Lire</string>
        </property>
@@ -41,6 +71,9 @@
      </item>
      <item>
       <widget class="QPushButton" name="pushButton_5">
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
        <property name="text">
         <string>Modifier</string>
        </property>
@@ -51,6 +84,9 @@
      </item>
      <item>
       <widget class="QPushButton" name="pushButton_6">
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
        <property name="text">
         <string>Supprimer</string>
        </property>

@@ -4,9 +4,9 @@
 #include "GConfig.h"
 //===============================================
 int main(int argc, char** argv) {
-    QApplication app(argc, argv);
-    GConfig::Instance()->setData("WINDOW_TYPE", "STYLE_DESIGNER_GLOBAL");
+    QApplication lApp(argc, argv);
+    GConfig::Instance()->setData("WINDOW_TYPE", "QML");
     GWindow::Instance()->run();
-    return app.exec();
+    return lApp.exec();
 }
 //===============================================

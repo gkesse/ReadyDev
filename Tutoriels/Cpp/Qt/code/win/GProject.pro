@@ -5,7 +5,10 @@ OBJECTS_DIR = build
 MOC_DIR = build
 UI_DIR = build
 RCC_DIR = build
-CONFIG += release
-QT += widgets
+CONFIG += release console
+QT += widgets qml
 
 include(../src/GMain.pri)
+
+RESOURCES += \
+    resource.qrc

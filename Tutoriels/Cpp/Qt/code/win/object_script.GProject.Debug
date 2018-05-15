@@ -1,0 +1,15 @@
+INPUT(
+./build\GConfig.o
+./build\GWindowSimple.o
+./build\GWindow.o
+./build\GWindowStyleDesigner.o
+./build\GWindowStyleDesignerGlobal.o
+./build\GWindowStyleDesignerProperty.o
+./build\GWindowQml.o
+./build\main.o
+./build\qrc_resource.o
+./build\moc_GWindowSimple.o
+./build\moc_GWindowStyleDesigner.o
+./build\moc_GWindowStyleDesignerGlobal.o
+./build\moc_GWindowStyleDesignerProperty.o
+);
