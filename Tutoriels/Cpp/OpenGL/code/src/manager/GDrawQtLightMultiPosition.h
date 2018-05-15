@@ -5,6 +5,7 @@
 #include "GInclude.h"
 #include "GDrawQt.h"
 #include "GObjPlane.h"
+#include "GObjPig.h"
 //===============================================
 class GDrawQtLightMultiPosition : public GDrawQt {
 public:
@@ -25,6 +26,7 @@ private:
     glm::mat4 m_projection;
     glm::mat4 m_modelView;
     GObjPlane* m_objPlane;
+    GObjPig* m_objPig;
     float m_angle;
 };
 //===============================================

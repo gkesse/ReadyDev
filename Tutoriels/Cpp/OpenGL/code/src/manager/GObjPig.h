@@ -22,6 +22,17 @@ public:
             const vector<glm::vec2> &texCoords,
             const vector<glm::vec4> &tangents,
             const vector<int> &elements );
+    void generateAveragedNormals(
+            const vector<glm::vec3> & points,
+            vector<glm::vec3> & normals,
+            const vector<int> & faces );
+    void generateTangents(
+            const vector<glm::vec3> & points,
+            const vector<glm::vec3> & normals,
+            const vector<int> & faces,
+            const vector<glm::vec2> & texCoords,
+            vector<glm::vec4> & tangents);
+    void center(vector<glm::vec3> &);
     void draw(GLuint program, glm::mat4& projection, glm::mat4& modelView);
 
 private:

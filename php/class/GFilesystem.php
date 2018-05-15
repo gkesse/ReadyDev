@@ -37,117 +37,117 @@
         }
         //===============================================
         public function getFile($dir) {
-			$m_dir = $_SERVER["DOCUMENT_ROOT"];
-			$m_dir = realpath($m_dir);
-			$m_rootLen = strlen($m_dir);
-			$m_dir .= "/".$dir;
-			$m_dir = realpath($m_dir);
-			$m_dirLen = strlen($m_dir);
-			if($m_dirLen < $m_rootLen) return array();
-			$m_dirPtr = opendir($m_dir);
-			$m_dirNameArr = array();
+			$lDir = $_SERVER["DOCUMENT_ROOT"];
+			$lDir = realpath($lDir);
+			$lRootLen = strlen($lDir);
+			$lDir .= "/".$dir;
+			$lDir = realpath($lDir);
+			$lDirLen = strlen($lDir);
+			if($lDirLen < $lRootLen) return array();
+			$lDirPtr = opendir($lDir);
+			$lDirNameArr = array();
 			while(1) {
-				$m_dirName = readdir($m_dirPtr);
-				if(!$m_dirName) break;
-				$m_find = $this->findData($m_dirName, $this->m_dirFilter);
-				if($m_find) continue;
-				if($m_dirName == ".." && $m_rootLen == $m_dirLen) continue;
-				$m_dirPath = $m_dir."/".$m_dirName;
-				$m_dirPath = realpath($m_dirPath);
-				$m_dirCheck = is_dir($m_dirPath) ? 1: 0;
-				$m_dirType = $this->getIcon($m_dirPath);
-				$m_dirIcon = $this->m_iconMap[$m_dirType][0];
-				$m_dirNameArr[] = array($m_dirCheck, $m_dirName, $m_dirIcon, $m_dirType);
+				$lDirName = readdir($lDirPtr);
+				if(!$lDirName) break;
+				$lFind = $this->findData($lDirName, $this->m_dirFilter);
+				if($lFind) continue;
+				if($lDirName == ".." && $lRootLen == $lDirLen) continue;
+				$lDirPath = $lDir."/".$lDirName;
+				$lDirPath = realpath($lDirPath);
+				$lDirCheck = is_dir($lDirPath) ? 1: 0;
+				$lDirType = $this->getIcon($lDirPath);
+				$lDirIcon = $this->m_iconMap[$lDirType][0];
+				$lDirNameArr[] = array($lDirCheck, $lDirName, $lDirIcon, $lDirType);
 			}
-			closedir($m_dirPtr);
-			usort($m_dirNameArr, array("GFilesystem", "SortDirectory"));
-			return $m_dirNameArr;
+			closedir($lDirPtr);
+			usort($lDirNameArr, array("GFilesystem", "SortDirectory"));
+			return $lDirNameArr;
         }
         //===============================================
         public function getFile2($root, $dir) {
-			$m_dir = $_SERVER["DOCUMENT_ROOT"];
-			$m_dir = realpath($m_dir);
-			$m_dir .= "/".$root;
-			$m_dir = realpath($m_dir);
-			$m_rootLen = strlen($m_dir);
-			$m_dir .= "/".$dir;
-			$m_dir = realpath($m_dir);
-			$m_dirLen = strlen($m_dir);
-			if($m_dirLen < $m_rootLen) return array();
-			$m_dirPtr = opendir($m_dir);
-			$m_dirNameArr = array();
+			$lDir = $_SERVER["DOCUMENT_ROOT"];
+			$lDir = realpath($lDir);
+			$lDir .= "/".$root;
+			$lDir = realpath($lDir);
+			$lRootLen = strlen($lDir);
+			$lDir .= "/".$dir;
+			$lDir = realpath($lDir);
+			$lDirLen = strlen($lDir);
+			if($lDirLen < $lRootLen) return array();
+			$lDirPtr = opendir($lDir);
+			$lDirNameArr = array();
 			while(1) {
-				$m_dirName = readdir($m_dirPtr);
-				if(!$m_dirName) break;
-				$m_find = $this->findData($m_dirName, $this->m_dirFilter2);
-				if($m_find) continue;
-				if($m_dirName == ".." && $m_rootLen == $m_dirLen) continue;
-				$m_dirPath = $m_dir."/".$m_dirName;
-				$m_dirPath = realpath($m_dirPath);
-				$m_dirCheck = is_dir($m_dirPath) ? 1: 0;
-				$m_dirType = $this->getIcon($m_dirPath);
-				$m_dirIcon = $this->m_iconMap[$m_dirType][0];
-				$m_dirNameArr[] = array($m_dirCheck, $m_dirName, $m_dirIcon, $m_dirType);
+				$lDirName = readdir($lDirPtr);
+				if(!$lDirName) break;
+				$lFind = $this->findData($lDirName, $this->m_dirFilter2);
+				if($lFind) continue;
+				if($lDirName == ".." && $lRootLen == $lDirLen) continue;
+				$lDirPath = $lDir."/".$lDirName;
+				$lDirPath = realpath($lDirPath);
+				$lDirCheck = is_dir($lDirPath) ? 1: 0;
+				$lDirType = $this->getIcon($lDirPath);
+				$lDirIcon = $this->m_iconMap[$lDirType][0];
+				$lDirNameArr[] = array($lDirCheck, $lDirName, $lDirIcon, $lDirType);
 			}
-			closedir($m_dirPtr);
-			usort($m_dirNameArr, array("GFilesystem", "SortDirectory"));
-			return $m_dirNameArr;
+			closedir($lDirPtr);
+			usort($lDirNameArr, array("GFilesystem", "SortDirectory"));
+			return $lDirNameArr;
         }
         //===============================================
         public function findData($data, $dataMap) {
             foreach($dataMap as $pattern) {
-                $m_match = preg_match($pattern, $data);
-                if($m_match) return true;
+                $lMatch = preg_match($pattern, $data);
+                if($lMatch) return true;
             }
             return false;
         }
         //===============================================
         public function getPath($dir) {
-			$m_dir = $_SERVER["DOCUMENT_ROOT"];
-			$m_rootLen = strlen($m_dir);
-			$m_dir .= "/".$dir;
-			$m_dir = realpath($m_dir);
-			$m_dirLen = strlen($m_dir);
-			if($m_dirLen <= $m_rootLen) return "";
-			$m_dir = substr($m_dir, $m_rootLen);
-			$m_dir = str_replace("\\", "/", $m_dir);
-            return $m_dir;
+			$lDir = $_SERVER["DOCUMENT_ROOT"];
+			$lRootLen = strlen($lDir);
+			$lDir .= "/".$dir;
+			$lDir = realpath($lDir);
+			$lDirLen = strlen($lDir);
+			if($lDirLen <= $lRootLen) return "";
+			$lDir = substr($lDir, $lRootLen);
+			$lDir = str_replace("\\", "/", $lDir);
+            return $lDir;
         }
         //===============================================
         public function getPath2($rootPath, $filePath) {
-			$m_dir = $_SERVER["DOCUMENT_ROOT"];
-			$m_dir .= "/".$rootPath;
-			$m_dir = realpath($m_dir);
-			$m_rootLen = strlen($m_dir);
-			$m_dir .= "/".$filePath;
-			$m_dir = realpath($m_dir);
-			$m_dirLen = strlen($m_dir);
-			if($m_dirLen <= $m_rootLen) return "";
-			$m_dir = substr($m_dir, $m_rootLen);
-			$m_dir = str_replace("\\", "/", $m_dir);
-            return $m_dir;
+			$lDir = $_SERVER["DOCUMENT_ROOT"];
+			$lDir .= "/".$rootPath;
+			$lDir = realpath($lDir);
+			$lRootLen = strlen($lDir);
+			$lDir .= "/".$filePath;
+			$lDir = realpath($lDir);
+			$lDirLen = strlen($lDir);
+			if($lDirLen <= $lRootLen) return "";
+			$lDir = substr($lDir, $lRootLen);
+			$lDir = str_replace("\\", "/", $lDir);
+            return $lDir;
         }
         //===============================================
         public function getIcon($filename) {
-            $m_ext = pathinfo($filename, PATHINFO_EXTENSION);
-            $m_ext = strtolower($m_ext);
-            $m_icon = "file";
-            if(is_dir($filename)) {$m_icon = "dir";}
-            else if(in_array($m_ext, $this->m_iconMap["img"])) {$m_icon = "img";}
-            else if(in_array($m_ext, $this->m_iconMap["bin"])) {$m_icon = "bin";}
-            else if(in_array($m_ext, $this->m_iconMap["bat"])) {$m_icon = "bat";}
-            else if($m_ext != "") {$m_icon = "txt";}
-            return $m_icon;
+            $lExt = pathinfo($filename, PATHINFO_EXTENSION);
+            $lExt = strtolower($lExt);
+            $lIcon = "file";
+            if(is_dir($filename)) {$lIcon = "dir";}
+            else if(in_array($lExt, $this->m_iconMap["img"])) {$lIcon = "img";}
+            else if(in_array($lExt, $this->m_iconMap["bin"])) {$lIcon = "bin";}
+            else if(in_array($lExt, $this->m_iconMap["bat"])) {$lIcon = "bat";}
+            else if($lExt != "") {$lIcon = "txt";}
+            return $lIcon;
         }
         //===============================================
         private static function SortDirectory($dataA, $dataB) {
-            $m_sort = false;
-            if($dataA[0] < $dataB[0]) $m_sort = !$m_sort; 
+            $lSort = false;
+            if($dataA[0] < $dataB[0]) $lSort = !$lSort; 
             else if($dataA[0] == $dataB[0]) {
-                $m_strcmp = strcmp(strtolower($dataA[1]), strtolower($dataB[1]));
-                if($m_strcmp > 0) $m_sort = !$m_sort;
+                $lStrcmp = strcmp(strtolower($dataA[1]), strtolower($dataB[1]));
+                if($lStrcmp > 0) $lSort = !$lSort;
             }
-            return $m_sort;
+            return $lSort;
         }
         //===============================================
     }
