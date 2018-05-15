@@ -7,6 +7,8 @@ GWindowResource* GWindowResource::m_instance = 0;
 GWindowResource::GWindowResource(QWidget* parent) :
     QWidget(parent), ui(new Ui::GWindowResource) {
     ui->setupUi(this);
+
+    connect(ui->m_quitButton, SIGNAL(clicked()), this, SLOT(close()));
 }
 //===============================================
 GWindowResource::~GWindowResource() {
