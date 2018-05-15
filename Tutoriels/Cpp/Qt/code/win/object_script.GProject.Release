@@ -6,10 +6,12 @@ INPUT(
 ./build\GWindowStyleDesignerGlobal.o
 ./build\GWindowStyleDesignerProperty.o
 ./build\GWindowQml.o
+./build\GWindowResource.o
 ./build\main.o
 ./build\qrc_resource.o
 ./build\moc_GWindowSimple.o
 ./build\moc_GWindowStyleDesigner.o
 ./build\moc_GWindowStyleDesignerGlobal.o
 ./build\moc_GWindowStyleDesignerProperty.o
+./build\moc_GWindowResource.o
 );

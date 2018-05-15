@@ -13,7 +13,8 @@ HEADERS += \
     $$PWD/GWindowStyleDesigner.h \
     $$PWD/GWindowStyleDesignerGlobal.h \
     $$PWD/GWindowStyleDesignerProperty.h \
-    $$PWD/GWindowQml.h
+    $$PWD/GWindowQml.h \
+    $$PWD/GWindowResource.h
 
 SOURCES += \
     $$PWD/GConfig.cpp \
@@ -22,11 +23,13 @@ SOURCES += \
     $$PWD/GWindowStyleDesigner.cpp \
     $$PWD/GWindowStyleDesignerGlobal.cpp \
     $$PWD/GWindowStyleDesignerProperty.cpp \
-    $$PWD/GWindowQml.cpp
+    $$PWD/GWindowQml.cpp \
+    $$PWD/GWindowResource.cpp
 
 FORMS += \
     $$PWD/GWindowSimple.ui \
     $$PWD/GWindowStyleDesigner.ui \
     $$PWD/GWindowStyleDesignerGlobal.ui \
-    $$PWD/GWindowStyleDesignerProperty.ui
+    $$PWD/GWindowStyleDesignerProperty.ui \
+    $$PWD/GWindowResource.ui
 
