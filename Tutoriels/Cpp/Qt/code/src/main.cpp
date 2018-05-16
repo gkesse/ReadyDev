@@ -5,7 +5,7 @@
 //===============================================
 int main(int argc, char** argv) {
     QApplication lApp(argc, argv);
-    GConfig::Instance()->setData("WINDOW_TYPE", "RESOURCE");
+    GConfig::Instance()->setData("WINDOW_TYPE", "QML_SIMPLE");
     GWindow::Instance()->run();
     return lApp.exec();
 }

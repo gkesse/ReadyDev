@@ -6,6 +6,7 @@
 #include "GWindowStyleDesignerProperty.h"
 #include "GWindowResource.h"
 #include "GWindowQml.h"
+#include "GWindowQmlSimple.h"
 #include "GConfig.h"
 //===============================================
 GWindow* GWindow::m_instance = 0;
@@ -25,6 +26,7 @@ GWindow* GWindow::Instance() {
     if(lType == "STYLE_DESIGNER_GLOBAL") return GWindowStyleDesignerGlobal::Instance();
     if(lType == "STYLE_DESIGNER_PROPERTY") return GWindowStyleDesignerProperty::Instance();
     if(lType == "QML") return GWindowQml::Instance();
+    if(lType == "QML_SIMPLE") return GWindowQmlSimple::Instance();
     if(lType == "RESOURCE") return GWindowResource::Instance();
     return GWindowSimple::Instance();
 }

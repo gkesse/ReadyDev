@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>638</width>
-    <height>480</height>
+    <height>447</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -20,22 +20,31 @@
    <string>Qt | ReadyDev</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">* {
+   <string notr="true">/* ============================================== */
+* {
 	font: 12pt &quot;Arial&quot;;
 	color: rgb(255, 255, 255);
 }
-
-#GWindowResource {
-	background-color: rgb(5, 16, 57);
-}
-
+/* ============================================== */
 #centralWidget {
 	border-image: url(:/img/login_bg.png);
 }
-
+/* ============================================== */
 #loginForm {
 	background-color: rgba(255, 255, 255, 0.2);
+	min-width: 400px;
 }
+
+#loginForm QLabel {
+	background-color:rgba(255, 255, 255, 0.2);
+	min-width: 110px;
+	min-height: 27px;
+}
+
+#loginForm QLineEdit {
+	min-height: 24px;
+}
+/* ============================================== */
 QPushButton {
 	background-color: rgba(255, 255, 255, 0.2);
 	border: none;
@@ -53,19 +62,27 @@ QPushButton:pressed {
 QPushButton[active=true] {
 	background-color: rgb(170, 0, 0);
 }
-
+/* ============================================== */
 QLabel {
 	background-color: rgba(255, 255, 255, 0.2);
 	padding: 0px 10px;
 }
-
+/* ============================================== */
 QToolTip {
 	background-color: rgb(5, 16, 57);
 	border: none;
 	padding: 1px;
-}</string>
+}
+/* ============================================== */
+QLineEdit {
+	background-color: rgba(255, 255, 255, 0.2);
+	border: 1px solid  rgba(255, 255, 255, 0.4);
+	padding: 0px 5px;
+}
+/* ============================================== */
+</string>
   </property>
-  <layout class="QHBoxLayout" name="horizontalLayout_2">
+  <layout class="QGridLayout" name="gridLayout_3">
    <property name="leftMargin">
     <number>0</number>
    </property>
@@ -78,10 +95,10 @@ QToolTip {
    <property name="bottomMargin">
     <number>0</number>
    </property>
-   <item>
+   <item row="0" column="0">
     <widget class="QWidget" name="centralWidget" native="true">
-     <layout class="QGridLayout" name="gridLayout" rowminimumheight="0,1,0,0,1">
-      <item row="4" column="0">
+     <layout class="QGridLayout" name="gridLayout" rowminimumheight="0,1,0,0,1,0">
+      <item row="5" column="0">
        <spacer name="verticalSpacer">
         <property name="orientation">
          <enum>Qt::Vertical</enum>
@@ -89,7 +106,7 @@ QToolTip {
         <property name="sizeHint" stdset="0">
          <size>
           <width>410</width>
-          <height>0</height>
+          <height>10</height>
          </size>
         </property>
        </spacer>
@@ -170,8 +187,8 @@ QToolTip {
         </item>
        </layout>
       </item>
-      <item row="3" column="0">
-       <layout class="QHBoxLayout" name="horizontalLayout_4">
+      <item row="4" column="0">
+       <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="1,0,1">
         <item>
          <spacer name="horizontalSpacer_4">
           <property name="orientation">
@@ -187,12 +204,68 @@ QToolTip {
         </item>
         <item>
          <widget class="QWidget" name="loginForm" native="true">
-          <property name="minimumSize">
-           <size>
-            <width>300</width>
-            <height>200</height>
-           </size>
-          </property>
+          <layout class="QGridLayout" name="gridLayout_2">
+           <item row="0" column="0">
+            <layout class="QFormLayout" name="formLayout">
+             <item row="0" column="0">
+              <widget class="QLabel" name="label_3">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text">
+                <string>Utilisateur:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_4">
+               <property name="text">
+                <string>Mot de passe:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QLineEdit" name="lineEdit"/>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLineEdit" name="lineEdit_2">
+               <property name="echoMode">
+                <enum>QLineEdit::Password</enum>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="1" column="0">
+            <spacer name="verticalSpacer_3">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>10</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="2" column="0">
+            <widget class="QPushButton" name="pushButton">
+             <property name="cursor">
+              <cursorShape>PointingHandCursor</cursorShape>
+             </property>
+             <property name="text">
+              <string>S'Identifier</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </widget>
         </item>
         <item>
@@ -258,7 +331,23 @@ QToolTip {
         <property name="sizeHint" stdset="0">
          <size>
           <width>410</width>
-          <height>0</height>
+          <height>10</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="3" column="0">
+       <spacer name="verticalSpacer_4">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>10</height>
          </size>
         </property>
        </spacer>

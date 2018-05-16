@@ -1,7 +1,3 @@
-
-LIBS += \
-    -lmingw32
-
 INCLUDEPATH += \
     $$PWD
 
@@ -14,7 +10,8 @@ HEADERS += \
     $$PWD/GWindowStyleDesignerGlobal.h \
     $$PWD/GWindowStyleDesignerProperty.h \
     $$PWD/GWindowQml.h \
-    $$PWD/GWindowResource.h
+    $$PWD/GWindowResource.h \
+    $$PWD/GWindowQmlSimple.h
 
 SOURCES += \
     $$PWD/GConfig.cpp \
@@ -24,7 +21,8 @@ SOURCES += \
     $$PWD/GWindowStyleDesignerGlobal.cpp \
     $$PWD/GWindowStyleDesignerProperty.cpp \
     $$PWD/GWindowQml.cpp \
-    $$PWD/GWindowResource.cpp
+    $$PWD/GWindowResource.cpp \
+    $$PWD/GWindowQmlSimple.cpp
 
 FORMS += \
     $$PWD/GWindowSimple.ui \
@@ -32,4 +30,6 @@ FORMS += \
     $$PWD/GWindowStyleDesignerGlobal.ui \
     $$PWD/GWindowStyleDesignerProperty.ui \
     $$PWD/GWindowResource.ui
+
+DISTFILES +=
 

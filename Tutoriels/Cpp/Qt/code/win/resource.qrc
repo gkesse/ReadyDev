@@ -1,7 +1,9 @@
 <RCC>
     <qresource prefix="/qml">
         <file alias="GWindowQml.qml">res/qml/GWindowQml.qml</file>
-        <file alias="GWindowQmlForm.qml">res/qml/GWindowQmlForm.ui.qml</file>
+        <file alias="GWindowQmlForm.ui.qml">res/qml/GWindowQmlForm.ui.qml</file>
+        <file alias="GWindowQmlSimple.qml">res/qml/GWindowQmlSimple.qml</file>
+        <file alias="GWindowQmlSimpleForm.ui.qml">res/qml/GWindowQmlSimpleForm.ui.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file alias="login_bg.png">res/img/login_bg.png</file>
