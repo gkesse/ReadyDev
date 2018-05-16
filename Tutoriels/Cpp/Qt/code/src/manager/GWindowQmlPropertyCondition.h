@@ -1,25 +1,25 @@
 //===============================================
-#ifndef _GWindowQmlTitle_
-#define _GWindowQmlTitle_
+#ifndef _GWindowQmlPropertyCondition_
+#define _GWindowQmlPropertyCondition_
 //===============================================
 #include "GWindow.h"
 #include <QQmlApplicationEngine>
 //===============================================
 namespace Ui {
-class GWindowQmlTitle;
+class GWindowQmlPropertyCondition;
 }
 //===============================================
-class GWindowQmlTitle : public GWindow {
+class GWindowQmlPropertyCondition : public GWindow {
 public:
-    GWindowQmlTitle();
-    ~GWindowQmlTitle();
+    GWindowQmlPropertyCondition();
+    ~GWindowQmlPropertyCondition();
 
 public:
-    static GWindowQmlTitle* Instance();
+    static GWindowQmlPropertyCondition* Instance();
     void run();
 
 private:
-    static GWindowQmlTitle* m_instance;
+    static GWindowQmlPropertyCondition* m_instance;
     QQmlApplicationEngine m_engine;
 };
 //===============================================

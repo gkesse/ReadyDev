@@ -1,24 +1,24 @@
 //===============================================
-#include "GWindowQmlTitle.h"
+#include "GWindowQmlRect.h"
 //===============================================
-GWindowQmlTitle* GWindowQmlTitle::m_instance = 0;
+GWindowQmlRect* GWindowQmlRect::m_instance = 0;
 //===============================================
-GWindowQmlTitle::GWindowQmlTitle() {
+GWindowQmlRect::GWindowQmlRect() {
 
 }
 //===============================================
-GWindowQmlTitle::~GWindowQmlTitle() {
+GWindowQmlRect::~GWindowQmlRect() {
 
 }
 //===============================================
-GWindowQmlTitle* GWindowQmlTitle::Instance() {
+GWindowQmlRect* GWindowQmlRect::Instance() {
     if(m_instance == 0) {
-        m_instance = new GWindowQmlTitle;
+        m_instance = new GWindowQmlRect;
     }
     return m_instance;
 }
 //===============================================
-void GWindowQmlTitle::run() {
-    m_engine.load(QUrl(QStringLiteral("qrc:/qml/GWindowQmlTitle.qml")));
+void GWindowQmlRect::run() {
+    m_engine.load(QUrl(QStringLiteral("qrc:/qml/GWindowQmlRect.qml")));
 }
 //===============================================

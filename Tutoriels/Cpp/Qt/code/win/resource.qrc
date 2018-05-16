@@ -2,10 +2,12 @@
     <qresource prefix="/qml">
         <file alias="GWindowQml.qml">res/qml/GWindowQml.qml</file>
         <file alias="GWindowQmlForm.ui.qml">res/qml/GWindowQmlForm.ui.qml</file>
-        <file alias="GWindowQmlMouseArea.qml">res/qml/GWindowQmlMouseArea.qml</file>
-        <file alias="GWindowQmlMouseAreaForm.ui.qml">res/qml/GWindowQmlMouseAreaForm.ui.qml</file>
-        <file alias="GWindowQmlTitle.qml">res/qml/GWindowQmlTitle.qml</file>
-        <file alias="GWindowQmlTitleForm.ui.qml">res/qml/GWindowQmlTitleForm.ui.qml</file>
+        <file alias="GWindowQmlRect.qml">res/qml/GWindowQmlRect.qml</file>
+        <file alias="GWindowQmlRectForm.ui.qml">res/qml/GWindowQmlRectForm.ui.qml</file>
+        <file alias="GWindowQmlPropertyBind.qml">res/qml/GWindowQmlPropertyBind.qml</file>
+        <file alias="GWindowQmlPropertyBindForm.ui.qml">res/qml/GWindowQmlPropertyBindForm.ui.qml</file>
+        <file alias="GWindowQmlPropertyConditionForm.ui.qml">res/qml/GWindowQmlPropertyConditionForm.ui.qml</file>
+        <file alias="GWindowQmlPropertyCondition.qml">res/qml/GWindowQmlPropertyCondition.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file alias="login_bg.png">res/img/login_bg.png</file>

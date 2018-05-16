@@ -7,7 +7,7 @@ Window {
     minimumHeight: 400
     title: qsTr("Qt | QML | ReadyDev")
 
-    GWindowQmlTitleForm {
+    GWindowQmlPropertyConditionForm {
         anchors.fill: parent
     }
 }

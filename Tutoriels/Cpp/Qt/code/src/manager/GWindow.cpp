@@ -6,8 +6,9 @@
 #include "GWindowStyleDesignerProperty.h"
 #include "GWindowResource.h"
 #include "GWindowQml.h"
-#include "GWindowQmlTitle.h"
-#include "GWindowQmlMouseArea.h"
+#include "GWindowQmlRect.h"
+#include "GWindowQmlPropertyBind.h"
+#include "GWindowQmlPropertyCondition.h"
 #include "GConfig.h"
 //===============================================
 GWindow* GWindow::m_instance = 0;
@@ -27,8 +28,9 @@ GWindow* GWindow::Instance() {
     if(lType == "STYLE_DESIGNER_GLOBAL") return GWindowStyleDesignerGlobal::Instance();
     if(lType == "STYLE_DESIGNER_PROPERTY") return GWindowStyleDesignerProperty::Instance();
     if(lType == "QML") return GWindowQml::Instance();
-    if(lType == "QML_TITLE") return GWindowQmlTitle::Instance();
-    if(lType == "QML_MOUSE_AREA") return GWindowQmlMouseArea::Instance();
+    if(lType == "QML_RECT") return GWindowQmlRect::Instance();
+    if(lType == "QML_PROPERTY_BIND") return GWindowQmlPropertyBind::Instance();
+    if(lType == "QML_PROPERTY_CONDITION") return GWindowQmlPropertyCondition::Instance();
     if(lType == "RESOURCE") return GWindowResource::Instance();
     return GWindowSimple::Instance();
 }

@@ -1,25 +1,25 @@
 //===============================================
-#ifndef _GWindowQmlMouseArea_
-#define _GWindowQmlMouseArea_
+#ifndef _GWindowQmlPropertyBind_
+#define _GWindowQmlPropertyBind_
 //===============================================
 #include "GWindow.h"
 #include <QQmlApplicationEngine>
 //===============================================
 namespace Ui {
-class GWindowQmlMouseArea;
+class GWindowQmlPropertyBind;
 }
 //===============================================
-class GWindowQmlMouseArea : public GWindow {
+class GWindowQmlPropertyBind : public GWindow {
 public:
-    GWindowQmlMouseArea();
-    ~GWindowQmlMouseArea();
+    GWindowQmlPropertyBind();
+    ~GWindowQmlPropertyBind();
 
 public:
-    static GWindowQmlMouseArea* Instance();
+    static GWindowQmlPropertyBind* Instance();
     void run();
 
 private:
-    static GWindowQmlMouseArea* m_instance;
+    static GWindowQmlPropertyBind* m_instance;
     QQmlApplicationEngine m_engine;
 };
 //===============================================
