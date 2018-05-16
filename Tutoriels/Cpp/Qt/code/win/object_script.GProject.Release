@@ -7,7 +7,8 @@ INPUT(
 ./build\GWindowStyleDesignerProperty.o
 ./build\GWindowQml.o
 ./build\GWindowResource.o
-./build\GWindowQmlSimple.o
+./build\GWindowQmlMouseArea.o
+./build\GWindowQmlTitle.o
 ./build\main.o
 ./build\qrc_resource.o
 ./build\moc_GWindowSimple.o

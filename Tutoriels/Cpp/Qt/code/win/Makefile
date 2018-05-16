@@ -223,6 +223,7 @@ Makefile: GProject.pro C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/win32-g++/qmake.conf
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/lex.prf \
 		GProject.pro \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/lib/Qt5Widgets.prl \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/lib/Qt5Quick.prl \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/lib/Qt5Gui.prl \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/lib/Qt5Qml.prl \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/lib/Qt5Network.prl \
@@ -392,6 +393,7 @@ C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/yacc.prf:
 C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/lex.prf:
 GProject.pro:
 C:/Qt/Qt5.8.0/5.8/mingw53_32/lib/Qt5Widgets.prl:
+C:/Qt/Qt5.8.0/5.8/mingw53_32/lib/Qt5Quick.prl:
 C:/Qt/Qt5.8.0/5.8/mingw53_32/lib/Qt5Gui.prl:
 C:/Qt/Qt5.8.0/5.8/mingw53_32/lib/Qt5Qml.prl:
 C:/Qt/Qt5.8.0/5.8/mingw53_32/lib/Qt5Network.prl:

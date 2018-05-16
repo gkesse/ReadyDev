@@ -11,7 +11,8 @@ HEADERS += \
     $$PWD/GWindowStyleDesignerProperty.h \
     $$PWD/GWindowQml.h \
     $$PWD/GWindowResource.h \
-    $$PWD/GWindowQmlSimple.h
+    $$PWD/GWindowQmlMouseArea.h \
+    $$PWD/GWindowQmlTitle.h
 
 SOURCES += \
     $$PWD/GConfig.cpp \
@@ -22,7 +23,8 @@ SOURCES += \
     $$PWD/GWindowStyleDesignerProperty.cpp \
     $$PWD/GWindowQml.cpp \
     $$PWD/GWindowResource.cpp \
-    $$PWD/GWindowQmlSimple.cpp
+    $$PWD/GWindowQmlMouseArea.cpp \
+    $$PWD/GWindowQmlTitle.cpp
 
 FORMS += \
     $$PWD/GWindowSimple.ui \

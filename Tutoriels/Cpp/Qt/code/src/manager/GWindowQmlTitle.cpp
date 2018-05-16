@@ -1,24 +1,24 @@
 //===============================================
-#include "GWindowQmlSimple.h"
+#include "GWindowQmlTitle.h"
 //===============================================
-GWindowQmlSimple* GWindowQmlSimple::m_instance = 0;
+GWindowQmlTitle* GWindowQmlTitle::m_instance = 0;
 //===============================================
-GWindowQmlSimple::GWindowQmlSimple() {
+GWindowQmlTitle::GWindowQmlTitle() {
 
 }
 //===============================================
-GWindowQmlSimple::~GWindowQmlSimple() {
+GWindowQmlTitle::~GWindowQmlTitle() {
 
 }
 //===============================================
-GWindowQmlSimple* GWindowQmlSimple::Instance() {
+GWindowQmlTitle* GWindowQmlTitle::Instance() {
     if(m_instance == 0) {
-        m_instance = new GWindowQmlSimple;
+        m_instance = new GWindowQmlTitle;
     }
     return m_instance;
 }
 //===============================================
-void GWindowQmlSimple::run() {
-    m_engine.load(QUrl(QStringLiteral("qrc:/qml/GWindowQmlSimple.qml")));
+void GWindowQmlTitle::run() {
+    m_engine.load(QUrl(QStringLiteral("qrc:/qml/GWindowQmlTitle.qml")));
 }
 //===============================================

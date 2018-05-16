@@ -6,7 +6,7 @@ Window {
     minimumWidth: 400
     minimumHeight: 400
 
-    GWindowQmlForm {
+    GWindowQmlMouseAreaForm {
         anchors.fill: parent
     }
 }

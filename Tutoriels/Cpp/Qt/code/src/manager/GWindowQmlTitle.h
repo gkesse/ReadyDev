@@ -1,25 +1,25 @@
 //===============================================
-#ifndef _GWindowQmlSimple_
-#define _GWindowQmlSimple_
+#ifndef _GWindowQmlTitle_
+#define _GWindowQmlTitle_
 //===============================================
 #include "GWindow.h"
 #include <QQmlApplicationEngine>
 //===============================================
 namespace Ui {
-class GWindowQmlSimple;
+class GWindowQmlTitle;
 }
 //===============================================
-class GWindowQmlSimple : public GWindow {
+class GWindowQmlTitle : public GWindow {
 public:
-    GWindowQmlSimple();
-    ~GWindowQmlSimple();
+    GWindowQmlTitle();
+    ~GWindowQmlTitle();
 
 public:
-    static GWindowQmlSimple* Instance();
+    static GWindowQmlTitle* Instance();
     void run();
 
 private:
-    static GWindowQmlSimple* m_instance;
+    static GWindowQmlTitle* m_instance;
     QQmlApplicationEngine m_engine;
 };
 //===============================================

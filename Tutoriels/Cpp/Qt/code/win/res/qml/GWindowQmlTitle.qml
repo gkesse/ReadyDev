@@ -5,8 +5,9 @@ Window {
     visible: true
     minimumWidth: 400
     minimumHeight: 400
+    title: qsTr("Qt | QML | ReadyDev")
 
-    GWindowQmlForm {
+    GWindowQmlTitleForm {
         anchors.fill: parent
     }
 }
