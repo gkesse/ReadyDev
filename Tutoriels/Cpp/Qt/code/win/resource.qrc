@@ -22,6 +22,11 @@
         <file alias="GObjButtonForm.ui.qml">res/qml/GObjButtonForm.ui.qml</file>
         <file alias="GWindowQmlImplicit.qml">res/qml/GWindowQmlImplicit.qml</file>
         <file alias="GWindowQmlImplicitForm.ui.qml">res/qml/GWindowQmlImplicitForm.ui.qml</file>
+        <file alias="GWindowQmlEventMouseArea.qml">res/qml/GWindowQmlEventMouseArea.qml</file>
+        <file alias="GWindowQmlEventMouseAreaForm.ui.qml">res/qml/GWindowQmlEventMouseAreaForm.ui.qml</file>
+        <file alias="GObjConsole.qml">res/qml/GObjConsole.qml</file>
+        <file alias="GWindowQmlConsole.qml">res/qml/GWindowQmlConsole.qml</file>
+        <file alias="GWindowQmlConsoleForm.ui.qml">res/qml/GWindowQmlConsoleForm.ui.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file alias="login_bg.png">res/img/login_bg.png</file>

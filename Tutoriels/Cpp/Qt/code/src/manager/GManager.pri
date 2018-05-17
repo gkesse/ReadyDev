@@ -19,7 +19,9 @@ HEADERS += \
     $$PWD/GWindowQmlButtonIcon.h \
     $$PWD/GWindowQmlPropertyGroup.h \
     $$PWD/GWindowQmlObj.h \
-    $$PWD/GWindowQmlImplicit.h
+    $$PWD/GWindowQmlImplicit.h \
+    $$PWD/GWindowQmlEventMouseArea.h \
+    $$PWD/GWindowQmlConsole.h
 
 SOURCES += \
     $$PWD/GConfig.cpp \
@@ -38,7 +40,9 @@ SOURCES += \
     $$PWD/GWindowQmlButtonIcon.cpp \
     $$PWD/GWindowQmlPropertyGroup.cpp \
     $$PWD/GWindowQmlObj.cpp \
-    $$PWD/GWindowQmlImplicit.cpp
+    $$PWD/GWindowQmlImplicit.cpp \
+    $$PWD/GWindowQmlEventMouseArea.cpp \
+    $$PWD/GWindowQmlConsole.cpp
 
 FORMS += \
     $$PWD/GWindowSimple.ui \

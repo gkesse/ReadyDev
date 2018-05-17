@@ -15,6 +15,8 @@
 #include "GWindowQmlButtonIcon.h"
 #include "GWindowQmlObj.h"
 #include "GWindowQmlImplicit.h"
+#include "GWindowQmlEventMouseArea.h"
+#include "GWindowQmlConsole.h"
 #include "GConfig.h"
 //===============================================
 GWindow* GWindow::m_instance = 0;
@@ -43,6 +45,8 @@ GWindow* GWindow::Instance() {
     if(lType == "QML_BUTTON_ICON") return GWindowQmlButtonIcon::Instance();
     if(lType == "QML_OBJ") return GWindowQmlObj::Instance();
     if(lType == "QML_IMPLICIT") return GWindowQmlImplicit::Instance();
+    if(lType == "QML_EVENT_MOUSE_AREA") return GWindowQmlEventMouseArea::Instance();
+    if(lType == "QML_CONSOLE") return GWindowQmlConsole::Instance();
     if(lType == "RESOURCE") return GWindowResource::Instance();
     return GWindowSimple::Instance();
 }
