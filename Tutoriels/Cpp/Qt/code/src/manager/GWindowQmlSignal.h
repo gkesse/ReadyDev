@@ -1,24 +1,24 @@
 //===============================================
-#ifndef _GWindowQmlEventMouseArea_
-#define _GWindowQmlEventMouseArea_
+#ifndef _GWindowQmlSignal_
+#define _GWindowQmlSignal_
 //===============================================
 #include "GWindow.h"
 //===============================================
 namespace Ui {
-class GWindowQmlEventMouseArea;
+class GWindowQmlSignal;
 }
 //===============================================
-class GWindowQmlEventMouseArea : public GWindow {
+class GWindowQmlSignal : public GWindow {
 public:
-    GWindowQmlEventMouseArea();
-    ~GWindowQmlEventMouseArea();
+    GWindowQmlSignal();
+    ~GWindowQmlSignal();
 
 public:
-    static GWindowQmlEventMouseArea* Instance();
+    static GWindowQmlSignal* Instance();
     void run();
 
 private:
-    static GWindowQmlEventMouseArea* m_instance;
+    static GWindowQmlSignal* m_instance;
     QQmlApplicationEngine m_engine;
 };
 //===============================================

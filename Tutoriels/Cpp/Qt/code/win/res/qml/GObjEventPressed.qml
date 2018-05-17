@@ -1,16 +1,18 @@
 import QtQuick 2.5
-import QtQuick.Controls 2.1
 
 Rectangle {
     id: m_button
-    width: 5 + m_buttonContent.width + 5
-    height: 5 + m_buttonContent.height + 5
+    clip: true
+    implicitWidth: Math.max(5 + m_buttonContent.implicitWidth + 5, 80)
+    implicitHeight: 5+ m_buttonContent.implicitHeight + 5
     color: "#55557f"
 
     Row {
         id: m_buttonContent
         anchors.centerIn: parent
         spacing: 5
+        anchors.verticalCenterOffset: m_buttonMouseArea.pressed ? 1 : 0
+        anchors.horizontalCenterOffset: m_buttonMouseArea.pressed ? 1 : 0
 
         Image {
             id: m_buttonIcon
@@ -23,9 +25,14 @@ Rectangle {
             id: m_buttonText
             color: "#ffffff"
             text: qsTr("Button")
-            verticalAlignment: Text.AlignVCenter
-            horizontalAlignment: Text.AlignLeft
             font.pixelSize: 18
         }
     }
+
+    MouseArea {
+        id: m_buttonMouseArea
+        anchors.fill: parent
+        onClicked: console.log("Bouton Appuye")
+    }
 }
+

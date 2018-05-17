@@ -15,8 +15,9 @@
 #include "GWindowQmlButtonIcon.h"
 #include "GWindowQmlObj.h"
 #include "GWindowQmlImplicit.h"
-#include "GWindowQmlEventMouseArea.h"
+#include "GWindowQmlSignal.h"
 #include "GWindowQmlConsole.h"
+#include "GWindowQmlEventPressed.h"
 #include "GConfig.h"
 //===============================================
 GWindow* GWindow::m_instance = 0;
@@ -35,6 +36,7 @@ GWindow* GWindow::Instance() {
     if(lType == "STYLE_DESIGNER") return GWindowStyleDesigner::Instance();
     if(lType == "STYLE_DESIGNER_GLOBAL") return GWindowStyleDesignerGlobal::Instance();
     if(lType == "STYLE_DESIGNER_PROPERTY") return GWindowStyleDesignerProperty::Instance();
+    if(lType == "RESOURCE") return GWindowResource::Instance();
     if(lType == "QML") return GWindowQml::Instance();
     if(lType == "QML_RECT") return GWindowQmlRect::Instance();
     if(lType == "QML_PROPERTY_BIND") return GWindowQmlPropertyBind::Instance();
@@ -45,9 +47,9 @@ GWindow* GWindow::Instance() {
     if(lType == "QML_BUTTON_ICON") return GWindowQmlButtonIcon::Instance();
     if(lType == "QML_OBJ") return GWindowQmlObj::Instance();
     if(lType == "QML_IMPLICIT") return GWindowQmlImplicit::Instance();
-    if(lType == "QML_EVENT_MOUSE_AREA") return GWindowQmlEventMouseArea::Instance();
+    if(lType == "QML_SIGNAL") return GWindowQmlSignal::Instance();
     if(lType == "QML_CONSOLE") return GWindowQmlConsole::Instance();
-    if(lType == "RESOURCE") return GWindowResource::Instance();
+    if(lType == "QML_EVENT_PRESSED") return GWindowQmlEventPressed::Instance();
     return GWindowSimple::Instance();
 }
 //===============================================
