@@ -10,6 +10,7 @@
 #include "GWindowQmlPropertyBind.h"
 #include "GWindowQmlPropertyCondition.h"
 #include "GWindowQmlPropertyFunction.h"
+#include "GWindowQmlPropertyGroup.h"
 #include "GWindowQmlButtonText.h"
 #include "GWindowQmlButtonIcon.h"
 #include "GConfig.h"
@@ -35,6 +36,7 @@ GWindow* GWindow::Instance() {
     if(lType == "QML_PROPERTY_BIND") return GWindowQmlPropertyBind::Instance();
     if(lType == "QML_PROPERTY_CONDITION") return GWindowQmlPropertyCondition::Instance();
     if(lType == "QML_PROPERTY_FUNCTION") return GWindowQmlPropertyFunction::Instance();
+    if(lType == "QML_PROPERTY_GROUP") return GWindowQmlPropertyGroup::Instance();
     if(lType == "QML_BUTTON_TEXT") return GWindowQmlButtonText::Instance();
     if(lType == "QML_BUTTON_ICON") return GWindowQmlButtonIcon::Instance();
     if(lType == "RESOURCE") return GWindowResource::Instance();
