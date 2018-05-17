@@ -12,6 +12,8 @@
         <file alias="GWindowQmlPropertyFunctionForm.ui.qml">res/qml/GWindowQmlPropertyFunctionForm.ui.qml</file>
         <file alias="GWindowQmlButtonTextForm.ui.qml">res/qml/GWindowQmlButtonTextForm.ui.qml</file>
         <file alias="GWindowQmlButtonText.qml">res/qml/GWindowQmlButtonText.qml</file>
+        <file alias="GWindowQmlButtonIcon.qml">res/qml/GWindowQmlButtonIcon.qml</file>
+        <file alias="GWindowQmlButtonIconForm.ui.qml">res/qml/GWindowQmlButtonIconForm.ui.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file alias="login_bg.png">res/img/login_bg.png</file>

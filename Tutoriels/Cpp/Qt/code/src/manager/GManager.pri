@@ -15,7 +15,8 @@ HEADERS += \
     $$PWD/GWindowQmlPropertyBind.h \
     $$PWD/GWindowQmlPropertyCondition.h \
     $$PWD/GWindowQmlPropertyFunction.h \
-    $$PWD/GWindowQmlButtonText.h
+    $$PWD/GWindowQmlButtonText.h \
+    $$PWD/GWindowQmlButtonIcon.h
 
 SOURCES += \
     $$PWD/GConfig.cpp \
@@ -30,7 +31,8 @@ SOURCES += \
     $$PWD/GWindowQmlPropertyBind.cpp \
     $$PWD/GWindowQmlPropertyCondition.cpp \
     $$PWD/GWindowQmlPropertyFunction.cpp \
-    $$PWD/GWindowQmlButtonText.cpp
+    $$PWD/GWindowQmlButtonText.cpp \
+    $$PWD/GWindowQmlButtonIcon.cpp
 
 FORMS += \
     $$PWD/GWindowSimple.ui \

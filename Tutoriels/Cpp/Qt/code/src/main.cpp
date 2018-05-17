@@ -5,7 +5,7 @@
 //===============================================
 int main(int argc, char** argv) {
     QApplication lApp(argc, argv);
-    GConfig::Instance()->setData("WINDOW_TYPE", "QML_BUTTON_TEXT");
+    GConfig::Instance()->setData("WINDOW_TYPE", "QML_BUTTON_ICON");
     GWindow::Instance()->run();
     return lApp.exec();
 }
