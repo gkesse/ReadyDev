@@ -8,6 +8,8 @@ Rectangle {
     color: "#051039"
 
     GObjButton {
-        id: gObjButton
+        id: m_button
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.verticalCenter: parent.verticalCenter
     }
 }

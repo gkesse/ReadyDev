@@ -20,6 +20,8 @@
         <file alias="GWindowQmlObj.qml">res/qml/GWindowQmlObj.qml</file>
         <file alias="GWindowQmlObjForm.ui.qml">res/qml/GWindowQmlObjForm.ui.qml</file>
         <file alias="GObjButtonForm.ui.qml">res/qml/GObjButtonForm.ui.qml</file>
+        <file alias="GWindowQmlImplicit.qml">res/qml/GWindowQmlImplicit.qml</file>
+        <file alias="GWindowQmlImplicitForm.ui.qml">res/qml/GWindowQmlImplicitForm.ui.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file alias="login_bg.png">res/img/login_bg.png</file>
