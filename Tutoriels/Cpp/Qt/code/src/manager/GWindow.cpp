@@ -18,6 +18,7 @@
 #include "GWindowQmlSignal.h"
 #include "GWindowQmlConsole.h"
 #include "GWindowQmlEventPressed.h"
+#include "GWindowQmlEventHover.h"
 #include "GConfig.h"
 //===============================================
 GWindow* GWindow::m_instance = 0;
@@ -50,6 +51,7 @@ GWindow* GWindow::Instance() {
     if(lType == "QML_SIGNAL") return GWindowQmlSignal::Instance();
     if(lType == "QML_CONSOLE") return GWindowQmlConsole::Instance();
     if(lType == "QML_EVENT_PRESSED") return GWindowQmlEventPressed::Instance();
+    if(lType == "QML_EVENT_HOVER") return GWindowQmlEventHover::Instance();
     return GWindowSimple::Instance();
 }
 //===============================================

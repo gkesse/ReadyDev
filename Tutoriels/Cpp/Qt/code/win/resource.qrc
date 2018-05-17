@@ -30,6 +30,9 @@
         <file alias="GWindowQmlEventPressed.qml">res/qml/GWindowQmlEventPressed.qml</file>
         <file alias="GWindowQmlEventPressedForm.ui.qml">res/qml/GWindowQmlEventPressedForm.ui.qml</file>
         <file alias="GObjEventPressed.qml">res/qml/GObjEventPressed.qml</file>
+        <file alias="GObjEventHover.qml">res/qml/GObjEventHover.qml</file>
+        <file alias="GWindowQmlEventHover.qml">res/qml/GWindowQmlEventHover.qml</file>
+        <file alias="GWindowQmlEventHoverForm.ui.qml">res/qml/GWindowQmlEventHoverForm.ui.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file alias="login_bg.png">res/img/login_bg.png</file>
