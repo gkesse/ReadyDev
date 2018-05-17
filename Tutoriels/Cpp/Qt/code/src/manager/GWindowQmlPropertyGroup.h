@@ -3,7 +3,6 @@
 #define _GWindowQmlPropertyGroup_
 //===============================================
 #include "GWindow.h"
-#include <QQmlApplicationEngine>
 //===============================================
 namespace Ui {
 class GWindowQmlPropertyGroup;

@@ -3,7 +3,6 @@
 #define _GWindowQml_
 //===============================================
 #include "GWindow.h"
-#include <QQmlApplicationEngine>
 //===============================================
 namespace Ui {
 class GWindowQml;

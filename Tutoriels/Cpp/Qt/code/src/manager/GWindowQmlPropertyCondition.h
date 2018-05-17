@@ -3,7 +3,6 @@
 #define _GWindowQmlPropertyCondition_
 //===============================================
 #include "GWindow.h"
-#include <QQmlApplicationEngine>
 //===============================================
 namespace Ui {
 class GWindowQmlPropertyCondition;

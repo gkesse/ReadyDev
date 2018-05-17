@@ -14,6 +14,7 @@ INPUT(
 ./build\GWindowQmlButtonText.o
 ./build\GWindowQmlButtonIcon.o
 ./build\GWindowQmlPropertyGroup.o
+./build\GWindowQmlObj.o
 ./build\main.o
 ./build\qrc_resource.o
 ./build\moc_GWindowSimple.o

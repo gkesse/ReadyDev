@@ -13,6 +13,7 @@
 #include "GWindowQmlPropertyGroup.h"
 #include "GWindowQmlButtonText.h"
 #include "GWindowQmlButtonIcon.h"
+#include "GWindowQmlObj.h"
 #include "GConfig.h"
 //===============================================
 GWindow* GWindow::m_instance = 0;
@@ -39,6 +40,7 @@ GWindow* GWindow::Instance() {
     if(lType == "QML_PROPERTY_GROUP") return GWindowQmlPropertyGroup::Instance();
     if(lType == "QML_BUTTON_TEXT") return GWindowQmlButtonText::Instance();
     if(lType == "QML_BUTTON_ICON") return GWindowQmlButtonIcon::Instance();
+    if(lType == "QML_OBJ") return GWindowQmlObj::Instance();
     if(lType == "RESOURCE") return GWindowResource::Instance();
     return GWindowSimple::Instance();
 }

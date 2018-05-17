@@ -3,7 +3,6 @@
 #define _GWindowQmlPropertyBind_
 //===============================================
 #include "GWindow.h"
-#include <QQmlApplicationEngine>
 //===============================================
 namespace Ui {
 class GWindowQmlPropertyBind;

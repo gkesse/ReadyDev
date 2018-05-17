@@ -16,6 +16,10 @@
         <file alias="GWindowQmlButtonIconForm.ui.qml">res/qml/GWindowQmlButtonIconForm.ui.qml</file>
         <file alias="GWindowQmlPropertyGroup.qml">res/qml/GWindowQmlPropertyGroup.qml</file>
         <file alias="GWindowQmlPropertyGroupForm.ui.qml">res/qml/GWindowQmlPropertyGroupForm.ui.qml</file>
+        <file alias="GObjButton.qml">res/qml/GObjButton.qml</file>
+        <file alias="GWindowQmlObj.qml">res/qml/GWindowQmlObj.qml</file>
+        <file alias="GWindowQmlObjForm.ui.qml">res/qml/GWindowQmlObjForm.ui.qml</file>
+        <file alias="GObjButtonForm.ui.qml">res/qml/GObjButtonForm.ui.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file alias="login_bg.png">res/img/login_bg.png</file>

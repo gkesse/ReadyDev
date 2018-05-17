@@ -28,7 +28,7 @@ Rectangle {
             id: m_buttonText
             x: 5 + m_buttonIcon.width + 5
             y: m_buttonIcon.y
-            text: qsTr("Text")
+            text: qsTr("Créer")
             font.pixelSize: 20
             color: "#ffffffff"
         }

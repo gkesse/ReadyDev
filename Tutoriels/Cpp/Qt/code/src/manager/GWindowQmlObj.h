@@ -1,24 +1,24 @@
 //===============================================
-#ifndef _GWindowQmlRect_
-#define _GWindowQmlRect_
+#ifndef _GWindowQmlObj_
+#define _GWindowQmlObj_
 //===============================================
 #include "GWindow.h"
 //===============================================
 namespace Ui {
-class GWindowQmlRect;
+class GWindowQmlObj;
 }
 //===============================================
-class GWindowQmlRect : public GWindow {
+class GWindowQmlObj : public GWindow {
 public:
-    GWindowQmlRect();
-    ~GWindowQmlRect();
+    GWindowQmlObj();
+    ~GWindowQmlObj();
 
 public:
-    static GWindowQmlRect* Instance();
+    static GWindowQmlObj* Instance();
     void run();
 
 private:
-    static GWindowQmlRect* m_instance;
+    static GWindowQmlObj* m_instance;
     QQmlApplicationEngine m_engine;
 };
 //===============================================
