@@ -8,7 +8,7 @@ Rectangle {
     color: "#051039"
 
     Rectangle {
-        id: button
+        id: m_button
         width: 5 + m_buttonText.height + 5 + m_buttonText.width + 5
         height: 5 + m_buttonText.height + 5
         color: "#33ffffff"
