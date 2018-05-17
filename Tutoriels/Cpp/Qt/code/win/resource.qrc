@@ -8,6 +8,10 @@
         <file alias="GWindowQmlPropertyBindForm.ui.qml">res/qml/GWindowQmlPropertyBindForm.ui.qml</file>
         <file alias="GWindowQmlPropertyConditionForm.ui.qml">res/qml/GWindowQmlPropertyConditionForm.ui.qml</file>
         <file alias="GWindowQmlPropertyCondition.qml">res/qml/GWindowQmlPropertyCondition.qml</file>
+        <file alias="GWindowQmlPropertyFunction.qml">res/qml/GWindowQmlPropertyFunction.qml</file>
+        <file alias="GWindowQmlPropertyFunctionForm.ui.qml">res/qml/GWindowQmlPropertyFunctionForm.ui.qml</file>
+        <file alias="GWindowQmlButtonTextForm.ui.qml">res/qml/GWindowQmlButtonTextForm.ui.qml</file>
+        <file alias="GWindowQmlButtonText.qml">res/qml/GWindowQmlButtonText.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file alias="login_bg.png">res/img/login_bg.png</file>

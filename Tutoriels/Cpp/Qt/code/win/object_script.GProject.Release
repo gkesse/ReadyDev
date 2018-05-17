@@ -10,6 +10,8 @@ INPUT(
 ./build\GWindowQmlRect.o
 ./build\GWindowQmlPropertyBind.o
 ./build\GWindowQmlPropertyCondition.o
+./build\GWindowQmlPropertyFunction.o
+./build\GWindowQmlButtonText.o
 ./build\main.o
 ./build\qrc_resource.o
 ./build\moc_GWindowSimple.o
