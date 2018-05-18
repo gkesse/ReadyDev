@@ -35,6 +35,10 @@
         <file alias="GWindowQmlEventHoverForm.ui.qml">res/qml/GWindowQmlEventHoverForm.ui.qml</file>
         <file alias="GWindowQmlEventMouseButton.qml">res/qml/GWindowQmlEventMouseButton.qml</file>
         <file alias="GObjEventMouseButton.qml">res/qml/GObjEventMouseButton.qml</file>
+        <file alias="GObjPropertyCreate.qml">res/qml/GObjPropertyCreate.qml</file>
+        <file alias="GWindowQmlPropertyCreate.qml">res/qml/GWindowQmlPropertyCreate.qml</file>
+        <file alias="GObjPropertyAlias.qml">res/qml/GObjPropertyAlias.qml</file>
+        <file alias="GWindowQmlPropertyAlias.qml">res/qml/GWindowQmlPropertyAlias.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file alias="login_bg.png">res/img/login_bg.png</file>

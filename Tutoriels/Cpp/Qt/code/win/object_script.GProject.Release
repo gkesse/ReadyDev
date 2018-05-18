@@ -21,6 +21,8 @@ INPUT(
 ./build\GWindowQmlEventPressed.o
 ./build\GWindowQmlEventHover.o
 ./build\GWindowQmlEventMouseButton.o
+./build\GWindowQmlPropertyCreate.o
+./build\GWindowQmlPropertyAlias.o
 ./build\main.o
 ./build\qrc_resource.o
 ./build\moc_GWindowSimple.o

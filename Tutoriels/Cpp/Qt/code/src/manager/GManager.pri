@@ -24,7 +24,9 @@ HEADERS += \
     $$PWD/GWindowQmlSignal.h \
     $$PWD/GWindowQmlEventPressed.h \
     $$PWD/GWindowQmlEventHover.h \
-    $$PWD/GWindowQmlEventMouseButton.h
+    $$PWD/GWindowQmlEventMouseButton.h \
+    $$PWD/GWindowQmlPropertyCreate.h \
+    $$PWD/GWindowQmlPropertyAlias.h
 
 SOURCES += \
     $$PWD/GConfig.cpp \
@@ -48,7 +50,9 @@ SOURCES += \
     $$PWD/GWindowQmlSignal.cpp \
     $$PWD/GWindowQmlEventPressed.cpp \
     $$PWD/GWindowQmlEventHover.cpp \
-    $$PWD/GWindowQmlEventMouseButton.cpp
+    $$PWD/GWindowQmlEventMouseButton.cpp \
+    $$PWD/GWindowQmlPropertyCreate.cpp \
+    $$PWD/GWindowQmlPropertyAlias.cpp
 
 FORMS += \
     $$PWD/GWindowSimple.ui \

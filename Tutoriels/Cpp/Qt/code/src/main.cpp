@@ -5,7 +5,7 @@
 //===============================================
 int main(int argc, char** argv) {
     QApplication lApp(argc, argv);
-    GConfig::Instance()->setData("WINDOW_TYPE", "QML_EVENT_MOUSE_BUTTON");
+    GConfig::Instance()->setData("WINDOW_TYPE", "QML_PROPERTY_ALIAS");
     GWindow::Instance()->run();
     return lApp.exec();
 }

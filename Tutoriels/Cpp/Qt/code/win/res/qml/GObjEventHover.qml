@@ -4,7 +4,7 @@ Rectangle {
     id: m_button
     clip: true
     implicitWidth: Math.max(5 + m_buttonContent.implicitWidth + 5, 80)
-    implicitHeight: 5+ m_buttonContent.implicitHeight + 5
+    implicitHeight: 5 + m_buttonContent.implicitHeight + 5
     color: {
         if(m_buttonMouseArea.containsMouse) {
             if(m_buttonMouseArea.pressed) {

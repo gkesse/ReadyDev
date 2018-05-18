@@ -2,20 +2,25 @@ import QtQuick 2.5
 
 Rectangle {
     id: m_button
+    property color m_bgReleasedColor: "#33ffffff"
+    property color m_bgPressedColor: "#66ffffff"
+    property color m_textColor: "white"
+    property alias pressed: m_buttonMouseArea.pressed
+    property alias containsMouse: m_buttonMouseArea.containsMouse
     clip: true
     implicitWidth: Math.max(5 + m_buttonContent.implicitWidth + 5, 80)
     implicitHeight: 5 + m_buttonContent.implicitHeight + 5
     color: {
-        if(m_buttonMouseArea.containsMouse) {
-            if(m_buttonMouseArea.pressed) {
-                return "#33ffffff";
+        if(m_button.containsMouse) {
+            if(m_button.pressed) {
+                return m_button.m_bgReleasedColor;
             }
             else {
-                return "#66ffffff";
+                return m_button.m_bgPressedColor
             }
         }
         else {
-            return "#33ffffff";
+            return m_button.m_bgReleasedColor;
         }
     }
 
@@ -35,7 +40,7 @@ Rectangle {
 
         Text {
             id: m_buttonText
-            color: "#ffffff"
+            color: m_button.m_textColor
             text: qsTr("Button")
             font.pixelSize: 18
         }
