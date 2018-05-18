@@ -18,11 +18,15 @@ public:
     virtual void updateCamera(int width, int height);
     virtual void updateDraw();
     virtual void draw();
+    //===============================================
     virtual void handleEvents(SDL_Event* event);
     virtual void onKeyDown(SDL_Event* event);
     virtual void onMouseMotion(SDL_Event* event);
     virtual void onMouseButtonDown(SDL_Event* event);
     virtual void onMouseWheel(SDL_Event* event);
+    //===============================================
+    virtual void onKeyPress(QKeyEvent* event);
+    //===============================================
 
 private:
     static GDraw* m_instance;

@@ -1,6 +1,7 @@
 //===============================================
 #include "GWindowQtForm.h"
 #include "ui_GWindowQtForm.h"
+#include "GDraw.h"
 //===============================================
 GWindowQtForm::GWindowQtForm(QWidget *parent) :
     QWidget(parent), ui(new Ui::GWindowQtForm) {
@@ -30,5 +31,9 @@ void GWindowQtForm::createObjects() {
 void GWindowQtForm::createConnections() {
     connect(ui->m_photoButton, SIGNAL(clicked()), ui->m_glWindow, SLOT(slotPhotoClicked()));
     connect(ui->m_animateButton, SIGNAL(clicked()), ui->m_glWindow, SLOT(slotAnimateClicked()));
+}
+//===============================================
+void GWindowQtForm::keyPressEvent(QKeyEvent* event) {
+    GDraw::Instance()->onKeyPress(event);
 }
 //===============================================

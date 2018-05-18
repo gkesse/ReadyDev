@@ -52,9 +52,12 @@ void GDraw::initCamera(int width, int height) {}
 void GDraw::updateCamera(int width, int height) {}
 void GDraw::updateDraw() {}
 void GDraw::draw() {}
+//===============================================
 void GDraw::handleEvents(SDL_Event* event) {}
 void GDraw::onKeyDown(SDL_Event* event) {}
 void GDraw::onMouseMotion(SDL_Event* event) {}
 void GDraw::onMouseButtonDown(SDL_Event* event) {}
 void GDraw::onMouseWheel(SDL_Event* event) {}
+//===============================================
+void GDraw::onKeyPress(QKeyEvent* event) {}
 //===============================================

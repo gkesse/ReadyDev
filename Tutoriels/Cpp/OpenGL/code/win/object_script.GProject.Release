@@ -87,6 +87,7 @@ INPUT(
 ./build\GDrawQtLightMultiPosition.o
 ./build\GObjPlane.o
 ./build\GObjPig.o
+./build\GDrawQtEvent.o
 ./build\main.o
 ./build\moc_GWindowQtForm.o
 ./build\moc_GWindowQtFormGL.o

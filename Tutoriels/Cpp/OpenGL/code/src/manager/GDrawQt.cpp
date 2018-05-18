@@ -5,6 +5,7 @@
 #include "GDrawQtRead.h"
 #include "GDrawQtLayout.h"
 #include "GDrawQtBind.h"
+#include "GDrawQtEvent.h"
 #include "GDrawQtUniform.h"
 #include "GDrawQtUniformBlock.h"
 #include "GDrawQtSubRoutine.h"
@@ -37,6 +38,7 @@ GDrawQt* GDrawQt::Instance() {
     if(m_type == "READ") return GDrawQtRead::Instance();
     if(m_type == "LAYOUT") return GDrawQtLayout::Instance();
     if(m_type == "BIND") return GDrawQtBind::Instance();
+    if(m_type == "EVENT") return GDrawQtEvent::Instance();
     if(m_type == "UNIFORM") return GDrawQtUniform::Instance();
     if(m_type == "UNIFORM_BLOCK") return GDrawQtUniformBlock::Instance();
     if(m_type == "SUB_ROUTINE") return GDrawQtSubRoutine::Instance();

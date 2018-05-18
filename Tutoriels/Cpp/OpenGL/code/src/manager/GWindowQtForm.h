@@ -23,6 +23,9 @@ private:
     void createObjects();
     void createConnections();
 
+protected:
+    void keyPressEvent(QKeyEvent* event);
+
 private:
     Ui::GWindowQtForm* ui;
     int m_x;
