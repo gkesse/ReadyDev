@@ -20,6 +20,7 @@ INPUT(
 ./build\GWindowQmlSignal.o
 ./build\GWindowQmlEventPressed.o
 ./build\GWindowQmlEventHover.o
+./build\GWindowQmlEventMouseButton.o
 ./build\main.o
 ./build\qrc_resource.o
 ./build\moc_GWindowSimple.o

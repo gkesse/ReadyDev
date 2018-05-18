@@ -5,7 +5,7 @@
 //===============================================
 int main(int argc, char** argv) {
     QApplication lApp(argc, argv);
-    GConfig::Instance()->setData("WINDOW_TYPE", "QML_EVENT_HOVER");
+    GConfig::Instance()->setData("WINDOW_TYPE", "QML_EVENT_MOUSE_BUTTON");
     GWindow::Instance()->run();
     return lApp.exec();
 }
