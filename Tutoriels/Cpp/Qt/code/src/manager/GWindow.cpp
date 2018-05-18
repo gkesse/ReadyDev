@@ -13,6 +13,7 @@
 #include "GWindowQmlPropertyGroup.h"
 #include "GWindowQmlPropertyCreate.h"
 #include "GWindowQmlPropertyAlias.h"
+#include "GWindowQmlPropertyChanged.h"
 #include "GWindowQmlButtonText.h"
 #include "GWindowQmlButtonIcon.h"
 #include "GWindowQmlObj.h"
@@ -49,6 +50,7 @@ GWindow* GWindow::Instance() {
     if(lType == "QML_PROPERTY_GROUP") return GWindowQmlPropertyGroup::Instance();
     if(lType == "QML_PROPERTY_CREATE") return GWindowQmlPropertyCreate::Instance();
     if(lType == "QML_PROPERTY_ALIAS") return GWindowQmlPropertyAlias::Instance();
+    if(lType == "QML_PROPERTY_CHANGED") return GWindowQmlPropertyChanged::Instance();
     if(lType == "QML_BUTTON_TEXT") return GWindowQmlButtonText::Instance();
     if(lType == "QML_BUTTON_ICON") return GWindowQmlButtonIcon::Instance();
     if(lType == "QML_OBJ") return GWindowQmlObj::Instance();

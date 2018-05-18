@@ -1,24 +1,24 @@
 //===============================================
-#include "GWindowQmlPropertyAlias.h"
+#include "GWindowQmlPropertyChanged.h"
 //===============================================
-GWindowQmlPropertyAlias* GWindowQmlPropertyAlias::m_instance = 0;
+GWindowQmlPropertyChanged* GWindowQmlPropertyChanged::m_instance = 0;
 //===============================================
-GWindowQmlPropertyAlias::GWindowQmlPropertyAlias() {
+GWindowQmlPropertyChanged::GWindowQmlPropertyChanged() {
 
 }
 //===============================================
-GWindowQmlPropertyAlias::~GWindowQmlPropertyAlias() {
+GWindowQmlPropertyChanged::~GWindowQmlPropertyChanged() {
 
 }
 //===============================================
-GWindowQmlPropertyAlias* GWindowQmlPropertyAlias::Instance() {
+GWindowQmlPropertyChanged* GWindowQmlPropertyChanged::Instance() {
     if(m_instance == 0) {
-        m_instance = new GWindowQmlPropertyAlias;
+        m_instance = new GWindowQmlPropertyChanged;
     }
     return m_instance;
 }
 //===============================================
-void GWindowQmlPropertyAlias::run() {
-    m_engine.load(QUrl(QStringLiteral("qrc:/qml/GWindowQmlPropertyAlias.qml")));
+void GWindowQmlPropertyChanged::run() {
+    m_engine.load(QUrl(QStringLiteral("qrc:/qml/GWindowQmlPropertyChanged.qml")));
 }
 //===============================================
