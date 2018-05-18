@@ -43,11 +43,13 @@
         <file alias="GWindowQmlPropertyChanged.qml">res/qml/GWindowQmlPropertyChanged.qml</file>
         <file alias="GWindowQmlEventDrag.qml">res/qml/GWindowQmlEventDrag.qml</file>
         <file alias="GObjEventDrag.qml">res/qml/GObjEventDrag.qml</file>
+        <file alias="GWindowQmlEventPinch.qml">res/qml/GWindowQmlEventPinch.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file alias="login_bg.png">res/img/login_bg.png</file>
         <file alias="logo.png">res/img/logo.png</file>
         <file alias="restart_icon.png">res/img/restart_icon.png</file>
         <file alias="shutdown_icon.png">res/img/shutdown_icon.png</file>
+        <file alias="wilanow.jpg">res/img/wilanow.jpg</file>
     </qresource>
 </RCC>

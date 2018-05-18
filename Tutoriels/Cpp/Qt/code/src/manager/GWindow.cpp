@@ -24,6 +24,7 @@
 #include "GWindowQmlEventHover.h"
 #include "GWindowQmlEventMouseButton.h"
 #include "GWindowQmlEventDrag.h"
+#include "GWindowQmlEventPinch.h"
 #include "GConfig.h"
 //===============================================
 GWindow* GWindow::m_instance = 0;
@@ -62,6 +63,7 @@ GWindow* GWindow::Instance() {
     if(lType == "QML_EVENT_HOVER") return GWindowQmlEventHover::Instance();
     if(lType == "QML_EVENT_MOUSE_BUTTON") return GWindowQmlEventMouseButton::Instance();
     if(lType == "QML_EVENT_DRAG") return GWindowQmlEventDrag::Instance();
+    if(lType == "QML_EVENT_PINCH") return GWindowQmlEventPinch::Instance();
     return GWindowSimple::Instance();
 }
 //===============================================

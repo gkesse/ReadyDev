@@ -25,6 +25,7 @@ INPUT(
 ./build\GWindowQmlPropertyAlias.o
 ./build\GWindowQmlPropertyChanged.o
 ./build\GWindowQmlEventDrag.o
+./build\GWindowQmlEventPinch.o
 ./build\main.o
 ./build\qrc_resource.o
 ./build\moc_GWindowSimple.o
