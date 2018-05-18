@@ -2,9 +2,9 @@ import QtQuick 2.5
 
 Rectangle {
     id: m_button
-    property color m_bgReleasedColor: "#33ffffff"
-    property color m_bgPressedColor: "#66ffffff"
-    property color m_textColor: "white"
+    property color backgroundReleasedColor: "#33ffffff"
+    property color backgroundPressedColor: "#66ffffff"
+    property color textColor: "white"
     property alias pressed: m_buttonMouseArea.pressed
     property alias containsMouse: m_buttonMouseArea.containsMouse
     clip: true
@@ -13,14 +13,14 @@ Rectangle {
     color: {
         if(m_button.containsMouse) {
             if(m_button.pressed) {
-                return m_button.m_bgReleasedColor;
+                return m_button.backgroundReleasedColor;
             }
             else {
-                return m_button.m_bgPressedColor
+                return m_button.backgroundPressedColor
             }
         }
         else {
-            return m_button.m_bgReleasedColor;
+            return m_button.backgroundReleasedColor;
         }
     }
 
@@ -40,7 +40,7 @@ Rectangle {
 
         Text {
             id: m_buttonText
-            color: m_button.m_textColor
+            color: m_button.textColor
             text: qsTr("Button")
             font.pixelSize: 18
         }
@@ -60,9 +60,6 @@ Rectangle {
             case Qt.RightButton: console.log("Button Droite Appuye");
                 break;
             }
-        }
-        onPositionChanged: {
-            console.log("Position: ["+mouse.x+"; "+mouse.y+"]")
         }
     }
 }
