@@ -41,6 +41,8 @@
         <file alias="GWindowQmlPropertyAlias.qml">res/qml/GWindowQmlPropertyAlias.qml</file>
         <file alias="GObjPropertyChanged.qml">res/qml/GObjPropertyChanged.qml</file>
         <file alias="GWindowQmlPropertyChanged.qml">res/qml/GWindowQmlPropertyChanged.qml</file>
+        <file alias="GWindowQmlEventDrag.qml">res/qml/GWindowQmlEventDrag.qml</file>
+        <file alias="GObjEventDrag.qml">res/qml/GObjEventDrag.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file alias="login_bg.png">res/img/login_bg.png</file>

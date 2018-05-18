@@ -5,7 +5,7 @@
 //===============================================
 int main(int argc, char** argv) {
     QApplication lApp(argc, argv);
-    GConfig::Instance()->setData("WINDOW_TYPE", "QML_PROPERTY_CHANGED");
+    GConfig::Instance()->setData("WINDOW_TYPE", "QML_EVENT_DRAG");
     GWindow::Instance()->run();
     return lApp.exec();
 }
