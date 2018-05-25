@@ -62,25 +62,37 @@ void GDrawQtCamara::draw() {
 }
 //===============================================
 void GDrawQtCamara::onKeyPress(QKeyEvent* event) {
-    switch (event->key()) {
-    case Qt::Key_8:
+    // Camera Move
+    if(event->key() == Qt::Key_8) {
         GCamera::Instance()->move("UP");
-        break;
-    case Qt::Key_2:
+    }
+    if(event->key() == Qt::Key_2) {
         GCamera::Instance()->move("DOWN");
-        break;
-    case Qt::Key_Up:
+    }
+    if(event->key() == Qt::Key_Up) {
         GCamera::Instance()->move("FORWARD");
-        break;
-    case Qt::Key_Down:
+    }
+    if(event->key() == Qt::Key_Down) {
         GCamera::Instance()->move("BACKWARD");
-        break;
-    case Qt::Key_Left:
+    }
+    if(event->key() == Qt::Key_Left) {
         GCamera::Instance()->move("LEFT");
-        break;
-    case Qt::Key_Right:
+    }
+    if(event->key() == Qt::Key_Right) {
         GCamera::Instance()->move("RIGHT");
-        break;
+    }
+    // Camera Rotate
+    if(event->key() == Qt::Key_Z) {
+        GCamera::Instance()->rotate("UP");
+    }
+    if(event->key() == Qt::Key_W) {
+        GCamera::Instance()->rotate("DOWN");
+    }
+    if(event->key() == Qt::Key_Q) {
+        GCamera::Instance()->rotate("LEFT");
+    }
+    if(event->key() == Qt::Key_S) {
+        GCamera::Instance()->rotate("RIGHT");
     }
 }
 //===============================================
