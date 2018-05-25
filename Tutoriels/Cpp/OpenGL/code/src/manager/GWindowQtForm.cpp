@@ -26,6 +26,7 @@ void GWindowQtForm::createObjects() {
     lFormat.setVersion(4,0);
     lFormat.setProfile(QGLFormat::CoreProfile);
     ui->m_glWindow->setFormat(lFormat);
+    setFocus();
 }
 //===============================================
 void GWindowQtForm::createConnections() {

@@ -103,7 +103,8 @@ HEADERS += \
     $$PWD/GDrawQtLightMultiPosition.h \
     $$PWD/GObjPlane.h \
     $$PWD/GObjPig.h \
-    $$PWD/GDrawQtEvent.h
+    $$PWD/GDrawQtEvent.h \
+    $$PWD/GDrawQtCamara.h
 
 SOURCES += \
     $$PWD/GWindow.cpp \
@@ -193,7 +194,8 @@ SOURCES += \
     $$PWD/GDrawQtLightMultiPosition.cpp \
     $$PWD/GObjPlane.cpp \
     $$PWD/GObjPig.cpp \
-    $$PWD/GDrawQtEvent.cpp
+    $$PWD/GDrawQtEvent.cpp \
+    $$PWD/GDrawQtCamara.cpp
 
 FORMS += \
     $$PWD/GWindowQtForm.ui

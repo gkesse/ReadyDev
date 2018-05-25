@@ -88,6 +88,7 @@ INPUT(
 ./build\GObjPlane.o
 ./build\GObjPig.o
 ./build\GDrawQtEvent.o
+./build\GDrawQtCamara.o
 ./build\main.o
 ./build\moc_GWindowQtForm.o
 ./build\moc_GWindowQtFormGL.o

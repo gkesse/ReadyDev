@@ -1,27 +1,27 @@
 //===============================================
-#include "GDrawQtEvent.h"
+#include "GDrawQtCamara.h"
 #include "GShader.h"
 #include "GCamera.h"
 #include "GLight.h"
 //===============================================
-GDrawQtEvent* GDrawQtEvent::m_instance = 0;
+GDrawQtCamara* GDrawQtCamara::m_instance = 0;
 //===============================================
-GDrawQtEvent::GDrawQtEvent() {
+GDrawQtCamara::GDrawQtCamara() {
 
 }
 //===============================================
-GDrawQtEvent::~GDrawQtEvent() {
+GDrawQtCamara::~GDrawQtCamara() {
 
 }
 //===============================================
-GDrawQtEvent* GDrawQtEvent::Instance() {
+GDrawQtCamara* GDrawQtCamara::Instance() {
     if(m_instance == 0) {
-        m_instance = new GDrawQtEvent;
+        m_instance = new GDrawQtCamara;
     }
     return m_instance;
 }
 //===============================================
-void GDrawQtEvent::initDraw() {
+void GDrawQtCamara::initDraw() {
     GShaderInfo  m_shaders[] = {
         {GL_VERTEX_SHADER, "res/shaders/4.0/color_light_two_side_mix.vert", 0},
         {GL_FRAGMENT_SHADER, "res/shaders/4.0/color_light_two_side_mix.frag", 0},
@@ -36,21 +36,21 @@ void GDrawQtEvent::initDraw() {
     m_angle = 0.0f;
 }
 //===============================================
-void GDrawQtEvent::initCamera(int width, int height) {
+void GDrawQtCamara::initCamera(int width, int height) {
     GCamera::Instance()->initCamera(glm::vec3(5.0f,1.0f,10.0f), glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,1.0f,0.0f), 5.0f, 0.5f);
     GCamera::Instance()->perspective(m_projection, width, height);
 }
 //===============================================
-void GDrawQtEvent::updateCamera(int w, int h) {
+void GDrawQtCamara::updateCamera(int w, int h) {
     GCamera::Instance()->perspective(m_projection, w, h);
 }
 //===============================================
-void GDrawQtEvent::updateDraw() {
+void GDrawQtCamara::updateDraw() {
     m_angle += 1.0f;
     if(m_angle >= 360.0f) {m_angle -= 360.0f;}
 }
 //===============================================
-void GDrawQtEvent::draw() {
+void GDrawQtCamara::draw() {
     glm::mat4 lView;
     GCamera::Instance()->lookAt(lView);
     m_modelView = lView;
@@ -61,25 +61,25 @@ void GDrawQtEvent::draw() {
     m_objTeapot->draw(m_program, m_projection, m_modelView);
 }
 //===============================================
-void GDrawQtEvent::onKeyPress(QKeyEvent* event) {
+void GDrawQtCamara::onKeyPress(QKeyEvent* event) {
     switch (event->key()) {
     case Qt::Key_8:
-        cout << "Key_8\n";
+        GCamera::Instance()->move("UP");
         break;
     case Qt::Key_2:
-        cout << "Key_2\n";
+        GCamera::Instance()->move("DOWN");
         break;
     case Qt::Key_Up:
-        cout << "Key_Up\n";
+        GCamera::Instance()->move("FORWARD");
         break;
     case Qt::Key_Down:
-        cout << "Key_Down\n";
+        GCamera::Instance()->move("BACKWARD");
         break;
     case Qt::Key_Left:
-        cout << "Key_Left\n";
+        GCamera::Instance()->move("LEFT");
         break;
     case Qt::Key_Right:
-        cout << "Key_Right\n";
+        GCamera::Instance()->move("RIGHT");
         break;
     }
 }
