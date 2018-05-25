@@ -18,6 +18,7 @@
 #include "GDrawQtLightFlat.h"
 #include "GDrawQtLightSmooth.h"
 #include "GDrawQtLightMultiPosition.h"
+#include "GDrawQtLightDirectional.h"
 #include "GDrawQtTexture.h"
 #include "GDrawQtFragDiscard.h"
 #include "GConfig.h"
@@ -52,6 +53,7 @@ GDrawQt* GDrawQt::Instance() {
     if(m_type == "LIGHT_FLAT") return GDrawQtLightFlat::Instance();
     if(m_type == "LIGHT_SMOOTH") return GDrawQtLightSmooth::Instance();
     if(m_type == "LIGHT_MULTI_POSITION") return GDrawQtLightMultiPosition::Instance();
+    if(m_type == "LIGHT_DIRECTIONAL") return GDrawQtLightDirectional::Instance();
     if(m_type == "TEXTURE") return GDrawQtTexture::Instance();
     if(m_type == "FRAG_DISCARD") return GDrawQtFragDiscard::Instance();
     return 0;

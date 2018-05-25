@@ -1,19 +1,18 @@
 //===============================================
-#ifndef _GDrawQtLightMultiPosition_
-#define _GDrawQtLightMultiPosition_
+#ifndef _GDrawQtLightDirectional_
+#define _GDrawQtLightDirectional_
 //================================================
 #include "GInclude.h"
 #include "GDrawQt.h"
-#include "GObjPlane.h"
-#include "GObjPig.h"
+#include "GObjTorus.h"
 //===============================================
-class GDrawQtLightMultiPosition : public GDrawQt {
+class GDrawQtLightDirectional : public GDrawQt {
 public:
-    GDrawQtLightMultiPosition();
-    ~GDrawQtLightMultiPosition();
+    GDrawQtLightDirectional();
+    ~GDrawQtLightDirectional();
 
 public:
-    static GDrawQtLightMultiPosition* Instance();
+    static GDrawQtLightDirectional* Instance();
     void initDraw();
     void initCamera(int width, int height);
     void updateCamera(int w, int h);
@@ -22,12 +21,11 @@ public:
     void onKeyPress(QKeyEvent* event);
 
 private:
-    static GDrawQtLightMultiPosition* m_instance;
+    static GDrawQtLightDirectional* m_instance;
     GLuint m_program;
     glm::mat4 m_projection;
     glm::mat4 m_modelView;
-    GObjPlane* m_objPlane;
-    GObjPig* m_objPig;
+    GObjTorus* m_objTorus;
     float m_angle;
 };
 //===============================================

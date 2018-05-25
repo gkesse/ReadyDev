@@ -104,7 +104,8 @@ HEADERS += \
     $$PWD/GObjPlane.h \
     $$PWD/GObjPig.h \
     $$PWD/GDrawQtEvent.h \
-    $$PWD/GDrawQtCamara.h
+    $$PWD/GDrawQtCamara.h \
+    $$PWD/GDrawQtLightDirectional.h
 
 SOURCES += \
     $$PWD/GWindow.cpp \
@@ -195,7 +196,8 @@ SOURCES += \
     $$PWD/GObjPlane.cpp \
     $$PWD/GObjPig.cpp \
     $$PWD/GDrawQtEvent.cpp \
-    $$PWD/GDrawQtCamara.cpp
+    $$PWD/GDrawQtCamara.cpp \
+    $$PWD/GDrawQtLightDirectional.cpp
 
 FORMS += \
     $$PWD/GWindowQtForm.ui
