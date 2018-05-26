@@ -10,6 +10,24 @@ var GConnection = (function() {
 
             },
             //===============================================
+            openConnection: function(obj) {
+				var lModalConnection = document.getElementById("ModalConnection");
+				var lModalConnectionBody = document.getElementById("ModalConnectionBody");
+				var lClassName = lModalConnectionBody.className;
+				lModalConnectionBody.className = lClassName.replace(" ModalAnimHide", " ModalAnimShow");
+				lModalConnection.style.display = "block";
+            },
+            //===============================================
+            closeConnection: function(obj) {
+				var lModalConnection = document.getElementById("ModalConnection");
+				var lModalConnectionBody = document.getElementById("ModalConnectionBody");
+				var lClassName = lModalConnectionBody.className;
+				lModalConnectionBody.className = lClassName.replace(" ModalAnimShow", " ModalAnimHide");
+				setTimeout(function() {
+					lModalConnection.style.display = "none";
+				}, 400);
+            },
+            //===============================================
             openDisconnection: function(obj) {
 				var lModalDisconnection = document.getElementById("ModalDisconnection");
 				//var lModalDisconnectionCtn = document.getElementById("ModalDisconnectionCtn");

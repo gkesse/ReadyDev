@@ -1,6 +1,6 @@
 <!-- ============================================ -->
 <div class="Modal Connection" id="ModalConnection" onkeypress="keyConnection(this, event)">
-    <div class="Body">
+    <div class="Body" id="ModalConnectionBody">
         <div class="Button Close" onclick="closeConnection(this)"><i class="fa fa-close"></i></div>
         <div class="Title">Connexion</div>
         <form class="Text" id="ConnectionForm" method="post">

@@ -359,6 +359,7 @@ b {
     background-image: url("<?php echo $lStyle["modal"]["img"]; ?>");
     background-color: rgba(255,255,255,0.2);
     overflow: auto;
+    text-align: left;
 }
 
 .Modal .Body {
@@ -376,8 +377,6 @@ b {
 }
 
 .Modal .Body .Text {
-    background-color: rgba(255,255,255,0.2);
-    border-top: 1px solid rgba(255,255,255,0.2);
     padding: 10px;
 }
 
@@ -386,13 +385,12 @@ b {
 }
 
 .Modal .Body .Text .Row {
-    background-color: rgba(0,0,0,0.0);
     margin: 4px 0px;
     position: relative;
 }
 
 .Modal .Body .Text .Row .Label {
-    background-color: rgba(0,0,0,0.2);
+    background-color: rgba(255,255,255,0.2);
     min-width: 150px; 
     line-height: 30px;   
     padding: 0px 10px;
@@ -402,47 +400,40 @@ b {
 }
 
 .Modal .Body .Text .Row .Field {
-    background-color: rgba(0,0,0,0.0);
-    border: 1px solid rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.2);
     height: 30px;   
     margin-left: 150px;
 }
 
 .Modal .Body .Text .Row .Field .Data {
-    background-color: rgba(0,0,0,0.0);
-    border: 1px solid rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.2);
     height: 100%;   
     width: 100%;
     padding: 5px 10px;
 }
 
 .Modal .Body .Text .Col {
-    background-color: rgba(0,0,0,0.0);
-    border: 1px solid rgba(0,0,0,0.2);
     margin: 4px 0px;
     position: relative;
 }
 
 .Modal .Body .Text .Col .Label {
-    background-color: rgba(0,0,0,0.2);
+    background-color: rgba(255,255,255,0.2);
     padding: 5px 10px;
 }
 
 .Modal .Body .Text .Col .Label.File {
     background-color: transparent;
-    border: 1px solid rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.2);
     color: #051039;
     font-weight: bold;
 }
 
 .Modal .Body .Text .Col .Field {
-    background-color: rgba(0,0,0,0.0);
-    border: 1px solid rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.2);
 }
 
 .Modal .Body .Text .Col .Field .Data {
-    background-color: rgba(0,0,0,0.0);
-    border: 1px solid rgba(0,0,0,0.0);
     min-height: 300px;   
     padding: 5px 10px;
     overflow: auto; 
@@ -468,7 +459,7 @@ b {
 
 .Modal .Body .Text .ButtonMap .Item {
     display: inline-block;
-    background-color: rgba(0,0,0,0.2);
+    background-color: rgba(255,255,255,0.2);
     padding: 0px 10px;
     line-height: 30px; 
     font-size: 16px;
@@ -477,11 +468,11 @@ b {
 }
 
 .Modal .Body .Text .ButtonMap .Item:hover {
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(255,255,255,0.4);
 }
 
 .Modal .Body .Text .ButtonMap .Item:active {
-    background-color: rgba(0,0,0,0.2);
+    background-color: rgba(255,255,255,0.2);
 }
 
 .Modal .Body .Text .ButtonMap.Left {
@@ -550,7 +541,7 @@ b {
 /* ============================================== */
 
 .Button {
-    background-color: rgba(0,0,0,0.2);
+    background-color: rgba(255,255,255,0.2);
     width: 30px;
     line-height: 30px;
     border-radius: 15px;
@@ -560,11 +551,11 @@ b {
 }
 
 .Button:hover {
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(255,255,255,0.4);
 }
 
 .Button:active {
-    background-color: rgba(0,0,0,0.2);
+    background-color: rgba(255,255,255,0.2);
 }
 
 .Button.Close {
