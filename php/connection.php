@@ -1,6 +1,6 @@
 <!-- ============================================ -->
 <div class="Modal Connection" id="ModalConnection" onkeypress="keyConnection(this, event)">
-    <div class="Body" id="ModalConnectionBody">
+    <div class="Body" id="ConnectionBody">
         <div class="Button Close" onclick="closeConnection(this)"><i class="fa fa-close"></i></div>
         <div class="Title">Connexion</div>
         <form class="Text" id="ConnectionForm" method="post">
@@ -17,8 +17,8 @@
                 <div class="Item" onclick="connect(this)"><i class="fa fa-paper-plane-o"></i> Se Connecter</div>
             </div>
         </form>
+        <div class="Msg" id="ConnectionMsg"></div>
     </div>
-    <div class="Msg" id="ConnectionMsg"></div>
 </div>
 <!-- ============================================ -->
 <div class="Modal Disconnection" id="ModalDisconnection">
