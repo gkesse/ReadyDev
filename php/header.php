@@ -188,31 +188,31 @@
                                     </div>
                                     <div class="fltl">
                                         <a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo $m_url; ?>&title=<?php echo urlencode($lTitle.' | '.$lSiteName); ?>&summary=<?php echo urlencode($lMetaDesc); ?>" target="_blank">
-                                                <i class="ftaa fa fa-linkedin scnb"></i>
-                                            </a>
-                                        </div>
+                                            <i class="ftaa fa fa-linkedin scnb"></i>
+                                        </a>
                                     </div>
-                                    <?php } ?>
-                                    <!-- ============================================ -->
                                 </div>
-                            </div>
-                            <!-- ============================================ -->
-                            <?php if($lExiststLink == true) { ?>
-                            <div class="pdda">
-                                <?php 
-                        for($i = 0; $i < count($lLink); $i++) {
-                            $m_di = $lLink[$i]; 
-                            if($i != 0) { 
-                            ?>
-                                <i class="fa fa-chevron-right pddc dibm mgbb"></i>
                                 <?php } ?>
-                                <a class="ftfb bgra dibm pddc mgbb" href="<?php echo $m_di["link"]; ?>"><?php echo $m_di["name"]; ?></a>
-                                <?php } ?>
+                                <!-- ============================================ -->
                             </div>
-                            <?php } ?>
-                            <!-- ============================================ -->
-                            <?php require $_SERVER["DOCUMENT_ROOT"]."/php/logout.php";  ?>
-                            <!-- ============================================ -->
-                        </header>
+                        </div>
                         <!-- ============================================ -->
+                        <?php if($lExiststLink == true) { ?>
+                        <div class="pdda">
+                            <?php 
+                            for($i = 0; $i < count($lLink); $i++) {
+                                $m_di = $lLink[$i]; 
+                                if($i != 0) { 
+                            ?>
+                            <i class="fa fa-chevron-right pddc dibm mgbb"></i>
+                            <?php } ?>
+                            <a class="ftfb bgra dibm pddc mgbb" href="<?php echo $m_di["link"]; ?>"><?php echo $m_di["name"]; ?></a>
+                            <?php } ?>
+                        </div>
+                        <?php } ?>
+                        <!-- ============================================ -->
+                        <?php require $_SERVER["DOCUMENT_ROOT"]."/php/logout.php";  ?>
+                        <!-- ============================================ -->
+                    </header>
+                    <!-- ============================================ -->
                         
