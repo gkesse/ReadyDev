@@ -6,7 +6,7 @@
     
     $lExiststMenu = GConfig::Instance()->existData("menu");
     if($lExiststMenu == true) {
-        $lMenu = GConfig::Instance()->getData("menu"); 
+        $lCurrentMenu = GConfig::Instance()->getData("menu"); 
     }
     
     $lExiststLink = GConfig::Instance()->existData("link");
@@ -38,18 +38,15 @@
         $lMetaCano = GGlobal::Instance()->getUrl($lMetaCano); 
     }
     $lCodePrettify = GConfig::Instance()->getData("code_prettify");
-    $lHeaderData = GJson::Instance()->getData("data/json/header.json"); 
+    $lHeaderData = GJson::Instance()->getData("data/json/header.json");
+    $lSiteName = $lHeaderData["site"]["name"];    
 ?>
 <!-- ============================================ -->
 <!DOCTYPE html>
 <html lang="fr">
     <head>
-        <?php 
-            $m_ds = $lHeaderData["site"];
-            $m_siteName = $m_ds["name"];
-        ?>
         <!-- ============================================ -->
-        <title><?php echo $lTitle; ?> | <?php echo $m_ds["name"]; ?></title>
+        <title><?php echo $lTitle; ?> | <?php echo $lSiteName; ?></title>
         <meta charset="UTF-8"/>
         <link rel="shortcut icon" type="image/png" href="/img/readydev.png"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
@@ -80,11 +77,11 @@
         <?php if($lExistMetaCano == true) { ?>
         <meta property="og:url" content="<?php echo $lMetaCano; ?>"/>
         <?php } ?>
-        <meta property="og:title" content="<?php echo $lTitle; ?> | <?php echo $m_ds["name"]; ?>"/>
+        <meta property="og:title" content="<?php echo $lTitle; ?> | <?php echo $lSiteName; ?>"/>
         <?php if($lExistMetaDesc == true) { ?>
         <meta property="og:description" content="<?php echo $lMetaDesc; ?>"/>
         <?php } ?>
-        <meta property="og:site_name" content="<?php echo $m_ds["name"]; ?>"/>
+        <meta property="og:site_name" content="<?php echo $lSiteName; ?>"/>
         <!-- ============================================ -->
         <!-- Stylesheet -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aclonica"/>
@@ -131,32 +128,31 @@
                         <ul class="Menu" id="HeaderMenu">
                             <li class="Item">
                                 <a class="Title" href="/">
-                                    <?php echo $m_ds["name"]; ?>
+                                    <?php echo $lSiteName; ?>
                                 </a>
                             </li>
                             <?php 
-                            $m_ds = $lHeaderData["menu"];
-                            for($i = 0; $i < count($m_ds); $i++) { 
-                                $m_di = $m_ds[$i];
-                                $m_active = "";
+                            for($i = 0; $i < count($lHeaderData["menu"]); $i++) { 
+                                $lMenu = $lHeaderData["menu"][$i];
+                                $lActive = "";
                                 if($lExiststMenu == true) {
-                                    if($m_di["name"] == $lMenu) {
-                                        $m_active = " bdbd";
+                                    if($lMenu["name"] == $lCurrentMenu) {
+                                        $lActive = " Active";
                                     }
                                 }
                             ?>
                             <?php 
-                                if($m_di["name"] == "Admin") {
+                                if($lMenu["name"] == "Admin") {
                                     if(!isset($_SESSION["login"])) continue;
                                     else if($_SESSION["login"]["group"] != "admin") continue;
                                 }
-                                else if($m_di["name"] == "Connexion") {
+                                else if($lMenu["name"] == "Connexion") {
                                     if(isset($_SESSION["login"])) continue;
                                 }
                             ?>
                             <li class="Item">
-                                <a class="Link<?php echo $m_active; ?>" href="<?php echo $m_di["link"]; ?>">
-                                    <?php echo $m_di["name"]; ?>
+                                <a class="Link<?php echo $lActive; ?>" href="<?php echo $lMenu["link"]; ?>">
+                                    <?php echo $lMenu["name"]; ?>
                                 </a>
                             </li>
                             <?php } ?>
@@ -191,7 +187,7 @@
                                         </a>
                                     </div>
                                     <div class="fltl">
-                                        <a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo $m_url; ?>&title=<?php echo urlencode($lTitle.' | '.$m_siteName); ?>&summary=<?php echo urlencode($lMetaDesc); ?>" target="_blank">
+                                        <a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo $m_url; ?>&title=<?php echo urlencode($lTitle.' | '.$lSiteName); ?>&summary=<?php echo urlencode($lMetaDesc); ?>" target="_blank">
                                                 <i class="ftaa fa fa-linkedin scnb"></i>
                                             </a>
                                         </div>
