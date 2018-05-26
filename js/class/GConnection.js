@@ -73,18 +73,18 @@ var GConnection = (function() {
                         var lData = this.responseText;
                         var lDataMap = JSON.parse(lData);
                         if(!lDataMap["status"]) {
-                            var lHtml = "<i class='fa fa-exclamation-triangle'></i> "; 
+                            var lHtml = "<i style='color:#ff9933' class='fa fa-exclamation-triangle'></i> "; 
                             lHtml += lDataMap["msg"]; 
                             lConnectionMsg.innerHTML = lHtml;
                             lConnectionMsg.style.color = "#ff9933";
                             lConnectionMsg.style.display = "block";
                         }
                         else {
-                            var lHtml = "<i class='fa fa-check-circle'></i> "; 
+                            var lHtml = "<i style='color:#339933' class='fa fa-paper-plane-o'></i> "; 
                             lHtml += lDataMap["msg"]; 
                             lConnectionMsg.innerHTML = lHtml;
-                            lConnectionMsg.style.display = "block";
                             lConnectionMsg.style.color = "#339933";
+                            lConnectionMsg.style.display = "block";
                             lConnectionForm.submit();
                         }
                     }
@@ -100,17 +100,42 @@ var GConnection = (function() {
             //===============================================
             openDisconnection: function(obj) {
 				var lModalDisconnection = document.getElementById("ModalDisconnection");
-				//var lModalDisconnectionCtn = document.getElementById("ModalDisconnectionCtn");
-				//var lClassName = lModalDisconnectionCtn.className;
-				//lModalDisconnectionCtn.className = lClassName.replace(" ModalAnimHide", " ModalAnimShow");
+				var lDisconnectionBody = document.getElementById("DisconnectionBody");
+				var lClassName = lDisconnectionBody.className;
+				lDisconnectionBody.className = lClassName.replace(" AnimateShow", "");
+				lDisconnectionBody.className = lClassName.replace(" AnimateHide", "");
+                lDisconnectionBody.className += " AnimateShow";
 				lModalDisconnection.style.display = "block";
+            },
+            //===============================================
+            disconnect: function(obj) {
+				var lDisconnectionMsg = document.getElementById("DisconnectionMsg");
+                var lXmlhttp = new XMLHttpRequest();
+                lXmlhttp.onreadystatechange = function() {
+                    if(this.readyState == 4 && this.status == 200) {
+                        var lData = this.responseText;
+                        var lHtml = "<i style='color:#339933' class='fa fa-power-off'></i> "; 
+                        lHtml += lData; 
+                        lDisconnectionMsg.innerHTML = lHtml;
+                        lDisconnectionMsg.style.color = "#339933";
+                        lDisconnectionMsg.style.display = "block";
+                        location.reload();
+                    }
+                }
+                lXmlhttp.open("POST", "/php/req/connection.php", true);
+                lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                lXmlhttp.send(
+					"req="+"DISCONNECT"
+                    );            
             },
             //===============================================
             closeDisconnection: function(obj) {
 				var lModalDisconnection = document.getElementById("ModalDisconnection");
-				var lModalDisconnectionCtn = document.getElementById("ModalDisconnectionCtn");
-				var lClassName = lModalDisconnectionCtn.className;
-				lModalDisconnectionCtn.className = lClassName.replace(" ModalAnimShow", " ModalAnimHide");
+				var lDisconnectionBody = document.getElementById("DisconnectionBody");
+				var lClassName = lDisconnectionBody.className;
+				lDisconnectionBody.className = lClassName.replace(" AnimateShow", "");
+				lDisconnectionBody.className = lClassName.replace(" AnimateHide", "");
+                lDisconnectionBody.className += " AnimateHide";
 				setTimeout(function() {
 					lModalDisconnection.style.display = "none";
 				}, 400);

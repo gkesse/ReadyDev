@@ -22,7 +22,7 @@
 </div>
 <!-- ============================================ -->
 <div class="Modal Disconnection" id="ModalDisconnection">
-    <div class="Body">
+    <div class="Body" id="DisconnectionBody">
         <div class="Button Close" onclick="closeDisconnection(this)"><i class="fa fa-close"></i></div>
         <div class="Title">Déconnexion</div>
         <div class="Text" id="ConnectionForm" method="post" action="">
@@ -31,8 +31,8 @@
                 <div class="Item" onclick="disconnect(this)"><i class="fa fa-power-off"></i> Se Déconnecter</div>
             </div>
         </div>
+        <div class="Msg" id="DisconnectionMsg"></div>
     </div>
-    <div class="Msg" id="DisconnectionMsg"></div>
 </div>
 <!-- ============================================ -->
 <script src="/js/class/GConnection.js"></script>
