@@ -1,0 +1,17 @@
+//===============================================
+function openConnection(obj) {
+	GConnection.Instance().openConnection(obj);
+}
+//===============================================
+function closeConnection(obj) {
+	GConnection.Instance().closeConnection(obj);
+}
+//===============================================
+function openDisconnection(obj) {
+	GConnection.Instance().openDisconnection(obj);
+}
+//===============================================
+function closeDisconnection(obj) {
+	GConnection.Instance().closeDisconnection(obj);
+}
+//===============================================

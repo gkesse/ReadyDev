@@ -109,8 +109,8 @@
         <!-- ============================================ -->
         <link rel="stylesheet" href="/css/style.php"/>
         <!-- ============================================ -->
-        <script src="/js/class/GHeader.js"></script>
-        <script src="/js/header.js"></script>
+        <script src="/js/class/GConnection.js"></script>
+        <script src="/js/connection.js"></script>
         <!-- ============================================ -->
     </head>
     <body>
@@ -120,6 +120,8 @@
             <div class="Background Item1"></div>
             <div class="Background Item2"></div>
             <div class="Background Item3"></div>
+            <!-- ============================================ -->
+            <?php require $_SERVER["DOCUMENT_ROOT"]."/php/connection.php";  ?>
             <!-- ============================================ -->
             <div class="BodyPage Mrg Pdd">
                 <div class="MainPage">
@@ -146,9 +148,6 @@
                                     if(!isset($_SESSION["login"])) continue;
                                     else if($_SESSION["login"]["group"] != "admin") continue;
                                 }
-                                else if($lMenu["name"] == "Connexion") {
-                                    if(isset($_SESSION["login"])) continue;
-                                }
                             ?>
                             <li class="Item">
                                 <a class="Link<?php echo $lActive; ?>" href="<?php echo $lMenu["link"]; ?>">
@@ -156,8 +155,11 @@
                                 </a>
                             </li>
                             <?php } ?>
+                            <?php if(!isset($_SESSION["login"])) { ?>
+                            <li class="Item"><span class="Link" onclick="openConnection(this);">Connexion</span> </li>
+                            <?php } ?>
                             <?php if(isset($_SESSION["login"])) { ?>
-                            <li class="Item"><span class="Link" onclick="openDisconnect();">Déconnexion</span> </li>
+                            <li class="Item"><span class="Link" onclick="openDisconnection(this);">Déconnexion</span> </li>
                             <?php } ?>
                             <li class="Bars" onclick="openHeaderMenu(this);"><i class="fa fa-bars"></i></li>
                         </ul>
@@ -210,8 +212,6 @@
                             <?php } ?>
                         </div>
                         <?php } ?>
-                        <!-- ============================================ -->
-                        <?php require $_SERVER["DOCUMENT_ROOT"]."/php/logout.php";  ?>
                         <!-- ============================================ -->
                     </header>
                     <!-- ============================================ -->

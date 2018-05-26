@@ -347,6 +347,167 @@ b {
 /* Modal */ 
 /* ============================================== */
 
+.Modal {
+    display: none;
+    position: fixed;
+    z-index: 2;
+    padding: 10px;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100vh;
+    background-image: url("<?php echo $lStyle["modal"]["img"]; ?>");
+    background-color: rgba(255,255,255,0.2);
+    overflow: auto;
+}
+
+.Modal .Body {
+    background: #051039;
+    margin: auto;
+    max-width: 500px;
+    position: relative;
+}
+
+.Modal .Body .Title {
+    background-color: rgba(255,255,255,0.2);
+    padding: 10px 35px 10px 10px;
+    font-family: Anton;
+    font-size: 25px;
+}
+
+.Modal .Body .Text {
+    background-color: rgba(255,255,255,0.2);
+    border-top: 1px solid rgba(255,255,255,0.2);
+    padding: 10px;
+}
+
+.Modal .Body .Text .Desc {
+    margin-bottom: 10px;    
+}
+
+.Modal .Body .Text .Row {
+    background-color: rgba(0,0,0,0.0);
+    margin: 4px 0px;
+    position: relative;
+}
+
+.Modal .Body .Text .Row .Label {
+    background-color: rgba(0,0,0,0.2);
+    min-width: 150px; 
+    line-height: 30px;   
+    padding: 0px 10px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.Modal .Body .Text .Row .Field {
+    background-color: rgba(0,0,0,0.0);
+    border: 1px solid rgba(0,0,0,0.2);
+    height: 30px;   
+    margin-left: 150px;
+}
+
+.Modal .Body .Text .Row .Field .Data {
+    background-color: rgba(0,0,0,0.0);
+    border: 1px solid rgba(0,0,0,0.2);
+    height: 100%;   
+    width: 100%;
+    padding: 5px 10px;
+}
+
+.Modal .Body .Text .Col {
+    background-color: rgba(0,0,0,0.0);
+    border: 1px solid rgba(0,0,0,0.2);
+    margin: 4px 0px;
+    position: relative;
+}
+
+.Modal .Body .Text .Col .Label {
+    background-color: rgba(0,0,0,0.2);
+    padding: 5px 10px;
+}
+
+.Modal .Body .Text .Col .Label.File {
+    background-color: transparent;
+    border: 1px solid rgba(0,0,0,0.2);
+    color: #051039;
+    font-weight: bold;
+}
+
+.Modal .Body .Text .Col .Field {
+    background-color: rgba(0,0,0,0.0);
+    border: 1px solid rgba(0,0,0,0.2);
+}
+
+.Modal .Body .Text .Col .Field .Data {
+    background-color: rgba(0,0,0,0.0);
+    border: 1px solid rgba(0,0,0,0.0);
+    min-height: 300px;   
+    padding: 5px 10px;
+    overflow: auto; 
+}
+
+.Modal .Body .Text .Col .Field .Data.View {
+    padding: 5px;
+}
+
+.Modal .Body .Text .Col .Field .Data.Min {
+    min-height: 0px;
+}
+
+.Modal .Body .Text .Col .Field .Data.Center {
+    text-align: center;
+}
+
+.Modal .Body .Text .ButtonMap {
+    text-align: right;
+    font-size: 0px;
+    padding-top: 10px;
+}
+
+.Modal .Body .Text .ButtonMap .Item {
+    display: inline-block;
+    background-color: rgba(0,0,0,0.2);
+    padding: 0px 10px;
+    line-height: 30px; 
+    font-size: 16px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.Modal .Body .Text .ButtonMap .Item:hover {
+    background-color: rgba(0,0,0,0.4);
+}
+
+.Modal .Body .Text .ButtonMap .Item:active {
+    background-color: rgba(0,0,0,0.2);
+}
+
+.Modal .Body .Text .ButtonMap.Left {
+    text-align: left;
+}
+
+.Modal .Body .Text .ButtonMap.Center {
+    text-align: center;
+}
+
+.Modal .Body .Text .ButtonMap .UploadItem.Active {
+    background-color: #051039;
+    color: white;
+}
+
+.Modal .Msg {
+    background-color: rgba(0,0,0,0.4);
+    margin: auto;
+    max-width: 500px;
+    padding: 5px 10px;
+    font-family: Archivo Narrow;
+    color: white;
+    display: none;
+}
+
+
 /* Modal Anim Show */
 .ModalAnimShow {
     animation-name: ModalAnimShowName;
@@ -382,6 +543,74 @@ b {
 @-webkit-keyframes ModalAnimHideName {
     from {top:0; opacity:1}
     to {top:-400px; opacity:0}
+}
+
+/* ============================================== */
+/* Button */
+/* ============================================== */
+
+.Button {
+    background-color: rgba(0,0,0,0.2);
+    width: 30px;
+    line-height: 30px;
+    border-radius: 15px;
+    font-size: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.Button:hover {
+    background-color: rgba(0,0,0,0.4);
+}
+
+.Button:active {
+    background-color: rgba(0,0,0,0.2);
+}
+
+.Button.Close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.Button.BackgroundMod1 {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1;
+    color: #ff9933;
+}
+
+.Button.BackgroundMod2 {
+    position: absolute;
+    top: 330px;
+    right: 10px;
+    z-index: 1;
+    color: #ff9933;
+}
+
+.Button.BackgroundMod3 {
+    position: absolute;
+    bottom: 260px;
+    right: 10px;
+    z-index: 1;
+    color: #ff9933;
+}
+
+.Button.HomeImg {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1;
+    color: #ff9933;
+}
+
+.Button.HomeText {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1;
+    color: #ff9933;
 }
 
 /* ============================================== */
@@ -843,30 +1072,6 @@ b {
 
 .mnwb {
     min-width: 150px;
-}
-
-/* modal */
-.mdla {
-    display: none;
-    background: rgba(1,1,1,0.8);
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    padding: 10px;
-    padding-top: 155px;
-    overflow: auto;
-}
-
-/* modal-content */
-.mdca {
-    background: #373f60;
-    position: relative;
-    margin: auto;
-    max-width: 680px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 /* max-height */

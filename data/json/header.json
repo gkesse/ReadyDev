@@ -11,7 +11,6 @@
         {"name":"Tutoriels","link":"/Tutoriels/","prio":"1.0","freq":"daily","follow":"yes"},
         {"name":"Cours","link":"/Cours/","prio":"1.0","freq":"daily","follow":"yes"},
         {"name":"Contacts","link":"/Contacts/","follow":"yes"},
-        {"name":"Admin","link":"/Admin/"},
-        {"name":"Connexion","link":"/Connexion/"}
+        {"name":"Admin","link":"/Admin/"}
     ]
 }

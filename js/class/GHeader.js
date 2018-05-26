@@ -6,6 +6,10 @@ var GHeader = (function() {
     var Container = function() {
         return {
             //===============================================
+            init: function() {
+
+            },
+            //===============================================
             openHeaderMenu: function(obj) {
 				var lHeaderMenu = document.getElementById("HeaderMenu");
 				var lBars = '<i class="fa fa-bars"></i>';
@@ -18,34 +22,6 @@ var GHeader = (function() {
 					lHeaderMenu.className = lClassName.replace(" RWD", "");
 				}
 				obj.innerHTML = lBars;	
-            },
-            //===============================================
-            openDisconnect: function() {
-				var lLogout = document.getElementById("Logout");
-				var lLogoutCtn = document.getElementById("LogoutCtn");
-				var lClassName = lLogoutCtn.className;
-				lLogoutCtn.className = lClassName.replace(" ModalAnimHide", " ModalAnimShow");
-				lLogout.style.display = "block";
-            },
-            //===============================================
-            disconnectClose: function() {
-				var lLogout = document.getElementById("Logout");
-				var lLogoutCtn = document.getElementById("LogoutCtn");
-				var lClassName = lLogoutCtn.className;
-				lLogoutCtn.className = lClassName.replace(" ModalAnimShow", " ModalAnimHide");
-				setTimeout(function() {
-					lLogout.style.display = "none";
-				}, 400);
-            },
-            //===============================================
-            windowEvent: function() {
-				window.onclick = function(event) {
-					var lLogout = document.getElementById("Logout");
-					var m_target = event.target;
-					if(m_target == lLogout) {
-						disconnectClose();
-					}
-				};
             }
             //===============================================
         };
@@ -62,5 +38,5 @@ var GHeader = (function() {
     //===============================================
 })();
 //===============================================
-GHeader.Instance().windowEvent();
+GHeader.Instance().init();
 //===============================================
