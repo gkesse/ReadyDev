@@ -65,5 +65,23 @@
             return $m_dataMap;
         }
         //===============================================
+        public function existData($dataMap, $field, $value) {
+            foreach($dataMap as $key => $lDataMap) {
+                if($lDataMap[$field] == $value) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        //===============================================
+        public function getData($dataMap, $field, $value, $field2) {
+            foreach($dataMap as $key => $lDataMap) {
+                if($lDataMap[$field] == $value) {
+                    return $lDataMap[$field2];
+                }
+            }
+            return "";
+        }
+        //===============================================
     }
 ?>        

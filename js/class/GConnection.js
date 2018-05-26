@@ -13,7 +13,9 @@ var GConnection = (function() {
             openConnection: function(obj) {
 				var lModalConnection = document.getElementById("ModalConnection");
 				var lConnectionBody = document.getElementById("ConnectionBody");
+				var lConnectionMsg = document.getElementById("ConnectionMsg");
 				var lClassName = lConnectionBody.className;
+                lConnectionMsg.style.display = "none";
 				lConnectionBody.className = lClassName.replace(" AnimateShow", "");
 				lConnectionBody.className = lClassName.replace(" AnimateHide", "");
                 lConnectionBody.className += " AnimateShow";
@@ -59,6 +61,41 @@ var GConnection = (function() {
 				setTimeout(function() {
 					lModalConnection.style.display = "none";
 				}, 400);
+            },
+            //===============================================
+            sendConnection: function(email, pass) {
+				var lConnectionMsg = document.getElementById("ConnectionMsg");
+				var lConnectionForm = document.getElementById("ConnectionForm");
+                lConnectionMsg.style.display = "none";
+                var lXmlhttp = new XMLHttpRequest();
+                lXmlhttp.onreadystatechange = function() {
+                    if(this.readyState == 4 && this.status == 200) {
+                        var lData = this.responseText;
+                        var lDataMap = JSON.parse(lData);
+                        if(!lDataMap["status"]) {
+                            var lHtml = "<i class='fa fa-exclamation-triangle'></i> "; 
+                            lHtml += lDataMap["msg"]; 
+                            lConnectionMsg.innerHTML = lHtml;
+                            lConnectionMsg.style.color = "#ff9933";
+                            lConnectionMsg.style.display = "block";
+                        }
+                        else {
+                            var lHtml = "<i class='fa fa-check-circle'></i> "; 
+                            lHtml += lDataMap["msg"]; 
+                            lConnectionMsg.innerHTML = lHtml;
+                            lConnectionMsg.style.display = "block";
+                            lConnectionMsg.style.color = "#339933";
+                            lConnectionForm.submit();
+                        }
+                    }
+                }
+                lXmlhttp.open("POST", "/php/req/connection.php", true);
+                lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                lXmlhttp.send(
+					"req="+"CONNECT"+
+					"&email="+email+
+					"&password="+pass
+                    );            
             },
             //===============================================
             openDisconnection: function(obj) {
