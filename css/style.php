@@ -369,6 +369,45 @@ b {
     position: relative;
 }
 
+
+.Modal .Body.AnimateShow {
+    animation-name: ModalBodyAnimateShow;
+    animation-duration: 0.4s
+    -webkit-animation-name: ModalBodyAnimateShow;
+    -webkit-animation-duration: 0.4s;
+}
+
+@keyframes ModalBodyAnimateShow {
+    from {top:-400px; opacity:0;}
+    to {top:0; opacity:1}
+}
+
+@-webkit-keyframes ModalBodyAnimateShow {
+    from {top:-400px; opacity:0;} 
+    to {top:0; opacity:1;}
+}
+
+.Modal .Body.AnimateHide {
+    animation-name: ModalBodyAnimateHide;
+    animation-duration: 0.4s
+    -webkit-animation-name: ModalBodyAnimateHide;
+    -webkit-animation-duration: 0.4s;
+    -moz-animation-name: ModalBodyAnimateHide;
+    -moz-animation-duration: 0.4s;
+    -o-animation-name: ModalBodyAnimateHide;
+    -o-animation-duration: 0.4s;
+}
+
+@keyframes ModalBodyAnimateHide {
+    from {top:0; opacity:1}
+    to {top:-400px; opacity:0}
+}
+
+@-webkit-keyframes ModalBodyAnimateHide {
+    from {top:0; opacity:1}
+    to {top:-400px; opacity:0}
+}
+
 .Modal .Body .Title {
     background-color: rgba(255,255,255,0.2);
     padding: 10px 35px 10px 10px;
@@ -496,44 +535,6 @@ b {
     font-family: Archivo Narrow;
     color: white;
     display: none;
-}
-
-
-/* Modal Anim Show */
-.ModalAnimShow {
-    animation-name: ModalAnimShowName;
-    animation-duration: 0.4s;
-    -webkit-animation-name: ModalAnimShowName;
-    -webkit-animation-duration: 0.4s;
-}
-
-@keyframes ModalAnimShowName {
-    from {top:-400px; opacity:0;}
-    to {top:0; opacity:1}
-}
-
-@-webkit-keyframes ModalAnimShowName {
-    from {top:-400px; opacity:0;} 
-    to {top:0; opacity:1;}
-}
-
-
-/* Modal Anim Hide */
-.ModalAnimHide {
-    animation-name: ModalAnimHideName;
-    animation-duration: 0.4s;
-    -webkit-animation-name: ModalAnimHideName;
-    -webkit-animation-duration: 0.4s;
-}
-
-@keyframes ModalAnimHideName {
-    from {top:0; opacity:1}
-    to {top:-400px; opacity:0}
-}
-
-@-webkit-keyframes ModalAnimHideName {
-    from {top:0; opacity:1}
-    to {top:-400px; opacity:0}
 }
 
 /* ============================================== */

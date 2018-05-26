@@ -14,7 +14,9 @@ var GConnection = (function() {
 				var lModalConnection = document.getElementById("ModalConnection");
 				var lModalConnectionBody = document.getElementById("ModalConnectionBody");
 				var lClassName = lModalConnectionBody.className;
-				lModalConnectionBody.className = lClassName.replace(" ModalAnimHide", " ModalAnimShow");
+				lModalConnectionBody.className = lClassName.replace(" AnimateShow", "");
+				lModalConnectionBody.className = lClassName.replace(" AnimateHide", "");
+                lModalConnectionBody.className += " AnimateShow";
 				lModalConnection.style.display = "block";
             },
             //===============================================
@@ -22,7 +24,9 @@ var GConnection = (function() {
 				var lModalConnection = document.getElementById("ModalConnection");
 				var lModalConnectionBody = document.getElementById("ModalConnectionBody");
 				var lClassName = lModalConnectionBody.className;
-				lModalConnectionBody.className = lClassName.replace(" ModalAnimShow", " ModalAnimHide");
+				lModalConnectionBody.className = lClassName.replace(" AnimateShow", "");
+				lModalConnectionBody.className = lClassName.replace(" AnimateHide", "");
+                lModalConnectionBody.className += " AnimateHide";
 				setTimeout(function() {
 					lModalConnection.style.display = "none";
 				}, 400);
