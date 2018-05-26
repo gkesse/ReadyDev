@@ -1,3 +1,8 @@
+<?php
+    header('content-type: text/css');
+    require $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoloadRegister.php";
+    $lStyle = GJson::Instance()->getData("data/json/style.json");
+?>
 /* ============================================== */
 /* Global */ 
 /* ============================================== */
@@ -109,11 +114,40 @@ b {
 }
 
 /* ============================================== */
+/* HtmlPage */
+/* ============================================== */
+
+.HtmlPage {
+    position: relative;
+}
+
+/* ============================================== */
+/* BodyPage */
+/* ============================================== */
+
+.BodyPage.Mrg {
+    max-width: 1000px;
+    margin: auto;
+}
+
+.BodyPage.Pdd {
+    padding-top: 250px;
+    padding-bottom: 250px;
+}
+
+/* ============================================== */
+/* MainPage */
+/* ============================================== */
+
+.MainPage {
+    background: #051039;
+}
+
+/* ============================================== */
 /* Header */
 /* ============================================== */
 
-/* Header Menu */
-.hdmn {
+.Header .Menu {
     background: rgba(255,255,255,0.2);
     text-align: left;
     font-size: 0px;
@@ -123,8 +157,12 @@ b {
     margin-bottom: 10px;
 }
 
-/* Header Menu Title */
-.hdmt {
+.Header .Menu .Item {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.Header .Menu .Item .Title {
     border-top: 5px solid transparent;
     border-bottom: 5px solid transparent;
     font-size: 25px;
@@ -135,14 +173,7 @@ b {
     vertical-align: middle;
 }
 
-/* Header Menu Line */
-.hdml {
-    display: inline-block;
-    vertical-align: middle;
-}
-
-/* Header Menu Item */
-.hdmi {
+.Header .Menu .Item .Link {
     border-top: 5px solid transparent;
     border-bottom: 5px solid transparent;
     font-size: 18px;
@@ -150,14 +181,14 @@ b {
     padding: 0 10px 0 10px;
     display: inline-block;
     vertical-align: middle;
+    cursor: pointer;
 }
 
-.hdmi:hover {
+.Header .Menu .Item .Link:hover {
     border-bottom: 5px solid #89a830;
 }
 
-/* Header Menu Bars */
-.hdmb {
+.Header .Menu .Bars {
     border-top: 5px solid transparent;
     border-bottom: 5px solid transparent;
     font-size: 25px;
@@ -170,6 +201,42 @@ b {
     top: 0;
     right: 0;
     cursor: pointer;
+}
+
+/* ============================================== */
+/* Background */
+/* ============================================== */
+
+.Background {
+    min-height: 300px;
+    background-color: #333333;
+    background-image: url("<?php echo $lStyle["background"]["item1"]["img"]; ?>");
+    background-position: center;
+    position: absolute;
+}
+
+.Background.Item1 {
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: -1;
+}
+
+.Background.Item2 {
+    top: 300px;
+    bottom: 300px;
+    left: 0px;
+    right: 0px;
+    z-index: -1;
+    background-image: url("<?php echo $lStyle["background"]["item2"]["img"]; ?>");
+}
+
+.Background.Item3 {
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: -1;
+    background-image: url("<?php echo $lStyle["background"]["item3"]["img"]; ?>");
 }
 
 /* ============================================== */
@@ -1044,15 +1111,15 @@ b {
 /* Tablet Portrait */
 @media (max-width:768px) {   
     /* Header */    
-    .hdml {
+    .Header .Menu .Item {
         display: none;
     }
         
-    .hdmb {
+    .Header .Menu .Bars {
         display: inline-block;
     }
 
-    .HeaderMenuRwd .hdml {
+    .HeaderMenuRwd .Header .Menu .Item {
         display: block;
     }
     
