@@ -110,8 +110,8 @@
         <!-- ============================================ -->
         <link rel="stylesheet" href="/css/style.php"/>
         <!-- ============================================ -->
-        <script src="/js/class/GConnection.js"></script>
-        <script src="/js/connection.js"></script>
+        <script src="/js/class/GHeader.js"></script>
+        <script src="/js/header.js"></script>
         <!-- ============================================ -->
     </head>
     <body>
