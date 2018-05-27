@@ -1,6 +1,6 @@
 <?php     
-    GMetaData::Instance()->getData();
     GPostRedirectGet::Instance()->redirect();
+    GMetaData::Instance()->getData();
 
     $lTitle = GConfig::Instance()->getData("title"); 
     GUrl::Instance()->lastUrl();

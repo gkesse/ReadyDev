@@ -220,6 +220,10 @@ b {
 }
 
 .Background.Item1 {
+    background-image: url("/data/img/defaults/fete-des-meres-2.gif"), url("/data/img/defaults/cisco.jpg");
+    background-position: center top, left top;
+    background-repeat: no-repeat, no-repeat;    
+    background-size: auto, 100% 100%;    
     top: 0px;
     left: 0px;
     right: 0px;

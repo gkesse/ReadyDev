@@ -1,8 +1,8 @@
 <?php
     require $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoloadRegister.php";
     
-    $m_data = GJson::Instance()->getData("data/json/Admin.json");
-    GAdmin::Instance()->validateAdmin();
+    $lData = GJson::Instance()->getData("data/json/Admin.json");
+    GAdmin::Instance()->validate();
     
     GConfig::Instance()->setData("title", "Administration");
     GConfig::Instance()->setData("menu", "Admin");
@@ -25,17 +25,17 @@
                 <div class="txal pgCt10">
                     <ul class="fa-ul">
                         <?php 
-                            $m_ds = $m_data["summary"];
-                            foreach($m_ds as $m_di) {
+                            $lDs = $lData["summary"];
+                            foreach($lDs as $lDi) {
                             ?>
                             <li>
                                 <i class="fa-li fa fa-book clrg"></i>
 								<?php 
-									$m_link = "#";
-									$m_link .= GGlobal::Instance()->getLink($m_di["name"]); 
+									$lLink = "#";
+									$lLink .= GGlobal::Instance()->getLink($lDi["name"]); 
 								?>
-                                <a class="hvra clrg" href="<?php echo $m_link; ?>">
-                                    <?php echo $m_di["name"]; ?>
+                                <a class="hvra clrg" href="<?php echo $lLink; ?>">
+                                    <?php echo $lDi["name"]; ?>
                                 </a>
                             </li>
                         <?php } ?>
