@@ -380,6 +380,10 @@ b {
     animation-duration: 0.4s
     -webkit-animation-name: ModalBodyAnimateShow;
     -webkit-animation-duration: 0.4s;
+    -moz-animation-name: ModalBodyAnimateShow;
+    -moz-animation-duration: 0.4s;
+    -o-animation-name: ModalBodyAnimateShow;
+    -o-animation-duration: 0.4s;
 }
 
 @keyframes ModalBodyAnimateShow {
@@ -1332,7 +1336,7 @@ b {
 @media (max-width:670px) {  
     /* Background */  
     .Background.Item1 {
-        background-size: 100% 100%, 100% 100%;    
+        background-size: 98% auto, 100% 100%;    
     }
 }
 /* ---------------------------------------------- */
