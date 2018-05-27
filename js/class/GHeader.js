@@ -22,6 +22,7 @@ var GHeader = (function() {
 					lHeaderMenu.className = lClassName.replace(" RWD", "");
 				}
 				obj.innerHTML = lBars;	
+                alert(lHeaderMenu.className);
             }
             //===============================================
         };
