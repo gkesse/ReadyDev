@@ -28,6 +28,24 @@ void GWindowQtFormGL::setTimer() {
 
 }
 //===============================================
+void GWindowQtFormGL::initializeGL() {
+    glewInit();
+    setBackground();
+    GDraw::Instance()->initDraw();
+    GDraw::Instance()->initCamera(width(), height());
+    glEnable(GL_DEPTH_TEST);
+}
+//===============================================
+void GWindowQtFormGL::paintGL() {
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    GDraw::Instance()->draw();
+}
+//===============================================
+void GWindowQtFormGL::resizeGL(int w, int h) {
+    GCamera::Instance()->viewport(w, h);
+    GDraw::Instance()->updateCamera(w, h);
+}
+//===============================================
 void GWindowQtFormGL::slotTimerUpdate() {
     GDraw::Instance()->updateDraw();
     updateGL();
@@ -39,24 +57,7 @@ void GWindowQtFormGL::slotPhotoClicked() {
 }
 //===============================================
 void GWindowQtFormGL::slotAnimateClicked() {
-    if(m_timer->isActive())
-        m_timer->stop();
-    else
-        m_timer->start();
-}
-//===============================================
-void GWindowQtFormGL::initializeGL() {
-    glewInit();
-    setBackground();
-    GDraw::Instance()->initDraw();
-}
-//===============================================
-void GWindowQtFormGL::paintGL() {
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    GDraw::Instance()->draw();
-}
-//===============================================
-void GWindowQtFormGL::resizeGL(int w, int h) {
-    GCamera::Instance()->viewport(w, h);
+    if(m_timer->isActive()) {m_timer->stop();}
+    else {m_timer->start();}
 }
 //===============================================

@@ -23,7 +23,13 @@ GDrawSDLRelic* GDrawSDLRelic::Instance() {
 }
 //===============================================
 void GDrawSDLRelic::initDraw() {
-
+    m_objCabin = GObjCabin("res/img/wall.jpg", "res/img/roof.jpg");
+    m_objGround = GObjGround(30, 30, "res/img/ground.jpg");
+    m_objGround2 = GObjGround(60, 60, "res/img/grass.jpg");
+    m_objCrystal = GObjCrystal("res/img/crystal.tga");
+    m_objBox = GObjBox(1.0f, "res/img/box2.jpg");
+    m_objBox2 = GObjBox(1.0f, "res/img/box.jpg");
+    m_angleBox = 0.0f;
 }
 //===============================================
 void GDrawSDLRelic::initCamera(int width, int height) {
@@ -31,10 +37,31 @@ void GDrawSDLRelic::initCamera(int width, int height) {
     GCamera::Instance()->perspective(m_projection, width, height);
 }
 //===============================================
+void GDrawSDLRelic::updateDraw() {
+    m_angleBox += 1.0f;
+    if(m_angleBox >= 360.0f) {
+        m_angleBox -= 360.0f;
+    }
+}
+//===============================================
 void GDrawSDLRelic::draw() {
     GCamera::Instance()->lookAt(m_modelView);
     glm::mat4 lModelView = m_modelView;
     m_objCabin.draw(m_projection, m_modelView);
+    m_objGround.draw(m_projection, m_modelView);
+    m_modelView = glm::translate(m_modelView, glm::vec3(0.0f,-0.01f,0.0f));
+    m_objGround2.draw(m_projection, m_modelView);
+    m_modelView = lModelView;
+    m_modelView = glm::translate(m_modelView, glm::vec3(-2.5f,1.0f,-3.0f));
+    m_objBox.draw(m_projection, m_modelView);
+    m_modelView = glm::translate(m_modelView, glm::vec3(5.0f,0.0f,1.0f));
+    m_objBox2.draw(m_projection, m_modelView);
+    m_modelView = glm::translate(m_modelView, glm::vec3(-2.5f,0.0f,4.0f));
+    m_objBox.draw(m_projection, m_modelView);
+    m_modelView = lModelView;
+    m_modelView = glm::translate(m_modelView, glm::vec3(0.0f,2.1f,0.0f));
+    m_modelView = glm::rotate(m_modelView, glm::radians(m_angleBox), glm::vec3(0.0f,1.0f,0.0f));
+    m_objCrystal.draw(m_projection, m_modelView);
 }
 //===============================================
 void GDrawSDLRelic::handleEvents(SDL_Event* event) {

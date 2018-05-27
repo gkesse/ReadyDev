@@ -21,17 +21,17 @@ GDrawQtLayout* GDrawQtLayout::Instance() {
 }
 //===============================================
 void GDrawQtLayout::initDraw() {
-    float m_vertices[] = {
+    float lVertices[] = {
         -0.8f, -0.8f, 0.0f,
          0.8f, -0.8f, 0.0f,
          0.0f,  0.8f, 0.0f
     };
-    float m_colors[] = {
+    float lColors[] = {
         1.0f, 0.0f, 0.0f,
         0.0f, 1.0f, 0.0f,
         0.0f, 0.0f, 1.0f
     };
-    GLuint m_buffers[2];
+
 
     GShaderInfo  m_shaders[] = {
         {GL_VERTEX_SHADER, "res/shaders/4.0/color_layout.vert", 0},
@@ -42,11 +42,13 @@ void GDrawQtLayout::initDraw() {
     GLuint m_program = GShader::Instance()->loadShader(m_shaders);
     glUseProgram(m_program);
 
+    GLuint m_buffers[2];
     glGenBuffers(2, m_buffers);
+
     glBindBuffer(GL_ARRAY_BUFFER, m_buffers[0]);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(m_vertices), m_vertices, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(lVertices), lVertices, GL_STATIC_DRAW);
     glBindBuffer(GL_ARRAY_BUFFER, m_buffers[1]);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(m_colors), m_colors, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(lColors), lColors, GL_STATIC_DRAW);
 
     glGenVertexArrays( 1, m_vertexArrays);
     glBindVertexArray(m_vertexArrays[0]);

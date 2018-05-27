@@ -22,7 +22,7 @@ GDraw* GDraw::Instance() {
     if(lType == "OPENGL_SDL") return GDrawSDL::Instance();
     if(lType == "OPENGL_QT") return GDrawQt::Instance();
     if(lType == "OPENGL_GLFW") return GDrawGLFW::Instance();
-    return 0;
+    return GDrawSDL::Instance();
 }
 //===============================================
 void GDraw::setAntiAliasing() {
@@ -52,9 +52,12 @@ void GDraw::initCamera(int width, int height) {}
 void GDraw::updateCamera(int width, int height) {}
 void GDraw::updateDraw() {}
 void GDraw::draw() {}
+//===============================================
 void GDraw::handleEvents(SDL_Event* event) {}
 void GDraw::onKeyDown(SDL_Event* event) {}
 void GDraw::onMouseMotion(SDL_Event* event) {}
 void GDraw::onMouseButtonDown(SDL_Event* event) {}
 void GDraw::onMouseWheel(SDL_Event* event) {}
+//===============================================
+void GDraw::onKeyPress(QKeyEvent* event) {}
 //===============================================

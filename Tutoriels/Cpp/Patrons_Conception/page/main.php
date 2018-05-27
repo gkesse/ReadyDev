@@ -2,18 +2,18 @@
 #include "GSingleton.h"
 //===============================================
 void saveData(string data) {
-	GSingleton::Instance()->setData(data);
+    GSingleton::Instance()->setData(data);
 }
 //===============================================
 void printData() {
-	string m_data = GSingleton::Instance()->getData();
-	cout << "m_data: " << m_data << "\n";
+    string m_data = GSingleton::Instance()->getData();
+    cout << "m_data: " << m_data << "\n";
 }
 //===============================================
 int main(int argc, char** argv) {
-	printData();
-	saveData("Bonjour tout le monde");
-	printData();
+    printData();
+    saveData("Bonjour tout le monde");
+    printData();
     return 0;
 }
 //===============================================</xmp></pre></div><br><b>src/GSingleton.cpp</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums">//===============================================
@@ -27,17 +27,17 @@ using namespace std;
 //===============================================
 class GSingleton {
 public:
-	GSingleton();
-	~GSingleton();
+    GSingleton();
+    ~GSingleton();
 
 public:
-	static GSingleton* Instance();
-	void setData(const string& data);
-	string getData() const;
-	
+    static GSingleton* Instance();
+    void setData(const string& data);
+    string getData() const;
+    
 private:
-	static GSingleton* m_instance;
-	string m_data;
+    static GSingleton* m_instance;
+    string m_data;
 };
 //===============================================
 #endif
@@ -47,7 +47,7 @@ private:
 GSingleton* GSingleton::m_instance = 0;
 //===============================================
 GSingleton::GSingleton() {
-	m_data = "_NO_DATA_";
+    m_data = "_NO_DATA_";
 }
 //===============================================
 GSingleton::~GSingleton() {
@@ -55,18 +55,18 @@ GSingleton::~GSingleton() {
 }
 //===============================================
 GSingleton* GSingleton::Instance() {
-	if(m_instance == 0) {
-		m_instance = new GSingleton;
-	}
-	return m_instance;
+    if(m_instance == 0) {
+        m_instance = new GSingleton;
+    }
+    return m_instance;
 }
 //===============================================
 void GSingleton::setData(const string& data) {
-	m_data = data;
+    m_data = data;
 }
 //===============================================
 string GSingleton::getData() const {
-	return m_data;
+    return m_data;
 }
 //===============================================</xmp></pre></div><br><b>win/Makefile</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums">GSRC = ../src
 GBIN = bin
@@ -78,13 +78,13 @@ GOBJS = \
     $(GBUILD)/GSingleton.o \
     
 all: $(GOBJS)
-	g++ -o $(GTARGET) $(GOBJS)
+    g++ -o $(GTARGET) $(GOBJS)
 $(GBUILD)/main.o: $(GSRC)/main.cpp
-	g++ -c $(GSRC)/main.cpp -o $(GBUILD)/main.o
+    g++ -c $(GSRC)/main.cpp -o $(GBUILD)/main.o
 $(GBUILD)/GSingleton.o: $(GSRC)/GSingleton.cpp
-	g++ -c $(GSRC)/GSingleton.cpp -o $(GBUILD)/GSingleton.o
+    g++ -c $(GSRC)/GSingleton.cpp -o $(GBUILD)/GSingleton.o
 clean:
-	del /q $(GBUILD)\* $(GBIN)\*</xmp></pre></div><br><b>Construction du projet :</b><br>cmd_build.bat<br><br><b>Construction manuel :</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums">del /q build\* bin\*
+    del /q $(GBUILD)\* $(GBIN)\*</xmp></pre></div><br><b>Construction du projet :</b><br>cmd_build.bat<br><br><b>Construction manuel :</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums">del /q build\* bin\*
 g++ -c ../src/main.cpp -o build/main.o
 g++ -c ../src/GSingleton.cpp -o build/GSingleton.o
 g++ -o bin/GProject.exe build/main.o build/GSingleton.o </xmp></pre></div><br><h2 class="ftwn Title2" id="Patron Prototype (Prototype Pattern)"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Patrons de création">Patron Prototype (Prototype Pattern)</a></h2><br><br><h2 class="ftwn Title2" id="Patron Fabrique (Factory Pattern)"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Patrons de création">Patron Fabrique (Factory Pattern)</a></h2><br><br><h2 class="ftwn Title2" id="Patron Fabrique Abstraite (Abstract Factory Pattern)"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Patrons de création">Patron Fabrique Abstraite (Abstract Factory Pattern)</a></h2><br><br><h2 class="ftwn Title2" id="Patron Monteur (Builder Pattern)"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Patrons de création">Patron Monteur (Builder Pattern)</a></h2><br><br></div></div></div><br><div class="pgCt00"><div class="bgra"><h1 class="bgra pgCt20 txac Title1" id="Patrons de structure"><a class="clrb" href="#Sommaire">Patrons de structure</a></h1><div class="txal pgCt10"><div class="dibm Summary2"><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Patron Pont (Bridge Pattern)">Patron Pont (Bridge Pattern)</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Patron Façade (Facade Pattern)">Patron Façade (Facade Pattern)</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Patron Adaptateur (Adapter Pattern)">Patron Adaptateur (Adapter Pattern)</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Patron Objet composite (Composite Pattern)">Patron Objet composite (Composite Pattern)</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Patron Proxy (Proxy Pattern)">Patron Proxy (Proxy Pattern)</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Patron Poids-mouche (Flyweight Pattern)">Patron Poids-mouche (Flyweight Pattern)</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Patron Décorateur (Decorator Pattern)">Patron Décorateur (Decorator Pattern)</a></div></div><br><br><h2 class="ftwn Title2" id="Patron Pont (Bridge Pattern)"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Patrons de structure">Patron Pont (Bridge Pattern)</a></h2><br><br><h2 class="ftwn Title2" id="Patron Façade (Facade Pattern)"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Patrons de structure">Patron Façade (Facade Pattern)</a></h2><br><br><h2 class="ftwn Title2" id="Patron Adaptateur (Adapter Pattern)"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Patrons de structure">Patron Adaptateur (Adapter Pattern)</a></h2><br><br><h2 class="ftwn Title2" id="Patron Objet composite (Composite Pattern)"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Patrons de structure">Patron Objet composite (Composite Pattern)</a></h2><br><br><h2 class="ftwn Title2" id="Patron Proxy (Proxy Pattern)"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Patrons de structure">Patron Proxy (Proxy Pattern)</a></h2><br><br><h2 class="ftwn Title2" id="Patron Poids-mouche (Flyweight Pattern)"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Patrons de structure">Patron Poids-mouche (Flyweight Pattern)</a></h2><br><br><h2 class="ftwn Title2" id="Patron Décorateur (Decorator Pattern)"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Patrons de structure">Patron Décorateur (Decorator Pattern)</a></h2><br><br><br></div></div></div><br><div class="pgCt00"><div class="bgra"><h1 class="bgra pgCt20 txac Title1" id="Patrons de comportement"><a class="clrb" href="#Sommaire">Patrons de comportement</a></h1><div class="txal pgCt10"><div class="dibm Summary2"><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Patron Chaine de responsabilité (Chaine-of-responsability Pattern)">Patron Chaine de responsabilité (Chaine-of-responsability Pattern)</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Patron Commande (Command Pattern)">Patron Commande (Command Pattern)</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Patron Interpréteur (Interpreter Pattern)">Patron Interpréteur (Interpreter Pattern)</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Patron Itérateur (Iterator Pattern)">Patron Itérateur (Iterator Pattern)</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Patron Médiateur (Mediator Pattern)">Patron Médiateur (Mediator Pattern)</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Patron Mémento (Memento Pattern)">Patron Mémento (Memento Pattern)</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Patron Observateur (Observer Pattern)">Patron Observateur (Observer Pattern)</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Patron État (State Pattern)">Patron État (State Pattern)</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Patron Stratégie (Strategy Pattern)">Patron Stratégie (Strategy Pattern)</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Patron Patron-de-méthode (Template method Pattern)">Patron Patron-de-méthode (Template method Pattern)</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Patron Visiteur (Visitor Pattern)">Patron Visiteur (Visitor Pattern)</a></div></div><br><br><h2 class="ftwn Title2" id="Patron Chaine de responsabilité (Chaine-of-responsability Pattern)"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Patrons de comportement">Patron Chaine de responsabilité (Chaine-of-responsability Pattern)</a></h2><br><br><h2 class="ftwn Title2" id="Patron Commande (Command Pattern)"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Patrons de comportement">Patron Commande (Command Pattern)</a></h2><br><br><h2 class="ftwn Title2" id="Patron Interpréteur (Interpreter Pattern)"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Patrons de comportement">Patron Interpréteur (Interpreter Pattern)</a></h2><br><br><h2 class="ftwn Title2" id="Patron Itérateur (Iterator Pattern)"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Patrons de comportement">Patron Itérateur (Iterator Pattern)</a></h2><br><br><h2 class="ftwn Title2" id="Patron Médiateur (Mediator Pattern)"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Patrons de comportement">Patron Médiateur (Mediator Pattern)</a></h2><br><br><h2 class="ftwn Title2" id="Patron Mémento (Memento Pattern)"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Patrons de comportement">Patron Mémento (Memento Pattern)</a></h2><br><br><h2 class="ftwn Title2" id="Patron Observateur (Observer Pattern)"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Patrons de comportement">Patron Observateur (Observer Pattern)</a></h2><br><br><h2 class="ftwn Title2" id="Patron État (State Pattern)"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Patrons de comportement">Patron État (State Pattern)</a></h2><br><br><h2 class="ftwn Title2" id="Patron Stratégie (Strategy Pattern)"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Patrons de comportement">Patron Stratégie (Strategy Pattern)</a></h2><br><br><h2 class="ftwn Title2" id="Patron Patron-de-méthode (Template method Pattern)"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Patrons de comportement">Patron Patron-de-méthode (Template method Pattern)</a></h2><br><br><h2 class="ftwn Title2" id="Patron Visiteur (Visitor Pattern)"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Patrons de comportement">Patron Visiteur (Visitor Pattern)</a></h2><br><br><br><br><br></div></div></div>

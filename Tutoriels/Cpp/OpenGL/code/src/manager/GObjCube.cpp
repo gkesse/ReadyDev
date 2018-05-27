@@ -46,7 +46,6 @@ GObjCube::GObjCube(float Size) {
     };
 
     m_program = GShader::Instance()->loadShader(lShaders);
-
 }
 //===============================================
 GObjCube::~GObjCube() {

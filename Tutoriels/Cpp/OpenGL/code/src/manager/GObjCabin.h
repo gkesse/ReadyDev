@@ -18,7 +18,6 @@ public:
 
 private:
     static const int VERTEX_MAX = 33;
-    //===============================================
     float m_vertices[VERTEX_MAX*3];
     float m_texCoords[VERTEX_MAX*2];
     GLuint m_program;

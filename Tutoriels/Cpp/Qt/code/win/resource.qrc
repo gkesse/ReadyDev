@@ -1,0 +1,55 @@
+<RCC>
+    <qresource prefix="/qml">
+        <file alias="GWindowQml.qml">res/qml/GWindowQml.qml</file>
+        <file alias="GWindowQmlForm.ui.qml">res/qml/GWindowQmlForm.ui.qml</file>
+        <file alias="GWindowQmlRect.qml">res/qml/GWindowQmlRect.qml</file>
+        <file alias="GWindowQmlRectForm.ui.qml">res/qml/GWindowQmlRectForm.ui.qml</file>
+        <file alias="GWindowQmlPropertyBind.qml">res/qml/GWindowQmlPropertyBind.qml</file>
+        <file alias="GWindowQmlPropertyBindForm.ui.qml">res/qml/GWindowQmlPropertyBindForm.ui.qml</file>
+        <file alias="GWindowQmlPropertyConditionForm.ui.qml">res/qml/GWindowQmlPropertyConditionForm.ui.qml</file>
+        <file alias="GWindowQmlPropertyCondition.qml">res/qml/GWindowQmlPropertyCondition.qml</file>
+        <file alias="GWindowQmlPropertyFunction.qml">res/qml/GWindowQmlPropertyFunction.qml</file>
+        <file alias="GWindowQmlPropertyFunctionForm.ui.qml">res/qml/GWindowQmlPropertyFunctionForm.ui.qml</file>
+        <file alias="GWindowQmlButtonTextForm.ui.qml">res/qml/GWindowQmlButtonTextForm.ui.qml</file>
+        <file alias="GWindowQmlButtonText.qml">res/qml/GWindowQmlButtonText.qml</file>
+        <file alias="GWindowQmlButtonIcon.qml">res/qml/GWindowQmlButtonIcon.qml</file>
+        <file alias="GWindowQmlButtonIconForm.ui.qml">res/qml/GWindowQmlButtonIconForm.ui.qml</file>
+        <file alias="GWindowQmlPropertyGroup.qml">res/qml/GWindowQmlPropertyGroup.qml</file>
+        <file alias="GWindowQmlPropertyGroupForm.ui.qml">res/qml/GWindowQmlPropertyGroupForm.ui.qml</file>
+        <file alias="GObjButton.qml">res/qml/GObjButton.qml</file>
+        <file alias="GWindowQmlObj.qml">res/qml/GWindowQmlObj.qml</file>
+        <file alias="GWindowQmlObjForm.ui.qml">res/qml/GWindowQmlObjForm.ui.qml</file>
+        <file alias="GWindowQmlImplicit.qml">res/qml/GWindowQmlImplicit.qml</file>
+        <file alias="GWindowQmlImplicitForm.ui.qml">res/qml/GWindowQmlImplicitForm.ui.qml</file>
+        <file alias="GObjConsole.qml">res/qml/GObjConsole.qml</file>
+        <file alias="GWindowQmlConsole.qml">res/qml/GWindowQmlConsole.qml</file>
+        <file alias="GWindowQmlConsoleForm.ui.qml">res/qml/GWindowQmlConsoleForm.ui.qml</file>
+        <file alias="GWindowQmlSignal.qml">res/qml/GWindowQmlSignal.qml</file>
+        <file alias="GWindowQmlSignalForm.ui.qml">res/qml/GWindowQmlSignalForm.ui.qml</file>
+        <file alias="GObjSignal.qml">res/qml/GObjSignal.qml</file>
+        <file alias="GWindowQmlEventPressed.qml">res/qml/GWindowQmlEventPressed.qml</file>
+        <file alias="GWindowQmlEventPressedForm.ui.qml">res/qml/GWindowQmlEventPressedForm.ui.qml</file>
+        <file alias="GObjEventPressed.qml">res/qml/GObjEventPressed.qml</file>
+        <file alias="GObjEventHover.qml">res/qml/GObjEventHover.qml</file>
+        <file alias="GWindowQmlEventHover.qml">res/qml/GWindowQmlEventHover.qml</file>
+        <file alias="GWindowQmlEventHoverForm.ui.qml">res/qml/GWindowQmlEventHoverForm.ui.qml</file>
+        <file alias="GWindowQmlEventMouseButton.qml">res/qml/GWindowQmlEventMouseButton.qml</file>
+        <file alias="GObjEventMouseButton.qml">res/qml/GObjEventMouseButton.qml</file>
+        <file alias="GObjPropertyCreate.qml">res/qml/GObjPropertyCreate.qml</file>
+        <file alias="GWindowQmlPropertyCreate.qml">res/qml/GWindowQmlPropertyCreate.qml</file>
+        <file alias="GObjPropertyAlias.qml">res/qml/GObjPropertyAlias.qml</file>
+        <file alias="GWindowQmlPropertyAlias.qml">res/qml/GWindowQmlPropertyAlias.qml</file>
+        <file alias="GObjPropertyChanged.qml">res/qml/GObjPropertyChanged.qml</file>
+        <file alias="GWindowQmlPropertyChanged.qml">res/qml/GWindowQmlPropertyChanged.qml</file>
+        <file alias="GWindowQmlEventDrag.qml">res/qml/GWindowQmlEventDrag.qml</file>
+        <file alias="GObjEventDrag.qml">res/qml/GObjEventDrag.qml</file>
+        <file alias="GWindowQmlEventPinch.qml">res/qml/GWindowQmlEventPinch.qml</file>
+    </qresource>
+    <qresource prefix="/img">
+        <file alias="login_bg.png">res/img/login_bg.png</file>
+        <file alias="logo.png">res/img/logo.png</file>
+        <file alias="restart_icon.png">res/img/restart_icon.png</file>
+        <file alias="shutdown_icon.png">res/img/shutdown_icon.png</file>
+        <file alias="wilanow.jpg">res/img/wilanow.jpg</file>
+    </qresource>
+</RCC>

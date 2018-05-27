@@ -1,7 +1,8 @@
 //===============================================
 #include "GDrawQtLightDiffuse.h"
 #include "GShader.h"
-#include "GConfig.h"
+#include "GCamera.h"
+#include "GLight.h"
 //===============================================
 GDrawQtLightDiffuse* GDrawQtLightDiffuse::m_instance = 0;
 //===============================================
@@ -10,7 +11,7 @@ GDrawQtLightDiffuse::GDrawQtLightDiffuse() {
 }
 //===============================================
 GDrawQtLightDiffuse::~GDrawQtLightDiffuse() {
-    m_angle = 0.0;
+
 }
 //===============================================
 GDrawQtLightDiffuse* GDrawQtLightDiffuse::Instance() {
@@ -30,37 +31,25 @@ void GDrawQtLightDiffuse::initDraw() {
     m_program = GShader::Instance()->loadShader(m_shaders);
     glUseProgram(m_program);
 
-    glEnable(GL_DEPTH_TEST);
-
-    m_torus = new GTorus(0.7f, 0.3f, 30, 30);
-
-    m_model = glm::mat4(1.0f);
-    m_model *= glm::rotate(-35.0f, glm::vec3(1.0f,0.0f,0.0f));
-    m_model *= glm::rotate(35.0f, glm::vec3(0.0f,1.0f,0.0f));
-    m_view = glm::lookAt(glm::vec3(0.0f,0.0f,3.0f), glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,1.0f,0.0f));
-    m_projection = glm::mat4(1.0f);
-
-    GShader::Instance()->setUniform(m_program, "Kd", 0.9f, 0.5f, 0.3f);
-    GShader::Instance()->setUniform(m_program, "Ld", 1.0f, 1.0f, 1.0f);
-    GShader::Instance()->setUniform(m_program, "LightPosition", m_view * glm::vec4(5.0f,5.0f,2.0f,1.0f));
+    m_objTorus = new GObjTorus(0.7f, 0.3f, 30, 30);
+}
+//===============================================
+void GDrawQtLightDiffuse::initCamera(int width, int height) {
+    GCamera::Instance()->initCamera(glm::vec3(0.0f,0.0f,3.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f), 5.0f, 0.5f);
+    GCamera::Instance()->perspective(m_projection, width, height);
+}
+//===============================================
+void GDrawQtLightDiffuse::updateCamera(int w, int h) {
+    GCamera::Instance()->perspective(m_projection, w, h);
 }
 //===============================================
 void GDrawQtLightDiffuse::draw() {
-    setMatrices();
-    m_torus->render();
-}
-//===============================================
-void GDrawQtLightDiffuse::resize(int w, int h) {
-    glViewport(0,0,w,h);
-    width = w;
-    height = h;
-    m_projection = glm::perspective(70.0f, (float)w/h, 0.3f, 100.0f);
-}
-//===============================================
-void GDrawQtLightDiffuse::setMatrices() {
-    glm::mat4 mv = m_view * m_model;
-    GShader::Instance()->setUniform(m_program, "ModelViewMatrix", mv);
-    GShader::Instance()->setUniform(m_program, "NormalMatrix", glm::mat3(glm::vec3(mv[0]), glm::vec3(mv[1]), glm::vec3(mv[2])));
-    GShader::Instance()->setUniform(m_program, "MVP", m_projection * mv);
+    glm::mat4 lView;
+    GCamera::Instance()->lookAt(lView);
+    GLight::Instance()->draw(m_program, lView);
+    m_modelView = lView;
+    m_modelView = glm::rotate(m_modelView, glm::radians(-35.0f), glm::vec3(1.0f,0.0f,0.0f));
+    m_modelView = glm::rotate(m_modelView, glm::radians(35.0f), glm::vec3(0.0f,1.0f,0.0f));
+    m_objTorus->draw(m_program, m_projection, m_modelView);
 }
 //===============================================

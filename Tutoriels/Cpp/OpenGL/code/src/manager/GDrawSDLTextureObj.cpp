@@ -20,7 +20,7 @@ GDrawSDLTextureObj* GDrawSDLTextureObj::Instance() {
 }
 //===============================================
 void GDrawSDLTextureObj::initDraw() {
-    m_objBox = GObjBox(1.0f);
+    m_objBox = GObjBox(1.0f, "res/img/box.jpg");
     m_objBox2 = GObjBox(1.0f, "res/img/box2.jpg");
     m_objLand = GObjLand(20.0f);
     m_angleU = 0.0f;

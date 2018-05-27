@@ -14,11 +14,13 @@ using namespace std;
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2_rotozoom.h>
-#include <QGLWidget>
 #include <BulletDynamics/Dynamics/btDynamicsWorld.h>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtx/transform2.hpp>
 #include <glm/gtc/quaternion.hpp>
+//================================================
+#include <QGLWidget>
+#include <QKeyEvent>
 //================================================
 #define BUFFER_OFFSET(a) ((void*)(a))
 //================================================

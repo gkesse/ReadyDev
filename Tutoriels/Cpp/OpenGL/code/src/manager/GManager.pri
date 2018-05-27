@@ -41,9 +41,7 @@ HEADERS += \
     $$PWD/GDrawQtBackground.h \
     $$PWD/GDrawQtRead.h \
     $$PWD/GDrawQtUniformBlock.h \
-    $$PWD/GTorus.h \
     $$PWD/GDrawQtLightDiffuse.h \
-    $$PWD/GDrawQtLightADS.h \
     $$PWD/GDrawGLFW.h \
     $$PWD/GDrawGLFWBackground.h \
     $$PWD/GDrawGLFWSimple.h \
@@ -76,7 +74,38 @@ HEADERS += \
     $$PWD/GObjLand.h \
     $$PWD/GDrawSDLCamera.h \
     $$PWD/GObjCabin.h \
-    $$PWD/GDrawSDLRelic.h
+    $$PWD/GDrawSDLRelic.h \
+    $$PWD/GObjGround.h \
+    $$PWD/GObjCrystal.h \
+    $$PWD/GObjTorus.h \
+    $$PWD/GObjCubeVbo.h \
+    $$PWD/GDrawSDLCubeVbo.h \
+    $$PWD/GDrawSDLTextureVbo.h \
+    $$PWD/GObjBoxVbo.h \
+    $$PWD/GDrawSDLCubeVao.h \
+    $$PWD/GObjCubeVao.h \
+    $$PWD/GDrawSDLTextureVao.h \
+    $$PWD/GObjBoxVao.h \
+    $$PWD/GLight.h \
+    $$PWD/GLightDiffuse.h \
+    $$PWD/GLightAds.h \
+    $$PWD/GDrawQtLightAds.h \
+    $$PWD/GObjTeapot.h \
+    $$PWD/GDataTeapot.h \
+    $$PWD/GDrawQtLightFlat.h \
+    $$PWD/GObjOgre.h \
+    $$PWD/GDrawQtSubRoutine.h \
+    $$PWD/GDrawQtLightSmooth.h \
+    $$PWD/GDrawQtLightTwoSide.h \
+    $$PWD/GDrawQtLightTwoSideMix.h \
+    $$PWD/GDrawQtShaderFunction.h \
+    $$PWD/GDrawQtFragDiscard.h \
+    $$PWD/GDrawQtLightMultiPosition.h \
+    $$PWD/GObjPlane.h \
+    $$PWD/GObjPig.h \
+    $$PWD/GDrawQtEvent.h \
+    $$PWD/GDrawQtCamara.h \
+    $$PWD/GDrawQtLightDirectional.h
 
 SOURCES += \
     $$PWD/GWindow.cpp \
@@ -105,9 +134,7 @@ SOURCES += \
     $$PWD/GDrawQtBackground.cpp \
     $$PWD/GDrawQtRead.cpp \
     $$PWD/GDrawQtUniformBlock.cpp \
-    $$PWD/GTorus.cpp \
     $$PWD/GDrawQtLightDiffuse.cpp \
-    $$PWD/GDrawQtLightADS.cpp \
     $$PWD/GDrawGLFW.cpp \
     $$PWD/GDrawGLFWBackground.cpp \
     $$PWD/GDrawGLFWSimple.cpp \
@@ -140,7 +167,37 @@ SOURCES += \
     $$PWD/GObjLand.cpp \
     $$PWD/GDrawSDLCamera.cpp \
     $$PWD/GObjCabin.cpp \
-    $$PWD/GDrawSDLRelic.cpp
+    $$PWD/GDrawSDLRelic.cpp \
+    $$PWD/GObjGround.cpp \
+    $$PWD/GObjCrystal.cpp \
+    $$PWD/GObjTorus.cpp \
+    $$PWD/GObjCubeVbo.cpp \
+    $$PWD/GDrawSDLCubeVbo.cpp \
+    $$PWD/GDrawSDLTextureVbo.cpp \
+    $$PWD/GObjBoxVbo.cpp \
+    $$PWD/GDrawSDLCubeVao.cpp \
+    $$PWD/GObjCubeVao.cpp \
+    $$PWD/GDrawSDLTextureVao.cpp \
+    $$PWD/GObjBoxVao.cpp \
+    $$PWD/GLight.cpp \
+    $$PWD/GLightDiffuse.cpp \
+    $$PWD/GLightAds.cpp \
+    $$PWD/GDrawQtLightAds.cpp \
+    $$PWD/GObjTeapot.cpp \
+    $$PWD/GDrawQtLightFlat.cpp \
+    $$PWD/GObjOgre.cpp \
+    $$PWD/GDrawQtSubRoutine.cpp \
+    $$PWD/GDrawQtLightSmooth.cpp \
+    $$PWD/GDrawQtLightTwoSide.cpp \
+    $$PWD/GDrawQtLightTwoSideMix.cpp \
+    $$PWD/GDrawQtShaderFunction.cpp \
+    $$PWD/GDrawQtFragDiscard.cpp \
+    $$PWD/GDrawQtLightMultiPosition.cpp \
+    $$PWD/GObjPlane.cpp \
+    $$PWD/GObjPig.cpp \
+    $$PWD/GDrawQtEvent.cpp \
+    $$PWD/GDrawQtCamara.cpp \
+    $$PWD/GDrawQtLightDirectional.cpp
 
 FORMS += \
     $$PWD/GWindowQtForm.ui

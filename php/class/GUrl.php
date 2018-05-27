@@ -18,8 +18,8 @@
         //===============================================
         public function lastUrl() {
             if(!GConfig::Instance()->existData("title")) return; 
-            $m_title = GConfig::Instance()->getData("title"); 
-            if($m_title == "Connexion" || $m_title == "Administration" || $m_title == "ERREUR") return;
+            $lTitle = GConfig::Instance()->getData("title"); 
+            if($lTitle == "Connexion" || $lTitle == "Administration" || $lTitle == "ERREUR") return;
             $_SESSION["lasturl"] = dirname($_SERVER["PHP_SELF"])."/";
         }
         //===============================================
