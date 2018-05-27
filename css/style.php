@@ -208,46 +208,6 @@ b {
 }
 
 /* ============================================== */
-/* Background */
-/* ============================================== */
-
-.Background {
-    min-height: 300px;
-    background-color: #333333;
-    background-image: url("<?php echo $lStyle["background"]["item1"]["img"]; ?>");
-    background-position: center;
-    position: absolute;
-}
-
-.Background.Item1 {
-    background-image: url("/data/img/defaults/fete.gif"), url("/data/img/defaults/fond.jpg");
-    background-position: center top, left top;
-    background-repeat: no-repeat, no-repeat;    
-    background-size: auto, 100% 100%;    
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    z-index: -1;
-}
-
-.Background.Item2 {
-    top: 300px;
-    bottom: 300px;
-    left: 0px;
-    right: 0px;
-    z-index: -1;
-    background-image: url("<?php echo $lStyle["background"]["item2"]["img"]; ?>");
-}
-
-.Background.Item3 {
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-    z-index: -1;
-    background-image: url("<?php echo $lStyle["background"]["item3"]["img"]; ?>");
-}
-
-/* ============================================== */
 /* Page */ 
 /* ============================================== */
 
@@ -345,6 +305,47 @@ b {
 
 .pdfHt {
     height: 640px;
+}
+
+
+/* ============================================== */
+/* Background */
+/* ============================================== */
+
+.Background {
+    min-height: 300px;
+    background-color: #333333;
+    background-image: url("<?php echo $lStyle["background"]["item1"]["img"]; ?>");
+    background-position: center;
+    position: absolute;
+}
+
+.Background.Item1 {
+    background-image: url("/data/img/defaults/fete.gif"), url("/data/img/defaults/fond.jpg");
+    background-position: center top, left top;
+    background-repeat: no-repeat, no-repeat;    
+    background-size: auto, 100% 100%;    
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: -1;
+}
+
+.Background.Item2 {
+    top: 300px;
+    bottom: 300px;
+    left: 0px;
+    right: 0px;
+    z-index: -1;
+    background-image: url("<?php echo $lStyle["background"]["item2"]["img"]; ?>");
+}
+
+.Background.Item3 {
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: -1;
+    background-image: url("<?php echo $lStyle["background"]["item3"]["img"]; ?>");
 }
 
 /* ============================================== */
@@ -1326,6 +1327,13 @@ b {
     .rwda[class*="pgCl"] {
         width: 33.33%;
     } 
+}
+/* ---------------------------------------------- */
+@media (max-width:670px) {  
+    /* Background */  
+    .Background.Item1 {
+        background-size: 100% 100%, 100% 100%;    
+    }
 }
 /* ---------------------------------------------- */
 @media (max-width:640px) {    
