@@ -222,11 +222,15 @@ b {
 /* ============================================== */
 
 .Footer {
-    background: rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.0);
     position: absolute;
     bottom: 35px;
     left: 0px;
     right: 0px;
+}
+
+.Footer .Body .Row:not(:last-child) {
+    margin-bottom: 20px;
 }
 
 /* ============================================== */
