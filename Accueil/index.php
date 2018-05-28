@@ -23,25 +23,25 @@
         </div>
     </div>
     <!-- ============================================ -->
-    <div class="Parallax">
+    <div class="Parallax Developer">
         <div class="Img">
             <div class="Caption">
-                <div class="Text">PAGE NON TROUVEE</div>
+                <div class="Text">Développeur</div>
             </div>
         </div>
         <div class="Body">
-            <div>La page que vous cherchiez n'existe pas...</div>
+            <div><?php echo join(" ", $lData["author"]) ?></div>
         </div>
     </div>
     <!-- ============================================ -->
-    <div class="Parallax">
+    <div class="Parallax Puce">
         <div class="Img">
             <div class="Caption">
-                <div class="Text">PAGE NON TROUVEE</div>
+                <div class="Text">Formation</div>
             </div>
         </div>
         <div class="Body">
-            <div>La page que vous cherchiez n'existe pas...</div>
+            <div><?php echo join(" ", $lData["education"]) ?></div>
         </div>
     </div>
     <!-- ============================================ -->

@@ -277,7 +277,7 @@ b {
 
 .Parallax .Body {
     position: relative;
-    min-height: 500px;
+    min-height: 50px;
     background-color: #803300;
     font-size: 20px;
     color: white;
@@ -293,8 +293,8 @@ b {
 /*
     #803300 : orange
     #006666 : green
-    #2d2d86 : orange
-    #00004d : orange
+    #2d2d86 : violet
+    #00004d : blue
 */
 
 .Parallax.Error .Img {
@@ -321,23 +321,23 @@ b {
 }
 
 .Parallax.Signal .Body {
-    background-color: #006666;
-}
-
-.Parallax.Item3 .Img {
-    background-image: url("/data/img/defaults/parallax.png");
-}
-
-.Parallax.Item3 .Body {
     background-color: #2d2d86;
 }
 
-.Parallax.Item4 .Img {
-    background-image: url("/data/img/defaults/parallax.png");
+.Parallax.Puce .Img {
+    background-image: url("/data/img/defaults/puce.jpg");
 }
 
-.Parallax.Item4 .Body {
-    background-color: #00004d;
+.Parallax.Puce .Body {
+    background-color: #2d2d86;
+}
+
+.Parallax.Developer .Img {
+    background-image: url("/data/img/defaults/developer.jpg");
+}
+
+.Parallax.Developer .Body {
+    background-color: #006666;
 }
 
 /* ============================================== */
