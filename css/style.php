@@ -1492,7 +1492,7 @@ b {
 /* ---------------------------------------------- */
 @media (max-width:670px) {  
     /* Background */  
-    .Background.Item1 {
+    .Background.Top {
         background-position: center center, left top;
         background-size: 98% auto, 100% 100%;    
     }
@@ -1523,4 +1523,5 @@ b {
 @media (max-width:320px) {
 
 }
+
 /* ============================================== */
