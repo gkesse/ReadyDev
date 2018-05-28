@@ -125,6 +125,10 @@ b {
 /* BodyPage */
 /* ============================================== */
 
+.BodyPage {
+    position: relative;
+}
+
 .BodyPage.Mrg {
     max-width: 1000px;
     margin: auto;
@@ -146,6 +150,7 @@ b {
     -webkit-border-image: url("/data/img/defaults/border.png") 30 round; 
     -moz-border-image: url("/data/img/defaults/border.png") 30 round; 
     -o-border-image: url("/data/img/defaults/border.png") 30 round;
+    padding-bottom: 0px;
 }
 
 /* ============================================== */
@@ -211,6 +216,111 @@ b {
     right: 0;
     cursor: pointer;
 }
+
+/* ============================================== */
+/* Footer */ 
+/* ============================================== */
+
+.Footer {
+    background: rgba(255,255,255,0.2);
+    position: absolute;
+    bottom: 35px;
+    left: 0px;
+    right: 0px;
+}
+
+/* ============================================== */
+/* Parallax */
+/* ============================================== */
+
+.Parallax {
+    position: relative;
+}
+
+.Parallax .Img {
+    background-image: url("/data/img/defaults/erreur.jpg");
+    min-height: 500px;
+    position: relative;
+    opacity: 0.65;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-background-size: cover; 
+    -moz-background-size: cover; 
+    -o-background-size: cover; 
+}
+
+.Parallax .Img .Caption {
+    background-color: #051039;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    opacity: 0.8;
+}
+
+.Parallax .Img .Caption .Text {
+    background-color: #111;
+    color: #fff;
+    padding: 18px;
+    font-size: 25px;
+    display: inline;
+    font-family: Anton;
+    letter-spacing: 5px;
+}
+
+.Parallax .Body {
+    position: relative;
+    min-height: 500px;
+    background-color: #803300;
+    font-size: 20px;
+    color: white;
+    padding: 10px;
+    font-family: Archivo Narrow;
+}
+
+.Parallax.Scroll .Img {
+    background-attachment: scroll;
+}
+
+.Parallax.Error .Img {
+    min-height: 500px;
+    background-image: url("/data/img/defaults/erreur.png");
+}
+
+.Parallax.Error .Body {
+    min-height: 50px;
+    text-align: center;
+    font-size: 25px;
+    font-family: Allan;
+}
+
+.Parallax.Item2 .Img {
+    background-image: url("/data/img/defaults/erreur.jpg");
+}
+
+.Parallax.Item2 .Body {
+    background-color: #006666;
+}
+
+.Parallax.Item3 .Img {
+    background-image: url("/data/img/defaults/erreur.jpg");
+}
+
+.Parallax.Item3 .Body {
+    background-color: #2d2d86;
+}
+
+.Parallax.Item4 .Img {
+    background-image: url("/data/img/defaults/erreur.jpg");
+}
+
+.Parallax.Item4 .Body {
+    background-color: #00004d;
+}
+
 
 /* ============================================== */
 /* Page */ 
