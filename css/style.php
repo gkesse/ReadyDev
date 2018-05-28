@@ -242,7 +242,7 @@ b {
 }
 
 .Parallax .Img {
-    background-image: url("/data/img/defaults/erreur.jpg");
+    background-image: url("/data/img/defaults/parallax.png");
     min-height: 500px;
     position: relative;
     opacity: 0.65;
@@ -290,8 +290,7 @@ b {
 }
 
 .Parallax.Error .Img {
-    min-height: 500px;
-    background-image: url("/data/img/defaults/erreur.png");
+    background-image: url("/data/img/defaults/parallax.png");
 }
 
 .Parallax.Error .Body {
@@ -302,7 +301,7 @@ b {
 }
 
 .Parallax.Item2 .Img {
-    background-image: url("/data/img/defaults/erreur.jpg");
+    background-image: url("/data/img/defaults/parallax.png");
 }
 
 .Parallax.Item2 .Body {
@@ -310,7 +309,7 @@ b {
 }
 
 .Parallax.Item3 .Img {
-    background-image: url("/data/img/defaults/erreur.jpg");
+    background-image: url("/data/img/defaults/parallax.png");
 }
 
 .Parallax.Item3 .Body {
@@ -318,7 +317,7 @@ b {
 }
 
 .Parallax.Item4 .Img {
-    background-image: url("/data/img/defaults/erreur.jpg");
+    background-image: url("/data/img/defaults/parallax.png");
 }
 
 .Parallax.Item4 .Body {
