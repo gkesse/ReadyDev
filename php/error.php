@@ -6,16 +6,14 @@
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";
 ?>
 <!-- ============================================ -->
-<div class="pgBg">
-    <div class="mrga pgBd">
-        <!-- ============================================ -->
-        <div class="pgCt10">
-            <div class="bgra pgCt20">
-                <i class="clri fa fa-exclamation-triangle"></i>
-                <span class="clri">PAGE NON TROUVEE</span>
-            </div>
+<div class="Parallax Error">
+    <div class="Img">
+        <div class="Caption">
+            <div class="Text">PAGE NON TROUVEE</div>
         </div>
-        <!-- ============================================ -->
+    </div>
+    <div class="Body">
+        <div>La page que vous cherchiez n'existe pas...</div>
     </div>
 </div>
 <!-- ============================================ -->
