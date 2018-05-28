@@ -1,6 +1,6 @@
 <!-- ============================================ -->
 <?php
-    $m_data = GJson::Instance()->getData("data/json/footer.json"); 
+    $lData = GJson::Instance()->getData("data/json/footer.json"); 
 ?>
 <!-- ============================================ -->
 <footer>
@@ -10,22 +10,22 @@
         <div class="pgCr10">
             <div>Réseaux Sociaux - Réjoignez-nous</div>
             <?php 
-                $m_ds = $m_data["networks"];
-                foreach($m_ds as $m_di) {
+                $lDs = $lData["networks"];
+                foreach($lDs as $lDi) {
                 ?>
-            <a href="<?php echo $m_di["link"]; ?>">
-                <i class="ftad <?php echo $m_di["icon"]; ?>"></i>
+            <a href="<?php echo $lDi["link"]; ?>">
+                <i class="ftad <?php echo $lDi["icon"]; ?>"></i>
             </a>
             <?php } ?>
         </div>
         <!-- ============================================ -->
         <div class="pgCr10">
-            <?php $m_ds = $m_data["copyright"]; ?>
+            <?php $lDs = $lData["copyright"]; ?>
             <div>
                 <i class='fa fa-copyright'></i>
-                <?php echo $m_ds["date"]; ?> - <?php echo $m_ds["site"]["name"]; ?>
+                <?php echo $lDs["date"]; ?> - <?php echo $lDs["site"]["name"]; ?>
             </div>
-            <div><?php echo join(" ",$m_ds["description"]); ?></div>
+            <div><?php echo join(" ",$lDs["description"]); ?></div>
         </div>
         <!-- ============================================ -->
     </div>
