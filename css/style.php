@@ -91,9 +91,9 @@ textarea:-webkit-autofill:focus {
     transition: background-color 5000s ease-in-out 0s;
 }
 
-ul {
+/*ul {
     list-style: none;
-}
+}*/
 
 xmp {
     padding: 10px 10px 10px 50px;
@@ -283,11 +283,19 @@ b {
     color: white;
     padding: 10px;
     font-family: Archivo Narrow;
+    text-align: left;
 }
 
 .Parallax.Scroll .Img {
     background-attachment: scroll;
 }
+
+/*
+    #803300 : orange
+    #006666 : green
+    #2d2d86 : orange
+    #00004d : orange
+*/
 
 .Parallax.Error .Img {
     background-image: url("/data/img/defaults/parallax.png");
@@ -300,11 +308,19 @@ b {
     font-family: Allan;
 }
 
-.Parallax.Item2 .Img {
-    background-image: url("/data/img/defaults/parallax.png");
+.Parallax.Binary .Img {
+    background-image: url("/data/img/defaults/binary.png");
 }
 
-.Parallax.Item2 .Body {
+.Parallax.Binary .Body {
+    background-color: #803300 ;
+}
+
+.Parallax.Signal .Img {
+    background-image: url("/data/img/defaults/signal.jpg");
+}
+
+.Parallax.Signal .Body {
     background-color: #006666;
 }
 
@@ -324,107 +340,13 @@ b {
     background-color: #00004d;
 }
 
-
 /* ============================================== */
-/* Page */ 
-/* ============================================== */
-
-/* Page Background */
-.pgBg {
-    background: transparent;
-}
-
-/* Page Body */
-.pgBd {
-    max-width: 700px;
-}
-
-/* Page Content */
-.pgCt00 {
-    padding: 0 10px;
-}
-
-.pgCt05 {
-    padding: 5px 10px;
-}
-
-.pgCt10 {
-    padding: 10px 10px;
-}
-
-.pgCt20 {
-    padding: 20px 10px;
-}
-
-/* Page Container */
-.pgCr05 {
-    padding: 5px 0;
-}
-
-.pgCr10 {
-    padding: 10px 0;
-}
-
-.pgCr20 {
-    padding: 20px 0px;
-}
-
-/* Page Constant */
-.pgCc05 {
-    padding: 5px;
-}
-
- /* Page Row */
-.pgRw {
-    font-size: 0;
-    padding: 5px;
-}
-
-/* Page Column */
-.pgCl01 {width: 4.16%;}
-.pgCl02 {width: 8.33%;}
-.pgCl03 {width: 12.5%;}
-.pgCl04 {width: 16.66%;}
-.pgCl05 {width: 20.83%;}
-.pgCl06 {width: 25%;}
-.pgCl07 {width: 29.16%;}
-.pgCl08 {width: 33.33%;}
-.pgCl09 {width: 37.5%;}
-.pgCl10 {width: 41.66%;}
-.pgCl11 {width: 45.83%;}
-.pgCl12 {width: 50%;}
-.pgCl13 {width: 54.16%;}
-.pgCl14 {width: 58.33%;}
-.pgCl15 {width: 62.5%;}
-.pgCl16 {width: 66.66%;}
-.pgCl17 {width: 70.83%;}
-.pgCl18 {width: 75%;}
-.pgCl19 {width: 79.16%;}
-.pgCl20 {width: 83.33%;}
-.pgCl21 {width: 87.5%;}
-.pgCl22 {width: 91.66%;}
-.pgCl23 {width: 95.83%;}
-.pgCl24 {width: 100%;}
-
-[class*="pgCl"] {
-    display: inline-block;
-    vertical-align: top;
-    font-size: 16px;
-    padding: 5px;
-}
-
-/* ============================================== */
-/* Pdf Format */ 
+/* List */ 
 /* ============================================== */
 
-.pdfBd {
-    max-width: 1000px;
-}
+.List {
 
-.pdfHt {
-    height: 640px;
 }
-
 
 /* ============================================== */
 /* Background */
@@ -433,12 +355,12 @@ b {
 .Background {
     min-height: 300px;
     background-color: #333333;
-    background-image: url("<?php echo $lStyle["background"]["item1"]["img"]; ?>");
+    background-image: url("<?php echo $lStyle["background"]["top"]["img"]; ?>");
     background-position: center;
     position: absolute;
 }
 
-.Background.Item1 {
+.Background.Top {
     background-image: url("/data/img/defaults/fete.gif"), url("/data/img/defaults/fond.jpg");
     background-position: center top, left top;
     background-repeat: no-repeat, no-repeat;    
@@ -454,21 +376,27 @@ b {
     -o-border-image: url("/data/img/defaults/border.png") 30 round;
 }
 
-.Background.Item2 {
+.Background.Middle {
     top: 300px;
     bottom: 300px;
     left: 0px;
     right: 0px;
     z-index: -1;
-    background-image: url("<?php echo $lStyle["background"]["item2"]["img"]; ?>");
+    background-image: url("/data/img/defaults/middle.gif");
+    background-position: center center;
+    background-repeat: repeat;    
+    background-size: auto;    
 }
 
-.Background.Item3 {
+.Background.Bottom {
     bottom: 0px;
     left: 0px;
     right: 0px;
     z-index: -1;
-    background-image: url("<?php echo $lStyle["background"]["item3"]["img"]; ?>");
+    background-image: url("/data/img/defaults/footer.jpg");
+    background-position: left top;
+    background-repeat: no-repeat;    
+    background-size: 100% 100%;    
     border: 10px solid transparent;
     border-image: url("/data/img/defaults/border.png") 30 round;
     -webkit-border-image: url("/data/img/defaults/border.png") 30 round; 
@@ -741,6 +669,107 @@ b {
     z-index: 1;
     color: #ff9933;
 }
+
+/* ============================================== */
+/* Page */ 
+/* ============================================== */
+
+/* Page Background */
+.pgBg {
+    background: transparent;
+}
+
+/* Page Body */
+.pgBd {
+    max-width: 700px;
+}
+
+/* Page Content */
+.pgCt00 {
+    padding: 0 10px;
+}
+
+.pgCt05 {
+    padding: 5px 10px;
+}
+
+.pgCt10 {
+    padding: 10px 10px;
+}
+
+.pgCt20 {
+    padding: 20px 10px;
+}
+
+/* Page Container */
+.pgCr05 {
+    padding: 5px 0;
+}
+
+.pgCr10 {
+    padding: 10px 0;
+}
+
+.pgCr20 {
+    padding: 20px 0px;
+}
+
+/* Page Constant */
+.pgCc05 {
+    padding: 5px;
+}
+
+ /* Page Row */
+.pgRw {
+    font-size: 0;
+    padding: 5px;
+}
+
+/* Page Column */
+.pgCl01 {width: 4.16%;}
+.pgCl02 {width: 8.33%;}
+.pgCl03 {width: 12.5%;}
+.pgCl04 {width: 16.66%;}
+.pgCl05 {width: 20.83%;}
+.pgCl06 {width: 25%;}
+.pgCl07 {width: 29.16%;}
+.pgCl08 {width: 33.33%;}
+.pgCl09 {width: 37.5%;}
+.pgCl10 {width: 41.66%;}
+.pgCl11 {width: 45.83%;}
+.pgCl12 {width: 50%;}
+.pgCl13 {width: 54.16%;}
+.pgCl14 {width: 58.33%;}
+.pgCl15 {width: 62.5%;}
+.pgCl16 {width: 66.66%;}
+.pgCl17 {width: 70.83%;}
+.pgCl18 {width: 75%;}
+.pgCl19 {width: 79.16%;}
+.pgCl20 {width: 83.33%;}
+.pgCl21 {width: 87.5%;}
+.pgCl22 {width: 91.66%;}
+.pgCl23 {width: 95.83%;}
+.pgCl24 {width: 100%;}
+
+[class*="pgCl"] {
+    display: inline-block;
+    vertical-align: top;
+    font-size: 16px;
+    padding: 5px;
+}
+
+/* ============================================== */
+/* Pdf Format */ 
+/* ============================================== */
+
+.pdfBd {
+    max-width: 1000px;
+}
+
+.pdfHt {
+    height: 640px;
+}
+
 
 /* ============================================== */
 /* Custom */ 

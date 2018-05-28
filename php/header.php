@@ -118,9 +118,9 @@
         <!-- ============================================ -->
         <div class="HtmlPage">
             <!-- ============================================ -->
-            <div class="Background Item1"></div>
-            <div class="Background Item2"></div>
-            <div class="Background Item3"></div>
+            <div class="Background Top"></div>
+            <div class="Background Middle"></div>
+            <div class="Background Bottom"></div>
             <!-- ============================================ -->
             <?php require $_SERVER["DOCUMENT_ROOT"]."/php/connection.php";  ?>
             <!-- ============================================ -->

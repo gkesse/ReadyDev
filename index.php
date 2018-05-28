@@ -1,3 +1,3 @@
 <?php
-    header('Location: /Tutoriels/');
+    header('Location: /Accueil/');
 ?>

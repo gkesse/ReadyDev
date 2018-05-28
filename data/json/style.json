@@ -3,13 +3,13 @@
         "img": "\/data\/img\/defaults\/logo.jpg"
     },
     "background": {
-        "item1": {
+        "top": {
             "img": "\/data\/img\/defaults\/texture_green.jpg"
         },
-        "item2": {
+        "middle": {
             "img": "\/data\/img\/defaults\/texture_black.jpg"
         },
-        "item3": {
+        "bottom": {
             "img": "\/data\/img\/defaults\/texture_green.jpg"
         }
     },
