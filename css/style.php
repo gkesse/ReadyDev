@@ -141,6 +141,11 @@ b {
 
 .MainPage {
     background: #051039;
+    border: 10px solid transparent;
+    border-image: url("/data/img/defaults/border.png") 30 round;
+    -webkit-border-image: url("/data/img/defaults/border.png") 30 round; 
+    -moz-border-image: url("/data/img/defaults/border.png") 30 round; 
+    -o-border-image: url("/data/img/defaults/border.png") 30 round;
 }
 
 /* ============================================== */
@@ -329,6 +334,11 @@ b {
     left: 0px;
     right: 0px;
     z-index: -1;
+    border: 10px solid transparent;
+    border-image: url("/data/img/defaults/border.png") 30 round;
+    -webkit-border-image: url("/data/img/defaults/border.png") 30 round; 
+    -moz-border-image: url("/data/img/defaults/border.png") 30 round; 
+    -o-border-image: url("/data/img/defaults/border.png") 30 round;
 }
 
 .Background.Item2 {
@@ -346,6 +356,11 @@ b {
     right: 0px;
     z-index: -1;
     background-image: url("<?php echo $lStyle["background"]["item3"]["img"]; ?>");
+    border: 10px solid transparent;
+    border-image: url("/data/img/defaults/border.png") 30 round;
+    -webkit-border-image: url("/data/img/defaults/border.png") 30 round; 
+    -moz-border-image: url("/data/img/defaults/border.png") 30 round; 
+    -o-border-image: url("/data/img/defaults/border.png") 30 round;
 }
 
 /* ============================================== */
