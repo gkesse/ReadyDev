@@ -1336,6 +1336,7 @@ b {
 @media (max-width:670px) {  
     /* Background */  
     .Background.Item1 {
+        background-position: center center, left top;
         background-size: 98% auto, 100% 100%;    
     }
 }
