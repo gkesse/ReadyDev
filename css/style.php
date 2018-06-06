@@ -91,10 +91,6 @@ textarea:-webkit-autofill:focus {
     transition: background-color 5000s ease-in-out 0s;
 }
 
-/*ul {
-    list-style: none;
-}*/
-
 xmp {
     padding: 10px 10px 10px 50px;
 	font-size: 16px;
