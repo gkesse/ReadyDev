@@ -1,7 +1,7 @@
 <?php
     require $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoloadRegister.php";
     
-    $m_data = GJson::Instance()->getData("data/json/Tutoriels.json");
+    $lData = GJson::Instance()->getData("data/json/Tutoriels.json");
 
     GConfig::Instance()->setData("title", "Tutoriels");
     GConfig::Instance()->setData("menu", "Tutoriels");
@@ -15,11 +15,11 @@
     <div class="Parallax Binary">
         <div class="Img">
             <div class="Caption">
-                <div class="Text">Développement</div>
+                <div class="Text">Tutoriels</div>
             </div>
         </div>
         <div class="Body">
-            <div></div>
+            <div><?php echo join(" ", $lData["intro"]) ?></div>
         </div>
     </div>
     <!-- ============================================ -->

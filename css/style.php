@@ -348,12 +348,12 @@ b {
 
 .RowBlock .Ctn {
     font-size: 0px;
-    padding: 5px;
+    padding: 0px 5px 5px 5px;
 }
 
 .RowBlock .Ctn .Col {
     display: inline-block;
-    padding: 5px;
+    padding: 0px 5px 5px 5px;
     font-family: Aclonica;
     font-size: 16px;
 }
@@ -875,7 +875,7 @@ b {
 }
 
 .pdfHt {
-    height: 640px;
+    height: 100vh;
 }
 
 
