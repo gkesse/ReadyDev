@@ -235,6 +235,7 @@ b {
 
 .Parallax {
     position: relative;
+    text-align: center;
 }
 
 .Parallax .Img {
@@ -254,21 +255,23 @@ b {
 .Parallax .Img .Caption {
     background-color: #051039;
     position: absolute;
-    left: 0;
     top: 50%;
-    width: 100%;
-    text-align: center;
+    left: 0;
+    right: 0;
+    height: 40px;
+    margin-top: -20px; 
     opacity: 0.8;
 }
 
 .Parallax .Img .Caption .Text {
     background-color: #111;
     color: #fff;
-    padding: 18px;
+    padding: 18px 10px;
     font-size: 25px;
-    display: inline;
+    display: inline-block;
     font-family: Anton;
     letter-spacing: 5px;
+    margin-top: -20px; 
 }
 
 .Parallax .Body {
