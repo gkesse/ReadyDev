@@ -12,7 +12,7 @@
     
     $lExiststLink = GConfig::Instance()->existData("link");
     if($lExiststLink == true) {
-        $lLink = GConfig::Instance()->getData("link"); 
+        $lLinks = GConfig::Instance()->getData("link"); 
     }
     
     $lExiststView = GConfig::Instance()->existData("view");
@@ -183,14 +183,14 @@
                                 </div>
                                 <!-- ============================================ -->
                                 <div class="dibm pdba">
-                                    <?php $m_url = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; ?>
+                                    <?php $lUrl = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; ?>
                                     <div class="fltl mgra">
-                                        <a href="http://www.facebook.com/sharer.php?u=<?php echo $m_url; ?>" target="_blank">
+                                        <a href="http://www.facebook.com/sharer.php?u=<?php echo $lUrl; ?>" target="_blank">
                                             <i class="ftaa fa fa-facebook scna"></i>
                                         </a>
                                     </div>
                                     <div class="fltl">
-                                        <a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo $m_url; ?>&title=<?php echo urlencode($lTitle.' | '.$lSiteName); ?>&summary=<?php echo urlencode($lMetaDesc); ?>" target="_blank">
+                                        <a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo $lUrl; ?>&title=<?php echo urlencode($lTitle.' | '.$lSiteName); ?>&summary=<?php echo urlencode($lMetaDesc); ?>" target="_blank">
                                             <i class="ftaa fa fa-linkedin scnb"></i>
                                         </a>
                                     </div>
@@ -203,13 +203,13 @@
                         <?php if($lExiststLink == true) { ?>
                         <div class="pdda">
                             <?php 
-                            for($i = 0; $i < count($lLink); $i++) {
-                                $m_di = $lLink[$i]; 
+                            for($i = 0; $i < count($lLinks); $i++) {
+                                $lLink = $lLinks[$i]; 
                                 if($i != 0) { 
                             ?>
                             <i class="fa fa-chevron-right pddc dibm mgbb"></i>
                             <?php } ?>
-                            <a class="ftfb bgra dibm pddc mgbb" href="<?php echo $m_di["link"]; ?>"><?php echo $m_di["name"]; ?></a>
+                            <a class="ftfb bgra dibm pddc mgbb" href="<?php echo $lLink["link"]; ?>"><?php echo $lLink["name"]; ?></a>
                             <?php } ?>
                         </div>
                         <?php } ?>
