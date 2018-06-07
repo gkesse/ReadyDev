@@ -284,6 +284,26 @@ b {
     text-align: left;
 }
 
+.Parallax .Body.Line {
+    padding: 5px;
+}
+
+.Parallax .Body .Row {
+    padding: 5px;
+}
+
+.Parallax .Body .Row .Icon {
+    color: cyan;
+}
+
+.Parallax .Body .Row .Link {
+    color: cyan;
+}
+
+.Parallax .Body .Row .Link:hover {
+    text-decoration: underline;
+}
+
 .Parallax.Scroll .Img {
     background-attachment: scroll;
 }
@@ -442,10 +462,6 @@ b {
 
 .MainBlock .Ctn .Body .Row .Col .Item.Link:active {
     opacity: 1.0;
-}
-
-.MainBlock .Ctn .Body .Row .Col .Item.Twitter {
-    background-color: #0e76a8;
 }
 
 .MainBlock .Ctn .Body .Row .Col .Item.Facebook {
