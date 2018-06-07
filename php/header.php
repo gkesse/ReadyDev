@@ -165,33 +165,30 @@
                             <li class="Bars" onclick="openHeaderMenu(this);"><i class="fa fa-bars"></i></li>
                         </ul>
                         <!-- ============================================ -->
-                        <div class="pgCt10">
-                            <div class="bgra">
-                                <h1 class="bgra clra pgCt20"><?php echo $lTitle; ?></h1>
+                        <div class="MainBlock">
+                            <div class="Ctn">
+                                <h1 class="Title"><?php echo $lTitle; ?></h1>
                                 <!-- ============================================ -->
                                 <?php if($lExiststView == true) { ?>
-                                <div class="pgCt10">
-                                    <div class="bgra dibm ftsc">
-                                        <div class="bgra fltl pgCt05">
-                                            <i class="ftsb fa fa-eye"></i>
-                                            <span>Vues</span>
-                                        </div>
-                                        <div class="fltl pgCt05">
-                                            <span><?php echo $lViewNum; ?></span>
+                                <div class="Body">
+                                    <div class="Row">
+                                        <div class="Form">
+                                            <div class="Label">
+                                                <i class="Icon fa fa-eye"></i>
+                                                <span>Vues</span>
+                                            </div>
+                                            <div class="Field">
+                                                <span><?php echo $lViewNum; ?></span>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <!-- ============================================ -->
-                                <div class="dibm pdba">
-                                    <?php $lUrl = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; ?>
-                                    <div class="fltl mgra">
-                                        <a href="http://www.facebook.com/sharer.php?u=<?php echo $lUrl; ?>" target="_blank">
-                                            <i class="ftaa fa fa-facebook scna"></i>
+                                    <div class="Row Line">
+                                        <?php $lUrl = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; ?>
+                                        <a class="Col" href="http://www.facebook.com/sharer.php?u=<?php echo $lUrl; ?>" target="_blank">
+                                            <i class="Item Link Facebook fa fa-facebook"></i>
                                         </a>
-                                    </div>
-                                    <div class="fltl">
-                                        <a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo $lUrl; ?>&title=<?php echo urlencode($lTitle.' | '.$lSiteName); ?>&summary=<?php echo urlencode($lMetaDesc); ?>" target="_blank">
-                                            <i class="ftaa fa fa-linkedin scnb"></i>
+                                        <a class="Col" href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo $lUrl; ?>&title=<?php echo urlencode($lTitle.' | '.$lSiteName); ?>&summary=<?php echo urlencode($lMetaDesc); ?>" target="_blank">
+                                            <i class="Item Link Twitter fa fa-linkedin"></i>
                                         </a>
                                     </div>
                                 </div>
@@ -201,16 +198,20 @@
                         </div>
                         <!-- ============================================ -->
                         <?php if($lExiststLink == true) { ?>
-                        <div class="pdda">
-                            <?php 
-                            for($i = 0; $i < count($lLinks); $i++) {
-                                $lLink = $lLinks[$i]; 
-                                if($i != 0) { 
-                            ?>
-                            <i class="fa fa-chevron-right pddc dibm mgbb"></i>
-                            <?php } ?>
-                            <a class="ftfb bgra dibm pddc mgbb" href="<?php echo $lLink["link"]; ?>"><?php echo $lLink["name"]; ?></a>
-                            <?php } ?>
+                        <div class="RowBlock">
+                            <div class="Ctn">
+                                <div class="Row0 Line0">
+                                    <?php 
+                                    for($i = 0; $i < count($lLinks); $i++) {
+                                        $lLink = $lLinks[$i]; 
+                                        if($i != 0) { 
+                                    ?>
+                                    <div class="Col"><i class="fa fa-chevron-right"></i></div>
+                                    <?php } ?>
+                                    <div class="Col"><a class="Item" href="<?php echo $lLink["link"]; ?>"><?php echo $lLink["name"]; ?></a></div>
+                                    <?php } ?>
+                                </div>
+                            </div>
                         </div>
                         <?php } ?>
                         <!-- ============================================ -->

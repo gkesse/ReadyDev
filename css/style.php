@@ -160,7 +160,6 @@ b {
     line-height: 40px;
     position: relative;
     padding-right: 10px;
-    margin-bottom: 10px;
 }
 
 .Header .Menu .Item {
@@ -340,11 +339,121 @@ b {
 }
 
 /* ============================================== */
-/* List */ 
+/* RowBlock */ 
 /* ============================================== */
 
-.List {
+.RowBlock {
+    padding: 0px;
+}
 
+.RowBlock .Ctn {
+    font-size: 0px;
+    padding: 5px;
+}
+
+.RowBlock .Ctn .Col {
+    display: inline-block;
+    padding: 5px;
+    font-family: Aclonica;
+    font-size: 16px;
+}
+
+.RowBlock .Ctn .Col .Item {
+    background-color: rgba(255, 255, 255, 0.2);
+    display: inline-block;
+    padding: 5px;
+}
+
+/* ============================================== */
+/* MainBlock */ 
+/* ============================================== */
+
+.MainBlock {
+    padding: 10px 10px 10px 10px;
+}
+
+.MainBlock .Ctn {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.MainBlock .Ctn .Title {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #f67b20;
+    padding: 20px;
+}
+
+.MainBlock .Ctn .Body {
+    padding: 5px;
+}
+
+.MainBlock .Ctn .Body .Row {
+    padding: 5px;
+}
+
+.MainBlock .Ctn .Body .Row.Line {
+    padding: 0px;
+    font-size: 0px;
+}
+
+.MainBlock .Ctn .Body .Row .Form {
+    background-color: rgba(255, 255, 255, 0.2);
+    display: inline-block;
+    font-size: 0px;
+}
+
+.MainBlock .Ctn .Body .Row .Form .Label {
+    background-color: rgba(255, 255, 255, 0.2);
+    display: inline-block;
+    padding: 5px;
+    font-size: 14px;
+}
+
+.MainBlock .Ctn .Body .Row .Form .Label .Icon {
+    font-size: 16px;
+}
+.MainBlock .Ctn .Body .Row .Form .Field {
+    display: inline-block;
+    padding: 5px;
+    font-size: 14px;
+}
+
+.MainBlock .Ctn .Body .Row .Col {
+    display: inline-block;
+    font-size: 14px;
+    padding: 5px;
+}
+
+.MainBlock .Ctn .Body .Row .Col .Item {
+    background-color: rgba(255, 255, 255, 0.2);
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    line-height: 40px;
+    font-size: 20px;
+}
+
+.MainBlock .Ctn .Body .Row .Col .Item.Link {
+    cursor: pointer;
+}
+
+.MainBlock .Ctn .Body .Row .Col .Item.Link:hover {
+    opacity: 0.8;
+}
+
+.MainBlock .Ctn .Body .Row .Col .Item.Link:active {
+    opacity: 1.0;
+}
+
+.MainBlock .Ctn .Body .Row .Col .Item.Twitter {
+    background-color: #0e76a8;
+}
+
+.MainBlock .Ctn .Body .Row .Col .Item.Facebook {
+    background-color: #3b5998;
+}
+
+.MainBlock .Ctn .Body .Row .Col .Item.Twitter {
+    background-color: #0e76a8;
 }
 
 /* ============================================== */
@@ -1394,7 +1503,7 @@ b {
     text-align: left;
 }
 
-/* social network */
+/* Social Network */
 .scna {
     background: #3b5998;
 }
