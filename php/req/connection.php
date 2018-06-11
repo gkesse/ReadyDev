@@ -39,7 +39,6 @@
         if(isset($_SESSION["login"])) {
             unset($_SESSION["login"]);
         }
-        header("Location: ".$_SESSION["lasturl"]);
         print_r("Bonne Déconnexion");
 	}
 	//===============================================

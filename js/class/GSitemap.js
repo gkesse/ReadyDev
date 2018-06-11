@@ -151,7 +151,7 @@ var GSitemap = (function() {
     //===============================================
     return {
         Instance: function() {
-            if (!m_instance) {
+            if(!m_instance) {
                 m_instance = Container();
             }
             return m_instance;

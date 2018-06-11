@@ -489,9 +489,9 @@ var GEditor = (function() {
 				var lTab = document.getElementsByClassName("EditorTab");
 				for(var i = 0; i < lTab.length; i++) {
 					var lTabId = lTab[i];
-					lTabId.className = lTabId.className.replace(" bgrc", "");
+					lTabId.className = lTabId.className.replace(" Active", "");
 				}
-				obj.className += " bgrc";
+				obj.className += " Active";
 				var lTabCtn = document.getElementsByClassName("EditorTabCtn");
 				for(var i = 0; i < lTabCtn.length; i++) {
 					var lTabCtnId = lTabCtn[i];
@@ -647,7 +647,7 @@ var GEditor = (function() {
     //===============================================
     return {
         Instance: function() {
-            if (!m_instance) {
+            if(!m_instance) {
                 m_instance = Container();
             }
             return m_instance;

@@ -131,6 +131,104 @@ hr:after {
 }
 
 /* ============================================== */
+/* Animation */
+/* ============================================== */
+
+.AnimateShow {
+    animation-name: AnimateShow;
+    animation-duration: 0.4s
+    -webkit-animation-name: AnimateShow;
+    -webkit-animation-duration: 0.4s;
+    -moz-animation-name: AnimateShow;
+    -moz-animation-duration: 0.4s;
+    -o-animation-name: AnimateShow;
+    -o-animation-duration: 0.4s;
+}
+
+@keyframes AnimateShow {
+    from {top:-400px; opacity:0;}
+    to {top:0; opacity:1}
+}
+
+@-webkit-keyframes AnimateShow {
+    from {top:-400px; opacity:0;} 
+    to {top:0; opacity:1;}
+}
+
+@-moz-keyframes AnimateShow {
+    from {top:-400px; opacity:0;} 
+    to {top:0; opacity:1;}
+}
+
+@-o-keyframes AnimateShow {
+    from {top:-400px; opacity:0;} 
+    to {top:0; opacity:1;}
+}
+
+.AnimateHide {
+    animation-name: AnimateHide;
+    animation-duration: 0.4s
+    -webkit-animation-name: AnimateHide;
+    -webkit-animation-duration: 0.4s;
+    -moz-animation-name: AnimateHide;
+    -moz-animation-duration: 0.4s;
+    -o-animation-name: AnimateHide;
+    -o-animation-duration: 0.4s;
+}
+
+@keyframes AnimateHide {
+    from {top:0; opacity:1}
+    to {top:-400px; opacity:0}
+}
+
+@-webkit-keyframes AnimateHide {
+    from {top:0; opacity:1}
+    to {top:-400px; opacity:0}
+}
+
+@-moz-keyframes AnimateHide {
+    from {top:0; opacity:1}
+    to {top:-400px; opacity:0}
+}
+
+@-o-keyframes AnimateHide {
+    from {top:0; opacity:1}
+    to {top:-400px; opacity:0}
+}
+
+/* ============================================== */
+/* Common */
+/* ============================================== */
+
+.Bold {
+    font-weight: bold;
+}
+
+.Center {
+    text-align: center;
+}
+
+.Italic {
+    font-style: italic;
+}
+
+.Left {
+    text-align: left;
+}
+
+.LineThrough {
+	text-decoration: line-through;
+}
+
+.Right {
+    text-align: right;
+}
+
+.Underline {
+    text-decoration: underline;
+}
+
+/* ============================================== */
 /* Custom */
 /* ============================================== */
 
@@ -300,6 +398,63 @@ hr:after {
     background: #051039;
 }
 
+.Button3 {
+    background-color: rgba(255,255,255,0.2);
+    width: 30px;
+    line-height: 30px;
+    border-radius: 15px;
+    font-size: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.Button3:hover {
+    background-color: rgba(255,255,255,0.4);
+}
+
+.Button3:active {
+    background-color: rgba(255,255,255,0.2);
+}
+
+.Button3.Close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.Button4 {
+    display: inline-block;
+    background-color: rgba(255,255,255,0.2);
+    padding: 0px 10px;
+    line-height: 30px; 
+    font-size: 16px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.Button4:hover {
+    background-color: rgba(255,255,255,0.4);
+}
+
+.Button4:active {
+    background-color: rgba(255,255,255,0.2);
+}
+
+.Button5 {
+    padding: 5px;
+    font-size: 16px;
+}
+
+.Button5:hover {
+    background: rgba(255,255,255,0.4);
+    color: white;
+}
+
+.Button5:active {
+    background: rgba(255,255,255,0.2);
+    color: white;
+}
+
 .Caption {
     background-color: #051039;
     position: absolute;
@@ -311,14 +466,16 @@ hr:after {
     opacity: 0.8;
 }
 
-.Center {
-    text-align: center;
-}
-
 .Col {
     display: inline-block;
     font-size: 14px;
     padding: 5px;
+}
+
+.ComboBox {
+    border: 1px solid rgba(255,255,255,0.2);
+    min-width: 100px;
+    margin: 0px 5px;
 }
 
 .Content {
@@ -366,6 +523,14 @@ hr:after {
     height: 400px;
 }
 
+.Content10 {
+    background: #051039;
+    margin: auto;
+    max-width: 500px;
+    position: relative;
+}
+
+
 .Error {
     color: #f67b20;
 }
@@ -392,6 +557,12 @@ hr:after {
 
 .Field2.Error {
     border: 1px solid #f67b20;
+}
+
+.Field3 {
+    border: 1px solid rgba(255,255,255,0.2);
+    height: 30px;   
+    margin-left: 150px;
 }
 
 .Form {
@@ -519,6 +690,13 @@ hr:after {
     margin-left: 30px;
 }
 
+.Input2 {
+    border: 1px solid rgba(255,255,255,0.2);
+    height: 100%;   
+    width: 100%;
+    padding: 5px 10px;
+}
+
 .Item {
     display: inline-block;
     vertical-align: middle;
@@ -545,8 +723,14 @@ hr:after {
     padding: 5px 0px;
 }
 
-.Left {
-    text-align: left;
+.Label3 {
+    background-color: rgba(255,255,255,0.2);
+    min-width: 150px; 
+    line-height: 30px;   
+    padding: 0px 10px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
 }
 
 .Link {
@@ -695,10 +879,6 @@ hr:after {
     text-align: center;
 }
 
-.Right {
-    text-align: right;
-}
-
 .Row {
     padding: 5px;
 }
@@ -747,6 +927,44 @@ hr:after {
 
 .Row10 {
     text-align: left;
+    font-size: 0px;
+}
+
+.Row11 {
+    margin-bottom: 10px;
+}
+
+.Row12 {
+    margin: 5px 0px;
+    position: relative;
+}
+
+.Row13 {
+    text-align: right;
+    font-size: 0px;
+    padding-top: 10px;
+}
+
+.Row14 {
+    background-color: rgba(255,255,255,0.2);
+    margin: auto;
+    max-width: 500px;
+    padding: 5px 10px;
+    font-family: Archivo Narrow;
+    color: white;
+    display: none;
+}
+
+.Row15 {
+    background-color: #051039;
+    border-bottom: 5px solid #051039;
+    padding: 10px 0px;
+    overflow: auto;
+    text-align: left;
+}
+
+.Row16 {
+    text-align: center;
     font-size: 0px;
 }
 
@@ -838,7 +1056,14 @@ hr:after {
 .Title4 {
     border-bottom: 5px solid #051039;
     color: #f67b20;
-    padding: 5px 0px;
+    padding-bottom: 5px;
+}
+
+.Title5 {
+    background-color: rgba(255,255,255,0.2);
+    padding: 10px 35px 10px 10px;
+    font-family: Anton;
+    font-size: 25px;
 }
 
 /* ============================================== */
