@@ -1,14 +1,14 @@
 <!-- ============================================ -->
-<div class="pgCt10">
-	<div class="bgra">
-		<h1 class="bgra pgCt20" id="Edition-Page-HTML">
-			<a class="clrb" href="#Sommaire-Admin">
+<div class="MainBlock">
+	<div class="Ctn">
+		<h1 class="Title" id="Edition_Page_HTML">
+			<a class="clrb" href="#Sommaire_Admin">
 				Édition Page HTML
 			</a>
 		</h1>
 		<!-- ============================================ -->
 		<div class="pgCc05 fts0 txal">
-			<div class="pddc dibm ftsb">
+			<div class="pddc0 dibm0 ftsb0">
 				<button class="bgra pgCt05 hvra EditorTab" title="Page d'accueil" 
 				onclick="openEditorTab(this, 'EditorTab0')"><i class="fa fa-home"></i></button>
 			</div>

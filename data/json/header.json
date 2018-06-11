@@ -6,7 +6,6 @@
     },  
     "menu":
     [
-        {"name":"Accueil","link":"/Accueil/","follow":"yes"},
         {"name":"CV","link":"/CV/","follow":"yes"},
         {"name":"Présentation","link":"/Presentation/","follow":"yes"},
         {"name":"Tutoriels","link":"/Tutoriels/","prio":"1.0","freq":"daily","follow":"yes"},

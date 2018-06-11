@@ -10,6 +10,12 @@
         ],
         "meta_cano":"/Presentation/"
     },    
+    "intro":
+    [
+        "Je suis <b>Gérard KESSE</b>,<br/>",
+        "Ingénieur en Développement Informatique C/C++/Qt,<br/>",
+        "Avec à la fois des compétences en Systèmes Embarqués et en Robotique."
+    ],
     "summary":
     [
         {"name":"Diplômes","link":"#Diplomes"},
@@ -63,7 +69,7 @@
                 "2013 - 2014,<br/>",
                 "Certificat Informatique et Gestion,<br/>",
                 "Polytech'Montpellier, France.<br/>",
-                "<span class='clrc'>",
+                "<span class='Text4'>",
                 "Data Mining, Database, Big Data,",
                 "Cloud Computing, Hadoop, MapReduce.",
                 "</span>"
@@ -76,13 +82,13 @@
             "icon":"fa fa-building-o",
             "description":
             [
-                "SOLDATA,<br/>",
+                "<b>SOLDATA</b><br/>",
                 "Développeur Génie Civil,<br/>",
                 "Interface de Contrôle Environnemental,<br/>",
                 "3 mois de développement,<br/>",
                 "Setpembre 2016 - Décembre 2016,<br/>",
                 "C/C++/Qt, SQL/Firebird/SQLite, LibXL, GSL, Git, JIRA, Confluence.<br/>",
-                "<span class='clrc'>",
+                "<span class='Text4'>",
                 "Développement, système de collecte automatique de grand volume de données,",
                 "de calculs scientifiques et de génération de rapport capteur au format Excel.",
                 "</span>"
@@ -92,13 +98,13 @@
             "icon":"fa fa-building-o",
             "description":
             [
-                "ADENTIS,<br/>",
+                "<b>ADENTIS</b><br/>",
                 "Consultant Informatique,<br/>",
                 "Outil de Gestion de Clients,<br/>",
                 "4 mois de développement,<br/>",
                 "Février 2016 - Juin 2016,<br/>",
                 "C/C++/Qt/SQLite, VBA/Access, Excel/Macros/UserForms.<br/>",
-                "<span class='clrc'>",
+                "<span class='Text4'>",
                 "Développement, interface de création, de recherche, de modification",
                 "et de suppression de clients.",
                 "</span>"
@@ -108,13 +114,13 @@
             "icon":"fa fa-building-o",
             "description":
             [
-                "PHILES,<br/>",
+                "<b>PHILES</b><br/>",
                 "Développeur Web Emailing,<br/>",
                 "Réseau Social Live,<br/>",
                 "1 mois de développement,<br/>",
                 "Novembre 2015 - Décembre 2015,<br/>",
                 "PHP/HTML/CSS/JS, Symfony, jQuery, AngularJS, Google Maps, SVN.<br/>",
-                "<span class='clrc'>",
+                "<span class='Text4'>",
                 "Développement, emailing, dashboard, chart, système de géolocalisation.",
                 "</span>"
             ]
@@ -123,13 +129,13 @@
             "icon":"fa fa-building-o",
             "description":
             [
-                "TECHMAHINDRA / AIRBUS,<br/>",
+                "<b>TECHMAHINDRA / AIRBUS</b><br/>",
                 "Développeur Aéronautique,<br/>",
                 "Simulateur de Test de Vol,<br/>",
                 "6 mois de développement,<br/>",
                 "Mai 2015 - Novembre 2015,<br/>",
                 "C/C++/Qt, ILog Views, IPC/DBus, Scripts/Bash/Batch, CVS, JIRA, MediaWiki.<br/>",
-                "<span class='clrc'>",
+                "<span class='Text4'>",
                 "Développement, évolution et optimisation du simulateur de test de vol",
                 "des avions AIRBUS allant du A320 au A380, portable sur plusieurs cibles.",
                 "</span>"
@@ -139,13 +145,13 @@
             "icon":"fa fa-building-o",
             "description":
             [
-                "CYLEONE,<br/>",
+                "<b>CYLEONE</b><br/>",
                 "Développeur Drone,<br/>",
                 "Vision par Ordinateur, Identification Recensement,<br/>",
                 "2 ans de développement<br/>",
                 "Septembre 2012 - Septembre 2014,<br/>",
                 "C/C++/Qt, OpenCV, MultiThreading, SQL/SQLite, SSH,  GanttProject, Trello.<br/>",
-                "<span class='clrc'>",
+                "<span class='Text4'>",
                 "Développement, logiciels de recensement d’oiseaux, de calcul de pourcentage",
                 "de dégât de verses de blé, de calcul de stress hydrique de plants de blé,",
                 "à partir de la vision d'une caméra IP intégrée à un drone.",
@@ -156,13 +162,13 @@
             "icon":"fa fa-building-o",
             "description":
             [
-                "ROBOTECH'MONTPELLIER,<br/>",
+                "<b>ROBOTECH'MONTPELLIER</b><br/>",
                 "Développeur Robot Mobile,<br/>",
                 "Vision par Ordinateur, Identification Reconnaissance,<br/>",
                 "1 an de développement,<br/>",
                 "Septembre 2011 - Septembre 2012,<br/>",
                 "C/C++, OpenCV, MultiThreading, UNIX/Xenomai, ARMadeus.<br/>",
-                "<span class='clrc'>",
+                "<span class='Text4'>",
                 "Développement, logiciel d’identification et de reconnaissance d'objets à partir de",
                 "la vision d'une caméra USB embarquée à un robot mobile.",
                 "</span>"
@@ -172,13 +178,13 @@
             "icon":"fa fa-building-o",
             "description":
             [
-                "SITARAIL,<br/>",
+                "<b>SITARAIL</b><br/>",
                 "Technicien Maintenance Transport Ferroviaire,<br/>",
                 "Autocommutateur Téléphonique Privé,<br/>",
                 "3 mois de maintenance télécom,<br/>",
                 "Janvier 2010 - Avril 2010,<br/>",
                 "Téléphone, PBX, Fibre Optique, Câbles Coaxiaux, Soudeuse, Coffret à Outils.<br/>",
-                "<span class='clrc'>",
+                "<span class='Text4'>",
                 "Installation et Configuration de postes téléphoniques, Soudure de fibre optique.",
                 "</span>"
             ]
@@ -187,13 +193,13 @@
             "icon":"fa fa-building-o",
             "description":
             [
-                "ELECTRONIQUE LAB,<br/>",
+                "<b>ELECTRONIQUE LAB</b><br/>",
                 "Développeur Système Embarqué,<br/>",
                 "Horloge Numérique,<br/>",
                 "3 mois de développement,<br/>",
                 "Mars 2009 - Juin 2009,<br/>",
                 "C/8051, sEOS/Scheduler, I2C, RS232, Keil μVision, Eagle, Proteus.<br/>",
-                "<span class='clrc'>",
+                "<span class='Text4'>",
                 "Développement, acquisition, traitement et affichage de l’heure, la température",
                 "et l’humidité sur un réseau de 4 afficheurs 7-segment de puissance.",
                 "</span>"
@@ -313,16 +319,16 @@
             "icon":"fa fa-language",
             "description":
             [
-                "Espagnol:<br/>",
-                "Niveau Scolaire."
+                "Anglais:<br/>",
+                "Niveau Technique."
             ]
         },
         {
             "icon":"fa fa-language",
             "description":
             [
-                "Anglais:<br/>",
-                "Niveau Technique."
+                "Espagnol:<br/>",
+                "Niveau Scolaire."
             ]
         },
         {
@@ -340,7 +346,7 @@
             "icon":"fa fa-signal",
             "intro":
             [
-                "SOLDATA,<br/>",
+                "<b>SOLDATA</b><br/>",
                 "Développeur Génie Civil,<br/>",
                 "Interface de Contrôle Environnemental,<br/>",
                 "3 mois de développement,<br/>",
@@ -369,23 +375,23 @@
             "tool":
             [
                 "C/C++/Qt, SQL/Firebird/SQLite, LibXL, GSL, Git, JIRA, Jenkins, Confluence.",
-                "Langages : C/C++, SQL.",
-                "Interface Homme-Machine : Qt.",
-                "Génération de Fichier Excel : LibXL.",
-                "Calcul Scientifique : GSL.",
-                "Base de Données : Firebird, SQLite.",
-                "Gestion de Version : Git.",
-                "Gestion de Projet : JIRA.",
-                "Intégration Continue : Jenkins.",
-                "Documentation Wiki : Confluence.",
-                "Méthodologie : Agile, Scrum, Sprint."
+                "Langages: C/C++, SQL.",
+                "Interface Homme-Machine: Qt.",
+                "Génération de Fichier Excel: LibXL.",
+                "Calcul Scientifique: GSL.",
+                "Base de Données: Firebird, SQLite.",
+                "Gestion de Version: Git.",
+                "Gestion de Projet: JIRA.",
+                "Intégration Continue: Jenkins.",
+                "Documentation Wiki: Confluence.",
+                "Méthodologie: Agile, Scrum, Sprint."
             ]
         },
         {
             "icon":"fa fa-signal",
             "intro":
             [
-                "ADENTIS,<br/>",
+                "<b>ADENTIS</b><br/>",
                 "Développeur Logiciel,<br/>",
                 "Outil de Gestion de Clients,<br/>",
                 "4 mois de développement,<br/>",
@@ -412,17 +418,17 @@
             "tool":
             [
                 "C/C++/Qt/SQLite, Excel/VBA/Access",
-                "Langages : C/C++, SQL, VBA.",
-                "Interface Homme-Machine : Qt, Macros/UserForms/Excel.",
-                "Base de Données : Access, SQLite.",
-                "Méthodologie : Agile, Scrum, Sprint."
+                "Langages: C/C++, SQL, VBA.",
+                "Interface Homme-Machine: Qt, Macros/UserForms/Excel.",
+                "Base de Données: Access, SQLite.",
+                "Méthodologie: Agile, Scrum, Sprint."
             ]
         },
         {
             "icon":"fa fa-signal",
             "intro":
             [
-                "PHILES,<br/>",
+                "<b>PHILES</b><br/>",
                 "Développeur Web Emailing,<br/>",
                 "Réseau Social Live,<br/>",
                 "1 mois de développement,<br/>",
@@ -452,22 +458,22 @@
             "tool":
             [
                 "PHP/HTML/CSS/JS, Symfony, Bootstrap, jQuery, AngularJS, ChartJS, Google Maps, SVN",
-                "Langages : PHP, HTML, CSS, JS.",
-                "Framework PHP : Symfony.",
-                "Framework CSS : Bootstrap.",
-                "Framework JS : jQuery, AngularJS, ChartJS, GoogleMaps.",
-                "Framework PHP : Symfony.",
-                "Gestion de Version : SVN.",
-                "Architecture Web : Responsive.",
-                "Cible : Bureau, Mobile.",
-                "Méthodologie : Agile, Scrum, Sprint."    
+                "Langages: PHP, HTML, CSS, JS.",
+                "Framework PHP: Symfony.",
+                "Framework CSS: Bootstrap.",
+                "Framework JS: jQuery, AngularJS, ChartJS, GoogleMaps.",
+                "Framework PHP: Symfony.",
+                "Gestion de Version: SVN.",
+                "Architecture Web: Responsive.",
+                "Cible: Bureau, Mobile.",
+                "Méthodologie: Agile, Scrum, Sprint."    
             ]
         },
         {
             "icon":"fa fa-signal",
             "intro":
             [
-                "TECHMAHINDRA / AIRBUS,<br/>",
+                "<b>TECHMAHINDRA / AIRBUS</b><br/>",
                 "Développeur Aéronautique,<br/>",
                 "Simulateur de Test de Vol,<br/>",
                 "6 mois de développement,<br/>",
@@ -500,21 +506,21 @@
             "tool":
             [
                 "C/C++/Qt, ILog Views, IPC/DBus, Scripts/Bash/Batch, CVS, Wiki, Agile/Scrum/Sprint",
-                "Langages : C/C++.",
-                "Interface Homme-Machine : Qt, ILog Views.",
-                "Communication Inter-Processus : IPC, DBus.",
-                "Scripts : Bash/UNIX, Batch/WINDOWS.",
-                "Environnement de Développement : Eclipse.",
-                "Gestion de Version : CVS.",
-                "Documentation Wiki : MediaWiki.",
-                "Méthodologie : Agile, Scrum, Sprint."
+                "Langages: C/C++.",
+                "Interface Homme-Machine: Qt, ILog Views.",
+                "Communication Inter-Processus: IPC, DBus.",
+                "Scripts: Bash/UNIX, Batch/WINDOWS.",
+                "Environnement de Développement: Eclipse.",
+                "Gestion de Version: CVS.",
+                "Documentation Wiki: MediaWiki.",
+                "Méthodologie: Agile, Scrum, Sprint."
             ]
         },
         {
             "icon":"fa fa-signal",
             "intro":
             [
-                "CYLEONE,<br/>",
+                "<b>CYLEONE</b><br/>",
                 "Développeur Drone,<br/>",
                 "Vision par Ordinateur, Identification Recensement,<br/>",
                 "2 ans de développement,<br/>",
@@ -549,24 +555,24 @@
             "tool":
             [
                 "C/C++/Qt, OpenCV, MultiThreading, SQL/SQLite, SSH, Doxygen",
-                "Langages : C/C++, SQL.",
-                "Interface Homme-Machine : Qt.",
-                "Vision par Ordinateur : OpenCV.",
-                "Communication Inter-Processus : Multithreading.",
-                "Base de Données : SQLite.",
-                "Architecture Logicielle : MVC.",
-                "Patron de Conception : Singleton, Fabrique, Stratégie.",
-                "Protocole Console Distant : SSH.",
-                "Gestion de Version : Git.",
-                "Documentation Code Source : Doxygen.",
-                "Méthodologie : Agile, Scrum, Sprint."
+                "Langages: C/C++, SQL.",
+                "Interface Homme-Machine: Qt.",
+                "Vision par Ordinateur: OpenCV.",
+                "Communication Inter-Processus: Multithreading.",
+                "Base de Données: SQLite.",
+                "Architecture Logicielle: MVC.",
+                "Patron de Conception: Singleton, Fabrique, Stratégie.",
+                "Protocole Console Distant: SSH.",
+                "Gestion de Version: Git.",
+                "Documentation Code Source: Doxygen.",
+                "Méthodologie: Agile, Scrum, Sprint."
             ]
         },
         {
             "icon":"fa fa-signal",
             "intro":
             [
-                "ROBOTECH'MONTPELLIER,<br/>",
+                "<b>ROBOTECH'MONTPELLIER</b><br/>",
                 "Développeur Robot Mobile,<br/>",
                 "Vision par Ordinateur, Identification Reconnaissance,<br/>",
                 "1 an de développement,<br/>",
@@ -596,21 +602,21 @@
             "tool":
             [
                 "C/C++, OpenCV, MultiThreading, UNIX/Xenomai, ARMadeus",
-                "Langages : C/C++.",
-                "Vision par Ordinateur : OpenCV.",
-                "Communication Inter-Processus : Multithreading.",
-                "Système RTOS : UNIX/Xenomai.",
-                "Système Embarqué : ARMadeus.",
-                "Architecture Logicielle : Client/Serveur.",
-                "Gestion de Version : Git.",
-                "Méthodologie : Agile, Scrum, Sprint."
+                "Langages: C/C++.",
+                "Vision par Ordinateur: OpenCV.",
+                "Communication Inter-Processus: Multithreading.",
+                "Système RTOS: UNIX/Xenomai.",
+                "Système Embarqué: ARMadeus.",
+                "Architecture Logicielle: Client/Serveur.",
+                "Gestion de Version: Git.",
+                "Méthodologie: Agile, Scrum, Sprint."
             ]
         },
         {
             "icon":"fa fa-signal",
             "intro":
             [
-                "SITARAIL,<br/>",
+                "<b>SITARAIL</b><br/>",
                 "Technicien Maintenance Transport Ferroviaire,<br/>",
                 "Autocommutateur Téléphonique Privé,<br/>",
                 "3 mois de maintenance télécom,<br/>",
@@ -636,21 +642,21 @@
             "tool":
             [
                 "Téléphone, Fibre Optique, PBX, Câbles Coaxiaux, Soudeuse, Coffret à Outils",
-                "Baie de Transmission Téléphonique : PBX.",
-                "Canal de Transmission Haut Débit : Fibres Optiques.",
-                "Canal de Transmission Téléphonique : Fibres Optiques, Câbles coaxiaux.",
-                "Appareil de Communication : Téléphones Fixes.",
-                "Appareil de Soudure : Soudeuse Fibre Optique.",
-                "Maintenance Palliative : Dépannage.",
-                "Maintenance Curative : Remplacement.",
-                "Outillage : Coffret à Outils."
+                "Baie de Transmission Téléphonique: PBX.",
+                "Canal de Transmission Haut Débit: Fibres Optiques.",
+                "Canal de Transmission Téléphonique: Fibres Optiques, Câbles coaxiaux.",
+                "Appareil de Communication: Téléphones Fixes.",
+                "Appareil de Soudure: Soudeuse Fibre Optique.",
+                "Maintenance Palliative: Dépannage.",
+                "Maintenance Curative: Remplacement.",
+                "Outillage: Coffret à Outils."
             ]
         },
         {
             "icon":"fa fa-signal",
             "intro":
             [
-                "ELECTRONIQUE LAB,<br/>",
+                "<b>ELECTRONIQUE LAB</b><br/>",
                 "Développeur Système Embarqué,<br/>",
                 "Horloge Numérique,<br/>",
                 "3 mois de développement,<br/>",
@@ -686,17 +692,17 @@
             "tool":
             [
                 "C/8051, sEOS/Scheduler, I2C, RS232, Keil μVision, Eagle, Proteus",
-                "Langages : C/8051.",
-                "Microcontrôleur 8-bit : AT89C4051.",
-                "Environnement de Développement : Keil µVision.",
-                "Architecture Logicielle : Time Triggered Architecture.",
-                "Communication Inter-Circuit : I2C.",
-                "Communication Carte/PC : RS232.",
-                "Simulation Circuit Electrique : Proteus.",
-                "Traçage Circuit Imprimé : Eagle.",
-                "Capteur Humidité : H25K5A.",
-                "Capteur Température : LM335.",
-                "Méthodologie : Agile, Scrum, Sprint."
+                "Langages: C/8051.",
+                "Microcontrôleur 8-bit: AT89C4051.",
+                "Environnement de Développement: Keil µVision.",
+                "Architecture Logicielle: Time Triggered Architecture.",
+                "Communication Inter-Circuit: I2C.",
+                "Communication Carte/PC: RS232.",
+                "Simulation Circuit Electrique: Proteus.",
+                "Traçage Circuit Imprimé: Eagle.",
+                "Capteur Humidité: H25K5A.",
+                "Capteur Température: LM335.",
+                "Méthodologie: Agile, Scrum, Sprint."
             ]
         }
     ]

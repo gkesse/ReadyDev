@@ -12,38 +12,7 @@
 <!-- ============================================ -->
 <div class="MainBody">
     <!-- ============================================ -->
-    <div class="Parallax Binary">
-        <div class="Img">
-            <div class="Caption">
-                <div class="Text">ReadyDev</div>
-            </div>
-        </div>
-        <div class="Body">
-            <div><?php echo join(" ", $lData["readydev"]) ?></div>
-        </div>
-    </div>
-    <!-- ============================================ -->
-    <div class="Parallax Developer">
-        <div class="Img">
-            <div class="Caption">
-                <div class="Text">Développeur</div>
-            </div>
-        </div>
-        <div class="Body">
-            <div><?php echo join(" ", $lData["author"]) ?></div>
-        </div>
-    </div>
-    <!-- ============================================ -->
-    <div class="Parallax Puce">
-        <div class="Img">
-            <div class="Caption">
-                <div class="Text">Formation</div>
-            </div>
-        </div>
-        <div class="Body">
-            <div><?php echo join(" ", $lData["education"]) ?></div>
-        </div>
-    </div>
+    <?php require "page/main.php"; ?>
     <!-- ============================================ -->
 </div>
 <!-- ============================================ -->

@@ -166,8 +166,8 @@
                         </ul>
                         <!-- ============================================ -->
                         <div class="MainBlock">
-                            <div class="Ctn">
-                                <h1 class="Title"><?php echo $lTitle; ?></h1>
+                            <div class="Content">
+                                <h1 class="Title2"><?php echo $lTitle; ?></h1>
                                 <!-- ============================================ -->
                                 <?php if($lExiststView == true) { ?>
                                 <div class="Body">
@@ -185,10 +185,10 @@
                                     <div class="Row Line">
                                         <?php $lUrl = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; ?>
                                         <a class="Col" href="http://www.facebook.com/sharer.php?u=<?php echo $lUrl; ?>" target="_blank">
-                                            <i class="Item Link Facebook fa fa-facebook"></i>
+                                            <i class="Link2 Facebook fa fa-facebook"></i>
                                         </a>
                                         <a class="Col" href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo $lUrl; ?>&title=<?php echo urlencode($lTitle.' | '.$lSiteName); ?>&summary=<?php echo urlencode($lMetaDesc); ?>" target="_blank">
-                                            <i class="Item Link Twitter fa fa-linkedin"></i>
+                                            <i class="Link2 Twitter fa fa-linkedin"></i>
                                         </a>
                                     </div>
                                 </div>

@@ -9,7 +9,7 @@
     },    
     "summary":
     [
-        {"name":"Gestion Sitemap"},
-        {"name":"Édition Page HTML"}
+        {"name":"Gestion Sitemap","link":"#Gestion_Sitemap"},
+        {"name":"Édition Page HTML","link":"#Edition_Page_HTML"}
     ]
 }

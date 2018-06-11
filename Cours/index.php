@@ -1,7 +1,7 @@
 <?php
     require $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoloadRegister.php";
     
-    $m_data = GJson::Instance()->getData("data/json/Cours.json");
+    $lData = GJson::Instance()->getData("data/json/Cours.json");
     
     GConfig::Instance()->setData("title", "Cours");
     GConfig::Instance()->setData("menu", "Cours");
@@ -10,110 +10,10 @@
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";
 ?>
 <!-- ============================================ -->
-<div class="pgBg">
-    <div class="mrga pgBd">
-        <!-- ============================================ -->
-        <div class="pgCt10">
-            <div class="bgra">
-                <h1 class="bgra pgCt20" id="Sommaire">
-                    <a class="clrb" href="#">
-                        Sommaire
-                    </a>
-                </h1>
-                <div class="txal pgCt10">
-                    <ul class="fa-ul">
-                        <?php 
-                            $m_ds = GSort::Instance()->sortData($m_data["summary"]);
-                            foreach($m_ds as $m_di) {
-                            ?>
-                            <li>
-                                <i class="fa-li fa fa-book clrg"></i>
-                                <a class="hvra clrg" href="<?php echo $m_di["link"]; ?>">
-                                    <?php echo $m_di["name"]; ?>
-                                </a>
-                            </li>
-                        <?php } ?>
-                    </ul>            
-                </div>
-            </div>
-        </div>
-        <!-- ============================================ -->
-        <div class="pgCt10">
-            <div class="bgra">
-                <h1 class="bgra pgCt20" id="Mathematiques">
-                    <a class="clrb" href="#Sommaire">
-                        Mathématiques
-                    </a>
-                </h1>
-                <div class="txal pgCt10">
-                    <ul class="fa-ul">
-                        <?php 
-                            $m_ds = GSort::Instance()->sortData($m_data["maths"]);
-                            foreach($m_ds as $m_di) {
-                            ?>
-                            <li class="mrgb">
-                                <i class="fa-li fa fa-chevron-right"></i>
-                                <a class="hvra" href="<?php echo $m_di["link"]; ?>">
-                                    <?php echo $m_di["name"]; ?>
-                                </a>
-                            </li>
-                        <?php } ?>
-                    </ul>            
-                </div>
-            </div>
-        </div>
-        <!-- ============================================ -->
-        <div class="pgCt10">
-            <div class="bgra">
-                <h1 class="bgra pgCt20" id="Physique">
-                    <a class="clrb" href="#Sommaire">
-                        Physique
-                    </a>
-                </h1>
-                <div class="txal pgCt10">
-                    <ul class="fa-ul">
-                        <?php 
-                            $m_ds = GSort::Instance()->sortData($m_data["physics"]);
-                            foreach($m_ds as $m_di) {
-                            ?>
-                            <li class="mrgb">
-                                <i class="fa-li fa fa-chevron-right"></i>
-                                <a class="hvra" href="<?php echo $m_di["link"]; ?>">
-                                    <?php echo $m_di["name"]; ?>
-                                </a>
-                            </li>
-                        <?php } ?>
-                    </ul>            
-                </div>
-            </div>
-        </div>
-        <!-- ============================================ -->
-        <div class="pgCt10">
-            <div class="bgra">
-                <h1 class="bgra pgCt20" id="Chimie">
-                    <a class="clrb" href="#Sommaire">
-                        Chimie
-                    </a>
-                </h1>
-                <div class="txal pgCt10">
-                    <ul class="fa-ul">
-                        <?php 
-                            $m_ds = GSort::Instance()->sortData($m_data["chemistry"]);
-                            foreach($m_ds as $m_di) {
-                            ?>
-                            <li class="mrgb">
-                                <i class="fa-li fa fa-chevron-right"></i>
-                                <a class="hvra" href="<?php echo $m_di["link"]; ?>">
-                                    <?php echo $m_di["name"]; ?>
-                                </a>
-                            </li>
-                        <?php } ?>
-                    </ul>            
-                </div>
-            </div>
-        </div>
-        <!-- ============================================ -->
-    </div>
+<div class="MainBody">
+    <!-- ============================================ -->
+    <?php require "page/main.php"; ?>
+    <!-- ============================================ -->
 </div>
 <!-- ============================================ -->
 <?php require $_SERVER["DOCUMENT_ROOT"]."/php/footer.php"; ?>

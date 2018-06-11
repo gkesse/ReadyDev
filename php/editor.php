@@ -1,86 +1,86 @@
 <?php
     require $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoloadRegister.php";	
 	//===============================================
-	$m_req = $_REQUEST["req"];
+	$lReq = $_REQUEST["req"];
 	//===============================================
-	if($m_req == "SAVE_FILE") {
-		$m_file = $_REQUEST["file"];
-		$m_data = $_REQUEST["data"];
-		GFile::Instance()->saveData($m_file, $m_data);
-		print_r($m_data);
+	if($lReq == "SAVE_FILE") {
+		$lFile = $_REQUEST["file"];
+		$lData = $_REQUEST["data"];
+		GFile::Instance()->saveData($lFile, $lData);
+		print_r($lData);
 	}
 	//===============================================
-	else if($m_req == "READ_FILE") {
-		$m_file = $_REQUEST["file"];
-		$m_data = GFile::Instance()->getData($m_file);
-		print_r($m_data);
+	else if($lReq == "READ_FILE") {
+		$lFile = $_REQUEST["file"];
+		$lData = GFile::Instance()->getData($lFile);
+		print_r($lData);
 	}
 	//===============================================
-	else if($m_req == "GET_FILE") {
-		$m_dir = $_REQUEST["dir"];
-		$m_file = $_REQUEST["file"];
-		$m_dirNameArr = GFilesystem::Instance()->getFile($m_dir);
-		if(empty($m_dirNameArr)) return;
-		$m_dirPath = GFilesystem::Instance()->getPath($m_dir);
-		$m_dataFile = "";
-		$m_dataFile .= "<div class='brdc mxha ovfa'>";
-		for($i = 0; $i < count($m_dirNameArr); $i++) {
-			$m_dirName = $m_dirNameArr[$i];
-			$m_filePath = $m_dirPath."/".$m_dirName[1];
-			if($m_filePath == $m_file) {$m_dataFile .= "<div class='pddd bdba FileList bgrc'>";}
-			else {$m_dataFile .= "<div class='pddd bdba FileList'>";}
-			$m_dataFile .= "<i class='fa fa-".$m_dirName[2]."'></i> ";
-			$m_dataFile .= "<div class='hvra cspt dibm'";
-			$m_dataFile .= "onclick='openFile(this, ".$m_dirName[0].");'>";
-			$m_dataFile .= $m_dirName[1];
-			$m_dataFile .= "</div>";
-			$m_dataFile .= "</div>";
+	else if($lReq == "GET_FILE") {
+		$lDir = $_REQUEST["dir"];
+		$lFile = $_REQUEST["file"];
+		$lDirNameArr = GFilesystem::Instance()->getFile($lDir);
+		if(empty($lDirNameArr)) return;
+		$lDirPath = GFilesystem::Instance()->getPath($lDir);
+		$lDataFile = "";
+		$lDataFile .= "<div class='brdc mxha ovfa'>";
+		for($i = 0; $i < count($lDirNameArr); $i++) {
+			$lDirName = $lDirNameArr[$i];
+			$lFilePath = $lDirPath."/".$lDirName[1];
+			if($lFilePath == $lFile) {$lDataFile .= "<div class='pddd bdba FileList bgrc'>";}
+			else {$lDataFile .= "<div class='pddd bdba FileList'>";}
+			$lDataFile .= "<i class='fa fa-".$lDirName[2]."'></i> ";
+			$lDataFile .= "<div class='hvra cspt dibm'";
+			$lDataFile .= "onclick='openFile(this, ".$lDirName[0].");'>";
+			$lDataFile .= $lDirName[1];
+			$lDataFile .= "</div>";
+			$lDataFile .= "</div>";
 		}
-		$m_dataFile .= "</div>";
+		$lDataFile .= "</div>";
 		
-		$m_dataMenu = '';
-		$m_dataMenu .= '<div class="pgCr05 dibm cspt FileLink" onclick="openLink(this);">';
-		$m_dataMenu .= '<i class="clrg fa fa-folder"></i></div> ';
-		if($m_dirPath != "") {
-			$m_dirPathArr = explode("/", $m_dirPath);
-			for($i = 0; $i < count($m_dirPathArr); $i++) {
-				$m_dirPathItem = $m_dirPathArr[$i];
-				if($m_dirPathItem == "") continue;
-				$m_dataMenu .= '<div class="pgCr05 dibm"><i class="clrg fa fa-chevron-right"></i></div> ';
-				$m_dataMenu .= '<div class="pgCr05 dibm hvra cspt clrg FileLink" onclick="openLink(this);">';
-				$m_dataMenu .= $m_dirPathItem.'</div> ';
+		$lDataMenu = '';
+		$lDataMenu .= '<div class="pgCr05 dibm cspt FileLink" onclick="openLink(this);">';
+		$lDataMenu .= '<i class="clrg fa fa-folder"></i></div> ';
+		if($lDirPath != "") {
+			$lDirPathArr = explode("/", $lDirPath);
+			for($i = 0; $i < count($lDirPathArr); $i++) {
+				$lDirPathItem = $lDirPathArr[$i];
+				if($lDirPathItem == "") continue;
+				$lDataMenu .= '<div class="pgCr05 dibm"><i class="clrg fa fa-chevron-right"></i></div> ';
+				$lDataMenu .= '<div class="pgCr05 dibm hvra cspt clrg FileLink" onclick="openLink(this);">';
+				$lDataMenu .= $lDirPathItem.'</div> ';
 			}
 		}
-		$m_dataArr = array();
-		$m_dataArr["menu"] = $m_dataMenu;
-		$m_dataArr["file"] = $m_dataFile;
-		$m_dataArr["dir"] = $m_dirPath;
-		$m_dataJson = json_encode($m_dataArr);
-		print_r($m_dataJson);
+		$lDataArr = array();
+		$lDataArr["menu"] = $lDataMenu;
+		$lDataArr["file"] = $lDataFile;
+		$lDataArr["dir"] = $lDirPath;
+		$lDataJson = json_encode($lDataArr);
+		print_r($lDataJson);
 	}
 	//===============================================
-	else if($m_req == "SUMMARY") {
-		$m_file = $_REQUEST["file"];
-		$m_summary = $_REQUEST["summary"];
-		$m_file = "data/json/".$m_file.".json";
-        $m_summary = "summary_".$m_summary;
-		$m_data = GJson::Instance()->getData($m_file);
-		$m_dataArr = $m_data[$m_summary];
-		$m_dataSum = '';
-		$m_dataSum .= '<div class="dibm Summary3">';
-		for($i = 0; $i < count($m_dataArr); $i++) {
-			$m_dataObj = $m_dataArr[$i];
-			$m_name = $m_dataObj["name"];
-			$m_link = $m_dataObj["link"];
-			$m_dataSum .= '<div class="pdlb">';
-			$m_dataSum .= '<span class="fa fa-book clrg pdra"></span>';
-			$m_dataSum .= '<a class="hvra clrg" href="'.$m_link.'">';
-			$m_dataSum .= $m_name;
-			$m_dataSum .= '</a>';
-			$m_dataSum .= '</div>';
+	else if($lReq == "SUMMARY") {
+		$lFile = $_REQUEST["file"];
+		$lSummary = $_REQUEST["summary"];
+		$lFile = "data/json/".$lFile.".json";
+        $lSummary = "summary_".$lSummary;
+		$lData = GJson::Instance()->getData($lFile);
+		$lDataArr = $lData[$lSummary];
+		$lDataSum = '';
+		$lDataSum .= '<div class="dibm Summary3">';
+		for($i = 0; $i < count($lDataArr); $i++) {
+			$lDataObj = $lDataArr[$i];
+			$lName = $lDataObj["name"];
+			$lLink = $lDataObj["link"];
+			$lDataSum .= '<div class="pdlb">';
+			$lDataSum .= '<span class="fa fa-book clrg pdra"></span>';
+			$lDataSum .= '<a class="hvra clrg" href="'.$lLink.'">';
+			$lDataSum .= $lName;
+			$lDataSum .= '</a>';
+			$lDataSum .= '</div>';
 		}
-		$m_dataSum .= '</div>';
-		print_r($m_dataSum);
+		$lDataSum .= '</div>';
+		print_r($lDataSum);
 	}
 	//===============================================
 ?>

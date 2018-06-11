@@ -12,30 +12,7 @@
 <!-- ============================================ -->
 <div class="MainBody">
     <!-- ============================================ -->
-    <div class="Parallax Binary">
-        <div class="Img">
-            <div class="Caption">
-                <div class="Text">Tutoriels</div>
-            </div>
-        </div>
-        <div class="Body Line">
-            <div class="Row"><?php echo join(" ", $lData["intro"]) ?></div>
-            <div class="Row">
-                <ul class="fa-ul">
-                    <?php 
-                        foreach($lData["summary"] as $lItem) {
-                        ?>
-                        <li>
-                            <i class="Icon fa-li fa fa-book"></i>
-                            <a class="Link" href="<?php echo $lItem["link"]; ?>">
-                                <?php echo $lItem["name"]; ?>
-                            </a>
-                        </li>
-                    <?php } ?>
-                </ul>             
-            </div>
-        </div>
-    </div>
+    <?php require "page/main.php"; ?>
     <!-- ============================================ -->
 </div>
 <!-- ============================================ -->
