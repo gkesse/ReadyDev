@@ -49,7 +49,7 @@
         <!-- ============================================ -->
         <title><?php echo $lTitle; ?> | <?php echo $lSiteName; ?></title>
         <meta charset="UTF-8"/>
-        <link rel="shortcut icon" type="image/png" href="/img/readydev.png"/>
+        <link rel="shortcut icon" type="image/png" href="/data/data/img/defaults/defaults/readydev.png"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
         <!-- ============================================ -->
         <!-- Responsive Web Design -->
@@ -69,8 +69,8 @@
         <!-- ============================================ -->
         <!-- OpenGraph -->
         <meta property="og:type" content="website"/>
-        <meta property="og:image" content="/img/readydev-440x440.png"/>
-        <meta property="og:image:secure_url" content="/img/readydev-440x440.png"/>
+        <meta property="og:image" content="/data/img/defaults/readydev-440x440.png"/>
+        <meta property="og:image:secure_url" content="/data/img/defaults/readydev-440x440.png"/>
         <meta property="og:image:type" content="image/png"/>
         <meta property="og:image:width" content="440"/>
         <meta property="og:image:height" content="440"/>        
