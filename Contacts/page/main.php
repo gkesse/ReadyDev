@@ -93,7 +93,7 @@
         <div class="Content8 Center">
             <!-- ============================================ -->
             <div class="Row0">
-                <img src="/img/img_avatar.png" alt="Avatar" width="100%"/>
+                <img src="/data/img/defaults/img_avatar.png" alt="Avatar" width="100%"/>
             </div>
             <div class="Row">
                 <b>Gérard KESSE</b><br/>

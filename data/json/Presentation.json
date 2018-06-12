@@ -11,7 +11,7 @@
     },    
     "avatar":
     {
-        "src":"/img/img_avatar.png",
+        "src":"/data/img/defaults/img_avatar.png",
         "alt":"Avatar",
         "width":"40"
     },

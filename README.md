@@ -1,77 +1,52 @@
 # Auteur
 
 Je suis 
-[Gerard KESSE](http://5.48.215.193:8855/Presentation/ "Accédez à mon site web (ReadyDev)"),  
+[Gerard KESSE](https://github.com/gkesse/ "Accédez à mon site web (ReadyDev)"),  
 Ingénieur en Développement Informatique C/C++/Qt,  
-Avec à la fois des compétences en Systèmes Embarqués et en Robotique.  
+Avec à la fois des compétences en Système Embarqué et en Robotique.  
 
-* Site Web : [ReadyDev](http://5.48.215.193:8855 "Accédez à mon site web (ReadyDev)")
+* Site Web : [ReadyDev](https://github.com/gkesse/ "Accédez à mon site web (ReadyDev)")
 * Email : [tiakagerard@hotmail.com](mailto:tiakagerard@hotmail.com?subject=Contact&body=Bonjour "Me contactez par email")
-* Localité : **Toulouse - France**
+* Localité : **France**
 
 # ReadyDev
 
 **ReadyDev** est une Plateforme de Développement Continu.  
 C'est un site web développé en PHP et maintenu par 
-[Gerard KESSE](http://5.48.215.193:8855/Presentation/ "Accédez à mon site web (ReadyDev)").  
+[Gerard KESSE](https://github.com/gkesse/ "Accédez à mon site web (ReadyDev)").  
 Vous trouverez sur ce site des tutoriels permettant de monter en compétences
 de manière éfficace en :
 
-* Dévloppement Logiciel C/C++, C#, Java, Python
+* Dévloppement Logiciel
+* Outils de compilation
+* Patrons de conception
 * Interface Homme-Machine
 * Vision par Ordinateur
-* Rendu de Scène 2D et 3D
+* Base de Données
+* Format de Données
+* Visualisation de données
+* Calculs Scientifiques
+* Scripts
+* Rendu de Scène 2D
+* Rendu de Scène 3D
+* Applications Audio
+* Traitement du Signal
 * Systèmes Embarqués
 * Multithreading
-* Patrons de conception
-* Développement Web PHP
-* Développement Mobile Android
-* Gestion de Base de Données
+* Communication Réseau
+* Communication Middleware
+* Communication Inter-Processus
+* Développement Web
+* Développement Mobile
 * Gestion de Versions
 * Gestion de Projets
 * Intégration Continue
 
-
-# Responsive Web Design
+# Support de Développement
 
 **ReadyDev** est conçu sur la base de la technologie **Responsive Web Design**,
 ce qui le rend totalement consultable sur toutes les plateformes fixes ou mobiles.  
-
-### Interface Bureau
-
-Vous remarquerez les menus CV, Présentation, Tutoriels, Contacts
-
-![ReadyDev Desktop View](https://raw.githubusercontent.com/gkesse/ReadyDev/master/img/desktop.png)
-
-### Interface Mobile
-
-##### Mode Fermé
-
-Dans le mode fermé, les menus du site sont inaccessibles.
-
-![ReadyDev Mobile View (Close)](https://raw.githubusercontent.com/gkesse/ReadyDev/master/img/mobile_close.png)
-
-##### Mode Ouvert
-
-Dans le mode ouvert, les menus du site sont accessibles.
-
-![ReadyDev Mobile View (Open)](https://raw.githubusercontent.com/gkesse/ReadyDev/master/img/mobile_open.png)
-
-# Support de Développement
-
 Construit autour de l'architecture Modèle Vue-Contrôleur **MVC**, 
 où les données sont stockées dans des fichiers au format de données **JSON**, 
-Le code source de **ReadyDev** peut servir de support de base de développement 
-de votre site internet.
-
-# Technologies
-
-Le développement du site web **ReadyDev** a nécessité les technologies suivantes :
-
-* Gestion de Mails : **PHPMailer**
-* Gestion de Pictogrammes : **FontAwesome**
-* Gestion de Drapeaux de Pays : **Flags**
-* Gestion de Requêtes JS : **jQuery**
-* Gestion d'Affichage de Code : **Prettify**
-* Gestion de Police : **Google Fonts**
-* Format de Données : **JSON**
+**Le code source de ReadyDev peut servir de support de base de développement 
+de votre site internet.**
