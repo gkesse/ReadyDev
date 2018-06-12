@@ -14,7 +14,7 @@ Ingénieur en Développement Informatique C/C++/Qt,
 Avec à la fois des compétences en Système Embarqué et en Robotique.  
 
 * Site Web : [ReadyDev](https://github.com/gkesse/ "Accédez à mon site web (ReadyDev)")
-* Email : [tiakaGérard@hotmail.com](mailto:tiakaGérard@hotmail.com?subject=Contact&body=Bonjour "Me contactez par email")
+* Email : [tiakagerard@hotmail.com](mailto:tiakagerard@hotmail.com?subject=Contact&body=Bonjour "Me contactez par email")
 * Localité : **France**
 
 # ReadyDev
