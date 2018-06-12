@@ -31,7 +31,7 @@ de manière éfficace en :
 * Rendu de Scène 3D
 * Applications Audio
 * Traitement du Signal
-* Systèmes Embarqués
+* Système Embarqué
 * Multithreading
 * Communication Réseau
 * Communication Middleware
