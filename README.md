@@ -1,19 +1,19 @@
 # Auteur
 
 Je suis 
-[Gerard KESSE](https://github.com/gkesse/ "Accédez à mon site web (ReadyDev)"),  
+[Gérard KESSE](https://github.com/gkesse/ "Accédez à mon site web (ReadyDev)"),  
 Ingénieur en Développement Informatique C/C++/Qt,  
 Avec à la fois des compétences en Système Embarqué et en Robotique.  
 
 * Site Web : [ReadyDev](https://github.com/gkesse/ "Accédez à mon site web (ReadyDev)")
-* Email : [tiakagerard@hotmail.com](mailto:tiakagerard@hotmail.com?subject=Contact&body=Bonjour "Me contactez par email")
+* Email : [tiakaGérard@hotmail.com](mailto:tiakaGérard@hotmail.com?subject=Contact&body=Bonjour "Me contactez par email")
 * Localité : **France**
 
 # ReadyDev
 
 **ReadyDev** est une Plateforme de Développement Continu.  
 C'est un site web développé en PHP et maintenu par 
-[Gerard KESSE](https://github.com/gkesse/ "Accédez à mon site web (ReadyDev)").  
+[Gérard KESSE](https://github.com/gkesse/ "Accédez à mon site web (ReadyDev)").  
 Vous trouverez sur ce site des tutoriels permettant de monter en compétences
 de manière éfficace en :
 
@@ -50,4 +50,4 @@ Construit autour de l'architecture Modèle Vue-Contrôleur **MVC**,
 où les données sont stockées dans des fichiers au format de données **JSON**, 
 Le code source de **ReadyDev** peut servir de support de base de développement 
 de votre site internet.  
-Produit par [Gerard KESSE](https://github.com/gkesse/ "Accédez à mon site web (ReadyDev)").
+Produit par [Gérard KESSE](https://github.com/gkesse/ "Accédez à mon site web (ReadyDev)").
