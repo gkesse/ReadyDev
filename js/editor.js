@@ -25,7 +25,6 @@ function getCommand(name, arg){
 		GEditor.Instance().editReadyStyle(arg);
 		break;
 	default:
-        alert("Hooooooooooooooooooooooooooo");
 		document.execCommand(name, false, arg);
 		break;
 	}

@@ -403,17 +403,17 @@ hr:after {
 }
 
 .Button {
-    background: rgba(255,255,255,0.2);
+    background: rgba(255, 255, 255, 0.2);
     border-radius: 5px;
 }
 
 .Button:hover {
-    background: rgba(255,255,255,0.4);
+    background: rgba(255, 255, 255, 0.4);
     color: white;
 }
 
 .Button:active {
-    background: rgba(255,255,255,0.2);
+    background: rgba(255, 255, 255, 0.2);
     color: white;
 }
 
@@ -431,7 +431,7 @@ hr:after {
 }
 
 .Button3 {
-    background-color: rgba(255,255,255,0.2);
+    background-color: rgba(255, 255, 255, 0.2);
     width: 30px;
     line-height: 30px;
     border-radius: 15px;
@@ -441,11 +441,11 @@ hr:after {
 }
 
 .Button3:hover {
-    background-color: rgba(255,255,255,0.4);
+    background-color: rgba(255, 255, 255, 0.4);
 }
 
 .Button3:active {
-    background-color: rgba(255,255,255,0.2);
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 .Button3.Close {
@@ -456,7 +456,7 @@ hr:after {
 
 .Button4 {
     display: inline-block;
-    background-color: rgba(255,255,255,0.2);
+    background-color: rgba(255, 255, 255, 0.2);
     padding: 0px 10px;
     line-height: 30px; 
     font-size: 16px;
@@ -465,11 +465,11 @@ hr:after {
 }
 
 .Button4:hover {
-    background-color: rgba(255,255,255,0.4);
+    background-color: rgba(255, 255, 255, 0.4);
 }
 
 .Button4:active {
-    background-color: rgba(255,255,255,0.2);
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 .Button5 {
@@ -478,28 +478,28 @@ hr:after {
 }
 
 .Button5:hover {
-    background: rgba(255,255,255,0.4);
+    background-color: rgba(255, 255, 255, 0.4);
     color: white;
 }
 
 .Button5:active {
-    background: rgba(255,255,255,0.2);
+    background: rgba(255, 255, 255, 0.2);
     color: white;
 }
 
-.Button5 {
+.Button6 {
     display: inline-block;
     vertical-align: middle;
     padding: 5px;
 }
 
-.Button5:hover {
-    background: rgba(255,255,255,0.3);
+.Button6:hover {
+    background: rgba(255, 255, 255, 0.3);
     color: white;
 }
 
-.Button5:active {
-    background: rgba(255,255,255,0.2);
+.Button6:active {
+    background: rgba(255, 255, 255, 0.2);
     color: white;
 }
 
@@ -540,7 +540,7 @@ hr:after {
 }
 
 .ComboBox {
-    border: 1px solid rgba(255,255,255,0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     min-width: 100px;
     margin: 0px 5px;
 }
@@ -603,7 +603,7 @@ hr:after {
 }
 
 .Error2 {
-    background: rgba(255,255,255,0.2);
+    background: rgba(255, 255, 255, 0.2);
     border-radius: 5px;
     color: #f67b20;
     padding: 10px;
@@ -618,7 +618,7 @@ hr:after {
 
 .Field2 {
     background-color: rgba(255, 255, 255, 0.2);
-    border: 1px solid rgba(255,255,255,0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 5px;
 }
 
@@ -627,7 +627,7 @@ hr:after {
 }
 
 .Field3 {
-    border: 1px solid rgba(255,255,255,0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     height: 30px;   
     margin-left: 150px;
 }
@@ -645,7 +645,7 @@ hr:after {
 }
 
 .Footer {
-    background: rgba(255,255,255,0.0);
+    background: rgba(255, 255, 255, 0.0);
     position: absolute;
     bottom: 35px;
     left: 0px;
@@ -665,7 +665,7 @@ hr:after {
 }
 
 .Icon3 {
-    background: rgba(255,255,255,0.2);
+    background: rgba(255, 255, 255, 0.2);
     width: 40px;
     height: 40px;
     line-height: 40px;
@@ -675,17 +675,17 @@ hr:after {
 }
 
 .Icon3:hover {
-    background: rgba(255,255,255,0.3);
+    background: rgba(255, 255, 255, 0.3);
     color: white;
 }
 
 .Icon3:active {
-    background: rgba(255,255,255,0.2);
+    background: rgba(255, 255, 255, 0.2);
     color: white;
 }
 
 .Icon4 {
-    background: rgba(255,255,255,0.2);
+    background: rgba(255, 255, 255, 0.2);
     width: 40px;
     height: 40px;
     line-height: 40px;
@@ -772,7 +772,7 @@ hr:after {
 }
 
 .Input2 {
-    border: 1px solid rgba(255,255,255,0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     height: 100%;   
     width: 100%;
     padding: 5px 10px;
@@ -805,7 +805,7 @@ hr:after {
 }
 
 .Label3 {
-    background-color: rgba(255,255,255,0.2);
+    background-color: rgba(255, 255, 255, 0.2);
     min-width: 150px; 
     line-height: 30px;   
     padding: 0px 10px;
@@ -922,7 +922,7 @@ hr:after {
 }
 
 .Menu {
-    background: rgba(255,255,255,0.2);
+    background: rgba(255, 255, 255, 0.2);
     text-align: left;
     font-size: 0px;
     line-height: 40px;
@@ -940,13 +940,13 @@ hr:after {
     width: 100%;
     height: 100vh;
     background-image: url("<?php echo $lStyle["modal"]["img"]; ?>");
-    background-color: rgba(255,255,255,0.2);
+    background-color: rgba(255, 255, 255, 0.2);
     overflow: auto;
     text-align: left;
 }
 
 .Network {
-    background: rgba(255,255,255,0.2);
+    background: rgba(255, 255, 255, 0.2);
     width: 40px;
     line-height: 40px;
     font-size: 20px;
@@ -982,7 +982,7 @@ hr:after {
 }
 
 .Row6 {
-    background: rgba(255,255,255,0.2);
+    background: rgba(255, 255, 255, 0.2);
     height: 50px;
     text-align: center;
     display: table;
@@ -1027,7 +1027,7 @@ hr:after {
 }
 
 .Row14 {
-    background-color: rgba(255,255,255,0.2);
+    background-color: rgba(255, 255, 255, 0.2);
     margin: auto;
     max-width: 500px;
     padding: 5px 10px;
@@ -1045,6 +1045,7 @@ hr:after {
 }
 
 .Row16 {
+    border-bottom: 5px solid #051039;
     text-align: center;
     font-size: 0px;
 }
@@ -1171,7 +1172,7 @@ hr:after {
 }
 
 .Title3 {
-    background: rgba(255,255,255,0.2);
+    background: rgba(255, 255, 255, 0.2);
     display: inline-block;
     vertical-align: middle;
     font-family: Aclonica;
@@ -1186,7 +1187,7 @@ hr:after {
 }
 
 .Title5 {
-    background-color: rgba(255,255,255,0.2);
+    background-color: rgba(255, 255, 255, 0.2);
     padding: 10px 35px 10px 10px;
     font-family: Anton;
     font-size: 25px;

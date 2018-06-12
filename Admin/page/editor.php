@@ -73,7 +73,7 @@
                 </h2>
                 <div class="Body7 Center">
                     <button class="Button5" type="button" title="Afficher la page web" 
-                    onclick="viewPage();">Vue</button>
+                    onclick="viewPage();"><i class="fa fa-file-text-o"></i> Vue</button>
                 </div>
                 <div class="Body8">
                     <div class="Content9" id="EditorView"></div> 
@@ -87,7 +87,7 @@
                 </h2>
                 <div class="Body7 Center">
                     <button class="Button5" type="button" title="Afficher le code HTML" 
-                    onclick="viewCode();">HTML</button>
+                    onclick="viewCode();"><i class="fa fa-file-text-o"></i> HTML</button>
                     <button class="Button5" type="button" title="Enregistrer le code HTML" 
                     onclick="saveFileText();"><i class="fa fa-save"></i></button>
                 </div>

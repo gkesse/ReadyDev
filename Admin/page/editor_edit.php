@@ -36,7 +36,7 @@
 	</div>
 	<!-- ============================================ -->
 	<div class="Row15">
-		<div class="Content9" id="Button5orEdit" 
+		<div class="Content9" id="EditorEdit" 
 		onpaste="pasteText(event);" 
 		contentEditable="true"></div> 
 	</div>
