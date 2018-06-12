@@ -44,9 +44,9 @@ de manière éfficace en :
 
 # Support de Développement
 
-**ReadyDev** est conçu sur la base de la technologie **Responsive Web Design**,
-ce qui le rend totalement consultable sur toutes les plateformes fixes ou mobiles.  
+**ReadyDev** est conçu sur la base de la technologie **Responsive Web Design**, 
+ce qui le rend totalement consultable sur toutes les plateformes fixes ou mobiles. 
 Construit autour de l'architecture Modèle Vue-Contrôleur **MVC**, 
 où les données sont stockées dans des fichiers au format de données **JSON**, 
-**Le code source de ReadyDev peut servir de support de base de développement 
-de votre site internet.**
+Le code source de **ReadyDev** peut servir de support de base de développement 
+de votre site internet.
