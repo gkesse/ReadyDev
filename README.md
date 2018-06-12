@@ -1,4 +1,4 @@
-# Auteur
+# Plateforme de Développement Continu
 
 Je suis 
 [Gérard KESSE](https://github.com/gkesse/ "Accédez à mon site web (ReadyDev)"),  
