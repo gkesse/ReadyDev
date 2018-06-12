@@ -2,7 +2,7 @@
 <?php require_once $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoloadRegister.php"; ?>
 <!-- ============================================ -->
 <?php
-    $m_data = GJson::Instance()->getData("data/json/email.json"); 
+    $lData = GJson::Instance()->getData("data/json/email.json"); 
 ?>
 <!-- ============================================ -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
@@ -41,10 +41,10 @@
                             <tbody>
                                 <tr>
                                     <td style="padding:10px" bgcolor="#373f60" align="center">
-                                        <?php $m_ds = $m_data["site"]; ?>
-                                        <a href="<?php echo $m_ds['link']; ?>">
-                                            <img src="<?php echo $m_ds['img']; ?>" 
-                                            alt="<?php echo $m_ds['name']; ?>"/>
+                                        <?php $lDataMap = $lData["site"]; ?>
+                                        <a href="<?php echo $lDataMap['link']; ?>">
+                                            <img src="<?php echo $lDataMap['img']; ?>" 
+                                            alt="<?php echo $lDataMap['name']; ?>"/>
                                         </a>
                                     </td>
                                 </tr>
@@ -152,9 +152,9 @@
                                                                                                 <tr>
                                                                                                     <?php 
                                                                                                         date_default_timezone_set("Europe/Paris");
-                                                                                                        $m_date = date("H:i");
+                                                                                                        $lDate = date("H:i");
                                                                                                     ?>
-                                                                                                    <td style="padding:5px" class="label"><?php echo $m_date; ?></td>
+                                                                                                    <td style="padding:5px" class="label"><?php echo $lDate; ?></td>
                                                                                                 </tr>
                                                                                             </tbody>
                                                                                         </table>
@@ -238,42 +238,42 @@
                                                                 <tr>
                                                                     <td width="10">&nbsp;</td>
                                                                     <!-- ============================================ -->
-                                                                    <?php $m_di = $m_data["facebook"]; ?>
+                                                                    <?php $lDataList = $lData["facebook"]; ?>
                                                                     <td align="center">
-                                                                        <a <?php if($m_di["link"] != "#") { ?> target="_blank" <?php } ?>
-                                                                        style="text-decoration:none"  href="<?php echo $m_di["link"]; ?>">
-                                                                            <img src="<?php echo $m_di["img"]; ?>"
-                                                                            alt="<?php echo $m_di["name"]; ?>"/>
+                                                                        <a <?php if($lDataList["link"] != "#") { ?> target="_blank" <?php } ?>
+                                                                        style="text-decoration:none"  href="<?php echo $lDataList["link"]; ?>">
+                                                                            <img src="<?php echo $lDataList["img"]; ?>"
+                                                                            alt="<?php echo $lDataList["name"]; ?>"/>
                                                                         </a>
                                                                     </td>
                                                                     <td width="10">&nbsp;</td>
                                                                     <!-- ============================================ -->
-                                                                    <?php $m_di = $m_data["skype"]; ?>
+                                                                    <?php $lDataList = $lData["skype"]; ?>
                                                                     <td align="center">
-                                                                        <a <?php if($m_di["link"] != "#") { ?> target="_blank" <?php } ?>
-                                                                        style="text-decoration:none"  href="<?php echo $m_di["link"]; ?>">
-                                                                            <img src="<?php echo $m_di["img"]; ?>"
-                                                                            alt="<?php echo $m_di["name"]; ?>"/>
+                                                                        <a <?php if($lDataList["link"] != "#") { ?> target="_blank" <?php } ?>
+                                                                        style="text-decoration:none"  href="<?php echo $lDataList["link"]; ?>">
+                                                                            <img src="<?php echo $lDataList["img"]; ?>"
+                                                                            alt="<?php echo $lDataList["name"]; ?>"/>
                                                                         </a>
                                                                     </td>
                                                                     <td width="10">&nbsp;</td>
                                                                     <!-- ============================================ -->
-                                                                    <?php $m_di = $m_data["github"]; ?>
+                                                                    <?php $lDataList = $lData["github"]; ?>
                                                                     <td align="center">
-                                                                        <a <?php if($m_di["link"] != "#") { ?> target="_blank" <?php } ?>
-                                                                        style="text-decoration:none"  href="<?php echo $m_di["link"]; ?>">
-                                                                            <img src="<?php echo $m_di["img"]; ?>"
-                                                                            alt="<?php echo $m_di["name"]; ?>"/>
+                                                                        <a <?php if($lDataList["link"] != "#") { ?> target="_blank" <?php } ?>
+                                                                        style="text-decoration:none"  href="<?php echo $lDataList["link"]; ?>">
+                                                                            <img src="<?php echo $lDataList["img"]; ?>"
+                                                                            alt="<?php echo $lDataList["name"]; ?>"/>
                                                                         </a>
                                                                     </td>
                                                                     <td width="10">&nbsp;</td>
                                                                     <!-- ============================================ -->
-                                                                    <?php $m_di = $m_data["linkedin"]; ?>
+                                                                    <?php $lDataList = $lData["linkedin"]; ?>
                                                                     <td align="center">
-                                                                        <a <?php if($m_di["link"] != "#") { ?> target="_blank" <?php } ?>
-                                                                        style="text-decoration:none"  href="<?php echo $m_di["link"]; ?>">
-                                                                            <img src="<?php echo $m_di["img"]; ?>"
-                                                                            alt="<?php echo $m_di["name"]; ?>"/>
+                                                                        <a <?php if($lDataList["link"] != "#") { ?> target="_blank" <?php } ?>
+                                                                        style="text-decoration:none"  href="<?php echo $lDataList["link"]; ?>">
+                                                                            <img src="<?php echo $lDataList["img"]; ?>"
+                                                                            alt="<?php echo $lDataList["name"]; ?>"/>
                                                                         </a>
                                                                     </td>
                                                                     <td width="10">&nbsp;</td>
@@ -288,20 +288,20 @@
                                                     <td height="10px" style="font-size:10px;line-height:10px">&nbsp;</td>
                                                 </tr>
                                                 <tr>
-                                                    <?php $m_ds = $m_data["copyright"]; ?>
+                                                    <?php $lDataMap = $lData["copyright"]; ?>
                                                     <td style="font-size:14px" align="center">&copy;
-                                                        <?php echo $m_ds["date"]; ?> -
-                                                        <?php echo $m_ds["site"]["name"]; ?>
+                                                        <?php echo $lDataMap["date"]; ?> -
+                                                        <?php echo $lDataMap["site"]["name"]; ?>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td style="font-size:14px" align="center">
-                                                        <?php echo $m_ds["description"][0]; ?>
+                                                        <?php echo $lDataMap["description"][0]; ?>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td style="font-size:14px" align="center">
-                                                        <?php echo $m_ds["description"][1]; ?>
+                                                        <?php echo $lDataMap["description"][1]; ?>
                                                     </td>
                                                 </tr>
                                                 <tr>

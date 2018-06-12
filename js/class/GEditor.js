@@ -237,7 +237,7 @@ var GEditor = (function() {
 							document.execCommand("insertHTML", false, lData);
 						}
 					}
-					lXmlhttp.open("POST", "/php/editor.php", true);
+					lXmlhttp.open("POST", "/php/req/editor.php", true);
 					lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 					lXmlhttp.send(
 					"req=" + "SUMMARY" +
@@ -511,7 +511,7 @@ var GEditor = (function() {
                         lEditorEdit.innerHTML = this.responseText;
                     }
                 }
-                lXmlhttp.open("POST", "/php/editor.php", true);
+                lXmlhttp.open("POST", "/php/req/editor.php", true);
                 lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 lXmlhttp.send(
 				"req=" + "READ_FILE" +
@@ -530,7 +530,7 @@ var GEditor = (function() {
 
                     }
                 }
-                lXmlhttp.open("POST", "/php/editor.php", true);
+                lXmlhttp.open("POST", "/php/req/editor.php", true);
                 lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 lXmlhttp.send(
 				"req=" + "SAVE_FILE" +
@@ -554,7 +554,7 @@ var GEditor = (function() {
 
                     }
                 }
-                lXmlhttp.open("POST", "/php/editor.php", true);
+                lXmlhttp.open("POST", "/php/req/editor.php", true);
                 lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 lXmlhttp.send(
 				"req=" + "SAVE_FILE" + 
@@ -595,7 +595,7 @@ var GEditor = (function() {
 						GConfig.Instance().setData("EditorDir", lEditorDir);
                     }
                 }
-                lXmlhttp.open("POST", "/php/editor.php", true);
+                lXmlhttp.open("POST", "/php/req/editor.php", true);
                 lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 lXmlhttp.send(
 				"req=" + "GET_FILE" + 
@@ -613,12 +613,12 @@ var GEditor = (function() {
 				var lObjParent = obj.parentNode;
 				for(var i = 0; i < lFileList.length; i++) {
 					var m_node = lFileList[i];
-					m_node.className = m_node.className.replace(" bgrc", "");
+					m_node.className = m_node.className.replace(" Active", "");
 				}
 				if(!dir) {
 					var lRes = confirm("Êtes-vous sûr de vouloir sélectionner ce fichier ?");
 					if(!lRes) return;
-					lObjParent.className += " bgrc";
+					lObjParent.className += " Active";
 					var lEditorFile = lDirPath;
 					lEditorFile = lEditorFile.replace(/\\/gi, "/");
 					lFileEdit.innerHTML = lEditorFile;

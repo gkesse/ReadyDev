@@ -7,6 +7,11 @@
         ],
         "meta_cano":"/Admin/"
     },    
+    "intro":
+    [
+        "L'espace d'administration ReadyDev vous permet d'administrer le contenu du site ReadyDev.<br/>",
+        "Cet espace est reparti en plusieurs sections."
+    ],
     "summary":
     [
         {"name":"Gestion Sitemap","link":"#Gestion_Sitemap"},

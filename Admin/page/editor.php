@@ -31,7 +31,7 @@
                 </div>
             </div>
             <!-- ============================================ -->
-            <div class="Row Left EditorTabCtn" id="EditorTab0">
+            <div class="Row4 Left EditorTabCtn" id="EditorTab0">
                 <h2 class="Title4">
                     ReadyHTMLEditor
                 </h2>
@@ -45,21 +45,21 @@
                 </div>
             </div>
             <!-- ============================================ -->
-            <div class="Row Left EditorTabCtn" id="EditorTab1">
+            <div class="Row4 Left EditorTabCtn" id="EditorTab1">
                 <h2 class="Title4">
                     Page
                 </h2>
-                <div class="txal bdbb psra">
-                    <div class="pgCr05 dibm psac"><i class="clrb fa fa-file-text-o"> :</i></div>
-                    <div class="ovfa mglb pgCr05"><div class="dibm clrb" id="FileEdit"></div></div>
+                <div class="Body9 Left">
+                    <div class="Row17"><i class="Icon8 fa fa-file-text-o"> :</i></div>
+                    <div class="Row18"><div class="Field4" id="FileEdit"></div></div>
                 </div>
-                <div class="txal bdbb ovfa" id="EditorMenu"></div>
-                <div class="pgCr10 mnhf ovfa">
+                <div class="Body10 Left" id="EditorMenu"></div>
+                <div class="Body11">
                     <div id="EditorFile"></div>
                 </div>
             </div>
             <!-- ============================================ -->
-            <div class="Row Left EditorTabCtn" id="EditorTab2"
+            <div class="Row4 Left EditorTabCtn" id="EditorTab2"
                 onkeypress="saveFileKey(event);">
                 <h2 class="Title4">
                     Édition
@@ -71,28 +71,28 @@
                 <h2 class="Title4">
                     Vue
                 </h2>
-                <div class="bdbb txac">
-                    <button class="evta pddc dibm" type="button" title="Afficher la page web" 
+                <div class="Body7 Center">
+                    <button class="Button5" type="button" title="Afficher la page web" 
                     onclick="viewPage();">Vue</button>
                 </div>
-                <div class="ovfa bgrc bdbb">
+                <div class="Body8">
                     <div class="Content9" id="EditorView"></div> 
                 </div>
             </div>
             <!-- ============================================ -->
-            <div class="Row Left EditorTabCtn" id="EditorTab4"
+            <div class="Row4 Left EditorTabCtn" id="EditorTab4"
                 onkeypress="saveFileTextKey(event);">
                 <h2 class="Title4">
                     HTML
                 </h2>
-                <div class="bdbb txac">
-                    <button class="evta pddc dibm" type="button" title="Afficher le code HTML" 
+                <div class="Body7 Center">
+                    <button class="Button5" type="button" title="Afficher le code HTML" 
                     onclick="viewCode();">HTML</button>
-                    <button class="evta pddc dibm" type="button" title="Enregistrer le code HTML" 
+                    <button class="Button5" type="button" title="Enregistrer le code HTML" 
                     onclick="saveFileText();"><i class="fa fa-save"></i></button>
                 </div>
-                <div class="ovfa bgrc bdbb">
-                    <textarea class="hghd pgCt10" rows="20" id="EditorHTML"></textarea>
+                <div class="Body8">
+                    <textarea class="TextArea" rows="20" id="EditorHTML"></textarea>
                 </div>
             </div>
             <!-- ============================================ -->

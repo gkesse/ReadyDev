@@ -84,7 +84,7 @@
 </div>
 <!-- ============================================ -->
 <div class="Parallax">
-    <div class="Img Binary">
+    <div class="Img Contact">
         <div class="Caption">
             <a href="#"><div class="Text">Carte Profesionnelle</div></a>
         </div>
@@ -96,7 +96,7 @@
                 <img src="/img/img_avatar.png" alt="Avatar" width="100%"/>
             </div>
             <div class="Row">
-                <b>Gerard KESSE</b><br/>
+                <b>Gérard KESSE</b><br/>
                 Ingénieur Développeur Logiciel<br/>
                 C/C++/Qt<br/>
                 -<br/>

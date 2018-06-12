@@ -23,14 +23,14 @@
 		if(empty($lDirNameArr)) return;
 		$lDirPath = GFilesystem::Instance()->getPath($lDir);
 		$lDataFile = "";
-		$lDataFile .= "<div class='brdc mxha ovfa'>";
+		$lDataFile .= "<div class='Body12'>";
 		for($i = 0; $i < count($lDirNameArr); $i++) {
 			$lDirName = $lDirNameArr[$i];
 			$lFilePath = $lDirPath."/".$lDirName[1];
-			if($lFilePath == $lFile) {$lDataFile .= "<div class='pddd bdba FileList bgrc'>";}
-			else {$lDataFile .= "<div class='pddd bdba FileList'>";}
+			if($lFilePath == $lFile) {$lDataFile .= "<div class='Row19 FileList'>";}
+			else {$lDataFile .= "<div class='Row20 FileList'>";}
 			$lDataFile .= "<i class='fa fa-".$lDirName[2]."'></i> ";
-			$lDataFile .= "<div class='hvra cspt dibm'";
+			$lDataFile .= "<div class='Text9'";
 			$lDataFile .= "onclick='openFile(this, ".$lDirName[0].");'>";
 			$lDataFile .= $lDirName[1];
 			$lDataFile .= "</div>";
@@ -39,15 +39,15 @@
 		$lDataFile .= "</div>";
 		
 		$lDataMenu = '';
-		$lDataMenu .= '<div class="pgCr05 dibm cspt FileLink" onclick="openLink(this);">';
-		$lDataMenu .= '<i class="clrg fa fa-folder"></i></div> ';
+		$lDataMenu .= '<div class="Col3 FileLink" onclick="openLink(this);">';
+		$lDataMenu .= '<i class="Icon2 fa fa-folder"></i></div> ';
 		if($lDirPath != "") {
 			$lDirPathArr = explode("/", $lDirPath);
 			for($i = 0; $i < count($lDirPathArr); $i++) {
 				$lDirPathItem = $lDirPathArr[$i];
 				if($lDirPathItem == "") continue;
-				$lDataMenu .= '<div class="pgCr05 dibm"><i class="clrg fa fa-chevron-right"></i></div> ';
-				$lDataMenu .= '<div class="pgCr05 dibm hvra cspt clrg FileLink" onclick="openLink(this);">';
+				$lDataMenu .= '<div class="Col2"><i class="Icon2 fa fa-chevron-right"></i></div> ';
+				$lDataMenu .= '<div class="Col3 FileLink" onclick="openLink(this);">';
 				$lDataMenu .= $lDirPathItem.'</div> ';
 			}
 		}

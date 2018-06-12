@@ -356,6 +356,38 @@ hr:after {
     overflow: auto;
 }
 
+.Body7 {
+    border-bottom: 5px solid #051039;
+}
+
+.Body8 {
+    border-bottom: 5px solid #051039;
+    overflow: auto;
+    background-color: #051039;
+}
+
+.Body9 {
+    border-bottom: 5px solid #051039;
+    position: relative;
+}
+
+.Body10 {
+    border-bottom: 5px solid #051039;
+    overflow: auto;
+}
+
+.Body11 {
+    min-height: 400px;
+    overflow: auto;
+    padding: 10px 0px;
+}
+
+.Body12 {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    max-height: 400px;
+    overflow: auto;
+}
+
 .BodyPage {
     position: relative;
 }
@@ -455,6 +487,22 @@ hr:after {
     color: white;
 }
 
+.Button5 {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 5px;
+}
+
+.Button5:hover {
+    background: rgba(255,255,255,0.3);
+    color: white;
+}
+
+.Button5:active {
+    background: rgba(255,255,255,0.2);
+    color: white;
+}
+
 .Caption {
     background-color: #051039;
     position: absolute;
@@ -468,8 +516,27 @@ hr:after {
 
 .Col {
     display: inline-block;
+    vertical-align: middle;
     font-size: 14px;
     padding: 5px;
+}
+
+.Col2 {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 5px 0px;
+}
+
+.Col3 {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 5px 0px;
+    cursor: pointer;
+    color: cyan;
+}
+
+.Col3:hover {
+    text-decoration: underline;
 }
 
 .ComboBox {
@@ -563,6 +630,12 @@ hr:after {
     border: 1px solid rgba(255,255,255,0.2);
     height: 30px;   
     margin-left: 150px;
+}
+
+.Field4 {
+    display: inline-block;
+    vertical-align: middle;
+    color: #89a830;
 }
 
 .Form {
@@ -679,6 +752,14 @@ hr:after {
 
 .Img.Grid {
     background-image: url("/data/img/defaults/grid.jpg");
+}
+
+.Img.Dashboard {
+    background-image: url("/data/img/defaults/dashboard.jpg");
+}
+
+.Img.Contact {
+    background-image: url("/data/img/defaults/contact.jpg");
 }
 
 .Img2 {
@@ -968,6 +1049,36 @@ hr:after {
     font-size: 0px;
 }
 
+.Row17 {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 5px 0px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.Row18 {
+    padding: 5px 0px;
+    margin-left: 30px;
+    overflow: auto;
+}
+
+.Row19 {
+    background-color: #051039;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 5px 10px;
+}
+
+.Row20 {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 5px 10px;
+}
+
+.Row20.Active {
+    background-color: #051039;
+}
+
 .Succes {
     background: rgba(255, 255, 255, 0.2);
     border-radius: 5px;
@@ -1025,6 +1136,21 @@ hr:after {
     font-size: 14px;
     color: #555555;
     text-align: center;
+}
+
+.Text9 {
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.Text9:hover {
+    text-decoration: underline;
+}
+
+.TextArea {
+    padding: 10px;
+    height: 400px;
 }
 
 .Title {
