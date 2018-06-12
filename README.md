@@ -49,4 +49,5 @@ ce qui le rend totalement consultable sur toutes les plateformes fixes ou mobile
 Construit autour de l'architecture Modèle Vue-Contrôleur **MVC**, 
 où les données sont stockées dans des fichiers au format de données **JSON**, 
 Le code source de **ReadyDev** peut servir de support de base de développement 
-de votre site internet.
+de votre site internet.  
+Produit par [Gerard KESSE](https://github.com/gkesse/ "Accédez à mon site web (ReadyDev)").
