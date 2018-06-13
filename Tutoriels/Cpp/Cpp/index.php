@@ -11,7 +11,7 @@
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";
 ?>
 <!-- ============================================ -->
-<div class="pgBg">
+<div class="">
     <div class="mrga pgBd">
         <!-- ============================================ -->
 		<?php require "page/main.php"; ?>

@@ -124,7 +124,7 @@
             <!-- ============================================ -->
             <?php require $_SERVER["DOCUMENT_ROOT"]."/php/connection.php";  ?>
             <!-- ============================================ -->
-            <div class="BodyPage Mrg Pdd">
+            <div class="BodyPage">
                 <div class="MainPage">
                     <header class="Header">
                         <!-- ============================================ -->
@@ -182,7 +182,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="Row Line">
+                                    <div class="Row22">
                                         <?php $lUrl = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; ?>
                                         <a class="Col" href="http://www.facebook.com/sharer.php?u=<?php echo $lUrl; ?>" target="_blank">
                                             <i class="Link2 Facebook fa fa-facebook"></i>
@@ -198,17 +198,17 @@
                         </div>
                         <!-- ============================================ -->
                         <?php if($lExiststLink == true) { ?>
-                        <div class="RowBlock">
-                            <div class="Ctn">
-                                <div class="Row0 Line0">
+                        <div class="MainBlock0">
+                            <div class="Content11">
+                                <div class="Row22">
                                     <?php 
                                     for($i = 0; $i < count($lLinks); $i++) {
                                         $lLink = $lLinks[$i]; 
                                         if($i != 0) { 
                                     ?>
-                                    <div class="Col"><i class="fa fa-chevron-right"></i></div>
+                                    <div class="Col4"><i class="fa fa-chevron-right"></i></div>
                                     <?php } ?>
-                                    <div class="Col"><a class="Item" href="<?php echo $lLink["link"]; ?>"><?php echo $lLink["name"]; ?></a></div>
+                                    <div class="Col4"><a class="Link8" href="<?php echo $lLink["link"]; ?>"><?php echo $lLink["name"]; ?></a></div>
                                     <?php } ?>
                                 </div>
                             </div>

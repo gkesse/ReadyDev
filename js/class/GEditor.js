@@ -52,31 +52,35 @@ var GEditor = (function() {
                     if(!lData) return;
                     var lLength = lData.length;
                     var lParentNode = lStartNode.parentNode;
-                    if(lParentNode.nodeName == "A") {
-                        lParentNode = lParentNode.parentNode;
-                        if(lParentNode.nodeName == "H1") {
-                            if(lParentNode.className.includes("Title1")) {
-                                lParentNode = lParentNode.parentNode.parentNode;
-                                lRange.selectNode(lParentNode);
-                                lSelection.addRange(lRange);
-                                document.execCommand("insertHTML", false, lData);
-                                break;
-                            }
+                    while(1) {
+                        var lClassName = lParentNode.className;
+                        if(lClassName.includes("GEndEditor")) {
+                            break;
                         }
+                        if(lClassName.includes("GTitle1")) {
+                            lRange.selectNode(lParentNode);
+                            lSelection.addRange(lRange);
+                            var lTitle = lParentNode.firstChild.firstChild.firstChild.innerText;
+                            document.execCommand("insertHTML", false, lTitle);
+                            return;
+                        }
+                        lParentNode = lParentNode.parentNode;
                     }
                     lRange.setStart(lStartNode, 0);
                     lRange.setEnd(lStartNode, lLength);
                     lSelection.addRange(lRange);
                     var lHtml = '';
-                    lHtml += '<div class="pgCt00">';
-                    lHtml += '<div class="bgra">';
-                    lHtml += '<h1 class="bgra pgCt20 txac Title1" id="'+lData+'">';
-                    lHtml += '<a class="clrb" href="#Sommaire">';
+                    lHtml += '<div class="Content2 GTitle1">';
+                    lHtml += '<div class="MainBlock2">';
+                    lHtml += '<div class="Content">';
+                    lHtml += '<h1 class="Title2 Center" id="'+lData+'">';
+                    lHtml += '<a class="Link3" href="#Sommaire">';
                     lHtml += lData;
                     lHtml += '</a>';
                     lHtml += '</h1>';
-                    lHtml += '<div class="txal pgCt10">';
+                    lHtml += '<div class="Body3">';
                     lHtml += 'Ajouter un texte ici...';
+                    lHtml += '</div>';
                     lHtml += '</div>';
                     lHtml += '</div>';
                     lHtml += '</div>';
@@ -87,16 +91,18 @@ var GEditor = (function() {
                     if(!lData) return;
                     var lLength = lData.length;
                     var lParentNode = lStartNode.parentNode;
-                    if(lParentNode.nodeName == "A") {
-                        lParentNode = lParentNode.parentNode;
-                        if(lParentNode.nodeName == "H2") {
-                            if(lParentNode.className.includes("Title2")) {
-                                lRange.selectNode(lParentNode);
-                                lSelection.addRange(lRange);
-                                document.execCommand("insertHTML", false, lData);
-                                break;
-                            }
+                    while(1) {
+                        var lClassName = lParentNode.className;
+                        if(lClassName.includes("GEndEditor")) {
+                            break;
                         }
+                        if(lClassName.includes("GTitle2")) {
+                            lRange.selectNode(lParentNode);
+                            lSelection.addRange(lRange);
+                            document.execCommand("insertHTML", false, lData);
+                            return;
+                        }
+                        lParentNode = lParentNode.parentNode;
                     }
                     lParentNode = lStartNode;
                     var lTitle = lParentNode.parentNode.previousSibling.firstChild.innerText;
@@ -104,8 +110,8 @@ var GEditor = (function() {
                     lRange.setEnd(lStartNode, lLength);
                     lSelection.addRange(lRange);
                     var lHtml = '';
-                    lHtml += '<h2 class="ftwn Title2" id="'+lData+'">';
-                    lHtml += '<a class="bgra dibm ftfb ftsg clra pgCt10" href="#'+lTitle+'">';
+                    lHtml += '<h2 class="Title7 GTitle2" id="'+lData+'">';
+                    lHtml += '<a class="Link9" href="#'+lTitle+'">';
                     lHtml += lData;
                     lHtml += '</a>';
                     lHtml += '</h2>';
@@ -116,11 +122,18 @@ var GEditor = (function() {
                     if(!lData) return;
                     var lLength = lData.length;
                     var lParentNode = lStartNode.parentNode;
-                    if(lParentNode.nodeName == "B") {
-                        lRange.selectNode(lParentNode);
-                        lSelection.addRange(lRange);
-                        document.execCommand("insertHTML", false, lData);
-                        break;
+                    while(1) {
+                        var lClassName = lParentNode.className;
+                        if(lClassName.includes("GEndEditor")) {
+                            break;
+                        }
+                        if(lParentNode.nodeName == "B") {
+                            lRange.selectNode(lParentNode);
+                            lSelection.addRange(lRange);
+                            document.execCommand("insertHTML", false, lData);
+                            return;
+                        }
+                        lParentNode = lParentNode.parentNode;
                     }
                     lRange.setStart(lStartNode, 0);
                     lRange.setEnd(lStartNode, lLength);
@@ -133,44 +146,31 @@ var GEditor = (function() {
                     break;
                 //===============================================
                 case 'Summary1':
-                    var lParentNode = lStartNode;    
+                    var lParentNode = lStartNode.parentNode;    
                     if(lData) {
-                        for(var lParentCount = 0; lParentCount < 3; lParentCount++) {
-                            if(!lParentNode.parentNode) break;
+                        while(1) {
+                            var lClassName = lParentNode.className;
+                            if(lClassName.includes("GEndEditor")) {
+                                return;
+                            }
+                            if(lClassName.includes("GSummary1")) {
+                                lRange.selectNode(lParentNode);
+                                lSelection.addRange(lRange);
+                                document.execCommand("insertHTML", false, "");
+                                return;
+                            }
                             lParentNode = lParentNode.parentNode;
                         }
-                        if(lParentCount == 3) {
-                            if(lParentNode.nodeName == "DIV") {
-                                if(lParentNode.className) {
-                                    if(lParentNode.className.includes("Summary1")) {
-                                        lRange.selectNode(lParentNode);
-                                        lSelection.addRange(lRange);
-                                        document.execCommand("insertHTML", false, "");
-                                    }
-                                }
-                            }
-                        }
-                        break;
-                    }
-                    lParentNode = lParentNode.parentNode.parentNode.parentNode;
-                    var lChildNodes = lParentNode.childNodes;
-                    var lChildTitles = Array.from(lChildNodes).filter(function(n) {
-                        if(n.firstChild)  {
-                            if(n.firstChild.firstChild)  {
-                                if(n.firstChild.firstChild.nodeName == "H1") return true;
-                            }
-                        }
-                        return false;
-                    });
-                    if(!lChildTitles.length) break;
+                    }                  
+                    var lNodeMap = document.getElementsByClassName("GTitle1");
+                    if(lNodeMap.length < 2) break;
                     var lHtml = '';
-                    lHtml += '<div class="dibm Summary1">';
-                    for(var i = 1; i < lChildTitles.length; i++) {
-                        var lChild = lChildTitles[i];
-                        var lTitle = lChild.firstChild.firstChild.innerText;
-                        lHtml += '<div class="pdlb">';
-                        lHtml += '<span class="fa fa-book clrg pdra"></span>';
-                        lHtml += '<a class="hvra clrg" href="#'+lTitle+'">';
+                    lHtml += '<div class="List4 GSummary1">';
+                    for(var i = 1; i < lNodeMap.length; i++) {
+                        var lTitle = lNodeMap[i].firstChild.firstChild.firstChild.innerText;
+                        lHtml += '<div class="Item4">';
+                        lHtml += '<span class="Icon10 fa fa-book"></span>';
+                        lHtml += '<a class="Link4" href="#'+lTitle+'">';
                         lHtml += lTitle;
                         lHtml += '</a>';
                         lHtml += '</div>';
@@ -180,39 +180,38 @@ var GEditor = (function() {
                     break;
                 //===============================================
                 case 'Summary2':
-                    var lParentNode = lStartNode;    
+                    var lParentNode = lStartNode.parentNode;    
                     if(lData) {
-                        for(var lParentCount = 0; lParentCount < 3; lParentCount++) {
-                            if(!lParentNode.parentNode) break;
+                        while(1) {
+                            var lClassName = lParentNode.className;
+                            if(lClassName.includes("GEndEditor")) {
+                                return;
+                            }
+                            if(lClassName.includes("GSummary2")) {
+                                lRange.selectNode(lParentNode);
+                                lSelection.addRange(lRange);
+                                document.execCommand("insertHTML", false, "");
+                                return;
+                            }
                             lParentNode = lParentNode.parentNode;
                         }
-                        if(lParentCount == 3) {
-                            if(lParentNode.nodeName == "DIV") {
-                                if(lParentNode.className) {
-                                    if(lParentNode.className.includes("Summary2")) {
-                                        lRange.selectNode(lParentNode);
-                                        lSelection.addRange(lRange);
-                                        document.execCommand("insertHTML", false, "");
-                                    }
-                                }
-                            }
-                        }
-                        break;
+                    }   
+                    lParentNode = lStartNode.parentNode;    
+                    while(1) {
+                        var lClassName = lParentNode.className;
+                        if(lClassName.includes("GEndEditor")) {return;}
+                        if(lClassName.includes("GTitle1")) {break;}
+                        lParentNode = lParentNode.parentNode;
                     }
-                    var lChildNodes = lParentNode.childNodes;
-                    var lChildTitles = Array.from(lChildNodes).filter(function(n) {
-                        if(n.nodeName == "H2") return true;
-                        return false;
-                    });
-                    if(!lChildTitles.length) break;
+                    var lNodeMap = lParentNode.firstChild.firstChild.firstChild.nextSibling.getElementsByClassName("GTitle2");
+                    if(!lNodeMap.length) break;
                     var lHtml = '';
-                    lHtml += '<div class="dibm Summary2">';
-                    for(var i = 0; i < lChildTitles.length; i++) {
-                        var lChild = lChildTitles[i];
-                        var lTitle = lChild.firstChild.innerText
-                        lHtml += '<div class="pdlb">';
-                        lHtml += '<span class="fa fa-book clrg pdra"></span>';
-                        lHtml += '<a class="hvra clrg" href="#'+lTitle+'">';
+                    lHtml += '<div class="List4 GSummary2">';
+                    for(var i = 0; i < lNodeMap.length; i++) {
+                        var lTitle = lNodeMap[i].innerText
+                        lHtml += '<div class="Item4">';
+                        lHtml += '<span class="Icon10 fa fa-book"></span>';
+                        lHtml += '<a class="Link4" href="#'+lTitle+'">';
                         lHtml += lTitle;
                         lHtml += '</a>';
                         lHtml += '</div>';
@@ -247,72 +246,135 @@ var GEditor = (function() {
                     break;
                 //===============================================
                 case 'LineBreak1':
-                    var lParentNode = lStartNode;
-                    if(!lData) {
-                        document.execCommand("insertHTML", false, "<br>");
-                        break;
-                    }
-                    
+                    var lParentNode = lStartNode.parentNode;
                     while(1) {
-                        if(lParentNode.nodeName == "BR") break;
-                        if(lParentNode.nextSibling) {
-                            lParentNode = lParentNode.nextSibling;
+                        var lClassName = lParentNode.className;
+                        if(lClassName.includes("GEndEditor")) {
+                            break;
                         }
-                        else {
-                            lParentNode = lParentNode.parentNode; 
-                            lStartNode = lParentNode;
+                        if(lClassName.includes("GTitle1")) {
+                            var lBr = document.createElement("BR");
+                            lParentNode.parentNode.insertBefore(lBr, lParentNode);
+                            return;
                         }
+                        lParentNode = lParentNode.parentNode;
                     }
-                    var lBr = document.createElement("BR");
-                    lParentNode.parentNode.insertBefore(lBr, lStartNode.nextSibling);
                     break;
                 //===============================================
                 case 'LineBreak2':
-                    var lParentNode = lStartNode;
-                    if(!lData) {
-                        document.execCommand("insertHTML", false, "<br>");
-                        break;
-                    }
+                    var lParentNode = lStartNode.parentNode;
                     while(1) {
-                        if(lParentNode.nodeName == "BR") break;
-                        if(lParentNode.nextSibling) {
-                            lParentNode = lParentNode.nextSibling;
+                        var lClassName = lParentNode.className;
+                        if(lClassName.includes("GEndEditor")) {
+                            break;
                         }
-                        else {
-                            lParentNode = lParentNode.parentNode; 
-                            lStartNode = lParentNode;
+                        if(lClassName.includes("GTitle1")) {
+                            var lBr = document.createElement("BR");
+                            lParentNode.parentNode.insertBefore(lBr, lParentNode.nextSibling);
+                            return;
                         }
+                        lParentNode = lParentNode.parentNode;
                     }
-                    var lBr = document.createElement("BR");
-                    lParentNode.parentNode.insertBefore(lBr, lStartNode);
                     break;
                 //===============================================
                 case 'LineBreak3':
-                    var lParentNode = lStartNode;
-                    
+                    var lParentNode = lStartNode.parentNode;
                     while(1) {
-                        if(lParentNode.className) {
-                            if(lParentNode.className.includes("EditorPage")) break;
+                        var lClassName = lParentNode.className;
+                        if(lClassName.includes("GEndEditor")) {
+                            break;
                         }
-                        lStartNode = lParentNode;
+                        if(lClassName.includes("GTitle2")) {
+                            var lBr = document.createElement("BR");
+                            lParentNode.parentNode.insertBefore(lBr, lParentNode);
+                            return;
+                        }
                         lParentNode = lParentNode.parentNode;
                     }
-                    var lBr = document.createElement("BR");
-                    lParentNode.insertBefore(lBr, lStartNode.nextSibling);                
                     break;
                 //===============================================
                 case 'LineBreak4':
-                    var lParentNode = lStartNode;
-                    
+                    var lParentNode = lStartNode.parentNode;
                     while(1) {
-                        if(lParentNode.className) {
-                            if(lParentNode.className.includes("EditorPage")) break;
+                        var lClassName = lParentNode.className;
+                        if(lClassName.includes("GEndEditor")) {
+                            break;
                         }
-                        lStartNode = lParentNode;
+                        if(lClassName.includes("GTitle2")) {
+                            var lBr = document.createElement("BR");
+                            lParentNode.parentNode.insertBefore(lBr, lParentNode.nextSibling);
+                            return;
+                        }
                         lParentNode = lParentNode.parentNode;
                     }
-                    var lBr = document.createElement("BR");
-                    lParentNode.insertBefore(lBr, lStartNode);                
+                    break;
+                //===============================================
+                case 'LineBreak5':
+                    var lParentNode = lStartNode.parentNode;
+                    while(1) {
+                        var lClassName = lParentNode.className;
+                        if(lClassName.includes("GEndEditor")) {
+                            break;
+                        }
+                        if(lParentNode.nodeName == "B") {
+                            var lBr = document.createElement("BR");
+                            lParentNode.parentNode.insertBefore(lBr, lParentNode);
+                            return;
+                        }
+                        lParentNode = lParentNode.parentNode;
+                    }
+                    break;
+                //===============================================
+                case 'LineBreak6':
+                    var lParentNode = lStartNode.parentNode;
+                    while(1) {
+                        var lClassName = lParentNode.className;
+                        if(lClassName.includes("GEndEditor")) {
+                            break;
+                        }
+                        if(lParentNode.nodeName == "B") {
+                            var lBr = document.createElement("BR");
+                            lParentNode.parentNode.insertBefore(lBr, lParentNode.nextSibling);
+                            return;
+                        }
+                        lParentNode = lParentNode.parentNode;
+                    }
+                    break;
+                //===============================================
+                case 'LineBreak7':
+                    var lParentNode = lStartNode.parentNode;
+                    while(1) {
+                        var lClassName = lParentNode.className;
+                        if(lClassName.includes("GEndEditor")) {
+                            break;
+                        }
+                        if(lClassName.includes("GSummary1") || lClassName.includes("GSummary2")) {
+                            var lBr = document.createElement("BR");
+                            lParentNode.parentNode.insertBefore(lBr, lParentNode);
+                            return;
+                        }
+                        lParentNode = lParentNode.parentNode;
+                    }
+                    break;
+                //===============================================
+                case 'LineBreak8':
+                    var lParentNode = lStartNode.parentNode;
+                    while(1) {
+                        var lClassName = lParentNode.className;
+                        if(lClassName.includes("GEndEditor")) {
+                            break;
+                        }
+                        if(lClassName.includes("GSummary1") || lClassName.includes("GSummary2")) {
+                            var lBr = document.createElement("BR");
+                            lParentNode.parentNode.insertBefore(lBr, lParentNode.nextSibling);
+                            return;
+                        }
+                        lParentNode = lParentNode.parentNode;
+                    }
+                    break;
+                //===============================================
+                case 'LineBreak0':
+                    document.execCommand("delete", null, false);
                     break;
                 //===============================================
                 case 'Shift1':
@@ -567,6 +629,10 @@ var GEditor = (function() {
                 if (e.code == 'KeyS' && (e.ctrlKey || e.metaKey)) {
                     e.preventDefault();
                     saveFile();
+                }
+                else if (e.which == 13 || e.keyCode == 13) {
+                    e.preventDefault();
+                    document.execCommand("insertHTML", false, '<br><br>');
                 }
             },
             //===============================================

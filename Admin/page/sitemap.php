@@ -53,25 +53,25 @@
                 <h2 class="Title4">
                     Énumération
                 </h2>
-                <div class="Row Line Center">
-                    <button class="TabBtn" type="button" title="Démarrer l'énumération d'URLs" 
+                <div class="Body13 Center">
+                    <button class="Button7" type="button" title="Démarrer l'énumération d'URLs" 
                     onclick="enumerateUrl();"><i class="fa fa-list"></i> En</button>
-                    <button class="TabBtn" type="button" title="Supprimer l'énumération d'URLs" 
+                    <button class="Button7" type="button" title="Supprimer l'énumération d'URLs" 
                     onclick="enumerateClear();"><i class="fa fa-trash"></i> Sp</button>
                 </div>
-                <div class="TabRow Bgr Pdd">
+                <div class="Body14">
                     <div class="Content9"> 
-                        <div class="TabForm">
-                            <span class="TabLabel">URLs du site:</span>
-                            <span class="TabField" id="SitemapUrlSite"></span>
+                        <div class="Row9">
+                            <span class="Label4">URLs du site:</span>
+                            <span class="Field5" id="SitemapUrlSite"></span>
                         </div>
-                        <div class="TabForm">
-                            <span class="TabLabel">URLs maximal:</span>
-                            <span class="TabField" id="SitemapUrlMax"></span>
+                        <div class="Row9">
+                            <span class="Label4">URLs maximal:</span>
+                            <span class="Field5" id="SitemapUrlMax"></span>
                         </div>
-                        <div class="TabForm">
-                            <span class="TabLabel">Sitemap total:</span>
-                            <span class="TabField" id="SitemapTotal"></span>
+                        <div class="Row9">
+                            <span class="Label4">Sitemap total:</span>
+                            <span class="Field5" id="SitemapTotal"></span>
                         </div>
                     </div>
                 </div>
@@ -81,14 +81,14 @@
                 <h2 class="Title4">
                     Liste
                 </h2>
-                <div class="Row Line Center">
-                    <button class="TabBtn" type="button" title="Démarrer le listing d'URLs" 
+                <div class="Body13 Center">
+                    <button class="Button7" type="button" title="Démarrer le listing d'URLs" 
                     onclick="listUrl();"><i class="fa fa-list"></i> Ls</button>
-                    <button class="TabBtn" type="button" title="Supprimer le listing d'URLs" 
+                    <button class="Button7" type="button" title="Supprimer le listing d'URLs" 
                     onclick="listClear();"><i class="fa fa-trash"></i> Sp</button>
                 </div>
-                <div class="Row Bgr Pdd">
-                    <div class="TabRow">
+                <div class="Body15">
+                    <div class="Row21">
                         <div class="Content9" id="SitemapListUrl"></div> 
                     </div>
                 </div>
@@ -98,14 +98,14 @@
                 <h2 class="Title4">
                     Génération
                 </h2>
-                <div class="Row Line Center">
-                    <button class="TabBtn" type="button" title="Démarrer la génération du sitemap" 
+                <div class="Body13 Center">
+                    <button class="Button7" type="button" title="Démarrer la génération du sitemap" 
                     onclick="generateUrl();"><i class="fa fa-list"></i> Gn</button>
-                    <button class="TabBtn" type="button" title="Supprimer la génération du sitemap" 
+                    <button class="Button7" type="button" title="Supprimer la génération du sitemap" 
                     onclick="generateClear();"><i class="fa fa-trash"></i> Sp</button>
                 </div>
-                <div class="Row Bgr Pdd">
-                    <div class="TabRow">
+                <div class="Body15">
+                    <div class="Row21">
                         <div class="Content9" id="SitemapGenerateUrl"></div> 
                     </div>
                 </div>
@@ -115,25 +115,25 @@
                 <h2 class="Title4">
                     Visualisation
                 </h2>
-                <div class="Row Line Center Brd">
-                    <button class="TabBtn" type="button" title="Démarrer la visualisation du sitemap" 
+                <div class="Body7 Center">
+                    <button class="Button7" type="button" title="Démarrer la visualisation du sitemap" 
                     onclick="visualizeUrl();"><i class="fa fa-list"></i> Vs</button>
-                    <button class="TabBtn" type="button" title="Supprimer la visualisation du sitemap" 
+                    <button class="Button7" type="button" title="Supprimer la visualisation du sitemap" 
                     onclick="visualizeClear();"><i class="fa fa-trash"></i> Sp</button>
                 </div>
-                <div class="Row Line Center">
-                    <button class="TabBgr SitemapFileTab" type="button" title="Afficher le fichier sitemaps.xml" 
+                <div class="Body0 Center">
+                    <button class="Button8 SitemapFileTab" type="button" title="Afficher le fichier sitemaps.xml" 
                     onclick="openSitemapFileTab(this, 'SitemapFileTab0');">sitemaps.xml</button>
-                    <button class="TabBgr SitemapFileTab" type="button" title="Afficher le fichier sitemap.xml" 
+                    <button class="Button8 SitemapFileTab" type="button" title="Afficher le fichier sitemap.xml" 
                     onclick="openSitemapFileTab(this, 'SitemapFileTab1');">sitemap.xml</button>
                 </div>
-                <div class="TabRow Bgr Pdd">
+                <div class="Body14">
                     <div class="SitemapFileTabCtn" id="SitemapFileTab0">
-                        <h3 class="TabSub">sitemaps.xml:</h3>
+                        <h3 class="Title6">sitemaps.xml:</h3>
                         <div class="Content9" id="SitemapVisualizeSite"></div> 
                     </div>
                     <div class="SitemapFileTabCtn" id="SitemapFileTab1">
-                        <h3 class="TabSub">sitemap.xml:</h3>
+                        <h3 class="Title6">sitemap.xml:</h3>
                         <div class="Content9" id="SitemapVisualizeUrl"></div> 
                     </div>
                 </div>

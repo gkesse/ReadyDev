@@ -16,7 +16,7 @@
 		$lInfos = GSitemap::Instance()->getInfos();
 		$lData = array_column($lInfos["url_list"], "link");
 		$lDataVal = "";
-		$lDataVal .= "<ol class='List'>";
+		$lDataVal .= "<ol class='List3'>";
 		for($i = 0; $i < count($lData); $i++) {
 			$lDataVal .= "<li>".$lData[$i]."</li>";
 		}
@@ -39,7 +39,7 @@
 			$lData = GFile::Instance()->getData($lFile);
 			$lDataVal = '';
 			$lDataVal .= '<pre>';
-			$lDataVal .= '<xmp class="ovfa mxha prettyprint linenums">';
+			$lDataVal .= '<xmp class="Code prettyprint linenums">';
 			$lDataVal .= $lData;
 			$lDataVal .= '</xmp>';
 			$lDataVal .= '</pre>';

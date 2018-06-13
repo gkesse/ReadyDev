@@ -23,10 +23,15 @@
 			<option value="Summary1">Sommaire 1</option>
 			<option value="Summary2">Sommaire 2</option>
 			<option value="Summary3">Sommaire 3</option>
-			<option value="LineBreak1">Saut de Ligne 1</option>
-			<option value="LineBreak2">Saut de Ligne 2</option>
-			<option value="LineBreak3">Saut de Ligne 3</option>
-			<option value="LineBreak4">Saut de Ligne 4</option>
+			<option value="LineBreak1">Saut Titre 1 Haut</option>
+			<option value="LineBreak2">Saut Titre 1 Bas</option>
+			<option value="LineBreak3">Saut Titre 2 Haut</option>
+			<option value="LineBreak4">Saut Titre 2 Bas</option>
+			<option value="LineBreak5">Saut Titre 3 Haut</option>
+			<option value="LineBreak6">Saut Titre 3 Bas</option>
+			<option value="LineBreak7">Saut Sommaire Haut</option>
+			<option value="LineBreak8">Saut Sommaire Bas</option>
+			<option value="LineBreak0">Saut Supprimer</option>
 			<option value="Shift1">Décalage 1</option>
 			<option value="Shift2">Décalage 2</option>
 			<option value="Code1">Code 1</option>
@@ -36,8 +41,8 @@
 	</div>
 	<!-- ============================================ -->
 	<div class="Row15">
-		<div class="Content9" id="EditorEdit" 
-		onpaste="pasteText(event);" 
+		<div class="Content9 GEndEditor" id="EditorEdit" 
+		onpaste="pasteText(event)" 
 		contentEditable="true"></div> 
 	</div>
 </div>

@@ -361,9 +361,9 @@ hr:after {
 }
 
 .Body8 {
+    background-color: #051039;
     border-bottom: 5px solid #051039;
     overflow: auto;
-    background-color: #051039;
 }
 
 .Body9 {
@@ -388,16 +388,25 @@ hr:after {
     overflow: auto;
 }
 
+.Body13 {
+    font-size: 0px;
+}
+
+.Body14 {
+    background-color: #051039;
+    padding: 10px;
+    overflow: auto;
+}
+
+.Body15 {
+    background-color: #051039;
+    padding: 10px;
+}
+
 .BodyPage {
     position: relative;
-}
-
-.BodyPage.Mrg {
     max-width: 1000px;
     margin: auto;
-}
-
-.BodyPage.Pdd {
     padding-top: 250px;
     padding-bottom: 250px;
 }
@@ -427,7 +436,7 @@ hr:after {
 }
 
 .Button2.Active {
-    background: #051039;
+    background-color: #051039;
 }
 
 .Button3 {
@@ -456,6 +465,7 @@ hr:after {
 
 .Button4 {
     display: inline-block;
+    vertical-align: middle;
     background-color: rgba(255, 255, 255, 0.2);
     padding: 0px 10px;
     line-height: 30px; 
@@ -503,6 +513,34 @@ hr:after {
     color: white;
 }
 
+.Button7 {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.Button7:hover {
+    background: rgba(255,255,255,0.4);
+    color: white;
+}
+
+.Button7:active {
+    background: rgba(255,255,255,0.2);
+    color: white;
+}
+
+.Button8 {
+    display: inline-block;
+}
+
+.Button8:hover {
+    text-decoration: underline;
+    vertical-align: top;
+}
+
+.Button8.Active {
+    background-color: #051039;
+}
+
 .Caption {
     background-color: #051039;
     position: absolute;
@@ -512,6 +550,11 @@ hr:after {
     height: 40px;
     margin-top: -20px; 
     opacity: 0.8;
+}
+
+.Code {
+    overflow: auto;
+    max-height: 400px;
 }
 
 .Col {
@@ -537,6 +580,13 @@ hr:after {
 
 .Col3:hover {
     text-decoration: underline;
+}
+
+.Col4 {
+    display: inline-block;
+    padding: 0px 5px 5px 5px;
+    font-family: Aclonica;
+    font-size: 16px;
 }
 
 .ComboBox {
@@ -597,6 +647,10 @@ hr:after {
     position: relative;
 }
 
+.Content11 {
+    font-size: 0px;
+    padding: 0px 5px 5px 5px;
+}
 
 .Error {
     color: #f67b20;
@@ -638,9 +692,19 @@ hr:after {
     color: #89a830;
 }
 
+.Field5 {
+    background-color: rgba(255, 255, 255, 0.2);
+    display: inline-block;
+    vertical-align: middle;
+    min-width: 100px;
+    height: 30px;
+    padding: 5px 10px;
+}
+
 .Form {
     background-color: rgba(255, 255, 255, 0.2);
     display: inline-block;
+    vertical-align: top;
     font-size: 0px;
 }
 
@@ -714,6 +778,11 @@ hr:after {
 
 .Icon9 {
     color: #f67b20;
+}
+
+.Icon10 {
+    padding-right: 10px;
+    color: cyan;
 }
 
 .Img {
@@ -791,9 +860,14 @@ hr:after {
     margin: 5px 0 5px 20px;
 }
 
+.Item4 {
+    padding-left: 10px;
+}
+
 .Label {
     background-color: rgba(255, 255, 255, 0.2);
     display: inline-block;
+    vertical-align: top;
     padding: 5px;
     font-size: 14px;
 }
@@ -812,6 +886,15 @@ hr:after {
     position: absolute;
     top: 0px;
     left: 0px;
+}
+
+.Label4 {
+    background-color: rgba(255, 255, 255, 0.2);
+    display: inline-block;
+    vertical-align: middle;
+    min-width: 150px;
+    height: 30px;
+    padding: 5px 10px;
 }
 
 .Link {
@@ -898,6 +981,22 @@ hr:after {
     text-decoration: underline;
 }
 
+.Link8 {
+    background-color: rgba(255, 255, 255, 0.2);
+    display: inline-block;
+    padding: 5px;
+}
+
+.Link9 {
+    background: rgba(255, 255, 255, 0.2);
+    display: inline-block;
+    vertical-align: middle;
+    font-family: Aclonica;
+    font-size: 18px;
+    color: #f67b20;
+    padding: 10px;
+}
+
 .List {
     padding-right: 10px;
 }
@@ -907,8 +1006,25 @@ hr:after {
     padding-right: 10px;
 }
 
+.List3 {
+    padding-left: 30px;
+}
+
+.List4 {
+    display: inline-block;
+    vertical-align: middle;
+}
+ 
+.MainBody {
+
+}
+
 .MainBlock {
     padding: 10px;
+}
+
+.MainBlock2 {
+    padding: 0px 10px;
 }
 
 .MainPage {
@@ -977,7 +1093,7 @@ hr:after {
 }
 
 .Row5 {
-    font-size: 0;
+    font-size: 0px;
     padding: 5px;
 }
 
@@ -1078,6 +1194,15 @@ hr:after {
 
 .Row20.Active {
     background-color: #051039;
+}
+
+.Row21 {
+    padding: 10px 0px;
+    overflow: auto;
+}
+
+.Row22 {
+    font-size: 0px;
 }
 
 .Succes {
@@ -1191,6 +1316,15 @@ hr:after {
     padding: 10px 35px 10px 10px;
     font-family: Anton;
     font-size: 25px;
+}
+
+.Title6 {
+    padding-bottom: 5px;
+    color: cyan;
+}
+
+.Title7 {
+    font-weight: normal;
 }
 
 /* ============================================== */
