@@ -836,6 +836,10 @@ hr:after {
     border-radius: 20px;
 }
 
+.Img3 {
+    overflow: auto;
+}
+
 .Input {
     margin-left: 30px;
 }
@@ -861,7 +865,7 @@ hr:after {
 }
 
 .Item4 {
-    padding-left: 10px;
+    padding-left: 20px;
 }
 
 .Label {
@@ -1209,10 +1213,6 @@ hr:after {
     padding-left: 10px;
 }
 
-.Shift2 {
-    padding-left: 50px;
-}
-
 .Succes {
     background: rgba(255, 255, 255, 0.2);
     border-radius: 5px;
@@ -1333,6 +1333,11 @@ hr:after {
 
 .Title7 {
     font-weight: normal;
+}
+
+.Title8 {
+    color: cyan;
+	font-size: 18px;
 }
 
 /* ============================================== */

@@ -23,7 +23,7 @@ var GEditor = (function() {
 				var lSelection = document.getSelection();
 				if(lSelection == "") return;
                 var lHtml = '';
-                lHtml += '<a class="hvra" ';
+                lHtml += '<a class="Link7" ';
                 lHtml += 'href="'+arg+'">';
                 lHtml += lSelection;
                 lHtml += '</a>';
@@ -32,7 +32,7 @@ var GEditor = (function() {
             //===============================================
             editImage: function(arg) {
                 var lHtml = '';
-                lHtml += '<div class="ovfa">';
+                lHtml += '<div class="Img3">';
                 lHtml += '<img src="';
                 lHtml += arg;
                 lHtml += '" alt="'+arg+'" />';
@@ -127,7 +127,7 @@ var GEditor = (function() {
                         if(lClassName.includes("GEndEditor")) {
                             break;
                         }
-                        if(lParentNode.nodeName == "B") {
+                        if(lClassName.includes("GTitle3")) {
                             lRange.selectNode(lParentNode);
                             lSelection.addRange(lRange);
                             document.execCommand("insertHTML", false, lData);
@@ -139,9 +139,9 @@ var GEditor = (function() {
                     lRange.setEnd(lStartNode, lLength);
                     lSelection.addRange(lRange);
                     var lHtml = '';
-                    lHtml += '<b>';
+                    lHtml += '<h3 class="Title8 GTitle3">';
                     lHtml += lData;
-                    lHtml += '</b>';
+                    lHtml += '</h3>';
                     document.execCommand("insertHTML", false, lHtml);
                     break;
                 //===============================================
@@ -252,7 +252,14 @@ var GEditor = (function() {
                         if(lClassName.includes("GEndEditor")) {
                             break;
                         }
-                        if(lClassName.includes("GTitle1")) {
+                        if(lClassName.includes("GTitle1") ||
+                            lClassName.includes("GTitle2") ||
+                            lClassName.includes("GTitle3") ||
+                            lClassName.includes("GSummary1") ||
+                            lClassName.includes("GSummary2") ||
+                            lClassName.includes("GSummary3") ||
+                            lClassName.includes("GShift0")
+                        ) {
                             var lBr = document.createElement("BR");
                             lParentNode.parentNode.insertBefore(lBr, lParentNode);
                             return;
@@ -268,7 +275,14 @@ var GEditor = (function() {
                         if(lClassName.includes("GEndEditor")) {
                             break;
                         }
-                        if(lClassName.includes("GTitle1")) {
+                        if(lClassName.includes("GTitle1") ||
+                            lClassName.includes("GTitle2") ||
+                            lClassName.includes("GTitle3") ||
+                            lClassName.includes("GSummary1") ||
+                            lClassName.includes("GSummary2") ||
+                            lClassName.includes("GSummary3") ||
+                            lClassName.includes("GShift0")
+                        ) {
                             var lBr = document.createElement("BR");
                             lParentNode.parentNode.insertBefore(lBr, lParentNode.nextSibling);
                             return;
@@ -278,116 +292,22 @@ var GEditor = (function() {
                     break;
                 //===============================================
                 case 'LineBreak3':
-                    var lParentNode = lStartNode.parentNode;
-                    while(1) {
-                        var lClassName = lParentNode.className;
-                        if(lClassName.includes("GEndEditor")) {
-                            break;
-                        }
-                        if(lClassName.includes("GTitle2")) {
-                            var lBr = document.createElement("BR");
-                            lParentNode.parentNode.insertBefore(lBr, lParentNode);
-                            return;
-                        }
-                        lParentNode = lParentNode.parentNode;
-                    }
-                    break;
-                //===============================================
-                case 'LineBreak4':
-                    var lParentNode = lStartNode.parentNode;
-                    while(1) {
-                        var lClassName = lParentNode.className;
-                        if(lClassName.includes("GEndEditor")) {
-                            break;
-                        }
-                        if(lClassName.includes("GTitle2")) {
-                            var lBr = document.createElement("BR");
-                            lParentNode.parentNode.insertBefore(lBr, lParentNode.nextSibling);
-                            return;
-                        }
-                        lParentNode = lParentNode.parentNode;
-                    }
-                    break;
-                //===============================================
-                case 'LineBreak5':
-                    var lParentNode = lStartNode.parentNode;
-                    while(1) {
-                        var lClassName = lParentNode.className;
-                        if(lClassName.includes("GEndEditor")) {
-                            break;
-                        }
-                        if(lParentNode.nodeName == "B") {
-                            var lBr = document.createElement("BR");
-                            lParentNode.parentNode.insertBefore(lBr, lParentNode);
-                            return;
-                        }
-                        lParentNode = lParentNode.parentNode;
-                    }
-                    break;
-                //===============================================
-                case 'LineBreak6':
-                    var lParentNode = lStartNode.parentNode;
-                    while(1) {
-                        var lClassName = lParentNode.className;
-                        if(lClassName.includes("GEndEditor")) {
-                            break;
-                        }
-                        if(lParentNode.nodeName == "B") {
-                            var lBr = document.createElement("BR");
-                            lParentNode.parentNode.insertBefore(lBr, lParentNode.nextSibling);
-                            return;
-                        }
-                        lParentNode = lParentNode.parentNode;
-                    }
-                    break;
-                //===============================================
-                case 'LineBreak7':
-                    var lParentNode = lStartNode.parentNode;
-                    while(1) {
-                        var lClassName = lParentNode.className;
-                        if(lClassName.includes("GEndEditor")) {
-                            break;
-                        }
-                        if(lClassName.includes("GSummary1") || lClassName.includes("GSummary2")) {
-                            var lBr = document.createElement("BR");
-                            lParentNode.parentNode.insertBefore(lBr, lParentNode);
-                            return;
-                        }
-                        lParentNode = lParentNode.parentNode;
-                    }
-                    break;
-                //===============================================
-                case 'LineBreak8':
-                    var lParentNode = lStartNode.parentNode;
-                    while(1) {
-                        var lClassName = lParentNode.className;
-                        if(lClassName.includes("GEndEditor")) {
-                            break;
-                        }
-                        if(lClassName.includes("GSummary1") || lClassName.includes("GSummary2")) {
-                            var lBr = document.createElement("BR");
-                            lParentNode.parentNode.insertBefore(lBr, lParentNode.nextSibling);
-                            return;
-                        }
-                        lParentNode = lParentNode.parentNode;
-                    }
-                    break;
-                //===============================================
-                case 'LineBreak0':
                     document.execCommand("delete", null, false);
                     break;
                 //===============================================
                 case 'Shift1':
                     var lParentNode = lStartNode.parentNode;
+                    var lFirstShift = true;
                     if(!lSelection.toString()) {
                         while(1) {
                             var lClassName = lParentNode.className;
                             if(lClassName.includes("GEndEditor")) {
                                 break;
                             }
-                            if(lClassName.includes("GShift1")) {
+                            if(lClassName.includes("GShift0")) {
                                 lRange.selectNode(lParentNode);
                                 lSelection.addRange(lRange);
+                                lFirstShift = false;
                                 break;
                             }
                             lParentNode = lParentNode.parentNode;
@@ -395,10 +315,14 @@ var GEditor = (function() {
                     }
                     if(!lSelection.toString()) return;
                     var lHtml = '';
-                    lHtml += '<div class="Shift1 GShift1">';
+                    lHtml += '<div class="Shift1 GShift1 GShift0">';
                     var lFragment = lSelection.getRangeAt(0).cloneContents();
                     var lDiv = document.createElement("DIV");
                     lDiv.appendChild(lFragment);
+                    if(!lFirstShift) {
+                        var lClassName = lDiv.firstChild.className;
+                        lDiv.firstChild.className = lClassName.replace(" GShift0", "");
+                    }
                     lHtml += lDiv.innerHTML;
                     lHtml += '</div>';
                     document.execCommand("insertHTML", false, lHtml);
