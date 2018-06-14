@@ -557,6 +557,10 @@ hr:after {
     max-height: 400px;
 }
 
+.Code2 {
+    overflow: auto;
+}
+
 .Col {
     display: inline-block;
     vertical-align: middle;

@@ -145,7 +145,7 @@
                                 }
                             ?>
                             <?php 
-                                if($lMenu["name"] == "Admin") {
+                                if($lMenu["name"] == "Admin" || $lMenu["name"] == "Test") {
                                     if(!isset($_SESSION["login"])) continue;
                                     else if($_SESSION["login"]["group"] != "admin") continue;
                                 }

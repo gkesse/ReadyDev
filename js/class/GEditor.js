@@ -359,8 +359,8 @@ var GEditor = (function() {
                         lData = 'Ajouter un code...';
                     }
                     var lHtml = '';
-                    lHtml += '<div class="Code1">';
-                    lHtml += '<pre><xmp class="ovfa prettyprint linenums">';
+                    lHtml += '<div class="GCode1">';
+                    lHtml += '<pre><xmp class="Code2 prettyprint linenums">';
                     lHtml += lData;
                     lHtml += '</xmp></pre>';
                     lHtml += '</div>';

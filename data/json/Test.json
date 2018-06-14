@@ -1,0 +1,19 @@
+{
+    "sitemap":"no",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+            "ReadyTest est l'interface de Test des applications ReadyDev,",
+            "la Plateforme de Développement Continu."
+        ],
+        "meta_cano":"/Tutoriels/"
+    },    
+    "intro":
+    [
+        "ReadyTest est l'interface de Test des applications ReadyDev,",
+        "la Plateforme de Développement Continu.<br/>",
+        "Le but de cette section est de présenter les différents réalisés par ReadyDev."
+    ]
+}
+                        
