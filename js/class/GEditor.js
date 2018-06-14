@@ -258,6 +258,8 @@ var GEditor = (function() {
                             lClassName.includes("GSummary1") ||
                             lClassName.includes("GSummary2") ||
                             lClassName.includes("GSummary3") ||
+                            lClassName.includes("GCode1") ||
+                            lClassName.includes("GCode2") ||
                             lClassName.includes("GShift0")
                         ) {
                             var lBr = document.createElement("BR");
@@ -281,6 +283,8 @@ var GEditor = (function() {
                             lClassName.includes("GSummary1") ||
                             lClassName.includes("GSummary2") ||
                             lClassName.includes("GSummary3") ||
+                            lClassName.includes("GCode1") ||
+                            lClassName.includes("GCode2") ||
                             lClassName.includes("GShift0")
                         ) {
                             var lBr = document.createElement("BR");
@@ -347,12 +351,29 @@ var GEditor = (function() {
                     break;
                 //===============================================
                 case 'Code1':
-                    if(lData) {
+                    var lParentNode = lStartNode.parentNode;
+                    if(!lSelection.toString()) {
+                        while(1) {
+                            var lClassName = lParentNode.className;
+                            if(lClassName.includes("GEndEditor")) {
+                                break;
+                            }
+                            if(lClassName.includes("GCode1")) {
+                                lRange.selectNode(lParentNode);
+                                lSelection.addRange(lRange);
+                                var lHtml = lSelection.toString();
+                                document.execCommand("insertHTML", false, lHtml);
+                                return;
+                            }
+                            lParentNode = lParentNode.parentNode;
+                        }
+                    }
+                    if(lSelection.toString()) {
                         lRange = lSelection.getRangeAt(0);
-                        var lFragNode = lRange.extractContents();
-                        var lDivNode = document.createElement('DIV');
-                        lDivNode.appendChild(lFragNode);
-                        lData = lDivNode.innerHTML;
+                        var lFragment = lSelection.getRangeAt(0).extraContents();
+                        var lDiv = document.createElement('DIV');
+                        lDiv.appendChild(lFragment);
+                        lData = lDiv.innerHTML;
                         lData = this.encodeHtml(lData, false);
                     }
                     else {
@@ -368,13 +389,30 @@ var GEditor = (function() {
                     break;
                 //===============================================
                 case 'Code2':
+                    var lParentNode = lStartNode.parentNode;
+                    if(!lSelection.toString()) {
+                        while(1) {
+                            var lClassName = lParentNode.className;
+                            if(lClassName.includes("GEndEditor")) {
+                                break;
+                            }
+                            if(lClassName.includes("GCode2")) {
+                                lRange.selectNode(lParentNode);
+                                lSelection.addRange(lRange);
+                                document.execCommand("insertHTML", false, "");
+                                return;
+                            }
+                            lParentNode = lParentNode.parentNode;
+                        }
+                    }
                     var lHtml = '';
-                    lHtml += '<b>ReadyDev</b> met à votre disposition,<br>';
-                    lHtml += 'l\'ensemble des codes sources abordés dans ce tutoriel.';
-                    lHtml += '<br><br>';
-                    lHtml += '<div class="brda Code2">';
-                    lHtml += '<div class="bgra txal pgCt00" id="FilesystemMenu">...</div>';
-                    lHtml += '<div class="txal ovfa mxha" id="FilesystemList">...</div>';
+                    lHtml += '<div class="GCode2">';
+                    lHtml += 'ReadyDev met à votre disposition,<br>';
+                    lHtml += 'l\'ensemble des codes sources abordés dans ce tutoriel.<br>';
+                    lHtml += '<div class="Body16">';
+                    lHtml += '<div class="Row23" id="FilesystemMenu">...</div>';
+                    lHtml += '<div class="Row24" id="FilesystemList">...</div>';
+                    lHtml += '</div>';
                     lHtml += '</div>';
                     lHtml += '<script src="/js/class/GFilesystem.js"></script>';
                     lHtml += '<script src="/js/filesystem.js"></script>';

@@ -403,6 +403,10 @@ hr:after {
     padding: 10px;
 }
 
+.Body16 {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
 .BodyPage {
     position: relative;
     max-width: 1000px;
@@ -1211,6 +1215,18 @@ hr:after {
 
 .Row22 {
     font-size: 0px;
+}
+
+.Row23 {
+    background: rgba(255, 255, 255, 0.2);
+    text-align: left;
+    padding: 0px 10px;
+}
+
+.Row24 {
+    max-height: 400px;
+    text-align: left;
+    overflow: auto;
 }
 
 .Shift1 {

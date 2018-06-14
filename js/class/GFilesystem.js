@@ -31,7 +31,7 @@ var GFilesystem = (function() {
 						m_dirCur = dir;
                     }
                 }
-                lXmlhttp.open("POST", "/php/filesystem.php", true);
+                lXmlhttp.open("POST", "/php/req/filesystem.php", true);
                 lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 lXmlhttp.send(
 				"req=" + "GET_FILE" +
@@ -66,7 +66,7 @@ var GFilesystem = (function() {
 						}
                     }
                 }
-                lXmlhttp.open("POST", "/php/filesystem.php", true);
+                lXmlhttp.open("POST", "/php/req/filesystem.php", true);
                 lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 lXmlhttp.send(
 				"req=" + "GET_CONTENT" +
