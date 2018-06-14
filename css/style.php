@@ -94,7 +94,6 @@ a {
 
 b {
     color: cyan;
-	font-size: 18px;
 }
 
 hr {
@@ -407,6 +406,11 @@ hr:after {
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+.Body17 {
+    max-height: 400px;
+    overflow: auto;
+}
+
 .BodyPage {
     position: relative;
     max-width: 1000px;
@@ -595,6 +599,13 @@ hr:after {
     padding: 0px 5px 5px 5px;
     font-family: Aclonica;
     font-size: 16px;
+}
+
+.Col5 {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 5px 0px;
+    cursor: pointer;
 }
 
 .ComboBox {
@@ -1302,6 +1313,18 @@ hr:after {
     text-decoration: underline;
 }
 
+.Text10 {
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    padding: 5px 0px;
+    color: cyan;
+}
+
+.Text10:hover {
+    text-decoration: underline;
+}
+
 .TextArea {
     padding: 10px;
     height: 400px;
@@ -1356,8 +1379,7 @@ hr:after {
 }
 
 .Title8 {
-    color: cyan;
-	font-size: 18px;
+    color: dodgerblue;
 }
 
 /* ============================================== */

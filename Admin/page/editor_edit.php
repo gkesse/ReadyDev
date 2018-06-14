@@ -34,7 +34,7 @@
 		</select>
 	</div>
 	<!-- ============================================ -->
-	<div class="Row15">
+	<div class="Row15 GEndEditor">
 		<div class="Content9 GEndEditor" id="EditorEdit" 
 		onpaste="pasteText(event)" 
 		contentEditable="true"></div> 
