@@ -32,8 +32,8 @@
 			<option value="LineBreak7">Saut Sommaire Haut</option>
 			<option value="LineBreak8">Saut Sommaire Bas</option>
 			<option value="LineBreak0">Saut Supprimer</option>
-			<option value="Shift1">Décalage 1</option>
-			<option value="Shift2">Décalage 2</option>
+			<option value="Shift1">Décalage Ajouter</option>
+			<option value="Shift2">Décalage Supprimer</option>
 			<option value="Code1">Code 1</option>
 			<option value="Code2">Code 2</option>
 			<option value="Parallax1">Parallax 1</option>

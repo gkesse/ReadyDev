@@ -378,53 +378,48 @@ var GEditor = (function() {
                     break;
                 //===============================================
                 case 'Shift1':
-                    var lParentNode = lStartNode;
-                    var lPosition = this.searchNode(lParentNode, "ShiftB");
-                    if(lPosition == -1) {
-                        if(lData) {
-                            var lLength = lData.length;
-                            lRange.setStart(lParentNode, 0);
-                            lRange.setEnd(lParentNode, lLength);
-                            lSelection.addRange(lRange);
-                        }
-                        else {
-                            lData = 'Ajouter un texte...';
-                        }
-                        var lHtml = '';
-                        lHtml += '<div class="dibm Shift">';
-                        lHtml += '<div class="dibm pdld ShiftB">';
-                        lHtml += lData;
-                        lHtml += '</div>';
-                        lHtml += '</div>';
-                        document.execCommand("insertHTML", false, lHtml);                
-                    }
-                    else {
-                        for(var i = 0; i < lPosition; i++) {
+                    var lParentNode = lStartNode.parentNode;
+                    if(!lSelection.toString()) {
+                        while(1) {
+                            var lClassName = lParentNode.className;
+                            if(lClassName.includes("GEndEditor")) {
+                                break;
+                            }
+                            if(lClassName.includes("GShift1")) {
+                                lRange.selectNode(lParentNode);
+                                lSelection.addRange(lRange);
+                                break;
+                            }
                             lParentNode = lParentNode.parentNode;
                         }
-                        var lChildNode = lParentNode;
-                        lParentNode = lParentNode.parentNode;
-                        var lCloneNode = lParentNode.cloneNode(true);
-                        while(lChildNode.firstChild) {
-                            lChildNode.removeChild(lChildNode.firstChild);
-                        }
-                        lChildNode.appendChild(lCloneNode);
                     }
+                    if(!lSelection.toString()) return;
+                    var lHtml = '';
+                    lHtml += '<div class="Shift1 GShift1">';
+                    var lFragment = lSelection.getRangeAt(0).cloneContents();
+                    var lDiv = document.createElement("DIV");
+                    lDiv.appendChild(lFragment);
+                    lHtml += lDiv.innerHTML;
+                    lHtml += '</div>';
+                    document.execCommand("insertHTML", false, lHtml);
                     break;
                 //===============================================
                 case 'Shift2':
-                    var lParentNode = lStartNode;
-                    var lPosition = this.searchNode(lParentNode, "ShiftB");
-                    if(lPosition == -1) break;
-                    for(var i = 0; i < lPosition; i++) {
+                    var lParentNode = lStartNode.parentNode;
+                    while(1) {
+                        var lClassName = lParentNode.className;
+                        if(lClassName.includes("GEndEditor")) {
+                            break;
+                        }
+                        if(lClassName.includes("GShift1")) {
+                            lRange.selectNode(lParentNode);
+                            lSelection.addRange(lRange);
+                            var lHtml = lParentNode.innerHTML;
+                            document.execCommand("insertHTML", false, lHtml);
+                            return;
+                        }
                         lParentNode = lParentNode.parentNode;
                     }
-                    var lContentHTML = lParentNode.innerHTML;
-                    lParentNode = lParentNode.parentNode;
-                    var lChildNode = lParentNode;
-                    lRange.selectNode(lChildNode);
-                    lSelection.addRange(lRange);
-                    document.execCommand("insertHTML", false, lContentHTML);
                     break;
                 //===============================================
                 case 'Code1':

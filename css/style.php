@@ -1205,6 +1205,14 @@ hr:after {
     font-size: 0px;
 }
 
+.Shift1 {
+    padding-left: 10px;
+}
+
+.Shift2 {
+    padding-left: 50px;
+}
+
 .Succes {
     background: rgba(255, 255, 255, 0.2);
     border-radius: 5px;
