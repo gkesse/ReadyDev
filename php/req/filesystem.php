@@ -50,10 +50,10 @@
 		$lFileType = $_REQUEST["type"];
 		$lContent = '';
 		if($lFileType == "img") {
-			$lFileName = GFilesystem::Instance()->getPath2($lRootPath, $lFilePath);
-			if($lFileName[0] == "/") $lFileName = substr($lFileName, 1);
-			$lContent .= '<div class="txal ovfa pgCt10">';
-			$lContent .= '<img src="'.$lFileName.'" alt="Image.png"/>';
+			$lFileName = GFilesystem::Instance()->getPath3($lRootPath, $lFilePath);
+			//if($lFileName[0] == "/") $lFileName = substr($lFileName, 1);
+			$lContent .= '<div class="Row25">';
+			$lContent .= '<img src="'.$lFileName.'" alt="Image"/>';
 			$lContent .= '</div>';
 		}
 		else if($lFileType == "bat" || $lFileType == "file") {
@@ -70,16 +70,16 @@
 		}
 		$lFileName = GFilesystem::Instance()->getPath2($lRootPath, $lFilePath);
 		$lDataMenu = '';
-		$lDataMenu .= '<div class="pgCr05 dibm cspt FilesystemLink" onclick="openLink(this);">';
-		$lDataMenu .= '<i class="fa fa-folder clrg"></i></div> ';
+		$lDataMenu .= '<div class="Col5 FilesystemLink" onclick="openLink(this);">';
+		$lDataMenu .= '<i class="Icon2 fa fa-folder"></i></div> ';
 		if($lFileName != "") {
 			$lFileNameArr = explode("/", $lFileName);
 			for($i = 0; $i < count($lFileNameArr); $i++) {
 				$lFileNameItem = $lFileNameArr[$i];
 				if($lFileNameItem == "") continue;
-				$lDataMenu .= '<div class="pgCr05 dibm">';
-				$lDataMenu .= '<i class="fa fa-chevron-right clrg"></i></div> ';
-				$lDataMenu .= '<div class="pgCr05 dibm hvra cspt clrg FilesystemLink" onclick="openLink(this);">';
+				$lDataMenu .= '<div class="Col2">';
+				$lDataMenu .= '<i class="Icon2 fa fa-chevron-right"></i></div> ';
+				$lDataMenu .= '<div class="Text10 clrg FilesystemLink" onclick="openLink(this);">';
 				$lDataMenu .= $lFileNameItem.'</div> ';
 			}
 		}

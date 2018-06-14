@@ -1240,6 +1240,12 @@ hr:after {
     overflow: auto;
 }
 
+.Row25{
+    padding: 10px;
+    text-align: left;
+    overflow: auto;
+}
+
 .Shift1 {
     padding-left: 10px;
 }
