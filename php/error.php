@@ -8,14 +8,14 @@
 <!-- ============================================ -->
 <div class="MainBody">
     <!-- ============================================ -->
-    <div class="Parallax Error">
-        <div class="Img">
+    <div class="Parallax">
+        <div class="Img Error">
             <div class="Caption">
                 <div class="Text">PAGE NON TROUVEE</div>
             </div>
         </div>
-        <div class="Body">
-            <div>La page que vous cherchiez n'existe pas...</div>
+        <div class="Body2 Orange">
+            <div class="Row0 Italic Center">La page que vous cherchiez n'existe pas...</div>
         </div>
     </div>
     <!-- ============================================ -->

@@ -59,26 +59,41 @@
 		print_r($lDataJson);
 	}
 	//===============================================
-	else if($lReq == "SUMMARY") {
+	else if($lReq == "LIST_1") {
 		$lFile = $_REQUEST["file"];
-		$lSummary = $_REQUEST["summary"];
+		$lKey = $_REQUEST["key"];
 		$lFile = "data/json/".$lFile.".json";
-        $lSummary = "summary_".$lSummary;
 		$lData = GJson::Instance()->getData($lFile);
-		$lDataArr = $lData[$lSummary];
+		$lDataArr = $lData[$lKey];
 		$lDataSum = '';
-		$lDataSum .= '<div class="dibm Summary3">';
+		$lDataSum .= '<div class="List4 GList1">';
 		for($i = 0; $i < count($lDataArr); $i++) {
 			$lDataObj = $lDataArr[$i];
 			$lName = $lDataObj["name"];
 			$lLink = $lDataObj["link"];
-			$lDataSum .= '<div class="pdlb">';
-			$lDataSum .= '<span class="fa fa-book clrg pdra"></span>';
-			$lDataSum .= '<a class="hvra clrg" href="'.$lLink.'">';
+			$lDataSum .= '<div class="Item4">';
+			$lDataSum .= '<span class="Icon10 fa fa-book"></span>';
+			$lDataSum .= '<a class="Link4" href="'.$lLink.'">';
 			$lDataSum .= $lName;
 			$lDataSum .= '</a>';
 			$lDataSum .= '</div>';
 		}
+		$lDataSum .= '</div>';
+		print_r($lDataSum);
+	}
+	//===============================================
+	else if($lReq == "DATA_1") {
+		$lFile = $_REQUEST["file"];
+		$lKey = $_REQUEST["key"];
+		$lID = $_REQUEST["id"];
+		$lDataSum = '';
+		$lDataSum .= '<div class="Content0 GData1">';
+		$lDataSum .= '<div class="Row0" id="'.$lID.'">';
+		$lDataSum .= 'Data 1 > '.$lFile.' > '.$lKey;
+		$lDataSum .= '</div>';
+		$lDataSum .= '<script>';
+		$lDataSum .= 'loadData("'.$lID.'","'.$lFile.'","'.$lKey.'");';
+		$lDataSum .= '</script>';
 		$lDataSum .= '</div>';
 		print_r($lDataSum);
 	}

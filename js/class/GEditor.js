@@ -220,15 +220,31 @@ var GEditor = (function() {
                     document.execCommand("insertHTML", false, lHtml);
                     break;
                 //===============================================
-                case 'Summary3':
-					var lArg = prompt("Quelle est l'adresse ?");
-					var lArgArr = lArg.split(";");
-					var lFilename = lArgArr[0];
-					var lSummary = lArgArr[1];
-                    var lValid = true;
-                    lValid &= (typeof(lFilename) == "undefined");
-                    lValid &= (typeof(lSummary) == "undefined");
-					if(lValid) return;
+                case 'List1':
+                    var lParentNode = lStartNode.parentNode;
+                    if(!lSelection.toString()) {
+                        while(1) {
+                            var lClassName = lParentNode.className;
+                            if(lClassName.includes("GEndEditor")) {
+                                break;
+                            }
+                            if(lClassName.includes("GList1")) {
+                                lRange.selectNode(lParentNode);
+                                lSelection.addRange(lRange);
+                                document.execCommand("insertHTML", false, "");
+                                return;
+                            }
+                            lParentNode = lParentNode.parentNode;
+                        }
+                    }
+                    if(lData) return;
+                	var lArg = prompt("Fichier ? Liste ?");
+                    if(!lArg) return;
+					var lArgMap = lArg.split(";");
+                    if(lArgMap.length < 2) return;
+					var lFilename = lArgMap[0].trim();
+					var lKey = lArgMap[1].trim();
+                    if(!lFilename || !lKey) return;
 					var lXmlhttp = new XMLHttpRequest();
 					lXmlhttp.onreadystatechange = function() {
 						if(this.readyState == 4 && this.status == 200) {
@@ -239,9 +255,53 @@ var GEditor = (function() {
 					lXmlhttp.open("POST", "/php/req/editor.php", true);
 					lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 					lXmlhttp.send(
-					"req=" + "SUMMARY" +
+					"req=" + "LIST_1" +
 					"&file=" + lFilename +
-					"&summary=" + lSummary
+					"&key=" + lKey
+					);
+                    break;
+                //===============================================
+                case 'Data1':
+                    var lParentNode = lStartNode.parentNode;
+                    if(!lSelection.toString()) {
+                        while(1) {
+                            var lClassName = lParentNode.className;
+                            if(lClassName.includes("GEndEditor")) {
+                                break;
+                            }
+                            if(lClassName.includes("GData1")) {
+                                lRange.selectNode(lParentNode);
+                                lSelection.addRange(lRange);
+                                document.execCommand("insertHTML", false, "");
+                                return;
+                            }
+                            lParentNode = lParentNode.parentNode;
+                        }
+                    }
+                    if(lData) return;
+                	var lArg = prompt("Fichier ? Clé ?");
+                    if(!lArg) return;
+					var lArgMap = lArg.split(";");
+                    if(lArgMap.length < 2) return;
+					var lFilename = lArgMap[0].trim();
+					var lKey = lArgMap[1].trim();
+                    if(!lFilename || !lKey) return;
+                    var lDate = Date.now();
+                    var lID = "Loader_" + lDate;
+					var lXmlhttp = new XMLHttpRequest();
+					lXmlhttp.onreadystatechange = function() {
+						if(this.readyState == 4 && this.status == 200) {
+							var lData = this.responseText;
+							document.execCommand("insertHTML", false, lData);
+						}
+					}
+					lXmlhttp.open("POST", "/php/req/editor.php", true);
+					lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+					lXmlhttp.send(
+					"req=" + "DATA_1" +
+					"&file=" + lFilename +
+					"&key=" + lKey +
+					"&id=" + lID
 					);
                     break;
                 //===============================================
@@ -257,7 +317,8 @@ var GEditor = (function() {
                             lClassName.includes("GTitle3") ||
                             lClassName.includes("GSummary1") ||
                             lClassName.includes("GSummary2") ||
-                            lClassName.includes("GSummary3") ||
+                            lClassName.includes("GList1") ||
+                            lClassName.includes("GData1") ||
                             lClassName.includes("GCode1") ||
                             lClassName.includes("GCode2") ||
                             lClassName.includes("GParallax1") ||
@@ -283,7 +344,8 @@ var GEditor = (function() {
                             lClassName.includes("GTitle3") ||
                             lClassName.includes("GSummary1") ||
                             lClassName.includes("GSummary2") ||
-                            lClassName.includes("GSummary3") ||
+                            lClassName.includes("GList1") ||
+                            lClassName.includes("GData1") ||
                             lClassName.includes("GCode1") ||
                             lClassName.includes("GCode2") ||
                             lClassName.includes("GParallax1") ||
@@ -451,6 +513,33 @@ var GEditor = (function() {
                     lHtml += '</div>';
                     document.execCommand("insertHTML", false, lHtml);
                     break;
+                case 'Color1':
+                    var lParentNode = lStartNode.parentNode;
+                    if(!lSelection.toString()) {
+                        while(1) {
+                            var lClassName = lParentNode.className;
+                            if(lClassName.includes("GEndEditor")) {
+                                break;
+                            }
+                            if(lClassName.includes("GColor1")) {
+                                lRange.selectNode(lParentNode);
+                                lSelection.addRange(lRange);
+                                var lHtml = lParentNode.innerHTML;
+                                document.execCommand("insertHTML", false, lHtml);
+                                return;
+                            }
+                            lParentNode = lParentNode.parentNode;
+                        }
+                    }
+                    if(!lSelection.toString()) return;
+                	var lArg = prompt("Couleur ?");
+                    if(!lArg) return;
+                    var lHtml = '';
+                    lHtml += '<span class="GColor1" style="color: '+lArg+';">';
+                    lHtml += lSelection;
+                    lHtml += '</span>';
+                    document.execCommand("insertHTML", false, lHtml);
+                    break;
                 }
             },
             //===============================================
@@ -464,7 +553,6 @@ var GEditor = (function() {
                     '/': '&#x2F;',
                     '`': '&#x60;',
                     '=': '&#x3D;',
-                    ' ': '&nbsp;',
                     '\n': '<br>'
                 };
                 for(key in lEntityMap) {

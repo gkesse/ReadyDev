@@ -14,13 +14,13 @@
         {"name":"Tutoriels","link":"/Tutoriels/"},
         {"name":"C/C++","link":""}
     ],
-    "summary_dev":
+    "software":
     [
         {"name":"Apprendre le C","link":"/Tutoriels/Cpp/C/","follow":"no"},
         {"name":"Apprendre le C++","link":"/Tutoriels/Cpp/Cpp/","follow":"yes"},
         {"name":"Apprendre la bibliothèque STL en C++","link":"/Tutoriels/Cpp/STL/","follow":"no"}
     ],
-    "summary_com":
+    "compilation":
     [
         {"name":"Apprendre à compiler un projet C++ avec MinGW","link":"/Tutoriels/Cpp/MinGW/","follow":"yes"},
         {"name":"Apprendre à compiler un projet C++ avec Cygwin","link":"/Tutoriels/Cpp/Cygwin/","follow":"no"},

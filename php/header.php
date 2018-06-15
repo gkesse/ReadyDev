@@ -111,7 +111,11 @@
         <link rel="stylesheet" href="/css/style.php"/>
         <!-- ============================================ -->
         <script src="/js/class/GHeader.js"></script>
+        <script src="/js/class/GParallax.js"></script>
+        <script src="/js/class/GLoader.js"></script>
+        <!-- ============================================ -->
         <script src="/js/header.js"></script>
+        <script src="/js/loader.js"></script>
         <!-- ============================================ -->
     </head>
     <body>
