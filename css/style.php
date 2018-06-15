@@ -1246,6 +1246,11 @@ hr:after {
     overflow: auto;
 }
 
+.Row26 {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0px 5px;
+}
+
 .Shift1 {
     padding-left: 10px;
 }

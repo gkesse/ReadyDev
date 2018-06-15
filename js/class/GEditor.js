@@ -161,20 +161,20 @@ var GEditor = (function() {
                             }
                             lParentNode = lParentNode.parentNode;
                         }
-                    }                  
-                    var lNodeMap = lParentNode.getElementsByClassName("GTitle1");
-                    if(lNodeMap.length < 1) break;
-                    var lHtml = '';
-                    lHtml += '<div class="List4 GSummary1">';
-                    for(var i = 0; i < lNodeMap.length; i++) {
-                        var lTitle = lNodeMap[i].firstChild.firstChild.firstChild.innerText;
-                        lHtml += '<div class="Item4">';
-                        lHtml += '<span class="Icon10 fa fa-book"></span>';
-                        lHtml += '<a class="Link4" href="#'+lTitle+'">';
-                        lHtml += lTitle;
-                        lHtml += '</a>';
-                        lHtml += '</div>';
                     }
+                    if(lData) return;
+                    var lDate = Date.now();
+                    var lID = "Loader_" + lDate;
+                    var lHtml = '';
+                    lHtml += '<div class="Content0 GSummary1">';
+                    lHtml += '<div class="Body0" id="'+lID+'">';
+                    lHtml += '<div class="Row26">';
+                    lHtml += 'Summary 1';
+                    lHtml += '</div>';
+                    lHtml += '</div>';
+                    lHtml += '<script>';
+                    lHtml += 'loadSummary1("'+lID+'");';
+                    lHtml += '</script>';
                     lHtml += '</div>';
                     document.execCommand("insertHTML", false, lHtml);
                     break;
@@ -516,16 +516,18 @@ var GEditor = (function() {
                         }
                     }
                     var lHtml = '';
-                    lHtml += '<div class="GCode2">';
-                    lHtml += 'ReadyDev met à votre disposition,<br>';
+                    lHtml += '<div class="Content0 GCode2">';
+                    lHtml += '<div class="Body0">';
+                    lHtml += '<b>ReadyDev</b> met à votre disposition,<br>';
                     lHtml += 'l\'ensemble des codes sources abordés dans ce tutoriel.<br><br>';
-                    lHtml += '<div class="Body16">';
-                    lHtml += '<div class="Row23" id="FilesystemMenu">...</div>';
-                    lHtml += '<div class="Row24" id="FilesystemList">...</div>';
                     lHtml += '</div>';
+                    lHtml += '<div class="Body16">';
+                    lHtml += '<div class="Row23" id="FilesystemMenu"><div class="Row">Menu</div></div>';
+                    lHtml += '<div class="Row24" id="FilesystemList"><div class="Row">File</div></div>';
                     lHtml += '</div>';
                     lHtml += '<script src="/js/class/GFilesystem.js"></script>';
                     lHtml += '<script src="/js/filesystem.js"></script>';
+                    lHtml += '</div>';
                     document.execCommand("insertHTML", false, lHtml);
                     break;
                 //===============================================

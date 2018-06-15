@@ -88,8 +88,10 @@
 		$lID = $_REQUEST["id"];
 		$lDataSum = '';
 		$lDataSum .= '<div class="Content0 Center GList2">';
-		$lDataSum .= '<div class="Row0" id="'.$lID.'">';
+		$lDataSum .= '<div class="Body0" id="'.$lID.'">';
+		$lDataSum .= '<div class="Row26">';
 		$lDataSum .= 'List 2 > '.$lFile.' > '.$lKey;
+		$lDataSum .= '</div>';
 		$lDataSum .= '</div>';
 		$lDataSum .= '<script>';
 		$lDataSum .= 'loadList2("'.$lID.'","'.$lFile.'","'.$lKey.'");';
@@ -104,8 +106,10 @@
 		$lID = $_REQUEST["id"];
 		$lDataSum = '';
 		$lDataSum .= '<div class="Content0 GData1">';
-		$lDataSum .= '<div class="Row0" id="'.$lID.'">';
+		$lDataSum .= '<div class="Body0" id="'.$lID.'">';
+		$lDataSum .= '<div class="Row26">';
 		$lDataSum .= 'Data 1 > '.$lFile.' > '.$lKey;
+		$lDataSum .= '</div>';
 		$lDataSum .= '</div>';
 		$lDataSum .= '<script>';
 		$lDataSum .= 'loadData("'.$lID.'","'.$lFile.'","'.$lKey.'");';

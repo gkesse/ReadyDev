@@ -51,7 +51,6 @@
 		$lContent = '';
 		if($lFileType == "img") {
 			$lFileName = GFilesystem::Instance()->getPath3($lRootPath, $lFilePath);
-			//if($lFileName[0] == "/") $lFileName = substr($lFileName, 1);
 			$lContent .= '<div class="Row25">';
 			$lContent .= '<img src="'.$lFileName.'" alt="Image"/>';
 			$lContent .= '</div>';
