@@ -82,6 +82,22 @@
 		print_r($lDataSum);
 	}
 	//===============================================
+	else if($lReq == "LIST_2") {
+		$lFile = $_REQUEST["file"];
+		$lKey = $_REQUEST["key"];
+		$lID = $_REQUEST["id"];
+		$lDataSum = '';
+		$lDataSum .= '<div class="Content0 Center GList2">';
+		$lDataSum .= '<div class="Row0" id="'.$lID.'">';
+		$lDataSum .= 'List 2 > '.$lFile.' > '.$lKey;
+		$lDataSum .= '</div>';
+		$lDataSum .= '<script>';
+		$lDataSum .= 'loadList2("'.$lID.'","'.$lFile.'","'.$lKey.'");';
+		$lDataSum .= '</script>';
+		$lDataSum .= '</div>';
+		print_r($lDataSum);
+	}
+	//===============================================
 	else if($lReq == "DATA_1") {
 		$lFile = $_REQUEST["file"];
 		$lKey = $_REQUEST["key"];

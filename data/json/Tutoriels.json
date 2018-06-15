@@ -51,6 +51,13 @@
             "description":"Programmez en<br/> Python",
             "link":"/Tutoriels/Python/",
 			"follow":"yes"
+        },
+        {
+            "icon":"fa fa-desktop",
+            "theme":"Go",
+            "description":"Programmez en<br/> Go",
+            "link":"/Tutoriels/Python/",
+			"follow":"yes"
         }
     ],
     "web":

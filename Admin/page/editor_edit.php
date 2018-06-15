@@ -23,6 +23,7 @@
 			<option value="Summary1">Sommaire 1</option>
 			<option value="Summary2">Sommaire 2</option>
 			<option value="List1">Liste 1</option>
+			<option value="List2">Liste 2</option>
 			<option value="Data1">Donnée 1</option>
 			<option value="LineBreak1">Saut Haut</option>
 			<option value="LineBreak2">Saut Bas</option>
