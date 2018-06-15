@@ -74,7 +74,7 @@ var GEditor = (function() {
                     lHtml += '<div class="MainBlock2">';
                     lHtml += '<div class="Content">';
                     lHtml += '<h1 class="Title2 Center" id="'+lData+'">';
-                    lHtml += '<a class="Link3" href="#Sommaire">';
+                    lHtml += '<a class="Link3" href="#">';
                     lHtml += lData;
                     lHtml += '</a>';
                     lHtml += '</h1>';

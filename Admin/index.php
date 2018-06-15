@@ -22,7 +22,7 @@
         </div>
         <div class="Body2 Orange">
             <div class="Row8">
-                <!--?php echo join(" ", $lData["intro"]) ?-->
+                <?php echo join(" ", $lData["intro"]) ?>
             </div>
             <div class="Row0">
                 <ul class="fa-ul">

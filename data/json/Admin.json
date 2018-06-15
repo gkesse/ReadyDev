@@ -9,8 +9,10 @@
     },    
     "intro":
     [
-        "L'espace d'administration ReadyDev vous permet d'administrer le contenu du site ReadyDev.<br/>",
-        "Cet espace est reparti en plusieurs sections."
+        "Soyez la Bienvenue sur l'interface d'administration du site ReadyDev.<br/>",
+        "ReadyAdmin vous permet d'administrer le contenu du site ReadyDev",
+        "sans avoir à écrire des lignes de codes.<br/>",
+        "Produit par <b>Gérard KESSE</b>."
     ],
     "summary":
     [

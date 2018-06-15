@@ -1,7 +1,7 @@
 <!-- ============================================ -->
-<div class="brda">
-    <div class="bgra txal pgCt00" id="FilesystemMenu"></div>
-    <div class="txal ovfa mxha" id="FilesystemList"></div>
+<div class="Body16">
+    <div class="Row23" id="FilesystemMenu"></div>
+    <div class="Row23" id="FilesystemList"></div>
 </div>
 <!-- ============================================ -->
 <script src="/js/class/GFilesystem.js"></script>
