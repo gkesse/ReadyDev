@@ -618,7 +618,7 @@ var GEditor = (function() {
 					var lBackground = lArgMap[2].trim();
                     if(!lBorder || !lPadding || !lBackground) return;
                     var lHtml = '';
-                    lHtml += '<div class="GFrame1" style="border:'+lBorder+';padding:'+lPadding+';background-color:'+lBackground+';">';
+                    lHtml += '<div class="GBorder1" style="border:'+lBorder+';padding:'+lPadding+';background-color:'+lBackground+';">';
                     var lParentNode = lStartNode.parentNode;
                     var lClassName = lParentNode.className;
                     if(lClassName.includes("Body3")) {
@@ -632,6 +632,56 @@ var GEditor = (function() {
                         lHtml += lElement.innerHTML;
                     }
                     lHtml += '</div>';
+                    document.execCommand("insertHTML", false, lHtml);
+                    break;
+                //===============================================
+                case 'Style1':
+                    var lParentNode = lStartNode.parentNode;
+                    if(!lSelection.toString()) {
+                        while(1) {
+                            var lClassName = lParentNode.className;
+                            if(lClassName.includes("GEndEditor")) {
+                                break;
+                            }
+                            if(lClassName.includes("GStyle1")) {
+                                lRange.selectNode(lParentNode);
+                                lSelection.addRange(lRange);
+                                var lHtml = lParentNode.innerHTML;
+                                document.execCommand("insertHTML", false, lHtml);
+                                return;
+                            }
+                            lParentNode = lParentNode.parentNode;
+                        }
+                        return;
+                    }
+                    var lParentNode = lStartNode.parentNode;
+                    var lArg = prompt("Style ?");
+                    if(!lArg) return;
+                    var lHtml = '';
+                    var lParentNode = lStartNode.parentNode;
+                    var lClassName = lParentNode.className;
+                    if(lClassName.includes("GStyle1")) {
+                        var lStyle = this.merge([lParentNode.style.cssText,lArg]);
+                        lParentNode.setAttribute("style", lStyle);
+                        var lElement = document.createElement("DIV");
+                        lElement.appendChild(lParentNode);
+                        lHtml += lElement.innerHTML;
+                    }
+                    else {
+                        lHtml += '<span class="GStyle1" style="'+lArg+'">';
+                        if(lClassName.includes("Body3")) {
+                            var lFragment = lSelection.getRangeAt(0).cloneContents();
+                            var lElement = document.createElement("DIV");
+                            lElement.appendChild(lFragment);
+                            lHtml += lElement.innerHTML;
+                        }
+                        else {
+                            var lElement = document.createElement("DIV");
+                            lElement.appendChild(lParentNode);
+                            lHtml += lElement.innerHTML;
+                        }
+                        lHtml += '</span>';
+                    }
                     document.execCommand("insertHTML", false, lHtml);
                     break;
                 //===============================================
@@ -865,7 +915,35 @@ var GEditor = (function() {
 					if(lLinkName == lDirName) break;
 				}
 				this.selectFile(lFilename);
-            }
+            },
+            //===============================================
+            merge: function(strings){
+                var result = {};
+                for(var i in strings){
+                    var cssProperties = this.createObject(strings[i]);
+                    for(var attr in  cssProperties) {
+                        result[attr] = cssProperties[attr];
+                    }
+                }
+                var s = '';
+                for(var attr in result){
+                    s += attr + ':' + ' ' + result[attr] + '; ';
+                }
+                return s.trim();
+            },
+            //===============================================
+            createObject: function(s1){
+                var obj = {};
+                var properties = s1.split(';');
+                for(var i=0; i<properties.length; i++){
+                    var property = properties[i].split(':');
+                    if(property.length == 2){
+                        console.log(property[1]);
+                        obj[property[0].trim()] = property[1].trim();
+                    }
+                }
+                return obj;
+            }            
             //===============================================
         };
     }
