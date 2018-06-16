@@ -62,22 +62,17 @@
 	else if($lReq == "LIST_1") {
 		$lFile = $_REQUEST["file"];
 		$lKey = $_REQUEST["key"];
-		$lFile = "data/json/".$lFile.".json";
-		$lData = GJson::Instance()->getData($lFile);
-		$lDataArr = $lData[$lKey];
+		$lID = $_REQUEST["id"];
 		$lDataSum = '';
-		$lDataSum .= '<div class="List4 GList1">';
-		for($i = 0; $i < count($lDataArr); $i++) {
-			$lDataObj = $lDataArr[$i];
-			$lName = $lDataObj["name"];
-			$lLink = $lDataObj["link"];
-			$lDataSum .= '<div class="Item4">';
-			$lDataSum .= '<span class="Icon10 fa fa-book"></span>';
-			$lDataSum .= '<a class="Link4" href="'.$lLink.'">';
-			$lDataSum .= $lName;
-			$lDataSum .= '</a>';
-			$lDataSum .= '</div>';
-		}
+		$lDataSum .= '<div class="Content0 GList1">';
+		$lDataSum .= '<div class="Body0" id="'.$lID.'">';
+		$lDataSum .= '<div class="Row26">';
+		$lDataSum .= 'List 1 > '.$lFile.' > '.$lKey;
+		$lDataSum .= '</div>';
+		$lDataSum .= '</div>';
+		$lDataSum .= '<script>';
+		$lDataSum .= 'loadList1("'.$lID.'","'.$lFile.'","'.$lKey.'");';
+		$lDataSum .= '</script>';
 		$lDataSum .= '</div>';
 		print_r($lDataSum);
 	}
@@ -112,7 +107,7 @@
 		$lDataSum .= '</div>';
 		$lDataSum .= '</div>';
 		$lDataSum .= '<script>';
-		$lDataSum .= 'loadData("'.$lID.'","'.$lFile.'","'.$lKey.'");';
+		$lDataSum .= 'loadData1("'.$lID.'","'.$lFile.'","'.$lKey.'");';
 		$lDataSum .= '</script>';
 		$lDataSum .= '</div>';
 		print_r($lDataSum);

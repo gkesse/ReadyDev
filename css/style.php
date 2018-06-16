@@ -411,6 +411,11 @@ hr:after {
     overflow: auto;
 }
 
+.Body18 {
+    font-size: 0px;
+    padding: 5px;
+}
+
 .BodyPage {
     position: relative;
     max-width: 1000px;
@@ -1481,7 +1486,7 @@ hr:after {
 
 }
 /* ---------------------------------------------- */
-@media (max-width:350px) {
+@media (max-width:380px) {
     .RWD2[class*="RwdC"] {
         width: 100%;
     } 

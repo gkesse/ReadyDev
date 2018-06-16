@@ -30,19 +30,19 @@
         {"name":"Apprendre à compiler un projet C++ avec CMake","link":"/Tutoriels/Cpp/CMake/","follow":"no"},
         {"name":"Apprendre à compiler un projet C++ avec QMake","link":"/Tutoriels/Cpp/QMake/","follow":"no"}
     ],
-    "summary_pat":
+    "design_patterns":
     [
         {"name":"Apprendre les patrons de conception en C++","link":"/Tutoriels/Cpp/Patrons_Conception/","follow":"no"}
     ],
-    "summary_ihm":
+    "ihm":
     [
         {"name":"Apprendre les interfaces homme-machine en C++ avec Qt","link":"/Tutoriels/Cpp/Qt/IHM/","follow":"no"}
     ],
-    "summary_vis":
+    "cmputer_vision":
     [
         {"name":"Apprendre la vision par ordinateur en C++ avec OpenCV","link":"/Tutoriels/Cpp/OpenCV/","follow":"no"}
     ],
-    "summary_bas":
+    "database":
     [
         {"name":"Apprendre les bases de données SQLite en C++ avec Qt","link":"/Tutoriels/Cpp/Qt/SQLite/","follow":"no"},
         {"name":"Apprendre les bases de données MySQL en C++ avec Qt","link":"/Tutoriels/Cpp/Qt/MySQL/","follow":"no"},
@@ -51,13 +51,13 @@
         {"name":"Apprendre les bases de données MongoDB en C++ avec Qt","link":"/Tutoriels/Cpp/Qt/MongoDB/","follow":"no"},
         {"name":"Apprendre les bases de données LevelDB en C++ avec Qt","link":"/Tutoriels/Cpp/Qt/MongoDB/","follow":"no"}
     ],
-    "summary_for":
+    "data_formats":
     [
         {"name":"Apprendre le format de données XML en C++ avec Qt","link":"/Tutoriels/Cpp/Qt/XML/","follow":"no"},
         {"name":"Apprendre le format de données JSON en C++ avec Qt","link":"/Tutoriels/Cpp/Qt/JSON/","follow":"no"},
         {"name":"Apprendre le format de données CSV en C++ avec Qt","link":"/Tutoriels/Cpp/Qt/CSV/","follow":"no"}
     ],
-    "summary_mul":
+    "multithreading":
     [
         {"name":"Apprendre le multithreading en C++ avec Qt","link":"/Tutoriels/Cpp/Qt/Thread/","follow":"no"}
     ],

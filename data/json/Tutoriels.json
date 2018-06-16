@@ -11,8 +11,8 @@
     },    
     "intro":
     [
-        "ReadyDev est une Plateforme de Développement Continu.<br/>",
-        "C'est un site web développé en PHP et maintenu par Gérard KESSE.<br/>",
+        "<b>ReadyDev</b> est une Plateforme de Développement Continu.<br/>",
+        "C'est un site web développé en PHP et maintenu par <b>Gérard KESSE</b>.<br/>",
         "Vous trouverez sur ce site des cours et des tutoriels adaptés aux sciences de l'ingénieur."
     ],
     "summary":

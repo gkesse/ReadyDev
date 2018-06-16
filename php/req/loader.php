@@ -3,14 +3,22 @@
 	//===============================================
 	$lReq = $_REQUEST["req"];
 	//===============================================
-	if($lReq == "DATA_1") {
+	if($lReq == "LIST_1") {
 		$lFile = $_REQUEST["file"];
 		$lKey = $_REQUEST["key"];
 		$lFilename = "data/json/".$lFile.".json";
 		$lData = GJson::Instance()->getData($lFilename);
-        $lDataMap = array();
-		$lDataMap["data"] = join(" ", $lData[$lKey]);
-		print_r(json_encode($lDataMap));
+        $lDataMap = $lData[$lKey];
+        $lDataSum = '';
+        foreach($lDataMap as $lItem) {
+			$lDataSum .= '<div class="Item4">';
+			$lDataSum .= '<span class="Icon10 fa fa-book"></span>';
+			$lDataSum .= '<a class="Link4" href="'.$lItem["link"].'">';
+			$lDataSum .= $lItem["name"];
+			$lDataSum .= '</a>';
+			$lDataSum .= '</div>';
+        }
+		print_r($lDataSum);
 	}
 	//===============================================
 	else if($lReq == "LIST_2") {
@@ -40,6 +48,16 @@
             $lDataSum .= '</div>';
         }
 		print_r($lDataSum);
+	}
+	//===============================================
+	else if($lReq == "DATA_1") {
+		$lFile = $_REQUEST["file"];
+		$lKey = $_REQUEST["key"];
+		$lFilename = "data/json/".$lFile.".json";
+		$lData = GJson::Instance()->getData($lFilename);
+        $lDataMap = array();
+		$lDataMap["data"] = join(" ", $lData[$lKey]);
+		print_r(json_encode($lDataMap));
 	}
 	//===============================================
 ?>
