@@ -35,7 +35,9 @@
 			<option value="Parallax1">Parallax 1</option>
 			<option value="Color1">Couleur 1</option>
 			<option value="Border1">Bordure 1</option>
-			<option value="Style1">Style 1</option>
+			<option value="Style1">Style Ajouter</option>
+			<option value="Style2">Style Supprimer</option>
+			<option value="Style3">Style Lire</option>
 		</select>
 	</div>
 	<!-- ============================================ -->

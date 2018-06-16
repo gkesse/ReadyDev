@@ -661,7 +661,7 @@ var GEditor = (function() {
                     var lParentNode = lStartNode.parentNode;
                     var lClassName = lParentNode.className;
                     if(lClassName.includes("GStyle1")) {
-                        var lStyle = this.merge([lParentNode.style.cssText,lArg]);
+                        var lStyle = this.mergeMap([lParentNode.style.cssText,lArg]);
                         lParentNode.setAttribute("style", lStyle);
                         var lElement = document.createElement("DIV");
                         lElement.appendChild(lParentNode);
@@ -917,32 +917,31 @@ var GEditor = (function() {
 				this.selectFile(lFilename);
             },
             //===============================================
-            merge: function(strings){
-                var result = {};
-                for(var i in strings){
-                    var cssProperties = this.createObject(strings[i]);
-                    for(var attr in  cssProperties) {
-                        result[attr] = cssProperties[attr];
+            mergeMap: function(strMap){
+                var lMap = {};
+                for(var i in strMap){
+                    var lKeyValueMap = this.createMap(strMap[i]);
+                    for(var attr in  lKeyValueMap) {
+                        lMap[attr] = lKeyValueMap[attr];
                     }
                 }
-                var s = '';
-                for(var attr in result){
-                    s += attr + ':' + ' ' + result[attr] + '; ';
+                var lMerge = '';
+                for(var attr in lMap){
+                    lMerge += attr + ':' + ' ' + lMap[attr] + '; ';
                 }
-                return s.trim();
+                return lMerge.trim();
             },
             //===============================================
-            createObject: function(s1){
-                var obj = {};
-                var properties = s1.split(';');
-                for(var i=0; i<properties.length; i++){
-                    var property = properties[i].split(':');
-                    if(property.length == 2){
-                        console.log(property[1]);
-                        obj[property[0].trim()] = property[1].trim();
+            createMap: function(strKeyValue){
+                var lMap = {};
+                var lKeyValueMap = strKeyValue.split(';');
+                for(var i = 0; i < lKeyValueMap.length; i++){
+                    var lKeyValue = lKeyValueMap[i].split(':');
+                    if(lKeyValue.length == 2){
+                        lMap[lKeyValue[0].trim()] = lKeyValue[1].trim();
                     }
                 }
-                return obj;
+                return lMap;
             }            
             //===============================================
         };
