@@ -11,9 +11,11 @@ var GLoader = (function() {
             },
             //===============================================
             loadSummary1: function(id) {
-				setTimeout(function() {
-                    var lObj = document.getElementById(id);
-                    var lNodeMap = document.getElementsByClassName("GTitle1");
+                var lObj = document.getElementById(id);
+                var lNodeMap = document.getElementsByClassName("GTitle1");
+                var lCount = 0;
+				var lTimer = setInterval(function() {
+                    if(++lCount > 10) clearInterval(lTimer);
                     var lHtml = '';
                     for(var i = 0; i < lNodeMap.length; i++) {
                         var lTitle = lNodeMap[i].firstChild.firstChild.firstChild.innerText;

@@ -561,6 +561,7 @@ var GEditor = (function() {
                     lHtml += '</div>';
                     document.execCommand("insertHTML", false, lHtml);
                     break;
+                //===============================================
                 case 'Color1':
                     var lParentNode = lStartNode.parentNode;
                     if(!lSelection.toString()) {
@@ -580,14 +581,60 @@ var GEditor = (function() {
                         }
                     }
                     if(!lSelection.toString()) return;
-                	var lArg = prompt("Couleur ?");
+                	var lArg = prompt("Color ?","lime");
                     if(!lArg) return;
                     var lHtml = '';
-                    lHtml += '<span class="GColor1" style="color: '+lArg+';">';
+                    lHtml += '<span class="GColor1" style="color:'+lArg+';">';
                     lHtml += lSelection;
                     lHtml += '</span>';
                     document.execCommand("insertHTML", false, lHtml);
                     break;
+                //===============================================
+                case 'Border1':
+                    var lParentNode = lStartNode.parentNode;
+                    if(!lSelection.toString()) {
+                        while(1) {
+                            var lClassName = lParentNode.className;
+                            if(lClassName.includes("GEndEditor")) {
+                                break;
+                            }
+                            if(lClassName.includes("GBorder1")) {
+                                lRange.selectNode(lParentNode);
+                                lSelection.addRange(lRange);
+                                var lHtml = lParentNode.innerHTML;
+                                document.execCommand("insertHTML", false, lHtml);
+                                return;
+                            }
+                            lParentNode = lParentNode.parentNode;
+                        }
+                    }
+                    if(!lSelection.toString()) return;
+                	var lArg = prompt("Border ? Padding ?", "1px solid rgba(255,255,255,0.2);5px 10px;transparent");
+                    if(!lArg) return;
+					var lArgMap = lArg.split(";");
+                    if(lArgMap.length < 3) return;
+					var lBorder = lArgMap[0].trim();
+					var lPadding = lArgMap[1].trim();
+					var lBackground = lArgMap[2].trim();
+                    if(!lBorder || !lPadding || !lBackground) return;
+                    var lHtml = '';
+                    lHtml += '<div class="GFrame1" style="border:'+lBorder+';padding:'+lPadding+';background-color:'+lBackground+';">';
+                    var lParentNode = lStartNode.parentNode;
+                    var lClassName = lParentNode.className;
+                    if(lClassName.includes("Body3")) {
+                        var lFragment = lSelection.getRangeAt(0).cloneContents();
+                        var lElement = document.createElement("DIV");
+                        lElement.appendChild(lFragment);
+                        lHtml += lElement.innerHTML;
+                    }
+                    else {
+                        lElement.appendChild(lStartNode.parentNode);
+                        lHtml += lElement.innerHTML;
+                    }
+                    lHtml += '</div>';
+                    document.execCommand("insertHTML", false, lHtml);
+                    break;
+                //===============================================
                 }
             },
             //===============================================

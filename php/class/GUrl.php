@@ -19,7 +19,7 @@
         public function lastUrl() {
             if(!GConfig::Instance()->existData("title")) return; 
             $lTitle = GConfig::Instance()->getData("title"); 
-            if($lTitle == "Administration" || $lTitle == "ERREUR" || $lTitle == "Tests") return;
+            if($lTitle == "Administration" || $lTitle == "ERREUR" || $lTitle == "Test Validation Intégration") return;
             $_SESSION["lasturl"] = dirname($_SERVER["PHP_SELF"])."/";
         }
         //===============================================

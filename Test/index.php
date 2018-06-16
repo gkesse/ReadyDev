@@ -4,7 +4,7 @@
     $lData = GJson::Instance()->getData("data/json/Test.json");
     GAdmin::Instance()->validate();
 
-    GConfig::Instance()->setData("title", "Tests");
+    GConfig::Instance()->setData("title", "Test Validation Intégration");
     GConfig::Instance()->setData("menu", "Test");
     GConfig::Instance()->setData("view", "Test");
 

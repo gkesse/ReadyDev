@@ -18,7 +18,8 @@
     [
         {"name":"Apprendre le C","link":"/Tutoriels/Cpp/C/","follow":"no"},
         {"name":"Apprendre le C++","link":"/Tutoriels/Cpp/Cpp/","follow":"yes"},
-        {"name":"Apprendre la bibliothèque STL en C++","link":"/Tutoriels/Cpp/STL/","follow":"no"}
+        {"name":"Apprendre la bibliothèque STL en C++","link":"/Tutoriels/Cpp/STL/","follow":"no"},
+        {"name":"Apprendre la bibliothèque Boost en C++","link":"/Tutoriels/Cpp/Boost/","follow":"no"}
     ],
     "compilation":
     [
