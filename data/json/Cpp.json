@@ -38,7 +38,7 @@
     [
         {"name":"Apprendre les interfaces homme-machine en C++ avec Qt","link":"/Tutoriels/Cpp/Qt/IHM/","follow":"no"}
     ],
-    "cmputer_vision":
+    "computer_vision":
     [
         {"name":"Apprendre la vision par ordinateur en C++ avec OpenCV","link":"/Tutoriels/Cpp/OpenCV/","follow":"no"}
     ],
@@ -61,36 +61,36 @@
     [
         {"name":"Apprendre le multithreading en C++ avec Qt","link":"/Tutoriels/Cpp/Qt/Thread/","follow":"no"}
     ],
-    "summary_res":
+    "networks":
     [
         {"name":"Apprendre la communication réseau en C++ avec Qt","link":"/Tutoriels/Cpp/Qt/Network/","follow":"no"}
     ],
-    "summary_mid":
+    "middleware":
     [
         {"name":"Apprendre la communication middleware ZeroMQ en C++ avec Qt","link":"/Tutoriels/Cpp/Qt/ZeroMQ/","follow":"no"},
         {"name":"Apprendre la communication middleware RabbitMQ en C++ avec Qt","link":"/Tutoriels/Cpp/Qt/RabbitMQ/","follow":"no"}
     ],
-    "summary_ipc":
+    "ipc":
     [
         {"name":"Apprendre la communication inter-processus DBus en C++ avec Qt","link":"/Tutoriels/Cpp/Qt/DBus/","follow":"no"},
         {"name":"Apprendre la communication inter-processus SOAP en C++ avec Qt","link":"/Tutoriels/Cpp/Qt/CORBA/","follow":"no"},
         {"name":"Apprendre la communication inter-processus CORBA en C++ avec Qt","link":"/Tutoriels/Cpp/Qt/CORBA/","follow":"no"},
         {"name":"Apprendre la communication inter-processus DCOP en C++ avec Qt","link":"/Tutoriels/Cpp/Qt/DCOP/","follow":"no"}
     ],
-    "summary_a2d":
+    "app2d":
     [
         {"name":"Apprendre la programmation 2D en C++ avec SDL","link":"/Tutoriels/Cpp/Qt/Network/","follow":"no"}
     ],
-    "summary_a3d":
+    "app3d":
     [
         {"name":"Apprendre la programmation 3D en C++ avec OpenGL","link":"/Tutoriels/Cpp/Qt/Network/","follow":"no"}
     ],
-    "summary_viz":
+    "visualization":
     [
         {"name":"Apprendre la visualisation de données en C++ avec QCustomPlot","link":"/Tutoriels/Cpp/Qt/QCustomPlot/","follow":"no"},
         {"name":"Apprendre la visualisation de données en C++ avec Qwt","link":"/Tutoriels/Cpp/Qt/Qwt/","follow":"no"}
     ],
-    "summary_scr":
+    "scripts":
     [
         {"name":"Apprendre les scripts en C++ avec Qt","link":"/Tutoriels/Cpp/Qt/Scripts/","follow":"no"}
     ]
