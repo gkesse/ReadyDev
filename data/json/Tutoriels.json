@@ -117,6 +117,16 @@
             "link":"/Tutoriels/RaspberryPi/",
 			"follow":"yes"
         }
+    ],
+    "modeling3d":
+    [
+        {
+            "icon":"fa fa-cubes",
+            "theme":"Blender",
+            "description":"Apprenez<br/> Blender",
+            "link":"/Tutoriels/Blender/",
+			"follow":"no"
+        }
     ]
 }
                         
