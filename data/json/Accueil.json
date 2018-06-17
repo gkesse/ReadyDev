@@ -11,8 +11,8 @@
     },
     "intro":
     [
-        "ReadyDev est une Plateforme de Développement Continu.<br/>",
-        "C'est un site web développé en PHP et maintenu par Gérard KESSE.<br/>",
+        "<b>ReadyDev</b> est une Plateforme de Développement Continu.<br/>",
+        "C'est un site web développé en PHP et maintenu par <b>Gérard KESSE</b>.<br/>",
         "Vous trouverez sur ce site des tutoriels permettant de monter en compétences de manière éfficace en :<br/><br/>",
         "<ul class='List fa-ul'>",
         "<li><i class='fa-li fa fa-hand-o-right'></i> Dévloppement Logiciel</li>",
@@ -43,7 +43,7 @@
     ],
     "author":
     [
-        "Je suis Gérard KESSE,<br/>",
+        "Je suis <b>Gérard KESSE</b>,<br/>",
         "Ingénieur en Développement Informatique C/C++/Qt,<br/>",
         "Avec à la fois des compétences en Systèmes Embarqués et en Robotique.<br/><br/>",
         "Formé à Polytech'Montpellier, Je suis un professionnel de conception de projets logiciel applicatif",
