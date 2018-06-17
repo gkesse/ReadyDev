@@ -1,9 +1,8 @@
 #================================================
 from GPerson import GPerson
 #================================================
-print "\n### Classe\n"
+print "\n### Classe Methode\n"
 #================================================
 lPerson = GPerson()
-print "Nom:", lPerson.m_name
-print "Email:", lPerson.m_email
+lPerson.toString()
 #================================================

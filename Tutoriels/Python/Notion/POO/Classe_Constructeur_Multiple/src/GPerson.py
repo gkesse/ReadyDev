@@ -1,6 +1,6 @@
 #================================================
 class GPerson: 
-    def __init__(self):
-        self.m_name = "Gerard"
-        self.m_email = "gerard@python.com"
+    def __init__(self, nom="_NONE_", email="_NONE_"):
+        self.m_name = nom
+        self.m_email = email
 #================================================
