@@ -14,7 +14,7 @@ public:
     ~GPerson();
 
 public:
-    void toString() const;
+    virtual void toString() const;
 
 protected:
     string m_name;

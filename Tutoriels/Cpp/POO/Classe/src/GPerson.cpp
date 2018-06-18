@@ -17,8 +17,9 @@ GPerson::~GPerson() {
 //===============================================
 void GPerson::toString() const {
     string lData = "";
-    lData += "Description: ";
-    lData += m_name + " | " + m_email + "\n";
+    lData += "Personne: ";
+    lData += m_name + " | " + m_email;
+    lData += "\n";
     cout << lData.c_str();
 }
 //===============================================
