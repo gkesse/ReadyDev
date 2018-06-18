@@ -1,23 +1,24 @@
 //===============================================
-#include "GPersonStudent.h"
+#include "GPersonMinor.h"
 //===============================================
-GPersonStudent::GPersonStudent() {
-    m_average = 0.0;
-}
-//===============================================
-GPersonStudent::GPersonStudent(const string& name, const string& email, const string& average) :
-    GPerson(name, email) {
-    m_average = average;
-}
-//===============================================
-GPersonStudent::~GPersonStudent() {
+GPersonMinor::GPersonMinor() {
 
 }
 //===============================================
-void GPersonStudent::print() const {
+GPersonMinor::GPersonMinor(const string& name, const string& email) :
+    GPerson(name, email) {
+
+}
+//===============================================
+GPersonMinor::~GPersonMinor() {
+
+}
+//===============================================
+void GPersonMinor::print() const {
     string lData = "";
-    lData += "Etudiant: Je suis Etudiant et ma moyenne est de ";
-    lData += m_average;
+    lData += "Mineur: ";
+    lData += "Nom: " + m_name + " | ";
+    lData += "Email: " + m_email;
     lData += "\n";
     cout << lData.c_str();
 }

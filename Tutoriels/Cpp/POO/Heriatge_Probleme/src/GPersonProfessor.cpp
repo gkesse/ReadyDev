@@ -14,10 +14,10 @@ GPersonProfessor::~GPersonProfessor() {
 
 }
 //===============================================
-void GPersonProfessor::toString() const {
+void GPersonProfessor::print() const {
     string lData = "";
-    lData += "Professeur: ";
-    lData += m_name + " | " + m_email + " | " + m_lesson;
+    lData += "Professeur: Je suis Professeur de ";
+    lData += m_lesson;
     lData += "\n";
     cout << lData.c_str();
 }

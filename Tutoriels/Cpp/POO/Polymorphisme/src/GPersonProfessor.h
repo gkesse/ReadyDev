@@ -11,7 +11,7 @@ public:
     ~GPersonProfessor();
 
 public:
-    void toString() const;
+    void print() const;
 
 private:
     string m_lesson;

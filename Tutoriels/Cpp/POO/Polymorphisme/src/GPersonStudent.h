@@ -7,14 +7,14 @@
 class GPersonStudent : public GPerson {
 public:
     GPersonStudent();
-    GPersonStudent(const string& name, const string& email, const float &average);
+    GPersonStudent(const string& name, const string& email, const string& average);
     ~GPersonStudent();
 
 public:
-    void toString() const;
+    void print() const;
 
 private:
-    float m_average;
+    string m_average;
 };
 //===============================================
 #endif

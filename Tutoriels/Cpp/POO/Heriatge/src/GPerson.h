@@ -14,7 +14,8 @@ public:
     ~GPerson();
 
 public:
-    void toString() const;
+    void print() const;
+    void printInfo() const;
 
 protected:
     string m_name;

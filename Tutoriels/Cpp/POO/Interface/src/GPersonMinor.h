@@ -1,24 +1,17 @@
 //===============================================
-#ifndef _GPerson_
-#define _GPerson_
+#ifndef _GPersonMinor_
+#define _GPersonMinor_
 //===============================================
-#include <iostream>
-#include <string>
+#include "GPerson.h"
 //===============================================
-using namespace std;
-//===============================================
-class GPerson {
+class GPersonMinor : public GPerson {
 public:
-    GPerson();
-    GPerson(const string& name, const string& email);
-    ~GPerson();
+    GPersonMinor();
+    GPersonMinor(const string& name, const string& email);
+    ~GPersonMinor();
 
 public:
     void print() const;
-
-private:
-    string m_name;
-    string m_email;
 };
 //===============================================
 #endif

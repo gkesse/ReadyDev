@@ -11,10 +11,11 @@ class GPerson {
 public:
     GPerson();
     GPerson(const string& name, const string& email);
-    virtual ~GPerson();
+    ~GPerson();
 
 public:
-    virtual void toString() const;
+    virtual void print() const;
+    void printInfo() const;
 
 protected:
     string m_name;

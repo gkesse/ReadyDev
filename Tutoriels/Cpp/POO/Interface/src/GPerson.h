@@ -11,12 +11,14 @@ class GPerson {
 public:
     GPerson();
     GPerson(const string& name, const string& email);
-    ~GPerson();
+    virtual ~GPerson();
 
 public:
-    void print() const;
+    virtual void print() const = 0;
+    virtual void printType() const;
+    void printInfo() const;
 
-private:
+protected:
     string m_name;
     string m_email;
 };

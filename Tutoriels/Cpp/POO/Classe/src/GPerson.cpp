@@ -15,10 +15,11 @@ GPerson::~GPerson() {
 
 }
 //===============================================
-void GPerson::toString() const {
+void GPerson::print() const {
     string lData = "";
     lData += "Personne: ";
-    lData += m_name + " | " + m_email;
+    lData += "Nom: " + m_name + " | ";
+    lData += "Email: " + m_email;
     lData += "\n";
     cout << lData.c_str();
 }

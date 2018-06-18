@@ -1,24 +1,21 @@
 //===============================================
-#ifndef _GPerson_
-#define _GPerson_
+#ifndef _GPersonStudent_
+#define _GPersonStudent_
 //===============================================
-#include <iostream>
-#include <string>
+#include "GPerson.h"
 //===============================================
-using namespace std;
-//===============================================
-class GPerson {
+class GPersonStudent : public GPerson {
 public:
-    GPerson();
-    GPerson(const string& name, const string& email);
-    ~GPerson();
+    GPersonStudent();
+    GPersonStudent(const string& name, const string& email, const float &average);
+    ~GPersonStudent();
 
 public:
     void print() const;
+    void printType() const;
 
 private:
-    string m_name;
-    string m_email;
+    float m_average;
 };
 //===============================================
 #endif

@@ -15,9 +15,9 @@ GPerson::~GPerson() {
 
 }
 //===============================================
-void GPerson::print() const {
+void GPerson::printType() const {
     string lData = "";
-    lData += "Personne: Je suis Mineur sans emploi";
+    lData += "Personne: Je suis une Personne sans emploi";
     lData += "\n";
     cout << lData.c_str();
 }
@@ -25,7 +25,7 @@ void GPerson::print() const {
 void GPerson::printInfo() const {
     string lData = "";
     lData += "Personne: Je m'appelle ";
-    lData += m_name + " et mon email est " + m_email;
+    lData += m_name + " mon email est " + m_email;
     lData += "\n";
     cout << lData.c_str();
 }

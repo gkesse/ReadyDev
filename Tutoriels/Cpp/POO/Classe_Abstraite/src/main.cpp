@@ -6,9 +6,9 @@
 int main(int argc, char** argv) {
     cout << "\n### Classe Abstraite\n\n";
 
-    GPerson* lPerson = new GPersonStudent("Gerard", "gerard@readydev.com", 17.25);
-    GPerson* lPerson2 = new GPersonProfessor("Deborah", "deborah@readydev.com", "Informatique");
     GPerson* lPerson3 = new GPersonMinor("Bryan", "bryan@readydev.com");
+    GPerson* lPerson = new GPersonStudent("Robins", "robins@readydev.com", "17.25");
+    GPerson* lPerson2 = new GPersonProfessor("Gerard", "gerard@readydev.com", "Informatique");
 
     lPerson->printInfo();
     lPerson->printType();

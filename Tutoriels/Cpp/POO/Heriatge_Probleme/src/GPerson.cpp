@@ -15,10 +15,18 @@ GPerson::~GPerson() {
 
 }
 //===============================================
-void GPerson::toString() const {
+void GPerson::print() const {
     string lData = "";
-    lData += "Personne: ";
-    lData += m_name + " | " + m_email + "\n";
+    lData += "Personne: Je suis Mineur sans emploi";
+    lData += "\n";
+    cout << lData.c_str();
+}
+//===============================================
+void GPerson::printInfo() const {
+    string lData = "";
+    lData += "Personne: Je m'appelle ";
+    lData += m_name + " et mon email est " + m_email;
+    lData += "\n";
     cout << lData.c_str();
 }
 //===============================================
