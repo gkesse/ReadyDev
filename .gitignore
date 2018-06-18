@@ -15,6 +15,7 @@
 /**/messages.json
 /**/qmake/Makefile*
 /**/*user
+/**/*stash
 /**/*pyc
 /data/sitemaps/*xml
 /**/~$*
