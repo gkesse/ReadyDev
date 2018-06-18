@@ -1,12 +1,12 @@
 #================================================
 from GPerson import GPerson
 #================================================
-print "\n### Classe Attribut\n"
+print "\n### Classe Introspection\n"
 #================================================
 lPerson = GPerson()
-print "Compteur:", GPerson.m_count
-lPerson2 = GPerson()
-print "Compteur:", GPerson.m_count
-lPerson3 = GPerson()
-print "Compteur:", GPerson.m_count
+lPerson.toString()
+#================================================
+print
+#================================================
+print "Introspection:", dir(lPerson)
 #================================================
