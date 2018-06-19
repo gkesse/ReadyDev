@@ -2,13 +2,11 @@ include(manager/GManager.pri)
 
 SOURCES += \
     $$PWD/main.cpp \
-    $$PWD/GPerson.cpp \
-    $$PWD/GPersonProfessor.cpp \
-    $$PWD/GPersonStudent.cpp \
-    $$PWD/GPersonMinor.cpp
+    $$PWD/GShape.cpp \
+    $$PWD/GShapeRectangle.cpp \
+    $$PWD/GShapeEllipse.cpp
 
 HEADERS += \
-    $$PWD/GPerson.h \
-    $$PWD/GPersonProfessor.h \
-    $$PWD/GPersonStudent.h \
-    $$PWD/GPersonMinor.h
+    $$PWD/GShape.h \
+    $$PWD/GShapeRectangle.h \
+    $$PWD/GShapeEllipse.h

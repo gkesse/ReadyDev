@@ -1,28 +1,20 @@
 //===============================================
-#include "GPersonStudent.h"
-#include "GPersonProfessor.h"
-#include "GPersonMinor.h"
+#include "GShapeRectangle.h"
+#include "GShapeEllipse.h"
 //===============================================
 int main(int argc, char** argv) {
-    cout << "\n### Classe Abstraite\n\n";
+    cout << "\n### Interface\n\n";
 
-    GPerson* lPerson = new GPersonStudent("Gerard", "gerard@readydev.com", 17.25);
-    GPerson* lPerson2 = new GPersonProfessor("Deborah", "deborah@readydev.com", "Informatique");
-    GPerson* lPerson3 = new GPersonMinor("Bryan", "bryan@readydev.com");
+    GShape* lShape = new GShapeRectangle(10, 5);
+    GShape* lShape2 = new GShapeEllipse(10, 2);
 
-    lPerson->printInfo();
-    lPerson->printType();
-    lPerson->print();
+    cout << "Rectangle Aire: " << lShape->area() << " (m2)\n";
+    cout << "Rectangle Perimetre: " << lShape->perimeter() << " (m)\n";
     cout << "\n";
 
-    lPerson2->printInfo();
-    lPerson2->printType();
-    lPerson2->print();
+    cout << "Ellipse Aire: " << lShape2->area() << " (m2)\n";
+    cout << "Ellipse Perimetre: " << lShape2->perimeter() << " (m)\n";
     cout << "\n";
-
-    lPerson3->printInfo();
-    lPerson3->printType();
-    lPerson3->print();
 
     return 0;
 }

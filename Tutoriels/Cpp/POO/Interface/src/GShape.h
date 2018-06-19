@@ -1,17 +1,16 @@
 //===============================================
-#ifndef _GPersonMinor_
-#define _GPersonMinor_
+#ifndef _GShape_
+#define _GShape_
 //===============================================
-#include "GPerson.h"
+#include <iostream>
+#include <string>
 //===============================================
-class GPersonMinor : public GPerson {
+using namespace std;
+//===============================================
+class GShape {
 public:
-    GPersonMinor();
-    GPersonMinor(const string& name, const string& email);
-    ~GPersonMinor();
-
-public:
-    void print() const;
+    virtual double area() const = 0;
+    virtual double perimeter() const = 0;
 };
 //===============================================
 #endif

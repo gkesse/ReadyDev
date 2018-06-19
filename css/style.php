@@ -240,10 +240,10 @@ hr:after {
 }
 
 .Background.Top {
-    background-image: url("/data/img/defaults/fete.gif"), url("/data/img/defaults/fond.jpg");
+    background-image: url("<?php echo $lStyle["background"]["top2"]["img"]; ?>"), url("/data/img/defaults/fond.jpg");
     background-position: center top, left top;
     background-repeat: no-repeat, no-repeat;    
-    background-size: auto, 100% 100%;    
+    background-size: auto 98%, 100% 100%;    
     top: 0px;
     left: 0px;
     right: 0px;
@@ -1462,13 +1462,6 @@ hr:after {
     } 
 }
 /* ---------------------------------------------- */
-@media (max-width:670px) {  
-    .Background.Top {
-        background-position: center center, left top;
-        background-size: 98% auto, 100% 100%;    
-    }
-}
-/* ---------------------------------------------- */
 @media (max-width:640px) {  
 
 }
@@ -1486,7 +1479,7 @@ hr:after {
 
 }
 /* ---------------------------------------------- */
-@media (max-width:380px) {
+@media (max-width:350px) {
     .RWD2[class*="RwdC"] {
         width: 100%;
     } 
@@ -1494,6 +1487,17 @@ hr:after {
 /* ---------------------------------------------- */
 @media (max-width:320px) {
 
+}
+
+/* ============================================== */
+/* Mobile */ 
+/* ============================================== */
+
+@media (max-width:<?php echo $lStyle["background"]["top2"]["width"]; ?>) {  
+    .Background.Top {
+        background-position: center center, left top;
+        background-size: 98% auto, 100% 100%;    
+    }
 }
 
 /* ============================================== */

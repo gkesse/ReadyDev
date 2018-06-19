@@ -6,6 +6,10 @@
         "top": {
             "img": "\/data\/img\/defaults\/texture_green.jpg"
         },
+        "top2": {
+            "img": "\/data\/img\/defaults\/fete_musique.gif",
+            "width": "420px"
+        },
         "middle": {
             "img": "\/data\/img\/defaults\/texture_black.jpg"
         },
