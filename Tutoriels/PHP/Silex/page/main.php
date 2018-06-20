@@ -68,7 +68,7 @@ $lApp->get("/Bonjour/{name}", function($name) use ($lApp) {
     $lData .= "<br/>### Routeur Bonjour<br/><br/>";
     $lData .= "Routeur: Bonjour ".$lApp->escape($name)."<br/>";
     return $lData;
-});</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Gérer la réécriture d'URL-Configuration"><a class="Link9" href="#Gérer la réécriture d'URL-">Configuration</a></h2><br><h3 class="Title8 GTitle3">Configurer le fichier (.htaccess)</h3><div class="GCode1"><pre><xmp class="Code2 prettyprint linenums">#================================================
+});</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Gérer la réécriture d'URL-Activation"><a class="Link9" href="#Gérer la réécriture d'URL-">Activation</a></h2><br><h3 class="Title8 GTitle3">Activer la réécriture d'URL</h3><div class="Img3"><div class="Img3"><img src="img/URL_Reecriture_Activer.png" alt="img/URL_Reecriture_Activer.png"></div></div><br><div class="Img3"><div class="Img3"><img src="img/URL_Reecriture_Activer_02.png" alt="img/URL_Reecriture_Activer_02.png"></div></div><br><h2 class="Title7 GTitle2" id="Gérer la réécriture d'URL-Configuration"><a class="Link9" href="#Gérer la réécriture d'URL-">Configuration</a></h2><br><h3 class="Title8 GTitle3">Configurer le fichier (.htaccess)</h3><div class="GCode1"><pre><xmp class="Code2 prettyprint linenums">#================================================
 <IfModule mod_rewrite.c>
     Options -MultiViews
     RewriteEngine On
