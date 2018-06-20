@@ -4,17 +4,17 @@
     {
         "meta_desc":
         [
-            "Silex est un outil de création de site internet.",
+            "Magento est un outil de création de site eCommerce.",
 			"Le but de ce tutoriel est de vous apprendre",
-            "la création de site internet avec le Silex."
+            "la création de site eCommerce avec le Magento."
         ],
-        "meta_cano":"/Tutoriels/PHP/Silex/"
+        "meta_cano":"/Tutoriels/PHP/Magento/"
     },    
     "links":
     [
         {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
         {"name":"PHP","link":"/Tutoriels/PHP/","follow":"no"},
-        {"name":"Silex","link":"","follow":"no"}
+        {"name":"Magento","link":"","follow":"no"}
     ]
 }
                         
