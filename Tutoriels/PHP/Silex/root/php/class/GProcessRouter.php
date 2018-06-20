@@ -21,7 +21,7 @@
             
             $lApp->get("/", function () {
                 $lData = "";
-                $lData .= "<br/>### Routeur Message<br/><br/>";
+                $lData .= "<br/>### Routeur Simple<br/><br/>";
                 $lData .= "Bonjour tout le monde<br/>";
                 return $lData;
             });

@@ -44,4 +44,35 @@ $lApp->get("/", function () {
     return $lData;
 });
 
-$lApp->run();        </xmp></pre></div><br><h2 class="Title7 GTitle2" id="Utilisation de Silex-Exécution"><a class="Link9" href="#Utilisation de Silex">Exécution</a></h2><br><h3 class="Title8 GTitle3">Exécution</h3><span class="GColor1" style="color:lime;">http://localhost:8800/</span><br><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3"><img src="img/Silex_Utilisation.png" alt="img/Silex_Utilisation.png"></div></div></div></div></div><br>
+$lApp->run();        </xmp></pre></div><br><h2 class="Title7 GTitle2" id="Utilisation de Silex-Exécution"><a class="Link9" href="#Utilisation de Silex">Exécution</a></h2><br><h3 class="Title8 GTitle3">Exécution</h3><span class="GColor1" style="color:lime;">http://localhost:8800/index.php</span><br><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3"><img src="img/Silex_Utilisation.png" alt="img/Silex_Utilisation.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Gérer le routage"><a class="Link3" href="#">Gérer le routage</a></h1><div class="Body3">Le but de cette section est de vous apprendre à gérer le routage avec Silex.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1529521789555"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1529521789555");</script></div><br><h2 class="Title7 GTitle2" id="Gérer le routage-Routage simple"><a class="Link9" href="#Gérer le routage">Routage simple</a></h2><br><h3 class="Title8 GTitle3">Routage simple (index.php)<br></h3><div class="GCode1"><pre><xmp class="Code2 prettyprint linenums">$lApp->get("/", function () {
+    $lData = "";
+    $lData .= "<br/>### Routeur Simple<br/><br/>";
+    $lData .= "Bonjour tout le monde<br/>";
+    return $lData;
+});
+</xmp></pre></div><br><h3 class="Title8 GTitle3">Exécution</h3><span class="GColor1" style="color:lime;">http://localhost:8800/index.php</span><br><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3"><img src="img/Routage_Simple.png" alt="img/Routage_Simple.png"><br><br></div><h2 class="Title7 GTitle2" id="Gérer le routage-Routage avec paramètre"><a class="Link9" href="#Gérer le routage">Routage avec paramètre</a></h2><br><h3 class="Title8 GTitle3">Routage avec paramètre (index.php)<br></h3><div class="GCode1"><pre><xmp class="Code2 prettyprint linenums">$lApp->get("/Bonjour/{name}", function($name) use ($lApp) {
+    $lData = "";
+    $lData .= "<br/>### Routeur Bonjour<br/><br/>";
+    $lData .= "Routeur: Bonjour ".$lApp->escape($name)."<br/>";
+    return $lData;
+});
+</xmp></pre></div><br><h3 class="Title8 GTitle3">Exécution</h3><span class="GColor1" style="color:lime;">http://localhost:8833/index.php/Bonjour/Gerard</span><br><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3"><img src="img/Routage_Parametre.png" alt="img/Routage_Parametre.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Gérer la réécriture d'URL"><a class="Link3" href="#">Gérer la réécriture d'URL</a></h1><div class="Body3">Le but de cette section est de vous apprendre à gérer la réécriture d'URL sous Apache.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1529523215626"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1529523215626");</script></div><br><h2 class="Title7 GTitle2" id="Gérer la réécriture d'URL-Code source"><a class="Link9" href="#Gérer la réécriture d'URL-">Code source</a></h2><br><h3 class="Title8 GTitle3">Code source (index.php)</h3><div class="GCode1"><pre><xmp class="Code2 prettyprint linenums">$lApp->get("/", function () {
+    $lData = "";
+    $lData .= "<br/>### Routeur Simple<br/><br/>";
+    $lData .= "Bonjour tout le monde<br/>";
+    return $lData;
+});
+
+$lApp->get("/Bonjour/{name}", function($name) use ($lApp) {
+    $lData = "";
+    $lData .= "<br/>### Routeur Bonjour<br/><br/>";
+    $lData .= "Routeur: Bonjour ".$lApp->escape($name)."<br/>";
+    return $lData;
+});</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Gérer la réécriture d'URL-Configuration"><a class="Link9" href="#Gérer la réécriture d'URL-">Configuration</a></h2><br><h3 class="Title8 GTitle3">Configurer le fichier (.htaccess)</h3><div class="GCode1"><pre><xmp class="Code2 prettyprint linenums">#================================================
+<IfModule mod_rewrite.c>
+    Options -MultiViews
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [QSA,L]
+</IfModule>
+#================================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Gérer la réécriture d'URL-Test du routage simple"><a class="Link9" href="#Gérer la réécriture d'URL-">Test du routage simple</a></h2><br><h3 class="Title8 GTitle3">Exécution</h3><span class="GColor1" style="color:lime;">http://localhost:8833/</span><br><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3"><img src="img/Routage_Simple.png" alt="img/Routage_Simple.png"><br><br></div><h2 class="Title7 GTitle2" id="Gérer la réécriture d'URL-Test du routage avec paramètre"><a class="Link9" href="#Gérer la réécriture d'URL-">Test du routage avec paramètre</a></h2><br><h3 class="Title8 GTitle3">Exécution</h3><span class="GColor1" style="color:lime;">http://localhost:8833/Bonjour/Gerard</span><br><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3"><img src="img/Routage_Parametre.png" alt="img/Routage_Parametre.png"></div></div></div></div></div><br>
