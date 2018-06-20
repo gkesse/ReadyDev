@@ -11,12 +11,12 @@
     },    
     "links":
     [
-        {"name":"Tutoriels","link":"/Tutoriels/"},
-        {"name":"C/C++","link":""}
+        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"C/C++","link":"","follow":"no"}
     ],
     "software":
     [
-        {"name":"Apprendre le C","link":"/Tutoriels/Cpp/C/","follow":"no"},
+        {"name":"Apprendre la programmation avec le C","link":"/Tutoriels/Cpp/Co/","follow":"no"},
         {"name":"Apprendre le C++","link":"/Tutoriels/Cpp/Cpp/","follow":"yes"},
         {"name":"Apprendre la bibliothèque STL en C++","link":"/Tutoriels/Cpp/STL/","follow":"no"},
         {"name":"Apprendre la bibliothèque Boost en C++","link":"/Tutoriels/Cpp/Boost/","follow":"no"}

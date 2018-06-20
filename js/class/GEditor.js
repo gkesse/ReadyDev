@@ -18,16 +18,46 @@ var GEditor = (function() {
 				lFileEdit.innerHTML = lEditorFile;
 			},
             //===============================================
-            editLink: function(arg) {
-				if(arg == "") return;
+            editLink: function() {
+                var lArg = prompt("Couleur ? Lien ?", "lime;");
+                if(!lArg) return;
+                var lArgMap = lArg.split(";");
+                if(lArgMap.length < 2) return;
+                var lColor = lArgMap[0].trim();
+                var lLink = lArgMap[1].trim();
+                if(!lColor || !lLink) return;
 				var lSelection = document.getSelection();
-				if(lSelection == "") return;
+				if(!lSelection.toString()) return;
                 var lHtml = '';
-                lHtml += '<a class="Link7" ';
-                lHtml += 'href="'+arg+'">';
+                lHtml += '<a class="Link7 GLink1" style="color:'+lColor+';" ';
+                lHtml += 'href="'+lLink+'">';
                 lHtml += lSelection;
                 lHtml += '</a>';
                 document.execCommand("insertHTML", false, lHtml);
+			},
+            //===============================================
+            editUnLink: function() {
+                var lSelection = document.getSelection();
+                var lStartNode = lSelection.anchorNode;
+                var lData = lStartNode.data;
+                var lRange = document.createRange();
+                if(!lData) return;
+                var lParentNode = lStartNode.parentNode;
+                while(1) {
+                    var lClassName = lParentNode.className;
+                    if(lClassName.includes("GEndEditor")) {
+                        break;
+                    }
+                    if(lClassName.includes("GLink1")) {
+                        lRange.selectNode(lParentNode);
+                        lSelection.addRange(lRange);
+                        var lHtml = lParentNode.innerHTML;
+                        document.execCommand("insertHTML", false, lData);
+                        return;
+                    }
+
+                    lParentNode = lParentNode.parentNode;
+                }
             },
             //===============================================
             editImage: function(arg) {
@@ -376,6 +406,7 @@ var GEditor = (function() {
                             lClassName.includes("GData1") ||
                             lClassName.includes("GCode1") ||
                             lClassName.includes("GCode2") ||
+                            lClassName.includes("GLink1") ||
                             lClassName.includes("GParallax1") ||
                             lClassName.includes("GStyle1") ||
                             lClassName.includes("GShift0")
@@ -405,6 +436,7 @@ var GEditor = (function() {
                             lClassName.includes("GData1") ||
                             lClassName.includes("GCode1") ||
                             lClassName.includes("GCode2") ||
+                            lClassName.includes("GLink1") ||
                             lClassName.includes("GParallax1") ||
                             lClassName.includes("GStyle1") ||
                             lClassName.includes("GShift0")

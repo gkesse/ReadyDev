@@ -1,0 +1,18 @@
+{
+    "sitemap":"yes",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+            "Le C est un langage de programmation.",
+			"Le but de ce tutoriel est de vous apprendre la programmation avec le C" 
+        ],
+        "meta_cano":"/Tutoriels/Co/"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"Apprendre la programmation avec le C","link":"","follow":"no"}
+    ]
+}
+                        

@@ -28,6 +28,7 @@ private:
     void add(const GMaxtrix& mB);
 
 public:
+    GMaxtrix& operator=(const GMaxtrix& mB);
     GMaxtrix& operator+=(const GMaxtrix& mB);
     friend ostream& operator<<(ostream& s, const GMaxtrix& mA);
 

@@ -38,13 +38,6 @@ void GMaxtrix::create() {
     m_data = new double[lSize];
 }
 //===============================================
-void GMaxtrix::create(const int& row, int const& col) {
-    m_row = row;
-    m_col = col;
-    release();
-    create();
-}
-//===============================================
 void GMaxtrix::release() {
     if(m_data == 0) return;
     delete[] m_data;
@@ -91,6 +84,14 @@ void GMaxtrix::print() const {
         }
         cout << "|\n";
     }
+}
+//===============================================
+GMaxtrix& GMaxtrix::operator=(const GMaxtrix& mB) {
+    release();
+    m_row = mB.m_row;
+    m_col = mB.m_col;
+    create();
+    setData(mB.m_data);
 }
 //===============================================
 GMaxtrix& GMaxtrix::operator+=(const GMaxtrix& mB) {

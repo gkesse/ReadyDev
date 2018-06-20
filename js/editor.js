@@ -1,7 +1,6 @@
 //===============================================
 function getCommand(name, arg){
 	switch(name){
-	case "createLink":
 	case "insertImage":
 		arg = prompt("Quelle est l'adresse ?");
 		break;
@@ -13,7 +12,10 @@ function getCommand(name, arg){
 	//===============================================
 	switch(name){
 	case "createLink":
-		GEditor.Instance().editLink(arg);
+		GEditor.Instance().editLink();
+		break;
+	case "unlink":
+		GEditor.Instance().editUnLink();
 		break;
 	case "insertImage":
 		GEditor.Instance().editImage(arg);
