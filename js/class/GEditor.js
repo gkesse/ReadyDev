@@ -136,25 +136,23 @@ var GEditor = (function() {
                         lParentNode = lParentNode.parentNode;
                     }
                     var lParentNode = lStartNode.parentNode;
+                    var lTitle = "";
                     while(1) {
                         var lClassName = lParentNode.className;
                         if(lClassName.includes("GEndEditor")) {
                             break;
                         }
-                        if(lClassName.includes("GTitle2")) {
-                            lAction = "GTitle2";
+                        if(lClassName.includes("GTitle1")) {
+                            lTitle = lParentNode.firstChild.firstChild.firstChild.innerText;
                             break;
                         }
                         lParentNode = lParentNode.parentNode;
                     }
-                    var lParentNode = lStartNode;
-                    var lTitle = "";
-                    if(lAction == "GTitle2") lTitle = lParentNode.parentNode.previousSibling.firstChild.innerText;
                     lRange.setStart(lStartNode, 0);
                     lRange.setEnd(lStartNode, lLength);
                     lSelection.addRange(lRange);
                     var lHtml = '';
-                    lHtml += '<h2 class="Title7 GTitle2" id="'+lData+'">';
+                    lHtml += '<h2 class="Title7 GTitle2" id="'+lTitle+'-'+lData+'">';
                     lHtml += '<a class="Link9" href="#'+lTitle+'">';
                     lHtml += lData;
                     lHtml += '</a>';

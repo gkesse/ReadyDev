@@ -4,17 +4,17 @@
 int main(int argc, char** argv) {
     printf("\n### Console Variable\n\n");
     
-    printf("%-30s: %d\n", "Integer (987)", 987);
-    printf("%-30s: %u\n", "Integer Unsigned (987)", 987);
-    printf("%-30s: %o\n", "Octal (987)", 987);
-    printf("%-30s: %x\n", "Hexadecimal Lower (987)", 987);
-    printf("%-30s: %X\n", "Hexadecimal Upper (987)", 987);
-    printf("%-30s: %f\n", "Float Lower (987.654)", 987.654);
-    printf("%-30s: %F\n", "Float Upper (987.654)", 987.654);
-    printf("%-30s: %e\n", "Scientific Lower (987.654)", 987.654);
-    printf("%-30s: %E\n", "Scientific Upper (987.654)", 987.654);
-    printf("%-30s: %g\n", "Shorter Float (987.654)", 987.654);
-    printf("%-30s: %g\n", "Shorter Scientific (.876540E+002)", 9.876540E+002);
+    printf("%-38s: %d\n", "Entier Relatif", -987);
+    printf("%-38s: %u\n", "Entier Naturel", 987);
+    printf("%-38s: %o\n", "Entier Octal ", 987);
+    printf("%-38s: %x\n", "Entier Hexadecimal MIN", 987);
+    printf("%-38s: %X\n", "Entier Hexadecimal MAJ" 987);
+    printf("%-38s: %f\n", "Reel", 987.654);
+    printf("%-38s: %lf\n", "Double", 987.654);
+    printf("%-38s: %e\n", "Notation Scientifique MIN", 987.654);
+    printf("%-38s: %E\n", "Notation Scientifique MAJ", 987.654);
+    printf("%-38s: %g\n", "Shorter Float (987.654)", 987.654);
+    printf("%-38s: %g\n", "Shorter Scientific (9.876540E+002)", 9.876540E+002);
     
     return 0;
 }

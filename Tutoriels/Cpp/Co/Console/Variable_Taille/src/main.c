@@ -4,11 +4,11 @@
 int main(int argc, char** argv) {
     printf("\n### Console Variable Taille\n\n");
     
-    printf("sizeof(char): %d (octets)\n", sizeof(char));
-    printf("sizeof(int): %d (octets)\n", sizeof(int));
-    printf("sizeof(long): %d (octets)\n", sizeof(long));
-    printf("sizeof(float): %d (octets)\n", sizeof(float));
-    printf("sizeof(double): %d (octets)\n", sizeof(double));
+    printf("%-15s: %d (octets)\n", "sizeof(char)", sizeof(char));
+    printf("%-15s: %d (octets)\n", "sizeof(int)", sizeof(int));
+    printf("%-15s: %d (octets)\n", "sizeof(long)", sizeof(long));
+    printf("%-15s: %d (octets)\n", "sizeof(float)", sizeof(float));
+    printf("%-15s: %d (octets)\n", "sizeof(double)", sizeof(double));
     
     return 0;
 }
