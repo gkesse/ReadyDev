@@ -5,7 +5,8 @@
         "meta_desc":
         [
             "Le C++ est un langage de programmation orientée objet.",
-			"Le but de ce tutoriel est de vous apprendre le C++" 
+			"Le but de ce tutoriel est de vous apprendre",
+            "la programmation orientée objet avec le C++" 
         ],
         "meta_cano":"/Tutoriels/Cpp/"
     },    

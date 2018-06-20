@@ -1,0 +1,20 @@
+{
+    "sitemap":"yes",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+            "Le Silex est un outil de création de site internet.",
+			"Le but de ce tutoriel est de vous apprendre",
+            "la création de site internet avec le Silex."
+        ],
+        "meta_cano":"/Tutoriels/PHP/Silex/"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"PHP","link":"/Tutoriels/PHP/","follow":"no"},
+        {"name":"Silex","link":"","follow":"no"}
+    ]
+}
+                        

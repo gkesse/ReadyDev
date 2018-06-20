@@ -4,20 +4,20 @@
     {
         "meta_desc":
         [
-            "Le PHP est un langage de programmation orienté objet",
-			"utilisé côté serveur pour la création de pages web dynamiques.",
-			"Le but de ce tutoriel est de vous apprendre le PHP."
+            "Le PHP est un langage de programmation web dynamique orientée objet",
+			"Le but de ce tutoriel est de vous apprendre",
+            "la programmation web dynamique avec le PHP."
         ],
         "meta_cano":"/Tutoriels/PHP/"
     },    
     "links":
     [
-        {"name":"Tutoriels","link":"/Tutoriels/"},
-        {"name":"PHP","link":""}
+        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"PHP","link":"","follow":"no"}
     ],
-    "summary":
+    "frameworks":
     [
-        {"name":"Apprendre le PHP","link":"/Tutoriels/PHP/PHP/","follow":"yes"}
+        {"name":"Apprendre la création de site internet avec Silex","link":"/Tutoriels/PHP/Silex/","follow":"yes"}
     ]
 }
                         
