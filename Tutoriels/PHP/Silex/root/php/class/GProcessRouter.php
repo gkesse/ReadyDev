@@ -19,17 +19,19 @@
         public function run() {
             $lApp = new Silex\Application();
             
-            $app = new Silex\Application();
+            $lApp->get("/", function () {
+                $lData = "";
+                $lData .= "<br/>### Routeur Message<br/><br/>";
+                $lData .= "Bonjour tout le monde<br/>";
+                return $lData;
+            });
 
-$app->get('/', function () {
-    return 'Hello world';
-});
-
-$app->get('/hello/{name}', function ($name) use ($app) {
-    return 'Hello ' . $app->escape($name);
-});
-
-$app->run();
+            $lApp->get("/Bonjour/{name}", function($name) use ($lApp) {
+                $lData = "";
+                $lData .= "<br/>### Routeur Bonjour<br/><br/>";
+                $lData .= "Routeur: Bonjour ".$lApp->escape($name)."<br/>";
+                return $lData;
+            });
             
             $lApp->run();        
         }

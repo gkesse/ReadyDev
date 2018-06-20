@@ -35,4 +35,13 @@ Listen [::0]:8800</xmp></pre></div><br><h3 class="Title8 GTitle3">Configuration 
             allow from all
             Require all granted
         </Directory>
-</VirtualHost></xmp></pre></div></div></div></div></div><br><br>
+</VirtualHost></xmp></pre></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Utilisation de Silex"><a class="Link3" href="#">Utilisation de Silex</a></h1><div class="Body3">Le but de cette section est de vous apprendre à utiliser Silex.<br>Produit par <b>Gérard KESSE</b>.<br><br><h3 class="Title8 GTitle3">Code source (index.php)</h3><div class="GCode1"><pre><xmp class="Code2 prettyprint linenums">$lApp = new Silex\Application();
+
+$lApp->get("/", function () {
+    $lData = "";
+    $lData .= "<br/>### Message<br/><br/>";
+    $lData .= "Bonjour tout le monde<br/>";
+    return $lData;
+});
+
+$lApp->run();        </xmp></pre></div>&nbsp;<br><h3 class="Title8 GTitle3">Exécution</h3><a class="Link7 GLink1" style="color:lime;" href="http://localhost:8800/">http://localhost:8800/</a><br><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3"><img src="img/Silex_Utilisation.png" alt="img/Silex_Utilisation.png"></div></div></div></div></div><br>
