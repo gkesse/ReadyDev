@@ -45,6 +45,7 @@ var GLoader = (function() {
                         lAction = "GTitle1";
                         lCurrentNode = lParentNode;
                         lMainTitle = lParentNode.firstChild.firstChild.firstChild.innerText;
+                        lMainTitle += '-';
                         break;
                     }
                     lParentNode = lParentNode.parentNode;
@@ -64,7 +65,7 @@ var GLoader = (function() {
                         var lTitle = lNodeMap[i].innerText
                         lHtml += '<div class="Item4">';
                         lHtml += '<span class="Icon10 fa fa-book"></span>';
-                        lHtml += '<a class="Link4" href="#'+lMainTitle+'-'+lTitle+'">';
+                        lHtml += '<a class="Link4" href="#'+lMainTitle+lTitle+'">';
                         lHtml += lTitle;
                         lHtml += '</a>';
                         lHtml += '</div>';

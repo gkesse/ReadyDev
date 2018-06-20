@@ -12,7 +12,8 @@
     "links":
     [
         {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
-        {"name":"Apprendre la programmation avec le C","link":"","follow":"no"}
+        {"name":"C/C++","link":"/Tutoriels/Cpp/","follow":"no"},
+        {"name":"C","link":"","follow":"no"}
     ]
 }
                         

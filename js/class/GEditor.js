@@ -144,6 +144,7 @@ var GEditor = (function() {
                         }
                         if(lClassName.includes("GTitle1")) {
                             lTitle = lParentNode.firstChild.firstChild.firstChild.innerText;
+                            lTitle += '-';
                             break;
                         }
                         lParentNode = lParentNode.parentNode;
@@ -152,7 +153,7 @@ var GEditor = (function() {
                     lRange.setEnd(lStartNode, lLength);
                     lSelection.addRange(lRange);
                     var lHtml = '';
-                    lHtml += '<h2 class="Title7 GTitle2" id="'+lTitle+'-'+lData+'">';
+                    lHtml += '<h2 class="Title7 GTitle2" id="'+lTitle+lData+'">';
                     lHtml += '<a class="Link9" href="#'+lTitle+'">';
                     lHtml += lData;
                     lHtml += '</a>';
