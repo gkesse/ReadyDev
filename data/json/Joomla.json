@@ -1,0 +1,19 @@
+{
+    "sitemap":"yes",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+            "Joomla est un système de gestion de contenu web.",
+			"Le but de ce tutoriel est de vous apprendre",
+            "la gestion de contenu web."
+        ],
+        "meta_cano":"/Tutoriels/PHP/Joomla/"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"PHP","link":"/Tutoriels/PHP/","follow":"no"},
+        {"name":"Joomla","link":"","follow":"no"}
+    ]
+}

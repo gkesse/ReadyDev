@@ -22,6 +22,10 @@
     "ecommerce":
     [
         {"name":"Apprendre la création de site eCommerce avec Magento","link":"/Tutoriels/PHP/Magento/","follow":"yes"}
+    ],
+    "cms":
+    [
+        {"name":"Apprendre la gestion de contenu web avec Joomla","link":"/Tutoriels/PHP/Joomla/","follow":"yes"}
     ]
 }
                         
