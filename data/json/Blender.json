@@ -14,7 +14,6 @@
     "links":
     [
         {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
-        {"name":"Blender3D","link":"","follow":"no"}
+        {"name":"Blender","link":"","follow":"no"}
     ]
 }
-                        
