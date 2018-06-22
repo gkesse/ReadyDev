@@ -15,13 +15,6 @@
         "C'est un site web développé en PHP et maintenu par <b>Gérard KESSE</b>.<br/>",
         "Vous trouverez sur ce site des cours et des tutoriels adaptés aux sciences de l'ingénieur."
     ],
-    "summary":
-    [
-        {"name":"Développement Logiciel","link":"#Developpement_Logiciel"},
-        {"name":"Développement Web","link":"#Developpement_Web"},
-        {"name":"Système de Gestion de Version","link":"#Systeme_Gestion_Version"},
-        {"name":"Système Embarqué","link":"#Systeme_Embarque"}
-    ],
     "software":
     [
         {
@@ -35,22 +28,22 @@
             "icon":"fa fa-desktop",
             "theme":"C#",
             "description":"Programmez en<br/> C#",
-            "link":"/Tutoriels/CSharp/",
-			"follow":"yes"
+            "link":"/Tutoriels/",
+			"follow":"no"
         },
         {
             "icon":"fa fa-desktop",
             "theme":"Java",
             "description":"Programmez en<br/> Java",
-            "link":"/Tutoriels/Java/",
-			"follow":"yes"
+            "link":"/Tutoriels/",
+			"follow":"no"
         },
         {
             "icon":"fa fa-desktop",
             "theme":"Python",
             "description":"Programmez en<br/> Python",
-            "link":"/Tutoriels/Python/",
-			"follow":"yes"
+            "link":"/Tutoriels/",
+			"follow":"no"
         }
     ],
     "web":
@@ -59,22 +52,22 @@
             "icon":"fa fa-globe",
             "theme":"HTML",
             "description":"Programmez en<br/> HTML",
-            "link":"/Tutoriels/HTML/",
-			"follow":"yes"
+            "link":"/Tutoriels/",
+			"follow":"no"
         },
         {
             "icon":"fa fa-globe",
             "theme":"CSS",
             "description":"Apprenez le<br/> CSS",
-            "link":"/Tutoriels/CSS/",
-			"follow":"yes"
+            "link":"/Tutoriels/",
+			"follow":"no"
         },
         {
             "icon":"fa fa-globe",
             "theme":"JavaScript",
             "description":"Programmez en<br/> JavaScript",
-            "link":"/Tutoriels/JavaScript/",
-			"follow":"yes"
+            "link":"/Tutoriels/",
+			"follow":"no"
         },
         {
             "icon":"fa fa-globe",
@@ -90,22 +83,22 @@
             "icon":"fa fa-sitemap",
             "theme":"Git",
             "description":"Apprenez le<br/> Git",
-            "link":"/Tutoriels/Git/",
-			"follow":"yes"
+            "link":"/Tutoriels/",
+			"follow":"no"
         },
         {
             "icon":"fa fa-sitemap",
             "theme":"CVS",
             "description":"Apprenez le<br/> CVS",
-            "link":"/Tutoriels/CVS/",
-			"follow":"yes"
+            "link":"/Tutoriels/",
+			"follow":"no"
         },
         {
             "icon":"fa fa-sitemap",
             "theme":"SVN",
             "description":"Apprenez le<br/> SVN",
-            "link":"/Tutoriels/SVN/",
-			"follow":"yes"
+            "link":"/Tutoriels/",
+			"follow":"no"
         }
     ],
     "embedded":
@@ -114,8 +107,8 @@
             "icon":"fa fa-microchip",
             "theme":"Raspberry Pi",
             "description":"Programmez le<br/> RaspberryPi",
-            "link":"/Tutoriels/RaspberryPi/",
-			"follow":"yes"
+            "link":"/Tutoriels/",
+			"follow":"no"
         }
     ],
     "modeling3d":
@@ -125,7 +118,7 @@
             "theme":"Blender 3D",
             "description":"Apprenez<br/> Blender 3D",
             "link":"/Tutoriels/Blender3D/",
-			"follow":"no"
+			"follow":"yes"
         }
     ]
 }
