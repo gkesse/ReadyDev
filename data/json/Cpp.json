@@ -6,7 +6,8 @@
         [
             "Le C++ est un langage de programmation orientée objet.",
 			"Le but de ce tutoriel est de vous apprendre",
-            "la programmation orientée objet avec le C++" 
+            "la programmation orientée objet avec le C++.",
+            "Produit par Gérard KESSE."
         ],
         "meta_cano":"/Tutoriels/Cpp/"
     },    

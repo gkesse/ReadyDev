@@ -4,18 +4,17 @@
     {
         "meta_desc":
         [
-            "Le C est un langage de programmation.",
+            "Blender est un outil de modélisation 3D.",
 			"Le but de ce tutoriel est de vous apprendre",
-            "la programmation avec le C.",
+            "la modélisation 3D avec Blender.",
             "Produit par Gérard KESSE."
         ],
-        "meta_cano":"/Tutoriels/Cpp/Co/"
+        "meta_cano":"/Tutoriels/Blender/"
     },    
     "links":
     [
         {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
-        {"name":"C/C++","link":"/Tutoriels/Cpp/","follow":"no"},
-        {"name":"C","link":"","follow":"no"}
+        {"name":"Blender3D","link":"","follow":"no"}
     ]
 }
                         

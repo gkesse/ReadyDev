@@ -115,9 +115,9 @@
     [
         {
             "icon":"fa fa-cubes",
-            "theme":"Blender 3D",
-            "description":"Apprenez<br/> Blender 3D",
-            "link":"/Tutoriels/Blender3D/",
+            "theme":"Blender",
+            "description":"Apprenez<br/> Blender",
+            "link":"/Tutoriels/Blender/",
 			"follow":"yes"
         }
     ]

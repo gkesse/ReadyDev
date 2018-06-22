@@ -29,7 +29,7 @@ var GEditor = (function() {
 				var lSelection = document.getSelection();
 				if(!lSelection.toString()) return;
                 var lHtml = '';
-                lHtml += '<a class="Link7 GLink1" style="color:'+lColor+';" ';
+                lHtml += '<a class="Link7 GLink1" style="color:'+lColor+';" target="_blank"';
                 lHtml += 'href="'+lLink+'">';
                 lHtml += lSelection;
                 lHtml += '</a>';
