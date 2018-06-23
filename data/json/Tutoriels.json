@@ -28,21 +28,21 @@
             "icon":"fa fa-desktop",
             "theme":"C#",
             "description":"Programmez en<br/> C#",
-            "link":"/Tutoriels/",
+            "link":"#",
 			"follow":"no"
         },
         {
             "icon":"fa fa-desktop",
             "theme":"Java",
             "description":"Programmez en<br/> Java",
-            "link":"/Tutoriels/",
+            "link":"#",
 			"follow":"no"
         },
         {
             "icon":"fa fa-desktop",
             "theme":"Python",
             "description":"Programmez en<br/> Python",
-            "link":"/Tutoriels/",
+            "link":"#",
 			"follow":"no"
         }
     ],
@@ -52,21 +52,21 @@
             "icon":"fa fa-globe",
             "theme":"HTML",
             "description":"Programmez en<br/> HTML",
-            "link":"/Tutoriels/",
+            "link":"#",
 			"follow":"no"
         },
         {
             "icon":"fa fa-globe",
             "theme":"CSS",
             "description":"Apprenez le<br/> CSS",
-            "link":"/Tutoriels/",
+            "link":"#",
 			"follow":"no"
         },
         {
             "icon":"fa fa-globe",
             "theme":"JavaScript",
             "description":"Programmez en<br/> JavaScript",
-            "link":"/Tutoriels/",
+            "link":"#",
 			"follow":"no"
         },
         {
@@ -83,21 +83,21 @@
             "icon":"fa fa-sitemap",
             "theme":"Git",
             "description":"Apprenez le<br/> Git",
-            "link":"/Tutoriels/",
+            "link":"#",
 			"follow":"no"
         },
         {
             "icon":"fa fa-sitemap",
             "theme":"CVS",
             "description":"Apprenez le<br/> CVS",
-            "link":"/Tutoriels/",
+            "link":"#",
 			"follow":"no"
         },
         {
             "icon":"fa fa-sitemap",
             "theme":"SVN",
             "description":"Apprenez le<br/> SVN",
-            "link":"/Tutoriels/",
+            "link":"#",
 			"follow":"no"
         }
     ],
@@ -107,7 +107,7 @@
             "icon":"fa fa-microchip",
             "theme":"Raspberry Pi",
             "description":"Programmez le<br/> RaspberryPi",
-            "link":"/Tutoriels/",
+            "link":"#",
 			"follow":"no"
         }
     ],
