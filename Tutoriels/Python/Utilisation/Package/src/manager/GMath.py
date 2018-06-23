@@ -1,21 +1,21 @@
 #================================================
 def add(a, b):
-    m_data = a + b
-    return m_data
+    lData = a + b
+    return lData
 #================================================
 def sub(a, b):
-    m_data = a - b
-    return m_data
+    lData = a - b
+    return lData
 #================================================
 def mul(a, b):
-    m_data = a * b
-    return m_data
+    lData = a * b
+    return lData
 #================================================
 def div(a, b):
-    m_data = a / float(b)
-    return m_data
+    lData = a / float(b)
+    return lData
 #================================================
 def mod(a, b):
-    m_data = a % b
-    return m_data
+    lData = a % b
+    return lData
 #================================================
