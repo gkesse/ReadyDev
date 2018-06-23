@@ -4,17 +4,17 @@ print "### Module\n"
 import GMath
 #================================================
 lData = GMath.add(22, 7)
-print "add: ", lData
+print "{0:25}: {1}".format("Addition (22 + 7)", lData)
 #================================================
 lData = GMath.sub(22, 7)
-print "sub: ", lData
+print "{0:25}: {1}".format("Soustraction (22 - 7)", lData)
 #================================================
 lData = GMath.mul(22, 7)
-print "mul: ", lData
+print "{0:25}: {1}".format("Multiplication (22 * 7)", lData)
 #================================================
 lData = GMath.div(22, 7)
-print "div: ", lData
+print "{0:25}: {1}".format("Division (22 / 7)", lData)
 #================================================
 lData = GMath.mod(22, 7)
-print "mod: ", lData
+print "{0:25}: {1}".format("Modulo (22 % 7)", lData)
 #================================================

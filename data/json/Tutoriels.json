@@ -29,7 +29,7 @@
             "theme":"C#",
             "description":"Programmez en<br/> C#",
             "link":"#",
-			"follow":"no"
+			"follow":"yes"
         },
         {
             "icon":"fa fa-desktop",
@@ -42,7 +42,7 @@
             "icon":"fa fa-desktop",
             "theme":"Python",
             "description":"Programmez en<br/> Python",
-            "link":"#",
+            "link":"/Tutoriels/Python/",
 			"follow":"no"
         }
     ],

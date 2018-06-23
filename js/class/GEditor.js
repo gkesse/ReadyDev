@@ -528,6 +528,12 @@ var GEditor = (function() {
                         }
                     }
                     if(!lSelection.toString()) return;
+                	var lArg = prompt("Langage ?", "lang-py");
+                    if(!lArg) return;
+					var lArgMap = lArg.split(";");
+                    if(lArgMap.length < 1) return;
+					var lLanguage = lArgMap[0].trim();
+                    if(!lLanguage) return;
                     var lFragment = lSelection.getRangeAt(0).cloneContents();
                     var lDiv = document.createElement('DIV');
                     lDiv.appendChild(lFragment);
@@ -535,7 +541,7 @@ var GEditor = (function() {
                     lData = this.encodeHtml(lData, false);
                     var lHtml = '';
                     lHtml += '<div class="GCode1">';
-                    lHtml += '<pre><xmp class="Code2 prettyprint linenums">';
+                    lHtml += '<pre><xmp class="Code2 prettyprint linenums '+lLanguage+'">';
                     lHtml += lData;
                     lHtml += '</xmp></pre>';
                     lHtml += '</div>';

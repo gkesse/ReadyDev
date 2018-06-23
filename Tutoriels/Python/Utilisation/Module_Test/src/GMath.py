@@ -20,6 +20,9 @@ def mod(a, b):
     return lData
 #================================================
 if __name__ == "__main__":
-    lData = add(22, 7)
-    print "add:", lData
+    print "{0:25}: {1}".format("Addition (25 + 9)", add(25, 9))
+    print "{0:25}: {1}".format("Addition (25 - 9)", sub(25, 9))
+    print "{0:25}: {1}".format("Addition (25 * 9)", mul(25, 9))
+    print "{0:25}: {1}".format("Addition (25 / 9)", div(25, 9))
+    print "{0:25}: {1}".format("Addition (25 % 9)", mod(25, 9))
 #================================================
