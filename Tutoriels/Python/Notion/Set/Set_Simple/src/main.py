@@ -1,7 +1,8 @@
 #================================================
 import GSet
 #================================================
-print "\n### Add Data\n"
+print "\n### Ensemble\n"
+#================================================
 GSet.addData("Gerard")
 GSet.addData("Deborah")
 GSet.addData("Bryan")

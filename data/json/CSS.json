@@ -4,32 +4,21 @@
     {
         "meta_desc":
         [
-            "Démarrez la mise en forme en CSS, commencez par les notions de base", 
-            "créez vos pages webs, ajoutez du style à vos contenus web."
+            "Le CSS est un langage de mise en forme de pages web.",
+            "Le but de ce tutoriel est de vous apprendre",
+            "la mise en forme de pages web avec le CSS.",
+            "Produit par Gérard KESSE."
         ],
-        "meta_cano":"/Tutoriels/CSS/"
+        "meta_cano":"/Tutoriels/CSS3/"
     },    
     "links":
     [
-        {"name":"Tutoriels","link":"/Tutoriels/"},
-        {"name":"CSS","link":""}
+        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"CSS","link":"","follow":"no"}
     ],
-    "summary":
+    "web":
     [
-        {"name":"Notions de Base","link":"#Notions"}
-    ],
-    "notion":
-    {
-        "basic":
-        [
-            {"name":"Boucle","link":"#"},
-            {"name":"Clavier","link":"#"},
-            {"name":"Condition","link":"#"},
-            {"name":"Console","link":"#"},
-            {"name":"Fonction","link":"#"},
-            {"name":"Tableau","link":"#"},
-            {"name":"Variable","link":"#"}
-        ]
-    }
+        {"name":"Apprendre la mise en forme de pages web avec le CSS","link":"/Tutoriels/CSS3/Cours/","follow":"yes"}
+    ]
 }
                         

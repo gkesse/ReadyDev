@@ -1,20 +1,20 @@
 #================================================
-m_dataMap = set()
+gDataMap = set()
 #================================================
 def addData(data):
-    m_dataMap.add(data)
+    gDataMap.add(data)
 #================================================
 def removeData(data):
-    m_dataMap.discard(data)
+    gDataMap.discard(data)
 #================================================
 def existData(data):
-    if data in m_dataMap:
+    if data in gDataMap:
         print "True: {} data exists".format(data)
         return True
     print "False: {} data doesn't exist".format(data)
     return False
 #================================================
 def showData():
-    for i, val in enumerate(m_dataMap):
+    for i, val in enumerate(gDataMap):
         print "data[{}]: {}".format(i, val)
 #================================================

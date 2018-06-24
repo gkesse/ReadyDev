@@ -4,32 +4,21 @@
     {
         "meta_desc":
         [
-            "Démarrez la programmation en HTML, commencez par les notions de base", 
-            "créez votre site internet, ajoutez du style à vos contenus."
+            "Le HTML est un langage de programmation web statique.",
+            "Le but de ce tutoriel est de vous apprendre",
+            "la programmation web avec le HTML.",
+            "Produit par Gérard KESSE."
         ],
         "meta_cano":"/Tutoriels/HTML/"
     },    
     "links":
     [
-        {"name":"Tutoriels","link":"/Tutoriels/"},
-        {"name":"HTML","link":""}
+        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"HTML","link":"","follow":"no"}
     ],
-    "summary":
+    "web":
     [
-        {"name":"Notions de Base","link":"#Notions"}
-    ],
-    "notion":
-    {
-        "basic":
-        [
-            {"name":"Boucle","link":"#"},
-            {"name":"Clavier","link":"#"},
-            {"name":"Condition","link":"#"},
-            {"name":"Console","link":"#"},
-            {"name":"Fonction","link":"#"},
-            {"name":"Tableau","link":"#"},
-            {"name":"Variable","link":"#"}
-        ]
-    }
+        {"name":"Apprendre la programmation web avec le HTML","link":"/Tutoriels/HTML/Cours/","follow":"yes"}
+    ]
 }
                         

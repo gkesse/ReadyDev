@@ -1,9 +1,11 @@
 #================================================
 def sayHello(name):
-    m_format = "Hello {}".format(name)
-    print m_format
+    lHello = "Bonjour {}".format(name)
+    print lHello
+#================================================
+print "### Fonction Argument Defini\n"
 #================================================
 sayHello("Gerard")
-sayHello("Deborah")
 sayHello("Bryan")
+sayHello("Robins")
 #================================================

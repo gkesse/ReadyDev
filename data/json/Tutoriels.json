@@ -28,22 +28,22 @@
             "icon":"fa fa-desktop",
             "theme":"C#",
             "description":"Programmez en<br/> C#",
-            "link":"#",
+            "link":"/Tutoriels/CSharp/",
 			"follow":"yes"
         },
         {
             "icon":"fa fa-desktop",
             "theme":"Java",
             "description":"Programmez en<br/> Java",
-            "link":"#",
-			"follow":"no"
+            "link":"/Tutoriels/Java/",
+			"follow":"yes"
         },
         {
             "icon":"fa fa-desktop",
             "theme":"Python",
             "description":"Programmez en<br/> Python",
             "link":"/Tutoriels/Python/",
-			"follow":"no"
+			"follow":"yes"
         }
     ],
     "web":
@@ -52,22 +52,22 @@
             "icon":"fa fa-globe",
             "theme":"HTML",
             "description":"Programmez en<br/> HTML",
-            "link":"#",
-			"follow":"no"
+            "link":"/Tutoriels/HTML/",
+			"follow":"yes"
         },
         {
             "icon":"fa fa-globe",
             "theme":"CSS",
             "description":"Apprenez le<br/> CSS",
-            "link":"#",
-			"follow":"no"
+            "link":"/Tutoriels/CSS3/",
+			"follow":"yes"
         },
         {
             "icon":"fa fa-globe",
             "theme":"JavaScript",
             "description":"Programmez en<br/> JavaScript",
-            "link":"#",
-			"follow":"no"
+            "link":"/Tutoriels/JavaScript/",
+			"follow":"yes"
         },
         {
             "icon":"fa fa-globe",

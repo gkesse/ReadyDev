@@ -4,33 +4,21 @@
     {
         "meta_desc":
         [
-            "Démarrez la programmation en Java, commencez par les notions de base", 
-            "allez à la programmation orientée objet, maîtrisez les patrons de conception."
+            "Le Java est un langage de programmation orientée objet.",
+            "Le but de ce tutoriel est de vous apprendre",
+            "la programmation avec le Java.",
+            "Produit par Gérard KESSE."
         ],
         "meta_cano":"/Tutoriels/Java/"
     },    
     "links":
     [
-        {"name":"Tutoriels","link":"/Tutoriels/"},
-        {"name":"Java","link":""}
+        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"Java","link":"","follow":"no"}
     ],
-    "summary":
+    "software":
     [
-        {"name":"Notions de Base","link":"#Notions"},
-        {"name":"Programmation Orientée Objet","link":"#"}
-    ],
-    "notion":
-    {
-        "basic":
-        [
-            {"name":"Boucle","link":"#"},
-            {"name":"Clavier","link":"#"},
-            {"name":"Condition","link":"#"},
-            {"name":"Console","link":"#"},
-            {"name":"Fonction","link":"#"},
-            {"name":"Tableau","link":"#"},
-            {"name":"Variable","link":"#"}
-        ]
-    }
+        {"name":"Apprendre la programmation avec le Java","link":"/Tutoriels/Java/Cours/","follow":"yes"}
+    ]
 }
                         

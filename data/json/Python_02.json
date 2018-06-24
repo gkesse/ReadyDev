@@ -1,0 +1,21 @@
+{
+    "sitemap":"yes",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+            "Le Python est un langage de programmation orientée objet.",
+            "Le but de ce tutoriel est de vous apprendre",
+            "la programmation avec le Python.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Tutoriels/Python/Cours/"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"Python","link":"/Tutoriels/Python/","follow":"no"},
+        {"name":"Cours","link":"","follow":"no"}
+    ]
+}
+                        

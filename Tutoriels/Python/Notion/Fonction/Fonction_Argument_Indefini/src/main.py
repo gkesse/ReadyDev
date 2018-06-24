@@ -1,13 +1,14 @@
 #================================================
 def sayHello(*names):
-    m_list = list(names)
-    m_format = ""
-    for val in m_list:
-        m_name = val[0]
-        m_id = val[1]
-        m_format += "Hello {}, Your ID: {}\n" \
-        .format(m_name, m_id)
-    print m_format
+    lList = list(names)
+    lFormat = ""
+    for val in lList:
+        lName = val[0]
+        lId = val[1]
+        lFormat += "Bonjour {}, Ton ID est: {}\n".format(lName, lId)
+    print lFormat
 #================================================
-sayHello([("Gerard", 10),("Deborah", 20),("Bryan", 30)])
+print "### Fonction avec argument indefini\n"
+#================================================
+sayHello([("Gerard", 10),("Bryan", 20),("Robins", 30)])
 #================================================
