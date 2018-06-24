@@ -1,5 +1,5 @@
 {
-    "sitemap":"yes",
+    "sitemap":"no",
     "meta_data":
     {
         "meta_desc":
@@ -9,16 +9,12 @@
             "la modélisation 3D avec Blender.",
             "Produit par Gérard KESSE."
         ],
-        "meta_cano":"/Tutoriels/Blender/"
+        "meta_cano":"/Tutoriels/Blender/Cours/"
     },    
     "links":
     [
         {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
-        {"name":"Blender","link":"","follow":"no"}
-    ],
-    "modeling3d":
-    [
-        {"name":"Apprendre la modélisation 3D avec Blender","link":"/Tutoriels/Blender/Cours/","follow":"yes"}
+        {"name":"Blender","link":"/Tutoriels/Blender/","follow":"no"},
+        {"name":"Cours","link":"","follow":"no"}
     ]
 }
-                        

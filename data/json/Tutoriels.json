@@ -111,6 +111,16 @@
 			"follow":"no"
         }
     ],
+    "electronics":
+    [
+        {
+            "icon":"fa fa-microchip",
+            "theme":"KiCad",
+            "description":"Apprenez<br/> KiCad",
+            "link":"/Tutoriels/KiCad/",
+			"follow":"yes"
+        }
+    ],
     "modeling3d":
     [
         {
