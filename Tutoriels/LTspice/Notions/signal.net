@@ -1,5 +1,0 @@
-* C:\Users\sabine\Downloads\Gerard\Programs\ReadyDev\Tutoriels\LTspice\Notions\signal.asc
-V1 Vin 0 PULSE(0 10 1ns 20ms 1ns 1ns 20ms)
-.tran 0 100ms 0 0.01ms
-.backanno
-.end

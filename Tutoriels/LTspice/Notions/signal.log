@@ -3,20 +3,20 @@ Circuit: * C:\Users\sabine\Downloads\Gerard\Programs\ReadyDev\Tutoriels\LTspice\
 WARNING: Less than two connections to node VIN.  This node is used by V1.
 .OP point found by inspection.
 
-Date: Sun Jun 24 23:48:54 2018
-Total elapsed time: 0.249 seconds.
+Date: Mon Jun 25 00:26:04 2018
+Total elapsed time: 0.203 seconds.
 
 tnom = 27
 temp = 27
 method = modified trap
-totiter = 21014
-traniter = 21014
-tranpoints = 10508
-accept = 10419
-rejected = 89
+totiter = 20440
+traniter = 20440
+tranpoints = 10221
+accept = 10187
+rejected = 34
 matrix size = 2
 fillins = 0
 solver = Normal
 Matrix Compiler1: 18 bytes object code size  0.0/0.0/[0.0]
-Matrix Compiler2: 82 bytes object code size  0.0/0.0/[0.0]
+Matrix Compiler2: off  [0.0]/0.0/0.0
 
