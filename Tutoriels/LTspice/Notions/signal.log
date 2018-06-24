@@ -1,0 +1,22 @@
+Circuit: * C:\Users\sabine\Downloads\Gerard\Programs\ReadyDev\Tutoriels\LTspice\Notions\signal.asc
+
+WARNING: Less than two connections to node VIN.  This node is used by V1.
+Direct Newton iteration for .op point succeeded.
+
+Date: Sun Jun 24 23:03:09 2018
+Total elapsed time: 0.300 seconds.
+
+tnom = 27
+temp = 27
+method = modified trap
+totiter = 20037
+traniter = 20034
+tranpoints = 10018
+accept = 10018
+rejected = 0
+matrix size = 2
+fillins = 0
+solver = Normal
+Matrix Compiler1: 18 bytes object code size  0.0/0.0/[0.0]
+Matrix Compiler2:       8 opcodes  0.0/[0.0]/0.1
+
