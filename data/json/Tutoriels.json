@@ -114,10 +114,17 @@
     "electronics":
     [
         {
-            "icon":"fa fa-microchip",
+            "icon":"fa fa-building",
             "theme":"KiCad",
             "description":"Apprenez<br/> KiCad",
             "link":"/Tutoriels/KiCad/",
+			"follow":"yes"
+        },
+        {
+            "icon":"fa fa-building",
+            "theme":"LTspice",
+            "description":"Apprenez<br/> LTspice",
+            "link":"/Tutoriels/LTspice/",
 			"follow":"yes"
         }
     ],
