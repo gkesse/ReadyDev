@@ -36,4 +36,4 @@ set PATH=C:\Program Files (x86)\Adobe\Reader 11.0\Reader
 
 set GPDF=%cd%\pdf
 
-AcroRd32 %GPDF%\main.pdf</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Utilisation de MiKTeX-Résultat"><a class="Link9" href="#Utilisation de MiKTeX">Résultat</a></h2><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3"><img src="img/MiKTeX_Utilisation.png" alt="img/MiKTeX_Utilisation.png"><br><br><h2 class="Title7 GTitle2" id="Utilisation de MiKTeX-Code source"><a class="Link9" href="#Utilisation de MiKTeX">Code source</a></h2><br><br></div></div></div></div></div><br>
+AcroRd32 %GPDF%\main.pdf</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Utilisation de MiKTeX-Résultat"><a class="Link9" href="#Utilisation de MiKTeX">Résultat</a></h2><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3"><img src="img/MiKTeX_Utilisation.png" alt="img/MiKTeX_Utilisation.png"><br></div></div></div></div></div><br>
