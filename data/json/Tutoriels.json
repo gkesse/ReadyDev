@@ -138,6 +138,16 @@
             "link":"/Tutoriels/Blender/",
 			"follow":"yes"
         }
+    ],
+    "navigator":
+    [
+        {
+            "icon":"fa fa-globe",
+            "theme":"Firefox",
+            "description":"Apprenez<br/> Firefox",
+            "link":"/Tutoriels/Firefox/",
+			"follow":"yes"
+        }
     ]
 }
                         
