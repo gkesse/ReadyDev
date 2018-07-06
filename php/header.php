@@ -12,7 +12,7 @@
     
     $lExiststLink = GConfig::Instance()->existData("link");
     if($lExiststLink == true) {
-        $lLink = GConfig::Instance()->getData("link"); 
+        $lLinks = GConfig::Instance()->getData("link"); 
     }
     
     $lExiststView = GConfig::Instance()->existData("view");
@@ -49,7 +49,7 @@
         <!-- ============================================ -->
         <title><?php echo $lTitle; ?> | <?php echo $lSiteName; ?></title>
         <meta charset="UTF-8"/>
-        <link rel="shortcut icon" type="image/png" href="/img/readydev.png"/>
+        <link rel="shortcut icon" type="image/png" href="/data/data/img/defaults/defaults/readydev.png"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
         <!-- ============================================ -->
         <!-- Responsive Web Design -->
@@ -69,8 +69,8 @@
         <!-- ============================================ -->
         <!-- OpenGraph -->
         <meta property="og:type" content="website"/>
-        <meta property="og:image" content="/img/readydev-440x440.png"/>
-        <meta property="og:image:secure_url" content="/img/readydev-440x440.png"/>
+        <meta property="og:image" content="/data/img/defaults/readydev-440x440.png"/>
+        <meta property="og:image:secure_url" content="/data/img/defaults/readydev-440x440.png"/>
         <meta property="og:image:type" content="image/png"/>
         <meta property="og:image:width" content="440"/>
         <meta property="og:image:height" content="440"/>        
@@ -98,6 +98,13 @@
         <?php } ?>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <!-- ============================================ -->
+        <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
+        });
+        </script>
+        <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <!-- ============================================ -->
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-109595989-1"></script>
         <script>
@@ -111,7 +118,11 @@
         <link rel="stylesheet" href="/css/style.php"/>
         <!-- ============================================ -->
         <script src="/js/class/GHeader.js"></script>
+        <script src="/js/class/GParallax.js"></script>
+        <script src="/js/class/GLoader.js"></script>
+        <!-- ============================================ -->
         <script src="/js/header.js"></script>
+        <script src="/js/loader.js"></script>
         <!-- ============================================ -->
     </head>
     <body>
@@ -124,7 +135,7 @@
             <!-- ============================================ -->
             <?php require $_SERVER["DOCUMENT_ROOT"]."/php/connection.php";  ?>
             <!-- ============================================ -->
-            <div class="BodyPage Mrg Pdd">
+            <div class="BodyPage">
                 <div class="MainPage">
                     <header class="Header">
                         <!-- ============================================ -->
@@ -145,7 +156,7 @@
                                 }
                             ?>
                             <?php 
-                                if($lMenu["name"] == "Admin") {
+                                if($lMenu["name"] == "Admin" || $lMenu["name"] == "Test") {
                                     if(!isset($_SESSION["login"])) continue;
                                     else if($_SESSION["login"]["group"] != "admin") continue;
                                 }
@@ -165,33 +176,30 @@
                             <li class="Bars" onclick="openHeaderMenu(this);"><i class="fa fa-bars"></i></li>
                         </ul>
                         <!-- ============================================ -->
-                        <div class="pgCt10">
-                            <div class="bgra">
-                                <h1 class="bgra clra pgCt20"><?php echo $lTitle; ?></h1>
+                        <div class="MainBlock">
+                            <div class="Content">
+                                <h1 class="Title2"><?php echo $lTitle; ?></h1>
                                 <!-- ============================================ -->
                                 <?php if($lExiststView == true) { ?>
-                                <div class="pgCt10">
-                                    <div class="bgra dibm ftsc">
-                                        <div class="bgra fltl pgCt05">
-                                            <i class="ftsb fa fa-eye"></i>
-                                            <span>Vues</span>
-                                        </div>
-                                        <div class="fltl pgCt05">
-                                            <span><?php echo $lViewNum; ?></span>
+                                <div class="Body">
+                                    <div class="Row">
+                                        <div class="Form">
+                                            <div class="Label">
+                                                <i class="Icon fa fa-eye"></i>
+                                                <span>Vues</span>
+                                            </div>
+                                            <div class="Field">
+                                                <span><?php echo $lViewNum; ?></span>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <!-- ============================================ -->
-                                <div class="dibm pdba">
-                                    <?php $m_url = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; ?>
-                                    <div class="fltl mgra">
-                                        <a href="http://www.facebook.com/sharer.php?u=<?php echo $m_url; ?>" target="_blank">
-                                            <i class="ftaa fa fa-facebook scna"></i>
+                                    <div class="Row22">
+                                        <?php $lUrl = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; ?>
+                                        <a class="Col" href="http://www.facebook.com/sharer.php?u=<?php echo $lUrl; ?>" target="_blank">
+                                            <i class="Link2 Facebook fa fa-facebook"></i>
                                         </a>
-                                    </div>
-                                    <div class="fltl">
-                                        <a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo $m_url; ?>&title=<?php echo urlencode($lTitle.' | '.$lSiteName); ?>&summary=<?php echo urlencode($lMetaDesc); ?>" target="_blank">
-                                            <i class="ftaa fa fa-linkedin scnb"></i>
+                                        <a class="Col" href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo $lUrl; ?>&title=<?php echo urlencode($lTitle.' | '.$lSiteName); ?>&summary=<?php echo urlencode($lMetaDesc); ?>" target="_blank">
+                                            <i class="Link2 Twitter fa fa-linkedin"></i>
                                         </a>
                                     </div>
                                 </div>
@@ -201,16 +209,20 @@
                         </div>
                         <!-- ============================================ -->
                         <?php if($lExiststLink == true) { ?>
-                        <div class="pdda">
-                            <?php 
-                            for($i = 0; $i < count($lLink); $i++) {
-                                $m_di = $lLink[$i]; 
-                                if($i != 0) { 
-                            ?>
-                            <i class="fa fa-chevron-right pddc dibm mgbb"></i>
-                            <?php } ?>
-                            <a class="ftfb bgra dibm pddc mgbb" href="<?php echo $m_di["link"]; ?>"><?php echo $m_di["name"]; ?></a>
-                            <?php } ?>
+                        <div class="MainBlock0">
+                            <div class="Content11">
+                                <div class="Row22">
+                                    <?php 
+                                    for($i = 0; $i < count($lLinks); $i++) {
+                                        $lLink = $lLinks[$i]; 
+                                        if($i != 0) { 
+                                    ?>
+                                    <div class="Col4"><i class="fa fa-chevron-right"></i></div>
+                                    <?php } ?>
+                                    <div class="Col4"><a class="Link8" href="<?php echo $lLink["link"]; ?>"><?php echo $lLink["name"]; ?></a></div>
+                                    <?php } ?>
+                                </div>
+                            </div>
                         </div>
                         <?php } ?>
                         <!-- ============================================ -->

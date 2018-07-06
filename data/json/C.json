@@ -1,0 +1,21 @@
+{
+    "sitemap":"yes",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+            "Le C est un langage de programmation.",
+			"Le but de ce tutoriel est de vous apprendre",
+            "la programmation avec le C.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Tutoriels/Cpp/Co/"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"C/C++","link":"/Tutoriels/Cpp/","follow":"no"},
+        {"name":"C","link":"","follow":"no"}
+    ]
+}
+                        

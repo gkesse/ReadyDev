@@ -1,0 +1,21 @@
+Circuit: * C:\Users\sabine\Downloads\Gerard\Programs\ReadyDev\Tutoriels\LTspice\Notions\main.asc
+
+Direct Newton iteration for .op point succeeded.
+
+Date: Sun Jun 24 19:12:51 2018
+Total elapsed time: 0.204 seconds.
+
+tnom = 27
+temp = 27
+method = modified trap
+totiter = 16037
+traniter = 16034
+tranpoints = 8018
+accept = 8018
+rejected = 0
+matrix size = 3
+fillins = 0
+solver = Normal
+Matrix Compiler1:       5 opcodes  0.0/[0.0]/0.0
+Matrix Compiler2:      15 opcodes  0.1/[0.0]/0.1
+

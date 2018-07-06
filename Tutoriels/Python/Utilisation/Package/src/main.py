@@ -1,18 +1,20 @@
 #================================================
 from manager import GMath
 #================================================
-m_data = GMath.add(22, 7)
-print "add: ", m_data
+print "### Package\n"
 #================================================
-m_data = GMath.sub(22, 7)
-print "sub: ", m_data
+lData = GMath.add(22, 7)
+print "{0:25}: {1}".format("Addition (22 + 7)", lData)
 #================================================
-m_data = GMath.mul(22, 7)
-print "mul: ", m_data
+lData = GMath.sub(22, 7)
+print "{0:25}: {1}".format("Soustraction (22 - 7)", lData)
 #================================================
-m_data = GMath.div(22, 7)
-print "div: ", m_data
+lData = GMath.mul(22, 7)
+print "{0:25}: {1}".format("Multiplication (22 * 7)", lData)
 #================================================
-m_data = GMath.mod(22, 7)
-print "mod: ", m_data
+lData = GMath.div(22, 7)
+print "{0:25}: {1}".format("Division (22 / 7)", lData)
+#================================================
+lData = GMath.mod(22, 7)
+print "{0:25}: {1}".format("Modulo (22 % 7)", lData)
 #================================================

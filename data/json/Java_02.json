@@ -1,0 +1,21 @@
+{
+    "sitemap":"no",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+            "Le Java est un langage de programmation orientée objet.",
+            "Le but de ce tutoriel est de vous apprendre",
+            "la programmation avec le Java.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Tutoriels/Java/Cours/"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"Java","link":"/Tutoriels/Java/","follow":"no"},
+        {"name":"Cours","link":"","follow":"no"}
+    ]
+}
+                        

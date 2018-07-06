@@ -1,0 +1,20 @@
+{
+    "sitemap":"no",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+            "Blender est un outil de modélisation 3D.",
+			"Le but de ce tutoriel est de vous apprendre",
+            "la modélisation 3D avec Blender.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Tutoriels/Blender/Cours/"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"Blender","link":"/Tutoriels/Blender/","follow":"no"},
+        {"name":"Cours","link":"","follow":"no"}
+    ]
+}

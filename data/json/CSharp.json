@@ -4,33 +4,21 @@
     {
         "meta_desc":
         [
-            "Démarrez la programmation en C#, commencez par les notions de base", 
-            "allez à la programmation orientée objet, maîtrisez les patrons de conception."
+            "Le C# est un langage de programmation orientée objet.",
+            "Le but de ce tutoriel est de vous apprendre",
+            "la programmation avec le C#.",
+            "Produit par Gérard KESSE."
         ],
         "meta_cano":"/Tutoriels/CSharp/"
     },    
     "links":
     [
-        {"name":"Tutoriels","link":"/Tutoriels/"},
-        {"name":"C#","link":""}
+        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"C#","link":"","follow":"no"}
     ],
-    "summary":
+    "software":
     [
-        {"name":"Notions de Base","link":"#Notions"},
-        {"name":"Programmation Orientée Objet","link":"#"}
-    ],
-    "notion":
-    {
-        "basic":
-        [
-            {"name":"Boucle","link":"#"},
-            {"name":"Clavier","link":"#"},
-            {"name":"Condition","link":"#"},
-            {"name":"Console","link":"#"},
-            {"name":"Fonction","link":"#"},
-            {"name":"Tableau","link":"#"},
-            {"name":"Variable","link":"#"}
-        ]
-    }
+        {"name":"Apprendre la programmation avec le C#","link":"/Tutoriels/CSharp/Cours/","follow":"yes"}
+    ]
 }
                         

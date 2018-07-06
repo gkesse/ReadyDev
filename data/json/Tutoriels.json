@@ -4,17 +4,17 @@
     {
         "meta_desc":
         [
-            "ReadyDev propose des Tutoriels permettant de monter en compétences de",
-            "manière éfficace en Dévloppement Logiciel, Systèmes Embarqués, Robotique."
+            "ReadyDev est une Plateforme de Développement Continu.",
+            "C'est un site web développé en PHP et maintenu par Gérard KESSE.",
+            "Vous trouverez sur ce site des cours et des tutoriels adaptés aux sciences de l'ingénieur."
         ],
         "meta_cano":"/Tutoriels/"
     },    
-    "summary":
+    "intro":
     [
-        {"name":"Développement Logiciel","link":"#Developpement_Logiciel"},
-        {"name":"Développement Web","link":"#Developpement_Web"},
-        {"name":"Système de Gestion de Version","link":"#Systeme_Gestion_Version"},
-        {"name":"Systèmes Embarqués","link":"#Systemes_Embarques"}
+        "<b>ReadyDev</b> est une Plateforme de Développement Continu.<br/>",
+        "C'est un site web développé en PHP et maintenu par <b>Gérard KESSE</b>.<br/>",
+        "Vous trouverez sur ce site des <b>cours</b> et des <b>tutoriels</b> adaptés aux sciences de l'ingénieur."
     ],
     "software":
     [
@@ -60,7 +60,7 @@
             "icon":"fa fa-globe",
             "theme":"CSS",
             "description":"Apprenez le<br/> CSS",
-            "link":"/Tutoriels/CSS/",
+            "link":"/Tutoriels/CSS3/",
 			"follow":"yes"
         },
         {
@@ -84,22 +84,22 @@
             "icon":"fa fa-sitemap",
             "theme":"Git",
             "description":"Apprenez le<br/> Git",
-            "link":"/Tutoriels/Git/",
-			"follow":"yes"
+            "link":"#",
+			"follow":"no"
         },
         {
             "icon":"fa fa-sitemap",
             "theme":"CVS",
             "description":"Apprenez le<br/> CVS",
-            "link":"/Tutoriels/CVS/",
-			"follow":"yes"
+            "link":"#",
+			"follow":"no"
         },
         {
             "icon":"fa fa-sitemap",
             "theme":"SVN",
             "description":"Apprenez le<br/> SVN",
-            "link":"/Tutoriels/SVN/",
-			"follow":"yes"
+            "link":"#",
+			"follow":"no"
         }
     ],
     "embedded":
@@ -108,7 +108,34 @@
             "icon":"fa fa-microchip",
             "theme":"Raspberry Pi",
             "description":"Programmez le<br/> RaspberryPi",
-            "link":"/Tutoriels/RaspberryPi/",
+            "link":"#",
+			"follow":"no"
+        }
+    ],
+    "electronics":
+    [
+        {
+            "icon":"fa fa-building",
+            "theme":"KiCad",
+            "description":"Apprenez<br/> KiCad",
+            "link":"/Tutoriels/KiCad/",
+			"follow":"yes"
+        },
+        {
+            "icon":"fa fa-building",
+            "theme":"LTspice",
+            "description":"Apprenez<br/> LTspice",
+            "link":"/Tutoriels/LTspice/",
+			"follow":"yes"
+        }
+    ],
+    "modeling3d":
+    [
+        {
+            "icon":"fa fa-cubes",
+            "theme":"Blender",
+            "description":"Apprenez<br/> Blender",
+            "link":"/Tutoriels/Blender/",
 			"follow":"yes"
         }
     ]

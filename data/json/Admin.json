@@ -7,9 +7,16 @@
         ],
         "meta_cano":"/Admin/"
     },    
+    "intro":
+    [
+        "Soyez la Bienvenue sur l'interface d'administration du site ReadyDev.<br/>",
+        "ReadyAdmin vous permet d'administrer le contenu du site ReadyDev",
+        "sans avoir à écrire des lignes de codes.<br/>",
+        "Produit par <b>Gérard KESSE</b>."
+    ],
     "summary":
     [
-        {"name":"Gestion Sitemap"},
-        {"name":"Édition Page HTML"}
+        {"name":"Gestion Sitemap","link":"#Gestion_Sitemap"},
+        {"name":"Édition Page HTML","link":"#Edition_Page_HTML"}
     ]
 }

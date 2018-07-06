@@ -11,7 +11,7 @@
     },    
     "avatar":
     {
-        "src":"/img/img_avatar.png",
+        "src":"/data/img/defaults/img_avatar.png",
         "alt":"Avatar",
         "width":"40"
     },
@@ -19,7 +19,7 @@
     [
         "Je suis <b>Gérard KESSE</b>,<br/>",
         "Ingénieur en Développement Informatique C/C++/Qt,<br/>",
-        "Avec à la fois des compétences en Systèmes Embarqués et en Robotique.<br/><br/>",
+        "Avec à la fois des compétences en Système Embarqué et en Robotique.",
         "Formé à Polytech'Montpellier, Je suis un professionnel de conception de projets",
         "logiciel applicatif ou embarqué dans les secteurs de l'Aéronautique, de la Robotique,",
         "des Drones et de la Vision par Ordinateur. Aussi, Je reste ouvert à d'autres types de secteurs tels que",
@@ -62,7 +62,7 @@
             "ce qui m'a conduit en France pour la préparation d'un diplôme d'Ingénieur en Electronique",
             "Robotique et Informatique Industrielle à Polytech'Montpellier.",
             "Ça été pour moi une belle occasion d'approfondir mes connaissances à la fois",
-            "en Systèmes Embarqués et en Robotique.<br/>",
+            "en Système Embarqué et en Robotique.<br/>",
             "J'ai appris à maîtriser:"
         ],
         "list2":

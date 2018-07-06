@@ -38,4 +38,4 @@ function visualizeUrl() {
 function visualizeClear() {
 	GSitemap.Instance().visualizeClear();
 }
-generateUrl//===============================================
+//===============================================

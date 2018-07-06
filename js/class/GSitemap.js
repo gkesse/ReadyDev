@@ -7,143 +7,143 @@ var GSitemap = (function() {
         return {
             //===============================================
             init: function() {
-                var m_tabCtn = document.getElementsByClassName("SitemapTab");
-				var m_obj = m_tabCtn[0];
-				this.openSitemapTab(m_obj, "SitemapTab0");
-                m_tabCtn = document.getElementsByClassName("SitemapFileTab");
-				m_obj = m_tabCtn[0];
-				this.openSitemapFileTab(m_obj, "SitemapFileTab0");
+                var lTabCtn = document.getElementsByClassName("SitemapTab");
+				var lObj = lTabCtn[0];
+				this.openSitemapTab(lObj, "SitemapTab0");
+                lTabCtn = document.getElementsByClassName("SitemapFileTab");
+				lObj = lTabCtn[0];
+				this.openSitemapFileTab(lObj, "SitemapFileTab0");
             },
             //===============================================
             openSitemapTab: function(obj, name) {
-				var m_tab = document.getElementsByClassName("SitemapTab");
-				for(var i = 0; i < m_tab.length; i++) {
-					var m_tabId = m_tab[i];
-					m_tabId.className = m_tabId.className.replace(" bgrc", "");
+				var lTab = document.getElementsByClassName("SitemapTab");
+				for(var i = 0; i < lTab.length; i++) {
+					var lTabId = lTab[i];
+					lTabId.className = lTabId.className.replace(" Active", "");
 				}
-				obj.className += " bgrc";
-				var m_tabCtn = document.getElementsByClassName("SitemapTabCtn");
-				for(var i = 0; i < m_tabCtn.length; i++) {
-					var m_tabCtnId = m_tabCtn[i];
-					m_tabCtnId.style.display = "none";
+				obj.className += " Active";
+				var lTabCtn = document.getElementsByClassName("SitemapTabCtn");
+				for(var i = 0; i < lTabCtn.length; i++) {
+					var lTabCtnId = lTabCtn[i];
+					lTabCtnId.style.display = "none";
 				}
-				var m_tabId = document.getElementById(name);
-				m_tabId.style.display = "block";
+				var lTabId = document.getElementById(name);
+				lTabId.style.display = "block";
             },
             //===============================================
             openSitemapFileTab: function(obj, name) {
-				var m_tab = document.getElementsByClassName("SitemapFileTab");
-				for(var i = 0; i < m_tab.length; i++) {
-					var m_tabId = m_tab[i];
-					m_tabId.className = m_tabId.className.replace(" bgrc", "");
+				var lTab = document.getElementsByClassName("SitemapFileTab");
+				for(var i = 0; i < lTab.length; i++) {
+					var lTabId = lTab[i];
+					lTabId.className = lTabId.className.replace(" Active", "");
 				}
-				obj.className += " bgrc";
-				var m_tabCtn = document.getElementsByClassName("SitemapFileTabCtn");
-				for(var i = 0; i < m_tabCtn.length; i++) {
-					var m_tabCtnId = m_tabCtn[i];
-					m_tabCtnId.style.display = "none";
+				obj.className += " Active";
+				var lTabCtn = document.getElementsByClassName("SitemapFileTabCtn");
+				for(var i = 0; i < lTabCtn.length; i++) {
+					var lTabCtnId = lTabCtn[i];
+					lTabCtnId.style.display = "none";
 				}
-				var m_tabId = document.getElementById(name);
-				m_tabId.style.display = "block";
+				var lTabId = document.getElementById(name);
+				lTabId.style.display = "block";
             },
             //===============================================
             enumerateUrl: function() {
-				var m_UrlSite = document.getElementById("UrlSite");
-				var m_UrlMax = document.getElementById("UrlMax");
-				var m_SitemapTotal = document.getElementById("SitemapTotal");
-				var m_xmlhttp = new XMLHttpRequest();
-                m_xmlhttp.onreadystatechange = function() {
+				var lUrlSite = document.getElementById("SitemapUrlSite");
+				var lUrlMax = document.getElementById("SitemapUrlMax");
+				var lSitemapTotal = document.getElementById("SitemapTotal");
+				var lXmlhttp = new XMLHttpRequest();
+                lXmlhttp.onreadystatechange = function() {
                     if(this.readyState == 4 && this.status == 200) {
-						var m_res = this.responseText;
-						var m_data = JSON.parse(m_res);
-						m_UrlSite.innerHTML = String(m_data["url_number"]);
-						m_UrlMax.innerHTML = String(50000);
-						m_SitemapTotal.innerHTML = String(m_data["sitemap_number"]);
+						var lRes = this.responseText;
+						var lData = JSON.parse(lRes);
+						lUrlSite.innerHTML = String(lData["url_number"]);
+						lUrlMax.innerHTML = String(50000);
+						lSitemapTotal.innerHTML = String(lData["sitemap_number"]);
                     }
                 }
-                m_xmlhttp.open("POST", "/php/sitemap.php", true);
-                m_xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                m_xmlhttp.send(
+                lXmlhttp.open("POST", "/php/req/sitemap.php", true);
+                lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                lXmlhttp.send(
 				"req=" + "ENUMERATE"
 				);
             },
             //===============================================
             enumerateClear: function() {
-				var m_UrlSite = document.getElementById("UrlSite");
-				var m_UrlMax = document.getElementById("UrlMax");
-				var m_SitemapTotal = document.getElementById("SitemapTotal");
-				m_UrlSite.innerHTML = "";
-				m_UrlMax.innerHTML = "";
-				m_SitemapTotal.innerHTML = "";
+				var lUrlSite = document.getElementById("SitemapUrlSite");
+				var lUrlMax = document.getElementById("SitemapUrlMax");
+				var lSitemapTotal = document.getElementById("SitemapTotal");
+				lUrlSite.innerHTML = "";
+				lUrlMax.innerHTML = "";
+				lSitemapTotal.innerHTML = "";
             },
             //===============================================
             listUrl: function() {
-				var m_ListUrl = document.getElementById("ListUrl");
-				var m_xmlhttp = new XMLHttpRequest();
-                m_xmlhttp.onreadystatechange = function() {
+				var lListUrl = document.getElementById("SitemapListUrl");
+				var lXmlhttp = new XMLHttpRequest();
+                lXmlhttp.onreadystatechange = function() {
                     if(this.readyState == 4 && this.status == 200) {
-						var m_data = this.responseText;
-						m_ListUrl.innerHTML = m_data;
+						var lData = this.responseText;
+						lListUrl.innerHTML = lData;
                     }
                 }
-                m_xmlhttp.open("POST", "/php/sitemap.php", true);
-                m_xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                m_xmlhttp.send(
+                lXmlhttp.open("POST", "/php/req/sitemap.php", true);
+                lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                lXmlhttp.send(
 				"req=" + "LIST"
 				);
             },
             //===============================================
             listClear: function() {
-				var m_ListUrl = document.getElementById("ListUrl");
-				m_ListUrl.innerHTML = "";
+				var lListUrl = document.getElementById("SitemapListUrl");
+				lListUrl.innerHTML = "";
             },
             //===============================================
             generateUrl: function() {
-				var m_GenerateUrl = document.getElementById("GenerateUrl");
-				var m_xmlhttp = new XMLHttpRequest();
-                m_xmlhttp.onreadystatechange = function() {
+				var lGenerateUrl = document.getElementById("SitemapGenerateUrl");
+				var lXmlhttp = new XMLHttpRequest();
+                lXmlhttp.onreadystatechange = function() {
                     if(this.readyState == 4 && this.status == 200) {
-						var m_res = this.responseText;
-						m_GenerateUrl.innerHTML = m_res;
+						var lRes = this.responseText;
+						lGenerateUrl.innerHTML = lRes;
                     }
                 }
-                m_xmlhttp.open("POST", "/php/sitemap.php", true);
-                m_xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                m_xmlhttp.send(
+                lXmlhttp.open("POST", "/php/req/sitemap.php", true);
+                lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                lXmlhttp.send(
 				"req=" + "GENERATE"
 				);
             },
             //===============================================
             generateClear: function() {
-				var m_GenerateUrl = document.getElementById("GenerateUrl");
-				m_GenerateUrl.innerHTML = "";
+				var lGenerateUrl = document.getElementById("SitemapGenerateUrl");
+				lGenerateUrl.innerHTML = "";
             },
             //===============================================
             visualizeUrl: function() {
-				var m_VisualizeSite = document.getElementById("VisualizeSite");
-				var m_VisualizeUrl = document.getElementById("VisualizeUrl");
-				var m_xmlhttp = new XMLHttpRequest();
-                m_xmlhttp.onreadystatechange = function() {
+				var lVisualizeSite = document.getElementById("SitemapVisualizeSite");
+				var lVisualizeUrl = document.getElementById("SitemapVisualizeUrl");
+				var lXmlhttp = new XMLHttpRequest();
+                lXmlhttp.onreadystatechange = function() {
                     if(this.readyState == 4 && this.status == 200) {
-						var m_data = this.responseText;
-						var m_dataArr = JSON.parse(m_data);
-						m_VisualizeSite.innerHTML = m_dataArr["sitemaps"];
-						m_VisualizeUrl.innerHTML = m_dataArr["sitemap"];
+						var lData = this.responseText;
+						var lDataArr = JSON.parse(lData);
+						lVisualizeSite.innerHTML = lDataArr["sitemaps"];
+						lVisualizeUrl.innerHTML = lDataArr["sitemap"];
 						PR.prettyPrint();
                     }
                 }
-                m_xmlhttp.open("POST", "/php/sitemap.php", true);
-                m_xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                m_xmlhttp.send(
+                lXmlhttp.open("POST", "/php/req/sitemap.php", true);
+                lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                lXmlhttp.send(
 				"req=" + "VISUALIZE"
 				);
             },
             //===============================================
             visualizeClear: function() {
-				var m_VisualizeSite = document.getElementById("VisualizeSite");
-				var m_VisualizeUrl = document.getElementById("VisualizeUrl");
-				m_VisualizeSite.innerHTML = "";
-				m_VisualizeUrl.innerHTML = "";
+				var lVisualizeSite = document.getElementById("SitemapVisualizeSite");
+				var lVisualizeUrl = document.getElementById("SitemapVisualizeUrl");
+				lVisualizeSite.innerHTML = "";
+				lVisualizeUrl.innerHTML = "";
             }
             //===============================================
         };
@@ -151,7 +151,7 @@ var GSitemap = (function() {
     //===============================================
     return {
         Instance: function() {
-            if (!m_instance) {
+            if(!m_instance) {
                 m_instance = Container();
             }
             return m_instance;

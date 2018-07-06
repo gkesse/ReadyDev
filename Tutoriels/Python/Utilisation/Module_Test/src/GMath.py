@@ -1,25 +1,28 @@
 #================================================
 def add(a, b):
-    m_data = a + b
-    return m_data
+    lData = a + b
+    return lData
 #================================================
 def sub(a, b):
-    m_data = a - b
-    return m_data
+    lData = a - b
+    return lData
 #================================================
 def mul(a, b):
-    m_data = a * b
-    return m_data
+    lData = a * b
+    return lData
 #================================================
 def div(a, b):
-    m_data = a / float(b)
-    return m_data
+    lData = a / float(b)
+    return lData
 #================================================
 def mod(a, b):
-    m_data = a % b
-    return m_data
+    lData = a % b
+    return lData
 #================================================
 if __name__ == "__main__":
-    m_data = add(22, 7)
-    print "add:", m_data
+    print "{0:25}: {1}".format("Addition (25 + 9)", add(25, 9))
+    print "{0:25}: {1}".format("Addition (25 - 9)", sub(25, 9))
+    print "{0:25}: {1}".format("Addition (25 * 9)", mul(25, 9))
+    print "{0:25}: {1}".format("Addition (25 / 9)", div(25, 9))
+    print "{0:25}: {1}".format("Addition (25 % 9)", mod(25, 9))
 #================================================

@@ -1,0 +1,19 @@
+{
+    "sitemap":"no",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+            "Le but de ce tutoriel est de vous apprendre",
+            "les Mathématiques Appliquées.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Cours/Mathematiques/"
+    },    
+    "links":
+    [
+        {"name":"Cours","link":"/Cours/","follow":"no"},
+        {"name":"Mathématiques","link":"","follow":"no"}
+    ]
+}
+                        

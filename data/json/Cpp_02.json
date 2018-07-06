@@ -1,18 +1,21 @@
 {
+    "sitemap":"no",
     "meta_data":
     {
         "meta_desc":
         [
             "Le C++ est un langage de programmation orientée objet.",
-			"Le but de ce tutoriel est de vous apprendre le C++" 
+			"Le but de ce tutoriel est de vous apprendre",
+            "la programmation avec le C++.",
+            "Produit par Gérard KESSE."
         ],
         "meta_cano":"/Tutoriels/Cpp/Cpp/"
     },    
     "links":
     [
-        {"name":"Tutoriels","link":"/Tutoriels/"},
-        {"name":"C/C++","link":"/Tutoriels/Cpp/"},
-        {"name":"Apprendre le C++","link":""}
+        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"C/C++","link":"/Tutoriels/Cpp/","follow":"no"},
+        {"name":"C++","link":"","follow":"no"}
     ]
 }
                         

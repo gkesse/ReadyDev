@@ -128,6 +128,20 @@
             return $lDir;
         }
         //===============================================
+        public function getPath3($rootPath, $filePath) {
+			$lDir = $_SERVER["DOCUMENT_ROOT"];
+			$lDir = realpath($lDir);
+			$lRootLen = strlen($lDir);
+			$lDir .= "/".$rootPath;
+			$lDir = realpath($lDir);
+			$lDir .= "/".$filePath;
+			$lDir = realpath($lDir);
+			$lDirLen = strlen($lDir);
+			$lDir = substr($lDir, $lRootLen);
+			$lDir = str_replace("\\", "/", $lDir);
+            return $lDir;
+        }
+        //===============================================
         public function getIcon($filename) {
             $lExt = pathinfo($filename, PATHINFO_EXTENSION);
             $lExt = strtolower($lExt);

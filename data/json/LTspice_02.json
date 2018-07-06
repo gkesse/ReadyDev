@@ -1,0 +1,21 @@
+{
+    "sitemap":"no",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+            "LTspice est un outil de simulation de circuits électroniques.",
+            "Le but de ce tutoriel est de vous apprendre",
+            "la simulation de circuits électroniques avec LTspice.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Tutoriels/LTspice/Cours/"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"LTspice","link":"/Tutoriels/LTspice/","follow":"no"},
+        {"name":"Cours","link":"","follow":"no"}
+    ]
+}
+                        

@@ -6,6 +6,8 @@
 /**/debug/
 /**/release/
 /**/extract/
+/**/vendor/
+/**/Joomla/root/
 
 #================================================
 # File
@@ -15,6 +17,7 @@
 /**/messages.json
 /**/qmake/Makefile*
 /**/*user
+/**/*stash
 /**/*pyc
 /data/sitemaps/*xml
 /**/~$*

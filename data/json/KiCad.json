@@ -1,0 +1,24 @@
+{
+    "sitemap":"yes",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+            "KiCad est un outil de conception de circuits électroniques.",
+            "Le but de ce tutoriel est de vous apprendre",
+            "la conception de circuits électroniques avec KiCad.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Tutoriels/KiCad/"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"KiCad","link":"","follow":"no"}
+    ],
+    "electronics":
+    [
+        {"name":"Apprendre la conception de circuits électroniques avec KiCad","link":"/Tutoriels/KiCad/Cours/","follow":"yes"}
+    ]
+}
+                        

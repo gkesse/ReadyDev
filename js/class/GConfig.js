@@ -7,10 +7,10 @@ var GConfig = (function() {
         return {
             //===============================================
             init: function() {
-				var m_EditorDir = localStorage.getItem("EditorDir");
-				var m_EditorFile = localStorage.getItem("EditorFile");     
-				if(!m_EditorDir || m_EditorDir == "undefined") localStorage.setItem("EditorDir", "");
-				if(!m_EditorFile || m_EditorFile == "undefined") localStorage.setItem("EditorFile", "");			
+				var lEditorDir = localStorage.getItem("EditorDir");
+				var lEditorFile = localStorage.getItem("EditorFile");     
+				if(!lEditorDir || lEditorDir == "undefined") localStorage.setItem("EditorDir", "");
+				if(!lEditorFile || lEditorFile == "undefined") localStorage.setItem("EditorFile", "");			
 			},
             //===============================================
             setData: function(key, value) {
@@ -26,7 +26,7 @@ var GConfig = (function() {
     //===============================================
     return {
         Instance: function() {
-            if (!m_instance) {
+            if(!m_instance) {
                 m_instance = Container();
             }
             return m_instance;

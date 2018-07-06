@@ -1,6 +1,7 @@
 #================================================
 def sayHello(*names):
-    m_list = list(names)
+    #m_list = list(names)
+    m_list = names
     m_format = ""
     for val in m_list:
         m_name = val[0]
@@ -9,16 +10,10 @@ def sayHello(*names):
         .format(m_name, m_id)
     print m_format
 #================================================
-m_names = [
-("Gerard", 10),
-("Deborah", 20),
-("Bryan", 30)
-]
-sayHello(*m_names)
+print "### Fonction avec argument liste de donnees\n"
 #================================================
-sayHello([
-("Gerard", 10),
-("Deborah", 20),
-("Bryan", 30)
-])
+m_names = [("Gerard", 10),("Bryan", 20),("Robins", 30)]
+#sayHello(*m_names)
+#================================================
+sayHello([("Gerard", 10),("Bryan", 20),("Robins", 30)])
 #================================================

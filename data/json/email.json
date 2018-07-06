@@ -3,37 +3,37 @@
     {
         "name":"ReadyDev",
         "link":"http://readydev.freeboxos.fr/",
-        "img":"http://img4.hostingpics.net/thumbs/mini_142079logotitle.png"
+        "img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/data/img/defaults/logo_title.png"
     },
     "github":
     {
         "name":"GitHub",
         "link":"https://github.com/gkesse/",
-        "img":"https://img4.hostingpics.net/thumbs/mini_245179github.png"
+        "img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/data/img/defaults/github.png"
     },
     "facebook":
     {
         "name":"Facebook",
         "link":"#",
-        "img":"http://img4.hostingpics.net/thumbs/mini_831811facebook.png"
+        "img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/data/img/defaults/facebook.png"
     },
     "twitter":
     {
         "name":"Twitter",
         "link":"#",
-        "img":"http://img4.hostingpics.net/thumbs/mini_559993twitter.png"
+        "img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/data/img/defaults/twitter.png"
     },
     "skype":
     {
         "name":"Skype",
         "link":"#",
-        "img":"http://img4.hostingpics.net/thumbs/mini_537712skype.png"
+        "img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/data/img/defaults/skype.png"
     },
     "linkedin":
     {
         "name":"Linkedin",
         "link":"https://www.linkedin.com/in/tia-gerard-kesse/",
-        "img":"http://img4.hostingpics.net/thumbs/mini_470488linkedin.png"
+        "img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/data/img/defaults/linkedin.png"
     },
     "copyright":
     {
@@ -44,8 +44,8 @@
         },
         "description":
         [
-            "Plateforme de Développement Continue",
-            "Produit par Gerard KESSE"
+            "Plateforme de Développement Continu",
+            "Produit par Gérard KESSE"
         ]
     }
 }        

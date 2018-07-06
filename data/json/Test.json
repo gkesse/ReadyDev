@@ -1,0 +1,19 @@
+{
+    "sitemap":"no",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+            "ReadyTest est l'interface de Test des applications ReadyDev,",
+            "la Plateforme de Développement Continu."
+        ],
+        "meta_cano":"/Tutoriels/"
+    },    
+    "intro":
+    [
+        "Soyez la Bienvenue sur l'interface de Test des applications ReadyDev.<br/>",
+        "<b>ReadyTest</b> vous permet de visualiser les différents Tests réalisés par ReadyDev.<br/>",
+        "Produit par <b>Gérard KESSE</b>."
+    ]
+}
+                        

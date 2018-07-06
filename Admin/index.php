@@ -12,42 +12,43 @@
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";
 ?>
 <!-- ============================================ -->
-<div class="pgBg">
-    <div class="mrga pgBd">
-        <!-- ============================================ -->
-        <div class="pgCt10">
-            <div class="bgra">
-                <h1 class="bgra pgCt20" id="Sommaire-Admin">
-                    <a class="clrb" href="#">
-                        Sommaire
-                    </a>
-                </h1>
-                <div class="txal pgCt10">
-                    <ul class="fa-ul">
-                        <?php 
-                            $lDs = $lData["summary"];
-                            foreach($lDs as $lDi) {
-                            ?>
-                            <li>
-                                <i class="fa-li fa fa-book clrg"></i>
-								<?php 
-									$lLink = "#";
-									$lLink .= GGlobal::Instance()->getLink($lDi["name"]); 
-								?>
-                                <a class="hvra clrg" href="<?php echo $lLink; ?>">
-                                    <?php echo $lDi["name"]; ?>
-                                </a>
-                            </li>
-                        <?php } ?>
-                    </ul>            
-                </div>
+<div class="MainBody">
+    <!-- ============================================ -->
+    <div class="Parallax">
+        <div class="Img Binary">
+            <div class="Caption">
+                <a href="#"><div class="Text">Administration</div></a>
             </div>
         </div>
+        <div class="Body2 Orange">
+            <div class="Row8">
+                <?php echo join(" ", $lData["intro"]) ?>
+            </div>
+            <div class="Row0">
+                <ul class="fa-ul">
+                    <?php 
+                        $lDataMap = $lData["summary"];
+                        foreach($lDataMap as $lItem) {
+                        ?>
+                        <li>
+                            <i class="Icon2 fa-li fa fa-book"></i>
+                            <a class="Link4" href="<?php echo $lItem["link"]; ?>">
+                                <?php echo $lItem["name"]; ?>
+                            </a>
+                        </li>
+                    <?php } ?>
+                </ul>            
+            </div>
+        </div>
+    </div>
+    <!-- ============================================ -->
+    <div class="Content2">
         <!-- ============================================ -->
 		<?php require "page/sitemap.php"; ?>
 		<?php require "page/editor.php"; ?>
         <!-- ============================================ -->
     </div>
+    <!-- ============================================ -->
 </div>
 <!-- ============================================ -->
 <?php require $_SERVER["DOCUMENT_ROOT"]."/php/footer.php"; ?>
