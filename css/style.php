@@ -243,7 +243,7 @@ hr:after {
     background-image: url("<?php echo $lStyle["background"]["top2"]["img"]; ?>"), url("/data/img/defaults/fond.jpg");
     background-position: center top, left top;
     background-repeat: no-repeat, no-repeat;    
-    background-size: auto 98%, 100% 100%;    
+    background-size: auto 80%, 100% 100%;    
     top: 0px;
     left: 0px;
     right: 0px;
@@ -674,6 +674,10 @@ hr:after {
 .Content11 {
     font-size: 0px;
     padding: 0px 5px 5px 5px;
+}
+
+.Content12 {
+    height: 100vh;
 }
 
 .Error {

@@ -19,6 +19,10 @@
     "web":
     [
         {"name":"Apprendre la programmation web avec le JavaScript","link":"/Tutoriels/JavaScript/Cours/","follow":"yes"}
+    ],
+    "maths":
+    [
+        {"name":"Apprendre l'affichage de symboles mathématiques avec MathJax","link":"/Tutoriels/JavaScript/MathJax/","follow":"yes"}
     ]
 }
                         

@@ -4,48 +4,22 @@
     {
         "meta_desc":
         [
-            "Cours Mathématiques, Physique, disponibles gratuitement sur le site",
-            "sur ReadyDev. Formez-vous et montez en compétences. Gerard KESSE !!!"
+            "ReadyDev est une Plateforme de Développement Continu.",
+            "C'est un site web développé en PHP et maintenu par Gérard KESSE.",
+            "Vous trouverez sur ce site des cours et des tutoriels adaptés aux sciences de l'ingénieur."
         ],
-        "meta_cano":"/Tutoriels/"
+        "meta_cano":"/Cours/"
     },    
     "intro":
     [
-        "ReadyDev est une Plateforme de Développement Continu.<br/>",
-        "C'est un site web développé en PHP et maintenu par Gérard KESSE.<br/>",
-        "Vous trouverez sur ce site des cours et des tutoriels adaptés aux sciences de l'ingénieur."
+        "<b>ReadyDev</b> est une Plateforme de Développement Continu.<br/>",
+        "C'est un site web développé en PHP et maintenu par <b>Gérard KESSE</b>.<br/>",
+        "Vous trouverez sur ce site des <b>cours</b> et des <b>tutoriels</b> adaptés aux sciences de l'ingénieur."
     ],
-    "summary":
+    "cours":
     [
-        {"name":"Mathématiques","link":"#Mathematiques"},
-        {"name":"Physique","link":"#Physique"},
-        {"name":"Chimie","link":"#Chimie"},
-        {"name":"Electronique","link":"#"},
-        {"name":"Automatique","link":"#"}
-    ],
-    "maths":
-    [
-        {"name":"Barycentres","link":"/Cours/Mathematiques/Barycentres/","follow":"yes"},
-        {"name":"Fonctions","link":"/Cours/Mathematiques/Fonctions/","follow":"yes"},
-        {"name":"Vecteurs","link":"#"},
-        {"name":"Produit Scalaire","link":"#"}
-    ],
-    "physics":
-    [
-        {"name":"Interférences","link":"/Cours/Physique/Interferences/","follow":"yes"},
-        {"name":"Effet Doppler","link":"#"},
-        {"name":"Mouvements Rectilignes Uniformes","link":"#"},
-        {"name":"Mouvements Rectilignes Uniformément Variés","link":"#"},
-        {"name":"Mouvements Circulaires Uniformes","link":"#"}
-    ],
-    "chemistry":
-    [
-        {"name":"Acides et Bases","link":"/Cours/Chimie/Acides_Bases/","follow":"yes"},
-        {"name":"Formules Topologiques","link":"/Cours/Chimie/Formules_Topologiques/","follow":"yes"},
-        {"name":"Groupes Caractéristiques","link":"/Cours/Chimie/Groupes_Caracteristiques/","follow":"yes"},
-        {"name":"Le pH","link":"/Cours/Chimie/PH/","follow":"yes"},
-        {"name":"Autoprotolyse et Produit Ionique de l’Eau","link":"/Cours/Chimie/Autoprotolyse_Produit_Ionique_Eau/","follow":"yes"},
-        {"name":"Réaction Chimique","link":"/Cours/Chimie/Reaction_Chimique/","follow":"yes"}
+        {"name":"Mathématiques","link":"/Cours/Mathematiques/","follow":"yes"},
+        {"name":"Electronique","link":"/Cours/Electronique/","follow":"yes"},
+        {"name":"Physique","link":"/Cours/Physique/","follow":"yes"}
     ]
 }
-                        

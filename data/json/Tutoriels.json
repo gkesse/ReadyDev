@@ -4,8 +4,9 @@
     {
         "meta_desc":
         [
-            "ReadyDev propose des Tutoriels permettant de monter en compétences de",
-            "manière éfficace en Dévloppement Logiciel, Systèmes Embarqués, Robotique."
+            "ReadyDev est une Plateforme de Développement Continu.",
+            "C'est un site web développé en PHP et maintenu par Gérard KESSE.",
+            "Vous trouverez sur ce site des cours et des tutoriels adaptés aux sciences de l'ingénieur."
         ],
         "meta_cano":"/Tutoriels/"
     },    
@@ -13,7 +14,7 @@
     [
         "<b>ReadyDev</b> est une Plateforme de Développement Continu.<br/>",
         "C'est un site web développé en PHP et maintenu par <b>Gérard KESSE</b>.<br/>",
-        "Vous trouverez sur ce site des cours et des tutoriels adaptés aux sciences de l'ingénieur."
+        "Vous trouverez sur ce site des <b>cours</b> et des <b>tutoriels</b> adaptés aux sciences de l'ingénieur."
     ],
     "software":
     [
