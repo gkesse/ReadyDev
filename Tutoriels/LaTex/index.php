@@ -1,22 +1,20 @@
 <?php
     require $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoloadRegister.php";
     
-    $m_data = GJson::Instance()->getData("data/json/PHP_02.json");
+    $m_data = GJson::Instance()->getData("data/json/LaTex.json");
     
-    GConfig::Instance()->setData("title", "Apprendre le PHP");
+    GConfig::Instance()->setData("title", "LaTex");
     GConfig::Instance()->setData("menu", "Tutoriels");
-    GConfig::Instance()->setData("view", "PHP_02");
+    GConfig::Instance()->setData("view", "LaTex");
     GConfig::Instance()->setData("link", $m_data["links"]);
 
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";
 ?>
 <!-- ============================================ -->
-<div class="pgBg">
-    <div class="mrga pgBd">
-        <!-- ============================================ -->
-		<?php require "page/main.php"; ?>
-        <!-- ============================================ -->
-    </div>
+<div class="MainBody">
+    <!-- ============================================ -->
+    <?php require "page/main.php"; ?>
+    <!-- ============================================ -->
 </div>
 <!-- ============================================ -->
 <?php require $_SERVER["DOCUMENT_ROOT"]."/php/footer.php"; ?>

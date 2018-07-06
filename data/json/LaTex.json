@@ -4,16 +4,16 @@
     {
         "meta_desc":
         [
-            "Firefox est un navigateur web.",
+            "Le LaTex est un langage de composition de documents.",
             "Le but de ce tutoriel est de vous apprendre",
-            "à configurer le navigateur web Firefox.",
+            "la composition de documents avec le LaTex.",
             "Produit par Gérard KESSE."
         ],
-        "meta_cano":"/Tutoriels/Firefox/"
+        "meta_cano":"/Tutoriels/LaTex/"
     },    
     "links":
     [
         {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
-        {"name":"Firefox","link":"","follow":"no"}
+        {"name":"LaTex","link":"","follow":"no"}
     ]
 }

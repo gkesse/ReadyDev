@@ -4,7 +4,7 @@
     {
         "meta_desc":
         [
-            "Le PHP est un langage de programmation web dynamique orientée objet.",
+            "Le PHP est un langage de programmation web dynamique orientée objet utilisé côté serveur.",
 			"Le but de ce tutoriel est de vous apprendre",
             "la programmation web dynamique avec le PHP.",
             "Produit par Gérard KESSE."
@@ -15,6 +15,10 @@
     [
         {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
         {"name":"PHP","link":"","follow":"no"}
+    ],
+    "web":
+    [
+        {"name":"Apprendre la programmation web avec le PHP","link":"/Tutoriels/PHP/Cours/","follow":"yes"}
     ],
     "frameworks":
     [

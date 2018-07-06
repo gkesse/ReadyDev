@@ -148,6 +148,16 @@
             "link":"/Tutoriels/Firefox/",
 			"follow":"yes"
         }
+    ],
+    "divers":
+    [
+        {
+            "icon":"fa fa-file-text-o",
+            "theme":"LaTex",
+            "description":"Apprenez le<br/> LaTex",
+            "link":"/Tutoriels/LaTex/",
+			"follow":"yes"
+        }
     ]
 }
                         
