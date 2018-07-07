@@ -36,4 +36,28 @@ set PATH=C:\Program Files (x86)\Adobe\Reader 11.0\Reader
 
 set GPDF=%cd%\pdf
 
-AcroRd32 %GPDF%\main.pdf</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Utilisation de MiKTeX-Résultat"><a class="Link9" href="#Utilisation de MiKTeX">Résultat</a></h2><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3"><img src="img/MiKTeX_Utilisation.png" alt="img/MiKTeX_Utilisation.png"><br></div></div></div></div></div><br>
+AcroRd32 %GPDF%\main.pdf</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Utilisation de MiKTeX-Résultat"><a class="Link9" href="#Utilisation de MiKTeX">Résultat</a></h2><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3"><img src="img/MiKTeX_Utilisation.png" alt="img/MiKTeX_Utilisation.png"><br></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Gérer les caractères spéciaux"><a class="Link3" href="#">Gérer les caractères spéciaux</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">gérer les caractères spéciaux</span> avec le LaTeX.<br>Produit par <b>Gérard KESSE</b>.<br><br><h3 class="Title8 GTitle3">Programme spécial (main.tex)</h3><div class="GCode1"><pre><xmp class="Code2 prettyprint linenums lang-tex">%================================================
+\documentclass{article}
+%================================================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel}
+%================================================
+\begin{document}
+%================================================
+\parindent=0em
+\textbf{Caractères spéciaux} \\ \\
+%================================================
+\$
+\&
+\%
+\#
+\_
+\{
+\}
+\
+\^
+\textbackslash{}
+%================================================
+\end{document}
+%================================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3"><img src="img/Caractere_Special.png" alt="img/Caractere_Special.png"></div></div></div></div></div><br>
