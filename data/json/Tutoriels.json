@@ -153,9 +153,9 @@
     [
         {
             "icon":"fa fa-file-text-o",
-            "theme":"LaTex",
-            "description":"Apprenez le<br/> LaTex",
-            "link":"/Tutoriels/LaTex/",
+            "theme":"LaTeX",
+            "description":"Apprenez le<br/> LaTeX",
+            "link":"/Tutoriels/LaTeX/",
 			"follow":"yes"
         }
     ]
