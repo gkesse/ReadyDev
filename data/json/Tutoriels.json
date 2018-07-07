@@ -45,6 +45,13 @@
             "description":"Programmez en<br/> Python",
             "link":"/Tutoriels/Python/",
 			"follow":"yes"
+        },
+        {
+            "icon":"fa fa-desktop",
+            "theme":"VB.NET",
+            "description":"Programmez en<br/> VB.NET",
+            "link":"/Tutoriels/VB.NET/",
+			"follow":"yes"
         }
     ],
     "web":
@@ -146,6 +153,16 @@
             "theme":"Firefox",
             "description":"Apprenez<br/> Firefox",
             "link":"/Tutoriels/Firefox/",
+			"follow":"yes"
+        }
+    ],
+    "office":
+    [
+        {
+            "icon":"fa fa-file-word-o",
+            "theme":"Word 2007",
+            "description":"Apprenez<br/> Word 2007",
+            "link":"/Tutoriels/Word2007/",
 			"follow":"yes"
         }
     ],

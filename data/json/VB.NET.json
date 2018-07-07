@@ -1,0 +1,19 @@
+{
+    "sitemap":"no",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+            "VB.NET est un langage de programmation orientée objet.",
+            "Le but de ce tutoriel est de vous apprendre",
+            "la programmation avec le VB.NET.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Tutoriels/VB.NET/"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"VB.NET","link":"","follow":"no"}
+    ]
+}

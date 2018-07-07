@@ -1009,6 +1009,10 @@ hr:after {
     border: 2px solid #373f60;
 }
 
+.Link7 {
+    word-break: break-all;
+}
+
 .Link7:hover {
     text-decoration: underline;
 }
