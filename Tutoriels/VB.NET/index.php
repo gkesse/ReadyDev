@@ -1,12 +1,12 @@
 <?php
     require $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoloadRegister.php";
     
-    $lData = GJson::Instance()->getData("data/json/VB.NET_02.json");
+    $m_data = GJson::Instance()->getData("data/json/VB.NET.json");
     
     GConfig::Instance()->setData("title", "VB.NET");
     GConfig::Instance()->setData("menu", "Tutoriels");
-    GConfig::Instance()->setData("view", "VB.NET_02");
-    GConfig::Instance()->setData("link", $lData["links"]);
+    GConfig::Instance()->setData("view", "VB.NET");
+    GConfig::Instance()->setData("link", $m_data["links"]);
 
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";
 ?>

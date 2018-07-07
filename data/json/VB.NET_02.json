@@ -1,5 +1,5 @@
 {
-    "sitemap":"yes",
+    "sitemap":"no",
     "meta_data":
     {
         "meta_desc":
@@ -9,16 +9,12 @@
             "la programmation avec le VB.NET.",
             "Produit par Gérard KESSE."
         ],
-        "meta_cano":"/Tutoriels/VB.NET/"
+        "meta_cano":"/Tutoriels/VB.NET/Cours/"
     },    
     "links":
     [
         {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
-        {"name":"VB.NET","link":"","follow":"no"}
-    ],
-    "software":
-    [
-        {"name":"Apprendre la programmation avec le VB.NET","link":"/Tutoriels/VB.NET/Cours/","follow":"yes"}
+        {"name":"VB.NET","link":"/Tutoriels/VB.NET/","follow":"no"},
+        {"name":"Cours","link":"","follow":"no"}
     ]
 }
-                        
