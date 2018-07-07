@@ -528,7 +528,7 @@ var GEditor = (function() {
                         }
                     }
                     if(!lSelection.toString()) return;
-                	var lArg = prompt("Langage ?", "lang-py");
+                	var lArg = prompt("Langage ?", "lang-tex");
                     if(!lArg) return;
 					var lArgMap = lArg.split(";");
                     if(lArgMap.length < 1) return;

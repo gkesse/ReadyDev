@@ -60,4 +60,49 @@ AcroRd32 %GPDF%\main.pdf</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Uti
 \textbackslash{}
 %================================================
 \end{document}
-%================================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3"><img src="img/Caractere_Special.png" alt="img/Caractere_Special.png"></div></div></div></div></div><br>
+%================================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3"><img src="img/Caractere_Special.png" alt="img/Caractere_Special.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Définir le type de document"><a class="Link3" href="#">Définir le type de document</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">définir le type de document</span> avec le LaTeX.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1530974798529"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1530974798529");</script></div><br><h2 class="Title7 GTitle2" id="Définir le type de document-Définir un article"><a class="Link9" href="#Définir le type de document">Définir un article</a></h2><br><h3 class="Title8 GTitle3">Définir un article (main.tex)</h3><div class="GCode1"><pre><xmp class="Code2 prettyprint linenums lang-tex">%================================================
+\documentclass{article}
+%================================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Définir le type de document-Définir un livre"><a class="Link9" href="#Définir le type de document">Définir un livre</a></h2><br><h3 class="Title8 GTitle3">Définir un livre (main.tex)</h3><div class="GCode1"><pre><xmp class="Code2 prettyprint linenums lang-tex">%================================================
+\documentclass{book}
+%================================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Définir le type de document-Définir une lettre"><a class="Link9" href="#Définir le type de document">Définir une lettre</a></h2><br><h3 class="Title8 GTitle3">Définir une lettre (main.tex)</h3><div class="GCode1"><pre><xmp class="Code2 prettyprint linenums lang-tex">%================================================
+\documentclass{letter}
+%================================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Définir le type de document-Définir un rapport"><a class="Link9" href="#Définir le type de document">Définir un rapport</a></h2><br><h3 class="Title8 GTitle3">Définir un rapport (main.tex)</h3><div class="GCode1"><pre><xmp class="Code2 prettyprint linenums lang-tex">%================================================
+\documentclass{report}
+%================================================</xmp></pre></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Créer un environnement"><a class="Link3" href="#">Créer un environnement</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">créer un environnement</span> avec le LaTeX.<br>Produit par <b>Gérard KESSE</b>.<br><br><h3 class="Title8 GTitle3">Créer un environnement (main.tex)</h3><div class="GCode1"><pre><xmp class="Code2 prettyprint linenums lang-tex">%================================================
+\documentclass{article}
+%================================================
+\begin{document}
+%================================================
+\parindent=0em
+\textbf{Creer un environnement} \\ \\
+%================================================
+Voici le corps de mon document
+%================================================
+\end{document}
+%================================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3"><img src="img/Environnement.png" alt="img/Environnement.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Définir un encodage"><a class="Link3" href="#">Définir un encodage</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">définir un encodage</span> avec le LaTeX.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1530977899043"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1530977899043");</script></div><br><h2 class="Title7 GTitle2" id="Définir un encodage-Problème d'encodage"><a class="Link9" href="#Définir un encodage">Problème d'encodage</a></h2><br><h3 class="Title8 GTitle3">Problème d'encodage (main.tex)</h3><div class="GCode1"><div class="GCode1"><pre><xmp class="Code2 prettyprint linenums lang-tex">%================================================
+\documentclass{article}
+%================================================
+\begin{document}
+%================================================
+\parindent=0em
+\textbf{Probleme encodage} \\ \\
+%================================================
+Accents : é è à ç
+%================================================
+\end{document}
+%================================================</xmp></pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3"><img src="img/Encodage_Probleme.png" alt="img/Encodage_Probleme.png"><br><br></div><h2 class="Title7 GTitle2" id="Définir un encodage-Définir un encodage"><a class="Link9" href="#Définir un encodage">Définir un encodage</a></h2><br><h3 class="Title8 GTitle3">Définir un encodage (main.tex)</h3><div class="GCode1"><pre><xmp class="Code2 prettyprint linenums lang-tex">%================================================
+\documentclass{article}
+%================================================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel}
+%================================================
+\begin{document}
+%================================================
+\parindent=0em
+\textbf{Définir un encodage} \\ \\
+%================================================
+Accents : é è à ç
+%================================================
+\end{document}
+%================================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3"><img src="img/Encodage.png" alt="img/Encodage.png"></div></div></div></div></div><br>
