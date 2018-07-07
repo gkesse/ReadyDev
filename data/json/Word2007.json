@@ -1,0 +1,19 @@
+{
+    "sitemap":"no",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+            "Word 2007 est un outil de traitement de texte.",
+            "Le but de ce tutoriel est de vous apprendre",
+            "le traitement de texte Word 2007.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Tutoriels/Word2007/"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"Word 2007","link":"","follow":"no"}
+    ]
+}
