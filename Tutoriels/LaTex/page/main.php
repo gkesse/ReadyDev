@@ -105,4 +105,29 @@ Accents : é è à ç
 Accents : é è à ç
 %================================================
 \end{document}
-%================================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3"><img src="img/Encodage.png" alt="img/Encodage.png"></div></div></div></div></div><br>
+%================================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3"><img src="img/Encodage.png" alt="img/Encodage.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Utiliser les packages"><a class="Link3" href="#">Utiliser les packages</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">utiliser les packages</span> avec le LaTeX.<br>Produit par <b>Gérard KESSE</b>.<br><br><h3 class="Title8 GTitle3">Utiliser les packages (main.tex)</h3><div class="GCode1"><pre><xmp class="Code2 prettyprint linenums lang-tex">%================================================
+\documentclass{article}
+%================================================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel}
+%================================================
+\begin{document}
+%================================================
+\parindent=0em
+\textbf{Utiliser les packages} \\ \\
+%================================================
+Guillemet : \og{LaTeX}\fg \\
+Exposant : 3\up{ème} \\
+Numerotation (er) : 1\ier \\
+Numerotation (e) : 2\ieme \\
+Numerotation (primo) : \primo \\
+Numerotation (secundo) : \secundo \\
+Numerotation (tertio) : \tertio \\
+Numerotation (quarto) : \quarto \\
+Numerotation (o) : \FrenchEnumerate{8} \\
+Numerotation (no) : \no \\
+Degré (o) : 40\degres \\
+%================================================
+\end{document}
+%================================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3"><img src="img/Package.png" alt="img/Package.png"></div></div></div></div></div><br>
