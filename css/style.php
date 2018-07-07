@@ -1108,6 +1108,10 @@ hr:after {
     text-align: center;
 }
 
+.Parallax.Scroll .Img {
+    background-attachment: scroll;
+}
+
 .Row {
     padding: 5px;
 }
