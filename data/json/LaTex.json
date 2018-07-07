@@ -4,16 +4,16 @@
     {
         "meta_desc":
         [
-            "Le LaTex est un langage de composition de documents.",
+            "Le LaTeX est un langage de composition de documents.",
             "Le but de ce tutoriel est de vous apprendre",
-            "la composition de documents avec le LaTex.",
+            "la composition de documents avec le LaTeX.",
             "Produit par Gérard KESSE."
         ],
-        "meta_cano":"/Tutoriels/LaTex/"
+        "meta_cano":"/Tutoriels/LaTeX/"
     },    
     "links":
     [
         {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
-        {"name":"LaTex","link":"","follow":"no"}
+        {"name":"LaTeX","link":"","follow":"no"}
     ]
 }
