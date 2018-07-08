@@ -90,9 +90,15 @@ var GSyntax = (function() {
                     data = data.substr(lIndexOf);
                 }
                 var lResult = lDone + data;
-                lResult = "<span style='color:mediumblue'>&lt;</span>" + lResult.substring(4);
-                if (lResult.substr(lResult.length - 4, 4) == "&gt;") {
-                  lResult = lResult.substring(0, lResult.length - 4) + "<span style='color:mediumblue'>&gt;</span>";
+                lResult = "<span style='color:mediumblue'>&lt;</span>" + 
+                lResult.substring(4);
+                if(lResult.substr(lResult.length - 4, 4) == "&gt;") {
+                    lResult = lResult.substring(0, lResult.length - 4) + 
+                    "<span style='color:mediumblue'>&gt;</span>";
+                }
+                else {
+                    lResult = lResult + 
+                    "<span style='color:mediumblue'>&gt;</span>";
                 }
                 return "<span style='color:brown'>" + lResult + "</span>";
             },
@@ -101,12 +107,30 @@ var GSyntax = (function() {
                 var lDone = "";
                 while(data.indexOf("=") > -1) {
                     var lIndexOf = data.indexOf("=");
-                    var lIndexOf2 = data.indexOf('"', lIndexOf);;
+                    var lIndexOf2 = data.indexOf("'", lIndexOf);
+                    var lIndexOf3 = data.indexOf('"', lIndexOf);
+                    var lIndexOf4 = data.indexOf(" ", lIndexOf + 2);
+                    var lIndexOf5 = -1;
+
+                    if(lIndexOf4 > -1 && (lIndexOf4 < lIndexOf2 || lIndexOf2 == -1) && (lIndexOf4 < lIndexOf3 || lIndexOf3 == -1)) {
+                        lIndexOf5 = data.indexOf(" ", lIndexOf);      
+                    }
+                    else if(lIndexOf3 > -1 && (lIndexOf3 < lIndexOf2 || lIndexOf2 == -1) && (lIndexOf3 < lIndexOf4 || lIndexOf4 == -1)) {
+                        var lIndexOf6 = data.indexOf('"', lIndexOf);
+                        lIndexOf5 = data.indexOf('"', lIndexOf6 + 1);
+                    }
+                    else if(lIndexOf2 > -1 && (lIndexOf2 < lIndexOf3 || lIndexOf3 == -1) && (lIndexOf2 < lIndexOf4 || lIndexOf4 == -1)) {
+                        var lIndexOf6 = data.indexOf("'", lIndexOf);
+                        lIndexOf5 = data.indexOf("'", lIndexOf6 + 1);
+                    }
+                    if (!lIndexOf5 || lIndexOf5 == -1 || lIndexOf5 < lIndexOf) {lIndexOf5 = data.length;}  
+                    
                     var lSubstring = data.substring(0, lIndexOf);
-                    var lSubstring2 = data.substring(lIndexOf, lIndexOf2 + 1);
-                    data = data.substr(lIndexOf2 + 1);
+                    var lSubstring2 = data.substring(lIndexOf, lIndexOf5 + 1);
+                    
                     lDone += lSubstring;
                     lDone += this.attributeValueMode(lSubstring2);
+                    data = data.substr(lIndexOf5 + 1);
                 }
                 var lData = lDone + data;
                 return this.attributeKeyMode(lData);
