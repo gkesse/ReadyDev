@@ -49,14 +49,18 @@ var GSyntax = (function() {
                 var lExtract = new this.extract(data, "&lt;!--", "--&gt;", this.commentMode, "W3HTMLCOMMENTPOS");
                 var lData = lExtract.data;
                 var lDataMap = lExtract.map;
-                if(lData.indexOf("&lt;") > -1) {
+                var lDone = "";
+                while(lData.indexOf("&lt;") > -1) {
                     var lIndexOf = lData.indexOf("&lt;");
                     var lIndexOf2 = lData.indexOf("&gt;", lIndexOf);
                     var lSubstring = lData.substring(0, lIndexOf);
                     var lSubstring2 = lData.substring(lIndexOf, lIndexOf2 + 4);
-                    this.tagMode(lSubstring2);
-                    //alert(lSubstring2);
+                    var lTagMode = this.tagMode(lSubstring2);
+                    lDone += lSubstring
+                    lDone += lTagMode;
+                    lData = lData.substr(lIndexOf2 + 4);
                 }
+                lData = lDone + lData;
                 for(var i = 0; i < lDataMap.length; i++) {
                     lData = lData.replace("W3HTMLCOMMENTPOS", lDataMap[i]);
                 }
@@ -74,7 +78,7 @@ var GSyntax = (function() {
             //===============================================
             tagMode: function(data) {
                 var lDone = "";
-                if(data.search(/(\s|<br>)/) > -1) {
+                while(data.search(/(\s|<br>)/) > -1) {
                     var lSearch = data.search(/(\s|<br>)/);
                     var lIndexOf = data.indexOf("&gt;");
                     var lSubstring = data.substring(0, lSearch);
@@ -83,12 +87,44 @@ var GSyntax = (function() {
                     data = data.substr(lIndexOf);
                     lDone += lSubstring;
                     lDone += lAttributeMode;
-                    //alert(data);
+                    data = data.substr(lIndexOf);
                 }
+                var lResult = lDone + data;
+                lResult = "<span style='color:mediumblue'>&lt;</span>" + lResult.substring(4);
+                if (lResult.substr(lResult.length - 4, 4) == "&gt;") {
+                  lResult = lResult.substring(0, lResult.length - 4) + "<span style='color:mediumblue'>&gt;</span>";
+                }
+                return "<span style='color:brown'>" + lResult + "</span>";
             },
             //===============================================
             attributeMode: function(data) {
+                var lDone = "";
+                while(data.indexOf("=") > -1) {
+                    var lIndexOf = data.indexOf("=");
+                    var lIndexOf2 = data.indexOf('"', lIndexOf);;
+                    var lSubstring = data.substring(0, lIndexOf);
+                    var lSubstring2 = data.substring(lIndexOf, lIndexOf2 + 1);
+                    data = data.substr(lIndexOf2 + 1);
+                    lDone += lSubstring;
+                    lDone += this.attributeValueMode(lSubstring2);
+                }
+                var lData = lDone + data;
+                return this.attributeKeyMode(lData);
+            },
+            //===============================================
+            attributeKeyMode: function(data) {
                 var lData = "";
+                lData += "<span style='color:red'>";
+                lData += data;
+                lData += "</span>";
+                return lData;
+            },
+            //===============================================
+            attributeValueMode: function(data) {
+                var lData = "";
+                lData += "<span style='color:mediumblue'>";
+                lData += data;
+                lData += "</span>";
                 return lData;
             },
             //===============================================
