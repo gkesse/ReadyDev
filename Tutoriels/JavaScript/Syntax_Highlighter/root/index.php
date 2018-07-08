@@ -8,20 +8,23 @@
     </head>
     <body>
         <!-- ============================================ -->
-        <div class="PrintSyntax">
-            &lt;!-- Voici mon commentaire --&gt;<br>
-            &lt;!DOCTYPE html&gt;<br>
-            &lt;html&gt;<br>
-            &lt;body&gt;<br>
-            <br>
-            &lt;!-- Voici mon deuxième commentaire --&gt;<br>
-            &lt;h1&gt;Testing an HTML Syntax Highlighter&lt;/h2&gt;<br>
-            &lt;p&gt;Hello world!&lt;/p&gt;<br>
-            &lt;a href="https://www.w3schools.com"&gt;Back to School&lt;/a&gt;<br>
-            <br>
-            &lt;/body&gt;<br>
-            &lt;/html&gt;
-        </div>
+        <pre class="PrintSyntax"><xmp>
+<!-- Voici mon commentaire -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JS | ReadyDev</title>
+    </head>
+    <body>
+    
+    <!-- Voici mon deuxième commentaire -->
+    <h1>Testing an HTML Syntax Highlighter</h2>
+    <p>Hello world!</p>
+    <a href="https://www.w3schools.com">Back to School</a>
+    
+    </body>
+</html>
+        </xmp></pre>
         <!-- ============================================ -->
         <script src="GSyntax.js"></script>
         <!-- ============================================ -->
