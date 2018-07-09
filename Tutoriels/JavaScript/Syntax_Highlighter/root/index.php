@@ -9,8 +9,6 @@
     <body>
         <!-- ============================================ -->
         <pre class="PrintSyntax"><xmp>
-<a href='https://www.w3schools.com'>www.w3schools.com</a>
-<a href="https://www.w3schools.com">www.w3schools.com</a>
 <!-- Voici mon commentaire -->
 <!DOCTYPE html>
 <html>
