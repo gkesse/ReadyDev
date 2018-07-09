@@ -21,7 +21,7 @@ clean:
 set PATH=C:\MinGW\bin
 set PATH=C:\Windows\Microsoft.NET\Framework\v4.0.30319;%PATH%
 
-mingw32-make</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3"><img src="img/Vbc_Utilisation.png" alt="img/Vbc_Utilisation.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Communiquer avec la console"><a class="Link3" href="#">Communiquer avec la console</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">communiquer avec la console</span>, sous Windows.<br>Produit par <b>Gérard KESSE</b>.<br><br><h3 class="Title8 GTitle3">Programme principale (GMain.vb)</h3><div class="GCode1"><pre><xmp class="Code2 prettyprint linenums lang-vb">'================================================'
+mingw32-make</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3"><img src="img/Vbc_Utilisation.png" alt="img/Vbc_Utilisation.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Communiquer avec la console"><a class="Link3" href="#">Communiquer avec la console</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">communiquer avec la console</span> avec le VB.NET<br>Produit par <b>Gérard KESSE</b>.<br><br><h3 class="Title8 GTitle3">Programme principale (GMain.vb)</h3><div class="GCode1"><pre><xmp class="Code2 prettyprint linenums lang-vb">'================================================'
 Module GModule
     Sub Main()
         Dim CR As String = Environment.newLine
@@ -29,4 +29,14 @@ Module GModule
         Console.Write("Bonjour tout le monde" + CR)
     End Sub
 End Module
-'================================================'</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3"><div class="Img3"><img src="img/Console.png" alt="img/Console.png"></div></div></div></div></div></div><br><br>
+'================================================'</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3"><div class="Img3"><img src="img/Console.png" alt="img/Console.png"></div></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Gérer le formatage de chaine"><a class="Link3" href="#">Gérer le formatage de chaine</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">gérer le formatage de chaine</span> avec le VB.NET.<br>Produit par<b> Gérard KESSE</b>.<br><br><h3 class="Title8 GTitle3">Programme principale (GMain.vb)</h3><div class="GCode1"><pre><xmp class="Code2 prettyprint linenums lang-vb">'================================================'
+Module GModule
+    Sub Main()
+        Dim CR As String = Environment.newLine
+        Console.Write("### Formatage de chaine" + CR + CR)
+        Console.Write(String.Format("{0,-15} : {1}", "Nom", "Gérard KESSE") + CR)
+        Console.Write(String.Format("{0,-15} : {1}", "Email", "gerard@readydev.com") + CR)
+        Console.Write(String.Format("{0,-15} : {1}", "Identifiant", 123456) + CR)
+    End Sub
+End Module
+'================================================'</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3"><img src="img/Chaine_Formatage.png" alt="img/Chaine_Formatage.png"></div></div></div></div></div><br>
