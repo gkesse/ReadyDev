@@ -14,7 +14,7 @@
             <h1 class="Title">Utilisation de Ace</h1>
             <!-- ============================================ -->
             <h3 class="Title2">Code HTML</h3>
-            <pre class="Code"><xmp class="Code2 AceCode" data-lang="html">
+            <pre class="Code"><xmp class="Code2 AceCode" data-mode="html" data-theme="dawn">
 <!-- ============================================ -->
 <!DOCTYPE html>
 <html>
@@ -61,7 +61,7 @@
             </xmp></pre>
             <!-- ============================================ -->
             <h3 class="Title2">Code LaTeX</h3>
-            <pre class="Code"><xmp class="Code2 AceCode" data-lang="tex">
+            <pre class="Code"><xmp class="Code2 AceCode" data-mode="tex" data-theme="dawn">
 %================================================
 \documentclass{article}
 %================================================
@@ -81,7 +81,7 @@ Accents : é è à ç
             </xmp></pre>
             <!-- ============================================ -->
             <h3 class="Title2">Code VB.NET</h3>
-            <pre class="Code"><xmp class="Code2 AceCode" data-lang="vbscript">
+            <pre class="Code"><xmp class="Code2 AceCode" data-mode="vbscript" data-theme="dawn">
 '================================================'
 Module GModule
     Sub Main()
@@ -94,7 +94,7 @@ End Module
             </xmp></pre>
             <!-- ============================================ -->
             <h3 class="Title2">Code Makefile</h3>
-            <pre class="Code"><xmp class="Code2 AceCode" data-lang="makefile">
+            <pre class="Code"><xmp class="Code2 AceCode" data-mode="makefile" data-theme="dawn">
 GSRC = ..\src
 GBIN = bin
 GTARGET = $(GBIN)\GProject.exe
@@ -109,7 +109,7 @@ clean:
             </xmp></pre>
             <!-- ============================================ -->
             <h3 class="Title2">Code Batch</h3>
-            <pre class="Code"><xmp class="Code2 AceCode" data-lang="batchfile">
+            <pre class="Code"><xmp class="Code2 AceCode" data-mode="batchfile" data-theme="dawn">
 @echo off
  
 set PATH=C:\MinGW\bin
