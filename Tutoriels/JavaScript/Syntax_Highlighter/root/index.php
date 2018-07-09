@@ -22,8 +22,7 @@
     <a href="https://www.w3schools.com">Back to School</a>
     
     </body>
-</html>
-        </xmp></pre>
+</html></xmp></pre>
         <!-- ============================================ -->
         <script src="GSyntax.js"></script>
         <!-- ============================================ -->
