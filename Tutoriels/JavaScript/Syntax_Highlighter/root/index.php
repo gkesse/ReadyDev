@@ -8,8 +8,7 @@
     </head>
     <body>
         <!-- ============================================ -->
-        <pre class="PrintSyntax"><xmp>
-<!-- Voici mon commentaire -->
+        <pre class="PrintSyntax"><xmp><!-- Voici mon commentaire -->
 <!DOCTYPE html>
 <html>
     <head>
