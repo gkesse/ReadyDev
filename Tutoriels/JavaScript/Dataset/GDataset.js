@@ -7,6 +7,7 @@ var GDataset = (function() {
         return {
             //===============================================
             init: function() {
+                this.createDataset();
                 this.readDataset();
             },
             //===============================================
@@ -20,10 +21,18 @@ var GDataset = (function() {
                 lReadDataset.innerHTML = lHtml;
             },
             //===============================================
+            createDataset: function() {
+                var lMoto = document.getElementById("moto");
+                lMoto.dataset.constructeur = "DUCATI";
+                lMoto.dataset.pays = "Italie";
+            },
+            //===============================================
             readDataset: function() {
                 var lReadDataset = document.getElementById("ReadDataset");
                 var lMoto = document.getElementById("moto");
                 var lHtml = "";
+                lHtml += this.getRow("Constructeur", lMoto.dataset.constructeur);
+                lHtml += this.getRow("Pays", lMoto.dataset.pays);
                 lHtml += this.getRow("Model", lMoto.dataset.model);
                 lHtml += this.getRow("Moteur", lMoto.dataset.moteur);
                 lHtml += this.getRow("Puissance Max", lMoto.dataset.puissanceMax);
