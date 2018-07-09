@@ -1,0 +1,74 @@
+/* ============================================== */
+/* Global */ 
+/* ============================================== */
+
+* {
+    color: white;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*:focus { 
+    border: none;
+    outline: none;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background: #051039;
+    font-family: arial;
+    font-size: 16px;
+    text-align: center;
+    padding: 10px;
+}
+
+/* ============================================== */
+/* Custom */ 
+/* ============================================== */
+
+.Field {
+    margin-left: 150px;
+    padding: 5px 10px;
+}
+
+.Label {
+    background-color: rgba(255, 255, 255, 0.2);
+    min-width: 150px;
+    float: left;
+    padding: 5px 10px;
+}
+
+.MainPage  {
+    display: inline-block;
+    text-align: left;
+}
+
+.Result {
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    padding: 10px;
+}
+
+.Row {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.Row:not(:last-child) {
+    margin-bottom: 5px;
+}
+
+.Title  {
+    color: lime;
+}
+
+.Title2  {
+    color: #f67b20;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+/* ============================================== */

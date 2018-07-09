@@ -94,7 +94,7 @@
         <!-- ============================================ -->
         <!-- Script -->
         <?php if($lCodePrettify) { ?>
-        <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=css&amp;skin=sunburst"></script>
+        <script src="/lib/prettify/loader/run_prettify.js?lang=css&amp;skin=sunburst"></script>
         <?php } ?>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <!-- ============================================ -->
