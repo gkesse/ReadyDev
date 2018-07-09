@@ -16,9 +16,16 @@ var GAce = (function() {
                     var lMode = lAceCode[i].dataset.mode;
                     var lTheme = lAceCode[i].dataset.theme;
                     var lEditor = ace.edit(lAceCode[i]);
+                    
                     lEditor.setTheme("ace/theme/"+lTheme);
                     lEditor.session.setMode("ace/mode/"+lMode);
                     lEditor.setShowPrintMargin(false);
+                    lEditor.setDisplayIndentGuides(false);
+                    lEditor.setHighlightActiveLine(false);
+                    
+                    lEditor.setOptions({
+                        maxLines: Infinity
+                    });
                 }
             }
             //===============================================

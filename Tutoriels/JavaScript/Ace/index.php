@@ -14,7 +14,7 @@
             <h1 class="Title">Utilisation de Ace</h1>
             <!-- ============================================ -->
             <h3 class="Title2">Code HTML</h3>
-            <pre class="Code"><xmp class="Code2 AceCode" data-mode="html" data-theme="dawn">
+            <pre class="Code"><xmp class="Code2 AceCode" data-mode="html" data-theme="monokai">
 <!-- ============================================ -->
 <!DOCTYPE html>
 <html>
@@ -22,8 +22,8 @@
         <!-- ============================================ -->
         <title>Html | ReadyDev</title>
         <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1.0, user-scalable=no"/>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.3.3/ace.js" type="text/javascript" charset="utf-8"></script>
+        <meta name="viewport" content="initial-scale=1.0"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.3.3/ace.js"></script>
         <link rel="stylesheet" href="style.css"/>
         <!-- ============================================ -->
         <script>
@@ -61,7 +61,7 @@
             </xmp></pre>
             <!-- ============================================ -->
             <h3 class="Title2">Code LaTeX</h3>
-            <pre class="Code"><xmp class="Code2 AceCode" data-mode="tex" data-theme="dawn">
+            <pre class="Code"><xmp class="Code2 AceCode" data-mode="tex" data-theme="monokai">
 %================================================
 \documentclass{article}
 %================================================
@@ -81,7 +81,7 @@ Accents : é è à ç
             </xmp></pre>
             <!-- ============================================ -->
             <h3 class="Title2">Code VB.NET</h3>
-            <pre class="Code"><xmp class="Code2 AceCode" data-mode="vbscript" data-theme="dawn">
+            <pre class="Code"><xmp class="Code2 AceCode" data-mode="vbscript" data-theme="monokai">
 '================================================'
 Module GModule
     Sub Main()
@@ -94,7 +94,7 @@ End Module
             </xmp></pre>
             <!-- ============================================ -->
             <h3 class="Title2">Code Makefile</h3>
-            <pre class="Code"><xmp class="Code2 AceCode" data-mode="makefile" data-theme="dawn">
+            <pre class="Code"><xmp class="Code2 AceCode" data-mode="makefile" data-theme="monokai">
 GSRC = ..\src
 GBIN = bin
 GTARGET = $(GBIN)\GProject.exe
@@ -109,7 +109,7 @@ clean:
             </xmp></pre>
             <!-- ============================================ -->
             <h3 class="Title2">Code Batch</h3>
-            <pre class="Code"><xmp class="Code2 AceCode" data-mode="batchfile" data-theme="dawn">
+            <pre class="Code"><xmp class="Code2 AceCode" data-mode="batchfile" data-theme="monokai">
 @echo off
  
 set PATH=C:\MinGW\bin
@@ -121,6 +121,7 @@ mingw32-make
        </div>
         <!-- ============================================ -->
         <script src="GAce.js"></script>
+        <link rel="stylesheet" href="style.css"/>
         <!-- ============================================ -->
     </body>
 </html>

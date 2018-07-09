@@ -30,20 +30,9 @@ body {
 /* Custom */ 
 /* ============================================== */
 
-.Code {
+.AceCode {
+    /*background-color: transparent;*/
     overflow: auto;
-    position: relative;
-    display: block;
-    min-width: 500px;
-    min-height: 500px;
-}
-
-.Code2 {
-    position: absolute;
-    left: 0px;
-    right: 0px;
-    top: 0px;
-    bottom: 0px;
     font-size: 14px;
 }
 
