@@ -24,7 +24,9 @@ var GAce = (function() {
                     lEditor.setHighlightActiveLine(false);
                     
                     lEditor.setOptions({
-                        maxLines: Infinity
+                        maxLines: Infinity,
+                        readOnly: true,
+                        selectionStyle: "text"
                     });
                 }
             }
