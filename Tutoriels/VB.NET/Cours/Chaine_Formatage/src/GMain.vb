@@ -1,4 +1,4 @@
-'================================================
+'================================================'
 Module GModule
     Sub Main()
         Dim CR As String = Environment.newLine
@@ -8,4 +8,4 @@ Module GModule
         Console.Write(String.Format("{0,-15} : {1}", "Identifiant", 123456) + CR)
     End Sub
 End Module
-'================================================
+'================================================'
