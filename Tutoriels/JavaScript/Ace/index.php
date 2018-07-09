@@ -82,7 +82,7 @@ Accents : é è à ç
             <!-- ============================================ -->
             <h3 class="Title2">Code VB.NET</h3>
             <pre class="Code"><xmp class="Code2 AceCode" data-mode="vbscript" data-theme="monokai">
-'================================================'
+'================================================
 Module GModule
     Sub Main()
         Dim CR As String = Environment.newLine
@@ -90,7 +90,7 @@ Module GModule
         Console.Write("Bonjour tout le monde" + CR)
     End Sub
 End Module
-'================================================'
+'================================================
             </xmp></pre>
             <!-- ============================================ -->
             <h3 class="Title2">Code Makefile</h3>

@@ -17,17 +17,19 @@ var GAce = (function() {
                     var lTheme = lAceCode[i].dataset.theme;
                     var lEditor = ace.edit(lAceCode[i]);
                     
-                    lEditor.setTheme("ace/theme/"+lTheme);
                     lEditor.session.setMode("ace/mode/"+lMode);
-                    lEditor.setShowPrintMargin(false);
-                    lEditor.setDisplayIndentGuides(false);
-                    lEditor.setHighlightActiveLine(false);
                     
                     lEditor.setOptions({
+                        theme: "ace/theme/"+lTheme,
                         maxLines: Infinity,
                         readOnly: true,
-                        selectionStyle: "text"
-                    });
+                        selectionStyle: "text",
+                        showLineNumbers: true,
+                        showGutter: true,
+                        displayIndentGuides: false,
+                        highlightActiveLine: false,
+                        showPrintMargin: false
+                    });                    
                 }
             }
             //===============================================
