@@ -14,7 +14,7 @@
             <h1 class="Title">Utilisation de Ace</h1>
             <!-- ============================================ -->
             <h3 class="Title2">Code HTML</h3>
-            <pre class="Code"><xmp class="Code2 AceCode" id="editor">
+            <pre class="Code"><xmp class="Code2 AceCode" data-lang="html">
 <!-- ============================================ -->
 <!DOCTYPE html>
 <html>
@@ -53,7 +53,7 @@
             <!-- ============================================ -->
         </div>
         <!-- ============================================ -->
-        <script src="GAce.js"></script>
+        <script src="GScript.js"></script>
         <!-- ============================================ -->
     </body>
 </html>
@@ -61,7 +61,7 @@
             </xmp></pre>
             <!-- ============================================ -->
             <h3 class="Title2">Code LaTeX</h3>
-            <pre class="Code"><xmp class="Code2 AceCode" id="editor">
+            <pre class="Code"><xmp class="Code2 AceCode" data-lang="tex">
 %================================================
 \documentclass{article}
 %================================================
@@ -79,15 +79,38 @@ Accents : é è à ç
 \end{document}
 %================================================
             </xmp></pre>
-        </div>
+            <!-- ============================================ -->
+            <h3 class="Title2">Code VB.NET</h3>
+            <pre class="Code"><xmp class="Code2 AceCode" data-lang="vbscript">
+'================================================'
+Module GModule
+    Sub Main()
+        Dim CR As String = Environment.newLine
+        Console.Write("### Utilisation de Vbc" + CR + CR)
+        Console.Write("Bonjour tout le monde" + CR)
+    End Sub
+End Module
+'================================================'
+            </xmp></pre>
+            <!-- ============================================ -->
+            <h3 class="Title2">Code Batch</h3>
+            <pre class="Code"><xmp class="Code2 AceCode" data-lang="makefile">
+GSRC = ..\src
+GBIN = bin
+GTARGET = $(GBIN)\GProject.exe
+ 
+GSRCS = \
+    $(GSRC)\GMain.vb
+ 
+all:
+    vbc /out:$(GTARGET) $(GSRCS)
+clean:
+    del /q $(GTARGET)
+            </xmp></pre>
+             <!-- ============================================ -->
+       </div>
         <!-- ============================================ -->
         <script src="GAce.js"></script>
-        <!-- ============================================ -->
-        <!--script>
-            var editor = ace.edit("editor");
-            editor.setTheme("ace/theme/monokai");
-            editor.session.setMode("ace/mode/html");
-        </script-->
         <!-- ============================================ -->
     </body>
 </html>

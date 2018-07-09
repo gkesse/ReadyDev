@@ -32,18 +32,18 @@ body {
 
 .Code {
     overflow: auto;
-    /*position: relative;
+    position: relative;
     display: block;
     min-width: 500px;
-    min-height: 500px;*/
+    min-height: 500px;
 }
 
 .Code2 {
-    /*position: absolute;
+    position: absolute;
     left: 0px;
     right: 0px;
     top: 0px;
-    bottom: 0px;*/
+    bottom: 0px;
 }
 
 .Field {

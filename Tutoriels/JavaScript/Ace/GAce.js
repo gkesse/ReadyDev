@@ -11,31 +11,13 @@ var GAce = (function() {
             },
             //===============================================
             setSyntax: function() {
-                var lSyntax = document.getElementById("Syntax");
-                var lCode = new this.getCode();
-                var lCodeData = lCode.code;
-                var lCodeLang = lCode.lang;
-                YUI().use(
-                    'aui-ace-editor',
-                    function(Y) {
-                        new Y.AceEditor(
-                            {
-                                boundingBox: '#Syntax',
-                                mode: lCodeLang,
-                                value: lCodeData,
-                                showPrintMargin: false
-                            }
-                        ).render();
-                    }
-                );
-            },
-            //===============================================
-            getCode: function() {
-                var lCode = document.getElementById("Code");
-                var lCodeData = lCode.innerHTML;
-                var lCodeLang = lCode.dataset.editor;
-                this.code = lCodeData;
-                this.lang = lCodeLang;
+                var lAceCode = document.getElementsByClassName("AceCode");
+                for(var i = 0; i < lAceCode.length; i++) {
+                    var lLang = lAceCode[i].dataset.lang;
+                    var lEditor = ace.edit(lAceCode[i]);
+                    lEditor.setTheme("ace/theme/monokai");
+                    lEditor.session.setMode("ace/mode/"+lLang);
+                }
             }
             //===============================================
         };
