@@ -71,7 +71,7 @@ var GSyntax = (function() {
             syntaxCode: function(data) {
                 var lData = "";
                 lData += "<div style='display:inline-block;"
-                lData += "background-color:rgba(10,50,50,0.5);";
+                lData += "background-color:#919295;";
                 lData += "color:black;";
                 lData += "padding:10px;";
                 lData += "font-family:courier'>";
@@ -174,7 +174,7 @@ var GSyntax = (function() {
             //===============================================
             commentMode: function(data) {
                 var lData = "";
-                lData += "<span style='color:lime;'>";
+                lData += "<span style='color:#03ee26;'>";
                 lData += data;
                 lData += "</span>";
                 return lData;

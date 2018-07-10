@@ -16,12 +16,15 @@
         //===============================================
         public function saveData($file, $data) {
             $lFile = $_SERVER["DOCUMENT_ROOT"]."/".$file;
+            $lFile = realpath($lFile);
             $lJson = json_encode($data);
             file_put_contents($lFile, $lJson);
         }
         //===============================================
         public function getData($file) {
-            $lData = GFile::Instance()->getData($file);
+            $lFile = $_SERVER["DOCUMENT_ROOT"]."/".$file;
+            $lFile = realpath($lFile);
+            $lData = file_get_contents($lFile);
             $lJson = json_decode($lData, true);
             return $lJson;
         }

@@ -23,13 +23,17 @@ body {
     background: #051039;
     font-family: arial;
     font-size: 16px;
-    text-align: center;
     padding: 10px;
 }
 
 /* ============================================== */
 /* Custom */ 
 /* ============================================== */
+
+.AceCode {
+    overflow: auto;
+    font-size: 14px;
+}
 
 .Field {
     margin-left: 150px;
@@ -43,13 +47,29 @@ body {
     padding: 5px 10px;
 }
 
+.Link {
+    color: cyan;
+    text-decoration: none;
+}
+
+.Link:hover {
+    text-decoration: underline;
+}
+
 .MainPage  {
-    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: auto;
+    padding: 10px;
     text-align: left;
+    max-width: 1000px;
+}
+
+.MainPage:not(:last-child) {
+    margin-bottom: 10px;
 }
 
 .Result {
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    background-color: #051039;
     padding: 10px;
 }
 
@@ -61,14 +81,18 @@ body {
     margin-bottom: 5px;
 }
 
+.Row2:not(:last-child) {
+    margin-bottom: 5px;
+}
+
 .Title  {
     color: lime;
 }
 
 .Title2  {
     color: #f67b20;
-    margin-top: 10px;
-    margin-bottom: 5px;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
 
 /* ============================================== */

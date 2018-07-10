@@ -1,29 +1,26 @@
 <?php   
-    class GJson {
+    class GConfig {
         //===============================================
         private static $m_instance = null;
+        private $m_dataMap = array();
         //===============================================
         private function __construct() {
-        
+
         }
         //===============================================
         public static function Instance() {
             if(is_null(self::$m_instance)) {
-                self::$m_instance = new GJson();  
+                self::$m_instance = new GConfig();  
             }
             return self::$m_instance;
         }
         //===============================================
-        public function saveData($file, $data) {
-            $lFile = $_SERVER["DOCUMENT_ROOT"]."/".$file;
-            $lJson = json_encode($data);
-            file_put_contents($lFile, $lJson);
+        public function setData($key, $value) {
+            $this->m_dataMap[$key] = $value;        
         }
         //===============================================
-        public function getData($file) {
-            $lData = GFile::Instance()->getData($file);
-            $lJson = json_decode($lData, true);
-            return $lJson;
+        public function getData($key) {
+            return $this->m_dataMap[$key];        
         }
         //===============================================
     }

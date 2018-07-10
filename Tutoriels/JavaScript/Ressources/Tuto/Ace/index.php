@@ -1,20 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <!-- ============================================ -->
-        <title>Ace | ReadyDev</title>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.3.3/ace.js" type="text/javascript" charset="utf-8"></script>
-        <link rel="stylesheet" href="style.css"/>
-        <!-- ============================================ -->
-    </head>
-    <body>
-        <!-- ============================================ -->
-        <div class="MainPage">
-            <!-- ============================================ -->
-            <h1 class="Title">Utilisation de Ace</h1>
-            <!-- ============================================ -->
-            <h3 class="Title2">Code HTML</h3>
-            <pre class="Code"><xmp class="Code2 AceCode" data-mode="html" data-theme="monokai">
+<!-- ============================================ -->
+<?php
+    require $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoloadRegister.php";
+    GConfig::Instance()->setData("title", "Ace");   
+    require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";
+?>
+<!-- ============================================ -->
+<div class="MainPage">
+    <!-- ============================================ -->
+    <h1 class="Title">Utilisation de Ace</h1>
+    <!-- ============================================ -->
+    <h3 class="Title2">Code HTML</h3>
+    <pre class="Code"><xmp class="Code2 AceCode" data-mode="html" data-theme="monokai">
 <!-- ============================================ -->
 <!DOCTYPE html>
 <html>
@@ -116,12 +112,11 @@ set PATH=C:\MinGW\bin
 set PATH=C:\Windows\Microsoft.NET\Framework\v4.0.30319;%PATH%
  
 mingw32-make
-            </xmp></pre>
-             <!-- ============================================ -->
-       </div>
-        <!-- ============================================ -->
-        <script src="GAce.js"></script>
-        <link rel="stylesheet" href="style.css"/>
-        <!-- ============================================ -->
-    </body>
-</html>
+    </xmp></pre>
+     <!-- ============================================ -->
+</div>
+<!-- ============================================ -->
+<script src="/js/class/GAce.js"></script>
+<!-- ============================================ -->
+<?php require $_SERVER["DOCUMENT_ROOT"]."/php/footer.php";	?>
+<!-- ============================================ -->
