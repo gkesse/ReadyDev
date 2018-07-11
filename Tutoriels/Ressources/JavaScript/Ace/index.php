@@ -132,6 +132,45 @@ End Module
 '================================================
                 </xmp></pre>
                 <!-- ============================================ -->
+                <div class="Row28">
+                    <a class="Title3" href="#">
+                        Code Makefile
+                    </a>    
+                </div>
+                <!-- ============================================ -->
+                <pre class="Code2"><xmp class="AceCode" data-mode="makefile" data-theme="monokai">
+#================================================
+GSRC = ..\src
+GBIN = bin
+GTARGET = $(GBIN)\GProject.exe
+ 
+GSRCS = \
+    $(GSRC)\GMain.vb
+ 
+all:
+    vbc /out:$(GTARGET) $(GSRCS)
+clean:
+    del /q $(GTARGET)
+#================================================
+                </xmp></pre>
+                <!-- ============================================ -->
+                <div class="Row28">
+                    <a class="Title3" href="#">
+                        Code Batch
+                    </a>    
+                </div>
+                <!-- ============================================ -->
+                <pre class="Code2"><xmp class="AceCode" data-mode="batchfile" data-theme="monokai">
+::===============================================
+@echo off
+ 
+set PATH=C:\MinGW\bin
+set PATH=C:\Windows\Microsoft.NET\Framework\v4.0.30319;%PATH%
+ 
+mingw32-make
+::===============================================
+                </xmp></pre>
+                <!-- ============================================ -->
             </div>
         </div>
     </div>

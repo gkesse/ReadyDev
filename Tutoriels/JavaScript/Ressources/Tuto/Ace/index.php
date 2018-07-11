@@ -91,6 +91,7 @@ End Module
             <!-- ============================================ -->
             <h3 class="Title2">Code Makefile</h3>
             <pre class="Code"><xmp class="Code2 AceCode" data-mode="makefile" data-theme="monokai">
+#================================================
 GSRC = ..\src
 GBIN = bin
 GTARGET = $(GBIN)\GProject.exe
@@ -102,16 +103,19 @@ all:
     vbc /out:$(GTARGET) $(GSRCS)
 clean:
     del /q $(GTARGET)
+#================================================
             </xmp></pre>
             <!-- ============================================ -->
             <h3 class="Title2">Code Batch</h3>
             <pre class="Code"><xmp class="Code2 AceCode" data-mode="batchfile" data-theme="monokai">
+::===============================================
 @echo off
  
 set PATH=C:\MinGW\bin
 set PATH=C:\Windows\Microsoft.NET\Framework\v4.0.30319;%PATH%
  
 mingw32-make
+::===============================================
     </xmp></pre>
      <!-- ============================================ -->
 </div>
