@@ -30,7 +30,7 @@
             </h1>
             <div class="Body3">
                 <!-- ============================================ -->
-                <div class="Row28">
+                <div class="Row0">
                     Le <b>JavaScript</b> est un langage de programmation web dynamique côté client.<br/>
                     Le but de ce tutoriel est de vous apprendre
                     la <b>coloration syntaxique</b> avec le <b>JavaScript</b>.<br/>
