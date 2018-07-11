@@ -14,10 +14,12 @@ var GAce = (function() {
                 var lAceCode = document.getElementsByClassName("AceCode");
                 for(var i = 0; i < lAceCode.length; i++) {
                     var lMode = lAceCode[i].dataset.mode;
-                    var lTheme = lAceCode[i].dataset.theme;
+                    var lTheme = "gruvbox";
                     var lEditor = ace.edit(lAceCode[i]);
                     
+                    lAceCode[i].style.backgroundColor = "transparent";
                     lEditor.session.setMode("ace/mode/"+lMode);
+                    lEditor.renderer.$cursorLayer.element.style.display = "none";
                     
                     lEditor.setOptions({
                         theme: "ace/theme/"+lTheme,
@@ -29,7 +31,10 @@ var GAce = (function() {
                         displayIndentGuides: false,
                         highlightActiveLine: false,
                         showPrintMargin: false,
-                        fontSize: "16px"
+                        showGutter: true,
+                        fontSize: "16px",
+                        highlightGutterLine: false,
+                        fontFamily: "courier"
                     });                    
                 }
             }

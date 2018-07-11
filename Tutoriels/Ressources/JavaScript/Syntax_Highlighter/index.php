@@ -54,7 +54,7 @@
     <body>
     
     <!-- Voici mon deuxième commentaire -->
-    <h1>Testing an HTML Syntax Highlighter</h2>
+    <h1>Testing an HTML Syntax Highlighter</h1>
     <p>Hello world!</p>
     <a href="https://www.w3schools.com">Back to School</a>
     
