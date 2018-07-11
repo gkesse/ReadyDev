@@ -150,7 +150,7 @@ var GSyntax = (function() {
             //===============================================
             attributeValueMode: function(data) {
                 var lData = "";
-                lData += "<span style='color:lightblue'>";
+                lData += "<span style='color:darkorange'>";
                 lData += data;
                 lData += "</span>";
                 return lData;

@@ -30,20 +30,20 @@
             </h1>
             <div class="Body3">
                 <!-- ============================================ -->
-                <div class="Row3">
+                <div class="Row28">
                     Le <b>JavaScript</b> est un langage de programmation web dynamique côté client.<br/>
                     Le but de ce tutoriel est de vous apprendre
                     <b>l'utilisation de Ace</b> avec le <b>JavaScript</b>.<br/>
                     Produit par <b>Gérard KESSE</b>.
                 </div>
                 <!-- ============================================ -->
-                <div class="Row3">
+                <div class="Row28">
                     <a class="Title3" href="#">
                         Code HTML
                     </a>    
                 </div>
                 <!-- ============================================ -->
-                <pre><xmp class="AceCode" data-mode="html" data-theme="monokai">
+                <pre class="Code2"><xmp class="AceCode" data-mode="html" data-theme="monokai">
 <!-- ============================================ -->
 <!DOCTYPE html>
 <html>
@@ -87,6 +87,49 @@
     </body>
 </html>
 <!-- ============================================ -->
+                </xmp></pre>
+                <!-- ============================================ -->
+                <div class="Row28">
+                    <a class="Title3" href="#">
+                        Code LaTeX
+                    </a>    
+                </div>
+                <!-- ============================================ -->
+                <pre class="Code2"><xmp class="AceCode" data-mode="tex" data-theme="monokai">
+%================================================
+\documentclass{article}
+%================================================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel}
+%================================================
+\begin{document}
+%================================================
+\parindent=0em
+\textbf{Définir un encodage} \\ \\
+%================================================
+Accents : é è à ç
+%================================================
+\end{document}
+%================================================
+                </xmp></pre>
+                <!-- ============================================ -->
+                <div class="Row28">
+                    <a class="Title3" href="#">
+                        Code VB.NET
+                    </a>    
+                </div>
+                <!-- ============================================ -->
+                <pre class="Code2"><xmp class="AceCode" data-mode="vbscript" data-theme="monokai">
+'================================================
+Module GModule
+    Sub Main()
+        Dim CR As String = Environment.newLine
+        Console.Write("### Utilisation de Vbc" + CR + CR)
+        Console.Write("Bonjour tout le monde" + CR)
+    End Sub
+End Module
+'================================================
                 </xmp></pre>
                 <!-- ============================================ -->
             </div>

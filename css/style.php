@@ -570,6 +570,10 @@ hr:after {
     max-height: 400px;
 }
 
+.Code2 {
+    overflow: auto;
+}
+
 .Col {
     display: inline-block;
     vertical-align: middle;
@@ -1274,6 +1278,10 @@ hr:after {
 
 .Row27 {
     overflow: auto;
+}
+
+.Row28 {
+    padding: 20px 0px;
 }
 
 .Shift1 {
