@@ -1055,6 +1055,14 @@ hr:after {
 
 }
 
+.MainBody2  {
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: auto;
+    padding: 10px;
+    text-align: left;
+    max-width: 1000px;
+}
+
 .MainBlock {
     padding: 10px;
 }
@@ -1408,6 +1416,16 @@ hr:after {
 
 .Title8 {
     color: dodgerblue;
+}
+
+.Title9  {
+    color: lime;
+}
+
+.Title10  {
+    color: #f67b20;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
 
 /* ============================================== */
