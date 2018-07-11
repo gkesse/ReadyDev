@@ -43,7 +43,7 @@
                     </a>    
                 </div>
                 <!-- ============================================ -->
-                <pre class="PrintSyntax"><xmp>
+                <pre class="PrintSyntax Row27"><xmp>
 <!-- ============================================ -->
 <!-- Voici mon commentaire -->
 <!DOCTYPE html>

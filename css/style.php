@@ -1276,6 +1276,10 @@ hr:after {
     padding: 0px 5px;
 }
 
+.Row27 {
+    overflow: auto;
+}
+
 .Shift1 {
     padding-left: 10px;
 }
