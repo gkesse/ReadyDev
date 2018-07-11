@@ -519,8 +519,7 @@ var GEditor = (function() {
                                 var lDiv = document.createElement('DIV');
                                 lDiv.appendChild(lFragment);
                                 var lHtml = lDiv.firstChild.firstChild.firstChild.innerHTML;
-                                lHtml = this.encodeHtml(lHtml, true);
-                                lHtml = '<div class="Code02">'+lHtml+'</div>';
+                                lHtml = this.encodeHtml(lHtml, "html");
                                 document.execCommand("insertHTML", false, lHtml);
                                 return;
                             }
@@ -528,7 +527,7 @@ var GEditor = (function() {
                         }
                     }
                     if(!lSelection.toString()) return;
-                	var lArg = prompt("Langage ?", "lang-tex");
+                	var lArg = prompt("Langage ?", "tex");
                     if(!lArg) return;
 					var lArgMap = lArg.split(";");
                     if(lArgMap.length < 1) return;
@@ -538,10 +537,10 @@ var GEditor = (function() {
                     var lDiv = document.createElement('DIV');
                     lDiv.appendChild(lFragment);
                     lData = lDiv.innerHTML;
-                    lData = this.encodeHtml(lData, false);
+                    lData = this.encodeHtml(lData, "txt");
                     var lHtml = '';
                     lHtml += '<div class="GCode1">';
-                    lHtml += '<pre><xmp class="Code2 prettyprint linenums '+lLanguage+'">';
+                    lHtml += '<pre class="Code2"><xmp class="AceCode" data-mode="'+lLanguage+'" data-theme="monokai">';
                     lHtml += lData;
                     lHtml += '</xmp></pre>';
                     lHtml += '</div>';
@@ -789,7 +788,34 @@ var GEditor = (function() {
                 }
             },
             //===============================================
-            encodeHtml: function(data, type=true) {
+            encodeHtml: function(data, lang="html") {
+                var lEntityMap = {
+                    '<': '&lt;|html',
+                    '>': '&gt;|html',
+                    //' ': '&nbsp;|html',
+                    '\n': '<br>|html',
+                    '&lt;': '<|txt',
+                    '&gt;': '>|txt',
+                    //'&nbsp;': ' |txt',
+                    '<br>': '\n|txt'
+                };
+                for(key in lEntityMap) {
+                    var lVal = lEntityMap[key];
+                    var lSplit = lVal.split("|");
+                    var lVal2 = lSplit[0];
+                    if(lSplit.length > 1) {
+                        var lVal3 = lSplit[1];
+                        var lSplit2 = lVal3.split(";");
+                        var lIncludes = lSplit2.includes(lang);
+                        if(!lIncludes) continue;
+                    }
+                    var lReg = new RegExp(key, 'g');
+                    data = data.replace(lReg, lVal2);
+                }
+                return data;
+            },
+            //===============================================
+            encodeHtml2: function(data, type=true) {
                 var lEntityMap = {
                     '&': '&amp;',
                     '<': '&lt;',
@@ -840,7 +866,7 @@ var GEditor = (function() {
                 e.preventDefault();
                 var lClipboardData = e.clipboardData || window.clipboardData;
                 var lData = lClipboardData.getData("text");
-                lData = this.encodeHtml(lData);
+                lData = this.encodeHtml(lData, "html");
                 document.execCommand("insertHTML", false, lData);
             },
             //===============================================

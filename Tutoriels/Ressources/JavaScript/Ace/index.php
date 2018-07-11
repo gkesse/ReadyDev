@@ -52,7 +52,7 @@
         <title>Html | ReadyDev</title>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="initial-scale=1.0"/>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.3.3/ace.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace.js"></script>
         <link rel="stylesheet" href="style.css"/>
         <!-- ============================================ -->
         <script>
@@ -175,8 +175,6 @@ mingw32-make
         </div>
     </div>
 </div>
-<!-- ============================================ -->
-<script src="/js/class/GAce.js"></script>
 <!-- ============================================ -->
 <?php require $_SERVER["DOCUMENT_ROOT"]."/php/footer.php"; ?>
 <!-- ============================================ -->

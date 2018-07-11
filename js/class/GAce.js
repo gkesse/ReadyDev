@@ -17,6 +17,7 @@ var GAce = (function() {
                     var lTheme = lAceCode[i].dataset.theme;
                     var lEditor = ace.edit(lAceCode[i]);
                     
+                    //lAceCode[i].style.backgroundColor = "transparent";
                     lEditor.session.setMode("ace/mode/"+lMode);
                     
                     lEditor.setOptions({
@@ -29,6 +30,7 @@ var GAce = (function() {
                         displayIndentGuides: false,
                         highlightActiveLine: false,
                         showPrintMargin: false,
+                        showGutter: true,
                         fontSize: "16px"
                     });                    
                 }
