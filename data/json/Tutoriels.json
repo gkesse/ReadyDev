@@ -175,6 +175,16 @@
             "link":"/Tutoriels/LaTeX/",
 			"follow":"yes"
         }
+    ],
+    "resources":
+    [
+        {
+            "icon":"fa fa-snowflake-o",
+            "theme":"Ressources",
+            "description":"Accédez aux<br/> Ressources",
+            "link":"/Tutoriels/Ressources/",
+			"follow":"yes"
+        }
     ]
 }
                         

@@ -71,8 +71,8 @@ var GSyntax = (function() {
             syntaxCode: function(data) {
                 var lData = "";
                 lData += "<div style='display:inline-block;"
-                lData += "background-color:rgba(10,50,50,0.5);";
-                lData += "color:black;";
+                lData += "background-color:#112233;";
+                lData += "color:#999999;";
                 lData += "padding:10px;";
                 lData += "font-family:courier'>";
                 lData += data;
@@ -94,15 +94,15 @@ var GSyntax = (function() {
                     data = data.substr(lIndexOf);
                 }
                 var lResult = lDone + data;
-                lResult = "<span style='color:mediumblue'>&lt;</span>" + 
+                lResult = "<span style='color:lightblue'>&lt;</span>" + 
                 lResult.substring(4);
                 if(lResult.substr(lResult.length - 4, 4) == "&gt;") {
                     lResult = lResult.substring(0, lResult.length - 4) + 
-                    "<span style='color:mediumblue'>&gt;</span>";
+                    "<span style='color:lightblue'>&gt;</span>";
                 }
                 else {
                     lResult = lResult + 
-                    "<span style='color:mediumblue'>&gt;</span>";
+                    "<span style='color:lightblue'>&gt;</span>";
                 }
                 return "<span style='color:brown'>" + lResult + "</span>";
             },
@@ -150,7 +150,7 @@ var GSyntax = (function() {
             //===============================================
             attributeValueMode: function(data) {
                 var lData = "";
-                lData += "<span style='color:mediumblue'>";
+                lData += "<span style='color:darkorange'>";
                 lData += data;
                 lData += "</span>";
                 return lData;
@@ -174,7 +174,7 @@ var GSyntax = (function() {
             //===============================================
             commentMode: function(data) {
                 var lData = "";
-                lData += "<span style='color:lime;'>";
+                lData += "<span style='color:#03ee26;'>";
                 lData += data;
                 lData += "</span>";
                 return lData;

@@ -729,6 +729,11 @@ hr:after {
     padding: 5px 10px;
 }
 
+.Field6 {
+    margin-left: 150px;
+    padding: 5px 10px;
+}
+
 .Form {
     background-color: rgba(255, 255, 255, 0.2);
     display: inline-block;
@@ -929,6 +934,16 @@ hr:after {
     padding: 5px 10px;
 }
 
+.Label5 {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.2);
+    min-width: 150px;
+    left: 0px;
+    top: 0px;
+    bottom: 0px;
+    padding: 5px 10px;
+}
+
 .Link {
     border-top: 5px solid transparent;
     border-bottom: 5px solid transparent;
@@ -1055,6 +1070,14 @@ hr:after {
 
 }
 
+.MainBody2  {
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: auto;
+    padding: 10px;
+    text-align: left;
+    max-width: 1000px;
+}
+
 .MainBlock {
     padding: 10px;
 }
@@ -1114,6 +1137,11 @@ hr:after {
 
 .Parallax.Scroll .Img {
     background-attachment: scroll;
+}
+
+.Result {
+    background-color: #051039;
+    padding: 10px;
 }
 
 .Row {
@@ -1268,6 +1296,23 @@ hr:after {
     padding: 0px 5px;
 }
 
+.Row27 {
+    overflow: auto;
+}
+
+.Row28 {
+    padding: 20px 0px;
+}
+
+.Row29 {
+    background-color: rgba(255, 255, 255, 0.2);
+    position: relative;
+}
+
+.Row29:not(:last-child) {
+    margin-bottom: 5px;
+}
+
 .Shift1 {
     padding-left: 10px;
 }
@@ -1408,6 +1453,16 @@ hr:after {
 
 .Title8 {
     color: dodgerblue;
+}
+
+.Title9  {
+    color: lime;
+}
+
+.Title10  {
+    color: #f67b20;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
 
 /* ============================================== */

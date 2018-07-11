@@ -1,0 +1,21 @@
+{
+    "sitemap":"no",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+            "Le JavaScript est un langage de programmation web dynamique côté client.",
+			"Le but de ce tutoriel est de vous apprendre",
+            "l'utilisation de Ace avec le JavaScript.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Tutoriels/Ressources/JavaScript/Ace/"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"Ressources","link":"/Tutoriels/Ressources/","follow":"no"},
+        {"name":"JavaScript","link":"/Tutoriels/Ressources/#Ressources JavaScript","follow":"no"},
+        {"name":"Ace","link":"","follow":"no"}
+    ]
+}
