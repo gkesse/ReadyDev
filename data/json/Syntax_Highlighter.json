@@ -1,0 +1,21 @@
+{
+    "sitemap":"no",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+            "Le PHP est un langage de programmation web dynamique orientée objet utilisé côté serveur.",
+			"Le but de ce tutoriel est de vous apprendre",
+            "la programmation web dynamique avec le PHP.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Tutoriels/Ressources/JavaScript/Syntax_Highlighter/"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"Ressources","link":"/Tutoriels/Ressources/","follow":"no"},
+        {"name":"JavaScript","link":"/Tutoriels/Ressources/#Ressources JavaScript","follow":"no"},
+        {"name":"Syntax Highlighter","link":"","follow":"no"}
+    ]
+}
