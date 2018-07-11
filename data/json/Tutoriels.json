@@ -52,6 +52,13 @@
             "description":"Programmez en<br/> VB.NET",
             "link":"/Tutoriels/VB.NET/",
 			"follow":"yes"
+        },
+        {
+            "icon":"fa fa-file-text-o",
+            "theme":"LaTeX",
+            "description":"Apprenez le<br/> LaTeX",
+            "link":"/Tutoriels/LaTeX/",
+			"follow":"yes"
         }
     ],
     "web":
@@ -163,16 +170,6 @@
             "theme":"Word 2007",
             "description":"Apprenez<br/> Word 2007",
             "link":"/Tutoriels/Word2007/",
-			"follow":"yes"
-        }
-    ],
-    "divers":
-    [
-        {
-            "icon":"fa fa-file-text-o",
-            "theme":"LaTeX",
-            "description":"Apprenez le<br/> LaTeX",
-            "link":"/Tutoriels/LaTeX/",
 			"follow":"yes"
         }
     ],
