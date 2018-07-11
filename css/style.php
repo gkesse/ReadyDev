@@ -1568,3 +1568,6 @@ hr:after {
 }
 
 /* ============================================== */
+.ace_marker-layer .ace_selected-word {
+  border: 1px solid #494949
+}

@@ -540,7 +540,7 @@ var GEditor = (function() {
                     lData = this.encodeHtml(lData, "txt");
                     var lHtml = '';
                     lHtml += '<div class="GCode1">';
-                    lHtml += '<pre class="Code2"><xmp class="AceCode" data-mode="'+lLanguage+'" data-theme="monokai">';
+                    lHtml += '<pre class="Code2"><xmp class="AceCode" data-mode="'+lLanguage+'">';
                     lHtml += lData;
                     lHtml += '</xmp></pre>';
                     lHtml += '</div>';
@@ -788,15 +788,13 @@ var GEditor = (function() {
                 }
             },
             //===============================================
-            encodeHtml: function(data, lang="html") {
+            encodeHtml: function(data, lang) {
                 var lEntityMap = {
                     '<': '&lt;|html',
                     '>': '&gt;|html',
-                    //' ': '&nbsp;|html',
                     '\n': '<br>|html',
                     '&lt;': '<|txt',
                     '&gt;': '>|txt',
-                    //'&nbsp;': ' |txt',
                     '<br>': '\n|txt'
                 };
                 for(key in lEntityMap) {
