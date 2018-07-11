@@ -54,7 +54,7 @@
 			"follow":"yes"
         },
         {
-            "icon":"fa fa-file-text-o",
+            "icon":"fa fa-file-desktop",
             "theme":"LaTeX",
             "description":"Apprenez le<br/> LaTeX",
             "link":"/Tutoriels/LaTeX/",
