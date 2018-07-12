@@ -1,0 +1,60 @@
+%================================================
+\documentclass{book}
+%================================================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+%================================================
+\newtheorem*{petit_nom}{Lemme}
+\newtheorem{petit_nom1}{Proposition}
+\newtheorem{petit_nom2}{Définition}[chapter]
+\newtheorem{petit_nom3}{Définition}[section]
+%================================================
+\begin{document}
+%================================================
+\chapter{Les ours}
+%================================================
+\chapter{Les lapins}
+%================================================
+\section{les lapins nains}
+%================================================
+\begin{petit_nom}
+ils aiment les carottes
+\end{petit_nom}
+%================================================
+\begin{petit_nom}[des lapins]
+ils aiment les carottes
+\end{petit_nom}
+%================================================
+\begin{petit_nom1}
+ils aiment les carottes
+\end{petit_nom1}
+%================================================
+\begin{petit_nom1}[des lapins]
+ils aiment les carottes
+\end{petit_nom1}
+%================================================
+\begin{petit_nom2}
+ils aiment les carottes
+\end{petit_nom2}
+%================================================
+\begin{petit_nom2}[des lapins]
+ils aiment les carottes
+\end{petit_nom2}
+%================================================
+\section{les autres}
+%================================================
+\begin{petit_nom3}
+ils aiment les carottes
+\end{petit_nom3}
+%================================================
+\begin{petit_nom3}[des lapins]
+ils aiment les carottes
+\end{petit_nom3}
+%================================================
+\end{document}
+%================================================
