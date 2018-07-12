@@ -130,4 +130,4 @@ Numerotation (no) : \no \\
 Degré (o) : 40\degres \\
 %================================================
 \end{document}
-%================================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3"><img src="img/Package.png" alt="img/Package.png"></div></div></div></div></div><br>
+%================================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3"><img src="img/Package.png" alt="img/Package.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Gérer les formules mathématiques"><a class="Link3" href="#">Gérer les formules mathématiques</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">gérer les formules mathématiques</span> avec le LaTeX.<br>Produit par <b>Gérard KESSE</b>.<br><br>Utiliser les packages (main.tex)</div></div></div></div><br>
