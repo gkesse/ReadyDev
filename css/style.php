@@ -619,6 +619,11 @@ hr:after {
     margin: 0px 5px;
 }
 
+.ComboBox2 {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    min-width: 200px;
+}
+
 .Content {
     background-color: rgba(255, 255, 255, 0.2);
 }

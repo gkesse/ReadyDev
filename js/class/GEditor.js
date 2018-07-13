@@ -802,6 +802,7 @@ var GEditor = (function() {
                         lParentNode = lParentNode.parentNode;
                     }
                     GFormula.Instance().openFormula(this);
+                    if(!GConfig.Instance().getData("FormulaText")) return;
                     var lHtml = "";
                     lHtml += "<div class='Formula GFormula1'>";
                     lHtml += "Html";
