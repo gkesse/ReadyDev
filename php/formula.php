@@ -7,8 +7,18 @@
             <div class="Row11">Entrez votre formule mathématique.</div>
             <div class="Row12">
                 <select class="ComboBox2" onchange="getFormula(this); this.selectedIndex = 0">
+                    <!-- ============================================ -->
                     <option value="">ReadyFormula</option>
-                    <option value="System1">Système 1</option>
+                    <option value="SystemeEquations">Système d'Equations</option>
+                    <option value="LettreAlpha">Lettre Alpha</option>
+                    <option value="LettreBeta">Lettre Beta</option>
+                    <option value="LettreGama">Lettre Gama</option>
+                    <option value="LettreLambda">Lettre Lambda</option>
+                    <option value="LettreNabla">Lettre Nabla</option>
+                    <option value="DeriveePartielle">Derivée Partielle</option>
+                    <option value="SymboleAppartient">Symbole Appartient</option>
+                    <option value="SymboleNAppartientPas">Symbole N'Appartient Pas</option>
+                    <!-- ============================================ -->
                 </select>
             </div>
             <div class="Row12">

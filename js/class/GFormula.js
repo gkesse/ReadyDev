@@ -56,15 +56,61 @@ var GFormula = (function() {
 				var lFormulaText = document.getElementById("FormulaText");
                 switch(lArg) {
                     //===============================================
-                    case 'System1':
+                    case 'SystemeEquations':
                         var lHtml = '';
-                        lHtml += '\left \{';
-                        lHtml += '\begin{array}{r c l}';
-                        lHtml += 'y &=& x - y + z\\';
-                        lHtml += 'x &=& y\\';
-                        lHtml += 'z &=& y';
-                        lHtml += '\end{array}';
-                        lHtml += '\right.';                        
+                        lHtml += '\\left \\{';
+                        lHtml += '\\begin{array}{r c l}';
+                        lHtml += 'e1 &=& Equation1\\\\';
+                        lHtml += 'e2 &=& Equation2';
+                        lHtml += '\\end{array}';
+                        lHtml += '\\right.';                        
+                        lFormulaText.insertAtCaret(lHtml);
+                        break;
+                    //===============================================
+                    case 'LettreAlpha':
+                        var lHtml = '';
+                        lHtml += '\alpha';                        
+                        lFormulaText.insertAtCaret(lHtml);
+                        break;
+                    //===============================================
+                    case 'LettreBeta':
+                        var lHtml = '';
+                        lHtml += '\bata';                        
+                        lFormulaText.insertAtCaret(lHtml);
+                        break;
+                    //===============================================
+                    case 'LettreGama':
+                        var lHtml = '';
+                        lHtml += '\gama';                        
+                        lFormulaText.insertAtCaret(lHtml);
+                        break;
+                    //===============================================
+                    case 'LettreLambda':
+                        var lHtml = '';
+                        lHtml += '\lambda';                        
+                        break;
+                    //===============================================
+                    case 'LettreNabla':
+                        var lHtml = '';
+                        lHtml += '\nabla';                        
+                        lFormulaText.insertAtCaret(lHtml);
+                        break;
+                    //===============================================
+                    case 'DeriveePartielle':
+                        var lHtml = '';
+                        lHtml += '\partial';                        
+                        lFormulaText.insertAtCaret(lHtml);
+                        break;
+                    //===============================================
+                    case 'SymboleAppartient':
+                        var lHtml = '';
+                        lHtml += '\in';                        
+                        lFormulaText.insertAtCaret(lHtml);
+                        break;
+                    //===============================================
+                    case 'SymboleNAppartientPas':
+                        var lHtml = '';
+                        lHtml += '\not\in';                        
                         lFormulaText.insertAtCaret(lHtml);
                         break;
                     //===============================================
