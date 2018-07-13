@@ -785,6 +785,30 @@ var GEditor = (function() {
                     }
                     break;
                 //===============================================
+                case 'Formula1':
+                    var lParentNode = lStartNode.parentNode;
+                    while(1) {
+                        var lClassName = lParentNode.className;
+                        if(lClassName.includes("GEndEditor")) {
+                            break;
+                        }
+                        if(lClassName.includes("GFormula1")) {
+                            lRange.selectNode(lParentNode);
+                            lSelection.addRange(lRange);
+                            var lHtml = "";
+                            document.execCommand("insertHTML", false, lHtml);
+                            return;
+                        }
+                        lParentNode = lParentNode.parentNode;
+                    }
+                    GFormula.Instance().openFormula(this);
+                    var lHtml = "";
+                    lHtml += "<div class='Formula GFormula1'>";
+                    lHtml += "Html";
+                    lHtml += "</div>";
+                    document.execCommand("insertHTML", false, lHtml);
+                    break;
+                //===============================================
                 }
             },
             //===============================================
@@ -809,33 +833,6 @@ var GEditor = (function() {
                     }
                     var lReg = new RegExp(key, 'g');
                     data = data.replace(lReg, lVal2);
-                }
-                return data;
-            },
-            //===============================================
-            encodeHtml2: function(data, type=true) {
-                var lEntityMap = {
-                    '&': '&amp;',
-                    '<': '&lt;',
-                    '>': '&gt;',
-                    '"': '&quot;',
-                    "'": '&#39;',
-                    '/': '&#x2F;',
-                    '`': '&#x60;',
-                    '=': '&#x3D;',
-                    '\n': '<br>'
-                };
-                for(key in lEntityMap) {
-                    if(type) {
-                        var lVal = lEntityMap[key];
-                        var lReg = new RegExp(key, 'g');
-                        data = data.replace(lReg, lVal);
-                    }
-                    else {
-                        var lVal = lEntityMap[key];
-                        var lReg = new RegExp(lVal, 'g');
-                        data = data.replace(lReg, key);
-                    }
                 }
                 return data;
             },
