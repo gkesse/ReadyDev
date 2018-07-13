@@ -741,6 +741,15 @@ hr:after {
     font-size: 0px;
 }
 
+.Formula {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: inline-block;
+    vertical-align: top;
+    padding: 0px 5px;
+    margin: 5px;
+}
+
 .Footer {
     background: rgba(255, 255, 255, 0.0);
     position: absolute;
@@ -1568,6 +1577,3 @@ hr:after {
 }
 
 /* ============================================== */
-.ace_marker-layer .ace_selected-word {
-  border: 1px solid #494949
-}
