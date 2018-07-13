@@ -1326,6 +1326,13 @@ hr:after {
     padding-left: 10px;
 }
 
+.Show {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
 .Succes {
     background: rgba(255, 255, 255, 0.2);
     border-radius: 5px;

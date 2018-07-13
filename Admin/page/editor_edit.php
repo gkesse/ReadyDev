@@ -38,6 +38,7 @@
 			<option value="Style1">Style Ajouter</option>
 			<option value="Style2">Style Supprimer</option>
 			<option value="Style3">Style Lire</option>
+			<option value="Formula1">Formule 1</option>
 		</select>
 	</div>
 	<!-- ============================================ -->
@@ -46,5 +47,6 @@
 		onpaste="pasteText(event)" 
 		contentEditable="true"></div> 
 	</div>
+    <!-- ============================================ -->
 </div>
 <!-- ============================================ -->

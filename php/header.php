@@ -133,6 +133,7 @@
             <div class="Background Bottom"></div>
             <!-- ============================================ -->
             <?php require $_SERVER["DOCUMENT_ROOT"]."/php/connection.php";  ?>
+            <?php require $_SERVER["DOCUMENT_ROOT"]."/php/formula.php";  ?>
             <!-- ============================================ -->
             <div class="BodyPage">
                 <div class="MainPage">
