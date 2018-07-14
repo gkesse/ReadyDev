@@ -10,7 +10,7 @@ var GFormula = (function() {
 
             },
             //===============================================
-            openFormula: function(obj) {
+            openFormula: function() {
 				var lModalFormula = document.getElementById("ModalFormula");
 				var lFormulaBody = document.getElementById("FormulaBody");
 				var lFormulaMsg = document.getElementById("FormulaMsg");
@@ -32,10 +32,10 @@ var GFormula = (function() {
 				lFormulaBody.className = lClassName.replace(" AnimateShow", "");
 				lFormulaBody.className = lClassName.replace(" AnimateHide", "");
                 lFormulaBody.className += " AnimateHide";
+                GConfig.Instance().setData("FormulaConfirm", "Cancel");
 				setTimeout(function() {
 					lModalFormula.style.display = "none";
 				}, 400);
-                GConfig.Instance().setData("FormulaConfirm", false);
             },
             //===============================================
             viewFormula: function(obj) {
@@ -45,16 +45,33 @@ var GFormula = (function() {
                 lHtml += FormulaText.value;
                 lFormulaShow.innerHTML = lHtml;
                 MathJax.Hub.Queue(["Typeset",MathJax.Hub,lFormulaShow]);
-                GConfig.Instance().setData("FormulaConfirm", true);
                 GConfig.Instance().setData("FormulaText", lHtml);
             },
             //===============================================
-            getFormula: function(obj) {
-                var lArg = obj.value;
-                if(!lArg) return;
-                obj.selectedIndex = 0;
+            validate: function() {
 				var lFormulaText = document.getElementById("FormulaText");
-                switch(lArg) {
+				var lModalFormula = document.getElementById("ModalFormula");
+				lModalFormula.style.display = "none";
+                GConfig.Instance().setData("FormulaConfirm", "Validate");
+                GConfig.Instance().setData("FormulaTextId", lFormulaText);
+            },
+            //===============================================
+            getFormula: function(arg) {
+                if(!arg) return;
+				var lFormulaText = document.getElementById("FormulaText");
+                switch(arg) {
+                    //===============================================
+                    case 'Espace':
+                        var lHtml = '';
+                        lHtml += '\\ ';                        
+                        lFormulaText.insertAtCaret(lHtml);
+                        break;
+                    //===============================================
+                    case 'Formule':
+                        var lHtml = '';
+                        lHtml += '$$$$';                        
+                        lFormulaText.insertAtCaret(lHtml);
+                        break;
                     //===============================================
                     case 'SystemeEquations':
                         var lHtml = '';
@@ -69,57 +86,71 @@ var GFormula = (function() {
                     //===============================================
                     case 'LettreAlpha':
                         var lHtml = '';
-                        lHtml += '\alpha';                        
+                        lHtml += '\\alpha';                        
                         lFormulaText.insertAtCaret(lHtml);
                         break;
                     //===============================================
                     case 'LettreBeta':
                         var lHtml = '';
-                        lHtml += '\bata';                        
+                        lHtml += '\\bata';                        
                         lFormulaText.insertAtCaret(lHtml);
                         break;
                     //===============================================
                     case 'LettreGama':
                         var lHtml = '';
-                        lHtml += '\gama';                        
+                        lHtml += '\\gama';                        
                         lFormulaText.insertAtCaret(lHtml);
                         break;
                     //===============================================
                     case 'LettreLambda':
                         var lHtml = '';
-                        lHtml += '\lambda';                        
+                        lHtml += '\\lambda';                        
                         break;
                     //===============================================
                     case 'LettreNabla':
                         var lHtml = '';
-                        lHtml += '\nabla';                        
+                        lHtml += '\\nabla';                        
                         lFormulaText.insertAtCaret(lHtml);
                         break;
                     //===============================================
                     case 'DeriveePartielle':
                         var lHtml = '';
-                        lHtml += '\partial';                        
+                        lHtml += '\\partial';                        
                         lFormulaText.insertAtCaret(lHtml);
                         break;
                     //===============================================
                     case 'SymboleAppartient':
                         var lHtml = '';
-                        lHtml += '\in';                        
+                        lHtml += '\\in';                        
                         lFormulaText.insertAtCaret(lHtml);
                         break;
                     //===============================================
                     case 'SymboleNAppartientPas':
                         var lHtml = '';
-                        lHtml += '\not\in';                        
+                        lHtml += '\\not\\in';                        
+                        lFormulaText.insertAtCaret(lHtml);
+                        break;
+                    //===============================================
+                    case 'SymbolePourTout':
+                        var lHtml = '';
+                        lHtml += '\\forall';                        
+                        lFormulaText.insertAtCaret(lHtml);
+                        break;
+                    //===============================================
+                    case 'Integrale':
+                        var lHtml = '';
+                        lHtml += '$$\\int_{x0}^{x1} f(x)\\ dx$$';                        
+                        lFormulaText.insertAtCaret(lHtml);
+                        break;
+                    //===============================================
+                    case 'ValeurAbsolue':
+                        var lHtml = '';
+                        lHtml += '$$\\langle f \\rangle$$';                        
                         lFormulaText.insertAtCaret(lHtml);
                         break;
                     //===============================================
                 }
                 this.viewFormula();
-            },
-            //===============================================
-            validate: function(obj) {
-				var lFormulaText = document.getElementById("FormulaText");
             }
             //===============================================
         };

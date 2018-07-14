@@ -115,6 +115,7 @@
 
             gtag('config', 'UA-109595989-1');
         </script>
+        <script src="/js/class/GConfig.js"></script>
         <script src="/js/class/GHeader.js"></script>
         <script src="/js/class/GLoader.js"></script>
         <!-- ============================================ -->

@@ -1,6 +1,6 @@
 //===============================================
-function openFormula(obj) {
-	GFormula.Instance().openFormula(obj);
+function openFormula() {
+	GFormula.Instance().openFormula();
 }
 //===============================================
 function closeFormula(obj) {
@@ -11,12 +11,12 @@ function viewFormula(obj) {
 	GFormula.Instance().viewFormula(obj);
 }
 //===============================================
-function getFormula(obj) {
-	GFormula.Instance().getFormula(obj);
+function getFormula(arg) {
+	GFormula.Instance().getFormula(arg);
 }
 //===============================================
-function validate(obj) {
-	GFormula.Instance().validate(obj);
+function validate() {
+	GFormula.Instance().validate();
 }
 //===============================================
 

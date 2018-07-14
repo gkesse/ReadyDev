@@ -5,10 +5,11 @@
         <div class="Title5">Formule Mathématique</div>
         <div class="Body4">
             <div class="Row11">Entrez votre formule mathématique.</div>
-            <div class="Row12">
-                <select class="ComboBox2" onchange="getFormula(this); this.selectedIndex = 0">
+            <div class="Row30">
+                <select class="ComboBox2" onchange="getFormula(this.value); this.selectedIndex = 0">
                     <!-- ============================================ -->
                     <option value="">ReadyFormula</option>
+                    <option value="Formule">Formule</option>
                     <option value="SystemeEquations">Système d'Equations</option>
                     <option value="LettreAlpha">Lettre Alpha</option>
                     <option value="LettreBeta">Lettre Beta</option>
@@ -18,8 +19,13 @@
                     <option value="DeriveePartielle">Derivée Partielle</option>
                     <option value="SymboleAppartient">Symbole Appartient</option>
                     <option value="SymboleNAppartientPas">Symbole N'Appartient Pas</option>
+                    <option value="SymbolePourTout">Symbole Pour Tout</option>
+                    <option value="ValeurAbsolue">Valeur Absolue</option>
+                    <option value="Integrale">Intégrale</option>
                     <!-- ============================================ -->
                 </select>
+                <button class="Button5" type="button" title="Espace" onclick="getFormula('Espace')"><i class="fa fa-code"></i></button>		
+                <button class="Button5" type="button" title="Lettre Alpha" onclick="getFormula('LettreAlpha')">&alpha;</button>		
             </div>
             <div class="Row12">
                 <textarea class="Field2" id="FormulaText" rows="10"
@@ -30,7 +36,7 @@
                 <div class="Show" id="FormulaShow">Aperçu</div>
             </div>
             <div class="Row13">
-                <div class="Button4" onclick="validate(this)"><i class="fa fa-paper-plane-o"></i> Valider</div>
+                <div class="Button4" onclick="validate()"><i class="fa fa-paper-plane-o"></i> Valider</div>
             </div>
         </div>
         <div class="Row14" id="FormulaMsg"></div>

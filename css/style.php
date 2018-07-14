@@ -752,7 +752,7 @@ hr:after {
     display: inline-block;
     vertical-align: top;
     padding: 0px 5px;
-    margin: 5px;
+    margin: 5px 0px;
 }
 
 .Footer {
@@ -1325,6 +1325,12 @@ hr:after {
 
 .Row29:not(:last-child) {
     margin-bottom: 5px;
+}
+
+.Row30 {
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 5px 0px;
+    position: relative;
 }
 
 .Shift1 {
