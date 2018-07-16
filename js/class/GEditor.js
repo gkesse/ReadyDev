@@ -804,7 +804,9 @@ var GEditor = (function() {
                     var lFormulaText = GConfig.Instance().getData("FormulaText");
                     var lHtml = '';
                     lHtml += '<div class="Formula GFormula1">';
+                    lHtml += '<div class="Formula2">';
                     lHtml += lFormulaText;
+                    lHtml += '</div>';
                     lHtml += '</div>';
                     document.execCommand("insertHTML", false, lHtml);
                     break;
@@ -817,6 +819,7 @@ var GEditor = (function() {
                             break;
                         }
                         if(lClassName.includes("GFormula1")) {
+                            lParentNode = lParentNode.firstChild;
                             var lHtml = lParentNode.innerHTML;
                             GConfig.Instance().setData("FormulaText", lHtml);
                             break;
