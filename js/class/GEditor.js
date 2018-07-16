@@ -821,6 +821,7 @@ var GEditor = (function() {
                         if(lClassName.includes("GFormula1")) {
                             lParentNode = lParentNode.firstChild;
                             var lHtml = lParentNode.innerHTML;
+                            lHtml = this.encodeHtml(lHtml, "tex");
                             GConfig.Instance().setData("FormulaText", lHtml);
                             break;
                         }
@@ -856,6 +857,7 @@ var GEditor = (function() {
                     '\n': '<br>|html',
                     '&lt;': '<|txt',
                     '&gt;': '>|txt',
+                    '&amp;': '&|tex',
                     '<br>': '\n|txt'
                 };
                 for(key in lEntityMap) {
