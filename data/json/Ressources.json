@@ -20,6 +20,7 @@
         {"name":"Créer une coloration syntaxique","link":"/Tutoriels/Ressources/JavaScript/Syntax_Highlighter/","follow":"yes"},
         {"name":"Utiliser des Dataset","link":"/Tutoriels/Ressources/JavaScript/Dataset/","follow":"yes"},
         {"name":"Utiliser Ace","link":"/Tutoriels/Ressources/JavaScript/Ace/","follow":"yes"},
-        {"name":"Utiliser une boîte de dialogue","link":"/Tutoriels/Ressources/JavaScript/Dialog/","follow":"yes"}
+        {"name":"Utiliser une boîte de dialogue","link":"/Tutoriels/Ressources/JavaScript/Dialog/","follow":"yes"},
+        {"name":"Edition de formules mathématiques","link":"/Tutoriels/Ressources/JavaScript/MathJax/","follow":"yes"}
     ]
 }

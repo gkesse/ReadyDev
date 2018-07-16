@@ -33,7 +33,7 @@
                 <div class="Row0">
                     Le <b>JavaScript</b> est un langage de programmation web dynamique côté client.<br/>
                     Le but de ce tutoriel est de vous apprendre
-                    <b>l'utilisation de Ace</b> avec le <b>JavaScript</b>.<br/>
+                    l'utilisation de Ace avec le <b>JavaScript</b>.<br/>
                     Produit par <b>Gérard KESSE</b>.
                 </div>
                 <!-- ============================================ -->

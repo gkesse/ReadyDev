@@ -797,27 +797,50 @@ var GEditor = (function() {
                         if(lClassName.includes("GFormula1")) {
                             lRange.selectNode(lParentNode);
                             lSelection.addRange(lRange);
+                            break;
+                        }
+                        lParentNode = lParentNode.parentNode;
+                    }
+                    var lFormulaText = GConfig.Instance().getData("FormulaText");
+                    var lHtml = '';
+                    lHtml += '<div class="Formula GFormula1">';
+                    lHtml += lFormulaText;
+                    lHtml += '</div>';
+                    document.execCommand("insertHTML", false, lHtml);
+                    break;
+                //===============================================
+                case 'Formula2':
+                    var lParentNode = lStartNode.parentNode;
+                    while(1) {
+                        var lClassName = lParentNode.className;
+                        if(lClassName.includes("GEndEditor")) {
+                            break;
+                        }
+                        if(lClassName.includes("GFormula1")) {
+                            var lHtml = lParentNode.innerHTML;
+                            GConfig.Instance().setData("FormulaText", lHtml);
+                            break;
+                        }
+                        lParentNode = lParentNode.parentNode;
+                    }
+                    break;
+                //===============================================
+                case 'Formula3':
+                    var lParentNode = lStartNode.parentNode;
+                    while(1) {
+                        var lClassName = lParentNode.className;
+                        if(lClassName.includes("GEndEditor")) {
+                            break;
+                        }
+                        if(lClassName.includes("GFormula1")) {
+                            lRange.selectNode(lParentNode);
+                            lSelection.addRange(lRange);
                             var lHtml = "";
                             document.execCommand("insertHTML", false, lHtml);
                             return;
                         }
                         lParentNode = lParentNode.parentNode;
                     }
-                    GConfig.Instance().setData("FormulaConfirm", "None");
-                    GFormula.Instance().openFormula();
-                    var lTimer = setInterval(function () {
-                        if(GConfig.Instance().getData("FormulaConfirm") != "None") {
-                            if(GConfig.Instance().getData("FormulaConfirm") == "Validate") {
-                                var lHtml = "";
-                                lHtml += "<div class='Formula GFormula1'>";
-                                lHtml += GConfig.Instance().getData("FormulaText");
-                                lHtml += "</div>";
-                                document.execCommand("insertHTML", false, lHtml);
-                            }
-                            clearInterval(lTimer);
-                        }
-                    }, 50);
-                    
                     break;
                 //===============================================
                 }

@@ -7,7 +7,13 @@ var GFormula = (function() {
         return {
             //===============================================
             init: function() {
-
+                this.setFormula();
+            },
+            //===============================================
+            setFormula: function() {
+				var lFormulaText = document.getElementById("FormulaText");
+                lFormulaText.value = GConfig.Instance().getData("FormulaText");
+                this.viewFormula();
             },
             //===============================================
             openFormula: function() {
