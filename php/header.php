@@ -39,6 +39,7 @@
         $lMetaCano = GGlobal::Instance()->getUrl($lMetaCano); 
     }
     $lCodePrettify = GConfig::Instance()->getData("code_prettify");
+    $lMathJax = GConfig::Instance()->getData("mathjax");
     $lHeaderData = GJson::Instance()->getData("data/json/header.json");
     $lSiteName = $lHeaderData["site"]["name"];    
 ?>
@@ -93,19 +94,21 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
         <!-- ============================================ -->
         <!-- Script -->
-        <?php if($lCodePrettify) { ?>
-        <script src="/lib/prettify/loader/run_prettify.js?lang=css&amp;skin=sunburst"></script>
-        <?php } ?>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.3.3/ace.js"></script>
         <!-- ============================================ -->
+        <?php if($lCodePrettify) { ?>
+        <script src="/lib/prettify/loader/run_prettify.js?lang=css&amp;skin=sunburst"></script>
+        <?php } ?>
+        <!-- ============================================ -->
+        <?php if($lCodePrettify) { ?>
         <script type="text/x-mathjax-config">
         MathJax.Hub.Config({
             tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
         });
         </script>
         <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script src="https://tex.s2cms.ru/latex.js"></script>
+        <?php } ?>
         <!-- ============================================ -->
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-109595989-1"></script>
@@ -135,7 +138,6 @@
             <div class="Background Bottom"></div>
             <!-- ============================================ -->
             <?php require $_SERVER["DOCUMENT_ROOT"]."/php/connection.php";  ?>
-            <?php require $_SERVER["DOCUMENT_ROOT"]."/php/formula.php";  ?>
             <!-- ============================================ -->
             <div class="BodyPage">
                 <div class="MainPage">

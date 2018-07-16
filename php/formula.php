@@ -1,5 +1,5 @@
 <!-- ============================================ -->
-<div class="Modal" id="ModalFormula">
+<div class="Modal0" id="ModalFormula">
     <div class="Content10" id="FormulaBody">
         <div class="Button3 Close" onclick="closeFormula(this)"><i class="fa fa-close"></i></div>
         <div class="Title5">Formule Mathématique</div>
@@ -28,7 +28,7 @@
                 <button class="Button5" type="button" title="Espace" onclick="getFormula('Espace')"><i class="fa fa-code"></i></button>		
                 <button class="Button5" type="button" title="Alpha" onclick="getFormula('Alpha')">&alpha;</button>		
                 <button class="Button5" type="button" title="Beta" onclick="getFormula('Beta')">&beta;</button>		
-                <button class="Button5" type="button" title="Gama" onclick="getFormula('Gama')">&gama;</button>		
+                <button class="Button5" type="button" title="Gama" onclick="getFormula('Gama')">&gamma;</button>		
                 <button class="Button5" type="button" title="Omega" onclick="getFormula('Omega')">&omega;</button>		
                 <button class="Button5" type="button" title="Lambda" onclick="getFormula('Lambda')">&lambda;</button>		
             </div>

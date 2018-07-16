@@ -25,14 +25,14 @@ html {
 }
 
 body {
-    background: #051039;
+    background-color: #051039;
     font-family: arial;
     font-size: 16px;
     text-align: center;
 }
 
 button {
-    background: transparent;
+    background-color: transparent;
     border: none;
     padding: 5px 10px 5px 5px;
     font-size: 16px;
@@ -41,7 +41,7 @@ button {
 }
 
 input {
-    background: none;
+    background-color: none;
     border: none;
     border-radius: 0;
     padding: 5px 10px 5px 10px;
@@ -58,7 +58,7 @@ input:-webkit-autofill:focus {
 }
 
 select {
-    background: transparent;
+    background-color: transparent;
     border: none;
     font-size: 16px;
     color: white;
@@ -66,7 +66,7 @@ select {
 }
 
 textarea {
-    background: transparent;
+    background-color: transparent;
     border: none;
     border-radius: 0;
     padding: 5px 10px 5px 10px;
@@ -110,7 +110,7 @@ hr:after {
     content: "\f164";
     font-family: FontAwesome;
 	font-size: 20px;
-    background: #051039;
+    background-color: #051039;
     color: white; 
     display: inline-block;
     position: relative;
@@ -428,17 +428,17 @@ hr:after {
 }
 
 .Button {
-    background: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.2);
     border-radius: 5px;
 }
 
 .Button:hover {
-    background: rgba(255, 255, 255, 0.4);
+    background-color: rgba(255, 255, 255, 0.4);
     color: white;
 }
 
 .Button:active {
-    background: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.2);
     color: white;
 }
 
@@ -509,7 +509,7 @@ hr:after {
 }
 
 .Button5:active {
-    background: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.2);
     color: white;
 }
 
@@ -520,12 +520,12 @@ hr:after {
 }
 
 .Button6:hover {
-    background: rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.3);
     color: white;
 }
 
 .Button6:active {
-    background: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.2);
     color: white;
 }
 
@@ -535,12 +535,12 @@ hr:after {
 }
 
 .Button7:hover {
-    background: rgba(255,255,255,0.4);
+    background-color: rgba(255,255,255,0.4);
     color: white;
 }
 
 .Button7:active {
-    background: rgba(255,255,255,0.2);
+    background-color: rgba(255,255,255,0.2);
     color: white;
 }
 
@@ -647,7 +647,7 @@ hr:after {
 }
 
 .Content5 {
-    background: #333333;
+    background-color: #333333;
 }
 
 .Content6 {
@@ -673,7 +673,7 @@ hr:after {
 }
 
 .Content10 {
-    background: #051039;
+    background-color: #051039;
     margin: auto;
     max-width: 500px;
     position: relative;
@@ -693,7 +693,7 @@ hr:after {
 }
 
 .Error2 {
-    background: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.2);
     border-radius: 5px;
     color: #f67b20;
     padding: 10px;
@@ -756,10 +756,11 @@ hr:after {
     vertical-align: top;
     padding: 5px;
     margin: 5px 0px;
+    overflow: auto;
 }
 
 .Footer {
-    background: rgba(255, 255, 255, 0.0);
+    background-color: rgba(255, 255, 255, 0.0);
     position: absolute;
     bottom: 35px;
     left: 0px;
@@ -779,7 +780,7 @@ hr:after {
 }
 
 .Icon3 {
-    background: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.2);
     width: 40px;
     height: 40px;
     line-height: 40px;
@@ -789,17 +790,17 @@ hr:after {
 }
 
 .Icon3:hover {
-    background: rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.3);
     color: white;
 }
 
 .Icon3:active {
-    background: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.2);
     color: white;
 }
 
 .Icon4 {
-    background: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.2);
     width: 40px;
     height: 40px;
     line-height: 40px;
@@ -1056,7 +1057,7 @@ hr:after {
 }
 
 .Link9 {
-    background: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.2);
     display: inline-block;
     vertical-align: middle;
     font-family: Aclonica;
@@ -1114,7 +1115,7 @@ hr:after {
 }
 
 .Menu {
-    background: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.2);
     text-align: left;
     font-size: 0px;
     line-height: 40px;
@@ -1138,7 +1139,7 @@ hr:after {
 }
 
 .Network {
-    background: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.2);
     width: 40px;
     line-height: 40px;
     font-size: 20px;
@@ -1183,7 +1184,7 @@ hr:after {
 }
 
 .Row6 {
-    background: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.2);
     height: 50px;
     text-align: center;
     display: table;
@@ -1291,7 +1292,7 @@ hr:after {
 }
 
 .Row23 {
-    background: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.2);
     text-align: left;
     padding: 0px 10px;
 }
@@ -1336,6 +1337,12 @@ hr:after {
     position: relative;
 }
 
+.Row31 {
+    background-color: #051039; 
+    overflow: auto;
+    padding: 5px 10px;
+}
+
 .Shift1 {
     padding-left: 10px;
 }
@@ -1348,7 +1355,7 @@ hr:after {
 }
 
 .Succes {
-    background: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.2);
     border-radius: 5px;
     color: #89a830;
     padding: 10px;
@@ -1451,7 +1458,7 @@ hr:after {
 }
 
 .Title3 {
-    background: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.2);
     display: inline-block;
     vertical-align: middle;
     font-family: Aclonica;
