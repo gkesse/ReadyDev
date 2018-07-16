@@ -750,13 +750,16 @@ hr:after {
 }
 
 .Formula {
+    overflow: auto;
+}
+
+.Formula2 {
     background-color: rgba(255, 255, 255, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.2);
     display: inline-block;
     vertical-align: top;
     padding: 5px;
     margin: 5px 0px;
-    overflow: auto;
 }
 
 .Footer {
@@ -1352,6 +1355,8 @@ hr:after {
     border-radius: 5px;
     padding: 10px;
     margin-top: 10px;
+    max-height: 400px;
+    overflow: auto;
 }
 
 .Succes {
