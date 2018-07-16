@@ -240,10 +240,13 @@ hr:after {
 }
 
 .Background.Top {
-    background-image: url("<?php echo $lStyle["background"]["top2"]["img"]; ?>"), url("/data/img/defaults/fond.jpg");
-    background-position: center top, left top;
-    background-repeat: no-repeat, no-repeat;    
-    background-size: auto 80%, 100% 100%;    
+    background-image: url("/data/img/defaults/coupe-du-monde.gif"),
+    url("/data/img/defaults/coupe-du-monde.gif"),
+    url("<?php echo $lStyle["background"]["top2"]["img"]; ?>"), 
+    url("/data/img/defaults/fond.jpg");
+    background-position: top left, top right, center top, left top;
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;    
+    background-size: auto, auto, auto 85%, 100% 100%;    
     top: 0px;
     left: 0px;
     right: 0px;
@@ -1589,8 +1592,8 @@ hr:after {
 
 @media (max-width:<?php echo $lStyle["background"]["top2"]["width"]; ?>) {  
     .Background.Top {
-        background-position: center center, left top;
-        background-size: 98% auto, 100% 100%;    
+        background-position: top left, top right, center top, left top;
+        background-size: auto, auto, 100% 88%, 100% 100%;    
     }
 }
 
