@@ -751,7 +751,7 @@ hr:after {
     border: 1px solid rgba(255, 255, 255, 0.2);
     display: inline-block;
     vertical-align: top;
-    padding: 0px 5px;
+    padding: 5px;
     margin: 5px 0px;
 }
 

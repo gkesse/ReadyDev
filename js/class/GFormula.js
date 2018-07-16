@@ -51,9 +51,9 @@ var GFormula = (function() {
             validate: function() {
 				var lFormulaText = document.getElementById("FormulaText");
 				var lModalFormula = document.getElementById("ModalFormula");
+                GConfig.Instance().setData("FormulaText", lFormulaText.value);
 				lModalFormula.style.display = "none";
                 GConfig.Instance().setData("FormulaConfirm", "Validate");
-                GConfig.Instance().setData("FormulaTextId", lFormulaText);
             },
             //===============================================
             getFormula: function(arg) {
@@ -84,30 +84,30 @@ var GFormula = (function() {
                         lFormulaText.insertAtCaret(lHtml);
                         break;
                     //===============================================
-                    case 'LettreAlpha':
+                    case 'Alpha':
                         var lHtml = '';
                         lHtml += '\\alpha';                        
                         lFormulaText.insertAtCaret(lHtml);
                         break;
                     //===============================================
-                    case 'LettreBeta':
+                    case 'Beta':
                         var lHtml = '';
                         lHtml += '\\bata';                        
                         lFormulaText.insertAtCaret(lHtml);
                         break;
                     //===============================================
-                    case 'LettreGama':
+                    case 'Gama':
                         var lHtml = '';
                         lHtml += '\\gama';                        
                         lFormulaText.insertAtCaret(lHtml);
                         break;
                     //===============================================
-                    case 'LettreLambda':
+                    case 'Lambda':
                         var lHtml = '';
                         lHtml += '\\lambda';                        
                         break;
                     //===============================================
-                    case 'LettreNabla':
+                    case 'Nabla':
                         var lHtml = '';
                         lHtml += '\\nabla';                        
                         lFormulaText.insertAtCaret(lHtml);
@@ -119,19 +119,19 @@ var GFormula = (function() {
                         lFormulaText.insertAtCaret(lHtml);
                         break;
                     //===============================================
-                    case 'SymboleAppartient':
+                    case 'Appartient':
                         var lHtml = '';
                         lHtml += '\\in';                        
                         lFormulaText.insertAtCaret(lHtml);
                         break;
                     //===============================================
-                    case 'SymboleNAppartientPas':
+                    case 'NAppartientPas':
                         var lHtml = '';
                         lHtml += '\\not\\in';                        
                         lFormulaText.insertAtCaret(lHtml);
                         break;
                     //===============================================
-                    case 'SymbolePourTout':
+                    case 'PourTout':
                         var lHtml = '';
                         lHtml += '\\forall';                        
                         lFormulaText.insertAtCaret(lHtml);
@@ -139,13 +139,19 @@ var GFormula = (function() {
                     //===============================================
                     case 'Integrale':
                         var lHtml = '';
-                        lHtml += '$$\\int_{x0}^{x1} f(x)\\ dx$$';                        
+                        lHtml += '\\int_{x0}^{x1} f(x)\\ dx';                        
                         lFormulaText.insertAtCaret(lHtml);
                         break;
                     //===============================================
-                    case 'ValeurAbsolue':
+                    case 'ValeurMoyenne':
                         var lHtml = '';
-                        lHtml += '$$\\langle f \\rangle$$';                        
+                        lHtml += '\\langle f \\rangle';                        
+                        lFormulaText.insertAtCaret(lHtml);
+                        break;
+                    //===============================================
+                    case 'Fraction':
+                        var lHtml = '';
+                        lHtml += '\\frac{a}{b}';                        
                         lFormulaText.insertAtCaret(lHtml);
                         break;
                     //===============================================

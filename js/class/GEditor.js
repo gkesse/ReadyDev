@@ -817,6 +817,7 @@ var GEditor = (function() {
                             clearInterval(lTimer);
                         }
                     }, 50);
+                    
                     break;
                 //===============================================
                 }

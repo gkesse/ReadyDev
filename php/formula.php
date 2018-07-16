@@ -11,21 +11,26 @@
                     <option value="">ReadyFormula</option>
                     <option value="Formule">Formule</option>
                     <option value="SystemeEquations">Système d'Equations</option>
-                    <option value="LettreAlpha">Lettre Alpha</option>
-                    <option value="LettreBeta">Lettre Beta</option>
-                    <option value="LettreGama">Lettre Gama</option>
-                    <option value="LettreLambda">Lettre Lambda</option>
-                    <option value="LettreNabla">Lettre Nabla</option>
+                    <option value="Alpha">Alpha</option>
+                    <option value="Beta">Beta</option>
+                    <option value="Gama">Gama</option>
+                    <option value="Lambda">Lambda</option>
+                    <option value="Nabla">Nabla</option>
                     <option value="DeriveePartielle">Derivée Partielle</option>
-                    <option value="SymboleAppartient">Symbole Appartient</option>
-                    <option value="SymboleNAppartientPas">Symbole N'Appartient Pas</option>
-                    <option value="SymbolePourTout">Symbole Pour Tout</option>
-                    <option value="ValeurAbsolue">Valeur Absolue</option>
+                    <option value="Appartient">Appartient</option>
+                    <option value="NAppartientPas">N'Appartient Pas</option>
+                    <option value="PourTout">Pour Tout</option>
+                    <option value="ValeurMoyenne">Valeur Moyenne</option>
                     <option value="Integrale">Intégrale</option>
+                    <option value="Fraction">Fraction</option>
                     <!-- ============================================ -->
                 </select>
                 <button class="Button5" type="button" title="Espace" onclick="getFormula('Espace')"><i class="fa fa-code"></i></button>		
-                <button class="Button5" type="button" title="Lettre Alpha" onclick="getFormula('LettreAlpha')">&alpha;</button>		
+                <button class="Button5" type="button" title="Alpha" onclick="getFormula('Alpha')">&alpha;</button>		
+                <button class="Button5" type="button" title="Beta" onclick="getFormula('Beta')">&beta;</button>		
+                <button class="Button5" type="button" title="Gama" onclick="getFormula('Gama')">&gama;</button>		
+                <button class="Button5" type="button" title="Omega" onclick="getFormula('Omega')">&omega;</button>		
+                <button class="Button5" type="button" title="Lambda" onclick="getFormula('Lambda')">&lambda;</button>		
             </div>
             <div class="Row12">
                 <textarea class="Field2" id="FormulaText" rows="10"

@@ -1,0 +1,63 @@
+%================================================
+\PassOptionsToPackage{dvipdfm}{graphicx}
+%================================================
+\documentclass{article}
+%================================================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel}
+\usepackage{tikz}
+%================================================
+\begin{document}
+%================================================
+\parindent=0em
+\textbf{TikZ Cercle} \\ \\
+%================================================
+\parindent=0em
+\textbf{Cercle 1} \\ \\
+%================================================
+\begin{tikzpicture}
+\draw (0,0) circle (1);
+\end{tikzpicture} \\ \\
+%================================================
+\parindent=0em
+\textbf{Cercle 2} \\ \\
+%================================================
+\begin{tikzpicture}
+\draw (0,0) circle (2);
+\end{tikzpicture} \\ \\
+%================================================
+\parindent=0em
+\textbf{Cercle 3} \\ \\
+%================================================
+\fbox{\begin{tikzpicture}
+\draw (0,0) circle (1);
+\end{tikzpicture}} \\ \\
+%================================================
+\parindent=0em
+\textbf{Cercle 4} \\ \\
+%================================================
+\begin{tikzpicture}
+\draw (0,0) circle (1);
+\draw (0,0) -- (1,0);
+\draw (0,0) -- (0,1);
+\end{tikzpicture} \\ \\
+%================================================
+\newpage
+\parindent=0em
+\textbf{Cercle 5} \\ \\
+%================================================
+\begin{tikzpicture}
+\draw (0,0) circle (1);
+\draw (1,0) circle (1);
+\draw (-1,0) circle (1);
+\draw (0,1) circle (1);
+\draw (0,-1) circle (1);
+\draw (0.707,0.707) circle (1);
+\draw (0.707,-0.707) circle (1);
+\draw (-0.707,0.707) circle (1);
+\draw (-0.707,-0.707) circle (1);
+\end{tikzpicture} \\ \\
+%================================================
+\end{document}
+%================================================
