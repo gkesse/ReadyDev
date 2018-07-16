@@ -409,6 +409,7 @@ var GEditor = (function() {
                             lClassName.includes("GLink1") ||
                             lClassName.includes("GParallax1") ||
                             lClassName.includes("GStyle1") ||
+                            lClassName.includes("GFormula1") ||
                             lClassName.includes("GShift0")
                         ) {
                             var lBr = document.createElement("BR");
@@ -439,6 +440,7 @@ var GEditor = (function() {
                             lClassName.includes("GLink1") ||
                             lClassName.includes("GParallax1") ||
                             lClassName.includes("GStyle1") ||
+                            lClassName.includes("GFormula1") ||
                             lClassName.includes("GShift0")
                         ) {
                             var lBr = document.createElement("BR");
@@ -801,12 +803,21 @@ var GEditor = (function() {
                         }
                         lParentNode = lParentNode.parentNode;
                     }
-                    GFormula.Instance().openFormula(this);
-                    var lHtml = "";
-                    lHtml += "<div class='Formula GFormula1'>";
-                    lHtml += "Html";
-                    lHtml += "</div>";
-                    document.execCommand("insertHTML", false, lHtml);
+                    GConfig.Instance().setData("FormulaConfirm", "None");
+                    GFormula.Instance().openFormula();
+                    var lTimer = setInterval(function () {
+                        if(GConfig.Instance().getData("FormulaConfirm") != "None") {
+                            if(GConfig.Instance().getData("FormulaConfirm") == "Validate") {
+                                var lHtml = "";
+                                lHtml += "<div class='Formula GFormula1'>";
+                                lHtml += GConfig.Instance().getData("FormulaText");
+                                lHtml += "</div>";
+                                document.execCommand("insertHTML", false, lHtml);
+                            }
+                            clearInterval(lTimer);
+                        }
+                    }, 50);
+                    
                     break;
                 //===============================================
                 }

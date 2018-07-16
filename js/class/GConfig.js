@@ -9,8 +9,10 @@ var GConfig = (function() {
             init: function() {
 				var lEditorDir = localStorage.getItem("EditorDir");
 				var lEditorFile = localStorage.getItem("EditorFile");     
+				var lFormulaText = localStorage.getItem("FormulaText");     
 				if(!lEditorDir || lEditorDir == "undefined") localStorage.setItem("EditorDir", "");
 				if(!lEditorFile || lEditorFile == "undefined") localStorage.setItem("EditorFile", "");			
+				if(!lFormulaText || lFormulaText == "undefined") localStorage.setItem("FormulaText", "");			
 			},
             //===============================================
             setData: function(key, value) {

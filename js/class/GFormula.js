@@ -10,58 +10,19 @@ var GFormula = (function() {
 
             },
             //===============================================
-            openFormula: function(obj) {
+            openFormula: function() {
 				var lModalFormula = document.getElementById("ModalFormula");
 				var lFormulaBody = document.getElementById("FormulaBody");
 				var lFormulaMsg = document.getElementById("FormulaMsg");
+				var lFormulaText = document.getElementById("FormulaText");
 				var lClassName = lFormulaBody.className;
                 lFormulaMsg.style.display = "none";
 				lFormulaBody.className = lClassName.replace(" AnimateShow", "");
 				lFormulaBody.className = lClassName.replace(" AnimateHide", "");
                 lFormulaBody.className += " AnimateShow";
 				lModalFormula.style.display = "block";
-            },
-            //===============================================
-            viewFormula: function(obj) {
-				var lFormulaText = document.getElementById("FormulaText");
-				var lFormulaShow = document.getElementById("FormulaShow");
-                var lHtml = '';
-                lHtml += lFormulaText.value;
-                lHtml += '<script type="text/x-mathjax-config">';
-                lHtml += 'MathJax.Hub.Config({';
-                lHtml += 'tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}';
-                lHtml += '});';
-                lHtml += '</script>';
-                lFormulaShow.innerHTML = lFormulaText.value;
-            },
-            //===============================================
-            connect: function(obj) {
-				var lEmail = document.getElementsByName("Email")[0];
-				var lPassword = document.getElementsByName("Password")[0];
-				var lFormulaMsg = document.getElementById("FormulaMsg");
-                var lRegExp = /\S+@\S+\.\S+/;
-                var lMessage = "";
-
-                if(!lEmail.value.length) {
-                    lMessage = "Email est obligatoire";
-                }
-                else if(!lRegExp.test(lEmail.value)) {
-                    lMessage = "Email est incorrect";
-                }
-                else if(!lPassword.value.length) {
-                    lMessage = "Mot de passe est obligatoire";
-                }
-                
-                if(lMessage.length) {
-                    var lHtml = "<i style='color:#ff9933' class='fa fa-exclamation-triangle'></i> "; 
-                    lHtml += lMessage; 
-                    lFormulaMsg.innerHTML = lHtml;
-                    lFormulaMsg.style.display = "block";
-                    lFormulaMsg.style.color = "#ff9933";
-                }
-                else {
-                    this.sendFormula(lEmail.value, lPassword.value);
-                }
+                lFormulaText.value = GConfig.Instance().getData("FormulaText");
+                this.viewFormula();
             },
             //===============================================
             closeFormula: function(obj) {
@@ -71,87 +32,131 @@ var GFormula = (function() {
 				lFormulaBody.className = lClassName.replace(" AnimateShow", "");
 				lFormulaBody.className = lClassName.replace(" AnimateHide", "");
                 lFormulaBody.className += " AnimateHide";
+                GConfig.Instance().setData("FormulaConfirm", "Cancel");
 				setTimeout(function() {
 					lModalFormula.style.display = "none";
 				}, 400);
             },
             //===============================================
-            sendFormula: function(email, pass) {
-				var lFormulaMsg = document.getElementById("FormulaMsg");
-				var lFormulaForm = document.getElementById("FormulaForm");
-                lFormulaMsg.style.display = "none";
-                var lXmlhttp = new XMLHttpRequest();
-                lXmlhttp.onreadystatechange = function() {
-                    if(this.readyState == 4 && this.status == 200) {
-                        var lData = this.responseText;
-                        var lDataMap = JSON.parse(lData);
-                        if(!lDataMap["status"]) {
-                            var lHtml = "<i style='color:#ff9933' class='fa fa-exclamation-triangle'></i> "; 
-                            lHtml += lDataMap["msg"]; 
-                            lFormulaMsg.innerHTML = lHtml;
-                            lFormulaMsg.style.color = "#ff9933";
-                            lFormulaMsg.style.display = "block";
-                        }
-                        else {
-                            var lHtml = "<i style='color:#339933' class='fa fa-paper-plane-o'></i> "; 
-                            lHtml += lDataMap["msg"]; 
-                            lFormulaMsg.innerHTML = lHtml;
-                            lFormulaMsg.style.color = "#339933";
-                            lFormulaMsg.style.display = "block";
-                            lFormulaForm.submit();
-                        }
-                    }
+            viewFormula: function(obj) {
+				var lFormulaText = document.getElementById("FormulaText");
+				var lFormulaShow = document.getElementById("FormulaShow");
+                var lHtml = '';
+                lHtml += FormulaText.value;
+                lFormulaShow.innerHTML = lHtml;
+                MathJax.Hub.Queue(["Typeset",MathJax.Hub,lFormulaShow]);
+                GConfig.Instance().setData("FormulaText", lHtml);
+            },
+            //===============================================
+            validate: function() {
+				var lFormulaText = document.getElementById("FormulaText");
+				var lModalFormula = document.getElementById("ModalFormula");
+                GConfig.Instance().setData("FormulaText", lFormulaText.value);
+				lModalFormula.style.display = "none";
+                GConfig.Instance().setData("FormulaConfirm", "Validate");
+            },
+            //===============================================
+            getFormula: function(arg) {
+                if(!arg) return;
+				var lFormulaText = document.getElementById("FormulaText");
+                switch(arg) {
+                    //===============================================
+                    case 'Espace':
+                        var lHtml = '';
+                        lHtml += '\\ ';                        
+                        lFormulaText.insertAtCaret(lHtml);
+                        break;
+                    //===============================================
+                    case 'Formule':
+                        var lHtml = '';
+                        lHtml += '$$$$';                        
+                        lFormulaText.insertAtCaret(lHtml);
+                        break;
+                    //===============================================
+                    case 'SystemeEquations':
+                        var lHtml = '';
+                        lHtml += '\\left \\{';
+                        lHtml += '\\begin{array}{r c l}';
+                        lHtml += 'e1 &=& Equation1\\\\';
+                        lHtml += 'e2 &=& Equation2';
+                        lHtml += '\\end{array}';
+                        lHtml += '\\right.';                        
+                        lFormulaText.insertAtCaret(lHtml);
+                        break;
+                    //===============================================
+                    case 'Alpha':
+                        var lHtml = '';
+                        lHtml += '\\alpha';                        
+                        lFormulaText.insertAtCaret(lHtml);
+                        break;
+                    //===============================================
+                    case 'Beta':
+                        var lHtml = '';
+                        lHtml += '\\bata';                        
+                        lFormulaText.insertAtCaret(lHtml);
+                        break;
+                    //===============================================
+                    case 'Gama':
+                        var lHtml = '';
+                        lHtml += '\\gama';                        
+                        lFormulaText.insertAtCaret(lHtml);
+                        break;
+                    //===============================================
+                    case 'Lambda':
+                        var lHtml = '';
+                        lHtml += '\\lambda';                        
+                        break;
+                    //===============================================
+                    case 'Nabla':
+                        var lHtml = '';
+                        lHtml += '\\nabla';                        
+                        lFormulaText.insertAtCaret(lHtml);
+                        break;
+                    //===============================================
+                    case 'DeriveePartielle':
+                        var lHtml = '';
+                        lHtml += '\\partial';                        
+                        lFormulaText.insertAtCaret(lHtml);
+                        break;
+                    //===============================================
+                    case 'Appartient':
+                        var lHtml = '';
+                        lHtml += '\\in';                        
+                        lFormulaText.insertAtCaret(lHtml);
+                        break;
+                    //===============================================
+                    case 'NAppartientPas':
+                        var lHtml = '';
+                        lHtml += '\\not\\in';                        
+                        lFormulaText.insertAtCaret(lHtml);
+                        break;
+                    //===============================================
+                    case 'PourTout':
+                        var lHtml = '';
+                        lHtml += '\\forall';                        
+                        lFormulaText.insertAtCaret(lHtml);
+                        break;
+                    //===============================================
+                    case 'Integrale':
+                        var lHtml = '';
+                        lHtml += '\\int_{x0}^{x1} f(x)\\ dx';                        
+                        lFormulaText.insertAtCaret(lHtml);
+                        break;
+                    //===============================================
+                    case 'ValeurMoyenne':
+                        var lHtml = '';
+                        lHtml += '\\langle f \\rangle';                        
+                        lFormulaText.insertAtCaret(lHtml);
+                        break;
+                    //===============================================
+                    case 'Fraction':
+                        var lHtml = '';
+                        lHtml += '\\frac{a}{b}';                        
+                        lFormulaText.insertAtCaret(lHtml);
+                        break;
+                    //===============================================
                 }
-                lXmlhttp.open("POST", "/php/req/Formula.php", true);
-                lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                lXmlhttp.send(
-					"req="+"CONNECT"+
-					"&email="+email+
-					"&password="+pass
-                    );            
-            },
-            //===============================================
-            openDisFormula: function(obj) {
-				var lModalDisFormula = document.getElementById("ModalDisFormula");
-				var lDisFormulaBody = document.getElementById("DisFormulaBody");
-				var lClassName = lDisFormulaBody.className;
-				lDisFormulaBody.className = lClassName.replace(" AnimateShow", "");
-				lDisFormulaBody.className = lClassName.replace(" AnimateHide", "");
-                lDisFormulaBody.className += " AnimateShow";
-				lModalDisFormula.style.display = "block";
-            },
-            //===============================================
-            disconnect: function(obj) {
-				var lDisFormulaMsg = document.getElementById("DisFormulaMsg");
-                var lXmlhttp = new XMLHttpRequest();
-                lXmlhttp.onreadystatechange = function() {
-                    if(this.readyState == 4 && this.status == 200) {
-                        var lData = this.responseText;
-                        var lHtml = "<i style='color:#339933' class='fa fa-power-off'></i> "; 
-                        lHtml += lData; 
-                        lDisFormulaMsg.innerHTML = lHtml;
-                        lDisFormulaMsg.style.color = "#339933";
-                        lDisFormulaMsg.style.display = "block";
-                        location.reload();
-                    }
-                }
-                lXmlhttp.open("POST", "/php/req/Formula.php", true);
-                lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                lXmlhttp.send(
-					"req="+"DISCONNECT"
-                    );            
-            },
-            //===============================================
-            closeDisFormula: function(obj) {
-				var lModalDisFormula = document.getElementById("ModalDisFormula");
-				var lDisFormulaBody = document.getElementById("DisFormulaBody");
-				var lClassName = lDisFormulaBody.className;
-				lDisFormulaBody.className = lClassName.replace(" AnimateShow", "");
-				lDisFormulaBody.className = lClassName.replace(" AnimateHide", "");
-                lDisFormulaBody.className += " AnimateHide";
-				setTimeout(function() {
-					lModalDisFormula.style.display = "none";
-				}, 400);
+                this.viewFormula();
             }
             //===============================================
         };

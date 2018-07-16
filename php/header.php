@@ -69,8 +69,8 @@
         <!-- ============================================ -->
         <!-- OpenGraph -->
         <meta property="og:type" content="website"/>
-        <meta property="og:image" content="/data/img/defaults/readydev-440x440.png"/>
-        <meta property="og:image:secure_url" content="/data/img/defaults/readydev-440x440.png"/>
+        <meta property="og:image" content="https://raw.githubusercontent.com/gkesse/ReadyDev/master/data/img/defaults/readydev-440x440.png"/>
+        <meta property="og:image:secure_url" content="https://raw.githubusercontent.com/gkesse/ReadyDev/master/data/img/defaults/readydev-440x440.png"/>
         <meta property="og:image:type" content="image/png"/>
         <meta property="og:image:width" content="440"/>
         <meta property="og:image:height" content="440"/>        
@@ -105,6 +105,7 @@
         });
         </script>
         <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="https://tex.s2cms.ru/latex.js"></script>
         <!-- ============================================ -->
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-109595989-1"></script>
@@ -115,6 +116,7 @@
 
             gtag('config', 'UA-109595989-1');
         </script>
+        <script src="/js/class/GConfig.js"></script>
         <script src="/js/class/GHeader.js"></script>
         <script src="/js/class/GLoader.js"></script>
         <!-- ============================================ -->

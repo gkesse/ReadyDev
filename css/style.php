@@ -619,6 +619,11 @@ hr:after {
     margin: 0px 5px;
 }
 
+.ComboBox2 {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    min-width: 200px;
+}
+
 .Content {
     background-color: rgba(255, 255, 255, 0.2);
 }
@@ -746,8 +751,8 @@ hr:after {
     border: 1px solid rgba(255, 255, 255, 0.2);
     display: inline-block;
     vertical-align: top;
-    padding: 0px 5px;
-    margin: 5px;
+    padding: 5px;
+    margin: 5px 0px;
 }
 
 .Footer {
@@ -1320,6 +1325,12 @@ hr:after {
 
 .Row29:not(:last-child) {
     margin-bottom: 5px;
+}
+
+.Row30 {
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 5px 0px;
+    position: relative;
 }
 
 .Shift1 {
