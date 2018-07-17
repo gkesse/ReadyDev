@@ -5,15 +5,15 @@
         "meta_desc":
         [
             "Le but de ce tutoriel est de vous apprendre",
-            "les Mathématiques appliquées aux sciences de l'ingénieur.",
+            "les Physique appliquée aux sciences de l'ingénieur.",
             "Produit par Gérard KESSE."
         ],
-        "meta_cano":"/Cours/Mathematiques/"
+        "meta_cano":"/Cours/Physique/"
     },    
     "links":
     [
         {"name":"Cours","link":"/Cours/","follow":"no"},
-        {"name":"Mathématiques","link":"","follow":"no"}
+        {"name":"Physique","link":"","follow":"no"}
     ]
 }
                         
