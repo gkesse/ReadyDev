@@ -41,7 +41,7 @@ button {
 }
 
 input {
-    background-color: none;
+    background-color: transparent;
     border: none;
     border-radius: 0;
     padding: 5px 10px 5px 10px;
