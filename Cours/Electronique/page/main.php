@@ -46,18 +46,21 @@ E_1-E_3 &amp;=&amp; R_1I_1+R_3I_3  \\
 E_2-E_3 &amp;=&amp; R_2I_2+R_3I_3
 \end{array}\right.$$
 </div></div>
+
 <div class="Formula3"><div class="Formula4">
 $$\left \{\begin{array}{r c l}
 E_1-E_3 &amp;=&amp; R_1I_1+R_3(I_1+I_2)  \\
 E_2-E_3 &amp;=&amp; R_2I_2+R_3(I_1+I_2) 
 \end{array}\right.$$
 </div></div>
+
 <div class="Formula3"><div class="Formula4">
 $$\left \{\begin{array}{r c l}
 E_1-E_3 &amp;=&amp; (R_1+R_3)I_1+R_3I_2  \\
 E_2-E_3 &amp;=&amp; R_3I_1+(R_2+R_3)I_2 
 \end{array}\right.$$
 </div></div>
+
 <div class="Formula3"><div class="Formula4">
 $$\begin{pmatrix}
 E_1-E_3 \\
@@ -72,12 +75,14 @@ I_1\\
 I_2
 \end{pmatrix}$$  
 </div></div>
+
 <div class="Formula3"><div class="Formula4">
 $$\left \{\begin{array}{r c l}
 I_1 &amp;=&amp; \cfrac{\Delta_1}{\Delta}  \\
 I_2 &amp;=&amp; \cfrac{\Delta_2}{\Delta}
 \end{array}\right.$$
 </div></div>
+
 <div class="Formula3"><div class="Formula4">
 $$\left \{\begin{array}{r c l}
 \Delta &amp;=&amp; \begin{vmatrix}
@@ -92,5 +97,26 @@ E_2-E_3 &amp; R_2+R_3
 R_1+R_3 &amp; E_1-E_3 \\
 R_3 &amp; E_2-E_3
 \end{vmatrix}
+\end{array}\right.$$
+</div></div>
+
+<div class="Formula3"><div class="Formula4">
+$$\left \{\begin{array}{r c l}
+\Delta &amp;=&amp; (R_1+R_3)(R_2+R_3)-R_3R_3 \\
+\Delta_1 &amp;=&amp; (E_1-E_3)(R_2+R_3)-(E_2-E_3)R_3 \\
+\Delta_2 &amp;=&amp; (R_1+R_3)(E_2-E_3)-R_3(E_1-E_3)
+\end{array}\right.$$
+</div></div>
+
+<div class="Formula3"><div class="Formula4">
+$$\left \{\begin{array}{r c l}
+\Delta &amp;=&amp; R_1R_2+R_1+R_3+R_2R_3 \\
+\Delta_1 &amp;=&amp; R_2(E_1-E_3)+R_3(E_1-E_3) \\
+\Delta_2 &amp;=&amp; R_1(E_2-E_3)+R_3(E_2-E_1)
+\end{array}\right.$$
+</div></div></div></div><div class="Formula GFormula1"><div class="Formula2"><div class="Formula3"><div class="Formula4">
+$$\left \{\begin{array}{r c l}
+I_1 &amp;=&amp; \cfrac{R_2(E_1-E_3)+R_3(E_1-E_3)}{R_1R_2+R_1+R_3+R_2R_3}  \\\\
+I_2 &amp;=&amp; \cfrac{R_1(E_2-E_3)+R_3(E_2-E_1)}{R_1R_2+R_1+R_3+R_2R_3}
 \end{array}\right.$$
 </div></div></div></div></div></div></div></div><br>
