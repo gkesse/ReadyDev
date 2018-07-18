@@ -62,6 +62,7 @@
                             <option value="ValeurMoyenne">Valeur Moyenne</option>
                             <option value="Integrale">Intégrale</option>
                             <option value="Fraction">Fraction</option>
+                            <option value="AlignementGauche">Alignement Gauche</option>
                             <!-- ============================================ -->
                         </select>
                         <button class="Button5" type="button" title="Espace" onclick="getFormula('Espace')"><i class="fa fa-code"></i></button>		
