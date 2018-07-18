@@ -14,7 +14,7 @@
 <div class="Parallax">
     <div class="Img Binary">
         <div class="Caption">
-            <a href="#"><div class="Text">Edition de formules mathématiques</div></a>
+            <a href="#"><div class="Text">Edition de formules mathématiques avec MathJax</div></a>
         </div>
     </div>
 </div>
@@ -25,7 +25,7 @@
         <div class="Content">
             <h1 class="Title2" id="Diplomes">
                 <a class="Link3" href="#">
-                    Edition de formules mathématiques
+                    Edition de formules mathématiques avec MathJax
                 </a>
             </h1>
             <div class="Body3">
@@ -39,7 +39,7 @@
                 <!-- ============================================ -->
                 <div class="Row28">
                     <a class="Title3" href="#">
-                        Edition de formules mathématiques
+                        Edition de formules mathématiques avec MathJax
                     </a>    
                 </div>
                 <!-- ============================================ -->

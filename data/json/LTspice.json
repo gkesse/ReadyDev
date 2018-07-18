@@ -1,5 +1,5 @@
 {
-    "sitemap":"yes",
+    "sitemap":"no",
     "meta_data":
     {
         "meta_desc":
@@ -15,10 +15,6 @@
     [
         {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
         {"name":"LTspice","link":"","follow":"no"}
-    ],
-    "electronics":
-    [
-        {"name":"Apprendre la simulation de circuits électroniques avec LTspice","link":"/Tutoriels/LTspice/Cours/","follow":"yes"}
     ]
 }
                         

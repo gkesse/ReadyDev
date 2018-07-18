@@ -14,7 +14,7 @@
 <div class="Parallax">
     <div class="Img Binary">
         <div class="Caption">
-            <a href="#"><div class="Text">Utilisation de Ace</div></a>
+            <a href="#"><div class="Text">Coloration syntaxique avec Ace</div></a>
         </div>
     </div>
 </div>
@@ -25,15 +25,15 @@
         <div class="Content">
             <h1 class="Title2" id="Diplomes">
                 <a class="Link3" href="#">
-                    Utilisation de Ace
+                    Coloration syntaxique avec Ace
                 </a>
             </h1>
             <div class="Body3">
                 <!-- ============================================ -->
                 <div class="Row0">
-                    Le <b>JavaScript</b> est un langage de programmation web dynamique côté client.<br/>
+                    <b>Ace</b> est un outil de coloration syntaxique JavaScript.<br/>
                     Le but de ce tutoriel est de vous apprendre
-                    l'utilisation de Ace avec le <b>JavaScript</b>.<br/>
+                    la coloration syntaxique avec <b>Ace</b>.<br/>
                     Produit par <b>Gérard KESSE</b>.
                 </div>
                 <!-- ============================================ -->
