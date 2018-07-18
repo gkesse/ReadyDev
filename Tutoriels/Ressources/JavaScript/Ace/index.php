@@ -43,7 +43,7 @@
                     </a>    
                 </div>
                 <!-- ============================================ -->
-                <pre class="Code2"><xmp class="AceCode" data-mode="html" data-theme="monokai">
+                <pre class="Code2"><xmp class="AceCode" data-mode="html">
 <!-- ============================================ -->
 <!DOCTYPE html>
 <html>
@@ -95,7 +95,7 @@
                     </a>    
                 </div>
                 <!-- ============================================ -->
-                <pre class="Code2"><xmp class="AceCode" data-mode="tex" data-theme="monokai">
+                <pre class="Code2"><xmp class="AceCode" data-mode="tex">
 %================================================
 \documentclass{article}
 %================================================
@@ -120,7 +120,7 @@ Accents : é è à ç
                     </a>    
                 </div>
                 <!-- ============================================ -->
-                <pre class="Code2"><xmp class="AceCode" data-mode="vbscript" data-theme="monokai">
+                <pre class="Code2"><xmp class="AceCode" data-mode="vbscript">
 '================================================
 Module GModule
     Sub Main()
@@ -138,7 +138,7 @@ End Module
                     </a>    
                 </div>
                 <!-- ============================================ -->
-                <pre class="Code2"><xmp class="AceCode" data-mode="makefile" data-theme="monokai">
+                <pre class="Code2"><xmp class="AceCode" data-mode="makefile">
 #================================================
 GSRC = ..\src
 GBIN = bin
@@ -160,7 +160,7 @@ clean:
                     </a>    
                 </div>
                 <!-- ============================================ -->
-                <pre class="Code2"><xmp class="AceCode" data-mode="batchfile" data-theme="monokai">
+                <pre class="Code2"><xmp class="AceCode" data-mode="batchfile">
 ::===============================================
 @echo off
  

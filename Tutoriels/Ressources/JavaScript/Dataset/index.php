@@ -14,7 +14,7 @@
 <div class="Parallax">
     <div class="Img Binary">
         <div class="Caption">
-            <a href="#"><div class="Text">Utilisation des Dataset</div></a>
+            <a href="#"><div class="Text">Intégration de données à un élément HTML</div></a>
         </div>
     </div>
 </div>
@@ -25,15 +25,16 @@
         <div class="Content">
             <h1 class="Title2" id="Diplomes">
                 <a class="Link3" href="#">
-                    Utilisation des Dataset
+                    Intégration de données à un élément HTML
                 </a>
             </h1>
             <div class="Body3">
                 <!-- ============================================ -->
                 <div class="Row0">
-                    Le <b>JavaScript</b> est un langage de programmation web dynamique côté client.<br/>
+                    L'utilisation des <b>Dataset</b> est une technique d'intégration
+                    de données à un élément HTML.<br/>
                     Le but de ce tutoriel est de vous apprendre
-                    <b>l'utilisation des Dataset</b> avec le <b>JavaScript</b>.<br/>
+                    l'intégration de données à un élément HTML avec les <b>Dataset</b>.<br/>
                     Produit par <b>Gérard KESSE</b>.
                 </div>
                 <!-- ============================================ -->
