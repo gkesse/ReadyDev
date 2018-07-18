@@ -14,7 +14,7 @@
 <div class="Parallax">
     <div class="Img Binary">
         <div class="Caption">
-            <a href="#"><div class="Text">Création de coloration syntaxique</div></a>
+            <a href="#"><div class="Text">Coloration syntaxique</div></a>
         </div>
     </div>
 </div>
@@ -25,7 +25,7 @@
         <div class="Content">
             <h1 class="Title2" id="Diplomes">
                 <a class="Link3" href="#">
-                    Création de coloration syntaxique
+                    Coloration syntaxique
                 </a>
             </h1>
             <div class="Body3">
