@@ -1,0 +1,19 @@
+{
+    "sitemap":"no",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+            "Le but de ce tutoriel est de vous apprendre",
+            "l'électronique appliquées aux sciences de l'ingénieur.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Cours/Electronique/"
+    },    
+    "links":
+    [
+        {"name":"Cours","link":"/Cours/","follow":"no"},
+        {"name":"Électronique","link":"","follow":"no"}
+    ]
+}
+                        
