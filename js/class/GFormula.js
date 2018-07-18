@@ -161,6 +161,14 @@ var GFormula = (function() {
                         lFormulaText.insertAtCaret(lHtml);
                         break;
                     //===============================================
+                    case 'AlignementGauche':
+                        var lHtml = '';
+                        lHtml += '<div class="Formula3"><div class="Formula4">';                        
+                        lHtml += 'formula';                        
+                        lHtml += '</div></div>';                        
+                        lFormulaText.insertAtCaret(lHtml);
+                        break;
+                    //===============================================
                 }
                 this.viewFormula();
             }

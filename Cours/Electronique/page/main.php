@@ -34,4 +34,63 @@ R_2I_2 &amp;=&amp; \frac{R_1.R_2}{R_1+R_2}I_E
 </div></div><div class="Formula GFormula1"><div class="Formula2">\begin{eqnarray}
 I_2 &amp;=&amp; \frac{R_1}{R_1+R_2}I_E
 \end{eqnarray}
-</div></div></div></div></div></div><br>
+</div></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Lois de Kirchhoff"><a class="Link3" href="#">Lois de Kirchhoff</a></h1><div class="Body3">Le but de cette section est de vous apprendre à utiliser les <span class="GColor1" style="color:lime;">lois de Kirchhoff</span>.<br>Produit par <b>Gérard KESSE</b>.<br><br><h3 class="Title8 GTitle3">Schéma explicatif</h3><div class="Img3"><img src="img/Lois_Kirchhoff.png" alt="img/Lois_Kirchhoff.png"></div><br><h3 class="Title8 GTitle3">Lois des nœuds</h3><br>Nœud A:<br><div class="Formula GFormula1"><div class="Formula2">\begin{eqnarray}
+I_3 &amp;=&amp; I_1+I_2 
+\end{eqnarray}</div></div><br><h3 class="Title8 GTitle3">Lois des mailles</h3><br>Maille 1:<br><div class="Formula GFormula1"><div class="Formula2">\begin{eqnarray}
+E_1-E_3 &amp;=&amp; R_1I_1+R_3I_3 
+\end{eqnarray}</div></div><br>Maille 2:<br><div class="Formula GFormula1"><div class="Formula2">\begin{eqnarray}
+E_2-E_3 &amp;=&amp; R_2I_2+R_3I_3 
+\end{eqnarray}</div></div><br><h3 class="Title8 GTitle3">Système d'équations</h3><div class="Formula GFormula1"><div class="Formula2"><div class="Formula3"><div class="Formula4">
+$$\left \{\begin{array}{r c l}
+E_1-E_3 &amp;=&amp; R_1I_1+R_3I_3  \\
+E_2-E_3 &amp;=&amp; R_2I_2+R_3I_3
+\end{array}\right.$$
+</div></div>
+<div class="Formula3"><div class="Formula4">
+$$\left \{\begin{array}{r c l}
+E_1-E_3 &amp;=&amp; R_1I_1+R_3(I_1+I_2)  \\
+E_2-E_3 &amp;=&amp; R_2I_2+R_3(I_1+I_2) 
+\end{array}\right.$$
+</div></div>
+<div class="Formula3"><div class="Formula4">
+$$\left \{\begin{array}{r c l}
+E_1-E_3 &amp;=&amp; (R_1+R_3)I_1+R_3I_2  \\
+E_2-E_3 &amp;=&amp; R_3I_1+(R_2+R_3)I_2 
+\end{array}\right.$$
+</div></div>
+<div class="Formula3"><div class="Formula4">
+$$\begin{pmatrix}
+E_1-E_3 \\
+E_2-E_3
+\end{pmatrix}=
+\begin{pmatrix}
+R_1+R_3 &amp; R_3 \\
+R_3 &amp; R_2+R_3
+\end{pmatrix}.
+\begin{pmatrix}
+I_1\\
+I_2
+\end{pmatrix}$$  
+</div></div>
+<div class="Formula3"><div class="Formula4">
+$$\left \{\begin{array}{r c l}
+I_1 &amp;=&amp; \cfrac{\Delta_1}{\Delta}  \\
+I_2 &amp;=&amp; \cfrac{\Delta_2}{\Delta}
+\end{array}\right.$$
+</div></div>
+<div class="Formula3"><div class="Formula4">
+$$\left \{\begin{array}{r c l}
+\Delta &amp;=&amp; \begin{vmatrix}
+R_1+R_3 &amp; R_3 \\
+R_3 &amp; R_2+R_3
+\end{vmatrix}  \\\\
+\Delta_1 &amp;=&amp; \begin{vmatrix}
+E_1-E_3 &amp; R_3 \\
+E_2-E_3 &amp; R_2+R_3
+\end{vmatrix}  \\\\
+\Delta_2 &amp;=&amp; \begin{vmatrix}
+R_1+R_3 &amp; E_1-E_3 \\
+R_3 &amp; E_2-E_3
+\end{vmatrix}
+\end{array}\right.$$
+</div></div></div></div></div></div></div></div><br>

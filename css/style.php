@@ -762,6 +762,15 @@ hr:after {
     margin: 5px 0px;
 }
 
+.Formula3 {
+    text-align: left;
+}
+
+.Formula4 {
+    display: inline-block;
+    vertical-align: top;
+}
+
 .Footer {
     background-color: rgba(255, 255, 255, 0.0);
     position: absolute;
