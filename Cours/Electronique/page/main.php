@@ -12,7 +12,7 @@ I_E &amp;=&amp; I_1+I_2 \\\\
 I_E &amp;=&amp; \frac{V_E}{R_1}+\frac{V_E}{R_2} \\\\
 I_E &amp;=&amp; \left(\frac{1}{R_1}+\frac{1}{R_2}\right)V_E \\\\
 I_E &amp;=&amp; \frac{1}{R_{eq}}V_E
-\end{eqnarray}<br><br></div></div><div class="Formula GFormula1"><div class="Formula2">\begin{eqnarray}
+\end{eqnarray}</div></div><div class="Formula GFormula1"><div class="Formula2">\begin{eqnarray}
 \frac{1}{R_{eq}} &amp;=&amp; \frac{1}{R_1}+\frac{1}{R_2} \\\\
 R_{eq} &amp;=&amp; \cfrac{1}{\cfrac{1}{R_1}+\cfrac{1}{R_2}}
 \end{eqnarray}</div></div><div class="Formula GFormula1"><div class="Formula2">\begin{eqnarray}
