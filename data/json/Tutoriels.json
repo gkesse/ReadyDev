@@ -122,8 +122,8 @@
             "icon":"fa fa-microchip",
             "theme":"Raspberry Pi",
             "description":"Programmez le<br/> RaspberryPi",
-            "link":"#",
-			"follow":"no"
+            "link":"/Tutoriels/RaspberryPi/",
+			"follow":"yes"
         }
     ],
     "electronics":

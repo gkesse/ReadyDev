@@ -1,127 +1,20 @@
 {
-    "sitemap":"yes",
+    "sitemap":"no",
     "meta_data":
     {
         "meta_desc":
         [
-            "Démarrez la programmation système embarqué avec le RaspberryPi, commencez par les notions de base", 
-            "allez à la création de serveur web, maîtrisez le développement de station météo."
+            "Le RaspberryPi est un mini PC de développement de système embarqué.",
+			"Le but de ce tutoriel est de vous apprendre",
+            "le développement de système embarqué avec le RaspberryPi.",
+            "Produit par Gérard KESSE."
         ],
         "meta_cano":"/Tutoriels/RaspberryPi/"
     },    
     "links":
     [
-        {"name":"Tutoriels","link":"/Tutoriels/"},
-        {"name":"RaspberryPi","link":""}
-    ],
-    "summary":
-    [
-        {"name":"Notions de Base","link":"#Notions_Base"},
-        {"name":"Gestion de Versions","link":"#Gestion_Versions"},
-        {"name":"Serveur de Fichiers","link":"#Serveur_Fichiers"},
-        {"name":"Serveur Web","link":"#Serveur_Web"},
-        {"name":"Programmation PHP","link":"#Programmation_PHP"},
-        {"name":"Programmation MySQL","link":"#Programmation_MySQL"},
-        {"name":"Programmation Python","link":"#Programmation_Python"}
-    ],
-    "notion":
-    {
-        "installation":
-        [
-            {"name":"Formatage CarteSD","link":"/Tutoriels/RaspberryPi/Raspbian/SDFormatter/"},
-            {"name":"Formatage Fat32 CarteSD","link":"#"},
-            {"name":"Gravure Raspbian","link":"#"},
-            {"name":"Configuration Adresse IP Cmdline","link":"#"},
-            {"name":"Autorisation SSH Cmdline","link":"#"},
-            {"name":"Espace Disque Disponible","link":"#"},
-            {"name":"Mise à Jour Raspbian","link":"#"},
-            {"name":"Rédemarrage","link":"#"}
-        ],
-        "raspi_config":
-        [
-            {"name":"Mise à Jour Raspi-Config","link":"#"},
-            {"name":"Changement Mot de Passe","link":"#"},
-            {"name":"Changement Nom Machine","link":"#"},
-            {"name":"Login Console Mot de Passe","link":"#"},
-            {"name":"Configuration Langue Locale","link":"#"},
-            {"name":"Configuration Fuseau Horaire","link":"#"},
-            {"name":"Configuration Clavier","link":"#"},
-            {"name":"Configuration Pays","link":"#"},
-            {"name":"Configuration SSH","link":"#"},
-            {"name":"Configuration Fréquence","link":"#"},
-            {"name":"Extension Système de Fichier","link":"#"},
-            {"name":"Configuration Recadrage Ecran","link":"#"},
-            {"name":"Partionnement Mémoire","link":"#"}
-        ],
-        "wifi":
-        [
-            {"name":"Configuration Adresse IP Statique","link":"#"},
-            {"name":"Configuration Adresse IP Dynamique","link":"#"}
-        ],
-        "ethernet":
-        [
-            {"name":"Configuration Adresse IP Statique","link":"#"},
-            {"name":"Configuration Adresse IP Dynamique","link":"#"}
-        ]
-    },
-    "version":
-    {
-        "git":
-        [
-            {"name":"Installation Git","link":"#"},
-            {"name":"Configuration Nom Utilisateur","link":"#"},
-            {"name":"Configuration Email Utilisateur","link":"#"},
-            {"name":"Configuration Editeur de Texte","link":"#"},
-            {"name":"Clonage Dépôt","link":"#"},
-            {"name":"Récupération Dépôt","link":"#"},
-            {"name":"Fusion Dépôt","link":"#"}
-        ]
-    },
-    "server_file":
-    {
-        "samba":
-        [
-            {"name":"Installation Samba","link":"#"},
-            {"name":"Configuration Mode Lecture Ecriture","link":"#"},
-            {"name":"Configuration Mot de Passe","link":"#"}
-        ]
-    },
-    "server_web":
-    {
-        "apache":
-        [
-            {"name":"Installation Apache","link":"#"},
-            {"name":"Configuraton Port","link":"#"},
-            {"name":"Configuration Serveur","link":"#"},
-            {"name":"Test Apache","link":"#"}
-        ]
-    },
-    "php":
-    {
-        "intro":
-        [
-            {"name":"Installation PHP","link":"#"},
-            {"name":"Test PHP","link":"#"},
-            {"name":"Apprenez le PHP","link":"#"}
-        ]
-    },
-    "mysql":
-    {
-        "intro":
-        [
-            {"name":"Installation MySQL","link":"#"},
-            {"name":"Test MySQL","link":"#"},
-            {"name":"Apprenez MySQL","link":"#"}
-        ]
-    },
-    "python":
-    {
-        "intro":
-        [
-            {"name":"Installation Python","link":"#"},
-            {"name":"Test Python","link":"#"},
-            {"name":"Apprenez le Python","link":"#"}
-        ]
-    }
+        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"RaspberryPi","link":"","follow":"no"}
+    ]
 }
                         

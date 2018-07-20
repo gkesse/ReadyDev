@@ -6,7 +6,8 @@
         [
             "Joomla est un système de gestion de contenu web.",
 			"Le but de ce tutoriel est de vous apprendre",
-            "la gestion de contenu web."
+            "la gestion de contenu web.",
+            "Produit par Gérard KESSE."
         ],
         "meta_cano":"/Tutoriels/PHP/Joomla/"
     },    
