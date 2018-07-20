@@ -18,6 +18,8 @@ R_{eq} &amp;=&amp; \cfrac{1}{\cfrac{1}{R_1}+\cfrac{1}{R_2}}
 \end{eqnarray}</div></div><div class="Formula GFormula1"><div class="Formula2">\begin{eqnarray}
 R_{eq} &amp;=&amp; \cfrac{R_1.R_2}{R_1+R_2}
 \end{eqnarray}</div></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Diviseur de tension"><a class="Link3" href="#">Diviseur de tension</a></h1><div class="Body3">Le but de cette section est de vous apprendre à utiliser le <span class="GColor1" style="color:lime;">diviseur de tension</span>.<br>Produit par <b>Gérard KESSE</b>.<br><br><h3 class="Title8 GTitle3">Schéma explicatif</h3><div class="Img3"><img src="img/Diviseur_Tension.png" alt="img/Diviseur_Tension.png"><br><br><h3 class="Title8 GTitle3">Diviseur de tension</h3><div class="Formula GFormula1"><div class="Formula2">\begin{eqnarray}
+V_E &amp;=&amp; V_1+V_2 \\\\
+V_E &amp;=&amp; R_1I_E+R_2I_E \\\\
 V_E &amp;=&amp; (R_1+R_2)I_E \\\\
 V_2 &amp;=&amp; R_2I_E \\\\
 \frac{V_2}{V_E} &amp;=&amp; \frac{R_2}{R_1+R_2}
@@ -26,12 +28,13 @@ V_2 &amp;=&amp; R_2I_E \\\\
 V_2 &amp;=&amp; \frac{R_2}{R_1+R_2}V_E
 \end{eqnarray}
 </div></div></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Diviseur de courant"><a class="Link3" href="#">Diviseur de courant</a></h1><div class="Body3">Le but de cette section est de vous apprendre à utiliser le <span class="GColor1" style="color:lime;">diviseur de courant</span>.<br>Produit par <b>Gérard KESSE</b>.<br><br><h3 class="Title8 GTitle3">Schéma explicatif</h3><div class="Img3"><img src="img/Diviseur_Courant.png" alt="img/Diviseur_Courant.png"></div><br><h3 class="Title8 GTitle3">Diviseur de courant</h3><div class="Formula GFormula1"><div class="Formula2">\begin{eqnarray}
-V_E &amp;=&amp; (R_1\parallel R_2)I_E \\\\
-V_E &amp;=&amp; \frac{R_1.R_2}{R_1+R_2}I_E \\\\
-V_E &amp;=&amp; R_2I_2 \\\\
-R_2I_2 &amp;=&amp; \frac{R_1.R_2}{R_1+R_2}I_E
-\end{eqnarray}
-</div></div><div class="Formula GFormula1"><div class="Formula2">\begin{eqnarray}
+I_E &amp;=&amp; I_1+I_2 \\\\
+I_E &amp;=&amp; \frac{V_E}{R_1}+\frac{V_E}{R_2} \\\\
+I_E &amp;=&amp; \left(\frac{1}{R_1}+\frac{1}{R_2}\right)V_E \\\\
+I_2 &amp;=&amp; \frac{V_E}{R_2} \\\\
+\frac{I_2}{I_E} &amp;=&amp; \cfrac{\cfrac{1}{R_2}}{\cfrac{1}{R_1}+\cfrac{1}{R_2}} \\\\
+\frac{I_2}{I_E} &amp;=&amp; \cfrac{R_1}{R_1+R_2}
+\end{eqnarray}</div></div><div class="Formula GFormula1"><div class="Formula2">\begin{eqnarray}
 I_2 &amp;=&amp; \frac{R_1}{R_1+R_2}I_E
 \end{eqnarray}
 </div></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Lois de Kirchhoff"><a class="Link3" href="#">Lois de Kirchhoff</a></h1><div class="Body3">Le but de cette section est de vous apprendre à utiliser les <span class="GColor1" style="color:lime;">lois de Kirchhoff</span>.<br>Produit par <b>Gérard KESSE</b>.<br><br><h3 class="Title8 GTitle3">Schéma explicatif</h3><div class="Img3"><img src="img/Lois_Kirchhoff.png" alt="img/Lois_Kirchhoff.png"></div><br><h3 class="Title8 GTitle3">Lois des nœuds</h3><br>Nœud A:<br><div class="Formula GFormula1"><div class="Formula2">\begin{eqnarray}
@@ -78,8 +81,8 @@ I_2
 
 <div class="Formula3"><div class="Formula4">
 $$\left \{\begin{array}{r c l}
-I_1 &amp;=&amp; \cfrac{\Delta_1}{\Delta}  \\
-I_2 &amp;=&amp; \cfrac{\Delta_2}{\Delta}
+I_1 &amp;=&amp; \cfrac{\Delta I_1}{\Delta}  \\
+I_2 &amp;=&amp; \cfrac{\Delta I_2}{\Delta}
 \end{array}\right.$$
 </div></div>
 
@@ -89,11 +92,11 @@ $$\left \{\begin{array}{r c l}
 R_1+R_3 &amp; R_3 \\
 R_3 &amp; R_2+R_3
 \end{vmatrix}  \\\\
-\Delta_1 &amp;=&amp; \begin{vmatrix}
+\Delta I_1 &amp;=&amp; \begin{vmatrix}
 E_1-E_3 &amp; R_3 \\
 E_2-E_3 &amp; R_2+R_3
 \end{vmatrix}  \\\\
-\Delta_2 &amp;=&amp; \begin{vmatrix}
+\Delta I_2 &amp;=&amp; \begin{vmatrix}
 R_1+R_3 &amp; E_1-E_3 \\
 R_3 &amp; E_2-E_3
 \end{vmatrix}
@@ -103,20 +106,21 @@ R_3 &amp; E_2-E_3
 <div class="Formula3"><div class="Formula4">
 $$\left \{\begin{array}{r c l}
 \Delta &amp;=&amp; (R_1+R_3)(R_2+R_3)-R_3R_3 \\
-\Delta_1 &amp;=&amp; (E_1-E_3)(R_2+R_3)-(E_2-E_3)R_3 \\
-\Delta_2 &amp;=&amp; (R_1+R_3)(E_2-E_3)-R_3(E_1-E_3)
+\Delta I_1 &amp;=&amp; (E_1-E_3)(R_2+R_3)-(E_2-E_3)R_3 \\
+\Delta I_2 &amp;=&amp; (R_1+R_3)(E_2-E_3)-R_3(E_1-E_3)
 \end{array}\right.$$
 </div></div>
 
 <div class="Formula3"><div class="Formula4">
 $$\left \{\begin{array}{r c l}
 \Delta &amp;=&amp; R_1R_2+R_1+R_3+R_2R_3 \\
-\Delta_1 &amp;=&amp; R_2(E_1-E_3)+R_3(E_1-E_3) \\
-\Delta_2 &amp;=&amp; R_1(E_2-E_3)+R_3(E_2-E_1)
+\Delta I_1 &amp;=&amp; R_2(E_1-E_3)+R_3(E_1-E_2) \\
+\Delta I_2 &amp;=&amp; R_1(E_2-E_3)+R_3(E_2-E_1)
 \end{array}\right.$$
 </div></div></div></div><div class="Formula GFormula1"><div class="Formula2"><div class="Formula3"><div class="Formula4">
 $$\left \{\begin{array}{r c l}
-I_1 &amp;=&amp; \cfrac{R_2(E_1-E_3)+R_3(E_1-E_3)}{R_1R_2+R_1+R_3+R_2R_3}  \\\\
-I_2 &amp;=&amp; \cfrac{R_1(E_2-E_3)+R_3(E_2-E_1)}{R_1R_2+R_1+R_3+R_2R_3}
+I_1 &amp;=&amp; \cfrac{R_2(E_1-E_3)+R_3(E_1-E_2)}{R_1R_2+R_1+R_3+R_2R_3} \\\\
+I_2 &amp;=&amp; \cfrac{R_1(E_2-E_3)+R_3(E_2-E_1)}{R_1R_2+R_1+R_3+R_2R_3} \\\\
+I_3 &amp;=&amp; \cfrac{R_1(E_2-E_3)+R_2(E_1-E_3)}{R_1R_2+R_1+R_3+R_2R_3}
 \end{array}\right.$$
 </div></div></div></div></div></div></div></div><br>
