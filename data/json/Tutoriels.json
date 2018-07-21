@@ -124,6 +124,13 @@
             "description":"Programmez le<br/> RaspberryPi",
             "link":"/Tutoriels/RaspberryPi/",
 			"follow":"yes"
+        },
+        {
+            "icon":"fa fa-microchip",
+            "theme":"Arduino",
+            "description":"Programmez le<br/> Arduino",
+            "link":"/Tutoriels/Arduino/",
+			"follow":"yes"
         }
     ],
     "electronics":

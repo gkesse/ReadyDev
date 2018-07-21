@@ -4,7 +4,7 @@
     {
         "meta_desc":
         [
-            "L'Arduino est un carte électronique de développement de système embarqué.",
+            "L'Arduino est une carte électronique de développement de système embarqué.",
 			"Le but de ce tutoriel est de vous apprendre",
             "le développement de système embarqué avec l'Arduino.",
             "Produit par Gérard KESSE."
@@ -14,6 +14,7 @@
     "links":
     [
         {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"Système Embarqué","link":"/Tutoriels/#Système Embarqué","follow":"no"},
         {"name":"RaspberryPi","link":"","follow":"no"}
     ]
 }
