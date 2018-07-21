@@ -15,7 +15,6 @@
     [
         {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
         {"name":"Système Embarqué","link":"/Tutoriels/#Système Embarqué","follow":"no"},
-        {"name":"RaspberryPi","link":"","follow":"no"}
+        {"name":"Arduino","link":"","follow":"no"}
     ]
 }
-                        
