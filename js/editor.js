@@ -1,10 +1,5 @@
 //===============================================
 function getCommand(name, arg){
-	switch(name){
-	case "insertImage":
-		arg = prompt("Quelle est l'adresse ?");
-		break;
-	}
 	//===============================================
 	if (typeof arg === 'undefined') {
 		arg = '';
@@ -18,7 +13,7 @@ function getCommand(name, arg){
 		GEditor.Instance().editUnLink();
 		break;
 	case "insertImage":
-		GEditor.Instance().editImage(arg);
+		GEditor.Instance().editImage();
 		break;
 	case "code":
 		GEditor.Instance().editReadyStyle("Code1");

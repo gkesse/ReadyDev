@@ -51,7 +51,7 @@ var GEditor = (function() {
                     if(lClassName.includes("GLink1")) {
                         lRange.selectNode(lParentNode);
                         lSelection.addRange(lRange);
-                        var lHtml = lParentNode.innerHTML;
+                        var lHtml = lData;
                         document.execCommand("insertHTML", false, lData);
                         return;
                     }
@@ -61,13 +61,37 @@ var GEditor = (function() {
             },
             //===============================================
             editImage: function(arg) {
-                var lHtml = '';
-                lHtml += '<div class="Img3">';
-                lHtml += '<img src="';
-                lHtml += arg;
-                lHtml += '" alt="'+arg+'" />';
-                lHtml += '</div>';
-                document.execCommand("insertHTML", false, lHtml);
+                var lSelection = document.getSelection();
+                var lStartNode = lSelection.anchorNode;
+                var lData = lStartNode.data;
+                var lRange = document.createRange();
+                var lParentNode = lStartNode;
+                while(1) {
+                    var lClassName = lParentNode.className;
+                    if(lClassName.includes("GEndEditor")) {
+                        break;
+                    }
+                    if(lClassName.includes("GImage")) {
+                        lRange.selectNode(lParentNode);
+                        lSelection.addRange(lRange);
+                        var lHtml = "";
+                        document.execCommand("insertHTML", false, lHtml);
+                        return;
+                    }
+                    lParentNode = lParentNode.parentNode;
+                }
+                if(!lData) {
+                    var lArg = prompt("Image ?");
+                    if(!lArg) return;
+                    var lHtml = '';
+                    lHtml += '<div class="Img3 GImage">';
+                    lHtml += '<img src="';
+                    lHtml += lArg;
+                    lHtml += '" alt="'+lArg+'" />';
+                    lHtml += '</div>';
+                    document.execCommand("insertHTML", false, lHtml);
+                    return;
+                }
             },
             //===============================================
             editReadyStyle: function(arg) {
@@ -391,6 +415,7 @@ var GEditor = (function() {
                 //===============================================
                 case 'LineBreak1':
                     var lParentNode = lStartNode.parentNode;
+                    if(lStartNode.nodeName != "#text") lParentNode = lStartNode;
                     while(1) {
                         var lClassName = lParentNode.className;
                         if(lClassName.includes("GEndEditor")) {
@@ -399,6 +424,7 @@ var GEditor = (function() {
                         if(lClassName.includes("GTitle1") ||
                             lClassName.includes("GTitle2") ||
                             lClassName.includes("GTitle3") ||
+                            lClassName.includes("GImage") ||
                             lClassName.includes("GSummary1") ||
                             lClassName.includes("GSummary2") ||
                             lClassName.includes("GList1") ||
@@ -422,6 +448,7 @@ var GEditor = (function() {
                 //===============================================
                 case 'LineBreak2':
                     var lParentNode = lStartNode.parentNode;
+                    if(lStartNode.nodeName != "#text") lParentNode = lStartNode;
                     while(1) {
                         var lClassName = lParentNode.className;
                         if(lClassName.includes("GEndEditor")) {
@@ -430,6 +457,7 @@ var GEditor = (function() {
                         if(lClassName.includes("GTitle1") ||
                             lClassName.includes("GTitle2") ||
                             lClassName.includes("GTitle3") ||
+                            lClassName.includes("GImage") ||
                             lClassName.includes("GSummary1") ||
                             lClassName.includes("GSummary2") ||
                             lClassName.includes("GList1") ||
