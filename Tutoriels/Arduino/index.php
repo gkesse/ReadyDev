@@ -1,12 +1,12 @@
 <?php
     require $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoloadRegister.php";
     
-    $lData = GJson::Instance()->getData("data/json/Chimie.json");
+    $m_data = GJson::Instance()->getData("data/json/Arduino.json");
     
-    GConfig::Instance()->setData("title", "Chimie");
-    GConfig::Instance()->setData("menu", "Cours");
-    GConfig::Instance()->setData("view", "Chimie");
-    GConfig::Instance()->setData("link", $lData["links"]);
+    GConfig::Instance()->setData("title", "Arduino");
+    GConfig::Instance()->setData("menu", "Tutoriels");
+    GConfig::Instance()->setData("view", "Arduino");
+    GConfig::Instance()->setData("link", $m_data["links"]);
 
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";
 ?>
