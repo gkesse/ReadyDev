@@ -1,0 +1,36 @@
+C51 COMPILER V9.53.0.0   GDELAY                                                            07/22/2018 21:02:52 PAGE 1   
+
+
+C51 COMPILER V9.53.0.0, COMPILATION OF MODULE GDELAY
+OBJECT MODULE PLACED IN GDelay.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE manager\GDelay.c OPTIMIZE(8,SPEED) BROWSE INCDIR(.\manager) DEBUG OBJECT
+                    -EXTEND PRINT(.\GDelay.lst) TABS(2) OBJECT(GDelay.obj)
+
+line level    source
+
+   1          //===============================================
+   2          #include "GDelay.h"
+   3          //===============================================
+   4          #define TIME_MS 127
+   5          //===============================================
+   6          void GDelay_ms(uint ms) {
+   7   1        uint i, j;
+   8   1          for(i = 0; i < ms; i++) {
+   9   2            for(j = 0; j < TIME_MS; j++);
+  10   2        }
+  11   1      }
+  12          //===============================================
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     32    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

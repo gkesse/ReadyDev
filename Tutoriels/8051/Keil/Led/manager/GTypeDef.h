@@ -1,9 +1,10 @@
 //===============================================
-#ifndef _GLed_
-#define _GLed_
+#ifndef _GTypeDef_
+#define _GTypeDef_
 //===============================================
-void GLed_Init();
-void GLed_Port_Flash();
+typedef unsigned char uchar;
+typedef unsigned int uint;
+typedef unsigned long ulong;
 //===============================================
 #endif
 //===============================================

@@ -229,7 +229,7 @@
               <RCB>
                 <Type>0</Type>
                 <StartAddress>0x0</StartAddress>
-                <Size>0x10000</Size>
+                <Size>0xffff</Size>
               </RCB>
               <RXB>
                 <Type>0</Type>
@@ -310,7 +310,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath></IncludePath>
+              <IncludePath>.\manager</IncludePath>
             </VariousControls>
           </C51>
           <Ax51>
@@ -366,6 +366,16 @@
               <FileName>main.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\main.c</FilePath>
+            </File>
+            <File>
+              <FileName>GLed.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\manager\GLed.c</FilePath>
+            </File>
+            <File>
+              <FileName>GDelay.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\manager\GDelay.c</FilePath>
             </File>
           </Files>
         </Group>

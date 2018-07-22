@@ -1,9 +1,12 @@
 //===============================================
-#ifndef _GLed_
-#define _GLed_
+#include "GDelay.h"
 //===============================================
-void GLed_Init();
-void GLed_Port_Flash();
+#define TIME_MS 127
 //===============================================
-#endif
+void GDelay_ms(uint ms) {
+	uint i, j;
+		for(i = 0; i < ms; i++) {
+			for(j = 0; j < TIME_MS; j++);
+	}
+}
 //===============================================
