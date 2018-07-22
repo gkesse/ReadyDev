@@ -1,3 +1,5 @@
-"main.obj" 
+"main.obj",
+"GLed.obj",
+"GDelay.obj" 
 TO "GProject" 
 RAMSIZE(256) 
