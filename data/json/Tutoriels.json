@@ -120,6 +120,13 @@
     [
         {
             "icon":"fa fa-microchip",
+            "theme":"8051",
+            "description":"Programmez le<br/> 8051",
+            "link":"/Tutoriels/8051/",
+			"follow":"yes"
+        },
+        {
+            "icon":"fa fa-microchip",
             "theme":"Raspberry Pi",
             "description":"Programmez le<br/> RaspberryPi",
             "link":"/Tutoriels/RaspberryPi/",

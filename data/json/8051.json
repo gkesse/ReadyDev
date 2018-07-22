@@ -1,0 +1,21 @@
+{
+    "sitemap":"no",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+            "Le 8051 est un microcontrôleur de développement de système embarqué.",
+			"Le but de ce tutoriel est de vous apprendre",
+            "le développement de système embarqué avec le 8051.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Tutoriels/8051/"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"Système Embarqué","link":"/Tutoriels/#Système Embarqué","follow":"no"},
+        {"name":"8051","link":"","follow":"no"}
+    ]
+}
+                        
