@@ -5,16 +5,17 @@
 #include "GInclude.h"
 //===============================================
 typedef struct GClass GClass;
+//===============================================
 GClass* GClass_Constructor();
 GClass* GClass_Constructor2(const char* data);
 void GClass_Destructor(GClass* obj);
-char* GClass_Init(GClass* obj);
+void GClass_Init(GClass* obj);
 void GClass_Destructor(GClass* obj);
 void GClass_Print_Data(GClass* obj);
 void GClass_Set_Data(GClass* obj, const char* data);
 char* GClass_Get_Data(GClass* obj);
 //===============================================
-struct GClass {
+typedef struct GClass {
     //===============================================
     void (*Destructor)(GClass* obj);
     void (*Print_Data)(GClass* obj);
@@ -23,7 +24,7 @@ struct GClass {
     //===============================================
     char m_data[50];
     //===============================================
-};
+} GClass;
 //===============================================
 GClass* GClass_Constructor() {
     GClass* lObj = (GClass*)malloc(sizeof(GClass));
@@ -39,7 +40,7 @@ GClass* GClass_Constructor2(const char* data) {
     return lObj; 
 }
 //===============================================
-char* GClass_Init(GClass* obj) {
+void GClass_Init(GClass* obj) {
     obj->Destructor = GClass_Destructor;
     obj->Print_Data = GClass_Print_Data;
     obj->Set_Data = GClass_Set_Data;
