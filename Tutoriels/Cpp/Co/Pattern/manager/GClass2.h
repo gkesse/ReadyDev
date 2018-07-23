@@ -1,17 +1,29 @@
 //===============================================
-#ifndef _GClass_
-#define _GClass_
+#ifndef _GClass2_
+#define _GClass2_
 //===============================================
 #include "GInclude.h"
 //===============================================
-typedef struct {
+typedef struct GClass GClass;
+GClass* GClass_Constructor();
+GClass* GClass_Constructor2(const char* data);
+void GClass_Destructor(GClass* obj);
+char* GClass_Init(GClass* obj);
+void GClass_Destructor(GClass* obj);
+void GClass_Print_Data(GClass* obj);
+void GClass_Set_Data(GClass* obj, const char* data);
+char* GClass_Get_Data(GClass* obj);
+//===============================================
+struct GClass {
     //===============================================
+    void (*Destructor)(GClass* obj);
     void (*Print_Data)(GClass* obj);
     void (*Set_Data)(GClass* obj, const char* data);
-    void (*Get_Data)(GClass* obj);
+    char* (*Get_Data)(GClass* obj);
     //===============================================
     char m_data[50];
-} GClass;
+    //===============================================
+};
 //===============================================
 GClass* GClass_Constructor() {
     GClass* lObj = (GClass*)malloc(sizeof(GClass));
@@ -25,6 +37,13 @@ GClass* GClass_Constructor2(const char* data) {
     sprintf(lObj->m_data, "%s", data);
     GClass_Init(lObj);
     return lObj; 
+}
+//===============================================
+char* GClass_Init(GClass* obj) {
+    obj->Destructor = GClass_Destructor;
+    obj->Print_Data = GClass_Print_Data;
+    obj->Set_Data = GClass_Set_Data;
+    obj->Get_Data = GClass_Get_Data;
 }
 //===============================================
 void GClass_Destructor(GClass* obj) {
@@ -44,12 +63,6 @@ void GClass_Set_Data(GClass* obj, const char* data) {
 //===============================================
 char* GClass_Get_Data(GClass* obj) {
     return obj->m_data;
-}
-//===============================================
-char* GClass_Init(GClass* obj) {
-    obj->Print_Data = GClass_Print_Data;
-    obj->Set_Data = GClass_Set_Data;
-    obj->Get_Data = GClass_Get_Data;
 }
 //===============================================
 #endif
