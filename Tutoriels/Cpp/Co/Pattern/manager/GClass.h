@@ -25,7 +25,7 @@ void GClass_Destructor(GClass* obj) {
     obj = 0;
 }
 //===============================================
-void GClass_Print_Data(GClass* obj) {
+void GClass_Print(GClass* obj) {
     char lData[50];
     sprintf(lData, "Donnee: %s\n", obj->m_data);
     printf(lData);

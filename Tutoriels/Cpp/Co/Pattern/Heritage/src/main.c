@@ -2,7 +2,7 @@
 #include "GPerson.h"
 //===============================================
 int main(int argc, char** argv) {
-    printf("\n### Classe Fonction\n\n");
+    printf("\n### Heritage\n\n");
     GPerson* lObj = GPerson_Constructor();
     GPerson* lObj2 = GPerson_Constructor2("Bonjour tout le monde");
     lObj->Print(lObj);

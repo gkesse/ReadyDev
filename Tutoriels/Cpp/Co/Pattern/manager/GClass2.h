@@ -11,14 +11,14 @@ GClass* GClass_Constructor2(const char* data);
 void GClass_Destructor(GClass* obj);
 void GClass_Init(GClass* obj);
 void GClass_Destructor(GClass* obj);
-void GClass_Print_Data(GClass* obj);
+void GClass_Print(GClass* obj);
 void GClass_Set_Data(GClass* obj, const char* data);
 char* GClass_Get_Data(GClass* obj);
 //===============================================
 typedef struct GClass {
     //===============================================
     void (*Destructor)(GClass* obj);
-    void (*Print_Data)(GClass* obj);
+    void (*Print)(GClass* obj);
     void (*Set_Data)(GClass* obj, const char* data);
     char* (*Get_Data)(GClass* obj);
     //===============================================
@@ -42,7 +42,7 @@ GClass* GClass_Constructor2(const char* data) {
 //===============================================
 void GClass_Init(GClass* obj) {
     obj->Destructor = GClass_Destructor;
-    obj->Print_Data = GClass_Print_Data;
+    obj->Print = GClass_Print;
     obj->Set_Data = GClass_Set_Data;
     obj->Get_Data = GClass_Get_Data;
 }
@@ -52,7 +52,7 @@ void GClass_Destructor(GClass* obj) {
     obj = 0;
 }
 //===============================================
-void GClass_Print_Data(GClass* obj) {
+void GClass_Print(GClass* obj) {
     char lData[50];
     sprintf(lData, "Donnee: %s\n", obj->m_data);
     printf(lData);
