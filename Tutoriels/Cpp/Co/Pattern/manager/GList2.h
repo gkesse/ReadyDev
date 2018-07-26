@@ -17,6 +17,8 @@ void GList_Show_Data();
 void GList_Get_Size();
 void GList_Get_Data(int index);
 void GList_Change_Data(int index, const char* data);
+void GList_Insert_Data_After(int index, const char* data);
+void GList_Insert_Data_Before(int index, const char* data);
 //===============================================
 struct GNode {
     int m_index;
@@ -30,6 +32,8 @@ struct GList {
     void (*Get_Size)();
     void (*Get_Data)(int index);
     void (*Change_Data)(int index, const char* data);
+    void (*Insert_Data_After)(int index, const char* data);
+    void (*Insert_Data_Before)(int index, const char* data);
     GNode* m_start;
     int m_size;
 };
@@ -48,6 +52,8 @@ void GList_Init(GList* list) {
     list->Get_Size = GList_Get_Size;
     list->Get_Data = GList_Get_Data;
     list->Change_Data = GList_Change_Data;
+    list->Insert_Data_After = GList_Insert_Data_After;
+    list->Insert_Data_Before = GList_Insert_Data_Before;
 }
 //===============================================
 GList* GList_Instance() {
@@ -113,15 +119,50 @@ void GList_Change_Data(int index, const char* data) {
     }
 }
 //===============================================
-void GList_Change_Data(int index, const char* data) {
+void GList_Insert_Data_After(int index, const char* data) {
     GNode* lNode = m_GList->m_start;
+    int lIndex = 0;
     while(lNode != 0) {
         if(lNode->m_index == index) {
-            sprintf(lNode->m_data, "%s", data);
-            return;
+            GNode* lNode2 = lNode->m_next;
+            GNode* lNode3 = (GNode*)malloc(sizeof(GNode));
+            sprintf(lNode3->m_data, "%s", data);
+            lNode3->m_next = lNode2;
+            lNode->m_next = lNode3;
+            break;
         }
         lNode = lNode->m_next;
     }
+    lNode = m_GList->m_start;
+    while(lNode != 0) {
+        lNode->m_index = lIndex;
+        lIndex += 1;
+        lNode = lNode->m_next;
+    }
+    m_GList->m_size = lIndex;
+}
+//===============================================
+void GList_Insert_Data_Before(int index, const char* data) {
+    GNode* lNode = m_GList->m_start;
+    int lIndex = 0;
+    while(lNode != 0) {
+        if(lNode->m_next->m_index == index) {
+            GNode* lNode2 = lNode->m_next;
+            GNode* lNode3 = (GNode*)malloc(sizeof(GNode));
+            sprintf(lNode3->m_data, "%s", data);
+            lNode3->m_next = lNode2;
+            lNode->m_next = lNode3;
+            break;
+        }
+        lNode = lNode->m_next;
+    }
+    lNode = m_GList->m_start;
+    while(lNode != 0) {
+        lNode->m_index = lIndex;
+        lIndex += 1;
+        lNode = lNode->m_next;
+    }
+    m_GList->m_size = lIndex;
 }
 //===============================================
 #endif

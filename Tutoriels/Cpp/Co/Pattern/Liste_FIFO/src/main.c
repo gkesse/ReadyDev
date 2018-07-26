@@ -13,11 +13,19 @@ int main(int argc, char** argv) {
     printf("\n### Lire Taille\n\n");
     GList_Instance()->Get_Size();
     
-    printf("\n### Trouver Donnee\n\n");
+    printf("\n### Lire Donnee\n\n");
     GList_Instance()->Get_Data(3);
     
     printf("\n### Changer Donnee\n\n");
-    GList_Instance()->Change_Data(3, "Nouvelle Valeur");
+    GList_Instance()->Change_Data(3, "Changer Donnee");
+    GList_Instance()->Show_Data();
+    
+    printf("\n### Inserer Donnee Apres\n\n");
+    GList_Instance()->Insert_Data_After(3, "Inserer Donnee Apres");
+    GList_Instance()->Show_Data();
+    
+    printf("\n### Inserer Donnee Avant\n\n");
+    GList_Instance()->Insert_Data_Before(3, "Inserer Donnee Avant");
     GList_Instance()->Show_Data();
     
     return 0;
