@@ -12,16 +12,16 @@ static GList* m_GList = 0;
 GList* GList_Instance();
 GList* GList_Constructor();
 void GList_Init(GList* list);
-void GList_Add(void* data);
+void GList_Add(const char* data);
 void GList_Show();
 //===============================================
 struct GNode {
-    void* m_data;
+    char m_data[50];
     GNode* m_next;
 };
 //===============================================
 struct GList {
-    void (*Add)(void* data);
+    void (*Add)(const char* data);
     void (*Show)();
     GNode* m_start;
 };
@@ -45,9 +45,9 @@ GList* GList_Instance() {
     return m_GList;
 }
 //===============================================
-void GList_Add(void* data) {
+void GList_Add(const char* data) {
     GNode* lNode = (GNode*)malloc(sizeof(GNode));
-    lNode->m_data = data;
+    sprintf(lNode->m_data, "%s", data);
     lNode->m_next = m_GList->m_start;
     m_GList->m_start = lNode;
 }
@@ -55,7 +55,7 @@ void GList_Add(void* data) {
 void GList_Show() {
     GNode* lNode = m_GList->m_start;
     while(lNode != 0) {
-        printf("%d ; ", *((int*)lNode->m_data));
+        printf("%s\n", lNode->m_data);
         lNode = lNode->m_next;
     }
     printf("\n");
