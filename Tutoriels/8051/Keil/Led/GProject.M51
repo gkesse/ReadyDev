@@ -1,4 +1,4 @@
-BL51 BANKED LINKER/LOCATER V6.22                                                        07/23/2018  15:31:22  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22                                                        07/27/2018  20:48:27  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
@@ -13,6 +13,9 @@ INPUT MODULES INCLUDED:
   GLed.obj (GLED)
   GDelay.obj (GDELAY)
   C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?ISTPTR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (MALLOC)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (INIT_MEM)
 
 
 LINK MAP OF MODULE:  GProject (MAIN)
@@ -23,35 +26,49 @@ LINK MAP OF MODULE:  GProject (MAIN)
 
             * * * * * * *   D A T A   M E M O R Y   * * * * * * *
             REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
-            DATA    0008H     0002H     UNIT         ?DT?GLED
-                    000AH     0016H                  *** GAP ***
+            DATA    0008H     0004H     UNIT         _DATA_GROUP_
+            DATA    000CH     0002H     UNIT         ?DT?GLED
+                    000EH     0012H                  *** GAP ***
             BIT     0020H.0   0000H.1   UNIT         ?BI?GLED
                     0020H.1   0000H.7                *** GAP ***
             IDATA   0021H     0001H     UNIT         ?STACK
 
+            * * * * * * *  X D A T A   M E M O R Y  * * * * * * *
+            XDATA   0000H     0008H     UNIT         ?XD?INIT_MEM
+
             * * * * * * *   C O D E   M E M O R Y   * * * * * * *
             CODE    0000H     0003H     ABSOLUTE     
-            CODE    0003H     0025H     UNIT         ?PR?GLED_PORT_FLASH?GLED
-            CODE    0028H     0020H     UNIT         ?PR?_GDELAY_MS?GDELAY
-            CODE    0048H     000FH     UNIT         ?PR?MAIN?MAIN
-            CODE    0057H     000CH     UNIT         ?C_C51STARTUP
-            CODE    0063H     000BH     UNIT         ?PR?GLED_INIT?GLED
+            CODE    0003H     009CH     UNIT         ?PR?_MALLOC?MALLOC
+            CODE    009FH     003CH     UNIT         ?PR?_INIT_MEMPOOL?INIT_MEM
+            CODE    00DBH     0025H     UNIT         ?PR?GLED_PORT_FLASH?GLED
+            CODE    0100H     0023H     UNIT         ?PR?MAIN?MAIN
+            CODE    0123H     0020H     UNIT         ?PR?_GDELAY_MS?GDELAY
+            CODE    0143H     001FH     UNIT         ?C?LIB_CODE
+            CODE    0162H     000CH     UNIT         ?C_C51STARTUP
+            CODE    016EH     000BH     UNIT         ?PR?GLED_INIT?GLED
+            CODE    0179H     000BH     UNIT         ?C_INITSEG
 
 
 
 OVERLAY MAP OF MODULE:   GProject (MAIN)
 
 
-SEGMENT
-  +--> CALLED SEGMENT
----------------------
-?C_C51STARTUP
+SEGMENT                              DATA_GROUP 
+  +--> CALLED SEGMENT              START    LENGTH
+--------------------------------------------------
+?C_C51STARTUP                      -----    -----
   +--> ?PR?MAIN?MAIN
 
-?PR?MAIN?MAIN
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/27/2018  20:48:27  PAGE 2
+
+
+?PR?MAIN?MAIN                      -----    -----
+  +--> ?PR?_MALLOC?MALLOC
   +--> ?PR?GLED_INIT?GLED
   +--> ?PR?GLED_PORT_FLASH?GLED
   +--> ?PR?_GDELAY_MS?GDELAY
+
+?PR?_MALLOC?MALLOC                 0008H    0004H
 
 
 
@@ -59,20 +76,30 @@ SYMBOL TABLE OF MODULE:  GProject (MAIN)
 
   VALUE           TYPE          NAME
   ----------------------------------
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/23/2018  15:31:22  PAGE 2
-
-
 
   -------         MODULE        MAIN
   C:0000H         SYMBOL        _ICE_DUMMY_
-  C:0048H         PUBLIC        main
+  D:0090H         PUBLIC        P1
+  D:00B0H         PUBLIC        P3
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  C:0100H         PUBLIC        main
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  D:00C8H         PUBLIC        T2CON
+  D:00D0H         PUBLIC        PSW
   -------         PROC          MAIN
-  C:0048H         LINE#         5
-  C:0048H         LINE#         6
-  C:004BH         LINE#         7
-  C:004BH         LINE#         8
-  C:004EH         LINE#         9
-  C:0055H         LINE#         10
+  -------         DO            
+  D:0001H         SYMBOL        test
+  -------         ENDDO         
+  C:0100H         LINE#         6
+  C:0100H         LINE#         7
+  C:010DH         LINE#         8
+  C:0114H         LINE#         9
+  C:0117H         LINE#         10
+  C:0117H         LINE#         11
+  C:011AH         LINE#         12
+  C:0121H         LINE#         13
   -------         ENDPROC       MAIN
   -------         ENDMOD        MAIN
 
@@ -84,55 +111,77 @@ SYMBOL TABLE OF MODULE:  GProject (MAIN)
   D:00B8H         PUBLIC        IP
   D:0098H         PUBLIC        SCON
   D:0088H         PUBLIC        TCON
-  C:0003H         PUBLIC        GLed_Port_Flash
-  D:0008H         SYMBOL        gLed_Flash_Time
+  C:00DBH         PUBLIC        GLed_Port_Flash
+  D:000CH         SYMBOL        gLed_Flash_Time
   B:0020H.0       SYMBOL        gLed_Flash
-  C:0063H         PUBLIC        GLed_Init
+  C:016EH         PUBLIC        GLed_Init
   D:00C8H         PUBLIC        T2CON
   D:00D0H         PUBLIC        PSW
   -------         PROC          GLED_INIT
-  C:0063H         LINE#         9
-  C:0063H         LINE#         10
-  C:0066H         LINE#         11
-  C:0068H         LINE#         12
-  C:006DH         LINE#         13
+  C:016EH         LINE#         9
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/27/2018  20:48:27  PAGE 3
+
+
+  C:016EH         LINE#         10
+  C:0171H         LINE#         11
+  C:0173H         LINE#         12
+  C:0178H         LINE#         13
   -------         ENDPROC       GLED_INIT
   -------         PROC          GLED_PORT_FLASH
-  C:0003H         LINE#         15
-  C:0003H         LINE#         16
-  C:0014H         LINE#         17
-  C:0019H         LINE#         18
-  C:001CH         LINE#         19
-  C:001EH         LINE#         20
-  C:0021H         LINE#         21
-  C:0022H         LINE#         22
-  C:0022H         LINE#         23
-  C:0024H         LINE#         24
-  C:0027H         LINE#         26
-  C:0027H         LINE#         27
-  C:0027H         LINE#         28
+  C:00DBH         LINE#         15
+  C:00DBH         LINE#         16
+  C:00ECH         LINE#         17
+  C:00F1H         LINE#         18
+  C:00F4H         LINE#         19
+  C:00F6H         LINE#         20
+  C:00F9H         LINE#         21
+  C:00FAH         LINE#         22
+  C:00FAH         LINE#         23
+  C:00FCH         LINE#         24
+  C:00FFH         LINE#         26
+  C:00FFH         LINE#         27
+  C:00FFH         LINE#         28
   -------         ENDPROC       GLED_PORT_FLASH
   -------         ENDMOD        GLED
 
   -------         MODULE        GDELAY
   C:0000H         SYMBOL        _ICE_DUMMY_
-  C:0028H         PUBLIC        _GDelay_ms
+  C:0123H         PUBLIC        _GDelay_ms
   -------         PROC          _GDELAY_MS
   D:0006H         SYMBOL        ms
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/23/2018  15:31:22  PAGE 3
-
-
   -------         DO            
   D:0004H         SYMBOL        i
   D:0002H         SYMBOL        j
   -------         ENDDO         
-  C:0028H         LINE#         6
-  C:0028H         LINE#         8
-  C:0032H         LINE#         9
-  C:0040H         LINE#         10
-  C:0047H         LINE#         11
+  C:0123H         LINE#         6
+  C:0123H         LINE#         8
+  C:012DH         LINE#         9
+  C:013BH         LINE#         10
+  C:0142H         LINE#         11
   -------         ENDPROC       _GDELAY_MS
   -------         ENDMOD        GDELAY
 
-Program Size: data=11.1 xdata=0 code=110
-LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
+  -------         MODULE        ?C?ISTPTR
+  C:0143H         PUBLIC        ?C?ISTPTR
+  -------         ENDMOD        ?C?ISTPTR
+
+  -------         MODULE        MALLOC
+  C:0003H         PUBLIC        _malloc
+  -------         ENDMOD        MALLOC
+
+  -------         MODULE        INIT_MEM
+  X:0000H         PUBLIC        __mem_avail__
+  C:009FH         PUBLIC        _init_mempool
+  -------         ENDMOD        INIT_MEM
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_INIT_MEMPOOL?INIT_MEM
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?C_INITSEG
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/27/2018  20:48:27  PAGE 4
+
+
+
+Program Size: data=15.1 xdata=8 code=388
+LINK/LOCATE RUN COMPLETE.  2 WARNING(S),  0 ERROR(S)
