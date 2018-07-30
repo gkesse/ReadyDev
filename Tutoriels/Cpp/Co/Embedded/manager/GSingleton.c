@@ -12,12 +12,14 @@ char* GSingleton_Get_Data();
 //===============================================
 GSingletonO GSingleton_Constructor() {
     GSingletonO lObj;
+    GString().Copy(lObj.m_data, "NONE");
     GSingleton_Function(&lObj);
     return lObj;
 }
 //===============================================
 void GSingleton_Function(GSingletonO* obj) {
-    obj->Strategy = GSingleton_Strategy;
+    obj->Set_Data = GSingleton_Set_Data;
+    obj->Get_Data = GSingleton_Get_Data;
 }
 //===============================================
 GSingletonO GSingleton() {
@@ -29,10 +31,10 @@ GSingletonO GSingleton() {
 }
 //===============================================
 void GSingleton_Set_Data(const char* data) {
-    
+    GString().Copy(m_GSingletonO.m_data, data);
 }
 //===============================================
 char* GSingleton_Get_Data() {
-    
+    return m_GSingletonO.m_data;
 }
 //===============================================

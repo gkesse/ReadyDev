@@ -7,9 +7,7 @@ GTARGET = $(GBIN)/GProject.exe
 GOBJS = \
     $(GBUILD)/main.o \
     $(GBUILD)/GString.o \
-    $(GBUILD)/GDatabase.o \
-    $(GBUILD)/GDatabaseMySQL.o \
-    $(GBUILD)/GDatabaseSQLite.o
+    $(GBUILD)/GSingleton.o \
     
 GINCS = \
     -I"../../manager"
@@ -20,11 +18,7 @@ $(GBUILD)/main.o: $(GSRC)/main.c
 	gcc -c $(GSRC)/main.c -o $(GBUILD)/main.o $(GINCS)
 $(GBUILD)/GString.o: $(GMGR)/GString.c
 	gcc -c $(GMGR)/GString.c -o $(GBUILD)/GString.o $(GINCS)
-$(GBUILD)/GDatabase.o: $(GMGR)/GDatabase.c
-	gcc -c $(GMGR)/GDatabase.c -o $(GBUILD)/GDatabase.o $(GINCS)
-$(GBUILD)/GDatabaseMySQL.o: $(GMGR)/GDatabaseMySQL.c
-	gcc -c $(GMGR)/GDatabaseMySQL.c -o $(GBUILD)/GDatabaseMySQL.o $(GINCS)
-$(GBUILD)/GDatabaseSQLite.o: $(GMGR)/GDatabaseSQLite.c
-	gcc -c $(GMGR)/GDatabaseSQLite.c -o $(GBUILD)/GDatabaseSQLite.o $(GINCS)
+$(GBUILD)/GSingleton.o: $(GMGR)/GSingleton.c
+	gcc -c $(GMGR)/GSingleton.c -o $(GBUILD)/GSingleton.o $(GINCS)
 clean:
 	del /q $(GBUILD)\* $(GBIN)\*
