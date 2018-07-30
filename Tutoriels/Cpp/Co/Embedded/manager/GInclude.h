@@ -2,7 +2,7 @@
 #ifndef _GInclude_
 #define _GInclude_
 //===============================================
-#include <reg52.h>
+#include <stdio.h>
 //===============================================
 #define TRUE (1)
 #define FALSE (0)

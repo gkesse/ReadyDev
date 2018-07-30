@@ -1,9 +1,9 @@
 //===============================================
-#include "GFlash.h"
+#include "GDatabase.h"
 //===============================================
-void main() {
-    GFlash().Strategy();	
-    GFlash().Init();	
-    GFlash().Update();	
+int main(int argc, char** argv) {
+    printf("\n### Strategie\n\n");
+    printf("okkkkkkkkkkkkkkkkk\n");
+    return 0;
 }
 //===============================================
