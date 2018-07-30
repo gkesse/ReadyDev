@@ -26,7 +26,7 @@ void GDatabase_Function(GDatabaseO* obj) {
 GDatabaseO GDatabase() {
     if(m_GDatabase == FALSE) {
         m_GDatabaseO = GDatabase_Constructor();
-        GDatabase_Strategy("MySQL");
+        GDatabase_Strategy("DEFAULT");
         m_GDatabase = TRUE;
     }
     return m_GDatabaseO;

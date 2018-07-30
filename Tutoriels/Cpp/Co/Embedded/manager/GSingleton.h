@@ -1,18 +1,18 @@
 //===============================================
-#ifndef _GString_
-#define _GString_
+#ifndef _GSingleton_
+#define _GSingleton_
 //===============================================
-#include "GInclude.h"
+#include "GDatabase.h"
 //===============================================
-typedef struct GStringO GStringO;
+typedef struct GSingletonO GSingletonO;
 //===============================================
-struct GStringO {
-    int (*Size)(const char* str);
-    int (*Is_Equal)(const char* str1, const char* str2);
-    void (*Copy)(char* str1, const char* str2);
+struct GSingletonO {
+    void (*Set_Data)(const char* data);
+    char* (*Get_Data)();
+    char m_data[50];
 };
 //===============================================
-GStringO GString();
+GSingletonO GSingleton();
 //===============================================
 #endif
 //===============================================

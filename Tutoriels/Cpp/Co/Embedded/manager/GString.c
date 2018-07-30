@@ -8,6 +8,7 @@ GStringO GString_Constructor();
 void GString_Function(GStringO* obj);
 int GString_Size(const char* str);
 int GString_Is_Equal(const char* str1, const char* str2);
+void GString_Copy(char* str1, const char* str2);
 //===============================================
 GStringO GString_Constructor() {
     GStringO lObj;
@@ -18,6 +19,7 @@ GStringO GString_Constructor() {
 void GString_Function(GStringO* obj) {
     obj->Size = GString_Size;
     obj->Is_Equal = GString_Is_Equal;
+    obj->Copy = GString_Copy;
 }
 //===============================================
 GStringO GString() {
@@ -44,5 +46,14 @@ int GString_Is_Equal(const char* str1, const char* str2) {
         i += 1;
     }
     return TRUE;
+}
+//===============================================
+void GString_Copy(char* str1, const char* str2) {
+    int i = 0;
+    while(str2[i] != 0) {
+        str1[i] = str2[i];
+        i += 1;
+    }
+    str1[i] = 0;
 }
 //===============================================
