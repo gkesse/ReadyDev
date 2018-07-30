@@ -1,5 +1,8 @@
 //===============================================
 #include "GDatabase.h"
+#include "GDatabaseMySQL.h"
+#include "GDatabaseSQLite.h"
+#include "GString.h"
 //===============================================
 static GDatabaseO m_GDatabaseO;
 static int m_GDatabase = FALSE;
@@ -23,14 +26,16 @@ void GDatabase_Function(GDatabaseO* obj) {
 GDatabaseO GDatabase() {
     if(m_GDatabase == FALSE) {
         m_GDatabaseO = GDatabase_Constructor();
+        GDatabase_Strategy("MySQL");
         m_GDatabase = TRUE;
     }
     return m_GDatabaseO;
 }
 //===============================================
 void GDatabase_Strategy(const char* strategy) {
-    //if(GString().Is_Equal(strategy, "Led")) {GFlashLed_Strategy(&m_GFlashO);}
-    //else {GFlashLed_Strategy(&m_GFlashO);}
+    if(GString().Is_Equal(strategy, "MySQL")) {GDatabaseMySQL().Strategy(&m_GDatabaseO);}
+    else if(GString().Is_Equal(strategy, "SQLite")) {GDatabaseSQLite().Strategy(&m_GDatabaseO);}
+    else {GDatabaseMySQL().Strategy(&m_GDatabaseO);}
 }
 //===============================================
 void GDatabase_Open() {

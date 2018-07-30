@@ -6,8 +6,8 @@ static int m_GDatabaseMySQL = FALSE;
 //===============================================
 GDatabaseMySQLO GDatabaseMySQL_Constructor();
 void GDatabaseMySQL_Function(GDatabaseMySQLO* obj);
-int GDatabaseMySQL_Size(const char* str);
-int GDatabaseMySQL_Is_Equal(const char* str1, const char* str2);
+void GDatabaseMySQL_Strategy(GDatabaseO* obj);
+void GDatabaseMySQL_Open();
 //===============================================
 GDatabaseMySQLO GDatabaseMySQL_Constructor() {
     GDatabaseMySQLO lObj;
@@ -16,7 +16,7 @@ GDatabaseMySQLO GDatabaseMySQL_Constructor() {
 }
 //===============================================
 void GDatabaseMySQL_Function(GDatabaseMySQLO* obj) {
-    obj->Open = GDatabaseMySQL_Open;
+    obj->Strategy = GDatabaseMySQL_Strategy;
 }
 //===============================================
 GDatabaseMySQLO GDatabaseMySQL() {
@@ -27,7 +27,11 @@ GDatabaseMySQLO GDatabaseMySQL() {
     return m_GDatabaseMySQLO;
 }
 //===============================================
+void GDatabaseMySQL_Strategy(GDatabaseO* obj) {
+    obj->Open = GDatabaseMySQL_Open;
+}
+//===============================================
 void GDatabaseMySQL_Open() {
-    printf("Database: MySQL\n");
+    printf("Database: Ouverture Connexion MySQL\n");
 }
 //===============================================

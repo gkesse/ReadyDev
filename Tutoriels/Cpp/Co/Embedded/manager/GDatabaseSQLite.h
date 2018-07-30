@@ -1,16 +1,16 @@
 //===============================================
-#ifndef _GDatabaseMySQL_
-#define _GDatabaseMySQL_
+#ifndef _GDatabaseSQLite_
+#define _GDatabaseSQLite_
 //===============================================
 #include "GDatabase.h"
 //===============================================
-typedef struct GDatabaseMySQLO GDatabaseMySQLO;
+typedef struct GDatabaseSQLiteO GDatabaseSQLiteO;
 //===============================================
-struct GDatabaseMySQLO {
+struct GDatabaseSQLiteO {
     void (*Strategy)(GDatabaseO* obj);
 };
 //===============================================
-GDatabaseMySQLO GDatabaseMySQL();
+GDatabaseSQLiteO GDatabaseSQLite();
 //===============================================
 #endif
 //===============================================
