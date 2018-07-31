@@ -1,6 +1,5 @@
 "main.obj",
 ".\GString.obj",
-".\GProcessLedFlash.obj",
 ".\GProcess.obj",
 ".\GLedFlash.obj",
 ".\GDelay.obj" 

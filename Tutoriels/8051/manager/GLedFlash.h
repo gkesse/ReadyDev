@@ -2,13 +2,12 @@
 #ifndef _GLedFlash_
 #define _GLedFlash_
 //===============================================
-#include "GInclude.h"
+#include "GProcess.h"
 //===============================================
 typedef struct GLedFlashO GLedFlashO;
 //===============================================
 struct GLedFlashO {
-    void (*Init)();
-    void (*Update)();
+    void (*Strategy)(GProcessO* obj);
 };
 //===============================================
 GLedFlashO GLedFlash();

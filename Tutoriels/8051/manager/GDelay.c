@@ -2,7 +2,7 @@
 #include "GDelay.h"
 #include "GPortDef.h"
 //===============================================
-#define TIME_MS 127
+#define TIME_MS 110
 //===============================================
 static bit GDelay_State = FALSE;
 static uint GDelay_Time = 0;

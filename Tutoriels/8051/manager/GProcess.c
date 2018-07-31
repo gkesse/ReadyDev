@@ -1,6 +1,6 @@
 //===============================================
 #include "GProcess.h"
-#include "GProcessLedFlash.h"
+#include "GLedFlash.h"
 #include "GString.h"
 //===============================================
 static GProcessO m_GProcessO;
@@ -35,8 +35,8 @@ GProcessO GProcess() {
 }
 //===============================================
 void GProcess_Strategy(const char* strategy) {
-    if(GString().Is_Equal(strategy, "LED_FLASH")) {GProcessLedFlash().Strategy(&m_GProcessO);}
-    else {GProcessLedFlash().Strategy(&m_GProcessO);}
+    if(GString().Is_Equal(strategy, "LED_FLASH")) {GLedFlash().Strategy(&m_GProcessO);}
+    else {GLedFlash().Strategy(&m_GProcessO);}
 }
 //===============================================
 void GProcess_Init() {

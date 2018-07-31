@@ -1,9 +1,9 @@
-BL51 BANKED LINKER/LOCATER V6.22                                                        07/31/2018  09:51:51  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22                                                        07/31/2018  10:15:27  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
-C:\KEIL_V5\C51\BIN\BL51.EXE main.obj, .\GString.obj, .\GProcessLedFlash.obj, .\GProcess.obj, .\GLedFlash.obj, .\GDelay.o
->> bj TO GProject RAMSIZE (256)
+C:\KEIL_V5\C51\BIN\BL51.EXE main.obj, .\GString.obj, .\GProcess.obj, .\GLedFlash.obj, .\GDelay.obj TO GProject RAMSIZE (
+>> 256)
 
 
 MEMORY MODEL: SMALL
@@ -12,7 +12,6 @@ MEMORY MODEL: SMALL
 INPUT MODULES INCLUDED:
   main.obj (MAIN)
   .\GString.obj (GSTRING)
-  .\GProcessLedFlash.obj (GPROCESSLEDFLASH)
   .\GProcess.obj (GPROCESS)
   .\GLedFlash.obj (GLEDFLASH)
   .\GDelay.obj (GDELAY)
@@ -44,149 +43,124 @@ LINK MAP OF MODULE:  GProject (MAIN)
             * * * * * * *   D A T A   M E M O R Y   * * * * * * *
             REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
             DATA    0008H     0011H     UNIT         ?DT?GPROCESS
-            DATA    0019H     0007H     UNIT         ?DT?GDELAY
+            DATA    0019H     0007H     UNIT         ?DT?GLEDFLASH
             BIT     0020H.0   0000H.1   UNIT         ?BI?GLEDFLASH
             BIT     0020H.1   0000H.1   UNIT         ?BI?GDELAY
                     0020H.2   0000H.6                *** GAP ***
-            DATA    0021H     0027H     UNIT         _DATA_GROUP_
-            DATA    0048H     000BH     UNIT         ?DT?GSTRING
-            DATA    0053H     000AH     UNIT         ?DT?GLEDFLASH
-            DATA    005DH     0005H     UNIT         ?DT?GPROCESSLEDFLASH
-            DATA    0062H     0001H     UNIT         ?C?LIB_DATA
-            IDATA   0063H     0001H     UNIT         ?STACK
+            DATA    0021H     0024H     UNIT         _DATA_GROUP_
+            DATA    0045H     000BH     UNIT         ?DT?GSTRING
+            DATA    0050H     0007H     UNIT         ?DT?GDELAY
+            DATA    0057H     0001H     UNIT         ?C?LIB_DATA
+            IDATA   0058H     0001H     UNIT         ?STACK
 
             * * * * * * *   C O D E   M E M O R Y   * * * * * * *
             CODE    0000H     0003H     ABSOLUTE     
             CODE    0003H     0255H     UNIT         ?C?LIB_CODE
             CODE    0258H     00B8H     UNIT         ?PR?_?GSTRING_IS_EQUAL?GSTRING
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/31/2018  09:51:51  PAGE 2
-
-
             CODE    0310H     008CH     UNIT         ?PR?_?GSTRING_COPY?GSTRING
             CODE    039CH     008CH     UNIT         ?C_C51STARTUP
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/31/2018  10:15:27  PAGE 2
+
+
             CODE    0428H     005EH     UNIT         ?PR?_GPROCESS_STRATEGY?GPROCESS
             CODE    0486H     0059H     UNIT         ?PR?MAIN?MAIN
             CODE    04DFH     004FH     UNIT         ?PR?_GPROCESS_FUNCTION?GPROCESS
             CODE    052EH     004CH     UNIT         ?PR?_GSTRING_FUNCTION?GSTRING
-            CODE    057AH     0037H     UNIT         ?PR?_GPROCESSLEDFLASH_STRATEGY?GPROCESSLEDFLASH
-            CODE    05B1H     0034H     UNIT         ?PR?_GLEDFLASH_FUNCTION?GLEDFLASH
-            CODE    05E5H     002CH     UNIT         ?PR?GPROCESS?GPROCESS
-            CODE    0611H     0029H     UNIT         ?PR?_GSTRING_SIZE?GSTRING
-            CODE    063AH     0023H     UNIT         ?PR?GSTRING?GSTRING
-            CODE    065DH     0023H     UNIT         ?PR?GPROCESSLEDFLASH?GPROCESSLEDFLASH
-            CODE    0680H     0023H     UNIT         ?PR?GLEDFLASH?GLEDFLASH
-            CODE    06A3H     0023H     UNIT         ?PR?GLEDFLASH_UPDATE?GLEDFLASH
-            CODE    06C6H     0023H     UNIT         ?PR?GDELAY?GDELAY
-            CODE    06E9H     0021H     UNIT         ?C_INITSEG
-            CODE    070AH     0020H     UNIT         ?PR?_GDELAY_MS?GDELAY
-            CODE    072AH     001CH     UNIT         ?PR?_GPROCESSLEDFLASH_FUNCTION?GPROCESSLEDFLASH
-            CODE    0746H     001CH     UNIT         ?PR?_GDELAY_FUNCTION?GDELAY
-            CODE    0762H     0012H     UNIT         ?CO?GPROCESS
-            CODE    0774H     0010H     UNIT         ?PR?GSTRING_CONSTRUCTOR?GSTRING
-            CODE    0784H     0010H     UNIT         ?PR?GPROCESSLEDFLASH_CONSTRUCTOR?GPROCESSLEDFLASH
-            CODE    0794H     0010H     UNIT         ?PR?GPROCESSLEDFLASH_UPDATE?GPROCESSLEDFLASH
-            CODE    07A4H     0010H     UNIT         ?PR?GPROCESS_CONSTRUCTOR?GPROCESS
-            CODE    07B4H     0010H     UNIT         ?PR?GLEDFLASH_CONSTRUCTOR?GLEDFLASH
-            CODE    07C4H     0010H     UNIT         ?PR?GDELAY_CONSTRUCTOR?GDELAY
-            CODE    07D4H     000AH     UNIT         ?CO?MAIN
-            CODE    07DEH     0009H     UNIT         ?PR?GPROCESSLEDFLASH_INIT?GPROCESSLEDFLASH
-            CODE    07E7H     0007H     UNIT         ?PR?GPROCESS_INIT?GPROCESS
-            CODE    07EEH     0007H     UNIT         ?PR?GPROCESS_UPDATE?GPROCESS
-            CODE    07F5H     0003H     UNIT         ?PR?GLEDFLASH_INIT?GLEDFLASH
+            CODE    057AH     0037H     UNIT         ?PR?_GLEDFLASH_STRATEGY?GLEDFLASH
+            CODE    05B1H     002CH     UNIT         ?PR?GPROCESS?GPROCESS
+            CODE    05DDH     0029H     UNIT         ?PR?_GSTRING_SIZE?GSTRING
+            CODE    0606H     0023H     UNIT         ?PR?GSTRING?GSTRING
+            CODE    0629H     0023H     UNIT         ?PR?GLEDFLASH?GLEDFLASH
+            CODE    064CH     0023H     UNIT         ?PR?GLEDFLASH_UPDATE?GLEDFLASH
+            CODE    066FH     0023H     UNIT         ?PR?GDELAY?GDELAY
+            CODE    0692H     0020H     UNIT         ?PR?_GDELAY_MS?GDELAY
+            CODE    06B2H     001DH     UNIT         ?C_INITSEG
+            CODE    06CFH     001CH     UNIT         ?PR?_GLEDFLASH_FUNCTION?GLEDFLASH
+            CODE    06EBH     001CH     UNIT         ?PR?_GDELAY_FUNCTION?GDELAY
+            CODE    0707H     0012H     UNIT         ?CO?GPROCESS
+            CODE    0719H     0010H     UNIT         ?PR?GSTRING_CONSTRUCTOR?GSTRING
+            CODE    0729H     0010H     UNIT         ?PR?GPROCESS_CONSTRUCTOR?GPROCESS
+            CODE    0739H     0010H     UNIT         ?PR?GLEDFLASH_CONSTRUCTOR?GLEDFLASH
+            CODE    0749H     0010H     UNIT         ?PR?GDELAY_CONSTRUCTOR?GDELAY
+            CODE    0759H     000AH     UNIT         ?CO?MAIN
+            CODE    0763H     0007H     UNIT         ?PR?GPROCESS_INIT?GPROCESS
+            CODE    076AH     0007H     UNIT         ?PR?GPROCESS_UPDATE?GPROCESS
+            CODE    0771H     0003H     UNIT         ?PR?GLEDFLASH_INIT?GLEDFLASH
 
 
 
 OVERLAY MAP OF MODULE:   GProject (MAIN)
 
 
-SEGMENT                                            DATA_GROUP 
-  +--> CALLED SEGMENT                            START    LENGTH
-----------------------------------------------------------------
-?C_C51STARTUP                                    -----    -----
+SEGMENT                                       DATA_GROUP 
+  +--> CALLED SEGMENT                       START    LENGTH
+-----------------------------------------------------------
+?C_C51STARTUP                               -----    -----
   +--> ?PR?MAIN?MAIN
   +--> ?C_INITSEG
 
-?PR?MAIN?MAIN                                    -----    -----
+?PR?MAIN?MAIN                               -----    -----
   +--> ?CO?MAIN
   +--> ?PR?GPROCESS?GPROCESS
   +--> ?PR?GDELAY?GDELAY
 
-?PR?GPROCESS?GPROCESS                            -----    -----
+?PR?GPROCESS?GPROCESS                       -----    -----
   +--> ?PR?GPROCESS_CONSTRUCTOR?GPROCESS
   +--> ?CO?GPROCESS
   +--> ?PR?_GPROCESS_STRATEGY?GPROCESS
 
-?PR?GPROCESS_CONSTRUCTOR?GPROCESS                0021H    000FH
+?PR?GPROCESS_CONSTRUCTOR?GPROCESS           0021H    000FH
   +--> ?PR?_GPROCESS_FUNCTION?GPROCESS
 
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/31/2018  09:51:51  PAGE 3
-
-
-?PR?_GPROCESS_FUNCTION?GPROCESS                  0030H    0003H
+?PR?_GPROCESS_FUNCTION?GPROCESS             0030H    0003H
   +--> ?PR?_GPROCESS_STRATEGY?GPROCESS
   +--> ?PR?GPROCESS_INIT?GPROCESS
   +--> ?PR?GPROCESS_UPDATE?GPROCESS
 
-?PR?_GPROCESS_STRATEGY?GPROCESS                  0033H    0003H
+?PR?_GPROCESS_STRATEGY?GPROCESS             0033H    0003H
   +--> ?CO?GPROCESS
-  +--> ?PR?GSTRING?GSTRING
-  +--> ?PR?GPROCESSLEDFLASH?GPROCESSLEDFLASH
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/31/2018  10:15:27  PAGE 3
 
-?PR?GSTRING?GSTRING                              -----    -----
+
+  +--> ?PR?GSTRING?GSTRING
+  +--> ?PR?GLEDFLASH?GLEDFLASH
+
+?PR?GSTRING?GSTRING                         -----    -----
   +--> ?PR?GSTRING_CONSTRUCTOR?GSTRING
 
-?PR?GSTRING_CONSTRUCTOR?GSTRING                  0036H    0009H
+?PR?GSTRING_CONSTRUCTOR?GSTRING             0036H    0009H
   +--> ?PR?_GSTRING_FUNCTION?GSTRING
 
-?PR?_GSTRING_FUNCTION?GSTRING                    003FH    0003H
+?PR?_GSTRING_FUNCTION?GSTRING               003FH    0003H
   +--> ?PR?_GSTRING_SIZE?GSTRING
   +--> ?PR?_?GSTRING_IS_EQUAL?GSTRING
   +--> ?PR?_?GSTRING_COPY?GSTRING
 
-?PR?_GSTRING_SIZE?GSTRING                        0042H    0003H
+?PR?_GSTRING_SIZE?GSTRING                   0042H    0003H
 
-?PR?_?GSTRING_IS_EQUAL?GSTRING                   -----    -----
+?PR?_?GSTRING_IS_EQUAL?GSTRING              -----    -----
   +--> ?PR?_GSTRING_SIZE?GSTRING
 
-?PR?GPROCESSLEDFLASH?GPROCESSLEDFLASH            -----    -----
-  +--> ?PR?GPROCESSLEDFLASH_CONSTRUCTOR?GPRO...
-
-?PR?GPROCESSLEDFLASH_CONSTRUCTOR?GPRO...         0036H    0003H
-  +--> ?PR?_GPROCESSLEDFLASH_FUNCTION?GPROCE...
-
-?PR?_GPROCESSLEDFLASH_FUNCTION?GPROCE...         0039H    0003H
-  +--> ?PR?_GPROCESSLEDFLASH_STRATEGY?GPROCE...
-
-?PR?_GPROCESSLEDFLASH_STRATEGY?GPROCE...         003CH    0003H
-  +--> ?PR?GPROCESSLEDFLASH_INIT?GPROCESSLED...
-  +--> ?PR?GPROCESSLEDFLASH_UPDATE?GPROCESSL...
-
-?PR?GPROCESSLEDFLASH_INIT?GPROCESSLED...         -----    -----
-  +--> ?PR?GLEDFLASH?GLEDFLASH
-
-?PR?GLEDFLASH?GLEDFLASH                          -----    -----
+?PR?GLEDFLASH?GLEDFLASH                     -----    -----
   +--> ?PR?GLEDFLASH_CONSTRUCTOR?GLEDFLASH
 
-?PR?GLEDFLASH_CONSTRUCTOR?GLEDFLASH              003FH    0006H
+?PR?GLEDFLASH_CONSTRUCTOR?GLEDFLASH         0036H    0003H
   +--> ?PR?_GLEDFLASH_FUNCTION?GLEDFLASH
 
-?PR?_GLEDFLASH_FUNCTION?GLEDFLASH                0045H    0003H
+?PR?_GLEDFLASH_FUNCTION?GLEDFLASH           0039H    0003H
+  +--> ?PR?_GLEDFLASH_STRATEGY?GLEDFLASH
+
+?PR?_GLEDFLASH_STRATEGY?GLEDFLASH           003CH    0003H
   +--> ?PR?GLEDFLASH_INIT?GLEDFLASH
   +--> ?PR?GLEDFLASH_UPDATE?GLEDFLASH
 
-?PR?GPROCESSLEDFLASH_UPDATE?GPROCESSL...         -----    -----
-  +--> ?PR?GLEDFLASH?GLEDFLASH
-
-?PR?GDELAY?GDELAY                                -----    -----
+?PR?GDELAY?GDELAY                           -----    -----
   +--> ?PR?GDELAY_CONSTRUCTOR?GDELAY
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/31/2018  09:51:51  PAGE 4
 
-
-
-?PR?GDELAY_CONSTRUCTOR?GDELAY                    0021H    0003H
+?PR?GDELAY_CONSTRUCTOR?GDELAY               0021H    0003H
   +--> ?PR?_GDELAY_FUNCTION?GDELAY
 
-?PR?_GDELAY_FUNCTION?GDELAY                      0024H    0003H
+?PR?_GDELAY_FUNCTION?GDELAY                 0024H    0003H
   +--> ?PR?_GDELAY_MS?GDELAY
 
 
@@ -205,6 +179,9 @@ SYMBOL TABLE OF MODULE:  GProject (MAIN)
   C:0486H         PUBLIC        main
   D:0098H         PUBLIC        SCON
   D:0088H         PUBLIC        TCON
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/31/2018  10:15:27  PAGE 4
+
+
   D:00C8H         PUBLIC        T2CON
   D:00D0H         PUBLIC        PSW
   -------         PROC          MAIN
@@ -223,30 +200,27 @@ SYMBOL TABLE OF MODULE:  GProject (MAIN)
   D:0090H         PUBLIC        P1
   D:00B0H         PUBLIC        P3
   D:00A8H         PUBLIC        IE
-  D:0048H         SYMBOL        m_GString
+  D:0045H         SYMBOL        m_GString
   D:00B8H         PUBLIC        IP
   D:0098H         PUBLIC        SCON
   D:0088H         PUBLIC        TCON
   C:0258H         PUBLIC        _?GString_Is_Equal
   C:0310H         PUBLIC        _?GString_Copy
-  C:061AH         PUBLIC        _GString_Size
-  C:063AH         PUBLIC        GString
-  C:0774H         PUBLIC        GString_Constructor
-  D:004AH         SYMBOL        m_GStringO
+  C:05E6H         PUBLIC        _GString_Size
+  C:0606H         PUBLIC        GString
+  C:0719H         PUBLIC        GString_Constructor
+  D:0047H         SYMBOL        m_GStringO
   D:00C8H         PUBLIC        T2CON
   C:052EH         PUBLIC        _GString_Function
   D:00D0H         PUBLIC        PSW
   -------         PROC          GSTRING_CONSTRUCTOR
   -------         DO            
   D:0036H         SYMBOL        lObj
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/31/2018  09:51:51  PAGE 5
-
-
   -------         ENDDO         
-  C:0774H         LINE#         14
-  C:0774H         LINE#         16
-  C:077DH         LINE#         17
-  C:0783H         LINE#         18
+  C:0719H         LINE#         14
+  C:0719H         LINE#         16
+  C:0722H         LINE#         17
+  C:0728H         LINE#         18
   -------         ENDPROC       GSTRING_CONSTRUCTOR
   -------         PROC          _GSTRING_FUNCTION
   D:003FH         SYMBOL        obj
@@ -257,14 +231,17 @@ SYMBOL TABLE OF MODULE:  GProject (MAIN)
   C:0579H         LINE#         24
   -------         ENDPROC       _GSTRING_FUNCTION
   -------         PROC          GSTRING
-  C:063AH         LINE#         26
-  C:063AH         LINE#         27
-  C:0640H         LINE#         28
-  C:0650H         LINE#         29
-  C:0656H         LINE#         30
-  C:0656H         LINE#         31
-  C:065CH         LINE#         32
+  C:0606H         LINE#         26
+  C:0606H         LINE#         27
+  C:060CH         LINE#         28
+  C:061CH         LINE#         29
+  C:0622H         LINE#         30
+  C:0622H         LINE#         31
+  C:0628H         LINE#         32
   -------         ENDPROC       GSTRING
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/31/2018  10:15:27  PAGE 5
+
+
   -------         PROC          L?0021
   -------         ENDPROC       L?0021
   -------         PROC          _GSTRING_SIZE
@@ -272,11 +249,11 @@ SYMBOL TABLE OF MODULE:  GProject (MAIN)
   -------         DO            
   D:0006H         SYMBOL        i
   -------         ENDDO         
-  C:061AH         LINE#         34
-  C:0620H         LINE#         35
-  C:0623H         LINE#         36
-  C:0639H         LINE#         37
-  C:0639H         LINE#         38
+  C:05E6H         LINE#         34
+  C:05ECH         LINE#         35
+  C:05EFH         LINE#         36
+  C:0605H         LINE#         37
+  C:0605H         LINE#         38
   -------         ENDPROC       _GSTRING_SIZE
   -------         PROC          _?GSTRING_IS_EQUAL
   i:0006H         SYMBOL        str1
@@ -299,9 +276,6 @@ SYMBOL TABLE OF MODULE:  GProject (MAIN)
   C:0309H         LINE#         50
   -------         ENDPROC       _?GSTRING_IS_EQUAL
   -------         PROC          _?GSTRING_COPY
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/31/2018  09:51:51  PAGE 6
-
-
   i:0002H         SYMBOL        str1
   i:0005H         SYMBOL        str2
   -------         DO            
@@ -318,94 +292,35 @@ SYMBOL TABLE OF MODULE:  GProject (MAIN)
   -------         ENDPROC       _?GSTRING_COPY
   -------         ENDMOD        GSTRING
 
-  -------         MODULE        GPROCESSLEDFLASH
-  C:0000H         SYMBOL        _ICE_DUMMY_
-  D:0090H         PUBLIC        P1
-  D:005DH         SYMBOL        m_GProcessLedFlash
-  D:00B0H         PUBLIC        P3
-  D:00A8H         PUBLIC        IE
-  D:00B8H         PUBLIC        IP
-  C:07DEH         PUBLIC        GProcessLedFlash_Init
-  C:065DH         PUBLIC        GProcessLedFlash
-  D:0098H         PUBLIC        SCON
-  D:0088H         PUBLIC        TCON
-  C:0784H         PUBLIC        GProcessLedFlash_Constructor
-  D:005FH         SYMBOL        m_GProcessLedFlashO
-  C:072AH         PUBLIC        _GProcessLedFlash_Function
-  D:00C8H         PUBLIC        T2CON
-  C:057AH         PUBLIC        _GProcessLedFlash_Strategy
-  D:00D0H         PUBLIC        PSW
-  C:0794H         PUBLIC        GProcessLedFlash_Update
-  -------         PROC          GPROCESSLEDFLASH_CONSTRUCTOR
-  -------         DO            
-  D:0036H         SYMBOL        lObj
-  -------         ENDDO         
-  C:0784H         LINE#         15
-  C:0784H         LINE#         17
-  C:078DH         LINE#         18
-  C:0793H         LINE#         19
-  -------         ENDPROC       GPROCESSLEDFLASH_CONSTRUCTOR
-  -------         PROC          _GPROCESSLEDFLASH_FUNCTION
-  D:0039H         SYMBOL        obj
-  C:072AH         LINE#         21
-  C:0730H         LINE#         22
-  C:0745H         LINE#         23
-  -------         ENDPROC       _GPROCESSLEDFLASH_FUNCTION
-  -------         PROC          GPROCESSLEDFLASH
-  C:065DH         LINE#         25
-  C:065DH         LINE#         26
-  C:0663H         LINE#         27
-  C:0673H         LINE#         28
-  C:0679H         LINE#         29
-  C:0679H         LINE#         30
-  C:067FH         LINE#         31
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/31/2018  09:51:51  PAGE 7
-
-
-  -------         ENDPROC       GPROCESSLEDFLASH
-  -------         PROC          _GPROCESSLEDFLASH_STRATEGY
-  D:003CH         SYMBOL        obj
-  C:057AH         LINE#         33
-  C:0580H         LINE#         34
-  C:0598H         LINE#         35
-  C:05B0H         LINE#         36
-  -------         ENDPROC       _GPROCESSLEDFLASH_STRATEGY
-  -------         PROC          GPROCESSLEDFLASH_INIT
-  C:07DEH         LINE#         38
-  C:07DEH         LINE#         39
-  -------         ENDPROC       GPROCESSLEDFLASH_INIT
-  -------         PROC          GPROCESSLEDFLASH_UPDATE
-  C:0794H         LINE#         42
-  C:0794H         LINE#         43
-  -------         ENDPROC       GPROCESSLEDFLASH_UPDATE
-  -------         ENDMOD        GPROCESSLEDFLASH
-
   -------         MODULE        GPROCESS
   C:0000H         SYMBOL        _ICE_DUMMY_
   D:0090H         PUBLIC        P1
   D:00B0H         PUBLIC        P3
   D:00A8H         PUBLIC        IE
   D:00B8H         PUBLIC        IP
-  C:07E7H         PUBLIC        GProcess_Init
-  C:05E5H         PUBLIC        GProcess
+  C:0763H         PUBLIC        GProcess_Init
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/31/2018  10:15:27  PAGE 6
+
+
+  C:05B1H         PUBLIC        GProcess
   D:0098H         PUBLIC        SCON
   D:0088H         PUBLIC        TCON
-  C:07A4H         PUBLIC        GProcess_Constructor
+  C:0729H         PUBLIC        GProcess_Constructor
   D:0008H         SYMBOL        m_GProcessO
   C:04DFH         PUBLIC        _GProcess_Function
   C:0428H         PUBLIC        _GProcess_Strategy
   D:00C8H         PUBLIC        T2CON
-  C:07EEH         PUBLIC        GProcess_Update
+  C:076AH         PUBLIC        GProcess_Update
   D:0017H         SYMBOL        m_GProcess
   D:00D0H         PUBLIC        PSW
   -------         PROC          GPROCESS_CONSTRUCTOR
   -------         DO            
   D:0021H         SYMBOL        lObj
   -------         ENDDO         
-  C:07A4H         LINE#         16
-  C:07A4H         LINE#         18
-  C:07ADH         LINE#         19
-  C:07B3H         LINE#         20
+  C:0729H         LINE#         16
+  C:0729H         LINE#         18
+  C:0732H         LINE#         19
+  C:0738H         LINE#         20
   -------         ENDPROC       GPROCESS_CONSTRUCTOR
   -------         PROC          _GPROCESS_FUNCTION
   D:0030H         SYMBOL        obj
@@ -416,17 +331,14 @@ SYMBOL TABLE OF MODULE:  GProject (MAIN)
   C:052DH         LINE#         26
   -------         ENDPROC       _GPROCESS_FUNCTION
   -------         PROC          GPROCESS
-  C:05E5H         LINE#         28
-  C:05E5H         LINE#         29
-  C:05EBH         LINE#         30
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/31/2018  09:51:51  PAGE 8
-
-
-  C:05FBH         LINE#         31
-  C:0604H         LINE#         32
-  C:060AH         LINE#         33
-  C:060AH         LINE#         34
-  C:0610H         LINE#         35
+  C:05B1H         LINE#         28
+  C:05B1H         LINE#         29
+  C:05B7H         LINE#         30
+  C:05C7H         LINE#         31
+  C:05D0H         LINE#         32
+  C:05D6H         LINE#         33
+  C:05D6H         LINE#         34
+  C:05DCH         LINE#         35
   -------         ENDPROC       GPROCESS
   -------         PROC          _GPROCESS_STRATEGY
   D:0033H         SYMBOL        strategy
@@ -436,82 +348,92 @@ SYMBOL TABLE OF MODULE:  GProject (MAIN)
   C:0485H         LINE#         40
   -------         ENDPROC       _GPROCESS_STRATEGY
   -------         PROC          GPROCESS_INIT
-  C:07E7H         LINE#         42
-  C:07E7H         LINE#         43
+  C:0763H         LINE#         42
+  C:0763H         LINE#         43
   -------         ENDPROC       GPROCESS_INIT
   -------         PROC          GPROCESS_UPDATE
-  C:07EEH         LINE#         46
-  C:07EEH         LINE#         47
+  C:076AH         LINE#         46
+  C:076AH         LINE#         47
   -------         ENDPROC       GPROCESS_UPDATE
   -------         ENDMOD        GPROCESS
 
   -------         MODULE        GLEDFLASH
   C:0000H         SYMBOL        _ICE_DUMMY_
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/31/2018  10:15:27  PAGE 7
+
+
   D:0090H         PUBLIC        P1
   D:00B0H         PUBLIC        P3
   B:0090H.0       PUBLIC        LED0
+  C:057AH         PUBLIC        _GLedFlash_Strategy
   D:00A8H         PUBLIC        IE
-  C:06A3H         PUBLIC        GLedFlash_Update
+  C:064CH         PUBLIC        GLedFlash_Update
   D:00B8H         PUBLIC        IP
-  D:0053H         SYMBOL        m_GLedFlash
+  D:0019H         SYMBOL        m_GLedFlash
   D:0098H         PUBLIC        SCON
   D:0088H         PUBLIC        TCON
-  C:07F5H         PUBLIC        GLedFlash_Init
-  C:0680H         PUBLIC        GLedFlash
+  C:0771H         PUBLIC        GLedFlash_Init
+  C:0629H         PUBLIC        GLedFlash
   B:0020H.0       SYMBOL        gLedFlash_State
-  C:07B4H         PUBLIC        GLedFlash_Constructor
-  D:0055H         SYMBOL        gLedFlash_Time
+  C:0739H         PUBLIC        GLedFlash_Constructor
+  D:001BH         SYMBOL        gLedFlash_Time
   D:00C8H         PUBLIC        T2CON
-  D:0057H         SYMBOL        m_GLedFlashO
+  D:001DH         SYMBOL        m_GLedFlashO
   D:00D0H         PUBLIC        PSW
-  C:05B1H         PUBLIC        _GLedFlash_Function
+  C:06CFH         PUBLIC        _GLedFlash_Function
   -------         PROC          GLEDFLASH_CONSTRUCTOR
   -------         DO            
-  D:003FH         SYMBOL        lObj
+  D:0036H         SYMBOL        lObj
   -------         ENDDO         
-  C:07B4H         LINE#         17
-  C:07B4H         LINE#         19
-  C:07BDH         LINE#         20
-  C:07C3H         LINE#         21
+  C:0739H         LINE#         18
+  C:0739H         LINE#         20
+  C:0742H         LINE#         21
+  C:0748H         LINE#         22
   -------         ENDPROC       GLEDFLASH_CONSTRUCTOR
   -------         PROC          _GLEDFLASH_FUNCTION
-  D:0045H         SYMBOL        obj
-  C:05B1H         LINE#         23
-  C:05B7H         LINE#         24
-  C:05CCH         LINE#         25
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/31/2018  09:51:51  PAGE 9
-
-
-  C:05E4H         LINE#         26
+  D:0039H         SYMBOL        obj
+  C:06CFH         LINE#         24
+  C:06D5H         LINE#         25
+  C:06EAH         LINE#         26
   -------         ENDPROC       _GLEDFLASH_FUNCTION
   -------         PROC          GLEDFLASH
-  C:0680H         LINE#         28
-  C:0680H         LINE#         29
-  C:0686H         LINE#         30
-  C:0696H         LINE#         31
-  C:069CH         LINE#         32
-  C:069CH         LINE#         33
-  C:06A2H         LINE#         34
+  C:0629H         LINE#         28
+  C:0629H         LINE#         29
+  C:062FH         LINE#         30
+  C:063FH         LINE#         31
+  C:0645H         LINE#         32
+  C:0645H         LINE#         33
+  C:064BH         LINE#         34
   -------         ENDPROC       GLEDFLASH
+  -------         PROC          _GLEDFLASH_STRATEGY
+  D:003CH         SYMBOL        obj
+  C:057AH         LINE#         36
+  C:0580H         LINE#         37
+  C:0598H         LINE#         38
+  C:05B0H         LINE#         39
+  -------         ENDPROC       _GLEDFLASH_STRATEGY
   -------         PROC          GLEDFLASH_INIT
-  C:07F5H         LINE#         36
-  C:07F5H         LINE#         37
-  C:07F7H         LINE#         38
+  C:0771H         LINE#         41
+  C:0771H         LINE#         42
+  C:0773H         LINE#         43
   -------         ENDPROC       GLEDFLASH_INIT
   -------         PROC          GLEDFLASH_UPDATE
-  C:06A3H         LINE#         40
-  C:06A3H         LINE#         41
-  C:06B4H         LINE#         42
-  C:06B9H         LINE#         43
-  C:06BCH         LINE#         44
-  C:06BEH         LINE#         45
-  C:06C0H         LINE#         46
-  C:06C1H         LINE#         47
-  C:06C1H         LINE#         48
-  C:06C3H         LINE#         49
-  C:06C5H         LINE#         50
-  C:06C5H         LINE#         51
-  C:06C5H         LINE#         52
+  C:064CH         LINE#         45
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/31/2018  10:15:27  PAGE 8
+
+
+  C:064CH         LINE#         46
+  C:065DH         LINE#         47
+  C:0662H         LINE#         48
+  C:0665H         LINE#         49
+  C:0667H         LINE#         50
+  C:0669H         LINE#         51
+  C:066AH         LINE#         52
+  C:066AH         LINE#         53
+  C:066CH         LINE#         54
+  C:066EH         LINE#         55
+  C:066EH         LINE#         56
+  C:066EH         LINE#         57
   -------         ENDPROC       GLEDFLASH_UPDATE
   -------         ENDMOD        GLEDFLASH
 
@@ -519,58 +441,58 @@ SYMBOL TABLE OF MODULE:  GProject (MAIN)
   C:0000H         SYMBOL        _ICE_DUMMY_
   D:0090H         PUBLIC        P1
   D:00B0H         PUBLIC        P3
-  D:0019H         SYMBOL        m_GDelay
+  D:0050H         SYMBOL        m_GDelay
   D:00A8H         PUBLIC        IE
   D:00B8H         PUBLIC        IP
   B:0020H.1       SYMBOL        GDelay_State
-  D:001BH         SYMBOL        GDelay_Time
+  D:0052H         SYMBOL        GDelay_Time
   D:0098H         PUBLIC        SCON
   D:0088H         PUBLIC        TCON
-  C:06C6H         PUBLIC        GDelay
-  C:07C4H         PUBLIC        GDelay_Constructor
-  D:001DH         SYMBOL        m_GDelayO
-  C:0746H         PUBLIC        _GDelay_Function
+  C:066FH         PUBLIC        GDelay
+  C:0749H         PUBLIC        GDelay_Constructor
+  D:0054H         SYMBOL        m_GDelayO
+  C:06EBH         PUBLIC        _GDelay_Function
   D:00C8H         PUBLIC        T2CON
-  C:070AH         PUBLIC        _GDelay_ms
+  C:0692H         PUBLIC        _GDelay_ms
   D:00D0H         PUBLIC        PSW
   -------         PROC          GDELAY_CONSTRUCTOR
   -------         DO            
   D:0021H         SYMBOL        lObj
   -------         ENDDO         
-  C:07C4H         LINE#         18
-  C:07C4H         LINE#         20
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/31/2018  09:51:51  PAGE 10
-
-
-  C:07CDH         LINE#         21
-  C:07D3H         LINE#         22
+  C:0749H         LINE#         18
+  C:0749H         LINE#         20
+  C:0752H         LINE#         21
+  C:0758H         LINE#         22
   -------         ENDPROC       GDELAY_CONSTRUCTOR
   -------         PROC          _GDELAY_FUNCTION
   D:0024H         SYMBOL        obj
-  C:0746H         LINE#         24
-  C:074CH         LINE#         25
-  C:0761H         LINE#         26
+  C:06EBH         LINE#         24
+  C:06F1H         LINE#         25
+  C:0706H         LINE#         26
   -------         ENDPROC       _GDELAY_FUNCTION
   -------         PROC          GDELAY
-  C:06C6H         LINE#         28
-  C:06C6H         LINE#         29
-  C:06CCH         LINE#         30
-  C:06DCH         LINE#         31
-  C:06E2H         LINE#         32
-  C:06E2H         LINE#         33
-  C:06E8H         LINE#         34
+  C:066FH         LINE#         28
+  C:066FH         LINE#         29
+  C:0675H         LINE#         30
+  C:0685H         LINE#         31
+  C:068BH         LINE#         32
+  C:068BH         LINE#         33
+  C:0691H         LINE#         34
   -------         ENDPROC       GDELAY
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/31/2018  10:15:27  PAGE 9
+
+
   -------         PROC          _GDELAY_MS
   D:0006H         SYMBOL        ms
   -------         DO            
   D:0004H         SYMBOL        i
   D:0002H         SYMBOL        j
   -------         ENDDO         
-  C:070AH         LINE#         36
-  C:070AH         LINE#         38
-  C:0714H         LINE#         39
-  C:0722H         LINE#         40
-  C:0729H         LINE#         41
+  C:0692H         LINE#         36
+  C:0692H         LINE#         38
+  C:069CH         LINE#         39
+  C:06AAH         LINE#         40
+  C:06B1H         LINE#         41
   -------         ENDPROC       _GDELAY_MS
   -------         ENDMOD        GDELAY
 
@@ -599,15 +521,12 @@ SYMBOL TABLE OF MODULE:  GProject (MAIN)
   -------         ENDMOD        ?C?PSTOPTR
 
   -------         MODULE        ?C?ICALL
-BL51 BANKED LINKER/LOCATER V6.22                                                      07/31/2018  09:51:51  PAGE 11
-
-
   C:0210H         PUBLIC        ?C?ICALL
   C:0214H         PUBLIC        ?C?ICALL2
   -------         ENDMOD        ?C?ICALL
 
   -------         MODULE        ?C_IBP
-  D:0062H         PUBLIC        ?C_IBP
+  D:0057H         PUBLIC        ?C_IBP
   -------         ENDMOD        ?C_IBP
 
   -------         MODULE        ?C?PLDIDATA
@@ -620,6 +539,9 @@ SYMBOL TABLE OF MODULE:  GProject (MAIN)
 
   -------         MODULE        ?C?PLDXDATA
   C:0228H         PUBLIC        ?C?PLDXDATA
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/31/2018  10:15:27  PAGE 10
+
+
   -------         ENDMOD        ?C?PLDXDATA
 
   -------         MODULE        ?C?PSTXDATA
@@ -638,5 +560,5 @@ SYMBOL TABLE OF MODULE:  GProject (MAIN)
   C:024CH         PUBLIC        ?C?PLDCODE
   -------         ENDMOD        ?C?PLDCODE
 
-Program Size: data=99.2 xdata=0 code=2040
+Program Size: data=88.2 xdata=0 code=1908
 LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

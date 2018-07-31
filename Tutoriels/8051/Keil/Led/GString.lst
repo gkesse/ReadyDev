@@ -1,4 +1,4 @@
-C51 COMPILER V9.53.0.0   GSTRING                                                           07/31/2018 09:51:50 PAGE 1   
+C51 COMPILER V9.53.0.0   GSTRING                                                           07/31/2018 10:15:26 PAGE 1   
 
 
 C51 COMPILER V9.53.0.0, COMPILATION OF MODULE GSTRING
@@ -62,7 +62,7 @@ line level    source
   52          void GString_Copy(char* str1, const char* str2) reentrant {
   53   1          int i = 0;
   54   1          while(str2[i] != 0) {
-C51 COMPILER V9.53.0.0   GSTRING                                                           07/31/2018 09:51:50 PAGE 2   
+C51 COMPILER V9.53.0.0   GSTRING                                                           07/31/2018 10:15:26 PAGE 2   
 
   55   2              str1[i] = str2[i];
   56   2              i += 1;

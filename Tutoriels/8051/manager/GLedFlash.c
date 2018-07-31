@@ -5,6 +5,7 @@
 static bit gLedFlash_State = FALSE;
 static uint gLedFlash_Time = 0;
 //===============================================
+void GLedFlash_Strategy(GProcessO* obj);
 void GLedFlash_Init();
 void GLedFlash_Update();
 //===============================================
@@ -21,8 +22,7 @@ GLedFlashO GLedFlash_Constructor() {
 }
 //===============================================
 void GLedFlash_Function(GLedFlashO* obj) {
-    obj->Init = GLedFlash_Init;
-    obj->Update = GLedFlash_Update;
+    obj->Strategy = GLedFlash_Strategy;
 }
 //===============================================
 GLedFlashO GLedFlash() {
@@ -31,6 +31,11 @@ GLedFlashO GLedFlash() {
         m_GLedFlash = TRUE;
     }
     return m_GLedFlashO;
+}
+//===============================================
+void GLedFlash_Strategy(GProcessO* obj) {
+    obj->Init = GLedFlash_Init;
+    obj->Update = GLedFlash_Update;
 }
 //===============================================
 void GLedFlash_Init() {
