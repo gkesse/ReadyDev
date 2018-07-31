@@ -1,15 +1,17 @@
 //===============================================
-#ifndef _GInclude_
-#define _GInclude_
+#ifndef _GLedFlash_
+#define _GLedFlash_
 //===============================================
-#include <reg52.h>
+#include "GInclude.h"
 //===============================================
-typedef unsigned char uchar;
-typedef unsigned int uint;
-typedef unsigned long ulong;
+typedef struct GLedFlashO GLedFlashO;
 //===============================================
-#define TRUE (1)
-#define FALSE (0)
+struct GLedFlashO {
+    void (*Init)();
+    void (*Update)();
+};
+//===============================================
+GLedFlashO GLedFlash();
 //===============================================
 #endif
 //===============================================

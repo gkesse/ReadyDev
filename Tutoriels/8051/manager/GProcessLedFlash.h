@@ -1,15 +1,16 @@
 //===============================================
-#ifndef _GInclude_
-#define _GInclude_
+#ifndef _GProcessLedFlash_
+#define _GProcessLedFlash_
 //===============================================
-#include <reg52.h>
+#include "GProcess.h"
 //===============================================
-typedef unsigned char uchar;
-typedef unsigned int uint;
-typedef unsigned long ulong;
+typedef struct GProcessLedFlashO GProcessLedFlashO;
 //===============================================
-#define TRUE (1)
-#define FALSE (0)
+struct GProcessLedFlashO {
+    void (*Strategy)(GProcessO* obj);
+};
+//===============================================
+GProcessLedFlashO GProcessLedFlash();
 //===============================================
 #endif
 //===============================================

@@ -1,0 +1,79 @@
+C51 COMPILER V9.53.0.0   GLEDFLASH                                                         07/31/2018 09:51:51 PAGE 1   
+
+
+C51 COMPILER V9.53.0.0, COMPILATION OF MODULE GLEDFLASH
+OBJECT MODULE PLACED IN .\GLedFlash.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE ..\..\manager\GLedFlash.c OPTIMIZE(8,SPEED) BROWSE INCDIR(..\..\manager)
+                    - DEBUG OBJECTEXTEND PRINT(.\GLedFlash.lst) TABS(2) OBJECT(.\GLedFlash.obj)
+
+line level    source
+
+   1          //===============================================
+   2          #include "GLedFlash.h"
+   3          #include "GPortDef.h"
+   4          //===============================================
+   5          static bit gLedFlash_State = FALSE;
+   6          static uint gLedFlash_Time = 0;
+   7          //===============================================
+   8          void GLedFlash_Init();
+   9          void GLedFlash_Update();
+  10          //===============================================
+  11          static GLedFlashO m_GLedFlashO;
+  12          static int m_GLedFlash = FALSE;
+  13          //===============================================
+  14          GLedFlashO GLedFlash_Constructor();
+  15          void GLedFlash_Function(GLedFlashO* obj);
+  16          //===============================================
+  17          GLedFlashO GLedFlash_Constructor() {
+  18   1          GLedFlashO lObj;
+  19   1          GLedFlash_Function(&lObj);
+  20   1          return lObj;
+  21   1      }
+  22          //===============================================
+  23          void GLedFlash_Function(GLedFlashO* obj) {
+  24   1          obj->Init = GLedFlash_Init;
+  25   1          obj->Update = GLedFlash_Update;
+  26   1      }
+  27          //===============================================
+  28          GLedFlashO GLedFlash() {
+  29   1          if(m_GLedFlash == FALSE) {
+  30   2              m_GLedFlashO = GLedFlash_Constructor();
+  31   2              m_GLedFlash = TRUE;
+  32   2          }
+  33   1          return m_GLedFlashO;
+  34   1      }
+  35          //===============================================
+  36          void GLedFlash_Init() {
+  37   1          LED0 = LED_OFF;
+  38   1      }
+  39          //===============================================
+  40          void GLedFlash_Update() {
+  41   1          if(++gLedFlash_Time >= 1000) {
+  42   2              gLedFlash_Time = 0;
+  43   2              if(gLedFlash_State == FALSE) {
+  44   3                  gLedFlash_State = TRUE;
+  45   3                  LED0 = LED_ON;
+  46   3              }
+  47   2              else {
+  48   3                  gLedFlash_State = FALSE;
+  49   3                  LED0 = LED_OFF;
+  50   3              }
+  51   2          }
+  52   1      }
+  53          //===============================================
+
+C51 COMPILER V9.53.0.0   GLEDFLASH                                                         07/31/2018 09:51:51 PAGE 2   
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    141    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     10       9
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      1    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

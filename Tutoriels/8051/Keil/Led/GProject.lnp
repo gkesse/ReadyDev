@@ -1,5 +1,8 @@
 "main.obj",
-"GLed.obj",
-"GDelay.obj" 
+".\GString.obj",
+".\GProcessLedFlash.obj",
+".\GProcess.obj",
+".\GLedFlash.obj",
+".\GDelay.obj" 
 TO "GProject" 
 RAMSIZE(256) 

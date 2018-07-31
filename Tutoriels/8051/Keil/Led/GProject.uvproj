@@ -310,7 +310,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>.\manager</IncludePath>
+              <IncludePath>..\..\manager</IncludePath>
             </VariousControls>
           </C51>
           <Ax51>
@@ -368,14 +368,19 @@
               <FilePath>.\main.c</FilePath>
             </File>
             <File>
-              <FileName>GLed.c</FileName>
+              <FileName>GString.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\manager\GLed.c</FilePath>
+              <FilePath>..\..\manager\GString.c</FilePath>
             </File>
             <File>
-              <FileName>GDelay.c</FileName>
+              <FileName>GProcessLedFlash.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\manager\GDelay.c</FilePath>
+              <FilePath>..\..\manager\GProcessLedFlash.c</FilePath>
+            </File>
+            <File>
+              <FileName>GProcess.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\manager\GProcess.c</FilePath>
             </File>
           </Files>
         </Group>

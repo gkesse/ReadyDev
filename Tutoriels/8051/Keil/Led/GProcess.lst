@@ -1,0 +1,75 @@
+C51 COMPILER V9.53.0.0   GPROCESS                                                          07/31/2018 09:51:51 PAGE 1   
+
+
+C51 COMPILER V9.53.0.0, COMPILATION OF MODULE GPROCESS
+OBJECT MODULE PLACED IN .\GProcess.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE ..\..\manager\GProcess.c OPTIMIZE(8,SPEED) BROWSE INCDIR(..\..\manager) 
+                    -DEBUG OBJECTEXTEND PRINT(.\GProcess.lst) TABS(2) OBJECT(.\GProcess.obj)
+
+line level    source
+
+   1          //===============================================
+   2          #include "GProcess.h"
+   3          #include "GProcessLedFlash.h"
+   4          #include "GString.h"
+   5          //===============================================
+   6          static GProcessO m_GProcessO;
+   7          static int m_GProcess = FALSE;
+   8          //===============================================
+   9          GProcessO GProcess_Constructor();
+  10          void GProcess_Function(GProcessO* obj);
+  11          void GProcess_Strategy(const char* strategy);
+  12          //===============================================
+  13          void GProcess_Init();
+  14          void GProcess_Update();
+  15          //===============================================
+  16          GProcessO GProcess_Constructor() {
+  17   1          GProcessO lObj;
+  18   1          GProcess_Function(&lObj);
+  19   1          return lObj;
+  20   1      }
+  21          //===============================================
+  22          void GProcess_Function(GProcessO* obj) {
+  23   1          obj->Strategy = GProcess_Strategy;
+  24   1          obj->Init = GProcess_Init;
+  25   1          obj->Update = GProcess_Update;
+  26   1      }
+  27          //===============================================
+  28          GProcessO GProcess() {
+  29   1          if(m_GProcess == FALSE) {
+  30   2              m_GProcessO = GProcess_Constructor();
+  31   2              GProcess_Strategy("DEFAULT");
+  32   2              m_GProcess = TRUE;
+  33   2          }
+  34   1          return m_GProcessO;
+  35   1      }
+  36          //===============================================
+  37          void GProcess_Strategy(const char* strategy) {
+  38   1          if(GString().Is_Equal(strategy, "LED_FLASH")) {GProcessLedFlash().Strategy(&m_GProcessO);}
+  39   1          else {GProcessLedFlash().Strategy(&m_GProcessO);}
+  40   1      }
+  41          //===============================================
+  42          void GProcess_Init() {
+  43   1          m_GProcessO.I.Init();
+  44   1      }
+  45          //===============================================
+  46          void GProcess_Update() {
+  47   1          m_GProcessO.I.Update();
+  48   1      }
+  49          //===============================================
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    247    ----
+   CONSTANT SIZE    =     18    ----
+C51 COMPILER V9.53.0.0   GPROCESS                                                          07/31/2018 09:51:51 PAGE 2   
+
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     17      21
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

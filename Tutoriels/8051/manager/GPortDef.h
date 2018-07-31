@@ -2,8 +2,6 @@
 #ifndef _GPortDef_
 #define _GPortDef_
 //===============================================
-#include "GInclude.h"
-//===============================================
 #define LED_PORT P1
 sbit LED0 = LED_PORT^0;
 sbit LED1 = LED_PORT^1;

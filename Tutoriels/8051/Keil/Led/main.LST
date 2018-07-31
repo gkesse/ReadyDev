@@ -1,33 +1,31 @@
-C51 COMPILER V9.53.0.0   MAIN                                                              07/27/2018 20:48:26 PAGE 1   
+C51 COMPILER V9.53.0.0   MAIN                                                              07/31/2018 09:51:50 PAGE 1   
 
 
 C51 COMPILER V9.53.0.0, COMPILATION OF MODULE MAIN
 OBJECT MODULE PLACED IN main.OBJ
-COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE INCDIR(.\manager) DEBUG OBJECTEXTEND TAB
-                    -S(2)
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE INCDIR(..\..\manager) DEBUG OBJECTEXTEND
+                    - TABS(2)
 
 line level    source
 
    1          //===============================================
-   2          #include "GLed.h"
+   2          #include "GProcess.h"
    3          #include "GDelay.h"
-   4          #include "GInclude.h"
-   5          //===============================================
-   6          void main() {
-   7   1        int* test = (int*)malloc(sizeof(int));
-   8   1        *test = 10;
-   9   1        GLed_Init();
-  10   1        while(1) {
-  11   2          GLed_Port_Flash();
-  12   2          GDelay_ms(1);
-  13   2        }   
-  14   1      }
-  15          //===============================================
+   4          //===============================================
+   5          void main() {
+   6   1        GProcess().Strategy("LED_FLASH");
+   7   1        GProcess().Init();
+   8   1        while(1) { 
+   9   2          GProcess().Update();
+  10   2          GDelay().ms(1);
+  11   2        }   
+  12   1      }
+  13          //===============================================
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =     35    ----
-   CONSTANT SIZE    =   ----    ----
+   CODE SIZE        =     89    ----
+   CONSTANT SIZE    =     10    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
    DATA SIZE        =   ----    ----

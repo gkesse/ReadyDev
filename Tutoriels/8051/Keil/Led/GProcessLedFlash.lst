@@ -1,0 +1,71 @@
+C51 COMPILER V9.53.0.0   GPROCESSLEDFLASH                                                  07/31/2018 09:51:51 PAGE 1   
+
+
+C51 COMPILER V9.53.0.0, COMPILATION OF MODULE GPROCESSLEDFLASH
+OBJECT MODULE PLACED IN .\GProcessLedFlash.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE ..\..\manager\GProcessLedFlash.c OPTIMIZE(8,SPEED) BROWSE INCDIR(..\..\m
+                    -anager) DEBUG OBJECTEXTEND PRINT(.\GProcessLedFlash.lst) TABS(2) OBJECT(.\GProcessLedFlash.obj)
+
+line level    source
+
+   1          //===============================================
+   2          #include "GProcessLedFlash.h"
+   3          #include "GLedFlash.h"
+   4          //===============================================
+   5          static GProcessLedFlashO m_GProcessLedFlashO;
+   6          static int m_GProcessLedFlash = FALSE;
+   7          //===============================================
+   8          GProcessLedFlashO GProcessLedFlash_Constructor();
+   9          void GProcessLedFlash_Function(GProcessLedFlashO* obj);
+  10          void GProcessLedFlash_Strategy(GProcessO* obj);
+  11          //===============================================
+  12          void GProcessLedFlash_Init();
+  13          void GProcessLedFlash_Update();
+  14          //===============================================
+  15          GProcessLedFlashO GProcessLedFlash_Constructor() {
+  16   1          GProcessLedFlashO lObj;
+  17   1          GProcessLedFlash_Function(&lObj);
+  18   1          return lObj;
+  19   1      }
+  20          //===============================================
+  21          void GProcessLedFlash_Function(GProcessLedFlashO* obj) {
+  22   1          obj->Strategy = GProcessLedFlash_Strategy;
+  23   1      }
+  24          //===============================================
+  25          GProcessLedFlashO GProcessLedFlash() {
+  26   1          if(m_GProcessLedFlash == FALSE) {
+  27   2              m_GProcessLedFlashO = GProcessLedFlash_Constructor();
+  28   2              m_GProcessLedFlash = TRUE;
+  29   2          }
+  30   1          return m_GProcessLedFlashO;
+  31   1      }
+  32          //===============================================
+  33          void GProcessLedFlash_Strategy(GProcessO* obj) {
+  34   1          obj->Init = GProcessLedFlash_Init;
+  35   1          obj->Update = GProcessLedFlash_Update;
+  36   1      }
+  37          //===============================================
+  38          void GProcessLedFlash_Init() {
+  39   1          GLedFlash().Init();
+  40   1      }
+  41          //===============================================
+  42          void GProcessLedFlash_Update() {
+  43   1          GLedFlash().Update();
+  44   1      }
+  45          //===============================================
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    159    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      5       9
+   IDATA SIZE       =   ----    ----
+C51 COMPILER V9.53.0.0   GPROCESSLEDFLASH                                                  07/31/2018 09:51:51 PAGE 2   
+
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

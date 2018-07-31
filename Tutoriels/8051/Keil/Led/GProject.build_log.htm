@@ -19,21 +19,68 @@ CPU DLL:         S8051.DLL V3.95.0.0
 Dialog DLL:      DP51.DLL V2.62.0.1 
 <h2>Project:</h2>
 C:\Users\sabine\Downloads\Gerard\Programs\ReadyDev\Tutoriels\8051\Keil\Led\GProject.uvproj
-Project File Date:  07/22/2018
+Project File Date:  07/31/2018
 
 <h2>Output:</h2>
 Rebuild target 'Target 1'
 compiling main.c...
-compiling GLed.c...
+compiling GString.c...
+compiling GProcessLedFlash.c...
+compiling GProcess.c...
+compiling GLedFlash.c...
 compiling GDelay.c...
 linking...
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_INIT_MEMPOOL?INIT_MEM
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?C_INITSEG
-Program Size: data=15.1 xdata=8 code=388
+Program Size: data=99.2 xdata=0 code=2040
 creating hex file from "GProject"...
-"GProject" - 0 Error(s), 2 Warning(s).
-</pre>
-</body>
-</html>
+"GProject" - 0 Error(s), 0 Warning(s).
+xdata=0 code=2007
+creating hex file from "GProject"...
+"GProject" - 0 Error(s), 1 Warning(s).
+ - 0 Error(s), 2 Warning(s).
+.\..\manager\GLedFlash.c(16): warning C294: unreachable code
+..\..\manager\GLedFlash.c - 0 Error(s), 3 Warning(s).
+compiling GLedFlash.c...
+..\..\manager\GLedFlash.c(26): warning C312: misplaced endif control
+..\..\manager\GLedFlash.c - 0 Error(s), 1 Warning(s).
+compiling GLedFlash.c...
+..\..\manager\GLedFlash.c - 0 Error(s), 0 Warning(s).
+rror(s), 0 Warning(s).
+C280: 'strategy': unreferenced local variable
+..\..\manager\GProcess.c - 0 Error(s), 1 Warning(s).
+compiling GProcess.c...
+..\..\manager\GProcess.c(38): error C212: indirect call: parameters do not fit within registers
+..\..\manager\GProcess.c - 1 Error(s), 0 Warning(s).
+compiling GProcess.c...
+..\..\manager\GProcess.c(38): error C212: indirect call: parameters do not fit within registers
+..\..\manager\GProcess.c - 1 Error(s), 0 Warning(s).
+compiling GProcess.c...
+..\..\manager\GProcess.c(37): warning C280: 'strategy': unreferenced local variable
+..\..\manager\GProcess.c - 0 Error(s), 1 Warning(s).
+e\Downloads\Gerard\Programs\ReadyDev\Tutoriels\8051\manager\GFlash_H.h(24): error C226: 'GFlashI': duplicate struct/union/enum tag
+\Users\sabine\Downloads\Gerard\Programs\ReadyDev\Tutoriels\8051\manager\GFlash_H.h(31): error C226: 'GFlashO': duplicate struct/union/enum tag
+\Users\sabine\Downloads\Gerard\Programs\ReadyDev\Tutoriels\8051\manager\GFlashLed.h(7): error C132: '_GFlashLed_Strategy': not in formal parameter list
+\Users\sabine\Downloads\Gerard\Programs\ReadyDev\Tutoriels\8051\manager\GFlashLed.h(8): error C132: 'GFlashLed_Init': not in formal parameter list
+\Users\sabine\Downloads\Gerard\Programs\ReadyDev\Tutoriels\8051\manager\GFlashLed.h(9): error C132: 'GFlashLed_Update': not in formal parameter list
+\Users\sabine\Downloads\Gerard\Programs\ReadyDev\Tutoriels\8051\manager\GFlashLed.h(11): error C132: '_GFlashLed_Strategy': not in formal parameter list
+\Users\sabine\Downloads\Gerard\Programs\ReadyDev\Tutoriels\8051\manager\GFlashLed.h(11): error C141: syntax error near '{'
+\Users\sabine\Downloads\Gerard\Programs\ReadyDev\Tutoriels\8051\manager\GFlashLed.h(12): error C136: 'obj': 'void' on variable
+\Users\sabine\Downloads\Gerard\Programs\ReadyDev\Tutoriels\8051\manager\GFlashLed.h(12): error C132: 'obj': not in formal parameter list
+\Users\sabine\Downloads\Gerard\Programs\ReadyDev\Tutoriels\8051\manager\GFlashLed.h(12): error C136: 'I': 'void' on variable
+\Users\sabine\Downloads\Gerard\Programs\ReadyDev\Tutoriels\8051\manager\GFlashLed.h(12): error C132: 'I': not in formal parameter list
+\Users\sabine\Downloads\Gerard\Programs\ReadyDev\Tutoriels\8051\manager\GFlashLed.h(12): error C136: 'Init': 'void' on variable
+\Users\sabine\Downloads\Gerard\Programs\ReadyDev\Tutoriels\8051\manager\GFlashLed.h(12): error C244: 'Init': can't initialize, bad type or class
+\Users\sabine\Downloads\Gerard\Programs\ReadyDev\Tutoriels\8051\manager\GFlashLed.h(12): error C202: 'GFlashLed_Init': undefined identifier
+\Users\sabine\Downloads\Gerard\Programs\ReadyDev\Tutoriels\8051\manager\GFlashLed.h(12): error C136: 'Init': 'void' on variable
+\Users\sabine\Downloads\Gerard\Programs\ReadyDev\Tutoriels\8051\manager\GFlashLed.h(12): error C132: 'Init': not in formal parameter list
+\Users\sabine\Downloads\Gerard\Programs\ReadyDev\Tutoriels\8051\manager\GFlashLed.h(13): error C132: 'obj': not in formal parameter list
+\Users\sabine\Downloads\Gerard\Programs\ReadyDev\Tutoriels\8051\manager\GFlashLed.h(13): error C141: syntax error near '->'
+\Users\sabine\Downloads\Gerard\Programs\ReadyDev\Tutoriels\8051\manager\GFlashLed.h(13): error C132: 'I': not in formal parameter list
+\Users\sabine\Downloads\Gerard\Programs\ReadyDev\Tutoriels\8051\manager\GFlashLed.h(13): error C244: 'Update': can't initialize, bad type or class
+\Users\sabine\Downloads\Gerard\Programs\ReadyDev\Tutoriels\8051\manager\GFlashLed.h(13): error C202: 'GFlashLed_Update': undefined identifier
+\Users\sabine\Downloads\Gerard\Programs\ReadyDev\Tutoriels\8051\manager\GFlashLed.h(13): error C132: 'Update': not in formal parameter list
+\Users\sabine\Downloads\Gerard\Programs\ReadyDev\Tutoriels\8051\manager\GFlashLed.h(14): error C141: syntax error near '}'
+..\..\manager\GFlash.h(45): error C202: 'GFlash_Strategy': undefined identifier
+..\..\manager\GFlash.h(46): error C202: 'GFlash_Init': undefined identifier
+..\..\manager\GFlash.h(47): error C202: 'GFlash_Update': undefined identifier
+..\..\manager\GFlash.h(59): error C212: indirect call: parameters do not fit within registers
+Target not created.
