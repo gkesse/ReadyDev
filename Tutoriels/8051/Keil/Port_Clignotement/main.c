@@ -3,7 +3,7 @@
 #include "GDelay.h"
 //===============================================
 void main() {
-	GProcess().Strategy(0);
+	GProcess().Strategy(1);
 	GProcess().Init();
 	while(1) { 
 		GProcess().Update();

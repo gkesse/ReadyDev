@@ -1,6 +1,7 @@
 //===============================================
 #include "GProcess.h"
 #include "GLedFlash.h"
+#include "GPortFlash.h"
 //===============================================
 static GProcessO m_GProcessO;
 static int m_GProcess = FALSE;
@@ -35,6 +36,7 @@ GProcessO GProcess() {
 //===============================================
 void GProcess_Strategy(int strategy) {
     if(strategy == 0) {GLedFlash().Strategy(&m_GProcessO);}
+    else if(strategy == 1) {GPortFlash().Strategy(&m_GProcessO);}
     else {GLedFlash().Strategy(&m_GProcessO);}
 }
 //===============================================

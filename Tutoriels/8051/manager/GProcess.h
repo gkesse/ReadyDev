@@ -16,7 +16,7 @@ struct GProcessI {
 //===============================================
 struct GProcessO {
     GProcessI I;
-    void (*Strategy)(const char* strategy);
+    void (*Strategy)(int strategy);
     void (*Init)();
     void (*Update)();
 };
