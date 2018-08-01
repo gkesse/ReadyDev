@@ -1,11 +1,11 @@
 //===============================================
-#include "GPortFlash.h"
+#include "GLedFlash.h"
 #include "GDelay.h"
 //===============================================
 void main() {
-	GPortFlash().Init();
+	GLedFlash().Init();
 	while(1) { 
-		GPortFlash().Update();
+		GLedFlash().Update();
 		GDelay().ms(1);
 	}		
 }

@@ -368,9 +368,9 @@
               <FilePath>.\main.c</FilePath>
             </File>
             <File>
-              <FileName>GPortFlash.c</FileName>
+              <FileName>GLedFlash.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\Objet\GPortFlash.c</FilePath>
+              <FilePath>..\..\..\Objet\GLedFlash.c</FilePath>
             </File>
             <File>
               <FileName>GDelay.c</FileName>
