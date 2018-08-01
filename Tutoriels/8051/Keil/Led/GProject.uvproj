@@ -373,14 +373,19 @@
               <FilePath>..\..\manager\GString.c</FilePath>
             </File>
             <File>
-              <FileName>GProcessLedFlash.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\manager\GProcessLedFlash.c</FilePath>
-            </File>
-            <File>
               <FileName>GProcess.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\manager\GProcess.c</FilePath>
+            </File>
+            <File>
+              <FileName>GLedFlash.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\manager\GLedFlash.c</FilePath>
+            </File>
+            <File>
+              <FileName>GDelay.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\manager\GDelay.c</FilePath>
             </File>
           </Files>
         </Group>

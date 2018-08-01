@@ -55,7 +55,10 @@
      <ITEM name="TopLineAddress">00000080</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="695" x="137" flags="00008001" y="228" h="453" pid="0" iid="18">
+   <POPUP w="695" x="137" flags="00000001" y="228" h="453" pid="0" iid="18">
+    <PROPERTIES/>
+   </POPUP>
+   <POPUP w="695" x="37" flags="00000001" y="128" h="453" pid="0" iid="2">
     <PROPERTIES/>
    </POPUP>
   </PWI>

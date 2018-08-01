@@ -1,7 +1,0 @@
-"main.obj",
-".\GString.obj",
-".\GProcess.obj",
-".\GLedFlash.obj",
-".\GDelay.obj" 
-TO "GProject" 
-RAMSIZE(256) 
