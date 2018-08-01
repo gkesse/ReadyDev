@@ -310,7 +310,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\manager</IncludePath>
+              <IncludePath>..\..\..\Objet;..\..\..\Strategie</IncludePath>
             </VariousControls>
           </C51>
           <Ax51>
@@ -368,19 +368,24 @@
               <FilePath>.\main.c</FilePath>
             </File>
             <File>
-              <FileName>GProcess.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\manager\GProcess.c</FilePath>
-            </File>
-            <File>
               <FileName>GLedFlash.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\manager\GLedFlash.c</FilePath>
+              <FilePath>..\..\..\Strategie\GLedFlash.c</FilePath>
+            </File>
+            <File>
+              <FileName>GPortFlash.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\Strategie\GPortFlash.c</FilePath>
+            </File>
+            <File>
+              <FileName>GProcess.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\Strategie\GProcess.c</FilePath>
             </File>
             <File>
               <FileName>GDelay.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\manager\GDelay.c</FilePath>
+              <FilePath>..\..\..\Objet\GDelay.c</FilePath>
             </File>
           </Files>
         </Group>
