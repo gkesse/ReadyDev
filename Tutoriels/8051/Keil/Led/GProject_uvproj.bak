@@ -368,6 +368,11 @@
               <FilePath>.\main.c</FilePath>
             </File>
             <File>
+              <FileName>GString.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\manager\GString.c</FilePath>
+            </File>
+            <File>
               <FileName>GProcess.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\manager\GProcess.c</FilePath>
