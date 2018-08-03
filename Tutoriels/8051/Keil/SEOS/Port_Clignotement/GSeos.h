@@ -1,11 +1,12 @@
 //===============================================
-#ifndef _GLedFlash_
-#define _GLedFlash_
+#ifndef _GSeos_
+#define _GSeos_
 //===============================================
 #include "GInclude.h"
 //===============================================
-void GLedFlash_Init();
-void GLedFlash_Update();
+void GSeos_Init(uchar ms);
+void GSeos_Start();
+void GSeos_Go_To_Sleep();
 //===============================================
 #endif
 //===============================================

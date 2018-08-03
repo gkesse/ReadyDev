@@ -27,7 +27,7 @@
     <TargetOption>
       <CLK51>24000000</CLK51>
       <OPTTT>
-        <gFlags>0</gFlags>
+        <gFlags>1</gFlags>
         <BeepAtEnd>1</BeepAtEnd>
         <RunSim>1</RunSim>
         <RunTarget>0</RunTarget>
@@ -174,8 +174,8 @@
       <Focus>0</Focus>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\..\Simple\GDelay.c</PathWithFileName>
-      <FilenameWithoutPath>GDelay.c</FilenameWithoutPath>
+      <PathWithFileName>..\..\..\SEOS\GLedFlash.c</PathWithFileName>
+      <FilenameWithoutPath>GLedFlash.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -187,8 +187,8 @@
       <Focus>0</Focus>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\..\Simple\GLedFlash.c</PathWithFileName>
-      <FilenameWithoutPath>GLedFlash.c</FilenameWithoutPath>
+      <PathWithFileName>.\GSeos.c</PathWithFileName>
+      <FilenameWithoutPath>GSeos.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
