@@ -8,9 +8,9 @@ typedef struct GTask GTask;
 //===============================================
 struct GTask {
     void (*pTask)();
-    uint delay;
-    uint period;
-    uchar runMe;
+    uint m_delay;
+    uint m_period;
+    uchar m_runMe;
 };
 //===============================================
 void GSch_Init(uchar ms);

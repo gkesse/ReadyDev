@@ -308,9 +308,9 @@
             <InterruptVectorAddress>0</InterruptVectorAddress>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define></Define>
+              <Define>SCH_MAX_TASKS=1</Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\..\Simple</IncludePath>
+              <IncludePath>..\..\..\Simple;..\..\..\TTA</IncludePath>
             </VariousControls>
           </C51>
           <Ax51>
@@ -366,6 +366,16 @@
               <FileName>main.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\main.c</FilePath>
+            </File>
+            <File>
+              <FileName>GPortFlash.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\TTA\GPortFlash.c</FilePath>
+            </File>
+            <File>
+              <FileName>GSch.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\TTA\GSch.c</FilePath>
             </File>
           </Files>
         </Group>
