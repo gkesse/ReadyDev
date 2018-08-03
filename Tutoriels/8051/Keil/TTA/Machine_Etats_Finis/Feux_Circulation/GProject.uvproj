@@ -308,9 +308,9 @@
             <InterruptVectorAddress>0</InterruptVectorAddress>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define></Define>
+              <Define>SCH_MAX_TASKS=2</Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\..\Simple</IncludePath>
+              <IncludePath>..\..\..\..\Simple;..\..\..\..\TTA</IncludePath>
             </VariousControls>
           </C51>
           <Ax51>
@@ -368,14 +368,14 @@
               <FilePath>.\main.c</FilePath>
             </File>
             <File>
-              <FileName>GDelay.c</FileName>
+              <FileName>GSch.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\Simple\GDelay.c</FilePath>
+              <FilePath>..\..\..\..\TTA\GSch.c</FilePath>
             </File>
             <File>
-              <FileName>GLedFlash.c</FileName>
+              <FileName>GTrafficLights.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\Simple\GLedFlash.c</FilePath>
+              <FilePath>..\..\..\..\TTA\GTrafficLights.c</FilePath>
             </File>
           </Files>
         </Group>
