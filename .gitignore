@@ -31,6 +31,8 @@
 
 /**/*qmake.stash
 /**/*pro.user
+/**/Makefile.Debug
+/**/Makefile.Release
 
 #================================================
 # Keil µVision
