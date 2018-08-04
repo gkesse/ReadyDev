@@ -35,11 +35,23 @@ public:
             GMainWindow->setObjectName(QStringLiteral("GMainWindow"));
         GMainWindow->resize(400, 400);
         GMainWindow->setMinimumSize(QSize(400, 400));
+        GMainWindow->setStyleSheet(QLatin1String("* {\n"
+"	background-color: rgb(5, 16, 57);\n"
+"	color: rgb(255, 255, 255);\n"
+"	font: 75 14pt \"Arial Narrow\";\n"
+"}\n"
+"\n"
+"QLabel {\n"
+"	background-color: rgba(255, 255, 255, 0.2);\n"
+"	padding: 10px;\n"
+"	font-weight: 12px;\n"
+"}\n"
+""));
         gridLayout = new QGridLayout(GMainWindow);
         gridLayout->setSpacing(6);
         gridLayout->setContentsMargins(11, 11, 11, 11);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
-        verticalSpacer = new QSpacerItem(20, 176, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        verticalSpacer = new QSpacerItem(20, 161, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
         gridLayout->addItem(verticalSpacer, 0, 0, 1, 1);
 
@@ -49,7 +61,7 @@ public:
 
         gridLayout->addWidget(m_labelMessage, 1, 0, 1, 1);
 
-        verticalSpacer_2 = new QSpacerItem(20, 175, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        verticalSpacer_2 = new QSpacerItem(20, 160, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
         gridLayout->addItem(verticalSpacer_2, 2, 0, 1, 1);
 
@@ -61,7 +73,7 @@ public:
 
     void retranslateUi(QWidget *GMainWindow)
     {
-        GMainWindow->setWindowTitle(QApplication::translate("GMainWindow", "GMainWindow", Q_NULLPTR));
+        GMainWindow->setWindowTitle(QApplication::translate("GMainWindow", "Qt | ReadyDev", Q_NULLPTR));
         m_labelMessage->setText(QApplication::translate("GMainWindow", "Bonjour tout le monde", Q_NULLPTR));
     } // retranslateUi
 
