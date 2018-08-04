@@ -7,8 +7,11 @@
 using namespace std;
 //================================================
 #include <QMap>
+#include <QApplication>
+#include <QObject>
 #include <QWidget>
 #include <QLabel>
+#include <QPushButton>
 //================================================
 #endif
 //================================================

@@ -4,7 +4,9 @@
 //================================================
 #include "GInclude.h"
 //===============================================
-class GProcess {
+class GProcess : public QObject {
+    Q_OBJECT
+
 public:
     GProcess();
     ~GProcess();
