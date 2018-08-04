@@ -113,14 +113,14 @@ $$\left \{\begin{array}{r c l}
 
 <div class="Formula3"><div class="Formula4">
 $$\left \{\begin{array}{r c l}
-\Delta &amp;=&amp; R_1R_2+R_1+R_3+R_2R_3 \\
+\Delta &amp;=&amp; R_1R_2+R_1R_3+R_2R_3 \\
 \Delta I_1 &amp;=&amp; R_2(E_1-E_3)+R_3(E_1-E_2) \\
 \Delta I_2 &amp;=&amp; R_1(E_2-E_3)+R_3(E_2-E_1)
 \end{array}\right.$$
 </div></div></div></div><div class="Formula GFormula1"><div class="Formula2"><div class="Formula3"><div class="Formula4">
 $$\left \{\begin{array}{r c l}
-I_1 &amp;=&amp; \cfrac{R_2(E_1-E_3)+R_3(E_1-E_2)}{R_1R_2+R_1+R_3+R_2R_3} \\\\
-I_2 &amp;=&amp; \cfrac{R_1(E_2-E_3)+R_3(E_2-E_1)}{R_1R_2+R_1+R_3+R_2R_3} \\\\
-I_3 &amp;=&amp; \cfrac{R_1(E_2-E_3)+R_2(E_1-E_3)}{R_1R_2+R_1+R_3+R_2R_3}
+I_1 &amp;=&amp; \cfrac{R_2(E_1-E_3)+R_3(E_1-E_2)}{R_1R_2+R_1R_3+R_2R_3} \\\\
+I_2 &amp;=&amp; \cfrac{R_1(E_2-E_3)+R_3(E_2-E_1)}{R_1R_2+R_1R_3+R_2R_3} \\\\
+I_3 &amp;=&amp; \cfrac{R_1(E_2-E_3)+R_2(E_1-E_3)}{R_1R_2+R_1R_3+R_2R_3}
 \end{array}\right.$$
 </div></div></div></div></div></div></div></div><br>
