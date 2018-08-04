@@ -4541,49 +4541,7 @@ build/GWindowQtForm.o: ../src/manager/GWindowQtForm.cpp ../src/manager/GWindowQt
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qvector2d.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qtouchdevice.h \
 		build/ui_GWindowQtForm.h \
-		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/QVariant \
-		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtWidgets/QAction \
-		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtWidgets/qaction.h \
-		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qicon.h \
-		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtWidgets/qactiongroup.h \
-		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtWidgets/QApplication \
-		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtWidgets/qapplication.h \
-		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qcoreapplication.h \
-		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qeventloop.h \
-		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtWidgets/qdesktopwidget.h \
-		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qguiapplication.h \
-		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qinputmethod.h \
-		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtWidgets/QButtonGroup \
-		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtWidgets/qbuttongroup.h \
-		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtWidgets/QFrame \
-		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtWidgets/qframe.h \
-		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtWidgets/QGridLayout \
-		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtWidgets/qgridlayout.h \
-		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtWidgets/qlayout.h \
-		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtWidgets/qlayoutitem.h \
-		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtWidgets/qboxlayout.h \
-		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtWidgets/QHeaderView \
-		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtWidgets/qheaderview.h \
-		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtWidgets/qabstractitemview.h \
-		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtWidgets/qabstractscrollarea.h \
-		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qabstractitemmodel.h \
-		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qitemselectionmodel.h \
-		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtWidgets/qabstractitemdelegate.h \
-		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtWidgets/qstyleoption.h \
-		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtWidgets/qabstractspinbox.h \
-		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qvalidator.h \
-		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qregularexpression.h \
-		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtWidgets/qslider.h \
-		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtWidgets/qabstractslider.h \
-		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtWidgets/qstyle.h \
-		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtWidgets/qtabbar.h \
-		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtWidgets/qtabwidget.h \
-		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtWidgets/qrubberband.h \
-		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtWidgets/QPushButton \
-		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtWidgets/qpushbutton.h \
-		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtWidgets/qabstractbutton.h \
-		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtWidgets/QSpacerItem \
-		../src/manager/GWindowQtFormGL.h \
+		../src/manager/GDraw.h \
 		../src/manager/GInclude.h \
 		C:/Users/sabine/Downloads/Gerard/glew-2.1.0-win32/glew-2.1.0/include/GL/glew.h \
 		C:/Users/sabine/Downloads/Gerard/glfw-3.2.1/glfw-3.2.1/include/GLFW/glfw3.h \
@@ -4784,11 +4742,7 @@ build/GWindowQtForm.o: ../src/manager/GWindowQtForm.cpp ../src/manager/GWindowQt
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtOpenGL/qtopenglglobal.h \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/QSurfaceFormat \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/qsurfaceformat.h \
-		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/QKeyEvent \
-		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/QTimer \
-		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qtimer.h \
-		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/qbasictimer.h \
-		../src/manager/GDraw.h
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/QKeyEvent
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build\GWindowQtForm.o ..\src\manager\GWindowQtForm.cpp
 
 build/GWindowQtFormGL.o: ../src/manager/GWindowQtFormGL.cpp ../src/manager/GWindowQtFormGL.h \
@@ -23304,7 +23258,7 @@ build/GLightAds.o: ../src/manager/GLightAds.cpp ../src/manager/GLightAds.h \
 		../src/manager/GShader.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build\GLightAds.o ..\src\manager\GLightAds.cpp
 
-build/GDrawQtLightAds.o: ../src/manager/GDrawQtLightAds.cpp ../src/manager/GDrawQtLightAds.h \
+build/GDrawQtLightAds.o: ../src/manager/GDrawQtLightAds.cpp ../src/manager/GDrawQtLightADS.h \
 		../src/manager/GInclude.h \
 		C:/Users/sabine/Downloads/Gerard/glew-2.1.0-win32/glew-2.1.0/include/GL/glew.h \
 		C:/Users/sabine/Downloads/Gerard/glfw-3.2.1/glfw-3.2.1/include/GLFW/glfw3.h \
@@ -23610,8 +23564,8 @@ build/GDrawQtLightAds.o: ../src/manager/GDrawQtLightAds.cpp ../src/manager/GDraw
 		../src/manager/GDraw.h \
 		../src/manager/GObjTorus.h \
 		../src/manager/GShader.h \
-		../src/manager/GCamera.h \
-		../src/manager/GLight.h
+		../src/manager/GConfig.h \
+		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/QMap
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build\GDrawQtLightAds.o ..\src\manager\GDrawQtLightAds.cpp
 
 build/GObjTeapot.o: ../src/manager/GObjTeapot.cpp ../src/manager/GObjTeapot.h \
@@ -28256,12 +28210,9 @@ build/GDrawQtLightDirectional.o: ../src/manager/GDrawQtLightDirectional.cpp ../s
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtGui/QKeyEvent \
 		../src/manager/GDrawQt.h \
 		../src/manager/GDraw.h \
-		../src/manager/GObjPlane.h \
-		../src/manager/GObjPig.h \
-		C:/Qt/Qt5.8.0/5.8/mingw53_32/include/QtCore/QMap \
+		../src/manager/GObjTorus.h \
 		../src/manager/GShader.h \
-		../src/manager/GCamera.h \
-		../src/manager/GLight.h
+		../src/manager/GCamera.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build\GDrawQtLightDirectional.o ..\src\manager\GDrawQtLightDirectional.cpp
 
 build/main.o: ../src/main.cpp ../src/manager/GWindow.h \
