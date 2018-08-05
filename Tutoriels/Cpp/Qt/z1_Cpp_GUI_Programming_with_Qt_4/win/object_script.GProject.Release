@@ -1,0 +1,13 @@
+INPUT(
+./build\GConfig.o
+./build\GProcess.o
+./build\GProcessHelloQt.o
+./build\GProcessHelloQtHtml.o
+./build\GProcessConnection.o
+./build\GProcessLayout.o
+./build\GProcessDialog.o
+./build\GDialogFind.o
+./build\main.o
+./build\moc_GProcess.o
+./build\moc_GDialogFind.o
+);
