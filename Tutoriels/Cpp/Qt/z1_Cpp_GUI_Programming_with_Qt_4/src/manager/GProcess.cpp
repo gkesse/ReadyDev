@@ -4,6 +4,7 @@
 #include "GProcessHelloQtHtml.h"
 #include "GProcessConnection.h"
 #include "GProcessLayout.h"
+#include "GProcessDesigner.h"
 #include "GProcessDialog.h"
 #include "GConfig.h"
 //===============================================
@@ -24,6 +25,7 @@ GProcess* GProcess::Instance() {
     if(lType == "CONNECTION") return GProcessConnection::Instance();
     if(lType == "LAYOUT") return GProcessLayout::Instance();
     if(lType == "DIALOG") return GProcessDialog::Instance();
+    if(lType == "DESIGNER") return GProcessDesigner::Instance();
     return GProcessHelloQt::Instance();
 }
 //===============================================
