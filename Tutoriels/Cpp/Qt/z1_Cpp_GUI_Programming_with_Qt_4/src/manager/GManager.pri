@@ -8,7 +8,9 @@ HEADERS += \
     $$PWD/GProcessHelloQt.h \
     $$PWD/GProcessHelloQtHtml.h \
     $$PWD/GProcessConnection.h \
-    $$PWD/GProcessLayout.h
+    $$PWD/GProcessLayout.h \
+    $$PWD/GProcessDialog.h \
+    $$PWD/GDialogFind.h
 
 SOURCES += \
     $$PWD/GConfig.cpp \
@@ -16,4 +18,6 @@ SOURCES += \
     $$PWD/GProcessHelloQt.cpp \
     $$PWD/GProcessHelloQtHtml.cpp \
     $$PWD/GProcessConnection.cpp \
-    $$PWD/GProcessLayout.cpp
+    $$PWD/GProcessLayout.cpp \
+    $$PWD/GProcessDialog.cpp \
+    $$PWD/GDialogFind.cpp
