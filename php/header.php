@@ -38,6 +38,13 @@
         $lMetaCano = GConfig::Instance()->getData("meta_cano"); 
         $lMetaCano = GGlobal::Instance()->getUrl($lMetaCano); 
     }
+    
+    $lExistMetaImg = GConfig::Instance()->existData("meta_img");
+    $lMetaImg = "https://raw.githubusercontent.com/gkesse/ReadyDev/master/data/img/defaults/readydev-440x440.png";
+    if($lExistMetaImg == true) {
+        $lMetaImg = GConfig::Instance()->getData("meta_img"); 
+    }
+        
     $lCodePrettify = GConfig::Instance()->getData("code_prettify");
     $lAce = GConfig::Instance()->getData("ace");
     $lMathJax = GConfig::Instance()->getData("mathjax");
@@ -71,8 +78,8 @@
         <!-- ============================================ -->
         <!-- OpenGraph -->
         <meta property="og:type" content="website"/>
-        <meta property="og:image" content="https://raw.githubusercontent.com/gkesse/ReadyDev/master/data/img/defaults/readydev-440x440.png"/>
-        <meta property="og:image:secure_url" content="https://raw.githubusercontent.com/gkesse/ReadyDev/master/data/img/defaults/readydev-440x440.png"/>
+        <meta property="og:image" content="<?php echo $lMetaImg; ?>"/>
+        <meta property="og:image:secure_url" content="<?php echo $lMetaImg; ?>"/>
         <meta property="og:image:type" content="image/png"/>
         <meta property="og:image:width" content="440"/>
         <meta property="og:image:height" content="440"/>        
