@@ -7,7 +7,10 @@ INPUT(
 ./build\GProcessLayout.o
 ./build\GProcessDialog.o
 ./build\GDialogFind.o
+./build\GDialogGoToCell.o
+./build\GProcessDesigner.o
 ./build\main.o
 ./build\moc_GProcess.o
 ./build\moc_GDialogFind.o
+./build\moc_GDialogGoToCell.o
 );
