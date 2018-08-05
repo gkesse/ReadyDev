@@ -3,6 +3,7 @@
 #include "GProcessHelloQt.h"
 #include "GProcessHelloQtHtml.h"
 #include "GProcessConnection.h"
+#include "GProcessLayout.h"
 #include "GConfig.h"
 //===============================================
 GProcess* GProcess::m_instance = 0;
@@ -20,6 +21,7 @@ GProcess* GProcess::Instance() {
     if(lType == "HELLO_QT") return GProcessHelloQt::Instance();
     if(lType == "HELLO_QT_HTML") return GProcessHelloQtHtml::Instance();
     if(lType == "CONNECTION") return GProcessConnection::Instance();
+    if(lType == "LAYOUT") return GProcessLayout::Instance();
     return GProcessHelloQt::Instance();
 }
 //===============================================

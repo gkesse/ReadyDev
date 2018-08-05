@@ -12,6 +12,9 @@ using namespace std;
 #include <QWidget>
 #include <QLabel>
 #include <QPushButton>
+#include <QSpinBox>
+#include <QSlider>
+#include <QHBoxLayout>
 //================================================
 #endif
 //================================================

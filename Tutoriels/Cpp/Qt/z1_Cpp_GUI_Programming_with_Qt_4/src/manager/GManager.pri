@@ -7,11 +7,13 @@ HEADERS += \
     $$PWD/GProcess.h \
     $$PWD/GProcessHelloQt.h \
     $$PWD/GProcessHelloQtHtml.h \
-    $$PWD/GProcessConnection.h
+    $$PWD/GProcessConnection.h \
+    $$PWD/GProcessLayout.h
 
 SOURCES += \
     $$PWD/GConfig.cpp \
     $$PWD/GProcess.cpp \
     $$PWD/GProcessHelloQt.cpp \
     $$PWD/GProcessHelloQtHtml.cpp \
-    $$PWD/GProcessConnection.cpp
+    $$PWD/GProcessConnection.cpp \
+    $$PWD/GProcessLayout.cpp
