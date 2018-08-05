@@ -21,7 +21,7 @@ GProcessHelloQtHtml* GProcessHelloQtHtml::Instance() {
 void GProcessHelloQtHtml::run() {
     QString lHtml = "";
     lHtml += "<h1>Bonjour</h1>";
-    lHtml += "<p style='color:red'>Tout le monde</p>";
+    lHtml += "<p style='color:red;font-size:16px;'>Tout le monde</p>";
     QLabel* lLabel = new QLabel(lHtml);
     lLabel->show();
 }
