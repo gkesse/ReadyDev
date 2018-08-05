@@ -10,7 +10,8 @@ HEADERS += \
     $$PWD/GProcessConnection.h \
     $$PWD/GProcessLayout.h \
     $$PWD/GProcessDialog.h \
-    $$PWD/GDialogFind.h
+    $$PWD/GDialogFind.h \
+    $$PWD/GDialogGoToCell.h
 
 SOURCES += \
     $$PWD/GConfig.cpp \
@@ -20,4 +21,8 @@ SOURCES += \
     $$PWD/GProcessConnection.cpp \
     $$PWD/GProcessLayout.cpp \
     $$PWD/GProcessDialog.cpp \
-    $$PWD/GDialogFind.cpp
+    $$PWD/GDialogFind.cpp \
+    $$PWD/GDialogGoToCell.cpp
+
+FORMS += \
+    $$PWD/GDialogGoToCell.ui
