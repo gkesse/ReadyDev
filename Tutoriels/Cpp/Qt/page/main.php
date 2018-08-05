@@ -3,9 +3,28 @@ lLabel->show();</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><d
 lHtml += "<h1>Bonjour</h1>";
 lHtml += "<p style='color:red;font-size:16px;'>Tout le monde</p>";
 QLabel* lLabel = new QLabel(lHtml);
-lLabel->show();</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Label_02.png" alt="img/Label_02.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Gérer les connexions"><a class="Link3" href="#">Gérer les connexions</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">gérer les connexions</span> avec Qt.<br>Produit par <b>Gérard KESSE</b>.<br><br>Une connexion permet de créer une liaison signal/slot entre 2 objets.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1533428653780"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1533428653780");</script></div><br><h2 class="Title7 GTitle2" id="Gérer les connexions-Gérer une connexion"><a class="Link9" href="#Gérer les connexions">Gérer une connexion</a></h2><br><h3 class="Title8 GTitle3">Déclarer l'objet connexion</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">class GProcess : public QObject {
+lLabel->show();</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Label_02.png" alt="img/Label_02.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Gérer les connexions"><a class="Link3" href="#">Gérer les connexions</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">gérer les connexions</span> avec Qt.<br>Produit par <b>Gérard KESSE</b>.<br><br>Une connexion permet de créer une liaison signal/slot entre des objets.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1533428653780"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1533428653780");</script></div><br><h2 class="Title7 GTitle2" id="Gérer les connexions-Gérer une connexion"><a class="Link9" href="#Gérer les connexions">Gérer une connexion</a></h2><br><h3 class="Title8 GTitle3">Déclarer l'objet connexion</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">class GProcess : public QObject {
     Q_OBJECT
     // Suite du code
 };</xmp></pre></div><br><h3 class="Title8 GTitle3">Gérer une connexion</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">QPushButton* lButton = new QPushButton("Quitter");
 connect(lButton, SIGNAL(clicked()), qApp, SLOT(quit()));
-lButton->show();</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Connection.png" alt="img/Connection.png"></div></div></div></div></div><br>
+lButton->show();</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Connection.png" alt="img/Connection.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Gérer les layouts"><a class="Link3" href="#">Gérer les layouts</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">gérer les layouts</span> avec Qt.<br>Produit par <b>Gérard KESSE</b>.<br><br>Un layout permet de mieux disposer des widgets.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1533482003187"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1533482003187");</script></div><br><h2 class="Title7 GTitle2" id="Gérer les layouts-Gérer les layouts"><a class="Link9" href="#Gérer les layouts">Gérer les layouts</a></h2><br><h3 class="Title8 GTitle3">Gérer les layouts</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">QWidget* lWindow = new QWidget;
+lWindow->setWindowTitle("Qt | ReadyDev");
+
+QSpinBox* lSpinBox = new QSpinBox;
+lSpinBox->setRange(0, 130);
+
+QSlider* lSlider = new QSlider(Qt::Horizontal);
+lSlider->setRange(0, 130);
+
+connect(lSpinBox, SIGNAL(valueChanged(int)), lSlider, SLOT(setValue(int)));
+connect(lSlider, SIGNAL(valueChanged(int)), lSpinBox, SLOT(setValue(int)));
+
+lSpinBox->setValue(35);
+
+QHBoxLayout* lLayout = new QHBoxLayout;
+lLayout->addWidget(lSpinBox);
+lLayout->addWidget(lSlider);
+
+lWindow->setLayout(lLayout);
+lWindow->show();</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Layout.png" alt="img/Layout.png"></div><br></div></div></div></div><br>
