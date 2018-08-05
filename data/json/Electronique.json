@@ -8,7 +8,8 @@
             "l'électronique appliquées aux sciences de l'ingénieur.",
             "Produit par Gérard KESSE."
         ],
-        "meta_cano":"/Cours/Electronique/"
+        "meta_cano":"/Cours/Electronique/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/data/img/defaults/chip.png"
     },    
     "links":
     [
