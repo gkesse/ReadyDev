@@ -39,6 +39,7 @@
         $lMetaCano = GGlobal::Instance()->getUrl($lMetaCano); 
     }
     $lCodePrettify = GConfig::Instance()->getData("code_prettify");
+    $lAce = GConfig::Instance()->getData("ace");
     $lMathJax = GConfig::Instance()->getData("mathjax");
     $lHeaderData = GJson::Instance()->getData("data/json/header.json");
     $lSiteName = $lHeaderData["site"]["name"];    
@@ -95,7 +96,10 @@
         <!-- ============================================ -->
         <!-- Script -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!-- ============================================ -->
+        <?php if($lAce) { ?>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.3.3/ace.js"></script>
+        <?php } ?>
         <!-- ============================================ -->
         <?php if($lCodePrettify) { ?>
         <script src="/lib/prettify/loader/run_prettify.js?lang=css&amp;skin=sunburst"></script>

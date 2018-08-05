@@ -6,6 +6,7 @@
         //===============================================
         private function __construct() {
 			$this->m_dataMap["code_prettify"] = true;
+			$this->m_dataMap["ace"] = true;
 			$this->m_dataMap["mathjax"] = true;
 			$this->m_dataMap["lock_page"] = true;
         }

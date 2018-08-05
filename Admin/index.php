@@ -8,6 +8,7 @@
     GConfig::Instance()->setData("menu", "Admin");
     GConfig::Instance()->setData("view", "Admin");
     GConfig::Instance()->setData("code_prettify", false);
+    GConfig::Instance()->setData("ace", false);
     GConfig::Instance()->setData("mathjax", false);
     
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";
