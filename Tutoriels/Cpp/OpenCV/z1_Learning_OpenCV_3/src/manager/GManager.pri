@@ -11,10 +11,12 @@ HEADERS += \
     $$PWD/GConfig.h \
     $$PWD/GInclude.h \
     $$PWD/GProcess.h \
-    $$PWD/GProcessDisplayPicture.h
+    $$PWD/GProcessDisplayPicture.h \
+    $$PWD/GProcessReadVideo.h
 
 SOURCES += \
     $$PWD/GConfig.cpp \
     $$PWD/GProcess.cpp \
-    $$PWD/GProcessDisplayPicture.cpp
+    $$PWD/GProcessDisplayPicture.cpp \
+    $$PWD/GProcessReadVideo.cpp
 
