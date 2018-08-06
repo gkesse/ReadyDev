@@ -1,0 +1,21 @@
+{
+    "sitemap":"no",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+            "OpenCV est une bibliothèque pour la vision par ordinateur.",
+			"Le but de ce tutoriel est de vous apprendre",
+            "la vision par ordinateur d'interfaces en C++ avec OpenCV.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Tutoriels/Cpp/OpenCV/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/data/img/defaults/opencv.jpg"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"C/C++","link":"/Tutoriels/Cpp/#Vision par ordinateur","follow":"no"},
+        {"name":"OpenCV","link":"","follow":"no"}
+    ]
+}
