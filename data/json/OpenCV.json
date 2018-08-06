@@ -15,8 +15,7 @@
     "links":
     [
         {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
-        {"name":"C/C++","link":"/Tutoriels/Cpp/#Interfaces homme-machine","follow":"no"},
-        {"name":"Qt","link":"","follow":"no"}
+        {"name":"C/C++","link":"/Tutoriels/Cpp/#Vision par ordinateur","follow":"no"},
+        {"name":"OpenCV","link":"","follow":"no"}
     ]
 }
-                        
