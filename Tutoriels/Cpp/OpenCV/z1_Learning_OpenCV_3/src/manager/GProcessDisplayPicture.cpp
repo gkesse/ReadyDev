@@ -19,6 +19,11 @@ GProcessDisplayPicture* GProcessDisplayPicture::Instance() {
 }
 //===============================================
 void GProcessDisplayPicture::run() {
-    cout << "OpenCV\n";
+    cv::Mat lImg = cv::imread("res/img/fruits.jpg",-1);
+    if(lImg.empty()) return;
+    cv::namedWindow("OpenCV | ReadyDev", cv::WINDOW_AUTOSIZE);
+    cv::imshow("OpenCV | ReadyDev", lImg);
+    cv::waitKey(0);
+    cv::destroyWindow("OpenCV | ReadyDev");
 }
 //===============================================

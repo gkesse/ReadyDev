@@ -7,5 +7,3 @@ set PATH=C:\Users\sabine\Downloads\Gerard\OpenCV-MinGW-Build-OpenCV-3.4.1\OpenCV
 echo.
 bin\GProject.exe
 echo.
-
-pause
