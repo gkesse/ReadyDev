@@ -3,7 +3,7 @@
 #include "GConfig.h"
 //===============================================
 int main(int argc, char** argv) {
-    GConfig::Instance()->setData("APP_NAME", "CANNY_EDGE");
+    GConfig::Instance()->setData("APP_NAME", "GETTING_PIXEL");
     GProcess::Instance()->run();
     return 0;
 }

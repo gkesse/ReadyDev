@@ -6,6 +6,7 @@
 #include "GProcessSmoothingImage.h"
 #include "GProcessImagePyramid.h"
 #include "GProcessCannyEdge.h"
+#include "GProcessGettingPixel.h"
 #include "GConfig.h"
 //===============================================
 GProcess* GProcess::m_instance = 0;
@@ -26,6 +27,7 @@ GProcess* GProcess::Instance() {
     if(lType == "SMOOTHING_IMAGE") return GProcessSmoothingImage::Instance();
     if(lType == "IMAGE_PYRAMID") return GProcessImagePyramid::Instance();
     if(lType == "CANNY_EDGE") return GProcessCannyEdge::Instance();
+    if(lType == "GETTING_PIXEL") return GProcessGettingPixel::Instance();
     return GProcessDisplayPicture::Instance();
 }
 //===============================================
