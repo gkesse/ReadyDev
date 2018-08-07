@@ -17,7 +17,11 @@ HEADERS += \
     $$PWD/GProcessSmoothingImage.h \
     $$PWD/GProcessImagePyramid.h \
     $$PWD/GProcessCannyEdge.h \
-    $$PWD/GProcessGettingPixel.h
+    $$PWD/GProcessGettingPixel.h \
+    $$PWD/GProcessSettingPixel.h \
+    $$PWD/GDraw.h \
+    $$PWD/GDrawRgb.h \
+    $$PWD/GDrawGray.h
 
 SOURCES += \
     $$PWD/GConfig.cpp \
@@ -28,5 +32,9 @@ SOURCES += \
     $$PWD/GProcessSmoothingImage.cpp \
     $$PWD/GProcessImagePyramid.cpp \
     $$PWD/GProcessCannyEdge.cpp \
-    $$PWD/GProcessGettingPixel.cpp
+    $$PWD/GProcessGettingPixel.cpp \
+    $$PWD/GProcessSettingPixel.cpp \
+    $$PWD/GDraw.cpp \
+    $$PWD/GDrawRgb.cpp \
+    $$PWD/GDrawGray.cpp
 

@@ -1,26 +1,30 @@
 //===============================================
-#include "GProcessGettingPixel.h"
+#include "GProcessSettingPixel.h"
+#include "GDraw.h"
+#include "GConfig.h"
 //===============================================
-GProcessGettingPixel* GProcessGettingPixel::m_instance = 0;
+GProcessSettingPixel* GProcessSettingPixel::m_instance = 0;
 //===============================================
-GProcessGettingPixel::GProcessGettingPixel() {
+GProcessSettingPixel::GProcessSettingPixel() {
 
 }
 //===============================================
-GProcessGettingPixel::~GProcessGettingPixel() {
+GProcessSettingPixel::~GProcessSettingPixel() {
 
 }
 //===============================================
-GProcessGettingPixel* GProcessGettingPixel::Instance() {
+GProcessSettingPixel* GProcessSettingPixel::Instance() {
     if(m_instance == 0) {
-        m_instance = new GProcessGettingPixel;
+        m_instance = new GProcessSettingPixel;
     }
     return m_instance;
 }
 //===============================================
-void GProcessGettingPixel::run() {
+void GProcessSettingPixel::run() {
     cv::namedWindow("Image Originale | ReadyDev", cv::WINDOW_AUTOSIZE);
     cv::namedWindow("Image Niveau Gris | ReadyDev", cv::WINDOW_AUTOSIZE);
+    cv::namedWindow("Modification Pixel Image RGB | ReadyDev", cv::WINDOW_AUTOSIZE);
+    cv::namedWindow("Modification Pixel Image Niveau Gris | ReadyDev", cv::WINDOW_AUTOSIZE);
 
     cv::Mat lImgRgb = cv::imread("res/img/fruits.jpg",-1);
     cv::imshow("Image Originale | ReadyDev", lImgRgb);
@@ -39,22 +43,13 @@ void GProcessGettingPixel::run() {
     cout << "Taille: [" << lWidth << " x " << lHeight << "]\n";
     cout << "Point Central: (" << lCenterX << " ; " << lCenterY << ")\n";
     //===============================================
-    int x = lCenterX;
-    int y = lCenterY;
-
-    cv::Vec3b lPixelRgb = lImgRgb.at<cv::Vec3b>(y, x);
-    uchar lBlue = lPixelRgb[0];
-    uchar lGreen = lPixelRgb[1];
-    uchar lRed = lPixelRgb[2];
-
-    cout << "\n### Lecture Pixel Image RGB\n\n";
-    cout << "Pixel(" << x << " ; " << y << ") = ";
-    cout << "RGB(" << (int)lRed << " ; " << (int)lGreen << " ; " << (int)lBlue << ")\n";
+    GConfig::Instance()->setData("IMAGE_TYPE", "RGB");
+    GDraw::Instance()->cercle(lImgRgb, lCenterX, lCenterY, 100);
+    cv::imshow("Modification Pixel Image RGB | ReadyDev", lImgRgb);
     //===============================================
-    uchar lPixelGray = lImgGray.at<uchar>(y, x);
-
-    cout << "\n### Lecture Pixel Image Niveau Gris\n\n";
-    cout << "Pixel(" << x << " ; " << y << ") = " << (int)lPixelGray << "\n";
+    GConfig::Instance()->setData("IMAGE_TYPE", "GRAY");
+    GDraw::Instance()->cercle(lImgGray, lCenterX, lCenterY, 100);
+    cv::imshow("Modification Pixel Image Niveau Gris | ReadyDev", lImgGray);
     //===============================================
     cv::waitKey(0);
 }
