@@ -16,7 +16,8 @@ HEADERS += \
     $$PWD/GProcessTrackbarSlider.h \
     $$PWD/GProcessSmoothingImage.h \
     $$PWD/GProcessImagePyramid.h \
-    $$PWD/GProcessCannyEdge.h
+    $$PWD/GProcessCannyEdge.h \
+    $$PWD/GProcessGettingPixel.h
 
 SOURCES += \
     $$PWD/GConfig.cpp \
@@ -26,5 +27,6 @@ SOURCES += \
     $$PWD/GProcessTrackbarSlider.cpp \
     $$PWD/GProcessSmoothingImage.cpp \
     $$PWD/GProcessImagePyramid.cpp \
-    $$PWD/GProcessCannyEdge.cpp
+    $$PWD/GProcessCannyEdge.cpp \
+    $$PWD/GProcessGettingPixel.cpp
 

@@ -1,0 +1,12 @@
+INPUT(
+./build\GConfig.o
+./build\GProcess.o
+./build\GProcessDisplayPicture.o
+./build\GProcessReadVideo.o
+./build\GProcessTrackbarSlider.o
+./build\GProcessSmoothingImage.o
+./build\GProcessImagePyramid.o
+./build\GProcessCannyEdge.o
+./build\GProcessGettingPixel.o
+./build\main.o
+);
