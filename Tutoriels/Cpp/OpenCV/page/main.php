@@ -157,7 +157,7 @@ void GProcessGettingPixel::run() {
 
     cout << "\n### Lecture Pixel Image Niveau Gris\n\n";
     cout << "Pixel(" << x << " ; " << y << ") = " << (int)lPixelGray << "\n";
-
+    //===============================================
     cv::waitKey(0);
 }
 //===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Image_Originale.png" alt="img/Image_Originale.png"></div><br><div class="Img3 GImage"><img src="img/Image_Niveau_Gris.png" alt="img/Image_Niveau_Gris.png"></div><br><div class="Img3 GImage"><img src="img/Getting_Pixel.png" alt="img/Getting_Pixel.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Modifier la valeur d'un pixel"><a class="Link3" href="#">Modifier la valeur d'un pixel</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">modifier la valeur d'un pixel</span> avec OpenCV.<br>Produit par <b>Gérard KESSE</b>.<br><br>Un pixel permet de définir la couleur associée à un point de l'image.<br><br><h3 class="Title8 GTitle3">Modifier la valeur d'un pixel</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
