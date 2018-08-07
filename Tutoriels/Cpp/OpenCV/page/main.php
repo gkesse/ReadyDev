@@ -100,4 +100,23 @@ void GProcessImagePyramid::run() {
 
     cv::waitKey(0);
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Image_Originale.png" alt="img/Image_Originale.png"></div><br><div class="Img3 GImage"><img src="img/Image_Pyramid.png" alt="img/Image_Pyramid.png"></div><br><div class="Img3 GImage"><img src="img/Image_Pyramid_02.png" alt="img/Image_Pyramid_02.png"></div></div></div></div></div><br>
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Image_Originale.png" alt="img/Image_Originale.png"></div><br><div class="Img3 GImage"><img src="img/Image_Pyramid.png" alt="img/Image_Pyramid.png"></div><br><div class="Img3 GImage"><img src="img/Image_Pyramid_02.png" alt="img/Image_Pyramid_02.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Détecter les contours avec le filtre de canny"><a class="Link3" href="#">Détecter les contours avec le filtre de canny</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">détecter les contours avec le filtre de canny</span> avec OpenCV.<br>Produit par <b>Gérard KESSE</b>.<br><br>Le filtre de canny permet de détecter des contours dans une image.<br><br><h3 class="Title8 GTitle3">Détecter les contours avec le filtre de canny</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GProcessCannyEdge::run() {
+    cv::namedWindow("Image Originale | ReadyDev", cv::WINDOW_AUTOSIZE);
+    cv::namedWindow("Image Niveau Gris | ReadyDev", cv::WINDOW_AUTOSIZE);
+    cv::namedWindow("Détection Contour | ReadyDev", cv::WINDOW_AUTOSIZE);
+
+    cv::Mat lImgRgb = cv::imread("res/img/fruits.jpg",-1);
+    cv::imshow("Image Originale | ReadyDev", lImgRgb);
+
+    cv::Mat lImgGray;
+    cv::cvtColor(lImgRgb, lImgGray, cv::COLOR_BGR2GRAY);
+    cv::imshow("Image Niveau Gris | ReadyDev", lImgGray);
+
+    cv::Mat lImgCanny;
+    cv::Canny(lImgGray, lImgCanny, 10, 100, 3, true);
+    cv::imshow("Détection Contour | ReadyDev", lImgCanny);
+
+    cv::waitKey(0);
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Image_Originale.png" alt="img/Image_Originale.png"></div><br><div class="Img3 GImage"><img src="img/Image_Niveau_Gris.png" alt="img/Image_Niveau_Gris.png"></div><br><div class="Img3 GImage"><img src="img/Canny_Edge.png" alt="img/Canny_Edge.png"></div></div></div></div></div><br>
