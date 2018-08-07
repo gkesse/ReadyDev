@@ -65,4 +65,20 @@ typedef struct {
     int run;
     int dontset;
 } GTrackbar;
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Trackbar_Slider.png" alt="img/Trackbar_Slider.png"></div><br><div class="Img3 GImage"><img src="img/Trackbar_Slider_02.png" alt="img/Trackbar_Slider_02.png"></div></div></div></div></div><br><br><br><br>
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Trackbar_Slider.png" alt="img/Trackbar_Slider.png"></div><br><div class="Img3 GImage"><img src="img/Trackbar_Slider_02.png" alt="img/Trackbar_Slider_02.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Lisser une image avec le filtre gaussien"><a class="Link3" href="#">Lisser une image avec le filtre gaussien</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">lisser une image avec le filtre gaussien</span> avec OpenCV.<br>Produit par <b>Gérard KESSE</b>.<br><br>Un filtre gaussien permet de flouter une image.<br><br><h3 class="Title8 GTitle3">Lisser une image avec le filtre gaussien</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GProcessSmoothingImage::run() {
+    cv::namedWindow("Image Originale | ReadyDev", cv::WINDOW_AUTOSIZE);
+    cv::namedWindow("Image Lissée | ReadyDev", cv::WINDOW_AUTOSIZE);
+
+    cv::Mat lImage = cv::imread("res/img/fruits.jpg",-1);
+    cv::imshow("Image Originale | ReadyDev", lImage);
+
+    cv::Mat lSmooth;
+    cv::GaussianBlur(lImage, lSmooth, cv::Size(5,5), 3, 3);
+    cv::GaussianBlur(lSmooth, lSmooth, cv::Size(5,5), 3, 3);
+
+    cv::imshow("Image Lissée | ReadyDev", lSmooth);
+
+    cv::waitKey(0);
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Image_Originale.png" alt="img/Image_Originale.png"></div><br><div class="Img3 GImage"><img src="img/Smoothing_Image.png" alt="img/Smoothing_Image.png"></div></div></div></div></div><br>
