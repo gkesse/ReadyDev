@@ -81,4 +81,23 @@ void GProcessSmoothingImage::run() {
 
     cv::waitKey(0);
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Image_Originale.png" alt="img/Image_Originale.png"></div><br><div class="Img3 GImage"><img src="img/Smoothing_Image.png" alt="img/Smoothing_Image.png"></div></div></div></div></div><br>
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Image_Originale.png" alt="img/Image_Originale.png"></div><br><div class="Img3 GImage"><img src="img/Smoothing_Image.png" alt="img/Smoothing_Image.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Créer une pyramide d'images"><a class="Link3" href="#">Créer une pyramide d'images</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">créer une pyramide d'images</span> avec OpenCV.<br>Produit par <b>Gérard KESSE</b>.<br><br>Une pyramide d'image permet de changer les échelles dans lesquelles une scène observée.<br><br><h3 class="Title8 GTitle3">Créer une pyramide d'images</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GProcessImagePyramid::run() {
+    cv::namedWindow("Image Originale | ReadyDev", cv::WINDOW_AUTOSIZE);
+    cv::namedWindow("Pyramide Image 01 | ReadyDev", cv::WINDOW_AUTOSIZE);
+    cv::namedWindow("Pyramide Image 02 | ReadyDev", cv::WINDOW_AUTOSIZE);
+
+    cv::Mat lImage = cv::imread("res/img/fruits.jpg",-1);
+    cv::imshow("Image Originale | ReadyDev", lImage);
+
+    cv::Mat lPyramid;
+    cv::pyrDown(lImage, lPyramid);
+    cv::imshow("Pyramide Image 01 | ReadyDev", lPyramid);
+
+    cv::Mat lPyramid2;
+    cv::pyrDown(lPyramid, lPyramid2);
+    cv::imshow("Pyramide Image 02 | ReadyDev", lPyramid2);
+
+    cv::waitKey(0);
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Image_Originale.png" alt="img/Image_Originale.png"></div><br><div class="Img3 GImage"><img src="img/Image_Pyramid.png" alt="img/Image_Pyramid.png"></div><br><div class="Img3 GImage"><img src="img/Image_Pyramid_02.png" alt="img/Image_Pyramid_02.png"></div></div></div></div></div><br>
