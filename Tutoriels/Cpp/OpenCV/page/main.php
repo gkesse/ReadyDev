@@ -160,4 +160,4 @@ void GProcessGettingPixel::run() {
 
     cv::waitKey(0);
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Getting_Pixel.png" alt="img/Getting_Pixel.png"></div></div></div></div></div><br>
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Image_Originale.png" alt="img/Image_Originale.png"></div><br><div class="Img3 GImage"><img src="img/Image_Niveau_Gris.png" alt="img/Image_Niveau_Gris.png"></div><br><div class="Img3 GImage"><img src="img/Getting_Pixel.png" alt="img/Getting_Pixel.png"></div></div></div></div></div><br>
