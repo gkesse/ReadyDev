@@ -4,6 +4,12 @@
 //===============================================
 #include "GProcess.h"
 //===============================================
+typedef struct {
+    cv::VideoCapture cap;
+    int run;
+    int dontset;
+} GTrackbar;
+//===============================================
 class GProcessTrackbarSlider : public GProcess {
 public:
     GProcessTrackbarSlider();
@@ -16,10 +22,8 @@ public:
 
 private:
     static GProcessTrackbarSlider* m_instance;
-    cv::VideoCapture m_cap;
-    int m_position;
-    int m_run;
-    int m_dontset;
+    GTrackbar m_trackbar;
+     int m_position;
 };
 //===============================================
 #endif
