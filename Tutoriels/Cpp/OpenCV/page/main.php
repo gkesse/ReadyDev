@@ -160,4 +160,78 @@ void GProcessGettingPixel::run() {
 
     cv::waitKey(0);
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Image_Originale.png" alt="img/Image_Originale.png"></div><br><div class="Img3 GImage"><img src="img/Image_Niveau_Gris.png" alt="img/Image_Niveau_Gris.png"></div><br><div class="Img3 GImage"><img src="img/Getting_Pixel.png" alt="img/Getting_Pixel.png"></div></div></div></div></div><br>
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Image_Originale.png" alt="img/Image_Originale.png"></div><br><div class="Img3 GImage"><img src="img/Image_Niveau_Gris.png" alt="img/Image_Niveau_Gris.png"></div><br><div class="Img3 GImage"><img src="img/Getting_Pixel.png" alt="img/Getting_Pixel.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Modifier la valeur d'un pixel"><a class="Link3" href="#">Modifier la valeur d'un pixel</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">modifier la valeur d'un pixel</span> avec OpenCV.<br>Produit par <b>Gérard KESSE</b>.<br><br>Un pixel permet de définir la couleur associée à un point de l'image.<br><br><h3 class="Title8 GTitle3">Modifier la valeur d'un pixel</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GProcessSettingPixel::run() {
+    cv::namedWindow("Image Originale | ReadyDev", cv::WINDOW_AUTOSIZE);
+    cv::namedWindow("Image Niveau Gris | ReadyDev", cv::WINDOW_AUTOSIZE);
+    cv::namedWindow("Modification Pixel Image RGB | ReadyDev", cv::WINDOW_AUTOSIZE);
+    cv::namedWindow("Modification Pixel Image Niveau Gris | ReadyDev", cv::WINDOW_AUTOSIZE);
+
+    cv::Mat lImgRgb = cv::imread("res/img/fruits.jpg",-1);
+    cv::imshow("Image Originale | ReadyDev", lImgRgb);
+
+    cv::Mat lImgGray;
+    cv::cvtColor(lImgRgb, lImgGray, cv::COLOR_BGR2GRAY);
+    cv::imshow("Image Niveau Gris | ReadyDev", lImgGray);
+    //===============================================
+    cv::Size lSize = lImgRgb.size();
+    int lWidth = lSize.width;
+    int lHeight = lSize.height;
+    int lCenterX = lWidth/2;
+    int lCenterY = lHeight/2;
+
+    cout << "\n### Information Image\n\n";
+    cout << "Taille: [" << lWidth << " x " << lHeight << "]\n";
+    cout << "Point Central: (" << lCenterX << " ; " << lCenterY << ")\n";
+    //===============================================
+    GConfig::Instance()->setData("IMAGE_TYPE", "RGB");
+    GDraw::Instance()->cercle(lImgRgb, lCenterX, lCenterY, 100);
+    cv::imshow("Modification Pixel Image RGB | ReadyDev", lImgRgb);
+    //===============================================
+    GConfig::Instance()->setData("IMAGE_TYPE", "GRAY");
+    GDraw::Instance()->cercle(lImgGray, lCenterX, lCenterY, 100);
+    cv::imshow("Modification Pixel Image Niveau Gris | ReadyDev", lImgGray);
+    //===============================================
+    cv::waitKey(0);
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Modification d'un pixel RGB</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//================================================
+void GDrawRgb::cercle(cv::Mat& img, const int& xC, const int& yC, const int& r) {
+    double lAngle = 0.0;
+    while(1) {
+        double lRad = qDegreesToRadians(lAngle);
+        double xR = r*qCos(lRad);
+        double yR = r*qSin(lRad);
+        int x = xC + (int)xR;
+        int y = yC + (int)yR;
+
+        cv::Vec3b lColorRgb;
+        lColorRgb[0] = 255;
+        lColorRgb[1] = 0;
+        lColorRgb[2] = 0;
+
+        img.at<cv::Vec3b>(y, x) = lColorRgb;
+
+        lAngle += 0.1;
+        if(lAngle > 360.0) break;
+    }
+}
+//================================================
+</xmp></pre></div><br><h3 class="Title8 GTitle3">Modification d'un pixel en niveau de gris</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//================================================
+void GDrawGray::cercle(cv::Mat& img, const int& xC, const int& yC, const int& r) {
+    double lAngle = 0.0;
+    while(1) {
+        double lRad = qDegreesToRadians(lAngle);
+        double xR = r*qCos(lRad);
+        double yR = r*qSin(lRad);
+        int x = xC + (int)xR;
+        int y = yC + (int)yR;
+
+        uchar lColorGray = 0;
+
+        img.at<uchar>(y, x) = lColorGray;
+
+        lAngle += 0.1;
+        if(lAngle > 360.0) break;
+    }
+}
+//================================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Setting_Pixel.png" alt="img/Setting_Pixel.png"></div><br><div class="Img3 GImage"><img src="img/Setting_Pixel_02.png" alt="img/Setting_Pixel_02.png"></div></div></div></div></div><br>

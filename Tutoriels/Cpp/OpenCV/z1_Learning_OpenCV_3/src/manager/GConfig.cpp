@@ -4,7 +4,7 @@
 GConfig* GConfig::m_instance = 0;
 //================================================
 GConfig::GConfig() {
-    setData("APP_NAME", "HELLO_QT");
+
 }
 //================================================
 GConfig::~GConfig() {

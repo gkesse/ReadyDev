@@ -8,5 +8,9 @@ INPUT(
 ./build\GProcessImagePyramid.o
 ./build\GProcessCannyEdge.o
 ./build\GProcessGettingPixel.o
+./build\GProcessSettingPixel.o
+./build\GDraw.o
+./build\GDrawRgb.o
+./build\GDrawGray.o
 ./build\main.o
 );
