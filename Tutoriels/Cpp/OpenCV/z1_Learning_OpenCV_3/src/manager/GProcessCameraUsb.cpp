@@ -22,7 +22,7 @@ void GProcessCameraUsb::run() {
     cv::namedWindow("Camera USB | ReadyDev", cv::WINDOW_AUTOSIZE);
     cv::VideoCapture lCap;
     lCap.open(0);
-    if(lCap.isOpened() == false) return;
+    if(!lCap.isOpened()) return;
     cv::Mat lFrame;
 
     while(1) {

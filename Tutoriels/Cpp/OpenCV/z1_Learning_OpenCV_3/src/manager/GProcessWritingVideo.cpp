@@ -1,34 +1,36 @@
 //===============================================
-#include "GProcessCameraUsb.h"
+#include "GProcessWritingVideo.h"
 //===============================================
-GProcessCameraUsb* GProcessCameraUsb::m_instance = 0;
+GProcessWritingVideo* GProcessWritingVideo::m_instance = 0;
 //===============================================
-GProcessCameraUsb::GProcessCameraUsb() {
+GProcessWritingVideo::GProcessWritingVideo() {
 
 }
 //===============================================
-GProcessCameraUsb::~GProcessCameraUsb() {
+GProcessWritingVideo::~GProcessWritingVideo() {
 
 }
 //===============================================
-GProcessCameraUsb* GProcessCameraUsb::Instance() {
+GProcessWritingVideo* GProcessWritingVideo::Instance() {
     if(m_instance == 0) {
-        m_instance = new GProcessCameraUsb;
+        m_instance = new GProcessWritingVideo;
     }
     return m_instance;
 }
 //===============================================
-void GProcessCameraUsb::run() {
-    cv::namedWindow("Camera USB | ReadyDev", cv::WINDOW_AUTOSIZE);
+void GProcessWritingVideo::run() {
+    cv::namedWindow("Writing Vidéo | ReadyDev", cv::WINDOW_AUTOSIZE);
     cv::VideoCapture lCap;
     lCap.open(0);
-    if(lCap.isOpened() == false) return;
+    if(!lCap.isOpened()) return;
     cv::Mat lFrame;
+
+    cout << "\n### Information Video\n\n";
 
     while(1) {
         lCap >> lFrame;
         if(lFrame.empty()) break;
-        cv::imshow("Camera USB | ReadyDev", lFrame);
+        cv::imshow("Writing Vidéo | ReadyDev", lFrame);
         if(cv::waitKey(33) >= 0) break;
     }
 }

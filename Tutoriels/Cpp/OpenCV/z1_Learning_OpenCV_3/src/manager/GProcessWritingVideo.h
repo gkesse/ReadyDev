@@ -1,20 +1,20 @@
 //===============================================
-#ifndef _GProcessCameraUsb_
-#define _GProcessCameraUsb_
+#ifndef _GProcessWritingVideo_
+#define _GProcessWritingVideo_
 //===============================================
 #include "GProcess.h"
 //===============================================
-class GProcessCameraUsb : public GProcess {
+class GProcessWritingVideo : public GProcess {
 public:
-    GProcessCameraUsb();
-    ~GProcessCameraUsb();
+    GProcessWritingVideo();
+    ~GProcessWritingVideo();
 
 public:
-    static GProcessCameraUsb* Instance();
+    static GProcessWritingVideo* Instance();
     void run();
 
 private:
-    static GProcessCameraUsb* m_instance;
+    static GProcessWritingVideo* m_instance;
 };
 //===============================================
 #endif
