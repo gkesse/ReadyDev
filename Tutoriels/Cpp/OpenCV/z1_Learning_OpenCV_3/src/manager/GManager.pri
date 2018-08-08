@@ -22,7 +22,8 @@ HEADERS += \
     $$PWD/GDraw.h \
     $$PWD/GDrawRgb.h \
     $$PWD/GDrawGray.h \
-    $$PWD/GProcessCameraUsb.h
+    $$PWD/GProcessCameraUsb.h \
+    $$PWD/GProcessWritingVideo.h
 
 SOURCES += \
     $$PWD/GConfig.cpp \
@@ -38,5 +39,6 @@ SOURCES += \
     $$PWD/GDraw.cpp \
     $$PWD/GDrawRgb.cpp \
     $$PWD/GDrawGray.cpp \
-    $$PWD/GProcessCameraUsb.cpp
+    $$PWD/GProcessCameraUsb.cpp \
+    $$PWD/GProcessWritingVideo.cpp
 
