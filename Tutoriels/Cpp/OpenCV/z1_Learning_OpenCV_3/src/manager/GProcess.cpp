@@ -2,6 +2,7 @@
 #include "GProcess.h"
 #include "GProcessDisplayPicture.h"
 #include "GProcessReadVideo.h"
+#include "GProcessCameraUsb.h"
 #include "GProcessTrackbarSlider.h"
 #include "GProcessSmoothingImage.h"
 #include "GProcessImagePyramid.h"
@@ -24,6 +25,7 @@ GProcess* GProcess::Instance() {
     QString lAppName = GConfig::Instance()->getData("APP_NAME");
     if(lAppName == "DISPLAY_PICTURE") return GProcessDisplayPicture::Instance();
     if(lAppName == "READ_VIDEO") return GProcessReadVideo::Instance();
+    if(lAppName == "CAMERA_USB") return GProcessCameraUsb::Instance();
     if(lAppName == "TRACKBAR_SLIDER") return GProcessTrackbarSlider::Instance();
     if(lAppName == "SMOOTHING_IMAGE") return GProcessSmoothingImage::Instance();
     if(lAppName == "IMAGE_PYRAMID") return GProcessImagePyramid::Instance();

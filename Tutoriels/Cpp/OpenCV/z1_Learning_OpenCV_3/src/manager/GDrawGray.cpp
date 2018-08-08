@@ -18,7 +18,7 @@ GDrawGray* GDrawGray::Instance() {
     return m_instance;
 }
 //================================================
-void GDrawGray::cercle(cv::Mat& img, const int& xC, const int& yC, const int &r) {
+void GDrawGray::cercle(cv::Mat& img, const int& xC, const int& yC, const int& r) {
     double lAngle = 0.0;
     while(1) {
         double lRad = qDegreesToRadians(lAngle);
