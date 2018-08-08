@@ -234,4 +234,19 @@ void GDrawGray::cercle(cv::Mat& img, const int& xC, const int& yC, const int& r)
         if(lAngle > 360.0) break;
     }
 }
-//================================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Setting_Pixel.png" alt="img/Setting_Pixel.png"></div><br><div class="Img3 GImage"><img src="img/Setting_Pixel_02.png" alt="img/Setting_Pixel_02.png"></div></div></div></div></div><br>
+//================================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Setting_Pixel.png" alt="img/Setting_Pixel.png"></div><br><div class="Img3 GImage"><img src="img/Setting_Pixel_02.png" alt="img/Setting_Pixel_02.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Lire une camera USB"><a class="Link3" href="#">Lire une camera USB</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">lire une camera USB</span> avec OpenCV.<br>Produit par <b>Gérard KESSE</b>.<br><br>Une camera USB permet d'enregistrer des images vidéos à partir d'un port USB.<br><br><h3 class="Title8 GTitle3">Lire une camera USB</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GProcessCameraUsb::run() {
+    cv::namedWindow("Camera USB | ReadyDev", cv::WINDOW_AUTOSIZE);
+    cv::VideoCapture lCap;
+    lCap.open(0);
+    if(lCap.isOpened() == false) return;
+    cv::Mat lFrame;
+
+    while(1) {
+        lCap >> lFrame;
+        if(lFrame.empty()) break;
+        cv::imshow("Camera USB | ReadyDev", lFrame);
+        if(cv::waitKey(33) >= 0) break;
+    }
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Camera_Usb.png" alt="img/Camera_Usb.png"></div></div></div></div></div><br>
