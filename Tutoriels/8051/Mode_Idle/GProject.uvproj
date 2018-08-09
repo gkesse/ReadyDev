@@ -377,6 +377,11 @@
               <FileType>1</FileType>
               <FilePath>.\manager\GLedFlash.c</FilePath>
             </File>
+            <File>
+              <FileName>GModeIdle.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\manager\GModeIdle.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

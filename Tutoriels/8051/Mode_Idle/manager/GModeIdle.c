@@ -1,12 +1,7 @@
 //===============================================
-#include "GLedFlash.h"
 #include "GModeIdle.h"
 //===============================================
-void main() {
-    GLedFlash_Init();
-    while(1) {
-        GLedFlash_Update();
-        GModeIdle_Start();
-    }
+void GModeIdle_Start() {
+    PCON |= 0x01;
 }
 //===============================================
