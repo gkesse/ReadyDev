@@ -382,6 +382,11 @@
               <FileType>1</FileType>
               <FilePath>.\manager\GModeIdle.c</FilePath>
             </File>
+            <File>
+              <FileName>GInterruptEx0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\manager\GInterruptEx0.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

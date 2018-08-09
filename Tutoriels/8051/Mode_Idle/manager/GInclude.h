@@ -11,5 +11,7 @@ typedef unsigned long ulong;
 #define TRUE (1)
 #define FALSE (!TRUE)
 //===============================================
+#define INTERRUPT_EXTERNAL_0 0
+//===============================================
 #endif
 //===============================================
