@@ -1,10 +1,11 @@
 //===============================================
-#ifndef _GInterruptEX0_
-#define _GInterruptEX0_
+#ifndef _GInterruptEx0_
+#define _GInterruptEx0_
 //===============================================
 #include "GInclude.h"
 //===============================================
-void GInterruptEX0_Start();
+void GInterruptEx0_Init();
+void GInterruptEx0_Update();
 //===============================================
 #endif
 //===============================================
