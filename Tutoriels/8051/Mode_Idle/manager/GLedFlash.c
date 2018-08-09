@@ -22,9 +22,7 @@ void GLedFlash_Update() {
             LED_PIN = LED_OFF;
         }
         GDelay_ms(200);
-        if(++gLedFlash_Time >= 5) break;
-        gLedFlash_State = FALSE;
-				LED_PIN = LED_OFF;
+        if(++gLedFlash_Time >= 10) break;
     }
     GDelay_ms(1000);
 }
