@@ -18,26 +18,30 @@ Hex Converter:   OH51.exe V2.7.0.0
 CPU DLL:         S8051.DLL V3.95.0.0
 Dialog DLL:      DP51.DLL V2.62.0.1 
 <h2>Project:</h2>
-C:\Users\sabine\Downloads\Gerard\Programs\ReadyDev\Tutoriels\8051\Mode_Idle\GProject.uvproj
-Project File Date:  08/09/2018
+C:\Users\sabine\Downloads\Gerard\Programs\ReadyDev\Tutoriels\8051\Mode_Power_Down\GProject.uvproj
+Project File Date:  08/10/2018
 
 <h2>Output:</h2>
 Rebuild target 'Target 1'
 compiling main.c...
 compiling GDelay.c...
 compiling GLedFlash.c...
-compiling GModeIdle.c...
 compiling GInterruptEx0.c...
+compiling GModePowerDown.c...
 linking...
 Program Size: data=11.1 xdata=0 code=325
 creating hex file from "GProject"...
 "GProject" - 0 Error(s), 0 Warning(s).
-</pre>
-</body>
-</html>
-=0 code=260
+king...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?GMODEPOWERDOWN_START?GMODEPOWERDOWN
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  GMODEIDLE_START
+    MODULE:  main.obj (MAIN)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  GMODEIDLE_START
+    MODULE:  main.obj (MAIN)
+    ADDRESS: 012CH
+Program Size: data=11.1 xdata=0 code=325
 creating hex file from "GProject"...
-"GProject" - 0 Error(s), 1 Warning(s).
-am Size: data=11.1 xdata=0 code=257
-creating hex file from "GProject"...
-"GProject" - 0 Error(s), 2 Warning(s).
+"GProject" - 0 Error(s), 5 Warning(s).
