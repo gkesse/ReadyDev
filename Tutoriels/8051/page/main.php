@@ -69,7 +69,7 @@ void GInterruptEx0_Init() {
 void GInterruptEx0_Update() interrupt INTERRUPT_EXTERNAL_0 {
     GDelay_ms(200);
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Entrer dans le mode Idle</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Entrer dans le mode Idle</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 void GModeIdle_Start() {
     PCON |= 0x01;
 }
@@ -81,4 +81,52 @@ void GDelay_ms(uint ms) {
         for(lDelay_ms = 0; lDelay_ms < DELAY_MS; lDelay_ms++);
     }
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Simulation électrique</h3><br><span class="GColor1" style="color:lime;">Diode LED éteinte</span><div class="Img3 GImage"><img src="img/Mode_Idle.png" alt="img/Mode_Idle.png"></div><br><span class="GColor1" style="color:lime;">Diode LED allumée</span><div class="Img3 GImage"><img src="img/Mode_Idle_02.png" alt="img/Mode_Idle_02.png"></div><br><span class="GColor1" style="color:lime;">Une interruption permet de quitter le mode Idle</span><div class="Img3 GImage"><img src="img/Mode_Idle_03.png" alt="img/Mode_Idle_03.png"></div><br><span class="GColor1" style="color:lime;">Le bouton Reset permet de quitter le mode Idle</span><div class="Img3 GImage"><img src="img/Mode_Idle_04.png" alt="img/Mode_Idle_04.png"></div></div></div></div></div><br>
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Simulation électrique</h3><br><span class="GColor1" style="color:lime;">Diode LED éteinte</span><div class="Img3 GImage"><img src="img/Mode_Idle.png" alt="img/Mode_Idle.png"></div><br><span class="GColor1" style="color:lime;">Diode LED allumée</span><div class="Img3 GImage"><img src="img/Mode_Idle_02.png" alt="img/Mode_Idle_02.png"></div><br><span class="GColor1" style="color:lime;">Une interruption permet de quitter le mode Idle</span><div class="Img3 GImage"><img src="img/Mode_Idle_03.png" alt="img/Mode_Idle_03.png"></div><br><span class="GColor1" style="color:lime;">Le bouton Reset permet de quitter le mode Idle</span><div class="Img3 GImage"><img src="img/Mode_Idle_04.png" alt="img/Mode_Idle_04.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Gérer le mode Power Down"><a class="Link3" href="#">Gérer le mode Power Down</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">gérer le mode Power Down</span> avec le C 8051.<br>Produit par Gérard KESSE.<br><br>Le mode Idle permet de passer en mode économie d'énergie.<br><br><h3 class="Title8 GTitle3">Programme principal</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void main() {
+    GLedFlash_Init();
+    GInterruptEx0_Init();
+    while(1) {
+        GLedFlash_Update();
+        GModePowerDown_Start();
+    }
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Initialisation de la diode LED</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GLedFlash_Init() {
+    LED_PIN = LED_OFF;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Mise à jour de la diode LED</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GLedFlash_Update() {
+    gLedFlash_Time = 0;
+    while(1) {
+        if(gLedFlash_State == FALSE) {
+            gLedFlash_State = TRUE;
+            LED_PIN = LED_ON;
+        }
+        else {
+            gLedFlash_State = FALSE;
+            LED_PIN = LED_OFF;
+        }
+        GDelay_ms(200);
+        if(++gLedFlash_Time >= 10) break;
+    }
+    GDelay_ms(1000);
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Initialisation de l'interruption externe 0</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GInterruptEx0_Init() {
+    IT0 = 1;
+    EX0 = 1;
+    EA = 1;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Fonction de rappel de l'interruption externe 0</h3><br><br><h3 class="Title8 GTitle3">Entrer dans le mode Power Down</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GInterruptEx0_Update() interrupt INTERRUPT_EXTERNAL_0 {
+    GDelay_ms(200);
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Délai logiciel</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GDelay_ms(uint ms) {
+    uint lDelay;
+    uint lDelay_ms;
+    for(lDelay = 0; lDelay < ms; lDelay++) {
+        for(lDelay_ms = 0; lDelay_ms < DELAY_MS; lDelay_ms++);
+    }
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><span class="GColor1" style="color:lime;">Diode LED éteinte</span><div class="Img3 GImage"><img src="img/Mode_Power_Down.png" alt="img/Mode_Power_Down.png"></div><br><span class="GColor1" style="color:lime;">Diode LED allumée</span><div class="Img3 GImage"><img src="img/Mode_Power_Down_02.png" alt="img/Mode_Power_Down_02.png"></div><br><span class="GColor1" style="color:lime;">Une interruption ne permet pas de quitter le mode Power Down</span><div class="Img3 GImage"><img src="img/Mode_Power_Down_03.png" alt="img/Mode_Power_Down_03.png"></div><br><span class="GColor1" style="color:lime;">Le bouton Reset permet de quitter le mode Power Down</span><div class="Img3 GImage"><img src="img/Mode_Power_Down_04.png" alt="img/Mode_Power_Down_04.png"></div></div></div></div></div><br>
