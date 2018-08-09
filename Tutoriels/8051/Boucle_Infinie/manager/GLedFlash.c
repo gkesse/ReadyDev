@@ -3,7 +3,7 @@
 #include "GPortDef.h"
 #include "GDelay.h"
 //===============================================
-static gLedFlash_State = FALSE;
+static bit gLedFlash_State = FALSE;
 //===============================================
 void GLedFlash_Init() {
     LED_PIN = LED_OFF;
