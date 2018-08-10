@@ -117,7 +117,11 @@ void GInterruptEx0_Init() {
     EX0 = 1;
     EA = 1;
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Fonction de rappel de l'interruption externe 0</h3><br><br><h3 class="Title8 GTitle3">Entrer dans le mode Power Down</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Fonction de rappel de l'interruption externe 0</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GInterruptEx0_Update() interrupt INTERRUPT_EXTERNAL_0 {
+    GDelay_ms(200);
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Entrer dans le mode Power Down</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 void GInterruptEx0_Update() interrupt INTERRUPT_EXTERNAL_0 {
     GDelay_ms(200);
 }
