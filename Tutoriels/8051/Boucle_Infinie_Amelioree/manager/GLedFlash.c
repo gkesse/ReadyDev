@@ -11,7 +11,7 @@ void GLedFlash_Init() {
 }
 //===============================================
 void GLedFlash_Update() {
-    if(++gLedFlash_Time >= 10) {
+    if(++gLedFlash_Time >= 100) {
         gLedFlash_Time = 0;
         if(gLedFlash_State == FALSE) {
             gLedFlash_State = TRUE;
