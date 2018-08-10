@@ -167,4 +167,12 @@ void GDelay_ms(uint ms) {
         for(lDelay_ms = 0; lDelay_ms < DELAY_MS; lDelay_ms++);
     }
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Simulation électrique</h3><br><span class="GColor1" style="color:lime;">Diode LED éteinte pendant 1s</span><div class="Img3 GImage"><img src="img/Boucle_Infinie_Amelioree.png" alt="img/Boucle_Infinie_Amelioree.png"></div><br><span class="GColor1" style="color:lime;">Diode LED allumée pendant 1s</span><div class="Img3 GImage"><img src="img/Boucle_Infinie_Amelioree_02.png" alt="img/Boucle_Infinie_Amelioree_02.png"></div><br><span class="GColor1" style="color:lime;">Oscilloscope</span><div class="Img3 GImage"><img src="img/Boucle_Infinie_Amelioree_03.png" alt="img/Boucle_Infinie_Amelioree_03.png"></div></div></div></div></div><br>
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Simulation électrique</h3><br><span class="GColor1" style="color:lime;">Diode LED éteinte pendant 1s</span><div class="Img3 GImage"><img src="img/Boucle_Infinie_Amelioree.png" alt="img/Boucle_Infinie_Amelioree.png"></div><br><span class="GColor1" style="color:lime;">Diode LED allumée pendant 1s</span><div class="Img3 GImage"><img src="img/Boucle_Infinie_Amelioree_02.png" alt="img/Boucle_Infinie_Amelioree_02.png"></div><br><span class="GColor1" style="color:lime;">Oscilloscope</span><div class="Img3 GImage"><img src="img/Boucle_Infinie_Amelioree_03.png" alt="img/Boucle_Infinie_Amelioree_03.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Lire et écrire sur un port"><a class="Link3" href="#">Lire et écrire sur un port</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">lire et écrire sur un port</span> avec le C 8051.<br>Produit par <b>Gérard KESSE</b>.<br><br><h3 class="Title8 GTitle3">Programme principal</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void main() {
+    GPortReadWrite_Init();
+    while(1) {
+        GPortReadWrite_Update();
+        GDelay_ms(10);
+    }
+}
+//===============================================</xmp></pre></div><br><br><br><br><br><br></div></div></div></div><br><br>
