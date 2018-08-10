@@ -175,4 +175,25 @@ void main() {
         GDelay_ms(10);
     }
 }
-//===============================================</xmp></pre></div><br><br><br><br><br><br></div></div></div></div><br><br>
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Initialisation des ports</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GPortReadWrite_Init() {
+    WRITE_PORT = PORT_OFF;
+    READ_PORT = 0xFF;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Lire et écrire sur un port</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GPortReadWrite_Update() {
+    if(++gPortReadWrite_Time >= 20) {
+        gPortReadWrite_Time = 0;
+        gPortReadWrite_Value = READ_PORT;
+        WRITE_PORT = gPortReadWrite_Value;
+    }
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Délai logiciel</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GDelay_ms(uint ms) {
+    uint lDelay;
+    uint lDelay_ms;
+    for(lDelay = 0; lDelay < ms; lDelay++) {
+        for(lDelay_ms = 0; lDelay_ms < DELAY_MS; lDelay_ms++);
+    }
+}
+//===============================================</xmp></pre></div><br><br><h3 class="Title8 GTitle3">Simulation électrique</h3><div class="Img3 GImage"><img src="img/Port_Lecture_Ecriture.png" alt="img/Port_Lecture_Ecriture.png"></div></div></div></div></div><br><br>
