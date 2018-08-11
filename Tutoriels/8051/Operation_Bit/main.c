@@ -1,12 +1,10 @@
 //===============================================
 #include "GBitOperator.h"
-#include "GDelay.h"
+#include "GRS232.h"
 //===============================================
 void main() {
+    GRS232_Init();
     GBitOperator_Init();
-    while(1) {
-        GBitOperator_Update();
-        GDelay_ms(10);
-    }
+    while(1);
 }
 //===============================================

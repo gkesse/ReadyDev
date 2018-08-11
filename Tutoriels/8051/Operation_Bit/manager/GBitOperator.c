@@ -1,20 +1,21 @@
 //===============================================
 #include "GBitOperator.h"
-#include "GPortDef.h"
-//===============================================
-static uint GBitOperator_Time = 0;
-static bit GBitOperator_Value = 0;
+#include "GRS232.h"
 //===============================================
 void GBitOperator_Init() {
-    WRITE_PIN = LED_OFF;
-    READ_PIN = 1;
-}
-//===============================================
-void GBitOperator_Update() {
-    if(++GBitOperator_Time >= 20) {
-        GBitOperator_Time = 0;
-        GBitOperator_Value = READ_PIN;
-        WRITE_PIN = GBitOperator_Value;
-    }
+    uchar A = 0xFE;
+    uint B = 0x0A0B;
+    
+    GRS232_Write_String("\n### Operations sur les bits\n\n");
+    GRS232_Write_String("A = ");
+    GRS232_Write_Hexa(A, 2);    
+    GRS232_Write_String(" = ");
+    GRS232_Write_Int(A, 0);    
+    GRS232_Write_String("\n");
+    GRS232_Write_String("B = ");
+    GRS232_Write_Hexa(B, 4);    
+    GRS232_Write_String(" = ");
+    GRS232_Write_Int(B, 0);    
+    GRS232_Write_String("\n");
 }
 //===============================================

@@ -368,14 +368,14 @@
               <FilePath>.\main.c</FilePath>
             </File>
             <File>
-              <FileName>GDelay.c</FileName>
+              <FileName>GBitOperator.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\manager\GDelay.c</FilePath>
+              <FilePath>.\manager\GBitOperator.c</FilePath>
             </File>
             <File>
-              <FileName>GPortReadWrite.c</FileName>
+              <FileName>GRS232.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\manager\GPortReadWrite.c</FilePath>
+              <FilePath>.\manager\GRS232.c</FilePath>
             </File>
           </Files>
         </Group>
