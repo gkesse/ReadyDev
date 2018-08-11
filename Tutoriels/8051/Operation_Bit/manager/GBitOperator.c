@@ -10,12 +10,19 @@ void GBitOperator_Init() {
     GRS232_Write_String("A = ");
     GRS232_Write_Hexa(A, 2);    
     GRS232_Write_String(" = ");
+    GRS232_Write_Bin(A);    
+    GRS232_Write_String(" = ");
     GRS232_Write_Int(A, 0);    
     GRS232_Write_String("\n");
     GRS232_Write_String("B = ");
     GRS232_Write_Hexa(B, 4);    
     GRS232_Write_String(" = ");
     GRS232_Write_Int(B, 0);    
+    GRS232_Write_String("\n");
+    
+    GRS232_Write_String("\n### Operateur Complementaire\n\n");
+    GRS232_Write_String("Complementaire(A) = ");
+    GRS232_Write_Hexa(~A, 2);    
     GRS232_Write_String("\n");
 }
 //===============================================
