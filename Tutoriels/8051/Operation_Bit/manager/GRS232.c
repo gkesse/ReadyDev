@@ -96,7 +96,7 @@ void GRS232_Write_Hexa(uint d, uchar MAX) {
     }
 }
 //===============================================
-void GRS232_Write_Bin(uchar d, uchar MAX) {
+void GRS232_Write_Bin(uint d, uchar MAX) {
     uint lData = d;
     uchar lData2;
     uchar lDigits = GRS232_Get_Digits_Bin(d);

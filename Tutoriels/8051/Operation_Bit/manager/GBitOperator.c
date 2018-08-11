@@ -17,6 +17,8 @@ void GBitOperator_Init() {
     GRS232_Write_String("B = ");
     GRS232_Write_Hexa(B, 4);    
     GRS232_Write_String(" = ");
+    GRS232_Write_Bin(B, 16);    
+    GRS232_Write_String(" = ");
     GRS232_Write_Int(B, 0);    
     GRS232_Write_String("\n");
     
