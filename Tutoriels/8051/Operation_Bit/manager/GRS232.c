@@ -9,7 +9,8 @@ const char code HEXA_MAP[] = {
 void GRS232_Write_Char(char c);
 uchar GRS232_Get_Digits_Hexa(uint d);
 uchar GRS232_Get_Digits_Int(uint d);
-uchar GRS232_Get_Pow(uchar d, uchar p);
+uchar GRS232_Get_Digits_Bin(uint d);
+ulong GRS232_Get_Pow(uchar d, uchar p);
 //===============================================
 void GRS232_Write_Char(char c) {
 	char lData = c;
@@ -39,9 +40,19 @@ uchar GRS232_Get_Digits_Int(uint d) {
 	return lDigits;
 }
 //===============================================
-uchar GRS232_Get_Pow(uchar d, uchar p) {
+uchar GRS232_Get_Digits_Bin(uint d) {
+	uchar lDigits = 0;
+    while(1) {
+        d = d / 2;
+        lDigits++;
+        if(d == 0) break;
+    }
+	return lDigits;
+}
+//===============================================
+ulong GRS232_Get_Pow(uchar d, uchar p) {
     uchar i = 0;
-    uchar lData = 1;
+    ulong lData = 1;
     if(p == 0) return 1;
     while(1) {
         lData *= d;
@@ -69,61 +80,55 @@ void GRS232_Write_String(const char* d) {
 void GRS232_Write_Hexa(uint d, uchar MAX) {
     uint lData = d;
     uint lData2;
-    char lDataMap[] = {'0','0','0','0'};
+    uchar lDigits = GRS232_Get_Digits_Hexa(d);
     uchar i;
     
     GRS232_Write_String("0x");
     
-    if(MAX == 0) MAX = GRS232_Get_Digits_Hexa(d);
+    if(MAX == 0 || MAX < lDigits) MAX = lDigits;
     i = MAX;
     while(1) {
-        lData2 = lData % 16;
-        lData = lData / 16;
+        i--;
+        lData2 = lData / GRS232_Get_Pow(16, i);
+        lData = lData % GRS232_Get_Pow(16, i);
+        GRS232_Write_Char(HEXA_MAP[lData2]);
         if(i == 0) break;
-        lDataMap[--i] = HEXA_MAP[lData2];
-    }
-    
-    i = 0;
-    while(1) {
-        if(i == MAX) break;
-        GRS232_Write_Char(lDataMap[i++]);
     }
 }
 //===============================================
-void GRS232_Write_Bin(uchar d) {
-    uchar lData = d;
+void GRS232_Write_Bin(uchar d, uchar MAX) {
+    uint lData = d;
     uchar lData2;
-    uchar i = 7;
-    GRS232_Write_String("b'");
+    uchar lDigits = GRS232_Get_Digits_Bin(d);
+    uchar i;
+    
+    GRS232_Write_String("b");
+    
+    if(MAX == 0 || MAX < lDigits) MAX = lDigits;
+    i = MAX;
     while(1) {
+        i--;
         lData2 = lData / GRS232_Get_Pow(2, i);
         lData = lData % GRS232_Get_Pow(2, i);
         GRS232_Write_Char(HEXA_MAP[lData2]);
         if(i == 0) break;
-        i--;
     }
-    GRS232_Write_String("'");
 }
 //===============================================
 void GRS232_Write_Int(uint d, uchar MAX) {
     uint lData = d;
     uint lData2;
-    char lDataMap[] = {'0','0','0','0','0'};
+    uchar lDigits = GRS232_Get_Digits_Int(d);
     uchar i;
-    
-    if(MAX == 0) MAX = GRS232_Get_Digits_Int(d);
+        
+    if(MAX == 0 || MAX < lDigits) MAX = lDigits;
     i = MAX;
     while(1) {
-        lData2 = lData % 10;
-        lData = lData / 10;
+        i--;
+        lData2 = lData / GRS232_Get_Pow(10, i);
+        lData = lData % GRS232_Get_Pow(10, i);
+        GRS232_Write_Char(HEXA_MAP[lData2]);
         if(i == 0) break;
-        lDataMap[--i] = HEXA_MAP[lData2];
-    }
-    
-    i = 0;
-    while(1) {
-        if(i == MAX) break;
-        GRS232_Write_Char(lDataMap[i++]);
     }
 }
 //===============================================
