@@ -254,6 +254,23 @@ void GRS232_Write_String(const char* d) {
         GRS232_Write_Char(d[i++]);
     }
 }
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Écrire un nombre entier sur le port RS232</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GRS232_Write_Int(uint d, uchar MAX) {
+    uint lData = d;
+    uint lData2;
+    uchar lDigits = GRS232_Get_Digits_Int(d);
+    uchar i;
+        
+    if(MAX == 0 || MAX < lDigits) MAX = lDigits;
+    i = MAX;
+    while(1) {
+        i--;
+        lData2 = lData / GRS232_Get_Pow(10, i);
+        lData = lData % GRS232_Get_Pow(10, i);
+        GRS232_Write_Char(HEXA_MAP[lData2]);
+        if(i == 0) break;
+    }
+}
 //===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Réaliser des opérations logiques bit à bit</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 void GBitOperator_Init() {
     uchar A = 0xFE;
