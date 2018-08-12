@@ -7,6 +7,7 @@ const char code HEXA_MAP[] = {
 };
 //===============================================
 void GRS232_Write_Char(char c);
+uchar GRS232_Get_Length(const char* d);
 uchar GRS232_Get_Digits_Hexa(uint d);
 uchar GRS232_Get_Digits_Int(uint d);
 uchar GRS232_Get_Digits_Bin(uint d);
@@ -18,6 +19,15 @@ void GRS232_Write_Char(char c) {
 	SBUF = lData;		
 	while (TI == 0);		
 	TI = 0;			
+}
+//===============================================
+uchar GRS232_Get_Length(const char* d) {
+    uchar i = 0;
+    while(1) {
+        if(d[i] == 0) break;
+        i++;
+    }
+    return i;
 }
 //===============================================
 uchar GRS232_Get_Digits_Hexa(uint d) {
@@ -75,6 +85,21 @@ void GRS232_Write_String(const char* d) {
     while(d[i] != 0) {
         GRS232_Write_Char(d[i++]);
     }
+}
+//===============================================
+void GRS232_Write_String_Space(const char* d, uchar space, char c) {
+	uchar lLength = GRS232_Get_Length(d);
+    uchar i = 0;
+    char lData;
+    if(space < lLength) space = lLength;
+    while(1) {
+        if(i > space) break;
+        lData = d[i];
+        if(i > lLength) lData = c;
+        GRS232_Write_Char(lData);
+        i++;
+    }
+    GRS232_Write_Char(' ');
 }
 //===============================================
 void GRS232_Write_Hexa(uint d, uchar MAX) {
