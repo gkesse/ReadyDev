@@ -133,4 +133,67 @@ void GDelay_ms(uint ms) {
         for(lDelay_ms = 0; lDelay_ms < DELAY_MS; lDelay_ms++);
     }
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><span class="GColor1" style="color:lime;">Diode LED éteinte</span><div class="Img3 GImage"><img src="img/Mode_Power_Down.png" alt="img/Mode_Power_Down.png"></div><br><span class="GColor1" style="color:lime;">Diode LED allumée</span><div class="Img3 GImage"><img src="img/Mode_Power_Down_02.png" alt="img/Mode_Power_Down_02.png"></div><br><span class="GColor1" style="color:lime;">Une interruption ne permet pas de quitter le mode Power Down</span><div class="Img3 GImage"><img src="img/Mode_Power_Down_03.png" alt="img/Mode_Power_Down_03.png"></div><br><span class="GColor1" style="color:lime;">Le bouton Reset permet de quitter le mode Power Down</span><div class="Img3 GImage"><img src="img/Mode_Power_Down_04.png" alt="img/Mode_Power_Down_04.png"></div></div></div></div></div><br>
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Simulation électrique</h3><br><span class="GColor1" style="color:lime;">Diode LED éteinte</span><div class="Img3 GImage"><img src="img/Mode_Power_Down.png" alt="img/Mode_Power_Down.png"></div><br><span class="GColor1" style="color:lime;">Diode LED allumée</span><div class="Img3 GImage"><img src="img/Mode_Power_Down_02.png" alt="img/Mode_Power_Down_02.png"></div><br><span class="GColor1" style="color:lime;">Une interruption ne permet pas de quitter le mode Power Down</span><div class="Img3 GImage"><img src="img/Mode_Power_Down_03.png" alt="img/Mode_Power_Down_03.png"></div><br><span class="GColor1" style="color:lime;">Seul le bouton Reset permet de quitter le mode Power Down</span><div class="Img3 GImage"><img src="img/Mode_Power_Down_04.png" alt="img/Mode_Power_Down_04.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Structure logicielle boucle infinie améliorée"><a class="Link3" href="#">Structure logicielle boucle infinie améliorée</a></h1><div class="Body3">Le but de cette section est de vous apprendre la <span class="GColor1" style="color:lime;">structure logicielle boucle infinie améliorée</span> avec le C 8051.<br>Produit par <b>Gérard KESSE</b>.<br><br>La structure logicielle boucle infinie améliorée permet des applications embarquées multitâches.<br><br><h3 class="Title8 GTitle3">Structure logicielle boucle infinie améliorée</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void main() {
+    GLedFlash_Init();
+    while(1) {
+        GLedFlash_Update();
+        GDelay_ms(10);
+    }
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Initialisation de la diode LED</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GLedFlash_Init() {
+    LED_PIN = LED_OFF;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Mise à jour de la diode LED</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GLedFlash_Update() {
+    if(++gLedFlash_Time >= 100) {
+        gLedFlash_Time = 0;
+        if(gLedFlash_State == FALSE) {
+            gLedFlash_State = TRUE;
+            LED_PIN = LED_ON;
+        }
+        else {
+            gLedFlash_State = FALSE;
+            LED_PIN = LED_OFF;
+        }
+    }
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Délai logiciel</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GDelay_ms(uint ms) {
+    uint lDelay;
+    uint lDelay_ms;
+    for(lDelay = 0; lDelay < ms; lDelay++) {
+        for(lDelay_ms = 0; lDelay_ms < DELAY_MS; lDelay_ms++);
+    }
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Simulation électrique</h3><br><span class="GColor1" style="color:lime;">Diode LED éteinte pendant 1s</span><div class="Img3 GImage"><img src="img/Boucle_Infinie_Amelioree.png" alt="img/Boucle_Infinie_Amelioree.png"></div><br><span class="GColor1" style="color:lime;">Diode LED allumée pendant 1s</span><div class="Img3 GImage"><img src="img/Boucle_Infinie_Amelioree_02.png" alt="img/Boucle_Infinie_Amelioree_02.png"></div><br><span class="GColor1" style="color:lime;">Oscilloscope</span><div class="Img3 GImage"><img src="img/Boucle_Infinie_Amelioree_03.png" alt="img/Boucle_Infinie_Amelioree_03.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Lire et écrire sur un port"><a class="Link3" href="#">Lire et écrire sur un port</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">lire et écrire sur un port</span> avec le C 8051.<br>Produit par <b>Gérard KESSE</b>.<br><br><h3 class="Title8 GTitle3">Programme principal</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void main() {
+    GPortReadWrite_Init();
+    while(1) {
+        GPortReadWrite_Update();
+        GDelay_ms(10);
+    }
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Initialisation des ports</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GPortReadWrite_Init() {
+    WRITE_PORT = PORT_OFF;
+    READ_PORT = 0xFF;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Lire et écrire sur un port</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GPortReadWrite_Update() {
+    if(++gPortReadWrite_Time >= 20) {
+        gPortReadWrite_Time = 0;
+        gPortReadWrite_Value = READ_PORT;
+        WRITE_PORT = gPortReadWrite_Value;
+    }
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Délai logiciel</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GDelay_ms(uint ms) {
+    uint lDelay;
+    uint lDelay_ms;
+    for(lDelay = 0; lDelay < ms; lDelay++) {
+        for(lDelay_ms = 0; lDelay_ms < DELAY_MS; lDelay_ms++);
+    }
+}
+//===============================================</xmp></pre></div><br><br><h3 class="Title8 GTitle3">Simulation électrique</h3><div class="Img3 GImage"><img src="img/Port_Lecture_Ecriture.png" alt="img/Port_Lecture_Ecriture.png"></div></div></div></div></div><br><br>
