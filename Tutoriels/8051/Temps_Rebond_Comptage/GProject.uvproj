@@ -372,6 +372,11 @@
               <FileType>1</FileType>
               <FilePath>.\manager\GDelay.c</FilePath>
             </File>
+            <File>
+              <FileName>GDebounce.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\manager\GDebounce.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

@@ -2,8 +2,8 @@
 #include "GPinReadWrite.h"
 #include "GPortDef.h"
 //===============================================
-static uint GPinReadWrite_Time = 0;
-static bit GPinReadWrite_Value = 0;
+static uint gPinReadWrite_Time = 0;
+static bit gPinReadWrite_Value = 0;
 //===============================================
 void GPinReadWrite_Init() {
     WRITE_PIN = LED_OFF;
@@ -11,10 +11,10 @@ void GPinReadWrite_Init() {
 }
 //===============================================
 void GPinReadWrite_Update() {
-    if(++GPinReadWrite_Time >= 20) {
-        GPinReadWrite_Time = 0;
-        GPinReadWrite_Value = READ_PIN;
-        WRITE_PIN = GPinReadWrite_Value;
+    if(++gPinReadWrite_Time >= 20) {
+        gPinReadWrite_Time = 0;
+        gPinReadWrite_Value = READ_PIN;
+        WRITE_PIN = gPinReadWrite_Value;
     }
 }
 //===============================================

@@ -155,6 +155,5 @@ void GBitOperator_Init() {
     GRS232_Write_String(" = ");
     GRS232_Write_Hexa(lData, 2);    
     GRS232_Write_String("\n");
-    
 }
 //===============================================

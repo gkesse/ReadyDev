@@ -885,7 +885,7 @@ var GEditor = (function() {
                     '\n': '<br>|html',
                     '&lt;': '<|txt',
                     '&gt;': '>|txt',
-                    '&amp;': '&|tex',
+                    '&amp;': '&|tex;txt',
                     '<br>': '\n|txt'
                 };
                 for(key in lEntityMap) {

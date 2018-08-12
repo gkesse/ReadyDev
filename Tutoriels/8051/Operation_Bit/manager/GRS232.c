@@ -13,65 +13,6 @@ uchar GRS232_Get_Digits_Int(uint d);
 uchar GRS232_Get_Digits_Bin(uint d);
 ulong GRS232_Get_Pow(uchar d, uchar p);
 //===============================================
-void GRS232_Write_Char(char c) {
-	char lData = c;
-	if(c == '\n') lData = 0x0D;
-	SBUF = lData;		
-	while (TI == 0);		
-	TI = 0;			
-}
-//===============================================
-uchar GRS232_Get_Length(const char* d) {
-    uchar i = 0;
-    while(1) {
-        if(d[i] == 0) break;
-        i++;
-    }
-    return i;
-}
-//===============================================
-uchar GRS232_Get_Digits_Hexa(uint d) {
-	uchar lDigits = 0;
-    while(1) {
-        d = d / 16;
-        lDigits++;
-        if(d == 0) break;
-    }
-	return lDigits;
-}
-//===============================================
-uchar GRS232_Get_Digits_Int(uint d) {
-	uchar lDigits = 0;
-    while(1) {
-        d = d / 10;
-        lDigits++;
-        if(d == 0) break;
-    }
-	return lDigits;
-}
-//===============================================
-uchar GRS232_Get_Digits_Bin(uint d) {
-	uchar lDigits = 0;
-    while(1) {
-        d = d / 2;
-        lDigits++;
-        if(d == 0) break;
-    }
-	return lDigits;
-}
-//===============================================
-ulong GRS232_Get_Pow(uchar d, uchar p) {
-    uchar i = 0;
-    ulong lData = 1;
-    if(p == 0) return 1;
-    while(1) {
-        lData *= d;
-        i++;
-        if(i == p) break;
-    }
-    return lData;
-}
-//===============================================
 void GRS232_Init() {
     TMOD = 0x20;
     SCON = 0x50;
@@ -81,7 +22,7 @@ void GRS232_Init() {
 }
 //===============================================
 void GRS232_Write_String(const char* d) {
-	uchar i = 0;
+    uchar i = 0;
     while(d[i] != 0) {
         GRS232_Write_Char(d[i++]);
     }
@@ -155,5 +96,64 @@ void GRS232_Write_Int(uint d, uchar MAX) {
         GRS232_Write_Char(HEXA_MAP[lData2]);
         if(i == 0) break;
     }
+}
+//===============================================
+void GRS232_Write_Char(char c) {
+	char lData = c;
+	if(c == '\n') lData = 0x0D;
+	SBUF = lData;		
+	while (TI == 0);		
+	TI = 0;			
+}
+//===============================================
+uchar GRS232_Get_Length(const char* d) {
+    uchar i = 0;
+    while(1) {
+        if(d[i] == 0) break;
+        i++;
+    }
+    return i;
+}
+//===============================================
+uchar GRS232_Get_Digits_Hexa(uint d) {
+	uchar lDigits = 0;
+    while(1) {
+        d = d / 16;
+        lDigits++;
+        if(d == 0) break;
+    }
+	return lDigits;
+}
+//===============================================
+uchar GRS232_Get_Digits_Int(uint d) {
+	uchar lDigits = 0;
+    while(1) {
+        d = d / 10;
+        lDigits++;
+        if(d == 0) break;
+    }
+	return lDigits;
+}
+//===============================================
+uchar GRS232_Get_Digits_Bin(uint d) {
+	uchar lDigits = 0;
+    while(1) {
+        d = d / 2;
+        lDigits++;
+        if(d == 0) break;
+    }
+	return lDigits;
+}
+//===============================================
+ulong GRS232_Get_Pow(uchar d, uchar p) {
+    uchar i = 0;
+    ulong lData = 1;
+    if(p == 0) return 1;
+    while(1) {
+        lData *= d;
+        i++;
+        if(i == p) break;
+    }
+    return lData;
 }
 //===============================================
