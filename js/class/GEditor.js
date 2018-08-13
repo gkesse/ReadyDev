@@ -434,6 +434,7 @@ var GEditor = (function() {
                             lClassName.includes("GCode2") ||
                             lClassName.includes("GLink1") ||
                             lClassName.includes("GParallax1") ||
+                            lClassName.includes("GColor1") ||
                             lClassName.includes("GStyle1") ||
                             lClassName.includes("GFormula1") ||
                             lClassName.includes("GShift0")
@@ -467,6 +468,7 @@ var GEditor = (function() {
                             lClassName.includes("GCode2") ||
                             lClassName.includes("GLink1") ||
                             lClassName.includes("GParallax1") ||
+                            lClassName.includes("GColor1") ||
                             lClassName.includes("GStyle1") ||
                             lClassName.includes("GFormula1") ||
                             lClassName.includes("GShift0")

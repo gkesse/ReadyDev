@@ -9,6 +9,17 @@ static uint gDebounce_Count = 0;
 bit GDebounce_Read_Input(uchar debounce);
 void GDebounce_Write_Output(uint count);
 //===============================================
+void GDebounce_Init() {
+    SWITCH_PIN = 1;
+    COUNTER_PORT = COUNTER_OFF;
+}
+//===============================================
+void GDebounce_Update() {
+    gDebounce_State = GDebounce_Read_Input(30);
+    if(gDebounce_State == SWITCH_PRESSED) gDebounce_Count++;
+    GDebounce_Write_Output(gDebounce_Count);
+}
+//===============================================
 bit GDebounce_Read_Input(uchar debounce) {
     bit lState = SWITCH_RELEASED;
     if(SWITCH_PIN == 0) {
@@ -23,16 +34,5 @@ bit GDebounce_Read_Input(uchar debounce) {
 //===============================================
 void GDebounce_Write_Output(uint count) {
     COUNTER_PORT = ~count;
-}
-//===============================================
-void GDebounce_Init() {
-    SWITCH_PIN = 1;
-    COUNTER_PORT = COUNTER_OFF;
-}
-//===============================================
-void GDebounce_Update() {
-    gDebounce_State = GDebounce_Read_Input(30);
-    if(gDebounce_State == SWITCH_PRESSED) gDebounce_Count++;
-    GDebounce_Write_Output(gDebounce_Count);
 }
 //===============================================

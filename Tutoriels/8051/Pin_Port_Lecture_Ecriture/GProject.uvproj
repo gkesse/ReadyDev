@@ -368,11 +368,6 @@
               <FilePath>.\main.c</FilePath>
             </File>
             <File>
-              <FileName>GDelay.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\manager\GDelay.c</FilePath>
-            </File>
-            <File>
               <FileName>GPinReadWrite.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\manager\GPinReadWrite.c</FilePath>
