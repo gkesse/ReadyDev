@@ -426,4 +426,76 @@ void GBitOperator_Init() {
     GRS232_Write_Hexa(lData, 2);    
     GRS232_Write_String("\n");
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Simulation électrique</h3><br><span class="GColor1" style="color:lime;">Connexion du microcontrôleur au port RS232</span><div class="Img3 GImage"><img src="img/Operation_Bit.png" alt="img/Operation_Bit.png"></div><br><span class="GColor1" style="color:lime;">Affichage des données sur le Terminal</span><div class="Img3 GImage"><img src="img/Operation_Bit_02.png" alt="img/Operation_Bit_02.png"></div></div></div></div></div><br>
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Simulation électrique</h3><br><span class="GColor1" style="color:lime;">Connexion du microcontrôleur au port RS232</span><div class="Img3 GImage"><img src="img/Operation_Bit.png" alt="img/Operation_Bit.png"></div><br><span class="GColor1" style="color:lime;">Affichage des données sur le Terminal</span><div class="Img3 GImage"><img src="img/Operation_Bit_02.png" alt="img/Operation_Bit_02.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Lire et écrire sur une broche via un port"><a class="Link3" href="#">Lire et écrire sur une broche via un port</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">lire et écrire sur une broche via un port</span> avec le C 8051.<br>Produit par <b>Gérard KESSE</b>.<br><br><h3 class="Title8 GTitle3">Programme principal</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void main() {
+    GPinReadWrite_Init();
+    while(1) {
+        GPinReadWrite_Update();
+    }
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Initialisation des broches</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GPinReadWrite_Init() {
+    GPinReadWrite_Write_Bit(7, 1);
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Mise à jour des broches</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GPinReadWrite_Update() {
+    gPinReadWrite_Value = GPinReadWrite_Read_Bit(0);
+    GPinReadWrite_Write_Bit(7, gPinReadWrite_Value);
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Écrire sur une broche via un port</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GPinReadWrite_Write_Bit(uchar pin, bit d) {
+    uchar lWrite = 0x01;
+    lWrite <<= pin;
+    if(d == 1) {
+        RW_PORT |= lWrite;
+    }
+    else {
+        RW_PORT &= (~lWrite);
+    }
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Lire une broche via un port</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+bit GPinReadWrite_Read_Bit(uchar pin) {
+    uchar lRead = 0x01;
+    lRead <<= pin;
+    GPinReadWrite_Write_Bit(pin, 1);
+    if(lRead & RW_PORT) return 1;
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Simulation électrique</h3><br><span class="GColor1" style="color:lime;">Diode LED éteinte</span><div class="Img3 GImage"><img src="img/Pin_Port_Lecture_Ecriture.png" alt="img/Pin_Port_Lecture_Ecriture.png"></div><br><span class="GColor1" style="color:lime;">Diode LED allumée</span><div class="Img3 GImage"><img src="img/Pin_Port_Lecture_Ecriture_02.png" alt="img/Pin_Port_Lecture_Ecriture_02.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Gérer les temps de rebonds"><a class="Link3" href="#">Gérer les temps de rebonds</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">gérer les temps de rebond</span> avec le C 8051.<br>Produit par <b>Gérard KESSE</b>.<br><br>Les interrupteurs mécaniques, en pratique, rebondissent à plusieurs reprises, pendant une courte période, de l'ordre de 30 ms après la fermeture ou l’ouverture du commutateur.<br><br><h3 class="Title8 GTitle3">Programme principal</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void main() {
+    GDebounce_Init();
+    while(1) {
+        GDebounce_Update();
+    }
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Initialisation des broches</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GDebounce_Init() {
+    SWITCH_PIN = 1;
+    OUTPUT_PORT = OUTPUT_RELEASED;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Mise à jour des broches</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GDebounce_Update() {
+    gDebounce_State = GDebounce_Read_Input(30);
+    GDebounce_Write_Output(gDebounce_State);
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Gérer les temps de rebonds</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+bit GDebounce_Read_Input(uchar debounce) {
+    bit lState = SWITCH_RELEASED;
+    if(SWITCH_PIN == 0) {
+        GDelay_ms(debounce);
+        if(SWITCH_PIN == 0) {
+            lState = SWITCH_PRESSED;
+        }
+    }
+    return lState;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Exploiter l'état de l'interrupteur<br></h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GDebounce_Write_Output(bit state) {
+    if(state == SWITCH_PRESSED) {
+        OUTPUT_PORT = OUTPUT_PRESSED;
+    }
+    else {
+        OUTPUT_PORT = OUTPUT_RELEASED;
+    }
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Simulation électrique</h3><br><span class="GColor1" style="color:lime;">Interrupteur relâché</span><br><div class="Img3 GImage"><img src="img/Temps_Rebonds.png" alt="img/Temps_Rebonds.png"></div><br><span class="GColor1" style="color:lime;">Interrupteur pressé</span><br><div class="Img3 GImage"><img src="img/Temps_Rebonds_02.png" alt="img/Temps_Rebonds_02.png"></div></div></div></div></div><br>
