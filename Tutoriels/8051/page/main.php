@@ -461,7 +461,7 @@ bit GPinReadWrite_Read_Bit(uchar pin) {
     if(lRead & RW_PORT) return 1;
     return 0;
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Simulation électrique</h3><br><span class="GColor1" style="color:lime;">Diode LED éteinte</span><div class="Img3 GImage"><img src="img/Pin_Port_Lecture_Ecriture.png" alt="img/Pin_Port_Lecture_Ecriture.png"></div><br><span class="GColor1" style="color:lime;">Diode LED allumée</span><div class="Img3 GImage"><img src="img/Pin_Port_Lecture_Ecriture_02.png" alt="img/Pin_Port_Lecture_Ecriture_02.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Gérer les temps de rebonds"><a class="Link3" href="#">Gérer les temps de rebonds</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">gérer les temps de rebond</span> avec le C 8051.<br>Produit par <b>Gérard KESSE</b>.<br><br>Les interrupteurs mécaniques, en pratique, rebondissent à plusieurs reprises, pendant une courte période, de l'ordre de 30 ms après la fermeture ou l’ouverture du commutateur.<br><br><h3 class="Title8 GTitle3">Programme principal</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Simulation électrique</h3><br><span class="GColor1" style="color:lime;">Diode LED éteinte</span><div class="Img3 GImage"><img src="img/Pin_Port_Lecture_Ecriture.png" alt="img/Pin_Port_Lecture_Ecriture.png"></div><br><span class="GColor1" style="color:lime;">Diode LED allumée</span><div class="Img3 GImage"><img src="img/Pin_Port_Lecture_Ecriture_02.png" alt="img/Pin_Port_Lecture_Ecriture_02.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Gérer les temps de rebonds d'un bouton"><a class="Link3" href="#">Gérer les temps de rebonds d'un bouton</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">gérer les temps de rebond d'un bouton</span> avec le C 8051.<br>Produit par <b>Gérard KESSE</b>.<br><br>Les interrupteurs mécaniques, en pratique, rebondissent à plusieurs reprises, pendant une courte période, de l'ordre de 30 ms après la fermeture ou l’ouverture du commutateur.<br><br><h3 class="Title8 GTitle3">Programme principal</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 void main() {
     GDebounce_Init();
     while(1) {
@@ -498,4 +498,39 @@ void GDebounce_Write_Output(bit state) {
         OUTPUT_PORT = OUTPUT_RELEASED;
     }
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Simulation électrique</h3><br><span class="GColor1" style="color:lime;">Interrupteur relâché</span><br><div class="Img3 GImage"><img src="img/Temps_Rebonds.png" alt="img/Temps_Rebonds.png"></div><br><span class="GColor1" style="color:lime;">Interrupteur pressé</span><br><div class="Img3 GImage"><img src="img/Temps_Rebonds_02.png" alt="img/Temps_Rebonds_02.png"></div></div></div></div></div><br>
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Simulation électrique</h3><br><span class="GColor1" style="color:lime;">Interrupteur relâché</span><br><div class="Img3 GImage"><img src="img/Temps_Rebonds.png" alt="img/Temps_Rebonds.png"></div><br><span class="GColor1" style="color:lime;">Interrupteur pressé</span><br><div class="Img3 GImage"><img src="img/Temps_Rebonds_02.png" alt="img/Temps_Rebonds_02.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Compter le nombre d'appui sur un bouton"><a class="Link3" href="#">Compter le nombre d'appui sur un bouton</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">compter le nombre d'appui sur un bouton</span> avec le C 8051.<br>Produit par <b>Gérard KESSE</b>.<br><br><h3 class="Title8 GTitle3">Programme principal</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void main() {
+    GDebounce_Init();
+    while(1) {
+        GDebounce_Update();
+    }
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Initialisation des broches</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GDebounce_Init() {
+    SWITCH_PIN = 1;
+    COUNTER_PORT = COUNTER_OFF;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Compter le nombre d'appui sur le bouton</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GDebounce_Update() {
+    gDebounce_State = GDebounce_Read_Input(30);
+    if(gDebounce_State == SWITCH_PRESSED) gDebounce_Count++;
+    GDebounce_Write_Output(gDebounce_Count);
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Lire l'état du bouton</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+bit GDebounce_Read_Input(uchar debounce) {
+    bit lState = SWITCH_RELEASED;
+    if(SWITCH_PIN == 0) {
+        GDelay_ms(debounce);
+        if(SWITCH_PIN == 0) {
+            while(SWITCH_PIN == 0);
+            lState = SWITCH_PRESSED;
+        }
+    }
+    return lState;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Mise à jour du compteur</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GDebounce_Write_Output(uint count) {
+    COUNTER_PORT = ~count;
+}
+//===============================================
+</xmp></pre></div><br><h3 class="Title8 GTitle3">Simulation électrique</h3><br><span class="GColor1" style="color:lime;">Compteur à 0</span><br><div class="Img3 GImage"><img src="img/Temps_Rebonds_Comptage.png" alt="img/Temps_Rebonds_Comptage.png"></div><br><span class="GColor1" style="color:lime;">Compteur à 1</span><br><div class="Img3 GImage"><img src="img/Temps_Rebonds_Comptage_02.png" alt="img/Temps_Rebonds_Comptage_02.png"></div><br><span class="GColor1" style="color:lime;">Compteur à 2</span><br><div class="Img3 GImage"><img src="img/Temps_Rebonds_Comptage_03.png" alt="img/Temps_Rebonds_Comptage_03.png"></div><br><span class="GColor1" style="color:lime;">Compteur à 3</span><div class="Img3 GImage"><img src="img/Temps_Rebonds_Comptage_04.png" alt="img/Temps_Rebonds_Comptage_04.png"></div></div></div></div></div><br>
