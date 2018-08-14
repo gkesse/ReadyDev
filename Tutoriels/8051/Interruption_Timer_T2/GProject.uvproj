@@ -368,14 +368,14 @@
               <FilePath>.\main.c</FilePath>
             </File>
             <File>
-              <FileName>GDelay.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\manager\GDelay.c</FilePath>
-            </File>
-            <File>
               <FileName>GLedFlash.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\manager\GLedFlash.c</FilePath>
+            </File>
+            <File>
+              <FileName>GInterruptT2.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\manager\GInterruptT2.c</FilePath>
             </File>
           </Files>
         </Group>

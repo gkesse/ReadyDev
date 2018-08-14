@@ -373,9 +373,9 @@
               <FilePath>.\manager\GDelay.c</FilePath>
             </File>
             <File>
-              <FileName>GLedFlash.c</FileName>
+              <FileName>GDebounce.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\manager\GLedFlash.c</FilePath>
+              <FilePath>.\manager\GDebounce.c</FilePath>
             </File>
           </Files>
         </Group>
