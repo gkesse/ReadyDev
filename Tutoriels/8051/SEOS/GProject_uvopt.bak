@@ -124,19 +124,52 @@
         <tIfile></tIfile>
         <pMon></pMon>
       </DebugOpt>
+      <TargetDriverDllRegistry>
+        <SetRegEntry>
+          <Number>0</Number>
+          <Key>DLGDP51</Key>
+          <Name>(98=-1,-1,-1,-1,0)(82=-1,-1,-1,-1,0)(83=-1,-1,-1,-1,0)(84=-1,-1,-1,-1,0)(85=-1,-1,-1,-1,0)(99=-1,-1,-1,-1,0)(91=-1,-1,-1,-1,0)(92=-1,-1,-1,-1,0)(93=-1,-1,-1,-1,0)</Name>
+        </SetRegEntry>
+      </TargetDriverDllRegistry>
       <Breakpoint/>
+      <PerformanceAnalyzer>
+        <Li>
+          <IntNumber>0</IntNumber>
+          <ItemText>\\GProject\MAIN\main</ItemText>
+        </Li>
+        <Li>
+          <IntNumber>1</IntNumber>
+          <ItemText>\\GProject\GLEDFLASH\GLedFlash_Update</ItemText>
+        </Li>
+        <Li>
+          <IntNumber>2</IntNumber>
+          <ItemText>\\GProject\GLEDFLASH\GLedFlash_Init</ItemText>
+        </Li>
+        <Li>
+          <IntNumber>3</IntNumber>
+          <ItemText>\\GProject\GINTERRUPTT2\GInterruptT2_Update</ItemText>
+        </Li>
+        <Li>
+          <IntNumber>4</IntNumber>
+          <ItemText>\\GProject\GINTERRUPTT2\GInterruptT2_Start</ItemText>
+        </Li>
+        <Li>
+          <IntNumber>5</IntNumber>
+          <ItemText>\\GProject\GINTERRUPTT2\GInterruptT2_Init</ItemText>
+        </Li>
+      </PerformanceAnalyzer>
       <Tracepoint>
         <THDelay>0</THDelay>
       </Tracepoint>
       <DebugFlag>
         <trace>0</trace>
         <periodic>1</periodic>
-        <aLwin>0</aLwin>
+        <aLwin>1</aLwin>
         <aCover>0</aCover>
         <aSer1>0</aSer1>
         <aSer2>0</aSer2>
-        <aPa>0</aPa>
-        <viewmode>0</viewmode>
+        <aPa>1</aPa>
+        <viewmode>1</viewmode>
         <vrSel>0</vrSel>
         <aSym>0</aSym>
         <aTbox>0</aTbox>
@@ -186,8 +219,8 @@
       <Focus>0</Focus>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\manager\GDelay.c</PathWithFileName>
-      <FilenameWithoutPath>GDelay.c</FilenameWithoutPath>
+      <PathWithFileName>.\manager\GLedFlash.c</PathWithFileName>
+      <FilenameWithoutPath>GLedFlash.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -199,8 +232,8 @@
       <Focus>0</Focus>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\manager\GPinReadWrite.c</PathWithFileName>
-      <FilenameWithoutPath>GPinReadWrite.c</FilenameWithoutPath>
+      <PathWithFileName>.\manager\GInterruptT2.c</PathWithFileName>
+      <FilenameWithoutPath>GInterruptT2.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>

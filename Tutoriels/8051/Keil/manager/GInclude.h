@@ -1,11 +1,15 @@
 //===============================================
-#ifndef _GDebounce_
-#define _GDebounce_
+#ifndef _GInclude_
+#define _GInclude_
 //===============================================
-#include "GInclude.h"
+#include <reg52.h>
 //===============================================
-void GDebounce_Init();
-void GDebounce_Update();
+typedef unsigned char uchar;
+typedef unsigned int uint;
+typedef unsigned long ulong;
+//===============================================
+#define TRUE (1)
+#define FALSE (!TRUE)
 //===============================================
 #endif
 //===============================================
