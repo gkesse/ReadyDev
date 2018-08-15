@@ -29,7 +29,7 @@ void GDelay_ms(uint ms) {
         for(lDelay_ms = 0; lDelay_ms < DELAY_MS; lDelay_ms++);
     }
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Simulation électrique</h3><br><span class="GColor1" style="color:lime;">Diode LED éteinte pendant 1s</span><div class="Img3 GImage"><img src="img/Boucle_Infinie.png" alt="img/Boucle_Infinie.png"></div><br><span class="GColor1" style="color:lime;">Diode LED allumée pendant 1s</span><div class="Img3 GImage"><img src="img/Boucle_Infinie_02.png" alt="img/Boucle_Infinie_02.png"></div><br><span class="GColor1" style="color:lime;">Oscilloscope</span><div class="Img3 GImage"><img src="img/Boucle_Infinie_03.png" alt="img/Boucle_Infinie_03.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Gérer le mode Idle"><a class="Link3" href="#">Gérer le mode Idle</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">gérer le mode Idle</span> avec le C 8051.<br>Produit par <b>Gérard KESSE</b>.<br><br>Le mode Idle permet de passer en mode économie d'énergie.<br><br><h3 class="Title8 GTitle3">Programme principal</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Simulation électrique</h3><br><span class="GColor1" style="color:lime;">Diode LED éteinte pendant 1s</span><div class="Img3 GImage"><img src="img/Boucle_Infinie.png" alt="img/Boucle_Infinie.png"></div><br><span class="GColor1" style="color:lime;">Diode LED allumée pendant 1s</span><div class="Img3 GImage"><img src="img/Boucle_Infinie_02.png" alt="img/Boucle_Infinie_02.png"></div><br><span class="GColor1" style="color:lime;">Forme d'onde (Oscilloscope)</span><div class="Img3 GImage"><img src="img/Boucle_Infinie_03.png" alt="img/Boucle_Infinie_03.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Gérer le mode Idle"><a class="Link3" href="#">Gérer le mode Idle</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">gérer le mode Idle</span> avec le C 8051.<br>Produit par <b>Gérard KESSE</b>.<br><br>Le mode Idle permet de passer en mode économie d'énergie.<br><br><h3 class="Title8 GTitle3">Programme principal</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 void main() {
     GLedFlash_Init();
     GInterruptEx0_Init();
@@ -533,4 +533,134 @@ void GDebounce_Write_Output(uint count) {
     COUNTER_PORT = ~count;
 }
 //===============================================
-</xmp></pre></div><br><h3 class="Title8 GTitle3">Simulation électrique</h3><br><span class="GColor1" style="color:lime;">Compteur à 0</span><br><div class="Img3 GImage"><img src="img/Temps_Rebonds_Comptage.png" alt="img/Temps_Rebonds_Comptage.png"></div><br><span class="GColor1" style="color:lime;">Compteur à 1</span><br><div class="Img3 GImage"><img src="img/Temps_Rebonds_Comptage_02.png" alt="img/Temps_Rebonds_Comptage_02.png"></div><br><span class="GColor1" style="color:lime;">Compteur à 2</span><br><div class="Img3 GImage"><img src="img/Temps_Rebonds_Comptage_03.png" alt="img/Temps_Rebonds_Comptage_03.png"></div><br><span class="GColor1" style="color:lime;">Compteur à 3</span><div class="Img3 GImage"><img src="img/Temps_Rebonds_Comptage_04.png" alt="img/Temps_Rebonds_Comptage_04.png"></div></div></div></div></div><br>
+</xmp></pre></div><br><h3 class="Title8 GTitle3">Simulation électrique</h3><br><span class="GColor1" style="color:lime;">Compteur à 0</span><br><div class="Img3 GImage"><img src="img/Temps_Rebonds_Comptage.png" alt="img/Temps_Rebonds_Comptage.png"></div><br><span class="GColor1" style="color:lime;">Compteur à 1</span><br><div class="Img3 GImage"><img src="img/Temps_Rebonds_Comptage_02.png" alt="img/Temps_Rebonds_Comptage_02.png"></div><br><span class="GColor1" style="color:lime;">Compteur à 2</span><br><div class="Img3 GImage"><img src="img/Temps_Rebonds_Comptage_03.png" alt="img/Temps_Rebonds_Comptage_03.png"></div><br><span class="GColor1" style="color:lime;">Compteur à 3</span><div class="Img3 GImage"><img src="img/Temps_Rebonds_Comptage_04.png" alt="img/Temps_Rebonds_Comptage_04.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Créer un délai matériel Timer T0"><a class="Link3" href="#">Créer un délai matériel Timer T0</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">créer un délai matériel Timer T0</span> avec le C 8051.<br>Produit par <b>Gérard KESSE</b>.<br><br>Un Timer permet de mesurer des durées pour une bonne synchronisation des opérations.<br><br><h3 class="Title8 GTitle3">Programme principal</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void main() {
+    GLedFlash_Init();
+    while(1) {
+        GLedFlash_Update();
+        GDelay_ms(10);
+    }
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Initialisation de la diode LED</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GLedFlash_Init() {
+    LED_PIN = LED_OFF;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Mise à jour de la diode LED</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GLedFlash_Update() {
+    if(++gLedFlash_Time >= 100) {
+        gLedFlash_Time = 0;
+        if(gLedFlash_State == FALSE) {
+            gLedFlash_State = TRUE;
+            LED_PIN = LED_ON;
+        }
+        else {
+            gLedFlash_State = FALSE;
+            LED_PIN = LED_OFF;
+        }
+    }
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Délai matériel Timer T0</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GDelay_ms(uint ms) {
+    uint lDelay;
+    
+    TMOD &= 0xF0;
+    TMOD |= 0x01;
+    ET0 = 0; 
+
+    for(lDelay = 0; lDelay < ms; lDelay++) {
+        TH0 = PRELOADH;
+        TL0 = PRELOADL;
+        TF0 = 0;
+        TR0 = 1;
+        while (TF0 == 0);
+        TR0 = 0;
+    }
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Simulation électrique</h3><br><span class="GColor1" style="color:lime;">Diode LED éteinte</span><div class="Img3 GImage"><img src="img/Delai_Materiel_Timer_T0.png" alt="img/Delai_Materiel_Timer_T0.png"></div><br><span class="GColor1" style="color:lime;">Diode LED allumée</span><div class="Img3 GImage"><img src="img/Delai_Materiel_Timer_T0_02.png" alt="img/Delai_Materiel_Timer_T0_02.png"></div><br><span class="GColor1" style="color:lime;">Forme d'onde</span><div class="Img3 GImage"><img src="img/Delai_Materiel_Timer_T0_03.png" alt="img/Delai_Materiel_Timer_T0_03.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Gérer la sécurité avec les Timeouts"><a class="Link3" href="#">Gérer la sécurité avec les Timeouts</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">gérer la sécurité avec les Timeouts</span> avec le C 8051.<br>Produit par <b>Gérard KESSE</b>.<br><br>Un Timeout permet d'éviter le blocage du système à une étape donnée du traitement.<br><br><h3 class="Title8 GTitle3">Programme principal</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void main() {
+    GDebounce_Init();
+    while(1) {
+        GDebounce_Update();
+    }
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Initialisation des broches</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GDebounce_Init() {
+    SWITCH_PIN = 1;
+    COUNTER_PORT = COUNTER_OFF;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Mise à jour des broches</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GDebounce_Update() {
+    gDebounce_State = GDebounce_Read_Input(30);
+    if(gDebounce_State == SWITCH_PRESSED) gDebounce_Count++;
+    GDebounce_Write_Output(gDebounce_Count);
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Mise en place du Timeout</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+bit GDebounce_Read_Input(uchar debounce) {
+    bit lState = SWITCH_RELEASED;
+    ulong lTimeout = LOOP_TIMEOUT_INIT_1000ms;
+    
+    if(SWITCH_PIN == 0) {
+        GDelay_ms(debounce);
+        if(SWITCH_PIN == 0) {
+            while((SWITCH_PIN == 0) && (++lTimeout != 0));
+            if (lTimeout == 0) {
+                lState = SWITCH_RELEASED;
+                TIMEOUT_PIN = !TIMEOUT_PIN;
+            }
+            else {
+                lState = SWITCH_PRESSED;
+            }
+        }
+    }
+    
+    return lState;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Simulation électrique</h3><br><span class="GColor1" style="color:lime;">Compteur à 5</span><div class="Img3 GImage"><img src="img/Timeout.png" alt="img/Timeout.png"></div><br><span class="GColor1" style="color:lime;">Compteur à 5 (Forme d'onde)</span><div class="Img3 GImage"><img src="img/Timeout_02.png" alt="img/Timeout_02.png"></div><br><span class="GColor1" style="color:lime;">Exécution du Timeout</span><div class="Img3 GImage"><img src="img/Timeout_03.png" alt="img/Timeout_03.png"></div><br><span class="GColor1" style="color:lime;">Exécution du Timeout (Forme d'onde)</span><div class="Img3 GImage"><img src="img/Timeout_04.png" alt="img/Timeout_04.png"></div></div></div></div></div><br><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Gérer les interruptions Timer T2"><a class="Link3" href="#">Gérer les interruptions Timer T2</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">gérer les interruptions</span> avec le C 8051.<br>Produit par <b>Gérard KESSE</b>.<br><br>Une interruption permet d’effectuer des communications non bloquantes avec des périphériques externes.<br><br><h3 class="Title8 GTitle3">Programme principal</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void main() {
+    GLedFlash_Init();
+    GInterruptT2_Init(1);
+    GInterruptT2_Start();
+    while(1);
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Initialisation de la diode LED</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GLedFlash_Init() {
+    LED_PIN = LED_OFF;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Mise à jour de la diode LED</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GLedFlash_Update() {
+    if(++gLedFlash_Time >= 1000) {
+        gLedFlash_Time = 0;
+        if(gLedFlash_State == FALSE) {
+            gLedFlash_State = TRUE;
+            LED_PIN = LED_ON;
+        }
+        else {
+            gLedFlash_State = FALSE;
+            LED_PIN = LED_OFF;
+        }
+    }
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Initialisation du Timer T2</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GInterruptT2_Init(uint ms) {
+    uint lPreload = 65536 - ((OSC_FREQ * ms) / (OSC_PER_INST * 1000));
+    uchar lPreloadH = lPreload / 256;
+    uchar lPreloadL = lPreload % 256;
+    
+    T2CON = 0x00; 
+    TH2 = lPreloadH; 
+    RCAP2H = lPreloadH; 
+    TL2 = lPreloadL; 
+    RCAP2L = lPreloadL;
+    ET2 = 1;
+    TR2 = 1;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Autorisation des interruptions</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GInterruptT2_Start() {
+    EA = 1;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Fonction de rappel de l'interruptions Timer T2</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GInterruptT2_Update() interrupt INTERRUPT_TIMER_T2 {
+    TF2 = 0;
+    GLedFlash_Update();
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Simulation électrique</h3><br><span class="GColor1" style="color:lime;">Diode LED éteinte pendant 1s<br></span><div class="Img3 GImage"><img src="img/Interruption_Timer_T2.png" alt="img/Interruption_Timer_T2.png"></div><br><span class="GColor1" style="color:lime;">Diode LED allumée pendant 1s<br></span><div class="Img3 GImage"><img src="img/Interruption_Timer_T2_02.png" alt="img/Interruption_Timer_T2_02.png"></div><br><span class="GColor1" style="color:lime;">Forme d'onde (Les délais sont précis)<br></span><div class="Img3 GImage"><img src="img/Interruption_Timer_T2_03.png" alt="img/Interruption_Timer_T2_03.png"></div></div></div></div></div><br>

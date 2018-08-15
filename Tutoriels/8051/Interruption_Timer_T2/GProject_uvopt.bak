@@ -186,8 +186,8 @@
       <Focus>0</Focus>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\manager\GDelay.c</PathWithFileName>
-      <FilenameWithoutPath>GDelay.c</FilenameWithoutPath>
+      <PathWithFileName>.\manager\GLedFlash.c</PathWithFileName>
+      <FilenameWithoutPath>GLedFlash.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -199,8 +199,8 @@
       <Focus>0</Focus>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\manager\GLedFlash.c</PathWithFileName>
-      <FilenameWithoutPath>GLedFlash.c</FilenameWithoutPath>
+      <PathWithFileName>.\manager\GInterruptT2.c</PathWithFileName>
+      <FilenameWithoutPath>GInterruptT2.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
