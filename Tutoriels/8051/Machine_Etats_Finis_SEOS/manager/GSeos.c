@@ -1,16 +1,17 @@
 //===============================================
 #include "GSeos.h"
-#include "GLedFlash.h"
+#include "GTrafficLights.h"
 //===============================================
 void GSeos_Init(uchar ms) {
-    uint m_PRELOAD = (65536 - ((OSC_FREQ * ms) / (OSC_PER_INST * 1000)));
-    uchar m_PRELOADH = (m_PRELOAD / 256);
-    uchar m_PRELOADL = (m_PRELOAD % 256);
+    uint lPreload = (65536 - ((OSC_FREQ * ms) / (OSC_PER_INST * 1000)));
+    uchar lPreloadH = (lPreload / 256);
+    uchar lPreloadL = (lPreload % 256);
+    
     T2CON = 0x00; 
-    TH2 = m_PRELOADH; 
-    RCAP2H = m_PRELOADH; 
-    TL2 = m_PRELOADL; 
-    RCAP2L = m_PRELOADL;
+    TH2 = lPreloadH; 
+    RCAP2H = lPreloadH; 
+    TL2 = lPreloadL; 
+    RCAP2L = lPreloadL;
     ET2 = 1;
     TR2 = 1;
 }
@@ -25,6 +26,7 @@ void GSeos_Go_To_Sleep() {
 //===============================================
 void GSeos_Update() interrupt INTERRUPT_TIMER_T2 {    
     TF2 = 0;
-    GLedFlash_Update();
+    GTrafficLights_Light_L1();
+    GTrafficLights_Light_L2();
 }
 //===============================================
