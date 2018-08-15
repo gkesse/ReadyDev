@@ -128,34 +128,38 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>DLGDP51</Key>
-          <Name>(98=-1,-1,-1,-1,0)(82=-1,-1,-1,-1,0)(83=-1,-1,-1,-1,0)(84=-1,-1,-1,-1,0)(85=-1,-1,-1,-1,0)(99=-1,-1,-1,-1,0)(91=-1,-1,-1,-1,0)(92=-1,-1,-1,-1,0)(93=-1,-1,-1,-1,0)</Name>
+          <Name>(98=965,132,1298,416,0)(82=-1,-1,-1,-1,0)(83=-1,-1,-1,-1,0)(84=-1,-1,-1,-1,0)(85=-1,-1,-1,-1,0)(99=-1,-1,-1,-1,0)(91=1031,603,1231,868,1)(92=-1,-1,-1,-1,0)(93=-1,-1,-1,-1,0)</Name>
         </SetRegEntry>
       </TargetDriverDllRegistry>
       <Breakpoint/>
       <PerformanceAnalyzer>
         <Li>
           <IntNumber>0</IntNumber>
-          <ItemText>\\GProject\MAIN\main</ItemText>
+          <ItemText>GLedFlash_Init</ItemText>
         </Li>
         <Li>
           <IntNumber>1</IntNumber>
-          <ItemText>\\GProject\GLEDFLASH\GLedFlash_Update</ItemText>
+          <ItemText>GLedFlash_Update</ItemText>
         </Li>
         <Li>
           <IntNumber>2</IntNumber>
-          <ItemText>\\GProject\GLEDFLASH\GLedFlash_Init</ItemText>
+          <ItemText>GSeos_Go_To_Sleep</ItemText>
         </Li>
         <Li>
           <IntNumber>3</IntNumber>
-          <ItemText>\\GProject\GINTERRUPTT2\GInterruptT2_Update</ItemText>
+          <ItemText>GSeos_Init</ItemText>
         </Li>
         <Li>
           <IntNumber>4</IntNumber>
-          <ItemText>\\GProject\GINTERRUPTT2\GInterruptT2_Start</ItemText>
+          <ItemText>GSeos_Start</ItemText>
         </Li>
         <Li>
           <IntNumber>5</IntNumber>
-          <ItemText>\\GProject\GINTERRUPTT2\GInterruptT2_Init</ItemText>
+          <ItemText>GSeos_Update</ItemText>
+        </Li>
+        <Li>
+          <IntNumber>6</IntNumber>
+          <ItemText>main</ItemText>
         </Li>
       </PerformanceAnalyzer>
       <Tracepoint>
@@ -232,8 +236,8 @@
       <Focus>0</Focus>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\manager\GInterruptT2.c</PathWithFileName>
-      <FilenameWithoutPath>GInterruptT2.c</FilenameWithoutPath>
+      <PathWithFileName>.\manager\GSeos.c</PathWithFileName>
+      <FilenameWithoutPath>GSeos.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
