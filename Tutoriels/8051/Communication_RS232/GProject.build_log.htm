@@ -18,35 +18,26 @@ Hex Converter:   OH51.exe V2.7.0.0
 CPU DLL:         S8051.DLL V3.95.0.0
 Dialog DLL:      DP51.DLL V2.62.0.1 
 <h2>Project:</h2>
-C:\Users\sabine\Downloads\Gerard\Programs\ReadyDev\Tutoriels\8051\Machine_Etats_Finis_SEOS\GProject.uvproj
-Project File Date:  08/15/2018
+C:\Users\sabine\Downloads\Gerard\Programs\ReadyDev\Tutoriels\8051\Communication_RS232\GProject.uvproj
+Project File Date:  08/16/2018
 
 <h2>Output:</h2>
 Rebuild target 'Target 1'
 compiling main.c...
+compiling GRS232.c...
 compiling GSeos.c...
-compiling GTrafficLights.c...
 linking...
-Program Size: data=19.0 xdata=0 code=1064
+Program Size: data=34.0 xdata=0 code=829
 creating hex file from "GProject"...
 "GProject" - 0 Error(s), 0 Warning(s).
-</pre>
-</body>
-</html>
-'GTrafficLights_Light_L2': missing function-prototype
-compiling GTrafficLights.c...
-linking...
-Program Size: data=15.0 xdata=0 code=1006
+Program Size: data=34.0 xdata=0 code=774
 creating hex file from "GProject"...
-"GProject" - 0 Error(s), 3 Warning(s).
-IGHT_L2?GTRAFFICLIGHTS
-*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
-    SYMBOL:  GLEDFLASH_UPDATE
-    MODULE:  GSeos.obj (GSEOS)
-*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
-    SYMBOL:  GLEDFLASH_UPDATE
-    MODULE:  GSeos.obj (GSEOS)
-    ADDRESS: 0391H
-Program Size: data=15.0 xdata=0 code=1003
-creating hex file from "GProject"...
-"GProject" - 0 Error(s), 6 Warning(s).
+"GProject" - 0 Error(s), 1 Warning(s).
+232.c(32): error C202: 'i': undefined identifier
+manager\GRS232.c(32): error C136: invalid dimension size: [0]
+manager\GRS232.c(32): error C141: syntax error near '==', expected ')'
+manager\GRS232.c(33): error C141: syntax error near '[', expected ')'
+manager\GRS232.c(33): error C231: '_GRS232_Write_Char_To_Buffer': redefinition
+manager\GRS232.c(34): error C129: missing ';' before '++'
+compiling GSeos.c...
+Target not created.
