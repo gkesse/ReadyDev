@@ -223,8 +223,8 @@
       <Focus>0</Focus>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\manager\GLedFlash.c</PathWithFileName>
-      <FilenameWithoutPath>GLedFlash.c</FilenameWithoutPath>
+      <PathWithFileName>.\manager\GSeos.c</PathWithFileName>
+      <FilenameWithoutPath>GSeos.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -236,8 +236,8 @@
       <Focus>0</Focus>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\manager\GSeos.c</PathWithFileName>
-      <FilenameWithoutPath>GSeos.c</FilenameWithoutPath>
+      <PathWithFileName>.\manager\GTrafficLights.c</PathWithFileName>
+      <FilenameWithoutPath>GTrafficLights.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
