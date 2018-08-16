@@ -701,7 +701,25 @@ void GSeos_Update() interrupt INTERRUPT_TIMER_T2 {
     GLedFlash_Update();
 }
 //===============================================
-</xmp></pre></div><br><h3 class="Title8 GTitle3">Simulation électrique</h3><br><span class="GColor1" style="color:lime;">Diode LED éteinte pendant 1s</span><div class="Img3 GImage"><img src="img/SEOS_Timer_T2.png" alt="img/SEOS_Timer_T2.png"></div><br><span class="GColor1" style="color:lime;">Diode LED allumée pendant 1s</span><div class="Img3 GImage"><img src="img/SEOS_Timer_T2_02.png" alt="img/SEOS_Timer_T2_02.png"></div><br><span class="GColor1" style="color:lime;">Forme d'onde (Les délais sont très précis)</span><div class="Img3 GImage"><img src="img/SEOS_Timer_T2_03.png" alt="img/SEOS_Timer_T2_03.png"></div><br><span class="GColor1" style="color:lime;">Analyse de performance (Processeur en mode Idle à 91.9 % du temps)</span><div class="Img3 GImage"><img src="img/SEOS_Timer_T2_04.png" alt="img/SEOS_Timer_T2_04.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Définir un système d'exploitation embarqué simple Timer T0"><a class="Link3" href="#">Définir un système d'exploitation embarqué simple Timer T0</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">définir un système d'exploitation embarqué simple</span> à base du <span class="GColor1" style="color:lime;">Timer T0</span> avec le C 8051.<br>Produit par <b>Gérard KESSE</b>.<br><br>Le <b>sEOS</b> (Simple Embedded Operating Système) permet gérer des applications embarquées multitâches temps réel.<br><br><h3 class="Title8 GTitle3">Programme principal</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+</xmp></pre></div><br><h3 class="Title8 GTitle3">Initialisation des broches</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GLedFlash_Init() {
+    LED_PIN = LED_OFF;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Mise à jour des proches</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GLedFlash_Update() {
+    if(++gLedFlash_Time >= 1000) {
+        gLedFlash_Time = 0;
+        if(gLedFlash_State == FALSE) {
+            gLedFlash_State = TRUE;
+            LED_PIN = LED_ON;
+        }
+        else {
+            gLedFlash_State = FALSE;
+            LED_PIN = LED_OFF;
+        }
+    }
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Simulation électrique</h3><br><span class="GColor1" style="color:lime;">Diode LED éteinte pendant 1s</span><div class="Img3 GImage"><img src="img/SEOS_Timer_T2.png" alt="img/SEOS_Timer_T2.png"></div><br><span class="GColor1" style="color:lime;">Diode LED allumée pendant 1s</span><div class="Img3 GImage"><img src="img/SEOS_Timer_T2_02.png" alt="img/SEOS_Timer_T2_02.png"></div><br><span class="GColor1" style="color:lime;">Forme d'onde (Les délais sont très précis)</span><div class="Img3 GImage"><img src="img/SEOS_Timer_T2_03.png" alt="img/SEOS_Timer_T2_03.png"></div><br><span class="GColor1" style="color:lime;">Analyse de performance (Processeur en mode Idle à 91.9 % du temps)</span><div class="Img3 GImage"><img src="img/SEOS_Timer_T2_04.png" alt="img/SEOS_Timer_T2_04.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Définir un système d'exploitation embarqué simple Timer T0"><a class="Link3" href="#">Définir un système d'exploitation embarqué simple Timer T0</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">définir un système d'exploitation embarqué simple</span> à base du <span class="GColor1" style="color:lime;">Timer T0</span> avec le C 8051.<br>Produit par <b>Gérard KESSE</b>.<br><br>Le <b>sEOS</b> (Simple Embedded Operating Système) permet gérer des applications embarquées multitâches temps réel.<br><br><h3 class="Title8 GTitle3">Programme principal</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 void main() {
 	GSeos_Init(1);
 	GLedFlash_Init();
@@ -710,6 +728,39 @@ void main() {
 	while(1) {
 	    GSeos_Go_To_Sleep();
 	}
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Initialisation du sEOS</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GSeos_Init(uchar ms) {
+    uint lPreload = (65536 - ((OSC_FREQ * ms) / (OSC_PER_INST * 1000)));
+    gPreloadH = (lPreload / 256);
+    gPreloadL = (lPreload % 256);
+    
+    TMOD &= 0xF0;
+    TMOD |= 0x01;
+    TH0 = gPreloadH;
+    TL0 = gPreloadL;
+    ET0 = 1;
+    TR0 = 1;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Entrer en mode Idle sEOS</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GSeos_Go_To_Sleep() {
+    PCON |= 0x01;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Démarrage du sEOS</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GSeos_Start() {
+    EA = 1;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Rechargement du Timer T0 en mode 16-bit</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GSeos_Reload() {  
+    TR0 = 0;
+    TH0 = gPreloadH;
+    TL0 = gPreloadL;
+    TR0 = 1;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Mise à jour du sEOS</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GSeos_Update() interrupt INTERRUPT_TIMER_T0 {    
+    GSeos_Reload();
+    GLedFlash_Update();
 }
 //===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Simulation électrique</h3><br><span class="GColor1" style="color:lime;">Diode LED éteinte pendant 1s</span><br><div class="Img3 GImage"><img src="img/SEOS_Timer_T0.png" alt="img/SEOS_Timer_T0.png"></div><br><span class="GColor1" style="color:lime;">Diode LED allumée pendant 1s</span><br><div class="Img3 GImage"><img src="img/SEOS_Timer_T0_02.png" alt="img/SEOS_Timer_T0_02.png"></div><br><span class="GColor1" style="color:lime;">Forme d'onde (Influence du temps de rechargement du Timer T0)</span><br><div class="Img3 GImage"><img src="img/SEOS_Timer_T0_03.png" alt="img/SEOS_Timer_T0_03.png"></div><br><span class="GColor1" style="color:lime;">Analyse de performance (Processeur en mode Idle à 91.2 % du temps)</span><br><div class="Img3 GImage"><img src="img/SEOS_Timer_T0_04.png" alt="img/SEOS_Timer_T0_04.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Gérer les machines à états finis"><a class="Link3" href="#">Gérer les machines à états finis</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">gérer les machines à états finis</span> avec le C 8051.<br>Produit par <b>Gérard KESSE.</b><br><br>Le structure logicielle machine à états finis permet de gérer des applications embarqués sous la forme d'une séquences d'états finis.<br><br><h3 class="Title8 GTitle3">Programme principal</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 void main() {
