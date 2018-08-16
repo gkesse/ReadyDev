@@ -186,8 +186,8 @@
       <Focus>0</Focus>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\manager\GBitOperator.c</PathWithFileName>
-      <FilenameWithoutPath>GBitOperator.c</FilenameWithoutPath>
+      <PathWithFileName>.\manager\GRS232.c</PathWithFileName>
+      <FilenameWithoutPath>GRS232.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -199,8 +199,21 @@
       <Focus>0</Focus>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\manager\GRS232.c</PathWithFileName>
-      <FilenameWithoutPath>GRS232.c</FilenameWithoutPath>
+      <PathWithFileName>.\manager\GSeos.c</PathWithFileName>
+      <FilenameWithoutPath>GSeos.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>1</GroupNumber>
+      <FileNumber>4</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <Focus>0</Focus>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\manager\GTimeElapse.c</PathWithFileName>
+      <FilenameWithoutPath>GTimeElapse.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>

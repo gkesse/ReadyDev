@@ -26,18 +26,37 @@ Rebuild target 'Target 1'
 compiling main.c...
 compiling GRS232.c...
 compiling GSeos.c...
+compiling GTimeElapse.c...
+compiling GLedFlash.c...
 linking...
-Program Size: data=34.0 xdata=0 code=829
+Program Size: data=59.1 xdata=0 code=1424
 creating hex file from "GProject"...
 "GProject" - 0 Error(s), 0 Warning(s).
-Program Size: data=34.0 xdata=0 code=774
+EOS
+    CALLER2: ?C_C51STARTUP
+Program Size: data=63.1 xdata=0 code=1432
 creating hex file from "GProject"...
 "GProject" - 0 Error(s), 1 Warning(s).
-232.c(32): error C202: 'i': undefined identifier
-manager\GRS232.c(32): error C136: invalid dimension size: [0]
-manager\GRS232.c(32): error C141: syntax error near '==', expected ')'
-manager\GRS232.c(33): error C141: syntax error near '[', expected ')'
-manager\GRS232.c(33): error C231: '_GRS232_Write_Char_To_Buffer': redefinition
-manager\GRS232.c(34): error C129: missing ';' before '++'
+TE?GSEOS
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_GRS232_WRITE_INT?GRS232
+    CALLER1: ?PR?GSEOS_UPDATE?GSEOS
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_GRS232_GET_POW?GRS232
+    CALLER1: ?PR?GSEOS_UPDATE?GSEOS
+    CALLER2: ?C_C51STARTUP
+Program Size: data=79.1 xdata=0 code=1426
+creating hex file from "GProject"...
+"GProject" - 0 Error(s), 4 Warning(s).
+compiling main.c...
+main.c - 0 Error(s), 0 Warning(s).
+compiling GRS232.c...
+manager\GRS232.c - 0 Error(s), 0 Warning(s).
 compiling GSeos.c...
-Target not created.
+manager\GSeos.c - 0 Error(s), 0 Warning(s).
+compiling GTimeElapse.c...
+manager\GTimeElapse.c - 0 Error(s), 0 Warning(s).
+compiling GTimeElapse.c...
+manager\GTimeElapse.c - 0 Error(s), 0 Warning(s).

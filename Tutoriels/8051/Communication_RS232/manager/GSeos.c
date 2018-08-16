@@ -1,6 +1,8 @@
 //===============================================
 #include "GSeos.h"
 #include "GRS232.h"
+#include "GTimeElapse.h"
+#include "GLedFlash.h"
 //===============================================
 void GSeos_Init(uchar ms) {
     uint lPreload = (65536 - ((OSC_FREQ * ms) / (OSC_PER_INST * 1000)));
@@ -27,5 +29,7 @@ void GSeos_Go_To_Sleep() {
 void GSeos_Update() interrupt INTERRUPT_TIMER_T2 {    
     TF2 = 0;
     GRS232_Update();
+    GTimeElapse_Update();
+    GLedFlash_Update();
 }
 //===============================================

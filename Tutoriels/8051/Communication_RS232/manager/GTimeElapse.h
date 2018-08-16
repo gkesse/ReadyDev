@@ -1,13 +1,11 @@
 //===============================================
-#ifndef _GRS232_
-#define _GRS232_
+#ifndef _GTimeElapse_
+#define _GTimeElapse_
 //===============================================
 #include "GInclude.h"
 //===============================================
-void GRS232_Init(uint aBaudRate);
-void GRS232_Update();
-void GRS232_Write_String(const char* aString);
-void GRS232_Write_Int(uint aInt, uchar aMax);
+void GTimeElapse_Init();
+void GTimeElapse_Update();
 //===============================================
 #endif
 //===============================================

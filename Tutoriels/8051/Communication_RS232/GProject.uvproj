@@ -377,6 +377,16 @@
               <FileType>1</FileType>
               <FilePath>.\manager\GSeos.c</FilePath>
             </File>
+            <File>
+              <FileName>GTimeElapse.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\manager\GTimeElapse.c</FilePath>
+            </File>
+            <File>
+              <FileName>GLedFlash.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\manager\GLedFlash.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

@@ -1,11 +1,14 @@
 //===============================================
 #include "GSeos.h"
 #include "GRS232.h"
+#include "GTimeElapse.h"
+#include "GLedFlash.h"
 //===============================================
 void main() {
-    GSeos_Init(10);
+    GSeos_Init(5);
     GRS232_Init(9600);
-    GRS232_Write_String_To_Buffer("Bonjour tout le monde");
+    GTimeElapse_Init();
+    GLedFlash_Init();
     GSeos_Start();
     
     while(1) {
