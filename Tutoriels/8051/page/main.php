@@ -772,7 +772,7 @@ void main() {
 	    GSeos_Go_To_Sleep();
 	}
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Simulation électrique</h3><br><span class="GColor1" style="color:lime;">Système de gestion de feux tricolores</span><div class="Img3 GImage"><img src="img/Machine_Etats_Finis_SEOS.png" alt="img/Machine_Etats_Finis_SEOS.png"></div><br><span class="GColor1" style="color:lime;">Voie 1 ROUGE - Voie 2 VERT</span><div class="Img3 GImage"><img src="img/Machine_Etats_Finis_SEOS_02.png" alt="img/Machine_Etats_Finis_SEOS_02.png"></div><br><span class="GColor1" style="color:lime;">Voie 1 ROUGE - Voie 2 ORANGE</span><div class="Img3 GImage"><img src="img/Machine_Etats_Finis_SEOS_03.png" alt="img/Machine_Etats_Finis_SEOS_03.png"></div><br><span class="GColor1" style="color:lime;">Voie 1 ROUGE - Voie 2 ROUGE </span><div class="Img3 GImage"><img src="img/Machine_Etats_Finis_SEOS_04.png" alt="img/Machine_Etats_Finis_SEOS_04.png"></div><br><span class="GColor1" style="color:lime;">Voie 1 VERT - Voie 2 ROUGE </span><div class="Img3 GImage"><img src="img/Machine_Etats_Finis_SEOS_05.png" alt="img/Machine_Etats_Finis_SEOS_05.png"></div><br><span class="GColor1" style="color:lime;">Voie 1 ORANGE- Voie 2 ROUGE</span><div class="Img3 GImage"><img src="img/Machine_Etats_Finis_SEOS_06.png" alt="img/Machine_Etats_Finis_SEOS_06.png"></div><br><span class="GColor1" style="color:lime;">Voie 1 ROUGE - Voie 2 ROUGE</span><div class="Img3 GImage"><img src="img/Machine_Etats_Finis_SEOS_07.png" alt="img/Machine_Etats_Finis_SEOS_07.png"></div><br><span class="GColor1" style="color:lime;">Forme d'onde (Voie 1)<br></span><div class="Img3 GImage"><img src="img/Machine_Etats_Finis_SEOS_08.png" alt="img/Machine_Etats_Finis_SEOS_08.png"></div><br><span class="GColor1" style="color:lime;">Forme d'onde (Voie 2)<br></span><div class="Img3 GImage"><img src="img/Machine_Etats_Finis_SEOS_09.png" alt="img/Machine_Etats_Finis_SEOS_09.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Gérer les communications RS232"><a class="Link3" href="#">Gérer les communications RS232</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">gérer les communications RS232</span> avec le C 8051.<br>Produit par <b>Gérard KESSE</b>.<br><br>Le protocole RS232 permet d’effectuer des communications entre le microcontrôleur et l'ordinateur.<br><br><h3 class="Title8 GTitle3">Programme principal</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Simulation électrique</h3><br><span class="GColor1" style="color:lime;">Système de gestion de feux tricolores</span><div class="Img3 GImage"><img src="img/Machine_Etats_Finis_SEOS.png" alt="img/Machine_Etats_Finis_SEOS.png"></div><br><span class="GColor1" style="color:lime;">Voie 1 ROUGE - Voie 2 VERT</span><div class="Img3 GImage"><img src="img/Machine_Etats_Finis_SEOS_02.png" alt="img/Machine_Etats_Finis_SEOS_02.png"></div><br><span class="GColor1" style="color:lime;">Voie 1 ROUGE - Voie 2 ORANGE</span><div class="Img3 GImage"><img src="img/Machine_Etats_Finis_SEOS_03.png" alt="img/Machine_Etats_Finis_SEOS_03.png"></div><br><span class="GColor1" style="color:lime;">Voie 1 ROUGE - Voie 2 ROUGE </span><div class="Img3 GImage"><img src="img/Machine_Etats_Finis_SEOS_04.png" alt="img/Machine_Etats_Finis_SEOS_04.png"></div><br><span class="GColor1" style="color:lime;">Voie 1 VERT - Voie 2 ROUGE </span><div class="Img3 GImage"><img src="img/Machine_Etats_Finis_SEOS_05.png" alt="img/Machine_Etats_Finis_SEOS_05.png"></div><br><span class="GColor1" style="color:lime;">Voie 1 ORANGE- Voie 2 ROUGE</span><div class="Img3 GImage"><img src="img/Machine_Etats_Finis_SEOS_06.png" alt="img/Machine_Etats_Finis_SEOS_06.png"></div><br><span class="GColor1" style="color:lime;">Voie 1 ROUGE - Voie 2 ROUGE</span><div class="Img3 GImage"><img src="img/Machine_Etats_Finis_SEOS_07.png" alt="img/Machine_Etats_Finis_SEOS_07.png"></div><br><span class="GColor1" style="color:lime;">Forme d'onde (Voie 1)<br></span><div class="Img3 GImage"><img src="img/Machine_Etats_Finis_SEOS_08.png" alt="img/Machine_Etats_Finis_SEOS_08.png"></div><br><span class="GColor1" style="color:lime;">Forme d'onde (Voie 2)<br></span><div class="Img3 GImage"><img src="img/Machine_Etats_Finis_SEOS_09.png" alt="img/Machine_Etats_Finis_SEOS_09.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Gérer les communications RS232"><a class="Link3" href="#">Gérer les communications RS232</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">gérer les communications RS232</span> avec le C 8051.<br>Produit par <b>Gérard KESSE</b>.<br><br>Le protocole RS232 permet d’effectuer des communications entre le microcontrôleur et l'ordinateur.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1534460389689"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1534460389689");</script></div><br><h2 class="Title7 GTitle2" id="Gérer les communications RS232-Programme principal"><a class="Link9" href="#Gérer les communications RS232">Programme principal</a></h2><br><h3 class="Title8 GTitle3">Programme principal</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 void main() {
     GSeos_Init(5);
     GRS232_Init(9600);
@@ -784,14 +784,14 @@ void main() {
         GSeos_Go_To_Sleep();
     }
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Mise à jour du sEOS</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Gérer les communications RS232-Système d'exploitation embarqué simple"><a class="Link9" href="#Gérer les communications RS232">Système d'exploitation embarqué simple</a></h2><br><h3 class="Title8 GTitle3">Mise à jour du sEOS</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 void GSeos_Update() interrupt INTERRUPT_TIMER_T2 {    
     TF2 = 0;
     GRS232_Update();
     GTimeElapse_Update();
     GLedFlash_Update();
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Initialisation de la communication RS232</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Gérer les communications RS232-Communications RS232"><a class="Link9" href="#Gérer les communications RS232">Communications RS232</a></h2><br><h3 class="Title8 GTitle3">Initialisation de la communication RS232</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 void GRS232_Init(uint aBaudRate) {
     uchar lPreload = (256 - (uchar)((((ulong)OSC_FREQ / 100) * 3125)
     / ((ulong)aBaudRate * OSC_PER_INST * 1000)));
@@ -828,4 +828,81 @@ void GRS232_Send_Char(char aChar) {
 	while(TI == 0);		
 	TI = 0;			
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Simulation électrique</h3><br><span class="GColor1" style="color:lime;">Diode LED éteinte pendant 1s</span><div class="Img3 GImage"><img src="img/Communication_RS232.png" alt="img/Communication_RS232.png"></div><br><span class="GColor1" style="color:lime;">Diode LED allumée pendant 1s</span><div class="Img3 GImage"><img src="img/Communication_RS232_02.png" alt="img/Communication_RS232_02.png"></div><br><span class="GColor1" style="color:lime;">Communications RS232 (Temps écoulé)</span><div class="Img3 GImage"><img src="img/Communication_RS232_03.png" alt="img/Communication_RS232_03.png"></div><br><span class="GColor1" style="color:lime;">Forme d'onde (Les délais sont très précis)</span><div class="Img3 GImage"><img src="img/Communication_RS232_04.png" alt="img/Communication_RS232_04.png"></div></div></div></div></div><br>
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Écrire un caractère dans le buffer RS232</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GRS232_Write_Char(char aChar) {
+    if(gTrans_Buffer_Index < TRANS_BUFFER_LENGTH) {
+        gTrans_Buffer[gTrans_Buffer_Index] = aChar;
+        gTrans_Buffer_Index++;
+    }
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Écrire une chaine de caractères dans le buffer RS232</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GRS232_Write_String(const char* aString) {
+    uchar i = 0;
+    while(1) {
+        if(aString[i] == 0) break;
+        GRS232_Write_Char(aString[i]);
+        i++;
+    }
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Écrire un entier dans le buffer RS232</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GRS232_Write_Int(uint aInt, uchar aMax) {
+    uint lData = aInt;
+    uint lData2;
+    uchar lDigits = GRS232_Get_Digits_Int(aInt);
+    uchar i;
+        
+    if(aMax == 0 || aMax < lDigits) aMax = lDigits;
+    i = aMax;
+    while(1) {
+        i--;
+        lData2 = lData / GRS232_Get_Pow(10, i);
+        lData = lData % GRS232_Get_Pow(10, i);
+        GRS232_Write_Char(HEXA_MAP[lData2]);
+        if(i == 0) break;
+    }
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Gérer les communications RS232-Temps écoulé"><a class="Link9" href="#Gérer les communications RS232">Temps écoulé</a></h2><br><h3 class="Title8 GTitle3">Mise à jour du temps écoulé</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GTimeElapse_Update() {
+    if(++gTimeElapse_Time >= 200) {
+        gTimeElapse_Time = 0;
+        GTimeElapse_Get_Time();
+        gTimeElapse_Second++;
+    }
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Affichage du temps écoulé</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GTimeElapse_Get_Time() {
+    uchar lSecond;
+    uchar lMinute;
+    uchar lHour;
+    ulong lTime;
+    
+    lTime = gTimeElapse_Second;
+    lSecond = lTime % 60;
+    lTime /= 60;
+    lMinute = lTime % 60;
+    lTime /= 60;
+    lHour = lTime;
+    
+    GRS232_Write_String("\f");
+    GRS232_Write_String("Temps: ");
+    GRS232_Write_Int(lHour, 2);
+    GRS232_Write_String(":");
+    GRS232_Write_Int(lMinute, 2);
+    GRS232_Write_String(":");
+    GRS232_Write_Int(lSecond, 2);
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Gérer les communications RS232-Clignotement de la diode LED"><a class="Link9" href="#Gérer les communications RS232">Clignotement de la diode LED</a></h2><br><h3 class="Title8 GTitle3">Mise à jour du clignotement de la diode LED</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GLedFlash_Update() {
+    if(++gLedFlash_Time >= 200) {
+        gLedFlash_Time = 0;
+        if(gLedFlash_State == FALSE) {
+            gLedFlash_State = TRUE;
+            LED_PIN = LED_ON;
+        }
+        else {
+            gLedFlash_State = FALSE;
+            LED_PIN = LED_OFF;
+        }
+    }
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Gérer les communications RS232-Simulation électrique"><a class="Link9" href="#Gérer les communications RS232">Simulation électrique</a></h2><br><h3 class="Title8 GTitle3">Simulation électrique</h3><br><span class="GColor1" style="color:lime;">Diode LED éteinte pendant 1s</span><div class="Img3 GImage"><img src="img/Communication_RS232.png" alt="img/Communication_RS232.png"></div><br><span class="GColor1" style="color:lime;">Diode LED allumée pendant 1s</span><div class="Img3 GImage"><img src="img/Communication_RS232_02.png" alt="img/Communication_RS232_02.png"></div><br><span class="GColor1" style="color:lime;">Communications RS232 (Temps écoulé)</span><div class="Img3 GImage"><img src="img/Communication_RS232_03.png" alt="img/Communication_RS232_03.png"></div><br><span class="GColor1" style="color:lime;">Forme d'onde (Les délais sont très précis)</span><div class="Img3 GImage"><img src="img/Communication_RS232_04.png" alt="img/Communication_RS232_04.png"></div></div></div></div></div><br>
