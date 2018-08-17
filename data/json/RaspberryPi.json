@@ -9,7 +9,8 @@
             "le développement de système embarqué avec le RaspberryPi.",
             "Produit par Gérard KESSE."
         ],
-        "meta_cano":"/Tutoriels/RaspberryPi/"
+        "meta_cano":"/Tutoriels/RaspberryPi/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/data/img/defaults/opencv.jpg"
     },    
     "links":
     [
