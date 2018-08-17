@@ -40,7 +40,7 @@
     }
     
     $lExistMetaImg = GConfig::Instance()->existData("meta_img");
-    $lMetaImg = "https://raw.githubusercontent.com/gkesse/ReadyDev/master/data/img/defaults/readydev-440x440.png";
+    $lMetaImg = "https://raw.githubusercontent.com/gkesse/ReadyDev/master/data/img/defaults/readydev.jpg";
     if($lExistMetaImg == true) {
         $lMetaImg = GConfig::Instance()->getData("meta_img"); 
     }
