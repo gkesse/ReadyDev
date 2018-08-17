@@ -2,9 +2,7 @@
 #include "GTrafficLights.h"
 #include "GPortDef.h"
 //===============================================
-enum eGLight {RED, RED_AMBER, RED_RED_1, GREEN, AMBER, RED_RED_2};
-//===============================================
-typedef enum eGLight eGLight;
+typedef enum eGLight {RED, RED_AMBER, RED_RED_1, GREEN, AMBER, RED_RED_2} eGLight;
 //===============================================
 static eGLight gLight_L1_State = RED;
 static eGLight gLight_L2_State = GREEN;
