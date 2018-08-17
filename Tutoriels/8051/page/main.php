@@ -762,7 +762,7 @@ void GSeos_Update() interrupt INTERRUPT_TIMER_T0 {
     GSeos_Reload();
     GLedFlash_Update();
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Simulation électrique</h3><br><span class="GColor1" style="color:lime;">Diode LED éteinte pendant 1s</span><br><div class="Img3 GImage"><img src="img/SEOS_Timer_T0.png" alt="img/SEOS_Timer_T0.png"></div><br><span class="GColor1" style="color:lime;">Diode LED allumée pendant 1s</span><br><div class="Img3 GImage"><img src="img/SEOS_Timer_T0_02.png" alt="img/SEOS_Timer_T0_02.png"></div><br><span class="GColor1" style="color:lime;">Forme d'onde (Influence du temps de rechargement du Timer T0)</span><br><div class="Img3 GImage"><img src="img/SEOS_Timer_T0_03.png" alt="img/SEOS_Timer_T0_03.png"></div><br><span class="GColor1" style="color:lime;">Analyse de performance (Processeur en mode Idle à 91.2 % du temps)</span><br><div class="Img3 GImage"><img src="img/SEOS_Timer_T0_04.png" alt="img/SEOS_Timer_T0_04.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Gérer les machines à états finis"><a class="Link3" href="#">Gérer les machines à états finis</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">gérer les machines à états finis</span> avec le C 8051.<br>Produit par <b>Gérard KESSE.</b><br><br>Le structure logicielle machine à états finis permet de gérer des applications embarqués sous la forme d'une séquences d'états finis.<br><br><h3 class="Title8 GTitle3">Programme principal</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Simulation électrique</h3><br><span class="GColor1" style="color:lime;">Diode LED éteinte pendant 1s</span><br><div class="Img3 GImage"><img src="img/SEOS_Timer_T0.png" alt="img/SEOS_Timer_T0.png"></div><br><span class="GColor1" style="color:lime;">Diode LED allumée pendant 1s</span><br><div class="Img3 GImage"><img src="img/SEOS_Timer_T0_02.png" alt="img/SEOS_Timer_T0_02.png"></div><br><span class="GColor1" style="color:lime;">Forme d'onde (Influence du temps de rechargement du Timer T0)</span><br><div class="Img3 GImage"><img src="img/SEOS_Timer_T0_03.png" alt="img/SEOS_Timer_T0_03.png"></div><br><span class="GColor1" style="color:lime;">Analyse de performance (Processeur en mode Idle à 91.2 % du temps)</span><br><div class="Img3 GImage"><img src="img/SEOS_Timer_T0_04.png" alt="img/SEOS_Timer_T0_04.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Gérer les machines à états finis"><a class="Link3" href="#">Gérer les machines à états finis</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">gérer les machines à états finis</span> avec le C 8051.<br>Produit par <b>Gérard KESSE.</b><br><br>Le structure logicielle machine à états finis permet de gérer des applications embarqués sous la forme d'une séquences d'états finis.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1534501082744"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1534501082744");</script></div><br><h2 class="Title7 GTitle2" id="Gérer les machines à états finis-Programme principal"><a class="Link9" href="#Gérer les machines à états finis">Programme principal</a></h2><br><h3 class="Title8 GTitle3">Programme principal</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 void main() {
 	GSeos_Init(1);
 	GTrafficLights_Init();
@@ -772,7 +772,166 @@ void main() {
 	    GSeos_Go_To_Sleep();
 	}
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Simulation électrique</h3><br><span class="GColor1" style="color:lime;">Système de gestion de feux tricolores</span><div class="Img3 GImage"><img src="img/Machine_Etats_Finis_SEOS.png" alt="img/Machine_Etats_Finis_SEOS.png"></div><br><span class="GColor1" style="color:lime;">Voie 1 ROUGE - Voie 2 VERT</span><div class="Img3 GImage"><img src="img/Machine_Etats_Finis_SEOS_02.png" alt="img/Machine_Etats_Finis_SEOS_02.png"></div><br><span class="GColor1" style="color:lime;">Voie 1 ROUGE - Voie 2 ORANGE</span><div class="Img3 GImage"><img src="img/Machine_Etats_Finis_SEOS_03.png" alt="img/Machine_Etats_Finis_SEOS_03.png"></div><br><span class="GColor1" style="color:lime;">Voie 1 ROUGE - Voie 2 ROUGE </span><div class="Img3 GImage"><img src="img/Machine_Etats_Finis_SEOS_04.png" alt="img/Machine_Etats_Finis_SEOS_04.png"></div><br><span class="GColor1" style="color:lime;">Voie 1 VERT - Voie 2 ROUGE </span><div class="Img3 GImage"><img src="img/Machine_Etats_Finis_SEOS_05.png" alt="img/Machine_Etats_Finis_SEOS_05.png"></div><br><span class="GColor1" style="color:lime;">Voie 1 ORANGE- Voie 2 ROUGE</span><div class="Img3 GImage"><img src="img/Machine_Etats_Finis_SEOS_06.png" alt="img/Machine_Etats_Finis_SEOS_06.png"></div><br><span class="GColor1" style="color:lime;">Voie 1 ROUGE - Voie 2 ROUGE</span><div class="Img3 GImage"><img src="img/Machine_Etats_Finis_SEOS_07.png" alt="img/Machine_Etats_Finis_SEOS_07.png"></div><br><span class="GColor1" style="color:lime;">Forme d'onde (Voie 1)<br></span><div class="Img3 GImage"><img src="img/Machine_Etats_Finis_SEOS_08.png" alt="img/Machine_Etats_Finis_SEOS_08.png"></div><br><span class="GColor1" style="color:lime;">Forme d'onde (Voie 2)<br></span><div class="Img3 GImage"><img src="img/Machine_Etats_Finis_SEOS_09.png" alt="img/Machine_Etats_Finis_SEOS_09.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Gérer les communications RS232"><a class="Link3" href="#">Gérer les communications RS232</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">gérer les communications RS232</span> avec le C 8051.<br>Produit par <b>Gérard KESSE</b>.<br><br>Le protocole RS232 permet d’effectuer des communications entre le microcontrôleur et l'ordinateur.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1534460389689"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1534460389689");</script></div><br><h2 class="Title7 GTitle2" id="Gérer les communications RS232-Programme principal"><a class="Link9" href="#Gérer les communications RS232">Programme principal</a></h2><br><h3 class="Title8 GTitle3">Programme principal</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Gérer les machines à états finis-Système d'exploitation embarqué simple"><a class="Link9" href="#Gérer les machines à états finis">Système d'exploitation embarqué simple</a></h2><br><h3 class="Title8 GTitle3">Mise à jour du sEOS</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GSeos_Update() interrupt INTERRUPT_TIMER_T2 {    
+    TF2 = 0;
+    GTrafficLights_Light_L1();
+    GTrafficLights_Light_L2();
+}
+//===============================================
+</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Gérer les machines à états finis-Feux de circulation"><a class="Link9" href="#Gérer les machines à états finis">Feux de circulation</a></h2><br><h3 class="Title8 GTitle3">Initialisation de l'état du système</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+typedef enum eGLight {RED, RED_AMBER, RED_RED_1, GREEN, AMBER, RED_RED_2} eGLight;
+//===============================================
+static eGLight gLight_L1_State = RED;
+static eGLight gLight_L2_State = GREEN;
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Initialisation des feux de circulation</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GTrafficLights_Init() {
+    LIGHT_RED_L1 = LIGHT_OFF;
+    LIGHT_AMBER_L1 = LIGHT_OFF;
+    LIGHT_GREEN_L1 = LIGHT_OFF;
+    
+    LIGHT_RED_L2 = LIGHT_OFF;
+    LIGHT_AMBER_L2 = LIGHT_OFF;
+    LIGHT_GREEN_L2 = LIGHT_OFF;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Mise à jour des feux de circulation Voie 1</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GTrafficLights_Light_L1() {
+    if(++gLight_L1_Time >= 100) {
+        gLight_L1_Time = 0;
+        switch(gLight_L1_State) {
+            case RED: {
+                LIGHT_RED_L1 = LIGHT_ON;
+                LIGHT_AMBER_L1 = LIGHT_OFF;
+                LIGHT_GREEN_L1 = LIGHT_OFF;
+                if(++gLight_L1_Duration >= LIGHT_RED_DURATION) {
+                    gLight_L1_State = RED_AMBER;
+                    gLight_L1_Duration = 0;    
+                } 
+                break;
+            }
+            case RED_AMBER: {
+                LIGHT_RED_L1 = LIGHT_ON;
+                LIGHT_AMBER_L1 = LIGHT_OFF;
+                LIGHT_GREEN_L1 = LIGHT_OFF;
+                if(++gLight_L1_Duration >= LIGHT_RED_AMBER_DURATION) {
+                    gLight_L1_State = RED_RED_1;
+                    gLight_L1_Duration = 0;    
+                } 
+                break;
+            }
+            case RED_RED_1: {
+                LIGHT_RED_L1 = LIGHT_ON;
+                LIGHT_AMBER_L1 = LIGHT_OFF;
+                LIGHT_GREEN_L1 = LIGHT_OFF;
+                if(++gLight_L1_Duration >= LIGHT_RED_RED_1_DURATION) {
+                    gLight_L1_State = GREEN;
+                    gLight_L1_Duration = 0;    
+                } 
+                break;
+            }
+            case GREEN: {
+                LIGHT_RED_L1 = LIGHT_OFF;
+                LIGHT_AMBER_L1 = LIGHT_OFF;
+                LIGHT_GREEN_L1 = LIGHT_ON;
+                if(++gLight_L1_Duration >= LIGHT_GREEN_DURATION) {
+                    gLight_L1_State = AMBER;
+                    gLight_L1_Duration = 0;    
+                } 
+                break;
+            }
+            case AMBER: {
+                LIGHT_RED_L1 = LIGHT_OFF;
+                LIGHT_AMBER_L1 = LIGHT_ON;
+                LIGHT_GREEN_L1 = LIGHT_OFF;
+                if(++gLight_L1_Duration >= LIGHT_AMBER_DURATION) {
+                    gLight_L1_State = RED_RED_2;
+                    gLight_L1_Duration = 0;    
+                } 
+                break;
+            }
+            case RED_RED_2: {
+                LIGHT_RED_L1 = LIGHT_ON;
+                LIGHT_AMBER_L1 = LIGHT_OFF;
+                LIGHT_GREEN_L1 = LIGHT_OFF;
+                if(++gLight_L1_Duration >= LIGHT_RED_RED_2_DURATION) {
+                    gLight_L1_State = RED;
+                    gLight_L1_Duration = 0;    
+                } 
+                break;
+            }
+        }
+    }
+}
+//===============================================
+</xmp></pre></div><br><h3 class="Title8 GTitle3">Mise à jour des feux de circulation Voie 2</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GTrafficLights_Light_L2() {
+    if(++gLight_L2_Time >= 100) {
+        gLight_L2_Time = 0;
+        switch(gLight_L2_State) {
+            case RED: {
+                LIGHT_RED_L2 = LIGHT_ON;
+                LIGHT_AMBER_L2 = LIGHT_OFF;
+                LIGHT_GREEN_L2 = LIGHT_OFF;
+                if(++gLight_L2_Duration >= LIGHT_RED_DURATION) {
+                    gLight_L2_State = RED_AMBER;
+                    gLight_L2_Duration = 0;    
+                } 
+                break;
+            }
+            case RED_AMBER: {
+                LIGHT_RED_L2 = LIGHT_ON;
+                LIGHT_AMBER_L2 = LIGHT_OFF;
+                LIGHT_GREEN_L2 = LIGHT_OFF;
+                if(++gLight_L2_Duration >= LIGHT_RED_AMBER_DURATION) {
+                    gLight_L2_State = RED_RED_1;
+                    gLight_L2_Duration = 0;    
+                } 
+                break;
+            }
+            case RED_RED_1: {
+                LIGHT_RED_L2 = LIGHT_ON;
+                LIGHT_AMBER_L2 = LIGHT_OFF;
+                LIGHT_GREEN_L2 = LIGHT_OFF;
+                if(++gLight_L2_Duration >= LIGHT_RED_RED_1_DURATION) {
+                    gLight_L2_State = GREEN;
+                    gLight_L2_Duration = 0;    
+                } 
+                break;
+            }
+            case GREEN: {
+                LIGHT_RED_L2 = LIGHT_OFF;
+                LIGHT_AMBER_L2 = LIGHT_OFF;
+                LIGHT_GREEN_L2 = LIGHT_ON;
+                if(++gLight_L2_Duration >= LIGHT_GREEN_DURATION) {
+                    gLight_L2_State = AMBER;
+                    gLight_L2_Duration = 0;    
+                } 
+                break;
+            }
+            case AMBER: {
+                LIGHT_RED_L2 = LIGHT_OFF;
+                LIGHT_AMBER_L2 = LIGHT_ON;
+                LIGHT_GREEN_L2 = LIGHT_OFF;
+                if(++gLight_L2_Duration >= LIGHT_AMBER_DURATION) {
+                    gLight_L2_State = RED_RED_2;
+                    gLight_L2_Duration = 0;    
+                } 
+                break;
+            }
+            case RED_RED_2: {
+                LIGHT_RED_L2 = LIGHT_ON;
+                LIGHT_AMBER_L2 = LIGHT_OFF;
+                LIGHT_GREEN_L2 = LIGHT_OFF;
+                if(++gLight_L2_Duration >= LIGHT_RED_RED_2_DURATION) {
+                    gLight_L2_State = RED;
+                    gLight_L2_Duration = 0;    
+                } 
+                break;
+            }
+        }
+    }
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Gérer les machines à états finis-Simulation électrique"><a class="Link9" href="#Gérer les machines à états finis">Simulation électrique</a></h2><br><h3 class="Title8 GTitle3">Simulation électrique</h3><br><span class="GColor1" style="color:lime;">Système de gestion de feux tricolores</span><div class="Img3 GImage"><img src="img/Machine_Etats_Finis_SEOS.png" alt="img/Machine_Etats_Finis_SEOS.png"></div><br><span class="GColor1" style="color:lime;">Voie 1 ROUGE - Voie 2 VERT</span><div class="Img3 GImage"><img src="img/Machine_Etats_Finis_SEOS_02.png" alt="img/Machine_Etats_Finis_SEOS_02.png"></div><br><span class="GColor1" style="color:lime;">Voie 1 ROUGE - Voie 2 ORANGE</span><div class="Img3 GImage"><img src="img/Machine_Etats_Finis_SEOS_03.png" alt="img/Machine_Etats_Finis_SEOS_03.png"></div><br><span class="GColor1" style="color:lime;">Voie 1 ROUGE - Voie 2 ROUGE </span><div class="Img3 GImage"><img src="img/Machine_Etats_Finis_SEOS_04.png" alt="img/Machine_Etats_Finis_SEOS_04.png"></div><br><span class="GColor1" style="color:lime;">Voie 1 VERT - Voie 2 ROUGE </span><div class="Img3 GImage"><img src="img/Machine_Etats_Finis_SEOS_05.png" alt="img/Machine_Etats_Finis_SEOS_05.png"></div><br><span class="GColor1" style="color:lime;">Voie 1 ORANGE- Voie 2 ROUGE</span><div class="Img3 GImage"><img src="img/Machine_Etats_Finis_SEOS_06.png" alt="img/Machine_Etats_Finis_SEOS_06.png"></div><br><span class="GColor1" style="color:lime;">Voie 1 ROUGE - Voie 2 ROUGE</span><div class="Img3 GImage"><img src="img/Machine_Etats_Finis_SEOS_07.png" alt="img/Machine_Etats_Finis_SEOS_07.png"></div><br><span class="GColor1" style="color:lime;">Forme d'onde (Voie 1)<br></span><div class="Img3 GImage"><img src="img/Machine_Etats_Finis_SEOS_08.png" alt="img/Machine_Etats_Finis_SEOS_08.png"></div><br><span class="GColor1" style="color:lime;">Forme d'onde (Voie 2)<br></span><div class="Img3 GImage"><img src="img/Machine_Etats_Finis_SEOS_09.png" alt="img/Machine_Etats_Finis_SEOS_09.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Gérer les communications RS232"><a class="Link3" href="#">Gérer les communications RS232</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">gérer les communications RS232</span> avec le C 8051.<br>Produit par <b>Gérard KESSE</b>.<br><br>Le protocole RS232 permet d’effectuer des communications entre le microcontrôleur et l'ordinateur.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1534460389689"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1534460389689");</script></div><br><h2 class="Title7 GTitle2" id="Gérer les communications RS232-Programme principal"><a class="Link9" href="#Gérer les communications RS232">Programme principal</a></h2><br><h3 class="Title8 GTitle3">Programme principal</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 void main() {
     GSeos_Init(5);
     GRS232_Init(9600);
