@@ -1,0 +1,21 @@
+{
+    "sitemap":"no",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+            "Gimp est un outil de synthèse d'images 2D.",
+			"Le but de ce tutoriel est de vous apprendre",
+            "la synthèse d'images 2D avec GIMP.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Tutoriels/8051/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/data/img/defaults/gimp.jpg"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"Synthèse d'images 2D","link":"/Tutoriels/#Synthèse d'images 2D","follow":"no"},
+        {"name":"GIMP","link":"","follow":"no"}
+    ]
+}

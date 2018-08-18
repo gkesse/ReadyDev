@@ -167,6 +167,16 @@
 			"follow":"yes"
         }
     ],
+    "image_synthesis":
+    [
+        {
+            "icon":"fa fa-map",
+            "theme":"GIMP",
+            "description":"Apprenez<br/> GIMP",
+            "link":"/Tutoriels/GIMP/",
+			"follow":"yes"
+        }
+    ],
     "navigator":
     [
         {
