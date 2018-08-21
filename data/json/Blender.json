@@ -9,7 +9,8 @@
             "la modélisation 3D avec Blender.",
             "Produit par Gérard KESSE."
         ],
-        "meta_cano":"/Tutoriels/Blender/"
+        "meta_cano":"/Tutoriels/Blender/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/data/img/defaults/blender.jpg"
     },    
     "links":
     [
