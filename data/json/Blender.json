@@ -15,6 +15,7 @@
     "links":
     [
         {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"Modélisation 3D","link":"/Tutoriels/#Modélisation 3D","follow":"no"},
         {"name":"Blender","link":"","follow":"no"}
     ]
 }
