@@ -1,0 +1,21 @@
+{
+    "sitemap":"no",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+            "Jenkins est un système d'intégration continue.",
+            "Le but de ce tutoriel est de vous apprendre",
+            "l'intégration continue avec Jenkins.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Tutoriels/Jenkins/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/data/img/defaults/jenkins.png"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"Intégration Continue","link":"/Tutoriels/#Intégration Continue","follow":"no"},
+        {"name":"Jenkins","link":"","follow":"no"}
+    ]
+}

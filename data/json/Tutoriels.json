@@ -116,6 +116,16 @@
 			"follow":"no"
         }
     ],
+    "integration":
+    [
+        {
+            "icon":"fa fa-sitemap",
+            "theme":"Jenkins",
+            "description":"Apprenez le<br/> Jenkins",
+            "link":"/Tutoriels/Jenkins/",
+			"follow":"yes"
+        }
+    ],
     "embedded":
     [
         {
