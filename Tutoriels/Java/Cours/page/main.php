@@ -101,4 +101,50 @@ echo.
 pause</xmp></pre></div><br><h3 class="Title8 GTitle3">Construire le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
 
 call cmd_jar.bat
-call cmd_run.bat</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Ant.png" alt="img/Ant.png"></div></div></div></div></div><br>
+call cmd_run.bat</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Ant.png" alt="img/Ant.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Utilisation d'Apache Maven"><a class="Link3" href="#">Utilisation d'Apache Maven</a></h1><div class="Body3">Le but de cette section est de vous apprendre à utiliser <span class="GColor1" style="color:lime;">Apache Maven</span>, sous Windows.<br>Produit par <b>Gérard KESSE</b>.<br><br>Apache Maven permet d'automatiser la compilation de projets Java.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1535539889903"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1535539889903");</script></div><br><h2 class="Title7 GTitle2" id="Utilisation d'Apache Maven-Fichier source unique"><a class="Link9" href="#Utilisation d'Apache Maven">Fichier source unique</a></h2><br><h3 class="Title8 GTitle3">Créer le projet<br></h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
+
+set PATH=C:\Users\sabine\Downloads\Gerard\apache-maven-3.5.4\bin
+set JAVA_HOME=C:\Program Files\Java\jdk-10.0.2
+
+set GROOT=..
+set GGROUPID=com.ready.dev
+set GARTIFACTID=GProject
+
+cd %GROOT%
+mvn archetype:generate ^
+-DgroupId=%GGROUPID% ^
+-DartifactId=%GARTIFACTID%</xmp></pre></div><br><h3 class="Title8 GTitle3">Programme principal (App.java)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="java">//===============================================
+package com.ready.dev;
+//===============================================
+public class App {
+    public static void main(String[] args) {
+        System.out.println("Bonjour tout le monde");
+    }
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Nettoyer le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
+
+set PATH=C:\Users\sabine\Downloads\Gerard\apache-maven-3.5.4\bin
+set JAVA_HOME=C:\Program Files\Java\jdk-10.0.2
+
+set GPOMFILE=..\GProject\pom.xml
+
+mvn -f %GPOMFILE% clean</xmp></pre></div><br><h3 class="Title8 GTitle3">Compiler le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
+
+set PATH=C:\Users\sabine\Downloads\Gerard\apache-maven-3.5.4\bin
+set JAVA_HOME=C:\Program Files\Java\jdk-10.0.2
+
+set GPOMFILE=..\GProject\pom.xml
+
+mvn -f %GPOMFILE% compile</xmp></pre></div><br><h3 class="Title8 GTitle3">Configurer le plugin Surefire</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="xml"><!-- ============================================ -->
+<plugin>
+    <artifactId>maven-surefire-plugin</artifactId>
+    <version>2.19.1</version>
+</plugin>
+<!-- ============================================ --></xmp></pre></div><br><h3 class="Title8 GTitle3">Tester le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
+
+set PATH=C:\Users\sabine\Downloads\Gerard\apache-maven-3.5.4\bin
+set JAVA_HOME=C:\Program Files\Java\jdk-10.0.2
+
+set GPOMFILE=..\GProject\pom.xml
+
+mvn -f %GPOMFILE% test</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Maven.png" alt="img/Maven.png"></div></div></div></div></div><br>
