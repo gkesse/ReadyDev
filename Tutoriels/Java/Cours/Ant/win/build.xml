@@ -20,7 +20,7 @@
         <javac srcdir="${GSRC}" destdir="${GBUILD}"/>
     </target>
     <!-- ============================================ -->
-    <!-- Packager le projet -->
+    <!-- Empaqueter le projet -->
     <target name="jar" depends="compile">
         <mkdir dir="${GJAR}"/>
         <jar destfile="${GJARFILE}" basedir="${GBUILD}">

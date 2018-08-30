@@ -34,7 +34,7 @@ public class GMain {
       System.out.println("Bonjour tout le monde");
    }
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Fichier de construction du projet (build.xml)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="xml"><?xml version="1.0" encoding="UTF-8"?>
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Fichier de construction du projet (build.xml)</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="xml"><?xml version="1.0" encoding="UTF-8"?>
 <project default="run">
     <!-- ============================================ -->
     <!-- Propriétés du projet -->
@@ -56,7 +56,7 @@ public class GMain {
         <javac srcdir="${GSRC}" destdir="${GBUILD}"/>
     </target>
     <!-- ============================================ -->
-    <!-- Packager le projet -->
+    <!-- Empaqueter le projet -->
     <target name="jar" depends="compile">
         <mkdir dir="${GJAR}"/>
         <jar destfile="${GJARFILE}" basedir="${GBUILD}">
@@ -81,7 +81,7 @@ ant clean</xmp></pre></div><br><h3 class="Title8 GTitle3">Compiler le projet</h3
 set PATH=C:\Program Files\Java\jdk-10.0.2\bin
 set PATH=C:\Users\sabine\Downloads\Gerard\apache-ant-1.10.5\bin;%PATH%
 
-ant compile</xmp></pre></div><br><h3 class="Title8 GTitle3">Générer le fichier JAR</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
+ant compile</xmp></pre></div><br><h3 class="Title8 GTitle3">Empaqueter le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
 
 set PATH=C:\Program Files\Java\jdk-10.0.2\bin
 set PATH=C:\Users\sabine\Downloads\Gerard\apache-ant-1.10.5\bin;%PATH%
@@ -152,7 +152,7 @@ set JAVA_HOME=C:\Program Files\Java\jdk-10.0.2
 
 set GPOM=..\GProject\pom.xml
 
-mvn -f %GPOM% compile</xmp></pre></div><br><h3 class="Title8 GTitle3">Packager le projet<br></h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
+mvn -f %GPOM% compile</xmp></pre></div><br><h3 class="Title8 GTitle3">Empaqueter le projet<br></h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
 
 set PATH=C:\Users\sabine\Downloads\Gerard\apache-maven-3.5.4\bin
 set JAVA_HOME=C:\Program Files\Java\jdk-10.0.2
