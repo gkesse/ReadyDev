@@ -92,10 +92,10 @@ echo.</xmp></pre></div><br><h3 class="Title8 GTitle3">Exécuter le projet avec J
 
 set PATH=C:\Program Files\Java\jdk-10.0.2\bin
 
-set GJARFILE=jar\GMain.jar
+set GJAR=jar\GMain.jar
 
 echo.
-java -jar %GJARFILE%
+java -jar %GJAR%
 echo.
 
 pause</xmp></pre></div><br><h3 class="Title8 GTitle3">Construire le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
@@ -121,30 +121,76 @@ public class App {
         System.out.println("Bonjour tout le monde");
     }
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Nettoyer le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
-
-set PATH=C:\Users\sabine\Downloads\Gerard\apache-maven-3.5.4\bin
-set JAVA_HOME=C:\Program Files\Java\jdk-10.0.2
-
-set GPOMFILE=..\GProject\pom.xml
-
-mvn -f %GPOMFILE% clean</xmp></pre></div><br><h3 class="Title8 GTitle3">Compiler le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
-
-set PATH=C:\Users\sabine\Downloads\Gerard\apache-maven-3.5.4\bin
-set JAVA_HOME=C:\Program Files\Java\jdk-10.0.2
-
-set GPOMFILE=..\GProject\pom.xml
-
-mvn -f %GPOMFILE% compile</xmp></pre></div><br><h3 class="Title8 GTitle3">Configurer le plugin Surefire</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="xml"><!-- ============================================ -->
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Configurer le plugin Surefire (pom.xml)<br></h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="xml"><!-- ============================================ -->
 <plugin>
     <artifactId>maven-surefire-plugin</artifactId>
     <version>2.19.1</version>
 </plugin>
-<!-- ============================================ --></xmp></pre></div><br><h3 class="Title8 GTitle3">Tester le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
+<!-- ============================================ --></xmp></pre></div><br><h3 class="Title8 GTitle3">Nettoyer le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
 
 set PATH=C:\Users\sabine\Downloads\Gerard\apache-maven-3.5.4\bin
 set JAVA_HOME=C:\Program Files\Java\jdk-10.0.2
 
-set GPOMFILE=..\GProject\pom.xml
+set GPOM=..\GProject\pom.xml
 
-mvn -f %GPOMFILE% test</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Maven.png" alt="img/Maven.png"></div></div></div></div></div><br>
+mvn -f %GPOM% clean</xmp></pre></div><br><h3 class="Title8 GTitle3">Valider le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
+
+set PATH=C:\Users\sabine\Downloads\Gerard\apache-maven-3.5.4\bin
+set JAVA_HOME=C:\Program Files\Java\jdk-10.0.2
+
+set GPOM=..\Projet_Creer\GProject\pom.xml
+
+mvn -f %GPOM% validate</xmp></pre></div><br><h3 class="Title8 GTitle3">Compiler le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
+
+set PATH=C:\Users\sabine\Downloads\Gerard\apache-maven-3.5.4\bin
+set JAVA_HOME=C:\Program Files\Java\jdk-10.0.2
+
+set GPOM=..\GProject\pom.xml
+
+mvn -f %GPOM% compile</xmp></pre></div><br><h3 class="Title8 GTitle3">Packager le projet<br></h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
+
+set PATH=C:\Users\sabine\Downloads\Gerard\apache-maven-3.5.4\bin
+set JAVA_HOME=C:\Program Files\Java\jdk-10.0.2
+
+set GPOM=..\Projet_Creer\GProject\pom.xml
+
+mvn -f %GPOM% package</xmp></pre></div><br><h3 class="Title8 GTitle3">Tester le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
+
+set PATH=C:\Users\sabine\Downloads\Gerard\apache-maven-3.5.4\bin
+set JAVA_HOME=C:\Program Files\Java\jdk-10.0.2
+
+set GPOM=..\GProject\pom.xml
+
+mvn -f %GPOM% test</xmp></pre></div><br><h3 class="Title8 GTitle3">Installer le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
+
+set PATH=C:\Users\sabine\Downloads\Gerard\apache-maven-3.5.4\bin
+set JAVA_HOME=C:\Program Files\Java\jdk-10.0.2
+
+set GPOM=..\Projet_Creer\GProject\pom.xml
+
+mvn -f %GPOM% install</xmp></pre></div><br><h3 class="Title8 GTitle3">Vérifier le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
+
+set PATH=C:\Users\sabine\Downloads\Gerard\apache-maven-3.5.4\bin
+set JAVA_HOME=C:\Program Files\Java\jdk-10.0.2
+
+set GPOM=..\Projet_Creer\GProject\pom.xml
+
+mvn -f %GPOM% verify</xmp></pre></div><br><h3 class="Title8 GTitle3">Test d'intégration du projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
+
+set PATH=C:\Users\sabine\Downloads\Gerard\apache-maven-3.5.4\bin
+set JAVA_HOME=C:\Program Files\Java\jdk-10.0.2
+
+set GPOM=..\Projet_Creer\GProject\pom.xml
+
+mvn -f %GPOM% integration-test</xmp></pre></div><br><h3 class="Title8 GTitle3">Exécuter le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
+
+set PATH=C:\Program Files\Java\jdk-10.0.2\bin
+
+set GMAIN=com.ready.dev.App
+set CLASSPATH=..\Projet_Creer\GProject\target\GProject-1.0-SNAPSHOT.jar
+
+echo.
+java %GMAIN%
+echo.
+
+pause</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Maven.png" alt="img/Maven.png"></div></div></div></div></div><br>
