@@ -147,4 +147,4 @@ set JAVA_HOME=C:\Program Files\Java\jdk-10.0.2
 
 set GPOMFILE=..\GProject\pom.xml
 
-mvn -f %GPOMFILE% test</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Maven.png" alt="img/Maven.png"></div></div></div></div></div><br>
+mvn -f %GPOMFILE% test</xmp></pre></div><br><h3 class="Title8 GTitle3">Créer un fichier exécutable JAR</h3><br><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Maven.png" alt="img/Maven.png"></div></div></div></div></div><br>
