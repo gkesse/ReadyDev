@@ -5,4 +5,4 @@ set JAVA_HOME=C:\Program Files\Java\jdk-10.0.2
 
 set GPOM=..\Projet_Creer\GProject\pom.xml
 
-mvn -f %GPOM% validate
+mvn -f %GPOM% install

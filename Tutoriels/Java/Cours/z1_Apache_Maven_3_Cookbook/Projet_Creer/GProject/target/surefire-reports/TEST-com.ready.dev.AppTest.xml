@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.ready.dev.AppTest" time="0.067" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.ready.dev.AppTest" time="0.05" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="10.0.2+13"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-10.0.2\bin"/>
-    <property name="maven.multiModuleProjectDirectory" value="C:\Users\sabine\Downloads\Gerard\Programs\ReadyDev\Tutoriels\Java\Cours\z1_Apache_Maven_3_Cookbook\Projet_Package"/>
+    <property name="maven.multiModuleProjectDirectory" value="C:\Users\sabine\Downloads\Gerard\Programs\ReadyDev\Tutoriels\Java\Cours\z1_Apache_Maven_3_Cookbook\Projet_Deployer"/>
     <property name="java.vm.vendor" value="&quot;Oracle Corporation&quot;"/>
     <property name="java.vendor.url" value="http://java.oracle.com/"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
@@ -16,7 +16,7 @@
     <property name="user.country" value="FR"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="C:\Users\sabine\Downloads\Gerard\Programs\ReadyDev\Tutoriels\Java\Cours\z1_Apache_Maven_3_Cookbook\Projet_Package"/>
+    <property name="user.dir" value="C:\Users\sabine\Downloads\Gerard\Programs\ReadyDev\Tutoriels\Java\Cours\z1_Apache_Maven_3_Cookbook\Projet_Deployer"/>
     <property name="java.vm.compressedOopsMode" value="32-bit"/>
     <property name="java.runtime.version" value="10.0.2+13"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
@@ -45,7 +45,7 @@
     <property name="java.class.path" value="C:\Users\sabine\Downloads\Gerard\apache-maven-3.5.4\bin\..\boot\plexus-classworlds-2.5.2.jar"/>
     <property name="java.vm.specification.version" value="10"/>
     <property name="sun.arch.data.model" value="64"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -f ..\Projet_Creer\GProject\pom.xml package"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -f ..\Projet_Creer\GProject\pom.xml deploy"/>
     <property name="java.home" value="C:\Program Files\Java\jdk-10.0.2"/>
     <property name="user.language" value="fr"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
@@ -65,5 +65,5 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase name="shouldAnswerWithTrue" classname="com.ready.dev.AppTest" time="0.001"/>
+  <testcase name="shouldAnswerWithTrue" classname="com.ready.dev.AppTest" time="0.002"/>
 </testsuite>
