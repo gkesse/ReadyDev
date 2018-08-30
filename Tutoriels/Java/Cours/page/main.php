@@ -37,22 +37,26 @@ public class GMain {
 //===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Fichier de construction du projet (build.xml)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="xml"><?xml version="1.0" encoding="UTF-8"?>
 <project default="run">
     <!-- ============================================ -->
+    <!-- Propriétés du projet -->
     <property name="GSRC" value="../src"/>
     <property name="GBUILD" value="build"/>
     <property name="GJAR" value="jar"/>
     <property name="GJARFILE" value="jar/GMain.jar"/>
     <property name="GMAIN" value="GMain"/>
     <!-- ============================================ -->
+    <!-- Nettoyer le projet -->
     <target name="clean">
         <delete dir="${GBUILD}"/>
         <delete dir="${GJAR}"/>
     </target>
     <!-- ============================================ -->
+    <!-- Compiler le projet -->
     <target name="compile" depends="clean">
         <mkdir dir="${GBUILD}"/>
         <javac srcdir="${GSRC}" destdir="${GBUILD}"/>
     </target>
     <!-- ============================================ -->
+    <!-- Packager le projet -->
     <target name="jar" depends="compile">
         <mkdir dir="${GJAR}"/>
         <jar destfile="${GJARFILE}" basedir="${GBUILD}">
@@ -62,6 +66,7 @@ public class GMain {
         </jar>
     </target>
     <!-- ============================================ -->
+    <!-- Exécuter le projet -->
     <target name="run" depends="jar">
         <java jar="${GJARFILE}" fork="true"/>
     </target>
