@@ -559,7 +559,7 @@ var GEditor = (function() {
                         }
                     }
                     if(!lSelection.toString()) return;
-                	var lArg = prompt("Langage ?", "c_cpp");
+                	var lArg = prompt("Langage ?", "batchfile");
                     if(!lArg) return;
 					var lArgMap = lArg.split(";");
                     if(lArgMap.length < 1) return;

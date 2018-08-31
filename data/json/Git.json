@@ -1,35 +1,21 @@
 {
-    "sitemap":"yes",
+    "sitemap":"no",
     "meta_data":
     {
         "meta_desc":
         [
-            "Démarrez la gestion de versions en Git, commencez par les notions de base", 
-            "gérez aisement les différentes versions de vos projets, maîtrisez l'intégration continue."
+            "Git est un système de gestion de versions.",
+			"Le but de ce tutoriel est de vous apprendre",
+            "la gestion de version avec Git.",
+            "Produit par Gérard KESSE."
         ],
-        "meta_cano":"/Tutoriels/Git/"
+        "meta_cano":"/Tutoriels/Git/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/data/img/defaults/git.jpg"
     },    
     "links":
     [
-        {"name":"Tutoriels","link":"/Tutoriels/"},
-        {"name":"Git","link":""}
-    ],
-    "summary":
-    [
-        {"name":"Notions de Base","link":"#Notions"}
-    ],
-    "notion":
-    {
-        "basic":
-        [
-            {"name":"Boucle","link":"#"},
-            {"name":"Clavier","link":"#"},
-            {"name":"Condition","link":"#"},
-            {"name":"Console","link":"#"},
-            {"name":"Fonction","link":"#"},
-            {"name":"Tableau","link":"#"},
-            {"name":"Variable","link":"#"}
-        ]
-    }
+        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"Gestion de Version","link":"/Tutoriels/#Système de Gestion de Version","follow":"no"},
+        {"name":"Git","link":"","follow":"no"}
+    ]
 }
-                        

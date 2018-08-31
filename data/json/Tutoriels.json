@@ -98,8 +98,8 @@
             "icon":"fa fa-sitemap",
             "theme":"Git",
             "description":"Apprenez le<br/> Git",
-            "link":"#",
-			"follow":"no"
+            "link":"/Tutoriels/Git/",
+			"follow":"yes"
         },
         {
             "icon":"fa fa-sitemap",
