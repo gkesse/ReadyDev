@@ -2,7 +2,9 @@
 
 set PATH=C:\Program Files\Git\bin;%PATH%
 
-git --version
+cd ..\GDepot
+
+git reset
 
 echo.
 pause
