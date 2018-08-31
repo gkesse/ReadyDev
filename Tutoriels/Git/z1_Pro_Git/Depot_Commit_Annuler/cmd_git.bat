@@ -2,7 +2,9 @@
 
 set PATH=C:\Program Files\Git\bin;%PATH%
 
-git reset --help
+cd ..\GDepot
+
+git commit --amend
 
 echo.
 pause
