@@ -90,6 +90,13 @@
             "description":"Programmez en<br/> PHP",
             "link":"/Tutoriels/PHP/",
 			"follow":"yes"
+        },
+        {
+            "icon":"fa fa-globe",
+            "theme":"JavaEE",
+            "description":"Programmez en<br/> JavaEE",
+            "link":"/Tutoriels/JavaEE/",
+			"follow":"yes"
         }
     ],
     "version":

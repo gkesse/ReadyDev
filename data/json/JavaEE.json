@@ -1,0 +1,20 @@
+{
+    "sitemap":"no",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+            "JavaEE est un langage de programmation web.",
+			"Le but de ce tutoriel est de vous apprendre",
+            "la programmation web avec le JavaEE.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Tutoriels/JavaEE/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/data/img/defaults/javaee.jpg"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"JavaEE","link":"","follow":"no"}
+    ]
+}
