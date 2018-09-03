@@ -10,6 +10,9 @@
 /**/Joomla/root/
 /**/GDepot/
 /**/.metadata/
+/**/.settings/
+/**/build/classes/
+/**/WecContent/
 
 #================================================
 # File
@@ -17,6 +20,8 @@
 
 /**/views.json
 /**/messages.json
+/**/.classpath
+/**/.project
 /**/qmake/Makefile*
 /data/sitemaps/*xml
 /**/~$*
