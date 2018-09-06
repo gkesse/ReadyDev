@@ -12,8 +12,110 @@ eclipse</xmp></pre></div><br><h3 class="Title8 GTitle3">Configurer le workspace<
 </head>
 <body>
     <!-- ============================================ -->
-    <b>Ma page web</b>
+    <h1>HTML</h1>
+    <p>Bonjour tout le monde</p>
     <!-- ============================================ -->
 </body>
 </html>
-<!-- ============================================ --></xmp></pre></div><br><h2 class="Title7 GTitle2" id="Utilisation d'Eclipse-Démarrer le serveur de données web"><a class="Link9" href="#Utilisation d'Eclipse">Démarrer le serveur de données web</a></h2><br><h3 class="Title8 GTitle3">Démarrer le serveur de données web<br></h3><div class="Img3 GImage"><img src="img/Eclipse_18.png" alt="img/Eclipse_18.png"></div><br><h3 class="Title8 GTitle3">Continuer</h3><div class="Img3 GImage"><img src="img/Eclipse_19.png" alt="img/Eclipse_19.png"></div><br><h3 class="Title8 GTitle3">Terminer</h3><div class="Img3 GImage"><img src="img/Eclipse_20.png" alt="img/Eclipse_20.png"></div><br><h3 class="Title8 GTitle3">Autoriser l'accès au réseau</h3><div class="Img3 GImage"><img src="img/Eclipse_21.png" alt="img/Eclipse_21.png"></div><br><h2 class="Title7 GTitle2" id="Utilisation d'Eclipse-Accéder au serveur de données web"><a class="Link9" href="#Utilisation d'Eclipse">Accéder au serveur de données web</a></h2><br><h3 class="Title8 GTitle3">Accéder au serveur de données web</h3><a class="Link7 GLink1" style="color:lime;" target="_blank" href="http://localhost:8081/GProject/">http://localhost:8081/GProject/</a><br><br><h3 class="Title8 GTitle3">Page web</h3><div class="Img3 GImage"><img src="img/Eclipse_30.png" alt="img/Eclipse_30.png"></div></div></div></div></div><br>
+<!-- ============================================ --></xmp></pre></div><br><h3 class="Title8 GTitle3">Fichier de configuration serveur (web.xml)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="xml"><?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
+xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
+http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" 
+id="WebApp_ID" version="4.0">
+    <display-name>GProject</display-name>
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.htm</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>default.html</welcome-file>
+        <welcome-file>default.htm</welcome-file>
+        <welcome-file>default.jsp</welcome-file>
+    </welcome-file-list>
+</web-app></xmp></pre></div><br><h2 class="Title7 GTitle2" id="Utilisation d'Eclipse-Démarrer le serveur de données web"><a class="Link9" href="#Utilisation d'Eclipse">Démarrer le serveur de données web</a></h2><br><h3 class="Title8 GTitle3">Démarrer le serveur de données web<br></h3><div class="Img3 GImage"><img src="img/Eclipse_18.png" alt="img/Eclipse_18.png"></div><br><h3 class="Title8 GTitle3">Continuer</h3><div class="Img3 GImage"><img src="img/Eclipse_19.png" alt="img/Eclipse_19.png"></div><br><h3 class="Title8 GTitle3">Terminer</h3><div class="Img3 GImage"><img src="img/Eclipse_20.png" alt="img/Eclipse_20.png"></div><br><h3 class="Title8 GTitle3">Autoriser l'accès au réseau</h3><div class="Img3 GImage"><img src="img/Eclipse_21.png" alt="img/Eclipse_21.png"></div><br><h2 class="Title7 GTitle2" id="Utilisation d'Eclipse-Accéder au serveur de données web"><a class="Link9" href="#Utilisation d'Eclipse">Accéder au serveur de données web</a></h2><br><h3 class="Title8 GTitle3">Accéder au serveur de données web</h3><a class="Link7 GLink1" style="color:lime;" target="_blank" href="http://localhost:8081/GProject/">http://localhost:8081/GProject/</a><br><br><h3 class="Title8 GTitle3">Page web</h3><div class="Img3 GImage"><img src="img/Eclipse_30.png" alt="img/Eclipse_30.png"></div><br><h2 class="Title7 GTitle2" id="Utilisation d'Eclipse-Créer une classe Java"><a class="Link9" href="#Utilisation d'Eclipse">Créer une classe Java</a></h2><br><div class="Img3 GImage"><img src="img/Eclipse_31.png" alt="img/Eclipse_31.png"></div><br><div class="Img3 GImage"><img src="img/Eclipse_32.png" alt="img/Eclipse_32.png"></div><br><div class="Img3 GImage"><img src="img/Eclipse_33.png" alt="img/Eclipse_33.png"></div><br><h2 class="Title7 GTitle2" id="Utilisation d'Eclipse-Créer un fichier JSP"><a class="Link9" href="#Utilisation d'Eclipse">Créer un fichier JSP</a></h2><br><br><div class="Img3 GImage"><img src="img/Eclipse_34.png" alt="img/Eclipse_34.png"></div><br><div class="Img3 GImage"><img src="img/Eclipse_35.png" alt="img/Eclipse_35.png"></div><br><br><br><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Créer une page HTML"><a class="Link3" href="#">Créer une page HTML</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">créer une page HTML</span> avec le JavaEE.<br>Produit par <b>Gérard KESSE</b>.<br><br><h3 class="Title8 GTitle3">Créer une page HTML (index.html)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="html"><!-- ============================================ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JavaEE | ReadyDev</title>
+</head>
+<body>
+    <!-- ============================================ -->
+    <h1>HTML</h1>
+    <p>Bonjour tout le monde</p>
+    <!-- ============================================ -->
+</body>
+</html>
+<!-- ============================================ --></xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Html.png" alt="img/Html.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Créer une servlet"><a class="Link3" href="#">Créer une servlet</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">créer une servlet</span> avec le JavaEE.<br>Produit par <b>Gérard KESSE</b>.<br><br>Une servlet permet de créer dynamiquement des données au sein d'un serveur HTTP.<br><br><h3 class="Title8 GTitle3">Créer la servlet (GServlet.java)<br></h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="java">package com.ready.dev;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class GServlet extends HttpServlet {
+	// ===============================================
+	public void doGet(HttpServletRequest request, HttpServletResponse response) 
+    throws ServletException, IOException {
+		response.setContentType("text/html");
+		response.setCharacterEncoding("UTF-8");
+		PrintWriter lPrintWriter = response.getWriter();
+		lPrintWriter.println("<!DOCTYPE html>");
+		lPrintWriter.println("<html>");
+		lPrintWriter.println("<head>");
+		lPrintWriter.println("<meta charset=\"utf-8\" />");
+		lPrintWriter.println("<title>JavaEE | ReadyDev</title>");
+		lPrintWriter.println("</head>");
+		lPrintWriter.println("<body>");
+		lPrintWriter.println("<h1>Servlet</h1>");
+		lPrintWriter.println("<p>Bonjour tout le monde</p>");
+		lPrintWriter.println("</body>");
+		lPrintWriter.println("</html>");
+	}
+	// ===============================================
+}</xmp></pre></div><br><h3 class="Title8 GTitle3">Fichier de configuration serveur (web.xml)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="xml"><?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
+xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
+http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" 
+id="WebApp_ID" version="4.0">
+    <servlet>
+        <servlet-name>GServlet</servlet-name>
+        <servlet-class>com.ready.dev.GServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GServlet</servlet-name>
+        <url-pattern>/Servlet</url-pattern>
+    </servlet-mapping>
+</web-app></xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><a class="Link7 GLink1" style="color:lime;" target="_blank" href="http://localhost:8081/GProject/Servlet">http://localhost:8081/GProject/Servlet</a><br><br><div class="Img3 GImage"><img src="img/Servlet.png" alt="img/Servlet.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Créer une JSP"><a class="Link3" href="#">Créer une JSP</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">créer une JSP</span> avec le JavaEE.<br>Produit par <b>Gérard KESSE</b>.<br><br>Une JSP permet de créer dynamiquement du code HTML.<br><br><h3 class="Title8 GTitle3">Créer une JSP (index.jsp)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="jsp"><!-- ============================================ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JavaEE | ReadyDev</title>
+</head>
+<body>
+    <!-- ============================================ -->
+    <h1>JSP</h1>
+    <p>Bonjour tout le monde</p>
+    <!-- ============================================ -->
+</body>
+</html>
+<!-- ============================================ --></xmp></pre></div><br><h3 class="Title8 GTitle3">Servlet auto-générée (index_jsp.java)</h3><span class="GColor1" style="color:lime;">C:\Users\sabine\Downloads\Gerard\Programs\ReadyDev\Tutoriels\JavaEE\z1_Creez_Application_JavaEE\Eclipse_Demarrer\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\work\Catalina\localhost\GProject\org\apache\jsp</span><br><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="java">out.write("<!-- ============================================ -->\r\n");
+out.write("<!DOCTYPE html>\r\n");
+out.write("<html>\r\n");
+out.write("<head>\r\n");
+out.write("<meta charset=\"UTF-8\">\r\n");
+out.write("<title>JavaEE | ReadyDev</title>\r\n");
+out.write("</head>\r\n");
+out.write("<body>\r\n");
+out.write("    <!-- ============================================ -->\r\n");
+out.write("    <h1>JSP</h1>\r\n");
+out.write("    <p>Bonjour tout le monde</p>\r\n");
+out.write("    <!-- ============================================ -->\r\n");
+out.write("</body>\r\n");
+out.write("</html>\r\n");
+out.write("<!-- ============================================ -->\r\n");</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><a class="Link7 GLink1" style="color:lime;" target="_blank" href="http://localhost:8081/GProject/">http://localhost:8081/GProject/</a><br><br><div class="Img3 GImage"><img src="img/Jsp.png" alt="img/Jsp.png"></div></div></div></div></div><br>
