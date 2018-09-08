@@ -3,18 +3,19 @@
     {
         "meta_desc":
         [
-            "Le C++ est un langage de programmation orienté objet.",
-			"Les patrons de conception sont des modèles de conception basés sur la programmation orientée objet",
-			"et nécessaires au développement d’une application évolutive, modulaire et réutilisable dans le temps.",
-			"Le but de ce tutoriel est de vous apprendre les patrons de conception en C++."
+			"Les patrons de conception sont des modèles de conception",
+            "basés sur la programmation orientée objet.",
+			"Le but de ce tutoriel est de vous apprendre",
+            "les patrons de conception avec le C++.",
+            "Produit par Gérard KESSE."
         ],
         "meta_cano":"/Tutoriels/Cpp/Patrons_Conception/"
     },    
     "links":
     [
         {"name":"Tutoriels","link":"/Tutoriels/"},
-        {"name":"C/C++","link":"/Tutoriels/Cpp/"},
-        {"name":"Apprendre les patrons de conception en C++","link":""}
+        {"name":"C/C++","link":"/Tutoriels/Cpp/#Patrons de conception"},
+        {"name":"Patrons de Conception","link":""}
     ]
 }
                         

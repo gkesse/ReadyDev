@@ -3,7 +3,7 @@
     
     $m_data = GJson::Instance()->getData("data/json/Patrons_Conception.json");
     
-    GConfig::Instance()->setData("title", "Apprendre les patrons de conception en C++");
+    GConfig::Instance()->setData("title", "Patrons de Conception");
     GConfig::Instance()->setData("menu", "Tutoriels");
     GConfig::Instance()->setData("view", "Patrons_Conception");
     GConfig::Instance()->setData("link", $m_data["links"]);

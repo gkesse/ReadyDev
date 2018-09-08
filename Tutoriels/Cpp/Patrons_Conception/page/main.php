@@ -1,22 +1,19 @@
-<div class="pgCt00"><div class="bgra"><h1 class="bgra pgCt20 txac  Title1" id="Sommaire"><a class="clrb" href="#">Sommaire</a></h1><div class="txal pgCt10">Le C++ est un langage de programmation orienté objet. Les patrons de conception sont des modèles de conception basés sur la programmation orientée objet et nécessaires au développement d’une application évolutive, modulaire et réutilisable dans le temps. Le but de ce tutoriel est de vous apprendre les patrons de conception en C++.<br><br><div class="dibm Summary1"><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Introduction">Introduction</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Auteur">Auteur</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Installation sous Windows avec MinGW">Installation sous Windows avec MinGW</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Patrons de création">Patrons de création</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Patrons de structure">Patrons de structure</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Patrons de comportement">Patrons de comportement</a></div></div></div></div></div><br><div class="pgCt00"><div class="bgra"><h1 class="bgra pgCt20 txac  Title1" id="Introduction"><a class="clrb" href="#Sommaire">Introduction</a></h1><div class="txal pgCt10">Le C++ est un langage de programmation orienté objet. Les patrons de conception sont des modèles de conception basés sur la programmation orientée objet et nécessaires au développement d’une application évolutive, modulaire et réutilisable dans le temps. Le but de ce tutoriel est de vous apprendre les patrons de conception en C++.<br><br><b>Prérequis :</b><br>Apprendre la programmation orientée objet en C++.</div></div></div><br><div class="pgCt00"><div class="bgra"><h1 class="bgra pgCt20 txac  Title1" id="Auteur"><a class="clrb" href="#Sommaire">Auteur</a></h1><div class="txal pgCt10">Je suis <b>Gérard KESSE</b>, <br>Ingénieur en Développement Informatique C/C++/Qt, <br>Avec à la fois des compétences en Systèmes Embarqués et en Robotique.<br><br>Formé à Polytech'Montpellier, Je suis un professionnel de conception de projets logiciel applicatif ou embarqué dans les secteurs de l'Aéronautique, de la Robotique, des Drones et de la Vision par Ordinateur. Aussi, Je reste ouvert à d'autres types de secteurs tels que l'Énergie et les Finances.<br><br>Les Sciences de l’Ingénieur sont au cœur du métier d’ingénieur. Sur le site <br><b>ReadyDev</b>, la Plateforme de Développement Continu, dont j'en suis le concepteur, vous trouverez des cours et des tutoriels adaptés aux sciences de l’ingénieur.<br><br><div align="center">Comprendre la Théorie pour mieux Pratiquer.<br>Montez en Compétences sur ReadyDev.<br>J'aime, Je partage.<br><br><b>Gérard KESSE</b><br><b></b><div class="ovfa"><img src="/img/readydev.png" alt="Image.png"><br><a class="hvra" href="http://github.com/gkesse">GitHub</a> | <a class="hvra" href="https://www.linkedin.com/in/tia-gerard-kesse/">LinkedIn</a></div></div></div></div></div><br><div class="pgCt00"><div class="bgra"><h1 class="bgra pgCt20 txac Title1" id="Installation sous Windows avec MinGW"><a class="clrb" href="#Sommaire">Installation sous Windows avec MinGW</a></h1><div class="txal pgCt10"><div class="dibm Summary2"><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Téléchargements">Téléchargements</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Installation de MinGW">Installation de MinGW</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Installation de Notepad++">Installation de Notepad++</a></div></div><br><br><h2 class="ftwn Title2" id="Téléchargements"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Installation sous Windows avec MinGW">Téléchargements</a></h2><br><b>Notepad++ :</b><br><a class="hvra" href="https://notepad-plus-plus.org/fr/">https://notepad-plus-plus.org/fr/</a><br><br><b>MinGW :</b><br><a class="hvra" href="http://www.mingw.org/">http://www.mingw.org/</a><br><br><h2 class="ftwn Title2" id="Installation de MinGW"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Installation sous Windows avec MinGW">Installation de MinGW</a></h2><br><b>Packages MinGW :</b><br>mingw32-base<br>mingw32-gcc-g++<br><br><h2 class="ftwn Title2" id="Installation de Notepad++"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Installation sous Windows avec MinGW">Installation de Notepad++</a></h2><br><b>Plugins Notepad++ :</b><br>TextFX<br>NppExport<br><br></div></div></div><br><div class="pgCt00"><div class="bgra"><h1 class="bgra pgCt20 txac Title1" id="Patrons de création"><a class="clrb" href="#Sommaire">Patrons de création</a></h1><div class="txal pgCt10"><div class="dibm Summary2"><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Patron Singleton (Singleton Pattern)">Patron Singleton (Singleton Pattern)</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Patron Prototype (Prototype Pattern)">Patron Prototype (Prototype Pattern)</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Patron Fabrique (Factory Pattern)">Patron Fabrique (Factory Pattern)</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Patron Fabrique Abstraite (Abstract Factory Pattern)">Patron Fabrique Abstraite (Abstract Factory Pattern)</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Patron Monteur (Builder Pattern)">Patron Monteur (Builder Pattern)</a></div></div><br><br><h2 class="ftwn Title2" id="Patron Singleton (Singleton Pattern)"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Patrons de création">Patron Singleton (Singleton Pattern)</a></h2><br><b>Objectif :</b><br>Créer un patron Singleton en C++.<br><br><b>Utilité :</b><br>Le patron Singleton (Singleton Pattern) est utilisé pour  avoir une instance unique d’une classe dans un programme.<br><br><b>Implémentation :</b><br>Créer un Singleton (GSingleton) permettant d’enregistrer (setData()) et d’afficher (showData()) une donnée (m_data). Créer une fonction (saveData()) utilisant la méthode (setData()) du Singleton (GSingleton) pour enregistrer la donnée (Bonjour tout le monde). Créer une fonction (printData()) utilisant la méthode (showData()) du Singleton (GSingleton) pour afficher la donnée (Bonjour tout le monde). La donnée (m_data) du Singleton (GSingleton) sera initialisée à (_NO_DATA_).<br><br><b>Résultat :</b><br> <div class="ovfa"><img src="img/Image_01.png" alt="img/Image_01.png"></div><br><b>Dossier projet :</b><br>src/main.cpp<br>src/GSingleton.h<br>src/GSingleton.cpp<br>win/Makefile<br>win/cmd_build.bat<br>win/cmd_clean.bat<br>win/cmd_compile.bat<br>win/cmd_run.bat<br>win/bin/<br>win/build/<br><br><b>src/main.cpp</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums">//===============================================
+<div class="Parallax GParallax1"><div class="Img Binary"><div class="Caption"><a href="#"><div class="Text">Apprendre les patrons de conception avec le C++</div></a></div></div><div class="Body2 Orange">Le <b>C++</b> est un langage de programmation orientée objet.<br>Les <b>Patrons de Conception</b> sont des modèles de conception basés sur la programmation orientée objet.<br>Le but de ce tutoriel est de vous apprendre les <b>Patrons de Conception</b> avec le <b>C++</b>.<br>Produit par <b>Gérard KESSE</b>.<br>&nbsp;<br><div class="Content0 GSummary1"><div class="Body0" id="Loader_1529412976174"><div class="Row26">Summary 1</div></div><script>loadSummary1("Loader_1529412976174");</script></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Installation sous Windows"><a class="Link3" href="#">Installation sous Windows</a></h1><div class="Body3">Le but de cette section est de vous présenter les différents outils nécessaires pour apprendre les <span class="GColor1" style="color:lime;">Patrons de Conception</span> avec le <span class="GColor1" style="color:lime;">C++</span>, sous Windows.<br>Produit par <b>Gérard KESSE</b>.<br><br>Dans ce tutoriel, nous utiliserons, sous Windows:<br>-    MinGW, comme compilateur.<br>-    Notepad++, comme éditeur de texte.<br><br><h3 class="Title8 GTitle3">Télécharger MinGW</h3><a class="Link7 GLink1" style="color:lime;" href="http://mingw.org/">http://mingw.org/</a><br><br><h3 class="Title8 GTitle3">Télécharger Notepad++</h3><a class="Link7 GLink1" style="color:lime;" href="https://notepad-plus-plus.org/fr/">https://notepad-plus-plus.org/fr/</a></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Patron Singleton"><a class="Link3" href="#">Patron Singleton</a></h1><div class="Body3">Le but de cette section est de vous apprendre à implémenter le <span class="GColor1" style="color:lime;">patron singleton</span> avec le C++.<br>Produit par <b>Gérard KESSE</b>.<br><br>Le Patron Singleton permet de restreindre l'instanciation d'une classe à un seul objet.<br><br><h3 class="Title8 GTitle3">Programme principal (main.cpp)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include "GSingleton.h"
 //===============================================
-void saveData(string data) {
-    GSingleton::Instance()->setData(data);
-}
-//===============================================
-void printData() {
-    string m_data = GSingleton::Instance()->getData();
-    cout << "m_data: " << m_data << "\n";
-}
-//===============================================
 int main(int argc, char** argv) {
-    printData();
-    saveData("Bonjour tout le monde");
-    printData();
+    cout << "\n### Patron Singleton\n\n";
+    string lData;
+    GSingleton::Instance()->showData();
+    lData = GSingleton::Instance()->getData();
+    cout << "Lecture: " << lData << "\n";
+    GSingleton::Instance()->setData("Bonjour tout le monde");
+    GSingleton::Instance()->showData();
+    lData = GSingleton::Instance()->getData();
+    cout << "Lecture: " << lData << "\n";
     return 0;
 }
-//===============================================</xmp></pre></div><br><b>src/GSingleton.cpp</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums">//===============================================
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Déclarer le Singleton (GSingleton.h)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #ifndef _GSingleton_
 #define _GSingleton_
 //===============================================
@@ -26,14 +23,17 @@ int main(int argc, char** argv) {
 using namespace std;
 //===============================================
 class GSingleton {
-public:
+private:
     GSingleton();
+    
+public:
     ~GSingleton();
-
+    
 public:
     static GSingleton* Instance();
     void setData(const string& data);
-    string getData() const;
+    string getData();
+    void showData();
     
 private:
     static GSingleton* m_instance;
@@ -41,17 +41,17 @@ private:
 };
 //===============================================
 #endif
-//===============================================</xmp></pre></div><br><b>src/GSingleton.cpp</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums">//===============================================
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Définir le Singleton (GSingleton.cpp)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include "GSingleton.h"
 //===============================================
 GSingleton* GSingleton::m_instance = 0;
 //===============================================
 GSingleton::GSingleton() {
-    m_data = "_NO_DATA_";
+    m_data = "_NONE_";
 }
 //===============================================
 GSingleton::~GSingleton() {
-
+    
 }
 //===============================================
 GSingleton* GSingleton::Instance() {
@@ -59,33 +59,17 @@ GSingleton* GSingleton::Instance() {
         m_instance = new GSingleton;
     }
     return m_instance;
-}
+} 
 //===============================================
 void GSingleton::setData(const string& data) {
     m_data = data;
-}
+} 
 //===============================================
-string GSingleton::getData() const {
+string GSingleton::getData() {
     return m_data;
-}
-//===============================================</xmp></pre></div><br><b>win/Makefile</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums">GSRC = ../src
-GBIN = bin
-GBUILD = build
-GTARGET = $(GBIN)/GProject.exe
-    
-GOBJS = \
-    $(GBUILD)/main.o \
-    $(GBUILD)/GSingleton.o \
-    
-all: $(GOBJS)
-    g++ -o $(GTARGET) $(GOBJS)
-$(GBUILD)/main.o: $(GSRC)/main.cpp
-    g++ -c $(GSRC)/main.cpp -o $(GBUILD)/main.o
-$(GBUILD)/GSingleton.o: $(GSRC)/GSingleton.cpp
-    g++ -c $(GSRC)/GSingleton.cpp -o $(GBUILD)/GSingleton.o
-clean:
-    del /q $(GBUILD)\* $(GBIN)\*</xmp></pre></div><br><b>Construction du projet :</b><br>cmd_build.bat<br><br><b>Construction manuel :</b><br><div class="Code1"><pre><xmp class="ovfa prettyprint linenums">del /q build\* bin\*
-g++ -c ../src/main.cpp -o build/main.o
-g++ -c ../src/GSingleton.cpp -o build/GSingleton.o
-g++ -o bin/GProject.exe build/main.o build/GSingleton.o </xmp></pre></div><br><h2 class="ftwn Title2" id="Patron Prototype (Prototype Pattern)"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Patrons de création">Patron Prototype (Prototype Pattern)</a></h2><br><br><h2 class="ftwn Title2" id="Patron Fabrique (Factory Pattern)"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Patrons de création">Patron Fabrique (Factory Pattern)</a></h2><br><br><h2 class="ftwn Title2" id="Patron Fabrique Abstraite (Abstract Factory Pattern)"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Patrons de création">Patron Fabrique Abstraite (Abstract Factory Pattern)</a></h2><br><br><h2 class="ftwn Title2" id="Patron Monteur (Builder Pattern)"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Patrons de création">Patron Monteur (Builder Pattern)</a></h2><br><br></div></div></div><br><div class="pgCt00"><div class="bgra"><h1 class="bgra pgCt20 txac Title1" id="Patrons de structure"><a class="clrb" href="#Sommaire">Patrons de structure</a></h1><div class="txal pgCt10"><div class="dibm Summary2"><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Patron Pont (Bridge Pattern)">Patron Pont (Bridge Pattern)</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Patron Façade (Facade Pattern)">Patron Façade (Facade Pattern)</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Patron Adaptateur (Adapter Pattern)">Patron Adaptateur (Adapter Pattern)</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Patron Objet composite (Composite Pattern)">Patron Objet composite (Composite Pattern)</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Patron Proxy (Proxy Pattern)">Patron Proxy (Proxy Pattern)</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Patron Poids-mouche (Flyweight Pattern)">Patron Poids-mouche (Flyweight Pattern)</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Patron Décorateur (Decorator Pattern)">Patron Décorateur (Decorator Pattern)</a></div></div><br><br><h2 class="ftwn Title2" id="Patron Pont (Bridge Pattern)"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Patrons de structure">Patron Pont (Bridge Pattern)</a></h2><br><br><h2 class="ftwn Title2" id="Patron Façade (Facade Pattern)"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Patrons de structure">Patron Façade (Facade Pattern)</a></h2><br><br><h2 class="ftwn Title2" id="Patron Adaptateur (Adapter Pattern)"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Patrons de structure">Patron Adaptateur (Adapter Pattern)</a></h2><br><br><h2 class="ftwn Title2" id="Patron Objet composite (Composite Pattern)"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Patrons de structure">Patron Objet composite (Composite Pattern)</a></h2><br><br><h2 class="ftwn Title2" id="Patron Proxy (Proxy Pattern)"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Patrons de structure">Patron Proxy (Proxy Pattern)</a></h2><br><br><h2 class="ftwn Title2" id="Patron Poids-mouche (Flyweight Pattern)"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Patrons de structure">Patron Poids-mouche (Flyweight Pattern)</a></h2><br><br><h2 class="ftwn Title2" id="Patron Décorateur (Decorator Pattern)"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Patrons de structure">Patron Décorateur (Decorator Pattern)</a></h2><br><br><br></div></div></div><br><div class="pgCt00"><div class="bgra"><h1 class="bgra pgCt20 txac Title1" id="Patrons de comportement"><a class="clrb" href="#Sommaire">Patrons de comportement</a></h1><div class="txal pgCt10"><div class="dibm Summary2"><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Patron Chaine de responsabilité (Chaine-of-responsability Pattern)">Patron Chaine de responsabilité (Chaine-of-responsability Pattern)</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Patron Commande (Command Pattern)">Patron Commande (Command Pattern)</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Patron Interpréteur (Interpreter Pattern)">Patron Interpréteur (Interpreter Pattern)</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Patron Itérateur (Iterator Pattern)">Patron Itérateur (Iterator Pattern)</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Patron Médiateur (Mediator Pattern)">Patron Médiateur (Mediator Pattern)</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Patron Mémento (Memento Pattern)">Patron Mémento (Memento Pattern)</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Patron Observateur (Observer Pattern)">Patron Observateur (Observer Pattern)</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Patron État (State Pattern)">Patron État (State Pattern)</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Patron Stratégie (Strategy Pattern)">Patron Stratégie (Strategy Pattern)</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Patron Patron-de-méthode (Template method Pattern)">Patron Patron-de-méthode (Template method Pattern)</a></div><div class="pdlb"><span class="fa fa-book clrg pdra"></span><a class="hvra clrg" href="#Patron Visiteur (Visitor Pattern)">Patron Visiteur (Visitor Pattern)</a></div></div><br><br><h2 class="ftwn Title2" id="Patron Chaine de responsabilité (Chaine-of-responsability Pattern)"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Patrons de comportement">Patron Chaine de responsabilité (Chaine-of-responsability Pattern)</a></h2><br><br><h2 class="ftwn Title2" id="Patron Commande (Command Pattern)"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Patrons de comportement">Patron Commande (Command Pattern)</a></h2><br><br><h2 class="ftwn Title2" id="Patron Interpréteur (Interpreter Pattern)"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Patrons de comportement">Patron Interpréteur (Interpreter Pattern)</a></h2><br><br><h2 class="ftwn Title2" id="Patron Itérateur (Iterator Pattern)"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Patrons de comportement">Patron Itérateur (Iterator Pattern)</a></h2><br><br><h2 class="ftwn Title2" id="Patron Médiateur (Mediator Pattern)"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Patrons de comportement">Patron Médiateur (Mediator Pattern)</a></h2><br><br><h2 class="ftwn Title2" id="Patron Mémento (Memento Pattern)"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Patrons de comportement">Patron Mémento (Memento Pattern)</a></h2><br><br><h2 class="ftwn Title2" id="Patron Observateur (Observer Pattern)"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Patrons de comportement">Patron Observateur (Observer Pattern)</a></h2><br><br><h2 class="ftwn Title2" id="Patron État (State Pattern)"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Patrons de comportement">Patron État (State Pattern)</a></h2><br><br><h2 class="ftwn Title2" id="Patron Stratégie (Strategy Pattern)"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Patrons de comportement">Patron Stratégie (Strategy Pattern)</a></h2><br><br><h2 class="ftwn Title2" id="Patron Patron-de-méthode (Template method Pattern)"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Patrons de comportement">Patron Patron-de-méthode (Template method Pattern)</a></h2><br><br><h2 class="ftwn Title2" id="Patron Visiteur (Visitor Pattern)"><a class="bgra dibm ftfb ftsg clra pgCt10" href="#Patrons de comportement">Patron Visiteur (Visitor Pattern)</a></h2><br><br><br><br></div><div class="txal pgCt10"><br></div></div></div>
-<div><br></div>
+} 
+//===============================================
+void GSingleton::showData() {
+    cout << "Donnee: " << m_data << "\n";
+} 
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Singleton.png" alt="img/Singleton.png"></div></div></div></div></div><br><br>
