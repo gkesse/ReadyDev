@@ -13,7 +13,7 @@ int main(int argc, char** argv) {
     cout << "Lecture: " << lData << "\n";
     return 0;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Patron Singleton-Définir le singleton"><a class="Link9" href="#Patron Singleton">Définir le singleton</a></h2><br><h3 class="Title8 GTitle3">Déclarer le singleton (GSingleton.h)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Patron Singleton-Singleton"><a class="Link9" href="#Patron Singleton">Singleton</a></h2><br><h3 class="Title8 GTitle3">Déclarer le singleton (GSingleton.h)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #ifndef _GSingleton_
 #define _GSingleton_
 //===============================================
@@ -84,7 +84,7 @@ int main(int argc, char** argv) {
     GDatabase::Instance()->open();
     return 0;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Patron Stratégie-Définir le gestionnaire de paramètres"><a class="Link9" href="#Patron Stratégie">Définir le gestionnaire de paramètres</a></h2><br><h3 class="Title8 GTitle3">Déclarer le gestionnaire de paramètres (GConfig.h)<br></h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Patron Stratégie-Gestionnaire de configuration"><a class="Link9" href="#Patron Stratégie">Gestionnaire de configuration</a></h2><br><h3 class="Title8 GTitle3">Déclarer le gestionnaire de configuration (GConfig.h)<br></h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #ifndef _GConfig_
 #define _GConfig_
 //===============================================
@@ -113,7 +113,7 @@ private:
 //===============================================
 #endif
 //===============================================
-</xmp></pre></div><br><h3 class="Title8 GTitle3">Définir le gestionnaire de paramètres (GConfig.cpp)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+</xmp></pre></div><br><h3 class="Title8 GTitle3">Définir le gestionnaire de configuration (GConfig.cpp)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include "GConfig.h"
 //===============================================
 GConfig* GConfig::m_instance = 0;
@@ -140,4 +140,135 @@ void GConfig::setData(const string& key, const string& value) {
 string GConfig::getData(const string& key) {
     return m_dataMap[key];
 } 
-//===============================================</xmp></pre></div><br><br><br><br><br><br></div></div></div></div><br>
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Patron Stratégie-Gestionnaire de base de données"><a class="Link9" href="#Patron Stratégie">Gestionnaire de base de données</a></h2><br><h3 class="Title8 GTitle3">Déclarer le gestionnaire de base de données (GDatabase.h)<br></h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#ifndef _GDatabase_
+#define _GDatabase_
+//===============================================
+#include <iostream>
+#include <string>
+//===============================================
+using namespace std;
+//===============================================
+class GDatabase {
+public:
+    GDatabase();
+    virtual ~GDatabase();
+    
+public:
+    static GDatabase* Instance();
+    virtual void open() = 0;
+    
+private:
+    static GDatabase* m_instance;
+};
+//===============================================
+#endif
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Définir le gestionnaire de base de données (GDatabase.cpp)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GDatabase.h"
+#include "GDatabaseSQLite.h"
+#include "GDatabaseMySQL.h"
+#include "GConfig.h"
+//===============================================
+GDatabase* GDatabase::m_instance = 0;
+//===============================================
+GDatabase::GDatabase() {
+
+}
+//===============================================
+GDatabase::~GDatabase() {
+    
+}
+//===============================================
+GDatabase* GDatabase::Instance() {
+    string lDatabase = GConfig::Instance()->getData("DATABASE");
+    if(lDatabase == "SQLITE") return GDatabaseSQLite::Instance();
+    if(lDatabase == "MYSQL") return GDatabaseMySQL::Instance();
+    return GDatabaseSQLite::Instance();
+} 
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Patron Stratégie-Gestionnaire de base de données SQLite"><a class="Link9" href="#Patron Stratégie">Gestionnaire de base de données SQLite</a></h2><br><h3 class="Title8 GTitle3">Déclarer le gestionnaire de base de données SQLite (GDatabaseSQLite.h)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#ifndef _GDatabaseSQLite_
+#define _GDatabaseSQLite_
+//===============================================
+#include "GDatabase.h"
+//===============================================
+class GDatabaseSQLite : public GDatabase {
+public:
+    GDatabaseSQLite();
+    ~GDatabaseSQLite();
+    
+public:
+    static GDatabaseSQLite* Instance();
+    void open();
+    
+private:
+    static GDatabaseSQLite* m_instance;
+};
+//===============================================
+#endif
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Définir le gestionnaire de base de données SQLite (GDatabaseSQLite.cpp)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GDatabaseSQLite.h"
+//===============================================
+GDatabaseSQLite* GDatabaseSQLite::m_instance = 0;
+//===============================================
+GDatabaseSQLite::GDatabaseSQLite() {
+
+}
+//===============================================
+GDatabaseSQLite::~GDatabaseSQLite() {
+    
+}
+//===============================================
+GDatabaseSQLite* GDatabaseSQLite::Instance() {
+    if(m_instance == 0) {
+        m_instance = new GDatabaseSQLite;
+    }
+    return m_instance;
+} 
+//===============================================
+void GDatabaseSQLite::open() {
+    cout << "Ouvrir la base de donnee SQLite\n";
+} 
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Patron Stratégie-Gestionnaire de base de données MySQL"><a class="Link9" href="#Patron Stratégie">Gestionnaire de base de données MySQL</a></h2><br><h3 class="Title8 GTitle3">Déclarer le gestionnaire de base de données MySQL (GDatabaseMySQL.h)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#ifndef _GDatabaseMySQL_
+#define _GDatabaseMySQL_
+//===============================================
+#include "GDatabase.h"
+//===============================================
+class GDatabaseMySQL : public GDatabase {
+public:
+    GDatabaseMySQL();
+    ~GDatabaseMySQL();
+    
+public:
+    static GDatabaseMySQL* Instance();
+    void open();
+    
+private:
+    static GDatabaseMySQL* m_instance;
+};
+//===============================================
+#endif
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Définir le gestionnaire de base de données MySQL (GDatabaseMySQL.cpp)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GDatabaseMySQL.h"
+//===============================================
+GDatabaseMySQL* GDatabaseMySQL::m_instance = 0;
+//===============================================
+GDatabaseMySQL::GDatabaseMySQL() {
+
+}
+//===============================================
+GDatabaseMySQL::~GDatabaseMySQL() {
+    
+}
+//===============================================
+GDatabaseMySQL* GDatabaseMySQL::Instance() {
+    if(m_instance == 0) {
+        m_instance = new GDatabaseMySQL;
+    }
+    return m_instance;
+} 
+//===============================================
+void GDatabaseMySQL::open() {
+    cout << "Ouvrir la base de donnee MySQL\n";
+} 
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Patron Stratégie-Résultat"><a class="Link9" href="#Patron Stratégie">Résultat</a></h2><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Strategie.png" alt="img/Strategie.png"></div></div></div></div></div><br>
