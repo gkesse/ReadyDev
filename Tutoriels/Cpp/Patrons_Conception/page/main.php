@@ -112,8 +112,7 @@ private:
 };
 //===============================================
 #endif
-//===============================================
-</xmp></pre></div><br><h3 class="Title8 GTitle3">Définir le gestionnaire de configuration (GConfig.cpp)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Définir le gestionnaire de configuration (GConfig.cpp)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include "GConfig.h"
 //===============================================
 GConfig* GConfig::m_instance = 0;
