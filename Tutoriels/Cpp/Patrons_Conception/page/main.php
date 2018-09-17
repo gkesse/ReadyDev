@@ -288,4 +288,135 @@ int main(int argc, char** argv) {
     GShape::Instance()->draw();
     return 0;
 }
-//===============================================</xmp></pre></div><br><br><br></div></div></div></div><br>
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Patron Pont-Gestionnaire de dessin"><a class="Link9" href="#Patron Pont">Gestionnaire de dessin</a></h2><br><h3 class="Title8 GTitle3">Déclarer le gestionnaire de dessin (GDraw.h)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#ifndef _GDraw_
+#define _GDraw_
+//===============================================
+#include <iostream>
+#include <string>
+//===============================================
+using namespace std;
+//===============================================
+class GDraw {
+public:
+    GDraw();
+    virtual ~GDraw();
+    
+public:
+    static GDraw* Instance();
+    virtual void drawCircle() = 0;
+};
+//===============================================
+#endif
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Définir le gestionnaire de dessin (GDraw.cpp)</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GDraw.h"
+#include "GDrawNoFill.h"
+#include "GDrawFill.h"
+#include "GConfig.h"
+//===============================================
+GDraw::GDraw() {
+
+}
+//===============================================
+GDraw::~GDraw() {
+    
+}
+//===============================================
+GDraw* GDraw::Instance() {
+    string lDraw = GConfig::Instance()->getData("DRAW");
+    if(lDraw == "NO_FILL") return GDrawNoFill::Instance();
+    if(lDraw == "FILL") return GDrawFill::Instance();
+    return GDrawNoFill::Instance();
+} 
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Patron Pont-Gestionnaire de dessin sans remplissage"><a class="Link9" href="#Patron Pont">Gestionnaire de dessin sans remplissage</a></h2><br><h3 class="Title8 GTitle3">Déclarer le gestionnaire de dessin sans remplissage (GDrawNoFill.h)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#ifndef _GDrawNoFill_
+#define _GDrawNoFill_
+//===============================================
+#include "GDraw.h"
+//===============================================
+class GDrawNoFill : public GDraw {
+private:
+    GDrawNoFill();
+    
+public:
+    ~GDrawNoFill();
+    
+public:
+    static GDrawNoFill* Instance();
+    void drawCircle();
+    
+private:
+    static GDrawNoFill* m_instance;
+};
+//===============================================
+#endif
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Définir le gestionnaire de dessin sans remplissage (GDrawNoFill.cpp)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GDrawNoFill.h"
+//===============================================
+GDrawNoFill* GDrawNoFill::m_instance = 0;
+//===============================================
+GDrawNoFill::GDrawNoFill() {
+
+}
+//===============================================
+GDrawNoFill::~GDrawNoFill() {
+    
+}
+//===============================================
+GDrawNoFill* GDrawNoFill::Instance() {
+    if(m_instance == 0) {
+        m_instance = new GDrawNoFill;
+    }
+    return m_instance;
+} 
+//===============================================
+void GDrawNoFill::drawCircle() {
+    cout << "Dessiner un cercle sans remplissage\n";
+} 
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Patron Pont-Gestionnaire de dessin avec remplissage"><a class="Link9" href="#Patron Pont">Gestionnaire de dessin avec remplissage</a></h2><br><h3 class="Title8 GTitle3">Déclarer le gestionnaire de dessin avec remplissage (GDrawFill.h)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#ifndef _GDrawFill_
+#define _GDrawFill_
+//===============================================
+#include "GDraw.h"
+//===============================================
+class GDrawFill : public GDraw {
+private:
+    GDrawFill();
+    
+public:
+    ~GDrawFill();
+    
+public:
+    static GDrawFill* Instance();
+    void drawCircle();
+    
+private:
+    static GDrawFill* m_instance;
+};
+//===============================================
+#endif
+//===============================================
+</xmp></pre></div><br><h3 class="Title8 GTitle3">Définir le gestionnaire de dessin avec remplissage (GDrawFill.cpp)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GDrawFill.h"
+//===============================================
+GDrawFill* GDrawFill::m_instance = 0;
+//===============================================
+GDrawFill::GDrawFill() {
+
+}
+//===============================================
+GDrawFill::~GDrawFill() {
+    
+}
+//===============================================
+GDrawFill* GDrawFill::Instance() {
+    if(m_instance == 0) {
+        m_instance = new GDrawFill;
+    }
+    return m_instance;
+} 
+//===============================================
+void GDrawFill::drawCircle() {
+    cout << "Dessiner un cercle avec remplissage\n";
+} 
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Patron Pont-Gestionnaire de forme"><a class="Link9" href="#Patron Pont">Gestionnaire de forme</a></h2><br><br><h2 class="Title7 GTitle2" id="Patron Pont-Gestionnaire de forme cercle"><a class="Link9" href="#Patron Pont">Gestionnaire de forme cercle</a></h2><br><br></div></div></div></div><br>
