@@ -1,20 +1,22 @@
 //===============================================
-#ifndef _GDatabase_
-#define _GDatabase_
+#ifndef _GShapeCircle_
+#define _GShapeCircle_
 //===============================================
-#include <iostream>
-#include <string>
+#include "GShape.h"
 //===============================================
-using namespace std;
-//===============================================
-class GDatabase {
-public:
-    GDatabase();
-    virtual ~GDatabase();
+class GShapeCircle : public GShape {
+private:
+    GShapeCircle();
     
 public:
-    static GDatabase* Instance();
-    virtual void open() = 0;
+    ~GShapeCircle();
+    
+public:
+    static GShapeCircle* Instance();
+    void draw();
+    
+private:
+    static GShapeCircle* m_instance;
 };
 //===============================================
 #endif

@@ -4,8 +4,6 @@
 #include "GDatabaseMySQL.h"
 #include "GConfig.h"
 //===============================================
-GDatabase* GDatabase::m_instance = 0;
-//===============================================
 GDatabase::GDatabase() {
 
 }
