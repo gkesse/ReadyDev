@@ -1,20 +1,21 @@
 //===============================================
-#ifndef _GDatabase_
-#define _GDatabase_
+#ifndef _GShape_
+#define _GShape_
 //===============================================
-#include <iostream>
-#include <string>
+#include "GDraw.h"
 //===============================================
-using namespace std;
-//===============================================
-class GDatabase {
+class GShape {
 public:
-    GDatabase();
-    virtual ~GDatabase();
+    GShape();
+    virtual ~GShape();
     
 public:
-    static GDatabase* Instance();
-    virtual void open() = 0;
+    static GShape* Instance();
+    void setDraw(GDraw* draw);
+    virtual void draw() = 0;
+    
+protected:
+    GDraw* m_draw;
 };
 //===============================================
 #endif

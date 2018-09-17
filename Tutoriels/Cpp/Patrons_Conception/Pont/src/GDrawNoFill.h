@@ -1,20 +1,22 @@
 //===============================================
-#ifndef _GDatabase_
-#define _GDatabase_
+#ifndef _GDrawNoFill_
+#define _GDrawNoFill_
 //===============================================
-#include <iostream>
-#include <string>
+#include "GDraw.h"
 //===============================================
-using namespace std;
-//===============================================
-class GDatabase {
-public:
-    GDatabase();
-    virtual ~GDatabase();
+class GDrawNoFill : public GDraw {
+private:
+    GDrawNoFill();
     
 public:
-    static GDatabase* Instance();
-    virtual void open() = 0;
+    ~GDrawNoFill();
+    
+public:
+    static GDrawNoFill* Instance();
+    void drawCircle();
+    
+private:
+    static GDrawNoFill* m_instance;
 };
 //===============================================
 #endif

@@ -1,20 +1,20 @@
 //===============================================
-#ifndef _GDatabase_
-#define _GDatabase_
+#ifndef _GDraw_
+#define _GDraw_
 //===============================================
 #include <iostream>
 #include <string>
 //===============================================
 using namespace std;
 //===============================================
-class GDatabase {
+class GDraw {
 public:
-    GDatabase();
-    virtual ~GDatabase();
+    GDraw();
+    virtual ~GDraw();
     
 public:
-    static GDatabase* Instance();
-    virtual void open() = 0;
+    static GDraw* Instance();
+    virtual void drawCircle() = 0;
 };
 //===============================================
 #endif
