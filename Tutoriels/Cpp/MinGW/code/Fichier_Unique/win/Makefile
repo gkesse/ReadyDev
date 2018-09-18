@@ -11,4 +11,4 @@ all: $(GOBJS)
 $(GBUILD)/main.o: $(GSRC)/main.cpp
 	g++ -c $(GSRC)/main.cpp -o $(GBUILD)/main.o
 clean:
-	del /q $(GBUILD)\* $(GBIN)\*
+	del /q $(GBUILD)\*.o $(GBIN)\*.exe
