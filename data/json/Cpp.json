@@ -25,7 +25,7 @@
     ],
     "compilation":
     [
-        {"name":"Apprendre à compiler un projet C++ avec MinGW","link":"#","follow":"no"},
+        {"name":"Apprendre à compiler un projet C++ avec MinGW","link":"/Tutoriels/Cpp/MinGW/","follow":"yes"},
         {"name":"Apprendre à compiler un projet C++ avec Cygwin","link":"#","follow":"no"},
         {"name":"Apprendre à compiler un projet C++ avec NMake","link":"#","follow":"no"},
         {"name":"Apprendre à compiler un projet C++ avec Make","link":"#","follow":"no"},

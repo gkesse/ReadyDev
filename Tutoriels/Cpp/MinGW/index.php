@@ -3,7 +3,7 @@
     
     $m_data = GJson::Instance()->getData("data/json/MinGW.json");
     
-    GConfig::Instance()->setData("title", "Apprendre à comipler un projet C++ avec MinGW");
+    GConfig::Instance()->setData("title", "MinGW");
     GConfig::Instance()->setData("menu", "Tutoriels");
     GConfig::Instance()->setData("view", "MinGW");
     GConfig::Instance()->setData("link", $m_data["links"]);
