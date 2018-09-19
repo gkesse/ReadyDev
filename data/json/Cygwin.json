@@ -1,4 +1,5 @@
 {
+    "sitemap":"no",
     "meta_data":
     {
         "meta_desc":
@@ -6,15 +7,15 @@
             "Le C++ est un langage de programmation orienté objet.",
 			"Cygwin est un outil de compilation de projet C++.",
 			"Le but de ce tutoriel est de vous apprendre",
-			"à compiler un projet C++ avec Cygwin."
+			"à compiler un projet C++ avec Cygwin.",
+            "Produit par Gérard KESSE."
         ],
         "meta_cano":"/Tutoriels/Cpp/Cygwin/"
     },    
     "links":
     [
-        {"name":"Tutoriels","link":"/Tutoriels/"},
-        {"name":"C/C++","link":"/Tutoriels/Cpp/"},
-        {"name":"Apprendre à compiler un projet C++ avec Cygwin","link":""}
+        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"C/C++","link":"/Tutoriels/Cpp/#Outils de compilation","follow":"no"},
+        {"name":"Cygwin","link":"","follow":"no"}
     ]
 }
-                        

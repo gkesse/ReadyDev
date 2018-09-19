@@ -21,4 +21,4 @@ $(GBUILD)/%.o: $(GSRC)/%.cpp
 $(GBUILD)/%.o: $(GSRC)/manager/%.cpp
 	g++ -c $< -o $@ $(GINCS)
 clean:
-	rm -f $(GBUILD)/* $(GBIN)/*
+	rm -f $(GBUILD)/*.o $(GBIN)/*.exe
