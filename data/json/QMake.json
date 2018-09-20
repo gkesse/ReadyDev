@@ -1,19 +1,21 @@
 {
+    "sitemap":"no",
     "meta_data":
     {
         "meta_desc":
         [
             "Le C++ est un langage de programmation orienté objet.",
-			"QMake est un outil de compilation de projet C++ fourni par Qt Creator.",
+			"QMake est un outil de compilation de projet C++.",
 			"Le but de ce tutoriel est de vous apprendre",
-			"à compiler un projet C++ avec QMake."
+			"à compiler un projet C++ avec QMake.",
+            "Produit par Gérard KESSE."
         ],
         "meta_cano":"/Tutoriels/Cpp/QMake/"
     },    
     "links":
     [
-        {"name":"Tutoriels","link":"/Tutoriels/"},
-        {"name":"C/C++","link":"/Tutoriels/Cpp/"},
-        {"name":"Apprendre à compiler un projet C++ avec QMake","link":""}
+        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"C/C++","link":"/Tutoriels/Cpp/#Outils de compilation","follow":"no"},
+        {"name":"QMake","link":"","follow":"no"}
     ]
 }

@@ -1,11 +1,11 @@
 <?php
     require $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoloadRegister.php";
     
-    $m_data = GJson::Instance()->getData("data/json/QMake.json");
+    $m_data = GJson::Instance()->getData("data/json/Make.json");
     
-    GConfig::Instance()->setData("title", "QMake");
+    GConfig::Instance()->setData("title", "Make");
     GConfig::Instance()->setData("menu", "Tutoriels");
-    GConfig::Instance()->setData("view", "QMake");
+    GConfig::Instance()->setData("view", "Make");
     GConfig::Instance()->setData("link", $m_data["links"]);
 
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";
