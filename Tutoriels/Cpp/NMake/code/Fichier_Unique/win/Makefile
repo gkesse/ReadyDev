@@ -11,4 +11,4 @@ all: $(GOBJS)
 $(GBUILD)/main.obj: $(GSRC)/main.cpp
 	cl /c /EHsc $(GSRC)/main.cpp /Fo$(GBUILD)/main.obj
 clean:
-	del /q $(GBUILD)\* $(GBIN)\*
+	del /q $(GBUILD)\*.obj $(GBIN)\*.exe

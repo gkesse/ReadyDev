@@ -27,10 +27,10 @@
     [
         {"name":"Apprendre à compiler un projet C++ avec MinGW","link":"/Tutoriels/Cpp/MinGW/","follow":"yes"},
         {"name":"Apprendre à compiler un projet C++ avec Cygwin","link":"/Tutoriels/Cpp/Cygwin/","follow":"yes"},
-        {"name":"Apprendre à compiler un projet C++ avec NMake","link":"#","follow":"no"},
-        {"name":"Apprendre à compiler un projet C++ avec Make","link":"#","follow":"no"},
-        {"name":"Apprendre à compiler un projet C++ avec CMake","link":"#","follow":"no"},
-        {"name":"Apprendre à compiler un projet C++ avec QMake","link":"#","follow":"no"}
+        {"name":"Apprendre à compiler un projet C++ avec NMake","link":"/Tutoriels/Cpp/NMake/","follow":"yes"},
+        {"name":"Apprendre à compiler un projet C++ avec Make","link":"/Tutoriels/Cpp/Make/","follow":"yes"},
+        {"name":"Apprendre à compiler un projet C++ avec CMake","link":"/Tutoriels/Cpp/CMake/","follow":"yes"},
+        {"name":"Apprendre à compiler un projet C++ avec QMake","link":"/Tutoriels/Cpp/QMake/","follow":"yes"}
     ],
     "design_patterns":
     [

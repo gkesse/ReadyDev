@@ -5,17 +5,17 @@
         "meta_desc":
         [
             "Le C++ est un langage de programmation orienté objet.",
-			"NMake est un outil de compilation de projet C++.",
+			"CMake est un outil de compilation de projet C++.",
 			"Le but de ce tutoriel est de vous apprendre",
-			"à compiler un projet C++ avec NMake.",
+			"à compiler un projet C++ avec CMake.",
             "Produit par Gérard KESSE."
         ],
-        "meta_cano":"/Tutoriels/Cpp/NMake/"
+        "meta_cano":"/Tutoriels/Cpp/CMake/"
     },    
     "links":
     [
         {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
         {"name":"C/C++","link":"/Tutoriels/Cpp/#Outils de compilation","follow":"no"},
-        {"name":"NMake","link":"","follow":"no"}
+        {"name":"CMake","link":"","follow":"no"}
     ]
 }

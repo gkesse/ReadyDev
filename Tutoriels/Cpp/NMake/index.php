@@ -3,7 +3,7 @@
     
     $m_data = GJson::Instance()->getData("data/json/NMake.json");
     
-    GConfig::Instance()->setData("title", "Apprendre à comipler un projet C++ avec NMake");
+    GConfig::Instance()->setData("title", "NMake");
     GConfig::Instance()->setData("menu", "Tutoriels");
     GConfig::Instance()->setData("view", "NMake");
     GConfig::Instance()->setData("link", $m_data["links"]);
