@@ -7,7 +7,7 @@ int main(int argc, char** argv) {
     cout << "Bonjour tout le monde\n";
     return 0;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Compiler un fichier source-Fichiers projet"><a class="Link9" href="#Compiler un fichier source">Fichiers projet</a></h2><br><h3 class="Title8 GTitle3">Fichier projet (GProject.pro)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">TEMPLATE = app
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Compiler un fichier source-Fichier projet"><a class="Link9" href="#Compiler un fichier source">Fichier projet</a></h2><br><h3 class="Title8 GTitle3">Fichier projet (GProject.pro)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">TEMPLATE = app
 TARGET = GProject
 DESTDIR = bin
 OBJECTS_DIR = build
