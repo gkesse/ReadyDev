@@ -4,7 +4,7 @@ set PATH=C:\Program Files\CMake\bin
 set PATH=C:\MinGW\bin;%PATH%
 
 cd build
-cmake ../.. ^
+cmake ../../src ^
 -G "MinGW Makefiles" ^
 -DCMAKE_BUILD_TYPE=RELEASE ^
 -DCMAKE_C_COMPILER=gcc ^
