@@ -14,7 +14,8 @@ HEADERS += \
     $$PWD/GProcessStructuralProgramming.h \
     $$PWD/GProcessFunctionalProgramming.h \
     $$PWD/GProcessObjectOrientedProgramming.h \
-    $$PWD/GProcessInheritance.h
+    $$PWD/GProcessInheritance.h \
+    $$PWD/GProcessPolymorphism.h
 
 SOURCES += \
     $$PWD/GConfig.cpp \
@@ -23,4 +24,5 @@ SOURCES += \
     $$PWD/GProcessStructuralProgramming.cpp \
     $$PWD/GProcessFunctionalProgramming.cpp \
     $$PWD/GProcessObjectOrientedProgramming.cpp \
-    $$PWD/GProcessInheritance.cpp
+    $$PWD/GProcessInheritance.cpp \
+    $$PWD/GProcessPolymorphism.cpp

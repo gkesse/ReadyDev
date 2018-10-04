@@ -5,6 +5,7 @@
 #include "GProcessStructuralProgramming.h"
 #include "GProcessObjectOrientedProgramming.h"
 #include "GProcessInheritance.h"
+#include "GProcessPolymorphism.h"
 #include "GConfig.h"
 //===============================================
 GProcess* GProcess::m_instance = 0;
@@ -24,6 +25,7 @@ GProcess* GProcess::Instance() {
     if(lProcess == "STRUCTURAL_PROGRAMMING") return GProcessStructuralProgramming::Instance();
     if(lProcess == "OBJECT_ORIENTED_PROGRAMMING") return GProcessObjectOrientedProgramming::Instance();
     if(lProcess == "INHERITANCE") return GProcessInheritance::Instance();
+    if(lProcess == "POLYMORPHISM") return GProcessPolymorphism::Instance();
     return GProcessHelloWorld::Instance();
 }
 //===============================================

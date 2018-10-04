@@ -42,7 +42,7 @@ GPerson::GPerson(int age, string name) {
 //===============================================
 string GPerson::whoAmI() {
     return "Je suis une personne: " +
-            to_string(m_age) + " | " + m_name;
+           m_name + " | " + to_string(m_age);
 }
 //===============================================
 // GWorker
@@ -58,7 +58,7 @@ GWorker::GWorker(int age, string name, string employmentStatus) :
 //===============================================
 string GWorker::whoAmI() {
     return "Je suis un travailleur: " +
-            to_string(m_age) + " | " + m_name + " | " + m_employmentStatus;
+            m_name + " | " + to_string(m_age) + " | " + m_employmentStatus;
 }
 //===============================================
 // GStudent
@@ -74,6 +74,6 @@ GStudent::GStudent(int age, string name, string studentIdentityCard) :
 //===============================================
 string GStudent::whoAmI() {
     return "Je suis un etudiant: " +
-            to_string(m_age) + " | " + m_name + " | " + m_studentIdentityCard;
+            m_name + " | " + to_string(m_age) + " | " + m_studentIdentityCard;
 }
 //===============================================

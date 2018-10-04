@@ -16,7 +16,6 @@ public:
 
 public:
     static GProcessInheritance* Instance();
-    GPerson complexAdd(const GPerson& c1, const GPerson& c2);
     void run(int argc = 0, char** argv = 0);
 
 private:
