@@ -11,3 +11,6 @@ include(../src/GMain.pri)
 
 DEFINES += \
     G_WIN_MAIN_ON
+
+RC_FILE += \
+    resource.rc

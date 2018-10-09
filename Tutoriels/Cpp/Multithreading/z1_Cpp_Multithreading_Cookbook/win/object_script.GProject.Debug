@@ -1,0 +1,17 @@
+INPUT(
+./build\GConfig.o
+./build\GProcess.o
+./build\GProcessHelloWorld.o
+./build\GProcessStructuralProgramming.o
+./build\GProcessFunctionalProgramming.o
+./build\GProcessObjectOrientedProgramming.o
+./build\GProcessInheritance.o
+./build\GProcessPolymorphism.o
+./build\GProcessEventMessage.o
+./build\GProcessLinkedList.o
+./build\GProcessProcessModel.o
+./build\GProcessProcessImplementation.o
+./build\GProcessInterprocessCommunication.o
+./build\GProcessInterprocessCommunicationClient.o
+./build\main.o
+);

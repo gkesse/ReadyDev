@@ -1,0 +1,20 @@
+#define IDM_QUIT  1
+#define IDM_NEW   2
+#define IDM_ABOUT 3
+
+1 ICON "res/ico/logo.ico"
+2 ICON "res/ico/new.ico"
+
+LEMENU MENU
+BEGIN
+  POPUP "Fichier"
+    BEGIN
+       MENUITEM "&Nouveau", IDM_NEW
+       MENUITEM SEPARATOR
+       MENUITEM "&Quitter", IDM_QUIT
+    END
+  POPUP "Aide"
+    BEGIN
+       MENUITEM "A propos...", IDM_ABOUT
+    END
+END

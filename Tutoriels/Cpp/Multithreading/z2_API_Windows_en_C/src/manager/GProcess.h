@@ -11,9 +11,7 @@ public:
 
 public:
     static GProcess* Instance();
-    double randData(double dMin, double dMax);
-    virtual void run(int argc = 0, char** argv = 0);
-    virtual void run2(HINSTANCE hThis, HINSTANCE hPrev, LPSTR szCmdLine, int iCmdShow);
+    virtual void run(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow);
 
 private:
     static GProcess* m_instance;

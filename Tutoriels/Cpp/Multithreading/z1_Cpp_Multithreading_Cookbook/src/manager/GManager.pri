@@ -1,7 +1,5 @@
-include(C:\Users\sabine\Downloads\Gerard\boost_1_68_0\boost_1_68_0\GBoost.pri)
-
 LIBS +=\
-    -lboost_program_options-mgw81-mt-x64-1_68
+    -lgdi32
 
 INCLUDEPATH += \
     $$PWD
@@ -15,7 +13,13 @@ HEADERS += \
     $$PWD/GProcessFunctionalProgramming.h \
     $$PWD/GProcessObjectOrientedProgramming.h \
     $$PWD/GProcessInheritance.h \
-    $$PWD/GProcessPolymorphism.h
+    $$PWD/GProcessPolymorphism.h \
+    $$PWD/GProcessEventMessage.h \
+    $$PWD/GProcessLinkedList.h \
+    $$PWD/GProcessProcessModel.h \
+    $$PWD/GProcessProcessImplementation.h \
+    $$PWD/GProcessInterprocessCommunication.h \
+    $$PWD/GProcessInterprocessCommunicationClient.h
 
 SOURCES += \
     $$PWD/GConfig.cpp \
@@ -25,4 +29,10 @@ SOURCES += \
     $$PWD/GProcessFunctionalProgramming.cpp \
     $$PWD/GProcessObjectOrientedProgramming.cpp \
     $$PWD/GProcessInheritance.cpp \
-    $$PWD/GProcessPolymorphism.cpp
+    $$PWD/GProcessPolymorphism.cpp \
+    $$PWD/GProcessEventMessage.cpp \
+    $$PWD/GProcessLinkedList.cpp \
+    $$PWD/GProcessProcessModel.cpp \
+    $$PWD/GProcessProcessImplementation.cpp \
+    $$PWD/GProcessInterprocessCommunication.cpp \
+    $$PWD/GProcessInterprocessCommunicationClient.cpp
