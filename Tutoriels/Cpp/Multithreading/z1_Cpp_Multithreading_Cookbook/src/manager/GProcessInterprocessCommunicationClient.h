@@ -19,6 +19,8 @@ public:
 
 private:
     static GProcessInterprocessCommunicationClient* m_instance;
+    static HANDLE m_hMapping;
+    static PCOMMUNICATIONOBJECT m_pCommObject;
 };
 //===============================================
 #endif

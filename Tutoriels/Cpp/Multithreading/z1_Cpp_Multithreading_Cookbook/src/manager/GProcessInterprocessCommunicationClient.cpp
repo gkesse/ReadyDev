@@ -2,6 +2,8 @@
 #include "GProcessInterprocessCommunicationClient.h"
 //===============================================
 GProcessInterprocessCommunicationClient* GProcessInterprocessCommunicationClient::m_instance = 0;
+HANDLE GProcessInterprocessCommunicationClient::m_hMapping;
+PCOMMUNICATIONOBJECT GProcessInterprocessCommunicationClient::m_pCommObject;
 //===============================================
 struct _tagCOMMUNICATIONOBJECT {
     HWND hWndClient;
@@ -13,9 +15,6 @@ struct _tagCOMMUNICATIONOBJECT {
 #define SYNCHRONIZING_MUTEX_NAME TEXT( "__TEST_MUTEX__" )
 #define WINDOW_CLASS_NAME TEXT( "__TMPWNDCLASS__" )
 #define BUTTON_CLOSE 100
-//===============================================
-HANDLE hMapping;
-PCOMMUNICATIONOBJECT pCommObject;
 //===============================================
 GProcessInterprocessCommunicationClient::GProcessInterprocessCommunicationClient() {
 
@@ -34,62 +33,68 @@ GProcessInterprocessCommunicationClient* GProcessInterprocessCommunicationClient
 //===============================================
 void GProcessInterprocessCommunicationClient::run(int argc, char **argv) {
     cout << "\n### Communication inter-processus client\n\n";
-    HWND hWnd = InitializeWnd();
-    if(!hWnd) {
-        cout << "Cannot create window!" << endl << "Error:\t" <<
-                GetLastError() << endl;
+    HWND lhWnd = InitializeWnd();
+
+    if(!lhWnd) {
+        cout << "Erreur creation fenetre: " << GetLastError() << "\n";
         return;
     }
-    HANDLE hMutex = CreateMutex(NULL, FALSE, SYNCHRONIZING_MUTEX_NAME);
-    if(!hMutex) {
-        cout << "Cannot create mutex!" << endl << "Error:\t" <<
-                GetLastError() << endl;
+
+    HANDLE lhMutex = CreateMutex(NULL, FALSE, SYNCHRONIZING_MUTEX_NAME);
+
+    if(!lhMutex) {
+        cout << "Erreur creation mutex: " << GetLastError() << "\n";
         return;
     }
-    hMapping = CreateFileMapping((HANDLE)-1, NULL, PAGE_READWRITE,
-                                 0, sizeof(COMMUNICATIONOBJECT), COMMUNICATION_OBJECT_NAME);
-    if(!hMapping) {
-        cout << "Cannot create mapping object!" << endl << "Error:\t"
-             << GetLastError() << endl;
+
+    m_hMapping = CreateFileMapping((HANDLE)-1, NULL, PAGE_READWRITE,
+                                   0, sizeof(COMMUNICATIONOBJECT), COMMUNICATION_OBJECT_NAME);
+    if(!m_hMapping) {
+        cout << "Erreur creation mapping" << GetLastError() << "\n";
         return;
     }
-    pCommObject = (PCOMMUNICATIONOBJECT) MapViewOfFile(hMapping,
-                                                       FILE_MAP_WRITE, 0, 0, 0);
-    if(pCommObject) {
-        pCommObject->bExitLoop = FALSE;
-        pCommObject->hWndClient = hWnd;
-        pCommObject->lSleepTimeout = 250;
-        UnmapViewOfFile(pCommObject);
+
+    m_pCommObject = (PCOMMUNICATIONOBJECT) MapViewOfFile(m_hMapping, FILE_MAP_WRITE, 0, 0, 0);
+
+    if(m_pCommObject) {
+        m_pCommObject->bExitLoop = FALSE;
+        m_pCommObject->hWndClient = lhWnd;
+        m_pCommObject->lSleepTimeout = 250;
+        UnmapViewOfFile(m_pCommObject);
     }
-    STARTUPINFO startupInfoRed = { 0 };
-    PROCESS_INFORMATION processInformationRed = { 0 };
-    STARTUPINFO startupInfoBlue = { 0 };
-    PROCESS_INFORMATION processInformationBlue = { 0 };
-    BOOL bSuccess = CreateProcess( TEXT("Server.exe"),
-                                   TEXT("red"), NULL, NULL, FALSE, 0, NULL, NULL, &startupInfoRed,
-                                   &processInformationRed);
-    if(!bSuccess) {
-        cout << "Cannot create process red!" << endl << "Error:\t" <<
-                GetLastError() << endl;
+
+    STARTUPINFO lStartupInfoRed = {0};
+    PROCESS_INFORMATION lProcessInformationRed = {0};
+    STARTUPINFO lStartupInfoBlue = {0};
+    PROCESS_INFORMATION lProcessInformationBlue = {0};
+
+    BOOL lSuccess = CreateProcess(TEXT("Server.exe"),
+                                  TEXT("red"), NULL, NULL, FALSE, 0, NULL, NULL, &lStartupInfoRed,
+                                  &lProcessInformationRed);
+    if(!lSuccess) {
+        cout << "Erreur creation processus rouge" << GetLastError() << "\n";
         return;
     }
-    bSuccess = CreateProcess( TEXT("Server.exe"),
-                              TEXT("blue"), NULL, NULL, FALSE, 0, NULL, NULL, &startupInfoBlue,
-                              &processInformationBlue);
-    if(!bSuccess) {
-        cout << "Cannot create process blue!" << endl << "Error:\t" <<
-                GetLastError() << endl;
+
+    lSuccess = CreateProcess(TEXT("Server.exe"),
+                             TEXT("blue"), NULL, NULL, FALSE, 0, NULL, NULL, &lStartupInfoBlue,
+                             &lProcessInformationBlue);
+    if (!lSuccess) {
+        cout << "Erreur creation processus bleu" << GetLastError() << "\n";
         return;
     }
-    MSG msg = {0};
-    while (GetMessage(&msg, NULL, 0, 0)) {
-        TranslateMessage(&msg);
-        DispatchMessage(&msg);
+
+    MSG lMsg = {0};
+
+    while(GetMessage(&lMsg, NULL, 0, 0)) {
+        TranslateMessage(&lMsg);
+        DispatchMessage(&lMsg);
     }
+
     UnregisterClass(WINDOW_CLASS_NAME, GetModuleHandle(NULL));
-    CloseHandle(hMapping);
-    CloseHandle(hMutex);
-    cout << "End program." << endl;
+    CloseHandle(m_hMapping);
+    CloseHandle(lhMutex);
+    cout << "Fin du programme" << endl;
 }
 //===============================================
 HWND GProcessInterprocessCommunicationClient::InitializeWnd() {
@@ -107,20 +112,22 @@ HWND GProcessInterprocessCommunicationClient::InitializeWnd() {
     wndEx.hIcon = LoadIcon(NULL, IDI_APPLICATION);
     wndEx.hIconSm = LoadIcon(NULL, IDI_APPLICATION);
 
-    if(!RegisterClassEx(&wndEx)) {
+    if(!RegisterClassEx(&wndEx))
+    {
         return NULL;
     }
-
     HWND hWnd = CreateWindow(wndEx.lpszClassName,
                              TEXT("Interprocess communication Demo"),
                              WS_OVERLAPPEDWINDOW, 200, 200, 400, 300, NULL, NULL,
                              wndEx.hInstance, NULL);
-    if (!hWnd) {
+    if (!hWnd)
+    {
         return NULL;
     }
     HWND hButton = CreateWindow(TEXT("BUTTON"), TEXT("Close"),
                                 WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON | WS_TABSTOP,
-                                275, 225, 100, 25, hWnd, (HMENU)BUTTON_CLOSE, wndEx.hInstance, NULL);
+                                275, 225, 100, 25, hWnd, (HMENU)BUTTON_CLOSE, wndEx.hInstance,
+                                NULL);
     HWND hStatic = CreateWindow(TEXT("STATIC"), TEXT(""), WS_CHILD |
                                 WS_VISIBLE, 10, 10, 365, 205, hWnd, NULL, wndEx.hInstance, NULL);
     ShowWindow(hWnd, SW_SHOW);
@@ -129,26 +136,34 @@ HWND GProcessInterprocessCommunicationClient::InitializeWnd() {
 }
 //===============================================
 LRESULT CALLBACK GProcessInterprocessCommunicationClient::WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
-    switch(uMsg) {
-    case WM_COMMAND: {
-        switch (LOWORD(wParam)) {
-        case BUTTON_CLOSE: {
+    switch (uMsg)
+    {
+    case WM_COMMAND:
+    {
+        switch (LOWORD(wParam))
+        {
+        case BUTTON_CLOSE:
+        {
             PostMessage(hWnd, WM_CLOSE, 0, 0);
             break;
         }
         }
         break;
     }
-    case WM_DESTROY: {
-        pCommObject = (PCOMMUNICATIONOBJECT) MapViewOfFile(hMapping, FILE_MAP_WRITE, 0, 0, 0);
-        if (pCommObject) {
-            pCommObject->bExitLoop = TRUE;
-            UnmapViewOfFile(pCommObject);
+    case WM_DESTROY:
+    {
+        m_pCommObject = (PCOMMUNICATIONOBJECT) MapViewOfFile(m_hMapping,
+                                                             FILE_MAP_WRITE, 0, 0, 0);
+        if (m_pCommObject)
+        {
+            m_pCommObject->bExitLoop = TRUE;
+            UnmapViewOfFile(m_pCommObject);
         }
         PostQuitMessage(0);
         break;
     }
-    default: {
+    default:
+    {
         return DefWindowProc(hWnd, uMsg, wParam, lParam);
     }
     }

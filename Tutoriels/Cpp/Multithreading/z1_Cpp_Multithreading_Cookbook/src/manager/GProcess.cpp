@@ -46,5 +46,6 @@ double GProcess::randData(double dMin, double dMax) {
     return dMin + dVal * (dMax - dMin);
 }
 //===============================================
-void GProcess::run(HINSTANCE hThis, HINSTANCE hPrev, LPSTR szCmdLine, int iCmdShow) {}
+void GProcess::run(int argc, char **argv) {}
+void GProcess::run2(HINSTANCE hThis, HINSTANCE hPrev, LPSTR szCmdLine, int iCmdShow) {}
 //===============================================
