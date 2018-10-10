@@ -1,22 +1,22 @@
 //===============================================
-#ifndef _GProcessInterprocessCommunication_
-#define _GProcessInterprocessCommunication_
+#ifndef _GProcessInterprocessCommunicationServer_
+#define _GProcessInterprocessCommunicationServer_
 //===============================================
 #include "GProcess.h"
 //===============================================
 typedef struct _tagCOMMUNICATIONOBJECT COMMUNICATIONOBJECT, *PCOMMUNICATIONOBJECT;
 //===============================================
-class GProcessInterprocessCommunication : public GProcess {
+class GProcessInterprocessCommunicationServer : public GProcess {
 public:
-    GProcessInterprocessCommunication();
-    ~GProcessInterprocessCommunication();
+    GProcessInterprocessCommunicationServer();
+    ~GProcessInterprocessCommunicationServer();
 
 public:
-    static GProcessInterprocessCommunication* Instance();
+    static GProcessInterprocessCommunicationServer* Instance();
     void run(int argc = 0, char** argv = 0);
 
 private:
-    static GProcessInterprocessCommunication* m_instance;
+    static GProcessInterprocessCommunicationServer* m_instance;
 };
 //===============================================
 #endif

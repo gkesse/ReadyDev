@@ -11,7 +11,8 @@ INPUT(
 ./build\GProcessLinkedList.o
 ./build\GProcessProcessModel.o
 ./build\GProcessProcessImplementation.o
-./build\GProcessInterprocessCommunication.o
 ./build\GProcessInterprocessCommunicationClient.o
+./build\GProcessInterprocessCommunicationServer.o
+./build\GProcessInterprocessCommunicationProblem.o
 ./build\main.o
 );

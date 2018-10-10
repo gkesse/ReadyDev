@@ -5,6 +5,7 @@
 #include <windows.h>
 #include <Winternl.h>
 #include <tchar.h>
+#include <commctrl.h>
 //================================================
 #include <iostream>
 #include <string>

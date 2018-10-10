@@ -10,8 +10,9 @@
 #include "GProcessLinkedList.h"
 #include "GProcessProcessModel.h"
 #include "GProcessProcessImplementation.h"
-#include "GProcessInterprocessCommunication.h"
+#include "GProcessInterprocessCommunicationServer.h"
 #include "GProcessInterprocessCommunicationClient.h"
+#include "GProcessInterprocessCommunicationProblem.h"
 #include "GConfig.h"
 //===============================================
 GProcess* GProcess::m_instance = 0;
@@ -36,8 +37,9 @@ GProcess* GProcess::Instance() {
     if(lProcess == "LINKED_LIST") return GProcessLinkedList::Instance();
     if(lProcess == "PROCESS_MODEL") return GProcessProcessModel::Instance();
     if(lProcess == "PROCESS_IMPLEMENTATION") return GProcessProcessImplementation::Instance();
-    if(lProcess == "INTERPROCESS_COMMUNICATION") return GProcessInterprocessCommunication::Instance();
+    if(lProcess == "INTERPROCESS_COMMUNICATION_SERVER") return GProcessInterprocessCommunicationServer::Instance();
     if(lProcess == "INTERPROCESS_COMMUNICATION_CLIENT") return GProcessInterprocessCommunicationClient::Instance();
+    if(lProcess == "INTERPROCESS_COMMUNICATION_PROBLEM") return GProcessInterprocessCommunicationProblem::Instance();
     return GProcessHelloWorld::Instance();
 }
 //===============================================
@@ -47,5 +49,5 @@ double GProcess::randData(double dMin, double dMax) {
 }
 //===============================================
 void GProcess::run(int argc, char **argv) {}
-void GProcess::run2(HINSTANCE hThis, HINSTANCE hPrev, LPSTR szCmdLine, int iCmdShow) {}
+void GProcess::run2(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLine, int nCmdShow) {}
 //===============================================

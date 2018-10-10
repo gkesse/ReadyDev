@@ -12,8 +12,8 @@ struct _tagCOMMUNICATIONOBJECT {
 };
 //===============================================
 #define COMMUNICATION_OBJECT_NAME TEXT("__FILE_MAPPING__")
-#define SYNCHRONIZING_MUTEX_NAME TEXT( "__TEST_MUTEX__" )
-#define WINDOW_CLASS_NAME TEXT( "__TMPWNDCLASS__" )
+#define SYNCHRONIZING_MUTEX_NAME TEXT("__TEST_MUTEX__")
+#define WINDOW_CLASS_NAME TEXT("__TMPWNDCLASS__")
 #define BUTTON_CLOSE 100
 //===============================================
 GProcessInterprocessCommunicationClient::GProcessInterprocessCommunicationClient() {

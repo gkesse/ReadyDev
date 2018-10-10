@@ -1,10 +1,10 @@
 //===============================================
-#include "GProcessInterprocessCommunication.h"
+#include "GProcessInterprocessCommunicationServer.h"
 //===============================================
-GProcessInterprocessCommunication* GProcessInterprocessCommunication::m_instance = 0;
+GProcessInterprocessCommunicationServer* GProcessInterprocessCommunicationServer::m_instance = 0;
 //===============================================
 #define COMMUNICATION_OBJECT_NAME TEXT("__FILE_MAPPING__")
-#define SYNCHRONIZING_MUTEX_NAME TEXT( "__TEST_MUTEX__" )
+#define SYNCHRONIZING_MUTEX_NAME TEXT("__TEST_MUTEX__")
 //===============================================
 struct _tagCOMMUNICATIONOBJECT {
     HWND hWndClient;
@@ -12,23 +12,23 @@ struct _tagCOMMUNICATIONOBJECT {
     LONG lSleepTimeout;
 };
 //===============================================
-GProcessInterprocessCommunication::GProcessInterprocessCommunication() {
+GProcessInterprocessCommunicationServer::GProcessInterprocessCommunicationServer() {
 
 }
 //===============================================
-GProcessInterprocessCommunication::~GProcessInterprocessCommunication() {
+GProcessInterprocessCommunicationServer::~GProcessInterprocessCommunicationServer() {
 
 }
 //===============================================
-GProcessInterprocessCommunication* GProcessInterprocessCommunication::Instance() {
+GProcessInterprocessCommunicationServer* GProcessInterprocessCommunicationServer::Instance() {
     if(m_instance == 0) {
-        m_instance = new GProcessInterprocessCommunication;
+        m_instance = new GProcessInterprocessCommunicationServer;
     }
     return m_instance;
 }
 //===============================================
-void GProcessInterprocessCommunication::run(int argc, char **argv) {
-    cout << "\n### Communication inter-processus\n\n";
+void GProcessInterprocessCommunicationServer::run(int argc, char **argv) {
+    cout << "\n### Communication inter-processus server\n\n";
     HBRUSH lHBrush = NULL;
 
     if(_tcscmp((char*)TEXT("blue"), argv[0]) == 0) {
@@ -51,7 +51,7 @@ void GProcessInterprocessCommunication::run(int argc, char **argv) {
     if(lHMapping) {
         while(lContinueLoop) {
             WaitForSingleObject(lHMutex, INFINITE);
-            lCommObject = (PCOMMUNICATIONOBJECT) MapViewOfFile(lHMapping, FILE_MAP_READ, 0, 0, sizeof(COMMUNICATIONOBJECT));
+            lCommObject = (PCOMMUNICATIONOBJECT)MapViewOfFile(lHMapping, FILE_MAP_READ, 0, 0, sizeof(COMMUNICATIONOBJECT));
             if(lCommObject) {
                 lContinueLoop = !lCommObject->bExitLoop;
                 lHWnd = lCommObject->hWndClient;

@@ -1,5 +1,5 @@
 LIBS +=\
-    -lgdi32
+    -lgdi32 -lcomctl32
 
 INCLUDEPATH += \
     $$PWD
@@ -18,8 +18,9 @@ HEADERS += \
     $$PWD/GProcessLinkedList.h \
     $$PWD/GProcessProcessModel.h \
     $$PWD/GProcessProcessImplementation.h \
-    $$PWD/GProcessInterprocessCommunication.h \
-    $$PWD/GProcessInterprocessCommunicationClient.h
+    $$PWD/GProcessInterprocessCommunicationClient.h \
+    $$PWD/GProcessInterprocessCommunicationServer.h \
+    $$PWD/GProcessInterprocessCommunicationProblem.h
 
 SOURCES += \
     $$PWD/GConfig.cpp \
@@ -34,5 +35,6 @@ SOURCES += \
     $$PWD/GProcessLinkedList.cpp \
     $$PWD/GProcessProcessModel.cpp \
     $$PWD/GProcessProcessImplementation.cpp \
-    $$PWD/GProcessInterprocessCommunication.cpp \
-    $$PWD/GProcessInterprocessCommunicationClient.cpp
+    $$PWD/GProcessInterprocessCommunicationClient.cpp \
+    $$PWD/GProcessInterprocessCommunicationServer.cpp \
+    $$PWD/GProcessInterprocessCommunicationProblem.cpp

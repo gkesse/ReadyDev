@@ -6,4 +6,4 @@ echo.
 Client
 echo.
 
-pause
+::pause
