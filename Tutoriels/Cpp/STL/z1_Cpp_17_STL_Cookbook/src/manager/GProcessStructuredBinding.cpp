@@ -19,17 +19,19 @@ GProcessStructuredBinding* GProcessStructuredBinding::Instance() {
 }
 //===============================================
 void GProcessStructuredBinding::run() {
-    cout << "\n### Decompresser des donnees\n\n";
+    cout << "\n### Liaison structuree avec pair\n\n";
     auto lDivide = divide(16, 3);
+    int lFraction = lDivide.first;
+    int lRemainder = lDivide.second;
     cout << "Division (16, 3)\n";
-    cout << "Quotient: " << lDivide.first << "\n";
-    cout << "Reste: " << lDivide.second << "\n";
+    cout << "Quotient: " << lFraction << "\n";
+    cout << "Reste: " << lRemainder << "\n";
 
-    cout << "\n### Decompresser des donnees C++17\n\n";
-    auto [fraction, remainder] = divide(16, 3);
+    cout << "\n### Liaison structuree avec pair C++17\n\n";
+    auto [lFraction2, lRemainder2] = divide(16, 3);
     cout << "Division (16, 3)\n";
-    cout << "Quotient: " << fraction << "\n";
-    cout << "Reste: " << remainder << "\n";
+    cout << "Quotient: " << lFraction2 << "\n";
+    cout << "Reste: " << lRemainder2 << "\n";
 }
 //===============================================
 pair<int, int> GProcessStructuredBinding::divide(int dividend, int divisor) {

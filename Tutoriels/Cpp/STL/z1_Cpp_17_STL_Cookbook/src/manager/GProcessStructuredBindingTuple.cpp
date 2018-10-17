@@ -19,7 +19,7 @@ GProcessStructuredBindingTuple* GProcessStructuredBindingTuple::Instance() {
 }
 //===============================================
 void GProcessStructuredBindingTuple::run() {
-    cout << "\n### Liaison structuree tuple\n\n";
+    cout << "\n### Liaison structuree avec tuple\n\n";
     auto lDivide = divide(16, 3);
     int lFraction = get<0>(lDivide);
     int lRemainder = get<0>(lDivide);
@@ -27,7 +27,7 @@ void GProcessStructuredBindingTuple::run() {
     cout << "Quotient: " << lFraction << "\n";
     cout << "Reste: " << lRemainder << "\n";
 
-    cout << "\n### Liaison structuree tuple C++17\n\n";
+    cout << "\n### Liaison structuree avec tuple C++17\n\n";
     auto [lFraction2, lRemainder2] = divide(16, 3);
     cout << "Division (16, 3)\n";
     cout << "Quotient: " << lFraction2 << "\n";
