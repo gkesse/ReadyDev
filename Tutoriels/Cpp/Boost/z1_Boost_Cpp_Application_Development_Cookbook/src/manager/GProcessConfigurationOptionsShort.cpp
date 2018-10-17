@@ -19,7 +19,7 @@ GProcessConfigurationOptionsShort* GProcessConfigurationOptionsShort::Instance()
 }
 //===============================================
 void GProcessConfigurationOptionsShort::run(int argc, char **argv) {
-    cout << "\n### Options de configuration court\n\n";
+    cout << "\n### Options de configuration courtes\n\n";
     boost::program_options::options_description lDescription("Toutes les options");
     int lOrangesVar = 0;
     lDescription.add_options()
