@@ -1,20 +1,20 @@
 //===============================================
-#ifndef _GProcessConfigurationOptions_
-#define _GProcessConfigurationOptions_
+#ifndef _GProcessConfigurationOptionsLong_
+#define _GProcessConfigurationOptionsLong_
 //===============================================
 #include "GProcess.h"
 //===============================================
-class GProcessConfigurationOptions : public GProcess {
+class GProcessConfigurationOptionsLong : public GProcess {
 public:
-    GProcessConfigurationOptions();
-    ~GProcessConfigurationOptions();
+    GProcessConfigurationOptionsLong();
+    ~GProcessConfigurationOptionsLong();
 
 public:
-    static GProcessConfigurationOptions* Instance();
+    static GProcessConfigurationOptionsLong* Instance();
     void run(int argc = 0, char** argv = 0);
 
 private:
-    static GProcessConfigurationOptions* m_instance;
+    static GProcessConfigurationOptionsLong* m_instance;
 };
 //===============================================
 #endif

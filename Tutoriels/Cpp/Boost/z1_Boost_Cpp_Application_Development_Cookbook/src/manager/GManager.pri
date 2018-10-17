@@ -10,11 +10,11 @@ HEADERS += \
     $$PWD/GConfig.h \
     $$PWD/GProcess.h \
     $$PWD/GInclude.h \
-    $$PWD/GProcessConfigurationOptions.h \
-    $$PWD/GProcessConfigurationOptionsShort.h
+    $$PWD/GProcessConfigurationOptionsShort.h \
+    $$PWD/GProcessConfigurationOptionsLong.h
 
 SOURCES += \
     $$PWD/GConfig.cpp \
     $$PWD/GProcess.cpp \
-    $$PWD/GProcessConfigurationOptions.cpp \
-    $$PWD/GProcessConfigurationOptionsShort.cpp
+    $$PWD/GProcessConfigurationOptionsShort.cpp \
+    $$PWD/GProcessConfigurationOptionsLong.cpp

@@ -1,25 +1,25 @@
 //===============================================
-#include "GProcessConfigurationOptions.h"
+#include "GProcessConfigurationOptionsLong.h"
 //===============================================
-GProcessConfigurationOptions* GProcessConfigurationOptions::m_instance = 0;
+GProcessConfigurationOptionsLong* GProcessConfigurationOptionsLong::m_instance = 0;
 //===============================================
-GProcessConfigurationOptions::GProcessConfigurationOptions() {
+GProcessConfigurationOptionsLong::GProcessConfigurationOptionsLong() {
 
 }
 //===============================================
-GProcessConfigurationOptions::~GProcessConfigurationOptions() {
+GProcessConfigurationOptionsLong::~GProcessConfigurationOptionsLong() {
 
 }
 //===============================================
-GProcessConfigurationOptions* GProcessConfigurationOptions::Instance() {
+GProcessConfigurationOptionsLong* GProcessConfigurationOptionsLong::Instance() {
     if(m_instance == 0) {
-        m_instance = new GProcessConfigurationOptions;
+        m_instance = new GProcessConfigurationOptionsLong;
     }
     return m_instance;
 }
 //===============================================
-void GProcessConfigurationOptions::run(int argc, char **argv) {
-    cout << "\n### Options de configuration\n\n";
+void GProcessConfigurationOptionsLong::run(int argc, char **argv) {
+    cout << "\n### Options de configuration longues\n\n";
     boost::program_options::options_description lDescription("Toutes les options");
     lDescription.add_options()
             ("apples", boost::program_options::value<int>(), "combien de pommes avez-vous")
@@ -28,6 +28,7 @@ void GProcessConfigurationOptions::run(int argc, char **argv) {
     boost::program_options::variables_map lVariableMap;
     boost::program_options::store(boost::program_options::parse_command_line(argc, argv, lDescription), lVariableMap);
     boost::program_options::notify(lVariableMap);
+
     if(lVariableMap.count("help")) {
         cout << lDescription << "\n";
         return;

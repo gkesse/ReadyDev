@@ -21,7 +21,7 @@
         {"name":"Apprendre la programmation avec le C","link":"/Tutoriels/Cpp/Co/","follow":"yes"},
         {"name":"Apprendre la programmation avec le C++","link":"/Tutoriels/Cpp/Cpp/","follow":"yes"},
         {"name":"Apprendre la bibliothèque STL en C++","link":"/Tutoriels/Cpp/STL/","follow":"yes"},
-        {"name":"Apprendre la bibliothèque Boost en C++","link":"#","follow":"no"}
+        {"name":"Apprendre la collection de bibliothèques Boost en C++","link":"/Tutoriels/Cpp/Boost/","follow":"yes"}
     ],
     "compilation":
     [
