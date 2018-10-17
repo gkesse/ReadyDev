@@ -1,0 +1,21 @@
+{
+    "sitemap":"no",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+            "STL est une bibliothèque C++ basées sur les templates.",
+			"Le but de ce tutoriel est de vous apprendre",
+            "la bibliothèque en C++.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Tutoriels/Cpp/STL/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/data/img/defaults/stl.jpg"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"C/C++","link":"/Tutoriels/Cpp/#Développement logiciel","follow":"no"},
+        {"name":"STL","link":"","follow":"no"}
+    ]
+}
