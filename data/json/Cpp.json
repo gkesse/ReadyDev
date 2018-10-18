@@ -62,7 +62,7 @@
     ],
     "multithreading":
     [
-        {"name":"Apprendre le multithreading en C++ avec Qt","link":"#","follow":"no"}
+        {"name":"Apprendre le multithreading en C++","link":"/Tutoriels/Cpp/Multithreading/","follow":"yes"}
     ],
     "networks":
     [

@@ -38,13 +38,14 @@ void GProcessProcessImplementation::run(int argc, char **argv) {
     if(lCreateProcess) {
         cout << "Demarrage du processus\n";
         cout << "ID du processus: " << lProcessInformation.dwProcessId << "\n";
+
         PROCESS_BASIC_INFORMATION lPbi;
         ULONG lLength = 0;
         HMODULE lLoadLibrary = LoadLibrary(TEXT("C:\\Windows\\System32\\ntdll.dll"));
 
         if(lLoadLibrary) {
-            QEURYINFORMATIONPROCESS lQueryInformationProcess = (QEURYINFORMATIONPROCESS)GetProcAddress(
-                        lLoadLibrary, "NtQueryInformationProcess");
+            QEURYINFORMATIONPROCESS lQueryInformationProcess =
+                    (QEURYINFORMATIONPROCESS)GetProcAddress(lLoadLibrary, "NtQueryInformationProcess");
 
             if(lQueryInformationProcess) {
                 NTSTATUS lNtStatus = lQueryInformationProcess(

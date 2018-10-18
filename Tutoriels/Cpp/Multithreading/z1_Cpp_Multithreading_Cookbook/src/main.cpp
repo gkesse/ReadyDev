@@ -13,7 +13,7 @@ int WINAPI WinMain(HINSTANCE hThis, HINSTANCE hPrev, LPSTR szCmdLine, int iCmdSh
 #else
 //===============================================
 int main(int argc, char** argv) {
-    GConfig::Instance()->setData("PROCESS", "INTERPROCESS_COMMUNICATION_SERVER");
+    GConfig::Instance()->setData("PROCESS", "PROCESS_IMPLEMENTATION");
     GProcess::Instance()->run(argc, argv);
     return 0;
 }
