@@ -1,0 +1,21 @@
+{
+    "sitemap":"no",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+            "Le Multithreading est l'exécution de plusieurs threads simultanément.",
+			"Le but de ce tutoriel est de vous apprendre",
+            "le Multithreading en C++.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Tutoriels/Cpp/Multithreading/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/data/img/defaults/boost.png"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"C/C++","link":"/Tutoriels/Cpp/#Multithreading","follow":"no"},
+        {"name":"Multithreading","link":"","follow":"no"}
+    ]
+}
