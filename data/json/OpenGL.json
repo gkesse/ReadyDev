@@ -15,7 +15,7 @@
     "links":
     [
         {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
-        {"name":"C/C++","link":"/Tutoriels/Cpp/#Vision par ordinateur","follow":"no"},
+        {"name":"C/C++","link":"/Tutoriels/Cpp/#Applications 3D","follow":"no"},
         {"name":"OpenGL","link":"","follow":"no"}
     ]
 }
