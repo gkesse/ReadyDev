@@ -14,7 +14,7 @@
     "links":
     [
         {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
-        {"name":"C/C++","link":"/Tutoriels/Cpp/","follow":"no"},
+        {"name":"C/C++","link":"/Tutoriels/Cpp/#Développement logiciel","follow":"no"},
         {"name":"C","link":"","follow":"no"}
     ]
 }
