@@ -117,4 +117,4 @@ void GProcessDrawingPoints::drawPoint(Vertex v1, GLfloat point_size) {
     glVertex3f(v1.x, v1.y, v1.z);
     glEnd();
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Drawing_Points.png" alt="img/Drawing_Points.png"></div></div></div></div></div><br> 
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Drawing_Points.png" alt="img/Drawing_Points.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Dessiner des lignes"><a class="Link3" href="#">Dessiner des lignes</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">dessiner des lignes</span> avec OpenGL.<br>Produit par <b>Gérard KESSE</b>.<br><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Drawing_Line.png" alt="img/Drawing_Line.png"></div></div></div></div></div><br> 
