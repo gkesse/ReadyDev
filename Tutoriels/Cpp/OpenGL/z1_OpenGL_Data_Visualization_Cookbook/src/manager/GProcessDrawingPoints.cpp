@@ -55,7 +55,7 @@ void GProcessDrawingPoints::run(int argc, char **argv) {
 
         glMatrixMode(GL_PROJECTION);
         glLoadIdentity();
-        //Orthographic Projection
+
         glOrtho(-ratio, ratio, -1.f, 1.f, 1.f, -1.f);
         glMatrixMode(GL_MODELVIEW);
         glLoadIdentity();
@@ -69,7 +69,6 @@ void GProcessDrawingPoints::run(int argc, char **argv) {
 
     glfwDestroyWindow(window);
     glfwTerminate();
-    exit(EXIT_SUCCESS);
 }
 //===============================================
 void GProcessDrawingPoints::drawPointsDemo(int width, int height) {
