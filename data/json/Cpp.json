@@ -86,7 +86,7 @@
     ],
     "app3d":
     [
-        {"name":"Apprendre la programmation 3D en C++ avec OpenGL","link":"#","follow":"no"}
+        {"name":"Apprendre la programmation 3D en C++ avec OpenGL","link":"/Tutoriels/Cpp/OpenGL/","follow":"yes"}
     ],
     "visualization":
     [
