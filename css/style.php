@@ -936,7 +936,7 @@ span {
 }
 
 .Label {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: #7f859a; /* L3 */
     display: inline-block;
     vertical-align: top;
     padding: 5px;
@@ -1073,7 +1073,7 @@ span {
 }
 
 .Link9 {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: #5f6681; /* L2 */
     display: inline-block;
     vertical-align: middle;
     font-family: Aclonica;
@@ -1470,7 +1470,7 @@ span {
 }
 
 .Title2{
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: #5f6681; /* L2 */
     color: #f67b20;
     padding: 20px 10px;
 }
