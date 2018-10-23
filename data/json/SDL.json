@@ -1,0 +1,21 @@
+{
+    "sitemap":"no",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+            "SDL est une bibliothèque de programmation 2D.",
+			"Le but de ce tutoriel est de vous apprendre",
+            "la programmation 2D en C++ avec SDL.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Tutoriels/Cpp/SDL/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/data/img/defaults/sdl.jpg"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"C/C++","link":"/Tutoriels/Cpp/#Applications 2D","follow":"no"},
+        {"name":"STL","link":"","follow":"no"}
+    ]
+}

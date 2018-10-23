@@ -26,10 +26,11 @@ GProcessProcessImplementation* GProcessProcessImplementation::Instance() {
     return m_instance;
 }
 //===============================================
-void GProcessProcessImplementation::run(int argc, char **argv) {
+void GProcessProcessImplementation::run(int argc, char** argv) {
     cout << "\n### Implementation de processus\n\n";
     STARTUPINFO lStartupInfo = {0};
     PROCESS_INFORMATION lProcessInformation = {0};
+
     BOOL lCreateProcess = CreateProcess(
                 TEXT("C:\\Windows\\notepad.exe"), NULL, NULL,
                 NULL, FALSE, NULL, NULL, NULL, &lStartupInfo,
@@ -65,8 +66,7 @@ void GProcessProcessImplementation::run(int argc, char **argv) {
             }
             FreeLibrary(lLoadLibrary);
         }
-        else
-        {
+        else {
             cout << "Erreur chargement librairie ntdll.dll: " << GetLastError() << "\n";
         }
     }

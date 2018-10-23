@@ -59,7 +59,7 @@ void GProcessInterprocessCommunicationClient::run(int argc, char **argv) {
     if(m_pCommObject) {
         m_pCommObject->bExitLoop = FALSE;
         m_pCommObject->hWndClient = lhWnd;
-        m_pCommObject->lSleepTimeout = 250;
+        m_pCommObject->lSleepTimeout = 1000;
         UnmapViewOfFile(m_pCommObject);
     }
 
@@ -112,22 +112,20 @@ HWND GProcessInterprocessCommunicationClient::InitializeWnd() {
     wndEx.hIcon = LoadIcon(NULL, IDI_APPLICATION);
     wndEx.hIconSm = LoadIcon(NULL, IDI_APPLICATION);
 
-    if(!RegisterClassEx(&wndEx))
-    {
+    if(!RegisterClassEx(&wndEx)) {
         return NULL;
     }
     HWND hWnd = CreateWindow(wndEx.lpszClassName,
-                             TEXT("Interprocess communication Demo"),
+                             TEXT("Multithreading | ReadyDev"),
                              WS_OVERLAPPEDWINDOW, 200, 200, 400, 300, NULL, NULL,
                              wndEx.hInstance, NULL);
-    if (!hWnd)
-    {
+    if(!hWnd) {
         return NULL;
     }
+
     HWND hButton = CreateWindow(TEXT("BUTTON"), TEXT("Close"),
                                 WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON | WS_TABSTOP,
-                                275, 225, 100, 25, hWnd, (HMENU)BUTTON_CLOSE, wndEx.hInstance,
-                                NULL);
+                                275, 225, 100, 25, hWnd, (HMENU)BUTTON_CLOSE, wndEx.hInstance, NULL);
     HWND hStatic = CreateWindow(TEXT("STATIC"), TEXT(""), WS_CHILD |
                                 WS_VISIBLE, 10, 10, 365, 205, hWnd, NULL, wndEx.hInstance, NULL);
     ShowWindow(hWnd, SW_SHOW);
@@ -136,34 +134,26 @@ HWND GProcessInterprocessCommunicationClient::InitializeWnd() {
 }
 //===============================================
 LRESULT CALLBACK GProcessInterprocessCommunicationClient::WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
-    switch (uMsg)
-    {
-    case WM_COMMAND:
-    {
-        switch (LOWORD(wParam))
-        {
-        case BUTTON_CLOSE:
-        {
+    switch(uMsg) {
+    case WM_COMMAND: {
+        switch(LOWORD(wParam)) {
+        case BUTTON_CLOSE: {
             PostMessage(hWnd, WM_CLOSE, 0, 0);
             break;
         }
         }
         break;
     }
-    case WM_DESTROY:
-    {
-        m_pCommObject = (PCOMMUNICATIONOBJECT) MapViewOfFile(m_hMapping,
-                                                             FILE_MAP_WRITE, 0, 0, 0);
-        if (m_pCommObject)
-        {
+    case WM_DESTROY: {
+        m_pCommObject = (PCOMMUNICATIONOBJECT) MapViewOfFile(m_hMapping, FILE_MAP_WRITE, 0, 0, 0);
+        if (m_pCommObject) {
             m_pCommObject->bExitLoop = TRUE;
             UnmapViewOfFile(m_pCommObject);
         }
         PostQuitMessage(0);
         break;
     }
-    default:
-    {
+    default: {
         return DefWindowProc(hWnd, uMsg, wParam, lParam);
     }
     }

@@ -31,11 +31,13 @@ void GProcessInterprocessCommunicationServer::run(int argc, char **argv) {
     cout << "\n### Communication inter-processus server\n\n";
     HBRUSH lHBrush = NULL;
 
-    if(_tcscmp((char*)TEXT("blue"), argv[0]) == 0) {
+    if(_tcscmp("blue", argv[0]) == 0) {
         lHBrush = CreateSolidBrush(RGB(0, 0, 255));
+        cout << "Blue\n";
     }
     else {
         lHBrush = CreateSolidBrush(RGB(255, 0, 0));
+        cout << "Red\n";
     }
 
     HWND lHWnd = NULL;

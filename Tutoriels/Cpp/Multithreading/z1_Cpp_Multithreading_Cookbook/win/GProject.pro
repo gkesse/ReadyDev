@@ -10,4 +10,4 @@ CONFIG += release console
 include(../src/GMain.pri)
 
 DEFINES += \
-    G_WIN_MAIN_OFF
+    G_WIN_MAIN_ON
