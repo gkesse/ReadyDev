@@ -1,4 +1,0 @@
-Greg	98	75	100	93	71
-Tom	A	B-	C+	D	
-Cheryl	A	A-	B	A	C
-Frank	99	89	88	N/A	
