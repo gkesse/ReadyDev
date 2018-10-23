@@ -13,6 +13,7 @@ INPUT(
 ./build\GProcessProcessImplementation.o
 ./build\GProcessInterprocessCommunicationClient.o
 ./build\GProcessInterprocessCommunicationServer.o
-./build\GProcessInterprocessCommunicationProblem.o
+./build\GProcessInterprocessCommunicationSemaphoreClient.o
+./build\GProcessInterprocessCommunicationSemaphoreServer.o
 ./build\main.o
 );

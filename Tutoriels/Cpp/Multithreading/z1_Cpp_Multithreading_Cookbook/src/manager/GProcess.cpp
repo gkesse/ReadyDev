@@ -12,10 +12,9 @@
 #include "GProcessProcessImplementation.h"
 #include "GProcessInterprocessCommunicationServer.h"
 #include "GProcessInterprocessCommunicationClient.h"
-#include "GProcessInterprocessCommunicationProblem.h"
+#include "GProcessInterprocessCommunicationSemaphoreClient.h"
+#include "GProcessInterprocessCommunicationSemaphoreServer.h"
 #include "GConfig.h"
-//===============================================
-GProcess* GProcess::m_instance = 0;
 //===============================================
 GProcess::GProcess() {
 
@@ -39,7 +38,8 @@ GProcess* GProcess::Instance() {
     if(lProcess == "PROCESS_IMPLEMENTATION") return GProcessProcessImplementation::Instance();
     if(lProcess == "INTERPROCESS_COMMUNICATION_SERVER") return GProcessInterprocessCommunicationServer::Instance();
     if(lProcess == "INTERPROCESS_COMMUNICATION_CLIENT") return GProcessInterprocessCommunicationClient::Instance();
-    if(lProcess == "INTERPROCESS_COMMUNICATION_PROBLEM") return GProcessInterprocessCommunicationProblem::Instance();
+    if(lProcess == "INTERPROCESS_COMMUNICATION_SEMAPHORE_CLIENT") return GProcessInterprocessCommunicationSemaphoreClient::Instance();
+    if(lProcess == "INTERPROCESS_COMMUNICATION_SEMAPHORE_SERVER") return GProcessInterprocessCommunicationSemaphoreServer::Instance();
     return GProcessHelloWorld::Instance();
 }
 //===============================================
@@ -49,5 +49,5 @@ double GProcess::randData(double dMin, double dMax) {
 }
 //===============================================
 void GProcess::run(int argc, char **argv) {}
-void GProcess::run2(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLine, int nCmdShow) {}
+void GProcess::run2(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {}
 //===============================================

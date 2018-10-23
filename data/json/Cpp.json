@@ -82,7 +82,7 @@
     ],
     "app2d":
     [
-        {"name":"Apprendre la programmation 2D en C++ avec SDL","link":"#","follow":"no"}
+        {"name":"Apprendre la programmation 2D en C++ avec SDL","link":"/Tutoriels/Cpp/SDL/","follow":"yes"}
     ],
     "app3d":
     [

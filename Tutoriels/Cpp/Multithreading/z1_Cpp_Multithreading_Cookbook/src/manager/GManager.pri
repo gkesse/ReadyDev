@@ -20,7 +20,8 @@ HEADERS += \
     $$PWD/GProcessProcessImplementation.h \
     $$PWD/GProcessInterprocessCommunicationClient.h \
     $$PWD/GProcessInterprocessCommunicationServer.h \
-    $$PWD/GProcessInterprocessCommunicationProblem.h
+    $$PWD/GProcessInterprocessCommunicationSemaphoreClient.h \
+    $$PWD/GProcessInterprocessCommunicationSemaphoreServer.h
 
 SOURCES += \
     $$PWD/GConfig.cpp \
@@ -37,4 +38,5 @@ SOURCES += \
     $$PWD/GProcessProcessImplementation.cpp \
     $$PWD/GProcessInterprocessCommunicationClient.cpp \
     $$PWD/GProcessInterprocessCommunicationServer.cpp \
-    $$PWD/GProcessInterprocessCommunicationProblem.cpp
+    $$PWD/GProcessInterprocessCommunicationSemaphoreClient.cpp \
+    $$PWD/GProcessInterprocessCommunicationSemaphoreServer.cpp
