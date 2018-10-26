@@ -11,5 +11,11 @@
         <file>res/img/gotocell.png</file>
         <file alias="splash.png">res/img/splash.png</file>
         <file alias="mouse.png">res/img/mouse.png</file>
+        <file alias="iconeditor.png">res/img/iconeditor.png</file>
+        <file alias="zoomin.png">res/img/zoomin.png</file>
+        <file alias="zoomout.png">res/img/zoomout.png</file>
+    </qresource>
+    <qresource prefix="/data">
+        <file alias="in1.txt">res/data/in1.txt</file>
     </qresource>
 </RCC>

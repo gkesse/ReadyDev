@@ -1,6 +1,6 @@
 //===============================================
 #include "GProcessPromotedClass.h"
-#include "GPromotedClass.h"
+#include "GPromotedClassUi.h"
 //===============================================
 GProcessPromotedClass* GProcessPromotedClass::m_instance = 0;
 //===============================================
@@ -20,8 +20,7 @@ GProcessPromotedClass* GProcessPromotedClass::Instance() {
 }
 //===============================================
 void GProcessPromotedClass::run() {
-    GPromotedClass *spinBox = new GPromotedClass;
-    spinBox->setWindowTitle(QObject::tr("Hex Spin Box"));
-    spinBox->show();
+    GPromotedClassUi *mainWin = new GPromotedClassUi;
+    mainWin->show();
 }
 //===============================================

@@ -5,6 +5,7 @@
 #include <iostream>
 //================================================
 #include <QtWidgets>
+#include <QtUiPlugin/QDesignerCustomWidgetInterface>
 //===============================================
 using namespace std;
 //================================================

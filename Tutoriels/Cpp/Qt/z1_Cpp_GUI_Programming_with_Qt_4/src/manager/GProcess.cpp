@@ -13,6 +13,8 @@
 #include "GProcessCustomWidget.h"
 #include "GProcessIconEditor.h"
 #include "GProcessPromotedClass.h"
+#include "GProcessPluginDesigner.h"
+#include "GProcessDoubleBuffering.h"
 #include "GConfig.h"
 //===============================================
 GProcess* GProcess::m_instance = 0;
@@ -40,6 +42,8 @@ GProcess* GProcess::Instance() {
     if(lType == "CUSTOM_WIDGET") return GProcessCustomWidget::Instance();
     if(lType == "ICON_EDITOR") return GProcessIconEditor::Instance();
     if(lType == "PROMOTED_CLASS") return GProcessPromotedClass::Instance();
+    if(lType == "PLUGIN_DESIGNER") return GProcessPluginDesigner::Instance();
+    if(lType == "DOUBLE_BUFFERING") return GProcessDoubleBuffering::Instance();
     return GProcessHelloQt::Instance();
 }
 //===============================================
