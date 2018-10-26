@@ -1,19 +1,19 @@
 //===============================================
-#ifndef _GDialogGoToCell_
-#define _GDialogGoToCell_
+#ifndef _GDialogSort_
+#define _GDialogSort_
 //===============================================
 #include "GInclude.h"
-#include "ui_GDialogGoToCell.h"
+#include "ui_GDialogSort.h"
 //===============================================
-class GDialogGoToCell : public QDialog, public Ui::GDialogGoToCell {
+class GDialogSort : public QDialog, public Ui::GDialogSort {
     Q_OBJECT
 
 public:
-    GDialogGoToCell(QWidget *parent = 0);
-    ~GDialogGoToCell();
+    GDialogSort(QWidget *parent = 0);
+    ~GDialogSort();
 
-private slots:
-    void on_lineEdit_textChanged();
+public:
+    void setColumnRange(QChar first, QChar last);
 };
 //===============================================
 #endif

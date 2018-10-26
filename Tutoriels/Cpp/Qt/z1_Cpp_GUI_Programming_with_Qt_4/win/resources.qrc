@@ -1,0 +1,15 @@
+<RCC>
+    <qresource prefix="/img">
+        <file>res/img/icon.png</file>
+        <file>res/img/new.png</file>
+        <file>res/img/open.png</file>
+        <file>res/img/save.png</file>
+        <file>res/img/cut.png</file>
+        <file>res/img/copy.png</file>
+        <file>res/img/paste.png</file>
+        <file>res/img/find.png</file>
+        <file>res/img/gotocell.png</file>
+        <file alias="splash.png">res/img/splash.png</file>
+        <file alias="mouse.png">res/img/mouse.png</file>
+    </qresource>
+</RCC>

@@ -1,19 +1,15 @@
 //===============================================
-#ifndef _GDialogGoToCell_
-#define _GDialogGoToCell_
+#ifndef _GPromotedClassUi_
+#define _GPromotedClassUi_
 //===============================================
 #include "GInclude.h"
-#include "ui_GDialogGoToCell.h"
+#include "ui_GPromotedClassUi.h"
 //===============================================
-class GDialogGoToCell : public QDialog, public Ui::GDialogGoToCell {
+class GPromotedClassUi : public QDialog, public Ui::GPromotedClassUi {
     Q_OBJECT
 
 public:
-    GDialogGoToCell(QWidget *parent = 0);
-    ~GDialogGoToCell();
-
-private slots:
-    void on_lineEdit_textChanged();
+    GPromotedClassUi(QWidget *parent = 0);
 };
 //===============================================
 #endif
