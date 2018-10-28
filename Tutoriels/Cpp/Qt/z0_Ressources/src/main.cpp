@@ -1,10 +1,10 @@
 //===============================================
 #include "GProcess.h"
-#include "GConfig.h"
+#include "GSetting.h"
 //===============================================
 int main(int argc, char** argv) {
     QApplication lApp(argc, argv);
-    GConfig::Instance()->setData("PROCESS", "BACKGROUND_COLOR");
+    GSetting::Instance()->load("res/cfg/config.cfg");
     GProcess::Instance()->run();
     return lApp.exec();
 }

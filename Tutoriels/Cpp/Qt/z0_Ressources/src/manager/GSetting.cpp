@@ -1,5 +1,6 @@
 //================================================
 #include "GSetting.h"
+#include "GConfig.h"
 //================================================
 GSetting* GSetting::m_instance = 0;
 //================================================
@@ -24,14 +25,14 @@ void GSetting::load(const string& file) {
 
     while(fgets(lBuffer, sizeof(lBuffer), lFile) != NULL) {
         lBuffer[strlen(lBuffer) - 1] = 0;
-        istringstream is_line(lBuffer);
-        string key;
+        istringstream lStream(lBuffer);
+        string lKey;
 
-        if(getline(is_line, key, '=')) {
-           string value;
-            if(getline(is_line, value)) {
-                cout << "Key: " << trim(key) << " | ";
-                cout << "Val: " << trim(value) << "\n";
+        if(getline(lStream, lKey, '=')) {
+           string lValue;
+
+            if(getline(lStream, lValue)) {
+                GConfig::Instance()->setData(trim(lKey), trim(lValue));
             }
         }
     }
