@@ -1,3 +1,5 @@
+include (C:\Users\sabine\Downloads\Gerard\QtAwesome-master\QtAwesome-master\QtAwesome\GQtAwesome.pri)
+
 INCLUDEPATH += \
     $$PWD
 
@@ -9,7 +11,10 @@ HEADERS += \
     $$PWD/GProcessWindow.h \
     $$PWD/GSetting.h \
     $$PWD/GStyle.h \
-    $$PWD/GWindow.h
+    $$PWD/GWindow.h \
+    $$PWD/GProcessPushButton.h \
+    $$PWD/GPushButton.h \
+    $$PWD/GPicto.h
 
 SOURCES += \
     $$PWD/GConfig.cpp \
@@ -18,7 +23,11 @@ SOURCES += \
     $$PWD/GProcessWindow.cpp \
     $$PWD/GSetting.cpp \
     $$PWD/GStyle.cpp \
-    $$PWD/GWindow.cpp
+    $$PWD/GWindow.cpp \
+    $$PWD/GProcessPushButton.cpp \
+    $$PWD/GPushButton.cpp \
+    $$PWD/GPicto.cpp
 
 FORMS += \
-    $$PWD/GWindow.ui
+    $$PWD/GWindow.ui \
+    $$PWD/GPushButton.ui

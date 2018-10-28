@@ -2,6 +2,7 @@
 /* Common Style */
 /*===============================================*/
 
+/* QWidget */
 QWidget {
     font-family: arial;
     font-size: 14px;
@@ -14,12 +15,29 @@ QWidget {
 /* Global Style */
 /*===============================================*/
 
+/* QPushButton */
+QPushButton {
+    background: rgba(255,255,255,0.2);
+    padding: 6px;
+}
+
+QPushButton:hover {
+    background: rgba(255,255,255,0.3);
+    text-decoration: underline;
+}
+
+QPushButton:pressed {
+    background: rgba(255,255,255,0.2);
+    font-size: 12px;
+}
 
 /*===============================================*/
 /* Custom Style */
 /*===============================================*/
 
-GWindow {
+/* background-color */
+GWindow,
+GPushButton {
     background-color: #051039;
 }
 
