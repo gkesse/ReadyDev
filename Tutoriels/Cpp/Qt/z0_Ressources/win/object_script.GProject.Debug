@@ -1,0 +1,12 @@
+INPUT(
+./build\GConfig.o
+./build\GProcess.o
+./build\GProcessBackgroundColor.o
+./build\GProcessWindow.o
+./build\GSetting.o
+./build\GStyle.o
+./build\GWindow.o
+./build\main.o
+./build\qrc_resource.o
+./build\moc_GWindow.o
+);
