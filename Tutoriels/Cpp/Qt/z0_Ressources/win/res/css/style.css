@@ -1,7 +1,6 @@
 /*===============================================*/
 /* Common Style */
 /*===============================================*/
-
 /* QWidget */
 QWidget {
     font-family: arial;
@@ -10,35 +9,86 @@ QWidget {
     background-color: transparent;
     border: none;
 }
-
 /*===============================================*/
 /* Global Style */
 /*===============================================*/
-
 /* QPushButton */
 QPushButton {
-    background: rgba(255,255,255,0.2);
+    background-color: rgba(255,255,255,0.2);
     padding: 6px;
 }
 
 QPushButton:hover {
-    background: rgba(255,255,255,0.3);
+    background-color: rgba(255,255,255,0.4);
     text-decoration: underline;
 }
 
 QPushButton:pressed {
-    background: rgba(255,255,255,0.2);
+    background-color: rgba(255,255,255,0.2);
     font-size: 12px;
 }
+/*-----------------------------------------------*/
+/* QPushButton border-image */
+Qt QPushButton {
+    background-color: rgba(255,255,255,0.2);
+    padding: 6px;
+    border-image: url(res/img/border.png) 30 round;    
+    border-width: 10px;
+}
+/*-----------------------------------------------*/
+/* QTextEdit */
+QTextEdit {
+    background-color: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-image: url(res/img/border.png) 30 round;    
+    border-width: 10px;
+}
+/*-----------------------------------------------*/
+/* QSplitter */
+GSplitter QSplitter::handle {
+    image: url(res/img/splitter.png);
+}
 
+GSplitter QSplitter::handle:pressed {
+    image: url(res/img/splitter_pressed.png);
+}
+
+GSplitter QSplitter::handle:horizontal {
+    width: 10px;
+    background: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 0, stop: 0 navy, stop: 0.5 white, stop: 1.0 navy);
+}
+
+GSplitter QSplitter::handle:vertical {
+    height: 10px;
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 navy, stop: 0.5 white, stop: 1.0 navy);
+}
+/*-----------------------------------------------*/
+/* QSplitter */
+GSplitterCustom QSplitter::handle {
+    image: url(res/img/splitter.png);
+}
+
+GSplitterCustom QSplitter::handle:pressed {
+    image: url(res/img/splitter_pressed.png);
+}
+
+GSplitterCustom QSplitter::handle:horizontal {
+    width: 50px;
+    background-color: transparent;
+}
+
+GSplitterCustom QSplitter::handle:vertical {
+    height: 10px;
+    background: transparent;
+}
 /*===============================================*/
 /* Custom Style */
 /*===============================================*/
-
 /* background-color */
 GWindow,
-GPushButton {
+GPushButton,
+GSplitter,
+GSplitterCustom {
     background-color: #051039;
 }
-
 /*===============================================*/

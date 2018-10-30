@@ -28,16 +28,11 @@ void GSetting::load(const string& file) {
         istringstream lStream(lBuffer);
         string lKey;
 
-        char lFirstChar = trim(lBuffer)[0];
-
-        if(lFirstChar == G_CHAR_COMMENT) continue;
-
         if(getline(lStream, lKey, '=')) {
            string lValue;
 
             if(getline(lStream, lValue)) {
                 GConfig::Instance()->setData(trim(lKey), trim(lValue));
-                cout << lKey << " = " << lValue << "\n";
             }
         }
     }

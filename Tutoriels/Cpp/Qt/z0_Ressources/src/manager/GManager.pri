@@ -14,7 +14,11 @@ HEADERS += \
     $$PWD/GWindow.h \
     $$PWD/GProcessPushButton.h \
     $$PWD/GPushButton.h \
-    $$PWD/GPicto.h
+    $$PWD/GPicto.h \
+    $$PWD/GSplitter.h \
+    $$PWD/GProcessSplitter.h \
+    $$PWD/GSplitterCustom.h \
+    $$PWD/GProcessSplitterCustom.h
 
 SOURCES += \
     $$PWD/GConfig.cpp \
@@ -26,8 +30,14 @@ SOURCES += \
     $$PWD/GWindow.cpp \
     $$PWD/GProcessPushButton.cpp \
     $$PWD/GPushButton.cpp \
-    $$PWD/GPicto.cpp
+    $$PWD/GPicto.cpp \
+    $$PWD/GSplitter.cpp \
+    $$PWD/GProcessSplitter.cpp \
+    $$PWD/GSplitterCustom.cpp \
+    $$PWD/GProcessSplitterCustom.cpp
 
 FORMS += \
     $$PWD/GWindow.ui \
-    $$PWD/GPushButton.ui
+    $$PWD/GPushButton.ui \
+    $$PWD/GSplitter.ui \
+    $$PWD/GSplitterCustom.ui

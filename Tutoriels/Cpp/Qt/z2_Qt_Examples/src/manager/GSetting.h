@@ -19,9 +19,6 @@ private:
     string trim(const string& str, const string& chars = "\t\n\v\f\r ");
 
 private:
-    const static char G_CHAR_COMMENT = '#';
-
-private:
     static GSetting* m_instance;
 };
 //================================================
