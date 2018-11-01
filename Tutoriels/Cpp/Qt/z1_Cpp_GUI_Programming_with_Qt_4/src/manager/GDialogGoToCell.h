@@ -3,20 +3,17 @@
 #define _GDialogGoToCell_
 //===============================================
 #include "GInclude.h"
+#include "ui_GDialogGoToCell.h"
 //===============================================
-namespace Ui {
-class GDialogGoToCell;
-}
-//===============================================
-class GDialogGoToCell : public QDialog {
+class GDialogGoToCell : public QDialog, public Ui::GDialogGoToCell {
     Q_OBJECT
 
 public:
     GDialogGoToCell(QWidget *parent = 0);
     ~GDialogGoToCell();
 
-private:
-    Ui::GDialogGoToCell *ui;
+private slots:
+    void on_lineEdit_textChanged();
 };
 //===============================================
 #endif

@@ -1,13 +1,23 @@
 //===============================================
 #include "GDialogGoToCell.h"
-#include "ui_GDialogGoToCell.h"
 //===============================================
 GDialogGoToCell::GDialogGoToCell(QWidget *parent) :
-    QDialog(parent), ui(new Ui::GDialogGoToCell) {
-    ui->setupUi(this);
+    QDialog(parent) {
+    setupUi(this);
+    buttonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
+
+    QRegExp regExp("[A-Za-z][1-9][0-9]{0,2}");
+    lineEdit->setValidator(new QRegExpValidator(regExp, this));
+
+    connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
+    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
 }
 //===============================================
 GDialogGoToCell::~GDialogGoToCell() {
-    delete ui;
+
 }
 //===============================================
+void GDialogGoToCell::on_lineEdit_textChanged() {
+    buttonBox->button(QDialogButtonBox::Ok)->setEnabled(
+            lineEdit->hasAcceptableInput());
+}
