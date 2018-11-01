@@ -1,5 +1,5 @@
 # Sitemaps
-Sitemap: http://readydev.freeboxos.fr/data/sitemaps/sitemaps.xml
+Sitemap: http://readydev.dynu.net/data/sitemaps/sitemaps.xml
 
 # Allow All
 User-agent: *
