@@ -1,0 +1,13 @@
+INPUT(
+./build\GProcess.o
+./build\GSetting.o
+./build\GConfig.o
+./build\GProcessImageLoad.o
+./build\GOpenCV.o
+./build\GProcessVideoPlay.o
+./build\GProcessTrackbarSlider.o
+./build\GTrackbar.o
+./build\GTrackbarNoSet.o
+./build\GTrackbarSet.o
+./build\main.o
+);

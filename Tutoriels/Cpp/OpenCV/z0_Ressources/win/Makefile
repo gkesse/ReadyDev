@@ -196,10 +196,12 @@ Makefile: GProject.pro C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/win32-g++/qmake.conf
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/qt_config.prf \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/win32-g++/qmake.conf \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/exclusive_builds.prf \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/toolchain.prf \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/default_pre.prf \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/win32/default_pre.prf \
+		C:/Users/sabine/Downloads/Gerard/OpenCV-MinGW-Build-OpenCV-3.4.1/OpenCV-MinGW-Build-OpenCV-3.4.1/GOpenCV.pri \
 		../src/manager/GManager.pri \
 		../src/GMain.pri \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/resolve_config.prf \
@@ -213,7 +215,6 @@ Makefile: GProject.pro C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/win32-g++/qmake.conf
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/resources.prf \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/moc.prf \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/win32/opengl.prf \
-		C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/uic.prf \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/qmake_use.prf \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/file_copies.prf \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/testcase_targets.prf \
@@ -221,7 +222,6 @@ Makefile: GProject.pro C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/win32-g++/qmake.conf
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/yacc.prf \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/lex.prf \
 		GProject.pro \
-		C:/Qt/Qt5.8.0/5.8/mingw53_32/lib/Qt5Widgets.prl \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/lib/Qt5Gui.prl \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/lib/Qt5Core.prl
 	$(QMAKE) -o Makefile GProject.pro -spec win32-g++
@@ -362,10 +362,12 @@ C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/qt_functions.prf:
 C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/qt_config.prf:
 C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/win32-g++/qmake.conf:
 C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/spec_post.prf:
+.qmake.stash:
 C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/exclusive_builds.prf:
 C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/toolchain.prf:
 C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/default_pre.prf:
 C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/win32/default_pre.prf:
+C:/Users/sabine/Downloads/Gerard/OpenCV-MinGW-Build-OpenCV-3.4.1/OpenCV-MinGW-Build-OpenCV-3.4.1/GOpenCV.pri:
 ../src/manager/GManager.pri:
 ../src/GMain.pri:
 C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/resolve_config.prf:
@@ -379,7 +381,6 @@ C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/qt.prf:
 C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/resources.prf:
 C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/moc.prf:
 C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/win32/opengl.prf:
-C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/uic.prf:
 C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/qmake_use.prf:
 C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/file_copies.prf:
 C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/testcase_targets.prf:
@@ -387,7 +388,6 @@ C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/exceptions.prf:
 C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/yacc.prf:
 C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/lex.prf:
 GProject.pro:
-C:/Qt/Qt5.8.0/5.8/mingw53_32/lib/Qt5Widgets.prl:
 C:/Qt/Qt5.8.0/5.8/mingw53_32/lib/Qt5Gui.prl:
 C:/Qt/Qt5.8.0/5.8/mingw53_32/lib/Qt5Core.prl:
 qmake: FORCE
@@ -400,6 +400,7 @@ all: release-all debug-all  FORCE
 clean: release-clean debug-clean  FORCE
 distclean: release-distclean debug-distclean  FORCE
 	-$(DEL_FILE) Makefile
+	-$(DEL_FILE) .qmake.stash
 
 release-mocclean:
 	$(MAKE) -f $(MAKEFILE).Release mocclean
