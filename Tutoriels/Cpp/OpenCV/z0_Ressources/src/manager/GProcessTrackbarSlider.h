@@ -11,12 +11,12 @@ public:
 
 public:
     static GProcessTrackbarSlider* Instance();
-    void run();
-    static void onTrackbarSlider(int pos, void* params);
+    void run(int argc, char** argv);
+    static void onTrackbar(int pos, void* params);
 
 private:
     static GProcessTrackbarSlider* m_instance;
-    int m_pos;
+    static cv::VideoCapture m_cap;
 };
 //===============================================
 #endif

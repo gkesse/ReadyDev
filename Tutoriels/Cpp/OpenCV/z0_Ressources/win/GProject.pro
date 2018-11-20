@@ -6,5 +6,6 @@ MOC_DIR = build
 UI_DIR = build
 RCC_DIR = build
 CONFIG += release console
+QT += widgets
 
 include(../src/GMain.pri)

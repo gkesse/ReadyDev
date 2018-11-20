@@ -1,23 +1,24 @@
-//===============================================
+//================================================
 #include "GTrackbar.h"
-#include "GTrackbarNoSet.h"
-#include "GTrackbarSet.h"
-#include "GConfig.h"
-//===============================================
+//================================================
+GTrackbar* GTrackbar::m_instance = 0;
+//================================================
 GTrackbar::GTrackbar() {
 
 }
-//===============================================
+//================================================
 GTrackbar::~GTrackbar() {
 
 }
-//===============================================
+//================================================
 GTrackbar* GTrackbar::Instance() {
-    string lTrackbar = GConfig::Instance()->getData("TRACKBAR");
-    if(lTrackbar == "NO_SET") return GTrackbarNoSet::Instance();
-    if(lTrackbar == "SET") return GTrackbarSet::Instance();
-    return GTrackbarNoSet::Instance();
+    if(m_instance == 0) {
+        m_instance = new GTrackbar;
+    }
+    return m_instance;
 }
-//===============================================
-void GTrackbar::setTrackbar(const string& name) {}
-//===============================================
+//================================================
+void GTrackbar::create(const string& name, const string& title, int* pos, int max, cv::TrackbarCallback onTrackbar, void* params) {
+    cv::createTrackbar(name, title, pos, max, onTrackbar, params);
+}
+//================================================

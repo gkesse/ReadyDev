@@ -11,7 +11,7 @@ public:
 
 public:
     static GProcessImageLoad* Instance();
-    void run();
+    void run(int argc, char** argv);
 
 private:
     static GProcessImageLoad* m_instance;

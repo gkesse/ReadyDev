@@ -11,7 +11,7 @@ public:
 
 public:
     static GProcess* Instance();
-    virtual void run() = 0;
+    virtual void run(int argc, char** argv);
 };
 //===============================================
 #endif

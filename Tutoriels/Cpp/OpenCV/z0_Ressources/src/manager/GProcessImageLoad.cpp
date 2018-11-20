@@ -1,6 +1,8 @@
 //===============================================
 #include "GProcessImageLoad.h"
-#include "GOpenCV.h"
+#include "GImage.h"
+#include "GWindow.h"
+#include "GDelay.h"
 //===============================================
 GProcessImageLoad* GProcessImageLoad::m_instance = 0;
 //===============================================
@@ -19,7 +21,12 @@ GProcessImageLoad* GProcessImageLoad::Instance() {
     return m_instance;
 }
 //===============================================
-void GProcessImageLoad::run() {
-    GOpenCV::Instance()->loadImage("res/img/fruits.jpg");
+void GProcessImageLoad::run(int argc, char** argv) {
+    cv::Mat lImg;
+    GImage::Instance()->load("res/img/fruits.jpg", lImg);
+    GWindow::Instance()->create("OpenCV | ReadyDev");
+    GWindow::Instance()->show("OpenCV | ReadyDev", lImg);
+    GDelay::Instance()->loop();
+    GWindow::Instance()->destroy("OpenCV | ReadyDev");
 }
 //===============================================

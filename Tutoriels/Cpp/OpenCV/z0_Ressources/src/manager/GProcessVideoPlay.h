@@ -11,7 +11,7 @@ public:
 
 public:
     static GProcessVideoPlay* Instance();
-    void run();
+    void run(int argc, char** argv);
 
 private:
     static GProcessVideoPlay* m_instance;
