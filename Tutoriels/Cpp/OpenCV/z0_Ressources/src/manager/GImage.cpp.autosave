@@ -73,8 +73,8 @@ void GImage::threshold(const cv::Mat& src, cv::Mat& dst, const double& thres, co
     cv::threshold(src, dst, thres, 255, type);
 }
 //================================================
-void GImage::threshold(const cv::Mat& src, cv::Mat& dst, const double& thres, const int& type) {
-    cv::adaptiveThreshold(src, dst, 255, method, type, size, thres);
+void GImage::threshold(const cv::Mat& src, cv::Mat& dst, const int& method, const int& type, const int& size, const double& c) {
+    cv::adaptiveThreshold(src, dst, 255, method, type, size, c);
 }
 //================================================
 void GImage::convert(const cv::Mat& src, cv::Mat& dst, const int& code) {

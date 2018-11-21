@@ -39,6 +39,10 @@ INPUT(
 ./build\GOpenGL.o
 ./build\GProcessQt.o
 ./build\GMoviePlayer.o
+./build\GProcessImageSplit.o
+./build\GProcessImageThreshold.o
+./build\GProcessImageEqualize.o
+./build\GProcessImageAccumulate.o
 ./build\main.o
 ./build\moc_GMoviePlayer.o
 );

@@ -48,7 +48,11 @@ HEADERS += \
     $$PWD/GProcessOpenGL.h \
     $$PWD/GOpenGL.h \
     $$PWD/GProcessQt.h \
-    $$PWD/GMoviePlayer.h
+    $$PWD/GMoviePlayer.h \
+    $$PWD/GProcessImageSplit.h \
+    $$PWD/GProcessImageThreshold.h \
+    $$PWD/GProcessImageEqualize.h \
+    $$PWD/GProcessImageAccumulate.h
 
 SOURCES += \
     $$PWD/GProcess.cpp \
@@ -90,7 +94,11 @@ SOURCES += \
     $$PWD/GProcessOpenGL.cpp \
     $$PWD/GOpenGL.cpp \
     $$PWD/GProcessQt.cpp \
-    $$PWD/GMoviePlayer.cpp
+    $$PWD/GMoviePlayer.cpp \
+    $$PWD/GProcessImageSplit.cpp \
+    $$PWD/GProcessImageThreshold.cpp \
+    $$PWD/GProcessImageEqualize.cpp \
+    $$PWD/GProcessImageAccumulate.cpp
 
 FORMS += \
     $$PWD/GMoviePlayer.ui

@@ -16,6 +16,10 @@
 #include "GProcessMouse.h"
 #include "GProcessOpenGL.h"
 #include "GProcessQt.h"
+#include "GProcessImageSplit.h"
+#include "GProcessImageThreshold.h"
+#include "GProcessImageEqualize.h"
+#include "GProcessImageAccumulate.h"
 #include "GConfig.h"
 //===============================================
 GProcess::GProcess() {
@@ -44,6 +48,10 @@ GProcess* GProcess::Instance() {
     if(lProcess == "MOUSE") return GProcessMouse::Instance();
     if(lProcess == "OPENGL") return GProcessOpenGL::Instance();
     if(lProcess == "QT") return GProcessQt::Instance();
+    if(lProcess == "IMAGE_SPLIT") return GProcessImageSplit::Instance();
+    if(lProcess == "IMAGE_THRESHOLD") return GProcessImageThreshold::Instance();
+    if(lProcess == "IMAGE_EQUALIZE") return GProcessImageEqualize::Instance();
+    if(lProcess == "IMAGE_ACCUMULATE") return GProcessImageAccumulate::Instance();
     return GProcessImageLoad::Instance();
 }
 //===============================================
