@@ -3,10 +3,11 @@ GBIN=bin
 GTARGET=$(GBIN)\GProject.exe
 
 GSRCS=\
-    $(GSRC)\*.cs
+    $(GSRC)\*.cs \
+    $(GSRC)\manager\*.cs
 
 all:
 	csc /out:$(GTARGET) $(GSRCS)
 clean:
-	del /q $(GBIN)\*
+	del /q $(GBIN)\*.exe
 	
