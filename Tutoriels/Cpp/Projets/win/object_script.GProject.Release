@@ -1,0 +1,13 @@
+INPUT(
+./build\GConfig.o
+./build\GPrint.o
+./build\GProcess.o
+./build\GSetting.o
+./build\GProcessReadyVision.o
+./build\GStyle.o
+./build\GTitleBar.o
+./build\GReadyVision.o
+./build\main.o
+./build\moc_GTitleBar.o
+./build\moc_GReadyVision.o
+);

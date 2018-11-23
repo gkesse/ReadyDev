@@ -1,0 +1,23 @@
+//===============================================
+#ifndef _GTitleBar_
+#define _GTitleBar_
+//===============================================
+#include "GInclude.h"
+//===============================================
+namespace Ui {
+class GTitleBar;
+}
+//===============================================
+class GTitleBar : public QWidget {
+    Q_OBJECT
+
+public:
+    GTitleBar(QWidget *parent = 0);
+    ~GTitleBar();
+
+private:
+    Ui::GTitleBar *ui;
+};
+//===============================================
+#endif
+//===============================================

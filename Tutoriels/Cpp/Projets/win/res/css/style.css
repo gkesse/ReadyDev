@@ -1,0 +1,35 @@
+/*===============================================*/
+/* Common Style */
+/*===============================================*/
+/* QWidget */
+QWidget {
+    font-family: arial;
+    font-size: 14px;
+    color: white;
+    background-color: transparent;
+    border: none;
+}
+/*===============================================*/
+/* Global Style */
+/*===============================================*/
+/* QLabel */
+GReadyVision QLabel {
+    background-color: transparent;
+    color: rgb(177, 177, 203);
+    font-weight: normal;
+    font-family : Impact;
+    font-size: 18px;
+}
+/*===============================================*/
+/* Custom Style */
+/*===============================================*/
+/* background-color */
+Qt {
+    background-color: rgba(255,255,255,0.2);
+}
+/*-----------------------------------------------*/
+/* background-color */
+GReadyVision {
+    background-color: rgb(23, 23, 34);
+}
+/*===============================================*/
