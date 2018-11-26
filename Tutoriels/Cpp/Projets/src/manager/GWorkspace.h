@@ -1,22 +1,15 @@
 //===============================================
-#ifndef _GTitleBar_
-#define _GTitleBar_
+#ifndef _GWorkspace_
+#define _GWorkspace_
 //===============================================
 #include "GInclude.h"
 //===============================================
-namespace Ui {
-class GTitleBar;
-}
-//===============================================
-class GTitleBar : public QWidget {
+class GWorkspace : public QWidget {
     Q_OBJECT
 
 public:
-    GTitleBar(QWidget *parent = 0);
-    ~GTitleBar();
-
-private:
-    Ui::GTitleBar *ui;
+    GWorkspace(QWidget *parent = 0);
+    ~GWorkspace();
 };
 //===============================================
 #endif

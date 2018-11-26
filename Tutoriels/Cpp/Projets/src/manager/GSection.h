@@ -1,16 +1,16 @@
 //===============================================
-#ifndef _GInclude_
-#define _GInclude_
+#ifndef _GSection_
+#define _GSection_
 //===============================================
-#include <iostream>
-#include <string>
-#include <sstream>
-#include <map>
+#include "GInclude.h"
 //===============================================
-#include <QtWidgets>
-#include <QtAwesome.h>
-//===============================================
-using namespace std;
+class GSection : public QWidget {
+    Q_OBJECT
+
+public:
+    GSection(QWidget *parent = 0);
+    ~GSection();
+};
 //===============================================
 #endif
 //===============================================

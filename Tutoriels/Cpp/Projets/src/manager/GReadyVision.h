@@ -16,7 +16,18 @@ public:
     ~GReadyVision();
 
 private:
+    void createPixmap();
+    void createBackground();
+    void createBorder();
+
+protected:
+    void resizeEvent(QResizeEvent *event);
+    void paintEvent(QPaintEvent *event);
+
+private:
     Ui::GReadyVision *ui;
+    QSizeGrip *m_sizeGrip;
+    QPixmap *m_pixmap;
 };
 //===============================================
 #endif

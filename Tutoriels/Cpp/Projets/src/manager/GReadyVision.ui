@@ -19,7 +19,11 @@
   <property name="windowTitle">
    <string>rVision</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout" rowstretch="0,1">
+  <property name="windowIcon">
+   <iconset resource="../../win/resource.qrc">
+    <normaloff>:/img/logo.png</normaloff>:/img/logo.png</iconset>
+  </property>
+  <layout class="QGridLayout" name="gridLayout" rowstretch="0,1,0" columnstretch="0,1,0">
    <property name="leftMargin">
     <number>0</number>
    </property>
@@ -32,18 +36,48 @@
    <property name="bottomMargin">
     <number>0</number>
    </property>
-   <item row="0" column="0">
+   <item row="0" column="0" colspan="3">
     <widget class="GTitleBar" name="m_titleBar" native="true">
      <property name="minimumSize">
       <size>
        <width>0</width>
-       <height>33</height>
+       <height>30</height>
       </size>
      </property>
     </widget>
    </item>
    <item row="1" column="0">
-    <widget class="QWidget" name="m_centerWidget" native="true"/>
+    <widget class="GMenu" name="m_mainMenu" native="true">
+     <property name="minimumSize">
+      <size>
+       <width>30</width>
+       <height>0</height>
+      </size>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1">
+    <widget class="GWorkspace" name="m_centerWidget" native="true"/>
+   </item>
+   <item row="1" column="2">
+    <widget class="GSection" name="m_rightWidget" native="true">
+     <property name="minimumSize">
+      <size>
+       <width>30</width>
+       <height>0</height>
+      </size>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0" colspan="3">
+    <widget class="GStatusBar" name="m_statusBar" native="true">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>30</height>
+      </size>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>
@@ -54,7 +88,33 @@
    <header>GTitleBar.h</header>
    <container>1</container>
   </customwidget>
+  <customwidget>
+   <class>GMenu</class>
+   <extends>QWidget</extends>
+   <header>GMenu.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>GStatusBar</class>
+   <extends>QWidget</extends>
+   <header>GStatusBar.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>GSection</class>
+   <extends>QWidget</extends>
+   <header>GSection.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>GWorkspace</class>
+   <extends>QWidget</extends>
+   <header>GWorkspace.h</header>
+   <container>1</container>
+  </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="../../win/resource.qrc"/>
+ </resources>
  <connections/>
 </ui>

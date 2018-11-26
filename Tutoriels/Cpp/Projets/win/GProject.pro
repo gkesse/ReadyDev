@@ -9,3 +9,6 @@ CONFIG += release console
 QT += widgets
 
 include(../src/GMain.pri)
+
+RESOURCES += \
+    resource.qrc

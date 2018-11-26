@@ -1,4 +1,6 @@
 INPUT(
+./build\QtAwesome.o
+./build\QtAwesomeAnim.o
 ./build\GConfig.o
 ./build\GPrint.o
 ./build\GProcess.o
@@ -7,7 +9,20 @@ INPUT(
 ./build\GStyle.o
 ./build\GTitleBar.o
 ./build\GReadyVision.o
+./build\GPicto.o
+./build\GMenu.o
+./build\GStatusBar.o
+./build\GSection.o
+./build\GWorkspace.o
 ./build\main.o
+./build\qrc_QtAwesome.o
+./build\qrc_resource.o
+./build\moc_QtAwesome.o
+./build\moc_QtAwesomeAnim.o
 ./build\moc_GTitleBar.o
 ./build\moc_GReadyVision.o
+./build\moc_GMenu.o
+./build\moc_GStatusBar.o
+./build\moc_GSection.o
+./build\moc_GWorkspace.o
 );

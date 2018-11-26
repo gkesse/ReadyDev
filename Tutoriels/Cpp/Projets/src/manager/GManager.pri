@@ -1,3 +1,5 @@
+include (C:\Users\sabine\Downloads\Gerard\QtAwesome-master\QtAwesome-master\QtAwesome\GQtAwesome.pri)
+
 INCLUDEPATH += \
     $$PWD
 
@@ -9,7 +11,12 @@ SOURCES += \
     $$PWD/GProcessReadyVision.cpp \
     $$PWD/GStyle.cpp \
     $$PWD/GTitleBar.cpp \
-    $$PWD/GReadyVision.cpp
+    $$PWD/GReadyVision.cpp \
+    $$PWD/GPicto.cpp \
+    $$PWD/GMenu.cpp \
+    $$PWD/GStatusBar.cpp \
+    $$PWD/GSection.cpp \
+    $$PWD/GWorkspace.cpp
 
 HEADERS += \
     $$PWD/GConfig.h \
@@ -20,8 +27,12 @@ HEADERS += \
     $$PWD/GProcessReadyVision.h \
     $$PWD/GStyle.h \
     $$PWD/GTitleBar.h \
-    $$PWD/GReadyVision.h
+    $$PWD/GReadyVision.h \
+    $$PWD/GPicto.h \
+    $$PWD/GMenu.h \
+    $$PWD/GStatusBar.h \
+    $$PWD/GSection.h \
+    $$PWD/GWorkspace.h
 
 FORMS += \
-    $$PWD/GTitleBar.ui \
     $$PWD/GReadyVision.ui

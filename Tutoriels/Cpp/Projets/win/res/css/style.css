@@ -3,7 +3,7 @@
 /*===============================================*/
 /* QWidget */
 QWidget {
-    font-family: arial;
+    font-family: Arial;
     font-size: 14px;
     color: white;
     background-color: transparent;
@@ -12,6 +12,39 @@ QWidget {
 /*===============================================*/
 /* Global Style */
 /*===============================================*/
+/* QToolButton */
+QToolButton {
+    background-color: transparent;
+    border: 1px solid transparent;
+}
+QToolButton:hover {
+    background: rgba(255, 255, 255 , 0.2);
+}
+QToolButton:pressed {
+    background-color: transparent;
+}
+/*-----------------------------------------------*/
+/* QToolButton */
+GTitleBar QToolButton {
+    background-color: transparent;
+    border: 1px solid rgb(23, 23, 34);
+}
+GTitleBar QToolButton:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+GTitleBar QToolButton:pressed {
+    background-color: transparent;
+}
+/*-----------------------------------------------*/
+/* QToolTip */
+QToolTip {
+    background-color: #343449;
+    border: 1px solid gray;
+    color: gray;
+    font-family: Arial;
+    font-size: 12px;
+}
+/*-----------------------------------------------*/
 /* QLabel */
 GReadyVision QLabel {
     background-color: transparent;
@@ -20,16 +53,61 @@ GReadyVision QLabel {
     font-family : Impact;
     font-size: 18px;
 }
+/*-----------------------------------------------*/
+/* QMenu */
+QMenu {
+    background-color: #343449;
+    border: 1px solid gray;
+    color: gray;
+    padding: 4px 2px 4px 2px;
+    font-family: Arial;
+    font-size: 14px;
+}
+QMenu::item {
+    padding: 2px 2px 2px 30px;
+    margin: 0px 0px 0px 2px;
+    border: 1px solid transparent;
+    min-width: 100px;
+}
+QMenu::item:selected {
+    background: rgba(1, 1, 1 , 0.4);
+    border: 1px solid transparent;
+}
+/*-----------------------------------------------*/
+/* QStatusBar */
+QStatusBar {
+    background: transparent;
+    border: 1px solid transparent;
+    font-family: Arial;
+    font-size: 12px;
+    color: gray;
+}
+QStatusBar::item {
+    border: 1px solid red;
+    border-radius: 3px;
+}
 /*===============================================*/
 /* Custom Style */
 /*===============================================*/
-/* background-color */
-Qt {
-    background-color: rgba(255,255,255,0.2);
+GWorkspace {
+    background-color: #343449;
+    margin: 0px 0px 0px 0px;
 }
-/*-----------------------------------------------*/
-/* background-color */
-GReadyVision {
-    background-color: rgb(23, 23, 34);
+GMenu {
+    background-color: transparent;
+    margin: 0px 0px 134px 8px;
+    min-width: 24px;
+    min-height: 20px;
+}
+GStatusBar {
+    background-color: transparent;
+    margin: 0px 174px 8px 24px;
+    min-width: 20px;
+    min-height: 20px;
+}
+GSection {
+    background-color: #343449;
+    margin: 0px 8px 0px 0px;
+    min-width: 20px;
 }
 /*===============================================*/

@@ -4,10 +4,6 @@
 //===============================================
 #include "GInclude.h"
 //===============================================
-namespace Ui {
-class GTitleBar;
-}
-//===============================================
 class GTitleBar : public QWidget {
     Q_OBJECT
 
@@ -16,20 +12,32 @@ public:
     ~GTitleBar();
 
 private:
-    void createTitleBar();
-    void createButtons();
+    void createPixmap();
+    void createBackground();
+    void createButtonMap();
 
 public slots:
     void slotWindowTitleChanged(const QString &title);
+    void slotWindowIconChanged(const QIcon &icon);
+    void slotMinimize();
+    void slotMaximize();
 
 protected:
     void paintEvent(QPaintEvent *event);
     void resizeEvent(QResizeEvent *event);
+    void mousePressEvent(QMouseEvent *event);
+    void mouseMoveEvent(QMouseEvent *event);
+    void mouseReleaseEvent(QMouseEvent *event);
 
 private:
-    Ui::GTitleBar *ui;
-    QPixmap *m_titleBar;
+    QPixmap *m_pixmap;
     QLabel *m_title;
+    QLabel *m_icon;
+    QToolButton* m_minimizeButton;
+    QToolButton* m_maximizeButton;
+    QToolButton* m_closeButton;
+    int m_diffX;
+    int m_diffY;
 };
 //===============================================
 #endif
