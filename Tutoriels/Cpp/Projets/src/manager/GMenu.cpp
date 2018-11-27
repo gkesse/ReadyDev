@@ -70,11 +70,11 @@ void GMenu::slotStatusTip() {
 }
 //===============================================
 void GMenu::slotAddImageModule() {
-
+    emit emitAddModule("IMAGE");
 }
 //===============================================
 void GMenu::slotAddVideoModule() {
-
+    emit emitAddModule("VIDEO");
 }
 //===============================================
 void GMenu::resizeEvent(QResizeEvent *event) {

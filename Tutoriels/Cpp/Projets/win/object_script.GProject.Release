@@ -14,6 +14,9 @@ INPUT(
 ./build\GStatusBar.o
 ./build\GSection.o
 ./build\GWorkspace.o
+./build\GModule.o
+./build\GModuleImage.o
+./build\GModuleVideo.o
 ./build\main.o
 ./build\qrc_QtAwesome.o
 ./build\qrc_resource.o
@@ -25,4 +28,7 @@ INPUT(
 ./build\moc_GStatusBar.o
 ./build\moc_GSection.o
 ./build\moc_GWorkspace.o
+./build\moc_GModule.o
+./build\moc_GModuleImage.o
+./build\moc_GModuleVideo.o
 );

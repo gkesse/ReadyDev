@@ -1,7 +1,6 @@
 //===============================================
 #include "GReadyVision.h"
 #include "ui_GReadyVision.h"
-#include "GPrint.h"
 //===============================================
 GReadyVision::GReadyVision(QWidget *parent) :
     QWidget(parent), ui(new Ui::GReadyVision) {
@@ -16,6 +15,8 @@ GReadyVision::GReadyVision(QWidget *parent) :
     connect(this, SIGNAL(windowTitleChanged(QString)), ui->m_titleBar, SLOT(slotWindowTitleChanged(QString)));
     connect(this, SIGNAL(windowIconChanged(QIcon)), ui->m_titleBar, SLOT(slotWindowIconChanged(QIcon)));
     connect(ui->m_mainMenu, SIGNAL(emitStatusBar(QString)), ui->m_statusBar, SLOT(slotStatusBar(QString)));
+    connect(ui->m_section, SIGNAL(emitStatusBar(QString)), ui->m_statusBar, SLOT(slotStatusBar(QString)));
+    connect(ui->m_mainMenu, SIGNAL(emitAddModule(QString)), ui->m_section, SLOT(slotAddModule(QString)));
 
     // emit
     emit windowTitleChanged(windowTitle());

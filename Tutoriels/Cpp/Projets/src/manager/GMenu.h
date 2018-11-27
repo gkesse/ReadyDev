@@ -22,6 +22,7 @@ protected:
 
 signals:
     void emitStatusBar(const QString& text);
+    void emitAddModule(const QString& module);
 
 private:
     QWidget* m_mainWidget;

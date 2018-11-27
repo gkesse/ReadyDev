@@ -1,28 +1,22 @@
 //===============================================
-#ifndef _GSection_
-#define _GSection_
+#ifndef _GModule_
+#define _GModule_
 //===============================================
 #include "GInclude.h"
 //===============================================
-class GSection : public QWidget {
+class GModule : public QWidget {
     Q_OBJECT
 
 public:
-    GSection(QWidget *parent = 0);
-    ~GSection();
-
-public slots:
-    void slotAddModule(const QString &module);
-
-protected:
-    void resizeEvent(QResizeEvent *event);
+    GModule(QWidget *parent = 0);
+    virtual ~GModule();
+    static GModule* Create(const QString &module, QWidget *parent = 0);
 
 signals:
     void emitStatusBar(const QString& text);
 
 private:
-    QScrollArea* m_scrollArea;
-    QVBoxLayout *m_mainLayout;
+    static int m_moduleCount;
 };
 //===============================================
 #endif

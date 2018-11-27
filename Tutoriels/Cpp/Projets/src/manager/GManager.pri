@@ -16,7 +16,10 @@ SOURCES += \
     $$PWD/GMenu.cpp \
     $$PWD/GStatusBar.cpp \
     $$PWD/GSection.cpp \
-    $$PWD/GWorkspace.cpp
+    $$PWD/GWorkspace.cpp \
+    $$PWD/GModule.cpp \
+    $$PWD/GModuleImage.cpp \
+    $$PWD/GModuleVideo.cpp
 
 HEADERS += \
     $$PWD/GConfig.h \
@@ -32,7 +35,10 @@ HEADERS += \
     $$PWD/GMenu.h \
     $$PWD/GStatusBar.h \
     $$PWD/GSection.h \
-    $$PWD/GWorkspace.h
+    $$PWD/GWorkspace.h \
+    $$PWD/GModule.h \
+    $$PWD/GModuleImage.h \
+    $$PWD/GModuleVideo.h
 
 FORMS += \
     $$PWD/GReadyVision.ui
