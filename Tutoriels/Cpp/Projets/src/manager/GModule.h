@@ -10,7 +10,8 @@ class GModule : public QWidget {
 public:
     GModule(QWidget *parent = 0);
     virtual ~GModule();
-    static GModule* Create(const QString &module, QWidget *parent = 0);
+    static GModule* Create(QWidget *parent = 0);
+    static GModule* Create(const QString &key, QWidget *parent = 0);
 
 signals:
     void emitStatusBar(const QString& text);

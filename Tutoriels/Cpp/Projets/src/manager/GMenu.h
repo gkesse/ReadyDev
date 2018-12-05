@@ -9,28 +9,16 @@ class GMenu : public QWidget {
 
 public:
     GMenu(QWidget *parent = 0);
-    ~GMenu();
-
-public slots:
-    void slotAddModule();
-    void slotStatusTip();
-    void slotAddImageModule();
-    void slotAddVideoModule();
-
-protected:
-    void resizeEvent(QResizeEvent *event);
+    virtual ~GMenu();
+    static GMenu* Create(QWidget *parent = 0);
+    static GMenu* Create(const QString& key, QWidget *parent = 0);
 
 signals:
-    void emitStatusBar(const QString& text);
+    void emitStatusBar(const QString& message);
     void emitAddModule(const QString& module);
-
-private:
-    QWidget* m_mainWidget;
-    QWidget* m_mainWidgetOk;
-    QToolButton* m_addModule;
-    QMenu* m_addMenu;
-    QAction* m_addImage;
-    QAction* m_addVideo;
+    void emitAddImageModule();
+    void emitAddVideoModule();
+    void emitLoadImage();
 };
 //===============================================
 #endif

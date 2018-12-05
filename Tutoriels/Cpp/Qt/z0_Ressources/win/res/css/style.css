@@ -84,11 +84,29 @@ GSplitterCustom QSplitter::handle:vertical {
 /*===============================================*/
 /* Custom Style */
 /*===============================================*/
-/* background-color */
 GWindow,
 GPushButton,
 GSplitter,
 GSplitterCustom {
     background-color: #051039;
+}
+/*-----------------------------------------------*/
+GWindowA {
+    background-color: green;
+    color: orange;
+}
+/*-----------------------------------------------*/
+GWindowFull {
+    background-color: #1c3035;
+    color: orange;
+    min-width: 400;
+    min-height: 400;
+}
+/*-----------------------------------------------*/
+QWidget#m_mainPage {
+    background-color: #351e1c;
+    color: orange;
+    min-width: 400;
+    min-height: 400;
 }
 /*===============================================*/

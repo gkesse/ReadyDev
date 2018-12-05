@@ -9,7 +9,9 @@ class GWorkspace : public QWidget {
 
 public:
     GWorkspace(QWidget *parent = 0);
-    ~GWorkspace();
+    virtual ~GWorkspace();
+    static GWorkspace* Create(QWidget *parent = 0);
+    static GWorkspace* Create(const QString& key, QWidget *parent = 0);
 };
 //===============================================
 #endif

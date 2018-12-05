@@ -1,8 +1,7 @@
 //===============================================
 #include "GProcessReadyVision.h"
-#include "GReadyVision.h"
+#include "GWindow.h"
 #include "GStyle.h"
-#include <QApplication>
 //===============================================
 GProcessReadyVision* GProcessReadyVision::m_instance = 0;
 //===============================================
@@ -24,7 +23,7 @@ GProcessReadyVision* GProcessReadyVision::Instance() {
 void GProcessReadyVision::run(int argc, char **argv) {
     QApplication lApp(argc, argv);
     GStyle::Instance()->load("res/css/style.css");
-    GReadyVision* lWindow = new GReadyVision;
+    GWindow* lWindow = GWindow::Create();
     lWindow->show();
     lApp.exec();
 }

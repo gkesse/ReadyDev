@@ -18,7 +18,11 @@ HEADERS += \
     $$PWD/GSplitter.h \
     $$PWD/GProcessSplitter.h \
     $$PWD/GSplitterCustom.h \
-    $$PWD/GProcessSplitterCustom.h
+    $$PWD/GProcessSplitterCustom.h \
+    $$PWD/GWindowA.h \
+    $$PWD/GProcessWindowHint.h \
+    $$PWD/GWindowFull.h \
+    $$PWD/GWindowImage.h
 
 SOURCES += \
     $$PWD/GConfig.cpp \
@@ -34,7 +38,11 @@ SOURCES += \
     $$PWD/GSplitter.cpp \
     $$PWD/GProcessSplitter.cpp \
     $$PWD/GSplitterCustom.cpp \
-    $$PWD/GProcessSplitterCustom.cpp
+    $$PWD/GProcessSplitterCustom.cpp \
+    $$PWD/GWindowA.cpp \
+    $$PWD/GProcessWindowHint.cpp \
+    $$PWD/GWindowFull.cpp \
+    $$PWD/GWindowImage.cpp
 
 FORMS += \
     $$PWD/GWindow.ui \

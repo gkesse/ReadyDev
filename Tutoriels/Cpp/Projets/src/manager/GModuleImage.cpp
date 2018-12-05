@@ -1,6 +1,8 @@
 //===============================================
 #include "GModuleImage.h"
+#include "GDialog.h"
 #include "GPicto.h"
+#include "GPrint.h"
 //===============================================
 int GModuleImage::m_moduleCount = 0;
 //===============================================
@@ -61,7 +63,6 @@ void GModuleImage::createMenu() {
     QAction* lAction = new QAction(this);
     lAction->setText(tr("Charger un fichier image"));
     lAction->setIcon(GPicto::Instance()->getPicto(fa::pictureo));
-    lAction->setShortcut(QKeySequence("Ctrl+K"));
     m_moduleMenu->addAction(lAction);
     connect(lAction, SIGNAL(hovered()), this, SLOT(slotStatusBar()));
     connect(lAction, SIGNAL(triggered()), this, SLOT(slotLoadImage()));
@@ -79,7 +80,16 @@ void GModuleImage::slotSettingMenu() {
 }
 //===============================================
 void GModuleImage::slotLoadImage() {
-
+    GDialog* lDialog = GDialog::Create("OPEN_FILE_DIALOG");
+    lDialog->setWindowTitle(tr("Ouvrir un fichier image | rVision"));
+    int lOk = lDialog->exec();
+    if(lOk == QDialog::Accepted) {
+        GPrint::Instance()->print("Accepted...");
+    }
+    else {
+        GPrint::Instance()->print("Rejected...");
+    }
+    delete lDialog;
 }
 //===============================================
 void GModuleImage::resizeEvent(QResizeEvent *event) {

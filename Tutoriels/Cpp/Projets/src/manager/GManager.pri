@@ -10,16 +10,29 @@ SOURCES += \
     $$PWD/GSetting.cpp \
     $$PWD/GProcessReadyVision.cpp \
     $$PWD/GStyle.cpp \
-    $$PWD/GTitleBar.cpp \
-    $$PWD/GReadyVision.cpp \
     $$PWD/GPicto.cpp \
     $$PWD/GMenu.cpp \
-    $$PWD/GStatusBar.cpp \
     $$PWD/GSection.cpp \
-    $$PWD/GWorkspace.cpp \
     $$PWD/GModule.cpp \
     $$PWD/GModuleImage.cpp \
-    $$PWD/GModuleVideo.cpp
+    $$PWD/GModuleVideo.cpp \
+    $$PWD/GDialog.cpp \
+    $$PWD/GProcessOpenFileDialog.cpp \
+    $$PWD/GButton.cpp \
+    $$PWD/GButtonOpenFileDialog.cpp \
+    $$PWD/GDialogOpenFile.cpp \
+    $$PWD/GTitle.cpp \
+    $$PWD/GTitleOpenFileDialog.cpp \
+    $$PWD/GWindow.cpp \
+    $$PWD/GWindowReadyVision.cpp \
+    $$PWD/GTitleReadyVision.cpp \
+    $$PWD/GMenuReadyVision.cpp \
+    $$PWD/GStatusReadyVision.cpp \
+    $$PWD/GStatus.cpp \
+    $$PWD/GSectionReadyVision.cpp \
+    $$PWD/GFileSystem.cpp \
+    $$PWD/GWorkspace.cpp \
+    $$PWD/GWorkspaceOpenFileDialog.cpp
 
 HEADERS += \
     $$PWD/GConfig.h \
@@ -29,16 +42,34 @@ HEADERS += \
     $$PWD/GSetting.h \
     $$PWD/GProcessReadyVision.h \
     $$PWD/GStyle.h \
-    $$PWD/GTitleBar.h \
-    $$PWD/GReadyVision.h \
     $$PWD/GPicto.h \
     $$PWD/GMenu.h \
-    $$PWD/GStatusBar.h \
     $$PWD/GSection.h \
-    $$PWD/GWorkspace.h \
     $$PWD/GModule.h \
     $$PWD/GModuleImage.h \
-    $$PWD/GModuleVideo.h
+    $$PWD/GModuleVideo.h \
+    $$PWD/GDialog.h \
+    $$PWD/GProcessOpenFileDialog.h \
+    $$PWD/GButton.h \
+    $$PWD/GButtonOpenFileDialog.h \
+    $$PWD/GDialogOpenFile.h \
+    $$PWD/GTitle.h \
+    $$PWD/GTitleOpenFileDialog.h \
+    $$PWD/GWindow.h \
+    $$PWD/GWindowReadyVision.h \
+    $$PWD/GTitleReadyVision.h \
+    $$PWD/GMenuReadyVision.h \
+    $$PWD/GStatusReadyVision.h \
+    $$PWD/GStatus.h \
+    $$PWD/GSectionReadyVision.h \
+    $$PWD/GFileSystem.h \
+    $$PWD/GWorkspace.h \
+    $$PWD/GWorkspaceOpenFileDialog.h
 
 FORMS += \
-    $$PWD/GReadyVision.ui
+    $$PWD/GButtonOpenFileDialog.ui \
+    $$PWD/GTitleOpenFileDialog.ui \
+    $$PWD/GTitleReadyVision.ui \
+    $$PWD/GMenuReadyVision.ui \
+    $$PWD/GSectionReadyVision.ui \
+    $$PWD/GWorkspaceOpenFileDialog.ui

@@ -9,20 +9,13 @@ class GSection : public QWidget {
 
 public:
     GSection(QWidget *parent = 0);
-    ~GSection();
-
-public slots:
-    void slotAddModule(const QString &module);
-
-protected:
-    void resizeEvent(QResizeEvent *event);
+    virtual ~GSection();
+    static GSection* Create(QWidget *parent = 0);
+    static GSection* Create(const QString& key, QWidget *parent = 0);
 
 signals:
-    void emitStatusBar(const QString& text);
-
-private:
-    QScrollArea* m_scrollArea;
-    QVBoxLayout *m_mainLayout;
+    void emitStatusBar(const QString& message);
+    void emitAddModule(const QString& module);
 };
 //===============================================
 #endif

@@ -1,24 +1,21 @@
 //===============================================
-#ifndef _GStatusBar_
-#define _GStatusBar_
+#ifndef _GButton_
+#define _GButton_
 //===============================================
 #include "GInclude.h"
 //===============================================
-class GStatusBar : public QWidget {
+class GButton : public QWidget {
     Q_OBJECT
 
 public:
-    GStatusBar(QWidget *parent = 0);
-    ~GStatusBar();
+    GButton(QWidget *parent = 0);
+    virtual ~GButton();
+    static GButton* Create(QWidget *parent = 0);
+    static GButton* Create(const QString& key, QWidget *parent = 0);
 
-public slots:
-    void slotStatusBar(const QString& text);
-
-protected:
-    void resizeEvent(QResizeEvent *event);
-
-private:
-    QStatusBar* m_statusBar;
+signals:
+    void emitAccept();
+    void emitReject();
 };
 //===============================================
 #endif

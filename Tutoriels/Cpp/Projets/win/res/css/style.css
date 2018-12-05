@@ -12,6 +12,18 @@ QWidget {
 /*===============================================*/
 /* Global Style */
 /*===============================================*/
+/* QPushButton */
+QPushButton {
+    background-color: rgba(255, 255, 255 , 0.2);
+    padding: 5px 10px 5px 10px;
+}
+QPushButton:hover {
+    background-color: rgba(255, 255, 255 , 0.4);
+}
+QPushButton:pressed {
+    background-color: rgba(255, 255, 255 , 0.0);
+}
+/*-----------------------------------------------*/
 /* QToolButton */
 QToolButton {
     background-color: transparent;
@@ -26,21 +38,6 @@ QToolButton:pressed {
 /*-----------------------------------------------*/
 /* QToolButton */
 GModule QToolButton:hover {
-    background-color: rgba(255, 255, 255 , 0.2);
-    border-radius: 9px;
-    width: 18px;
-    height: 18px;
-}
-/*-----------------------------------------------*/
-/* QToolButton */
-GTitleBar QToolButton {
-    background-color: transparent;
-    border: 1px solid rgb(23, 23, 34);
-}
-GTitleBar QToolButton:hover {
-    background: rgba(255, 255, 255, 0.2);
-}
-GTitleBar QToolButton:pressed {
     background-color: transparent;
 }
 /*-----------------------------------------------*/
@@ -48,15 +45,15 @@ GTitleBar QToolButton:pressed {
 QToolTip {
     background-color: #343449;
     border: 1px solid #b9f7aa;
-    color: gray;
+    color: lightgray;
     font-family: Arial;
     font-size: 12px;
 }
 /*-----------------------------------------------*/
 /* QLabel */
-GReadyVision QLabel {
+GTitle QLabel {
     background-color: transparent;
-    color: rgb(177, 177, 203);
+    color: white;
     font-weight: normal;
     font-family : Impact;
     font-size: 18px;
@@ -65,8 +62,8 @@ GReadyVision QLabel {
 /* QMenu */
 QMenu {
     background-color: #343449;
-    border: 1px solid gray;
-    color: gray;
+    border: 1px solid white;
+    color: white;
     padding: 4px 2px 4px 2px;
     font-family: Arial;
     font-size: 14px;
@@ -88,7 +85,7 @@ QStatusBar {
     border: 1px solid transparent;
     font-family: Arial;
     font-size: 12px;
-    color: gray;
+    color: white;
 }
 QStatusBar::item {
     border: 1px solid red;
@@ -100,7 +97,7 @@ QScrollBar:vertical {
     background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #171722, stop:1 #171722);
     border: 1px solid gray;
     width: 18px;
-    margin: 20px 0 20px 0;
+    margin: 20px 0px 20px 0px;
 }
 QScrollBar::handle:vertical {
     background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:0.5, y2:0, stop:0 #0d0846, stop:1 #ffffff);
@@ -139,42 +136,78 @@ QScrollBar::down-arrow:vertical {
 QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
     background-color: none;
 }
+/*-----------------------------------------------*/
+/* QListView */
+QListView {
+    show-decoration-selected: 0; 
+    alternate-background-color: #343449;
+    background-color: #343449;
+    border: 1px solid gray;
+    font-size: 16px;
+}
+QListView::item {
+    min-height: 25px;
+    border-bottom: 1px solid transparent;
+}
+QListView::item:selected {
+    border: 1px solid gray;
+}
+QListView::item:selected:!active {
+    background-color: gray;
+}
+QListView::item:selected:active {
+    background-color: gray;
+}
+QListView::item:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
 /*===============================================*/
 /* Custom Style */
 /*===============================================*/
-/* GWorkspace */
-GWorkspace {
-    background-color: #343449;
-    margin: 0px 0px 0px 0px;
+/* GTitle */
+GTitle {
+    background-color: transparent;
+    margin: 6px 6px 6px 8px;
+    min-height: 15px;
 }
 /*-----------------------------------------------*/
 /* GMenu */
 GMenu {
-    background-color: transparent;
-    margin: 0px 0px 134px 8px;
-    min-width: 24px;
-    min-height: 20px;
+    background-color: #343449;
+    margin: 0px 0px 150px 6px;
+    min-width: 25px;
 }
 /*-----------------------------------------------*/
-/* GStatusBar */
-GStatusBar {
-    background-color: transparent;
-    margin: 0px 174px 8px 24px;
-    min-width: 20px;
-    min-height: 20px;
+/* GWorkspace */
+GWorkspace {
+    background-color: #343449;
+    margin: 0px 6px 0px 6px;
 }
 /*-----------------------------------------------*/
 /* GSection */
 GSection {
-    background-color: transparent;
-    border: 1px solid #343449;
-    margin: 0px 30px 0px 0px;
-    min-width: 60px;
+    background-color: #343449;
+    margin: 0px 6px 0px 0px;
+    min-width: 75px;
+}
+/*-----------------------------------------------*/
+/* GStatusBar */
+GStatus {
+    background-color: #343449;
+    margin: 0px 150px 6px 30px;
+    min-height: 25px;
+}
+/*-----------------------------------------------*/
+/* GButton */
+GButton {
+    background-color: #343449;
+    margin: 10px 10px 10px 10px;
 }
 /*-----------------------------------------------*/
 /* GModule */
 GModule {
     background-color: #343449;
+    border: 1px solid gray;
     min-width: 50px;
     min-height: 50px;
     max-width: 50px;
@@ -185,5 +218,13 @@ GModule:hover {
 }
 GModule[ModuleSelectFlag=true] {
     background-color: #4f2e24;
+}
+/*-----------------------------------------------*/
+/* GWindow */
+GWindow,
+GDialog {
+    background-color: #343449;
+    min-width: 640px;
+    min-height: 480px;
 }
 /*===============================================*/
