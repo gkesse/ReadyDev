@@ -7,20 +7,7 @@ GWorkspaceReadyVision::GWorkspaceReadyVision(QWidget *parent) :
     setObjectName("GWorkspaceReadyVision");
     setAttribute(Qt::WA_StyledBackground, true);
 
-    QLabel* lWidget1 = new QLabel;
-    lWidget1->setText("lWidget1");
-    lWidget1->setAlignment(Qt::AlignCenter);
-    QLabel* lWidget2 = new QLabel;
-    lWidget2->setText("lWidget2");
-    lWidget2->setAlignment(Qt::AlignCenter);
-    QLabel* lWidget3 = new QLabel;
-    lWidget3->setText("lWidget3");
-    lWidget3->setAlignment(Qt::AlignCenter);
-
     m_stackedWidget = new QStackedWidget;
-    m_stackedWidget->addWidget(lWidget1);
-    m_stackedWidget->addWidget(lWidget2);
-    m_stackedWidget->addWidget(lWidget3);
 
     QVBoxLayout* lMainLayout = new QVBoxLayout;
     lMainLayout->addWidget(m_stackedWidget);
@@ -30,9 +17,19 @@ GWorkspaceReadyVision::GWorkspaceReadyVision(QWidget *parent) :
     setLayout(lMainLayout);
 
     connect(this, SIGNAL(emitWorkspaceView(int)), m_stackedWidget, SLOT(setCurrentIndex(int)));
+    connect(this, SIGNAL(emitWorkspaceCreate(QString)), this, SLOT(slotWorkspaceCreate(QString)));
 }
 //===============================================
 GWorkspaceReadyVision::~GWorkspaceReadyVision() {
 
+}
+//===============================================
+void GWorkspaceReadyVision::slotWorkspaceCreate(const QString& name) {
+    QLabel* lWorkspace = new QLabel;
+    lWorkspace->setText(name);
+    lWorkspace->setAlignment(Qt::AlignCenter);
+    m_stackedWidget->addWidget(lWorkspace);
+    int lLast = m_stackedWidget->count() - 1;
+    m_stackedWidget->setCurrentIndex(lLast);
 }
 //===============================================

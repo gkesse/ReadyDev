@@ -31,7 +31,6 @@ protected:
 
 private:
     QPixmap *m_pixmap;
-    QString m_moduleName;
     static int m_moduleCount;
     bool m_oneOnlyFlag;
     bool m_moduleSelectFlag;

@@ -20,6 +20,7 @@ signals:
     void emitAddressClicked();
     void emitOkButtonEnable(const bool& arg);
     void emitWorkspaceView(const int& id);
+    void emitWorkspaceCreate(const QString& name);
 };
 //===============================================
 #endif

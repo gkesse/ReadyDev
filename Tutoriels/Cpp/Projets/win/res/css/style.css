@@ -75,6 +75,15 @@ GTitle QLabel {
     font-size: 18px;
 }
 /*-----------------------------------------------*/
+/* QLabel */
+GWorkspace QLabel {
+    background-color: #000000;
+    color: white;
+    font-weight: normal;
+    font-family : Impact;
+    font-size: 18px;
+}
+/*-----------------------------------------------*/
 /* QMenu */
 QMenu {
     background-color: #343449;
@@ -266,10 +275,6 @@ GWindowShape GMenu {
 /* GWorkspace */
 GWorkspace {
     background-color: #343449;
-    margin: 0px 0px 0px 0px;
-}
-GWindowReadyVision GWorkspace {
-    background-color: #000000;
     margin: 0px 0px 0px 0px;
 }
 /*-----------------------------------------------*/

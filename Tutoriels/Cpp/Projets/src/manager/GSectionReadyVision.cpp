@@ -26,5 +26,6 @@ void GSectionReadyVision::slotAddModule(const QString& module) {
     connect(lModule, SIGNAL(emitStatusBar(QString)), this, SIGNAL(emitStatusBar(QString)));
     connect(lModule, SIGNAL(emitWorkspaceView(int)), this, SIGNAL(emitWorkspaceView(int)));
     ui->m_mainLayout->addWidget(lModule);
+    emit emitWorkspaceCreate(lModule->getModuleName());
 }
 //===============================================

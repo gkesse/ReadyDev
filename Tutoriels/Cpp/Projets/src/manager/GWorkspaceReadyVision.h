@@ -11,6 +11,9 @@ public:
     GWorkspaceReadyVision(QWidget *parent = 0);
     ~GWorkspaceReadyVision();
 
+public slots:
+    void slotWorkspaceCreate(const QString& name);
+
 private:
     QStackedWidget* m_stackedWidget;
 };

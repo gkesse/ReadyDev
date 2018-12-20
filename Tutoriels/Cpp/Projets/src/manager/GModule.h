@@ -12,6 +12,7 @@ public:
     virtual ~GModule();
     static GModule* Create(QWidget *parent = 0);
     static GModule* Create(const QString &key, QWidget *parent = 0);
+    QString getModuleName() const;
 
 signals:
     void emitStatusBar(const QString& text);
@@ -20,6 +21,7 @@ signals:
 protected:
     static int m_moduleCount;
     int m_moduleId;
+    QString m_moduleName;
 };
 //===============================================
 #endif

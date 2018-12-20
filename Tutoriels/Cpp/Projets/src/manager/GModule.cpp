@@ -33,3 +33,7 @@ GModule* GModule::Create(const QString& key, QWidget *parent) {
     return new GModuleImage(parent);
 }
 //===============================================
+QString GModule::getModuleName() const {
+    return m_moduleName;
+}
+//===============================================
