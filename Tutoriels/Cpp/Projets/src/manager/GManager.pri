@@ -22,17 +22,27 @@ SOURCES += \
     $$PWD/GButtonOpenFileDialog.cpp \
     $$PWD/GDialogOpenFile.cpp \
     $$PWD/GTitle.cpp \
-    $$PWD/GTitleOpenFileDialog.cpp \
     $$PWD/GWindow.cpp \
-    $$PWD/GWindowReadyVision.cpp \
-    $$PWD/GTitleReadyVision.cpp \
     $$PWD/GMenuReadyVision.cpp \
     $$PWD/GStatusReadyVision.cpp \
     $$PWD/GStatus.cpp \
     $$PWD/GSectionReadyVision.cpp \
     $$PWD/GFileSystem.cpp \
     $$PWD/GWorkspace.cpp \
-    $$PWD/GWorkspaceOpenFileDialog.cpp
+    $$PWD/GWorkspaceOpenFileDialog.cpp \
+    $$PWD/GMenuOpenFileDialog.cpp \
+    $$PWD/GAddress.cpp \
+    $$PWD/GAddressOpenFileDialog.cpp \
+    $$PWD/GWindowFullScreen.cpp \
+    $$PWD/GWindowShape.cpp \
+    $$PWD/GTitleWindowShape.cpp \
+    $$PWD/GTitleWindowFullScreen.cpp \
+    $$PWD/GDialogNormal.cpp \
+    $$PWD/GDialogShape.cpp \
+    $$PWD/GTitleDialogNormal.cpp \
+    $$PWD/GWindowReadyVision.cpp \
+    $$PWD/GWindowMaximized.cpp \
+    $$PWD/GWorkspaceReadyVision.cpp
 
 HEADERS += \
     $$PWD/GConfig.h \
@@ -54,22 +64,34 @@ HEADERS += \
     $$PWD/GButtonOpenFileDialog.h \
     $$PWD/GDialogOpenFile.h \
     $$PWD/GTitle.h \
-    $$PWD/GTitleOpenFileDialog.h \
     $$PWD/GWindow.h \
-    $$PWD/GWindowReadyVision.h \
-    $$PWD/GTitleReadyVision.h \
     $$PWD/GMenuReadyVision.h \
     $$PWD/GStatusReadyVision.h \
     $$PWD/GStatus.h \
     $$PWD/GSectionReadyVision.h \
     $$PWD/GFileSystem.h \
     $$PWD/GWorkspace.h \
-    $$PWD/GWorkspaceOpenFileDialog.h
+    $$PWD/GWorkspaceOpenFileDialog.h \
+    $$PWD/GMenuOpenFileDialog.h \
+    $$PWD/GAddress.h \
+    $$PWD/GAddressOpenFileDialog.h \
+    $$PWD/GWindowFullScreen.h \
+    $$PWD/GWindowShape.h \
+    $$PWD/GTitleWindowShape.h \
+    $$PWD/GTitleWindowFullScreen.h \
+    $$PWD/GDialogNormal.h \
+    $$PWD/GDialogShape.h \
+    $$PWD/GTitleDialogNormal.h \
+    $$PWD/GWindowReadyVision.h \
+    $$PWD/GWindowMaximized.h \
+    $$PWD/GWorkspaceReadyVision.h
 
 FORMS += \
     $$PWD/GButtonOpenFileDialog.ui \
-    $$PWD/GTitleOpenFileDialog.ui \
-    $$PWD/GTitleReadyVision.ui \
     $$PWD/GMenuReadyVision.ui \
     $$PWD/GSectionReadyVision.ui \
-    $$PWD/GWorkspaceOpenFileDialog.ui
+    $$PWD/GWorkspaceOpenFileDialog.ui \
+    $$PWD/GMenuOpenFileDialog.ui \
+    $$PWD/GTitleWindowShape.ui \
+    $$PWD/GTitleWindowFullScreen.ui \
+    $$PWD/GTitleDialogNormal.ui

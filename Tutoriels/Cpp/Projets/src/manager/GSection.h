@@ -16,6 +16,7 @@ public:
 signals:
     void emitStatusBar(const QString& message);
     void emitAddModule(const QString& module);
+    void emitWorkspaceView(const int& id);
 };
 //===============================================
 #endif

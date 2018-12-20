@@ -11,7 +11,8 @@ GStatusReadyVision::GStatusReadyVision(QWidget *parent) :
 
     QHBoxLayout* lMainLayout = new QHBoxLayout;
     lMainLayout->addWidget(m_statusBar);
-    lMainLayout->setContentsMargins(30, 0, 0, 6);
+    lMainLayout->setContentsMargins(0, 0, 0, 0);
+    lMainLayout->setSpacing(0);
 
     setLayout(lMainLayout);
 

@@ -6,6 +6,9 @@ int GModuleVideo::m_moduleCount = 0;
 //===============================================
 GModuleVideo::GModuleVideo(QWidget *parent) :
     GModule(parent) {
+    setObjectName("GModuleVideo");
+    setAttribute(Qt::WA_StyledBackground, true);
+
     m_pixmap = 0;
     m_moduleCount++;
     m_oneOnlyFlag = true;

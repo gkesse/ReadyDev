@@ -1,20 +1,21 @@
 //===============================================
-#ifndef _GDialog_
-#define _GDialog_
+#ifndef _GDialogShape_
+#define _GDialogShape_
 //===============================================
-#include "GInclude.h"
+#include "GDialog.h"
 //===============================================
-class GDialog : public QDialog {
+class GDialogShape : public GDialog {
     Q_OBJECT
 
 public:
-    GDialog(QWidget *parent = 0);
-    virtual ~GDialog();
-    static GDialog* Create(QWidget *parent = 0);
-    static GDialog* Create(const QString& key, QWidget *parent = 0);
+    GDialogShape(QWidget *parent = 0);
+    virtual ~GDialogShape();
 
 protected:
-    QGridLayout* m_mainLayout;
+    void resizeEvent(QResizeEvent *event);
+    void paintEvent(QPaintEvent *event);
+
+private:
     QPixmap* m_pixmap;
 };
 //===============================================

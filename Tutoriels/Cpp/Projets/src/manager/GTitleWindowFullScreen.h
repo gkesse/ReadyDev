@@ -1,27 +1,26 @@
 //===============================================
-#ifndef _GTitleReadyVision_
-#define _GTitleReadyVision_
+#ifndef _GTitleWindowFullScreen_
+#define _GTitleWindowFullScreen_
 //===============================================
 #include "GTitle.h"
 //===============================================
 namespace Ui {
-class GTitleReadyVision;
+class GTitleWindowFullScreen;
 }
 //===============================================
-class GTitleReadyVision : public GTitle {
+class GTitleWindowFullScreen : public GTitle {
     Q_OBJECT
 
 public:
-    GTitleReadyVision(QWidget *parent = 0);
-    ~GTitleReadyVision();
+    GTitleWindowFullScreen(QWidget *parent = 0);
+    ~GTitleWindowFullScreen();
 
 public slots:
     void slotWindowIconChanged(const QIcon& icon);
     void slotWindowTitleChanged(const QString& title);
-    void slotShowMaximized(const QString& status);
 
 private:
-    Ui::GTitleReadyVision *ui;
+    Ui::GTitleWindowFullScreen *ui;
 };
 //===============================================
 #endif

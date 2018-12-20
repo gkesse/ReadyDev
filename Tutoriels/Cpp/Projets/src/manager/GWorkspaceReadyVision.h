@@ -1,15 +1,18 @@
 //===============================================
-#ifndef _GWindowReadyVision_
-#define _GWindowReadyVision_
+#ifndef _GWorkspaceReadyVision_
+#define _GWorkspaceReadyVision_
 //===============================================
-#include "GWindowMaximized.h"
+#include "GWorkspace.h"
 //===============================================
-class GWindowReadyVision : public GWindowMaximized {
+class GWorkspaceReadyVision : public GWorkspace {
     Q_OBJECT
 
 public:
-    GWindowReadyVision(QWidget *parent = 0);
-    ~GWindowReadyVision();
+    GWorkspaceReadyVision(QWidget *parent = 0);
+    ~GWorkspaceReadyVision();
+
+private:
+    QStackedWidget* m_stackedWidget;
 };
 //===============================================
 #endif

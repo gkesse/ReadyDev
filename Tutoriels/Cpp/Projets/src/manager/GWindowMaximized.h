@@ -1,15 +1,15 @@
 //===============================================
-#ifndef _GWindowReadyVision_
-#define _GWindowReadyVision_
+#ifndef _GWindowMaximized_
+#define _GWindowMaximized_
 //===============================================
-#include "GWindowMaximized.h"
+#include "GWindow.h"
 //===============================================
-class GWindowReadyVision : public GWindowMaximized {
+class GWindowMaximized : public GWindow {
     Q_OBJECT
 
 public:
-    GWindowReadyVision(QWidget *parent = 0);
-    ~GWindowReadyVision();
+    GWindowMaximized(QWidget *parent = 0);
+    ~GWindowMaximized();
 };
 //===============================================
 #endif

@@ -13,17 +13,11 @@ public:
     static GWindow* Create(QWidget *parent = 0);
     static GWindow* Create(const QString& key, QWidget *parent = 0);
 
-protected:
-    void resizeEvent(QResizeEvent *event);
-    void paintEvent(QPaintEvent *event);
-
 signals:
-    void emitReject();
-    void emitWindowIconChanged(const QIcon& icon);
-    void emitWindowTitleChanged(const QString& icon);
+    void emitShowMaximized(const QString& status);
 
-private:
-    QPixmap* m_pixmap;
+protected:
+    QGridLayout* m_mainLayout;
 };
 //===============================================
 #endif

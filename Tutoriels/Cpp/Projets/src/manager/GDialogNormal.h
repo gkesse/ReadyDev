@@ -1,15 +1,19 @@
 //===============================================
-#ifndef _GWindowReadyVision_
-#define _GWindowReadyVision_
+#ifndef _GDialogNormal_
+#define _GDialogNormal_
 //===============================================
-#include "GWindowMaximized.h"
+#include "GDialog.h"
 //===============================================
-class GWindowReadyVision : public GWindowMaximized {
+class GDialogNormal : public GDialog {
     Q_OBJECT
 
 public:
-    GWindowReadyVision(QWidget *parent = 0);
-    ~GWindowReadyVision();
+    GDialogNormal(QWidget *parent = 0);
+    virtual ~GDialogNormal();
+
+protected:
+    void resizeEvent(QResizeEvent *event);
+    void paintEvent(QPaintEvent *event);
 };
 //===============================================
 #endif

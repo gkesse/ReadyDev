@@ -12,6 +12,14 @@ public:
     virtual ~GWorkspace();
     static GWorkspace* Create(QWidget *parent = 0);
     static GWorkspace* Create(const QString& key, QWidget *parent = 0);
+
+signals:
+    void emitHomeClicked();
+    void emitDrivesClicked();
+    void emitUpdateAddress();
+    void emitAddressClicked();
+    void emitOkButtonEnable(const bool& arg);
+    void emitWorkspaceView(const int& id);
 };
 //===============================================
 #endif

@@ -2,9 +2,9 @@
 #ifndef _GDialogOpenFile_
 #define _GDialogOpenFile_
 //===============================================
-#include "GDialog.h"
+#include "GDialogNormal.h"
 //===============================================
-class GDialogOpenFile : public GDialog {
+class GDialogOpenFile : public GDialogNormal {
     Q_OBJECT
 
 public:

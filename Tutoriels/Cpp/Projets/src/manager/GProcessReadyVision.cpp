@@ -23,7 +23,7 @@ GProcessReadyVision* GProcessReadyVision::Instance() {
 void GProcessReadyVision::run(int argc, char **argv) {
     QApplication lApp(argc, argv);
     GStyle::Instance()->load("res/css/style.css");
-    GWindow* lWindow = GWindow::Create();
+    GWindow* lWindow = GWindow::Create("WINDOW_READY_VISION");
     lWindow->show();
     lApp.exec();
 }

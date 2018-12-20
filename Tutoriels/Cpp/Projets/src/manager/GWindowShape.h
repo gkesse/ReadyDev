@@ -1,20 +1,24 @@
 //===============================================
-#ifndef _GDialog_
-#define _GDialog_
+#ifndef _GWindowShape_
+#define _GWindowShape_
 //===============================================
-#include "GInclude.h"
+#include "GWindow.h"
 //===============================================
-class GDialog : public QDialog {
+class GWindowShape : public GWindow {
     Q_OBJECT
 
 public:
-    GDialog(QWidget *parent = 0);
-    virtual ~GDialog();
-    static GDialog* Create(QWidget *parent = 0);
-    static GDialog* Create(const QString& key, QWidget *parent = 0);
+    GWindowShape(QWidget *parent = 0);
+    ~GWindowShape();
 
 protected:
-    QGridLayout* m_mainLayout;
+    void resizeEvent(QResizeEvent *event);
+    void paintEvent(QPaintEvent *event);
+
+public slots:
+    void slotShowMaximized();
+
+private:
     QPixmap* m_pixmap;
 };
 //===============================================

@@ -37,7 +37,8 @@ GMenuReadyVision::GMenuReadyVision(QWidget *parent) :
 
     connect(ui->m_addButton, SIGNAL(clicked()), this, SLOT(slotAddModule()));
 
-    ui->m_mainLayout->setContentsMargins(6, 0, 0, 0);
+    ui->m_mainLayout->setContentsMargins(0, 0, 0, 0);
+    ui->m_mainLayout->setSpacing(6);
     ui->m_mainLayout->setAlignment(Qt::AlignTop);
 }
 //===============================================

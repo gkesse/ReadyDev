@@ -16,6 +16,7 @@ public:
 signals:
     void emitAccept();
     void emitReject();
+    void emitOkButtonEnable(const bool& arg);
 };
 //===============================================
 #endif

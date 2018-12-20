@@ -1,26 +1,26 @@
 //===============================================
-#ifndef _GTitleOpenFileDialog_
-#define _GTitleOpenFileDialog_
+#ifndef _GTitleDialogNormal_
+#define _GTitleDialogNormal_
 //===============================================
 #include "GTitle.h"
 //===============================================
 namespace Ui {
-class GTitleOpenFileDialog;
+class GTitleDialogNormal;
 }
 //===============================================
-class GTitleOpenFileDialog : public GTitle {
+class GTitleDialogNormal : public GTitle {
     Q_OBJECT
 
 public:
-    GTitleOpenFileDialog(QWidget *parent = 0);
-    ~GTitleOpenFileDialog();
+    GTitleDialogNormal(QWidget *parent = 0);
+    ~GTitleDialogNormal();
 
 public slots:
     void slotWindowIconChanged(const QIcon& icon);
     void slotWindowTitleChanged(const QString& title);
 
 private:
-    Ui::GTitleOpenFileDialog *ui;
+    Ui::GTitleDialogNormal *ui;
 };
 //===============================================
 #endif

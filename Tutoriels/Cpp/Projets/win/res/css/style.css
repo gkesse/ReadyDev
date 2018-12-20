@@ -23,6 +23,16 @@ QPushButton:hover {
 QPushButton:pressed {
     background-color: rgba(255, 255, 255 , 0.0);
 }
+QPushButton:!enabled {
+    background-color: rgba(255, 255, 255 , 0.2);
+    color: #343449;
+}
+/*===============================================*/
+/* QPushButton */
+GAddress QPushButton {
+    background-color: rgba(255, 255, 255 , 0.2);
+    padding: 5px 5px 5px 5px;
+}
 /*-----------------------------------------------*/
 /* QToolButton */
 QToolButton {
@@ -34,6 +44,12 @@ QToolButton:hover {
 }
 QToolButton:pressed {
     background-color: transparent;
+}
+/*-----------------------------------------------*/
+/* QToolButton */
+GAddress QToolButton {
+    background-color: red;
+    border: 1px solid transparent;
 }
 /*-----------------------------------------------*/
 /* QToolButton */
@@ -137,6 +153,51 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
     background-color: none;
 }
 /*-----------------------------------------------*/
+/* QScrollBar */
+QScrollBar:horizontal {
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #171722, stop:1 #171722);
+    border: 1px solid gray;
+    height: 18px;
+    margin: 0px 20px 0px 20px;
+}
+QScrollBar::handle:horizontal {
+    background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:0, y2:0.5, stop:0 #0d0846, stop:1 #ffffff);
+    min-height: 15px;
+}
+QScrollBar::add-line:horizontal {
+    background-color: #171722;
+    border: 1px solid gray;
+    width: 15px;
+    subcontrol-position: right;
+    subcontrol-origin: margin;
+}
+QScrollBar::sub-line:horizontal {
+    background-color: #171722;
+    border: 1px solid gray;
+    width: 15px;
+    subcontrol-position: left;
+    subcontrol-origin: margin;
+}
+QScrollBar::right-arrow:horizontal {
+    border-color: #171722 #171722 #171722 gray; 
+    border-style: solid;
+    border-width: 6px;
+    width: 0px; 
+    height: 0px;
+    margin: 0px -3px 0px 0px;
+}
+QScrollBar::left-arrow:horizontal {
+    border-color: #171722 gray #171722 #171722; 
+    border-style: solid;
+    border-width: 6px;
+    width: 0px; 
+    height: 0px;
+    margin: 0px 0px 0px -3px;
+}
+QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
+    background-color: none;
+}
+/*-----------------------------------------------*/
 /* QListView */
 QListView {
     show-decoration-selected: 0; 
@@ -166,13 +227,37 @@ QListView::item:hover {
 /*===============================================*/
 /* GTitle */
 GTitle {
+    background-color: #343449;
+    margin: 0px 0px 0px 0px;
+    min-height: 25px;
+}
+GWindowShape GTitle {
     background-color: transparent;
     margin: 6px 6px 6px 8px;
     min-height: 15px;
 }
 /*-----------------------------------------------*/
+/* GAddress */
+GAddress {
+    background-color: #343449;
+    margin: 0px 0px 0px 0px;
+    border: 1px solid gray;
+    max-height: 50px;
+}
+GWindowShape GAddress {
+    background-color: #343449;
+    margin: 0px 10px 0px 10px;
+    border: 1px solid gray;
+    max-height: 60px;
+}
+/*-----------------------------------------------*/
 /* GMenu */
 GMenu {
+    background-color: #343449;
+    margin: 0px 0px 0px 0px;
+    min-width: 25px;
+}
+GWindowShape GMenu {
     background-color: #343449;
     margin: 0px 0px 150px 6px;
     min-width: 25px;
@@ -181,18 +266,27 @@ GMenu {
 /* GWorkspace */
 GWorkspace {
     background-color: #343449;
-    margin: 0px 6px 0px 6px;
+    margin: 0px 0px 0px 0px;
+}
+GWindowReadyVision GWorkspace {
+    background-color: #000000;
+    margin: 0px 0px 0px 0px;
 }
 /*-----------------------------------------------*/
 /* GSection */
 GSection {
     background-color: #343449;
-    margin: 0px 6px 0px 0px;
+    margin: 0px 0px 0px 0px;
     min-width: 75px;
 }
 /*-----------------------------------------------*/
 /* GStatusBar */
 GStatus {
+    background-color: #343449;
+    margin: 0px 0px 0px 0px;
+    min-height: 25px;
+}
+GWindowShape GStatus {
     background-color: #343449;
     margin: 0px 150px 6px 30px;
     min-height: 25px;
@@ -200,6 +294,10 @@ GStatus {
 /*-----------------------------------------------*/
 /* GButton */
 GButton {
+    background-color: #343449;
+    margin: 0px 0px 0px 0px;
+}
+GWindowShape GButton {
     background-color: #343449;
     margin: 10px 10px 10px 10px;
 }

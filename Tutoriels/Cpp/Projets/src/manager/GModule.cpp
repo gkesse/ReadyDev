@@ -10,7 +10,9 @@ GModule::GModule(QWidget *parent) :
     QWidget(parent) {
     setObjectName("GModule");
     setAttribute(Qt::WA_StyledBackground, true);
+
     setCursor(Qt::PointingHandCursor);
+    m_moduleId = m_moduleCount;
     m_moduleCount++;
 }
 //===============================================

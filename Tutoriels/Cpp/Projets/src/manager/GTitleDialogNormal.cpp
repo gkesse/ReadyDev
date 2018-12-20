@@ -1,10 +1,10 @@
 //===============================================
-#include "GTitleOpenFileDialog.h"
-#include "ui_GTitleOpenFileDialog.h"
+#include "GTitleDialogNormal.h"
+#include "ui_GTitleDialogNormal.h"
 #include "GPicto.h"
 //===============================================
-GTitleOpenFileDialog::GTitleOpenFileDialog(QWidget *parent) :
-    GTitle(parent), ui(new Ui::GTitleOpenFileDialog) {
+GTitleDialogNormal::GTitleDialogNormal(QWidget *parent) :
+    GTitle(parent), ui(new Ui::GTitleDialogNormal) {
     ui->setupUi(this);
     setAttribute(Qt::WA_StyledBackground, true);
 
@@ -15,18 +15,19 @@ GTitleOpenFileDialog::GTitleOpenFileDialog(QWidget *parent) :
     connect(this, SIGNAL(emitWindowIconChanged(QIcon)), this, SLOT(slotWindowIconChanged(QIcon)));
     connect(this, SIGNAL(emitWindowTitleChanged(QString)), this, SLOT(slotWindowTitleChanged(QString)));
 
-    ui->m_mainLayout->setContentsMargins(8, 6, 6, 6);
+    ui->m_mainLayout->setContentsMargins(0, 0, 0, 0);
+    ui->m_mainLayout->setSpacing(6);
 }
 //===============================================
-GTitleOpenFileDialog::~GTitleOpenFileDialog() {
+GTitleDialogNormal::~GTitleDialogNormal() {
 
 }
 //===============================================
-void GTitleOpenFileDialog::slotWindowIconChanged(const QIcon& icon) {
+void GTitleDialogNormal::slotWindowIconChanged(const QIcon& icon) {
     ui->m_iconLabel->setPixmap(icon.pixmap(QSize(20, 20)));
 }
 //===============================================
-void GTitleOpenFileDialog::slotWindowTitleChanged(const QString& title) {
+void GTitleDialogNormal::slotWindowTitleChanged(const QString& title) {
     ui->m_titleLabel->setText(title);
 }
 //===============================================

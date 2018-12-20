@@ -1,10 +1,10 @@
 //===============================================
-#include "GTitleReadyVision.h"
-#include "ui_GTitleReadyVision.h"
+#include "GTitleWindowShape.h"
+#include "ui_GTitleWindowShape.h"
 #include "GPicto.h"
 //===============================================
-GTitleReadyVision::GTitleReadyVision(QWidget *parent) :
-    GTitle(parent), ui(new Ui::GTitleReadyVision) {
+GTitleWindowShape::GTitleWindowShape(QWidget *parent) :
+    GTitle(parent), ui(new Ui::GTitleWindowShape) {
     ui->setupUi(this);
     setAttribute(Qt::WA_StyledBackground, true);
 
@@ -19,27 +19,28 @@ GTitleReadyVision::GTitleReadyVision(QWidget *parent) :
 
     connect(ui->m_minimizeButton, SIGNAL(clicked()), this, SIGNAL(emitShowMinimized()));
     connect(ui->m_maximizeButton, SIGNAL(clicked()), this, SIGNAL(emitShowMaximized()));
-    connect(this, SIGNAL(emitShowMaximized(QString)), this, SLOT(slotShowMaximized(QString)));
     connect(ui->m_closeButton, SIGNAL(clicked()), this, SIGNAL(emitClose()));
     connect(this, SIGNAL(emitWindowIconChanged(QIcon)), this, SLOT(slotWindowIconChanged(QIcon)));
     connect(this, SIGNAL(emitWindowTitleChanged(QString)), this, SLOT(slotWindowTitleChanged(QString)));
+    connect(this, SIGNAL(emitShowMaximized(QString)), this, SLOT(slotShowMaximized(QString)));
 
-    ui->m_mainLayout->setContentsMargins(8, 6, 6, 6);
+    ui->m_mainLayout->setContentsMargins(10, 6, 6, 6);
+    ui->m_mainLayout->setSpacing(6);
 }
 //===============================================
-GTitleReadyVision::~GTitleReadyVision() {
+GTitleWindowShape::~GTitleWindowShape() {
 
 }
 //===============================================
-void GTitleReadyVision::slotWindowIconChanged(const QIcon& icon) {
+void GTitleWindowShape::slotWindowIconChanged(const QIcon& icon) {
     ui->m_iconLabel->setPixmap(icon.pixmap(QSize(20, 20)));
 }
 //===============================================
-void GTitleReadyVision::slotWindowTitleChanged(const QString& title) {
+void GTitleWindowShape::slotWindowTitleChanged(const QString& title) {
     ui->m_titleLabel->setText(title);
 }
 //===============================================
-void GTitleReadyVision::slotShowMaximized(const QString& status) {
+void GTitleWindowShape::slotShowMaximized(const QString& status) {
     if(status == "NORMAL") {
         ui->m_maximizeButton->setIcon(GPicto::Instance()->getPicto(fa::windowmaximize));
     }

@@ -23,7 +23,7 @@ GProcessOpenFileDialog* GProcessOpenFileDialog::Instance() {
 void GProcessOpenFileDialog::run(int argc, char **argv) {
     QApplication lApp(argc, argv);
     GStyle::Instance()->load("res/css/style.css");
-    GDialog* lDialog = GDialog::Create();
+    GDialog* lDialog = GDialog::Create("DIALOG_OPEN_FILE");
     lDialog->show();
     lApp.exec();
 }

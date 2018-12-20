@@ -1,29 +1,29 @@
 //===============================================
 #include "GWindowReadyVision.h"
-#include "GTitle.h"
 #include "GMenu.h"
+#include "GWorkspace.h"
 #include "GSection.h"
 #include "GStatus.h"
 //===============================================
 GWindowReadyVision::GWindowReadyVision(QWidget *parent) :
-    GWindow(parent) {
+    GWindowMaximized(parent) {
     setObjectName("GWindowReadyVision");
-    setWindowFlags(Qt::FramelessWindowHint);
 
-    GTitle* lTitle = GTitle::Create();
-    GMenu* lMenu = GMenu::Create();
-    GSection* lSection = GSection::Create();
-    GStatus* lStatus = GStatus::Create();
+    GMenu* lMenu = GMenu::Create("READY_VISION");
+    GWorkspace* lWorkspace = GWorkspace::Create("READY_VISION");
+    GSection* lSection = GSection::Create("READY_VISION");
+    GStatus* lStatus = GStatus::Create("READY_VISION");
 
     QGridLayout* lMainLayout = new QGridLayout;
-    lMainLayout->addWidget(lTitle, 0, 0, Qt::AlignTop);
-    lMainLayout->addWidget(lMenu, 1, 0, Qt::AlignLeft);
-    lMainLayout->addWidget(lSection, 1, 0, Qt::AlignRight);
-    lMainLayout->addWidget(lStatus, 2, 0, Qt::AlignBottom);
-    lMainLayout->setMargin(0);
-    lMainLayout->setSpacing(0);
+    lMainLayout->addWidget(lMenu, 0, 0, 1, 1);
+    lMainLayout->addWidget(lWorkspace, 0, 1, 1, 1);
+    lMainLayout->addWidget(lSection, 0, 2, 1, 1);
+    lMainLayout->addWidget(lStatus, 1, 0, 1, 3);
+    lMainLayout->setContentsMargins(0, 0, 0, 0);
+    lMainLayout->setSpacing(6);
 
-    setLayout(lMainLayout);
+    lMainLayout->setColumnStretch(1, 1);
+    m_mainLayout->addLayout(lMainLayout, 1, 0);
 
     QShortcut* lShortcut = 0;
     lShortcut = new QShortcut(tr("Ctrl+I"), this);
@@ -32,15 +32,9 @@ GWindowReadyVision::GWindowReadyVision(QWidget *parent) :
     lShortcut = new QShortcut(tr("Ctrl+J"), this);
     connect(lShortcut, SIGNAL(activated()), lMenu, SIGNAL(emitAddVideoModule()));
 
-    connect(lTitle, SIGNAL(emitShowMinimized()), this, SLOT(showMinimized()));
-    connect(lTitle, SIGNAL(emitShowMaximized()), this, SLOT(slotShowMaximized()));
-    connect(this, SIGNAL(emitShowMaximized(QString)), lTitle, SIGNAL(emitShowMaximized(QString)));
-    connect(lTitle, SIGNAL(emitClose()), this, SLOT(close()));
-    connect(lMenu, SIGNAL(emitStatusBar(QString)), lStatus, SIGNAL(emitStatusBar(QString)));
     connect(lMenu, SIGNAL(emitAddModule(QString)), lSection, SIGNAL(emitAddModule(QString)));
-
-    connect(this, SIGNAL(windowIconChanged(QIcon)), lTitle, SIGNAL(emitWindowIconChanged(QIcon)));
-    connect(this, SIGNAL(windowTitleChanged(QString)), lTitle, SIGNAL(emitWindowTitleChanged(QString)));
+    connect(lMenu, SIGNAL(emitStatusBar(QString)), lStatus, SIGNAL(emitStatusBar(QString)));
+    connect(lSection, SIGNAL(emitWorkspaceView(int)), lWorkspace, SIGNAL(emitWorkspaceView(int)));
 
     setWindowIcon(QIcon("res/img/logo.png"));
     setWindowTitle(tr("rVision"));
@@ -48,16 +42,5 @@ GWindowReadyVision::GWindowReadyVision(QWidget *parent) :
 //===============================================
 GWindowReadyVision::~GWindowReadyVision() {
 
-}
-//===============================================
-void GWindowReadyVision::slotShowMaximized() {
-    if(windowState() == Qt::WindowMaximized) {
-        showNormal();
-        emit emitShowMaximized("NORMAL");
-    }
-    else{
-        showMaximized();
-        emit emitShowMaximized("MAXIMIZED");
-    }
 }
 //===============================================

@@ -19,6 +19,8 @@ signals:
     void emitAddImageModule();
     void emitAddVideoModule();
     void emitLoadImage();
+    void emitHomeClicked();
+    void emitDrivesClicked();
 };
 //===============================================
 #endif

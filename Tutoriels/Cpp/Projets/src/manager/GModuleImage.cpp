@@ -2,12 +2,16 @@
 #include "GModuleImage.h"
 #include "GDialog.h"
 #include "GPicto.h"
+#include "GFileSystem.h"
 #include "GPrint.h"
 //===============================================
 int GModuleImage::m_moduleCount = 0;
 //===============================================
 GModuleImage::GModuleImage(QWidget *parent) :
     GModule(parent) {
+    setObjectName("GModuleImage");
+    setAttribute(Qt::WA_StyledBackground, true);
+
     m_pixmap = 0;
     m_moduleCount++;
     m_oneOnlyFlag = true;
@@ -80,11 +84,14 @@ void GModuleImage::slotSettingMenu() {
 }
 //===============================================
 void GModuleImage::slotLoadImage() {
-    GDialog* lDialog = GDialog::Create("OPEN_FILE_DIALOG");
+    GFileSystem::Instance()->setNameFilters("*.png;*.jpg;*.jpeg;*.bmp");
+    GDialog* lDialog = GDialog::Create("DIALOG_OPEN_FILE");
     lDialog->setWindowTitle(tr("Ouvrir un fichier image | rVision"));
     int lOk = lDialog->exec();
     if(lOk == QDialog::Accepted) {
+        QString lFileName = GFileSystem::Instance()->getFilePath();
         GPrint::Instance()->print("Accepted...");
+        GPrint::Instance()->print(lFileName.toStdString());
     }
     else {
         GPrint::Instance()->print("Rejected...");
@@ -115,6 +122,7 @@ void GModuleImage::mousePressEvent(QMouseEvent *event) {
         style()->unpolish(this);
         style()->polish(this);
         update();
+        emitWorkspaceView(m_moduleId);
     }
     QWidget::mousePressEvent(event);
 }

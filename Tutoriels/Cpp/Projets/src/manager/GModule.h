@@ -15,9 +15,11 @@ public:
 
 signals:
     void emitStatusBar(const QString& text);
+    void emitWorkspaceView(const int& id);
 
-private:
+protected:
     static int m_moduleCount;
+    int m_moduleId;
 };
 //===============================================
 #endif
