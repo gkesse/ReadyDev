@@ -29,6 +29,7 @@ void GSectionReadyVision::slotAddModule(const QString& module) {
     ui->m_mainLayout->addWidget(lModule);
     m_moduleMap.append(lModule);
     emit emitWorkspaceCreate(lModule->getModuleName());
+    slotModuleClick(lModule);
 }
 //===============================================
 void GSectionReadyVision::slotModuleClick(GModule* module) {
