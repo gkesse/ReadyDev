@@ -26,6 +26,10 @@ GModuleImage::GModuleImage(QWidget *parent) :
     m_settingButton->setToolTip(tr("Accéder aux paramètres"));
     connect(m_settingButton, SIGNAL(clicked()), this, SLOT(slotSettingMenu()));
 
+    // m_selectButton
+    m_selectButton = new QCheckBox(this);
+    connect(m_selectButton, SIGNAL(clicked(bool)), this, SLOT(slotSelectModule(bool)));
+
     createMenu();
 }
 //===============================================
@@ -33,13 +37,13 @@ GModuleImage::~GModuleImage() {
 
 }
 //===============================================
-void GModuleImage::setModuleSelectFlag(bool arg) {
+void GModuleImage::setModuleSelectFlag(const bool& arg) {
     if(m_moduleSelectFlag != arg) {
         m_moduleSelectFlag = arg;
     }
 }
 //===============================================
-bool GModuleImage::getModuleSelectFlag() {
+bool GModuleImage::getModuleSelectFlag() const {
     return m_moduleSelectFlag;
 }
 //===============================================
@@ -99,11 +103,19 @@ void GModuleImage::slotLoadImage() {
     delete lDialog;
 }
 //===============================================
+void GModuleImage::slotSelectModule(const bool &arg) {
+    setProperty("ModuleSelectFlag", arg);
+    style()->unpolish(this);
+    style()->polish(this);
+    update();
+}
+//===============================================
 void GModuleImage::resizeEvent(QResizeEvent *event) {
     if(m_oneOnlyFlag == true) {
         createPixmap();
         drawPixmap();
         m_settingButton->setGeometry(width() - 18 , 0, 18, 18);
+        m_selectButton->setGeometry(2 , 0, 16, 16);
         m_oneOnlyFlag = false;
     }
 }
@@ -117,12 +129,8 @@ void GModuleImage::paintEvent(QPaintEvent *event) {
 //===============================================
 void GModuleImage::mousePressEvent(QMouseEvent *event) {
     if(event->button() == Qt::LeftButton) {
-        bool lModuleSelectFlag = !m_moduleSelectFlag;
-        setProperty("ModuleSelectFlag", lModuleSelectFlag);
-        style()->unpolish(this);
-        style()->polish(this);
-        update();
-        emitWorkspaceView(m_moduleId);
+        emit emitWorkspaceView(m_moduleId);
+        emit emitModuleClick(this);
     }
     QWidget::mousePressEvent(event);
 }

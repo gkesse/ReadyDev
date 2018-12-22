@@ -1,7 +1,7 @@
 //===============================================
 #include "GSectionReadyVision.h"
 #include "ui_GSectionReadyVision.h"
-#include "GModule.h"
+#include "GPrint.h"
 //===============================================
 GSectionReadyVision::GSectionReadyVision(QWidget *parent) :
     GSection(parent), ui(new Ui::GSectionReadyVision) {
@@ -25,7 +25,21 @@ void GSectionReadyVision::slotAddModule(const QString& module) {
     GModule* lModule = GModule::Create(module);
     connect(lModule, SIGNAL(emitStatusBar(QString)), this, SIGNAL(emitStatusBar(QString)));
     connect(lModule, SIGNAL(emitWorkspaceView(int)), this, SIGNAL(emitWorkspaceView(int)));
+    connect(lModule, SIGNAL(emitModuleClick(GModule*)), this, SLOT(slotModuleClick(GModule*)));
     ui->m_mainLayout->addWidget(lModule);
+    m_moduleMap.append(lModule);
     emit emitWorkspaceCreate(lModule->getModuleName());
+}
+//===============================================
+void GSectionReadyVision::slotModuleClick(GModule* module) {
+    for(int i = 0; i < m_moduleMap.size(); i++) {
+        GModule* lModule = m_moduleMap.at(i);
+        bool lModuleClickFlag = false;
+        if(lModule == module) lModuleClickFlag = true;
+        lModule->setProperty("ModuleClickFlag", lModuleClickFlag);
+        lModule->style()->unpolish(lModule);
+        lModule->style()->polish(lModule);
+        lModule->update();
+    }
 }
 //===============================================

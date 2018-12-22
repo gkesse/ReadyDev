@@ -3,6 +3,7 @@
 #define _GSectionReadyVision_
 //===============================================
 #include "GSection.h"
+#include "GModule.h"
 //===============================================
 namespace Ui {
 class GSectionReadyVision;
@@ -17,9 +18,11 @@ public:
 
 public slots:
     void slotAddModule(const QString &module);
+    void slotModuleClick(GModule* module);
 
 private:
     Ui::GSectionReadyVision* ui;
+    QList<GModule*> m_moduleMap;
 };
 //===============================================
 #endif

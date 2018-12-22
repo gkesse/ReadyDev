@@ -13,8 +13,8 @@ public:
     ~GModuleImage();
 
 private:
-    void setModuleSelectFlag(bool arg);
-    bool getModuleSelectFlag();
+    void setModuleSelectFlag(const bool &arg);
+    bool getModuleSelectFlag() const;
     void createPixmap();
     void drawPixmap();
     void createMenu();
@@ -23,6 +23,7 @@ public slots:
     void slotStatusBar();
     void slotSettingMenu();
     void slotLoadImage();
+    void slotSelectModule(const bool& arg);
 
 protected:
     void resizeEvent(QResizeEvent *event);
@@ -36,6 +37,7 @@ private:
     bool m_moduleSelectFlag;
     QMenu* m_moduleMenu;
     QToolButton* m_settingButton;
+    QCheckBox* m_selectButton;
 };
 //===============================================
 #endif

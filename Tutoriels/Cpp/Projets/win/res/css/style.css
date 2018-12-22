@@ -322,6 +322,9 @@ GModule:hover {
 GModule[ModuleSelectFlag=true] {
     background-color: #4f2e24;
 }
+GModule[ModuleClickFlag=true] {
+    border: 2px solid cyan;
+}
 /*-----------------------------------------------*/
 /* GWindow */
 GWindow,

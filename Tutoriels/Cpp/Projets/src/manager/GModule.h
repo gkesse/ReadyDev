@@ -17,6 +17,7 @@ public:
 signals:
     void emitStatusBar(const QString& text);
     void emitWorkspaceView(const int& id);
+    void emitModuleClick(GModule*);
 
 protected:
     static int m_moduleCount;
