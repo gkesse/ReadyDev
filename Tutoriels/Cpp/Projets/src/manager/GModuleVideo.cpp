@@ -21,7 +21,7 @@ GModuleVideo::GModuleVideo(QWidget *parent) :
     m_settingButton->setIcon(GPicto::Instance()->getPicto(fa::cog));
     m_settingButton->setIconSize(QSize(16, 16));
     m_settingButton->setToolTip(tr("Accéder aux paramètres"));
-    connect(m_settingButton, SIGNAL(clicked()), this, SLOT(slotSettingMenu()));
+    connect(m_settingButton, SIGNAL(clicked()), this, SLOT(slotModuleSettingMenu()));
 
     // m_selectButton
     m_selectButton = new QCheckBox(this);
@@ -81,13 +81,9 @@ void GModuleVideo::slotStatusBar() {
     emit emitStatusBar(lStatusBar);
 }
 //===============================================
-void GModuleVideo::slotSettingMenu() {
+void GModuleVideo::slotModuleSettingMenu() {
     QPoint lPos = QCursor::pos();
     m_moduleMenu->exec(lPos);
-}
-//===============================================
-void GModuleVideo::slotVideoLoadFile() {
-
 }
 //===============================================
 void GModuleVideo::slotModuleSelect(const bool &arg) {
@@ -97,6 +93,10 @@ void GModuleVideo::slotModuleSelect(const bool &arg) {
     style()->unpolish(this);
     style()->polish(this);
     update();
+}
+//===============================================
+void GModuleVideo::slotVideoLoadFile() {
+
 }
 //===============================================
 void GModuleVideo::resizeEvent(QResizeEvent *event) {

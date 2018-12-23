@@ -24,7 +24,7 @@ GModuleImage::GModuleImage(QWidget *parent) :
     m_settingButton->setIcon(GPicto::Instance()->getPicto(fa::cog));
     m_settingButton->setIconSize(QSize(16, 16));
     m_settingButton->setToolTip(tr("Accéder aux paramètres"));
-    connect(m_settingButton, SIGNAL(clicked()), this, SLOT(slotSettingMenu()));
+    connect(m_settingButton, SIGNAL(clicked()), this, SLOT(slotModuleSettingMenu()));
 
     // m_selectButton
     m_selectButton = new QCheckBox(this);
@@ -84,9 +84,18 @@ void GModuleImage::slotStatusBar() {
     emit emitStatusBar(lStatusBar);
 }
 //===============================================
-void GModuleImage::slotSettingMenu() {
+void GModuleImage::slotModuleSettingMenu() {
     QPoint lPos = QCursor::pos();
     m_moduleMenu->exec(lPos);
+}
+//===============================================
+void GModuleImage::slotModuleSelect(const bool &arg) {
+    if(arg == true) m_selectButton->setToolTip(tr("Désélectionner le module"));
+    else m_selectButton->setToolTip(tr("Sélectionner le module"));
+    setProperty("ModuleSelectFlag", arg);
+    style()->unpolish(this);
+    style()->polish(this);
+    update();
 }
 //===============================================
 void GModuleImage::slotImageLoadFile() {
@@ -103,15 +112,6 @@ void GModuleImage::slotImageLoadFile() {
         GPrint::Instance()->print("Rejected...");
     }
     delete lDialog;
-}
-//===============================================
-void GModuleImage::slotModuleSelect(const bool &arg) {
-    if(arg == true) m_selectButton->setToolTip(tr("Désélectionner le module"));
-    else m_selectButton->setToolTip(tr("Sélectionner le module"));
-    setProperty("ModuleSelectFlag", arg);
-    style()->unpolish(this);
-    style()->polish(this);
-    update();
 }
 //===============================================
 void GModuleImage::resizeEvent(QResizeEvent *event) {
