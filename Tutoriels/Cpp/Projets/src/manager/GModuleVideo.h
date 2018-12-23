@@ -15,8 +15,15 @@ public:
 private:
     void createPixmap();
     void drawPixmap();
-    void setModuleSelectFlag(bool arg);
+    void createMenu();
+    void setModuleSelectFlag(const bool& arg);
     bool getModuleSelectFlag();
+
+public slots:
+    void slotStatusBar();
+    void slotSettingMenu();
+    void slotVideoLoadFile();
+    void slotModuleSelect(const bool& arg);
 
 protected:
     void resizeEvent(QResizeEvent *event);
@@ -28,6 +35,9 @@ private:
     static int m_moduleCount;
     bool m_oneOnlyFlag;
     bool m_moduleSelectFlag;
+    QMenu* m_moduleMenu;
+    QToolButton* m_settingButton;
+    QCheckBox* m_selectButton;
 };
 //===============================================
 #endif

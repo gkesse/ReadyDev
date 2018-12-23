@@ -28,7 +28,8 @@ GModuleImage::GModuleImage(QWidget *parent) :
 
     // m_selectButton
     m_selectButton = new QCheckBox(this);
-    connect(m_selectButton, SIGNAL(clicked(bool)), this, SLOT(slotSelectModule(bool)));
+    m_selectButton->setToolTip(tr("Sélectionner le module"));
+    connect(m_selectButton, SIGNAL(clicked(bool)), this, SLOT(slotModuleSelect(bool)));
 
     createMenu();
 }
@@ -60,7 +61,8 @@ void GModuleImage::drawPixmap() {
     QPixmap lPixmap = GPicto::Instance()->getPicto(fa::cameraretro).pixmap(QSize(20, 20));
     lPainter.drawPixmap(QRect(15, 15, 20, 20), lPixmap);
     lPainter.drawText(QRect(0, 0, width(), height() - 2), Qt::AlignHCenter | Qt::AlignBottom, m_moduleName);
-    setToolTip(m_moduleName);
+    QString lToolTip = QString("Module %1").arg(m_moduleName);
+    setToolTip(lToolTip);
 }
 //===============================================
 void GModuleImage::createMenu() {
@@ -73,7 +75,7 @@ void GModuleImage::createMenu() {
     lAction->setIcon(GPicto::Instance()->getPicto(fa::pictureo));
     m_moduleMenu->addAction(lAction);
     connect(lAction, SIGNAL(hovered()), this, SLOT(slotStatusBar()));
-    connect(lAction, SIGNAL(triggered()), this, SLOT(slotLoadImage()));
+    connect(lAction, SIGNAL(triggered()), this, SLOT(slotImageLoadFile()));
 }
 //===============================================
 void GModuleImage::slotStatusBar() {
@@ -87,7 +89,7 @@ void GModuleImage::slotSettingMenu() {
     m_moduleMenu->exec(lPos);
 }
 //===============================================
-void GModuleImage::slotLoadImage() {
+void GModuleImage::slotImageLoadFile() {
     GFileSystem::Instance()->setNameFilters("*.png;*.jpg;*.jpeg;*.bmp");
     GDialog* lDialog = GDialog::Create("DIALOG_OPEN_FILE");
     lDialog->setWindowTitle(tr("Ouvrir un fichier image | rVision"));
@@ -103,7 +105,9 @@ void GModuleImage::slotLoadImage() {
     delete lDialog;
 }
 //===============================================
-void GModuleImage::slotSelectModule(const bool &arg) {
+void GModuleImage::slotModuleSelect(const bool &arg) {
+    if(arg == true) m_selectButton->setToolTip(tr("Désélectionner le module"));
+    else m_selectButton->setToolTip(tr("Sélectionner le module"));
     setProperty("ModuleSelectFlag", arg);
     style()->unpolish(this);
     style()->polish(this);

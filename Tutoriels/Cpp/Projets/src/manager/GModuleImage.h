@@ -22,8 +22,8 @@ private:
 public slots:
     void slotStatusBar();
     void slotSettingMenu();
-    void slotLoadImage();
-    void slotSelectModule(const bool& arg);
+    void slotImageLoadFile();
+    void slotModuleSelect(const bool& arg);
 
 protected:
     void resizeEvent(QResizeEvent *event);

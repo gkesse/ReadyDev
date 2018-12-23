@@ -14,13 +14,28 @@ GModuleVideo::GModuleVideo(QWidget *parent) :
     m_oneOnlyFlag = true;
     m_moduleSelectFlag = false;
     m_moduleName = QString("Video %1").arg(m_moduleCount);
+
+    // m_settingButton
+    GPicto::Instance()->setColor(QColor("white"));
+    m_settingButton = new QToolButton(this);
+    m_settingButton->setIcon(GPicto::Instance()->getPicto(fa::cog));
+    m_settingButton->setIconSize(QSize(16, 16));
+    m_settingButton->setToolTip(tr("Accéder aux paramètres"));
+    connect(m_settingButton, SIGNAL(clicked()), this, SLOT(slotSettingMenu()));
+
+    // m_selectButton
+    m_selectButton = new QCheckBox(this);
+    m_selectButton->setToolTip(tr("Sélectionner le module"));
+    connect(m_selectButton, SIGNAL(clicked(bool)), this, SLOT(slotModuleSelect(bool)));
+
+    createMenu();
 }
 //===============================================
 GModuleVideo::~GModuleVideo() {
 
 }
 //===============================================
-void GModuleVideo::setModuleSelectFlag(bool arg) {
+void GModuleVideo::setModuleSelectFlag(const bool &arg) {
     if(m_moduleSelectFlag != arg) {
         m_moduleSelectFlag = arg;
     }
@@ -43,13 +58,53 @@ void GModuleVideo::drawPixmap() {
     QPixmap lPixmap = GPicto::Instance()->getPicto(fa::videocamera).pixmap(QSize(20, 20));
     lPainter.drawPixmap(QRect(15, 15, 20, 20), lPixmap);
     lPainter.drawText(QRect(0, 0, width(), height() - 2), Qt::AlignHCenter | Qt::AlignBottom, m_moduleName);
-    setToolTip(m_moduleName);
+    QString lToolTip = QString("Module %1").arg(m_moduleName);
+    setToolTip(lToolTip);
+}
+//===============================================
+void GModuleVideo::createMenu() {
+    m_moduleMenu = new QMenu(this);
+    m_moduleMenu->setCursor(Qt::PointingHandCursor);
+
+    // lAction
+    QAction* lAction = new QAction(this);
+    lAction->setText(tr("Charger un fichier image"));
+    lAction->setIcon(GPicto::Instance()->getPicto(fa::pictureo));
+    m_moduleMenu->addAction(lAction);
+    connect(lAction, SIGNAL(hovered()), this, SLOT(slotStatusBar()));
+    connect(lAction, SIGNAL(triggered()), this, SLOT(slotVideoLoadFile()));
+}
+//===============================================
+void GModuleVideo::slotStatusBar() {
+    QAction* lAction = qobject_cast<QAction*>(sender());
+    QString lStatusBar = lAction->text();
+    emit emitStatusBar(lStatusBar);
+}
+//===============================================
+void GModuleVideo::slotSettingMenu() {
+    QPoint lPos = QCursor::pos();
+    m_moduleMenu->exec(lPos);
+}
+//===============================================
+void GModuleVideo::slotVideoLoadFile() {
+
+}
+//===============================================
+void GModuleVideo::slotModuleSelect(const bool &arg) {
+    if(arg == true) m_selectButton->setToolTip(tr("Désélectionner le module"));
+    else m_selectButton->setToolTip(tr("Sélectionner le module"));
+    setProperty("ModuleSelectFlag", arg);
+    style()->unpolish(this);
+    style()->polish(this);
+    update();
 }
 //===============================================
 void GModuleVideo::resizeEvent(QResizeEvent *event) {
     if(m_oneOnlyFlag == true) {
         createPixmap();
         drawPixmap();
+        m_settingButton->setGeometry(width() - 18 , 0, 18, 18);
+        m_selectButton->setGeometry(2 , 0, 16, 16);
         m_oneOnlyFlag = false;
     }
 }
@@ -63,14 +118,8 @@ void GModuleVideo::paintEvent(QPaintEvent *event) {
 //===============================================
 void GModuleVideo::mousePressEvent(QMouseEvent *event) {
     if(event->button() == Qt::LeftButton) {
-        bool lModuleSelectFlag = !m_moduleSelectFlag;
-        setProperty("ModuleSelectFlag", lModuleSelectFlag);
-        style()->unpolish(this);
-        style()->polish(this);
-        update();
-    }
-    if(event->button() == Qt::LeftButton) {
-
+        emit emitWorkspaceView(m_moduleId);
+        emit emitModuleClick(this);
     }
     QWidget::mousePressEvent(event);
 }
