@@ -58,7 +58,7 @@ void GModuleImage::drawPixmap() {
     QPainter lPainter(m_pixmap);
     lPainter.setPen(QPen(QColor("white")));
     GPicto::Instance()->setColor(QColor("white"));
-    QPixmap lPixmap = GPicto::Instance()->getPicto(fa::cameraretro).pixmap(QSize(20, 20));
+    QPixmap lPixmap = GPicto::Instance()->getPicto(fa::camera).pixmap(QSize(20, 20));
     lPainter.drawPixmap(QRect(15, 15, 20, 20), lPixmap);
     lPainter.drawText(QRect(0, 0, width(), height() - 2), Qt::AlignHCenter | Qt::AlignBottom, m_moduleName);
     QString lToolTip = QString("Module %1").arg(m_moduleName);
