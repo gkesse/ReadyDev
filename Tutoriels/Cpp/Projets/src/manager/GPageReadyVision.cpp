@@ -23,8 +23,18 @@ void GPageReadyVision::setNoData(const QString& module, const QString &text) {
     update();
 }
 //===============================================
+void GPageReadyVision::setImageData(const cv::Mat &img) {
+    cv::Mat lTmp;
+    cv::cvtColor(img, lTmp, CV_BGR2RGB);
+    QImage lImg((const uchar*)lTmp.data, lTmp.cols, lTmp.rows, lTmp.step, QImage::Format_RGB888);
+    m_imageData = lImg.scaled(size(), Qt::KeepAspectRatio);
+    m_drawFlag = 2;
+    update();
+}
+//===============================================
 void GPageReadyVision::drawNoData() {
     if(m_drawFlag != 1) return;
+    QPainter lPainter(m_pixmap);
 
     QFont lFont;
     lFont.setFamily("Impact");
@@ -34,12 +44,20 @@ void GPageReadyVision::drawNoData() {
     int lTextW = lFontMetrics.width(m_noDataText);
     int lTextH = lFontMetrics.height();
 
-    QPainter lPainter(m_pixmap);
-
     lPainter.drawPixmap(QRect((width() - m_iconW)/2, height()/2 - m_iconH - 10, m_iconW, m_iconH), m_noDataIcon);
 
     lPainter.setPen(QPen(QColor("white")));
     lPainter.setFont(lFont);
     lPainter.drawText(QRect((width() - lTextW)/2, (height() - lTextH)/2, lTextW, lTextH), m_noDataText);
+}
+//===============================================
+void GPageReadyVision::drawImageData() {
+    if(m_drawFlag != 2) return;
+    QPainter lPainter(m_pixmap);
+
+    int lImgX = (width() - m_imageData.width())/2;
+    int lImgY = (height() - m_imageData.height())/2;
+
+    lPainter.drawImage(lImgX, lImgY, m_imageData);
 }
 //===============================================

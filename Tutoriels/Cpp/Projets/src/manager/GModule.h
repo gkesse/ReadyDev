@@ -17,6 +17,7 @@ public:
 signals:
     void emitStatusBar(const QString& text);
     void emitWorkspaceView(const int& id);
+    void emitWorkspaceShowImage(const int& id, const cv::Mat& img);
     void emitModuleClick(GModule*);
 
 protected:

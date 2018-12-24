@@ -105,11 +105,8 @@ void GModuleImage::slotImageLoadFile() {
     int lOk = lDialog->exec();
     if(lOk == QDialog::Accepted) {
         QString lFileName = GFileSystem::Instance()->getFilePath();
-        GPrint::Instance()->print("Accepted...");
-        GPrint::Instance()->print(lFileName.toStdString());
-    }
-    else {
-        GPrint::Instance()->print("Rejected...");
+        m_image = cv::imread(lFileName.toStdString());
+        emit emitWorkspaceShowImage(m_moduleId, m_image);
     }
     delete lDialog;
 }

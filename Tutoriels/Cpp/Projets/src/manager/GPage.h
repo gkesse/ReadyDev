@@ -12,12 +12,14 @@ public:
     virtual ~GPage();
     static GPage* Create(QWidget *parent = 0);
     static GPage* Create(const QString& key, QWidget *parent = 0);
-    virtual void setNoData(const QString &module, const QString& text);
+    virtual void setNoData(const QString &module, const QString &text);
+    virtual void setImageData(const cv::Mat& img);
 
 protected:
     void resizeEvent(QResizeEvent *event);
     void paintEvent(QPaintEvent *event);
     virtual void drawNoData();
+    virtual void drawImageData();
 
 protected:
     QPixmap* m_pixmap;

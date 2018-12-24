@@ -13,6 +13,7 @@ public:
 
 public slots:
     void slotWorkspaceCreate(const QString& module, const QString& name);
+    void slotWorkspaceShowImage(const int& id, const cv::Mat& img);
 
 private:
     QStackedWidget* m_stackedWidget;

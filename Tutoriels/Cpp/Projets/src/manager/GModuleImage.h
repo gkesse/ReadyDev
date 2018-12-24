@@ -38,6 +38,7 @@ private:
     QMenu* m_moduleMenu;
     QToolButton* m_settingButton;
     QCheckBox* m_selectButton;
+    cv::Mat m_image;
 };
 //===============================================
 #endif

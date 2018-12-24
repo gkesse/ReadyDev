@@ -35,10 +35,13 @@ void GPage::paintEvent(QPaintEvent *event) {
     if(m_pixmap == 0) return;
     m_pixmap->fill(Qt::transparent);
     drawNoData();
+    drawImageData();
     QPainter lPainter(this);
     lPainter.drawPixmap(0, 0, *m_pixmap);
 }
 //===============================================
 void GPage::setNoData(const QString& module, const QString &text) {}
+void GPage::setImageData(const cv::Mat &img) {}
 void GPage::drawNoData() {}
+void GPage::drawImageData() {}
 //===============================================

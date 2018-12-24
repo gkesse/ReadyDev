@@ -21,6 +21,7 @@ signals:
     void emitOkButtonEnable(const bool& arg);
     void emitWorkspaceView(const int& id);
     void emitWorkspaceCreate(const QString& module, const QString& name);
+    void emitWorkspaceShowImage(const int& id, const cv::Mat& img);
 };
 //===============================================
 #endif

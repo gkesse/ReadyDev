@@ -32,11 +32,12 @@ GWindowReadyVision::GWindowReadyVision(QWidget *parent) :
     lShortcut = new QShortcut(tr("Ctrl+J"), this);
     connect(lShortcut, SIGNAL(activated()), lMenu, SIGNAL(emitAddVideoModule()));
 
-    connect(lMenu, SIGNAL(emitAddModule(QString)), lSection, SIGNAL(emitAddModule(QString)));
     connect(lMenu, SIGNAL(emitStatusBar(QString)), lStatus, SIGNAL(emitStatusBar(QString)));
+    connect(lMenu, SIGNAL(emitAddModule(QString)), lSection, SIGNAL(emitAddModule(QString)));
+    connect(lSection, SIGNAL(emitStatusBar(QString)), lStatus, SIGNAL(emitStatusBar(QString)));
     connect(lSection, SIGNAL(emitWorkspaceView(int)), lWorkspace, SIGNAL(emitWorkspaceView(int)));
     connect(lSection, SIGNAL(emitWorkspaceCreate(QString,QString)), lWorkspace, SIGNAL(emitWorkspaceCreate(QString,QString)));
-    connect(lSection, SIGNAL(emitStatusBar(QString)), lStatus, SIGNAL(emitStatusBar(QString)));
+    connect(lSection, SIGNAL(emitWorkspaceShowImage(int,cv::Mat)), lWorkspace, SIGNAL(emitWorkspaceShowImage(int,cv::Mat)));
 
     setWindowIcon(QIcon("res/img/logo.png"));
     setWindowTitle(tr("rVision"));
