@@ -12,7 +12,7 @@ public:
     ~GWorkspaceReadyVision();
 
 public slots:
-    void slotWorkspaceCreate(const QString& name);
+    void slotWorkspaceCreate(const QString& module, const QString& name);
 
 private:
     QStackedWidget* m_stackedWidget;

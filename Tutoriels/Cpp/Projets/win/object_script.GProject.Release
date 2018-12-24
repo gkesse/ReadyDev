@@ -40,6 +40,8 @@ INPUT(
 ./build\GWindowReadyVision.o
 ./build\GWindowMaximized.o
 ./build\GWorkspaceReadyVision.o
+./build\GPage.o
+./build\GPageReadyVision.o
 ./build\main.o
 ./build\qrc_QtAwesome.o
 ./build\qrc_resource.o
@@ -75,4 +77,6 @@ INPUT(
 ./build\moc_GWindowReadyVision.o
 ./build\moc_GWindowMaximized.o
 ./build\moc_GWorkspaceReadyVision.o
+./build\moc_GPage.o
+./build\moc_GPageReadyVision.o
 );

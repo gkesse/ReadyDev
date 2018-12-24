@@ -1,6 +1,6 @@
 //===============================================
 #include "GWorkspaceReadyVision.h"
-#include "GPicto.h"
+#include "GPage.h"
 //===============================================
 GWorkspaceReadyVision::GWorkspaceReadyVision(QWidget *parent) :
     GWorkspace(parent) {
@@ -17,18 +17,17 @@ GWorkspaceReadyVision::GWorkspaceReadyVision(QWidget *parent) :
     setLayout(lMainLayout);
 
     connect(this, SIGNAL(emitWorkspaceView(int)), m_stackedWidget, SLOT(setCurrentIndex(int)));
-    connect(this, SIGNAL(emitWorkspaceCreate(QString)), this, SLOT(slotWorkspaceCreate(QString)));
+    connect(this, SIGNAL(emitWorkspaceCreate(QString,QString)), this, SLOT(slotWorkspaceCreate(QString,QString)));
 }
 //===============================================
 GWorkspaceReadyVision::~GWorkspaceReadyVision() {
 
 }
 //===============================================
-void GWorkspaceReadyVision::slotWorkspaceCreate(const QString& name) {
-    QLabel* lWorkspace = new QLabel;
-    lWorkspace->setText(name);
-    lWorkspace->setAlignment(Qt::AlignCenter);
-    m_stackedWidget->addWidget(lWorkspace);
+void GWorkspaceReadyVision::slotWorkspaceCreate(const QString &module, const QString& name) {
+    GPage* lPage = GPage::Create("READY_VISION");
+    lPage->setNoData(module, name);
+    m_stackedWidget->addWidget(lPage);
     int lLast = m_stackedWidget->count() - 1;
     m_stackedWidget->setCurrentIndex(lLast);
 }
