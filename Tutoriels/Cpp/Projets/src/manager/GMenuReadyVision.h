@@ -16,7 +16,7 @@ public:
     ~GMenuReadyVision();
 
 public slots:
-    void slotAddModule();
+    void slotModuleAdd();
     void slotStatusBar();
     void slotAddImageModule();
     void slotAddVideoModule();

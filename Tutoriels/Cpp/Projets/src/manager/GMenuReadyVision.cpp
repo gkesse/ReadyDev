@@ -35,7 +35,7 @@ GMenuReadyVision::GMenuReadyVision(QWidget *parent) :
     connect(lAction, SIGNAL(triggered()), this, SLOT(slotAddVideoModule()));
     connect(this, SIGNAL(emitAddVideoModule()), this, SLOT(slotAddVideoModule()));
 
-    connect(ui->m_addButton, SIGNAL(clicked()), this, SLOT(slotAddModule()));
+    connect(ui->m_addButton, SIGNAL(clicked()), this, SLOT(slotModuleAdd()));
 
     ui->m_mainLayout->setContentsMargins(0, 0, 0, 0);
     ui->m_mainLayout->setSpacing(6);
@@ -46,7 +46,7 @@ GMenuReadyVision::~GMenuReadyVision() {
 
 }
 //===============================================
-void GMenuReadyVision::slotAddModule() {
+void GMenuReadyVision::slotModuleAdd() {
     QPoint lPos = QCursor::pos();
     m_addMenu->exec(lPos);
 }

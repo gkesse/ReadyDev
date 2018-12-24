@@ -8,7 +8,7 @@ GSectionReadyVision::GSectionReadyVision(QWidget *parent) :
     ui->setupUi(this);
     setAttribute(Qt::WA_StyledBackground, true);
 
-    connect(this, SIGNAL(emitAddModule(QString)), this, SLOT(slotAddModule(QString)));
+    connect(this, SIGNAL(emitAddModule(QString)), this, SLOT(slotModuleAdd(QString)));
 
     ui->m_sectionLayout->setContentsMargins(0, 0, 0, 0);
     ui->m_sectionLayout->setSpacing(0);
@@ -21,7 +21,7 @@ GSectionReadyVision::~GSectionReadyVision() {
 
 }
 //===============================================
-void GSectionReadyVision::slotAddModule(const QString& module) {
+void GSectionReadyVision::slotModuleAdd(const QString& module) {
     GModule* lModule = GModule::Create(module);
     connect(lModule, SIGNAL(emitStatusBar(QString)), this, SIGNAL(emitStatusBar(QString)));
     connect(lModule, SIGNAL(emitWorkspaceView(int)), this, SIGNAL(emitWorkspaceView(int)));

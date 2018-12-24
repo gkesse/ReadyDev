@@ -17,7 +17,7 @@ public:
     ~GSectionReadyVision();
 
 public slots:
-    void slotAddModule(const QString &module);
+    void slotModuleAdd(const QString &module);
     void slotModuleClick(GModule* module);
 
 private:
