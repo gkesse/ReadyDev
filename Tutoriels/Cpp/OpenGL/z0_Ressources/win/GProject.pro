@@ -11,4 +11,5 @@ QT += widgets
 include(../src/GMain.pri)
 
 RESOURCES += \
-    resources.qrc
+    resource.qrc
+

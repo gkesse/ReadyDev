@@ -196,10 +196,12 @@ Makefile: GProject.pro C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/win32-g++/qmake.conf
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/qt_config.prf \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/win32-g++/qmake.conf \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/exclusive_builds.prf \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/toolchain.prf \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/default_pre.prf \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/win32/default_pre.prf \
+		C:/Users/sabine/Downloads/Gerard/glfw-3.2.1/glfw-3.2.1/GGLFW.pri \
 		../src/manager/GManager.pri \
 		../src/GMain.pri \
 		C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/resolve_config.prf \
@@ -362,10 +364,12 @@ C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/qt_functions.prf:
 C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/qt_config.prf:
 C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/win32-g++/qmake.conf:
 C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/spec_post.prf:
+.qmake.stash:
 C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/exclusive_builds.prf:
 C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/toolchain.prf:
 C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/default_pre.prf:
 C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/win32/default_pre.prf:
+C:/Users/sabine/Downloads/Gerard/glfw-3.2.1/glfw-3.2.1/GGLFW.pri:
 ../src/manager/GManager.pri:
 ../src/GMain.pri:
 C:/Qt/Qt5.8.0/5.8/mingw53_32/mkspecs/features/resolve_config.prf:
@@ -400,6 +404,7 @@ all: release-all debug-all  FORCE
 clean: release-clean debug-clean  FORCE
 distclean: release-distclean debug-distclean  FORCE
 	-$(DEL_FILE) Makefile
+	-$(DEL_FILE) .qmake.stash
 
 release-mocclean:
 	$(MAKE) -f $(MAKEFILE).Release mocclean

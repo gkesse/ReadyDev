@@ -6,6 +6,7 @@
 GPushButton::GPushButton(QWidget *parent) :
     QWidget(parent), ui(new Ui::GPushButton) {
     ui->setupUi(this);
+
     ui->m_buttonCreate->setIcon(GPicto::Instance()->getPicto(fa::plus));
     ui->m_buttonRead->setIcon(GPicto::Instance()->getPicto(fa::book));
     ui->m_buttonUpdate->setIcon(GPicto::Instance()->getPicto(fa::pencil));

@@ -34,7 +34,8 @@ var GAce = (function() {
                         showGutter: true,
                         fontSize: "16px",
                         highlightGutterLine: false,
-                        fontFamily: "courier"
+                        fontFamily: "courier",
+                        useWorker: false
                     });                    
                 }
             }
