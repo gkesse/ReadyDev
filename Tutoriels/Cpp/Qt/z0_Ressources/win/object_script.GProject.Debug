@@ -15,6 +15,10 @@ INPUT(
 ./build\GProcessSplitter.o
 ./build\GSplitterCustom.o
 ./build\GProcessSplitterCustom.o
+./build\GWindowA.o
+./build\GProcessWindowHint.o
+./build\GWindowFull.o
+./build\GWindowImage.o
 ./build\main.o
 ./build\qrc_QtAwesome.o
 ./build\qrc_resource.o
@@ -24,4 +28,7 @@ INPUT(
 ./build\moc_GPushButton.o
 ./build\moc_GSplitter.o
 ./build\moc_GSplitterCustom.o
+./build\moc_GWindowA.o
+./build\moc_GWindowFull.o
+./build\moc_GWindowImage.o
 );

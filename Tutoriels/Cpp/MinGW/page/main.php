@@ -1,4 +1,4 @@
-<div class="Parallax GParallax1"><div class="Img Binary"><div class="Caption"><a href="#"><div class="Text">Apprendre à compiler un projet C++ avec MinGW</div></a></div></div><div class="Body2 Orange">Le <b>C++</b> est un langage de programmation orientée objet.<br><b>MinGW</b> est un outil de compilation de projet <b>C++</b>.<br>Le but de ce tutoriel est de vous apprendre à compiler un projet <b>C++</b> avec <b>MinGW</b>.<br>Produit par <b>Gérard KESSE</b>.<br>&nbsp;<br><div class="Content0 GSummary1"><div class="Body0" id="Loader_1529412976174"><div class="Row26">Summary 1</div></div><script>loadSummary1("Loader_1529412976174");</script></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Installation sous Windows"><a class="Link3" href="#">Installation sous Windows</a></h1><div class="Body3">Le but de cette section est de vous présenter les différents outils nécessaires pour apprendre la compilation de projet <span class="GColor1" style="color:lime;">C++</span> avec <span class="GColor1" style="color:lime;">MinGW</span>, sous Windows.<br>Produit par <b>Gérard KESSE</b>.<br><br>Dans ce tutoriel, nous utiliserons, sous Windows:<br>-    MinGW, comme compilateur.<br>-    Notepad++, comme éditeur de texte.<br><br><h3 class="Title8 GTitle3">Télécharger MinGW</h3><a class="Link7 GLink1" style="color:lime;" href="http://mingw.org/">http://mingw.org/</a><br><br><h3 class="Title8 GTitle3">Télécharger Notepad++</h3><a class="Link7 GLink1" style="color:lime;" href="https://notepad-plus-plus.org/fr/">https://notepad-plus-plus.org/fr/</a></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Installation de MinGW"><a class="Link3" href="#">Installation de MinGW</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">installer MinGW</span>, sous Windows.<br>Produit par <b>Gérard KESSE</b>.<br><br>MinGW permet de compiler des projets développés en C/C++.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1536327105034"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1536327105034");</script></div><br><h2 class="Title7 GTitle2" id="Installation de MinGW-Installer MinGW"><a class="Link9" href="#Installation de MinGW">Installer MinGW</a></h2><br><h3 class="Title8 GTitle3">Lancer MinGW</h3><div class="Img3 GImage"><img src="img/MinGW.png" alt="img/MinGW.png"></div><br><h3 class="Title8 GTitle3">Démarrer l'installation</h3><div class="Img3 GImage"><img src="img/MinGW_02.png" alt="img/MinGW_02.png"></div><br><h3 class="Title8 GTitle3">Définir le répertoire d'installation</h3><div class="Img3 GImage"><img src="img/MinGW_03.png" alt="img/MinGW_03.png"></div><br><h3 class="Title8 GTitle3">Continuer</h3><div class="Img3 GImage"><img src="img/MinGW_04.png" alt="img/MinGW_04.png"></div><br><h3 class="Title8 GTitle3">Sélectionner les packages à installer</h3><div class="Img3 GImage"><img src="img/MinGW_05.png" alt="img/MinGW_05.png"></div><br><h3 class="Title8 GTitle3">Installer les packages</h3><div class="Img3 GImage"><img src="img/MinGW_06.png" alt="img/MinGW_06.png"></div><br><h3 class="Title8 GTitle3">Appliquer</h3><div class="Img3 GImage"><img src="img/MinGW_07.png" alt="img/MinGW_07.png"></div><br><h3 class="Title8 GTitle3">Fermer</h3><div class="Img3 GImage"><img src="img/MinGW_08.png" alt="img/MinGW_08.png"></div><br><h2 class="Title7 GTitle2" id="Installation de MinGW-Outil Make"><a class="Link9" href="#Installation de MinGW">Outil Make</a></h2><br><h3 class="Title8 GTitle3">Outil Make (mingw32-make)<br></h3><div class="Img3 GImage"><img src="img/MinGW_09.png" alt="img/MinGW_09.png"></div><br><h2 class="Title7 GTitle2" id="Installation de MinGW-Compilateur C"><a class="Link9" href="#Installation de MinGW">Compilateur C</a></h2><br><h3 class="Title8 GTitle3">Compilateur C (gcc)<br></h3><div class="Img3 GImage"><img src="img/MinGW_11.png" alt="img/MinGW_11.png"></div><br><h2 class="Title7 GTitle2" id="Installation de MinGW-Compilateur C++"><a class="Link9" href="#Installation de MinGW">Compilateur C++</a></h2><br><h3 class="Title8 GTitle3">Compilateur C++ (g++)<br></h3><div class="Img3 GImage"><img src="img/MinGW_10.png" alt="img/MinGW_10.png"></div><br><h2 class="Title7 GTitle2" id="Installation de MinGW-Archiveur"><a class="Link9" href="#Installation de MinGW">Archiveur</a></h2><br><h3 class="Title8 GTitle3">Archiveur (ar)<br></h3><div class="Img3 GImage"><img src="img/MinGW_12.png" alt="img/MinGW_12.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Compiler un fichier source"><a class="Link3" href="#">Compiler un fichier source</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">compiler un fichier source</span> avec MinGW.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1537307622789"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1537307622789");</script></div><br><h2 class="Title7 GTitle2" id="Compiler un fichier source-Programme principal"><a class="Link9" href="#Compiler un fichier source">Programme principal</a></h2><br><h3 class="Title8 GTitle3">Programme principal (main.cpp)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+<div class="Parallax GParallax1"><div class="Img Binary"><div class="Caption"><a href="#"><div class="Text">Apprendre à compiler un projet C++ avec MinGW</div></a></div></div><div class="Body2 Orange">Le <b>C++</b> est un langage de programmation orientée objet.<br><b>MinGW</b> est un outil de compilation de projet <b>C++</b>.<br>Le but de ce tutoriel est de vous apprendre à compiler un projet <b>C++</b> avec <b>MinGW</b>.<br>Produit par <b>Gérard KESSE</b>.<br>&nbsp;<br><div class="Content0 GSummary1"><div class="Body0" id="Loader_1529412976174"><div class="Row26">Summary 1</div></div><script>loadSummary1("Loader_1529412976174");</script></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Installation sous Windows"><a class="Link3" href="#">Installation sous Windows</a></h1><div class="Body3">Le but de cette section est de vous présenter les différents outils nécessaires pour apprendre la compilation de projet <span class="GColor1" style="color:lime;">C++</span> avec <span class="GColor1" style="color:lime;">MinGW</span>, sous Windows.<br>Produit par <b>Gérard KESSE</b>.<br><br>Dans ce tutoriel, nous utiliserons, sous Windows:<br>-    MinGW, comme compilateur.<br>-    Notepad++, comme éditeur de texte.<br><br><h3 class="Title8 GTitle3">Télécharger MinGW</h3><a class="Link7 GLink1" style="color:lime;" href="http://mingw.org/">http://mingw.org/</a><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://sourceforge.net/projects/mingw-w64/files/">https://sourceforge.net/projects/mingw-w64/files/</a><br><br><h3 class="Title8 GTitle3">Télécharger Notepad++</h3><a class="Link7 GLink1" style="color:lime;" href="https://notepad-plus-plus.org/fr/">https://notepad-plus-plus.org/fr/</a></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Compiler un fichier source"><a class="Link3" href="#">Compiler un fichier source</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">compiler un fichier source</span> avec MinGW.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1537307622789"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1537307622789");</script></div><br><h2 class="Title7 GTitle2" id="Compiler un fichier source-Programme principal"><a class="Link9" href="#Compiler un fichier source">Programme principal</a></h2><br><h3 class="Title8 GTitle3">Programme principal (main.cpp)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include <iostream>
 //===============================================
 using namespace std;
@@ -7,7 +7,7 @@ int main(int argc, char** argv) {
     cout << "Bonjour tout le monde\n";
     return 0;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Compiler un fichier source-Compiler le projet"><a class="Link9" href="#Compiler un fichier source">Compiler le projet</a></h2><br><h3 class="Title8 GTitle3">Fichier Makefile</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="makefile">GSRC = ../src
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Compiler un fichier source-Fichier Makefile"><a class="Link9" href="#Compiler un fichier source">Fichier Makefile</a></h2><br><h3 class="Title8 GTitle3">Fichier Makefile</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="makefile">GSRC = ../src
 GBIN = bin
 GBUILD = build
 GTARGET = $(GBIN)/GProject.exe
@@ -20,23 +20,383 @@ all: $(GOBJS)
 $(GBUILD)/main.o: $(GSRC)/main.cpp
 	g++ -c $(GSRC)/main.cpp -o $(GBUILD)/main.o
 clean:
-	del /q $(GBUILD)\*.o $(GBIN)\*.exe</xmp></pre></div><br><h3 class="Title8 GTitle3">Nettoyer le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
+	del /q $(GBUILD)\*.o $(GBIN)\*.exe</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Compiler un fichier source-Compiler le projet"><a class="Link9" href="#Compiler un fichier source">Compiler le projet</a></h2><br><h3 class="Title8 GTitle3">Compiler le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
 
 set PATH=C:\MinGW\bin
 
-mingw32-make clean</xmp></pre></div><br><h3 class="Title8 GTitle3">Compiler le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
-
-set PATH=C:\MinGW\bin
-
-mingw32-make</xmp></pre></div><br><h3 class="Title8 GTitle3">Exécuter le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
+mingw32-make</xmp></pre></div><br><h3 class="Title8 GTitle3">Compilation manuelle du projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">g++ -c ../src/main.cpp -o build/main.o
+g++ -o bin/GProject.exe build/main.o</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Compiler un fichier source-Exécuter le projet"><a class="Link9" href="#Compiler un fichier source">Exécuter le projet</a></h2><br><h3 class="Title8 GTitle3">Exécuter le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
 
 set PATH=C:\MinGW\bin
 
 echo.
 bin\GProject.exe
 echo.
-pause</xmp></pre></div><br><h3 class="Title8 GTitle3">Construire le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
+pause</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Compiler un fichier source-Résultat"><a class="Link9" href="#Compiler un fichier source">Résultat</a></h2><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Fichier_Unique.png" alt="img/Fichier_Unique.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Compiler plusieurs fichiers sources"><a class="Link3" href="#">Compiler plusieurs fichiers sources</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">compiler plusieurs fichiers sources </span>avec MinGW.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1545736257392"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1545736257392");</script></div><br><h2 class="Title7 GTitle2" id="Compiler plusieurs fichiers sources-Programme principal"><a class="Link9" href="#Compiler plusieurs fichiers sources">Programme principal</a></h2><br><h3 class="Title8 GTitle3">Programme principal (main.cpp)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GShow.h"
+#include "GMath.h"
+//===============================================
+int main(int argc, char** argv) {
+    double lData;
+    
+    GShow::Instance()->show("### Operations arithmetiques\n"); 
+    
+    lData = GMath::Instance()->add(22, 7);
+    GShow::Instance()->show(lData, "add(22, 7)");  
+    
+    lData = GMath::Instance()->subtract(22, 7);
+    GShow::Instance()->show(lData, "subtract(22, 7)");  
+    
+    lData = GMath::Instance()->multiply(22, 7);
+    GShow::Instance()->show(lData, "multiply(22, 7)"); 
+    
+    lData = GMath::Instance()->divide(22, 7);
+    GShow::Instance()->show(lData, "divide(22, 7)"); 
+    
+    lData = GMath::Instance()->quotient(22, 7);
+    GShow::Instance()->show(lData, "quotient(22, 7)"); 
+    
+    lData = GMath::Instance()->modulo(22, 7);
+    GShow::Instance()->show(lData, "modulo(22, 7)");    
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Compiler plusieurs fichiers sources-Programme secondaire"><a class="Link9" href="#Compiler plusieurs fichiers sources">Programme secondaire</a></h2><br><h3 class="Title8 GTitle3">Gestionnaire d'opérations mathématiques</h3><br><span class="GColor1" style="color:lime;">Gestionnaire d'opérations mathématiques (GMath.h)</span><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#ifndef _GMath_
+#define _GMath_
+//===============================================
+#include <cmath>
+//===============================================
+class GMath {
+private:
+    GMath();
+    
+public:
+    ~GMath();
+    
+public:
+    static GMath* Instance();
+    
+public:
+    double add(const double& a, const double& b);
+    double subtract(const double& a, const double& b);
+    double multiply(const double& a, const double& b);
+    double divide(const double& a, const double& b);
+    double quotient(const double& a, const double& b);
+    double modulo(const int& a, const int& b);
+    
+private:
+    static GMath* m_instance;
+};
+//===============================================
+#endif
+//===============================================</xmp></pre></div><br><span class="GColor1" style="color:lime;">Gestionnaire d'opérations mathématiques (GMath.cpp)</span><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GMath.h"
+//===============================================
+GMath* GMath::m_instance = 0;
+//===============================================
+GMath::GMath() {
 
-call cmd_clean.bat
-call cmd_compile.bat
-call cmd_run.bat</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Compiler un fichier source-Résultat"><a class="Link9" href="#Compiler un fichier source">Résultat</a></h2><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Fichier_Unique.png" alt="img/Fichier_Unique.png"></div></div></div></div></div><br>
+}
+//===============================================
+GMath::~GMath() {
+
+}
+//===============================================
+GMath* GMath::Instance() {
+    if(m_instance == 0) {
+        m_instance = new GMath;
+    }
+    
+    return m_instance;
+}
+//===============================================
+double GMath::add(const double& a, const double& b) {
+    double lData = a + b;
+    return lData;
+}
+//===============================================
+double GMath::subtract(const double& a, const double& b) {
+    double lData = a - b;
+    return lData;
+}
+//===============================================
+double GMath::multiply(const double& a, const double& b) {
+    double lData = a * b;
+    return lData;
+}
+//===============================================
+double GMath::divide(const double& a, const double& b) {
+    double lData = a / b;
+    return lData;
+}
+//===============================================
+double GMath::quotient(const double& a, const double& b) {
+    double lData = floor(divide(a, b));
+    return lData;
+}
+//===============================================
+double GMath::modulo(const int& a, const int& b) {
+    int lData = a % b;
+    return double(lData);
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Gestionnaire d'affichage</h3><br><span class="GColor1" style="color:lime;">Gestionnaire d'affichage (GShow.h)</span><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#ifndef _GShow_
+#define _GShow_
+//===============================================
+#include <iostream>
+#include <iomanip>
+#include <string>
+//===============================================
+using namespace std;
+//===============================================
+class GShow {
+private:
+    GShow();
+    
+public:
+    ~GShow();
+    
+public:
+    static GShow* Instance();
+    
+public:
+    void show(const string& data, const string& name = "");
+    void show(const double& data, const string& name = "");
+    
+private:
+    static GShow* m_instance;
+};
+//===============================================
+#endif
+//===============================================</xmp></pre></div><br><span class="GColor1" style="color:lime;">Gestionnaire d'affichage (GShow.cpp)</span><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GShow.h"
+//===============================================
+GShow* GShow::m_instance = 0;
+//===============================================
+GShow::GShow() {
+
+}
+//===============================================
+GShow::~GShow() {
+
+}
+//===============================================
+GShow* GShow::Instance() {
+    if(m_instance == 0) {
+        m_instance = new GShow;
+    }
+    
+    return m_instance;
+}
+//===============================================
+void GShow::show(const string& data, const string& name) {
+    if(name != "") cout << name << " : ";
+    cout << data << "\n";
+}
+//===============================================
+void GShow::show(const double& data, const string& name) {
+    if(name != "") cout << name << " : ";
+    cout << fixed << setprecision(2) << data << "\n";
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Compiler plusieurs fichiers sources-Fichier Makefile"><a class="Link9" href="#Compiler plusieurs fichiers sources">Fichier Makefile</a></h2><br><h3 class="Title8 GTitle3">Fichier Makefile</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="makefile">GSRC = ../src
+GBIN = bin
+GBUILD = build
+GTARGET = $(GBIN)/GProject.exe
+
+GINCS = \
+    -I../src/manager
+    
+GOBJS = \
+    $(GBUILD)/main.o \
+    $(GBUILD)/GShow.o \
+    $(GBUILD)/GMath.o
+    
+all: $(GOBJS)
+	g++ -o $(GTARGET) $(GOBJS)
+$(GBUILD)/main.o: $(GSRC)/main.cpp
+	g++ -c $(GSRC)/main.cpp -o $(GBUILD)/main.o $(GINCS)
+$(GBUILD)/GShow.o: $(GSRC)/manager/GShow.cpp
+	g++ -c $(GSRC)/manager/GShow.cpp -o $(GBUILD)/GShow.o $(GINCS)
+$(GBUILD)/GMath.o: $(GSRC)/manager/GMath.cpp
+	g++ -c $(GSRC)/manager/GMath.cpp -o $(GBUILD)/GMath.o $(GINCS)
+clean:
+	del /q $(GBUILD)\*.o $(GBIN)\*.exe</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Compiler plusieurs fichiers sources-Compiler le projet"><a class="Link9" href="#Compiler plusieurs fichiers sources">Compiler le projet</a></h2><br><h3 class="Title8 GTitle3">Compiler le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
+
+set PATH=C:\MinGW\bin
+
+mingw32-make</xmp></pre></div><br><h3 class="Title8 GTitle3">Compilation manuelle du projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">g++ -c ../src/main.cpp -o build/main.o -I../src/manager
+g++ -c ../src/manager/GShow.cpp -o build/GShow.o -I../src/manager
+g++ -c ../src/manager/GMath.cpp -o build/GMath.o -I../src/manager
+g++ -o bin/GProject.exe build/main.o build/GShow.o build/GMath.o</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Compiler plusieurs fichiers sources-Exécuter le projet"><a class="Link9" href="#Compiler plusieurs fichiers sources">Exécuter le projet</a></h2><br><h3 class="Title8 GTitle3">Exécuter le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
+
+set PATH=C:\MinGW\bin
+
+echo.
+bin\GProject.exe
+echo.
+pause</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Compiler plusieurs fichiers sources-Résultat"><a class="Link9" href="#Compiler plusieurs fichiers sources">Résultat</a></h2><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Fichier_Multiple.png" alt="img/Fichier_Multiple.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Créer une librairie statique"><a class="Link3" href="#">Créer une librairie statique</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">créer une librairie statique </span>avec MinGW.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1545739575298"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1545739575298");</script></div><br><h2 class="Title7 GTitle2" id="Créer une librairie statique-Gestionnaire d'opérations mathématiques"><a class="Link9" href="#Créer une librairie statique">Gestionnaire d'opérations mathématiques</a></h2><br><h3 class="Title8 GTitle3">Gestionnaire d'opérations mathématiques (GMath.h)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#ifndef _GMath_
+#define _GMath_
+//===============================================
+#include <cmath>
+//===============================================
+class GMath {
+private:
+    GMath();
+    
+public:
+    ~GMath();
+    
+public:
+    static GMath* Instance();
+    
+public:
+    double add(const double& a, const double& b);
+    double subtract(const double& a, const double& b);
+    double multiply(const double& a, const double& b);
+    double divide(const double& a, const double& b);
+    double quotient(const double& a, const double& b);
+    double modulo(const int& a, const int& b);
+    
+private:
+    static GMath* m_instance;
+};
+//===============================================
+#endif
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Gestionnaire d'opérations mathématiques (GMath.cpp)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GMath.h"
+//===============================================
+GMath* GMath::m_instance = 0;
+//===============================================
+GMath::GMath() {
+
+}
+//===============================================
+GMath::~GMath() {
+
+}
+//===============================================
+GMath* GMath::Instance() {
+    if(m_instance == 0) {
+        m_instance = new GMath;
+    }
+    
+    return m_instance;
+}
+//===============================================
+double GMath::add(const double& a, const double& b) {
+    double lData = a + b;
+    return lData;
+}
+//===============================================
+double GMath::subtract(const double& a, const double& b) {
+    double lData = a - b;
+    return lData;
+}
+//===============================================
+double GMath::multiply(const double& a, const double& b) {
+    double lData = a * b;
+    return lData;
+}
+//===============================================
+double GMath::divide(const double& a, const double& b) {
+    double lData = a / b;
+    return lData;
+}
+//===============================================
+double GMath::quotient(const double& a, const double& b) {
+    double lData = floor(divide(a, b));
+    return lData;
+}
+//===============================================
+double GMath::modulo(const int& a, const int& b) {
+    int lData = a % b;
+    return double(lData);
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer une librairie statique-Gestionnaire d'affichage"><a class="Link9" href="#Créer une librairie statique">Gestionnaire d'affichage</a></h2><br><h3 class="Title8 GTitle3">Gestionnaire d'affichage (GShow.h)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#ifndef _GShow_
+#define _GShow_
+//===============================================
+#include <iostream>
+#include <iomanip>
+#include <string>
+//===============================================
+using namespace std;
+//===============================================
+class GShow {
+private:
+    GShow();
+    
+public:
+    ~GShow();
+    
+public:
+    static GShow* Instance();
+    
+public:
+    void show(const string& data, const string& name = "");
+    void show(const double& data, const string& name = "");
+    
+private:
+    static GShow* m_instance;
+};
+//===============================================
+#endif
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Gestionnaire d'affichage (GShow.cpp)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GShow.h"
+//===============================================
+GShow* GShow::m_instance = 0;
+//===============================================
+GShow::GShow() {
+
+}
+//===============================================
+GShow::~GShow() {
+
+}
+//===============================================
+GShow* GShow::Instance() {
+    if(m_instance == 0) {
+        m_instance = new GShow;
+    }
+    
+    return m_instance;
+}
+//===============================================
+void GShow::show(const string& data, const string& name) {
+    if(name != "") cout << name << " : ";
+    cout << data << "\n";
+}
+//===============================================
+void GShow::show(const double& data, const string& name) {
+    if(name != "") cout << name << " : ";
+    cout << fixed << setprecision(2) << data << "\n";
+}
+//===============================================
+</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer une librairie statique-Fichier Makefile"><a class="Link9" href="#Créer une librairie statique">Fichier Makefile</a></h2><br><h3 class="Title8 GTitle3">Fichier Makefile</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="makefile">GSRC = ../src
+GBIN = bin
+GBUILD = build
+GTARGET = $(GBIN)/libHello.a
+
+GINCS = \
+    -I../src/manager
+    
+GOBJS = \
+    $(GBUILD)/GShow.o \
+    $(GBUILD)/GMath.o
+    
+all: $(GOBJS)
+	ar rcs $(GTARGET) $(GOBJS)
+$(GBUILD)/GShow.o: $(GSRC)/manager/GShow.cpp
+	g++ -c $(GSRC)/manager/GShow.cpp -o $(GBUILD)/GShow.o $(GINCS)
+$(GBUILD)/GMath.o: $(GSRC)/manager/GMath.cpp
+	g++ -c $(GSRC)/manager/GMath.cpp -o $(GBUILD)/GMath.o $(GINCS)
+clean:
+	del /q $(GBUILD)\*.o $(GBIN)\*.a</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer une librairie statique-Compiler le projet"><a class="Link9" href="#Créer une librairie statique">Compiler le projet</a></h2><br><h3 class="Title8 GTitle3">Compiler le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
+
+set PATH=C:\MinGW\bin
+
+mingw32-make</xmp></pre></div><br><h3 class="Title8 GTitle3">Compilation manuelle du projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">g++ -c ../src/manager/GShow.cpp -o build/GShow.o -I../src/manager
+g++ -c ../src/manager/GMath.cpp -o build/GMath.o -I../src/manager
+ar rcs bin/libHello.a build/GShow.o build/GMath.o
+</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer une librairie statique-Résultat"><a class="Link9" href="#Créer une librairie statique">Résultat</a></h2><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Librairie_Statique_Creation.png" alt="img/Librairie_Statique_Creation.png"></div></div></div></div></div><br>

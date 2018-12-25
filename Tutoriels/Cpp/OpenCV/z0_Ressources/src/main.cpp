@@ -1,11 +1,10 @@
 //===============================================
 #include "GProcess.h"
-#include "GConfig.h"
+#include "GSetting.h"
 //===============================================
 int main(int argc, char** argv) {
-    QApplication lApp(argc, argv);
-    GConfig::Instance()->setData("APP_NAME", "DOUBLE_BUFFERING");
-    GProcess::Instance()->run();
-    return lApp.exec();
+    GSetting::Instance()->load("res/cfg/config.cfg");
+    GProcess::Instance()->run(argc, argv);
+    return 0;
 }
 //===============================================
