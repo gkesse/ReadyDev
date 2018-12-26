@@ -14,7 +14,7 @@
 			"/^data$/i","/^email$/i","/^js$/i","/^lib$/i","/^img$/i","/^php$/"
 			);
 			$this->m_dirFilter2 = array(
-			"/^.$/i","/^.git$/i","/^index.php$/i"
+			"/^.$/i","/^.git$/i","/^index.php$/i","/^build$/i", "/^bin$/i"
 			);
 			$this->m_dirFilter3 = array(
 			"/.php$/i", "/.html$/i"
@@ -24,7 +24,7 @@
             "file" => array("file-o"),
             "img" => array("file-image-o", "png", "bmp", "jpeg", "jpg", "gif", "tiff"),
             "txt" => array("file-text-o"),
-            "bin" => array("tasks", "exe", "dll", "lib", "so", "a", "jar"),
+            "bin" => array("tasks", "exe", "dll", "lib", "obj", "so", "a", "o", "jar"),
             "bat" => array("cogs", "bat", "sh")
             );
         }
@@ -54,10 +54,10 @@
 				if($lDirName == ".." && $lRootLen == $lDirLen) continue;
 				$lDirPath = $lDir."/".$lDirName;
 				$lDirPath = realpath($lDirPath);
-				$lDirCheck = is_dir($lDirPath) ? 1: 0;
+				$lIsDir = is_dir($lDirPath) ? 1: 0;
 				$lDirType = $this->getIcon($lDirPath);
 				$lDirIcon = $this->m_iconMap[$lDirType][0];
-				$lDirNameArr[] = array($lDirCheck, $lDirName, $lDirIcon, $lDirType);
+				$lDirNameArr[] = array($lIsDir, $lDirName, $lDirIcon, $lDirType);
 			}
 			closedir($lDirPtr);
 			usort($lDirNameArr, array("GFilesystem", "SortDirectory"));
@@ -84,10 +84,11 @@
 				if($lDirName == ".." && $lRootLen == $lDirLen) continue;
 				$lDirPath = $lDir."/".$lDirName;
 				$lDirPath = realpath($lDirPath);
-				$lDirCheck = is_dir($lDirPath) ? 1: 0;
+				$lIsDir = is_dir($lDirPath) ? 1: 0;
 				$lDirType = $this->getIcon($lDirPath);
 				$lDirIcon = $this->m_iconMap[$lDirType][0];
-				$lDirNameArr[] = array($lDirCheck, $lDirName, $lDirIcon, $lDirType);
+				$lLanguage = $this->getLanguage($lDirPath);
+				$lDirNameArr[] = array($lIsDir, $lDirName, $lDirIcon, $lDirType, $lLanguage);
 			}
 			closedir($lDirPtr);
 			usort($lDirNameArr, array("GFilesystem", "SortDirectory"));
@@ -152,6 +153,16 @@
             else if(in_array($lExt, $this->m_iconMap["bat"])) {$lIcon = "bat";}
             else if($lExt != "") {$lIcon = "txt";}
             return $lIcon;
+        }
+        //===============================================
+        public function getLanguage($filename) {
+            $lExt = pathinfo($filename, PATHINFO_EXTENSION);
+            $lExt = strtolower($lExt);
+            $lLanguage = $lExt;
+            if(is_dir($filename)) {$lLanguage = "none";}
+            else if($lExt == "c" || $lExt == "cpp") {$lLanguage = "c_cpp";}
+            else if($lExt == "bat") {$lLanguage = "batchfile";}
+            return $lLanguage;
         }
         //===============================================
         private static function SortDirectory($dataA, $dataB) {

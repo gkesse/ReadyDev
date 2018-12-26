@@ -13,11 +13,16 @@ var GAce = (function() {
             setSyntax: function() {
                 var lAceCode = document.getElementsByClassName("AceCode");
                 for(var i = 0; i < lAceCode.length; i++) {
-                    var lMode = lAceCode[i].dataset.mode;
+                    this.setSyntaxNode(lAceCode[i]);                    
+                }
+            },
+            //===============================================
+            setSyntaxNode: function(node) {
+                    var lMode = node.dataset.mode;
                     var lTheme = "gruvbox";
-                    var lEditor = ace.edit(lAceCode[i]);
+                    var lEditor = ace.edit(node);
                     
-                    lAceCode[i].style.backgroundColor = "transparent";
+                    node.style.backgroundColor = "transparent";
                     lEditor.session.setMode("ace/mode/"+lMode);
                     lEditor.renderer.$cursorLayer.element.style.display = "none";
                     
@@ -37,7 +42,6 @@ var GAce = (function() {
                         fontFamily: "courier",
                         useWorker: false
                     });                    
-                }
             }
             //===============================================
         };

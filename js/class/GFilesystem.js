@@ -40,17 +40,17 @@ var GFilesystem = (function() {
 				);
             },
             //===============================================
-            openFile: function(obj, type) {
+            openFile: function(obj, type, lang) {
                 var lDirName = obj.innerHTML;
 				var lDirPath = m_dirCur + "/" + lDirName;
 				if(type != "dir") {
-					this.openContent(lDirPath, type);
+					this.openContent(lDirPath, type, lang);
 					return;
 				}
 				this.selectFile(lDirPath);
             },
             //===============================================
-            openContent: function(file, type) {
+            openContent: function(file, type, lang) {
 				if(type == "bin") return;
 				var lFilesystemMenu = document.getElementById("FilesystemMenu");
 				var lFilesystemList = document.getElementById("FilesystemList");
@@ -61,9 +61,8 @@ var GFilesystem = (function() {
 						var lDataArr = JSON.parse(lData);
 						lFilesystemMenu.innerHTML = lDataArr["menu"];
 						lFilesystemList.innerHTML = lDataArr["content"];
-						if(type != "img") {
-							PR.prettyPrint();
-						}
+                        var lNode = document.getElementById("AceCode");
+                        GAce.Instance().setSyntaxNode(lNode);
                     }
                 }
                 lXmlhttp.open("POST", "/php/req/filesystem.php", true);
@@ -72,7 +71,8 @@ var GFilesystem = (function() {
 				"req=" + "GET_CONTENT" +
 				"&root=" + m_dirRoot +
 				"&file=" + file +
-				"&type=" + type
+				"&type=" + type +
+				"&lang=" + lang
 				);
             },
             //===============================================
