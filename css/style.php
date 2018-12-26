@@ -692,6 +692,11 @@ span {
     height: 100vh;
 }
 
+.Content13 {
+    background-color: #333333;
+    padding: 10px;
+}
+
 .Error {
     color: #f67b20;
 }

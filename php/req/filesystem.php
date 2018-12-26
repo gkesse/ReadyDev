@@ -14,7 +14,7 @@
 			$lDataFile .= "<div class='Row20'>";
 			$lDataFile .= "<i class='fa fa-".$lDirName[2]."'></i> ";
 			$lDataFile .= "<div class='Text9 FilesystemItem'";
-			$lDataFile .= "onclick='openFile(this, \"".$lDirName[3]."\");'>";
+			$lDataFile .= "onclick='openFile(this, \"".$lDirName[3]."\", \"".$lDirName[4]."\");'>";
 			$lDataFile .= $lDirName[1];
 			$lDataFile .= "</div>";
 			$lDataFile .= "</div>";
@@ -48,6 +48,7 @@
 		$lRootPath = $_REQUEST["root"];
 		$lFilePath = $_REQUEST["file"];
 		$lFileType = $_REQUEST["type"];
+        $lLanguage = $_REQUEST["lang"];
 		$lContent = '';
 		if($lFileType == "img") {
 			$lFileName = GFilesystem::Instance()->getPath3($lRootPath, $lFilePath);
@@ -55,15 +56,9 @@
 			$lContent .= '<img src="'.$lFileName.'" alt="Image"/>';
 			$lContent .= '</div>';
 		}
-		else if($lFileType == "bat" || $lFileType == "file") {
-			$lData = GFile::Instance()->getData3($lRootPath, $lFilePath);
-			$lContent .= '<pre><xmp class="prettyprint linenums lang-sh">';
-			$lContent .= $lData;
-			$lContent .= '</xmp></pre>';
-		}
 		else {
 			$lData = GFile::Instance()->getData3($lRootPath, $lFilePath);
-			$lContent .= '<pre><xmp class="prettyprint linenums">';
+			$lContent .= '<pre class="Code2 Content13"><xmp id="AceCode" data-mode="'.$lLanguage.'">';
 			$lContent .= $lData;
 			$lContent .= '</xmp></pre>';
 		}

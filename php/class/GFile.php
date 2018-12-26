@@ -36,6 +36,7 @@
 			$lFile .= "/".$file;
 			$lFile = realpath($lFile);
             $lData = file_get_contents($lFile);
+            $lData = trim($lData);
             return $lData;
         }
         //===============================================

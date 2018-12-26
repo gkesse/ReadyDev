@@ -1,6 +1,6 @@
 //===============================================
-function openFile(obj, dir) {
-	GFilesystem.Instance().openFile(obj, dir);
+function openFile(obj, dir, lang) {
+	GFilesystem.Instance().openFile(obj, dir, lang);
 }
 //===============================================
 function openLink(obj) {
