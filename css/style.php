@@ -694,7 +694,7 @@ span {
 
 .Content13 {
     background-color: #333333;
-    padding: 10px;
+    padding: 20px 0px;
 }
 
 .Error {
