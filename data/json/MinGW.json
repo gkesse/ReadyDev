@@ -10,7 +10,8 @@
 			"à compiler un projet C++ avec MinGW.",
             "Produit par Gérard KESSE."
         ],
-        "meta_cano":"/Tutoriels/Cpp/MinGW/"
+        "meta_cano":"/Tutoriels/Cpp/MinGW/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/data/img/defaults/mingw.png"
     },    
     "links":
     [
