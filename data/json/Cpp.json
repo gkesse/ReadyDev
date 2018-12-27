@@ -23,6 +23,10 @@
         {"name":"Apprendre la bibliothèque STL en C++","link":"/Tutoriels/Cpp/STL/","follow":"yes"},
         {"name":"Apprendre la collection de bibliothèques Boost en C++","link":"/Tutoriels/Cpp/Boost/","follow":"yes"}
     ],
+    "installation":
+    [
+        {"name":"Apprendre à installer MinGW","link":"/Tutoriels/Cpp/MinGW/Installation/","follow":"yes"}
+    ],
     "compilation":
     [
         {"name":"Apprendre à compiler un projet C++ avec MinGW","link":"/Tutoriels/Cpp/MinGW/","follow":"yes"},
