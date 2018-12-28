@@ -18,5 +18,9 @@
         {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
         {"name":"C/C++","link":"/Tutoriels/Cpp/#Outils de compilation","follow":"no"},
         {"name":"MinGW","link":"","follow":"no"}
+    ],
+    "navs":
+    [
+        {"name":"Apprendre à installer MinGW sous Windows","link":"/Tutoriels/Cpp/MinGW/Installation/","follow":"no"}
     ]
 }
