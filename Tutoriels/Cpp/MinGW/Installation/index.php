@@ -1,11 +1,11 @@
 <?php
     require $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoloadRegister.php";
     
-    $m_data = GJson::Instance()->getData("data/json/MinGW.json");
+    $m_data = GJson::Instance()->getData("data/json/MinGW_02.json");
     
     GConfig::Instance()->setData("title", "MinGW");
     GConfig::Instance()->setData("menu", "Tutoriels");
-    GConfig::Instance()->setData("view", "MinGW");
+    GConfig::Instance()->setData("view", "MinGW_02");
     GConfig::Instance()->setData("link", $m_data["links"]);
 
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";

@@ -25,7 +25,7 @@
     ],
     "installation":
     [
-        {"name":"Apprendre à installer MinGW","link":"/Tutoriels/Cpp/MinGW/Installation/","follow":"yes"}
+        {"name":"Apprendre à installer MinGW sous Windows","link":"/Tutoriels/Cpp/MinGW/Installation/","follow":"yes"}
     ],
     "compilation":
     [
