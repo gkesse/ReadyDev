@@ -19,5 +19,9 @@
         {"name":"C/C++","link":"/Tutoriels/Cpp/#Outils de compilation","follow":"no"},
         {"name":"MinGW","link":"/Tutoriels/Cpp/#Installation et configuration","follow":"no"},
         {"name":"Installation","link":"","follow":"no"}
+    ],    
+    "navs":
+    [
+        {"name":"Apprendre à compiler un projet C++ avec MinGW","link":"/Tutoriels/Cpp/MinGW/","follow":"no"}
     ]
 }
