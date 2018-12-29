@@ -1,9 +1,12 @@
 //===============================================
-#include <stdio.h>
+#include "GProcess.h"
+#include "GConfig.h"
 //===============================================
 int main(int argc, char** argv) {
-    printf("\n### Fichier Source Unique\n\n");
-    printf("Bonjour tout le monde\n");
+    GConfig()->Set_Data("PROCESS", "VARIABLE");
+    GConfig()->Set_Data("OS", "WINDOWS");
+    GConfig()->Print();
+    GProcess()->Run();
     return 0;
 }
 //===============================================
