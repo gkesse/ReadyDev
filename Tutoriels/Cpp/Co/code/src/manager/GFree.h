@@ -1,19 +1,16 @@
 //===============================================
-#ifndef _GString_
-#define _GString_
+#ifndef _GFree_
+#define _GFree_
 //===============================================
 #include "GInclude.h"
 //===============================================
-typedef struct GStringO GStringO;
+typedef struct GFreeO GFreeO;
 //===============================================
-struct GStringO {
-    int (*Size)(const char* str);
-    int (*Is_Equal)(const char* str1, const char* str2);  
-    char* (*Copy)(const char* str);
-    char* (*Trim)(const char* str);
+struct GFreeO {
+    void (*Free)(void* ptr);
 };
 //===============================================
-GStringO* GString();
+GFreeO* GFree();
 //===============================================
 #endif
 //===============================================

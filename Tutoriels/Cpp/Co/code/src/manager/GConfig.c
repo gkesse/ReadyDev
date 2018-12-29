@@ -7,7 +7,7 @@ GConfigO* GConfig_Constructor();
 void GConfig_Init(GConfigO* obj);
 void GConfig_Set_Data(const char* key, const char* value);
 char* GConfig_Get_Data(const char* key);
-void GConfig_Print();
+void GConfig_Show();
 //===============================================
 GConfigO* GConfig_Constructor() {
     GConfigO* lObj = (GConfigO*)malloc(sizeof(GConfigO));
@@ -20,7 +20,7 @@ GConfigO* GConfig_Constructor() {
 void GConfig_Init(GConfigO* obj) {
     obj->Set_Data = GConfig_Set_Data;
     obj->Get_Data = GConfig_Get_Data;
-    obj->Print = GConfig_Print;
+    obj->Show = GConfig_Show;
 }
 //===============================================
 GConfigO* GConfig() {
@@ -76,7 +76,7 @@ char* GConfig_Get_Data(const char* key) {
     return "_NONE_";
 }
 //===============================================
-void GConfig_Print() {
+void GConfig_Show() {
     GNodeO* lNode = m_GConfigO->m_start;
     while(lNode != 0) {
         char* lKey = lNode->m_key;

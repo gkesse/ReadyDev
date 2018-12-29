@@ -1,19 +1,16 @@
 //===============================================
-#ifndef _GString_
-#define _GString_
+#ifndef _GSetting_
+#define _GSetting_
 //===============================================
 #include "GInclude.h"
 //===============================================
-typedef struct GStringO GStringO;
+typedef struct GSettingO GSettingO;
 //===============================================
-struct GStringO {
-    int (*Size)(const char* str);
-    int (*Is_Equal)(const char* str1, const char* str2);  
-    char* (*Copy)(const char* str);
-    char* (*Trim)(const char* str);
+struct GSettingO {
+    void (*Load)(const char* file);
 };
 //===============================================
-GStringO* GString();
+GSettingO* GSetting();
 //===============================================
 #endif
 //===============================================

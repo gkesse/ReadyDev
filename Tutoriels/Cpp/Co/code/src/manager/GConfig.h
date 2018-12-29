@@ -17,7 +17,7 @@ struct GNodeO {
 struct GConfigO {
     void (*Set_Data)(const char* key, const char* value);
     char* (*Get_Data)(const char* key);
-    void (*Print)();
+    void (*Show)();
     
     GNodeO* m_start;
     int m_size;
