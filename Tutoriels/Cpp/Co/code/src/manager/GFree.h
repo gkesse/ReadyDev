@@ -8,6 +8,7 @@ typedef struct GFreeO GFreeO;
 //===============================================
 struct GFreeO {
     void (*Free)(void* ptr);
+    void (*Free2)(void** ptr, int size);
 };
 //===============================================
 GFreeO* GFree();

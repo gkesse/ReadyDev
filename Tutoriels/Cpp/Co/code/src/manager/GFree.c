@@ -6,6 +6,7 @@ static GFreeO* m_GFreeO = 0;
 GFreeO* GFree_Constructor();
 void GFree_Init(GFreeO* obj);
 void GFree_Free(void* ptr);
+void GFree_Free2(void** ptr, int size);
 //===============================================
 GFreeO* GFree_Constructor() {
     GFreeO* lObj = (GFreeO*)malloc(sizeof(GFreeO));
@@ -15,6 +16,7 @@ GFreeO* GFree_Constructor() {
 //===============================================
 void GFree_Init(GFreeO* obj) {
     obj->Free = GFree_Free;
+    obj->Free2 = GFree_Free2;
 }
 //===============================================
 GFreeO* GFree() {
@@ -25,6 +27,14 @@ GFreeO* GFree() {
 }
 //===============================================
 void GFree_Free(void* ptr) {
+    free(ptr);
+    ptr = 0;
+}
+//===============================================
+void GFree_Free2(void** ptr, int size) {
+    for(int i = 0; i < size; i++) {
+        free(ptr[i]);
+    }
     free(ptr);
     ptr = 0;
 }

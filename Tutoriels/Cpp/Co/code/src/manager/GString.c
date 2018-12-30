@@ -9,6 +9,7 @@ int GString_Size(const char* str);
 int GString_Is_Equal(const char* str1, const char* str2);
 char* GString_Copy(const char* str);
 char* GString_Trim(const char* str);
+char** GString_Split(const char* str, const char* sep, int* count);
 //===============================================
 GStringO* GString_Constructor() {
     GStringO* lObj = (GStringO*)malloc(sizeof(GStringO));
@@ -21,6 +22,7 @@ void GString_Init(GStringO* obj) {
     obj->Is_Equal = GString_Is_Equal;
     obj->Copy = GString_Copy;
     obj->Trim = GString_Trim;
+    obj->Split = GString_Split;
 }
 //===============================================
 GStringO* GString() {
@@ -61,12 +63,14 @@ char* GString_Copy(const char* str) {
 }
 //===============================================
 char* GString_Trim(const char* str) {
+    if(str[0] == 0) return 0;
     int lStart = 0;
-    int lEnd = strlen(str);
-    while(isspace(str[lStart]) != 0) lStart++;
-    while(isspace(str[lEnd]) != 0) lEnd--;
-    int lLength = lEnd - lStart;
-    if(lLength <= 0) return 0;
+    int lEnd = strlen(str) - 1;
+    while(isspace(str[lStart]) != 0 && lStart < lEnd) lStart++;
+    while(isspace(str[lEnd]) != 0 && lEnd > lStart) lEnd--;
+    if(lStart == lEnd) {if(isspace(str[lStart]) != 0) {return 0;}}
+    lEnd += 1;
+    int lLength = lEnd - lStart + 1;
     char* lTrim = (char*)malloc(sizeof(char)*lLength);
     int i = lStart;
     int j = 0;
@@ -77,5 +81,29 @@ char* GString_Trim(const char* str) {
     }
     lTrim[j] = 0;
     return lTrim;
+}
+//===============================================
+char** GString_Split(const char* str, const char* sep, int* count) {
+    int lPos = 0;
+    int lCount = 0;
+    while(str[lPos] != 0) {
+        char lChar = str[lPos];
+        char lSearch = strchr(sep, lChar);
+        if(lSearch != 0) lCount++;
+        lPos++;
+    }
+    lCount += 1;
+    *count = lCount;
+    char** lSplit = (char**)malloc(sizeof(char*)*lCount);
+    char* lStr = GString_Copy(str);
+    char* lToken = strtok(lStr, sep);
+    int lTok = 0;
+    while(lToken != 0) {
+        lSplit[lTok] = lToken;
+        lToken = strtok(0, sep);
+        lTok++;
+    }
+    free(lStr);
+    return lSplit;
 }
 //===============================================

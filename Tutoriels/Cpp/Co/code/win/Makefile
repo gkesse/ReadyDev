@@ -39,4 +39,4 @@ $(GBUILD)/GProcessConsole.o: $(GMGR)/GProcessConsole.c
 $(GBUILD)/GProcessVariable.o: $(GMGR)/GProcessVariable.c
 	gcc -c $(GMGR)/GProcessVariable.c -o $(GBUILD)/GProcessVariable.o $(GINCS)
 clean:
-	del /q $(GBUILD)\* $(GBIN)\*
+	del /q $(GBUILD0)\* $(GBIN)\*

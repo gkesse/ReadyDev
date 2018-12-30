@@ -34,6 +34,14 @@ void GSetting_Load(const char* file) {
 
     while(fgets(lBuffer, sizeof(lBuffer), lFile) != NULL) {
         char* lTrim = GString()->Trim(lBuffer);
+        if(lTrim == 0) {continue;}
+        char lFirst = lTrim[0];
+        if(lFirst == G_CHAR_COMMENT) {GFree()->Free(lTrim); continue;}
+        int lCount;
+        char** lSplit = GString_Split(lTrim, "=", &lCount);
+        char* lKey = GString()->Trim(lSplit[0]);
+        char* lValue = GString()->Trim(lSplit[1]);
+        printf("=========%s======%s=======%d==========\n", lKey, lValue, lCount);
         /*string lString(lBuffer);
         lBuffer[lString.length() - 1] = 0;
         istringstream lStream(lBuffer);
@@ -51,8 +59,10 @@ void GSetting_Load(const char* file) {
                 cout << lKey << " = " << lValue << "\n";
             }
         }*/
-        printf("%s", lTrim);
         GFree()->Free(lTrim);
+        GFree()->Free(lKey);
+        GFree()->Free(lValue);
+        GFree()->Free2(lSplit, lCount);
     }
 
     fclose(lFile);
