@@ -1,7 +1,8 @@
 //===============================================
 #include "GSetting.h"
-#include "GFree.h"
 #include "GString.h"
+#include "GConfig.h"
+#include "GFree.h"
 //===============================================
 static GSettingO* m_GSettingO = 0;
 //===============================================
@@ -41,30 +42,14 @@ void GSetting_Load(const char* file) {
         char** lSplit = GString_Split(lTrim, "=", &lCount);
         char* lKey = GString()->Trim(lSplit[0]);
         char* lValue = GString()->Trim(lSplit[1]);
-        printf("=========%s======%s=======%d==========\n", lKey, lValue, lCount);
-        /*string lString(lBuffer);
-        lBuffer[lString.length() - 1] = 0;
-        istringstream lStream(lBuffer);
-        string lKey;
-
-        char lFirstChar = trim(lBuffer)[0];
-
-        if(lFirstChar == G_CHAR_COMMENT) continue;
-
-        if(getline(lStream, lKey, '=')) {
-           string lValue;
-
-            if(getline(lStream, lValue)) {
-                GConfig::Instance()->setData(trim(lKey), trim(lValue));
-                cout << lKey << " = " << lValue << "\n";
-            }
-        }*/
+        GConfig()->Set_Data(lKey, lValue);
+        printf("%s = %s\n", lKey, lValue);
         GFree()->Free(lTrim);
         GFree()->Free(lKey);
         GFree()->Free(lValue);
         GFree()->Free2(lSplit, lCount);
     }
-
+    printf("\n");
     fclose(lFile);
 }
 //===============================================

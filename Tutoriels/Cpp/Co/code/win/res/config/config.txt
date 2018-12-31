@@ -1,12 +1,1 @@
-                    
-                    A       = V
-                    B   = V
-C=V
-D=V
-        
-        ### HELLO     
-PROCESS =   VARIABLE
-OS      =   MAC OS X
-TYPE    =   PHP
-
-
+PROCESS = CONDITION

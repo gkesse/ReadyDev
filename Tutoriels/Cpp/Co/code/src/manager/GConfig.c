@@ -45,6 +45,10 @@ void GConfig_Set_Data(const char* key, const char* value) {
 
     if(lExist == FALSE) {
         lNode = (GNodeO*)malloc(sizeof(GNodeO));
+        int lKey = strlen(key) + 1;
+        int lValue = strlen(value) + 1;
+        lNode->m_key = (char*)malloc(sizeof(char)*lKey);
+        lNode->m_value = (char*)malloc(sizeof(char)*lValue);
         sprintf(lNode->m_key, "%s", key);
         sprintf(lNode->m_value, "%s", value);
         lNode->m_next = 0;

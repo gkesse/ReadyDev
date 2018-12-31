@@ -30,6 +30,9 @@ void GProcessVariable_Strategy(GProcessO* obj) {
 }
 //===============================================
 void GProcessVariable_Run() {
-    printf("### Variable\n\n");
+    printf("### Creer une variable\n");
+    char* lVar = "Bonjour tout le monde";
+    printf("### Afficher la variable\n");
+    printf("%s\n", lVar);
 }
 //===============================================

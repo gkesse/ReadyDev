@@ -2,6 +2,9 @@
 #include "GProcess.h"
 #include "GProcessConsole.h"
 #include "GProcessVariable.h"
+#include "GProcessKeyboard.h"
+#include "GProcessOperation.h"
+#include "GProcessCondition.h"
 #include "GString.h"
 #include "GConfig.h"
 //===============================================
@@ -35,6 +38,9 @@ void GProcess_Strategy() {
     char* lKey = GConfig()->Get_Data("PROCESS");
     if(GString()->Is_Equal(lKey, "CONSOLE")) {GProcessConsole()->Strategy(m_GProcessO);}
     else if(GString()->Is_Equal(lKey, "VARIABLE")) {GProcessVariable()->Strategy(m_GProcessO);}
+    else if(GString()->Is_Equal(lKey, "KEYBOARD")) {GProcessKeyboard()->Strategy(m_GProcessO);}
+    else if(GString()->Is_Equal(lKey, "OPERATION")) {GProcessOperation()->Strategy(m_GProcessO);}
+    else if(GString()->Is_Equal(lKey, "CONDITION")) {GProcessCondition()->Strategy(m_GProcessO);}
     else {GProcessConsole()->Strategy(m_GProcessO);}
 }
 //===============================================

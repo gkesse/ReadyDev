@@ -30,6 +30,7 @@ void GProcessConsole_Strategy(GProcessO* obj) {
 }
 //===============================================
 void GProcessConsole_Run() {
-    printf("### Console\n\n");
+    printf("### Afficher un message\n");
+    printf("Bonjour tout le monde\n");
 }
 //===============================================

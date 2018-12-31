@@ -9,8 +9,8 @@ typedef struct GNodeO GNodeO;
 //===============================================
 struct GNodeO {
     int m_index;
-    char m_key[50];
-    char m_value[50];
+    char* m_key;
+    char* m_value;
     GNodeO* m_next;
 };
 //===============================================
