@@ -160,7 +160,7 @@
             $lExt = strtolower($lExt);
             $lLanguage = $lExt;
             if(is_dir($filename)) {$lLanguage = "none";}
-            else if($lExt == "c" || $lExt == "cpp") {$lLanguage = "c_cpp";}
+            else if($lExt == "c" || $lExt == "cpp" || $lExt == "h") {$lLanguage = "c_cpp";}
             else if($lExt == "bat") {$lLanguage = "batchfile";}
             return $lLanguage;
         }

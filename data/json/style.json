@@ -6,9 +6,17 @@
         "top": {
             "img": "\/data\/img\/defaults\/texture_green.jpg"
         },
-        "top2": {
-            "img": "\/data\/img\/defaults\/bravo-les-bleus.gif",
-            "width": "500px"
+        "top_left": {
+            "img": "\/data\/img\/defaults\/feux_artifice.gif"
+        },
+        "top_right": {
+            "img": "\/data\/img\/defaults\/feux_artifice.gif"
+        },
+        "top_middle": {
+            "img": "\/data\/img\/defaults\/bonne_annee_2019.gif"
+        },
+        "top_back": {
+            "img": "\/data\/img\/defaults\/fond.jpg"
         },
         "middle": {
             "img": "\/data\/img\/defaults\/texture_black.jpg"

@@ -1,9 +1,11 @@
 //===============================================
-#include <stdio.h>
+#include "GProcess.h"
+#include "GConfig.h"
+#include "GSetting.h"
 //===============================================
 int main(int argc, char** argv) {
-    printf("\n### Fichier Source Unique\n\n");
-    printf("Bonjour tout le monde\n");
+    GSetting()->Load("res/config/config.txt");
+    GProcess()->Run();
     return 0;
 }
 //===============================================
