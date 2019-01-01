@@ -244,11 +244,11 @@ span {
 }
 
 .Background.Top {
-    background-image: url("<?php echo $lStyle["background"]["top_left"]["img"]; ?>"), 
+    background-image: url("<?php echo $lStyle["background"]["top_middle"]["img"]; ?>"), 
     url("<?php echo $lStyle["background"]["top_right"]["img"]; ?>"), 
-    url("<?php echo $lStyle["background"]["top_middle"]["img"]; ?>"), 
+    url("<?php echo $lStyle["background"]["top_left"]["img"]; ?>"), 
     url("<?php echo $lStyle["background"]["top_back"]["img"]; ?>");
-    background-position: top left, top right, center top, left top;
+    background-position: center top, top left, top right, left top;
     background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;    
     background-size: auto 85%, auto 85%, auto 85%, 100% 100%;    
     top: 0px;
