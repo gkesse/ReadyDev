@@ -244,13 +244,13 @@ span {
 }
 
 .Background.Top {
-    background-image: url("/data/img/defaults/coupe-du-monde.gif"),
-    url("/data/img/defaults/coupe-du-monde.gif"),
-    url("<?php echo $lStyle["background"]["top2"]["img"]; ?>"), 
-    url("/data/img/defaults/fond.jpg");
+    background-image: url("<?php echo $lStyle["background"]["top_left"]["img"]; ?>"), 
+    url("<?php echo $lStyle["background"]["top_right"]["img"]; ?>"), 
+    url("<?php echo $lStyle["background"]["top_middle"]["img"]; ?>"), 
+    url("<?php echo $lStyle["background"]["top_back"]["img"]; ?>");
     background-position: top left, top right, center top, left top;
     background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;    
-    background-size: auto, auto, auto 85%, 100% 100%;    
+    background-size: auto 85%, auto 85%, auto 85%, 100% 100%;    
     top: 0px;
     left: 0px;
     right: 0px;
@@ -1620,11 +1620,13 @@ span {
 /* Mobile */ 
 /* ============================================== */
 
-@media (max-width:<?php echo $lStyle["background"]["top2"]["width"]; ?>) {  
+/*
+@media (max-width:<?php echo $lStyle["background"]["top_middle"]["width"]; ?>) {  
     .Background.Top {
         background-position: top left, top right, center top, left top;
-        background-size: auto, auto, 100% 88%, 100% 100%;    
+        background-size: auto, auto, 100% auto, 100% 100%;    
     }
 }
+*/
 
 /* ============================================== */

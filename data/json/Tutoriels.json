@@ -14,7 +14,7 @@
     [
         "<b>ReadyDev</b> est une Plateforme de Développement Continu.<br/>",
         "C'est un site web développé en PHP et maintenu par <b>Gérard KESSE</b>.<br/>",
-        "Vous trouverez sur ce site des <b>cours</b> et des <b>tutoriels</b> adaptés aux sciences de l'ingénieur."
+        "Vous trouverez sur ce site des <b>cours</b> et des <b>tutoriels</b> adaptés aux <b>sciences de l'ingénieur</b>."
     ],
     "software":
     [
@@ -218,6 +218,16 @@
             "theme":"Excel 2007",
             "description":"Apprenez<br/> Excel 2007",
             "link":"/Tutoriels/Excel/",
+			"follow":"yes"
+        }
+    ],
+    "ide":
+    [
+        {
+            "icon":"fa fa-indent",
+            "theme":"Eclipse",
+            "description":"Apprenez<br/> Eclipse",
+            "link":"/Tutoriels/Eclipse/",
 			"follow":"yes"
         }
     ],

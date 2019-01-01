@@ -14,8 +14,8 @@
     [
         "<b>ReadyDev</b> est une Plateforme de Développement Continu.<br/>",
         "C'est un site web développé en PHP et maintenu par <b>Gérard KESSE</b>.<br/>",
-        "Vous trouverez sur ce site des <b>cours</b> et des <b>tutoriels</b> permettant",
-        "de monter en compétences de manière éfficace en :<br/><br/>",
+        "Vous trouverez sur ce site des <b>cours</b> et des <b>tutoriels</b> adaptés",
+        "aux <b>sciences de l'ingénieur</b>.<br/><br/>",
         "<ul class='List fa-ul'>",
         "<li><i class='fa-li fa fa-hand-o-right'></i> Dévloppement Logiciel</li>",
         "<li><i class='fa-li fa fa-hand-o-right'></i> Outils de compilation</li>",
