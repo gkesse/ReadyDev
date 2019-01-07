@@ -8,7 +8,8 @@ typedef struct GWindowO GWindowO;
 //===============================================
 struct GWindowO {
     void (*Strategy)();
-    void (*Run)(int argc, char** argv);
+    void (*Initialize)(int* argc, char*** argv);
+    void (*Show)();
 };
 //===============================================
 GWindowO* GWindow();
