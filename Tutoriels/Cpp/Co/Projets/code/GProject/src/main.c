@@ -4,7 +4,7 @@
 //===============================================
 int main(int argc, char** argv) {
 	GSetting()->Load("res/config/config.txt");
-	GProcess()->Run();
+	GProcess()->Run(argc, argv);
 	return 0;
 }
 //===============================================

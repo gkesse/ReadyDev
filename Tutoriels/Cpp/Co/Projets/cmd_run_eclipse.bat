@@ -5,7 +5,7 @@ set PATH=C:\Users\sabine\Downloads\Gerard\x86_64-8.1.0-release-win32-sjlj-rt_v6-
 set PATH=C:\Users\sabine\Downloads\Gerard\gtk+-bundle_3.6.4-20130513_win64\bin;%PATH%
 
 echo.
-bin\GProject.exe
+code\GProject\Release\GProject.exe
 echo.
 
 ::pause

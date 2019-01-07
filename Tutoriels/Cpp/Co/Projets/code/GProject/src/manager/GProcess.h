@@ -8,7 +8,7 @@ typedef struct GProcessO GProcessO;
 //===============================================
 struct GProcessO {
     void (*Strategy)();
-    void (*Run)();
+    void (*Run)(int argc, char** argv);
 };
 //===============================================
 GProcessO* GProcess();

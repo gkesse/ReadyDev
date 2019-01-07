@@ -1,16 +1,17 @@
 //===============================================
-#ifndef _GProcessKeyboard_
-#define _GProcessKeyboard_
+#ifndef _GWindow_
+#define _GWindow_
 //===============================================
-#include "GProcess.h"
+#include "GInclude.h"
 //===============================================
-typedef struct GProcessKeyboardO GProcessKeyboardO;
+typedef struct GWindowO GWindowO;
 //===============================================
-struct GProcessKeyboardO {
-    void (*Strategy)(GProcessO* obj);
+struct GWindowO {
+    void (*Strategy)();
+    void (*Run)(int argc, char** argv);
 };
 //===============================================
-GProcessKeyboardO* GProcessKeyboard();
+GWindowO* GWindow();
 //===============================================
 #endif
 //===============================================

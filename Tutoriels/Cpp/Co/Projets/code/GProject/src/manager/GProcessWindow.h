@@ -1,16 +1,16 @@
 //===============================================
-#ifndef _GProcessVariable_
-#define _GProcessVariable_
+#ifndef _GProcessWindow_
+#define _GProcessWindow_
 //===============================================
 #include "GProcess.h"
 //===============================================
-typedef struct GProcessVariableO GProcessVariableO;
+typedef struct GProcessWindowO GProcessWindowO;
 //===============================================
-struct GProcessVariableO {
+struct GProcessWindowO {
     void (*Strategy)(GProcessO* obj);
 };
 //===============================================
-GProcessVariableO* GProcessVariable();
+GProcessWindowO* GProcessWindow();
 //===============================================
 #endif
 //===============================================
