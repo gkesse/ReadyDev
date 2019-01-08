@@ -38,13 +38,16 @@ void GWindowNormal_Initialize(int* argc, char*** argv) {
 //===============================================
 void GWindowNormal_Show() {
 	GtkWidget* lWindow = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+	gtk_window_set_title(GTK_WINDOW(lWindow), "C | ReadyDev");
+	gtk_window_set_default_size(GTK_WINDOW(lWindow), 400, 400);
+	gtk_window_set_position(GTK_WINDOW(lWindow), GTK_WIN_POS_CENTER);
 	g_signal_connect(G_OBJECT(lWindow), "destroy", G_CALLBACK(GWindowNormal_OnDestroy), NULL);
 	gtk_widget_show(lWindow);
 	gtk_main();
 }
 //===============================================
 void GWindowNormal_OnDestroy() {
-    gtk_main_quit();
+	gtk_main_quit();
 }
 //===============================================
 

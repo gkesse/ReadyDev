@@ -9,8 +9,6 @@ static GWindowO* m_GWindowO = 0;
 GWindowO* GWindow_Constructor();
 void GWindow_Init(GWindowO* obj);
 void GWindow_Strategy();
-void GWindow_Initialize(int* argc, char*** argv);
-void GWindow_Show();
 //===============================================
 GWindowO* GWindow_Constructor() {
     GWindowO* lObj = (GWindowO*)malloc(sizeof(GWindowO));
@@ -20,8 +18,6 @@ GWindowO* GWindow_Constructor() {
 //===============================================
 void GWindow_Init(GWindowO* obj) {
     obj->Strategy = GWindow_Strategy;
-    obj->Initialize = GWindow_Initialize;
-    obj->Show = GWindow_Show;
 }
 //===============================================
 GWindowO* GWindow() {
@@ -38,11 +34,4 @@ void GWindow_Strategy() {
     else {GWindowNormal()->Strategy(m_GWindowO);}
 }
 //===============================================
-void GWindow_Initialize(int* argc, char*** argv) {
-    m_GWindowO->Initialize(argc, argv);
-}
-//===============================================
-void GWindow_Show() {
-    m_GWindowO->Show();
-}
-//===============================================
+

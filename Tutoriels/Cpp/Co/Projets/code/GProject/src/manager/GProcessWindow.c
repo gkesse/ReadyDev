@@ -1,6 +1,7 @@
 //===============================================
 #include "GProcessWindow.h"
 #include "GWindow.h"
+#include "GStyle.h"
 //===============================================
 static GProcessWindowO* m_GProcessWindowO = 0;
 //===============================================
@@ -32,6 +33,7 @@ void GProcessWindow_Strategy(GProcessO* obj) {
 //===============================================
 void GProcessWindow_Run(int argc, char** argv) {
 	GWindow()->Initialize(&argc,&argv);
+	GStyle()->Load("res/css/style.css");
 	GWindow()->Show();
 }
 //===============================================
