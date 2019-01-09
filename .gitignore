@@ -9,8 +9,6 @@
 /**/vendor/
 /**/Joomla/root/
 /**/GDepot/
-/**/.metadata/
-/**/.settings/
 /**/.recommenders/
 /**/build/classes/
 /**/WecContent/
@@ -24,12 +22,22 @@
 /**/messages.json
 /**/.classpath
 /**/.project
-/**/qmake/Makefile*
 /data/sitemaps/*xml
 /**/~$*
 
 #================================================
-# Extension
+# Eclipse
+#================================================
+
+/**/Release/
+/**/Debug/
+/**/.metadata/
+/**/.settings/
+/**/.project
+/**/.cproject
+
+#================================================
+# Python
 #================================================
 
 /**/*pyc
