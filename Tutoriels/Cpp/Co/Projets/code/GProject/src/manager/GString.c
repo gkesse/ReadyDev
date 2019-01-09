@@ -25,7 +25,7 @@ void GString_Init(GStringO* obj) {
     obj->Split = GString_Split;
 }
 //===============================================
-GStringO* GString() {
+GStringO* GKString() {
     if(m_GStringO == 0) {
         m_GStringO = GString_Constructor();
     }
@@ -41,13 +41,13 @@ int GString_Size(const char* str) {
 int GString_Is_Equal(const char* str1, const char* str2) {
     int lSize1 = GString_Size(str1);
     int lSize2 = GString_Size(str2);
-    if(lSize1 != lSize2) {return FALSE;}
+    if(lSize1 != lSize2) {return GFALSE;}
     int i = 0;
     while(str1[i] != 0) {
-        if(str1[i] != str2[i]) {return FALSE;}
+        if(str1[i] != str2[i]) {return GFALSE;}
         i += 1;
     }
-    return TRUE;
+    return GTRUE;
 }
 //===============================================
 char* GString_Copy(const char* str) {
@@ -99,7 +99,7 @@ char** GString_Split(const char* str, const char* sep, int* count) {
     char* lToken = strtok(lStr, sep);
     int lTok = 0;
     while(lToken != 0) {
-        lSplit[lTok] = lToken;
+        lSplit[lTok] = GString_Copy(lToken);
         lToken = strtok(0, sep);
         lTok++;
     }

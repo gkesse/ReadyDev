@@ -1,16 +1,16 @@
 //===============================================
-#ifndef _GProcessOperation_
-#define _GProcessOperation_
+#ifndef _GWindowNormal_
+#define _GWindowNormal_
 //===============================================
-#include "GProcess.h"
+#include "GWindow.h"
 //===============================================
-typedef struct GProcessOperationO GProcessOperationO;
+typedef struct GWindowNormalO GWindowNormalO;
 //===============================================
-struct GProcessOperationO {
-    void (*Strategy)(GProcessO* obj);
+struct GWindowNormalO {
+    void (*Strategy)(GWindowO* obj);
 };
 //===============================================
-GProcessOperationO* GProcessOperation();
+GWindowNormalO* GWindowNormal();
 //===============================================
 #endif
 //===============================================

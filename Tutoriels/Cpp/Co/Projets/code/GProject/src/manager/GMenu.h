@@ -1,17 +1,16 @@
 //===============================================
-#ifndef _GProcess_
-#define _GProcess_
+#ifndef _GMenu_
+#define _GMenu_
 //===============================================
 #include "GInclude.h"
 //===============================================
-typedef struct GProcessO GProcessO;
+typedef struct GMenuO GMenuO;
 //===============================================
-struct GProcessO {
-    void (*Strategy)();
-    void (*Run)(int argc, char** argv);
+struct GMenuO {
+    void (*Strategy)(const char* key);
 };
 //===============================================
-GProcessO* GProcess();
+GMenuO* GKMenu(const char* key);
 //===============================================
 #endif
 //===============================================

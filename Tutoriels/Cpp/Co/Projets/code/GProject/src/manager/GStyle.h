@@ -1,16 +1,16 @@
 //===============================================
-#ifndef _GProcessVariable_
-#define _GProcessVariable_
+#ifndef _GStyle_
+#define _GStyle_
 //===============================================
-#include "GProcess.h"
+#include "GInclude.h"
 //===============================================
-typedef struct GProcessVariableO GProcessVariableO;
+typedef struct GStyleO GStyleO;
 //===============================================
-struct GProcessVariableO {
-    void (*Strategy)(GProcessO* obj);
+struct GStyleO {
+    void (*Load)(const char* file);
 };
 //===============================================
-GProcessVariableO* GProcessVariable();
+GStyleO* GStyle();
 //===============================================
 #endif
 //===============================================

@@ -1,16 +1,16 @@
 //===============================================
-#ifndef _GProcessConsole_
-#define _GProcessConsole_
+#ifndef _GMenuNormal_
+#define _GMenuNormal_
 //===============================================
-#include "GProcess.h"
+#include "GMenu.h"
 //===============================================
-typedef struct GProcessConsoleO GProcessConsoleO;
+typedef struct GMenuNormalO GMenuNormalO;
 //===============================================
-struct GProcessConsoleO {
-    void (*Strategy)(GProcessO* obj);
+struct GMenuNormalO {
+    void (*Strategy)(GMenuO* obj);
 };
 //===============================================
-GProcessConsoleO* GProcessConsole();
+GMenuNormalO* GMenuNormal();
 //===============================================
 #endif
 //===============================================

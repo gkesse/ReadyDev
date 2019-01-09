@@ -1,16 +1,16 @@
 //===============================================
-#ifndef _GProcessCondition_
-#define _GProcessCondition_
+#ifndef _GProcessWindow_
+#define _GProcessWindow_
 //===============================================
 #include "GProcess.h"
 //===============================================
-typedef struct GProcessConditionO GProcessConditionO;
+typedef struct GProcessWindowO GProcessWindowO;
 //===============================================
-struct GProcessConditionO {
+struct GProcessWindowO {
     void (*Strategy)(GProcessO* obj);
 };
 //===============================================
-GProcessConditionO* GProcessCondition();
+GProcessWindowO* GProcessWindow();
 //===============================================
 #endif
 //===============================================

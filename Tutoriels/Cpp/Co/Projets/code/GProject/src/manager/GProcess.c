@@ -1,10 +1,6 @@
 //===============================================
 #include "GProcess.h"
-#include "GProcessConsole.h"
-#include "GProcessVariable.h"
-#include "GProcessKeyboard.h"
-#include "GProcessOperation.h"
-#include "GProcessCondition.h"
+#include "GProcessWindow.h"
 #include "GString.h"
 #include "GConfig.h"
 //===============================================
@@ -13,7 +9,6 @@ static GProcessO* m_GProcessO = 0;
 GProcessO* GProcess_Constructor();
 void GProcess_Init(GProcessO* obj);
 void GProcess_Strategy();
-void GProcess_Run();
 //===============================================
 GProcessO* GProcess_Constructor() {
     GProcessO* lObj = (GProcessO*)malloc(sizeof(GProcessO));
@@ -23,7 +18,6 @@ GProcessO* GProcess_Constructor() {
 //===============================================
 void GProcess_Init(GProcessO* obj) {
     obj->Strategy = GProcess_Strategy;
-    obj->Run = GProcess_Run;
 }
 //===============================================
 GProcessO* GProcess() {
@@ -36,15 +30,7 @@ GProcessO* GProcess() {
 //===============================================
 void GProcess_Strategy() {
     char* lKey = GConfig()->Get_Data("PROCESS");
-    if(GString()->Is_Equal(lKey, "CONSOLE")) {GProcessConsole()->Strategy(m_GProcessO);}
-    else if(GString()->Is_Equal(lKey, "VARIABLE")) {GProcessVariable()->Strategy(m_GProcessO);}
-    else if(GString()->Is_Equal(lKey, "KEYBOARD")) {GProcessKeyboard()->Strategy(m_GProcessO);}
-    else if(GString()->Is_Equal(lKey, "OPERATION")) {GProcessOperation()->Strategy(m_GProcessO);}
-    else if(GString()->Is_Equal(lKey, "CONDITION")) {GProcessCondition()->Strategy(m_GProcessO);}
-    else {GProcessConsole()->Strategy(m_GProcessO);}
-}
-//===============================================
-void GProcess_Run() {
-    m_GProcessO->Run();
+    if(GKString()->Is_Equal(lKey, "WINDOW")) {GProcessWindow()->Strategy(m_GProcessO);}
+    else {GProcessWindow()->Strategy(m_GProcessO);}
 }
 //===============================================
