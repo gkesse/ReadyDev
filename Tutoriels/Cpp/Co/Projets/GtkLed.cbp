@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<!DOCTYPE CodeBlocks_project_file>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="1"/>
+	<Project>
+		<Option title="GTK+ application"/>
+		<Option makefile="Makefile"/>
+		<Option makefile_is_custom="0"/>
+		<Option compiler="0"/>
+		<Build>
+			<Target title="default">
+				<Option output="GtkLed.exe"/>
+				<Option working_dir="."/>
+				<Option object_output=".objs"/>
+				<Option deps_output=".deps"/>
+				<Option type="0"/>
+				<Option compiler="0"/>
+				<Option projectResourceIncludeDirsRelation="0"/>
+				<Compiler>
+					<Add option="-mno-cygwin"/>
+					<Add option="-mms-bitfields"/>
+					<Add directory="C:\Program Files\CodeBlocks\include\gtk-2.0"/>
+					<Add directory="C:\Program Files\CodeBlocks\lib\gtk-2.0\include"/>
+					<Add directory="C:\Program Files\CodeBlocks\include\atk-1.0"/>
+					<Add directory="C:\Program Files\CodeBlocks\include\pango-1.0"/>
+					<Add directory="C:\Program Files\CodeBlocks\include\glib-2.0"/>
+					<Add directory="C:\Program Files\CodeBlocks\include\glib-2.0\glib"/>
+					<Add directory="C:\Program Files\CodeBlocks\lib\glib-2.0"/>
+					<Add directory="C:\Program Files\CodeBlocks\lib\glib-2.0\include"/>
+					<Add directory="C:\Program Files\CodeBlocks\include\cairo"/>
+				</Compiler>
+				<Linker>
+					<Add option="-limm32"/>
+					<Add option="-lshell32"/>
+					<Add option="-lole32"/>
+					<Add option="-luuid"/>
+					<Add library="C:\Program Files\CodeBlocks\lib\glib-2.0.lib"/>
+					<Add library="C:\Program Files\CodeBlocks\lib\pangocairo-1.0.lib"/>
+					<Add library="C:\Program Files\CodeBlocks\lib\pangowin32-1.0.lib"/>
+					<Add library="C:\Program Files\CodeBlocks\lib\libatk-1.0.dll.a"/>
+					<Add library="C:\Program Files\CodeBlocks\lib\gdk_pixbuf-2.0.lib"/>
+					<Add library="C:\Program Files\CodeBlocks\lib\gdk-win32-2.0.lib"/>
+					<Add library="C:\Program Files\CodeBlocks\lib\pango-1.0.lib"/>
+					<Add library="C:\Program Files\CodeBlocks\lib\pangoft2-1.0.lib"/>
+					<Add library="C:\Program Files\CodeBlocks\lib\gmodule-2.0.lib"/>
+					<Add library="C:\Program Files\CodeBlocks\lib\gobject-2.0.lib"/>
+					<Add library="C:\Program Files\CodeBlocks\lib\gthread-2.0.lib"/>
+					<Add library="C:\Program Files\CodeBlocks\lib\gtk-win32-2.0.lib"/>
+					<Add library="C:\Program Files\CodeBlocks\lib\cairo.lib"/>
+				</Linker>
+			</Target>
+		</Build>
+		<Unit filename="gtkled.c">
+			<Option compilerVar="CC"/>
+			<Option target="default"/>
+		</Unit>
+		<Unit filename="gtkled.h">
+			<Option compilerVar=""/>
+			<Option compile="0"/>
+			<Option link="0"/>
+			<Option target="default"/>
+		</Unit>
+		<Unit filename="led_off.png">
+			<Option compilerVar=""/>
+			<Option compile="0"/>
+			<Option link="0"/>
+			<Option target="default"/>
+		</Unit>
+		<Unit filename="led_on.png">
+			<Option compilerVar=""/>
+			<Option compile="0"/>
+			<Option link="0"/>
+			<Option target="default"/>
+		</Unit>
+		<Unit filename="main.c">
+			<Option compilerVar="CC"/>
+			<Option target="default"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
