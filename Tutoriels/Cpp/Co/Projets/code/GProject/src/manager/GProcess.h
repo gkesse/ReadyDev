@@ -4,9 +4,9 @@
 //===============================================
 #include "GInclude.h"
 //===============================================
-typedef struct GProcessO GProcessO;
+typedef struct _GProcessO GProcessO;
 //===============================================
-struct GProcessO {
+struct _GProcessO {
     void (*Strategy)();
     void (*Run)(int argc, char** argv);
 };
