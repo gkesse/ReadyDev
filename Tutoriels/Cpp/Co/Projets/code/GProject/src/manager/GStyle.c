@@ -25,7 +25,7 @@ GStyleO* GStyle() {
 }
 //===============================================
 void GStyle_Load(const char* file) {
-	GtkCssProvider *provider;
+	/*GtkCssProvider *provider;
 	GdkDisplay *display;
 	GdkScreen *screen;
 
@@ -36,6 +36,6 @@ void GStyle_Load(const char* file) {
 
 	GError *error = 0;
 	gtk_css_provider_load_from_file(provider, g_file_new_for_path(file), &error);
-	g_object_unref (provider);
+	g_object_unref (provider);*/
 }
 //===============================================

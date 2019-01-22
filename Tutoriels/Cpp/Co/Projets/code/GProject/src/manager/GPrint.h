@@ -4,9 +4,9 @@
 //===============================================
 #include "GInclude.h"
 //===============================================
-typedef struct GPrintO GPrintO;
+typedef struct _GPrintO GPrintO;
 //===============================================
-struct GPrintO {
+struct _GPrintO {
     void (*Print)(const char* data);
 };
 //===============================================

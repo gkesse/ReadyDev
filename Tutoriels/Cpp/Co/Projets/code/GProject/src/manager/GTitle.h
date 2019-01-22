@@ -1,17 +1,17 @@
 //===============================================
-#ifndef _GFree_
-#define _GFree_
+#ifndef _GTitle_
+#define _GTitle_
 //===============================================
 #include "GInclude.h"
 //===============================================
-typedef struct _GFreeO GFreeO;
+typedef struct _GTitleO GTitleO;
 //===============================================
-struct _GFreeO {
-    void (*Free)(void* ptr);
-    void (*Free2)(void** ptr, int size);
+struct _GTitleO {
+    void (*Strategy)();
+    void (*Run)(int argc, char** argv);
 };
 //===============================================
-GFreeO* GFree();
+GTitleO* GTitle();
 //===============================================
 #endif
 //===============================================

@@ -1,7 +1,7 @@
 //===============================================
 #include "GWindow.h"
 #include "GWindowNormal.h"
-#include "GString.h"
+#include "GKString.h"
 #include "GConfig.h"
 //===============================================
 static GWindowO* m_GWindowO = 0;

@@ -4,17 +4,17 @@
 //===============================================
 #include "GInclude.h"
 //===============================================
-typedef struct GConfigO GConfigO;
-typedef struct GNodeO GNodeO;
+typedef struct _GConfigO GConfigO;
+typedef struct _GNodeO GNodeO;
 //===============================================
-struct GNodeO {
+struct _GNodeO {
     int m_index;
     char* m_key;
     char* m_value;
     GNodeO* m_next;
 };
 //===============================================
-struct GConfigO {
+struct _GConfigO {
     void (*Set_Data)(const char* key, const char* value);
     char* (*Get_Data)(const char* key);
     void (*Show)();

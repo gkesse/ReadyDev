@@ -4,9 +4,9 @@
 //===============================================
 #include "GInclude.h"
 //===============================================
-typedef struct GSettingO GSettingO;
+typedef struct _GSettingO GSettingO;
 //===============================================
-struct GSettingO {
+struct _GSettingO {
     void (*Load)(const char* file);
 };
 //===============================================

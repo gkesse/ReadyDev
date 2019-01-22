@@ -4,9 +4,9 @@
 //===============================================
 #include "GProcess.h"
 //===============================================
-typedef struct GProcessWindowO GProcessWindowO;
+typedef struct _GProcessWindowO GProcessWindowO;
 //===============================================
-struct GProcessWindowO {
+struct _GProcessWindowO {
     void (*Strategy)(GProcessO* obj);
 };
 //===============================================

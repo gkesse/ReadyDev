@@ -1,12 +1,12 @@
 //===============================================
-#ifndef _GString_
-#define _GString_
+#ifndef _GKString_
+#define _GKString_
 //===============================================
 #include "GInclude.h"
 //===============================================
-typedef struct GStringO GStringO;
+typedef struct _GKStringO GKStringO;
 //===============================================
-struct GStringO {
+struct _GKStringO {
     int (*Size)(const char* str);
     int (*Is_Equal)(const char* str1, const char* str2);
     char* (*Copy)(const char* str);
@@ -14,7 +14,7 @@ struct GStringO {
     char** (*Split)(const char* str, const char* sep, int* count);
 };
 //===============================================
-GStringO* GKString();
+GKStringO* GKString();
 //===============================================
 #endif
 //===============================================

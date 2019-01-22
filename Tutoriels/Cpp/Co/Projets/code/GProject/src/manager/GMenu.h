@@ -4,10 +4,10 @@
 //===============================================
 #include "GInclude.h"
 //===============================================
-typedef struct GMenuO GMenuO;
+typedef struct _GMenuO GMenuO;
 //===============================================
-struct GMenuO {
-    void (*Strategy)(const char* key);
+struct _GMenuO {
+    void (*Strategy)(const char* key, GMenuO* obj);
 };
 //===============================================
 GMenuO* GKMenu(const char* key);

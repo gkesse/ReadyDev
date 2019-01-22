@@ -1,6 +1,6 @@
 //===============================================
 #include "GSetting.h"
-#include "GString.h"
+#include "GKString.h"
 #include "GConfig.h"
 #include "GFree.h"
 //===============================================
@@ -43,12 +43,12 @@ void GSetting_Load(const char* file) {
 		char* lKey = GKString()->Trim(lSplit[0]);
 		char* lValue = GKString()->Trim(lSplit[1]);
 		GConfig()->Set_Data(lKey, lValue);
-		printf("%s = %s\n", lKey, lValue);
 		GFree()->Free(lTrim);
 		GFree()->Free(lKey);
 		GFree()->Free(lValue);
 		GFree()->Free2((void**)lSplit, lCount);
 	}
+	GConfig()->Show();
 	printf("\n");
 	fclose(lFile);
 }

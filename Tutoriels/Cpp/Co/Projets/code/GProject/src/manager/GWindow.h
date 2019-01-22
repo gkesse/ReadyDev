@@ -4,9 +4,9 @@
 //===============================================
 #include "GInclude.h"
 //===============================================
-typedef struct GWindowO GWindowO;
+typedef struct _GWindowO GWindowO;
 //===============================================
-struct GWindowO {
+struct _GWindowO {
     void (*Strategy)();
     void (*Initialize)(int* argc, char*** argv);
     void (*Show)();

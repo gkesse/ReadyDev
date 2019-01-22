@@ -1,7 +1,7 @@
 //===============================================
 #include "GProcess.h"
 #include "GProcessWindow.h"
-#include "GString.h"
+#include "GKString.h"
 #include "GConfig.h"
 //===============================================
 static GProcessO* m_GProcessO = 0;

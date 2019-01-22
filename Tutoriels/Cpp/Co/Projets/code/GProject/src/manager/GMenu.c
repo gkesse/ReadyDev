@@ -1,14 +1,12 @@
 //===============================================
 #include "GMenu.h"
 #include "GMenuNormal.h"
-#include "GString.h"
+#include "GKString.h"
 #include "GConfig.h"
-//===============================================
-static GMenuO* m_GMenuO = 0;
 //===============================================
 GMenuO* GMenu_Constructor();
 void GMenu_Init(GMenuO* obj);
-void GMenu_Strategy(const char* key);
+void GMenu_Strategy(const char* key, GMenuO* obj);
 //===============================================
 GMenuO* GMenu_Constructor() {
     GMenuO* lObj = (GMenuO*)malloc(sizeof(GMenuO));
@@ -21,14 +19,14 @@ void GMenu_Init(GMenuO* obj) {
 }
 //===============================================
 GMenuO* GKMenu(const char* key) {
-	m_GMenuO = GMenu_Constructor();
-    m_GMenuO->Strategy(key);
-    return m_GMenuO;
+	GMenuO* lObj = GMenu_Constructor();
+	lObj->Strategy(key, lObj);
+    return lObj;
 }
 //===============================================
-void GMenu_Strategy(const char* key) {
-    if(GKString()->Is_Equal(key, "NORMAL")) {GMenuNormal()->Strategy(m_GMenuO);}
-    else {GMenuNormal()->Strategy(m_GMenuO);}
+void GMenu_Strategy(const char* key, GMenuO* obj) {
+    if(GKString()->Is_Equal(key, "NORMAL")) {GMenuNormal()->Strategy(obj);}
+    else {GMenuNormal()->Strategy(obj);}
 }
 //===============================================
 

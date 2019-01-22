@@ -4,9 +4,9 @@
 //===============================================
 #include "GMenu.h"
 //===============================================
-typedef struct GMenuNormalO GMenuNormalO;
+typedef struct _GMenuNormalO GMenuNormalO;
 //===============================================
-struct GMenuNormalO {
+struct _GMenuNormalO {
     void (*Strategy)(GMenuO* obj);
 };
 //===============================================

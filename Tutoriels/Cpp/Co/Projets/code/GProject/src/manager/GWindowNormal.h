@@ -4,9 +4,9 @@
 //===============================================
 #include "GWindow.h"
 //===============================================
-typedef struct GWindowNormalO GWindowNormalO;
+typedef struct _GWindowNormalO GWindowNormalO;
 //===============================================
-struct GWindowNormalO {
+struct _GWindowNormalO {
     void (*Strategy)(GWindowO* obj);
 };
 //===============================================
