@@ -18,6 +18,9 @@ struct _GConfigO {
     void (*Set_Data)(const char* key, const char* value);
     char* (*Get_Data)(const char* key);
     void (*Show)();
+    void (*Delete)();
+    void (*Clear)();
+    void (*Remove)(const char* key);
     
     GNodeO* m_start;
     int m_size;

@@ -4,33 +4,32 @@
 #include "GKString.h"
 #include "GConfig.h"
 //===============================================
-static GProcessO* m_GProcessO = 0;
+void GProcess_Run(int argc, char** argv);
 //===============================================
-GProcessO* GProcess_Constructor();
-void GProcess_Init(GProcessO* obj);
-void GProcess_Strategy();
-//===============================================
-GProcessO* GProcess_Constructor() {
+GProcessO* GProcess_New() {
     GProcessO* lObj = (GProcessO*)malloc(sizeof(GProcessO));
-    GProcess_Init(lObj);
+    lObj->m_child = 0;
+    lObj->Delete = GProcess_Delete;
+    lObj->Run = GProcess_Run;
     return lObj;
 }
 //===============================================
-void GProcess_Init(GProcessO* obj) {
-    obj->Strategy = GProcess_Strategy;
+void GProcess_Delete(GProcessO* obj) {
+	if(obj != 0) {
+		if(obj->m_child != 0) {
+			free(obj->m_child);
+			obj->m_child = 0;
+		}
+		free(obj);
+		obj = 0;
+	}
 }
 //===============================================
 GProcessO* GProcess() {
-    if(m_GProcessO == 0) {
-        m_GProcessO = GProcess_Constructor();
-    }
-    m_GProcessO->Strategy();
-    return m_GProcessO;
+    char* lKey = GConfig()->Get_Data("PROCESS");
+    if(GKString()->Is_Equal(lKey, "WINDOW")) return GProcessWindow();
+    return GProcessWindow();
 }
 //===============================================
-void GProcess_Strategy() {
-    char* lKey = GConfig()->Get_Data("PROCESS");
-    if(GKString()->Is_Equal(lKey, "WINDOW")) {GProcessWindow()->Strategy(m_GProcessO);}
-    else {GProcessWindow()->Strategy(m_GProcessO);}
-}
+void GProcess_Run(int argc, char** argv) {}
 //===============================================

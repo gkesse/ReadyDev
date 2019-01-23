@@ -3,33 +3,31 @@
 #include "GWindow.h"
 #include "GStyle.h"
 //===============================================
-static GProcessWindowO* m_GProcessWindowO = 0;
+static GProcessO* m_GProcessWindowO = 0;
 //===============================================
-GProcessWindowO* GProcessWindow_Constructor();
-void GProcessWindow_Interface(GProcessWindowO* obj);
-void GProcessWindow_Strategy(GProcessO* obj);
 void GProcessWindow_Run(int argc, char** argv);
 //===============================================
-GProcessWindowO* GProcessWindow_Constructor() {
-	GProcessWindowO* lObj = (GProcessWindowO*)malloc(sizeof(GProcessWindowO));
-	GProcessWindow_Interface(lObj);
+GProcessO* GProcessWindow_New() {
+	GProcessO* lObj = GProcess_New();
+	GProcessWindowO* lChild = (GProcessWindowO*)malloc(sizeof(GProcessWindowO));
+	lChild->m_parent = lObj;
+	lObj->m_child = lChild;
+	lObj->Delete = GProcessWindow_Delete;
+	lObj->Run = GProcessWindow_Run;
 	return lObj;
 }
 //===============================================
-void GProcessWindow_Interface(GProcessWindowO* obj) {
-	obj->Strategy = GProcessWindow_Strategy;
+void GProcessWindow_Delete(GProcessO* obj) {
+	GProcess_Delete(obj);
 }
 //===============================================
-GProcessWindowO* GProcessWindow() {
+GProcessO* GProcessWindow() {
 	if(m_GProcessWindowO == 0) {
-		m_GProcessWindowO = GProcessWindow_Constructor();
+		m_GProcessWindowO = GProcessWindow_New();
 	}
 	return m_GProcessWindowO;
 }
-//===============================================
-void GProcessWindow_Strategy(GProcessO* obj) {
-	obj->Run = GProcessWindow_Run;
-}
+
 //===============================================
 void GProcessWindow_Run(int argc, char** argv) {
 	GWindow()->Initialize(&argc, &argv);

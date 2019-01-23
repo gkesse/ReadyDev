@@ -7,10 +7,13 @@
 typedef struct _GProcessO GProcessO;
 //===============================================
 struct _GProcessO {
-    void (*Strategy)();
+	void* m_child;
+    void (*Delete)(GProcessO* obj);
     void (*Run)(int argc, char** argv);
 };
 //===============================================
+GProcessO* GProcess_New();
+void GProcess_Delete(GProcessO* obj);
 GProcessO* GProcess();
 //===============================================
 #endif

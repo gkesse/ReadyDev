@@ -7,10 +7,12 @@
 typedef struct _GProcessWindowO GProcessWindowO;
 //===============================================
 struct _GProcessWindowO {
-    void (*Strategy)(GProcessO* obj);
+	GProcessO* m_parent;
 };
 //===============================================
-GProcessWindowO* GProcessWindow();
+GProcessO* GProcessWindow_New();
+void GProcessWindow_Delete(GProcessO* obj);
+GProcessO* GProcessWindow();
 //===============================================
 #endif
 //===============================================

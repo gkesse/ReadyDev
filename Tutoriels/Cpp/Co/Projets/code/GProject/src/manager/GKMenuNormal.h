@@ -1,16 +1,17 @@
 //===============================================
-#ifndef _GMenu_
-#define _GMenu_
+#ifndef _GKMenuNormal_
+#define _GKMenuNormal_
 //===============================================
-#include "GInclude.h"
+#include "GKMenu.h"
 //===============================================
-typedef struct _GMenuO GMenuO;
+typedef struct _GKMenuNormalO GKMenuNormalO;
 //===============================================
-struct _GMenuO {
-    void (*Strategy)(const char* key, GMenuO* obj);
+struct _GKMenuNormalO {
+	GKMenuO* m_GKMenuO;
+    void (*Strategy)(GKMenuO* obj);
 };
 //===============================================
-GMenuO* GKMenu(const char* key);
+GKMenuNormalO* GKMenuNormal();
 //===============================================
 #endif
 //===============================================
