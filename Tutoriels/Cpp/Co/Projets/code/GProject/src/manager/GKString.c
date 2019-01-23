@@ -3,7 +3,7 @@
 //===============================================
 static GKStringO* m_GKStringO = 0;
 //===============================================
-GKStringO* GKString_Constructor();
+GKStringO* GKString_New();
 void GKString_Init(GKStringO* obj);
 int GKString_Size(const char* str);
 int GKString_Is_Equal(const char* str1, const char* str2);
@@ -11,7 +11,7 @@ char* GKString_Copy(const char* str);
 char* GKString_Trim(const char* str);
 char** GKString_Split(const char* str, const char* sep, int* count);
 //===============================================
-GKStringO* GKString_Constructor() {
+GKStringO* GKString_New() {
     GKStringO* lObj = (GKStringO*)malloc(sizeof(GKStringO));
     GKString_Init(lObj);
     return lObj; 
@@ -27,7 +27,7 @@ void GKString_Init(GKStringO* obj) {
 //===============================================
 GKStringO* GKString() {
     if(m_GKStringO == 0) {
-        m_GKStringO = GKString_Constructor();
+        m_GKStringO = GKString_New();
     }
     return m_GKStringO;
 }

@@ -7,6 +7,7 @@
 typedef struct _GFreeO GFreeO;
 //===============================================
 struct _GFreeO {
+    void (*Delete)();
     void (*Free)(void* ptr);
     void (*Free2)(void** ptr, int size);
 };

@@ -7,6 +7,7 @@
 typedef struct _GSettingO GSettingO;
 //===============================================
 struct _GSettingO {
+    void (*Delete)();
     void (*Load)(const char* file);
 };
 //===============================================
