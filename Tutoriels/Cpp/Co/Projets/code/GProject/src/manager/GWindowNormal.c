@@ -47,13 +47,7 @@ void GWindowNormal_Show() {
 	GtkWidget* lBody = gtk_button_new_with_label("Body");
 
 	GKMenuO* lMenu = GKMenu("NORMAL");
-	GKMenuO* lMenu2 = GKMenu("NORMAL");
-
-	lMenu->Set_Data(lMenu, 10);
-	lMenu2->Set_Data(lMenu2, 20);
-
-	lMenu->Run(lMenu);
-	lMenu2->Run(lMenu2);
+	lMenu->Create(lMenu);
 
 	GtkWidget* lMainLayout = gtk_vbox_new(TRUE, 0);
 	gtk_box_pack_start(GTK_BOX(lMainLayout), lTitle, FALSE, FALSE, 0);

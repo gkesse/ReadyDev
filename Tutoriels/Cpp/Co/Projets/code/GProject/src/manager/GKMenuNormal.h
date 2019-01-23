@@ -7,11 +7,10 @@
 typedef struct _GKMenuNormalO GKMenuNormalO;
 //===============================================
 struct _GKMenuNormalO {
-	GKMenuO* m_GKMenuO;
-    void (*Strategy)(GKMenuO* obj);
+	GKMenuO* m_parent;
 };
 //===============================================
-GKMenuNormalO* GKMenuNormal();
+GKMenuO* GKMenuNormal();
 //===============================================
 #endif
 //===============================================

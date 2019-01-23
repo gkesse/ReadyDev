@@ -4,9 +4,7 @@
 #include "GKString.h"
 #include "GConfig.h"
 //===============================================
-GKMenuO* GKMenu_Constructor();
-void GKMenu_Init(GKMenuO* obj);
-void GKMenu_Strategy(GKMenuO* obj, const char* key);
+void GKMenu_Create(GKMenuO* obj);
 //===============================================
 static void GKMenu_Class_Init (GKMenuClass* klass);
 static void GKMenu_Obj_Init (GKMenuO* obj);
@@ -16,26 +14,31 @@ static void gtk_led_size_allocate(GtkWidget* widget, GtkAllocation* allocation);
 static gboolean gtk_led_expose(GtkWidget* widget, GdkEventExpose* event);
 static void gtk_led_destroy(GtkObject* object);
 //===============================================
-GKMenuO* GKMenu_Constructor() {
+GKMenuO* GKMenu_New() {
 	GKMenuO* lObj = (GKMenuO*)malloc(sizeof(GKMenuO));
-	GKMenu_Init(lObj);
+	lObj->m_child = 0;
+	lObj->Delete = GKMenu_Delete;
+	lObj->Create = GKMenu_Create;
 	return lObj;
 }
 //===============================================
-void GKMenu_Init(GKMenuO* obj) {
-	obj->Strategy = GKMenu_Strategy;
+void GKMenu_Delete(GKMenuO* obj) {
+	if(obj != 0) {
+		if(obj->m_child != 0) {
+			free(obj->m_child);
+			obj->m_child = 0;
+		}
+		free(obj);
+		obj = 0;
+	}
 }
 //===============================================
 GKMenuO* GKMenu(const char* key) {
-	GKMenuO* lObj = GKMenu_Constructor();
-	lObj->Strategy(lObj, key);
-	return lObj;
+    if(GKString()->Is_Equal(key, "NORMAL")) return GKMenuNormal();
+    return GKMenuNormal();
 }
 //===============================================
-void GKMenu_Strategy(GKMenuO* obj, const char* key) {
-	if(GKString()->Is_Equal(key, "NORMAL")) {GKMenuNormal()->Strategy(obj);}
-	else {GKMenuNormal()->Strategy(obj);}
-}
+void GKMenu_Create(GKMenuO* obj) {}
 //===============================================
 GtkType GKMenu_Get_Type() {
 	static GtkType lType = 0;
@@ -111,8 +114,8 @@ static void gtk_led_size_request (GtkWidget* widget, GtkRequisition* requisition
 	g_return_if_fail (GTK_IS_GKMENU(widget));
 	g_return_if_fail (requisition != NULL);
 
-	//requisition->width = GTK_GKMENU(widget)->width;
-	//requisition->height = GTK_GKMENU(widget)->height;
+	requisition->width = GTK_GKMENU(widget)->width;
+	requisition->height = GTK_GKMENU(widget)->height;
 }
 //===============================================
 static void gtk_led_size_allocate (GtkWidget* widget, GtkAllocation* allocation) {
