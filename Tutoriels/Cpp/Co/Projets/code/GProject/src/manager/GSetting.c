@@ -2,7 +2,6 @@
 #include "GSetting.h"
 #include "GKString.h"
 #include "GConfig.h"
-#include "GFree.h"
 //===============================================
 static GSettingO* m_GSettingO = 0;
 //===============================================
@@ -41,18 +40,17 @@ void GSetting_Load(const char* file) {
 		char* lTrim = GKString()->Trim(lBuffer);
 		if(lTrim == 0) {continue;}
 		char lFirst = lTrim[0];
-		if(lFirst == G_CHAR_COMMENT) {GFree()->Free(lTrim); continue;}
+		if(lFirst == G_CHAR_COMMENT) {GKString()->Free(lTrim); continue;}
 		int lCount;
 		char** lSplit = GKString()->Split(lTrim, "=", &lCount);
 		char* lKey = GKString()->Trim(lSplit[0]);
 		char* lValue = GKString()->Trim(lSplit[1]);
 		GConfig()->Set_Data(lKey, lValue);
-		GFree()->Free(lTrim);
-		GFree()->Free(lKey);
-		GFree()->Free(lValue);
-		GFree()->Free2((void**)lSplit, lCount);
+		GKString()->Free(lTrim);
+		GKString()->Free(lKey);
+		GKString()->Free(lValue);
+		GKString()->Free2(lSplit, lCount);
 	}
-	GConfig()->Remove("OS");
 	GConfig()->Show();
 	printf("\n");
 	fclose(lFile);

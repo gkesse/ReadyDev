@@ -1,6 +1,7 @@
 //===============================================
 #include "GWindowNormal.h"
 #include "GKMenu.h"
+#include "GTitle.h"
 //===============================================
 static GWindowNormalO* m_GWindowNormalO = 0;
 //===============================================
@@ -43,7 +44,7 @@ void GWindowNormal_Show() {
 	gtk_window_set_default_size(GTK_WINDOW(lWindow), 400, 400);
 	gtk_window_set_title(GTK_WINDOW(lWindow), "C | ReadyDev");
 
-	GtkWidget* lTitle = gtk_button_new_with_label("Title");
+	GtkWidget* lTitle = GTitle("NORMAL")->m_widget;
 	GtkWidget* lBody = gtk_button_new_with_label("Body");
 
 	GKMenuO* lMenu = GKMenu("NORMAL");

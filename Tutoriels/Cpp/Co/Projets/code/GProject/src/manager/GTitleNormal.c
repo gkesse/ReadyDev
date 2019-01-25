@@ -1,39 +1,34 @@
 //===============================================
 #include "GTitleNormal.h"
-#include "GWindow.h"
-#include "GStyle.h"
 //===============================================
-static GTitleNormalO* m_GTitleNormalO = 0;
+GtkWidget* GTitleNormal_Widget();
 //===============================================
-GTitleNormalO* GTitleNormal_Constructor();
-void GTitleNormal_Interface(GTitleNormalO* obj);
-void GTitleNormal_Strategy(GTitleO* obj);
-void GTitleNormal_Run(int argc, char** argv);
-//===============================================
-GTitleNormalO* GTitleNormal_Constructor() {
-	GTitleNormalO* lObj = (GTitleNormalO*)malloc(sizeof(GTitleNormalO));
-	GTitleNormal_Interface(lObj);
-	return lObj;
+GTitleO* GTitleNormal_New() {
+	GTitleO* lParent = GTitle_New();
+	GTitleNormalO* lChild = (GTitleNormalO*)malloc(sizeof(GTitleNormalO));
+
+	lChild->m_parent = lParent;
+
+	lParent->m_child = lChild;
+	lParent->Delete = GTitleNormal_Delete;
+	lParent->m_widget = GTitleNormal_Widget();
+	return lParent;
 }
 //===============================================
-void GTitleNormal_Interface(GTitleNormalO* obj) {
-	obj->Strategy = GTitleNormal_Strategy;
+void GTitleNormal_Delete(GTitleO* obj) {
+	GTitle_Delete(obj);
 }
 //===============================================
-GTitleNormalO* GTitleNormal() {
-	if(m_GTitleNormalO == 0) {
-		m_GTitleNormalO = GTitleNormal_Constructor();
-	}
-	return m_GTitleNormalO;
+GtkWidget* GTitleNormal_Widget() {
+	GtkWidget* lWidget = gtk_hbox_new(FALSE, 5);
+	GtkWidget* lIcon = gtk_label_new("ICON");
+	GtkWidget* lTitle = gtk_label_new("TITLE");
+    gtk_box_pack_start(GTK_BOX(lWidget), lIcon, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(lWidget), lTitle, FALSE, FALSE, 0);
+	return lWidget;
 }
 //===============================================
-void GTitleNormal_Strategy(GTitleO* obj) {
-	obj->Run = GTitleNormal_Run;
-}
-//===============================================
-void GTitleNormal_Run(int argc, char** argv) {
-	GWindow()->Initialize(&argc, &argv);
-	GStyle()->Load("res/css/style.css");
-	GWindow()->Show();
+GTitleO* GTitleNormal() {
+	return GTitleNormal_New();
 }
 //===============================================

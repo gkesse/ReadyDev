@@ -7,11 +7,14 @@
 typedef struct _GTitleO GTitleO;
 //===============================================
 struct _GTitleO {
-    void (*Strategy)();
-    void (*Run)(int argc, char** argv);
+	void* m_child;
+    void (*Delete)(GTitleO* obj);
+    GtkWidget* m_widget;
 };
 //===============================================
-GTitleO* GTitle();
+GTitleO* GTitle_New();
+void GTitle_Delete(GTitleO* obj);
+GTitleO* GTitle(const char* key);
 //===============================================
 #endif
 //===============================================

@@ -7,10 +7,12 @@
 typedef struct _GTitleNormalO GTitleNormalO;
 //===============================================
 struct _GTitleNormalO {
-    void (*Strategy)(GTitleO* obj);
+	GTitleO* m_parent;
 };
 //===============================================
-GTitleNormalO* GTitleNormal();
+GTitleO* GTitleNormal_New();
+void GTitleNormal_Delete(GTitleO* obj);
+GTitleO* GTitleNormal();
 //===============================================
 #endif
 //===============================================
