@@ -52,7 +52,6 @@ void GSetting_Load(const char* file) {
 		GFree()->Free(lValue);
 		GFree()->Free2((void**)lSplit, lCount);
 	}
-	GConfig()->Remove("OS");
 	GConfig()->Show();
 	printf("\n");
 	fclose(lFile);

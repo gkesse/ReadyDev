@@ -1,24 +1,18 @@
 //===============================================
-#ifndef _GConfig_
-#define _GConfig_
+#ifndef _GFree_
+#define _GFree_
 //===============================================
 #include "GInclude.h"
 //===============================================
-typedef struct _GConfigO GConfigO;
+typedef struct _GFreeO GFreeO;
 //===============================================
-struct _GConfigO {
-	void* m_child;
+struct _GFreeO {
     void (*Delete)();
-    void (*Set_Data)(const char* key, const char* value);
-    char* (*Get_Data)(const char* key);
-    void (*Show)();
-    void (*Clear)();
-    void (*Remove)(const char* key);
+    void (*Free)(void* ptr);
+    void (*Free2)(void** ptr, int size);
 };
 //===============================================
-GConfigO* GConfig_New();
-void GConfig_Delete();
-GConfigO* GConfig();
+GFreeO* GFree();
 //===============================================
 #endif
 //===============================================

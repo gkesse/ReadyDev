@@ -1,24 +1,20 @@
 //===============================================
-#ifndef _GConfig_
-#define _GConfig_
+#ifndef _GProcess_
+#define _GProcess_
 //===============================================
 #include "GInclude.h"
 //===============================================
-typedef struct _GConfigO GConfigO;
+typedef struct _GProcessO GProcessO;
 //===============================================
-struct _GConfigO {
+struct _GProcessO {
 	void* m_child;
-    void (*Delete)();
-    void (*Set_Data)(const char* key, const char* value);
-    char* (*Get_Data)(const char* key);
-    void (*Show)();
-    void (*Clear)();
-    void (*Remove)(const char* key);
+    void (*Delete)(GProcessO* obj);
+    void (*Run)(int argc, char** argv);
 };
 //===============================================
-GConfigO* GConfig_New();
-void GConfig_Delete();
-GConfigO* GConfig();
+GProcessO* GProcess_New();
+void GProcess_Delete(GProcessO* obj);
+GProcessO* GProcess();
 //===============================================
 #endif
 //===============================================

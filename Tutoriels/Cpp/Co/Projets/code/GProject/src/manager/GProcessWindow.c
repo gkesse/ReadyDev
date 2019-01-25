@@ -8,13 +8,13 @@ static GProcessO* m_GProcessWindowO = 0;
 void GProcessWindow_Run(int argc, char** argv);
 //===============================================
 GProcessO* GProcessWindow_New() {
-	GProcessO* lObj = GProcess_New();
+	GProcessO* lParent = GProcess_New();
 	GProcessWindowO* lChild = (GProcessWindowO*)malloc(sizeof(GProcessWindowO));
-	lChild->m_parent = lObj;
-	lObj->m_child = lChild;
-	lObj->Delete = GProcessWindow_Delete;
-	lObj->Run = GProcessWindow_Run;
-	return lObj;
+	lChild->m_parent = lParent;
+	lParent->m_child = lChild;
+	lParent->Delete = GProcessWindow_Delete;
+	lParent->Run = GProcessWindow_Run;
+	return lParent;
 }
 //===============================================
 void GProcessWindow_Delete(GProcessO* obj) {

@@ -1,24 +1,17 @@
 //===============================================
-#ifndef _GConfig_
-#define _GConfig_
+#ifndef _GSetting_
+#define _GSetting_
 //===============================================
 #include "GInclude.h"
 //===============================================
-typedef struct _GConfigO GConfigO;
+typedef struct _GSettingO GSettingO;
 //===============================================
-struct _GConfigO {
-	void* m_child;
+struct _GSettingO {
     void (*Delete)();
-    void (*Set_Data)(const char* key, const char* value);
-    char* (*Get_Data)(const char* key);
-    void (*Show)();
-    void (*Clear)();
-    void (*Remove)(const char* key);
+    void (*Load)(const char* file);
 };
 //===============================================
-GConfigO* GConfig_New();
-void GConfig_Delete();
-GConfigO* GConfig();
+GSettingO* GSetting();
 //===============================================
 #endif
 //===============================================

@@ -1,12 +1,16 @@
 //===============================================
 #include "GProcess.h"
-#include "GProcessWindow.h"
+#include "GProcessNormal.h"
 #include "GKString.h"
 #include "GConfig.h"
+//===============================================
+void GProcess_Run(int argc, char** argv);
 //===============================================
 GProcessO* GProcess_New() {
     GProcessO* lObj = (GProcessO*)malloc(sizeof(GProcessO));
     lObj->m_child = 0;
+    lObj->Delete = GProcess_Delete;
+    lObj->Run = GProcess_Run;
     return lObj;
 }
 //===============================================
@@ -23,7 +27,9 @@ void GProcess_Delete(GProcessO* obj) {
 //===============================================
 GProcessO* GProcess() {
     char* lKey = GConfig()->Get_Data("PROCESS");
-    if(GKString()->Is_Equal(lKey, "WINDOW")) return GProcessWindow();
-    return GProcessWindow();
+    if(GKString()->Is_Equal(lKey, "WINDOW")) return GProcessNormal();
+    return GProcessNormal();
 }
+//===============================================
+void GProcess_Run(int argc, char** argv) {}
 //===============================================
