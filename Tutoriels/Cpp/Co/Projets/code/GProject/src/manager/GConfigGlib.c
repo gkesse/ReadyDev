@@ -18,7 +18,7 @@ GConfigO* GConfigGlib_New() {
 	GConfigGlibO* lChild = (GConfigGlibO*)malloc(sizeof(GConfigGlibO));
 
 	lChild->m_parent = lParent;
-	lChild->m_dataMap =  g_hash_table_new(g_str_hash, g_str_equal);;
+	lChild->m_dataMap =  g_hash_table_new(g_str_hash, g_str_equal);
 
 	lParent->m_child = lChild;
 	lParent->Delete = GConfigGlib_Delete;

@@ -25,17 +25,13 @@ GStyleO* GStyle() {
 }
 //===============================================
 void GStyle_Load(const char* file) {
-	/*GtkCssProvider *provider;
-	GdkDisplay *display;
-	GdkScreen *screen;
+	GtkCssProvider* lProvider = gtk_css_provider_new();
+	GdkDisplay* lDisplay = gdk_display_get_default();
+	GdkScreen* lScreen = gdk_display_get_default_screen(lDisplay);
+	gtk_style_context_add_provider_for_screen (lScreen, GTK_STYLE_PROVIDER(lProvider), GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
 
-	provider = gtk_css_provider_new ();
-	display = gdk_display_get_default ();
-	screen = gdk_display_get_default_screen (display);
-	gtk_style_context_add_provider_for_screen (screen, GTK_STYLE_PROVIDER(provider), GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
-
-	GError *error = 0;
-	gtk_css_provider_load_from_file(provider, g_file_new_for_path(file), &error);
-	g_object_unref (provider);*/
+	GError* lError = 0;
+	gtk_css_provider_load_from_file(lProvider, g_file_new_for_path(file), &lError);
+	g_object_unref(lProvider);
 }
 //===============================================

@@ -33,6 +33,13 @@ void GConfigNormal_Delete() {
 	GConfig_Delete();
 }
 //===============================================
+GConfigO* GConfigNormal() {
+	if(m_GConfigNormalO == 0) {
+		m_GConfigNormalO = GConfigNormal_New();
+	}
+	return m_GConfigNormalO;
+}
+//===============================================
 void GConfigNormal_Clear() {
 	GConfigNormalO* lConfigNormal = m_GConfigNormalO->m_child;
 	GNodeO* lNode = lConfigNormal->m_start;
@@ -81,13 +88,6 @@ void GConfigNormal_Remove_Node(GNodeO* node) {
 		node = 0;
 		if(lConfigNormal->m_size > 0) lConfigNormal->m_size -= 1;
 	}
-}
-//===============================================
-GConfigO* GConfigNormal() {
-	if(m_GConfigNormalO == 0) {
-		m_GConfigNormalO = GConfigNormal_New();
-	}
-	return m_GConfigNormalO;
 }
 //===============================================
 void GConfigNormal_Set_Data(const char* key, const char* value) {

@@ -8,6 +8,7 @@ typedef struct _GKStringO GKStringO;
 //===============================================
 struct _GKStringO {
 	void* m_child;
+    void (*Delete)();
     int (*Size)(const char* str);
     int (*Is_Equal)(const char* str1, const char* str2);
     char* (*Copy)(const char* str);
@@ -17,6 +18,8 @@ struct _GKStringO {
     void (*Free2)(char** ptr, const int size);
 };
 //===============================================
+GKStringO* GKString_New();
+void GKString_Delete();
 GKStringO* GKString();
 //===============================================
 #endif

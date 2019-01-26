@@ -7,21 +7,25 @@ static GSettingO* m_GSettingO = 0;
 //===============================================
 const char G_CHAR_COMMENT = '#';
 //===============================================
-GSettingO* GSetting_New();
-void GSetting_Delete();
 void GSetting_Load(const char* file);
 //===============================================
 GSettingO* GSetting_New() {
 	GSettingO* lObj = (GSettingO*)malloc(sizeof(GSettingO));
+	lObj->m_child = 0;
 	lObj->Delete = GSetting_Delete;
 	lObj->Load = GSetting_Load;
 	return lObj;
 }
 //===============================================
 void GSetting_Delete() {
-	if(m_GSettingO != 0) {
-		free(m_GSettingO);
-		m_GSettingO = 0;
+	GSettingO* lObj = GSetting();
+	if(lObj != 0) {
+		if(lObj->m_child != 0) {
+			free(lObj->m_child);
+			lObj->m_child = 0;
+		}
+		free(lObj);
+		lObj = 0;
 	}
 }
 //===============================================

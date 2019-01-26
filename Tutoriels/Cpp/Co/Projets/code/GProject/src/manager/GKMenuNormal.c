@@ -1,34 +1,32 @@
 //===============================================
 #include "GKMenuNormal.h"
 //===============================================
-static GKMenuO* m_GKMenuNormalO = 0;
-//===============================================
-GKMenuO* GKMenuNormal_New();
-void GKMenuNormal_Delete(GKMenuO* obj);
-void GKMenuNormal_Create(GKMenuO* obj);
+GtkWidget* GKMenuNormal_Widget();
 //===============================================
 GKMenuO* GKMenuNormal_New() {
-	GKMenuO* lObj = GKMenu_New();
+	GKMenuO* lParent = GKMenu_New();
 	GKMenuNormalO* lChild = (GKMenuNormalO*)malloc(sizeof(GKMenuNormalO));
-	lChild->m_parent = lObj;
-	lObj->m_child = lChild;
-	lObj->Delete = GKMenuNormal_Delete;
-	lObj->Create = GKMenuNormal_Create;
-	return lObj;
+
+	lChild->m_parent = lParent;
+
+	lParent->m_child = lChild;
+	lParent->Delete = GKMenuNormal_Delete;
+	lParent->m_widget = GKMenuNormal_Widget();
+	return lParent;
 }
 //===============================================
 void GKMenuNormal_Delete(GKMenuO* obj) {
 	GKMenu_Delete(obj);
 }
 //===============================================
-GKMenuO* GKMenuNormal() {
-	if(m_GKMenuNormalO == 0) {
-		m_GKMenuNormalO = GKMenuNormal_New();
-	}
-	return m_GKMenuNormalO;
+GtkWidget* GKMenuNormal_Widget() {
+	GtkWidget* lWidget = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
+	GtkWidget* lButton1 = gtk_button_new_with_label("Module");
+    gtk_box_pack_start(GTK_BOX(lWidget), lButton1, FALSE, FALSE, 0);
+	return lWidget;
 }
 //===============================================
-void GKMenuNormal_Create(GKMenuO* obj) {
-
+GKMenuO* GKMenuNormal() {
+	return GKMenuNormal_New();
 }
 //===============================================

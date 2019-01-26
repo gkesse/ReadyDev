@@ -1,41 +1,41 @@
 //===============================================
 #include "GWindowNormal.h"
-#include "GKMenu.h"
 #include "GTitle.h"
+#include "GKMenu.h"
 //===============================================
-static GWindowNormalO* m_GWindowNormalO = 0;
+static GWindowO* m_GWindowNormalO = 0;
 //===============================================
-GWindowNormalO* GWindowNormal_Constructor();
-void GWindowNormal_Interface(GWindowNormalO* obj);
-void GWindowNormal_Strategy(GWindowO* obj);
-void GWindowNormal_Initialize(int* argc, char*** argv);
+void GWindowNormal_Initialize(int argc, char** argv);
 void GWindowNormal_Show();
-void GWindowNormal_OnDestroy();
 //===============================================
-GWindowNormalO* GWindowNormal_Constructor() {
-	GWindowNormalO* lObj = (GWindowNormalO*)malloc(sizeof(GWindowNormalO));
-	GWindowNormal_Interface(lObj);
-	return lObj;
+static void GWindowNormal_On_Destroy();
+//===============================================
+GWindowO* GWindowNormal_New() {
+	GWindowO* lParent = GWindow_New();
+	GWindowNormalO* lChild = (GWindowNormalO*)malloc(sizeof(GWindowNormalO));
+
+	lChild->m_parent = lParent;
+
+	lParent->m_child = lChild;
+	lParent->Delete = GWindowNormal_Delete;
+	lParent->Initialize = GWindowNormal_Initialize;
+	lParent->Show = GWindowNormal_Show;
+	return lParent;
 }
 //===============================================
-void GWindowNormal_Interface(GWindowNormalO* obj) {
-	obj->Strategy = GWindowNormal_Strategy;
+void GWindowNormal_Delete() {
+	GWindow_Delete();
 }
 //===============================================
-GWindowNormalO* GWindowNormal() {
+GWindowO* GWindowNormal() {
 	if(m_GWindowNormalO == 0) {
-		m_GWindowNormalO = GWindowNormal_Constructor();
+		m_GWindowNormalO = GWindowNormal_New();
 	}
 	return m_GWindowNormalO;
 }
 //===============================================
-void GWindowNormal_Strategy(GWindowO* obj) {
-	obj->Initialize = GWindowNormal_Initialize;
-	obj->Show = GWindowNormal_Show;
-}
-//===============================================
-void GWindowNormal_Initialize(int* argc, char*** argv) {
-	gtk_init(argc, argv);
+void GWindowNormal_Initialize(int argc, char** argv) {
+	gtk_init(&argc, &argv);
 }
 //===============================================
 void GWindowNormal_Show() {
@@ -45,25 +45,21 @@ void GWindowNormal_Show() {
 	gtk_window_set_title(GTK_WINDOW(lWindow), "C | ReadyDev");
 
 	GtkWidget* lTitle = GTitle("NORMAL")->m_widget;
-	GtkWidget* lBody = gtk_button_new_with_label("Body");
+	GtkWidget* lMenu = GKMenu("NORMAL")->m_widget;
 
-	GKMenuO* lMenu = GKMenu("NORMAL");
-	lMenu->Create(lMenu);
-
-	GtkWidget* lMainLayout = gtk_vbox_new(TRUE, 0);
+	GtkWidget* lMainLayout = gtk_box_new(GTK_ORIENTATION_VERTICAL, 5);
 	gtk_box_pack_start(GTK_BOX(lMainLayout), lTitle, FALSE, FALSE, 0);
-	gtk_box_pack_start(GTK_BOX(lMainLayout), lBody, FALSE, FALSE, 0);
-	gtk_box_set_homogeneous(GTK_BOX(lMainLayout), FALSE);
+	gtk_box_pack_start(GTK_BOX(lMainLayout), lMenu, FALSE, FALSE, 0);
+
 	gtk_container_add(GTK_CONTAINER(lWindow), lMainLayout);
 
-	g_signal_connect(G_OBJECT(lWindow), "destroy", G_CALLBACK(GWindowNormal_OnDestroy), NULL);
+	g_signal_connect(G_OBJECT(lWindow), "destroy", G_CALLBACK(GWindowNormal_On_Destroy), NULL);
 
 	gtk_widget_show_all(lWindow);
 	gtk_main();
 }
 //===============================================
-void GWindowNormal_OnDestroy() {
+static void GWindowNormal_On_Destroy() {
 	gtk_main_quit();
 }
 //===============================================
-

@@ -3,7 +3,6 @@
 //===============================================
 static GKStringO* m_GKStringO = 0;
 //===============================================
-GKStringO* GKString_New();
 int GKString_Size(const char* str);
 int GKString_Is_Equal(const char* str1, const char* str2);
 char* GKString_Copy(const char* str);
@@ -15,6 +14,7 @@ void GKString_Free2(char** ptr, const int size);
 GKStringO* GKString_New() {
     GKStringO* lObj = (GKStringO*)malloc(sizeof(GKStringO));
     lObj->m_child = 0;
+    lObj->Delete = GKString_Delete;
     lObj->Size = GKString_Size;
     lObj->Is_Equal = GKString_Is_Equal;
     lObj->Copy = GKString_Copy;
@@ -53,13 +53,13 @@ int GKString_Size(const char* str) {
 int GKString_Is_Equal(const char* str1, const char* str2) {
     int lSize1 = GKString_Size(str1);
     int lSize2 = GKString_Size(str2);
-    if(lSize1 != lSize2) {return GFALSE;}
+    if(lSize1 != lSize2) {return FALSE;}
     int i = 0;
     while(str1[i] != 0) {
-        if(str1[i] != str2[i]) {return GFALSE;}
+        if(str1[i] != str2[i]) {return FALSE;}
         i += 1;
     }
-    return GTRUE;
+    return TRUE;
 }
 //===============================================
 char* GKString_Copy(const char* str) {

@@ -4,34 +4,28 @@
 #include "GKString.h"
 #include "GConfig.h"
 //===============================================
-static GWindowO* m_GWindowO = 0;
-//===============================================
-GWindowO* GWindow_Constructor();
-void GWindow_Init(GWindowO* obj);
-void GWindow_Strategy();
-//===============================================
-GWindowO* GWindow_Constructor() {
+GWindowO* GWindow_New() {
     GWindowO* lObj = (GWindowO*)malloc(sizeof(GWindowO));
-    GWindow_Init(lObj);
+    lObj->m_child = 0;
     return lObj;
 }
 //===============================================
-void GWindow_Init(GWindowO* obj) {
-    obj->Strategy = GWindow_Strategy;
+void GWindow_Delete() {
+	GWindowO* lObj = GWindow();
+	if(lObj != 0) {
+		if(lObj->m_child != 0) {
+			free(lObj->m_child);
+			lObj->m_child = 0;
+		}
+		free(lObj);
+		lObj = 0;
+	}
 }
 //===============================================
 GWindowO* GWindow() {
-    if(m_GWindowO == 0) {
-        m_GWindowO = GWindow_Constructor();
-    }
-    m_GWindowO->Strategy();
-    return m_GWindowO;
-}
-//===============================================
-void GWindow_Strategy() {
-    char* lKey = GConfig()->Get_Data("PROCESS");
-    if(GKString()->Is_Equal(lKey, "WINDOW")) {GWindowNormal()->Strategy(m_GWindowO);}
-    else {GWindowNormal()->Strategy(m_GWindowO);}
+    char* lKey = GConfig()->Get_Data("WINDOW");
+    if(GKString()->Is_Equal(lKey, "NORMAL")) return GWindowNormal();
+    return GWindowNormal();
 }
 //===============================================
 

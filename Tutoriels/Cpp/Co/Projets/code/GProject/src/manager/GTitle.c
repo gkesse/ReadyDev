@@ -31,4 +31,3 @@ GTitleO* GTitle(const char* key) {
     return GTitleNormal();
 }
 //===============================================
-

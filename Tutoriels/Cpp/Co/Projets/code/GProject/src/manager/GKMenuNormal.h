@@ -10,6 +10,8 @@ struct _GKMenuNormalO {
 	GKMenuO* m_parent;
 };
 //===============================================
+GKMenuO* GKMenuNormal_New();
+void GKMenuNormal_Delete(GKMenuO* obj);
 GKMenuO* GKMenuNormal();
 //===============================================
 #endif
