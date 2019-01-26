@@ -7,6 +7,8 @@
 typedef struct _GStyleO GStyleO;
 //===============================================
 struct _GStyleO {
+	void* m_child;
+    void (*Delete)();
     void (*Load)(const char* file);
 };
 //===============================================
