@@ -20,13 +20,20 @@ void GKMenuNormal_Delete(GKMenuO* obj) {
 }
 //===============================================
 GtkWidget* GKMenuNormal_Widget() {
-    GtkWidget* lWidget = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
-    gtk_widget_set_name(GTK_WIDGET(lWidget), "GBox");
+	GtkWidget* lWidget = gtk_event_box_new();
+	gtk_widget_set_name(GTK_WIDGET(lWidget), "GBox");
 
-    GtkWidget* lAddModule = gtk_button_new_with_label("Module");
-    gtk_widget_set_name(GTK_WIDGET(lAddModule), "GButton");
+    GtkWidget* lLayout = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
 
-    gtk_box_pack_start(GTK_BOX(lWidget), lAddModule, FALSE, FALSE, 0);
+	GtkWidget* lAddModule = gtk_button_new();
+	gtk_widget_set_name(GTK_WIDGET(lAddModule), "GButton");
+	GdkPixbuf* lAddModulePix = gdk_pixbuf_new_from_file_at_scale("res/img/plus.png", 16, 16, TRUE, 0);
+	GtkWidget* lAddModuleImg = gtk_image_new_from_pixbuf (lAddModulePix);
+	gtk_button_set_image(GTK_BUTTON(lAddModule), lAddModuleImg);
+
+    gtk_box_pack_start(GTK_BOX(lLayout), lAddModule, FALSE, FALSE, 0);
+
+	gtk_container_add(GTK_CONTAINER(lWidget), lLayout);
 
     return lWidget;
 }

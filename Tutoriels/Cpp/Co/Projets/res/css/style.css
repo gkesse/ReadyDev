@@ -18,14 +18,14 @@
 #GButton {
     border-image: none;
     background-image: none;
-    background-color: rgba(255,255,255,0.2);
+    background-color: transparent;
     padding: 0px;
 }
 #GButton:hover {
-    background-color: rgba(255,255,255,0.4);
+    background-color: rgba(255,255,255,0.2);
 }
 #GButton:active {
-    background-color: rgba(255,255,255,0.2);
+    background-color: transparent;
 }
 /*-----------------------------------------------*/
 /* GLabel */
@@ -37,7 +37,6 @@
 /*-----------------------------------------------*/
 /* GBox */
 #GBox {
-    background-color: red;
-    padding: 50px;
+    background-color: rgba(255,255,255,0.2);
 }
 /*===============================================*/
