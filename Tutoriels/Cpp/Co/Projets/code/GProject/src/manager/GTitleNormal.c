@@ -39,18 +39,21 @@ GtkWidget* GTitleNormal_Widget() {
 	GdkPixbuf* lMinimizePix = gdk_pixbuf_new_from_file_at_scale("res/img/minimize.png", 16, 16, TRUE, 0);
 	GtkWidget* lMinimizeImg = gtk_image_new_from_pixbuf (lMinimizePix);
 	gtk_button_set_image(GTK_BUTTON(lMinimize), lMinimizeImg);
+	gtk_widget_set_can_focus(GTK_WIDGET(lMinimize), FALSE);
 
 	GtkWidget* lMaximize = gtk_button_new();
 	gtk_widget_set_name(GTK_WIDGET(lMaximize), "GButton");
 	GdkPixbuf* lMaximizePix = gdk_pixbuf_new_from_file_at_scale("res/img/maximize.png", 16, 16, TRUE, 0);
 	GtkWidget* lMaximizeImg = gtk_image_new_from_pixbuf (lMaximizePix);
 	gtk_button_set_image(GTK_BUTTON(lMaximize), lMaximizeImg);
+	gtk_widget_set_can_focus(GTK_WIDGET(lMaximize), FALSE);
 
 	GtkWidget* lClose = gtk_button_new();
 	gtk_widget_set_name(GTK_WIDGET(lClose), "GButton");
 	GdkPixbuf* lClosePix = gdk_pixbuf_new_from_file_at_scale("res/img/close.png", 16, 16, TRUE, 0);
 	GtkWidget* lCloseImg = gtk_image_new_from_pixbuf (lClosePix);
 	gtk_button_set_image(GTK_BUTTON(lClose), lCloseImg);
+	gtk_widget_set_can_focus(GTK_WIDGET(lClose), FALSE);
 
 	gtk_box_pack_start(GTK_BOX(lLayout), lIcon, FALSE, FALSE, 0);
 	gtk_box_pack_start(GTK_BOX(lLayout), lTitle, TRUE, TRUE, 0);
