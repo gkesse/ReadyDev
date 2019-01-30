@@ -11,15 +11,15 @@ GConfigO* GConfig_New() {
 }
 //===============================================
 void GConfig_Delete() {
-	GConfigO* lObj = GConfig();
-	if(lObj != 0) {
-		if(lObj->m_child != 0) {
-			free(lObj->m_child);
-			lObj->m_child = 0;
-		}
-		free(lObj);
-		lObj = 0;
-	}
+    GConfigO* lObj = GConfig();
+    if(lObj != 0) {
+        if(lObj->m_child != 0) {
+            free(lObj->m_child);
+            lObj->m_child = 0;
+        }
+        free(lObj);
+        lObj = 0;
+    }
 }
 //===============================================
 GConfigO* GConfig() {

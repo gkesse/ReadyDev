@@ -7,7 +7,7 @@
 typedef struct _GTitleNormalO GTitleNormalO;
 //===============================================
 struct _GTitleNormalO {
-	GTitleO* m_parent;
+    GTitleO* m_parent;
 };
 //===============================================
 GTitleO* GTitleNormal_New();

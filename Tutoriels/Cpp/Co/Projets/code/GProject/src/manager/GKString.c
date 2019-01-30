@@ -26,15 +26,15 @@ GKStringO* GKString_New() {
 }
 //===============================================
 void GKString_Delete() {
-	GKStringO* lObj = GKString();
-	if(lObj != 0) {
-		if(lObj->m_child != 0) {
-			free(lObj->m_child);
-			lObj->m_child = 0;
-		}
-		free(lObj);
-		lObj = 0;
-	}
+    GKStringO* lObj = GKString();
+    if(lObj != 0) {
+        if(lObj->m_child != 0) {
+            free(lObj->m_child);
+            lObj->m_child = 0;
+        }
+        free(lObj);
+        lObj = 0;
+    }
 }
 //===============================================
 GKStringO* GKString() {
@@ -120,22 +120,22 @@ char** GKString_Split(const char* str, const char* sep, int* count) {
 }
 //===============================================
 void GKString_Free(char* ptr) {
-	if(ptr != 0) {
-		free(ptr);
-		ptr = 0;
-	}
+    if(ptr != 0) {
+        free(ptr);
+        ptr = 0;
+    }
 }
 //===============================================
 void GKString_Free2(char** ptr, const int size) {
-	if(ptr != 0) {
-		for(int i = 0; i < size; i++) {
-			if(ptr[i] != 0) {
-				free(ptr[i]);
-				ptr[i] = 0;
-			}
-		}
-		free(ptr);
-		ptr = 0;
-	}
+    if(ptr != 0) {
+        for(int i = 0; i < size; i++) {
+            if(ptr[i] != 0) {
+                free(ptr[i]);
+                ptr[i] = 0;
+            }
+        }
+        free(ptr);
+        ptr = 0;
+    }
 }
 //===============================================

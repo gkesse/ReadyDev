@@ -1,18 +1,18 @@
 //===============================================
-#ifndef _GStyle_
-#define _GStyle_
+#ifndef _GWorkspaceNormal_
+#define _GWorkspaceNormal_
 //===============================================
-#include "GInclude.h"
+#include "GWorkspace.h"
 //===============================================
-typedef struct _GStyleO GStyleO;
+typedef struct _GWorkspaceNormalO GWorkspaceNormalO;
 //===============================================
-struct _GStyleO {
-    void* m_child;
-    void (*Delete)();
-    void (*Load)(const char* file);
+struct _GWorkspaceNormalO {
+    GWorkspaceO* m_parent;
 };
 //===============================================
-GStyleO* GStyle();
+GWorkspaceO* GWorkspaceNormal_New();
+void GWorkspaceNormal_Delete(GWorkspaceO* obj);
+GWorkspaceO* GWorkspaceNormal();
 //===============================================
 #endif
 //===============================================

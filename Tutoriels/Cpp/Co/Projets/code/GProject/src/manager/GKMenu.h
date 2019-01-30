@@ -7,7 +7,7 @@
 typedef struct _GKMenuO GKMenuO;
 //===============================================
 struct _GKMenuO {
-	void* m_child;
+    void* m_child;
     void (*Delete)(GKMenuO* obj);
     GtkWidget* m_widget;
 };

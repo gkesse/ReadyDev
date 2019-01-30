@@ -1,38 +1,43 @@
-GtkWindow {
-    background-color: #ffA4A4;
-    color: cyan;
-    border-width: 3px;
-    border-color: blue;
+/*===============================================*/
+/* Global Style */
+/*===============================================*/
+* {
+    font-family: Arial;
+    font-size: 12;
+    color: white;
 }
-
-#myGrid {
-    background-color: white;
-    border-style: solid;
-    border-width: 3px;
-    border-radius: 15px;
-    border-color: grey;
+/*===============================================*/
+/* Common Style */
+/*===============================================*/
+/* GWindow */
+#GWindow {
+    background-color: #000033;
 }
-
-#myChild {
-    background-color: red;
-    border-style: solid;
-    border-width: 3px;
-    border-radius: 15px;
-    border-color: grey;
-}
-
-#tgl_btn{
-    background-color: red;
-    color: red;
-}
-
-
-GtkButton {
+/*-----------------------------------------------*/
+/* GButton */
+#GButton {
+    border-image: none;
     background-image: none;
-    background-color: blue;
-    margin: 20px;
+    background-color: rgba(255,255,255,0.2);
+    padding: 0px;
 }
-
-GtkButton:active {
-    background-color: #00FF00;
+#GButton:hover {
+    background-color: rgba(255,255,255,0.4);
 }
+#GButton:active {
+    background-color: rgba(255,255,255,0.2);
+}
+/*-----------------------------------------------*/
+/* GLabel */
+#GLabel_Title {
+    font-family: Impact;
+    font-size: 20;
+    color: darkorange;
+}
+/*-----------------------------------------------*/
+/* GBox */
+#GBox {
+    background-color: red;
+    padding: 50px;
+}
+/*===============================================*/

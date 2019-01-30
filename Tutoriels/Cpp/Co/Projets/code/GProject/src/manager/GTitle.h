@@ -7,7 +7,7 @@
 typedef struct _GTitleO GTitleO;
 //===============================================
 struct _GTitleO {
-	void* m_child;
+    void* m_child;
     void (*Delete)(GTitleO* obj);
     GtkWidget* m_widget;
 };

@@ -7,7 +7,7 @@
 typedef struct _GWindowNormalO GWindowNormalO;
 //===============================================
 struct _GWindowNormalO {
-	GWindowO* m_parent;
+    GWindowO* m_parent;
 };
 //===============================================
 GWindowO* GWindowNormal_New();

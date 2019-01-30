@@ -7,8 +7,8 @@
 typedef struct _GConfigGlibO GConfigGlibO;
 //===============================================
 struct _GConfigGlibO {
-	GConfigO* m_parent;
-	GHashTable* m_dataMap;
+    GConfigO* m_parent;
+    GHashTable* m_dataMap;
 };
 //===============================================
 GConfigO* GConfigGlib_New();

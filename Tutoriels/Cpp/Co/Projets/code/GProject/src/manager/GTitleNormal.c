@@ -6,45 +6,67 @@ GtkWidget* GTitleNormal_Widget();
 static void GTitleNormal_On_Close(GtkButton* button, gpointer params);
 //===============================================
 GTitleO* GTitleNormal_New() {
-	GTitleO* lParent = GTitle_New();
-	GTitleNormalO* lChild = (GTitleNormalO*)malloc(sizeof(GTitleNormalO));
+    GTitleO* lParent = GTitle_New();
+    GTitleNormalO* lChild = (GTitleNormalO*)malloc(sizeof(GTitleNormalO));
 
-	lChild->m_parent = lParent;
+    lChild->m_parent = lParent;
 
-	lParent->m_child = lChild;
-	lParent->Delete = GTitleNormal_Delete;
-	lParent->m_widget = GTitleNormal_Widget();
-	return lParent;
+    lParent->m_child = lChild;
+    lParent->Delete = GTitleNormal_Delete;
+    lParent->m_widget = GTitleNormal_Widget();
+    return lParent;
 }
 //===============================================
 void GTitleNormal_Delete(GTitleO* obj) {
-	GTitle_Delete(obj);
+    GTitle_Delete(obj);
 }
 //===============================================
 GtkWidget* GTitleNormal_Widget() {
-	GtkWidget* lWidget = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 5);
-	GtkWidget* lIcon = gtk_label_new("ICON");
-	GtkWidget* lTitle = gtk_label_new("C | ReadyDev");
-	GtkWidget* lClose = gtk_button_new_with_label("Fermer");
+    GtkWidget* lWidget = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 5);
+    gtk_widget_set_name(GTK_WIDGET(lWidget), "GBox");
 
-	GtkWidget *image = gtk_image_new_from_file("document-new-symbolic.png");
-	gtk_button_set_image(GTK_BUTTON(lClose), image);
+    GdkPixbuf* lIconPix = gdk_pixbuf_new_from_file_at_scale("res/img/logo2.png", 32, 32, TRUE, 0);
+    GtkWidget* lIcon = gtk_image_new_from_pixbuf (lIconPix);
+    gtk_widget_set_name(GTK_WIDGET(lIcon), "GImage");
+
+    GtkWidget* lTitle = gtk_label_new("C | ReadyDev");
+    gtk_widget_set_name(GTK_WIDGET(lTitle), "GLabel_Title");
+    gtk_widget_set_halign(GTK_WIDGET(lTitle), GTK_ALIGN_START);
+
+    GtkWidget* lMinimize = gtk_button_new();
+    gtk_widget_set_name(GTK_WIDGET(lMinimize), "GButton");
+    GdkPixbuf* lMinimizePix = gdk_pixbuf_new_from_file_at_scale("res/img/minimize.png", 16, 16, TRUE, 0);
+    GtkWidget* lMinimizeImg = gtk_image_new_from_pixbuf (lMinimizePix);
+    gtk_button_set_image(GTK_BUTTON(lMinimize), lMinimizeImg);
+
+    GtkWidget* lMaximize = gtk_button_new();
+    gtk_widget_set_name(GTK_WIDGET(lMaximize), "GButton");
+    GdkPixbuf* lMaximizePix = gdk_pixbuf_new_from_file_at_scale("res/img/maximize.png", 16, 16, TRUE, 0);
+    GtkWidget* lMaximizeImg = gtk_image_new_from_pixbuf (lMaximizePix);
+    gtk_button_set_image(GTK_BUTTON(lMaximize), lMaximizeImg);
+
+    GtkWidget* lClose = gtk_button_new();
+    gtk_widget_set_name(GTK_WIDGET(lClose), "GButton");
+    GdkPixbuf* lClosePix = gdk_pixbuf_new_from_file_at_scale("res/img/close.png", 16, 16, TRUE, 0);
+    GtkWidget* lCloseImg = gtk_image_new_from_pixbuf (lClosePix);
+    gtk_button_set_image(GTK_BUTTON(lClose), lCloseImg);
 
     gtk_box_pack_start(GTK_BOX(lWidget), lIcon, FALSE, FALSE, 0);
     gtk_box_pack_start(GTK_BOX(lWidget), lTitle, TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(lWidget), lMinimize, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(lWidget), lMaximize, FALSE, FALSE, 0);
     gtk_box_pack_start(GTK_BOX(lWidget), lClose, FALSE, FALSE, 0);
 
     g_signal_connect(G_OBJECT(lClose), "pressed", G_CALLBACK(GTitleNormal_On_Close), 0);
 
-	return lWidget;
-	return 0;
+    return lWidget;
 }
 //===============================================
 GTitleO* GTitleNormal() {
-	return GTitleNormal_New();
+    return GTitleNormal_New();
 }
 //===============================================
 static void GTitleNormal_On_Close(GtkButton* button, gpointer params) {
-	gtk_main_quit();
+    gtk_main_quit();
 }
 //===============================================

@@ -14,15 +14,15 @@ GPrintO* GPrint_New() {
 }
 //===============================================
 void GPrint_Delete() {
-	GPrintO* lObj = GPrint();
-	if(lObj != 0) {
-		if(lObj->m_child != 0) {
-			free(lObj->m_child);
-			lObj->m_child = 0;
-		}
-		free(lObj);
-		lObj = 0;
-	}
+    GPrintO* lObj = GPrint();
+    if(lObj != 0) {
+        if(lObj->m_child != 0) {
+            free(lObj->m_child);
+            lObj->m_child = 0;
+        }
+        free(lObj);
+        lObj = 0;
+    }
 }
 //===============================================
 GPrintO* GPrint() {

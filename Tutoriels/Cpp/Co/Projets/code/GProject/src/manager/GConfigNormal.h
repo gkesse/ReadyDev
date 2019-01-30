@@ -15,7 +15,7 @@ struct _GNodeO {
 };
 //===============================================
 struct _GConfigNormalO {
-	GConfigO* m_parent;
+    GConfigO* m_parent;
     GNodeO* m_start;
     int m_size;
 };

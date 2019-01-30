@@ -11,14 +11,14 @@ GProcessO* GProcess_New() {
 }
 //===============================================
 void GProcess_Delete(GProcessO* obj) {
-	if(obj != 0) {
-		if(obj->m_child != 0) {
-			free(obj->m_child);
-			obj->m_child = 0;
-		}
-		free(obj);
-		obj = 0;
-	}
+    if(obj != 0) {
+        if(obj->m_child != 0) {
+            free(obj->m_child);
+            obj->m_child = 0;
+        }
+        free(obj);
+        obj = 0;
+    }
 }
 //===============================================
 GProcessO* GProcess() {

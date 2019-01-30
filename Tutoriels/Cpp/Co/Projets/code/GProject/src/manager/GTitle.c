@@ -12,18 +12,18 @@ GTitleO* GTitle_New() {
 }
 //===============================================
 void GTitle_Delete(GTitleO* obj) {
-	if(obj != 0) {
-		if(obj->m_child != 0) {
-			free(obj->m_child);
-			obj->m_child = 0;
-		}
-		if(obj->m_widget != 0) {
-			gtk_widget_destroy(obj->m_widget);
-			obj->m_widget = 0;
-		}
-		free(obj);
-		obj = 0;
-	}
+    if(obj != 0) {
+        if(obj->m_child != 0) {
+            free(obj->m_child);
+            obj->m_child = 0;
+        }
+        if(obj->m_widget != 0) {
+            gtk_widget_destroy(obj->m_widget);
+            obj->m_widget = 0;
+        }
+        free(obj);
+        obj = 0;
+    }
 }
 //===============================================
 GTitleO* GTitle(const char* key) {

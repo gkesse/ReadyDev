@@ -7,7 +7,7 @@
 typedef struct _GProcessWindowO GProcessWindowO;
 //===============================================
 struct _GProcessWindowO {
-	GProcessO* m_parent;
+    GProcessO* m_parent;
 };
 //===============================================
 GProcessO* GProcessWindow_New();

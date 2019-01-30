@@ -7,7 +7,7 @@
 typedef struct _GKMenuNormalO GKMenuNormalO;
 //===============================================
 struct _GKMenuNormalO {
-	GKMenuO* m_parent;
+    GKMenuO* m_parent;
 };
 //===============================================
 GKMenuO* GKMenuNormal_New();

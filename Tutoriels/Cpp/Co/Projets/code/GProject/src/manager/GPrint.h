@@ -7,7 +7,7 @@
 typedef struct _GPrintO GPrintO;
 //===============================================
 struct _GPrintO {
-	void* m_child;
+    void* m_child;
     void (*Delete)();
     void (*Print)(const char* data);
 };
