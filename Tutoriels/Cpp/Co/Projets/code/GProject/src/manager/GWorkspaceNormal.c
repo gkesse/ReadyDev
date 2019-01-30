@@ -20,7 +20,12 @@ void GWorkspaceNormal_Delete(GWorkspaceO* obj) {
 }
 //===============================================
 GtkWidget* GWorkspaceNormal_Widget() {
-    GtkWidget* lWidget = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
+	GtkWidget* lWidget = gtk_event_box_new();
+	gtk_widget_set_name(GTK_WIDGET(lWidget), "GBox");
+
+	GtkWidget* lLayout = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
+
+	gtk_container_add(GTK_CONTAINER(lWidget), lLayout);
 
     return lWidget;
 }

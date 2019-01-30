@@ -53,11 +53,11 @@ void GWindowNormal_Show() {
 
     GtkWidget* lCenterLayout = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 10);
     gtk_box_pack_start(GTK_BOX(lCenterLayout), lMenu, FALSE, FALSE, 0);
-    gtk_box_pack_start(GTK_BOX(lCenterLayout), lWorkspace, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(lCenterLayout), lWorkspace, TRUE, TRUE, 0);
 
     GtkWidget* lMainLayout = gtk_box_new(GTK_ORIENTATION_VERTICAL, 10);
     gtk_box_pack_start(GTK_BOX(lMainLayout), lTitle, FALSE, FALSE, 0);
-    gtk_box_pack_start(GTK_BOX(lMainLayout), lCenterLayout, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(lMainLayout), lCenterLayout, TRUE, TRUE, 0);
 
     gtk_container_add(GTK_CONTAINER(lWindow), lMainLayout);
 
