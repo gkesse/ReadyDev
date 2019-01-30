@@ -18,7 +18,7 @@ void GKMenu_Delete(GKMenuO* obj) {
             obj->m_child = 0;
         }
         if(obj->m_widget != 0) {
-            //gtk_widget_destroy(GTK_WIDGET(obj->m_widget));
+            gtk_widget_destroy(GTK_WIDGET(obj->m_widget));
             obj->m_widget = 0;
         }
         free(obj);

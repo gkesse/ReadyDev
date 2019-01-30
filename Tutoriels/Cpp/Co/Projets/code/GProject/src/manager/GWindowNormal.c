@@ -47,16 +47,16 @@ void GWindowNormal_Show() {
     gtk_window_set_title(GTK_WINDOW(lWindow), "C | ReadyDev");
     gtk_window_set_decorated(GTK_WINDOW(lWindow), FALSE);
 
-    GtkWidget* lTitle = GTitle("NORMAL")->m_widget;
-    GtkWidget* lMenu = GKMenu("NORMAL")->m_widget;
-    GtkWidget* lWorkspace = GWorkspace("NORMAL")->m_widget;
+    GTitleO* lTitle = GTitle("NORMAL");
+    GKMenuO* lMenu = GKMenu("NORMAL");
+    GWorkspaceO* lWorkspace = GWorkspace("NORMAL");
 
     GtkWidget* lCenterLayout = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 10);
-    gtk_box_pack_start(GTK_BOX(lCenterLayout), lMenu, FALSE, FALSE, 0);
-    gtk_box_pack_start(GTK_BOX(lCenterLayout), lWorkspace, TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(lCenterLayout), lMenu->m_widget, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(lCenterLayout), lWorkspace->m_widget, TRUE, TRUE, 0);
 
     GtkWidget* lMainLayout = gtk_box_new(GTK_ORIENTATION_VERTICAL, 10);
-    gtk_box_pack_start(GTK_BOX(lMainLayout), lTitle, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(lMainLayout), lTitle->m_widget, FALSE, FALSE, 0);
     gtk_box_pack_start(GTK_BOX(lMainLayout), lCenterLayout, TRUE, TRUE, 0);
 
     gtk_container_add(GTK_CONTAINER(lWindow), lMainLayout);

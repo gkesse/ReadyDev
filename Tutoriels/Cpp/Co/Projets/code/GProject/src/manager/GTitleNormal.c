@@ -3,6 +3,8 @@
 //===============================================
 GtkWidget* GTitleNormal_Widget();
 //===============================================
+static void GTitleNormal_On_Minimize(GtkButton* button, gpointer params);
+static void GTitleNormal_On_Maximize(GtkButton* button, gpointer params);
 static void GTitleNormal_On_Close(GtkButton* button, gpointer params);
 //===============================================
 GTitleO* GTitleNormal_New() {
@@ -27,7 +29,7 @@ GtkWidget* GTitleNormal_Widget() {
 
 	GtkWidget* lLayout = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 5);
 
-	GdkPixbuf* lIconPix = gdk_pixbuf_new_from_file_at_scale("res/img/logo2.png", 32, 32, TRUE, 0);
+	GdkPixbuf* lIconPix = gdk_pixbuf_new_from_file_at_scale("res/img/logo.png", 32, 32, TRUE, 0);
 	GtkWidget* lIcon = gtk_image_new_from_pixbuf(lIconPix);
 
 	GtkWidget* lTitle = gtk_label_new("C | ReadyDev");
@@ -63,6 +65,8 @@ GtkWidget* GTitleNormal_Widget() {
 
 	gtk_container_add(GTK_CONTAINER(lWidget), lLayout);
 
+	g_signal_connect(G_OBJECT(lMinimize), "pressed", G_CALLBACK(GTitleNormal_On_Minimize), 0);
+	g_signal_connect(G_OBJECT(lMaximize), "pressed", G_CALLBACK(GTitleNormal_On_Maximize), 0);
 	g_signal_connect(G_OBJECT(lClose), "pressed", G_CALLBACK(GTitleNormal_On_Close), 0);
 
 	return lWidget;
@@ -70,6 +74,14 @@ GtkWidget* GTitleNormal_Widget() {
 //===============================================
 GTitleO* GTitleNormal() {
 	return GTitleNormal_New();
+}
+//===============================================
+static void GTitleNormal_On_Minimize(GtkButton* button, gpointer params) {
+	gtk_main_quit();
+}
+//===============================================
+static void GTitleNormal_On_Maximize(GtkButton* button, gpointer params) {
+	gtk_main_quit();
 }
 //===============================================
 static void GTitleNormal_On_Close(GtkButton* button, gpointer params) {
