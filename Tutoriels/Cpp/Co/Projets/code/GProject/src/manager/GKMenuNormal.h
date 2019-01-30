@@ -8,6 +8,7 @@ typedef struct _GKMenuNormalO GKMenuNormalO;
 //===============================================
 struct _GKMenuNormalO {
     GKMenuO* m_parent;
+    GtkWidget* m_addModuleMenu;
 };
 //===============================================
 GKMenuO* GKMenuNormal_New();
