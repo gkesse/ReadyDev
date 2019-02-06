@@ -135,6 +135,7 @@ void GProcessConfig_Run(int argc, char** argv) {
 	GConfig()->Set_Data("Email", "gerard.kesse@readydev.com");
 	GConfig()->Set_Data("Diplome", "Ingenieur");
 	GConfig()->Set_Data("Formation", "Informatique Industrielle");
+	GConfig()->Set_Data("Ecole", "Polytech'Montpellier");
 	GConfig()->Show();
 }
 //===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Gestionnaire de configuration-Résultat"><a class="Link9" href="#Gestionnaire de configuration">Résultat</a></h2><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Config.png" alt="img/Config.png"></div></div></div></div></div><br>
