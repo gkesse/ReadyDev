@@ -7,6 +7,7 @@
 GWindowO* GWindow_New() {
     GWindowO* lObj = (GWindowO*)malloc(sizeof(GWindowO));
     lObj->m_child = 0;
+    lObj->m_maximize = FALSE;
     return lObj;
 }
 //===============================================

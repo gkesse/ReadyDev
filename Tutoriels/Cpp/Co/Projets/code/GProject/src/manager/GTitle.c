@@ -8,6 +8,7 @@ GTitleO* GTitle_New() {
     lObj->m_child = 0;
     lObj->Delete = GTitle_Delete;
     lObj->m_widget = 0;
+    lObj->m_titleWidget = GTitleWidget_New();
     return lObj;
 }
 //===============================================
@@ -19,6 +20,10 @@ void GTitle_Delete(GTitleO* obj) {
         }
         if(obj->m_widget != 0) {
             gtk_widget_destroy(obj->m_widget);
+            obj->m_widget = 0;
+        }
+        if(obj->m_titleWidget != 0) {
+            gtk_widget_destroy(GTK_WIDGET(obj->m_titleWidget));
             obj->m_widget = 0;
         }
         free(obj);

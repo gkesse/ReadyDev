@@ -1,7 +1,8 @@
 //===============================================
 #include "GTitleNormal.h"
+#include "GTitleWidget.h"
 //===============================================
-GtkWidget* GTitleNormal_Widget();
+GtkWidget* GTitleNormal_Widget(GTitleWidget* titleWidget);
 //===============================================
 static void GTitleNormal_On_Minimize(GtkButton* button, gpointer params);
 static void GTitleNormal_On_Maximize(GtkButton* button, gpointer params);
@@ -15,7 +16,7 @@ GTitleO* GTitleNormal_New() {
 
 	lParent->m_child = lChild;
 	lParent->Delete = GTitleNormal_Delete;
-	lParent->m_widget = GTitleNormal_Widget();
+	lParent->m_widget = GTitleNormal_Widget(lParent->m_titleWidget);
 	return lParent;
 }
 //===============================================
@@ -23,7 +24,7 @@ void GTitleNormal_Delete(GTitleO* obj) {
 	GTitle_Delete(obj);
 }
 //===============================================
-GtkWidget* GTitleNormal_Widget() {
+GtkWidget* GTitleNormal_Widget(GTitleWidget* titleWidget) {
 	GtkWidget* lWidget = gtk_event_box_new();
 	gtk_widget_set_name(GTK_WIDGET(lWidget), "GBox");
 
@@ -65,9 +66,9 @@ GtkWidget* GTitleNormal_Widget() {
 
 	gtk_container_add(GTK_CONTAINER(lWidget), lLayout);
 
-	g_signal_connect(G_OBJECT(lMinimize), "pressed", G_CALLBACK(GTitleNormal_On_Minimize), 0);
-	g_signal_connect(G_OBJECT(lMaximize), "pressed", G_CALLBACK(GTitleNormal_On_Maximize), 0);
-	g_signal_connect(G_OBJECT(lClose), "pressed", G_CALLBACK(GTitleNormal_On_Close), 0);
+	g_signal_connect(G_OBJECT(lMinimize), "pressed", G_CALLBACK(GTitleNormal_On_Minimize), titleWidget);
+	g_signal_connect(G_OBJECT(lMaximize), "pressed", G_CALLBACK(GTitleNormal_On_Maximize), titleWidget);
+	g_signal_connect(G_OBJECT(lClose), "pressed", G_CALLBACK(GTitleNormal_On_Close), titleWidget);
 
 	return lWidget;
 }
@@ -77,14 +78,17 @@ GTitleO* GTitleNormal() {
 }
 //===============================================
 static void GTitleNormal_On_Minimize(GtkButton* button, gpointer params) {
-	gtk_main_quit();
+	GTitleWidget* lTitleWidget = (GTitleWidget*)params;
+	lTitleWidget->Emit_Minimize(lTitleWidget);
 }
 //===============================================
 static void GTitleNormal_On_Maximize(GtkButton* button, gpointer params) {
-	gtk_main_quit();
+	GTitleWidget* lTitleWidget = (GTitleWidget*)params;
+	lTitleWidget->Emit_Maximize(lTitleWidget);
 }
 //===============================================
 static void GTitleNormal_On_Close(GtkButton* button, gpointer params) {
-	gtk_main_quit();
+	GTitleWidget* lTitleWidget = (GTitleWidget*)params;
+	lTitleWidget->Emit_Close(lTitleWidget);
 }
 //===============================================

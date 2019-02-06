@@ -11,6 +11,7 @@ struct _GWindowO {
     void (*Delete)();
     void (*Initialize)(int argc, char** argv);
     void (*Show)();
+    gboolean m_maximize;
 };
 //===============================================
 GWindowO* GWindow_New();
