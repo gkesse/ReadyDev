@@ -4,13 +4,15 @@
 //===============================================
 #include "GWindow.h"
 //===============================================
-typedef struct GWindowNormalO GWindowNormalO;
+typedef struct _GWindowNormalO GWindowNormalO;
 //===============================================
-struct GWindowNormalO {
-    void (*Strategy)(GWindowO* obj);
+struct _GWindowNormalO {
+    GWindowO* m_parent;
 };
 //===============================================
-GWindowNormalO* GWindowNormal();
+GWindowO* GWindowNormal_New();
+void GWindowNormal_Delete();
+GWindowO* GWindowNormal();
 //===============================================
 #endif
 //===============================================

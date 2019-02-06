@@ -4,14 +4,18 @@
 //===============================================
 #include "GInclude.h"
 //===============================================
-typedef struct GWindowO GWindowO;
+typedef struct _GWindowO GWindowO;
 //===============================================
-struct GWindowO {
-    void (*Strategy)();
-    void (*Initialize)(int* argc, char*** argv);
+struct _GWindowO {
+    void* m_child;
+    void (*Delete)();
+    void (*Initialize)(int argc, char** argv);
     void (*Show)();
+    gboolean m_maximize;
 };
 //===============================================
+GWindowO* GWindow_New();
+void GWindow_Delete();
 GWindowO* GWindow();
 //===============================================
 #endif

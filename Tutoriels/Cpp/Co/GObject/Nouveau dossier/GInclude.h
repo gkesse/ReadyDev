@@ -1,16 +1,16 @@
 //===============================================
-#ifndef _GMenuNormal_
-#define _GMenuNormal_
+#ifndef _GInclude_
+#define _GInclude_
 //===============================================
-#include "GMenu.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
 //===============================================
-typedef struct GMenuNormalO GMenuNormalO;
+#include <glib-object.h>
 //===============================================
-struct GMenuNormalO {
-    void (*Strategy)(GMenuO* obj);
-};
-//===============================================
-GMenuNormalO* GMenuNormal();
+#define GTRUE (1)
+#define GFALSE (0)
 //===============================================
 #endif
 //===============================================

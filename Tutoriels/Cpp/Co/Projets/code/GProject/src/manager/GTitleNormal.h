@@ -1,16 +1,18 @@
 //===============================================
-#ifndef _GMenu_
-#define _GMenu_
+#ifndef _GTitleNormal_
+#define _GTitleNormal_
 //===============================================
-#include "GInclude.h"
+#include "GTitle.h"
 //===============================================
-typedef struct GMenuO GMenuO;
+typedef struct _GTitleNormalO GTitleNormalO;
 //===============================================
-struct GMenuO {
-    void (*Strategy)(const char* key);
+struct _GTitleNormalO {
+    GTitleO* m_parent;
 };
 //===============================================
-GMenuO* GKMenu(const char* key);
+GTitleO* GTitleNormal_New();
+void GTitleNormal_Delete(GTitleO* obj);
+GTitleO* GTitleNormal();
 //===============================================
 #endif
 //===============================================

@@ -4,13 +4,15 @@
 //===============================================
 #include "GProcess.h"
 //===============================================
-typedef struct GProcessWindowO GProcessWindowO;
+typedef struct _GProcessWindowO GProcessWindowO;
 //===============================================
-struct GProcessWindowO {
-    void (*Strategy)(GProcessO* obj);
+struct _GProcessWindowO {
+    GProcessO* m_parent;
 };
 //===============================================
-GProcessWindowO* GProcessWindow();
+GProcessO* GProcessWindow_New();
+void GProcessWindow_Delete(GProcessO* obj);
+GProcessO* GProcessWindow();
 //===============================================
 #endif
 //===============================================

@@ -1,5 +1,5 @@
 GtkWindow {
-    background-color: #A4A4A4;
+    background-color: #ffA4A4;
     color: cyan;
     border-width: 3px;
     border-color: blue;
@@ -30,6 +30,7 @@ GtkWindow {
 GtkButton {
     background-image: none;
     background-color: blue;
+    margin: 20px;
 }
 
 GtkButton:active {

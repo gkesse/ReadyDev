@@ -4,9 +4,11 @@
 //===============================================
 #include "GInclude.h"
 //===============================================
-typedef struct GStyleO GStyleO;
+typedef struct _GStyleO GStyleO;
 //===============================================
-struct GStyleO {
+struct _GStyleO {
+    void* m_child;
+    void (*Delete)();
     void (*Load)(const char* file);
 };
 //===============================================

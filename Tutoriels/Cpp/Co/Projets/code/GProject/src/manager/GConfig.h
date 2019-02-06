@@ -4,25 +4,20 @@
 //===============================================
 #include "GInclude.h"
 //===============================================
-typedef struct GConfigO GConfigO;
-typedef struct GNodeO GNodeO;
+typedef struct _GConfigO GConfigO;
 //===============================================
-struct GNodeO {
-    int m_index;
-    char* m_key;
-    char* m_value;
-    GNodeO* m_next;
-};
-//===============================================
-struct GConfigO {
+struct _GConfigO {
+    void* m_child;
+    void (*Delete)();
     void (*Set_Data)(const char* key, const char* value);
     char* (*Get_Data)(const char* key);
     void (*Show)();
-    
-    GNodeO* m_start;
-    int m_size;
+    void (*Clear)();
+    void (*Remove)(const char* key);
 };
 //===============================================
+GConfigO* GConfig_New();
+void GConfig_Delete();
 GConfigO* GConfig();
 //===============================================
 #endif

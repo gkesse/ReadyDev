@@ -3,37 +3,35 @@
 #include "GWindow.h"
 #include "GStyle.h"
 //===============================================
-static GProcessWindowO* m_GProcessWindowO = 0;
+static GProcessO* m_GProcessWindowO = 0;
 //===============================================
-GProcessWindowO* GProcessWindow_Constructor();
-void GProcessWindow_Interface(GProcessWindowO* obj);
-void GProcessWindow_Strategy(GProcessO* obj);
 void GProcessWindow_Run(int argc, char** argv);
 //===============================================
-GProcessWindowO* GProcessWindow_Constructor() {
-	GProcessWindowO* lObj = (GProcessWindowO*)malloc(sizeof(GProcessWindowO));
-	GProcessWindow_Interface(lObj);
-	return lObj;
+GProcessO* GProcessWindow_New() {
+    GProcessO* lParent = GProcess_New();
+    GProcessWindowO* lChild = (GProcessWindowO*)malloc(sizeof(GProcessWindowO));
+    lChild->m_parent = lParent;
+    lParent->m_child = lChild;
+    lParent->Delete = GProcessWindow_Delete;
+    lParent->Run = GProcessWindow_Run;
+    return lParent;
 }
 //===============================================
-void GProcessWindow_Interface(GProcessWindowO* obj) {
-	obj->Strategy = GProcessWindow_Strategy;
+void GProcessWindow_Delete(GProcessO* obj) {
+    GProcess_Delete(obj);
 }
 //===============================================
-GProcessWindowO* GProcessWindow() {
-	if(m_GProcessWindowO == 0) {
-		m_GProcessWindowO = GProcessWindow_Constructor();
-	}
-	return m_GProcessWindowO;
+GProcessO* GProcessWindow() {
+    if(m_GProcessWindowO == 0) {
+        m_GProcessWindowO = GProcessWindow_New();
+    }
+    return m_GProcessWindowO;
 }
-//===============================================
-void GProcessWindow_Strategy(GProcessO* obj) {
-	obj->Run = GProcessWindow_Run;
-}
+
 //===============================================
 void GProcessWindow_Run(int argc, char** argv) {
-	GWindow()->Initialize(&argc,&argv);
-	GStyle()->Load("res/css/style.css");
-	GWindow()->Show();
+    GWindow()->Initialize(argc, argv);
+    GStyle()->Load("res/css/style.css");
+    GWindow()->Show();
 }
 //===============================================

@@ -1,97 +1,114 @@
 //===============================================
 #include "GWindowNormal.h"
+#include "GTitle.h"
+#include "GKMenu.h"
+#include "GWorkspace.h"
 //===============================================
-static GWindowNormalO* m_GWindowNormalO = 0;
+static GWindowO* m_GWindowNormalO = 0;
 //===============================================
-GWindowNormalO* GWindowNormal_Constructor();
-void GWindowNormal_Interface(GWindowNormalO* obj);
-void GWindowNormal_Strategy(GWindowO* obj);
-void GWindowNormal_Initialize(int* argc, char*** argv);
+void GWindowNormal_Initialize(int argc, char** argv);
 void GWindowNormal_Show();
-void GWindowNormal_OnDestroy();
 //===============================================
-GWindowNormalO* GWindowNormal_Constructor() {
-	GWindowNormalO* lObj = (GWindowNormalO*)malloc(sizeof(GWindowNormalO));
-	GWindowNormal_Interface(lObj);
-	return lObj;
+static gboolean GWindowNormal_On_Window_State_Event(GtkWidget* widget, GdkEvent* event, gpointer params);
+static void GWindowNormal_On_Minimize(GTitleWidget* titleWidget, gpointer params);
+static void GWindowNormal_On_Maximize(GTitleWidget* titleWidget, gpointer params);
+static void GWindowNormal_On_Close(GTitleWidget* titleWidget, gpointer params);
+//===============================================
+GWindowO* GWindowNormal_New() {
+	GWindowO* lParent = GWindow_New();
+	GWindowNormalO* lChild = (GWindowNormalO*)malloc(sizeof(GWindowNormalO));
+
+	lChild->m_parent = lParent;
+
+	lParent->m_child = lChild;
+	lParent->Delete = GWindowNormal_Delete;
+	lParent->Initialize = GWindowNormal_Initialize;
+	lParent->Show = GWindowNormal_Show;
+	return lParent;
 }
 //===============================================
-void GWindowNormal_Interface(GWindowNormalO* obj) {
-	obj->Strategy = GWindowNormal_Strategy;
+void GWindowNormal_Delete() {
+	GWindow_Delete();
 }
 //===============================================
-GWindowNormalO* GWindowNormal() {
+GWindowO* GWindowNormal() {
 	if(m_GWindowNormalO == 0) {
-		m_GWindowNormalO = GWindowNormal_Constructor();
+		m_GWindowNormalO = GWindowNormal_New();
 	}
 	return m_GWindowNormalO;
 }
 //===============================================
-void GWindowNormal_Strategy(GWindowO* obj) {
-	obj->Initialize = GWindowNormal_Initialize;
-	obj->Show = GWindowNormal_Show;
-}
-//===============================================
-void GWindowNormal_Initialize(int* argc, char*** argv) {
-	gtk_init(argc, argv);
+void GWindowNormal_Initialize(int argc, char** argv) {
+	gtk_init(&argc, &argv);
 }
 //===============================================
 void GWindowNormal_Show() {
 	GtkWidget* lWindow = gtk_window_new(GTK_WINDOW_TOPLEVEL);
-	gtk_window_set_title(GTK_WINDOW(lWindow), "C | ReadyDev");
-	gtk_window_set_default_size(GTK_WINDOW(lWindow), 400, 400);
+	gtk_widget_set_name(GTK_WIDGET(lWindow), "GWindow");
 	gtk_window_set_position(GTK_WINDOW(lWindow), GTK_WIN_POS_CENTER);
+	gtk_window_set_default_size(GTK_WINDOW(lWindow), 400, 400);
+	gtk_window_set_title(GTK_WINDOW(lWindow), "C | ReadyDev");
+	gtk_window_set_decorated(GTK_WINDOW(lWindow), FALSE);
 
-	GtkWidget* lGrid = gtk_grid_new ();
-    gtk_grid_set_row_homogeneous(GTK_GRID(lGrid), FALSE);
-    gtk_grid_set_column_homogeneous(GTK_GRID(lGrid), FALSE);
-    gtk_container_set_border_width(GTK_CONTAINER (lGrid), 15);
-    gtk_grid_set_column_spacing(GTK_GRID(lGrid), 5);
-    gtk_grid_set_row_spacing(GTK_GRID(lGrid), 5);
-    gtk_widget_set_name(lGrid, "myGrid");
-    g_object_set (lGrid, "margin", 22, NULL);
+	GTitleO* lTitle = GTitle("NORMAL");
+	GKMenuO* lMenu = GKMenu("NORMAL");
+	GWorkspaceO* lWorkspace = GWorkspace("NORMAL");
 
+	GtkWidget* lCenterLayout = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 10);
+	gtk_box_pack_start(GTK_BOX(lCenterLayout), lMenu->m_widget, FALSE, FALSE, 0);
+	gtk_box_pack_start(GTK_BOX(lCenterLayout), lWorkspace->m_widget, TRUE, TRUE, 0);
 
-    /*     Create a red Button    */
-    GtkWidget* button1 = gtk_button_new_with_label("Red");
-    g_object_set(button1, "margin", 5, NULL);
+	GtkWidget* lMainLayout = gtk_box_new(GTK_ORIENTATION_VERTICAL, 10);
+	gtk_box_pack_start(GTK_BOX(lMainLayout), lTitle->m_widget, FALSE, FALSE, 0);
+	gtk_box_pack_start(GTK_BOX(lMainLayout), lCenterLayout, TRUE, TRUE, 0);
 
-    /*     Create a yellow Button    */
-    GtkWidget* button2 = gtk_button_new_with_label("Yellow");
-    gtk_widget_set_name(button2, "myButton_yellow");
-    gtk_widget_set_size_request(button2, 160, 130);
-    g_object_set (button2, "margin", 5, NULL);
+	gtk_container_add(GTK_CONTAINER(lWindow), lMainLayout);
 
-    /*     Create a green Button    */
-    GtkWidget* button3 = gtk_button_new_with_label("Green");
-    gtk_widget_set_name(button3, "myButton_green");
-    gtk_widget_set_size_request(button3, 160, 130);
-    g_object_set (button3, "margin", 5, NULL);
+	g_signal_connect(G_OBJECT(lWindow), "window-state-event", G_CALLBACK(GWindowNormal_On_Window_State_Event), lWindow);
+	g_signal_connect(G_OBJECT(lTitle->m_titleWidget), "minimize", G_CALLBACK(GWindowNormal_On_Minimize), lWindow);
+	g_signal_connect(G_OBJECT(lTitle->m_titleWidget), "maximize", G_CALLBACK(GWindowNormal_On_Maximize), lWindow);
+	g_signal_connect(G_OBJECT(lTitle->m_titleWidget), "close", G_CALLBACK(GWindowNormal_On_Close), lWindow);
 
-    /*     Create a blue Button    */
-    GtkWidget* button4 = gtk_button_new_with_label("Blue");
-    gtk_widget_set_name(button4, "myButton_blue");
-    gtk_widget_set_size_request(button4, 160, 130);
-    g_object_set (button4, "margin", 5, NULL);
-
-
-    /*     Putting all together      */
-    /*gtk_grid_attach(GTK_GRID(lGrid), button1, 0, 0, 1, 1);
-    gtk_grid_attach(GTK_GRID(lGrid), button2, 1, 0, 1, 1);
-    gtk_grid_attach(GTK_GRID(lGrid), button3, 0, 1, 1, 1);
-    gtk_grid_attach(GTK_GRID(lGrid), button4, 1, 1, 1, 1);*/
-
-    gtk_container_add (GTK_CONTAINER (lWindow), button1);
-
-
-	g_signal_connect(G_OBJECT(lWindow), "destroy", G_CALLBACK(GWindowNormal_OnDestroy), NULL);
-
-	gtk_widget_show_all(lWindow);
+	gtk_widget_show_all(GTK_WIDGET(lWindow));
 	gtk_main();
 }
 //===============================================
-void GWindowNormal_OnDestroy() {
+static gboolean GWindowNormal_On_Window_State_Event(GtkWidget* widget, GdkEvent* event, gpointer params) {
+	if(event->type == GDK_WINDOW_STATE) {
+		GdkEventWindowState* lWindowState = (GdkEventWindowState*)event;
+		if(lWindowState->new_window_state == GDK_WINDOW_STATE_FOCUSED) {
+			if(lWindowState->changed_mask == GDK_WINDOW_STATE_ICONIFIED) {
+				printf("GDK_WINDOW_STATE_FOCUSED\n");
+				GtkWidget* lWindow = (GtkWidget*)params;
+				gtk_window_deiconify(GTK_WINDOW(lWindow));
+				gtk_window_present(GTK_WINDOW(lWindow));
+				return TRUE;
+			}
+		}
+	}
+	return FALSE;
+}
+//===============================================
+static void GWindowNormal_On_Minimize(GTitleWidget* titleWidget, gpointer params) {
+	GtkWidget* lWindow = (GtkWidget*)params;
+	//gtk_window_iconify(GTK_WINDOW(lWindow));
+	gtk_widget_show_all(GTK_WIDGET(lWindow));
+}
+//===============================================
+static void GWindowNormal_On_Maximize(GTitleWidget* titleWidget, gpointer params) {
+	GtkWidget* lWindow = (GtkWidget*)params;
+
+	if(m_GWindowNormalO->m_maximize == FALSE) {
+		gtk_window_maximize(GTK_WINDOW(lWindow));
+		m_GWindowNormalO->m_maximize = TRUE;
+	}
+	else {
+		gtk_window_unmaximize(GTK_WINDOW(lWindow));
+		m_GWindowNormalO->m_maximize = FALSE;
+	}
+}
+//===============================================
+static void GWindowNormal_On_Close(GTitleWidget* titleWidget, gpointer params) {
 	gtk_main_quit();
 }
 //===============================================
-
