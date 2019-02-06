@@ -34,6 +34,7 @@ void GProcessConfig_Run(int argc, char** argv) {
 	GConfig()->Set_Data("Email", "gerard.kesse@readydev.com");
 	GConfig()->Set_Data("Diplome", "Ingenieur");
 	GConfig()->Set_Data("Formation", "Informatique Industrielle");
+	GConfig()->Set_Data("Ecole", "Polytech'Montpellier");
 	GConfig()->Show();
 }
 //===============================================
