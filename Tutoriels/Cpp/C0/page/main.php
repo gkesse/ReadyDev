@@ -117,8 +117,7 @@ void GConfigNormal_Remove(const char* key) {
         lNode = lNode->m_next;
     }
 }
-//===============================================
-</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Gestionnaire de configuration-Vider les données"><a class="Link9" href="#Gestionnaire de configuration">Vider les données</a></h2><br><h3 class="Title8 GTitle3">Vider les données</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Gestionnaire de configuration-Vider la liste de données"><a class="Link9" href="#Gestionnaire de configuration">Vider la liste de données</a></h2><br><h3 class="Title8 GTitle3">Vider la liste de données</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 void GConfigNormal_Clear() {
     GConfigNormalO* lConfigNormal = m_GConfigNormalO->m_child;
     GNodeO* lNode = lConfigNormal->m_start;

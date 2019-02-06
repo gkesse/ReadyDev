@@ -1026,7 +1026,7 @@ var GEditor = (function() {
             },
             //===============================================
             saveFileKey: function(e) {
-                if (e.code == 'KeyS' && (e.ctrlKey || e.metaKey)) {
+                if (e.code == 'KeyS' && (e.shiftKey || e.metaKey)) {
                     e.preventDefault();
                     saveFile();
                 }
@@ -1037,7 +1037,7 @@ var GEditor = (function() {
             },
             //===============================================
             saveFileTextKey: function(e) {
-                if (e.code == 'KeyS' && (e.ctrlKey || e.metaKey)) {
+                if (e.code == 'KeyS' && (e.shiftKey || e.metaKey)) {
                     e.preventDefault();
                     saveFileText();
                 }
