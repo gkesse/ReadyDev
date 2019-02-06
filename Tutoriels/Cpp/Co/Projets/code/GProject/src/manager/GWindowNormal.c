@@ -90,8 +90,9 @@ static gboolean GWindowNormal_On_Window_State_Event(GtkWidget* widget, GdkEvent*
 }
 //===============================================
 static void GWindowNormal_On_Minimize(GTitleWidget* titleWidget, gpointer params) {
-	//GtkWidget* lWindow = (GtkWidget*)params;
+	GtkWidget* lWindow = (GtkWidget*)params;
 	//gtk_window_iconify(GTK_WINDOW(lWindow));
+	gtk_widget_show_all(GTK_WIDGET(lWindow));
 }
 //===============================================
 static void GWindowNormal_On_Maximize(GTitleWidget* titleWidget, gpointer params) {

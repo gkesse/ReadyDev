@@ -1,6 +1,7 @@
 //===============================================
 #include "GProcess.h"
 #include "GProcessWindow.h"
+#include "GProcessConfig.h"
 #include "GKString.h"
 #include "GConfig.h"
 //===============================================
@@ -24,6 +25,7 @@ void GProcess_Delete(GProcessO* obj) {
 GProcessO* GProcess() {
     char* lKey = GConfig()->Get_Data("PROCESS");
     if(GKString()->Is_Equal(lKey, "WINDOW")) return GProcessWindow();
+    if(GKString()->Is_Equal(lKey, "CONFIG")) return GProcessConfig();
     return GProcessWindow();
 }
 //===============================================
