@@ -42,6 +42,8 @@ INPUT(
 ./build\GWorkspaceReadyVision.o
 ./build\GPage.o
 ./build\GPageReadyVision.o
+./build\GProcessConfig.o
+./build\GConfigNormal.o
 ./build\main.o
 ./build\qrc_QtAwesome.o
 ./build\qrc_resource.o

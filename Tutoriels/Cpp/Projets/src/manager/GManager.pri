@@ -49,7 +49,9 @@ SOURCES += \
     $$PWD/GWindowMaximized.cpp \
     $$PWD/GWorkspaceReadyVision.cpp \
     $$PWD/GPage.cpp \
-    $$PWD/GPageReadyVision.cpp
+    $$PWD/GPageReadyVision.cpp \
+    $$PWD/GProcessConfig.cpp \
+    $$PWD/GConfigNormal.cpp
 
 HEADERS += \
     $$PWD/GConfig.h \
@@ -93,7 +95,9 @@ HEADERS += \
     $$PWD/GWindowMaximized.h \
     $$PWD/GWorkspaceReadyVision.h \
     $$PWD/GPage.h \
-    $$PWD/GPageReadyVision.h
+    $$PWD/GPageReadyVision.h \
+    $$PWD/GProcessConfig.h \
+    $$PWD/GConfigNormal.h
 
 FORMS += \
     $$PWD/GButtonOpenFileDialog.ui \
