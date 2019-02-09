@@ -1,11 +1,11 @@
 //===============================================
-function getCommand(name, arg){
+function getCommand(name, arg) {
 	//===============================================
-	if (typeof arg === 'undefined') {
+	if(typeof arg === 'undefined') {
 		arg = '';
 	}
 	//===============================================
-	switch(name){
+	switch(name) {
 	case "createLink":
 		GEditor.Instance().editLink();
 		break;

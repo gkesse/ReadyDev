@@ -47,7 +47,7 @@ var GComboBox = (function() {
                                     lEvent.initEvent("change", false, true);
                                     lBoxSelect.dispatchEvent(lEvent);
 
-                                    /*lBoxView.innerHTML = this.innerHTML;
+                                    //lBoxView.innerHTML = this.innerHTML;
                                     var lBoxSelectAsMap = this.parentNode.getElementsByClassName("BoxSelectAs");
                                     var lLength2 = lBoxSelectAsMap.length;
                                     
@@ -56,7 +56,7 @@ var GComboBox = (function() {
                                         lBoxSelectAs.removeAttribute("class");
                                     }
                                     
-                                    this.setAttribute("class", "BoxSelectAs");*/
+                                    //this.setAttribute("class", "BoxSelectAs");
                                     break;
                                 }
                             }
