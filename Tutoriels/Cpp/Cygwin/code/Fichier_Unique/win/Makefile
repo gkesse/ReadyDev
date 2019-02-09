@@ -1,4 +1,4 @@
-  GSRC = ../src
+GSRC = ../src
 GBIN = bin
 GBUILD = build
 GTARGET = $(GBIN)/GProject.exe
