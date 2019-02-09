@@ -100,8 +100,6 @@
 	</div>
 </div>
 <!-- ============================================ -->
-<script src="/js/class/GSelection.js"></script>
-<script src="/js/class/GComboBox.js"></script>
 <script src="/js/class/GEditor.js"></script>
 <script src="/js/editor.js"></script>
 <!-- ============================================ -->

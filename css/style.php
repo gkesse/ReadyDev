@@ -22,6 +22,9 @@
 html {
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: transparent;
+    overflow: auto;
+    scrollbar-color: #5f6681 #051039;
+    scrollbar-width: auto;
 }
 
 body {
@@ -445,29 +448,8 @@ span {
     padding-bottom: 250px;
 }
 
-.BoxView {
-    background-color: #051039;
-    color: #ffffff;
-    padding: 2px 5px;
-    border: 1px solid transparent;
-    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
-    cursor: pointer;
-}
-
-.BoxView:after {
-    position: absolute;
-    content: "";
-    top: 14px;
-    right: 5px;
-    width: 0;
-    height: 0;
-    border: 6px solid transparent;
-    border-color: #fff transparent transparent transparent;
-}
-
-.BoxView.BoxActive:after {
-    border-color: transparent transparent #fff transparent;
-    top: 7px;
+.BoxHide {
+    display: none;
 }
 
 .BoxSelect {
@@ -499,8 +481,29 @@ span {
     background-color: rgba(255, 255, 255, 0.4);
 }
 
-.BoxHide {
-    display: none;
+.BoxView {
+    background-color: #051039;
+    color: #ffffff;
+    padding: 2px 5px;
+    border: 1px solid transparent;
+    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+    cursor: pointer;
+}
+
+.BoxView:after {
+    position: absolute;
+    content: "";
+    top: 14px;
+    right: 5px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-color: #fff transparent transparent transparent;
+}
+
+.BoxView.BoxActive:after {
+    border-color: transparent transparent #fff transparent;
+    top: 7px;
 }
 
 .Button {
@@ -698,6 +701,13 @@ span {
     cursor: pointer;
 }
 
+.Col6 {
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    margin: 4px 0px;
+    position: relative;
+}
+
 .ComboBox {
     position: relative;
     display: inline-block;
@@ -779,6 +789,25 @@ span {
     padding: 20px 0px;
 }
 
+.Data {
+    background-color: rgba(0,0,0,0.2);
+    border: 1px solid rgba(0,0,0,0.2);
+    min-height: 300px;   
+    padding: 5px 10px;
+    overflow: auto;
+    scrollbar-color: #5f6681 #051039;
+    scrollbar-width: auto;
+}
+
+.Data2 {
+    background-color: transparent;
+    min-height: 300px;   
+    padding: 5px 10px;
+    overflow: auto;
+    scrollbar-color: #5f6681 #051039;
+    scrollbar-width: auto;
+}
+
 .Error {
     color: #f67b20;
 }
@@ -831,6 +860,11 @@ span {
 .Field6 {
     margin-left: 150px;
     padding: 5px 10px;
+}
+
+.Field7 {
+    background-color: rgba(0,0,0,0.0);
+    border: 1px solid rgba(0,0,0,0.2);
 }
 
 .Form {
@@ -1069,6 +1103,11 @@ span {
     padding: 5px 10px;
 }
 
+.Label6 {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 5px 10px;
+}
+
 .Link {
     border-top: 5px solid transparent;
     border-bottom: 5px solid transparent;
@@ -1239,8 +1278,8 @@ span {
     top: 0px;
     width: 100%;
     height: 100vh;
-    background-image: url("<?php echo $lStyle["modal"]["img"]; ?>");
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.4);
+    /*background-image: url("<?php echo $lStyle["modal"]["img"]; ?>");*/
     overflow: auto;
     scrollbar-color: #5f6681 #051039;
     scrollbar-width: auto;

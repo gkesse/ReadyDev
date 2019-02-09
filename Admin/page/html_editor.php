@@ -1,21 +1,3 @@
-<!-- ============================================ --
-<div class="Modal HtmlEditor" id="ModalHtmlEditor">
-    <div class="Body">
-        <div class="Button Close" onclick="closeHtmlEditor(this)"><i class="fa fa-close"></i></div>
-        <div class="Title">Modification du texte de l'accueil</div>
-        <div class="Text" id="HtmlEditorForm" method="post" action="">
-            <div class="Desc">Saisissez les nouvelles données.</div>
-            <div class="Col">
-                <div class="Label">Texte :</div>
-                <div class="Field"><div class="Data" id="HtmlEditorData" contenteditable="true"></div></div>
-            </div>
-            <div class="ButtonMap">
-                <div class="Item" onclick="saveHtmlEditor(this)"><i class="fa fa-floppy-o"></i> Enregistrer</div>
-            </div>
-        </div>
-    </div>
-    <div class="Msg" id="HtmlEditorMsg"></div>
-</div>
 <!-- ============================================ -->
 <div class="Modal HtmlEditor" id="ModalHtmlEditor" onkeypress="keyPressHtmlEditor(event)">
     <div class="Content10">

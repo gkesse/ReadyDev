@@ -882,6 +882,85 @@ var GEditor = (function() {
                     }
                     break;
                 //===============================================
+                case 'Html1':
+                    GHtmlEditor.Instance().openHtmlEditor();
+                    break;
+                //===============================================
+                case 'Html2':
+                    var lParentNode = lStartNode.parentNode;
+                    if(!lSelection.toString()) {
+                        while(1) {
+                            var lClassName = lParentNode.className;
+                            if(lClassName.includes("GEndEditor")) {
+                                break;
+                            }
+                            lParentNode = lParentNode.parentNode;
+                        }
+                    }
+                    var lHtmlEditorText = GConfig.Instance().getData("HtmlEditorText");
+                    var lHtml = '';
+                    lHtml += '<div class="Content0 GHtml1">';
+                    lHtml += lHtmlEditorText;
+                    lHtml += '</div>';
+                    document.execCommand("insertHTML", false, lHtml);
+                    break;
+                //===============================================
+                case 'Html3':
+                    var lParentNode = lStartNode.parentNode;
+                    if(!lSelection.toString()) {
+                        while(1) {
+                            var lClassName = lParentNode.className;
+                            if(lClassName.includes("GEndEditor")) {
+                                break;
+                            }
+                            if(lClassName.includes("GHtml1")) {
+                                var lHtmlEditorText = GConfig.Instance().getData("HtmlEditorText");
+                                lParentNode.innerHTML = lHtmlEditorText;
+                                break;
+                            }
+                            lParentNode = lParentNode.parentNode;
+                        }
+                    }
+                    break;
+                //===============================================
+                case 'Html4':
+                    var lParentNode = lStartNode.parentNode;
+                    if(!lSelection.toString()) {
+                        while(1) {
+                            var lClassName = lParentNode.className;
+                            if(lClassName.includes("GEndEditor")) {
+                                break;
+                            }
+                            if(lClassName.includes("GHtml1")) {
+                                var lHtml = lParentNode.innerHTML;
+                                GConfig.Instance().setData("HtmlEditorText", lHtml);
+                                break;
+                            }
+                            lParentNode = lParentNode.parentNode;
+                        }
+                    }
+                    break;
+                //===============================================
+                case 'Html5':
+                    var lParentNode = lStartNode.parentNode;
+                    if(!lSelection.toString()) {
+                        while(1) {
+                            var lClassName = lParentNode.className;
+                            if(lClassName.includes("GEndEditor")) {
+                                break;
+                            }
+                            if(lClassName.includes("GHtml1")) {
+                                lRange.selectNode(lParentNode);
+                                lSelection.addRange(lRange);
+                                var lHtml = "";
+                                document.execCommand("insertHTML", false, lHtml);
+                                break;
+                            }
+                            lParentNode = lParentNode.parentNode;
+                        }
+                    }
+                    break;
+                //===============================================
                 }
             },
             //===============================================
