@@ -360,6 +360,8 @@ span {
 .Body6 {
     padding: 10px 0px;
     overflow: auto;
+    scrollbar-color: #5f6681 #051039;
+    scrollbar-width: auto;
 }
 
 .Body7 {
@@ -370,6 +372,8 @@ span {
     background-color: #051039;
     border-bottom: 5px solid #051039;
     overflow: auto;
+    scrollbar-color: #5f6681 #051039;
+    scrollbar-width: auto;
 }
 
 .Body9 {
@@ -380,11 +384,15 @@ span {
 .Body10 {
     border-bottom: 5px solid #051039;
     overflow: auto;
+    scrollbar-color: #5f6681 #051039;
+    scrollbar-width: auto;
 }
 
 .Body11 {
     min-height: 400px;
     overflow: auto;
+    scrollbar-color: #5f6681 #051039;
+    scrollbar-width: auto;
     padding: 10px 0px;
 }
 
@@ -392,6 +400,8 @@ span {
     border: 1px solid rgba(255, 255, 255, 0.3);
     max-height: 400px;
     overflow: auto;
+    scrollbar-color: #5f6681 #051039;
+    scrollbar-width: auto;
 }
 
 .Body13 {
@@ -402,6 +412,8 @@ span {
     background-color: #051039;
     padding: 10px;
     overflow: auto;
+    scrollbar-color: #5f6681 #051039;
+    scrollbar-width: auto;
 }
 
 .Body15 {
@@ -416,6 +428,8 @@ span {
 .Body17 {
     max-height: 400px;
     overflow: auto;
+    scrollbar-color: #5f6681 #051039;
+    scrollbar-width: auto;
 }
 
 .Body18 {
@@ -634,11 +648,15 @@ span {
 
 .Code {
     overflow: auto;
+    scrollbar-color: #5f6681 #051039;
+    scrollbar-width: auto;
     max-height: 400px;
 }
 
 .Code2 {
     overflow: auto;
+    scrollbar-color: #5f6681 #051039;
+    scrollbar-width: auto;
 }
 
 .Col {
@@ -824,6 +842,8 @@ span {
 
 .Formula {
     overflow: auto;
+    scrollbar-color: #5f6681 #051039;
+    scrollbar-width: auto;
 }
 
 .Formula2 {
@@ -974,6 +994,8 @@ span {
 
 .Img3 {
     overflow: auto;
+    scrollbar-color: #5f6681 #051039;
+    scrollbar-width: auto;
 }
 
 .Input {
@@ -1220,6 +1242,8 @@ span {
     background-image: url("<?php echo $lStyle["modal"]["img"]; ?>");
     background-color: rgba(255, 255, 255, 0.2);
     overflow: auto;
+    scrollbar-color: #5f6681 #051039;
+    scrollbar-width: auto;
     text-align: left;
 }
 
@@ -1328,6 +1352,8 @@ span {
     border-bottom: 5px solid #051039;
     padding: 10px 0px;
     overflow: auto;
+    scrollbar-color: #5f6681 #051039;
+    scrollbar-width: auto;
     text-align: left;
 }
 
@@ -1350,6 +1376,8 @@ span {
     padding: 5px 0px;
     margin-left: 30px;
     overflow: auto;
+    scrollbar-color: #5f6681 #051039;
+    scrollbar-width: auto;
 }
 
 .Row19 {
@@ -1370,6 +1398,8 @@ span {
 .Row21 {
     padding: 10px 0px;
     overflow: auto;
+    scrollbar-color: #5f6681 #051039;
+    scrollbar-width: auto;
 }
 
 .Row22 {
@@ -1386,12 +1416,16 @@ span {
     max-height: 400px;
     text-align: left;
     overflow: auto;
+    scrollbar-color: #5f6681 #051039;
+    scrollbar-width: auto;
 }
 
 .Row25{
     padding: 10px;
     text-align: left;
     overflow: auto;
+    scrollbar-color: #5f6681 #051039;
+    scrollbar-width: auto;
 }
 
 .Row26 {
@@ -1401,6 +1435,8 @@ span {
 
 .Row27 {
     overflow: auto;
+    scrollbar-color: #5f6681 #051039;
+    scrollbar-width: auto;
 }
 
 .Row28 {
@@ -1425,6 +1461,8 @@ span {
 .Row31 {
     background-color: #051039; 
     overflow: auto;
+    scrollbar-color: #5f6681 #051039;
+    scrollbar-width: auto;
     padding: 5px 10px;
 }
 
@@ -1439,6 +1477,8 @@ span {
     margin-top: 10px;
     max-height: 400px;
     overflow: auto;
+    scrollbar-color: #5f6681 #051039;
+    scrollbar-width: auto;
 }
 
 .Succes {
