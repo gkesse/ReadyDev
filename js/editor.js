@@ -18,9 +18,6 @@ function getCommand(name, arg){
 	case "code":
 		GEditor.Instance().editReadyStyle("Code1", false);
 		break;
-	case "SaveSelection":
-        GSelection.Instance().save();        
-		break;
 	case "readystyle":
 		GEditor.Instance().editReadyStyle(arg, true);
 		break;

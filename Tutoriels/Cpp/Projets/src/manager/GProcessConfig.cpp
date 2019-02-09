@@ -26,6 +26,7 @@ void GProcessConfig::run(int argc, char **argv) {
     GConfig::Instance()->setData("Diplome", "Ingenieur");
     GConfig::Instance()->setData("Formation", "Informatique Industrielle");
     GConfig::Instance()->setData("Ecole", "Polytech'Montpellier");
+    GConfig::Instance()->remove("PROCESS");
     GConfig::Instance()->show();
 }
 //===============================================

@@ -42,9 +42,13 @@
                 <option value="Formula1">Formule Ajouter</option>
                 <option value="Formula2">Formule Modifier</option>
                 <option value="Formula3">Formule Supprimer</option>
+                <option value="Html1">Html Ouvrir</option>
+                <option value="Html2">Html Ajouter</option>
+                <option value="Html3">Html Modifier</option>
+                <option value="Html4">Html Enregistrer</option>
+                <option value="Html5">Html Supprimer</option>
             </select>
         </div>
-		<button class="Button5" type="button" title="Enregistrer une selection" onclick="getCommand('SaveSelection')"><i class="fa fa-star"></i></button>		
 	</div>
 	<!-- ============================================ -->
 	<div class="Row15 GEndEditor">
