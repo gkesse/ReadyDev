@@ -38,11 +38,10 @@ void GSetting::load(const string& file) {
 
             if(getline(lStream, lValue)) {
                 GConfig::Instance()->setData(trim(lKey), trim(lValue));
-                cout << lKey << " = " << lValue << "\n";
             }
         }
     }
-
+    GConfig::Instance()->show();
     fclose(lFile);
 }
 //================================================

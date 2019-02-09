@@ -431,6 +431,64 @@ span {
     padding-bottom: 250px;
 }
 
+.BoxView {
+    background-color: #051039;
+    color: #ffffff;
+    padding: 2px 5px;
+    border: 1px solid transparent;
+    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+    cursor: pointer;
+}
+
+.BoxView:after {
+    position: absolute;
+    content: "";
+    top: 14px;
+    right: 5px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-color: #fff transparent transparent transparent;
+}
+
+.BoxView.BoxActive:after {
+    border-color: transparent transparent #fff transparent;
+    top: 7px;
+}
+
+.BoxSelect {
+    position: absolute;
+    background-color: #051039;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    max-height: 400px;
+    overflow: auto;
+    scrollbar-color: #5f6681 #051039;
+    scrollbar-width: thin;
+}
+
+.BoxSelect div {
+    color: #ffffff;
+    padding: 5px 5px;
+    border: 1px solid transparent;
+    border-color: transparent transparent rgba(255, 255, 255, 0.2); transparent;
+    cursor: pointer;
+}
+
+.BoxSelect div:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.BoxSelectAs {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.BoxHide {
+    display: none;
+}
+
 .Button {
     background-color: rgba(255, 255, 255, 0.2);
     border-radius: 5px;
@@ -503,6 +561,8 @@ span {
 }
 
 .Button5 {
+    display: inline-block;
+    vertical-align: middle;
     padding: 5px;
     font-size: 16px;
 }
@@ -621,14 +681,18 @@ span {
 }
 
 .ComboBox {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
     border: 1px solid rgba(255, 255, 255, 0.2);
-    min-width: 100px;
-    margin: 0px 5px;
+    min-width: 180px;
+    font-family: Arial;
+    font-size: 16px;
+    text-align: left;
 }
 
-.ComboBox2 {
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    min-width: 200px;
+.ComboBox select {
+    display: none;
 }
 
 .Content {

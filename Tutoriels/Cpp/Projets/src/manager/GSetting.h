@@ -8,8 +8,6 @@ class GSetting {
 public:
     GSetting();
     ~GSetting();
-	
-public:
     static GSetting* Instance();
     void load(const string& file);
 
@@ -19,10 +17,8 @@ private:
     string trim(const string& str, const string& chars = "\t\n\v\f\r ");
 
 private:
-    const static char G_CHAR_COMMENT = '#';
-
-private:
     static GSetting* m_instance;
+    const static char G_CHAR_COMMENT = '#';
 };
 //================================================
 #endif

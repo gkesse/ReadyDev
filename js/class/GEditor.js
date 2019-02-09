@@ -94,13 +94,18 @@ var GEditor = (function() {
                 }
             },
             //===============================================
-            editReadyStyle: function(arg) {
+            editReadyStyle: function(arg, combo) {
                 if(arg == "") return;
+                
+                if(combo == true) {
+                    GSelection.Instance().load();
+                }
+
                 var lSelection = document.getSelection();
                 var lStartNode = lSelection.anchorNode;
                 var lData = lStartNode.data;
                 var lRange = document.createRange();
-                                                                
+
                 switch(arg) {
                 case 'Title1':
                     if(!lData) return;
