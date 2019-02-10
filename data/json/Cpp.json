@@ -19,13 +19,7 @@
     "software":
     [
         {"name":"Apprendre la programmation avec le C","link":"/Tutoriels/Cpp/C0/","follow":"yes"},
-        {"name":"Apprendre la programmation avec le C++","link":"/Tutoriels/Cpp/Cpp/","follow":"yes"},
-        {"name":"Apprendre la bibliothèque STL en C++","link":"/Tutoriels/Cpp/STL/","follow":"yes"},
-        {"name":"Apprendre la collection de bibliothèques Boost en C++","link":"/Tutoriels/Cpp/Boost/","follow":"yes"}
-    ],
-    "installation":
-    [
-        {"name":"Apprendre à installer MinGW sous Windows","link":"/Tutoriels/Cpp/MinGW/Installation/","follow":"yes"}
+        {"name":"Apprendre la programmation avec le C++","link":"/Tutoriels/Cpp/Cpp/","follow":"yes"}
     ],
     "compilation":
     [

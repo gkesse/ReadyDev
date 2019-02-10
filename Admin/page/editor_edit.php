@@ -61,4 +61,5 @@
 <!-- ============================================ -->
 <script src="/js/class/GSelection.js"></script>
 <script src="/js/class/GComboBox.js"></script>
+<script src="/js/class/GConfig.js"></script>
 <!-- ============================================ -->
