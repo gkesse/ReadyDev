@@ -21,26 +21,26 @@ GProcess* GProcess::Instance() {
 }
 //===============================================
 void GProcess::run() {
-    double m_data;
+    double lData;
     
     GShow::Instance()->show("### Operations arithmetiques\n"); 
     
-    m_data = GMath::Instance()->add(22, 7);
-    GShow::Instance()->show(m_data, "add(22, 7)");  
+    lData = GMath::Instance()->add(22, 7);
+    GShow::Instance()->show(lData, "add(22, 7)");  
     
-    m_data = GMath::Instance()->subtract(22, 7);
-    GShow::Instance()->show(m_data, "subtract(22, 7)");  
+    lData = GMath::Instance()->subtract(22, 7);
+    GShow::Instance()->show(lData, "subtract(22, 7)");  
     
-    m_data = GMath::Instance()->multiply(22, 7);
-    GShow::Instance()->show(m_data, "multiply(22, 7)"); 
+    lData = GMath::Instance()->multiply(22, 7);
+    GShow::Instance()->show(lData, "multiply(22, 7)"); 
     
-    m_data = GMath::Instance()->divide(22, 7);
-    GShow::Instance()->show(m_data, "divide(22, 7)"); 
+    lData = GMath::Instance()->divide(22, 7);
+    GShow::Instance()->show(lData, "divide(22, 7)"); 
     
-    m_data = GMath::Instance()->quotient(22, 7);
-    GShow::Instance()->show(m_data, "quotient(22, 7)"); 
+    lData = GMath::Instance()->quotient(22, 7);
+    GShow::Instance()->show(lData, "quotient(22, 7)"); 
     
-    m_data = GMath::Instance()->modulo(22, 7);
-    GShow::Instance()->show(m_data, "modulus(22, 7)");    
+    lData = GMath::Instance()->modulo(22, 7);
+    GShow::Instance()->show(lData, "modulus(22, 7)");    
 }
 //===============================================

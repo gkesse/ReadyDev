@@ -564,7 +564,8 @@ var GEditor = (function() {
                         }
                     }
                     if(!lSelection.toString()) return;
-                	var lArg = prompt("Langage ?", "c_cpp");
+                    var lLang = GConfig.Instance().getData("LANGAUGE");
+                	var lArg = prompt("Langage ?", lLang);
                     if(!lArg) return;
 					var lArgMap = lArg.split(";");
                     if(lArgMap.length < 1) return;
@@ -582,6 +583,9 @@ var GEditor = (function() {
                     lHtml += '</xmp></pre>';
                     lHtml += '</div>';
                     document.execCommand("insertHTML", false, lHtml);
+                    if(lLang != lLanguage) {
+                        GConfig.Instance().setData("LANGAUGE", lLanguage);
+                    }
                     break;
                 //===============================================
                 case 'Code2':
