@@ -7,7 +7,7 @@ using namespace std;
 int main(int argc, char** argv) {
     double m_data;
     
-    GShow::Instance()->show("Static Library Using..."); 
+    GShow::Instance()->show("### Operations arithmetiques\n"); 
     
     m_data = GMath::Instance()->add(22, 7);
     GShow::Instance()->show(m_data, "add(22, 7)");  
@@ -24,7 +24,7 @@ int main(int argc, char** argv) {
     m_data = GMath::Instance()->quotient(22, 7);
     GShow::Instance()->show(m_data, "quotient(22, 7)"); 
     
-    m_data = GMath::Instance()->modulus(22, 7);
+    m_data = GMath::Instance()->modulo(22, 7);
     GShow::Instance()->show(m_data, "modulus(22, 7)");    
     return 0;
 }
