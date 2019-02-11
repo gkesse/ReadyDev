@@ -44,7 +44,7 @@ double GMath::quotient(const double& a, const double& b) {
     return m_data;
 }
 //===============================================
-double GMath::modulus(const int& a, const int& b) {
+double GMath::modulo(const int& a, const int& b) {
     int m_data = a % b;
     return double(m_data);
 }

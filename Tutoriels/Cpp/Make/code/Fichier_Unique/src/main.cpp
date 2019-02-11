@@ -4,7 +4,7 @@
 using namespace std;
 //===============================================
 int main(int argc, char** argv) {
-    cout << "Simple Program...\n";
+    cout << "Bonjour tout le monde\n";
     return 0;
 }
 //===============================================
