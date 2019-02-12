@@ -669,33 +669,19 @@ void GShow::show(const double& data, const string& name) {
     if(name != "") cout << name << " : ";
     cout << fixed << setprecision(2) << data << "\n";
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer une librairie dynamique-Fichier Makefile"><a class="Link9" href="#Créer une librairie dynamique">Fichier Makefile</a></h2><br><h3 class="Title8 GTitle3">Fichier Makefile (Makefile)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="makefile">GSRC = ../src
-GBIN = bin
-GBUILD = build
-GTARGET = $(GBIN)/libHello.dll
-
-GINCS = \
-    -I../src/manager
-    
-GOBJS = \
-    $(GBUILD)/GShow.o \
-    $(GBUILD)/GMath.o
-    
-all: $(GOBJS)
-	g++ -shared -o $(GTARGET) $(GOBJS)
-$(GBUILD)/GShow.o: $(GSRC)/manager/GShow.cpp
-	g++ -c -DDLL_APP $(GSRC)/manager/GShow.cpp -o $(GBUILD)/GShow.o $(GINCS)
-$(GBUILD)/GMath.o: $(GSRC)/manager/GMath.cpp
-	g++ -c -DDLL_APP $(GSRC)/manager/GMath.cpp -o $(GBUILD)/GMath.o $(GINCS)
-clean:
-	del /q $(GBUILD)\*.o $(GBIN)\*.dll
-</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer une librairie dynamique-Compiler le projet"><a class="Link9" href="#Créer une librairie dynamique">Compiler le projet</a></h2><br><h3 class="Title8 GTitle3">Compiler le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer une librairie dynamique-Fichier CMakefile"><a class="Link9" href="#Créer une librairie dynamique">Fichier CMakefile</a></h2><br><h3 class="Title8 GTitle3">Fichier CMakefile (src/CMakefile.txt)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="makefile">cmake_minimum_required(VERSION 3.0)
+project(GProject)
+add_subdirectory(manager)</xmp></pre></div><br><h3 class="Title8 GTitle3">Fichier CMakefile (src/manager/CMakefile.txt)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="makefile">set(GTARGET Hello)
+set(GSOURCES GShow.cpp GMath.cpp)
+set(GHEADERS GShow.h GMath.h)
+add_library(${GTARGET} SHARED ${GSOURCES} ${GHEADERS})
+set_target_properties(${GTARGET} PROPERTIES DEFINE_SYMBOL DLL_APP)</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer une librairie dynamique-Compiler le projet"><a class="Link9" href="#Créer une librairie dynamique">Compiler le projet</a></h2><br><h3 class="Title8 GTitle3">Compiler le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
 
 set PATH=C:\MinGW\bin
 
-mingw32-make</xmp></pre></div><br><h3 class="Title8 GTitle3">Compilation manuelle du projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">g++ -c -DDLL_APP ../src/manager/GShow.cpp -o build/GShow.o -I../src/manager
-g++ -c -DDLL_APP ../src/manager/GMath.cpp -o build/GMath.o -I../src/manager
-g++ -shared -o bin/libHello.dll build/GShow.o build/GMath.o</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer une librairie dynamique-Résultat"><a class="Link9" href="#Créer une librairie dynamique">Résultat</a></h2><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Librairie_Dynamique_Creation.png" alt="img/Librairie_Dynamique_Creation.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Utiliser une librairie dynamique"><a class="Link3" href="#">Utiliser une librairie dynamique</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">utiliser une librairie dynamique </span>avec CMake.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1545767834105"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1545767834105");</script></div><br><h2 class="Title7 GTitle2" id="Utiliser une librairie dynamique-Programme principal"><a class="Link9" href="#Utiliser une librairie dynamique">Programme principal</a></h2><br><h3 class="Title8 GTitle3">Programme principal (main.cpp)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+cd build
+mingw32-make
+cd ..</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer une librairie dynamique-Résultat"><a class="Link9" href="#Créer une librairie dynamique">Résultat</a></h2><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Librairie_Dynamique_Creation.png" alt="img/Librairie_Dynamique_Creation.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Utiliser une librairie dynamique"><a class="Link3" href="#">Utiliser une librairie dynamique</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">utiliser une librairie dynamique </span>avec CMake.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1545767834105"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1545767834105");</script></div><br><h2 class="Title7 GTitle2" id="Utiliser une librairie dynamique-Programme principal"><a class="Link9" href="#Utiliser une librairie dynamique">Programme principal</a></h2><br><h3 class="Title8 GTitle3">Programme principal (main.cpp)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include "GShow.h"
 #include "GMath.h"
 //===============================================
@@ -795,37 +781,40 @@ private:
 };
 //===============================================
 #endif
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Utiliser une librairie dynamique-Fichier Makefile"><a class="Link9" href="#Utiliser une librairie dynamique">Fichier Makefile</a></h2><br><h3 class="Title8 GTitle3">Fichier Makefile (Makefile)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="Makefile">GSRC = ../src
-GBIN = bin
-GBUILD = build
-GTARGET = $(GBIN)/GProject.exe
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Utiliser une librairie dynamique-Fichier CMakefile"><a class="Link9" href="#Utiliser une librairie dynamique">Fichier CMakefile</a></h2><br><h3 class="Title8 GTitle3">Fichier Makefile (src/CMakefile.txt)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="makefile">cmake_minimum_required(VERSION 3.0)
+project(GProject)
+set(GTARGET ${PROJECT_NAME})
+set(GSOURCES main.cpp)
+set(GINCLUDEPATH ../win/lib/Hello/include)
+set(GLIBPATH ../win/lib/Hello/lib)
+set(GLIBS Hello)
+include_directories(${GINCLUDEPATH})
+link_directories(${GLIBPATH})
+add_executable(${GTARGET} ${GSOURCES})
+target_link_libraries(${GTARGET} ${GLIBS})</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Utiliser une librairie dynamique-Générer le projet"><a class="Link9" href="#Utiliser une librairie dynamique">Générer le projet</a></h2><br><h3 class="Title8 GTitle3">Générer le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
 
-GINCS = \
-    -Ilib/Hello/include
+set PATH=C:\Program Files\CMake\bin
+set PATH=C:\MinGW\bin;%PATH%
 
-GLIBS = \
-    -Llib/Hello/bin -lHello
-
-GOBJS = \
-    $(GBUILD)/main.o
-    
-all: $(GOBJS)
-	g++ -o $(GTARGET) $(GOBJS) $(GLIBS)
-$(GBUILD)/main.o: $(GSRC)/main.cpp
-	g++ -c $(GSRC)/main.cpp -o $(GBUILD)/main.o $(GINCS)
-clean:
-	del /q $(GBUILD)\*.o $(GBIN)\*.exe</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Utiliser une librairie dynamique-Compiler le projet"><a class="Link9" href="#Utiliser une librairie dynamique">Compiler le projet</a></h2><br><h3 class="Title8 GTitle3">Compiler le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
+cd build
+cmake ../../src ^
+-G "MinGW Makefiles" ^
+-DCMAKE_BUILD_TYPE=RELEASE ^
+-DCMAKE_C_COMPILER=gcc ^
+-DCMAKE_CXX_COMPILER=g++
+cd ..</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Utiliser une librairie dynamique-Compiler le projet"><a class="Link9" href="#Utiliser une librairie dynamique">Compiler le projet</a></h2><br><h3 class="Title8 GTitle3">Compiler le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
 
 set PATH=C:\MinGW\bin
 
-mingw32-make</xmp></pre></div><br><h3 class="Title8 GTitle3">Compilation manuelle du projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">g++ -c ../src/main.cpp -o build/main.o -Ilib/Hello/include
-g++ -o bin/GProject.exe build/main.o -Llib/Hello/bin -lHello</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Utiliser une librairie dynamique-Exécuter le projet"><a class="Link9" href="#Utiliser une librairie dynamique">Exécuter le projet</a></h2><br><h3 class="Title8 GTitle3">Exécuter le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
+cd build
+mingw32-make
+cd ..</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Utiliser une librairie dynamique-Exécuter le projet"><a class="Link9" href="#Utiliser une librairie dynamique">Exécuter le projet</a></h2><br><h3 class="Title8 GTitle3">Exécuter le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
 
 set PATH=C:\MinGW\bin
 set PATH=lib\Hello\bin;%PATH%
 
 echo.
-bin\GProject.exe
+build\GProject
 echo.
 pause</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Utiliser une librairie dynamique-Résultat"><a class="Link9" href="#Utiliser une librairie dynamique">Résultat</a></h2><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Librairie_Dynamique_Utilisation.png" alt="img/Librairie_Dynamique_Utilisation.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Gérer un programme complet"><a class="Link3" href="#">Gérer un programme complet</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">gérer un programme complet </span>avec CMake.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1545770229223"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1545770229223");</script></div><br><h2 class="Title7 GTitle2" id="Gérer un programme complet-Programme principal"><a class="Link9" href="#Gérer un programme complet">Programme principal</a></h2><br><h3 class="Title8 GTitle3">Programme principal (main.cpp)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include "GProcess.h"
@@ -970,42 +959,45 @@ private:
 };
 //===============================================
 #endif
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Gérer un programme complet-Fichier Makefile"><a class="Link9" href="#Gérer un programme complet">Fichier Makefile</a></h2><br><h3 class="Title8 GTitle3">Fichier Makefile (Makefile)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="makefile">GSRC = ../src
-GBIN = bin
-GBUILD = build
-GTARGET = $(GBIN)/GProject.exe
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Gérer un programme complet-Fichier CMakefile"><a class="Link9" href="#Gérer un programme complet">Fichier CMakefile</a></h2><br><h3 class="Title8 GTitle3">Fichier CMakefile (src/CMakefile.txt)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="makefile">cmake_minimum_required(VERSION 3.0)
+project(GProject)
+add_subdirectory(manager)
+set(GTARGET ${PROJECT_NAME})
+set(GSOURCES main.cpp)
+set(GINCLUDEPATH manager)
+set(GLIBPATH ../win/lib/Hello/lib)
+set(GLIBS GManager Hello)
+include_directories(${GINCLUDEPATH})
+link_directories(${GLIBPATH})
+add_executable(${GTARGET} ${GSOURCES})
+target_link_libraries(${GTARGET} ${GLIBS})</xmp></pre></div><br><h3 class="Title8 GTitle3">Fichier CMakefile (src/manager/CMakefile.txt)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="makefile">set(GTARGET GManager)
+set(GSOURCES GProcess.cpp)
+set(GHEADERS GProcess.h)
+set(GINCLUDEPATH ../../win/lib/Hello/include)
+include_directories(${GINCLUDEPATH})
+add_library(${GTARGET} ${GSOURCES} ${GHEADERS})</xmp></pre></div> <br><h2 class="Title7 GTitle2" id="Gérer un programme complet-Générer le projet"><a class="Link9" href="#Gérer un programme complet">Générer le projet</a></h2><br><h3 class="Title8 GTitle3">Générer le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
 
-GINCS = \
-    -I../src/manager \
-    -Ilib/Hello/include
+set PATH=C:\Program Files\CMake\bin
+set PATH=C:\MinGW\bin;%PATH%
 
-GLIBS = \
-    -Llib/Hello/bin -lHello
-            
-GOBJS = \
-    $(patsubst $(GSRC)/%.cpp, $(GBUILD)/%.o, $(wildcard $(GSRC)/*.cpp)) \
-    $(patsubst $(GSRC)/manager/%.cpp, $(GBUILD)/%.o, $(wildcard $(GSRC)/manager/*.cpp))
-    
-all: $(GOBJS)
-	g++ -o $(GTARGET) $(GOBJS) $(GLIBS)
-$(GBUILD)/%.o: $(GSRC)/%.cpp
-	g++ -c $< -o $@ $(GINCS)
-$(GBUILD)/%.o: $(GSRC)/manager/%.cpp
-	g++ -c $< -o $@ $(GINCS)
-clean:
-	del /q $(GBUILD)\*.o $(GBIN)\*.exe
-</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Gérer un programme complet-Compiler le projet"><a class="Link9" href="#Gérer un programme complet">Compiler le projet</a></h2><br><h3 class="Title8 GTitle3">Compiler le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
-
-set PATH=C:\MinGW\bin
-
-mingw32-make</xmp></pre></div><br><h3 class="Title8 GTitle3">Compilation manuelle du projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">g++ -c ../src/main.cpp -o build/main.o -I../src/manager -Ilib/Hello/include
-g++ -c ../src/manager/GProcess.cpp -o build/GProcess.o -I../src/manager -Ilib/Hello/include
-g++ -o bin/GProject.exe  build/main.o  build/GProcess.o -Llib/Hello/bin -lHello</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Gérer un programme complet-Exécuter le projet"><a class="Link9" href="#Gérer un programme complet">Exécuter le projet</a></h2><br><h3 class="Title8 GTitle3">Exécuter le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
+cd build
+cmake ../../src ^
+-G "MinGW Makefiles" ^
+-DCMAKE_BUILD_TYPE=RELEASE ^
+-DCMAKE_C_COMPILER=gcc ^
+-DCMAKE_CXX_COMPILER=g++
+cd ..</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Gérer un programme complet-Compiler le projet"><a class="Link9" href="#Gérer un programme complet">Compiler le projet</a></h2><br><h3 class="Title8 GTitle3">Compiler le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
 
 set PATH=C:\MinGW\bin
-set PATH=lib\hello\bin;%PATH%
+
+cd build
+mingw32-make
+cd ..</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Gérer un programme complet-Exécuter le projet"><a class="Link9" href="#Gérer un programme complet">Exécuter le projet</a></h2><br><h3 class="Title8 GTitle3">Exécuter le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
+
+set PATH=C:\MinGW\bin
+set PATH=lib\Hello\bin;%PATH%
 
 echo.
-bin\GProject.exe
+build\GProject
 echo.
 pause</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Gérer un programme complet-Résultat"><a class="Link9" href="#Gérer un programme complet">Résultat</a></h2><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Programme_Complet.png" alt="img/Programme_Complet.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Codes sources"><a class="Link3" href="#">Codes sources</a></h1><div class="Body3"><b>ReadyDev</b> met à votre disposition,<br><div class="Content0 GCode2"><div class="Body0">l'ensemble des codes sources abordés dans ce tutoriel.<br>Produit par <b>Gérard KESSE</b>.<br><br></div><div class="Body16"><div class="Row23" id="FilesystemMenu"><div class="Row">Menu</div></div><div class="Row24" id="FilesystemList"><div class="Row">File</div></div></div><script src="/js/class/GFilesystem.js"></script><script src="/js/filesystem.js"></script></div></div></div></div></div><br>
