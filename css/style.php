@@ -463,6 +463,7 @@ span {
     overflow: auto;
     scrollbar-color: #5f6681 #051039;
     scrollbar-width: thin;
+    border: 1px solid #5f6681;
 }
 
 .BoxSelect div {
