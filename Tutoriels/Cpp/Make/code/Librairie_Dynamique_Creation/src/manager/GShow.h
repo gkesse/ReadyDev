@@ -6,15 +6,9 @@
 #include <iomanip>
 #include <string>
 //===============================================
-#ifdef DLL_APP  
-#define DLL_API __declspec(dllexport)   
-#else  
-#define DLL_API __declspec(dllimport)   
-#endif 
-//===============================================
 using namespace std;
 //===============================================
-class DLL_API GShow {
+class GShow {
 private:
     GShow();
     
