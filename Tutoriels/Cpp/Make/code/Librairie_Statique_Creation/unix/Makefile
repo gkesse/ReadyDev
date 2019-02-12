@@ -1,5 +1,5 @@
 GSRC = ../src
-GBIN = lib
+GBIN = bin
 GBUILD = build
 GTARGET = $(GBIN)/libHello.a
 
