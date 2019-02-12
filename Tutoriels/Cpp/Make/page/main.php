@@ -681,13 +681,7 @@ int main(int argc, char** argv) {
 //===============================================
 #include <cmath>
 //===============================================
-#ifdef DLL_APP  
-#define DLL_API __declspec(dllexport)   
-#else  
-#define DLL_API __declspec(dllimport)   
-#endif 
-//===============================================
-class DLL_API GMath {
+class GMath {
 private:
     GMath();
     
@@ -718,15 +712,9 @@ private:
 #include <iomanip>
 #include <string>
 //===============================================
-#ifdef DLL_APP  
-#define DLL_API __declspec(dllexport)   
-#else  
-#define DLL_API __declspec(dllimport)   
-#endif 
-//===============================================
 using namespace std;
 //===============================================
-class DLL_API GShow {
+class GShow {
 private:
     GShow();
     
@@ -745,16 +733,16 @@ private:
 };
 //===============================================
 #endif
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Utiliser une librairie dynamique-Fichier Makefile"><a class="Link9" href="#Utiliser une librairie dynamique">Fichier Makefile</a></h2><br><h3 class="Title8 GTitle3">Fichier Makefile (Makefile)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="Makefile">GSRC = ../src
+//===============================================</xmp></pre></div><br><br><h2 class="Title7 GTitle2" id="Utiliser une librairie dynamique-Fichier Makefile"><a class="Link9" href="#Utiliser une librairie dynamique">Fichier Makefile</a></h2><br><h3 class="Title8 GTitle3">Fichier Makefile (Makefile)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="makefile">GSRC = ../src
 GBIN = bin
 GBUILD = build
 GTARGET = $(GBIN)/GProject.exe
 
-GINCS = \
-    -Ilib/Hello/include
-
 GLIBS = \
     -Llib/Hello/bin -lHello
+
+GINCS = \
+    -Ilib/Hello/include
 
 GOBJS = \
     $(GBUILD)/main.o
@@ -764,20 +752,12 @@ all: $(GOBJS)
 $(GBUILD)/main.o: $(GSRC)/main.cpp
 	g++ -c $(GSRC)/main.cpp -o $(GBUILD)/main.o $(GINCS)
 clean:
-	del /q $(GBUILD)\*.o $(GBIN)\*.exe</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Utiliser une librairie dynamique-Compiler le projet"><a class="Link9" href="#Utiliser une librairie dynamique">Compiler le projet</a></h2><br><h3 class="Title8 GTitle3">Compiler le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
+	rm -f $(GBUILD)/*.o $(GBIN)/*.exe</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Utiliser une librairie dynamique-Compiler le projet"><a class="Link9" href="#Utiliser une librairie dynamique">Compiler le projet</a></h2><br><h3 class="Title8 GTitle3">Compiler le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">make</xmp></pre></div><br><h3 class="Title8 GTitle3">Compilation manuelle du projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">g++ -c ../src/main.cpp -o build/main.o -Ilib/Hello/include
+g++ -o bin/GProject.exe build/main.o -Llib/Hello/bin -lHello</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Utiliser une librairie dynamique-Exécuter le projet"><a class="Link9" href="#Utiliser une librairie dynamique">Exécuter le projet</a></h2><br><h3 class="Title8 GTitle3">Exécuter le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">export LD_LIBRARY_PATH=lib/Hello/bin
 
-set PATH=C:\MinGW\bin
-
-mingw32-make</xmp></pre></div><br><h3 class="Title8 GTitle3">Compilation manuelle du projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">g++ -c ../src/main.cpp -o build/main.o -Ilib/Hello/include
-g++ -o bin/GProject.exe build/main.o -Llib/Hello/bin -lHello</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Utiliser une librairie dynamique-Exécuter le projet"><a class="Link9" href="#Utiliser une librairie dynamique">Exécuter le projet</a></h2><br><h3 class="Title8 GTitle3">Exécuter le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
-
-set PATH=C:\MinGW\bin
-set PATH=lib\Hello\bin;%PATH%
-
-echo.
-bin\GProject.exe
-echo.
-pause</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Utiliser une librairie dynamique-Résultat"><a class="Link9" href="#Utiliser une librairie dynamique">Résultat</a></h2><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Librairie_Dynamique_Utilisation.png" alt="img/Librairie_Dynamique_Utilisation.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Gérer un programme complet"><a class="Link3" href="#">Gérer un programme complet</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">gérer un programme complet </span>avec Make.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1545770229223"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1545770229223");</script></div><br><h2 class="Title7 GTitle2" id="Gérer un programme complet-Programme principal"><a class="Link9" href="#Gérer un programme complet">Programme principal</a></h2><br><h3 class="Title8 GTitle3">Programme principal (main.cpp)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+echo
+bin/GProject.exe
+echo</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Utiliser une librairie dynamique-Résultat"><a class="Link9" href="#Utiliser une librairie dynamique">Résultat</a></h2><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Librairie_Dynamique_Utilisation.png" alt="img/Librairie_Dynamique_Utilisation.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Gérer un programme complet"><a class="Link3" href="#">Gérer un programme complet</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">gérer un programme complet </span>avec Make.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1545770229223"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1545770229223");</script></div><br><h2 class="Title7 GTitle2" id="Gérer un programme complet-Programme principal"><a class="Link9" href="#Gérer un programme complet">Programme principal</a></h2><br><h3 class="Title8 GTitle3">Programme principal (main.cpp)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include "GProcess.h"
 //===============================================
 int main(int argc, char** argv) {
