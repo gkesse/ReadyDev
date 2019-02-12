@@ -492,13 +492,7 @@ echo</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Utiliser une librairie 
 //===============================================
 #include <cmath>
 //===============================================
-#ifdef DLL_APP  
-#define DLL_API __declspec(dllexport)   
-#else  
-#define DLL_API __declspec(dllimport)   
-#endif 
-//===============================================
-class DLL_API GMath {
+class GMath {
 private:
     GMath();
     
@@ -579,15 +573,9 @@ double GMath::modulo(const int& a, const int& b) {
 #include <iomanip>
 #include <string>
 //===============================================
-#ifdef DLL_APP  
-#define DLL_API __declspec(dllexport)   
-#else  
-#define DLL_API __declspec(dllimport)   
-#endif 
-//===============================================
 using namespace std;
 //===============================================
-class DLL_API GShow {
+class GShow {
 private:
     GShow();
     
@@ -639,10 +627,10 @@ void GShow::show(const double& data, const string& name) {
 //===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer une librairie dynamique-Fichier Makefile"><a class="Link9" href="#Créer une librairie dynamique">Fichier Makefile</a></h2><br><h3 class="Title8 GTitle3">Fichier Makefile (Makefile)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="makefile">GSRC = ../src
 GBIN = bin
 GBUILD = build
-GTARGET = $(GBIN)/libHello.dll
+GTARGET = $(GBIN)/libHello.so
 
 GINCS = \
-    -I../src/manager
+    -I$(GSRC)/manager
     
 GOBJS = \
     $(GBUILD)/GShow.o \
@@ -651,18 +639,13 @@ GOBJS = \
 all: $(GOBJS)
 	g++ -shared -o $(GTARGET) $(GOBJS)
 $(GBUILD)/GShow.o: $(GSRC)/manager/GShow.cpp
-	g++ -c -DDLL_APP $(GSRC)/manager/GShow.cpp -o $(GBUILD)/GShow.o $(GINCS)
+	g++ -c -fPIC $(GSRC)/manager/GShow.cpp -o $(GBUILD)/GShow.o $(GINCS)
 $(GBUILD)/GMath.o: $(GSRC)/manager/GMath.cpp
-	g++ -c -DDLL_APP $(GSRC)/manager/GMath.cpp -o $(GBUILD)/GMath.o $(GINCS)
+	g++ -c -fPIC $(GSRC)/manager/GMath.cpp -o $(GBUILD)/GMath.o $(GINCS)
 clean:
-	del /q $(GBUILD)\*.o $(GBIN)\*.dll
-</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer une librairie dynamique-Compiler le projet"><a class="Link9" href="#Créer une librairie dynamique">Compiler le projet</a></h2><br><h3 class="Title8 GTitle3">Compiler le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
-
-set PATH=C:\MinGW\bin
-
-mingw32-make</xmp></pre></div><br><h3 class="Title8 GTitle3">Compilation manuelle du projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">g++ -c -DDLL_APP ../src/manager/GShow.cpp -o build/GShow.o -I../src/manager
-g++ -c -DDLL_APP ../src/manager/GMath.cpp -o build/GMath.o -I../src/manager
-g++ -shared -o bin/libHello.dll build/GShow.o build/GMath.o</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer une librairie dynamique-Résultat"><a class="Link9" href="#Créer une librairie dynamique">Résultat</a></h2><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Librairie_Dynamique_Creation.png" alt="img/Librairie_Dynamique_Creation.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Utiliser une librairie dynamique"><a class="Link3" href="#">Utiliser une librairie dynamique</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">utiliser une librairie dynamique </span>avec Make.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1545767834105"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1545767834105");</script></div><br><h2 class="Title7 GTitle2" id="Utiliser une librairie dynamique-Programme principal"><a class="Link9" href="#Utiliser une librairie dynamique">Programme principal</a></h2><br><h3 class="Title8 GTitle3">Programme principal (main.cpp)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+	rm -f $(GBUILD)/*.o $(GBIN)/*.so</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer une librairie dynamique-Compiler le projet"><a class="Link9" href="#Créer une librairie dynamique">Compiler le projet</a></h2><br><h3 class="Title8 GTitle3">Compiler le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">make</xmp></pre></div><br><h3 class="Title8 GTitle3">Compilation manuelle du projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">g++ -c -fPIC ../src/manager/GShow.cpp -o build/GShow.o -I../src/manager
+g++ -c -fPIC ../src/manager/GMath.cpp -o build/GMath.o -I../src/manager
+g++ -shared -o bin/libHello.so build/GShow.o build/GMath.o</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer une librairie dynamique-Résultat"><a class="Link9" href="#Créer une librairie dynamique">Résultat</a></h2><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Librairie_Dynamique_Creation.png" alt="img/Librairie_Dynamique_Creation.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Utiliser une librairie dynamique"><a class="Link3" href="#">Utiliser une librairie dynamique</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">utiliser une librairie dynamique </span>avec Make.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1545767834105"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1545767834105");</script></div><br><h2 class="Title7 GTitle2" id="Utiliser une librairie dynamique-Programme principal"><a class="Link9" href="#Utiliser une librairie dynamique">Programme principal</a></h2><br><h3 class="Title8 GTitle3">Programme principal (main.cpp)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include "GShow.h"
 #include "GMath.h"
 //===============================================
