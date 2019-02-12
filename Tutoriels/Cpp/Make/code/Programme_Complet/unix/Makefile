@@ -4,7 +4,7 @@ GBUILD = build
 GTARGET = $(GBIN)/GProject.exe
 
 GINCS = \
-    -I$(GSRC)/manager \
+    -I../src/manager \
     -Ilib/Hello/include
 
 GLIBS = \
