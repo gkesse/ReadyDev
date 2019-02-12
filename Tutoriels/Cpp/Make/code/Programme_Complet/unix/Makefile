@@ -5,10 +5,10 @@ GTARGET = $(GBIN)/GProject.exe
 
 GINCS = \
     -I$(GSRC)/manager \
-    -Ilib/hello/include
+    -Ilib/Hello/include
 
 GLIBS = \
-    -Llib/hello/bin -lHello
+    -Llib/Hello/bin -lHello
             
 GOBJS = \
     $(patsubst $(GSRC)/%.cpp, $(GBUILD)/%.o, $(wildcard $(GSRC)/*.cpp)) \
@@ -21,4 +21,4 @@ $(GBUILD)/%.o: $(GSRC)/%.cpp
 $(GBUILD)/%.o: $(GSRC)/manager/%.cpp
 	g++ -c $< -o $@ $(GINCS)
 clean:
-	rm -f $(GBUILD)/* $(GBIN)/*
+	rm -f $(GBUILD)/*.o $(GBIN)/*.exe
