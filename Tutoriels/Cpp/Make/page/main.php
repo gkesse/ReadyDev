@@ -356,7 +356,7 @@ void GShow::show(const double& data, const string& name) {
     cout << fixed << setprecision(2) << data << "\n";
 }
 //===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer une librairie statique-Fichier Makefile"><a class="Link9" href="#Créer une librairie statique">Fichier Makefile</a></h2><br><h3 class="Title8 GTitle3">Fichier Makefile (Makefile)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="makefile">GSRC = ../src
-GBIN = lib
+GBIN = bin
 GBUILD = build
 GTARGET = $(GBIN)/libHello.a
 
@@ -374,11 +374,7 @@ $(GBUILD)/GShow.o: $(GSRC)/manager/GShow.cpp
 $(GBUILD)/GMath.o: $(GSRC)/manager/GMath.cpp
 	g++ -c $(GSRC)/manager/GMath.cpp -o $(GBUILD)/GMath.o $(GINCS)
 clean:
-	rm -f $(GBUILD)/*.o $(GBIN)/*.a</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer une librairie statique-Compiler le projet"><a class="Link9" href="#Créer une librairie statique">Compiler le projet</a></h2><br><h3 class="Title8 GTitle3">Compiler le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
-
-set PATH=C:\MinGW\bin
-
-mingw32-make</xmp></pre></div><br><h3 class="Title8 GTitle3">Compilation manuelle du projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">g++ -c ../src/manager/GShow.cpp -o build/GShow.o -I../src/manager
+	rm -f $(GBUILD)/*.o $(GBIN)/*.a</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer une librairie statique-Compiler le projet"><a class="Link9" href="#Créer une librairie statique">Compiler le projet</a></h2><br><h3 class="Title8 GTitle3">Compiler le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">make</xmp></pre></div><br><h3 class="Title8 GTitle3">Compilation manuelle du projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">g++ -c ../src/manager/GShow.cpp -o build/GShow.o -I../src/manager
 g++ -c ../src/manager/GMath.cpp -o build/GMath.o -I../src/manager
 ar rcs bin/libHello.a build/GShow.o build/GMath.o</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer une librairie statique-Résultat"><a class="Link9" href="#Créer une librairie statique">Résultat</a></h2><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Librairie_Statique_Creation.png" alt="img/Librairie_Statique_Creation.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Utiliser une librairie statique"><a class="Link3" href="#">Utiliser une librairie statique</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">utiliser une librairie statique </span>avec Make.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1545764563806"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1545764563806");</script></div><br><h2 class="Title7 GTitle2" id="Utiliser une librairie statique-Programme principal"><a class="Link9" href="#Utiliser une librairie statique">Programme principal</a></h2><br><h3 class="Title8 GTitle3">Programme principal (main.cpp)<br></h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include "GShow.h"
@@ -474,10 +470,10 @@ GBUILD = build
 GTARGET = $(GBIN)/GProject.exe
 
 GINCS = \
-    -Ilib/Hello/include
+    -Ilib/hello/include
     
 GLIBS = \
-    -Llib/Hello/lib -lHello
+    -Llib/hello/lib -lHello
     
 GOBJS = \
     $(GBUILD)/main.o
@@ -487,19 +483,10 @@ all: $(GOBJS)
 $(GBUILD)/main.o: $(GSRC)/main.cpp
 	g++ -c $(GSRC)/main.cpp -o $(GBUILD)/main.o $(GINCS)
 clean:
-	del /q $(GBUILD)\*.o $(GBIN)\*.exe</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Utiliser une librairie statique-Compiler le projet"><a class="Link9" href="#Utiliser une librairie statique">Compiler le projet</a></h2><br><h3 class="Title8 GTitle3">Compiler le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
-
-set PATH=C:\MinGW\bin
-
-mingw32-make</xmp></pre></div><br><h3 class="Title8 GTitle3">Compilation manuelle du projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">g++ -c ../src/main.cpp -o build/main.o -Ilib/Hello/include
-g++ -o bin/GProject.exe build/main.o -Llib/Hello/lib -lHello</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Utiliser une librairie statique-Exécuter le projet"><a class="Link9" href="#Utiliser une librairie statique">Exécuter le projet</a></h2><br><h3 class="Title8 GTitle3">Exécuter le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
-
-set PATH=C:\MinGW\bin
-
-echo.
-bin\GProject.exe
-echo.
-pause</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Utiliser une librairie statique-Résultat"><a class="Link9" href="#Utiliser une librairie statique">Résultat</a></h2><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Librairie_Statique_Utilisation.png" alt="img/Librairie_Statique_Utilisation.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Créer une librairie dynamique"><a class="Link3" href="#">Créer une librairie dynamique</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">créer une librairie dynamique </span>avec Make.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1545766398481"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1545766398481");</script></div><br><h2 class="Title7 GTitle2" id="Créer une librairie dynamique-Gestionnaire d'opérations mathématiques"><a class="Link9" href="#Créer une librairie dynamique">Gestionnaire d'opérations mathématiques</a></h2><br><h3 class="Title8 GTitle3">Gestionnaire d'opérations mathématiques (GMath.h)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+	rm -f $(GBUILD)/*.o $(GBIN)/*.exe</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Utiliser une librairie statique-Compiler le projet"><a class="Link9" href="#Utiliser une librairie statique">Compiler le projet</a></h2><br><h3 class="Title8 GTitle3">Compiler le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">make</xmp></pre></div><br><h3 class="Title8 GTitle3">Compilation manuelle du projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">g++ -c ../src/main.cpp -o build/main.o -Ilib/Hello/include
+g++ -o bin/GProject.exe build/main.o -Llib/Hello/lib -lHello</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Utiliser une librairie statique-Exécuter le projet"><a class="Link9" href="#Utiliser une librairie statique">Exécuter le projet</a></h2><br><h3 class="Title8 GTitle3">Exécuter le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">echo
+./bin/GProject.exe
+echo</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Utiliser une librairie statique-Résultat"><a class="Link9" href="#Utiliser une librairie statique">Résultat</a></h2><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Librairie_Statique_Utilisation.png" alt="img/Librairie_Statique_Utilisation.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Créer une librairie dynamique"><a class="Link3" href="#">Créer une librairie dynamique</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">créer une librairie dynamique </span>avec Make.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1545766398481"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1545766398481");</script></div><br><h2 class="Title7 GTitle2" id="Créer une librairie dynamique-Gestionnaire d'opérations mathématiques"><a class="Link9" href="#Créer une librairie dynamique">Gestionnaire d'opérations mathématiques</a></h2><br><h3 class="Title8 GTitle3">Gestionnaire d'opérations mathématiques (GMath.h)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #ifndef _GMath_
 #define _GMath_
 //===============================================
