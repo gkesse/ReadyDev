@@ -15,6 +15,7 @@ GShow* GShow::Instance() {
     if(m_instance == 0) {
         m_instance = new GShow;
     }
+    
     return m_instance;
 }
 //===============================================

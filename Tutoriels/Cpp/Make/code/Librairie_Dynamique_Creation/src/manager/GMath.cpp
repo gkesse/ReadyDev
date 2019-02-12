@@ -15,6 +15,7 @@ GMath* GMath::Instance() {
     if(m_instance == 0) {
         m_instance = new GMath;
     }
+    
     return m_instance;
 }
 //===============================================
