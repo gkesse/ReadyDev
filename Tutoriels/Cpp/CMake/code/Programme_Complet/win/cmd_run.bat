@@ -1,9 +1,9 @@
 @echo off
 
 set PATH=C:\MinGW\bin
-set PATH=lib\hello\bin;%PATH%
+set PATH=lib\Hello\bin;%PATH%
 
 echo.
-bin\GProject.exe
+build\GProject
 echo.
 pause
