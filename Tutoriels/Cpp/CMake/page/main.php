@@ -940,7 +940,7 @@ private:
 //===============================================
 using namespace std;
 //===============================================
-class GShow {
+class DLL_API GShow {
 private:
     GShow();
     
@@ -948,11 +948,11 @@ public:
     ~GShow();
     
 public:
-    static DLL_API GShow* Instance();
+    static GShow* Instance();
     
 public:
-    DLL_API void show(const string& data, const string& name = "");
-    DLL_API void show(const double& data, const string& name = "");
+    void show(const string& data, const string& name = "");
+    void show(const double& data, const string& name = "");
     
 private:
     static GShow* m_instance;
