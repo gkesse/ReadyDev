@@ -2,6 +2,8 @@
 #ifndef _GMath_
 #define _GMath_
 //===============================================
+#include <cmath>
+//===============================================
 class GMath {
 private:
     GMath();
@@ -18,7 +20,7 @@ public:
     double multiply(const double& a, const double& b);
     double divide(const double& a, const double& b);
     double quotient(const double& a, const double& b);
-    double modulus(const int& a, const int& b);
+    double modulo(const int& a, const int& b);
     
 private:
     static GMath* m_instance;
