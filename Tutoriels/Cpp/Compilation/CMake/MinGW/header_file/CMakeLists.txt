@@ -1,19 +1,10 @@
 cmake_minimum_required(VERSION 3.0)
-project(GMain)
+project(GProject)
 add_subdirectory(manager)
-set(TARGET main)
-set(
-	SOURCES
-	main.cpp
-)
-set(
-	INCLUDEPATH
-	manager
-)
-set(
-	LIBS
-	GManager
-)
-include_directories(${INCLUDEPATH})
-add_executable(${TARGET} ${SOURCES})
-target_link_libraries(${TARGET} ${LIBS})
+set(GTARGET ${PROJECT_NAME})
+set(GSOURCES main.cpp)
+set(GINCLUDEPATH manager)
+set(GLIBS GManager)
+include_directories(${GINCLUDEPATH})
+add_executable(${GTARGET} ${GSOURCES})
+target_link_libraries(${GTARGET} ${GLIBS})

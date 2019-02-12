@@ -3,6 +3,6 @@
 set PATH=C:\MinGW\bin
 
 echo.
-build\GProject
+build\GProject.exe
 echo.
 pause

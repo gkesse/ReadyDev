@@ -1,5 +1,3 @@
 echo
-cd bin
-./GProject.exe
-cd ..
+./bin/GProject.exe
 echo
