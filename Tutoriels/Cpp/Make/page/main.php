@@ -212,11 +212,7 @@ $(GBUILD)/GShow.o: $(GSRC)/manager/GShow.cpp
 $(GBUILD)/GMath.o: $(GSRC)/manager/GMath.cpp
 	g++ -c $(GSRC)/manager/GMath.cpp -o $(GBUILD)/GMath.o $(GINCS)
 clean:
-	rm -f $(GBUILD)/*.o $(GBIN)/*.exe</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Compiler plusieurs fichiers sources-Compiler le projet"><a class="Link9" href="#Compiler plusieurs fichiers sources">Compiler le projet</a></h2><br><h3 class="Title8 GTitle3">Compiler le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
-
-set PATH=C:\MinGW\bin
-
-mingw32-make</xmp></pre></div><br><h3 class="Title8 GTitle3">Compilation manuelle du projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">g++ -c ../src/main.cpp -o build/main.o -I../src/manager
+	rm -f $(GBUILD)/*.o $(GBIN)/*.exe</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Compiler plusieurs fichiers sources-Compiler le projet"><a class="Link9" href="#Compiler plusieurs fichiers sources">Compiler le projet</a></h2><br><h3 class="Title8 GTitle3">Compiler le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">make</xmp></pre></div><br><h3 class="Title8 GTitle3">Compilation manuelle du projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">g++ -c ../src/main.cpp -o build/main.o -I../src/manager
 g++ -c ../src/manager/GShow.cpp -o build/GShow.o -I../src/manager
 g++ -c ../src/manager/GMath.cpp -o build/GMath.o -I../src/manager
 g++ -o bin/GProject.exe build/main.o build/GShow.o build/GMath.o</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Compiler plusieurs fichiers sources-Exécuter le projet"><a class="Link9" href="#Compiler plusieurs fichiers sources">Exécuter le projet</a></h2><br><h3 class="Title8 GTitle3">Exécuter le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
