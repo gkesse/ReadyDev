@@ -2,8 +2,6 @@
 #ifndef _GShow_
 #define _GShow_
 //===============================================
-#include <iostream>
-#include <iomanip>
 #include <string>
 //===============================================
 #ifdef DLL_APP  
