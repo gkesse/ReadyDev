@@ -4,10 +4,10 @@ GBUILD = build
 GTARGET = $(GBIN)/GProject.exe
 
 GINCS = \
-    -Ilib/hello/include
+    -Ilib/Hello/include
     
 GLIBS = \
-    -Llib/hello/lib -lHello
+    -Llib/Hello/lib -lHello
     
 GOBJS = \
     $(GBUILD)/main.o
