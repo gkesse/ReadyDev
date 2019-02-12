@@ -836,15 +836,7 @@ void GProcess::run() {
 #ifndef _GMath_
 #define _GMath_
 //===============================================
-#include <cmath>
-//===============================================
-#ifdef DLL_APP  
-#define DLL_API __declspec(dllexport)   
-#else  
-#define DLL_API __declspec(dllimport)   
-#endif 
-//===============================================
-class DLL_API GMath {
+class GMath {
 private:
     GMath();
     
@@ -871,13 +863,9 @@ private:
 #ifndef _GShow_
 #define _GShow_
 //===============================================
+#include <iostream>
+#include <iomanip>
 #include <string>
-//===============================================
-#ifdef DLL_APP  
-#define DLL_API __declspec(dllexport)   
-#else  
-#define DLL_API __declspec(dllimport)   
-#endif 
 //===============================================
 using namespace std;
 //===============================================
@@ -889,11 +877,11 @@ public:
     ~GShow();
     
 public:
-    static DLL_API GShow* Instance();
+    static GShow* Instance();
     
 public:
-    DLL_API void show(const string& data, const string& name = "");
-    DLL_API void show(const double& data, const string& name = "");
+    void show(const string& data, const string& name = "");
+    void show(const double& data, const string& name = "");
     
 private:
     static GShow* m_instance;
@@ -923,19 +911,10 @@ $(GBUILD)/%.o: $(GSRC)/%.cpp
 $(GBUILD)/%.o: $(GSRC)/manager/%.cpp
 	g++ -c $< -o $@ $(GINCS)
 clean:
-	del /q $(GBUILD)\*.o $(GBIN)\*.exe
-</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Gérer un programme complet-Compiler le projet"><a class="Link9" href="#Gérer un programme complet">Compiler le projet</a></h2><br><h3 class="Title8 GTitle3">Compiler le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
-
-set PATH=C:\MinGW\bin
-
-mingw32-make</xmp></pre></div><br><h3 class="Title8 GTitle3">Compilation manuelle du projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">g++ -c ../src/main.cpp -o build/main.o -I../src/manager -Ilib/Hello/include
+	rm -f $(GBUILD)/*.o $(GBIN)/*.exe</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Gérer un programme complet-Compiler le projet"><a class="Link9" href="#Gérer un programme complet">Compiler le projet</a></h2><br><h3 class="Title8 GTitle3">Compiler le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">make</xmp></pre></div><br><h3 class="Title8 GTitle3">Compilation manuelle du projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">g++ -c ../src/main.cpp -o build/main.o -I../src/manager -Ilib/Hello/include
 g++ -c ../src/manager/GProcess.cpp -o build/GProcess.o -I../src/manager -Ilib/Hello/include
-g++ -o bin/GProject.exe  build/main.o  build/GProcess.o -Llib/Hello/bin -lHello</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Gérer un programme complet-Exécuter le projet"><a class="Link9" href="#Gérer un programme complet">Exécuter le projet</a></h2><br><h3 class="Title8 GTitle3">Exécuter le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
+g++ -o bin/GProject.exe  build/main.o  build/GProcess.o -Llib/Hello/bin -lHello</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Gérer un programme complet-Exécuter le projet"><a class="Link9" href="#Gérer un programme complet">Exécuter le projet</a></h2><br><h3 class="Title8 GTitle3">Exécuter le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">export LD_LIBRARY_PATH=lib/Hello/bin
 
-set PATH=C:\MinGW\bin
-set PATH=lib\hello\bin;%PATH%
-
-echo.
-bin\GProject.exe
-echo.
-pause</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Gérer un programme complet-Résultat"><a class="Link9" href="#Gérer un programme complet">Résultat</a></h2><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Programme_Complet.png" alt="img/Programme_Complet.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Codes sources"><a class="Link3" href="#">Codes sources</a></h1><div class="Body3"><b>ReadyDev</b> met à votre disposition,<br><div class="Content0 GCode2"><div class="Body0">l'ensemble des codes sources abordés dans ce tutoriel.<br>Produit par <b>Gérard KESSE</b>.<br><br></div><div class="Body16"><div class="Row23" id="FilesystemMenu"><div class="Row">Menu</div></div><div class="Row24" id="FilesystemList"><div class="Row">File</div></div></div><script src="/js/class/GFilesystem.js"></script><script src="/js/filesystem.js"></script></div></div></div></div></div><br>
+echo
+bin/GProject.exe
+echo</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Gérer un programme complet-Résultat"><a class="Link9" href="#Gérer un programme complet">Résultat</a></h2><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Programme_Complet.png" alt="img/Programme_Complet.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Codes sources"><a class="Link3" href="#">Codes sources</a></h1><div class="Body3"><b>ReadyDev</b> met à votre disposition,<br><div class="Content0 GCode2"><div class="Body0">l'ensemble des codes sources abordés dans ce tutoriel.<br>Produit par <b>Gérard KESSE</b>.<br><br></div><div class="Body16"><div class="Row23" id="FilesystemMenu"><div class="Row">Menu</div></div><div class="Row24" id="FilesystemList"><div class="Row">File</div></div></div><script src="/js/class/GFilesystem.js"></script><script src="/js/filesystem.js"></script></div></div></div></div></div><br>
