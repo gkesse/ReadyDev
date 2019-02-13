@@ -25,7 +25,7 @@ int main(int argc, char** argv) {
     GShow::Instance()->show(m_data, "quotient(22, 7)"); 
     
     m_data = GMath::Instance()->modulo(22, 7);
-    GShow::Instance()->show(m_data, "modulus(22, 7)");    
+    GShow::Instance()->show(m_data, "modulo(22, 7)");    
     return 0;
 }
 //===============================================

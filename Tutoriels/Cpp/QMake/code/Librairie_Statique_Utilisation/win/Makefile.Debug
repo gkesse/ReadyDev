@@ -17,7 +17,7 @@ CXXFLAGS      = -pipe -fno-keep-inline-dllexport -g -std=gnu++11 -frtti -Wall -W
 INCPATH       = -I. -Ilib\Hello\include -IC:\Qt\Qt5.8.0\5.8\mingw53_32\include -IC:\Qt\Qt5.8.0\5.8\mingw53_32\include\QtGui -IC:\Qt\Qt5.8.0\5.8\mingw53_32\include\QtANGLE -IC:\Qt\Qt5.8.0\5.8\mingw53_32\include\QtCore -Ibuild -IC:\Qt\Qt5.8.0\5.8\mingw53_32\mkspecs\win32-g++ 
 LINKER      =        g++
 LFLAGS        =        -Wl,-subsystem,console -mthreads
-LIBS        =        -LC:\Users\gerar\Programs\ReadyStudio\ReadyDev\Tutoriels\Cpp\QMake\code\Librairie_Statique_Utilisation\win\lib\Hello\lib -lHello -LC:\Qt\Qt5.8.0\5.8\mingw53_32\lib C:\Qt\Qt5.8.0\5.8\mingw53_32\lib\libQt5Guid.a C:\Qt\Qt5.8.0\5.8\mingw53_32\lib\libQt5Cored.a 
+LIBS        =        -LC:\Users\sabine\Downloads\Gerard\Programs\ReadyDev\Tutoriels\Cpp\QMake\code\Librairie_Statique_Utilisation\win\lib\Hello\lib -lHello -LC:\Qt\Qt5.8.0\5.8\mingw53_32\lib C:\Qt\Qt5.8.0\5.8\mingw53_32\lib\libQt5Guid.a C:\Qt\Qt5.8.0\5.8\mingw53_32\lib\libQt5Cored.a 
 QMAKE         = C:\Qt\Qt5.8.0\5.8\mingw53_32\bin\qmake.exe
 IDC           = idc
 IDL           = midl
