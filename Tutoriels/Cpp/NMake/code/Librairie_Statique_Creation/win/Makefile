@@ -17,4 +17,4 @@ $(GBUILD)/GShow.obj: $(GSRC)/manager/GShow.cpp
 $(GBUILD)/GMath.obj: $(GSRC)/manager/GMath.cpp
 	cl /c /EHsc $(GSRC)/manager/GMath.cpp /Fo$(GBUILD)/GMath.obj $(GINCS)
 clean:
-	del /q $(GBUILD)\* $(GBIN)\*
+	del /q $(GBUILD)\*.obj $(GBIN)\*.lib
