@@ -1,5 +1,5 @@
 @echo off
 
-del /q bin\*
-del /q build\*
+del /q bin\*.a
+del /q build\*.o
 del /q Makefile*

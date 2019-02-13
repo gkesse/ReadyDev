@@ -1,3 +1,5 @@
+include(../../win/lib/Hello/GHello.pri)
+
 INCLUDEPATH += \
     $$PWD
 
