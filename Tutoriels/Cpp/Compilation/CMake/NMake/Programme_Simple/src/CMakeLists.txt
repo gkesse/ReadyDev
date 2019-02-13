@@ -1,5 +1,0 @@
-cmake_minimum_required(VERSION 3.0)
-project(GProject)
-set(GTARGET GProject)
-set(GSOURCES main.cpp)
-add_executable(${GTARGET} ${GSOURCES})
