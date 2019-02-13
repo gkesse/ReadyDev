@@ -21,4 +21,4 @@ all: $(GOBJS)
 {$(GSRC)/manager}.cpp{$(GBUILD)}.obj:
 	cl /c /EHsc $< /Fo$@ $(GINCS)
 clean:
-	del /q $(GBUILD)\* $(GBIN)\*
+	del /q $(GBUILD)\*.obj $(GBIN)\*.exe
