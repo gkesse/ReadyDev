@@ -1,0 +1,10 @@
+@echo off
+
+set PATH=C:\Users\sabine\Downloads\Gerard\x86_64-8.1.0-release-win32-sjlj-rt_v6-rev0\mingw64\bin;
+set PATH=C:\Users\sabine\Downloads\Gerard\gtk+-bundle_3.6.4-20130513_win64\bin;%PATH%
+
+echo.
+code\GProject\Release\GProject.exe
+echo.
+
+pause
