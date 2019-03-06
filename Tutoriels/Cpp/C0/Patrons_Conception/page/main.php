@@ -401,4 +401,175 @@ void GProcessSingleton_Run(int argc, char** argv) {
 	GSingleton()->Print();
 	GSingleton()->Delete();
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Patron Singleton-Résultat"><a class="Link9" href="#Patron Singleton">Résultat</a></h2><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Singleton.png" alt="img/Singleton.png"></div></div></div></div></div><br>
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Patron Singleton-Résultat"><a class="Link9" href="#Patron Singleton">Résultat</a></h2><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Singleton.png" alt="img/Singleton.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Patron Stratégie"><a class="Link3" href="#">Patron Stratégie</a></h1><div class="Body3">Le but de cette section est de vous apprendre le <span class="GColor1" style="color:lime;">Patron Stratégie </span>avec le C.<br>Produit par <b>Gérard KESSE</b>.<br><br>Le Patron Stratégie permet de changer dynamiquement d'algorithme.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1551872862538"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1551872862538");</script></div><br><h2 class="Title7 GTitle2" id="Patron Stratégie-Stratégie "><a class="Link9" href="#Patron Stratégie">Stratégie </a></h2><br><h3 class="Title8 GTitle3">Stratégie (GStrategy.h)<br></h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#ifndef _GStrategy_
+#define _GStrategy_
+//===============================================
+#include "GInclude.h"
+//===============================================
+typedef struct _GStrategyO GStrategyO;
+//===============================================
+struct _GStrategyO {
+	void* m_child;
+    void (*Delete)(GStrategyO* obj);
+    void (*Set_Name)(GStrategyO* obj, const char* name);
+    void (*Print)(GStrategyO* obj);
+};
+//===============================================
+GStrategyO* GStrategy_New();
+void GStrategy_Delete(GStrategyO* obj);
+GStrategyO* GStrategy(const char* key);
+//===============================================
+#endif
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Stratégie (GStrategy.c)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GStrategy.h"
+#include "GStrategyJava.h"
+#include "GStrategyPython.h"
+#include "GString.h"
+//===============================================
+GStrategyO* GStrategy_New() {
+    GStrategyO* lObj = (GStrategyO*)malloc(sizeof(GStrategyO));
+    lObj->m_child = 0;
+    lObj->Delete = GStrategy_Delete;
+    return lObj;
+}
+//===============================================
+void GStrategy_Delete(GStrategyO* obj) {
+    if(obj != 0) {
+    	if(obj->m_child != 0) {
+            free(obj->m_child);
+            obj->m_child = 0;
+        }
+        free(obj);
+        obj = 0;
+    }
+}
+//===============================================
+GStrategyO* GStrategy(const char* key) {
+    if(GString()->Is_Equal(key, "JAVA")) return GStrategyJava_New();
+    if(GString()->Is_Equal(key, "PYTHON")) return GStrategyPython_New();
+    return GStrategyJava_New();
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Patron Stratégie-Stratégie Java "><a class="Link9" href="#Patron Stratégie">Stratégie Java</a></h2><br><h3 class="Title8 GTitle3">Stratégie Java (GStrategyJava.h) </h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#ifndef _GStrategyJava_
+#define _GStrategyJava_
+//===============================================
+#include "GStrategy.h"
+//===============================================
+typedef struct _GStrategyJavaO GStrategyJavaO;
+//===============================================
+struct _GStrategyJavaO {
+	void* m_parent;
+	char* m_name;
+};
+//===============================================
+GStrategyO* GStrategyJava_New();
+void GStrategyJava_Delete(GStrategyO* obj);
+//===============================================
+#endif
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Stratégie Java (GStrategyJava.c)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GStrategyJava.h"
+#include "GString.h"
+//===============================================
+void GStrategyJava_Set_Name(GStrategyO* obj, const char* name);
+void GStrategyJava_Print(GStrategyO* obj);
+//===============================================
+GStrategyO* GStrategyJava_New() {
+	GStrategyO* lParent = GStrategy_New();
+    GStrategyJavaO* lChild = (GStrategyJavaO*)malloc(sizeof(GStrategyJavaO));
+
+    lChild->m_parent = lParent;
+    lChild->m_name = 0;
+
+    lParent->m_child = lChild;
+    lParent->Delete = GStrategyJava_Delete;
+    lParent->Set_Name = GStrategyJava_Set_Name;
+    lParent->Print = GStrategyJava_Print;
+    return lParent;
+}
+//===============================================
+void GStrategyJava_Delete(GStrategyO* obj) {
+	GStrategyJavaO* lStrategy = obj->m_child;
+	GString()->Free(lStrategy->m_name);
+	GStrategy_Delete(obj);
+}
+//===============================================
+void GStrategyJava_Set_Name(GStrategyO* obj, const char* name) {
+	GStrategyJavaO* lStrategy = obj->m_child;
+	GString()->Free(lStrategy->m_name);
+	lStrategy->m_name = GString()->Copy(name);
+}
+//===============================================
+void GStrategyJava_Print(GStrategyO* obj) {
+	GStrategyJavaO* lStrategy = obj->m_child;
+	printf("Je suis une strategie JAVA : %s\n", lStrategy->m_name);
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Patron Stratégie-Stratégie Python"><a class="Link9" href="#Patron Stratégie">Stratégie Python</a></h2><br><h3 class="Title8 GTitle3">Stratégie Python (GStrategyPython.h)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#ifndef _GStrategyPython_
+#define _GStrategyPython_
+//===============================================
+#include "GStrategy.h"
+//===============================================
+typedef struct _GStrategyPythonO GStrategyPythonO;
+//===============================================
+struct _GStrategyPythonO {
+	void* m_parent;
+	char* m_name;
+};
+//===============================================
+GStrategyO* GStrategyPython_New();
+void GStrategyPython_Delete(GStrategyO* obj);
+//===============================================
+#endif
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Stratégie Python (GStrategyPython.c)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GStrategyPython.h"
+#include "GString.h"
+//===============================================
+void GStrategyPython_Set_Name(GStrategyO* obj, const char* name);
+void GStrategyPython_Print(GStrategyO* obj);
+//===============================================
+GStrategyO* GStrategyPython_New() {
+	GStrategyO* lParent = GStrategy_New();
+    GStrategyPythonO* lChild = (GStrategyPythonO*)malloc(sizeof(GStrategyPythonO));
+
+    lChild->m_parent = lParent;
+    lChild->m_name = 0;
+
+    lParent->m_child = lChild;
+    lParent->Delete = GStrategyPython_Delete;
+    lParent->Set_Name = GStrategyPython_Set_Name;
+    lParent->Print = GStrategyPython_Print;
+    return lParent;
+}
+//===============================================
+void GStrategyPython_Delete(GStrategyO* obj) {
+	GStrategyPythonO* lStrategy = obj->m_child;
+	GString()->Free(lStrategy->m_name);
+	GStrategy_Delete(obj);
+}
+//===============================================
+void GStrategyPython_Set_Name(GStrategyO* obj, const char* name) {
+	GStrategyPythonO* lStrategy = obj->m_child;
+	GString()->Free(lStrategy->m_name);
+	lStrategy->m_name = GString()->Copy(name);
+}
+//===============================================
+void GStrategyPython_Print(GStrategyO* obj) {
+	GStrategyPythonO* lStrategy = obj->m_child;
+	printf("Je suis une strategie PYTHON : %s\n", lStrategy->m_name);
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Patron Stratégie-Programme de Test"><a class="Link9" href="#Patron Stratégie">Programme de Test</a></h2><br><h3 class="Title8 GTitle3">Programme de Test</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GProcessStrategy_Run(int argc, char** argv) {
+	GStrategyO* lStrategy = 0;
+
+	lStrategy = GStrategy("JAVA");
+	lStrategy->Set_Name(lStrategy, "JavaStrategy");
+	lStrategy->Print(lStrategy);
+
+	lStrategy = GStrategy("PYTHON");
+	lStrategy->Set_Name(lStrategy, "PythonStrategy");
+	lStrategy->Print(lStrategy);
+
+	lStrategy->Delete(lStrategy);
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Patron Stratégie-Résultat"><a class="Link9" href="#Patron Stratégie">Résultat</a></h2><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Strategie.png" alt="img/Strategie.png"></div></div></div></div></div><br>
