@@ -26,7 +26,6 @@ GProcessO* GProcessConfig() {
     }
     return m_GProcessConfigO;
 }
-
 //===============================================
 void GProcessConfig_Run(int argc, char** argv) {
 	GConfig()->Set_Data("Nom", "KESSE");

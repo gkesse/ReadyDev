@@ -3,20 +3,21 @@
     {
         "meta_desc":
         [
-            "ReadyDev Administration Interface"
+            "ReadyAdmin est l'interface d'administration du siteweb.",
+            "Il vous permet d'ajouter et de modifier le contenu du siteweb.",
+            "Produit par Gérard KESSE."
         ],
         "meta_cano":"/Admin/"
     },    
     "intro":
     [
-        "Soyez la Bienvenue sur l'interface d'administration du site ReadyDev.<br/>",
-        "ReadyAdmin vous permet d'administrer le contenu du site ReadyDev",
-        "sans avoir à écrire des lignes de codes.<br/>",
+        "<b>ReadyAdmin</b> est l'interface d'administration du siteweb.<br/>",
+        "Il vous permet d'ajouter et de modifier le contenu du siteweb.<br/>",
         "Produit par <b>Gérard KESSE</b>."
     ],
     "summary":
     [
-        {"name":"Gestion Sitemap","link":"#Gestion_Sitemap"},
-        {"name":"Édition Page HTML","link":"#Edition_Page_HTML"}
+        {"name":"Éditeur de Sitemap","link":"#Editeur_Sitemap"},
+        {"name":"Éditeur de Page HTML","link":"#Editeur_Page_HTML"}
     ]
 }

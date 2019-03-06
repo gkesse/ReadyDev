@@ -1,6 +1,7 @@
 //===============================================
 #include "GProcessPolymorphism.h"
 #include "GAircraft.h"
+#include "GAircraftAirbus.h"
 //===============================================
 static GProcessO* m_GProcessPolymorphismO = 0;
 //===============================================
