@@ -3,6 +3,7 @@
 #include "GProcessClass.h"
 #include "GProcessInheritance.h"
 #include "GProcessPolymorphism.h"
+#include "GProcessSingleton.h"
 #include "GString.h"
 #include "GConfig.h"
 //===============================================
@@ -28,6 +29,7 @@ GProcessO* GProcess() {
     if(GString()->Is_Equal(lKey, "CLASS")) return GProcessClass();
     if(GString()->Is_Equal(lKey, "INHERITANCE")) return GProcessInheritance();
     if(GString()->Is_Equal(lKey, "POLYMORPHISM")) return GProcessPolymorphism();
+    if(GString()->Is_Equal(lKey, "SINGLETON")) return GProcessSingleton();
     return GProcessClass();
 }
 //===============================================

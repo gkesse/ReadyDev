@@ -329,4 +329,76 @@ void GProcessPolymorphism_Run(int argc, char** argv) {
 	lAircraft->Print(lAircraft);
 	lAircraft->Delete(lAircraft);
 }
-//===============================================</xmp><br></pre></div><h2 class="Title7 GTitle2" id="Polymorphisme-Résultat"><a class="Link9" href="#Polymorphisme">Résultat</a></h2><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Polymorphisme.png" alt="img/Polymorphisme.png"></div></div></div></div></div><br>Patron <br>
+//===============================================</xmp><br></pre></div><h2 class="Title7 GTitle2" id="Polymorphisme-Résultat"><a class="Link9" href="#Polymorphisme">Résultat</a></h2><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Polymorphisme.png" alt="img/Polymorphisme.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Patron Singleton"><a class="Link3" href="#">Patron Singleton</a></h1><div class="Body3">Le but de cette section est de vous apprendre le <span class="GColor1" style="color:lime;">Patron Singleton </span>avec le C.<br>Produit par <b>Gérard KESSE</b>.<br><br>Le Patron Singleton permet de créer une seule instance d'une classe.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1551868174302"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1551868174302");</script></div><br><h2 class="Title7 GTitle2" id="Patron Singleton-Patron Singleton"><a class="Link9" href="#Patron Singleton">Patron Singleton</a></h2><br><h3 class="Title8 GTitle3">Patron Singleton (GSingleton.h)<br></h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#ifndef _GSingleton_
+#define _GSingleton_
+//===============================================
+#include "GInclude.h"
+//===============================================
+typedef struct _GSingletonO GSingletonO;
+//===============================================
+struct _GSingletonO {
+    void (*Delete)();
+    void (*Set_Name)(const char* name);
+    void (*Print)();
+    char* m_name;
+};
+//===============================================
+GSingletonO* GSingleton_New();
+void GSingleton_Delete();
+GSingletonO* GSingleton();
+//===============================================
+#endif
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Patron Singleton (GSingleton.c)<br></h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GSingleton.h"
+#include "GString.h"
+//===============================================
+static GSingletonO* m_GSingletonO = 0;
+//===============================================
+void GSingleton_Set_Name(const char* name);
+void GSingleton_Print();
+//===============================================
+GSingletonO* GSingleton_New() {
+    GSingletonO* lObj = (GSingletonO*)malloc(sizeof(GSingletonO));
+    lObj->Delete = GSingleton_Delete;
+    lObj->Set_Name = GSingleton_Set_Name;
+    lObj->Print = GSingleton_Print;
+    lObj->m_name = 0;
+    return lObj;
+}
+//===============================================
+void GSingleton_Delete() {
+    if(m_GSingletonO != 0) {
+    	if(m_GSingletonO->m_name != 0) {
+            free(m_GSingletonO->m_name);
+            m_GSingletonO->m_name = 0;
+        }
+        free(m_GSingletonO);
+        m_GSingletonO = 0;
+    }
+}
+//===============================================
+GSingletonO* GSingleton() {
+    if(m_GSingletonO == 0) {
+        m_GSingletonO = GSingleton_New();
+    }
+    return m_GSingletonO;
+}
+//===============================================
+void GSingleton_Set_Name(const char* name) {
+	GString()->Free(m_GSingletonO->m_name);
+	m_GSingletonO->m_name = GString()->Copy(name);
+}
+//===============================================
+void GSingleton_Print() {
+	printf("Je suis un singleton: %s\n", m_GSingletonO->m_name);
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Patron Singleton-Programme de Test"><a class="Link9" href="#Patron Singleton">Programme de Test</a></h2><br><h3 class="Title8 GTitle3">Programme de Test</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GProcessSingleton_Run(int argc, char** argv) {
+	GSingleton()->Set_Name("JAVA");
+	GSingleton()->Print();
+	GSingleton()->Set_Name("PYTHON");
+	GSingleton()->Print();
+	GSingleton()->Delete();
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Patron Singleton-Résultat"><a class="Link9" href="#Patron Singleton">Résultat</a></h2><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Singleton.png" alt="img/Singleton.png"></div></div></div></div></div><br>
