@@ -21,9 +21,9 @@ GDrawRgb* GDrawRgb::Instance() {
 void GDrawRgb::cercle(cv::Mat& img, const int& xC, const int& yC, const int &r) {
     double lAngle = 0.0;
     while(1) {
-        double lRad = qDegreesToRadians(lAngle);
-        double xR = r*qCos(lRad);
-        double yR = r*qSin(lRad);
+        double lRad = (lAngle*M_PI)/180.0;
+        double xR = r*cos(lRad);
+        double yR = r*sin(lRad);
         int x = xC + (int)xR;
         int y = yC + (int)yR;
 

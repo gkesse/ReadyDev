@@ -17,7 +17,7 @@ public:
 
 public:
     static GProcessTrackbarSlider* Instance();
-    static void onTrackbarSlider(int pos, void* params);
+    static void onTrackbar(int pos, void* params);
     void run();
 
 private:

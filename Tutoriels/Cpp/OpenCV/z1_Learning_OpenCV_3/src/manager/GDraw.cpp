@@ -15,9 +15,9 @@ GDraw::~GDraw() {
 }
 //================================================
 GDraw* GDraw::Instance() {
-    QString lImageType = GConfig::Instance()->getData("IMAGE_TYPE");
-    if(lImageType == "RGB") return GDrawRgb::Instance();
-    if(lImageType == "GRAY") return GDrawGray::Instance();
+    string lKey = GConfig::Instance()->getData("IMAGE_TYPE");
+    if(lKey == "RGB") return GDrawRgb::Instance();
+    if(lKey == "GRAY") return GDrawGray::Instance();
     return GDrawRgb::Instance();
 }
 //================================================

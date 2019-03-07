@@ -1,5 +1,6 @@
 //===============================================
 #include "GProcessSmoothingImage.h"
+#include "GVision.h"
 //===============================================
 GProcessSmoothingImage* GProcessSmoothingImage::m_instance = 0;
 //===============================================
@@ -19,18 +20,19 @@ GProcessSmoothingImage* GProcessSmoothingImage::Instance() {
 }
 //===============================================
 void GProcessSmoothingImage::run() {
-    cv::namedWindow("Image Originale | ReadyDev", cv::WINDOW_AUTOSIZE);
-    cv::namedWindow("Image Lissée | ReadyDev", cv::WINDOW_AUTOSIZE);
+    GVision::Instance()->showWindow("IMAGE");
+    GVision::Instance()->showWindow("SMOOTH");
+    GVision::Instance()->loadImage("IMAGE", "res/img/fruits.jpg");
+    GVision::Instance()->copyImage("IMAGE", "SMOOTH");
 
-    cv::Mat lImage = cv::imread("res/img/fruits.jpg",-1);
-    cv::imshow("Image Originale | ReadyDev", lImage);
+    GVision::Instance()->smoothImage("SMOOTH", "SMOOTH");
+    GVision::Instance()->smoothImage("SMOOTH", "SMOOTH");
+    GVision::Instance()->smoothImage("SMOOTH", "SMOOTH");
 
-    cv::Mat lSmooth;
-    cv::GaussianBlur(lImage, lSmooth, cv::Size(5,5), 3, 3);
-    cv::GaussianBlur(lSmooth, lSmooth, cv::Size(5,5), 3, 3);
+    GVision::Instance()->showImage("IMAGE", "IMAGE");
+    GVision::Instance()->showImage("SMOOTH", "SMOOTH");
 
-    cv::imshow("Image Lissée | ReadyDev", lSmooth);
-
-    cv::waitKey(0);
+    GVision::Instance()->waitKey(0);
+    GVision::Instance()->destroyWindowAll();
 }
 //===============================================
