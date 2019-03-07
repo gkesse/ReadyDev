@@ -1,5 +1,6 @@
 //===============================================
 #include "GProcessCannyEdge.h"
+#include "GVision.h"
 //===============================================
 GProcessCannyEdge* GProcessCannyEdge::m_instance = 0;
 //===============================================
@@ -19,21 +20,19 @@ GProcessCannyEdge* GProcessCannyEdge::Instance() {
 }
 //===============================================
 void GProcessCannyEdge::run() {
-    cv::namedWindow("Image Originale | ReadyDev", cv::WINDOW_AUTOSIZE);
-    cv::namedWindow("Image Niveau Gris | ReadyDev", cv::WINDOW_AUTOSIZE);
-    cv::namedWindow("Détection Contour | ReadyDev", cv::WINDOW_AUTOSIZE);
+    GVision::Instance()->showWindow("IMAGE");
+    GVision::Instance()->showWindow("GRAY");
+    GVision::Instance()->showWindow("CANNY");
 
-    cv::Mat lImgRgb = cv::imread("res/img/fruits.jpg",-1);
-    cv::imshow("Image Originale | ReadyDev", lImgRgb);
+    GVision::Instance()->loadImage("IMAGE", "res/img/fruits.jpg");
+    GVision::Instance()->convertImage("IMAGE", "GRAY", cv::COLOR_BGR2GRAY);
+    GVision::Instance()->cannyImage("GRAY", "CANNY");
 
-    cv::Mat lImgGray;
-    cv::cvtColor(lImgRgb, lImgGray, cv::COLOR_BGR2GRAY);
-    cv::imshow("Image Niveau Gris | ReadyDev", lImgGray);
+    GVision::Instance()->showImage("IMAGE", "IMAGE");
+    GVision::Instance()->showImage("GRAY", "GRAY");
+    GVision::Instance()->showImage("CANNY", "CANNY");
 
-    cv::Mat lImgCanny;
-    cv::Canny(lImgGray, lImgCanny, 10, 100, 3, true);
-    cv::imshow("Détection Contour | ReadyDev", lImgCanny);
-
-    cv::waitKey(0);
+    GVision::Instance()->waitKey(0);
+    GVision::Instance()->destroyWindowAll();
 }
 //===============================================

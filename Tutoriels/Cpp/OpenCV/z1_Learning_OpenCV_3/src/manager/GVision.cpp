@@ -45,6 +45,27 @@ void GVision::smoothImage(const string &imageSrcName, const string &imageDstName
     m_imageMap[imageDstName] = lImgDst;
 }
 //===============================================
+void GVision::pyramidImage(const string &imageSrcName, const string &imageDstName) {
+    cv::Mat lImgSrc = m_imageMap[imageSrcName];
+    cv::Mat lImgDst;
+    cv::pyrDown(lImgSrc, lImgDst);
+    m_imageMap[imageDstName] = lImgDst;
+}
+//===============================================
+void GVision::cannyImage(const string &imageSrcName, const string &imageDstName) {
+    cv::Mat lImgSrc = m_imageMap[imageSrcName];
+    cv::Mat lImgDst;
+    cv::Canny(lImgSrc, lImgDst, 10, 100, 3, true);
+    m_imageMap[imageDstName] = lImgDst;
+}
+//===============================================
+void GVision::convertImage(const string &imageSrcName, const string &imageDstName, int code) {
+    cv::Mat lImgSrc = m_imageMap[imageSrcName];
+    cv::Mat lImgDst;
+    cv::cvtColor(lImgSrc, lImgDst, code);
+    m_imageMap[imageDstName] = lImgDst;
+}
+//===============================================
 void GVision::showWindow(const string &windowName) {
     cv::namedWindow(windowName, cv::WINDOW_AUTOSIZE);
 }

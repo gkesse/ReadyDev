@@ -15,7 +15,11 @@ public:
     bool emptyImage(const string &imageName);
     void showImage(const string &imageName, const string &windowName);
     void copyImage(const string &imageSrcName, const string &imageDstName);
+
     void smoothImage(const string &imageSrcName, const string &imageDstName);
+    void pyramidImage(const string &imageSrcName, const string &imageDstName);
+    void cannyImage(const string &imageSrcName, const string &imageDstName);
+    void convertImage(const string &imageSrcName, const string &imageDstName, int code);
 
     void showWindow(const string &windowName);
     void destroyWindow(const string &windowName);

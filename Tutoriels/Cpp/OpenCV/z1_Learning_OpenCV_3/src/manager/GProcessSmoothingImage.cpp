@@ -22,6 +22,7 @@ GProcessSmoothingImage* GProcessSmoothingImage::Instance() {
 void GProcessSmoothingImage::run() {
     GVision::Instance()->showWindow("IMAGE");
     GVision::Instance()->showWindow("SMOOTH");
+
     GVision::Instance()->loadImage("IMAGE", "res/img/fruits.jpg");
     GVision::Instance()->copyImage("IMAGE", "SMOOTH");
 

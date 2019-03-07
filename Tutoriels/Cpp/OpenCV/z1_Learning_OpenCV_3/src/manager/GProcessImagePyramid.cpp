@@ -1,5 +1,6 @@
 //===============================================
 #include "GProcessImagePyramid.h"
+#include "GVision.h"
 //===============================================
 GProcessImagePyramid* GProcessImagePyramid::m_instance = 0;
 //===============================================
@@ -19,21 +20,19 @@ GProcessImagePyramid* GProcessImagePyramid::Instance() {
 }
 //===============================================
 void GProcessImagePyramid::run() {
-    cv::namedWindow("Image Originale | ReadyDev", cv::WINDOW_AUTOSIZE);
-    cv::namedWindow("Pyramide Image 01 | ReadyDev", cv::WINDOW_AUTOSIZE);
-    cv::namedWindow("Pyramide Image 02 | ReadyDev", cv::WINDOW_AUTOSIZE);
+    GVision::Instance()->showWindow("IMAGE");
+    GVision::Instance()->showWindow("PYRAMID_1");
+    GVision::Instance()->showWindow("PYRAMID_2");
 
-    cv::Mat lImage = cv::imread("res/img/fruits.jpg",-1);
-    cv::imshow("Image Originale | ReadyDev", lImage);
+    GVision::Instance()->loadImage("IMAGE", "res/img/fruits.jpg");
+    GVision::Instance()->pyramidImage("IMAGE", "PYRAMID_1");
+    GVision::Instance()->pyramidImage("PYRAMID_1", "PYRAMID_2");
 
-    cv::Mat lPyramid;
-    cv::pyrDown(lImage, lPyramid);
-    cv::imshow("Pyramide Image 01 | ReadyDev", lPyramid);
+    GVision::Instance()->showImage("IMAGE", "IMAGE");
+    GVision::Instance()->showImage("PYRAMID_1", "PYRAMID_1");
+    GVision::Instance()->showImage("PYRAMID_2", "PYRAMID_2");
 
-    cv::Mat lPyramid2;
-    cv::pyrDown(lPyramid, lPyramid2);
-    cv::imshow("Pyramide Image 02 | ReadyDev", lPyramid2);
-
-    cv::waitKey(0);
+    GVision::Instance()->waitKey(0);
+    GVision::Instance()->destroyWindowAll();
 }
 //===============================================
