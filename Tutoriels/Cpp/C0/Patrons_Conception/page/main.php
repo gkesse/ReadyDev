@@ -560,16 +560,16 @@ void GStrategyPython_Print(GStrategyO* obj) {
 }
 //===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Patron Stratégie-Programme de Test"><a class="Link9" href="#Patron Stratégie">Programme de Test</a></h2><br><h3 class="Title8 GTitle3">Programme de Test</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 void GProcessStrategy_Run(int argc, char** argv) {
-	GStrategyO* lStrategy = 0;
+    GStrategyO* lStrategy = 0;
 
-	lStrategy = GStrategy("JAVA");
-	lStrategy->Set_Name(lStrategy, "JavaStrategy");
-	lStrategy->Print(lStrategy);
+    lStrategy = GStrategy("JAVA");
+    lStrategy->Set_Name(lStrategy, "JavaStrategy");
+    lStrategy->Print(lStrategy);
+    lStrategy->Delete(lStrategy);
 
-	lStrategy = GStrategy("PYTHON");
-	lStrategy->Set_Name(lStrategy, "PythonStrategy");
-	lStrategy->Print(lStrategy);
-
-	lStrategy->Delete(lStrategy);
+    lStrategy = GStrategy("PYTHON");
+    lStrategy->Set_Name(lStrategy, "PythonStrategy");
+    lStrategy->Print(lStrategy);
+    lStrategy->Delete(lStrategy);
 }
 //===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Patron Stratégie-Résultat"><a class="Link9" href="#Patron Stratégie">Résultat</a></h2><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Strategie.png" alt="img/Strategie.png"></div></div></div></div></div><br>

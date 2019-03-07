@@ -35,11 +35,11 @@ void GProcessStrategy_Run(int argc, char** argv) {
 	lStrategy = GStrategy("JAVA");
 	lStrategy->Set_Name(lStrategy, "JavaStrategy");
 	lStrategy->Print(lStrategy);
+	lStrategy->Delete(lStrategy);
 
 	lStrategy = GStrategy("PYTHON");
 	lStrategy->Set_Name(lStrategy, "PythonStrategy");
 	lStrategy->Print(lStrategy);
-
 	lStrategy->Delete(lStrategy);
 }
 //===============================================
