@@ -23,17 +23,17 @@ GProcess::~GProcess() {
 }
 //===============================================
 GProcess* GProcess::Instance() {
-    QString lAppName = GConfig::Instance()->getData("APP_NAME");
-    if(lAppName == "DISPLAY_PICTURE") return GProcessDisplayPicture::Instance();
-    if(lAppName == "READ_VIDEO") return GProcessReadVideo::Instance();
-    if(lAppName == "TRACKBAR_SLIDER") return GProcessTrackbarSlider::Instance();
-    if(lAppName == "SMOOTHING_IMAGE") return GProcessSmoothingImage::Instance();
-    if(lAppName == "IMAGE_PYRAMID") return GProcessImagePyramid::Instance();
-    if(lAppName == "CANNY_EDGE") return GProcessCannyEdge::Instance();
-    if(lAppName == "GETTING_PIXEL") return GProcessGettingPixel::Instance();
-    if(lAppName == "SETTING_PIXEL") return GProcessSettingPixel::Instance();
-    if(lAppName == "CAMERA_USB") return GProcessCameraUsb::Instance();
-    if(lAppName == "WRITING_VIDEO") return GProcessWritingVideo::Instance();
+    string lKey = GConfig::Instance()->getData("PROCESS");
+    if(lKey == "DISPLAY_PICTURE") return GProcessDisplayPicture::Instance();
+    if(lKey == "READ_VIDEO") return GProcessReadVideo::Instance();
+    if(lKey == "TRACKBAR_SLIDER") return GProcessTrackbarSlider::Instance();
+    if(lKey == "SMOOTHING_IMAGE") return GProcessSmoothingImage::Instance();
+    if(lKey == "IMAGE_PYRAMID") return GProcessImagePyramid::Instance();
+    if(lKey == "CANNY_EDGE") return GProcessCannyEdge::Instance();
+    if(lKey == "GETTING_PIXEL") return GProcessGettingPixel::Instance();
+    if(lKey == "SETTING_PIXEL") return GProcessSettingPixel::Instance();
+    if(lKey == "CAMERA_USB") return GProcessCameraUsb::Instance();
+    if(lKey == "WRITING_VIDEO") return GProcessWritingVideo::Instance();
     return GProcessDisplayPicture::Instance();
 }
 //===============================================

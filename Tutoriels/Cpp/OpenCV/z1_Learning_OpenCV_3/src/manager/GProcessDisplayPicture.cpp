@@ -1,5 +1,6 @@
 //===============================================
 #include "GProcessDisplayPicture.h"
+#include "GVision.h"
 //===============================================
 GProcessDisplayPicture* GProcessDisplayPicture::m_instance = 0;
 //===============================================
@@ -19,11 +20,10 @@ GProcessDisplayPicture* GProcessDisplayPicture::Instance() {
 }
 //===============================================
 void GProcessDisplayPicture::run() {
-    cv::Mat lImg = cv::imread("res/img/fruits.jpg",-1);
-    if(lImg.empty()) return;
-    cv::namedWindow("Afficher Image | ReadyDev", cv::WINDOW_AUTOSIZE);
-    cv::imshow("Afficher Image | ReadyDev", lImg);
-    cv::waitKey(0);
-    cv::destroyWindow("Afficher Image | ReadyDev");
+    GVision::Instance()->loadImage("IMAGE", "res/img/fruits.jpg");
+    GVision::Instance()->showWindow("IMAGE");
+    GVision::Instance()->showImage("IMAGE", "IMAGE");
+    GVision::Instance()->waitKey(0);
+    GVision::Instance()->destroyWindow("IMAGE");
 }
 //===============================================

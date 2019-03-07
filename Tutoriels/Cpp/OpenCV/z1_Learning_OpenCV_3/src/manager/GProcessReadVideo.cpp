@@ -1,5 +1,6 @@
 //===============================================
 #include "GProcessReadVideo.h"
+#include "GVision.h"
 //===============================================
 GProcessReadVideo* GProcessReadVideo::m_instance = 0;
 //===============================================
@@ -19,16 +20,14 @@ GProcessReadVideo* GProcessReadVideo::Instance() {
 }
 //===============================================
 void GProcessReadVideo::run() {
-    cv::namedWindow("Lire Vidéo | ReadyDev", cv::WINDOW_AUTOSIZE);
-    cv::VideoCapture lCap;
-    lCap.open("res/video/tree.avi");
-    cv::Mat lFrame;
+    GVision::Instance()->showWindow("VIDEO");
+    GVision::Instance()->loadVideo("VIDEO", "res/video/tree.avi");
 
     while(1) {
-        lCap >> lFrame;
-        if(lFrame.empty()) break;
-        cv::imshow("Lire Vidéo | ReadyDev", lFrame);
-        if(cv::waitKey(33) >= 0) break;
+        GVision::Instance()->getVideoImage("VIDEO", "IMAGE");
+        if(GVision::Instance()->emptyImage("IMAGE")) break;
+        GVision::Instance()->showImage("IMAGE", "IMAGE");
+        if(GVision::Instance()->waitKey(33) >= 0) break;
     }
 }
 //===============================================

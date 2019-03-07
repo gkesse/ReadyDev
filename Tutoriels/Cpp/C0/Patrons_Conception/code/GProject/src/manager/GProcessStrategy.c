@@ -30,16 +30,16 @@ GProcessO* GProcessStrategy() {
 }
 //===============================================
 void GProcessStrategy_Run(int argc, char** argv) {
-	GStrategyO* lStrategy = 0;
+    GStrategyO* lStrategy = 0;
 
-	lStrategy = GStrategy("JAVA");
-	lStrategy->Set_Name(lStrategy, "JavaStrategy");
-	lStrategy->Print(lStrategy);
-	lStrategy->Delete(lStrategy);
+    lStrategy = GStrategy("JAVA");
+    lStrategy->Set_Name(lStrategy, "JavaStrategy");
+    lStrategy->Print(lStrategy);
+    lStrategy->Delete(lStrategy);
 
-	lStrategy = GStrategy("PYTHON");
-	lStrategy->Set_Name(lStrategy, "PythonStrategy");
-	lStrategy->Print(lStrategy);
-	lStrategy->Delete(lStrategy);
+    lStrategy = GStrategy("PYTHON");
+    lStrategy->Set_Name(lStrategy, "PythonStrategy");
+    lStrategy->Print(lStrategy);
+    lStrategy->Delete(lStrategy);
 }
 //===============================================

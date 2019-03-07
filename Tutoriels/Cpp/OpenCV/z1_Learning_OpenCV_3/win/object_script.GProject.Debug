@@ -14,5 +14,7 @@ INPUT(
 ./build\GDrawGray.o
 ./build\GProcessCameraUsb.o
 ./build\GProcessWritingVideo.o
+./build\GSetting.o
+./build\GVision.o
 ./build\main.o
 );

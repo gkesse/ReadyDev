@@ -1,9 +1,9 @@
 //===============================================
 #include "GProcess.h"
-#include "GConfig.h"
+#include "GSetting.h"
 //===============================================
 int main(int argc, char** argv) {
-    GConfig::Instance()->setData("APP_NAME", "WRITING_VIDEO");
+    GSetting::Instance()->load("res/config/config.txt");
     GProcess::Instance()->run();
     return 0;
 }

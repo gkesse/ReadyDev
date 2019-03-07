@@ -11,12 +11,13 @@ public:
 	
 public:
 	static GConfig* Instance();
-    void setData(const QString& key, const QString& data);
-    QString getData(const QString& key);
-	
+    void setData(const string &key, const string &data);
+    string getData(const string& key);
+    void show();
+
 private:
 	static GConfig* m_instance;
-    QMap<QString, QString> m_data;
+    map<string, string> m_dataMap;
 };
 //================================================
 #endif
