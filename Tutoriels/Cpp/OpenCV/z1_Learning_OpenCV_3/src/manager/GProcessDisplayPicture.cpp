@@ -20,9 +20,11 @@ GProcessDisplayPicture* GProcessDisplayPicture::Instance() {
 }
 //===============================================
 void GProcessDisplayPicture::run() {
-    GVision::Instance()->loadImage("IMAGE", "res/img/fruits.jpg");
     GVision::Instance()->showWindow("IMAGE");
+
+    GVision::Instance()->loadImage("IMAGE", "res/img/fruits.jpg");
     GVision::Instance()->showImage("IMAGE", "IMAGE");
+
     GVision::Instance()->waitKey(0);
     GVision::Instance()->destroyWindow("IMAGE");
 }

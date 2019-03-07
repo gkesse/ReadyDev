@@ -38,6 +38,37 @@ void GVision::copyImage(const string &imageSrcName, const string &imageDstName) 
     m_imageMap[imageDstName] = m_imageMap[imageSrcName];
 }
 //===============================================
+cv::Mat GVision::getImage(const string &imageName) {
+    return m_imageMap[imageName];
+}
+//===============================================
+void GVision::getImagePixel(const string &imageName, const int& x, const int& y, uchar& red, uchar& green, uchar& blue) {
+    cv::Mat lImg = m_imageMap[imageName];
+    cv::Vec3b lColor = lImg.at<cv::Vec3b>(y, x);
+    red = lColor[2];
+    green = lColor[1];
+    blue = lColor[0];
+}
+//===============================================
+void GVision::getImagePixel(const string &imageName, const int& x, const int& y, uchar &color) {
+    cv::Mat lImg = m_imageMap[imageName];
+    color = lImg.at<uchar>(y, x);
+}
+//===============================================
+void GVision::setImagePixel(const string &imageName, const int& x, const int& y, const uchar &red, const uchar& green, const uchar& blue) {
+    cv::Mat lImg = m_imageMap[imageName];
+    cv::Vec3b lColor;
+    lColor[2] = red;
+    lColor[1] = green;
+    lColor[0] = blue;
+    lImg.at<cv::Vec3b>(y, x) = lColor;
+}
+//===============================================
+void GVision::setImagePixel(const string &imageName, const int& x, const int& y, const uchar &color) {
+    cv::Mat lImg = m_imageMap[imageName];
+    lImg.at<uchar>(y, x) = color;
+}
+//===============================================
 void GVision::smoothImage(const string &imageSrcName, const string &imageDstName) {
     cv::Mat lImgSrc = m_imageMap[imageSrcName];
     cv::Mat lImgDst;
@@ -93,6 +124,24 @@ void GVision::loadVideo(const string &videoName, const string &videoFile) {
     m_videoMap[videoName] = lCap;
 }
 //===============================================
+void GVision::loadVideo(const string &videoName, const int& index) {
+    cv::VideoCapture lCap;
+    lCap.open(index);
+    m_videoMap[videoName] = lCap;
+}
+//===============================================
+void GVision::releaseVideo(const string &videoName) {
+    cv::VideoCapture lCap = m_videoMap[videoName];
+    if(lCap.isOpened()) lCap.release();
+}
+//===============================================
+bool GVision::emptyVideo(const string &videoName) {
+    cv::VideoCapture lCap = m_videoMap[videoName];
+    bool lIsOpened = lCap.isOpened();
+    bool lEmpty = !lIsOpened;
+    return lEmpty;
+}
+//===============================================
 void GVision::getVideoImage(const string &videoName, const string &imageName) {
     cv::VideoCapture lCap = m_videoMap[videoName];
     cv::Mat lImg;
@@ -100,7 +149,28 @@ void GVision::getVideoImage(const string &videoName, const string &imageName) {
     m_imageMap[imageName] = lImg;
 }
 //===============================================
+double GVision::getVideoProp(const string &videoName, const int &prop) {
+    cv::VideoCapture lCap = m_videoMap[videoName];
+    double lProp = lCap.get(prop);
+    return lProp;
+}
 //===============================================
+void GVision::createVideoWriter(const string& writerName, const string& writerFile, const double &fps, const int &width, const int &height) {
+    cv::VideoWriter lWriter;
+    lWriter.open(writerFile, CV_FOURCC('M','J','P','G'), fps, cv::Size(width, height));
+    m_writerMap[writerName] = lWriter;
+}
+//===============================================
+void GVision::setVideoWriterImage(const string& writerName, const string& imageName) {
+    cv::VideoWriter lWriter = m_writerMap[writerName];
+    cv::Mat lImg = m_imageMap[imageName];
+    lWriter << lImg;
+}
+//===============================================
+void GVision::releaseVideoWriter(const string& writerName) {
+    cv::VideoWriter lWriter = m_writerMap[writerName];
+    lWriter.release();
+}
 //===============================================
 //===============================================
 //===============================================

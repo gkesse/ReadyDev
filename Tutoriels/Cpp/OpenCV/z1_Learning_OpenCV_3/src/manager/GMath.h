@@ -1,20 +1,21 @@
 //================================================
-#ifndef _GDrawRgb_
-#define _GDrawRgb_
+#ifndef _GMath_
+#define _GMath_
 //================================================
-#include "GDraw.h"
+#include "GInclude.h"
 //================================================
-class GDrawRgb : public GDraw {
+class GMath {
 public:
-    GDrawRgb();
-    ~GDrawRgb();
+    GMath();
+    ~GMath();
 	
 public:
-    static GDrawRgb* Instance();
-    void cercle(cv::Mat& img, const int& xC, const int& yC, const int &r);
-	
+    static GMath* Instance();
+    double degreeToRadian(const double& degree);
+    double radianToDegree(const double& radian);
+
 private:
-    static GDrawRgb* m_instance;
+    static GMath* m_instance;
 };
 //================================================
 #endif

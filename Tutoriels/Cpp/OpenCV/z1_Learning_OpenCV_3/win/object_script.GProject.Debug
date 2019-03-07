@@ -10,11 +10,10 @@ INPUT(
 ./build\GProcessGettingPixel.o
 ./build\GProcessSettingPixel.o
 ./build\GDraw.o
-./build\GDrawRgb.o
-./build\GDrawGray.o
 ./build\GProcessCameraUsb.o
 ./build\GProcessWritingVideo.o
 ./build\GSetting.o
 ./build\GVision.o
+./build\GMath.o
 ./build\main.o
 );
