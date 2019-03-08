@@ -253,6 +253,20 @@ vector<string> GVision::getFileStorageDataList(const string& storageName, const 
     return lDataMap;
 }
 //===============================================
+map<string, string> GVision::getFileStorageDataMap(const string& storageName, const string& key) {
+    cv::FileStorage* lStorage = m_storageMap[storageName];
+    cv::FileNode lNode = (*lStorage)[key];
+    map<string, string> lDataMap;
+
+    for(cv::FileNodeIterator lItem = lNode.begin(); lItem != lNode.end(); lItem++) {
+        string lKey = (*lItem).name();
+        string lValue = (*lItem);
+        lDataMap[lKey] = lValue;
+    }
+
+    return lDataMap;
+}
+//===============================================
 void GVision::releaseFileStorage(const string& storageName) {
     cv::FileStorage* lStorage = m_storageMap[storageName];
     lStorage->release();

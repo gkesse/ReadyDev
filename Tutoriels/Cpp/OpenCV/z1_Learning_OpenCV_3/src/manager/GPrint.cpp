@@ -43,6 +43,14 @@ void GPrint::print(const vector<string>& data, const string &name) {
     cout << "\n";
 }
 //================================================
+void GPrint::print(map<string, string> data, const string &name) {
+    if(name != "") cout << name << ":\n";
+    for(map<string, string>::iterator item = data.begin(); item != data.end(); item++) {
+        cout << item->first << ": " << item->second << "\n";
+    }
+    cout << "\n";
+}
+//================================================
 void GPrint::print(const cv::Mat& data, const string &name) {
     if(name != "") cout << name << ":\n";
     cout << data << "\n";

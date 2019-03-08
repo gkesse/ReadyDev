@@ -15,6 +15,7 @@ public:
     void print(const double& data, const string& name = "");
     void print(const string& data, const string& name = "");
     void print(const vector<string>& data, const string& name = "");
+    void print(map<string, string> data, const string& name = "");
     void print(const cv::Mat& data, const string& name = "");
 
 private:

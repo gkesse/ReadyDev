@@ -55,6 +55,7 @@ public:
     int getFileStorageDataInt(const string& storageName, const string& key);
     cv::Mat getFileStorageDataMat(const string& storageName, const string& key);
     vector<string> getFileStorageDataList(const string& storageName, const string& key);
+    map<string, string> getFileStorageDataMap(const string& storageName, const string& key);
     void releaseFileStorage(const string& storageName);
 
 private:
