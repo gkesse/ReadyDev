@@ -11,6 +11,9 @@ public:
 	
 public:
     static GPrint* Instance();
+    void print(const int& data, const string &name);
+    void print(const double& data, const string &name);
+    void print(const string& data, const string &name);
     void print(const vector<string>& data, const string& name = "");
 
 private:

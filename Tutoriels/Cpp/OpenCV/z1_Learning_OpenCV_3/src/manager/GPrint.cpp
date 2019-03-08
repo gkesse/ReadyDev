@@ -18,6 +18,21 @@ GPrint* GPrint::Instance() {
 	return m_instance;
 }
 //================================================
+void GPrint::print(const int& data, const string &name) {
+    if(name != "") cout << name << ": ";
+    cout << data << "\n";
+}
+//================================================
+void GPrint::print(const double& data, const string &name) {
+    if(name != "") cout << name << ": ";
+    cout << data << "\n";
+}
+//================================================
+void GPrint::print(const string& data, const string &name) {
+    if(name != "") cout << name << ": ";
+    cout << data << "\n";
+}
+//================================================
 void GPrint::print(const vector<string>& data, const string &name) {
     if(name != "") cout << name << ": ";
     for(int i = 0; i < data.size(); i++) {
