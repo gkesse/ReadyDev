@@ -17,5 +17,6 @@ INPUT(
 ./build\GMath.o
 ./build\GProcessImageRoi.o
 ./build\GProcessFileStorage.o
+./build\GPrint.o
 ./build\main.o
 );

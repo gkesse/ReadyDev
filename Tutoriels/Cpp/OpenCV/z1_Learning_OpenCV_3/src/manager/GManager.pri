@@ -26,7 +26,8 @@ HEADERS += \
     $$PWD/GVision.h \
     $$PWD/GMath.h \
     $$PWD/GProcessImageRoi.h \
-    $$PWD/GProcessFileStorage.h
+    $$PWD/GProcessFileStorage.h \
+    $$PWD/GPrint.h
 
 SOURCES += \
     $$PWD/GConfig.cpp \
@@ -46,5 +47,6 @@ SOURCES += \
     $$PWD/GVision.cpp \
     $$PWD/GMath.cpp \
     $$PWD/GProcessImageRoi.cpp \
-    $$PWD/GProcessFileStorage.cpp
+    $$PWD/GProcessFileStorage.cpp \
+    $$PWD/GPrint.cpp
 

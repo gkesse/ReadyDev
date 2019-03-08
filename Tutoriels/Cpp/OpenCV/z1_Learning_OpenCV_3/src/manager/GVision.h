@@ -16,10 +16,10 @@ public:
     void showImage(const string &imageName, const string &windowName);
     void copyImage(const string &imageSrcName, const string &imageDstName);
     cv::Mat getImage(const string &imageName);
-    void getImagePixel(const string &imageName, const int& x, const int& y, uchar &red, uchar& green, uchar& blue);
-    void getImagePixel(const string &imageName, const int& x, const int& y, uchar &color);
     void setImagePixel(const string &imageName, const int& x, const int& y, const uchar& red, const uchar& green, const uchar& blue);
     void setImagePixel(const string &imageName, const int& x, const int& y, const uchar& color);
+    void getImagePixel(const string &imageName, const int& x, const int& y, uchar &red, uchar& green, uchar& blue);
+    void getImagePixel(const string &imageName, const int& x, const int& y, uchar &color);
     void getImageRoi(const string &imageName, const string& roiName, const int& x, const int& y, const int& w, const int& h);
 
     void smoothImage(const string &imageSrcName, const string &imageDstName);
@@ -49,6 +49,11 @@ public:
 
     void createFileStorage(const string& storageName, const string& storageFile, const int &flags);
     void setFileStorageData(const string& storageName, const string& key, const int &value);
+    void setFileStorageData(const string& storageName, const string& key, const cv::Mat &value);
+    void setFileStorageData(const string& storageName, const string& key, const vector<string> &value);
+    int getFileStorageDataInt(const string& storageName, const string& key);
+    cv::Mat getFileStorageDataMat(const string& storageName, const string& key);
+    vector<string> getFileStorageDataList(const string& storageName, const string& key);
     void releaseFileStorage(const string& storageName);
 
 private:
@@ -56,7 +61,7 @@ private:
     map<string, cv::Mat> m_imageMap;
     map<string, cv::VideoCapture> m_videoMap;
     map<string, cv::VideoWriter> m_writerMap;
-    map<string, cv::FileStorage> m_storageMap;
+    map<string, cv::FileStorage*> m_storageMap;
 };
 //================================================
 #endif

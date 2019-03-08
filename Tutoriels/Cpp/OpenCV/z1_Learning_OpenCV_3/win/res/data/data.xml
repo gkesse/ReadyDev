@@ -1,3 +1,13 @@
 <?xml version="1.0"?>
 <opencv_storage>
 <WIDTH>640</WIDTH>
+<HEIGHT>480</HEIGHT>
+<MATRIX type_id="opencv-matrix">
+  <rows>2</rows>
+  <cols>3</cols>
+  <dt>d</dt>
+  <data>
+    1. 2. 3. 4. 5. 6.</data></MATRIX>
+<AUTHOR>
+  "Gerard KESSE" gerard.kesse@readydev.com</AUTHOR>
+</opencv_storage>

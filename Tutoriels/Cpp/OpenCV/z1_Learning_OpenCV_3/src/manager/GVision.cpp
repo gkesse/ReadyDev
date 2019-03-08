@@ -191,20 +191,62 @@ void GVision::releaseVideoWriter(const string& writerName) {
 }
 //===============================================
 void GVision::createFileStorage(const string& storageName, const string& storageFile, const int& flags) {
-    cv::FileStorage lStorage(storageFile, flags);
+    cv::FileStorage* lStorage = new cv::FileStorage(storageFile, flags);
     m_storageMap[storageName] = lStorage;
 }
 //===============================================
 void GVision::setFileStorageData(const string& storageName, const string& key, const int &value) {
-    cv::FileStorage lStorage = m_storageMap[storageName];
-    lStorage << key << value;
+    cv::FileStorage* lStorage = m_storageMap[storageName];
+    (*lStorage) << key << value;
+}
+//===============================================
+void GVision::setFileStorageData(const string& storageName, const string& key, const cv::Mat &value) {
+    cv::FileStorage* lStorage = m_storageMap[storageName];
+    (*lStorage) << key << value;
+}
+//===============================================
+void GVision::setFileStorageData(const string& storageName, const string& key, const vector<string>& value) {
+    cv::FileStorage* lStorage = m_storageMap[storageName];
+    (*lStorage) << key << "[";
+
+    for(int i = 0; i < value.size(); i++) {
+        string lValue = value[i];
+        (*lStorage) << lValue;
+    }
+
+    (*lStorage) << "]";
+}
+//===============================================
+int GVision::getFileStorageDataInt(const string& storageName, const string& key) {
+    cv::FileStorage* lStorage = m_storageMap[storageName];
+    int lData = (*lStorage)[key];
+    return lData;
+}
+//===============================================
+cv::Mat GVision::getFileStorageDataMat(const string& storageName, const string& key) {
+    cv::FileStorage* lStorage = m_storageMap[storageName];
+    cv::Mat lData;
+    (*lStorage)[key] >> lData;
+    return lData;
+}
+//===============================================
+vector<string> GVision::getFileStorageDataList(const string& storageName, const string& key) {
+    cv::FileStorage* lStorage = m_storageMap[storageName];
+    cv::FileNode lNode = (*lStorage)[key];
+    vector<string> lDataMap;
+
+    for(cv::FileNodeIterator lItem = lNode.begin(); lItem != lNode.end(); lItem++) {
+        lDataMap.push_back((string)*lItem);
+    }
+
+    return lDataMap;
 }
 //===============================================
 void GVision::releaseFileStorage(const string& storageName) {
-    cv::FileStorage lStorage = m_storageMap[storageName];
-    lStorage.release();
+    cv::FileStorage* lStorage = m_storageMap[storageName];
+    lStorage->release();
+    delete lStorage;
 }
-//===============================================
 //===============================================
 //===============================================
 //===============================================
