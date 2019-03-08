@@ -51,6 +51,7 @@ public:
     void setFileStorageData(const string& storageName, const string& key, const int &value);
     void setFileStorageData(const string& storageName, const string& key, const cv::Mat &value);
     void setFileStorageData(const string& storageName, const string& key, const vector<string> &value);
+    void setFileStorageData(const string& storageName, const string& key, map<string, string> value);
     int getFileStorageDataInt(const string& storageName, const string& key);
     cv::Mat getFileStorageDataMat(const string& storageName, const string& key);
     vector<string> getFileStorageDataList(const string& storageName, const string& key);

@@ -27,9 +27,8 @@ string GConfig::getData(const string &key) {
 }
 //===============================================
 void GConfig::show() {
-    map<string, string>::iterator lItem;
-    for(lItem = m_dataMap.begin(); lItem != m_dataMap.end(); lItem++) {
-        cout << lItem->first << " = " << lItem->second << "\n";
+    for(map<string, string>::iterator item = m_dataMap.begin(); item != m_dataMap.end(); item++) {
+        cout << item->first << " = " << item->second << "\n";
     }
     cout << "\n";
 }

@@ -217,6 +217,17 @@ void GVision::setFileStorageData(const string& storageName, const string& key, c
     (*lStorage) << "]";
 }
 //===============================================
+void GVision::setFileStorageData(const string& storageName, const string& key, map<string, string> value) {
+    cv::FileStorage* lStorage = m_storageMap[storageName];
+    (*lStorage) << key << "{";
+
+    for(map<string, string>::iterator item = value.begin(); item != value.end(); item++) {
+        (*lStorage) << (string)item->first << (string)item->second;
+    }
+
+    (*lStorage) << "}";
+}
+//===============================================
 int GVision::getFileStorageDataInt(const string& storageName, const string& key) {
     cv::FileStorage* lStorage = m_storageMap[storageName];
     int lData = (*lStorage)[key];

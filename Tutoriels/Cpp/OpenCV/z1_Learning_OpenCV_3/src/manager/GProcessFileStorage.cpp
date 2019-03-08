@@ -29,6 +29,10 @@ void GProcessFileStorage::run() {
     lAuthor.push_back("Gerard KESSE");
     lAuthor.push_back("gerard.kesse@readydev.com");
     GVision::Instance()->setFileStorageData("STORAGE", "AUTHOR", lAuthor);
+    map<string, string> lPerson;
+    lPerson["NAME"] = "Gerard KESSE";
+    lPerson["EMAIL"] = "gerard.kesse@readydev.com";
+    GVision::Instance()->setFileStorageData("STORAGE", "PERSON", lPerson);
     GVision::Instance()->releaseFileStorage("STORAGE");
 
     GVision::Instance()->createFileStorage("STORAGE", "res/data/data.xml", cv::FileStorage::READ);
