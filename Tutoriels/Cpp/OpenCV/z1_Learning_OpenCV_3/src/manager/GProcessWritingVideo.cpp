@@ -35,7 +35,7 @@ void GProcessWritingVideo::run() {
         if(GVision::Instance()->waitKey(33) >= 0) break;
     }
 
+    GVision::Instance()->destroyWindow("VIDEO");
     GVision::Instance()->releaseVideoWriter("VIDEO");
-    GVision::Instance()->releaseVideo("VIDEO");
 }
 //===============================================

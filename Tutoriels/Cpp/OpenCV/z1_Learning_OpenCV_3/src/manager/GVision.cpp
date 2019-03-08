@@ -69,6 +69,12 @@ void GVision::setImagePixel(const string &imageName, const int& x, const int& y,
     lImg.at<uchar>(y, x) = color;
 }
 //===============================================
+void GVision::getImageRoi(const string &imageName, const string& roiName, const int &x, const int &y, const int &w, const int &h) {
+    cv::Mat lImg = m_imageMap[imageName];
+    cv::Mat lRoi(lImg, cv::Rect(x, y, w, h));
+    m_imageMap[roiName] = lRoi;
+}
+//===============================================
 void GVision::smoothImage(const string &imageSrcName, const string &imageDstName) {
     cv::Mat lImgSrc = m_imageMap[imageSrcName];
     cv::Mat lImgDst;
@@ -94,6 +100,18 @@ void GVision::convertImage(const string &imageSrcName, const string &imageDstNam
     cv::Mat lImgSrc = m_imageMap[imageSrcName];
     cv::Mat lImgDst;
     cv::cvtColor(lImgSrc, lImgDst, code);
+    m_imageMap[imageDstName] = lImgDst;
+}
+//===============================================
+void GVision::invertImage(const string &imageName) {
+    cv::Mat lImg = m_imageMap[imageName];
+    cv::bitwise_not(lImg, lImg);
+}
+//===============================================
+void GVision::invertImage(const string &imageSrcName, const string &imageDstName) {
+    cv::Mat lImgSrc = m_imageMap[imageSrcName];
+    cv::Mat lImgDst;
+    cv::bitwise_not(lImgSrc, lImgDst);
     m_imageMap[imageDstName] = lImgDst;
 }
 //===============================================
@@ -172,8 +190,20 @@ void GVision::releaseVideoWriter(const string& writerName) {
     lWriter.release();
 }
 //===============================================
+void GVision::createFileStorage(const string& storageName, const string& storageFile, const int& flags) {
+    cv::FileStorage lStorage(storageFile, flags);
+    m_storageMap[storageName] = lStorage;
+}
 //===============================================
+void GVision::setFileStorageData(const string& storageName, const string& key, const int &value) {
+    cv::FileStorage lStorage = m_storageMap[storageName];
+    lStorage << key << value;
+}
 //===============================================
+void GVision::releaseFileStorage(const string& storageName) {
+    cv::FileStorage lStorage = m_storageMap[storageName];
+    lStorage.release();
+}
 //===============================================
 //===============================================
 //===============================================

@@ -24,7 +24,9 @@ HEADERS += \
     $$PWD/GProcessWritingVideo.h \
     $$PWD/GSetting.h \
     $$PWD/GVision.h \
-    $$PWD/GMath.h
+    $$PWD/GMath.h \
+    $$PWD/GProcessImageRoi.h \
+    $$PWD/GProcessFileStorage.h
 
 SOURCES += \
     $$PWD/GConfig.cpp \
@@ -42,5 +44,7 @@ SOURCES += \
     $$PWD/GProcessWritingVideo.cpp \
     $$PWD/GSetting.cpp \
     $$PWD/GVision.cpp \
-    $$PWD/GMath.cpp
+    $$PWD/GMath.cpp \
+    $$PWD/GProcessImageRoi.cpp \
+    $$PWD/GProcessFileStorage.cpp
 

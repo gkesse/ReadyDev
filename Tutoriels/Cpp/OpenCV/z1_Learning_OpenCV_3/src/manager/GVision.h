@@ -20,11 +20,14 @@ public:
     void getImagePixel(const string &imageName, const int& x, const int& y, uchar &color);
     void setImagePixel(const string &imageName, const int& x, const int& y, const uchar& red, const uchar& green, const uchar& blue);
     void setImagePixel(const string &imageName, const int& x, const int& y, const uchar& color);
+    void getImageRoi(const string &imageName, const string& roiName, const int& x, const int& y, const int& w, const int& h);
 
     void smoothImage(const string &imageSrcName, const string &imageDstName);
     void pyramidImage(const string &imageSrcName, const string &imageDstName);
     void cannyImage(const string &imageSrcName, const string &imageDstName);
     void convertImage(const string &imageSrcName, const string &imageDstName, int code);
+    void invertImage(const string &imageName);
+    void invertImage(const string &imageSrcName, const string &imageDstName);
 
     void showWindow(const string &windowName);
     void destroyWindow(const string &windowName);
@@ -44,11 +47,16 @@ public:
     void setVideoWriterImage(const string& writerName, const string& imageName);
     void releaseVideoWriter(const string& writerName);
 
+    void createFileStorage(const string& storageName, const string& storageFile, const int &flags);
+    void setFileStorageData(const string& storageName, const string& key, const int &value);
+    void releaseFileStorage(const string& storageName);
+
 private:
     static GVision* m_instance;
     map<string, cv::Mat> m_imageMap;
     map<string, cv::VideoCapture> m_videoMap;
     map<string, cv::VideoWriter> m_writerMap;
+    map<string, cv::FileStorage> m_storageMap;
 };
 //================================================
 #endif

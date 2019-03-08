@@ -15,5 +15,7 @@ INPUT(
 ./build\GSetting.o
 ./build\GVision.o
 ./build\GMath.o
+./build\GProcessImageRoi.o
+./build\GProcessFileStorage.o
 ./build\main.o
 );

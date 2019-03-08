@@ -10,6 +10,8 @@
 #include "GProcessSettingPixel.h"
 #include "GProcessCameraUsb.h"
 #include "GProcessWritingVideo.h"
+#include "GProcessImageRoi.h"
+#include "GProcessFileStorage.h"
 #include "GConfig.h"
 //===============================================
 GProcess* GProcess::m_instance = 0;
@@ -34,6 +36,8 @@ GProcess* GProcess::Instance() {
     if(lKey == "SETTING_PIXEL") return GProcessSettingPixel::Instance();
     if(lKey == "CAMERA_USB") return GProcessCameraUsb::Instance();
     if(lKey == "WRITING_VIDEO") return GProcessWritingVideo::Instance();
+    if(lKey == "IMAGE_ROI") return GProcessImageRoi::Instance();
+    if(lKey == "FILE_STORAGE") return GProcessFileStorage::Instance();
     return GProcessDisplayPicture::Instance();
 }
 //===============================================
