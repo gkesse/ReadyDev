@@ -38,9 +38,9 @@ void GProcessFileStorage::run() {
     vector<string> lAuthorMap = GVision::Instance()->getFileStorageDataList("STORAGE", "AUTHOR");
     GVision::Instance()->releaseFileStorage("STORAGE");
 
-    cout << "WIDTH: " << lWidth << "\n";
-    cout << "HEIGHT: " << lHeight << "\n";
-    cout << "MATRIX: \n" << lMatrix << "\n";
+    GPrint::Instance()->print(lWidth, "WIDTH");
+    GPrint::Instance()->print(lHeight, "HEIGHT");
+    GPrint::Instance()->print(lMatrix, "MATRIX");
     GPrint::Instance()->print(lAuthorMap, "AUTHOR");
 }
 //===============================================
