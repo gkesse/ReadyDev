@@ -23,6 +23,7 @@ void GProcessDisplayPicture::run() {
     GVision::Instance()->showWindow("IMAGE");
 
     GVision::Instance()->loadImage("IMAGE", "res/img/fruits.jpg");
+
     GVision::Instance()->showImage("IMAGE", "IMAGE");
 
     GVision::Instance()->waitKey(0);

@@ -1,9 +1,9 @@
 //================================================
 #include "GDraw.h"
+#include "GDrawBox.h"
 #include "GVision.h"
 #include "GMath.h"
-//================================================
-GDraw* GDraw::m_instance = 0;
+#include "GConfig.h"
 //================================================
 GDraw::GDraw() {
 
@@ -14,13 +14,13 @@ GDraw::~GDraw() {
 }
 //================================================
 GDraw* GDraw::Instance() {
-    if(m_instance == 0) {
-        m_instance = new GDraw;
-    }
-    return m_instance;
+    string lKey = GConfig::Instance()->getData("DRAW");
+    if(lKey == "BOX") return GDrawBox::Instance();
+    return GDrawBox::Instance();
 }
 //================================================
-void GDraw::cercle(const string& imageName, const int& xC, const int& yC, const int& rC, const uchar& color) {
+void GDraw::circle(const string& imageName, const int& xC, const int& yC, const int& rC, const uchar& color) {
+    if(xC < 0 || yC < 0) return;
     double lAngle = 0.0;
 
     while(1) {
@@ -37,7 +37,8 @@ void GDraw::cercle(const string& imageName, const int& xC, const int& yC, const 
     }
 }
 //================================================
-void GDraw::cercle(const string& imageName, const int& xC, const int& yC, const int& rC, const uchar &red, const uchar &green, const uchar &blue) {
+void GDraw::circle(const string& imageName, const int& xC, const int& yC, const int& rC, const uchar &red, const uchar &green, const uchar &blue) {
+    if(xC < 0 || yC < 0) return;
     double lAngle = 0.0;
 
     while(1) {

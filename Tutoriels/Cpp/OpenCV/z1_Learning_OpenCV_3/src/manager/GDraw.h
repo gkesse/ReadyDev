@@ -11,8 +11,9 @@ public:
 	
 public:
     static GDraw* Instance();
-    void cercle(const string& imageName, const int& xC, const int& yC, const int& rC, const uchar &color);
-    void cercle(const string& imageName, const int& xC, const int& yC, const int& rC, const uchar &red, const uchar& green, const uchar& blue);
+    void circle(const string& imageName, const int& xC, const int& yC, const int& rC, const uchar &color);
+    void circle(const string& imageName, const int& xC, const int& yC, const int& rC, const uchar &red, const uchar& green, const uchar& blue);
+    virtual void draw(const string& imageName) = 0;
 
 private:
     static GDraw* m_instance;

@@ -28,6 +28,7 @@ public:
     void convertImage(const string &imageSrcName, const string &imageDstName, int code);
     void invertImage(const string &imageName);
     void invertImage(const string &imageSrcName, const string &imageDstName);
+    void rectangle(const string &imageName, const int &x, const int &y, const int &w, const int &h, const uchar &red, const uchar &green, const uchar &blue, const int &thickness = 1);
 
     void showWindow(const string &windowName);
     void destroyWindow(const string &windowName);
@@ -57,6 +58,8 @@ public:
     vector<string> getFileStorageDataList(const string& storageName, const string& key);
     map<string, string> getFileStorageDataMap(const string& storageName, const string& key);
     void releaseFileStorage(const string& storageName);
+
+    void createMouseCallback(const string& windowName, cv::MouseCallback onMouse, void* params = 0);
 
 private:
     static GVision* m_instance;

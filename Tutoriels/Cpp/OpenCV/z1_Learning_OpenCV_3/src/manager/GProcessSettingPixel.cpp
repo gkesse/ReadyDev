@@ -28,9 +28,9 @@ void GProcessSettingPixel::run() {
     GVision::Instance()->loadImage("IMAGE", "res/img/fruits.jpg");
     GVision::Instance()->convertImage("IMAGE", "GRAY", cv::COLOR_BGR2GRAY);
     GConfig::Instance()->setData("DRAW", "RGB");
-    GDraw::Instance()->cercle("IMAGE", 200, 200, 100, 255, 0, 0);
+    GDraw::Instance()->circle("IMAGE", 200, 200, 100, 255, 0, 0);
     GConfig::Instance()->setData("DRAW", "GRAY");
-    GDraw::Instance()->cercle("GRAY", 200, 200, 100, 0);
+    GDraw::Instance()->circle("GRAY", 200, 200, 100, 0);
 
     GVision::Instance()->showImage("IMAGE", "IMAGE");
     GVision::Instance()->showImage("GRAY", "GRAY");

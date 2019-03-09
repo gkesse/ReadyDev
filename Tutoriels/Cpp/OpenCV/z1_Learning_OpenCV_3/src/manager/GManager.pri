@@ -27,7 +27,10 @@ HEADERS += \
     $$PWD/GMath.h \
     $$PWD/GProcessImageRoi.h \
     $$PWD/GProcessFileStorage.h \
-    $$PWD/GPrint.h
+    $$PWD/GPrint.h \
+    $$PWD/GProcessMouseCallback.h \
+    $$PWD/GMouse.h \
+    $$PWD/GDrawBox.h
 
 SOURCES += \
     $$PWD/GConfig.cpp \
@@ -48,5 +51,8 @@ SOURCES += \
     $$PWD/GMath.cpp \
     $$PWD/GProcessImageRoi.cpp \
     $$PWD/GProcessFileStorage.cpp \
-    $$PWD/GPrint.cpp
+    $$PWD/GPrint.cpp \
+    $$PWD/GProcessMouseCallback.cpp \
+    $$PWD/GMouse.cpp \
+    $$PWD/GDrawBox.cpp
 

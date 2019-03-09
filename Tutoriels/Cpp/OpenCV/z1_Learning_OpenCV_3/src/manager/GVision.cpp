@@ -35,7 +35,10 @@ void GVision::showImage(const string &imageName, const string &windowName) {
 }
 //===============================================
 void GVision::copyImage(const string &imageSrcName, const string &imageDstName) {
-    m_imageMap[imageDstName] = m_imageMap[imageSrcName];
+    cv::Mat lImgSrc = m_imageMap[imageSrcName];
+    cv::Mat lImgDst;
+    lImgDst = lImgSrc.clone();
+    m_imageMap[imageDstName] = lImgDst;
 }
 //===============================================
 cv::Mat GVision::getImage(const string &imageName) {
@@ -57,6 +60,9 @@ void GVision::getImagePixel(const string &imageName, const int& x, const int& y,
 //===============================================
 void GVision::setImagePixel(const string &imageName, const int& x, const int& y, const uchar &red, const uchar& green, const uchar& blue) {
     cv::Mat lImg = m_imageMap[imageName];
+    int lWidth = lImg.size().width;
+    int lHeight = lImg.size().height;
+    if(x < 0 || x >= lWidth || y < 0 || y >= lHeight) return;
     cv::Vec3b lColor;
     lColor[2] = red;
     lColor[1] = green;
@@ -113,6 +119,14 @@ void GVision::invertImage(const string &imageSrcName, const string &imageDstName
     cv::Mat lImgDst;
     cv::bitwise_not(lImgSrc, lImgDst);
     m_imageMap[imageDstName] = lImgDst;
+}
+//===============================================
+void GVision::rectangle(const string &imageName, const int& x1, const int& y1, const int& x2, const int& y2, const uchar& red, const uchar& green, const uchar& blue, const int& thickness) {
+    if(x1 < 0 || y1 < 0 || x2 < 0 || y2 < 0) return;
+    cv::Mat lImg = m_imageMap[imageName];
+    cv::Rect lRect(cv::Point(x1, y1), cv::Point(x2, y2));
+    cv::Scalar lColor(blue, green, red);
+    cv::rectangle(lImg, lRect, lColor, thickness);
 }
 //===============================================
 void GVision::showWindow(const string &windowName) {
@@ -273,5 +287,8 @@ void GVision::releaseFileStorage(const string& storageName) {
     delete lStorage;
 }
 //===============================================
+void GVision::createMouseCallback(const string& windowName, cv::MouseCallback onMouse, void *params) {
+    cv::setMouseCallback(windowName, onMouse, params);
+}
 //===============================================
 //===============================================

@@ -18,5 +18,8 @@ INPUT(
 ./build\GProcessImageRoi.o
 ./build\GProcessFileStorage.o
 ./build\GPrint.o
+./build\GProcessMouseCallback.o
+./build\GMouse.o
+./build\GDrawBox.o
 ./build\main.o
 );
