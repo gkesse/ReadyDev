@@ -19,6 +19,10 @@
     "software":
     [
         {"name":"Apprendre la programmation avec le Java","link":"/Tutoriels/Java/Cours/","follow":"yes"}
+    ],
+    "compilation":
+    [
+        {"name":"Apprendre à compiler un projet Java avec Java JDK","link":"/Tutoriels/Java/JDK/","follow":"yes"}
     ]
 }
                         

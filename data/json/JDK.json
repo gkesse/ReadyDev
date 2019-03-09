@@ -1,0 +1,22 @@
+{
+    "sitemap":"no",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+            "Le Java est un langage de programmation orientée objet.",
+            "Java JDK est un outil de compilation de projet Java.",
+            "Le but de ce tutoriel est de vous apprendre",
+            "à compiler un projet Java avec Java JDK.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Tutoriels/Java/JDK/"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"Java","link":"/Tutoriels/Java/#Outils de compilation","follow":"no"},
+        {"name":"JDK","link":"","follow":"no"}
+    ]
+}
+                        

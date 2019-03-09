@@ -1,22 +1,20 @@
 //===============================================
-import manager.GMath;
-//===============================================
 public class GMain {
     public static void main(String[] args){
         double lAdd = GMath.add(22, 7);
-        System.out.printf("add: %.2f%n", lAdd);
+        System.out.printf("add(22, 7): %.2f%n", lAdd);
         
         double lSub = GMath.sub(22, 7);
-        System.out.printf("sub: %.2f%n", lSub);
+        System.out.printf("sub(22, 7): %.2f%n", lSub);
         
         double lMul = GMath.mul(22, 7);
-        System.out.printf("mul: %.2f%n", lMul);
+        System.out.printf("mul(22, 7): %.2f%n", lMul);
         
         double lDiv = GMath.div(22, 7);
-        System.out.printf("div: %.2f%n", lDiv);
+        System.out.printf("div(22, 7): %.2f%n", lDiv);
         
         int lMod = GMath.mod(22, 7);
-        System.out.printf("mod: %d%n", lMod);        
+        System.out.printf("mod(22, 7): %d%n", lMod);        
     }
 }
 //===============================================
