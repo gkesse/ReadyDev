@@ -50,6 +50,7 @@
     $lMathJax = GConfig::Instance()->getData("mathjax");
     $lHeaderData = GJson::Instance()->getData("data/json/header.json");
     $lSiteName = $lHeaderData["site"]["name"];    
+    $lSiteLogo = $lHeaderData["site"]["logo"];    
 ?>
 <!-- ============================================ -->
 <!DOCTYPE html>
@@ -157,7 +158,8 @@
                         <ul class="Menu" id="HeaderMenu">
                             <li class="Item">
                                 <a class="Title" href="/">
-                                    <?php echo $lSiteName; ?>
+                                    <img class="Img4" src="<?php echo $lSiteLogo; ?>"/>
+                                    <span class="Title11"><?php echo $lSiteName; ?></span>
                                 </a>
                             </li>
                             <?php 

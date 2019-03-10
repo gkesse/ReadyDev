@@ -1033,6 +1033,20 @@ span {
     scrollbar-width: auto;
 }
 
+.Img4 {
+    background-color: #5f6681;
+    background-color: rgba(255, 255, 255, 0.2);
+    background-color: #051039;
+    background-color: transparent;
+    background-color: cyan;
+    display: inline-block;
+    vertical-align: middle;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    padding: 3px;
+}
+
 .Input {
     margin-left: 30px;
 }
@@ -1664,9 +1678,15 @@ span {
 }
 
 .Title10  {
-    color: #f67b20;
+    color: #f7b20;
     margin-top: 20px;
     margin-bottom: 10px;
+}
+
+.Title11  {
+    display: inline-block;
+    vertical-align: middle;
+    color: cyan;
 }
 
 /* ============================================== */

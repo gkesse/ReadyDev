@@ -2,7 +2,8 @@
 	"sitemap":"yes",
     "site":
     {
-        "name":"ReadyDev"
+        "name":"ReadyDev",
+        "logo":"/data/img/defaults/readydev.png"
     },  
     "menu":
     [
