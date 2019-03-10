@@ -20,12 +20,17 @@ HEADERS += \
     $$PWD/GProcessGettingPixel.h \
     $$PWD/GProcessSettingPixel.h \
     $$PWD/GDraw.h \
-    $$PWD/GDrawRgb.h \
-    $$PWD/GDrawGray.h \
     $$PWD/GProcessCameraUsb.h \
     $$PWD/GProcessWritingVideo.h \
     $$PWD/GSetting.h \
-    $$PWD/GVision.h
+    $$PWD/GVision.h \
+    $$PWD/GMath.h \
+    $$PWD/GProcessImageRoi.h \
+    $$PWD/GProcessFileStorage.h \
+    $$PWD/GPrint.h \
+    $$PWD/GProcessMouseCallback.h \
+    $$PWD/GMouse.h \
+    $$PWD/GDrawBox.h
 
 SOURCES += \
     $$PWD/GConfig.cpp \
@@ -39,10 +44,15 @@ SOURCES += \
     $$PWD/GProcessGettingPixel.cpp \
     $$PWD/GProcessSettingPixel.cpp \
     $$PWD/GDraw.cpp \
-    $$PWD/GDrawRgb.cpp \
-    $$PWD/GDrawGray.cpp \
     $$PWD/GProcessCameraUsb.cpp \
     $$PWD/GProcessWritingVideo.cpp \
     $$PWD/GSetting.cpp \
-    $$PWD/GVision.cpp
+    $$PWD/GVision.cpp \
+    $$PWD/GMath.cpp \
+    $$PWD/GProcessImageRoi.cpp \
+    $$PWD/GProcessFileStorage.cpp \
+    $$PWD/GPrint.cpp \
+    $$PWD/GProcessMouseCallback.cpp \
+    $$PWD/GMouse.cpp \
+    $$PWD/GDrawBox.cpp
 

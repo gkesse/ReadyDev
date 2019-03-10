@@ -11,8 +11,10 @@ public:
 	
 public:
     static GDraw* Instance();
-    virtual void cercle(cv::Mat& img, const int& xC, const int& yC, const int& r) = 0;
-	
+    void circle(const string& imageName, const int& xC, const int& yC, const int& rC, const uchar &color);
+    void circle(const string& imageName, const int& xC, const int& yC, const int& rC, const uchar &red, const uchar& green, const uchar& blue);
+    virtual void draw(const string& imageName) = 0;
+
 private:
     static GDraw* m_instance;
 };

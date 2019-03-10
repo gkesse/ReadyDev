@@ -1,5 +1,6 @@
 //===============================================
 #include "GProcessGettingPixel.h"
+#include "GVision.h"
 //===============================================
 GProcessGettingPixel* GProcessGettingPixel::m_instance = 0;
 //===============================================
@@ -19,43 +20,27 @@ GProcessGettingPixel* GProcessGettingPixel::Instance() {
 }
 //===============================================
 void GProcessGettingPixel::run() {
-    cv::namedWindow("Image Originale | ReadyDev", cv::WINDOW_AUTOSIZE);
-    cv::namedWindow("Image Niveau Gris | ReadyDev", cv::WINDOW_AUTOSIZE);
+    GVision::Instance()->showWindow("IMAGE");
+    GVision::Instance()->showWindow("GRAY");
 
-    cv::Mat lImgRgb = cv::imread("res/img/fruits.jpg",-1);
-    cv::imshow("Image Originale | ReadyDev", lImgRgb);
+    GVision::Instance()->loadImage("IMAGE", "res/img/fruits.jpg");
+    GVision::Instance()->convertImage("IMAGE", "GRAY", cv::COLOR_BGR2GRAY);
 
-    cv::Mat lImgGray;
-    cv::cvtColor(lImgRgb, lImgGray, cv::COLOR_BGR2GRAY);
-    cv::imshow("Image Niveau Gris | ReadyDev", lImgGray);
-    //===============================================
-    cv::Size lSize = lImgRgb.size();
-    int lWidth = lSize.width;
-    int lHeight = lSize.height;
-    int lCenterX = lWidth/2;
-    int lCenterY = lHeight/2;
+    uchar lRed;
+    uchar lGreen;
+    uchar lBlue;
+    uchar lColor;
 
-    cout << "\n### Information Image\n\n";
-    cout << "Taille: [" << lWidth << " x " << lHeight << "]\n";
-    cout << "Point Central: (" << lCenterX << " ; " << lCenterY << ")\n";
-    //===============================================
-    int x = lCenterX;
-    int y = lCenterY;
+    GVision::Instance()->getImagePixel("IMAGE", 50, 50, lRed, lGreen, lBlue);
+    GVision::Instance()->getImagePixel("GRAY", 50, 50, lColor);
 
-    cv::Vec3b lPixelRgb = lImgRgb.at<cv::Vec3b>(y, x);
-    uchar lBlue = lPixelRgb[0];
-    uchar lGreen = lPixelRgb[1];
-    uchar lRed = lPixelRgb[2];
+    cout << "IMAGE(50, 50): " << (int)lRed << " ; " << (int)lGreen << " ; " << (int)lBlue << "\n";
+    cout << "GRAY(50, 50): " << (int)lColor << "\n";
 
-    cout << "\n### Lecture Pixel Image RGB\n\n";
-    cout << "Pixel(" << x << " ; " << y << ") = ";
-    cout << "RGB(" << (int)lRed << " ; " << (int)lGreen << " ; " << (int)lBlue << ")\n";
-    //===============================================
-    uchar lPixelGray = lImgGray.at<uchar>(y, x);
+    GVision::Instance()->showImage("IMAGE", "IMAGE");
+    GVision::Instance()->showImage("GRAY", "GRAY");
 
-    cout << "\n### Lecture Pixel Image Niveau Gris\n\n";
-    cout << "Pixel(" << x << " ; " << y << ") = " << (int)lPixelGray << "\n";
-    //===============================================
-    cv::waitKey(0);
+    GVision::Instance()->waitKey(0);
+    GVision::Instance()->destroyWindowAll();
 }
 //===============================================

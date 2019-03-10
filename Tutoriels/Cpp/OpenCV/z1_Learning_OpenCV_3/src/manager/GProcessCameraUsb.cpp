@@ -1,5 +1,6 @@
 //===============================================
 #include "GProcessCameraUsb.h"
+#include "GVision.h"
 //===============================================
 GProcessCameraUsb* GProcessCameraUsb::m_instance = 0;
 //===============================================
@@ -19,17 +20,17 @@ GProcessCameraUsb* GProcessCameraUsb::Instance() {
 }
 //===============================================
 void GProcessCameraUsb::run() {
-    cv::namedWindow("Camera USB | ReadyDev", cv::WINDOW_AUTOSIZE);
-    cv::VideoCapture lCap;
-    lCap.open(0);
-    if(!lCap.isOpened()) return;
-    cv::Mat lFrame;
+    GVision::Instance()->showWindow("VIDEO");
+
+    GVision::Instance()->loadVideo("VIDEO", 0);
 
     while(1) {
-        lCap >> lFrame;
-        if(lFrame.empty()) break;
-        cv::imshow("Camera USB | ReadyDev", lFrame);
-        if(cv::waitKey(33) >= 0) break;
+        GVision::Instance()->getVideoImage("VIDEO", "IMAGE");
+        if(GVision::Instance()->emptyImage("IMAGE")) break;
+        GVision::Instance()->showImage("IMAGE", "VIDEO");
+        if(GVision::Instance()->waitKey(33) >= 0) break;
     }
+
+    GVision::Instance()->destroyWindow("VIDEO");
 }
 //===============================================
