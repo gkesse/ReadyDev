@@ -1,6 +1,6 @@
 @echo off
 
-set PATH=C:\Program Files (x86)\Java\jdk1.8.0_77\bin
+set PATH=C:\Program Files\Java\jdk-10.0.2\bin
 
 set GBUILD=build
 set GJAR=jar\GMath.jar
