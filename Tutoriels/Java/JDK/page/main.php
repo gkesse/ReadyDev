@@ -245,7 +245,7 @@ echo.
 java -jar %GJAR%
 echo.
 
-pause</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer un fichier exécutable-Résultat"><a class="Link9" href="#Créer un fichier exécutable">Résultat</a></h2><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Fichier_Executable_02.png" alt="img/Fichier_Executable_02.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Créer un fichier MANIFEST.MF"><a class="Link3" href="#">Créer un fichier MANIFEST.MF</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">créer un fichier MANIFEST.MF </span>avec Java JDK.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1552232473691"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1552232473691");</script></div><br><h2 class="Title7 GTitle2" id="Créer un fichier MANIFEST.MF-Package"><a class="Link9" href="#Créer un fichier MANIFEST.MF">Package</a></h2><br><h3 class="Title8 GTitle3">Package (manager/GMath.java) </h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="java">//===============================================
+pause</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer un fichier exécutable-Résultat"><a class="Link9" href="#Créer un fichier exécutable">Résultat</a></h2><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Fichier_Executable_02.png" alt="img/Fichier_Executable_02.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Créer un fichier exécutable avec MANIFEST.MF"><a class="Link3" href="#">Créer un fichier exécutable avec MANIFEST.MF</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">créer un fichier exécutable avec MANIFEST.MF </span>avec Java JDK.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1552232473691"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1552232473691");</script></div><br><h2 class="Title7 GTitle2" id="Créer un fichier MANIFEST.MF-Package"><a class="Link9" href="#Créer un fichier MANIFEST.MF">Package</a></h2><br><h3 class="Title8 GTitle3">Package (manager/GMath.java) </h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="java">//===============================================
 package manager;
 //===============================================
 public class GMath {
@@ -381,4 +381,49 @@ set GJAR=jar\GMath.jar
 echo.
 jar cvf %GJAR% ^
 -C %GBUILD% .
-echo.</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer une librairie-Résultat"><a class="Link9" href="#Créer une librairie">Résultat</a></h2><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Librairie.png" alt="img/Librairie.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Utiliser une librairie"><a class="Link3" href="#">Utiliser une librairie</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">utiliser une librairie </span>avec Java JDK.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1552235291606"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1552235291606");</script></div><br><h2 class="Title7 GTitle2" id="Utiliser une librairie-Programme de Test"><a class="Link9" href="#Utiliser une librairie">Programme de Test</a></h2><br><h3 class="Title8 GTitle3">Programme de Test (GMain.java)</h3><br><br><br><br><br><br><br><br><br><br><br></div></div></div></div><br><br><br>
+echo.</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer une librairie-Résultat"><a class="Link9" href="#Créer une librairie">Résultat</a></h2><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Librairie.png" alt="img/Librairie.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Utiliser une librairie"><a class="Link3" href="#">Utiliser une librairie</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">utiliser une librairie </span>avec Java JDK.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1552235291606"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1552235291606");</script></div><br><h2 class="Title7 GTitle2" id="Utiliser une librairie-Programme de Test"><a class="Link9" href="#Utiliser une librairie">Programme de Test</a></h2><br><h3 class="Title8 GTitle3">Programme de Test (GMain.java)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="java">//===============================================
+import com.ready.dev.GMath;
+//===============================================
+public class GMain {
+    public static void main(String[] args){
+        double lAdd = GMath.add(22, 7);
+        System.out.printf("add(22, 7): %.2f%n", lAdd);
+        
+        double lSub = GMath.sub(22, 7);
+        System.out.printf("sub(22, 7): %.2f%n", lSub);
+        
+        double lMul = GMath.mul(22, 7);
+        System.out.printf("mul(22, 7): %.2f%n", lMul);
+        
+        double lDiv = GMath.div(22, 7);
+        System.out.printf("div(22, 7): %.2f%n", lDiv);
+        
+        int lMod = GMath.mod(22, 7);
+        System.out.printf("mod(22, 7): %d%n", lMod);        
+    }
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Utiliser une librairie-Compiler le projet"><a class="Link9" href="#Utiliser une librairie">Compiler le projet</a></h2><br><h3 class="Title8 GTitle3">Compiler le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
+
+set PATH=C:\Program Files\Java\jdk-10.0.2\bin
+
+set GMAIN=GMain
+set CLASSPATH=jar\GMain.jar
+set CLASSPATH=lib\GMath.jar;%CLASSPATH%
+
+echo.
+java %GMAIN%
+echo.
+
+pause</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Utiliser une librairie-Exécuter le projet"><a class="Link9" href="#Utiliser une librairie">Exécuter le projet</a></h2><br><h3 class="Title8 GTitle3">Exécuter le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
+
+set PATH=C:\Program Files\Java\jdk-10.0.2\bin
+
+set GMAIN=GMain
+set CLASSPATH=jar\GMain.jar
+set CLASSPATH=lib\GMath.jar;%CLASSPATH%
+
+echo.
+java %GMAIN%
+echo.
+
+pause</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Utiliser une librairie-Résultat"><a class="Link9" href="#Utiliser une librairie">Résultat</a></h2><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Librairie_02.png" alt="img/Librairie_02.png"></div></div></div></div></div><br>
