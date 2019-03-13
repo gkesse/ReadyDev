@@ -1687,6 +1687,7 @@ span {
     display: inline-block;
     vertical-align: middle;
     color: cyan;
+    font-size: 25px;
 }
 
 /* ============================================== */
