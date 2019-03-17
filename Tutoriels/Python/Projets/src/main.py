@@ -1,7 +1,7 @@
 #================================================
 from manager.GProcess import GProcess
-from manager.GConfig import GConfig
+from manager.GSetting import GSetting
 #================================================
-GConfig.Instance().setData("PROCESS", "CONFIG")
+GSetting.Instance().load("res/config/config.txt")
 GProcess.Instance().run()
 #================================================
