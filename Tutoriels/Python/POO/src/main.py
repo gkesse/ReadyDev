@@ -1,7 +1,0 @@
-#================================================
-from manager.GProcess import GProcess
-from manager.GConfig import GConfig
-#================================================
-GConfig.Instance().setData("PROCESS", "CONFIG")
-GProcess.Instance().run()
-#================================================

@@ -14,6 +14,6 @@ class GProcess:
     def run(self): pass
 #================================================
 from GProcessPrint import GProcessPrint
-from GProcessSetting import GProcessSetting
+from GProcessConfig import GProcessConfig
 from GProcessSetting import GProcessSetting
 #================================================
