@@ -1,46 +1,51 @@
 //===============================================
-#include "GProcessPoint.h"
+#include "GProcessTriangle.h"
 #include "GOpenGL.h"
 //===============================================
-GProcessPoint* GProcessPoint::m_instance = 0;
+GProcessTriangle* GProcessTriangle::m_instance = 0;
 //===============================================
 struct sVertex {
     GLfloat x, y, z;
     GLfloat r, g, b, a;
 };
 //===============================================
-GProcessPoint::GProcessPoint() {
+GProcessTriangle::GProcessTriangle() {
 
 }
 //===============================================
-GProcessPoint::~GProcessPoint() {
+GProcessTriangle::~GProcessTriangle() {
 
 }
 //===============================================
-GProcessPoint* GProcessPoint::Instance() {
+GProcessTriangle* GProcessTriangle::Instance() {
     if(m_instance == 0) {
-        m_instance = new GProcessPoint;
+        m_instance = new GProcessTriangle;
     }
     return m_instance;
 }
 //===============================================
-void GProcessPoint::run(int argc, char **argv) {
+void GProcessTriangle::run(int argc, char **argv) {
     GOpenGL::Instance()->init();
     GOpenGL::Instance()->createWindow(400, 400, "OpenGL | ReadyDev");
     GOpenGL::Instance()->setContext();
-    GOpenGL::Instance()->setPointSmooth();
-    GOpenGL::Instance()->setBlendAlpha();
 
     while(!GOpenGL::Instance()->getWindowClose()) {
         GOpenGL::Instance()->setViewPort();
         GOpenGL::Instance()->clearBuffer(GL_COLOR_BUFFER_BIT);
         GOpenGL::Instance()->setProjection();
-        GOpenGL::Instance()->clearBuffer(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-        GVertex lVertex = {0.0, 0.0, 0.0};
-        GColor lColor = {1.0, 0.0, 0.0, 0.0};
+        GVertex lVertex[] = {
+            {-0.6, -0.4, 0.0},
+            {0.6, -0.4, 0.0},
+            {0.0, 0.6, 0.0}
+        };
+        GColor lColor[] = {
+            {1.0, 0.0, 0.0, 0.0},
+            {0.0, 1.0, 0.0, 0.0},
+            {0.0, 0.0, 1.0, 0.0}
+        };
 
-        GOpenGL::Instance()->drawPoint(lVertex, lColor, 10);
+        GOpenGL::Instance()->drawTriangle(lVertex, lColor);
 
         GOpenGL::Instance()->swapBuffers();
         GOpenGL::Instance()->getEvents();

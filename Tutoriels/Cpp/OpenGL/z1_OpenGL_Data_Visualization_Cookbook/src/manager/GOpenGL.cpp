@@ -57,8 +57,8 @@ void GOpenGL::setViewPort() {
     glViewport(0, 0, m_width, m_height);
 }
 //================================================
-void GOpenGL::clearBuffer() {
-    glClear(GL_COLOR_BUFFER_BIT);
+void GOpenGL::clearBuffer(const int& mask) {
+    glClear(mask);
 }
 //================================================
 void GOpenGL::setProjection() {
@@ -85,12 +85,20 @@ void GOpenGL::terminate() {
     glfwTerminate();
 }
 //================================================
-void GOpenGL::drawTriangle(GVertex* vertex, GColor* color) {
+void GOpenGL::drawPoint(const GVertex& vertex, const GColor& color, const int& size) {
+    glPointSize(size);
+    glBegin(GL_POINTS);
+    glColor3f(color.r, color.g, color.b);
+    glVertex3f(vertex.x, vertex.y, vertex.z);
+    glEnd();
+}
+//================================================
+void GOpenGL::drawTriangle(const GVertex* vertex, const GColor* color) {
     glBegin(GL_TRIANGLES);
     for(int i = 0; i < 3; i++) {
         GVertex lVertex = vertex[i];
         GColor lColor = color[i];
-        glColor3f(lColor.r, lColor.g, lColor.b);
+        glColor4f(lColor.r, lColor.g, lColor.b, lColor.a);
         glVertex3f(lVertex.x, lVertex.y, lVertex.z);
     }
     glEnd();

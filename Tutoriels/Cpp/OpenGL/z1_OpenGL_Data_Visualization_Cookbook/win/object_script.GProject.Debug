@@ -1,0 +1,12 @@
+INPUT(
+./build\GConfig.o
+./build\GProcess.o
+./build\GProcessGlfwApplication.o
+./build\GProcessDrawingPoints.o
+./build\GProcessDrawingLine.o
+./build\GSetting.o
+./build\GProcessPoint.o
+./build\GOpenGL.o
+./build\GProcessTriangle.o
+./build\main.o
+);

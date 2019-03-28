@@ -19,13 +19,14 @@ public:
     void setBlendAlpha();
     bool getWindowClose();
     void setViewPort();
-    void clearBuffer();
+    void clearBuffer(const int &mask);
     void setProjection();
     void swapBuffers();
     void getEvents();
     void destroyWindow();
     void terminate();
-    void drawTriangle(GVertex *vertex, GColor *color);
+    void drawPoint(const GVertex &vertex, const GColor &color, const int &size);
+    void drawTriangle(const GVertex *vertex, const GColor *color);
 
 private:
     static GOpenGL* m_instance;
