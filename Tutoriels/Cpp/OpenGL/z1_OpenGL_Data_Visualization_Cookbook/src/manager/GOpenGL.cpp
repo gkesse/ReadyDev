@@ -108,6 +108,18 @@ void GOpenGL::drawPoint(const GVertex& vertex, const GColor& color, const int& s
     glEnd();
 }
 //================================================
+void GOpenGL::drawLine(const GVertex* vertex, const GColor* color, const int& width) {
+    glLineWidth(width);
+    glBegin(GL_LINES);
+    for(int i = 0; i < 2; i++) {
+        GVertex lVertex = vertex[i];
+        GColor lColor = color[i];
+        glColor4f(lColor.r, lColor.g, lColor.b, lColor.a);
+        glVertex3f(lVertex.x, lVertex.y, lVertex.z);
+    }
+    glEnd();
+}
+//================================================
 void GOpenGL::drawTriangle(const GVertex* vertex, const GColor* color) {
     glBegin(GL_TRIANGLES);
     for(int i = 0; i < 3; i++) {

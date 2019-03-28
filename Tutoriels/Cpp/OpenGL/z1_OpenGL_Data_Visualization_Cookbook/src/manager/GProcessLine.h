@@ -1,20 +1,20 @@
 //===============================================
-#ifndef _GProcessTriangle_
-#define _GProcessTriangle_
+#ifndef _GProcessLine_
+#define _GProcessLine_
 //===============================================
 #include "GProcess.h"
 //===============================================
-class GProcessTriangle : public GProcess {
+class GProcessLine : public GProcess {
 public:
-    GProcessTriangle();
-    ~GProcessTriangle();
+    GProcessLine();
+    ~GProcessLine();
 
 public:
-    static GProcessTriangle* Instance();
+    static GProcessLine* Instance();
     void run(int argc = 0, char** argv = 0);
 
 private:
-    static GProcessTriangle* m_instance;
+    static GProcessLine* m_instance;
 };
 //===============================================
 #endif

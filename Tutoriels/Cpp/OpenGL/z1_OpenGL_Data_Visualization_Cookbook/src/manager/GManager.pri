@@ -16,7 +16,8 @@ HEADERS += \
     $$PWD/GSetting.h \
     $$PWD/GProcessPoint.h \
     $$PWD/GOpenGL.h \
-    $$PWD/GProcessTriangle.h
+    $$PWD/GProcessTriangle.h \
+    $$PWD/GProcessLine.h
 
 SOURCES += \
     $$PWD/GConfig.cpp \
@@ -27,4 +28,5 @@ SOURCES += \
     $$PWD/GSetting.cpp \
     $$PWD/GProcessPoint.cpp \
     $$PWD/GOpenGL.cpp \
-    $$PWD/GProcessTriangle.cpp
+    $$PWD/GProcessTriangle.cpp \
+    $$PWD/GProcessLine.cpp

@@ -4,11 +4,6 @@
 //===============================================
 GProcessTriangle* GProcessTriangle::m_instance = 0;
 //===============================================
-struct sVertex {
-    GLfloat x, y, z;
-    GLfloat r, g, b, a;
-};
-//===============================================
 GProcessTriangle::GProcessTriangle() {
 
 }

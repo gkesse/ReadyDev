@@ -8,5 +8,6 @@ INPUT(
 ./build\GProcessPoint.o
 ./build\GOpenGL.o
 ./build\GProcessTriangle.o
+./build\GProcessLine.o
 ./build\main.o
 );

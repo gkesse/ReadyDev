@@ -4,8 +4,6 @@
 //===============================================
 #include "GProcess.h"
 //===============================================
-typedef struct sVertex Vertex;
-//===============================================
 class GProcessPoint : public GProcess {
 public:
     GProcessPoint();

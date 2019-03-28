@@ -1,29 +1,30 @@
 //===============================================
-#include "GProcessPoint.h"
+#include "GProcessLine.h"
 #include "GOpenGL.h"
 //===============================================
-GProcessPoint* GProcessPoint::m_instance = 0;
+GProcessLine* GProcessLine::m_instance = 0;
 //===============================================
-GProcessPoint::GProcessPoint() {
+GProcessLine::GProcessLine() {
 
 }
 //===============================================
-GProcessPoint::~GProcessPoint() {
+GProcessLine::~GProcessLine() {
 
 }
 //===============================================
-GProcessPoint* GProcessPoint::Instance() {
+GProcessLine* GProcessLine::Instance() {
     if(m_instance == 0) {
-        m_instance = new GProcessPoint;
+        m_instance = new GProcessLine;
     }
     return m_instance;
 }
 //===============================================
-void GProcessPoint::run(int argc, char **argv) {
+void GProcessLine::run(int argc, char **argv) {
     GOpenGL::Instance()->init();
     GOpenGL::Instance()->createWindow(400, 400, "OpenGL | ReadyDev");
     GOpenGL::Instance()->setContext();
     GOpenGL::Instance()->setPointSmooth();
+    GOpenGL::Instance()->setLineSmooth();
     GOpenGL::Instance()->setBlendAlpha();
 
     while(!GOpenGL::Instance()->getWindowClose()) {
@@ -32,10 +33,16 @@ void GProcessPoint::run(int argc, char **argv) {
         GOpenGL::Instance()->setProjection();
         GOpenGL::Instance()->clearBuffer(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-        GVertex lVertex = {0.0, 0.0, 0.0};
-        GColor lColor = {1.0, 0.0, 0.0, 1.0};
+        GVertex lVertex[] = {
+            {0.0, 0.0, 0.0},
+            {1.0, 1.0, 0.0}
+        };
+        GColor lColor[] = {
+            {1.0, 0.0, 0.0, 1.0},
+            {0.0, 1.0, 0.0, 1.0}
+        };
 
-        GOpenGL::Instance()->drawPoint(lVertex, lColor, 30);
+        GOpenGL::Instance()->drawLine(lVertex, lColor, 10);
 
         GOpenGL::Instance()->swapBuffers();
         GOpenGL::Instance()->getEvents();
