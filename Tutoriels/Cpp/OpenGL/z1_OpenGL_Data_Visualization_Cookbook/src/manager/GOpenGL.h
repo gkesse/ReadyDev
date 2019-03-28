@@ -14,9 +14,9 @@ public:
     void init();
     void createWindow(const int &w, const int &h, const string &title);
     void setContext();
-    void setLineSmooth();
-    void setPointSmooth();
-    void setBlendAlpha();
+    void setPointSmooth(const bool &ok = true);
+    void setLineSmooth(const bool &ok = true);
+    void setBlendAlpha(const bool &ok = true);
     bool getWindowClose();
     void setViewPort();
     void clearBuffer(const int &mask);

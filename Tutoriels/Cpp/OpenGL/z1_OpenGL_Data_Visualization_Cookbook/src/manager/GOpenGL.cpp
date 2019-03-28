@@ -33,19 +33,34 @@ void GOpenGL::setContext() {
     glfwMakeContextCurrent(m_window);
 }
 //================================================
-void GOpenGL::setLineSmooth() {
-    glEnable(GL_LINE_SMOOTH);
-    glHint(GL_LINE_SMOOTH_HINT, GL_NICEST);
+void GOpenGL::setPointSmooth(const bool& ok) {
+    if(ok == true) {
+        glEnable(GL_POINT_SMOOTH);
+        glHint(GL_POINT_SMOOTH_HINT, GL_NICEST);
+    }
+    else {
+        glDisable(GL_POINT_SMOOTH);
+    }
 }
 //================================================
-void GOpenGL::setPointSmooth() {
-    glEnable(GL_POINT_SMOOTH);
-    glHint(GL_POINT_SMOOTH_HINT, GL_NICEST);
+void GOpenGL::setLineSmooth(const bool& ok) {
+    if(ok == true) {
+        glEnable(GL_LINE_SMOOTH);
+        glHint(GL_LINE_SMOOTH_HINT, GL_NICEST);
+    }
+    else {
+        glDisable(GL_LINE_SMOOTH);
+    }
 }
 //================================================
-void GOpenGL::setBlendAlpha() {
-    glEnable(GL_BLEND);
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+void GOpenGL::setBlendAlpha(const bool& ok) {
+    if(ok == true) {
+        glEnable(GL_BLEND);
+        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    }
+    else {
+        glDisable(GL_BLEND);
+    }
 }
 //================================================
 bool GOpenGL::getWindowClose() {

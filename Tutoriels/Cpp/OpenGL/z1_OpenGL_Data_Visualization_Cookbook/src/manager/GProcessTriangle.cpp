@@ -40,9 +40,9 @@ void GProcessTriangle::run(int argc, char **argv) {
             {0.0, 0.6, 0.0}
         };
         GColor lColor[] = {
-            {1.0, 0.0, 0.0, 0.0},
-            {0.0, 1.0, 0.0, 0.0},
-            {0.0, 0.0, 1.0, 0.0}
+            {1.0, 0.0, 0.0, 1.0},
+            {0.0, 1.0, 0.0, 1.0},
+            {0.0, 0.0, 1.0, 1.0}
         };
 
         GOpenGL::Instance()->drawTriangle(lVertex, lColor);

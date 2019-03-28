@@ -38,9 +38,9 @@ void GProcessPoint::run(int argc, char **argv) {
         GOpenGL::Instance()->clearBuffer(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         GVertex lVertex = {0.0, 0.0, 0.0};
-        GColor lColor = {1.0, 0.0, 0.0, 0.0};
+        GColor lColor = {1.0, 0.0, 0.0, 1.0};
 
-        GOpenGL::Instance()->drawPoint(lVertex, lColor, 10);
+        GOpenGL::Instance()->drawPoint(lVertex, lColor, 30);
 
         GOpenGL::Instance()->swapBuffers();
         GOpenGL::Instance()->getEvents();
