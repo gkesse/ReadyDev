@@ -19,10 +19,17 @@ GConfig* GConfig::Instance() {
 }
 //================================================
 void GConfig::setData(const string& key, const string& data) {
-	m_data[key] = data;
+    m_dataMap[key] = data;
 }
 //================================================
-string GConfig::getData(const string& key) {
-	return m_data[key];
+string GConfig::getData(const string &key) {
+    return m_dataMap[key];
 }
-//================================================
+//===============================================
+void GConfig::show() {
+    for(map<string, string>::iterator item = m_dataMap.begin(); item != m_dataMap.end(); item++) {
+        cout << item->first << " = " << item->second << "\n";
+    }
+    cout << "\n";
+}
+//===============================================

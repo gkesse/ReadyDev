@@ -1,5 +1,6 @@
 //===============================================
 #include "GProcess.h"
+#include "GProcessPoint.h"
 #include "GProcessGlfwApplication.h"
 #include "GProcessDrawingPoints.h"
 #include "GProcessDrawingLine.h"
@@ -16,10 +17,11 @@ GProcess::~GProcess() {
 }
 //===============================================
 GProcess* GProcess::Instance() {
-    string lProcess = GConfig::Instance()->getData("PROCESS");
-    if(lProcess == "GLFW_APPLICATION") return GProcessGlfwApplication::Instance();
-    if(lProcess == "DRAWING_POINTS") return GProcessDrawingPoints::Instance();
-    if(lProcess == "DRAWING_LINE") return GProcessDrawingLine::Instance();
+    string lKey = GConfig::Instance()->getData("PROCESS");
+    if(lKey == "POINT") return GProcessPoint::Instance();
+    if(lKey == "GLFW_APPLICATION") return GProcessGlfwApplication::Instance();
+    if(lKey == "DRAWING_POINTS") return GProcessDrawingPoints::Instance();
+    if(lKey == "DRAWING_LINE") return GProcessDrawingLine::Instance();
     return GProcessGlfwApplication::Instance();
 }
 //===============================================

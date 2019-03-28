@@ -12,11 +12,17 @@ HEADERS += \
     $$PWD/GInclude.h \
     $$PWD/GProcessGlfwApplication.h \
     $$PWD/GProcessDrawingPoints.h \
-    $$PWD/GProcessDrawingLine.h
+    $$PWD/GProcessDrawingLine.h \
+    $$PWD/GSetting.h \
+    $$PWD/GProcessPoint.h \
+    $$PWD/GOpenGL.h
 
 SOURCES += \
     $$PWD/GConfig.cpp \
     $$PWD/GProcess.cpp \
     $$PWD/GProcessGlfwApplication.cpp \
     $$PWD/GProcessDrawingPoints.cpp \
-    $$PWD/GProcessDrawingLine.cpp
+    $$PWD/GProcessDrawingLine.cpp \
+    $$PWD/GSetting.cpp \
+    $$PWD/GProcessPoint.cpp \
+    $$PWD/GOpenGL.cpp
