@@ -8,10 +8,31 @@
         $this-&gt;m_dataMap[$key] = $data;
     }
     //===============================================
-?&gt;</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Gestion de configuration-Lire une donnée"><a class="Link9" href="#Gestion de configuration">Lire une donnée</a></h2><br><h3 class="Title8 GTitle3">Lire une donnée</h3><br><br><h2 class="Title7 GTitle2" id="Gestion de configuration-Lister les données"><a class="Link9" href="#Gestion de configuration">Lister les données</a></h2><br><h3 class="Title8 GTitle3">Lister les données</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="php">&lt;?php
+?&gt;</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Gestion de configuration-Lire une donnée"><a class="Link9" href="#Gestion de configuration">Lire une donnée</a></h2><br><h3 class="Title8 GTitle3">Lire une donnée</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="php">&lt;?php
     //===============================================
     public function getData($key) {
         return $this-&gt;m_dataMap[$key];
+    }
+    //===============================================
+?&gt;</xmp><br></pre></div><h2 class="Title7 GTitle2" id="Gestion de configuration-Lister les données"><a class="Link9" href="#Gestion de configuration">Lister les données</a></h2><br><h3 class="Title8 GTitle3">Lister les données</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="php">&lt;?php
+    //===============================================
+    public function showData() {
+        foreach($this-&gt;m_dataMap as $key =&gt; $data) {
+            echo $key . " = " . $data . "&lt;br&gt;";
+        }
+        echo "&lt;br&gt;";
+    }
+    //===============================================
+?&gt;</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Gestion de configuration-Programme de Test"><a class="Link9" href="#Gestion de configuration">Programme de Test</a></h2><br><h3 class="Title8 GTitle3">Programme de Test</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="php">&lt;?php
+    //===============================================
+    public function run() {
+        GConfig::Instance()-&gt;setData("Nom", "KESSE");
+        GConfig::Instance()-&gt;setData("Prenom", "Gerard");
+        GConfig::Instance()-&gt;setData("Email", "gerard.kesse@readydev.com");
+        GConfig::Instance()-&gt;setData("Diplome", "Ingenieur");
+        GConfig::Instance()-&gt;setData("Formation", "Informatique Industrielle");
+        GConfig::Instance()-&gt;setData("Ecole", "Polytech'Montpellier");
+        GConfig::Instance()-&gt;showData();
     }
     //===============================================
 ?&gt;</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Gestion de configuration-Résultat"><a class="Link9" href="#Gestion de configuration">Résultat</a></h2><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Config.png" alt="img/Config.png"></div></div></div></div></div><br>

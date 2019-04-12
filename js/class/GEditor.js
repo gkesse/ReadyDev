@@ -974,10 +974,10 @@ var GEditor = (function() {
                     '<': '&lt;|html;ace',
                     '>': '&gt;|html;ace',
                     '\n': '<br>|html',
+                    '<br>': '\n|txt',
                     '&lt;': '<|txt',
                     '&gt;': '>|txt',
-                    '&amp;': '&|tex;txt',
-                    '<br>': '\n|txt'
+                    '&amp;': '&|tex;txt'
                 };
                 for(key in lEntityMap) {
                     var lVal = lEntityMap[key];
