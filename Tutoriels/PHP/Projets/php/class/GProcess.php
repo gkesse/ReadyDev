@@ -8,6 +8,7 @@
         public static function Instance() {
             $lKey = GConfig::Instance()->getData("PROCESS");
             if($lKey == "PRINT") return GProcessPrint::Instance();
+            if($lKey == "CONFIG") return GProcessConfig::Instance();
             return GProcessPrint::Instance();
         }
         //===============================================

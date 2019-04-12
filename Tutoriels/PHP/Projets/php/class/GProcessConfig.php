@@ -1,5 +1,5 @@
 <?php   
-    class GProcessPrint extends GProcess {
+    class GProcessConfig extends GProcess {
         //===============================================
         private static $m_instance = null;
         //===============================================
@@ -9,13 +9,19 @@
         //===============================================
         public static function Instance() {
             if(is_null(self::$m_instance)) {
-                self::$m_instance = new GProcessPrint();  
+                self::$m_instance = new GProcessConfig();  
             }
             return self::$m_instance;
         }
         //===============================================
         public function run() {
-			GPrint::Instance()->show("Bonjour tout le monde"); 
+            GConfig::Instance()->setData("Nom", "KESSE");
+            GConfig::Instance()->setData("Prenom", "Gerard");
+            GConfig::Instance()->setData("Email", "gerard.kesse@readydev.com");
+            GConfig::Instance()->setData("Diplome", "Ingenieur");
+            GConfig::Instance()->setData("Formation", "Informatique Industrielle");
+            GConfig::Instance()->setData("Ecole", "Polytech'Montpellier");
+            GConfig::Instance()->showData();
         }
         //===============================================
     }
