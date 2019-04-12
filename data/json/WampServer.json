@@ -1,0 +1,22 @@
+{
+    "sitemap":"no",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+            "Le PHP est langage de programmation web dynamique orienté objet utilisé côté serveur.",
+            "WampServer est un serveur d'applications web basé sur le PHP.",
+			"Le but de ce tutoriel est de vous apprendre",
+            "la configuration du serveur web WampServer.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Tutoriels/PHP/WampServer/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/data/img/defaults/WampServer.jpg"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"PHP","link":"/Tutoriels/PHP/##Serveurs web","follow":"no"},
+        {"name":"WampServer","link":"","follow":"no"}
+    ]
+}

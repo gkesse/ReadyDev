@@ -3,9 +3,6 @@
 #include "GProcessPoint.h"
 #include "GProcessLine.h"
 #include "GProcessTriangle.h"
-#include "GProcessGlfwApplication.h"
-#include "GProcessDrawingPoints.h"
-#include "GProcessDrawingLine.h"
 #include "GConfig.h"
 //===============================================
 GProcess* GProcess::m_instance = 0;
@@ -23,9 +20,6 @@ GProcess* GProcess::Instance() {
     if(lKey == "POINT") return GProcessPoint::Instance();
     if(lKey == "LINE") return GProcessLine::Instance();
     if(lKey == "TRIANGLE") return GProcessTriangle::Instance();
-    if(lKey == "GLFW_APPLICATION") return GProcessGlfwApplication::Instance();
-    if(lKey == "DRAWING_POINTS") return GProcessDrawingPoints::Instance();
-    if(lKey == "DRAWING_LINE") return GProcessDrawingLine::Instance();
-    return GProcessGlfwApplication::Instance();
+    return GProcessPoint::Instance();
 }
 //===============================================

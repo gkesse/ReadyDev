@@ -1,4 +1,4 @@
-include(C:\Users\sabine\Downloads\Gerard\glfw-3.2.1\glfw-3.2.1\GGLFW.pri)
+include(C:\Users\Admin\Downloads\glfw-3.2.1.bin.WIN64\glfw-3.2.1.bin.WIN64\GGLFW.pri)
 
 LIBS += \
     -lglfw3 -lgdi32 -lopengl32
@@ -10,9 +10,6 @@ HEADERS += \
     $$PWD/GConfig.h \
     $$PWD/GProcess.h \
     $$PWD/GInclude.h \
-    $$PWD/GProcessGlfwApplication.h \
-    $$PWD/GProcessDrawingPoints.h \
-    $$PWD/GProcessDrawingLine.h \
     $$PWD/GSetting.h \
     $$PWD/GProcessPoint.h \
     $$PWD/GOpenGL.h \
@@ -22,9 +19,6 @@ HEADERS += \
 SOURCES += \
     $$PWD/GConfig.cpp \
     $$PWD/GProcess.cpp \
-    $$PWD/GProcessGlfwApplication.cpp \
-    $$PWD/GProcessDrawingPoints.cpp \
-    $$PWD/GProcessDrawingLine.cpp \
     $$PWD/GSetting.cpp \
     $$PWD/GProcessPoint.cpp \
     $$PWD/GOpenGL.cpp \

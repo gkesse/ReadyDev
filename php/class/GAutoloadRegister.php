@@ -18,7 +18,7 @@
         }
     } 
     else {
-        function __autoload($class_name) {
+        function spl_autoload_register($class_name) {
             include $class_name.".php";
         }       
     }
