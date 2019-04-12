@@ -725,7 +725,7 @@ span {
 }
 
 .Content {
-    background-color: rgba(35, 37, 87, 0.9);
+    background-color: rgba(35, 47, 87, 0.9);
 }
 
 .Content2 {
@@ -1633,7 +1633,7 @@ span {
 }
 
 .Title2{
-    background-color: #5f6681; /* L2 */
+    background-color: #4f5979; /* L2  5f6681*/
     color: #BF8E3A;
     padding: 20px 10px;
 }
