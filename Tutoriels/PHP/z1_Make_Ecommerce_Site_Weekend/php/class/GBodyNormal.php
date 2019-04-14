@@ -17,9 +17,19 @@
         public function include() {
             ?>
                 <div style="
-                    background-color: #3333A3;
-                    min-height: 600px;
-                "></div>
+                    position: relative;
+                    background-color: #336363;
+                    min-height: 350px;
+                ">
+                    <div style="
+                        position: absolute;
+                        top: 120px;
+                        left: 0px;
+                        right: 0px;
+                        z-index: 1;
+                        border: 5px solid transparent;
+                    ">BODY</div>
+                </div>
             <?php
         }
         //===============================================

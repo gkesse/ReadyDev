@@ -10,6 +10,7 @@
             if($lKey == "PRINT") return GProcessPrint::Instance();
             if($lKey == "CONFIG") return GProcessConfig::Instance();
             if($lKey == "ECOMMERCE") return GProcessEcommerce::Instance();
+            if($lKey == "SIGNUP") return GProcessSignup::Instance();
             return GProcessPrint::Instance();
         }
         //===============================================

@@ -15,94 +15,74 @@
         }
         //===============================================
         public function include() {
+            $this->start();
             ?>
-                <!DOCTYPE html>
-                <html>
-                <head>
-                    <title>ReadyShop</title>
-                    <style>
-                        * {
-                            color: white;
-                            margin: 0;
-                            padding: 0;
-                            box-sizing: border-box;
-                        }
-
-                        *:focus { 
-                            border: none;
-                            outline: none;
-                        }
-
-                        html {
-                            -webkit-text-size-adjust: 100%;
-                            -webkit-tap-highlight-color: transparent;
-                            overflow: auto;
-                            scrollbar-color: #5f6681 #051039;
-                            scrollbar-width: auto;
-                        }
-
-                        body {
-                            background-color: #051039;
-                            font-family: arial;
-                            font-size: 16px;
-                            text-align: center;
-                        }                        
-                    </style>
-                </head>
-                <body>
+                <div style="
+                    position: relative;
+                    border: 5px solid transparent;
+                ">
                     <div style="
+                        background-color: #633363;
+                        position: absolute;
+                        min-height: 150px;
+                        top: 0px;
+                        left: 0px;
+                        right: 0px;
+                        z-index: -1;
+                        border: 5px solid #AAAAAA;
+                    "></div>
+                    <div style="
+                        position: absolute;
+                        min-height: 150px;
+                        top: 150px;
+                        bottom: 150px;
+                        left: 0px;
+                        right: 0px;
+                        z-index: -1;
                         border: 5px solid transparent;
-                        position: relative;
+                    "></div>
+                    <div style="
+                        background-color: #636333;
+                        position: absolute;
+                        min-height: 150px;
+                        bottom: 0;
+                        left: 0;
+                        right: 0;
+                        z-index: -1;
+                        border: 5px solid #AAAAAA;
+                    "></div>
+                    <div style="
+                        position: absolute;
+                        top: 60px;
+                        left: 0px;
+                        right: 0px;
+                        z-index: 1;
+                        border: 5px solid transparent;
+                    ">BANNER</div>
+                    <div style="
+                        max-width: 500px;
+                        margin: auto;
+                        padding-top: 100px;
+                        padding-bottom: 100px;
+                        border: 5px solid transparent;
                     ">
                         <div style="
-                            position: absolute;
-                            top: 150px;
-                            left: 0px;
-                            right: 0px;
-                            z-index: -1;
-                            border: 5px solid transparent;
-                        ">HEADER</div>
-                        <div style="
-                            position: absolute;
-                            min-height: 300px;
-                            top: 0px;
-                            left: 0px;
-                            right: 0px;
-                            z-index: -1;
                             border: 5px solid #AAAAAA;
-                        "></div>
-                        <div style="
-                            position: absolute;
-                            min-height: 300px;
-                            top: 300px;
-                            bottom: 300px;
-                            left: 0px;
-                            right: 0px;
-                            z-index: -1;
-                            border: 5px solid transparent;
-                        "></div>
-                        <div style="
-                            position: absolute;
-                            min-height: 300px;
-                            bottom: 0;
-                            left: 0;
-                            right: 0;
-                            z-index: -1;
-                            border: 5px solid #AAAAAA;
-                        "></div>
-                        <div style="
-                            max-width: 1000px;
-                            margin: auto;
-                            padding-top: 250px;
-                            padding-bottom: 250px;
                         ">
                             <div style="
-                                border: 5px solid #AAAAAA;
+                                position: relative;
+                                background-color: #333333;
+                                min-height: 50px;
                             ">
                                 <div style="
-                                    background-color: #333333;
-                                    min-height: 50px;
-                                "></div>
+                                    position: absolute;
+                                    top: 12px;
+                                    left: 0px;
+                                    right: 0px;
+                                    z-index: 1;
+                                    border: 5px solid transparent;
+                                ">MENU</div>
+                            </div>
             <?php
         }
         //===============================================
