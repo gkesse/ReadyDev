@@ -725,7 +725,7 @@ span {
 }
 
 .Content {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(35, 47, 87, 0.9);
 }
 
 .Content2 {
@@ -1218,12 +1218,12 @@ span {
 }
 
 .Link9 {
-    background-color: #5f6681; /* L2 */
+    background-color: #3A405B; /* L2 # 5f6681 */
     display: inline-block;
     vertical-align: middle;
     font-family: Aclonica;
     font-size: 18px;
-    color: #f67b20;
+    color: #BF8E3A;
     padding: 10px;
 }
 
@@ -1633,8 +1633,8 @@ span {
 }
 
 .Title2{
-    background-color: #5f6681; /* L2 */
-    color: #f67b20;
+    background-color: #4f5979; /* L2  5f6681*/
+    color: #BF8E3A;
     padding: 20px 10px;
 }
 

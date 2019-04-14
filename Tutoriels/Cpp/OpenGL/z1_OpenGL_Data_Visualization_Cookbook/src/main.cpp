@@ -1,9 +1,9 @@
 //===============================================
 #include "GProcess.h"
-#include "GConfig.h"
+#include "GSetting.h"
 //===============================================
 int main(int argc, char** argv) {
-    GConfig::Instance()->setData("PROCESS", "DRAWING_LINE");
+    GSetting::Instance()->load("res/config/config.txt");
     GProcess::Instance()->run(argc, argv);
     return 0;
 }

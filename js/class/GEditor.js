@@ -576,6 +576,7 @@ var GEditor = (function() {
                     lDiv.appendChild(lFragment);
                     lData = lDiv.innerHTML;
                     lData = this.encodeHtml(lData, "txt");
+                    lData = this.encodeHtml(lData, "ace");
                     var lHtml = '';
                     lHtml += '<div class="GCode1">';
                     lHtml += '<pre class="Code2"><xmp class="AceCode" data-mode="'+lLanguage+'">';
@@ -970,13 +971,13 @@ var GEditor = (function() {
             //===============================================
             encodeHtml: function(data, lang) {
                 var lEntityMap = {
-                    '<': '&lt;|html',
-                    '>': '&gt;|html',
+                    '<': '&lt;|html;ace',
+                    '>': '&gt;|html;ace',
                     '\n': '<br>|html',
+                    '<br>': '\n|txt',
                     '&lt;': '<|txt',
                     '&gt;': '>|txt',
-                    '&amp;': '&|tex;txt',
-                    '<br>': '\n|txt'
+                    '&amp;': '&|tex;txt'
                 };
                 for(key in lEntityMap) {
                     var lVal = lEntityMap[key];

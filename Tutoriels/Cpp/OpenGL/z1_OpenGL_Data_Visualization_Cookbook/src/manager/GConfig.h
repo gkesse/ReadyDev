@@ -11,12 +11,13 @@ public:
 	
 public:
 	static GConfig* Instance();
-    void setData(const string& key, const string& data);
+    void setData(const string &key, const string &data);
     string getData(const string& key);
-	
+    void show();
+
 private:
 	static GConfig* m_instance;
-    map<string, string> m_data;
+    map<string, string> m_dataMap;
 };
 //================================================
 #endif

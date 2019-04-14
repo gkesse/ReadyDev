@@ -8,5 +8,5 @@ GSRCS=\
 all:
 	csc /t:module /out:$(GTARGET) $(GSRCS)
 clean:
-	del /q $(GBIN)\*
+	del /q $(GBIN)\*.exe
 	
