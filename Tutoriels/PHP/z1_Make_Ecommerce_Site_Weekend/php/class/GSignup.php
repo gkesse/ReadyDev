@@ -1,22 +1,14 @@
 <?php   
-    abstract class GFooter {
+    abstract class GSignup {
         //===============================================
         private function __construct() {
         
         }
         //===============================================
         public static function Instance() {
-            $lKey = GConfig::Instance()->getData("FOOTER");
-            if($lKey == "NORMAL") return GFooterNormal::Instance();
-            return GFooterNormal::Instance();
-        }
-        //===============================================
-        public function end() {
-            ?>
-            
-            
-            <?php
-            
+            $lKey = GConfig::Instance()->getData("SIGNUP");
+            if($lKey == "NORMAL") return GSignupNormal::Instance();
+            return GSignupNormal::Instance();
         }
         //===============================================
         abstract public function include();

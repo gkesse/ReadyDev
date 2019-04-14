@@ -16,24 +16,19 @@
         //===============================================
         public function include() {
             ?>
-                                    <div style="
-                                        background-color: #A333A3;
-                                        min-height: 200px;
-                                    "></div>
-                                </div>
-                            </div>
-                            <div style="
-                                position: absolute;
-                                bottom: 150px;
-                                left: 0px;
-                                right: 0px;
-                                z-index: -1;
-                                border: 5px solid transparent;
-                            ">FOOTER</div>
                         </div>
-                    </body>
-                </html>
+                    </div>
+                    <div style="
+                        position: absolute;
+                        bottom: 60px;
+                        left: 0px;
+                        right: 0px;
+                        z-index: 1;
+                        border: 5px solid transparent;
+                    ">FOOTER</div>
+                </div>
             <?php
+            $this->end();
         }
         //===============================================
     }
