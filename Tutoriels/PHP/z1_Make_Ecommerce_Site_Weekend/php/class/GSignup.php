@@ -12,6 +12,7 @@
         }
         //===============================================
         abstract public function include();
+        abstract public function save();
         //===============================================
     }
 ?>

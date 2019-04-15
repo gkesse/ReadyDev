@@ -16,7 +16,7 @@
         }
         //===============================================
         public function load($file) {
-			$lFile = fopen($file, "r");
+			$lFile = fopen(GFile::Instance()->realPath($file), "r");
 			
 			while(!feof($lFile)) {
 				$lLine = fgets($lFile);
