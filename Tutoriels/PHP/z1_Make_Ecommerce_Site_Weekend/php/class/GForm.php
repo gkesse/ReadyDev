@@ -12,7 +12,7 @@
         }
         //===============================================
         abstract public function input($label, $type, $id);
-        abstract public function button();
+        abstract public function button($name, $type, $id);
         //===============================================
     }
 ?>

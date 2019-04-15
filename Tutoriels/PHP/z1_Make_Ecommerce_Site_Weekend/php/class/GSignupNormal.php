@@ -47,11 +47,14 @@
                         <?php GForm::Instance()->input("Pays", "text", "country"); ?>
                         <?php GForm::Instance()->input("Téléphone", "text", "phone"); ?>
                         <div style="
-                            background-color: #333333;
-                            margin: 20px 0px 0px 0px;
+                            background-color: transparent;
+                            margin: 10px 0px 0px 0px;
+                            font-size: 0px;
+                            word-spacing: 10px;
+                            text-align: right;
                         ">
-                            <?php GForm::Instance()->button(); ?>
-                            <?php GForm::Instance()->button(); ?>
+                            <?php GForm::Instance()->button("Envoyer", "submit", "submit"); ?>
+                            <?php GForm::Instance()->button("Annuler", "reset", "reset"); ?>
                         </div>
                     </div>
                 </div>

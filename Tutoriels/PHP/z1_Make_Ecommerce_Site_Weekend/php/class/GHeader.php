@@ -26,12 +26,10 @@
                                 padding: 0px;
                                 box-sizing: border-box;
                             }
-
                             *:focus { 
                                 border: none;
                                 outline: none;
                             }
-
                             html {
                                 -webkit-text-size-adjust: 100%;
                                 -webkit-tap-highlight-color: transparent;
@@ -39,7 +37,6 @@
                                 scrollbar-color: #5f6681 #051039;
                                 scrollbar-width: auto;
                             }
-
                             body {
                                 background-color: #051039;
                                 font-family: arial;
@@ -60,7 +57,19 @@
                             input:-webkit-autofill:focus {
                                 -webkit-text-fill-color: white ;
                                 transition: background-color 5000s ease-in-out 0s;
-                            }                           
+                            }
+                            .Button {
+                                background-color: #333363;
+                                display: inline-block;
+                                font-size: 18px;
+                                border-radius: 5px;
+                            }
+                            .Button:hover {
+                                background-color: #633333;
+                            }
+                            .Button:active {
+                                background-color: #333363;
+                            }
                         </style>
                     </head>
                     <body>
