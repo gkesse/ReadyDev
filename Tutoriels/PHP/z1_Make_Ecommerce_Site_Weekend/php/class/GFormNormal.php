@@ -47,13 +47,11 @@
             <?php
         }
         //===============================================
-        public function button() {
+        public function button($name, $type, $id) {
             ?>
-                <div style="
-                    background-color: #633333;
-                    padding: 5px 10px 5px 10px;
-                    display: inline-block;
-                ">BUTTON</div>
+                <div class="Button"><input style="
+                    cursor: pointer;
+                " type="<?php echo $type; ?>" name="<?php echo $id; ?>" value="<?php echo $name; ?>"/></div>
             <?php
         }
         //===============================================
