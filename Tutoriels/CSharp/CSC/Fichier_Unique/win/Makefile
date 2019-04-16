@@ -1,8 +1,8 @@
-GSRC=..\src
-GBIN=bin
-GTARGET=$(GBIN)\GProject.exe
+GSRC = ..\src
+GBIN = bin
+GTARGET = $(GBIN)\GProject.exe
 
-GSRCS=\
+GSRCS =\
     $(GSRC)\*.cs
 
 all:

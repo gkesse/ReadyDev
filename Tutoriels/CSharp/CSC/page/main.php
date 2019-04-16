@@ -1,26 +1,147 @@
-<div class="Parallax GParallax1"><div class="Img Binary"><div class="Caption"><a href="#"><div class="Text">Apprendre à compiler un projet C# avec CSC</div></a></div></div><div class="Body2 Orange">Le <b>C#</b> est un langage de programmation orientée objet.<br><b>CSC </b>est un outil de compilation de projet <b>C#</b> fourni par <b>Visual Studio</b>.<br>Le but de ce tutoriel est de vous apprendre à compiler un projet <b>C#</b> avec <b>CSC</b>.<br>Produit par <b>Gérard KESSE</b>.<br>&nbsp;<br><div class="Content0 GSummary1"><div class="Body0" id="Loader_1529412976174"><div class="Row26">Summary 1</div></div><script>loadSummary1("Loader_1529412976174");</script></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Installation sous Windows"><a class="Link3" href="#">Installation sous Windows</a></h1><div class="Body3">Le but de cette section est de vous présenter les différents outils nécessaires pour apprendre à compiler un projet <span class="GColor1" style="color:lime;">C#</span> avec <span class="GColor1" style="color:lime;">CSC</span>, sous Windows.<br>Produit par <b>Gérard KESSE</b>.<br><br>Dans ce tutoriel, nous utiliserons, sous Windows:<br>- CSC, comme compilateur.<br>- NMake, comme compilateur automatisé.<br>- Visual Studio, comme environnement de développement intégré.<br>- Notepad++, comme éditeur de texte.<br><br><h3 class="Title8 GTitle3">Installer Visual Studio</h3><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://visualstudio.microsoft.com/fr/downloads/">https://visualstudio.microsoft.com/fr/downloads/</a><br><br><h3 class="Title8 GTitle3">Installer Notepad++</h3><a class="Link7 GLink1" style="color:lime;" href="https://notepad-plus-plus.org/fr/">https://notepad-plus-plus.org/fr/</a></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Gestionnaire de configuration"><a class="Link3" href="#">Gestionnaire de configuration</a></h1><div class="Body3">Le but de cette section est de vous apprendre à créer un <span class="GColor1" style="color:lime;">Gestionnaire de configuration</span> avec le C#.<br>Produit par <b>Gérard KESSE</b>.<br><br>Le Gestionnaire de configuration proposé ici est basé sur un système de Clé/Valeur.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1555380401361"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1555380401361");</script></div><br><h2 class="Title7 GTitle2" id="Gestionnaire de configuration-Structures de données"><a class="Link9" href="#Gestionnaire de configuration">Structures de données</a></h2><br><h3 class="Title8 GTitle3">Structures de données</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="csharp">private Dictionary&lt;string, string&gt; m_dataMap;</xmp><br></pre></div><h2 class="Title7 GTitle2" id="Gestionnaire de configuration-Ajouter une donnée"><a class="Link9" href="#Gestionnaire de configuration">Ajouter une donnée</a></h2><br><h3 class="Title8 GTitle3">Ajouter une donnée</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="csharp">//===============================================
-public void SetData(string key, string data) {
-    m_dataMap[key] = data;
-}
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Gestionnaire de configuration-Lire une donnée"><a class="Link9" href="#Gestionnaire de configuration">Lire une donnée</a></h2><br><h3 class="Title8 GTitle3">Lire une donnée</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="csharp">//===============================================
-public string GetData(string key) {
-    return m_dataMap[key];
-}
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Gestionnaire de configuration-Lister les données"><a class="Link9" href="#Gestionnaire de configuration">Lister les données</a></h2><br><h3 class="Title8 GTitle3">Lister les données</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="csharp">//===============================================
-public void ShowData() {
-    foreach (KeyValuePair&lt;string, string&gt; lData in m_dataMap) {
-        Console.Write("{0} = {1}\n", lData.Key, lData.Value);
+<div class="Parallax GParallax1"><div class="Img Binary"><div class="Caption"><a href="#"><div class="Text">Apprendre à compiler un projet C# avec CSC</div></a></div></div><div class="Body2 Orange">Le <b>C#</b> est un langage de programmation orientée objet.<br><b>CSC </b>est un outil de compilation de projet <b>C#</b> fourni par <b>Visual Studio</b>.<br>Le but de ce tutoriel est de vous apprendre à compiler un projet <b>C#</b> avec <b>CSC</b>.<br>Produit par <b>Gérard KESSE</b>.<br>&nbsp;<br><div class="Content0 GSummary1"><div class="Body0" id="Loader_1529412976174"><div class="Row26">Summary 1</div></div><script>loadSummary1("Loader_1529412976174");</script></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Installation sous Windows"><a class="Link3" href="#">Installation sous Windows</a></h1><div class="Body3">Le but de cette section est de vous présenter les différents outils nécessaires pour apprendre à compiler un projet <span class="GColor1" style="color:lime;">C#</span> avec <span class="GColor1" style="color:lime;">CSC</span>, sous Windows.<br>Produit par <b>Gérard KESSE</b>.<br><br>Dans ce tutoriel, nous utiliserons, sous Windows:<br>- CSC, comme compilateur.<br>- NMake, comme compilateur automatisé.<br>- Visual Studio, comme environnement de développement intégré.<br>- Notepad++, comme éditeur de texte.<br><br><h3 class="Title8 GTitle3">Installer Visual Studio</h3><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://visualstudio.microsoft.com/fr/downloads/">https://visualstudio.microsoft.com/fr/downloads/</a><br><br><h3 class="Title8 GTitle3">Installer Notepad++</h3><a class="Link7 GLink1" style="color:lime;" href="https://notepad-plus-plus.org/fr/">https://notepad-plus-plus.org/fr/</a></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Compiler un fichier source"><a class="Link3" href="#">Compiler un fichier source</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">Compiler un fichier source </span>avec CSC.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1555384753311"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1555384753311");</script></div><br><h2 class="Title7 GTitle2" id="Compiler un fichier source-Programme principal"><a class="Link9" href="#Compiler un fichier source">Programme principal</a></h2><br><h3 class="Title8 GTitle3">Programme principal (GMain.cs)<br></h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="csharp">//===============================================
+using System;
+//===============================================
+class GMain {
+    static void Main(string[] args) {
+        Console.WriteLine("Bonjour tout le monde");
     }
-    Console.Write("\n");
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Gestionnaire de configuration-Programme de Test"><a class="Link9" href="#Gestionnaire de configuration">Programme de Test</a></h2><br><h3 class="Title8 GTitle3">Programme de Test</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="csharp">//===============================================
-public override void Run(string[] args) {
-    GConfig.Instance().SetData("Nom", "KESSE");
-    GConfig.Instance().SetData("Prenom", "Gerard");
-    GConfig.Instance().SetData("Email", "gerard.kesse@readydev.com");
-    GConfig.Instance().SetData("Diplome", "Ingenieur");
-    GConfig.Instance().SetData("Formation", "Informatique Industrielle");
-    GConfig.Instance().SetData("Ecole", "Polytech'Montpellier");
-    GConfig.Instance().ShowData();
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Compiler un fichier source-Fichier Makefile"><a class="Link9" href="#Compiler un fichier source">Fichier Makefile</a></h2><br><h3 class="Title8 GTitle3">Fichier Makefile (Makefile)<br></h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="makefile">GSRC = ..\src
+GBIN = bin
+GTARGET = $(GBIN)\GProject.exe
+
+GSRCS =\
+    $(GSRC)\*.cs
+
+all:
+	csc /out:$(GTARGET) $(GSRCS)
+clean:
+	del /q $(GBIN)\*.exe</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Compiler un fichier source-Compiler le projet"><a class="Link9" href="#Compiler un fichier source">Compiler le projet</a></h2><br><h3 class="Title8 GTitle3">Compiler le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
+
+set PATH=C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.20.27508\bin\Hostx86\x86
+set PATH=C:\Windows\Microsoft.NET\Framework\v4.0.30319;%PATH%
+
+nmake</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Compiler un fichier source-Exécuter le projet"><a class="Link9" href="#Compiler un fichier source">Exécuter le projet</a></h2><br><h3 class="Title8 GTitle3">Exécuter le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
+
+echo.
+bin\GProject.exe
+echo.
+
+pause</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Compiler un fichier source-Résultat"><a class="Link9" href="#Compiler un fichier source">Résultat</a></h2><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Fichier_Unique.png" alt="img/Fichier_Unique.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Compiler plusieurs fichiers sources"><a class="Link3" href="#">Compiler plusieurs fichiers sources</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">Compiler plusieurs fichiers sources </span>avec CSC.<br>Produit par <b>Gérard KESSE</b><br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1555386365596"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1555386365596");</script></div><br><h2 class="Title7 GTitle2" id="Compiler plusieurs fichiers sources-Programme principal"><a class="Link9" href="#Compiler plusieurs fichiers sources">Programme principal</a></h2><br><h3 class="Title8 GTitle3">Programme principal (GMain.cs)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="csharp">//===============================================
+using System;
+//===============================================
+class GMain {
+    static void Main(string[] args) {
+        double a = 22;
+        double b = 7;
+        double lData;
+        
+        lData = GMath.Instance().Add(a, b);
+        GShow.Instance().Show(lData, "Add(22, 7)");
+        lData = GMath.Instance().Sub(a, b);
+        GShow.Instance().Show(lData, "Sub(22, 7)");
+        lData = GMath.Instance().Mul(a, b);
+        GShow.Instance().Show(lData, "Mul(22, 7)");
+        lData = GMath.Instance().Div(a, b);
+        GShow.Instance().Show(lData, "Div(22, 7)");
+    }
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Gestionnaire de configuration-Résultat"><a class="Link9" href="#Gestionnaire de configuration">Résultat</a></h2><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Gestionnaire_Configuration.png" alt="img/Gestionnaire_Configuration.png"></div></div></div></div></div><br>
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Compiler plusieurs fichiers sources-Programme sécondaire"><a class="Link9" href="#Compiler plusieurs fichiers sources">Programme sécondaire</a></h2><br><h3 class="Title8 GTitle3">Gestionnaire d'opérations mathématiques (GMath.cs)<br></h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="csharp">//===============================================
+using System;
+//===============================================
+public class GMath {
+    //===============================================
+    private static GMath m_instance = null;
+    //===============================================
+    private GMath() {
+        
+    }
+    //===============================================
+    public static GMath Instance() {
+        if(m_instance == null) {
+            m_instance = new GMath();
+        }
+        return m_instance;
+    }
+    //===============================================
+    public double Add(double a, double b) {
+        double lData = a + b;
+        return lData;
+    }
+    //===============================================
+    public double Sub(double a, double b) {
+        double lData = a - b;
+        return lData;
+    }
+    //===============================================
+    public double Mul(double a, double b) {
+        double lData = a * b;
+        return lData;
+    }
+    //===============================================
+    public double Div(double a, double b) {
+        double lData = a / b;
+        return lData;
+    }
+    //===============================================
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Gestionnaire d'affichage (GShow.cs)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="csharp">//===============================================
+using System;
+//===============================================
+public class GShow {
+    //===============================================
+    private static GShow m_instance = null;
+    //===============================================
+    private GShow() {
+        
+    }
+    //===============================================
+    public static GShow Instance() {
+        if(m_instance == null) {
+            m_instance = new GShow();
+        }
+        return m_instance;
+    }
+    //===============================================
+    public void Show(string data, string name = "") {
+        string m_format = "";
+        if(name != "") m_format += name + " : ";
+        m_format += data;
+        Console.WriteLine(m_format);
+    }
+    //===============================================
+    public void Show(int data, string name = "") {
+        string m_format = Convert.ToString(data);
+        Show(m_format, name);
+    }
+    //===============================================
+    public void Show(double data, string name = "") {
+        string m_format = Convert.ToString(data);
+        Show(m_format, name);
+    }
+    //===============================================
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Compiler plusieurs fichiers sources-Fichier Makefile"><a class="Link9" href="#Compiler plusieurs fichiers sources">Fichier Makefile</a></h2><br><h3 class="Title8 GTitle3">Fichier Makefile (Makefile)<br></h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="makefile">GSRC = ..\src
+GBIN = bin
+GTARGET = $(GBIN)\GProject.exe
+
+GSRCS =\
+    $(GSRC)\*.cs \
+    $(GSRC)\manager\*.cs
+
+all:
+	csc /out:$(GTARGET) $(GSRCS)
+clean:
+	del /q $(GBIN)\*.exe</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Compiler plusieurs fichiers sources-Compiler le projet"><a class="Link9" href="#Compiler plusieurs fichiers sources">Compiler le projet</a></h2><br><h3 class="Title8 GTitle3">Compiler le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
+
+set PATH=C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.20.27508\bin\Hostx86\x86
+set PATH=C:\Windows\Microsoft.NET\Framework\v4.0.30319;%PATH%
+
+nmake</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Compiler plusieurs fichiers sources-Exécuter le projet"><a class="Link9" href="#Compiler plusieurs fichiers sources">Exécuter le projet</a></h2><br><h3 class="Title8 GTitle3">Exécuter le projet</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
+
+echo.
+bin\GProject.exe
+echo.
+
+pause
+</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Compiler plusieurs fichiers sources-Résultat"><a class="Link9" href="#Compiler plusieurs fichiers sources">Résultat</a></h2><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Fichier_Multiple.png" alt="img/Fichier_Multiple.png"></div></div></div></div></div><br>
