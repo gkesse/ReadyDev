@@ -19,7 +19,7 @@ public class GConfig {
     }
     //===============================================
     public void SetData(string key, string data) {
-        m_dataMap.Add(key, data);
+        m_dataMap[key] = data;
     }
     //===============================================
     public string GetData(string key) {

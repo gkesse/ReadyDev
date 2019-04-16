@@ -17,9 +17,12 @@ public class GProcessConfig : GProcess {
     }
     //===============================================
     public override void Run(string[] args) {
-        GConfig.Instance().SetData("NOM", "Gerard KESSE");
+        GConfig.Instance().SetData("Nom", "KESSE");
+        GConfig.Instance().SetData("Prenom", "Gerard");
         GConfig.Instance().SetData("Email", "gerard.kesse@readydev.com");
-        GConfig.Instance().SetData("FORMATION", "Informatique Industrielle");
+        GConfig.Instance().SetData("Diplome", "Ingenieur");
+        GConfig.Instance().SetData("Formation", "Informatique Industrielle");
+        GConfig.Instance().SetData("Ecole", "Polytech'Montpellier");
         GConfig.Instance().ShowData();
     }
     //===============================================

@@ -3,7 +3,7 @@ using System;
 //===============================================
 public class GMain {
     static void Main(string[] args) {
-        GConfig.Instance().SetData("PROCESS", "PRINT");
+        GSetting.Instance().load("res/config/config.txt");
         GProcess.Instance().Run(args);
     }
 }
