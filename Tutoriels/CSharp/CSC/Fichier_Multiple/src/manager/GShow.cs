@@ -3,17 +3,17 @@ using System;
 //===============================================
 public class GShow {
     //===============================================
+    private static GShow m_instance = null;
+    //===============================================
     private GShow() {
         
     }
     //===============================================
     public static GShow Instance() {
-        lock(m_instanceLock) {
-            if(m_instance == null) {
-                m_instance = new GShow();
-            }
-            return m_instance;
+        if(m_instance == null) {
+            m_instance = new GShow();
         }
+        return m_instance;
     }
     //===============================================
     public void Show(string data, string name = "") {
@@ -32,9 +32,6 @@ public class GShow {
         string m_format = Convert.ToString(data);
         Show(m_format, name);
     }
-    //===============================================
-    private static GShow m_instance = null;
-    private static readonly object m_instanceLock = new object();
     //===============================================
 }
 //===============================================
