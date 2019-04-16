@@ -1,7 +1,7 @@
-<?php 
-    require $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoloadRegister.php";	
+<?php
+    require $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoload.php";	
 	//===============================================
     GSetting::Instance()->load("/data/config/config.txt"); 
-    GProcess::Instance()->run();
+    GSignup::Instance()->save();
 	//===============================================
 ?>

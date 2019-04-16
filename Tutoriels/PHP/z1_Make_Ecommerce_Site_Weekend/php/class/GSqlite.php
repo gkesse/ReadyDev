@@ -1,18 +1,18 @@
 <?php   
-    abstract class GSignup {
+    abstract class GSqlite {
         //===============================================
         private function __construct() {
         
         }
         //===============================================
         public static function Instance() {
-            $lKey = GConfig::Instance()->getData("SIGNUP");
-            if($lKey == "NORMAL") return GSignupNormal::Instance();
-            return GSignupNormal::Instance();
+            $lKey = GConfig::Instance()->getData("FORM");
+            if($lKey == "NORMAL") return GSqlitePdo::Instance();
+            return GSqliteNormal::Instance();
         }
         //===============================================
-        abstract public function include();
-        abstract public function save();
+        abstract public function input($label, $type, $id);
+        abstract public function button($name, $type, $id);
         //===============================================
     }
 ?>

@@ -4,6 +4,7 @@
     {
         "meta_desc":
         [
+            "Le C est un langage de programmation structurelle.",
 			"Les patrons de conception sont des modèles de conception",
             "basés sur la programmation orientée objet.",
 			"Le but de ce tutoriel est de vous apprendre",
@@ -15,7 +16,7 @@
     "links":
     [
         {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
-        {"name":"C/C++","link":"/Tutoriels/Cpp/#Patrons de conception","follow":"no"},
+        {"name":"C","link":"/Tutoriels/Cpp/#Patrons de conception","follow":"no"},
         {"name":"Patrons de Conception","link":"","follow":"no"}
     ]
 }
