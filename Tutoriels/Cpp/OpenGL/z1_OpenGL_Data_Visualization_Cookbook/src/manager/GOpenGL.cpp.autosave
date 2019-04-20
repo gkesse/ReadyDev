@@ -120,7 +120,7 @@ void GOpenGL::drawLine(const GVertex* vertex, const GColor* color, const double&
     glEnd();
 }
 //================================================
-void GOpenGL::drawLines(const GVertex* vertex, const GColor* color, const double& width) {
+void GOpenGL::drawLines(const GVertex* vertex, const GColor* color, const double& width, ) {
     glLineWidth(width);
     glBegin(GL_LINES);
     for(int i = 0; i < 2; i++) {

@@ -26,7 +26,8 @@ public:
     void destroyWindow();
     void terminate();
     void drawPoint(const GVertex &vertex, const GColor &color, const int &size);
-    void drawLine(const GVertex* vertex, const GColor* color, const int &width);
+    void drawLine(const GVertex* vertex, const GColor* color, const double &width);
+    void drawLines(const GVertex* vertex, const GColor* color, const double &width);
     void drawTriangle(const GVertex *vertex, const GColor *color);
 
 private:

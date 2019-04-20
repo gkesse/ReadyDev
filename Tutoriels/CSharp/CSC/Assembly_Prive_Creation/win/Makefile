@@ -1,11 +1,11 @@
-GBIN=ass
-GTARGET=$(GBIN)\HelloAssembly.dll
+GBIN = bin
+GTARGET = $(GBIN)\HelloAssembly.dll
 
-GDLL=\
-    lib\hello\bin\Hello.dll
+GLIBS =\
+    lib\Hello\bin\Hello.dll
 
 assembly:
-	al /t:library /out:$(GTARGET) $(GDLL) 
+	al /t:library /out:$(GTARGET) $(GLIBS) 
 clean:
-	del /q $(GTARGET)
+	del /q $(GBIN)\*.dll
 	

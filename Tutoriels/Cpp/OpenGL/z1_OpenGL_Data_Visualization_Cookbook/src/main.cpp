@@ -3,7 +3,7 @@
 #include "GSetting.h"
 //===============================================
 int main(int argc, char** argv) {
-    GSetting::Instance()->load("res/config/config.txt");
+    GSetting::Instance()->load("data/config/config.txt");
     GProcess::Instance()->run(argc, argv);
     return 0;
 }

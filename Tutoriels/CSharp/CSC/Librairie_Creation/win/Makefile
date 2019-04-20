@@ -6,7 +6,7 @@ GSRCS =\
     $(GSRC)\manager\*.cs
 
 all:
-	csc /t:module /out:$(GTARGET) $(GSRCS)
+	csc /t:library /out:$(GTARGET) $(GSRCS)
 clean:
 	del /q $(GBIN)\*.dll
 	

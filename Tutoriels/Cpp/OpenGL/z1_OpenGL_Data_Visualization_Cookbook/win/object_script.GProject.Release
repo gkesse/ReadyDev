@@ -1,0 +1,14 @@
+INPUT(
+./build\GConfig.o
+./build\GProcess.o
+./build\GSetting.o
+./build\GProcessPoint.o
+./build\GOpenGL.o
+./build\GProcessTriangle.o
+./build\GProcessLine.o
+./build\GProcessGrid.o
+./build\GDraw.o
+./build\GData.o
+./build\GMath.o
+./build\main.o
+);
