@@ -40,22 +40,33 @@ void GDatabase::setDatabaseName(const QString &connectionName, const QString &da
 //===============================================
 void GDatabase::open(const QString& connectionName) {
     QSqlDatabase lDatabase = QSqlDatabase::database(connectionName);
-    if(lDatabase.isOpen() == false) {
-        lDatabase.open();
-    }
+    lDatabase.open();
 }
 //===============================================
 void GDatabase::close(const QString& connectionName) {
     QSqlDatabase lDatabase = QSqlDatabase::database(connectionName);
-    if(lDatabase.isOpen() == true) {
-        lDatabase.close();
-    }
+    lDatabase.close();
 }
 //===============================================
 void GDatabase::exec(const QString& connectionName, const QString& query) {
     QSqlDatabase lDatabase = QSqlDatabase::database(connectionName);
     QSqlQuery lSqlQuery(lDatabase);
-    lSqlQuery.exec(query);
+    bool lOk = lSqlQuery.exec(query);
+    if(lOk == false) cout << "ERROR: Database::exec()...\n";
+}
+//===============================================
+void GDatabase::prepare(const QString& connectionName, const QString& query) {
+    QSqlDatabase lDatabase = QSqlDatabase::database(connectionName);
+    QSqlQuery lSqlQuery(lDatabase);
+    bool lOk = lSqlQuery.prepare(query);
+    if(lOk == false) cout << "ERROR: Database::prepare()...\n";
+}
+//===============================================
+void GDatabase::createTable(const QString& connectionName, const QString& tableName, const QString& params) {
+    QString lQuery = QString("create table if not exists %1(%2)").arg(tableName).arg(params);
+    QSqlDatabase lDatabase = QSqlDatabase::database(connectionName);
+    QSqlQuery lSqlQuery(lDatabase);
+    lSqlQuery.exec(lQuery);
 }
 //===============================================
 

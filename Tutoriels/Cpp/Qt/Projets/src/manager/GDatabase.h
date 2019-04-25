@@ -18,6 +18,8 @@ public:
     void open(const QString& connectionName);
     void close(const QString& connectionName);
     void exec(const QString& connectionName, const QString &query);
+    void prepare(const QString& connectionName, const QString& query);
+    void createTable(const QString& connectionName, const QString& tableName, const QString& params);
 };
 //===============================================
 #endif

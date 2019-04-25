@@ -25,14 +25,23 @@ void GProcessDatabase::run(int argc, char **argv) {
     GDatabase::Instance()->setDatabaseName("SQLITE", "data/db/data.dat");
     GDatabase::Instance()->open("SQLITE");
     GDatabase::Instance()->showTables("SQLITE");
-    GDatabase::Instance()->exec("SQLITE",
-                "create table books("
+    GDatabase::Instance()->createTable(
+                "SQLITE", "books",
                 "id integer primary key,"
                 "title varchar,"
                 "author integer,"
                 "genre integer,"
                 "year integer,"
-                "rating integer"
-                ")");
+                "rating integer");
+    GDatabase::Instance()->createTable(
+                "SQLITE", "authors",
+                "id integer primary key,"
+                "name varchar,"
+                "birthdate date");
+    GDatabase::Instance()->createTable(
+                "SQLITE", "genres",
+                "id integer primary key,"
+                "name varchar");
+    GDatabase::Instance()->close("SQLITE");
 }
 //===============================================
