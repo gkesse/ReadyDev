@@ -31,3 +31,11 @@ void GPrint::print(const vector<string>& data, const string &name) {
     }
 }
 //===============================================
+void GPrint::print(const QStringList& data, const string &name) {
+    if(name != "") cout << name << " :\n";
+    for(int i = 0; i < data.size(); i++) {
+        QString lData = data[i];
+        cout << "\t" << lData.toStdString() << "\n";
+    }
+}
+//===============================================

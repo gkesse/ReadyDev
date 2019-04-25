@@ -7,10 +7,10 @@
 class GConfig {
 public:
 	GConfig();
-	~GConfig();
-	
+    virtual ~GConfig();
+
 public:
-	static GConfig* Instance();
+    static GConfig* Instance();
     void setData(const string &key, const string &data);
     string getData(const string& key);
     void showData();

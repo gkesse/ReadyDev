@@ -21,5 +21,18 @@ GProcessDatabase* GProcessDatabase::Instance() {
 //===============================================
 void GProcessDatabase::run(int argc, char **argv) {
     GDatabase::Instance()->showDrivers();
+    GDatabase::Instance()->addDatabase("SQLITE", "QSQLITE");
+    GDatabase::Instance()->setDatabaseName("SQLITE", "data/db/data.dat");
+    GDatabase::Instance()->open("SQLITE");
+    GDatabase::Instance()->showTables("SQLITE");
+    GDatabase::Instance()->exec("SQLITE",
+                "create table books("
+                "id integer primary key,"
+                "title varchar,"
+                "author integer,"
+                "genre integer,"
+                "year integer,"
+                "rating integer"
+                ")");
 }
 //===============================================
