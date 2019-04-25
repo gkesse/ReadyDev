@@ -29,9 +29,9 @@ void GProcessLine::run(int argc, char **argv) {
 
     while(!GOpenGL::Instance()->getWindowClose()) {
         GOpenGL::Instance()->setViewPort();
-        GOpenGL::Instance()->clearBuffer(GL_COLOR_BUFFER_BIT);
+        GOpenGL::Instance()->clear(GL_COLOR_BUFFER_BIT);
         GOpenGL::Instance()->setProjection();
-        GOpenGL::Instance()->clearBuffer(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        GOpenGL::Instance()->clear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         GVertex lVertex[] = {
             {0.0, 0.0, 0.0},
@@ -45,7 +45,7 @@ void GProcessLine::run(int argc, char **argv) {
         GOpenGL::Instance()->drawLine(lVertex, lColor, 10);
 
         GOpenGL::Instance()->swapBuffers();
-        GOpenGL::Instance()->getEvents();
+        GOpenGL::Instance()->pollEvents();
     }
 
     GOpenGL::Instance()->destroyWindow();

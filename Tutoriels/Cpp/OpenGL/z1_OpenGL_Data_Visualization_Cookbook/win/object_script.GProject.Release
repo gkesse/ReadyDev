@@ -10,5 +10,7 @@ INPUT(
 ./build\GDraw.o
 ./build\GData.o
 ./build\GMath.o
+./build\GProcessCallback.o
+./build\GKeyboard.o
 ./build\main.o
 );

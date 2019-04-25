@@ -18,7 +18,9 @@ HEADERS += \
     $$PWD/GProcessGrid.h \
     $$PWD/GDraw.h \
     $$PWD/GData.h \
-    $$PWD/GMath.h
+    $$PWD/GMath.h \
+    $$PWD/GProcessCallback.h \
+    $$PWD/GKeyboard.h
 
 SOURCES += \
     $$PWD/GConfig.cpp \
@@ -31,4 +33,6 @@ SOURCES += \
     $$PWD/GProcessGrid.cpp \
     $$PWD/GDraw.cpp \
     $$PWD/GData.cpp \
-    $$PWD/GMath.cpp
+    $$PWD/GMath.cpp \
+    $$PWD/GProcessCallback.cpp \
+    $$PWD/GKeyboard.cpp

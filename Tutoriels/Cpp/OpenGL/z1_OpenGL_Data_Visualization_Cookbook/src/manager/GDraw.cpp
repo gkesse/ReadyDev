@@ -56,6 +56,14 @@ double GDraw::divYs(const double &valY) {
     return lDivYs;
 }
 //================================================
+GVertex* GDraw::divS(const GVertex* vertex, const int& nVertex) {
+    GVertex* lVertex = new GVertex[nVertex];
+    for(int i = 0; i < nVertex; i++) {
+        lVertex[i] = {divXs(vertex[i].x), divYs(vertex[i].y), 0.0};
+    }
+    return lVertex;
+}
+//================================================
 void GDraw::drawGrid(const double& w, const double& h, const GColor& color) {
     for(double i = -h; i < h; i += m_divXs) {
         GVertex lVertex[] = {
@@ -91,16 +99,22 @@ void GDraw::drawAxis(const double& w, const double& h, const double& size, const
     GOpenGL::Instance()->drawLine(lVertex2, lColor2, size);
 }
 //================================================
-void GDraw::drawPoint(const GVertex& vertex, const GColor& color, const double &size) {
+void GDraw::drawPoint(const GVertex& vertex, const GColor& color, const double &pointSize) {
     GVertex lVertex = {divXs(vertex.x), divYs(vertex.y), 0.0};
-    GOpenGL::Instance()->drawPoint(lVertex, color, size);
+    GOpenGL::Instance()->drawPoint(lVertex, color, pointSize);
 }
 //================================================
-void GDraw::drawPoints(const GVertex* vertex, const int &n, const GColor& color, const double &size) {
-    for(int i = 0; i < n; i++) {
+void GDraw::drawPoints(const GVertex* vertex, const GColor& color, const double &pointSize, const int &nVertex) {
+    for(int i = 0; i < nVertex; i++) {
         GVertex lVertex = vertex[i];
-        drawPoint(lVertex, color, size);
+        drawPoint(lVertex, color, pointSize);
     }
+}
+//================================================
+void GDraw::drawPoints2(const GVertex* vertex, const GColor& color, const double &pointSize, const int &nVertex) {
+    GVertex* lVertex = divS(vertex, nVertex);
+    GOpenGL::Instance()->drawPoints(lVertex, color, pointSize, nVertex);
+    delete[] lVertex;
 }
 //================================================
 void GDraw::drawLine(const GVertex* vertex, const GColor& color, const double &width) {
@@ -112,11 +126,17 @@ void GDraw::drawLine(const GVertex* vertex, const GColor& color, const double &w
     GOpenGL::Instance()->drawLine(lVertex, lColor, width);
 }
 //================================================
-void GDraw::drawLines(const GVertex* vertex, const int &n, const GColor& color, const double &width) {
-    for(int i = 0; i < n - 1; i++) {
+void GDraw::drawLines(const GVertex* vertex, const GColor& color, const double &width, const int &nVertex) {
+    for(int i = 0; i < nVertex - 1; i++) {
         GVertex lVertex[] = {vertex[i], vertex[i + 1]};
         drawLine(lVertex, color, width);
     }
+}
+//================================================
+void GDraw::drawLines2(const GVertex* vertex, const GColor& color, const double &width, const int &nVertex) {
+    GVertex* lVertex = divS(vertex, nVertex);
+    GOpenGL::Instance()->drawLines(lVertex, color, width, nVertex);
+    delete[] lVertex;
 }
 //================================================
 

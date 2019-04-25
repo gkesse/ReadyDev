@@ -26,7 +26,7 @@ void GProcessTriangle::run(int argc, char **argv) {
 
     while(!GOpenGL::Instance()->getWindowClose()) {
         GOpenGL::Instance()->setViewPort();
-        GOpenGL::Instance()->clearBuffer(GL_COLOR_BUFFER_BIT);
+        GOpenGL::Instance()->clear(GL_COLOR_BUFFER_BIT);
         GOpenGL::Instance()->setProjection();
 
         GVertex lVertex[] = {
@@ -43,7 +43,7 @@ void GProcessTriangle::run(int argc, char **argv) {
         GOpenGL::Instance()->drawTriangle(lVertex, lColor);
 
         GOpenGL::Instance()->swapBuffers();
-        GOpenGL::Instance()->getEvents();
+        GOpenGL::Instance()->pollEvents();
     }
 
     GOpenGL::Instance()->destroyWindow();

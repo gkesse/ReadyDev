@@ -1,36 +1,70 @@
 //================================================
 #include "GOpenGL.h"
+#include "GMath.h"
 //================================================
 GOpenGL* GOpenGL::m_instance = 0;
 //================================================
 GOpenGL::GOpenGL() {
-
+    m_fovY = 45.0;
+    m_front = 0.1;
+    m_back = 128.0;
 }
 //================================================
 GOpenGL::~GOpenGL() {
-	
+
 }
 //================================================
 GOpenGL* GOpenGL::Instance() {
-	if(m_instance == 0) {
+    if(m_instance == 0) {
         m_instance = new GOpenGL;
-	}
-	return m_instance;
+    }
+    return m_instance;
 }
 //================================================
 void GOpenGL::init() {
     glfwInit();
 }
 //================================================
-void GOpenGL::createWindow(const int& w, const int& h, const string& title) {
-    m_width = w;
-    m_height = h;
+void GOpenGL::createWindow(const int& width, const int& height, const string& title) {
+    m_width = width;
+    m_height = height;
     m_window = glfwCreateWindow(m_width, m_height, title.c_str(), NULL, NULL);
     m_ratio = (double)m_width / (double)m_height;
 }
 //================================================
+void GOpenGL::setOnKeyboard(GLFWkeyfun onKeyboard) {
+    glfwSetKeyCallback(m_window, onKeyboard);
+}
+//================================================
+void GOpenGL::setOnResize(GLFWframebuffersizefun onResize) {
+    glfwSetFramebufferSizeCallback(m_window, onResize);
+}
+//================================================
+void GOpenGL::onResize(GLFWwindow* window, int width, int height) {
+    m_width = width;
+    m_height = height;
+    onResize();
+}
+//================================================
+void GOpenGL::onResize() {
+    m_ratio = (double)m_width / (double)m_height;
+    setViewPort();
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+
+    double lFovY = GMath::Instance()->rad(m_fovY / 2.0);
+    double lTan = tan(lFovY);
+    double lHeight = m_front * lTan;
+    double lWidth = m_ratio * lHeight;
+    glFrustum(-lWidth, lWidth, -lHeight, lHeight, m_front, m_back);
+}
+//================================================
 void GOpenGL::setContext() {
     glfwMakeContextCurrent(m_window);
+}
+//================================================
+void GOpenGL::swapInterval(const int& delay) {
+    glfwSwapInterval(delay);
 }
 //================================================
 void GOpenGL::setPointSmooth(const bool& ok) {
@@ -72,8 +106,12 @@ void GOpenGL::setViewPort() {
     glViewport(0, 0, m_width, m_height);
 }
 //================================================
-void GOpenGL::clearBuffer(const int& mask) {
+void GOpenGL::clear(const int& mask) {
     glClear(mask);
+}
+//================================================
+void GOpenGL::clearColor(const double& r, const double& g, const double& b, const double& a) {
+    glClearColor(r, g, b, a);
 }
 //================================================
 void GOpenGL::setProjection() {
@@ -84,12 +122,21 @@ void GOpenGL::setProjection() {
     glLoadIdentity();
 }
 //================================================
+void GOpenGL::setModelView() {
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+}
+//================================================
 void GOpenGL::swapBuffers() {
     glfwSwapBuffers(m_window);
 }
 //================================================
-void GOpenGL::getEvents() {
+void GOpenGL::pollEvents() {
     glfwPollEvents();
+}
+//================================================
+void GOpenGL::closeWindow() {
+    glfwSetWindowShouldClose(m_window, GL_TRUE);
 }
 //================================================
 void GOpenGL::destroyWindow() {
@@ -100,11 +147,22 @@ void GOpenGL::terminate() {
     glfwTerminate();
 }
 //================================================
-void GOpenGL::drawPoint(const GVertex& vertex, const GColor& color, const int& size) {
-    glPointSize(size);
+void GOpenGL::drawPoint(const GVertex& vertex, const GColor& color, const int& pointSize) {
+    glPointSize(pointSize);
     glBegin(GL_POINTS);
     glColor3f(color.r, color.g, color.b);
     glVertex3f(vertex.x, vertex.y, vertex.z);
+    glEnd();
+}
+//================================================
+void GOpenGL::drawPoints(const GVertex* vertex, const GColor& color, const int& pointSize, const int& nVertex) {
+    glPointSize(pointSize);
+    glBegin(GL_POINTS);
+    for(int i = 0; i < nVertex; i++){
+        GVertex lVertex = vertex[i];
+        glColor3f(color.r, color.g, color.b);
+        glVertex3f(lVertex.x, lVertex.y, lVertex.z);
+    }
     glEnd();
 }
 //================================================
@@ -120,13 +178,12 @@ void GOpenGL::drawLine(const GVertex* vertex, const GColor* color, const double&
     glEnd();
 }
 //================================================
-void GOpenGL::drawLines(const GVertex* vertex, const GColor* color, const double& width) {
+void GOpenGL::drawLines(const GVertex* vertex, const GColor& color, const double& width, const int& nVertex) {
     glLineWidth(width);
-    glBegin(GL_LINES);
-    for(int i = 0; i < 2; i++) {
+    glBegin(GL_LINE_STRIP);
+    for(int i = 0; i < nVertex; i++){
         GVertex lVertex = vertex[i];
-        GColor lColor = color[i];
-        glColor4f(lColor.r, lColor.g, lColor.b, lColor.a);
+        glColor4f(color.r, color.g, color.b, color.a);
         glVertex3f(lVertex.x, lVertex.y, lVertex.z);
     }
     glEnd();

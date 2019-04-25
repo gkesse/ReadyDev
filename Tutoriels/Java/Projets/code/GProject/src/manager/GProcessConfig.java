@@ -17,7 +17,13 @@ public class GProcessConfig extends GProcess {
 	} 
 	//===============================================
 	public void run() {
-        System.out.print("GProcessConfig\n");
+		GConfig.Instance().setData("Nom", "KESSE");
+		GConfig.Instance().setData("Prenom", "Gerard");
+		GConfig.Instance().setData("Email", "gerard.kesse@readydev.com");
+		GConfig.Instance().setData("Diplome", "Ingenieur");
+		GConfig.Instance().setData("Formation", "Informatique Industrielle");
+		GConfig.Instance().setData("Ecole", "Polytech'Montpellier");
+		GConfig.Instance().showData();
 	}
 	//===============================================
 }

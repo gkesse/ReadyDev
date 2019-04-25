@@ -193,53 +193,6 @@
             "link":"/Tutoriels/GIMP/",
 			"follow":"yes"
         }
-    ],
-    "navigator":
-    [
-        {
-            "icon":"fa fa-globe",
-            "theme":"Firefox",
-            "description":"Apprenez<br/> Firefox",
-            "link":"/Tutoriels/Firefox/",
-			"follow":"yes"
-        }
-    ],
-    "office":
-    [
-        {
-            "icon":"fa fa-file-word-o",
-            "theme":"Word 2007",
-            "description":"Apprenez<br/> Word 2007",
-            "link":"/Tutoriels/Word2007/",
-			"follow":"yes"
-        },
-        {
-            "icon":"fa fa-file-excel-o",
-            "theme":"Excel 2007",
-            "description":"Apprenez<br/> Excel 2007",
-            "link":"/Tutoriels/Excel/",
-			"follow":"yes"
-        }
-    ],
-    "ide":
-    [
-        {
-            "icon":"fa fa-indent",
-            "theme":"Eclipse",
-            "description":"Apprenez<br/> Eclipse",
-            "link":"/Tutoriels/Eclipse/",
-			"follow":"yes"
-        }
-    ],
-    "resources":
-    [
-        {
-            "icon":"fa fa-snowflake-o",
-            "theme":"Ressources",
-            "description":"Accédez aux<br/> Ressources",
-            "link":"/Tutoriels/Ressources/",
-			"follow":"yes"
-        }
     ]
 }
                         
