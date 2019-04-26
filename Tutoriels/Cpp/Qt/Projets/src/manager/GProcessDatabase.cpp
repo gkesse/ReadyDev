@@ -25,6 +25,7 @@ void GProcessDatabase::run(int argc, char **argv) {
     GDatabase::Instance()->setDatabaseName("SQLITE", "data/db/data.dat");
     GDatabase::Instance()->open("SQLITE");
     GDatabase::Instance()->showTables("SQLITE");
+
     GDatabase::Instance()->createTable(
                 "SQLITE", "books",
                 "id integer primary key,"
@@ -42,6 +43,23 @@ void GProcessDatabase::run(int argc, char **argv) {
                 "SQLITE", "genres",
                 "id integer primary key,"
                 "name varchar");
+
+    GDatabase::Instance()->prepare(
+                "SQLITE", "PREPARE",
+                "insert into authors(name, birthdate) values(?, ?)");
+
+    GDatabase::Instance()->prepareData("PREPARE", "Isaac Asimov");
+    GDatabase::Instance()->prepareData("PREPARE", QDate(1920, 2, 1));
+    GDatabase::Instance()->prepareExec("PREPARE");
+
+    GDatabase::Instance()->prepareData("PREPARE", "Isaac Asimov");
+    GDatabase::Instance()->prepareData("PREPARE", QDate(1920, 2, 1));
+    GDatabase::Instance()->prepareExec("PREPARE");
+
+    GDatabase::Instance()->prepareData("PREPARE", "Isaac Asimov");
+    GDatabase::Instance()->prepareData("PREPARE", QDate(1920, 2, 1));
+    GDatabase::Instance()->prepareExec("PREPARE");
+
     GDatabase::Instance()->close("SQLITE");
 }
 //===============================================

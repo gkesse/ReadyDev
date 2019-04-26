@@ -55,11 +55,33 @@ void GDatabase::exec(const QString& connectionName, const QString& query) {
     if(lOk == false) cout << "ERROR: Database::exec()...\n";
 }
 //===============================================
-void GDatabase::prepare(const QString& connectionName, const QString& query) {
+void GDatabase::prepare(const QString& connectionName, const QString& prepareQueryName, const QString& query) {
     QSqlDatabase lDatabase = QSqlDatabase::database(connectionName);
-    QSqlQuery lSqlQuery(lDatabase);
-    bool lOk = lSqlQuery.prepare(query);
+    QSqlQuery* lSqlQuery = new  QSqlQuery(lDatabase);
+    m_prepareQueryMap[prepareQueryName] = lSqlQuery;
+    bool lOk = lSqlQuery->prepare(query);
     if(lOk == false) cout << "ERROR: Database::prepare()...\n";
+}
+//===============================================
+void GDatabase::prepareData(const QString& prepareQueryName, const QVariant& data) {
+    QSqlQuery* lSqlQuery = m_prepareQueryMap[prepareQueryName];
+    lSqlQuery->addBindValue(data);
+}
+//===============================================
+void GDatabase::prepareExec(const QString& prepareQueryName) {
+    QSqlQuery* lSqlQuery = m_prepareQueryMap[prepareQueryName];
+    lSqlQuery->exec();
+}
+//===============================================
+QVariant GDatabase::prepareId(const QString& prepareQueryName) {
+    QSqlQuery* lSqlQuery = m_prepareQueryMap[prepareQueryName];
+    return lSqlQuery->lastInsertId();
+}
+//===============================================
+void GDatabase::prepareRelease(const QString& prepareQueryName) {
+    QSqlQuery* lSqlQuery = m_prepareQueryMap[prepareQueryName];
+    delete lSqlQuery;
+    m_prepareQueryMap.remove(prepareQueryName);
 }
 //===============================================
 void GDatabase::createTable(const QString& connectionName, const QString& tableName, const QString& params) {
