@@ -60,13 +60,13 @@ void GDatabase::releaseQuery(const QString& queryName) {
     m_queryMap.remove(queryName);
 }
 //===============================================
-void GDatabase::exec(const QString& queryName, const QString& query) {
+void GDatabase::execQuery(const QString& queryName, const QString& query) {
     QSqlQuery* lSqlQuery = m_queryMap[queryName];
     bool lOk = lSqlQuery->exec(query);
     if(lOk == false) cout << "ERROR: GDatabase::exec()...\n";
 }
 //===============================================
-bool GDatabase::empty(const QString& queryName, const QString& tableName) {
+bool GDatabase::emptyTable(const QString& queryName, const QString& tableName) {
     int lSize = countTableRows(queryName, tableName);
     if(lSize <= 0) return true;
     return false;
@@ -136,24 +136,20 @@ int GDatabase::countTableRows(const QString& queryName, const QString& tableName
     return lRows;
 }
 //===============================================
-void GDatabase::showTableData(const QString& queryName, const QString& tableName) {
+QVector<QStringList> GDatabase::getTableData(const QString& queryName, const QString& tableName) {
     QSqlQuery* lSqlQuery = m_queryMap[queryName];
     QString lQuery = QString("select * from %1").arg(tableName);
     lSqlQuery->exec(lQuery);
-    QVector<QStringList> lst;
-    while (lSqlQuery->next())
-    {
-        QSqlRecord record = lSqlQuery->record();
-        QStringList tmp;
-        for(int i=0; i < record.count(); i++)
-        {
-            tmp << record.value(i).toString();
+    QVector<QStringList> lDataMap;
+    while(lSqlQuery->next()) {
+        QSqlRecord lRecord = lSqlQuery->record();
+        QStringList lData;
+        for(int i=0; i < lRecord.count(); i++) {
+            lData << lRecord.value(i).toString();
         }
-        lst.append(tmp);
+        lDataMap.append(lData);
     }
-    foreach (const QStringList &var, lst) {
-        qDebug() << var;
-    }
+    return lDataMap;
 }
 //===============================================
 

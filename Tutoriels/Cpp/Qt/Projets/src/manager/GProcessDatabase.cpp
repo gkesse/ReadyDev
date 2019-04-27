@@ -1,6 +1,7 @@
 //===============================================
 #include "GProcessDatabase.h"
 #include "GDatabase.h"
+#include "GPrint.h"
 //===============================================
 GProcessDatabase* GProcessDatabase::m_instance = 0;
 //===============================================
@@ -46,7 +47,7 @@ void GProcessDatabase::run(int argc, char **argv) {
                 "id integer primary key,"
                 "name varchar");
 
-    if(GDatabase::Instance()->empty("SQLITE", "authors") == true) {
+    if(GDatabase::Instance()->emptyTable("SQLITE", "authors") == true) {
         GDatabase::Instance()->prepare(
                     "SQLITE",
                     "insert into authors (name, birthdate) values (?, ?)");
@@ -82,11 +83,7 @@ void GProcessDatabase::run(int argc, char **argv) {
         GDatabase::Instance()->prepareData("SQLITE_BOOKS","Going Postal", 2004, pratchettId, fantasy, 3);*/
     }
 
-    int lAuthorsRows = GDatabase::Instance()->countTableRows("SQLITE", "authors");
-    QString lAuthorsInfos = QString("AUTHORS : (%1)").arg(lAuthorsRows);
-    qDebug() << lAuthorsInfos << "\n";
-
-    GDatabase::Instance()->showTableData("SQLITE", "authors");
+    GPrint::Instance()->print(GDatabase::Instance()->getTableData("SQLITE", "authors"), "AUTHORS");
 
     GDatabase::Instance()->releaseQuery("SQLITE");
 
