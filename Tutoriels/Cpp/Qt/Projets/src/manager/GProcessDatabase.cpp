@@ -28,6 +28,9 @@ void GProcessDatabase::run(int argc, char **argv) {
     GDatabase::Instance()->showTables("SQLITE");
 
     GDatabase::Instance()->createQuery("SQLITE", "SQLITE");
+    GDatabase::Instance()->createQuery("SQLITE", "SQLITE_AUTHORS");
+    GDatabase::Instance()->createQuery("SQLITE", "SQLITE_GENRES");
+    GDatabase::Instance()->createQuery("SQLITE", "SQLITE_BOOKS");
 
     GDatabase::Instance()->createTable(
                 "SQLITE", "books",
@@ -49,22 +52,22 @@ void GProcessDatabase::run(int argc, char **argv) {
 
     if(GDatabase::Instance()->emptyTable("SQLITE", "authors") == true) {
         GDatabase::Instance()->prepare(
-                    "SQLITE",
+                    "SQLITE_AUTHORS",
                     "insert into authors (name, birthdate) values (?, ?)");
 
-        /*GDatabase::Instance()->prepare(
+        GDatabase::Instance()->prepare(
                     "SQLITE_GENRES",
                     "insert into genres(name) values(?)");
 
         GDatabase::Instance()->prepare(
                     "SQLITE_BOOKS",
-                    "insert into books(title, year, author, genre, rating) values(?, ?, ?, ?, ?)");*/
+                    "insert into books(title, year, author, genre, rating) values(?, ?, ?, ?, ?)");
 
-        QVariant asimovId = GDatabase::Instance()->prepareData("SQLITE", "Isaac Asimov", QDate(1920, 2, 1));
-        QVariant greeneId = GDatabase::Instance()->prepareData("SQLITE", "Graham Greene", QDate(1904, 10, 2));
-        QVariant pratchettId = GDatabase::Instance()->prepareData("SQLITE", "Terry Pratchett", QDate(948, 4, 28));
+        QVariant asimovId = GDatabase::Instance()->prepareData("SQLITE_AUTHORS", "Isaac Asimov", QDate(1920, 2, 1));
+        QVariant greeneId = GDatabase::Instance()->prepareData("SQLITE_AUTHORS", "Graham Greene", QDate(1904, 10, 2));
+        QVariant pratchettId = GDatabase::Instance()->prepareData("SQLITE_AUTHORS", "Terry Pratchett", QDate(948, 4, 28));
 
-        /*QVariant sfiction = GDatabase::Instance()->prepareData("SQLITE_GENRES", "Science Fiction");
+        QVariant sfiction = GDatabase::Instance()->prepareData("SQLITE_GENRES", "Science Fiction");
         QVariant fiction = GDatabase::Instance()->prepareData("SQLITE_GENRES", "Fiction");
         QVariant fantasy = GDatabase::Instance()->prepareData("SQLITE_GENRES", "Fantasy");
 
@@ -80,12 +83,17 @@ void GProcessDatabase::run(int argc, char **argv) {
         GDatabase::Instance()->prepareData("SQLITE_BOOKS","Our Man in Havana", 1958, greeneId, fiction, 4);
         GDatabase::Instance()->prepareData("SQLITE_BOOKS","Guards! Guards!", 1989, pratchettId, fantasy, 3);
         GDatabase::Instance()->prepareData("SQLITE_BOOKS","Night Watch", 2002, pratchettId, fantasy, 3);
-        GDatabase::Instance()->prepareData("SQLITE_BOOKS","Going Postal", 2004, pratchettId, fantasy, 3);*/
+        GDatabase::Instance()->prepareData("SQLITE_BOOKS","Going Postal", 2004, pratchettId, fantasy, 3);
     }
 
     GPrint::Instance()->print(GDatabase::Instance()->getTableData("SQLITE", "authors"), "AUTHORS");
+    GPrint::Instance()->print(GDatabase::Instance()->getTableData("SQLITE", "genres"), "GENRES");
+    GPrint::Instance()->print(GDatabase::Instance()->getTableData("SQLITE", "books"), "BOOKS");
 
     GDatabase::Instance()->releaseQuery("SQLITE");
+    GDatabase::Instance()->releaseQuery("SQLITE_AUTHORS");
+    GDatabase::Instance()->releaseQuery("SQLITE_GENRES");
+    GDatabase::Instance()->releaseQuery("SQLITE_BOOKS");
 
     GDatabase::Instance()->closeDatabase("SQLITE");
 }

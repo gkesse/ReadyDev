@@ -24,7 +24,9 @@ HEADERS += \
     $$PWD/GDatabase.h \
     $$PWD/GDatabaseSqlite.h \
     $$PWD/GString.h \
-    $$PWD/GPrint.h
+    $$PWD/GPrint.h \
+    $$PWD/GProcessListView.h \
+    $$PWD/GQt.h
 
 SOURCES += \
     $$PWD/GSetting.cpp \
@@ -45,4 +47,6 @@ SOURCES += \
     $$PWD/GDatabase.cpp \
     $$PWD/GDatabaseSqlite.cpp \
     $$PWD/GString.cpp \
-    $$PWD/GPrint.cpp
+    $$PWD/GPrint.cpp \
+    $$PWD/GProcessListView.cpp \
+    $$PWD/GQt.cpp

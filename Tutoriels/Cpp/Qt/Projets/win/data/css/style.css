@@ -65,11 +65,39 @@ QMenu::item:selected {
     background-color: rgba(80, 90, 70, 1.0);
 }
 /*-----------------------------------------------*/
+/* QListView */
+QListView {
+    background-color: rgba(5, 16, 57, 1.0);
+    outline: 0;
+    font-weight: bold;
+    font-size: 25px;
+    color: rgba(255, 255, 255, 0.8);
+}
+QListView::item {
+    padding: 5px;
+    border-bottom: 1px solid rgba(100, 100, 100, 0.0);
+}
+QListView::item:alternate {
+    background-color: rgba(35, 46, 87, 1.0);
+}
+QListView::item:selected {
+    border: 1px solid rgba(100, 100, 100, 0.0);
+}
+QListView::item:selected:!active {
+    background-color: rgba(150, 150, 1, 1.0);
+}
+QListView::item:selected:active {
+    background-color: rgba(150, 150, 1, 1.0);
+}
+QListView::item:hover {
+    background-color: rgba(55, 150, 107, 1.0);
+}
+/*-----------------------------------------------*/
 /* QTextEdit */
 QTextEdit {
     background-color: rgba(255, 255, 255, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    border-image: url(res/img/border.png) 30 round;    
+    border-image: url(res/img/border.png) 30 round;
     border-width: 10px;
 }
 /*-----------------------------------------------*/

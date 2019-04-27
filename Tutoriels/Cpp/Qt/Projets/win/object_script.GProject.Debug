@@ -20,6 +20,8 @@ INPUT(
 ./build\GDatabaseSqlite.o
 ./build\GString.o
 ./build\GPrint.o
+./build\GProcessListView.o
+./build\GQt.o
 ./build\main.o
 ./build\qrc_QtAwesome.o
 ./build\qrc_resource.o
