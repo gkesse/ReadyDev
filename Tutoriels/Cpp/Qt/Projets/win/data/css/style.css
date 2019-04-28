@@ -85,12 +85,40 @@ QListView::item:selected {
 }
 QListView::item:selected:!active {
     background-color: rgba(150, 150, 1, 1.0);
+    color: rgba(255, 255, 255, 0.8);
 }
 QListView::item:selected:active {
     background-color: rgba(150, 150, 1, 1.0);
 }
 QListView::item:hover {
     background-color: rgba(55, 150, 107, 1.0);
+}
+/*-----------------------------------------------*/
+/* QTabWidget */
+QTabWidget {
+    background-color: rgba(85, 110, 67, 1.0);
+}
+QTabWidget::pane {
+    border-top: 10px solid rgba(85, 110, 67, 1.0);
+}
+QTabWidget::tab-bar {
+    top: 5px;
+    bottom: 5px;
+    right: 5px;
+    left: 5px;
+}
+QTabBar::tab {
+    background-color: rgba(86, 42, 65, 1.0);
+    padding: 10px 10px;
+    font-weight: bold;
+    font-size: 16px;
+    min-width: 50px;
+}
+QTabBar::tab:hover {
+    background-color: rgba(35, 106, 87, 1.0);
+}
+QTabBar::tab:selected {
+    background-color: rgba(5, 16, 57, 1.0);
 }
 /*-----------------------------------------------*/
 /* QTextEdit */

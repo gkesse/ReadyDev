@@ -22,6 +22,7 @@ INPUT(
 ./build\GPrint.o
 ./build\GProcessListView.o
 ./build\GQt.o
+./build\GProcessTabWidget.o
 ./build\main.o
 ./build\qrc_QtAwesome.o
 ./build\qrc_resource.o

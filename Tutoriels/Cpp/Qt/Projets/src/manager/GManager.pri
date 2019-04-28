@@ -26,7 +26,8 @@ HEADERS += \
     $$PWD/GString.h \
     $$PWD/GPrint.h \
     $$PWD/GProcessListView.h \
-    $$PWD/GQt.h
+    $$PWD/GQt.h \
+    $$PWD/GProcessTabWidget.h
 
 SOURCES += \
     $$PWD/GSetting.cpp \
@@ -49,4 +50,5 @@ SOURCES += \
     $$PWD/GString.cpp \
     $$PWD/GPrint.cpp \
     $$PWD/GProcessListView.cpp \
-    $$PWD/GQt.cpp
+    $$PWD/GQt.cpp \
+    $$PWD/GProcessTabWidget.cpp
