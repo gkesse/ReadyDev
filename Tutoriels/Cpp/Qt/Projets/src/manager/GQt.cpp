@@ -54,9 +54,10 @@ void GQt::setListViewEditTriggers(const QString &listViewName, QAbstractItemView
     lListView->setEditTriggers(triggers);
 }
 //================================================
-void GQt::createTabWidget(const QString &tabWidgetName) {
-    QTabWidget* lTabWidget = new QTabWidget;
+void GQt::createTabWidget(const QString &tabWidgetName, QWidget* parent) {
+    QTabWidget* lTabWidget = new QTabWidget(parent);
     m_tabWidgetMap[tabWidgetName] = lTabWidget;
+    lTabWidget->tabBar()->setCursor(Qt::PointingHandCursor);
     lTabWidget->resize(400, 400);
 }
 //================================================

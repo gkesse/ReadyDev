@@ -19,7 +19,7 @@ public:
     void setListViewAlternatingRowColors(const QString &listViewName, const bool& ok);
     void setListViewEditTriggers(const QString &listViewName, QAbstractItemView::EditTriggers triggers);
 
-    void createTabWidget(const QString &tabWidgetName);
+    void createTabWidget(const QString &tabWidgetName, QWidget *parent = 0);
     void showTabWidget(const QString &tabWidgetName);
     void addTabWidgetListView(const QString &tabWidgetName, const QString &listViewName, const QString& tabName);
 
