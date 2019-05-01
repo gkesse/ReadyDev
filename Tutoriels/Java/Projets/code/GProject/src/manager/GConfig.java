@@ -32,6 +32,7 @@ public class GConfig {
 		for(String key: m_dataMap.keySet()) {
             System.out.print(key + " = " + m_dataMap.get(key) + "\n");
 		}
+        System.out.print("\n");
 	} 
 	//===============================================
 }

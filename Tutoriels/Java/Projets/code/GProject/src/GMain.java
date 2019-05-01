@@ -1,10 +1,10 @@
 //===============================================
-import manager.GConfig;
 import manager.GProcess;
+import manager.GSetting;
 //===============================================
 public class GMain {
     public static void main(String[] args){
-        GConfig.Instance().setData("PROCESS", "NORMAL");
+    	GSetting.Instance().load("data/config/config.txt");
         GProcess.Instance().run();
     }
 }

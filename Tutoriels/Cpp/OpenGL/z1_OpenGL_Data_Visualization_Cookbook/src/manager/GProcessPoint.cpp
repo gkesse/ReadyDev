@@ -28,9 +28,9 @@ void GProcessPoint::run(int argc, char **argv) {
 
     while(!GOpenGL::Instance()->getWindowClose()) {
         GOpenGL::Instance()->setViewPort();
-        GOpenGL::Instance()->clearBuffer(GL_COLOR_BUFFER_BIT);
+        GOpenGL::Instance()->clear(GL_COLOR_BUFFER_BIT);
         GOpenGL::Instance()->setProjection();
-        GOpenGL::Instance()->clearBuffer(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        GOpenGL::Instance()->clear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         GVertex lVertex = {0.0, 0.0, 0.0};
         GColor lColor = {1.0, 0.0, 0.0, 1.0};
@@ -38,7 +38,7 @@ void GProcessPoint::run(int argc, char **argv) {
         GOpenGL::Instance()->drawPoint(lVertex, lColor, 30);
 
         GOpenGL::Instance()->swapBuffers();
-        GOpenGL::Instance()->getEvents();
+        GOpenGL::Instance()->pollEvents();
     }
 
     GOpenGL::Instance()->destroyWindow();

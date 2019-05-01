@@ -1,0 +1,191 @@
+/*===============================================*/
+/* Common Style */
+/*===============================================*/
+/* QWidget */
+QWidget {
+    font-family: arial;
+    font-size: 14px;
+    color: white;
+    background-color: transparent;
+    border: none;
+}
+/*===============================================*/
+/* Global Style */
+/*===============================================*/
+/* QPushButton */
+QPushButton {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 6px;
+}
+QPushButton:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    text-decoration: underline;
+}
+QPushButton:pressed {
+    background-color: rgba(255, 255, 255, 0.2);
+    font-size: 12px;
+}
+/*-----------------------------------------------*/
+/* QToolButton */
+GTitle QToolButton {
+    background-color: rgba(255, 255, 255, 0.0);
+}
+GTitle QToolButton:hover {
+    background-color: rgba(255, 255, 255, 0.0);
+}
+GTitle QToolButton:pressed {
+    background-color: rgba(255, 255, 255, 0.0);
+}
+/*-----------------------------------------------*/
+/* QLabel */
+GTitle QLabel {
+    background-color: rgba(255, 255, 255, 0.0);
+    font-family: impact;
+    font-size: 20px;
+}
+/*-----------------------------------------------*/
+/* QLabel */
+GTitle QLabel#GIcon {
+    background-color: rgba(255, 255, 255, 0.0);
+    border: 1px solid rgba(255, 255, 255, 0.0);
+    border-radius: 0px;
+    min-width: 0px;
+    min-height: 0px;
+}
+/*-----------------------------------------------*/
+/* QMenu */
+QMenu {
+    background-color: rgba(5, 16, 57, 1.0);
+    border: 1px solid rgba(255, 255, 255, 1.0);
+}
+QMenu::item {
+    background-color: transparent;
+}
+QMenu::item:selected {
+    background-color: rgba(80, 90, 70, 1.0);
+}
+/*-----------------------------------------------*/
+/* QListView */
+QListView {
+    background-color: rgba(5, 16, 57, 1.0);
+    outline: 0;
+    font-weight: bold;
+    font-size: 25px;
+    color: rgba(255, 255, 255, 0.8);
+}
+QListView::item {
+    padding: 5px;
+    border-bottom: 1px solid rgba(100, 100, 100, 0.0);
+}
+QListView::item:alternate {
+    background-color: rgba(35, 46, 87, 1.0);
+}
+QListView::item:selected {
+    border: 1px solid rgba(100, 100, 100, 0.0);
+}
+QListView::item:selected:!active {
+    background-color: rgba(150, 150, 1, 1.0);
+    color: rgba(255, 255, 255, 0.8);
+}
+QListView::item:selected:active {
+    background-color: rgba(150, 150, 1, 1.0);
+}
+QListView::item:hover {
+    background-color: rgba(55, 150, 107, 1.0);
+}
+/*-----------------------------------------------*/
+/* QTabWidget */
+QTabWidget {
+    background-color: rgba(85, 110, 67, 1.0);
+}
+QTabWidget::pane {
+    border-top: 10px solid rgba(85, 110, 67, 1.0);
+}
+QTabWidget::tab-bar {
+    top: 5px;
+    bottom: 5px;
+    right: 5px;
+    left: 5px;
+}
+QTabBar::tab {
+    background-color: rgba(86, 42, 65, 1.0);
+    padding: 10px 10px;
+    font-weight: bold;
+    font-size: 16px;
+    min-width: 50px;
+}
+QTabBar::tab:hover {
+    background-color: rgba(35, 106, 87, 1.0);
+}
+QTabBar::tab:selected {
+    background-color: rgba(5, 16, 57, 1.0);
+}
+/*-----------------------------------------------*/
+/* QTextEdit */
+QTextEdit {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-image: url(res/img/border.png) 30 round;
+    border-width: 10px;
+}
+/*-----------------------------------------------*/
+/* QSplitter */
+GSplitter QSplitter::handle {
+    image: url(res/img/splitter.png);
+}
+GSplitter QSplitter::handle:pressed {
+    image: url(res/img/splitter_pressed.png);
+}
+GSplitter QSplitter::handle:horizontal {
+    width: 10px;
+    background: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 0, stop: 0 navy, stop: 0.5 white, stop: 1.0 navy);
+}
+GSplitter QSplitter::handle:vertical {
+    height: 10px;
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 navy, stop: 0.5 white, stop: 1.0 navy);
+}
+/*-----------------------------------------------*/
+/* QSplitter */
+GSplitterCustom QSplitter::handle {
+    image: url(res/img/splitter.png);
+}
+GSplitterCustom QSplitter::handle:pressed {
+    image: url(res/img/splitter_pressed.png);
+}
+GSplitterCustom QSplitter::handle:horizontal {
+    width: 50px;
+    background-color: transparent;
+}
+GSplitterCustom QSplitter::handle:vertical {
+    height: 10px;
+    background: transparent;
+}
+/*===============================================*/
+/* Custom Style */
+/*===============================================*/
+/* GWindow */
+GWindow {
+    background-color: rgba(5, 16, 57, 1.0);
+}
+/*-----------------------------------------------*/
+/* GTitle */
+GTitle {
+    background-color: rgba(255, 255, 255, 0.0);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.0);
+    padding: 5px 5px 5px 5px;
+}
+/*-----------------------------------------------*/
+/* GMenu */
+GMenu {
+    background-color: rgba(255, 255, 255, 0.0);
+    border-right: 2px solid rgba(255, 255, 255, 0.2);
+    padding: 5px 5px 5px 5px;
+}
+/*-----------------------------------------------*/
+/* GWorkspace */
+GWorkspace {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.0);
+    padding: 5px 5px 5px 5px;
+}
+/*===============================================*/

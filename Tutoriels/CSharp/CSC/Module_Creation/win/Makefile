@@ -1,12 +1,12 @@
-GSRC=..\src
-GBIN=lib
-GTARGET=$(GBIN)\Hello.dll
+GSRC = ..\src
+GBIN = bin
+GTARGET = $(GBIN)\Hello.dll
 
-GSRCS=\
-    $(GSRC)\*.cs
+GSRCS =\
+    $(GSRC)\manager\*.cs
 
 all:
 	csc /t:module /out:$(GTARGET) $(GSRCS)
 clean:
-	del /q $(GBIN)\*.exe
+	del /q $(GBIN)\*.dll
 	

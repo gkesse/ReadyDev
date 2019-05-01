@@ -14,7 +14,13 @@ HEADERS += \
     $$PWD/GProcessPoint.h \
     $$PWD/GOpenGL.h \
     $$PWD/GProcessTriangle.h \
-    $$PWD/GProcessLine.h
+    $$PWD/GProcessLine.h \
+    $$PWD/GProcessGrid.h \
+    $$PWD/GDraw.h \
+    $$PWD/GData.h \
+    $$PWD/GMath.h \
+    $$PWD/GProcessCallback.h \
+    $$PWD/GKeyboard.h
 
 SOURCES += \
     $$PWD/GConfig.cpp \
@@ -23,4 +29,10 @@ SOURCES += \
     $$PWD/GProcessPoint.cpp \
     $$PWD/GOpenGL.cpp \
     $$PWD/GProcessTriangle.cpp \
-    $$PWD/GProcessLine.cpp
+    $$PWD/GProcessLine.cpp \
+    $$PWD/GProcessGrid.cpp \
+    $$PWD/GDraw.cpp \
+    $$PWD/GData.cpp \
+    $$PWD/GMath.cpp \
+    $$PWD/GProcessCallback.cpp \
+    $$PWD/GKeyboard.cpp
