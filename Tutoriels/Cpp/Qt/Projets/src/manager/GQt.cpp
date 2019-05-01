@@ -42,6 +42,8 @@ void GQt::setListViewModel2(const QString &listViewName, const QString &standard
     QStandardItemModel* lModel = m_standardItemModelMap[standardItemModel];
     lListView->setModel(lModel);
     lListView->setIconSize(QSize(25, 25));
+    lListView->setViewMode(QListView::IconMode);
+    lListView->setResizeMode(QListView::Adjust);
 }
 //================================================
 void GQt::setListViewAlternatingRowColors(const QString &listViewName, const bool& ok) {
