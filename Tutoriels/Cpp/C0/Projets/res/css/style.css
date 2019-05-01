@@ -1,0 +1,48 @@
+/*===============================================*/
+/* Global Style */
+/*===============================================*/
+* {
+    font-family: Arial;
+    font-size: 12;
+    color: white;
+}
+/*===============================================*/
+/* Common Style */
+/*===============================================*/
+/* GWindow */
+#GWindow {
+    background-color: #000033;
+}
+/*-----------------------------------------------*/
+/* GButton */
+#GButton {
+    border-image: none;
+    background-image: none;
+    background-color: transparent;
+    padding: 0px;
+}
+#GButton:hover {
+    background-color: rgba(255,255,255,0.2);
+}
+#GButton:active {
+    background-color: transparent;
+}
+/*-----------------------------------------------*/
+/* GLabel */
+#GLabel_Title {
+    font-family: Impact;
+    font-size: 20;
+    color: darkorange;
+}
+/*-----------------------------------------------*/
+/* GBox */
+#GBox {
+    background-color: rgba(255,255,255,0.2);
+}
+/*-----------------------------------------------*/
+/* GMenu */
+#GMenu {
+    background-color: #000033;
+    border: 2px solid #ffffff;
+}
+/*===============================================*/
