@@ -14,6 +14,6 @@ void GPerson::setName(const string &name) {
 }
 //================================================
 void GPerson::print() const {
-    cout << "Je suis une personne : " << m_name << "\n";
+    cout << "Je suis une personne: " << m_name << "\n";
 }
 //================================================
