@@ -1,5 +1,6 @@
 //===============================================
 #include "GProcessClass.h"
+#include "GPerson.h"
 //===============================================
 GProcessClass* GProcessClass::m_instance = 0;
 //===============================================
@@ -19,6 +20,11 @@ GProcessClass* GProcessClass::Instance() {
 }
 //===============================================
 void GProcessClass::run(int argc, char **argv) {
-    cout << "Bonjour...\n";
+    GPerson* lPerson = new GPerson;
+    lPerson->setName("Gerard KESSE");
+    lPerson->print();
+    lPerson->setName("Deborah YOBOUE");
+    lPerson->print();
+    delete lPerson;
 }
 //===============================================
