@@ -135,7 +135,80 @@ void GProcessInheritance::run(int argc, char **argv) {
     lCat-&gt;print();
     delete lAnimal;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Héritage de classe-Résultat"><a class="Link9" href="#Héritage de classe">Résultat</a></h2><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Inheritance.png" alt="img/Inheritance.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Polymorphisme"><a class="Link3" href="#">Polymorphisme</a></h1><div class="Body3">Le but de cette section est de vous apprendre le <span class="GColor1" style="color:lime;">Polymorphisme </span>avec le C++.<br>Produit par <b>Gérard KESSE</b>.<br><br>Le Polymorphisme permet à une classe mère de prendre plusieurs formes, selon la classe fille pointée.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1556788696321"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1556788696321");</script></div><br><h2 class="Title7 GTitle2" id="Polymorphisme-Classe mère"><a class="Link9" href="#Polymorphisme">Classe mère</a></h2><br><h3 class="Title8 GTitle3">Classe mère (GAircraft.h)</h3><br><h3 class="Title8 GTitle3">Classe mère (GAircraft.cpp)</h3><br><br><h2 class="Title7 GTitle2" id="Polymorphisme-Classe fille"><a class="Link9" href="#Polymorphisme">Classe fille</a></h2><br><h3 class="Title8 GTitle3">Classe fille (GAircraftAirbus.h)</h3><br><h3 class="Title8 GTitle3">Classe fille (GAircraftAirbus.cpp)</h3><br><h2 class="Title7 GTitle2" id="Polymorphisme-Programme de Test"><a class="Link9" href="#Polymorphisme">Programme de Test</a></h2><br><h3 class="Title8 GTitle3">Programme de Test</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Héritage de classe-Résultat"><a class="Link9" href="#Héritage de classe">Résultat</a></h2><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Inheritance.png" alt="img/Inheritance.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Polymorphisme"><a class="Link3" href="#">Polymorphisme</a></h1><div class="Body3">Le but de cette section est de vous apprendre le <span class="GColor1" style="color:lime;">Polymorphisme </span>avec le C++.<br>Produit par <b>Gérard KESSE</b>.<br><br>Le Polymorphisme permet à une classe mère de prendre plusieurs formes, selon la classe fille pointée.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1556788696321"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1556788696321");</script></div><br><h2 class="Title7 GTitle2" id="Polymorphisme-Classe mère"><a class="Link9" href="#Polymorphisme">Classe mère</a></h2><br><h3 class="Title8 GTitle3">Classe mère (GAircraft.h)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//================================================
+#ifndef _GAircraft_
+#define _GAircraft_
+//================================================
+#include "GInclude.h"
+//================================================
+class GAircraft {
+public:
+    GAircraft();
+    virtual ~GAircraft();
+
+public:
+    void setName(const string &name);
+    virtual void print() const;
+
+protected:
+    string m_name;
+};
+//================================================
+#endif
+//================================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Classe mère (GAircraft.cpp)</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//================================================
+#include "GAircraft.h"
+//================================================
+GAircraft::GAircraft() {
+
+}
+//================================================
+GAircraft::~GAircraft() {
+	
+}
+//================================================
+void GAircraft::setName(const string &name) {
+    m_name = name;
+}
+//================================================
+void GAircraft::print() const {
+    cout &lt;&lt; "Je suis un avion: " &lt;&lt; m_name &lt;&lt; "\n";
+}
+//================================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Polymorphisme-Classe fille"><a class="Link9" href="#Polymorphisme">Classe fille</a></h2><br><h3 class="Title8 GTitle3">Classe fille (GAircraftAirbus.h)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//================================================
+#ifndef _GAircraftAirbus_
+#define _GAircraftAirbus_
+//================================================
+#include "GAircraft.h"
+//================================================
+class GAircraftAirbus : public GAircraft {
+public:
+    GAircraftAirbus();
+    ~GAircraftAirbus();
+
+public:
+    void setName(const string &name);
+    void print() const;
+};
+//================================================
+#endif
+//================================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Classe fille (GAircraftAirbus.cpp)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//================================================
+#include "GAircraftAirbus.h"
+//================================================
+GAircraftAirbus::GAircraftAirbus() {
+
+}
+//================================================
+GAircraftAirbus::~GAircraftAirbus() {
+	
+}
+//================================================
+void GAircraftAirbus::setName(const string &name) {
+    m_name = name;
+}
+//================================================
+void GAircraftAirbus::print() const {
+    cout &lt;&lt; "Je suis un Airbus: " &lt;&lt; m_name &lt;&lt; "\n";
+}
+//================================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Polymorphisme-Programme de Test"><a class="Link9" href="#Polymorphisme">Programme de Test</a></h2><br><h3 class="Title8 GTitle3">Programme de Test</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 void GProcessPolymorphism::run(int argc, char **argv) {
     GAircraft* lAircraft = 0;
 
