@@ -4,7 +4,7 @@ GTARGET = $(GBIN)\GProject.exe
 
 GLIBS =\
     /lib:lib\Hello\bin \
-    /addmodule:Hello.dll
+    /r:Hello.dll
 
 GSRCS =\
     $(GSRC)\*.cs

@@ -26,6 +26,34 @@ void GQt::createListView(const QString &listViewName) {
     lListView->setCursor(Qt::PointingHandCursor);
 }
 //================================================
+void GQt::createWidget(const QString &widgetName, QWidget* parent) {
+    QWidget* lWidget = new QWidget(parent);
+    m_widgetMap[widgetName] = lWidget;
+    lWidget->resize(400, 400);
+}
+//================================================
+QWidget* GQt::getWidget(const QString &widgetName) {
+    return m_widgetMap[widgetName];
+}
+//================================================
+void GQt::createPushButton(const QString &name) {
+    QPushButton* lPushButton = new QPushButton;
+    m_pushButtonMap[name] = lPushButton;
+}
+//================================================
+QPushButton* GQt::getPushButton(const QString &name) {
+    return m_pushButtonMap[name];
+}
+//================================================
+void GQt::createHBoxLayout(const QString &hBoxLayoutName) {
+    QHBoxLayout* lHBoxLayout = new QHBoxLayout;
+    m_hBoxLayoutMap[hBoxLayoutName] = lHBoxLayout;
+}
+//================================================
+QHBoxLayout* GQt::getHBoxLayout(const QString &hBoxLayoutName) {
+    return m_hBoxLayoutMap[hBoxLayoutName];
+}
+//================================================
 void GQt::showListView(const QString &listViewName) {
     QListView* lListView = m_listViewMap[listViewName];
     lListView->show();

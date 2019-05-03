@@ -27,7 +27,8 @@ HEADERS += \
     $$PWD/GPrint.h \
     $$PWD/GProcessListView.h \
     $$PWD/GQt.h \
-    $$PWD/GProcessTabWidget.h
+    $$PWD/GProcessTabWidget.h \
+    $$PWD/GProcessPushButton.h
 
 SOURCES += \
     $$PWD/GSetting.cpp \
@@ -51,4 +52,5 @@ SOURCES += \
     $$PWD/GPrint.cpp \
     $$PWD/GProcessListView.cpp \
     $$PWD/GQt.cpp \
-    $$PWD/GProcessTabWidget.cpp
+    $$PWD/GProcessTabWidget.cpp \
+    $$PWD/GProcessPushButton.cpp

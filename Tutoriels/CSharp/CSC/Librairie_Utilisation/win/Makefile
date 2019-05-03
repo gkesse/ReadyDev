@@ -6,7 +6,7 @@ GLIBS =\
     /lib:lib\Hello\bin \
     /r:Hello.dll
 
-GSRCS=\
+GSRCS =\
     $(GSRC)\*.cs
 
 all:
