@@ -12,6 +12,15 @@ public:
 public:
     static GQt* Instance();
 
+    void createWidget(const QString &widgetName, QWidget *parent = 0);
+    QWidget* getWidget(const QString &widgetName);
+
+    void createPushButton(const QString &name);
+    QPushButton* getPushButton(const QString &name);
+
+    void createHBoxLayout(const QString &hBoxLayoutName);
+    QHBoxLayout* getHBoxLayout(const QString &hBoxLayoutName);
+
     void createListView(const QString &listViewName);
     void showListView(const QString &listViewName);
     void setListViewModel(const QString &listViewName, const QString &stringListModelName);
@@ -31,6 +40,9 @@ public:
 
 private:
     static GQt* m_instance;
+    QMap<QString, QWidget*> m_widgetMap;
+    QMap<QString, QPushButton*> m_pushButtonMap;
+    QMap<QString, QHBoxLayout*> m_hBoxLayoutMap;
     QMap<QString, QListView*> m_listViewMap;
     QMap<QString, QTabWidget*> m_tabWidgetMap;
 

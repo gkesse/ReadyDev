@@ -9,6 +9,11 @@ QWidget {
     background-color: transparent;
     border: none;
 }
+/*-----------------------------------------------*/
+/* QWidget */
+QWidget#GWidget {
+    background-color: rgba(5, 16, 57, 1.0);
+}
 /*===============================================*/
 /* Global Style */
 /*===============================================*/
