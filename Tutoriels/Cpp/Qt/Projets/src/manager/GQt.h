@@ -4,21 +4,23 @@
 //================================================
 #include "GInclude.h"
 //================================================
-class GQt {
+class GQt : public QObject {
+    Q_OBJECT
+
 public:
     GQt();
-    virtual ~GQt();
+    ~GQt();
 
 public:
     static GQt* Instance();
 
-    void createWidget(const QString &widgetName, QWidget *parent = 0);
-    QWidget* getWidget(const QString &widgetName);
+    void createWidget(const QString &widgetName, const QString &widgetObjectName, const QString &hBoxLayoutName);
+    void showWidget(const QString &widgetName);
 
-    void createPushButton(const QString &name);
+    void createPushButton(const QString &pushButtonName, const QString &pushButtonText, const int &icon, const QObject *receiver, const char *method);
     QPushButton* getPushButton(const QString &name);
 
-    void createHBoxLayout(const QString &hBoxLayoutName);
+    void createHBoxLayout(const QString &hBoxLayoutName, initializer_list<QString> pushButtonNameMap);
     QHBoxLayout* getHBoxLayout(const QString &hBoxLayoutName);
 
     void createListView(const QString &listViewName);

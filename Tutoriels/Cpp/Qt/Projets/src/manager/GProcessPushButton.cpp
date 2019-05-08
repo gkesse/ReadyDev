@@ -1,6 +1,7 @@
 //===============================================
 #include "GProcessPushButton.h"
 #include "GQt.h"
+#include "GPicto.h"
 #include "GStyle.h"
 //===============================================
 GProcessPushButton* GProcessPushButton::m_instance = 0;
@@ -24,17 +25,31 @@ void GProcessPushButton::run(int argc, char **argv) {
     QApplication lApp(argc, argv);
     GStyle::Instance()->load("data/css/style.css");
 
-    GQt::Instance()->createPushButton("ADD");
-    GQt::Instance()->getPushButton("ADD")->setText("Ajouter");
+    GQt::Instance()->createPushButton("CREATE", "Créer", fa::plus, this, SLOT(slotCreateButtonClicked()));
+    GQt::Instance()->createPushButton("READ", "Lire", fa::filetexto, this, SLOT(slotReadButtonClicked()));
+    GQt::Instance()->createPushButton("UPDATE", "Modifier", fa::refresh, this, SLOT(slotUpdateButtonClicked()));
+    GQt::Instance()->createPushButton("DELETE", "Supprimer", fa::trasho, this, SLOT(slotDeleteButtonClicked()));
+    GQt::Instance()->createHBoxLayout("MAIN", {"CREATE", "READ", "UPDATE", "DELETE"});
 
-    GQt::Instance()->createHBoxLayout("MAIN");
-    GQt::Instance()->getHBoxLayout("MAIN")->addWidget(GQt::Instance()->getPushButton("ADD"));
-
-    GQt::Instance()->createWidget("WINDOW");
-    GQt::Instance()->getWidget("WINDOW")->setObjectName("GWidget");
-    GQt::Instance()->getWidget("WINDOW")->setLayout(GQt::Instance()->getHBoxLayout("MAIN"));
-    GQt::Instance()->getWidget("WINDOW")->show();
+    GQt::Instance()->createWidget("WINDOW", "GWindow", "MAIN");
+    GQt::Instance()->showWidget("WINDOW");
 
     lApp.exec();
+}
+//===============================================
+void GProcessPushButton::slotCreateButtonClicked() {
+    cout << "slotCreateButtonClicked()...\n";
+}
+//===============================================
+void GProcessPushButton::slotReadButtonClicked() {
+    cout << "slotReadButtonClicked()...\n";
+}
+//===============================================
+void GProcessPushButton::slotUpdateButtonClicked() {
+    cout << "slotUpdateButtonClicked()...\n";
+}
+//===============================================
+void GProcessPushButton::slotDeleteButtonClicked() {
+    cout << "slotDeleteButtonClicked()...\n";
 }
 //===============================================

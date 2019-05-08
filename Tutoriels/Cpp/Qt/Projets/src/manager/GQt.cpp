@@ -26,27 +26,41 @@ void GQt::createListView(const QString &listViewName) {
     lListView->setCursor(Qt::PointingHandCursor);
 }
 //================================================
-void GQt::createWidget(const QString &widgetName, QWidget* parent) {
-    QWidget* lWidget = new QWidget(parent);
-    m_widgetMap[widgetName] = lWidget;
+void GQt::createWidget(const QString &widgetName, const QString &widgetObjectName, const QString &hBoxLayoutName) {
+    QWidget* lWidget = new QWidget;
+    QHBoxLayout* lHBoxLayout = m_hBoxLayoutMap[hBoxLayoutName];
+    lWidget->setObjectName(widgetObjectName);
+    lWidget->setLayout(lHBoxLayout);
     lWidget->resize(400, 400);
+    m_widgetMap[widgetName] = lWidget;
 }
 //================================================
-QWidget* GQt::getWidget(const QString &widgetName) {
-    return m_widgetMap[widgetName];
+void GQt::showWidget(const QString &widgetName) {
+    QWidget* lWidget = m_widgetMap[widgetName];
+    lWidget->show();
 }
 //================================================
-void GQt::createPushButton(const QString &name) {
+void GQt::createPushButton(const QString &pushButtonName, const QString& pushButtonText, const int& icon, const QObject* receiver, const char* method) {
     QPushButton* lPushButton = new QPushButton;
-    m_pushButtonMap[name] = lPushButton;
+    lPushButton->setText(pushButtonText);
+    lPushButton->setIcon(GPicto::Instance()->getPicto(icon));
+    lPushButton->setIconSize(QSize(20, 20));
+    lPushButton->setCursor(Qt::PointingHandCursor);
+    connect(lPushButton, SIGNAL(clicked()), receiver, method);
+    m_pushButtonMap[pushButtonName] = lPushButton;
 }
 //================================================
 QPushButton* GQt::getPushButton(const QString &name) {
     return m_pushButtonMap[name];
 }
 //================================================
-void GQt::createHBoxLayout(const QString &hBoxLayoutName) {
+void GQt::createHBoxLayout(const QString &hBoxLayoutName, initializer_list<QString> pushButtonNameMap) {
     QHBoxLayout* lHBoxLayout = new QHBoxLayout;
+    lHBoxLayout->setAlignment(Qt::AlignLeft | Qt::AlignTop);
+    for(QString lPushButtonName : pushButtonNameMap) {
+        QPushButton* lPushButton = m_pushButtonMap[lPushButtonName];
+        lHBoxLayout->addWidget(lPushButton);
+    }
     m_hBoxLayoutMap[hBoxLayoutName] = lHBoxLayout;
 }
 //================================================

@@ -29,6 +29,7 @@ INPUT(
 ./build\qrc_resource.o
 ./build\moc_QtAwesome.o
 ./build\moc_QtAwesomeAnim.o
+./build\moc_GProcess.o
 ./build\moc_GWindow.o
 ./build\moc_GWindowNormal.o
 ./build\moc_GTitle.o
@@ -37,4 +38,6 @@ INPUT(
 ./build\moc_GWorkspaceNormal.o
 ./build\moc_GMenu.o
 ./build\moc_GMenuNormal.o
+./build\moc_GQt.o
+./build\moc_GProcessPushButton.o
 );

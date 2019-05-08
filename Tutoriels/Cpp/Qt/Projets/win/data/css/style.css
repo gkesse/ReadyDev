@@ -9,9 +9,9 @@ QWidget {
     background-color: transparent;
     border: none;
 }
-/*-----------------------------------------------*/
+/*===============================================*/
 /* QWidget */
-QWidget#GWidget {
+QWidget#GWindow {
     background-color: rgba(5, 16, 57, 1.0);
 }
 /*===============================================*/
@@ -21,6 +21,8 @@ QWidget#GWidget {
 QPushButton {
     background-color: rgba(255, 255, 255, 0.2);
     padding: 6px;
+    font-size: 16px;
+    font-weight: normal;
 }
 QPushButton:hover {
     background-color: rgba(255, 255, 255, 0.4);
@@ -28,9 +30,9 @@ QPushButton:hover {
 }
 QPushButton:pressed {
     background-color: rgba(255, 255, 255, 0.2);
-    font-size: 12px;
+    font-size: 14px;
 }
-/*-----------------------------------------------*/
+/*===============================================*/
 /* QToolButton */
 GTitle QToolButton {
     background-color: rgba(255, 255, 255, 0.0);
@@ -41,14 +43,14 @@ GTitle QToolButton:hover {
 GTitle QToolButton:pressed {
     background-color: rgba(255, 255, 255, 0.0);
 }
-/*-----------------------------------------------*/
+/*===============================================*/
 /* QLabel */
 GTitle QLabel {
     background-color: rgba(255, 255, 255, 0.0);
     font-family: impact;
     font-size: 20px;
 }
-/*-----------------------------------------------*/
+/*===============================================*/
 /* QLabel */
 GTitle QLabel#GIcon {
     background-color: rgba(255, 255, 255, 0.0);
@@ -57,7 +59,7 @@ GTitle QLabel#GIcon {
     min-width: 0px;
     min-height: 0px;
 }
-/*-----------------------------------------------*/
+/*===============================================*/
 /* QMenu */
 QMenu {
     background-color: rgba(5, 16, 57, 1.0);
@@ -69,7 +71,7 @@ QMenu::item {
 QMenu::item:selected {
     background-color: rgba(80, 90, 70, 1.0);
 }
-/*-----------------------------------------------*/
+/*===============================================*/
 /* QListView */
 QListView {
     background-color: rgba(5, 16, 57, 1.0);
@@ -98,7 +100,7 @@ QListView::item:selected:active {
 QListView::item:hover {
     background-color: rgba(55, 150, 107, 1.0);
 }
-/*-----------------------------------------------*/
+/*===============================================*/
 /* QTabWidget */
 QTabWidget {
     background-color: rgba(85, 110, 67, 1.0);
@@ -125,7 +127,7 @@ QTabBar::tab:hover {
 QTabBar::tab:selected {
     background-color: rgba(5, 16, 57, 1.0);
 }
-/*-----------------------------------------------*/
+/*===============================================*/
 /* QTextEdit */
 QTextEdit {
     background-color: rgba(255, 255, 255, 0.2);
@@ -133,7 +135,7 @@ QTextEdit {
     border-image: url(res/img/border.png) 30 round;
     border-width: 10px;
 }
-/*-----------------------------------------------*/
+/*===============================================*/
 /* QSplitter */
 GSplitter QSplitter::handle {
     image: url(res/img/splitter.png);
@@ -149,7 +151,7 @@ GSplitter QSplitter::handle:vertical {
     height: 10px;
     background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 navy, stop: 0.5 white, stop: 1.0 navy);
 }
-/*-----------------------------------------------*/
+/*===============================================*/
 /* QSplitter */
 GSplitterCustom QSplitter::handle {
     image: url(res/img/splitter.png);
@@ -172,21 +174,21 @@ GSplitterCustom QSplitter::handle:vertical {
 GWindow {
     background-color: rgba(5, 16, 57, 1.0);
 }
-/*-----------------------------------------------*/
+/*===============================================*/
 /* GTitle */
 GTitle {
     background-color: rgba(255, 255, 255, 0.0);
     border-bottom: 2px solid rgba(255, 255, 255, 0.0);
     padding: 5px 5px 5px 5px;
 }
-/*-----------------------------------------------*/
+/*===============================================*/
 /* GMenu */
 GMenu {
     background-color: rgba(255, 255, 255, 0.0);
     border-right: 2px solid rgba(255, 255, 255, 0.2);
     padding: 5px 5px 5px 5px;
 }
-/*-----------------------------------------------*/
+/*===============================================*/
 /* GWorkspace */
 GWorkspace {
     background-color: rgba(255, 255, 255, 0.2);

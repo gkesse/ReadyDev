@@ -5,6 +5,8 @@
 #include "GProcess.h"
 //===============================================
 class GProcessPushButton : public GProcess {
+    Q_OBJECT
+
 public:
     GProcessPushButton();
     ~GProcessPushButton();
@@ -12,6 +14,12 @@ public:
 public:
     static GProcessPushButton* Instance();
     void run(int argc, char **argv);
+
+public slots:
+    void slotCreateButtonClicked();
+    void slotReadButtonClicked();
+    void slotUpdateButtonClicked();
+    void slotDeleteButtonClicked();
 
 private:
     static GProcessPushButton* m_instance;
