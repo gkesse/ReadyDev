@@ -1,17 +1,15 @@
 //===============================================
-#ifndef _GProcess_
-#define _GProcess_
+#ifndef _GWindowTabWidget_
+#define _GWindowTabWidget_
 //================================================
-#include "GInclude.h"
+#include "GWindow.h"
 //===============================================
-class GProcess {
-public:
-    GProcess();
-    virtual ~GProcess();
+class GWindowTabWidget : public GWindow {
+    Q_OBJECT
 
 public:
-    static GProcess* Instance();
-    virtual void run(int argc, char** argv) = 0;
+    GWindowTabWidget(QWidget* parent = 0);
+    ~GWindowTabWidget();
 };
 //===============================================
 #endif

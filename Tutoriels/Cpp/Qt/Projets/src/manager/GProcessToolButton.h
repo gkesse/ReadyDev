@@ -1,20 +1,20 @@
 //===============================================
-#ifndef _GProcessPushButton_
-#define _GProcessPushButton_
+#ifndef _GProcessToolButton_
+#define _GProcessToolButton_
 //===============================================
 #include "GProcess.h"
 //===============================================
-class GProcessPushButton : public GProcess {
+class GProcessToolButton : public GProcess {
 public:
-    GProcessPushButton();
-    ~GProcessPushButton();
+    GProcessToolButton();
+    ~GProcessToolButton();
 
 public:
-    static GProcessPushButton* Instance();
+    static GProcessToolButton* Instance();
     void run(int argc, char **argv);
 
 private:
-    static GProcessPushButton* m_instance;
+    static GProcessToolButton* m_instance;
 };
 //===============================================
 #endif

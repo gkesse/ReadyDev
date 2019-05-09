@@ -22,7 +22,7 @@ QPushButton {
     background-color: rgba(255, 255, 255, 0.2);
     padding: 6px;
     font-size: 16px;
-    font-weight: normal;
+    border-radius: 5px;
 }
 QPushButton:hover {
     background-color: rgba(255, 255, 255, 0.4);
@@ -34,6 +34,20 @@ QPushButton:pressed {
 }
 /*===============================================*/
 /* QToolButton */
+QToolButton {
+    background-color: rgba(255, 255, 255, 0.2);
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+}
+QToolButton:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+QToolButton:pressed {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+/*===============================================*/
+/* QToolButton */
 GTitle QToolButton {
     background-color: rgba(255, 255, 255, 0.0);
 }
@@ -42,6 +56,12 @@ GTitle QToolButton:hover {
 }
 GTitle QToolButton:pressed {
     background-color: rgba(255, 255, 255, 0.0);
+}
+/*===============================================*/
+/* QLabel */
+QLabel#GTab {
+    background-color: rgba(55, 66, 107, 1.0);
+    font-size: 50px;
 }
 /*===============================================*/
 /* QLabel */
@@ -60,6 +80,15 @@ GTitle QLabel#GIcon {
     min-height: 0px;
 }
 /*===============================================*/
+/* QToolTip */
+QToolTip {
+    background-color: rgba(55, 36, 77, 1.0);
+    border: 2px solid rgba(105, 205, 205, 1.0);
+    border-radius: 5px;
+    font-size: 16px;
+    color: white;
+}
+/*===============================================*/
 /* QMenu */
 QMenu {
     background-color: rgba(5, 16, 57, 1.0);
@@ -74,15 +103,16 @@ QMenu::item:selected {
 /*===============================================*/
 /* QListView */
 QListView {
-    background-color: rgba(5, 16, 57, 1.0);
+    background-color: rgba(55, 66, 107, 1.0);
+    border: 1px solid rgba(5, 16, 57, 1.0);
     outline: 0;
-    font-weight: bold;
-    font-size: 25px;
     color: rgba(255, 255, 255, 0.8);
+    font-weight: normal;
+    font-size: 16px;
 }
 QListView::item {
-    padding: 5px;
-    border-bottom: 1px solid rgba(100, 100, 100, 0.0);
+    padding: 5px 5px;
+    border-bottom: 1px solid rgba(5, 16, 57, 1.0);
 }
 QListView::item:alternate {
     background-color: rgba(35, 46, 87, 1.0);
@@ -103,29 +133,28 @@ QListView::item:hover {
 /*===============================================*/
 /* QTabWidget */
 QTabWidget {
-    background-color: rgba(85, 110, 67, 1.0);
+    background-color: rgba(1, 1, 1, 1.0);
 }
 QTabWidget::pane {
-    border-top: 10px solid rgba(85, 110, 67, 1.0);
+    border: 5px solid rgba(55, 66, 107, 1.0);
 }
 QTabWidget::tab-bar {
-    top: 5px;
-    bottom: 5px;
-    right: 5px;
-    left: 5px;
+    left: 20px;
 }
+/*===============================================*/
+/* QTabBar */
 QTabBar::tab {
     background-color: rgba(86, 42, 65, 1.0);
-    padding: 10px 10px;
-    font-weight: bold;
+    font-weight: normal;
     font-size: 16px;
-    min-width: 50px;
+    min-width: 170px;
+    min-height: 35px;
 }
 QTabBar::tab:hover {
     background-color: rgba(35, 106, 87, 1.0);
 }
 QTabBar::tab:selected {
-    background-color: rgba(5, 16, 57, 1.0);
+    background-color: rgba(55, 66, 107, 1.0);
 }
 /*===============================================*/
 /* QTextEdit */

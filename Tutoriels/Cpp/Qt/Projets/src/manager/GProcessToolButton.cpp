@@ -1,29 +1,29 @@
 //===============================================
-#include "GProcessPushButton.h"
+#include "GProcessToolButton.h"
 #include "GWindow.h"
 #include "GStyle.h"
 //===============================================
-GProcessPushButton* GProcessPushButton::m_instance = 0;
+GProcessToolButton* GProcessToolButton::m_instance = 0;
 //===============================================
-GProcessPushButton::GProcessPushButton() {
+GProcessToolButton::GProcessToolButton() {
 
 }
 //===============================================
-GProcessPushButton::~GProcessPushButton() {
+GProcessToolButton::~GProcessToolButton() {
 
 }
 //===============================================
-GProcessPushButton* GProcessPushButton::Instance() {
+GProcessToolButton* GProcessToolButton::Instance() {
     if(m_instance == 0) {
-        m_instance = new GProcessPushButton;
+        m_instance = new GProcessToolButton;
     }
     return m_instance;
 }
 //===============================================
-void GProcessPushButton::run(int argc, char **argv) {
+void GProcessToolButton::run(int argc, char **argv) {
     QApplication lApp(argc, argv);
     GStyle::Instance()->load("data/css/style.css");
-    GWindow* lWindow = GWindow::Create("PUSHBUTTON");
+    GWindow* lWindow = GWindow::Create("TOOLBUTTON");
     lWindow->show();
     lApp.exec();
 }

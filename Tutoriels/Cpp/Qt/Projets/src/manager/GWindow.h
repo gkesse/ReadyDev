@@ -9,7 +9,9 @@ class GWindow : public QWidget {
 
 public:
     GWindow(QWidget *parent = 0);
-    ~GWindow();
+    virtual ~GWindow();
+
+public:
     static GWindow* Create(const string& key);
 };
 //===============================================

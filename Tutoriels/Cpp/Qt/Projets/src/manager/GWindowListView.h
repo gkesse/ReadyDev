@@ -1,17 +1,15 @@
 //===============================================
-#ifndef _GProcess_
-#define _GProcess_
+#ifndef _GWindowListView_
+#define _GWindowListView_
 //================================================
-#include "GInclude.h"
+#include "GWindow.h"
 //===============================================
-class GProcess {
-public:
-    GProcess();
-    virtual ~GProcess();
+class GWindowListView : public GWindow {
+    Q_OBJECT
 
 public:
-    static GProcess* Instance();
-    virtual void run(int argc, char** argv) = 0;
+    GWindowListView(QWidget* parent = 0);
+    ~GWindowListView();
 };
 //===============================================
 #endif
