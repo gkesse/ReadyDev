@@ -28,6 +28,12 @@ INPUT(
 ./build\GWindowPushButton.o
 ./build\GWindowTabWidget.o
 ./build\GWindowListView.o
+./build\GProcessRadioButton.o
+./build\GWindowRadioButton.o
+./build\GProcessCheckBox.o
+./build\GWindowCheckBox.o
+./build\GProcessDial.o
+./build\GWindowDial.o
 ./build\main.o
 ./build\qrc_QtAwesome.o
 ./build\qrc_resource.o
@@ -45,4 +51,7 @@ INPUT(
 ./build\moc_GWindowPushButton.o
 ./build\moc_GWindowTabWidget.o
 ./build\moc_GWindowListView.o
+./build\moc_GWindowRadioButton.o
+./build\moc_GWindowCheckBox.o
+./build\moc_GWindowDial.o
 );

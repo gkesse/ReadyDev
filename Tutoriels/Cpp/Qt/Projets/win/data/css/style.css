@@ -4,7 +4,7 @@
 /* QWidget */
 QWidget {
     font-family: arial;
-    font-size: 14px;
+    font-size: 16px;
     color: white;
     background-color: transparent;
     border: none;
@@ -56,6 +56,72 @@ GTitle QToolButton:hover {
 }
 GTitle QToolButton:pressed {
     background-color: rgba(255, 255, 255, 0.0);
+}
+/*===============================================*/
+/* QRadioButton */
+QRadioButton {
+    color: rgba(255, 255, 255, 1.0);
+}
+QRadioButton::indicator {
+    border: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+}
+QRadioButton::indicator::unchecked {
+    background-color: rgba(55, 66, 107, 1.0);
+}
+QRadioButton::indicator:unchecked:hover {
+    background-color: rgba(125, 136, 177, 1.0);
+}
+QRadioButton::indicator:unchecked:pressed {
+    background-color: rgba(55, 180, 107, 1.0);
+    image: url(data/img/radiobutton_white.png);
+}
+QRadioButton::indicator::checked {
+    background-color: rgba(55, 180, 107, 1.0);
+    image: url(data/img/radiobutton_white.png);
+}
+QRadioButton::indicator:checked:hover {
+    background-color: rgba(55, 180, 107, 1.0);
+    image: url(data/img/radiobutton_white.png);
+}
+QRadioButton::indicator:checked:pressed {
+    background-color: rgba(55, 180, 107, 1.0);
+    image: url(data/img/radiobutton_white.png);
+}
+/*===============================================*/
+/* QCheckBox */
+QCheckBox {
+
+}
+QCheckBox::indicator {
+    border: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+}
+QCheckBox::indicator::unchecked {
+    background-color: rgba(55, 66, 107, 1.0);
+}
+QCheckBox::indicator:unchecked:hover {
+    background-color: rgba(125, 136, 177, 1.0);
+}
+QCheckBox::indicator:unchecked:pressed {
+    background-color: rgba(55, 180, 107, 1.0);
+    image: url(data/img/checkbox_white.png);
+}
+QCheckBox::indicator::checked {
+    background-color: rgba(55, 180, 107, 1.0);
+    image: url(data/img/checkbox_white.png);
+}
+QCheckBox::indicator:checked:hover {
+    background-color: rgba(55, 180, 107, 1.0);
+    image: url(data/img/checkbox_white.png);
+}
+QCheckBox::indicator:checked:pressed {
+    background-color: rgba(55, 180, 107, 1.0);
+    image: url(data/img/checkbox_white.png);
 }
 /*===============================================*/
 /* QLabel */
