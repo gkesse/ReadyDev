@@ -1,29 +1,29 @@
 //===============================================
-#include "GProcessPushButton.h"
+#include "GProcessCheckBox.h"
 #include "GWindow.h"
 #include "GStyle.h"
 //===============================================
-GProcessPushButton* GProcessPushButton::m_instance = 0;
+GProcessCheckBox* GProcessCheckBox::m_instance = 0;
 //===============================================
-GProcessPushButton::GProcessPushButton() {
+GProcessCheckBox::GProcessCheckBox() {
 
 }
 //===============================================
-GProcessPushButton::~GProcessPushButton() {
+GProcessCheckBox::~GProcessCheckBox() {
 
 }
 //===============================================
-GProcessPushButton* GProcessPushButton::Instance() {
+GProcessCheckBox* GProcessCheckBox::Instance() {
     if(m_instance == 0) {
-        m_instance = new GProcessPushButton;
+        m_instance = new GProcessCheckBox;
     }
     return m_instance;
 }
 //===============================================
-void GProcessPushButton::run(int argc, char **argv) {
+void GProcessCheckBox::run(int argc, char **argv) {
     QApplication lApp(argc, argv);
     GStyle::Instance()->load("data/css/style.css");
-    GWindow* lWindow = GWindow::Create("PUSHBUTTON");
+    GWindow* lWindow = GWindow::Create("CHECKBOX");
     lWindow->show();
     lApp.exec();
 }

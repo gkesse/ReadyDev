@@ -1,8 +1,7 @@
 @echo off
 
 echo.
-cd bin
-GProject
-cd ..
+bin\GProject.exe
 echo.
+
 pause

@@ -17,20 +17,20 @@ public class GShow {
     }
     //===============================================
     public void Show(string data, string name = "") {
-        string m_format = "";
-        if(name != "") m_format += name + " : ";
-        m_format += data;
-        Console.WriteLine(m_format);
+        string lFormat = "";
+        if(name != "") lFormat += name + " : ";
+        lFormat += data;
+        Console.WriteLine(lFormat);
     }
     //===============================================
     public void Show(int data, string name = "") {
-        string m_format = Convert.ToString(data);
-        Show(m_format, name);
+        string lFormat = Convert.ToString(data);
+        Show(lFormat, name);
     }
     //===============================================
     public void Show(double data, string name = "") {
-        string m_format = Convert.ToString(data);
-        Show(m_format, name);
+        string lFormat = Convert.ToString(data);
+        Show(lFormat, name);
     }
     //===============================================
 }

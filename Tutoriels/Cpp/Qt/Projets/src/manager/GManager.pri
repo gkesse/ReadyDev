@@ -26,9 +26,19 @@ HEADERS += \
     $$PWD/GString.h \
     $$PWD/GPrint.h \
     $$PWD/GProcessListView.h \
-    $$PWD/GQt.h \
     $$PWD/GProcessTabWidget.h \
-    $$PWD/GProcessPushButton.h
+    $$PWD/GProcessPushButton.h \
+    $$PWD/GProcessToolButton.h \
+    $$PWD/GWindowToolButton.h \
+    $$PWD/GWindowPushButton.h \
+    $$PWD/GWindowTabWidget.h \
+    $$PWD/GWindowListView.h \
+    $$PWD/GProcessRadioButton.h \
+    $$PWD/GWindowRadioButton.h \
+    $$PWD/GProcessCheckBox.h \
+    $$PWD/GWindowCheckBox.h \
+    $$PWD/GProcessDial.h \
+    $$PWD/GWindowDial.h
 
 SOURCES += \
     $$PWD/GSetting.cpp \
@@ -51,6 +61,16 @@ SOURCES += \
     $$PWD/GString.cpp \
     $$PWD/GPrint.cpp \
     $$PWD/GProcessListView.cpp \
-    $$PWD/GQt.cpp \
     $$PWD/GProcessTabWidget.cpp \
-    $$PWD/GProcessPushButton.cpp
+    $$PWD/GProcessPushButton.cpp \
+    $$PWD/GProcessToolButton.cpp \
+    $$PWD/GWindowToolButton.cpp \
+    $$PWD/GWindowPushButton.cpp \
+    $$PWD/GWindowTabWidget.cpp \
+    $$PWD/GWindowListView.cpp \
+    $$PWD/GProcessRadioButton.cpp \
+    $$PWD/GWindowRadioButton.cpp \
+    $$PWD/GProcessCheckBox.cpp \
+    $$PWD/GWindowCheckBox.cpp \
+    $$PWD/GProcessDial.cpp \
+    $$PWD/GWindowDial.cpp

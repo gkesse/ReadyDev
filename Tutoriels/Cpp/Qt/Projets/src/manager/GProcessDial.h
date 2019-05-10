@@ -1,18 +1,20 @@
 //===============================================
-#ifndef _GWindow_
-#define _GWindow_
+#ifndef _GProcessDial_
+#define _GProcessDial_
 //===============================================
-#include "GInclude.h"
+#include "GProcess.h"
 //===============================================
-class GWindow : public QWidget {
-    Q_OBJECT
+class GProcessDial : public GProcess {
+public:
+    GProcessDial();
+    ~GProcessDial();
 
 public:
-    GWindow(QWidget *parent = 0);
-    virtual ~GWindow();
+    static GProcessDial* Instance();
+    void run(int argc, char **argv);
 
-public:
-    static GWindow* Create(const string& key);
+private:
+    static GProcessDial* m_instance;
 };
 //===============================================
 #endif
