@@ -1,10 +1,10 @@
 //===============================================
-#include "GWindowDial.h"
+#include "GWindowSlider.h"
 #include "GPicto.h"
 //===============================================
-GWindowDial::GWindowDial(QWidget *parent) :
+GWindowSlider::GWindowSlider(QWidget *parent) :
     GWindow(parent) {
-    setObjectName("GWindowDial");
+    setObjectName("GWindowSlider");
     setWindowFlags(Qt::Widget);
 
     QDial* lDial = new QDial;
@@ -26,7 +26,7 @@ GWindowDial::GWindowDial(QWidget *parent) :
     resize(500, 500);
 }
 //===============================================
-GWindowDial::~GWindowDial() {
+GWindowSlider::~GWindowSlider() {
 
 }
 //===============================================

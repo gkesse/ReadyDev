@@ -1,18 +1,15 @@
 //===============================================
-#ifndef _GWindowTabWidget_
-#define _GWindowTabWidget_
+#ifndef _GWindowSlider_
+#define _GWindowSlider_
 //================================================
 #include "GWindow.h"
 //===============================================
-class GWindowTabWidget : public GWindow {
+class GWindowSlider : public GWindow {
     Q_OBJECT
 
 public:
-    GWindowTabWidget(QWidget* parent = 0);
-    ~GWindowTabWidget();
-
-public slots:
-    void slotCurrentChanged(const int& index);
+    GWindowSlider(QWidget* parent = 0);
+    ~GWindowSlider();
 };
 //===============================================
 #endif

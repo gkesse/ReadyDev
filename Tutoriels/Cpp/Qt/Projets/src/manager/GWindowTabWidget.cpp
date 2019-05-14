@@ -28,10 +28,13 @@ GWindowTabWidget::GWindowTabWidget(QWidget *parent) :
     lDelete->setAlignment(Qt::AlignCenter);
 
     QTabWidget* lTabWidget = new QTabWidget;
-    lTabWidget->addTab(lCreate, "Créer");
-    lTabWidget->addTab(lRead, "Lire");
-    lTabWidget->addTab(lUpdate, "Modifier");
-    lTabWidget->addTab(lDelete, "Supprimer");
+    lTabWidget->addTab(lCreate, GPicto::Instance()->getPicto(fa::plus), "Creer");
+    lTabWidget->addTab(lRead, GPicto::Instance()->getPicto(fa::filetexto), "Lire");
+    lTabWidget->addTab(lUpdate, GPicto::Instance()->getPicto(fa::refresh), "Modifier");
+    lTabWidget->addTab(lDelete, GPicto::Instance()->getPicto(fa::trasho), "Supprimer");
+    lTabWidget->setUsesScrollButtons(false);
+    lTabWidget->setIconSize(QSize(18, 18));
+    connect(lTabWidget, SIGNAL(currentChanged(int)), this, SLOT(slotCurrentChanged(int)));
 
     QHBoxLayout* lMainLayout = new QHBoxLayout;
     lMainLayout->addWidget(lTabWidget);
@@ -42,5 +45,10 @@ GWindowTabWidget::GWindowTabWidget(QWidget *parent) :
 //===============================================
 GWindowTabWidget::~GWindowTabWidget() {
 
+}
+//===============================================
+void GWindowTabWidget::slotCurrentChanged(const int &index) {
+    QTabWidget* lTabWidget = qobject_cast<QTabWidget*>(sender());
+    cout << "slotCurrentChanged()...(" << lTabWidget->tabText(index).toStdString() << ")...\n";
 }
 //===============================================

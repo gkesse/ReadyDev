@@ -1,18 +1,15 @@
 //===============================================
-#ifndef _GWindowTabWidget_
-#define _GWindowTabWidget_
+#ifndef _GWindowScrollBar_
+#define _GWindowScrollBar_
 //================================================
 #include "GWindow.h"
 //===============================================
-class GWindowTabWidget : public GWindow {
+class GWindowScrollBar : public GWindow {
     Q_OBJECT
 
 public:
-    GWindowTabWidget(QWidget* parent = 0);
-    ~GWindowTabWidget();
-
-public slots:
-    void slotCurrentChanged(const int& index);
+    GWindowScrollBar(QWidget* parent = 0);
+    ~GWindowScrollBar();
 };
 //===============================================
 #endif

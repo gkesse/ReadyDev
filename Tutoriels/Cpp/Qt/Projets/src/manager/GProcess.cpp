@@ -5,6 +5,7 @@
 #include "GProcessToolButton.h"
 #include "GProcessRadioButton.h"
 #include "GProcessCheckBox.h"
+#include "GProcessLabel.h"
 #include "GProcessDial.h"
 #include "GProcessListView.h"
 #include "GProcessTabWidget.h"
@@ -26,6 +27,7 @@ GProcess* GProcess::Instance() {
     if(lKey == "TOOLBUTTON") return GProcessToolButton::Instance();
     if(lKey == "RADIOBUTTON") return GProcessRadioButton::Instance();
     if(lKey == "CHECKBOX") return GProcessCheckBox::Instance();
+    if(lKey == "LABEL") return GProcessLabel::Instance();
     if(lKey == "DIAL") return GProcessDial::Instance();
     if(lKey == "LISTVIEW") return GProcessListView::Instance();
     if(lKey == "TABWIDGET") return GProcessTabWidget::Instance();

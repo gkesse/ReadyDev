@@ -1,29 +1,29 @@
 //===============================================
-#include "GProcessListView.h"
+#include "GProcessScrollBar.h"
 #include "GWindow.h"
 #include "GStyle.h"
 //===============================================
-GProcessListView* GProcessListView::m_instance = 0;
+GProcessScrollBar* GProcessScrollBar::m_instance = 0;
 //===============================================
-GProcessListView::GProcessListView() {
+GProcessScrollBar::GProcessScrollBar() {
 
 }
 //===============================================
-GProcessListView::~GProcessListView() {
+GProcessScrollBar::~GProcessScrollBar() {
 
 }
 //===============================================
-GProcessListView* GProcessListView::Instance() {
+GProcessScrollBar* GProcessScrollBar::Instance() {
     if(m_instance == 0) {
-        m_instance = new GProcessListView;
+        m_instance = new GProcessScrollBar;
     }
     return m_instance;
 }
 //===============================================
-void GProcessListView::run(int argc, char **argv) {
+void GProcessScrollBar::run(int argc, char **argv) {
     QApplication lApp(argc, argv);
     GStyle::Instance()->load("data/css/style.css");
-    GWindow* lWindow = GWindow::Create("LISTVIEW");
+    GWindow* lWindow = GWindow::Create("DIAL");
     lWindow->show();
     lApp.exec();
 }
