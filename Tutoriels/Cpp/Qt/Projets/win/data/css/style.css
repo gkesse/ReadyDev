@@ -124,6 +124,18 @@ QCheckBox::indicator:checked:pressed {
     image: url(data/img/checkbox_white.png);
 }
 /*===============================================*/
+/* QDial */
+QDial {
+    background-color: rgba(55, 66, 107, 1.0);
+}
+/*===============================================*/
+/* QLabel */
+QLabel {
+    background-color: rgba(5, 16, 57, 1.0);
+    font-size: 20px;
+    padding: 10px;
+}
+/*===============================================*/
 /* QLabel */
 QLabel#GTab {
     background-color: rgba(55, 66, 107, 1.0);
@@ -199,13 +211,15 @@ QListView::item:hover {
 /*===============================================*/
 /* QTabWidget */
 QTabWidget {
-    background-color: rgba(1, 1, 1, 1.0);
+
 }
 QTabWidget::pane {
-    border: 5px solid rgba(55, 66, 107, 1.0);
+    background-color: rgba(55, 66, 107, 1.0);
+    border-top: 5px solid rgba(5, 16, 57, 1.0);
+    padding: 10px;
 }
 QTabWidget::tab-bar {
-    left: 20px;
+    left: 0px;
 }
 /*===============================================*/
 /* QTabBar */
@@ -213,7 +227,7 @@ QTabBar::tab {
     background-color: rgba(86, 42, 65, 1.0);
     font-weight: normal;
     font-size: 16px;
-    min-width: 170px;
+    min-width: 0px;
     min-height: 35px;
 }
 QTabBar::tab:hover {
@@ -221,6 +235,11 @@ QTabBar::tab:hover {
 }
 QTabBar::tab:selected {
     background-color: rgba(55, 66, 107, 1.0);
+}
+/*===============================================*/
+/* QTabBar */
+QTabBar#GDial::tab {
+    min-width: 50px;
 }
 /*===============================================*/
 /* QTextEdit */

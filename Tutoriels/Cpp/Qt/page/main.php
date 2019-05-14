@@ -322,4 +322,129 @@ QCheckBox::indicator:checked:pressed {
     background-color: rgba(55, 180, 107, 1.0);
     image: url(data/img/checkbox_white.png);
 }
+/*===============================================*/</xmp></pre></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Onglets"><a class="Link3" href="#">Onglets</a></h1><div class="Body3">Le but de cette section est de vous apprendre à utiliser les <span class="GColor1" style="color:lime;">Onglets </span>avec Qt.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1557776970491"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1557776970491");</script></div><br><h2 class="Title7 GTitle2" id="Onglets-Résultat"><a class="Link9" href="#Onglets">Résultat</a></h2><br><h3 class="Title8 GTitle3">Résultat onglets</h3><div class="Img3 GImage"><img src="img/TabWidget.png" alt="img/TabWidget.png"></div><br><h3 class="Title8 GTitle3">Résultat onglets appuyés</h3><div class="Img3 GImage"><img src="img/TabWidget_05.png" alt="img/TabWidget_05.png"></div><br><h2 class="Title7 GTitle2" id="Onglets-Onglets"><a class="Link9" href="#Onglets">Onglets</a></h2><br><h3 class="Title8 GTitle3">Onglets</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+GWindowTabWidget::GWindowTabWidget(QWidget *parent) :
+    GWindow(parent) {
+    setObjectName("GWindowTabWidget");
+    setWindowFlags(Qt::Widget);
+
+    QLabel* lCreate = new QLabel;
+    lCreate-&gt;setObjectName("GTab");
+    lCreate-&gt;setText("Créer");
+    lCreate-&gt;setAlignment(Qt::AlignCenter);
+
+    QLabel* lRead = new QLabel;
+    lRead-&gt;setObjectName("GTab");
+    lRead-&gt;setText("Lire");
+    lRead-&gt;setAlignment(Qt::AlignCenter);
+
+    QLabel* lUpdate = new QLabel;
+    lUpdate-&gt;setObjectName("GTab");
+    lUpdate-&gt;setText("Modifier");
+    lUpdate-&gt;setAlignment(Qt::AlignCenter);
+
+    QLabel* lDelete = new QLabel;
+    lDelete-&gt;setObjectName("GTab");
+    lDelete-&gt;setText("Supprimer");
+    lDelete-&gt;setAlignment(Qt::AlignCenter);
+
+    QTabWidget* lTabWidget = new QTabWidget;
+    lTabWidget-&gt;addTab(lCreate, GPicto::Instance()-&gt;getPicto(fa::plus), "Creer");
+    lTabWidget-&gt;addTab(lRead, GPicto::Instance()-&gt;getPicto(fa::filetexto), "Lire");
+    lTabWidget-&gt;addTab(lUpdate, GPicto::Instance()-&gt;getPicto(fa::refresh), "Modifier");
+    lTabWidget-&gt;addTab(lDelete, GPicto::Instance()-&gt;getPicto(fa::trasho), "Supprimer");
+    lTabWidget-&gt;setUsesScrollButtons(false);
+    lTabWidget-&gt;setIconSize(QSize(18, 18));
+    connect(lTabWidget, SIGNAL(currentChanged(int)), this, SLOT(slotCurrentChanged(int)));
+
+    QHBoxLayout* lMainLayout = new QHBoxLayout;
+    lMainLayout-&gt;addWidget(lTabWidget);
+
+    setLayout(lMainLayout);
+    resize(500, 500);
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Onglets-Onglets appuyés"><a class="Link9" href="#Onglets">Onglets appuyés</a></h2><br><h3 class="Title8 GTitle3">Onglets appuyés</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GWindowTabWidget::slotCurrentChanged(const int &index) {
+    QTabWidget* lTabWidget = qobject_cast&lt;QTabWidget*&gt;(sender());
+    cout &lt;&lt; "slotCurrentChanged()...(" &lt;&lt; lTabWidget-&gt;tabText(index).toStdString() &lt;&lt; ")...\n";
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Onglets-Mise en forme"><a class="Link9" href="#Onglets">Mise en forme</a></h2><br><h3 class="Title8 GTitle3">Mise en forme</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="css">/*===============================================*/
+/* QTabWidget */
+QTabWidget {
+
+}
+QTabWidget::pane {
+    background-color: rgba(55, 66, 107, 1.0);
+    border-top: 5px solid rgba(5, 16, 57, 1.0);
+    padding: 10px;
+}
+QTabWidget::tab-bar {
+    left: 0px;
+}
+/*===============================================*/
+/* QTabBar */
+QTabBar::tab {
+    background-color: rgba(86, 42, 65, 1.0);
+    font-weight: normal;
+    font-size: 16px;
+    min-width: 0px;
+    min-height: 35px;
+}
+QTabBar::tab:hover {
+    background-color: rgba(35, 106, 87, 1.0);
+}
+QTabBar::tab:selected {
+    background-color: rgba(55, 66, 107, 1.0);
+}
+/*===============================================*/</xmp></pre></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Label"><a class="Link3" href="#">Label</a></h1><div class="Body3">Le but de cette section est de vous apprendre à utiliser un <span class="GColor1" style="color:lime;">Label </span>avec Qt.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1557833132655"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1557833132655");</script></div><br><h2 class="Title7 GTitle2" id="Label-Résultat"><a class="Link9" href="#Label">Résultat</a></h2><br><h3 class="Title8 GTitle3">Résultat label</h3><div class="Img3 GImage"><img src="img/Label.png" alt="img/Label.png"></div><br><h3 class="Title8 GTitle3">Résultat label multiligne</h3><div class="Img3 GImage"><img src="img/Label_02.png" alt="img/Label_02.png"></div><br><h3 class="Title8 GTitle3">Résultat label lien externe</h3><div class="Img3 GImage"><img src="img/Label_03.png" alt="img/Label_03.png"></div><br><h3 class="Title8 GTitle3">Résultat label image</h3><div class="Img3 GImage"><img src="img/Label_04.png" alt="img/Label_04.png"></div><br><h2 class="Title7 GTitle2" id="Label-Label"><a class="Link9" href="#Label">Label</a></h2><br><h3 class="Title8 GTitle3">Label</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+GWindowLabel::GWindowLabel(QWidget *parent) :
+    GWindow(parent) {
+    setObjectName("GWindowLabel");
+    setWindowFlags(Qt::Widget);
+
+    QLabel* lLabel = new QLabel;
+    lLabel-&gt;setText("Bonjour tout le monde");
+    lLabel-&gt;setAlignment(Qt::AlignCenter);
+
+    QLabel* lLabel2 = new QLabel;
+    lLabel2-&gt;setText("ReadyDev est une Plateforme de Développement Continu. "
+                     "C'est un site web développé en PHP et maintenu par Gérard KESSE. "
+                     "Vous trouverez sur ce site des cours et des tutoriels adaptés aux sciences de l'ingénieur.");
+    lLabel2-&gt;setAlignment(Qt::AlignVCenter | Qt::AlignJustify);
+    lLabel2-&gt;setWordWrap(true);
+
+    QLabel* lLabel3 = new QLabel;
+    lLabel3-&gt;setText("&lt;b style='color:cyan'&gt;ReadyDev&lt;/b&gt; est une Plateforme de Développement Continu. "
+                     "C'est un site web développé en &lt;b style='color:cyan'&gt;PHP&lt;/b&gt; et maintenu par &lt;b style='color:cyan'&gt;Gérard KESSE&lt;/b&gt;. "
+                     "Vous trouverez sur ce site des &lt;b style='color:cyan'&gt;cours&lt;/b&gt; et des &lt;b style='color:cyan'&gt;tutoriels&lt;/b&gt; adaptés aux sciences de l'ingénieur.&lt;br&gt;&lt;br&gt;"
+                     "Accédez au site officiel &lt;a style='font-style: italic; color:lime;' href='http://localhost:8800/'&gt;http://www.readydev.com&lt;/a&gt;");
+    lLabel3-&gt;setAlignment(Qt::AlignVCenter | Qt::AlignJustify);
+    lLabel3-&gt;setWordWrap(true);
+    lLabel3-&gt;setOpenExternalLinks(true);
+
+    QLabel* lLabel4 = new QLabel;
+    QPixmap lPixmap("data/img/gopro.png");
+    lLabel4-&gt;setPixmap(lPixmap.scaledToWidth(350));
+    lLabel4-&gt;setAlignment(Qt::AlignCenter);
+
+    QTabWidget* lTabWidget = new QTabWidget;
+    lTabWidget-&gt;addTab(lLabel, "Label");
+    lTabWidget-&gt;addTab(lLabel2, "WordWrap");
+    lTabWidget-&gt;addTab(lLabel3, "ExternalLinks");
+    lTabWidget-&gt;addTab(lLabel4, "Pixmap");
+    lTabWidget-&gt;setUsesScrollButtons(false);
+
+    QHBoxLayout* lMainLayout = new QHBoxLayout;
+    lMainLayout-&gt;addWidget(lTabWidget);
+
+    setLayout(lMainLayout);
+    resize(500, 500);
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Label-Mise en forme"><a class="Link9" href="#Label">Mise en forme</a></h2><br><h3 class="Title8 GTitle3">Mise en forme</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="css">/*===============================================*/
+/* QLabel */
+QLabel {
+    background-color: rgba(5, 16, 57, 1.0);
+    font-size: 20px;
+    padding: 10px;
+}
 /*===============================================*/</xmp></pre></div></div></div></div></div><br>

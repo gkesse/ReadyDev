@@ -26,9 +26,24 @@ GWindowListView::GWindowListView(QWidget *parent) :
     QListView* lListView2 = new QListView;
     lListView2->setModel(lModel2);
 
+    QIcon lIcon2 = GPicto::Instance()->getPicto(fa::database);
+    QStandardItemModel* lModel3 = new QStandardItemModel;
+    lModel3->appendRow(new QStandardItem(lIcon2, "SQL"));
+    lModel3->appendRow(new QStandardItem(lIcon2, "SQLite"));
+    lModel3->appendRow(new QStandardItem(lIcon2, "MySQL"));
+    lModel3->appendRow(new QStandardItem(lIcon2, "PostgreSQL"));
+    lModel3->appendRow(new QStandardItem(lIcon2, "Firebird"));
+    lModel3->appendRow(new QStandardItem(lIcon2, "NoSQL"));
+    lModel3->appendRow(new QStandardItem(lIcon2, "MongoDB"));
+    QListView* lListView3 = new QListView;
+    lListView3->setModel(lModel3);
+    lListView3->setViewMode(QListView::IconMode);
+
     QTabWidget* lTabWidget = new QTabWidget;
-    lTabWidget->addTab(lListView, "QStringListModel");
-    lTabWidget->addTab(lListView2, "QStandardItemModel");
+    lTabWidget->addTab(lListView, "StringListModel");
+    lTabWidget->addTab(lListView2, "StandardItemModel");
+    lTabWidget->addTab(lListView3, "IconMode");
+    lTabWidget->setUsesScrollButtons(false);
 
     QHBoxLayout* lMainLayout = new QHBoxLayout;
     lMainLayout->addWidget(lTabWidget);

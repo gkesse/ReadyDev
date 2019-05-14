@@ -1,18 +1,15 @@
 //===============================================
-#ifndef _GWindowTabWidget_
-#define _GWindowTabWidget_
+#ifndef _GWindowDial_
+#define _GWindowDial_
 //================================================
 #include "GWindow.h"
 //===============================================
-class GWindowTabWidget : public GWindow {
+class GWindowDial : public GWindow {
     Q_OBJECT
 
 public:
-    GWindowTabWidget(QWidget* parent = 0);
-    ~GWindowTabWidget();
-
-public slots:
-    void slotCurrentChanged(const int& index);
+    GWindowDial(QWidget* parent = 0);
+    ~GWindowDial();
 };
 //===============================================
 #endif

@@ -1,29 +1,29 @@
 //===============================================
-#include "GProcessListView.h"
+#include "GProcessLabel.h"
 #include "GWindow.h"
 #include "GStyle.h"
 //===============================================
-GProcessListView* GProcessListView::m_instance = 0;
+GProcessLabel* GProcessLabel::m_instance = 0;
 //===============================================
-GProcessListView::GProcessListView() {
+GProcessLabel::GProcessLabel() {
 
 }
 //===============================================
-GProcessListView::~GProcessListView() {
+GProcessLabel::~GProcessLabel() {
 
 }
 //===============================================
-GProcessListView* GProcessListView::Instance() {
+GProcessLabel* GProcessLabel::Instance() {
     if(m_instance == 0) {
-        m_instance = new GProcessListView;
+        m_instance = new GProcessLabel;
     }
     return m_instance;
 }
 //===============================================
-void GProcessListView::run(int argc, char **argv) {
+void GProcessLabel::run(int argc, char **argv) {
     QApplication lApp(argc, argv);
     GStyle::Instance()->load("data/css/style.css");
-    GWindow* lWindow = GWindow::Create("LISTVIEW");
+    GWindow* lWindow = GWindow::Create("LABEL");
     lWindow->show();
     lApp.exec();
 }

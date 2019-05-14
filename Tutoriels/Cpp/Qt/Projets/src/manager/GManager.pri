@@ -38,7 +38,13 @@ HEADERS += \
     $$PWD/GProcessCheckBox.h \
     $$PWD/GWindowCheckBox.h \
     $$PWD/GProcessDial.h \
-    $$PWD/GWindowDial.h
+    $$PWD/GWindowDial.h \
+    $$PWD/GProcessSlider.h \
+    $$PWD/GWindowScrollBar.h \
+    $$PWD/GProcessScrollBar.h \
+    $$PWD/GWindowSlider.h \
+    $$PWD/GProcessLabel.h \
+    $$PWD/GWindowLabel.h
 
 SOURCES += \
     $$PWD/GSetting.cpp \
@@ -73,4 +79,10 @@ SOURCES += \
     $$PWD/GProcessCheckBox.cpp \
     $$PWD/GWindowCheckBox.cpp \
     $$PWD/GProcessDial.cpp \
-    $$PWD/GWindowDial.cpp
+    $$PWD/GWindowDial.cpp \
+    $$PWD/GProcessSlider.cpp \
+    $$PWD/GWindowScrollBar.cpp \
+    $$PWD/GProcessScrollBar.cpp \
+    $$PWD/GWindowSlider.cpp \
+    $$PWD/GProcessLabel.cpp \
+    $$PWD/GWindowLabel.cpp
