@@ -9,12 +9,13 @@
             "la programmation avec le C#.",
             "Produit par Gérard KESSE."
         ],
-        "meta_cano":"/Tutoriels/CSharp/Cours/"
+        "meta_cano":"/Tutoriels/CSharp/Cours/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/data/img/defaults/CSharp_02.png"
     },    
     "links":
     [
         {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
-        {"name":"C#","link":"/Tutoriels/CSharp/","follow":"no"},
+        {"name":"C#","link":"/Tutoriels/CSharp/#D%C3%A9veloppement%20logiciel","follow":"no"},
         {"name":"Cours","link":"","follow":"no"}
     ]
 }

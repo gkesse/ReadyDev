@@ -13,6 +13,12 @@ GWindowListView::GWindowListView(QWidget *parent) :
     lModel->setStringList(lData);
     QListView* lListView = new QListView;
     lListView->setModel(lModel);
+    lListView->setResizeMode(QListView::Adjust);
+    lListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    lListView->setSelectionMode(QAbstractItemView::ExtendedSelection);
+    lModel->insertRow(lModel->rowCount());
+    QModelIndex lIndex = lModel->index(lModel->rowCount() - 1);
+    lModel->setData(lIndex, "Moon Test");
 
     QIcon lIcon = GPicto::Instance()->getPicto(fa::database);
     QStandardItemModel* lModel2 = new QStandardItemModel;
@@ -25,6 +31,8 @@ GWindowListView::GWindowListView(QWidget *parent) :
     lModel2->appendRow(new QStandardItem(lIcon, "MongoDB"));
     QListView* lListView2 = new QListView;
     lListView2->setModel(lModel2);
+    lListView2->setResizeMode(QListView::Adjust);
+    lListView2->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
     QIcon lIcon2 = GPicto::Instance()->getPicto(fa::database);
     QStandardItemModel* lModel3 = new QStandardItemModel;
@@ -38,6 +46,8 @@ GWindowListView::GWindowListView(QWidget *parent) :
     QListView* lListView3 = new QListView;
     lListView3->setModel(lModel3);
     lListView3->setViewMode(QListView::IconMode);
+    lListView3->setResizeMode(QListView::Adjust);
+    lListView3->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
     QTabWidget* lTabWidget = new QTabWidget;
     lTabWidget->addTab(lListView, "StringListModel");

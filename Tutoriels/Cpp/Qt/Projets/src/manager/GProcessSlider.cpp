@@ -23,7 +23,7 @@ GProcessSlider* GProcessSlider::Instance() {
 void GProcessSlider::run(int argc, char **argv) {
     QApplication lApp(argc, argv);
     GStyle::Instance()->load("data/css/style.css");
-    GWindow* lWindow = GWindow::Create("TOOLBUTTON");
+    GWindow* lWindow = GWindow::Create("SLIDER");
     lWindow->show();
     lApp.exec();
 }

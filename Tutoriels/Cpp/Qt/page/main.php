@@ -447,4 +447,4 @@ QLabel {
     font-size: 20px;
     padding: 10px;
 }
-/*===============================================*/</xmp></pre></div></div></div></div></div><br>
+/*===============================================*/</xmp></pre></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="ListView"><a class="Link3" href="#">ListView</a></h1><div class="Body3">Le but de cette section est de vous apprendre à utiliser un <span class="GColor1" style="color:lime;">ListView </span>avec Qt.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1557945259244"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1557945259244");</script></div><br><h2 class="Title7 GTitle2" id="ListView-Résultat"><a class="Link9" href="#ListView">Résultat</a></h2><br><h3 class="Title8 GTitle3">Résultat ListView</h3><br><h3 class="Title8 GTitle3">Résultat ListView Icone Texte<br></h3><br><h3 class="Title8 GTitle3">Résultat ListView Icone Mode<br></h3><br><br><br><br><br><br><br><br><br><br><br><br><br></div></div></div></div><br>
