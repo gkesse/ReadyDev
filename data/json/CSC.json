@@ -16,7 +16,7 @@
     "links":
     [
         {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
-        {"name":"C#","link":"","follow":"no"},
+        {"name":"C#","link":"/Tutoriels/CSharp/#Outils de compilation","follow":"no"},
         {"name":"CSC","link":"","follow":"no"}
     ]
 }

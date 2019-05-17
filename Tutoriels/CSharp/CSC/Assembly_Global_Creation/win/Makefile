@@ -1,17 +1,15 @@
-GBIN=ass
-GTARGET=$(GBIN)\HelloGlobalAssembly.dll
+GBIN = bin
+GTARGET = $(GBIN)\HelloGlobalAssembly.dll
 
-GKEY=\
-    /keyfile:key/HelloKey.snk
-    
-GVER=\
+GKEYS =\
+    /keyfile:lib\Hello\key\HelloKey.snk \
     /v:1.0.0.0
     
-GDLL=\
-    lib\hello\bin\Hello.dll
+GLIBS =\
+    lib\Hello\bin\Hello.dll
 
 assembly:
-	al $(GKEY) $(GVER) /t:library /out:$(GTARGET) $(GDLL) 
+	al $(GKEYS) /t:library /out:$(GTARGET) $(GLIBS) 
 clean:
-	del /q $(GTARGET)
+	del /q $(GBIN)\*.dll
 	

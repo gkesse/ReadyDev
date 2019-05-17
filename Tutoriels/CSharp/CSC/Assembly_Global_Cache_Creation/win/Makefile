@@ -1,10 +1,8 @@
-GBIN=ass
-GGAC=HelloGlobalAssembly
-GTARGET=$(GBIN)\$(GGAC).dll
+GGAC = HelloGlobalAssembly
+GLIBS = lib\Hello\bin\HelloGlobalAssembly.dll
 
-
-assembly:
-	gacutil /i $(GTARGET)
+gac:
+	gacutil /i $(GLIBS)
 clean:
 	gacutil -u $(GGAC)
 	
