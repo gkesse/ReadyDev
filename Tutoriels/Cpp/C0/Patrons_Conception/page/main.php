@@ -572,4 +572,253 @@ void GProcessStrategy_Run(int argc, char** argv) {
     lStrategy->Print(lStrategy);
     lStrategy->Delete(lStrategy);
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Patron Stratégie-Résultat"><a class="Link9" href="#Patron Stratégie">Résultat</a></h2><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Strategie.png" alt="img/Strategie.png"></div></div></div></div></div><br>
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Patron Stratégie-Résultat"><a class="Link9" href="#Patron Stratégie">Résultat</a></h2><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Strategie.png" alt="img/Strategie.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Patron Template"><a class="Link3" href="#">Patron Template</a></h1><div class="Body3">Le but de cette section est de vous apprendre à utiliser le <span class="GColor1" style="color:lime;">Patron Template</span> avec le C.<br>Produit par <b>Gérard KESSE</b>.<br><br>Le Patron Template permet de créer un modèle générique.<br><br>Le modèle générique proposé ici est un système de Clé/Valeur basé sur le concept de liste chainée.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1558977613231"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1558977613231");</script></div><br><h2 class="Title7 GTitle2" id="Patron Template-Template"><a class="Link9" href="#Patron Template">Template</a></h2><br><h3 class="Title8 GTitle3">Template (GMap.h)</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#ifndef _GMap_
+#define _GMap_
+//===============================================
+#include "GInclude.h"
+//===============================================
+#define GDECLARE_MAP(GKEY, GVALUE, GTYPE) \
+		typedef struct _GMapNodeO_##GTYPE GMapNodeO_##GTYPE; \
+		typedef struct _GMapO_##GTYPE GMapO_##GTYPE; \
+		typedef int (*GEQUAL_##GTYPE)(GKEY key1, GKEY key2); \
+		typedef void (*GSHOW_##GTYPE)(GKEY key, GVALUE value); \
+		\
+		struct _GMapNodeO_##GTYPE { \
+			GKEY m_key; \
+			GVALUE m_value; \
+			GMapNodeO_##GTYPE* m_next; \
+		}; \
+		\
+		struct _GMapO_##GTYPE { \
+			void (*Delete)(GMapO_##GTYPE* obj); \
+			void (*SetData)(GMapO_##GTYPE* obj, GKEY key, GVALUE value, GEQUAL_##GTYPE equal); \
+			GVALUE (*GetData)(GMapO_##GTYPE* obj, GKEY key, GEQUAL_##GTYPE equal, GVALUE defaultValue); \
+			void (*Clear)(GMapO_##GTYPE* obj); \
+			void (*Remove)(GMapO_##GTYPE* obj, GKEY key, GEQUAL_##GTYPE equal); \
+			void (*Size)(GMapO_##GTYPE* obj); \
+			void (*Show)(GMapO_##GTYPE* obj, GSHOW_##GTYPE show); \
+			GMapNodeO_##GTYPE* m_head; \
+		}; \
+		\
+		GMapO_##GTYPE* GMap_New_##GTYPE(); \
+		void GMap_Delete_##GTYPE(GMapO_##GTYPE* obj); \
+		void GMap_Clear_##GTYPE(GMapO_##GTYPE* obj); \
+		void GMap_Remove_##GTYPE(GMapO_##GTYPE* obj, GKEY key, GEQUAL_##GTYPE equal); \
+		void GMap_RemoveNode_##GTYPE(GMapNodeO_##GTYPE* node); \
+		void GMap_SetData_##GTYPE(GMapO_##GTYPE* obj, GKEY key, GVALUE value, GEQUAL_##GTYPE equal); \
+		GVALUE GMap_GetData_##GTYPE(GMapO_##GTYPE* obj, GKEY key, GEQUAL_##GTYPE equal, GVALUE defaultValue); \
+		void GMap_Size_##GTYPE(GMapO_##GTYPE* obj); \
+		void GMap_Show_##GTYPE(GMapO_##GTYPE* obj, GSHOW_##GTYPE show);
+//===============================================
+#define GDEFINE_MAP(GKEY, GVALUE, GTYPE) \
+		\
+		GMapO_##GTYPE* GMap_New_##GTYPE() { \
+			GMapO_##GTYPE* lObj = (GMapO_##GTYPE*)malloc(sizeof(GMapO_##GTYPE)); \
+			\
+			lObj-&gt;Delete = GMap_Delete_##GTYPE; \
+			lObj-&gt;Clear = GMap_Clear_##GTYPE; \
+			lObj-&gt;Remove = GMap_Remove_##GTYPE; \
+			lObj-&gt;SetData = GMap_SetData_##GTYPE; \
+			lObj-&gt;GetData = GMap_GetData_##GTYPE; \
+			lObj-&gt;Size = GMap_Size_##GTYPE; \
+			lObj-&gt;Show = GMap_Show_##GTYPE; \
+			lObj-&gt;m_head = 0; \
+			return lObj; \
+		} \
+		\
+		void GMap_Delete_##GTYPE(GMapO_##GTYPE* obj) { \
+			if(obj != 0) { \
+				obj-&gt;Clear(obj); \
+				free(obj); \
+				obj = 0; \
+			} \
+		} \
+		\
+		void GMap_Clear_##GTYPE(GMapO_##GTYPE* obj) { \
+			GMapNodeO_##GTYPE* lNext = obj-&gt;m_head; \
+			while(lNext != 0) { \
+				GMapNodeO_##GTYPE* lPrevious = lNext; \
+				lNext = lNext-&gt;m_next; \
+				GMap_RemoveNode_##GTYPE(lPrevious); \
+			} \
+			obj-&gt;m_head = 0; \
+		} \
+		\
+		void GMap_Remove_##GTYPE(GMapO_##GTYPE* obj, GKEY key, GEQUAL_##GTYPE equal) { \
+			GMapNodeO_##GTYPE* lNext = obj-&gt;m_head; \
+			GMapNodeO_##GTYPE* lPrevious = 0; \
+			\
+			while(lNext != 0) { \
+				GKEY lKey = lNext-&gt;m_key; \
+				int lEqual = FALSE; \
+				if(equal == 0) lEqual = (lKey == key) ? TRUE : FALSE; \
+				else lEqual = equal(lKey, key); \
+				if(lEqual == TRUE) { \
+					if(lPrevious == 0) obj-&gt;m_head = lNext-&gt;m_next; \
+					else lPrevious-&gt;m_next = lNext-&gt;m_next; \
+					GMap_RemoveNode_##GTYPE(lNext); \
+					return; \
+				} \
+				lPrevious = lNext; \
+				lNext = lNext-&gt;m_next; \
+			} \
+		} \
+		\
+		void GMap_RemoveNode_##GTYPE(GMapNodeO_##GTYPE* node) { \
+			if(node != 0) { \
+				free(node); \
+				node = 0; \
+			} \
+		} \
+		\
+		void GMap_SetData_##GTYPE(GMapO_##GTYPE* obj, GKEY key, GVALUE value, GEQUAL_##GTYPE equal) { \
+			GMapNodeO_##GTYPE* lNext = obj-&gt;m_head; \
+			GMapNodeO_##GTYPE* lPrevious = 0; \
+			\
+			while(lNext != 0) { \
+				GKEY lKey = lNext-&gt;m_key; \
+				int lEqual = FALSE; \
+				if(equal == 0) lEqual = (lKey == key) ? TRUE : FALSE; \
+				else lEqual = equal(lKey, key); \
+				if(lEqual == TRUE) { \
+					lNext-&gt;m_value = value; \
+					return; \
+				} \
+				lPrevious = lNext; \
+				lNext = lNext-&gt;m_next; \
+			} \
+			\
+			GMapNodeO_##GTYPE* lNode = (GMapNodeO_##GTYPE*)malloc(sizeof(GMapNodeO_##GTYPE)); \
+			lNode-&gt;m_key = key; \
+			lNode-&gt;m_value = value; \
+			lNode-&gt;m_next = 0; \
+			\
+			if(lPrevious == 0) obj-&gt;m_head = lNode; \
+			else lPrevious-&gt;m_next = lNode; \
+		}\
+		\
+		GVALUE GMap_GetData_##GTYPE(GMapO_##GTYPE* obj, GKEY key, GEQUAL_##GTYPE equal, GVALUE defaultValue) { \
+			GMapNodeO_##GTYPE* lNext = obj-&gt;m_head; \
+			\
+			while(lNext != 0) { \
+				GKEY lKey = lNext-&gt;m_key; \
+				GVALUE lValue = lNext-&gt;m_value; \
+				int lEqual = FALSE; \
+				if(equal == 0) lEqual = (lKey == key) ? TRUE : FALSE; \
+				else lEqual = equal(lKey, key); \
+				if(lEqual == TRUE) return lValue; \
+				lNext = lNext-&gt;m_next; \
+			} \
+			return defaultValue; \
+		} \
+		\
+		void GMap_Size_##GTYPE(GMapO_##GTYPE* obj) { \
+			GMapNodeO_##GTYPE* lNext = obj-&gt;m_head; \
+			int lSize = 0; \
+			\
+			while(lNext != 0) { \
+				lSize++; \
+				lNext = lNext-&gt;m_next; \
+			} \
+			printf("[ SIZE ] %d...\n", lSize); \
+		} \
+		\
+		void GMap_Show_##GTYPE(GMapO_##GTYPE* obj, GSHOW_##GTYPE show) { \
+			GMapNodeO_##GTYPE* lNext = obj-&gt;m_head; \
+			\
+			while(lNext != 0) { \
+				GKEY lKey = lNext-&gt;m_key; \
+				GVALUE lValue = lNext-&gt;m_value; \
+				show(lKey, lValue); \
+				lNext = lNext-&gt;m_next; \
+			} \
+			printf("\n"); \
+		}
+//===============================================
+#define GMapO(GTYPE) \
+		GMapO_##GTYPE
+//===============================================
+#define GMapNodeO(GTYPE) \
+		GMapNodeO_##GTYPE
+//===============================================
+#endif
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Patron Template-Programme de Test"><a class="Link9" href="#Patron Template">Programme de Test</a></h2><br><h3 class="Title8 GTitle3">Programme de Test</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GProcessMap.h"
+#include "GMap.h"
+//===============================================
+typedef int GINT;
+typedef char GCHAR;
+typedef char* GCHAR_PTR;
+//===============================================
+GDECLARE_MAP(GINT, GCHAR, GProcessMap_GINT_GCHAR)
+GDEFINE_MAP(GINT, GCHAR, GProcessMap_GINT_GCHAR)
+//===============================================
+GDECLARE_MAP(GCHAR_PTR, GCHAR_PTR, GProcessMap_GCHAR_PTR_GCHAR_PTR)
+GDEFINE_MAP(GCHAR_PTR, GCHAR_PTR, GProcessMap_GCHAR_PTR_GCHAR_PTR)
+//===============================================
+static GProcessO* m_GProcessMapO = 0;
+//===============================================
+void GProcessMap_Run(int argc, char** argv);
+//===============================================
+int GProcessMap_MapEqual(char* str1, char* str2);
+void GProcessMap_MapShow(int key, char value);
+void GProcessMap_MapShow2(char* key, char* value);
+//===============================================
+GProcessO* GProcessMap_New() {
+    GProcessO* lParent = GProcess_New();
+    GProcessMapO* lChild = (GProcessMapO*)malloc(sizeof(GProcessMapO));
+
+    lChild-&gt;m_parent = lParent;
+
+    lParent-&gt;m_child = lChild;
+    lParent-&gt;Delete = GProcessMap_Delete;
+    lParent-&gt;Run = GProcessMap_Run;
+    return lParent;
+}
+//===============================================
+void GProcessMap_Delete(GProcessO* obj) {
+    GProcess_Delete(obj);
+}
+//===============================================
+GProcessO* GProcessMap() {
+    if(m_GProcessMapO == 0) {
+        m_GProcessMapO = GProcessMap_New();
+    }
+    return m_GProcessMapO;
+}
+//===============================================
+void GProcessMap_Run(int argc, char** argv) {
+	GMapO(GProcessMap_GINT_GCHAR)* lMap = GMap_New_GProcessMap_GINT_GCHAR();
+	lMap-&gt;SetData(lMap, 0, 'A', 0);
+	lMap-&gt;SetData(lMap, 1, 'B', 0);
+	lMap-&gt;SetData(lMap, 2, 'C', 0);
+	lMap-&gt;SetData(lMap, 3, 'D', 0);
+	lMap-&gt;Show(lMap, GProcessMap_MapShow);
+	lMap-&gt;Delete(lMap);
+
+	GMapO(GProcessMap_GCHAR_PTR_GCHAR_PTR)* lMap2 = GMap_New_GProcessMap_GCHAR_PTR_GCHAR_PTR();
+	lMap2-&gt;SetData(lMap2, "Nom", "KESSE", GProcessMap_MapEqual);
+	lMap2-&gt;SetData(lMap2, "Prenom", "Gerard", GProcessMap_MapEqual);
+	lMap2-&gt;SetData(lMap2, "Email", "gerard.kesse@readydev.com", GProcessMap_MapEqual);
+	lMap2-&gt;SetData(lMap2, "Diplome", "Ingenieur", 0);
+	lMap2-&gt;SetData(lMap2, "Formation", "Informatique Industrielle", GProcessMap_MapEqual);
+	lMap2-&gt;SetData(lMap2, "Ecole", "Polytech'Montpellier", GProcessMap_MapEqual);
+	lMap2-&gt;Show(lMap2, GProcessMap_MapShow2);
+	lMap2-&gt;Delete(lMap2);
+}
+//===============================================
+int GProcessMap_MapEqual(char* str1, char* str2) {
+	int lStrcmp = strcmp(str1, str2);
+	if(lStrcmp == 0) return TRUE;
+	return FALSE;
+}
+//===============================================
+void GProcessMap_MapShow(int key, char value) {
+	printf("%d = %c\n", key, value);
+}
+//===============================================
+void GProcessMap_MapShow2(char* key, char* value) {
+	printf("%s = %s\n", key, value);
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Patron Template-Résultat"><a class="Link9" href="#Patron Template">Résultat</a></h2><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Template.png" alt="img/Template.png"></div></div></div></div></div><br>
