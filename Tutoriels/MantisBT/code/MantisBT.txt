@@ -1,0 +1,234 @@
+#================================================
+# MantisBT
+#================================================
+Traçeur de bugs
+depuis sa détection
+jusqu'à sa résolution
+#================================================
+# Installer MantisBT
+#================================================
+Installer WampServer (Windows)
+http://www.wampserver.com/
+Se connecter à MySQL (MySQL)
+Créer la base de données MANTISDB (MySQL)
+Créer les utilistateurs ROOT et ADMIN (MySQL)
+Installer MantisBT (Windows)
+https://www.mantisbt.org/download.php
+Configurer le port d'accès à MantisBT (WampServer)
+Configurer le serveur d'accès à MantisBT (WampServer)
+#================================================
+# Configurer l'envoi d'email avec le compte EMAIL1@gmail.com 
+#================================================
+C:\Users\Admin\Downloads\mantisbt-2.21.0\mantisbt-2.21.0\config
+config_inc.php
+$g_allow_signup = ON;
+$g_enable_email_notification = ON;
+$g_phpMailer_method = PHPMAILER_METHOD_SMTP;
+$g_smtp_host = 'smtp.gmail.com';
+$g_smtp_connection_mode = 'tls';
+$g_smtp_port = 587;
+$g_smtp_username = 'EMAIL1@gmail.com';
+$g_smtp_password = 'PASSWORD1'; 
+$g_administrator_email = 'EMAIL1@gmail.com';
+#================================================
+# Créer le nouveau compte USERNAME1
+#================================================
+http://localhost:8833/login_page.php
+Ouvrir un nouveau compte
+Nom d'utilisateur
+USERNAME1
+Courriel
+EMAIL1
+Entrez le code comme indiqué dans la case à droite
+CODE1
+Inscrire
+Poursuivre
+Ouvrir la boîte email EMAIL1
+Cliquer sur le lien "Enregistrement de compte" (MantisBT)
+Nom réel
+PRENOMS_NOM1
+Mot de passe
+PASSWORD1
+Confirmation
+PASSWORD1
+Mettre à jour l'utilisateur
+#================================================
+# Se connecter au compte USERNAME1
+#================================================
+http://localhost:8833/login_page.php
+Utilisateur
+USERNAME1
+Ouvrir la session
+Saisir le mot de passe pour 'administrator' 
+PASSWORD1
+Ouvrir la session
+#================================================
+# Se connecter au compte administrateur par défaut
+#================================================
+http://localhost:8833/login_page.php
+Utilisateur
+administrator
+Ouvrir la session
+Saisir le mot de passe pour 'administrator' 
+root
+Ouvrir la session
+#================================================
+# Fermer la session USERNAME1
+#================================================
+USERNAME1
+Fermer la session
+#================================================
+# Créer le compte administrateur ADMIN1
+#================================================
+Administration
+Gérer les utilisateur
+Nom d'utilisateur
+ADMIN1
+Niveau d'accès
+Administrator
+Cocher
+Notifier l’utilisateur de cette modification
+Mettre à jour l'utilisateur
+#================================================
+# Désactiver le compte administrateur ADMIN1
+#================================================
+Administration
+Gérer les utilisateur
+Nom d'utilisateur
+ADMIN1
+Décocher
+Activé
+Mettre à jour l'utilisateur
+#================================================
+# Créer le nouveau compte USERNAME1
+#================================================
+Administration
+Gérer les utilisateur
+Créer un nouveau compte
+Nom d'utilisateur
+USERNAME1
+Nom réel
+PRENOMS_NOM1
+Courriel
+EMAIL1
+Droit d'accès
+rapporteur
+Cocher
+Activé
+Créer l'utilisateur
+Ouvrir la boîte email EMAIL1
+Cliquer sur le lien "Account registration" (MantisBT)
+Nom réel
+PRENOMS_NOM1
+Mot de passe
+PASSWORD1
+Confirmation
+PASSWORD1
+Mettre à jour l'utilisateur
+#================================================
+# Créer le nouveau projet PROJECT1
+#================================================
+Administration
+Gérer les projets
+Créer un nouveau projet
+Nom du projet
+PROJECT1
+Statut
+développement
+Cocher
+Hériter des catégories globales
+Visibilité
+public
+Description
+DESCRIPTION1
+Ajouter le projet
+#================================================
+# Créer la catégorie CATEGORY1
+#================================================
+Administration
+Gérer les projets
+Catégorie
+CATEGORY1
+Ajouter la catégorie
+#================================================
+# Créer la balise TAG1
+#================================================
+Administration
+Gérer les balises
+Créer la balise
+Nom
+TAG1
+Description de balise 
+DESCRIPTION1
+Créer la balise
+#================================================
+# Créer le profil PLATRFORM1
+#================================================
+Administration
+Gérer les profils globaux
+Plateforme
+PLATRFORM1
+OS
+OS1
+Version de l'OS
+VERSION1
+Description complémentaire
+DESCRIPTION1
+Ajouter le profil
+#================================================
+# Créer le champ personnalisé FIELD1
+#================================================
+Administration
+Gérer les champs personnalisés
+Nom
+FIELD1
+Ajouter un champ personnalisé
+#================================================
+# Rapporter un bug
+#================================================
+Rapporter un bogue
+Catégorie
+CATEGORY1
+Reproductibilité
+FREQUENCY1
+Impact
+LEVEL1
+Priorité
+PRIORITY1
+Sélectionner un profil
+PROFIL1
+Assigné à
+USERNAME1
+Résumé
+SUMMARY1
+Description
+DESCRIPTION1
+Etape pour reproduire
+REPRODUCTION1
+Information complémentaires
+INFORMATION1
+Associer balises
+TAG1
+Importer des fichiers
+FILE1
+Visibilité
+VISIBILITY1
+Garder le rapport
+Cocher
+Cocher pour saisir d'autres bogues
+Soumettre la question
+#================================================
+#================================================
+#================================================
+#================================================
+#================================================
+#================================================
+#================================================
+#================================================
+#================================================
+#================================================
+#================================================
+#================================================
+#================================================
+#================================================
+#================================================
