@@ -66,7 +66,6 @@
         <meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1.0, user-scalable=no"/>
         <!-- ============================================ -->
         <!-- Google -->
-        <meta name="google-site-verification" content="JBMQpDk2r7fzBSa3aQXP0d4lSJmY2lm_8LlVHGrWOEM"/>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <?php if($lExistMetaDesc == true) { ?>
         <meta name="description" content="<?php echo $lMetaDesc; ?>"/>
