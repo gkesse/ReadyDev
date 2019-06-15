@@ -1,5 +1,5 @@
 # Sitemaps
-Sitemap: http://readydev.dynu.net/data/sitemaps/sitemaps.xml
+Sitemap: https://readydev.dynu.net/data/sitemaps/sitemaps.xml
 
 # Allow All
 User-agent: *
