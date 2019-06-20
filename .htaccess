@@ -5,8 +5,6 @@ DirectoryIndex index.php
 <IfModule mod_rewrite.c>
 RewriteEngine on
 #================================================
-RewriteRule (.*)$ http://readydev.freeddns.org/$1 [R=301,L]
-#================================================
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)/Tuto/(.*)$ $1/?Tuto=$2 [L,QSA]
