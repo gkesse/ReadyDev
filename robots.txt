@@ -1,5 +1,5 @@
 # Sitemaps
-Sitemap: https://readydev.ovh/data/sitemaps/sitemaps.xml
+Sitemap: https://readydev.freeddns.org/data/sitemaps/sitemaps.xml
 
 # Allow All
 User-agent: *
