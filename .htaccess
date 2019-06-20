@@ -12,6 +12,8 @@ RewriteRule ^(.*)/Tuto/(.*)$ $1/?Tuto=$2 [L,QSA]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^Connexion/(.*)$ Connexion/?action=$1 [L,QSA]
+#================================================
+RewriteRule (.*)$ https://readydev.freeddns.org/$1 [R=301,L]
 </IfModule>
 #================================================
 php_value memory_limit 30M
