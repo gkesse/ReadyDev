@@ -113,7 +113,7 @@
         <script src="/lib/prettify/loader/run_prettify.js?lang=css&amp;skin=sunburst"></script>
         <?php } ?>
         <!-- ============================================ -->
-        <?php if($lCodePrettify) { ?>
+        <?php if($lMathJax) { ?>
         <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">
         MathJax.Hub.Config({
@@ -245,4 +245,4 @@
                         <!-- ============================================ -->
                     </header>
                     <!-- ============================================ -->
-                        
+                        $$\left \{ \begin{array}{r c l} T &\rightarrow& 2\pi\\ \Delta t &\rightarrow& \Delta\phi \end{array} \right.$$
