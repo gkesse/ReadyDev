@@ -113,14 +113,14 @@
         <script src="/lib/prettify/loader/run_prettify.js?lang=css&amp;skin=sunburst"></script>
         <?php } ?>
         <!-- ============================================ -->
-        <!-- ?php if($lMathJax) { ?-->
+        <?php if($lMathJax) { ?>
         <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">
         MathJax.Hub.Config({
             tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
         });
         </script>
-        <!--?php } ?-->
+        <?php } ?>
         <!-- ============================================ -->
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-109595989-1"></script>
@@ -245,4 +245,4 @@
                         <!-- ============================================ -->
                     </header>
                     <!-- ============================================ -->
-                        $$\left \{ \begin{array}{r c l} T &\rightarrow& 2\pi\\ \Delta t &\rightarrow& \Delta\phi \end{array} \right.$$
+                        
