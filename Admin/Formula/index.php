@@ -10,22 +10,25 @@
                 padding: 0px;
             }
         </style>
+        <script>
+            function viewFormula() {
+				var lFormulaShow = document.getElementById("FormulaShow");
+                MathJax.Hub.Queue(["Typeset",MathJax.Hub,lFormulaShow]);
+            }
+        </script>
     </head>
     <body>
         <div style="
             background-color: rgba(255, 255, 255, 0.2);
-            border-radius: 5px;
-            margin-top: 10px;
             max-height: 400px;
-            font-size: 20px;
+            font-family: arial;
+            font-size: 16px;
             color: white;
             overflow: auto;
             scrollbar-color: #5f6681 #051039;
             scrollbar-width: auto;
         ">
-            \begin{eqnarray} 
-            f_r &=& f_e  \frac{c}{(c-v_E )}
-            \end{eqnarray}
+            <div id="FormulaShow">Visualisez de la formule</div>
         </div>
     </body>
 </html> 
