@@ -977,11 +977,12 @@ span {
 }
 
 .IFrame {
+    background-color: rgba(255, 255, 255, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
     margin: 0;
     padding: 0;
     width: 100%;
-    border-radius: 5px;
 }
 
 .Img {

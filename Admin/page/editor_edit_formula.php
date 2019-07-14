@@ -42,7 +42,7 @@
                 oninput="viewFormula(this)"></textarea>
             </div>
             <div class="Row12">
-                <iframe class="IFrame" id="IFrameFormula" src="/Admin/Formula" scrolling="no"></iframe>
+                <iframe class="IFrame" id="IFrameFormula" src="/Admin/Formula"></iframe>
             </div>
             <!-- ============================================ -->
         </div>
