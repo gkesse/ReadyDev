@@ -977,11 +977,13 @@ span {
 }
 
 .IFrame {
+    background-color: rgba(255, 255, 255, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
     margin: 0;
+    margin-top: 10px;
     padding: 0;
     width: 100%;
-    border-radius: 5px;
 }
 
 .Img {
@@ -1526,6 +1528,13 @@ span {
     scrollbar-color: #5f6681 #051039;
     scrollbar-width: auto;
     padding: 5px 10px;
+}
+
+.Row32 {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-bottom: 5px solid #051039;
+    text-align: center;
+    font-size: 0px;
 }
 
 .Shift1 {
