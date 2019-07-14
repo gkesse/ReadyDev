@@ -49,6 +49,7 @@
 		<?php require "page/sitemap.php"; ?>
 		<?php require "page/editor.php"; ?>
 		<?php require "page/html_editor.php"; ?>
+		<?php require "page/editor_edit_formula.php"; ?>
         <!-- ============================================ -->
     </div>
     <!-- ============================================ -->

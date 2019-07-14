@@ -827,6 +827,10 @@ var GEditor = (function() {
                     }
                     break;
                 //===============================================
+                case 'Formula10':
+                    GFormula.Instance().openFormulaEditor();
+                    break;
+                //===============================================
                 case 'Formula1':
                     var lParentNode = lStartNode.parentNode;
                     while(1) {

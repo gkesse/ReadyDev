@@ -976,6 +976,13 @@ span {
     color: cyan;
 }
 
+.Iframe {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
 .Img {
     background-image: url("/data/img/defaults/wave.png");
     min-height: 500px;
