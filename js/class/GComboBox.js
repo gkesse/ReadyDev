@@ -17,6 +17,9 @@ var GComboBox = (function() {
                 
                 for(var i = 0; i < lLength; i++) {
                     var lComboBox = lComboBoxMap[i];
+                    var lRun = lComboBox.dataset.run;
+                    if(lRun == "true") continue
+                    lComboBox.dataset.run = "true";
                     var lSelect = lComboBox.getElementsByTagName("select")[0];
                     var lHtml = lSelect.options[lSelect.selectedIndex].innerHTML;
                     

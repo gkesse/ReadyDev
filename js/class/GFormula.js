@@ -16,7 +16,7 @@ var GFormula = (function() {
                 this.viewFormula();
             },
             //===============================================
-            openFormula: function() {
+            openFormulaEditor: function() {
 				var lModalFormula = document.getElementById("ModalFormula");
 				var lFormulaBody = document.getElementById("FormulaBody");
 				var lFormulaMsg = document.getElementById("FormulaMsg");
@@ -31,7 +31,7 @@ var GFormula = (function() {
                 this.viewFormula();
             },
             //===============================================
-            closeFormula: function(obj) {
+            closeFormulaEditor: function(obj) {
 				var lModalFormula = document.getElementById("ModalFormula");
 				var lFormulaBody = document.getElementById("FormulaBody");
 				var lClassName = lFormulaBody.className;

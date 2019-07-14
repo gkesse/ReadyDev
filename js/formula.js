@@ -1,10 +1,10 @@
 //===============================================
-function openFormula() {
-	GFormula.Instance().openFormula();
+function openFormulaEditor() {
+	GFormula.Instance().openFormulaEditor();
 }
 //===============================================
-function closeFormula(obj) {
-	GFormula.Instance().closeFormula(obj);
+function closeFormulaEditor(obj) {
+	GFormula.Instance().closeFormulaEditor(obj);
 }
 //===============================================
 function viewFormula(obj) {
