@@ -46,11 +46,14 @@ var GFormula = (function() {
             //===============================================
             viewFormula: function(obj) {
 				var lFormulaText = document.getElementById("FormulaText");
-				var lFormulaShow = document.getElementById("FormulaShow");
+                var lIFrame = document.getElementById("IFrameFormula");
+                var lIFrameDoc = lIFrame.contentDocument || lIFrame.contentWindow.document;
+                var lIFrameWindow = lIFrame.contentWindow;
+                var lIFrameFormula = lIFrameDoc.getElementById("FormulaShow");
                 var lHtml = '';
-                lHtml += FormulaText.value;
-                lFormulaShow.innerHTML = lHtml;
-                MathJax.Hub.Queue(["Typeset",MathJax.Hub,lFormulaShow]);
+                lHtml += lFormulaText.value;
+                lIFrameFormula.innerHTML = lHtml;
+                lIFrameWindow.viewFormula();
                 GConfig.Instance().setData("FormulaText", lHtml);
             },
             //===============================================

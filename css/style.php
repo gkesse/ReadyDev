@@ -970,17 +970,18 @@ span {
 .Icon9 {
     color: #f67b20;
 }
-
+ 
 .Icon10 {
     padding-right: 10px;
     color: cyan;
 }
 
-.Iframe {
-    border: 0;
+.IFrame {
+    border: 1px solid rgba(255, 255, 255, 0.2);
     margin: 0;
     padding: 0;
     width: 100%;
+    border-radius: 5px;
 }
 
 .Img {
