@@ -4,9 +4,9 @@
         <div class="Button3 Close" onclick="closeFormulaEditor(this)"><i class="fa fa-close"></i></div>
         <div class="Title5">Formule Mathématique</div>
         <div class="Body4">
-            <div class="Row11">Formule :</div>
+            <div class="Row11">Entrez votre formule mathématique :</div>
             <!-- ============================================ -->
-            <div class="Row16">
+            <div class="Row32">
                 <div class="ComboBox" onchange="alert('echo');">
                     <select onchange="getFormula(this.value); this.selectedIndex = 0">
                         <!-- ============================================ -->
@@ -42,6 +42,7 @@
                 oninput="viewFormula(this)"></textarea>
             </div>
             <div class="Row12">
+                Aperçu :
                 <iframe class="IFrame" id="IFrameFormula" src="/Admin/Formula"></iframe>
             </div>
             <!-- ============================================ -->
