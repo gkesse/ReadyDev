@@ -1,0 +1,20 @@
+{
+    "sitemap":"no",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+            "ReadyDoc est l'interface de documentation sur ReadyDev,",
+            "la Plateforme de Développement Continu."
+        ],
+        "meta_cano":"/Tutoriels/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/data/img/defaults/Doc.png"
+    },    
+    "intro":
+    [
+        "<b>ReadyDoc</b> est l'interface de documentation sur ReadyDev.<br/>",
+        "ELle vous permet d'acceder à la documentation sur ReadyDev.<br/>",
+        "Produit par <b>Gérard KESSE</b>."
+    ]
+}
+                        
