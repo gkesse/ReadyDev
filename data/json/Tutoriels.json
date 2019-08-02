@@ -193,6 +193,16 @@
             "link":"/Tutoriels/GIMP/",
 			"follow":"yes"
         }
+    ],
+    "documentation":
+    [
+        {
+            "icon":"fa fa-map",
+            "theme":"GIMP",
+            "description":"Apprenez<br/> GIMP",
+            "link":"/Tutoriels/GIMP/",
+			"follow":"yes"
+        }
     ]
 }
                         
