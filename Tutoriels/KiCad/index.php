@@ -3,9 +3,9 @@
     
     $m_data = GJson::Instance()->getData("data/json/KiCad.json");
     
-    GConfig::Instance()->setData("title", "KiCad");
-    GConfig::Instance()->setData("menu", "Tutoriels");
-    GConfig::Instance()->setData("view", "KiCad");
+    GConfig::Instance()->setData("TITLE", "KiCad");
+    GConfig::Instance()->setData("MENU", "Tutoriels");
+    GConfig::Instance()->setData("VIEW", "KiCad");
     GConfig::Instance()->setData("link", $m_data["links"]);
 
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";

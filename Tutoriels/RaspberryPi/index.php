@@ -3,9 +3,9 @@
     
     $m_data = GJson::Instance()->getData("data/json/RaspberryPi.json");
     
-    GConfig::Instance()->setData("title", "RaspberryPi");
-    GConfig::Instance()->setData("menu", "Tutoriels");
-    GConfig::Instance()->setData("view", "RaspberryPi");
+    GConfig::Instance()->setData("TITLE", "RaspberryPi");
+    GConfig::Instance()->setData("MENU", "Tutoriels");
+    GConfig::Instance()->setData("VIEW", "RaspberryPi");
     GConfig::Instance()->setData("link", $m_data["links"]);
 
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";

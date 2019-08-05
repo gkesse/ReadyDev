@@ -1,9 +1,9 @@
 <?php
     require $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoloadRegister.php";
     
-    GConfig::Instance()->setData("title", "Contacts");
-    GConfig::Instance()->setData("menu", "Contacts");
-    GConfig::Instance()->setData("view", "Contacts");
+    GConfig::Instance()->setData("TITLE", "Contacts");
+    GConfig::Instance()->setData("MENU", "Contacts");
+    GConfig::Instance()->setData("VIEW", "Contacts");
     
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";
 ?>

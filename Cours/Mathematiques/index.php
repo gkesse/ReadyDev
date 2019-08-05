@@ -3,9 +3,9 @@
     
     $lData = GJson::Instance()->getData("data/json/Mathematiques.json");
     
-    GConfig::Instance()->setData("title", "Mathématiques");
-    GConfig::Instance()->setData("menu", "Cours");
-    GConfig::Instance()->setData("view", "Mathematiques");
+    GConfig::Instance()->setData("TITLE", "Mathématiques");
+    GConfig::Instance()->setData("MENU", "Cours");
+    GConfig::Instance()->setData("VIEW", "Mathematiques");
     GConfig::Instance()->setData("link", $lData["links"]);
 
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";

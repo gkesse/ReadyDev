@@ -1,12 +1,15 @@
 <?php
     session_start();
     //===============================================
-    function GAutoloadRegister($classname) {
-        $m_filename = dirname(__FILE__).DIRECTORY_SEPARATOR.$classname.".php";
+    function GAutoloadRegister($className) {
+        $lFileName = dirname(__FILE__).DIRECTORY_SEPARATOR.$className.".php";
 
-        if (is_readable($m_filename)) {
-            require $m_filename;
-        }    
+        if(is_readable($lFileName)) {
+            require $lFileName;
+        }
+        else {
+            die("[ GAutoloadRegister ] Erreur Autoload: $className<br>");
+        }
     }       
     //===============================================
     if (version_compare(PHP_VERSION, "5.1.2", ">=")) {
@@ -18,8 +21,13 @@
         }
     } 
     else {
-        function spl_autoload_register($class_name) {
-            include $class_name.".php";
+        function spl_autoload_register($className) {
+            if(is_readable($lFileName)) {
+                require $className.".php";
+            }
+            else {
+                die("[ GAutoloadRegister ] Erreur Autoload: $className<br>");
+            }
         }       
     }
     //===============================================

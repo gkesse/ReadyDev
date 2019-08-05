@@ -3,9 +3,9 @@
     
     $m_data = GJson::Instance()->getData("data/json/CMake.json");
     
-    GConfig::Instance()->setData("title", "CMake");
-    GConfig::Instance()->setData("menu", "Tutoriels");
-    GConfig::Instance()->setData("view", "CMake");
+    GConfig::Instance()->setData("TITLE", "CMake");
+    GConfig::Instance()->setData("MENU", "Tutoriels");
+    GConfig::Instance()->setData("VIEW", "CMake");
     GConfig::Instance()->setData("link", $m_data["links"]);
 
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";

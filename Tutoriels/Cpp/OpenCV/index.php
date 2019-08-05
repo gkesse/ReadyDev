@@ -3,9 +3,9 @@
     
     $m_data = GJson::Instance()->getData("data/json/OpenCV.json");
     
-    GConfig::Instance()->setData("title", "OpenCV");
-    GConfig::Instance()->setData("menu", "Tutoriels");
-    GConfig::Instance()->setData("view", "OpenCV");
+    GConfig::Instance()->setData("TITLE", "OpenCV");
+    GConfig::Instance()->setData("MENU", "Tutoriels");
+    GConfig::Instance()->setData("VIEW", "OpenCV");
     GConfig::Instance()->setData("link", $m_data["links"]);
 
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";

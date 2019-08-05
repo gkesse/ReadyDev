@@ -3,9 +3,9 @@
     
     $m_data = GJson::Instance()->getData("data/json/MinGW.json");
     
-    GConfig::Instance()->setData("title", "MinGW");
-    GConfig::Instance()->setData("menu", "Tutoriels");
-    GConfig::Instance()->setData("view", "MinGW");
+    GConfig::Instance()->setData("TITLE", "MinGW");
+    GConfig::Instance()->setData("MENU", "Tutoriels");
+    GConfig::Instance()->setData("VIEW", "MinGW");
     GConfig::Instance()->setData("link", $m_data["links"]);
 
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";

@@ -3,9 +3,9 @@
     
     $m_data = GJson::Instance()->getData("data/json/JDK.json");
     
-    GConfig::Instance()->setData("title", "JDK");
-    GConfig::Instance()->setData("menu", "Tutoriels");
-    GConfig::Instance()->setData("view", "JDK");
+    GConfig::Instance()->setData("TITLE", "JDK");
+    GConfig::Instance()->setData("MENU", "Tutoriels");
+    GConfig::Instance()->setData("VIEW", "JDK");
     GConfig::Instance()->setData("link", $m_data["links"]);
 
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";

@@ -3,9 +3,9 @@
     
     $m_data = GJson::Instance()->getData("data/json/PH.json");
     
-    GConfig::Instance()->setData("title", "Le pH");
-    GConfig::Instance()->setData("menu", "Cours");
-    GConfig::Instance()->setData("view", "PH");
+    GConfig::Instance()->setData("TITLE", "Le pH");
+    GConfig::Instance()->setData("MENU", "Cours");
+    GConfig::Instance()->setData("VIEW", "PH");
     GConfig::Instance()->setData("link", $m_data["links"]);
     
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";

@@ -3,9 +3,9 @@
     
     $m_data = GJson::Instance()->getData("data/json/Multithreading.json");
     
-    GConfig::Instance()->setData("title", "Multithreading");
-    GConfig::Instance()->setData("menu", "Tutoriels");
-    GConfig::Instance()->setData("view", "Multithreading");
+    GConfig::Instance()->setData("TITLE", "Multithreading");
+    GConfig::Instance()->setData("MENU", "Tutoriels");
+    GConfig::Instance()->setData("VIEW", "Multithreading");
     GConfig::Instance()->setData("link", $m_data["links"]);
 
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";

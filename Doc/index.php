@@ -4,9 +4,9 @@
     $lData = GJson::Instance()->getData("data/json/Doc.json");
     GAdmin::Instance()->validate();
 
-    GConfig::Instance()->setData("title", "Documentation sur ReadyDev");
-    GConfig::Instance()->setData("menu", "Doc");
-    GConfig::Instance()->setData("view", "Doc");
+    GConfig::Instance()->setData("TITLE", "Documentation sur ReadyDev");
+    GConfig::Instance()->setData("MENU", "Doc");
+    GConfig::Instance()->setData("VIEW", "Doc");
 
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";
 ?>

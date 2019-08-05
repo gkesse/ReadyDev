@@ -3,9 +3,9 @@
     
     $m_data = GJson::Instance()->getData("data/json/WampServer.json");
     
-    GConfig::Instance()->setData("title", "WampServer");
-    GConfig::Instance()->setData("menu", "Tutoriels");
-    GConfig::Instance()->setData("view", "WampServer");
+    GConfig::Instance()->setData("TITLE", "WampServer");
+    GConfig::Instance()->setData("MENU", "Tutoriels");
+    GConfig::Instance()->setData("VIEW", "WampServer");
     GConfig::Instance()->setData("link", $m_data["links"]);
 
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";

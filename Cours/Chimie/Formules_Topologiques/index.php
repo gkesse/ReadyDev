@@ -3,9 +3,9 @@
     
     $m_data = GJson::Instance()->getData("data/json/Formules_Topologiques.json");
     
-    GConfig::Instance()->setData("title", "Formules Topologiques");
-    GConfig::Instance()->setData("menu", "Cours");
-    GConfig::Instance()->setData("view", "Formules_Topologiques");
+    GConfig::Instance()->setData("TITLE", "Formules Topologiques");
+    GConfig::Instance()->setData("MENU", "Cours");
+    GConfig::Instance()->setData("VIEW", "Formules_Topologiques");
     GConfig::Instance()->setData("link", $m_data["links"]);
     
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";

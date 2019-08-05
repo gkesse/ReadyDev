@@ -3,9 +3,9 @@
     
     $m_data = GJson::Instance()->getData("data/json/8051.json");
     
-    GConfig::Instance()->setData("title", "8051");
-    GConfig::Instance()->setData("menu", "Tutoriels");
-    GConfig::Instance()->setData("view", "8051");
+    GConfig::Instance()->setData("TITLE", "8051");
+    GConfig::Instance()->setData("MENU", "Tutoriels");
+    GConfig::Instance()->setData("VIEW", "8051");
     GConfig::Instance()->setData("link", $m_data["links"]);
 
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";

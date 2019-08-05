@@ -3,9 +3,9 @@
     
     $m_data = GJson::Instance()->getData("data/json/Groupes_Caracteristiques.json");
     
-    GConfig::Instance()->setData("title", "Groupes Caractéristiques");
-    GConfig::Instance()->setData("menu", "Cours");
-    GConfig::Instance()->setData("view", "Groupes_Caracteristiques");
+    GConfig::Instance()->setData("TITLE", "Groupes Caractéristiques");
+    GConfig::Instance()->setData("MENU", "Cours");
+    GConfig::Instance()->setData("VIEW", "Groupes_Caracteristiques");
     GConfig::Instance()->setData("link", $m_data["links"]);
     
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";

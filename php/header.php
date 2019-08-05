@@ -2,12 +2,12 @@
     GPostRedirectGet::Instance()->redirect();
     GMetaData::Instance()->getData();
 
-    $lTitle = GConfig::Instance()->getData("title"); 
+    $lTitle = GConfig::Instance()->getData("TITLE"); 
     GUrl::Instance()->lastUrl();
     
-    $lExiststMenu = GConfig::Instance()->existData("menu");
+    $lExiststMenu = GConfig::Instance()->existData("MENU");
     if($lExiststMenu == true) {
-        $lCurrentMenu = GConfig::Instance()->getData("menu"); 
+        $lCurrentMenu = GConfig::Instance()->getData("MENU"); 
     }
     
     $lExiststLink = GConfig::Instance()->existData("link");
@@ -15,9 +15,9 @@
         $lLinks = GConfig::Instance()->getData("link"); 
     }
     
-    $lExiststView = GConfig::Instance()->existData("view");
+    $lExiststView = GConfig::Instance()->existData("VIEW");
     if($lExiststView == true) {
-        $lViewTag = GConfig::Instance()->getData("view"); 
+        $lViewTag = GConfig::Instance()->getData("VIEW"); 
         $lViewNum = GView::Instance()->getView($lViewTag);
     }
     
@@ -45,9 +45,9 @@
         $lMetaImg = GConfig::Instance()->getData("meta_img"); 
     }
         
-    $lCodePrettify = GConfig::Instance()->getData("code_prettify");
-    $lAce = GConfig::Instance()->getData("ace");
-    $lMathJax = GConfig::Instance()->getData("mathjax");
+    $lCodePrettify = GConfig::Instance()->getData("CODE_PRETTIFY");
+    $lAce = GConfig::Instance()->getData("ACE");
+    $lMathJax = GConfig::Instance()->getData("MATHJAX");
     $lHeaderData = GJson::Instance()->getData("data/json/header.json");
     $lSiteName = $lHeaderData["site"]["name"];    
     $lSiteLogo = $lHeaderData["site"]["logo"];    
@@ -155,16 +155,16 @@
                 <div class="MainPage">
                     <header class="Header">
                         <!-- ============================================ -->
-                        <ul class="Menu" id="HeaderMenu">
+                        <ul class="MENU" id="HeaderMenu">
                             <li class="Item">
-                                <a class="Title" href="/">
+                                <a class="TITLE" href="/">
                                     <img class="Img4" src="<?php echo $lSiteLogo; ?>"/>
                                     <span class="Title11"><?php echo $lSiteName; ?></span>
                                 </a>
                             </li>
                             <?php 
-                            for($i = 0; $i < count($lHeaderData["menu"]); $i++) { 
-                                $lMenu = $lHeaderData["menu"][$i];
+                            for($i = 0; $i < count($lHeaderData["MENU"]); $i++) { 
+                                $lMenu = $lHeaderData["MENU"][$i];
                                 $lActive = "";
                                 if($lExiststMenu == true) {
                                     if($lMenu["name"] == $lCurrentMenu) {
@@ -173,7 +173,7 @@
                                 }
                             ?>
                             <?php 
-                                if($lMenu["name"] == "Admin" || $lMenu["name"] == "Test") {
+                                if($lMenu["name"] == "Admin" || $lMenu["name"] == "Doc") {
                                     if(!isset($_SESSION["login"])) continue;
                                     else if($_SESSION["login"]["group"] != "admin") continue;
                                 }

@@ -15,9 +15,9 @@
         }
         //===============================================
         public function getData() {
-            if(GConfig::Instance()->existData("view") == true) {
+            if(GConfig::Instance()->existData("VIEW") == true) {
                 $m_file = "/data/json/";
-                $m_file .= GConfig::Instance()->getData("view"); 
+                $m_file .= GConfig::Instance()->getData("VIEW"); 
                 $m_file .= ".json";
                 $m_data = GJson::Instance()->getData($m_file);
                 if(isset($m_data["meta_data"])) {

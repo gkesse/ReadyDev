@@ -3,9 +3,9 @@
     
     $m_data = GJson::Instance()->getData("data/json/LTspice.json");
     
-    GConfig::Instance()->setData("title", "LTspice");
-    GConfig::Instance()->setData("menu", "Tutoriels");
-    GConfig::Instance()->setData("view", "LTspice");
+    GConfig::Instance()->setData("TITLE", "LTspice");
+    GConfig::Instance()->setData("MENU", "Tutoriels");
+    GConfig::Instance()->setData("VIEW", "LTspice");
     GConfig::Instance()->setData("link", $m_data["links"]);
 
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";

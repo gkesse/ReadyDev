@@ -3,9 +3,9 @@
     
     $m_data = GJson::Instance()->getData("data/json/Make_03.json");
     
-    GConfig::Instance()->setData("title", "Make");
-    GConfig::Instance()->setData("menu", "Tutoriels");
-    GConfig::Instance()->setData("view", "Make_03");
+    GConfig::Instance()->setData("TITLE", "Make");
+    GConfig::Instance()->setData("MENU", "Tutoriels");
+    GConfig::Instance()->setData("VIEW", "Make_03");
     GConfig::Instance()->setData("link", $m_data["links"]);
     GConfig::Instance()->setData("dir", __FILE__);
 

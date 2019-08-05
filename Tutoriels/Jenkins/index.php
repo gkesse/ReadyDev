@@ -3,9 +3,9 @@
     
     $m_data = GJson::Instance()->getData("data/json/Jenkins.json");
     
-    GConfig::Instance()->setData("title", "Jenkins");
-    GConfig::Instance()->setData("menu", "Tutoriels");
-    GConfig::Instance()->setData("view", "Jenkins");
+    GConfig::Instance()->setData("TITLE", "Jenkins");
+    GConfig::Instance()->setData("MENU", "Tutoriels");
+    GConfig::Instance()->setData("VIEW", "Jenkins");
     GConfig::Instance()->setData("link", $m_data["links"]);
 
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";

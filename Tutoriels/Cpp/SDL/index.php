@@ -3,9 +3,9 @@
     
     $m_data = GJson::Instance()->getData("data/json/SDL.json");
     
-    GConfig::Instance()->setData("title", "SDL");
-    GConfig::Instance()->setData("menu", "Tutoriels");
-    GConfig::Instance()->setData("view", "SDL");
+    GConfig::Instance()->setData("TITLE", "SDL");
+    GConfig::Instance()->setData("MENU", "Tutoriels");
+    GConfig::Instance()->setData("VIEW", "SDL");
     GConfig::Instance()->setData("link", $m_data["links"]);
 
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";

@@ -3,9 +3,9 @@
     
     $lData = GJson::Instance()->getData("data/json/CV_02.json");
     
-    GConfig::Instance()->setData("title", "Curriculum Vitae");
-    GConfig::Instance()->setData("menu", "CV");
-    GConfig::Instance()->setData("view", "CV_02");
+    GConfig::Instance()->setData("TITLE", "Curriculum Vitae");
+    GConfig::Instance()->setData("MENU", "CV");
+    GConfig::Instance()->setData("VIEW", "CV_02");
     GConfig::Instance()->setData("link", $lData["links"]);
     GConfig::Instance()->setData("dir", __FILE__);
 
