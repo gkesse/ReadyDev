@@ -3,9 +3,9 @@
     
     $m_data = GJson::Instance()->getData("data/json/JavaEE.json");
     
-    GConfig::Instance()->setData("TITLE", "JavaEE");
-    GConfig::Instance()->setData("MENU", "Tutoriels");
-    GConfig::Instance()->setData("VIEW", "JavaEE");
+    GConfig::Instance()->setData("title", "JavaEE");
+    GConfig::Instance()->setData("menu", "Tutoriels");
+    GConfig::Instance()->setData("view", "JavaEE");
     GConfig::Instance()->setData("link", $m_data["links"]);
 
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";

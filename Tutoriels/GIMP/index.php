@@ -3,9 +3,9 @@
     
     $m_data = GJson::Instance()->getData("data/json/GIMP.json");
     
-    GConfig::Instance()->setData("TITLE", "GIMP");
-    GConfig::Instance()->setData("MENU", "Tutoriels");
-    GConfig::Instance()->setData("VIEW", "GIMP");
+    GConfig::Instance()->setData("title", "GIMP");
+    GConfig::Instance()->setData("menu", "Tutoriels");
+    GConfig::Instance()->setData("view", "GIMP");
     GConfig::Instance()->setData("link", $m_data["links"]);
 
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";

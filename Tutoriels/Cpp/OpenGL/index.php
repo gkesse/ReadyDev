@@ -3,9 +3,9 @@
     
     $m_data = GJson::Instance()->getData("data/json/OpenGL.json");
     
-    GConfig::Instance()->setData("TITLE", "OpenGL");
-    GConfig::Instance()->setData("MENU", "Tutoriels");
-    GConfig::Instance()->setData("VIEW", "OpenGL");
+    GConfig::Instance()->setData("title", "OpenGL");
+    GConfig::Instance()->setData("menu", "Tutoriels");
+    GConfig::Instance()->setData("view", "OpenGL");
     GConfig::Instance()->setData("link", $m_data["links"]);
 
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";

@@ -1656,11 +1656,12 @@ span {
 }
 
 .Title3 {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: #3A405B;
     display: inline-block;
     vertical-align: middle;
     font-family: Aclonica;
-    color: #f67b20;
+    font-size: 18px;
+    color: #BF8E3A;
     padding: 10px;
 }
 

@@ -3,9 +3,9 @@
     
     $lData = GJson::Instance()->getData("data/json/MathJax.json");
     
-    GConfig::Instance()->setData("TITLE", "MATHJAX");
-    GConfig::Instance()->setData("MENU", "Tutoriels");
-    GConfig::Instance()->setData("VIEW", "MATHJAX");
+    GConfig::Instance()->setData("title", "MATHJAX");
+    GConfig::Instance()->setData("menu", "Tutoriels");
+    GConfig::Instance()->setData("view", "MATHJAX");
     GConfig::Instance()->setData("link", $lData["links"]);
 
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";

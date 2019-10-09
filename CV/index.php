@@ -3,9 +3,9 @@
     
     $lData = GJson::Instance()->getData("data/json/CV.json");
     
-    GConfig::Instance()->setData("TITLE", "CV");
-    GConfig::Instance()->setData("MENU", "CV");
-    GConfig::Instance()->setData("VIEW", "CV");
+    GConfig::Instance()->setData("title", "CV");
+    GConfig::Instance()->setData("menu", "CV");
+    GConfig::Instance()->setData("view", "CV");
 
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";
 ?>

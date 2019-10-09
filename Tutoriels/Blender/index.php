@@ -3,9 +3,9 @@
     
     $m_data = GJson::Instance()->getData("data/json/Blender.json");
     
-    GConfig::Instance()->setData("TITLE", "Blender");
-    GConfig::Instance()->setData("MENU", "Tutoriels");
-    GConfig::Instance()->setData("VIEW", "Blender");
+    GConfig::Instance()->setData("title", "Blender");
+    GConfig::Instance()->setData("menu", "Tutoriels");
+    GConfig::Instance()->setData("view", "Blender");
     GConfig::Instance()->setData("link", $m_data["links"]);
 
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";

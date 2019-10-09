@@ -3,9 +3,9 @@
     
     $m_data = GJson::Instance()->getData("data/json/Qt.json");
     
-    GConfig::Instance()->setData("TITLE", "Qt");
-    GConfig::Instance()->setData("MENU", "Tutoriels");
-    GConfig::Instance()->setData("VIEW", "Qt");
+    GConfig::Instance()->setData("title", "Qt");
+    GConfig::Instance()->setData("menu", "Tutoriels");
+    GConfig::Instance()->setData("view", "Qt");
     GConfig::Instance()->setData("link", $m_data["links"]);
 
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";

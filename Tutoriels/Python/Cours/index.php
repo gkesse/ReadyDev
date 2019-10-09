@@ -3,9 +3,9 @@
     
     $m_data = GJson::Instance()->getData("data/json/Python_02.json");
     
-    GConfig::Instance()->setData("TITLE", "Python");
-    GConfig::Instance()->setData("MENU", "Tutoriels");
-    GConfig::Instance()->setData("VIEW", "Python_02");
+    GConfig::Instance()->setData("title", "Python");
+    GConfig::Instance()->setData("menu", "Tutoriels");
+    GConfig::Instance()->setData("view", "Python_02");
     GConfig::Instance()->setData("link", $m_data["links"]);
 
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";

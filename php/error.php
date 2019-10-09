@@ -1,7 +1,7 @@
 <?php
      require $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoloadRegister.php";
         
-    GConfig::Instance()->setData("TITLE", "ERREUR");
+    GConfig::Instance()->setData("title", "ERREUR");
 
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";
 ?>

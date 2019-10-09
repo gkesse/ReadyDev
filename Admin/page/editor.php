@@ -37,7 +37,7 @@
                 </h2>
                 <div class="Body6">
                     <div class="Content9">
-                        <b>ReadyHTML</b> est éditeur de page HTML.
+                        <b>ReadyHTML</b> est un éditeur de page HTML.
                         Il vous permet de sélectionner et d'éditer les pages du siteweb,
                         Et ensuite de prévisualiser la page web et son code source.
                         C'est une interface développée en <b>PHP</b>

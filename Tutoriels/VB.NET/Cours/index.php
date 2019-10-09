@@ -3,9 +3,9 @@
     
     $lData = GJson::Instance()->getData("data/json/VB.NET_02.json");
     
-    GConfig::Instance()->setData("TITLE", "VB.NET");
-    GConfig::Instance()->setData("MENU", "Tutoriels");
-    GConfig::Instance()->setData("VIEW", "VB.NET_02");
+    GConfig::Instance()->setData("title", "VB.NET");
+    GConfig::Instance()->setData("menu", "Tutoriels");
+    GConfig::Instance()->setData("view", "VB.NET_02");
     GConfig::Instance()->setData("link", $lData["links"]);
 
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";

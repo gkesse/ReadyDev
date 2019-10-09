@@ -5,10 +5,9 @@
         private $m_dataMap = array();
         //===============================================
         private function __construct() {
-			$this->m_dataMap["CODE_PRETTIFY"] = true;
-			$this->m_dataMap["ACE"] = true;
-			$this->m_dataMap["MATHJAX"] = true;
-			$this->m_dataMap["LOCK_PAGE"] = true;
+			$this->m_dataMap["ace"] = true;
+			$this->m_dataMap["mathjax"] = true;
+			$this->m_dataMap["lock_page"] = true;
         }
         //===============================================
         public static function Instance() {
@@ -23,21 +22,11 @@
         }
         //===============================================
         public function getData($key) {
-            $lExist = $this->existData($key);
-            if($lExist == false) {die("[ GConfig ] Error GConfig::getData: $key<br>");}
             return $this->m_dataMap[$key];        
         }
         //===============================================
         public function existData($key) {
-            $lExist = array_key_exists($key, $this->m_dataMap); 
-            return $lExist;            
-        }
-        //===============================================
-        public function showData() {
-			foreach($this->m_dataMap as $key => $data) {
-				echo $key . " = " . $data . "<br>";
-			}
-			echo "<br>";
+            return array_key_exists($key, $this->m_dataMap);        
         }
         //===============================================
     }

@@ -52,7 +52,7 @@
 			}
 		}
 		$lDataArr = array();
-		$lDataArr["MENU"] = $lDataMenu;
+		$lDataArr["menu"] = $lDataMenu;
 		$lDataArr["file"] = $lDataFile;
 		$lDataArr["dir"] = $lDirPath;
 		$lDataJson = json_encode($lDataArr);
@@ -95,6 +95,80 @@
 		print_r($lDataSum);
 	}
 	//===============================================
+	else if($lReq == "LIST_3") {
+		$lFile = $_REQUEST["file"];
+		$lKey = $_REQUEST["key"];
+		$lID = $_REQUEST["id"];
+		$lDataSum = '';
+		$lDataSum .= '<div class="Content0 GList3">';
+		$lDataSum .= '<div class="Body0" id="'.$lID.'">';
+		$lDataSum .= '<div class="Row26">';
+		$lDataSum .= 'List 3 > '.$lFile.' > '.$lKey;
+		$lDataSum .= '</div>';
+		$lDataSum .= '</div>';
+		$lDataSum .= '<script>';
+		$lDataSum .= 'loadList3("'.$lID.'","'.$lFile.'","'.$lKey.'");';
+		$lDataSum .= '</script>';
+		$lDataSum .= '</div>';
+		print_r($lDataSum);
+	}
+	//===============================================
+	else if($lReq == "LIST_4") {
+		$lFile = $_REQUEST["file"];
+		$lKey = $_REQUEST["key"];
+		$lID = $_REQUEST["id"];
+		$lDataSum = '';
+		$lDataSum .= '<div class="Content0 GList4">';
+		$lDataSum .= '<div class="Body0" id="'.$lID.'">';
+		$lDataSum .= '<div class="Row26">';
+		$lDataSum .= 'List 4 > '.$lFile.' > '.$lKey;
+		$lDataSum .= '</div>';
+		$lDataSum .= '</div>';
+		$lDataSum .= '<script>';
+		$lDataSum .= 'loadList4("'.$lID.'","'.$lFile.'","'.$lKey.'");';
+		$lDataSum .= '</script>';
+		$lDataSum .= '</div>';
+		print_r($lDataSum);
+	}
+	//===============================================
+	else if($lReq == "LIST_5") {
+		$lFile = $_REQUEST["file"];
+		$lKey1 = $_REQUEST["key1"];
+		$lKey2 = $_REQUEST["key2"];
+		$lID = $_REQUEST["id"];
+		$lDataSum = '';
+		$lDataSum .= '<div class="Content0 GList5">';
+		$lDataSum .= '<div class="Body0" id="'.$lID.'">';
+		$lDataSum .= '<div class="Row26">';
+		$lDataSum .= 'List 5 > '.$lFile.' > '.$lKey1.' > '.$lKey2;
+		$lDataSum .= '</div>';
+		$lDataSum .= '</div>';
+		$lDataSum .= '<script>';
+		$lDataSum .= 'loadList5("'.$lID.'","'.$lFile.'","'.$lKey1.'","'.$lKey2.'");';
+		$lDataSum .= '</script>';
+		$lDataSum .= '</div>';
+		print_r($lDataSum);
+	}
+	//===============================================
+	else if($lReq == "LIST_6") {
+		$lFile = $_REQUEST["file"];
+		$lKey1 = $_REQUEST["key1"];
+		$lKey2 = $_REQUEST["key2"];
+		$lID = $_REQUEST["id"];
+		$lDataSum = '';
+		$lDataSum .= '<div class="Content0 GList6">';
+		$lDataSum .= '<div class="Body0" id="'.$lID.'">';
+		$lDataSum .= '<div class="Row26">';
+		$lDataSum .= 'List 6 > '.$lFile.' > '.$lKey1.' > '.$lKey2;
+		$lDataSum .= '</div>';
+		$lDataSum .= '</div>';
+		$lDataSum .= '<script>';
+		$lDataSum .= 'loadList6("'.$lID.'","'.$lFile.'","'.$lKey1.'","'.$lKey2.'");';
+		$lDataSum .= '</script>';
+		$lDataSum .= '</div>';
+		print_r($lDataSum);
+	}
+	//===============================================
 	else if($lReq == "DATA_1") {
 		$lFile = $_REQUEST["file"];
 		$lKey = $_REQUEST["key"];
@@ -108,6 +182,62 @@
 		$lDataSum .= '</div>';
 		$lDataSum .= '<script>';
 		$lDataSum .= 'loadData1("'.$lID.'","'.$lFile.'","'.$lKey.'");';
+		$lDataSum .= '</script>';
+		$lDataSum .= '</div>';
+		print_r($lDataSum);
+	}
+	//===============================================
+	else if($lReq == "DATA_2") {
+		$lFile = $_REQUEST["file"];
+		$lKey1 = $_REQUEST["key1"];
+		$lKey2 = $_REQUEST["key2"];
+		$lID = $_REQUEST["id"];
+		$lDataSum = '';
+		$lDataSum .= '<div class="Content0 GData2">';
+		$lDataSum .= '<div class="Body0" id="'.$lID.'">';
+		$lDataSum .= '<div class="Row26">';
+		$lDataSum .= 'Data 2 > '.$lFile.' > '.$lKey1.' > '.$lKey2;
+		$lDataSum .= '</div>';
+		$lDataSum .= '</div>';
+		$lDataSum .= '<script>';
+		$lDataSum .= 'loadData2("'.$lID.'","'.$lFile.'","'.$lKey1.'","'.$lKey2.'");';
+		$lDataSum .= '</script>';
+		$lDataSum .= '</div>';
+		print_r($lDataSum);
+	}
+	//===============================================
+	else if($lReq == "DATA_3") {
+		$lFile = $_REQUEST["file"];
+		$lKey1 = $_REQUEST["key1"];
+		$lKey2 = $_REQUEST["key2"];
+		$lID = $_REQUEST["id"];
+		$lDataSum = '';
+		$lDataSum .= '<div class="Content0 GData3">';
+		$lDataSum .= '<div class="Body0" id="'.$lID.'">';
+		$lDataSum .= '<div class="Row26">';
+		$lDataSum .= 'Data 3 > '.$lFile.' > '.$lKey1.' > '.$lKey2;
+		$lDataSum .= '</div>';
+		$lDataSum .= '</div>';
+		$lDataSum .= '<script>';
+		$lDataSum .= 'loadData3("'.$lID.'","'.$lFile.'","'.$lKey1.'","'.$lKey2.'");';
+		$lDataSum .= '</script>';
+		$lDataSum .= '</div>';
+		print_r($lDataSum);
+	}
+	//===============================================
+	else if($lReq == "PDF_1") {
+		$lFile = $_REQUEST["file"];
+		$lKey = $_REQUEST["key"];
+		$lID = $_REQUEST["id"];
+		$lDataSum = '';
+		$lDataSum .= '<div class="Content0 GPdf1">';
+		$lDataSum .= '<div class="Body0" id="'.$lID.'">';
+		$lDataSum .= '<div class="Row26">';
+		$lDataSum .= 'Pdf 1 > '.$lFile.' > '.$lKey;
+		$lDataSum .= '</div>';
+		$lDataSum .= '</div>';
+		$lDataSum .= '<script>';
+		$lDataSum .= 'loadPdf1("'.$lID.'","'.$lFile.'","'.$lKey.'");';
 		$lDataSum .= '</script>';
 		$lDataSum .= '</div>';
 		print_r($lDataSum);

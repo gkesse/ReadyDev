@@ -3,9 +3,9 @@
     
     $m_data = GJson::Instance()->getData("data/json/Reaction_Chimique.json");
     
-    GConfig::Instance()->setData("TITLE", "Réaction Chimique");
-    GConfig::Instance()->setData("MENU", "Cours");
-    GConfig::Instance()->setData("VIEW", "Reaction_Chimique");
+    GConfig::Instance()->setData("title", "Réaction Chimique");
+    GConfig::Instance()->setData("menu", "Cours");
+    GConfig::Instance()->setData("view", "Reaction_Chimique");
     GConfig::Instance()->setData("link", $m_data["links"]);
     
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";

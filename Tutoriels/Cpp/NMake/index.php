@@ -3,9 +3,9 @@
     
     $m_data = GJson::Instance()->getData("data/json/NMake.json");
     
-    GConfig::Instance()->setData("TITLE", "NMake");
-    GConfig::Instance()->setData("MENU", "Tutoriels");
-    GConfig::Instance()->setData("VIEW", "NMake");
+    GConfig::Instance()->setData("title", "NMake");
+    GConfig::Instance()->setData("menu", "Tutoriels");
+    GConfig::Instance()->setData("view", "NMake");
     GConfig::Instance()->setData("link", $m_data["links"]);
 
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";

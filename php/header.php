@@ -2,12 +2,12 @@
     GPostRedirectGet::Instance()->redirect();
     GMetaData::Instance()->getData();
 
-    $lTitle = GConfig::Instance()->getData("TITLE"); 
+    $lTitle = GConfig::Instance()->getData("title"); 
     GUrl::Instance()->lastUrl();
     
-    $lExiststMenu = GConfig::Instance()->existData("MENU");
+    $lExiststMenu = GConfig::Instance()->existData("menu");
     if($lExiststMenu == true) {
-        $lCurrentMenu = GConfig::Instance()->getData("MENU"); 
+        $lCurrentMenu = GConfig::Instance()->getData("menu"); 
     }
     
     $lExiststLink = GConfig::Instance()->existData("link");
@@ -15,9 +15,9 @@
         $lLinks = GConfig::Instance()->getData("link"); 
     }
     
-    $lExiststView = GConfig::Instance()->existData("VIEW");
+    $lExiststView = GConfig::Instance()->existData("view");
     if($lExiststView == true) {
-        $lViewTag = GConfig::Instance()->getData("VIEW"); 
+        $lViewTag = GConfig::Instance()->getData("view"); 
         $lViewNum = GView::Instance()->getView($lViewTag);
     }
     
@@ -45,9 +45,8 @@
         $lMetaImg = GConfig::Instance()->getData("meta_img"); 
     }
         
-    $lCodePrettify = GConfig::Instance()->getData("CODE_PRETTIFY");
-    $lAce = GConfig::Instance()->getData("ACE");
-    $lMathJax = GConfig::Instance()->getData("MATHJAX");
+    $lAce = GConfig::Instance()->getData("ace");
+    $lMathJax = GConfig::Instance()->getData("mathjax");
     $lHeaderData = GJson::Instance()->getData("data/json/header.json");
     $lSiteName = $lHeaderData["site"]["name"];    
     $lSiteLogo = $lHeaderData["site"]["logo"];    
@@ -95,26 +94,22 @@
         <meta property="og:site_name" content="<?php echo $lSiteName; ?>"/>
         <!-- ============================================ -->
         <!-- Stylesheet -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aclonica"/>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Akronim"/>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allan"/>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Archivo Narrow"/>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anton"/>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+        <link rel="stylesheet" href="/lib/google_fonts/1.0.0/Aclonica/css.css"/>
+        <link rel="stylesheet" href="/lib/google_fonts/1.0.0/Akronim/css.css"/>
+        <link rel="stylesheet" href="/lib/google_fonts/1.0.0/Allan/css.css"/>
+        <link rel="stylesheet" href="/lib/google_fonts/1.0.0/Archivo_Narrow/css.css"/>
+        <link rel="stylesheet" href="/lib/google_fonts/1.0.0/Anton/css.css"/>
+        <link rel="stylesheet" href="/lib/font_awesome/4.7.0/css/font-awesome.min.css"/>
         <!-- ============================================ -->
         <!-- Script -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="/lib/jquery/3.3.1/jquery.min.js"></script>
         <!-- ============================================ -->
         <?php if($lAce) { ?>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.3.3/ace.js"></script>
-        <?php } ?>
-        <!-- ============================================ -->
-        <?php if($lCodePrettify) { ?>
-        <script src="/lib/prettify/loader/run_prettify.js?lang=css&amp;skin=sunburst"></script>
+        <script src="/lib/ace/1.4.6/src-min/ace.js"></script>
         <?php } ?>
         <!-- ============================================ -->
         <?php if($lMathJax) { ?>
-        <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script type="text/javascript" async src="/lib/mathjax/2.7.3/MathJax.js?config=TeX-MML-AM_CHTML"></script>
         <script type="text/x-mathjax-config">
         MathJax.Hub.Config({
             tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
@@ -123,7 +118,8 @@
         <?php } ?>
         <!-- ============================================ -->
         <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-109595989-1"></script>
+        <!--script async src="https://www.googletagmanager.com/gtag/js?id=UA-109595989-1"></script-->
+        <script async src="/lib/google_tag_manager/1.0.0/gtag.js?id=UA-109595989-1"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -155,16 +151,16 @@
                 <div class="MainPage">
                     <header class="Header">
                         <!-- ============================================ -->
-                        <ul class="MENU" id="HeaderMenu">
+                        <ul class="Menu" id="HeaderMenu">
                             <li class="Item">
-                                <a class="TITLE" href="/">
+                                <a class="Title" href="/">
                                     <img class="Img4" src="<?php echo $lSiteLogo; ?>"/>
                                     <span class="Title11"><?php echo $lSiteName; ?></span>
                                 </a>
                             </li>
                             <?php 
-                            for($i = 0; $i < count($lHeaderData["MENU"]); $i++) { 
-                                $lMenu = $lHeaderData["MENU"][$i];
+                            for($i = 0; $i < count($lHeaderData["menu"]); $i++) { 
+                                $lMenu = $lHeaderData["menu"][$i];
                                 $lActive = "";
                                 if($lExiststMenu == true) {
                                     if($lMenu["name"] == $lCurrentMenu) {
@@ -173,7 +169,7 @@
                                 }
                             ?>
                             <?php 
-                                if($lMenu["name"] == "Admin" || $lMenu["name"] == "Doc") {
+                                if($lMenu["name"] == "Admin" || $lMenu["name"] == "Test") {
                                     if(!isset($_SESSION["login"])) continue;
                                     else if($_SESSION["login"]["group"] != "admin") continue;
                                 }

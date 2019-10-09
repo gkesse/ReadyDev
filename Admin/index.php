@@ -4,12 +4,11 @@
     $lData = GJson::Instance()->getData("data/json/Admin.json");
     GAdmin::Instance()->validate();
     
-    GConfig::Instance()->setData("TITLE", "Administration");
-    GConfig::Instance()->setData("MENU", "Admin");
-    GConfig::Instance()->setData("VIEW", "Admin");
-    GConfig::Instance()->setData("CODE_PRETTIFY", false);
-    GConfig::Instance()->setData("ACE", false);
-    GConfig::Instance()->setData("MATHJAX", false);
+    GConfig::Instance()->setData("title", "Administration");
+    GConfig::Instance()->setData("menu", "Admin");
+    GConfig::Instance()->setData("view", "Admin");
+    GConfig::Instance()->setData("ace", false);
+    GConfig::Instance()->setData("mathjax", false);
     
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";
 ?>

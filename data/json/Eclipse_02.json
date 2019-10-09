@@ -1,0 +1,22 @@
+{
+    "sitemap":"yes",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+            "Eclipse est un environnement de développement intégré.",
+			"Le but de ce tutoriel est de vous apprendre",
+            "l'utilisatiuon de Eclipse.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Tutoriels/Eclipse/Utilisation",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/data/img/defaults/eclipse.png"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/#Environnement de développement intégré","follow":"no"},
+        {"name":"Eclipse","link":"/Tutoriels/Eclipse/","follow":"no"},
+        {"name":"Utilisation","link":"","follow":"no"}
+    ]
+}
+                        

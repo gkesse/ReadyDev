@@ -3,9 +3,9 @@
     
     $lData = GJson::Instance()->getData("data/json/Cpp.json");
     
-    GConfig::Instance()->setData("TITLE", "C/C++");
-    GConfig::Instance()->setData("MENU", "Tutoriels");
-    GConfig::Instance()->setData("VIEW", "Cpp");
+    GConfig::Instance()->setData("title", "C/C++");
+    GConfig::Instance()->setData("menu", "Tutoriels");
+    GConfig::Instance()->setData("view", "Cpp");
     GConfig::Instance()->setData("link", $lData["links"]);
 
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";

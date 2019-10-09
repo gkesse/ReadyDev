@@ -3,9 +3,9 @@
     
     $m_data = GJson::Instance()->getData("data/json/QMake.json");
     
-    GConfig::Instance()->setData("TITLE", "QMake");
-    GConfig::Instance()->setData("MENU", "Tutoriels");
-    GConfig::Instance()->setData("VIEW", "QMake");
+    GConfig::Instance()->setData("title", "QMake");
+    GConfig::Instance()->setData("menu", "Tutoriels");
+    GConfig::Instance()->setData("view", "QMake");
     GConfig::Instance()->setData("link", $m_data["links"]);
 
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";

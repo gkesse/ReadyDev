@@ -25,7 +25,14 @@
                 <option value="Summary2">Sommaire 2</option>
                 <option value="List1">Liste 1</option>
                 <option value="List2">Liste 2</option>
+                <option value="List3">Liste 3</option>
+                <option value="List4">Liste 4</option>
+                <option value="List5">Liste 5</option>
+                <option value="List6">Liste 6</option>
                 <option value="Data1">Donnée 1</option>
+                <option value="Data2">Donnée 2</option>
+                <option value="Data2">Donnée 2</option>
+                <option value="Pdf1">PDF 1</option>
                 <option value="LineBreak1">Saut Haut</option>
                 <option value="LineBreak2">Saut Bas</option>
                 <option value="LineBreak3">Saut Supprimer</option>

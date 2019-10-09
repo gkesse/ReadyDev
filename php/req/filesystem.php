@@ -37,7 +37,7 @@
 			}
 		}
 		$lDataArr = array();
-		$lDataArr["MENU"] = $lDataMenu;
+		$lDataArr["menu"] = $lDataMenu;
 		$lDataArr["file"] = $lDataFile;
 		$lDataArr["dir"] = $lFilePath;
 		$lDataJson = json_encode($lDataArr);
@@ -78,7 +78,7 @@
 			}
 		}
 		$lDataArr = array();
-		$lDataArr["MENU"] = $lDataMenu;
+		$lDataArr["menu"] = $lDataMenu;
 		$lDataArr["content"] = $lContent;
 		$lDataJson = json_encode($lDataArr);
 		print_r($lDataJson);		
