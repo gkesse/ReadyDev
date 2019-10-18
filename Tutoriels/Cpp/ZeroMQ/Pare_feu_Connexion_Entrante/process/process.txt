@@ -1,0 +1,14 @@
+Port
+Suivant
+TCP
+Ports locaux specifiques
+4040
+Suivant
+Autoriser la connexion
+Suivant
+Domaine
+Prive
+Public
+Suivant
+ZeroMQ
+Terminer
