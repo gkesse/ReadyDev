@@ -118,12 +118,8 @@
         <?php } ?>
         <!-- ============================================ -->
         <!-- Global site tag (gtag.js) - Google Analytics -->
-<<<<<<< HEAD
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-149825656-1"></script>
-=======
         <!--script async src="https://www.googletagmanager.com/gtag/js?id=UA-109595989-1"></script-->
         <script async src="/lib/google_tag_manager/1.0.0/gtag.js?id=UA-109595989-1"></script>
->>>>>>> 73ee4ae5ac9d85329ee502853f794d02fcf40f87
         <script>
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
