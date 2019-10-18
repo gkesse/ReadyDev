@@ -7,7 +7,6 @@
     GConfig::Instance()->setData("title", "Administration");
     GConfig::Instance()->setData("menu", "Admin");
     GConfig::Instance()->setData("view", "Admin");
-    GConfig::Instance()->setData("code_prettify", false);
     GConfig::Instance()->setData("ace", false);
     GConfig::Instance()->setData("mathjax", false);
     

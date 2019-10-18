@@ -13,19 +13,9 @@
 ?>
 <!-- ============================================ -->
 <div class="MainBody">
-    <div class="Content0">
-        <!-- ============================================ -->
-        <div class="MainBlock0">
-            <?php $lPdf = GPdf::Instance()->getUrl($lData["pdf"]);  ?>
-            <object id="pdf" width="100%" class="Content12"
-            data="<?php echo $lPdf; ?>" 
-            type="text/html">
-                La visualisation n’est pas encore disponible sur votre navigateur,
-                veillez à le mettre à jour.
-            </object>
-        </div>
-        <!-- ============================================ -->
-    </div>
+    <!-- ============================================ -->
+    <?php require "page/main.php"; ?>
+    <!-- ============================================ -->
 </div>
 <!-- ============================================ -->
 <?php require $_SERVER["DOCUMENT_ROOT"]."/php/footer.php"; ?>

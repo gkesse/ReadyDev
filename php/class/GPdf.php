@@ -5,7 +5,7 @@
         private $m_pdfViewer;
         //===============================================
         private function __construct() {
-            $this->m_pdfViewer = "/lib/pdfjs/web/viewer.html";
+            $this->m_pdfViewer = "/lib/pdfjs/2.2.2/web/viewer.html";
         }
         //===============================================
         public static function Instance() {

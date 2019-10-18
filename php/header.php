@@ -45,7 +45,6 @@
         $lMetaImg = GConfig::Instance()->getData("meta_img"); 
     }
         
-    $lCodePrettify = GConfig::Instance()->getData("code_prettify");
     $lAce = GConfig::Instance()->getData("ace");
     $lMathJax = GConfig::Instance()->getData("mathjax");
     $lHeaderData = GJson::Instance()->getData("data/json/header.json");
@@ -95,26 +94,22 @@
         <meta property="og:site_name" content="<?php echo $lSiteName; ?>"/>
         <!-- ============================================ -->
         <!-- Stylesheet -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aclonica"/>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Akronim"/>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allan"/>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Archivo Narrow"/>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anton"/>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+        <link rel="stylesheet" href="/lib/google_fonts/1.0.0/Aclonica/css.css"/>
+        <link rel="stylesheet" href="/lib/google_fonts/1.0.0/Akronim/css.css"/>
+        <link rel="stylesheet" href="/lib/google_fonts/1.0.0/Allan/css.css"/>
+        <link rel="stylesheet" href="/lib/google_fonts/1.0.0/Archivo_Narrow/css.css"/>
+        <link rel="stylesheet" href="/lib/google_fonts/1.0.0/Anton/css.css"/>
+        <link rel="stylesheet" href="/lib/font_awesome/4.7.0/css/font-awesome.min.css"/>
         <!-- ============================================ -->
         <!-- Script -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="/lib/jquery/3.3.1/jquery.min.js"></script>
         <!-- ============================================ -->
         <?php if($lAce) { ?>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.3.3/ace.js"></script>
-        <?php } ?>
-        <!-- ============================================ -->
-        <?php if($lCodePrettify) { ?>
-        <script src="/lib/prettify/loader/run_prettify.js?lang=css&amp;skin=sunburst"></script>
+        <script src="/lib/ace/1.4.6/src-min/ace.js"></script>
         <?php } ?>
         <!-- ============================================ -->
         <?php if($lMathJax) { ?>
-        <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script type="text/javascript" async src="/lib/mathjax/2.7.3/MathJax.js?config=TeX-MML-AM_CHTML"></script>
         <script type="text/x-mathjax-config">
         MathJax.Hub.Config({
             tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
@@ -123,7 +118,12 @@
         <?php } ?>
         <!-- ============================================ -->
         <!-- Global site tag (gtag.js) - Google Analytics -->
+<<<<<<< HEAD
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-149825656-1"></script>
+=======
+        <!--script async src="https://www.googletagmanager.com/gtag/js?id=UA-109595989-1"></script-->
+        <script async src="/lib/google_tag_manager/1.0.0/gtag.js?id=UA-109595989-1"></script>
+>>>>>>> 73ee4ae5ac9d85329ee502853f794d02fcf40f87
         <script>
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
