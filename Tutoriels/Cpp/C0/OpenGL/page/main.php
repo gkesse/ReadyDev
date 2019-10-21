@@ -160,6 +160,78 @@ static void GOpenGL_DrawPoints(sGData obj) {
 	glEnd();
 #endif
 }
+//===============================================</xmp></pre></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Tracer une fonction 3D"><a class="Link3" href="#">Tracer une fonction 3D</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">Tracer une fonction 3D </span>avec OpenGL.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1571657698880"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1571657698880");</script></div><br><h2 class="Title7 GTitle2" id="Tracer une fonction 3D-Résultat"><a class="Link9" href="#Tracer une fonction 3D">Résultat</a></h2><br><h3 class="Title8 GTitle3">Cas d'une fonction gaussienne 2D</h3><div class="Img3 GImage"><img src="img/Gaussian2D.png" alt="img/Gaussian2D.png"></div><br><h2 class="Title7 GTitle2" id="Tracer une fonction 3D-Modéliser une focntion 3D"><a class="Link9" href="#Tracer une fonction 3D">Modéliser une focntion 3D</a></h2><br><h3 class="Title8 GTitle3">Cas d'une fonction gaussienne 2D</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+static double GFunction_Gaussian2D(double x, double y, void* params) {
+	sGGaussian2D* lParams = (sGGaussian2D*)params;
+	double lSigmaX = lParams-&gt;sigmaX;
+	double lSigmaY = lParams-&gt;sigmaY;
+	double lX0 = lParams-&gt;x0;
+	double lY0 = lParams-&gt;y0;
+	double lZmax = 1.0/(lSigmaX*lSigmaY*sqrt(2*M_PI));
+	double lAx = pow((x - lX0), 2)/(2*pow(lSigmaX, 2));
+	double lAy = pow((y - lY0), 2)/(2*pow(lSigmaY, 2));
+	double lA = lAx + lAy;
+	double lZ = lZmax*exp(-lA);
+	return lZ;
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tracer une fonction 3D-Calucler une focntion 3D"><a class="Link9" href="#Tracer une fonction 3D">Calucler une focntion 3D</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+static void GFunction_Compute2D(sGFunction2D* func) {
+	double lXmin = func-&gt;xMin;
+	double lXmax = func-&gt;xMax;
+	double lYmin = func-&gt;yMin;
+	double lYmax = func-&gt;yMax;
+	int lxNmax = func-&gt;xNmax;
+	int lyNmax = func-&gt;yNmax;
+	int lNmax = lxNmax*lyNmax;
+	double lDx = (lXmax - lXmin)/(lxNmax - 1);
+	double lDy = (lYmax - lYmin)/(lyNmax - 1);
+	func-&gt;data = (sGVertex*)malloc(sizeof(sGVertex)*lNmax);
+	double lXi = lXmin;
+	int k = 0;
+	for(int i = 0; i &lt; lxNmax; i++) {
+		double lYi = lYmin;
+		for(int j = 0; j &lt; lyNmax; j++) {
+			double lZi = func-&gt;func(lXi, lYi, func-&gt;params);
+			func-&gt;data[k].x = lXi;
+			func-&gt;data[k].y = lYi;
+			func-&gt;data[k].z = lZi;
+			lYi += lDy;
+			k++;
+		}
+		lXi += lDx;
+	}
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tracer une fonction 3D-Tracer une fonction 3D"><a class="Link9" href="#Tracer une fonction 3D">Tracer une fonction 3D</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+static void GOpenGL_DrawHeatMapPoints(sGData2D obj) {
+#if defined(__WIN32)
+	int lxNmax = obj.xNmax;
+	int lyNmax = obj.yNmax;
+	int lNmax = lxNmax*lyNmax;
+	double lZmin = GFunction()-&gt;Min(obj.data, lNmax, 2);
+	double lZmax = GFunction()-&gt;Max(obj.data, lNmax, 2);
+	double lZavg = (lZmin + lZmax) / 2;
+
+	double lPointSize = obj.pointSize;
+
+	glPointSize(lPointSize);
+
+	glBegin(GL_POINTS);
+	for(int i = 0; i &lt; lNmax; i++) {
+		double lZ = obj.data[i].z;
+		double lRed = lZ/lZavg - 1.0;
+		double lBlue = 1.0 - lZ/lZavg;
+		if(lRed &lt; 0) lRed = 0;
+		if(lBlue &lt; 0) lBlue = 0;
+		double lGreen = 1.0 - lRed - lBlue;
+
+		sGVertexDiv lVertexDiv = {obj.data[i] , obj.gridDiv, obj.xDiv, obj.yDiv, obj.zDiv};
+		sGVertex lVertex = GOpenGL_VertexDiv(lVertexDiv);
+		glColor4d(lRed, lGreen, lBlue, 0.5);
+		glVertex3d(lVertex.x, lVertex.y, lVertex.z);
+	}
+	glEnd();
+#endif
+}
 //===============================================</xmp></pre></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Tracer une carte de chaleur"><a class="Link3" href="#">Tracer une carte de chaleur</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">Tracer une carte de chaleur</span> avec OpenGL.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1571362003491"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1571362003491");</script></div><br><h2 class="Title7 GTitle2" id="Tracer une carte de chaleur-Résultat"><a class="Link9" href="#Tracer une carte de chaleur">Résultat</a></h2><br><h3 class="Title8 GTitle3">Cas de la fonction gaussienne</h3><div class="Img3 GImage"><img src="img/HeatMap.png" alt="img/HeatMap.png"></div><br><h2 class="Title7 GTitle2" id="Tracer une carte de chaleur-Modéliser une carte de chaleur"><a class="Link9" href="#Tracer une carte de chaleur">Modéliser une carte de chaleur</a></h2><br><h3 class="Title8 GTitle3">Cas de la focntion gaussienne</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 static double GFunction_Gaussian2D(double x, double y, void* params) {
 	sGGaussian2D* lParams = (sGGaussian2D*)params;
