@@ -330,4 +330,142 @@ static void GOpenGL_DrawDataTab(sGDataTab obj) {
 	glEnd();
 #endif
 }
+//===============================================</xmp></pre></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Tracer des données MCML"><a class="Link3" href="#">Tracer des données MCML</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">Tracer des données MCML </span>avec OpenGL.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1572421246029"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1572421246029");</script></div><br><h2 class="Title7 GTitle2" id="Tracer des données MCML-Résultat"><a class="Link9" href="#Tracer des données MCML">Résultat</a></h2><br><div class="Img3 GImage"><img src="img/Mcml.png" alt="img/Mcml.png"></div><br><h2 class="Title7 GTitle2" id="Tracer des données MCML-Charger les données MCML"><a class="Link9" href="#Tracer des données MCML">Charger les données MCML</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+static void GMcml_Load(char* filename, sGMCML* mcml) {
+    int lOneOnly = TRUE;
+    double lMin = 0.0;
+    double lMax = 0.0;
+
+    GFile2()-&gt;Exist(filename);
+    GFile2()-&gt;Open("MCML", filename, "r");
+
+    for(int x = 0; x &lt; mcml-&gt;xNmax; x++) {
+        for(int z = 0; z &lt; mcml-&gt;zNmax; z++) {
+            for(int y = 0; y &lt; mcml-&gt;yNmax; y++) {
+                int k = z;
+                k += y*GMCML_BUFFER_Z;
+                k += x*GMCML_BUFFER_Y*GMCML_BUFFER_Z;
+
+                double lData;
+                GFile2()-&gt;fScanf("MCML", "%lf", &lData);
+                lData = log(lData + 1);
+                mcml-&gt;data[k] = lData;
+
+                if(lOneOnly == TRUE) {
+                    lOneOnly = FALSE;
+                    lMin = lData;
+                    lMax = lData;
+                }
+
+                if(lMin &gt; lData) lMin = lData;
+                if(lMax &lt; lData) lMax = lData;
+
+                mcml-&gt;vertex[k].x = (double)(x - mcml-&gt;xNmax/2.0)/mcml-&gt;xNmax;
+                mcml-&gt;vertex[k].y = (double)(y - mcml-&gt;yNmax/2.0)/mcml-&gt;yNmax;
+                mcml-&gt;vertex[k].z = (double)(z - mcml-&gt;zNmax/2.0)/mcml-&gt;zNmax * 2.0;
+            }
+        }
+    }
+
+    mcml-&gt;dMin = lMin;
+    mcml-&gt;dMax = lMax;
+
+    GFile2()-&gt;Close("MCML");
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tracer des données MCML-Calculer la carte de chaleur des données MCML"><a class="Link9" href="#Tracer des données MCML">Calculer la carte de chaleur des données MCML</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+static void GMcml_JetColor(sGMCML* mcml) {
+	for(int z = 0; z &lt; mcml-&gt;zNmax; z++) {
+		for(int x = 0; x &lt; mcml-&gt;xNmax; x++) {
+			for(int y = 0; y &lt; mcml-&gt;yNmax; y++) {
+				int k = z;
+				k += y*GMCML_BUFFER_Z;
+				k += x*GMCML_BUFFER_Y*GMCML_BUFFER_Z;
+
+				sGHeat lHeat = {
+						mcml-&gt;data[k],
+						mcml-&gt;dMin,
+						mcml-&gt;dMax,
+						{0}
+				};
+				GHeat()-&gt;JetColor(&lHeat);
+				mcml-&gt;color[k] = lHeat.iColor;
+			}
+		}
+	}
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tracer des données MCML-Tracer le volume des données MCML"><a class="Link9" href="#Tracer des données MCML">Tracer le volume des données MCML</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">
+//===============================================
+static void GOpenGL_DrawMcml(sGMCML obj) {
+#if defined(__WIN32)
+    glPointSize(obj.pointSize);
+
+    glBegin(GL_POINTS);
+    for(int z = 0; z &lt; obj.zNmax; z++) {
+        for(int x = 0; x &lt; obj.xNmax; x++) {
+            for(int y = 0; y &lt; obj.yNmax; y++) {
+                int k = z;
+                k += y*GMCML_BUFFER_Z;
+                k += x*GMCML_BUFFER_Y*GMCML_BUFFER_Z;
+
+                sGVertexDiv lVertexDiv = {obj.vertex[k] , obj.gridDiv, obj.xDiv, obj.yDiv, obj.zDiv};
+                sGVertex lVertex = GOpenGL_VertexDiv(lVertexDiv);
+                glColor4d(obj.color[k].r, obj.color[k].g, obj.color[k].b, obj.alpha);
+                glVertex3d(lVertex.x, lVertex.y, lVertex.z);
+            }
+        }
+    }
+    glEnd();
+#endif
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tracer des données MCML-Tracer les surfaces des données MCML"><a class="Link9" href="#Tracer des données MCML">Tracer les surfaces des données MCML</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+static void GOpenGL_DrawMcmlSlice(sGMCML obj) {
+#if defined(__WIN32)
+    glPointSize(obj.sliceSize);
+
+    glBegin(GL_POINTS);
+    // xy
+    for(int x = 0; x &lt; obj.xNmax; x++) {
+        for(int y = 0; y &lt; obj.yNmax; y++) {
+            int z = obj.sliceZ;
+            int k = z;
+            k += y*GMCML_BUFFER_Z;
+            k += x*GMCML_BUFFER_Y*GMCML_BUFFER_Z;
+
+            sGVertexDiv lVertexDiv = {obj.vertex[k] , obj.gridDiv, obj.xDiv, obj.yDiv, obj.zDiv};
+            sGVertex lVertex = GOpenGL_VertexDiv(lVertexDiv);
+            glColor4d(obj.color[k].r, obj.color[k].g, obj.color[k].b, obj.sliceAlpha);
+            glVertex3d(lVertex.x, lVertex.y, lVertex.z);
+        }
+    }
+    // xz
+    for(int z = 0; z &lt; obj.zNmax; z++) {
+        for(int y = 0; y &lt; obj.yNmax; y++) {
+            int x = obj.sliceX;
+            int k = z;
+            k += y*GMCML_BUFFER_Z;
+            k += x*GMCML_BUFFER_Y*GMCML_BUFFER_Z;
+
+            sGVertexDiv lVertexDiv = {obj.vertex[k] , obj.gridDiv, obj.xDiv, obj.yDiv, obj.zDiv};
+            sGVertex lVertex = GOpenGL_VertexDiv(lVertexDiv);
+            glColor4d(obj.color[k].r, obj.color[k].g, obj.color[k].b, obj.sliceAlpha);
+            glVertex3d(lVertex.x, lVertex.y, lVertex.z);
+        }
+    }
+    // yz
+    for(int z = 0; z &lt; obj.zNmax; z++) {
+        for(int x = 0; x &lt; obj.xNmax; x++) {
+            int y = obj.sliceY;
+            int k = z;
+            k += y*GMCML_BUFFER_Z;
+            k += x*GMCML_BUFFER_Y*GMCML_BUFFER_Z;
+
+            sGVertexDiv lVertexDiv = {obj.vertex[k] , obj.gridDiv, obj.xDiv, obj.yDiv, obj.zDiv};
+            sGVertex lVertex = GOpenGL_VertexDiv(lVertexDiv);
+            glColor4d(obj.color[k].r, obj.color[k].g, obj.color[k].b, obj.sliceAlpha);
+            glVertex3d(lVertex.x, lVertex.y, lVertex.z);
+        }
+    }
+    glEnd();
+#endif
+}
 //===============================================</xmp></pre></div></div></div></div></div><br>
