@@ -1,0 +1,75 @@
+<div class="Parallax GParallax1"><div class="Img Binary"><div class="Caption"><a href="#"><div class="Text">Apprendre la vision par ordinateur en C avec OpenCV</div></a></div></div><div class="Body2 Orange"><b>OpenCV</b> est une bibliothèque pour la vision par ordinateur.<br>Le but de ce tutoriel est de vous apprendre la vision par ordinateur en <b>C</b> avec <b>OpenCV</b>.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary1"><div class="Body0" id="Loader_1529412976174"><div class="Row26">Summary 1</div></div><script>loadSummary1("Loader_1529412976174");</script></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Installation sous Windows"><a class="Link3" href="#">Installation sous Windows</a></h1><div class="Body3">Le but de cette section est de vous présenter les différents outils nécessaires pour apprendre la vision par ordinateur en C++ avec OpenCV, sous Windows.<br>Produit par <b>Gérard KESSE</b>.<br><br>Dans ce tutoriel, nous utiliserons, sous Windows:<br>- OpenCV, comme bibliothèque de vision par ordinateur.<br>-    MinGW, comme compilateur.<br>- CMake, comme outil de construction.<br>- Eclipse, comme environnement de développement intégré.<br>- Java, comme machine virtuelle.<br>-    Notepad++, comme éditeur de texte.<br><br><h3 class="Title8 GTitle3">Télécharger OpenCV</h3><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://opencv.org/">https://opencv.org/</a><br><br><h3 class="Title8 GTitle3">Télécharger MinGW</h3><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://sourceforge.net/projects/mingw-w64/files/">https://sourceforge.net/projects/mingw-w64/files/</a><br><br><h3 class="Title8 GTitle3">Télécharger Eclipse</h3><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://projects.eclipse.org/releases">https://projects.eclipse.org/releases</a><br><br><h3 class="Title8 GTitle3">Télécharger Java</h3><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.oracle.com/technetwork/java/archive-139210.html">https://www.oracle.com/technetwork/java/archive-139210.html</a><br><br><h3 class="Title8 GTitle3">Télécharger Notepad++</h3><a class="Link7 GLink1" style="color:lime;" href="https://notepad-plus-plus.org/fr/">https://notepad-plus-plus.org/fr/</a></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Afficher une image"><a class="Link3" href="#">Afficher une image</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">Afficher une image</span> avec OpenCV.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1574639813691"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1574639813691");</script></div><br><h2 class="Title7 GTitle2" id="Afficher une image-Résultat"><a class="Link9" href="#Afficher une image">Résultat</a></h2><br><div class="Img3 GImage"><img src="img/Image.png" alt="img/Image.png"></div><br><h2 class="Title7 GTitle2" id="Afficher une image-Charger l'image"><a class="Link9" href="#Afficher une image">Charger l'image</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+static void GImage_Load(char* imgName, char* imgFile, int color) {
+#if defined(G_USE_OPENCV_ON)
+	GMapO(GImage, GCHAR_PTR, GVOID_PTR)* lImgMap = m_GImageO-&gt;m_imgMap;
+	IplImage* lImg = cvLoadImage(imgFile, color);
+	if(lImg == 0) {printf("[ GImage ] Error GImage_Load: %s\n", imgFile); exit(0);}
+	lImgMap-&gt;SetData(lImgMap, imgName, lImg, GImage_MapEqual);
+#endif
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Afficher une image-Afficher l'image"><a class="Link9" href="#Afficher une image">Afficher l'image</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+static void GImage_Show(char* imgName, char* windowName) {
+#if defined(G_USE_OPENCV_ON)
+	GMapO(GImage, GCHAR_PTR, GVOID_PTR)* lImgMap = m_GImageO-&gt;m_imgMap;
+	IplImage* lImg = lImgMap-&gt;GetData(lImgMap, imgName, GImage_MapEqual);
+	cvShowImage(windowName, lImg);
+#endif
+}
+//===============================================</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Créer une image en niveau de gris"><a class="Link3" href="#">Créer une image en niveau de gris</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">Créer une image en niveau de gris </span>avec OpenCV.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1574640981916"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1574640981916");</script></div><br>Le niveau de gris est une variation des pixels d'une image du blanc au noir. <br><br><h2 class="Title7 GTitle2" id="Créer une image en niveau de gris-Résultat"><a class="Link9" href="#Créer une image en niveau de gris">Résultat</a></h2><br><div class="Img3 GImage"><img src="img/Gray.png" alt="img/Gray.png"></div><br><h2 class="Title7 GTitle2" id="Créer une image en niveau de gris-Créer l'image en niveau de gris"><a class="Link9" href="#Créer une image en niveau de gris">Créer l'image en niveau de gris</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+static void GImage_CreateGray(char* imgName, char* outName) {
+#if defined(G_USE_OPENCV_ON)
+	GMapO(GImage, GCHAR_PTR, GVOID_PTR)* lImgMap = m_GImageO-&gt;m_imgMap;
+	IplImage* lImg = lImgMap-&gt;GetData(lImgMap, imgName, GImage_MapEqual);
+	CvSize lSize = cvGetSize(lImg);
+	int lDeth = lImg-&gt;depth;
+	int lChannels = 1;
+	IplImage* lOut = cvCreateImage(lSize, lDeth, lChannels);
+	if(lOut == 0) {printf("[ GImage ] Error GImage_CreateGray\n"); exit(0);}
+	lImgMap-&gt;SetData(lImgMap, outName, lOut, GImage_MapEqual);
+#endif
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer une image en niveau de gris-Convertir l'image en niveau de gris"><a class="Link9" href="#Créer une image en niveau de gris">Convertir l'image en niveau de gris</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+static void GImage_Gray(char* imgName, char* outName) {
+#if defined(G_USE_OPENCV_ON)
+	GMapO(GImage, GCHAR_PTR, GVOID_PTR)* lImgMap = m_GImageO-&gt;m_imgMap;
+	IplImage* lImg = lImgMap-&gt;GetData(lImgMap, imgName, GImage_MapEqual);
+	IplImage* lOut = lImgMap-&gt;GetData(lImgMap, outName, GImage_MapEqual);
+	cvCvtColor(lImg, lOut, CV_BGR2GRAY);
+#endif
+}
+//===============================================</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Lisser une image"><a class="Link3" href="#">Lisser une image</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">Lisser une image </span>avec OpenCV.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1574642504180"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1574642504180");</script></div><br>Le lissage est une attenuation des pertubations des pixels d'une image.<br>La pertubation est une variation brutale des piexels.<br><br><h2 class="Title7 GTitle2" id="Lisser une image-Résultat"><a class="Link9" href="#Lisser une image">Résultat</a></h2><br><div class="Img3 GImage"><img src="img/Smooth.png" alt="img/Smooth.png"></div><br><h2 class="Title7 GTitle2" id="Lisser une image-Lisser l'image"><a class="Link9" href="#Lisser une image">Lisser l'image</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+static void GImage_Smooth(char* imgName, char* outName) {
+#if defined(G_USE_OPENCV_ON)
+	GMapO(GImage, GCHAR_PTR, GVOID_PTR)* lImgMap = m_GImageO-&gt;m_imgMap;
+	IplImage* lImg = lImgMap-&gt;GetData(lImgMap, imgName, GImage_MapEqual);
+	IplImage* lOut = lImgMap-&gt;GetData(lImgMap, outName, GImage_MapEqual);
+	cvSmooth(lImg, lOut, CV_GAUSSIAN, 3, 3, 0, 0);
+#endif
+}
+//===============================================</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Créer une pyramide d'images"><a class="Link3" href="#">Créer une pyramide d'images</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">Créer une pyramide d'images </span>avec OpenCV.<br>Produit par <b>Gérard KESSE</b>.<br><br>La pyramide d'images est une représentation d'une image sous plusieurs résolutions.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1574643464439"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1574643464439");</script></div><br><h2 class="Title7 GTitle2" id="Créer une pyramide d'images-Résultat"><a class="Link9" href="#Créer une pyramide d'images">Résultat</a></h2><br><h3 class="Title8 GTitle3">Cas d'une division par 2</h3><div class="Img3 GImage"><img src="img/PyrDown.png" alt="img/PyrDown.png"></div><br><h3 class="Title8 GTitle3">Cas d'une division par 4</h3><div class="Img3 GImage"><img src="img/PyrDown_02.png" alt="img/PyrDown_02.png"></div><br><h2 class="Title7 GTitle2" id="Créer une pyramide d'images-Créer la pyramide d'images"><a class="Link9" href="#Créer une pyramide d'images">Créer la pyramide d'images</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+static void GImage_PyrDown(char* imgName, char* outName) {
+#if defined(G_USE_OPENCV_ON)
+	GMapO(GImage, GCHAR_PTR, GVOID_PTR)* lImgMap = m_GImageO-&gt;m_imgMap;
+	IplImage* lImg = lImgMap-&gt;GetData(lImgMap, imgName, GImage_MapEqual);
+	IplImage* lOut = lImgMap-&gt;GetData(lImgMap, outName, GImage_MapEqual);
+	cvPyrDown(lImg, lOut, CV_GAUSSIAN_5x5);
+#endif
+}
+//===============================================</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Saturer une image"><a class="Link3" href="#">Saturer une image</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">Saturer une image </span>avec OpenCV.<br>Produit par <b>Gérard KESSE</b>.<br><br>La saturation est une mise en évidence d'un ou plusieurs canaux des pixels d'une image.<br>Elle est réalisée en fixant un ou plusieurs canaux à une valeur donnée.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1574644314850"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1574644314850");</script></div><br><h2 class="Title7 GTitle2" id="Saturer une image-Résultat"><a class="Link9" href="#Saturer une image">Résultat</a></h2><br><h3 class="Title8 GTitle3">Cas d'une annulation de la couleur rouge</h3><div class="Img3 GImage"><img src="img/Saturate.png" alt="img/Saturate.png"></div><br><h3 class="Title8 GTitle3">Cas d'une annulation de la couleur vert</h3><div class="Img3 GImage"><img src="img/Saturate_02.png" alt="img/Saturate_02.png"></div><br><h3 class="Title8 GTitle3">Cas d'une annulation de la couleur bleu</h3><div class="Img3 GImage"><img src="img/Saturate_03.png" alt="img/Saturate_03.png"></div><br><h2 class="Title7 GTitle2" id="Saturer une image-Saturer l'image"><a class="Link9" href="#Saturer une image">Saturer l'image</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+static void GImage_Saturate(char* imgName, sGSaturate* saturate) {
+#if defined(G_USE_OPENCV_ON)
+	GMapO(GImage, GCHAR_PTR, GVOID_PTR)* lImgMap = m_GImageO-&gt;m_imgMap;
+	IplImage* lImg = lImgMap-&gt;GetData(lImgMap, imgName, GImage_MapEqual);
+	sGSaturateItem* lRed = &saturate-&gt;red;
+	sGSaturateItem* lGreen = &saturate-&gt;green;
+	sGSaturateItem* lBlue = &saturate-&gt;blue;
+	for(int j = 0; j &lt; lImg-&gt;height; j++) {
+		for(int i = 0; i &lt; lImg-&gt;width; i++) {
+			if(lRed-&gt;flag == 1) GImage()-&gt;SetPixelChannel(imgName, i, j, 2, lRed-&gt;color);
+			if(lGreen-&gt;flag == 1) GImage()-&gt;SetPixelChannel(imgName, i, j, 1, lGreen-&gt;color);
+			if(lBlue-&gt;flag == 1) GImage()-&gt;SetPixelChannel(imgName, i, j, 0, lBlue-&gt;color);
+		}
+	}
+#endif
+}
+//===============================================</xmp></pre></div><br></div></div></div></div><br>

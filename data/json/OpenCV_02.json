@@ -10,12 +10,12 @@
             "Produit par Gérard KESSE."
         ],
         "meta_cano":"/Tutoriels/Cpp/OpenCV/",
-        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/data/img/defaults/opencv.jpg"
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/data/img/defaults/OpenCV_02.png"
     },    
     "links":
     [
         {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
-        {"name":"C/C++","link":"/Tutoriels/Cpp/#Vision par ordinateur","follow":"no"},
+        {"name":"C","link":"/Tutoriels/Cpp/#Vision par ordinateur","follow":"no"},
         {"name":"OpenCV","link":"","follow":"no"}
     ]
 }
