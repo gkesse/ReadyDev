@@ -41,6 +41,7 @@
     ],
     "computer_vision":
     [
+        {"name":"Apprendre la vision par ordinateur en C avec OpenCV","link":"/Tutoriels/Cpp/C0/OpenCV/","follow":"yes"},
         {"name":"Apprendre la vision par ordinateur en C++ avec OpenCV","link":"/Tutoriels/Cpp/OpenCV/","follow":"yes"}
     ],
     "database":
