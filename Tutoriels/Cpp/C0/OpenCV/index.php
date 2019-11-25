@@ -5,7 +5,7 @@
     
     GConfig::Instance()->setData("title", "OpenCV");
     GConfig::Instance()->setData("menu", "Tutoriels");
-    GConfig::Instance()->setData("view", "OpenCV");
+    GConfig::Instance()->setData("view", "OpenCV_02");
     GConfig::Instance()->setData("link", $m_data["links"]);
 
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";
