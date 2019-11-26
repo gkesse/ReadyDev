@@ -60,6 +60,30 @@ static void GOpenCVTest_ImageGray() {
 	GImage()-&gt;Remove("GRAY");
 	GWindow()-&gt;RemoveAll();
 }
+//===============================================</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Détecter des contours dans une image"><a class="Link3" href="#">Détecter des contours dans une image</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">Détecter des contours dans une image </span>avec OpenGL.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1574811068061"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1574811068061");</script></div><br><h2 class="Title7 GTitle2" id="Détecter des contours dans une image-Résultat"><a class="Link9" href="#Détecter des contours dans une image">Résultat</a></h2><br><div class="Img3 GImage"><img src="img/Canny.png" alt="img/Canny.png"></div><br><h2 class="Title7 GTitle2" id="Détecter des contours dans une image-Détecter les contours dans l'image"><a class="Link9" href="#Détecter des contours dans une image">Détecter les contours dans l'image</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+static void GImage_Canny(char* imgName, char* outName, int low, int high, int size) {
+#if defined(G_USE_OPENCV_ON)
+	GMapO(GImage, GCHAR_PTR, GVOID_PTR)* lImgMap = m_GImageO-&gt;m_imgMap;
+	IplImage* lImg = lImgMap-&gt;GetData(lImgMap, imgName, GImage_MapEqual);
+	IplImage* lOut = lImgMap-&gt;GetData(lImgMap, outName, GImage_MapEqual);
+	cvCanny(lImg, lOut, low, high, size);
+#endif
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Détecter des contours dans une image-Programme principal"><a class="Link9" href="#Détecter des contours dans une image">Programme principal</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+static void GOpenCVTest_ImageCanny() {
+	GImage()-&gt;Load("IMAGE", "./data/img/lena.jpg", CV_LOAD_IMAGE_COLOR);
+	GImage()-&gt;CreateGray("IMAGE", "CANNY");
+	GImage()-&gt;Gray("IMAGE", "CANNY");
+	GImage()-&gt;Canny("CANNY", "CANNY", 10, 100, 3);
+	GWindow()-&gt;Create("IMAGE", CV_WINDOW_AUTOSIZE);
+	GWindow()-&gt;Create("CANNY", CV_WINDOW_AUTOSIZE);
+	GImage()-&gt;Show("IMAGE", "IMAGE");
+	GImage()-&gt;Show("CANNY", "CANNY");
+	GEvent()-&gt;Loop();
+	GImage()-&gt;Remove("IMAGE");
+	GImage()-&gt;Remove("CANNY");
+	GWindow()-&gt;RemoveAll();
+}
 //===============================================</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Lisser une image"><a class="Link3" href="#">Lisser une image</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">Lisser une image </span>avec OpenCV.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1574642504180"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1574642504180");</script></div><br>Le lissage est une attenuation des pertubations des pixels d'une image.<br>La pertubation est une variation brutale des piexels.<br><br><h2 class="Title7 GTitle2" id="Lisser une image-Résultat"><a class="Link9" href="#Lisser une image">Résultat</a></h2><br><div class="Img3 GImage"><img src="img/Smooth.png" alt="img/Smooth.png"></div><br><h2 class="Title7 GTitle2" id="Lisser une image-Lisser l'image"><a class="Link9" href="#Lisser une image">Lisser l'image</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 static void GImage_Smooth(char* imgName, char* outName) {
 #if defined(G_USE_OPENCV_ON)
