@@ -522,4 +522,117 @@ static void GOpenCVImage_HoughCircle() {
     GImage()-&gt;Remove("HOUGHCIRCLE");
     GWindow()-&gt;RemoveAll();
 }
-//===============================================</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Appliquer une transformation affine sur une image"><a class="Link3" href="#">Appliquer une transformation affine sur une image</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">Appliquer une transformation affine sur une image </span>avec OpenCV.<br>Produit par <b>Gérard KESSE</b>.<br><br>La Transformation Affine est une transformation 2D.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1575123474985"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1575123474985");</script></div><br><h2 class="Title7 GTitle2" id="Appliquer une transformation affine sur une image-Résultat"><a class="Link9" href="#Appliquer une transformation affine sur une image">Résultat</a></h2><br><h3 class="Title8 GTitle3">Cas d'une rotation 2D</h3><div class="Img3 GImage"><img src="img/WarpAffine.png" alt="img/WarpAffine.png"></div><br><h2 class="Title7 GTitle2" id="Appliquer une transformation affine sur une image-Appliquer la transformation affine"><a class="Link9" href="#Appliquer une transformation affine sur une image">Appliquer la transformation affine</a></h2><br><br><br><br><h2 class="Title7 GTitle2" id="Appliquer une transformation affine sur une image-Programme principal"><a class="Link9" href="#Appliquer une transformation affine sur une image">Programme principal</a></h2><br><br><br><br></div></div></div></div><br>
+//===============================================</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Appliquer une transformation affine sur une image"><a class="Link3" href="#">Appliquer une transformation affine sur une image</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">Appliquer une transformation affine sur une image </span>avec OpenCV.<br>Produit par <b>Gérard KESSE</b>.<br><br>La Transformation Affine est une transformation 2D.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1575123474985"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1575123474985");</script></div><br><h2 class="Title7 GTitle2" id="Appliquer une transformation affine sur une image-Résultat"><a class="Link9" href="#Appliquer une transformation affine sur une image">Résultat</a></h2><br><h3 class="Title8 GTitle3">Cas d'une rotation 2D</h3><div class="Img3 GImage"><img src="img/WarpAffine.png" alt="img/WarpAffine.png"></div><br><h2 class="Title7 GTitle2" id="Appliquer une transformation affine sur une image-Créer la matrice de transformation affine"><a class="Link9" href="#Appliquer une transformation affine sur une image">Créer la matrice de transformation affine</a></h2><br><h3 class="Title8 GTitle3">Cas d'une rotation 2D</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+static void GMatrix_Rotate2D(char* matName, sGRotate2D rotate) {
+#ifdef G_USE_OPENCV_ON
+	GMapO(GMatrix, GCHAR_PTR, GVOID_PTR)* lMatMap = m_GMatrixO-&gt;m_matMap;
+	CvMat* lMat = lMatMap-&gt;GetData(lMatMap, matName, GMatrix_MapEqual);
+    cv2DRotationMatrix(rotate.center, rotate.angle, rotate.scale, lMat);
+#endif
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Appliquer une transformation affine sur une image-Appliquer la transformation affine"><a class="Link9" href="#Appliquer une transformation affine sur une image">Appliquer la transformation affine</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+static void GImage_WarpAffine(char* imgName, char* outName, char* matName) {
+#if defined(G_USE_OPENCV_ON)
+    GMapO(GImage, GCHAR_PTR, GVOID_PTR)* lImgMap = m_GImageO-&gt;m_imgMap;
+    IplImage* lImg = lImgMap-&gt;GetData(lImgMap, imgName, GImage_MapEqual);
+    IplImage* lOut = lImgMap-&gt;GetData(lImgMap, outName, GImage_MapEqual);
+    CvMat* lMat = GMatrix()-&gt;Get(matName);
+    int lFlags = CV_INTER_LINEAR + CV_WARP_FILL_OUTLIERS;
+    CvScalar lFillVal = cvScalarAll(0);
+    cvWarpAffine(lImg, lOut, lMat, lFlags, lFillVal);
+#endif
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Appliquer une transformation affine sur une image-Programme principal"><a class="Link9" href="#Appliquer une transformation affine sur une image">Programme principal</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+static void GOpenCVImage_WarpAffine() {
+	sGRotate2D lRotate2D = (sGRotate2D){
+		{0.0, 0.0}, {0.5, 0.5}, 45.0, 0.5
+	};
+    GImage()-&gt;Load("IMAGE", "./data/img/lena.jpg", CV_LOAD_IMAGE_COLOR);
+    GImage()-&gt;CreateParams("IMAGE", "WARP_AFFINE");
+    GMatrix()-&gt;Create("MATRIX", 2, 3, CV_32FC1);
+    GImage()-&gt;GetPointF("IMAGE", &lRotate2D.center, lRotate2D.factor);
+    GMatrix()-&gt;Rotate2D("MATRIX", lRotate2D);
+    GImage()-&gt;WarpAffine("IMAGE", "WARP_AFFINE", "MATRIX");
+    GWindow()-&gt;Create("IMAGE", CV_WINDOW_AUTOSIZE);
+    GWindow()-&gt;Create("WARP_AFFINE", CV_WINDOW_AUTOSIZE);
+    GImage()-&gt;Show("IMAGE", "IMAGE");
+    GImage()-&gt;Show("WARP_AFFINE", "WARP_AFFINE");
+    GEvent()-&gt;Loop();
+    GImage()-&gt;Remove("IMAGE");
+    GImage()-&gt;Remove("WARP_AFFINE");
+    GMatrix()-&gt;Remove("MATRIX");
+    GWindow()-&gt;RemoveAll();
+}
+//===============================================</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Appliquer une transformation perspective sur une image"><a class="Link3" href="#">Appliquer une transformation perspective sur une image</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">Appliquer une transformation perspective sur une image </span>avec OpenCV.<br>Produit par <b>Gérard KESSE</b>.<br><br>La Transformation Perspective est une transformation 3D.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1575124612915"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1575124612915");</script></div><br><h2 class="Title7 GTitle2" id="Appliquer une transformation perspective sur une image-Résultat"><a class="Link9" href="#Appliquer une transformation perspective sur une image">Résultat</a></h2><br><div class="Img3 GImage"><img src="img/WarpPerspective.png" alt="img/WarpPerspective.png"></div><br><h2 class="Title7 GTitle2" id="Appliquer une transformation perspective sur une image-Calculer les points de la transformation perspective"><a class="Link9" href="#Appliquer une transformation perspective sur une image">Calculer les points de la transformation perspective</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+static void GImage_GetQuad(char* imgName, sGQuad* quad) {
+#if defined(G_USE_OPENCV_ON)
+    GMapO(GImage, GCHAR_PTR, GVOID_PTR)* lImgMap = m_GImageO-&gt;m_imgMap;
+    IplImage* lImg = lImgMap-&gt;GetData(lImgMap, imgName, GImage_MapEqual);
+    int lWidth = lImg-&gt;width - 1;
+    int lHeight = lImg-&gt;height - 1;
+
+    quad-&gt;srcQuad[0].x = lWidth  * quad-&gt;srcFactor[0].x;
+    quad-&gt;srcQuad[0].y = lHeight * quad-&gt;srcFactor[0].y;
+    quad-&gt;srcQuad[1].x = lWidth  * quad-&gt;srcFactor[1].x;
+    quad-&gt;srcQuad[1].y = lWidth  * quad-&gt;srcFactor[1].y;
+    quad-&gt;srcQuad[2].x = lHeight * quad-&gt;srcFactor[2].x;
+    quad-&gt;srcQuad[2].y = lHeight * quad-&gt;srcFactor[2].y;
+    quad-&gt;srcQuad[3].x = lWidth  * quad-&gt;srcFactor[3].x;
+    quad-&gt;srcQuad[3].y = lHeight * quad-&gt;srcFactor[3].y;
+
+    quad-&gt;dstQuad[0].x = lWidth  * quad-&gt;dstFactor[0].x;
+    quad-&gt;dstQuad[0].y = lHeight * quad-&gt;dstFactor[0].y;
+    quad-&gt;dstQuad[1].x = lWidth  * quad-&gt;dstFactor[1].x;
+    quad-&gt;dstQuad[1].y = lWidth  * quad-&gt;dstFactor[1].y;
+    quad-&gt;dstQuad[2].x = lHeight * quad-&gt;dstFactor[2].x;
+    quad-&gt;dstQuad[2].y = lHeight * quad-&gt;dstFactor[2].y;
+    quad-&gt;dstQuad[3].x = lWidth  * quad-&gt;dstFactor[3].x;
+    quad-&gt;dstQuad[3].y = lHeight * quad-&gt;dstFactor[3].y;
+#endif
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Appliquer une transformation perspective sur une image-Calculer la matrice de transformation perspective"><a class="Link9" href="#Appliquer une transformation perspective sur une image">Calculer la matrice de transformation perspective</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+static void GMatrix_GetPerspective(char* matName, sGQuad quad) {
+#ifdef G_USE_OPENCV_ON
+	GMapO(GMatrix, GCHAR_PTR, GVOID_PTR)* lMatMap = m_GMatrixO-&gt;m_matMap;
+	CvMat* lMat = lMatMap-&gt;GetData(lMatMap, matName, GMatrix_MapEqual);
+    cvGetPerspectiveTransform(quad.srcQuad, quad.dstQuad, lMat);
+#endif
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Appliquer une transformation perspective sur une image-Appliquer la transformation perspective"><a class="Link9" href="#Appliquer une transformation perspective sur une image">Appliquer la transformation perspective</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+static void GImage_WarpPerspective(char* imgName, char* outName, char* matName) {
+#if defined(G_USE_OPENCV_ON)
+    GMapO(GImage, GCHAR_PTR, GVOID_PTR)* lImgMap = m_GImageO-&gt;m_imgMap;
+    IplImage* lImg = lImgMap-&gt;GetData(lImgMap, imgName, GImage_MapEqual);
+    IplImage* lOut = lImgMap-&gt;GetData(lImgMap, outName, GImage_MapEqual);
+    CvMat* lMat = GMatrix()-&gt;Get(matName);
+    int lFlags = CV_INTER_LINEAR + CV_WARP_FILL_OUTLIERS;
+    CvScalar lFillVal = cvScalarAll(0);
+    cvWarpPerspective(lImg, lOut, lMat, lFlags, lFillVal);
+#endif
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Appliquer une transformation perspective sur une image-Programmme principal"><a class="Link9" href="#Appliquer une transformation perspective sur une image">Programmme principal</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+static void GOpenCVImage_WarpPerspective() {
+	sGQuad lQuad = (sGQuad){
+		{{0.0, 0.0}, {0.0, 0.0}, {0.0, 0.0}, {0.0, 0.0}},
+		{{0.0, 0.0}, {0.0, 0.0}, {0.0, 0.0}, {0.0, 0.0}},
+		{{0.0, 0.0}, {1.0, 0.0}, {0.0, 1.0}, {1.0, 1.0}},
+		{{0.05, 0.33}, {0.9, 0.25}, {0.2, 0.7}, {0.8, 0.9}}
+	};
+    GImage()-&gt;Load("IMAGE", "./data/img/lena.jpg", CV_LOAD_IMAGE_COLOR);
+    GImage()-&gt;CreateParams("IMAGE", "WARP_PERSPECTIVE");
+    GMatrix()-&gt;Create("MATRIX", 3, 3, CV_32FC1);
+    GImage()-&gt;GetQuad("IMAGE", &lQuad);
+    GMatrix()-&gt;GetPerspective("MATRIX", lQuad);
+    GImage()-&gt;WarpPerspective("IMAGE", "WARP_PERSPECTIVE", "MATRIX");
+    GWindow()-&gt;Create("IMAGE", CV_WINDOW_AUTOSIZE);
+    GWindow()-&gt;Create("WARP_PERSPECTIVE", CV_WINDOW_AUTOSIZE);
+    GImage()-&gt;Show("IMAGE", "IMAGE");
+    GImage()-&gt;Show("WARP_PERSPECTIVE", "WARP_PERSPECTIVE");
+    GEvent()-&gt;Loop();
+    GImage()-&gt;Remove("IMAGE");
+    GImage()-&gt;Remove("WARP_PERSPECTIVE");
+    GMatrix()-&gt;Remove("MATRIX");
+    GWindow()-&gt;RemoveAll();
+}
+//===============================================
+</xmp></pre></div><br></div></div></div></div><br>
