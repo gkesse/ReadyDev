@@ -64,7 +64,7 @@ static void GOpenCVImage_Gray() {
 	GImage()-&gt;Remove("GRAY");
 	GWindow()-&gt;RemoveAll();
 }
-//===============================================</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Détecter des contours dans une image"><a class="Link3" href="#">Détecter des contours dans une image</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">Détecter des contours dans une image </span>avec OpenGL.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1574811068061"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1574811068061");</script></div><br><h2 class="Title7 GTitle2" id="Détecter des contours dans une image-Résultat"><a class="Link9" href="#Détecter des contours dans une image">Résultat</a></h2><br><div class="Img3 GImage"><img src="img/Canny.png" alt="img/Canny.png"></div><br><h2 class="Title7 GTitle2" id="Détecter des contours dans une image-Détecter les contours dans l'image"><a class="Link9" href="#Détecter des contours dans une image">Détecter les contours dans l'image</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Détecter des contours dans une image"><a class="Link3" href="#">Détecter des contours dans une image</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">Détecter des contours dans une image </span>avec OpenCV.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1574811068061"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1574811068061");</script></div><br><h2 class="Title7 GTitle2" id="Détecter des contours dans une image-Résultat"><a class="Link9" href="#Détecter des contours dans une image">Résultat</a></h2><br><div class="Img3 GImage"><img src="img/Canny.png" alt="img/Canny.png"></div><br><h2 class="Title7 GTitle2" id="Détecter des contours dans une image-Détecter les contours dans l'image"><a class="Link9" href="#Détecter des contours dans une image">Détecter les contours dans l'image</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 static void GImage_Canny(char* imgName, char* outName, int low, int high, int size) {
 #if defined(G_USE_OPENCV_ON)
 	GMapO(GImage, GCHAR_PTR, GVOID_PTR)* lImgMap = m_GImageO-&gt;m_imgMap;
@@ -195,7 +195,7 @@ static void GOpenCVImage_Saturate() {
 	GImage()-&gt;Remove("SATURATE_3");
 	GWindow()-&gt;RemoveAll();
 }
-//===============================================</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Traiter un échantillon d'image"><a class="Link3" href="#">Traiter un échantillon d'image</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">Traiter un échantillon d'image </span>avec OpenGL.<br>Produit par <b>Gérard KESSE</b>.<br><br>Le ROI est une région d'intérêt d'une image.<br>Il permet de travailler localement sur une zone de l'image.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1574808138264"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1574808138264");</script></div><br><h2 class="Title7 GTitle2" id="Traiter un échantillon d'image-Résultat"><a class="Link9" href="#Traiter un échantillon d'image">Résultat</a></h2><br><div class="Img3 GImage"><img src="img/Roi.png" alt="img/Roi.png"></div><br><h2 class="Title7 GTitle2" id="Traiter un échantillon d'image-Récupérer l'échantillon d'image"><a class="Link9" href="#Traiter un échantillon d'image">Récupérer l'échantillon d'image</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Traiter un échantillon d'image"><a class="Link3" href="#">Traiter un échantillon d'image</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">Traiter un échantillon d'image </span>avec OpenCV.<br>Produit par <b>Gérard KESSE</b>.<br><br>Le ROI est une région d'intérêt d'une image.<br>Il permet de travailler localement sur une zone de l'image.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1574808138264"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1574808138264");</script></div><br><h2 class="Title7 GTitle2" id="Traiter un échantillon d'image-Résultat"><a class="Link9" href="#Traiter un échantillon d'image">Résultat</a></h2><br><div class="Img3 GImage"><img src="img/Roi.png" alt="img/Roi.png"></div><br><h2 class="Title7 GTitle2" id="Traiter un échantillon d'image-Récupérer l'échantillon d'image"><a class="Link9" href="#Traiter un échantillon d'image">Récupérer l'échantillon d'image</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 static void GImage_SetRoi(char* imgName, CvRect rect) {
 #if defined(G_USE_OPENCV_ON)
 	GMapO(GImage, GCHAR_PTR, GVOID_PTR)* lImgMap = m_GImageO-&gt;m_imgMap;
@@ -230,7 +230,7 @@ static void GOpenCVImage_Roi() {
 	GImage()-&gt;Remove("IMAGE");
 	GWindow()-&gt;RemoveAll();
 }
-//===============================================</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Créer un échantillon d'image"><a class="Link3" href="#">Créer un échantillon d'image</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">Créer un échantillon d'image </span>avec OpenGL.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1574809343912"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1574809343912");</script></div><br><h2 class="Title7 GTitle2" id="Créer un échantillon d'image-Résultat"><a class="Link9" href="#Créer un échantillon d'image">Résultat</a></h2><br><div class="Img3 GImage"><img src="img/Header.png" alt="img/Header.png"></div><br><h2 class="Title7 GTitle2" id="Créer un échantillon d'image-Créer l'échantillon d'image"><a class="Link9" href="#Créer un échantillon d'image">Créer l'échantillon d'image</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Créer un échantillon d'image"><a class="Link3" href="#">Créer un échantillon d'image</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">Créer un échantillon d'image </span>avec OpenCV.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1574809343912"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1574809343912");</script></div><br><h2 class="Title7 GTitle2" id="Créer un échantillon d'image-Résultat"><a class="Link9" href="#Créer un échantillon d'image">Résultat</a></h2><br><div class="Img3 GImage"><img src="img/Header.png" alt="img/Header.png"></div><br><h2 class="Title7 GTitle2" id="Créer un échantillon d'image-Créer l'échantillon d'image"><a class="Link9" href="#Créer un échantillon d'image">Créer l'échantillon d'image</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 static void GImage_CreateHeader(char* imgName, char* outName, CvRect rect) {
 #if defined(G_USE_OPENCV_ON)
 	GMapO(GImage, GCHAR_PTR, GVOID_PTR)* lImgMap = m_GImageO-&gt;m_imgMap;
@@ -277,7 +277,7 @@ static void GOpenCVImage_Header() {
 	GImage()-&gt;Remove("HEADER");
 	GWindow()-&gt;RemoveAll();
 }
-//===============================================</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Mélanger des d'échantillons d'images"><a class="Link3" href="#">Mélanger des d'échantillons d'images</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">Mélanger des d'échantillons d'images </span>avec OpenGL.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1574810201467"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1574810201467");</script></div><br><h2 class="Title7 GTitle2" id="Mélanger des d'échantillons d'images-Résultat"><a class="Link9" href="#Mélanger des d'échantillons d'images">Résultat</a></h2><br><div class="Img3 GImage"><img src="img/Blend.png" alt="img/Blend.png"></div><br><h2 class="Title7 GTitle2" id="Mélanger des d'échantillons d'images-Programme principal"><a class="Link9" href="#Mélanger des d'échantillons d'images">Programme principal</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Mélanger des d'échantillons d'images"><a class="Link3" href="#">Mélanger des d'échantillons d'images</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">Mélanger des d'échantillons d'images </span>avec OpenCV.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1574810201467"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1574810201467");</script></div><br><h2 class="Title7 GTitle2" id="Mélanger des d'échantillons d'images-Résultat"><a class="Link9" href="#Mélanger des d'échantillons d'images">Résultat</a></h2><br><div class="Img3 GImage"><img src="img/Blend.png" alt="img/Blend.png"></div><br><h2 class="Title7 GTitle2" id="Mélanger des d'échantillons d'images-Programme principal"><a class="Link9" href="#Mélanger des d'échantillons d'images">Programme principal</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 static void GOpenCVImage_Blend() {
 	CvRect lRoi = {
 			150, 150, 150, 150
@@ -309,7 +309,7 @@ static void GOpenCVImage_Blend() {
 	GImage()-&gt;Remove("BLEND");
 	GWindow()-&gt;RemoveAll();
 }
-//===============================================</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Décomposer une image"><a class="Link3" href="#">Décomposer une image</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">Décomposer une image </span>avec OpenGL.<br>Produit par <b>Gérard KESSE</b>.<br><br>Le Split est une décomposition d'une image RGB en trois images en niveau de gris formées chacunes des valeurs sur chaque canal.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1575095847637"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1575095847637");</script></div><br><h2 class="Title7 GTitle2" id="Décomposer une image-Résultat"><a class="Link9" href="#Décomposer une image">Résultat</a></h2><br><h3 class="Title8 GTitle3">Image sur le canal rouge</h3><div class="Img3 GImage"><img src="img/SplitRed.png" alt="img/SplitRed.png"></div><br><h3 class="Title8 GTitle3">Image sur le canal vert</h3><div class="Img3 GImage"><img src="img/SplitGreen.png" alt="img/SplitGreen.png"></div><br><h3 class="Title8 GTitle3">Image sur le canal bleu</h3><div class="Img3 GImage"><img src="img/SplitBlue.png" alt="img/SplitBlue.png"></div><br><h2 class="Title7 GTitle2" id="Décomposer une image-Décomposer l'image"><a class="Link9" href="#Décomposer une image">Décomposer l'image</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Décomposer une image"><a class="Link3" href="#">Décomposer une image</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">Décomposer une image </span>avec OpenCV.<br>Produit par <b>Gérard KESSE</b>.<br><br>Le Split est une décomposition d'une image RGB en trois images en niveau de gris formées chacunes des valeurs sur chaque canal.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1575095847637"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1575095847637");</script></div><br><h2 class="Title7 GTitle2" id="Décomposer une image-Résultat"><a class="Link9" href="#Décomposer une image">Résultat</a></h2><br><h3 class="Title8 GTitle3">Image sur le canal rouge</h3><div class="Img3 GImage"><img src="img/SplitRed.png" alt="img/SplitRed.png"></div><br><h3 class="Title8 GTitle3">Image sur le canal vert</h3><div class="Img3 GImage"><img src="img/SplitGreen.png" alt="img/SplitGreen.png"></div><br><h3 class="Title8 GTitle3">Image sur le canal bleu</h3><div class="Img3 GImage"><img src="img/SplitBlue.png" alt="img/SplitBlue.png"></div><br><h2 class="Title7 GTitle2" id="Décomposer une image-Décomposer l'image"><a class="Link9" href="#Décomposer une image">Décomposer l'image</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 static void GImage_Split(char* imgName, char* redName, char* greenName, char* blueName) {
 #if defined(G_USE_OPENCV_ON)
 	GMapO(GImage, GCHAR_PTR, GVOID_PTR)* lImgMap = m_GImageO-&gt;m_imgMap;
@@ -343,7 +343,7 @@ static void GOpenCVImage_Split() {
 	GWindow()-&gt;RemoveAll();
 }
 //===============================================
-</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Reconstituer une image"><a class="Link3" href="#">Reconstituer une image</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">Reconstituer une image </span>avec OpenGL.<br>Produit par <b>Gérard KESSE</b>.<br><br>Le Merge est une reconstitution d'une image RGB à partir de trois images en niveau de gris.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1575096849161"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1575096849161");</script></div><br><h2 class="Title7 GTitle2" id="Reconstituer une image-Résultat"><a class="Link9" href="#Reconstituer une image">Résultat</a></h2><br><h3 class="Title8 GTitle3">Image RGB reconstituée</h3><div class="Img3 GImage"><img src="img/Merge.png" alt="img/Merge.png"></div><br><h2 class="Title7 GTitle2" id="Reconstituer une image-Reconstituer l'image"><a class="Link9" href="#Reconstituer une image">Reconstituer l'image</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Reconstituer une image"><a class="Link3" href="#">Reconstituer une image</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">Reconstituer une image </span>avec OpenCV.<br>Produit par <b>Gérard KESSE</b>.<br><br>Le Merge est une reconstitution d'une image RGB à partir de trois images en niveau de gris.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1575096849161"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1575096849161");</script></div><br><h2 class="Title7 GTitle2" id="Reconstituer une image-Résultat"><a class="Link9" href="#Reconstituer une image">Résultat</a></h2><br><h3 class="Title8 GTitle3">Image RGB reconstituée</h3><div class="Img3 GImage"><img src="img/Merge.png" alt="img/Merge.png"></div><br><h2 class="Title7 GTitle2" id="Reconstituer une image-Reconstituer l'image"><a class="Link9" href="#Reconstituer une image">Reconstituer l'image</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 static void GImage_Merge(char* imgName, char* redName, char* greenName, char* blueName) {
 #if defined(G_USE_OPENCV_ON)
 	GMapO(GImage, GCHAR_PTR, GVOID_PTR)* lImgMap = m_GImageO-&gt;m_imgMap;
@@ -381,7 +381,7 @@ static void GOpenCVImage_Merge() {
 	GImage()-&gt;Remove("MERGE");
 	GWindow()-&gt;RemoveAll();
 }
-//===============================================</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Additionner des images"><a class="Link3" href="#">Additionner des images</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">Additionner des images </span>avec OpenGL.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1575100867222"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1575100867222");</script></div><br><h2 class="Title7 GTitle2" id="Additionner des images-Résultat"><a class="Link9" href="#Additionner des images">Résultat</a></h2><br><div class="Img3 GImage"><img src="img/AddWeight.png" alt="img/AddWeight.png"></div><br><h2 class="Title7 GTitle2" id="Additionner des images-Additionner les images"><a class="Link9" href="#Additionner des images">Additionner les images</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Additionner des images"><a class="Link3" href="#">Additionner des images</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">Additionner des images </span>avec OpenCV.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1575100867222"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1575100867222");</script></div><br><h2 class="Title7 GTitle2" id="Additionner des images-Résultat"><a class="Link9" href="#Additionner des images">Résultat</a></h2><br><div class="Img3 GImage"><img src="img/AddWeight.png" alt="img/AddWeight.png"></div><br><h2 class="Title7 GTitle2" id="Additionner des images-Additionner les images"><a class="Link9" href="#Additionner des images">Additionner les images</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 static void GImage_AddWeight(char* imgName, char* img2Name, char* outName, sGImgWeight weight) {
 #if defined(G_USE_OPENCV_ON)
     GMapO(GImage, GCHAR_PTR, GVOID_PTR)* lImgMap = m_GImageO-&gt;m_imgMap;
@@ -416,7 +416,7 @@ static void GOpenCVImage_AddWeight() {
     GImage()-&gt;Remove("ADD_WEIGHT");
     GWindow()-&gt;RemoveAll();
 }
-//===============================================</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Seuiller une image"><a class="Link3" href="#">Seuiller une image</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">Seuiller une image </span>avec OpenGL.<br>Produit par <b>Gérard KESSE</b>.<br><br>Le Threshold est une segmentation d'une image en niveau de gris en plusieurs classes.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1575101727163"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1575101727163");</script></div><br><h2 class="Title7 GTitle2" id="Seuiller une image-Résultat"><a class="Link9" href="#Seuiller une image">Résultat</a></h2><br><div class="Img3 GImage"><img src="img/Threshold.png" alt="img/Threshold.png"></div><br><h2 class="Title7 GTitle2" id="Seuiller une image-Seuiller l'image"><a class="Link9" href="#Seuiller une image">Seuiller l'image</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Seuiller une image"><a class="Link3" href="#">Seuiller une image</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">Seuiller une image </span>avec OpenCV.<br>Produit par <b>Gérard KESSE</b>.<br><br>Le Threshold est une segmentation d'une image en niveau de gris en plusieurs classes.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1575101727163"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1575101727163");</script></div><br><h2 class="Title7 GTitle2" id="Seuiller une image-Résultat"><a class="Link9" href="#Seuiller une image">Résultat</a></h2><br><div class="Img3 GImage"><img src="img/Threshold.png" alt="img/Threshold.png"></div><br><h2 class="Title7 GTitle2" id="Seuiller une image-Seuiller l'image"><a class="Link9" href="#Seuiller une image">Seuiller l'image</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 static void GImage_Threshold(char* imgName, char* outName, sGThreshold thres) {
 #if defined(G_USE_OPENCV_ON)
     GMapO(GImage, GCHAR_PTR, GVOID_PTR)* lImgMap = m_GImageO-&gt;m_imgMap;
@@ -443,4 +443,83 @@ static void GOpenCVImage_Threshold() {
     GImage()-&gt;Remove("THRESHOLD");
     GWindow()-&gt;RemoveAll();
 }
-//===============================================</xmp></pre></div><br></div></div></div></div><br>
+//===============================================</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Détecter des cercles dans une image"><a class="Link3" href="#">Détecter des cercles dans une image</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">Détecter des cercles dans une image </span>avec OpenCV.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1575121938124"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1575121938124");</script></div><br><h2 class="Title7 GTitle2" id="Détecter des cercles dans une image-Résultat"><a class="Link9" href="#Détecter des cercles dans une image">Résultat</a></h2><br><h3 class="Title8 GTitle3">Image d'entrée</h3><div class="Img3 GImage"><img src="img/HoughCircle.png" alt="img/HoughCircle.png"></div><br><h3 class="Title8 GTitle3">Image de sortie</h3><div class="Img3 GImage"><img src="img/HoughCircle_02.png" alt="img/HoughCircle_02.png"></div><br><h3 class="Title8 GTitle3">Dénombrement des cercles détectés</h3><div class="Img3 GImage"><img src="img/HoughCircle_03.png" alt="img/HoughCircle_03.png"></div><br><h2 class="Title7 GTitle2" id="Détecter des cercles dans une image-Détecter les cercles dans l'image"><a class="Link9" href="#Détecter des cercles dans une image">Détecter les cercles dans l'image</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+static void GImage_HoughCircle(char* imgName, char* storeName, sGHoughCircle houghCircle) {
+#if defined(G_USE_OPENCV_ON)
+    GMapO(GImage, GCHAR_PTR, GVOID_PTR)* lImgMap = m_GImageO-&gt;m_imgMap;
+    IplImage* lImg = lImgMap-&gt;GetData(lImgMap, imgName, GImage_MapEqual);
+    CvMemStorage* lStore = GStorage()-&gt;GetStore(storeName);
+    int lMethod = houghCircle.method;
+    double lDp = houghCircle.dp;
+    double lMinDist = lImg-&gt;width/10.0;
+    CvSeq* lSeq = cvHoughCircles(lImg, lStore, lMethod, lDp, lMinDist, 100, 100, 0, 0);
+    GStorage()-&gt;SetSeq(storeName, lSeq);
+#endif
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Détecter des cercles dans une image-Afficher les crecles détectés"><a class="Link9" href="#Détecter des cercles dans une image">Afficher les crecles détectés</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+static void GImage_HoughCircleSet(char* imgName, char* storeName) {
+#if defined(G_USE_OPENCV_ON)
+    int lSeqTotal = GStorage()-&gt;GetSeqTotal(storeName);
+    sGCircle lCircle = (sGCircle) {
+        {0, 0}, 0, CV_RGB(255, 0, 0), 2
+    };
+    sGCircle lCenter = (sGCircle) {
+        {0, 0}, 8, CV_RGB(0, 255, 0), -1
+    };
+    sGLine lRadius = (sGLine) {
+        {0, 0}, {0, 0}, CV_RGB(0, 0, 255), 2
+    };
+    for(int i = 0; i &lt; lSeqTotal; i++) {
+        GStorage()-&gt;GetSeqCircle(storeName, i, &lCircle);
+        lCenter.center = lCircle.center;
+        lRadius.pt1 = lCircle.center;
+        lRadius.pt2 = lCircle.center;
+        lRadius.pt2.x += lCircle.radius;
+        GImage()-&gt;Circle(imgName, lCircle);
+        GImage()-&gt;Circle(imgName, lCenter);
+        GImage()-&gt;Line(imgName, lRadius);
+    }
+#endif
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Détecter des cercles dans une image-Dénombrer les crecles détectés"><a class="Link9" href="#Détecter des cercles dans une image">Dénombrer les crecles détectés</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+static void GStorage_ShowSeqCircle(char* seqName) {
+#ifdef G_USE_OPENCV_ON
+	GMapO(GStorage, GCHAR_PTR, GVOID_PTR)* lSeqMap = m_GStorageO-&gt;m_seqMap;
+	CvSeq* lSeq = lSeqMap-&gt;GetData(lSeqMap, seqName, GStorage_MapEqual);
+	int lSeqTotal = lSeq-&gt;total;
+	printf("[ GStrorage ] : SeqTotal: %d\n", lSeqTotal);
+	if(lSeqTotal == 0) return;
+	sGCircle lCircle;
+	for(int i = 0; i &lt; lSeqTotal; i++) {
+		GStorage()-&gt;GetSeqCircle(seqName, i, &lCircle);
+		printf("[ GStrorage ] : SeqCircle[%d][x ; y ; r]: %d ; %d ; %d\n", i, lCircle.center.x, lCircle.center.y, lCircle.radius);
+	}
+#endif
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Détecter des cercles dans une image-Programme principal"><a class="Link9" href="#Détecter des cercles dans une image">Programme principal</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+static void GOpenCVImage_HoughCircle() {
+    sGHoughCircle lHoughCircle = (sGHoughCircle){
+        CV_HOUGH_GRADIENT, 2, 100
+    };
+    GStorage()-&gt;CreateStore("STORAGE", 0);
+    GImage()-&gt;Load("IMAGE", "./data/img/circle.jpg", CV_LOAD_IMAGE_COLOR);
+    GImage()-&gt;CreateGray("IMAGE", "GRAY");
+    GImage()-&gt;CreateParams("IMAGE", "HOUGHCIRCLE");
+    GImage()-&gt;Gray("IMAGE", "GRAY");
+    GImage()-&gt;Copy("IMAGE", "HOUGHCIRCLE");
+    GImage()-&gt;HoughCircle("GRAY", "STORAGE", lHoughCircle);
+    GImage()-&gt;HoughCircleSet("HOUGHCIRCLE", "STORAGE");
+    GStorage()-&gt;ShowSeqTotal("STORAGE");
+    GWindow()-&gt;Create("IMAGE", CV_WINDOW_AUTOSIZE);
+    GWindow()-&gt;Create("GRAY", CV_WINDOW_AUTOSIZE);
+    GWindow()-&gt;Create("HOUGHCIRCLE", CV_WINDOW_AUTOSIZE);
+    GImage()-&gt;Show("IMAGE", "IMAGE");
+    GImage()-&gt;Show("GRAY", "GRAY");
+    GImage()-&gt;Show("HOUGHCIRCLE", "HOUGHCIRCLE");
+    GEvent()-&gt;Loop();
+    GImage()-&gt;Remove("IMAGE");
+    GImage()-&gt;Remove("GRAY");
+    GImage()-&gt;Remove("HOUGHCIRCLE");
+    GWindow()-&gt;RemoveAll();
+}
+//===============================================</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Appliquer une transformation affine sur une image"><a class="Link3" href="#">Appliquer une transformation affine sur une image</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">Appliquer une transformation affine sur une image </span>avec OpenCV.<br>Produit par <b>Gérard KESSE</b>.<br><br>La Transformation Affine est une transformation 2D.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1575123474985"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1575123474985");</script></div><br><h2 class="Title7 GTitle2" id="Appliquer une transformation affine sur une image-Résultat"><a class="Link9" href="#Appliquer une transformation affine sur une image">Résultat</a></h2><br><h3 class="Title8 GTitle3">Cas d'une rotation 2D</h3><div class="Img3 GImage"><img src="img/WarpAffine.png" alt="img/WarpAffine.png"></div><br><h2 class="Title7 GTitle2" id="Appliquer une transformation affine sur une image-Appliquer la transformation affine"><a class="Link9" href="#Appliquer une transformation affine sur une image">Appliquer la transformation affine</a></h2><br><br><br><br><h2 class="Title7 GTitle2" id="Appliquer une transformation affine sur une image-Programme principal"><a class="Link9" href="#Appliquer une transformation affine sur une image">Programme principal</a></h2><br><br><br><br></div></div></div></div><br>
