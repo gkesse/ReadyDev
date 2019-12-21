@@ -1,0 +1,22 @@
+{
+    "sitemap":"no",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+            "Git est un système de gestion de versions.",
+            "GitHub est un hébergeur web de données Git.",
+			"Le but de ce tutoriel est de vous apprendre",
+            "la gestion de données Git avec GitHub.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Tutoriels/Git/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/data/img/defaults/G_GitHub.png"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"Gestion de Version","link":"/Tutoriels/#Système de Gestion de Version","follow":"no"},
+        {"name":"GitHub","link":"","follow":"no"}
+    ]
+}
