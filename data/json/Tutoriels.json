@@ -121,6 +121,13 @@
             "description":"Apprenez le<br/> SVN",
             "link":"#",
 			"follow":"no"
+        },
+        {
+            "icon":"fa fa-sitemap",
+            "theme":"GitHub",
+            "description":"Apprenez le<br/> GitHub",
+            "link":"/Tutoriels/GitHub/",
+			"follow":"no"
         }
     ],
     "integration":
