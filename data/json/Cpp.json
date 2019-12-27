@@ -32,7 +32,6 @@
     ],
     "design_patterns":
     [
-        {"name":"Apprendre les patrons de conception en C","link":"/Tutoriels/Cpp/C0/Patrons_Conception/","follow":"yes"},
         {"name":"Apprendre les patrons de conception en C++","link":"/Tutoriels/Cpp/Patrons_Conception/","follow":"yes"}
     ],
     "ihm":

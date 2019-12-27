@@ -16,10 +16,6 @@
     [
         {"name":"Tutoriels","link":"/Tutoriels/#Environnement de développement intégré","follow":"no"},
         {"name":"Eclipse","link":"","follow":"no"}
-    ],
-    "using":
-    [
-        {"name":"Apprendre l'utilisation de Eclipse","link":"/Tutoriels/Eclipse/Utilisation/","follow":"yes"}
     ]
 }
                         

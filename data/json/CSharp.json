@@ -19,10 +19,6 @@
     "software":
     [
         {"name":"Apprendre la programmation avec le C#","link":"/Tutoriels/CSharp/Cours/","follow":"yes"}
-    ],
-    "compilation":
-    [
-        {"name":"Apprendre à compiler un projet C# avec CSC","link":"/Tutoriels/CSharp/CSC/","follow":"yes"}
     ]
 }
                         
