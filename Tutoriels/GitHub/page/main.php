@@ -81,7 +81,37 @@ users
 username
 repositories
 repository
-fork</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Contribuer à un projet avec GitHub"><a class="Link3" href="#">Contribuer à un projet avec GitHub</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">Contribuer à un projet </span>avec GitHub.<br><br>On décide d'apporter la notion de structure dans le programme précédent.<br>La nouvelle architecture  utilisera les fichiers source (<b>main.c, GHello.c</b>).<br>On décide de créer une nouvelle branche (<b>struct</b>) pour gérer les modifications.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1577470151207"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1577470151207");</script></div><br><h2 class="Title7 GTitle2" id="Contribuer à un projet avec GitHub-Créer le fork du projet"><a class="Link9" href="#Contribuer à un projet avec GitHub">Créer le fork du projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">github
+fork</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Créer un pull request avec GitHub"><a class="Link3" href="#">Créer un pull request avec GitHub</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">Créer un pull request </span>avec GitHub.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1577654978838"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1577654978838");</script></div><br><h2 class="Title7 GTitle2" id="Créer un pull request avec GitHub-Créer le pull request"><a class="Link9" href="#Créer un pull request avec GitHub">Créer le pull request</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">github
+profile menu
+your profile
+repositories
+repository
+code
+branch
+compare
+base repository
+base
+head repository
+compare
+able to merge
+create pull request
+title
+leave a comment
+allow edits from maintainers
+create pull request
+title
+leave a comment
+allow edits from maintainers
+create pull request</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Intégrer un pull request avec GitHub"><a class="Link3" href="#">Intégrer un pull request avec GitHub</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">Intégrer un pull request </span>avec GitHub.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1577655246985"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1577655246985");</script></div><br><h2 class="Title7 GTitle2" id="Intégrer un pull request avec GitHub-Intégrer le pull request"><a class="Link9" href="#Intégrer un pull request avec GitHub">Intégrer le pull request</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">github
+profile menu
+your profile
+repositories
+repository
+pull requests
+conversation
+pull request
+merge pull request
+confirm merge</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Contribuer à un projet avec GitHub"><a class="Link3" href="#">Contribuer à un projet avec GitHub</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">Contribuer à un projet </span>avec GitHub.<br><br>On décide d'apporter la notion de structure dans le programme précédent.<br>La nouvelle architecture  utilisera les fichiers source (<b>main.c, GHello.c</b>).<br>On décide de créer une nouvelle branche (<b>struct</b>) pour gérer les modifications.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1577470151207"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1577470151207");</script></div><br><h2 class="Title7 GTitle2" id="Contribuer à un projet avec GitHub-Créer le fork du projet"><a class="Link9" href="#Contribuer à un projet avec GitHub">Créer le fork du projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">github
 profile menu
 your profile
 search
@@ -110,7 +140,163 @@ git branch --all</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Contribuer 
 cd %GPROJECT_ROOT%
 git remote -v</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Contribuer à un projet avec GitHub-Créer la branche"><a class="Link9" href="#Contribuer à un projet avec GitHub">Créer la branche</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">set GPROJECT_ROOT=C:\Users\Admin\Programs\ReadyGithub\paul\projet
 cd %GPROJECT_ROOT%
-git checkout -b struct origin/simple</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Changer les identifiants git sous Windows"><a class="Link3" href="#">Changer les identifiants git sous Windows</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">Changer les identifiants git </span>sous Windows.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1577002484344"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1577002484344");</script></div><br><h2 class="Title7 GTitle2" id="Changer les identifiants git sous Windows-Changer les identifiants git"><a class="Link9" href="#Changer les identifiants git sous Windows">Changer les identifiants git</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">windows
+git checkout -b struct origin/simple</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Contribuer à un projet avec GitHub-Programme principal"><a class="Link9" href="#Contribuer à un projet avec GitHub">Programme principal</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GHello.h"
+//===============================================
+int main(int argc, char** argv) {
+    GHello()-&gt;Hello();
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Contribuer à un projet avec GitHub-Module de salutation"><a class="Link9" href="#Contribuer à un projet avec GitHub">Module de salutation</a></h2><br><h3 class="Title8 GTitle3">GHello.c</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GHello.h"
+//===============================================
+static GHelloO* m_GHelloO = 0;
+//===============================================
+static void GHello_Hello();
+//===============================================
+GHelloO* GHello_New() {
+    GHelloO* lObj = (GHelloO*)malloc(sizeof(GHelloO));
+    lObj-&gt;Delete = GHello_Delete;
+    lObj-&gt;Hello = GHello_Hello;
+    return lObj;
+}
+//===============================================
+void GHello_Delete() {
+    GHelloO* lObj = GHello();
+    if(lObj != 0) {
+        free(lObj);
+    }
+    m_GHelloO = 0;
+}
+//===============================================
+GHelloO* GHello() {
+    if(m_GHelloO == 0) {
+        m_GHelloO = GHello_New();
+    }
+    return m_GHelloO;
+}
+//===============================================
+static void GHello_Hello() {
+    printf("Bonjour tout le monde\n");
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GHello.h</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#ifndef _GHello_
+#define _GHello_
+//===============================================
+#include "GInclude.h"
+//===============================================
+typedef struct _GHelloO GHelloO;
+//===============================================
+struct _GHelloO {
+    void (*Delete)();
+    void (*Hello)();
+};
+//===============================================
+GHelloO* GHello_New();
+void GHello_Delete();
+GHelloO* GHello();
+//===============================================
+#endif
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Contribuer à un projet avec GitHub-Module des fichiers header"><a class="Link9" href="#Contribuer à un projet avec GitHub">Module des fichiers header</a></h2><br><h3 class="Title8 GTitle3">GInclude.h</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#ifndef _GInclude_
+#define _GInclude_
+//===============================================
+#if defined(__WIN32)
+//===============================================
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+//===============================================
+#endif
+//===============================================
+#endif
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Contribuer à un projet avec GitHub-Fichier Makefile"><a class="Link9" href="#Contribuer à un projet avec GitHub">Fichier Makefile</a></h2><br><h3 class="Title8 GTitle3">Makefile</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="makefile">GSRC = ../code/GProject/src
+GMGR = $(GSRC)/manager
+GBIN = bin
+GBUILD = build
+GTARGET = $(GBIN)/GProject.exe
+
+GINCS = \
+    -I$(GSRC)/include \
+    
+GLIBS = \
+
+GOBJS = \
+    $(patsubst $(GSRC)/%.c, $(GBUILD)/%.o, $(wildcard $(GSRC)/*.c)) \
+    $(patsubst $(GMGR)/%.c, $(GBUILD)/%.o, $(wildcard $(GMGR)/*.c)) \
+
+GCFLAGS = \
+    -std=c11 \
+
+all: clean compile run
+    
+compile: $(GOBJS)
+	@if not exist "$(GBIN)" @mkdir $(GBIN)
+	gcc -o $(GTARGET) $(GOBJS) $(GLIBS) 
+$(GBUILD)/%.o: $(GSRC)/%.c
+	@if not exist "$(GBUILD)" @mkdir $(GBUILD)
+	gcc $(GCFLAGS) -c $&lt; -o $@ $(GINCS)
+$(GBUILD)/%.o: $(GMGR)/%.c
+	@if not exist "$(GBUILD)" @mkdir $(GBUILD)
+	gcc $(GCFLAGS) -c $&lt; -o $@ $(GINCS)
+run:
+	@echo.
+	@bin\GProject.exe
+	@echo.
+clean:
+	del /q $(GBUILD)\*.o $(GBIN)\*.exe</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Contribuer à un projet avec GitHub-Compiler le projet"><a class="Link9" href="#Contribuer à un projet avec GitHub">Compiler le projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">set GPROJECT_ROOT=C:\Users\Admin\Programs\ReadyGithub\paul\projet\win
+cd %GPROJECT_ROOT%
+mingw32-make</xmp></pre></div><br><h3 class="Title8 GTitle3">Compilation manuelle</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">del /q build\*.o bin\*.exe
+gcc -std=c11  -c ../code/GProject/src/main.c -o build/main.o -I../code/GProject/src/include
+gcc -std=c11  -c ../code/GProject/src/manager/GHello.c -o build/GHello.o -I../code/GProject/src/include
+gcc -o bin/GProject.exe  build/main.o  build/GHello.o</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Contribuer à un projet avec GitHub-Exécuter le projet"><a class="Link9" href="#Contribuer à un projet avec GitHub">Exécuter le projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">set GPROJECT_ROOT=C:\Users\Admin\Programs\ReadyGithub\paul\projet\win
+cd %GPROJECT_ROOT%
+.\bin\GProject.exe</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Contribuer à un projet avec GitHub-Indexer tous les fichiers"><a class="Link9" href="#Contribuer à un projet avec GitHub">Indexer tous les fichiers</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">set GPROJECT_ROOT=C:\Users\Admin\Programs\ReadyGithub\paul\projet
+cd %GPROJECT_ROOT%
+git add --all</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Contribuer à un projet avec GitHub-Valider les modifications"><a class="Link9" href="#Contribuer à un projet avec GitHub">Valider les modifications</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">set GPROJECT_ROOT=C:\Users\Admin\Programs\ReadyGithub\paul\projet
+cd %GPROJECT_ROOT%
+git commit -m "developpement du systeme de structure"</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Contribuer à un projet avec GitHub-Pousser les modifications"><a class="Link9" href="#Contribuer à un projet avec GitHub">Pousser les modifications</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">set GPROJECT_ROOT=C:\Users\Admin\Programs\ReadyGithub\paul\projet
+cd %GPROJECT_ROOT%
+git push -u origin struct</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Contribuer à un projet avec GitHub-Créer la pull request"><a class="Link9" href="#Contribuer à un projet avec GitHub">Créer la pull request</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">github
+profile menu
+your profile
+repositories
+repository
+code
+branch
+compare
+base repository
+base
+head repository
+compare
+able to merge
+create pull request
+title
+leave a comment
+allow edits from maintainers
+create pull request
+title
+leave a comment
+allow edits from maintainers
+create pull request</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Contribuer à un projet avec GitHub-Intégrer la pull request"><a class="Link9" href="#Contribuer à un projet avec GitHub">Intégrer la pull request</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">github
+profile menu
+your profile
+repositories
+repository
+pull requests
+conversation
+pull request
+merge pull request
+confirm merge</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Merger deux branches avec Git"><a class="Link3" href="#">Merger deux branches avec Git</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">Merger deux branches </span>avec Git.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1577655529991"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1577655529991");</script></div><br><h2 class="Title7 GTitle2" id="Merger deux branches avec Git-Récupérer les modifications"><a class="Link9" href="#Merger deux branches avec Git">Récupérer les modifications</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">set GPROJECT_ROOT=C:\Users\Admin\Programs\ReadyGithub\pierre\projet
+cd %GPROJECT_ROOT%
+git fetch origin</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Merger deux branches avec Git-Afficher toutes les branches"><a class="Link9" href="#Merger deux branches avec Git">Afficher toutes les branches</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">set GPROJECT_ROOT=C:\Users\Admin\Programs\ReadyGithub\pierre\projet
+cd %GPROJECT_ROOT%
+git branch --all</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Merger deux branches avec Git-Basculer sur la branche"><a class="Link9" href="#Merger deux branches avec Git">Basculer sur la branche</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">set GPROJECT_ROOT=C:\Users\Admin\Programs\ReadyGithub\pierre\projet
+cd %GPROJECT_ROOT%
+git checkout master</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Merger deux branches avec Git-Merger les deux branches"><a class="Link9" href="#Merger deux branches avec Git">Merger les deux branches</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">set GPROJECT_ROOT=C:\Users\Admin\Programs\ReadyGithub\pierre\projet
+cd %GPROJECT_ROOT%
+git merge master origin/simple</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Merger deux branches avec Git-Pousser les modifications"><a class="Link9" href="#Merger deux branches avec Git">Pousser les modifications</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">set GPROJECT_ROOT=C:\Users\Admin\Programs\ReadyGithub\pierre\projet
+cd %GPROJECT_ROOT%
+git push -u origin master</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Changer les identifiants git sous Windows"><a class="Link3" href="#">Changer les identifiants git sous Windows</a></h1><div class="Body3">Le but de cette section est de vous apprendre à <span class="GColor1" style="color:lime;">Changer les identifiants git </span>sous Windows.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1577002484344"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1577002484344");</script></div><br><h2 class="Title7 GTitle2" id="Changer les identifiants git sous Windows-Changer les identifiants git"><a class="Link9" href="#Changer les identifiants git sous Windows">Changer les identifiants git</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">windows
 panneau de configuration
 tous les Panneaux de configuration
 gestionnaire d'identification
