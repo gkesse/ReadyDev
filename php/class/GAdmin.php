@@ -2,7 +2,6 @@
     class GAdmin {
         //===============================================
         private static $m_instance = null;
-        private $m_data = array();
         //===============================================
         private function __construct() {
             
