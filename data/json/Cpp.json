@@ -36,7 +36,8 @@
     ],
     "ihm":
     [
-        {"name":"Apprendre la création d'interfaces homme-machine en C++ avec Qt","link":"/Tutoriels/Cpp/Qt/","follow":"yes"}
+        {"name":"Apprendre la création d'interfaces homme-machine en C++ avec Qt","link":"/Tutoriels/Cpp/Qt/","follow":"yes"},
+        {"name":"Apprendre la création d'un logiciel de traitement d'image en C++ avec Qt","link":"/Tutoriels/Cpp/Qt/OpenCV","follow":"yes"}
     ],
     "computer_vision":
     [
