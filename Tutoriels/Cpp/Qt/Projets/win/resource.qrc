@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/css">
+        <file alias="style.css">data/css/style.css</file>
+    </qresource>
+    <qresource prefix="/config">
+        <file alias="config.txt">data/config/config.txt</file>
+    </qresource>
+</RCC>
