@@ -1183,6 +1183,7 @@ span {
 
 .Link3 {
     color: #89a830;
+    word-break: break-word;
 }
 
 .Link4 {
