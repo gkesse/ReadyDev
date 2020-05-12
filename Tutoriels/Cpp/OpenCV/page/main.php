@@ -249,4 +249,73 @@ void GProcessCameraUsb::run() {
         if(cv::waitKey(33) >= 0) break;
     }
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Camera_Usb.png" alt="img/Camera_Usb.png"></div></div></div></div></div><br>
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><div class="Img3 GImage"><img src="img/Camera_Usb.png" alt="img/Camera_Usb.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Décodage de QRcode"><a class="Link3" href="#">Décodage de QRcode</a></h1><div class="Body3">Le but de cette section est de vous apprendre le <span class="GColor1" style="color:lime;">Décodage de QRcode</span> avec OpenCV.<br><br>Le QRcode est un type de code-barres à 2 dimensions.<br>Il est utilisé pour stocker du texte sous la forme d'une image 2D.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1589279612854"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1589279612854");</script></div><br><h2 class="Title7 GTitle2" id="Décodage de QRcode-Résultat de détection de QRcode"><a class="Link9" href="#Décodage de QRcode">Résultat de détection de QRcode</a></h2><br><div class="Img3 GImage"><img src="img/QRcode.png" alt="img/QRcode.png"></div><br><h2 class="Title7 GTitle2" id="Décodage de QRcode-Résultat de décodage de QRcode"><a class="Link9" href="#Décodage de QRcode">Résultat de décodage de QRcode</a></h2><br><div class="Img3 GImage"><img src="img/QRcode_02.png" alt="img/QRcode_02.png"></div><br><h2 class="Title7 GTitle2" id="Décodage de QRcode-Script d'encodage de QRcode"><a class="Link9" href="#Décodage de QRcode">Script d'encodage de QRcode</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">#------------------------------------------------
+# encoder qrcode
+#------------------------------------------------
+GTEXT="email:MY_EMAIL;password:MY_PASSWORD"
+GIMG="qrcode.png"
+qrencode -o $GIMG "$GTEXT"</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Décodage de QRcode-Script de décodage de QRcode"><a class="Link9" href="#Décodage de QRcode">Script de décodage de QRcode</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">#------------------------------------------------
+# decoder qrcode
+#------------------------------------------------
+GIMG="qrcode.png"
+zbarimg $GIMG</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Décodage de QRcode-Chargement de l'image"><a class="Link9" href="#Décodage de QRcode">Chargement de l'image</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GOpenCV::loadImage(std::string imgId, std::string filename) {
+    GDebug::Instance()-&gt;write(__CLASSNAME__, "::", __FUNCTION__, "()", _EOA_);
+    cv::Mat* lImg = new cv::Mat;
+    *lImg = cv::imread(filename, -1);
+    m_imgMap[imgId] = lImg;
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Décodage de QRcode-Conversion de l'image en niveau de gris"><a class="Link9" href="#Décodage de QRcode">Conversion de l'image en niveau de gris</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GOpenCV::convertGrayImage(std::string imgId, std::string outId) {
+    GDebug::Instance()-&gt;write(__CLASSNAME__, "::", __FUNCTION__, "()", _EOA_);
+    cv::Mat* lImg = m_imgMap[imgId];
+    cv::Mat* lOut = m_imgMap[outId];
+    cv::cvtColor(*lImg, *lOut, cv::COLOR_BGR2GRAY);
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Décodage de QRcode-Initialisation du décodeur"><a class="Link9" href="#Décodage de QRcode">Initialisation du décodeur</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GZbar::createImage(std::string imageId, std::string imgId) {
+    GDebug::Instance()-&gt;write(__CLASSNAME__, "::", __FUNCTION__, "()", _EOA_);
+    cv::Mat* lImg = GOpenCV::Instance()-&gt;getImage(imgId);
+    zbar::Image* lImage = new zbar::Image(lImg-&gt;cols, lImg-&gt;rows, "Y800", lImg-&gt;data, lImg-&gt;cols * lImg-&gt;rows);
+    zbar::ImageScanner* lScanner = new zbar::ImageScanner;
+    std::vector&lt;std::string&gt;* lStrings = new std::vector&lt;std::string&gt;;
+    std::vector&lt;cv::Point&gt;* lPoints = new std::vector&lt;cv::Point&gt;;
+    lScanner-&gt;set_config(zbar::ZBAR_NONE, zbar::ZBAR_CFG_ENABLE, 1);
+    lScanner-&gt;scan(*lImage);
+    m_imageMap[imageId] = lImage;
+    m_scannerMap[imageId] = lScanner;
+    m_stringsMap[imageId] = lStrings;
+    m_pointsMap[imageId] = lPoints;
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Décodage de QRcode-Décodage du QRcode"><a class="Link9" href="#Décodage de QRcode">Décodage du QRcode</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GZbar::getSymbol(std::string imageId) {
+    GDebug::Instance()-&gt;write(__CLASSNAME__, "::", __FUNCTION__, "()", _EOA_);
+    zbar::Image* lImage = m_imageMap[imageId];
+    std::vector&lt;std::string&gt;* lStrings = m_stringsMap[imageId];
+    for(zbar::Image::SymbolIterator lSymbol = lImage-&gt;symbol_begin(); lSymbol != lImage-&gt;symbol_end(); ++lSymbol) {
+        lStrings-&gt;push_back(lSymbol-&gt;get_type_name());
+        lStrings-&gt;push_back(lSymbol-&gt;get_data());
+    }
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Décodage de QRcode-Détection des points de contour du QRcode"><a class="Link9" href="#Décodage de QRcode">Détection des points de contour du QRcode</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GZbar::getLocation(std::string imageId) {
+    GDebug::Instance()-&gt;write(__CLASSNAME__, "::", __FUNCTION__, "()", _EOA_);
+    zbar::Image* lImage = m_imageMap[imageId];
+    std::vector&lt;cv::Point&gt;* lPoints = m_pointsMap[imageId];
+    for(zbar::Image::SymbolIterator lSymbol = lImage-&gt;symbol_begin(); lSymbol != lImage-&gt;symbol_end(); ++lSymbol) {
+        for(int i = 0; i &lt; lSymbol-&gt;get_location_size(); i++) {
+            cv::Point lPoint(lSymbol-&gt;get_location_x(i), lSymbol-&gt;get_location_y(i));
+            lPoints-&gt;push_back(lPoint);
+        }
+    }
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Décodage de QRcode-Traçage du contour du QRcode"><a class="Link9" href="#Décodage de QRcode">Traçage du contour du QRcode</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GOpenCV::drawQRcodeImage(std::string imgId, std::string imageId, int red, int green, int blue, int thickness) {
+    GDebug::Instance()-&gt;write(__CLASSNAME__, "::", __FUNCTION__, "()", _EOA_);
+    cv::Mat* lImg = m_imgMap[imgId];
+    std::vector&lt;cv::Point&gt;* lPoints = GZbar::Instance()-&gt;getPointsQRcode(imageId);
+    cv::RotatedRect lRotatedRect = cv::minAreaRect(*lPoints);
+    cv::Rect lQRcodeRect = lRotatedRect.boundingRect();
+    cv::rectangle(*lImg, lQRcodeRect, cv::Scalar(blue, green, red, 0), thickness);
+}
+//===============================================</xmp></pre></div><br></div></div></div></div><br>
