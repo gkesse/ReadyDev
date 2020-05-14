@@ -1,11 +1,11 @@
-<div class="Parallax GParallax1"><div class="Img Binary"><div class="Caption"><a href="#"><div class="Text">Apprendre la vision par ordinateur en C++ avec OpenCV</div></a></div></div><div class="Body2 Orange"><b>OpenCV</b> est une bibliothèque pour la vision par ordinateur.<br>Le but de ce tutoriel est de vous apprendre la vision par ordinateur en <b>C++</b> avec <b>OpenCV</b>.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary1"><div class="Body0" id="Loader_1529412976174"><div class="Row26">Summary 1</div></div><script>loadSummary1("Loader_1529412976174");</script></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Introduction"><a class="Link3" href="#">Introduction</a></h1><div class="Body3">Le but de cette section est de vous présenter les outils nécessaires pour apprendre la vision par ordinateur en C++ avec OpenCV.<br><br>Dans ce tutoriel, nous utiliserons:<br>- OpenCV, comme bibliothèque de vision par ordinateur.<br>- Tesseract OCR, comme bibliothèque de reconnaissance optique de caractères.<br>- ZBar, comme bibliothèque de lecture de code-barres.<br><br><h3 class="Title8 GTitle3">Documentation sur OpenCV</h3><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://docs.opencv.org/4.3.0/index.html">https://docs.opencv.org/4.3.0/index.html</a><br><br><h3 class="Title8 GTitle3">Documentation sur Tesseract OCR</h3><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://fossies.org/dox/tesseract-4.1.1/">https://fossies.org/dox/tesseract-4.1.1/</a><br><br><h3 class="Title8 GTitle3">Documentation sur ZBar</h3><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.ccoderun.ca/programming/doxygen/zbar/index.html">https://www.ccoderun.ca/programming/doxygen/zbar/index.html</a><br><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Réconnaissance optique de caractères"><a class="Link3" href="#">Réconnaissance optique de caractères</a></h1><div class="Body3">Le but de cette section est de vous apprendre la <span class="GColor1" style="color:lime;">Réconnaissance optique de caractères </span>avec OpenCV.<br><br>Cette technique consiste à traduire des images de textes imprimés en fichier texte.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1589305939833"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1589305939833");</script></div><br><h2 class="Title7 GTitle2" id="Réconnaissance optique de caractères-Image de textes imprimés"><a class="Link9" href="#Réconnaissance optique de caractères">Image de textes imprimés</a></h2><br><div class="Img3 GImage"><img src="img/ocr.png" alt="img/ocr.png"></div><br><h2 class="Title7 GTitle2" id="Réconnaissance optique de caractères-Résultat de la réconnaissance optique de caractères"><a class="Link9" href="#Réconnaissance optique de caractères">Résultat de la réconnaissance optique de caractères</a></h2><br><div class="Img3 GImage"><img src="img/ocr_02.png" alt="img/ocr_02.png"></div><br><h2 class="Title7 GTitle2" id="Réconnaissance optique de caractères-Chargement de l'image"><a class="Link9" href="#Réconnaissance optique de caractères">Chargement de l'image</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+<div class="Parallax GParallax1"><div class="Img Binary"><div class="Caption"><a href="#"><div class="Text">Apprendre la vision par ordinateur en C++ avec OpenCV</div></a></div></div><div class="Body2 Orange"><b>OpenCV</b> est une bibliothèque pour la vision par ordinateur.<br>Le but de ce tutoriel est de vous apprendre la vision par ordinateur en <b>C++</b> avec <b>OpenCV</b>.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary1"><div class="Body0" id="Loader_1529412976174"><div class="Row26">Summary 1</div></div><script>loadSummary1("Loader_1529412976174");</script></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Introduction"><a class="Link3" href="#">Introduction</a></h1><div class="Body3">Le but de cette section est de vous présenter les outils nécessaires pour apprendre la vision par ordinateur en C++ avec OpenCV.<br><br>Dans ce tutoriel, nous utiliserons:<br>- OpenCV, comme bibliothèque de vision par ordinateur.<br>- Tesseract OCR, comme bibliothèque de reconnaissance optique de caractères.<br>- ZBar, comme bibliothèque de lecture de code-barres.<br><br><h3 class="Title8 GTitle3">Documentation sur OpenCV</h3><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://docs.opencv.org/4.3.0/index.html">https://docs.opencv.org/4.3.0/index.html</a><br><br><h3 class="Title8 GTitle3">Documentation sur Tesseract OCR</h3><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://fossies.org/dox/tesseract-4.1.1/">https://fossies.org/dox/tesseract-4.1.1/</a><br><br><h3 class="Title8 GTitle3">Documentation sur ZBar</h3><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.ccoderun.ca/programming/doxygen/zbar/index.html">https://www.ccoderun.ca/programming/doxygen/zbar/index.html</a><br><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Reconnaissance optique de caractères"><a class="Link3" href="#">Reconnaissance optique de caractères</a></h1><div class="Body3">Le but de cette section est de vous apprendre la <span class="GColor1" style="color:lime;">Reconnaissance optique de caractères </span>avec OpenCV.<br><br>Cette technique consiste à traduire des images de textes imprimés en fichier texte.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1589305939833"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1589305939833");</script></div><br><h2 class="Title7 GTitle2" id="Reconnaissance optique de caractères-Résultat de la reconnaissance optique de caractères"><a class="Link9" href="#Reconnaissance optique de caractères">Résultat de la reconnaissance optique de caractères</a></h2><br><div class="Img3 GImage"><img src="img/ocr.png" alt="img/ocr.png"></div><br><h2 class="Title7 GTitle2" id="Reconnaissance optique de caractères-Chargement de l'image"><a class="Link9" href="#Reconnaissance optique de caractères">Chargement de l'image</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 void GOpenCV::loadImage(std::string imgId, std::string filename) {
     GDebug::Instance()-&gt;write(__CLASSNAME__, "::", __FUNCTION__, "()", _EOA_);
     cv::Mat* lImg = new cv::Mat;
     *lImg = cv::imread(filename, -1);
     m_imgMap[imgId] = lImg;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Réconnaissance optique de caractères-Initialisation de la réconnaissance optique de caractères"><a class="Link9" href="#Réconnaissance optique de caractères">Initialisation de la réconnaissance optique de caractères</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Reconnaissance optique de caractères-Initialisation de la reconnaissance optique de caractères"><a class="Link9" href="#Reconnaissance optique de caractères">Initialisation de la reconnaissance optique de caractères</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 void GTesseract::createTesseract(std::string tesseractId, std::string language) {
     GDebug::Instance()-&gt;write(__CLASSNAME__, "::", __FUNCTION__, "()", _EOA_);
     tesseract::TessBaseAPI* lTesseract = new tesseract::TessBaseAPI();
@@ -14,7 +14,7 @@ void GTesseract::createTesseract(std::string tesseractId, std::string language) 
     lTesseract-&gt;SetPageSegMode(tesseract::PSM_AUTO);
     m_tesseractMap[tesseractId] = lTesseract;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Réconnaissance optique de caractères-Initialisation de l'image"><a class="Link9" href="#Réconnaissance optique de caractères">Initialisation de l'image</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Reconnaissance optique de caractères-Initialisation de l'image"><a class="Link9" href="#Reconnaissance optique de caractères">Initialisation de l'image</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 void GTesseract::setImageOpenCV(std::string tesseractId, std::string imgId, std::string dpi) {
     GDebug::Instance()-&gt;write(__CLASSNAME__, "::", __FUNCTION__, "()", _EOA_);
     tesseract::TessBaseAPI* lTesseract = m_tesseractMap[tesseractId];
@@ -22,35 +22,35 @@ void GTesseract::setImageOpenCV(std::string tesseractId, std::string imgId, std:
     lTesseract-&gt;SetImage(lImg-&gt;data, lImg-&gt;cols, lImg-&gt;rows, 3, lImg-&gt;step);
     lTesseract-&gt;SetVariable("user_defined_dpi", dpi.c_str());
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Réconnaissance optique de caractères-Réconnaissance optique de caractères"><a class="Link9" href="#Réconnaissance optique de caractères">Réconnaissance optique de caractères</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Reconnaissance optique de caractères-Reconnaissance optique de caractères"><a class="Link9" href="#Reconnaissance optique de caractères">Reconnaissance optique de caractères</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 std::string GTesseract::getString(std::string tesseractId) {
     GDebug::Instance()-&gt;write(__CLASSNAME__, "::", __FUNCTION__, "()", _EOA_);
     tesseract::TessBaseAPI* lTesseract = m_tesseractMap[tesseractId];
     std::string lString = std::string(lTesseract-&gt;GetUTF8Text());;
     return lString;
 }
-//===============================================</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Détetction de visage"><a class="Link3" href="#">Détetction de visage</a></h1><div class="Body3">Le but de cette section est de vous apprendre la <span class="GColor1" style="color:lime;">Détetction de visage</span> avec OpenCV.<br><br>Cette technique consiste à détecter un visage humain dans une image. C'est un cas spécifique de détection d'objet, où l'on cherche à détecter la présence et la localisation précise d'un ou plusieurs visages dans une image.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1589300324398"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1589300324398");</script></div><br><h2 class="Title7 GTitle2" id="Détetction de visage-Résultat de détetction de visage"><a class="Link9" href="#Détetction de visage">Résultat de détetction de visage</a></h2><br><div class="Img3 GImage"><img src="img/face_detection_image.png" alt="img/face_detection_image.png"></div><br><h2 class="Title7 GTitle2" id="Détetction de visage-Chargement de l'image"><a class="Link9" href="#Détetction de visage">Chargement de l'image</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Détection faciale"><a class="Link3" href="#">Détection faciale</a></h1><div class="Body3">Le but de cette section est de vous apprendre la <span class="GColor1" style="color:lime;">Détection faciale</span> avec OpenCV.<br><br>Cette technique consiste à détecter un visage humain dans une image. C'est un cas spécifique de détection d'objet, où l'on cherche à détecter la présence et la localisation précise d'un ou plusieurs visages dans une image.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1589300324398"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1589300324398");</script></div><br><h2 class="Title7 GTitle2" id="Détection faciale-Résultat de détetction de visage"><a class="Link9" href="#Détection faciale">Résultat de détetction de visage</a></h2><br><div class="Img3 GImage"><img src="img/face_detection_image.png" alt="img/face_detection_image.png"></div><br><h2 class="Title7 GTitle2" id="Détection faciale-Chargement de l'image"><a class="Link9" href="#Détection faciale">Chargement de l'image</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 void GOpenCV::loadImage(std::string imgId, std::string filename) {
     GDebug::Instance()-&gt;write(__CLASSNAME__, "::", __FUNCTION__, "()", _EOA_);
     cv::Mat* lImg = new cv::Mat;
     *lImg = cv::imread(filename, -1);
     m_imgMap[imgId] = lImg;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Détetction de visage-Convertion de l'image en niveau de gris"><a class="Link9" href="#Détetction de visage">Convertion de l'image en niveau de gris</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Détection faciale-Convertion de l'image en niveau de gris"><a class="Link9" href="#Détection faciale">Convertion de l'image en niveau de gris</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 void GOpenCV::convertGrayImage(std::string imgId, std::string outId) {
     GDebug::Instance()-&gt;write(__CLASSNAME__, "::", __FUNCTION__, "()", _EOA_);
     cv::Mat* lImg = m_imgMap[imgId];
     cv::Mat* lOut = m_imgMap[outId];
     cv::cvtColor(*lImg, *lOut, cv::COLOR_BGR2GRAY);
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Détetction de visage-Egalisation de l'histogramme"><a class="Link9" href="#Détetction de visage">Egalisation de l'histogramme</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Détection faciale-Egalisation de l'histogramme"><a class="Link9" href="#Détection faciale">Egalisation de l'histogramme</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 void GOpenCV::equalizeHistImage(std::string imgId, std::string outId) {
     GDebug::Instance()-&gt;write(__CLASSNAME__, "::", __FUNCTION__, "()", _EOA_);
     cv::Mat* lImg = m_imgMap[imgId];
     cv::Mat* lOut = m_imgMap[outId];
     cv::equalizeHist(*lImg, *lOut);
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Détetction de visage-Initialisation du classificateur en cascade"><a class="Link9" href="#Détetction de visage">Initialisation du classificateur en cascade</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Détection faciale-Initialisation du classificateur en cascade"><a class="Link9" href="#Détection faciale">Initialisation du classificateur en cascade</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 void GOpenCV::createCascadeClassifier(std::string classifierId, std::string filename) {
     GDebug::Instance()-&gt;write(__CLASSNAME__, "::", __FUNCTION__, "()", _EOA_);
     cv::CascadeClassifier* lClassifier = new cv::CascadeClassifier;
@@ -59,7 +59,7 @@ void GOpenCV::createCascadeClassifier(std::string classifierId, std::string file
     m_classifierMap[classifierId] = lClassifier;
     m_rectsMap[classifierId] = lRects;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Détetction de visage-Détection du visage"><a class="Link9" href="#Détetction de visage">Détection du visage</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Détection faciale-Détection du visage"><a class="Link9" href="#Détection faciale">Détection du visage</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 void GOpenCV::detectCascadeClassifier(std::string imgId, std::string classifierId) {
     GDebug::Instance()-&gt;write(__CLASSNAME__, "::", __FUNCTION__, "()", _EOA_);
     cv::Mat* lImg = m_imgMap[imgId];
@@ -67,7 +67,7 @@ void GOpenCV::detectCascadeClassifier(std::string imgId, std::string classifierI
     std::vector&lt;cv::Rect&gt;* lRects = m_rectsMap[classifierId];
     lClassifier-&gt;detectMultiScale(*lImg, *lRects, 1.1, 3, 0 | cv::CASCADE_SCALE_IMAGE, cv::Size(25, 25));
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Détetction de visage-Détection des yeux"><a class="Link9" href="#Détetction de visage">Détection des yeux</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Détection faciale-Détection des yeux"><a class="Link9" href="#Détection faciale">Détection des yeux</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 void GOpenCV::detectCascadeClassifier(std::string imgId, std::string eyeClassifierId, std::string faceClassifierId) {
     GDebug::Instance()-&gt;write(__CLASSNAME__, "::", __FUNCTION__, "()", _EOA_);
     cv::Mat* lImg = m_imgMap[imgId];
@@ -87,30 +87,30 @@ void GOpenCV::detectCascadeClassifier(std::string imgId, std::string eyeClassifi
         }
     }
 }
-//===============================================</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Décodage de QRcode"><a class="Link3" href="#">Décodage de QRcode</a></h1><div class="Body3">Le but de cette section est de vous apprendre le <span class="GColor1" style="color:lime;">Décodage de QRcode</span> avec OpenCV.<br><br>Le QRcode est un type de code-barres à 2 dimensions.<br>Il est utilisé pour stocker du texte sous la forme d'une image 2D.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1589279612854"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1589279612854");</script></div><br><h2 class="Title7 GTitle2" id="Décodage de QRcode-Résultat de détection de QRcode"><a class="Link9" href="#Décodage de QRcode">Résultat de détection de QRcode</a></h2><br><div class="Img3 GImage"><img src="img/qrcode.png" alt="img/qrcode.png"></div><br><h2 class="Title7 GTitle2" id="Décodage de QRcode-Résultat de décodage de QRcode"><a class="Link9" href="#Décodage de QRcode">Résultat de décodage de QRcode</a></h2><br><div class="Img3 GImage"><img src="img/qrcode_02.png" alt="img/qrcode_02.png"></div><br><h2 class="Title7 GTitle2" id="Décodage de QRcode-Script d'encodage de QRcode"><a class="Link9" href="#Décodage de QRcode">Script d'encodage de QRcode</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">#------------------------------------------------
+//===============================================</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Décodage de QR-Code"><a class="Link3" href="#">Décodage de QR-Code</a></h1><div class="Body3">Le but de cette section est de vous apprendre le <span class="GColor1" style="color:lime;">Décodage de QR-Code</span> avec OpenCV.<br><br>Le QR-Code est un type de code-barres à 2 dimensions.<br>Il est utilisé pour stocker du texte sous la forme d'une image 2D.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1589279612854"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1589279612854");</script></div><br><h2 class="Title7 GTitle2" id="Décodage de QR-Code-Résultat de décodage de QR-Code"><a class="Link9" href="#Décodage de QR-Code">Résultat de décodage de QR-Code</a></h2><br><div class="Img3 GImage"><img src="img/qrcode.png" alt="img/qrcode.png"></div><br><h2 class="Title7 GTitle2" id="Décodage de QR-Code-Script d'encodage de QR-Code"><a class="Link9" href="#Décodage de QR-Code">Script d'encodage de QR-Code</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">#------------------------------------------------
 # encoder qrcode
 #------------------------------------------------
 GTEXT="email:MY_EMAIL;password:MY_PASSWORD"
 GIMG="qrcode.png"
-qrencode -o $GIMG "$GTEXT"</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Décodage de QRcode-Script de décodage de QRcode"><a class="Link9" href="#Décodage de QRcode">Script de décodage de QRcode</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">#------------------------------------------------
+qrencode -o $GIMG "$GTEXT"</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Décodage de QR-Code-Script de décodage de QR-Code"><a class="Link9" href="#Décodage de QR-Code">Script de décodage de QR-Code</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">#------------------------------------------------
 # decoder qrcode
 #------------------------------------------------
 GIMG="qrcode.png"
-zbarimg $GIMG</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Décodage de QRcode-Chargement de l'image"><a class="Link9" href="#Décodage de QRcode">Chargement de l'image</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+zbarimg $GIMG</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Décodage de QR-Code-Chargement de l'image"><a class="Link9" href="#Décodage de QR-Code">Chargement de l'image</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 void GOpenCV::loadImage(std::string imgId, std::string filename) {
     GDebug::Instance()-&gt;write(__CLASSNAME__, "::", __FUNCTION__, "()", _EOA_);
     cv::Mat* lImg = new cv::Mat;
     *lImg = cv::imread(filename, -1);
     m_imgMap[imgId] = lImg;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Décodage de QRcode-Conversion de l'image en niveau de gris"><a class="Link9" href="#Décodage de QRcode">Conversion de l'image en niveau de gris</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Décodage de QR-Code-Conversion de l'image en niveau de gris"><a class="Link9" href="#Décodage de QR-Code">Conversion de l'image en niveau de gris</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 void GOpenCV::convertGrayImage(std::string imgId, std::string outId) {
     GDebug::Instance()-&gt;write(__CLASSNAME__, "::", __FUNCTION__, "()", _EOA_);
     cv::Mat* lImg = m_imgMap[imgId];
     cv::Mat* lOut = m_imgMap[outId];
     cv::cvtColor(*lImg, *lOut, cv::COLOR_BGR2GRAY);
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Décodage de QRcode-Initialisation du décodeur"><a class="Link9" href="#Décodage de QRcode">Initialisation du décodeur</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Décodage de QR-Code-Initialisation du décodeur"><a class="Link9" href="#Décodage de QR-Code">Initialisation du décodeur</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 void GZbar::createImage(std::string imageId, std::string imgId) {
     GDebug::Instance()-&gt;write(__CLASSNAME__, "::", __FUNCTION__, "()", _EOA_);
     cv::Mat* lImg = GOpenCV::Instance()-&gt;getImage(imgId);
@@ -125,7 +125,7 @@ void GZbar::createImage(std::string imageId, std::string imgId) {
     m_stringsMap[imageId] = lStrings;
     m_pointsMap[imageId] = lPoints;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Décodage de QRcode-Décodage du QRcode"><a class="Link9" href="#Décodage de QRcode">Décodage du QRcode</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Décodage de QR-Code-Décodage du QR-Code"><a class="Link9" href="#Décodage de QR-Code">Décodage du QR-Code</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 void GZbar::getSymbol(std::string imageId) {
     GDebug::Instance()-&gt;write(__CLASSNAME__, "::", __FUNCTION__, "()", _EOA_);
     zbar::Image* lImage = m_imageMap[imageId];
@@ -135,7 +135,7 @@ void GZbar::getSymbol(std::string imageId) {
         lStrings-&gt;push_back(lSymbol-&gt;get_data());
     }
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Décodage de QRcode-Détection des points de contour du QRcode"><a class="Link9" href="#Décodage de QRcode">Détection des points de contour du QRcode</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Décodage de QR-Code-Détection des points de contour du QR-Code"><a class="Link9" href="#Décodage de QR-Code">Détection des points de contour du QR-Code</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 void GZbar::getLocation(std::string imageId) {
     GDebug::Instance()-&gt;write(__CLASSNAME__, "::", __FUNCTION__, "()", _EOA_);
     zbar::Image* lImage = m_imageMap[imageId];
@@ -147,13 +147,13 @@ void GZbar::getLocation(std::string imageId) {
         }
     }
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Décodage de QRcode-Traçage du contour du QRcode"><a class="Link9" href="#Décodage de QRcode">Traçage du contour du QRcode</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-void GOpenCV::drawQRcodeImage(std::string imgId, std::string imageId, int red, int green, int blue, int thickness) {
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Décodage de QR-Code-Traçage du contour du QR-Code"><a class="Link9" href="#Décodage de QR-Code">Traçage du contour du QR-Code</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GOpenCV::drawQR-CodeImage(std::string imgId, std::string imageId, int red, int green, int blue, int thickness) {
     GDebug::Instance()-&gt;write(__CLASSNAME__, "::", __FUNCTION__, "()", _EOA_);
     cv::Mat* lImg = m_imgMap[imgId];
-    std::vector&lt;cv::Point&gt;* lPoints = GZbar::Instance()-&gt;getPointsQRcode(imageId);
+    std::vector&lt;cv::Point&gt;* lPoints = GZbar::Instance()-&gt;getPointsQR-Code(imageId);
     cv::RotatedRect lRotatedRect = cv::minAreaRect(*lPoints);
-    cv::Rect lQRcodeRect = lRotatedRect.boundingRect();
-    cv::rectangle(*lImg, lQRcodeRect, cv::Scalar(blue, green, red, 0), thickness);
+    cv::Rect lQR-CodeRect = lRotatedRect.boundingRect();
+    cv::rectangle(*lImg, lQR-CodeRect, cv::Scalar(blue, green, red, 0), thickness);
 }
 //===============================================</xmp></pre></div><br></div></div></div></div><br>
