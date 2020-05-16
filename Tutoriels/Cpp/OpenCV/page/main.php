@@ -87,6 +87,113 @@ void GOpenCV::detectCascadeClassifier(std::string imgId, std::string eyeClassifi
         }
     }
 }
+//===============================================</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Reconnaissance faciale"><a class="Link3" href="#">Reconnaissance faciale</a></h1><div class="Body3">Le but de cette section est de vous apprendre la <span class="GColor1" style="color:lime;">Reconnaissance faciale</span>&nbsp; avec OpenCV.<br><br>Cette technique consiste à reconnaître une personne grâce à son visage de mainière automatique.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1589635012225"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1589635012225");</script></div><br><h2 class="Title7 GTitle2" id="Reconnaissance faciale-Résultat de la reconnaissance faciale"><a class="Link9" href="#Reconnaissance faciale">Résultat de la reconnaissance faciale</a></h2><br><div class="Img3 GImage"><img src="img/face_recognition_image.png" alt="img/face_recognition_image.png"></div><br><h2 class="Title7 GTitle2" id="Reconnaissance faciale-Chargement de l'image"><a class="Link9" href="#Reconnaissance faciale">Chargement de l'image</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GOpenCV::loadImage(std::string imgId, std::string filename) {
+    GDebug::Instance()-&gt;write(__CLASSNAME__, "::", __FUNCTION__, "()", _EOA_);
+    cv::Mat* lImg = new cv::Mat;
+    *lImg = cv::imread(filename, -1);
+    m_imgMap[imgId] = lImg;
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Reconnaissance faciale-Chargement des données"><a class="Link9" href="#Reconnaissance faciale">Chargement des données</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+std::vector&lt;std::vector&lt;std::string&gt;&gt; GFile::getData(std::string fileId, char sep) {
+    GDebug::Instance()-&gt;write(__CLASSNAME__, "::", __FUNCTION__, "()", _EOA_);
+    std::ifstream* lFile = m_ifstreamMap[fileId];
+    std::string lLine;
+    std::vector&lt;std::vector&lt;std::string&gt;&gt; lStringsMap;
+    while(getline(*lFile, lLine)) {
+        lLine = GString::Instance()-&gt;trim(lLine);
+        if(lLine == "") continue;
+        std::vector&lt;std::string&gt; lStringMap = GString::Instance()-&gt;split(lLine, ';');
+        lStringsMap.push_back(lStringMap);
+    }
+    return lStringsMap;
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Reconnaissance faciale-Chargement des images et des étiquêtes"><a class="Link9" href="#Reconnaissance faciale">Chargement des images et des étiquêtes</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GOpenCV::loadOneFaceDetectionImage(std::string modelId, std::string fileId) {
+    GDebug::Instance()-&gt;write(__CLASSNAME__, "::", __FUNCTION__, "()", _EOA_);
+    std::vector&lt;std::vector&lt;std::string&gt;&gt; lStringsMap = GFile::Instance()-&gt;getData(fileId, ';');
+    std::vector&lt;cv::Mat&gt;* lImgs = m_imgsMap[modelId];
+    std::vector&lt;int&gt;* lIndices = m_indicesMap[modelId];
+    std::map&lt;int, std::string&gt;* lStrings = m_stringsMap[modelId];
+    cv::Size* lSize = m_sizeMap[modelId];
+
+    for(int i = 0; i &lt; lStringsMap.size(); i++) {
+        std::vector&lt;std::string&gt; lStringMap = lStringsMap.at(i);
+        std::string lPath = lStringMap[0];
+        std::string lIndice = lStringMap[1];
+        std::string lName = lStringMap[2];
+        int lIndiceInt = atoi(lIndice.c_str());
+        cv::Mat lImg = cv::imread(lPath, cv::IMREAD_GRAYSCALE);
+        if(i == 0) {*lSize = lImg.size();}
+        lImgs-&gt;push_back(lImg);
+        lIndices-&gt;push_back(lIndiceInt);
+        (*lStrings)[lIndiceInt] = lName;
+    }
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Reconnaissance faciale-Apprentissage automatique"><a class="Link9" href="#Reconnaissance faciale">Apprentissage automatique</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GOpenCV::trainFaceRecognizer(std::string modelId) {
+    GDebug::Instance()-&gt;write(__CLASSNAME__, "::", __FUNCTION__, "()", _EOA_);
+    cv::Ptr&lt;cv::face::EigenFaceRecognizer&gt; lModel = m_modelMap[modelId];
+    std::vector&lt;cv::Mat&gt;* lImgs =  m_imgsMap[modelId];
+    std::vector&lt;int&gt;* lIndices = m_indicesMap[modelId];
+    lModel-&gt;train(*lImgs, *lIndices);
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Reconnaissance faciale-Détection faciale"><a class="Link9" href="#Reconnaissance faciale">Détection faciale</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GOpenCV::faceDetectionImage(std::string classifierId, std::string imgId) {
+    GDebug::Instance()-&gt;write(__CLASSNAME__, "::", __FUNCTION__, "()", _EOA_);
+    std::string lFaceDetect = classifierId;
+    std::string lGray = imgId + "lGray";
+    std::string lFaceDetectFile = "data/haarcascades/haarcascade_frontalface_alt.xml";
+    
+    createCascadeClassifier(lFaceDetect, lFaceDetectFile);
+    createImage(lGray);
+    
+    convertGrayImage(imgId, lGray);
+    equalizeHistImage(lGray, lGray);
+    detectCascadeClassifier(lGray, lFaceDetect);
+        
+    deleteImage(lGray);
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Reconnaissance faciale-Reconnaissance faciale"><a class="Link9" href="#Reconnaissance faciale">Reconnaissance faciale</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">
+//===============================================
+void GOpenCV::faceRecognitionImage(std::string modelId, std::string classifierId, std::string imgId, int red, int green, int blue, int thickness) {
+    GDebug::Instance()-&gt;write(__CLASSNAME__, "::", __FUNCTION__, "()", _EOA_);
+    cv::Ptr&lt;cv::face::EigenFaceRecognizer&gt; lModel = m_modelMap[modelId];
+    std::vector&lt;cv::Rect&gt;* lRects = m_rectsMap[classifierId];
+    cv::Size* lSize = m_sizeMap[modelId];
+    
+    cv::Mat* lImg = m_imgMap[imgId];
+    for(int i = 0; i &lt; lRects-&gt;size(); i++) {
+        cv::Rect lRect = lRects-&gt;at(i);
+        cv::Mat lFaceImg = (*lImg)(lRect);
+        cv::Mat lGray, lResize;
+        cv::cvtColor(lFaceImg, lGray, cv::COLOR_BGR2GRAY);
+        cv::resize(lGray, lResize, *lSize);
+        int lIndice; double lConfiance;
+        lModel-&gt;predict(lResize, lIndice, lConfiance);
+        std::map&lt;int, std::string&gt;* lStrings = m_stringsMap[modelId];
+        std::string lName = (*lStrings)[lIndice];
+        cv::rectangle(*lImg, lRect, cv::Scalar(blue, green, red, 0), thickness);
+        
+        int lTextFont = 0;
+        double lTextScale = 0.5;
+        int lTextThickness = 1;
+        int lTextBase;
+        cv::Size lTextSize = cv::getTextSize(lName, lTextFont, lTextScale, lTextThickness, &lTextBase);
+
+        cv::Rect lNameRect;
+        lNameRect.x = lRect.x;
+        lNameRect.y = lRect.y + lRect.height + 10;
+        lNameRect.width = lRect.width;
+        lNameRect.height = 10 + lTextSize.height;
+        cv::rectangle(*lImg, lNameRect, cv::Scalar(67, 0, 0, 0), -1);
+        
+        cv::Point lTextOrg;
+        lTextOrg.x = lNameRect.x + 5;
+        lTextOrg.y = lNameRect.y + lNameRect.height - 5;
+        cv::putText(*lImg, lName, lTextOrg, lTextFont, lTextScale, cv::Scalar(0, 200, 100, 0), lTextThickness);
+    }
+}
 //===============================================</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Décodage de QR-Code"><a class="Link3" href="#">Décodage de QR-Code</a></h1><div class="Body3">Le but de cette section est de vous apprendre le <span class="GColor1" style="color:lime;">Décodage de QR-Code</span> avec OpenCV.<br><br>Le QR-Code est un type de code-barres à 2 dimensions.<br>Il est utilisé pour stocker du texte sous la forme d'une image 2D.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1589279612854"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1589279612854");</script></div><br><h2 class="Title7 GTitle2" id="Décodage de QR-Code-Résultat de décodage de QR-Code"><a class="Link9" href="#Décodage de QR-Code">Résultat de décodage de QR-Code</a></h2><br><div class="Img3 GImage"><img src="img/qrcode.png" alt="img/qrcode.png"></div><br><h2 class="Title7 GTitle2" id="Décodage de QR-Code-Script d'encodage de QR-Code"><a class="Link9" href="#Décodage de QR-Code">Script d'encodage de QR-Code</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">#------------------------------------------------
 # encoder qrcode
 #------------------------------------------------
