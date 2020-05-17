@@ -1582,7 +1582,7 @@ span {
 }
 
 .Text4 {
-    color: #051039;
+    color: #928b68;
 } 
 
 .Text5 {

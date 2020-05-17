@@ -1,0 +1,25 @@
+{
+    "sitemap":"yes",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+            "SQLite est un système de gestion de base de données relationnelle.",
+			"Le but de ce tutoriel est de vous apprendre",
+            "la programmation avec SQLite.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Tutoriels/SQLite/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/data/img/defaults/SQLite.png"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/#Base de données","follow":"no"},
+        {"name":"SQLite","link":"","follow":"no"}
+    ],
+    "programs":
+    [
+        {"name":"Gérer une base de données SQLite en C++","link":"/Tutoriels/SQLite/Cpp/","follow":"yes"}
+    ]
+}
+                        

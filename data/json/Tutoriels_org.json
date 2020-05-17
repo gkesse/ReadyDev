@@ -16,23 +16,6 @@
         "C'est un site web développé en PHP et maintenu par <b>Gérard KESSE</b>.<br/>",
         "Vous trouverez sur ce site des <b>cours</b> et des <b>tutoriels</b> adaptés aux <b>sciences de l'ingénieur</b>."
     ],
-    "database":
-    [
-        {
-            "icon":"fa fa-database",
-            "theme":"SQLite",
-            "description":"Base de données",
-            "link":"/Tutoriels/SQLite/",
-			"follow":"yes"
-        },
-        {
-            "icon":"fa fa-database",
-            "theme":"MySQL",
-            "description":"Base de données",
-            "link":"/Tutoriels/#",
-			"follow":"yes"
-        }
-    ],
     "software":
     [
         {
