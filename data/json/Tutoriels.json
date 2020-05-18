@@ -15,105 +15,314 @@
         "<b>ReadyDev</b> est une Plateforme de Développement Continu.<br/>",
         "C'est un site web développé en PHP et maintenu par <b>Gérard KESSE</b>.<br/>",
         "Vous trouverez sur ce site des <b>cours</b> et des <b>tutoriels</b> adaptés aux <b>sciences de l'ingénieur</b>."
+    ],    
+    "software":
+    [
+        {
+            "icon":"fa fa-desktop",
+            "theme":"C",
+            "description":"Programmez en<br/> C",
+            "link":"/Tutoriels/C0/",
+			"follow":"yes"
+        },
+        {
+            "icon":"fa fa-desktop",
+            "theme":"C++",
+            "description":"Programmez en<br/> C++",
+            "link":"/Tutoriels/#",
+			"follow":"no"
+        }
+    ],
+    "compilation":
+    [
+        {
+            "icon":"fa fa-cog",
+            "theme":"NMake",
+            "description":"Apprenez le<br/> NMake",
+            "link":"/Tutoriels/#",
+			"follow":"no"
+        },
+        {
+            "icon":"fa fa-cog",
+            "theme":"MinGW",
+            "description":"Apprenez le<br/> MinGW",
+            "link":"/Tutoriels/#",
+			"follow":"no"
+        },
+        {
+            "icon":"fa fa-cog",
+            "theme":"Cygwin",
+            "description":"Apprenez le<br/> Cygwin",
+            "link":"/Tutoriels/#",
+			"follow":"no"
+        },
+        {
+            "icon":"fa fa-cog",
+            "theme":"Make",
+            "description":"Apprenez le<br/> Make",
+            "link":"/Tutoriels/#",
+			"follow":"no"
+        },
+        {
+            "icon":"fa fa-cog",
+            "theme":"CMake",
+            "description":"Apprenez le<br/> CMake",
+            "link":"/Tutoriels/#",
+			"follow":"no"
+        },
+        {
+            "icon":"fa fa-cog",
+            "theme":"QMake",
+            "description":"Apprenez le<br/> QMake",
+            "link":"/Tutoriels/#",
+			"follow":"no"
+        }
+    ],
+    "design_patterns":
+    [
+        {
+            "icon":"fa fa-cube",
+            "theme":"Design Patterns",
+            "description":"Apprenez le<br/> Design Patterns",
+            "link":"/Tutoriels/#",
+			"follow":"no"
+        }
+    ],
+    "hmi":
+    [
+        {
+            "icon":"fa fa-window-restore",
+            "theme":"Qt",
+            "description":"Apprenez le<br/> Qt",
+            "link":"/Tutoriels/#",
+			"follow":"no"
+        },
+        {
+            "icon":"fa fa-window-restore",
+            "theme":"GTK",
+            "description":"Apprenez le<br/> GTK",
+            "link":"/Tutoriels/#",
+			"follow":"no"
+        },
+        {
+            "icon":"fa fa-window-restore",
+            "theme":"wxWidget",
+            "description":"Apprenez le<br/> wxWidget",
+            "link":"/Tutoriels/#",
+			"follow":"no"
+        }
+    ],
+    "computer_vision":
+    [
+        {
+            "icon":"fa fa-video-camera",
+            "theme":"OpenCV",
+            "description":"Apprenez le<br/> OpenCV",
+            "link":"/Tutoriels/#",
+			"follow":"no"
+        }
     ],
     "database":
     [
         {
             "icon":"fa fa-database",
             "theme":"SQLite",
-            "description":"Base de données",
+            "description":"Apprenez le<br/> SQLite",
             "link":"/Tutoriels/SQLite/",
 			"follow":"yes"
         },
         {
             "icon":"fa fa-database",
             "theme":"MySQL",
-            "description":"Base de données",
+            "description":"Apprenez le<br/> MySQL",
             "link":"/Tutoriels/#",
+			"follow":"no"
+        },
+        {
+            "icon":"fa fa-database",
+            "theme":"PostgreSQL",
+            "description":"Apprenez le<br/> PostgreSQL",
+            "link":"/Tutoriels/#",
+			"follow":"no"
+        }
+    ],
+    "formats":
+    [
+        {
+            "icon":"fa fa-file-text-o",
+            "theme":"CSV",
+            "description":"Apprenez le<br/> CSV",
+            "link":"/Tutoriels/#",
+			"follow":"no"
+        },
+        {
+            "icon":"fa fa-file-text-o",
+            "theme":"XML",
+            "description":"Apprenez le<br/> XML",
+            "link":"/Tutoriels/#",
+			"follow":"no"
+        },
+        {
+            "icon":"fa fa-file-text-o",
+            "theme":"JSON",
+            "description":"Apprenez le<br/> JSON",
+            "link":"/Tutoriels/#",
+			"follow":"no"
+        }
+    ],
+    "viz":
+    [
+        {
+            "icon":"fa fa-bar-chart",
+            "theme":"VTK",
+            "description":"Apprenez le<br/> VTK",
+            "link":"/Tutoriels/#",
+			"follow":"no"
+        }
+    ],
+    "scientific":
+    [
+        {
+            "icon":"fa fa-area-chart",
+            "theme":"GSL",
+            "description":"Apprenez le<br/> GSL",
+            "link":"/Tutoriels/#",
+			"follow":"no"
+        }
+    ],
+    "app_2d":
+    [
+        {
+            "icon":"fa fa-square-o",
+            "theme":"SDL",
+            "description":"Apprenez le<br/> SDL",
+            "link":"/Tutoriels/#",
+			"follow":"no"
+        },
+        {
+            "icon":"fa fa-square-o",
+            "theme":"GIMP",
+            "description":"Apprenez<br/> GIMP",
+            "link":"/Tutoriels/GIMP/",
 			"follow":"yes"
         }
     ],
-    "software":
+    "app_3d":
     [
         {
-            "icon":"fa fa-desktop",
-            "theme":"C/C++",
-            "description":"Programmez en<br/> C/C++",
-            "link":"/Tutoriels/Cpp/",
-			"follow":"yes"
+            "icon":"fa fa-linode",
+            "theme":"OpenGL",
+            "description":"Apprenez le<br/> OpenGL",
+            "link":"/Tutoriels/#",
+			"follow":"no"
         },
         {
-            "icon":"fa fa-desktop",
-            "theme":"C#",
-            "description":"Programmez en<br/> C#",
-            "link":"/Tutoriels/CSharp/",
-			"follow":"yes"
-        },
-        {
-            "icon":"fa fa-desktop",
-            "theme":"Java",
-            "description":"Programmez en<br/> Java",
-            "link":"/Tutoriels/Java/",
-			"follow":"yes"
-        },
-        {
-            "icon":"fa fa-desktop",
-            "theme":"Python",
-            "description":"Programmez en<br/> Python",
-            "link":"/Tutoriels/Python/",
-			"follow":"yes"
-        },
-        {
-            "icon":"fa fa-desktop",
-            "theme":"VB.NET",
-            "description":"Programmez en<br/> VB.NET",
-            "link":"/Tutoriels/VB.NET/",
-			"follow":"yes"
-        },
-        {
-            "icon":"fa fa-file-desktop",
-            "theme":"LaTeX",
-            "description":"Apprenez le<br/> LaTeX",
-            "link":"/Tutoriels/LaTeX/",
+            "icon":"fa fa-linode",
+            "theme":"Blender",
+            "description":"Apprenez<br/> Blender",
+            "link":"/Tutoriels/Blender/",
 			"follow":"yes"
         }
     ],
-    "web":
+    "audio":
     [
         {
-            "icon":"fa fa-globe",
-            "theme":"HTML",
-            "description":"Programmez en<br/> HTML",
-            "link":"/Tutoriels/HTML/",
+            "icon":"fa fa-volume-up",
+            "theme":"OpenAL",
+            "description":"Apprenez le<br/> OpenAL",
+            "link":"/Tutoriels/#",
+			"follow":"no"
+        }
+    ],
+    "signal":
+    [
+        {
+            "icon":"fa fa-signal",
+            "theme":"DSP",
+            "description":"Apprenez le<br/> DSP",
+            "link":"/Tutoriels/#",
+			"follow":"no"
+        }
+    ],
+    "embedded_system":
+    [
+        {
+            "icon":"fa fa-microchip",
+            "theme":"8051",
+            "description":"Apprenez le<br/> 8051",
+            "link":"/Tutoriels/8051/",
 			"follow":"yes"
         },
         {
-            "icon":"fa fa-globe",
-            "theme":"CSS",
-            "description":"Apprenez le<br/> CSS",
-            "link":"/Tutoriels/CSS3/",
+            "icon":"fa fa-microchip",
+            "theme":"Raspberry Pi",
+            "description":"Apprenez le<br/> RaspberryPi",
+            "link":"/Tutoriels/RaspberryPi/",
 			"follow":"yes"
         },
         {
-            "icon":"fa fa-globe",
-            "theme":"JavaScript",
-            "description":"Programmez en<br/> JavaScript",
-            "link":"/Tutoriels/JavaScript/",
+            "icon":"fa fa-microchip",
+            "theme":"Arduino",
+            "description":"Apprenez le<br/> Arduino",
+            "link":"/Tutoriels/Arduino/",
+			"follow":"yes"
+        }
+    ],
+    "electronic":
+    [
+        {
+            "icon":"fa fa-building-o",
+            "theme":"KiCad",
+            "description":"Apprenez<br/> KiCad",
+            "link":"/Tutoriels/KiCad/",
 			"follow":"yes"
         },
         {
-            "icon":"fa fa-globe",
-            "theme":"PHP",
-            "description":"Programmez en<br/> PHP",
-            "link":"/Tutoriels/PHP/",
+            "icon":"fa fa-building-o",
+            "theme":"LTspice",
+            "description":"Apprenez<br/> LTspice",
+            "link":"/Tutoriels/LTspice/",
 			"follow":"yes"
-        },
+        }
+    ],
+    "multithreading":
+    [
         {
-            "icon":"fa fa-globe",
-            "theme":"JavaEE",
-            "description":"Programmez en<br/> JavaEE",
-            "link":"/Tutoriels/JavaEE/",
-			"follow":"yes"
+            "icon":"fa fa-superpowers",
+            "theme":"Thread",
+            "description":"Apprenez le<br/> Thread",
+            "link":"/Tutoriels/#",
+			"follow":"no"
+        }
+    ],
+    "networks":
+    [
+        {
+            "icon":"fa fa-wifi",
+            "theme":"Socket",
+            "description":"Apprenez le<br/> Socket",
+            "link":"/Tutoriels/#",
+			"follow":"no"
+        }
+    ],
+    "middleware":
+    [
+        {
+            "icon":"fa fa-podcast",
+            "theme":"gSoap",
+            "description":"Apprenez le<br/> gSoap",
+            "link":"/Tutoriels/#",
+			"follow":"no"
+        }
+    ],
+    "ipc":
+    [
+        {
+            "icon":"fa fa-snowflake-o",
+            "theme":"D-Bus",
+            "description":"Apprenez le<br/> D-Bus",
+            "link":"/Tutoriels/#",
+			"follow":"no"
         }
     ],
     "version":
@@ -124,13 +333,6 @@
             "description":"Apprenez le<br/> Git",
             "link":"/Tutoriels/Git/",
 			"follow":"yes"
-        },
-        {
-            "icon":"fa fa-sitemap",
-            "theme":"CVS",
-            "description":"Apprenez le<br/> CVS",
-            "link":"#",
-			"follow":"no"
         },
         {
             "icon":"fa fa-sitemap",
@@ -154,77 +356,6 @@
             "theme":"Jenkins",
             "description":"Apprenez le<br/> Jenkins",
             "link":"/Tutoriels/Jenkins/",
-			"follow":"yes"
-        }
-    ],
-    "embedded":
-    [
-        {
-            "icon":"fa fa-microchip",
-            "theme":"8051",
-            "description":"Programmez le<br/> 8051",
-            "link":"/Tutoriels/8051/",
-			"follow":"yes"
-        },
-        {
-            "icon":"fa fa-microchip",
-            "theme":"Raspberry Pi",
-            "description":"Programmez le<br/> RaspberryPi",
-            "link":"/Tutoriels/RaspberryPi/",
-			"follow":"yes"
-        },
-        {
-            "icon":"fa fa-microchip",
-            "theme":"Arduino",
-            "description":"Programmez le<br/> Arduino",
-            "link":"/Tutoriels/Arduino/",
-			"follow":"yes"
-        }
-    ],
-    "electronics":
-    [
-        {
-            "icon":"fa fa-building",
-            "theme":"KiCad",
-            "description":"Apprenez<br/> KiCad",
-            "link":"/Tutoriels/KiCad/",
-			"follow":"yes"
-        },
-        {
-            "icon":"fa fa-building",
-            "theme":"LTspice",
-            "description":"Apprenez<br/> LTspice",
-            "link":"/Tutoriels/LTspice/",
-			"follow":"yes"
-        }
-    ],
-    "modeling3d":
-    [
-        {
-            "icon":"fa fa-cubes",
-            "theme":"Blender",
-            "description":"Apprenez<br/> Blender",
-            "link":"/Tutoriels/Blender/",
-			"follow":"yes"
-        }
-    ],
-    "image_synthesis":
-    [
-        {
-            "icon":"fa fa-map",
-            "theme":"GIMP",
-            "description":"Apprenez<br/> GIMP",
-            "link":"/Tutoriels/GIMP/",
-			"follow":"yes"
-        }
-    ],
-    "documentation":
-    [
-        {
-            "icon":"fa fa-map",
-            "theme":"GIMP",
-            "description":"Apprenez<br/> GIMP",
-            "link":"/Tutoriels/GIMP/",
 			"follow":"yes"
         }
     ]
