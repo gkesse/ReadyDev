@@ -1,0 +1,101 @@
+{
+    "sitemap":"yes",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+            "Le C++ est un langage de programmation orientée objet.",
+			"Le but de ce tutoriel est de vous apprendre",
+            "la programmation avec le C++.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Tutoriels/Cpp/"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"C/C++","link":"","follow":"no"}
+    ],
+    "software":
+    [
+        {"name":"Apprendre la programmation avec le C","link":"/Tutoriels/Cpp/C0/","follow":"yes"},
+        {"name":"Apprendre la programmation avec le C++","link":"/Tutoriels/Cpp/Cpp/","follow":"yes"}
+    ],
+    "compilation":
+    [
+        {"name":"Apprendre à compiler un projet C++ avec MinGW","link":"/Tutoriels/Cpp/MinGW/","follow":"yes"},
+        {"name":"Apprendre à compiler un projet C++ avec Cygwin","link":"/Tutoriels/Cpp/Cygwin/","follow":"yes"},
+        {"name":"Apprendre à compiler un projet C++ avec NMake","link":"/Tutoriels/Cpp/NMake/","follow":"yes"},
+        {"name":"Apprendre à compiler un projet C++ avec Make","link":"/Tutoriels/Cpp/Make/","follow":"yes"},
+        {"name":"Apprendre à compiler un projet C++ avec CMake","link":"/Tutoriels/Cpp/CMake/","follow":"yes"},
+        {"name":"Apprendre à compiler un projet C++ avec QMake","link":"/Tutoriels/Cpp/QMake/","follow":"yes"}
+    ],
+    "design_patterns":
+    [
+        {"name":"Apprendre les patrons de conception en C++","link":"/Tutoriels/Cpp/Patrons_Conception/","follow":"yes"}
+    ],
+    "ihm":
+    [
+        {"name":"Apprendre la création d'interfaces homme-machine en C++ avec Qt","link":"/Tutoriels/Cpp/Qt/","follow":"yes"},
+        {"name":"Apprendre la création d'un logiciel de traitement d'image en C++ avec Qt","link":"/Tutoriels/Cpp/Qt/OpenCV","follow":"yes"}
+    ],
+    "computer_vision":
+    [
+        {"name":"Apprendre la vision par ordinateur en C avec OpenCV","link":"/Tutoriels/Cpp/C0/OpenCV/","follow":"yes"},
+        {"name":"Apprendre la vision par ordinateur en C++ avec OpenCV","link":"/Tutoriels/Cpp/OpenCV/","follow":"yes"}
+    ],
+    "database":
+    [
+        {"name":"Apprendre les bases de données SQLite en C++ avec Qt","link":"#","follow":"no"},
+        {"name":"Apprendre les bases de données MySQL en C++ avec Qt","link":"#","follow":"no"},
+        {"name":"Apprendre les bases de données PostgreSQL en C++ avec Qt","link":"#","follow":"no"},
+        {"name":"Apprendre les bases de données Firebird en C++ avec Qt","link":"#","follow":"no"},
+        {"name":"Apprendre les bases de données MongoDB en C++ avec Qt","link":"#","follow":"no"},
+        {"name":"Apprendre les bases de données LevelDB en C++ avec Qt","link":"#","follow":"no"}
+    ],
+    "data_formats":
+    [
+        {"name":"Apprendre le format de données XML en C++ avec Qt","link":"#","follow":"no"},
+        {"name":"Apprendre le format de données JSON en C++ avec Qt","link":"#","follow":"no"},
+        {"name":"Apprendre le format de données CSV en C++ avec Qt","link":"#","follow":"no"}
+    ],
+    "multithreading":
+    [
+        {"name":"Apprendre le multithreading en C++","link":"/Tutoriels/Cpp/Multithreading/","follow":"yes"}
+    ],
+    "networks":
+    [
+        {"name":"Apprendre la communication réseau en C++ avec Qt","link":"#","follow":"no"}
+    ],
+    "middleware":
+    [
+        {"name":"Apprendre la communication middleware ZeroMQ en C++ avec Qt","link":"#","follow":"no"},
+        {"name":"Apprendre la communication middleware RabbitMQ en C++ avec Qt","link":"#","follow":"no"}
+    ],
+    "ipc":
+    [
+        {"name":"Apprendre la communication inter-processus DBus en C++ avec Qt","link":"#","follow":"no"},
+        {"name":"Apprendre la communication inter-processus SOAP en C++ avec Qt","link":"#","follow":"no"},
+        {"name":"Apprendre la communication inter-processus CORBA en C++ avec Qt","link":"#","follow":"no"},
+        {"name":"Apprendre la communication inter-processus DCOP en C++ avec Qt","link":"#","follow":"no"}
+    ],
+    "app2d":
+    [
+        {"name":"Apprendre la programmation 2D en C++ avec SDL","link":"/Tutoriels/Cpp/SDL/","follow":"yes"}
+    ],
+    "app3d":
+    [
+        {"name":"Apprendre la programmation 3D en C avec OpenGL","link":"/Tutoriels/Cpp/C0/OpenGL/","follow":"yes"},
+        {"name":"Apprendre la programmation 3D en C++ avec OpenGL","link":"/Tutoriels/Cpp/OpenGL/","follow":"yes"}
+    ],
+    "visualization":
+    [
+        {"name":"Apprendre la visualisation de données en C++ avec QCustomPlot","link":"#","follow":"no"},
+        {"name":"Apprendre la visualisation de données en C++ avec Qwt","link":"#","follow":"no"}
+    ],
+    "scripts":
+    [
+        {"name":"Apprendre les scripts en C++ avec Qt","link":"#","follow":"no"}
+    ]
+}
+                        

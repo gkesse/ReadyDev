@@ -29,8 +29,8 @@
             "icon":"fa fa-desktop",
             "theme":"C++",
             "description":"Programmez en<br/> C++",
-            "link":"/Tutoriels/#",
-			"follow":"no"
+            "link":"/Tutoriels/Cpp/",
+			"follow":"yes"
         }
     ],
     "compilation":
@@ -39,43 +39,43 @@
             "icon":"fa fa-cog",
             "theme":"NMake",
             "description":"Apprenez le<br/> NMake",
-            "link":"/Tutoriels/#",
-			"follow":"no"
+            "link":"/Tutoriels/NMake/",
+			"follow":"yes"
         },
         {
             "icon":"fa fa-cog",
             "theme":"MinGW",
             "description":"Apprenez le<br/> MinGW",
-            "link":"/Tutoriels/#",
-			"follow":"no"
+            "link":"/Tutoriels/MinGW/",
+			"follow":"yes"
         },
         {
             "icon":"fa fa-cog",
             "theme":"Cygwin",
             "description":"Apprenez le<br/> Cygwin",
-            "link":"/Tutoriels/#",
-			"follow":"no"
+            "link":"/Tutoriels/Cygwin/",
+			"follow":"yes"
         },
         {
             "icon":"fa fa-cog",
             "theme":"Make",
             "description":"Apprenez le<br/> Make",
-            "link":"/Tutoriels/#",
-			"follow":"no"
+            "link":"/Tutoriels/Make/",
+			"follow":"yes"
         },
         {
             "icon":"fa fa-cog",
             "theme":"CMake",
             "description":"Apprenez le<br/> CMake",
-            "link":"/Tutoriels/#",
-			"follow":"no"
+            "link":"/Tutoriels/CMake/",
+			"follow":"yes"
         },
         {
             "icon":"fa fa-cog",
             "theme":"QMake",
             "description":"Apprenez le<br/> QMake",
-            "link":"/Tutoriels/#",
-			"follow":"no"
+            "link":"/Tutoriels/QMake/",
+			"follow":"yes"
         }
     ],
     "design_patterns":

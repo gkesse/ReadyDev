@@ -10,12 +10,12 @@
             "Produit par Gérard KESSE."
         ],
         "meta_cano":"/Tutoriels/C0/",
-        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/data/img/defaults/C.png"
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/data/img/defaults/banner_c.png"
     },    
     "links":
     [
-        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
-        {"name":"C","link":"/Tutoriels/C0/#Développement Logiciel","follow":"no"}
+        {"name":"Tutoriels","link":"/Tutoriels/#Développement Logiciel","follow":"no"},
+        {"name":"C","link":"","follow":"no"}
     ]
 }
                         

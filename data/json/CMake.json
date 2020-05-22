@@ -10,12 +10,12 @@
 			"à compiler un projet C++ avec CMake.",
             "Produit par Gérard KESSE."
         ],
-        "meta_cano":"/Tutoriels/Cpp/CMake/"
+        "meta_cano":"/Tutoriels/Cpp/CMake/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/data/img/defaults/banner_cmake.png"
     },    
     "links":
     [
-        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
-        {"name":"C/C++","link":"/Tutoriels/Cpp/#Outils de compilation","follow":"no"},
+        {"name":"Tutoriels","link":"/Tutoriels/#Outils de compilation","follow":"no"},
         {"name":"CMake","link":"","follow":"no"}
     ]
 }

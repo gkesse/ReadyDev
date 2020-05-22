@@ -3,7 +3,7 @@
     
     $lData = GJson::Instance()->getData("data/json/Cpp.json");
     
-    GConfig::Instance()->setData("title", "C/C++");
+    GConfig::Instance()->setData("title", "C++");
     GConfig::Instance()->setData("menu", "Tutoriels");
     GConfig::Instance()->setData("view", "Cpp");
     GConfig::Instance()->setData("link", $lData["links"]);

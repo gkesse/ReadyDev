@@ -10,12 +10,12 @@
 			"à compiler un projet C++ avec QMake.",
             "Produit par Gérard KESSE."
         ],
-        "meta_cano":"/Tutoriels/Cpp/QMake/"
+        "meta_cano":"/Tutoriels/Cpp/QMake/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/data/img/defaults/banner_qmake.png"
     },    
     "links":
     [
-        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
-        {"name":"C/C++","link":"/Tutoriels/Cpp/#Outils de compilation","follow":"no"},
+        {"name":"Tutoriels","link":"/Tutoriels/#Outils de compilation","follow":"no"},
         {"name":"QMake","link":"","follow":"no"}
     ]
 }
