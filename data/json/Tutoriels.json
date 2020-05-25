@@ -118,7 +118,7 @@
             "icon":"fa fa-video-camera",
             "theme":"OpenCV",
             "description":"Apprenez le<br/> OpenCV",
-            "link":"/Tutoriels/#",
+            "link":"/Tutoriels/OpenCV/",
 			"follow":"no"
         }
     ],
