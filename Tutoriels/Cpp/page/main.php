@@ -140,4 +140,257 @@ void GProcess::test(int argc, char** argv) {
     GDebug::Instance()-&gt;write(__CLASSNAME__, "::", __FUNCTION__, "()", _EOA_);
     GFile::Instance()-&gt;test(argc, argv);
 }
+//===============================================</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programme des commandes shell"><a class="Link3" href="#">Programme des commandes shell</a></h1><div class="Body3">Le programme des commandes shell permet d'exécuter des scripts shell ou batch.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1590171231094"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1590171231094");</script></div><br><h2 class="Title7 GTitle2" id="Programme des commandes shell-Résultat du programme des commandes shell"><a class="Link9" href="#Programme des commandes shell">Résultat du programme des commandes shell</a></h2><br><h2 class="Title7 GTitle2" id="Programme des commandes shell-Exécution de commande shell"><a class="Link9" href="#Programme des commandes shell">Exécution de commande shell</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GShell::run(const char* command, char* output, int size, int shift) {
+    GDebug::Instance()-&gt;write(__CLASSNAME__, "::", __FUNCTION__, "()", _EOA_);
+    FILE* lpFile = popen(command, "r");
+    if(output != 0) {
+        int lBytes = fread(output, 1, size, lpFile);
+        if(lBytes &gt;= 1) {
+            output[lBytes] = 0;
+            if(shift == 1) output[lBytes - 1] = 0;
+        }
+    }
+    pclose(lpFile);
+}
+//===============================================</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programme sur les chaines"><a class="Link3" href="#">Programme sur les chaines</a></h1><div class="Body3">Le programme sur les chaines permet de gérer les opérations sur les chaines.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1590171157724"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1590171157724");</script></div><br><h2 class="Title7 GTitle2" id="Programme sur les chaines-Suppression des espaces autour d'une chaine"><a class="Link9" href="#Programme sur les chaines">Suppression des espaces autour d'une chaine</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+std::string GString::trim(std::string str) {
+    GDebug::Instance()-&gt;write(__CLASSNAME__, "::", __FUNCTION__, "()", _EOA_);
+    return ltrim(rtrim(str));
+}
+//===============================================
+std::string GString::ltrim(std::string str) {
+    GDebug::Instance()-&gt;write(__CLASSNAME__, "::", __FUNCTION__, "()", _EOA_);
+    std::string lString = str;
+    lString.erase(lString.begin(), std::find_if(lString.begin(), lString.end(), std::not1(std::ptr_fun&lt;int, int&gt;(std::isspace))));
+    return lString;
+}
+//===============================================
+std::string GString::rtrim(std::string str) {
+    GDebug::Instance()-&gt;write(__CLASSNAME__, "::", __FUNCTION__, "()", _EOA_);
+    std::string lString = str;
+    lString.erase(std::find_if(lString.rbegin(), lString.rend(), std::not1(std::ptr_fun&lt;int, int&gt;(std::isspace))).base(), lString.end());
+    return lString;
+}
+//===============================================
+</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Programme sur les chaines-Division d'une chaine"><a class="Link9" href="#Programme sur les chaines">Division d'une chaine</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+std::vector&lt;std::string&gt; GString::split(std::string str, char sep) {
+    GDebug::Instance()-&gt;write(__CLASSNAME__, "::", __FUNCTION__, "()", _EOA_);
+    std::istringstream lStream(str);
+    std::string lString;    
+    std::vector&lt;std::string&gt; lStringMap;
+    while(getline(lStream, lString, sep)) {
+        lStringMap.push_back(lString);
+    }
+    return lStringMap;
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Programme sur les chaines-Lecture du nom d'un fichier"><a class="Link9" href="#Programme sur les chaines">Lecture du nom d'un fichier</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+std::string GString::getFilename(std::string path) {
+    GDebug::Instance()-&gt;write(__CLASSNAME__, "::", __FUNCTION__, "()", _EOA_);
+    if(path.empty()) {return {};}
+    
+    int lLength = path.length();
+    int lIndex = path.find_last_of("/\\");
+    
+    if(lIndex == std::string::npos) {return path;}
+
+    if (lIndex + 1 &gt;= lLength) {
+        lLength--;
+        lIndex = path.substr(0, lLength).find_last_of("/\\");
+        if (lLength == 0) {return path;}
+        if (lIndex == 0) {return path.substr(1, lLength - 1);}
+        if (lIndex == std::string::npos) {return path.substr(0, lLength);}
+        return path.substr(lIndex + 1, lLength - lIndex - 1);
+    }
+    return path.substr(lIndex + 1, lLength - lIndex);
+}
+//===============================================</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programme sur l'affichage des données"><a class="Link3" href="#">Programme sur l'affichage des données</a></h1><div class="Body3">Le programme sur l'affichage des données permet de gérer l'affichage des données.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1590190657768"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1590190657768");</script></div><br><h2 class="Title7 GTitle2" id="Programme sur l'affichage des données-Affichage des données au format clé-valeur"><a class="Link9" href="#Programme sur l'affichage des données">Affichage des données au format clé-valeur</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GShow::showData(std::map&lt;std::string, std::string&gt; data) {
+	GDebug::Instance()-&gt;write(__CLASSNAME__, "::", __FUNCTION__, "()", _EOA_);
+    for(std::map&lt;std::string, std::string&gt;::iterator lItem = data.begin(); lItem != data.end(); ++lItem) {
+        std::cout &lt;&lt; lItem-&gt;first &lt;&lt; " = " &lt;&lt; lItem-&gt;second &lt;&lt; "\n";
+    }
+}
+//===============================================</xmp></pre></div><br><div class="Img3 GImage"><img src="img/map.png" alt="img/map.png"></div><br><h2 class="Title7 GTitle2" id="Programme sur l'affichage des données-Affichage des données au format CSV"><a class="Link9" href="#Programme sur l'affichage des données">Affichage des données au format CSV</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GShow::showData(std::vector&lt;std::vector&lt;std::string&gt;&gt; data) {
+	GDebug::Instance()-&gt;write(__CLASSNAME__, "::", __FUNCTION__, "()", _EOA_);
+    for(int i = 0; i &lt; data.size(); i++) {
+        std::vector&lt;std::string&gt; lDataMap = data.at(i);
+        
+        for(int j = 0; j &lt; lDataMap.size(); j++) {
+            std::string lData = lDataMap.at(j);
+            printf("%*s", 20, lData.c_str());
+        }
+        printf("\n");
+    }
+}
+//===============================================</xmp></pre></div><br><div class="Img3 GImage"><img src="img/csv.png" alt="img/csv.png"></div><br><h2 class="Title7 GTitle2" id="Programme sur l'affichage des données-Affichage de données de types quelconques"><a class="Link9" href="#Programme sur l'affichage des données">Affichage de données de types quelconques</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GShow::showData(int key, ...) {
+	GDebug::Instance()-&gt;write(__CLASSNAME__, "::", __FUNCTION__, "()", _EOA_);
+    char lBuffer[512];
+    int lIndex = 0;
+    va_list lArgs;
+    va_start(lArgs, key);
+    int lKey = key;
+    while(1) {
+        if(lKey == 0) break;
+        if(lKey == 1) {
+            int lData = va_arg(lArgs, int);
+            lIndex += sprintf(&lBuffer[lIndex], "%d", lData);
+        }
+        else if(lKey == 2) {
+            double lData = va_arg(lArgs, double);
+            lIndex += sprintf(&lBuffer[lIndex], "%f", lData);
+        }
+        else if(lKey == 3) {
+            char* lData = va_arg(lArgs, char*);
+            lIndex += sprintf(&lBuffer[lIndex], "%s", lData);
+        }
+        lKey = va_arg(lArgs, int);
+    }
+    va_end(lArgs);
+    printf("%s\n", lBuffer);
+}
+//===============================================</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programme sur les fichiers"><a class="Link3" href="#">Programme sur les fichiers</a></h1><div class="Body3">Le programme sur les fichiers permet de manipuler les fichiers.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1590171037675"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1590171037675");</script></div><br><h2 class="Title7 GTitle2" id="Programme sur les fichiers-Chargement du contenu"><a class="Link9" href="#Programme sur les fichiers">Chargement du contenu</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+std::string GFile::getData(std::string fileId) {
+    GDebug::Instance()-&gt;write(__CLASSNAME__, "::", __FUNCTION__, "()", _EOA_);
+    std::ifstream* lFile = m_ifstreamMap[fileId];
+    std::string lData((std::istreambuf_iterator&lt;char&gt;(*lFile)), std::istreambuf_iterator&lt;char&gt;());
+    return lData;
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Programme sur les fichiers-Chargement de données de configuration"><a class="Link9" href="#Programme sur les fichiers">Chargement de données de configuration</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+std::map&lt;std::string, std::string&gt; GFile::getDataMap(std::string fileId, char sep) {
+    GDebug::Instance()-&gt;write(__CLASSNAME__, "::", __FUNCTION__, "()", _EOA_);
+    std::ifstream* lFile = m_ifstreamMap[fileId];
+    std::string lLine;
+    std::map&lt;std::string, std::string&gt; lStringsMap;
+    while(getline(*lFile, lLine)) {
+        lLine = GString::Instance()-&gt;trim(lLine);
+        if(lLine == "") continue;
+        char lFirst = lLine.at(0);
+        if(lFirst == '#') continue;
+        std::vector&lt;std::string&gt; lStrings = GString::Instance()-&gt;split(lLine, sep);
+        std::string lKey = lStrings.at(0);
+        std::string lValue = lStrings.at(1);
+        lStringsMap[lKey] = lValue;
+    }
+    return lStringsMap;
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Programme sur les fichiers-Chargement de données CSV"><a class="Link9" href="#Programme sur les fichiers">Chargement de données CSV</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+std::vector&lt;std::vector&lt;std::string&gt;&gt; GFile::getDataCsv(std::string fileId, char sep) {
+    GDebug::Instance()-&gt;write(__CLASSNAME__, "::", __FUNCTION__, "()", _EOA_);
+    std::ifstream* lFile = m_ifstreamMap[fileId];
+    std::string lLine;
+    std::vector&lt;std::vector&lt;std::string&gt;&gt; lStringsMap;
+    while(getline(*lFile, lLine)) {
+        lLine = GString::Instance()-&gt;trim(lLine);
+        if(lLine == "") continue;
+        char lFirst = lLine.at(0);
+        if(lFirst == '#') continue;
+        std::vector&lt;std::string&gt; lStringMap = GString::Instance()-&gt;split(lLine, sep);
+        lStringsMap.push_back(lStringMap);
+    }
+    return lStringsMap;
+}
+//===============================================</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programme sur les répertoires"><a class="Link3" href="#">Programme sur les répertoires</a></h1><div class="Body3">Le programme sur les répertoires permet d'effectuer des opérations sur les répertoires.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1590170976991"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1590170976991");</script></div><br><h2 class="Title7 GTitle2" id="Programme sur les répertoires-Lecture du répertoire HOME"><a class="Link9" href="#Programme sur les répertoires">Lecture du répertoire HOME</a></h2><br><h3 class="Title8 GTitle3">Sous Linux</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#if defined(__unix)
+void GDir::initHomePathUnix() {
+	GDebug::Instance()-&gt;write(__CLASSNAME__, "::", __FUNCTION__, "()", _EOA_);
+	char lCommand[256];
+	char lOutput[256];
+	sprintf(lCommand, "%s", "echo $HOME");
+	GShell::Instance()-&gt;run(lCommand, lOutput, 255, 1);
+	m_homePath = std::string(lOutput);
+    m_dataPath = m_homePath + GDIR_DATA_PATH;
+}
+#endif
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Programme sur les répertoires-Lecture du répertoire des données"><a class="Link9" href="#Programme sur les répertoires">Lecture du répertoire des données</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+std::string GDir::getPath(std::string path) {
+	GDebug::Instance()-&gt;write(__CLASSNAME__, "::", __FUNCTION__, "()", _EOA_);
+    std::string lDataPath = m_dataPath + "/" + path;
+	return lDataPath;
+}
+//===============================================</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programme sur les données de configuration"><a class="Link3" href="#">Programme sur les données de configuration</a></h1><div class="Body3">Le programme sur les données de configuration permet de manipuler un système de données stocké au format clé-valeur.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1590170829622"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1590170829622");</script></div><br><h2 class="Title7 GTitle2" id="Programme sur les données de configuration-Résulat du programme sur les données de configuration"><a class="Link9" href="#Programme sur les données de configuration">Résulat du programme sur les données de configuration</a></h2><br><div class="Img3 GImage"><img src="img/map.png" alt="img/map.png"></div><br><h2 class="Title7 GTitle2" id="Programme sur les données de configuration-Ajout ou modification d'une donnée"><a class="Link9" href="#Programme sur les données de configuration">Ajout ou modification d'une donnée</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GConfig::setData(std::string key, std::string value) {
+	GDebug::Instance()-&gt;write(__CLASSNAME__, "::", __FUNCTION__, "()", _EOA_);
+    m_dataMap[key] = value;
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Programme sur les données de configuration-Lecture d'une donnée"><a class="Link9" href="#Programme sur les données de configuration">Lecture d'une donnée</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+std::string GConfig::getData(std::string key) {
+	GDebug::Instance()-&gt;write(__CLASSNAME__, "::", __FUNCTION__, "()", _EOA_);
+    return m_dataMap[key];
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Programme sur les données de configuration-Suppression d'une donnée"><a class="Link9" href="#Programme sur les données de configuration">Suppression d'une donnée</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GConfig::removeData(std::string key) {
+	GDebug::Instance()-&gt;write(__CLASSNAME__, "::", __FUNCTION__, "()", _EOA_);
+    std::map&lt;std::string, std::string&gt;::iterator lItem = m_dataMap.find(key);
+    if(lItem != m_dataMap.end()) {
+        m_dataMap.erase(lItem);
+    }
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Programme sur les données de configuration-Taille des données"><a class="Link9" href="#Programme sur les données de configuration">Taille des données</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+int GConfig::size() {
+	GDebug::Instance()-&gt;write(__CLASSNAME__, "::", __FUNCTION__, "()", _EOA_);
+    return m_dataMap.size();
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Programme sur les données de configuration-Affichage des données"><a class="Link9" href="#Programme sur les données de configuration">Affichage des données</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GConfig::showData() {
+	GDebug::Instance()-&gt;write(__CLASSNAME__, "::", __FUNCTION__, "()", _EOA_);
+    GShow::Instance()-&gt;showData(m_dataMap);
+}
+//===============================================</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programme sur les données CSV"><a class="Link3" href="#">Programme sur les données CSV</a></h1><div class="Body3">Le programme sur les données CSV permet de manipuler un système de données stocké au format CSV.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1590170599772"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1590170599772");</script></div><br><h2 class="Title7 GTitle2" id="Programme sur les données CSV-Résultat du programme sur les données CSV"><a class="Link9" href="#Programme sur les données CSV">Résultat du programme sur les données CSV</a></h2><br><div class="Img3 GImage"><img src="img/csv.png" alt="img/csv.png"></div><br><h2 class="Title7 GTitle2" id="Programme sur les données CSV-Ajout d'une ligne de données"><a class="Link9" href="#Programme sur les données CSV">Ajout d'une ligne de données</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GCsv::addRow() {
+	GDebug::Instance()-&gt;write(__CLASSNAME__, "::", __FUNCTION__, "()", _EOA_);
+    m_itemMap = new std::vector&lt;std::string&gt;;
+    m_dataMap.push_back(m_itemMap);
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Programme sur les données CSV-Ajout d'une données"><a class="Link9" href="#Programme sur les données CSV">Ajout d'une données</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GCsv::addData(std::string data) {
+	GDebug::Instance()-&gt;write(__CLASSNAME__, "::", __FUNCTION__, "()", _EOA_);
+    m_itemMap-&gt;push_back(data);
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Programme sur les données CSV-Modification d'une donnée"><a class="Link9" href="#Programme sur les données CSV">Modification d'une donnée</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GCsv::setData(int row, int col, std::string data) {
+	GDebug::Instance()-&gt;write(__CLASSNAME__, "::", __FUNCTION__, "()", _EOA_);
+    std::vector&lt;std::string&gt;* lItemMap = m_dataMap.at(row);
+    lItemMap-&gt;at(col) = data;
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Programme sur les données CSV-Lecture d'une donnée"><a class="Link9" href="#Programme sur les données CSV">Lecture d'une donnée</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+std::string GCsv::getData(int row, int col) {
+	GDebug::Instance()-&gt;write(__CLASSNAME__, "::", __FUNCTION__, "()", _EOA_);
+    std::vector&lt;std::string&gt;* lItemMap = m_dataMap.at(row);
+    std::string lData = lItemMap-&gt;at(col);
+    return lData;
+}
+//===============================================
+</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Programme sur les données CSV-Suppression d'une ligne de données"><a class="Link9" href="#Programme sur les données CSV">Suppression d'une ligne de données</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GCsv::removeData(int row) {
+	GDebug::Instance()-&gt;write(__CLASSNAME__, "::", __FUNCTION__, "()", _EOA_);
+    std::vector&lt;std::string&gt;* lItemMap = m_dataMap.at(row);
+    lItemMap-&gt;clear();
+    delete lItemMap;
+    m_dataMap.erase(m_dataMap.begin() + row);
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Programme sur les données CSV-Suppression des données"><a class="Link9" href="#Programme sur les données CSV">Suppression des données</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GCsv::clear() {
+	GDebug::Instance()-&gt;write(__CLASSNAME__, "::", __FUNCTION__, "()", _EOA_);
+    for(int i = 0; i &lt; m_dataMap.size(); i++) {
+        std::vector&lt;std::string&gt;* lItemMap = m_dataMap.at(i);
+        lItemMap-&gt;clear();
+        delete lItemMap;
+    }
+    m_dataMap.clear();
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Programme sur les données CSV-Taille des données"><a class="Link9" href="#Programme sur les données CSV">Taille des données</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GCsv::size(int& row, int& col) {
+	GDebug::Instance()-&gt;write(__CLASSNAME__, "::", __FUNCTION__, "()", _EOA_);
+    std::vector&lt;std::string&gt;* lItemMap = m_dataMap.at(0);
+    row = m_dataMap.size();
+    col = lItemMap-&gt;size();
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Programme sur les données CSV-Affichage des données"><a class="Link9" href="#Programme sur les données CSV">Affichage des données</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GCsv::showData() {
+	GDebug::Instance()-&gt;write(__CLASSNAME__, "::", __FUNCTION__, "()", _EOA_);
+    GShow::Instance()-&gt;showData(m_dataMap);
+}
 //===============================================</xmp></pre></div><br></div></div></div></div><br>
