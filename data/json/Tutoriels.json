@@ -135,7 +135,7 @@
             "icon":"fa fa-database",
             "theme":"MySQL",
             "description":"Apprenez le<br/> MySQL",
-            "link":"/Tutoriels/#",
+            "link":"/Tutoriels/MySQL/",
 			"follow":"no"
         },
         {

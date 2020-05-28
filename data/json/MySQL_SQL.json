@@ -4,19 +4,19 @@
     {
         "meta_desc":
         [
-            "SQLite est un système de gestion de base de données relationnelle.",
+            "MySQL est un système de gestion de base de données relationnelle.",
 			"Le but de ce tutoriel est de vous apprendre",
-            "la gestion d'une base de données SQLite en C++.",
+            "la gestion d'une base de données MySQL en SQL.",
             "Produit par Gérard KESSE."
         ],
-        "meta_cano":"/Tutoriels/SQLite/Cpp/",
+        "meta_cano":"/Tutoriels/MySQL/SQL/",
         "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/data/img/defaults/banner_sqlite.png"
     },    
     "links":
     [
         {"name":"Tutoriels","link":"/Tutoriels/#Base de données","follow":"no"},
-        {"name":"SQLite","link":"/Tutoriels/SQLite/#Programmation avec SQLite","follow":"no"},
-        {"name":"C++","link":"","follow":"no"}
+        {"name":"MySQL","link":"/Tutoriels/MySQL/#Programmation avec MySQL","follow":"no"},
+        {"name":"SQL","link":"","follow":"no"}
     ]
 }
                         

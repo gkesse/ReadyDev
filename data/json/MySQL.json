@@ -1,0 +1,26 @@
+{
+    "sitemap":"yes",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+            "MySQL est un système de gestion de base de données relationnelle.",
+			"Le but de ce tutoriel est de vous apprendre",
+            "la gestion de base de données MySQL.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Tutoriels/MySQL/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/data/img/defaults/banner_mysql.png"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/#Base de données","follow":"no"},
+        {"name":"MySQL","link":"","follow":"no"}
+    ],
+    "programs":
+    [
+        {"name":"Apprendre la gestion d'une base de données MySQL en SQL","link":"/Tutoriels/MySQL/SQL/","follow":"yes"},
+        {"name":"Apprendre la gestion d'une base de données MySQL en PHP","link":"/Tutoriels/MySQL/PHP/","follow":"yes"}
+    ]
+}
+                        
