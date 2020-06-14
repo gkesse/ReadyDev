@@ -8,7 +8,8 @@
             "les Mathématiques appliquées aux sciences de l'ingénieur.",
             "Produit par Gérard KESSE."
         ],
-        "meta_cano":"/Cours/Mathematiques/"
+        "meta_cano":"/Cours/Mathematiques/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/data/img/defaults/banner_maths.png"
     },    
     "links":
     [

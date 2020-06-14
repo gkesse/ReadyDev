@@ -1,0 +1,21 @@
+{
+    "sitemap":"no",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+            "Android Studio est un environnement de développement pour développer des applications mobiles Android.",
+			"Le but de ce tutoriel est de vous apprendre",
+            "le développement d'applications mobiles Android avec Android Studio.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Tutoriels/Android_Studio/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/data/img/defaults/banner_android_studio.png"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/#Développement Mobile","follow":"no"},
+        {"name":"Android Studio","link":"","follow":"no"}
+    ]
+}
+                        

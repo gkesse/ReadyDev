@@ -1,52 +1,34 @@
-<div class="Parallax GParallax1"><div class="Img Binary"><div class="Caption"><a href="#"><div class="Text">Mathématiques</div></a></div></div><div class="Body2 Orange">Les <b>Mathématiques </b>sont un ensemble de connaissances résultant de raisonnements logiques.<br>Le but de ce cours est de vous apprendre les <b>Mathématiques</b> appliquées aux <b>sciences de l'ingénieur</b>.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary1"><div class="Body0" id="Loader_1530820262574"><div class="Row26">Summary 1</div></div><script>loadSummary1("Loader_1530820262574");</script></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Période, Fréquence, Pulsation"><a class="Link3" href="#">Période, Fréquence, Pulsation</a></h1><div class="Body3">Le but de cette section est de vous apprendre à exprimer les relations entre <span class="GColor1" style="color:lime;">la période, la fréquence et la pulsation</span> d'un signal.<br>Produit par <b>Gérard KESSE</b>.<br><br><h3 class="Title8 GTitle3">Schéma explicatif</h3><div class="Img3"><img src="img/Frequence.png" alt="img/Frequence.png"></div><br><div class="Formula GFormula1"><div class="Formula2">$T\rightarrow$ période du signal $(s)$<br>
-$f\rightarrow$ fréquence du signal $(Hz)$<br>
-$\omega\rightarrow$ pulsation du signal $(rad.s^{-1})$<br>
-</div></div><br><h3 class="Title8 GTitle3">Période</h3><div class="Formula GFormula1"><div class="Formula2">\begin{eqnarray} 
-T &amp;=&amp; \frac{1}{f}
-\end{eqnarray}
-</div></div><br><h3 class="Title8 GTitle3">Fréquence</h3><div class="Formula GFormula1"><div class="Formula2">\begin{eqnarray} 
-f &amp;=&amp; \frac{1}{T}
-\end{eqnarray}
-</div></div><br><h3 class="Title8 GTitle3">Pulsation</h3><div class="Formula GFormula1"><div class="Formula2">\begin{eqnarray} 
-\omega &amp;=&amp; 2\pi f\\\\
-\omega &amp;=&amp; \frac{2\pi}{T}\\\\
-\omega T &amp;=&amp; 2\pi
-\end{eqnarray}
-</div></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Déphasage angulaire"><a class="Link3" href="#">Déphasage angulaire</a></h1><div class="Body3">Le but de cette section est de vous apprendre à calculer le <span class="GColor1" style="color:lime;">déphasage angulaire</span> entre deux signaux.<br>Produit par <b>Gérard KESSE</b>.<br><br><h3 class="Title8 GTitle3">Schéma explicatif</h3><div class="Img3"><img src="img/Dephasage.png" alt="img/Dephasage.png"></div><br><div class="Formula GFormula1"><div class="Formula2">$T\rightarrow$ période du signal $(s)$<br>
-$\Delta t\rightarrow$ décalage horaire $(s)$<br>
-$\Delta\phi\rightarrow$ décalage angulaire $(rad)$<br>
-</div></div><br><h3 class="Title8 GTitle3">Déphasage angulaire</h3><div class="Formula GFormula1"><div class="Formula2">$$\left \{
-\begin{array}{r c l}
-T &amp;\rightarrow&amp; 2\pi\\
-\Delta t &amp;\rightarrow&amp; \Delta\phi
-\end{array}
-\right.$$
-</div></div><div class="Formula GFormula1"><div class="Formula2">\begin{eqnarray}
-\frac{\Delta\phi}{2\pi} &amp;=&amp; \frac{\Delta t}{T}
-\end{eqnarray}
-</div></div><div class="Formula GFormula1"><div class="Formula2">\begin{eqnarray}
-{\Delta\phi} &amp;=&amp; \frac{\Delta t}{T}2\pi
-\end{eqnarray}
-</div></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Valeur moyenne"><a class="Link3" href="#">Valeur moyenne</a></h1><div class="Body3">Le but de cette section est de vous apprendre à calculer la <span class="GColor1" style="color:lime;">valeur moyenne</span> d'un signal.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1531686129634"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1531686129634");</script></div><br><h2 class="Title7 GTitle2" id="Valeur moyenne-Définition"><a class="Link9" href="#Valeur moyenne">Définition</a></h2><br><div class="Formula GFormula1"><div class="Formula2">$$\langle v \rangle=\frac{1}{T}\int_{0}^{T} v(t)\ dt$$</div></div><br><h2 class="Title7 GTitle2" id="Valeur moyenne-Signal rectangulaire"><a class="Link9" href="#Valeur moyenne">Signal rectangulaire</a></h2><br><h3 class="Title8 GTitle3">Forme d'onde<br></h3><div class="Img3"><img src="img/Signal_Carre.png" alt="img/Signal_Carre.png"></div><br><h3 class="Title8 GTitle3">Expression</h3><div class="Formula GFormula1"><div class="Formula2">$$\left \{\begin{array}{r c l}v(t) &amp;=&amp; E\ ;\ \forall\ t\in\ [0\ ;\ \alpha T]\\v(t) &amp;=&amp; 0\ ;\ \forall\ t\in\ [\alpha T\ ;\ T]\end{array}\right.$$</div></div><br><h3 class="Title8 GTitle3">Valeur moyenne</h3><div class="Formula GFormula1"><div class="Formula2">\begin{eqnarray}
-\langle v \rangle &amp;=&amp; \frac{1}{T}\int_{0}^{T} v(t)\ dt\\\\
-\langle v \rangle &amp;=&amp; \frac{1}{T}\int_{0}^{\alpha T} E\ dt\\\\
-\langle v \rangle &amp;=&amp; \frac{E}{T}[t]_{0}^{\alpha T}\\\\
-\langle v \rangle &amp;=&amp; \frac{E}{T}\alpha T
-\end{eqnarray}</div></div><div class="Formula GFormula1"><div class="Formula2">\begin{eqnarray}
-\langle v \rangle &amp;=&amp; \alpha E
-\end{eqnarray}</div></div><br><h3 class="Title8 GTitle3">Signal carré</h3><div class="Formula GFormula1"><div class="Formula2">\begin{eqnarray}
-\langle v \rangle &amp;=&amp; \alpha E\ ;\ \alpha &amp;=&amp; \frac{1}{2}
-\end{eqnarray}</div></div><div class="Formula GFormula1"><div class="Formula2">\begin{eqnarray}
-\langle v \rangle &amp;=&amp; \frac{E}{2}
-\end{eqnarray}</div></div><br><h2 class="Title7 GTitle2" id="Valeur moyenne-Signal triangulaire"><a class="Link9" href="#Valeur moyenne">Signal triangulaire</a></h2><br><h3 class="Title8 GTitle3">Forme d'onde</h3><div class="Img3"><img src="img/Signal_Triangle.png" alt="img/Signal_Triangle.png"></div><br><h2 class="Title7 GTitle2" id="Valeur moyenne-Signal en dent de scie"><a class="Link9" href="#Valeur moyenne">Signal en dent de scie</a></h2><br><h3 class="Title8 GTitle3">Forme d'onde</h3><div class="Img3"><img src="img/Signal_Dent_Scie.png" alt="img/Signal_Dent_Scie.png"></div><br><h2 class="Title7 GTitle2" id="Valeur moyenne-Signal sinusoïdal"><a class="Link9" href="#Valeur moyenne">Signal sinusoïdal</a></h2><br><h3 class="Title8 GTitle3">Forme d'onde</h3><div class="Img3"><img src="img/Signal_Sinus.png" alt="img/Signal_Sinus.png"></div><br><h3 class="Title8 GTitle3">Expression</h3><div class="Formula GFormula1"><div class="Formula2">$$v(t)=V_{max}\sin{\omega t}\ ;\ \forall\ t\ \in\ [0\ ;\ T]$$</div></div><br><h3 class="Title8 GTitle3">Valeur moyenne</h3><div class="Formula GFormula1"><div class="Formula2">\begin{eqnarray}
-\langle v \rangle &amp;=&amp; \frac{1}{T}\int_{0}^{T} v(t)\ dt\\\\
-\langle v \rangle &amp;=&amp; \frac{1}{T}\int_{0}^{T} V_{max}\sin{\omega t}\ dt\\\\
-\langle v \rangle &amp;=&amp; \frac{V_{max}}{T}\int_{0}^{T} \sin{\omega t}\ dt\\\\
-\langle v \rangle &amp;=&amp; \frac{V_{max}}{\omega T}\int_{0}^{T} \cos{\omega t}\ dt\\\\
-\langle v \rangle &amp;=&amp; \frac{V_{max}}{2\pi}[\cos{\omega t}]_{0}^{T}\\\\
-\langle v \rangle &amp;=&amp; \frac{V_{max}}{2\pi}(\cos{\omega T}-\cos{0})\\\\
-\langle v \rangle &amp;=&amp; \frac{V_{max}}{2\pi}(\cos{2\pi}-\cos{0})\\\\
-\langle v \rangle &amp;=&amp; \frac{V_{max}}{2\pi}(1-1)
-\end{eqnarray}</div></div><div class="Formula GFormula1"><div class="Formula2">\begin{eqnarray}
-\langle v \rangle &amp;=&amp; 0
-\end{eqnarray}</div></div><br><h2 class="Title7 GTitle2" id="Valeur moyenne-Signal sinusoïdal mono-alternance"><a class="Link9" href="#Valeur moyenne">Signal sinusoïdal mono-alternance</a></h2><br><h3 class="Title8 GTitle3">Forme d'onde</h3><div class="Img3"><img src="img/Signal_Sinus_Mono.png" alt="img/Signal_Sinus_Mono.png"></div><br><h2 class="Title7 GTitle2" id="Valeur moyenne-Signal sinusoïdal double-alternance"><a class="Link9" href="#Valeur moyenne">Signal sinusoïdal double-alternance</a></h2><br><h3 class="Title8 GTitle3">Forme d'onde</h3><div class="Img3"><img src="img/Signal_Sinus_Double.png" alt="img/Signal_Sinus_Double.png"></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Transformée de Laplace"><a class="Link3" href="#">Transformée de Laplace</a></h1><div class="Body3">Le but de cette section est de vous apprendre à calculer la <span class="GColor1" style="color:lime;">transformée de Laplace</span> d'un signal.<br>Produit par <b>Gérard KESSE</b>.</div></div></div></div><br>
+<div class="Parallax GParallax1"><div class="Img Binary"><div class="Caption"><a href="#"><div class="Text">Mathématiques</div></a></div></div><div class="Body2 Orange">Les <b>Mathématiques </b>sont un ensemble de connaissances résultant de raisonnements logiques.<br>Le but de ce cours est de vous apprendre les <b>Mathématiques</b> appliquées aux <b>sciences de l'ingénieur</b>.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Img3 GImage"><img src="/data/img/defaults/banner_maths.png" alt="/data/img/defaults/banner_maths.png"></div><br><div class="Content0 GSummary1"><div class="Body0" id="Loader_1530820262574"><div class="Row26">Summary 1</div></div><script>loadSummary1("Loader_1530820262574");</script></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Relation de Chasles"><a class="Link3" href="#">Relation de Chasles</a></h1><div class="Body3">La relation de Chasles est une relation permettant d'additionner deux vecteurs.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1591308213924"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1591308213924");</script></div><br><h2 class="Title7 GTitle2" id="Relation de Chasles-Calcul vectoriel"><a class="Link9" href="#Relation de Chasles">Calcul vectoriel</a></h2><br>Soient $A$, $B$ et $C$ des points de l'espace.<br><br>Relation de Chasles:<br><br><div class="Formula GFormula1"><div class="Formula2">\begin{eqnarray} 
+\overrightarrow{AC}  &amp;=&amp; \overrightarrow{AB}+\overrightarrow{BC}\\
+\end{eqnarray}</div></div><br><h2 class="Title7 GTitle2" id="Relation de Chasles-Mesures algébriques"><a class="Link9" href="#Relation de Chasles">Mesures algébriques</a></h2><br>Soient $A$, $B$ et $C$ des points d'une droite orientée.<br><br>Relation de Chasles:<br><br><div class="Formula GFormula1"><div class="Formula2">\begin{eqnarray} 
+\overline{AC} &amp;=&amp; \overline{AB}+\overline{BC}
+\end{eqnarray}</div></div><br><h2 class="Title7 GTitle2" id="Relation de Chasles-Angles orientés"><a class="Link9" href="#Relation de Chasles">Angles orientés</a></h2><br>Soient $\overrightarrow{u}$, $\overrightarrow{v}$ et $\overrightarrow{w}$ des vecteurs de l'espace.<br><br>Relation de Chasles:<br><br><div class="Formula GFormula1"><div class="Formula2">\begin{eqnarray} 
+\widehat{(\overrightarrow{u},\overrightarrow{w})} &amp;=&amp; \widehat{(\overrightarrow{u},\overrightarrow{v})} +\widehat{(\overrightarrow{v},\overrightarrow{w})} \\
+\end{eqnarray}</div></div><br><h2 class="Title7 GTitle2" id="Relation de Chasles-Intégration"><a class="Link9" href="#Relation de Chasles">Intégration</a></h2><br>Soit $f$ une fonction intégrable sur un intervalle $I$.<br>Soient $a$, $b$ et $c$ des réels dans $I$.<br><br>Relation de Chasles:<br><br><div class="Formula GFormula1"><div class="Formula2">\begin{eqnarray} 
+\int_{a}^{c}f(x)dx &amp;=&amp; \int_{a}^{b}f(x)dx+\int_{b}^{c}f(x)dx
+\end{eqnarray}</div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Produit scalaire"><a class="Link3" href="#">Produit scalaire</a></h1><div class="Body3">Le produit scalaire est une opération algébrique s'appliquant aux vecteurs.<br>Il associe à deux vecteurs donnés un scalaire.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1591312977346"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1591312977346");</script></div><br><h2 class="Title7 GTitle2" id="Produit scalaire-Produit scalaire"><a class="Link9" href="#Produit scalaire">Produit scalaire</a></h2><br>Soient $\overrightarrow{u}$ et $\overrightarrow{v}$ des vecteurs de l'espace.<br><br>Produit scalaire:<br><br><div class="Formula GFormula1"><div class="Formula2">\begin{eqnarray} 
+A &amp;=&amp; \overrightarrow{u}.\overrightarrow{v}\\
+A &amp;=&amp; \left\|\overrightarrow{u}\right\|.\left\|\overrightarrow{v}\right\|.\cos \widehat{\left ( \overrightarrow{u},\overrightarrow{u} \right )}\\
+\end{eqnarray}</div></div><br><h2 class="Title7 GTitle2" id="Produit scalaire-Norme euclidienne"><a class="Link9" href="#Produit scalaire">Norme euclidienne</a></h2><br>Soit $u$ un vecteur de l'espace.<br><br>Nome euclidienne:<br><br><div class="Formula GFormula1"><div class="Formula2">\begin{eqnarray} 
+\overrightarrow{u}.\overrightarrow{u} &amp;=&amp; \left \| \overrightarrow{u} \right \|.\left \| \overrightarrow{u} \right \|.\cos \widehat{\left ( \overrightarrow{u},\overrightarrow{u} \right )}\\
+\overrightarrow{u}.\overrightarrow{u} &amp;=&amp; \left \| \overrightarrow{u} \right \|.\left \| \overrightarrow{u} \right \|.\cos\left ( 0 \right )\\
+\overrightarrow{u}.\overrightarrow{u} &amp;=&amp; \left \| \overrightarrow{u} \right \|^2\\
+\end{eqnarray}</div></div><br><div class="Formula GFormula1"><div class="Formula2">\begin{eqnarray} 
+\left \| \overrightarrow{u} \right \| &amp;=&amp; \sqrt{\overrightarrow{u}.\overrightarrow{u}}
+\end{eqnarray}</div></div><br><h2 class="Title7 GTitle2" id="Produit scalaire-Inégalité de Cauchy-Schwarz"><a class="Link9" href="#Produit scalaire">Inégalité de Cauchy-Schwarz</a></h2><br>Soient $\overrightarrow{u}$ et $\overrightarrow{v}$ des vecteur de l'espace.<br><br>Inégalité de Cauchy-Schwarz:<br><br><div class="Formula GFormula1"><div class="Formula2">\begin{eqnarray} 
+\left | \overrightarrow{u}.\overrightarrow{v} \right | &amp;\leq&amp; \left \| \overrightarrow{u} \right \|.\left \| \overrightarrow{v} \right \|
+\end{eqnarray}</div></div><br><h2 class="Title7 GTitle2" id="Produit scalaire-Théorème d'Al-Kashi"><a class="Link9" href="#Produit scalaire">Théorème d'Al-Kashi</a></h2><br><h3 class="Title8 GTitle3">Schéma descriptif</h3><br><div class="Img3 GImage"><img src="img/al_kashi.png" alt="img/al_kashi.png"></div><br>Soient $A$, $B$ et $C$ des points de l'espace.<br><br><h3 class="Title8 GTitle3">Théorème d'Al-Kashi</h3><br>Relation de Chasles:<br><br><div class="Formula GFormula1"><div class="Formula2">\begin{eqnarray} 
+\overrightarrow{AB} &amp;=&amp; \overrightarrow{AC}+\overrightarrow{CB}\\
+\end{eqnarray}</div></div><br>Identité remarquable:<br><br><div class="Formula GFormula1"><div class="Formula2">\begin{eqnarray} 
+
+\overrightarrow{AB}^2 &amp;=&amp; \left (\overrightarrow{AC}+\overrightarrow{CB}  \right )^2\\
+\overrightarrow{AB}^2 &amp;=&amp; \overrightarrow{AC}^2 + 2.\overrightarrow{AC}.\overrightarrow{CB}+\overrightarrow{CB}^2\\
+\overrightarrow{AB}^2 &amp;=&amp; \overrightarrow{AC}^2 + 2.\left \|\overrightarrow{AC} \right \|.\left \|\overrightarrow{CB} \right \|.\cos{\widehat{\left ( \overrightarrow{AC},\overrightarrow{CB} \right )}}+\overrightarrow{CB}^2\\ \end{eqnarray}</div></div><br>Théorème d'Al-Kashi:<br><br><div class="Formula GFormula1"><div class="Formula2">\begin{eqnarray} 
+c^2 &amp;=&amp; a^2+b^2+2ab\cos{\gamma}\\
+\end{eqnarray}</div></div><br><h2 class="Title7 GTitle2" id="Produit scalaire-Théorème de Pythagore"><a class="Link9" href="#Produit scalaire">Théorème de Pythagore</a></h2><br><h3 class="Title8 GTitle3">Schéma descriptif</h3><br><div class="Img3 GImage"><img src="img/pythagore.png" alt="img/pythagore.png"></div><br><h3 class="Title8 GTitle3">Théorème de Pythagore</h3><br>Théorème d'Al-Kashi:<br><br><div class="Formula GFormula1"><div class="Formula2">\begin{eqnarray} 
+c^2 &amp;=&amp; a^2+b^2+2ab\cos{\gamma}\\
+\end{eqnarray}</div></div><br><div class="Formula GFormula1"><div class="Formula2">\begin{eqnarray} 
+\cos{\gamma} &amp;=&amp; \cos{90^{\circ}} &amp;=&amp; 0\\
+\end{eqnarray}</div></div><br>Théorème de Pythagore:<br><br><div class="Formula GFormula1"><div class="Formula2">\begin{eqnarray} 
+c^2 &amp;=&amp; a^2+b^2\\
+\end{eqnarray}</div></div><br></div></div></div></div><br>

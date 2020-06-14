@@ -1,0 +1,21 @@
+{
+    "sitemap":"no",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+            "Nox est un émulateur Android.",
+			"Le but de ce tutoriel est de vous apprendre",
+            "la simulation d'un système Android avec Nox.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Tutoriels/Nox/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/data/img/defaults/banner_nox.png"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/#Développement Mobile","follow":"no"},
+        {"name":"Nox","link":"","follow":"no"}
+    ]
+}
+                        
