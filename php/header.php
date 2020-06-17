@@ -94,22 +94,22 @@
         <meta property="og:site_name" content="<?php echo $lSiteName; ?>"/>
         <!-- ============================================ -->
         <!-- Stylesheet -->
-        <link rel="stylesheet" href="/lib/google_fonts/1.0.0/Aclonica/css.css"/>
-        <link rel="stylesheet" href="/lib/google_fonts/1.0.0/Akronim/css.css"/>
-        <link rel="stylesheet" href="/lib/google_fonts/1.0.0/Allan/css.css"/>
-        <link rel="stylesheet" href="/lib/google_fonts/1.0.0/Archivo_Narrow/css.css"/>
-        <link rel="stylesheet" href="/lib/google_fonts/1.0.0/Anton/css.css"/>
-        <link rel="stylesheet" href="/lib/font_awesome/4.7.0/css/font-awesome.min.css"/>
+        <link rel="stylesheet" href="/libs/google_fonts/1.0.0/Aclonica/css.css"/>
+        <link rel="stylesheet" href="/libs/google_fonts/1.0.0/Akronim/css.css"/>
+        <link rel="stylesheet" href="/libs/google_fonts/1.0.0/Allan/css.css"/>
+        <link rel="stylesheet" href="/libs/google_fonts/1.0.0/Archivo_Narrow/css.css"/>
+        <link rel="stylesheet" href="/libs/google_fonts/1.0.0/Anton/css.css"/>
+        <link rel="stylesheet" href="/libs/font_awesome/4.7.0/css/font-awesome.min.css"/>
         <!-- ============================================ -->
         <!-- Script -->
-        <script src="/lib/jquery/3.3.1/jquery.min.js"></script>
+        <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
         <!-- ============================================ -->
         <?php if($lAce) { ?>
-        <script src="/lib/ace/1.4.6/src-min/ace.js"></script>
+        <script src="/libs/ace/1.4.6/src-min/ace.js"></script>
         <?php } ?>
         <!-- ============================================ -->
         <?php if($lMathJax) { ?>
-        <script type="text/javascript" async src="/lib/mathjax/2.7.3/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script type="text/javascript" async src="/libs/mathjax/2.7.3/MathJax.js?config=TeX-MML-AM_CHTML"></script>
         <script type="text/x-mathjax-config">
         MathJax.Hub.Config({
             tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
@@ -119,7 +119,7 @@
         <!-- ============================================ -->
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <!--script async src="https://www.googletagmanager.com/gtag/js?id=UA-109595989-1"></script-->
-        <script async src="/lib/google_tag_manager/1.0.0/gtag.js?id=UA-109595989-1"></script>
+        <script async src="/libs/google_tag_manager/1.0.0/gtag.js?id=UA-109595989-1"></script>
         <script>
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
