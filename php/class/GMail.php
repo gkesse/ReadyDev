@@ -16,7 +16,7 @@
         //===============================================
         public function receiveMail($data) {
             date_default_timezone_set("Etc/UTC");
-            require_once $_SERVER["DOCUMENT_ROOT"]."/lib/phpmailer/5.2.23/PHPMailerAutoload.php";
+            require_once $_SERVER["DOCUMENT_ROOT"]."/libs/phpmailer/5.2.23/PHPMailerAutoload.php";
             
             $m_file = $_SERVER["DOCUMENT_ROOT"]."/data/email/contacts/email.php";
             $m_content = GFile::Instance()->getInclude($m_file, $data);
@@ -58,7 +58,7 @@
             $mail->SMTPAuth = true;
             $mail->CharSet = "UTF-8";
             $mail->Username = "readydevz@gmail.com";
-            $mail->Password = "gma25@RDv";
+            $mail->Password = "gma87@RDv";
             $mail->setFrom("readydevz@gmail.com", "ReadyDev");
             $mail->addAddress($data["emailValue"], $data["nameValue"]);
             $mail->addReplyTo("readydevz@gmail.com", "ReadyDev");
