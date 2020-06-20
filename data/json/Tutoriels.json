@@ -382,6 +382,16 @@
             "link":"/Tutoriels/Jenkins/",
 			"follow":"yes"
         }
+    ],
+    "vmwares":
+    [
+        {
+            "icon":"fa fa-sitemap",
+            "theme":"VirtualBox",
+            "description":"Apprenez le<br/> VirtualBox",
+            "link":"/Tutoriels/VirtualBox/",
+			"follow":"yes"
+        }
     ]
 }
                         

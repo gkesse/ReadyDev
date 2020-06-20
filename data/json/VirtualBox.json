@@ -1,0 +1,21 @@
+{
+    "sitemap":"no",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+            "VirualBox est un système de virtualisation matérielle.",
+			"Le but de ce tutoriel est de vous apprendre",
+            "la virtualisation matérielle avec Nox.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Tutoriels/VirualBox/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/data/img/defaults/banner_virtualbox.png"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/#Virtualisation matérielle","follow":"no"},
+        {"name":"VirualBox","link":"","follow":"no"}
+    ]
+}
+                        
