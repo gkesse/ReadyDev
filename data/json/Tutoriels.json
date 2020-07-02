@@ -108,8 +108,8 @@
             "icon":"fa fa-cube",
             "theme":"Design Patterns",
             "description":"Apprenez le<br/> Design Patterns",
-            "link":"/Tutoriels/#",
-			"follow":"no"
+            "link":"/Tutoriels/Design_Patterns/",
+			"follow":"yes"
         }
     ],
     "hmi":

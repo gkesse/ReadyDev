@@ -1,0 +1,25 @@
+{
+    "sitemap":"yes",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+			"Le but de ce tutoriel est de vous apprendre",
+            "les patrons de conception en C.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Tutoriels/Design_Patterns/C0/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/data/img/defaults/banner_design_patterns_c.png"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/#Patrons de conception","follow":"no"},
+        {"name":"Design Patterns","link":"/Tutoriels/Design_Patterns/","follow":"no"},
+        {"name":"C","link":"","follow":"no"}
+    ],
+    "summary":
+    [
+        {"name":"Apprendre les patrons de conception en C","link":"/Tutoriels/Design_Patterns/C0/","follow":"yes"}
+    ]
+}
+                        
