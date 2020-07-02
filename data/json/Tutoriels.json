@@ -108,8 +108,8 @@
             "icon":"fa fa-cube",
             "theme":"Design Patterns",
             "description":"Apprenez le<br/> Design Patterns",
-            "link":"/Tutoriels/#",
-			"follow":"no"
+            "link":"/Tutoriels/Design_Patterns/",
+			"follow":"yes"
         }
     ],
     "hmi":
@@ -380,6 +380,16 @@
             "theme":"Jenkins",
             "description":"Apprenez le<br/> Jenkins",
             "link":"/Tutoriels/Jenkins/",
+			"follow":"yes"
+        }
+    ],
+    "vmwares":
+    [
+        {
+            "icon":"fa fa-sitemap",
+            "theme":"VirtualBox",
+            "description":"Apprenez le<br/> VirtualBox",
+            "link":"/Tutoriels/VirtualBox/",
 			"follow":"yes"
         }
     ]
