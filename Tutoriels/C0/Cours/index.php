@@ -1,11 +1,11 @@
 <?php
     require $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoloadRegister.php";
     
-    $m_data = GJson::Instance()->getData("data/json/Design_Patterns_C.json");
+    $m_data = GJson::Instance()->getData("data/json/C_Cours.json");
     
-    GConfig::Instance()->setData("title", "C - Design Patterns");
+    GConfig::Instance()->setData("title", "C");
     GConfig::Instance()->setData("menu", "Tutoriels");
-    GConfig::Instance()->setData("view", "Design_Patterns_C");
+    GConfig::Instance()->setData("view", "C_Cours");
     GConfig::Instance()->setData("link", $m_data["links"]);
 
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";
