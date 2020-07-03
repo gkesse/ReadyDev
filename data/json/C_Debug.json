@@ -5,24 +5,17 @@
         "meta_desc":
         [
 			"Le but de ce tutoriel est de vous apprendre",
-            "la programmation en C.",
+            "à créer un système de fichier log en C.",
             "Produit par Gérard KESSE."
         ],
-        "meta_cano":"/Tutoriels/C0/",
+        "meta_cano":"/Tutoriels/C0/Avance/Debug/",
         "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/data/img/defaults/banner_c.png"
     },    
     "links":
     [
         {"name":"Tutoriels","link":"/Tutoriels/#Développement Logiciel","follow":"no"},
-        {"name":"C","link":"","follow":"no"}
-    ],
-    "basics":
-    [
-        {"name":"Apprendre la programmation en C","link":"/Tutoriels/C0/Cours/","follow":"yes"}
-    ],
-    "advanced":
-    [
-        {"name":"Créer un système de fichier log","link":"/Tutoriels/C0/Avance/Debug/","follow":"yes"}
+        {"name":"C","link":"/Tutoriels/C0/#Programmation avancée","follow":"no"},
+        {"name":"Debug","link":"","follow":"no"}
     ]
 }
                         

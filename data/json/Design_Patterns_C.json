@@ -14,7 +14,7 @@
     "links":
     [
         {"name":"Tutoriels","link":"/Tutoriels/#Patrons de conception","follow":"no"},
-        {"name":"Design Patterns","link":"/Tutoriels/Design_Patterns/","follow":"no"},
+        {"name":"Design Patterns","link":"/Tutoriels/Design_Patterns/#Sommaire","follow":"no"},
         {"name":"C","link":"","follow":"no"}
     ],
     "summary":
