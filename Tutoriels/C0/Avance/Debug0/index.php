@@ -5,7 +5,7 @@
     
     GConfig::Instance()->setData("title", "C - Debug");
     GConfig::Instance()->setData("menu", "Tutoriels");
-    GConfig::Instance()->setData("view", "C");
+    GConfig::Instance()->setData("view", "C_Debug");
     GConfig::Instance()->setData("link", $m_data["links"]);
 
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";
