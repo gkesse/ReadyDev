@@ -18,11 +18,12 @@
     ],
     "basics":
     [
-        {"name":"Apprendre la programmation en C","link":"/Tutoriels/C0/Cours/","follow":"yes"}
+        {"name":"Apprendre la programmation en C","link":"/Tutoriels/C0/Cours/","follow":"yes"},
+        {"name":"Gérer les processus en C","link":"/Tutoriels/C0/Process/","follow":"yes"}
     ],
     "advanced":
     [
-        {"name":"Créer un système de fichier log","link":"/Tutoriels/C0/Avance/Debug0/","follow":"yes"}
+        {"name":"Créer un système de fichier log en C","link":"/Tutoriels/C0/Avance/Debug0/","follow":"yes"}
     ]
 }
                         

@@ -1,0 +1,21 @@
+{
+    "sitemap":"yes",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+			"Le but de ce tutoriel est de vous apprendre",
+            "à gérer les processus en C.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Tutoriels/C0/Process/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/data/img/defaults/banner_c_process.png"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/#Développement Logiciel","follow":"no"},
+        {"name":"C","link":"/Tutoriels/C0/#Les bases","follow":"no"},
+        {"name":"Process","link":"","follow":"no"}
+    ]
+}
+                        
