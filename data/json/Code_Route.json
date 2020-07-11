@@ -1,0 +1,20 @@
+{
+    "sitemap":"yes",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+			"Le but de ce tutoriel est de vous apprendre",
+            "le code de la route.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Tutoriels/Code_Route/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/data/img/defaults/banner_code_route.png"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/#Divers","follow":"no"},
+        {"name":"Code de la Route","link":"","follow":"no"}
+    ]
+}
+                        

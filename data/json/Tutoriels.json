@@ -392,6 +392,16 @@
             "link":"/Tutoriels/VirtualBox/",
 			"follow":"yes"
         }
+    ],
+    "divers":
+    [
+        {
+            "icon":"fa fa-car",
+            "theme":"Code de la Route",
+            "description":"Apprenez le<br/> Code de la Route",
+            "link":"/Tutoriels/Code_Route/",
+			"follow":"yes"
+        }
     ]
 }
                         
