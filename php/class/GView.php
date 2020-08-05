@@ -14,6 +14,18 @@
         }
         //===============================================
         public function getView($page) {
+            $lKey = "SQLITE";
+            if($lKey == "SQLITE") return $this->getViewSQLite($page);
+            else if($lKey == "JSON") return $this->getViewJson($page);
+        }
+        //===============================================
+        public function getViewSQLite($page) {
+          GSQLite::Instance()->setPage($page);
+          GSQLite::Instance()->viewUpdate();
+          return GSQLite::Instance()->viewSelect();
+        }
+        //===============================================
+        public function getViewJson($page) {
             $m_file = "data/json/views.json";
             $m_data = GJson::Instance()->getData($m_file);
             $m_page = strtolower($page);

@@ -14,6 +14,11 @@
             return self::$m_instance;
         }
         //===============================================
+        public function getPath($file) {
+            $lFile = $_SERVER["DOCUMENT_ROOT"]."/".$file;
+            return $lFile;
+        }
+        //===============================================
         public function getData($file) {
             $lFile = $_SERVER["DOCUMENT_ROOT"];
 			$lFile = realpath($lFile);
