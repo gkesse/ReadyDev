@@ -18,7 +18,7 @@
     ],
     "basics":
     [
-        {"name":"Apprendre la programmation en C","link":"/Tutoriels/C0/Cours/","follow":"yes"},
+        {"name":"Créer un projet en C","link":"/Tutoriels/C0/Project/","follow":"yes"},
         {"name":"Gérer les processus en C","link":"/Tutoriels/C0/Process/","follow":"yes"}
     ],
     "advanced":

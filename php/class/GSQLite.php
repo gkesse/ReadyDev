@@ -4,13 +4,9 @@
         private static $m_instance = null;
         private $m_pdo = null;
         private $m_database;
-        private $m_page;
-        private $m_defaultView;
         //===============================================
         private function __construct() {
-            $this->setDatabase("data/sqlite/database.dat");
-            $this->setPage("Tutoriels");
-            $this->setDefaultView(250);
+
         }
         //===============================================
         public static function Instance() {
@@ -24,14 +20,6 @@
             $this->m_database = GFile::Instance()->getPath($database);
         }
         //===============================================
-        public function setPage($page) {
-            $this->m_page = strtolower($page);
-        }
-        //===============================================
-        public function setDefaultView($defaultView) {
-            $this->m_defaultView = $defaultView;
-        }
-        //===============================================
         public function connect() {
             $lUrl = "sqlite:$this->m_database";
             $this->m_pdo = new PDO($lUrl);
@@ -43,60 +31,104 @@
             $this->m_pdo = null;
         }
         //===============================================
-        public function viewUpdate() {
-            if($this->viewCheck()) $this->viewIncrement();
-            else $this->viewInsert();
+        public function showTables() {
+            $this->queryShow("
+            select name 
+            from sqlite_master 
+            where type='table'
+            ", 1);
         }
         //===============================================
-        public function viewCheck() {
-            $lCount = 0;
-            $lCheck = 0;
+        public function queryShow($sqlIn, $onHeaderIn) {
             $this->connect();
-            $lResult = $this->m_pdo->query("
-                select count(*) iCOUNT from VIEWS
-                where VIEW_KEY='$this->m_page'
-            ");
+            $lResult = $this->m_pdo->query($sqlIn);
+            $lHeaderUi = "<div>";
             foreach($lResult as $lRow) {
-                $lCheck = $lRow["iCOUNT"];
+                $lHeaderSepOn = 0;
+                $lDataSepOn = 0;
+                foreach($lRow as $lKey => $lValue) {
+                    if($onHeaderIn == 1) {
+                        if($lHeaderSepOn != 0) echo " | ";
+                        $lHeaderSepOn = 1;
+                        echo "$lKey";
+                    }
+                }
+                if($onHeaderIn == 1) {
+                    $onHeaderIn = 0;
+                    echo "<br>";
+                }
+                foreach($lRow as $lKey => $lValue) {
+                    if($lDataSepOn != 0) echo " | ";
+                    $lDataSepOn = 1;
+                    echo "$lValue";
+                }
+                echo "<br>";
+            }
+            $this->close();
+            exit;
+        }
+        //===============================================
+        public function queryWrite($sqlIn) {
+            $this->connect();
+            $this->m_pdo->query($sqlIn);
+            $this->close();
+        }
+        //===============================================
+        public function queryValue($sqlIn) {
+            $this->connect();
+            $lResult = $this->m_pdo->query($sqlIn);
+            $lData = "";
+            foreach($lResult as $lRow) {
+                foreach($lRow as $lKey => $lValue) {
+                    $lData = $lValue;
+                    break;
+                }
+            }
+            $this->close();
+            return $lData;
+        }
+        //===============================================
+        public function queryCol($sqlIn) {
+            $this->connect();
+            $lResult = $this->m_pdo->query($sqlIn);
+            $lDataMap = array();
+            foreach($lResult as $lRow) {
+                foreach($lRow as $lKey => $lValue) {
+                    array_push($lDataMap, $lValue);
+                    break;
+                }
+            }
+            $this->close();
+            return $lDataMap;
+        }
+        //===============================================
+        public function queryRow($sqlIn) {
+            $this->connect();
+            $lResult = $this->m_pdo->query($sqlIn);
+            $lDataMap = array();
+            foreach($lResult as $lRow) {
+                foreach($lRow as $lKey => $lValue) {
+                    array_push($lDataMap, $lValue);
+                }
                 break;
             }
-            if($lCount >= 1) $lCheck = 1;
             $this->close();
-            return $lCheck;
+            return $lDataMap;
         }
         //===============================================
-        public function viewSelect() {
-            $lCount = 0;
+        public function queryMap($sqlIn) {
             $this->connect();
-            $lResult = $this->m_pdo->query("
-                select VIEW_COUNT from VIEWS
-                where VIEW_KEY='$this->m_page'
-            ");
+            $lResult = $this->m_pdo->query($sqlIn);
+            $lDataMap = array();
             foreach($lResult as $lRow) {
-                $lCount = $lRow["VIEW_COUNT"];
-                break;
+                $lData = array();
+                foreach($lRow as $lKey => $lValue) {
+                    array_push($lData, $lValue);
+                }
+                array_push($lDataMap, $lData);
             }
             $this->close();
-            return $lCount;
-        }
-        //===============================================
-        public function viewInsert() {
-            $this->connect();
-            $this->m_pdo->query("
-                insert into VIEWS (VIEW_KEY, VIEW_COUNT)
-                valuse ('$this->m_page', $this->m_defaultView)
-            ");
-            $this->close();
-        }
-        //===============================================
-        public function viewIncrement() {
-            $this->connect();
-            $this->m_pdo->query("
-                update VIEWS
-                set VIEW_COUNT = VIEW_COUNT + 1
-                where VIEW_KEY='$this->m_page'
-            ");
-            $this->close();
+            return $lDataMap;
         }
         //===============================================
     }
