@@ -22,14 +22,17 @@
         //===============================================
         public function setDatabase($database) {
             $this->m_database = GFile::Instance()->getPath($database);
+            echo $this->m_database."<br>";
         }
         //===============================================
         public function setPage($page) {
             $this->m_page = strtolower($page);
+            echo $this->m_page."<br>";
         }
         //===============================================
         public function setDefaultView($defaultView) {
             $this->m_defaultView = $defaultView;
+            echo $this->m_defaultView."<br>";
         }
         //===============================================
         public function connect() {

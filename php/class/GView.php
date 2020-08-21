@@ -14,7 +14,7 @@
         }
         //===============================================
         public function getView($page) {
-            $lKey = "SQLITE";
+            $lKey = "JSON";
             if($lKey == "SQLITE") return $this->getViewSQLite($page);
             else if($lKey == "JSON") return $this->getViewJson($page);
         }

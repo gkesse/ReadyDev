@@ -15,7 +15,7 @@
         }
         //===============================================
         public function getPath($file) {
-            $lFile = $_SERVER["DOCUMENT_ROOT"]."/".$file;
+            $lFile = realpath($_SERVER["DOCUMENT_ROOT"])."/".$file;
             return $lFile;
         }
         //===============================================
