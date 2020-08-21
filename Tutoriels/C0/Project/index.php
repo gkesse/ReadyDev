@@ -1,11 +1,12 @@
 <?php
     require $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoloadRegister.php";
-        
-    $lData = GJson::Instance()->getData("data/json/Accueil.json");
-
-    GConfig::Instance()->setData("title", "Accueil");
-    GConfig::Instance()->setData("menu", "Accueil");
-    GConfig::Instance()->setData("view", "Accueil");
+    
+    $m_data = GJson::Instance()->getData("data/json/C_Project.json");
+    
+    GConfig::Instance()->setData("title", "C - Project");
+    GConfig::Instance()->setData("menu", "Tutoriels");
+    GConfig::Instance()->setData("view", "C_Project");
+    GConfig::Instance()->setData("link", $m_data["links"]);
 
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";
 ?>
@@ -18,3 +19,4 @@
 <!-- ============================================ -->
 <?php require $_SERVER["DOCUMENT_ROOT"]."/php/footer.php"; ?>
 <!-- ============================================ -->
+
