@@ -19,10 +19,11 @@
     "basics":
     [
         {"name":"Créer un projet en C","link":"/Tutoriels/C0/Project/","follow":"yes"},
-        {"name":"Gérer les processus en C","link":"/Tutoriels/C0/Process/","follow":"yes"}
+        {"name":"Créer une structure en C","link":"/Tutoriels/C0/Struct/","follow":"yes"}
     ],
     "advanced":
     [
+        {"name":"Gérer les processus en C","link":"/Tutoriels/C0/Process/","follow":"yes"},
         {"name":"Créer un système de fichier log en C","link":"/Tutoriels/C0/Avance/Debug0/","follow":"yes"}
     ]
 }
