@@ -1,0 +1,24 @@
+{
+    "sitemap":"yes",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+			"Le but de ce tutoriel est de vous apprendre",
+            "l'Électronique appliquée aux sciences de l'ingénieur.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Cours/Electronics/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/data/img/defaults/banner_electronics.png"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Cours/","follow":"no"},
+        {"name":"Électronique","link":"","follow":"no"}
+    ],
+    "analog":
+    [
+        {"name":"Pont diviseur de tension","link":"/Cours/Electronics/Voltage_Divider/","follow":"yes"}
+    ]
+}
+                        

@@ -1,0 +1,21 @@
+{
+    "sitemap":"yes",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+			"Le but de ce tutoriel est de vous apprendre",
+            "à créer une classe en C.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Tutoriels/C0/Class/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/data/img/defaults/banner_c_class.png"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/#Développement Logiciel","follow":"no"},
+        {"name":"C","link":"/Tutoriels/C0/#Programmation de base","follow":"no"},
+        {"name":"Classe","link":"","follow":"no"}
+    ]
+}
+                        
