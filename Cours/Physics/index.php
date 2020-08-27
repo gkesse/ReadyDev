@@ -1,11 +1,11 @@
 <?php
     require $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoloadRegister.php";
     
-    $m_data = GJson::Instance()->getData("data/json/Electronics_Current_Divider.json");
+    $m_data = GJson::Instance()->getData("data/json/Physics.json");
     
-    GConfig::Instance()->setData("title", "Pont diviseur de courant");
-    GConfig::Instance()->setData("menu", "Cours");
-    GConfig::Instance()->setData("view", "Electronics_Current_Divider");
+    GConfig::Instance()->setData("title", "Physique");
+    GConfig::Instance()->setData("menu", "Tutoriels");
+    GConfig::Instance()->setData("view", "Physics");
     GConfig::Instance()->setData("link", $m_data["links"]);
 
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";

@@ -1,0 +1,21 @@
+{
+    "sitemap":"yes",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+			"Le but de ce tutoriel est de vous apprendre",
+            "le Théorème de Pythagore en Mathématiques.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Cours/Mathematics/Pythagorean_Theorem/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/data/img/defaults/banner_mathematics_pythagorean_theorem.png"
+    },    
+    "links":
+    [
+        {"name":"Cours","link":"/Cours/","follow":"no"},
+        {"name":"Mathématiques","link":"/Cours/Mathematics/#Géométrie","follow":"no"},
+        {"name":"Théorème de Pythagore","link":"","follow":"no"}
+    ]
+}
+                        

@@ -20,7 +20,6 @@
     [
         {"name":"Mathématiques","link":"/Cours/Mathematics/","follow":"yes"},
         {"name":"Electronique","link":"/Cours/Electronics/","follow":"yes"},
-        {"name":"Physique","link":"/Cours/Physique/","follow":"yes"},
-        {"name":"Chimie","link":"/Cours/Chimie/","follow":"yes"}
+        {"name":"Physique","link":"/Cours/Physics/","follow":"yes"}
     ]
 }
