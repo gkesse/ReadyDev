@@ -19,7 +19,7 @@
     "cours":
     [
         {"name":"Mathématiques","link":"/Cours/Mathematics/","follow":"yes"},
-        {"name":"Electronique","link":"/Cours/Electronics/","follow":"yes"},
-        {"name":"Physique","link":"/Cours/Physics/","follow":"yes"}
+        {"name":"Physique","link":"/Cours/Physics/","follow":"yes"},
+        {"name":"Électronique","link":"/Cours/Electronics/","follow":"yes"}
     ]
 }

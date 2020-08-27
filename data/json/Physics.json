@@ -1,0 +1,24 @@
+{
+    "sitemap":"yes",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+			"Le but de ce tutoriel est de vous apprendre",
+            "la Physique appliquée aux sciences de l'ingénieur.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Cours/Physics/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/data/img/defaults/banner_physics.png"
+    },    
+    "links":
+    [
+        {"name":"Cours","link":"/Cours/","follow":"no"},
+        {"name":"Physique","link":"","follow":"no"}
+    ],
+    "kinematics":
+    [
+        {"name":"Chute libre","link":"/Cours/Physics/Free_Fall/","follow":"yes"}
+    ]
+}
+                        
