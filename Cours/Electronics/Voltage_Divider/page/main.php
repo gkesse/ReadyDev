@@ -6,7 +6,7 @@ v_E &amp;=&amp; (R_1+R_2)i\\
 \frac{v_2}{v_E} &amp;=&amp; \frac{R_2i}{(R_1+R_2)i}
 \end{eqnarray}</div></div><br><div class="Formula GFormula1"><div class="Formula2">\begin{eqnarray} 
 \frac{v_2}{v_E} &amp;=&amp; \frac{R_2}{R_1+R_2}
-\end{eqnarray}</div></div><br><div class="Formula GFormula1"><div class="Formula2">\begin{eqnarray} 
+\end{eqnarray}</div></div><br><div class="Formula GFormula1"><div class="Formula5">\begin{eqnarray} 
 v_2 &amp;=&amp; \frac{R_2}{R_1+R_2}v_E
 \end{eqnarray}</div></div><br>Posons :<br><br><div class="Formula GFormula1"><div class="Formula2">$$\left \{
 \begin{array}{r c l}
@@ -17,6 +17,6 @@ R_2 &amp; = &amp; R
 v_2 &amp;=&amp; \frac{R}{kR+R}v_E 
 \end{eqnarray}</div></div><br><div class="Formula GFormula1"><div class="Formula2">\begin{eqnarray} 
 v_2 &amp;=&amp; \frac{R}{(k+1)R}v_E 
-\end{eqnarray}</div></div><br><div class="Formula GFormula1"><div class="Formula2">\begin{eqnarray} 
-v_2 &amp;=&amp; \frac{1}{k+1}v_E 
-\end{eqnarray}</div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Voir Aussi"><a class="Link3" href="#">Voir Aussi</a></h1><div class="Body3">Dans cette même catégorie, vous pouvez consulter aussi :<br><br><span class="GColor1" style="color:lime;">Électronique analogique</span><br><br><div class="Content0 GList1"><div class="Body0" id="Loader_1598426380194"><div class="Row26">List 1 &gt; Electronics &gt; analog</div></div><script>loadList1("Loader_1598426380194","Electronics","analog");</script></div><br></div></div></div></div><br>
+\end{eqnarray}</div></div><br><div class="Formula GFormula1"><div class="Formula5">\begin{eqnarray} 
+v_2 &amp;=&amp; \frac{1}{1+k}v_E 
+\end{eqnarray}</div></div><br></div></div></div></div><br><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Voir Aussi"><a class="Link3" href="#">Voir Aussi</a></h1><div class="Body3">Dans cette même catégorie, vous pouvez consulter aussi :<br><br><span class="GColor1" style="color:lime;">Électronique analogique</span><br><br><div class="Content0 GList1"><div class="Body0" id="Loader_1598426380194"><div class="Row26">List 1 &gt; Electronics &gt; analog</div></div><script>loadList1("Loader_1598426380194","Electronics","analog");</script></div><br></div></div></div></div><br>

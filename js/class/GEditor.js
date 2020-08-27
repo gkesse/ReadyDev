@@ -1185,6 +1185,30 @@ var GEditor = (function() {
                     document.execCommand("insertHTML", false, lHtml);
                     break;
                 //===============================================
+                case 'formula_color':
+                    var lParentNode = lStartNode.parentNode;
+                    while(1) {
+                        var lClassName = lParentNode.className;
+                        if(lClassName.includes("GEndEditor")) {
+                            break;
+                        }
+                        if(lClassName.includes("GFormula1")) {
+                            lRange.selectNode(lParentNode);
+                            lSelection.addRange(lRange);
+                            break;
+                        }
+                        lParentNode = lParentNode.parentNode;
+                    }
+                    var lFormulaText = GConfig.Instance().getData("FormulaText");
+                    var lHtml = '';
+                    lHtml += '<div class="Formula GFormula1">';
+                    lHtml += '<div class="Formula5">';
+                    lHtml += lFormulaText;
+                    lHtml += '</div>';
+                    lHtml += '</div>';
+                    document.execCommand("insertHTML", false, lHtml);
+                    break;
+                //===============================================
                 case 'Formula2':
                     var lParentNode = lStartNode.parentNode;
                     while(1) {

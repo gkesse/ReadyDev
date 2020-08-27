@@ -899,6 +899,15 @@ span {
     vertical-align: top;
 }
 
+.Formula5 {
+    background-color: rgba(16, 37, 63, 0.5);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    display: inline-block;
+    vertical-align: top;
+    padding: 5px;
+    margin: 5px 0px;
+}
+
 .Footer {
     background-color: rgba(255, 255, 255, 0.0);
     position: absolute;
