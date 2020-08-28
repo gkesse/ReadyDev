@@ -1,0 +1,18 @@
+{
+    "sitemap":"yes",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+            "ReadyDev est une Plateforme de Développement Continu.",
+            "C'est un site web développé en PHP et maintenu par Gérard KESSE.",
+            "Vous trouverez sur ce site des cours et des tutoriels adaptés aux sciences de l'ingénieur."
+        ],
+        "meta_cano":"/Resources/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/data/img/defaults/banner_resources.png"
+    },
+    "facebook":
+    [
+        {"name":"Vider le cache du partage","link":"/Resources/Facebook/Clear_Share_Cache","follow":"yes"}
+    ]
+}
