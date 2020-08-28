@@ -47,3 +47,7 @@ function loadPdf1(id, file, key) {
 	GLoader.Instance().loadPdf1(id, file, key);
 }
 //===============================================
+function loadFileLink(id, file) {
+	GLoader.Instance().loadFileLink(id, file);
+}
+//===============================================

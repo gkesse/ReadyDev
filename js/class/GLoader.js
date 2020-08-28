@@ -257,6 +257,23 @@ var GLoader = (function() {
                 "&file=" + file +
                 "&key=" + key
                 );
+            },
+            //===============================================
+            loadFileLink: function(id, file) {
+                var lObj = document.getElementById(id);
+                var lXmlhttp = new XMLHttpRequest();
+                lXmlhttp.onreadystatechange = function() {
+                    if(this.readyState == 4 && this.status == 200) {
+                        var lData = this.responseText;
+                        lObj.innerHTML = lData;
+                    }
+                }
+                lXmlhttp.open("POST", "/php/req/loader.php", true);
+                lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                lXmlhttp.send(
+                "req=" + "FILE_LINK" +
+                "&file=" + file
+                );
             }
             //===============================================
         };

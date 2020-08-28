@@ -243,4 +243,29 @@
 		print_r($lDataSum);
 	}
 	//===============================================
+	else if($lReq == "FILE_CONTENT") {
+        $lFile = "";
+        $lFile .= $_SERVER["DOCUMENT_ROOT"];
+		$lFile .= $_REQUEST["file"];
+        $lContent = file_get_contents($lFile);
+		print_r($lContent);
+	}
+	//===============================================
+	else if($lReq == "FILE_LINK") {
+		$lFile = $_REQUEST["file"];
+		$lID = $_REQUEST["id"];
+		$lDataSum = '';
+		$lDataSum .= '<div class="Content0 GFileLink">';
+		$lDataSum .= '<div class="Body0" id="'.$lID.'">';
+		$lDataSum .= '<div class="Row26">';
+		$lDataSum .= 'File Link > '.$lFile;
+		$lDataSum .= '</div>';
+		$lDataSum .= '</div>';
+		$lDataSum .= '<script>';
+		$lDataSum .= 'loadFileLink("'.$lID.'","'.$lFile.'");';
+		$lDataSum .= '</script>';
+		$lDataSum .= '</div>';
+		print_r($lDataSum);
+	}
+	//===============================================
 ?>

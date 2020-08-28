@@ -218,6 +218,66 @@ var GEditor = (function() {
                     document.execCommand("insertHTML", false, lHtml);
                     break;
                 //===============================================
+                case 'File_Content':
+                    var lFilename = GConfig.Instance().getData("G_FILE_PATH");
+                    lFilename = prompt("Chemin ?", lFilename);
+                    if(!lFilename) return;
+                    GConfig.Instance().setData("G_FILE_PATH", lFilename);
+					var lXmlhttp = new XMLHttpRequest();
+					lXmlhttp.onreadystatechange = function() {
+						if(this.readyState == 4 && this.status == 200) {
+							var lHtml = this.responseText;
+							document.execCommand("insertHTML", false, lHtml);
+						}
+					}
+					lXmlhttp.open("POST", "/php/req/editor.php", true);
+					lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+					lXmlhttp.send(
+					"req=" + "FILE_CONTENT" +
+					"&file=" + lFilename
+					);
+                    break;
+                //===============================================
+                case 'File_Link':
+                    var lParentNode = lStartNode.parentNode;
+                    if(!lSelection.toString()) {
+                        while(1) {
+                            var lClassName = lParentNode.className;
+                            if(lClassName.includes("GEndEditor")) {
+                                break;
+                            }
+                            if(lClassName.includes("GFileLink")) {
+                                lRange.selectNode(lParentNode);
+                                lSelection.addRange(lRange);
+                                document.execCommand("insertHTML", false, "");
+                                return;
+                            }
+                            lParentNode = lParentNode.parentNode;
+                        }
+                    }
+                    if(lData) return;
+                    var lFilename = GConfig.Instance().getData("G_FILE_PATH");
+                    lFilename = prompt("Chemin ?", lFilename);
+                    if(!lFilename) return;
+                    GConfig.Instance().setData("G_FILE_PATH", lFilename);
+                    var lDate = Date.now();
+                    var lID = "Loader_" + lDate;
+					var lXmlhttp = new XMLHttpRequest();
+					lXmlhttp.onreadystatechange = function() {
+						if(this.readyState == 4 && this.status == 200) {
+							var lData = this.responseText;
+							document.execCommand("insertHTML", false, lData);
+						}
+					}
+					lXmlhttp.open("POST", "/php/req/editor.php", true);
+					lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+					lXmlhttp.send(
+					"req=" + "FILE_LINK" +
+					"&file=" + lFilename +
+					"&id=" + lID
+					);
+                    break;
+                //===============================================
                 case 'Summary1':
                     var lParentNode = lStartNode.parentNode;    
                     if(!lSelection.toString()) {
@@ -1185,7 +1245,7 @@ var GEditor = (function() {
                     document.execCommand("insertHTML", false, lHtml);
                     break;
                 //===============================================
-                case 'formula_color':
+                case 'Formula_Color':
                     var lParentNode = lStartNode.parentNode;
                     while(1) {
                         var lClassName = lParentNode.className;

@@ -48,7 +48,7 @@
                 <option value="Style3">Style Lire</option>
                 <option value="Formula10">Formule Ouvrir</option>
                 <option value="Formula1">Formule Ajouter</option>
-                <option value="formula_color">Formule Couleur</option>
+                <option value="Formula_Color">Formule Couleur</option>
                 <option value="Formula2">Formule Modifier</option>
                 <option value="Formula3">Formule Supprimer</option>
                 <option value="Html1">Html Ouvrir</option>
@@ -56,6 +56,8 @@
                 <option value="Html3">Html Modifier</option>
                 <option value="Html4">Html Enregistrer</option>
                 <option value="Html5">Html Supprimer</option>
+                <option value="File_Content">Fichier Ajouter</option>
+                <option value="File_Link">Fichier Lien</option>
             </select>
         </div>
 	</div>

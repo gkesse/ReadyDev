@@ -308,4 +308,12 @@
 		print_r($lDataSum);
 	}
 	//===============================================
+	else if($lReq == "FILE_LINK") {
+        $lFile = "";
+        $lFile .= $_SERVER["DOCUMENT_ROOT"];
+		$lFile .= $_REQUEST["file"];
+        $lDataSum = file_get_contents($lFile);
+		print_r($lDataSum);
+	}
+	//===============================================
 ?>

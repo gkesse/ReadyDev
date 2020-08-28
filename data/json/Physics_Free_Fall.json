@@ -1,0 +1,21 @@
+{
+    "sitemap":"yes",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+			"Le but de ce tutoriel est de vous apprendre",
+            "la chute libre en Physique.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Cours/Physics/Free_Fall/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/data/img/defaults/banner_mathematics_free_fall.png"
+    },    
+    "links":
+    [
+        {"name":"Cours","link":"/Cours/","follow":"no"},
+        {"name":"Physique","link":"/Cours/Physics/#Cinématique","follow":"no"},
+        {"name":"Chute libre","link":"","follow":"no"}
+    ]
+}
+                        
