@@ -3,7 +3,7 @@
     
     $m_data = GJson::Instance()->getData("data/json/C_Project.json");
     
-    GConfig::Instance()->setData("title", "C - Project");
+    GConfig::Instance()->setData("title", "Projet");
     GConfig::Instance()->setData("menu", "Tutoriels");
     GConfig::Instance()->setData("view", "C_Project");
     GConfig::Instance()->setData("link", $m_data["links"]);
