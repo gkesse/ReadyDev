@@ -16,6 +16,14 @@ static sGUser* GUser_New(char* name, char* email, char* password) {
 static void GUser_Delete(sGUser* obj) {
     free(obj);
 }
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer une structure-Affichage de la structure"><a class="Link9" href="#Créer une structure">Affichage de la structure</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+static void GUser_Show(sGUser* obj) {
+    printf("\n");
+    printf("%-20s : %s\n", "Nom", obj-&gt;name);
+    printf("%-20s : %s\n", "Email", obj-&gt;email);
+    printf("%-20s : %s\n", "Mot de passe", obj-&gt;password);
+    printf("\n");
+}
 //===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer une structure-Programme de test"><a class="Link9" href="#Créer une structure">Programme de test</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 int main(int argc, char** argv) {
     sGUser* lUser = GUser_New("Gerard KESSE", "gerard.kesse@readydev.com", "123456");
