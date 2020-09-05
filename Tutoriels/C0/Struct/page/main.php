@@ -7,7 +7,9 @@ struct _sGUser {
 //===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer une structure-Constructeur de la structure"><a class="Link9" href="#Créer une structure">Constructeur de la structure</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 static sGUser* GUser_New(char* name, char* email, char* password) {
     sGUser* lObj = (sGUser*)malloc(sizeof(sGUser));
-    GUser_Create(lObj, name, email, password);
+    lObj-&gt;name = name;
+    lObj-&gt;email = email;
+    lObj-&gt;password = password;
     return lObj;
 }
 //===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer une structure-Destructeur de la structure"><a class="Link9" href="#Créer une structure">Destructeur de la structure</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
@@ -16,14 +18,9 @@ static void GUser_Delete(sGUser* obj) {
 }
 //===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer une structure-Programme de test"><a class="Link9" href="#Créer une structure">Programme de test</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 int main(int argc, char** argv) {
-    // forme dynamique
     sGUser* lUser = GUser_New("Gerard KESSE", "gerard.kesse@readydev.com", "123456");
     GUser_Show(lUser);
     GUser_Delete(lUser);
-    // forme statique
-    sGUser lUser2;
-    GUser_Create(&lUser2, "Jean DUPONT", "jean.dupont@readydev.com", "654321");
-    GUser_Show(&lUser2);
     return 0;
 }
 //===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer une structure-Résultat"><a class="Link9" href="#Créer une structure">Résultat</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/C0/img/i_struct.png" alt="/Tutoriels/C0/img/i_struct.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Voir Aussi"><a class="Link3" href="#">Voir Aussi</a></h1><div class="Body3">Dans cette même catégorie, vous pouvez consulter aussi :<br><br><span class="GColor1" style="color:lime;">Programmation de base en C</span><br><br><div class="Content0 GList1"><div class="Body0" id="Loader_1594465340717"><div class="Row26">List 1 &gt; C &gt; basics</div></div><script>loadList1("Loader_1594465340717","C","basics");</script></div><br><span class="GColor1" style="color:lime;">Programmation avancée en C</span><br><br><div class="Content0 GList1"><div class="Body0" id="Loader_1594465358756"><div class="Row26">List 1 &gt; C &gt; advanced</div></div><script>loadList1("Loader_1594465358756","C","advanced");</script></div><br></div></div></div></div><br>
