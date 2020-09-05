@@ -20,7 +20,8 @@
     [
         {"name":"Créer un projet en C","link":"/Tutoriels/C0/Project/","follow":"yes"},
         {"name":"Créer une structure en C","link":"/Tutoriels/C0/Struct/","follow":"yes"},
-        {"name":"Créer une classe en C","link":"/Tutoriels/C0/Class/","follow":"yes"}
+        {"name":"Créer une classe en C","link":"/Tutoriels/C0/Class/","follow":"yes"},
+        {"name":"Créer une classe en C","link":"/Tutoriels/C0/Singleton/","follow":"yes"}
     ],
     "advanced":
     [
