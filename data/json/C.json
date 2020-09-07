@@ -21,7 +21,7 @@
         {"name":"Créer un projet en C","link":"/Tutoriels/C0/Project/","follow":"yes"},
         {"name":"Gérer les conditions en C","link":"/Tutoriels/C0/Condition/","follow":"yes"},
         {"name":"Créer une architecture boucle infinie en C","link":"/Tutoriels/C0/Infinite_Loop/","follow":"yes"},
-        {"name":"Créer une machine à état fini en C","link":"/Tutoriels/C0/State_Machine/","follow":"yes"},
+        {"name":"Créer une machine à états finis en C","link":"/Tutoriels/C0/State_Machine/","follow":"yes"},
         {"name":"Lire une date en C","link":"/Tutoriels/C0/Date/","follow":"yes"},
         {"name":"Créer une structure en C","link":"/Tutoriels/C0/Struct/","follow":"yes"},
         {"name":"Créer une classe en C","link":"/Tutoriels/C0/Class/","follow":"yes"},

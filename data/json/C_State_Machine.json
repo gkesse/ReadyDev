@@ -1,0 +1,21 @@
+{
+    "sitemap":"yes",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+			"Le but de ce tutoriel est de vous apprendre",
+            "à créer une machine à états finis en C.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Tutoriels/C0/State_Machine/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/C0/img/b_state_machine.png"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/#Développement Logiciel","follow":"no"},
+        {"name":"C","link":"/Tutoriels/C0/#Programmation de base","follow":"no"},
+        {"name":"Machine à états finis","link":"","follow":"no"}
+    ]
+}
+                        
