@@ -41,65 +41,6 @@
             "description":"Programmez sous<br/> Android",
             "link":"/Tutoriels/Android/",
 			"follow":"yes"
-        },
-        {
-            "icon":"fa fa-android",
-            "theme":"Android Studio",
-            "description":"Apprenez le<br/> Android Studio",
-            "link":"/Tutoriels/Android_Studio",
-			"follow":"yes"
-        },
-        {
-            "icon":"fa fa-android",
-            "theme":"Nox",
-            "description":"Apprenez le<br/> Nox",
-            "link":"/Tutoriels/Nox/",
-			"follow":"yes"
-        }
-    ],
-    "compilation":
-    [
-        {
-            "icon":"fa fa-cog",
-            "theme":"NMake",
-            "description":"Apprenez le<br/> NMake",
-            "link":"/Tutoriels/NMake/",
-			"follow":"yes"
-        },
-        {
-            "icon":"fa fa-cog",
-            "theme":"MinGW",
-            "description":"Apprenez le<br/> MinGW",
-            "link":"/Tutoriels/MinGW/",
-			"follow":"yes"
-        },
-        {
-            "icon":"fa fa-cog",
-            "theme":"Cygwin",
-            "description":"Apprenez le<br/> Cygwin",
-            "link":"/Tutoriels/Cygwin/",
-			"follow":"yes"
-        },
-        {
-            "icon":"fa fa-cog",
-            "theme":"Make",
-            "description":"Apprenez le<br/> Make",
-            "link":"/Tutoriels/Make/",
-			"follow":"yes"
-        },
-        {
-            "icon":"fa fa-cog",
-            "theme":"CMake",
-            "description":"Apprenez le<br/> CMake",
-            "link":"/Tutoriels/CMake/",
-			"follow":"yes"
-        },
-        {
-            "icon":"fa fa-cog",
-            "theme":"QMake",
-            "description":"Apprenez le<br/> QMake",
-            "link":"/Tutoriels/QMake/",
-			"follow":"yes"
         }
     ],
     "design_patterns":
@@ -292,23 +233,6 @@
 			"follow":"yes"
         }
     ],
-    "electronic":
-    [
-        {
-            "icon":"fa fa-building-o",
-            "theme":"KiCad",
-            "description":"Apprenez<br/> KiCad",
-            "link":"/Tutoriels/KiCad/",
-			"follow":"yes"
-        },
-        {
-            "icon":"fa fa-building-o",
-            "theme":"LTspice",
-            "description":"Apprenez<br/> LTspice",
-            "link":"/Tutoriels/LTspice/",
-			"follow":"yes"
-        }
-    ],
     "multithreading":
     [
         {
@@ -380,16 +304,6 @@
             "theme":"Jenkins",
             "description":"Apprenez le<br/> Jenkins",
             "link":"/Tutoriels/Jenkins/",
-			"follow":"yes"
-        }
-    ],
-    "vmwares":
-    [
-        {
-            "icon":"fa fa-sitemap",
-            "theme":"VirtualBox",
-            "description":"Apprenez le<br/> VirtualBox",
-            "link":"/Tutoriels/VirtualBox/",
 			"follow":"yes"
         }
     ],

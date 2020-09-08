@@ -13,7 +13,6 @@
     "skills":
     [
         {"name":"Développement Logiciel","link":"/Tutoriels/#Développement Logiciel","follow":"no"},
-        {"name":"Outils de compilation","link":"/Tutoriels/#Outils de compilation","follow":"no"},
         {"name":"Patrons de conception","link":"/Tutoriels/#Patrons de conception","follow":"no"},
         {"name":"Interface Homme-Machine","link":"/Tutoriels/#Interface Homme-Machine","follow":"no"},
         {"name":"Vision par Ordinateur","link":"/Tutoriels/#Vision par Ordinateur","follow":"no"},
@@ -26,7 +25,6 @@
         {"name":"Applications Audio","link":"/Tutoriels/#Applications Audio","follow":"no"},
         {"name":"Traitement du Signal","link":"/Tutoriels/#Traitement du Signal","follow":"no"},
         {"name":"Système Embarqué","link":"/Tutoriels/#Système Embarqué","follow":"no"},
-        {"name":"Électronique","link":"/Tutoriels/#Électronique","follow":"no"},
         {"name":"Multithreading","link":"/Tutoriels/#Multithreading","follow":"no"},
         {"name":"Communication Réseau","link":"/Tutoriels/#Communication Réseau","follow":"no"},
         {"name":"Communication Middleware","link":"/Tutoriels/#","follow":"no"},
