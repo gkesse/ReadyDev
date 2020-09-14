@@ -35,11 +35,12 @@
         {"name":"Afficher les tables SQLite en Python","link":"/Tutoriels/Python/SQLite/Tables/","follow":"yes"},
         {"name":"Créer une table SQLite en Python","link":"/Tutoriels/Python/SQLite/Create/","follow":"yes"},
         {"name":"Insérer des données dans une table SQLite en Python","link":"/Tutoriels/Python/SQLite/Insert/","follow":"yes"},
-        {"name":"Lire une donnée dans une table SQLite en Python","link":"/Tutoriels/Python/SQLite/Insert/","follow":"yes"},
-        {"name":"Lire une colonne de données dans une table SQLite en Python","link":"/Tutoriels/Python/SQLite/Insert/","follow":"yes"},
-        {"name":"Lire une ligne de données dans une table SQLite en Python","link":"/Tutoriels/Python/SQLite/Insert/","follow":"yes"},
-        {"name":"Mettre à jour une donnée dans une table SQLite en Python","link":"/Tutoriels/Python/SQLite/Insert/","follow":"yes"},
-        {"name":"Supprimer une donnée dans une table SQLite en Python","link":"/Tutoriels/Python/SQLite/Insert/","follow":"yes"}
+        {"name":"Afficher les données d'une table SQLite en Python","link":"/Tutoriels/Python/SQLite/Data/","follow":"yes"},
+        {"name":"Lire une donnée dans une table SQLite en Python","link":"/Tutoriels/Python/SQLite/Value/","follow":"yes"},
+        {"name":"Lire une colonne de données dans une table SQLite en Python","link":"/Tutoriels/Python/SQLite/Column/","follow":"yes"},
+        {"name":"Lire une ligne de données dans une table SQLite en Python","link":"/Tutoriels/Python/SQLite/Row/","follow":"yes"},
+        {"name":"Mettre à jour une donnée dans une table SQLite en Python","link":"/Tutoriels/Python/SQLite/Update/","follow":"yes"},
+        {"name":"Supprimer une donnée dans une table SQLite en Python","link":"/Tutoriels/Python/SQLite/Delete/","follow":"yes"}
     ],
     "opencv":
     [

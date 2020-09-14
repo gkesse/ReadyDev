@@ -5,7 +5,7 @@ def insertData(self, key):
     insert into CONFIG_PYTHON (CONFIG_KEY, CONFIG_VALUE)
     values ('{0}', '{1}')
     """.format(key, lValue))
-#================================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Insérer des données dans une table SQLite en Python-Exécution d'une requête d'écriture de données"><a class="Link9" href="#Insérer des données dans une table SQLite en Python">Exécution d'une requête d'écriture de données</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="python">#================================================
+#================================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Insérer des données dans une table SQLite en Python-Exécution d'une requête d'insertion de données"><a class="Link9" href="#Insérer des données dans une table SQLite en Python">Exécution d'une requête d'insertion de données</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="python">#================================================
 def queryWrite(self, sql):
     lSqliteF = GManager.Instance().getData("sqlite.file")
     lSqlite = sqlite3.connect(lSqliteF)
