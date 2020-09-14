@@ -33,8 +33,13 @@
     "sqlite":
     [
         {"name":"Afficher les tables SQLite en Python","link":"/Tutoriels/Python/SQLite/Tables/","follow":"yes"},
-        {"name":"Créer une base de données SQLite en Python","link":"/Tutoriels/Python/SQLite/Create/","follow":"yes"},
-        {"name":"Insertion dans une base de données SQLite en Python","link":"/Tutoriels/Python/SQLite/Insert/","follow":"yes"}
+        {"name":"Créer une table SQLite en Python","link":"/Tutoriels/Python/SQLite/Create/","follow":"yes"},
+        {"name":"Insérer des données dans une table SQLite en Python","link":"/Tutoriels/Python/SQLite/Insert/","follow":"yes"},
+        {"name":"Lire une donnée dans une table SQLite en Python","link":"/Tutoriels/Python/SQLite/Insert/","follow":"yes"},
+        {"name":"Lire une colonne de données dans une table SQLite en Python","link":"/Tutoriels/Python/SQLite/Insert/","follow":"yes"},
+        {"name":"Lire une ligne de données dans une table SQLite en Python","link":"/Tutoriels/Python/SQLite/Insert/","follow":"yes"},
+        {"name":"Mettre à jour une donnée dans une table SQLite en Python","link":"/Tutoriels/Python/SQLite/Insert/","follow":"yes"},
+        {"name":"Supprimer une données dans une table SQLite en Python","link":"/Tutoriels/Python/SQLite/Insert/","follow":"yes"}
     ],
     "opencv":
     [
