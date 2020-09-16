@@ -15,6 +15,7 @@
     [
         {"name":"Tutoriels","link":"/Tutoriels/#Développement Logiciel","follow":"no"},
         {"name":"Python","link":"/Tutoriels/Python/","follow":"no"},
+        {"name":"Cours","link":"/Tutoriels/Python/#Programmation de base","follow":"no"},
         {"name":"Singleton","link":"","follow":"no"}
     ]
 }

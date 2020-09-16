@@ -9,7 +9,7 @@
             "Produit par Gérard KESSE."
         ],
         "meta_cano":"/Tutoriels/C0/",
-        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/data/img/defaults/banner_c.png"
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/C0/img/b_c.png"
     },    
     "links":
     [
@@ -18,19 +18,10 @@
     ],
     "basics":
     [
-        {"name":"Créer un projet en C","link":"/Tutoriels/C0/Project/","follow":"yes"},
-        {"name":"Gérer les conditions en C","link":"/Tutoriels/C0/Condition/","follow":"yes"},
-        {"name":"Créer une architecture boucle infinie en C","link":"/Tutoriels/C0/Infinite_Loop/","follow":"yes"},
-        {"name":"Créer une machine à états finis en C","link":"/Tutoriels/C0/State_Machine/","follow":"yes"},
-        {"name":"Lire la date et l'heure en C","link":"/Tutoriels/C0/Date_Time/","follow":"yes"},
-        {"name":"Créer une structure en C","link":"/Tutoriels/C0/Struct/","follow":"yes"},
-        {"name":"Créer une classe en C","link":"/Tutoriels/C0/Class/","follow":"yes"},
-        {"name":"Créer un singleton en C","link":"/Tutoriels/C0/Singleton/","follow":"yes"}
-    ],
-    "advanced":
-    [
-        {"name":"Gérer les processus en C","link":"/Tutoriels/C0/Process/","follow":"yes"},
-        {"name":"Créer un système de fichier log en C","link":"/Tutoriels/C0/Avance/Debug0/","follow":"yes"}
+        {"name":"Créer un projet en C","link":"/Tutoriels/C0/Cours/Project/","follow":"yes"},
+        {"name":"Créer un singleton en C","link":"/Tutoriels/C0/Cours/Singleton/","follow":"yes"},
+        {"name":"Créer une machine à états finis en C","link":"/Tutoriels/C0/Cours/State_Machine/","follow":"yes"},
+        {"name":"Lire la date et l'heure en C","link":"/Tutoriels/C0/Cours/Date_Time/","follow":"yes"}
     ]
 }
                         
