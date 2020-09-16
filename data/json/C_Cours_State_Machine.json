@@ -15,7 +15,8 @@
     [
         {"name":"Tutoriels","link":"/Tutoriels/#Développement Logiciel","follow":"no"},
         {"name":"C","link":"/Tutoriels/C0/#Programmation de base","follow":"no"},
-        {"name":"Machine à états finis","link":"","follow":"no"}
+        {"name":"Cours","link":"/Tutoriels/C0/#Programmation de base","follow":"no"},
+        {"name":"Machine à États Finis","link":"","follow":"no"}
     ]
 }
                         

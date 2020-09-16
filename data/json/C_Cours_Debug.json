@@ -15,6 +15,7 @@
     [
         {"name":"Tutoriels","link":"/Tutoriels/#Développement Logiciel","follow":"no"},
         {"name":"C","link":"/Tutoriels/C0/#Programmation avancée","follow":"no"},
+        {"name":"Cours","link":"/Tutoriels/C0/#Programmation de base","follow":"no"},
         {"name":"Debug","link":"","follow":"no"}
     ]
 }
