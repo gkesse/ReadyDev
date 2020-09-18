@@ -38,6 +38,20 @@
             "description":"Programmez en<br/> Python",
             "link":"/Tutoriels/Python/",
 			"follow":"yes"
+        },
+        {
+            "icon":"fa fa-desktop",
+            "theme":"Shell",
+            "description":"Programmez en<br/> Shell",
+            "link":"/Tutoriels/Shell/",
+			"follow":"yes"
+        },
+        {
+            "icon":"fa fa-desktop",
+            "theme":"Batch",
+            "description":"Programmez en<br/> Batch",
+            "link":"/Tutoriels/Batch/",
+			"follow":"yes"
         }
     ],    
     "mobile":
