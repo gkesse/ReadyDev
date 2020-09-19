@@ -1,5 +1,0 @@
-<RCC>
-    <qresource prefix="/config">
-        <file alias="config.txt">data/config/config.txt</file>
-    </qresource>
-</RCC>

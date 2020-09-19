@@ -1,0 +1,25 @@
+{
+    "sitemap":"yes",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+			"Le but de ce tutoriel est de vous apprendre",
+            "la programmation en Batch.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Tutoriels/Batch/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Batch/img/b_batch.png"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/#Développement Logiciel","follow":"no"},
+        {"name":"Batch","link":"","follow":"no"}
+    ],
+    "basics":
+    [
+        {"name":"Créer un projet en Batch","link":"/Tutoriels/Batch/Cours/Project/","follow":"yes"},
+        {"name":"Créer une machine à états finis en Batch","link":"/Tutoriels/Batch/Cours/State_Machine/","follow":"yes"}
+    ]
+}
+                        
