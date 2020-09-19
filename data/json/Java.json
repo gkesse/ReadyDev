@@ -1,0 +1,25 @@
+{
+    "sitemap":"yes",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+			"Le but de ce tutoriel est de vous apprendre",
+            "la programmation en Java.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Tutoriels/Java/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Java/img/b_java.png"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/#Développement Logiciel","follow":"no"},
+        {"name":"Java","link":"","follow":"no"}
+    ],
+    "basics":
+    [
+        {"name":"Créer un projet en C++","link":"/Tutoriels/Java/Cours/Project/","follow":"yes"},
+        {"name":"Créer une machine à états finis en C++","link":"/Tutoriels/Java/Cours/State_Machine/","follow":"yes"}
+    ]
+}
+                        

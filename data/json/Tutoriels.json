@@ -34,9 +34,37 @@
         },
         {
             "icon":"fa fa-desktop",
+            "theme":"C#",
+            "description":"Programmez en<br/> C#",
+            "link":"/Tutoriels/CSharp/",
+			"follow":"yes"
+        },
+        {
+            "icon":"fa fa-desktop",
+            "theme":"Java",
+            "description":"Programmez en<br/> Java",
+            "link":"/Tutoriels/Java/",
+			"follow":"yes"
+        },
+        {
+            "icon":"fa fa-desktop",
             "theme":"Python",
             "description":"Programmez en<br/> Python",
             "link":"/Tutoriels/Python/",
+			"follow":"yes"
+        },
+        {
+            "icon":"fa fa-desktop",
+            "theme":"Dart",
+            "description":"Programmez en<br/> Dart",
+            "link":"/Tutoriels/Dart/",
+			"follow":"yes"
+        },
+        {
+            "icon":"fa fa-desktop",
+            "theme":"Go",
+            "description":"Programmez en<br/> Go",
+            "link":"/Tutoriels/Go/",
 			"follow":"yes"
         },
         {

@@ -1,0 +1,25 @@
+{
+    "sitemap":"yes",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+			"Le but de ce tutoriel est de vous apprendre",
+            "la programmation en Dart.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Tutoriels/Dart/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Dart/img/b_dart.png"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/#Développement Logiciel","follow":"no"},
+        {"name":"Dart","link":"","follow":"no"}
+    ],
+    "basics":
+    [
+        {"name":"Créer un projet en C++","link":"/Tutoriels/Dart/Cours/Project/","follow":"yes"},
+        {"name":"Créer une machine à états finis en C++","link":"/Tutoriels/Dart/Cours/State_Machine/","follow":"yes"}
+    ]
+}
+                        
