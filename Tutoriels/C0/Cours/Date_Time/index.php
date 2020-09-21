@@ -3,7 +3,7 @@
     
     $m_data = GJson::Instance()->getData("data/json/C_Cours_Date_Time.json");
     
-    GConfig::Instance()->setData("title", "Date et Heure");
+    GConfig::Instance()->setData("title", "C - Afficher la date courante");
     GConfig::Instance()->setData("menu", "Tutoriels");
     GConfig::Instance()->setData("view", "C_Cours_Date_Time");
     GConfig::Instance()->setData("link", $m_data["links"]);

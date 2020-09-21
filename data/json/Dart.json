@@ -18,8 +18,8 @@
     ],
     "basics":
     [
-        {"name":"Créer un projet en C++","link":"/Tutoriels/Dart/Cours/Project/","follow":"yes"},
-        {"name":"Créer une machine à états finis en C++","link":"/Tutoriels/Dart/Cours/State_Machine/","follow":"yes"}
+        {"name":"Créer un projet en Dart","link":"/Tutoriels/Dart/Cours/Project/","follow":"yes"},
+        {"name":"Créer une machine à états finis en Dart","link":"/Tutoriels/Dart/Cours/State_Machine/","follow":"yes"}
     ]
 }
                         

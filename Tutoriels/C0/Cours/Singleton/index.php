@@ -3,7 +3,7 @@
     
     $m_data = GJson::Instance()->getData("data/json/C_Cours_Singleton.json");
     
-    GConfig::Instance()->setData("title", "Singleton");
+    GConfig::Instance()->setData("title", "C - Créer un singleton");
     GConfig::Instance()->setData("menu", "Tutoriels");
     GConfig::Instance()->setData("view", "C_Cours_Singleton");
     GConfig::Instance()->setData("link", $m_data["links"]);

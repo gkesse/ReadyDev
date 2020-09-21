@@ -3,7 +3,7 @@
     
     $m_data = GJson::Instance()->getData("data/json/C_Cours_State_Machine.json");
     
-    GConfig::Instance()->setData("title", "Machine à États Finis");
+    GConfig::Instance()->setData("title", "C - Créer une machine à états finis");
     GConfig::Instance()->setData("menu", "Tutoriels");
     GConfig::Instance()->setData("view", "C_Cours_State_Machine");
     GConfig::Instance()->setData("link", $m_data["links"]);

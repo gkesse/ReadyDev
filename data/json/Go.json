@@ -18,8 +18,8 @@
     ],
     "basics":
     [
-        {"name":"Créer un projet en C++","link":"/Tutoriels/Go/Cours/Project/","follow":"yes"},
-        {"name":"Créer une machine à états finis en C++","link":"/Tutoriels/Go/Cours/State_Machine/","follow":"yes"}
+        {"name":"Créer un projet en Go","link":"/Tutoriels/Go/Cours/Project/","follow":"yes"},
+        {"name":"Créer une machine à états finis en Go","link":"/Tutoriels/Go/Cours/State_Machine/","follow":"yes"}
     ]
 }
                         

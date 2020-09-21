@@ -3,7 +3,7 @@
     
     $m_data = GJson::Instance()->getData("data/json/Batch_Cours_Project.json");
     
-    GConfig::Instance()->setData("title", "Projet");
+    GConfig::Instance()->setData("title", "Batch - Créer un projet");
     GConfig::Instance()->setData("menu", "Tutoriels");
     GConfig::Instance()->setData("view", "Batch_Cours_Project");
     GConfig::Instance()->setData("link", $m_data["links"]);
