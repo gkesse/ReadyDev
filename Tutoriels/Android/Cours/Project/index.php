@@ -1,11 +1,11 @@
 <?php
     require $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoloadRegister.php";
     
-    $m_data = GJson::Instance()->getData("data/json/Shell_Cours_Project.json");
+    $m_data = GJson::Instance()->getData("data/json/Android_Cours_Project.json");
     
-    GConfig::Instance()->setData("title", "Shell - Créer un projet");
+    GConfig::Instance()->setData("title", "Android - Créer un projet");
     GConfig::Instance()->setData("menu", "Tutoriels");
-    GConfig::Instance()->setData("view", "Shell_Cours_Project");
+    GConfig::Instance()->setData("view", "Android_Cours_Project");
     GConfig::Instance()->setData("link", $m_data["links"]);
 
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";

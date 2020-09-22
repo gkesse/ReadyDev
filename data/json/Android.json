@@ -1,21 +1,24 @@
 {
-    "sitemap":"no",
+    "sitemap":"yes",
     "meta_data":
     {
         "meta_desc":
         [
-            "Android est un système d'exploitation pour le développement d'applications mobiles.",
 			"Le but de ce tutoriel est de vous apprendre",
-            "le développement d'applications mobiles avec Android.",
+            "la programmation mobile avec Android.",
             "Produit par Gérard KESSE."
         ],
         "meta_cano":"/Tutoriels/Android/",
-        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/data/img/defaults/banner_android.png"
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Android/img/b_android.png"
     },    
     "links":
     [
         {"name":"Tutoriels","link":"/Tutoriels/#Développement Mobile","follow":"no"},
         {"name":"Android","link":"","follow":"no"}
+    ],
+    "basics":
+    [
+        {"name":"Créer un projet Android","link":"/Tutoriels/Android/Cours/Project/","follow":"yes"}
     ]
 }
                         

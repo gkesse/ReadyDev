@@ -1,0 +1,22 @@
+{
+    "sitemap":"yes",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+			"Le but de ce tutoriel est de vous apprendre",
+            "à créer un projet Android.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Tutoriels/Android/Cours/Project/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Android/img/b_cours_project.png"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/#Développement Mobile","follow":"no"},
+        {"name":"Android","link":"/Tutoriels/Android/","follow":"no"},
+        {"name":"Cours","link":"/Tutoriels/Android/#Programmation de base","follow":"no"},
+        {"name":"Projet","link":"","follow":"no"}
+    ]
+}
+                        
