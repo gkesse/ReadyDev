@@ -18,7 +18,8 @@
     ],
     "basics":
     [
-        {"name":"Créer un projet Android","link":"/Tutoriels/Android/Cours/Project/","follow":"yes"}
+        {"name":"Créer un projet sous Android","link":"/Tutoriels/Android/Cours/Project/","follow":"yes"},
+        {"name":"Créer une liste déroulante sous Android","link":"/Tutoriels/Android/Cours/RecyclerView/","follow":"yes"}
     ]
 }
                         
