@@ -22,13 +22,6 @@ GWindow::GWindow(QWidget* parent) : QFrame(parent) {
     setWindowTitle(lQt-&gt;title);
     resize(lQt-&gt;width, lQt-&gt;height);
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer une fenêtre personnalisée Qt en C++-Structure des données"><a class="Link9" href="#Créer une fenêtre personnalisée Qt en C++">Structure des données</a></h2><br>Pour la définition de la structure des données. La structure des données (sGQt) regroupe les informations associées à la fenêtre (GWindow) telles que son titre (title), sa largeur (width), sa hauteur (width) et aussi le nom de l'application (app_name).<br><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-struct _sGQt {
-    QString app_name;
-    QString title;
-    int width;
-    int height;
-};
 //===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer une fenêtre personnalisée Qt en C++-Résultat"><a class="Link9" href="#Créer une fenêtre personnalisée Qt en C++">Résultat</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Cpp/img/i_qt_window.png" alt="/Tutoriels/Cpp/img/i_qt_window.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Codes sources"><a class="Link3" href="#">Codes sources</a></h1><div class="Body3"><br><i>ReadyDev met à votre disposition l'ensemble des codes sources publiés sur ce site.<br>Publiés sous licence libre (GNU General Public License v3.0).</i><br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1601112201236"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1601112201236");</script></div><br><h2 class="Title7 GTitle2" id="Codes sources-main.cpp"><a class="Link9" href="#Codes sources">main.cpp</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include "GWindow.h"
 //===============================================
