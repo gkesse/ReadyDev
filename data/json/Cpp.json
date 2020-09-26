@@ -20,6 +20,11 @@
     [
         {"name":"Créer un projet en C++","link":"/Tutoriels/Cpp/Cours/Project/","follow":"yes"},
         {"name":"Créer une machine à états finis en C++","link":"/Tutoriels/Cpp/Cours/State_Machine/","follow":"yes"}
+    ],
+    "qt":
+    [
+        {"name":"Créer un projet Qt en C++","link":"/Tutoriels/Cpp/Qt/Project/","follow":"yes"},
+        {"name":"Créer une fenêtre personnalisée Qt en C++","link":"/Tutoriels/Cpp/Qt/Window/","follow":"yes"}
     ]
 }
                         
