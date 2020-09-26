@@ -22,35 +22,11 @@
         {"name":"Créer un singleton en Python","link":"/Tutoriels/Python/Cours/Singleton/","follow":"yes"},
         {"name":"Créer une machine à états finis en Python","link":"/Tutoriels/Python/Cours/State_Machine/","follow":"yes"}
     ],
-    "json":
-    [
-        {"name":"Parcourir un fichier JSON","link":"/Tutoriels/Python/JSON/Show/","follow":"yes"},
-        {"name":"Compter des données dans un fichier JSON","link":"/Tutoriels/Python/JSON/Count/","follow":"yes"},
-        {"name":"Lire une donnée dans un fichier JSON","link":"/Tutoriels/Python/JSON/Read/","follow":"yes"},
-        {"name":"Lire une ligne de données dans un fichier JSON","link":"/Tutoriels/Python/JSON/Row/","follow":"yes"},
-        {"name":"Lire une colonne de données dans un fichier JSON","link":"/Tutoriels/Python/JSON/Column/","follow":"yes"}
-    ],
     "sqlite":
     [
         {"name":"Afficher les tables SQLite en Python","link":"/Tutoriels/Python/SQLite/Tables/","follow":"yes"},
         {"name":"Créer une table SQLite en Python","link":"/Tutoriels/Python/SQLite/Create/","follow":"yes"},
-        {"name":"Insérer des données dans une table SQLite en Python","link":"/Tutoriels/Python/SQLite/Insert/","follow":"yes"},
-        {"name":"Afficher les données d'une table SQLite en Python","link":"/Tutoriels/Python/SQLite/Data/","follow":"yes"},
-        {"name":"Lire une donnée dans une table SQLite en Python","link":"/Tutoriels/Python/SQLite/Value/","follow":"yes"},
-        {"name":"Lire une colonne de données dans une table SQLite en Python","link":"/Tutoriels/Python/SQLite/Column/","follow":"yes"},
-        {"name":"Lire une ligne de données dans une table SQLite en Python","link":"/Tutoriels/Python/SQLite/Row/","follow":"yes"},
-        {"name":"Mettre à jour une donnée dans une table SQLite en Python","link":"/Tutoriels/Python/SQLite/Update/","follow":"yes"},
-        {"name":"Supprimer une donnée dans une table SQLite en Python","link":"/Tutoriels/Python/SQLite/Delete/","follow":"yes"}
-    ],
-    "opencv":
-    [
-        {"name":"Charger une image avec OpenCV","link":"/Tutoriels/Python/OpenCV/Load/","follow":"yes"},
-        {"name":"Tracer un repère pour foncion 2D avec OpenCV","link":"/Tutoriels/Python/OpenCV/Basis/","follow":"yes"}
-    ],
-    "qt":
-    [
-        {"name":"Créer une fenêtre avec Qt","link":"/Tutoriels/Python/Qt/Create/","follow":"yes"},
-        {"name":"Supprimer la barre de tire d'une fenêtre avec Qt","link":"/Tutoriels/Python/Qt/Title/","follow":"yes"}
+        {"name":"Insérer des données dans une table SQLite en Python","link":"/Tutoriels/Python/SQLite/Insert/","follow":"yes"}
     ]
 }
                         
