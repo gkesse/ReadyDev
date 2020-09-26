@@ -29,4 +29,50 @@ struct _sGQt {
     int width;
     int height;
 };
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer une fenêtre personnalisée Qt en C++-Résultat"><a class="Link9" href="#Créer une fenêtre personnalisée Qt en C++">Résultat</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Cpp/img/i_qt_window.png" alt="/Tutoriels/Cpp/img/i_qt_window.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Codes sources"><a class="Link3" href="#">Codes sources</a></h1><div class="Body3">Ajouter un texte ici...</div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Voir Aussi"><a class="Link3" href="#">Voir Aussi</a></h1><div class="Body3">Dans cette même catégorie, vous pouvez consulter aussi :<br><br><span class="GColor1" style="color:lime;">Programmation de base</span><br><br><div class="Content0 GList1"><div class="Body0" id="Loader_1600429735365"><div class="Row26">List 1 &gt; Cpp &gt; basics</div></div><script>loadList1("Loader_1600429735365","Cpp","basics");</script></div><br></div></div></div></div><br>
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer une fenêtre personnalisée Qt en C++-Résultat"><a class="Link9" href="#Créer une fenêtre personnalisée Qt en C++">Résultat</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Cpp/img/i_qt_window.png" alt="/Tutoriels/Cpp/img/i_qt_window.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Codes sources"><a class="Link3" href="#">Codes sources</a></h1><div class="Body3"><br><i>ReadyDev met à votre disposition l'ensemble des codes sources publiés sur ce site.<br>Publiés sous licence libre (GNU General Public License v3.0).</i><br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1601112201236"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1601112201236");</script></div><br><h2 class="Title7 GTitle2" id="Codes sources-main.cpp"><a class="Link9" href="#Codes sources">main.cpp</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GWindow.h"
+//===============================================
+int main(int argc, char** argv) {
+    QApplication app(argc, argv);
+    GWindow* lWindow = new GWindow;
+    lWindow-&gt;show();
+    return app.exec();
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Codes sources-GWinow.h"><a class="Link9" href="#Codes sources">GWinow.h</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#ifndef _GWindow_
+#define _GWindow_
+//===============================================
+#include "GInclude.h"
+//===============================================
+class GWindow : public QFrame {
+    Q_OBJECT
+    
+public:
+    GWindow(QWidget* parent  = 0);
+    ~GWindow();
+};
+//===============================================
+#endif
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Codes sources-GWindow.cpp"><a class="Link9" href="#Codes sources">GWindow.cpp</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GWindow.h"
+#include "GManager.h"
+//===============================================
+GWindow::GWindow(QWidget* parent) : QFrame(parent) {
+    sGQt* lQt = GManager::Instance()-&gt;dataGet()-&gt;qt;
+        
+    QLabel* lLabel = new QLabel;    
+    lLabel-&gt;setText("Bonjour tout le monde\n");
+    
+    QVBoxLayout* lLayout = new QVBoxLayout;    
+    lLayout-&gt;addWidget(lLabel);
+    lLayout-&gt;setAlignment(Qt::AlignCenter);
+    
+    setLayout(lLayout);
+    setWindowTitle(lQt-&gt;title);
+    resize(lQt-&gt;width, lQt-&gt;height);
+}
+//===============================================
+GWindow::~GWindow() {
+    
+}
+//===============================================</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Voir Aussi"><a class="Link3" href="#">Voir Aussi</a></h1><div class="Body3">Dans cette même catégorie, vous pouvez consulter aussi :<br><br><span class="GColor1" style="color:lime;">Programmation de base</span><br><br><div class="Content0 GList1"><div class="Body0" id="Loader_1600429735365"><div class="Row26">List 1 &gt; Cpp &gt; basics</div></div><script>loadList1("Loader_1600429735365","Cpp","basics");</script></div><br></div></div></div></div><br>
