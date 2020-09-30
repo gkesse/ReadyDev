@@ -1,8 +1,48 @@
-<div class="Parallax GParallax1"><div class="Img Binary"><div class="Caption"><a href="#"><div class="Text">Créer un projet en C++</div></a></div></div><div class="Body2 Orange">Le but de ce tutoriel est de vous apprendre à créer un projet en <b>C++</b>.<br>Version Pro &amp; Industrielle. Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary1"><div class="Body0" id="Loader_1529412976174"><div class="Row26">Summary 1</div></div><script>loadSummary1("Loader_1529412976174");</script></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Introduction"><a class="Link3" href="#">Introduction</a></h1><div class="Body3"><b>C++</b> est un langage de programmation compilé permettant la programmation sous de multiples paradigmes (comme la programmation procédurale, orientée objet ou générique). Ses bonnes performances, et sa compatibilité avec le C en font un des langages de programmation les plus utilisés dans les applications où la performance est critique. (ref. <a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://fr.wikipedia.org/wiki/C%2B%2B">Wikipédia</a>)<br><br><div class="Img3 GImage"><img src="/Tutoriels/Cpp/img/b_cours_project.png" alt="/Tutoriels/Cpp/img/b_cours_project.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Créer un projet C++"><a class="Link3" href="#">Créer un projet C++</a></h1><div class="Body3"><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1599250744051"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1599250744051");</script></div><br><h2 class="Title7 GTitle2" id="Créer un projet C++-Introduction"><a class="Link9" href="#Créer un projet C++">Introduction</a></h2><br>Un projet C++ commence par un point d'entrée défini par la fonction (main) qui correspond au programme principal.<br><br>Dans l'exemple qui suit, nous essayons d'afficher un message à l'écran (Bonjour tout le monde).<br><br><h2 class="Title7 GTitle2" id="Créer un projet C++-Programme principal"><a class="Link9" href="#Créer un projet C++">Programme principal</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//================================================
+<div class="Parallax GParallax1"><div class="Img Binary"><div class="Caption"><a href="#"><div class="Text">Créer un projet en C++</div></a></div></div><div class="Body2 Orange">Le but de ce tutoriel est de vous apprendre à créer un projet en <b>C++</b>.<br>Version Pro &amp; Industrielle. Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary1"><div class="Body0" id="Loader_1529412976174"><div class="Row26">Summary 1</div></div><script>loadSummary1("Loader_1529412976174");</script></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Introduction"><a class="Link3" href="#">Introduction</a></h1><div class="Body3"><b>C++</b> est un langage de programmation compilé permettant la programmation sous de multiples paradigmes (comme la programmation procédurale, orientée objet ou générique). Ses bonnes performances, et sa compatibilité avec le C en font un des langages de programmation les plus utilisés dans les applications où la performance est critique.<br><br><div class="Img3 GImage"><img src="/Tutoriels/Cpp/img/b_cours_project.png" alt="/Tutoriels/Cpp/img/b_cours_project.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Créer un projet C++"><a class="Link3" href="#">Créer un projet C++</a></h1><div class="Body3"><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1599250744051"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1599250744051");</script></div><br><h2 class="Title7 GTitle2" id="Créer un projet C++-Introduction"><a class="Link9" href="#Créer un projet C++">Introduction</a></h2><br>Dans l'exemple qui suit, nous essayons de créer un projet C++ qui affiche un message à l'écran (Bonjour tout le monde).<br><br><h2 class="Title7 GTitle2" id="Créer un projet C++-Programme principal"><a class="Link9" href="#Créer un projet C++">Programme principal</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//================================================
 #include &lt;iostream&gt;
 //================================================
 int main(int argc, char** argv) {
     std::cout &lt;&lt; "Bonjour tout le monde\n";
     return 0;
 }
-//================================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer un projet C++-Résultat"><a class="Link9" href="#Créer un projet C++">Résultat</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Cpp/img/i_cours_project.png" alt="/Tutoriels/Cpp/img/i_cours_project.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Voir Aussi"><a class="Link3" href="#">Voir Aussi</a></h1><div class="Body3">Dans cette même catégorie, vous pouvez consulter aussi :<br><br><span class="GColor1" style="color:lime;">Programmation de base</span><br><br><div class="Content0 GList1"><div class="Body0" id="Loader_1600474250946"><div class="Row26">List 1 &gt; Cpp &gt; basics</div></div><script>loadList1("Loader_1600474250946","Cpp","basics");</script></div><br></div></div></div></div><br>
+//================================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer un projet C++-Fichier Makefile"><a class="Link9" href="#Créer un projet C++">Fichier Makefile</a></h2><br><h3 class="Title8 GTitle3">Makefile</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="makefile">GSRC = src
+GBIN = bin
+GBUILD = build
+GTARGET = $(GBIN)\gp_cpp.exe
+
+GINCS =\
+    
+GLIBS =\
+    
+GOBJS =\
+    $(patsubst $(GSRC)/%.cpp, $(GBUILD)/%.o, $(wildcard $(GSRC)/*.cpp)) \
+
+GCFLAGS = \
+    -std=gnu++11 \
+    -W -Wall \
+    -Wno-unused-parameter \
+    
+all: clean compile
+
+compile: $(GOBJS)
+	@if not exist $(GBIN) @mkdir $(GBIN)
+	g++ -o $(GTARGET) $(GOBJS) $(GLIBS) 
+$(GBUILD)/%.o: $(GSRC)/%.cpp
+	@if not exist $(GBUILD) @mkdir $(GBUILD)
+	g++ $(GCFLAGS) -c $&lt; -o $@ $(GINCS)
+clean:
+	@if not exist $(GBIN) @mkdir $(GBIN)
+	@if not exist $(GBUILD) @mkdir $(GBUILD)
+	del /q $(GBUILD)\* $(GBIN)\*</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer un projet C++-Compilation automatique"><a class="Link9" href="#Créer un projet C++">Compilation automatique</a></h2><br><h3 class="Title8 GTitle3">compile.bat (Windows - MinGW)</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
+::===============================================
+set "PATH=C:\MinGW\bin;%PATH%"
+::===============================================
+set "PATH=bin;%PATH%"
+::===============================================
+mingw32-make
+echo.
+gp_cpp
+echo.
+::===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer un projet C++-Compilation manuelle"><a class="Link9" href="#Créer un projet C++">Compilation manuelle</a></h2><br><h3 class="Title8 GTitle3">Terminal</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">del /q build\* bin\*
+g++ -std=gnu++11 -W -Wall -Wno-unused-parameter  -c src/main.cpp -o build/main.o
+g++ -o bin\gp_cpp.exe  build/main.o</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer un projet C++-Résultat"><a class="Link9" href="#Créer un projet C++">Résultat</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Cpp/img/i_cours_project.png" alt="/Tutoriels/Cpp/img/i_cours_project.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Voir Aussi"><a class="Link3" href="#">Voir Aussi</a></h1><div class="Body3">Dans cette même catégorie, vous pouvez consulter aussi :<br><br><span class="GColor1" style="color:lime;">Programmation de base</span><br><br><div class="Content0 GList1"><div class="Body0" id="Loader_1600474250946"><div class="Row26">List 1 &gt; Cpp &gt; basics</div></div><script>loadList1("Loader_1600474250946","Cpp","basics");</script></div><br></div></div></div></div><br>

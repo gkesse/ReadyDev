@@ -9,7 +9,7 @@
             "Produit par Gérard KESSE."
         ],
         "meta_cano":"/Tutoriels/Cpp/",
-        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Cpp/img/b_batch.png"
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Cpp/img/b_cpp.png"
     },    
     "links":
     [
@@ -19,6 +19,7 @@
     "basics":
     [
         {"name":"Créer un projet en C++","link":"/Tutoriels/Cpp/Cours/Project/","follow":"yes"},
+        {"name":"Créer un singleton en C++","link":"/Tutoriels/Cpp/Cours/Singleton/","follow":"yes"},
         {"name":"Créer une machine à états finis en C++","link":"/Tutoriels/Cpp/Cours/State_Machine/","follow":"yes"}
     ],
     "qt":
