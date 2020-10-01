@@ -5,7 +5,7 @@
         "meta_desc":
         [
 			"Le but de ce tutoriel est de vous apprendre",
-            "à ajouter un style Qt en C++.",
+            "à ajouter un style à une fenêtre Qt en C++.",
             "Produit par Gérard KESSE."
         ],
         "meta_cano":"/Tutoriels/Cpp/Qt/Style/",
