@@ -20,7 +20,8 @@
     [
         {"name":"Créer un projet en C++","link":"/Tutoriels/Cpp/Cours/Project/","follow":"yes"},
         {"name":"Créer un state_machine en C++","link":"/Tutoriels/Cpp/Cours/Singleton/","follow":"yes"},
-        {"name":"Créer une machine à états finis en C++","link":"/Tutoriels/Cpp/Cours/State_Machine/","follow":"yes"}
+        {"name":"Créer une machine à états finis en C++","link":"/Tutoriels/Cpp/Cours/State_Machine/","follow":"yes"},
+        {"name":"Créer un gestionnaire de configurations en C++","link":"/Tutoriels/Cpp/Cours/Config/","follow":"yes"}
     ],
     "qt":
     [
