@@ -3,7 +3,7 @@
     
     $m_data = GJson::Instance()->getData("data/json/Cpp_Qt_Style.json");
     
-    GConfig::Instance()->setData("title", "C++ - Qt - Ajouter un style");
+    GConfig::Instance()->setData("title", "C++ - Qt - Ajouter un style à une fenêtre");
     GConfig::Instance()->setData("menu", "Tutoriels");
     GConfig::Instance()->setData("view", "Cpp_Qt_Style");
     GConfig::Instance()->setData("link", $m_data["links"]);
