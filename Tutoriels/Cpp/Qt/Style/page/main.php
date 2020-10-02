@@ -10,7 +10,7 @@ void GManager::styleLoad() {
 QWidget, QWidget * {
     background-color: transparent;
     background-color: rgba(20, 20, 20, 100%);
-    font-family: arial;
+    font-family: "Allan";
     font-size: 16px;
     color: white;
     border: none;
