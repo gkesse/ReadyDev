@@ -1,0 +1,22 @@
+{
+    "sitemap":"yes",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+			"Le but de ce tutoriel est de vous apprendre",
+            "à ajouter une icône à son application Qt en C++.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Tutoriels/Cpp/Qt/Icon/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Cpp/img/b_qt_icon.png"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/#Développement Logiciel","follow":"no"},
+        {"name":"C++","link":"/Tutoriels/Cpp/","follow":"no"},
+        {"name":"Qt","link":"/Tutoriels/Cpp/#Interface Homme-Machine Qt","follow":"no"},
+        {"name":"Icône","link":"","follow":"no"}
+    ]
+}
+                        

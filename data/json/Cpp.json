@@ -31,6 +31,9 @@
         {"name":"Utiliser un fichier ressource Qt en C++","link":"/Tutoriels/Cpp/Qt/Resource/","follow":"yes"},
         {"name":"Ajouter un style à une fenêtre Qt en C++","link":"/Tutoriels/Cpp/Qt/Style/","follow":"yes"},
         {"name":"Supprimer la barre de titre standard Qt en C++","link":"/Tutoriels/Cpp/Qt/FrameLess/","follow":"yes"},
-        {"name":"Créer une barre de titre personnalisée Qt en C++","link":"/Tutoriels/Cpp/Qt/TitleBar/","follow":"yes"}
+        {"name":"Créer une barre de titre personnalisée Qt en C++","link":"/Tutoriels/Cpp/Qt/TitleBar/","follow":"yes"},
+        {"name":"Ajouter une icône à son application Qt en C++","link":"/Tutoriels/Cpp/Qt/Icon/","follow":"yes"},
+        {"name":"Utiliser des pictogrammes Qt en C++","link":"/Tutoriels/Cpp/Qt/Picto/","follow":"yes"},
+        {"name":"Utilisées des polices personnalisées Qt en C++","link":"/Tutoriels/Cpp/Qt/Font/","follow":"yes"}
     ]
 }
