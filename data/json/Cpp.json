@@ -39,6 +39,8 @@
     "sqlite":
     [
         {"name":"Se connecter à une base données SQLite en C++","link":"/Tutoriels/Cpp/SQLite/Connect/","follow":"yes"},
+        {"name":"Exécuter une requête d'affichage de données SQLite en C++","link":"/Tutoriels/Cpp/SQLite/Show_Query/","follow":"yes"},
+        {"name":"Exécuter une requête d'écriture de données SQLite en C++","link":"/Tutoriels/Cpp/SQLite/Write/","follow":"yes"},
         {"name":"Afficher les tables SQLite en C++","link":"/Tutoriels/Cpp/SQLite/Tables/","follow":"yes"},
         {"name":"Créer une table SQLite en C++","link":"/Tutoriels/Cpp/SQLite/Create/","follow":"yes"},
         {"name":"Afficher les données d'une table SQLite en C++","link":"/Tutoriels/Cpp/SQLite/Show/","follow":"yes"},
