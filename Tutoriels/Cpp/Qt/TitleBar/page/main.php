@@ -97,7 +97,7 @@ GTitleBar::GTitleBar(QWidget* parent) : QFrame(parent) {
     connect(m_maximize, SIGNAL(clicked()), this, SLOT(slotTitleClick()));
     connect(m_close, SIGNAL(clicked()), this, SLOT(slotTitleClick()));
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer une barre de titre personnalisée Qt en C++-Réagir au clic d'un bouton sur la barre de titre"><a class="Link9" href="#Créer une barre de titre personnalisée Qt en C++">Réagir au clic d'un bouton sur la barre de titre</a></h2><br><h3 class="Title8 GTitle3">GWindow.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer une barre de titre personnalisée Qt en C++-Réaction au clic d'un bouton sur la barre de titre"><a class="Link9" href="#Créer une barre de titre personnalisée Qt en C++">Réaction au clic d'un bouton sur la barre de titre</a></h2><br><h3 class="Title8 GTitle3">GWindow.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 void GTitleBar::slotTitleClick() {
     sGTitleBar* lTitleBar = GManager::Instance()-&gt;dataGet()-&gt;title_bar;
     QWidget* lWidget = qobject_cast&lt;QWidget*&gt;(sender());
