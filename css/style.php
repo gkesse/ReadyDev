@@ -869,7 +869,7 @@ span {
 }
 
 .Form {
-    background-color: rgba(10, 20, 30, 0.5);
+    background-color: #3f4969;
     display: inline-block;
     vertical-align: top;
     font-size: 0px;
