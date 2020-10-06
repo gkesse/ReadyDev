@@ -5,18 +5,18 @@
         "meta_desc":
         [
 			"Le but de ce tutoriel est de vous apprendre",
-            "à vous connecter à une base de données SQLite en C++.",
+            "à afficher les tables SQLite en C++.",
             "Produit par Gérard KESSE."
         ],
-        "meta_cano":"/Tutoriels/Cpp/SQLite/Connect/",
-        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Cpp/img/b_sqlite_connect.png"
+        "meta_cano":"/Tutoriels/Cpp/SQLite/Tables/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Cpp/img/b_sqlite_tables.png"
     },    
     "links":
     [
         {"name":"Tutoriels","link":"/Tutoriels/#Développement Logiciel","follow":"no"},
         {"name":"C++","link":"/Tutoriels/Cpp/","follow":"no"},
         {"name":"SQLite","link":"/Tutoriels/Cpp/#Base de données SQLite","follow":"no"},
-        {"name":"Connexion","link":"","follow":"no"}
+        {"name":"Tables","link":"","follow":"no"}
     ]
 }
                         
