@@ -869,7 +869,7 @@ span {
 }
 
 .Form {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(10, 20, 30, 0.5);
     display: inline-block;
     vertical-align: top;
     font-size: 0px;
@@ -1095,7 +1095,7 @@ span {
 }
 
 .Label {
-    background-color: #7f859a; /* L3 */
+    background-color: #2f3959; /* L3 */
     display: inline-block;
     vertical-align: top;
     padding: 5px;
@@ -1660,7 +1660,7 @@ span {
 }
 
 .Title2{
-    background-color: #4f5979; /* L2  5f6681*/
+    background-color: #2f3959; /* L2  5f6681*/
     color: #BF8E3A;
     padding: 20px 10px;
 }

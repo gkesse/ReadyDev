@@ -35,5 +35,17 @@
         {"name":"Ajouter une icône à son application Qt en C++","link":"/Tutoriels/Cpp/Qt/Icon/","follow":"yes"},
         {"name":"Utiliser des pictogrammes Qt en C++","link":"/Tutoriels/Cpp/Qt/Picto/","follow":"yes"},
         {"name":"Utilisées des polices personnalisées Qt en C++","link":"/Tutoriels/Cpp/Qt/Font/","follow":"yes"}
+    ],
+    "sqlite":
+    [
+        {"name":"Se connecter à une base données SQLite en C++","link":"/Tutoriels/Cpp/SQLite/Connect/","follow":"yes"},
+        {"name":"Afficher les tables SQLite en C++","link":"/Tutoriels/Cpp/SQLite/Tables/","follow":"yes"},
+        {"name":"Créer une table SQLite en C++","link":"/Tutoriels/Cpp/SQLite/Create/","follow":"yes"},
+        {"name":"Afficher les données d'une table SQLite en C++","link":"/Tutoriels/Cpp/SQLite/Show/","follow":"yes"},
+        {"name":"Aficher les données d'une table SQLite en C++","link":"/Tutoriels/Cpp/SQLite/Show/","follow":"yes"},
+        {"name":"Compter les données d'une table SQLite en C++","link":"/Tutoriels/Cpp/SQLite/Count/","follow":"yes"},
+        {"name":"insérer une donnée dans une table SQLite en C++","link":"/Tutoriels/Cpp/SQLite/Count/","follow":"yes"},
+        {"name":"Modifier une donnée dans une table SQLite en C++","link":"/Tutoriels/Cpp/SQLite/Count/","follow":"yes"},
+        {"name":"Lire une donnée dans d'une table SQLite en C++","link":"/Tutoriels/Cpp/SQLite/Count/","follow":"yes"}
     ]
 }
