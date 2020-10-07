@@ -1,0 +1,22 @@
+{
+    "sitemap":"yes",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+			"Le but de ce tutoriel est de vous apprendre",
+            "à supprimer une table SQLite en C++.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Tutoriels/Cpp/SQLite/Drop/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Cpp/img/b_sqlite_drop.png"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/#Développement Logiciel","follow":"no"},
+        {"name":"C++","link":"/Tutoriels/Cpp/","follow":"no"},
+        {"name":"SQLite","link":"/Tutoriels/Cpp/#Base de données SQLite","follow":"no"},
+        {"name":"Suppression d'une table","link":"","follow":"no"}
+    ]
+}
+                        

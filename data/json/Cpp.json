@@ -47,11 +47,11 @@
         {"name":"Lire une matrice de données SQLite en C++","link":"/Tutoriels/Cpp/SQLite/Map/","follow":"yes"},
         {"name":"Afficher les tables SQLite en C++","link":"/Tutoriels/Cpp/SQLite/Tables/","follow":"yes"},
         {"name":"Créer une table SQLite en C++","link":"/Tutoriels/Cpp/SQLite/Create/","follow":"yes"},
+        {"name":"Supprimer une table SQLite en C++","link":"/Tutoriels/Cpp/SQLite/Drop/","follow":"yes"},
         {"name":"Afficher les données d'une table SQLite en C++","link":"/Tutoriels/Cpp/SQLite/Show/","follow":"yes"},
-        {"name":"Aficher les données d'une table SQLite en C++","link":"/Tutoriels/Cpp/SQLite/Show/","follow":"yes"},
         {"name":"Compter les données d'une table SQLite en C++","link":"/Tutoriels/Cpp/SQLite/Count/","follow":"yes"},
-        {"name":"insérer une donnée dans une table SQLite en C++","link":"/Tutoriels/Cpp/SQLite/Count/","follow":"yes"},
-        {"name":"Modifier une donnée dans une table SQLite en C++","link":"/Tutoriels/Cpp/SQLite/Count/","follow":"yes"},
-        {"name":"Lire une donnée dans d'une table SQLite en C++","link":"/Tutoriels/Cpp/SQLite/Count/","follow":"yes"}
+        {"name":"Insérer des données dans une table SQLite en C++","link":"/Tutoriels/Cpp/SQLite/Insert/","follow":"yes"},
+        {"name":"Modifier des données dans une table SQLite en C++","link":"/Tutoriels/Cpp/SQLite/Update/","follow":"yes"},
+        {"name":"Supprimer des données dans une table SQLite en C++","link":"/Tutoriels/Cpp/SQLite/Delete/","follow":"yes"}
     ]
 }
