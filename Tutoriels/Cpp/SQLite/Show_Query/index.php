@@ -3,7 +3,7 @@
     
     $m_data = GJson::Instance()->getData("data/json/Cpp_SQLite_Show_Query.json");
     
-    GConfig::Instance()->setData("title", "C++ - SQLite - Exécuter une requête d'affichage de données");
+    GConfig::Instance()->setData("title", "C++ - SQLite - Afficher des données");
     GConfig::Instance()->setData("menu", "Tutoriels");
     GConfig::Instance()->setData("view", "Cpp_SQLite_Show_Query");
     GConfig::Instance()->setData("link", $m_data["links"]);

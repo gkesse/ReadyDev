@@ -4,7 +4,7 @@ sqlite3* GSQLite::connect() {
     sqlite3* lDb;
     int lAns = sqlite3_open(lSqlite-&gt;db_path.c_str(), &lDb);
     if(lAns != SQLITE_OK) {
-        printf("[GSQLite] erreur connect : %s\n", sqlite3_errmsg(lDb));
+        printf("[GSQLite] error connect() : %s\n", sqlite3_errmsg(lDb));
         printf("[GSQLite] %s\n", lSqlite-&gt;db_path.c_str());
         exit(0); 
     }
