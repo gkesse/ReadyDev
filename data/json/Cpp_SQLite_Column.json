@@ -5,18 +5,18 @@
         "meta_desc":
         [
 			"Le but de ce tutoriel est de vous apprendre",
-            "à afficher des données SQLite en C++.",
+            "à lire une colonne de données SQLite en C++.",
             "Produit par Gérard KESSE."
         ],
-        "meta_cano":"/Tutoriels/Cpp/SQLite/Show_Query/",
-        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Cpp/img/b_sqlite_show_query.png"
+        "meta_cano":"/Tutoriels/Cpp/SQLite/Column/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Cpp/img/b_sqlite_column.png"
     },    
     "links":
     [
         {"name":"Tutoriels","link":"/Tutoriels/#Développement Logiciel","follow":"no"},
         {"name":"C++","link":"/Tutoriels/Cpp/","follow":"no"},
         {"name":"SQLite","link":"/Tutoriels/Cpp/#Base de données SQLite","follow":"no"},
-        {"name":"Affichage de données","link":"","follow":"no"}
+        {"name":"Lecture de colonne","link":"","follow":"no"}
     ]
 }
                         
