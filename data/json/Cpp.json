@@ -53,5 +53,9 @@
         {"name":"Insérer des données dans une table SQLite en C++","link":"/Tutoriels/Cpp/SQLite/Insert/","follow":"yes"},
         {"name":"Modifier des données dans une table SQLite en C++","link":"/Tutoriels/Cpp/SQLite/Update/","follow":"yes"},
         {"name":"Supprimer des données dans une table SQLite en C++","link":"/Tutoriels/Cpp/SQLite/Delete/","follow":"yes"}
+    ],
+    "opencv":
+    [
+        {"name":"Créer un projet OpenCV en C++","link":"/Tutoriels/Cpp/OpenCV/Project/","follow":"yes"}
     ]
 }
