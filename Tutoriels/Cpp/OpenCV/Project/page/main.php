@@ -19,7 +19,7 @@ GINCS = \
     
 GLIBS = \
     -LC:\Users\Admin\Downloads\Programs\ReadyLib\dev\opencv\2.4.13\mingw\lib \
-    -lopencv_core2413 -lopencv_imgproc2413 -lopencv_highgui2413 \
+    -lopencv_core2413 -lopencv_highgui2413 -lopencv_imgproc2413 \
 
 GOBJS = \
     $(patsubst $(GSRC)/%.cpp, $(GBUILD)/%.o, $(wildcard $(GSRC)/*.cpp))\
@@ -55,23 +55,39 @@ GINCS = \
     
 GLIBS = \
     -L/mingw32/lib \
-    -lopencv_gapi -lopencv_stitching -lopencv_alphamat -lopencv_aruco \
-    -lopencv_bgsegm -lopencv_ccalib -lopencv_dnn_objdetect \
-    -lopencv_dnn_superres -lopencv_hdf -lopencv_line_descriptor \
-    -lopencv_dpm -lopencv_highgui -lopencv_face -lopencv_fuzzy \
-    -lopencv_hfs -lopencv_img_hash -lopencv_intensity_transform \
-    -lopencv_ovis -lopencv_quality -lopencv_rapid -lopencv_reg \
-    -lopencv_rgbd -lopencv_structured_light -lopencv_surface_matching \
-    -lopencv_saliency -lopencv_sfm -lopencv_stereo \
-    -lopencv_phase_unwrapping -lopencv_superres -lopencv_optflow \
-    -lopencv_tracking -lopencv_datasets -lopencv_text -lopencv_dnn \
-    -lopencv_videostab -lopencv_videoio -lopencv_xfeatures2d \
-    -lopencv_ximgproc -lopencv_video -lopencv_xobjdetect \
-    -lopencv_imgcodecs -lopencv_features2d -lopencv_flann \
-    -lopencv_plot -lopencv_ml -lopencv_shape -lopencv_objdetect \
-    -lopencv_calib3d -lopencv_xphoto -lopencv_photo \
-    -lopencv_imgproc -lopencv_core -lopengl32 -lglu32 \
+    -lopencv_core -lopencv_highgui -lopencv_imgcodecs \
     
+GOBJS = \
+    $(patsubst $(GSRC)/%.cpp, $(GBUILD)/%.o, $(wildcard $(GSRC)/*.cpp)) \
+
+GCFLAGS = \
+    -std=gnu++11 \
+    
+all: clean compile run
+
+compile: $(GOBJS)
+	@if ! [ -d $(GBIN) ] ; then mkdir -p $(GBIN) ; fi
+	g++ $(GCFLAGS) -o $(GTARGET) $(GOBJS) $(GLIBS) 
+	@echo
+$(GBUILD)/%.o: $(GSRC)/%.cpp
+	@if ! [ -d $(GBUILD) ] ; then mkdir -p $(GBUILD) ; fi
+	g++ $(GCFLAGS) -c $&lt; -o $@ $(GINCS)
+run:
+	@$(GTARGET)
+clean_exe: 
+	rm -f $(GBIN)/*
+clean: 
+	rm -f $(GBUILD)/* $(GBIN)/*</xmp></pre></div><br><h3 class="Title8 GTitle3">Makefile (UNIX - make)</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="makefile">GSRC = ../src
+GBIN = bin
+GBUILD = build
+GTARGET = $(GBIN)/gp_cpp
+
+GINCS = \
+    -I/usr/include/opencv4 \
+    
+GLIBS = \
+    -lopencv_core -lopencv_highgui -lopencv_imgcodecs \
+
 GOBJS = \
     $(patsubst $(GSRC)/%.cpp, $(GBUILD)/%.o, $(wildcard $(GSRC)/*.cpp)) \
 
@@ -98,4 +114,4 @@ set "PATH=C:\MinGW\bin"
 set "PATH=C:\Users\Admin\Downloads\Programs\ReadyLib\dev\opencv\2.4.13\mingw\bin;%PATH%"
 ::===============================================
 mingw32-make
-::===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">compile (Windows - MSYS)</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">make</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer un projet OpenCV en C++-Résultat"><a class="Link9" href="#Créer un projet OpenCV en C++">Résultat</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Cpp/img/i_opencv_project.png" alt="/Tutoriels/Cpp/img/i_opencv_project.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Voir Aussi"><a class="Link3" href="#">Voir Aussi</a></h1><div class="Body3">Dans cette même catégorie, vous pouvez consulter aussi :<br><br><span class="GColor1" style="color:lime;">Vision par Ordinateur OpenCV</span><br><br><div class="Content0 GList1"><div class="Body0" id="Loader_1601109305589"><div class="Row26">List 1 &gt; Cpp &gt; opencv</div></div><script>loadList1("Loader_1601109305589","Cpp","opencv");</script></div><br></div></div></div></div><br>
+::===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">compile (Windows - MSYS)</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">make</xmp></pre></div><br><h3 class="Title8 GTitle3">compile (UNIX - make)</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">make</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer un projet OpenCV en C++-Résultat"><a class="Link9" href="#Créer un projet OpenCV en C++">Résultat</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Cpp/img/i_opencv_project.png" alt="/Tutoriels/Cpp/img/i_opencv_project.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Voir Aussi"><a class="Link3" href="#">Voir Aussi</a></h1><div class="Body3">Dans cette même catégorie, vous pouvez consulter aussi :<br><br><span class="GColor1" style="color:lime;">Vision par Ordinateur OpenCV</span><br><br><div class="Content0 GList1"><div class="Body0" id="Loader_1601109305589"><div class="Row26">List 1 &gt; Cpp &gt; opencv</div></div><script>loadList1("Loader_1601109305589","Cpp","opencv");</script></div><br></div></div></div></div><br>
