@@ -23,6 +23,7 @@
         {"name":"Créer une machine à états finis en C++","link":"/Tutoriels/Cpp/Cours/State_Machine/","follow":"yes"},
         {"name":"Créer un gestionnaire de configurations en C++","link":"/Tutoriels/Cpp/Cours/Config/","follow":"yes"},
         {"name":"Créer un manager de données","link":"/Tutoriels/Cpp/Cours/Manager/","follow":"yes"},
+        {"name":"Créer un patron stratégie","link":"/Tutoriels/Cpp/Cours/Strategy/","follow":"yes"},
         {"name":"Créer un projet portable","link":"/Tutoriels/Cpp/Cours/Portability/","follow":"yes"},
         {"name":"Créer un projet multithreading","link":"/Tutoriels/Cpp/Cours/Multithreading/","follow":"yes"}
     ],

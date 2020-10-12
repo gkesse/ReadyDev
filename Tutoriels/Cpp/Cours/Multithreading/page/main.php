@@ -1,38 +1,13 @@
-<div class="Parallax GParallax1"><div class="Img Binary"><div class="Caption"><a href="#"><div class="Text">Créer un projet multithreading en C++</div></a></div></div><div class="Body2 Orange">Le but de ce tutoriel est de vous apprendre à créer un projet multithreading en <b>C++</b>.<br>Version Pro &amp; Industrielle. Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary1"><div class="Body0" id="Loader_1529412976174"><div class="Row26">Summary 1</div></div><script>loadSummary1("Loader_1529412976174");</script></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Introduction"><a class="Link3" href="#">Introduction</a></h1><div class="Body3"><b>C++</b> est un langage de programmation compilé permettant la programmation sous de multiples paradigmes (comme la programmation procédurale, orientée objet ou générique). Ses bonnes performances, et sa compatibilité avec le C en font un des langages de programmation les plus utilisés dans les applications où la performance est critique.<br><br><div class="Img3 GImage"><img src="/Tutoriels/Cpp/img/b_cours_multithreading.png" alt="/Tutoriels/Cpp/img/b_cours_multithreading.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Créer un projet multithreading C++"><a class="Link3" href="#">Créer un projet multithreading C++</a></h1><div class="Body3"><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1599250744051"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1599250744051");</script></div><br><h2 class="Title7 GTitle2" id="Créer un projet multithreading C++-Introduction"><a class="Link9" href="#Créer un projet multithreading C++">Introduction</a></h2><br>Dans l'exemple qui suit, nous essayons de créer un projet multithreading (GProcess).<br><br><h2 class="Title7 GTitle2" id="Créer un projet multithreading C++-Programme principal"><a class="Link9" href="#Créer un projet multithreading C++">Programme principal</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">GProcess::Instance()-&gt;run(argc, argv);</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer un projet multithreading C++-Structure du singleton"><a class="Link9" href="#Créer un projet multithreading C++">Structure du singleton</a></h2><br><h3 class="Title8 GTitle3">GProcess.h</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-#ifndef _GProcess_
-#define _GProcess_
-//===============================================
-#include "GInclude.h"
-//===============================================
-class GProcess {
-private:
-    GProcess();
-    
-public:
-    ~GProcess();
-    static GProcess* Instance();
-    void run(int argc, char** argv);
-
-public:
-    static GProcess* m_instance;
-};
-//===============================================
-#endif
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer un projet multithreading C++-Initialisation du singleton"><a class="Link9" href="#Créer un projet multithreading C++">Initialisation du singleton</a></h2><br><h3 class="Title8 GTitle3">GProcess.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-GProcess* GProcess::m_instance = 0;
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer un projet multithreading C++-Constructeur du singleton"><a class="Link9" href="#Créer un projet multithreading C++">Constructeur du singleton</a></h2><br><h3 class="Title8 GTitle3">GProcess.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-GProcess::GProcess() {
-    // code du constructeur
+<div class="Parallax GParallax1"><div class="Img Binary"><div class="Caption"><a href="#"><div class="Text">Créer un projet multithreading en C++</div></a></div></div><div class="Body2 Orange">Le but de ce tutoriel est de vous apprendre à créer un projet multithreading en <b>C++</b>.<br>Version Pro &amp; Industrielle. Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary1"><div class="Body0" id="Loader_1529412976174"><div class="Row26">Summary 1</div></div><script>loadSummary1("Loader_1529412976174");</script></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Introduction"><a class="Link3" href="#">Introduction</a></h1><div class="Body3"><b>C++</b> est un langage de programmation compilé permettant la programmation sous de multiples paradigmes (comme la programmation procédurale, orientée objet ou générique). Ses bonnes performances, et sa compatibilité avec le C en font un des langages de programmation les plus utilisés dans les applications où la performance est critique.<br><br><div class="Img3 GImage"><img src="/Tutoriels/Cpp/img/b_cours_multithreading.png" alt="/Tutoriels/Cpp/img/b_cours_multithreading.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Créer un projet multithreading C++"><a class="Link3" href="#">Créer un projet multithreading C++</a></h1><div class="Body3"><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1599250744051"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1599250744051");</script></div><br><h2 class="Title7 GTitle2" id="Créer un projet multithreading C++-Introduction"><a class="Link9" href="#Créer un projet multithreading C++">Introduction</a></h2><br>Dans l'exemple qui suit, nous essayons de créer un projet multithreading.<br><br><h2 class="Title7 GTitle2" id="Créer un projet multithreading C++-Programme principal"><a class="Link9" href="#Créer un projet multithreading C++">Programme principal</a></h2><br><h3 class="Title8 GTitle3">GOpenCVWin.cpp (Windows)<br></h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">HANDLE lAns = CreateThread(0, 0, onOpen, 0, 0, &lOpenCV-&gt;thread_id);</xmp></pre></div><br><h3 class="Title8 GTitle3">GOpenCVUnix.cpp (UNIX)</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">int lAns = pthread_create(&lOpenCV-&gt;thread_id, 0, onOpen, 0);</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer un projet multithreading C++-Fonction de rappel"><a class="Link9" href="#Créer un projet multithreading C++">Fonction de rappel</a></h2><br><h3 class="Title8 GTitle3">GOpenCVWin.cpp (Windows)</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+DWORD WINAPI GOpenCVWin::onOpen(LPVOID params) {
+    // code secondaire multithreading
+    // GOpenCV::onOpen();
+    return 0;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer un projet multithreading C++-Création du singleton"><a class="Link9" href="#Créer un projet multithreading C++">Création du singleton</a></h2><br><h3 class="Title8 GTitle3">GProcess.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-GProcess* GProcess::Instance() {
-    if(m_instance == 0) {
-        m_instance = new GProcess;
-    }
-    return m_instance;
-}
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer un projet multithreading C++-Méthode du singleton"><a class="Link9" href="#Créer un projet multithreading C++">Méthode du singleton</a></h2><br><h3 class="Title8 GTitle3">GProcess.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-void GProcess::run(int argc, char** argv) {
-    // code de la methode run
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GOpenCVUnix.cpp (UNIX)</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void* GOpenCVUnix::onOpen(void* params) {
+    // code secondaire multithreading
+    // GOpenCV::onOpen();
+    return 0;
 }
 //===============================================</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Voir Aussi"><a class="Link3" href="#">Voir Aussi</a></h1><div class="Body3">Dans cette même catégorie, vous pouvez consulter aussi :<br><br><span class="GColor1" style="color:lime;">Programmation de base</span><br><br><div class="Content0 GList1"><div class="Body0" id="Loader_1600474250946"><div class="Row26">List 1 &gt; Cpp &gt; basics</div></div><script>loadList1("Loader_1600474250946","Cpp","basics");</script></div><br></div></div></div></div><br>
