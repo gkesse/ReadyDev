@@ -21,7 +21,11 @@
         {"name":"Créer un projet en C","link":"/Tutoriels/C0/Cours/Project/","follow":"yes"},
         {"name":"Créer un singleton en C","link":"/Tutoriels/C0/Cours/Singleton/","follow":"yes"},
         {"name":"Créer une machine à états finis en C","link":"/Tutoriels/C0/Cours/State_Machine/","follow":"yes"},
-        {"name":"Lire la date et l'heure en C","link":"/Tutoriels/C0/Cours/Date_Time/","follow":"yes"}
+        {"name":"Lire la date et l'heure en C","link":"/Tutoriels/C0/Cours/Date_Time/","follow":"yes"},
+        {"name":"Lire une chaine à la console en C","link":"/Tutoriels/C0/Cours/ReadLine/","follow":"yes"},
+        {"name":"Créer un système de fichier log en C","link":"/Tutoriels/C0/Cours/Log/","follow":"yes"},
+        {"name":"Créer un manager de données en C","link":"/Tutoriels/C0/Cours/Manager/","follow":"yes"},
+        {"name":"Créer un patron stratégie en C","link":"/Tutoriels/C0/Cours/Strategy/","follow":"yes"}
     ]
 }
                         
