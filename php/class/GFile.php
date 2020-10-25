@@ -15,14 +15,16 @@
         }
         //===============================================
         public function getPath($file) {
-            $lFile = realpath($_SERVER["DOCUMENT_ROOT"])."/".$file;
+            $lSep = DIRECTORY_SEPARATOR;
+            $lFile = realpath($_SERVER["DOCUMENT_ROOT"]).$lSep.$file;
             return $lFile;
         }
         //===============================================
         public function getData($file) {
+            $lSep = DIRECTORY_SEPARATOR;
             $lFile = $_SERVER["DOCUMENT_ROOT"];
 			$lFile = realpath($lFile);
-			$lFile .= "/".$file;
+			$lFile .= $lSep.$file;
 			$lFile = realpath($lFile);
             $lData = file_get_contents($lFile);
             return $lData;
@@ -34,11 +36,12 @@
         }
         //===============================================
         public function getData3($root, $file) {
+            $lSep = DIRECTORY_SEPARATOR;
             $lFile = $_SERVER["DOCUMENT_ROOT"];
 			$lFile = realpath($lFile);
-			$lFile .= "/".$root;
+			$lFile .= $lSep.$root;
 			$lFile = realpath($lFile);
-			$lFile .= "/".$file;
+			$lFile .= $lSep.$file;
 			$lFile = realpath($lFile);
             $lData = file_get_contents($lFile);
             $lData = trim($lData);
@@ -46,9 +49,10 @@
         }
         //===============================================
         public function saveData($file, $data) {
+            $lSep = DIRECTORY_SEPARATOR;
             $lFile = $_SERVER["DOCUMENT_ROOT"];
 			$lFile = realpath($lFile);
-            $lFile .= "/".$file;
+            $lFile .= $lSep.$file;
             file_put_contents($lFile, $data);
         }
         //===============================================
@@ -61,13 +65,15 @@
         }
         //===============================================
         public function getDateTime($file) {
+            $lSep = DIRECTORY_SEPARATOR;
             $lFile = $_SERVER["DOCUMENT_ROOT"];
 			$lFile = realpath($lFile);
-            $lFile .= "/".$file;
+            $lFile .= $lSep.$file;
 			$lFile = realpath($lFile);
-            $lFile .= "/"."index.php";
+            $lFile .= $lSep."index.php";
             $lDate = filemtime($lFile);
             $lDate = date ("Y-m-d", $lDate);
+            $lDate = date ("Y-m-d");
             return $lDate;
         }
         //===============================================

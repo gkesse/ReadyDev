@@ -19,7 +19,7 @@
     "basics":
     [
         {"name":"Créer un projet en PHP","link":"/Tutoriels/PHP/Cours/Project/","follow":"yes"},
-        {"name":"Créer une machine à états finis en PHP","link":"/Tutoriels/PHP/Cours/State_Machine/","follow":"yes"}
+        {"name":"Créer une machine à états finis en PHP","link":"/Tutoriels/PHP/Cours/StateMachine/","follow":"yes"}
     ]
 }
                         

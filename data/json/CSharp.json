@@ -19,7 +19,7 @@
     "basics":
     [
         {"name":"Créer un projet en C#","link":"/Tutoriels/CSharp/Cours/Project/","follow":"yes"},
-        {"name":"Créer une machine à états finis en C#","link":"/Tutoriels/CSharp/Cours/State_Machine/","follow":"yes"}
+        {"name":"Créer une machine à états finis en C#","link":"/Tutoriels/CSharp/Cours/StateMachine/","follow":"yes"}
     ]
 }
                         
