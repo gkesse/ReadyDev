@@ -1,11 +1,11 @@
 <?php
     require $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoloadRegister.php";
     
-    $m_data = GJson::Instance()->getData("data/json/C_Cours_Manager.json");
+    $m_data = GJson::Instance()->getData("data/json/Dart_Cours_Project.json");
     
-    GConfig::Instance()->setData("title", "C - Créer un manager de données");
+    GConfig::Instance()->setData("title", "Dart - Créer un projet");
     GConfig::Instance()->setData("menu", "Tutoriels");
-    GConfig::Instance()->setData("view", "C_Cours_Manager");
+    GConfig::Instance()->setData("view", "Dart_Cours_Project");
     GConfig::Instance()->setData("link", $m_data["links"]);
 
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";

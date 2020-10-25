@@ -19,7 +19,7 @@
     "basics":
     [
         {"name":"Créer un projet en Batch","link":"/Tutoriels/Batch/Cours/Project/","follow":"yes"},
-        {"name":"Créer une machine à états finis en Batch","link":"/Tutoriels/Batch/Cours/State_Machine/","follow":"yes"}
+        {"name":"Créer une machine à états finis en Batch","link":"/Tutoriels/Batch/Cours/StateMachine/","follow":"yes"}
     ]
 }
                         

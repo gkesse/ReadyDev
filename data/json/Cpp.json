@@ -19,11 +19,11 @@
     "basics":
     [
         {"name":"Créer un projet en C++","link":"/Tutoriels/Cpp/Cours/Project/","follow":"yes"},
-        {"name":"Créer un state_machine en C++","link":"/Tutoriels/Cpp/Cours/Portable/","follow":"yes"},
+        {"name":"Créer un singleton en C++","link":"/Tutoriels/Cpp/Cours/Singleton/","follow":"yes"},
         {"name":"Créer une machine à états finis en C++","link":"/Tutoriels/Cpp/Cours/State_Machine/","follow":"yes"},
         {"name":"Créer un gestionnaire de configurations en C++","link":"/Tutoriels/Cpp/Cours/Config/","follow":"yes"},
         {"name":"Créer un manager de données en C++","link":"/Tutoriels/Cpp/Cours/Manager/","follow":"yes"},
-        {"name":"Créer un projet multiplateforme en C++","link":"/Tutoriels/Cpp/Cours/Strategy/","follow":"yes"},
+        {"name":"Créer un patron stratégie en C++","link":"/Tutoriels/Cpp/Cours/Strategy/","follow":"yes"},
         {"name":"Créer un projet portable en C++","link":"/Tutoriels/Cpp/Cours/Portability/","follow":"yes"},
         {"name":"Créer un projet multithreading en C++","link":"/Tutoriels/Cpp/Cours/Multithreading/","follow":"yes"},
         {"name":"Créer un projet multiplateforme en C++","link":"/Tutoriels/Cpp/Cours/Cross_Plateform/","follow":"yes"}
