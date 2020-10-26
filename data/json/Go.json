@@ -4,7 +4,7 @@
     {
         "meta_desc":
         [
-			"Le but de ce tutoriel est de vous apprendre",
+            "Le but de ce tutoriel est de vous apprendre",
             "la programmation en Go.",
             "Produit par Gérard KESSE."
         ],
@@ -19,7 +19,7 @@
     "basics":
     [
         {"name":"Créer un projet en Go","link":"/Tutoriels/Go/Cours/Project/","follow":"yes"},
-        {"name":"Créer une machine à états finis en Go","link":"/Tutoriels/Go/Cours/StateMachine/","follow":"yes"}
+        {"name":"Créer une machine à états finis en Go","link":"/Tutoriels/Go/Cours/State_Machine/","follow":"yes"}
     ]
 }
                         
