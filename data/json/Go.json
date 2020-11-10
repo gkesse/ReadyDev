@@ -19,7 +19,18 @@
     "basics":
     [
         {"name":"Créer un projet en Go","link":"/Tutoriels/Go/Cours/Project/","follow":"yes"},
-        {"name":"Créer une machine à états finis en Go","link":"/Tutoriels/Go/Cours/State_Machine/","follow":"yes"}
+        {"name":"Créer un singleton en Go","link":"/Tutoriels/Go/Cours/Singleton/","follow":"yes"},
+        {"name":"Créer une machine à états finis en Go","link":"/Tutoriels/Go/Cours/State_Machine/","follow":"yes"},
+        {"name":"Créer un programme en ligne de commande en Go","link":"/Tutoriels/Go/Cours/Command_Line/","follow":"yes"},
+        {"name":"Créer un manager de données en Go","link":"/Tutoriels/Go/Cours/Manager/","follow":"yes"}
+    ],
+    "wrapper":
+    [
+        {"name":"Intégrer une fonction C en Go","link":"/Tutoriels/Go/Wrapper/C_Function/","follow":"yes"},
+        {"name":"Utiliser une variable C en Go","link":"/Tutoriels/Go/Wrapper/C_Variable/","follow":"yes"},
+        {"name":"Utiliser une librairie statique C en Go","link":"/Tutoriels/Go/Wrapper/C_Static_Library/","follow":"yes"},
+        {"name":"Utiliser une librairie statique C++ en Go","link":"/Tutoriels/Go/Wrapper/Cpp_Static_Library/","follow":"yes"},
+        {"name":"Utiliser une librairie dynamique C++ en Go","link":"/Tutoriels/Go/Wrapper/Cpp_Dynamic_Library/","follow":"yes"}
     ]
 }
                         
