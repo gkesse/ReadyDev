@@ -26,11 +26,11 @@
     ],
     "wrapper":
     [
-        {"name":"Intégrer une fonction C en Go","link":"/Tutoriels/Go/Wrapper/C_Function/","follow":"yes"},
+        {"name":"Utiliser une fonction C en Go","link":"/Tutoriels/Go/Wrapper/C_Function/","follow":"yes"},
         {"name":"Utiliser une variable C en Go","link":"/Tutoriels/Go/Wrapper/C_Variable/","follow":"yes"},
         {"name":"Utiliser une librairie statique C en Go","link":"/Tutoriels/Go/Wrapper/C_Static_Library/","follow":"yes"},
+        {"name":"Utiliser une librairie dynamique C en Go","link":"/Tutoriels/Go/Wrapper/C_Dynamic_Library/","follow":"yes"},
         {"name":"Utiliser une librairie statique C++ en Go","link":"/Tutoriels/Go/Wrapper/Cpp_Static_Library/","follow":"yes"},
         {"name":"Utiliser une librairie dynamique C++ en Go","link":"/Tutoriels/Go/Wrapper/Cpp_Dynamic_Library/","follow":"yes"}
     ]
 }
-                        

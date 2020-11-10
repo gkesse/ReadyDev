@@ -61,13 +61,30 @@ func main() {
     fmt.Printf("[info] lancement du programme Go\n")
     C.sayHello()
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Utiliser une librairie statique C en Go-Variables d'environnement"><a class="Link9" href="#Utiliser une librairie statique C en Go">Variables d'environnement</a></h2><br><h3 class="Title8 GTitle3">env.bat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Utiliser une librairie statique C en Go-Fichier Makefile"><a class="Link9" href="#Utiliser une librairie statique C en Go">Fichier Makefile</a></h2><br><h3 class="Title8 GTitle3">Makefile</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="makefile">GSRC = ..\src
+GBIN = bin
+GTARGET = $(GBIN)\gp_go.exe
+    
+all: clean compile run
+
+compile:
+	@if not exist $(GBIN) ( @mkdir $(GBIN) )
+	go build -o $(GTARGET) $(GSRC)\main.go
+run: 
+	@echo.
+	@$(GTARGET)
+	@echo.
+clean: 
+	@if not exist $(GBIN) ( @mkdir $(GBIN) )
+	del /q $(GBIN)\*
+lib:
+	@make -C $(GSRC)/lib</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Utiliser une librairie statique C en Go-Variables d'environnement"><a class="Link9" href="#Utiliser une librairie statique C en Go">Variables d'environnement</a></h2><br><h3 class="Title8 GTitle3">env.bat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
 ::===============================================
 set "PATH=C:\TDM-GCC-64\bin;%PATH%"
 ::===============================================
-set "GOPATH=C:\Users\Admin\Downloads\Programs\ReadyTest\go\wrapper\c\p01;%GOPATH%"
+set "GOPATH=C:\Users\Admin\Downloads\Programs\ReadyTest\go\wrapper\p04"
 ::===============================================
 set "CGO_LDFLAGS="
-set "CGO_LDFLAGS=%CGO_LDFLAGS% -LC:\Users\Admin\Downloads\Programs\ReadyTest\go\wrapper\c\p01\src\lib_c\lib"
+set "CGO_LDFLAGS=%CGO_LDFLAGS% -LC:\Users\Admin\Downloads\Programs\ReadyTest\go\wrapper\p04\src\lib\lib"
 set "CGO_LDFLAGS=%CGO_LDFLAGS% -lhello"
 ::===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Utiliser une librairie statique C en Go-Résultat"><a class="Link9" href="#Utiliser une librairie statique C en Go">Résultat</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Go/img/i_wrapper_c_static_library_02.png" alt="/Tutoriels/Go/img/i_wrapper_c_static_library_02.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Voir Aussi"><a class="Link3" href="#">Voir Aussi</a></h1><div class="Body3">Dans cette même catégorie, vous pouvez consulter aussi :<br><br><span class="GColor1" style="color:lime;">Développement de wrapper</span><br><br><div class="Content0 GList1"><div class="Body0" id="Loader_1604568346809"><div class="Row26">List 1 &gt; Go &gt; wrapper</div></div><script>loadList1("Loader_1604568346809","Go","wrapper");</script></div><br></div></div></div></div><br>
