@@ -58,4 +58,29 @@ func NewGWindow(parent widgets.QWidget_ITF) *GWindow {
     
     return lObj
 }
+//===============================================</xmp></pre></div><br><br><h2 class="Title7 GTitle2" id="Créer une fenêtre personnalisée Qt en Go-Ajout d'une page"><a class="Link9" href="#Créer une fenêtre personnalisée Qt en Go">Ajout d'une page</a></h2><br><h3 class="Title8 GTitle3">GWindow.go</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="golang">//===============================================
+func (obj *GWindow) AddPage(widget widgets.QWidget_ITF, key string, title string, defaultId int) {
+    lQt := GManager().mgr.qt
+    lPageId := lQt.page_map.Count()
+    lQt.page_map.AddWidget(widget)
+    lQt.page_id[key] = lPageId
+    lQt.title_map[key] = title
+    if defaultId == 1 {
+        GManager().SetPage(key)
+    }
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer une fenêtre personnalisée Qt en Go-Sélection d'une page"><a class="Link9" href="#Créer une fenêtre personnalisée Qt en Go">Sélection d'une page</a></h2><br><h3 class="Title8 GTitle3">GManager.go</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="golang">//===============================================
+func (obj *GManagerO) SetPage(pageId string) {
+    if pageId == "" {obj.SetAddress() ; return}
+    lPageId,lOk := obj.mgr.qt.page_id[pageId]
+    if lOk == false {obj.SetAddress() ; return}
+    if pageId == obj.mgr.qt.current_page {obj.SetAddress() ; return}
+    lTitle,lOk := obj.mgr.qt.title_map[pageId]
+    if lOk == false {lTitle = ""}
+    obj.mgr.qt.page_map.SetCurrentIndex(lPageId)
+    obj.mgr.qt.address_key.SetContent(pageId)
+    obj.mgr.qt.current_page = pageId
+    obj.mgr.qt.title_id.SetText(lTitle)
+    obj.mgr.qt.address_edit.SetText(pageId)
+}
 //===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer une fenêtre personnalisée Qt en Go-Résultat"><a class="Link9" href="#Créer une fenêtre personnalisée Qt en Go">Résultat</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Go/img/i_qt_window.png" alt="/Tutoriels/Go/img/i_qt_window.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Voir Aussi"><a class="Link3" href="#">Voir Aussi</a></h1><div class="Body3">Dans cette même catégorie, vous pouvez consulter aussi :<br><br><span class="GColor1" style="color:lime;">Interface Homme-Machine Qt</span><br><br><div class="Content0 GList1"><div class="Body0" id="Loader_1605458922954"><div class="Row26">List 1 &gt; Go &gt; qt</div></div><script>loadList1("Loader_1605458922954","Go","qt");</script></div><br></div></div></div></div><br>
