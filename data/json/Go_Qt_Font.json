@@ -5,17 +5,17 @@
         "meta_desc":
         [
             "Le but de ce tutoriel est de vous apprendre",
-            "à créer un projet Qt en Go.",
+            "à charger une police personnalisée Qt en Go.",
             "Produit par Gérard KESSE."
         ],
-        "meta_cano":"/Tutoriels/Go/Qt/Project/",
-        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Go/img/b_qt_project.png"
+        "meta_cano":"/Tutoriels/Go/Qt/Font/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Go/img/b_qt_font.png"
     },    
     "links":
     [
         {"name":"Tutoriels","link":"/Tutoriels/#Développement Logiciel","follow":"no"},
         {"name":"Go","link":"/Tutoriels/Go/","follow":"no"},
         {"name":"Qt","link":"/Tutoriels/Go/#Interface Homme-Machine Qt","follow":"no"},
-        {"name":"Projet","link":"","follow":"no"}
+        {"name":"Police personnalisée","link":"","follow":"no"}
     ]
 }
