@@ -38,6 +38,8 @@
     [
         {"name":"Créer un projet Qt en Go","link":"/Tutoriels/Go/Qt/Project/","follow":"yes"},
         {"name":"Ajouter un style Qt en Go","link":"/Tutoriels/Go/Qt/Style/","follow":"yes"},
+        {"name":"Charger une police personnalisée Qt en Go","link":"/Tutoriels/Go/Qt/Font/","follow":"yes"},
+        {"name":"Charger une icône Qt en Go","link":"/Tutoriels/Go/Qt/Icon/","follow":"yes"},
         {"name":"Créer une fenêtre personnalisée Qt en Go","link":"/Tutoriels/Go/Qt/Window/","follow":"yes"}
     ]
 }
