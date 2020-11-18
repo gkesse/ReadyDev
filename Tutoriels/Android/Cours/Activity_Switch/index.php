@@ -1,11 +1,11 @@
 <?php
     require $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoloadRegister.php";
     
-    $m_data = GJson::Instance()->getData("data/json/Android_Cours_Switch_Activity.json");
+    $m_data = GJson::Instance()->getData("data/json/Android_Cours_Activity_Switch.json");
     
     GConfig::Instance()->setData("title", "Android - Basculer entre des activités");
     GConfig::Instance()->setData("menu", "Tutoriels");
-    GConfig::Instance()->setData("view", "Android_Cours_Switch_Activity");
+    GConfig::Instance()->setData("view", "Android_Cours_Activity_Switch");
     GConfig::Instance()->setData("link", $m_data["links"]);
 
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";

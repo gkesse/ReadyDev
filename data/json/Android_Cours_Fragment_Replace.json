@@ -5,18 +5,18 @@
         "meta_desc":
         [
 			"Le but de ce tutoriel est de vous apprendre",
-            "à créer un fragment sous Android.",
+            "à remplacer un fragment sous Android.",
             "Produit par Gérard KESSE."
         ],
         "meta_cano":"/Tutoriels/Android/Cours/Fragment/",
-        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Android/img/b_cours_fragment.png"
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Android/img/b_cours_fragment_replace_Replace.png"
     },    
     "links":
     [
         {"name":"Tutoriels","link":"/Tutoriels/#Développement Mobile","follow":"no"},
         {"name":"Android","link":"/Tutoriels/Android/","follow":"no"},
         {"name":"Cours","link":"/Tutoriels/Android/#Programmation de base","follow":"no"},
-        {"name":"Fragmentation","link":"","follow":"no"}
+        {"name":"Fragmentation et remplacement","link":"","follow":"no"}
     ]
 }
                         

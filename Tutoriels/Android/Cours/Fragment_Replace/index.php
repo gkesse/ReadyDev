@@ -1,11 +1,11 @@
 <?php
     require $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoloadRegister.php";
     
-    $m_data = GJson::Instance()->getData("data/json/Android_Cours_RecyclerView.json");
+    $m_data = GJson::Instance()->getData("data/json/Android_Cours_Fragment_Replace.json");
     
-    GConfig::Instance()->setData("title", "Android - Créer une liste déroulante");
+    GConfig::Instance()->setData("title", "Android - Remplacer un fragment");
     GConfig::Instance()->setData("menu", "Tutoriels");
-    GConfig::Instance()->setData("view", "Android_Cours_RecyclerView");
+    GConfig::Instance()->setData("view", "Android_Cours_Fragment_Replace");
     GConfig::Instance()->setData("link", $m_data["links"]);
 
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";
