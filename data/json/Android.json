@@ -5,7 +5,7 @@
         "meta_desc":
         [
 			"Le but de ce tutoriel est de vous apprendre",
-            "la programmation mobile avec Android.",
+            "la programmation mobile sous Android.",
             "Produit par Gérard KESSE."
         ],
         "meta_cano":"/Tutoriels/Android/",
@@ -19,6 +19,8 @@
     "basics":
     [
         {"name":"Créer un projet sous Android","link":"/Tutoriels/Android/Cours/Project/","follow":"yes"},
+        {"name":"Basculer entre des activités sous Android","link":"/Tutoriels/Android/Cours/Switch_Activity/","follow":"yes"},
+        {"name":"Créer un fragment sous Android","link":"/Tutoriels/Android/Cours/Fragment/","follow":"yes"},
         {"name":"Créer une liste déroulante sous Android","link":"/Tutoriels/Android/Cours/RecyclerView/","follow":"yes"}
     ]
 }
