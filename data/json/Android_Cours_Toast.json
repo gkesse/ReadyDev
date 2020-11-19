@@ -5,18 +5,18 @@
         "meta_desc":
         [
 			"Le but de ce tutoriel est de vous apprendre",
-            "à remplacer un fragment sous Android.",
+            "à afficher un toast sous Android.",
             "Produit par Gérard KESSE."
         ],
-        "meta_cano":"/Tutoriels/Android/Cours/Fragment_Replace/",
-        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Android/img/b_cours_fragment_replace.png"
+        "meta_cano":"/Tutoriels/Android/Cours/Toast/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Android/img/b_cours_toast.png"
     },    
     "links":
     [
         {"name":"Tutoriels","link":"/Tutoriels/#Développement Mobile","follow":"no"},
         {"name":"Android","link":"/Tutoriels/Android/","follow":"no"},
         {"name":"Cours","link":"/Tutoriels/Android/#Programmation de base","follow":"no"},
-        {"name":"Fragmentation et remplacement","link":"","follow":"no"}
+        {"name":"Toast","link":"","follow":"no"}
     ]
 }
                         

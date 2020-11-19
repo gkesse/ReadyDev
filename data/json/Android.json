@@ -19,9 +19,11 @@
     "basics":
     [
         {"name":"Créer un projet sous Android","link":"/Tutoriels/Android/Cours/Project/","follow":"yes"},
+        {"name":"Afficher un toast sous Android","link":"/Tutoriels/Android/Cours/Toast/","follow":"yes"},
         {"name":"Basculer entre des activités sous Android","link":"/Tutoriels/Android/Cours/Activity_Switch/","follow":"yes"},
         {"name":"Créer un fragment sous Android","link":"/Tutoriels/Android/Cours/Fragment/","follow":"yes"},
-        {"name":"Remplacer un fragment sous Android","link":"/Tutoriels/Android/Cours/Fragment_Replace/","follow":"yes"}
+        {"name":"Remplacer un fragment sous Android","link":"/Tutoriels/Android/Cours/Fragment_Replace/","follow":"yes"},
+        {"name":"Créer une vue personnalisée sous Android","link":"/Tutoriels/Android/Cours/View_Custom/","follow":"yes"}
     ]
 }
                         
