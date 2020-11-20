@@ -23,7 +23,8 @@
         {"name":"Basculer entre des activités sous Android","link":"/Tutoriels/Android/Cours/Activity_Switch/","follow":"yes"},
         {"name":"Créer un fragment sous Android","link":"/Tutoriels/Android/Cours/Fragment/","follow":"yes"},
         {"name":"Remplacer un fragment sous Android","link":"/Tutoriels/Android/Cours/Fragment_Replace/","follow":"yes"},
-        {"name":"Créer une vue personnalisée sous Android","link":"/Tutoriels/Android/Cours/View_Custom/","follow":"yes"}
+        {"name":"Créer une vue personnalisée sous Android","link":"/Tutoriels/Android/Cours/View_Custom/","follow":"yes"},
+        {"name":"Appliquer un style sous Android","link":"/Tutoriels/Android/Cours/Style/","follow":"yes"}
     ]
 }
                         
