@@ -21,7 +21,7 @@
         <?php $lCopiright = $lData["copyright"]; ?>
         <div>
             <i class='fa fa-copyright'></i>
-            <?php echo $lCopiright["date"]; ?> - <?php echo $lCopiright["site"]["name"]; ?>
+            <?php echo $lCopiright["date"]." - ".date("Y"); ?> | <?php echo $lCopiright["site"]["name"]; ?>
         </div>
         <div><?php echo join(" ",$lCopiright["description"]); ?></div>
     </div>
