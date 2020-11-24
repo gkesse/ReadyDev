@@ -3,12 +3,11 @@
     {
         "meta_desc":
         [
-            "ReadyDev propose un Curriculum Vitae en quelques lignes",
-            "de son rédacteur, Gérard KESSE, Ce qu'il est, Ce qu'il a fait,",
-            "Ce qu'il a appris, et plus généralement, Ce qu'il est capable de faire.",
-            "Formé à Polytech'Montpellier, France."
+            "CV - Curriculum Vitae - Gérard KESSE,",
+            "Ingénieur Polytech'Montpellier, France."
         ],
-        "meta_cano":"/CV/Simplifie/"
+        "meta_cano":"/CV/Simplifie/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/CV/img/b_acv_simplifie.png"
     },    
     "links":
     [

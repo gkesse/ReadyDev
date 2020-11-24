@@ -3,17 +3,16 @@
     {
         "meta_desc":
         [
-            "ReadyDev propose un Bilan de Compétences en quelques lignes",
-            "de son rédacteur, Gérard KESSE, Ce qu'il est, Ce qu'il a fait,",
-            "Ce qu'il a appris, et plus généralement, Ce qu'il est capable de faire.",
-            "Formé à Polytech'Montpellier, France."
+            "CV - Bilan de Compétences - Gérard KESSE,",
+            "Ingénieur Polytech'Montpellier, France."
         ],
-        "meta_cano":"/CV/Detaille/"
-    },    
+        "meta_cano":"/CV/Detaille/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/CV/img/b_cv_detaille.png"
+   },    
     "links":
     [
         {"name":"CV","link":"/CV/"},
-        {"name":"Bilan de Compétences","link":""}
+        {"name":"Bilan de compétences","link":""}
     ],
     "pdf":"/CV/Detaille/cv/KESSE_Gerard_CV_Detaille.pdf"
 }
