@@ -82,6 +82,21 @@
             "icon":"fa fa-building-o",
             "description":
             [
+                "<b>PMC</b><br/>",
+                "Développeur C/SQL/Shell,<br/>",
+                "Système de prise de paris hippique,<br/>",
+                "1 an 6 mois de développement,<br/>",
+                "Mai 2019 - Novembre 2020,<br/>",
+                "C/Shell/SQL/SVN/MantisBT, Sybase/Proc Stock, RPC/Client/Serveur.<br/>",
+                "<span class='Text4'>",
+                "Développement, correctifs ITSP/AQTR, système admin-shell, manager de données.",
+                "</span>"
+            ]
+        },
+        {
+            "icon":"fa fa-building-o",
+            "description":
+            [
                 "<b>SOLDATA</b><br/>",
                 "Développeur Génie Civil,<br/>",
                 "Interface de Contrôle Environnemental,<br/>",
