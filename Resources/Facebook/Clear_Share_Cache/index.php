@@ -3,7 +3,7 @@
     
     $m_data = GJson::Instance()->getData("data/json/Facebook_Clear_Share_Cache.json");
     
-    GConfig::Instance()->setData("title", "Clear Share Cache");
+    GConfig::Instance()->setData("title", "Facebook - Réactualiser le cache");
     GConfig::Instance()->setData("menu", "Tutoriels");
     GConfig::Instance()->setData("view", "Facebook_Clear_Share_Cache");
     GConfig::Instance()->setData("link", $m_data["links"]);
