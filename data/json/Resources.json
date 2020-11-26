@@ -9,10 +9,14 @@
             "Vous trouverez sur ce site des cours et des tutoriels adaptés aux sciences de l'ingénieur."
         ],
         "meta_cano":"/Resources/",
-        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/data/img/defaults/banner_resources.png"
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Resources/img/res_resources.png"
     },
     "facebook":
     [
         {"name":"Vider le cache du partage","link":"/Resources/Facebook/Clear_Share_Cache","follow":"yes"}
+    ],
+    "code_route":
+    [
+        {"name":"Apprendre le code de la route","link":"/Resources/Code_Route/","follow":"yes"}
     ]
 }
