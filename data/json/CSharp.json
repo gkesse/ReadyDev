@@ -19,7 +19,22 @@
     "basics":
     [
         {"name":"Créer un projet en C#","link":"/Tutoriels/CSharp/Cours/Project/","follow":"yes"},
-        {"name":"Créer une machine à états finis en C#","link":"/Tutoriels/CSharp/Cours/StateMachine/","follow":"yes"}
+        {"name":"Créer un singleton en C#","link":"/Tutoriels/CSharp/Cours/Singleton/","follow":"yes"},
+        {"name":"Créer une machine à états finis en C#","link":"/Tutoriels/CSharp/SQLite/Project/","follow":"yes"},
+        {"name":"Créer un système d'administration en C#","link":"/Tutoriels/CSharp/Cours/Admin_System/","follow":"yes"},
+        {"name":"Créer un gestionnaire de configuration en C#","link":"/Tutoriels/CSharp/Cours/Config/","follow":"yes"}
+    ],
+    "sqlite":
+    [
+        {"name":"Créer un projet SQLite en C#","link":"/Tutoriels/CSharp/SQLite/Project/","follow":"yes"}
+    ],
+    "qt":
+    [
+        {"name":"Créer un projet Qt en C#","link":"/Tutoriels/CSharp/Qt/Project/","follow":"yes"}
+    ],
+    "opencv":
+    [
+        {"name":"Créer un projet OpenCV en C#","link":"/Tutoriels/CSharp/OpenCV/Project/","follow":"yes"}
     ]
 }
                         
