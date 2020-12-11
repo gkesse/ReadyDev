@@ -1,3 +1,4 @@
+all:
 
 status:
 	@cd $(GPROJECT_PATH) && git status
