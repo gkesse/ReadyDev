@@ -2,6 +2,18 @@
 using Emgu.CV;
 using Emgu.CV.CvEnum;
 using Emgu.CV.Structure;  
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer un projet OpenCV en C#-Création d'une image"><a class="Link9" href="#Créer un projet OpenCV en C#">Création d'une image</a></h2><br><h3 class="Title8 GTitle3">GOpenCV.cs</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="csharp">//===============================================
+public void run(string[] args) {
+    sGApp lApp = GManager.Instance().getData().app;
+    CvInvoke.NamedWindow(lApp.app_name); 
+    Mat lImg = new Mat(lApp.win_height, lApp.win_width, DepthType.Cv8U, 3); 
+    lImg.SetTo(lApp.win_bg_color.MCvScalar); 
+    CvInvoke.PutText(lImg, "Bonjour tout le monde", new System.Drawing.Point(10, 80), 
+    FontFace.HersheyComplex, 1.0, lApp.win_fg_color.MCvScalar);
+    CvInvoke.Imshow(lApp.app_name, lImg);
+    CvInvoke.WaitKey(0);  
+    CvInvoke.DestroyAllWindows();
+}
 //===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer un projet OpenCV en C#-Fichier Makefile"><a class="Link9" href="#Créer un projet OpenCV en C#">Fichier Makefile</a></h2><br><h3 class="Title8 GTitle3">Makefile.csc.mak</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="csharp">GSRC = ..\code\GProject\src
 GBIN = bin
 GTARGET = $(GBIN)\gp_csharp.exe
@@ -31,4 +43,4 @@ clean:
 set "PATH=C:\MinGW\bin;%PATH%" 
 set "PATH=C:\Windows\Microsoft.NET\Framework\v4.0.30319;%PATH%"
 set "PATH=C:\Emgu\emgucv-windesktop 3.2.0.2682\bin\x64;%PATH%"
-::===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer un projet OpenCV en C#-Résultat"><a class="Link9" href="#Créer un projet OpenCV en C#">Résultat</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/CSharp/img/i_opencv_project.png" alt="/Tutoriels/CSharp/img/i_opencv_project.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Voir Aussi"><a class="Link3" href="#">Voir Aussi</a></h1><div class="Body3">Dans cette même catégorie, vous pouvez consulter aussi :<br><br><span class="GColor1" style="color:lime;">Programmation de base</span><br><br><div class="Content0 GList1"><div class="Body0" id="Loader_1600429735365"><div class="Row26">List 1 &gt; CSharp &gt; basics</div></div><script>loadList1("Loader_1600429735365","CSharp","basics");</script></div><br></div></div></div></div><br>
+::===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer un projet OpenCV en C#-Résultat"><a class="Link9" href="#Créer un projet OpenCV en C#">Résultat</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/CSharp/img/i_opencv_project.png" alt="/Tutoriels/CSharp/img/i_opencv_project.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Voir Aussi"><a class="Link3" href="#">Voir Aussi</a></h1><div class="Body3">Dans cette même catégorie, vous pouvez consulter aussi :<br><br><span class="GColor1" style="color:lime;">Vision par Ordianteur OpenCV</span><br><br><div class="Content0 GList1"><div class="Body0" id="Loader_1607679004907"><div class="Row26">List 1 &gt; CSharp &gt; opencv</div></div><script>loadList1("Loader_1607679004907","CSharp","opencv");</script></div><br></div></div></div></div><br>
