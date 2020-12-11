@@ -1,6 +1,6 @@
 #!/bin/bash
 #================================================
-#export "PATH=.:$PATH"
+export "PATH=/home/pi/opt/certbot_auto:$PATH"
 #================================================
 export "GPROJECT_ROOT=/home/pi/Programs/ReadyStudio"
 export "GPROJECT_PATH=$GPROJECT_ROOT/ReadyDev"
