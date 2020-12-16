@@ -20,7 +20,7 @@
     [
         {"name":"Créer un projet en C#","link":"/Tutoriels/CSharp/Cours/Project/","follow":"yes"},
         {"name":"Créer un singleton en C#","link":"/Tutoriels/CSharp/Cours/Singleton/","follow":"yes"},
-        {"name":"Créer une machine à états finis en C#","link":"/Tutoriels/CSharp/SQLite/Project/","follow":"yes"},
+        {"name":"Créer une machine à états finis en C#","link":"/Tutoriels/CSharp/Cours/State_Machine/","follow":"yes"},
         {"name":"Créer un système d'administration en C#","link":"/Tutoriels/CSharp/Cours/Admin_System/","follow":"yes"},
         {"name":"Créer un gestionnaire de configuration en C#","link":"/Tutoriels/CSharp/Cours/Config/","follow":"yes"}
     ],
