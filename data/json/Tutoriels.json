@@ -90,6 +90,13 @@
             "description":"Programmez sous<br/> PHP",
             "link":"/Tutoriels/PHP/",
 			"follow":"yes"
+        },
+        {
+            "icon":"fa fa-globe",
+            "theme":"J2EE",
+            "description":"Programmez sous<br/> J2EE",
+            "link":"/Tutoriels/J2EE/",
+			"follow":"yes"
         }
     ],    
     "mobile":

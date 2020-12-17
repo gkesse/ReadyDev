@@ -19,7 +19,8 @@
     "basics":
     [
         {"name":"Créer un projet en Java","link":"/Tutoriels/Java/Cours/Project/","follow":"yes"},
-        {"name":"Créer une machine à états finis en Java","link":"/Tutoriels/Java/Cours/StateMachine/","follow":"yes"}
+        {"name":"Créer un singleton en Java","link":"/Tutoriels/Java/Cours/Singleton/","follow":"yes"},
+        {"name":"Créer une machine à états finis en Java","link":"/Tutoriels/Java/Cours/State_Machine/","follow":"yes"}
     ]
 }
                         
