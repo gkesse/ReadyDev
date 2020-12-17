@@ -19,7 +19,8 @@
     "basics":
     [
         {"name":"Créer un projet en J2EE","link":"/Tutoriels/J2EE/Cours/Project/","follow":"yes"},
-        {"name":"Configurer le port du serveur Tomcat","link":"/Tutoriels/J2EE/Cours/Tomcat_Port/","follow":"yes"}
+        {"name":"Configurer le port du serveur Tomcat en J2EE","link":"/Tutoriels/J2EE/Cours/Tomcat_Port/","follow":"yes"},
+        {"name":"Configurer la racine du serveur Tomcat en J2EE","link":"/Tutoriels/J2EE/Cours/Tomcat_Root/","follow":"yes"}
     ]
 }
                         
