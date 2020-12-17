@@ -31,7 +31,26 @@ public class GHome extends HttpServlet {
     &lt;/body&gt;
     &lt;!-- ============================================ --&gt;
 &lt;/html&gt;
-&lt;!-- ============================================ --&gt;</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer un projet en J2EE-Configuration du projet"><a class="Link9" href="#Créer un projet en J2EE">Configuration du projet</a></h2><br><h3 class="Title8 GTitle3">web.xml</h3><br><br><br><br><br><br><h2 class="Title7 GTitle2" id="Créer un projet en J2EE-Fichier Makefile"><a class="Link9" href="#Créer un projet en J2EE">Fichier Makefile</a></h2><br><h3 class="Title8 GTitle3">Makefile.jdk.mak</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="makefile">GSRC = $(GPROJECT_SRC)
+&lt;!-- ============================================ --&gt;</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer un projet en J2EE-Configuration du projet"><a class="Link9" href="#Créer un projet en J2EE">Configuration du projet</a></h2><br><h3 class="Title8 GTitle3">web.xml</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!-- ============================================ --&gt;
+&lt;web-app 
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+    version="3.0"&gt;
+    &lt;!-- ============================================ --&gt;
+    &lt;servlet&gt;
+        &lt;servlet-name&gt;GHome&lt;/servlet-name&gt;
+        &lt;servlet-class&gt;com.pkg.readyapp.GHome&lt;/servlet-class&gt;
+    &lt;/servlet&gt;
+    &lt;!-- ============================================ --&gt;
+    &lt;servlet-mapping&gt;
+        &lt;servlet-name&gt;GHome&lt;/servlet-name&gt;
+        &lt;url-pattern&gt;/home&lt;/url-pattern&gt;
+    &lt;/servlet-mapping&gt;
+    &lt;!-- ============================================ --&gt;
+&lt;/web-app&gt;
+&lt;!-- ============================================ --&gt;</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer un projet en J2EE-Fichier Makefile"><a class="Link9" href="#Créer un projet en J2EE">Fichier Makefile</a></h2><br><h3 class="Title8 GTitle3">Makefile.jdk.mak</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="makefile">GSRC = $(GPROJECT_SRC)
 GBUILD = $(GPROJECT_CLASS)
 
 GSRCPATH =\
