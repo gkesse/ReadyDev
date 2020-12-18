@@ -1,11 +1,11 @@
 <?php
     require $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoloadRegister.php";
     
-    $m_data = GJson::Instance()->getData("data/json/J2EE_Cours_Tomcat_Port.json");
+    $m_data = GJson::Instance()->getData("data/json/ASP.NET_Cours_Project.json");
     
-    GConfig::Instance()->setData("title", "J2EE - Tomcat - Configurer le port du serveur");
+    GConfig::Instance()->setData("title", "ASP.NET - Créer un projet");
     GConfig::Instance()->setData("menu", "Tutoriels");
-    GConfig::Instance()->setData("view", "J2EE_Cours_Tomcat_Port");
+    GConfig::Instance()->setData("view", "ASP.NET_Cours_Project");
     GConfig::Instance()->setData("link", $m_data["links"]);
 
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";
