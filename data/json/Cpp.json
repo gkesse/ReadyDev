@@ -61,5 +61,9 @@
     "opencv":
     [
         {"name":"Créer un projet OpenCV en C++","link":"/Tutoriels/Cpp/OpenCV/Project/","follow":"yes"}
+    ],
+    "cgi":
+    [
+        {"name":"Créer un projet web CGI en C++","link":"/Tutoriels/Cpp/CGI/Project/","follow":"yes"}
     ]
 }
