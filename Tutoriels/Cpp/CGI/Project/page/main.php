@@ -44,7 +44,7 @@ clean:
 	@if not exist $(GBUILD) ( mkdir $(GBUILD) )
 	@del /s /q $(GBUILD)\*.o $(GTARGET)</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer un projet web CGI en C++-Variables d'environnement"><a class="Link9" href="#Créer un projet web CGI en C++">Variables d'environnement</a></h2><br><h3 class="Title8 GTitle3">env.bat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
 ::===============================================
-set "PATH=C:\MinGW\bin;%PATH%" 
+set "PATH=C:\mingw-w64\i686-8.1.0-posix-sjlj-rt_v6-rev0\mingw32\bin;%PATH%" 
 ::===============================================
 set "GPROJECT_ROOT=C:\Users\Admin\Downloads\Programs"
 set "GPROJECT_PATH=%GPROJECT_ROOT%\ReadyCpp"
