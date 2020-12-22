@@ -1,0 +1,22 @@
+{
+    "sitemap":"yes",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+			"Le but de ce tutoriel est de vous apprendre",
+            "à créer un projet JNI en Java.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Tutoriels/Java/JNI/Project/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Java/img/b_jni_project.png"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/#Développement Logiciel","follow":"no"},
+        {"name":"Java","link":"/Tutoriels/Java/","follow":"no"},
+        {"name":"JNI","link":"/Tutoriels/Java/#Java Native Interface JNI","follow":"no"},
+        {"name":"Projet","link":"","follow":"no"}
+    ]
+}
+                        

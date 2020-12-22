@@ -21,6 +21,10 @@
         {"name":"Créer un projet en Java","link":"/Tutoriels/Java/Cours/Project/","follow":"yes"},
         {"name":"Créer un singleton en Java","link":"/Tutoriels/Java/Cours/Singleton/","follow":"yes"},
         {"name":"Créer une machine à états finis en Java","link":"/Tutoriels/Java/Cours/State_Machine/","follow":"yes"}
+    ],
+    "jni":
+    [
+        {"name":"Créer un projet JNI en Java","link":"/Tutoriels/Java/JNI/Project/","follow":"yes"}
     ]
 }
                         
