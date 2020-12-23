@@ -24,7 +24,7 @@
     ],
     "jni":
     [
-        {"name":"Créer un projet JNI en Java","link":"/Tutoriels/Java/JNI/Project/","follow":"yes"}
+        {"name":"Créer un projet C/C++ JNI en Java","link":"/Tutoriels/Java/JNI/Project/","follow":"yes"}
     ]
 }
                         

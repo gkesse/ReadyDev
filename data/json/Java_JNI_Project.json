@@ -5,7 +5,7 @@
         "meta_desc":
         [
 			"Le but de ce tutoriel est de vous apprendre",
-            "à créer un projet JNI en Java.",
+            "à créer un projet C/C++ JNI en Java.",
             "Produit par Gérard KESSE."
         ],
         "meta_cano":"/Tutoriels/Java/JNI/Project/",
