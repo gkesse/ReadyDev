@@ -24,7 +24,8 @@
     ],
     "jni":
     [
-        {"name":"Créer un projet C/C++ JNI en Java","link":"/Tutoriels/Java/JNI/Project/","follow":"yes"}
+        {"name":"Créer un projet C/C++ JNI en Java","link":"/Tutoriels/Java/JNI/Project/","follow":"yes"},
+        {"name":"Récupérer les arguments C/C++ JNI en Java","link":"/Tutoriels/Java/JNI/Args/","follow":"yes"}
     ]
 }
                         

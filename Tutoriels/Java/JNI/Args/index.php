@@ -1,11 +1,11 @@
 <?php
     require $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoloadRegister.php";
     
-    $m_data = GJson::Instance()->getData("data/json/Java_JNI_Project.json");
+    $m_data = GJson::Instance()->getData("data/json/Java_JNI_Args.json");
     
-    GConfig::Instance()->setData("title", "Java - JNI - C/C++ - Créer un projet");
+    GConfig::Instance()->setData("title", "Java - JNI - C/C++ - Récupérer les arguments");
     GConfig::Instance()->setData("menu", "Tutoriels");
-    GConfig::Instance()->setData("view", "Java_JNI_Project");
+    GConfig::Instance()->setData("view", "Java_JNI_Args");
     GConfig::Instance()->setData("link", $m_data["links"]);
 
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";
