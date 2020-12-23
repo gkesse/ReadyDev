@@ -3,7 +3,7 @@
     
     $m_data = GJson::Instance()->getData("data/json/Java_JNI_Project.json");
     
-    GConfig::Instance()->setData("title", "Java - JNI - Créer un projet");
+    GConfig::Instance()->setData("title", "Java - JNI - Créer un projet C/C++");
     GConfig::Instance()->setData("menu", "Tutoriels");
     GConfig::Instance()->setData("view", "Java_JNI_Project");
     GConfig::Instance()->setData("link", $m_data["links"]);
