@@ -40,45 +40,69 @@ public class GMainActivity extends Activity {
     &lt;/application&gt;
     &lt;!--=============================================--&gt;
 &lt;/manifest&gt;
-&lt;!--=============================================--&gt;</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer un projet sous Android-Fichier Makefile"><a class="Link9" href="#Créer un projet sous Android">Fichier Makefile</a></h2><br><h3 class="Title8 GTitle3">Makefile</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="makefile">android_studio:
+&lt;!--=============================================--&gt;</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer un projet sous Android-Fichier Makefile"><a class="Link9" href="#Créer un projet sous Android">Fichier Makefile</a></h2><br><h3 class="Title8 GTitle3">Makefile.android.mak</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="makefile">all:
+
+nox: nox_install
+
+android_studio:
 	studio64
+android_install:
+	sdkmanager "$(GANDROID_PACKAGE)"
 apk_install:
-	adb install $(GAPK)
+	adb install $(GPROJECT_APK)
 nox_start: 
 	Nox
 nox_stop: 
 	nox_adb kill-server
 nox_connect: 
-	nox_adb connect $(GSERVER_IP):$(GSERVER_PORT)
+	nox_adb connect $(GNOX_ADDR):$(GNOX_PORT)
 nox_install: 
-	Nox "-apk:$(GAPK)"
+	Nox "-apk:$(GPROJECT_APK)"
 avd_start: 
 	emulator -avd $(GAVD_NAME)
 avd_list: 
 	emulator -list-avds
 grad_install: 
-	cd $(GPROJECT) && gradlew installDebug
+	cd $(GPROJECT_SRC) && gradlew installDebug
 grad_tasks: 
-	cd $(GPROJECT) && gradlew tasks</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer un projet sous Android-Variables d'environnement"><a class="Link9" href="#Créer un projet sous Android">Variables d'environnement</a></h2><br><h3 class="Title8 GTitle3">env.bat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
+	cd $(GPROJECT_SRC) && gradlew tasks
+shell: 
+	adb shell $(argv)</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer un projet sous Android-Variables d'environnement"><a class="Link9" href="#Créer un projet sous Android">Variables d'environnement</a></h2><br><h3 class="Title8 GTitle3">env.bat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
 ::===============================================
-set "PATH=C:\TDM-GCC-64\bin;%PATH%" 
+set "PATH=C:\TDM-GCC-64\bin;%PATH%"
+set "PATH=C:\Program Files\Java\jdk-11.0.1\bin;%PATH%"
 set "PATH=C:\Program Files (x86)\Nox\bin;%PATH%"
 set "PATH=C:\Program Files\Android\Android Studio\bin;%PATH%"
 set "PATH=C:\Users\Admin\AppData\Local\Android\Sdk\emulator;%PATH%"
 set "PATH=C:\Users\Admin\AppData\Local\Android\Sdk\tools;%PATH%"
+set "PATH=C:\Users\Admin\AppData\Local\Android\Sdk\tools\bin;%PATH%"
 ::===============================================
-set "GPROJECT=C:\Users\Admin\Downloads\Programs\ReadyAndroid\code"
-set "GAPK=%GPROJECT%\app\build\outputs\apk\debug\app-debug.apk"
+set "GPROJECT_ROOT=C:\Users\Admin\Downloads\Programs"
+set "GPROJECT_PATH=%GPROJECT_ROOT%\ReadyAndroid"
+set "GPROJECT_SRC=%GPROJECT_PATH%\app\code\readyapp"
+set "GPROJECT_APK=%GPROJECT_SRC%\app\build\outputs\apk\debug\app-debug.apk"
 ::===============================================
-set "GSERVER_IP=127.0.0.1"
-set "GSERVER_PORT=62001"
+set "GNOX_ADDR=127.0.0.1"
+set "GNOX_PORT=62001"
+::===============================================
 set "GAVD_NAME=Android_TV_720p_API_QG"
-::===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">make.bat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
 ::===============================================
-mingw32-make %*
-::===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer un projet sous Android-Compilation automatique"><a class="Link9" href="#Créer un projet sous Android">Compilation automatique</a></h2><br><h3 class="Title8 GTitle3">Terminal</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">make nox_start
-make nox_connect
-make grad_install</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer un projet sous Android-Compilation manuelle"><a class="Link9" href="#Créer un projet sous Android">Compilation manuelle</a></h2><br><h3 class="Title8 GTitle3">Terminal</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">Nox
+set "GANDROID_PACKAGE=extras;android;m2repository"
+::===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">make_a.bat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off
+::===============================================
+set "args=%*"             
+setlocal enabledelayedexpansion
+set "lArgs=%*"             
+set "lArgs=!lArgs:*%1 =!"  
+endlocal && ( set "args=%lArgs%" )
+::===============================================
+mingw32-make -f Makefile.android.mak %1 "argv=%args%"
+::===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer un projet sous Android-Compilation automatique"><a class="Link9" href="#Créer un projet sous Android">Compilation automatique</a></h2><br><h3 class="Title8 GTitle3">Terminal</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">make_a nox_start
+make_a nox_connect
+make_a nox_install
+make_a grad_install</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer un projet sous Android-Compilation manuelle"><a class="Link9" href="#Créer un projet sous Android">Compilation manuelle</a></h2><br><h3 class="Title8 GTitle3">Terminal</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">Nox
 nox_adb connect 127.0.0.1:62001
-d C:\Users\Admin\Downloads\Programs\ReadyAndroid\code
-gradlew installDebug</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer un projet sous Android-Résultat"><a class="Link9" href="#Créer un projet sous Android">Résultat</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Android/img/i_cours_project.png" alt="/Tutoriels/Android/img/i_cours_project.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Voir Aussi"><a class="Link3" href="#">Voir Aussi</a></h1><div class="Body3">Dans cette même catégorie, vous pouvez consulter aussi :<br><br><span class="GColor1" style="color:lime;">Programmation de base</span><br><br><div class="Content0 GList1"><div class="Body0" id="Loader_1600429735365"><div class="Row26">List 1 &gt; Android &gt; basics</div></div><script>loadList1("Loader_1600429735365","Android","basics");</script></div><br></div></div></div></div><br>
+Nox "-apk:C:\Users\Admin\Downloads\Programs\ReadyAndroid\app\code\readyapp\app\build\outputs\apk\debug\app-debug.apk"
+cd C:\Users\Admin\Downloads\Programs\ReadyAndroid\app\code\readyapp
+gradlew installDebug
+</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer un projet sous Android-Exécuter le projet"><a class="Link9" href="#Créer un projet sous Android">Exécuter le projet</a></h2><br><h3 class="Title8 GTitle3">Mobile Android</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Android/img/i_cours_project_02.png" alt="/Tutoriels/Android/img/i_cours_project_02.png"></div><br><h2 class="Title7 GTitle2" id="Créer un projet sous Android-Résultat"><a class="Link9" href="#Créer un projet sous Android">Résultat</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Android/img/i_cours_project.png" alt="/Tutoriels/Android/img/i_cours_project.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Voir Aussi"><a class="Link3" href="#">Voir Aussi</a></h1><div class="Body3">Dans cette même catégorie, vous pouvez consulter aussi :<br><br><span class="GColor1" style="color:lime;">Programmation de base</span><br><br><div class="Content0 GList1"><div class="Body0" id="Loader_1600429735365"><div class="Row26">List 1 &gt; Android &gt; basics</div></div><script>loadList1("Loader_1600429735365","Android","basics");</script></div><br></div></div></div></div><br>
