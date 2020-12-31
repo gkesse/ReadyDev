@@ -1,34 +1,36 @@
 <div class="Parallax GParallax1"><div class="Img Binary"><div class="Caption"><a href="#"><div class="Text">Créer un système d'administration sous Android</div></a></div></div><div class="Body2 Orange">Le but de ce tutoriel est de vous apprendre à créer un système d'administration sous <b>Android</b>.<br>Version Pro &amp; Industrielle. Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary1"><div class="Body0" id="Loader_1529412976174"><div class="Row26">Summary 1</div></div><script>loadSummary1("Loader_1529412976174");</script></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Introduction"><a class="Link3" href="#">Introduction</a></h1><div class="Body3"><b>Android </b>est un système d'exploitation mobile. Il avait d'abord été conçu pour les smartphones et tablettes tactiles, puis s'est diversifié dans les objets connectés et ordinateurs comme les télévisions (Android TV), les voitures (Android Auto), les ChromeBook (Chrome OS qui utilise les applications Android) et les SmartWatch (Wear OS).<br><br><div class="Img3 GImage"><img src="/Tutoriels/Android/img/b_cours_admin_system.png" alt="/Tutoriels/Android/img/b_cours_admin_system.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Créer un système d'administration sous Android"><a class="Link3" href="#">Créer un système d'administration sous Android</a></h1><div class="Body3"><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1599250744051"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1599250744051");</script></div><br><h2 class="Title7 GTitle2" id="Créer un système d'administration sous Android-Introduction"><a class="Link9" href="#Créer un système d'administration sous Android">Introduction</a></h2><br>Dans l'exemple qui suit, nous essayons de créer un système d'administration sous Android.<br><br><h2 class="Title7 GTitle2" id="Créer un système d'administration sous Android-Programme principal"><a class="Link9" href="#Créer un système d'administration sous Android">Programme principal</a></h2><br><h3 class="Title8 GTitle3">GMainActivity.java</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="java">//===============================================
 public class GMainActivity extends Activity {
-//===============================================
-@Override
-protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    GManager.sGApp lApp = GManager.Instance().getData().app;
-    lApp.context = this;
+    //===============================================
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        GManager.sGApp lApp = GManager.Instance().getData().app;
+        lApp.context = this;
 
-    GManager.Instance().loadData();
-    
-    GWidget lTitleBar = GWidget.Create("titlebar", this);
-    GWidget lAddressBar = GWidget.Create("addressbar", this);
-    GWidget lAddressKey = GWidget.Create("addresskey", this);
-    GWidget lWindow = GWidget.Create("window", this);
-    
-    lWindow.addItem("home", GWidget.Create("home", this), "Accueil", 1);
-    lWindow.addItem("home/sqlite", GWidget.Create("sqlite", this), "SQLite");
-    lWindow.addItem("home/opencv", GWidget.Create("opencv", this), "OpenCV");
-    lWindow.addItem("home/layout", GWidget.Create("layout", this), "Layout");
-    
-    LinearLayout lMainLayout = new LinearLayout(this);
-    lMainLayout.setOrientation(LinearLayout.VERTICAL);       
-    lMainLayout.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-    lMainLayout.addView(lTitleBar); lMainLayout.addView(GAndroid.Instance().spaceV(20));
-    lMainLayout.addView(lAddressBar); lMainLayout.addView(GAndroid.Instance().spaceV(20));
-    lMainLayout.addView(lAddressKey); lMainLayout.addView(GAndroid.Instance().spaceV(20));
-    lMainLayout.addView(lWindow); lMainLayout.addView(GAndroid.Instance().spaceV(20));
-    lMainLayout.setPadding(20, 10, 20, 10);
+        GManager.Instance().loadData();
+        
+        GWidget lTitleBar = GWidget.Create("titlebar", this);
+        GWidget lAddressBar = GWidget.Create("addressbar", this);
+        GWidget lAddressKey = GWidget.Create("addresskey", this);
+        GWidget lWindow = GWidget.Create("window", this);
+        
+        lWindow.addItem("home", GWidget.Create("home", this), "Accueil", 1);
+        lWindow.addItem("home/sqlite", GWidget.Create("sqlite", this), "SQLite");
+        lWindow.addItem("home/opencv", GWidget.Create("opencv", this), "OpenCV");
+        lWindow.addItem("home/layout", GWidget.Create("layout", this), "Layout");
+        
+        LinearLayout lMainLayout = new LinearLayout(this);
+        lMainLayout.setOrientation(LinearLayout.VERTICAL);       
+        lMainLayout.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+        lMainLayout.addView(lTitleBar); lMainLayout.addView(GManager.Instance().spaceV(20));
+        lMainLayout.addView(lAddressBar); lMainLayout.addView(GManager.Instance().spaceV(20));
+        lMainLayout.addView(lAddressKey); lMainLayout.addView(GManager.Instance().spaceV(20));
+        lMainLayout.addView(lWindow); lMainLayout.addView(GManager.Instance().spaceV(20));
+        lMainLayout.setPadding(20, 10, 20, 10);
 
-    setContentView(lMainLayout);
+        setContentView(lMainLayout);
+    }
+    //===============================================
 }
 //===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer un système d'administration sous Android-Création des pages"><a class="Link9" href="#Créer un système d'administration sous Android">Création des pages</a></h2><br><h3 class="Title8 GTitle3">GWindow.java</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="java">//===============================================
 public void addItem(String key, View v, String title, int isDefault) {
