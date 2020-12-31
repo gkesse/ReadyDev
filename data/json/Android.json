@@ -24,13 +24,7 @@
         {"name":"Créer un sélecteur d'adresse sous Android","link":"/Tutoriels/Android/Cours/AddressKey/","follow":"yes"},
         {"name":"Créer une pile de vues sous Android","link":"/Tutoriels/Android/Cours/StackWidget/","follow":"yes"},
         {"name":"Créer une liste de données sous Android","link":"/Tutoriels/Android/Cours/ListBox/","follow":"yes"},
-        {"name":"Créer un système d'administration sous Android","link":"/Tutoriels/Android/Cours/Admin_System/","follow":"yes"},
-        {"name":"Afficher un toast sous Android","link":"/Tutoriels/Android/Cours/Toast/","follow":"yes"},
-        {"name":"Basculer entre des activités sous Android","link":"/Tutoriels/Android/Cours/Activity_Switch/","follow":"yes"},
-        {"name":"Créer un fragment sous Android","link":"/Tutoriels/Android/Cours/Fragment/","follow":"yes"},
-        {"name":"Remplacer un fragment sous Android","link":"/Tutoriels/Android/Cours/Fragment_Replace/","follow":"yes"},
-        {"name":"Créer une vue personnalisée sous Android","link":"/Tutoriels/Android/Cours/View_Custom/","follow":"yes"},
-        {"name":"Appliquer un style sous Android","link":"/Tutoriels/Android/Cours/Style/","follow":"yes"}
+        {"name":"Créer un système d'administration sous Android","link":"/Tutoriels/Android/Cours/Admin_System/","follow":"yes"}
     ]
 }
                         
