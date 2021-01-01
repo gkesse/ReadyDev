@@ -25,7 +25,7 @@
         {"name":"Créer un sélecteur d'adresse sous Android","link":"/Tutoriels/Android/Cours/AddressKey/","follow":"yes"},
         {"name":"Créer une pile de vues sous Android","link":"/Tutoriels/Android/Cours/StackWidget/","follow":"yes"},
         {"name":"Créer une liste de données sous Android","link":"/Tutoriels/Android/Cours/ListBox/","follow":"yes"},
-        {"name":"Créer un système de débogage sous Android","link":"/Tutoriels/Android/Cours/Debug/","follow":"yes"},
+        {"name":"Créer un système de débogage sous Android","link":"/Tutoriels/Android/Cours/Log/","follow":"yes"},
         {"name":"Récupérer une vue à partir d'un layout sous Android","link":"/Tutoriels/Android/Cours/Layout/","follow":"yes"}
     ]
 }
