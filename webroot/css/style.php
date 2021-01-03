@@ -7,6 +7,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/webroot/php/class/GAutoload.php";
 $config = array(
 // app
 "app_font_size" => 20,
+"login_size" => 30,
 );
 //===============================================
 ?>
@@ -214,6 +215,15 @@ span {
 .titlebar .right {
     float: right;
     padding: 0px 0px;
+}
+.titlebar .right .login {
+    border: 2px solid #305030;
+    width: <?php echo $config['login_size']; ?>px;
+    height: <?php echo $config['login_size']; ?>px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: <?php echo $config['login_size']; ?>px;
+    cursor: pointer;
 }
 /* ============================================== */
 /* tooltip */
