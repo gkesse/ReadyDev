@@ -14,7 +14,7 @@ class GAddressKey extends GWidget {
         $lHref = "/";
         for($i = 0; $i < count($lMap); $i++) {
             if($i != 0) {
-                echo sprintf("<i>></i>\n");
+                echo sprintf("<i class='fa fa-book'></i>\n");
             }
             $lKey = $lMap[$i];
             if($i != 0) {$lHref .= "/";}

@@ -12,7 +12,6 @@ class GManager {
         // app
         $this->mgr->app = new sGApp();
         $this->mgr->app->app_name = "ReadyApp";
-        $this->mgr->app->app_logo = "/webroot/data/img/logo.png";
         $this->mgr->app->lang = "fr";
         $this->mgr->app->title = $this->mgr->app->app_name;
         $this->mgr->app->google_desc = "";
@@ -38,7 +37,8 @@ class GManager {
     }
     //===============================================
     public function loadData() {
-
+        $lApp = $this->mgr->app;
+        $lApp->debug = "";
     }
     //===============================================
     // page
@@ -72,6 +72,16 @@ class GManager {
     public function clearDebug() {
         $lApp = $this->mgr->app;
         $lApp->debug = "";
+    }
+    //===============================================
+    // font
+    //===============================================
+    public function loadFont() {
+        $lApp = $this->mgr->app;
+        $lDir = "";
+        $lDir .= $_SERVER["DOCUMENT_ROOT"];
+        $lDir .= "/webroot/";
+        $lApp->debug .= sprintf("%s<br>\n", $lDir);
     }
     //===============================================
 }

@@ -11,7 +11,8 @@ class GBody extends GWidget {
     public function run() {
         $lApp = GManager::Instance()->getData()->app;
         $lWindow = GWidget::Create("window");
-        //
+        GManager::Instance()->loadFont();
+        // body
         $this->start();
         $lWindow->load();
         GWidget::Create("addresskey")->run();

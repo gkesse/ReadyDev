@@ -10,12 +10,16 @@ class GHeader extends GWidget {
     //===============================================
     public function run() {
         $lApp = GManager::Instance()->getData()->app;
+        //===============================================
+        GManager::Instance()->loadData();
+        //===============================================
+        // html
         echo sprintf("<!DOCTYPE html>\n");
         echo sprintf("<html lang='%s'>\n", $lApp->lang);
         echo sprintf("<head>\n");
         echo sprintf("<title>%s</title>\n", $lApp->title);
         echo sprintf("<meta charset='UTF-8'/>\n");
-        echo sprintf("<link rel='shortcut icon' type='image/png' href='%s'/>\n", $lApp->app_logo);
+        echo sprintf("<link rel='shortcut icon' type='image/png' href='/webroot/data/img/logo.png'/>\n");
         echo sprintf("<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'/>\n");
         //===============================================
         // responsive web design
@@ -45,6 +49,7 @@ class GHeader extends GWidget {
         */
         //===============================================
         // font
+        echo sprintf("<link rel='stylesheet' type='text/css' href='/libs/font_awesome/4.7.0/css/font-awesome.min.css'/>\n");
         echo sprintf("<link rel='stylesheet' type='text/css' href='/libs/google_fonts/1.0.0/Allan/css.css'/>\n");
         //===============================================
         // script
@@ -52,7 +57,7 @@ class GHeader extends GWidget {
         echo sprintf("<script type='text/javascript' src='/webroot/js/request/request.js'></script>\n");
         //===============================================
         // style
-        echo sprintf("<link rel='stylesheet' href='/webroot/css/style.php'/>\n");
+        echo sprintf("<link rel='stylesheet' type='text/css' href='/webroot/css/style.php'/>\n");
         //===============================================
         echo sprintf("</head>\n");
         echo sprintf("<body>\n");
