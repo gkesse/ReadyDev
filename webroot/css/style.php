@@ -1,3 +1,15 @@
+<?php
+//===============================================
+header('content-type: text/css');
+//===============================================
+require $_SERVER["DOCUMENT_ROOT"]."/webroot/php/class/GAutoload.php";
+//===============================================
+$config = array(
+// app
+"app_font_size" => 20,
+);
+//===============================================
+?>
 /* ============================================== */
 /* common */ 
 /* ============================================== */
@@ -24,7 +36,7 @@ html {
 body {
     background-color: #103010;
     font-family: Allan;
-    font-size: 16px;
+    font-size: <?php echo $config['app_font_size']; ?>px;
     text-align: left;
 }
 
@@ -32,7 +44,7 @@ button {
     background-color: transparent;
     border: none;
     padding: 5px 10px 5px 5px;
-    font-size: 16px;
+    font-size: <?php echo $config['app_font_size']; ?>px;
     color: white;
     cursor: pointer;
 }
@@ -42,7 +54,7 @@ input {
     border: none;
     border-radius: 0;
     padding: 5px 10px 5px 10px;
-    font-size: 16px;
+    font-size: <?php echo $config['app_font_size']; ?>px;
     color: white;
     width: 100%;
 }
@@ -57,7 +69,7 @@ input:-webkit-autofill:focus {
 select {
     background-color: transparent;
     border: none;
-    font-size: 16px;
+    font-size: <?php echo $config['app_font_size']; ?>px;
     color: white;
     cursor: pointer;
 }
@@ -68,7 +80,7 @@ textarea {
     border-radius: 0;
     padding: 5px 10px 5px 10px;
     font-family: arial;
-    font-size: 16px;
+    font-size: <?php echo $config['app_font_size']; ?>px;
     color: white;
     width: 100%;
     resize: none;
@@ -82,7 +94,7 @@ textarea:-webkit-autofill:focus {
 
 xmp {
     padding: 10px 10px 10px 50px;
-	font-size: 16px;
+	font-size: <?php echo $config['app_font_size']; ?>px;
 }
 
 a {
@@ -106,7 +118,7 @@ hr {
 hr:after {
     content: "\f164";
     font-family: FontAwesome;
-	font-size: 20px;
+	font-size: <?php echo $config['app_font_size']; ?>px;
     background-color: #051039;
     color: white; 
     display: inline-block;
@@ -149,7 +161,7 @@ span {
 .debug .header .item {
     display: inline-block;
     border: 1px solid transparent;
-    font-size: 16px;
+    font-size: <?php echo $config['app_font_size']; ?>px;
     cursor: pointer;
 }
 .debug .body {

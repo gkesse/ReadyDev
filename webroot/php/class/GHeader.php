@@ -42,18 +42,18 @@ class GHeader extends GWidget {
         echo sprintf("<meta property='og:title' content='<?php echo $lTitle; ?> | <?php echo $lSiteName; ?>'/>\n");
         echo sprintf("<meta property='og:description' content='<?php echo $lMetaDesc; ?>'/>\n");
         echo sprintf("<meta property='og:site_name' content='<?php echo $lSiteName; ?>'/>\n");
+        */
         //===============================================
         // font
-        //echo sprintf("<link rel='stylesheet' href='/libs/google_fonts/1.0.0/Allan/css.css'/>\n");
-        */
+        echo sprintf("<link rel='stylesheet' type='text/css' href='/libs/google_fonts/1.0.0/Allan/css.css'/>\n");
         //===============================================
         // script
         echo sprintf("<script type='text/javascript' src='/webroot/js/class/GProcess.js'></script>\n");
         echo sprintf("<script type='text/javascript' src='/webroot/js/request/request.js'></script>\n");
         //===============================================
         // style
-        echo sprintf("<link rel='stylesheet' href='%s'/>\n", $lApp->style_path);
-        //
+        echo sprintf("<link rel='stylesheet' href='/webroot/css/style.php'/>\n");
+        //===============================================
         echo sprintf("</head>\n");
         echo sprintf("<body>\n");
     }

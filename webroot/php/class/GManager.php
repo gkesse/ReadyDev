@@ -16,9 +16,7 @@ class GManager {
         $this->mgr->app->lang = "fr";
         $this->mgr->app->title = $this->mgr->app->app_name;
         $this->mgr->app->google_desc = "";
-        $this->mgr->app->style_path = "/webroot/data/css/style.css";
         $this->mgr->app->debug = &$_SESSION["debug"];
-        $this->mgr->app->js_script = "/webroot/js/request/request.js";
     }
     //===============================================
     public static function Instance() {
@@ -35,7 +33,12 @@ class GManager {
     }
     //===============================================
     public function showData($data) {
-        echo sprintf("%s<br>", $data);
+        $lApp = $this->mgr->app;
+        $lApp->debug .= sprintf("[%s]<br>\n", $data);
+    }
+    //===============================================
+    public function loadData() {
+
     }
     //===============================================
     // page
@@ -61,7 +64,14 @@ class GManager {
     //===============================================
     public function request() {
         $lReq = $_REQUEST["req"];
-        echo $lReq;
+        if($lReq == "debug_clear") {$this->clearDebug(); return;}
+    }
+    //===============================================
+    // debug
+    //===============================================
+    public function clearDebug() {
+        $lApp = $this->mgr->app;
+        $lApp->debug = "";
     }
     //===============================================
 }
@@ -83,12 +93,8 @@ class sGApp {
     public $title;
     // google
     public $google_desc;
-    // style
-    public $style_path;
     // debug
     public $debug;
-    // js
-    public $js_script;
 }
 //===============================================
 ?>

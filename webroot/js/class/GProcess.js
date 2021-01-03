@@ -18,12 +18,12 @@ var GProcess = (function() {
             // debug
             //===============================================
             debug_clear: function(obj, req) {
-                alert("ok");
+                var lDebug = document.getElementById("debug");
+                lDebug.innerHTML = "";
                 var lXmlhttp = new XMLHttpRequest();
                 lXmlhttp.onreadystatechange = function() {
                     if(this.readyState == 4 && this.status == 200) {
                         var lData = this.responseText;
-                        alert(lData);
                     }
                 }
                 lXmlhttp.open("POST", "/webroot/php/request/request.php", true);

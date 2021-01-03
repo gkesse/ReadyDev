@@ -16,7 +16,7 @@ class GDebug extends GWidget {
         //GWidget::Create("spaceh")->space(10);
         echo sprintf("<div class='item' onclick='onItemClick(this, \"debug_clear\");'>Clear</div>\n");
         echo sprintf("</div>\n");
-        echo sprintf("<div class='body'>\n");
+        echo sprintf("<div id='debug' class='body'>\n");
         echo sprintf("%s\n", $lApp->debug);
         echo sprintf("</div>\n");
         echo sprintf("</div>\n");
