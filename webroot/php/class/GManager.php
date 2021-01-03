@@ -39,7 +39,20 @@ class GManager {
     // page
     //===============================================
     public function getPageId() {
-        $this->mgr->app->page_id = $_GET["pageid"];
+        $lApp = $this->mgr->app;
+        $lApp->page_id = $_GET["pageid"];
+        if($lApp->page_id == "") {
+            $lApp->page_id = "home";
+        }
+        else {
+            $lApp->page_id = "home/$lApp->page_id";
+        }
+    }
+    //===============================================
+    // map
+    //===============================================
+    public function getValue($map, $key, $default) {
+        return isset($map[$key]) ? $map[$key] : $default;
     }
     //===============================================
 }

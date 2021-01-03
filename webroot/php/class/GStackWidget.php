@@ -1,6 +1,9 @@
 <?php   
 //===============================================
-class GBody extends GWidget {
+class GStackWidget extends GWidget {
+    //===============================================
+    private $m_pageMap = array();
+    private $m_titleMap = array();
     //===============================================
     public function __construct() {
         
@@ -8,23 +11,17 @@ class GBody extends GWidget {
     //===============================================
     // method
     //===============================================
-    public function run() {
-        $lApp = GManager::Instance()->getData()->app;
-        $lWindow = GWidget::Create("window");
-        $this->start();
-        $lWindow->load();
-        GWidget::Create("addresskey")->run();
-        GWidget::Create("spacev")->space(10);
-        $lWindow->run();
-        $this->end();
+    public function addItem2($key, $page, $title) {
+        $this->m_pageMap[$key] = $page;
+        $this->m_titleMap[$key] = $title;
     }
     //===============================================
-    public function start() {
-        echo sprintf("<div class='body'>\n");
+    public function getPage($key) {
+        return GManager::Instance()->getValue($this->m_pageMap, $key, "");
     }
     //===============================================
-    public function end() {
-        echo sprintf("</div>\n");
+    public function getTitle($key) {
+        return GManager::Instance()->getValue($this->m_titleMap, $key, "");
     }
     //===============================================
 }

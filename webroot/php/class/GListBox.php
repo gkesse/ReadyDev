@@ -1,6 +1,6 @@
 <?php   
 //===============================================
-class GBody extends GWidget {
+class GListBox extends GWidget {
     //===============================================
     public function __construct() {
         
@@ -8,23 +8,16 @@ class GBody extends GWidget {
     //===============================================
     // method
     //===============================================
-    public function run() {
-        $lApp = GManager::Instance()->getData()->app;
-        $lWindow = GWidget::Create("window");
-        $this->start();
-        $lWindow->load();
-        GWidget::Create("addresskey")->run();
-        GWidget::Create("spacev")->space(10);
-        $lWindow->run();
-        $this->end();
-    }
-    //===============================================
     public function start() {
-        echo sprintf("<div class='body'>\n");
+        echo sprintf("<div class='listbox'>\n");
     }
     //===============================================
     public function end() {
         echo sprintf("</div>\n");
+    }
+    //===============================================
+    public function addItem($key, $text) {
+        echo sprintf("<a href='%s'><div class='item'>%s</div></a>\n", $key, $text);
     }
     //===============================================
 }
