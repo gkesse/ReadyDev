@@ -9,10 +9,12 @@ class GTitleBar extends GWidget {
     // method
     //===============================================
     public function run() {
+        $lApp = GManager::Instance()->getData()->app;
         echo sprintf("<div class='titlebar'>\n");
-        echo sprintf("<div class='item'><i class='fa fa-book'></i></div>\n");
-        GWidget::Create("spaceh")->space(5);
-        echo sprintf("<div class='item'>ReadyApp</div>\n");
+        echo sprintf("<div class='left'><img src='/webroot/data/img/logo_flat.png'/></div>\n");
+        echo sprintf("<div class='left app_name'>%s</div>\n", $lApp->app_name);
+        echo sprintf("<div class='right'>Right</div>\n");
+        echo sprintf("<div class='center'>Title</div>\n");
         echo sprintf("</div>\n");
     }
     //===============================================

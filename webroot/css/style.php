@@ -189,15 +189,31 @@ span {
 /* ============================================== */
 /* titlebar */
 .titlebar {
-    border: 1px solid transparent;
-    font-size: 0px;
-    padding: 0px;
+    border-bottom: 5px solid #305030;
+    border-radius: 0px;
+    padding: 0px 0px 5px 0px;
+    overflow:hidden;
 }
-.titlebar .item {
-    border: 1px solid transparent;
+.titlebar .left {
     font-size: <?php echo $config['app_font_size']; ?>px;
-    display: inline-block;
-    padding: 0px;
+    float: left;
+    padding: 0px 0px;
+}
+.titlebar .left img {
+    width: auto;
+    height: <?php echo $config['app_font_size']; ?>px;
+}
+.titlebar .left.app_name {
+    padding: 0px 0px 0px 5px;
+}
+.titlebar .center {
+    width: auto;
+    text-align: center;
+    padding: 0px 10px;
+}
+.titlebar .right {
+    float: right;
+    padding: 0px 0px;
 }
 /* ============================================== */
 /* tooltip */
