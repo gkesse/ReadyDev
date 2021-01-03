@@ -48,7 +48,8 @@ class GHeader extends GWidget {
         */
         //===============================================
         // script
-        //echo sprintf("<script type='text/javascript' src='/libs/jquery/3.3.1/jquery.min.js'></script>\n");
+        echo sprintf("<script type='text/javascript' src='/webroot/js/class/GProcess.js'></script>\n");
+        echo sprintf("<script type='text/javascript' src='/webroot/js/request/request.js'></script>\n");
         //===============================================
         // style
         echo sprintf("<link rel='stylesheet' href='%s'/>\n", $lApp->style_path);

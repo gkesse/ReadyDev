@@ -9,7 +9,7 @@ class GSpaceH extends GWidget {
     // method
     //===============================================
     public function space($size) {
-        echo sprintf("<div>0</div>\n");
+        echo sprintf("<div style='display:inline-block;padding-left:%dpx;'></div>\n", $size);
     }
     //===============================================
 }

@@ -17,6 +17,8 @@ class GManager {
         $this->mgr->app->title = $this->mgr->app->app_name;
         $this->mgr->app->google_desc = "";
         $this->mgr->app->style_path = "/webroot/data/css/style.css";
+        $this->mgr->app->debug = &$_SESSION["debug"];
+        $this->mgr->app->js_script = "/webroot/js/request/request.js";
     }
     //===============================================
     public static function Instance() {
@@ -55,6 +57,13 @@ class GManager {
         return isset($map[$key]) ? $map[$key] : $default;
     }
     //===============================================
+    // request
+    //===============================================
+    public function request() {
+        $lReq = $_REQUEST["req"];
+        echo $lReq;
+    }
+    //===============================================
 }
 //===============================================
 // struct
@@ -76,6 +85,10 @@ class sGApp {
     public $google_desc;
     // style
     public $style_path;
+    // debug
+    public $debug;
+    // js
+    public $js_script;
 }
 //===============================================
 ?>

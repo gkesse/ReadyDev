@@ -20,6 +20,7 @@ class GWidget {
         // page
         if($key == "window") {return new GWindow();}
         if($key == "home") {return new GHome();}
+        if($key == "debug") {return new GDebug();}
         // default
         return new GWidget();
     }

@@ -1,6 +1,6 @@
 <?php   
 //===============================================
-class GBody extends GWidget {
+class GDebug extends GWidget {
     //===============================================
     public function __construct() {
         
@@ -10,21 +10,15 @@ class GBody extends GWidget {
     //===============================================
     public function run() {
         $lApp = GManager::Instance()->getData()->app;
-        $lWindow = GWidget::Create("window");
-        //
-        $this->start();
-        $lWindow->load();
-        GWidget::Create("addresskey")->run();
-        GWidget::Create("spacev")->space(10);
-        $lWindow->run();
-        $this->end();
-    }
-    //===============================================
-    public function start() {
+        echo sprintf("<div class='debug'>\n");
+        echo sprintf("<div class='header'>\n");
+        //echo sprintf("<div class='item'>Clear</div>\n");
+        //GWidget::Create("spaceh")->space(10);
+        echo sprintf("<div class='item' onclick='onItemClick(this, \"debug_clear\");'>Clear</div>\n");
+        echo sprintf("</div>\n");
         echo sprintf("<div class='body'>\n");
-    }
-    //===============================================
-    public function end() {
+        echo sprintf("%s\n", $lApp->debug);
+        echo sprintf("</div>\n");
         echo sprintf("</div>\n");
     }
     //===============================================

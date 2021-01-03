@@ -136,6 +136,26 @@ span {
     border: 1px solid #ffffff;
 }
 /* ============================================== */
+/* debug */
+.debug {
+
+}
+.debug .header {
+    padding: 10px;
+    border-bottom: 1px solid #ffffff;
+    font-size: 0px;
+    text-align: right;
+}
+.debug .header .item {
+    display: inline-block;
+    border: 1px solid transparent;
+    font-size: 16px;
+    cursor: pointer;
+}
+.debug .body {
+    padding: 10px;
+}
+/* ============================================== */
 /* listbox */
 .listbox {
     text-align: left;
