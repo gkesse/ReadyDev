@@ -21,6 +21,9 @@ class GWidget {
         // page
         if($key == "window") {return new GWindow();}
         if($key == "home") {return new GHome();}
+        if($key == "login") {return new GLogin();}
+        if($key == "sqlite") {return new GSQLiteUi();}
+        if($key == "opencv") {return new GOpenCVUi();}
         if($key == "debug") {return new GDebug();}
         // default
         return new GWidget();
@@ -34,7 +37,7 @@ class GWidget {
     public function end() {}
     public function space($size) {}
     //===============================================
-    public function addItem($key, $text) {}
+    public function addItem($key, $text, $icon) {}
     public function addItem2($key, $text, $title) {}
     public function getPage($key) {return null;}
     public function getTitle($key) {return null;}

@@ -16,8 +16,8 @@ class GListBox extends GWidget {
         echo sprintf("</div>\n");
     }
     //===============================================
-    public function addItem($key, $text) {
-        echo sprintf("<a href='%s'><div class='item'>%s</div></a>\n", $key, $text);
+    public function addItem($key, $text, $icon) {
+        echo sprintf("<a href='%s'><div class='item'><i class='fa fa-%s'></i> %s</div></a>\n", $key, $icon, $text);
     }
     //===============================================
 }

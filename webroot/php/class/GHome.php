@@ -10,9 +10,10 @@ class GHome extends GWidget {
     //===============================================
     public function run() {
         GWidget::Create("listbox")->start();
-        GWidget::Create("listbox")->addItem("/home/sqlite", "SQLite");
-        GWidget::Create("listbox")->addItem("/home/opencv", "OpenCV");
-        GWidget::Create("listbox")->addItem("/home/debug", "Debug");
+        GWidget::Create("listbox")->addItem("/home/login", "Connexion", "book");
+        GWidget::Create("listbox")->addItem("/home/sqlite", "SQLite", "book");
+        GWidget::Create("listbox")->addItem("/home/opencv", "OpenCV", "book");
+        GWidget::Create("listbox")->addItem("/home/debug", "Debug", "book");
         GWidget::Create("listbox")->end();
     }
     //===============================================
