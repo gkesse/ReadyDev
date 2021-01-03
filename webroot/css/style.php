@@ -180,3 +180,37 @@ span {
     background-color: #305030;
 }
 /* ============================================== */
+/* tooltip */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black; 
+}
+.tooltip .tooltiptext {
+    visibility: hidden;
+    background-color: #305030;
+    color: #aaaaaa;
+    text-align: center;
+    padding: 5px 0px;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    width: 120px;
+    top: 100%;
+    left: 50%;
+    margin-left: -60px;
+}
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+.tooltip .tooltiptext::after {
+    content: " ";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent #305030 transparent;
+}
+/* ============================================== */

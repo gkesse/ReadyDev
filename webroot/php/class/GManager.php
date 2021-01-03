@@ -78,10 +78,17 @@ class GManager {
     //===============================================
     public function loadFont() {
         $lApp = $this->mgr->app;
-        $lDir = "";
-        $lDir .= $_SERVER["DOCUMENT_ROOT"];
-        $lDir .= "/webroot/";
-        $lApp->debug .= sprintf("%s<br>\n", $lDir);
+        $lPath = "";
+        $lPath .= $_SERVER["DOCUMENT_ROOT"];
+        $lPath .= "/webroot/libs/google_fonts/1.0.0";
+        $lMap = glob("$lPath/*/*.css");
+        $lRootLength = strlen($_SERVER["DOCUMENT_ROOT"]);
+        
+        for($i = 0; $i < count($lMap); $i++) {
+            $lFilename = $lMap[$i];
+            $lFile = substr($lFilename, $lRootLength); 
+            echo sprintf("<link rel='stylesheet' type='text/css' href='%s'/>\n", $lFile);
+        }
     }
     //===============================================
 }

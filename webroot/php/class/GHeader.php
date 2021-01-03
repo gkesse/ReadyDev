@@ -48,9 +48,11 @@ class GHeader extends GWidget {
         echo sprintf("<meta property='og:site_name' content='<?php echo $lSiteName; ?>'/>\n");
         */
         //===============================================
-        // font
+        // font_awesome
         echo sprintf("<link rel='stylesheet' type='text/css' href='/libs/font_awesome/4.7.0/css/font-awesome.min.css'/>\n");
-        echo sprintf("<link rel='stylesheet' type='text/css' href='/libs/google_fonts/1.0.0/Allan/css.css'/>\n");
+        //===============================================
+        // google_fonts
+        GManager::Instance()->loadFont();
         //===============================================
         // script
         echo sprintf("<script type='text/javascript' src='/webroot/js/class/GProcess.js'></script>\n");

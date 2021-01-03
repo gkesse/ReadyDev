@@ -12,9 +12,9 @@ class GDebug extends GWidget {
         $lApp = GManager::Instance()->getData()->app;
         echo sprintf("<div class='debug'>\n");
         echo sprintf("<div class='header'>\n");
-        //echo sprintf("<div class='item'>Clear</div>\n");
-        //GWidget::Create("spaceh")->space(10);
-        echo sprintf("<div class='item' onclick='onItemClick(this, \"debug_clear\");'>Clear</div>\n");
+        echo sprintf("<div class='item' onclick='onItemClick(this, \"debug_clear\");'>
+        <div class='tooltip'><i class='fa fa-trash'></i>
+        <span class='tooltiptext'>Nettoyer</span></div></div>\n");
         echo sprintf("</div>\n");
         echo sprintf("<div id='debug' class='body'>\n");
         echo sprintf("%s\n", $lApp->debug);
