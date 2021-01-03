@@ -17,6 +17,11 @@ class GWindow extends GWidget {
         $this->m_widgetMap->addItem2("home/debug", "debug", "Debug");
     }
     //===============================================
+    public function start() {
+        $lApp = GManager::Instance()->getData()->app;
+        $lApp->title = $this->m_widgetMap->getTitle($lApp->page_id);
+    }
+    //===============================================
     public function run() {
         $lApp = GManager::Instance()->getData()->app;
         $lPage = $this->m_widgetMap->getPage($lApp->page_id);

@@ -11,9 +11,10 @@ class GBody extends GWidget {
     public function run() {
         $lApp = GManager::Instance()->getData()->app;
         $lWindow = GWidget::Create("window");
+        $lWindow->load();
+        $lWindow->start();
         // body
         $this->start();
-        $lWindow->load();
         GWidget::Create("titlebar")->run();
         GWidget::Create("spacev")->space(10);
         GWidget::Create("addresskey")->run();
