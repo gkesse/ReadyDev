@@ -1,6 +1,6 @@
 <?php   
 //===============================================
-class GLogin extends GWidget {
+class GLineEdit extends GWidget {
     //===============================================
     public function __construct() {
         
@@ -10,13 +10,7 @@ class GLogin extends GWidget {
     //===============================================
     public function run() {
         echo sprintf("<div class='login'>\n");
-        echo sprintf("<div class='content'>\n");
-        echo sprintf("<div class='profil'>profil</div>\n");
-        echo sprintf("<div class='username'>username</div>\n");
-        echo sprintf("<div class='password'>password</div>\n");
-        echo sprintf("<div class='connect'>connect</div>\n");
-        echo sprintf("<div class='account'>account</div>\n");
-        echo sprintf("</div>\n");
+        echo sprintf("<div>GLineEdit</div>\n");
         echo sprintf("</div>\n");
     }
     //===============================================

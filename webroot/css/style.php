@@ -155,6 +155,18 @@ span {
     border-radius: 5px;
 }
 /* ============================================== */
+/* login */
+.login {
+    padding: 50px 10px;
+}
+.login .content {
+    border: 1px solid #ffffff;
+    max-width: 500px;
+    margin: auto;
+    border-radius: 5px;
+    padding: 10px;
+}
+/* ============================================== */
 /* debug */
 .debug {
 
