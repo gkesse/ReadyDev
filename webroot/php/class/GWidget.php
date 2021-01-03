@@ -17,6 +17,7 @@ class GWidget {
         if($key == "spacev") {return new GSpaceV();}
         if($key == "spaceh") {return new GSpaceH();}
         if($key == "stackwidget") {return new GStackWidget();}
+        if($key == "titlebar") {return new GTitleBar();}
         // page
         if($key == "window") {return new GWindow();}
         if($key == "home") {return new GHome();}

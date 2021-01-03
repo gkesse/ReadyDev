@@ -146,6 +146,7 @@ span {
 /* window */
 .window {
     border: 1px solid #ffffff;
+    border-radius: 5px;
 }
 /* ============================================== */
 /* debug */
@@ -153,7 +154,7 @@ span {
 
 }
 .debug .header {
-    padding: 10px;
+    padding: 5px 10px;
     border-bottom: 1px solid #ffffff;
     font-size: 0px;
     text-align: right;
@@ -178,6 +179,25 @@ span {
 }
 .listbox .item:hover {
     background-color: #305030;
+    border-radius: 5px;
+}
+/* ============================================== */
+/* addresskey */
+.addresskey {
+    padding: 0px;
+}
+/* ============================================== */
+/* titlebar */
+.titlebar {
+    border: 1px solid transparent;
+    font-size: 0px;
+    padding: 0px;
+}
+.titlebar .item {
+    border: 1px solid transparent;
+    font-size: <?php echo $config['app_font_size']; ?>px;
+    display: inline-block;
+    padding: 0px;
 }
 /* ============================================== */
 /* tooltip */
