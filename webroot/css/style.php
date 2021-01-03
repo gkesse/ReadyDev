@@ -198,7 +198,6 @@ span {
 .titlebar .left {
     font-size: <?php echo $config['app_font_size']; ?>px;
     float: left;
-    padding: 0px 0px;
 }
 .titlebar .left img {
     width: auto;
@@ -214,16 +213,15 @@ span {
 }
 .titlebar .right {
     float: right;
-    padding: 0px 0px;
 }
 .titlebar .right .login {
-    border: 2px solid #305030;
+    border: 2px solid #aaaaaa;
     width: <?php echo $config['login_size']; ?>px;
     height: <?php echo $config['login_size']; ?>px;
     border-radius: 50%;
     text-align: center;
-    line-height: <?php echo $config['login_size']; ?>px;
     cursor: pointer;
+    padding: 2px 0px 0px 0px;
 }
 /* ============================================== */
 /* tooltip */
