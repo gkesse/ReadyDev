@@ -135,9 +135,9 @@ span {
 /* ============================================== */
 /* custom */ 
 /* ============================================== */
-/* main */
-.main_id {
-    padding: 10px;
+/* addresskey */
+.addresskey_id {
+    padding: 0px;
 }
 /* ============================================== */
 /* body */
@@ -147,10 +147,24 @@ span {
     margin: auto;
 }
 /* ============================================== */
-/* window */
-.window_id {
-    border: 1px solid #ffffff;
-    border-radius: 5px;
+/* debug */
+.debug_id {
+
+}
+.debug_id .header {
+    padding: 5px 10px;
+    border-bottom: 1px solid #ffffff;
+    font-size: 0px;
+    text-align: right;
+}
+.debug_id .header .item {
+    display: inline-block;
+    border: 1px solid transparent;
+    font-size: <?php echo $config['app_font_size']; ?>px;
+    cursor: pointer;
+}
+.debug_id .body {
+    padding: 10px;
 }
 /* ============================================== */
 /* lineedit */
@@ -209,6 +223,19 @@ span {
     cursor: pointer;
 }
 /* ============================================== */
+/* listbox */
+.listbox_id {
+    text-align: left;
+}
+.listbox_id .item {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.listbox_id .item:hover {
+    background-color: #305030;
+    border-radius: 5px;
+}
+/* ============================================== */
 /* login */
 .login_id {
     padding: 50px 10px;
@@ -231,42 +258,9 @@ span {
     font-size: 100px;
 }
 /* ============================================== */
-/* debug */
-.debug_id {
-
-}
-.debug_id .header {
-    padding: 5px 10px;
-    border-bottom: 1px solid #ffffff;
-    font-size: 0px;
-    text-align: right;
-}
-.debug_id .header .item {
-    display: inline-block;
-    border: 1px solid transparent;
-    font-size: <?php echo $config['app_font_size']; ?>px;
-    cursor: pointer;
-}
-.debug_id .body {
+/* main */
+.main_id {
     padding: 10px;
-}
-/* ============================================== */
-/* listbox */
-.listbox_id {
-    text-align: left;
-}
-.listbox_id .item {
-    padding: 5px 10px;
-    cursor: pointer;
-}
-.listbox_id .item:hover {
-    background-color: #305030;
-    border-radius: 5px;
-}
-/* ============================================== */
-/* addresskey */
-.addresskey_id {
-    padding: 0px;
 }
 /* ============================================== */
 /* titlebar */
@@ -342,5 +336,11 @@ span {
     border-width: 5px;
     border-style: solid;
     border-color: transparent transparent #305030 transparent;
+}
+/* ============================================== */
+/* window */
+.window_id {
+    border: 1px solid #ffffff;
+    border-radius: 5px;
 }
 /* ============================================== */
