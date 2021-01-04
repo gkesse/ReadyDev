@@ -19,6 +19,7 @@ class GWidget {
         if($key == "stackwidget") {return new GStackWidget();}
         if($key == "titlebar") {return new GTitleBar();}
         if($key == "lineedit") {return new GLineEdit();}
+        if($key == "button") {return new GButton();}
         // page
         if($key == "window") {return new GWindow();}
         if($key == "home") {return new GHome();}
@@ -42,11 +43,11 @@ class GWidget {
     public function addItem2($key, $text, $title) {}
     public function getPage($key) {return null;}
     public function getTitle($key) {return null;}
-    public function setContent($id, $type) {}
-    public function setContent2($id, $type, $icon) {}
-    public function setContent3($id, $type, $icon, $label, $width) {}
-    public function setContent4($id, $type, $icon, $goto) {}
-    public function setContent5($id, $type, $icon, $label, $width, $goto) {}
+    public function setContent($id, $type, $holder) {}
+    public function setContent2($id, $type, $icon, $holder) {}
+    public function setContent3($id, $type, $icon, $goto, $holder) {}
+    public function setContent4($id, $type, $icon, $label, $width, $holder) {}
+    public function setContent5($id, $type, $icon, $label, $width, $goto, $holder) {}
     //===============================================
 }
 //===============================================

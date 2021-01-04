@@ -44,17 +44,15 @@ body {
 button {
     background-color: transparent;
     border: none;
-    padding: 5px 10px 5px 5px;
     font-size: <?php echo $config['app_font_size']; ?>px;
     color: white;
     cursor: pointer;
+    font-family: Allan;
 }
 
 input {
     background-color: transparent;
     border: none;
-    border-radius: 0;
-    padding: 0;
     font-size: <?php echo $config['app_font_size']; ?>px;
     color: white;
     font-family: Allan;
@@ -220,7 +218,7 @@ span {
     max-width: 500px;
     margin: auto;
     border-radius: 5px;
-    padding: 10px;
+    padding: 20px 10px 10px 10px;
 }
 .login .content .profil {
     border: 1px solid #ffffff;

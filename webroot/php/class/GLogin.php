@@ -13,10 +13,11 @@ class GLogin extends GWidget {
         echo sprintf("<div class='content'>\n");
         echo sprintf("<div class='profil'><i class='fa fa-user'></i></div>\n");
         GWidget::Create("spacev")->space(20);
-        GWidget::Create("lineedit")->setContent2("username", "text", "user", "book");
-        echo sprintf("<div class='password'>password</div>\n");
-        echo sprintf("<div class='connect'>connect</div>\n");
-        echo sprintf("<div class='account'>account</div>\n");
+        GWidget::Create("lineedit")->setContent2("username", "text", "user", 'Nom d&#39;utilisateur');
+        GWidget::Create("spacev")->space(20);
+        echo sprintf("<div>\n");
+        GWidget::Create("button")->run();
+        echo sprintf("</div>\n");
         echo sprintf("</div>\n");
         echo sprintf("</div>\n");
     }
