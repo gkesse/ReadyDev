@@ -188,7 +188,7 @@ span {
     right: 30px;
 }
 .lineedit .field .input {
-    background-color: red;
+    background-color: transparent;
     width: 100%;
     padding: 0px 10px;
     min-height: 30px;
