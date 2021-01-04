@@ -18,9 +18,14 @@ class GWidget {
         if($key == "spaceh") {return new GSpaceH();}
         if($key == "stackwidget") {return new GStackWidget();}
         if($key == "titlebar") {return new GTitleBar();}
+        if($key == "lineedit") {return new GLineEdit();}
+        if($key == "button") {return new GButton();}
         // page
         if($key == "window") {return new GWindow();}
         if($key == "home") {return new GHome();}
+        if($key == "login") {return new GLogin();}
+        if($key == "sqlite") {return new GSQLiteUi();}
+        if($key == "opencv") {return new GOpenCVUi();}
         if($key == "debug") {return new GDebug();}
         // default
         return new GWidget();
@@ -34,10 +39,15 @@ class GWidget {
     public function end() {}
     public function space($size) {}
     //===============================================
-    public function addItem($key, $text) {}
+    public function addItem($key, $text, $icon) {}
     public function addItem2($key, $text, $title) {}
     public function getPage($key) {return null;}
     public function getTitle($key) {return null;}
+    public function setContent($id, $type, $holder) {}
+    public function setContent2($id, $type, $icon, $holder) {}
+    public function setContent3($id, $type, $icon, $goto, $holder) {}
+    public function setContent4($id, $type, $icon, $label, $width, $holder) {}
+    public function setContent5($id, $type, $icon, $label, $width, $goto, $holder) {}
     //===============================================
 }
 //===============================================
