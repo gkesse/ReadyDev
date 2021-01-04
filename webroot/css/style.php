@@ -54,10 +54,10 @@ input {
     background-color: transparent;
     border: none;
     border-radius: 0;
-    padding: 5px 10px 5px 10px;
+    padding: 0;
     font-size: <?php echo $config['app_font_size']; ?>px;
     color: white;
-    width: 100%;
+    font-family: Allan;
 }
 
 input:-webkit-autofill,
@@ -155,6 +155,62 @@ span {
     border-radius: 5px;
 }
 /* ============================================== */
+/* lineedit */
+.lineedit {
+    position: relative;
+    border: 2px solid #305030;
+    border-radius: 5px;
+    overflow: hidden;
+    min-height: 30px;
+}
+.lineedit .label {
+    position: absolute;
+    background-color: #305030;
+    min-width: 100px;
+    left: 0px;
+    top: 0px;
+    bottom: 0px;
+}
+.lineedit .label .icon {
+    background-color: transparent;
+    min-width: 30px;
+    min-height: 30px;
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    padding-top: 2px;
+}
+.lineedit .field {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 100px;
+    right: 30px;
+}
+.lineedit .field .input {
+    background-color: red;
+    width: 100%;
+    padding: 0px 10px;
+    min-height: 30px;
+    display: inline-block;
+    vertical-align: middle;
+    padding-bottom: 10px;
+}
+.lineedit .goto {
+    background-color: transparent;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    font-size: 18px;
+    min-width: 30px;
+    min-height: 30px;
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 2px;
+    cursor: pointer;
+}
+/* ============================================== */
 /* login */
 .login {
     padding: 50px 10px;
@@ -165,6 +221,16 @@ span {
     margin: auto;
     border-radius: 5px;
     padding: 10px;
+}
+.login .content .profil {
+    border: 1px solid #ffffff;
+    width: 150px;
+    height: 150px;
+    margin: auto;
+    border-radius: 50%;
+    text-align: center;
+    padding-top: 10px;
+    font-size: 100px;
 }
 /* ============================================== */
 /* debug */

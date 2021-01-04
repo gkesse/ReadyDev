@@ -42,6 +42,7 @@ class GWidget {
     public function addItem2($key, $text, $title) {}
     public function getPage($key) {return null;}
     public function getTitle($key) {return null;}
+    public function setContent() {}
     //===============================================
 }
 //===============================================
