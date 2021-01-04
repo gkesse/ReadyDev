@@ -192,7 +192,7 @@ span {
 }
 .lineedit_id .field input {
     width: 100%;
-    padding: 0px 5px;
+    padding: 0px 10px;
 }
 .lineedit_id .goto {
     background-color: transparent;
