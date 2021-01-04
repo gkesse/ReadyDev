@@ -9,7 +9,7 @@ class GListBox extends GWidget {
     // method
     //===============================================
     public function start() {
-        echo sprintf("<div class='listbox'>\n");
+        echo sprintf("<div class='listbox_id'>\n");
     }
     //===============================================
     public function end() {

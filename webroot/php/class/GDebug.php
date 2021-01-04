@@ -10,10 +10,10 @@ class GDebug extends GWidget {
     //===============================================
     public function run() {
         $lApp = GManager::Instance()->getData()->app;
-        echo sprintf("<div class='debug'>\n");
+        echo sprintf("<div class='debug_id'>\n");
         echo sprintf("<div class='header'>\n");
         echo sprintf("<div class='item' onclick='onItemClick(this, \"debug_clear\");'>
-        <div class='tooltip'><i class='fa fa-trash'></i>
+        <div class='tooltip_id'><i class='fa fa-trash'></i>
         <span class='tooltiptext'>Nettoyer</span></div>
         </div>\n");
         echo sprintf("</div>\n");

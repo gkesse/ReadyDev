@@ -26,7 +26,7 @@ class GWindow extends GWidget {
     public function run() {
         $lApp = GManager::Instance()->getData()->app;
         $lPage = $this->m_widgetMap->getPage($lApp->page_id);
-        echo sprintf("<div class='window'>\n");
+        echo sprintf("<div class='window_id'>\n");
         GWidget::Create($lPage)->run();
         echo sprintf("</div>\n");
     }

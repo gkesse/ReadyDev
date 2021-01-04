@@ -24,8 +24,8 @@ class GBody extends GWidget {
     }
     //===============================================
     public function start() {
-        echo sprintf("<div class='main'>\n");
-        echo sprintf("<div class='body'>\n");
+        echo sprintf("<div class='main_id'>\n");
+        echo sprintf("<div class='body_id'>\n");
     }
     //===============================================
     public function end() {
