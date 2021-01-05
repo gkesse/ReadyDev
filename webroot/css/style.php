@@ -142,9 +142,11 @@ span {
 /* ============================================== */
 /* body */
 .body_id {
-    padding: 100px 0px;
-    max-width: 800px;
+    position: relative;
+    max-width: 1000px;
     margin: auto;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 /* ============================================== */
 /* button */
@@ -184,6 +186,11 @@ span {
 }
 .debug_id .body {
     padding: 10px;
+}
+/* ============================================== */
+/* html */
+.html_id {
+    position: relative;
 }
 /* ============================================== */
 /* lineedit */
@@ -302,7 +309,7 @@ span {
 .titlebar_id {
     position: relative;
     border-bottom: 5px solid #305030;
-    padding: 0px 0px 5px 0px;
+    padding-bottom: 5px;
 }
 .titlebar_id .logo {
     display: inline-block;
@@ -322,12 +329,16 @@ span {
     position: absolute;
     left: 95px;
     right: 30px;
+    top: 0px;
+    bottom: 0px;
     display: inline-block;
     vertical-align: middle;
     text-align: center;
 }
 .titlebar_id .login {
     position: absolute;
+    top: 0px;
+    bottom: 0px;
     right: 0px;
     display: inline-block;
     vertical-align: middle;
@@ -378,5 +389,15 @@ span {
 .window_id {
     border: 1px solid #ffffff;
     border-radius: 5px;
+}
+/* ============================================== */
+/* mobile */ 
+/* ============================================== */
+@media (max-width:1024px) {
+
+}
+/* ============================================== */
+@media (max-width:960px) {
+
 }
 /* ============================================== */

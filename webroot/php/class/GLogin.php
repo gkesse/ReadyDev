@@ -34,8 +34,8 @@ class GLogin extends GWidget {
         $lApp = GManager::Instance()->getData()->app;
         if(isset($_REQUEST["req"])) {
             $lReq = $_REQUEST["req"];
-            if($lReq = "login") {
-                $lApp->debug .= "Annalyse des données de connexion";
+            if($lReq == "login") {
+                GManager::Instance()->showData("Analyse de données de connection");
                 GManager::Instance()->redirect("/home/debug");
             }
         }

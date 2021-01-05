@@ -9,18 +9,17 @@ class GIcon extends GWidget {
     // method
     //===============================================
     public function icon($icon, $href, $tooltip) {
-        echo sprintf("<a href='%s'><div class='icon_id tooltip_id'>
-        <i class='fa fa-%s'></i><span class='tooltiptext'>%s</span>
-        </div></a>\n", $href, $icon, $tooltip);
+        echo sprintf("<a href='%s'><div class='icon_id' title='%s'>
+        <i class='fa fa-%s'></i>
+        </div></a>\n", $href, $tooltip, $icon);
     }
     //===============================================
     public function icon2($icon, $action, $req, $tooltip) {
         echo sprintf("<div class='icon_id'>
         <form action='%s' method='post'>
         <input type='hidden' id='req' name='req' value='%s'/> 
-        <button class='tooltip_id' type='submit'><i class='fa fa-%s'></i>
-        <span class='tooltiptext'>%s</span></button>
-        </form></div>\n", $action, $req, $icon, $tooltip);
+        <button class='tooltip_id' type='submit' title='%s'><i class='fa fa-%s'></i></button>
+        </form></div>\n", $action, $req, $tooltip, $icon);
     }
     //===============================================
 }
