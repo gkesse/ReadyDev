@@ -44,7 +44,6 @@ body {
 button {
     background-color: transparent;
     border: none;
-    font-size: <?php echo $config['app_font_size']; ?>px;
     color: white;
     cursor: pointer;
     font-family: Allan;
@@ -169,9 +168,14 @@ span {
 }
 .debug_id .header .item {
     display: inline-block;
-    border: 1px solid transparent;
-    font-size: <?php echo $config['app_font_size']; ?>px;
+    vertical-align: middle;
     cursor: pointer;
+    text-align: center;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+.debug_id .header .item form button {
+    font-size: 18px;
 }
 .debug_id .body {
     padding: 10px;

@@ -38,16 +38,9 @@ class GManager {
     }
     //===============================================
     public function loadData() {
+        $this->clearDebug();
         $this->getPageId();
-        $this->debug();
         $this->lastUrl();
-    }
-    //===============================================
-    // debug
-    //===============================================
-    public function debug() {
-        $lApp = $this->mgr->app;
-        //$lApp->debug = "";
     }
     //===============================================
     // last_url
