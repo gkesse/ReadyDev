@@ -13,16 +13,7 @@ class GDebug extends GWidget {
         $this->request();
         echo sprintf("<div class='debug_id'>\n");
         echo sprintf("<div class='header'>\n");
-        echo sprintf("<div class='item'>
-        <form action='' method='post'>
-        <input type='hidden' name='req' value='clear'/> 
-        <button type='submit'><i class='fa fa-trash'></i></button>
-        </form></div>\n");
-        echo sprintf("<div class='item'>
-        <form action='' method='post'>
-        <input type='hidden' name='req' value='clear'/> 
-        <button type='submit'><i class='fa fa-trash'></i></button>
-        </form></div>\n");
+        GWidget::Create("icon")->icon2("trash", "", "clear", "Nettoyer");
         echo sprintf("</div>\n");
         echo sprintf("<div id='debug' class='body'>\n");
         echo sprintf("%s\n", $lApp->debug);

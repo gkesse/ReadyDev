@@ -20,6 +20,7 @@ class GWidget {
         if($key == "titlebar") {return new GTitleBar();}
         if($key == "lineedit") {return new GLineEdit();}
         if($key == "button") {return new GButton();}
+        if($key == "icon") {return new GIcon();}
         // page
         if($key == "window") {return new GWindow();}
         if($key == "home") {return new GHome();}
@@ -51,6 +52,8 @@ class GWidget {
     public function setText($text, $onclick) {}
     public function setText2($text, $icon, $callback) {}
     public function setIcon3($icon, $onclick) {}
+    public function icon($icon, $href, $tooltip) {}
+    public function icon2($icon, $action, $req, $tooltip) {}
     //===============================================
 }
 //===============================================

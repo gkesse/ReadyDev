@@ -47,6 +47,7 @@ button {
     color: white;
     cursor: pointer;
     font-family: Allan;
+    font-size: <?php echo $config['app_font_size']; ?>px;
 }
 
 input {
@@ -172,13 +173,30 @@ span {
     cursor: pointer;
     text-align: center;
     border-radius: 5px;
-    margin-left: 10px;
+    margin-left: 5px;
 }
 .debug_id .header .item form button {
     font-size: 18px;
+    border: 2px solid #305030;
+    background-color: #305030;
+    width: 25px;
+    border-radius: 5px;
 }
 .debug_id .body {
     padding: 10px;
+}
+/* ============================================== */
+/* lineedit */
+.icon_id {
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    text-align: center;
+    font-size: 18px;
+    border: 2px solid #305030;
+    border-radius: 5px;
+    background-color: #305030;
+    width: 25px;
 }
 /* ============================================== */
 /* lineedit */
@@ -313,7 +331,8 @@ span {
     right: 0px;
     display: inline-block;
     vertical-align: middle;
-    border: 2px solid #aaaaaa;
+    border: 2px solid #305030;
+    background-color: #305030;
     width: 25px;
     height: 25px;
     border-radius: 50%;
