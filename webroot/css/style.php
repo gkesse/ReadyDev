@@ -241,7 +241,7 @@ span {
     padding: 0px 10px;
 }
 .lineedit_id .goto {
-    background-color: transparent;
+    background-color: #305030;
     position: absolute;
     top: 0px;
     bottom: 0px;

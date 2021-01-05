@@ -44,11 +44,14 @@ class GWidget {
     public function addItem2($key, $text, $title) {}
     public function getPage($key) {return null;}
     public function getTitle($key) {return null;}
-    public function setEdit($id, $type, $holder) {}
-    public function setIcon($id, $type, $icon, $holder) {}
-    public function setIcon2($id, $type, $icon, $goto, $holder) {}
-    public function setLabel($id, $type, $icon, $label, $width, $holder) {}
-    public function setLabel2($id, $type, $icon, $label, $width, $goto, $holder) {}
+    public function lineEdit($id, $type, $holder) {}
+    public function lineEdit2($id, $type, $icon, $holder) {}
+    public function lineEdit3($id, $type, $icon, $goto, $holder) {}
+    public function lineEdit4($id, $type, $icon, $goto, $holder) {}
+    public function lineEdit5($id, $type, $label, $width) {}
+    public function lineEdit6($id, $type, $icon, $label, $width) {}
+    public function lineEdit7($id, $type, $icon, $label, $width, $goto) {}
+    public function lineEdit8($id, $type, $icon, $label, $width, $goto) {}
     public function setText($text, $onclick) {}
     public function setText2($text, $icon, $callback) {}
     public function setIcon3($icon, $onclick) {}
