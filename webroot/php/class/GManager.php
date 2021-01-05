@@ -17,6 +17,8 @@ class GManager {
         $this->mgr->app->google_desc = "";
         $this->mgr->app->debug = &$_SESSION["debug"];
         $this->mgr->app->last_url = &$_SESSION["last_url"];
+        $this->mgr->app->sqlite_db_path = "/webroot/data/sqlite/config.dat";
+        $this->mgr->app->google_fonts = "/webroot/libs/google_fonts/1.0.0";
     }
     //===============================================
     public static function Instance() {
@@ -53,7 +55,6 @@ class GManager {
         if(!in_array($lApp->page_id, $lNoLastUrl)) {
             $lApp->last_url = "/".$lApp->page_id;
         }
-        $this->showData($lApp->last_url);
     }
     //===============================================
     // page
@@ -95,7 +96,7 @@ class GManager {
         $lApp = $this->mgr->app;
         $lPath = "";
         $lPath .= $_SERVER["DOCUMENT_ROOT"];
-        $lPath .= "/webroot/libs/google_fonts/1.0.0";
+        $lPath .= $lApp->google_fonts;
         $lMap = glob("$lPath/*/*.css");
         $lRootLength = strlen($_SERVER["DOCUMENT_ROOT"]);
         
@@ -132,10 +133,13 @@ class sGApp {
     public $title;
     // google
     public $google_desc;
+    public $google_fonts;
     // debug
     public $debug;
     // last_url
     public $last_url;
+    // sqlite
+    public $sqlite_db_path;
 }
 //===============================================
 ?>
