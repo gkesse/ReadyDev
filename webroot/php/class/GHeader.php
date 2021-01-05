@@ -11,8 +11,6 @@ class GHeader extends GWidget {
     public function run() {
         $lApp = GManager::Instance()->getData()->app;
         //===============================================
-        GManager::Instance()->loadData();
-        //===============================================
         // html
         echo sprintf("<!DOCTYPE html>\n");
         echo sprintf("<html lang='%s'>\n", $lApp->lang);

@@ -147,6 +147,16 @@ span {
     margin: auto;
 }
 /* ============================================== */
+/* button */
+.button_id {
+    padding: 0px 10px;
+    background-color: #305030;
+    border-radius: 5px;
+    line-height: 30px;
+    display: inline-block;
+    vertical-align: middle;
+}
+/* ============================================== */
 /* debug */
 .debug_id {
 
@@ -256,6 +266,9 @@ span {
     text-align: center;
     padding-top: 10px;
     font-size: 100px;
+}
+.login_id .body .connect {
+    text-align: right;
 }
 /* ============================================== */
 /* main */

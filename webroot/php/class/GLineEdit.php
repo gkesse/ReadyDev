@@ -8,14 +8,14 @@ class GLineEdit extends GWidget {
     //===============================================
     // method
     //===============================================
-    public function setContent($id, $type, $holder) {
+    public function setEdit($id, $type, $holder) {
         echo sprintf("<div class='lineedit_id'>\n");
         echo sprintf("<div class='field' style='left:0px;right:0px;'>\n");
         echo sprintf("<input type='%s' id='%s' name='%s' placeholder='%s'/></div>\n", $type, $id, $id, $holder);
         echo sprintf("</div>\n");
     }
     //===============================================
-    public function setContent2($id, $type, $icon, $holder) {
+    public function setIcon($id, $type, $icon, $holder) {
         $width = 30;        
         echo sprintf("<div class='lineedit_id'>\n");
         echo sprintf("<label class='label' for='%s' style='min-width:%dpx;background-color:transparent;'>\n", $width, $id);
@@ -25,7 +25,7 @@ class GLineEdit extends GWidget {
         echo sprintf("</div>\n");
     }
     //===============================================
-    public function setContent3($id, $type, $icon, $goto, $holder) {
+    public function setIcon2($id, $type, $icon, $goto, $holder) {
         $width = 30;        
         echo sprintf("<div class='lineedit_id'>\n");
         echo sprintf("<label class='label' for='%s' style='min-width:%dpx;background-color:transparent;'>\n", $width, $id);
@@ -36,7 +36,7 @@ class GLineEdit extends GWidget {
         echo sprintf("</div>\n");
     }
     //===============================================
-    public function setContent4($id, $type, $icon, $label, $width, $holder) {
+    public function setLabel($id, $type, $icon, $label, $width, $holder) {
         echo sprintf("<div class='lineedit_id'>\n");
         echo sprintf("<label class='label' for='%s' style='min-width:%dpx;'>\n", $id, $width);
         echo sprintf("<i class='icon fa fa-%s'></i>\n", $icon);
@@ -46,7 +46,7 @@ class GLineEdit extends GWidget {
         echo sprintf("</div>\n");
     }
     //===============================================
-    public function setContent5($id, $type, $icon, $label, $width, $goto, $holder) {
+    public function setLabel2($id, $type, $icon, $label, $width, $goto, $holder) {
         echo sprintf("<div class='lineedit_id'>\n");
         echo sprintf("<label class='label' for='%s' style='min-width:%dpx;'>\n", $id, $width);
         echo sprintf("<i class='icon fa fa-%s'></i>\n", $icon);
