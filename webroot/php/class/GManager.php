@@ -38,7 +38,7 @@ class GManager {
     }
     //===============================================
     public function loadData() {
-        $this->clearDebug();
+        //$this->clearDebug();
         $this->getPageId();
         $this->lastUrl();
     }
@@ -104,6 +104,13 @@ class GManager {
             $lFile = substr($lFilename, $lRootLength); 
             echo sprintf("<link rel='stylesheet' type='text/css' href='%s'/>\n", $lFile);
         }
+    }
+    //===============================================
+    // redirect
+    //===============================================
+    public function redirect($url) {
+        $lLocation = sprintf("Location: %s", $url);
+        header($lLocation);
     }
     //===============================================
 }

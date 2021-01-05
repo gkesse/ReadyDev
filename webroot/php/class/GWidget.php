@@ -21,6 +21,7 @@ class GWidget {
         if($key == "lineedit") {return new GLineEdit();}
         if($key == "button") {return new GButton();}
         if($key == "icon") {return new GIcon();}
+        if($key == "form") {return new GForm();}
         // page
         if($key == "window") {return new GWindow();}
         if($key == "home") {return new GHome();}
@@ -52,11 +53,13 @@ class GWidget {
     public function lineEdit6($id, $type, $icon, $label, $width) {}
     public function lineEdit7($id, $type, $icon, $label, $width, $goto) {}
     public function lineEdit8($id, $type, $icon, $label, $width, $goto) {}
-    public function setText($text, $onclick) {}
-    public function setText2($text, $icon, $callback) {}
-    public function setIcon3($icon, $onclick) {}
+    public function button($text, $href) {}
+    public function button2($text, $icon, $href) {}
+    public function button3($text, $req) {}
+    public function button4($text, $icon, $req) {}
     public function icon($icon, $href, $tooltip) {}
     public function icon2($icon, $action, $req, $tooltip) {}
+    public function form($action) {}
     //===============================================
 }
 //===============================================
