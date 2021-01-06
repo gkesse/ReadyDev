@@ -20,6 +20,8 @@ class GWidget {
         if($key == "titlebar") {return new GTitleBar();}
         if($key == "lineedit") {return new GLineEdit();}
         if($key == "button") {return new GButton();}
+        if($key == "icon") {return new GIcon();}
+        if($key == "form") {return new GForm();}
         // page
         if($key == "window") {return new GWindow();}
         if($key == "home") {return new GHome();}
@@ -43,11 +45,21 @@ class GWidget {
     public function addItem2($key, $text, $title) {}
     public function getPage($key) {return null;}
     public function getTitle($key) {return null;}
-    public function setContent($id, $type, $holder) {}
-    public function setContent2($id, $type, $icon, $holder) {}
-    public function setContent3($id, $type, $icon, $goto, $holder) {}
-    public function setContent4($id, $type, $icon, $label, $width, $holder) {}
-    public function setContent5($id, $type, $icon, $label, $width, $goto, $holder) {}
+    public function lineEdit($id, $type, $holder) {}
+    public function lineEdit2($id, $type, $icon, $holder) {}
+    public function lineEdit3($id, $type, $icon, $goto, $holder) {}
+    public function lineEdit4($id, $type, $icon, $goto, $holder) {}
+    public function lineEdit5($id, $type, $label, $width) {}
+    public function lineEdit6($id, $type, $icon, $label, $width) {}
+    public function lineEdit7($id, $type, $icon, $label, $width, $goto) {}
+    public function lineEdit8($id, $type, $icon, $label, $width, $goto) {}
+    public function button($text, $href) {}
+    public function button2($text, $icon, $href) {}
+    public function button3($text, $req) {}
+    public function button4($text, $icon, $req) {}
+    public function icon($icon, $href, $tooltip) {}
+    public function icon2($icon, $action, $req, $tooltip) {}
+    public function form($action) {}
     //===============================================
 }
 //===============================================

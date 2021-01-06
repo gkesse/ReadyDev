@@ -44,10 +44,10 @@ body {
 button {
     background-color: transparent;
     border: none;
-    font-size: <?php echo $config['app_font_size']; ?>px;
     color: white;
     cursor: pointer;
     font-family: Allan;
+    font-size: <?php echo $config['app_font_size']; ?>px;
 }
 
 input {
@@ -135,22 +135,75 @@ span {
 /* ============================================== */
 /* custom */ 
 /* ============================================== */
-/* main */
-.main_id {
-    padding: 10px;
+/* addresskey */
+.addresskey_id {
+    padding: 0px;
 }
 /* ============================================== */
 /* body */
 .body_id {
-    padding: 100px 0px;
-    max-width: 800px;
+    position: relative;
+    max-width: 1000px;
     margin: auto;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 /* ============================================== */
-/* window */
-.window_id {
-    border: 1px solid #ffffff;
+/* button */
+.button_id {
+    padding: 0px 10px;
+    background-color: #305030;
     border-radius: 5px;
+    line-height: 30px;
+    display: inline-block;
+    vertical-align: middle;
+}
+/* ============================================== */
+/* debug */
+.debug_id {
+
+}
+.debug_id .header {
+    padding: 5px 10px;
+    border-bottom: 1px solid #ffffff;
+    font-size: 0px;
+    text-align: right;
+}
+.debug_id .header .item {
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 5px;
+    margin-left: 5px;
+}
+.debug_id .header .item form button {
+    font-size: 18px;
+    border: 2px solid #305030;
+    background-color: #305030;
+    width: 25px;
+    border-radius: 5px;
+}
+.debug_id .body {
+    padding: 10px;
+}
+/* ============================================== */
+/* html */
+.html_id {
+    position: relative;
+}
+/* ============================================== */
+/* lineedit */
+.icon_id {
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    text-align: center;
+    font-size: 18px;
+    border: 2px solid #305030;
+    border-radius: 5px;
+    background-color: #305030;
+    width: 25px;
 }
 /* ============================================== */
 /* lineedit */
@@ -192,10 +245,10 @@ span {
 }
 .lineedit_id .field input {
     width: 100%;
-    padding: 0px 5px;
+    padding: 0px 10px;
 }
 .lineedit_id .goto {
-    background-color: transparent;
+    background-color: #305030;
     position: absolute;
     top: 0px;
     bottom: 0px;
@@ -207,6 +260,19 @@ span {
     vertical-align: middle;
     padding-top: 2px;
     cursor: pointer;
+}
+/* ============================================== */
+/* listbox */
+.listbox_id {
+    text-align: left;
+}
+.listbox_id .item {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.listbox_id .item:hover {
+    background-color: #305030;
+    border-radius: 5px;
 }
 /* ============================================== */
 /* login */
@@ -230,50 +296,20 @@ span {
     padding-top: 10px;
     font-size: 100px;
 }
-/* ============================================== */
-/* debug */
-.debug_id {
-
-}
-.debug_id .header {
-    padding: 5px 10px;
-    border-bottom: 1px solid #ffffff;
-    font-size: 0px;
+.login_id .body .connect {
     text-align: right;
 }
-.debug_id .header .item {
-    display: inline-block;
-    border: 1px solid transparent;
-    font-size: <?php echo $config['app_font_size']; ?>px;
-    cursor: pointer;
-}
-.debug_id .body {
+/* ============================================== */
+/* main */
+.main_id {
     padding: 10px;
-}
-/* ============================================== */
-/* listbox */
-.listbox_id {
-    text-align: left;
-}
-.listbox_id .item {
-    padding: 5px 10px;
-    cursor: pointer;
-}
-.listbox_id .item:hover {
-    background-color: #305030;
-    border-radius: 5px;
-}
-/* ============================================== */
-/* addresskey */
-.addresskey_id {
-    padding: 0px;
 }
 /* ============================================== */
 /* titlebar */
 .titlebar_id {
     position: relative;
     border-bottom: 5px solid #305030;
-    padding: 0px 0px 5px 0px;
+    padding-bottom: 5px;
 }
 .titlebar_id .logo {
     display: inline-block;
@@ -293,16 +329,21 @@ span {
     position: absolute;
     left: 95px;
     right: 30px;
+    top: 0px;
+    bottom: 0px;
     display: inline-block;
     vertical-align: middle;
     text-align: center;
 }
 .titlebar_id .login {
     position: absolute;
+    top: 0px;
+    bottom: 0px;
     right: 0px;
     display: inline-block;
     vertical-align: middle;
-    border: 2px solid #aaaaaa;
+    border: 2px solid #305030;
+    background-color: #305030;
     width: 25px;
     height: 25px;
     border-radius: 50%;
@@ -342,5 +383,21 @@ span {
     border-width: 5px;
     border-style: solid;
     border-color: transparent transparent #305030 transparent;
+}
+/* ============================================== */
+/* window */
+.window_id {
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+}
+/* ============================================== */
+/* mobile */ 
+/* ============================================== */
+@media (max-width:1024px) {
+
+}
+/* ============================================== */
+@media (max-width:960px) {
+
 }
 /* ============================================== */

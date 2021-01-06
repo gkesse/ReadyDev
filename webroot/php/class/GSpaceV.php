@@ -9,7 +9,7 @@ class GSpaceV extends GWidget {
     // method
     //===============================================
     public function space($size) {
-        echo sprintf("<div style='padding-top:%dpx;'></div>\n", $size);
+        echo sprintf("<div class='space_id' style='padding-top:%dpx;'></div>\n", $size);
     }
     //===============================================
 }

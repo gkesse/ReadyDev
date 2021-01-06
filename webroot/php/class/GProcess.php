@@ -16,7 +16,7 @@ class GProcess {
     }
     //===============================================
     public function run() {
-        GManager::Instance()->getPageId();
+        GManager::Instance()->loadData();
         GWidget::Create("header")->run();
         GWidget::Create("body")->run();
         GWidget::Create("footer")->run();

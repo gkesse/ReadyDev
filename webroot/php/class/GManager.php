@@ -16,6 +16,7 @@ class GManager {
         $this->mgr->app->title = $this->mgr->app->app_name;
         $this->mgr->app->google_desc = "";
         $this->mgr->app->debug = &$_SESSION["debug"];
+        $this->mgr->app->last_url = &$_SESSION["last_url"];
     }
     //===============================================
     public static function Instance() {
@@ -33,12 +34,26 @@ class GManager {
     //===============================================
     public function showData($data) {
         $lApp = $this->mgr->app;
-        $lApp->debug .= sprintf("[%s]<br>\n", $data);
+        $lApp->debug .= sprintf("%s<br>\n", $data);
     }
     //===============================================
     public function loadData() {
+        //$this->clearDebug();
+        $this->getPageId();
+        $this->lastUrl();
+    }
+    //===============================================
+    // last_url
+    //===============================================
+    public function lastUrl() {
         $lApp = $this->mgr->app;
-        $lApp->debug = "";
+        $lNoLastUrl = array(
+        "home/login"
+        );
+        if(!in_array($lApp->page_id, $lNoLastUrl)) {
+            $lApp->last_url = "/".$lApp->page_id;
+        }
+        $this->showData($lApp->last_url);
     }
     //===============================================
     // page
@@ -91,6 +106,13 @@ class GManager {
         }
     }
     //===============================================
+    // redirect
+    //===============================================
+    public function redirect($url) {
+        $lLocation = sprintf("Location: %s", $url);
+        header($lLocation);
+    }
+    //===============================================
 }
 //===============================================
 // struct
@@ -112,6 +134,8 @@ class sGApp {
     public $google_desc;
     // debug
     public $debug;
+    // last_url
+    public $last_url;
 }
 //===============================================
 ?>

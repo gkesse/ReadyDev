@@ -1,6 +1,6 @@
 <?php   
 //===============================================
-class GSpaceH extends GWidget {
+class GForm extends GWidget {
     //===============================================
     public function __construct() {
         
@@ -8,8 +8,12 @@ class GSpaceH extends GWidget {
     //===============================================
     // method
     //===============================================
-    public function space($size) {
-        echo sprintf("<div class='space_id' style='display:inline-block;padding-left:%dpx;'></div>\n", $size);
+    public function form($action) {
+        echo sprintf("<form action='%s' method='post' enctype='multipart/form-data'>\n", $action);
+    }
+    //===============================================
+    public function end() {
+        echo sprintf("</form>\n");
     }
     //===============================================
 }
