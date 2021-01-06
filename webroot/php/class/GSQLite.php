@@ -14,10 +14,10 @@ class GSQLite {
         $this->queryWrite($lQuery);
         // config_data
         $lQuery = sprintf("
-        select * from sqlite_master
+        select type, name, tbl_name, rootpage from sqlite_master
         where type = 'table'
         \n");
-        $this->queryShow($lQuery, "20", 20);
+        $this->queryShow($lQuery, "10;20;20;10", 20);
     }
     //===============================================
     public static function Instance() {
@@ -81,7 +81,9 @@ class GSQLite {
             foreach($lDataMap as $lKey => $lValue) {
                 if($j != 0) {$lApp->debug .= sprintf(" | ");}
                 $lWidth = GManager::Instance()->getWidth($widthMap, $j, $defaultWidth);
-                $lApp->debug .= sprintf("%'.-".$lWidth."s", $lKey);
+                $lData = sprintf("%'^-".$lWidth."s", $lKey);
+                $lData = str_replace('^', '&nbsp;', $lData);
+                $lApp->debug .= $lData;
                 $j++;
             }
             break;
@@ -105,7 +107,7 @@ class GSQLite {
         }
         $lApp->debug .= sprintf("-+");
         $lApp->debug .= sprintf("<br>");
-        // header
+        // data
         $lApp->debug .= sprintf("| ");
         for($i = 0; $i < count($lResult); $i++) {
             $lDataMap = $lResult[$i];
@@ -113,7 +115,9 @@ class GSQLite {
             foreach($lDataMap as $lKey => $lValue) {
                 if($j != 0) {$lApp->debug .= sprintf(" | ");}
                 $lWidth = GManager::Instance()->getWidth($widthMap, $j, $defaultWidth);
-                $lApp->debug .= sprintf("%'.-".$lWidth."s", $lValue);
+                $lData = sprintf("%'^-".$lWidth."s", $lValue);
+                $lData = str_replace('^', '&nbsp;', $lData);
+                $lApp->debug .= $lData;
                 $j++;
             }
         }
