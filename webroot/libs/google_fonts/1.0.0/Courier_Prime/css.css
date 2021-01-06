@@ -1,27 +1,27 @@
 /* ============================================== */
 @font-face {
-  font-family: "Archivo Narrow";
+  font-family: "Courier Prime";
   font-style: normal;
-  src: url("ArchivoNarrow-Regular.ttf");
+  src: url("CourierPrime-Regular.ttf");
 }
 /* ============================================== */
 @font-face {
-  font-family: "Archivo Narrow";
+  font-family: "Courier Prime";
   font-style: normal;
   font-weight: bold;
-  src: url("ArchivoNarrow-Bold.ttf");
+  src: url("CourierPrime-Bold.ttf");
 }
 /* ============================================== */
 @font-face {
-  font-family: "Archivo Narrow";
+  font-family: "Courier Prime";
   font-style: italic;
-  src: url("ArchivoNarrow-Italic.ttf");
+  src: url("CourierPrime-Italic.ttf");
 }
 /* ============================================== */
 @font-face {
-  font-family: "Archivo Narrow";
+  font-family: "Courier Prime";
   font-style: italic;
   font-weight: bold;
-  src: url("ArchivoNarrow-BoldItalic.ttf");
+  src: url("CourierPrime-BoldItalic.ttf");
 }
 /* ============================================== */

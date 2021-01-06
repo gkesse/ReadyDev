@@ -186,6 +186,11 @@ span {
 }
 .debug_id .body {
     padding: 10px;
+    font-family: "Courier Prime";
+    font-size: 16px;
+    overflow: hidden;
+    overflow-x: auto;
+    white-space: nowrap;
 }
 /* ============================================== */
 /* html */

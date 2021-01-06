@@ -8,6 +8,8 @@ push_o:
 	@cd $(GPROJECT_PATH) && git add --all && git commit -m "Initial Commit" && git push -u origin master && sudo chmod -R 777 $(GPROJECT_PATH) 
 pull:
 	@cd $(GPROJECT_PATH) && git pull
+add:
+	@cd $(GPROJECT_PATH) && git add $(argv)
 clone:
 	@cd $(GPROJECT_ROOT) && git clone $(GGIT_URL) $(GGIT_NAME) 
 store:
