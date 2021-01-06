@@ -56,6 +56,23 @@ class GSQLite {
         $lStmt = $lPdo->query($sql);
         $lResult = $lStmt->fetchAll();
         
+        // sep
+        $lApp->debug .= sprintf("+-");
+        for($i = 0; $i < count($lResult); $i++) {
+            $lDataMap = $lResult[$i];
+            $j = 0;
+            foreach($lDataMap as $lKey => $lValue) {
+                if($j != 0) {$lApp->debug .= sprintf("-+-");}
+                $lWidth = GManager::Instance()->getWidth($widthMap, $j, $defaultWidth);
+                for($k = 0; $k < $lWidth; $k++) {
+                    $lApp->debug .= sprintf("-");
+                }
+                $j++;
+            }
+            break;
+        }
+        $lApp->debug .= sprintf("-+");
+        $lApp->debug .= sprintf("<br>");
         // header
         $lApp->debug .= sprintf("| ");
         for($i = 0; $i < count($lResult); $i++) {
@@ -64,12 +81,61 @@ class GSQLite {
             foreach($lDataMap as $lKey => $lValue) {
                 if($j != 0) {$lApp->debug .= sprintf(" | ");}
                 $lWidth = GManager::Instance()->getWidth($widthMap, $j, $defaultWidth);
-                $lApp->debug .= sprintf("%'.-20s", $lKey);
+                $lApp->debug .= sprintf("%'.-".$lWidth."s", $lKey);
+                $j++;
+            }
+            break;
+        }
+        $lApp->debug .= sprintf(" |");
+        $lApp->debug .= sprintf("<br>\n");
+        // sep
+        $lApp->debug .= sprintf("+-");
+        for($i = 0; $i < count($lResult); $i++) {
+            $lDataMap = $lResult[$i];
+            $j = 0;
+            foreach($lDataMap as $lKey => $lValue) {
+                if($j != 0) {$lApp->debug .= sprintf("-+-");}
+                $lWidth = GManager::Instance()->getWidth($widthMap, $j, $defaultWidth);
+                for($k = 0; $k < $lWidth; $k++) {
+                    $lApp->debug .= sprintf("-");
+                }
+                $j++;
+            }
+            break;
+        }
+        $lApp->debug .= sprintf("-+");
+        $lApp->debug .= sprintf("<br>");
+        // header
+        $lApp->debug .= sprintf("| ");
+        for($i = 0; $i < count($lResult); $i++) {
+            $lDataMap = $lResult[$i];
+            $j = 0;
+            foreach($lDataMap as $lKey => $lValue) {
+                if($j != 0) {$lApp->debug .= sprintf(" | ");}
+                $lWidth = GManager::Instance()->getWidth($widthMap, $j, $defaultWidth);
+                $lApp->debug .= sprintf("%'.-".$lWidth."s", $lValue);
                 $j++;
             }
         }
         $lApp->debug .= sprintf(" |");
         $lApp->debug .= sprintf("<br>\n");
+        // sep
+        $lApp->debug .= sprintf("+-");
+        for($i = 0; $i < count($lResult); $i++) {
+            $lDataMap = $lResult[$i];
+            $j = 0;
+            foreach($lDataMap as $lKey => $lValue) {
+                if($j != 0) {$lApp->debug .= sprintf("-+-");}
+                $lWidth = GManager::Instance()->getWidth($widthMap, $j, $defaultWidth);
+                for($k = 0; $k < $lWidth; $k++) {
+                    $lApp->debug .= sprintf("-");
+                }
+                $j++;
+            }
+            break;
+        }
+        $lApp->debug .= sprintf("-+");
+        $lApp->debug .= sprintf("<br>");
         
         $lPdo = null;
     }
