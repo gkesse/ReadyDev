@@ -18,6 +18,8 @@ class GSQLite {
         where type = 'table'
         \n");
         $this->queryShow($lQuery, "10;20;20;10", 20);
+        var_dump($this->queryMap($lQuery));
+        var_dump($this->queryValue($lQuery));
     }
     //===============================================
     public static function Instance() {
@@ -54,14 +56,14 @@ class GSQLite {
         $lApp = GManager::Instance()->getData()->app;
         $lPdo = $this->open();
         $lStmt = $lPdo->query($sql);
-        $lResult = $lStmt->fetchAll();
+        $lResultMap = $lStmt->fetchAll();
         
         // sep
         $lApp->debug .= sprintf("+-");
-        for($i = 0; $i < count($lResult); $i++) {
-            $lDataMap = $lResult[$i];
+        for($i = 0; $i < count($lResultMap); $i++) {
+            $lResult = $lResultMap[$i];
             $j = 0;
-            foreach($lDataMap as $lKey => $lValue) {
+            foreach($lResult as $lKey => $lValue) {
                 if($j != 0) {$lApp->debug .= sprintf("-+-");}
                 $lWidth = GManager::Instance()->getWidth($widthMap, $j, $defaultWidth);
                 for($k = 0; $k < $lWidth; $k++) {
@@ -75,10 +77,10 @@ class GSQLite {
         $lApp->debug .= sprintf("<br>");
         // header
         $lApp->debug .= sprintf("| ");
-        for($i = 0; $i < count($lResult); $i++) {
-            $lDataMap = $lResult[$i];
+        for($i = 0; $i < count($lResultMap); $i++) {
+            $lResult = $lResultMap[$i];
             $j = 0;
-            foreach($lDataMap as $lKey => $lValue) {
+            foreach($lResult as $lKey => $lValue) {
                 if($j != 0) {$lApp->debug .= sprintf(" | ");}
                 $lWidth = GManager::Instance()->getWidth($widthMap, $j, $defaultWidth);
                 $lData = sprintf("%'^-".$lWidth."s", $lKey);
@@ -92,10 +94,10 @@ class GSQLite {
         $lApp->debug .= sprintf("<br>\n");
         // sep
         $lApp->debug .= sprintf("+-");
-        for($i = 0; $i < count($lResult); $i++) {
-            $lDataMap = $lResult[$i];
+        for($i = 0; $i < count($lResultMap); $i++) {
+            $lResult = $lResultMap[$i];
             $j = 0;
-            foreach($lDataMap as $lKey => $lValue) {
+            foreach($lResult as $lKey => $lValue) {
                 if($j != 0) {$lApp->debug .= sprintf("-+-");}
                 $lWidth = GManager::Instance()->getWidth($widthMap, $j, $defaultWidth);
                 for($k = 0; $k < $lWidth; $k++) {
@@ -109,10 +111,10 @@ class GSQLite {
         $lApp->debug .= sprintf("<br>");
         // data
         $lApp->debug .= sprintf("| ");
-        for($i = 0; $i < count($lResult); $i++) {
-            $lDataMap = $lResult[$i];
+        for($i = 0; $i < count($lResultMap); $i++) {
+            $lResult = $lResultMap[$i];
             $j = 0;
-            foreach($lDataMap as $lKey => $lValue) {
+            foreach($lResult as $lKey => $lValue) {
                 if($j != 0) {$lApp->debug .= sprintf(" | ");}
                 $lWidth = GManager::Instance()->getWidth($widthMap, $j, $defaultWidth);
                 $lData = sprintf("%'^-".$lWidth."s", $lValue);
@@ -125,10 +127,10 @@ class GSQLite {
         $lApp->debug .= sprintf("<br>\n");
         // sep
         $lApp->debug .= sprintf("+-");
-        for($i = 0; $i < count($lResult); $i++) {
-            $lDataMap = $lResult[$i];
+        for($i = 0; $i < count($lResultMap); $i++) {
+            $lResult = $lResultMap[$i];
             $j = 0;
-            foreach($lDataMap as $lKey => $lValue) {
+            foreach($lResult as $lKey => $lValue) {
                 if($j != 0) {$lApp->debug .= sprintf("-+-");}
                 $lWidth = GManager::Instance()->getWidth($widthMap, $j, $defaultWidth);
                 for($k = 0; $k < $lWidth; $k++) {
@@ -148,6 +150,84 @@ class GSQLite {
         $lPdo = $this->open();
         $lPdo->exec($sql);
         $lPdo = null;
+    }
+    //===============================================
+    public function queryValue($sql) {
+        $lApp = GManager::Instance()->getData()->app;
+        $lPdo = $this->open();
+        $lStmt = $lPdo->query($sql);
+        $lResultMap = $lStmt->fetchAll();
+        
+        $lData = "";
+        
+        for($i = 0; $i < count($lResultMap); $i++) {
+            $lResult = $lResultMap[$i];
+            foreach($lResult as $lKey => $lValue) {
+                $lData = $lValue;
+                break;
+            }
+            break;
+        }
+        
+        return $lData;
+    }
+    //===============================================
+    public function queryCol($sql) {
+        $lApp = GManager::Instance()->getData()->app;
+        $lPdo = $this->open();
+        $lStmt = $lPdo->query($sql);
+        $lResultMap = $lStmt->fetchAll();
+        
+        $lDataMap = array();
+        
+        for($i = 0; $i < count($lResultMap); $i++) {
+            $lResult = $lResultMap[$i];
+            foreach($lResult as $lKey => $lValue) {
+                array_push($lDataMap, $lValue);
+                break;
+            }
+        }
+        
+        return $lDataMap;
+    }
+    //===============================================
+    public function queryRow($sql) {
+        $lApp = GManager::Instance()->getData()->app;
+        $lPdo = $this->open();
+        $lStmt = $lPdo->query($sql);
+        $lResultMap = $lStmt->fetchAll();
+        
+        $lDataMap = array();
+        
+        for($i = 0; $i < count($lResultMap); $i++) {
+            $lResult = $lResultMap[$i];
+            foreach($lResult as $lKey => $lValue) {
+                array_push($lDataMap, $lValue);
+            }
+            break;
+        }
+        
+        return $lDataMap;
+    }
+    //===============================================
+    public function queryMap($sql) {
+        $lApp = GManager::Instance()->getData()->app;
+        $lPdo = $this->open();
+        $lStmt = $lPdo->query($sql);
+        $lResultMap = $lStmt->fetchAll();
+        
+        $lDataMap = array();
+        
+        for($i = 0; $i < count($lResultMap); $i++) {
+            $lResult = $lResultMap[$i];
+            $lDataRow = array();
+            foreach($lResult as $lKey => $lValue) {
+                array_push($lDataRow, $lValue);
+            }
+            array_push($lDataMap, $lDataRow);
+        }
+        
+        return $lDataMap;
     }
     //===============================================
 }
