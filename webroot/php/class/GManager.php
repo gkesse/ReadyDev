@@ -40,7 +40,7 @@ class GManager {
     }
     //===============================================
     public function loadData() {
-        //$this->clearDebug();
+        $this->clearDebug();
         $this->getPageId();
         $this->lastUrl();
     }
@@ -113,6 +113,18 @@ class GManager {
         $lLocation = sprintf("Location: %s", $url);
         header($lLocation);
     }
+    //===============================================
+    // string
+    //===============================================
+    public function getWidth($widthMap, $index, $defaultWidth) {
+        $lWidthMap = explode(";", $widthMap);
+        $lLength = count($lWidthMap);
+        if($index >= $lLength) return $defaultWidth;
+        $lWidthId = $lWidthMap[$index];
+        if(!is_numeric($lWidthId)) return $defaultWidth;
+        $lWidth = lWidthId;
+        return $lWidth;
+    }    
     //===============================================
 }
 //===============================================

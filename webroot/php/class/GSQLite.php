@@ -5,7 +5,19 @@ class GSQLite {
     private static $m_instance = null;
     //===============================================
     private function __construct() {
-
+        // config_data
+        $lQuery = sprintf("
+        create table if not exists config_data (
+        config_key text,
+        config_value text
+        )\n");
+        $this->queryWrite($lQuery);
+        // config_data
+        $lQuery = sprintf("
+        select * from sqlite_master
+        where type = 'table'
+        \n");
+        $this->queryShow($lQuery, "20", 20);
     }
     //===============================================
     public static function Instance() {
@@ -32,10 +44,38 @@ class GSQLite {
             $lPdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } 
         catch (Exception $e) {
-            $lApp->debug .= sprintf("[sqlite] erreur ouverture : %s<br>", $e->getMessage());
+            $lApp->debug .= sprintf("[sqlite] erreur ouverture : %s<br>\n", $e->getMessage());
         }
 
-        return lPdo;
+        return $lPdo;
+    }
+    //===============================================
+    public function queryShow($sql, $widthMap, $defaultWidth) {
+        $lApp = GManager::Instance()->getData()->app;
+        $lPdo = $this->open();
+        $lStmt = $lPdo->query($sql);
+        $lResult = $lStmt->fetchAll();
+        
+        // header
+        for($i = 0; $i < count($lResult); $i++) {
+            $lDataMap = $lResult[$i];
+            $j = 0;
+            foreach($lDataMap as $lKey => $lValue) {
+                if($j != 0) {$lApp->debug .= sprintf(" | ");}
+                $lWidth = GManager::Instance()->getWidth($widthMap, $j, $defaultWidth);
+                $lApp->debug .= sprintf("%20s", $lKey);
+                $j++;
+            }
+        }
+        $lApp->debug .= sprintf("<br>");
+        
+        $lPdo = null;
+    }
+    //===============================================
+    public function queryWrite($sql) {
+        $lPdo = $this->open();
+        $lPdo->exec($sql);
+        $lPdo = null;
     }
     //===============================================
 }

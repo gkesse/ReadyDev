@@ -186,6 +186,8 @@ span {
 }
 .debug_id .body {
     padding: 10px;
+    font-family: "Courier Prime";
+    font-size: 16px;
 }
 /* ============================================== */
 /* html */

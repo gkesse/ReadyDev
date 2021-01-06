@@ -13,7 +13,7 @@ class GBody extends GWidget {
         $lWindow = GWidget::Create("window");
         $lWindow->load();
         $lWindow->start();
-        GSQLite::Instance()->open();
+        GSQLite::Instance();
         // body
         $this->start();
         GWidget::Create("titlebar")->run();
