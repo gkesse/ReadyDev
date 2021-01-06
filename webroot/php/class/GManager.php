@@ -122,7 +122,7 @@ class GManager {
         if($index >= $lLength) return $defaultWidth;
         $lWidthId = $lWidthMap[$index];
         if(!is_numeric($lWidthId)) return $defaultWidth;
-        $lWidth = lWidthId;
+        $lWidth = $lWidthId;
         return $lWidth;
     }    
     //===============================================

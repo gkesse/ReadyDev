@@ -57,17 +57,19 @@ class GSQLite {
         $lResult = $lStmt->fetchAll();
         
         // header
+        $lApp->debug .= sprintf("| ");
         for($i = 0; $i < count($lResult); $i++) {
             $lDataMap = $lResult[$i];
             $j = 0;
             foreach($lDataMap as $lKey => $lValue) {
                 if($j != 0) {$lApp->debug .= sprintf(" | ");}
                 $lWidth = GManager::Instance()->getWidth($widthMap, $j, $defaultWidth);
-                $lApp->debug .= sprintf("%20s", $lKey);
+                $lApp->debug .= sprintf("%'.-20s", $lKey);
                 $j++;
             }
         }
-        $lApp->debug .= sprintf("<br>");
+        $lApp->debug .= sprintf(" |");
+        $lApp->debug .= sprintf("<br>\n");
         
         $lPdo = null;
     }
