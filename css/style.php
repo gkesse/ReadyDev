@@ -916,6 +916,27 @@ span {
     right: 0px;
 }
 
+.HappyDay {
+    background-color: #010101;
+    font-family: Allan;
+    font-size: 24px;
+    color: yellow;
+    padding: 5px;
+    position: absolute;
+    display: inline-block;
+    vertical-align: middle;
+    left: 50%;
+    top: -10px;
+    border-radius: 5px;
+    width: 300px;
+    margin-left: -150px;
+    border: 10px solid transparent;
+    border-image: url("/data/img/defaults/border.png") 30 round;
+    -webkit-border-image: url("/data/img/defaults/border.png") 30 round; 
+    -moz-border-image: url("/data/img/defaults/border.png") 30 round; 
+    -o-border-image: url("/data/img/defaults/border.png") 30 round;
+}
+
 .HtmlPage {
     position: relative;
 }

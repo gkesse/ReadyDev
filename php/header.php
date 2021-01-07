@@ -141,7 +141,7 @@
         <!-- ============================================ -->
         <div class="HtmlPage">
             <!-- ============================================ -->
-            <div class="Background Top"></div>
+            <div class="Background Top"><div class="HappyDay">Bonne et Heureuse Année 2021</div></div>
             <div class="Background Middle"></div>
             <div class="Background Bottom"></div>
             <!-- ============================================ -->
