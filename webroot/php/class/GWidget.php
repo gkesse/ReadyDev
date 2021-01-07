@@ -42,7 +42,7 @@ class GWidget {
     public function space($size) {}
     //===============================================
     public function addItem($key, $text, $icon) {}
-    public function addItem2($key, $text, $title) {}
+    public function addStack($key, $text, $title) {}
     public function getPage($key) {return null;}
     public function getTitle($key) {return null;}
     public function lineEdit($id, $type, $holder) {}

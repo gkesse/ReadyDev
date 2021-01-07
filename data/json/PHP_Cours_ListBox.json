@@ -16,6 +16,6 @@
         {"name":"Tutoriels","link":"/Tutoriels/#Développement Web","follow":"no"},
         {"name":"PHP","link":"/Tutoriels/PHP/","follow":"no"},
         {"name":"Cours","link":"/Tutoriels/PHP/#Programmation de base","follow":"no"},
-        {"name":"Sélecteur d'adresse","link":"","follow":"no"}
+        {"name":"Liste de données","link":"","follow":"no"}
     ]
 }

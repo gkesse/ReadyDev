@@ -11,11 +11,11 @@ class GWindow extends GWidget {
     // method
     //===============================================
     public function load() {
-        $this->m_widgetMap->addItem2("home", "home", "Accueil");
-        $this->m_widgetMap->addItem2("home/login", "login", "Connexion");
-        $this->m_widgetMap->addItem2("home/sqlite", "sqlite", "SQLite");
-        $this->m_widgetMap->addItem2("home/opencv", "opencv", "OpenCV");
-        $this->m_widgetMap->addItem2("home/debug", "debug", "Debug");
+        $this->m_widgetMap->addStack("home", "home", "Accueil");
+        $this->m_widgetMap->addStack("home/login", "login", "Connexion");
+        $this->m_widgetMap->addStack("home/sqlite", "sqlite", "SQLite");
+        $this->m_widgetMap->addStack("home/opencv", "opencv", "OpenCV");
+        $this->m_widgetMap->addStack("home/debug", "debug", "Debug");
     }
     //===============================================
     public function start() {

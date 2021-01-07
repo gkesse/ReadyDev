@@ -1,4 +1,4 @@
-<?php   
+ <?php   
 //===============================================
 class GStackWidget extends GWidget {
     //===============================================
@@ -11,7 +11,7 @@ class GStackWidget extends GWidget {
     //===============================================
     // method
     //===============================================
-    public function addItem2($key, $page, $title) {
+    public function addStack($key, $page, $title) {
         $this->m_pageMap[$key] = $page;
         $this->m_titleMap[$key] = $title;
     }
