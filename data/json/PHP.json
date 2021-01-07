@@ -19,7 +19,13 @@
     "basics":
     [
         {"name":"Créer un projet en PHP","link":"/Tutoriels/PHP/Cours/Project/","follow":"yes"},
-        {"name":"Créer une machine à états finis en PHP","link":"/Tutoriels/PHP/Cours/StateMachine/","follow":"yes"}
+        {"name":"Créer un système d'administration en PHP","link":"/Tutoriels/PHP/Cours/Admin_System/","follow":"yes"},
+        {"name":"Créer une barre de titre en PHP","link":"/Tutoriels/PHP/Cours/TitleBar/","follow":"yes"},
+        {"name":"Créer un sélecteur d'adresse en PHP","link":"/Tutoriels/PHP/Cours/AddressKey/","follow":"yes"},
+        {"name":"Créer une liste de données en PHP","link":"/Tutoriels/PHP/Cours/ListBox/","follow":"yes"},
+        {"name":"Créer une pile de vues en PHP","link":"/Tutoriels/PHP/Cours/StackWidget/","follow":"yes"},
+        {"name":"Créer un système de débogage en PHP","link":"/Tutoriels/PHP/Cours/Log/","follow":"yes"},
+        {"name":"Créer un système de login en PHP","link":"/Tutoriels/PHP/Cours/Login/","follow":"yes"}
     ]
 }
                         

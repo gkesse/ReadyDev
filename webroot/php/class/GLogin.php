@@ -21,9 +21,9 @@ class GLogin extends GWidget {
         GWidget::Create("lineedit")->lineEdit2("password", "password", "key", "Mot de passe");
         GWidget::Create("spacev")->space(20);
         echo sprintf("<div class='connect'>\n");
-        GWidget::Create("button")->button2("Annuler", "user", $lApp->last_url);
+        GWidget::Create("button")->button2("Annuler", "times", $lApp->last_url);
         GWidget::Create("spaceh")->space(5);
-        GWidget::Create("button")->button4("Se Connecter", "eye", "login");
+        GWidget::Create("button")->button4("Se Connecter", "sign-in", "login");
         echo sprintf("</div>\n");
         echo sprintf("</div>\n");
         echo sprintf("</div>\n");

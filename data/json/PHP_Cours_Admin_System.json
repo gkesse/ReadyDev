@@ -5,17 +5,17 @@
         "meta_desc":
         [
 			"Le but de ce tutoriel est de vous apprendre",
-            "à créer un projet en PHP.",
+            "à créer un système d'administration en PHP.",
             "Produit par Gérard KESSE."
         ],
-        "meta_cano":"/Tutoriels/PHP/Cours/Project/",
-        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/PHP/img/b_cours_project.png"
+        "meta_cano":"/Tutoriels/PHP/Cours/Admin_System/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/PHP/img/b_cours_admin_system.png"
     },    
     "links":
     [
         {"name":"Tutoriels","link":"/Tutoriels/#Développement Web","follow":"no"},
         {"name":"PHP","link":"/Tutoriels/PHP/","follow":"no"},
         {"name":"Cours","link":"/Tutoriels/PHP/#Programmation de base","follow":"no"},
-        {"name":"Projet","link":"","follow":"no"}
+        {"name":"Système d'administration","link":"","follow":"no"}
     ]
 }

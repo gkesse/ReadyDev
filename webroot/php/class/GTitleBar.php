@@ -12,7 +12,7 @@ class GTitleBar extends GWidget {
         $lApp = GManager::Instance()->getData()->app;
         echo sprintf("<div class='block_id'>\n");
         echo sprintf("<div class='titlebar_id'>\n");
-        echo sprintf("<div class='logo'><img src='/webroot/data/img/logo_flat.png'/></div>\n");
+        echo sprintf("<div class='logo'><img src='%s'/></div>\n", $lApp->logo_flat);
         echo sprintf("<div class='app_name'>%s</div>\n", $lApp->app_name);
         echo sprintf("<div class='title'>%s</div>\n", $lApp->title);
         echo sprintf("<a href='/home/login'><div class='login' title='Connexion'>

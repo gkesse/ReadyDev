@@ -1,11 +1,11 @@
 <?php
     require $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoloadRegister.php";
     
-    $m_data = GJson::Instance()->getData("data/json/PHP_Cours_Project.json");
+    $m_data = GJson::Instance()->getData("data/json/PHP_Cours_StackWidget.json");
     
-    GConfig::Instance()->setData("title", "PHP - Créer un projet");
+    GConfig::Instance()->setData("title", "PHP - Créer une pile de vues");
     GConfig::Instance()->setData("menu", "Tutoriels");
-    GConfig::Instance()->setData("view", "PHP_Cours_Project");
+    GConfig::Instance()->setData("view", "PHP_Cours_StackWidget");
     GConfig::Instance()->setData("link", $m_data["links"]);
 
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";
