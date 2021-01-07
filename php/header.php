@@ -196,6 +196,7 @@
                                 <?php if($lExiststView == true) { ?>
                                 <div class="Body">
                                     <div class="Row">
+                                        <a href="/home"><div class="ReadyApp"><i class="fa fa-sign-in"></i> ReadyApp</div></a>
                                         <div class="Form">
                                             <div class="Label">
                                                 <i class="Icon fa fa-eye"></i>
