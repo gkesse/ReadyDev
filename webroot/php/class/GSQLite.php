@@ -18,8 +18,6 @@ class GSQLite {
         where type = 'table'
         \n");
         $this->queryShow($lQuery, "10;20;20;10", 20);
-        var_dump($this->queryMap($lQuery));
-        var_dump($this->queryValue($lQuery));
     }
     //===============================================
     public static function Instance() {

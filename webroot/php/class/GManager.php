@@ -19,6 +19,7 @@ class GManager {
         $this->mgr->app->last_url = &$_SESSION["last_url"];
         $this->mgr->app->sqlite_db_path = "/webroot/data/sqlite/config.dat";
         $this->mgr->app->google_fonts = "/webroot/libs/google_fonts/1.0.0";
+        $this->mgr->app->logo_flat = "/webroot/data/img/logo_flat.png";
     }
     //===============================================
     public static function Instance() {
@@ -152,6 +153,8 @@ class sGApp {
     public $last_url;
     // sqlite
     public $sqlite_db_path;
+    // logo
+    public $logo_flat;
 }
 //===============================================
 ?>

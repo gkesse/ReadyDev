@@ -31,6 +31,7 @@ html {
     -webkit-tap-highlight-color: transparent;
     overflow: auto;
     scrollbar-color: #5f6681 #051039;
+    scrollbar-color: #305030 #051039;
     scrollbar-width: auto;
 }
 
@@ -145,8 +146,8 @@ span {
     position: relative;
     max-width: 1000px;
     margin: auto;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 0px;
+    padding-bottom: 0px;
 }
 /* ============================================== */
 /* button */
