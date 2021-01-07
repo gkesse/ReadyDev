@@ -19,8 +19,7 @@
     "basics":
     [
         {"name":"Créer un projet en Python","link":"/Tutoriels/Python/Cours/Project/","follow":"yes"},
-        {"name":"Créer un singleton en Python","link":"/Tutoriels/Python/Cours/Singleton/","follow":"yes"},
-        {"name":"Créer une machine à états finis en Python","link":"/Tutoriels/Python/Cours/State_Machine/","follow":"yes"}
+        {"name":"Créer un système d'administration en Python","link":"/Tutoriels/Python/Cours/Admin_System/","follow":"yes"}
     ],
     "sqlite":
     [
