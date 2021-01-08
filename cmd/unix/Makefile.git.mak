@@ -10,6 +10,8 @@ pull:
 	@cd $(GPROJECT_PATH) && git pull
 add:
 	@cd $(GPROJECT_PATH) && git add $(argv)
+rm:
+	@cd $(GPROJECT_PATH) && git rm $(argv)
 clone:
 	@cd $(GPROJECT_ROOT) && git clone $(GGIT_URL) $(GGIT_NAME) 
 store:
