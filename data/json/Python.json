@@ -23,10 +23,7 @@
     ],
     "sqlite":
     [
-        {"name":"Créer un gestionnaire de module SQLite en Python","link":"/Tutoriels/Python/SQLite/System/","follow":"yes"},
-        {"name":"Afficher les tables SQLite en Python","link":"/Tutoriels/Python/SQLite/Tables/","follow":"yes"},
-        {"name":"Créer une table SQLite en Python","link":"/Tutoriels/Python/SQLite/Create/","follow":"yes"},
-        {"name":"Insérer des données dans une table SQLite en Python","link":"/Tutoriels/Python/SQLite/Insert/","follow":"yes"}
+        {"name":"Créer un gestionnaire de module SQLite en Python","link":"/Tutoriels/Python/SQLite/System/","follow":"yes"}
     ]
 }
                         
