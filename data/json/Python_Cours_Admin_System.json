@@ -5,18 +5,18 @@
         "meta_desc":
         [
 			"Le but de ce tutoriel est de vous apprendre",
-            "à créer une machine à états finis en Pyhton.",
+            "à créer un système d'administration en Pyhton.",
             "Produit par Gérard KESSE."
         ],
-        "meta_cano":"/Tutoriels/Pyhton/Cours/State_Machine/",
-        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Python/Cours/img/b_state_machine.png"
+        "meta_cano":"/Tutoriels/Pyhton/Cours/Admin_System/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Python/img/b_cours_admin_system.png"
     },    
     "links":
     [
         {"name":"Tutoriels","link":"/Tutoriels/#Développement Logiciel","follow":"no"},
         {"name":"Python","link":"/Tutoriels/Python/","follow":"no"},
         {"name":"Cours","link":"/Tutoriels/Python/#Programmation de base","follow":"no"},
-        {"name":"Machine à États Finis","link":"","follow":"no"}
+        {"name":"Système d'administration","link":"","follow":"no"}
     ]
 }
                         
