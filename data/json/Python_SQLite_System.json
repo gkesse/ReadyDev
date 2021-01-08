@@ -1,0 +1,22 @@
+{
+    "sitemap":"yes",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+			"Le but de ce tutoriel est de vous apprendre",
+            "à créer un gestionnaire de module SQLite en Pyhton.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Tutoriels/Pyhton/SQLite/System/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Python/img/b_sqlite_system.png"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/#Développement Logiciel","follow":"no"},
+        {"name":"Python","link":"/Tutoriels/Python/","follow":"no"},
+        {"name":"Cours","link":"/Tutoriels/Python/#Programmation de base","follow":"no"},
+        {"name":"Système de gestion","link":"","follow":"no"}
+    ]
+}
+                        
