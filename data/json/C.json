@@ -27,6 +27,11 @@
         {"name":"Créer un système de fichier log en C","link":"/Tutoriels/C0/Cours/Log/","follow":"yes"},
         {"name":"Créer un manager de données en C","link":"/Tutoriels/C0/Cours/Manager/","follow":"yes"},
         {"name":"Créer un patron stratégie en C","link":"/Tutoriels/C0/Cours/Strategy/","follow":"yes"}
+    ],
+    "gtk":
+    [
+        {"name":"Créer un projet Gtk en C","link":"/Tutoriels/C0/Gtk/Project/","follow":"yes"},
+        {"name":"Créer un système d'administration Gtk en C","link":"/Tutoriels/C0/Gtk/Project/","follow":"yes"}
     ]
 }
                         
