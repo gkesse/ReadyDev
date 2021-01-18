@@ -31,7 +31,7 @@
     "gtk":
     [
         {"name":"Créer un projet Gtk en C","link":"/Tutoriels/C0/Gtk/Project/","follow":"yes"},
-        {"name":"Créer un système d'administration Gtk en C","link":"/Tutoriels/C0/Gtk/Project/","follow":"yes"}
+        {"name":"Créer un système d'administration Gtk en C","link":"/Tutoriels/C0/Gtk/Admin_System/","follow":"yes"}
     ]
 }
                         
