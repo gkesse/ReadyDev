@@ -24,5 +24,9 @@
     "sqlite":
     [
         {"name":"Créer un gestionnaire de module SQLite en Python","link":"/Tutoriels/Python/SQLite/System/","follow":"yes"}
+    ],
+    "qt":
+    [
+        {"name":"Créer un système d'administration Qt en Python","link":"/Tutoriels/Python/Qt/Admin_System/","follow":"yes"}
     ]
 }
