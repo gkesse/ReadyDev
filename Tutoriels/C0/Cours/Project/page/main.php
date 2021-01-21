@@ -5,7 +5,7 @@ int main(int argc, char** argv) {
     printf("Bonjour tout le monde\n");
     return 0;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer un projet en C-Fichier Makefile"><a class="Link9" href="#Créer un projet en C">Fichier Makefile</a></h2><br><h3 class="Title8 GTitle3">Makefile.c.mak<br></h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="makefile">GSRC = $(GPROJECT_SRC)
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer un projet en C-Fichier Makefile"><a class="Link9" href="#Créer un projet en C">Fichier Makefile</a></h2><br><h3 class="Title8 GTitle3">Makefile.cmd.mak<br></h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="makefile">GSRC = $(GPROJECT_SRC)
 GBIN = bin
 GBUILD = build
 GTARGET = $(GBIN)/rdc 
@@ -49,7 +49,7 @@ export "GPROJECT_SRC=${GPROJECT_PATH}/gtk/code/readyapp/src"
 #================================================</xmp></pre></div><br><h3 class="Title8 GTitle3">make_c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">#================================================
 lArgv="${@:2}"
 #================================================
-make -f Makefile.c.mak $1 "argv=$lArgv"
+make -f Makefile.cmd.mak $1 "argv=$lArgv"
 #================================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer un projet en C-Compilation automatique"><a class="Link9" href="#Créer un projet en C">Compilation automatique</a></h2><br><h3 class="Title8 GTitle3">Terminal</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">./make_c all</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer un projet en C-Compilation manuelle"><a class="Link9" href="#Créer un projet en C">Compilation manuelle</a></h2><br><h3 class="Title8 GTitle3">Terminal</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">rm -f bin/*
 gcc -std=gnu18 -W -Wall -Wno-unused-parameter \
 -c src/main.c -o build/main.o -Isrc/include
