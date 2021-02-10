@@ -1361,7 +1361,7 @@ span {
     background-attachment: scroll;
 }
 
-.ReadyApp {
+.ReadyPHP {
     background-color: #ff0000;
     display: inline-block;
     vertical-align: middle;
@@ -1372,6 +1372,19 @@ span {
     position: absolute;
     top: 5px;
     left: 5px;
+}
+
+.ReadyCGI {
+    background-color: #ff0000;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 5px;
+    border-radius: 5px;
+    font-family: Allan;
+    font-size: 18px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
 }
 
 .Result {
