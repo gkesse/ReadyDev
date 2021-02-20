@@ -1,0 +1,28 @@
+{
+    "sitemap":"yes",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+			"Le but de ce tutoriel est de vous apprendre",
+            "la programmation système embarqué.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Tutoriels/Embedded_System/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Embedded_System/img/b_embedded_system.png"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/#Développement Système Embarqué","follow":"no"},
+        {"name":"Système Embarqué","link":"","follow":"no"}
+    ],
+    "debian":
+    [
+        {"name":"Configurer la connexion ssh sous Debian","link":"/Tutoriels/Embedded_System/Debian/SSH/","follow":"yes"}
+    ],
+    "virtualbox":
+    [
+        {"name":"Installer Debian sous VirtualBox","link":"/Tutoriels/Embedded_System/VirtualBox/Debian/","follow":"yes"},
+        {"name":"Configurer le réseau sous VirtualBox","link":"/Tutoriels/Embedded_System/VirtualBox/Network/","follow":"yes"}
+    ]
+}

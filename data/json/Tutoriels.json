@@ -115,6 +115,16 @@
             "link":"/Tutoriels/Android/",
 			"follow":"yes"
         }
+    ],    
+    "embedded_system":
+    [
+        {
+            "icon":"fa fa-microchip",
+            "theme":"Système Embarqué",
+            "description":"Programmation<br/> Système Emabrqué",
+            "link":"/Tutoriels/Embedded_System/",
+			"follow":"yes"
+        }
     ],
     "resources":
     [
