@@ -5,18 +5,18 @@
         "meta_desc":
         [
 			"Le but de ce tutoriel est de vous apprendre",
-            "à configurer la connexion SSH sous Debian.",
+            "à gérer un bouton avec le 8051.",
             "Produit par Gérard KESSE."
         ],
-        "meta_cano":"/Tutoriels/Embedded_System/Debian/SSH/",
-        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Embedded_System/img/b_debian_ssh.png"
+        "meta_cano":"/Tutoriels/Embedded_System/8051/LED/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Embedded_System/img/b_8051_button.png"
     },    
     "links":
     [
         {"name":"Tutoriels","link":"/Tutoriels/#Développement Système Embarqué","follow":"no"},
         {"name":"Système Embarqué","link":"/Tutoriels/Embedded_System/","follow":"no"},
-        {"name":"Debian","link":"/Tutoriels/Embedded_System/#Distribution Linux Debian","follow":"no"},
-        {"name":"SSH","link":"","follow":"no"}
+        {"name":"8051","link":"/Tutoriels/Embedded_System/#Système Embarqué 8051","follow":"no"},
+        {"name":"Bouton","link":"","follow":"no"}
     ]
 }
                         

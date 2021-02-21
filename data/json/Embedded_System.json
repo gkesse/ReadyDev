@@ -16,6 +16,11 @@
         {"name":"Tutoriels","link":"/Tutoriels/#Développement Système Embarqué","follow":"no"},
         {"name":"Système Embarqué","link":"","follow":"no"}
     ],
+    "8051":
+    [
+        {"name":"Gérer une diode LED avec le 8051","link":"/Tutoriels/Embedded_System/8051/LED/","follow":"yes"},
+        {"name":"Gérer un button avec le 8051","link":"/Tutoriels/Embedded_System/8051/Button/","follow":"yes"}
+    ],
     "debian":
     [
         {"name":"Configurer la connexion ssh sous Debian","link":"/Tutoriels/Embedded_System/Debian/SSH/","follow":"yes"}
