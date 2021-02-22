@@ -16,6 +16,11 @@
         {"name":"Tutoriels","link":"/Tutoriels/#Développement Système Embarqué","follow":"no"},
         {"name":"Système Embarqué","link":"","follow":"no"}
     ],
+    "yocto":
+    [
+        {"name":"Créer une image Qemu avec Yocto","link":"/Tutoriels/Embedded_System/Yocto/Qemu/","follow":"yes"},
+        {"name":"Créer une image RaspberryPi avec Yocto","link":"/Tutoriels/Embedded_System/Yocto/RaspberryPi/","follow":"yes"}
+    ],
     "8051":
     [
         {"name":"Gérer une diode LED avec le 8051","link":"/Tutoriels/Embedded_System/8051/LED/","follow":"yes"},
