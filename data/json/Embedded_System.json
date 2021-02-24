@@ -21,6 +21,14 @@
         {"name":"Créer une image Qemu avec Yocto","link":"/Tutoriels/Embedded_System/Yocto/Qemu/","follow":"yes"},
         {"name":"Créer une image RaspberryPi avec Yocto","link":"/Tutoriels/Embedded_System/Yocto/RaspberryPi/","follow":"yes"}
     ],
+    "stm32cubeide":
+    [
+        {"name":"Créer un projet avec STM32CubeIDE","link":"/Tutoriels/Embedded_System/STM32CubeIDE/Project/","follow":"yes"}
+    ],
+    "arduino":
+    [
+        {"name":"Créer un projet avec Arduino","link":"/Tutoriels/Embedded_System/Arduino/Project/","follow":"yes"}
+    ],
     "8051":
     [
         {"name":"Gérer une diode LED avec le 8051","link":"/Tutoriels/Embedded_System/8051/LED/","follow":"yes"},

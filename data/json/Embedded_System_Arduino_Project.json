@@ -1,0 +1,22 @@
+{
+    "sitemap":"yes",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+			"Le but de ce tutoriel est de vous apprendre",
+            "à créer un projet avec Arduino.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Tutoriels/Embedded_System/Arduino/Project/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Embedded_System/img/b_arduino_project.png"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/#Développement Système Embarqué","follow":"no"},
+        {"name":"Système Embarqué","link":"/Tutoriels/Embedded_System/","follow":"no"},
+        {"name":"Arduino","link":"/Tutoriels/Embedded_System/#Programmation Embarquée avec Arduino","follow":"no"},
+        {"name":"Projet","link":"","follow":"no"}
+    ]
+}
+                        
