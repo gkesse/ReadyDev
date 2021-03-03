@@ -1,0 +1,21 @@
+{
+    "sitemap":"yes",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+			"Le but de ce tutoriel est de vous apprendre",
+            "à créer un projet en Shell.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Tutoriels/Shell/Cours/Admin_System/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Shell/img/b_cours_admin_system.png"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/#Développement Logiciel","follow":"no"},
+        {"name":"Shell","link":"/Tutoriels/Shell/","follow":"no"},
+        {"name":"Cours","link":"/Tutoriels/Shell/#Programmation de base","follow":"no"},
+        {"name":"Projet","link":"","follow":"no"}
+    ]
+}

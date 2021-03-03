@@ -1,0 +1,22 @@
+{
+    "sitemap":"yes",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+			"Le but de ce tutoriel est de vous apprendre",
+            "à utiliser les commandes Unix.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Tutoriels/Embedded_System/Intro/Command_Unix/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Embedded_System/img/b_intro_command_unix.png"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/#Développement Système Embarqué","follow":"no"},
+        {"name":"Système Embarqué","link":"/Tutoriels/Embedded_System/","follow":"no"},
+        {"name":"Introduction","link":"/Tutoriels/Embedded_System/#Introduction","follow":"no"},
+        {"name":"Commandes Unix","link":"","follow":"no"}
+    ]
+}
+                        

@@ -1,0 +1,22 @@
+{
+    "sitemap":"yes",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+			"Le but de ce tutoriel est de vous apprendre",
+            "à configurer la connexion SSH sous Debian.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Tutoriels/Embedded_System/Linux/Debian_SSH/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Embedded_System/img/b_linux_debian_ssh.png"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/#Développement Système Embarqué","follow":"no"},
+        {"name":"Système Embarqué","link":"/Tutoriels/Embedded_System/","follow":"no"},
+        {"name":"Linux","link":"/Tutoriels/Embedded_System/#Distribution Linux","follow":"no"},
+        {"name":"Debian SSH","link":"","follow":"no"}
+    ]
+}
+                        

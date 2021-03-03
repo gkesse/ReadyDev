@@ -19,7 +19,6 @@
     "basics":
     [
         {"name":"Créer un projet en Shell","link":"/Tutoriels/Shell/Cours/Project/","follow":"yes"},
-        {"name":"Créer une machine à états finis en Shell","link":"/Tutoriels/Shell/Cours/StateMachine/","follow":"yes"}
+        {"name":"Créer un système d'administration en Shell","link":"/Tutoriels/Shell/Cours/Admin_System/","follow":"yes"}
     ]
 }
-                        
