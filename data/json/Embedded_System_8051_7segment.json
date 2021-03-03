@@ -5,18 +5,18 @@
         "meta_desc":
         [
 			"Le but de ce tutoriel est de vous apprendre",
-            "la programmation système embarqué.",
+            "à gérer un afficheur 7-segment avec le 8051.",
             "Produit par Gérard KESSE."
         ],
-        "meta_cano":"/Tutoriels/Embedded_System/VirtualBox/Debian/",
-        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Embedded_System/img/b_virtualbox_debian.png"
+        "meta_cano":"/Tutoriels/Embedded_System/8051/7segment/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Embedded_System/img/b_8051_7segment.png"
     },    
     "links":
     [
         {"name":"Tutoriels","link":"/Tutoriels/#Développement Système Embarqué","follow":"no"},
         {"name":"Système Embarqué","link":"/Tutoriels/Embedded_System/","follow":"no"},
-        {"name":"VirtualBox","link":"/Tutoriels/Embedded_System/#Virtualisation matérielle avec VirtualBox","follow":"no"},
-        {"name":"Debian","link":"","follow":"no"}
+        {"name":"8051","link":"/Tutoriels/Embedded_System/#Système Embarqué 8051","follow":"no"},
+        {"name":"7-segment","link":"","follow":"no"}
     ]
 }
                         

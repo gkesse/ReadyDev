@@ -16,47 +16,18 @@
         {"name":"Tutoriels","link":"/Tutoriels/#Développement Système Embarqué","follow":"no"},
         {"name":"Système Embarqué","link":"","follow":"no"}
     ],
-    "intro":
+    "8051":
     [
-        {"name":"Commandes Linux","link":"/Tutoriels/Embedded_System/Intro/Command_Unix/","follow":"yes"}
-    ],
-    "yocto":
-    [
-        {"name":"Créer une image Qemu ARM avec Yocto","link":"/Tutoriels/Embedded_System/Yocto/Qemu_ARM/","follow":"yes"},
-        {"name":"Créer une image RaspberryPi avec Yocto","link":"/Tutoriels/Embedded_System/Yocto/RaspberryPi/","follow":"yes"}
-    ],
-    "xenomai":
-    [
-        {"name":"Créer un système temps réel Ubuntu avec Xenomai","link":"/Tutoriels/Embedded_System/Xenomai/Ubuntu/","follow":"yes"}
-    ],
-    "stm32cubeide":
-    [
-        {"name":"Créer un projet avec STM32CubeIDE","link":"/Tutoriels/Embedded_System/STM32CubeIDE/Project/","follow":"yes"}
+        {"name":"Gérer une diode LED avec le 8051","link":"/Tutoriels/Embedded_System/8051/LED/","follow":"yes"},
+        {"name":"Gérer un button avec le 8051","link":"/Tutoriels/Embedded_System/8051/Button/","follow":"yes"},
+        {"name":"Gérer un afficheur 7-segment avec le 8051","link":"/Tutoriels/Embedded_System/8051/7segment/","follow":"yes"}
     ],
     "arduino":
     [
         {"name":"Créer un projet avec Arduino","link":"/Tutoriels/Embedded_System/Arduino/Project/","follow":"yes"}
     ],
-    "8051":
+    "rpi_c":
     [
-        {"name":"Gérer une diode LED avec le 8051","link":"/Tutoriels/Embedded_System/8051/LED/","follow":"yes"},
-        {"name":"Gérer un button avec le 8051","link":"/Tutoriels/Embedded_System/8051/Button/","follow":"yes"}
-    ],
-    "rpi":
-    [
-        {"name":"Configurer l'environnement avec le Raspberry PI","link":"/Tutoriels/Embedded_System/RaspberryPi/Environment/","follow":"yes"}
-    ],
-    "debian":
-    [
-        {"name":"Configurer la connexion ssh sous Debian","link":"/Tutoriels/Embedded_System/Debian/SSH/","follow":"yes"}
-    ],
-    "ubuntu":
-    [
-        {"name":"Compiler le noyau Linux sous Ubuntu","link":"/Tutoriels/Embedded_System/Ubuntu/Kernel/","follow":"yes"}
-    ],
-    "virtualbox":
-    [
-        {"name":"Installer Debian sous VirtualBox","link":"/Tutoriels/Embedded_System/VirtualBox/Debian/","follow":"yes"},
-        {"name":"Configurer le réseau sous VirtualBox","link":"/Tutoriels/Embedded_System/VirtualBox/Network/","follow":"yes"}
+        {"name":"Gérer une diode LED en C avec le RaspberryPI","link":"/Tutoriels/Embedded_System/RaspberryPi/LED_C/","follow":"yes"}
     ]
 }
