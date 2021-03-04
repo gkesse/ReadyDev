@@ -26,6 +26,10 @@
     [
         {"name":"Créer un projet avec Arduino","link":"/Tutoriels/Embedded_System/Arduino/Project/","follow":"yes"}
     ],
+    "rpi_conf":
+    [
+        {"name":"Configurations avec le RaspberryPI","link":"/Tutoriels/Embedded_System/RaspberryPi/Configuration/","follow":"yes"}
+    ],
     "rpi_c":
     [
         {"name":"Gérer une diode LED en C avec le RaspberryPI","link":"/Tutoriels/Embedded_System/RaspberryPi/LED_C/","follow":"yes"}

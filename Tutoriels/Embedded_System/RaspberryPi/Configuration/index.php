@@ -1,11 +1,11 @@
 <?php
     require $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoloadRegister.php";
     
-    $m_data = GJson::Instance()->getData("data/json/Embedded_System_RaspberryPi_LED_C.json");
+    $m_data = GJson::Instance()->getData("data/json/Embedded_System_RaspberryPi_Configuration.json");
     
-    GConfig::Instance()->setData("title", "RaspberryPi - C - Gérer une diode LED");
+    GConfig::Instance()->setData("title", "RaspberryPi - Configurations");
     GConfig::Instance()->setData("menu", "Tutoriels");
-    GConfig::Instance()->setData("view", "Embedded_System_RaspberryPi_LED_C");
+    GConfig::Instance()->setData("view", "Embedded_System_RaspberryPi_Configuration");
     GConfig::Instance()->setData("link", $m_data["links"]);
 
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";
