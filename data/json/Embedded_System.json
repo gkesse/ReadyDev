@@ -28,7 +28,7 @@
     ],
     "rpi_conf":
     [
-        {"name":"Configurations avec le RaspberryPI","link":"/Tutoriels/Embedded_System/RaspberryPi/Configuration/","follow":"yes"}
+        {"name":"Configurations avec le RaspberryPI","link":"/Tutoriels/Embedded_System/RaspberryPi/Configurations/","follow":"yes"}
     ],
     "rpi_c":
     [
