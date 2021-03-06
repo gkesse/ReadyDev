@@ -114,6 +114,7 @@ NOTE: Executing Tasks
 Currently  1 running tasks (54 of 3077)   1% |#                                                                                         |
 0: automake-native-1.16.2-r0 do_configure - 10s (pid 14893)</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-3.3 - Simuler l'image"><a class="Link9" href="#Opérations sur le module Yocto">3.3 - Simuler l'image</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">runqemu qemux86</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-4 - RaspberryPi"><a class="Link9" href="#Opérations sur le module Yocto">4 - RaspberryPi</a></h2><br>RaspberryPi est un mini PC embarqué.<br><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-4.1 - Télécharger les méta-données"><a class="Link9" href="#Opérations sur le module Yocto">4.1 - Télécharger les méta-données</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">cd poky/
 git clone git://git.yoctoproject.org/meta-raspberrypi
+git clone https://github.com/openembedded/meta-openembedded.git
 git clone https://github.com/OSSystems/meta-gstreamer1.0.git</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Cloning into 'meta-raspberrypi'...
 remote: Enumerating objects: 8562, done.
 remote: Counting objects: 100% (8562/8562), done.
