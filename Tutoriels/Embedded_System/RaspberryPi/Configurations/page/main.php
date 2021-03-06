@@ -113,21 +113,14 @@ Sstate summary: Wanted 1087 Found 0 Missed 1087 Current 0 (0% match, 0% complete
 NOTE: Executing Tasks
 Currently  1 running tasks (54 of 3077)   1% |#                                                                                         |
 0: automake-native-1.16.2-r0 do_configure - 10s (pid 14893)</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-3.3 - Simuler l'image"><a class="Link9" href="#Opérations sur le module Yocto">3.3 - Simuler l'image</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">runqemu qemux86</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-4 - RaspberryPi"><a class="Link9" href="#Opérations sur le module Yocto">4 - RaspberryPi</a></h2><br>RaspberryPi est un mini PC embarqué.<br><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-4.1 - Télécharger les méta-données"><a class="Link9" href="#Opérations sur le module Yocto">4.1 - Télécharger les méta-données</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">cd poky/
-git clone git://git.yoctoproject.org/meta-raspberrypi</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Cloning into 'meta-raspberrypi'...
+git clone git://git.yoctoproject.org/meta-raspberrypi
+git clone https://github.com/OSSystems/meta-gstreamer1.0.git</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Cloning into 'meta-raspberrypi'...
 remote: Enumerating objects: 8562, done.
 remote: Counting objects: 100% (8562/8562), done.
 remote: Compressing objects: 100% (4230/4230), done.
 remote: Total 8562 (delta 4924), reused 6975 (delta 3925)
 Receiving objects: 100% (8562/8562), 1.74 MiB | 677.00 KiB/s, done.
 Resolving deltas: 100% (4924/4924), done.
-Checking connectivity... done.</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">cd poky/
-git clone https://github.com/openembedded/meta-openembedded.git</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Cloning into 'meta-openembedded'...
-remote: Enumerating objects: 253, done.
-remote: Counting objects: 100% (253/253), done.
-remote: Compressing objects: 100% (146/146), done.
-remote: Total 148798 (delta 131), reused 192 (delta 96), pack-reused 148545
-Receiving objects: 100% (148798/148798), 46.68 MiB | 715.00 KiB/s, done.
-Resolving deltas: 100% (87593/87593), done.
 Checking connectivity... done.</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-4.2 - Configurer l'environnement"><a class="Link9" href="#Opérations sur le module Yocto">4.2 - Configurer l'environnement</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">cd poky/
 . oe-init-build-env rpi-build</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">You had no conf/local.conf file. This configuration file has therefore been
 created for you with some default values. You may wish to edit it to, for
