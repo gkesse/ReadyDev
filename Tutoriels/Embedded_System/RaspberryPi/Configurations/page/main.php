@@ -30,7 +30,7 @@ python3-pip is already the newest version (8.1.1-2ubuntu0.6).
 The following package was automatically installed and is no longer required:
   snapd-login-service
 Use 'sudo apt autoremove' to remove it.
-0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-2 - Poky"><a class="Link9" href="#Opérations sur le module Yocto">2 - Poky</a></h2><br>Poky est la distribution de référence du module Yocto.<br><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-2.1 - Télécharger Poky"><a class="Link9" href="#Opérations sur le module Yocto">2.1 - Télécharger Poky</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">git clone git://git.yoctoproject.org/poky</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Cloning into 'poky'...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-2 - Poky"><a class="Link9" href="#Opérations sur le module Yocto">2 - Poky</a></h2><br>Poky est la distribution Linux de référence du module Yocto.<br><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-2.1 - Télécharger Poky"><a class="Link9" href="#Opérations sur le module Yocto">2.1 - Télécharger Poky</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">git clone git://git.yoctoproject.org/poky</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Cloning into 'poky'...
 remote: Enumerating objects: 506093, done.
 remote: Counting objects: 100% (506093/506093), done.
 remote: Compressing objects: 100% (119137/119137), done.
@@ -160,7 +160,8 @@ bitbake-layers add-layer ../meta-raspberrypi/
 bitbake-layers add-layer ../meta-openembedded/meta-oe/
 bitbake-layers add-layer ../meta-openembedded/meta-python/
 bitbake-layers add-layer ../meta-openembedded/meta-networking/
-bitbake-layers add-layer ../meta-openembedded/meta-multimedia/</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">NOTE: Starting bitbake server...</xmp></pre></div><br><h3 class="Title8 GTitle3">poky/rpi-build/conf/bblayers.conf</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">POKY_BBLAYERS_CONF_VERSION = "2"
+bitbake-layers add-layer ../meta-openembedded/meta-multimedia/
+bitbake-layers add-layer ../OSSystems/meta-gstreamer1.0/</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">NOTE: Starting bitbake server...</xmp></pre></div><br><h3 class="Title8 GTitle3">conf/bblayers.conf</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">POKY_BBLAYERS_CONF_VERSION = "2"
 
 BBPATH = "${TOPDIR}"
 BBFILES ?= ""
@@ -174,6 +175,7 @@ BBLAYERS ?= " \
   /home/osboxes/Programs/ReadyOpt/kernel/linux/poky/meta-openembedded/meta-python \
   /home/osboxes/Programs/ReadyOpt/kernel/linux/poky/meta-openembedded/meta-networking \
   /home/osboxes/Programs/ReadyOpt/kernel/linux/poky/meta-openembedded/meta-multimedia \
+  /home/osboxes/Programs/ReadyOpt/kernel/linux/poky/OSSystems/meta-gstreamer1.0 \
   "</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-4.6- Configurer les paramètres"><a class="Link9" href="#Opérations sur le module Yocto">4.6- Configurer les paramètres</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh"># Compressed deployed files
 IMAGE_FSTYPES = "wic.bz2 ext4.xz"
 SDIMG_ROOTFS_TYPE = "ext4.xz"
@@ -236,7 +238,37 @@ CAN_OSCILLATOR="8000000"
 ENABLE_IR = "1"
 
 # Enable Raspberrypi Camera V2
-RASPBERRYPI_CAMERA_V2 = "1"</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-5 - Kas"><a class="Link9" href="#Opérations sur le module Yocto">5 - Kas</a></h2><br>Kas est un module simplifiant la configuration des projets basés sur bitbake.<br><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-5.1 - Installer Kas"><a class="Link9" href="#Opérations sur le module Yocto">5.1 - Installer Kas</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">sudo pip3 install kas</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">The directory '/home/osboxes/.cache/pip/http' or its parent directory is not owned by the current user and the cache has been disabled. Please check the permissions and owner of that directory. If executing pip with sudo, you may want sudo's -H flag.
+RASPBERRYPI_CAMERA_V2 = "1"</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-4.7 - Construire une image"><a class="Link9" href="#Opérations sur le module Yocto">4.7 - Construire une image</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">bitbake core-image-minimal</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Loading cache: 100% |                                                                                                     | ETA:  --:--:--
+Loaded 0 entries from dependency cache.
+Parsing recipes: 100% |####################################################################################################| Time: 0:18:55
+Parsing of 2361 .bb files complete (0 cached, 2361 parsed). 3579 targets, 148 skipped, 0 masked, 0 errors.
+NOTE: Resolving any missing task queue dependencies
+
+Build Configuration:
+BB_VERSION           = "1.48.0"
+BUILD_SYS            = "i686-linux"
+NATIVELSBSTRING      = "ubuntu-16.04"
+TARGET_SYS           = "arm-poky-linux-gnueabi"
+MACHINE              = "raspberrypi4"
+DISTRO               = "poky"
+DISTRO_VERSION       = "3.2.2"
+TUNE_FEATURES        = "arm vfp cortexa7 neon vfpv4 thumb callconvention-hard"
+TARGET_FPU           = "hard"
+meta
+meta-poky
+meta-yocto-bsp       = "local-yocto-3.2.2:d5d6286a66f46f4523e35e0e3f20cd7396195fdc"
+meta-raspberrypi     = "master:853ccd744073fcc03a732c99b817fe1bd5b23327"
+meta-oe
+meta-python
+meta-networking
+meta-multimedia      = "master:98175fd0cc6eefe4db9484131bb98f0516c0d1a5"
+meta-gstreamer1.0    = "master:48b7aabbc7f0792263de09a30a0ce3b0b94bf6be"
+
+NOTE: Fetching uninative binary shim http://downloads.yoctoproject.org/releases/uninative/2.10/i686-nativesdk-libc.tar.xz;sha256sum=233e09b5ff30e15341232a0c16fa8448ff31dccb8f3f3e2ad3948cdac8c4a598 (will check PREMIRRORS first)
+Initialising tasks: 100% |#################################################################################################| Time: 0:00:19
+Sstate summary: Wanted 1073 Found 0 Missed 1073 Current 0 (0% match, 0% complete)
+NOTE: Executing Tasks
+Currently  1 running tasks (16 of 2986)   0% |                                                                                           |</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-5 - Kas"><a class="Link9" href="#Opérations sur le module Yocto">5 - Kas</a></h2><br>Kas est un module simplifiant la configuration des projets basés sur bitbake.<br><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-5.1 - Installer Kas"><a class="Link9" href="#Opérations sur le module Yocto">5.1 - Installer Kas</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">sudo pip3 install kas</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">The directory '/home/osboxes/.cache/pip/http' or its parent directory is not owned by the current user and the cache has been disabled. Please check the permissions and owner of that directory. If executing pip with sudo, you may want sudo's -H flag.
 The directory '/home/osboxes/.cache/pip' or its parent directory is not owned by the current user and caching wheels has been disabled. check the permissions and owner of that directory. If executing pip with sudo, you may want sudo's -H flag.
 Requirement already satisfied (use --upgrade to upgrade): kas in /usr/local/lib/python3.5/dist-packages
 Requirement already satisfied (use --upgrade to upgrade): PyYAML&lt;6,&gt;=3.0 in /usr/local/lib/python3.5/dist-packages (from kas)
