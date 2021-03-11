@@ -55,7 +55,7 @@ zeus-22.0.1
 zeus-22.0.2
 zeus-22.0.3
 zeus-22.0.4</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-2.4 - Créer une branche locale"><a class="Link9" href="#Opérations sur le module Yocto">2.4 - Créer une branche locale</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">git checkout tags/yocto-3.2.2 -b local-yocto-3.2.2</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Switched to a new branch 'local-yocto-3.2.2'</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-2.5 - Lister les branches locales"><a class="Link9" href="#Opérations sur le module Yocto">2.5 - Lister les branches locales</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">git branch</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">* local-yocto-3.2.2
-  master</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-3 - Qemu"><a class="Link9" href="#Opérations sur le module Yocto">3 - Qemu</a></h2><br>Qemu est un emulator d'architecture matérielle.<br><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-3.1 - Configurer l'environnement"><a class="Link9" href="#Opérations sur le module Yocto">3.1 - Configurer l'environnement</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">. oe-init-build-env</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">You had no conf/local.conf file. This configuration file has therefore been
+  master</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-3 - Qemu"><a class="Link9" href="#Opérations sur le module Yocto">3 - Qemu</a></h2><br>Qemu est un émulateur d'architecture matérielle.<br><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-3.1 - Configurer l'environnement"><a class="Link9" href="#Opérations sur le module Yocto">3.1 - Configurer l'environnement</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">. oe-init-build-env</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">You had no conf/local.conf file. This configuration file has therefore been
 created for you with some default values. You may wish to edit it to, for
 example, select a different MACHINE (target hardware). See conf/local.conf
 for more information as common configuration options are commented.
@@ -166,7 +166,7 @@ drwxrwxr-x 2 osboxes osboxes 4096 Mar  5 07:49 include
 -rw-rw-r-- 1 osboxes osboxes  595 Mar  5 07:49 raspberrypi4.conf
 -rw-rw-r-- 1 osboxes osboxes  402 Mar  5 07:49 raspberrypi-cm3.conf
 -rw-rw-r-- 1 osboxes osboxes  244 Mar  5 07:49 raspberrypi-cm.conf
--rw-rw-r-- 1 osboxes osboxes  364 Mar  5 07:49 raspberrypi.conf</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-4.4 - Configurer la machine"><a class="Link9" href="#Opérations sur le module Yocto">4.4 - Configurer la machine</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">nano conf/local.conf</xmp></pre></div><br><h3 class="Title8 GTitle3">conf/local.conf</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">MACHINE ??= "raspberrypi4"</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-4.5 - Configurer les couches"><a class="Link9" href="#Opérations sur le module Yocto">4.5 - Configurer les couches</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">cd poky/rpi-build/
+-rw-rw-r-- 1 osboxes osboxes  364 Mar  5 07:49 raspberrypi.conf</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-4.4 - Configurer la machine"><a class="Link9" href="#Opérations sur le module Yocto">4.4 - Configurer la machine</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">nano conf/local.conf</xmp></pre></div><br><h3 class="Title8 GTitle3">conf/local.conf</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">MACHINE ??= "raspberrypi4-64"</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-4.5 - Configurer les couches"><a class="Link9" href="#Opérations sur le module Yocto">4.5 - Configurer les couches</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">cd poky/rpi-build/
 bitbake-layers add-layer ../meta-raspberrypi/
 bitbake-layers add-layer ../meta-openembedded/meta-oe/
 bitbake-layers add-layer ../meta-openembedded/meta-python/
@@ -187,7 +187,11 @@ BBLAYERS ?= " \
   /home/osboxes/Programs/ReadyOpt/kernel/linux/poky/meta-openembedded/meta-networking \
   /home/osboxes/Programs/ReadyOpt/kernel/linux/poky/meta-openembedded/meta-multimedia \
   /home/osboxes/Programs/ReadyOpt/kernel/linux/poky/OSSystems/meta-gstreamer1.0 \
-  "</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-4.6- Configurer les paramètres"><a class="Link9" href="#Opérations sur le module Yocto">4.6- Configurer les paramètres</a></h2><br><h3 class="Title8 GTitle3">conf/local.conf</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh"># Enable overscan
+  "</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-4.6 - Configurer les paramètres"><a class="Link9" href="#Opérations sur le module Yocto">4.6 - Configurer les paramètres</a></h2><br><h3 class="Title8 GTitle3">conf/local.conf</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh"># Compressed deployed files
+IMAGE_FSTYPES = "rpi-sdimg"
+SDIMG_ROOTFS_TYPE = "ext4"
+
+# Enable overscan
 DISABLE_OVERSCAN = "0"
 
 # Disable splash screen
@@ -245,20 +249,22 @@ CAN_OSCILLATOR="8000000"
 ENABLE_IR = "1"
 
 # Enable Raspberrypi Camera V2
-RASPBERRYPI_CAMERA_V2 = "1"</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-4.7 - Construire une image"><a class="Link9" href="#Opérations sur le module Yocto">4.7 - Construire une image</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">bitbake core-image-minimal</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Loading cache: 100% |###############################################################| Time: 0:00:05
-Loaded 3579 entries from dependency cache.
+RASPBERRYPI_CAMERA_V2 = "1"</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-4.7 - Construire une image"><a class="Link9" href="#Opérations sur le module Yocto">4.7 - Construire une image</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">bitbake core-image-minimal</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Loading cache: 100% |                                               | ETA:  --:--:--
+Loaded 0 entries from dependency cache.
+Parsing recipes: 100% |##############################################| Time: 0:25:18
+Parsing of 2361 .bb files complete (0 cached, 2361 parsed). 3579 targets, 142 skipped, 0 masked, 0 errors.
 NOTE: Resolving any missing task queue dependencies
 
 Build Configuration:
 BB_VERSION           = "1.48.0"
 BUILD_SYS            = "i686-linux"
 NATIVELSBSTRING      = "universal"
-TARGET_SYS           = "arm-poky-linux-gnueabi"
-MACHINE              = "raspberrypi4"
+TARGET_SYS           = "aarch64-poky-linux"
+MACHINE              = "raspberrypi4-64"
 DISTRO               = "poky"
 DISTRO_VERSION       = "3.2.2"
-TUNE_FEATURES        = "arm vfp cortexa7 neon vfpv4 thumb callconvention-hard"
-TARGET_FPU           = "hard"
+TUNE_FEATURES        = "aarch64 armv8a crc crypto cortexa72"
+TARGET_FPU           = ""
 meta
 meta-poky
 meta-yocto-bsp       = "local-yocto-3.2.2:d5d6286a66f46f4523e35e0e3f20cd7396195fdc"
@@ -269,12 +275,138 @@ meta-networking
 meta-multimedia      = "master:98175fd0cc6eefe4db9484131bb98f0516c0d1a5"
 meta-gstreamer1.0    = "master:48b7aabbc7f0792263de09a30a0ce3b0b94bf6be"
 
-Initialising tasks: 100% |##########################################################| Time: 0:00:10
-Sstate summary: Wanted 0 Found 0 Missed 0 Current 1073 (0% match, 100% complete)
+Initialising tasks: 100% |###########################################| Time: 0:00:12
+Sstate summary: Wanted 2 Found 0 Missed 2 Current 1041 (0% match, 99% complete)
 NOTE: Executing Tasks
-NOTE: Tasks Summary: Attempted 2987 tasks of which 2987 didn't need to be rerun and all succeeded.</xmp></pre></div><br><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-4.8 - Vérifier l'image"><a class="Link9" href="#Opérations sur le module Yocto">4.8 - Vérifier l'image</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">ls -l poky/rpi-build/tmp/deploy/images/raspberrypi4/</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">[...]
-core-image-minimal-raspberrypi4-20210307152756.rootfs.tar.bz2
-[...]</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-4.9 - Copier l'image"><a class="Link9" href="#Opérations sur le module Yocto">4.9 - Copier l'image</a></h2><br><br><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-5 - Kas"><a class="Link9" href="#Opérations sur le module Yocto">5 - Kas</a></h2><br>Kas est un module simplifiant la configuration des projets basés sur bitbake.<br><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-5.1 - Installer Kas"><a class="Link9" href="#Opérations sur le module Yocto">5.1 - Installer Kas</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">sudo pip3 install kas</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">The directory '/home/osboxes/.cache/pip/http' or its parent directory is not owned by the current user and the cache has been disabled. Please check the permissions and owner of that directory. If executing pip with sudo, you may want sudo's -H flag.
+NOTE: Tasks Summary: Attempted 2875 tasks of which 2866 didn't need to be rerun and all succeeded</xmp></pre></div>.<br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-4.8 - Vérifier l'image"><a class="Link9" href="#Opérations sur le module Yocto">4.8 - Vérifier l'image</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">ls -l tmp/deploy/images/raspberrypi4-64/</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">[...]
+# fichiers réels
+core-image-minimal-raspberrypi4-64-20210309010915.rootfs.ext4
+core-image-minimal-raspberrypi4-64-20210309010915.rootfs.manifest
+core-image-minimal-raspberrypi4-64-20210309010915.rootfs.rpi-sdimg
+core-image-minimal-raspberrypi4-64-20210309010915.testdata.json
+core-image-minimal-raspberrypi4-64-20210309010915.vfat
+# liens vers les fichiers réels
+core-image-minimal-raspberrypi4-64.ext4 -&gt; core-image-minimal-raspberrypi4-64-20210309010915.rootfs.ext4
+core-image-minimal-raspberrypi4-64.manifest -&gt; core-image-minimal-raspberrypi4-64-20210309010915.rootfs.manifest
+core-image-minimal-raspberrypi4-64.rpi-sdimg -&gt; core-image-minimal-raspberrypi4-64-20210309010915.rootfs.rpi-sdimg
+core-image-minimal-raspberrypi4-64.testdata.json -&gt; core-image-minimal-raspberrypi4-64-20210309010915.testdata.json
+core-image-minimal-raspberrypi4-64.vfat -&gt; core-image-minimal-raspberrypi4-64-20210309010915.vfat
+[...]</xmp></pre></div><br>On s'intéresse ici à l'image :<br><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">core-image-minimal-raspberrypi4-64.rpi-sdimg</xmp></pre></div><br>qui correspond à :<br><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">core-image-minimal-raspberrypi4-64-20210310095813.rootfs.rpi-sdimg</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-4.9 - Vérifier si le disque est monté"><a class="Link9" href="#Opérations sur le module Yocto">4.9 - Vérifier si le disque est monté</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">lsblk</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+sr0     11:0    1  1024M  0 rom
+sdc      8:32   1 119.1G  0 disk
+├─sdc2   8:34   1   119G  0 part /media/rpidisk/ROOT
+└─sdc1   8:33   1    94M  0 part /media/rpidisk/BOOT
+sda      8:0    0   500G  0 disk
+├─sda4   8:4    0 270.1G  0 part /home
+├─sda2   8:2    0   954M  0 part /boot
+├─sda3   8:3    0   8.4G  0 part [SWAP]
+└─sda1   8:1    0 220.6G  0 part /</xmp></pre></div><br>Dans notre cas, le disque est monté :<br><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">sdc      8:32   1 119.1G  0 disk
+├─sdc2   8:34   1   119G  0 part /media/rpidisk/ROOT
+└─sdc1   8:33   1    94M  0 part /media/rpidisk/BOOT</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-4.10 - Démonter le disque s'il est monté"><a class="Link9" href="#Opérations sur le module Yocto">4.10 - Démonter le disque s'il est monté</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">sudo umount /dev/sdc1
+sudo umount /dev/sdc2</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">lsblk</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+sr0     11:0    1  1024M  0 rom
+sdc      8:32   1 119.1G  0 disk
+├─sdc2   8:34   1   119G  0 part
+└─sdc1   8:33   1    94M  0 part
+sda      8:0    0   500G  0 disk
+├─sda4   8:4    0 270.1G  0 part /home
+├─sda2   8:2    0   954M  0 part /boot
+├─sda3   8:3    0   8.4G  0 part [SWAP]
+└─sda1   8:1    0 220.6G  0 part /</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-4.11 - Copier l'image"><a class="Link9" href="#Opérations sur le module Yocto">4.11 - Copier l'image</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">cd tmp/deploy/images/raspberrypi4-64/
+sudo cp core-image-minimal-raspberrypi4-64.rpi-sdimg /dev/sdc</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">lsblk -o model,name,type,fstype,size,label,mountpoint</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">MODEL            NAME   TYPE FSTYPE   SIZE LABEL   MOUNTPOINT
+CD-ROM           sr0    rom          1024M
+Storage Device   sdc    disk        119.1G
+                 ├─sdc2 part ext4      12M
+                 └─sdc1 part vfat      48M rpi4-64
+VBOX HARDDISK    sda    disk          500G
+                 ├─sda4 part ext4   270.1G         /home
+                 ├─sda2 part ext4     954M         /boot
+                 ├─sda3 part swap     8.4G         [SWAP]
+                 └─sda1 part ext4   220.6G         /</xmp><br></pre></div><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-4.12 - Créer un point de montage s'il n'existe pas"><a class="Link9" href="#Opérations sur le module Yocto">4.12 - Créer un point de montage s'il n'existe pas</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">sudo mkdir -p /media/rpidisk/BOOT
+sudo mkdir -p /media/rpidisk/ROOT</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-4.13 - Monter le disque"><a class="Link9" href="#Opérations sur le module Yocto">4.13 - Monter le disque</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">sudo mount /dev/sdc1 /media/rpidisk/BOOT/
+sudo mount /dev/sdc2 /media/rpidisk/ROOT/</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-4.14 - Vérifier le contenu du disque"><a class="Link9" href="#Opérations sur le module Yocto">4.14 - Vérifier le contenu du disque</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">ls -l /media/rpidisk/BOOT/</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">total 44654
+-rwxr-xr-x 1 root root    35678 Nov 25  1961 bcm2711-rpi-400.dtb
+-rwxr-xr-x 1 root root    35920 Nov 25  1961 bcm2711-rpi-4-b.dtb
+-rwxr-xr-x 1 root root    36021 Nov 25  1961 bcm2711-rpi-cm4.dtb
+-rwxr-xr-x 1 root root    52456 Nov 25  1961 bootcode.bin
+-rwxr-xr-x 1 root root      262 Nov 25  1961 boot.scr
+-rwxr-xr-x 1 root root      100 Nov 25  1961 cmdline.txt
+-rwxr-xr-x 1 root root    36328 Nov 25  1961 config.txt
+-rwxr-xr-x 1 root root     3179 Nov 25  1961 fixup4cd.dat
+-rwxr-xr-x 1 root root     5430 Nov 25  1961 fixup4.dat
+-rwxr-xr-x 1 root root     8447 Nov 25  1961 fixup4db.dat
+-rwxr-xr-x 1 root root     8443 Nov 25  1961 fixup4x.dat
+-rwxr-xr-x 1 root root     3179 Nov 25  1961 fixup_cd.dat
+-rwxr-xr-x 1 root root     7302 Nov 25  1961 fixup.dat
+-rwxr-xr-x 1 root root    10291 Nov 25  1961 fixup_db.dat
+-rwxr-xr-x 1 root root    10289 Nov 25  1961 fixup_x.dat
+-rwxr-xr-x 1 root root 22991360 Nov 25  1961 Image
+-rwxr-xr-x 1 root root       50 Nov 25  1961 image-version-info
+-rwxr-xr-x 1 root root   512264 Nov 25  1961 kernel8.img
+drwxr-xr-x 2 root root     3072 Nov 25  1961 overlays
+-rwxr-xr-x 1 root root        0 Nov 25  1961 rpi-bootfiles-20210205.stamp
+-rwxr-xr-x 1 root root   791996 Nov 25  1961 start4cd.elf
+-rwxr-xr-x 1 root root  3720904 Nov 25  1961 start4db.elf
+-rwxr-xr-x 1 root root  2227200 Nov 25  1961 start4.elf
+-rwxr-xr-x 1 root root  2979624 Nov 25  1961 start4x.elf
+-rwxr-xr-x 1 root root   791996 Nov 25  1961 start_cd.elf
+-rwxr-xr-x 1 root root  4792808 Nov 25  1961 start_db.elf
+-rwxr-xr-x 1 root root  2951392 Nov 25  1961 start.elf
+-rwxr-xr-x 1 root root  3703208 Nov 25  1961 start_x.elf</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">ls -l /media/rpidisk/ROOT/</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">total 27
+drwxr-xr-x  2 root root  1024 Mar  9  2018 bin
+drwxr-xr-x  2 root root  1024 Mar  9  2018 boot
+drwxr-xr-x  2 root root  1024 Mar  9  2018 dev
+drwxr-xr-x 19 root root  1024 Mar  9  2018 etc
+drwxr-xr-x  3 root root  1024 Mar  9  2018 home
+drwxr-xr-x  4 root root  1024 Mar  9  2018 lib
+drwx------  2 root root 12288 Mar 10 05:00 lost+found
+drwxr-xr-x  2 root root  1024 Mar  9  2018 media
+drwxr-xr-x  2 root root  1024 Mar  9  2018 mnt
+dr-xr-xr-x  2 root root  1024 Mar  9  2018 proc
+drwxr-xr-x  2 root root  1024 Mar  9  2018 run
+drwxr-xr-x  2 root root  1024 Mar  9  2018 sbin
+dr-xr-xr-x  2 root root  1024 Mar  9  2018 sys
+drwxrwxrwt  2 root root  1024 Mar  9  2018 tmp
+drwxr-xr-x 10 root root  1024 Mar  9  2018 usr
+drwxr-xr-x  8 root root  1024 Mar  9  2018 var</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">more /media/rpidisk/BOOT/cmdline.txt</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">dwc_otg.lpm_enable=0 root=/dev/mmcblk0p2 rootfstype=ext4 rootwait kgdboc=serial0,115200 logo.nologo</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">more /media/rpidisk/BOOT/config.txt</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">
+################################################################################
+##  Raspberry Pi Configuration Settings
+##
+##  Revision 16, 2013/06/22
+##
+##  Details taken from the eLinux wiki
+##  For up-to-date information please refer to wiki page.
+##
+##  Wiki Location : http://elinux.org/RPiconfig
+##
+##
+##  Description:
+##    Details of each setting are described with each section that begins with
+##    a double hashed comment ('##')
+##    It is up to the user to remove the single hashed comment ('#') from each
+##    option they want to enable, and to set the specific value of that option.
+##
+##  Overclock settings will be disabled at runtime if the SoC reaches temp_limit
+##
+################################################################################
+
+################################################################################
+##  Standard Definition Video Settings
+################################################################################
+
+## sdtv_mode
+##     defines the TV standard for composite output
+##
+##     Value    Description
+##     -------------------------------------------------------------------------
+##     0        Normal NTSC (Default)
+##     1        Japanese version of NTSC - no pedestal
+##     2        Normal PAL
+##     3        Brazilian version of PAL - 525/60 rather than 625/50, different
+##              subcarrier
+##
+#sdtv_mode=0
+--More--(3%)</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-5 - Kas"><a class="Link9" href="#Opérations sur le module Yocto">5 - Kas</a></h2><br>Kas est un module simplifiant la configuration des projets basés sur bitbake.<br><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-5.1 - Installer Kas"><a class="Link9" href="#Opérations sur le module Yocto">5.1 - Installer Kas</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">sudo pip3 install kas</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">The directory '/home/osboxes/.cache/pip/http' or its parent directory is not owned by the current user and the cache has been disabled. Please check the permissions and owner of that directory. If executing pip with sudo, you may want sudo's -H flag.
 The directory '/home/osboxes/.cache/pip' or its parent directory is not owned by the current user and caching wheels has been disabled. check the permissions and owner of that directory. If executing pip with sudo, you may want sudo's -H flag.
 Requirement already satisfied (use --upgrade to upgrade): kas in /usr/local/lib/python3.5/dist-packages
 Requirement already satisfied (use --upgrade to upgrade): PyYAML&lt;6,&gt;=3.0 in /usr/local/lib/python3.5/dist-packages (from kas)
@@ -394,7 +526,16 @@ Copyright (C) 2018 Free Software Foundation, Inc.
 This is free software; see the source for copying conditions.  There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Opérations sur le système Windows"><a class="Link3" href="#">Opérations sur le système Windows</a></h1><div class="Body3"><br>Windows est un système d'exploitation pour ordinateur.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1615155239421"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1615155239421");</script></div><br><h2 class="Title7 GTitle2" id="Opérations sur le système Windows-1 - Disques"><a class="Link9" href="#Opérations sur le système Windows">1 - Disques</a></h2><br>Un disque est une mémoire de masse permettant de stocker des données.<br><br><h2 class="Title7 GTitle2" id="Opérations sur le système Windows-1.1 - Lister les disques montés"><a class="Link9" href="#Opérations sur le système Windows">1.1 - Lister les disques montés</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">wmic diskdrive list brief</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Caption                         DeviceID            Model                           Partitions  Size
 ST320LT007-9ZV142               \\.\PHYSICALDRIVE0  ST320LT007-9ZV142               3           320070320640
-Mass Storage Device USB Device  \\.\PHYSICALDRIVE1  Mass Storage Device USB Device  2           127861977600</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le système Windows-Liens"><a class="Link9" href="#Opérations sur le système Windows">Liens</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://docs.microsoft.com/fr-fr/windows/">https://docs.microsoft.com/fr-fr/windows/</a><br><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Opérations sur le système Linux"><a class="Link3" href="#">Opérations sur le système Linux</a></h1><div class="Body3"><br>Linux est un système d'exploitation.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1615161978689"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1615161978689");</script></div><br><h2 class="Title7 GTitle2" id="Opérations sur le système Linux-1 - Disque"><a class="Link9" href="#Opérations sur le système Linux">1 - Disque</a></h2><br>Un disque est un support de stockage de données.<br><br><h2 class="Title7 GTitle2" id="Opérations sur le système Linux-1.1 - Formatage"><a class="Link9" href="#Opérations sur le système Linux">1.1 - Formatage</a></h2><br>Le formatage est l'action de préparer un disque à recevoir des données en y inscrivant un système de fichiers.<br><br><h2 class="Title7 GTitle2" id="Opérations sur le système Linux-1.1.1 - Méthode 1 (Graphique)"><a class="Link9" href="#Opérations sur le système Linux">1.1.1 - Méthode 1 (Graphique)</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">sudo gnome-disks</xmp></pre></div><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/img/i_linux_disk_format.png" alt="/Tutoriels/Embedded_System/img/i_linux_disk_format.png"></div><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/img/i_linux_disk_format_02.png" alt="/Tutoriels/Embedded_System/img/i_linux_disk_format_02.png"></div><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/img/i_linux_disk_format_03.png" alt="/Tutoriels/Embedded_System/img/i_linux_disk_format_03.png"></div><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/img/i_linux_disk_format_04.png" alt="/Tutoriels/Embedded_System/img/i_linux_disk_format_04.png"></div><br><h2 class="Title7 GTitle2" id="Opérations sur le système Linux-1.1.2 - Méthode 2 (Terminal)"><a class="Link9" href="#Opérations sur le système Linux">1.1.2 - Méthode 2 (Terminal)</a></h2><br><h2 class="Title7 GTitle2" id="Opérations sur le système Linux-1.1.2.1 - Identifier la partition"><a class="Link9" href="#Opérations sur le système Linux">1.1.2.1 - Identifier la partition</a></h2><br>L'identification est l'action de déterminer le chemin d'accès à une partition de disque.<br><br><h2 class="Title7 GTitle2" id="Opérations sur le système Linux-1.1.2.1.1 - Identifier la partition avec (lsblk)"><a class="Link9" href="#Opérations sur le système Linux">1.1.2.1.1 - Identifier la partition avec (lsblk)</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">lsblk -o model,name,type,fstype,size,label</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">MODEL            NAME   TYPE FSTYPE   SIZE LABEL
+Mass Storage Device USB Device  \\.\PHYSICALDRIVE1  Mass Storage Device USB Device  2           127861977600</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le système Windows-1.2 - Supprimer un volume"><a class="Link9" href="#Opérations sur le système Windows">1.2 - Supprimer un volume</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Bouton Windows
+Créer et formater des partions du disque dur
+Disque (1) -&gt; Partition (1) -&gt; Clic droit -&gt; Supprimer le disque</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le système Windows-1.3 - Formater un volume avec (GuiFormat)"><a class="Link9" href="#Opérations sur le système Windows">1.3 - Formater un volume avec (GuiFormat)</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="http://ridgecrop.co.uk/index.htm?guiformat.htm">http://ridgecrop.co.uk/index.htm?guiformat.htm</a><br><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Drive -&gt; G:\
+Allocation unit size -&gt; 32768
+Volume label -&gt; RPI_4
+Format options -&gt; Check -&gt; Quick Format
+Start -&gt; Close</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le système Windows-1.4 - Graver un disque avec (Win32 Disk Imager)"><a class="Link9" href="#Opérations sur le système Windows">1.4 - Graver un disque avec (Win32 Disk Imager)</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://sourceforge.net/projects/win32diskimager/">https://sourceforge.net/projects/win32diskimager/</a><br><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Fichier image -&gt; 2021-01-11-raspios-buster-armhf-lite.img
+Périphérique -&gt; [G:\]
+Hash -&gt; None
+Ecrire -&gt; Fermer</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le système Windows-Liens"><a class="Link9" href="#Opérations sur le système Windows">Liens</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://docs.microsoft.com/fr-fr/windows/">https://docs.microsoft.com/fr-fr/windows/</a><br><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Opérations sur le système Linux"><a class="Link3" href="#">Opérations sur le système Linux</a></h1><div class="Body3"><br>Linux est un système d'exploitation.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1615161978689"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1615161978689");</script></div><br><h2 class="Title7 GTitle2" id="Opérations sur le système Linux-1 - Disque"><a class="Link9" href="#Opérations sur le système Linux">1 - Disque</a></h2><br>Un disque est un support de stockage de données.<br><br><h2 class="Title7 GTitle2" id="Opérations sur le système Linux-1.1 - Formatage"><a class="Link9" href="#Opérations sur le système Linux">1.1 - Formatage</a></h2><br>Le formatage est l'action de préparer un disque à recevoir des données en y inscrivant un système de fichiers.<br><br><h2 class="Title7 GTitle2" id="Opérations sur le système Linux-1.1.1 - Méthode 1 (Graphique)"><a class="Link9" href="#Opérations sur le système Linux">1.1.1 - Méthode 1 (Graphique)</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">sudo gnome-disks</xmp></pre></div><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/img/i_linux_disk_format.png" alt="/Tutoriels/Embedded_System/img/i_linux_disk_format.png"></div><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/img/i_linux_disk_format_02.png" alt="/Tutoriels/Embedded_System/img/i_linux_disk_format_02.png"></div><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/img/i_linux_disk_format_03.png" alt="/Tutoriels/Embedded_System/img/i_linux_disk_format_03.png"></div><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/img/i_linux_disk_format_04.png" alt="/Tutoriels/Embedded_System/img/i_linux_disk_format_04.png"></div><br><h2 class="Title7 GTitle2" id="Opérations sur le système Linux-1.1.2 - Méthode 2 (Terminal)"><a class="Link9" href="#Opérations sur le système Linux">1.1.2 - Méthode 2 (Terminal)</a></h2><br><h2 class="Title7 GTitle2" id="Opérations sur le système Linux-1.1.2.1 - Identifier la partition"><a class="Link9" href="#Opérations sur le système Linux">1.1.2.1 - Identifier la partition</a></h2><br>L'identification est l'action de déterminer le chemin d'accès à une partition de disque.<br><br><h2 class="Title7 GTitle2" id="Opérations sur le système Linux-1.1.2.1.1 - Identifier la partition avec (lsblk)"><a class="Link9" href="#Opérations sur le système Linux">1.1.2.1.1 - Identifier la partition avec (lsblk)</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">lsblk -o model,name,type,fstype,size,label</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">MODEL            NAME   TYPE FSTYPE   SIZE LABEL
 Storage Device   sdb    disk        119.1G
 CD-ROM           sr0    rom          1024M
 VBOX HARDDISK    sda    disk          500G
@@ -424,10 +565,17 @@ Units: sectors of 1 * 512 = 512 bytes
 Sector size (logical/physical): 512 bytes / 512 bytes
 I/O size (minimum/optimal): 512 bytes / 512 bytes
 Disklabel type: dos
-Disk identifier: 0xc5b0bae6</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le système Linux-1.1.2.2 - Démonter la partition"><a class="Link9" href="#Opérations sur le système Linux">1.1.2.2 - Démonter la partition</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">sudo umount /dev/sdb1</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le système Linux-1.1.2.3 - Formater la partition"><a class="Link9" href="#Opérations sur le système Linux">1.1.2.3 - Formater la partition</a></h2><br><h2 class="Title7 GTitle2" id="Opérations sur le système Linux-1.1.2.3.1 - Formater en FAT32"><a class="Link9" href="#Opérations sur le système Linux">1.1.2.3.1 - Formater en FAT32</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">sudo mkfs.vfat /dev/sdb1</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le système Linux-1.1.2.3.2 - Formater en NTFS"><a class="Link9" href="#Opérations sur le système Linux">1.1.2.3.2 - Formater en NTFS</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">sudo mkfs.ntfs /dev/sdb1</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le système Linux-1.1.2.3.3 - Formater en EXT3"><a class="Link9" href="#Opérations sur le système Linux">1.1.2.3.3 - Formater en EXT3</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">sudo mkfs.ext3 /dev/sdb1</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le système Linux-1.1.2.3.4 - Formater en EXT4"><a class="Link9" href="#Opérations sur le système Linux">1.1.2.3.4 - Formater en EXT4</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">sudo mkfs.ext4 /dev/sdb1</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le système Linux-1.1.2.3.5 - Formater en SWAP"><a class="Link9" href="#Opérations sur le système Linux">1.1.2.3.5 - Formater en SWAP</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">sudo mkfs.ext3 /dev/sdb1</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le système Linux-1.1.2.3.5 - Formater en SWAP"><a class="Link9" href="#Opérations sur le système Linux">1.1.2.3.5 - Formater en SWAP</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">sudo mkfs.ext3 /dev/sdb1</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le système Linux-1.2 - Partitionnement"><a class="Link9" href="#Opérations sur le système Linux">1.2 - Partitionnement</a></h2><br>Le partitionnement est la subdividion d'un disque en plusieurs partitions.<br><br><h2 class="Title7 GTitle2" id="Opérations sur le système Linux-1.2.1 - Partitionner un disque"><a class="Link9" href="#Opérations sur le système Linux">1.2.1 - Partitionner un disque</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">sudo parted -s /dev/sdb \
+Disk identifier: 0xc5b0bae6</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le système Linux-1.1.2.2 - Démonter la partition"><a class="Link9" href="#Opérations sur le système Linux">1.1.2.2 - Démonter la partition</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">sudo umount /dev/sdb1</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le système Linux-1.1.2.3 - Formater la partition"><a class="Link9" href="#Opérations sur le système Linux">1.1.2.3 - Formater la partition</a></h2><br><h2 class="Title7 GTitle2" id="Opérations sur le système Linux-1.1.2.3.1 - Formater en (fat32)"><a class="Link9" href="#Opérations sur le système Linux">1.1.2.3.1 - Formater en (fat32)</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">sudo mkfs.vfat /dev/sdb1</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le système Linux-1.1.2.3.2 - Formater en (ntfs)"><a class="Link9" href="#Opérations sur le système Linux">1.1.2.3.2 - Formater en (ntfs)</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">sudo mkfs.ntfs /dev/sdb1</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le système Linux-1.1.2.3.3 - Formater en (ext3)"><a class="Link9" href="#Opérations sur le système Linux">1.1.2.3.3 - Formater en (ext3)</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">sudo mkfs.ext3 /dev/sdb1</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le système Linux-1.1.2.3.4 - Formater en (ext4)"><a class="Link9" href="#Opérations sur le système Linux">1.1.2.3.4 - Formater en (ext4)</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">sudo mkfs.ext4 /dev/sdb1</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le système Linux-1.1.2.3.5 - Formater en (swap)"><a class="Link9" href="#Opérations sur le système Linux">1.1.2.3.5 - Formater en (swap)</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">sudo mkswap /dev/sdb1</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le système Linux-1.1.2.3.6 - Formater en (f2fs)"><a class="Link9" href="#Opérations sur le système Linux">1.1.2.3.6 - Formater en (f2fs)</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">sudo mkfs.f2fs /dev/sdb1</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le système Linux-1.2 - Partitionnement"><a class="Link9" href="#Opérations sur le système Linux">1.2 - Partitionnement</a></h2><br>Le partitionnement est l'action de diviser un disque en plusieurs partitions.<br><br><h2 class="Title7 GTitle2" id="Opérations sur le système Linux-1.2.1 - Partitionner un disque"><a class="Link9" href="#Opérations sur le système Linux">1.2.1 - Partitionner un disque</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="null">lsblk -o model,name,type,fstype,size,label</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="null">MODEL            NAME   TYPE FSTYPE   SIZE LABEL
+Storage Device   sdb    disk        119.1G
+CD-ROM           sr0    rom          1024M
+VBOX HARDDISK    sda    disk          500G
+                 ├─sda4 part ext4   270.1G
+                 ├─sda2 part ext4     954M
+                 ├─sda3 part swap     8.4G
+                 └─sda1 part ext4   220.6G</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">sudo parted -s /dev/sdb \
 mklabel msdos \
 mkpart primary fat32 1M 100M \
-mkpart primary ext4 100M 100%</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le système Linux-1.2.2 - Lister les partitions"><a class="Link9" href="#Opérations sur le système Linux">1.2.2 - Lister les partitions</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">lsblk -o model,name,type,fstype,size,label</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">MODEL            NAME   TYPE FSTYPE   SIZE LABEL
+mkpart primary ext4 100M 100%</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">lsblk -o model,name,type,fstype,size,label</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">MODEL            NAME   TYPE FSTYPE   SIZE LABEL
 Storage Device   sdb    disk        119.1G
                  ├─sdb2 part          119G
                  └─sdb1 part           94M
@@ -436,7 +584,7 @@ VBOX HARDDISK    sda    disk          500G
                  ├─sda4 part ext4   270.1G
                  ├─sda2 part ext4     954M
                  ├─sda3 part swap     8.4G
-                 └─sda1 part ext4   220.6G</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le système Linux-1.2.3 - Formater les partitions"><a class="Link9" href="#Opérations sur le système Linux">1.2.3 - Formater les partitions</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">sudo mkfs.vfat /dev/sdb1</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">mkfs.fat 3.0.28 (2015-05-16)</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">sudo mkfs.ext4 /dev/sdb2</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">mke2fs 1.42.13 (17-May-2015)
+                 └─sda1 part ext4   220.6G</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le système Linux-1.2.2 - Formater les partitions"><a class="Link9" href="#Opérations sur le système Linux">1.2.2 - Formater les partitions</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">sudo mkfs.vfat /dev/sdb1</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">mkfs.fat 3.0.28 (2015-05-16)</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">sudo mkfs.ext4 /dev/sdb2</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">mke2fs 1.42.13 (17-May-2015)
 Creating filesystem with 31192832 4k blocks and 7798784 inodes
 Filesystem UUID: 9beee73c-a5a4-452c-ab0d-f2fd2517e1d5
 Superblock backups stored on blocks:
@@ -446,7 +594,7 @@ Superblock backups stored on blocks:
 Allocating group tables: done
 Writing inode tables: done
 Creating journal (32768 blocks): done
-Writing superblocks and filesystem accounting information: done</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le système Linux-1.2.4 - Vérifier le partionnement"><a class="Link9" href="#Opérations sur le système Linux">1.2.4 - Vérifier le partionnement</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">lsblk -o model,name,type,fstype,size,label</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">MODEL            NAME   TYPE FSTYPE   SIZE LABEL
+Writing superblocks and filesystem accounting information: done</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">lsblk -o model,name,type,fstype,size,label</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">MODEL            NAME   TYPE FSTYPE   SIZE LABEL
 Storage Device   sdb    disk        119.1G
                  ├─sdb2 part ext4     119G
                  └─sdb1 part vfat      94M
@@ -456,4 +604,31 @@ VBOX HARDDISK    sda    disk          500G
                  ├─sda2 part ext4     954M
                  ├─sda3 part swap     8.4G
                  └─sda1 part ext4   220.6G
-</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le système Linux-Liens"><a class="Link9" href="#Opérations sur le système Linux">Liens</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://debian-facile.org/doc:systeme:mkfs">https://debian-facile.org/doc:systeme:mkfs</a><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://linux.die.net/man/8/parted">https://linux.die.net/man/8/parted</a><br><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Opérations sur le module VirtualBox"><a class="Link3" href="#">Opérations sur le module VirtualBox</a></h1><div class="Body3"><br>VirtualBox est un outil de virtualisation matérielle. Il permet d'exécuter plusieurs systèmes d'exploitation sur une même machine.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1615160556905"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1615160556905");</script></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module VirtualBox-1. USB"><a class="Link9" href="#Opérations sur le module VirtualBox">1. USB</a></h2><br>Un périphérique USB est un périphique capable de se connecter à la machine Host via un port USB.<br><br><h2 class="Title7 GTitle2" id="Opérations sur le module VirtualBox-1.1 - Connecter un périphérique USB"><a class="Link9" href="#Opérations sur le module VirtualBox">1.1 - Connecter un périphérique USB</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/img/i_virtualbox_usb_connect.png" alt="/Tutoriels/Embedded_System/img/i_virtualbox_usb_connect.png"></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module VirtualBox-Liens"><a class="Link9" href="#Opérations sur le module VirtualBox">Liens</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.virtualbox.org/manual/UserManual.html">https://www.virtualbox.org/manual/UserManual.html</a><br><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Voir Aussi"><a class="Link3" href="#">Voir Aussi</a></h1><div class="Body3">Dans cette même catégorie, vous pouvez consulter aussi :<br><br><span class="GColor1" style="color:lime;">Système Embarqué RaspberryPi</span><br><br><div class="Content0 GList1"><div class="Body0" id="Loader_1614775612367"><div class="Row26">List 1 &gt; Embedded_System &gt; rpi_conf</div></div><script>loadList1("Loader_1614775612367","Embedded_System","rpi_conf");</script></div><br></div></div></div></div><br>
+</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le système Linux-1.2.3 - Renommer les partitions"><a class="Link9" href="#Opérations sur le système Linux">1.2.3 - Renommer les partitions</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="null">sudo fatlabel /dev/sdb1 BOOT
+sudo e2label /dev/sdb2 ROOT</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="null">lsblk -o model,name,type,fstype,size,label</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="null">MODEL            NAME   TYPE FSTYPE   SIZE LABEL
+Storage Device   sdb    disk        119.1G
+                 ├─sdb2 part ext4     119G ROOT
+                 └─sdb1 part vfat      94M BOOT
+CD-ROM           sr0    rom          1024M
+VBOX HARDDISK    sda    disk          500G
+                 ├─sda4 part ext4   270.1G
+                 ├─sda2 part ext4     954M
+                 ├─sda3 part swap     8.4G
+                 └─sda1 part ext4   220.6G</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le système Linux-1.2.4 - Monter les partitions"><a class="Link9" href="#Opérations sur le système Linux">1.2.4 - Monter les partitions</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">sudo mkdir -p /media/rpidisk/BOOT
+sudo mkdir -p /media/rpidisk/ROOT</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">sudo mount /dev/sdb1 /media/rpidisk/BOOT
+sudo mount /dev/sdb2 /media/rpidisk/ROOT</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">lsblk</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+sr0     11:0    1  1024M  0 rom
+sdb      8:32   1 119.1G  0 disk
+├─sdb2   8:34   1   119G  0 part /media/rpidisk/ROOT
+└─sdb1   8:33   1    94M  0 part /media/rpidisk/BOOT
+sda      8:0    0   500G  0 disk
+├─sda4   8:4    0 270.1G  0 part /home
+├─sda2   8:2    0   954M  0 part /boot
+├─sda3   8:3    0   8.4G  0 part [SWAP]
+└─sda1   8:1    0 220.6G  0 part /</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le système Linux-1.2.5 - Déterminer l'UUID des partitions"><a class="Link9" href="#Opérations sur le système Linux">1.2.5 - Déterminer l'UUID des partitions</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">sudo blkid</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">/dev/sda1: UUID="75f494bc-4425-4695-9902-df5e65c8353d" TYPE="ext4" PARTUUID="be672965-01"
+/dev/sda2: UUID="167f8b73-6bf4-4874-a479-5c2c706389ea" TYPE="ext4" PARTUUID="be672965-02"
+/dev/sda3: UUID="7018327d-6764-4664-9598-9de389c1d449" TYPE="swap" PARTUUID="be672965-03"
+/dev/sda4: UUID="26325eaa-7c61-42ff-a438-ef509001045e" TYPE="ext4" PARTUUID="be672965-04"
+/dev/sdb1: SEC_TYPE="msdos" LABEL="BOOT" UUID="FB4D-B1FA" TYPE="vfat" PARTUUID="c20172f1-01"
+/dev/sdb2: LABEL="ROOT" UUID="9beee73c-a5a4-452c-ab0d-f2fd2517e1d5" TYPE="ext4" PARTUUID="c20172f1-02"</xmp></pre></div><br>On s'intéresse ici au $PARTUUID$.<br><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">/dev/sdb1 -> LABEL="BOOT" -> PARTUUID="c20172f1-01"
+/dev/sdb2 -> LABEL="ROOT" -> PARTUUID="c20172f1-02"</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le système Linux-Liens"><a class="Link9" href="#Opérations sur le système Linux">Liens</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://debian-facile.org/doc:systeme:mkfs">https://debian-facile.org/doc:systeme:mkfs</a><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://linux.die.net/man/8/parted">https://linux.die.net/man/8/parted</a><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://lancesimms.com/RaspberryPi/">https://lancesimms.com/RaspberryPi/</a><br><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Opérations sur le module VirtualBox"><a class="Link3" href="#">Opérations sur le module VirtualBox</a></h1><div class="Body3"><br>VirtualBox est un outil de virtualisation matérielle. Il permet d'exécuter plusieurs systèmes d'exploitation sur une même machine.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1615160556905"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1615160556905");</script></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module VirtualBox-1. USB"><a class="Link9" href="#Opérations sur le module VirtualBox">1. USB</a></h2><br>Un périphérique USB est un périphérique capable de se connecter à la machine Host via un port USB.<br><br><h2 class="Title7 GTitle2" id="Opérations sur le module VirtualBox-1.1 - Connecter un périphérique USB"><a class="Link9" href="#Opérations sur le module VirtualBox">1.1 - Connecter un périphérique USB</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/img/i_virtualbox_usb_connect.png" alt="/Tutoriels/Embedded_System/img/i_virtualbox_usb_connect.png"></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module VirtualBox-Liens"><a class="Link9" href="#Opérations sur le module VirtualBox">Liens</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.virtualbox.org/manual/UserManual.html">https://www.virtualbox.org/manual/UserManual.html</a><br><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Voir Aussi"><a class="Link3" href="#">Voir Aussi</a></h1><div class="Body3">Dans cette même catégorie, vous pouvez consulter aussi :<br><br><span class="GColor1" style="color:lime;">Système Embarqué RaspberryPi</span><br><br><div class="Content0 GList1"><div class="Body0" id="Loader_1614775612367"><div class="Row26">List 1 &gt; Embedded_System &gt; rpi_conf</div></div><script>loadList1("Loader_1614775612367","Embedded_System","rpi_conf");</script></div><br></div></div></div></div><br>
