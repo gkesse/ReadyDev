@@ -1,426 +1,168 @@
-<div class="Parallax GParallax1"><div class="Img Binary"><div class="Caption"><a href="#"><div class="Text">Configurations avec le RaspberryPi</div></a></div></div><div class="Body2 Orange">Le but de ce tutoriel est de vous apprendre les configurations avec le <b>RaspberryPi</b>.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary1"><div class="Body0" id="Loader_1529412976174"><div class="Row26">Summary 1</div></div><script>loadSummary1("Loader_1529412976174");</script></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Introduction"><a class="Link3" href="#">Introduction</a></h1><div class="Body3">Un <b>système embarqué</b> est un système électronique et informatique autonome, souvent temps réel, spécialisé dans une tâche précise et dont les ressources sont généralement limitées spatialement (encombrement réduit) et énergétiquement (consommation restreinte).<br><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/img/b_raspberrypi_configurations.png" alt="/Tutoriels/Embedded_System/img/b_raspberrypi_configurations.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Opérations sur le module Yocto"><a class="Link3" href="#">Opérations sur le module Yocto</a></h1><div class="Body3"><br>Yocto est un outil permettant de construire des systèmes d'exploitation Linux embarqué.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1614900631373"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1614900631373");</script></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-1 - Yocto"><a class="Link9" href="#Opérations sur le module Yocto">1 - Yocto</a></h2><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-1.1 - Installer les dépendances"><a class="Link9" href="#Opérations sur le module Yocto">1.1 - Installer les dépendances</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">sudo apt install gawk wget git-core diffstat unzip texinfo gcc-multilib \
-build-essential chrpath socat cpio python3 python3-pip python3-pexpect \
-xz-utils debianutils iputils-ping python3-git python3-jinja2 libegl1-mesa libsdl1.2-dev \
-pylint3 xterm</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Reading package lists... Done
+<div class="Parallax GParallax1"><div class="Img Binary"><div class="Caption"><a href="#"><div class="Text">Configurations avec le RaspberryPi</div></a></div></div><div class="Body2 Orange">Le but de ce tutoriel est de vous apprendre les configurations avec le <b>RaspberryPi</b>.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary1"><div class="Body0" id="Loader_1529412976174"><div class="Row26">Summary 1</div></div><script>loadSummary1("Loader_1529412976174");</script></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Introduction"><a class="Link3" href="#">Introduction</a></h1><div class="Body3">Un <b>système embarqué</b> est un système électronique et informatique autonome, souvent temps réel, spécialisé dans une tâche précise et dont les ressources sont généralement limitées spatialement (encombrement réduit) et énergétiquement (consommation restreinte).<br><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/img/b_raspberrypi_configurations.png" alt="/Tutoriels/Embedded_System/img/b_raspberrypi_configurations.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Opérations sur le module Yocto"><a class="Link3" href="#">Opérations sur le module Yocto</a></h1><div class="Body3"><br>Yocto est un outil permettant de construire des systèmes d'exploitation Linux embarqué.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1614900631373"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1614900631373");</script></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-1 - Créer une image RaspberryPi3 Qt5 avec Yocto"><a class="Link9" href="#Opérations sur le module Yocto">1 - Créer une image RaspberryPi3 Qt5 avec Yocto</a></h2><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-1.1 - Identifiants osboxes sous VirtualBox."><a class="Link9" href="#Opérations sur le module Yocto">1.1 - Identifiants osboxes sous VirtualBox.</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Login -&gt; osboxes
+Password -&gt; osboxes.org</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-1.2 - Désactiver la mise en veille prolongée sous Windows."><a class="Link9" href="#Opérations sur le module Yocto">1.2 - Désactiver la mise en veille prolongée sous Windows.</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Windows
+Choisir un mode de gestion d'alimentation
+Choisir l'action des boutons d'alimentation
+Modifier des paramètres actuellement non disponible
+Décocher -&gt; Veille
+Décocher -&gt; Veille prolongée
+Enregistrer les modification</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-1.3 - Configurer le clavier sous Ubuntu"><a class="Link9" href="#Opérations sur le module Yocto">1.3 - Configurer le clavier sous Ubuntu</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">sudo setxkbmap fr</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-1.4 - Mettre à jour le système sous Ubuntu"><a class="Link9" href="#Opérations sur le module Yocto">1.4 - Mettre à jour le système sous Ubuntu</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">sudo apt update</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-1.5 - Installer le serveur ssh sous Ubuntu"><a class="Link9" href="#Opérations sur le module Yocto">1.5 - Installer le serveur ssh sous Ubuntu</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">sudo apt install openssh-server</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Reading package lists... Done
 Building dependency tree
 Reading state information... Done
-build-essential is already the newest version (12.1ubuntu2).
-debianutils is already the newest version (4.7).
-diffstat is already the newest version (1.61-1).
-gawk is already the newest version (1:4.1.3+dfsg-0.1).
-gcc-multilib is already the newest version (4:5.3.1-1ubuntu1).
-iputils-ping is already the newest version (3:20121221-5ubuntu2).
-python3 is already the newest version (3.5.1-3).
-python3-pexpect is already the newest version (4.0.1-1).
-xz-utils is already the newest version (5.1.1alpha+20120614-2ubuntu2).
-chrpath is already the newest version (0.16-1).
-pylint3 is already the newest version (1.5.2-1ubuntu1).
-python3-git is already the newest version (1.0.1+git137-gc8b8379-2.1).
-socat is already the newest version (1.7.3.1-1).
-texinfo is already the newest version (6.1.0.dfsg.1-5).
-cpio is already the newest version (2.11+dfsg-5ubuntu1.1).
-git-core is already the newest version (1:2.7.4-0ubuntu1.9).
-libegl1-mesa is already the newest version (18.0.5-0ubuntu0~16.04.1).
-libsdl1.2-dev is already the newest version (1.2.15+dfsg1-3ubuntu0.1).
-python3-jinja2 is already the newest version (2.8-1ubuntu0.1).
-unzip is already the newest version (6.0-20ubuntu1.1).
-wget is already the newest version (1.17.1-1ubuntu1.5).
-xterm is already the newest version (322-1ubuntu1.2).
-python3-pip is already the newest version (8.1.1-2ubuntu0.6).
-The following package was automatically installed and is no longer required:
-  snapd-login-service
-Use 'sudo apt autoremove' to remove it.
-0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-2 - Poky"><a class="Link9" href="#Opérations sur le module Yocto">2 - Poky</a></h2><br>Poky est la distribution Linux de référence du module Yocto.<br><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-2.1 - Télécharger Poky"><a class="Link9" href="#Opérations sur le module Yocto">2.1 - Télécharger Poky</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">git clone git://git.yoctoproject.org/poky</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Cloning into 'poky'...
-remote: Enumerating objects: 506093, done.
-remote: Counting objects: 100% (506093/506093), done.
-remote: Compressing objects: 100% (119137/119137), done.
-remote: Total 506093 (delta 379034), reused 506093 (delta 379034)
-Receiving objects: 100% (506093/506093), 172.38 MiB | 2.81 MiB/s, done.
-Resolving deltas: 100% (379034/379034), done.
-Checking connectivity... done.</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-2.2 - Lister les machines"><a class="Link9" href="#Opérations sur le module Yocto">2.2 - Lister les machines</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">ls -l poky/meta-yocto-bsp/conf/machine/</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">total 20
--rw-rw-r-- 1 osboxes osboxes 2233 Mar  4 18:40 beaglebone-yocto.conf
--rw-rw-r-- 1 osboxes osboxes  734 Mar  4 18:40 edgerouter.conf
--rw-rw-r-- 1 osboxes osboxes  425 Mar  4 18:40 genericx86-64.conf
--rw-rw-r-- 1 osboxes osboxes  431 Mar  4 18:40 genericx86.conf
-drwxrwxr-x 2 osboxes osboxes 4096 Mar  4 18:40 include</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-2.3 - Lister les tags"><a class="Link9" href="#Opérations sur le module Yocto">2.3 - Lister les tags</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">cd poky/
-git fetch --tags
-git tag</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">1.1_M1.final
-1.1_M1.rc1
-1.1_M1.rc2
-1.1_M2.final
-1.1_M2.rc1
-...
-zeus-22.0.0
-zeus-22.0.1
-zeus-22.0.2
-zeus-22.0.3
-zeus-22.0.4</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-2.4 - Créer une branche locale"><a class="Link9" href="#Opérations sur le module Yocto">2.4 - Créer une branche locale</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">git checkout tags/yocto-3.2.2 -b local-yocto-3.2.2</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Switched to a new branch 'local-yocto-3.2.2'</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-2.5 - Lister les branches locales"><a class="Link9" href="#Opérations sur le module Yocto">2.5 - Lister les branches locales</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">git branch</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">* local-yocto-3.2.2
-  master</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-3 - Qemu"><a class="Link9" href="#Opérations sur le module Yocto">3 - Qemu</a></h2><br>Qemu est un émulateur d'architecture matérielle.<br><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-3.1 - Configurer l'environnement"><a class="Link9" href="#Opérations sur le module Yocto">3.1 - Configurer l'environnement</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">. oe-init-build-env</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">You had no conf/local.conf file. This configuration file has therefore been
-created for you with some default values. You may wish to edit it to, for
-example, select a different MACHINE (target hardware). See conf/local.conf
-for more information as common configuration options are commented.
+openssh-server is already the newest version (1:7.2p2-4ubuntu2.10).
+0 upgraded, 0 newly installed, 0 to remove and 431 not upgraded.</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-1.6 - Vérifier l'état du serveur SSH sous Ubuntu"><a class="Link9" href="#Opérations sur le module Yocto">1.6 - Vérifier l'état du serveur SSH sous Ubuntu</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">systemctl status ssh</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">● ssh.service - OpenBSD Secure Shell server
+   Loaded: loaded (/lib/systemd/system/ssh.service; enabled; vendor preset: enabled)
+   Active: active (running) since Thu 2021-03-11 15:25:59 EST; 6min ago
+ Main PID: 5707 (sshd)
+   CGroup: /system.slice/ssh.service
+           └─5707 /usr/sbin/sshd -D
 
-You had no conf/bblayers.conf file. This configuration file has therefore been
-created for you with some default values. To add additional metadata layers
-into your configuration please add entries to conf/bblayers.conf.
+Mar 11 15:25:58 osboxes systemd[1]: Starting OpenBSD Secure Shell server...
+Mar 11 15:25:59 osboxes sshd[5707]: Server listening on 0.0.0.0 port 22.
+Mar 11 15:25:59 osboxes sshd[5707]: Server listening on :: port 22.
+Mar 11 15:25:59 osboxes systemd[1]: Started OpenBSD Secure Shell server.
+Mar 11 15:27:28 osboxes sshd[5895]: Accepted password for osboxes from 192.168.1.39 port 57279 ssh2
+Mar 11 15:27:28 osboxes sshd[5895]: pam_unix(sshd:session): session opened for user osboxes by (uid=0)
+Mar 11 15:27:29 osboxes sshd[5903]: Accepted password for osboxes from 192.168.1.39 port 57280 ssh2
+Mar 11 15:27:29 osboxes sshd[5903]: pam_unix(sshd:session): session opened for user osboxes by (uid=0)</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-1.7 - Rechercher l'adresse IP sous Ubuntu"><a class="Link9" href="#Opérations sur le module Yocto">1.7 - Rechercher l'adresse IP sous Ubuntu</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">ip a s</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host
+       valid_lft forever preferred_lft forever
+2: enp0s3: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether 08:00:27:33:7b:cb brd ff:ff:ff:ff:ff:ff
+    inet 192.168.1.40/24 brd 192.168.1.255 scope global dynamic enp0s3
+       valid_lft 38740sec preferred_lft 38740sec
+    inet6 2a01:e0a:5ee:d720:c402:7e4e:8bef:f114/64 scope global temporary dynamic
+       valid_lft 86223sec preferred_lft 81510sec
+    inet6 2a01:e0a:5ee:d720:ffba:ba34:3211:8bc9/64 scope global mngtmpaddr noprefixroute dynamic
+       valid_lft 86223sec preferred_lft 86223sec
+    inet6 fe80::dbc0:18be:26b6:2991/64 scope link
+       valid_lft forever preferred_lft forever</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-1.8 - Démarrer la connexion SSH sous MobaXterm"><a class="Link9" href="#Opérations sur le module Yocto">1.8 - Démarrer la connexion SSH sous MobaXterm</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Session -&gt; SSH
 
-The Yocto Project has extensive documentation about OE including a reference
-manual which can be found at:
-    http://yoctoproject.org/documentation
+Basic SSH settings
+Remote host -&gt; 192.168.1.40
+Cocher -&gt; Specify username -&gt; osboxes
 
-For more information about OpenEmbedded see their website:
-    http://www.openembedded.org/
-
-
-### Shell environment set up for builds. ###
-
-You can now run 'bitbake &lt;target&gt;'
-
-Common targets are:
-    core-image-minimal
-    core-image-sato
-    meta-toolchain
-    meta-ide-support
-
-You can also run generated qemu images with a command like 'runqemu qemux86'
-
-Other commonly useful commands are:
- - 'devtool' and 'recipetool' handle common recipe tasks
- - 'bitbake-layers' handles common layer tasks
- - 'oe-pkgdata-util' handles common target package tasks</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-3.2 - Construire une image"><a class="Link9" href="#Opérations sur le module Yocto">3.2 - Construire une image</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">bitbake core-image-minimal</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Loading cache: 100% |                                                                                                    | ETA:  --:--:--
-Loaded 0 entries from dependency cache.
-Parsing recipes: 100% |###################################################################################################| Time: 0:09:56
-Parsing of 784 .bb files complete (0 cached, 784 parsed). 1354 targets, 42 skipped, 0 masked, 0 errors.
-NOTE: Resolving any missing task queue dependencies
-
-Build Configuration:
-BB_VERSION           = "1.48.0"
-BUILD_SYS            = "i686-linux"
-NATIVELSBSTRING      = "ubuntu-16.04"
-TARGET_SYS           = "x86_64-poky-linux"
-MACHINE              = "qemux86-64"
-DISTRO               = "poky"
-DISTRO_VERSION       = "3.2.2"
-TUNE_FEATURES        = "m64 core2"
-TARGET_FPU           = ""
-meta
-meta-poky
-meta-yocto-bsp       = "local-yocto-3.2.2:d5d6286a66f46f4523e35e0e3f20cd7396195fdc"
-
-NOTE: Fetching uninative binary shim http://downloads.yoctoproject.org/releases/uninative/2.10/i686-nativesdk-libc.tar.xz;sha256sum=233e09b5ff30e15341232a0c16fa8448ff31dccb8f3f3e2ad3948cdac8c4a598 (will check PREMIRRORS first)
-Initialising tasks: 100% |################################################################################################| Time: 0:00:12
-Sstate summary: Wanted 1087 Found 0 Missed 1087 Current 0 (0% match, 0% complete)
-NOTE: Executing Tasks
-Currently  1 running tasks (54 of 3077)   1% |#                                                                                         |
-0: automake-native-1.16.2-r0 do_configure - 10s (pid 14893)</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-3.3 - Simuler l'image"><a class="Link9" href="#Opérations sur le module Yocto">3.3 - Simuler l'image</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">runqemu qemux86</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-4 - RaspberryPi"><a class="Link9" href="#Opérations sur le module Yocto">4 - RaspberryPi</a></h2><br>RaspberryPi est un mini PC embarqué.<br><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-4.1 - Télécharger les méta-données"><a class="Link9" href="#Opérations sur le module Yocto">4.1 - Télécharger les méta-données</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">cd poky/
-git clone git://git.yoctoproject.org/meta-raspberrypi
-git clone https://github.com/openembedded/meta-openembedded.git
-git clone https://github.com/OSSystems/meta-gstreamer1.0.git</xmp></pre></div><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Cloning into 'meta-raspberrypi'...
-remote: Enumerating objects: 8562, done.
-remote: Counting objects: 100% (8562/8562), done.
-remote: Compressing objects: 100% (4230/4230), done.
-remote: Total 8562 (delta 4924), reused 6975 (delta 3925)
-Receiving objects: 100% (8562/8562), 1.74 MiB | 677.00 KiB/s, done.
-Resolving deltas: 100% (4924/4924), done.
-Checking connectivity... done.</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-4.2 - Configurer l'environnement"><a class="Link9" href="#Opérations sur le module Yocto">4.2 - Configurer l'environnement</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">cd poky/
-. oe-init-build-env rpi-build</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">You had no conf/local.conf file. This configuration file has therefore been
-created for you with some default values. You may wish to edit it to, for
-example, select a different MACHINE (target hardware). See conf/local.conf
-for more information as common configuration options are commented.
-
-You had no conf/bblayers.conf file. This configuration file has therefore been
-created for you with some default values. To add additional metadata layers
-into your configuration please add entries to conf/bblayers.conf.
-
-The Yocto Project has extensive documentation about OE including a reference
-manual which can be found at:
-    http://yoctoproject.org/documentation
-
-For more information about OpenEmbedded see their website:
-    http://www.openembedded.org/
-
-
-### Shell environment set up for builds. ###
-
-You can now run 'bitbake &lt;target&gt;'
-
-Common targets are:
-    core-image-minimal
-    core-image-sato
-    meta-toolchain
-    meta-ide-support
-
-You can also run generated qemu images with a command like 'runqemu qemux86'
-
-Other commonly useful commands are:
- - 'devtool' and 'recipetool' handle common recipe tasks
- - 'bitbake-layers' handles common layer tasks
- - 'oe-pkgdata-util' handles common target package tasks</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-4.3 - Vérifier les machines supportées"><a class="Link9" href="#Opérations sur le module Yocto">4.3 - Vérifier les machines supportées</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">ls -l meta-raspberrypi/conf/machine/</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">total 44
-drwxrwxr-x 2 osboxes osboxes 4096 Mar  5 07:49 include
--rw-rw-r-- 1 osboxes osboxes  300 Mar  5 07:49 raspberrypi0.conf
--rw-rw-r-- 1 osboxes osboxes  585 Mar  5 07:49 raspberrypi0-wifi.conf
--rw-rw-r-- 1 osboxes osboxes  342 Mar  5 07:49 raspberrypi2.conf
--rw-rw-r-- 1 osboxes osboxes 1061 Mar  5 07:49 raspberrypi3-64.conf
--rw-rw-r-- 1 osboxes osboxes  633 Mar  5 07:49 raspberrypi3.conf
--rw-rw-r-- 1 osboxes osboxes 1005 Mar  5 07:49 raspberrypi4-64.conf
--rw-rw-r-- 1 osboxes osboxes  595 Mar  5 07:49 raspberrypi4.conf
--rw-rw-r-- 1 osboxes osboxes  402 Mar  5 07:49 raspberrypi-cm3.conf
--rw-rw-r-- 1 osboxes osboxes  244 Mar  5 07:49 raspberrypi-cm.conf
--rw-rw-r-- 1 osboxes osboxes  364 Mar  5 07:49 raspberrypi.conf</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-4.4 - Configurer la machine"><a class="Link9" href="#Opérations sur le module Yocto">4.4 - Configurer la machine</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">nano conf/local.conf</xmp></pre></div><br><h3 class="Title8 GTitle3">conf/local.conf</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">MACHINE ??= "raspberrypi4-64"</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-4.5 - Configurer les couches"><a class="Link9" href="#Opérations sur le module Yocto">4.5 - Configurer les couches</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">cd poky/rpi-build/
-bitbake-layers add-layer ../meta-raspberrypi/
-bitbake-layers add-layer ../meta-openembedded/meta-oe/
-bitbake-layers add-layer ../meta-openembedded/meta-python/
-bitbake-layers add-layer ../meta-openembedded/meta-networking/
-bitbake-layers add-layer ../meta-openembedded/meta-multimedia/
-bitbake-layers add-layer ../OSSystems/meta-gstreamer1.0/</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">NOTE: Starting bitbake server...</xmp></pre></div><br><h3 class="Title8 GTitle3">conf/bblayers.conf</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">POKY_BBLAYERS_CONF_VERSION = "2"
+Bookmark settings
+Session name -&gt; Ubuntu</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">osboxes@192.168.1.40's password: osboxes.org</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-1.9 - Installer les dépendances sous Ubuntu"><a class="Link9" href="#Opérations sur le module Yocto">1.9 - Installer les dépendances sous Ubuntu</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">sudo apt install gawk wget git-core diffstat unzip texinfo gcc-multilib \
+build-essential chrpath socat cpio python3 python3-pip python3-pexpect \
+xz-utils debianutils iputils-ping python3-git python3-jinja2 libegl1-mesa libsdl1.2-dev \
+pylint3 xterm</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-1.10 - Télécharger poky sous Ubuntu"><a class="Link9" href="#Opérations sur le module Yocto">1.10 - Télécharger poky sous Ubuntu</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">git clone -b sumo git://git.yoctoproject.org/poky.git</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-1.11 - Télécharger les méta-données sous Ubuntu"><a class="Link9" href="#Opérations sur le module Yocto">1.11 - Télécharger les méta-données sous Ubuntu</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">cd poky
+git clone -b sumo git://git.openembedded.org/meta-openembedded
+git clone -b sumo https://github.com/meta-qt5/meta-qt5
+git clone -b sumo git://git.yoctoproject.org/meta-security.git
+git clone -b sumo git://git.yoctoproject.org/meta-raspberrypi.git
+git clone -b sumo https://github.com/jumpnow/meta-rpi</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-1.12 - Préparer le répertoire de construction"><a class="Link9" href="#Opérations sur le module Yocto">1.12 - Préparer le répertoire de construction</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">mkdir -p rpi-build/conf
+cp -f meta-rpi/conf/local.conf.sample rpi-build/conf/local.conf
+cp -f meta-rpi/conf/bblayers.conf.sample rpi-build/conf/bblayers.conf</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-1.13 - Initialiser la construction"><a class="Link9" href="#Opérations sur le module Yocto">1.13 - Initialiser la construction</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">. oe-init-build-env rpi-build</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-1.14 - Configurer les couches"><a class="Link9" href="#Opérations sur le module Yocto">1.14 - Configurer les couches</a></h2><br><h3 class="Title8 GTitle3">rpi-build/conf/bblayers.conf</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh"># POKY_BBLAYERS_CONF_VERSION is increased each time build/conf/bblayers.conf
+# changes incompatibly
+POKY_BBLAYERS_CONF_VERSION = "2"
 
 BBPATH = "${TOPDIR}"
 BBFILES ?= ""
 
 BBLAYERS ?= " \
-  /home/osboxes/Programs/ReadyOpt/kernel/linux/poky/meta \
-  /home/osboxes/Programs/ReadyOpt/kernel/linux/poky/meta-poky \
-  /home/osboxes/Programs/ReadyOpt/kernel/linux/poky/meta-yocto-bsp \
-  /home/osboxes/Programs/ReadyOpt/kernel/linux/poky/meta-raspberrypi \
-  /home/osboxes/Programs/ReadyOpt/kernel/linux/poky/meta-openembedded/meta-oe \
-  /home/osboxes/Programs/ReadyOpt/kernel/linux/poky/meta-openembedded/meta-python \
-  /home/osboxes/Programs/ReadyOpt/kernel/linux/poky/meta-openembedded/meta-networking \
-  /home/osboxes/Programs/ReadyOpt/kernel/linux/poky/meta-openembedded/meta-multimedia \
-  /home/osboxes/Programs/ReadyOpt/kernel/linux/poky/OSSystems/meta-gstreamer1.0 \
-  "</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-4.6 - Configurer les paramètres"><a class="Link9" href="#Opérations sur le module Yocto">4.6 - Configurer les paramètres</a></h2><br><h3 class="Title8 GTitle3">conf/local.conf</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh"># Compressed deployed files
-IMAGE_FSTYPES = "rpi-sdimg"
-SDIMG_ROOTFS_TYPE = "ext4"
-
-# Enable overscan
-DISABLE_OVERSCAN = "0"
-
-# Disable splash screen
-DISABLE_SPLASH = "1"
-
-# Boot delay
-BOOT_DELAY = "0"
-BOOT_DELAY_MS = "0" 
-
-# Enable Video camera support with V4L2 drivers
-VIDEO_CAMERA = "1"
-
-# Enable offline compositing support
-DISPMANX_OFFLINE = "1"
-
-# Enable kgdb over console support
-ENABLE_KGDB = "1"
-
-# Disable rpi boot logo
-DISABLE_RPI_BOOT_LOGO = "1"
-
-# Enable Boot to U-Boot
-RPI_USE_U_BOOT = "1"
-
-# Enable SPI bus
-ENABLE_SPI_BUS = "1"
-
-# Enable I2C
-ENABLE_I2C = "1"
-KERNEL_MODULE_AUTOLOAD_rpi += "i2c-dev i2c-bcm2708"
-
-# Enable PiTFT support
-MACHINE_FEATURES += "pitft pitft35r"
-
-# Enable Misc. display
-WAVESHARE_1024X600_C_2_1 = "1"
-
-# Enable UART
-ENABLE_UART = "1"
-
-# Enable USB Peripheral (Gadget) support
-ENABLE_DWC2_PERIPHERAL = "1"
-
-# Enable Openlabs 802.15.4 radio module
-ENABLE_AT86RF = "1"
-
-# Enable CAN
-ENABLE_SPI_BUS = "1"
-ENABLE_CAN = "1"
-ENABLE_SPI_BUS = "1"
-ENABLE_DUAL_CAN = "1"
-CAN_OSCILLATOR="8000000"
-
-# Enable infrared
-ENABLE_IR = "1"
-
-# Enable Raspberrypi Camera V2
-RASPBERRYPI_CAMERA_V2 = "1"</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-4.7 - Construire une image"><a class="Link9" href="#Opérations sur le module Yocto">4.7 - Construire une image</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">bitbake core-image-minimal</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Loading cache: 100% |                                               | ETA:  --:--:--
-Loaded 0 entries from dependency cache.
-Parsing recipes: 100% |##############################################| Time: 0:25:18
-Parsing of 2361 .bb files complete (0 cached, 2361 parsed). 3579 targets, 142 skipped, 0 masked, 0 errors.
+    /home/osboxes/Programs/ReadyOpt/yocto/poky/meta \
+    /home/osboxes/Programs/ReadyOpt/yocto/poky/meta-poky \
+    /home/osboxes/Programs/ReadyOpt/yocto/poky/meta-openembedded/meta-oe \
+    /home/osboxes/Programs/ReadyOpt/yocto/poky/meta-openembedded/meta-multimedia \
+    /home/osboxes/Programs/ReadyOpt/yocto/poky/meta-openembedded/meta-networking \
+    /home/osboxes/Programs/ReadyOpt/yocto/poky/meta-openembedded/meta-perl \
+    /home/osboxes/Programs/ReadyOpt/yocto/poky/meta-openembedded/meta-python \
+    /home/osboxes/Programs/ReadyOpt/yocto/poky/meta-qt5 \
+    /home/osboxes/Programs/ReadyOpt/yocto/poky/meta-raspberrypi \
+    /home/osboxes/Programs/ReadyOpt/yocto/poky/meta-security \
+    /home/osboxes/Programs/ReadyOpt/yocto/poky/meta-rpi \
+"</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-1.15 - Construire l'image"><a class="Link9" href="#Opérations sur le module Yocto">1.15 - Construire l'image</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">bitbake qt5-image</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Parsing recipes: 100% |##########################################################################| Time: 0:31:23
+Parsing of 2299 .bb files complete (0 cached, 2299 parsed). 3228 targets, 317 skipped, 0 masked, 0 errors.
 NOTE: Resolving any missing task queue dependencies
 
 Build Configuration:
-BB_VERSION           = "1.48.0"
+BB_VERSION           = "1.38.0"
 BUILD_SYS            = "i686-linux"
-NATIVELSBSTRING      = "universal"
-TARGET_SYS           = "aarch64-poky-linux"
-MACHINE              = "raspberrypi4-64"
+NATIVELSBSTRING      = "ubuntu-16.04"
+TARGET_SYS           = "arm-poky-linux-gnueabi"
+MACHINE              = "raspberrypi3"
 DISTRO               = "poky"
-DISTRO_VERSION       = "3.2.2"
-TUNE_FEATURES        = "aarch64 armv8a crc crypto cortexa72"
-TARGET_FPU           = ""
+DISTRO_VERSION       = "2.5.3"
+TUNE_FEATURES        = "arm armv7ve vfp thumb neon vfpv4 callconvention-hard cortexa7"
+TARGET_FPU           = "hard"
+meta
+meta-poky            = "sumo:b39f4146de84d7b36861859ec669d9c8e2ca77c6"
+meta-oe
+meta-multimedia
+meta-networking
+meta-perl
+meta-python          = "sumo:8760facba1bceb299b3613b8955621ddaa3d4c3f"
+meta-qt5             = "sumo:b3be596efaea39a75f48a3d5b32bf3a0df4e9e60"
+meta-raspberrypi     = "sumo:2d40b000021bc8a9ef7f329ed0ad410f8d227b97"
+meta-security        = "sumo:2160c5de874234045ba4e201a0703185b65dbae4"
+meta-rpi             = "sumo:ebf564db195628a17a6685c4b1f8b6de4ac74827"
+
+NOTE: Fetching uninative binary shim from http://downloads.yoctoproject.org/releases/uninative/2.4/i686-nativesdk-libc.tar.bz2;sha256sum=fafacfc537a6ce2bd122bd16c146881ab5ac69bd575abf6cb68a0dd33fa70ea2
+Initialising tasks: 100% |#######################################################################| Time: 0:00:29
+NOTE: Executing SetScene Tasks
+NOTE: Executing RunQueue Tasks
+Currently  1 running tasks (210 of 4101)   5% |###                                                             |
+0: binutils-cross-arm-2.30-r0 do_fetch (pid 7970)  54% |#########################                       | 323K/s</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-2 - Créer une image RaspberryPi4 Qt5 Touchscreen avec Yocto"><a class="Link9" href="#Opérations sur le module Yocto">2 - Créer une image RaspberryPi4 Qt5 Touchscreen avec Yocto</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">git clone -b dunfell git://git.yoctoproject.org/poky.git
+cd poky/
+git clone -b dunfell git://git.openembedded.org/meta-openembedded
+git clone -b dunfell https://github.com/meta-qt5/meta-qt5
+git clone -b dunfell git://git.yoctoproject.org/meta-raspberrypi.git</xmp></pre></div><br><h3 class="Title8 GTitle3">conf/local.conf</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">...
+MACHINE ??= "raspberry4"
+MACHINE_FEATURES += "touchscreen"
+...
+EXTRA_IMAGE_FEATURES ?= "debug-tweaks"
+IMAGE_FSTYPES = "tar.xz ext3 rpi-sdimg"
+...</xmp></pre></div><br><h3 class="Title8 GTitle3">conf/bblayers.conf</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh"># POKY_BBLAYERS_CONF_VERSION is increased each time build/conf/bblayers.conf
+# changes incompatibly
+POKY_BBLAYERS_CONF_VERSION = "2"
+
+BBPATH = "${TOPDIR}"
+BBFILES ?= ""
+
+BBLAYERS ?= " \
+  /home/osboxes/Programs/ReadyOpt/rpi4/poky/meta \
+  /home/osboxes/Programs/ReadyOpt/rpi4/poky/meta-poky \
+  /home/osboxes/Programs/ReadyOpt/rpi4/poky/meta-yocto-bsp \
+  /home/osboxes/Programs/ReadyOpt/rpi4/poky/meta-qt5 \
+  /home/osboxes/Programs/ReadyOpt/rpi4/poky/meta-raspberrypi \
+  /home/osboxes/Programs/ReadyOpt/rpi4/poky/meta-openembedded/meta-oe \
+  /home/osboxes/Programs/ReadyOpt/rpi4/poky/meta-openembedded/meta-multimedia \
+  /home/osboxes/Programs/ReadyOpt/rpi4/poky/meta-openembedded/meta-python \
+  /home/osboxes/Programs/ReadyOpt/rpi4/poky/meta-openembedded/meta-networking \
+  "</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">bitbake core-image-sato</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">
+Parsing recipes: 100% |##########################################################################| Time: 1:05:25
+Parsing of 2275 .bb files complete (0 cached, 2275 parsed). 3387 targets, 146 skipped, 0 masked, 0 errors.
+NOTE: Resolving any missing task queue dependencies
+
+Build Configuration:
+BB_VERSION           = "1.46.0"
+BUILD_SYS            = "i686-linux"
+NATIVELSBSTRING      = "ubuntu-16.04"
+TARGET_SYS           = "arm-poky-linux-gnueabi"
+MACHINE              = "raspberrypi4"
+DISTRO               = "poky"
+DISTRO_VERSION       = "3.1.6"
+TUNE_FEATURES        = "arm vfp cortexa7 neon vfpv4 thumb callconvention-hard"
+TARGET_FPU           = "hard"
 meta
 meta-poky
-meta-yocto-bsp       = "local-yocto-3.2.2:d5d6286a66f46f4523e35e0e3f20cd7396195fdc"
-meta-raspberrypi     = "master:853ccd744073fcc03a732c99b817fe1bd5b23327"
+meta-yocto-bsp       = "dunfell:d20ef1f5a5de7820b3e9b7f539b51f94954e9cd5"
+meta-qt5             = "dunfell:b4d24d70aca75791902df5cd59a4f4a54aa4a125"
+meta-raspberrypi     = "dunfell:77190af02d48adc2b28216775e6318e9eeda571c"
 meta-oe
+meta-multimedia
 meta-python
-meta-networking
-meta-multimedia      = "master:98175fd0cc6eefe4db9484131bb98f0516c0d1a5"
-meta-gstreamer1.0    = "master:48b7aabbc7f0792263de09a30a0ce3b0b94bf6be"
+meta-networking      = "dunfell:346681e7bf9c78008a845fc89031be4fd4ceb3a1"
 
-Initialising tasks: 100% |###########################################| Time: 0:00:12
-Sstate summary: Wanted 2 Found 0 Missed 2 Current 1041 (0% match, 99% complete)
+NOTE: Fetching uninative binary shim http://downloads.yoctoproject.org/releases/uninative/3.0/i686-nativesdk-libc.tar.xz;sha256sum=e6cc2fc056234cffa6a2ff084cce27d544ea3f487a62b5e253351cefd4421900 (will check PREMIRRORS first)
+Initialising tasks: 100% |#######################################################################| Time: 0:01:01
+Sstate summary: Wanted 2750 Found 0 Missed 2750 Current 0 (0% match, 0% complete)
 NOTE: Executing Tasks
-NOTE: Tasks Summary: Attempted 2875 tasks of which 2866 didn't need to be rerun and all succeeded</xmp></pre></div>.<br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-4.8 - Vérifier l'image"><a class="Link9" href="#Opérations sur le module Yocto">4.8 - Vérifier l'image</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">ls -l tmp/deploy/images/raspberrypi4-64/</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">[...]
-# fichiers réels
-core-image-minimal-raspberrypi4-64-20210309010915.rootfs.ext4
-core-image-minimal-raspberrypi4-64-20210309010915.rootfs.manifest
-core-image-minimal-raspberrypi4-64-20210309010915.rootfs.rpi-sdimg
-core-image-minimal-raspberrypi4-64-20210309010915.testdata.json
-core-image-minimal-raspberrypi4-64-20210309010915.vfat
-# liens vers les fichiers réels
-core-image-minimal-raspberrypi4-64.ext4 -&gt; core-image-minimal-raspberrypi4-64-20210309010915.rootfs.ext4
-core-image-minimal-raspberrypi4-64.manifest -&gt; core-image-minimal-raspberrypi4-64-20210309010915.rootfs.manifest
-core-image-minimal-raspberrypi4-64.rpi-sdimg -&gt; core-image-minimal-raspberrypi4-64-20210309010915.rootfs.rpi-sdimg
-core-image-minimal-raspberrypi4-64.testdata.json -&gt; core-image-minimal-raspberrypi4-64-20210309010915.testdata.json
-core-image-minimal-raspberrypi4-64.vfat -&gt; core-image-minimal-raspberrypi4-64-20210309010915.vfat
-[...]</xmp></pre></div><br>On s'intéresse ici à l'image :<br><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">core-image-minimal-raspberrypi4-64.rpi-sdimg</xmp></pre></div><br>qui correspond à :<br><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">core-image-minimal-raspberrypi4-64-20210310095813.rootfs.rpi-sdimg</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-4.9 - Vérifier si le disque est monté"><a class="Link9" href="#Opérations sur le module Yocto">4.9 - Vérifier si le disque est monté</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">lsblk</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
-sr0     11:0    1  1024M  0 rom
-sdc      8:32   1 119.1G  0 disk
-├─sdc2   8:34   1   119G  0 part /media/rpidisk/ROOT
-└─sdc1   8:33   1    94M  0 part /media/rpidisk/BOOT
-sda      8:0    0   500G  0 disk
-├─sda4   8:4    0 270.1G  0 part /home
-├─sda2   8:2    0   954M  0 part /boot
-├─sda3   8:3    0   8.4G  0 part [SWAP]
-└─sda1   8:1    0 220.6G  0 part /</xmp></pre></div><br>Dans notre cas, le disque est monté :<br><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">sdc      8:32   1 119.1G  0 disk
-├─sdc2   8:34   1   119G  0 part /media/rpidisk/ROOT
-└─sdc1   8:33   1    94M  0 part /media/rpidisk/BOOT</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-4.10 - Démonter le disque s'il est monté"><a class="Link9" href="#Opérations sur le module Yocto">4.10 - Démonter le disque s'il est monté</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">sudo umount /dev/sdc1
-sudo umount /dev/sdc2</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">lsblk</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
-sr0     11:0    1  1024M  0 rom
-sdc      8:32   1 119.1G  0 disk
-├─sdc2   8:34   1   119G  0 part
-└─sdc1   8:33   1    94M  0 part
-sda      8:0    0   500G  0 disk
-├─sda4   8:4    0 270.1G  0 part /home
-├─sda2   8:2    0   954M  0 part /boot
-├─sda3   8:3    0   8.4G  0 part [SWAP]
-└─sda1   8:1    0 220.6G  0 part /</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-4.11 - Copier l'image"><a class="Link9" href="#Opérations sur le module Yocto">4.11 - Copier l'image</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">cd tmp/deploy/images/raspberrypi4-64/
-sudo cp core-image-minimal-raspberrypi4-64.rpi-sdimg /dev/sdc</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">lsblk -o model,name,type,fstype,size,label,mountpoint</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">MODEL            NAME   TYPE FSTYPE   SIZE LABEL   MOUNTPOINT
-CD-ROM           sr0    rom          1024M
-Storage Device   sdc    disk        119.1G
-                 ├─sdc2 part ext4      12M
-                 └─sdc1 part vfat      48M rpi4-64
-VBOX HARDDISK    sda    disk          500G
-                 ├─sda4 part ext4   270.1G         /home
-                 ├─sda2 part ext4     954M         /boot
-                 ├─sda3 part swap     8.4G         [SWAP]
-                 └─sda1 part ext4   220.6G         /</xmp><br></pre></div><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-4.12 - Créer un point de montage s'il n'existe pas"><a class="Link9" href="#Opérations sur le module Yocto">4.12 - Créer un point de montage s'il n'existe pas</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">sudo mkdir -p /media/rpidisk/BOOT
-sudo mkdir -p /media/rpidisk/ROOT</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-4.13 - Monter le disque"><a class="Link9" href="#Opérations sur le module Yocto">4.13 - Monter le disque</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">sudo mount /dev/sdc1 /media/rpidisk/BOOT/
-sudo mount /dev/sdc2 /media/rpidisk/ROOT/</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-4.14 - Vérifier le contenu du disque"><a class="Link9" href="#Opérations sur le module Yocto">4.14 - Vérifier le contenu du disque</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">ls -l /media/rpidisk/BOOT/</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">total 44654
--rwxr-xr-x 1 root root    35678 Nov 25  1961 bcm2711-rpi-400.dtb
--rwxr-xr-x 1 root root    35920 Nov 25  1961 bcm2711-rpi-4-b.dtb
--rwxr-xr-x 1 root root    36021 Nov 25  1961 bcm2711-rpi-cm4.dtb
--rwxr-xr-x 1 root root    52456 Nov 25  1961 bootcode.bin
--rwxr-xr-x 1 root root      262 Nov 25  1961 boot.scr
--rwxr-xr-x 1 root root      100 Nov 25  1961 cmdline.txt
--rwxr-xr-x 1 root root    36328 Nov 25  1961 config.txt
--rwxr-xr-x 1 root root     3179 Nov 25  1961 fixup4cd.dat
--rwxr-xr-x 1 root root     5430 Nov 25  1961 fixup4.dat
--rwxr-xr-x 1 root root     8447 Nov 25  1961 fixup4db.dat
--rwxr-xr-x 1 root root     8443 Nov 25  1961 fixup4x.dat
--rwxr-xr-x 1 root root     3179 Nov 25  1961 fixup_cd.dat
--rwxr-xr-x 1 root root     7302 Nov 25  1961 fixup.dat
--rwxr-xr-x 1 root root    10291 Nov 25  1961 fixup_db.dat
--rwxr-xr-x 1 root root    10289 Nov 25  1961 fixup_x.dat
--rwxr-xr-x 1 root root 22991360 Nov 25  1961 Image
--rwxr-xr-x 1 root root       50 Nov 25  1961 image-version-info
--rwxr-xr-x 1 root root   512264 Nov 25  1961 kernel8.img
-drwxr-xr-x 2 root root     3072 Nov 25  1961 overlays
--rwxr-xr-x 1 root root        0 Nov 25  1961 rpi-bootfiles-20210205.stamp
--rwxr-xr-x 1 root root   791996 Nov 25  1961 start4cd.elf
--rwxr-xr-x 1 root root  3720904 Nov 25  1961 start4db.elf
--rwxr-xr-x 1 root root  2227200 Nov 25  1961 start4.elf
--rwxr-xr-x 1 root root  2979624 Nov 25  1961 start4x.elf
--rwxr-xr-x 1 root root   791996 Nov 25  1961 start_cd.elf
--rwxr-xr-x 1 root root  4792808 Nov 25  1961 start_db.elf
--rwxr-xr-x 1 root root  2951392 Nov 25  1961 start.elf
--rwxr-xr-x 1 root root  3703208 Nov 25  1961 start_x.elf</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">ls -l /media/rpidisk/ROOT/</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">total 27
-drwxr-xr-x  2 root root  1024 Mar  9  2018 bin
-drwxr-xr-x  2 root root  1024 Mar  9  2018 boot
-drwxr-xr-x  2 root root  1024 Mar  9  2018 dev
-drwxr-xr-x 19 root root  1024 Mar  9  2018 etc
-drwxr-xr-x  3 root root  1024 Mar  9  2018 home
-drwxr-xr-x  4 root root  1024 Mar  9  2018 lib
-drwx------  2 root root 12288 Mar 10 05:00 lost+found
-drwxr-xr-x  2 root root  1024 Mar  9  2018 media
-drwxr-xr-x  2 root root  1024 Mar  9  2018 mnt
-dr-xr-xr-x  2 root root  1024 Mar  9  2018 proc
-drwxr-xr-x  2 root root  1024 Mar  9  2018 run
-drwxr-xr-x  2 root root  1024 Mar  9  2018 sbin
-dr-xr-xr-x  2 root root  1024 Mar  9  2018 sys
-drwxrwxrwt  2 root root  1024 Mar  9  2018 tmp
-drwxr-xr-x 10 root root  1024 Mar  9  2018 usr
-drwxr-xr-x  8 root root  1024 Mar  9  2018 var</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">more /media/rpidisk/BOOT/cmdline.txt</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">dwc_otg.lpm_enable=0 root=/dev/mmcblk0p2 rootfstype=ext4 rootwait kgdboc=serial0,115200 logo.nologo</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">more /media/rpidisk/BOOT/config.txt</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">
-################################################################################
-##  Raspberry Pi Configuration Settings
-##
-##  Revision 16, 2013/06/22
-##
-##  Details taken from the eLinux wiki
-##  For up-to-date information please refer to wiki page.
-##
-##  Wiki Location : http://elinux.org/RPiconfig
-##
-##
-##  Description:
-##    Details of each setting are described with each section that begins with
-##    a double hashed comment ('##')
-##    It is up to the user to remove the single hashed comment ('#') from each
-##    option they want to enable, and to set the specific value of that option.
-##
-##  Overclock settings will be disabled at runtime if the SoC reaches temp_limit
-##
-################################################################################
-
-################################################################################
-##  Standard Definition Video Settings
-################################################################################
-
-## sdtv_mode
-##     defines the TV standard for composite output
-##
-##     Value    Description
-##     -------------------------------------------------------------------------
-##     0        Normal NTSC (Default)
-##     1        Japanese version of NTSC - no pedestal
-##     2        Normal PAL
-##     3        Brazilian version of PAL - 525/60 rather than 625/50, different
-##              subcarrier
-##
-#sdtv_mode=0
---More--(3%)</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-5 - Kas"><a class="Link9" href="#Opérations sur le module Yocto">5 - Kas</a></h2><br>Kas est un module simplifiant la configuration des projets basés sur bitbake.<br><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-5.1 - Installer Kas"><a class="Link9" href="#Opérations sur le module Yocto">5.1 - Installer Kas</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">sudo pip3 install kas</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">The directory '/home/osboxes/.cache/pip/http' or its parent directory is not owned by the current user and the cache has been disabled. Please check the permissions and owner of that directory. If executing pip with sudo, you may want sudo's -H flag.
-The directory '/home/osboxes/.cache/pip' or its parent directory is not owned by the current user and caching wheels has been disabled. check the permissions and owner of that directory. If executing pip with sudo, you may want sudo's -H flag.
-Requirement already satisfied (use --upgrade to upgrade): kas in /usr/local/lib/python3.5/dist-packages
-Requirement already satisfied (use --upgrade to upgrade): PyYAML&lt;6,&gt;=3.0 in /usr/local/lib/python3.5/dist-packages (from kas)
-Requirement already satisfied (use --upgrade to upgrade): distro&lt;2,&gt;=1.0.0 in /usr/local/lib/python3.5/dist-packages (from kas)
-Requirement already satisfied (use --upgrade to upgrade): jsonschema&lt;4,&gt;=2.5.0 in /usr/local/lib/python3.5/dist-packages (from kas)
-Requirement already satisfied (use --upgrade to upgrade): six&gt;=1.11.0 in /usr/local/lib/python3.5/dist-packages (from jsonschema&lt;4,&gt;=2.5.0-&gt;kas)
-Requirement already satisfied (use --upgrade to upgrade): importlib-metadata; python_version &lt; "3.8" in /usr/local/lib/python3.5/dist-packages (from jsonschema&lt;4,&gt;=2.5.0-&gt;kas)
-Requirement already satisfied (use --upgrade to upgrade): pyrsistent&gt;=0.14.0 in /usr/local/lib/python3.5/dist-packages (from jsonschema&lt;4,&gt;=2.5.0-&gt;kas)
-Requirement already satisfied (use --upgrade to upgrade): setuptools in /usr/lib/python3/dist-packages (from jsonschema&lt;4,&gt;=2.5.0-&gt;kas)
-Requirement already satisfied (use --upgrade to upgrade): attrs&gt;=17.4.0 in /usr/local/lib/python3.5/dist-packages (from jsonschema&lt;4,&gt;=2.5.0-&gt;kas)
-Requirement already satisfied (use --upgrade to upgrade): zipp&gt;=0.5 in /usr/local/lib/python3.5/dist-packages (from importlib-metadata; python_version &lt; "3.8"-&gt;jsonschema&lt;4,&gt;=2.5.0-&gt;kas)
-Requirement already satisfied (use --upgrade to upgrade): typing-extensions&gt;=3.6.4; python_version &lt; "3.8" in /usr/local/lib/python3.5/dist-packages (from importlib-metadata; python_version &lt; "3.8"-&gt;jsonschema&lt;4,&gt;=2.5.0-&gt;kas)
-You are using pip version 8.1.1, however version 21.0.1 is available.
-You should consider upgrading via the 'pip install --upgrade pip' command.</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-Liens"><a class="Link9" href="#Opérations sur le module Yocto">Liens</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.yoctoproject.org/docs/current/mega-manual/mega-manual.html">https://www.yoctoproject.org/docs/current/mega-manual/mega-manual.html</a><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://docs.yoctoproject.org/brief-yoctoprojectqs/index.html">https://docs.yoctoproject.org/brief-yoctoprojectqs/index.html</a><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://meta-raspberrypi.readthedocs.io/en/latest/">https://meta-raspberrypi.readthedocs.io/en/latest/</a><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://kas.readthedocs.io/en/1.0/intro.html">https://kas.readthedocs.io/en/1.0/intro.html</a><br><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Opérations sur le module Xenomai"><a class="Link3" href="#">Opérations sur le module Xenomai</a></h1><div class="Body3"><br>Xenomai est un module permettant d'apporter des fonctionnalités temps réel à un noyau Linux standard.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1614775778507"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1614775778507");</script></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Xenomai-1 - Xenomai"><a class="Link9" href="#Opérations sur le module Xenomai">1 - Xenomai</a></h2><br><h2 class="Title7 GTitle2" id="Opérations sur le module Xenomai-1.1 - Télécharger Xenomai"><a class="Link9" href="#Opérations sur le module Xenomai">1.1 - Télécharger Xenomai</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">wget https://xenomai.org/downloads/xenomai/stable/xenomai-3.1.tar.bz2
+Currently  1 running tasks (205 of 6785)   3% |#                                                               |
+0: mpfr-native-4.0.2-r0 do_compile - 1m18s (pid 601)</xmp></pre></div><br><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-Liens"><a class="Link9" href="#Opérations sur le module Yocto">Liens</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.yoctoproject.org/docs/current/mega-manual/mega-manual.html">https://www.yoctoproject.org/docs/current/mega-manual/mega-manual.html</a><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://docs.yoctoproject.org/brief-yoctoprojectqs/index.html">https://docs.yoctoproject.org/brief-yoctoprojectqs/index.html</a><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://meta-raspberrypi.readthedocs.io/en/latest/">https://meta-raspberrypi.readthedocs.io/en/latest/</a><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://kas.readthedocs.io/en/1.0/intro.html">https://kas.readthedocs.io/en/1.0/intro.html</a><br><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Opérations sur le module Xenomai"><a class="Link3" href="#">Opérations sur le module Xenomai</a></h1><div class="Body3"><br>Xenomai est un module permettant d'apporter des fonctionnalités temps réel à un noyau Linux standard.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1614775778507"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1614775778507");</script></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Xenomai-1 - Xenomai"><a class="Link9" href="#Opérations sur le module Xenomai">1 - Xenomai</a></h2><br><h2 class="Title7 GTitle2" id="Opérations sur le module Xenomai-1.1 - Télécharger Xenomai"><a class="Link9" href="#Opérations sur le module Xenomai">1.1 - Télécharger Xenomai</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">wget https://xenomai.org/downloads/xenomai/stable/xenomai-3.1.tar.bz2
 tar xjfv xenomai-3.1.tar.bz2
 rm -f xenomai-3.1.tar.bz2</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Xenomai-1.2 - Lister les architectures supportées"><a class="Link9" href="#Opérations sur le module Xenomai">1.2 - Lister les architectures supportées</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">cd xenomai-3.1
 ls -l kernel/cobalt/arch/</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">total 16
