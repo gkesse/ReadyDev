@@ -4,24 +4,28 @@ Finish</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le mo
 Système d'exploitation
 Choisissez l'OS
 Raspberry Pi OS (other)
-Raspberry Pi OS Lite (32-bit)</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module RaspberryPi-1.1.3.2 - Cas d'une image personnalisée"><a class="Link9" href="#Opérations sur le module RaspberryPi">1.1.3.2 - Cas d'une image personnalisée</a></h2><br><h2 class="Title7 GTitle2" id="Opérations sur le module RaspberryPi-1.1.3.2.1 - Télécharger Raspberry Pi OS Lite"><a class="Link9" href="#Opérations sur le module RaspberryPi">1.1.3.2.1 - Télécharger Raspberry Pi OS Lite</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://downloads.raspberrypi.org/raspios_lite_armhf/images/raspios_lite_armhf-2021-01-12/2021-01-11-raspios-buster-armhf-lite.zip">https://downloads.raspberrypi.org/raspios_lite_armhf/images/raspios_lite_armhf-2021-01-12/2021-01-11-raspios-buster-armhf-lite.zip</a><br><br><h2 class="Title7 GTitle2" id="Opérations sur le module RaspberryPi-1.1.3.2.1 - Configurer l'image personnalisée"><a class="Link9" href="#Opérations sur le module RaspberryPi">1.1.3.2.1 - Configurer l'image personnalisée</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Raspberry Pi Imager
+Raspberry Pi OS Lite (32-bit)</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module RaspberryPi-1.1.3.2 - Cas d'une image personnalisée"><a class="Link9" href="#Opérations sur le module RaspberryPi">1.1.3.2 - Cas d'une image personnalisée</a></h2><br><h2 class="Title7 GTitle2" id="Opérations sur le module RaspberryPi-1.1.3.2.1 - Raspbian Lite"><a class="Link9" href="#Opérations sur le module RaspberryPi">1.1.3.2.1 - Raspbian Lite</a></h2><br><h2 class="Title7 GTitle2" id="Opérations sur le module RaspberryPi-1.1.3.2.1.1 - Télécharger l'image"><a class="Link9" href="#Opérations sur le module RaspberryPi">1.1.3.2.1.1 - Télécharger l'image</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://downloads.raspberrypi.org/raspios_lite_armhf/images/raspios_lite_armhf-2021-01-12/2021-01-11-raspios-buster-armhf-lite.zip">https://downloads.raspberrypi.org/raspios_lite_armhf/images/raspios_lite_armhf-2021-01-12/2021-01-11-raspios-buster-armhf-lite.zip</a><br><br><h2 class="Title7 GTitle2" id="Opérations sur le module RaspberryPi-1.1.3.2.1.2 - Configurer l'image personnalisée"><a class="Link9" href="#Opérations sur le module RaspberryPi">1.1.3.2.1.2 - Configurer l'image personnalisée</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Raspberry Pi Imager
 Système d'exploitation
 Choisissez l'OS
 Utiliser une image personnalisée
-2021-01-11-raspios-buster-armhf-lite.img</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module RaspberryPi-1.1.4 - Configurer la carte SD"><a class="Link9" href="#Opérations sur le module RaspberryPi">1.1.4 - Configurer la carte SD</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Raspberry Pi Imager
+2021-01-11-raspios-buster-armhf-lite.img</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module RaspberryPi-1.1.3.2.2 - Ubuntu Desktop"><a class="Link9" href="#Opérations sur le module RaspberryPi">1.1.3.2.2 - Ubuntu Desktop</a></h2><br><h2 class="Title7 GTitle2" id="Opérations sur le module RaspberryPi-1.1.3.2.2.1 - Télécharger l'image"><a class="Link9" href="#Opérations sur le module RaspberryPi">1.1.3.2.2.1 - Télécharger l'image</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://cdimage.ubuntu.com/releases/20.10/release/ubuntu-20.10-preinstalled-desktop-arm64+raspi.img.xz">https://cdimage.ubuntu.com/releases/20.10/release/ubuntu-20.10-preinstalled-desktop-arm64+raspi.img.xz</a><br><br><h2 class="Title7 GTitle2" id="Opérations sur le module RaspberryPi-1.1.3.2.2.2 - Configurer l'image personnalisée"><a class="Link9" href="#Opérations sur le module RaspberryPi">1.1.3.2.2.2 - Configurer l'image personnalisée</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Raspberry Pi Imager
+Système d'exploitation
+Choisissez l'OS
+Utiliser une image personnalisée
+ubuntu-20.10-preinstalled-desktop-arm64+raspi.img</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module RaspberryPi-1.1.4 - Configurer la carte SD"><a class="Link9" href="#Opérations sur le module RaspberryPi">1.1.4 - Configurer la carte SD</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Raspberry Pi Imager
 Carte SD
 Choisissez la Carte SD
 Mass Storage device USB Device - 127.9 GB</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module RaspberryPi-1.1.5 - Écrire l'image sur la carte SD"><a class="Link9" href="#Opérations sur le module RaspberryPi">1.1.5 - Écrire l'image sur la carte SD</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Raspberry Pi Imager
 Écrire
 Continuer ? -&gt; Oui
-Retirer la carte -&gt; Continuer</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module RaspberryPi-2 - Réseau"><a class="Link9" href="#Opérations sur le module RaspberryPi">2 - Réseau</a></h2><br><h2 class="Title7 GTitle2" id="Opérations sur le module RaspberryPi-2.1 - Configurer le réseau WiFi"><a class="Link9" href="#Opérations sur le module RaspberryPi">2.1 - Configurer le réseau WiFi</a></h2><br><h2 class="Title7 GTitle2" id="Opérations sur le module RaspberryPi-2..1.1 - Configurer les paramètres WiFi"><a class="Link9" href="#Opérations sur le module RaspberryPi">2..1.1 - Configurer les paramètres WiFi</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">sudo nano /etc/wpa_supplicant/wpa_supplicant.conf</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+Retirer la carte -&gt; Continuer</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module RaspberryPi-2 - Réseau"><a class="Link9" href="#Opérations sur le module RaspberryPi">2 - Réseau</a></h2><br><h2 class="Title7 GTitle2" id="Opérations sur le module RaspberryPi-2.1 - Raspbian Lite"><a class="Link9" href="#Opérations sur le module RaspberryPi">2.1 - Raspbian Lite</a></h2><br><h2 class="Title7 GTitle2" id="Opérations sur le module RaspberryPi-2.1.1 - Configurer le réseau WiFi"><a class="Link9" href="#Opérations sur le module RaspberryPi">2.1.1 - Configurer le réseau WiFi</a></h2><br><h2 class="Title7 GTitle2" id="Opérations sur le module RaspberryPi-2.1.1.1 - Configurer les paramètres WiFi"><a class="Link9" href="#Opérations sur le module RaspberryPi">2.1.1.1 - Configurer les paramètres WiFi</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">sudo nano /etc/wpa_supplicant/wpa_supplicant.conf</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
 update_config=1
 country=FR
 
 network={
         ssid="ReadyDev"
         psk="iConnect"
-}</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module RaspberryPi-2.1.2 - Vérifier la connexion WiFi"><a class="Link9" href="#Opérations sur le module RaspberryPi">2.1.2 - Vérifier la connexion WiFi</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">ip a s</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+}</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module RaspberryPi-2.1.1.2 - Vérifier la connexion WiFi"><a class="Link9" href="#Opérations sur le module RaspberryPi">2.1.1.2 - Vérifier la connexion WiFi</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">ip a s</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
     inet 127.0.0.1/8 scope host lo
        valid_lft forever preferred_lft forever
@@ -89,7 +93,67 @@ Check -&gt; Specify username -&gt; pi
 Bookmark settings
 Session name -&gt; Ubuntu
 
-OK</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Opérations sur le module Jenkins"><a class="Link3" href="#">Opérations sur le module Jenkins</a></h1><div class="Body3"><br>Jenkins est un outil d'intégration continue.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1615543323116"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1615543323116");</script></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Jenkins-1 - Installer Jenkins"><a class="Link9" href="#Opérations sur le module Jenkins">1 - Installer Jenkins</a></h2><br><h2 class="Title7 GTitle2" id="Opérations sur le module Jenkins-1.1 - Installer Jenkins sous Windows"><a class="Link9" href="#Opérations sur le module Jenkins">1.1 - Installer Jenkins sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Opérations sur le module Jenkins-1.1.1 - Télécharger Jenkins"><a class="Link9" href="#Opérations sur le module Jenkins">1.1.1 - Télécharger Jenkins</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="http://ftp.halifax.rwth-aachen.de/jenkins/windows-stable/">http://ftp.halifax.rwth-aachen.de/jenkins/windows-stable/</a><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="http://ftp.halifax.rwth-aachen.de/jenkins/windows-stable/jenkins-2.235.2.zip">http://ftp.halifax.rwth-aachen.de/jenkins/windows-stable/jenkins-2.235.2.zip</a><br><br><h2 class="Title7 GTitle2" id="Opérations sur le module Jenkins-1.1.2 - Installer Jenkins"><a class="Link9" href="#Opérations sur le module Jenkins">1.1.2 - Installer Jenkins</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Destination Folder -&gt; C:\Program Files (x86)\Jenkins
+OK</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Opérations sur le module Yocto"><a class="Link3" href="#">Opérations sur le module Yocto</a></h1><div class="Body3"><br>Yocto est un outil de construction de système d'exploitation Linux Embarqué.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1615682776944"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1615682776944");</script></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-1 - Créer une image RaspberryPi 4 Qt Touchscreen sous Ubuntu"><a class="Link9" href="#Opérations sur le module Yocto">1 - Créer une image RaspberryPi 4 Qt Touchscreen sous Ubuntu</a></h2><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-1.1 - Installer les dépendances"><a class="Link9" href="#Opérations sur le module Yocto">1.1 - Installer les dépendances</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">sudo apt install gawk \
+wget \
+git-core \
+diffstat \
+unzip \
+texinfo \
+build-essential \
+chrpath \
+socat \
+cpio \
+python3 \
+python3-pip \
+xz-utils \
+debianutils \
+iputils-ping \
+python3-git \
+python3-jinja2 \
+libegl1-mesa \
+libsdl1.2-dev \
+pylint3 \
+xterm \
+gcc-multilib \
+python3-pexpect \</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-1.2 - Télécharger les méta-données"><a class="Link9" href="#Opérations sur le module Yocto">1.2 - Télécharger les méta-données</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">git clone -b dunfell git://git.yoctoproject.org/poky.git
+cd poky/
+git clone -b dunfell git://git.openembedded.org/meta-openembedded
+git clone -b dunfell https://github.com/meta-qt5/meta-qt5
+git clone -b dunfell git://git.yoctoproject.org/meta-raspberrypi.git</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-1.3 - Lister les machines supportées"><a class="Link9" href="#Opérations sur le module Yocto">1.3 - Lister les machines supportées</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">ls -l meta-raspberrypi/conf/machine/</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">total 44
+drwxrwxr-x 2 rpi4 rpi4 4096 mars  14 00:54 include
+-rw-rw-r-- 1 rpi4 rpi4  300 mars  14 00:54 raspberrypi0.conf
+-rw-rw-r-- 1 rpi4 rpi4  585 mars  14 00:54 raspberrypi0-wifi.conf
+-rw-rw-r-- 1 rpi4 rpi4  342 mars  14 00:54 raspberrypi2.conf
+-rw-rw-r-- 1 rpi4 rpi4 1022 mars  14 00:54 raspberrypi3-64.conf
+-rw-rw-r-- 1 rpi4 rpi4  633 mars  14 00:54 raspberrypi3.conf
+-rw-rw-r-- 1 rpi4 rpi4 1054 mars  14 00:54 raspberrypi4-64.conf
+-rw-rw-r-- 1 rpi4 rpi4  595 mars  14 00:54 raspberrypi4.conf
+-rw-rw-r-- 1 rpi4 rpi4  402 mars  14 00:54 raspberrypi-cm3.conf
+-rw-rw-r-- 1 rpi4 rpi4  244 mars  14 00:54 raspberrypi-cm.conf
+-rw-rw-r-- 1 rpi4 rpi4  364 mars  14 00:54 raspberrypi.conf</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-1.4 - Configurer les variables d'environnement"><a class="Link9" href="#Opérations sur le module Yocto">1.4 - Configurer les variables d'environnement</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">. oe-init-build-env rpi-build</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-1.5 - Configurer la machine"><a class="Link9" href="#Opérations sur le module Yocto">1.5 - Configurer la machine</a></h2><br><h3 class="Title8 GTitle3">conf/local.conf</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">...
+MACHINE ??= "raspberry4"
+MACHINE_FEATURES += "touchscreen"
+...
+EXTRA_IMAGE_FEATURES ?= "debug-tweaks"
+IMAGE_FSTYPES = "tar.xz ext3 rpi-sdimg"
+...</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-1.6 - Configurer les couches"><a class="Link9" href="#Opérations sur le module Yocto">1.6 - Configurer les couches</a></h2><br><h3 class="Title8 GTitle3">conf/bblayers.conf</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh"># POKY_BBLAYERS_CONF_VERSION is increased each time build/conf/bblayers.conf
+# changes incompatibly
+POKY_BBLAYERS_CONF_VERSION = "2"
+
+BBPATH = "${TOPDIR}"
+BBFILES ?= ""
+
+BBLAYERS ?= " \
+  /home/osboxes/Programs/ReadyOpt/rpi4/poky/meta \
+  /home/osboxes/Programs/ReadyOpt/rpi4/poky/meta-poky \
+  /home/osboxes/Programs/ReadyOpt/rpi4/poky/meta-yocto-bsp \
+  /home/osboxes/Programs/ReadyOpt/rpi4/poky/meta-qt5 \
+  /home/osboxes/Programs/ReadyOpt/rpi4/poky/meta-raspberrypi \
+  /home/osboxes/Programs/ReadyOpt/rpi4/poky/meta-openembedded/meta-oe \
+  /home/osboxes/Programs/ReadyOpt/rpi4/poky/meta-openembedded/meta-multimedia \
+  /home/osboxes/Programs/ReadyOpt/rpi4/poky/meta-openembedded/meta-python \
+  /home/osboxes/Programs/ReadyOpt/rpi4/poky/meta-openembedded/meta-networking \
+  "</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Opérations sur le module Jenkins"><a class="Link3" href="#">Opérations sur le module Jenkins</a></h1><div class="Body3"><br>Jenkins est un outil d'intégration continue.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1615543323116"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1615543323116");</script></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Jenkins-1 - Installer Jenkins"><a class="Link9" href="#Opérations sur le module Jenkins">1 - Installer Jenkins</a></h2><br><h2 class="Title7 GTitle2" id="Opérations sur le module Jenkins-1.1 - Installer Jenkins sous Windows"><a class="Link9" href="#Opérations sur le module Jenkins">1.1 - Installer Jenkins sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Opérations sur le module Jenkins-1.1.1 - Télécharger Jenkins"><a class="Link9" href="#Opérations sur le module Jenkins">1.1.1 - Télécharger Jenkins</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="http://ftp.halifax.rwth-aachen.de/jenkins/windows-stable/">http://ftp.halifax.rwth-aachen.de/jenkins/windows-stable/</a><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="http://ftp.halifax.rwth-aachen.de/jenkins/windows-stable/jenkins-2.235.2.zip">http://ftp.halifax.rwth-aachen.de/jenkins/windows-stable/jenkins-2.235.2.zip</a><br><br><h2 class="Title7 GTitle2" id="Opérations sur le module Jenkins-1.1.2 - Installer Jenkins"><a class="Link9" href="#Opérations sur le module Jenkins">1.1.2 - Installer Jenkins</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Destination Folder -&gt; C:\Program Files (x86)\Jenkins
 Next -&gt; Install -&gt; Finish</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Jenkins-1.1.3 - Démarrer Jenkins"><a class="Link9" href="#Opérations sur le module Jenkins">1.1.3 - Démarrer Jenkins</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="http://localhost:8080/">http://localhost:8080/</a><br><br><b>Copier le mot de passe administrateur</b><br><br><h3 class="Title8 GTitle3">secrets\initialAdminPassword</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">102145093e0f477cb50c00322868d17f</xmp></pre></div><br><b>Saisir le mot de passe administrateur</b><br><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Mot de passe administrateur -&gt; 102145093e0f477cb50c00322868d17f
 Continuer</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Jenkins-2 - Intégrer un projet C/C++ GitHub avec Jenkins"><a class="Link9" href="#Opérations sur le module Jenkins">2 - Intégrer un projet C/C++ GitHub avec Jenkins</a></h2><br><h2 class="Title7 GTitle2" id="Opérations sur le module Jenkins-2.1 - Installer le plugin Blue Ocean"><a class="Link9" href="#Opérations sur le module Jenkins">2.1 - Installer le plugin Blue Ocean</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Jenkins
 Administrer Jenkins
