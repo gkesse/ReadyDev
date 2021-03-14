@@ -153,7 +153,39 @@ BBLAYERS ?= " \
   /home/osboxes/Programs/ReadyOpt/rpi4/poky/meta-openembedded/meta-multimedia \
   /home/osboxes/Programs/ReadyOpt/rpi4/poky/meta-openembedded/meta-python \
   /home/osboxes/Programs/ReadyOpt/rpi4/poky/meta-openembedded/meta-networking \
-  "</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Opérations sur le module Jenkins"><a class="Link3" href="#">Opérations sur le module Jenkins</a></h1><div class="Body3"><br>Jenkins est un outil d'intégration continue.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1615543323116"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1615543323116");</script></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Jenkins-1 - Installer Jenkins"><a class="Link9" href="#Opérations sur le module Jenkins">1 - Installer Jenkins</a></h2><br><h2 class="Title7 GTitle2" id="Opérations sur le module Jenkins-1.1 - Installer Jenkins sous Windows"><a class="Link9" href="#Opérations sur le module Jenkins">1.1 - Installer Jenkins sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Opérations sur le module Jenkins-1.1.1 - Télécharger Jenkins"><a class="Link9" href="#Opérations sur le module Jenkins">1.1.1 - Télécharger Jenkins</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="http://ftp.halifax.rwth-aachen.de/jenkins/windows-stable/">http://ftp.halifax.rwth-aachen.de/jenkins/windows-stable/</a><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="http://ftp.halifax.rwth-aachen.de/jenkins/windows-stable/jenkins-2.235.2.zip">http://ftp.halifax.rwth-aachen.de/jenkins/windows-stable/jenkins-2.235.2.zip</a><br><br><h2 class="Title7 GTitle2" id="Opérations sur le module Jenkins-1.1.2 - Installer Jenkins"><a class="Link9" href="#Opérations sur le module Jenkins">1.1.2 - Installer Jenkins</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Destination Folder -&gt; C:\Program Files (x86)\Jenkins
+  "</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Yocto-1.7 - Construire l'image"><a class="Link9" href="#Opérations sur le module Yocto">1.7 - Construire l'image</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">bitbake core-image-minimal</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Parsing recipes: 100% |############################################################
+Parsing of 2275 .bb files complete (0 cached, 2275 parsed). 3387 targets, 151 skipp
+NOTE: Resolving any missing task queue dependencies
+
+Build Configuration:
+BB_VERSION           = "1.46.0"
+BUILD_SYS            = "aarch64-linux"
+NATIVELSBSTRING      = "ubuntu-20.10"
+TARGET_SYS           = "arm-poky-linux-gnueabi"
+MACHINE              = "raspberrypi4"
+DISTRO               = "poky"
+DISTRO_VERSION       = "3.1.6"
+TUNE_FEATURES        = "arm vfp cortexa7 neon vfpv4 thumb callconvention-hard"
+TARGET_FPU           = "hard"
+meta
+meta-poky
+meta-yocto-bsp       = "dunfell:d20ef1f5a5de7820b3e9b7f539b51f94954e9cd5"
+meta-qt5             = "dunfell:b4d24d70aca75791902df5cd59a4f4a54aa4a125"
+meta-raspberrypi     = "dunfell:77190af02d48adc2b28216775e6318e9eeda571c"
+meta-oe
+meta-multimedia
+meta-python
+meta-networking      = "dunfell:346681e7bf9c78008a845fc89031be4fd4ceb3a1"
+
+NOTE: Fetching uninative binary shim http://downloads.yoctoproject.org/releases/uni098c5b56132067adc69a249cb771f4560428e5822de903a12d97bf33 (will check PREMIRRORS fir
+Initialising tasks: 100% |#########################################################
+Sstate summary: Wanted 1128 Found 0 Missed 1128 Current 0 (0% match, 0% complete)
+NOTE: Executing Tasks
+Currently  4 running tasks (389 of 3039)  12% |############                                                                                  |
+0: binutils-cross-arm-2.34-r0 do_compile - 35m16s (pid 155202)
+1: openssl-native-1.1.1j-r0 do_compile - 9m23s (pid 307200)
+2: perl-native-5.30.1-r0 do_compile - 6m1s (pid 319703)
+3: util-linux-native-2.35.1-r0 do_compile - 2m36s (pid 328571)</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Opérations sur le module Jenkins"><a class="Link3" href="#">Opérations sur le module Jenkins</a></h1><div class="Body3"><br>Jenkins est un outil d'intégration continue.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1615543323116"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1615543323116");</script></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Jenkins-1 - Installer Jenkins"><a class="Link9" href="#Opérations sur le module Jenkins">1 - Installer Jenkins</a></h2><br><h2 class="Title7 GTitle2" id="Opérations sur le module Jenkins-1.1 - Installer Jenkins sous Windows"><a class="Link9" href="#Opérations sur le module Jenkins">1.1 - Installer Jenkins sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Opérations sur le module Jenkins-1.1.1 - Télécharger Jenkins"><a class="Link9" href="#Opérations sur le module Jenkins">1.1.1 - Télécharger Jenkins</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="http://ftp.halifax.rwth-aachen.de/jenkins/windows-stable/">http://ftp.halifax.rwth-aachen.de/jenkins/windows-stable/</a><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="http://ftp.halifax.rwth-aachen.de/jenkins/windows-stable/jenkins-2.235.2.zip">http://ftp.halifax.rwth-aachen.de/jenkins/windows-stable/jenkins-2.235.2.zip</a><br><br><h2 class="Title7 GTitle2" id="Opérations sur le module Jenkins-1.1.2 - Installer Jenkins"><a class="Link9" href="#Opérations sur le module Jenkins">1.1.2 - Installer Jenkins</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Destination Folder -&gt; C:\Program Files (x86)\Jenkins
 Next -&gt; Install -&gt; Finish</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Jenkins-1.1.3 - Démarrer Jenkins"><a class="Link9" href="#Opérations sur le module Jenkins">1.1.3 - Démarrer Jenkins</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="http://localhost:8080/">http://localhost:8080/</a><br><br><b>Copier le mot de passe administrateur</b><br><br><h3 class="Title8 GTitle3">secrets\initialAdminPassword</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">102145093e0f477cb50c00322868d17f</xmp></pre></div><br><b>Saisir le mot de passe administrateur</b><br><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Mot de passe administrateur -&gt; 102145093e0f477cb50c00322868d17f
 Continuer</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Jenkins-2 - Intégrer un projet C/C++ GitHub avec Jenkins"><a class="Link9" href="#Opérations sur le module Jenkins">2 - Intégrer un projet C/C++ GitHub avec Jenkins</a></h2><br><h2 class="Title7 GTitle2" id="Opérations sur le module Jenkins-2.1 - Installer le plugin Blue Ocean"><a class="Link9" href="#Opérations sur le module Jenkins">2.1 - Installer le plugin Blue Ocean</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Jenkins
 Administrer Jenkins
