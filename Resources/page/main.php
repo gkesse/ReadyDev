@@ -217,7 +217,18 @@ mars 17 01:28:37 rpi4-desktop jenkins[2950389]:  * Starting Jenkins Automation S
 mars 17 01:28:37 rpi4-desktop su[2950428]: (to jenkins) root on none
 mars 17 01:28:37 rpi4-desktop su[2950428]: pam_unix(su-l:session): session opened for user jenkins by (uid=0)
 mars 17 01:28:39 rpi4-desktop jenkins[2950389]:    ...done.
-mars 17 01:28:39 rpi4-desktop systemd[1]: Started LSB: Start Jenkins at boot time.</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Jenkins-1.2.7 - Configurer Jenkins"><a class="Link9" href="#Opérations sur le module Jenkins">1.2.7 - Configurer Jenkins</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="http://192.168.1.45:8080/">http://192.168.1.45:8080/</a><br><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">sudo cat /var/lib/jenkins/secrets/initialAdminPassword</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">643f21f9fd144d8aaba903be2d2ddf38</xmp></pre></div><br>Jenkins<br>Mot de passe administrateur -&gt; 643f21f9fd144d8aaba903be2d2ddf38<br>Continuer<br><br><br><h2 class="Title7 GTitle2" id="Opérations sur le module Jenkins-2 - Exemples"><a class="Link9" href="#Opérations sur le module Jenkins">2 - Exemples</a></h2><br><h2 class="Title7 GTitle2" id="Opérations sur le module Jenkins-2.1 - Intégrer un projet C/C++ GitHub avec Jenkins"><a class="Link9" href="#Opérations sur le module Jenkins">2.1 - Intégrer un projet C/C++ GitHub avec Jenkins</a></h2><br><h2 class="Title7 GTitle2" id="Opérations sur le module Jenkins-2.1.1 - Installer le plugin Blue Ocean"><a class="Link9" href="#Opérations sur le module Jenkins">2.1.1 - Installer le plugin Blue Ocean</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Jenkins
+mars 17 01:28:39 rpi4-desktop systemd[1]: Started LSB: Start Jenkins at boot time.</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Jenkins-1.2.7 - Configurer Jenkins"><a class="Link9" href="#Opérations sur le module Jenkins">1.2.7 - Configurer Jenkins</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="http://192.168.1.45:8080/">http://192.168.1.45:8080/</a><br><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">sudo cat /var/lib/jenkins/secrets/initialAdminPassword</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">643f21f9fd144d8aaba903be2d2ddf38</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Jenkins
+Mot de passe administrateur -&gt; 643f21f9fd144d8aaba903be2d2ddf38
+Continuer
+Installer les plugins suggérés
+Nom d'utilisateur -&gt; gkesse	
+Mot de passe -&gt; admin
+Confirmation du mot de passe -&gt; admin
+Nom complet -&gt; Gerard KESSE
+Adresse courriel -&gt; tiakagerard@hotmail.com
+URL de Jenkins -&gt; http://192.168.1.45:8080/
+Sauver et terminer
+Commencer à utiliser Jenkins</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Jenkins-2 - Exemples"><a class="Link9" href="#Opérations sur le module Jenkins">2 - Exemples</a></h2><br><h2 class="Title7 GTitle2" id="Opérations sur le module Jenkins-2.1 - Intégrer un projet C/C++ GitHub avec Jenkins"><a class="Link9" href="#Opérations sur le module Jenkins">2.1 - Intégrer un projet C/C++ GitHub avec Jenkins</a></h2><br><h2 class="Title7 GTitle2" id="Opérations sur le module Jenkins-2.1.1 - Installer le plugin Blue Ocean"><a class="Link9" href="#Opérations sur le module Jenkins">2.1.1 - Installer le plugin Blue Ocean</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Jenkins
 Administrer Jenkins
 Gestion des Plugins
 Disponibles
