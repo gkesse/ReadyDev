@@ -426,6 +426,40 @@ Changes not staged for commit:
   (use "git restore &lt;file&gt;..." to discard changes in working directory)
         modified:   .gitignore
 
-no changes added to commit (use "git add" and/or "git commit -a")</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Opérations sur le module Java"><a class="Link3" href="#">Opérations sur le module Java</a></h1><div class="Body3"><br>Java est une solution pour l'exécution d'un programme dans une machine virtuelle.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1615941190013"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1615941190013");</script></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Java-1 - Installation"><a class="Link9" href="#Opérations sur le module Java">1 - Installation</a></h2><br><h2 class="Title7 GTitle2" id="Opérations sur le module Java-1.1 - Installer Java sous Ubuntu"><a class="Link9" href="#Opérations sur le module Java">1.1 - Installer Java sous Ubuntu</a></h2><br><h2 class="Title7 GTitle2" id="Opérations sur le module Java-1.1.1 - Installer Java"><a class="Link9" href="#Opérations sur le module Java">1.1.1 - Installer Java</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">sudo apt install default-jre</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Java-1.1.2 - Vérifier Java"><a class="Link9" href="#Opérations sur le module Java">1.1.2 - Vérifier Java</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">java --version</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">openjdk 11.0.10 2021-01-19
+no changes added to commit (use "git add" and/or "git commit -a")</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Git-4.2.5 - Commiter les modifications"><a class="Link9" href="#Opérations sur le module Git">4.2.5 - Commiter les modifications</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">git commit -a -m "Creation du repertoire des fichiers temporaires"</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">[master b50fc64] Creation du repertoire des fichiers temporaires
+ 1 file changed, 1 insertion(+)</xmp></pre></div><br><br><h2 class="Title7 GTitle2" id="Opérations sur le module Git-4.2.6 - Afficher l'état du dépôt"><a class="Link9" href="#Opérations sur le module Git">4.2.6 - Afficher l'état du dépôt</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">git status</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">On branch master
+nothing to commit, working tree clean</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Git-5 - Historique"><a class="Link9" href="#Opérations sur le module Git">5 - Historique</a></h2><br><h2 class="Title7 GTitle2" id="Opérations sur le module Git-5.1 - Afficher l'historique des commits"><a class="Link9" href="#Opérations sur le module Git">5.1 - Afficher l'historique des commits</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">git log</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">commit b50fc6466021f71aa05485035b8c01af274ff383 (HEAD -&gt; master)
+Author: Gerard KESSE &lt;gerard.kesse@readydev.com&gt;
+Date:   Thu Mar 18 15:11:07 2021 +0100
+
+    Creation du répertoire des fichiers temporaires
+
+commit 70b8d8e4dafc004d7597012b6783ecd3ac3bd637
+Author: Gerard KESSE &lt;gerard.kesse@readydev.com&gt;
+Date:   Thu Mar 18 14:50:57 2021 +0100
+
+    Creation du fichier .gitignore
+
+commit b905c916fde777d227fe52fbc0baa011aa93eec1
+Author: Gerard KESSE &lt;gerard.kesse@readydev.com&gt;
+Date:   Thu Mar 18 14:17:55 2021 +0100
+
+    Configuration de l environnement de developpement
+
+commit ba7f121faf665120e8cba071c993ca21a5007dd5
+Author: Gerard KESSE &lt;gerard.kesse@readydev.com&gt;
+Date:   Thu Mar 18 12:57:55 2021 +0100
+
+    Initial Commit</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Git-5.2 - Afficher l'historique des n derniers commits"><a class="Link9" href="#Opérations sur le module Git">5.2 - Afficher l'historique des n derniers commits</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">git log -n 2</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">commit b50fc6466021f71aa05485035b8c01af274ff383 (HEAD -&gt; master)
+Author: Gerard KESSE &lt;gerard.kesse@readydev.com&gt;
+Date:   Thu Mar 18 15:11:07 2021 +0100
+
+    Creation du répertoire des fichiers temporaires
+
+commit 70b8d8e4dafc004d7597012b6783ecd3ac3bd637
+Author: Gerard KESSE &lt;gerard.kesse@readydev.com&gt;
+Date:   Thu Mar 18 14:50:57 2021 +0100
+
+    Creation du fichier .gitignore</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Opérations sur le module Java"><a class="Link3" href="#">Opérations sur le module Java</a></h1><div class="Body3"><br>Java est une solution pour l'exécution d'un programme dans une machine virtuelle.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1615941190013"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1615941190013");</script></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Java-1 - Installation"><a class="Link9" href="#Opérations sur le module Java">1 - Installation</a></h2><br><h2 class="Title7 GTitle2" id="Opérations sur le module Java-1.1 - Installer Java sous Ubuntu"><a class="Link9" href="#Opérations sur le module Java">1.1 - Installer Java sous Ubuntu</a></h2><br><h2 class="Title7 GTitle2" id="Opérations sur le module Java-1.1.1 - Installer Java"><a class="Link9" href="#Opérations sur le module Java">1.1.1 - Installer Java</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">sudo apt install default-jre</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Java-1.1.2 - Vérifier Java"><a class="Link9" href="#Opérations sur le module Java">1.1.2 - Vérifier Java</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">java --version</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">openjdk 11.0.10 2021-01-19
 OpenJDK Runtime Environment (build 11.0.10+9-Ubuntu-0ubuntu1.20.10)
 OpenJDK 64-Bit Server VM (build 11.0.10+9-Ubuntu-0ubuntu1.20.10, mixed mode)</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Opérations sur le module Facebook"><a class="Link3" href="#">Opérations sur le module Facebook</a></h1><div class="Body3"><br>Facebook est un réseau social.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1615542838000"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1615542838000");</script></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Facebook-1 - Vider le cache de partage"><a class="Link9" href="#Opérations sur le module Facebook">1 - Vider le cache de partage</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://developers.facebook.com/tools/debug/?locale=fr_FR">https://developers.facebook.com/tools/debug/?locale=fr_FR</a><br><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">URL -&gt; https://readydev.ovh/Accueil/ -&gt; Débuguer</xmp></pre></div><br></div></div></div></div><br>
