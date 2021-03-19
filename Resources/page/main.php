@@ -334,7 +334,7 @@ System Message
 &lt;h1 style='color:teal;'&gt;ReadyDev&lt;/h1&gt;
 &lt;h3&gt;Plateforme de développement continu&lt;/h3&gt;
 
-Save</xmp></pre></div><br><br><br><h2 class="Title7 GTitle2" id="Opérations sur le module Jenkins-5 - Job"><a class="Link9" href="#Opérations sur le module Jenkins">5 - Job</a></h2><br><h2 class="Title7 GTitle2" id="Opérations sur le module Jenkins-5.1 - Créer un Job"><a class="Link9" href="#Opérations sur le module Jenkins">5.1 - Créer un Job</a></h2><br><h2 class="Title7 GTitle2" id="Opérations sur le module Jenkins-5.1.1 - Créer un Job Freestyle"><a class="Link9" href="#Opérations sur le module Jenkins">5.1.1 - Créer un Job Freestyle</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Jenkins
+Save</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Jenkins-5 - Job"><a class="Link9" href="#Opérations sur le module Jenkins">5 - Job</a></h2><br><h2 class="Title7 GTitle2" id="Opérations sur le module Jenkins-5.1 - Créer un Job"><a class="Link9" href="#Opérations sur le module Jenkins">5.1 - Créer un Job</a></h2><br><h2 class="Title7 GTitle2" id="Opérations sur le module Jenkins-5.1.1 - Créer un Job Freestyle"><a class="Link9" href="#Opérations sur le module Jenkins">5.1.1 - Créer un Job Freestyle</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Jenkins
 New Item
 Enter an item name -&gt; MY_JOB_1
 Freestyle project
@@ -363,7 +363,19 @@ Bonjour tout le monde
 Finished: SUCCESS</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Jenkins-6 - Affichage"><a class="Link9" href="#Opérations sur le module Jenkins">6 - Affichage</a></h2><br><h2 class="Title7 GTitle2" id="Opérations sur le module Jenkins-6.1 - Afficher les informations système"><a class="Link9" href="#Opérations sur le module Jenkins">6.1 - Afficher les informations système</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Jenkins
 Manage Jenkins
 Status Information
-System Information</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Opérations sur le module Qt"><a class="Link3" href="#">Opérations sur le module Qt</a></h1><div class="Body3"><br>Qt est une bibliothèque de création d'interfaces homme-machine.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1615685160121"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1615685160121");</script></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Qt-1 - Installation"><a class="Link9" href="#Opérations sur le module Qt">1 - Installation</a></h2><br><h2 class="Title7 GTitle2" id="Opérations sur le module Qt-1.1 - Installer Qt sous Ubuntu"><a class="Link9" href="#Opérations sur le module Qt">1.1 - Installer Qt sous Ubuntu</a></h2><br><h2 class="Title7 GTitle2" id="Opérations sur le module Qt-1.1.1 - Démarrer l'installation"><a class="Link9" href="#Opérations sur le module Qt">1.1.1 - Démarrer l'installation</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">sudo apt install qtcreator</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Lecture des listes de paquets... Fait
+System Information</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Jenkins-7 - Utilisateurs"><a class="Link9" href="#Opérations sur le module Jenkins">7 - Utilisateurs</a></h2><br><h2 class="Title7 GTitle2" id="Opérations sur le module Jenkins-7.1 - Créer un utilisateur"><a class="Link9" href="#Opérations sur le module Jenkins">7.1 - Créer un utilisateur</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Jenkins
+Manage Jenkins
+Security
+Manage User
+Create User
+
+Username -&gt; pdupont
+Password -&gt; *****
+Confirm password -&gt; *****
+Full name -&gt; Pierre DUPONT
+E-mail address -&gt; pierre.dupont@readydev.com
+
+Create User</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Opérations sur le module Qt"><a class="Link3" href="#">Opérations sur le module Qt</a></h1><div class="Body3"><br>Qt est une bibliothèque de création d'interfaces homme-machine.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1615685160121"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1615685160121");</script></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Qt-1 - Installation"><a class="Link9" href="#Opérations sur le module Qt">1 - Installation</a></h2><br><h2 class="Title7 GTitle2" id="Opérations sur le module Qt-1.1 - Installer Qt sous Ubuntu"><a class="Link9" href="#Opérations sur le module Qt">1.1 - Installer Qt sous Ubuntu</a></h2><br><h2 class="Title7 GTitle2" id="Opérations sur le module Qt-1.1.1 - Démarrer l'installation"><a class="Link9" href="#Opérations sur le module Qt">1.1.1 - Démarrer l'installation</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">sudo apt install qtcreator</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Lecture des listes de paquets... Fait
 Construction de l'arbre des dépendances
 Lecture des informations d'état... Fait
 qtcreator est déjà la version la plus récente (4.13.2-1).
