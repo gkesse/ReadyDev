@@ -310,7 +310,31 @@ Administrer Jenkins
 Systtem Configuration
 Locale -&gt; Default Language -&gt; en
 Check -&gt; Ignore browser preference and force this language to all users
-Enregistrer</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Jenkins-4.2.3 - Accéder aux codes des langues"><a class="Link9" href="#Opérations sur le module Jenkins">4.2.3 - Accéder aux codes des langues</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.loc.gov/standards/iso639-2/php/code_list.php">https://www.loc.gov/standards/iso639-2/php/code_list.php</a><br><br><h2 class="Title7 GTitle2" id="Opérations sur le module Jenkins-5 - Job"><a class="Link9" href="#Opérations sur le module Jenkins">5 - Job</a></h2><br><h2 class="Title7 GTitle2" id="Opérations sur le module Jenkins-5.1 - Créer un Job"><a class="Link9" href="#Opérations sur le module Jenkins">5.1 - Créer un Job</a></h2><br><h2 class="Title7 GTitle2" id="Opérations sur le module Jenkins-5.1.1 - Créer un Job Freestyle"><a class="Link9" href="#Opérations sur le module Jenkins">5.1.1 - Créer un Job Freestyle</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Jenkins
+Enregistrer</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Jenkins-4.2.3 - Accéder aux codes des langues"><a class="Link9" href="#Opérations sur le module Jenkins">4.2.3 - Accéder aux codes des langues</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.loc.gov/standards/iso639-2/php/code_list.php">https://www.loc.gov/standards/iso639-2/php/code_list.php</a><br><br><h2 class="Title7 GTitle2" id="Opérations sur le module Jenkins-4.3 - Configurer le message d'accueil"><a class="Link9" href="#Opérations sur le module Jenkins">4.3 - Configurer le message d'accueil</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Jenkins
+Manage Jenkins
+System Configurations
+Configure System
+System Message
+
+ReadyDev
+Plateforme de développement continu
+
+Save</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Jenkins-4.4 - Configurer le format html"><a class="Link9" href="#Opérations sur le module Jenkins">4.4 - Configurer le format html</a></h2><br><h2 class="Title7 GTitle2" id="Opérations sur le module Jenkins-4.4.1 - Configurer le format html"><a class="Link9" href="#Opérations sur le module Jenkins">4.4.1 - Configurer le format html</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Jenkins
+Manage Jenkins
+Security
+Configure Global Security
+Markup Formatter
+Markup Formatter -&gt; Save HTML
+Save</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Jenkins-4.4.2 - Configurer le message d'accueil"><a class="Link9" href="#Opérations sur le module Jenkins">4.4.2 - Configurer le message d'accueil</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Jenkins
+Manage Jenkins
+System Configurations
+Configure System
+System Message
+
+&lt;h1 style='color:teal;'&gt;ReadyDev&lt;/h1&gt;
+&lt;h3&gt;Plateforme de développement continu&lt;/h3&gt;
+
+Save</xmp></pre></div><br><br><br><h2 class="Title7 GTitle2" id="Opérations sur le module Jenkins-5 - Job"><a class="Link9" href="#Opérations sur le module Jenkins">5 - Job</a></h2><br><h2 class="Title7 GTitle2" id="Opérations sur le module Jenkins-5.1 - Créer un Job"><a class="Link9" href="#Opérations sur le module Jenkins">5.1 - Créer un Job</a></h2><br><h2 class="Title7 GTitle2" id="Opérations sur le module Jenkins-5.1.1 - Créer un Job Freestyle"><a class="Link9" href="#Opérations sur le module Jenkins">5.1.1 - Créer un Job Freestyle</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Jenkins
 New Item
 Enter an item name -&gt; MY_JOB_1
 Freestyle project
@@ -336,7 +360,10 @@ Building in workspace /var/lib/jenkins/workspace/MY_JOB_1
 [MY_JOB_1] $ /bin/sh -xe /tmp/jenkins3611256642549128238.sh
 + echo Bonjour tout le monde
 Bonjour tout le monde
-Finished: SUCCESS</xmp><br></pre></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Opérations sur le module Qt"><a class="Link3" href="#">Opérations sur le module Qt</a></h1><div class="Body3"><br>Qt est une bibliothèque de création d'interfaces homme-machine.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1615685160121"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1615685160121");</script></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Qt-1 - Installation"><a class="Link9" href="#Opérations sur le module Qt">1 - Installation</a></h2><br><h2 class="Title7 GTitle2" id="Opérations sur le module Qt-1.1 - Installer Qt sous Ubuntu"><a class="Link9" href="#Opérations sur le module Qt">1.1 - Installer Qt sous Ubuntu</a></h2><br><h2 class="Title7 GTitle2" id="Opérations sur le module Qt-1.1.1 - Démarrer l'installation"><a class="Link9" href="#Opérations sur le module Qt">1.1.1 - Démarrer l'installation</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">sudo apt install qtcreator</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Lecture des listes de paquets... Fait
+Finished: SUCCESS</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Jenkins-6 - Affichage"><a class="Link9" href="#Opérations sur le module Jenkins">6 - Affichage</a></h2><br><h2 class="Title7 GTitle2" id="Opérations sur le module Jenkins-6.1 - Afficher les informations système"><a class="Link9" href="#Opérations sur le module Jenkins">6.1 - Afficher les informations système</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Jenkins
+Manage Jenkins
+Status Information
+System Information</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Opérations sur le module Qt"><a class="Link3" href="#">Opérations sur le module Qt</a></h1><div class="Body3"><br>Qt est une bibliothèque de création d'interfaces homme-machine.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1615685160121"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1615685160121");</script></div><br><h2 class="Title7 GTitle2" id="Opérations sur le module Qt-1 - Installation"><a class="Link9" href="#Opérations sur le module Qt">1 - Installation</a></h2><br><h2 class="Title7 GTitle2" id="Opérations sur le module Qt-1.1 - Installer Qt sous Ubuntu"><a class="Link9" href="#Opérations sur le module Qt">1.1 - Installer Qt sous Ubuntu</a></h2><br><h2 class="Title7 GTitle2" id="Opérations sur le module Qt-1.1.1 - Démarrer l'installation"><a class="Link9" href="#Opérations sur le module Qt">1.1.1 - Démarrer l'installation</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">sudo apt install qtcreator</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Lecture des listes de paquets... Fait
 Construction de l'arbre des dépendances
 Lecture des informations d'état... Fait
 qtcreator est déjà la version la plus récente (4.13.2-1).
