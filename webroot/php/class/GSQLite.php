@@ -3,21 +3,56 @@
 class GSQLite {
     //===============================================
     private static $m_instance = null;
+    private $m_headers = array();
     //===============================================
     private function __construct() {
+        // drop
+        $this->queryWrite(sprintf("
+        drop table if exists profile_data0
+        "));
         // config_data
-        $lQuery = sprintf("
+        $this->queryWrite(sprintf("
         create table if not exists config_data (
+        user_name text,
         config_key text,
         config_value text
-        )\n");
-        $this->queryWrite($lQuery);
-        // config_data
-        $lQuery = sprintf("
-        select type, name, tbl_name, rootpage from sqlite_master
-        where type = 'table'
-        \n");
-        $this->queryShow($lQuery, "10;20;20;10", 20);
+        )"));
+        // view_data
+        $this->queryWrite(sprintf("
+        create table if not exists view_data (
+        view_key text,
+        view_value integer
+        )"));
+        // user_data
+        $this->queryWrite(sprintf("
+        create table if not exists user_data (
+        user_name text,
+        user_pass text,
+        user_group text
+        )"));
+        // profile_data
+        $this->queryWrite(sprintf("
+        create table if not exists profile_data (
+        user_name text,
+        user_fullname text,
+        user_manager text,
+        client_name text,
+        client_address text
+        )"));
+        // timesheet_data
+        $this->queryWrite(sprintf("
+        create table if not exists timesheet_data (
+        user_name text,
+        user_fullname text,
+        user_manager text,
+        client_name text,
+        client_address text,
+        month integer,
+        year integer,
+        row integer,
+        col integer,
+        data text
+        )"));
     }
     //===============================================
     public static function Instance() {
@@ -48,6 +83,14 @@ class GSQLite {
         }
 
         return $lPdo;
+    }
+    //===============================================
+    public function test() {
+            // tables
+        $this->queryShow(sprintf("
+        select * from view_data
+        order by view_key
+        "), "40;20", 20);
     }
     //===============================================
     public function queryShow($sql, $widthMap, $defaultWidth) {
@@ -108,10 +151,10 @@ class GSQLite {
         $lApp->debug .= sprintf("-+");
         $lApp->debug .= sprintf("<br>");
         // data
-        $lApp->debug .= sprintf("| ");
         for($i = 0; $i < count($lResultMap); $i++) {
             $lResult = $lResultMap[$i];
             $j = 0;
+            $lApp->debug .= sprintf("| ");
             foreach($lResult as $lKey => $lValue) {
                 if($j != 0) {$lApp->debug .= sprintf(" | ");}
                 $lWidth = GManager::Instance()->getWidth($widthMap, $j, $defaultWidth);
@@ -120,9 +163,9 @@ class GSQLite {
                 $lApp->debug .= $lData;
                 $j++;
             }
+            $lApp->debug .= sprintf(" |");
+            $lApp->debug .= sprintf("<br>\n");
         }
-        $lApp->debug .= sprintf(" |");
-        $lApp->debug .= sprintf("<br>\n");
         // sep
         $lApp->debug .= sprintf("+-");
         for($i = 0; $i < count($lResultMap); $i++) {
@@ -218,6 +261,14 @@ class GSQLite {
         
         for($i = 0; $i < count($lResultMap); $i++) {
             $lResult = $lResultMap[$i];
+            foreach($lResult as $lKey => $lValue) {
+                array_push($this->m_headers, $lKey);
+            }
+            break;
+        }
+
+        for($i = 0; $i < count($lResultMap); $i++) {
+            $lResult = $lResultMap[$i];
             $lDataRow = array();
             foreach($lResult as $lKey => $lValue) {
                 array_push($lDataRow, $lValue);
@@ -226,6 +277,10 @@ class GSQLite {
         }
         
         return $lDataMap;
+    }
+    //===============================================
+    public function getHeaders() {
+        return $this->m_headers;
     }
     //===============================================
 }

@@ -13,16 +13,16 @@ class GAddressKey extends GWidget {
         $lMap = explode("/", $lApp->page_id);
         $lHref = "/";
         
-        echo sprintf("<div class='addresskey_id'>\n");
+        echo sprintf("<div class='margin'>\n");
         
         for($i = 0; $i < count($lMap); $i++) {
             if($i != 0) {
-                echo sprintf("<i class='fa fa-chevron-right' style='font-size:16px;padding:0px 5px;'></i>\n");
+                echo sprintf("<i class='sep fa fa-chevron-right'></i>\n");
             }
             $lKey = $lMap[$i];
             if($i != 0) {$lHref .= "/";}
             $lHref .= $lKey;
-            echo sprintf("<a href='%s'><div style='display: inline-block;'>%s</div></a>\n", $lHref, $lKey);
+            echo sprintf("<a class='' href='%s'>%s</a>\n", $lHref, $lKey);
         }
         
         echo sprintf("</div>\n");

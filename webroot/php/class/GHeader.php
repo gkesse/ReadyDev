@@ -17,7 +17,7 @@ class GHeader extends GWidget {
         echo sprintf("<head>\n");
         echo sprintf("<title>%s</title>\n", $lApp->title);
         echo sprintf("<meta charset='UTF-8'/>\n");
-        echo sprintf("<link rel='shortcut icon' type='image/png' href='/webroot/data/img/logo.png'/>\n");
+        echo sprintf("<link rel='shortcut icon' type='image/png' href='%s'/>\n", $lApp->logo_web);
         echo sprintf("<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'/>\n");
         //===============================================
         // responsive web design
@@ -47,17 +47,13 @@ class GHeader extends GWidget {
         */
         //===============================================
         // font_awesome
-        echo sprintf("<link rel='stylesheet' type='text/css' href='/libs/font_awesome/4.7.0/css/font-awesome.min.css'/>\n");
+        echo sprintf("<link rel='stylesheet' type='text/css' href='%s'/>\n", $lApp->font_awesome);
         //===============================================
         // google_fonts
         GManager::Instance()->loadFont();
         //===============================================
-        // script
-        echo sprintf("<script type='text/javascript' src='/webroot/js/class/GProcess.js'></script>\n");
-        echo sprintf("<script type='text/javascript' src='/webroot/js/request/request.js'></script>\n");
-        //===============================================
         // style
-        echo sprintf("<link rel='stylesheet' type='text/css' href='/webroot/css/style.php'/>\n");
+        echo sprintf("<link rel='stylesheet' type='text/css' href='%s'/>\n", $lApp->style_css);
         //===============================================
         echo sprintf("</head>\n");
         echo sprintf("<body>\n");

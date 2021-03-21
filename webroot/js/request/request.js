@@ -1,6 +1,5 @@
 //================================================
-function onItemClick(obj, req) {
-    alert(req);
-    GProcess.Instance().run(obj, req);
+function onItemClick(obj, req, params = "") {
+    GManager.Instance().run(obj, req, params);
 }
 //================================================

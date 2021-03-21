@@ -11,7 +11,7 @@ class GStackWidget extends GWidget {
     //===============================================
     // method
     //===============================================
-    public function addStack($key, $page, $title) {
+    public function addPage($key, $page, $title) {
         $this->m_pageMap[$key] = $page;
         $this->m_titleMap[$key] = $title;
     }
@@ -22,6 +22,16 @@ class GStackWidget extends GWidget {
     //===============================================
     public function getTitle($key) {
         return GManager::Instance()->getValue($this->m_titleMap, $key, "");
+    }
+    //===============================================
+    public function run2($key) {
+        $lPage = $this->getPage($key);
+        GWidget::Create($lPage)->run();
+    }
+    //===============================================
+    public function getSummary2($key) {
+        $lPage = $this->getPage($key);
+        return GWidget::Create($lPage)->getSummary();
     }
     //===============================================
 }

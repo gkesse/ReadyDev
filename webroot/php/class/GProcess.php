@@ -16,7 +16,14 @@ class GProcess {
     }
     //===============================================
     public function run() {
+        $lApp = GManager::Instance()->getData()->app;
+        $lApp->win = GWidget::Create("window");
+        //
+        GSQLite::Instance();
         GManager::Instance()->loadData();
+        GView::Instance()->increment();
+        GLogin::Instance()->createRoot();
+        //
         GWidget::Create("header")->run();
         GWidget::Create("body")->run();
         GWidget::Create("footer")->run();

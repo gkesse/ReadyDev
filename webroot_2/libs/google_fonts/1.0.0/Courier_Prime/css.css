@@ -1,0 +1,27 @@
+/* ============================================== */
+@font-face {
+  font-family: "Courier Prime";
+  font-style: normal;
+  src: url("CourierPrime-Regular.ttf");
+}
+/* ============================================== */
+@font-face {
+  font-family: "Courier Prime";
+  font-style: normal;
+  font-weight: bold;
+  src: url("CourierPrime-Bold.ttf");
+}
+/* ============================================== */
+@font-face {
+  font-family: "Courier Prime";
+  font-style: italic;
+  src: url("CourierPrime-Italic.ttf");
+}
+/* ============================================== */
+@font-face {
+  font-family: "Courier Prime";
+  font-style: italic;
+  font-weight: bold;
+  src: url("CourierPrime-BoldItalic.ttf");
+}
+/* ============================================== */

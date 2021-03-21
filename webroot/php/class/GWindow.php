@@ -2,32 +2,38 @@
 //===============================================
 class GWindow extends GWidget {
     //===============================================
-    private $m_widgetMap;
-    //===============================================
     public function __construct() {
-        $this->m_widgetMap = GWidget::Create("stackwidget");
+        $lApp = GManager::Instance()->getData()->app;
+        //
+        $lApp->page_map = GWidget::Create("stackwidget");
+        //
+        $lLogin = "Connexion";
+        $lLoginUrl = "home/login";
+        if($lApp->login_on == "on") {
+            $lLogin = "Déconnexion";
+            $lLoginUrl = "home/logout";
+        }
+        //
+        $lApp->page_map->addPage("home", "home", "Accueil");
+        $lApp->page_map->addPage($lLoginUrl, "login", $lLogin);
+        $lApp->page_map->addPage("home/users", "user", "Utilisateurs");
+        $lApp->page_map->addPage("home/profile", "profile", "Profil");
+        //
+        $lApp->page_map->addPage("home/sqlite", "sqlite", "SQLite");
+        //
+        $lApp->page_map->addPage("home/timesheet", "timesheet", "Feuille de temps");
+        $lApp->page_map->addPage("home/filesystem", "filesystem", "Filesystem");
+        //
+        $lApp->page_map->addPage("home/debug", "debug", "Debug");
+        $lApp->page_map->addPage("home/message", "message", "Message");
     }
     //===============================================
     // method
     //===============================================
-    public function load() {
-        $this->m_widgetMap->addStack("home", "home", "Accueil");
-        $this->m_widgetMap->addStack("home/login", "login", "Connexion");
-        $this->m_widgetMap->addStack("home/sqlite", "sqlite", "SQLite");
-        $this->m_widgetMap->addStack("home/opencv", "opencv", "OpenCV");
-        $this->m_widgetMap->addStack("home/debug", "debug", "Debug");
-    }
-    //===============================================
-    public function start() {
-        $lApp = GManager::Instance()->getData()->app;
-        $lApp->title = $this->m_widgetMap->getTitle($lApp->page_id);
-    }
-    //===============================================
     public function run() {
         $lApp = GManager::Instance()->getData()->app;
-        $lPage = $this->m_widgetMap->getPage($lApp->page_id);
-        echo sprintf("<div class='window_id'>\n");
-        GWidget::Create($lPage)->run();
+        echo sprintf("<div class='window'>\n");
+        $lApp->page_map->run2($lApp->page_id);
         echo sprintf("</div>\n");
     }
     //===============================================

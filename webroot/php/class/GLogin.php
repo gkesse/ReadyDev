@@ -1,45 +1,74 @@
 <?php   
 //===============================================
-class GLogin extends GWidget {
+class GLogin {
     //===============================================
-    public function __construct() {
-        
+    private static $m_instance = null;
+    //===============================================
+    private function __construct() {
+
+    }
+    //===============================================
+    public static function Instance() {
+        if(is_null(self::$m_instance)) {
+            self::$m_instance = new GLogin();  
+        }
+        return self::$m_instance;
     }
     //===============================================
     // method
     //===============================================
-    public function run() {
-        $lApp = GManager::Instance()->getData()->app;
-        $this->request();
-        GWidget::Create("form")->form("");
-        echo sprintf("<div class='login_id'>\n");
-        echo sprintf("<div class='body'>\n");
-        echo sprintf("<div class='profil'><i class='fa fa-user'></i></div>\n");
-        GWidget::Create("spacev")->space(20);
-        GWidget::Create("lineedit")->lineEdit2("username", "text", "user", "Nom d&#39;utilisateur");
-        GWidget::Create("spacev")->space(20);
-        GWidget::Create("lineedit")->lineEdit2("password", "password", "key", "Mot de passe");
-        GWidget::Create("spacev")->space(20);
-        echo sprintf("<div class='connect'>\n");
-        GWidget::Create("button")->button2("Annuler", "times", $lApp->last_url);
-        GWidget::Create("spaceh")->space(5);
-        GWidget::Create("button")->button4("Se Connecter", "sign-in", "login");
-        echo sprintf("</div>\n");
-        echo sprintf("</div>\n");
-        echo sprintf("</div>\n");
-        GWidget::Create("form")->end();
-    }
+    public function createRoot() {
+        $lCount = $this->countRoot();
+        if($lCount == 0) {$this->insertRoot();}
+    }    
     //===============================================
-    public function request() {
+    public function countRoot() {
         $lApp = GManager::Instance()->getData()->app;
-        if(isset($_REQUEST["req"])) {
-            $lReq = $_REQUEST["req"];
-            if($lReq == "login") {
-                GManager::Instance()->showData("Analyse de données de connection");
-                GManager::Instance()->redirect("/home/debug");
-            }
+        $lCount = GSQLite::Instance()->queryValue(sprintf("
+        select count(*) from user_data
+        where user_name = '%s'
+        ", $lApp->root_name));
+        return intval($lCount);
+    }    
+    //===============================================
+    public function insertRoot() {
+        $lApp = GManager::Instance()->getData()->app;
+        GSQLite::Instance()->queryWrite(sprintf("
+        insert into user_data (user_name, user_pass, user_group)
+        values ('%s', '%s', 'root')
+        ", $lApp->root_name, $lApp->root_pass));
+    }    
+    //===============================================
+    public function getGroup($username) {
+        $lApp = GManager::Instance()->getData()->app;
+        $lGroup = GSQLite::Instance()->queryValue(sprintf("
+        select user_group from user_data
+        where user_name = '%s'
+        ", $username));
+        return $lGroup;
+    }    
+    //===============================================
+    public function login() {
+        $lApp = GManager::Instance()->getData()->app;
+        $lUsername = $_POST["username"];
+        $lPassword = $_POST["password"];
+        $lPassword = GManager::Instance()->getPassword($lUsername, $lPassword);
+        $lCount = GSQLite::Instance()->queryValue(sprintf("
+        select count(*) from user_data
+        where user_name = '%s'
+        and user_pass = '%s'
+        ", $lUsername, $lPassword));
+        $lCount = intval($lCount);
+        if($lCount > 0) {
+            $lApp->login_on = "on";
+            $lApp->login_group = $this->getGroup($lUsername);
+            $lApp->user_name = $lUsername;
+            GManager::Instance()->redirect($lApp->last_url);
         }
-    }
+        else {
+            $lApp->login_on = "off";
+        }
+    }    
     //===============================================
 }
 //===============================================

@@ -3,7 +3,7 @@
 class GWidget {
     //===============================================
     public function __construct() {
-        
+
     }
     //===============================================
     public static function Create($key) {
@@ -12,54 +12,48 @@ class GWidget {
         if($key == "header") {return new GHeader();}
         if($key == "body") {return new GBody();}
         if($key == "footer") {return new GFooter();}
-        if($key == "listbox") {return new GListBox();}
         if($key == "addresskey") {return new GAddressKey();}
-        if($key == "spacev") {return new GSpaceV();}
-        if($key == "spaceh") {return new GSpaceH();}
         if($key == "stackwidget") {return new GStackWidget();}
         if($key == "titlebar") {return new GTitleBar();}
-        if($key == "lineedit") {return new GLineEdit();}
-        if($key == "button") {return new GButton();}
-        if($key == "icon") {return new GIcon();}
-        if($key == "form") {return new GForm();}
+        if($key == "view") {return new GViewUi();}
+        if($key == "network") {return new GNetwork();}
         // page
         if($key == "window") {return new GWindow();}
         if($key == "home") {return new GHome();}
-        if($key == "login") {return new GLogin();}
+        if($key == "login") {return new GLoginUi();}
+        if($key == "user") {return new GUserUi();}
+        if($key == "profile") {return new GProfileUi();}
+        //
         if($key == "sqlite") {return new GSQLiteUi();}
-        if($key == "opencv") {return new GOpenCVUi();}
+        if($key == "sqlitetables") {return new GSQLiteTables();}
+        if($key == "sqlitetable") {return new GSQLiteTable();}
+        if($key == "sqliteschema") {return new GSQLiteSchema();}
+        if($key == "sqlitescript") {return new GSQLiteScript();}
+        if($key == "sqlitequery") {return new GSQLiteQuery();}
+        if($key == "sqliteoutput") {return new GSQLiteOutput();}
+        //
+        if($key == "timesheet") {return new GTimesheetUi();}
+        if($key == "filesystem") {return new GFilesystem();}
         if($key == "debug") {return new GDebug();}
+        if($key == "message") {return new GMessage();}
         // default
-        return new GWidget();
+        return new GError();
     }
     //===============================================
     // method
     //===============================================
-    public function run() {}
-    public function load() {}
-    public function start() {}
-    public function end() {}
-    public function space($size) {}
+    public function getSummary() {
+        $lSummary = "Système d'administration produit par Sogetek";
+        return $lSummary;
+    }
     //===============================================
+    public function run() {}
+    public function run2($key) {}
     public function addItem($key, $text, $icon) {}
-    public function addStack($key, $text, $title) {}
+    public function addPage($key, $text, $title) {}
     public function getPage($key) {return null;}
     public function getTitle($key) {return null;}
-    public function lineEdit($id, $type, $holder) {}
-    public function lineEdit2($id, $type, $icon, $holder) {}
-    public function lineEdit3($id, $type, $icon, $goto, $holder) {}
-    public function lineEdit4($id, $type, $icon, $goto, $holder) {}
-    public function lineEdit5($id, $type, $label, $width) {}
-    public function lineEdit6($id, $type, $icon, $label, $width) {}
-    public function lineEdit7($id, $type, $icon, $label, $width, $goto) {}
-    public function lineEdit8($id, $type, $icon, $label, $width, $goto) {}
-    public function button($text, $href) {}
-    public function button2($text, $icon, $href) {}
-    public function button3($text, $req) {}
-    public function button4($text, $icon, $req) {}
-    public function icon($icon, $href, $tooltip) {}
-    public function icon2($icon, $action, $req, $tooltip) {}
-    public function form($action) {}
+    public function getSummary2($key) {return null;}
     //===============================================
 }
 //===============================================
