@@ -26,7 +26,7 @@ var GManager = (function() {
             init: function() {
                 this.construct();
                 this.setTime();
-                this.onClosest();
+                //this.onClosest();
             },
             //===============================================
             construct: function() {
