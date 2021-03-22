@@ -212,6 +212,11 @@ table th {
     padding: 10px 10px;
 }
 /* ============================================== */
+/* border2 */
+.border2 {
+    border: 1px solid <?php echo $config['app_light_color']; ?>;
+}
+/* ============================================== */
 /* box */
 .box {
     position: relative;
@@ -230,7 +235,7 @@ table th {
 /* ============================================== */
 /* box3 */
 .box3 {
-    padding: 50px 10px;
+    padding: 30px 10px;
 }
 /* ============================================== */
 /* box4 */
@@ -589,13 +594,19 @@ table th {
     display: inline-block;
     right: 5px;
 }
+/* ============================================== */
+/* menu2 */
 .menu2 {
     background-color: transparent;
 }
+/* ============================================== */
+/* menu3 */
 .menu3 {
     padding: 0px 5px;
     cursor: pointer;
 }
+/* ============================================== */
+/* menu4 */
 .menu4 {
     display: none;
     position: absolute;
@@ -780,6 +791,17 @@ table th {
     border-bottom-color: transparent;
     padding: 5px 10px;
     text-align: center;
+}
+/* ============================================== */
+/* title4 */
+.title4 {
+    text-align: left;
+    top: 5px;
+    right: 5px;
+    left: 95px;
+    padding: 0px 10px;
+    line-height: 30px;
+    border-radius: 5px;
 }
 /* ============================================== */
 /* view */

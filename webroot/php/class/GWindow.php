@@ -7,15 +7,9 @@ class GWindow extends GWidget {
         //
         $lApp->page_map = GWidget::Create("stackwidget");
         //
-        $lLogin = "Connexion";
-        $lLoginUrl = "home/login";
-        if($lApp->login_on == "on") {
-            $lLogin = "Déconnexion";
-            $lLoginUrl = "home/logout";
-        }
-        //
         $lApp->page_map->addPage("home", "home", "Accueil");
-        $lApp->page_map->addPage($lLoginUrl, "login", $lLogin);
+        if($lApp->login_on == "on") {$lApp->page_map->addPage("home/logout", "logout", "Déconnexion");}
+        else {$lApp->page_map->addPage("home/login", "login", "Connexion");}
         $lApp->page_map->addPage("home/users", "user", "Utilisateurs");
         $lApp->page_map->addPage("home/profile", "profile", "Profil");
         //
