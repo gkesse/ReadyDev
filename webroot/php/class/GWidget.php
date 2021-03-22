@@ -21,6 +21,9 @@ class GWidget {
         if($key == "window") {return new GWindow();}
         if($key == "home") {return new GHome();}
         if($key == "login") {return new GLoginUi();}
+        if($key == "loginpg") {return new GLoginPg();}
+        if($key == "account") {return new GAccountUi();}
+        if($key == "logout") {return new GLogoutUi();}
         if($key == "user") {return new GUserUi();}
         if($key == "profile") {return new GProfileUi();}
         //

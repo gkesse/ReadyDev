@@ -11,10 +11,15 @@ class GHome extends GWidget {
     public function run() {
         $lApp = GManager::Instance()->getData()->app;
         $lApp->filesystem = ".";
+        $lLogin = "Connexion";
+        $lLoginUrl = "/home/login";
+        if($lApp->login_on == "on") {
+            $lLogin = "Déconnexion";
+            $lLoginUrl = "/home/logout";
+        }
         //
         echo sprintf("<div class=''>\n");
-        if($lApp->login_on == "on") {$this->addItem("home/logout", "Déconnexion", "power-off");}
-        else {$this->addItem("home/login", "Connexion", "user");}
+        $this->addItem($lLoginUrl, $lLogin, "user");
         $this->addItem("/home/users", "Utilisateurs", "users");
         $this->addItem("/home/profile", "Profil", "address-book-o");
         $this->addItem("/home/sqlite", "SQLite", "database");

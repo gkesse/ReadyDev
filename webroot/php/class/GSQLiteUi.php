@@ -21,9 +21,9 @@ class GSQLiteUi extends GWidget {
     //===============================================
     public function run() {
         $this->request();
-        // header
-        echo sprintf("<div class=''>\n");
         // 
+        echo sprintf("<div class=''>\n");
+        // header
         echo sprintf("<div class='header2'>\n");
         echo sprintf("<div class='item menu2 float2'>\n");
         echo sprintf("<button class='button'><i class='fa fa-cog'></i> Paramètres</button>\n");
