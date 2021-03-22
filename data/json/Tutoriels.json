@@ -132,14 +132,14 @@
             "icon":"fa fa-dropbox",
             "theme":"Jira",
             "description":"Apprenez<br/> la gestion de projets",
-            "link":"/Tutoriels/Jira/",
+            "link":"/Tutoriels/Project_Manager/Jira/",
 			"follow":"yes"
         },
         {
             "icon":"fa fa-dropbox",
             "theme":"Redmine",
             "description":"Apprenez<br/> la gestion de projets",
-            "link":"/Tutoriels/Redmine/",
+            "link":"/Tutoriels/Project_Manager/Redmine/",
 			"follow":"yes"
         }
     ],
