@@ -10,7 +10,6 @@ class GLoginUi extends GWidget {
         $this->m_req = &$_SESSION["req_login"];
         //
         if(!isset($this->m_req)) {$this->m_req = "connect_account";}
-        $this->m_req = "connect_account";
         //
         $this->m_widgetMap = GWidget::Create("stackwidget");
         $this->m_widgetMap->addPage("connect_account", "loginpg", "Se connecter à un compte");

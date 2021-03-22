@@ -2,7 +2,6 @@
 //===============================================
 class GSQLiteUi extends GWidget {
     //===============================================
-    private $m_key = "sqlite_id";
     private $m_widgetMap;
     private $m_req;
     //===============================================
@@ -37,6 +36,11 @@ class GSQLiteUi extends GWidget {
         echo sprintf("<form class='menu5' action='' method='post'>\n");
         echo sprintf("<button class='button4' type='submit' id='req' name='req' value='show_tables'>
         <i class='icon fa fa-book'></i> Afficher les tables</button>\n");
+        echo sprintf("</form>\n");
+        //
+        echo sprintf("<form class='menu5' action='' method='post'>\n");
+        echo sprintf("<button class='button4' type='submit' id='req' name='req' value='execute_sql'>
+        <i class='icon fa fa-book'></i> Exécuter une requête sql</button>\n");
         echo sprintf("</form>\n");
         //
         echo sprintf("</div>\n");

@@ -125,6 +125,23 @@
             "link":"/Tutoriels/Embedded_System/",
 			"follow":"yes"
         }
+    ],    
+    "project_manager":
+    [
+        {
+            "icon":"fa fa-dropbox",
+            "theme":"Jira",
+            "description":"Apprenez<br/> la gestion de projets",
+            "link":"/Tutoriels/Jira/",
+			"follow":"yes"
+        },
+        {
+            "icon":"fa fa-dropbox",
+            "theme":"Redmine",
+            "description":"Apprenez<br/> la gestion de projets",
+            "link":"/Tutoriels/Redmine/",
+			"follow":"yes"
+        }
     ],
     "resources":
     [

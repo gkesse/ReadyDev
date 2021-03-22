@@ -1,0 +1,21 @@
+{
+    "sitemap":"yes",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+			"Le but de ce tutoriel est de vous apprendre",
+            "la gestion de projets avec Jira.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Tutoriels/Jira/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Jira/img/b_jira.png"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"Gestion de projets","link":"/Tutoriels/#Système de gestion de projets","follow":"no"},
+        {"name":"Jira","link":"","follow":"no"}
+    ]
+}
+                        
