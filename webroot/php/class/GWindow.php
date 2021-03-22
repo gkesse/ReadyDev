@@ -18,7 +18,7 @@ class GWindow extends GWidget {
         $lApp->page_map->addPage("home/timesheet", "timesheet", "Feuille de temps");
         $lApp->page_map->addPage("home/filesystem", "filesystem", "Filesystem");
         //
-        $lApp->page_map->addPage("home/debug", "debug", "Debug");
+        //$lApp->page_map->addPage("home/debug", "debug", "Debug");
         $lApp->page_map->addPage("home/message", "message", "Message");
     }
     //===============================================

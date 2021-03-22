@@ -20,7 +20,7 @@ class GHome extends GWidget {
         $this->addItem("/home/sqlite", "SQLite", "database");
         $this->addItem("/home/timesheet", "Timesheet", "calendar");
         $this->addItem("/home/filesystem", "Filesystem", "hdd-o");
-        $this->addItem("/home/debug", "Debug", "file-text-o");
+        //$this->addItem("/home/debug", "Debug", "file-text-o");
         echo sprintf("</div>\n");
     }
     //===============================================
