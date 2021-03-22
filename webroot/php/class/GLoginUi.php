@@ -7,7 +7,7 @@ class GLoginUi extends GWidget {
     //===============================================
     public function __construct() {
         $lApp = GManager::Instance()->getData()->app;
-        $this->m_req = &$_SESSION["req"];
+        $this->m_req = &$_SESSION["req_login"];
         //
         if(!isset($this->m_req)) {$this->m_req = "connect_account";}
         $this->m_req = "connect_account";

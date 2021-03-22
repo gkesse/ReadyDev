@@ -2,14 +2,14 @@
 //===============================================
 class GSQLiteUi extends GWidget {
     //===============================================
+    private $m_key = "sqlite_id";
     private $m_widgetMap;
     private $m_req;
     //===============================================
     public function __construct() {
-        $this->m_req = &$_SESSION["req"];
+        $this->m_req = &$_SESSION["req_sqlite"];
         //
         if(!isset($this->m_req)) {$this->m_req = "show_tables";}
-        $this->m_req = "show_tables";
         //
         $this->m_widgetMap = GWidget::Create("stackwidget");
         $this->m_widgetMap->addPage("show_tables", "sqlitetables", "Afficher les tables");
