@@ -25,6 +25,7 @@
 /**/.project
 /data/sitemaps/*xml
 /**/~$*
+/**/config.dat
 
 #================================================
 # Eclipse
