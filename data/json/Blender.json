@@ -1,0 +1,21 @@
+{
+    "sitemap":"yes",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+			"Le but de ce tutoriel est de vous apprendre",
+            "la modélisation 3D avec Blender.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Tutoriels/3D_Modeling/Blender/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/3D_Modeling/Blender/img/b_blender.png"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"Modélisation 3D","link":"/Tutoriels/#Système de modélisation 3D","follow":"no"},
+        {"name":"Blender","link":"","follow":"no"}
+    ]
+}
+                        

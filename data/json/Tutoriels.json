@@ -126,6 +126,16 @@
 			"follow":"yes"
         }
     ],    
+    "3d_modeling":
+    [
+        {
+            "icon":"fa fa-cubes",
+            "theme":"Blender",
+            "description":"Apprenez<br/> la modélisation 3D",
+            "link":"/Tutoriels/3D_Modeling/Blender/",
+			"follow":"yes"
+        }
+    ],    
     "project_manager":
     [
         {
