@@ -1,0 +1,21 @@
+{
+    "sitemap":"yes",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+			"Le but de ce tutoriel est de vous apprendre",
+            "la gestion de versions avec Git.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Tutoriels/Version_Control/Git/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Version_Control/Git/img/b_git.png"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"Gestion de versions","link":"/Tutoriels/#Système de gestion de versions","follow":"no"},
+        {"name":"Git","link":"","follow":"no"}
+    ]
+}
+                        

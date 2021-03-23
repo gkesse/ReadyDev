@@ -12,7 +12,14 @@
     },
     "skills":
     [
-        {"name":"Développement Logiciel","link":"/Tutoriels/#Développement Logiciel","follow":"no"}
+        {"name":"Tutoriels","link":"/Tutoriels/#Développement Logiciel","follow":"no"},
+        {"name":"Développement Logiciel","link":"/Tutoriels/#Développement Logiciel","follow":"no"},
+        {"name":"Développement Web","link":"/Tutoriels/#Développement Web","follow":"no"},
+        {"name":"Développement Mobile","link":"/Tutoriels/#Développement Mobile","follow":"no"},
+        {"name":"Développement Système Embarqué","link":"/Tutoriels/#Développement Système Embarqué","follow":"no"},
+        {"name":"Système de modélisation 3D","link":"/Tutoriels/#Système de modélisation 3D","follow":"no"},
+        {"name":"Système de gestion de projets","link":"/Tutoriels/#Système de gestion de projets","follow":"no"},
+        {"name":"Ressources","link":"/Tutoriels/#Ressources","follow":"no"}
     ],
     "graduation":
     [
