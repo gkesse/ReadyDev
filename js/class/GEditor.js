@@ -29,7 +29,8 @@ var GEditor = (function() {
 				var lSelection = document.getSelection();
 				if(!lSelection.toString()) return;
                 var lHtml = '';
-                lHtml += '<a class="Link7 GLink1" style="color:'+lColor+';" target="_blank"';
+                if(lArgMap.length == 2) {lHtml += '<a class="Link7 GLink1" style="color:'+lColor+';" target="_blank"';}
+                else if(lArgMap.length == 3) {lHtml += '<a class="Link7 GLink1" style="color:'+lColor+';"';}
                 lHtml += 'href="'+lLink+'">';
                 lHtml += lSelection;
                 lHtml += '</a>';
