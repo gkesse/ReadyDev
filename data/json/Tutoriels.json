@@ -152,6 +152,16 @@
             "link":"/Tutoriels/Project_Manager/Redmine/",
 			"follow":"yes"
         }
+    ],    
+    "vcs":
+    [
+        {
+            "icon":"fa fa-sitemap",
+            "theme":"Git",
+            "description":"Apprenez<br/> la gestion de versions",
+            "link":"/Tutoriels/Version_Control/Git/",
+			"follow":"yes"
+        }
     ],
     "resources":
     [
