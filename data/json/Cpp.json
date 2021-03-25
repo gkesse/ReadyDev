@@ -8,56 +8,57 @@
             "la programmation en C++.",
             "Produit par Gérard KESSE."
         ],
-        "meta_cano":"/Tutoriels/Cpp/",
-        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Cpp/img/b_cpp.png"
+        "meta_cano":"/Tutoriels/software_development/Cpp/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/software_development/Cpp/img/b_cpp.png"
     },    
     "links":
     [
-        {"name":"Tutoriels","link":"/Tutoriels/#Développement Logiciel","follow":"no"},
+        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"Développement Logiciel","link":"/Tutoriels/#Développement Logiciel","follow":"no"},
         {"name":"C++","link":"","follow":"no"}
     ],
     "basics":
     [
-        {"name":"Créer un projet en C++","link":"/Tutoriels/Cpp/Cours/Project/","follow":"yes"},
-        {"name":"Créer un système d'administration en C++","link":"/Tutoriels/Cpp/Cours/Admin_System/","follow":"yes"},
-        {"name":"Créer un gestionnaire de configurations en C++","link":"/Tutoriels/Cpp/Cours/Config/","follow":"yes"}
+        {"name":"Créer un projet en C++","link":"/Tutoriels/software_development/Cpp/Cours/Project/","follow":"yes"},
+        {"name":"Créer un système d'administration en C++","link":"/Tutoriels/software_development/Cpp/Cours/Admin_System/","follow":"yes"},
+        {"name":"Créer un gestionnaire de configurations en C++","link":"/Tutoriels/software_development/Cpp/Cours/Config/","follow":"yes"}
     ],
     "qt":
     [
-        {"name":"Créer un projet Qt en C++","link":"/Tutoriels/Cpp/Qt/Project/","follow":"yes"},
-        {"name":"Créer une fenêtre personnalisée Qt en C++","link":"/Tutoriels/Cpp/Qt/Window/","follow":"yes"},
-        {"name":"Utiliser un fichier ressource Qt en C++","link":"/Tutoriels/Cpp/Qt/Resource/","follow":"yes"},
-        {"name":"Ajouter un style à une fenêtre Qt en C++","link":"/Tutoriels/Cpp/Qt/Style/","follow":"yes"},
-        {"name":"Supprimer la barre de titre standard Qt en C++","link":"/Tutoriels/Cpp/Qt/FrameLess/","follow":"yes"},
-        {"name":"Créer une barre de titre personnalisée Qt en C++","link":"/Tutoriels/Cpp/Qt/TitleBar/","follow":"yes"},
-        {"name":"Ajouter une icône à son application Qt en C++","link":"/Tutoriels/Cpp/Qt/Icon/","follow":"yes"},
-        {"name":"Utiliser des pictogrammes Qt en C++","link":"/Tutoriels/Cpp/Qt/Picto/","follow":"yes"},
-        {"name":"Utilisées des polices personnalisées Qt en C++","link":"/Tutoriels/Cpp/Qt/Font/","follow":"yes"}
+        {"name":"Créer un projet Qt en C++","link":"/Tutoriels/software_development/Cpp/Qt/Project/","follow":"yes"},
+        {"name":"Créer une fenêtre personnalisée Qt en C++","link":"/Tutoriels/software_development/Cpp/Qt/Window/","follow":"yes"},
+        {"name":"Utiliser un fichier ressource Qt en C++","link":"/Tutoriels/software_development/Cpp/Qt/Resource/","follow":"yes"},
+        {"name":"Ajouter un style à une fenêtre Qt en C++","link":"/Tutoriels/software_development/Cpp/Qt/Style/","follow":"yes"},
+        {"name":"Supprimer la barre de titre standard Qt en C++","link":"/Tutoriels/software_development/Cpp/Qt/FrameLess/","follow":"yes"},
+        {"name":"Créer une barre de titre personnalisée Qt en C++","link":"/Tutoriels/software_development/Cpp/Qt/TitleBar/","follow":"yes"},
+        {"name":"Ajouter une icône à son application Qt en C++","link":"/Tutoriels/software_development/Cpp/Qt/Icon/","follow":"yes"},
+        {"name":"Utiliser des pictogrammes Qt en C++","link":"/Tutoriels/software_development/Cpp/Qt/Picto/","follow":"yes"},
+        {"name":"Utilisées des polices personnalisées Qt en C++","link":"/Tutoriels/software_development/Cpp/Qt/Font/","follow":"yes"}
     ],
     "sqlite":
     [
-        {"name":"Se connecter à une base données SQLite en C++","link":"/Tutoriels/Cpp/SQLite/Connect/","follow":"yes"},
-        {"name":"Afficher des données SQLite en C++","link":"/Tutoriels/Cpp/SQLite/Show_Query/","follow":"yes"},
-        {"name":"Ecrire des données SQLite en C++","link":"/Tutoriels/Cpp/SQLite/Write/","follow":"yes"},
-        {"name":"Lire une valeur de donnée SQLite en C++","link":"/Tutoriels/Cpp/SQLite/Value/","follow":"yes"},
-        {"name":"Lire une colonne de données SQLite en C++","link":"/Tutoriels/Cpp/SQLite/Column/","follow":"yes"},
-        {"name":"Lire une ligne de données SQLite en C++","link":"/Tutoriels/Cpp/SQLite/Row/","follow":"yes"},
-        {"name":"Lire une matrice de données SQLite en C++","link":"/Tutoriels/Cpp/SQLite/Map/","follow":"yes"},
-        {"name":"Afficher les tables SQLite en C++","link":"/Tutoriels/Cpp/SQLite/Tables/","follow":"yes"},
-        {"name":"Créer une table SQLite en C++","link":"/Tutoriels/Cpp/SQLite/Create/","follow":"yes"},
-        {"name":"Supprimer une table SQLite en C++","link":"/Tutoriels/Cpp/SQLite/Drop/","follow":"yes"},
-        {"name":"Afficher les données d'une table SQLite en C++","link":"/Tutoriels/Cpp/SQLite/Show/","follow":"yes"},
-        {"name":"Compter les données d'une table SQLite en C++","link":"/Tutoriels/Cpp/SQLite/Count/","follow":"yes"},
-        {"name":"Insérer des données dans une table SQLite en C++","link":"/Tutoriels/Cpp/SQLite/Insert/","follow":"yes"},
-        {"name":"Modifier des données dans une table SQLite en C++","link":"/Tutoriels/Cpp/SQLite/Update/","follow":"yes"},
-        {"name":"Supprimer des données dans une table SQLite en C++","link":"/Tutoriels/Cpp/SQLite/Delete/","follow":"yes"}
+        {"name":"Se connecter à une base données SQLite en C++","link":"/Tutoriels/software_development/Cpp/SQLite/Connect/","follow":"yes"},
+        {"name":"Afficher des données SQLite en C++","link":"/Tutoriels/software_development/Cpp/SQLite/Show_Query/","follow":"yes"},
+        {"name":"Ecrire des données SQLite en C++","link":"/Tutoriels/software_development/Cpp/SQLite/Write/","follow":"yes"},
+        {"name":"Lire une valeur de donnée SQLite en C++","link":"/Tutoriels/software_development/Cpp/SQLite/Value/","follow":"yes"},
+        {"name":"Lire une colonne de données SQLite en C++","link":"/Tutoriels/software_development/Cpp/SQLite/Column/","follow":"yes"},
+        {"name":"Lire une ligne de données SQLite en C++","link":"/Tutoriels/software_development/Cpp/SQLite/Row/","follow":"yes"},
+        {"name":"Lire une matrice de données SQLite en C++","link":"/Tutoriels/software_development/Cpp/SQLite/Map/","follow":"yes"},
+        {"name":"Afficher les tables SQLite en C++","link":"/Tutoriels/software_development/Cpp/SQLite/Tables/","follow":"yes"},
+        {"name":"Créer une table SQLite en C++","link":"/Tutoriels/software_development/Cpp/SQLite/Create/","follow":"yes"},
+        {"name":"Supprimer une table SQLite en C++","link":"/Tutoriels/software_development/Cpp/SQLite/Drop/","follow":"yes"},
+        {"name":"Afficher les données d'une table SQLite en C++","link":"/Tutoriels/software_development/Cpp/SQLite/Show/","follow":"yes"},
+        {"name":"Compter les données d'une table SQLite en C++","link":"/Tutoriels/software_development/Cpp/SQLite/Count/","follow":"yes"},
+        {"name":"Insérer des données dans une table SQLite en C++","link":"/Tutoriels/software_development/Cpp/SQLite/Insert/","follow":"yes"},
+        {"name":"Modifier des données dans une table SQLite en C++","link":"/Tutoriels/software_development/Cpp/SQLite/Update/","follow":"yes"},
+        {"name":"Supprimer des données dans une table SQLite en C++","link":"/Tutoriels/software_development/Cpp/SQLite/Delete/","follow":"yes"}
     ],
     "opencv":
     [
-        {"name":"Créer un projet OpenCV en C++","link":"/Tutoriels/Cpp/OpenCV/Project/","follow":"yes"}
+        {"name":"Créer un projet OpenCV en C++","link":"/Tutoriels/software_development/Cpp/OpenCV/Project/","follow":"yes"}
     ],
     "cgi":
     [
-        {"name":"Créer un projet web CGI en C++","link":"/Tutoriels/Cpp/CGI/Project/","follow":"yes"}
+        {"name":"Créer un projet web CGI en C++","link":"/Tutoriels/software_development/Cpp/CGI/Project/","follow":"yes"}
     ]
 }
