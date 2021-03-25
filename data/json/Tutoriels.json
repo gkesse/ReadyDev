@@ -162,6 +162,16 @@
             "link":"/Tutoriels/Version_Control/Git/",
 			"follow":"yes"
         }
+    ],    
+    "code_review":
+    [
+        {
+            "icon":"fa fa-recycle",
+            "theme":"Gerrit",
+            "description":"Apprenez<br/> la revue de code",
+            "link":"/Tutoriels/Code_Review/Gerrit/",
+			"follow":"yes"
+        }
     ],
     "resources":
     [
