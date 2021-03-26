@@ -19,6 +19,7 @@
     ],
     "biblio":
     [
-        {"name":"Interface Homme-Machine Qt","link":"/Tutoriels/software_development/Cpp/Qt","follow":"no"}
+        {"name":"Interface Homme-Machine Qt","link":"/Tutoriels/software_development/Cpp/Qt/","follow":"no"},
+        {"name":"Vision par Ordinateur OpenCV","link":"/Tutoriels/software_development/Cpp/OpenCV/","follow":"no"}
     ]
 }
