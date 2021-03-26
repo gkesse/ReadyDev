@@ -15,7 +15,8 @@
     [
         {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
         {"name":"Développement Logiciel","link":"/Tutoriels/#Développement Logiciel","follow":"no"},
-        {"name":"C++","link":"/Tutoriels/software_development/Cpp/#Bibliothèques","follow":"no"},
+        {"name":"C++","link":"/Tutoriels/software_development/Cpp/","follow":"no"},
+        {"name":"Biblio","link":"/Tutoriels/software_development/Cpp/#Bibliothèques","follow":"no"},
         {"name":"OpenCV","link":"","follow":"no"}
     ]
 }
