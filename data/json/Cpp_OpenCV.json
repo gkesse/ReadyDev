@@ -8,15 +8,15 @@
             "la vision par ordinateur avec OpenCV en C++.",
             "Produit par Gérard KESSE."
         ],
-        "meta_cano":"/Tutoriels/software_development/Cpp/OpenCV/",
-        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/software_development/Cpp/img/b_opencv.png"
+        "meta_cano":"/Tutoriels/Software_Development/Cpp/OpenCV/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Software_Development/Cpp/img/b_opencv.png"
     },    
     "links":
     [
         {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
         {"name":"Développement Logiciel","link":"/Tutoriels/#Développement Logiciel","follow":"no"},
-        {"name":"C++","link":"/Tutoriels/software_development/Cpp/","follow":"no"},
-        {"name":"Biblio","link":"/Tutoriels/software_development/Cpp/#Bibliothèques","follow":"no"},
+        {"name":"C++","link":"/Tutoriels/Software_Development/Cpp/","follow":"no"},
+        {"name":"Biblio","link":"/Tutoriels/Software_Development/Cpp/#Bibliothèques","follow":"no"},
         {"name":"OpenCV","link":"","follow":"no"}
     ]
 }
