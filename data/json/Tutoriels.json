@@ -22,7 +22,7 @@
             "icon":"fa fa-desktop",
             "theme":"C",
             "description":"Programmez en<br/> C",
-            "link":"/Tutoriels/C0/",
+            "link":"/Tutoriels/Software_Development/C0/",
 			"follow":"yes"
         },
         {
@@ -36,49 +36,49 @@
             "icon":"fa fa-desktop",
             "theme":"C#",
             "description":"Programmez en<br/> C#",
-            "link":"/Tutoriels/CSharp/",
+            "link":"/Tutoriels/Software_Development/CSharp/",
 			"follow":"yes"
         },
         {
             "icon":"fa fa-desktop",
             "theme":"Java",
             "description":"Programmez en<br/> Java",
-            "link":"/Tutoriels/Java/",
+            "link":"/Tutoriels/Software_Development/Java/",
 			"follow":"yes"
         },
         {
             "icon":"fa fa-desktop",
             "theme":"Python",
             "description":"Programmez en<br/> Python",
-            "link":"/Tutoriels/Python/",
+            "link":"/Tutoriels/Software_Development/Python/",
 			"follow":"yes"
         },
         {
             "icon":"fa fa-desktop",
             "theme":"Dart",
             "description":"Programmez en<br/> Dart",
-            "link":"/Tutoriels/Dart/",
+            "link":"/Tutoriels/Software_Development/Dart/",
 			"follow":"yes"
         },
         {
             "icon":"fa fa-desktop",
             "theme":"Go",
             "description":"Programmez en<br/> Go",
-            "link":"/Tutoriels/Go/",
+            "link":"/Tutoriels/Software_Development/Go/",
 			"follow":"yes"
         },
         {
             "icon":"fa fa-desktop",
             "theme":"Shell",
             "description":"Programmez en<br/> Shell",
-            "link":"/Tutoriels/Shell/",
+            "link":"/Tutoriels/Software_Development/Shell/",
 			"follow":"yes"
         },
         {
             "icon":"fa fa-desktop",
             "theme":"Batch",
             "description":"Programmez en<br/> Batch",
-            "link":"/Tutoriels/Batch/",
+            "link":"/Tutoriels/Software_Development/Batch/",
 			"follow":"yes"
         }
     ],    
