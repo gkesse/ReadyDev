@@ -8,33 +8,40 @@
             "la programmation en C#.",
             "Produit par Gérard KESSE."
         ],
-        "meta_cano":"/Tutoriels/CSharp/",
-        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/CSharp/img/b_csharp.png"
+        "meta_cano":"/Tutoriels/Software_Development/CSharp/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Software_Development/CSharp/img/b_csharp.png"
     },    
     "links":
     [
-        {"name":"Tutoriels","link":"/Tutoriels/#Développement Logiciel","follow":"no"},
+        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"Développement Logiciel","link":"/Tutoriels/#Développement Logiciel","follow":"no"},
         {"name":"C#","link":"","follow":"no"}
+    ],
+    "libs":
+    [
+        {"name":"Interface Homme-Machine Qt","link":"/Tutoriels/Software_Development/CSharp/Qt/","follow":"no"},
+        {"name":"Vision par Ordinateur OpenCV","link":"/Tutoriels/Software_Development/CSharp/OpenCV/","follow":"no"},
+        {"name":"Base de données SQLite","link":"/Tutoriels/Software_Development/CSharp/SQLite/","follow":"no"}
     ],
     "basics":
     [
-        {"name":"Créer un projet en C#","link":"/Tutoriels/CSharp/Cours/Project/","follow":"yes"},
-        {"name":"Créer un singleton en C#","link":"/Tutoriels/CSharp/Cours/Singleton/","follow":"yes"},
-        {"name":"Créer une machine à états finis en C#","link":"/Tutoriels/CSharp/Cours/State_Machine/","follow":"yes"},
-        {"name":"Créer un système d'administration en C#","link":"/Tutoriels/CSharp/Cours/Admin_System/","follow":"yes"},
-        {"name":"Créer un gestionnaire de configuration en C#","link":"/Tutoriels/CSharp/Cours/Config/","follow":"yes"}
+        {"name":"Créer un projet en C#","link":"/Tutoriels/Software_Development/CSharp/Cours/Project/","follow":"yes"},
+        {"name":"Créer un singleton en C#","link":"/Tutoriels/Software_Development/CSharp/Cours/Singleton/","follow":"yes"},
+        {"name":"Créer une machine à états finis en C#","link":"/Tutoriels/Software_Development/CSharp/Cours/State_Machine/","follow":"yes"},
+        {"name":"Créer un système d'administration en C#","link":"/Tutoriels/Software_Development/CSharp/Cours/Admin_System/","follow":"yes"},
+        {"name":"Créer un gestionnaire de configuration en C#","link":"/Tutoriels/Software_Development/CSharp/Cours/Config/","follow":"yes"}
     ],
     "sqlite":
     [
-        {"name":"Créer un projet SQLite en C#","link":"/Tutoriels/CSharp/SQLite/Project/","follow":"yes"}
+        {"name":"Créer un projet SQLite en C#","link":"/Tutoriels/Software_Development/CSharp/SQLite/Project/","follow":"yes"}
     ],
     "qt":
     [
-        {"name":"Créer un projet Qt en C#","link":"/Tutoriels/CSharp/Qt/Project/","follow":"yes"}
+        {"name":"Créer un projet Qt en C#","link":"/Tutoriels/Software_Development/CSharp/Qt/Project/","follow":"yes"}
     ],
     "opencv":
     [
-        {"name":"Créer un projet OpenCV en C#","link":"/Tutoriels/CSharp/OpenCV/Project/","follow":"yes"}
+        {"name":"Créer un projet OpenCV en C#","link":"/Tutoriels/Software_Development/CSharp/OpenCV/Project/","follow":"yes"}
     ]
 }
                         
