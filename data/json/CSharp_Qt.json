@@ -1,0 +1,22 @@
+{
+    "sitemap":"yes",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+			"Le but de ce tutoriel est de vous apprendre",
+            "la création d'interfaces homme-machine avec Qt en C#.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Tutoriels/Software_Development/CSharp/Qt/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Software_Development/CSharp/img/b_qt.png"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"Développement Logiciel","link":"/Tutoriels/#Développement Logiciel","follow":"no"},
+        {"name":"C#","link":"/Tutoriels/Software_Development/CSharp/","follow":"no"},
+        {"name":"Biblio","link":"/Tutoriels/Software_Development/CSharp/#Bibliothèques","follow":"no"},
+        {"name":"Qt","link":"","follow":"no"}
+    ]
+}
