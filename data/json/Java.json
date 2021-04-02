@@ -13,8 +13,13 @@
     },    
     "links":
     [
-        {"name":"Tutoriels","link":"/Tutoriels/#Développement Logiciel","follow":"no"},
+        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"Développement Logiciel","link":"/Tutoriels/#Développement Logiciel","follow":"no"},
         {"name":"Java","link":"","follow":"no"}
+    ],
+    "libs":
+    [
+        {"name":"Java Native Interface JNI","link":"/Tutoriels/Software_Development/Java/JNI/","follow":"no"}
     ],
     "basics":
     [
