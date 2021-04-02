@@ -1,0 +1,22 @@
+{
+    "sitemap":"yes",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+			"Le but de ce tutoriel est de vous apprendre",
+            "l'appel de bibliothèques natives C/C++ avec JNI en Java.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Tutoriels/Software_Development/Java/JNI/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Software_Development/Java/img/b_jni.png"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"Développement Logiciel","link":"/Tutoriels/#Développement Logiciel","follow":"no"},
+        {"name":"Java","link":"/Tutoriels/Software_Development/Java/","follow":"no"},
+        {"name":"Biblio","link":"/Tutoriels/Software_Development/Java/#Bibliothèques","follow":"no"},
+        {"name":"JNI","link":"","follow":"no"}
+    ]
+}
