@@ -4,7 +4,7 @@ Cocher -&gt; I accept the terms in the License Agreement
 Destination Folder -&gt; C:\Program Files\Go\
 Next
 Install
-Finish</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Tests"><a class="Link3" href="#">Tests</a></h1><div class="Body3"><br>Créer un projet Go.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1617383655488"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1617383655488");</script></div><br><h2 class="Title7 GTitle2" id="Tests-1 - Test sous Windows"><a class="Link9" href="#Tests">1 - Test sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Tests-1.1 - Éditer le programme"><a class="Link9" href="#Tests">1.1 - Éditer le programme</a></h2><br><h3 class="Title8 GTitle3">main.go</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="golang">//===============================================
+Finish</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Installation-2 - Installation sous Ubuntu"><a class="Link9" href="#Installation">2 - Installation sous Ubuntu</a></h2><br><h2 class="Title7 GTitle2" id="Installation-2.1 - Télécharger Go"><a class="Link9" href="#Installation">2.1 - Télécharger Go</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">wget https://gomirrors.org/dl/go/go1.16.3.linux-arm64.tar.gz</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Installation-2.2 - Extraire Go"><a class="Link9" href="#Installation">2.2 - Extraire Go</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">tar xzfv go1.16.3.linux-arm64.tar.gz</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Installation-2.3 - Installer Go"><a class="Link9" href="#Installation">2.3 - Installer Go</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">export "PATH=/home/rpi4/opt/go/bin:$PATH"</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Tests"><a class="Link3" href="#">Tests</a></h1><div class="Body3"><br>Créer un projet Go.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1617383655488"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1617383655488");</script></div><br><h2 class="Title7 GTitle2" id="Tests-1 - Test sous Windows"><a class="Link9" href="#Tests">1 - Test sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Tests-1.1 - Éditer le programme"><a class="Link9" href="#Tests">1.1 - Éditer le programme</a></h2><br><h3 class="Title8 GTitle3">main.go</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="golang">//===============================================
 package main
 //===============================================
 import "fmt"
@@ -168,14 +168,14 @@ func main() {
     fmt.Printf("[Go] Bonjour toutle monde\n")
     C.sayHello()
 }
-//===============================================</xmp></pre></div><br><div align="left"><h2 class="Title7 GTitle2" id="Wrapper-2.1.3.2 - Créer la librairie statique"><a class="Link9" href="#Wrapper">2.1.3.2 - Créer la librairie statique</a></h2></div><br><h2 class="Title7 GTitle2" id="Wrapper-2.1.3.2.1 - Structure de la librairie statique"><a class="Link9" href="#Wrapper">2.1.3.2.1 - Structure de la librairie statique</a></h2><br><h3 class="Title8 GTitle3">hello.h</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</xmp></pre></div><br><div align="left"><h2 class="Title7 GTitle2" id="Wrapper-2.1.3.2 - Créer la librairie statique C"><a class="Link9" href="#Wrapper">2.1.3.2 - Créer la librairie statique C</a></h2></div><br><h2 class="Title7 GTitle2" id="Wrapper-2.1.3.2.1 - Éditer le programme C"><a class="Link9" href="#Wrapper">2.1.3.2.1 - Éditer le programme C</a></h2><br><h2 class="Title7 GTitle2" id="Wrapper-2.1.3.2.1.1 - Fichier header"><a class="Link9" href="#Wrapper">2.1.3.2.1.1 - Fichier header</a></h2><br><h3 class="Title8 GTitle3">hello.h</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #ifndef _hello_
 #define _hello_
 //===============================================
 void sayHello();
 //===============================================
 #endif
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Wrapper-2.1.3.2.2 - Définition de la librairie statique"><a class="Link9" href="#Wrapper">2.1.3.2.2 - Définition de la librairie statique</a></h2><br><h3 class="Title8 GTitle3">hello.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Wrapper-2.1.3.2.1.2 - Fichier source"><a class="Link9" href="#Wrapper">2.1.3.2.1.2 - Fichier source</a></h2><br><h3 class="Title8 GTitle3">hello.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include "hello.h"
 //===============================================
 #include &lt;stdio.h&gt;
@@ -183,4 +183,178 @@ void sayHello();
 void sayHello() {
     printf("[C] Bonjour tout le monde\n");
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Wrapper-2.2 - Wrapper C++"><a class="Link9" href="#Wrapper">2.2 - Wrapper C++</a></h2><br><h2 class="Title7 GTitle2" id="Wrapper-2.2.1 - Écrire un wrapper en C++ pour Go"><a class="Link9" href="#Wrapper">2.2.1 - Écrire un wrapper en C++ pour Go</a></h2><br><br><br><br><br><br><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programmation de base"><a class="Link3" href="#">Programmation de base</a></h1><div class="Body3"><br><h2 class="Title7 GTitle2" id="Programmation de base-Sommaire"><a class="Link9" href="#Programmation de base">Sommaire</a></h2><br><div class="Content0 GList1"><div class="Body0" id="Loader_1600429063037"><div class="Row26">List 1 &gt; Go &gt; basics</div></div><script>loadList1("Loader_1600429063037","Go","basics");</script></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Développement de wrapper"><a class="Link3" href="#">Développement de wrapper</a></h1><div class="Body3"><br><h2 class="Title7 GTitle2" id="Développement de wrapper-Sommaire"><a class="Link9" href="#Développement de wrapper">Sommaire</a></h2><br><div class="Content0 GList1"><div class="Body0" id="Loader_1604523994735"><div class="Row26">List 1 &gt; Go &gt; wrapper</div></div><script>loadList1("Loader_1604523994735","Go","wrapper");</script></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Interface Homme-Machine Qt"><a class="Link3" href="#">Interface Homme-Machine Qt</a></h1><div class="Body3"><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine Qt-Sommaire"><a class="Link9" href="#Interface Homme-Machine Qt">Sommaire</a></h2><br><div class="Content0 GList1"><div class="Body0" id="Loader_1605456108146"><div class="Row26">List 1 &gt; Go &gt; qt</div></div><script>loadList1("Loader_1605456108146","Go","qt");</script></div><br></div></div></div></div><br>
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Wrapper-2.1.3.2.2 - Compiler la librairie statique C"><a class="Link9" href="#Wrapper">2.1.3.2.2 - Compiler la librairie statique C</a></h2><br><h3 class="Title8 GTitle3">Windows</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">set "PATH=C:\TDM-GCC-64\bin;%PATH%"</xmp></pre></div><br><h3 class="Title8 GTitle3">Terminal</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">gcc -std=gnu11 -c hello.c -o hello.o</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Wrapper-2.1.3.2.3 - Construire la librairie statique C"><a class="Link9" href="#Wrapper">2.1.3.2.3 - Construire la librairie statique C</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">ar rcs libhello.a  hello.o</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Wrapper-2.1.3.3 - Compiler le projet"><a class="Link9" href="#Wrapper">2.1.3.3 - Compiler le projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">go build -o rdgo.exe main.go</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Wrapper-2.1.3.4 - Exécuter le projet"><a class="Link9" href="#Wrapper">2.1.3.4 - Exécuter le projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">rdgo.exe</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">[Go] Bonjour toutle monde
+[C] Bonjour tout le monde</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Wrapper-2.1.4 - Utiliser une librairie dynamique dans un wrapper C pour Go"><a class="Link9" href="#Wrapper">2.1.4 - Utiliser une librairie dynamique dans un wrapper C pour Go</a></h2><br><h2 class="Title7 GTitle2" id="Wrapper-2.1.4.1 - Éditer le programme Go"><a class="Link9" href="#Wrapper">2.1.4.1 - Éditer le programme Go</a></h2><br><h3 class="Title8 GTitle3">main.go</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="golang">//===============================================
+package main
+/*
+//===============================================
+#cgo CFLAGS: -I.
+#cgo LDFLAGS: -L. -lhello
+//===============================================
+#include "hello.h"
+//===============================================
+*/
+import "C"
+//===============================================
+import "fmt"
+//===============================================
+func main() {
+    fmt.Printf("[Go] Bonjour toutle monde\n")
+    C.sayHello()
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Wrapper-2.1.4.2 - Créer la librairie dynamique C"><a class="Link9" href="#Wrapper">2.1.4.2 - Créer la librairie dynamique C</a></h2><br><h2 class="Title7 GTitle2" id="Wrapper-2.1.4.2.1 - Éditer le programme C"><a class="Link9" href="#Wrapper">2.1.4.2.1 - Éditer le programme C</a></h2><br><h2 class="Title7 GTitle2" id="Wrapper-2.1.4.2.1.1 - Fichier header"><a class="Link9" href="#Wrapper">2.1.4.2.1.1 - Fichier header</a></h2><br><h3 class="Title8 GTitle3">hello.h</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#ifndef _hello_
+#define _hello_
+//===============================================
+void sayHello();
+//===============================================
+#endif
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Wrapper-2.1.4.2.1.2 - Fichier source"><a class="Link9" href="#Wrapper">2.1.4.2.1.2 - Fichier source</a></h2><br><h3 class="Title8 GTitle3">hello.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "hello.h"
+//===============================================
+#include &lt;stdio.h&gt;
+//===============================================
+void sayHello() {
+    printf("[C] Bonjour tout le monde\n");
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Wrapper-2.1.4.2.2 - Compiler la librairie dynamique C"><a class="Link9" href="#Wrapper">2.1.4.2.2 - Compiler la librairie dynamique C</a></h2><br><h3 class="Title8 GTitle3">Windows</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">set "PATH=C:\TDM-GCC-64\bin;%PATH%"</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">gcc -std=gnu11 -c hello.c -o hello.o</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Wrapper-2.1.4.2.3 - Construire la librairie dynamique C"><a class="Link9" href="#Wrapper">2.1.4.2.3 - Construire la librairie dynamique C</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">gcc -shared -o libhello.dll hello.o</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Wrapper-2.1.4.3 - Compiler le projet"><a class="Link9" href="#Wrapper">2.1.4.3 - Compiler le projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">go build -o rdgo.exe main.go</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Wrapper-2.1.4.4 - Exécuter le projet"><a class="Link9" href="#Wrapper">2.1.4.4 - Exécuter le projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">rdgo.exe</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">[Go] Bonjour toutle monde
+[C] Bonjour tout le monde</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Wrapper-2.2 - Wrapper C++"><a class="Link9" href="#Wrapper">2.2 - Wrapper C++</a></h2><br><h2 class="Title7 GTitle2" id="Wrapper-2.2.1 - Utiliser une librairie statique dans un wrapper C++ pour Go"><a class="Link9" href="#Wrapper">2.2.1 - Utiliser une librairie statique dans un wrapper C++ pour Go</a></h2><br><h2 class="Title7 GTitle2" id="Wrapper-2.2.1.1 - Éditer le programme Go"><a class="Link9" href="#Wrapper">2.2.1.1 - Éditer le programme Go</a></h2><br><h3 class="Title8 GTitle3">main.go</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="golang">//===============================================
+package main
+/*
+//===============================================
+#cgo CFLAGS: -I.
+//===============================================
+#cgo LDFLAGS: -L. -lhello -lstdc++
+//===============================================
+#include "hello.h"
+//===============================================
+*/
+import "C"
+//===============================================
+import "fmt"
+//===============================================
+func main() {
+    fmt.Printf("[Go] Bonjour tout le monde\n")
+    C.sayHello()
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Wrapper-2.2.1.2 - Créer la librairie statique C++"><a class="Link9" href="#Wrapper">2.2.1.2 - Créer la librairie statique C++</a></h2><br><h2 class="Title7 GTitle2" id="Wrapper-2.2.1.2.1 - Éditer le programme C++"><a class="Link9" href="#Wrapper">2.2.1.2.1 - Éditer le programme C++</a></h2><br><h2 class="Title7 GTitle2" id="Wrapper-2.2.1.2.1.1 - Fichier header"><a class="Link9" href="#Wrapper">2.2.1.2.1.1 - Fichier header</a></h2><br><h3 class="Title8 GTitle3">hello.h</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#ifndef _hello_
+#define _hello_
+//===============================================
+#ifdef __cplusplus
+extern "C" {
+#endif
+//===============================================
+void sayHello();
+//===============================================
+#ifdef __cplusplus
+}
+#endif
+//===============================================
+#endif
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Wrapper-2.2.1.2.1.2 - Fichier source"><a class="Link9" href="#Wrapper">2.2.1.2.1.2 - Fichier source</a></h2><br><h3 class="Title8 GTitle3">hello.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "hello.h"
+//===============================================
+#include &lt;iostream&gt;
+//===============================================
+void sayHello() {
+    std::cout &lt;&lt; "[C++] Bonjour tout le monde\n";
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Wrapper-2.2.1.2.2 - Compiler la librairie statique C++"><a class="Link9" href="#Wrapper">2.2.1.2.2 - Compiler la librairie statique C++</a></h2><br><h3 class="Title8 GTitle3">Ubuntu</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">g++ -std=gnu++11 -c hello.cpp -o hello.o</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Wrapper-2.2.1.2.3 - Construire la librairie statique C++"><a class="Link9" href="#Wrapper">2.2.1.2.3 - Construire la librairie statique C++</a></h2><br><h3 class="Title8 GTitle3">Ubuntu</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">ar rcs libhello.a hello.o</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Wrapper-2.2.1.3 - Compiler le projet"><a class="Link9" href="#Wrapper">2.2.1.3 - Compiler le projet</a></h2><br><h3 class="Title8 GTitle3">Ubuntu</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">go build -o rdgo main.go</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Wrapper-2.2.1.4 - Exécuter le projet"><a class="Link9" href="#Wrapper">2.2.1.4 - Exécuter le projet</a></h2><br><h3 class="Title8 GTitle3">Ubuntu</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">./rdgo</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">[Go] Bonjour tout le monde
+[C++] Bonjour tout le monde</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Wrapper-2.2.2 - Utiliser une librairie dynamique dans un wrapper C++ pour Go"><a class="Link9" href="#Wrapper">2.2.2 - Utiliser une librairie dynamique dans un wrapper C++ pour Go</a></h2><br><h2 class="Title7 GTitle2" id="Wrapper-2.2.2.1 - Éditer le programme Go"><a class="Link9" href="#Wrapper">2.2.2.1 - Éditer le programme Go</a></h2><br><h3 class="Title8 GTitle3">main.go</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="golang">//===============================================
+package main
+/*
+//===============================================
+#cgo CFLAGS: -I.
+//===============================================
+#cgo LDFLAGS: -L. -lhello
+//===============================================
+#include "hello.h"
+//===============================================
+*/
+import "C"
+//===============================================
+import "fmt"
+//===============================================
+func main() {
+    fmt.Printf("[Go] Bonjour tout le monde\n")
+    C.sayHello()
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Wrapper-2.2.2.2 - Créer la librairie dynamique C++"><a class="Link9" href="#Wrapper">2.2.2.2 - Créer la librairie dynamique C++</a></h2><br><h2 class="Title7 GTitle2" id="Wrapper-2.2.2.2.1 - Éditer le programme C++"><a class="Link9" href="#Wrapper">2.2.2.2.1 - Éditer le programme C++</a></h2><br><h2 class="Title7 GTitle2" id="Wrapper-2.2.2.2.1.1 - Fichier header"><a class="Link9" href="#Wrapper">2.2.2.2.1.1 - Fichier header</a></h2><br><h3 class="Title8 GTitle3">hello.h</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#ifndef _hello_
+#define _hello_
+//===============================================
+#ifdef __cplusplus
+extern "C" {
+#endif
+//===============================================
+void sayHello();
+//===============================================
+#ifdef __cplusplus
+}
+#endif
+//===============================================
+#endif
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Wrapper-2.2.2.2.1.2 - Fichier source"><a class="Link9" href="#Wrapper">2.2.2.2.1.2 - Fichier source</a></h2><br><h3 class="Title8 GTitle3">hello.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "hello.h"
+//===============================================
+#include &lt;iostream&gt;
+//===============================================
+void sayHello() {
+    std::cout &lt;&lt; "[C++] Bonjour tout le monde\n";
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Wrapper-2.2.2.2.2 - Compiler la librairie dynamique C++"><a class="Link9" href="#Wrapper">2.2.2.2.2 - Compiler la librairie dynamique C++</a></h2><br><h3 class="Title8 GTitle3">Ubuntu</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">g++ -std=gnu++11 -c hello.cpp -o hello.o</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Wrapper-2.2.2.2.3 - Construire la librairie dynamique C++"><a class="Link9" href="#Wrapper">2.2.2.2.3 - Construire la librairie dynamique C++</a></h2><br><h3 class="Title8 GTitle3">Ubuntu</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">g++ -shared -o libhello.so hello.o</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Wrapper-2.2.2.3 - Compiler le projet"><a class="Link9" href="#Wrapper">2.2.2.3 - Compiler le projet</a></h2><br><h3 class="Title8 GTitle3">Ubuntu</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">go build -o rdgo main.go</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Wrapper-2.2.2.4 - Exécuter le projet"><a class="Link9" href="#Wrapper">2.2.2.4 - Exécuter le projet</a></h2><br><h3 class="Title8 GTitle3">Ubuntu</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">./rdgo</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">[Go] Bonjour tout le monde
+[C++] Bonjour tout le monde</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Swig"><a class="Link3" href="#">Swig</a></h1><div class="Body3"><br>SWIG est un compilateur d'interface qui connecte des programmes écrits en C et C ++ avec des langages de script tels que Go. <br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1617565425501"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1617565425501");</script></div><br><h2 class="Title7 GTitle2" id="Swig-1 - Installation"><a class="Link9" href="#Swig">1 - Installation</a></h2><br><h2 class="Title7 GTitle2" id="Swig-1.1 - Installation sous Windows"><a class="Link9" href="#Swig">1.1 - Installation sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Swig-1.1.1 - Installation sous Batch"><a class="Link9" href="#Swig">1.1.1 - Installation sous Batch</a></h2><br><h2 class="Title7 GTitle2" id="Swig-1.1.1.1 - Télécharger Swig"><a class="Link9" href="#Swig">1.1.1.1 - Télécharger Swig</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="http://www.swig.org/download.html">http://www.swig.org/download.html</a><br><br><b>swigwin-4.0.2.zip</b><br><br><h2 class="Title7 GTitle2" id="Swig-1.1.1.2 - Installer Swig"><a class="Link9" href="#Swig">1.1.1.2 - Installer Swig</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Extraire -&gt; swigwin-4.0.2.zip</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Swig-1.2 - Installation sous Ubuntu"><a class="Link9" href="#Swig">1.2 - Installation sous Ubuntu</a></h2><br><h2 class="Title7 GTitle2" id="Swig-1.2.1 - Installer Swig"><a class="Link9" href="#Swig">1.2.1 - Installer Swig</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">sudo apt install swig</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Swig-2 - Tests"><a class="Link9" href="#Swig">2 - Tests</a></h2><br><h2 class="Title7 GTitle2" id="Swig-2.1 - Test sous Ubuntu"><a class="Link9" href="#Swig">2.1 - Test sous Ubuntu</a></h2><br><h2 class="Title7 GTitle2" id="Swig-2.1.1 - Test sous C++"><a class="Link9" href="#Swig">2.1.1 - Test sous C++</a></h2><br><h2 class="Title7 GTitle2" id="Swig-2.1.1.1 - Définir le répertoire projet"><a class="Link9" href="#Swig">2.1.1.1 - Définir le répertoire projet</a></h2><br><h3 class="Title8 GTitle3">Structure</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">├── code
+│   ├── main.go
+│   └── rdgo
+└── src
+    └── lib
+        ├── hello.cpp
+        ├── hello.go
+        ├── hello.h
+        ├── hello.i
+        ├── hello_wrap.cxx
+        └── lib.go</xmp></pre></div><br><h3 class="Title8 GTitle3">Définition</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">REPERTOIRE_PROJET    -&gt; ReadyTest/swig/
+REPERTOIRE_SOURCE    -&gt; ReadyTest/swig/src/
+REPERTOIRE_LIBRAIRIE -&gt; ReadyTest/swig/src/lib/
+FICHIER_HEADER       -&gt; ReadyTest/swig/src/lib/hello.h
+FICHIER_SOURCE       -&gt; ReadyTest/swig/src/lib/hello.cpp
+FICHIER_INTERFACE    -&gt; ReadyTest/swig/src/lib/hello.i
+FICHIER_LIBRAIRIE    -&gt; ReadyTest/swig/src/lib/lib.go
+REPERTOIRE_CODE      -&gt; ReadyTest/swig/code/
+PROGRAMME_PRINCIPAL  -&gt; ReadyTest/swig/code/main.go</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Swig-2.1.1.2 - Editer le programme Go"><a class="Link9" href="#Swig">2.1.1.2 - Editer le programme Go</a></h2><br><h3 class="Title8 GTitle3">main.go</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="golang">//===============================================
+package main
+//===============================================
+import "lib"
+import "fmt"
+//===============================================
+func main() {
+    fmt.Printf("[Go] Bonjour tout le monde\n")
+    hello.SayHello()
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Swig-2.1.1.3 - Editer le fichier librairie"><a class="Link9" href="#Swig">2.1.1.3 - Editer le fichier librairie</a></h2><br><h3 class="Title8 GTitle3">lib.go</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="golang">//===============================================
+package hello
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Swig-2.1.1.4 - Editer le programme C++"><a class="Link9" href="#Swig">2.1.1.4 - Editer le programme C++</a></h2><br><h2 class="Title7 GTitle2" id="Swig-2.1.1.4.1 - Fichier header"><a class="Link9" href="#Swig">2.1.1.4.1 - Fichier header</a></h2><br><h3 class="Title8 GTitle3">hello.h</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#ifndef _hello_
+#define _hello_
+//===============================================
+void sayHello();
+//===============================================
+#endif
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Swig-2.1.1.4.2 - Fichier source"><a class="Link9" href="#Swig">2.1.1.4.2 - Fichier source</a></h2><br><h3 class="Title8 GTitle3">hello.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "hello.h"
+//===============================================
+#include &lt;iostream&gt;
+//===============================================
+void sayHello() {
+    std::cout &lt;&lt; "[C++] Bonjour tout le monde\n";
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Swig-2.1.1.5 - Editer l'interface Swig"><a class="Link9" href="#Swig">2.1.1.5 - Editer l'interface Swig</a></h2><br><h3 class="Title8 GTitle3">hello.i</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="swig">%module hello 
+
+%inline %{ 
+    #include "hello.h" 
+%}
+
+void sayHello();</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Swig-2.1.1.6 - Générer l'interface Go"><a class="Link9" href="#Swig">2.1.1.6 - Générer l'interface Go</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">swig -go -cgo -c++ -intgosize 64 hello.i</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Swig-2.1.1.7 - Compiler le programme Go"><a class="Link9" href="#Swig">2.1.1.7 - Compiler le programme Go</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">export "GOPATH=/home/rpi4/Programs/ReadyTest/swig"
+go env -w GO111MODULE=auto</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">go build -o rdgo main.go</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Swig-2.1.1.8 - Exécuter le projet"><a class="Link9" href="#Swig">2.1.1.8 - Exécuter le projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">./rdgo</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">[Go] Bonjour tout le monde
+[C++] Bonjour tout le monde</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Bibliothèques"><a class="Link3" href="#">Bibliothèques</a></h1><div class="Body3"><br><span class="GColor1" style="color:lime;">Bibliothèques Go</span><br><br><div class="Content0 GList1"><div class="Body0" id="Loader_1617493207188"><div class="Row26">List 1 &gt; Go &gt; libs</div></div><script>loadList1("Loader_1617493207188","Go","libs");</script></div><br></div></div></div></div><br>
