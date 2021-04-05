@@ -8,18 +8,14 @@
             "la programmation en Dart.",
             "Produit par Gérard KESSE."
         ],
-        "meta_cano":"/Tutoriels/Dart/",
-        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Dart/img/b_dart.png"
+        "meta_cano":"/Tutoriels/Software_Development/Dart/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Software_Development/Dart/img/b_dart.png"
     },    
     "links":
     [
-        {"name":"Tutoriels","link":"/Tutoriels/#Développement Logiciel","follow":"no"},
+        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"Développement Logiciel","link":"/Tutoriels/#Développement Logiciel","follow":"no"},
         {"name":"Dart","link":"","follow":"no"}
-    ],
-    "basics":
-    [
-        {"name":"Créer un projet en Dart","link":"/Tutoriels/Dart/Cours/Project/","follow":"yes"},
-        {"name":"Créer une machine à états finis en Dart","link":"/Tutoriels/Dart/Cours/StateMachine/","follow":"yes"}
     ]
 }
                         

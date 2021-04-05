@@ -8,17 +8,13 @@
             "la programmation en Shell.",
             "Produit par Gérard KESSE."
         ],
-        "meta_cano":"/Tutoriels/Shell/",
-        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Shell/img/b_shell.png"
+        "meta_cano":"/Tutoriels/Software_Development/Shell/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Software_Development/Shell/img/b_shell.png"
     },    
     "links":
     [
-        {"name":"Tutoriels","link":"/Tutoriels/#Développement Logiciel","follow":"no"},
+        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"Développement Logiciel","link":"/Tutoriels/#Développement Logiciel","follow":"no"},
         {"name":"Shell","link":"","follow":"no"}
-    ],
-    "basics":
-    [
-        {"name":"Créer un projet en Shell","link":"/Tutoriels/Shell/Cours/Project/","follow":"yes"},
-        {"name":"Créer un système d'administration en Shell","link":"/Tutoriels/Shell/Cours/Admin_System/","follow":"yes"}
     ]
 }
