@@ -8,13 +8,19 @@
             "la programmation en Pyhton.",
             "Produit par Gérard KESSE."
         ],
-        "meta_cano":"/Tutoriels/Pyhton/",
-        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Python/img/b_python.png"
+        "meta_cano":"/Tutoriels/Software_Development/Python/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Software_Development/Python/img/b_python.png"
     },    
     "links":
     [
-        {"name":"Tutoriels","link":"/Tutoriels/#Développement Logiciel","follow":"no"},
-        {"name":"Pyhton","link":"","follow":"no"}
+        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"Développement Logiciel","link":"/Tutoriels/#Développement Logiciel","follow":"no"},
+        {"name":"Python","link":"","follow":"no"}
+    ],
+    "libs":
+    [
+        {"name":"Interface Homme-Machine Qt","link":"/Tutoriels/Software_Development/Python/Qt/","follow":"no"},
+        {"name":"Base de données SQLite","link":"/Tutoriels/Software_Development/Python/SQLite/","follow":"no"}
     ],
     "basics":
     [
