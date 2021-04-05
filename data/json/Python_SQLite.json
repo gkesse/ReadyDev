@@ -1,0 +1,22 @@
+{
+    "sitemap":"yes",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+			"Le but de ce tutoriel est de vous apprendre",
+            "la gestion de base données avec SQLite en Python.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Tutoriels/Software_Development/Python/SQLite/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Software_Development/Python/img/b_sqlite.png"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"Développement Logiciel","link":"/Tutoriels/#Développement Logiciel","follow":"no"},
+        {"name":"Python","link":"/Tutoriels/Software_Development/Python/","follow":"no"},
+        {"name":"Biblio","link":"/Tutoriels/Software_Development/Python/#Bibliothèques","follow":"no"},
+        {"name":"SQLite","link":"","follow":"no"}
+    ]
+}
