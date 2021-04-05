@@ -8,13 +8,18 @@
             "la programmation en Go.",
             "Produit par Gérard KESSE."
         ],
-        "meta_cano":"/Tutoriels/Go/",
-        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Go/img/b_go.png"
+        "meta_cano":"/Tutoriels/Software_Development/Go/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Software_Development/Go/img/b_go.png"
     },    
     "links":
     [
-        {"name":"Tutoriels","link":"/Tutoriels/#Développement Logiciel","follow":"no"},
+        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"Développement Logiciel","link":"/Tutoriels/#Développement Logiciel","follow":"no"},
         {"name":"Go","link":"","follow":"no"}
+    ],
+    "libs":
+    [
+        {"name":"Interface Homme-Machine Qt","link":"/Tutoriels/Software_Development/Go/Qt/","follow":"no"}
     ],
     "basics":
     [
