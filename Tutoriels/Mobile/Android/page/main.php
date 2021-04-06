@@ -20,7 +20,7 @@ Save Location -&gt; ReadyTest\android
 Language -&gt; Java
 Minimum SDK -&gt; API 16: Android 4.1 (Jelly Bean)
 Finish</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.2 - Éditer le projet sous Notepad++"><a class="Link9" href="#Tests">1.1.2 - Éditer le projet sous Notepad++</a></h2><br><h2 class="Title7 GTitle2" id="Tests-1.1.2.1 - Éditer le programme principal"><a class="Link9" href="#Tests">1.1.2.1 - Éditer le programme principal</a></h2><br><h3 class="Title8 GTitle3">Modifications</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Modifier le nom du fichier -&gt; MainActivity.java
-Par le nom de votre choix -&gt; GMainActivity.java</xmp></pre></div><br><h3 class="Title8 GTitle3">MainActivity.java</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="java">//===============================================
+Par le nom de votre choix  -&gt; GMainActivity.java</xmp></pre></div><br><h3 class="Title8 GTitle3">MainActivity.java</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="java">//===============================================
 package com.pkg.readyapp;
 //===============================================
 import androidx.appcompat.app.AppCompatActivity;
