@@ -120,6 +120,13 @@
     [
         {
             "icon":"fa fa-microchip",
+            "theme":"8051",
+            "description":"Programmez le<br/>8051",
+            "link":"/Tutoriels/Embedded_System/8051/",
+			"follow":"yes"
+        },
+        {
+            "icon":"fa fa-microchip",
             "theme":"Système Embarqué",
             "description":"Programmation<br/> Système Emabrqué",
             "link":"/Tutoriels/Embedded_System/",

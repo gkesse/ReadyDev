@@ -1,0 +1,20 @@
+{
+    "sitemap":"yes",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+			"Le but de ce tutoriel est de vous apprendre",
+            "la programmation système embarqué avec le 8051.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Tutoriels/Embedded_System/8051/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Embedded_System/C0/img/b_c.png"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"Système Embarqué","link":"/Tutoriels/#Développement Système Embarqué","follow":"no"},
+        {"name":"8051","link":"","follow":"no"}
+    ]
+}
