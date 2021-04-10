@@ -15,7 +15,146 @@ int main(int argc, char** argv) {
     std::cout &lt;&lt; "Bonjour tout le monde\n";
     return 0;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.2 - Compiler le projet"><a class="Link9" href="#Tests">1.1.2 - Compiler le projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">g++ -std=gnu++11 -c main.cpp -o main.o</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.3 - Éditer les liens du projet"><a class="Link9" href="#Tests">1.1.3 - Éditer les liens du projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">g++ -o rdcpp.exe main.o</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.4 - Exécuter le projet"><a class="Link9" href="#Tests">1.1.4 - Exécuter le projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">./rdcpp.exe</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">Bonjour tout le monde</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Système d'administration"><a class="Link3" href="#">Système d'administration</a></h1><div class="Body3"><br>Créer un système d'administration en C++.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1618044541580"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1618044541580");</script></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Introduction"><a class="Link9" href="#Système d'administration">Introduction</a></h2><br>Le système d'administration que nous présentons ici est une interface en ligne de commande permettant d'accéder à toutes les fonctionnalités de notre application.<br><br><h2 class="Title7 GTitle2" id="Système d'administration-Programme principal"><a class="Link9" href="#Système d'administration">Programme principal</a></h2><br><h3 class="Title8 GTitle3">GProcess.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">GProcessUi::Instance()-&gt;run(argc, argv);</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Système d'administration"><a class="Link9" href="#Système d'administration">Système d'administration</a></h2><br><h3 class="Title8 GTitle3">GProcessUi.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.2 - Compiler le projet"><a class="Link9" href="#Tests">1.1.2 - Compiler le projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">g++ -std=gnu++11 -c main.cpp -o main.o</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.3 - Éditer les liens du projet"><a class="Link9" href="#Tests">1.1.3 - Éditer les liens du projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">g++ -o rdcpp.exe main.o</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.4 - Exécuter le projet"><a class="Link9" href="#Tests">1.1.4 - Exécuter le projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">./rdcpp.exe</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">Bonjour tout le monde</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Patron singleton"><a class="Link3" href="#">Patron singleton</a></h1><div class="Body3"><br>Créer un patron  singleton en C++.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1618051220037"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1618051220037");</script></div><br><h2 class="Title7 GTitle2" id="Patron singleton-Introduction"><a class="Link9" href="#Patron singleton">Introduction</a></h2><br>Le patron singleton est une architecture logicielle utilisée en programmation orientée objet et permettant de créer et d'utiliser un objet unique d'une classe pour coordonnées les opérations dans un système.<br><br><h2 class="Title7 GTitle2" id="Patron singleton-Programme principal"><a class="Link9" href="#Patron singleton">Programme principal</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">// on recupere le singleton 
+// et on execute la methode run()
+GProcess::Instance()-&gt;run(argc, argv);</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Patron singleton-Structure du patron singleton"><a class="Link9" href="#Patron singleton">Structure du patron singleton</a></h2><br><h2 class="Title7 GTitle2" id="Patron singleton-1 - Fichier header"><a class="Link9" href="#Patron singleton">1 - Fichier header</a></h2><br><h3 class="Title8 GTitle3">GProcess.h</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#ifndef _GProcess_
+#define _GProcess_
+//===============================================
+#include "GInclude.h"
+//===============================================
+class GProcess {
+private:
+    // on declare un constructeur prive sur le singleton
+    // pour verouiller la construction du singleton depuis l'exterieur
+    GProcess();
+    
+public:
+    ~GProcess();
+    // on declare une methode statique pour lire le singleton
+    static GProcess* Instance();
+    // on declare une methode publique run()
+    void run(int argc, char** argv);
+
+private:
+    // on declare un pointeur statique sur le singleton
+    static GProcess* m_instance;
+};
+//===============================================
+#endif
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Patron singleton-2 - Fichier source"><a class="Link9" href="#Patron singleton">2 - Fichier source</a></h2><br><h3 class="Title8 GTitle3">GProcess.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GProcess.h"
+//===============================================
+// on initialise le singleton
+GProcess* GProcess::m_instance = 0;
+//===============================================
+GProcess::GProcess() {
+    
+}
+//===============================================
+GProcess::~GProcess() {
+    
+}
+//===============================================
+// on definit le singleton
+//===============================================
+GProcess* GProcess::Instance() {
+    if(m_instance == 0) {
+        // on cree le singleton s'il est nul
+        m_instance = new GProcess;
+    }
+    return m_instance;
+}
+//===============================================
+// on definit la methode publique run()
+//===============================================
+void GProcess::run(int argc, char** argv) {
+    // code source de la methode run()
+}
+//===============================================</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Manager de données"><a class="Link3" href="#">Manager de données</a></h1><div class="Body3"><br>Créer un manager de données en C++.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1618051896671"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1618051896671");</script></div><br><h2 class="Title7 GTitle2" id="Manager de données-Introduction"><a class="Link9" href="#Manager de données">Introduction</a></h2><br>Le manager de données que nous présentons ici est une interface logicielle permettant de gérer les échanges de données entre le différents modules de notre application.<br><br><h2 class="Title7 GTitle2" id="Manager de données-Programme principal"><a class="Link9" href="#Manager de données">Programme principal</a></h2><br><h3 class="Title8 GTitle3">GTitleBar.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">// on recupere le manager des donnees application 
+sGApp* lApp = GManager::Instance()-&gt;getData()-&gt;app;
+// on utilise le nom de l'application (app_name)
+lAppName-&gt;setText(lApp-&gt;app_name);</xmp></pre></div><br><h3 class="Title8 GTitle3">GWindow.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">// on recupere le manager des donnees application 
+sGApp* lApp = GManager::Instance()-&gt;getData()-&gt;app;
+// on utilise les dimensions de la fenetre 
+// de l'application (win_width, win_height)
+resize(lApp-&gt;win_width, lApp-&gt;win_height);</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Manager de données-Structure du manager de données"><a class="Link9" href="#Manager de données">Structure du manager de données</a></h2><br><h2 class="Title7 GTitle2" id="Manager de données-1 - Fichier header"><a class="Link9" href="#Manager de données">1 - Fichier header</a></h2><br><h3 class="Title8 GTitle3">GManager.h</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#ifndef _GManager_
+#define _GManager_
+//===============================================
+#include "GInclude.h"
+//===============================================
+// on declare la structure du manager de donnees
+typedef struct _sGManager sGManager;
+// on declare la structure du manager des donnees application
+typedef struct _sGApp sGApp;
+//===============================================
+class GManager {    
+private:
+    GManager();
+    
+public:
+    ~GManager();
+    static GManager* Instance();
+    // on declare la fonction de lecture du manager de donnees
+    sGManager* getData();
+
+private:
+    static GManager* m_instance;
+    // on declare le pointeur sur le manager de donnees
+    sGManager* mgr;
+};
+//===============================================
+// on definit la structure du manager de donnees
+//===============================================
+struct _sGManager {
+    // on declare un pointeur sur le manager des donnees application
+    sGApp* app;
+};
+//===============================================
+// on definit la structure du manager des donnees application
+//===============================================
+struct _sGApp {
+    // app
+    std::string app_name; // nom de l'application
+    // window
+    int win_width;        // largeur de la fenetre
+    int win_height;       // hauteur de la fenetre
+};
+//===============================================
+#endif
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Manager de données-2 - Fichier source"><a class="Link9" href="#Manager de données">2 - Fichier source</a></h2><br><h3 class="Title8 GTitle3">GManager.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GManager.h"
+//===============================================
+GManager* GManager::m_instance = 0;
+//=============================================== 
+GManager::GManager(QObject* parent) {
+    // creation du manager de donnees
+    mgr = new sGManager;
+    // creation des donnees liees a l'application
+    mgr-&gt;app = new sGApp;
+    mgr-&gt;app-&gt;app_name = "ReadyApp";
+    mgr-&gt;app-&gt;win_width = 640;
+    mgr-&gt;app-&gt;win_height = 480;
+}
+//===============================================
+GManager::~GManager() {
+    
+}
+//===============================================
+GManager* GManager::Instance(QObject* parent) {
+    if(m_instance == 0) {
+        m_instance = new GManager(parent);
+    }
+    return m_instance;
+}
+//===============================================
+// fonction de lecture du manager de donnees 
+//===============================================
+sGManager* GManager::getData() {
+    return mgr;
+}
+//===============================================</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Système d'administration"><a class="Link3" href="#">Système d'administration</a></h1><div class="Body3"><br>Créer un système d'administration en C++.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1618044541580"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1618044541580");</script></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Introduction"><a class="Link9" href="#Système d'administration">Introduction</a></h2><br>Le système d'administration que nous présentons ici est une interface en ligne de commande permettant d'accéder à toutes les fonctionnalités de notre application.<br><br><h2 class="Title7 GTitle2" id="Système d'administration-Programme principal"><a class="Link9" href="#Système d'administration">Programme principal</a></h2><br><h3 class="Title8 GTitle3">GProcess.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">GProcessUi::Instance()-&gt;run(argc, argv);</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Système d'administration"><a class="Link9" href="#Système d'administration">Système d'administration</a></h2><br><h3 class="Title8 GTitle3">GProcessUi.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 void GProcessUi::run(int argc, char** argv) {
     G_STATE = "S_INIT";
     while(1) {
