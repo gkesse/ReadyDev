@@ -15,7 +15,71 @@ int main(int argc, char** argv) {
     std::cout &lt;&lt; "Bonjour tout le monde\n";
     return 0;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.2 - Compiler le projet"><a class="Link9" href="#Tests">1.1.2 - Compiler le projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">g++ -std=gnu++11 -c main.cpp -o main.o</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.3 - Éditer les liens du projet"><a class="Link9" href="#Tests">1.1.3 - Éditer les liens du projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">g++ -o rdcpp.exe main.o</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.4 - Exécuter le projet"><a class="Link9" href="#Tests">1.1.4 - Exécuter le projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">./rdcpp.exe</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">Bonjour tout le monde</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Interface Homme-Machine avec Qt"><a class="Link3" href="#">Interface Homme-Machine avec Qt</a></h1><div class="Body3"><br>Qt est une bibliothèque de création d'interface homme-machine.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1617838385077"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1617838385077");</script></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-1 - Installation"><a class="Link9" href="#Interface Homme-Machine avec Qt">1 - Installation</a></h2><br>Installer l'environnement Qt pour C++.<br><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-1.1 - Installation sous Windows"><a class="Link9" href="#Interface Homme-Machine avec Qt">1.1 - Installation sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-1.1.1 - Installation sous MSYS2"><a class="Link9" href="#Interface Homme-Machine avec Qt">1.1.1 - Installation sous MSYS2</a></h2><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-1.1.1.1 - Installer Qt"><a class="Link9" href="#Interface Homme-Machine avec Qt">1.1.1.1 - Installer Qt</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">pacman -S --needed --noconfirm mingw-w64-i686-qt5
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.2 - Compiler le projet"><a class="Link9" href="#Tests">1.1.2 - Compiler le projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">g++ -std=gnu++11 -c main.cpp -o main.o</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.3 - Éditer les liens du projet"><a class="Link9" href="#Tests">1.1.3 - Éditer les liens du projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">g++ -o rdcpp.exe main.o</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.4 - Exécuter le projet"><a class="Link9" href="#Tests">1.1.4 - Exécuter le projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">./rdcpp.exe</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">Bonjour tout le monde</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Système d'administration"><a class="Link3" href="#">Système d'administration</a></h1><div class="Body3"><br>Créer un système d'administration en C++.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1618044541580"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1618044541580");</script></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Introduction"><a class="Link9" href="#Système d'administration">Introduction</a></h2><br>Le système d'administration que nous présentons ici est une interface en ligne de commande permettant d'accéder à toutes les fonctionnalités de notre application.<br><br><h2 class="Title7 GTitle2" id="Système d'administration-Programme principal"><a class="Link9" href="#Système d'administration">Programme principal</a></h2><br><h3 class="Title8 GTitle3">GProcess.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">GProcessUi::Instance()-&gt;run(argc, argv);</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Système d'administration"><a class="Link9" href="#Système d'administration">Système d'administration</a></h2><br><h3 class="Title8 GTitle3">GProcessUi.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GProcessUi::run(int argc, char** argv) {
+    G_STATE = "S_INIT";
+    while(1) {
+        if(G_STATE == "S_INIT") run_INIT(argc, argv);
+        else if(G_STATE == "S_METHOD") run_METHOD(argc, argv);
+        else if(G_STATE == "S_CHOICE") run_CHOICE(argc, argv);
+        //
+        else if(G_STATE == "S_SQLITE") run_SQLITE(argc, argv);
+        else if(G_STATE == "S_OPENCV") run_OPENCV(argc, argv);
+        //
+        else if(G_STATE == "S_SAVE") run_SAVE(argc, argv);
+        else if(G_STATE == "S_LOAD") run_LOAD(argc, argv);
+        else break;
+    }
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Programme d'initialisation"><a class="Link9" href="#Système d'administration">Programme d'initialisation</a></h2><br><h3 class="Title8 GTitle3">GProcessUi.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GProcessUi::run_INIT(int argc, char** argv) {
+    printf("\n");
+    printf("%s\n", "CPP_ADMIN !!!");
+    printf("\t%-2s : %s\n", "-q", "quitter l'application");
+    G_STATE = "S_LOAD";
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Programme de chargement des données"><a class="Link9" href="#Système d'administration">Programme de chargement des données</a></h2><br><h3 class="Title8 GTitle3">GProcessUi.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GProcessUi::run_LOAD(int argc, char** argv) {
+    GConfig::Instance()-&gt;loadData("G_ADMIN_ID");
+    G_STATE = "S_METHOD";
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Programme des méthodes"><a class="Link9" href="#Système d'administration">Programme des méthodes</a></h2><br><h3 class="Title8 GTitle3">GProcessUi.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GProcessUi::run_METHOD(int argc, char** argv) {
+    printf("\n");
+    printf("%s\n", "CPP_ADMIN :");
+    printf("\t%-2s : %s\n", "1", "S_SQLITE");
+    printf("\t%-2s : %s\n", "2", "S_OPENCV");
+    printf("\n");
+    G_STATE = "S_CHOICE";
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Programme du choix d'une méthode"><a class="Link9" href="#Système d'administration">Programme du choix d'une méthode</a></h2><br><h3 class="Title8 GTitle3">GProcessUi.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GProcessUi::run_CHOICE(int argc, char** argv) {
+    std::string lLast = GConfig::Instance()-&gt;getData("G_ADMIN_ID");
+    printf("CPP_ADMIN (%s) ? : ", lLast.c_str());
+    std::string lAnswer; std::getline(std::cin, lAnswer);
+    if(lAnswer == "") lAnswer = lLast;
+    if(lAnswer == "-q") G_STATE = "S_END";
+    //
+    else if(lAnswer == "1") {G_STATE = "S_SQLITE"; GConfig::Instance()-&gt;setData("G_ADMIN_ID", lAnswer.c_str());} 
+    else if(lAnswer == "2") {G_STATE = "S_OPENCV"; GConfig::Instance()-&gt;setData("G_ADMIN_ID", lAnswer.c_str());}
+    //
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Programme du module SQLite"><a class="Link9" href="#Système d'administration">Programme du module SQLite</a></h2><br><h3 class="Title8 GTitle3">GProcessUi.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GProcessUi::run_SQLITE(int argc, char** argv) {
+    GSQLiteUi::Instance()-&gt;run(argc, argv);
+    G_STATE = "S_SAVE";
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Programme du module OpenCV"><a class="Link9" href="#Système d'administration">Programme du module OpenCV</a></h2><br><h3 class="Title8 GTitle3">GProcessUi.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GProcessUi::run_OPENCV(int argc, char** argv) {
+    GOpenCVUi::Instance()-&gt;run(argc, argv);
+    G_STATE = "S_SAVE";
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Programme de sauvegarde des données"><a class="Link9" href="#Système d'administration">Programme de sauvegarde des données</a></h2><br><h3 class="Title8 GTitle3">GProcessUi.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+void GProcessUi::run_SAVE(int argc, char** argv) {
+    GConfig::Instance()-&gt;saveData("G_ADMIN_ID");
+    G_STATE = "S_END";
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Résultat"><a class="Link9" href="#Système d'administration">Résultat</a></h2><br><h2 class="Title7 GTitle2" id="Système d'administration-1 - Menu principal"><a class="Link9" href="#Système d'administration">1 - Menu principal</a></h2><br><br><br><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Interface Homme-Machine avec Qt"><a class="Link3" href="#">Interface Homme-Machine avec Qt</a></h1><div class="Body3"><br>Qt est une bibliothèque de création d'interface homme-machine.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1617838385077"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1617838385077");</script></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-1 - Installation"><a class="Link9" href="#Interface Homme-Machine avec Qt">1 - Installation</a></h2><br>Installer l'environnement Qt pour C++.<br><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-1.1 - Installation sous Windows"><a class="Link9" href="#Interface Homme-Machine avec Qt">1.1 - Installation sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-1.1.1 - Installation sous MSYS2"><a class="Link9" href="#Interface Homme-Machine avec Qt">1.1.1 - Installation sous MSYS2</a></h2><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-1.1.1.1 - Installer Qt"><a class="Link9" href="#Interface Homme-Machine avec Qt">1.1.1.1 - Installer Qt</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">pacman -S --needed --noconfirm mingw-w64-i686-qt5
 pacman -S --needed --noconfirm mingw-w64-i686-qt-creator
 pacman -S --needed --noconfirm mingw-w64-i686-gdb
 pacman -S --needed --noconfirm mingw-w64-i686-cmake
