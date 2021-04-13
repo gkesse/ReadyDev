@@ -8,30 +8,12 @@
             "la programmation système embarqué.",
             "Produit par Gérard KESSE."
         ],
-        "meta_cano":"/Tutoriels/Embedded_System/",
-        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Embedded_System/img/b_embedded_system.png"
+        "meta_cano":"/Tutoriels/Embedded_System/Cours/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Embedded_System/Cours/img/b_embedded_system.png"
     },    
     "links":
     [
         {"name":"Tutoriels","link":"/Tutoriels/#Développement Système Embarqué","follow":"no"},
         {"name":"Système Embarqué","link":"","follow":"no"}
-    ],
-    "8051":
-    [
-        {"name":"Gérer une diode LED avec le 8051","link":"/Tutoriels/Embedded_System/8051/LED/","follow":"yes"},
-        {"name":"Gérer un button avec le 8051","link":"/Tutoriels/Embedded_System/8051/Button/","follow":"yes"},
-        {"name":"Gérer un afficheur 7-segment avec le 8051","link":"/Tutoriels/Embedded_System/8051/7segment/","follow":"yes"}
-    ],
-    "arduino":
-    [
-        {"name":"Créer un projet avec Arduino","link":"/Tutoriels/Embedded_System/Arduino/Project/","follow":"yes"}
-    ],
-    "rpi_conf":
-    [
-        {"name":"Configurations avec le RaspberryPI","link":"/Tutoriels/Embedded_System/RaspberryPi/Configurations/","follow":"yes"}
-    ],
-    "rpi_c":
-    [
-        {"name":"Gérer une diode LED en C avec le RaspberryPI","link":"/Tutoriels/Embedded_System/RaspberryPi/LED_C/","follow":"yes"}
     ]
 }
