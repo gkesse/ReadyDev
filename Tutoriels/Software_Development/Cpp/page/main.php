@@ -378,7 +378,33 @@ Sélectionnez une imprimante -&gt; Microsoft Print to PDF
 Imprimer
 Adresse -&gt; ReadyTest\printer
 Nom du fichier -&gt; QTextEdit.pdf
-Enregistrer</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-3.2.2.2.2 - Document de l'impression"><a class="Link9" href="#Interface Homme-Machine avec Qt">3.2.2.2.2 - Document de l'impression</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_qtextedit_qprinter.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_qtextedit_qprinter.png"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-Liens"><a class="Link9" href="#Interface Homme-Machine avec Qt">Liens</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://doc.qt.io/qt-5/stylesheet-examples.html">https://doc.qt.io/qt-5/stylesheet-examples.html</a><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://doc.qt.io/qt-5/classes.html">https://doc.qt.io/qt-5/classes.html</a><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.flaticon.com">https://www.flaticon.com</a><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://github.com/encharm/Font-Awesome-SVG-PNG">https://github.com/encharm/Font-Awesome-SVG-PNG</a><br><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Vision par Ordinateur avec OpenCV"><a class="Link3" href="#">Vision par Ordinateur avec OpenCV</a></h1><div class="Body3"><br>OpenCV est une bibliothèque de vision par ordinateur.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1617840709282"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1617840709282");</script></div><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-1 - Installation"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">1 - Installation</a></h2><br>Installer l'environnement OpenCV pour C++.<br><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-1.1 - Installation sous Windows"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">1.1 - Installation sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-1.1.1 - Installation sous MSYS2"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">1.1.1 - Installation sous MSYS2</a></h2><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-1.1.1.1 - Installer OpenCV"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">1.1.1.1 - Installer OpenCV</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">pacman -S --needed --noconfirm mingw-w64-i686-opencv</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-2 - Tests"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">2 - Tests</a></h2><br>Créer un projet OpenCV en C++.<br><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-2.1 - Test sous Windows"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">2.1 - Test sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-2.1.1 - Test sous MSYS2"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">2.1.1 - Test sous MSYS2</a></h2><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-2.1.1.1 - Éditer le programme"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">2.1.1.1 - Éditer le programme</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+Enregistrer</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-3.2.2.2.2 - Document de l'impression"><a class="Link9" href="#Interface Homme-Machine avec Qt">3.2.2.2.2 - Document de l'impression</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_qtextedit_qprinter.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_qtextedit_qprinter.png"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-3.3 - QDataStream"><a class="Link9" href="#Interface Homme-Machine avec Qt">3.3 - QDataStream</a></h2><br>QDataStream est un sérialisateur de données. Il peut être utilisé pour sauvegarder les données sensibles associées à une application dans un fichier au format binaire (illisible).<br><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-3.3.1 - Sérialisation d'un objet Qt"><a class="Link9" href="#Interface Homme-Machine avec Qt">3.3.1 - Sérialisation d'un objet Qt</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">// on desire utiliser un objet QMap 
+// pour associer le nom d'une ville à son code postal
+QMap&lt;QString, QString&gt; m_cityMap;
+// on enregistre une ville
+m_cityMap["Paris"] = 75000;
+m_cityMap["Marseille"] = 13000;
+m_cityMap["Lyon"] = 69000;</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-3.3.1.1 - Sérialisation des données"><a class="Link9" href="#Interface Homme-Machine avec Qt">3.3.1.1 - Sérialisation des données</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">// on ouvre un fichier en ecriture seule
+QFile file("city_map.dat");
+if (!file.open(QIODevice::WriteOnly)) {
+    // on affiche un message en cas de probleme
+    QMessageBox::information(this, tr("Impossible d'ouvrir le fichier"), file.errorString());
+    return;
+}
+// on serialise les donnees
+QDataStream out(&file);
+out.setVersion(QDataStream::Qt_4_5);
+out &lt;&lt; m_cityMap;</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-3.3.1.2 - Désérialisation des données"><a class="Link9" href="#Interface Homme-Machine avec Qt">3.3.1.2 - Désérialisation des données</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">// on ouvre un fichier en lecture seule
+QFile file("city_map.dat");
+if (!file.open(QIODevice::ReadOnly)) {
+    // on affiche un message en cas de probleme
+    QMessageBox::information(this, tr("Impossible d'ouvrir le fichier"), file.errorString());
+    return;
+}
+// on deserialise les donnees
+QDataStream in(&file);
+in.setVersion(QDataStream::Qt_4_5);
+in &gt;&gt; m_cityMap;</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-3.3.1.3 - Résultat des opérations"><a class="Link9" href="#Interface Homme-Machine avec Qt">3.3.1.3 - Résultat des opérations</a></h2><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-3.3.1.3.1 - Fichier de sauvegarde"><a class="Link9" href="#Interface Homme-Machine avec Qt">3.3.1.3.1 - Fichier de sauvegarde</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_qdatastream.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_qdatastream.png"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-3.3.1.3.2 - Proposition d'une interface"><a class="Link9" href="#Interface Homme-Machine avec Qt">3.3.1.3.2 - Proposition d'une interface</a></h2><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-3.3.1.3.2.1 - Menu principal"><a class="Link9" href="#Interface Homme-Machine avec Qt">3.3.1.3.2.1 - Menu principal</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_qdatastream_02.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_qdatastream_02.png"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-3.3.1.3.2.2 - Chargement des données"><a class="Link9" href="#Interface Homme-Machine avec Qt">3.3.1.3.2.2 - Chargement des données</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_qdatastream_03.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_qdatastream_03.png"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-3.3.1.3.2.2 - Ajout d'une nouvelle ville"><a class="Link9" href="#Interface Homme-Machine avec Qt">3.3.1.3.2.2 - Ajout d'une nouvelle ville</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_qdatastream_04.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_qdatastream_04.png"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-Liens"><a class="Link9" href="#Interface Homme-Machine avec Qt">Liens</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://doc.qt.io/qt-5/stylesheet-examples.html">https://doc.qt.io/qt-5/stylesheet-examples.html</a><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://doc.qt.io/qt-5/classes.html">https://doc.qt.io/qt-5/classes.html</a><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.flaticon.com">https://www.flaticon.com</a><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://github.com/encharm/Font-Awesome-SVG-PNG">https://github.com/encharm/Font-Awesome-SVG-PNG</a><br><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Vision par Ordinateur avec OpenCV"><a class="Link3" href="#">Vision par Ordinateur avec OpenCV</a></h1><div class="Body3"><br>OpenCV est une bibliothèque de vision par ordinateur.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1617840709282"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1617840709282");</script></div><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-1 - Installation"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">1 - Installation</a></h2><br>Installer l'environnement OpenCV pour C++.<br><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-1.1 - Installation sous Windows"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">1.1 - Installation sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-1.1.1 - Installation sous MSYS2"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">1.1.1 - Installation sous MSYS2</a></h2><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-1.1.1.1 - Installer OpenCV"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">1.1.1.1 - Installer OpenCV</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">pacman -S --needed --noconfirm mingw-w64-i686-opencv</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-2 - Tests"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">2 - Tests</a></h2><br>Créer un projet OpenCV en C++.<br><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-2.1 - Test sous Windows"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">2.1 - Test sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-2.1.1 - Test sous MSYS2"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">2.1.1 - Test sous MSYS2</a></h2><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-2.1.1.1 - Éditer le programme"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">2.1.1.1 - Éditer le programme</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;opencv2/opencv.hpp&gt;
 //===============================================
 int main(int argc, char** argv) {
@@ -401,7 +427,7 @@ int main(int argc, char** argv) {
 -lopencv_plot -lopencv_videostab -lopencv_videoio -lopencv_xfeatures2d -lopencv_shape \
 -lopencv_ml -lopencv_ximgproc -lopencv_video -lopencv_dnn -lopencv_xobjdetect \
 -lopencv_objdetect -lopencv_calib3d -lopencv_imgcodecs -lopencv_features2d -lopencv_flann \
--lopencv_xphoto -lopencv_photo -lopencv_imgproc -lopencv_core</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-2.1.1.3 - Exécuter le projet"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">2.1.1.3 - Exécuter le projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">./rdcpp.exe</xmp></pre></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opencv_test.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opencv_test.png"></div><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-3 - Images"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">3 - Images</a></h2><br>Opérations sur les images.<br><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-3.1 - Affichage d'une image"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">3.1 - Affichage d'une image</a></h2><br><h3 class="Title8 GTitle3">GOpenCVPc.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">// on charge l'image
+-lopencv_xphoto -lopencv_photo -lopencv_imgproc -lopencv_core</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-2.1.1.3 - Exécuter le projet"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">2.1.1.3 - Exécuter le projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">./rdcpp.exe</xmp></pre></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opencv_test.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opencv_test.png"></div><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-3 - Opérations"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">3 - Opérations</a></h2><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-3.1 - Images"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">3.1 - Images</a></h2><br>Opérations sur les images.<br><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-3.1.1 - Affichage d'une image"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">3.1.1 - Affichage d'une image</a></h2><br><h3 class="Title8 GTitle3">GOpenCVPc.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">// on charge l'image
 cv::Mat lImg = cv::imread(lFilename, -1);
 // on cree la fenetre d'affichage
 cv::namedWindow(lApp-&gt;app_name, cv::WINDOW_AUTOSIZE);
@@ -410,7 +436,7 @@ cv::imshow(lApp-&gt;app_name, lImg );
 // on attend l'appui d'une touche indefinitivement
 cv::waitKey(0);
 // on ferme toutes les fenetres
-cv::destroyAllWindows();</xmp><br></pre><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opencv_image_load.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opencv_image_load.png"></div><pre class="Code2"><br></pre></div><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-4 - Vidéos"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">4 - Vidéos</a></h2><br>Opérations sur les vidéos.<br><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-4.1 - Lecture d'une vidéo"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">4.1 - Lecture d'une vidéo</a></h2><br><h3 class="Title8 GTitle3">GOpenCVPc.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">// on cree la fenetre d'affichage
+cv::destroyAllWindows();</xmp><br></pre><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opencv_image_load.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opencv_image_load.png"></div><pre class="Code2"><br></pre></div><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-3.2 - Vidéos"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">3.2 - Vidéos</a></h2><br>Opérations sur les vidéos.<br><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-3.2.1 - Lecture d'une vidéo"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">3.2.1 - Lecture d'une vidéo</a></h2><br><h3 class="Title8 GTitle3">GOpenCVPc.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">// on cree la fenetre d'affichage
 cv::namedWindow(lApp-&gt;app_name, cv::WINDOW_AUTOSIZE);
 // on cree l'objet capture video
 cv::VideoCapture lCap;
@@ -428,7 +454,115 @@ while(1) {
     // on attend l'appui d'une touche pendant (33ms)
     char lKey = cv::waitKey(33);
     if(lKey != -1 ) {break;}
-}</xmp></pre></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opencv_video_load.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opencv_video_load.png"></div><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-Liens"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">Liens</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://docs.opencv.org/">https://docs.opencv.org/</a><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://docs.opencv.org/4.5.2/">https://docs.opencv.org/4.5.2/</a><br><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Calcul scientifique avec GSL"><a class="Link3" href="#">Calcul scientifique avec GSL</a></h1><div class="Body3"><br>GSL est une bibliothèque de calculs scientifiques.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1617832634274"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1617832634274");</script></div><br><h2 class="Title7 GTitle2" id="Calcul scientifique avec GSL-1 - Installation"><a class="Link9" href="#Calcul scientifique avec GSL">1 - Installation</a></h2><br>Installer l'environnement GSL pour C++.<br><br><h2 class="Title7 GTitle2" id="Calcul scientifique avec GSL-1.1 - Installation sous Windows"><a class="Link9" href="#Calcul scientifique avec GSL">1.1 - Installation sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Calcul scientifique avec GSL-1.1.1 - Installation sous MSYS2"><a class="Link9" href="#Calcul scientifique avec GSL">1.1.1 - Installation sous MSYS2</a></h2><br><h2 class="Title7 GTitle2" id="Calcul scientifique avec GSL-1.1.1.1 - Installer GSL"><a class="Link9" href="#Calcul scientifique avec GSL">1.1.1.1 - Installer GSL</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">pacman -S --needed --noconfirm mingw-w64-i686-gsl</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Calcul scientifique avec GSL-2 - Tests"><a class="Link9" href="#Calcul scientifique avec GSL">2 - Tests</a></h2><br>Créer un projet GSL en C++.<br><br><h2 class="Title7 GTitle2" id="Calcul scientifique avec GSL-2.1 - Test sous Windows"><a class="Link9" href="#Calcul scientifique avec GSL">2.1 - Test sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Calcul scientifique avec GSL-2.1.1 - Test sous MSYS2"><a class="Link9" href="#Calcul scientifique avec GSL">2.1.1 - Test sous MSYS2</a></h2><br><h2 class="Title7 GTitle2" id="Calcul scientifique avec GSL-2.1.1.1 - Éditer le programme"><a class="Link9" href="#Calcul scientifique avec GSL">2.1.1.1 - Éditer le programme</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+}</xmp></pre></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opencv_video_load.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opencv_video_load.png"></div><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-4 - Modules"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">4 - Modules</a></h2><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-4.1 - CommandLineParser"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">4.1 - CommandLineParser</a></h2><br>CommandLineParser est un analyseur de ligne de commande.<br><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-4.1.1 - Analyse d'une ligne de ommande"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">4.1.1 - Analyse d'une ligne de ommande</a></h2><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-4.1.1.1 - Programme principal"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">4.1.1.1 - Programme principal</a></h2><br><h3 class="Title8 GTitle3">GOpenCVPc.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">// on definit les arguments en ligne de commande
+// syntaxe  : "{arg_1}{...}{arg_i}{...}{arg_n}"
+// arg_i    : nom_i | defaut_i | desc_i
+// nom_i    : mot_i (pour argument long) ou lettre_i (pour argument court)
+// defaut_i : valeur par defaut (peut etre vide)
+// desc_i   : description (peut etre vide)
+// nom_i    : argument obligatoire si (@nom_i)
+// nom_i    : argument optionnel   si (nom_i)
+const cv::String lKeys =
+"{help h usage ? |      | affichier le message d'aide }"
+"{@image1        |      | definir l'image 1 pour la comparaison }"
+"{@image2        |&lt;none&gt;| definir l'image 2 pour la comparaison }"
+"{@repeat        |1     | definir le nombre de repetitions }"
+"{path           |.     | definir le repertoire du fichier de sortie }"
+"{fps            |25    | definir le fps pour la video de sortie }"
+"{N count        |100   | definir le nombre d'objets a compter }"
+"{ts timestamp   |      | utiliser le timestamp }"
+;
+
+// on cree l'analyseur de ligne de commande
+cv::CommandLineParser lParser(argc, argv, lKeys);
+// on definit la description de l'application
+lParser.about("ReayApp v1.0.0");
+
+// on verifie la presence de l'option (help)
+if (lParser.has("help")) {
+    // on affiche le message d'aide si l'option (help) est present
+    lParser.printMessage(); 
+    return;
+}
+
+// on recupere le nombre d'objets (N : entier)
+int N = lParser.get&lt;int&gt;("N");
+// on recupere le fps (fps : reel)
+double fps = lParser.get&lt;double&gt;("fps");
+// on recupere le chemin du repertoire de sortie (path : chaine)
+cv::String path = lParser.get&lt;cv::String&gt;("path");
+// on recupere l'utilisation du timestamp (ts : booleen)
+bool use_time_stamp = lParser.has("timestamp");
+// on recupere le chemin de l'image 1 (image1 : chaine)
+cv::String img1 = lParser.get&lt;cv::String&gt;(0);
+// on recupere le chemin de l'image 2 (image2 : chaine)
+cv::String img2 = lParser.get&lt;cv::String&gt;(1);
+// on recupere le nombre de repetitions (repeat : entier)
+int repeat = lParser.get&lt;int&gt;(2);
+
+//on affiche les arguments
+printf("%-40s : %d\n", "Nombre d'objets[N]", N);
+printf("%-40s : %f\n", "Nombre d'image par seconde[fps]", fps);
+printf("%-40s : %s\n", "Repertoire de sortie [path]", path.c_str());
+printf("%-40s : %d\n", "Utilisation du timestamp [ts]", use_time_stamp);
+printf("%-40s : %s\n", "Image 1 [image1]", img1.c_str());
+printf("%-40s : %s\n", "Image 2 [image2]", img2.c_str());
+printf("%-40s : %d\n", "Nombre de repetition [repeat]", repeat);
+
+// on verifie l'analyseur
+if (!lParser.check()){
+    // on afficheur le message d'erreur s'il y a erreur
+    lParser.printErrors();
+    return;
+}</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-4.1.1.2 - Affichage de l'aide"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">4.1.1.2 - Affichage de l'aide</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">./rdcpp.exe --help</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">ReayApp v1.0.0
+Usage: rdcpp.exe [params] image1 image2 repeat
+
+        -?, -h, --help, --usage (value:true)
+                affichier le message d'aide
+        -N, --count (value:100)
+                definir le nombre d'objets a compter
+        --fps (value:25)
+                definir le fps pour la video de sortie
+        --path (value:.)
+                definir le repertoire du fichier de sortie
+        --timestamp, --ts
+                utiliser le timestamp
+
+        image1 (value:image1.png)
+                definir l'image 1 pour la comparaison
+        image2 (value:image2.png)
+                definir l'image 2 pour la comparaison
+        repeat (value:1)
+                definir le nombre de repetitions</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-4.1.1.2 - Exécution du programme"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">4.1.1.2 - Exécution du programme</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">./rdcpp.exe image1.png image2.png</xmp></pre></div><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">
+Nombre d'objets[N]                       : 100
+Nombre d'image par seconde[fps]          : 25.000000
+Repertoire de sortie [path]              : .
+Utilisation du timestamp [ts]            : 0
+Image 1 [image1]                         : image1.png
+Image 2 [image2]                         : image2.png
+Nombre de repetition [repeat]            : 1</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">./rdcpp.exe image1.png image2.png 20</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Nombre d'objets[N]                       : 100
+Nombre d'image par seconde[fps]          : 25.000000
+Repertoire de sortie [path]              : .
+Utilisation du timestamp [ts]            : 0
+Image 1 [image1]                         : image1.png
+Image 2 [image2]                         : image2.png
+Nombre de repetition [repeat]            : 20</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-4.1.1.2 - Utilisation des options"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">4.1.1.2 - Utilisation des options</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">./rdcpp.exe image1.png image2.png 20 \
+-N=200 --fps=30 --path=ReadyTest/opencv --ts=1</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Nombre d'objets[N]                       : 200
+Nombre d'image par seconde[fps]          : 30.000000
+Repertoire de sortie [path]              : ReadyTest/opencv
+Utilisation du timestamp [ts]            : 1
+Image 1 [image1]                         : image1.png
+Image 2 [image2]                         : image2.png
+Nombre de repetition [repeat]            : 20</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-4.1.1.3 - Affichage en cas d'erreur"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">4.1.1.3 - Affichage en cas d'erreur</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">./rdcpp.exe image1.png image2.png 20 --count=N200</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Nombre d'objets[N]                       : 0
+Nombre d'image par seconde[fps]          : 25.000000
+Repertoire de sortie [path]              : .
+Utilisation du timestamp [ts]            : 0
+Image 1 [image1]                         : image1.png
+Image 2 [image2]                         : image2.png
+Nombre de repetition [repeat]            : 20
+
+ERRORS:
+Parameter 'N': can not convert: [N200] to [int]</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-Liens"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">Liens</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://docs.opencv.org/">https://docs.opencv.org/</a><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://docs.opencv.org/4.5.2/">https://docs.opencv.org/4.5.2/</a><br><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Calcul scientifique avec GSL"><a class="Link3" href="#">Calcul scientifique avec GSL</a></h1><div class="Body3"><br>GSL est une bibliothèque de calculs scientifiques.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1617832634274"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1617832634274");</script></div><br><h2 class="Title7 GTitle2" id="Calcul scientifique avec GSL-1 - Installation"><a class="Link9" href="#Calcul scientifique avec GSL">1 - Installation</a></h2><br>Installer l'environnement GSL pour C++.<br><br><h2 class="Title7 GTitle2" id="Calcul scientifique avec GSL-1.1 - Installation sous Windows"><a class="Link9" href="#Calcul scientifique avec GSL">1.1 - Installation sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Calcul scientifique avec GSL-1.1.1 - Installation sous MSYS2"><a class="Link9" href="#Calcul scientifique avec GSL">1.1.1 - Installation sous MSYS2</a></h2><br><h2 class="Title7 GTitle2" id="Calcul scientifique avec GSL-1.1.1.1 - Installer GSL"><a class="Link9" href="#Calcul scientifique avec GSL">1.1.1.1 - Installer GSL</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">pacman -S --needed --noconfirm mingw-w64-i686-gsl</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Calcul scientifique avec GSL-2 - Tests"><a class="Link9" href="#Calcul scientifique avec GSL">2 - Tests</a></h2><br>Créer un projet GSL en C++.<br><br><h2 class="Title7 GTitle2" id="Calcul scientifique avec GSL-2.1 - Test sous Windows"><a class="Link9" href="#Calcul scientifique avec GSL">2.1 - Test sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Calcul scientifique avec GSL-2.1.1 - Test sous MSYS2"><a class="Link9" href="#Calcul scientifique avec GSL">2.1.1 - Test sous MSYS2</a></h2><br><h2 class="Title7 GTitle2" id="Calcul scientifique avec GSL-2.1.1.1 - Éditer le programme"><a class="Link9" href="#Calcul scientifique avec GSL">2.1.1.1 - Éditer le programme</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 #include &lt;gsl/gsl_sf_bessel.h&gt;
 //===============================================
