@@ -14,7 +14,7 @@
     "links":
     [
         {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
-        {"name":"Développement Logiciel","link":"/Tutoriels/#Développement Logiciel","follow":"no"},
+        {"name":"Logiciel","link":"/Tutoriels/#Développement Logiciel","follow":"no"},
         {"name":"C","link":"","follow":"no"}
     ],
     "libs":

@@ -5,7 +5,7 @@
         "meta_desc":
         [
 			"Le but de ce tutoriel est de vous apprendre",
-            "la programmation en Batch.",
+            "la programmation système en Batch.",
             "Produit par Gérard KESSE."
         ],
         "meta_cano":"/Tutoriels/Software_Development/Batch/",
@@ -14,7 +14,7 @@
     "links":
     [
         {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
-        {"name":"Développement Logiciel","link":"/Tutoriels/#Développement Logiciel","follow":"no"},
+        {"name":"Logiciel","link":"/Tutoriels/#Développement Logiciel","follow":"no"},
         {"name":"Batch","link":"","follow":"no"}
     ]
 }
