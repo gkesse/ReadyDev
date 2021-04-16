@@ -1,11 +1,11 @@
 <?php
     require $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoloadRegister.php";
     
-    $m_data = GJson::Instance()->getData("data/json/Embedded_System_Arduino_Project.json");
+    $m_data = GJson::Instance()->getData("data/json/8051.json");
     
-    GConfig::Instance()->setData("title", "Arduino - Créer un projet");
+    GConfig::Instance()->setData("title", "8051");
     GConfig::Instance()->setData("menu", "Tutoriels");
-    GConfig::Instance()->setData("view", "Embedded_System_Arduino_Project");
+    GConfig::Instance()->setData("view", "8051");
     GConfig::Instance()->setData("link", $m_data["links"]);
 
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";

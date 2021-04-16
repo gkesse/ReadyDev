@@ -127,9 +127,22 @@
         },
         {
             "icon":"fa fa-microchip",
+<<<<<<< HEAD
             "theme":"Système Embarqué",
             "description":"Programmation<br/> Système Emabrqué",
             "link":"/Tutoriels/Embedded_System/Cours/",
+=======
+            "theme":"STM32",
+            "description":"Programmez le<br/>STM32",
+            "link":"/Tutoriels/Embedded_System/STM32/",
+			"follow":"yes"
+        },
+        {
+            "icon":"fa fa-microchip",
+            "theme":"Arduino",
+            "description":"Programmez<br/>l'Arduino",
+            "link":"/Tutoriels/Embedded_System/Arduino/",
+>>>>>>> 4043604f830cf379d45f8d2afb95f18dfeed0f58
 			"follow":"yes"
         }
     ],    

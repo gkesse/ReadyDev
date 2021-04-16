@@ -13,7 +13,13 @@
     },    
     "links":
     [
+<<<<<<< HEAD
         {"name":"Tutoriels","link":"/Tutoriels/#Développement Système Embarqué","follow":"no"},
         {"name":"Système Embarqué","link":"","follow":"no"}
+=======
+        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"Système Embarqué","link":"/Tutoriels/#Développement Système Embarqué","follow":"no"},
+        {"name":"Projets","link":"","follow":"no"}
+>>>>>>> 4043604f830cf379d45f8d2afb95f18dfeed0f58
     ]
 }
