@@ -1,11 +1,11 @@
 <?php
     require $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoloadRegister.php";
     
-    $m_data = GJson::Instance()->getData("data/json/Embedded_System_8051_Button.json");
+    $m_data = GJson::Instance()->getData("data/json/Embedded_System.json");
     
-    GConfig::Instance()->setData("title", "8051 - Gérer un bouton");
+    GConfig::Instance()->setData("title", "Système Embarqué");
     GConfig::Instance()->setData("menu", "Tutoriels");
-    GConfig::Instance()->setData("view", "Embedded_System_8051_Button");
+    GConfig::Instance()->setData("view", "Embedded_System");
     GConfig::Instance()->setData("link", $m_data["links"]);
 
     require $_SERVER["DOCUMENT_ROOT"]."/php/header.php";
