@@ -1,0 +1,74 @@
+<div class="Parallax GParallax1"><div class="Img Binary"><div class="Caption"><a href="#"><div class="Text">Apprendre la programmation en Python</div></a></div></div><div class="Body2 Orange"><br>Le but de ce tutoriel est de vous apprendre la programmation en <b>Python</b>.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary1"><div class="Body0" id="Loader_1599898225826"><div class="Row26">Summary 1</div></div><script>loadSummary1("Loader_1599898225826");</script></div><br></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Introduction"><a class="Link3" href="#">Introduction</a></h1><div class="Body3"><br><b>Python </b>est un langage de programmation interprété orienté objet, multi-plateforme et doté d'un typage dynamique fort et d'une gestion automatique de la mémoire par ramasse-miettes.<br><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Python/img/b_python.png" alt="/Tutoriels/Software_Development/Python/img/b_python.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Installation"><a class="Link3" href="#">Installation</a></h1><div class="Body3"><br>Installer l'environnement Python.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1617616549921"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1617616549921");</script></div><br><h2 class="Title7 GTitle2" id="Installation-1 - Installation sous Windows"><a class="Link9" href="#Installation">1 - Installation sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Installation-1.1 - Installation sous Batch"><a class="Link9" href="#Installation">1.1 - Installation sous Batch</a></h2><br><h2 class="Title7 GTitle2" id="Installation-1.1.1 - Télécharger Python"><a class="Link9" href="#Installation">1.1.1 - Télécharger Python</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.python.org/downloads/windows/">https://www.python.org/downloads/windows/</a><br><br><b>python-3.9.4.exe</b><br><br><h2 class="Title7 GTitle2" id="Installation-1.1.2 - Installer Python"><a class="Link9" href="#Installation">1.1.2 - Installer Python</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">python-3.9.4.exe
+Customize installation
+Cocher -&gt; Documentation
+Cocher -&gt; pip
+Cocher -&gt; tcl/tk and IDE
+Cocher -&gt; Python test suite
+Next
+Cocher -&gt; Associate files with Python (requires the py launcher)
+Cocher -&gt; Create shortcuts for installed applications
+Customize install location -&gt; C:\Users\Admin\AppData\Local\Programs\Python\Python39-32
+Install
+Close</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Installation-1.1.3 - Vérifier l'installation"><a class="Link9" href="#Installation">1.1.3 - Vérifier l'installation</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">python --version</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Python 3.9.4</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Tests"><a class="Link3" href="#">Tests</a></h1><div class="Body3"><br>Créer un projet Python.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1617622025898"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1617622025898");</script></div><br><h2 class="Title7 GTitle2" id="Tests-1 - Test sous Windows"><a class="Link9" href="#Tests">1 - Test sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Tests-1.1 - Test sous Batch"><a class="Link9" href="#Tests">1.1 - Test sous Batch</a></h2><br><h2 class="Title7 GTitle2" id="Tests-1.1.1 - Éditer le programme"><a class="Link9" href="#Tests">1.1.1 - Éditer le programme</a></h2><br><h3 class="Title8 GTitle3">main.py</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="python">#================================================
+print("Bonjour tout le monde")
+#================================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.2 - Exécuter le programme"><a class="Link9" href="#Tests">1.1.2 - Exécuter le programme</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">set "PATH=C:\Python27;%PATH%"</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">python main.py</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Bonjour tout le monde</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Système d'administration"><a class="Link3" href="#">Système d'administration</a></h1><div class="Body3"><br>Créer un système d'administration en Python.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1617625225324"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1617625225324");</script></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Introduction"><a class="Link9" href="#Système d'administration">Introduction</a></h2><br>Le système d'administration que nous présentons ici est une interface en ligne de commande permettant d'accéder à toutes les fonctionnalités de notre application.<br><br><h2 class="Title7 GTitle2" id="Système d'administration-Programme principal"><a class="Link9" href="#Système d'administration">Programme principal</a></h2><br><h3 class="Title8 GTitle3">GProcess.py</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="python">GProcessUi.Instance().run()</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Création du système d'administration"><a class="Link9" href="#Système d'administration">Création du système d'administration</a></h2><br><h3 class="Title8 GTitle3">GProcessUi.py</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="python">#================================================
+def run(self):
+    self.G_STATE = "S_INIT"
+    while True:
+        if self.G_STATE == "S_INIT" : self.run_INIT()
+        elif self.G_STATE == "S_METHOD" : self.run_METHOD()
+        elif self.G_STATE == "S_CHOICE" : self.run_CHOICE()
+        #
+        elif self.G_STATE == "S_YOUTUBE" : self.run_YOUTUBE()
+        elif self.G_STATE == "S_SQLITE" : self.run_SQLITE()
+        #
+        elif self.G_STATE == "S_SAVE" : self.run_SAVE()
+        elif self.G_STATE == "S_LOAD" : self.run_LOAD()
+        else : break
+#================================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Programme d'initialisation"><a class="Link9" href="#Système d'administration">Programme d'initialisation</a></h2><br><h3 class="Title8 GTitle3">GProcessUi.py</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="python">#================================================
+def run_INIT(self):
+    sys.stdout.write("\n")
+    sys.stdout.write("PYTHON_ADMIN !!!\n")
+    sys.stdout.write("\t%-2s : %s\n" % ("-q", "quitter l'application"))
+    sys.stdout.write("\n")
+    self.G_STATE = "S_LOAD"
+#================================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Programme de chargement des données"><a class="Link9" href="#Système d'administration">Programme de chargement des données</a></h2><br><h3 class="Title8 GTitle3">GProcessUi.py</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="python">#================================================
+def run_LOAD(self):
+    GConfig.Instance().loadData("G_ADMIN_ID")
+    self.G_STATE = "S_METHOD"
+#================================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Programme des méthodes"><a class="Link9" href="#Système d'administration">Programme des méthodes</a></h2><br><h3 class="Title8 GTitle3">GProcessUi.py</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="python">#================================================
+def run_METHOD(self):
+    sys.stdout.write("PYTHON_ADMIN :\n")
+    sys.stdout.write("\t%-2s : %s\n" % ("1", "S_YOUTUBE"))
+    sys.stdout.write("\t%-2s : %s\n" % ("2", "S_SQLITE"))
+    sys.stdout.write("\n")
+    self.G_STATE = "S_CHOICE"
+#================================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Programme du choix d'une méthode"><a class="Link9" href="#Système d'administration">Programme du choix d'une méthode</a></h2><br><h3 class="Title8 GTitle3">GProcessUi.py</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="python">#================================================
+def run_CHOICE(self):
+    lLast = GConfig.Instance().getData("G_ADMIN_ID")
+    lAnswer = raw_input("PYTHON_ADMIN (%s) ? " % (lLast))
+    if lAnswer == "" : lAnswer = lLast
+    if lAnswer == "-q" : self.G_STATE = "S_END"
+    #
+    elif lAnswer == "1" : self.G_STATE = "S_YOUTUBE" ; GConfig.Instance().setData("G_ADMIN_ID", lAnswer)
+    elif lAnswer == "2" : self.G_STATE = "S_SQLITE" ; GConfig.Instance().setData("G_ADMIN_ID", lAnswer)
+#================================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Programme du module YouTube"><a class="Link9" href="#Système d'administration">Programme du module YouTube</a></h2><br><h3 class="Title8 GTitle3">GProcessUi.py</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="python">#================================================
+def run_YOUTUBE(self):
+    GYouTubeUi.Instance().run()
+    self.G_STATE = "S_SAVE"
+#================================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Programme du module SQLite"><a class="Link9" href="#Système d'administration">Programme du module SQLite</a></h2><br><h3 class="Title8 GTitle3">GProcessUi.py</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="python">#================================================
+def run_SQLITE(self):
+    GSQLiteUi.Instance().run()
+    self.G_STATE = "S_SAVE"
+#================================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Programme de sauvegarde des données"><a class="Link9" href="#Système d'administration">Programme de sauvegarde des données</a></h2><br><h3 class="Title8 GTitle3">GProcessUi.py</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="python">#================================================
+def run_SAVE(self):
+    GConfig.Instance().saveData("G_ADMIN_ID")
+    self.G_STATE = "S_END"
+#================================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Résultat"><a class="Link9" href="#Système d'administration">Résultat</a></h2><br><h3 class="Title8 GTitle3">Menu principal</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Python/img/i_python_admin_system.png" alt="/Tutoriels/Software_Development/Python/img/i_python_admin_system.png"></div><br><h3 class="Title8 GTitle3">Menu du module YouTube</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Python/img/i_python_admin_system_02.png" alt="/Tutoriels/Software_Development/Python/img/i_python_admin_system_02.png"></div><br><h3 class="Title8 GTitle3">Menu du module SQLite</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Python/img/i_python_admin_system_03.png" alt="/Tutoriels/Software_Development/Python/img/i_python_admin_system_03.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Pip"><a class="Link3" href="#">Pip</a></h1><div class="Body3"><br>Pip est un gestionnaire de packages Python.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1617632484641"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1617632484641");</script></div><br><h2 class="Title7 GTitle2" id="Pip-1 - Installation"><a class="Link9" href="#Pip">1 - Installation</a></h2><br>Aucune installation n'est nécessaire.<br><br><h2 class="Title7 GTitle2" id="Pip-2 - Mise à jour"><a class="Link9" href="#Pip">2 - Mise à jour</a></h2><br><h2 class="Title7 GTitle2" id="Pip-2.1 - Mettre à jour pip"><a class="Link9" href="#Pip">2.1 - Mettre à jour pip</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">python -m pip install --upgrade pip</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Pip-3 - Commandes"><a class="Link9" href="#Pip">3 - Commandes</a></h2><br><h2 class="Title7 GTitle2" id="Pip-3.1 - Lister les packages"><a class="Link9" href="#Pip">3.1 - Lister les packages</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">python -m pip list</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Package Version
+------- -------
+pip     21.0.1</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Pip-3.2 - Installer un package"><a class="Link9" href="#Pip">3.2 - Installer un package</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">python -m pip install pyqt5</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">python -m pip list</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Package   Version
+--------- -------
+pip       21.0.1
+PyQt5     5.15.4
+PyQt5-Qt5 5.15.2
+PyQt5-sip 12.8.1</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Pip-3.3 - Mettre à jour un package"><a class="Link9" href="#Pip">3.3 - Mettre à jour un package</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">python -m pip install --upgrade pyqt5</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Bibliothèques"><a class="Link3" href="#">Bibliothèques</a></h1><div class="Body3"><br><span class="GColor1" style="color:lime;">Bibliothèques Pyhton</span><br><br><div class="Content0 GList1"><div class="Body0" id="Loader_1617627329121"><div class="Row26">List 1 &gt; Python &gt; libs</div></div><script>loadList1("Loader_1617627329121","Python","libs");</script></div><br></div></div></div></div><br>
