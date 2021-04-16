@@ -1,24 +1,24 @@
-<div class="Parallax GParallax1"><div class="Img Binary"><div class="Caption"><a href="#"><div class="Text">Programmation système embarqué avec le 8051</div></a></div></div><div class="Body2 Orange"><br>Le but de ce tutoriel est de vous apprendre la programmation système embarqué avec le <b>8051</b>.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary1"><div class="Body0" id="Loader_1529412976174"><div class="Row26">Summary 1</div></div><script>loadSummary1("Loader_1529412976174");</script></div><br></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Introduction"><a class="Link3" href="#">Introduction</a></h1><div class="Body3"><br><b>8051 </b>est un microcontrôleur développé pour être utilisé dans des produits embarqués. C'est une architecture populaire incorporée dans de nombreux microcontrôleurs plus récents, puis complétée par un certain nombre de circuits périphériques intégrés sur la même puce, et dotés de mémoires de plus grande capacité. <br><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/b_8051.png" alt="/Tutoriels/Embedded_System/8051/img/b_8051.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Installation"><a class="Link3" href="#">Installation</a></h1><div class="Body3"><br>Installer l'environnement 8051.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1617735857427"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1617735857427");</script></div><br><h2 class="Title7 GTitle2" id="Installation-1 - Installation sous Windows"><a class="Link9" href="#Installation">1 - Installation sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Installation-1.1 - Installation sous Batch"><a class="Link9" href="#Installation">1.1 - Installation sous Batch</a></h2><br><h2 class="Title7 GTitle2" id="Installation-1.1.1 - Installation sous Keil µVision"><a class="Link9" href="#Installation">1.1.1 - Installation sous Keil µVision</a></h2><br><h2 class="Title7 GTitle2" id="Installation-1.1.1.1 - Télécharger Keil µVision"><a class="Link9" href="#Installation">1.1.1.1 - Télécharger Keil µVision</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.keil.com/download/product/">https://www.keil.com/download/product/</a><br><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">C51
+<div class="Parallax GParallax1"><div class="Img Binary"><div class="Caption"><a href="#"><div class="Text">Programmation système embarqué avec le 8051</div></a></div></div><div class="Body2 Orange"><br>Le but de ce tutoriel est de vous apprendre la programmation système embarqué avec le <b>8051</b>.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary1"><div class="Body0" id="Loader_1529412976174"><div class="Row26">Summary 1</div></div><script>loadSummary1("Loader_1529412976174");</script></div><br></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Introduction"><a class="Link3" href="#">Introduction</a></h1><div class="Body3"><br><b>8051 </b>est un microcontrôleur développé pour être utilisé dans des produits embarqués. C'est une architecture populaire incorporée dans de nombreux microcontrôleurs plus récents, puis complétée par un certain nombre de circuits périphériques intégrés sur la même puce, et dotés de mémoires de plus grande capacité. <br><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/b_8051.png" alt="/Tutoriels/Embedded_System/8051/img/b_8051.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Installation"><a class="Link3" href="#">Installation</a></h1><div class="Body3"><br>Installer l'environnement 8051.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1617735857427"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1617735857427");</script></div><br><h2 class="Title7 GTitle2" id="Installation-1 - Installation sous Windows"><a class="Link9" href="#Installation">1 - Installation sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Installation-1.1 - Installation sous Keil µVision"><a class="Link9" href="#Installation">1.1 - Installation sous Keil µVision</a></h2><br><h2 class="Title7 GTitle2" id="Installation-1.1.1 - Télécharger Keil µVision"><a class="Link9" href="#Installation">1.1.1 - Télécharger Keil µVision</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.keil.com/download/product/">https://www.keil.com/download/product/</a><br><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">C51
 Enter Your Contact Information Below
-First Name -&gt; XXXXX
-Last Name -&gt; XXXXX
-E-mail -&gt; XXXXX
-Company -&gt; XXXXX
-Job Title -&gt; XXXXX
-Country/Region -&gt; XXXXX
-Phone -&gt; XX.XX.XX.XX.XX
-Cocher -&gt; Send me e-mail when there is a new update.
-Which device are you using? -&gt; AT89C52
-Cocher -&gt;  Please keep me updated on products
+First Name -> XXXXX
+Last Name -> XXXXX
+E-mail -> XXXXX
+Company -> XXXXX
+Job Title -> XXXXX
+Country/Region -> XXXXX
+Phone -> XX.XX.XX.XX.XX
+Cocher -> Send me e-mail when there is a new update.
+Which device are you using? -> AT89C52
+Cocher ->  Please keep me updated on products
 Submit
-C51V960A.EXE</xmp></pre></div><br><a class="Link7 GLink1" style="color:gray;" target="_blank" href="https://www87.zippyshare.com/v/30Cu5IaS/file.html">Fin</a><br><br><h2 class="Title7 GTitle2" id="Installation-1.1.1.2 - Extraire Keil µVision"><a class="Link9" href="#Installation">1.1.1.2 - Extraire Keil µVision</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Keil_C51_uVision5.rar
+C51V960A.EXE</xmp></pre></div><br><a class="Link7 GLink1" style="color:gray;" target="_blank" href="https://www87.zippyshare.com/v/30Cu5IaS/file.html">Fin</a><br><br><h2 class="Title7 GTitle2" id="Installation-1.1.2 - Extraire Keil µVision"><a class="Link9" href="#Installation">1.1.2 - Extraire Keil µVision</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Keil_C51_uVision5.rar
 Clic droit -&gt; Extraire vers Keil_C51_uVision5\
 Protection contre les virus et les menances
 Trojan:Win32/Tiggre!rfn
 Options de la mesure prise
 Autoriser sur l'appareil
 Intervenir</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Keil_C51_uVision5.rar
-Clic droit -&gt; Extraire vers Keil_C51_uVision5\</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Installation-1.1.1.3 - Installer Keil µVision"><a class="Link9" href="#Installation">1.1.1.3 - Installer Keil µVision</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">c51v960a.exe
+Clic droit -&gt; Extraire vers Keil_C51_uVision5\</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Installation-1.1.3 - Installer Keil µVision"><a class="Link9" href="#Installation">1.1.3 - Installer Keil µVision</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">c51v960a.exe
 Next
 Cocher -&gt; I agree to all the terms of the preceding License Agreement
 Next
@@ -32,8 +32,8 @@ Next
 Cocher -&gt; Show Release Notes
 Cocher -&gt; Retain current µVision configuration
 Cocher -&gt; Add example projects to the recently used project list
-Finish</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Installation-1.1.1.4 - Démarrer Keil µVision"><a class="Link9" href="#Installation">1.1.1.4 - Démarrer Keil µVision</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Windows
-Keil µVision5</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Installation-1.1.1.5 - Installer la licence"><a class="Link9" href="#Installation">1.1.1.5 - Installer la licence</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Keil µVision5
+Finish</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Installation-1.1.4 - Démarrer Keil µVision"><a class="Link9" href="#Installation">1.1.4 - Démarrer Keil µVision</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Windows
+Keil µVision5</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Installation-1.1.5 - Installer la licence"><a class="Link9" href="#Installation">1.1.5 - Installer la licence</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Keil µVision5
 File -&gt; License Management
 Computer ID -&gt; CID -&gt; XXXXX-XXXXX -&gt; Copier</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">License.rar
 Clic droit -&gt; Extraire vers License\
@@ -54,7 +54,7 @@ LICO -&gt; XXXXX-XXXXX-XXXXX-XXXXX-XXXXX -&gt; Clic droit -&gt; Copier</xmp></pr
 File -&gt; License Management
 New License ID Code (LIC) -&gt; XXXXX-XXXXX-XXXXX-XXXXX-XXXXX
 Add LIC
-Close</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Installation-1.1.2 - Installation sous SDCC"><a class="Link9" href="#Installation">1.1.2 - Installation sous SDCC</a></h2><br><h2 class="Title7 GTitle2" id="Installation-1.1.2.1 - Télécharger SDCC"><a class="Link9" href="#Installation">1.1.2.1 - Télécharger SDCC</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://sourceforge.net/projects/sdcc/files/">https://sourceforge.net/projects/sdcc/files/</a><br><br><b>sdcc-4.1.0-x64-setup.exe</b><br><br><h2 class="Title7 GTitle2" id="Installation-1.1.2.2 - Installer SDCC"><a class="Link9" href="#Installation">1.1.2.2 - Installer SDCC</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">sdcc-4.1.0-x64-setup.exe
+Close</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Installation-1.2 - Installation sous SDCC"><a class="Link9" href="#Installation">1.2 - Installation sous SDCC</a></h2><br><h2 class="Title7 GTitle2" id="Installation-1.2.1 - Télécharger SDCC"><a class="Link9" href="#Installation">1.2.1 - Télécharger SDCC</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://sourceforge.net/projects/sdcc/files/">https://sourceforge.net/projects/sdcc/files/</a><br><br><b>sdcc-4.1.0-x64-setup.exe</b><br><br><h2 class="Title7 GTitle2" id="Installation-1.2.2 - Installer SDCC"><a class="Link9" href="#Installation">1.2.2 - Installer SDCC</a></h2><br><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">sdcc-4.1.0-x64-setup.exe
 Next
 I Agree
 Choose Start Menu Folder -&gt; SDCC
@@ -65,7 +65,7 @@ Destination Folder -&gt; C:\Program Files\SDCC
 Install
 Cocher -&gt; Add C:\Program Files\SDCC\bin to PATH
 Next
-Finish</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Tests"><a class="Link3" href="#">Tests</a></h1><div class="Body3"><br>Créer un projet C pour le 8051.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1617781951844"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1617781951844");</script></div><br><h2 class="Title7 GTitle2" id="Tests-1 - Test sous Windows"><a class="Link9" href="#Tests">1 - Test sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Tests-1.1 - Test sous Batch"><a class="Link9" href="#Tests">1.1 - Test sous Batch</a></h2><br><h2 class="Title7 GTitle2" id="Tests-1.1.1 - Test sous Keil µVision"><a class="Link9" href="#Tests">1.1.1 - Test sous Keil µVision</a></h2><br><h2 class="Title7 GTitle2" id="Tests-1.1.1.1 - Créer le projet"><a class="Link9" href="#Tests">1.1.1.1 - Créer le projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Keil µVision5
+Finish</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Tests"><a class="Link3" href="#">Tests</a></h1><div class="Body3"><br>Créer un projet C pour le 8051.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1617781951844"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1617781951844");</script></div><br><h2 class="Title7 GTitle2" id="Tests-1 - Test sous Windows"><a class="Link9" href="#Tests">1 - Test sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Tests-1.1 - Test sous Keil µVision"><a class="Link9" href="#Tests">1.1 - Test sous Keil µVision</a></h2><br><h2 class="Title7 GTitle2" id="Tests-1.1.1 - Créer le projet"><a class="Link9" href="#Tests">1.1.1 - Créer le projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Keil µVision5
 Project -&gt; New µVision Project
 Adresse -&gt; ReadyTest\8051\keil
 Nom du fichier -&gt; ReadyApp
@@ -75,21 +75,21 @@ Search -&gt; AT89C52
 Microchip -&gt; AT89C52
 Ok
 Copy 'STARTUP.A51' to Project Folder 
-and Add File to Project ? -&gt; Non</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.1.2 - Modifier la cible"><a class="Link9" href="#Tests">1.1.1.2 - Modifier la cible</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Keil µVision5
+and Add File to Project ? -&gt; Non</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.2 - Modifier la cible"><a class="Link9" href="#Tests">1.1.2 - Modifier la cible</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Keil µVision5
 Project Explorer
 Project:ReadyApp
 Target 1 -&gt; Clic droit -&gt; Options for Target 'TArget 1'
 Device
 Search -&gt; AT89C52
 Microchip -&gt; AT89C52
-Ok</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.1.3 - Configurer la création d'un fichier exécutable"><a class="Link9" href="#Tests">1.1.1.3 - Configurer la création d'un fichier exécutable</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Keil µVision5
+Ok</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.3 - Configurer la génération d'un fichier exécutable"><a class="Link9" href="#Tests">1.1.3 - Configurer la génération d'un fichier exécutable</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Keil µVision5
 Project Explorer
 Project:ReadyApp
 Target 1 -&gt; Clic droit -&gt; Options for Target 'TArget 1'
 Output
 Name of Executable -&gt; rd8051
 Cocher -&gt; Create HEX File HEX Format -&gt; HEX-80
-Ok</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.1.4 - Ajouter un fichier source"><a class="Link9" href="#Tests">1.1.1.4 - Ajouter un fichier source</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Keil µVision5
+Ok</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.4 - Ajouter un fichier source"><a class="Link9" href="#Tests">1.1.4 - Ajouter un fichier source</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Keil µVision5
 Project Explorer
 Project:ReadyApp
 Target 1
@@ -99,14 +99,17 @@ Sélectionner -&gt; C File (.c)
 Type -&gt; C File (.c)
 Name -&gt; main
 Location -&gt; ReadyTest\8051\keil
-Add</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.1.5 - Éditer le programme C"><a class="Link9" href="#Tests">1.1.1.5 - Éditer le programme C</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+Add</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.5 - Éditer le programme C"><a class="Link9" href="#Tests">1.1.5 - Éditer le programme C</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">// on inclut le fichier entete des declarations 8051
 #include &lt;reg52.h&gt;
-//===============================================
+
+// on definit le programme principal
 void main() {
+    // on ecrit sur le port P1 la valeur binaire (10101010)
     P1 = 0xAA;
+    // on definit la boucle principale
+    // un microcontroleur tourne toujours dans une bouble
     while(1);
-}
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.1.6 - Compiler le projet"><a class="Link9" href="#Tests">1.1.1.6 - Compiler le projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Keil µVision5
+}</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.6 - Compiler le projet"><a class="Link9" href="#Tests">1.1.6 - Compiler le projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Keil µVision5
 Project -&gt; Rebuild all target files</xmp></pre></div><br><h3 class="Title8 GTitle3">Sortie</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Rebuild started: Project: ReadyApp
 Rebuild target 'Target 1'
 compiling main.c...
@@ -114,20 +117,37 @@ linking...
 Program Size: data=9.0 xdata=0 code=20
 creating hex file from ".\Objects\rd8051"...
 ".\Objects\rd8051" - 0 Error(s), 0 Warning(s).
-Build Time Elapsed:  00:00:02</xmp></pre></div><br><h3 class="Title8 GTitle3">Fichier exécutable</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">ReadyTest\8051\keil\Objects\rd8051</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.1.7 - Simulation"><a class="Link9" href="#Tests">1.1.1.7 - Simulation</a></h2><br><h2 class="Title7 GTitle2" id="Tests-1.1.1.7.1 - Simulation sous Keil µVision"><a class="Link9" href="#Tests">1.1.1.7.1 - Simulation sous Keil µVision</a></h2><br><h2 class="Title7 GTitle2" id="Tests-1.1.1.7.1.1 - Ouvrir le débogueur"><a class="Link9" href="#Tests">1.1.1.7.1.1 - Ouvrir le débogueur</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Keil µVision5
-Debug -> Start/Stop Debug Session</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.1.7.1.2 - Ouvrir le port P1"><a class="Link9" href="#Tests">1.1.1.7.1.2 - Ouvrir le port P1</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Keil µVision5
-Peripherals -&gt; I/O - Ports -&gt; Port 1</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.1.7.1.3 - Démarrer la simulation"><a class="Link9" href="#Tests">1.1.1.7.1.3 - Démarrer la simulation</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Keil µVision5
-Debug -&gt; Run</xmp></pre></div><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_8051_test_keil.png" alt="/Tutoriels/Embedded_System/8051/img/i_8051_test_keil.png"></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.1.7.1.4 - Arrêter la simulation"><a class="Link9" href="#Tests">1.1.1.7.1.4 - Arrêter la simulation</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Keil µVision5
-Debug -&gt; Stop</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.1.7.1.5 - Fermer le débogueur"><a class="Link9" href="#Tests">1.1.1.7.1.5 - Fermer le débogueur</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Keil µVision5
-Debug -&gt; Start/Stop Debug Session</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.1.7.2 - Simulation sous Proteus"><a class="Link9" href="#Tests">1.1.1.7.2 - Simulation sous Proteus</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_8051_test_proteus.png" alt="/Tutoriels/Embedded_System/8051/img/i_8051_test_proteus.png"></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.2 - Test sous SDCC"><a class="Link9" href="#Tests">1.1.2 - Test sous SDCC</a></h2><br><h2 class="Title7 GTitle2" id="Tests-1.1.2.1 - Créer le projet"><a class="Link9" href="#Tests">1.1.2.1 - Créer le projet</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+Build Time Elapsed:  00:00:02</xmp></pre></div><br><h3 class="Title8 GTitle3">Fichier exécutable</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">ReadyTest\8051\keil\Objects\rd8051</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.7 - Simulation"><a class="Link9" href="#Tests">1.1.7 - Simulation</a></h2><br><h2 class="Title7 GTitle2" id="Tests-1.1.7.1 - Simulation sous Keil µVision"><a class="Link9" href="#Tests">1.1.7.1 - Simulation sous Keil µVision</a></h2><br><h2 class="Title7 GTitle2" id="Tests-1.1.7.1.1 - Ouvrir le débogueur"><a class="Link9" href="#Tests">1.1.7.1.1 - Ouvrir le débogueur</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Keil µVision5
+Debug -> Start/Stop Debug Session</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.7.1.2 - Ouvrir le port P1"><a class="Link9" href="#Tests">1.1.7.1.2 - Ouvrir le port P1</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Keil µVision5
+Peripherals -&gt; I/O - Ports -&gt; Port 1</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.7.1.3 - Démarrer la simulation"><a class="Link9" href="#Tests">1.1.7.1.3 - Démarrer la simulation</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Keil µVision5
+Debug -&gt; Run</xmp></pre></div><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_8051_test_keil.png" alt="/Tutoriels/Embedded_System/8051/img/i_8051_test_keil.png"></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.7.1.4 - Arrêter la simulation"><a class="Link9" href="#Tests">1.1.7.1.4 - Arrêter la simulation</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Keil µVision5
+Debug -&gt; Stop</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.7.1.5 - Fermer le débogueur"><a class="Link9" href="#Tests">1.1.7.1.5 - Fermer le débogueur</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Keil µVision5
+Debug -&gt; Start/Stop Debug Session</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.7.2 - Simulation sous Proteus"><a class="Link9" href="#Tests">1.1.7.2 - Simulation sous Proteus</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_8051_test_proteus.png" alt="/Tutoriels/Embedded_System/8051/img/i_8051_test_proteus.png"></div><br><h2 class="Title7 GTitle2" id="Tests-1.2 - Test sous SDCC"><a class="Link9" href="#Tests">1.2 - Test sous SDCC</a></h2><br><h2 class="Title7 GTitle2" id="Tests-1.2.1 - Créer le projet"><a class="Link9" href="#Tests">1.2.1 - Créer le projet</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">// on inclut le fichier entete des declarations 8051
 #include &lt;8052.h&gt;
-//===============================================
+
+// on definit le programme principal
 void main() {
+    // on ecrit sur le port P1 la valeur binaire (10101010)
     P1 = 0xAA;
+    // on definit la boucle principale
+    // un microcontroleur tourne toujours dans une bouble
     while(1);
-}
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.2.2 - Compiler le projet"><a class="Link9" href="#Tests">1.1.2.2 - Compiler le projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">set "PATH=C:\Program Files\SDCC\bin;%PATH%"</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">sdcc --std-c11 -c main.c</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.2.3 - Générer le fichier exécutable"><a class="Link9" href="#Tests">1.1.2.3 - Générer le fichier exécutable</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">sdcc main.rel
-packihx main.ihx &gt; rd8051.hex</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.2.4 - Simulation"><a class="Link9" href="#Tests">1.1.2.4 - Simulation</a></h2><br><h2 class="Title7 GTitle2" id="Tests-1.1.2.4.1 - Simulation sous Proteus"><a class="Link9" href="#Tests">1.1.2.4.1 - Simulation sous Proteus</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_8051_test_proteus.png" alt="/Tutoriels/Embedded_System/8051/img/i_8051_test_proteus.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Proteus"><a class="Link3" href="#">Proteus</a></h1><div class="Body3"><br>Proteus est un simulateur de circuits électriques.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1617788146413"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1617788146413");</script></div><br><h2 class="Title7 GTitle2" id="Proteus-1 - Introduction"><a class="Link9" href="#Proteus">1 - Introduction</a></h2><br>Proteus est une suite logicielle de CAO électronique qui permet la conception d'un système électronique complet et de le simuler, y compris avec le code des microcontrôleurs. Pour ce faire, elle inclut un éditeur de schéma (ISIS), un outil de placement-routage (ARES), un simulateur analogique-numérique, un environnement de développement intégré pour microcontrôleurs, un module de programmation par algorigrammes ainsi qu'un éditeur d'interface pour smartphone afin de piloter à distance des cartes Arduino ou Raspberry.<br><br><h2 class="Title7 GTitle2" id="Proteus-2 - Installation"><a class="Link9" href="#Proteus">2 - Installation</a></h2><br><h2 class="Title7 GTitle2" id="Proteus-2.1 - Installation sous Windows"><a class="Link9" href="#Proteus">2.1 - Installation sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Proteus-2.1.1 - Installation sous Batch"><a class="Link9" href="#Proteus">2.1.1 - Installation sous Batch</a></h2><br><h2 class="Title7 GTitle2" id="Proteus-2.1.1.1 - Télécharger Proteus"><a class="Link9" href="#Proteus">2.1.1.1 - Télécharger Proteus</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.labcenter.com/">https://www.labcenter.com/</a><br><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Labcenter
+}</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.2.2 - Compiler le projet"><a class="Link9" href="#Tests">1.2.2 - Compiler le projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">set "PATH=C:\Program Files\SDCC\bin;%PATH%"</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">sdcc --std-c11 -c main.c</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.2.3 - Générer le fichier exécutable"><a class="Link9" href="#Tests">1.2.3 - Générer le fichier exécutable</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">sdcc main.rel
+packihx main.ihx &gt; rd8051.hex</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.2.4 - Simulation"><a class="Link9" href="#Tests">1.2.4 - Simulation</a></h2><br><h2 class="Title7 GTitle2" id="Tests-1.2.4.1 - Simulation sous Proteus"><a class="Link9" href="#Tests">1.2.4.1 - Simulation sous Proteus</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_8051_test_proteus.png" alt="/Tutoriels/Embedded_System/8051/img/i_8051_test_proteus.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Keil µVision"><a class="Link3" href="#">Keil µVision</a></h1><div class="Body3"><br>Keil µVision est un environnement de développement intégré.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1618403446475"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1618403446475");</script></div><br><h2 class="Title7 GTitle2" id="Keil µVision-1 - Opérations"><a class="Link9" href="#Keil µVision">1 - Opérations</a></h2><br><h2 class="Title7 GTitle2" id="Keil µVision-1.1 - Ajouter un fichier source existant"><a class="Link9" href="#Keil µVision">1.1 - Ajouter un fichier source existant</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Explorer -&gt; Project: rd8051 -&gt; Target 1 -&gt; Source Group 1
+Clic droit -&gt; Add Existing Files to Group 'Source Group 1'
+Regarder dans -&gt; src
+Nom du fichier -&gt; main.c
+Type de fichiers -&gt; C Source File (*.c)
+Add
+Close</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Keil µVision-1.2 - Définir le repetoire des fichiers include"><a class="Link9" href="#Keil µVision">1.2 - Définir le repetoire des fichiers include</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Explorer -&gt; Project: rd8051 -&gt; Target 1
+Clic droit -&gt; Options for Target 'Target 1'
+C51
+Include Paths -&gt; ..\readyapp\src\include
+Ok</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Keil µVision-1.3 - Ajouter une définition lors de la compilation"><a class="Link9" href="#Keil µVision">1.3 - Ajouter une définition lors de la compilation</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Explorer -&gt; Project: rd8051 -&gt; Target 1
+Clic droit -&gt; Options for Target 'Target 1'
+C51
+Preprocessor Symbols -&gt; Define -&gt; _KEIL_
+Ok</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Proteus"><a class="Link3" href="#">Proteus</a></h1><div class="Body3"><br>Proteus est un simulateur de circuits électriques.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1617788146413"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1617788146413");</script></div><br><h2 class="Title7 GTitle2" id="Proteus-1 - Introduction"><a class="Link9" href="#Proteus">1 - Introduction</a></h2><br>Proteus est une suite logicielle de CAO électronique qui permet la conception d'un système électronique complet et de le simuler, y compris avec le code des microcontrôleurs. Pour ce faire, elle inclut un éditeur de schéma (ISIS), un outil de placement-routage (ARES), un simulateur analogique-numérique, un environnement de développement intégré pour microcontrôleurs, un module de programmation par algorigrammes ainsi qu'un éditeur d'interface pour smartphone afin de piloter à distance des cartes Arduino ou Raspberry.<br><br><h2 class="Title7 GTitle2" id="Proteus-2 - Installation"><a class="Link9" href="#Proteus">2 - Installation</a></h2><br><h2 class="Title7 GTitle2" id="Proteus-2.1 - Installation sous Windows"><a class="Link9" href="#Proteus">2.1 - Installation sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Proteus-2.1.1 - Installation sous Proteus"><a class="Link9" href="#Proteus">2.1.1 - Installation sous Proteus</a></h2><br><h2 class="Title7 GTitle2" id="Proteus-2.1.1.1 - Télécharger Proteus"><a class="Link9" href="#Proteus">2.1.1.1 - Télécharger Proteus</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.labcenter.com/">https://www.labcenter.com/</a><br><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Labcenter
 Circuit Simulation Software
 VSM Packages
 Bundle Offers -&gt; Proteus Platinum Edition
@@ -199,4 +219,4 @@ AT89C52 -&gt; Clic droit -&gt; Edit Properties
 Program File -&gt; ..\keil\Objects\rd8051.hex
 Ok</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Proteus-3.1.1.6 - Simulation"><a class="Link9" href="#Proteus">3.1.1.6 - Simulation</a></h2><br><h2 class="Title7 GTitle2" id="Proteus-3.1.1.6.1 - Démarrer la simulation"><a class="Link9" href="#Proteus">3.1.1.6.1 - Démarrer la simulation</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Proteus
 Schematic Capture
-Run the simulation</xmp></pre></div><br> </div></div></div></div><br>
+Run the simulation</xmp></pre></div><br> </div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Liens"><a class="Link3" href="#">Liens</a></h1><div class="Body3"><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.alldatasheet.com/">https://www.alldatasheet.com/</a><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.alldatasheet.com/datasheet-pdf/pdf/56216/ATMEL/AT89C52.html">https://www.alldatasheet.com/datasheet-pdf/pdf/56216/ATMEL/AT89C52.html</a><br><br></div></div></div></div><br>

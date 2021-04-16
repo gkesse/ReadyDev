@@ -5,16 +5,16 @@
         "meta_desc":
         [
 			"Le but de ce tutoriel est de vous apprendre",
-            "la programmation système embarqué.",
+            "la programmation système embarqué avec le Arduino.",
             "Produit par Gérard KESSE."
         ],
-        "meta_cano":"/Tutoriels/Embedded_System/Cours/",
-        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Embedded_System/Cours/img/b_embedded_system.png"
+        "meta_cano":"/Tutoriels/Embedded_System/Arduino/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Embedded_System/Arduino/img/b_arduino.png"
     },    
     "links":
     [
         {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
         {"name":"Système Embarqué","link":"/Tutoriels/#Développement Système Embarqué","follow":"no"},
-        {"name":"Projets","link":"","follow":"no"}
+        {"name":"Arduino","link":"","follow":"no"}
     ]
 }
