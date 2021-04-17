@@ -365,11 +365,14 @@ static void GWindow_Widget(GWidgetO* obj) {
     gtk_widget_show_all(lWidget);
 
     // on cree les pages du systeme d'administration
-    GWindow_AddPage(obj, "home", "Accueil", GWidget("home")-&gt;widget, 1);
-    GWindow_AddPage(obj, "home/login", "Connexion", GWidget("login")-&gt;widget, 0);
-    GWindow_AddPage(obj, "home/sqlite", "SQLite", GWidget("sqlite")-&gt;widget, 0);
-    GWindow_AddPage(obj, "home/opencv", "OpenCV", GWidget("opencv")-&gt;widget, 0);
-    GWindow_AddPage(obj, "home/debug", "Debug", GWidget("debug")-&gt;widget, 0);
+    lWorkspace-&gt;AddPage(lWorkspace, "home", "Accueil", GWidget("home")-&gt;widget, 1);
+    lWorkspace-&gt;AddPage(lWorkspace, "home/login", "Connexion", GWidget("login")-&gt;widget, 0);
+    lWorkspace-&gt;AddPage(lWorkspace, "home/sqlite", "SQLite", GWidget("sqlite")-&gt;widget, 0);
+    lWorkspace-&gt;AddPage(lWorkspace, "home/opencv", "OpenCV", GWidget("opencv")-&gt;widget, 1);
+    lWorkspace-&gt;AddPage(lWorkspace, "home/debug", "Debug", GWidget("debug")-&gt;widget, 0);
+    
+    // on affiche la page par default
+    GManager()-&gt;SetPage(lWorkspace-&gt;GetDefaultKey(lWorkspace));
 
     // on definit le titre de la fenetre principale
     gtk_window_set_title(GTK_WINDOW(lWidget), lApp-&gt;app_name);
@@ -382,24 +385,34 @@ static void GWindow_Widget(GWidgetO* obj) {
     g_signal_connect(G_OBJECT(lWidget), "destroy", G_CALLBACK(GWindow_OnDestroy), NULL);
     g_signal_connect(G_OBJECT(lWidget), "delete_event", G_CALLBACK(GWindow_OnDeleteEvent), NULL);
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-3.1.4 - Ajout d'une page"><a class="Link9" href="#Interface Homme-Machine avec Gtk">3.1.4 - Ajout d'une page</a></h2><br><h3 class="Title8 GTitle3">GWindow.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-static void GWindow_AddPage(GWidgetO* obj, char* key, char* title, GtkWidget* widget, int isDefault) {
-    // on recupere le manager de donnees
-    sGApp* lApp = GManager()-&gt;mgr-&gt;app;
-    // on recupere le map des ids des pages
-    GMapO(GWindow, GVOID_PTR, GVOID_PTR)* lPageId = lApp-&gt;page_id;
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-3.1.4 - Ajout d'une page"><a class="Link9" href="#Interface Homme-Machine avec Gtk">3.1.4 - Ajout d'une page</a></h2><br><h3 class="Title8 GTitle3">GStackWidget.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+static void GStackWidget_AddPage(GWidgetO* obj, char* key, char* title, GtkWidget* widget, int isDefault) {
+    // on recupere l'objet enfant
+    // qui correspond ici a la pile de widgets
+    GStackWidgetO* lChild = obj-&gt;child;
+    // on recupere le map des widgets des pages
+    GMapO(GStackWidget, GVOID_PTR, GVOID_PTR)* lWidgetMap = lChild-&gt;widgetMap;
     // on recupere le map des titres des pages
-    GMapO(GWindow, GVOID_PTR, GVOID_PTR)* lTitleMap = lApp-&gt;title_map;
-    // on recupere le nombre de pages
-    int lCount = lApp-&gt;page_map-&gt;Count(lApp-&gt;page_map);
-    // on associe une page a son id
-    lPageId-&gt;SetData(lPageId, key, (void*)lCount, lTitleMap-&gt;EqualChar);
-    // on associe un titre de page a son id
+    GMapO(GStackWidget, GVOID_PTR, GVOID_PTR)* lTitleMap = lChild-&gt;titleMap;
+    
+    // on associe la cle au widget de la page
+    lWidgetMap-&gt;SetData(lWidgetMap, key, widget, lWidgetMap-&gt;EqualChar);
+    // on associe la cle au titre de la page
     lTitleMap-&gt;SetData(lTitleMap, key, title, lTitleMap-&gt;EqualChar);
-    // on ajoute la page
-    lApp-&gt;page_map-&gt;AddWidget(lApp-&gt;page_map, widget);
-    // on affiche la page si elle est definie par defaut
-    if(isDefault == 1) {GManager()-&gt;SetPage(key);}
+
+    // on ajoute le widget dans la pile
+    gtk_box_pack_start(GTK_BOX(obj-&gt;widget), widget, 0, 0, 0);
+    // on rend invisible le widget dans la pile
+    gtk_widget_hide(widget);
+    
+    // on initialise la cle par defaut
+    // on initialise la cle courante
+    if(lChild-&gt;currentKeyFlag == 1) {lChild-&gt;defaultKey = key; lChild-&gt;currentKey = key; lChild-&gt;currentKeyFlag = 0;}
+    
+    // on definit la cle par defaut
+    if(isDefault == 1) {lChild-&gt;defaultKey = key;}
+    // on compte le nombre de pages
+    lChild-&gt;count++;
 }
 //===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-3.1.5 - Page d'accueil"><a class="Link9" href="#Interface Homme-Machine avec Gtk">3.1.5 - Page d'accueil</a></h2><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-3.1.5.1 - Création de la page d'accueil"><a class="Link9" href="#Interface Homme-Machine avec Gtk">3.1.5.1 - Création de la page d'accueil</a></h2><br><h3 class="Title8 GTitle3">GHome.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 static void GHome_Widget(GWidgetO* obj) {
