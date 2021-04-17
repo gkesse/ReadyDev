@@ -582,4 +582,98 @@ static void GSQLite_Exec(char* sqlQuery, void* onExec, void* params) {
     // on ferme la base donnees
     sqlite3_close(lDb);
 }
-//===============================================</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Bibliothèques"><a class="Link3" href="#">Bibliothèques</a></h1><div class="Body3"><br><span class="GColor1" style="color:lime;">Bibliothèques C</span><br><br><div class="Content0 GList1"><div class="Body0" id="Loader_1616862322310"><div class="Row26">List 1 &gt; C &gt; libs</div></div><script>loadList1("Loader_1616862322310","C","libs");</script></div><br></div></div></div></div><br>
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-3.4 - Affichage d'une requête de sélection"><a class="Link9" href="#Base de données avec SQLite">3.4 - Affichage d'une requête de sélection</a></h2><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-3.4.1 - Programme d'affichage"><a class="Link9" href="#Base de données avec SQLite">3.4.1 - Programme d'affichage</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+static void GSQLite_QueryShow(char* sqlQuery, char* widthMap, int defaultWidth) {
+    // on definit les parametres a utiliser
+    // dans la fonction de rappel
+    sGSQLiteShow lParams = {1, 1, widthMap, defaultWidth, 0};
+    // on execute la requete de selection
+    GSQLite_Exec(sqlQuery, GSQLite_OnQueryShow, &lParams);
+    
+    // si on a au moins une colonne
+    // on affiche le cadre final
+    if(lParams.colCount &gt; 0) printf("+-");
+    for(int i = 0; i &lt; lParams.colCount; i++) {
+        if(i != 0) printf("-+-");
+        int lWidth = GManager()-&gt;GetWidth(widthMap, i, defaultWidth);
+        for(int j = 0; j &lt; lWidth; j++) {
+            printf("-");
+        }
+    }
+    if(lParams.colCount &gt; 0) printf("-+");
+    if(lParams.colCount &gt; 0) printf("\n");
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-3.4.2 - Structure des parametres"><a class="Link9" href="#Base de données avec SQLite">3.4.2 - Structure des parametres</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+struct _sGSQLiteShow {
+    // on active l'affichage des colonnes si (1)
+    int onHeader;
+    // on active l'affichage des grilles si (1)
+    int onGrid;
+    // on definit la largeur des colonnes dans une chaine
+    // en les separant par des points virgules
+    char* widthMap;
+    // on definit la largeur par default
+    int defaultWidth;
+    // on definit le nombre de colonne
+    int colCount;
+};
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-3.4.3 - Fonction de rappel"><a class="Link9" href="#Base de données avec SQLite">3.4.3 - Fonction de rappel</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+static int GSQLite_OnQueryShow(void* params, int colCount, char** colValue, char** colName) {
+    // on recupere les parametres
+    sGSQLiteShow* lParams = (sGSQLiteShow*)params;
+    
+    // on affiche le cadre de debut colonnes si (1)
+    if(lParams-&gt;onHeader == 1) {
+        printf("+-");
+        for(int i = 0; i &lt; colCount; i++) {
+            if(i != 0) printf("-+-");
+            int lWidth = GManager()-&gt;GetWidth(lParams-&gt;widthMap, i, lParams-&gt;defaultWidth);
+            for(int j = 0; j &lt; lWidth; j++) {
+                printf("-");
+            }
+        }
+        printf("-+");
+        printf("\n");
+    }
+    // on affiche les colonnes si (1)
+    if(lParams-&gt;onHeader == 1) {
+        printf("| ");
+        for(int i = 0; i &lt; colCount; i++) {
+            if(i != 0) printf(" | ");
+            int lWidth = GManager()-&gt;GetWidth(lParams-&gt;widthMap, i, lParams-&gt;defaultWidth);
+            printf("%-*s", lWidth, colName[i]);
+        }
+        printf(" |");
+        printf("\n");
+    }
+    
+    // on affiche le cadre de debut des grilles si (1)
+    if(lParams-&gt;onGrid == 1) {
+        printf("+-");
+        for(int i = 0; i &lt; colCount; i++) {
+            if(i != 0) printf("-+-");
+            int lWidth = GManager()-&gt;GetWidth(lParams-&gt;widthMap, i, lParams-&gt;defaultWidth);
+            for(int j = 0; j &lt; lWidth; j++) {
+                printf("-");
+            }
+        }
+        printf("-+");
+        printf("\n");
+    }
+    
+    // on affiche les donnees
+    printf("| ");
+    for(int i = 0; i &lt; colCount; i++) {
+        char* lColValue = colValue[i] ? colValue[i] : "NULL";
+        if(i != 0) printf(" | ");
+        int lWidth = GManager()-&gt;GetWidth(lParams-&gt;widthMap, i, lParams-&gt;defaultWidth);
+        printf("%-*s", lWidth, lColValue);
+    }
+    printf(" |");
+    printf("\n");
+    lParams-&gt;onHeader = 0;
+    lParams-&gt;onGrid = 0;
+    lParams-&gt;colCount = colCount;
+    return 0; 
+}
+//===============================================</xmp></pre></div><br></div></div></div></div><br>
