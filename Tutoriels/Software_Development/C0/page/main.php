@@ -676,4 +676,21 @@ static int GSQLite_OnQueryShow(void* params, int colCount, char** colValue, char
     lParams-&gt;colCount = colCount;
     return 0; 
 }
-//===============================================</xmp></pre></div><br></div></div></div></div><br>
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-3.4.4 - Exemple d'utilisation"><a class="Link9" href="#Base de données avec SQLite">3.4.4 - Exemple d'utilisation</a></h2><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-3.4.4.1 - Programme d'utilisation"><a class="Link9" href="#Base de données avec SQLite">3.4.4.1 - Programme d'utilisation</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+static void GSQLiteUi_Run_CONFIG_DATA_SHOW(int argc, char** argv) {
+    printf("\n");
+
+    // on affiche le contenu de la table config_data
+    GSQLite()-&gt;QueryShow(GManager()-&gt;Format("\
+    select * from config_data\n\
+    "), "20;30", 25);
+    
+    m_GSQLiteUiO-&gt;G_STATE = "S_SAVE";
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-3.4.4.2 - Resultat de l'exemple"><a class="Link9" href="#Base de données avec SQLite">3.4.4.2 - Resultat de l'exemple</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">+----------------------+--------------------------------+
+| config_key           | config_value                   |
++----------------------+--------------------------------+
+| G_SQLITE_ID          | 4                              |
+| G_ADMIN_ID           | 1                              |
+| C_OPENCV_ID          | 1                              |
++----------------------+--------------------------------+</xmp></pre></div><br></div></div></div></div><br>
