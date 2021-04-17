@@ -1,4 +1,4 @@
-<div class="Parallax GParallax1"><div class="Img Binary"><div class="Caption"><a href="#"><div class="Text">Apprendre la programmation en C<br></div></a></div></div><div class="Body2 Orange"><br>Le but de ce tutoriel est de vous apprendre la programmation en <b>C</b>.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary1"><div class="Body0" id="Loader_1529412976174"><div class="Row26">Summary 1</div></div><script>loadSummary1("Loader_1529412976174");</script></div><br></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Introduction"><a class="Link3" href="#">Introduction</a></h1><div class="Body3"><b>C</b> est un langage de programmation impératif généraliste, de bas niveau offrant au développeur une marge de contrôle importante sur la machine (notamment sur la gestion de la mémoire) et est de ce fait utilisé pour réaliser les fondations (compilateurs, interpréteurs) des langages plus modernes.<br><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/b_c.png" alt="/Tutoriels/Software_Development/C0/img/b_c.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Installation"><a class="Link3" href="#">Installation</a></h1><div class="Body3"><br>Installer l'environnement C.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1616843526757"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1616843526757");</script></div><br><h2 class="Title7 GTitle2" id="Installation-1 - Installation sous Windows"><a class="Link9" href="#Installation">1 - Installation sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Installation-1.1 - Installation sous MSYS2"><a class="Link9" href="#Installation">1.1 - Installation sous MSYS2</a></h2><br>MSYS2 est un outil de développement de logiciels Linux sous Windows.<br><br><h2 class="Title7 GTitle2" id="Installation-1.1.1 - Installer MSYS2"><a class="Link9" href="#Installation">1.1.1 - Installer MSYS2</a></h2><br><h2 class="Title7 GTitle2" id="Installation-1.1.1.1 - Télécharger MSYS2"><a class="Link9" href="#Installation">1.1.1.1 - Télécharger MSYS2</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://repo.msys2.org/distrib/x86_64/">https://repo.msys2.org/distrib/x86_64/</a><br><br><b>msys2-x86_64-20210228.exe</b><br><br><h2 class="Title7 GTitle2" id="Installation-1.1.1.2 - Démarrer l'installation"><a class="Link9" href="#Installation">1.1.1.2 - Démarrer l'installation</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">msys2-x86_64-20210228.exe
+<div class="Parallax GParallax1"><div class="Img Binary"><div class="Caption"><a href="#"><div class="Text">Apprendre la programmation en C<br></div></a></div></div><div class="Body2 Orange"><br>Le but de ce tutoriel est de vous apprendre la programmation en <b>C</b>.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary1"><div class="Body0" id="Loader_1529412976174"><div class="Row26">Summary 1</div></div><script>loadSummary1("Loader_1529412976174");</script></div><br></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Introduction"><a class="Link3" href="#">Introduction</a></h1><div class="Body3"><br><b>C </b>est un langage de programmation impératif généraliste, de bas niveau offrant au développeur une marge de contrôle importante sur la machine (notamment sur la gestion de la mémoire) et est de ce fait utilisé pour réaliser les fondations (compilateurs, interpréteurs) des langages plus modernes.<br><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/b_c.png" alt="/Tutoriels/Software_Development/C0/img/b_c.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Installation"><a class="Link3" href="#">Installation</a></h1><div class="Body3"><br>Installer l'environnement C.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1616843526757"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1616843526757");</script></div><br><h2 class="Title7 GTitle2" id="Installation-1 - Installation sous Windows"><a class="Link9" href="#Installation">1 - Installation sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Installation-1.1 - Installation sous MSYS2"><a class="Link9" href="#Installation">1.1 - Installation sous MSYS2</a></h2><br>MSYS2 est un outil de développement de logiciels Linux sous Windows.<br><br><h2 class="Title7 GTitle2" id="Installation-1.1.1 - Installer MSYS2"><a class="Link9" href="#Installation">1.1.1 - Installer MSYS2</a></h2><br><h2 class="Title7 GTitle2" id="Installation-1.1.1.1 - Télécharger MSYS2"><a class="Link9" href="#Installation">1.1.1.1 - Télécharger MSYS2</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://repo.msys2.org/distrib/x86_64/">https://repo.msys2.org/distrib/x86_64/</a><br><br><b>msys2-x86_64-20210228.exe</b><br><br><h2 class="Title7 GTitle2" id="Installation-1.1.1.2 - Démarrer l'installation"><a class="Link9" href="#Installation">1.1.1.2 - Démarrer l'installation</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">msys2-x86_64-20210228.exe
 Suivant
 Dossier d'installation -&gt; C:\msys64
 Suivant
@@ -85,7 +85,7 @@ static void GProcessUi_Run_SAVE(int argc, char** argv) {
     GConfig()-&gt;SaveData("G_ADMIN_ID");
     m_GProcessUiO-&gt;G_STATE = "S_END";
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Résultat"><a class="Link9" href="#Système d'administration">Résultat</a></h2><br><h3 class="Title8 GTitle3">Menu principal</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_c_admin_system.png" alt="/Tutoriels/Software_Development/C0/img/i_c_admin_system.png"></div><br><h3 class="Title8 GTitle3">Menu du module SQLite</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_c_admin_system_02.png" alt="/Tutoriels/Software_Development/C0/img/i_c_admin_system_02.png"></div><br><h3 class="Title8 GTitle3">Affichage des tables SQLite</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_c_admin_system_03.png" alt="/Tutoriels/Software_Development/C0/img/i_c_admin_system_03.png"></div><br><h3 class="Title8 GTitle3">Affichage de la table CONFIG_DATA</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_c_admin_system_04.png" alt="/Tutoriels/Software_Development/C0/img/i_c_admin_system_04.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Gestionnaire de fichier log"><a class="Link3" href="#">Gestionnaire de fichier log</a></h1><div class="Body3"><br>Créer un gestionnaire de fichier log en C.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1616858821799"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1616858821799");</script></div><br><h2 class="Title7 GTitle2" id="Gestionnaire de fichier log-Introduction"><a class="Link9" href="#Gestionnaire de fichier log">Introduction</a></h2><br>Le gestionnaire de fichier log que nous présentons ici est une interface permettant de transférer des données depuis notre application vers un fichier texte qui peut être exploité par la suite par un système d'analyse de fichier log dédié. Un fichier log permet de suivre l'historique des traces laissées par un système au cours de son exécution. L'un des avantages de ce concept est de pouvoir analyser en temps réel les actions et réactions du système.<br><br><h2 class="Title7 GTitle2" id="Gestionnaire de fichier log-Programme principal"><a class="Link9" href="#Gestionnaire de fichier log">Programme principal</a></h2><br><h3 class="Title8 GTitle3">GLog.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Résultat"><a class="Link9" href="#Système d'administration">Résultat</a></h2><br><h2 class="Title7 GTitle2" id="Système d'administration-1 - Menu principal"><a class="Link9" href="#Système d'administration">1 - Menu principal</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_c_admin_system.png" alt="/Tutoriels/Software_Development/C0/img/i_c_admin_system.png"></div><br><h2 class="Title7 GTitle2" id="Système d'administration-2 - Menu du module SQLite"><a class="Link9" href="#Système d'administration">2 - Menu du module SQLite</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_c_admin_system_02.png" alt="/Tutoriels/Software_Development/C0/img/i_c_admin_system_02.png"></div><br><h2 class="Title7 GTitle2" id="Système d'administration-3 - Affichage des tables SQLite"><a class="Link9" href="#Système d'administration">3 - Affichage des tables SQLite</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_c_admin_system_03.png" alt="/Tutoriels/Software_Development/C0/img/i_c_admin_system_03.png"></div><br><h2 class="Title7 GTitle2" id="Système d'administration-4 - Affichage de la table CONFIG_DATA"><a class="Link9" href="#Système d'administration">4 - Affichage de la table CONFIG_DATA</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_c_admin_system_04.png" alt="/Tutoriels/Software_Development/C0/img/i_c_admin_system_04.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Gestionnaire de fichier log"><a class="Link3" href="#">Gestionnaire de fichier log</a></h1><div class="Body3"><br>Créer un gestionnaire de fichier log en C.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1616858821799"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1616858821799");</script></div><br><h2 class="Title7 GTitle2" id="Gestionnaire de fichier log-Introduction"><a class="Link9" href="#Gestionnaire de fichier log">Introduction</a></h2><br>Le gestionnaire de fichier log que nous présentons ici est une interface permettant de transférer des données depuis notre application vers un fichier texte qui peut être exploité par la suite par un système d'analyse de fichier log dédié. Un fichier log permet de suivre l'historique des traces laissées par un système au cours de son exécution. L'un des avantages de ce concept est de pouvoir analyser en temps réel les actions et réactions du système.<br><br><h2 class="Title7 GTitle2" id="Gestionnaire de fichier log-Programme principal"><a class="Link9" href="#Gestionnaire de fichier log">Programme principal</a></h2><br><h3 class="Title8 GTitle3">GLog.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 static void GLog_Test(int argc, char** argv) {
     sGPerson lPerson = {"Gerard", "KESSE", "gerard.kesse@outlook.fr", 1234};
     
@@ -237,4 +237,288 @@ static int GLog_OnTest(char* buffer, int index, void* obj) {
     index += sprintf(&buffer[index], "%*s%*s : %d\n", 5, "", -10, "Code", lPerson-&gt;code);
     return index;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Gestionnaire de fichier log-Résultat"><a class="Link9" href="#Gestionnaire de fichier log">Résultat</a></h2><br><h3 class="Title8 GTitle3">Traçage dans un teminal</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_c_log.png" alt="/Tutoriels/Software_Development/C0/img/i_c_log.png"></div><br><h3 class="Title8 GTitle3">Traçage dans un fichier</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_c_log_02.png" alt="/Tutoriels/Software_Development/C0/img/i_c_log_02.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Bibliothèques"><a class="Link3" href="#">Bibliothèques</a></h1><div class="Body3"><br><span class="GColor1" style="color:lime;">Bibliothèques C</span><br><br><div class="Content0 GList1"><div class="Body0" id="Loader_1616862322310"><div class="Row26">List 1 &gt; C &gt; libs</div></div><script>loadList1("Loader_1616862322310","C","libs");</script></div><br></div></div></div></div><br>
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Gestionnaire de fichier log-Résultat"><a class="Link9" href="#Gestionnaire de fichier log">Résultat</a></h2><br><h3 class="Title8 GTitle3">Traçage dans un teminal</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_c_log.png" alt="/Tutoriels/Software_Development/C0/img/i_c_log.png"></div><br><h3 class="Title8 GTitle3">Traçage dans un fichier</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_c_log_02.png" alt="/Tutoriels/Software_Development/C0/img/i_c_log_02.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Interface Homme-Machine avec Gtk"><a class="Link3" href="#">Interface Homme-Machine avec Gtk</a></h1><div class="Body3"><br><b>GTK </b>est une bibliothèque de création d'interfaces homme-machine dévoppé à l'origine pour les besoins du logiciel de traitement d'images GIMP.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1618606543470"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1618606543470");</script></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-1 - Installation"><a class="Link9" href="#Interface Homme-Machine avec Gtk">1 - Installation</a></h2><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-1.1 - Installation sous Windows"><a class="Link9" href="#Interface Homme-Machine avec Gtk">1.1 - Installation sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-1.1.1 - Installation sous MSYS2"><a class="Link9" href="#Interface Homme-Machine avec Gtk">1.1.1 - Installation sous MSYS2</a></h2><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-1.1.1.1 - Installer Gtk"><a class="Link9" href="#Interface Homme-Machine avec Gtk">1.1.1.1 - Installer Gtk</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">pacman -S --needed -y mingw-w64-i686-gtk3</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-2 - Tests"><a class="Link9" href="#Interface Homme-Machine avec Gtk">2 - Tests</a></h2><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-2.1 - Test sous Windows"><a class="Link9" href="#Interface Homme-Machine avec Gtk">2.1 - Test sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-2.1.1 - Test sous MSYS2"><a class="Link9" href="#Interface Homme-Machine avec Gtk">2.1.1 - Test sous MSYS2</a></h2><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-2.1.1.1 - Éditer le programme"><a class="Link9" href="#Interface Homme-Machine avec Gtk">2.1.1.1 - Éditer le programme</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;gtk/gtk.h&gt;
+//===============================================
+static void GWindow_OnDestroy(GtkWidget* obj, gpointer params);
+static gboolean GWindow_OnDeleteEvent(GtkWidget* obj, GdkEvent* event, gpointer params);
+//===============================================
+int main(int argc, char** argv) {
+    // on initialise gtk
+    gtk_init(&argc, &argv);
+    
+    // on cree la fenetre principale 
+    GtkWidget* lWindow = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+    
+    // on cree un label
+    GtkWidget* lLabel = gtk_label_new(0);
+    // on definit le texte du label
+    gtk_label_set_text(GTK_LABEL(lLabel), "Bonjour tout le monde");
+    
+    // on cree un layout vertical
+    GtkWidget* lMainLayout = gtk_vbox_new(0, 0);
+    // on ajoute le label dans le layout
+    gtk_box_pack_start(GTK_BOX(lMainLayout), lLabel, 1, 1, 0);
+    // on ajoute le layout dans la fenetre principale
+    gtk_container_add(GTK_CONTAINER(lWindow), lMainLayout);
+    // on affiche la fenetre principale 
+    gtk_widget_show_all(lWindow);
+    
+    // on definit le titre de la fenetre principale 
+    gtk_window_set_title(GTK_WINDOW(lWindow), "ReadyApp");
+    // on supprime les marges
+    gtk_container_set_border_width(GTK_CONTAINER(lWindow), 0);
+    // on definit les dimensions de la fenetre principale 
+    gtk_widget_set_size_request(GTK_WIDGET(lWindow), 600, 330);
+    
+    // on definit le signal associe a la fermeture de la fenetre principale
+    g_signal_connect(G_OBJECT(lWindow), "destroy", G_CALLBACK(GWindow_OnDestroy), NULL);
+    g_signal_connect(G_OBJECT(lWindow), "delete_event", G_CALLBACK(GWindow_OnDeleteEvent), NULL);
+    
+    // on rentre dans la boucle de controle
+    gtk_main();
+    return 0;
+}
+//===============================================
+static void GWindow_OnDestroy(GtkWidget* obj, gpointer params) {
+    // on ferme la fenetre principale
+    gtk_main_quit();
+}
+//===============================================
+static gboolean GWindow_OnDeleteEvent(GtkWidget* obj, GdkEvent* event, gpointer params) {
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-2.1.1.2 - Compiler le projet"><a class="Link9" href="#Interface Homme-Machine avec Gtk">2.1.1.2 - Compiler le projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">gcc -std=gnu11 -c ./main.c -o ./main.o \
+`pkg-config --cflags gtk+-3.0`</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">gcc -std=gnu11 -c ./main.c -o ./main.o \
+-I/mingw32/include/gtk-3.0 -I/mingw32/include/pango-1.0 -I/mingw32/include -I/mingw32/include/glib-2.0 \
+-I/mingw32/lib/glib-2.0/include -I/mingw32/include/harfbuzz -I/mingw32/include/freetype2 \
+-I/mingw32/include/libpng16 -mms-bitfields -I/mingw32/include/fribidi -I/mingw32/include/cairo \
+-I/mingw32/include/lzo -I/mingw32/include/pixman-1 -mms-bitfields -mms-bitfields -mms-bitfields \
+-mms-bitfields -mms-bitfields -mms-bitfields -mms-bitfields -I/mingw32/include/gdk-pixbuf-2.0 \
+-mms-bitfields -mms-bitfields -mms-bitfields -I/mingw32/include/atk-1.0 -mms-bitfields -mms-bitfields \
+-mms-bitfields -pthread -mms-bitfields</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-2.1.1.3 - Éditer les liens du projet"><a class="Link9" href="#Interface Homme-Machine avec Gtk">2.1.1.3 - Éditer les liens du projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">gcc -o ./rdc.exe ./main.o  \
+`pkg-config --libs gtk+-3.0`</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">gcc -o ./rdc.exe ./main.o  \
+-L/mingw32/lib \ 
+-lgtk-3 -lgdk-3 -lz -lgdi32 -limm32 -lshell32 -lole32 -Wl,-luuid -lwinmm -ldwmapi -lsetupapi \
+-lcfgmgr32 -lpangowin32-1.0 -lpangocairo-1.0 -lpango-1.0 -lharfbuzz -latk-1.0 -lcairo-gobject \
+-lcairo -lgdk_pixbuf-2.0 -lgio-2.0 -lgobject-2.0 -lglib-2.0 -lintl</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-2.1.1.4 - Exécuter le projet"><a class="Link9" href="#Interface Homme-Machine avec Gtk">2.1.1.4 - Exécuter le projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">./rdc.exe</xmp></pre></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_gtk_test.png" alt="/Tutoriels/Software_Development/C0/img/i_gtk_test.png"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-3 - Projets"><a class="Link9" href="#Interface Homme-Machine avec Gtk">3 - Projets</a></h2><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-3.1 - Système d'administration"><a class="Link9" href="#Interface Homme-Machine avec Gtk">3.1 - Système d'administration</a></h2><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-3.1.1 - Introduction"><a class="Link9" href="#Interface Homme-Machine avec Gtk">3.1.1 - Introduction</a></h2><br>Le système d'administration que nous présentons ici est une interface graphique permettant d'accéder à toutes les fonctionnalités de notre application.<br><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-3.1.2 - Programme principal"><a class="Link9" href="#Interface Homme-Machine avec Gtk">3.1.2 - Programme principal</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+static void GGtk_Run(int argc, char** argv) {
+    // on initialise gtk
+    gtk_init(&argc, &argv);
+
+    // on charge le style de l'application
+    GManager()-&gt;LoadStyle();
+    // on charge les images
+    GManager()-&gt;LoadImg();
+    // on charge les donnees de l'application
+    GManager()-&gt;LoadData();
+    // on charge les pictogrammes de l'application
+    GPicto()-&gt;Load();
+    // on cree le systeme d'administration
+    GWidget("window");
+
+    // on rentre dans la boucle de controle
+    gtk_main();
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-3.1.3 - Système d'administration"><a class="Link9" href="#Interface Homme-Machine avec Gtk">3.1.3 - Système d'administration</a></h2><br><h3 class="Title8 GTitle3">GWindow.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+static void GWindow_Widget(GWidgetO* obj) {
+    // on recupere le manager de donnees
+    sGApp* lApp = GManager()-&gt;mgr-&gt;app;
+    // on cree la fenetre principale
+    GtkWidget* lWidget = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+    // on definit un pointeur vers la fenetre principale 
+    obj-&gt;widget = lWidget;
+    
+    // on cree la barre de titre
+    GWidgetO* lTitleBar = GWidget("titlebar");
+    // on cree la barre d'adresse
+    GWidgetO* lAddressBar = GWidget("addressbar");
+
+    // on cree la barre d'acces rapide
+    GWidgetO* lAddressKey = GWidget("addresskey");
+    // on cree un pointeur vers la barre d'acces rapide
+    lApp-&gt;address_key = lAddressKey;
+
+    // on cree la pile de widget
+    GWidgetO* lWorkspace = GWidget("stackwidget");
+    // on cree un pointeur vers la pile de widget
+    lApp-&gt;page_map = lWorkspace;
+    // on definit le nom de l'objet
+    gtk_widget_set_name(lWorkspace-&gt;widget, "workspace");
+    
+    // on cree un layout vertical
+    GtkWidget* lMainLayout = gtk_vbox_new(0, 0);
+    // on definit le nom de l'objet
+    gtk_widget_set_name(lMainLayout, "GWindow");
+    // on ajoute les widgets dans le layout
+    gtk_box_pack_start(GTK_BOX(lMainLayout), lTitleBar-&gt;widget, 0, 0, 0);
+    gtk_box_pack_start(GTK_BOX(lMainLayout), GManager()-&gt;SpaceV(10), 0, 0, 0);
+    gtk_box_pack_start(GTK_BOX(lMainLayout), lAddressBar-&gt;widget, 0, 0, 0);
+    gtk_box_pack_start(GTK_BOX(lMainLayout), GManager()-&gt;SpaceV(10), 0, 0, 0);
+    gtk_box_pack_start(GTK_BOX(lMainLayout), lAddressKey-&gt;widget, 0, 0, 0);
+    gtk_box_pack_start(GTK_BOX(lMainLayout), GManager()-&gt;SpaceV(10), 0, 0, 0);
+    gtk_box_pack_start(GTK_BOX(lMainLayout), lWorkspace-&gt;widget, 1, 1, 0);
+
+    // on ajoute le layout dans la fenetre principale
+    gtk_container_add(GTK_CONTAINER(lWidget), lMainLayout);
+    // on affiche la fenetre principale
+    gtk_widget_show_all(lWidget);
+
+    // on cree les pages du systeme d'administration
+    GWindow_AddPage(obj, "home", "Accueil", GWidget("home")-&gt;widget, 1);
+    GWindow_AddPage(obj, "home/login", "Connexion", GWidget("login")-&gt;widget, 0);
+    GWindow_AddPage(obj, "home/sqlite", "SQLite", GWidget("sqlite")-&gt;widget, 0);
+    GWindow_AddPage(obj, "home/opencv", "OpenCV", GWidget("opencv")-&gt;widget, 0);
+    GWindow_AddPage(obj, "home/debug", "Debug", GWidget("debug")-&gt;widget, 0);
+
+    // on definit le titre de la fenetre principale
+    gtk_window_set_title(GTK_WINDOW(lWidget), lApp-&gt;app_name);
+    // on definit les marges de la fenetre principale
+    gtk_container_set_border_width(GTK_CONTAINER(lWidget), 0);
+    // on definit les dimensions de la fenetre principale
+    gtk_widget_set_size_request(GTK_WIDGET(lWidget), lApp-&gt;win_width, lApp-&gt;win_height);
+    
+    // on definit le signal associe a la fermeture de la fenetre principale
+    g_signal_connect(G_OBJECT(lWidget), "destroy", G_CALLBACK(GWindow_OnDestroy), NULL);
+    g_signal_connect(G_OBJECT(lWidget), "delete_event", G_CALLBACK(GWindow_OnDeleteEvent), NULL);
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-3.1.4 - Ajout d'une page"><a class="Link9" href="#Interface Homme-Machine avec Gtk">3.1.4 - Ajout d'une page</a></h2><br><h3 class="Title8 GTitle3">GWindow.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+static void GWindow_AddPage(GWidgetO* obj, char* key, char* title, GtkWidget* widget, int isDefault) {
+    // on recupere le manager de donnees
+    sGApp* lApp = GManager()-&gt;mgr-&gt;app;
+    // on recupere le map des ids des pages
+    GMapO(GWindow, GVOID_PTR, GVOID_PTR)* lPageId = lApp-&gt;page_id;
+    // on recupere le map des titres des pages
+    GMapO(GWindow, GVOID_PTR, GVOID_PTR)* lTitleMap = lApp-&gt;title_map;
+    // on recupere le nombre de pages
+    int lCount = lApp-&gt;page_map-&gt;Count(lApp-&gt;page_map);
+    // on associe une page a son id
+    lPageId-&gt;SetData(lPageId, key, (void*)lCount, lTitleMap-&gt;EqualChar);
+    // on associe un titre de page a son id
+    lTitleMap-&gt;SetData(lTitleMap, key, title, lTitleMap-&gt;EqualChar);
+    // on ajoute la page
+    lApp-&gt;page_map-&gt;AddWidget(lApp-&gt;page_map, widget);
+    // on affiche la page si elle est definie par defaut
+    if(isDefault == 1) {GManager()-&gt;SetPage(key);}
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-3.1.5 - Page d'accueil"><a class="Link9" href="#Interface Homme-Machine avec Gtk">3.1.5 - Page d'accueil</a></h2><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-3.1.5.1 - Création de la page d'accueil"><a class="Link9" href="#Interface Homme-Machine avec Gtk">3.1.5.1 - Création de la page d'accueil</a></h2><br><h3 class="Title8 GTitle3">GHome.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+static void GHome_Widget(GWidgetO* obj) {
+    // on cree le layout de la fenetre
+    GtkWidget* lWidget = gtk_vbox_new(1, 0);
+    obj-&gt;widget = lWidget;
+
+    // on cree une liste de widgets
+    GWidgetO* lListBox = GWidget("listbox");
+    // on associe un observateur a liste de widgets
+    lListBox-&gt;AddItemClick(lListBox, obj);
+    // on ajoute des widgets a la liste
+    lListBox-&gt;AddItem(lListBox, "home/login", "Connexion", "user");
+    lListBox-&gt;AddItem(lListBox, "home/sqlite", "SQLite", "database");
+    lListBox-&gt;AddItem(lListBox, "home/opencv", "OpenCV", "camera");
+    lListBox-&gt;AddItem(lListBox, "home/debug", "Debug", "filetexto");
+    
+    // on ajoute le layout dans la fenetre
+    gtk_box_pack_start(GTK_BOX(lWidget), lListBox-&gt;widget, 0, 0, 0);
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-3.1.5.2 - Ajout d'un élément de page"><a class="Link9" href="#Interface Homme-Machine avec Gtk">3.1.5.2 - Ajout d'un élément de page</a></h2><br><h3 class="Title8 GTitle3">GListBox.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+static void GListBox_AddItem(GWidgetO* obj, char* key, char* text, char* icon) {
+    // on recupere le widget enfant
+    // en effet on travaille dans un concept oriente objet
+    // et nos widgets perso heritent tous de l'objet GWidgetO
+    GListBoxO* lChild = obj-&gt;child;
+    // on recupere le map des widgets
+    // en effet tous les widgets ajoutes dans la liste
+    // sont enregistres dans un systeme de cle/valeur (map)
+    GMapO(GListBox, GVOID_PTR, GVOID_PTR)* lWidgetMap = lChild-&gt;widgetMap;
+    // on cree un bouton
+    GtkWidget* lItem = gtk_button_new();
+    // on definit le nom de l'objet
+    gtk_widget_set_name(lItem, "item");
+    // on cree un layout horizontal
+    GtkWidget* lLayout = gtk_hbox_new(0, 0);
+    // on definit le nom de l'objet
+    gtk_widget_set_name(lLayout, "row");
+    // on cree un bouton defini dans le manager
+    GtkWidget* lButton = GManager()-&gt;Button(icon, text, 5, 0);
+    // on ajoute le bouton au layout horizontal
+    gtk_box_pack_start(GTK_BOX(lLayout), lButton, 0, 0, 0);
+    // on ajoute le layout horizontal au layout horizontal
+    gtk_box_pack_start(GTK_BOX(lLayout), gtk_hbox_new(0, 0), 1, 1, 0);
+    // on ajoute le layout horizontal dans le bouton
+    gtk_container_add(GTK_CONTAINER(lItem), lLayout);
+    // on ajoute le bouton dans la liste de widgets
+    gtk_box_pack_start(GTK_BOX(obj-&gt;widget), lItem, 0, 0, 0);
+    // on ajoute un element de liste au map
+    lWidgetMap-&gt;SetData(lWidgetMap, lItem, key, 0);
+    // on definit le signal associe au bouton
+    g_signal_connect(G_OBJECT(lItem), "clicked", G_CALLBACK(GListBox_OnItemClick), obj);
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-3.1.5.3 - Sélection d'un élément de page"><a class="Link9" href="#Interface Homme-Machine avec Gtk">3.1.5.3 - Sélection d'un élément de page</a></h2><br><h3 class="Title8 GTitle3">GListBox.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+static void GListBox_OnItemClick(GtkWidget* widget, gpointer params) {
+    // on recupere le manager de donnees
+    sGApp* lApp = GManager()-&gt;mgr-&gt;app;
+    // on recupere les objets
+    GWidgetO* lObj = (GWidgetO*)params;
+    GListBoxO* lChild = lObj-&gt;child;
+    // on recupere le map associe a la liste de widgets
+    GMapO(GListBox, GVOID_PTR, GVOID_PTR)* lWidgetMap = lChild-&gt;widgetMap;
+    // on recupere l'id associe au widget
+    char* lWidgetId = lWidgetMap-&gt;GetData(lWidgetMap, widget, 0);
+    // on sauvegarde l'id associe au widget
+    lApp-&gt;widget_id = lWidgetId;
+    // on propage le signal vers l'observateur
+    lObj-&gt;EmitItemClick(lObj);
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-3.1.5.4 - Appel de l'observateur"><a class="Link9" href="#Interface Homme-Machine avec Gtk">3.1.5.4 - Appel de l'observateur</a></h2><br><h3 class="Title8 GTitle3">GWidget.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+static void GWidget_EmitItemClick(GWidgetO* obj) {
+    // on recupere la liste des objets a observes
+    GListO(GWidget, GVOID_PTR)* lItemMap = obj-&gt;item_map;
+    // on recupere la taille de la liste
+    int lSize = lItemMap-&gt;Size(lItemMap);
+    // on parcourt la liste
+    for(int i = 0; i &lt; lSize; i++) {
+        // on recupere l'objet a l'indice (i)
+        GWidgetO* lObj = lItemMap-&gt;GetData(lItemMap, i);
+        // on execute l'observateur
+        lObj-&gt;OnItemClickObs(lObj);
+    }
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-3.1.5.5 - Ajout d'un élément dans l'observateur"><a class="Link9" href="#Interface Homme-Machine avec Gtk">3.1.5.5 - Ajout d'un élément dans l'observateur</a></h2><br><h3 class="Title8 GTitle3">GWidget.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+static void GWidget_AddItemClick(GWidgetO* obj, GWidgetO* obs) {
+    // on recupere la liste des objets a observes
+    GListO(GWidget, GVOID_PTR)* lItemMap = obj-&gt;item_map;
+    // on ajoute un objet a l'observateur
+    lItemMap-&gt;AddData(lItemMap, obs);
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-3.1.5.6 - Exécution de l'observation"><a class="Link9" href="#Interface Homme-Machine avec Gtk">3.1.5.6 - Exécution de l'observation</a></h2><br><h3 class="Title8 GTitle3">GHome.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+static void GHome_OnItemClickObs(GWidgetO* obj) {
+    // on recupere le manager de donnees
+    sGApp* lApp = GManager()-&gt;mgr-&gt;app;
+    // on recupere l'id de la page
+    char* lWidgetId = lApp-&gt;widget_id;
+    // on affiche la page
+    GManager()-&gt;SetPage(lWidgetId);
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-3.1.6 - Affichage d'une page"><a class="Link9" href="#Interface Homme-Machine avec Gtk">3.1.6 - Affichage d'une page</a></h2><br><h3 class="Title8 GTitle3">GManager.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+static void GManager_SetPage(char* address) {
+    // on recupere le manager de donnees
+    sGApp* lApp = GManager()-&gt;mgr-&gt;app;
+    // on recupere le map des ids des pages
+    GMapO(GManager, GVOID_PTR, GVOID_PTR)* lPageId = lApp-&gt;page_id;
+    // on recupere le map des titres de pages
+    GMapO(GManager, GVOID_PTR, GVOID_PTR)* lTitleMap = lApp-&gt;title_map;
+    // on recupere l'id de la page
+    int lPageIndex = (int)lPageId-&gt;GetData(lPageId, address, lPageId-&gt;EqualChar);
+    // on recupere l'id de la page
+    char* lTitle = lTitleMap-&gt;GetData(lTitleMap, address, lTitleMap-&gt;EqualChar);
+    // on affiche la page
+    lApp-&gt;page_map-&gt;SetCurrentIndex(lApp-&gt;page_map, lPageIndex);
+    // on initialise le titre de la page
+    gtk_label_set_text(GTK_LABEL(lApp-&gt;title), lTitle);
+    // on initialise la barre d'acces rapide
+    lApp-&gt;address_key-&gt;SetContent(lApp-&gt;address_key, address);
+    gtk_entry_set_text(GTK_ENTRY(lApp-&gt;address_bar), address);
+    // on initialise la barre d'acces rapide
+    gtk_widget_show_all(lApp-&gt;address_key-&gt;widget);
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-3.1.7 - Résultat des opérations"><a class="Link9" href="#Interface Homme-Machine avec Gtk">3.1.7 - Résultat des opérations</a></h2><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-3.1.7.1 - Page d'accueil"><a class="Link9" href="#Interface Homme-Machine avec Gtk">3.1.7.1 - Page d'accueil</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_gtk_admin_system.png" alt="/Tutoriels/Software_Development/C0/img/i_gtk_admin_system.png"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-3.1.7.2 - Page de connexion"><a class="Link9" href="#Interface Homme-Machine avec Gtk">3.1.7.2 - Page de connexion</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_gtk_admin_system_02.png" alt="/Tutoriels/Software_Development/C0/img/i_gtk_admin_system_02.png"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-3.1.7.3 - Page de débogage"><a class="Link9" href="#Interface Homme-Machine avec Gtk">3.1.7.3 - Page de débogage</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_gtk_admin_system_03.png" alt="/Tutoriels/Software_Development/C0/img/i_gtk_admin_system_03.png"></div><br><br><br><br><br><br><br><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Bibliothèques"><a class="Link3" href="#">Bibliothèques</a></h1><div class="Body3"><br><span class="GColor1" style="color:lime;">Bibliothèques C</span><br><br><div class="Content0 GList1"><div class="Body0" id="Loader_1616862322310"><div class="Row26">List 1 &gt; C &gt; libs</div></div><script>loadList1("Loader_1616862322310","C","libs");</script></div><br></div></div></div></div><br>
