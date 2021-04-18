@@ -693,4 +693,67 @@ static void GSQLiteUi_Run_CONFIG_DATA_SHOW(int argc, char** argv) {
 | G_SQLITE_ID          | 4                              |
 | G_ADMIN_ID           | 1                              |
 | C_OPENCV_ID          | 1                              |
-+----------------------+--------------------------------+</xmp></pre></div><br></div></div></div></div><br>
++----------------------+--------------------------------+</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-3.5 - Execution d'une requête d'ecriture"><a class="Link9" href="#Base de données avec SQLite">3.5 - Execution d'une requête d'ecriture</a></h2><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-3.5.1 - Programme d'écriture"><a class="Link9" href="#Base de données avec SQLite">3.5.1 - Programme d'écriture</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+static void GSQLite_QueryWrite(char* sqlQuery) {
+    // on execute la requete d'ecriture (sqlQuery)
+    GSQLite_Exec(sqlQuery, 0, 0);
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-3.5.2 - Exemple d'écriture"><a class="Link9" href="#Base de données avec SQLite">3.5.2 - Exemple d'écriture</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+static void GSQLiteUi_Run_CONFIG_DATA_CREATE(int argc, char** argv) {
+    printf("\n");
+
+    // on cree la table config_data
+    GSQLite()-&gt;QueryWrite(GManager()-&gt;Format("\
+    create table if not exists config_data (\n\
+    config_key text,\n\
+    config_value text\n\
+    )"));
+    
+    m_GSQLiteUiO-&gt;G_STATE = "S_SAVE";
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-3.6 - Lecture d'une donnée"><a class="Link9" href="#Base de données avec SQLite">3.6 - Lecture d'une donnée</a></h2><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-3.6.1 - Programme de lecture"><a class="Link9" href="#Base de données avec SQLite">3.6.1 - Programme de lecture</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+static void* GSQLite_QueryValue(char* sqlQuery) {
+    // on definit les parametres a utiliser
+    // dans la fonction de rappel
+    sGSQLiteData lParams = {0, 0};
+    // on execute la requete de lecture
+    GSQLite_Exec(sqlQuery, GSQLite_OnQueryValue, &lParams);
+    if(lParams.data == 0) lParams.data = GManager()-&gt;CopyStr("");
+    return lParams.data;
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-3.6.2 - Structure des paramètres"><a class="Link9" href="#Base de données avec SQLite">3.6.2 - Structure des paramètres</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+struct _sGSQLiteData {
+    // on definit le pointeur de donnees
+    void* data;
+    // on definit le compteur de donnees
+    int count;
+};
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-3.6.3 - Fonction de rappel"><a class="Link9" href="#Base de données avec SQLite">3.6.3 - Fonction de rappel</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+static int GSQLite_OnQueryValue(void* params, int colCount, char** colValue, char** colName) {
+    // on recupere les parametres
+    sGSQLiteData* lParams = params;
+    // on verifie qu'on a la premiere donnee
+    if(lParams-&gt;count == 0) {
+        // on recupere la premiere donnee
+        lParams-&gt;data = GManager()-&gt;CopyStr(colValue[0]);
+    }
+    // on fait avancer le compteur 
+    lParams-&gt;count++;
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-3.6.4 - Exemple de lecture"><a class="Link9" href="#Base de données avec SQLite">3.6.4 - Exemple de lecture</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+static int GConfig_CountData(char* key) {
+    // on recupere le nombre d'elements de la table (config_data)
+    // associe a la cle (key)
+    char* lValue = GSQLite()-&gt;QueryValue(GManager()-&gt;Format("\
+    select count(*) from config_data\n\
+    where config_key = '%s'\n\
+    ", key));
+    // on convertit la chaine en entier
+    int lCount = atoi(lValue);
+    // on libere la memoire allouvve
+    free(lValue);
+    // on retourne le nombre d'elements
+    return lCount;
+}
+//===============================================</xmp></pre></div><br><br><br><br></div></div></div></div><br>
