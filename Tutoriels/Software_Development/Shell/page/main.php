@@ -12,4 +12,149 @@ echo "Bonjour tout le monde"
 #================================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.2 - Exécuter le projet"><a class="Link9" href="#Tests">1.1.2 - Exécuter le projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">./main.sh</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Bonjour tout le monde</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-2 - Test sous Linux"><a class="Link9" href="#Tests">2 - Test sous Linux</a></h2><br><h2 class="Title7 GTitle2" id="Tests-2.1 - Test sous Ubuntu"><a class="Link9" href="#Tests">2.1 - Test sous Ubuntu</a></h2><br><h2 class="Title7 GTitle2" id="Tests-2.1.1 - Éditer le programme"><a class="Link9" href="#Tests">2.1.1 - Éditer le programme</a></h2><br><h3 class="Title8 GTitle3">main.sh</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">#================================================
 # on affiche un message a l'ecran
 echo "Bonjour tout le monde"
-#================================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-2.1.2 - Exécuter le projet"><a class="Link9" href="#Tests">2.1.2 - Exécuter le projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">sudo chmod 755 main.sh</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">./main.sh</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Bonjour tout le monde</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Système d'administration"><a class="Link3" href="#">Système d'administration</a></h1><div class="Body3"><br>Créer un système d'administration en Shell.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1617653866949"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1617653866949");</script></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Introduction"><a class="Link9" href="#Système d'administration">Introduction</a></h2><br><br><br></div></div></div></div><br>
+#================================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-2.1.2 - Exécuter le projet"><a class="Link9" href="#Tests">2.1.2 - Exécuter le projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">sudo chmod 755 main.sh</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">./main.sh</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Bonjour tout le monde</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Système d'administration"><a class="Link3" href="#">Système d'administration</a></h1><div class="Body3"><br>Créer un système d'administration en Shell.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1617653866949"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1617653866949");</script></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Introduction"><a class="Link9" href="#Système d'administration">Introduction</a></h2><br>Le système d'administration que nous présentons ici est une interface en ligne de commande permettant d'accéder à toutes les fonctionnalités d'une application.<br><br><h2 class="Title7 GTitle2" id="Système d'administration-Programme principal"><a class="Link9" href="#Système d'administration">Programme principal</a></h2><br><h3 class="Title8 GTitle3">GProcess.sh</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">#================================================
+function GProcess_Ui() {
+    # on initialise la base donnees
+    GSQLite_Init
+    # on lance le systeme d'administration
+    GProcessUi_Run $@
+}
+#================================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Structure du système d'administration"><a class="Link9" href="#Système d'administration">Structure du système d'administration</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">#================================================
+# on source les scripts dont on aura besoin
+# cela permet d'utiliser leurs fonctions
+. manager/GSQLiteUi.sh
+. manager/GConfig.sh
+#================================================
+# on definit l'etat global du systeme 
+G_STATE=""
+#================================================
+# on execute la fonction d'entree du systeme
+# c'est une machine a etats finis
+#================================================
+function GProcessUi_Run() {
+    # on definit l'etat initial du systeme
+    G_STATE="S_INIT"
+    # on rentre dans la boucle de controle
+    while [ 1 ] ; do
+        # on verifie l'etat courant du systeme
+        # on exectue la fonction correspondante
+        # on fait evoluer le systeme vers l'etat suivant
+        if [ "$G_STATE" = "S_INIT" ] ; then GProcessUi_INIT $@
+        elif [ "$G_STATE" = "S_METHOD" ] ; then GProcessUi_METHOD $@
+        elif [ "$G_STATE" = "S_CHOICE" ] ; then GProcessUi_CHOICE $@
+        #
+        elif [ "$G_STATE" = "S_SQLITE" ] ; then GProcessUi_SQLITE $@
+        elif [ "$G_STATE" = "S_STRING" ] ; then GProcessUi_STRING $@
+        #
+        elif [ "$G_STATE" = "S_SAVE" ] ; then GProcessUi_SAVE $@
+        elif [ "$G_STATE" = "S_LOAD" ] ; then GProcessUi_LOAD $@
+        else break
+        fi
+    done
+}
+#================================================
+# on definit la fonction d'initialisation
+# on affiche quelques informations d'ordre general
+# puis on passe au chargement des donnees
+#================================================
+function GProcessUi_INIT() {
+    printf "\n"
+    printf "ADMIN !!!\n"
+    printf "\t%-2s : %s\n" "-q" "quitter l'application"
+    printf "\n"
+    G_STATE="S_LOAD"
+}
+#================================================
+function GProcessUi_METHOD() {
+    printf "ADMIN :\n"
+    printf "\t%-2s : %s\n" "1" "S_SQLITE"
+    printf "\t%-2s : %s\n" "2" "S_STRING"
+    printf "\n"
+    G_STATE="S_CHOICE"
+}
+#================================================
+function GProcessUi_CHOICE() {
+    local lAnswer=""
+    read -p "ADMIN ($G_ADMIN_ID) ? " lAnswer
+    if [ "$lAnswer" = "" ] ; then lAnswer="$G_ADMIN_ID" ; fi
+    if [ "$lAnswer" = "-q" ] ; then G_STATE="S_END"
+    #
+    elif [ "$lAnswer" = "1" ] ; then G_STATE="S_SQLITE" ; G_ADMIN_ID="$lAnswer"
+    elif [ "$lAnswer" = "2" ] ; then G_STATE="S_STRING" ; G_ADMIN_ID="$lAnswer"
+    #
+    fi
+}
+#================================================
+function GProcessUi_SQLITE() {
+    GSQLiteUi_Run $@
+    G_STATE="S_SAVE"
+}
+#================================================
+function GProcessUi_STRING() {
+    printf "\n"
+    printf "GProcessUi_STRING\n"
+    G_STATE="S_SAVE"
+}
+#================================================
+function GProcessUi_SAVE() {
+    GConfig_SaveData "G_ADMIN_ID" "$G_ADMIN_ID"
+    G_STATE="S_END"
+}
+#================================================
+function GProcessUi_LOAD() {
+    G_ADMIN_ID=$(GConfig_LoadData "G_ADMIN_ID")
+    G_STATE="S_METHOD"
+}
+#================================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Résultat ds opérations"><a class="Link9" href="#Système d'administration">Résultat ds opérations</a></h2><br><h2 class="Title7 GTitle2" id="Système d'administration-1 - Menu principal"><a class="Link9" href="#Système d'administration">1 - Menu principal</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">ADMIN !!!
+        -q : quitter l'application
+
+ADMIN :
+        1  : S_SQLITE
+        2  : S_STRING
+
+ADMIN (1) ? 1</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-2 - Menu du module SQLite"><a class="Link9" href="#Système d'administration">2 - Menu du module SQLite</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">SQLITE !!!
+        -q : quitter l'application
+
+SQLITE :
+        1  : afficher la version
+        2  : afficher les tables
+        3  : afficher la table config_data
+
+SQLITE (1) ? 1</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-2.1 - Affichage de la version"><a class="Link9" href="#Système d'administration">2.1 - Affichage de la version</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">SQLITE !!!
+        -q : quitter l'application
+
+SQLITE :
+        1  : afficher la version
+        2  : afficher les tables
+        3  : afficher la table config_data
+
+SQLITE (1) ? 1
+
+3.35.4 2021-04-02 15:20:15 5d4c65779dab868b285519b19e4cf9d451d50c6048f06f653aa701ec212df45e
+
+SHELL_QUIT (Oui/[N]on) ?</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-2.2 - Affichage des tables"><a class="Link9" href="#Système d'administration">2.2 - Affichage des tables</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">SQLITE :
+        1  : afficher la version
+        2  : afficher les tables
+        3  : afficher la table config_data
+
+SQLITE (1) ? 2
+
+config_data
+
+SHELL_QUIT (Oui/[N]on) ?</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-2.3 - Affichage de la table config_data"><a class="Link9" href="#Système d'administration">2.3 - Affichage de la table config_data</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">SQLITE !!!
+        -q : quitter l'application
+
+SQLITE :
+        1  : afficher la version
+        2  : afficher les tables
+        3  : afficher la table config_data
+
+SQLITE (2) ? 3
+
++----------------------+----------------------+
+| G_SQLITE_ID          | 2                    |
++----------------------+----------------------+
+| G_ADMIN_ID           | 1                    |
++----------------------+----------------------+
+
+SHELL_QUIT (Oui/[N]on) ?</xmp></pre></div><br></div></div></div></div><br>
