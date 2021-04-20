@@ -19,7 +19,7 @@ function GProcess_Ui() {
     # on lance le systeme d'administration
     GProcessUi_Run $@
 }
-#================================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Structure du système d'administration"><a class="Link9" href="#Système d'administration">Structure du système d'administration</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">#================================================
+#================================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Structure du système d'administration"><a class="Link9" href="#Système d'administration">Structure du système d'administration</a></h2><br><h3 class="Title8 GTitle3">GProcessUi.sh</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">#================================================
 # on source les scripts dont on aura besoin
 # cela permet d'utiliser leurs fonctions
 . manager/GSQLiteUi.sh
@@ -54,8 +54,8 @@ function GProcessUi_Run() {
 }
 #================================================
 # on definit la fonction d'initialisation
-# on affiche quelques informations d'ordre general
-# puis on passe au chargement des donnees
+# en affichant quelques informations d'ordre general
+# puis on passe a l'etat chargement des donnees
 #================================================
 function GProcessUi_INIT() {
     printf "\n"
@@ -65,6 +65,13 @@ function GProcessUi_INIT() {
     G_STATE="S_LOAD"
 }
 #================================================
+# on definit la fonction d'affichage des methodes
+# en affichant l'ensemble des modules du systeme
+# ou a chaque module on associe un numero d'acces
+# (1) pour le module (SQLITE)
+# (2) pour le module (STRING) 
+# puis on passe a l'etat choix d'une methode
+#================================================
 function GProcessUi_METHOD() {
     printf "ADMIN :\n"
     printf "\t%-2s : %s\n" "1" "S_SQLITE"
@@ -72,6 +79,11 @@ function GProcessUi_METHOD() {
     printf "\n"
     G_STATE="S_CHOICE"
 }
+#================================================
+# on definit la fonction de choix d'une methode
+# en demendant a l'utilisateur de saisir le numero
+# du module auquel il veut acceder
+# puis on passe a l'etat execution du module
 #================================================
 function GProcessUi_CHOICE() {
     local lAnswer=""
@@ -85,10 +97,18 @@ function GProcessUi_CHOICE() {
     fi
 }
 #================================================
+# on definit la fonction d'execution du module SQLITE
+# en faisant appel a son interface d'administration
+# puis on passe a l'etat sauvegarde des donnees
+#================================================
 function GProcessUi_SQLITE() {
     GSQLiteUi_Run $@
     G_STATE="S_SAVE"
 }
+#================================================
+# on definit la fonction d'execution du module STRING
+# en faisant appel a son interface d'administration
+# puis on passe a l'etat sauvegarde des donnees
 #================================================
 function GProcessUi_STRING() {
     printf "\n"
@@ -96,10 +116,20 @@ function GProcessUi_STRING() {
     G_STATE="S_SAVE"
 }
 #================================================
+# on definit la fonction de sauvegarde des donnees
+# sous la forme d'un systeme de cle valeur
+# dans une base de donnees SQLite
+# puis on passe a l'etat termine
+#================================================
 function GProcessUi_SAVE() {
     GConfig_SaveData "G_ADMIN_ID" "$G_ADMIN_ID"
     G_STATE="S_END"
 }
+#================================================
+# on definit la fonction de chargement des donnees
+# structurees sous la forme d'un systeme de cle/valeur
+# dans une base de donnees SQLite
+# puis on passe a l'etat affichage des methodes
 #================================================
 function GProcessUi_LOAD() {
     G_ADMIN_ID=$(GConfig_LoadData "G_ADMIN_ID")
