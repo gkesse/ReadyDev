@@ -2,7 +2,120 @@
 ::===============================================
 :: on affiche un message a l'ecran
 echo Bonjour tout le monde
-::===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.2 - Exécuter le projet"><a class="Link9" href="#Tests">1.1.2 - Exécuter le projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">main.bat</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Bonjour tout le monde</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="GnuWin"><a class="Link3" href="#">GnuWin</a></h1><div class="Body3"><br><b>GnuWin </b>est un paquetage du projet GNU contenant de nombreux outils de base nécessaires pour les systèmes d'exploitation de type Unix tels que cat, ls, rm, etc, modifié pour fonctionner sous Windows.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1618938497776"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1618938497776");</script></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Batch/img/b_gnuwin.png" alt="/Tutoriels/Software_Development/Batch/img/b_gnuwin.png"></div><br><h2 class="Title7 GTitle2" id="GnuWin-1 - Référentiel"><a class="Link9" href="#GnuWin">1 - Référentiel</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://sourceforge.net/projects/gnuwin32/files/">https://sourceforge.net/projects/gnuwin32/files/</a><br><br><h2 class="Title7 GTitle2" id="GnuWin-2 - CoreUtils"><a class="Link9" href="#GnuWin">2 - CoreUtils</a></h2><br><h2 class="Title7 GTitle2" id="GnuWin-2.1 - Installation"><a class="Link9" href="#GnuWin">2.1 - Installation</a></h2><br><h2 class="Title7 GTitle2" id="GnuWin-2.1.1 - Installation sous Windows"><a class="Link9" href="#GnuWin">2.1.1 - Installation sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="GnuWin-2.1.1.1 - Télécharger CoreUtils"><a class="Link9" href="#GnuWin">2.1.1.1 - Télécharger CoreUtils</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://sourceforge.net/projects/gnuwin32/files/coreutils/5.3.0/coreutils-5.3.0-bin.zip">https://sourceforge.net/projects/gnuwin32/files/coreutils/5.3.0/coreutils-5.3.0-bin.zip</a><br><br><h2 class="Title7 GTitle2" id="GnuWin-2.1.1.2 - Télécharger les dépendances"><a class="Link9" href="#GnuWin">2.1.1.2 - Télécharger les dépendances</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://sourceforge.net/projects/gnuwin32/files/coreutils/5.3.0/coreutils-5.3.0-dep.zip">https://sourceforge.net/projects/gnuwin32/files/coreutils/5.3.0/coreutils-5.3.0-dep.zip</a><br><br><h2 class="Title7 GTitle2" id="GnuWin-2.1.1.3 - Installer CoreUtils"><a class="Link9" href="#GnuWin">2.1.1.3 - Installer CoreUtils</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">Extraire -&gt; coreutils-5.3.0-bin.zip
+::===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.2 - Exécuter le projet"><a class="Link9" href="#Tests">1.1.2 - Exécuter le projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">main.bat</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Bonjour tout le monde</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Système d'administration"><a class="Link3" href="#">Système d'administration</a></h1><div class="Body3"><br>Créer un système d'administration en Shell.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1619045578000"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1619045578000");</script></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Batch/img/b_batch_admin_system.png" alt="/Tutoriels/Software_Development/Batch/img/b_batch_admin_system.png"></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Introduction"><a class="Link9" href="#Système d'administration">Introduction</a></h2><br>Le système d'administration que nous présentons ici est une interface en ligne de commande permettant d'accéder à toutes les fonctionnalités d'une application.<br><br><h2 class="Title7 GTitle2" id="Système d'administration-Programme principal"><a class="Link9" href="#Système d'administration">Programme principal</a></h2><br><h3 class="Title8 GTitle3">GProcess.bat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">::===============================================
+:Ui
+    :: on initialise la base de donnees
+    call manager\GSQLite :Init %*
+    :: on appelle le systeme d'administration
+    call manager\GProcessUi :Run %*
+goto :eof
+::===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Structure du système d'administration"><a class="Link9" href="#Système d'administration">Structure du système d'administration</a></h2><br><h3 class="Title8 GTitle3">GProcessUi.bat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off 
+::===============================================
+call %*
+goto :eof
+::===============================================
+:: on execute la fonction d'entree du systeme
+:: c'est une machine a etats finis
+::===============================================
+:Run
+    :: on definit l'etat initial du systeme
+    set "G_STATE=S_INIT"   
+    :: on rentre dans la boucle de controle
+    :: on verifie l'etat courant du systeme
+    :: on exectue la fonction correspondante
+    :: on fait evoluer le systeme vers l'etat suivant 
+:RunLoop
+    if "%G_STATE%" == "S_INIT" ( goto INIT %*
+    ) else ( if "%G_STATE%" == "S_METHOD" ( goto METHOD %*
+    ) else ( if "%G_STATE%" == "S_CHOICE" ( goto CHOICE %*
+    ) else ( if "%G_STATE%" == "S_SQLITE" ( goto SQLITE %*
+    ) else ( if "%G_STATE%" == "S_STRING" ( goto STRING %*
+    ) else ( if "%G_STATE%" == "S_SAVE" ( goto SAVE %*
+    ) else ( if "%G_STATE%" == "S_LOAD" ( goto LOAD %*
+    ) else ( goto :eof 
+    )))))))
+goto :RunLoop
+::===============================================
+:: on definit la fonction d'initialisation
+:: en affichant quelques informations d'ordre general
+:: puis on passe a l'etat chargement des donnees
+::===============================================
+:INIT
+    printf "\n"
+    printf "ADMIN !!!\n"
+    printf "\t%%-2s : %%s\n" "-q" "quitter l'application"
+    printf "\n"
+    set "G_STATE=S_LOAD"
+goto :RunLoop
+::===============================================
+:: on definit la fonction d'affichage des methodes
+:: en affichant l'ensemble des modules du systeme
+:: ou a chaque module on associe un numero d'acces
+:: (1) pour le module (SQLITE)
+:: (2) pour le module (STRING) 
+:: puis on passe a l'etat choix d'une methode
+::===============================================
+:METHOD
+    printf "ADMIN :\n"
+    printf "\t%%-2s : %%s\n" "1" "S_SQLITE"
+    printf "\t%%-2s : %%s\n" "2" "S_STRING"
+    printf "\n"
+    set "G_STATE=S_CHOICE"
+goto :RunLoop
+::===============================================
+:: on definit la fonction de choix d'une methode
+:: en demendant a l'utilisateur de saisir le numero
+:: du module auquel il veut acceder
+:: puis on passe a l'etat execution du module
+::===============================================
+:CHOICE
+    set "lAnswer="
+    set /p lAnswer="ADMIN (%G_ADMIN_ID%) ? "
+    if "%lAnswer%" == "" ( set "lAnswer=%G_ADMIN_ID%" )
+    if "%lAnswer%" == "-q" ( set "G_STATE=S_END" 
+    ) else ( if "%lAnswer%" == "1" ( set "G_STATE=S_SQLITE" && set "G_ADMIN_ID=%lAnswer%" 
+    ) else ( if "%lAnswer%" == "2" ( set "G_STATE=S_STRING" && set "G_ADMIN_ID=%lAnswer%" 
+    )))
+goto :RunLoop
+::===============================================
+:: on definit la fonction d'execution du module SQLITE
+:: en faisant appel a son interface d'administration
+:: puis on passe a l'etat sauvegarde des donnees
+::===============================================
+:SQLITE
+    call manager\GSQLiteUi :Run %*
+    set "G_STATE=S_SAVE"
+goto :RunLoop
+::===============================================
+:: on definit la fonction d'execution du module STRING
+:: en faisant appel a son interface d'administration
+:: puis on passe a l'etat sauvegarde des donnees
+::===============================================
+:STRING
+    call manager\GStringUi :Run %*
+    set "G_STATE=S_SAVE"
+goto :RunLoop
+::===============================================
+:: on definit la fonction de sauvegarde des donnees
+:: sous la forme d'un systeme de cle valeur
+:: dans une base de donnees SQLite
+:: puis on passe a l'etat termine
+::===============================================
+:SAVE
+    call manager\GConfig :Save G_ADMIN_ID %G_ADMIN_ID%
+    set "G_STATE=S_END"
+goto :RunLoop
+::===============================================
+:: on definit la fonction de chargement des donnees
+:: structurees sous la forme d'un systeme de cle/valeur
+:: dans une base de donnees SQLite
+:: puis on passe a l'etat affichage des methodes
+::===============================================
+:LOAD
+    call manager\GConfig :Load G_ADMIN_ID G_ADMIN_ID
+    set "G_STATE=S_METHOD"
+goto :RunLoop
+::===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Résultat des opérations"><a class="Link9" href="#Système d'administration">Résultat des opérations</a></h2><br><h2 class="Title7 GTitle2" id="Système d'administration-1 - Menu principal"><a class="Link9" href="#Système d'administration">1 - Menu principal</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Batch/img/i_batch_admin_system.png" alt="/Tutoriels/Software_Development/Batch/img/i_batch_admin_system.png"></div><br><h2 class="Title7 GTitle2" id="Système d'administration-2 - Menu du module SQLite"><a class="Link9" href="#Système d'administration">2 - Menu du module SQLite</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Batch/img/i_batch_admin_system_02.png" alt="/Tutoriels/Software_Development/Batch/img/i_batch_admin_system_02.png"></div><br><h2 class="Title7 GTitle2" id="Système d'administration-2.1 - Affichage de la version"><a class="Link9" href="#Système d'administration">2.1 - Affichage de la version</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Batch/img/i_batch_admin_system_03.png" alt="/Tutoriels/Software_Development/Batch/img/i_batch_admin_system_03.png"></div><br><h2 class="Title7 GTitle2" id="Système d'administration-2.2 - Affichage des tables"><a class="Link9" href="#Système d'administration">2.2 - Affichage des tables</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Batch/img/i_batch_admin_system_04.png" alt="/Tutoriels/Software_Development/Batch/img/i_batch_admin_system_04.png"></div><br><h2 class="Title7 GTitle2" id="Système d'administration-2.3 - Affichage de la table CONFIG_DATA"><a class="Link9" href="#Système d'administration">2.3 - Affichage de la table CONFIG_DATA</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Batch/img/i_batch_admin_system_05.png" alt="/Tutoriels/Software_Development/Batch/img/i_batch_admin_system_05.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="GnuWin"><a class="Link3" href="#">GnuWin</a></h1><div class="Body3"><br><b>GnuWin </b>est un paquetage du projet GNU contenant de nombreux outils de base nécessaires pour les systèmes d'exploitation de type Unix tels que cat, ls, rm, etc, modifié pour fonctionner sous Windows.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1618938497776"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1618938497776");</script></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Batch/img/b_gnuwin.png" alt="/Tutoriels/Software_Development/Batch/img/b_gnuwin.png"></div><br><h2 class="Title7 GTitle2" id="GnuWin-1 - Référentiel"><a class="Link9" href="#GnuWin">1 - Référentiel</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://sourceforge.net/projects/gnuwin32/files/">https://sourceforge.net/projects/gnuwin32/files/</a><br><br><h2 class="Title7 GTitle2" id="GnuWin-2 - CoreUtils"><a class="Link9" href="#GnuWin">2 - CoreUtils</a></h2><br><h2 class="Title7 GTitle2" id="GnuWin-2.1 - Installation"><a class="Link9" href="#GnuWin">2.1 - Installation</a></h2><br><h2 class="Title7 GTitle2" id="GnuWin-2.1.1 - Installation sous Windows"><a class="Link9" href="#GnuWin">2.1.1 - Installation sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="GnuWin-2.1.1.1 - Télécharger CoreUtils"><a class="Link9" href="#GnuWin">2.1.1.1 - Télécharger CoreUtils</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://sourceforge.net/projects/gnuwin32/files/coreutils/5.3.0/coreutils-5.3.0-bin.zip">https://sourceforge.net/projects/gnuwin32/files/coreutils/5.3.0/coreutils-5.3.0-bin.zip</a><br><br><h2 class="Title7 GTitle2" id="GnuWin-2.1.1.2 - Télécharger les dépendances"><a class="Link9" href="#GnuWin">2.1.1.2 - Télécharger les dépendances</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://sourceforge.net/projects/gnuwin32/files/coreutils/5.3.0/coreutils-5.3.0-dep.zip">https://sourceforge.net/projects/gnuwin32/files/coreutils/5.3.0/coreutils-5.3.0-dep.zip</a><br><br><h2 class="Title7 GTitle2" id="GnuWin-2.1.1.3 - Installer CoreUtils"><a class="Link9" href="#GnuWin">2.1.1.3 - Installer CoreUtils</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">Extraire -&gt; coreutils-5.3.0-bin.zip
 Extraire -&gt; coreutils-5.3.0-dep.zip</xmp></pre></div><br><h2 class="Title7 GTitle2" id="GnuWin-2.2 - Tests"><a class="Link9" href="#GnuWin">2.2 - Tests</a></h2><br><h2 class="Title7 GTitle2" id="GnuWin-2.2.1 - Test sous Windows"><a class="Link9" href="#GnuWin">2.2.1 - Test sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="GnuWin-2.2.1.1 - Éditer le programme "><a class="Link9" href="#GnuWin">2.2.1.1 - Éditer le programme </a></h2><br><h3 class="Title8 GTitle3">main.bat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">@echo off 
 ::===============================================
 printf "%%-10s : %%s\n" "Nom" "KESSE"
