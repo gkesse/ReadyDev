@@ -86,14 +86,14 @@ echo "Bonjour tout le monde";
 //===============================================
 ?&gt;</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.2 - Afficher la page web"><a class="Link9" href="#Tests">1.1.2 - Afficher la page web</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="http://localhost:8800/">http://localhost:8800/</a><br><br><div class="Img3 GImage"><img src="/Tutoriels/Web/PHP/img/i_php_test.png" alt="/Tutoriels/Web/PHP/img/i_php_test.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Système d'administration"><a class="Link3" href="#">Système d'administration</a></h1><div class="Body3"><br>Créer un système d'administration en PHP.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1619045578000"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1619045578000");</script></div><br><div class="Img3 GImage"><img src="/Tutoriels/Web/PHP/img/b_php_admin_system.png" alt="/Tutoriels/Web/PHP/img/b_php_admin_system.png"></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Introduction"><a class="Link9" href="#Système d'administration">Introduction</a></h2><br>Le système d'administration que nous présentons ici est une interface en ligne de commande permettant d'accéder à toutes les fonctionnalités d'une application.<br><br><h2 class="Title7 GTitle2" id="Système d'administration-Programme principal"><a class="Link9" href="#Système d'administration">Programme principal</a></h2><br><h3 class="Title8 GTitle3">index.php</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="php">&lt;?php   
 //===============================================
-// on fait appel au chargeur automatique de classes
+// on appelle le chargeur automatique de classes
 require $_SERVER["DOCUMENT_ROOT"]."/webroot/php/class/GAutoload.php";
 //===============================================
-// on fait appel au patron post-redirect-get 
+// on appelle le patron post-redirect-get 
 // afin de resoudre les problemes 
 // de soumissions multiples de formulaire
 GManager::Instance()-&gt;redirectPost();
-// on fait appel au system d'aministration
+// on appelle le system d'aministration
 GProcess::Instance()-&gt;run();
 //===============================================
 ?&gt;</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Structure du système d'administration"><a class="Link9" href="#Système d'administration">Structure du système d'administration</a></h2><br><h3 class="Title8 GTitle3">GProcess.php</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="php">&lt;?php   
@@ -123,7 +123,7 @@ class GProcess {
         
         // on cree les base donnees du systeme
         GSQLite::Instance();
-        // on charger les donnees du systeme
+        // on charge les donnees du systeme
         GManager::Instance()-&gt;loadData();
         // on incremente le nombre vue de la page courante
         GView::Instance()-&gt;increment();
