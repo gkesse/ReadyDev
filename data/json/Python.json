@@ -16,23 +16,5 @@
         {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
         {"name":"Logiciel","link":"/Tutoriels/#Développement Logiciel","follow":"no"},
         {"name":"Python","link":"","follow":"no"}
-    ],
-    "libs":
-    [
-        {"name":"Interface Homme-Machine Qt","link":"/Tutoriels/Software_Development/Python/Qt/","follow":"no"},
-        {"name":"Base de données SQLite","link":"/Tutoriels/Software_Development/Python/SQLite/","follow":"no"}
-    ],
-    "basics":
-    [
-        {"name":"Créer un projet en Python","link":"/Tutoriels/Python/Cours/Project/","follow":"yes"},
-        {"name":"Créer un système d'administration en Python","link":"/Tutoriels/Python/Cours/Admin_System/","follow":"yes"}
-    ],
-    "sqlite":
-    [
-        {"name":"Créer un gestionnaire de module SQLite en Python","link":"/Tutoriels/Python/SQLite/System/","follow":"yes"}
-    ],
-    "qt":
-    [
-        {"name":"Créer un système d'administration Qt en Python","link":"/Tutoriels/Python/Qt/Admin_System/","follow":"yes"}
     ]
 }

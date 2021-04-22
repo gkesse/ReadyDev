@@ -88,21 +88,21 @@
             "icon":"fa fa-globe",
             "theme":"PHP",
             "description":"Programmez sous<br/> PHP",
-            "link":"/Tutoriels/PHP/",
+            "link":"/Tutoriels/Web/PHP/",
 			"follow":"yes"
         },
         {
             "icon":"fa fa-globe",
             "theme":"J2EE",
             "description":"Programmez sous<br/> J2EE",
-            "link":"/Tutoriels/J2EE/",
+            "link":"/Tutoriels/Web/J2EE/",
 			"follow":"yes"
         },
         {
             "icon":"fa fa-globe",
             "theme":"ASP.NET",
             "description":"Programmez sous<br/> ASP.NET",
-            "link":"/Tutoriels/ASP.NET/",
+            "link":"/Tutoriels/Web/ASP.NET/",
 			"follow":"yes"
         }
     ],    

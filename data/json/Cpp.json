@@ -16,10 +16,5 @@
         {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
         {"name":"Logiciel","link":"/Tutoriels/#Développement Logiciel","follow":"no"},
         {"name":"C++","link":"","follow":"no"}
-    ],
-    "libs":
-    [
-        {"name":"Interface Homme-Machine Qt","link":"/Tutoriels/Software_Development/Cpp/Qt/","follow":"no"},
-        {"name":"Vision par Ordinateur OpenCV","link":"/Tutoriels/Software_Development/Cpp/OpenCV/","follow":"no"}
     ]
 }

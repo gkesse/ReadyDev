@@ -16,35 +16,5 @@
         {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
         {"name":"Logiciel","link":"/Tutoriels/#Développement Logiciel","follow":"no"},
         {"name":"Go","link":"","follow":"no"}
-    ],
-    "libs":
-    [
-        {"name":"Interface Homme-Machine Qt","link":"/Tutoriels/Software_Development/Go/Qt/","follow":"no"}
-    ],
-    "basics":
-    [
-        {"name":"Créer un projet en Go","link":"/Tutoriels/Go/Cours/Project/","follow":"yes"},
-        {"name":"Créer un singleton en Go","link":"/Tutoriels/Go/Cours/Singleton/","follow":"yes"},
-        {"name":"Créer un projet Qt en Go","link":"/Tutoriels/Go/Cours/State_Machine/","follow":"yes"},
-        {"name":"Créer un programme en ligne de commande en Go","link":"/Tutoriels/Go/Cours/Command_Line/","follow":"yes"},
-        {"name":"Créer un manager de données en Go","link":"/Tutoriels/Go/Cours/Manager/","follow":"yes"}
-    ],
-    "wrapper":
-    [
-        {"name":"Utiliser une fonction C en Go","link":"/Tutoriels/Go/Wrapper/C_Function/","follow":"yes"},
-        {"name":"Utiliser une variable C en Go","link":"/Tutoriels/Go/Wrapper/C_Variable/","follow":"yes"},
-        {"name":"Utiliser une librairie statique C en Go","link":"/Tutoriels/Go/Wrapper/C_Static_Library/","follow":"yes"},
-        {"name":"Utiliser une librairie dynamique C en Go","link":"/Tutoriels/Go/Wrapper/C_Dynamic_Library/","follow":"yes"},
-        {"name":"Utiliser une librairie statique C++ en Go","link":"/Tutoriels/Go/Wrapper/Cpp_Static_Library/","follow":"yes"},
-        {"name":"Utiliser une librairie dynamique C++ en Go","link":"/Tutoriels/Go/Wrapper/Cpp_Dynamic_Library/","follow":"yes"},
-        {"name":"Utiliser une fonction C++ avec swig en Go","link":"/Tutoriels/Go/Wrapper/Swig_Cpp_Function/","follow":"yes"}
-    ],
-    "qt":
-    [
-        {"name":"Créer un projet Qt en Go","link":"/Tutoriels/Go/Qt/Project/","follow":"yes"},
-        {"name":"Ajouter un style Qt en Go","link":"/Tutoriels/Go/Qt/Style/","follow":"yes"},
-        {"name":"Charger une police personnalisée Qt en Go","link":"/Tutoriels/Go/Qt/Font/","follow":"yes"},
-        {"name":"Charger une icône Qt en Go","link":"/Tutoriels/Go/Qt/Icon/","follow":"yes"},
-        {"name":"Créer une fenêtre personnalisée Qt en Go","link":"/Tutoriels/Go/Qt/Window/","follow":"yes"}
     ]
 }

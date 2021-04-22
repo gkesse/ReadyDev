@@ -16,12 +16,6 @@
         {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
         {"name":"Logiciel","link":"/Tutoriels/#Développement Logiciel","follow":"no"},
         {"name":"C","link":"","follow":"no"}
-    ],
-    "libs":
-    [
-        {"name":"Interface Homme-Machine Gtk","link":"/Tutoriels/Software_Development/C0/Gtk/","follow":"no"},
-        {"name":"Vision par Ordinateur OpenCV","link":"#","follow":"no"},
-        {"name":"Base de données SQLite","link":"/Tutoriels/Software_Development/C0/SQLite/","follow":"no"}
     ]
 }
                         
