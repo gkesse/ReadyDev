@@ -5,22 +5,17 @@
         "meta_desc":
         [
 			"Le but de ce tutoriel est de vous apprendre",
-            "la programmation en J2EE.",
+            "la programmation web en J2EE.",
             "Produit par Gérard KESSE."
         ],
-        "meta_cano":"/Tutoriels/J2EE/",
-        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/J2EE/img/b_j2ee.png"
+        "meta_cano":"/Tutoriels/Web/J2EE/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Web/J2EE/img/b_j2ee.png"
     },    
     "links":
     [
-        {"name":"Tutoriels","link":"/Tutoriels/#Développement Web","follow":"no"},
+        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"Web","link":"/Tutoriels/#Développement Web","follow":"no"},
         {"name":"J2EE","link":"","follow":"no"}
-    ],
-    "basics":
-    [
-        {"name":"Créer un projet en J2EE","link":"/Tutoriels/J2EE/Cours/Project/","follow":"yes"},
-        {"name":"Configurer le port du serveur Tomcat en J2EE","link":"/Tutoriels/J2EE/Cours/Tomcat_Port/","follow":"yes"},
-        {"name":"Configurer la racine du serveur Tomcat en J2EE","link":"/Tutoriels/J2EE/Cours/Tomcat_Root/","follow":"yes"}
     ]
 }
                         

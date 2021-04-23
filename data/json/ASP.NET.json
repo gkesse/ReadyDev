@@ -5,20 +5,21 @@
         "meta_desc":
         [
 			"Le but de ce tutoriel est de vous apprendre",
-            "la programmation en ASP.NET.",
+            "la programmation web en ASP.NET.",
             "Produit par Gérard KESSE."
         ],
-        "meta_cano":"/Tutoriels/ASP.NET/",
-        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/ASP.NET/img/b_asp.net.png"
+        "meta_cano":"/Tutoriels/Web/ASP.NET/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Web/ASP.NET/img/b_asp.net.png"
     },    
     "links":
     [
-        {"name":"Tutoriels","link":"/Tutoriels/#Développement Web","follow":"no"},
+        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"Web","link":"/Tutoriels/#Développement Web","follow":"no"},
         {"name":"ASP.NET","link":"","follow":"no"}
     ],
     "basics":
     [
-        {"name":"Créer un projet en ASP.NET","link":"/Tutoriels/ASP.NET/Cours/Project/","follow":"yes"}
+        {"name":"Créer un projet en ASP.NET","link":"/Tutoriels/Web/ASP.NET/Cours/Project/","follow":"yes"}
     ]
 }
                         
