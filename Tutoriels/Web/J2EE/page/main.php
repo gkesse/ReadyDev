@@ -82,7 +82,8 @@ FICHIER_INDEX     -&gt; ReadyJ2EE\app\code\readyapp\src\index.html</xmp></pre></
     &lt;/Service&gt;
     &lt;!-- ============================================ --&gt;
 &lt;/Server&gt;</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.3 - Éditer le programme HTML"><a class="Link9" href="#Tests">1.1.3 - Éditer le programme HTML</a></h2><br><h3 class="Title8 GTitle3">index.html</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="html">&lt;!-- ============================================ --&gt;
-&lt;html&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang="fr"&gt;
     &lt;!-- ============================================ --&gt;
     &lt;head&gt;
         &lt;title&gt;ReadyApp&lt;/title&gt;
@@ -168,7 +169,8 @@ public class GMain extends HttpServlet {
         // on recupere le module d'impression (PrintWriter)
         PrintWriter lPrintWriter = response.getWriter();
         // on imprime la page html
-        lPrintWriter.println("&lt;html&gt;");
+        lPrintWriter.println("&lt;!DOCTYPE html&gt;");
+        lPrintWriter.println("&lt;html lang='fr'&gt;");
         lPrintWriter.println("&lt;head&gt;");
         lPrintWriter.println("&lt;title&gt;ReadyApp&lt;/title&gt;");
         lPrintWriter.println("&lt;/head&gt;");
@@ -185,7 +187,7 @@ set "PATH=C:\Program Files\Apache Software Foundation\Tomcat 7.0\bin;%PATH%"
 set "CLASSPATH=C:\Program Files\Apache Software Foundation\Tomcat 7.0\lib\servlet-api.jar;%CLASSPATH%"
 </xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">javac sources\com\pkg\readyapp\GMain.java ^
 -d classes ^
--sourcepath sources</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Servlet-Contenu du répertoire web"><a class="Link9" href="#Servlet">Contenu du répertoire web</a></h2><br><h3 class="Title8 GTitle3">WEB-INF</h3><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">│   web.xml
+-sourcepath sources</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Servlet-Contenu du répertoire web"><a class="Link9" href="#Servlet">Contenu du répertoire web</a></h2><br><h3 class="Title8 GTitle3">WEB-INF</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">│   web.xml
 │
 ├───classes
 │   └───com
@@ -197,4 +199,4 @@ set "CLASSPATH=C:\Program Files\Apache Software Foundation\Tomcat 7.0\lib\servle
     └───com
         └───pkg
             └───readyapp
-                    GMain.java</xmp></pre></div><br><br><h2 class="Title7 GTitle2" id="Servlet-Afficher la page web"><a class="Link9" href="#Servlet">Afficher la page web</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="http://localhost:8585/">http://localhost:8585/</a><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="http://localhost:8585/home/">http://localhost:8585/home/</a><br><br><div class="Img3 GImage"><img src="/Tutoriels/Web/J2EE/img/i_j2ee_servlet.png" alt="/Tutoriels/Web/J2EE/img/i_j2ee_servlet.png"></div><br></div></div></div></div><br>
+                    GMain.java</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Servlet-Afficher la page web"><a class="Link9" href="#Servlet">Afficher la page web</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="http://localhost:8585/">http://localhost:8585/</a><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="http://localhost:8585/home/">http://localhost:8585/home/</a><br><br><div class="Img3 GImage"><img src="/Tutoriels/Web/J2EE/img/i_j2ee_servlet.png" alt="/Tutoriels/Web/J2EE/img/i_j2ee_servlet.png"></div><br></div></div></div></div><br>
