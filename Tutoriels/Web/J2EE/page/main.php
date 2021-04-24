@@ -20,8 +20,8 @@ Install
 Cocher -&gt; Run Apache Tomcat
 Cocher -&gt; Show Readme
 Finish</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Tests"><a class="Link3" href="#">Tests</a></h1><div class="Body3"><br>Créer un projet J2EE.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1617649178149"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1617649178149");</script></div><br><h2 class="Title7 GTitle2" id="Tests-1 - Test sous Windows"><a class="Link9" href="#Tests">1 - Test sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Tests-1.1 - Test sous Tomcat"><a class="Link9" href="#Tests">1.1 - Test sous Tomcat</a></h2><br><h2 class="Title7 GTitle2" id="Tests-1.1.1 - Structure du projet"><a class="Link9" href="#Tests">1.1.1 - Structure du projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">REPERTOIRE_PROJET -&gt; ReadyJ2EE\app\code\
-REPERTOIRE_RACINE -&gt; ReadyJ2EE\app\code\readyapp\src\
-FICHIER_INDEX     -&gt; ReadyJ2EE\app\code\readyapp\src\index.html</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.2 - Configuration du serveur"><a class="Link9" href="#Tests">1.1.2 - Configuration du serveur</a></h2><br><h3 class="Title8 GTitle3">C:\Program Files\Apache Software Foundation\Tomcat 7.0\conf\server.xml</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="xml">&lt;?xml version='1.0' encoding='utf-8'?&gt;
+REPERTOIRE_RACINE -&gt; ReadyJ2EE\app\code\webapp\src\
+FICHIER_INDEX     -&gt; ReadyJ2EE\app\code\webapp\src\index.html</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.2 - Configuration du serveur"><a class="Link9" href="#Tests">1.1.2 - Configuration du serveur</a></h2><br><h3 class="Title8 GTitle3">C:\Program Files\Apache Software Foundation\Tomcat 7.0\conf\server.xml</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="xml">&lt;?xml version='1.0' encoding='utf-8'?&gt;
 &lt;Server port="8005" shutdown="SHUTDOWN"&gt;
     &lt;!-- ============================================ --&gt;
     &lt;Listener className="org.apache.catalina.startup.VersionLoggerListener" /&gt;
@@ -76,7 +76,7 @@ FICHIER_INDEX     -&gt; ReadyJ2EE\app\code\readyapp\src\index.html</xmp></pre></
                 suffix=".txt" pattern="%h %l %u %t %r %s %b" /&gt;
                 &lt;!-- on definit le repertoire des sources du serveur (readyapp\src) --&gt;
                 &lt;!-- c'est le repertoire contenant le fichier (index.html) --&gt;
-                &lt;Context docBase="readyapp\src" path="" reloadable="true"/&gt;            
+                &lt;Context docBase="webapp\src" path="" reloadable="true"/&gt;            
             &lt;/Host&gt; 
         &lt;/Engine&gt;
     &lt;/Service&gt;
@@ -95,13 +95,13 @@ FICHIER_INDEX     -&gt; ReadyJ2EE\app\code\readyapp\src\index.html</xmp></pre></
     &lt;!-- ============================================ --&gt;
 &lt;/html&gt;
 &lt;!-- ============================================ --&gt;</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.4 - Démarrer le serveur"><a class="Link9" href="#Tests">1.1.4 - Démarrer le serveur</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="html">set "PATH=C:\Program Files\Apache Software Foundation\Tomcat 7.0\bin;%PATH%"</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">tomcat7w</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Start</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.5 - Afficher la page web"><a class="Link9" href="#Tests">1.1.5 - Afficher la page web</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="http://localhost:8585/">http://localhost:8585/</a><br><br><div class="Img3 GImage"><img src="/Tutoriels/Web/J2EE/img/i_j2ee_test.png" alt="/Tutoriels/Web/J2EE/img/i_j2ee_test.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Servlet"><a class="Link3" href="#">Servlet</a></h1><div class="Body3"><br>Créer un servlet en J2EE.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1619190946627"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1619190946627");</script></div><br><h2 class="Title7 GTitle2" id="Servlet-Introduction"><a class="Link9" href="#Servlet">Introduction</a></h2><br>Un servlet est une classe Java qui permet de créer dynamiquement des données au sein d'un serveur HTTP. Ces données sont le plus généralement présentées au format HTML.<br><br><h2 class="Title7 GTitle2" id="Servlet-Structure du projet"><a class="Link9" href="#Servlet">Structure du projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">REPERTOIRE_PROJET -&gt; \code\
-REPERTOIRE_RACINE -&gt; \code\readyapp\src\
-REPERTOIRE_WEB    -&gt; \code\readyapp\src\WEB-INF\ (obligatoire)
-REPERTOIRE_SOURCE -&gt; \code\readyapp\src\WEB-INF\sources\
-REPERTOIRE_CLASSE -&gt; \code\readyapp\src\WEB-INF\classes\ (obligatoire)
-FICHIER_INDEX     -&gt; \code\readyapp\src\index.html
-FICHIER_CONFIG    -&gt; \code\readyapp\src\WEB-INF\web.xml
-FICHIER_SERVLET   -&gt; \code\readyapp\src\WEB-INF\sources\GMain.java</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Servlet-Éditer le programme HTML"><a class="Link9" href="#Servlet">Éditer le programme HTML</a></h2><br><h3 class="Title8 GTitle3">index.html</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="html">&lt;!-- ============================================ --&gt;
+REPERTOIRE_RACINE -&gt; \code\webapp\src\
+REPERTOIRE_WEB    -&gt; \code\webapp\src\WEB-INF\ (obligatoire)
+REPERTOIRE_SOURCE -&gt; \code\webapp\src\WEB-INF\sources\
+REPERTOIRE_CLASSE -&gt; \code\webapp\src\WEB-INF\classes\ (obligatoire)
+FICHIER_INDEX     -&gt; \code\webapp\src\index.html
+FICHIER_CONFIG    -&gt; \code\webapp\src\WEB-INF\web.xml
+FICHIER_SERVLET   -&gt; \code\webapp\src\WEB-INF\sources\GMain.java</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Servlet-Éditer le programme HTML"><a class="Link9" href="#Servlet">Éditer le programme HTML</a></h2><br><h3 class="Title8 GTitle3">index.html</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="html">&lt;!-- ============================================ --&gt;
 &lt;html&gt;
     &lt;!-- ============================================ --&gt;
     &lt;head&gt;
