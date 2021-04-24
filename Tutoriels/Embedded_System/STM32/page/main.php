@@ -30,7 +30,107 @@ Pinout & Configuration -&gt; Pinout View
 PB0 -&gt; GPIO_Output
 PB1 -&gt; GPIO_Output
 Project -&gt; Generate Code
-Yes</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.3 - Éditer le programme C"><a class="Link9" href="#Tests">1.1.3 - Éditer le programme C</a></h2><br><br><br><h2 class="Title7 GTitle2" id="Tests-1.1.4 - Configurer le fichier exécutable"><a class="Link9" href="#Tests">1.1.4 - Configurer le fichier exécutable</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">STM32CubeIDE
+Yes</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.3 - Éditer le programme C"><a class="Link9" href="#Tests">1.1.3 - Éditer le programme C</a></h2><br><h3 class="Title8 GTitle3">Core/Src/main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "main.h"
+//===============================================
+void SystemClock_Config(void);
+static void MX_GPIO_Init(void);
+//===============================================
+int main(void) {
+    // on initialise la couche d'abstraction materielle
+    HAL_Init();
+    SystemClock_Config();
+    MX_GPIO_Init();
+
+    while (1) {
+        // on initialise la broche PB0 a (1)
+        HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_SET);
+        // on initialise la broche PB1 a (0)
+        HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, GPIO_PIN_RESET);
+        // on attend pendant un delai de (500ms)
+        HAL_Delay(500);
+        // on initialise la broche PB0 a (0)
+        HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_RESET);
+        // on initialise la broche PB1 a (1)
+        HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, GPIO_PIN_SET);
+        HAL_Delay(500);
+        // on attend pendant un delai de (500ms)
+    }
+}
+//===============================================
+void SystemClock_Config(void) {
+    // on cree la structure de configuration de l'oscillateur
+    // interne/externe RCC (HSE, HSI, LSE et LSI).
+    RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+    // on cree la structure de configuration de l'horloge 
+    // des bus systeme RCC, AHB et APB.
+    RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+
+    // on definit le type de l'oscillateur
+    RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
+    // on definit l'etat du HSE
+    RCC_OscInitStruct.HSEState = RCC_HSE_ON;
+    // on definit l'etat de la PLL
+    RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
+    
+    // on initialise la configuration de l'oscillateur RCC
+    if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK) {
+        Error_Handler();
+    }
+
+    // on definit le type de l'horloge a configurer
+    RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK|RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+    // on definit la source de l'horloge systeme
+    RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSE;
+    // on definit le diviseur de l'horloge systeme (AHB)
+    RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+    // on definit le diviseur de l'horloge systeme (APB1)
+    RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
+    // on definit le diviseur de l'horloge systeme (APB2)
+    RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+
+    // on initialise la configuration de l'horloge des bus systeme
+    if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0) != HAL_OK) {
+        Error_Handler();
+    }
+}
+//===============================================
+static void MX_GPIO_Init(void) {
+    GPIO_InitTypeDef GPIO_InitStruct = {0};
+
+    // on active l'horloge des ports GPIO
+    __HAL_RCC_GPIOD_CLK_ENABLE();
+    __HAL_RCC_GPIOB_CLK_ENABLE();
+
+    // on configure en sortie les broches PB0 et PB1
+    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0|GPIO_PIN_1, GPIO_PIN_RESET);
+
+    // on configure en sortie les broches PB0 et PB1
+    // on definit les broches a configurer
+    GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_1;
+    // on definit le mode de fonctionnement des broches (inupt/output)
+    GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+    // on definit le mode pull (pull_up/pull_down)
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    // on definit la vitesse des broches (low/medium/high)
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+    // on initialise la configuration du GPIOB
+    HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+}
+//===============================================
+void Error_Handler(void) {
+    // on desactive les interruptions IRQ
+    __disable_irq();
+    // on rentre dans une boucle infinie
+    while (1) {}
+}
+//===============================================
+#ifdef  USE_FULL_ASSERT
+void assert_failed(uint8_t *file, uint32_t line) {
+
+}
+#endif
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.4 - Configurer le fichier exécutable"><a class="Link9" href="#Tests">1.1.4 - Configurer le fichier exécutable</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">STM32CubeIDE
 ReadyApp -&gt; Clic droit -&gt; Properties
 C/C++ Build -&gt; Settings -&gt; Tool Settings -&gt; MCU Post Build Outputs
 Cocher -&gt; Convert to Intel HEX File (-O ihex)
