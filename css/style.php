@@ -97,6 +97,7 @@ a {
 
 b {
     color: cyan;
+    word-break: break-word;
 }
 
 hr {
