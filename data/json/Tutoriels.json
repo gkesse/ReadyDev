@@ -138,6 +138,13 @@
             "description":"Programmez<br/>l'Arduino",
             "link":"/Tutoriels/Embedded_System/Arduino/",
 			"follow":"yes"
+        },
+        {
+            "icon":"fa fa-microchip",
+            "theme":"RaspberryPi",
+            "description":"Programmez le<br/>RaspberryPi",
+            "link":"/Tutoriels/Embedded_System/RaspberryPi/",
+			"follow":"yes"
         }
     ],    
     "3d_modeling":
