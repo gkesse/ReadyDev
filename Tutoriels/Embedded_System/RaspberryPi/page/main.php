@@ -55,4 +55,70 @@ Session name -&gt; Ubuntu
 OK</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Installation-6.1.1.2 - Démarrer la connexion SSH"><a class="Link9" href="#Installation">6.1.1.2 - Démarrer la connexion SSH</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">MobaXterm
 Sessions
 Ubuntu
-Double clic</xmp></pre></div><br></div></div></div></div><br>
+Double clic</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Yocto"><a class="Link3" href="#">Yocto</a></h1><div class="Body3"><br><b>Yocto </b>est un ensemble d'outils et de processus permettant la création de distributions Linux pour les logiciels embarqués et IoT, indépendamment de l'architecture sous-jacente du matériel embarqué.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1619354920059"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1619354920059");</script></div><br><h2 class="Title7 GTitle2" id="Yocto-1 - Création d'une image Linux embarqué"><a class="Link9" href="#Yocto">1 - Création d'une image Linux embarqué</a></h2><br><h2 class="Title7 GTitle2" id="Yocto-1.1 - Création sous Ubuntu"><a class="Link9" href="#Yocto">1.1 - Création sous Ubuntu</a></h2><br><h2 class="Title7 GTitle2" id="Yocto-1.1.1 - Installer les dépendances"><a class="Link9" href="#Yocto">1.1.1 - Installer les dépendances</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">sudo apt install -y \
+gawk \
+wget \
+git-core \
+diffstat \
+unzip \
+texinfo \
+build-essential \
+chrpath \
+socat \
+cpio \
+python3 \
+python3-pip \
+xz-utils \
+debianutils \
+iputils-ping \
+python3-git \
+python3-jinja2 \
+libegl1-mesa \
+libsdl1.2-dev \
+pylint3 \
+xterm \
+gcc-multilib \
+python3-pexpect \</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Yocto-1.1.2 - Télécharger les sources"><a class="Link9" href="#Yocto">1.1.2 - Télécharger les sources</a></h2><br><h2 class="Title7 GTitle2" id="Yocto-1.1.2.1 - Télécharger la distribution de référence Poky"><a class="Link9" href="#Yocto">1.1.2.1 - Télécharger la distribution de référence Poky</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">git clone -b dunfell git://git.yoctoproject.org/poky.git</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Yocto-1.1.2.2 - Télécharger la couche du RaspberryPi"><a class="Link9" href="#Yocto">1.1.2.2 - Télécharger la couche du RaspberryPi</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">cd poky/
+git clone -b dunfell git://git.yoctoproject.org/meta-raspberrypi.git</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Yocto-1.1.3 - Lister les machines supportées"><a class="Link9" href="#Yocto">1.1.3 - Lister les machines supportées</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">ls -l meta-raspberrypi/conf/machine/</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">drwxrwxr-x 2 rpi4 rpi4 4096 mars  14 00:54 include
+-rw-rw-r-- 1 rpi4 rpi4  300 mars  14 00:54 raspberrypi0.conf
+-rw-rw-r-- 1 rpi4 rpi4  585 mars  14 00:54 raspberrypi0-wifi.conf
+-rw-rw-r-- 1 rpi4 rpi4  342 mars  14 00:54 raspberrypi2.conf
+-rw-rw-r-- 1 rpi4 rpi4 1022 mars  14 00:54 raspberrypi3-64.conf
+-rw-rw-r-- 1 rpi4 rpi4  633 mars  14 00:54 raspberrypi3.conf
+-rw-rw-r-- 1 rpi4 rpi4 1054 mars  14 00:54 raspberrypi4-64.conf
+-rw-rw-r-- 1 rpi4 rpi4  595 mars  14 00:54 raspberrypi4.conf
+-rw-rw-r-- 1 rpi4 rpi4  402 mars  14 00:54 raspberrypi-cm3.conf
+-rw-rw-r-- 1 rpi4 rpi4  244 mars  14 00:54 raspberrypi-cm.conf
+-rw-rw-r-- 1 rpi4 rpi4  364 mars  14 00:54 raspberrypi.conf</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Yocto-1.1.4 - Initialiser les variables d'environnement"><a class="Link9" href="#Yocto">1.1.4 - Initialiser les variables d'environnement</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">. oe-init-build-env rpi-build</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Yocto-1.1.5 - Configurer la machine"><a class="Link9" href="#Yocto">1.1.5 - Configurer la machine</a></h2><br><h3 class="Title8 GTitle3">poky/conf/local.conf</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh"># on definit la machine cible
+MACHINE ??= "raspberrypi4-64"
+# configuration de base
+DISTRO ?= "poky"
+PACKAGE_CLASSES ?= "package_rpm"
+EXTRA_IMAGE_FEATURES ?= "debug-tweaks"
+USER_CLASSES ?= "buildstats image-mklibs image-prelink"
+PATCHRESOLVE = "noop"
+
+BB_DISKMON_DIRS ??= "\
+    STOPTASKS,${TMPDIR},1G,100K \
+    STOPTASKS,${DL_DIR},1G,100K \
+    STOPTASKS,${SSTATE_DIR},1G,100K \
+    STOPTASKS,/tmp,100M,100K \
+    ABORT,${TMPDIR},100M,1K \
+    ABORT,${DL_DIR},100M,1K \
+    ABORT,${SSTATE_DIR},100M,1K \
+    ABORT,/tmp,10M,1K"
+    
+PACKAGECONFIG_append_pn-qemu-system-native = " sdl"
+CONF_VERSION = "1"</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Yocto-1.1.6 - Configurer les couches"><a class="Link9" href="#Yocto">1.1.6 - Configurer les couches</a></h2><br><h3 class="Title8 GTitle3">poky/onf/bblayers.conf</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh"># configuration de base
+POKY_BBLAYERS_CONF_VERSION = "2"
+
+BBPATH = "${TOPDIR}"
+BBFILES ?= ""
+
+# on ajoute la couche meta-raspberrypi
+BBLAYERS ?= " \
+  /home/rpi4/Programs/ReadyRPI/app/yocto/poky/meta \
+  /home/rpi4/Programs/ReadyRPI/app/yocto/poky/meta-poky \
+  /home/rpi4/Programs/ReadyRPI/app/yocto/poky/meta-yocto-bsp \
+  /home/rpi4/Programs/ReadyRPI/app/yocto/poky/meta-raspberrypi \
+  "</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Yocto-1.1.7 - Générer l'image"><a class="Link9" href="#Yocto">1.1.7 - Générer l'image</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">bitbake core-image-base</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Notes et références"><a class="Link3" href="#">Notes et références</a></h1><div class="Body3"><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://medium.com/smileinnovation/introduction-%C3%A0-yocto-partie-2-38d979843cb7">Introduction à Yocto (partie 2)</a><br><br></div></div></div></div><br>
