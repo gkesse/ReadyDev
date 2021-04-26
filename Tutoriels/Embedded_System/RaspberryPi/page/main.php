@@ -179,4 +179,20 @@ BusyBox</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Buildroot-1.1.5.4.5.
     Kernel version
         Custom Git repository</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Buildroot-1.1.5.5.3 - Définir l'URL du noyau Linux"><a class="Link9" href="#Buildroot">1.1.5.5.3 - Définir l'URL du noyau Linux</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Kernel
     URL of custom repository
-        https://github.com/raspberrypi/linux.git</xmp></pre></div><br></div></div></div></div><br>
+        https://github.com/raspberrypi/linux.git</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Buildroot-1.1.5.6 - Configuration du système de fichier des images"><a class="Link9" href="#Buildroot">1.1.5.6 - Configuration du système de fichier des images</a></h2><br><h2 class="Title7 GTitle2" id="Buildroot-1.1.5.6.1 - Configurer le système de fichier"><a class="Link9" href="#Buildroot">1.1.5.6.1 - Configurer le système de fichier</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Filesystem images
+    [*] ext2/3/4 root filesystem
+        ext2/3/4 variant
+            ext4</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Buildroot-1.1.5.7 - Configuration du chargeur de démarrage"><a class="Link9" href="#Buildroot">1.1.5.7 - Configuration du chargeur de démarrage</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Bootloaders
+    Build system
+        Kconfig
+    U-Boot Version
+        Custom Git repository
+    URL of custom repository
+        https://github.com/u-boot/u-boot.git
+    Custom repository version
+        rpi</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Buildroot-1.1.5.8 - Configuration des packages"><a class="Link9" href="#Buildroot">1.1.5.8 - Configuration des packages</a></h2><br><h2 class="Title7 GTitle2" id="Buildroot-1.1.5.8.1 - Configuration du serveur ssh"><a class="Link9" href="#Buildroot">1.1.5.8.1 - Configuration du serveur ssh</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Target packages
+    Networking applications
+        [*] openssh
+            [*]   client
+            [*]   server
+            [*]   key utilities</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Buildroot-1.1.5.8.2 - Configuration du serveur x11"><a class="Link9" href="#Buildroot">1.1.5.8.2 - Configuration du serveur x11</a></h2><br><br><br><br><br><br><br><br><br><br><br><br></div></div></div></div><br>
