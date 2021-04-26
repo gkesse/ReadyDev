@@ -195,4 +195,18 @@ BusyBox</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Buildroot-1.1.5.4.5.
         [*] openssh
             [*]   client
             [*]   server
-            [*]   key utilities</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Buildroot-1.1.5.8.2 - Configuration du serveur x11"><a class="Link9" href="#Buildroot">1.1.5.8.2 - Configuration du serveur x11</a></h2><br><br><br><br><br><br><br><br><br><br><br><br></div></div></div></div><br>
+            [*]   key utilities</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Buildroot-1.1.5.8.2 - Configuration du serveur x11"><a class="Link9" href="#Buildroot">1.1.5.8.2 - Configuration du serveur x11</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Target packages
+    Graphic libraries and applications (graphic/text)
+        [*] X.org X Window System
+            X11R7 Servers
+                [*] xorg-server
+                    X Window System server type
+                        Modular X.org
+            X11R7 Applications
+                [*] xinit 
+            X11R7 Drivers
+                [*] xf86-input-keyboard
+                [*] xf86-input-mouse
+                [*] xf86-input-synaptics
+                [*] xf86-video-fbdev
+                [*] xf86-video-fbturbo</xmp></pre></div><br></div></div></div></div><br>
