@@ -133,4 +133,74 @@ lsblk -p
 # on démonte la carte SD de la machine
 umount /dev/sda*
 # on grave l'image sur la carte SD
-sudo dd if=core-image-minimal-raspberrypi4.rpi-sdimg of=/dev/sda</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Notes et références"><a class="Link3" href="#">Notes et références</a></h1><div class="Body3"><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://medium.com/smileinnovation/introduction-%C3%A0-yocto-partie-2-38d979843cb7">Introduction à Yocto (partie 2)</a><br><br></div></div></div></div><br>
+sudo dd if=core-image-minimal-raspberrypi4.rpi-sdimg of=/dev/sda</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Buildroot"><a class="Link3" href="#">Buildroot</a></h1><div class="Body3"><br><b>Buildroot </b>est un ensemble de Makefiles et de correctifs qui simplifie et automatise le processus de création d'un environnement Linux complet et amorçable pour un système embarqué , tout en utilisant la compilation croisée pour permettre la construction de plusieurs plates-formes cibles sur un seul système de développement basé sur Linux.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1619395596885"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1619395596885");</script></div><br><h2 class="Title7 GTitle2" id="Buildroot-1 - Génération d'une image Linux embarqué"><a class="Link9" href="#Buildroot">1 - Génération d'une image Linux embarqué</a></h2><br><h2 class="Title7 GTitle2" id="Buildroot-1.1 - Génération sous Ubuntu"><a class="Link9" href="#Buildroot">1.1 - Génération sous Ubuntu</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh"># on telecharge buildroot
+wget https://buildroot.org/downloads/buildroot-2021.02.1.tar.gz
+
+# on extraire buildroot
+tar xzfv buildroot-2021.02.1.tar.gz
+
+# on liste les machines supportees
+cd buildroot-2021.02.1
+ls -l configs
+
+# on genere la configuration par defaut pour le raspberrypi
+make raspberrypi4_64_defconfig
+
+# on personnalise la configuration pour le raspberrypi
+make menuconfig
+
+# Target Options
+Target Options -&gt; Target Architecture -&gt; AArch64 (Little Endian)
+Target Options -&gt; Target Binary Format -&gt; ELF
+Target Options -&gt; Target Architecture Variant -&gt; Cortex-A72
+Target Options -&gt; Floating Point Strategy -&gt; VFPv4
+
+# Build Options
+Build Options -&gt; Commands-&gt; Tar Options
+Build Options -&gt; Location to Save Buildroot Config-&gt; configs/raspberrypi4_64_defconfig
+Build Options -&gt; Download Dir -&gt; $(TOPDIR)/dl
+Build Options -&gt; Host Dir -&gt; $(TOPDIR)/host
+Build Options -&gt; Mirrors and Download Locations -&gt; Primary Download Site
+Build Options -&gt; Numbers of Jobs to Run Simultaneously (0 for Auto) -&gt; 0
+Build Options -&gt; Enable Compiler Cache -&gt; [ ]
+Build Options -&gt; Build Packages with Debugging Symbols -&gt; [ ]
+Build Options -&gt; Strip Target Binaries -&gt; [*]
+Build Options -&gt; Executables that Should not be Stripped -&gt; ( )
+Build Options -&gt; directories that should be skipped when stripping -&gt; ( )
+Build Options -&gt; gcc optimization level -&gt; optimize for size
+Build Options -&gt; libraries -&gt; shared only
+Build Options -&gt; location of a package override file-&gt; │$(CONFIG_DIR)/local.mk
+Build Options -&gt; global patch directories -&gt; ( )
+Build Options -&gt; Advanced -&gt; paranoid check of library/header paths -&gt;  [*]
+Build Options -&gt; Build code with PIC/PIE-&gt; [ ]
+Build Options -&gt; RELRO Protection -&gt; None
+
+# Toolchain
+Toolchain -&gt; Toolchain type-&gt; Buildroot toolchain
+Toolchain -&gt; custom toolchain vendor name -&gt; buildroot
+Toolchain -&gt;  C library -&gt; uClibc-ng
+Toolchain -&gt; Kernel Headers -&gt; Same as kernel being built 
+Toolchain -&gt; Custom kernel headers series -&gt; 5.10.x or later
+Toolchain -&gt; uClibc configuration file to use? -&gt; package/uclibc/uClibc-ng.config
+Toolchain -&gt; Additional uClibc configuration fragment files -&gt; ( )
+Toolchain -&gt; Enable WCHAR support -&gt; [ ]
+Toolchain -&gt; Enable toolchain locale/i18n support -&gt; [ ]
+Toolchain -&gt; Thread library implementation -&gt; Native POSIX Threading (NPTL)
+Toolchain -&gt; Thread library debugging -&gt; [ ]
+Toolchain -&gt; Enable stack protection support -&gt; [ ]
+Toolchain -&gt; Compile and install uClibc utilities -&gt; [*]
+Toolchain -&gt;  Binutils Version -&gt; binutils 2.35.2
+Toolchain -&gt; Additional binutils options -&gt; ( )
+Toolchain -&gt; GCC compiler Version -&gt;  gcc 9.x 
+Toolchain -&gt; Additional gcc options -&gt; ELF
+Toolchain -&gt;  Enable C++ support -&gt; [*]
+Toolchain -&gt; Enable Fortran support -&gt; [ ]
+Toolchain -&gt; Enable compiler link-time-optimization support -&gt; [ ]
+Toolchain -&gt; Enable compiler OpenMP support -&gt; [ ]
+Toolchain -&gt; Enable graphite support -&gt; [ ]
+Toolchain -&gt; Build cross gdb for the host -&gt; [ ]
+Toolchain -&gt; Extra toolchain libraries to be copied to target -&gt; ( )
+Toolchain -&gt; Enable MMU support -&gt; [*]
+Toolchain -&gt; Target Optimizations -&gt; ( )
+Toolchain -&gt; Target linker options -&gt; ( )
+Toolchain -&gt; Register toolchain within Eclipse Buildroot plug-in -&gt; [ ]</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Notes et références"><a class="Link3" href="#">Notes et références</a></h1><div class="Body3"><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://medium.com/smileinnovation/introduction-%C3%A0-yocto-partie-2-38d979843cb7">Introduction à Yocto (partie 2)</a><br><br></div></div></div></div><br>
