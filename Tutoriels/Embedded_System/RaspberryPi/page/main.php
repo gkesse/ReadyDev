@@ -209,4 +209,14 @@ BusyBox</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Buildroot-1.1.5.4.5.
                 [*] xf86-input-mouse
                 [*] xf86-input-synaptics
                 [*] xf86-video-fbdev
-                [*] xf86-video-fbturbo</xmp></pre></div><br></div></div></div></div><br>
+                [*] xf86-video-fbturbo</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Buildroot-1.1.5.8.3 - Configuration du développement 3D avec OpenGL"><a class="Link9" href="#Buildroot">1.1.5.8.3 - Configuration du développement 3D avec OpenGL</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Target packages
+    Graphic libraries and applications (graphic/text)
+        [*] mesa3d
+            [*]   Gallium vc4 driver
+            [*]   DRI swrast driver
+            [*]   OpenGL GLX
+            [*]   OpenGL ES</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Buildroot-1.1.5.8.3 - Configuration du développement d'IHM avec Qt"><a class="Link9" href="#Buildroot">1.1.5.8.3 - Configuration du développement d'IHM avec Qt</a></h2><br><h2 class="Title7 GTitle2" id="Buildroot-1.1.5.8.3.1 - Configuration du module des widgets"><a class="Link9" href="#Buildroot">1.1.5.8.3.1 - Configuration du module des widgets</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Target packages
+    Graphic libraries and applications (graphic/text)
+        [*] Qt5
+            [*]     gui module
+                [*]       widgets module</xmp></pre></div><br></div></div></div></div><br>
