@@ -203,4 +203,4 @@ Toolchain -&gt; Extra toolchain libraries to be copied to target -&gt; ( )
 Toolchain -&gt; Enable MMU support -&gt; [*]
 Toolchain -&gt; Target Optimizations -&gt; ( )
 Toolchain -&gt; Target linker options -&gt; ( )
-Toolchain -&gt; Register toolchain within Eclipse Buildroot plug-in -&gt; [ ]</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Notes et références"><a class="Link3" href="#">Notes et références</a></h1><div class="Body3"><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://medium.com/smileinnovation/introduction-%C3%A0-yocto-partie-2-38d979843cb7">Introduction à Yocto (partie 2)</a><br><br></div></div></div></div><br>
+Toolchain -&gt; Register toolchain within Eclipse Buildroot plug-in -&gt; [ ]</xmp></pre></div><br></div></div></div></div><br>
