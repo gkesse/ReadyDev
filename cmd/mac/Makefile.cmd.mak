@@ -1,6 +1,28 @@
 #================================================
 all:
 #================================================
+# apache
+apache_start:
+	@sudo apachectl start
+apache_restart:
+	@sudo apachectl restart
+apache_stop:
+	@sudo apachectl stop
+apache_httpd_ls:
+	@ls -lh /etc/apache2/httpd.conf
+apache_httpd_open:
+	@sudo chmod 777 /etc/apache2/httpd.conf
+apache_httpd_close:
+	@sudo chmod 644 /etc/apache2/httpd.conf
+#================================================
+# certbot
+certbot_list:
+	certbot-auto certificates
+#================================================
+# cmd
+cmd_chmod:
+	sudo chmod -R 777 $(GPROJECT_PATH)
+#================================================
 # git
 git_status:
 	@cd $(GPROJECT_PATH) && git status -u
@@ -25,13 +47,5 @@ git_config:
 	@git config --list
 git_store:
 	@git config --global credential.helper store
-#================================================
-# certbot
-certbot_list:
-	certbot-auto certificates
-#================================================
-# unix
-unix_chmod:
-	sudo chmod -R 777 $(GPROJECT_PATH)
 #================================================
 
