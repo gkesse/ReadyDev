@@ -18,6 +18,11 @@ git_rm:
 	@cd $(GPROJECT_PATH) && git rm -r $(argv)
 git_clone:
 	@cd $(GPROJECT_ROOT) && git clone $(GGIT_URL) $(GGIT_NAME) 
+git_config:
+	@git config --global user.name "Gerard KESSE"
+	@git config --global user.email "tiakagerard@hotmail.com"
+	@git config --global core.editor "vim"
+	@git config --list
 git_store:
 	@git config --global credential.helper store
 #================================================
