@@ -1,0 +1,4 @@
+#================================================
+export "GPROJECT_ROOT=/Users/imac/Desktop/Programs"
+export "GPROJECT_PATH=${GPROJECT_ROOT}/ReadyDev"
+#================================================
