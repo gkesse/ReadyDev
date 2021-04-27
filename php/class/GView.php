@@ -2,11 +2,9 @@
     class GView {
         private static $m_instance = null;
         private $m_page;
-        private $m_defaultView;
         //===============================================
         private function __construct() {
-            $this->setDefaultView(250);
-            GSQLite::Instance()->setDatabase("data/sqlite/database.dat");
+
         }
         //===============================================
         public static function Instance() {
@@ -14,10 +12,6 @@
                 self::$m_instance = new GView();  
             }
             return self::$m_instance;
-        }
-        //===============================================
-        public function setDefaultView($defaultView) {
-            $this->m_defaultView = $defaultView;
         }
         //===============================================
         public function getView($page) {
@@ -89,10 +83,11 @@
         }
         //===============================================
         public function viewInsert($page) {
+            $lApp = GManager::Instance()->getData()->app;
             $lPage = strtolower($page);
             GSQLite::Instance()->queryWrite("
                 insert into VIEWS (VIEW_KEY, VIEW_COUNT)
-                values ('$lPage', $this->m_defaultView)
+                values ('$lPage', $lApp->view_offset)
             ");
         }
         //===============================================

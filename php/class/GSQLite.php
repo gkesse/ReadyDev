@@ -3,10 +3,13 @@
         //===============================================
         private static $m_instance = null;
         private $m_pdo = null;
-        private $m_database;
         //===============================================
         private function __construct() {
-
+            $this->queryWrite(sprintf("
+            create table if not exists views (
+            view_key text,
+            view_count integer
+            )"));
         }
         //===============================================
         public static function Instance() {
@@ -16,12 +19,9 @@
             return self::$m_instance;
         }
         //===============================================
-        public function setDatabase($database) {
-            $this->m_database = GFile::Instance()->getPath($database);
-        }
-        //===============================================
         public function connect() {
-            $lUrl = "sqlite:$this->m_database";
+            $lApp = GManager::Instance()->getData()->app;
+            $lUrl = "sqlite:".$_SERVER["DOCUMENT_ROOT"].$lApp->sqlite_db_path;
             $this->m_pdo = new PDO($lUrl);
             $this->m_pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
             $this->m_pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
