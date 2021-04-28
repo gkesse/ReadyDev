@@ -14,7 +14,7 @@ class GManager {
         $this->mgr->app->app_name = "ReadyDev";
         $this->mgr->app->lang = "fr";
         $this->mgr->app->title = $this->mgr->app->app_name;
-        $this->mgr->app->sqlite_db_path = "/data/sqlite/config.dat";
+        $this->mgr->app->sqlite_db_path = "/data/sqlite/database.dat";
         $this->mgr->app->view_offset = 250;
     
     }
