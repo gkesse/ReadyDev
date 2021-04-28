@@ -37,7 +37,7 @@ git_pull:
 git_add:
 	@cd $(GPROJECT_PATH) && git add $(argv)
 git_rm:
-	@cd $(GPROJECT_PATH) && git rm -r $(argv)
+	@cd $(GPROJECT_PATH) && git rm -rf $(argv)
 git_clone:
 	@cd $(GPROJECT_ROOT) && git clone $(GGIT_URL) $(GGIT_NAME) 
 git_config:

@@ -198,6 +198,20 @@
     [
         {
             "icon":"fa fa-cogs",
+            "theme":"SSH",
+            "description":"Apprenez le<br/> protocole SSH",
+            "link":"/Tutoriels/Resources/SSH/",
+			"follow":"yes"
+        },
+        {
+            "icon":"fa fa-cogs",
+            "theme":"Editeurs de texte",cd
+            "description":"Apprenez les<br/> Editeurs de texte",
+            "link":"/Tutoriels/Resources/Text_Editors/",
+			"follow":"yes"
+        },
+        {
+            "icon":"fa fa-cogs",
             "theme":"Ressources",
             "description":"Accédez aux<br/> Ressources",
             "link":"/Resources/",
