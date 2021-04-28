@@ -198,6 +198,13 @@
     [
         {
             "icon":"fa fa-cogs",
+            "theme":"Project Euler",
+            "description":"Programmez les<br/> mathématiques",
+            "link":"/Tutoriels/Resources/Project_Euler/",
+			"follow":"yes"
+        },
+        {
+            "icon":"fa fa-cogs",
             "theme":"SSH",
             "description":"Apprenez le<br/> protocole SSH",
             "link":"/Tutoriels/Resources/SSH/",

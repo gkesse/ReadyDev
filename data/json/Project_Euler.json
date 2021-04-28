@@ -1,0 +1,21 @@
+{
+    "sitemap":"yes",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+			"Le but de ce tutoriel est de vous apprendre",
+            "la programmation des mathematiques avec Project Euler.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Tutoriels/Resources/Project_Euler/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Resources/Project_Euler/img/b_project_euler.png"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"Resources","link":"/Tutoriels/#Ressources","follow":"no"},
+        {"name":"Project Euler","link":"","follow":"no"}
+    ]
+}
+                        
