@@ -79,7 +79,42 @@ Listen [::0]:8800</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Installati
     &lt;/Directory&gt;
 &lt;/VirtualHost&gt;
 #================================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Installation-1.1.7 - Redémarrer les services"><a class="Link9" href="#Installation">1.1.7 - Redémarrer les services</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">WampServer
-Clic gauche -&gt; Redémarrer les services</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Tests"><a class="Link3" href="#">Tests</a></h1><div class="Body3"><br>Créer un projet PHP.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1617649178149"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1617649178149");</script></div><br><h2 class="Title7 GTitle2" id="Tests-1 - Test sous Windows"><a class="Link9" href="#Tests">1 - Test sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Tests-1.1 - Test sous WampServer"><a class="Link9" href="#Tests">1.1 - Test sous WampServer</a></h2><br><h2 class="Title7 GTitle2" id="Tests-1.1.1 - Éditer le programme"><a class="Link9" href="#Tests">1.1.1 - Éditer le programme</a></h2><br><h3 class="Title8 GTitle3">index.php</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="php">&lt;?php
+Clic gauche -&gt; Redémarrer les services</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Installation-2 - Installation sous Mac"><a class="Link9" href="#Installation">2 - Installation sous Mac</a></h2><br><h2 class="Title7 GTitle2" id="Installation-2.1 - Installation sous MAMP"><a class="Link9" href="#Installation">2.1 - Installation sous MAMP</a></h2><br><h2 class="Title7 GTitle2" id="Installation-2.1.1 - Télécharger MAMP"><a class="Link9" href="#Installation">2.1.1 - Télécharger MAMP</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.mamp.info/en/downloads/">https://www.mamp.info/en/downloads/</a><br><br><b>MAMP_MAMP_PRO_6.3.pkg</b><br><br><h2 class="Title7 GTitle2" id="Installation-2.1.2 - Installer MAMP"><a class="Link9" href="#Installation">2.1.2 - Installer MAMP</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">MAMP_MAMP_PRO_6.3.pkg
+Continuer
+Continuer
+Contrat de licence -&gt; English
+Continuer
+Accepter
+Sélectionner une destination -&gt; OS
+Continuer
+Installer
+Nom d'utilisateur -&gt; IMAC
+Mot de passe -&gt; ****
+Installer le logiciel
+Continuer
+Fermer
+Placer dans la corbeille</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Installation-2.1.3 - Ouvrir MAMP"><a class="Link9" href="#Installation">2.1.3 - Ouvrir MAMP</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Recherche Spotlight
+MAMP
+</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Installation-2.1.4 - Démarrer le serveur MAMP"><a class="Link9" href="#Installation">2.1.4 - Démarrer le serveur MAMP</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">MAMP
+Start</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Installation-2.1.5 - Arrêter le serveur MAMP"><a class="Link9" href="#Installation">2.1.5 - Arrêter le serveur MAMP</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">MAMP
+Stop</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Installation-2.1.6 - Vérification"><a class="Link9" href="#Installation">2.1.6 - Vérification</a></h2><br><h2 class="Title7 GTitle2" id="Installation-2.1.6.1 - Afficher la page d'accueil"><a class="Link9" href="#Installation">2.1.6.1 - Afficher la page d'accueil</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="http://localhost:8888/MAMP/">http://localhost:8888/MAMP/</a><br><br><h2 class="Title7 GTitle2" id="Installation-2.1.6.2 - Afficher la page phpinfo"><a class="Link9" href="#Installation">2.1.6.2 - Afficher la page phpinfo</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="http://localhost:8888/MAMP/phpinfo.php">http://localhost:8888/MAMP/phpinfo.php</a><br><br><h2 class="Title7 GTitle2" id="Installation-2.1.7 - Configuration"><a class="Link9" href="#Installation">2.1.7 - Configuration</a></h2><br><h2 class="Title7 GTitle2" id="Installation-2.1.7.1 - Configuration sous Apache"><a class="Link9" href="#Installation">2.1.7.1 - Configuration sous Apache</a></h2><br><h2 class="Title7 GTitle2" id="Installation-2.1.7.1.1 - Configurer la racine du serveur"><a class="Link9" href="#Installation">2.1.7.1.1 - Configurer la racine du serveur</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">MAMP
+Preferences
+Server
+Document Root -&gt; Choose -&gt; /Users/imac/Desktop/Programs
+OK</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Installation-2.1.7.1.2 - Configurer le port du serveur"><a class="Link9" href="#Installation">2.1.7.1.2 - Configurer le port du serveur</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">MAMP
+Preferences
+Ports
+Apache Port -&gt; 8888
+OK</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Installation-2.1.7.1.3 - Configurer le module rewrite"><a class="Link9" href="#Installation">2.1.7.1.3 - Configurer le module rewrite</a></h2><br><h3 class="Title8 GTitle3">/etc/apache2/httpd.conf</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh"># on active le module rewrite
+LoadModule rewrite_module libexec/apache2/mod_rewrite.so</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Installation-2.1.7.1.4 - Configurer le module virtual host"><a class="Link9" href="#Installation">2.1.7.1.4 - Configurer le module virtual host</a></h2><br><h3 class="Title8 GTitle3">/etc/apache2/httpd.conf</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh"># on active le module virtual host
+LoadModule vhost_alias_module libexec/apache2/mod_vhost_alias.so
+
+# on active le fichier de definition des machines virtuelles
+Include /private/etc/apache2/extra/httpd-vhosts.conf</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Installation-2.1.7.2 - Configuration sous PHP"><a class="Link9" href="#Installation">2.1.7.2 - Configuration sous PHP</a></h2><br><h2 class="Title7 GTitle2" id="Installation-2.1.7.2.1 - Configurer l'affichage des erreurs"><a class="Link9" href="#Installation">2.1.7.2.1 - Configurer l'affichage des erreurs</a></h2><br><h3 class="Title8 GTitle3">/Applications/MAMP/bin/php/php7.4.12/conf/php.ini</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh"># on autorise l'affichage de toutes les erreurs
+error_reporting  =  E_ALL
+
+# on active l'affichage des erreurs
+display_errors = On</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Tests"><a class="Link3" href="#">Tests</a></h1><div class="Body3"><br>Créer un projet PHP.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1617649178149"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1617649178149");</script></div><br><h2 class="Title7 GTitle2" id="Tests-1 - Test sous Windows"><a class="Link9" href="#Tests">1 - Test sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Tests-1.1 - Test sous WampServer"><a class="Link9" href="#Tests">1.1 - Test sous WampServer</a></h2><br><h2 class="Title7 GTitle2" id="Tests-1.1.1 - Éditer le programme"><a class="Link9" href="#Tests">1.1.1 - Éditer le programme</a></h2><br><h3 class="Title8 GTitle3">index.php</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="php">&lt;?php
 //===============================================
 // on affiche un message a l'ecran
 echo "Bonjour tout le monde";
