@@ -1,4 +1,4 @@
-<div class="Parallax GParallax1"><div class="Img Binary"><div class="Caption"><a href="#"><div class="Text">Programmation en mathématiques avec Project Euler<br></div></a></div></div><div class="Body2 Orange"><br>Le but de ce tutoriel est de vous apprendre la programmtion des mathématiques avec <b>Project Euler</b>.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary1"><div class="Body0" id="Loader_1529412976174"><div class="Row26">Summary 1</div></div><script>loadSummary1("Loader_1529412976174");</script></div><br></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Introduction"><a class="Link3" href="#">Introduction</a></h1><div class="Body3"><br><b>Project Euler</b> est un site web proposant une série de problèmes mathématiques conçus pour être résolus à l'aide de programmes informatiques. Le but du projet est d'attirer des adultes et des élèves intéressés par les mathématiques et l’informatique. Il comprend actuellement plus de 700 problèmes de difficultés variables, chacun pouvant être résolu en principe en moins d'une minute par un algorithme efficace sur un ordinateur de puissance modeste. De nouveaux problèmes sont progressivement ajoutés, actuellement au rythme d'un toutes les deux semaines, depuis la création du site en 2001. Un forum spécifique à chaque problème est accessible aux utilisateurs qui l'ont résolu. Une section Scores classe également les membres selon le nombre de problèmes résolus. Il existe quatorze niveaux de classement selon le nombre de problèmes résolus, ainsi qu'un classement spécial basé sur la vitesse de résolution des derniers problèmes parus.<br><br><div class="Img3 GImage"><img src="/Tutoriels/Resources/Project_Euler/img/b_project_euler.png" alt="/Tutoriels/Resources/Project_Euler/img/b_project_euler.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="C++"><a class="Link3" href="#">C++</a></h1><div class="Body3"><br>Programmation en C++.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1619634770777"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1619634770777");</script></div><br><h2 class="Title7 GTitle2" id="C++-1 - Projet - Bonjour tout le monde"><a class="Link9" href="#C++">1 - Projet - Bonjour tout le monde</a></h2><br><h2 class="Title7 GTitle2" id="C++-1.1 - Objectif"><a class="Link9" href="#C++">1.1 - Objectif</a></h2><br>Afficher un message d'accueil à l'écran.<br><br><h2 class="Title7 GTitle2" id="C++-1.2 - Programme principal"><a class="Link9" href="#C++">1.2 - Programme principal</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//================================================
+<div class="Parallax GParallax1"><div class="Img Binary"><div class="Caption"><a href="#"><div class="Text">Programmation des mathématiques avec Project Euler<br></div></a></div></div><div class="Body2 Orange"><br>Le but de ce tutoriel est de vous apprendre la programmation des mathématiques avec <b>Project Euler</b>.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary1"><div class="Body0" id="Loader_1529412976174"><div class="Row26">Summary 1</div></div><script>loadSummary1("Loader_1529412976174");</script></div><br></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Introduction"><a class="Link3" href="#">Introduction</a></h1><div class="Body3"><br><b>Project Euler</b> est un site web proposant une série de problèmes mathématiques conçus pour être résolus à l'aide de programmes informatiques. Le but du projet est d'attirer des adultes et des élèves intéressés par les mathématiques et l’informatique. Il comprend actuellement plus de 700 problèmes de difficultés variables, chacun pouvant être résolu en principe en moins d'une minute par un algorithme efficace sur un ordinateur de puissance modeste. De nouveaux problèmes sont progressivement ajoutés, actuellement au rythme d'un toutes les deux semaines, depuis la création du site en 2001. Un forum spécifique à chaque problème est accessible aux utilisateurs qui l'ont résolu. Une section Scores classe également les membres selon le nombre de problèmes résolus. Il existe quatorze niveaux de classement selon le nombre de problèmes résolus, ainsi qu'un classement spécial basé sur la vitesse de résolution des derniers problèmes parus.<br><br><div class="Img3 GImage"><img src="/Tutoriels/Resources/Project_Euler/img/b_project_euler.png" alt="/Tutoriels/Resources/Project_Euler/img/b_project_euler.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="C++"><a class="Link3" href="#">C++</a></h1><div class="Body3"><br>Programmation en C++.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1619634770777"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1619634770777");</script></div><br><h2 class="Title7 GTitle2" id="C++-1 - Projet - Bonjour tout le monde"><a class="Link9" href="#C++">1 - Projet - Bonjour tout le monde</a></h2><br><h2 class="Title7 GTitle2" id="C++-1.1 - Objectif"><a class="Link9" href="#C++">1.1 - Objectif</a></h2><br>Afficher un message d'accueil à l'écran.<br><br><h2 class="Title7 GTitle2" id="C++-1.2 - Programme principal"><a class="Link9" href="#C++">1.2 - Programme principal</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//================================================
 #include &lt;iostream&gt;
 //================================================
 int main(int argc, char** argv) {
@@ -205,4 +205,91 @@ Fibonacci M :
 Fibonacci P :
 N : 10
 M : 4000000
-S : 4613732</xmp></pre></div><br><h2 class="Title7 GTitle2" id="C++-4 - Projet - Le plus grand facteur premier"><a class="Link9" href="#C++">4 - Projet - Le plus grand facteur premier</a></h2><br><h2 class="Title7 GTitle2" id="C++-4.1 - Objectif"><a class="Link9" href="#C++">4.1 - Objectif</a></h2><br>Les facteurs premiers de 13195 sont 5, 7, 13 et 29.<br><br>Quel est le facteur premier le plus grand du nombre 600851475143?<br><br><h2 class="Title7 GTitle2" id="C++-5 - Projet - Le plus grand produit palindrome"><a class="Link9" href="#C++">5 - Projet - Le plus grand produit palindrome</a></h2><br><h2 class="Title7 GTitle2" id="C++-5.1 - Objectif"><a class="Link9" href="#C++">5.1 - Objectif</a></h2><br>Un nombre palindromique se lit de la même manière dans les deux sens. Le plus grand palindrome fabriqué à partir du produit de deux nombres à 2 chiffres est 9009 = 91 × 99.<br><br>Trouvez le plus grand palindrome fabriqué à partir du produit de deux nombres à 3 chiffres.<br><br><h2 class="Title7 GTitle2" id="C++-6 - Projet - Le plus petit multiple"><a class="Link9" href="#C++">6 - Projet - Le plus petit multiple</a></h2><br><h2 class="Title7 GTitle2" id="C++-6.1 - Objectif"><a class="Link9" href="#C++">6.1 - Objectif</a></h2><br>2520 est le plus petit nombre qui peut être divisé par chacun des nombres de 1 à 10 sans aucun reste.<br><br>Quel est le plus petit nombre positif qui est également divisible par tous les nombres de 1 à 20?<br><br><h2 class="Title7 GTitle2" id="C++-7 - Projet - Différence de carré de somme"><a class="Link9" href="#C++">7 - Projet - Différence de carré de somme</a></h2><br><h2 class="Title7 GTitle2" id="C++-7.1 - Objectif"><a class="Link9" href="#C++">7.1 - Objectif</a></h2><br>La somme des carrés des dix premiers nombres naturels est,<br><br>$1^2+2^2+...+10^2=385$<br><br>Le carré de la somme des dix premiers nombres naturels est,<br><br>$(1+2+...+10)^2=55^2=3025$<br><br>Par conséquent, la différence entre la somme des carrés des dix premiers nombres naturels et le carré de la somme est <br><br>$3025-385=2640$<br><br>Trouvez la différence entre la somme des carrés des cent premiers nombres naturels et le carré de la somme.<br><br><br><br><br></div></div></div></div><br>
+S : 4613732</xmp></pre></div><br><h2 class="Title7 GTitle2" id="C++-4 - Projet - Le plus grand facteur premier"><a class="Link9" href="#C++">4 - Projet - Le plus grand facteur premier</a></h2><br><h2 class="Title7 GTitle2" id="C++-4.1 - Objectif"><a class="Link9" href="#C++">4.1 - Objectif</a></h2><br>Les facteurs premiers de 13195 sont 5, 7, 13 et 29.<br><br>Quel est le facteur premier le plus grand du nombre 600851475143?<br><br><h2 class="Title7 GTitle2" id="C++-5 - Projet - Le plus grand produit palindrome"><a class="Link9" href="#C++">5 - Projet - Le plus grand produit palindrome</a></h2><br><h2 class="Title7 GTitle2" id="C++-5.1 - Objectif"><a class="Link9" href="#C++">5.1 - Objectif</a></h2><br>Un nombre palindromique se lit de la même manière dans les deux sens. Le plus grand palindrome fabriqué à partir du produit de deux nombres à 2 chiffres est 9009 = 91 × 99.<br><br>Trouvez le plus grand palindrome fabriqué à partir du produit de deux nombres à 3 chiffres.<br><br><h2 class="Title7 GTitle2" id="C++-6 - Projet - Le plus petit multiple"><a class="Link9" href="#C++">6 - Projet - Le plus petit multiple</a></h2><br><h2 class="Title7 GTitle2" id="C++-6.1 - Objectif"><a class="Link9" href="#C++">6.1 - Objectif</a></h2><br>2520 est le plus petit nombre qui peut être divisé par chacun des nombres de 1 à 10 sans aucun reste.<br><br>Quel est le plus petit nombre positif qui est également divisible par tous les nombres de 1 à 20?<br><br><h2 class="Title7 GTitle2" id="C++-7 - Projet - Différence de carré de somme"><a class="Link9" href="#C++">7 - Projet - Différence de carré de somme</a></h2><br><h2 class="Title7 GTitle2" id="C++-7.1 - Objectif"><a class="Link9" href="#C++">7.1 - Objectif</a></h2><br>La somme des carrés des dix premiers nombres naturels est,<br><br>$1^2+2^2+...+10^2=385$<br><br>Le carré de la somme des dix premiers nombres naturels est,<br><br>$(1+2+...+10)^2=55^2=3025$<br><br>Par conséquent, la différence entre la somme des carrés des dix premiers nombres naturels et le carré de la somme est <br><br>$3025-385=2640$<br><br>Trouvez la différence entre la somme des carrés des cent premiers nombres naturels et le carré de la somme.<br><br><h2 class="Title7 GTitle2" id="C++-8 - Projet - Plus grand nombre premier"><a class="Link9" href="#C++">8 - Projet - Plus grand nombre premier</a></h2><br><h2 class="Title7 GTitle2" id="C++-8.1 - Objectif"><a class="Link9" href="#C++">8.1 - Objectif</a></h2><br>En considérant, les 10 premiers nombres entiers naturels,<br>les nombres premiers sont :<br><br>$2,5,7$<br><br>Quel est le plus grand nombre premier en dessous de 1000.<br><br><h2 class="Title7 GTitle2" id="C++-8.2 - Programme principal"><a class="Link9" href="#C++">8.2 - Programme principal</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//================================================
+#include &lt;iostream&gt;
+#include &lt;cmath&gt;
+//================================================
+int is_prime_number(int n);
+//================================================
+int main(int argc, char** argv) {
+    // on initialise la machine a etat finis
+    std::string g_state = "init";
+    // on declare la limite n
+    int g_n;
+    // on declare la valeur maximale
+    int g_m;
+
+    while(1) {
+        // on affiche le theme
+        if(g_state == "init") {
+            std::cout &lt;&lt; "Plus grand nombre premier\n";
+            g_state = "limit_n";
+        }
+        // on saisit n
+        else if(g_state == "limit_n") {
+            std::cout &lt;&lt; "Saisir N : ";
+            std::cin &gt;&gt; g_n; 
+            g_state = "prime";
+        }
+        // on calcule les nombres premiers p(n)
+        else if(g_state == "prime") {
+            std::cout &lt;&lt; "Nombres premiers P : ";
+            for(int i = 2, j = 0; i &lt; g_n; i++) {
+                int l_ok = is_prime_number(i);
+                if(l_ok == 0) {continue;}
+                //if(j != 0) {std::cout &lt;&lt; " ; ";}
+                //std::cout &lt;&lt; i;
+                g_m = i;
+                j++;
+            }
+            std::cout &lt;&lt; "\n";
+            g_state = "prime_2";
+        }
+        // on calcule les nombres premiers p(n)
+        else if(g_state == "prime_2") {
+            std::cout &lt;&lt; "Nombres premiers P : ";
+            for(int i = 2, j = 0; ; i++) {
+                int l_ok = is_prime_number(i);
+                if(l_ok == 0) {continue;}
+                //if(j != 0) {std::cout &lt;&lt; " ; ";}
+                //std::cout &lt;&lt; i;
+                j++;
+                if(j &gt;= g_n) {break;}
+            }
+            std::cout &lt;&lt; "\n";
+            g_state = "show";
+        }
+        // on affiche les resultats
+        else if(g_state == "show") {
+            std::cout &lt;&lt; "N : " &lt;&lt; g_n &lt;&lt; "\n";
+            std::cout &lt;&lt; "M : " &lt;&lt; g_m &lt;&lt; "\n";
+            g_state = "end";
+        }
+        else {break;}
+    }
+    
+    return 0;
+}
+//================================================
+int is_prime_number(int a) {
+    if(a &lt; 2) {return 0;}
+    // on calcule racine carre
+    int l_sq = sqrt(a);
+    int l_ok = 1;
+    for(int i = 2; i &lt;= l_sq; i++) {
+        // on cherche un diviseur
+        if(a % i == 0) {l_ok = 0;}
+    }
+    return l_ok;
+}
+//================================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="C++-8.3 - Résultat"><a class="Link9" href="#C++">8.3 - Résultat</a></h2><br><h2 class="Title7 GTitle2" id="C++-8.3.1 - Test avec les données (10)"><a class="Link9" href="#C++">8.3.1 - Test avec les données (10)</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Plus grand nombre premier
+Saisir N : 10
+Nombres premiers P : 2 ; 3 ; 5 ; 7
+Nombres premiers P : 2 ; 3 ; 5 ; 7 ; 11 ; 13 ; 17 ; 19 ; 23 ; 29
+N : 10
+M : 7</xmp></pre></div><br><h2 class="Title7 GTitle2" id="C++-8.3.2 - Test avec les données (1000)"><a class="Link9" href="#C++">8.3.2 - Test avec les données (1000)</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Plus grand nombre premier
+Saisir N : 1000
+Nombres premiers P :
+Nombres premiers P :
+N : 1000
+M : 997</xmp></pre></div><br></div></div></div></div><br>
