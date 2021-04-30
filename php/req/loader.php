@@ -299,12 +299,9 @@
 		$lData = GJson::Instance()->getData($lFilename);
         $lPdf = GPdf::Instance()->getUrl($lData[$lKey]);
         $lDataSum = '';
-        $lDataSum .= '<object id="pdf" width="100%" class="Content12"';
-        $lDataSum .= 'data="'.$lPdf.'"';
-        $lDataSum .= 'type="text/html">';
-        $lDataSum .= 'La visualisation n’est pas encore disponible sur votre navigateur,';
-        $lDataSum .= 'veillez à le mettre à jour.'.$lPdf;
-        $lDataSum .= '</object>';
+        $lDataSum .= '<iframe src="https://docs.google.com/gview?url=';
+        $lDataSum .= $lPdf;
+        $lDataSum .= '&embedded=true" style="width:100%; height:100vh;" frameborder="0"></iframe>';
 		print_r($lDataSum);
 	}
 	//===============================================

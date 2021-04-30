@@ -94,7 +94,7 @@ Multiple AB :
 A : 3
 B : 5
 N : 1000
-S : 233168</xmp></pre></div><br><h2 class="Title7 GTitle2" id="C++-3 - Projet - Numéros pairs de Fibonacci"><a class="Link9" href="#C++">3 - Projet - Numéros pairs de Fibonacci</a></h2><br><h2 class="Title7 GTitle2" id="C++-3.1 - Objectif"><a class="Link9" href="#C++">3.1 - Objectif</a></h2><br>Chaque nouveau terme dans la séquence de Fibonacci est généré en ajoutant les deux termes précédents. En commençant par 1 et 2, les 10 premiers termes seront:<br><br>1, 2, 3, 5, 8, 13, 21, 34, 55, 89, ...<br><br>En considérant les termes de la séquence de Fibonacci dont les valeurs ne dépassent pas quatre millions, trouvez la somme des termes pairs.<br><br><h2 class="Title7 GTitle2" id="C++-3.2 - Programme principal"><a class="Link9" href="#C++">3.2 - Programme principal</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//================================================
+S : 233168</xmp></pre></div><br><h2 class="Title7 GTitle2" id="C++-3 - Projet - Numéros pairs de Fibonacci"><a class="Link9" href="#C++">3 - Projet - Numéros pairs de Fibonacci</a></h2><br><h2 class="Title7 GTitle2" id="C++-3.1 - Objectif"><a class="Link9" href="#C++">3.1 - Objectif</a></h2><br>Chaque nouveau terme dans la séquence de Fibonacci est généré en ajoutant les deux termes précédents. En commençant par 1 et 2, les 10 premiers termes seront:<br><br>$1, 2, 3, 5, 8, 13, 21, 34, 55, 89, ...$<br><br>En considérant les termes de la séquence de Fibonacci dont les valeurs ne dépassent pas quatre millions, trouvez la somme des termes pairs.<br><br><h2 class="Title7 GTitle2" id="C++-3.2 - Programme principal"><a class="Link9" href="#C++">3.2 - Programme principal</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//================================================
 #include &lt;iostream&gt;
 //================================================
 int main(int argc, char** argv) {
@@ -205,7 +205,109 @@ Fibonacci M :
 Fibonacci P :
 N : 10
 M : 4000000
-S : 4613732</xmp></pre></div><br><h2 class="Title7 GTitle2" id="C++-4 - Projet - Le plus grand facteur premier"><a class="Link9" href="#C++">4 - Projet - Le plus grand facteur premier</a></h2><br><h2 class="Title7 GTitle2" id="C++-4.1 - Objectif"><a class="Link9" href="#C++">4.1 - Objectif</a></h2><br>Les facteurs premiers de 13195 sont 5, 7, 13 et 29.<br><br>Quel est le facteur premier le plus grand du nombre 600851475143?<br><br><h2 class="Title7 GTitle2" id="C++-5 - Projet - Le plus grand produit palindrome"><a class="Link9" href="#C++">5 - Projet - Le plus grand produit palindrome</a></h2><br><h2 class="Title7 GTitle2" id="C++-5.1 - Objectif"><a class="Link9" href="#C++">5.1 - Objectif</a></h2><br>Un nombre palindromique se lit de la même manière dans les deux sens. Le plus grand palindrome fabriqué à partir du produit de deux nombres à 2 chiffres est 9009 = 91 × 99.<br><br>Trouvez le plus grand palindrome fabriqué à partir du produit de deux nombres à 3 chiffres.<br><br><h2 class="Title7 GTitle2" id="C++-6 - Projet - Le plus petit multiple"><a class="Link9" href="#C++">6 - Projet - Le plus petit multiple</a></h2><br><h2 class="Title7 GTitle2" id="C++-6.1 - Objectif"><a class="Link9" href="#C++">6.1 - Objectif</a></h2><br>2520 est le plus petit nombre qui peut être divisé par chacun des nombres de 1 à 10 sans aucun reste.<br><br>Quel est le plus petit nombre positif qui est également divisible par tous les nombres de 1 à 20?<br><br><h2 class="Title7 GTitle2" id="C++-7 - Projet - Différence de carré de somme"><a class="Link9" href="#C++">7 - Projet - Différence de carré de somme</a></h2><br><h2 class="Title7 GTitle2" id="C++-7.1 - Objectif"><a class="Link9" href="#C++">7.1 - Objectif</a></h2><br>La somme des carrés des dix premiers nombres naturels est,<br><br>$1^2+2^2+...+10^2=385$<br><br>Le carré de la somme des dix premiers nombres naturels est,<br><br>$(1+2+...+10)^2=55^2=3025$<br><br>Par conséquent, la différence entre la somme des carrés des dix premiers nombres naturels et le carré de la somme est <br><br>$3025-385=2640$<br><br>Trouvez la différence entre la somme des carrés des cent premiers nombres naturels et le carré de la somme.<br><br><h2 class="Title7 GTitle2" id="C++-8 - Projet - Plus grand nombre premier"><a class="Link9" href="#C++">8 - Projet - Plus grand nombre premier</a></h2><br><h2 class="Title7 GTitle2" id="C++-8.1 - Objectif"><a class="Link9" href="#C++">8.1 - Objectif</a></h2><br>En considérant, les 10 premiers nombres entiers naturels,<br>les nombres premiers sont :<br><br>$2,5,7$<br><br>Quel est le plus grand nombre premier en dessous de 1000.<br><br><h2 class="Title7 GTitle2" id="C++-8.2 - Programme principal"><a class="Link9" href="#C++">8.2 - Programme principal</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//================================================
+S : 4613732</xmp></pre></div><br><h2 class="Title7 GTitle2" id="C++-4 - Projet - Le plus grand facteur premier"><a class="Link9" href="#C++">4 - Projet - Le plus grand facteur premier</a></h2><br><h2 class="Title7 GTitle2" id="C++-4.1 - Objectif"><a class="Link9" href="#C++">4.1 - Objectif</a></h2><br><h2 class="Title7 GTitle2" id="C++-4.1.1 - Problème"><a class="Link9" href="#C++">4.1.1 - Problème</a></h2><br>Les facteurs premiers de 13195 sont 5, 7, 13 et 29.<br><br>Quel est le facteur premier le plus grand du nombre 600851475143 ?<br><br><h2 class="Title7 GTitle2" id="C++-4.1.2 - Algorithme"><a class="Link9" href="#C++">4.1.2 - Algorithme</a></h2><br>On balaye la liste des nombres premiers en testant si le nombre premier p divise n. Si oui, on recommence l'algorithme pour n/p, en ne testant que les diviseurs premiers encore envisageables. On s'arrête quand le rapport n/p est égal 1.<br><br><h2 class="Title7 GTitle2" id="C++-4.2 - Programme principal"><a class="Link9" href="#C++">4.2 - Programme principal</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//================================================
+#include &lt;iostream&gt;
+#include &lt;cmath&gt;
+//================================================
+long is_prime_number(long a);
+long get_prime_number(long index);
+//================================================
+int main(int argc, char** argv) {
+    // on initialise la machine a etats finis
+    std::string g_state = "init";
+    // on declare le nombre a
+    long g_a;
+    // on declare le plus grand facteur f
+    long g_f;
+
+    while(1) {
+        // on affiche le theme
+        if(g_state == "init") {
+            std::cout &lt;&lt; "Le plus grand facteur premier\n";
+            g_state = "number_a";
+        }
+        // on saisit a
+        else if(g_state == "number_a") {
+            std::cout &lt;&lt; "Saisir A : ";
+            std::cin &gt;&gt; g_a;
+            if(g_a &gt;= 2) {g_state = "show_factor";}
+        }
+        // on calcule le nombre premier (p) a l'indice (a) p(a)
+        else if(g_state == "get_prime") {
+            std::cout &lt;&lt; "Nombre premier PA : ";
+            long l_p = get_prime_number(g_a);
+            std::cout &lt;&lt; l_p &lt;&lt; "\n";
+            g_state = "show_factor";
+        }
+        // on calcule les facteurs premiers p(n)
+        else if(g_state == "show_factor") {
+            std::cout &lt;&lt; "Facteurs premiers FP : ";
+            long l_a = g_a;
+            long l_sq = sqrt(g_a);
+            for(long i = 0, j = 0; ;) {
+                long l_p = get_prime_number(i);
+                if(l_a % l_p != 0) {i++; continue;}
+                //if(j != 0) {std::cout &lt;&lt; " ; ";}
+                //std::cout &lt;&lt; l_p;
+                l_a /= l_p;
+                g_f = l_p;
+                if(l_a == 1) {break;}
+                j++;
+            }
+            std::cout &lt;&lt; "\n";
+            g_state = "show";
+        }
+        // on affiche les resultats
+        else if(g_state == "show") {
+            std::cout &lt;&lt; "A : " &lt;&lt; g_a &lt;&lt; "\n";
+            std::cout &lt;&lt; "F : " &lt;&lt; g_f &lt;&lt; "\n";
+            g_state = "end";
+        }
+        else {break;}
+    }
+    
+    return 0;
+}
+//================================================
+long is_prime_number(long a) {
+    if(a &lt; 2) {return 0;}
+    // on calcule racine carre
+    long l_sq = sqrt(a);
+    long l_ok = 1;
+    for(long i = 2; i &lt;= l_sq; i++) {
+        // on cherche un diviseur
+        if(a % i == 0) {l_ok = 0;}
+    }
+    return l_ok;
+}
+//================================================
+long get_prime_number(long index) {
+    // on declare le nombre premier initial
+    long l_p = 2;
+    for(long i = 2, j = 0; ; i++) {
+        // on verifie si le nombre est un nombre premier 
+        long l_ok = is_prime_number(i);
+        // on contine l'incrementation si non
+        if(l_ok == 0) {continue;}
+        // on charge le nombre premier si oui
+        l_p = i;
+        // on incremente l'indice des nombres premiers
+        j++;
+        // on s'arrete si on depasse l'indice en entree 
+        if(j &gt; index) {break;}
+    }
+    return l_p;
+}
+//================================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="C++-4.3 - Résultat"><a class="Link9" href="#C++">4.3 - Résultat</a></h2><br><h2 class="Title7 GTitle2" id="C++-4.3.1 - Test avec les données (13195)"><a class="Link9" href="#C++">4.3.1 - Test avec les données (13195)</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Le plus grand facteur premier
+Saisir A : 13195
+Nombre premier PA : 142123
+Facteurs premiers FP : 5 ; 7 ; 13 ; 29
+A : 13195
+F : 29</xmp></pre></div><br><h2 class="Title7 GTitle2" id="C++-4.3.2 - Test avec les données (600851475143)"><a class="Link9" href="#C++">4.3.2 - Test avec les données (600851475143)</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Le plus grand facteur premier
+Saisir A : 600851475143
+Facteurs premiers FP :
+A : 600851475143
+F : 6857</xmp></pre></div><br><h2 class="Title7 GTitle2" id="C++-5 - Projet - Le plus grand produit palindrome"><a class="Link9" href="#C++">5 - Projet - Le plus grand produit palindrome</a></h2><br><h2 class="Title7 GTitle2" id="C++-5.1 - Objectif"><a class="Link9" href="#C++">5.1 - Objectif</a></h2><br>Un nombre palindromique se lit de la même manière dans les deux sens. Le plus grand palindrome fabriqué à partir du produit de deux nombres à 2 chiffres est 9009 = 91 × 99.<br><br>Trouvez le plus grand palindrome fabriqué à partir du produit de deux nombres à 3 chiffres.<br><br><h2 class="Title7 GTitle2" id="C++-6 - Projet - Le plus petit multiple"><a class="Link9" href="#C++">6 - Projet - Le plus petit multiple</a></h2><br><h2 class="Title7 GTitle2" id="C++-6.1 - Objectif"><a class="Link9" href="#C++">6.1 - Objectif</a></h2><br>2520 est le plus petit nombre qui peut être divisé par chacun des nombres de 1 à 10 sans aucun reste.<br><br>Quel est le plus petit nombre positif qui est également divisible par tous les nombres de 1 à 20?<br><br><h2 class="Title7 GTitle2" id="C++-7 - Projet - Différence de carré de somme"><a class="Link9" href="#C++">7 - Projet - Différence de carré de somme</a></h2><br><h2 class="Title7 GTitle2" id="C++-7.1 - Objectif"><a class="Link9" href="#C++">7.1 - Objectif</a></h2><br>La somme des carrés des dix premiers nombres naturels est,<br><br>$1^2+2^2+...+10^2=385$<br><br>Le carré de la somme des dix premiers nombres naturels est,<br><br>$(1+2+...+10)^2=55^2=3025$<br><br>Par conséquent, la différence entre la somme des carrés des dix premiers nombres naturels et le carré de la somme est <br><br>$3025-385=2640$<br><br>Trouvez la différence entre la somme des carrés des cent premiers nombres naturels et le carré de la somme.<br><br><h2 class="Title7 GTitle2" id="C++-8 - Projet - Plus grand nombre premier"><a class="Link9" href="#C++">8 - Projet - Plus grand nombre premier</a></h2><br><h2 class="Title7 GTitle2" id="C++-8.1 - Objectif"><a class="Link9" href="#C++">8.1 - Objectif</a></h2><br>En considérant, les 10 premiers nombres entiers naturels,<br>les nombres premiers sont :<br><br>$2,5,7$<br><br>Quel est le plus grand nombre premier en dessous de 1000.<br><br><h2 class="Title7 GTitle2" id="C++-8.2 - Programme principal"><a class="Link9" href="#C++">8.2 - Programme principal</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//================================================
 #include &lt;iostream&gt;
 #include &lt;cmath&gt;
 //================================================
