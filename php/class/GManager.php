@@ -16,7 +16,7 @@ class GManager {
         $this->mgr->app->title = $this->mgr->app->app_name;
         $this->mgr->app->sqlite_db_path = "/data/sqlite/database.dat";
         $this->mgr->app->view_offset = 250;
-    
+        $this->mgr->app->cv_path = "https://github.com/gkesse/ReadyDev/raw/master";    
     }
     //===============================================
     public static function Instance() {
@@ -51,7 +51,8 @@ class sGApp {
     public $sqlite_db_path;
     // view
     public $view_offset;
-
+    // cv
+    public $cv_path;
 }
 //===============================================
 ?>

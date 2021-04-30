@@ -2,10 +2,9 @@
     class GPdf {
         //===============================================
         private static $m_instance = null;
-        private $m_pdfViewer;
         //===============================================
         private function __construct() {
-            $this->m_pdfViewer = "/libs/pdfjs/2.5.2/web/viewer.html";
+
         }
         //===============================================
         public static function Instance() {
@@ -16,12 +15,12 @@
         }
         //===============================================
         public function getUrl($url) {
-            $m_url = "";
-            $m_url .= $this->m_pdfViewer;
-            $m_url .= "?file=";
-            $m_url .= $url;
-            $m_url .= "#zoom=page-width";
-            return $m_url;
+            $lApp = GManager::Instance()->getData()->app;
+            $lUrl = "";
+            $lUrl .= $lApp->cv_path;
+            $lUrl .= "/";
+            $lUrl .= $url;
+            return $lUrl;
         }
         //===============================================
     }
