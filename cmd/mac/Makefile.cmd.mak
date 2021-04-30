@@ -15,9 +15,9 @@ apache_httpd_open:
 apache_httpd_close:
 	@sudo chmod 644 /etc/apache2/httpd.conf
 #================================================
-# certbot
-certbot_list:
-	certbot-auto certificates
+# macports
+macports_update:
+	sudo port selfupdate
 #================================================
 # cmd
 cmd_chmod:
