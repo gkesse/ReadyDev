@@ -42,6 +42,7 @@ RedirectPermanent /Tutoriels/Java/* /Tutoriels/Software_Development/Java/
 RedirectPermanent /Tutoriels/Cpp/ /Tutoriels/Software_Development/Cpp/
 RedirectPermanent /Tutoriels/Cpp/* /Tutoriels/Software_Development/Cpp/
 RedirectPermanent /Tutoriels/Software_Development/Cpp/OpenCV/Project/ /Tutoriels/Software_Development/Cpp/
+RedirectPermanent /Tutoriels/Software_Development/Cpp/Cours/Cross_Plateform/ /Tutoriels/Software_Development/Cpp/
 RedirectPermanent /Tutoriels/C0/ /Tutoriels/Software_Development/C0/
 RedirectPermanent /Tutoriels/C0/* /Tutoriels/Software_Development/C0/
 RedirectPermanent /Tutoriels/CSharp/ /Tutoriels/Software_Development/CSharp/
