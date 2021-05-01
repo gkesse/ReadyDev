@@ -32,11 +32,18 @@ php_value max_input_time 200
 # Redirection
 #================================================
 RedirectPermanent /Tutoriels/Embedded_System/RaspberryPi/* /Tutoriels/Embedded_System/RaspberryPi/
+RedirectPermanent /Tutoriels/PHP/ /Tutoriels/Web/PHP/
 RedirectPermanent /Tutoriels/PHP/* /Tutoriels/Web/PHP/
+RedirectPermanent /Tutoriels/Android/ /Tutoriels/Mobile/Android/
 RedirectPermanent /Tutoriels/Android/* /Tutoriels/Mobile/Android/
+RedirectPermanent /Tutoriels/Java/ /Tutoriels/Software_Development/Java/
 RedirectPermanent /Tutoriels/Java/* /Tutoriels/Software_Development/Java/
+RedirectPermanent /Tutoriels/Cpp/ /Tutoriels/Software_Development/Cpp/
 RedirectPermanent /Tutoriels/Cpp/* /Tutoriels/Software_Development/Cpp/
+RedirectPermanent /Tutoriels/C0/ /Tutoriels/Software_Development/C0/
 RedirectPermanent /Tutoriels/C0/* /Tutoriels/Software_Development/C0/
+RedirectPermanent /Tutoriels/CSharp/ /Tutoriels/Software_Development/CSharp/
 RedirectPermanent /Tutoriels/CSharp/* /Tutoriels/Software_Development/CSharp/
+RedirectPermanent /Tutoriels/Go/ /Tutoriels/Software_Development/Go/
 RedirectPermanent /Tutoriels/Go/* /Tutoriels/Software_Development/Go/
 #================================================
