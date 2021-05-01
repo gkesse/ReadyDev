@@ -33,5 +33,5 @@ php_value max_input_time 200
 #================================================
 RedirectPermanent /Tutoriels/Embedded_System/RaspberryPi/Configurations/ /Resources/
 RedirectPermanent /Resources/ /Tutoriels/Embedded_System/RaspberryPi/
-RedirectPermanent /Tutoriels/PHP/Cours/Admin_System/ /Tutoriels/PHP/
+RedirectPermanent /Tutoriels/PHP/Cours/Admin_System/ /Tutoriels/Web/PHP/
 #================================================
