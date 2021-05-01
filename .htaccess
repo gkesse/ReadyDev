@@ -36,4 +36,5 @@ RedirectPermanent /Resources/ /Tutoriels/Embedded_System/RaspberryPi/
 RedirectPermanent /Tutoriels/PHP/Cours/Admin_System/ /Tutoriels/Web/PHP/
 RedirectPermanent /Tutoriels/Android/Cours/Admin_System/ /Tutoriels/Mobile/Android/
 RedirectPermanent /Tutoriels/Java/JNI/Project/ /Tutoriels/Software_Development/Java/
+RedirectPermanent /Tutoriels/Cpp/CGI/Project/ /Tutoriels/Software_Development/Cpp/
 #================================================
