@@ -219,9 +219,9 @@
         },
         {
             "icon":"fa fa-cogs",
-            "theme":"Ressources",
-            "description":"Accédez aux<br/> Ressources",
-            "link":"/Resources/",
+            "theme":"Programmation",
+            "description":"Apprenez la<br/> Programmation",
+            "link":"/Tutoriels/Resources/Programming/",
 			"follow":"yes"
         }
     ]
