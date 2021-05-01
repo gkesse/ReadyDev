@@ -47,4 +47,5 @@ RedirectPermanent /Tutoriels/CSharp/ /Tutoriels/Software_Development/CSharp/
 RedirectPermanent /Tutoriels/CSharp/* /Tutoriels/Software_Development/CSharp/
 RedirectPermanent /Tutoriels/Go/ /Tutoriels/Software_Development/Go/
 RedirectPermanent /Tutoriels/Go/* /Tutoriels/Software_Development/Go/
+RedirectPermanent /Tutoriels/Software_Development/Go/Qt/Window/ /Tutoriels/Software_Development/Go/
 #================================================
