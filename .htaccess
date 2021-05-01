@@ -36,7 +36,7 @@ RedirectPermanent /Tutoriels/PHP/ /Tutoriels/Web/PHP/
 RedirectPermanent /Tutoriels/PHP/* /Tutoriels/Web/PHP/
 RedirectPermanent /Tutoriels/Android/ /Tutoriels/Mobile/Android/
 RedirectPermanent /Tutoriels/Android/* /Tutoriels/Mobile/Android/
-RedirectPermanent /Tutoriels/Mobile/Android/* /Tutoriels/Mobile/Android/
+RedirectPermanent /Tutoriels/Mobile/Android/Cours/* /Tutoriels/Mobile/Android/
 RedirectPermanent /Tutoriels/Java/ /Tutoriels/Software_Development/Java/
 RedirectPermanent /Tutoriels/Java/* /Tutoriels/Software_Development/Java/
 RedirectPermanent /Tutoriels/Cpp/ /Tutoriels/Software_Development/Cpp/
