@@ -219,7 +219,7 @@
         },
         {
             "icon":"fa fa-cogs",
-            "theme":"Programmation",
+            "theme":"ProgMag",
             "description":"Apprenez la<br/> Programmation",
             "link":"/Tutoriels/Resources/Programming/",
 			"follow":"yes"
