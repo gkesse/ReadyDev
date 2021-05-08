@@ -671,14 +671,14 @@ f_0 &amp; = &amp; v \\
 f_1&amp; = &amp; -µ+µv(1-u^2)
 \end{array}
 \right .$$</div></div><br><h2 class="Title7 GTitle2" id="Calcul scientifique avec GSL-3.1.1.3 - Déterminer la Jacobienne de l'équation différentielle"><a class="Link9" href="#Calcul scientifique avec GSL">3.1.1.3 - Déterminer la Jacobienne de l'équation différentielle</a></h2><br><div class="Formula GFormula1"><div class="Formula2">$$
-J_F
+\mathbb{J}_F
 =
 \begin{pmatrix}
-\frac{\partial f_0}{\partial u} &amp; \frac{\partial f_0}{\partial v}\\
-\frac{\partial f_1}{\partial u} &amp; \frac{\partial f_1}{\partial v}\\
+\dfrac{\partial f_0}{\partial u} &amp; \dfrac{\partial f_0}{\partial v}\\
+\dfrac{\partial f_1}{\partial u} &amp; \dfrac{\partial f_1}{\partial v}\\
 \end{pmatrix}
 $$</div></div><br><div class="Formula GFormula1"><div class="Formula5">$$
-J_F
+\mathbb{J}_F
 =
 \begin{pmatrix}
 0 &amp; 1\\
