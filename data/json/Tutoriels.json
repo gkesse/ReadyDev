@@ -230,6 +230,13 @@
             "description":"Apprenez la<br/> Programmation",
             "link":"/Tutoriels/Resources/Programming/",
 			"follow":"yes"
+        },
+        {
+            "icon":"fa fa-cogs",
+            "theme":"Qt",
+            "description":"Créez des interfaces<br/> homme-machine",
+            "link":"/Tutoriels/Resources/Qt/",
+			"follow":"yes"
         }
     ]
 }

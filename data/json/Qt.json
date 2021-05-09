@@ -1,0 +1,20 @@
+{
+    "sitemap":"yes",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+			"Le but de ce tutoriel est de vous apprendre",
+            "la création d'interface homme-machine avec Qt.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Tutoriels/Resources/Qt/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Resources/Qt/img/b_qt.png"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"Ressources","link":"/Tutoriels/#Ressources","follow":"no"},
+        {"name":"Qt","link":"","follow":"no"}
+    ]
+}
