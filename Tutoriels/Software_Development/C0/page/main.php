@@ -107,7 +107,34 @@ int main(int argc, char** argv) {
     }
     return 0;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Créer une condition if - else"><a class="Link9" href="#Les fondamentaux">Créer une condition if - else</a></h2><br><br><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Créer une boucle for"><a class="Link9" href="#Les fondamentaux">Créer une boucle for</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Créer une condition if - else"><a class="Link9" href="#Les fondamentaux">Créer une condition if - else</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+//===============================================
+int main(int argc, char** argv) {
+    if(100 &lt; 10) {
+        printf("Oui on a : 100 &lt; 10\n");
+    }
+    else {
+        printf("Sinon on a : 100 &gt; 10\n");
+    }
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Créer une condition else if"><a class="Link9" href="#Les fondamentaux">Créer une condition else if</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+//===============================================
+int main(int argc, char** argv) {
+    if(100 &lt; 10) {
+        printf("Oui on a : 100 &lt; 10\n");
+    }
+    else if(100 == 100) {
+        printf("Sinon Si on a : 100 = 100\n");
+    }
+    else {
+        printf("Dans le cas contraire on a : 100 &gt; 10\n");
+    }
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Créer une boucle for"><a class="Link9" href="#Les fondamentaux">Créer une boucle for</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 //===============================================
 int main(int argc, char** argv) {
