@@ -15,7 +15,7 @@ int main(int argc, char** argv) {
     printf("Bonjour tout le monde\n");
     return 0;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.2 - Compiler le projet"><a class="Link9" href="#Tests">1.1.2 - Compiler le projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">gcc -std=gnu11 -c ./main.c -o ./main.o </xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.3 - Éditer les liens du projet"><a class="Link9" href="#Tests">1.1.3 - Éditer les liens du projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">gcc -o ./rdc.exe ./main.o </xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.4 - Exécuter le projet"><a class="Link9" href="#Tests">1.1.4 - Exécuter le projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">./rdc.exe</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Bonjour tout le monde</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Les fondamentaux"><a class="Link3" href="#">Les fondamentaux</a></h1><div class="Body3"><br>Les fondamentaux de C.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620691663743"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620691663743");</script></div><br><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Créer un commentaire"><a class="Link9" href="#Les fondamentaux">Créer un commentaire</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.2 - Compiler le projet"><a class="Link9" href="#Tests">1.1.2 - Compiler le projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">gcc -std=gnu11 -c ./main.c -o ./main.o </xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.3 - Éditer les liens du projet"><a class="Link9" href="#Tests">1.1.3 - Éditer les liens du projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">gcc -o ./rdc.exe ./main.o </xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.4 - Exécuter le projet"><a class="Link9" href="#Tests">1.1.4 - Exécuter le projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">./rdc.exe</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Bonjour tout le monde</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Les fondamentaux"><a class="Link3" href="#">Les fondamentaux</a></h1><div class="Body3"><br>Les fondamentaux de C.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620691663743"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620691663743");</script></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Créer un commentaire"><a class="Link9" href="#Les fondamentaux">Créer un commentaire</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 //===============================================
 int main(int argc, char** argv) {
@@ -82,7 +82,7 @@ int main(int argc, char** argv) {
     int var = 10;
     return 0;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Affecter une valeur à variable"><a class="Link9" href="#Les fondamentaux">Affecter une valeur à variable</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Affecter une valeur à une variable"><a class="Link9" href="#Les fondamentaux">Affecter une valeur à une variable</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 //===============================================
 int main(int argc, char** argv) {
@@ -102,20 +102,24 @@ int main(int argc, char** argv) {
 #include &lt;stdio.h&gt;
 //===============================================
 int main(int argc, char** argv) {
-    if(100 &gt; 10) {
-        printf("Oui on a : 100 &gt; 10\n");
+    int a = 100;
+    int b = 1000;
+    if(a &lt; b) {
+        printf("Si : on a : a &lt; b\n");
     }
     return 0;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Créer une condition if - else"><a class="Link9" href="#Les fondamentaux">Créer une condition if - else</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Créer une condition if else"><a class="Link9" href="#Les fondamentaux">Créer une condition if else</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 //===============================================
 int main(int argc, char** argv) {
-    if(100 &lt; 10) {
-        printf("Oui on a : 100 &lt; 10\n");
+    int a = 100;
+    int b = 10;
+    if(a &lt; b) {
+        printf("Si : on a : a &lt; b\n");
     }
     else {
-        printf("Sinon on a : 100 &gt; 10\n");
+        printf("Sinon : on a : a &gt;= b\n");
     }
     return 0;
 }
@@ -123,14 +127,16 @@ int main(int argc, char** argv) {
 #include &lt;stdio.h&gt;
 //===============================================
 int main(int argc, char** argv) {
-    if(100 &lt; 10) {
-        printf("Oui on a : 100 &lt; 10\n");
+    int a = 100;
+    int b = 100;
+    if(a &lt; b) {
+        printf("Si : on a : a &lt; b\n");
     }
-    else if(100 == 100) {
-        printf("Sinon Si on a : 100 = 100\n");
+    else if(a == b) {
+        printf("Sinon Si : on a : a &lt; b\n");
     }
     else {
-        printf("Dans le cas contraire on a : 100 &gt; 10\n");
+        printf("Sinon : on a : a &gt; b\n");
     }
     return 0;
 }
@@ -165,7 +171,384 @@ int main(int argc, char** argv) {
     } while(i &lt; 10);
     return 0;
 }
-//===============================================</xmp></pre></div><br><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Système d'administration"><a class="Link3" href="#">Système d'administration</a></h1><div class="Body3"><br>Créer un système d'administration en C.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1616855562692"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1616855562692");</script></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Introduction"><a class="Link9" href="#Système d'administration">Introduction</a></h2><br>Le système d'administration que nous présentons ici est une interface en ligne de commande permettant d'accéder à toutes les fonctionnalités d'une application.<br><br><h2 class="Title7 GTitle2" id="Système d'administration-Programme principal"><a class="Link9" href="#Système d'administration">Programme principal</a></h2><br><h3 class="Title8 GTitle3">GProcess.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">// on appelle la méthode d'entrée
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Créer une fonction"><a class="Link9" href="#Les fondamentaux">Créer une fonction</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+//===============================================
+void sayHello() {
+    printf("Bonjour tout le monde\n"); 
+}
+//===============================================
+int main(int argc, char** argv) {
+    sayHello();
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Créer une fonction avec un paramètre"><a class="Link9" href="#Les fondamentaux">Créer une fonction avec un paramètre</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+//===============================================
+void sayHello(const char* name) {
+    printf("Bonjour : %s\n", name); 
+}
+//===============================================
+int main(int argc, char** argv) {
+    sayHello("Gerard KESSE");
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Créer une fonction qui retourne une valeur"><a class="Link9" href="#Les fondamentaux">Créer une fonction qui retourne une valeur</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+//===============================================
+int volume(int width, int height, int depth) {
+    int lVolume = width*height*depth; 
+    return lVolume;
+}
+//===============================================
+int main(int argc, char** argv) {
+    int lVolume = volume(10, 10, 10);
+    printf("Volume : %d\n", lVolume);
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Créer une fonction récursive"><a class="Link9" href="#Les fondamentaux">Créer une fonction récursive</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+//===============================================
+int factorial(int n) {
+    if(n == 0) {return 1;}
+    return n*factorial(n - 1);
+}
+//===============================================
+int main(int argc, char** argv) {
+    int lFactorial = factorial(5);
+    printf("Factorial : %d\n", lFactorial);
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Créer une structure"><a class="Link9" href="#Les fondamentaux">Créer une structure</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+//===============================================
+typedef struct {
+    char* name;
+    int code;
+} sGPerson;
+//===============================================
+int main(int argc, char** argv) {
+    sGPerson lPerson = {"Gerard KESSE", 1234};
+    printf("Nom : %s\n", lPerson.name);
+    printf("Code : %d\n", lPerson.code);
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Créer un pointeur de fonction"><a class="Link9" href="#Les fondamentaux">Créer un pointeur de fonction</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+//===============================================
+void sayHello() {
+    printf("Bonjour tout le monde\n");
+}
+//===============================================
+void client(void (*onFunc)()) {
+    onFunc();
+}
+//===============================================
+int main(int argc, char** argv) {
+    client(sayHello);
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Créer un type pointeur de fonction"><a class="Link9" href="#Les fondamentaux">Créer un type pointeur de fonction</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+//===============================================
+typedef void (*FUNC_CB)();
+//===============================================
+void sayHello() {
+    printf("Bonjour tout le monde\n");
+}
+//===============================================
+void client(FUNC_CB onFunc) {
+    onFunc();
+}
+//===============================================
+int main(int argc, char** argv) {
+    client(sayHello);
+    return 0;
+}
+//===============================================</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="La programmation orientée objet"><a class="Link3" href="#">La programmation orientée objet</a></h1><div class="Body3"><br>La <b>programmation orientée objet</b> (POO) est un paradigme de programmation informatique qui consiste en la définition et l'interaction de briques logicielles appelées objets ; un objet représente un concept, une idée ou toute entité du monde physique, comme une voiture, une personne ou encore une page d'un livre. Il possède une structure interne et un comportement, et il sait interagir avec ses pairs. Il s'agit donc de représenter ces objets et leurs relations ; l'interaction entre les objets via leurs relations permet de concevoir et réaliser les fonctionnalités attendues, de mieux résoudre le ou les problèmes. Dès lors, l'étape de modélisation revêt une importance majeure et nécessaire pour la POO. C'est elle qui permet de transcrire les éléments du réel sous forme virtuelle. La programmation orientée objet consiste à utiliser des techniques de programmation pour mettre en œuvre une conception basée sur les objets. Celle-ci peut être élaborée en utilisant des méthodologies de développement logiciel objet, dont la plus connue est le processus unifié et exprimée à l'aide de langages de modélisation tels que le Unified Modeling Language (UML).<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620730109517"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620730109517");</script></div><br><h2 class="Title7 GTitle2" id="La programmation orientée objet-Créer une classe"><a class="Link9" href="#La programmation orientée objet">Créer une classe</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GAnimal.h"
+//===============================================
+int main(int argc, char** argv) {
+    GAnimalO* lAnimal = GAnimal_New("Chat", 10);
+    lAnimal-&gt;Print(lAnimal);
+    lAnimal-&gt;Delete(lAnimal);
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GAnimal.h</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#ifndef _GAnimal_
+#define _GAnimal_
+//===============================================
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+//===============================================
+typedef struct _GAnimalO GAnimalO;
+//===============================================
+struct _GAnimalO {
+    void (*Delete)(GAnimalO* obj);
+    void (*Print)(GAnimalO* obj);
+    char name[256];
+    int weight;
+};
+//===============================================
+GAnimalO* GAnimal_New(const char* name, int weight);
+//===============================================
+#endif
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GAnimal.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GAnimal.h"
+//===============================================
+static void GAnimal_Delete(GAnimalO* obj);
+static void GAnimal_Print(GAnimalO* obj);
+//===============================================
+GAnimalO* GAnimal_New(const char* name, int weight) {
+    GAnimalO* lObj = (GAnimalO*)malloc(sizeof(GAnimalO));
+    
+    sprintf(lObj-&gt;name, "%s", name);
+    lObj-&gt;weight = weight;
+    
+    lObj-&gt;Delete = GAnimal_Delete;
+    lObj-&gt;Print = GAnimal_Print;
+    return lObj;
+}
+//===============================================
+static void GAnimal_Delete(GAnimalO* obj) {
+    free(obj);
+}
+//===============================================
+static void GAnimal_Print(GAnimalO* obj) {
+    printf("Nom : %s | Poids : %d (kg)\n", obj-&gt;name, obj-&gt;weight);
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">Nom : Chat | Poids : 10 (kg)</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Les patrons de conception"><a class="Link3" href="#">Les patrons de conception</a></h1><div class="Body3"><br>Un <b>patron de conception</b> (design pattern) est un arrangement caractéristique de modules, reconnu comme bonne pratique en réponse à un problème de conception d'un logiciel. Il décrit une solution standard, utilisable dans la conception de différents logiciels. Un patron de conception est issu de l'expérience des concepteurs de logiciels. Il décrit un arrangement récurrent de rôles et d'actions joués par des modules d'un logiciel, et le nom du patron sert de vocabulaire commun entre le concepteur et le programmeur. D'une manière analogue à un motif de conception en architecture, le patron de conception décrit les grandes lignes d'une solution, qui peuvent ensuite être modifiées et adaptées en fonction des besoins.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620728386561"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620728386561");</script></div><br><h2 class="Title7 GTitle2" id="Les patrons de conception-Créer un patron singleton"><a class="Link9" href="#Les patrons de conception">Créer un patron singleton</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GDatabase.h"
+//===============================================
+int main(int argc, char** argv) {
+    GDatabase()-&gt;Open();
+    GDatabase()-&gt;Load();
+    GDatabase()-&gt;Update();
+    GDatabase()-&gt;Save();
+    GDatabase()-&gt;Delete();
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GDatabase.h</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#ifndef _GDatabase_
+#define _GDatabase_
+//===============================================
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+//===============================================
+typedef struct _GDatabaseO GDatabaseO;
+//===============================================
+struct _GDatabaseO {
+    void (*Delete)();
+    void (*Open)();
+    void (*Load)();
+    void (*Update)();
+    void (*Save)();
+};
+//===============================================
+GDatabaseO* GDatabase();
+//===============================================
+#endif
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GDatabase.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GDatabase.h"
+//===============================================
+static GDatabaseO* m_GDatabaseO = 0;
+//===============================================
+static GDatabaseO* GDatabase_New();
+static void GDatabase_Delete();
+static void GDatabase_Open();
+static void GDatabase_Load();
+static void GDatabase_Update();
+static void GDatabase_Save();
+//===============================================
+static GDatabaseO* GDatabase_New() {
+    GDatabaseO* lObj = (GDatabaseO*)malloc(sizeof(GDatabaseO));
+        
+    lObj-&gt;Delete = GDatabase_Delete;
+    lObj-&gt;Open = GDatabase_Open;
+    lObj-&gt;Load = GDatabase_Load;
+    lObj-&gt;Update = GDatabase_Update;
+    lObj-&gt;Save = GDatabase_Save;
+    return lObj;
+}
+//===============================================
+static void GDatabase_Delete() {
+    free(m_GDatabaseO);
+    m_GDatabaseO = 0;
+}
+//===============================================
+GDatabaseO* GDatabase() {
+    if(m_GDatabaseO == 0) {
+        m_GDatabaseO = GDatabase_New();
+    }
+    return m_GDatabaseO;
+}
+//===============================================
+static void GDatabase_Open() {
+    printf("on ouvre la base de donnee\n");
+}
+//===============================================
+static void GDatabase_Load() {
+    printf("on charge la base de donnees\n");
+}
+//===============================================
+static void GDatabase_Update() {
+    printf("on met a jour la base de donnees\n");
+}
+//===============================================
+static void GDatabase_Save() {
+    printf("on sauvegarde la base de donnee\n");
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">on ouvre la base de donnee
+on charge la base de donnees
+on met a jour la base de donnees
+on sauvegarde la base de donnee</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les patrons de conception-Créer un patron stratégie"><a class="Link9" href="#Les patrons de conception">Créer un patron stratégie</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GAnimal.h"
+#include "GCat.h"
+#include "GDog.h"
+//===============================================
+int main(int argc, char** argv) {
+    GAnimalO* lAnimals[3];
+    
+    lAnimals[0] = GAnimal_New();
+    lAnimals[1] = GCat_New("Tom");
+    lAnimals[2] = GDog_New(10);
+    
+    for(int i = 0; i &lt; 3; i++) {
+        GAnimalO* lAnimal = lAnimals[i];
+        lAnimal-&gt;Print(lAnimal);
+        lAnimal-&gt;Delete(lAnimal);
+    }
+    
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GAnimal.h</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#ifndef _GAnimal_
+#define _GAnimal_
+//===============================================
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+//===============================================
+typedef struct _GAnimalO GAnimalO;
+//===============================================
+struct _GAnimalO {
+    void* child;
+    void (*Delete)(GAnimalO* obj);
+    void (*Print)(GAnimalO* obj);
+};
+//===============================================
+GAnimalO* GAnimal_New();
+void GAnimal_Delete(GAnimalO* obj);
+//===============================================
+#endif
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GAnimal.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GAnimal.h"
+//===============================================
+static void GAnimal_Print(GAnimalO* obj);
+//===============================================
+GAnimalO* GAnimal_New() {
+    GAnimalO* lObj = (GAnimalO*)malloc(sizeof(GAnimalO));
+    
+    lObj-&gt;Delete = GAnimal_Delete;
+    lObj-&gt;Print = GAnimal_Print;
+    return lObj;
+}
+//===============================================
+void GAnimal_Delete(GAnimalO* obj) {
+    free(obj);
+}
+//===============================================
+static void GAnimal_Print(GAnimalO* obj) {
+    printf("Je suis un animal\n");
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GCat.h</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#ifndef _GCat_
+#define _GCat_
+//===============================================
+#include "GAnimal.h"
+//===============================================
+typedef struct _GCatO GCatO;
+//===============================================
+struct _GCatO {
+    void (*Delete)(GAnimalO* obj);
+    void (*Print)(GAnimalO* obj);
+    char name[256];
+};
+//===============================================
+GAnimalO* GCat_New(const char* name);
+//===============================================
+#endif
+//===============================================</xmp></pre></div><br><br><h3 class="Title8 GTitle3">GCat.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GCat.h"
+//===============================================
+static void GCat_Delete(GAnimalO* obj);
+static void GCat_Print(GAnimalO* obj);
+//===============================================
+GAnimalO* GCat_New(const char* name) {
+    GAnimalO* lParent = GAnimal_New();
+    GCatO* lChild = (GCatO*)malloc(sizeof(GCatO));
+
+    sprintf(lChild-&gt;name, "%s", name);
+
+    lParent-&gt;child = lChild;
+    lParent-&gt;Delete = GCat_Delete;
+    lParent-&gt;Print = GCat_Print;
+    return lParent;
+}
+//===============================================
+static void GCat_Delete(GAnimalO* obj) {
+    GAnimal_Delete(obj);
+}
+//===============================================
+static void GCat_Print(GAnimalO* obj) {
+    GCatO* lObj = obj-&gt;child;
+    printf("Je suis un chat : mon nom est : %s\n", lObj-&gt;name);
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GDog.h</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#ifndef _GDog_
+#define _GDog_
+//===============================================
+#include "GAnimal.h"
+//===============================================
+typedef struct _GDogO GDogO;
+//===============================================
+struct _GDogO {
+    void (*Delete)(GAnimalO* obj);
+    void (*Print)(GAnimalO* obj);
+    int weight;
+};
+//===============================================
+GAnimalO* GDog_New(int weight);
+//===============================================
+#endif
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GDog.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GDog.h"
+//===============================================
+static void GDog_Delete(GAnimalO* obj);
+static void GDog_Print(GAnimalO* obj);
+//===============================================
+GAnimalO* GDog_New(int weight) {
+    GAnimalO* lParent = GAnimal_New();
+    GDogO* lChild = (GDogO*)malloc(sizeof(GDogO));
+
+    lChild-&gt;weight = weight;
+
+    lParent-&gt;child = lChild;
+    lParent-&gt;Delete = GDog_Delete;
+    lParent-&gt;Print = GDog_Print;
+    return lParent;
+}
+//===============================================
+static void GDog_Delete(GAnimalO* obj) {
+    GAnimal_Delete(obj);
+}
+//===============================================
+static void GDog_Print(GAnimalO* obj) {
+    GDogO* lObj = obj-&gt;child;
+    printf("Je suis un chien : mon poids est : %d (kg)\n", lObj-&gt;weight);
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">Je suis un animal
+Je suis un chat : mon nom est : Tom
+Je suis un chien : mon poids est : 10 (kg)</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Système d'administration"><a class="Link3" href="#">Système d'administration</a></h1><div class="Body3"><br>Créer un système d'administration en C.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1616855562692"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1616855562692");</script></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Introduction"><a class="Link9" href="#Système d'administration">Introduction</a></h2><br>Le système d'administration que nous présentons ici est une interface en ligne de commande permettant d'accéder à toutes les fonctionnalités d'une application.<br><br><h2 class="Title7 GTitle2" id="Système d'administration-Programme principal"><a class="Link9" href="#Système d'administration">Programme principal</a></h2><br><h3 class="Title8 GTitle3">GProcess.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">// on appelle la méthode d'entrée
 // du système d'administration run()
 GProcessUi()-&gt;Run(argc, argv);</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Système d'administration"><a class="Link9" href="#Système d'administration">Système d'administration</a></h2><br><h3 class="Title8 GTitle3">GProcessUi.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">// on definit un système d'administration base sur
 // le modele d'une machine a etats finis
