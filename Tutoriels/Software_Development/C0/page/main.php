@@ -696,7 +696,193 @@ static void GDog_Print(GAnimalO* obj) {
 }
 //===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">Je suis un animal
 Je suis un chat
-Je suis un chien</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Système d'administration"><a class="Link3" href="#">Système d'administration</a></h1><div class="Body3"><br>Créer un système d'administration en C.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1616855562692"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1616855562692");</script></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Introduction"><a class="Link9" href="#Système d'administration">Introduction</a></h2><br>Le système d'administration que nous présentons ici est une interface en ligne de commande permettant d'accéder à toutes les fonctionnalités d'une application.<br><br><h2 class="Title7 GTitle2" id="Système d'administration-Programme principal"><a class="Link9" href="#Système d'administration">Programme principal</a></h2><br><h3 class="Title8 GTitle3">GProcess.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">// on appelle la méthode d'entrée
+Je suis un chien</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les patrons de conception-Créer un patron observateur"><a class="Link9" href="#Les patrons de conception">Créer un patron observateur</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GWidget.h"
+//===============================================
+int main(int argc, char** argv) {
+    GWidgetO* lButton = GWidget("button");
+    GWidgetO* lLed = GWidget("led");
+    lLed-&gt;AddClick(lLed, lButton);
+    
+    lButton-&gt;Click(lButton);
+    lButton-&gt;Click(lButton);
+    lButton-&gt;Click(lButton);
+    lButton-&gt;Click(lButton);
+    
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GWidget.h</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#ifndef _GWidget_
+#define _GWidget_
+//===============================================
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+//===============================================
+typedef struct _GWidgetO GWidgetO;
+//===============================================
+struct _GWidgetO {
+    void* child;
+    void (*Delete)(GWidgetO* obj);
+    void (*Click)(GWidgetO* obj);
+    void (*EmitClick)(GWidgetO* obj);
+    void (*OnClick)(GWidgetO* obj);
+    void (*AddClick)(GWidgetO* obj, GWidgetO* obs);
+    GWidgetO* item_map[8];
+    int item_count;
+};
+//===============================================
+GWidgetO* GWidget(const char* key);
+GWidgetO* GWidget_New();
+void GWidget_Delete(GWidgetO* obj);
+//===============================================
+#endif
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GWidget.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GWidget.h"
+#include "GButton.h"
+#include "GLed.h"
+//===============================================
+static void GWidget_Click(GWidgetO* obj);
+static void GWidget_EmitClick(GWidgetO* obj);
+static void GWidget_OnClick(GWidgetO* obj);
+static void GWidget_AddClick(GWidgetO* obj, GWidgetO* obs);
+//===============================================
+GWidgetO* GWidget_New() {
+    GWidgetO* lObj = (GWidgetO*)malloc(sizeof(GWidgetO));
+    
+    lObj-&gt;item_count = 0;
+    
+    lObj-&gt;Delete = GWidget_Delete;
+    lObj-&gt;Click = GWidget_Click;
+    lObj-&gt;EmitClick = GWidget_EmitClick;
+    lObj-&gt;OnClick = GWidget_OnClick;
+    lObj-&gt;AddClick = GWidget_AddClick;
+    return lObj;
+}
+//===============================================
+void GWidget_Delete(GWidgetO* obj) {
+    free(obj);
+}
+//===============================================
+GWidgetO* GWidget(const char* key) {
+    if(!strcmp(key, "widget")) {return GWidget_New();}
+    if(!strcmp(key, "button")) {return GButton_New();}
+    if(!strcmp(key, "led")) {return GLed_New();}
+    return GWidget_New();
+}
+//===============================================
+static void GWidget_EmitClick(GWidgetO* obj) {
+    for(int i = 0; i &lt; obj-&gt;item_count; i++) {
+        GWidgetO* lObj = obj-&gt;item_map[i];
+        lObj-&gt;OnClick(lObj);
+    }
+}
+//===============================================
+static void GWidget_AddClick(GWidgetO* obj, GWidgetO* obs) {
+    obs-&gt;item_map[obs-&gt;item_count] = obj;
+    obs-&gt;item_count++;
+}
+//===============================================
+static void GWidget_Click(GWidgetO* obj) {}
+static void GWidget_OnClick(GWidgetO* obj) {}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GButton.h</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#ifndef _GButton_
+#define _GButton_
+//===============================================
+#include "GWidget.h"
+//===============================================
+typedef struct _GButtonO GButtonO;
+//===============================================
+struct _GButtonO {
+    void (*Delete)(GWidgetO* obj);
+    void (*Click)(GWidgetO* obj);
+};
+//===============================================
+GWidgetO* GButton_New();
+//===============================================
+#endif
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GButton.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GButton.h"
+//===============================================
+static void GButton_Delete(GWidgetO* obj);
+static void GButton_Click(GWidgetO* obj);
+//===============================================
+GWidgetO* GButton_New() {
+    GWidgetO* lParent = GWidget_New();
+    GButtonO* lChild = (GButtonO*)malloc(sizeof(GButtonO));
+
+    lParent-&gt;child = lChild;
+    lParent-&gt;Delete = GButton_Delete;
+    lParent-&gt;Click = GButton_Click;
+    return lParent;
+}
+//===============================================
+static void GButton_Delete(GWidgetO* obj) {
+    GWidget_Delete(obj);
+}
+//===============================================
+static void GButton_Click(GWidgetO* obj) {
+    printf("Je clique sur le BOUTON\n");
+    obj-&gt;EmitClick(obj);
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GLed.h</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#ifndef _GLed_
+#define _GLed_
+//===============================================
+#include "GWidget.h"
+//===============================================
+typedef struct _GLedO GLedO;
+//===============================================
+struct _GLedO {
+    void (*Delete)(GWidgetO* obj);
+    void (*Click)(GWidgetO* obj);
+    char* state;
+};
+//===============================================
+GWidgetO* GLed_New();
+//===============================================
+#endif
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GLed.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GLed.h"
+//===============================================
+static void GLed_Delete(GWidgetO* obj);
+static void GLed_OnClick(GWidgetO* obj);
+//===============================================
+GWidgetO* GLed_New() {
+    GWidgetO* lParent = GWidget_New();
+    GLedO* lChild = (GLedO*)malloc(sizeof(GLedO));
+
+    lChild-&gt;state = "off";
+
+    lParent-&gt;child = lChild;
+    lParent-&gt;Delete = GLed_Delete;
+    lParent-&gt;OnClick = GLed_OnClick;
+    return lParent;
+}
+//===============================================
+static void GLed_Delete(GWidgetO* obj) {
+    GWidget_Delete(obj);
+}
+//===============================================
+static void GLed_OnClick(GWidgetO* obj) {
+    GLedO* lObj = obj-&gt;child;
+    if(!strcmp(lObj-&gt;state, "off")) {
+        printf("Je fais allumer la LED [ON]\n");
+        lObj-&gt;state = "on";
+    }
+    else if(!strcmp(lObj-&gt;state, "on")) {
+        printf("Je fais eteindre la LED [OFF]\n");
+        lObj-&gt;state = "off";
+    }
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">Je clique sur le BOUTON
+Je fais allumer la LED [ON]
+Je clique sur le BOUTON
+Je fais eteindre la LED [OFF]
+Je clique sur le BOUTON
+Je fais allumer la LED [ON]
+Je clique sur le BOUTON
+Je fais eteindre la LED [OFF]</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Système d'administration"><a class="Link3" href="#">Système d'administration</a></h1><div class="Body3"><br>Créer un système d'administration en C.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1616855562692"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1616855562692");</script></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Introduction"><a class="Link9" href="#Système d'administration">Introduction</a></h2><br>Le système d'administration que nous présentons ici est une interface en ligne de commande permettant d'accéder à toutes les fonctionnalités d'une application.<br><br><h2 class="Title7 GTitle2" id="Système d'administration-Programme principal"><a class="Link9" href="#Système d'administration">Programme principal</a></h2><br><h3 class="Title8 GTitle3">GProcess.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">// on appelle la méthode d'entrée
 // du système d'administration run()
 GProcessUi()-&gt;Run(argc, argv);</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Système d'administration"><a class="Link9" href="#Système d'administration">Système d'administration</a></h2><br><h3 class="Title8 GTitle3">GProcessUi.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">// on definit un système d'administration base sur
 // le modele d'une machine a etats finis
