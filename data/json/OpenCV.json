@@ -1,0 +1,20 @@
+{
+    "sitemap":"yes",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+			"Le but de ce tutoriel est de vous apprendre",
+            "la vision par ordinateur avec OpenCV.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Tutoriels/Resources/OpenCV/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Resources/OpenCV/img/b_opencv.png"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"Ressources","link":"/Tutoriels/#Ressources","follow":"no"},
+        {"name":"OpenCV","link":"","follow":"no"}
+    ]
+}

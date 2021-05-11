@@ -1,8 +1,8 @@
-<div class="Parallax GParallax1"><div class="Img Binary"><div class="Caption"><a href="#"><div class="Text">Apprendre la programmation en C<br></div></a></div></div><div class="Body2 Orange"><br>Le but de ce tutoriel est de vous apprendre la programmation en <b>C</b>.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary1"><div class="Body0" id="Loader_1529412976174"><div class="Row26">Summary 1</div></div><script>loadSummary1("Loader_1529412976174");</script></div><br></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Introduction"><a class="Link3" href="#">Introduction</a></h1><div class="Body3"><br><b>C </b>est un langage de programmation impératif généraliste, de bas niveau offrant au développeur une marge de contrôle importante sur la machine (notamment sur la gestion de la mémoire) et est de ce fait utilisé pour réaliser les fondations (compilateurs, interpréteurs) des langages plus modernes.<br><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/b_c.png" alt="/Tutoriels/Software_Development/C0/img/b_c.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Installation"><a class="Link3" href="#">Installation</a></h1><div class="Body3"><br>Installer l'environnement C.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1616843526757"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1616843526757");</script></div><br><h2 class="Title7 GTitle2" id="Installation-1 - Installation sous Windows"><a class="Link9" href="#Installation">1 - Installation sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Installation-1.1 - Installation sous MSYS2"><a class="Link9" href="#Installation">1.1 - Installation sous MSYS2</a></h2><br>MSYS2 est un outil de développement de logiciels Linux sous Windows.<br><br><h2 class="Title7 GTitle2" id="Installation-1.1.1 - Installer MSYS2"><a class="Link9" href="#Installation">1.1.1 - Installer MSYS2</a></h2><br><h2 class="Title7 GTitle2" id="Installation-1.1.1.1 - Télécharger MSYS2"><a class="Link9" href="#Installation">1.1.1.1 - Télécharger MSYS2</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://repo.msys2.org/distrib/x86_64/">https://repo.msys2.org/distrib/x86_64/</a><br><br><b>msys2-x86_64-20210228.exe</b><br><br><h2 class="Title7 GTitle2" id="Installation-1.1.1.2 - Démarrer l'installation"><a class="Link9" href="#Installation">1.1.1.2 - Démarrer l'installation</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">msys2-x86_64-20210228.exe
+<div class="Parallax GParallax1"><div class="Img Binary"><div class="Caption"><a href="#"><div class="Text">Apprendre la programmation en C<br></div></a></div></div><div class="Body2 Orange"><br>Le but de ce tutoriel est de vous apprendre la programmation en <b>C</b>.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary1"><div class="Body0" id="Loader_1529412976174"><div class="Row26">Summary 1</div></div><script>loadSummary1("Loader_1529412976174");</script></div><br></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Introduction"><a class="Link3" href="#">Introduction</a></h1><div class="Body3"><br><b>C </b>est un langage de programmation impératif généraliste, de bas niveau offrant au développeur une marge de contrôle importante sur la machine (notamment sur la gestion de la mémoire) et est de ce fait utilisé pour réaliser les fondations (compilateurs, interpréteurs) des langages plus modernes.<br><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/b_c.png" alt="/Tutoriels/Software_Development/C0/img/b_c.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Installation"><a class="Link3" href="#">Installation</a></h1><div class="Body3"><br>Installer l'environnement C.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1616843526757"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1616843526757");</script></div><br><h2 class="Title7 GTitle2" id="Installation-1 - Installation sous Windows"><a class="Link9" href="#Installation">1 - Installation sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Installation-1.1 - Installation sous MSYS2"><a class="Link9" href="#Installation">1.1 - Installation sous MSYS2</a></h2><br><h2 class="Title7 GTitle2" id="Installation-1.1.1 - Installer MSYS2"><a class="Link9" href="#Installation">1.1.1 - Installer MSYS2</a></h2><br><h2 class="Title7 GTitle2" id="Installation-1.1.1.1 - Télécharger MSYS2"><a class="Link9" href="#Installation">1.1.1.1 - Télécharger MSYS2</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://repo.msys2.org/distrib/x86_64/">https://repo.msys2.org/distrib/x86_64/</a><br><br><b>msys2-x86_64-20210228.exe</b><br><br><h2 class="Title7 GTitle2" id="Installation-1.1.1.2 - Démarrer l'installation"><a class="Link9" href="#Installation">1.1.1.2 - Démarrer l'installation</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">msys2-x86_64-20210228.exe
 Suivant
-Dossier d'installation -&gt; C:\msys64
+Dossier d'installation -> C:\msys64
 Suivant
-Raccourci du menu Démarrer -&gt; MSYS2 64bit
+Raccourci du menu Démarrer -> MSYS2 64bit
 Suivant
 Suivant
 Terminer</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Installation-1.1.2 - Démarrer MSYS2"><a class="Link9" href="#Installation">1.1.2 - Démarrer MSYS2</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Windows
@@ -15,7 +15,157 @@ int main(int argc, char** argv) {
     printf("Bonjour tout le monde\n");
     return 0;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.2 - Compiler le projet"><a class="Link9" href="#Tests">1.1.2 - Compiler le projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">gcc -std=gnu11 -c ./main.c -o ./main.o </xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.3 - Éditer les liens du projet"><a class="Link9" href="#Tests">1.1.3 - Éditer les liens du projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">gcc -o ./rdc.exe ./main.o </xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.4 - Exécuter le projet"><a class="Link9" href="#Tests">1.1.4 - Exécuter le projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">./rdc.exe</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Bonjour tout le monde</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Système d'administration"><a class="Link3" href="#">Système d'administration</a></h1><div class="Body3"><br>Créer un système d'administration en C.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1616855562692"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1616855562692");</script></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Introduction"><a class="Link9" href="#Système d'administration">Introduction</a></h2><br>Le système d'administration que nous présentons ici est une interface en ligne de commande permettant d'accéder à toutes les fonctionnalités d'une application.<br><br><h2 class="Title7 GTitle2" id="Système d'administration-Programme principal"><a class="Link9" href="#Système d'administration">Programme principal</a></h2><br><h3 class="Title8 GTitle3">GProcess.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">// on appelle la méthode d'entrée
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.2 - Compiler le projet"><a class="Link9" href="#Tests">1.1.2 - Compiler le projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">gcc -std=gnu11 -c ./main.c -o ./main.o </xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.3 - Éditer les liens du projet"><a class="Link9" href="#Tests">1.1.3 - Éditer les liens du projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">gcc -o ./rdc.exe ./main.o </xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.4 - Exécuter le projet"><a class="Link9" href="#Tests">1.1.4 - Exécuter le projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">./rdc.exe</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Bonjour tout le monde</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Les fondamentaux"><a class="Link3" href="#">Les fondamentaux</a></h1><div class="Body3"><br>Les fondamentaux de C.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620691663743"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620691663743");</script></div><br><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Créer un commentaire"><a class="Link9" href="#Les fondamentaux">Créer un commentaire</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+//===============================================
+int main(int argc, char** argv) {
+    // voici mon commentaire
+    int var = 10;
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Créer un commentaire à droite"><a class="Link9" href="#Les fondamentaux">Créer un commentaire à droite</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+//===============================================
+int main(int argc, char** argv) {
+    int var = 10; // voici mon commentaire
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Créer un commentaire sur plusieurs lignes"><a class="Link9" href="#Les fondamentaux">Créer un commentaire sur plusieurs lignes</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+//===============================================
+int main(int argc, char** argv) {
+    /*
+    voici mon commentaire
+    voici mon commentaire
+    voici mon commentaire
+    */
+    int var = 10;
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Afficher un message"><a class="Link9" href="#Les fondamentaux">Afficher un message</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+//===============================================
+int main(int argc, char** argv) {
+    printf("voici mon message\n");
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Formater l'affichage d'un message"><a class="Link9" href="#Les fondamentaux">Formater l'affichage d'un message</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+//===============================================
+int main(int argc, char** argv) {
+    printf("%-20s : %s\n", "Identifiant", "readydev");
+    printf("%-20s : %s\n", "Email", "contact@readydev.com");
+    printf("%-20s : %d\n", "Code", 1234);
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Définir la largeur de formatage de l'affichage d'un message"><a class="Link9" href="#Les fondamentaux">Définir la largeur de formatage de l'affichage d'un message</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+//===============================================
+int main(int argc, char** argv) {
+    int lWidth = -20;
+    printf("%*s : %s\n", lWidth, "Identifiant", "readydev");
+    printf("%*s : %s\n", lWidth, "Email", "contact@readydev.com");
+    printf("%*s : %d\n", lWidth, "Code", 1234);
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Déclarer une varibale"><a class="Link9" href="#Les fondamentaux">Déclarer une varibale</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+//===============================================
+int main(int argc, char** argv) {
+    int var;
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Initialiser une variable au moment de sa déclaration"><a class="Link9" href="#Les fondamentaux">Initialiser une variable au moment de sa déclaration</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+//===============================================
+int main(int argc, char** argv) {
+    int var = 10;
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Affecter une valeur à variable"><a class="Link9" href="#Les fondamentaux">Affecter une valeur à variable</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+//===============================================
+int main(int argc, char** argv) {
+    int var = 10;
+    var = 20;
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Afficher une variable"><a class="Link9" href="#Les fondamentaux">Afficher une variable</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+//===============================================
+int main(int argc, char** argv) {
+    int var = 10;
+    printf("var : %d\n", var);
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Créer une condition if"><a class="Link9" href="#Les fondamentaux">Créer une condition if</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+//===============================================
+int main(int argc, char** argv) {
+    if(100 &gt; 10) {
+        printf("Oui on a : 100 &gt; 10\n");
+    }
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Créer une condition if - else"><a class="Link9" href="#Les fondamentaux">Créer une condition if - else</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+//===============================================
+int main(int argc, char** argv) {
+    if(100 &lt; 10) {
+        printf("Oui on a : 100 &lt; 10\n");
+    }
+    else {
+        printf("Sinon on a : 100 &gt; 10\n");
+    }
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Créer une condition else if"><a class="Link9" href="#Les fondamentaux">Créer une condition else if</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+//===============================================
+int main(int argc, char** argv) {
+    if(100 &lt; 10) {
+        printf("Oui on a : 100 &lt; 10\n");
+    }
+    else if(100 == 100) {
+        printf("Sinon Si on a : 100 = 100\n");
+    }
+    else {
+        printf("Dans le cas contraire on a : 100 &gt; 10\n");
+    }
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Créer une boucle for"><a class="Link9" href="#Les fondamentaux">Créer une boucle for</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+//===============================================
+int main(int argc, char** argv) {
+    for(int i = 0; i &lt; 10; i++) {
+        printf("%d\n", i);
+    }
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Créer une boucle while"><a class="Link9" href="#Les fondamentaux">Créer une boucle while</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+//===============================================
+int main(int argc, char** argv) {
+    int i = 0;
+    while(i &lt; 10) {
+        printf("%d\n", i);
+        i++;
+    }        
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Créer une boucle do while"><a class="Link9" href="#Les fondamentaux">Créer une boucle do while</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+//===============================================
+int main(int argc, char** argv) {
+    int i = 0;
+    do {
+        printf("%d\n", i);
+        i++;
+    } while(i &lt; 10);
+    return 0;
+}
+//===============================================</xmp></pre></div><br><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Système d'administration"><a class="Link3" href="#">Système d'administration</a></h1><div class="Body3"><br>Créer un système d'administration en C.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1616855562692"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1616855562692");</script></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Introduction"><a class="Link9" href="#Système d'administration">Introduction</a></h2><br>Le système d'administration que nous présentons ici est une interface en ligne de commande permettant d'accéder à toutes les fonctionnalités d'une application.<br><br><h2 class="Title7 GTitle2" id="Système d'administration-Programme principal"><a class="Link9" href="#Système d'administration">Programme principal</a></h2><br><h3 class="Title8 GTitle3">GProcess.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">// on appelle la méthode d'entrée
 // du système d'administration run()
 GProcessUi()-&gt;Run(argc, argv);</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Système d'administration"><a class="Link9" href="#Système d'administration">Système d'administration</a></h2><br><h3 class="Title8 GTitle3">GProcessUi.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">// on definit un système d'administration base sur
 // le modele d'une machine a etats finis
@@ -777,4 +927,231 @@ static int GConfig_CountData(char* key) {
     // on retourne le nombre d'elements
     return lCount;
 }
-//===============================================</xmp></pre></div><br></div></div></div></div><br>
+//===============================================</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Socket - Windows"><a class="Link3" href="#">Socket - Windows</a></h1><div class="Body3"><br>Une <b>Socket </b>est une structure logicielle dans un nœud de réseau d'un réseau informatique qui sert de point de terminaison pour envoyer et recevoir des données sur le réseau. La structure et les propriétés d'une socket sont définies par une interface de programmation d'application (API) pour l'architecture réseau. Les sockets sont créées uniquement pendant la durée de vie d'un processus d'une application s'exécutant dans le nœud. Une socket est identifiée de manière externe aux autres hôtes par son adresse de socket , qui est la triade du protocole de transport , de l'adresse IP et du numéro de port . Une socket est aussi utilisée pour le point de terminaison logiciel de la communication inter-processus interne au nœud (IPC).<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620670499920"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620670499920");</script></div><br><h2 class="Title7 GTitle2" id="Socket - Windows-Afficher les interfaces réseau"><a class="Link9" href="#Socket - Windows">Afficher les interfaces réseau</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;winsock2.h&gt;
+#include &lt;iphlpapi.h&gt;
+#include &lt;ws2tcpip.h&gt;
+//===============================================
+int main(int argc, char** argv) {
+    WSADATA d;
+    DWORD asize = 20000;
+    PIP_ADAPTER_ADDRESSES adapters;
+    PIP_ADAPTER_UNICAST_ADDRESS address;
+    int lFamily;
+    char* lFamilyName;
+    char lHost[256];
+    
+    WSAStartup(MAKEWORD(2, 2), &d);
+
+    adapters = (PIP_ADAPTER_ADDRESSES)malloc(asize);
+    GetAdaptersAddresses(AF_UNSPEC, GAA_FLAG_INCLUDE_PREFIX, 0, adapters, &asize);
+    
+    while(1) {
+        if(adapters == 0) {break;}
+        printf("Adapter name: %S\n", adapters-&gt;FriendlyName);
+
+        address = adapters-&gt;FirstUnicastAddress;
+        
+        while(1) {
+            if(address == 0) {break;}
+            lFamily = address-&gt;Address.lpSockaddr-&gt;sa_family;
+            lFamilyName = (lFamily == AF_INET) ? "IPv4" : "IPv6";
+            printf("\t%s", lFamilyName);
+            
+            getnameinfo(address-&gt;Address.lpSockaddr,
+            address-&gt;Address.iSockaddrLength,
+            lHost, sizeof(lHost), 0, 0, NI_NUMERICHOST);
+            printf("\t%s\n", lHost);
+            
+            address = address-&gt;Next;
+        }
+        
+        adapters = adapters-&gt;Next;
+        printf("\n");
+    }
+
+    free(adapters);
+    WSACleanup();
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_socket_network_interface.png" alt="/Tutoriels/Software_Development/C0/img/i_socket_network_interface.png"></div><br><h2 class="Title7 GTitle2" id="Socket - Windows-Afficher la version maximale de winsock2 supportée"><a class="Link9" href="#Socket - Windows">Afficher la version maximale de winsock2 supportée</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+#include &lt;winsock2.h&gt;
+//===============================================
+int main(int argc, char** argv) {
+    WSADATA wsaData;
+    WSAStartup(MAKEWORD(2,1), &wsaData);
+    
+    printf("Version en cours : %u.%u\n", LOBYTE(wsaData.wVersion),
+    HIBYTE(wsaData.wVersion));
+    printf("Version maximale supportee : %u.%u\n", LOBYTE(wsaData.wHighVersion),
+    HIBYTE(wsaData.wHighVersion));
+    
+    WSACleanup();
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_socket_version.png" alt="/Tutoriels/Software_Development/C0/img/i_socket_version.png"></div><br><h2 class="Title7 GTitle2" id="Socket - Windows-Echanger des données entre un client/serveur"><a class="Link9" href="#Socket - Windows">Echanger des données entre un client/serveur</a></h2><br><h3 class="Title8 GTitle3">main.c (serveur)<br></h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+#include &lt;winsock2.h&gt;
+//===============================================
+int main(int argc, char** argv) {
+    WSADATA wsaData;
+    WSAStartup(MAKEWORD(2,1), &wsaData);
+    
+    int Port = 5150;
+    SOCKADDR_IN ServerAddr;
+    ServerAddr.sin_family = AF_INET;
+    ServerAddr.sin_port = htons(Port);
+    ServerAddr.sin_addr.s_addr = htonl(INADDR_ANY);    
+
+    SOCKET ListeningSocket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
+    bind(ListeningSocket, (SOCKADDR *)&ServerAddr, sizeof(ServerAddr));
+    listen(ListeningSocket, 5);
+    
+    SOCKET NewConnection = accept(ListeningSocket, NULL, NULL);
+    
+    char lMessage[256];
+    int lBytes = recv(NewConnection, lMessage, sizeof(lMessage), 0);
+    lMessage[lBytes] = 0;
+    printf("[server] recv : %s\n", lMessage);
+    sprintf(lMessage, "Bonjour ! Je suis le serveur");
+    send(NewConnection, lMessage, strlen(lMessage), 0);
+    printf("[server] send : %s\n", lMessage);
+
+    closesocket(NewConnection);
+    closesocket(ListeningSocket);
+    WSACleanup();
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">main.c (client)</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;winsock2.h&gt;
+#include &lt;iphlpapi.h&gt;
+#include &lt;ws2tcpip.h&gt;
+//===============================================
+int main(int argc, char** argv) {
+    WSADATA wsaData;
+    WSAStartup(MAKEWORD(2, 2), &wsaData);
+
+    int Port = 5150;
+    SOCKADDR_IN ServerAddr;
+    ServerAddr.sin_family = AF_INET;
+    ServerAddr.sin_port = htons(Port);
+    ServerAddr.sin_addr.s_addr = inet_addr("127.0.0.1");
+     
+    SOCKET SendingSocket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
+    connect(SendingSocket, (SOCKADDR *) &ServerAddr, sizeof(ServerAddr));
+        
+    char lMessage[256];
+    sprintf(lMessage, "Bonjour ! Qui est-tu ?");
+    send(SendingSocket, lMessage, strlen(lMessage), 0);
+    printf("[client] send : %s\n", lMessage);
+    int lBytes = recv(SendingSocket, lMessage, sizeof(lMessage), 0);
+    lMessage[lBytes] = 0;
+    printf("[client] recv : %s\n", lMessage);
+    
+    closesocket(SendingSocket);
+    WSACleanup();
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat (serveur)</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_socket_win_data_server.png" alt="/Tutoriels/Software_Development/C0/img/i_socket_win_data_server.png"></div><br><h3 class="Title8 GTitle3">Résultat (client)</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_socket_win_data_client.png" alt="/Tutoriels/Software_Development/C0/img/i_socket_win_data_client.png"></div><br><h2 class="Title7 GTitle2" id="Socket - Windows-Echanger la date entre un client/serveur"><a class="Link9" href="#Socket - Windows">Echanger la date entre un client/serveur</a></h2><br><h3 class="Title8 GTitle3">main.c (serveur)<br></h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;winsock2.h&gt;
+#include &lt;iphlpapi.h&gt;
+#include &lt;ws2tcpip.h&gt;
+//===============================================
+int main(int argc, char** argv) {
+    WSADATA d;
+    WSAStartup(MAKEWORD(2, 2), &d);
+
+    struct addrinfo hints;
+    memset(&hints, 0, sizeof(hints));
+    hints.ai_family = AF_INET;
+    hints.ai_socktype = SOCK_STREAM;
+    hints.ai_flags = AI_PASSIVE;
+    
+    struct addrinfo *bind_address;
+    getaddrinfo(0, "8080", &hints, &bind_address);
+
+    SOCKET socket_listen = socket(bind_address-&gt;ai_family,
+    bind_address-&gt;ai_socktype, bind_address-&gt;ai_protocol);
+    bind(socket_listen, bind_address-&gt;ai_addr, bind_address-&gt;ai_addrlen);
+    freeaddrinfo(bind_address);
+    listen(socket_listen, 10);
+
+    struct sockaddr_storage client_address;
+    socklen_t client_len = sizeof(client_address);
+    SOCKET socket_client = accept(socket_listen, (struct sockaddr*) &client_address, &client_len);
+    
+    char lMessage[256];
+    int lBytes = recv(socket_client, lMessage, sizeof(lMessage), 0);
+    lMessage[lBytes] = 0;
+    printf("[server] recv : %s\n", lMessage);
+    
+    time_t timer;
+    time(&timer);
+    char *time_msg = ctime(&timer);
+    send(socket_client, time_msg, strlen(time_msg), 0);
+    printf("[server] send : %s\n", time_msg);
+    
+    closesocket(socket_client);
+    closesocket(socket_listen);
+    WSACleanup();
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">main.c (client)</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;winsock2.h&gt;
+#include &lt;iphlpapi.h&gt;
+#include &lt;ws2tcpip.h&gt;
+//===============================================
+int main(int argc, char** argv) {
+    WSADATA wsaData;
+    WSAStartup(MAKEWORD(2, 2), &wsaData);
+
+    struct addrinfo hints;
+    memset(&hints, 0, sizeof(hints));
+    hints.ai_socktype = SOCK_STREAM;
+
+    struct addrinfo *peer_address;
+    getaddrinfo("127.0.0.1", "8080", &hints, &peer_address);
+    
+    SOCKET socket_peer = socket(peer_address-&gt;ai_family, 
+    peer_address-&gt;ai_socktype, peer_address-&gt;ai_protocol);
+    connect(socket_peer, 
+    peer_address-&gt;ai_addr, peer_address-&gt;ai_addrlen);
+    freeaddrinfo(peer_address);
+    
+    char lMessage[256];
+    sprintf(lMessage, "Bonjour ! C'est quoi la date ?");
+    send(socket_peer, lMessage, strlen(lMessage), 0);
+    printf("[client] send : %s\n", lMessage);
+
+    int lBytes = recv(socket_peer, lMessage, sizeof(lMessage), 0);
+    lMessage[lBytes] = 0;
+    printf("[client] recv : %s\n", lMessage);
+
+    closesocket(socket_peer);
+    WSACleanup();
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat (serveur)</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_socket_win_date_server.png" alt="/Tutoriels/Software_Development/C0/img/i_socket_win_date_server.png"></div><br><h3 class="Title8 GTitle3">Résultat (client)</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_socket_win_date_client.png" alt="/Tutoriels/Software_Development/C0/img/i_socket_win_date_client.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Date"><a class="Link3" href="#">Date</a></h1><div class="Body3"><br>La <b>date </b>est une indication de temps visant à définir un jour unique, généralement du calendrier grégorien. On l’utilise notamment pour repérer, avec l’heure, un événement temporel donné. Le calendrier grégorien, utilisé aujourd’hui par la plupart des pays européens, se base sur une année terrestre, c’est-à-dire une révolution de la Terre autour du soleil. Il découpe l’année en douze mois, pour un total de 365 jours (à l’exception des années bissextiles qui en comportent 366), soit 28 (29 pour les années bissextiles), 30 ou 31 jours par mois.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620671644111"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620671644111");</script></div><br><h2 class="Title7 GTitle2" id="Date-Afficher la date"><a class="Link9" href="#Date">Afficher la date</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+#include &lt;time.h&gt;
+//===============================================
+int main(int argc, char** argv) {
+    time_t timer;
+    char* lDate;
+    
+    time(&timer);
+    lDate = ctime(&timer);
+    
+    printf ("Local time is: %s", lDate);
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_date_show.png" alt="/Tutoriels/Software_Development/C0/img/i_date_show.png"></div><br></div></div></div></div><br>
