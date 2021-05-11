@@ -237,6 +237,13 @@
             "description":"Créez des interfaces<br/> homme-machine",
             "link":"/Tutoriels/Resources/Qt/",
 			"follow":"yes"
+        },
+        {
+            "icon":"fa fa-cogs",
+            "theme":"OpenCV",
+            "description":"Vision par<br/> Ordinateur",
+            "link":"/Tutoriels/Resources/OpenCV/",
+			"follow":"yes"
         }
     ]
 }
