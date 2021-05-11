@@ -548,7 +548,155 @@ static void GDog_Print(GAnimalO* obj) {
 }
 //===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">Je suis un animal
 Je suis un chat : mon nom est : Tom
-Je suis un chien : mon poids est : 10 (kg)</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Système d'administration"><a class="Link3" href="#">Système d'administration</a></h1><div class="Body3"><br>Créer un système d'administration en C.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1616855562692"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1616855562692");</script></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Introduction"><a class="Link9" href="#Système d'administration">Introduction</a></h2><br>Le système d'administration que nous présentons ici est une interface en ligne de commande permettant d'accéder à toutes les fonctionnalités d'une application.<br><br><h2 class="Title7 GTitle2" id="Système d'administration-Programme principal"><a class="Link9" href="#Système d'administration">Programme principal</a></h2><br><h3 class="Title8 GTitle3">GProcess.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">// on appelle la méthode d'entrée
+Je suis un chien : mon poids est : 10 (kg)</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les patrons de conception-Créer un patron fabrique"><a class="Link9" href="#Les patrons de conception">Créer un patron fabrique</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GAnimal.h"
+//===============================================
+int main(int argc, char** argv) {
+    GAnimalO* lAnimals[3];
+    
+    lAnimals[0] = GAnimal("animal");
+    lAnimals[1] = GAnimal("cat");
+    lAnimals[2] = GAnimal("dog");
+    
+    for(int i = 0; i &lt; 3; i++) {
+        GAnimalO* lAnimal = lAnimals[i];
+        lAnimal-&gt;Print(lAnimal);
+        lAnimal-&gt;Delete(lAnimal);
+    }
+    
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GAnimal.h</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#ifndef _GAnimal_
+#define _GAnimal_
+//===============================================
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+//===============================================
+typedef struct _GAnimalO GAnimalO;
+//===============================================
+struct _GAnimalO {
+    void* child;
+    void (*Delete)(GAnimalO* obj);
+    void (*Print)(GAnimalO* obj);
+};
+//===============================================
+GAnimalO* GAnimal(const char* key);
+GAnimalO* GAnimal_New();
+void GAnimal_Delete(GAnimalO* obj);
+//===============================================
+#endif
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GAnimal.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GAnimal.h"
+#include "GCat.h"
+#include "GDog.h"
+//===============================================
+static void GAnimal_Print(GAnimalO* obj);
+//===============================================
+GAnimalO* GAnimal_New() {
+    GAnimalO* lObj = (GAnimalO*)malloc(sizeof(GAnimalO));
+    
+    lObj-&gt;Delete = GAnimal_Delete;
+    lObj-&gt;Print = GAnimal_Print;
+    return lObj;
+}
+//===============================================
+void GAnimal_Delete(GAnimalO* obj) {
+    free(obj);
+}
+//===============================================
+GAnimalO* GAnimal(const char* key) {
+    if(!strcmp(key, "animal")) {return GAnimal_New();}
+    if(!strcmp(key, "cat")) {return GCat_New();}
+    if(!strcmp(key, "dog")) {return GDog_New();}
+    return GAnimal_New();
+}
+//===============================================
+static void GAnimal_Print(GAnimalO* obj) {
+    printf("Je suis un animal\n");
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GCat.h</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#ifndef _GCat_
+#define _GCat_
+//===============================================
+#include "GAnimal.h"
+//===============================================
+typedef struct _GCatO GCatO;
+//===============================================
+struct _GCatO {
+    void (*Delete)(GAnimalO* obj);
+    void (*Print)(GAnimalO* obj);
+};
+//===============================================
+GAnimalO* GCat_New();
+//===============================================
+#endif
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GCat.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GCat.h"
+//===============================================
+static void GCat_Delete(GAnimalO* obj);
+static void GCat_Print(GAnimalO* obj);
+//===============================================
+GAnimalO* GCat_New() {
+    GAnimalO* lParent = GAnimal_New();
+    GCatO* lChild = (GCatO*)malloc(sizeof(GCatO));
+
+    lParent-&gt;child = lChild;
+    lParent-&gt;Delete = GCat_Delete;
+    lParent-&gt;Print = GCat_Print;
+    return lParent;
+}
+//===============================================
+static void GCat_Delete(GAnimalO* obj) {
+    GAnimal_Delete(obj);
+}
+//===============================================
+static void GCat_Print(GAnimalO* obj) {
+    printf("Je suis un chat\n");
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GDog.h</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#ifndef _GDog_
+#define _GDog_
+//===============================================
+#include "GAnimal.h"
+//===============================================
+typedef struct _GDogO GDogO;
+//===============================================
+struct _GDogO {
+    void (*Delete)(GAnimalO* obj);
+    void (*Print)(GAnimalO* obj);
+};
+//===============================================
+GAnimalO* GDog_New();
+//===============================================
+#endif
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GDog.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GDog.h"
+//===============================================
+static void GDog_Delete(GAnimalO* obj);
+static void GDog_Print(GAnimalO* obj);
+//===============================================
+GAnimalO* GDog_New(int weight) {
+    GAnimalO* lParent = GAnimal_New();
+    GDogO* lChild = (GDogO*)malloc(sizeof(GDogO));
+
+    lParent-&gt;child = lChild;
+    lParent-&gt;Delete = GDog_Delete;
+    lParent-&gt;Print = GDog_Print;
+    return lParent;
+}
+//===============================================
+static void GDog_Delete(GAnimalO* obj) {
+    GAnimal_Delete(obj);
+}
+//===============================================
+static void GDog_Print(GAnimalO* obj) {
+    printf("Je suis un chien\n");
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">Je suis un animal
+Je suis un chat
+Je suis un chien</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Système d'administration"><a class="Link3" href="#">Système d'administration</a></h1><div class="Body3"><br>Créer un système d'administration en C.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1616855562692"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1616855562692");</script></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Introduction"><a class="Link9" href="#Système d'administration">Introduction</a></h2><br>Le système d'administration que nous présentons ici est une interface en ligne de commande permettant d'accéder à toutes les fonctionnalités d'une application.<br><br><h2 class="Title7 GTitle2" id="Système d'administration-Programme principal"><a class="Link9" href="#Système d'administration">Programme principal</a></h2><br><h3 class="Title8 GTitle3">GProcess.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">// on appelle la méthode d'entrée
 // du système d'administration run()
 GProcessUi()-&gt;Run(argc, argv);</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Système d'administration"><a class="Link9" href="#Système d'administration">Système d'administration</a></h2><br><h3 class="Title8 GTitle3">GProcessUi.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">// on definit un système d'administration base sur
 // le modele d'une machine a etats finis
