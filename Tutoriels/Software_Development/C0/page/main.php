@@ -15,7 +15,7 @@ int main(int argc, char** argv) {
     printf("Bonjour tout le monde\n");
     return 0;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.2 - Compiler le projet"><a class="Link9" href="#Tests">1.1.2 - Compiler le projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">gcc -std=gnu11 -c ./main.c -o ./main.o </xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.3 - Éditer les liens du projet"><a class="Link9" href="#Tests">1.1.3 - Éditer les liens du projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">gcc -o ./rdc.exe ./main.o </xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.4 - Exécuter le projet"><a class="Link9" href="#Tests">1.1.4 - Exécuter le projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">./rdc.exe</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Bonjour tout le monde</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Les fondamentaux"><a class="Link3" href="#">Les fondamentaux</a></h1><div class="Body3"><br>Les fondamentaux de C.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620691663743"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620691663743");</script></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Créer un commentaire"><a class="Link9" href="#Les fondamentaux">Créer un commentaire</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.2 - Compiler le projet"><a class="Link9" href="#Tests">1.1.2 - Compiler le projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">gcc -std=gnu11 -c ./main.c -o ./main.o </xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.3 - Éditer les liens du projet"><a class="Link9" href="#Tests">1.1.3 - Éditer les liens du projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">gcc -o ./rdc.exe ./main.o </xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.4 - Exécuter le projet"><a class="Link9" href="#Tests">1.1.4 - Exécuter le projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">./rdc.exe</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Bonjour tout le monde</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Fondamentaux"><a class="Link3" href="#">Fondamentaux</a></h1><div class="Body3"><br>Les fondamentaux de C.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620691663743"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620691663743");</script></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Créer un commentaire"><a class="Link9" href="#Les fondamentaux">Créer un commentaire</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 //===============================================
 int main(int argc, char** argv) {
@@ -98,6 +98,71 @@ int main(int argc, char** argv) {
     printf("var : %d\n", var);
     return 0;
 }
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Saisir un entier au clavier"><a class="Link9" href="#Les fondamentaux">Saisir un entier au clavier</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+//===============================================
+int main(int argc, char** argv) {
+    int lInt;
+    while(1) {
+        printf("Saisier un entier : ");
+        fflush(stdout);
+        scanf("%d", &lInt);
+        printf("Int: [%d]\n", lInt);
+        if(lInt == -1) {break;}
+    }
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Saisir un réel au clavier"><a class="Link9" href="#Les fondamentaux">Saisir un réel au clavier</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+//===============================================
+int main(int argc, char** argv) {
+    float lFloat;
+    while(1) {
+        printf("Saisier un reel : ");
+        fflush(stdout);
+        scanf("%f", &lFloat);
+        printf("Float : [%f]\n", lFloat);
+        if(lFloat == -1) {break;}
+    }
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Saisir un mot au clavier"><a class="Link9" href="#Les fondamentaux">Saisir un mot au clavier</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+//===============================================
+int main(int argc, char** argv) {
+    char lString[256];
+    while(1) {
+        printf("Saisier une chaine sans espace : ");
+        fflush(stdout);
+        scanf("%s", &lString);
+        printf("lString : [%s]\n", lString);
+        if(!strcmp(lString, "-q")) {break;}
+    }
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Saisir une chaîne de caractère au clavier"><a class="Link9" href="#Les fondamentaux">Saisir une chaîne de caractère au clavier</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+//===============================================
+int main(int argc, char** argv) {
+    char lBuffer[256];
+    while(1) {
+        printf("Saisier une chaine : ");
+        fflush(stdout);
+        fgets(lBuffer, sizeof(lBuffer), stdin);
+        lBuffer[strlen(lBuffer) - 1] = 0;
+        printf("Donnee : [%s]\n", lBuffer);
+        if(!strcmp(lBuffer, "-q")) {break;}
+    }
+    return 0;
+}
 //===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Créer une condition if"><a class="Link9" href="#Les fondamentaux">Créer une condition if</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 //===============================================
@@ -137,6 +202,42 @@ int main(int argc, char** argv) {
     }
     else {
         printf("Sinon : on a : a &gt; b\n");
+    }
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Créer une condition ternaire"><a class="Link9" href="#Les fondamentaux">Créer une condition ternaire</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+//===============================================
+int main(int argc, char** argv) {
+    int lAge = 20;
+    char* lCategory = (lAge &gt;= 18) ? "MAJEUR" : "MINEUR";
+    printf("Categorie : %s\n", lCategory);
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Créer une condition switch case"><a class="Link9" href="#Les fondamentaux">Créer une condition switch case</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+//===============================================
+int main(int argc, char** argv) {
+    int lState = 0;
+    switch(lState) {
+        case 0: {
+            printf("0 -&gt; Rouge\n");
+            break;
+        }
+        case 1: {
+            printf("1 -&gt; Orange\n");
+            break;
+        }
+        case 2: {
+            printf("2 -&gt; Vert\n");
+            break;
+        }
+        default: {
+            printf("% -&gt; Etat par defaut\n", lState);
+            break;
+        }
     }
     return 0;
 }
@@ -265,7 +366,35 @@ int main(int argc, char** argv) {
     client(sayHello);
     return 0;
 }
-//===============================================</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="La programmation orientée objet"><a class="Link3" href="#">La programmation orientée objet</a></h1><div class="Body3"><br>La <b>programmation orientée objet</b> (POO) est un paradigme de programmation informatique qui consiste en la définition et l'interaction de briques logicielles appelées objets ; un objet représente un concept, une idée ou toute entité du monde physique, comme une voiture, une personne ou encore une page d'un livre. Il possède une structure interne et un comportement, et il sait interagir avec ses pairs. Il s'agit donc de représenter ces objets et leurs relations ; l'interaction entre les objets via leurs relations permet de concevoir et réaliser les fonctionnalités attendues, de mieux résoudre le ou les problèmes. Dès lors, l'étape de modélisation revêt une importance majeure et nécessaire pour la POO. C'est elle qui permet de transcrire les éléments du réel sous forme virtuelle. La programmation orientée objet consiste à utiliser des techniques de programmation pour mettre en œuvre une conception basée sur les objets. Celle-ci peut être élaborée en utilisant des méthodologies de développement logiciel objet, dont la plus connue est le processus unifié et exprimée à l'aide de langages de modélisation tels que le Unified Modeling Language (UML).<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620730109517"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620730109517");</script></div><br><h2 class="Title7 GTitle2" id="La programmation orientée objet-Créer une classe"><a class="Link9" href="#La programmation orientée objet">Créer une classe</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Créer une machine à états finis"><a class="Link9" href="#Les fondamentaux">Créer une machine à états finis</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+//===============================================
+int main(int argc, char** argv) {
+    const char* lState = "INIT";
+    while(1) {
+        if(!strcmp(lState, "INIT")) {
+            printf("-&gt; INIT\n");
+            lState = "RED";
+        }
+        else if(!strcmp(lState, "RED")) {
+            printf("-&gt; RED\n");
+            lState = "AMBER";
+        }
+        else if(!strcmp(lState, "AMBER")) {
+            printf("-&gt; AMBER\n");
+            lState = "GREEN";
+        }
+        else if(!strcmp(lState, "GREEN")) {
+            printf("-&gt; GREEN\n");
+            lState = "END";
+        }
+        else {break;}
+    }
+    return 0;
+}
+//===============================================</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programmation orientée objet"><a class="Link3" href="#">Programmation orientée objet</a></h1><div class="Body3"><br>La <b>programmation orientée objet</b> (POO) est un paradigme de programmation informatique qui consiste en la définition et l'interaction de briques logicielles appelées objets ; un objet représente un concept, une idée ou toute entité du monde physique, comme une voiture, une personne ou encore une page d'un livre. Il possède une structure interne et un comportement, et il sait interagir avec ses pairs. Il s'agit donc de représenter ces objets et leurs relations ; l'interaction entre les objets via leurs relations permet de concevoir et réaliser les fonctionnalités attendues, de mieux résoudre le ou les problèmes. Dès lors, l'étape de modélisation revêt une importance majeure et nécessaire pour la POO. C'est elle qui permet de transcrire les éléments du réel sous forme virtuelle. La programmation orientée objet consiste à utiliser des techniques de programmation pour mettre en œuvre une conception basée sur les objets. Celle-ci peut être élaborée en utilisant des méthodologies de développement logiciel objet, dont la plus connue est le processus unifié et exprimée à l'aide de langages de modélisation tels que le Unified Modeling Language (UML).<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620730109517"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620730109517");</script></div><br><h2 class="Title7 GTitle2" id="La programmation orientée objet-Créer une classe"><a class="Link9" href="#La programmation orientée objet">Créer une classe</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include "GAnimal.h"
 //===============================================
 int main(int argc, char** argv) {
@@ -317,7 +446,7 @@ static void GAnimal_Delete(GAnimalO* obj) {
 static void GAnimal_Print(GAnimalO* obj) {
     printf("Nom : %s | Poids : %d (kg)\n", obj-&gt;name, obj-&gt;weight);
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">Nom : Chat | Poids : 10 (kg)</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Les patrons de conception"><a class="Link3" href="#">Les patrons de conception</a></h1><div class="Body3"><br>Un <b>patron de conception</b> (design pattern) est un arrangement caractéristique de modules, reconnu comme bonne pratique en réponse à un problème de conception d'un logiciel. Il décrit une solution standard, utilisable dans la conception de différents logiciels. Un patron de conception est issu de l'expérience des concepteurs de logiciels. Il décrit un arrangement récurrent de rôles et d'actions joués par des modules d'un logiciel, et le nom du patron sert de vocabulaire commun entre le concepteur et le programmeur. D'une manière analogue à un motif de conception en architecture, le patron de conception décrit les grandes lignes d'une solution, qui peuvent ensuite être modifiées et adaptées en fonction des besoins.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620728386561"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620728386561");</script></div><br><h2 class="Title7 GTitle2" id="Les patrons de conception-Créer un patron singleton"><a class="Link9" href="#Les patrons de conception">Créer un patron singleton</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">Nom : Chat | Poids : 10 (kg)</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Patrons de conception"><a class="Link3" href="#">Patrons de conception</a></h1><div class="Body3"><br>Un <b>patron de conception</b> (design pattern) est un arrangement caractéristique de modules, reconnu comme bonne pratique en réponse à un problème de conception d'un logiciel. Il décrit une solution standard, utilisable dans la conception de différents logiciels. Un patron de conception est issu de l'expérience des concepteurs de logiciels. Il décrit un arrangement récurrent de rôles et d'actions joués par des modules d'un logiciel, et le nom du patron sert de vocabulaire commun entre le concepteur et le programmeur. D'une manière analogue à un motif de conception en architecture, le patron de conception décrit les grandes lignes d'une solution, qui peuvent ensuite être modifiées et adaptées en fonction des besoins.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620728386561"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620728386561");</script></div><br><h2 class="Title7 GTitle2" id="Les patrons de conception-Créer un patron singleton"><a class="Link9" href="#Les patrons de conception">Créer un patron singleton</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include "GDatabase.h"
 //===============================================
 int main(int argc, char** argv) {
@@ -882,229 +1011,207 @@ Je fais eteindre la LED [OFF]
 Je clique sur le BOUTON
 Je fais allumer la LED [ON]
 Je clique sur le BOUTON
-Je fais eteindre la LED [OFF]</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Système d'administration"><a class="Link3" href="#">Système d'administration</a></h1><div class="Body3"><br>Créer un système d'administration en C.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1616855562692"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1616855562692");</script></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Introduction"><a class="Link9" href="#Système d'administration">Introduction</a></h2><br>Le système d'administration que nous présentons ici est une interface en ligne de commande permettant d'accéder à toutes les fonctionnalités d'une application.<br><br><h2 class="Title7 GTitle2" id="Système d'administration-Programme principal"><a class="Link9" href="#Système d'administration">Programme principal</a></h2><br><h3 class="Title8 GTitle3">GProcess.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">// on appelle la méthode d'entrée
-// du système d'administration run()
-GProcessUi()-&gt;Run(argc, argv);</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Système d'administration"><a class="Link9" href="#Système d'administration">Système d'administration</a></h2><br><h3 class="Title8 GTitle3">GProcessUi.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">// on definit un système d'administration base sur
-// le modele d'une machine a etats finis
-static void GProcessUi_Run(int argc, char** argv) {
-    // on positionne l'etat initial
-    m_GProcessUiO-&gt;G_STATE = "S_INIT";
-    // on rentre dans la boucle de controle
+Je fais eteindre la LED [OFF]</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Système d'administration"><a class="Link3" href="#">Système d'administration</a></h1><div class="Body3"><br>Le <b>système d'administration</b> que nous présentons ici est une interface en ligne de commande permettant d'accéder à toutes les fonctionnalités d'une application.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620770747229"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620770747229");</script></div><br><h2 class="Title7 GTitle2" id="Système d'administration-main.c"><a class="Link9" href="#Système d'administration">main.c</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+//===============================================
+char* g_state = "init";
+//===============================================
+static void run_init(int argc, char** argv);
+static void run_method(int argc, char** argv);
+static void run_choice(int argc, char** argv);
+static void run_sqlite(int argc, char** argv);
+static void run_opencv(int argc, char** argv);
+static void run_quit(int argc, char** argv);
+//===============================================
+int main(int argc, char** argv) {
     while(1) {
-        // on verifie l'etat puis on execute la methode correspondante
-        // et dans chaque methode on fait evoluer l'etat de la machine
-        if(!strcmp(m_GProcessUiO-&gt;G_STATE, "S_INIT")) {GProcessUi_Run_INIT(argc, argv);}
-        else if(!strcmp(m_GProcessUiO-&gt;G_STATE, "S_METHOD")) {GProcessUi_Run_METHOD(argc, argv);}
-        else if(!strcmp(m_GProcessUiO-&gt;G_STATE, "S_CHOICE")) {GProcessUi_Run_CHOICE(argc, argv);}
-        //
-        else if(!strcmp(m_GProcessUiO-&gt;G_STATE, "S_SQLITE")) {GProcessUi_Run_SQLITE(argc, argv);}
-        else if(!strcmp(m_GProcessUiO-&gt;G_STATE, "S_OPENCV")) {GProcessUi_Run_OPENCV(argc, argv);}
-        //
-        else if(!strcmp(m_GProcessUiO-&gt;G_STATE, "S_SAVE")) {GProcessUi_Run_SAVE(argc, argv);}
-        else if(!strcmp(m_GProcessUiO-&gt;G_STATE, "S_LOAD")) {GProcessUi_Run_LOAD(argc, argv);}
-        else break;
+        if(!strcmp(g_state, "init")) {run_init(argc, argv);}
+        else if(!strcmp(g_state, "method")) {run_method(argc, argv);}
+        else if(!strcmp(g_state, "choice")) {run_choice(argc, argv);}
+        else if(!strcmp(g_state, "sqlite")) {run_sqlite(argc, argv);}
+        else if(!strcmp(g_state, "opencv")) {run_opencv(argc, argv);}
+        else if(!strcmp(g_state, "quit")) {run_quit(argc, argv);}
+        else {break;}
     }
-}</xmp></pre></div><br><br><h2 class="Title7 GTitle2" id="Système d'administration-Programme d'initialisation"><a class="Link9" href="#Système d'administration">Programme d'initialisation</a></h2><br><h3 class="Title8 GTitle3">GProcessUi.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">static void GProcessUi_Run_INIT(int argc, char** argv) {
-    // on affiche quelques informations de base
+    return 0;
+}
+//===============================================
+static void run_init(int argc, char** argv) {
     printf("\n");
-    printf("C_ADMIN !!!\n");
+    printf("ADMIN !!!\n");
     printf("\t%-2s : %s\n", "-q", "quitter l'application");
-    // on passe au chargement des donnees
-    m_GProcessUiO-&gt;G_STATE = "S_LOAD";
-}</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Programme de chargement des données"><a class="Link9" href="#Système d'administration">Programme de chargement des données</a></h2><br><h3 class="Title8 GTitle3">GProcessUi.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">static void GProcessUi_Run_LOAD(int argc, char** argv) {
-    // on charge les donnees
-    GConfig()-&gt;LoadData("G_ADMIN_ID");
-    // on passe a la presentation des methodes
-    m_GProcessUiO-&gt;G_STATE = "S_METHOD";
-}</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Programme des méthodes"><a class="Link9" href="#Système d'administration">Programme des méthodes</a></h2><br><h3 class="Title8 GTitle3">GProcessUi.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-static void GProcessUi_Run_METHOD(int argc, char** argv) {
+    g_state = "method";
+}
+//===============================================
+static void run_method(int argc, char** argv) {
     printf("\n");
-    printf("C_ADMIN :\n");
-    printf("\t%-2s : %s\n", "1", "S_SQLITE");
-    printf("\t%-2s : %s\n", "2", "S_OPENCV");
+    printf("ADMIN :\n");
+    printf("\t%-2s : %s\n", "1", "sqlite");
+    printf("\t%-2s : %s\n", "2", "opencv");
     printf("\n");
-    m_GProcessUiO-&gt;G_STATE = "S_CHOICE";
+    g_state = "choice";
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Programme du choix d'une méthode"><a class="Link9" href="#Système d'administration">Programme du choix d'une méthode</a></h2><br><h3 class="Title8 GTitle3">GProcessUi.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-static void GProcessUi_Run_CHOICE(int argc, char** argv) {
-    char* lLast = GConfig()-&gt;GetData("G_ADMIN_ID");
-    printf("C_ADMIN (%s) ? ", lLast);
-    char lAnswer[B_ANSWER+1]; GManager()-&gt;ReadLine(lAnswer, B_ANSWER);
-    if(!strcmp(lAnswer, "")) {strcpy(lAnswer, lLast);}
-    if(!strcmp(lAnswer, "-q")) {m_GProcessUiO-&gt;G_STATE = "S_END";}
-    //
-    else if(!strcmp(lAnswer, "1")) {m_GProcessUiO-&gt;G_STATE = "S_SQLITE"; GConfig()-&gt;SetData("G_ADMIN_ID", lAnswer);}
-    else if(!strcmp(lAnswer, "2")) {m_GProcessUiO-&gt;G_STATE = "S_OPENCV"; GConfig()-&gt;SetData("G_ADMIN_ID", lAnswer);}
-    //
+//===============================================
+static void run_choice(int argc, char** argv) {
+    char l_answer[256];
+    printf("ADMIN ? ");
+    fflush(stdout);
+    fgets(l_answer, sizeof(l_answer), stdin);
+    l_answer[strlen(l_answer) - 1] = 0;
+    if(!strcmp(l_answer, "-q")) {g_state = "end";}
+    else if(!strcmp(l_answer, "1")) {g_state = "sqlite";}
+    else if(!strcmp(l_answer, "2")) {g_state = "opencv";}
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Programme du module SQLite"><a class="Link9" href="#Système d'administration">Programme du module SQLite</a></h2><br><h3 class="Title8 GTitle3">GProcessUi.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-static void GProcessUi_Run_SQLITE(int argc, char** argv) {
-    GSQLiteUi()-&gt;Run(argc, argv);
-    m_GProcessUiO-&gt;G_STATE = "S_SAVE";
+//===============================================
+static void run_sqlite(int argc, char** argv) {
+    printf("\n");
+    printf("execution du module sqlite\n");
+    g_state = "quit";
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Programme du module OpenCV"><a class="Link9" href="#Système d'administration">Programme du module OpenCV</a></h2><br><h3 class="Title8 GTitle3">GProcessUi.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-static void GProcessUi_Run_OPENCV(int argc, char** argv) {
-    GOpenCVUi()-&gt;Run(argc, argv);
-    m_GProcessUiO-&gt;G_STATE = "S_SAVE";
+//===============================================
+static void run_opencv(int argc, char** argv) {
+    printf("\n");
+    printf("execution du module opencv\n");
+    g_state = "quit";
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Programme de sauvegarde des données"><a class="Link9" href="#Système d'administration">Programme de sauvegarde des données</a></h2><br><h3 class="Title8 GTitle3">GProcessUi.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-static void GProcessUi_Run_SAVE(int argc, char** argv) {
-    GConfig()-&gt;SaveData("G_ADMIN_ID");
-    m_GProcessUiO-&gt;G_STATE = "S_END";
+//===============================================
+static void run_quit(int argc, char** argv) {
+    char l_answer[256];
+    printf("\n");
+    printf("QUIT (Oui/[N]on) ? ");
+    fflush(stdout);
+    fgets(l_answer, sizeof(l_answer), stdin);
+    l_answer[strlen(l_answer) - 1] = 0;
+    if(!strcmp(l_answer, "-q")) {g_state = "end";}
+    else if(!strcmp(l_answer, "o")) {g_state = "end";}
+    else if(!strcmp(l_answer, "n")) {g_state = "init";}
+    else if(!strcmp(l_answer, "")) {g_state = "init";}
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Résultat"><a class="Link9" href="#Système d'administration">Résultat</a></h2><br><h2 class="Title7 GTitle2" id="Système d'administration-1 - Menu principal"><a class="Link9" href="#Système d'administration">1 - Menu principal</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_c_admin_system.png" alt="/Tutoriels/Software_Development/C0/img/i_c_admin_system.png"></div><br><h2 class="Title7 GTitle2" id="Système d'administration-2 - Menu du module SQLite"><a class="Link9" href="#Système d'administration">2 - Menu du module SQLite</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_c_admin_system_02.png" alt="/Tutoriels/Software_Development/C0/img/i_c_admin_system_02.png"></div><br><h2 class="Title7 GTitle2" id="Système d'administration-3 - Affichage des tables SQLite"><a class="Link9" href="#Système d'administration">3 - Affichage des tables SQLite</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_c_admin_system_03.png" alt="/Tutoriels/Software_Development/C0/img/i_c_admin_system_03.png"></div><br><h2 class="Title7 GTitle2" id="Système d'administration-4 - Affichage de la table CONFIG_DATA"><a class="Link9" href="#Système d'administration">4 - Affichage de la table CONFIG_DATA</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_c_admin_system_04.png" alt="/Tutoriels/Software_Development/C0/img/i_c_admin_system_04.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Gestionnaire de fichier log"><a class="Link3" href="#">Gestionnaire de fichier log</a></h1><div class="Body3"><br>Créer un gestionnaire de fichier log en C.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1616858821799"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1616858821799");</script></div><br><h2 class="Title7 GTitle2" id="Gestionnaire de fichier log-Introduction"><a class="Link9" href="#Gestionnaire de fichier log">Introduction</a></h2><br>Le gestionnaire de fichier log que nous présentons ici est une interface permettant de transférer des données depuis notre application vers un fichier texte qui peut être exploité par la suite par un système d'analyse de fichier log dédié. Un fichier log permet de suivre l'historique des traces laissées par un système au cours de son exécution. L'un des avantages de ce concept est de pouvoir analyser en temps réel les actions et réactions du système.<br><br><h2 class="Title7 GTitle2" id="Gestionnaire de fichier log-Programme principal"><a class="Link9" href="#Gestionnaire de fichier log">Programme principal</a></h2><br><h3 class="Title8 GTitle3">GLog.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-static void GLog_Test(int argc, char** argv) {
-    sGPerson lPerson = {"Gerard", "KESSE", "gerard.kesse@outlook.fr", 1234};
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Résultat"><a class="Link9" href="#Système d'administration">Résultat</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_admin_system.gif" alt="/Tutoriels/Software_Development/C0/img/i_admin_system.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Gestionnaire de fichier log"><a class="Link3" href="#">Gestionnaire de fichier log</a></h1><div class="Body3"><br>Le <b>gestionnaire de fichier log</b> que nous présentons ici est une interface permettant de transférer des données depuis notre application vers un fichier texte qui peut être exploité par la suite par un système d'analyse de fichier log dédié. Un fichier log permet de suivre l'historique des traces laissées par un système au cours de son exécution. L'un des avantages de ce concept est de pouvoir analyser en temps réel les actions et réactions du système.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620776207075"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620776207075");</script></div><br><h2 class="Title7 GTitle2" id="Gestionnaire de fichier log-Créer un gestionnaire de fichier simple"><a class="Link9" href="#Gestionnaire de fichier log">Créer un gestionnaire de fichier simple</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdarg.h&gt;
+//===============================================
+static void log_write(const char* format, ...);
+//===============================================
+int main(int argc, char** argv) {
+    log_write("Affichage des donnees simples\n");
+    log_write("\t%-10s : %d\n", "Entier", 1000);
+    log_write("\t%-10s : %.2f\n", "Reel", 3.14);
+    log_write("\t%-10s : %s\n", "Chaine", "voici ma chaine");
+    return 0;
+}
+//===============================================
+static void log_write(const char* format, ...) {
+    FILE* lFile = fopen ("log.txt","a+");
+    va_list lArgs;
+    va_start(lArgs, format);
+    vfprintf(lFile, format, lArgs);
+    va_end(lArgs);
+    fclose(lFile);
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_log_simple.png" alt="/Tutoriels/Software_Development/C0/img/i_log_simple.png"></div><br><h2 class="Title7 GTitle2" id="Gestionnaire de fichier log-Créer un gestionnaire de fichier complexe"><a class="Link9" href="#Gestionnaire de fichier log">Créer un gestionnaire de fichier complexe</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdarg.h&gt;
+//===============================================
+typedef void (*GLOG_CB)(void* params);
+//===============================================
+typedef struct {
+    char* name;
+    int id;
+    double coef;
+} sGPerson;
+//===============================================
+static void log_write(int key, ...);
+static void log_file(const char* format, ...);
+static void log_person(void* params);
+//===============================================
+int main(int argc, char** argv) {
+    log_write(3, "Affichage de donnees simples", 3, "\n", 0);
+    log_write(3, "\t", 30, -15, "Int", 3, " : ", 1, 10000, 3, "\n", 0);
+    log_write(3, "\t", 30, -15, "Double", 3, " : ", 2, 3.14, 3, "\n", 0);
+    log_write(3, "\t", 30, -15, "String", 3, " : ", 3, "voici ma chaine", 3, "\n", 0);
     
-    GLog()-&gt;Sep();
-    GLog()-&gt;Write(30, -25, "afficher un entier ", 3, " : ", 1, 10000, 0);
-    GLog()-&gt;Write(30, -25, "afficher un reel ", 3, " : ", 20, 2, 3.14, 0);
-    GLog()-&gt;Write(30, -25, "afficher un chaine ", 3, " : ", 3, "Bonjour tout le monde", 0);
-    GLog()-&gt;Write(30, -25, "afficher une structure ", 3, " : ", 3, "\n", 4, GLog_OnTest, &lPerson, 0);
-    GLog()-&gt;Sep();
-}
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GLog.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-struct _sGPerson {
-    char* firstname;
-    char* lastname;
-    char* email;
-    int code;
-};
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Gestionnaire de fichier log-Accumulateur de messages"><a class="Link9" href="#Gestionnaire de fichier log">Accumulateur de messages</a></h2><br><h3 class="Title8 GTitle3">GLog.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-static void GLog_Write(int key, ...) {
-    sGApp* lApp = GManager()-&gt;mgr-&gt;app;
-    if(lApp-&gt;log_on == 0) return;
-    char lBuffer[B_LOG+1];
-    int lIndex = 0;
+    sGPerson lPerson = {"Gerard KESSE", 1234, 3.14};
+    
+    log_write(3, "Affichage de donnees complexes", 3, "\n", 0);
+    log_write(4, log_person, &lPerson, 0);
 
+    return 0;
+}
+//===============================================
+static void log_write(int key, ...) {
     va_list lArgs;
     va_start(lArgs, key);
     int lType = key;
+    
     while(1) {
         // off
         if(lType == 0) break;
         // int
         if(lType == 1) {
             int lData = va_arg(lArgs, int);
-            lIndex += sprintf(&lBuffer[lIndex], "%d", lData);
+            log_file("%d", lData);
         }
         // int - width
         else if(lType == 10) {
             int lWidth = va_arg(lArgs, int);
             int lData = va_arg(lArgs, int);
-            lIndex += sprintf(&lBuffer[lIndex], "%*d", lWidth, lData);
+            log_file("%*d", lWidth, lData);
         }
         // double 
         else if(lType == 2) {
             double lData = va_arg(lArgs, double);
-            lIndex += sprintf(&lBuffer[lIndex], "%f", lData);
+            log_file("%f", lData);
         }
         // double - width
         else if(lType == 20) {
             int lWidth = va_arg(lArgs, int);
             double lData = va_arg(lArgs, double);
-            lIndex += sprintf(&lBuffer[lIndex], "%.*f", lWidth, lData);
+            log_file("%.*f", lWidth, lData);
         }
         // string
         else if(lType == 3) {
             char* lData = va_arg(lArgs, char*);
-            lIndex += sprintf(&lBuffer[lIndex], "%s", lData);
+            log_file("%s", lData);
         }
         // string - width
         else if(lType == 30) {
             int lWidth = va_arg(lArgs, int);
             char* lData = va_arg(lArgs, char*);
-            lIndex += sprintf(&lBuffer[lIndex], "%*s", lWidth, lData);
+            log_file("%*s", lWidth, lData);
         }
         // struct
         else if(lType == 4) {
-            GLOG_FUNC onLogFunc = (GLOG_FUNC)va_arg(lArgs, void*);
+            GLOG_CB onLog = (GLOG_CB)va_arg(lArgs, void*);
             void* lObj = va_arg(lArgs, void*);
-            lIndex += onLogFunc(lBuffer, lIndex, lObj);
+            onLog(lObj);
         }
         lType = va_arg(lArgs, int);
-    }
+    }        
+}
+//===============================================
+static void log_file(const char* format, ...) {
+    FILE* lFile = fopen ("log.txt","a+");
+    va_list lArgs;
+    va_start(lArgs, format);
+    vfprintf(lFile, format, lArgs);
     va_end(lArgs);
-    GLog_Buffer(lBuffer);
+    fclose(lFile);
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Gestionnaire de fichier log-Traçage d'un message"><a class="Link9" href="#Gestionnaire de fichier log">Traçage d'un message</a></h2><br><h3 class="Title8 GTitle3">GLog.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-static void GLog_Buffer(char* buffer) {
-    FILE* lFile = GLog_Open();
-    char* lDate = GLog_Date();
-    char lFormat[256];
-    
-    GListO(GLog, GVOID_PTR)* lLines = GManager()-&gt;Split(buffer, "\n");
-    
-    for(int i = 0; i &lt; lLines-&gt;Size(lLines); i++) {
-        char* lLine = lLines-&gt;GetData(lLines, i);
-        sprintf(lFormat, "%s | %s", lDate, lLine);
-        fprintf(lFile, "%s\n", lFormat);
-    }
-    
-    GLog_Close(lFile);
-    free(lDate);
-    lLines-&gt;Delete(lLines, 0);
+//===============================================
+static void log_person(void* params) {
+    sGPerson* lPerson = (sGPerson*)params;
+    log_write(3, "\t", 30, -15, "Person[name]", 3, " : ", 3, lPerson-&gt;name, 3, "\n", 0);
+    log_write(3, "\t", 30, -15, "Person[id]", 3, " : ", 1, lPerson-&gt;id, 3, "\n", 0);
+    log_write(3, "\t", 30, -15, "Person[coef]", 3, " : ", 2, lPerson-&gt;coef, 3, "\n", 0);
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Gestionnaire de fichier log-Traçage d'un séparateur"><a class="Link9" href="#Gestionnaire de fichier log">Traçage d'un séparateur</a></h2><br><h3 class="Title8 GTitle3">GLog.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-static void GLog_Sep() {
-    char lBuffer[256];
-    for(int i = 0; i &lt; 50; i++) {
-        sprintf(&lBuffer[i], "=");
-    }
-    GLog_Buffer(lBuffer);
-}
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Gestionnaire de fichier log-Choix du flux de sortie"><a class="Link9" href="#Gestionnaire de fichier log">Choix du flux de sortie</a></h2><br><h3 class="Title8 GTitle3">GLog.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-static FILE* GLog_Open() {
-    sGApp* lApp = GManager()-&gt;mgr-&gt;app;
-    FILE* lFile = 0;
-    if(!strcmp(lApp-&gt;log_mode, "file")) {
-        lFile = fopen(lApp-&gt;log_path , "a+");
-    }
-    else if(!strcmp(lApp-&gt;log_mode, "stdout")) {
-        lFile = stdout;
-    }
-    else if(!strcmp(lApp-&gt;log_mode, "stderr")) {
-        lFile = stderr;
-    }
-    else {
-        lFile = stdout;
-    }
-    return lFile;
-}
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Gestionnaire de fichier log-Fermeture du flux de sortie"><a class="Link9" href="#Gestionnaire de fichier log">Fermeture du flux de sortie</a></h2><br><h3 class="Title8 GTitle3">GLog.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-static void GLog_Close(FILE* file) {
-    sGApp* lApp = GManager()-&gt;mgr-&gt;app;
-    if(!strcmp(lApp-&gt;log_mode, "file")) {
-        fclose(file);
-    }
-}
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Gestionnaire de fichier log-Lecture de la date et l'heure"><a class="Link9" href="#Gestionnaire de fichier log">Lecture de la date et l'heure</a></h2><br><h3 class="Title8 GTitle3">GLog.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-static char* GLog_Date() {
-    char lBuffer[B_LOG+1];
-    time_t lTime;
-    time(&lTime);
-    struct tm* lTimeInfo = localtime(&lTime);
-    int lDay = lTimeInfo-&gt;tm_mday;
-    int lMonth = lTimeInfo-&gt;tm_mon + 1;
-    int lYear = lTimeInfo-&gt;tm_year + 1900;
-    int lHour = lTimeInfo-&gt;tm_hour;
-    int lMin = lTimeInfo-&gt;tm_min;
-    int lSec = lTimeInfo-&gt;tm_sec;
-    sprintf(lBuffer, "%02d/%02d/%04d %02d:%02d:%02d", lDay, lMonth, lYear, lHour, lMin, lSec);
-    return GManager()-&gt;CopyStr(lBuffer);
-}
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Gestionnaire de fichier log-Traçage d'une structure complexe"><a class="Link9" href="#Gestionnaire de fichier log">Traçage d'une structure complexe</a></h2><br><h3 class="Title8 GTitle3">GLog.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-typedef int (*GLOG_FUNC)(char* buffer, int index, void* obj);
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GLog.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-static int GLog_OnTest(char* buffer, int index, void* obj) {
-    sGPerson* lPerson = obj;
-    index += sprintf(&buffer[index], "%*s%*s : %s\n", 5, "", -10, "Nom", lPerson-&gt;lastname);
-    index += sprintf(&buffer[index], "%*s%*s : %s\n", 5, "", -10, "Prenom", lPerson-&gt;firstname);
-    index += sprintf(&buffer[index], "%*s%*s : %s\n", 5, "", -10, "Email", lPerson-&gt;email);
-    index += sprintf(&buffer[index], "%*s%*s : %d\n", 5, "", -10, "Code", lPerson-&gt;code);
-    return index;
-}
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Gestionnaire de fichier log-Résultat"><a class="Link9" href="#Gestionnaire de fichier log">Résultat</a></h2><br><h3 class="Title8 GTitle3">Traçage dans un teminal</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_c_log.png" alt="/Tutoriels/Software_Development/C0/img/i_c_log.png"></div><br><h3 class="Title8 GTitle3">Traçage dans un fichier</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_c_log_02.png" alt="/Tutoriels/Software_Development/C0/img/i_c_log_02.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Interface Homme-Machine avec Gtk"><a class="Link3" href="#">Interface Homme-Machine avec Gtk</a></h1><div class="Body3"><br><b>GTK </b>est une bibliothèque de création d'interfaces homme-machine dévoppé à l'origine pour les besoins du logiciel de traitement d'images GIMP.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1618606543470"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1618606543470");</script></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/b_gtk.png" alt="/Tutoriels/Software_Development/C0/img/b_gtk.png"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-1 - Installation"><a class="Link9" href="#Interface Homme-Machine avec Gtk">1 - Installation</a></h2><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-1.1 - Installation sous Windows"><a class="Link9" href="#Interface Homme-Machine avec Gtk">1.1 - Installation sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-1.1.1 - Installation sous MSYS2"><a class="Link9" href="#Interface Homme-Machine avec Gtk">1.1.1 - Installation sous MSYS2</a></h2><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-1.1.1.1 - Installer Gtk"><a class="Link9" href="#Interface Homme-Machine avec Gtk">1.1.1.1 - Installer Gtk</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">pacman -S --needed -y mingw-w64-i686-gtk3</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-2 - Tests"><a class="Link9" href="#Interface Homme-Machine avec Gtk">2 - Tests</a></h2><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-2.1 - Test sous Windows"><a class="Link9" href="#Interface Homme-Machine avec Gtk">2.1 - Test sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-2.1.1 - Test sous MSYS2"><a class="Link9" href="#Interface Homme-Machine avec Gtk">2.1.1 - Test sous MSYS2</a></h2><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-2.1.1.1 - Éditer le programme"><a class="Link9" href="#Interface Homme-Machine avec Gtk">2.1.1.1 - Éditer le programme</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_log_complexe.png" alt="/Tutoriels/Software_Development/C0/img/i_log_complexe.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Interface Homme-Machine avec Gtk"><a class="Link3" href="#">Interface Homme-Machine avec Gtk</a></h1><div class="Body3"><br><b>GTK </b>est une bibliothèque de création d'interfaces homme-machine dévoppé à l'origine pour les besoins du logiciel de traitement d'images GIMP.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1618606543470"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1618606543470");</script></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/b_gtk.png" alt="/Tutoriels/Software_Development/C0/img/b_gtk.png"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-1 - Installation"><a class="Link9" href="#Interface Homme-Machine avec Gtk">1 - Installation</a></h2><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-1.1 - Installation sous Windows"><a class="Link9" href="#Interface Homme-Machine avec Gtk">1.1 - Installation sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-1.1.1 - Installation sous MSYS2"><a class="Link9" href="#Interface Homme-Machine avec Gtk">1.1.1 - Installation sous MSYS2</a></h2><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-1.1.1.1 - Installer Gtk"><a class="Link9" href="#Interface Homme-Machine avec Gtk">1.1.1.1 - Installer Gtk</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">pacman -S --needed -y mingw-w64-i686-gtk3</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-2 - Tests"><a class="Link9" href="#Interface Homme-Machine avec Gtk">2 - Tests</a></h2><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-2.1 - Test sous Windows"><a class="Link9" href="#Interface Homme-Machine avec Gtk">2.1 - Test sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-2.1.1 - Test sous MSYS2"><a class="Link9" href="#Interface Homme-Machine avec Gtk">2.1.1 - Test sous MSYS2</a></h2><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-2.1.1.1 - Éditer le programme"><a class="Link9" href="#Interface Homme-Machine avec Gtk">2.1.1.1 - Éditer le programme</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;gtk/gtk.h&gt;
 //===============================================
 static void GWindow_OnDestroy(GtkWidget* obj, gpointer params);
@@ -1644,7 +1751,7 @@ static int GConfig_CountData(char* key) {
     // on retourne le nombre d'elements
     return lCount;
 }
-//===============================================</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Socket - Windows"><a class="Link3" href="#">Socket - Windows</a></h1><div class="Body3"><br>Une <b>Socket </b>est une structure logicielle dans un nœud de réseau d'un réseau informatique qui sert de point de terminaison pour envoyer et recevoir des données sur le réseau. La structure et les propriétés d'une socket sont définies par une interface de programmation d'application (API) pour l'architecture réseau. Les sockets sont créées uniquement pendant la durée de vie d'un processus d'une application s'exécutant dans le nœud. Une socket est identifiée de manière externe aux autres hôtes par son adresse de socket , qui est la triade du protocole de transport , de l'adresse IP et du numéro de port . Une socket est aussi utilisée pour le point de terminaison logiciel de la communication inter-processus interne au nœud (IPC).<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620670499920"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620670499920");</script></div><br><h2 class="Title7 GTitle2" id="Socket - Windows-Afficher les interfaces réseau"><a class="Link9" href="#Socket - Windows">Afficher les interfaces réseau</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Socket sous Windows"><a class="Link3" href="#">Socket sous Windows</a></h1><div class="Body3"><br>Une <b>Socket </b>est une structure logicielle dans un nœud de réseau d'un réseau informatique qui sert de point de terminaison pour envoyer et recevoir des données sur le réseau. La structure et les propriétés d'une socket sont définies par une interface de programmation d'application (API) pour l'architecture réseau. Les sockets sont créées uniquement pendant la durée de vie d'un processus d'une application s'exécutant dans le nœud. Une socket est identifiée de manière externe aux autres hôtes par son adresse de socket , qui est la triade du protocole de transport , de l'adresse IP et du numéro de port . Une socket est aussi utilisée pour le point de terminaison logiciel de la communication inter-processus interne au nœud (IPC).<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620670499920"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620670499920");</script></div><br><h2 class="Title7 GTitle2" id="Socket - Windows-Afficher les interfaces réseau"><a class="Link9" href="#Socket - Windows">Afficher les interfaces réseau</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 #include &lt;winsock2.h&gt;
