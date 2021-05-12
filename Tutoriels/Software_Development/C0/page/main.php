@@ -1616,13 +1616,13 @@ static gboolean button_pressed (GtkWidget *eventbox, GdkEventButton *event, GtkL
     }
     return FALSE;
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_gtk_eventbox.gif" alt="/Tutoriels/Software_Development/C0/img/i_gtk_eventbox.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Vision par Ordinateur avec OpenCV"><a class="Link3" href="#">Vision par Ordinateur avec OpenCV</a></h1><div class="Body3"><br><b>OpenCV </b>est une bibliothèque de vision par ordinateur.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1618653283888"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1618653283888");</script></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/b_opencv.png" alt="/Tutoriels/Software_Development/C0/img/b_opencv.png"></div><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-1 - Installation"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">1 - Installation</a></h2><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-1.1 - Installation sous Windows"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">1.1 - Installation sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-1.1.1 - Installation sous MinGW"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">1.1.1 - Installation sous MinGW</a></h2><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-1.1.1.1 - Télécharger OpenCV"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">1.1.1.1 - Télécharger OpenCV</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://github.com/opencv/opencv/archive/refs/tags/2.4.13.7.zip">https://github.com/opencv/opencv/archive/refs/tags/2.4.13.7.zip</a><br><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-1.1.1.2 - Extraire OpenCV"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">1.1.1.2 - Extraire OpenCV</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">2.4.13.7.zip -&gt; Clic droit
-Extraire vers 2.4.13.7\</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-1.1.1.3 - Construire OpenCV"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">1.1.1.3 - Construire OpenCV</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">set "PATH=C:\TDM-GCC-64\bin:%PATH%"</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">cd 2.4.13.7
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_gtk_eventbox.gif" alt="/Tutoriels/Software_Development/C0/img/i_gtk_eventbox.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Vision par Ordinateur avec OpenCV"><a class="Link3" href="#">Vision par Ordinateur avec OpenCV</a></h1><div class="Body3"><br><b>OpenCV </b>est une bibliothèque de vision par ordinateur.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1618653283888"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1618653283888");</script></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/b_opencv.png" alt="/Tutoriels/Software_Development/C0/img/b_opencv.png"></div><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-Installer OpenCV sous MinGW"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">Installer OpenCV sous MinGW</a></h2><br><h3 class="Title8 GTitle3">Télécharger OpenCV</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://github.com/opencv/opencv/archive/refs/tags/2.4.13.7.zip">https://github.com/opencv/opencv/archive/refs/tags/2.4.13.7.zip</a><br><br><h3 class="Title8 GTitle3">Extraire OpenCV</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">2.4.13.7.zip -&gt; Clic droit
+Extraire vers 2.4.13.7\</xmp></pre></div><br><h3 class="Title8 GTitle3">Construire OpenCV</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">set "PATH=C:\TDM-GCC-64\bin:%PATH%"</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">cd 2.4.13.7
 mkdir build
 cd build
 cmake .. -G "MinGW Makefiles" -DCMAKE_INSTALL_PREFIX=dev
 mingw32-make
-mingw32-make install</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-2 - Tests"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">2 - Tests</a></h2><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-2.1 - Test sous Windows"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">2.1 - Test sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-2.1.1 - Test sous MinGW"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">2.1.1 - Test sous MinGW</a></h2><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-2.1.1.1 - Editer le programme"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">2.1.1.1 - Editer le programme</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+mingw32-make install</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-Tester OpenCV sous MinGW"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">Tester OpenCV sous MinGW</a></h2><br><h3 class="Title8 GTitle3">Editer le programme</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;opencv2/core/core_c.h&gt;
 #include &lt;opencv2/highgui/highgui_c.h&gt;
 //===============================================
@@ -1635,9 +1635,9 @@ int main(int argc, char** argv) {
     cvDestroyAllWindows();
     return 0;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-2.1.1.2 - Compiler le projet"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">2.1.1.2 - Compiler le projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">set "PATH=C:\TDM-GCC-64\bin;%PATH%"
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Compiler le projet</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">set "PATH=C:\TDM-GCC-64\bin;%PATH%"
 set "PATH=ReadyLib\opencv\bin;%PATH%"</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">gcc -c main.c -o main.o -I"ReadyLib\opencv\include"</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">gcc -o rdc.exe main.o -L"ReadyLib\opencv\lib" ^
--lopencv_core2413 -lopencv_highgui2413</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-2.1.1.3 - Exécuter le projet"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">2.1.1.3 - Exécuter le projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">rdc.exe</xmp></pre></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_opencv_test.png" alt="/Tutoriels/Software_Development/C0/img/i_opencv_test.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Base de données avec SQLite"><a class="Link3" href="#">Base de données avec SQLite</a></h1><div class="Body3"><br><b>SQLite </b>est un système de gestion de base de données relationnelle accessible par le langage SQL et dont l'intégralité de la base de données (déclarations, tables, index et données) est stockée dans un fichier indépendant de la plateforme.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1618653104019"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1618653104019");</script></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/b_sqlite.png" alt="/Tutoriels/Software_Development/C0/img/b_sqlite.png"></div><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-1 - Installation"><a class="Link9" href="#Base de données avec SQLite">1 - Installation</a></h2><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-1.1 - Installation sous Windows"><a class="Link9" href="#Base de données avec SQLite">1.1 - Installation sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-1.1.1 - Installation sous MSYS2"><a class="Link9" href="#Base de données avec SQLite">1.1.1 - Installation sous MSYS2</a></h2><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-1.1.1.1 - Installer SQLite"><a class="Link9" href="#Base de données avec SQLite">1.1.1.1 - Installer SQLite</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">pacman -S --needed --noconfirm mingw-w64-i686-sqlite3</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-2 - Tests"><a class="Link9" href="#Base de données avec SQLite">2 - Tests</a></h2><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-2.1 - Test sous Windows"><a class="Link9" href="#Base de données avec SQLite">2.1 - Test sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-2.1.1 - Test sous MSYS2"><a class="Link9" href="#Base de données avec SQLite">2.1.1 - Test sous MSYS2</a></h2><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-2.1.1.1 - Éditer le programme"><a class="Link9" href="#Base de données avec SQLite">2.1.1.1 - Éditer le programme</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+-lopencv_core2413 -lopencv_highgui2413</xmp></pre></div><br><h3 class="Title8 GTitle3">Exécuter le projet</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">rdc.exe</xmp></pre></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_opencv_test.png" alt="/Tutoriels/Software_Development/C0/img/i_opencv_test.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Base de données avec SQLite"><a class="Link3" href="#">Base de données avec SQLite</a></h1><div class="Body3"><br><b>SQLite </b>est un système de gestion de base de données relationnelle accessible par le langage SQL et dont l'intégralité de la base de données (déclarations, tables, index et données) est stockée dans un fichier indépendant de la plateforme.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1618653104019"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1618653104019");</script></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/b_sqlite.png" alt="/Tutoriels/Software_Development/C0/img/b_sqlite.png"></div><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-Installer SQLite sous MSYS2"><a class="Link9" href="#Base de données avec SQLite">Installer SQLite sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Installer SQLite</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">pacman -S --needed --noconfirm mingw-w64-i686-sqlite3</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-Tester SQLite sous MSYS2"><a class="Link9" href="#Base de données avec SQLite">Tester SQLite sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Éditer le programme</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;sqlite3.h&gt;
 #include &lt;stdio.h&gt;
 //===============================================
@@ -1648,218 +1648,203 @@ int main(int argc, char** argv) {
     printf("SQLite version %s\n", lVersion);
     return 0;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-2.1.1.2 - Compiler le projet"><a class="Link9" href="#Base de données avec SQLite">2.1.1.2 - Compiler le projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">gcc -std=gnu11 -c ./main.c -o ./main.o \
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Compiler le projet</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">gcc -std=gnu11 -c ./main.c -o ./main.o \
 -I/mingw32/include</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">gcc -o ./rdc.exe ./main.o  \
--L/mingw32/lib -lsqlite3</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-2.1.1.3 - Exécuter le projet"><a class="Link9" href="#Base de données avec SQLite">2.1.1.3 - Exécuter le projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">./rdc.exe</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">SQLite version 3.35.2</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-3 - Opérations"><a class="Link9" href="#Base de données avec SQLite">3 - Opérations</a></h2><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-3.1 - Affichage de la version"><a class="Link9" href="#Base de données avec SQLite">3.1 - Affichage de la version</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-static void GSQLite_ShowVersion() {
-    // on recupere la version de SQLite
-    const char* lShowVersion = sqlite3_libversion();
-    // on affiche la version de SQLite
-    printf("SQLite version %s\n", lShowVersion);
-}
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-3.2 - Ouverture d'une base de données"><a class="Link9" href="#Base de données avec SQLite">3.2 - Ouverture d'une base de données</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-static void* GSQLite_Open() {
-    // on recupere le manager de donnees
-    sGApp* lApp = GManager()-&gt;mgr-&gt;app;
-    // on declare un pointeur sur le gestionnaire
-    sqlite3* lDb;
-    // on ouvre la base de donnees
-    int lOk = sqlite3_open(lApp-&gt;sqlite_db_path, &lDb);
-    // on affiche un message en cas d'erreur
-    if(lOk != SQLITE_OK) {printf("[error] %s() : %s\n", __FUNCTION__, lApp-&gt;sqlite_db_path);}
-    // on retoure le gestionnaire
-    return lDb; 
-}
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-3.3 - Exécution d'une requête"><a class="Link9" href="#Base de données avec SQLite">3.3 - Exécution d'une requête</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-static void GSQLite_Exec(char* sqlQuery, void* onExec, void* params) {
-    // on ouvre la base de donnees
-    sqlite3* lDb = GSQLite_Open();
-    // on declare un pointeur sur l'erreur
-    char* lError;
-    // on execute la requete sql (sqlQuery)
-    // avec une fonction de rappel (onExec)
-    // et des parametres d'entree (params)
-    int lOk = sqlite3_exec(lDb, sqlQuery, onExec, params, &lError);
-    // on affiche un message en cas d'erreur
-    if(lOk != SQLITE_OK) {printf("[error] %s() : %s\n", __FUNCTION__, lError);}
-    // on ferme la base donnees
-    sqlite3_close(lDb);
-}
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-3.4 - Affichage d'une requête de sélection"><a class="Link9" href="#Base de données avec SQLite">3.4 - Affichage d'une requête de sélection</a></h2><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-3.4.1 - Programme d'affichage"><a class="Link9" href="#Base de données avec SQLite">3.4.1 - Programme d'affichage</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-static void GSQLite_QueryShow(char* sqlQuery, char* widthMap, int defaultWidth) {
-    // on definit les parametres a utiliser
-    // dans la fonction de rappel
-    sGSQLiteShow lParams = {1, 1, widthMap, defaultWidth, 0};
-    // on execute la requete de selection
-    GSQLite_Exec(sqlQuery, GSQLite_OnQueryShow, &lParams);
-    
-    // si on a au moins une colonne
-    // on affiche le cadre final
-    if(lParams.colCount &gt; 0) printf("+-");
-    for(int i = 0; i &lt; lParams.colCount; i++) {
-        if(i != 0) printf("-+-");
-        int lWidth = GManager()-&gt;GetWidth(widthMap, i, defaultWidth);
-        for(int j = 0; j &lt; lWidth; j++) {
-            printf("-");
-        }
-    }
-    if(lParams.colCount &gt; 0) printf("-+");
-    if(lParams.colCount &gt; 0) printf("\n");
-}
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-3.4.2 - Structure des parametres"><a class="Link9" href="#Base de données avec SQLite">3.4.2 - Structure des parametres</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-struct _sGSQLiteShow {
-    // on active l'affichage des colonnes si (1)
-    int onHeader;
-    // on active l'affichage des grilles si (1)
-    int onGrid;
-    // on definit la largeur des colonnes dans une chaine
-    // en les separant par des points virgules
-    char* widthMap;
-    // on definit la largeur par default
-    int defaultWidth;
-    // on definit le nombre de colonne
-    int colCount;
-};
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-3.4.3 - Fonction de rappel"><a class="Link9" href="#Base de données avec SQLite">3.4.3 - Fonction de rappel</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-static int GSQLite_OnQueryShow(void* params, int colCount, char** colValue, char** colName) {
-    // on recupere les parametres
-    sGSQLiteShow* lParams = (sGSQLiteShow*)params;
-    
-    // on affiche le cadre de debut colonnes si (1)
-    if(lParams-&gt;onHeader == 1) {
-        printf("+-");
-        for(int i = 0; i &lt; colCount; i++) {
-            if(i != 0) printf("-+-");
-            int lWidth = GManager()-&gt;GetWidth(lParams-&gt;widthMap, i, lParams-&gt;defaultWidth);
-            for(int j = 0; j &lt; lWidth; j++) {
-                printf("-");
-            }
-        }
-        printf("-+");
-        printf("\n");
-    }
-    // on affiche les colonnes si (1)
-    if(lParams-&gt;onHeader == 1) {
-        printf("| ");
-        for(int i = 0; i &lt; colCount; i++) {
-            if(i != 0) printf(" | ");
-            int lWidth = GManager()-&gt;GetWidth(lParams-&gt;widthMap, i, lParams-&gt;defaultWidth);
-            printf("%-*s", lWidth, colName[i]);
-        }
-        printf(" |");
-        printf("\n");
-    }
-    
-    // on affiche le cadre de debut des grilles si (1)
-    if(lParams-&gt;onGrid == 1) {
-        printf("+-");
-        for(int i = 0; i &lt; colCount; i++) {
-            if(i != 0) printf("-+-");
-            int lWidth = GManager()-&gt;GetWidth(lParams-&gt;widthMap, i, lParams-&gt;defaultWidth);
-            for(int j = 0; j &lt; lWidth; j++) {
-                printf("-");
-            }
-        }
-        printf("-+");
-        printf("\n");
-    }
-    
-    // on affiche les donnees
-    printf("| ");
-    for(int i = 0; i &lt; colCount; i++) {
-        char* lColValue = colValue[i] ? colValue[i] : "NULL";
-        if(i != 0) printf(" | ");
-        int lWidth = GManager()-&gt;GetWidth(lParams-&gt;widthMap, i, lParams-&gt;defaultWidth);
-        printf("%-*s", lWidth, lColValue);
-    }
-    printf(" |");
-    printf("\n");
-    lParams-&gt;onHeader = 0;
-    lParams-&gt;onGrid = 0;
-    lParams-&gt;colCount = colCount;
-    return 0; 
-}
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-3.4.4 - Exemple d'utilisation"><a class="Link9" href="#Base de données avec SQLite">3.4.4 - Exemple d'utilisation</a></h2><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-3.4.4.1 - Programme d'utilisation"><a class="Link9" href="#Base de données avec SQLite">3.4.4.1 - Programme d'utilisation</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-static void GSQLiteUi_Run_CONFIG_DATA_SHOW(int argc, char** argv) {
-    printf("\n");
-
-    // on affiche le contenu de la table config_data
-    GSQLite()-&gt;QueryShow(GManager()-&gt;Format("\
-    select * from config_data\n\
-    "), "20;30", 25);
-    
-    m_GSQLiteUiO-&gt;G_STATE = "S_SAVE";
-}
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-3.4.4.2 - Resultat de l'exemple"><a class="Link9" href="#Base de données avec SQLite">3.4.4.2 - Resultat de l'exemple</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">+----------------------+--------------------------------+
-| config_key           | config_value                   |
-+----------------------+--------------------------------+
-| G_SQLITE_ID          | 4                              |
-| G_ADMIN_ID           | 1                              |
-| C_OPENCV_ID          | 1                              |
-+----------------------+--------------------------------+</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-3.5 - Execution d'une requête d'ecriture"><a class="Link9" href="#Base de données avec SQLite">3.5 - Execution d'une requête d'ecriture</a></h2><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-3.5.1 - Programme d'écriture"><a class="Link9" href="#Base de données avec SQLite">3.5.1 - Programme d'écriture</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-static void GSQLite_QueryWrite(char* sqlQuery) {
-    // on execute la requete d'ecriture (sqlQuery)
-    GSQLite_Exec(sqlQuery, 0, 0);
-}
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-3.5.2 - Exemple d'écriture"><a class="Link9" href="#Base de données avec SQLite">3.5.2 - Exemple d'écriture</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-static void GSQLiteUi_Run_CONFIG_DATA_CREATE(int argc, char** argv) {
-    printf("\n");
-
-    // on cree la table config_data
-    GSQLite()-&gt;QueryWrite(GManager()-&gt;Format("\
-    create table if not exists config_data (\n\
-    config_key text,\n\
-    config_value text\n\
-    )"));
-    
-    m_GSQLiteUiO-&gt;G_STATE = "S_SAVE";
-}
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-3.6 - Lecture d'une donnée"><a class="Link9" href="#Base de données avec SQLite">3.6 - Lecture d'une donnée</a></h2><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-3.6.1 - Programme de lecture"><a class="Link9" href="#Base de données avec SQLite">3.6.1 - Programme de lecture</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-static void* GSQLite_QueryValue(char* sqlQuery) {
-    // on definit les parametres a utiliser
-    // dans la fonction de rappel
-    sGSQLiteData lParams = {0, 0};
-    // on execute la requete de lecture
-    GSQLite_Exec(sqlQuery, GSQLite_OnQueryValue, &lParams);
-    if(lParams.data == 0) lParams.data = GManager()-&gt;CopyStr("");
-    return lParams.data;
-}
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-3.6.2 - Structure des paramètres"><a class="Link9" href="#Base de données avec SQLite">3.6.2 - Structure des paramètres</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-struct _sGSQLiteData {
-    // on definit le pointeur de donnees
-    void* data;
-    // on definit le compteur de donnees
-    int count;
-};
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-3.6.3 - Fonction de rappel"><a class="Link9" href="#Base de données avec SQLite">3.6.3 - Fonction de rappel</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-static int GSQLite_OnQueryValue(void* params, int colCount, char** colValue, char** colName) {
-    // on recupere les parametres
-    sGSQLiteData* lParams = params;
-    // on verifie qu'on a la premiere donnee
-    if(lParams-&gt;count == 0) {
-        // on recupere la premiere donnee
-        lParams-&gt;data = GManager()-&gt;CopyStr(colValue[0]);
-    }
-    // on fait avancer le compteur 
-    lParams-&gt;count++;
+-L/mingw32/lib -lsqlite3</xmp></pre></div><br><h3 class="Title8 GTitle3">Exécuter le projet</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">./rdc.exe</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">SQLite version 3.35.2</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-Afficher la version de SQLite"><a class="Link9" href="#Base de données avec SQLite">Afficher la version de SQLite</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+#include &lt;sqlite3.h&gt;
+//===============================================
+int main(int argc, char** argv) {
+    const char* lVersion = sqlite3_libversion();
+    printf("SQLite version %s\n", lVersion);
     return 0;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-3.6.4 - Exemple de lecture"><a class="Link9" href="#Base de données avec SQLite">3.6.4 - Exemple de lecture</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-static int GConfig_CountData(char* key) {
-    // on recupere le nombre d'elements de la table (config_data)
-    // associe a la cle (key)
-    char* lValue = GSQLite()-&gt;QueryValue(GManager()-&gt;Format("\
-    select count(*) from config_data\n\
-    where config_key = '%s'\n\
-    ", key));
-    // on convertit la chaine en entier
-    int lCount = atoi(lValue);
-    // on libere la memoire allouvve
-    free(lValue);
-    // on retourne le nombre d'elements
-    return lCount;
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">SQLite version 3.35.4</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-Créer une table"><a class="Link9" href="#Base de données avec SQLite">Créer une table</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+#include &lt;sqlite3.h&gt;
+//===============================================
+int main(int argc, char** argv) {
+    sqlite3* lDb;
+    char* lError;
+    int lAnswer;
+    char lSql[256] = ""
+    "create table if not exists config_data(\n"
+    "config_key text,\n"
+    "config_value text\n"
+    ")\n"
+    "";
+    sqlite3_open("database.dat", &lDb);
+    sqlite3_exec(lDb, lSql, 0, 0, &lError);
+    sqlite3_close(lDb);
+    return 0;
 }
-//===============================================</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Socket sous Windows"><a class="Link3" href="#">Socket sous Windows</a></h1><div class="Body3"><br>Une <b>Socket </b>est une structure logicielle dans un nœud de réseau d'un réseau informatique qui sert de point de terminaison pour envoyer et recevoir des données sur le réseau. La structure et les propriétés d'une socket sont définies par une interface de programmation d'application (API) pour l'architecture réseau. Les sockets sont créées uniquement pendant la durée de vie d'un processus d'une application s'exécutant dans le nœud. Une socket est identifiée de manière externe aux autres hôtes par son adresse de socket , qui est la triade du protocole de transport , de l'adresse IP et du numéro de port . Une socket est aussi utilisée pour le point de terminaison logiciel de la communication inter-processus interne au nœud (IPC).<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620670499920"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620670499920");</script></div><br><h2 class="Title7 GTitle2" id="Socket - Windows-Afficher les interfaces réseau"><a class="Link9" href="#Socket - Windows">Afficher les interfaces réseau</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-Insérer des données dans la table"><a class="Link9" href="#Base de données avec SQLite">Insérer des données dans la table</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+#include &lt;sqlite3.h&gt;
+//===============================================
+int main(int argc, char** argv) {
+    sqlite3* lDb;
+    char* lError;
+    int lAnswer;
+    char lSql[256] = ""
+    "insert into config_data(config_key, config_value)\n"
+    "values('fullname', 'Gerard KESSE')\n"
+    "";
+    sqlite3_open("database.dat", &lDb);
+    sqlite3_exec(lDb, lSql, 0, 0, &lError);
+    sqlite3_close(lDb);
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-Afficher la liste des tables"><a class="Link9" href="#Base de données avec SQLite">Afficher la liste des tables</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+#include &lt;sqlite3.h&gt;
+//===============================================
+static int onExec(void* params, int colCount, char** colValue, char** colName);
+//===============================================
+int main(int argc, char** argv) {
+    sqlite3* lDb;
+    char* lError;
+    int lAnswer;
+    char lSql[256] = ""
+    "select name from sqlite_master\n"
+    "where type='table'\n"
+    "";
+    sqlite3_open("database.dat", &lDb);
+    sqlite3_exec(lDb, lSql, onExec, 0, &lError);
+    sqlite3_close(lDb);
+    return 0;
+}
+//===============================================
+static int onExec(void* params, int colCount, char** colValue, char** colName) {
+    const char* lValue = colValue[0];
+    printf("%s\n", lValue);
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">config_data</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-Afficher les données de la table"><a class="Link9" href="#Base de données avec SQLite">Afficher les données de la table</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+#include &lt;sqlite3.h&gt;
+//===============================================
+static int onExec(void* params, int colCount, char** colValue, char** colName);
+//===============================================
+int main(int argc, char** argv) {
+    sqlite3* lDb;
+    char* lError;
+    char lSql[256] = ""
+    "select * from config_data\n"
+    "";
+    sqlite3_open("database.dat", &lDb);
+    sqlite3_exec(lDb, lSql, onExec, 0, &lError);
+    sqlite3_close(lDb);
+    return 0;
+}
+//===============================================
+static int onExec(void* params, int colCount, char** colValue, char** colName) {
+    for(int i = 0; i &lt; colCount; i++) {
+        const char* lValue = colValue[i];
+        if(i != 0) {printf(" | ");}
+        printf("%*s", -20, lValue);
+    }
+    printf("\n");
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">fullname             | Gerard KESSE
+username             | gkesse
+password             | 123456</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-Afficher les noms des colonnes"><a class="Link9" href="#Base de données avec SQLite">Afficher les noms des colonnes</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+#include &lt;sqlite3.h&gt;
+//===============================================
+static int onExec(void* params, int colCount, char** colValue, char** colName);
+//===============================================
+int main(int argc, char** argv) {
+    sqlite3* lDb;
+    char* lError;
+    int lHeader = 1;
+    char lSql[256] = ""
+    "select * from config_data\n"
+    "";
+    sqlite3_open("database.dat", &lDb);
+    sqlite3_exec(lDb, lSql, onExec, &lHeader, &lError);
+    sqlite3_close(lDb);
+    return 0;
+}
+//===============================================
+static int onExec(void* params, int colCount, char** colValue, char** colName) {
+    int* lHeader = (int*)params;
+    // header
+    if((*lHeader) == 1) {
+        for(int i = 0; i &lt; colCount; i++) {
+            const char* lName = colName[i];
+            if(i != 0) {printf(" | ");}
+            printf("%*s", -20, lName);
+        }
+        (*lHeader) = 0;
+        printf("\n");
+    }
+    // data
+    for(int i = 0; i &lt; colCount; i++) {
+        const char* lValue = colValue[i];
+        if(i != 0) {printf(" | ");}
+        printf("%*s", -20, lValue);
+    }
+    printf("\n");
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">config_key           | config_value
+fullname             | Gerard KESSE
+username             | gkesse
+password             | 123456</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-Ajouter un&nbsp; séparateur entre les noms des colonnes et les données"><a class="Link9" href="#Base de données avec SQLite">Ajouter un&nbsp; séparateur entre les noms des colonnes et les données</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+#include &lt;sqlite3.h&gt;
+//===============================================
+static int onExec(void* params, int colCount, char** colValue, char** colName);
+//===============================================
+int main(int argc, char** argv) {
+    sqlite3* lDb;
+    char* lError;
+    int lHeader = 1;
+    char lSql[256] = ""
+    "select * from config_data\n"
+    "";
+    sqlite3_open("database.dat", &lDb);
+    sqlite3_exec(lDb, lSql, onExec, &lHeader, &lError);
+    sqlite3_close(lDb);
+    return 0;
+}
+//===============================================
+static int onExec(void* params, int colCount, char** colValue, char** colName) {
+    int* lHeader = (int*)params;
+    // header
+    if((*lHeader) == 1) {
+        for(int i = 0; i &lt; colCount; i++) {
+            const char* lName = colName[i];
+            if(i != 0) {printf(" | ");}
+            printf("%*s", -20, lName);
+        }
+        printf("\n");
+        // sep
+        for(int i = 0; i &lt; colCount; i++) {
+            if(i != 0) {printf("-|-");}
+            for(int j = 0; j &lt; 20; j++) {
+                printf("-");
+            }
+        }
+        (*lHeader) = 0;
+        printf("\n");
+    }
+    // data
+    for(int i = 0; i &lt; colCount; i++) {
+        const char* lValue = colValue[i];
+        if(i != 0) {printf(" | ");}
+        printf("%*s", -20, lValue);
+    }
+    printf("\n");
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">config_key           | config_value
+---------------------|---------------------
+fullname             | Gerard KESSE
+username             | gkesse
+password             | 123456</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Socket sous Windows"><a class="Link3" href="#">Socket sous Windows</a></h1><div class="Body3"><br>Une <b>Socket </b>est une structure logicielle dans un nœud de réseau d'un réseau informatique qui sert de point de terminaison pour envoyer et recevoir des données sur le réseau. La structure et les propriétés d'une socket sont définies par une interface de programmation d'application (API) pour l'architecture réseau. Les sockets sont créées uniquement pendant la durée de vie d'un processus d'une application s'exécutant dans le nœud. Une socket est identifiée de manière externe aux autres hôtes par son adresse de socket , qui est la triade du protocole de transport , de l'adresse IP et du numéro de port . Une socket est aussi utilisée pour le point de terminaison logiciel de la communication inter-processus interne au nœud (IPC).<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620670499920"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620670499920");</script></div><br><h2 class="Title7 GTitle2" id="Socket - Windows-Afficher les interfaces réseau"><a class="Link9" href="#Socket - Windows">Afficher les interfaces réseau</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 #include &lt;winsock2.h&gt;
