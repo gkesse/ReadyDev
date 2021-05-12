@@ -1211,58 +1211,39 @@ static void log_person(void* params) {
     log_write(3, "\t", 30, -15, "Person[id]", 3, " : ", 1, lPerson-&gt;id, 3, "\n", 0);
     log_write(3, "\t", 30, -15, "Person[coef]", 3, " : ", 2, lPerson-&gt;coef, 3, "\n", 0);
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_log_complexe.png" alt="/Tutoriels/Software_Development/C0/img/i_log_complexe.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Interface Homme-Machine avec Gtk"><a class="Link3" href="#">Interface Homme-Machine avec Gtk</a></h1><div class="Body3"><br><b>GTK </b>est une bibliothèque de création d'interfaces homme-machine dévoppé à l'origine pour les besoins du logiciel de traitement d'images GIMP.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1618606543470"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1618606543470");</script></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/b_gtk.png" alt="/Tutoriels/Software_Development/C0/img/b_gtk.png"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-1 - Installation"><a class="Link9" href="#Interface Homme-Machine avec Gtk">1 - Installation</a></h2><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-1.1 - Installation sous Windows"><a class="Link9" href="#Interface Homme-Machine avec Gtk">1.1 - Installation sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-1.1.1 - Installation sous MSYS2"><a class="Link9" href="#Interface Homme-Machine avec Gtk">1.1.1 - Installation sous MSYS2</a></h2><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-1.1.1.1 - Installer Gtk"><a class="Link9" href="#Interface Homme-Machine avec Gtk">1.1.1.1 - Installer Gtk</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">pacman -S --needed -y mingw-w64-i686-gtk3</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-2 - Tests"><a class="Link9" href="#Interface Homme-Machine avec Gtk">2 - Tests</a></h2><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-2.1 - Test sous Windows"><a class="Link9" href="#Interface Homme-Machine avec Gtk">2.1 - Test sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-2.1.1 - Test sous MSYS2"><a class="Link9" href="#Interface Homme-Machine avec Gtk">2.1.1 - Test sous MSYS2</a></h2><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-2.1.1.1 - Éditer le programme"><a class="Link9" href="#Interface Homme-Machine avec Gtk">2.1.1.1 - Éditer le programme</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_log_complexe.png" alt="/Tutoriels/Software_Development/C0/img/i_log_complexe.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Interface Homme-Machine avec Gtk"><a class="Link3" href="#">Interface Homme-Machine avec Gtk</a></h1><div class="Body3"><br><b>GTK </b>est une bibliothèque de création d'interfaces homme-machine dévoppé à l'origine pour les besoins du logiciel de traitement d'images GIMP. GTK+ est maintenant utilisé dans de nombreux projets, dont les environnements de bureau GNOME, Xfce, Lxde et ROX. GTK est un projet libre et multiplate-forme.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1618606543470"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1618606543470");</script></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-Installer Gtk sous MSYS2"><a class="Link9" href="#Interface Homme-Machine avec Gtk">Installer Gtk sous MSYS2</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">pacman -S --needed --noconfirm mingw-w64-i686-gtk3</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-Tester un programme Gtk sous MSYS2"><a class="Link9" href="#Interface Homme-Machine avec Gtk">Tester un programme Gtk sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;gtk/gtk.h&gt;
 //===============================================
 static void GWindow_OnDestroy(GtkWidget* obj, gpointer params);
 static gboolean GWindow_OnDeleteEvent(GtkWidget* obj, GdkEvent* event, gpointer params);
 //===============================================
 int main(int argc, char** argv) {
-    // on initialise gtk
     gtk_init(&argc, &argv);
     
-    // on cree la fenetre principale 
     GtkWidget* lWindow = gtk_window_new(GTK_WINDOW_TOPLEVEL);
-    
-    // on cree un label
+    gtk_window_set_title(GTK_WINDOW(lWindow), "ReadyApp");
+    gtk_container_set_border_width(GTK_CONTAINER(lWindow), 0);
+    gtk_widget_set_size_request(GTK_WIDGET(lWindow), 400, 200);
+
     GtkWidget* lLabel = gtk_label_new(0);
-    // on definit le texte du label
     gtk_label_set_text(GTK_LABEL(lLabel), "Bonjour tout le monde");
     
-    // on cree un layout vertical
-    GtkWidget* lMainLayout = gtk_vbox_new(0, 0);
-    // on ajoute le label dans le layout
+    GtkWidget* lMainLayout = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
     gtk_box_pack_start(GTK_BOX(lMainLayout), lLabel, 1, 1, 0);
-    // on ajoute le layout dans la fenetre principale
+
     gtk_container_add(GTK_CONTAINER(lWindow), lMainLayout);
-    // on affiche la fenetre principale 
     gtk_widget_show_all(lWindow);
-    
-    // on definit le titre de la fenetre principale 
-    gtk_window_set_title(GTK_WINDOW(lWindow), "ReadyApp");
-    // on supprime les marges
-    gtk_container_set_border_width(GTK_CONTAINER(lWindow), 0);
-    // on definit les dimensions de la fenetre principale 
-    gtk_widget_set_size_request(GTK_WIDGET(lWindow), 600, 330);
-    
-    // on definit le signal associe a la fermeture de la fenetre principale
+        
     g_signal_connect(G_OBJECT(lWindow), "destroy", G_CALLBACK(GWindow_OnDestroy), NULL);
-    g_signal_connect(G_OBJECT(lWindow), "delete_event", G_CALLBACK(GWindow_OnDeleteEvent), NULL);
     
-    // on rentre dans la boucle de controle
     gtk_main();
     return 0;
 }
 //===============================================
 static void GWindow_OnDestroy(GtkWidget* obj, gpointer params) {
-    // on ferme la fenetre principale
     gtk_main_quit();
 }
-//===============================================
-static gboolean GWindow_OnDeleteEvent(GtkWidget* obj, GdkEvent* event, gpointer params) {
-    return 0;
-}
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-2.1.1.2 - Compiler le projet"><a class="Link9" href="#Interface Homme-Machine avec Gtk">2.1.1.2 - Compiler le projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">gcc -std=gnu11 -c ./main.c -o ./main.o \
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Compiler le projet</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">gcc -std=gnu11 -c ./main.c -o ./main.o \
 `pkg-config --cflags gtk+-3.0`</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">gcc -std=gnu11 -c ./main.c -o ./main.o \
 -I/mingw32/include/gtk-3.0 -I/mingw32/include/pango-1.0 -I/mingw32/include -I/mingw32/include/glib-2.0 \
 -I/mingw32/lib/glib-2.0/include -I/mingw32/include/harfbuzz -I/mingw32/include/freetype2 \
@@ -1270,245 +1251,225 @@ static gboolean GWindow_OnDeleteEvent(GtkWidget* obj, GdkEvent* event, gpointer 
 -I/mingw32/include/lzo -I/mingw32/include/pixman-1 -mms-bitfields -mms-bitfields -mms-bitfields \
 -mms-bitfields -mms-bitfields -mms-bitfields -mms-bitfields -I/mingw32/include/gdk-pixbuf-2.0 \
 -mms-bitfields -mms-bitfields -mms-bitfields -I/mingw32/include/atk-1.0 -mms-bitfields -mms-bitfields \
--mms-bitfields -pthread -mms-bitfields</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-2.1.1.3 - Éditer les liens du projet"><a class="Link9" href="#Interface Homme-Machine avec Gtk">2.1.1.3 - Éditer les liens du projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">gcc -o ./rdc.exe ./main.o  \
+-mms-bitfields -pthread -mms-bitfields</xmp></pre></div><br><h3 class="Title8 GTitle3">Éditer les liens du projet</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">gcc -o ./rdc.exe ./main.o  \
 `pkg-config --libs gtk+-3.0`</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">gcc -o ./rdc.exe ./main.o  \
 -L/mingw32/lib \ 
 -lgtk-3 -lgdk-3 -lz -lgdi32 -limm32 -lshell32 -lole32 -Wl,-luuid -lwinmm -ldwmapi -lsetupapi \
 -lcfgmgr32 -lpangowin32-1.0 -lpangocairo-1.0 -lpango-1.0 -lharfbuzz -latk-1.0 -lcairo-gobject \
--lcairo -lgdk_pixbuf-2.0 -lgio-2.0 -lgobject-2.0 -lglib-2.0 -lintl</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-2.1.1.4 - Exécuter le projet"><a class="Link9" href="#Interface Homme-Machine avec Gtk">2.1.1.4 - Exécuter le projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">./rdc.exe</xmp></pre></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_gtk_test.png" alt="/Tutoriels/Software_Development/C0/img/i_gtk_test.png"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-3 - Projets"><a class="Link9" href="#Interface Homme-Machine avec Gtk">3 - Projets</a></h2><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-3.1 - Système d'administration"><a class="Link9" href="#Interface Homme-Machine avec Gtk">3.1 - Système d'administration</a></h2><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-3.1.1 - Introduction"><a class="Link9" href="#Interface Homme-Machine avec Gtk">3.1.1 - Introduction</a></h2><br>Le système d'administration que nous présentons ici est une interface graphique permettant d'accéder à toutes les fonctionnalités de notre application.<br><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-3.1.2 - Programme principal"><a class="Link9" href="#Interface Homme-Machine avec Gtk">3.1.2 - Programme principal</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-static void GGtk_Run(int argc, char** argv) {
-    // on initialise gtk
+-lcairo -lgdk_pixbuf-2.0 -lgio-2.0 -lgobject-2.0 -lglib-2.0 -lintl</xmp></pre></div><br><h3 class="Title8 GTitle3">Exécuter le projet</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">./rdc.exe</xmp></pre></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_gtk_test.png" alt="/Tutoriels/Software_Development/C0/img/i_gtk_test.png"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-Créer un label avec un lien"><a class="Link9" href="#Interface Homme-Machine avec Gtk">Créer un label avec un lien</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;gtk/gtk.h&gt;
+//===============================================
+static void GWindow_OnDestroy(GtkWidget* obj, gpointer params);
+//===============================================
+int main(int argc, char** argv) {
     gtk_init(&argc, &argv);
-
-    // on charge le style de l'application
-    GManager()-&gt;LoadStyle();
-    // on charge les images
-    GManager()-&gt;LoadImg();
-    // on charge les donnees de l'application
-    GManager()-&gt;LoadData();
-    // on charge les pictogrammes de l'application
-    GPicto()-&gt;Load();
-    // on cree le systeme d'administration
-    GWidget("window");
-
-    // on rentre dans la boucle de controle
+    
+    GtkWidget* lWindow = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+    gtk_window_set_title(GTK_WINDOW(lWindow), "ReadyApp");
+    gtk_container_set_border_width(GTK_CONTAINER(lWindow), 0);
+    gtk_widget_set_size_request(GTK_WIDGET(lWindow), 400, 200);
+    
+    const gchar* lLink =
+    "Consultez notre siteweb "
+    "&lt;a href=\"https://readydev.ovh/\""
+    "title=\"&lt;b&gt;ReadyDev&lt;/b&gt; notre siteweb\"&gt;"
+    "ReadyDev&lt;/a&gt;\nPour plus d'informations...";
+    GtkWidget *label = gtk_label_new (0);
+    gtk_label_set_markup (GTK_LABEL (label), lLink);
+        
+    gtk_container_add(GTK_CONTAINER(lWindow), label);
+    gtk_widget_show_all(lWindow);
+    
+    g_signal_connect(G_OBJECT(lWindow), "destroy", G_CALLBACK(GWindow_OnDestroy), NULL);
+    
     gtk_main();
+    return 0;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-3.1.3 - Système d'administration"><a class="Link9" href="#Interface Homme-Machine avec Gtk">3.1.3 - Système d'administration</a></h2><br><h3 class="Title8 GTitle3">GWindow.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-static void GWindow_Widget(GWidgetO* obj) {
-    // on recupere le manager de donnees
-    sGApp* lApp = GManager()-&gt;mgr-&gt;app;
-    // on cree la fenetre principale
-    GtkWidget* lWidget = gtk_window_new(GTK_WINDOW_TOPLEVEL);
-    // on definit un pointeur vers la fenetre principale 
-    obj-&gt;widget = lWidget;
-    
-    // on cree la barre de titre
-    GWidgetO* lTitleBar = GWidget("titlebar");
-    // on cree la barre d'adresse
-    GWidgetO* lAddressBar = GWidget("addressbar");
-
-    // on cree la barre d'acces rapide
-    GWidgetO* lAddressKey = GWidget("addresskey");
-    // on cree un pointeur vers la barre d'acces rapide
-    lApp-&gt;address_key = lAddressKey;
-
-    // on cree la pile de widget
-    GWidgetO* lWorkspace = GWidget("stackwidget");
-    // on cree un pointeur vers la pile de widget
-    lApp-&gt;page_map = lWorkspace;
-    // on definit le nom de l'objet
-    gtk_widget_set_name(lWorkspace-&gt;widget, "workspace");
-    
-    // on cree un layout vertical
-    GtkWidget* lMainLayout = gtk_vbox_new(0, 0);
-    // on definit le nom de l'objet
-    gtk_widget_set_name(lMainLayout, "GWindow");
-    // on ajoute les widgets dans le layout
-    gtk_box_pack_start(GTK_BOX(lMainLayout), lTitleBar-&gt;widget, 0, 0, 0);
-    gtk_box_pack_start(GTK_BOX(lMainLayout), GManager()-&gt;SpaceV(10), 0, 0, 0);
-    gtk_box_pack_start(GTK_BOX(lMainLayout), lAddressBar-&gt;widget, 0, 0, 0);
-    gtk_box_pack_start(GTK_BOX(lMainLayout), GManager()-&gt;SpaceV(10), 0, 0, 0);
-    gtk_box_pack_start(GTK_BOX(lMainLayout), lAddressKey-&gt;widget, 0, 0, 0);
-    gtk_box_pack_start(GTK_BOX(lMainLayout), GManager()-&gt;SpaceV(10), 0, 0, 0);
-    gtk_box_pack_start(GTK_BOX(lMainLayout), lWorkspace-&gt;widget, 1, 1, 0);
-
-    // on ajoute le layout dans la fenetre principale
-    gtk_container_add(GTK_CONTAINER(lWidget), lMainLayout);
-    // on affiche la fenetre principale
-    gtk_widget_show_all(lWidget);
-
-    // on cree les pages du systeme d'administration
-    lWorkspace-&gt;AddPage(lWorkspace, "home", "Accueil", GWidget("home")-&gt;widget, 1);
-    lWorkspace-&gt;AddPage(lWorkspace, "home/login", "Connexion", GWidget("login")-&gt;widget, 0);
-    lWorkspace-&gt;AddPage(lWorkspace, "home/sqlite", "SQLite", GWidget("sqlite")-&gt;widget, 0);
-    lWorkspace-&gt;AddPage(lWorkspace, "home/opencv", "OpenCV", GWidget("opencv")-&gt;widget, 1);
-    lWorkspace-&gt;AddPage(lWorkspace, "home/debug", "Debug", GWidget("debug")-&gt;widget, 0);
-    
-    // on affiche la page par default
-    GManager()-&gt;SetPage(lWorkspace-&gt;GetDefaultKey(lWorkspace));
-
-    // on definit le titre de la fenetre principale
-    gtk_window_set_title(GTK_WINDOW(lWidget), lApp-&gt;app_name);
-    // on definit les marges de la fenetre principale
-    gtk_container_set_border_width(GTK_CONTAINER(lWidget), 0);
-    // on definit les dimensions de la fenetre principale
-    gtk_widget_set_size_request(GTK_WIDGET(lWidget), lApp-&gt;win_width, lApp-&gt;win_height);
-    
-    // on definit le signal associe a la fermeture de la fenetre principale
-    g_signal_connect(G_OBJECT(lWidget), "destroy", G_CALLBACK(GWindow_OnDestroy), NULL);
-    g_signal_connect(G_OBJECT(lWidget), "delete_event", G_CALLBACK(GWindow_OnDeleteEvent), NULL);
+//===============================================
+static void GWindow_OnDestroy(GtkWidget* obj, gpointer params) {
+    gtk_main_quit();
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-3.1.4 - Ajout d'une page"><a class="Link9" href="#Interface Homme-Machine avec Gtk">3.1.4 - Ajout d'une page</a></h2><br><h3 class="Title8 GTitle3">GStackWidget.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-static void GStackWidget_AddPage(GWidgetO* obj, char* key, char* title, GtkWidget* widget, int isDefault) {
-    // on recupere l'objet enfant
-    // qui correspond ici a la pile de widgets
-    GStackWidgetO* lChild = obj-&gt;child;
-    // on recupere le map des widgets des pages
-    GMapO(GStackWidget, GVOID_PTR, GVOID_PTR)* lWidgetMap = lChild-&gt;widgetMap;
-    // on recupere le map des titres des pages
-    GMapO(GStackWidget, GVOID_PTR, GVOID_PTR)* lTitleMap = lChild-&gt;titleMap;
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_gtk_label_link.gif" alt="/Tutoriels/Software_Development/C0/img/i_gtk_label_link.gif"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-Sélectionner le texte d'un label"><a class="Link9" href="#Interface Homme-Machine avec Gtk">Sélectionner le texte d'un label</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;gtk/gtk.h&gt;
+//===============================================
+static void GWindow_OnDestroy(GtkWidget* obj, gpointer params);
+static gboolean GWindow_OnDeleteEvent(GtkWidget* obj, GdkEvent* event, gpointer params);
+//===============================================
+int main(int argc, char** argv) {
+    gtk_init(&argc, &argv);
     
-    // on associe la cle au widget de la page
-    lWidgetMap-&gt;SetData(lWidgetMap, key, widget, lWidgetMap-&gt;EqualChar);
-    // on associe la cle au titre de la page
-    lTitleMap-&gt;SetData(lTitleMap, key, title, lTitleMap-&gt;EqualChar);
+    GtkWidget* lWindow = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+    gtk_window_set_title(GTK_WINDOW(lWindow), "ReadyApp");
+    gtk_container_set_border_width(GTK_CONTAINER(lWindow), 0);
+    gtk_widget_set_size_request(GTK_WIDGET(lWindow), 400, 200);
+    
+    GtkWidget* label = gtk_label_new ("Bonjour tout le monde");
+    gtk_label_set_selectable (GTK_LABEL (label), TRUE);
 
-    // on ajoute le widget dans la pile
-    gtk_box_pack_start(GTK_BOX(obj-&gt;widget), widget, 0, 0, 0);
-    // on rend invisible le widget dans la pile
-    gtk_widget_hide(widget);
+    gtk_container_add(GTK_CONTAINER(lWindow), label);
+    gtk_widget_show_all(lWindow);
     
-    // on initialise la cle par defaut
-    // on initialise la cle courante
-    if(lChild-&gt;currentKeyFlag == 1) {lChild-&gt;defaultKey = key; lChild-&gt;currentKey = key; lChild-&gt;currentKeyFlag = 0;}
+    g_signal_connect(G_OBJECT(lWindow), "destroy", G_CALLBACK(GWindow_OnDestroy), NULL);
     
-    // on definit la cle par defaut
-    if(isDefault == 1) {lChild-&gt;defaultKey = key;}
-    // on compte le nombre de pages
-    lChild-&gt;count++;
+    gtk_main();
+    return 0;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-3.1.5 - Page d'accueil"><a class="Link9" href="#Interface Homme-Machine avec Gtk">3.1.5 - Page d'accueil</a></h2><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-3.1.5.1 - Création de la page d'accueil"><a class="Link9" href="#Interface Homme-Machine avec Gtk">3.1.5.1 - Création de la page d'accueil</a></h2><br><h3 class="Title8 GTitle3">GHome.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-static void GHome_Widget(GWidgetO* obj) {
-    // on cree le layout de la fenetre
-    GtkWidget* lWidget = gtk_vbox_new(1, 0);
-    obj-&gt;widget = lWidget;
+//===============================================
+static void GWindow_OnDestroy(GtkWidget* obj, gpointer params) {
+    gtk_main_quit();
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_gtk_label_select.png" alt="/Tutoriels/Software_Development/C0/img/i_gtk_label_select.png"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-Ajouter un code mnémonique à un bouton"><a class="Link9" href="#Interface Homme-Machine avec Gtk">Ajouter un code mnémonique à un bouton</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;gtk/gtk.h&gt;
+//===============================================
+static void GWindow_OnDestroy(GtkWidget* obj, gpointer params);
+static gboolean GWindow_OnDeleteEvent(GtkWidget* obj, GdkEvent* event, gpointer params);
+//===============================================
+int main(int argc, char** argv) {
+    gtk_init(&argc, &argv);
+    
+    GtkWidget* lWindow = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+    gtk_window_set_title(GTK_WINDOW(lWindow), "ReadyApp");
+    gtk_container_set_border_width(GTK_CONTAINER(lWindow), 0);
+    gtk_widget_set_size_request(GTK_WIDGET(lWindow), 400, 200);
+    
+    GtkWidget* button = gtk_button_new_with_mnemonic ("_Close");
+    gtk_button_set_relief (GTK_BUTTON (button), GTK_RELIEF_NONE);
 
-    // on cree une liste de widgets
-    GWidgetO* lListBox = GWidget("listbox");
-    // on associe un observateur a liste de widgets
-    lListBox-&gt;AddItemClick(lListBox, obj);
-    // on ajoute des widgets a la liste
-    lListBox-&gt;AddItem(lListBox, "home/login", "Connexion", "user");
-    lListBox-&gt;AddItem(lListBox, "home/sqlite", "SQLite", "database");
-    lListBox-&gt;AddItem(lListBox, "home/opencv", "OpenCV", "camera");
-    lListBox-&gt;AddItem(lListBox, "home/debug", "Debug", "filetexto");
+    gtk_container_add(GTK_CONTAINER(lWindow), button);
+    gtk_widget_show_all(lWindow);
     
-    // on ajoute le layout dans la fenetre
-    gtk_box_pack_start(GTK_BOX(lWidget), lListBox-&gt;widget, 0, 0, 0);
+    g_signal_connect(G_OBJECT(lWindow), "destroy", G_CALLBACK(GWindow_OnDestroy), NULL);
+    g_signal_connect_swapped (G_OBJECT (button), "clicked", G_CALLBACK (gtk_widget_destroy), (gpointer) lWindow);
+    
+    gtk_main();
+    return 0;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-3.1.5.2 - Ajout d'un élément de page"><a class="Link9" href="#Interface Homme-Machine avec Gtk">3.1.5.2 - Ajout d'un élément de page</a></h2><br><h3 class="Title8 GTitle3">GListBox.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-static void GListBox_AddItem(GWidgetO* obj, char* key, char* text, char* icon) {
-    // on recupere le widget enfant
-    // en effet on travaille dans un concept oriente objet
-    // et nos widgets perso heritent tous de l'objet GWidgetO
-    GListBoxO* lChild = obj-&gt;child;
-    // on recupere le map des widgets
-    // en effet tous les widgets ajoutes dans la liste
-    // sont enregistres dans un systeme de cle/valeur (map)
-    GMapO(GListBox, GVOID_PTR, GVOID_PTR)* lWidgetMap = lChild-&gt;widgetMap;
-    // on cree un bouton
-    GtkWidget* lItem = gtk_button_new();
-    // on definit le nom de l'objet
-    gtk_widget_set_name(lItem, "item");
-    // on cree un layout horizontal
-    GtkWidget* lLayout = gtk_hbox_new(0, 0);
-    // on definit le nom de l'objet
-    gtk_widget_set_name(lLayout, "row");
-    // on cree un bouton defini dans le manager
-    GtkWidget* lButton = GManager()-&gt;Button(icon, text, 5, 0);
-    // on ajoute le bouton au layout horizontal
-    gtk_box_pack_start(GTK_BOX(lLayout), lButton, 0, 0, 0);
-    // on ajoute le layout horizontal au layout horizontal
-    gtk_box_pack_start(GTK_BOX(lLayout), gtk_hbox_new(0, 0), 1, 1, 0);
-    // on ajoute le layout horizontal dans le bouton
-    gtk_container_add(GTK_CONTAINER(lItem), lLayout);
-    // on ajoute le bouton dans la liste de widgets
-    gtk_box_pack_start(GTK_BOX(obj-&gt;widget), lItem, 0, 0, 0);
-    // on ajoute un element de liste au map
-    lWidgetMap-&gt;SetData(lWidgetMap, lItem, key, 0);
-    // on definit le signal associe au bouton
-    g_signal_connect(G_OBJECT(lItem), "clicked", G_CALLBACK(GListBox_OnItemClick), obj);
+//===============================================
+static void GWindow_OnDestroy(GtkWidget* obj, gpointer params) {
+    gtk_main_quit();
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-3.1.5.3 - Sélection d'un élément de page"><a class="Link9" href="#Interface Homme-Machine avec Gtk">3.1.5.3 - Sélection d'un élément de page</a></h2><br><h3 class="Title8 GTitle3">GListBox.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-static void GListBox_OnItemClick(GtkWidget* widget, gpointer params) {
-    // on recupere le manager de donnees
-    sGApp* lApp = GManager()-&gt;mgr-&gt;app;
-    // on recupere les objets
-    GWidgetO* lObj = (GWidgetO*)params;
-    GListBoxO* lChild = lObj-&gt;child;
-    // on recupere le map associe a la liste de widgets
-    GMapO(GListBox, GVOID_PTR, GVOID_PTR)* lWidgetMap = lChild-&gt;widgetMap;
-    // on recupere l'id associe au widget
-    char* lWidgetId = lWidgetMap-&gt;GetData(lWidgetMap, widget, 0);
-    // on sauvegarde l'id associe au widget
-    lApp-&gt;widget_id = lWidgetId;
-    // on propage le signal vers l'observateur
-    lObj-&gt;EmitItemClick(lObj);
-}
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-3.1.5.4 - Appel de l'observateur"><a class="Link9" href="#Interface Homme-Machine avec Gtk">3.1.5.4 - Appel de l'observateur</a></h2><br><h3 class="Title8 GTitle3">GWidget.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-static void GWidget_EmitItemClick(GWidgetO* obj) {
-    // on recupere la liste des objets a observes
-    GListO(GWidget, GVOID_PTR)* lItemMap = obj-&gt;item_map;
-    // on recupere la taille de la liste
-    int lSize = lItemMap-&gt;Size(lItemMap);
-    // on parcourt la liste
-    for(int i = 0; i &lt; lSize; i++) {
-        // on recupere l'objet a l'indice (i)
-        GWidgetO* lObj = lItemMap-&gt;GetData(lItemMap, i);
-        // on execute l'observateur
-        lObj-&gt;OnItemClickObs(lObj);
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_gtk_button_mnemonic.png" alt="/Tutoriels/Software_Development/C0/img/i_gtk_button_mnemonic.png"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-Ajouter des éléments au début d'un layout vertical"><a class="Link9" href="#Interface Homme-Machine avec Gtk">Ajouter des éléments au début d'un layout vertical</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;gtk/gtk.h&gt;
+//===============================================
+#define NUM_NAMES 4
+const gchar* names[] = { "Andrew", "Joe", "Samantha", "Jonathan" };
+//===============================================
+static void GWindow_OnDestroy(GtkWidget* obj, gpointer params);
+//===============================================
+int main(int argc, char** argv) {
+    gtk_init(&argc, &argv);
+    
+    GtkWidget* lWindow = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+    gtk_window_set_title(GTK_WINDOW(lWindow), "ReadyApp");
+    gtk_container_set_border_width(GTK_CONTAINER(lWindow), 0);
+    gtk_widget_set_size_request(GTK_WIDGET(lWindow), 400, 200);
+    
+    GtkWidget* vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 5);
+
+    for (int i = 0; i &lt; NUM_NAMES; i++) {
+        GtkWidget *button = gtk_button_new_with_label (names[i]);
+        gtk_box_pack_start(GTK_BOX (vbox), button, 1, 0, 0);
+
+        g_signal_connect_swapped (G_OBJECT (button), "clicked", G_CALLBACK (gtk_widget_destroy), (gpointer) button);
     }
+
+    gtk_container_add(GTK_CONTAINER(lWindow), vbox);
+    gtk_widget_show_all(lWindow);
+    
+    g_signal_connect(G_OBJECT(lWindow), "destroy", G_CALLBACK(GWindow_OnDestroy), NULL);
+    
+    gtk_main();
+    return 0;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-3.1.5.5 - Ajout d'un élément dans l'observateur"><a class="Link9" href="#Interface Homme-Machine avec Gtk">3.1.5.5 - Ajout d'un élément dans l'observateur</a></h2><br><h3 class="Title8 GTitle3">GWidget.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-static void GWidget_AddItemClick(GWidgetO* obj, GWidgetO* obs) {
-    // on recupere la liste des objets a observes
-    GListO(GWidget, GVOID_PTR)* lItemMap = obj-&gt;item_map;
-    // on ajoute un objet a l'observateur
-    lItemMap-&gt;AddData(lItemMap, obs);
+//===============================================
+static void GWindow_OnDestroy(GtkWidget* obj, gpointer params) {
+    gtk_main_quit();
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-3.1.5.6 - Exécution de l'observation"><a class="Link9" href="#Interface Homme-Machine avec Gtk">3.1.5.6 - Exécution de l'observation</a></h2><br><h3 class="Title8 GTitle3">GHome.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-static void GHome_OnItemClickObs(GWidgetO* obj) {
-    // on recupere le manager de donnees
-    sGApp* lApp = GManager()-&gt;mgr-&gt;app;
-    // on recupere l'id de la page
-    char* lWidgetId = lApp-&gt;widget_id;
-    // on affiche la page
-    GManager()-&gt;SetPage(lWidgetId);
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_gtk_box_vertical_start.png" alt="/Tutoriels/Software_Development/C0/img/i_gtk_box_vertical_start.png"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-Ajouter des éléments à la fin d'un layout vertical"><a class="Link9" href="#Interface Homme-Machine avec Gtk">Ajouter des éléments à la fin d'un layout vertical</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;gtk/gtk.h&gt;
+//===============================================
+#define NUM_NAMES 4
+const gchar* names[] = { "Andrew", "Joe", "Samantha", "Jonathan" };
+//===============================================
+static void GWindow_OnDestroy(GtkWidget* obj, gpointer params);
+//===============================================
+int main(int argc, char** argv) {
+    gtk_init(&argc, &argv);
+    
+    GtkWidget* lWindow = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+    gtk_window_set_title(GTK_WINDOW(lWindow), "ReadyApp");
+    gtk_container_set_border_width(GTK_CONTAINER(lWindow), 0);
+    gtk_widget_set_size_request(GTK_WIDGET(lWindow), 400, 200);
+    
+    GtkWidget* vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 5);
+
+    for (int i = 0; i &lt; NUM_NAMES; i++) {
+        GtkWidget *button = gtk_button_new_with_label (names[i]);
+        gtk_box_pack_end(GTK_BOX (vbox), button, 1, 0, 0);
+
+        g_signal_connect_swapped (G_OBJECT (button), "clicked", G_CALLBACK (gtk_widget_destroy), (gpointer) button);
+    }
+
+    gtk_container_add(GTK_CONTAINER(lWindow), vbox);
+    gtk_widget_show_all(lWindow);
+    
+    g_signal_connect(G_OBJECT(lWindow), "destroy", G_CALLBACK(GWindow_OnDestroy), NULL);
+    
+    gtk_main();
+    return 0;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-3.1.6 - Affichage d'une page"><a class="Link9" href="#Interface Homme-Machine avec Gtk">3.1.6 - Affichage d'une page</a></h2><br><h3 class="Title8 GTitle3">GManager.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-static void GManager_SetPage(char* address) {
-    // on recupere le manager de donnees
-    sGApp* lApp = GManager()-&gt;mgr-&gt;app;
-    // on recupere le map des ids des pages
-    GMapO(GManager, GVOID_PTR, GVOID_PTR)* lPageId = lApp-&gt;page_id;
-    // on recupere le map des titres de pages
-    GMapO(GManager, GVOID_PTR, GVOID_PTR)* lTitleMap = lApp-&gt;title_map;
-    // on recupere l'id de la page
-    int lPageIndex = (int)lPageId-&gt;GetData(lPageId, address, lPageId-&gt;EqualChar);
-    // on recupere l'id de la page
-    char* lTitle = lTitleMap-&gt;GetData(lTitleMap, address, lTitleMap-&gt;EqualChar);
-    // on affiche la page
-    lApp-&gt;page_map-&gt;SetCurrentIndex(lApp-&gt;page_map, lPageIndex);
-    // on initialise le titre de la page
-    gtk_label_set_text(GTK_LABEL(lApp-&gt;title), lTitle);
-    // on initialise la barre d'acces rapide
-    lApp-&gt;address_key-&gt;SetContent(lApp-&gt;address_key, address);
-    gtk_entry_set_text(GTK_ENTRY(lApp-&gt;address_bar), address);
-    // on initialise la barre d'acces rapide
-    gtk_widget_show_all(lApp-&gt;address_key-&gt;widget);
+//===============================================
+static void GWindow_OnDestroy(GtkWidget* obj, gpointer params) {
+    gtk_main_quit();
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-3.1.7 - Résultat des opérations"><a class="Link9" href="#Interface Homme-Machine avec Gtk">3.1.7 - Résultat des opérations</a></h2><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-3.1.7.1 - Page d'accueil"><a class="Link9" href="#Interface Homme-Machine avec Gtk">3.1.7.1 - Page d'accueil</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_gtk_admin_system.png" alt="/Tutoriels/Software_Development/C0/img/i_gtk_admin_system.png"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-3.1.7.2 - Page de connexion"><a class="Link9" href="#Interface Homme-Machine avec Gtk">3.1.7.2 - Page de connexion</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_gtk_admin_system_02.png" alt="/Tutoriels/Software_Development/C0/img/i_gtk_admin_system_02.png"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-3.1.7.3 - Page de débogage"><a class="Link9" href="#Interface Homme-Machine avec Gtk">3.1.7.3 - Page de débogage</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_gtk_admin_system_03.png" alt="/Tutoriels/Software_Development/C0/img/i_gtk_admin_system_03.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Vision par Ordinateur avec OpenCV"><a class="Link3" href="#">Vision par Ordinateur avec OpenCV</a></h1><div class="Body3"><br><b>OpenCV </b>est une bibliothèque de vision par ordinateur.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1618653283888"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1618653283888");</script></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/b_opencv.png" alt="/Tutoriels/Software_Development/C0/img/b_opencv.png"></div><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-1 - Installation"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">1 - Installation</a></h2><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-1.1 - Installation sous Windows"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">1.1 - Installation sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-1.1.1 - Installation sous MinGW"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">1.1.1 - Installation sous MinGW</a></h2><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-1.1.1.1 - Télécharger OpenCV"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">1.1.1.1 - Télécharger OpenCV</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://github.com/opencv/opencv/archive/refs/tags/2.4.13.7.zip">https://github.com/opencv/opencv/archive/refs/tags/2.4.13.7.zip</a><br><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-1.1.1.2 - Extraire OpenCV"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">1.1.1.2 - Extraire OpenCV</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">2.4.13.7.zip -&gt; Clic droit
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_gtk_box_vertical_end.png" alt="/Tutoriels/Software_Development/C0/img/i_gtk_box_vertical_end.png"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-Associer un gestionnaire d'évènement à un widget"><a class="Link9" href="#Interface Homme-Machine avec Gtk">Associer un gestionnaire d'évènement à un widget</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;gtk/gtk.h&gt;
+//===============================================
+static void GWindow_OnDestroy(GtkWidget* obj, gpointer params);
+static gboolean button_pressed (GtkWidget *eventbox, GdkEventButton *event, GtkLabel *label);
+//===============================================
+int main(int argc, char** argv) {
+    gtk_init(&argc, &argv);
+    
+    GtkWidget* lWindow = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+    gtk_window_set_title(GTK_WINDOW(lWindow), "ReadyApp");
+    gtk_container_set_border_width(GTK_CONTAINER(lWindow), 0);
+    gtk_widget_set_size_request(GTK_WIDGET(lWindow), 400, 200);
+    
+    GtkWidget* label = gtk_label_new ("Double-Click Me!");
+    
+    GtkWidget* eventbox = gtk_event_box_new ();
+    gtk_container_add (GTK_CONTAINER (eventbox), label);
+    g_signal_connect (G_OBJECT (eventbox), "button_press_event",
+    G_CALLBACK (button_pressed), (gpointer) label);
+    
+    gtk_container_add(GTK_CONTAINER(lWindow), eventbox);
+    gtk_widget_show_all(lWindow);
+    
+    g_signal_connect(G_OBJECT(lWindow), "destroy", G_CALLBACK(GWindow_OnDestroy), NULL);
+    
+    gtk_main();
+    return 0;
+}
+//===============================================
+static void GWindow_OnDestroy(GtkWidget* obj, gpointer params) {
+    gtk_main_quit();
+}
+//===============================================
+static gboolean button_pressed (GtkWidget *eventbox, GdkEventButton *event, GtkLabel *label) {
+    if (event-&gt;type == GDK_2BUTTON_PRESS) {
+        const gchar *text = gtk_label_get_text (label);
+
+        if (text[0] == 'D') {
+            gtk_label_set_text (label, "I Was Double-Clicked!");
+        }
+        else {
+            gtk_label_set_text (label, "Double-Click Me Again!");
+        }
+    }
+    return FALSE;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_gtk_eventbox.gif" alt="/Tutoriels/Software_Development/C0/img/i_gtk_eventbox.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Vision par Ordinateur avec OpenCV"><a class="Link3" href="#">Vision par Ordinateur avec OpenCV</a></h1><div class="Body3"><br><b>OpenCV </b>est une bibliothèque de vision par ordinateur.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1618653283888"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1618653283888");</script></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/b_opencv.png" alt="/Tutoriels/Software_Development/C0/img/b_opencv.png"></div><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-1 - Installation"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">1 - Installation</a></h2><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-1.1 - Installation sous Windows"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">1.1 - Installation sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-1.1.1 - Installation sous MinGW"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">1.1.1 - Installation sous MinGW</a></h2><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-1.1.1.1 - Télécharger OpenCV"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">1.1.1.1 - Télécharger OpenCV</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://github.com/opencv/opencv/archive/refs/tags/2.4.13.7.zip">https://github.com/opencv/opencv/archive/refs/tags/2.4.13.7.zip</a><br><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-1.1.1.2 - Extraire OpenCV"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">1.1.1.2 - Extraire OpenCV</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">2.4.13.7.zip -&gt; Clic droit
 Extraire vers 2.4.13.7\</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-1.1.1.3 - Construire OpenCV"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">1.1.1.3 - Construire OpenCV</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">set "PATH=C:\TDM-GCC-64\bin:%PATH%"</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">cd 2.4.13.7
 mkdir build
 cd build
