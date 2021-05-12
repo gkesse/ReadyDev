@@ -1256,7 +1256,154 @@ static void GWindow_OnDestroy(GtkWidget* obj, gpointer params) {
 -L/mingw32/lib \ 
 -lgtk-3 -lgdk-3 -lz -lgdi32 -limm32 -lshell32 -lole32 -Wl,-luuid -lwinmm -ldwmapi -lsetupapi \
 -lcfgmgr32 -lpangowin32-1.0 -lpangocairo-1.0 -lpango-1.0 -lharfbuzz -latk-1.0 -lcairo-gobject \
--lcairo -lgdk_pixbuf-2.0 -lgio-2.0 -lgobject-2.0 -lglib-2.0 -lintl</xmp></pre></div><br><h3 class="Title8 GTitle3">Exécuter le projet</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">./rdc.exe</xmp></pre></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_gtk_test.png" alt="/Tutoriels/Software_Development/C0/img/i_gtk_test.png"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-Créer un label avec un lien"><a class="Link9" href="#Interface Homme-Machine avec Gtk">Créer un label avec un lien</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+-lcairo -lgdk_pixbuf-2.0 -lgio-2.0 -lgobject-2.0 -lglib-2.0 -lintl</xmp></pre></div><br><h3 class="Title8 GTitle3">Exécuter le projet</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">./rdc.exe</xmp></pre></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_gtk_test.png" alt="/Tutoriels/Software_Development/C0/img/i_gtk_test.png"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-Céer un bouton"><a class="Link9" href="#Interface Homme-Machine avec Gtk">Céer un bouton</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;gtk/gtk.h&gt;
+//===============================================
+static void GWindow_OnDestroy(GtkWidget* obj, gpointer params);
+//===============================================
+int main(int argc, char** argv) {
+    gtk_init(&argc, &argv);
+     
+    GtkWidget* lWindow = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+    gtk_window_set_title(GTK_WINDOW(lWindow), "ReadyApp");
+    gtk_container_set_border_width(GTK_CONTAINER(lWindow), 10);
+    gtk_widget_set_size_request(GTK_WIDGET(lWindow), 400, 200);
+    
+    GtkWidget* lButton = gtk_button_new();
+    gtk_button_set_label(GTK_BUTTON(lButton), "Button");
+
+    GtkWidget* lHeaderLayout = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
+    gtk_box_pack_start(GTK_BOX(lHeaderLayout), lButton, 0, 0, 0);
+
+    GtkWidget* lMainLayout = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
+    gtk_box_pack_start(GTK_BOX(lMainLayout), lHeaderLayout, 0, 0, 0);
+
+    gtk_container_add(GTK_CONTAINER(lWindow), lMainLayout);
+    gtk_widget_show_all(lWindow);
+    
+    g_signal_connect(G_OBJECT(lWindow), "destroy", G_CALLBACK(GWindow_OnDestroy), NULL);
+    
+    gtk_main();
+    return 0;
+}
+//===============================================
+static void GWindow_OnDestroy(GtkWidget* obj, gpointer params) {
+    gtk_main_quit();
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_gtk_button.png" alt="/Tutoriels/Software_Development/C0/img/i_gtk_button.png"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-Créer un bouton sans bordure"><a class="Link9" href="#Interface Homme-Machine avec Gtk">Créer un bouton sans bordure</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;gtk/gtk.h&gt;
+//===============================================
+static void GWindow_OnDestroy(GtkWidget* obj, gpointer params);
+//===============================================
+int main(int argc, char** argv) {
+    gtk_init(&argc, &argv);
+     
+    GtkWidget* lWindow = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+    gtk_window_set_title(GTK_WINDOW(lWindow), "ReadyApp");
+    gtk_container_set_border_width(GTK_CONTAINER(lWindow), 10);
+    gtk_widget_set_size_request(GTK_WIDGET(lWindow), 400, 200);
+    
+    GtkWidget* lButton = gtk_button_new();
+    gtk_button_set_label(GTK_BUTTON(lButton), "Button");
+    gtk_button_set_relief(GTK_BUTTON(lButton), GTK_RELIEF_NONE);
+
+    GtkWidget* lHeaderLayout = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
+    gtk_box_pack_start(GTK_BOX(lHeaderLayout), lButton, 0, 0, 0);
+
+    GtkWidget* lMainLayout = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
+    gtk_box_pack_start(GTK_BOX(lMainLayout), lHeaderLayout, 0, 0, 0);
+
+    gtk_container_add(GTK_CONTAINER(lWindow), lMainLayout);
+    gtk_widget_show_all(lWindow);
+    
+    g_signal_connect(G_OBJECT(lWindow), "destroy", G_CALLBACK(GWindow_OnDestroy), NULL);
+    
+    gtk_main();
+    return 0;
+}
+//===============================================
+static void GWindow_OnDestroy(GtkWidget* obj, gpointer params) {
+    gtk_main_quit();
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_gtk_button_no_border.gif" alt="/Tutoriels/Software_Development/C0/img/i_gtk_button_no_border.gif"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-Charger une image"><a class="Link9" href="#Interface Homme-Machine avec Gtk">Charger une image</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;gtk/gtk.h&gt;
+//===============================================
+static void GWindow_OnDestroy(GtkWidget* obj, gpointer params);
+//===============================================
+int main(int argc, char** argv) {
+    gtk_init(&argc, &argv);
+     
+    GtkWidget* lWindow = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+    gtk_window_set_title(GTK_WINDOW(lWindow), "ReadyApp");
+    gtk_container_set_border_width(GTK_CONTAINER(lWindow), 10);
+    gtk_widget_set_size_request(GTK_WIDGET(lWindow), 400, 200);
+    
+    GdkPixbuf* lPixbuf = gdk_pixbuf_new_from_file("readydev.png", 0);
+    GtkWidget* lImage = gtk_image_new();
+    gtk_image_set_from_pixbuf(GTK_IMAGE(lImage), lPixbuf);
+
+    GtkWidget* lHeaderLayout = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
+    gtk_box_pack_start(GTK_BOX(lHeaderLayout), lImage, 0, 0, 0);
+
+    GtkWidget* lMainLayout = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
+    gtk_box_pack_start(GTK_BOX(lMainLayout), lHeaderLayout, 0, 0, 0);
+
+    gtk_container_add(GTK_CONTAINER(lWindow), lMainLayout);
+    gtk_widget_show_all(lWindow);
+    
+    g_signal_connect(G_OBJECT(lWindow), "destroy", G_CALLBACK(GWindow_OnDestroy), NULL);
+    
+    gtk_main();
+    return 0;
+}
+//===============================================
+static void GWindow_OnDestroy(GtkWidget* obj, gpointer params) {
+    gtk_main_quit();
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_gtk_image.png" alt="/Tutoriels/Software_Development/C0/img/i_gtk_image.png"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-Redimensionner une&nbsp; image"><a class="Link9" href="#Interface Homme-Machine avec Gtk">Redimensionner une&nbsp; image</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><br><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_gtk_image_resize.png" alt="/Tutoriels/Software_Development/C0/img/i_gtk_image_resize.png"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-Utiliser une police personnalisée"><a class="Link9" href="#Interface Homme-Machine avec Gtk">Utiliser une police personnalisée</a></h2><br><h3 class="Title8 GTitle3">Télécharger FontAwesome</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://github.com/beakerbrowser/beakerbrowser.com/tree/master/fonts">https://github.com/beakerbrowser/beakerbrowser.com/tree/master/fonts</a><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://github.com/FortAwesome/Font-Awesome/tree/master/otfs">https://github.com/FortAwesome/Font-Awesome/tree/master/otfs</a><br><br><b>fontawesome-webfont.ttf</b><br><br><h3 class="Title8 GTitle3">Installer FontAwesome sous Windows</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">fontawesome-webfont.ttf
+Clic droit -&gt; Installer pour tous les utilisateurs</xmp></pre></div><br><h3 class="Title8 GTitle3">Vérifier l'installation de FontAwesome sous Windows</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">Ouvrir un document Word
+Insert
+Symbols
+Symbol
+More symbols
+Font -&gt; FontAwesome</xmp></pre></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_gtk_custom_font_install_windows.png" alt="/Tutoriels/Software_Development/C0/img/i_gtk_custom_font_install_windows.png"></div><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;gtk/gtk.h&gt;
+//===============================================
+static void GWindow_OnDestroy(GtkWidget* obj, gpointer params);
+//===============================================
+int main(int argc, char** argv) {
+    gtk_init(&argc, &argv);
+     
+    GtkWidget* lWindow = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+    gtk_window_set_title(GTK_WINDOW(lWindow), "ReadyApp");
+    gtk_container_set_border_width(GTK_CONTAINER(lWindow), 10);
+    gtk_widget_set_size_request(GTK_WIDGET(lWindow), 400, 200);
+    
+    GtkWidget* lIcon = gtk_label_new(0);
+    PangoFontDescription* lFont = pango_font_description_from_string("FontAwesome 20");
+    gtk_widget_override_font(lIcon, lFont);
+    pango_font_description_free(lFont);
+    gtk_label_set_markup(GTK_LABEL(lIcon), "\uf167");
+    
+    GtkWidget* lHeaderLayout = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
+    gtk_box_pack_start(GTK_BOX(lHeaderLayout), lIcon, 0, 0, 0);
+
+    GtkWidget* lMainLayout = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
+    gtk_box_pack_start(GTK_BOX(lMainLayout), lHeaderLayout, 0, 0, 0);
+
+    gtk_container_add(GTK_CONTAINER(lWindow), lMainLayout);
+    gtk_widget_show_all(lWindow);
+    
+    g_signal_connect(G_OBJECT(lWindow), "destroy", G_CALLBACK(GWindow_OnDestroy), NULL);
+    
+    gtk_main();
+    return 0;
+}
+//===============================================
+static void GWindow_OnDestroy(GtkWidget* obj, gpointer params) {
+    gtk_main_quit();
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_gtk_custom_font.png" alt="/Tutoriels/Software_Development/C0/img/i_gtk_custom_font.png"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-Créer un label avec un lien"><a class="Link9" href="#Interface Homme-Machine avec Gtk">Créer un label avec un lien</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;gtk/gtk.h&gt;
 //===============================================
 static void GWindow_OnDestroy(GtkWidget* obj, gpointer params);
