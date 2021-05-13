@@ -1,35 +1,116 @@
-<div class="Parallax GParallax1"><div class="Img Binary"><div class="Caption"><a href="#"><div class="Text">Apprendre la programmation en C++<br></div></a></div></div><div class="Body2 Orange"><br>Le but de ce tutoriel est de vous apprendre la programmation en <b>C++</b>.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary1"><div class="Body0" id="Loader_1529412976174"><div class="Row26">Summary 1</div></div><script>loadSummary1("Loader_1529412976174");</script></div><br></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Introduction"><a class="Link3" href="#">Introduction</a></h1><div class="Body3"><b>C++</b> est un langage de programmation compilé permettant la programmation sous de multiples paradigmes (comme la programmation procédurale, orientée objet ou générique). Ses bonnes performances, et sa compatibilité avec le C en font un des langages de programmation les plus utilisés dans les applications où la performance est critique.<br><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/b_cpp.png" alt="/Tutoriels/Software_Development/Cpp/img/b_cpp.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Installation"><a class="Link3" href="#">Installation</a></h1><div class="Body3"><br>Installer l'environnement C++.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1616558777155"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1616558777155");</script></div><br><h2 class="Title7 GTitle2" id="Installation-1 - Installation sous Windows"><a class="Link9" href="#Installation">1 - Installation sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Installation-1.1 - MSYS2"><a class="Link9" href="#Installation">1.1 - MSYS2</a></h2><br>MSYS2 est un outil de développement de logiciels Linux sous Windows.<br><br><h2 class="Title7 GTitle2" id="Installation-1.1.1 - Installer MSYS2"><a class="Link9" href="#Installation">1.1.1 - Installer MSYS2</a></h2><br><h2 class="Title7 GTitle2" id="Installation-1.1.1.1 - Télécharger MSYS2"><a class="Link9" href="#Installation">1.1.1.1 - Télécharger MSYS2</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://repo.msys2.org/distrib/x86_64/msys2-x86_64-20210228.exe">https://repo.msys2.org/distrib/x86_64/msys2-x86_64-20210228.exe</a><br><br><h2 class="Title7 GTitle2" id="Installation-1.1.1.2 - Démarrer l'installation"><a class="Link9" href="#Installation">1.1.1.2 - Démarrer l'installation</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">msys2-x86_64-20210228.exe
+<div class="Parallax GParallax1"><div class="Img Binary"><div class="Caption"><a href="#"><div class="Text">Apprendre la programmation en C++<br></div></a></div></div><div class="Body2 Orange"><br>Le but de ce tutoriel est de vous apprendre la programmation en <b>C++</b>.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary1"><div class="Body0" id="Loader_1529412976174"><div class="Row26">Summary 1</div></div><script>loadSummary1("Loader_1529412976174");</script></div><br></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Introduction"><a class="Link3" href="#">Introduction</a></h1><div class="Body3"><b>C++</b> est un langage de programmation compilé permettant la programmation sous de multiples paradigmes (comme la programmation procédurale, orientée objet ou générique). Ses bonnes performances, et sa compatibilité avec le C en font un des langages de programmation les plus utilisés dans les applications où la performance est critique.<br><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/b_cpp.png" alt="/Tutoriels/Software_Development/Cpp/img/b_cpp.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Installation"><a class="Link3" href="#">Installation</a></h1><div class="Body3"><br>Installer l'environnement C++.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1616558777155"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1616558777155");</script></div><br><h2 class="Title7 GTitle2" id="Installation-Installer l'environnement C++ sous MSYS2"><a class="Link9" href="#Installation">Installer l'environnement C++ sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Télécharger MSYS2</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://repo.msys2.org/distrib/x86_64/msys2-x86_64-20210228.exe">https://repo.msys2.org/distrib/x86_64/msys2-x86_64-20210228.exe</a><br><br><h3 class="Title8 GTitle3">Installer MSYS2</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">msys2-x86_64-20210228.exe
 Suivant
 Dossier d'installation -> C:\msys64
 Suivant
 Raccourci du menu Démarrer -> MSYS2 64bit
 Suivant
 Suivant
-Terminer</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Installation-1.1.2 - Démarrer MSYS2"><a class="Link9" href="#Installation">1.1.2 - Démarrer MSYS2</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Windows
-MSYS2</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Installation-1.1.3 - Installer les packages"><a class="Link9" href="#Installation">1.1.3 - Installer les packages</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">pacman -Syu
-pacman -S --needed --noconfirm make
-pacman -S --needed --noconfirm gcc</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Tests"><a class="Link3" href="#">Tests</a></h1><div class="Body3"><br>Créer un projet C++.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1616682650861"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1616682650861");</script></div><br><h2 class="Title7 GTitle2" id="Tests-1 - Test sous Windows"><a class="Link9" href="#Tests">1 - Test sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Tests-1.1 - Test sous MSYS2"><a class="Link9" href="#Tests">1.1 - Test sous MSYS2</a></h2><br><h2 class="Title7 GTitle2" id="Tests-1.1.1 - Éditer le programme"><a class="Link9" href="#Tests">1.1.1 - Éditer le programme</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+Terminer</xmp></pre></div><br><h3 class="Title8 GTitle3">Démarrer MSYS2</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Windows
+MSYS2</xmp></pre></div><br><h3 class="Title8 GTitle3">Mettre à jour les packages MSYS2</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">pacman -Syu</xmp></pre></div><br><h3 class="Title8 GTitle3">Installer le package (make)</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">pacman -S --needed --noconfirm make</xmp></pre></div><br><h3 class="Title8 GTitle3">Installer le package (gcc)</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">pacman -S --needed --noconfirm gcc</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Tests"><a class="Link3" href="#">Tests</a></h1><div class="Body3"><br>Créer un projet C++.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1616682650861"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1616682650861");</script></div><br><h2 class="Title7 GTitle2" id="Tests-Tester un projet C++ sous MSYS2"><a class="Link9" href="#Tests">Tester un projet C++ sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Éditer le programme</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;iostream&gt;
 //===============================================
 int main(int argc, char** argv) {
     std::cout &lt;&lt; "Bonjour tout le monde\n";
     return 0;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.2 - Compiler le projet"><a class="Link9" href="#Tests">1.1.2 - Compiler le projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">g++ -std=gnu++11 -c main.cpp -o main.o</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.3 - Éditer les liens du projet"><a class="Link9" href="#Tests">1.1.3 - Éditer les liens du projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">g++ -o rdcpp.exe main.o</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.4 - Exécuter le projet"><a class="Link9" href="#Tests">1.1.4 - Exécuter le projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">./rdcpp.exe</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">Bonjour tout le monde</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Les fondamentaux"><a class="Link3" href="#">Les fondamentaux</a></h1><div class="Body3"><br>Les fondamentaux de C++.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620393328135"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620393328135");</script></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Commentaire - commentaire sur une ligne"><a class="Link9" href="#Les fondamentaux">Commentaire - commentaire sur une ligne</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">// voici mon commentaire</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Commentaire - commentaire sur plusieurs lignes"><a class="Link9" href="#Les fondamentaux">Commentaire - commentaire sur plusieurs lignes</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">/*
-voici mon commentaire sur plusieurs lignes
-voici mon commentaire sur plusieurs lignes
-*/</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Commentaire - commentaire à droite"><a class="Link9" href="#Les fondamentaux">Commentaire - commentaire à droite</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">code; // voici mon commentaire a droite</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Console - afficher un message"><a class="Link9" href="#Les fondamentaux">Console - afficher un message</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">std::cout &lt;&lt; "voici mon message\n";</xmp></pre></div><br>Console - afficher un message<br><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Variable - déclarer une variable (sans affectation)"><a class="Link9" href="#Les fondamentaux">Variable - déclarer une variable (sans affectation)</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">int var_int;
-double var_double;
-char var_char;
-std::string var_string;
-bool var_bool;</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Variable - déclarer une variable (avec affectation)"><a class="Link9" href="#Les fondamentaux">Variable - déclarer une variable (avec affectation)</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">int var_int = 100;
-double var_double = 3.14;
-char var_char = 'A';
-std::string var_string = "voici ma chaine";
-bool var_bool = true;</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Variable - affecter une valeur à une variable"><a class="Link9" href="#Les fondamentaux">Variable - affecter une valeur à une variable</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">int var = 10;
-var = 20;</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Variable - afficher une variable"><a class="Link9" href="#Les fondamentaux">Variable - afficher une variable</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">
-int var = 10;
-std::cout &lt;&lt; "voici ma variable : " &lt;&lt; var &lt;&lt; "\n"</xmp></pre></div><br><br><br><br><br><br><br><br><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Patron singleton"><a class="Link3" href="#">Patron singleton</a></h1><div class="Body3"><br>Créer un patron  singleton en C++.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1618051220037"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1618051220037");</script></div><br><h2 class="Title7 GTitle2" id="Patron singleton-Introduction"><a class="Link9" href="#Patron singleton">Introduction</a></h2><br>Le patron singleton est une architecture logicielle utilisée en programmation orientée objet et permettant de créer et d'utiliser un objet unique d'une classe pour coordonnées les opérations dans un système.<br><br><h2 class="Title7 GTitle2" id="Patron singleton-Programme principal"><a class="Link9" href="#Patron singleton">Programme principal</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">// on recupere le singleton 
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Compiler le projet</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">g++ -std=gnu++11 -c main.cpp -o main.o</xmp></pre></div><br><h3 class="Title8 GTitle3">Éditer les liens du projet</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">g++ -o rdcpp.exe main.o</xmp></pre></div><br><h3 class="Title8 GTitle3">Exécuter le projet</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">./rdcpp.exe</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">Bonjour tout le monde</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Fondamentaux"><a class="Link3" href="#">Fondamentaux</a></h1><div class="Body3"><br>Les fondamentaux de C++.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620393328135"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620393328135");</script></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Créer une condition if"><a class="Link9" href="#Fondamentaux">Créer une condition if</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;iostream&gt;
+//===============================================
+int main(int argc, char** argv) {
+    int a = 1000;
+    int b = 100;
+    if(a &gt; b) {
+        printf("a(%d) est superieur a b(%d)\n", a, b);
+    }
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">a(1000) est superieur a b(100)</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Créer une condition if else"><a class="Link9" href="#Fondamentaux">Créer une condition if else</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;iostream&gt;
+//===============================================
+int main(int argc, char** argv) {
+    int a = 10;
+    int b = 100;
+    if(a &gt; b) {
+        printf("a(%d) est superieur a b(%d)\n", a, b);
+    }
+    else {
+        printf("a(%d) est inferieur ou egal a b(%d)\n", a, b);
+    }
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">a(10) est inferieur ou egal a b(100)</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Créer une condition else if"><a class="Link9" href="#Fondamentaux">Créer une condition else if</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;iostream&gt;
+//===============================================
+int main(int argc, char** argv) {
+    int a = 100;
+    int b = 100;
+    if(a &gt; b) {
+        printf("a(%d) est superieur a b(%d)\n", a, b);
+    }
+    else if(a == b) {
+        printf("a(%d) est egal a b(%d)\n", a, b);
+    }
+    else {
+        printf("a(%d) est inferieur a b(%d)\n", a, b);
+    }
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">a(100) est egal a b(100)</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Créer une boucle for"><a class="Link9" href="#Fondamentaux">Créer une boucle for</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;iostream&gt;
+//===============================================
+int main(int argc, char** argv) {
+    int lNumber = 3;
+    for(int i = 0; i &lt; 10; i++) {
+        int lData = i*lNumber;
+        printf("%d x %d = %d\n", i, lNumber, lData);
+    }
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">0 x 3 = 0
+1 x 3 = 3
+2 x 3 = 6
+3 x 3 = 9
+4 x 3 = 12
+5 x 3 = 15
+6 x 3 = 18
+7 x 3 = 21
+8 x 3 = 24
+9 x 3 = 27</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Créer une bouble while"><a class="Link9" href="#Fondamentaux">Créer une bouble while</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;iostream&gt;
+//===============================================
+int main(int argc, char** argv) {
+    int lNumber = 3;
+    int i = 0;
+    while(i &lt; 10) {
+        int lData = i*lNumber;
+        printf("%d x %d = %d\n", i, lNumber, lData);
+        i++;
+    }
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">0 x 3 = 0
+1 x 3 = 3
+2 x 3 = 6
+3 x 3 = 9
+4 x 3 = 12
+5 x 3 = 15
+6 x 3 = 18
+7 x 3 = 21
+8 x 3 = 24
+9 x 3 = 27</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Récupérer les paramètres passés en ligne de commande"><a class="Link9" href="#Fondamentaux">Récupérer les paramètres passés en ligne de commande</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;iostream&gt;
+#include &lt;cstdio&gt;
+//===============================================
+int main(int argc, char** argv) {
+    for(int i = 0; i &lt; argc; i++) {
+        printf("argv[%d] : %s\n", i, argv[i]);
+    }
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">./rdcpp.exe un deux trois</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">argv[0] : rdcpp.exe
+argv[1] : un
+argv[2] : deux
+argv[3] : trois</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Patron singleton"><a class="Link3" href="#">Patron singleton</a></h1><div class="Body3"><br>Créer un patron  singleton en C++.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1618051220037"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1618051220037");</script></div><br><h2 class="Title7 GTitle2" id="Patron singleton-Introduction"><a class="Link9" href="#Patron singleton">Introduction</a></h2><br>Le patron singleton est une architecture logicielle utilisée en programmation orientée objet et permettant de créer et d'utiliser un objet unique d'une classe pour coordonnées les opérations dans un système.<br><br><h2 class="Title7 GTitle2" id="Patron singleton-Programme principal"><a class="Link9" href="#Patron singleton">Programme principal</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">// on recupere le singleton 
 // et on execute la methode run()
 GProcess::Instance()-&gt;run(argc, argv);</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Patron singleton-Structure du patron singleton"><a class="Link9" href="#Patron singleton">Structure du patron singleton</a></h2><br><h2 class="Title7 GTitle2" id="Patron singleton-1 - Fichier header"><a class="Link9" href="#Patron singleton">1 - Fichier header</a></h2><br><h3 class="Title8 GTitle3">GProcess.h</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #ifndef _GProcess_
