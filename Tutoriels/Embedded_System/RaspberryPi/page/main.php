@@ -114,8 +114,69 @@ BBLAYERS ?= " \
   /home/rpi4/Programs/ReadyRPI/app/yocto/poky/meta-poky \
   /home/rpi4/Programs/ReadyRPI/app/yocto/poky/meta-yocto-bsp \
   /home/rpi4/Programs/ReadyRPI/app/yocto/poky/meta-raspberrypi \
-  "</xmp></pre></div><br><h3 class="Title8 GTitle3">Générer l'image Linux embarqué<br></h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">bitbake core-image-base</xmp></pre></div><br><h3 class="Title8 GTitle3">Vérifier l'image Linux embarqué</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh"># chemin de l'image générée
-tmp/deploy/images/raspberrypi4/core-image-minimal-raspberrypi4.rpi-sdimg</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Yocto-Graver l'image Linux embarqué sur une carte SD sous Ubuntu"><a class="Link9" href="#Yocto">Graver l'image Linux embarqué sur une carte SD sous Ubuntu</a></h2><br><h3 class="Title8 GTitle3">Vérifier l'image Linux embarqué</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">tmp/deploy/images/raspberrypi4/core-image-minimal-raspberrypi4.rpi-sdimg</xmp></pre></div><br><h3 class="Title8 GTitle3">Vérifier les périphériques de stockage actuellement connectés</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">lsblk -p</xmp></pre></div><br><h3 class="Title8 GTitle3">Connecter la carte SD au système</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Connecter -&gt; Carte SD -&gt; Système</xmp></pre></div><br><h3 class="Title8 GTitle3">Détecter le nom de la carte SD</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">lsblk -p</xmp></pre></div><br><h3 class="Title8 GTitle3">Démonter la carte SD du système</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">umount /dev/sda*</xmp></pre></div><br><h3 class="Title8 GTitle3">Graver l'image Linux embarqué sur la carte SD</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">sudo dd if=core-image-minimal-raspberrypi4.rpi-sdimg of=/dev/sda</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Yocto-Démarrer le RaspberryPi"><a class="Link9" href="#Yocto">Démarrer le RaspberryPi</a></h2><br><h3 class="Title8 GTitle3">Insérer la carte SD dans le RaspberryPi</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Insérer -&gt; Carte SD -&gt; RaspberryPi</xmp></pre></div><br><h3 class="Title8 GTitle3">Mettre le RaspberryPi sous tension</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Mettre -&gt; RaspberryPi -&gt; sous tension</xmp></pre></div><br><h3 class="Title8 GTitle3">Saisir le login par défaut</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Login -&gt; root</xmp></pre></div><br><h3 class="Title8 GTitle3">Saisir le mot de passe par défaut</h3><br>Il n'y a aucun mot de passe par défaut<br><br><h2 class="Title7 GTitle2" id="Yocto-Configurer le module WiFi sous Ubuntu"><a class="Link9" href="#Yocto">Configurer le module WiFi sous Ubuntu</a></h2><br><h3 class="Title8 GTitle3">Configurer le module WiFi</h3><br><span class="GColor1" style="color:lime;">build-rpi/conf/local.conf</span><br><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">MACHINE ??= "raspberrypi4-64"
+  "</xmp></pre></div><br><h3 class="Title8 GTitle3">Générer l'image Linux embarqué<br></h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">bitbake core-image-base</xmp></pre></div><br><h3 class="Title8 GTitle3">Vérifier l'image Linux embarqué</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">tmp/deploy/images/raspberrypi4/core-image-minimal-raspberrypi4.rpi-sdimg</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Yocto-Graver l'image Linux embarqué sur une carte SD sous Ubuntu"><a class="Link9" href="#Yocto">Graver l'image Linux embarqué sur une carte SD sous Ubuntu</a></h2><br><h3 class="Title8 GTitle3">Vérifier l'image Linux embarqué</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">tmp/deploy/images/raspberrypi4/core-image-minimal-raspberrypi4.rpi-sdimg</xmp></pre></div><br><h3 class="Title8 GTitle3">Vérifier les périphériques de stockage actuellement connectés</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">lsblk -p</xmp></pre></div><br><h3 class="Title8 GTitle3">Connecter la carte SD au système</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Connecter -&gt; Carte SD -&gt; Système</xmp></pre></div><br><h3 class="Title8 GTitle3">Détecter le nom de la carte SD</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">lsblk -p</xmp></pre></div><br><h3 class="Title8 GTitle3">Démonter la carte SD du système</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">umount /dev/sda*</xmp></pre></div><br><h3 class="Title8 GTitle3">Graver l'image Linux embarqué sur la carte SD</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">sudo dd if=core-image-minimal-raspberrypi4.rpi-sdimg of=/dev/sda</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Yocto-Démarrer le RaspberryPi"><a class="Link9" href="#Yocto">Démarrer le RaspberryPi</a></h2><br><h3 class="Title8 GTitle3">Insérer la carte SD dans le RaspberryPi</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Insérer -&gt; Carte SD -&gt; RaspberryPi</xmp></pre></div><br><h3 class="Title8 GTitle3">Mettre le RaspberryPi sous tension</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Mettre -&gt; RaspberryPi -&gt; sous tension</xmp></pre></div><br><h3 class="Title8 GTitle3">Saisir le login par défaut</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Login -&gt; root</xmp></pre></div><br><h3 class="Title8 GTitle3">Saisir le mot de passe par défaut</h3><br>Il n'y a aucun mot de passe par défaut<br><br><h2 class="Title7 GTitle2" id="Yocto-Configurer le module UART sous Yocto"><a class="Link9" href="#Yocto">Configurer le module UART sous Yocto</a></h2><br><h3 class="Title8 GTitle3">Configurer le module UART</h3><br><span class="GColor1" style="color:lime;">build-rpi/conf/local.conf</span><br><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">MACHINE ??= "raspberrypi4-64"
+DISTRO ?= "poky"
+PACKAGE_CLASSES ?= "package_rpm"
+EXTRA_IMAGE_FEATURES ?= "debug-tweaks"
+USER_CLASSES ?= "buildstats image-mklibs image-prelink"
+PATCHRESOLVE = "noop"
+
+BB_DISKMON_DIRS ??= "\
+    STOPTASKS,${TMPDIR},1G,100K \
+    STOPTASKS,${DL_DIR},1G,100K \
+    STOPTASKS,${SSTATE_DIR},1G,100K \
+    STOPTASKS,/tmp,100M,100K \
+    ABORT,${TMPDIR},100M,1K \
+    ABORT,${DL_DIR},100M,1K \
+    ABORT,${SSTATE_DIR},100M,1K \
+    ABORT,/tmp,10M,1K"
+    
+PACKAGECONFIG_append_pn-qemu-system-native = " sdl"
+CONF_VERSION = "1"
+
+ENABLE_UART = "1"</xmp></pre></div><br><h3 class="Title8 GTitle3">Générer l'image Linux embarqué</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">bitbake core-image-base</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Yocto-Configurer le mot de passe de l'utilisateur root sous Yocto"><a class="Link9" href="#Yocto">Configurer le mot de passe de l'utilisateur root sous Yocto</a></h2><br><h3 class="Title8 GTitle3">Configurer le mot de passe de l'utilisateur root<br></h3><br><span class="GColor1" style="color:lime;">build-rpi/conf/local.conf</span><br><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">MACHINE ??= "raspberrypi4-64"
+DISTRO ?= "poky"
+PACKAGE_CLASSES ?= "package_rpm"
+EXTRA_IMAGE_FEATURES ?= "debug-tweaks"
+USER_CLASSES ?= "buildstats image-mklibs image-prelink"
+PATCHRESOLVE = "noop"
+
+BB_DISKMON_DIRS ??= "\
+    STOPTASKS,${TMPDIR},1G,100K \
+    STOPTASKS,${DL_DIR},1G,100K \
+    STOPTASKS,${SSTATE_DIR},1G,100K \
+    STOPTASKS,/tmp,100M,100K \
+    ABORT,${TMPDIR},100M,1K \
+    ABORT,${DL_DIR},100M,1K \
+    ABORT,${SSTATE_DIR},100M,1K \
+    ABORT,/tmp,10M,1K"
+    
+PACKAGECONFIG_append_pn-qemu-system-native = " sdl"
+CONF_VERSION = "1"
+
+INHERIT += " extrausers"
+EXTRA_USERS_PARAMS += "usermod -P ****** root;"</xmp></pre></div><br><h3 class="Title8 GTitle3">Générer l'image Linux embarqué</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">bitbake core-image-base</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Yocto-Configurer un utilisateur invité sous Yocto"><a class="Link9" href="#Yocto">Configurer un utilisateur invité sous Yocto</a></h2><br><h3 class="Title8 GTitle3">Configurer un utilisateur invité<br></h3><br><span class="GColor1" style="color:lime;">build-rpi/conf/local.conf</span><br><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">MACHINE ??= "raspberrypi4-64"
+DISTRO ?= "poky"
+PACKAGE_CLASSES ?= "package_rpm"
+EXTRA_IMAGE_FEATURES ?= "debug-tweaks"
+USER_CLASSES ?= "buildstats image-mklibs image-prelink"
+PATCHRESOLVE = "noop"
+
+BB_DISKMON_DIRS ??= "\
+    STOPTASKS,${TMPDIR},1G,100K \
+    STOPTASKS,${DL_DIR},1G,100K \
+    STOPTASKS,${SSTATE_DIR},1G,100K \
+    STOPTASKS,/tmp,100M,100K \
+    ABORT,${TMPDIR},100M,1K \
+    ABORT,${DL_DIR},100M,1K \
+    ABORT,${SSTATE_DIR},100M,1K \
+    ABORT,/tmp,10M,1K"
+    
+PACKAGECONFIG_append_pn-qemu-system-native = " sdl"
+CONF_VERSION = "1"
+
+INHERIT += " extrausers"
+EXTRA_USERS_PARAMS += "useradd -P ****** gkesse;"</xmp></pre></div><br><h3 class="Title8 GTitle3">Générer l'image Linux embarqué</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">bitbake core-image-base</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Yocto-Configurer le module WiFi sous Yocto"><a class="Link9" href="#Yocto">Configurer le module WiFi sous Yocto</a></h2><br><h3 class="Title8 GTitle3">Configurer le module WiFi</h3><br><span class="GColor1" style="color:lime;">build-rpi/conf/local.conf</span><br><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">MACHINE ??= "raspberrypi4-64"
 DISTRO ?= "poky"
 PACKAGE_CLASSES ?= "package_rpm"
 EXTRA_IMAGE_FEATURES ?= "debug-tweaks"
@@ -149,7 +210,7 @@ BBLAYERS ?= " \
   /home/rpi4/Programs/ReadyRPI/app/yocto/poky/meta-openembedded/meta-oe \
   /home/rpi4/Programs/ReadyRPI/app/yocto/poky/meta-openembedded/meta-python \
   /home/rpi4/Programs/ReadyRPI/app/yocto/poky/meta-openembedded/meta-networking \
-  "</xmp></pre></div><br><h3 class="Title8 GTitle3">Générer l'image Linux embarqué</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">bitbake core-image-base</xmp></pre></div><br><h3 class="Title8 GTitle3">Vérifier l'image Linux embarqué</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">tmp/deploy/images/raspberrypi4/core-image-minimal-raspberrypi4.rpi-sdimg</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Buildroot"><a class="Link3" href="#">Buildroot</a></h1><div class="Body3"><br><b>Buildroot </b>est un ensemble de Makefiles et de correctifs qui simplifie et automatise le processus de création d'un environnement Linux complet et amorçable pour un système embarqué , tout en utilisant la compilation croisée pour permettre la construction de plusieurs plates-formes cibles sur un seul système de développement basé sur Linux.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1619395596885"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1619395596885");</script></div><br><h2 class="Title7 GTitle2" id="Buildroot-1 - Génération d'une image Linux embarqué"><a class="Link9" href="#Buildroot">1 - Génération d'une image Linux embarqué</a></h2><br><h2 class="Title7 GTitle2" id="Buildroot-1.1 - Génération sous Ubuntu"><a class="Link9" href="#Buildroot">1.1 - Génération sous Ubuntu</a></h2><br><h2 class="Title7 GTitle2" id="Buildroot-1.1.1 - Télécharger Buildroot"><a class="Link9" href="#Buildroot">1.1.1 - Télécharger Buildroot</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh"># on telecharge buildroot
+  "</xmp></pre></div><br><h3 class="Title8 GTitle3">Générer l'image Linux embarqué</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">bitbake core-image-base</xmp></pre></div><br><h3 class="Title8 GTitle3">Vérifier l'image Linux embarqué</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">tmp/deploy/images/raspberrypi4/core-image-minimal-raspberrypi4.rpi-sdimg</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Buildroot"><a class="Link3" href="#">Buildroot</a></h1><div class="Body3"><br><b>Buildroot </b>est un ensemble de Makefiles et de correctifs qui simplifie et automatise le processus de création d'un environnement Linux complet et amorçable pour un système embarqué , tout en utilisant la compilation croisée pour permettre la construction de plusieurs plates-formes cibles sur un seul système de développement basé sur Linux.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1619395596885"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1619395596885");</script></div><br><h2 class="Title7 GTitle2" id="Buildroot-Générer une image Linux embarqué sous Ubuntu"><a class="Link9" href="#Buildroot">Générer une image Linux embarqué sous Ubuntu</a></h2><br><br><h2 class="Title7 GTitle2" id="Buildroot-1.1.1 - Télécharger Buildroot"><a class="Link9" href="#Buildroot">1.1.1 - Télécharger Buildroot</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh"># on telecharge buildroot
 wget https://buildroot.org/downloads/buildroot-2021.02.1.tar.gz</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Buildroot-1.1.2 - Extraire Buildroot"><a class="Link9" href="#Buildroot">1.1.2 - Extraire Buildroot</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh"># on extraire buildroot
 tar xzfv buildroot-2021.02.1.tar.gz</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Buildroot-1.1.3 - Lister les machines"><a class="Link9" href="#Buildroot">1.1.3 - Lister les machines</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh"># on liste les machines supportees
 cd buildroot-2021.02.1
