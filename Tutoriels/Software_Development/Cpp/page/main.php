@@ -75,6 +75,28 @@ int main(int argc, char** argv) {
 6 x 3 = 18
 7 x 3 = 21
 8 x 3 = 24
+9 x 3 = 27</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Créer une bouble while"><a class="Link9" href="#Fondamentaux">Créer une bouble while</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;iostream&gt;
+//===============================================
+int main(int argc, char** argv) {
+    int lNumber = 3;
+    int i = 0;
+    while(i &lt; 10) {
+        int lData = i*lNumber;
+        printf("%d x %d = %d\n", i, lNumber, lData);
+        i++;
+    }
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">0 x 3 = 0
+1 x 3 = 3
+2 x 3 = 6
+3 x 3 = 9
+4 x 3 = 12
+5 x 3 = 15
+6 x 3 = 18
+7 x 3 = 21
+8 x 3 = 24
 9 x 3 = 27</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Récupérer les paramètres passés en ligne de commande"><a class="Link9" href="#Fondamentaux">Récupérer les paramètres passés en ligne de commande</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;iostream&gt;
 #include &lt;cstdio&gt;
