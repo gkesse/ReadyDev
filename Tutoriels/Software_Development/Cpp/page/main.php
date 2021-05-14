@@ -188,7 +188,77 @@ int main(int argc, char** argv) {
 6 x 3 = 18
 7 x 3 = 21
 8 x 3 = 24
-9 x 3 = 27</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Récupérer les paramètres passés en ligne de commande"><a class="Link9" href="#Fondamentaux">Récupérer les paramètres passés en ligne de commande</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+9 x 3 = 27</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Continuer une boucle for"><a class="Link9" href="#Fondamentaux">Continuer une boucle for</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;iostream&gt;
+//===============================================
+int main(int argc, char** argv) {
+    int lNumber = 3;
+    int i = 0;
+    for(double x = -5.0; x &lt;= 5.0; x += 1.0) {
+        if(x == 0) {continue;}
+        double f = 1/x;
+        printf("f[%.1f] = %.2f\n", x, f);
+    }
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">f[-5.0] = -0.20
+f[-4.0] = -0.25
+f[-3.0] = -0.33
+f[-2.0] = -0.50
+f[-1.0] = -1.00
+f[1.0] = 1.00
+f[2.0] = 0.50
+f[3.0] = 0.33
+f[4.0] = 0.25
+f[5.0] = 0.20</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Continuer une boucle while"><a class="Link9" href="#Fondamentaux">Continuer une boucle while</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;iostream&gt;
+//===============================================
+int main(int argc, char** argv) {
+    double x = -5;
+
+    while(x &lt;= 5) {
+        if(x == 0) {x += 1; continue;}
+        double f = 1.0/x;
+        printf("f[%.1f] = %.2f\n", x, f);
+        x += 1;
+    }
+
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">f[-5.0] = -0.20
+f[-4.0] = -0.25
+f[-3.0] = -0.33
+f[-2.0] = -0.50
+f[-1.0] = -1.00
+f[1.0] = 1.00
+f[2.0] = 0.50
+f[3.0] = 0.33
+f[4.0] = 0.25
+f[5.0] = 0.20</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Continuer une boucle do while"><a class="Link9" href="#Fondamentaux">Continuer une boucle do while</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;iostream&gt;
+//===============================================
+int main(int argc, char** argv) {
+    double x = -5;
+
+    do {
+        if(x == 0) {x += 1; continue;}
+        double f = 1.0/x;
+        printf("f[%.1f] = %.2f\n", x, f);
+        x += 1;
+    } while(x &lt;= 5);
+
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">f[-5.0] = -0.20
+f[-4.0] = -0.25
+f[-3.0] = -0.33
+f[-2.0] = -0.50
+f[-1.0] = -1.00
+f[1.0] = 1.00
+f[2.0] = 0.50
+f[3.0] = 0.33
+f[4.0] = 0.25
+f[5.0] = 0.20</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Récupérer les paramètres passés en ligne de commande"><a class="Link9" href="#Fondamentaux">Récupérer les paramètres passés en ligne de commande</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;iostream&gt;
 #include &lt;cstdio&gt;
 //===============================================
@@ -201,7 +271,39 @@ int main(int argc, char** argv) {
 //===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">./rdcpp.exe un deux trois</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">argv[0] : rdcpp.exe
 argv[1] : un
 argv[2] : deux
-argv[3] : trois</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Patron singleton"><a class="Link3" href="#">Patron singleton</a></h1><div class="Body3"><br>Créer un patron  singleton en C++.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1618051220037"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1618051220037");</script></div><br><h2 class="Title7 GTitle2" id="Patron singleton-Introduction"><a class="Link9" href="#Patron singleton">Introduction</a></h2><br>Le patron singleton est une architecture logicielle utilisée en programmation orientée objet et permettant de créer et d'utiliser un objet unique d'une classe pour coordonnées les opérations dans un système.<br><br><h2 class="Title7 GTitle2" id="Patron singleton-Programme principal"><a class="Link9" href="#Patron singleton">Programme principal</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">// on recupere le singleton 
+argv[3] : trois</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Créer une machine à états finis"><a class="Link9" href="#Fondamentaux">Créer une machine à états finis</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+//===============================================
+int main(int argc, char** argv) {
+    std::string lState = "init";
+
+    while(1) {
+        if(lState == "init") {
+            printf("initialiser le systeme\n");
+            lState = "method";
+        }
+        else if(lState == "method") {
+            printf("afficher la liste des methodes\n");
+            lState = "choice";
+        }
+        else if(lState == "choice") {
+            printf("choisir une methode\n");
+            lState = "run";
+        }
+        else if(lState == "run") {
+            printf("executer la methode\n");
+            lState = "end";
+        }
+        else {break;}
+    }
+
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">initialiser le systeme
+afficher la liste des methodes
+choisir une methode
+executer la methode</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Patron singleton"><a class="Link3" href="#">Patron singleton</a></h1><div class="Body3"><br>Créer un patron  singleton en C++.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1618051220037"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1618051220037");</script></div><br><h2 class="Title7 GTitle2" id="Patron singleton-Introduction"><a class="Link9" href="#Patron singleton">Introduction</a></h2><br>Le patron singleton est une architecture logicielle utilisée en programmation orientée objet et permettant de créer et d'utiliser un objet unique d'une classe pour coordonnées les opérations dans un système.<br><br><h2 class="Title7 GTitle2" id="Patron singleton-Programme principal"><a class="Link9" href="#Patron singleton">Programme principal</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">// on recupere le singleton 
 // et on execute la methode run()
 GProcess::Instance()-&gt;run(argc, argv);</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Patron singleton-Structure du patron singleton"><a class="Link9" href="#Patron singleton">Structure du patron singleton</a></h2><br><h2 class="Title7 GTitle2" id="Patron singleton-1 - Fichier header"><a class="Link9" href="#Patron singleton">1 - Fichier header</a></h2><br><h3 class="Title8 GTitle3">GProcess.h</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #ifndef _GProcess_
