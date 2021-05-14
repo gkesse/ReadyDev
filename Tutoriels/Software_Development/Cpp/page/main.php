@@ -312,23 +312,27 @@ int main(int argc, char** argv) {
     return 0;
 }
 //===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GPerson.h</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-#include "GPerson.h"
+#ifndef _GPerson_
+#define _GPerson_
 //===============================================
-GPerson::GPerson(const std::string& name, const int& code, const double& coef) {
-    m_name = name;
-    m_code = code;
-    m_coef = coef;
-}
+#include &lt;iostream&gt;
+#include &lt;string&gt;
 //===============================================
-GPerson::~GPerson() {
+class GPerson {
+public:
+    GPerson(const std::string& name, const int& code, const double& coef);
+    ~GPerson();
+
+public:
+    void print();
     
-}
+private:
+    std::string m_name;
+    int m_code;
+    double m_coef;
+};
 //===============================================
-void GPerson::print() {
-    printf("Personne[name] : %s\n", m_name.c_str());
-    printf("Personne[code] : %d\n", m_code);
-    printf("Personne[coef] : %.2f\n", m_coef);
-}
+#endif
 //===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GPerson.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include "GPerson.h"
 //===============================================
