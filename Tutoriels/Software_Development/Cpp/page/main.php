@@ -1022,7 +1022,59 @@ int main(int argc, char** argv) {
 
     return app.exec();
 }
-//================================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qtawesome_toogle.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_qtawesome_toogle.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Tracé de courbes 2D avec QCustomPlot"><a class="Link3" href="#">Tracé de courbes 2D avec QCustomPlot</a></h1><div class="Body3"><br><b>QCustomPlot </b>est un widget Qt en C++ pour le traçage et la visualisation des données 2D. Il n'a pas d'autres dépendances et est bien documenté. Il se concentre sur la création de tracés 2D, de graphiques et offre de hautes performances pour les applications de visualisation de données en temps réel. Il permet d'exporter les graphes vers divers formats de fichiers tels que les fichiers PDF vectorisés et les images pixelisées comme PNG, JPG et BMP. QCustomPlot est la solution idéale pour afficher des données en temps réel dans une application ainsi que pour produire des tracés 2D de haute qualité pour d'autres médias.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620349301251"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620349301251");</script></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/b_qcustomplot_demo.gif" alt="/Tutoriels/Software_Development/Cpp/img/b_qcustomplot_demo.gif"></div><br><h2 class="Title7 GTitle2" id="Tracé de courbes avec QCustomPlot-1 - Installation"><a class="Link9" href="#Tracé de courbes avec QCustomPlot">1 - Installation</a></h2><br><h2 class="Title7 GTitle2" id="Tracé de courbes 2D avec QCustomPlot-1.1 - Installation sous Windows"><a class="Link9" href="#Tracé de courbes 2D avec QCustomPlot">1.1 - Installation sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Tracé de courbes 2D avec QCustomPlot-1.1.1 - Installation sous MSYS"><a class="Link9" href="#Tracé de courbes 2D avec QCustomPlot">1.1.1 - Installation sous MSYS</a></h2><br><h2 class="Title7 GTitle2" id="Tracé de courbes 2D avec QCustomPlot-1.1.1.1 - Télécharger QCustomPlot"><a class="Link9" href="#Tracé de courbes 2D avec QCustomPlot">1.1.1.1 - Télécharger QCustomPlot</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.qcustomplot.com/index.php/download">https://www.qcustomplot.com/index.php/download</a><br><br><b>QCustomPlot.tar.gz</b><br><br><h2 class="Title7 GTitle2" id="Tracé de courbes 2D avec QCustomPlot-1.1.1.2 - Extraire QCustomPlot"><a class="Link9" href="#Tracé de courbes 2D avec QCustomPlot">1.1.1.2 - Extraire QCustomPlot</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Extraire -&gt; QCustomPlot.tar.gz</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tracé de courbes 2D avec QCustomPlot-2 - Tests"><a class="Link9" href="#Tracé de courbes 2D avec QCustomPlot">2 - Tests</a></h2><br><h2 class="Title7 GTitle2" id="Tracé de courbes 2D avec QCustomPlot-2.1 - Test sous Windows"><a class="Link9" href="#Tracé de courbes 2D avec QCustomPlot">2.1 - Test sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Tracé de courbes 2D avec QCustomPlot-2.1.1 - Test sous MSYS"><a class="Link9" href="#Tracé de courbes 2D avec QCustomPlot">2.1.1 - Test sous MSYS</a></h2><br><h2 class="Title7 GTitle2" id="Tracé de courbes 2D avec QCustomPlot-2.1.1.1 - Structure du projet"><a class="Link9" href="#Tracé de courbes 2D avec QCustomPlot">2.1.1.1 - Structure du projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">ReadyTest/qcustomplot/
+//================================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qtawesome_toogle.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_qtawesome_toogle.gif"></div><br><h2 class="Title7 GTitle2" id="Création de pitogrammes avec QtAwesome-Créer un pictogramme personnalisé"><a class="Link9" href="#Création de pitogrammes avec QtAwesome">Créer un pictogramme personnalisé</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//================================================
+#include &lt;QApplication&gt;
+#include &lt;QtWidgets&gt;
+#include &lt;QtAwesome.h&gt;
+//================================================
+class DuplicateIconPainter : public QtAwesomeIconPainter {
+public:
+    //================================================
+    virtual void paint(QtAwesome* awesome, QPainter* painter, const QRect& rectIn, QIcon::Mode mode, QIcon::State state, const QVariantMap& options) {
+        int drawSize = qRound(rectIn.height()*0.5);
+        int offset = rectIn.height() / 4;
+        QChar chr = QChar(static_cast&lt;int&gt;(fa::plus));
+
+        painter-&gt;setFont(awesome-&gt;font(drawSize));
+        painter-&gt;setPen(QColor(100,100,100));
+        painter-&gt;drawText(QRect(QPoint(offset*2, offset*2), 
+        QSize(drawSize, drawSize)), chr , 
+        QTextOption(Qt::AlignCenter|Qt::AlignVCenter));
+
+        painter-&gt;setFont(awesome-&gt;font(drawSize));
+        painter-&gt;setPen(QColor(50,50,50));
+        painter-&gt;drawText(QRect(QPoint(rectIn.width()-drawSize-offset, 
+        rectIn.height()-drawSize-offset), QSize(drawSize, drawSize)), 
+        chr, QTextOption(Qt::AlignCenter|Qt::AlignVCenter));
+    }
+    //================================================
+};
+//================================================
+int main(int argc, char** argv) {
+    QApplication app(argc, argv);
+
+    QWidget* lWindow = new QWidget;
+    QtAwesome* lAwesome = new QtAwesome(qApp);
+    lAwesome-&gt;initFontAwesome();
+    lAwesome-&gt;give("duplicate", new DuplicateIconPainter());
+
+    QPushButton* lButton = new QPushButton;
+    lButton-&gt;setText("Button");
+    lButton-&gt;setIcon(lAwesome-&gt;icon("duplicate"));
+    lButton-&gt;setStyleSheet("Text-align:left");
+    
+    QVBoxLayout* lMainLayout = new QVBoxLayout;
+    lMainLayout-&gt;addWidget(lButton);
+    lMainLayout-&gt;setAlignment(Qt::AlignTop | Qt::AlignLeft);
+
+    lWindow-&gt;setLayout(lMainLayout);
+    lWindow-&gt;setWindowTitle("ReadyApp");
+    lWindow-&gt;resize(400, 200);
+    lWindow-&gt;show();
+
+    return app.exec();
+}
+//================================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qtawesome_custom.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qtawesome_custom.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Tracé de courbes 2D avec QCustomPlot"><a class="Link3" href="#">Tracé de courbes 2D avec QCustomPlot</a></h1><div class="Body3"><br><b>QCustomPlot </b>est un widget Qt en C++ pour le traçage et la visualisation des données 2D. Il n'a pas d'autres dépendances et est bien documenté. Il se concentre sur la création de tracés 2D, de graphiques et offre de hautes performances pour les applications de visualisation de données en temps réel. Il permet d'exporter les graphes vers divers formats de fichiers tels que les fichiers PDF vectorisés et les images pixelisées comme PNG, JPG et BMP. QCustomPlot est la solution idéale pour afficher des données en temps réel dans une application ainsi que pour produire des tracés 2D de haute qualité pour d'autres médias.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620349301251"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620349301251");</script></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/b_qcustomplot_demo.gif" alt="/Tutoriels/Software_Development/Cpp/img/b_qcustomplot_demo.gif"></div><br><h2 class="Title7 GTitle2" id="Tracé de courbes avec QCustomPlot-1 - Installation"><a class="Link9" href="#Tracé de courbes avec QCustomPlot">1 - Installation</a></h2><br><h2 class="Title7 GTitle2" id="Tracé de courbes 2D avec QCustomPlot-1.1 - Installation sous Windows"><a class="Link9" href="#Tracé de courbes 2D avec QCustomPlot">1.1 - Installation sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Tracé de courbes 2D avec QCustomPlot-1.1.1 - Installation sous MSYS"><a class="Link9" href="#Tracé de courbes 2D avec QCustomPlot">1.1.1 - Installation sous MSYS</a></h2><br><h2 class="Title7 GTitle2" id="Tracé de courbes 2D avec QCustomPlot-1.1.1.1 - Télécharger QCustomPlot"><a class="Link9" href="#Tracé de courbes 2D avec QCustomPlot">1.1.1.1 - Télécharger QCustomPlot</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.qcustomplot.com/index.php/download">https://www.qcustomplot.com/index.php/download</a><br><br><b>QCustomPlot.tar.gz</b><br><br><h2 class="Title7 GTitle2" id="Tracé de courbes 2D avec QCustomPlot-1.1.1.2 - Extraire QCustomPlot"><a class="Link9" href="#Tracé de courbes 2D avec QCustomPlot">1.1.1.2 - Extraire QCustomPlot</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Extraire -&gt; QCustomPlot.tar.gz</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tracé de courbes 2D avec QCustomPlot-2 - Tests"><a class="Link9" href="#Tracé de courbes 2D avec QCustomPlot">2 - Tests</a></h2><br><h2 class="Title7 GTitle2" id="Tracé de courbes 2D avec QCustomPlot-2.1 - Test sous Windows"><a class="Link9" href="#Tracé de courbes 2D avec QCustomPlot">2.1 - Test sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Tracé de courbes 2D avec QCustomPlot-2.1.1 - Test sous MSYS"><a class="Link9" href="#Tracé de courbes 2D avec QCustomPlot">2.1.1 - Test sous MSYS</a></h2><br><h2 class="Title7 GTitle2" id="Tracé de courbes 2D avec QCustomPlot-2.1.1.1 - Structure du projet"><a class="Link9" href="#Tracé de courbes 2D avec QCustomPlot">2.1.1.1 - Structure du projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">ReadyTest/qcustomplot/
 |___ main.cpp
 |___ qcustomplot.h
 |___ qcustomplot.cpp</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tracé de courbes 2D avec QCustomPlot-2.1.1.2 - Programme principal"><a class="Link9" href="#Tracé de courbes 2D avec QCustomPlot">2.1.1.2 - Programme principal</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
