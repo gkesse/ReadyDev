@@ -6,7 +6,7 @@ Raccourci du menu Démarrer -> MSYS2 64bit
 Suivant
 Suivant
 Terminer</xmp></pre></div><br><h3 class="Title8 GTitle3">Démarrer MSYS2</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Windows
-MSYS2</xmp></pre></div><br><h3 class="Title8 GTitle3">Mettre à jour les packages MSYS2</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">pacman -Syu</xmp></pre></div><br><h3 class="Title8 GTitle3">Installer le package (make)</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">pacman -S --needed --noconfirm make</xmp></pre></div><br><h3 class="Title8 GTitle3">Installer le package (gcc)</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">pacman -S --needed --noconfirm gcc</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Tests"><a class="Link3" href="#">Tests</a></h1><div class="Body3"><br>Créer un projet C++.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1616682650861"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1616682650861");</script></div><br><h2 class="Title7 GTitle2" id="Tests-Tester un projet C++ sous MSYS2"><a class="Link9" href="#Tests">Tester un projet C++ sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Éditer le programme</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+MSYS2</xmp></pre></div><br><h3 class="Title8 GTitle3">Mettre à jour les packages MSYS2</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">pacman -Syu</xmp></pre></div><br><h3 class="Title8 GTitle3">Installer le package (make)</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">pacman -S --needed --noconfirm make</xmp></pre></div><br><h3 class="Title8 GTitle3">Installer le package (gcc)</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">pacman -S --needed --noconfirm gcc</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Tests"><a class="Link3" href="#">Tests</a></h1><div class="Body3"><br>Créer un projet C++.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1616682650861"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1616682650861");</script></div><br><h2 class="Title7 GTitle2" id="Tests-Tester un projet C++ sous MSYS2"><a class="Link9" href="#Tests">Tester un projet C++ sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Éditer le programme (main.cpp)<br></h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;iostream&gt;
 //===============================================
 int main(int argc, char** argv) {
@@ -504,75 +504,126 @@ sGManager* GManager::getData() const {
 }
 //===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">lApp-&gt;app_name : ReadyDev
 lApp-&gt;win_width : 640
-lApp-&gt;win_height : 48</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Système d'administration"><a class="Link3" href="#">Système d'administration</a></h1><div class="Body3"><br>Créer un système d'administration en C++.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1618044541580"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1618044541580");</script></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Introduction"><a class="Link9" href="#Système d'administration">Introduction</a></h2><br>Le système d'administration que nous présentons ici est une interface en ligne de commande permettant d'accéder à toutes les fonctionnalités de notre application.<br><br><h2 class="Title7 GTitle2" id="Système d'administration-Programme principal"><a class="Link9" href="#Système d'administration">Programme principal</a></h2><br><h3 class="Title8 GTitle3">GProcess.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">GProcessUi::Instance()-&gt;run(argc, argv);</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Système d'administration"><a class="Link9" href="#Système d'administration">Système d'administration</a></h2><br><h3 class="Title8 GTitle3">GProcessUi.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-void GProcessUi::run(int argc, char** argv) {
-    G_STATE = "S_INIT";
+lApp-&gt;win_height : 48</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Système d'administration"><a class="Link3" href="#">Système d'administration</a></h1><div class="Body3"><br>Le <b>système d'administration</b> que nous présentons ici est une interface en ligne de commande permettant d'accéder à toutes les fonctionnalités de notre application.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1621005046333"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1621005046333");</script></div><br><h2 class="Title7 GTitle2" id="Système d'administration-main.cpp"><a class="Link9" href="#Système d'administration">main.cpp</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GProcess.h"
+//===============================================
+int main(int argc, char** argv) {
+    GProcess::Instance()-&gt;run(argc, argv);
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-GProcess.h"><a class="Link9" href="#Système d'administration">GProcess.h</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#ifndef _GProcess_
+#define _GProcess_
+//===============================================
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+//===============================================
+class GProcess {
+public:
+    GProcess();
+    ~GProcess();
+
+public:
+    static GProcess* Instance();
+    void run(int argc, char** argv);
+
+private:
+    void runInit(int argc, char** argv);
+    void runMethod(int argc, char** argv);
+    void runChoice(int argc, char** argv);
+    void runSQLite(int argc, char** argv);
+    void runOpenCV(int argc, char** argv);
+    void runQuit(int argc, char** argv);
+    
+private:
+    static GProcess* m_instance;
+    std::string m_state;
+};
+//===============================================
+#endif
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-GProcess.cpp"><a class="Link9" href="#Système d'administration">GProcess.cpp</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GProcess.h"
+//===============================================
+GProcess* GProcess::m_instance = 0;
+//===============================================
+GProcess::GProcess() {
+
+}
+//===============================================
+GProcess::~GProcess() {
+    
+}
+//===============================================
+GProcess* GProcess::Instance() {
+    if(m_instance == 0) {
+        m_instance = new GProcess;
+    }
+    return m_instance;
+}
+//===============================================
+void GProcess::run(int argc, char** argv) {
+    m_state = "init";
     while(1) {
-        if(G_STATE == "S_INIT") run_INIT(argc, argv);
-        else if(G_STATE == "S_METHOD") run_METHOD(argc, argv);
-        else if(G_STATE == "S_CHOICE") run_CHOICE(argc, argv);
-        //
-        else if(G_STATE == "S_SQLITE") run_SQLITE(argc, argv);
-        else if(G_STATE == "S_OPENCV") run_OPENCV(argc, argv);
-        //
-        else if(G_STATE == "S_SAVE") run_SAVE(argc, argv);
-        else if(G_STATE == "S_LOAD") run_LOAD(argc, argv);
-        else break;
+        if(m_state == "init") {runInit(argc, argv);}
+        else if(m_state == "method") {runMethod(argc, argv);}
+        else if(m_state == "choice") {runChoice(argc, argv);}
+        else if(m_state == "sqlite") {runSQLite(argc, argv);}
+        else if(m_state == "opencv") {runOpenCV(argc, argv);}
+        else if(m_state == "quit") {runQuit(argc, argv);}
+        else {break;}
     }
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Programme d'initialisation"><a class="Link9" href="#Système d'administration">Programme d'initialisation</a></h2><br><h3 class="Title8 GTitle3">GProcessUi.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-void GProcessUi::run_INIT(int argc, char** argv) {
+//===============================================
+void GProcess::runInit(int argc, char** argv) {
     printf("\n");
-    printf("%s\n", "CPP_ADMIN !!!");
+    printf("%s\n", "ADMIN !!!");
     printf("\t%-2s : %s\n", "-q", "quitter l'application");
-    G_STATE = "S_LOAD";
+    m_state = "method";
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Programme de chargement des données"><a class="Link9" href="#Système d'administration">Programme de chargement des données</a></h2><br><h3 class="Title8 GTitle3">GProcessUi.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-void GProcessUi::run_LOAD(int argc, char** argv) {
-    GConfig::Instance()-&gt;loadData("G_ADMIN_ID");
-    G_STATE = "S_METHOD";
-}
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Programme des méthodes"><a class="Link9" href="#Système d'administration">Programme des méthodes</a></h2><br><h3 class="Title8 GTitle3">GProcessUi.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-void GProcessUi::run_METHOD(int argc, char** argv) {
+//===============================================
+void GProcess::runMethod(int argc, char** argv) {
     printf("\n");
-    printf("%s\n", "CPP_ADMIN :");
-    printf("\t%-2s : %s\n", "1", "S_SQLITE");
-    printf("\t%-2s : %s\n", "2", "S_OPENCV");
+    printf("%s\n", "ADMIN :");
+    printf("\t%-2s : %s\n", "1", "sqlite");
+    printf("\t%-2s : %s\n", "2", "opencv");
     printf("\n");
-    G_STATE = "S_CHOICE";
+    m_state = "choice";
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Programme du choix d'une méthode"><a class="Link9" href="#Système d'administration">Programme du choix d'une méthode</a></h2><br><h3 class="Title8 GTitle3">GProcessUi.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-void GProcessUi::run_CHOICE(int argc, char** argv) {
-    std::string lLast = GConfig::Instance()-&gt;getData("G_ADMIN_ID");
-    printf("CPP_ADMIN (%s) ? : ", lLast.c_str());
+//===============================================
+void GProcess::runChoice(int argc, char** argv) {
+    printf("ADMIN ? : ");
     std::string lAnswer; std::getline(std::cin, lAnswer);
-    if(lAnswer == "") lAnswer = lLast;
-    if(lAnswer == "-q") G_STATE = "S_END";
-    //
-    else if(lAnswer == "1") {G_STATE = "S_SQLITE"; GConfig::Instance()-&gt;setData("G_ADMIN_ID", lAnswer.c_str());} 
-    else if(lAnswer == "2") {G_STATE = "S_OPENCV"; GConfig::Instance()-&gt;setData("G_ADMIN_ID", lAnswer.c_str());}
-    //
+    if(lAnswer == "-q") m_state = "end";
+    else if(lAnswer == "1") {m_state = "sqlite";} 
+    else if(lAnswer == "2") {m_state = "opencv";}
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Programme du module SQLite"><a class="Link9" href="#Système d'administration">Programme du module SQLite</a></h2><br><h3 class="Title8 GTitle3">GProcessUi.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-void GProcessUi::run_SQLITE(int argc, char** argv) {
-    GSQLiteUi::Instance()-&gt;run(argc, argv);
-    G_STATE = "S_SAVE";
+//===============================================
+void GProcess::runSQLite(int argc, char** argv) {
+    printf("\n");
+    printf("on execute le module OpenCV\n");
+    m_state = "quit";
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Programme du module OpenCV"><a class="Link9" href="#Système d'administration">Programme du module OpenCV</a></h2><br><h3 class="Title8 GTitle3">GProcessUi.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-void GProcessUi::run_OPENCV(int argc, char** argv) {
-    GOpenCVUi::Instance()-&gt;run(argc, argv);
-    G_STATE = "S_SAVE";
+//===============================================
+void GProcess::runOpenCV(int argc, char** argv) {
+    printf("\n");
+    printf("on execute le module SQLite\n");
+    m_state = "quit";
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Programme de sauvegarde des données"><a class="Link9" href="#Système d'administration">Programme de sauvegarde des données</a></h2><br><h3 class="Title8 GTitle3">GProcessUi.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-void GProcessUi::run_SAVE(int argc, char** argv) {
-    GConfig::Instance()-&gt;saveData("G_ADMIN_ID");
-    G_STATE = "S_END";
+//===============================================
+void GProcess::runQuit(int argc, char** argv) {
+    printf("\n");
+    printf("QUIT (Oui/[N]on) ? : ");
+    std::string lAnswer; std::getline(std::cin, lAnswer);
+    if(lAnswer == "") m_state = "init";
+    else if(lAnswer == "n") {m_state = "init";} 
+    else if(lAnswer == "o") {m_state = "end";}
+    else if(lAnswer == "-q") {m_state = "end";}
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Résultat des opérations"><a class="Link9" href="#Système d'administration">Résultat des opérations</a></h2><br><h2 class="Title7 GTitle2" id="Système d'administration-1 - Menu principal"><a class="Link9" href="#Système d'administration">1 - Menu principal</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_cpp_admin_system.png" alt="/Tutoriels/Software_Development/Cpp/img/i_cpp_admin_system.png"></div><br><h2 class="Title7 GTitle2" id="Système d'administration-2 - Menu du module SQLite"><a class="Link9" href="#Système d'administration">2 - Menu du module SQLite</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_cpp_admin_system_02.png" alt="/Tutoriels/Software_Development/Cpp/img/i_cpp_admin_system_02.png"></div><br><h2 class="Title7 GTitle2" id="Système d'administration-3 - Affichage des tables SQLite"><a class="Link9" href="#Système d'administration">3 - Affichage des tables SQLite</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_cpp_admin_system_03.png" alt="/Tutoriels/Software_Development/Cpp/img/i_cpp_admin_system_03.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Interface Homme-Machine avec Qt"><a class="Link3" href="#">Interface Homme-Machine avec Qt</a></h1><div class="Body3"><br><b>Qt </b>est une bibliothèque de création d'interface homme-machine.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1617838385077"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1617838385077");</script></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/b_qt.png" alt="/Tutoriels/Software_Development/Cpp/img/b_qt.png"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-1 - Installation"><a class="Link9" href="#Interface Homme-Machine avec Qt">1 - Installation</a></h2><br>Installer l'environnement Qt pour C++.<br><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-1.1 - Installation sous Windows"><a class="Link9" href="#Interface Homme-Machine avec Qt">1.1 - Installation sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-1.1.1 - Installation sous MSYS2"><a class="Link9" href="#Interface Homme-Machine avec Qt">1.1.1 - Installation sous MSYS2</a></h2><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-1.1.1.1 - Installer Qt"><a class="Link9" href="#Interface Homme-Machine avec Qt">1.1.1.1 - Installer Qt</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">pacman -S --needed --noconfirm mingw-w64-i686-qt5
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Résultat"><a class="Link9" href="#Système d'administration">Résultat</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_admin_system.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_admin_system.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Interface Homme-Machine avec Qt"><a class="Link3" href="#">Interface Homme-Machine avec Qt</a></h1><div class="Body3"><br><b>Qt </b>est une bibliothèque de création d'interface homme-machine.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1617838385077"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1617838385077");</script></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/b_qt.png" alt="/Tutoriels/Software_Development/Cpp/img/b_qt.png"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-Installer l'environnement Qt sous MSYS2"><a class="Link9" href="#Interface Homme-Machine avec Qt">Installer l'environnement Qt sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Installer Qt</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">pacman -S --needed --noconfirm mingw-w64-i686-qt5
 pacman -S --needed --noconfirm mingw-w64-i686-qt-creator
 pacman -S --needed --noconfirm mingw-w64-i686-gdb
 pacman -S --needed --noconfirm mingw-w64-i686-cmake
-pacman -S --needed --noconfirm mingw-w64-i686-clang</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-2 - Tests"><a class="Link9" href="#Interface Homme-Machine avec Qt">2 - Tests</a></h2><br>Créer un projet Qt en C++.<br><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-2.1 - Test sous Windows"><a class="Link9" href="#Interface Homme-Machine avec Qt">2.1 - Test sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-2.1.1 - Test sous MSYS2"><a class="Link9" href="#Interface Homme-Machine avec Qt">2.1.1 - Test sous MSYS2</a></h2><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-2.1.1.1 - Éditer le programme"><a class="Link9" href="#Interface Homme-Machine avec Qt">2.1.1.1 - Éditer le programme</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+pacman -S --needed --noconfirm mingw-w64-i686-clang</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-Tester&nbsp; un projet Qt sous MSYS2"><a class="Link9" href="#Interface Homme-Machine avec Qt">Tester&nbsp; un projet Qt sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Éditer le programme (main.cpp)<br></h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;QApplication&gt;
 #include &lt;QtWidgets&gt;
 //===============================================
@@ -595,7 +646,7 @@ int main(int argc, char** argv) {
     lWindow-&gt;show();
     return lApp.exec();
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-2.1.1.2 - Éditer le fichier projet"><a class="Link9" href="#Interface Homme-Machine avec Qt">2.1.1.2 - Éditer le fichier projet</a></h2><br><h3 class="Title8 GTitle3">GProject.pro</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="prolog">TEMPLATE = app
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Éditer le fichier projet (GProject.pro)</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="prolog">TEMPLATE = app
 TARGET = $$(GPROJECT_EXE)
 DESTDIR = bin
 OBJECTS_DIR = build
@@ -607,154 +658,423 @@ QT += widgets
 
 QMAKE_CXXFLAGS +=\
     -Wno-unused-parameter \
-    -Wno-deprecated-declarations \</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-2.1.1.3 - Compiler le projet"><a class="Link9" href="#Interface Homme-Machine avec Qt">2.1.1.3 - Compiler le projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">export "PATH=/mingw32/bin:$PATH"</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">qmake
-make</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-2.1.1.4 - Exécuter le projet"><a class="Link9" href="#Interface Homme-Machine avec Qt">2.1.1.4 - Exécuter le projet</a></h2><br>./bin/rdcpp.exe<br><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_test.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_test.png"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-3 - Modules"><a class="Link9" href="#Interface Homme-Machine avec Qt">3 - Modules</a></h2><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-3.1 - QDockWidget"><a class="Link9" href="#Interface Homme-Machine avec Qt">3.1 - QDockWidget</a></h2><br>QDockWidget est un containeur de widgets qui peut être placé autour d'un widget central dans un QMainWidget.<br><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-3.1.1 - Création d'un QDockWidget"><a class="Link9" href="#Interface Homme-Machine avec Qt">3.1.1 - Création d'un QDockWidget</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_qdockwidget.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_qdockwidget.png"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-3.1.1.1 - Création du QDockWidget Clients"><a class="Link9" href="#Interface Homme-Machine avec Qt">3.1.1.1 - Création du QDockWidget Clients</a></h2><br><h3 class="Title8 GTitle3">GMainWindow.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">// on crée le qdockwidget (clients)
-QDockWidget* lDockWidget = new QDockWidget(tr("Clients"), lWorkspace);
-// on définit les positions du qdockwidget (gauche, droite)
-lDockWidget-&gt;setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
-// on crée le contenu du qdockwidget
-QListWidget* lListWidget = new QListWidget;
-lListWidget-&gt;addItems(QStringList()
-&lt;&lt; "Gerard KESSE, Sogetek, 75 Paris, France"
-&lt;&lt; "Jane Doe, Memorabilia, 23 Watersedge, Beaton"
-&lt;&lt; "Tammy Shea, Tiblanka, 38 Sea Views, Carlton"
-&lt;&lt; "Tim Sheen, Caraba Gifts, 48 Ocean Way, Deal"
-&lt;&lt; "Sol Harvey, Chicos Coffee, 53 New Springs, Eccleston"
-&lt;&lt; "Sally Hobart, Tiroli Tea, 67 Long River, Fedula");
-lListWidget-&gt;setAlternatingRowColors(true);
-lListWidget-&gt;setCursor(Qt::PointingHandCursor);
-// on initialise le contenu du qdockwidget
-lDockWidget-&gt;setWidget(lListWidget);
-// on ajoute le qdockwidget dans le qmainwindow
-lWorkspace-&gt;addDockWidget(Qt::RightDockWidgetArea, lDockWidget);
-// on initialise l'action de déclenchement du qdockwidget dans le qmenu
-lSettingMenu-&gt;addAction(lDockWidget-&gt;toggleViewAction());</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-3.1.1.2 - Création du QDockWidget Messages"><a class="Link9" href="#Interface Homme-Machine avec Qt">3.1.1.2 - Création du QDockWidget Messages</a></h2><br><h3 class="Title8 GTitle3">GMainWindow.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">// on crée le qdockwidget (messages)
-lDockWidget = new QDockWidget(tr("Messages"), lWorkspace);
-// on définit les positions du qdockwidget (gauche, droite)
-lDockWidget-&gt;setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
-// on crée le contenu du qdockwidget
-lListWidget = new QListWidget;
-lListWidget-&gt;addItems(QStringList()
-&lt;&lt; "Merci pour votre paiement que nous avons reçu aujourd'hui."
-&lt;&lt; "Votre commande a été expédiée et devrait être avec vous"
-"dans les 28 jours."
-&lt;&lt; "Nous avons expédié les articles qui étaient en stock. Le"
-"le reste de votre commande sera expédié une fois tous les"
-"les articles restants sont arrivés à notre entrepôt. Non"
-"des frais d'expédition supplémentaires seront facturés."
-&lt;&lt; "Vous avez effectué un petit trop-payé (moins de 5 $) que nous"
-"conservera votre compte pour vous, ou reviendra à votre demande."
-&lt;&lt; "Vous avez effectué un petit sous-paiement (moins de 1 $), mais nous l'avons"
-"a quand même envoyé votre commande. Nous ajouterons ce sous-paiement à"
-"votre prochaine facture."
-&lt;&lt; "Malheureusement, vous n’avez pas envoyé suffisamment d’argent. Veuillez l’envoyer"
-"un $ supplémentaire. Votre commande sera expédiée dès que"
-"le montant complet a été reçu."
-&lt;&lt; "Vous avez effectué un trop-payé (plus de 5 $). Souhaitez-vous"
-"acheter plus d'articles ou doit-on vous rendre l'excédent?");     lDockWidget-&gt;setWidget(lListWidget);
-lListWidget-&gt;setAlternatingRowColors(true);
-lListWidget-&gt;setCursor(Qt::PointingHandCursor);
-// on initialise le contenu du qdockwidget
-lDockWidget-&gt;setWidget(lListWidget);
-// on ajoute le qdockwidget dans le qmainwindow
-lWorkspace-&gt;addDockWidget(Qt::RightDockWidgetArea, lDockWidget);
-// on initialise l'action de déclenchement du qdockwidget dans le qmenu
-lSettingMenu-&gt;addAction(lDockWidget-&gt;toggleViewAction());</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-3.1.2 - Résutat des opérations"><a class="Link9" href="#Interface Homme-Machine avec Qt">3.1.2 - Résutat des opérations</a></h2><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-3.1.2.1 - Déplacement d'un QDockWidget"><a class="Link9" href="#Interface Homme-Machine avec Qt">3.1.2.1 - Déplacement d'un QDockWidget</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_qdockwidget_02.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_qdockwidget_02.png"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-3.1.2.2 - Disposition gauche-droite"><a class="Link9" href="#Interface Homme-Machine avec Qt">3.1.2.2 - Disposition gauche-droite</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_qdockwidget_03.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_qdockwidget_03.png"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-3.1.2.3 - Disposition en onglet"><a class="Link9" href="#Interface Homme-Machine avec Qt">3.1.2.3 - Disposition en onglet</a></h2><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-3.1.2.3.1 - Disposition en onglet clients"><a class="Link9" href="#Interface Homme-Machine avec Qt">3.1.2.3.1 - Disposition en onglet clients</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_qdockwidget_04.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_qdockwidget_04.png"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-3.1.2.3.2 - Disposition en onglet messages"><a class="Link9" href="#Interface Homme-Machine avec Qt">3.1.2.3.2 - Disposition en onglet messages</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_qdockwidget_05.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_qdockwidget_05.png"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-3.2 - QTextEdit"><a class="Link9" href="#Interface Homme-Machine avec Qt">3.2 - QTextEdit</a></h2><br>QTextEdit est un widget d'édition de texte.<br><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-3.2.1 - Disposition de textes dans un QTextEdit"><a class="Link9" href="#Interface Homme-Machine avec Qt">3.2.1 - Disposition de textes dans un QTextEdit</a></h2><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-3.2.1.1 - Disposition de textes"><a class="Link9" href="#Interface Homme-Machine avec Qt">3.2.1.1 - Disposition de textes</a></h2><br><h3 class="Title8 GTitle3">GMainWindows.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">// on cree un qtextedit
-QTextEdit* lTextEdit = new QTextEdit;
-lTextEdit-&gt;setObjectName("workspace");
-lWorkspace-&gt;setCentralWidget(lTextEdit);
+    -Wno-deprecated-declarations \</xmp></pre></div><br><h3 class="Title8 GTitle3">Compiler le projet</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">export "PATH=/mingw32/bin:$PATH"</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">qmake
+make</xmp></pre></div><br><h3 class="Title8 GTitle3">Exécuter le projet</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">./bin/rdcpp.exe</xmp></pre></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_test.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_test.png"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-Créer une fenêtre personnalisée"><a class="Link9" href="#Interface Homme-Machine avec Qt">Créer une fenêtre personnalisée</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//================================================
+#include &lt;QApplication&gt;
+#include "GWindow.h"
+//================================================
+int main(int argc, char** argv) {
+    QApplication app(argc, argv);
 
-// on recupere le curseur du qtextedit
-QTextCursor lTextCursor(lTextEdit-&gt;textCursor());
-// on initialise la position du curseur du qtextedit
-lTextCursor.movePosition(QTextCursor::Start);
-// on recupere le pointeur de position du curseur du qtextedit
-QTextFrame* lTextFrame = lTextCursor.currentFrame();
+    GWindow* lWindow = new GWindow;    
+    lWindow-&gt;setWindowTitle("ReadyApp");
+    lWindow-&gt;resize(400, 200);
+    lWindow-&gt;show();
 
-// on cree un objet de formatage texte pour table (droite)   
-QTextTableFormat lTextTableFormatRight;
-lTextTableFormatRight.setBorder(0);
-lTextTableFormatRight.setCellPadding(0);
-lTextTableFormatRight.setAlignment(Qt::AlignRight);
+    return app.exec();
+}
+//================================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GWindow.h</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//================================================
+#ifndef _GWindow_
+#define _GWindow_
+//================================================
+#include &lt;QtWidgets&gt;
+//================================================
+class GWindow : public QFrame {
+public:
+    GWindow(QWidget* parent = 0);
+    ~GWindow();
+};
+//================================================
+#endif
+//================================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GWindow.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//================================================
+#ifndef _GWindow_
+#define _GWindow_
+//================================================
+#include &lt;QtWidgets&gt;
+//================================================
+class GWindow : public QFrame {
+public:
+    GWindow(QWidget* parent = 0);
+    ~GWindow();
+};
+//================================================
+#endif
+//================================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_custom_widget.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_custom_widget.png"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-Créer un bouton avec un texte"><a class="Link9" href="#Interface Homme-Machine avec Qt">Créer un bouton avec un texte</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//================================================
+#include &lt;QApplication&gt;
+#include "GWindow.h"
+//================================================
+int main(int argc, char** argv) {
+    QApplication app(argc, argv);
 
-// on cree un objet de formatage texte (par defaut)  
-QTextCharFormat lTextCharFormat;
+    GWindow* lWindow = new GWindow;    
+    lWindow-&gt;setWindowTitle("ReadyApp");
+    lWindow-&gt;resize(400, 200);
+    lWindow-&gt;show();
 
-// on cree un objet de formatage texte (gras)  
-QTextCharFormat lTextCharFormatBold;
-lTextCharFormatBold.setFontWeight(QFont::Bold);
+    return app.exec();
+}
+//================================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GWindow.h</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//================================================
+#ifndef _GWindow_
+#define _GWindow_
+//================================================
+#include &lt;QtWidgets&gt;
+//================================================
+class GWindow : public QFrame {
+    Q_OBJECT
     
-// on insere des textes dans le qtextedit
-lTextCursor.insertText("Gerard KESSE", lTextCharFormatBold);
-lTextCursor.insertBlock();
-lTextCursor.insertText("25 Rue du Général Leclerc", lTextCharFormat);
-lTextCursor.insertBlock();
-lTextCursor.insertText("67000 Strasbourg", lTextCharFormat);
+public:
+    GWindow(QWidget* parent = 0);
+    ~GWindow();
 
-// on insere une table (1 ligne, 1 colonne) dans le qtextedit
-lTextCursor.insertTable(1, 1, lTextTableFormatRight);
-// on insere des textes dans le qtextedit
-lTextCursor.insertText(QDate::currentDate().toString("dd MMMM yyyy"), lTextCharFormat);
-
-// on initialise la position du curseur dans le qtextedit
-lTextCursor.setPosition(lTextFrame-&gt;lastPosition());
-// on ecrit des textes dans qtextedit
-lTextCursor.insertText("Monsieur le Directeur,", lTextCharFormat);
-
-// on insere des textes dans qtextedit
-for(int i = 0; i &lt; 2; ++i) {lTextCursor.insertBlock();}
-lTextCursor.insertText("Je vous transmets ci-joint ma feuille de temps du mois d'avril 2021.", lTextCharFormat);
-for(int i = 0; i &lt; 2; ++i) {lTextCursor.insertBlock();}
-
-// on insere une table (1 ligne, 1 colonne) dans le qtextedit
-lTextCursor.insertTable(1, 1, lTextTableFormatRight);
-// on insere des textes dans le qtextedit
-lTextCursor.insertText("Cordialement,", lTextCharFormat);
-lTextCursor.insertBlock();
-lTextCursor.insertText("Gérard KESSE", lTextCharFormat);
-lTextCursor.insertBlock();
-lTextCursor.insertText("Architecte logiciel C/C++/Qt", lTextCharFormat);</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-3.2.1.2 - Résultat de la disposition"><a class="Link9" href="#Interface Homme-Machine avec Qt">3.2.1.2 - Résultat de la disposition</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_qtextedit_qtextcursor.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_qtextedit_qtextcursor.png"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-3.2.2 - Impression du contenu d'un QTextEdit"><a class="Link9" href="#Interface Homme-Machine avec Qt">3.2.2 - Impression du contenu d'un QTextEdit</a></h2><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-3.2.2.1 - Impression du contenu"><a class="Link9" href="#Interface Homme-Machine avec Qt">3.2.2.1 - Impression du contenu</a></h2><br><h3 class="Title8 GTitle3">GMainWindow.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">// on recupere le document du qtextedit
-QTextDocument* lTextDocument = m_textEdit-&gt;document();
-// on declare un qprinter
-QPrinter lPrinter;
-// on initialise la boite de dialogue du qprinter 
-QPrintDialog lPrintDialog(&lPrinter, this);
-// on ouvre la boite de dialogue du qprinter 
-if (lPrintDialog.exec() != QDialog::Accepted) {return;}
-// on demarre l'impression du contenu du qtextedit 
-lTextDocument-&gt;print(&lPrinter);</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-3.2.2.2 - Résultat de l'impression"><a class="Link9" href="#Interface Homme-Machine avec Qt">3.2.2.2 - Résultat de l'impression</a></h2><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-3.2.2.2.1 - Démarrage de l'impression"><a class="Link9" href="#Interface Homme-Machine avec Qt">3.2.2.2.1 - Démarrage de l'impression</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Imprimer
-Général
-Sélectionnez une imprimante -&gt; Microsoft Print to PDF
-Imprimer
-Adresse -&gt; ReadyTest\printer
-Nom du fichier -&gt; QTextEdit.pdf
-Enregistrer</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-3.2.2.2.2 - Document de l'impression"><a class="Link9" href="#Interface Homme-Machine avec Qt">3.2.2.2.2 - Document de l'impression</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_qtextedit_qprinter.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_qtextedit_qprinter.png"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-3.3 - QDataStream"><a class="Link9" href="#Interface Homme-Machine avec Qt">3.3 - QDataStream</a></h2><br>QDataStream est un sérialisateur de données. Il peut être utilisé pour sauvegarder les données sensibles associées à une application dans un fichier au format binaire (illisible).<br><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-3.3.1 - Sérialisation d'un objet Qt"><a class="Link9" href="#Interface Homme-Machine avec Qt">3.3.1 - Sérialisation d'un objet Qt</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">// on desire utiliser un objet QMap 
-// pour associer le nom d'une ville à son code postal
-QMap&lt;QString, QString&gt; m_cityMap;
-// on enregistre une ville
-m_cityMap["Paris"] = 75000;
-m_cityMap["Marseille"] = 13000;
-m_cityMap["Lyon"] = 69000;</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-3.3.1.1 - Sérialisation des données"><a class="Link9" href="#Interface Homme-Machine avec Qt">3.3.1.1 - Sérialisation des données</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">// on ouvre un fichier en ecriture seule
-QFile file("city_map.dat");
-if (!file.open(QIODevice::WriteOnly)) {
-    // on affiche un message en cas de probleme
-    QMessageBox::information(this, tr("Impossible d'ouvrir le fichier"), file.errorString());
-    return;
+public slots:
+    void onClick();
+    
+private:
+    QTextEdit* m_textEdit;
+};
+//================================================
+#endif
+//================================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GWindow.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//================================================
+#include "GWindow.h"
+//================================================
+GWindow::GWindow(QWidget* parent) : QFrame(parent) {
+    QPushButton* lButton = new QPushButton;
+    lButton-&gt;setText("Button");
+    
+    QHBoxLayout* lTopLayout = new QHBoxLayout;
+    lTopLayout-&gt;addWidget(lButton);
+    lTopLayout-&gt;setAlignment(Qt::AlignLeft);
+    
+    QTextEdit* lTextEdit = new QTextEdit;
+    m_textEdit = lTextEdit;
+    lTextEdit-&gt;setReadOnly(true);
+    
+    QVBoxLayout* lMainLayout = new QVBoxLayout;
+    lMainLayout-&gt;addLayout(lTopLayout);
+    lMainLayout-&gt;addWidget(lTextEdit, 1);
+    
+    setLayout(lMainLayout);
+    
+    connect(lButton, SIGNAL(clicked()), this, SLOT(onClick()));
 }
-// on serialise les donnees
-QDataStream out(&file);
-out.setVersion(QDataStream::Qt_4_5);
-out &lt;&lt; m_cityMap;</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-3.3.1.2 - Désérialisation des données"><a class="Link9" href="#Interface Homme-Machine avec Qt">3.3.1.2 - Désérialisation des données</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">// on ouvre un fichier en lecture seule
-QFile file("city_map.dat");
-if (!file.open(QIODevice::ReadOnly)) {
-    // on affiche un message en cas de probleme
-    QMessageBox::information(this, tr("Impossible d'ouvrir le fichier"), file.errorString());
-    return;
+//================================================
+GWindow::~GWindow() {
+    
 }
-// on deserialise les donnees
-QDataStream in(&file);
-in.setVersion(QDataStream::Qt_4_5);
-in &gt;&gt; m_cityMap;</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-3.3.1.3 - Résultat des opérations"><a class="Link9" href="#Interface Homme-Machine avec Qt">3.3.1.3 - Résultat des opérations</a></h2><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-3.3.1.3.1 - Fichier de sauvegarde"><a class="Link9" href="#Interface Homme-Machine avec Qt">3.3.1.3.1 - Fichier de sauvegarde</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_qdatastream.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_qdatastream.png"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-3.3.1.3.2 - Proposition d'une interface"><a class="Link9" href="#Interface Homme-Machine avec Qt">3.3.1.3.2 - Proposition d'une interface</a></h2><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-3.3.1.3.2.1 - Menu principal"><a class="Link9" href="#Interface Homme-Machine avec Qt">3.3.1.3.2.1 - Menu principal</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_qdatastream_02.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_qdatastream_02.png"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-3.3.1.3.2.2 - Chargement des données"><a class="Link9" href="#Interface Homme-Machine avec Qt">3.3.1.3.2.2 - Chargement des données</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_qdatastream_03.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_qdatastream_03.png"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-3.3.1.3.2.3 - Ajout d'une nouvelle ville"><a class="Link9" href="#Interface Homme-Machine avec Qt">3.3.1.3.2.3 - Ajout d'une nouvelle ville</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_qdatastream_04.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_qdatastream_04.png"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-3.3.1.3.2.4 - Résultat de l'ajout d'une nouvelle ville"><a class="Link9" href="#Interface Homme-Machine avec Qt">3.3.1.3.2.4 - Résultat de l'ajout d'une nouvelle ville</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_qdatastream_05.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_qdatastream_05.png"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-Liens"><a class="Link9" href="#Interface Homme-Machine avec Qt">Liens</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://doc.qt.io/qt-5/stylesheet-examples.html">https://doc.qt.io/qt-5/stylesheet-examples.html</a><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://doc.qt.io/qt-5/classes.html">https://doc.qt.io/qt-5/classes.html</a><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.flaticon.com">https://www.flaticon.com</a><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://github.com/encharm/Font-Awesome-SVG-PNG">https://github.com/encharm/Font-Awesome-SVG-PNG</a><br><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Tracé de courbes 2D avec QCustomPlot"><a class="Link3" href="#">Tracé de courbes 2D avec QCustomPlot</a></h1><div class="Body3"><br><b>QCustomPlot </b>est un widget Qt en C++ pour le traçage et la visualisation des données 2D. Il n'a pas d'autres dépendances et est bien documenté. Il se concentre sur la création de tracés 2D, de graphiques et offre de hautes performances pour les applications de visualisation de données en temps réel. Il permet d'exporter les graphes vers divers formats de fichiers tels que les fichiers PDF vectorisés et les images pixelisées comme PNG, JPG et BMP. QCustomPlot est la solution idéale pour afficher des données en temps réel dans une application ainsi que pour produire des tracés 2D de haute qualité pour d'autres médias.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620349301251"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620349301251");</script></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/b_qcustomplot_demo.gif" alt="/Tutoriels/Software_Development/Cpp/img/b_qcustomplot_demo.gif"></div><br><h2 class="Title7 GTitle2" id="Tracé de courbes avec QCustomPlot-1 - Installation"><a class="Link9" href="#Tracé de courbes avec QCustomPlot">1 - Installation</a></h2><br><h2 class="Title7 GTitle2" id="Tracé de courbes 2D avec QCustomPlot-1.1 - Installation sous Windows"><a class="Link9" href="#Tracé de courbes 2D avec QCustomPlot">1.1 - Installation sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Tracé de courbes 2D avec QCustomPlot-1.1.1 - Installation sous MSYS"><a class="Link9" href="#Tracé de courbes 2D avec QCustomPlot">1.1.1 - Installation sous MSYS</a></h2><br><h2 class="Title7 GTitle2" id="Tracé de courbes 2D avec QCustomPlot-1.1.1.1 - Télécharger QCustomPlot"><a class="Link9" href="#Tracé de courbes 2D avec QCustomPlot">1.1.1.1 - Télécharger QCustomPlot</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.qcustomplot.com/index.php/download">https://www.qcustomplot.com/index.php/download</a><br><br><b>QCustomPlot.tar.gz</b><br><br><h2 class="Title7 GTitle2" id="Tracé de courbes 2D avec QCustomPlot-1.1.1.2 - Extraire QCustomPlot"><a class="Link9" href="#Tracé de courbes 2D avec QCustomPlot">1.1.1.2 - Extraire QCustomPlot</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Extraire -&gt; QCustomPlot.tar.gz</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tracé de courbes 2D avec QCustomPlot-2 - Tests"><a class="Link9" href="#Tracé de courbes 2D avec QCustomPlot">2 - Tests</a></h2><br><h2 class="Title7 GTitle2" id="Tracé de courbes 2D avec QCustomPlot-2.1 - Test sous Windows"><a class="Link9" href="#Tracé de courbes 2D avec QCustomPlot">2.1 - Test sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Tracé de courbes 2D avec QCustomPlot-2.1.1 - Test sous MSYS"><a class="Link9" href="#Tracé de courbes 2D avec QCustomPlot">2.1.1 - Test sous MSYS</a></h2><br><h2 class="Title7 GTitle2" id="Tracé de courbes 2D avec QCustomPlot-2.1.1.1 - Structure du projet"><a class="Link9" href="#Tracé de courbes 2D avec QCustomPlot">2.1.1.1 - Structure du projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">ReadyTest/qcustomplot/
+//================================================
+void GWindow::onClick() {
+    m_textEdit-&gt;append("on traite l'action associée au clic");
+}
+//================================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_button.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_button.gif"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-Créer un bouton avec un texte et une icône"><a class="Link9" href="#Interface Homme-Machine avec Qt">Créer un bouton avec un texte et une icône</a></h2><br><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-Créer un bouton avec une icône sans texte"><a class="Link9" href="#Interface Homme-Machine avec Qt">Créer un bouton avec une icône sans texte</a></h2><br><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Création de pitogrammes avec QtAwesome"><a class="Link3" href="#">Création de pitogrammes avec QtAwesome</a></h1><div class="Body3"><br><b>QtAwesome</b> est une bibliothèque simple qui peut être utilisée pour ajouter des icônes Font Awesome à votre application Qt. Bien que le nom soit QtAwesome et qu'il soit actuellement très basé sur Font Awesome, vous pouvez utiliser toutes les autres polices d'icônes / glyphes de votre choix. La classe peut également être utilisée pour gérer vos propres icônes dessinées par code dynamique, en ajoutant des peintres d'icônes nommés. Cette bibliothèque a été mise à jour vers la version 4.7.0 de Font Awesome <br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1621011676563"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1621011676563");</script></div><br><h2 class="Title7 GTitle2" id="Création de pitogrammes avec QtAwesome-Installer l'environnement QtAwesome sous MSYS2"><a class="Link9" href="#Création de pitogrammes avec QtAwesome">Installer l'environnement QtAwesome sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Télécharger QtAwesome</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://github.com/gamecreature/QtAwesome">https://github.com/gamecreature/QtAwesome</a><br><br><b>QtAwesome-master.zip</b><br><br><h3 class="Title8 GTitle3">Extraire QtAwesome</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">QtAwesome-master.zip
+Clic droit -&gt; Extraire vers QtAwesome-master/</xmp></pre></div><br><h3 class="Title8 GTitle3">Observer la structure du dossier</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">QtAwesome-master
+├───QtAwesome
+│   └───fonts
+└───QtAwesomeSample</xmp></pre></div><br><h3 class="Title8 GTitle3">Créer une librairie statique</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">cd QtAwesome-master/QtAwesome
+qmake
+make</xmp></pre></div><br><h3 class="Title8 GTitle3">Vérifier la librairie statique</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">release/libQtAwesome.a</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Création de pitogrammes avec QtAwesome-Tester un projet QtAwesome sous MSYS2"><a class="Link9" href="#Création de pitogrammes avec QtAwesome">Tester un projet QtAwesome sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Editer le programme (main.cpp)</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//================================================
+#include &lt;QApplication&gt;
+#include &lt;QtWidgets&gt;
+#include &lt;QtAwesome.h&gt;
+//================================================
+int main(int argc, char** argv) {
+    QApplication app(argc, argv);
+
+    QWidget* lWindow = new QWidget;
+    QtAwesome* lAwesome = new QtAwesome(lWindow);
+    lAwesome-&gt;initFontAwesome();
+
+    QPushButton* lButton = new QPushButton;
+    lButton-&gt;setText("Button");
+    lButton-&gt;setIcon(lAwesome-&gt;icon(fa::book));
+    
+    QVBoxLayout* lMainLayout = new QVBoxLayout;
+    lMainLayout-&gt;addWidget(lButton);
+    lMainLayout-&gt;setAlignment(Qt::AlignTop | Qt::AlignLeft);
+
+    lWindow-&gt;setLayout(lMainLayout);
+    lWindow-&gt;setWindowTitle("ReadyApp");
+    lWindow-&gt;resize(400, 200);
+    lWindow-&gt;show();
+
+    return app.exec();
+}
+//================================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Definir le fichier projet (GProjet.pro)</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">TEMPLATE = app
+TARGET = rdcpp
+DESTDIR = bin
+OBJECTS_DIR = build
+MOC_DIR = build
+UI_DIR = build
+RCC_DIR = build
+CONFIG += console release gnu++11
+QT += widgets
+
+INCLUDEPATH +=\
+    $$PWD \
+    /mingw32/include
+
+INCLUDEPATH +=\
+    $$PWD
+
+SOURCES +=\
+    $$PWD/main.cpp
+
+HEADERS +=\
+    $$PWD/QtAwesome.h \   
+    $$PWD/QtAwesomeAnim.h
+
+LIBS +=\
+    -L$$PWD -lQtAwesome</xmp></pre></div><br><h3 class="Title8 GTitle3">Compiler le projet</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">qmake
+make</xmp></pre></div><br><h3 class="Title8 GTitle3">Exécuter le projet</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">./release/rdcpp</xmp></pre></div><br><h3 class="Title8 GTitle3">Résulat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qtawesome_test.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qtawesome_test.png"></div><br><h2 class="Title7 GTitle2" id="Création de pitogrammes avec QtAwesome-Créer un pictogramme à partir de son id"><a class="Link9" href="#Création de pitogrammes avec QtAwesome">Créer un pictogramme à partir de son id</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//================================================
+#include &lt;QApplication&gt;
+#include &lt;QtWidgets&gt;
+#include &lt;QtAwesome.h&gt;
+//================================================
+int main(int argc, char** argv) {
+    QApplication app(argc, argv);
+
+    QWidget* lWindow = new QWidget;
+    QtAwesome* lAwesome = new QtAwesome(lWindow);
+    lAwesome-&gt;initFontAwesome();
+
+    QPushButton* lButton = new QPushButton;
+    lButton-&gt;setText("Button");
+    lButton-&gt;setIcon(lAwesome-&gt;icon(fa::camera));
+    
+    QVBoxLayout* lMainLayout = new QVBoxLayout;
+    lMainLayout-&gt;addWidget(lButton);
+    lMainLayout-&gt;setAlignment(Qt::AlignTop | Qt::AlignLeft);
+
+    lWindow-&gt;setLayout(lMainLayout);
+    lWindow-&gt;setWindowTitle("ReadyApp");
+    lWindow-&gt;resize(400, 200);
+    lWindow-&gt;show();
+
+    return app.exec();
+}
+//================================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qtawesome_id.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qtawesome_id.png"></div><br><h2 class="Title7 GTitle2" id="Création de pitogrammes avec QtAwesome-Créer un pictogramme à partir de son nom"><a class="Link9" href="#Création de pitogrammes avec QtAwesome">Créer un pictogramme à partir de son nom</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//================================================
+#include &lt;QApplication&gt;
+#include &lt;QtWidgets&gt;
+#include &lt;QtAwesome.h&gt;
+//================================================
+int main(int argc, char** argv) {
+    QApplication app(argc, argv);
+
+    QWidget* lWindow = new QWidget;
+    QtAwesome* lAwesome = new QtAwesome(lWindow);
+    lAwesome-&gt;initFontAwesome();
+
+    QPushButton* lButton = new QPushButton;
+    lButton-&gt;setText("Button");
+    lButton-&gt;setIcon(lAwesome-&gt;icon("paperplane"));
+    
+    QVBoxLayout* lMainLayout = new QVBoxLayout;
+    lMainLayout-&gt;addWidget(lButton);
+    lMainLayout-&gt;setAlignment(Qt::AlignTop | Qt::AlignLeft);
+
+    lWindow-&gt;setLayout(lMainLayout);
+    lWindow-&gt;setWindowTitle("ReadyApp");
+    lWindow-&gt;resize(400, 200);
+    lWindow-&gt;show();
+
+    return app.exec();
+}
+//================================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qtawesome_name.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qtawesome_name.png"></div><br><h2 class="Title7 GTitle2" id="Création de pitogrammes avec QtAwesome-Créer un pictogramme à partir de son caractère"><a class="Link9" href="#Création de pitogrammes avec QtAwesome">Créer un pictogramme à partir de son caractère</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//================================================
+#include &lt;QApplication&gt;
+#include &lt;QtWidgets&gt;
+#include &lt;QtAwesome.h&gt;
+//================================================
+int main(int argc, char** argv) {
+    QApplication app(argc, argv);
+
+    QWidget* lWindow = new QWidget;
+    QtAwesome* lAwesome = new QtAwesome(qApp);
+    lAwesome-&gt;initFontAwesome();
+
+    QLabel* lLabel = new QLabel(QChar( fa::group));
+    lLabel-&gt;setFont(lAwesome-&gt;font(16));
+    
+    QVBoxLayout* lMainLayout = new QVBoxLayout;
+    lMainLayout-&gt;addWidget(lLabel);
+    lMainLayout-&gt;setAlignment(Qt::AlignTop | Qt::AlignLeft);
+
+    lWindow-&gt;setLayout(lMainLayout);
+    lWindow-&gt;setWindowTitle("ReadyApp");
+    lWindow-&gt;resize(400, 200);
+    lWindow-&gt;show();
+
+    return app.exec();
+}
+//================================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qtawesome_char.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qtawesome_char.png"></div><br><h2 class="Title7 GTitle2" id="Création de pitogrammes avec QtAwesome-Définir la couleur d'un pictogramme"><a class="Link9" href="#Création de pitogrammes avec QtAwesome">Définir la couleur d'un pictogramme</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//================================================
+#include &lt;QApplication&gt;
+#include &lt;QtWidgets&gt;
+#include &lt;QtAwesome.h&gt;
+//================================================
+int main(int argc, char** argv) {
+    QApplication app(argc, argv);
+
+    QWidget* lWindow = new QWidget;
+    QtAwesome* lAwesome = new QtAwesome(qApp);
+    lAwesome-&gt;initFontAwesome();
+
+    QPushButton* lButton = new QPushButton;
+    lButton-&gt;setText("Button");
+    QVariantMap lOptions;
+    lOptions.insert("color-active" , QColor(0, 127, 0));
+    lButton-&gt;setIcon(lAwesome-&gt;icon(fa::camera, lOptions));
+    
+    QVBoxLayout* lMainLayout = new QVBoxLayout;
+    lMainLayout-&gt;addWidget(lButton);
+    lMainLayout-&gt;setAlignment(Qt::AlignTop | Qt::AlignLeft);
+
+    lWindow-&gt;setLayout(lMainLayout);
+    lWindow-&gt;setWindowTitle("ReadyApp");
+    lWindow-&gt;resize(400, 200);
+    lWindow-&gt;show();
+
+    return app.exec();
+}
+//================================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qtawesome_color.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qtawesome_color.png"></div><br><h2 class="Title7 GTitle2" id="Création de pitogrammes avec QtAwesome-Définir la couleur par défaut des pictogrammes"><a class="Link9" href="#Création de pitogrammes avec QtAwesome">Définir la couleur par défaut des pictogrammes</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//================================================
+#include &lt;QApplication&gt;
+#include &lt;QtWidgets&gt;
+#include &lt;QtAwesome.h&gt;
+//================================================
+int main(int argc, char** argv) {
+    QApplication app(argc, argv);
+
+    QWidget* lWindow = new QWidget;
+    QtAwesome* lAwesome = new QtAwesome(qApp);
+    lAwesome-&gt;initFontAwesome();
+    lAwesome-&gt; setDefaultOption("color-active" , QColor(0, 127, 0));
+
+    QPushButton* lButton = new QPushButton;
+    lButton-&gt;setText("Button");
+    lButton-&gt;setIcon(lAwesome-&gt;icon(fa::camera));
+    
+    QVBoxLayout* lMainLayout = new QVBoxLayout;
+    lMainLayout-&gt;addWidget(lButton);
+    lMainLayout-&gt;setAlignment(Qt::AlignTop | Qt::AlignLeft);
+
+    lWindow-&gt;setLayout(lMainLayout);
+    lWindow-&gt;setWindowTitle("ReadyApp");
+    lWindow-&gt;resize(400, 200);
+    lWindow-&gt;show();
+
+    return app.exec();
+}
+//================================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qtawesome_default.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qtawesome_default.png"></div><br><h2 class="Title7 GTitle2" id="Création de pitogrammes avec QtAwesome-Créer un pictogramme animé"><a class="Link9" href="#Création de pitogrammes avec QtAwesome">Créer un pictogramme animé</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//================================================
+#include &lt;QApplication&gt;
+#include &lt;QtWidgets&gt;
+#include &lt;QtAwesome.h&gt;
+//================================================
+int main(int argc, char** argv) {
+    QApplication app(argc, argv);
+
+    QWidget* lWindow = new QWidget;
+    QtAwesome* lAwesome = new QtAwesome(lWindow);
+    lAwesome-&gt;initFontAwesome();
+
+    QPushButton* lButton = new QPushButton;
+    lButton-&gt;setText("Button");
+    QVariantMap lOptions;
+    lOptions.insert("anim", qVariantFromValue(new QtAwesomeAnimation(lButton)));
+    lButton-&gt;setIcon(lAwesome-&gt;icon(fa::refresh, lOptions));
+    
+    QVBoxLayout* lMainLayout = new QVBoxLayout;
+    lMainLayout-&gt;addWidget(lButton);
+    lMainLayout-&gt;setAlignment(Qt::AlignTop | Qt::AlignLeft);
+
+    lWindow-&gt;setLayout(lMainLayout);
+    lWindow-&gt;setWindowTitle("ReadyApp");
+    lWindow-&gt;resize(400, 200);
+    lWindow-&gt;show();
+
+    return app.exec();
+}
+//================================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qtawesome_anim.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_qtawesome_anim.gif"></div><br><h2 class="Title7 GTitle2" id="Création de pitogrammes avec QtAwesome-Basculer d'un pictogramme à l'autre entre deux états"><a class="Link9" href="#Création de pitogrammes avec QtAwesome">Basculer d'un pictogramme à l'autre entre deux états</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//================================================
+#include &lt;QApplication&gt;
+#include &lt;QtWidgets&gt;
+#include &lt;QtAwesome.h&gt;
+//================================================
+int main(int argc, char** argv) {
+    QApplication app(argc, argv);
+
+    QWidget* lWindow = new QWidget;
+    QtAwesome* lAwesome = new QtAwesome(lWindow);
+    lAwesome-&gt;initFontAwesome();
+
+    QPushButton* lButton = new QPushButton;
+    lButton-&gt;setText("Button");
+    lButton-&gt;setCheckable("Button");
+    QVariantMap lOptions;
+    lOptions.insert("color", QColor(Qt::green) );
+    lOptions.insert("text-off", QString(fa::squareo) );
+    lOptions.insert("color-off", QColor(Qt::red) );
+    lButton-&gt;setIcon(lAwesome-&gt;icon(fa::checksquareo, lOptions));
+    
+    QVBoxLayout* lMainLayout = new QVBoxLayout;
+    lMainLayout-&gt;addWidget(lButton);
+    lMainLayout-&gt;setAlignment(Qt::AlignTop | Qt::AlignLeft);
+
+    lWindow-&gt;setLayout(lMainLayout);
+    lWindow-&gt;setWindowTitle("ReadyApp");
+    lWindow-&gt;resize(400, 200);
+    lWindow-&gt;show();
+
+    return app.exec();
+}
+//================================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qtawesome_toogle.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_qtawesome_toogle.gif"></div><br><h2 class="Title7 GTitle2" id="Création de pitogrammes avec QtAwesome-Créer un pictogramme personnalisé"><a class="Link9" href="#Création de pitogrammes avec QtAwesome">Créer un pictogramme personnalisé</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//================================================
+#include &lt;QApplication&gt;
+#include &lt;QtWidgets&gt;
+#include &lt;QtAwesome.h&gt;
+//================================================
+class DuplicateIconPainter : public QtAwesomeIconPainter {
+public:
+    //================================================
+    virtual void paint(QtAwesome* awesome, QPainter* painter, const QRect& rectIn, QIcon::Mode mode, QIcon::State state, const QVariantMap& options) {
+        int drawSize = qRound(rectIn.height()*0.5);
+        int offset = rectIn.height() / 4;
+        QChar chr = QChar(static_cast&lt;int&gt;(fa::plus));
+
+        painter-&gt;setFont(awesome-&gt;font(drawSize));
+        painter-&gt;setPen(QColor(100,100,100));
+        painter-&gt;drawText(QRect(QPoint(offset*2, offset*2), 
+        QSize(drawSize, drawSize)), chr , 
+        QTextOption(Qt::AlignCenter|Qt::AlignVCenter));
+
+        painter-&gt;setFont(awesome-&gt;font(drawSize));
+        painter-&gt;setPen(QColor(50,50,50));
+        painter-&gt;drawText(QRect(QPoint(rectIn.width()-drawSize-offset, 
+        rectIn.height()-drawSize-offset), QSize(drawSize, drawSize)), 
+        chr, QTextOption(Qt::AlignCenter|Qt::AlignVCenter));
+    }
+    //================================================
+};
+//================================================
+int main(int argc, char** argv) {
+    QApplication app(argc, argv);
+
+    QWidget* lWindow = new QWidget;
+    QtAwesome* lAwesome = new QtAwesome(qApp);
+    lAwesome-&gt;initFontAwesome();
+    lAwesome-&gt;give("duplicate", new DuplicateIconPainter());
+
+    QPushButton* lButton = new QPushButton;
+    lButton-&gt;setText("Button");
+    lButton-&gt;setIcon(lAwesome-&gt;icon("duplicate"));
+    lButton-&gt;setStyleSheet("Text-align:left");
+    
+    QVBoxLayout* lMainLayout = new QVBoxLayout;
+    lMainLayout-&gt;addWidget(lButton);
+    lMainLayout-&gt;setAlignment(Qt::AlignTop | Qt::AlignLeft);
+
+    lWindow-&gt;setLayout(lMainLayout);
+    lWindow-&gt;setWindowTitle("ReadyApp");
+    lWindow-&gt;resize(400, 200);
+    lWindow-&gt;show();
+
+    return app.exec();
+}
+//================================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qtawesome_custom.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qtawesome_custom.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Tracé de courbes 2D avec QCustomPlot"><a class="Link3" href="#">Tracé de courbes 2D avec QCustomPlot</a></h1><div class="Body3"><br><b>QCustomPlot </b>est un widget Qt en C++ pour le traçage et la visualisation des données 2D. Il n'a pas d'autres dépendances et est bien documenté. Il se concentre sur la création de tracés 2D, de graphiques et offre de hautes performances pour les applications de visualisation de données en temps réel. Il permet d'exporter les graphes vers divers formats de fichiers tels que les fichiers PDF vectorisés et les images pixelisées comme PNG, JPG et BMP. QCustomPlot est la solution idéale pour afficher des données en temps réel dans une application ainsi que pour produire des tracés 2D de haute qualité pour d'autres médias.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620349301251"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620349301251");</script></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/b_qcustomplot_demo.gif" alt="/Tutoriels/Software_Development/Cpp/img/b_qcustomplot_demo.gif"></div><br><h2 class="Title7 GTitle2" id="Tracé de courbes avec QCustomPlot-1 - Installation"><a class="Link9" href="#Tracé de courbes avec QCustomPlot">1 - Installation</a></h2><br><h2 class="Title7 GTitle2" id="Tracé de courbes 2D avec QCustomPlot-1.1 - Installation sous Windows"><a class="Link9" href="#Tracé de courbes 2D avec QCustomPlot">1.1 - Installation sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Tracé de courbes 2D avec QCustomPlot-1.1.1 - Installation sous MSYS"><a class="Link9" href="#Tracé de courbes 2D avec QCustomPlot">1.1.1 - Installation sous MSYS</a></h2><br><h2 class="Title7 GTitle2" id="Tracé de courbes 2D avec QCustomPlot-1.1.1.1 - Télécharger QCustomPlot"><a class="Link9" href="#Tracé de courbes 2D avec QCustomPlot">1.1.1.1 - Télécharger QCustomPlot</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.qcustomplot.com/index.php/download">https://www.qcustomplot.com/index.php/download</a><br><br><b>QCustomPlot.tar.gz</b><br><br><h2 class="Title7 GTitle2" id="Tracé de courbes 2D avec QCustomPlot-1.1.1.2 - Extraire QCustomPlot"><a class="Link9" href="#Tracé de courbes 2D avec QCustomPlot">1.1.1.2 - Extraire QCustomPlot</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Extraire -&gt; QCustomPlot.tar.gz</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tracé de courbes 2D avec QCustomPlot-2 - Tests"><a class="Link9" href="#Tracé de courbes 2D avec QCustomPlot">2 - Tests</a></h2><br><h2 class="Title7 GTitle2" id="Tracé de courbes 2D avec QCustomPlot-2.1 - Test sous Windows"><a class="Link9" href="#Tracé de courbes 2D avec QCustomPlot">2.1 - Test sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Tracé de courbes 2D avec QCustomPlot-2.1.1 - Test sous MSYS"><a class="Link9" href="#Tracé de courbes 2D avec QCustomPlot">2.1.1 - Test sous MSYS</a></h2><br><h2 class="Title7 GTitle2" id="Tracé de courbes 2D avec QCustomPlot-2.1.1.1 - Structure du projet"><a class="Link9" href="#Tracé de courbes 2D avec QCustomPlot">2.1.1.1 - Structure du projet</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">ReadyTest/qcustomplot/
 |___ main.cpp
 |___ qcustomplot.h
 |___ qcustomplot.cpp</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tracé de courbes 2D avec QCustomPlot-2.1.1.2 - Programme principal"><a class="Link9" href="#Tracé de courbes 2D avec QCustomPlot">2.1.1.2 - Programme principal</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
