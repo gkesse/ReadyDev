@@ -526,7 +526,7 @@ Personne[coef] : 3.14</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Progra
 #include "GDog.h"
 //===============================================
 int main(int argc, char** argv) {
-    GAnimal lAnimal("Jerry");
+    GAnimal lAnimal("Tom");
     lAnimal.setCategory("Chat");
     lAnimal.print();
     
@@ -612,7 +612,7 @@ void GDog::print() {
     printf("[Dog] Categorie : %s\n", m_category.c_str());
     printf("[Dog] Poids : %d (kg)\n", m_weight);
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">[Animal] Nom : Jerry
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">[Animal] Nom : Tom
 [Animal] Categorie : Chat
 [Dog] Nom : Medor
 [Dog] Categorie : Chien
@@ -623,7 +623,7 @@ void GDog::print() {
 int main(int argc, char** argv) {
     GAnimal *lAnimal, *lAnimals[2];
 
-    lAnimal = new GAnimal("Jerry");
+    lAnimal = new GAnimal("Tom");
     lAnimal-&gt;setCategory("Chat");
     lAnimals[0] = lAnimal;
 
@@ -714,7 +714,137 @@ void GDog::print() {
     printf("[Dog] Nom : %s | Categorie : %s | Poids : %d (kg)\n", 
     m_name.c_str(), m_category.c_str(), m_weight);
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">[Animal] Nom : Jerry | Categorie : Chat
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">[Animal] Nom : Tom | Categorie : Chat
+[Dog] Nom : Medor | Categorie : Chien | Poids : 20 (kg)</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Programmation orientée objet-Créer une classe abstraite"><a class="Link9" href="#Programmation orientée objet">Créer une classe abstraite</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GAnimal.h"
+#include "GCat.h"
+#include "GDog.h"
+//===============================================
+int main(int argc, char** argv) {
+    GAnimal *lAnimal, *lAnimals[2];
+
+    lAnimal = new GCat("Tom", 1000);
+    lAnimal-&gt;setCategory("Chat");
+    lAnimals[0] = lAnimal;
+
+    lAnimal = new GDog("Medor", 20);
+    lAnimal-&gt;setCategory("Chien");
+    lAnimals[1] = lAnimal;
+
+    for(int i = 0; i &lt; 2; i++) {
+        lAnimal = lAnimals[i];
+        lAnimal-&gt;print();
+    }
+    
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GAnimal.h</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#ifndef _GAnimal_
+#define _GAnimal_
+//===============================================
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+//===============================================
+class GAnimal {
+public:
+    GAnimal(const std::string& name);
+    virtual ~GAnimal();
+
+public:
+    virtual void setCategory(const std::string& category);
+    virtual void print() = 0;
+    
+protected:
+    std::string m_name;
+    std::string m_category;
+};
+//===============================================
+#endif
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GAnimal.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GAnimal.h"
+//===============================================
+GAnimal::GAnimal(const std::string& name) {
+    m_name = name;
+}
+//===============================================
+GAnimal::~GAnimal() {
+    
+}
+//===============================================
+void GAnimal::setCategory(const std::string& category) {
+    m_category = category;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GDog.h</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#ifndef _GDog_
+#define _GDog_
+//===============================================
+#include "GAnimal.h"
+//===============================================
+class GDog : public GAnimal {
+public:
+    GDog(const std::string& name, int weight);
+    ~GDog();
+
+public:
+    void print();
+    
+private:
+    int m_weight;
+};
+//===============================================
+#endif
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GDog.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GDog.h"
+//===============================================
+GDog::GDog(const std::string& name, int weight) :
+GAnimal(name) {
+    m_weight = weight;
+}
+//===============================================
+GDog::~GDog() {
+    
+}
+//===============================================
+void GDog::print() {
+    printf("[Dog] Nom : %s | Categorie : %s | Poids : %d (kg)\n", 
+    m_name.c_str(), m_category.c_str(), m_weight);
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GCat.h</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#ifndef _GCat_
+#define _GCat_
+//===============================================
+#include "GAnimal.h"
+//===============================================
+class GCat : public GAnimal {
+public:
+    GCat(const std::string& name, int weight);
+    ~GCat();
+
+public:
+    void print();
+    
+private:
+    int m_price;
+};
+//===============================================
+#endif
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GCat.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GCat.h"
+//===============================================
+GCat::GCat(const std::string& name, int price) :
+GAnimal(name) {
+    m_price = price;
+}
+//===============================================
+GCat::~GCat() {
+    
+}
+//===============================================
+void GCat::print() {
+    printf("[Cat] Nom : %s | Categorie : %s | Prix : %d (€)\n", 
+    m_name.c_str(), m_category.c_str(), m_price);
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">[Cat] Nom : Tom | Categorie : Chat | Prix : 1000 (€)
 [Dog] Nom : Medor | Categorie : Chien | Poids : 20 (kg)</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Patrons de conception"><a class="Link3" href="#">Patrons de conception</a></h1><div class="Body3"><br>Un <b>patron de conception</b> (design pattern) est un arrangement caractéristique de modules, reconnu comme bonne pratique en réponse à un problème de conception d'un logiciel. Il décrit une solution standard, utilisable dans la conception de différents logiciels. Un patron de conception est issu de l'expérience des concepteurs de logiciels. Il décrit un arrangement récurrent de rôles et d'actions joués par des modules d'un logiciel, et le nom du patron sert de vocabulaire commun entre le concepteur et le programmeur. D'une manière analogue à un motif de conception en architecture, le patron de conception décrit les grandes lignes d'une solution, qui peuvent ensuite être modifiées et adaptées en fonction des besoins.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620957910286"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620957910286");</script></div><br><h2 class="Title7 GTitle2" id="Patrons de conception-Créer un patron singleton"><a class="Link9" href="#Patrons de conception">Créer un patron singleton</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include "GDatabase.h"
 //===============================================
