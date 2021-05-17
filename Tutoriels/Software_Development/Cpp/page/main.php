@@ -471,7 +471,7 @@ int main(int argc, char** argv) {
 void rd::sayHello() {
     printf("Bonjour tout le monde\n");
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">Bonjour tout le monde</xmp></pre></div><br><br><br><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programmation orientée objet"><a class="Link3" href="#">Programmation orientée objet</a></h1><div class="Body3"><br>La <b>programmation orientée objet</b> (POO) est un paradigme de programmation informatique qui consiste en la définition et l'interaction de briques logicielles appelées objets ; un objet représente un concept, une idée ou toute entité du monde physique, comme une voiture, une personne ou encore une page d'un livre. Il possède une structure interne et un comportement, et il sait interagir avec ses pairs. Il s'agit donc de représenter ces objets et leurs relations ; l'interaction entre les objets via leurs relations permet de concevoir et réaliser les fonctionnalités attendues, de mieux résoudre le ou les problèmes. Dès lors, l'étape de modélisation revêt une importance majeure et nécessaire pour la POO. C'est elle qui permet de transcrire les éléments du réel sous forme virtuelle. La programmation orientée objet consiste à utiliser des techniques de programmation pour mettre en œuvre une conception basée sur les objets. Celle-ci peut être élaborée en utilisant des méthodologies de développement logiciel objet, dont la plus connue est le processus unifié et exprimée à l'aide de langages de modélisation tels que le Unified Modeling Language (UML).<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620957525148"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620957525148");</script></div><br><h2 class="Title7 GTitle2" id="Programmation orientée objet-Créer une classe"><a class="Link9" href="#Programmation orientée objet">Créer une classe</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">Bonjour tout le monde</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programmation orientée objet"><a class="Link3" href="#">Programmation orientée objet</a></h1><div class="Body3"><br>La <b>programmation orientée objet</b> (POO) est un paradigme de programmation informatique qui consiste en la définition et l'interaction de briques logicielles appelées objets ; un objet représente un concept, une idée ou toute entité du monde physique, comme une voiture, une personne ou encore une page d'un livre. Il possède une structure interne et un comportement, et il sait interagir avec ses pairs. Il s'agit donc de représenter ces objets et leurs relations ; l'interaction entre les objets via leurs relations permet de concevoir et réaliser les fonctionnalités attendues, de mieux résoudre le ou les problèmes. Dès lors, l'étape de modélisation revêt une importance majeure et nécessaire pour la POO. C'est elle qui permet de transcrire les éléments du réel sous forme virtuelle. La programmation orientée objet consiste à utiliser des techniques de programmation pour mettre en œuvre une conception basée sur les objets. Celle-ci peut être élaborée en utilisant des méthodologies de développement logiciel objet, dont la plus connue est le processus unifié et exprimée à l'aide de langages de modélisation tels que le Unified Modeling Language (UML).<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620957525148"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620957525148");</script></div><br><h2 class="Title7 GTitle2" id="Programmation orientée objet-Créer une classe"><a class="Link9" href="#Programmation orientée objet">Créer une classe</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include "GPerson.h"
 //===============================================
 int main(int argc, char** argv) {
@@ -521,7 +521,102 @@ void GPerson::print() {
 }
 //===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">Personne[name] : Gerard KESSE
 Personne[code] : 123456
-Personne[coef] : 3.14</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Patrons de conception"><a class="Link3" href="#">Patrons de conception</a></h1><div class="Body3"><br>Un <b>patron de conception</b> (design pattern) est un arrangement caractéristique de modules, reconnu comme bonne pratique en réponse à un problème de conception d'un logiciel. Il décrit une solution standard, utilisable dans la conception de différents logiciels. Un patron de conception est issu de l'expérience des concepteurs de logiciels. Il décrit un arrangement récurrent de rôles et d'actions joués par des modules d'un logiciel, et le nom du patron sert de vocabulaire commun entre le concepteur et le programmeur. D'une manière analogue à un motif de conception en architecture, le patron de conception décrit les grandes lignes d'une solution, qui peuvent ensuite être modifiées et adaptées en fonction des besoins.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620957910286"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620957910286");</script></div><br><h2 class="Title7 GTitle2" id="Patrons de conception-Créer un patron singleton"><a class="Link9" href="#Patrons de conception">Créer un patron singleton</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+Personne[coef] : 3.14</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Programmation orientée objet-Créer un héritage"><a class="Link9" href="#Programmation orientée objet">Créer un héritage</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GAnimal.h"
+#include "GDog.h"
+//===============================================
+int main(int argc, char** argv) {
+    GAnimal lAnimal("Jerry");
+    lAnimal.setCategory("Chat");
+    lAnimal.print();
+    
+    GDog lDog("Medor", 20);
+    lDog.setCategory("Chien");
+    lDog.print();
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GAnimal.h</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#ifndef _GAnimal_
+#define _GAnimal_
+//===============================================
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+//===============================================
+class GAnimal {
+public:
+    GAnimal(const std::string& name);
+    ~GAnimal();
+
+public:
+    void setCategory(const std::string& category);
+    void print();
+    
+protected:
+    std::string m_name;
+    std::string m_category;
+};
+//===============================================
+#endif
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GAnimal.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GAnimal.h"
+//===============================================
+GAnimal::GAnimal(const std::string& name) {
+    m_name = name;
+}
+//===============================================
+GAnimal::~GAnimal() {
+    
+}
+//===============================================
+void GAnimal::setCategory(const std::string& category) {
+    m_category = category;
+}
+//===============================================
+void GAnimal::print() {
+    printf("[Animal] Nom : %s\n", m_name.c_str());
+    printf("[Animal] Categorie : %s\n", m_category.c_str());
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GDog.h</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#ifndef _GDog_
+#define _GDog_
+//===============================================
+#include "GAnimal.h"
+//===============================================
+class GDog : public GAnimal {
+public:
+    GDog(const std::string& name, int weight);
+    ~GDog();
+
+public:
+    void print();
+    
+private:
+    int m_weight;
+};
+//===============================================
+#endif
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GDog.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GDog.h"
+//===============================================
+GDog::GDog(const std::string& name, int weight) :
+GAnimal(name) {
+    m_weight = weight;
+}
+//===============================================
+GDog::~GDog() {
+    
+}
+//===============================================
+void GDog::print() {
+    printf("[Dog] Nom : %s\n", m_name.c_str());
+    printf("[Dog] Categorie : %s\n", m_category.c_str());
+    printf("[Dog] Poids : %d (kg)\n", m_weight);
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">[Animal] Nom : Jerry
+[Animal] Categorie : Chat
+[Dog] Nom : Medor
+[Dog] Categorie : Chien
+[Dog] Poids : 20 (kg)</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Patrons de conception"><a class="Link3" href="#">Patrons de conception</a></h1><div class="Body3"><br>Un <b>patron de conception</b> (design pattern) est un arrangement caractéristique de modules, reconnu comme bonne pratique en réponse à un problème de conception d'un logiciel. Il décrit une solution standard, utilisable dans la conception de différents logiciels. Un patron de conception est issu de l'expérience des concepteurs de logiciels. Il décrit un arrangement récurrent de rôles et d'actions joués par des modules d'un logiciel, et le nom du patron sert de vocabulaire commun entre le concepteur et le programmeur. D'une manière analogue à un motif de conception en architecture, le patron de conception décrit les grandes lignes d'une solution, qui peuvent ensuite être modifiées et adaptées en fonction des besoins.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620957910286"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620957910286");</script></div><br><h2 class="Title7 GTitle2" id="Patrons de conception-Créer un patron singleton"><a class="Link9" href="#Patrons de conception">Créer un patron singleton</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include "GDatabase.h"
 //===============================================
 int main(int argc, char** argv) {
