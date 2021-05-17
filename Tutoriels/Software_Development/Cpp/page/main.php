@@ -817,7 +817,7 @@ void GDog::print() {
 //===============================================
 class GCat : public GAnimal {
 public:
-    GCat(const std::string& name, int weight);
+    GCat(const std::string& name, int price);
     ~GCat();
 
 public:
@@ -845,7 +845,136 @@ void GCat::print() {
     m_name.c_str(), m_category.c_str(), m_price);
 }
 //===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">[Cat] Nom : Tom | Categorie : Chat | Prix : 1000 (€)
-[Dog] Nom : Medor | Categorie : Chien | Poids : 20 (kg)</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Patrons de conception"><a class="Link3" href="#">Patrons de conception</a></h1><div class="Body3"><br>Un <b>patron de conception</b> (design pattern) est un arrangement caractéristique de modules, reconnu comme bonne pratique en réponse à un problème de conception d'un logiciel. Il décrit une solution standard, utilisable dans la conception de différents logiciels. Un patron de conception est issu de l'expérience des concepteurs de logiciels. Il décrit un arrangement récurrent de rôles et d'actions joués par des modules d'un logiciel, et le nom du patron sert de vocabulaire commun entre le concepteur et le programmeur. D'une manière analogue à un motif de conception en architecture, le patron de conception décrit les grandes lignes d'une solution, qui peuvent ensuite être modifiées et adaptées en fonction des besoins.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620957910286"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620957910286");</script></div><br><h2 class="Title7 GTitle2" id="Patrons de conception-Créer un patron singleton"><a class="Link9" href="#Patrons de conception">Créer un patron singleton</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+[Dog] Nom : Medor | Categorie : Chien | Poids : 20 (kg)</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Programmation orientée objet-Créer une interface"><a class="Link9" href="#Programmation orientée objet">Créer une interface</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GShape.h"
+#include "GRectangle.h"
+#include "GCircle.h"
+//===============================================
+int main(int argc, char** argv) {
+    GShape *lShape, *lShapes[2];
+
+    lShape = new GRectangle(30, 40);
+    lShapes[0] = lShape;
+
+    lShape = new GCircle(20);
+    lShapes[1] = lShape;
+
+    for(int i = 0; i &lt; 2; i++) {
+        lShape = lShapes[i];
+        lShape-&gt;perimeter();
+        lShape-&gt;area();
+        delete lShape;
+    }
+    
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GShape.h</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#ifndef _GShape_
+#define _GShape_
+//===============================================
+#define _USE_MATH_DEFINES
+//===============================================
+#include &lt;iostream&gt;
+#include &lt;cmath&gt;
+//===============================================
+class GShape {
+public:
+    virtual ~GShape() {}
+    virtual void perimeter() const = 0;
+    virtual void area() const = 0;
+};
+//===============================================
+#endif
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GShape.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GShape.h"
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GRectangle.h</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#ifndef _GRectangle_
+#define _GRectangle_
+//===============================================
+#include "GShape.h"
+//===============================================
+class GRectangle : public GShape {
+public:
+    GRectangle(double w, double h);
+    ~GRectangle();
+
+public:
+    void perimeter() const;
+    void area() const;
+    
+private:
+    double m_w;
+    double m_h;
+};
+//===============================================
+#endif
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GRectangle.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GRectangle.h"
+//===============================================
+GRectangle::GRectangle(double w, double h) {
+    m_w = w;
+    m_h = h;
+}
+//===============================================
+GRectangle::~GRectangle() {
+    printf("[Rectangle] on supprime le rectangle (r : %.0f ; w : %.0f)\n", m_w, m_h);
+}
+//===============================================
+void GRectangle::perimeter() const {
+    double lPerimeter = 2 * (m_w + m_h);
+    printf("[Rectangle] Perimetre (w : %.0f, h : %.0f) : %.0f (m)\n", m_w, m_h, lPerimeter);
+}
+//===============================================
+void GRectangle::area() const {
+    double lArea = m_w * m_h;
+    printf("[Rectangle] Aire (w : %.0f, h : %.0f) : %.0f (m2)\n", m_w, m_h, lArea);
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GCircle.h</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#ifndef _GCircle_
+#define _GCircle_
+//===============================================
+#include "GShape.h"
+//===============================================
+class GCircle : public GShape {
+public:
+    GCircle(double r);
+    ~GCircle();
+
+public:
+    void perimeter() const;
+    void area() const;
+    
+private:
+    double m_r;
+};
+//===============================================
+#endif
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GCircle.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GCircle.h"
+//===============================================
+GCircle::GCircle(double r) {
+    m_r = r;
+}
+//===============================================
+GCircle::~GCircle() {
+    printf("[Circle] on supprime le cercle (r : %.0f)\n", m_r);
+}
+//===============================================
+void GCircle::perimeter() const {
+    double lPerimeter = 2 * M_PI * m_r;
+    printf("[Circle] Perimetre (r : %.0f) : %.0f (m)\n", m_r, lPerimeter);
+}
+//===============================================
+void GCircle::area() const {
+    double lArea = M_PI * m_r * m_r;
+    printf("[Circle] Aire (r : %.0f) : %.0f (m2)\n", m_r, lArea);
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">[Rectangle] Perimetre (w : 30, h : 40) : 140 (m)
+[Rectangle] Aire (w : 30, h : 40) : 1200 (m2)
+[Rectangle] on supprime le rectangle (r : 30 ; w : 40)
+[Circle] Perimetre (r : 20) : 126 (m)
+[Circle] Aire (r : 20) : 1257 (m2)
+[Circle] on supprime le cercle (r : 20)</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Patrons de conception"><a class="Link3" href="#">Patrons de conception</a></h1><div class="Body3"><br>Un <b>patron de conception</b> (design pattern) est un arrangement caractéristique de modules, reconnu comme bonne pratique en réponse à un problème de conception d'un logiciel. Il décrit une solution standard, utilisable dans la conception de différents logiciels. Un patron de conception est issu de l'expérience des concepteurs de logiciels. Il décrit un arrangement récurrent de rôles et d'actions joués par des modules d'un logiciel, et le nom du patron sert de vocabulaire commun entre le concepteur et le programmeur. D'une manière analogue à un motif de conception en architecture, le patron de conception décrit les grandes lignes d'une solution, qui peuvent ensuite être modifiées et adaptées en fonction des besoins.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620957910286"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620957910286");</script></div><br><h2 class="Title7 GTitle2" id="Patrons de conception-Créer un patron singleton"><a class="Link9" href="#Patrons de conception">Créer un patron singleton</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include "GDatabase.h"
 //===============================================
 int main(int argc, char** argv) {
