@@ -303,7 +303,130 @@ int main(int argc, char** argv) {
 //===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">initialiser le systeme
 afficher la liste des methodes
 choisir une methode
-executer la methode</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programmation orientée objet"><a class="Link3" href="#">Programmation orientée objet</a></h1><div class="Body3"><br>La <b>programmation orientée objet</b> (POO) est un paradigme de programmation informatique qui consiste en la définition et l'interaction de briques logicielles appelées objets ; un objet représente un concept, une idée ou toute entité du monde physique, comme une voiture, une personne ou encore une page d'un livre. Il possède une structure interne et un comportement, et il sait interagir avec ses pairs. Il s'agit donc de représenter ces objets et leurs relations ; l'interaction entre les objets via leurs relations permet de concevoir et réaliser les fonctionnalités attendues, de mieux résoudre le ou les problèmes. Dès lors, l'étape de modélisation revêt une importance majeure et nécessaire pour la POO. C'est elle qui permet de transcrire les éléments du réel sous forme virtuelle. La programmation orientée objet consiste à utiliser des techniques de programmation pour mettre en œuvre une conception basée sur les objets. Celle-ci peut être élaborée en utilisant des méthodologies de développement logiciel objet, dont la plus connue est le processus unifié et exprimée à l'aide de langages de modélisation tels que le Unified Modeling Language (UML).<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620957525148"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620957525148");</script></div><br><h2 class="Title7 GTitle2" id="Programmation orientée objet-Créer une classe"><a class="Link9" href="#Programmation orientée objet">Créer une classe</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+executer la methode</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Créer une surchage de fonctions"><a class="Link9" href="#Fondamentaux">Créer une surchage de fonctions</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;iostream&gt;
+//===============================================
+void sayHello();
+void sayHello(const std::string& name);
+//===============================================
+int main(int argc, char** argv) {
+    sayHello();
+    sayHello("Gerard KESEE");
+    return 0;
+}
+//===============================================
+void sayHello() {
+    printf("Bonjour tout le monde\n");
+}
+//===============================================
+void sayHello(const std::string& name) {
+    std::cout &lt;&lt; "Bonjour " &lt;&lt; name &lt;&lt; "\n";
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">Bonjour tout le monde
+Bonjour Gerard KESEE</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Créer une allocation mémoire dynamique"><a class="Link9" href="#Fondamentaux">Créer une allocation mémoire dynamique</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;iostream&gt;
+//===============================================
+int main(int argc, char** argv) {
+    int* lData = new int;
+    *lData = 1000;
+    printf("Donnee : %d\n", *lData);
+    delete lData;
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">Donnee : 1000</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Créer un tableau d'allocation mémoire dynamique"><a class="Link9" href="#Fondamentaux">Créer un tableau d'allocation mémoire dynamique</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;iostream&gt;
+//===============================================
+int main(int argc, char** argv) {
+    int lSize = 10;
+    int* lData = new int[lSize];
+    
+    for(int i = 0; i &lt; lSize; i++) {
+        lData[i] = i*i;
+    }
+    
+    for(int i = 0; i &lt; lSize; i++) {
+        printf("Donnee[%d] : %d\n", i, lData[i]);
+    }
+    
+    delete[] lData;
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">Donnee[0] : 0
+Donnee[1] : 1
+Donnee[2] : 4
+Donnee[3] : 9
+Donnee[4] : 16
+Donnee[5] : 25
+Donnee[6] : 36
+Donnee[7] : 49
+Donnee[8] : 64
+Donnee[9] : 81</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Créer une fonction inline automatique"><a class="Link9" href="#Fondamentaux">Créer une fonction inline automatique</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GHello.h"
+//===============================================
+int main(int argc, char** argv) {
+    GHello lHello;
+    lHello.sayHello();
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GHello.h</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#ifndef _GHello_
+#define _GHello_
+//===============================================
+#include &lt;iostream&gt;
+//===============================================
+class GHello {
+public:
+    GHello() {}
+    ~GHello() {}
+    
+public:
+    void sayHello() {
+        printf("Bonjour tout le monde\n");
+    }
+};
+//===============================================
+#endif
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GHello.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GHello.h"
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">Bonjour tout le monde</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Créer une fonction inline externe"><a class="Link9" href="#Fondamentaux">Créer une fonction inline externe</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GHello.h"
+//===============================================
+int main(int argc, char** argv) {
+    GHello lHello;
+    lHello.sayHello();
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GHello.h</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#ifndef _GHello_
+#define _GHello_
+//===============================================
+#include &lt;iostream&gt;
+//===============================================
+class GHello {
+public:
+    GHello();
+    ~GHello();
+    
+public:
+    void sayHello();
+};
+//===============================================
+inline GHello::GHello() {
+
+}
+//===============================================
+inline GHello::~GHello() {
+
+}
+//===============================================
+inline void GHello::sayHello() {
+    printf("Bonjour tout le monde\n");
+}
+//===============================================
+#endif
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GHello.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GHello.h"
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">Bonjour tout le monde</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programmation orientée objet"><a class="Link3" href="#">Programmation orientée objet</a></h1><div class="Body3"><br>La <b>programmation orientée objet</b> (POO) est un paradigme de programmation informatique qui consiste en la définition et l'interaction de briques logicielles appelées objets ; un objet représente un concept, une idée ou toute entité du monde physique, comme une voiture, une personne ou encore une page d'un livre. Il possède une structure interne et un comportement, et il sait interagir avec ses pairs. Il s'agit donc de représenter ces objets et leurs relations ; l'interaction entre les objets via leurs relations permet de concevoir et réaliser les fonctionnalités attendues, de mieux résoudre le ou les problèmes. Dès lors, l'étape de modélisation revêt une importance majeure et nécessaire pour la POO. C'est elle qui permet de transcrire les éléments du réel sous forme virtuelle. La programmation orientée objet consiste à utiliser des techniques de programmation pour mettre en œuvre une conception basée sur les objets. Celle-ci peut être élaborée en utilisant des méthodologies de développement logiciel objet, dont la plus connue est le processus unifié et exprimée à l'aide de langages de modélisation tels que le Unified Modeling Language (UML).<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620957525148"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620957525148");</script></div><br><h2 class="Title7 GTitle2" id="Programmation orientée objet-Créer une classe"><a class="Link9" href="#Programmation orientée objet">Créer une classe</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include "GPerson.h"
 //===============================================
 int main(int argc, char** argv) {
