@@ -491,7 +491,209 @@ template &lt;typename T&gt; T min(const T &x, const T &y) {
 }
 //===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">min&lt;double&gt;(20.5, 50.5) : 20.5
 min&lt;int&gt;(40, 30) : 30
-min&lt;std::string&gt;("bonjour", "bonbon") : bonbon</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programmation orientée objet"><a class="Link3" href="#">Programmation orientée objet</a></h1><div class="Body3"><br>La <b>programmation orientée objet</b> (POO) est un paradigme de programmation informatique qui consiste en la définition et l'interaction de briques logicielles appelées objets ; un objet représente un concept, une idée ou toute entité du monde physique, comme une voiture, une personne ou encore une page d'un livre. Il possède une structure interne et un comportement, et il sait interagir avec ses pairs. Il s'agit donc de représenter ces objets et leurs relations ; l'interaction entre les objets via leurs relations permet de concevoir et réaliser les fonctionnalités attendues, de mieux résoudre le ou les problèmes. Dès lors, l'étape de modélisation revêt une importance majeure et nécessaire pour la POO. C'est elle qui permet de transcrire les éléments du réel sous forme virtuelle. La programmation orientée objet consiste à utiliser des techniques de programmation pour mettre en œuvre une conception basée sur les objets. Celle-ci peut être élaborée en utilisant des méthodologies de développement logiciel objet, dont la plus connue est le processus unifié et exprimée à l'aide de langages de modélisation tels que le Unified Modeling Language (UML).<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620957525148"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620957525148");</script></div><br><h2 class="Title7 GTitle2" id="Programmation orientée objet-Créer une classe"><a class="Link9" href="#Programmation orientée objet">Créer une classe</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+min&lt;std::string&gt;("bonjour", "bonbon") : bonbon</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Créer un template de classe"><a class="Link9" href="#Fondamentaux">Créer un template de classe</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GRectangle.h"
+//===============================================
+int main(int argc, char** argv) {
+    GRectangle&lt;int&gt; lRect(-1, 2, -2, 2);
+    printf("Rectangle (-1, 2, -2, 2) : width : %d\n", lRect.width());
+    printf("Rectangle (-1, 2, -2, 2) : height : %d\n", lRect.height());
+    printf("Rectangle (-1, 2, -2, 2) : perimeter : %d\n", lRect.perimeter());
+    printf("Rectangle (-1, 2, -2, 2) : area : %d\n", lRect.area());
+    printf("Rectangle (-1, 2, -2, 2) : area : %d\n", lRect.area());
+    printf("Rectangle (-1, 2, -2, 2) : contain (0,-1) : %d\n", lRect.contain(0, -1));
+    printf("Rectangle (-1, 2, -2, 2) : contain (0,-3) : %d\n", lRect.contain(0, -3));
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GRectangle.h</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#ifndef _GRectangle_
+#define _GRectangle_
+//===============================================
+#include &lt;iostream&gt;
+//===============================================
+template &lt;typename T&gt; 
+class GRectangle {
+public:
+    GRectangle(const T& x1, const T& x2, const T& y1, const T& y2);
+    ~GRectangle();
+
+public:
+    T width() const;
+    T height() const;
+    bool contain(const T& x, const T& y) const;
+    T perimeter() const;
+    T area() const;
+    
+private:
+    T m_x1;
+    T m_x2;
+    T m_y1;
+    T m_y2;
+};
+//===============================================
+#endif
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GRectangle.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GRectangle.h"
+//===============================================
+template &lt;typename T&gt;
+GRectangle&lt;T&gt;::GRectangle(const T& x1, const T& x2, const T& y1, const T& y2) {
+    m_x1 = x1;
+    m_x2 = x2;
+    m_y1 = y1;
+    m_y2 = y2;
+    T lTmp;
+    if(m_x1 &gt; m_x2) {lTmp = m_x1; m_x1 = m_x2; m_x2 = lTmp;}
+    if(m_y1 &gt; m_y2) {lTmp = m_y1; m_y1 = m_y2; m_y2 = lTmp;}
+}
+//===============================================
+template &lt;typename T&gt;
+GRectangle&lt;T&gt;::~GRectangle() {
+
+}
+//===============================================
+template &lt;typename T&gt;
+T GRectangle&lt;T&gt;::width() const {
+    T lWidth = m_x2 - m_x1;
+    return lWidth;
+}
+//===============================================
+template &lt;typename T&gt;
+T GRectangle&lt;T&gt;::height() const {
+    T lHeight = m_y2 - m_y1;
+    return lHeight;
+}
+//===============================================
+template &lt;typename T&gt;
+bool GRectangle&lt;T&gt;::contain(const T& x, const T& y) const {
+    if(x &lt; m_x1 || x &gt; m_x2) {return 0;}
+    if(y &lt; m_y1 || y &gt; m_y2) {return 0;}
+    return 1;
+}
+//===============================================
+template &lt;typename T&gt;
+T GRectangle&lt;T&gt;::perimeter() const {
+    T lWidth = width();
+    T lHeight = height();
+    T lPerimeter = 2 * (lWidth + lHeight);
+    return lPerimeter;
+}
+//===============================================
+template &lt;typename T&gt;
+T GRectangle&lt;T&gt;::area() const {
+    T lWidth = width();
+    T lHeight = height();
+    T lArea = lWidth * lHeight;
+    return lArea;
+}
+//===============================================
+template class GRectangle&lt;int&gt;;
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">Rectangle (-1, 2, -2, 2) : width : 3
+Rectangle (-1, 2, -2, 2) : height : 4
+Rectangle (-1, 2, -2, 2) : perimeter : 14
+Rectangle (-1, 2, -2, 2) : area : 12
+Rectangle (-1, 2, -2, 2) : area : 12
+Rectangle (-1, 2, -2, 2) : contain (0,-1) : 1
+Rectangle (-1, 2, -2, 2) : contain (0,-3) : 0</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Créer un template de classe (header)"><a class="Link9" href="#Fondamentaux">Créer un template de classe (header)</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GRectangle.h"
+//===============================================
+int main(int argc, char** argv) {
+    GRectangle&lt;double&gt; lRect(-1, 2, -2, 2);
+    printf("Rectangle (-1, 2, -2, 2) : width : %.2f\n", lRect.width());
+    printf("Rectangle (-1, 2, -2, 2) : height : %.2f\n", lRect.height());
+    printf("Rectangle (-1, 2, -2, 2) : perimeter : %.2f\n", lRect.perimeter());
+    printf("Rectangle (-1, 2, -2, 2) : area : %.2f\n", lRect.area());
+    printf("Rectangle (-1, 2, -2, 2) : area : %.2f\n", lRect.area());
+    printf("Rectangle (-1, 2, -2, 2) : contain (0,-1) : %d\n", lRect.contain(0, -1));
+    printf("Rectangle (-1, 2, -2, 2) : contain (0,-3) : %d\n", lRect.contain(0, -3));
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GRectangle.h</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#ifndef _GRectangle_
+#define _GRectangle_
+//===============================================
+#include &lt;iostream&gt;
+//===============================================
+template &lt;typename T&gt; 
+class GRectangle {
+public:
+    GRectangle(const T& x1, const T& x2, const T& y1, const T& y2);
+    ~GRectangle();
+
+public:
+    T width() const;
+    T height() const;
+    bool contain(const T& x, const T& y) const;
+    T perimeter() const;
+    T area() const;
+    
+private:
+    T m_x1;
+    T m_x2;
+    T m_y1;
+    T m_y2;
+};
+//===============================================
+template &lt;typename T&gt;
+GRectangle&lt;T&gt;::GRectangle(const T& x1, const T& x2, const T& y1, const T& y2) {
+    m_x1 = x1;
+    m_x2 = x2;
+    m_y1 = y1;
+    m_y2 = y2;
+    T lTmp;
+    if(m_x1 &gt; m_x2) {lTmp = m_x1; m_x1 = m_x2; m_x2 = lTmp;}
+    if(m_y1 &gt; m_y2) {lTmp = m_y1; m_y1 = m_y2; m_y2 = lTmp;}
+}
+//===============================================
+template &lt;typename T&gt;
+GRectangle&lt;T&gt;::~GRectangle() {
+
+}
+//===============================================
+template &lt;typename T&gt;
+T GRectangle&lt;T&gt;::width() const {
+    T lWidth = m_x2 - m_x1;
+    return lWidth;
+}
+//===============================================
+template &lt;typename T&gt;
+T GRectangle&lt;T&gt;::height() const {
+    T lHeight = m_y2 - m_y1;
+    return lHeight;
+}
+//===============================================
+template &lt;typename T&gt;
+bool GRectangle&lt;T&gt;::contain(const T& x, const T& y) const {
+    if(x &lt; m_x1 || x &gt; m_x2) {return 0;}
+    if(y &lt; m_y1 || y &gt; m_y2) {return 0;}
+    return 1;
+}
+//===============================================
+template &lt;typename T&gt;
+T GRectangle&lt;T&gt;::perimeter() const {
+    T lWidth = width();
+    T lHeight = height();
+    T lPerimeter = 2 * (lWidth + lHeight);
+    return lPerimeter;
+}
+//===============================================
+template &lt;typename T&gt;
+T GRectangle&lt;T&gt;::area() const {
+    T lWidth = width();
+    T lHeight = height();
+    T lArea = lWidth * lHeight;
+    return lArea;
+}
+//===============================================
+#endif
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GRectangle.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GRectangle.h"
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">Rectangle (-1, 2, -2, 2) : width : 3.00
+Rectangle (-1, 2, -2, 2) : height : 4.00
+Rectangle (-1, 2, -2, 2) : perimeter : 14.00
+Rectangle (-1, 2, -2, 2) : area : 12.00
+Rectangle (-1, 2, -2, 2) : area : 12.00
+Rectangle (-1, 2, -2, 2) : contain (0,-1) : 1
+Rectangle (-1, 2, -2, 2) : contain (0,-3) : 0</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programmation orientée objet"><a class="Link3" href="#">Programmation orientée objet</a></h1><div class="Body3"><br>La <b>programmation orientée objet</b> (POO) est un paradigme de programmation informatique qui consiste en la définition et l'interaction de briques logicielles appelées objets ; un objet représente un concept, une idée ou toute entité du monde physique, comme une voiture, une personne ou encore une page d'un livre. Il possède une structure interne et un comportement, et il sait interagir avec ses pairs. Il s'agit donc de représenter ces objets et leurs relations ; l'interaction entre les objets via leurs relations permet de concevoir et réaliser les fonctionnalités attendues, de mieux résoudre le ou les problèmes. Dès lors, l'étape de modélisation revêt une importance majeure et nécessaire pour la POO. C'est elle qui permet de transcrire les éléments du réel sous forme virtuelle. La programmation orientée objet consiste à utiliser des techniques de programmation pour mettre en œuvre une conception basée sur les objets. Celle-ci peut être élaborée en utilisant des méthodologies de développement logiciel objet, dont la plus connue est le processus unifié et exprimée à l'aide de langages de modélisation tels que le Unified Modeling Language (UML).<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620957525148"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620957525148");</script></div><br><h2 class="Title7 GTitle2" id="Programmation orientée objet-Créer une classe"><a class="Link9" href="#Programmation orientée objet">Créer une classe</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include "GPerson.h"
 //===============================================
 int main(int argc, char** argv) {
@@ -994,209 +1196,7 @@ void GCircle::area() const {
 [Rectangle] on supprime le rectangle (r : 30 ; w : 40)
 [Circle] Perimetre (r : 20) : 126 (m)
 [Circle] Aire (r : 20) : 1257 (m2)
-[Circle] on supprime le cercle (r : 20)</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Programmation orientée objet-Créer un template de classe"><a class="Link9" href="#Programmation orientée objet">Créer un template de classe</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-#include "GRectangle.h"
-//===============================================
-int main(int argc, char** argv) {
-    GRectangle&lt;int&gt; lRect(-1, 2, -2, 2);
-    printf("Rectangle (-1, 2, -2, 2) : width : %d\n", lRect.width());
-    printf("Rectangle (-1, 2, -2, 2) : height : %d\n", lRect.height());
-    printf("Rectangle (-1, 2, -2, 2) : perimeter : %d\n", lRect.perimeter());
-    printf("Rectangle (-1, 2, -2, 2) : area : %d\n", lRect.area());
-    printf("Rectangle (-1, 2, -2, 2) : area : %d\n", lRect.area());
-    printf("Rectangle (-1, 2, -2, 2) : contain (0,-1) : %d\n", lRect.contain(0, -1));
-    printf("Rectangle (-1, 2, -2, 2) : contain (0,-3) : %d\n", lRect.contain(0, -3));
-    return 0;
-}
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GRectangle.h</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-#ifndef _GRectangle_
-#define _GRectangle_
-//===============================================
-#include &lt;iostream&gt;
-//===============================================
-template &lt;typename T&gt; 
-class GRectangle {
-public:
-    GRectangle(const T& x1, const T& x2, const T& y1, const T& y2);
-    ~GRectangle();
-
-public:
-    T width() const;
-    T height() const;
-    bool contain(const T& x, const T& y) const;
-    T perimeter() const;
-    T area() const;
-    
-private:
-    T m_x1;
-    T m_x2;
-    T m_y1;
-    T m_y2;
-};
-//===============================================
-#endif
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GRectangle.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-#include "GRectangle.h"
-//===============================================
-template &lt;typename T&gt;
-GRectangle&lt;T&gt;::GRectangle(const T& x1, const T& x2, const T& y1, const T& y2) {
-    m_x1 = x1;
-    m_x2 = x2;
-    m_y1 = y1;
-    m_y2 = y2;
-    T lTmp;
-    if(m_x1 &gt; m_x2) {lTmp = m_x1; m_x1 = m_x2; m_x2 = lTmp;}
-    if(m_y1 &gt; m_y2) {lTmp = m_y1; m_y1 = m_y2; m_y2 = lTmp;}
-}
-//===============================================
-template &lt;typename T&gt;
-GRectangle&lt;T&gt;::~GRectangle() {
-
-}
-//===============================================
-template &lt;typename T&gt;
-T GRectangle&lt;T&gt;::width() const {
-    T lWidth = m_x2 - m_x1;
-    return lWidth;
-}
-//===============================================
-template &lt;typename T&gt;
-T GRectangle&lt;T&gt;::height() const {
-    T lHeight = m_y2 - m_y1;
-    return lHeight;
-}
-//===============================================
-template &lt;typename T&gt;
-bool GRectangle&lt;T&gt;::contain(const T& x, const T& y) const {
-    if(x &lt; m_x1 || x &gt; m_x2) {return 0;}
-    if(y &lt; m_y1 || y &gt; m_y2) {return 0;}
-    return 1;
-}
-//===============================================
-template &lt;typename T&gt;
-T GRectangle&lt;T&gt;::perimeter() const {
-    T lWidth = width();
-    T lHeight = height();
-    T lPerimeter = 2 * (lWidth + lHeight);
-    return lPerimeter;
-}
-//===============================================
-template &lt;typename T&gt;
-T GRectangle&lt;T&gt;::area() const {
-    T lWidth = width();
-    T lHeight = height();
-    T lArea = lWidth * lHeight;
-    return lArea;
-}
-//===============================================
-template class GRectangle&lt;int&gt;;
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">Rectangle (-1, 2, -2, 2) : width : 3
-Rectangle (-1, 2, -2, 2) : height : 4
-Rectangle (-1, 2, -2, 2) : perimeter : 14
-Rectangle (-1, 2, -2, 2) : area : 12
-Rectangle (-1, 2, -2, 2) : area : 12
-Rectangle (-1, 2, -2, 2) : contain (0,-1) : 1
-Rectangle (-1, 2, -2, 2) : contain (0,-3) : 0</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Programmation orientée objet-Créer un template de classe (header)"><a class="Link9" href="#Programmation orientée objet">Créer un template de classe (header)</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-#include "GRectangle.h"
-//===============================================
-int main(int argc, char** argv) {
-    GRectangle&lt;double&gt; lRect(-1, 2, -2, 2);
-    printf("Rectangle (-1, 2, -2, 2) : width : %.2f\n", lRect.width());
-    printf("Rectangle (-1, 2, -2, 2) : height : %.2f\n", lRect.height());
-    printf("Rectangle (-1, 2, -2, 2) : perimeter : %.2f\n", lRect.perimeter());
-    printf("Rectangle (-1, 2, -2, 2) : area : %.2f\n", lRect.area());
-    printf("Rectangle (-1, 2, -2, 2) : area : %.2f\n", lRect.area());
-    printf("Rectangle (-1, 2, -2, 2) : contain (0,-1) : %d\n", lRect.contain(0, -1));
-    printf("Rectangle (-1, 2, -2, 2) : contain (0,-3) : %d\n", lRect.contain(0, -3));
-    return 0;
-}
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GRectangle.h</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-#ifndef _GRectangle_
-#define _GRectangle_
-//===============================================
-#include &lt;iostream&gt;
-//===============================================
-template &lt;typename T&gt; 
-class GRectangle {
-public:
-    GRectangle(const T& x1, const T& x2, const T& y1, const T& y2);
-    ~GRectangle();
-
-public:
-    T width() const;
-    T height() const;
-    bool contain(const T& x, const T& y) const;
-    T perimeter() const;
-    T area() const;
-    
-private:
-    T m_x1;
-    T m_x2;
-    T m_y1;
-    T m_y2;
-};
-//===============================================
-template &lt;typename T&gt;
-GRectangle&lt;T&gt;::GRectangle(const T& x1, const T& x2, const T& y1, const T& y2) {
-    m_x1 = x1;
-    m_x2 = x2;
-    m_y1 = y1;
-    m_y2 = y2;
-    T lTmp;
-    if(m_x1 &gt; m_x2) {lTmp = m_x1; m_x1 = m_x2; m_x2 = lTmp;}
-    if(m_y1 &gt; m_y2) {lTmp = m_y1; m_y1 = m_y2; m_y2 = lTmp;}
-}
-//===============================================
-template &lt;typename T&gt;
-GRectangle&lt;T&gt;::~GRectangle() {
-
-}
-//===============================================
-template &lt;typename T&gt;
-T GRectangle&lt;T&gt;::width() const {
-    T lWidth = m_x2 - m_x1;
-    return lWidth;
-}
-//===============================================
-template &lt;typename T&gt;
-T GRectangle&lt;T&gt;::height() const {
-    T lHeight = m_y2 - m_y1;
-    return lHeight;
-}
-//===============================================
-template &lt;typename T&gt;
-bool GRectangle&lt;T&gt;::contain(const T& x, const T& y) const {
-    if(x &lt; m_x1 || x &gt; m_x2) {return 0;}
-    if(y &lt; m_y1 || y &gt; m_y2) {return 0;}
-    return 1;
-}
-//===============================================
-template &lt;typename T&gt;
-T GRectangle&lt;T&gt;::perimeter() const {
-    T lWidth = width();
-    T lHeight = height();
-    T lPerimeter = 2 * (lWidth + lHeight);
-    return lPerimeter;
-}
-//===============================================
-template &lt;typename T&gt;
-T GRectangle&lt;T&gt;::area() const {
-    T lWidth = width();
-    T lHeight = height();
-    T lArea = lWidth * lHeight;
-    return lArea;
-}
-//===============================================
-#endif
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GRectangle.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
-#include "GRectangle.h"
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">Rectangle (-1, 2, -2, 2) : width : 3.00
-Rectangle (-1, 2, -2, 2) : height : 4.00
-Rectangle (-1, 2, -2, 2) : perimeter : 14.00
-Rectangle (-1, 2, -2, 2) : area : 12.00
-Rectangle (-1, 2, -2, 2) : area : 12.00
-Rectangle (-1, 2, -2, 2) : contain (0,-1) : 1
-Rectangle (-1, 2, -2, 2) : contain (0,-3) : 0</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Patrons de conception"><a class="Link3" href="#">Patrons de conception</a></h1><div class="Body3"><br>Un <b>patron de conception</b> (design pattern) est un arrangement caractéristique de modules, reconnu comme bonne pratique en réponse à un problème de conception d'un logiciel. Il décrit une solution standard, utilisable dans la conception de différents logiciels. Un patron de conception est issu de l'expérience des concepteurs de logiciels. Il décrit un arrangement récurrent de rôles et d'actions joués par des modules d'un logiciel, et le nom du patron sert de vocabulaire commun entre le concepteur et le programmeur. D'une manière analogue à un motif de conception en architecture, le patron de conception décrit les grandes lignes d'une solution, qui peuvent ensuite être modifiées et adaptées en fonction des besoins.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620957910286"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620957910286");</script></div><br><h2 class="Title7 GTitle2" id="Patrons de conception-Créer un patron singleton"><a class="Link9" href="#Patrons de conception">Créer un patron singleton</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+[Circle] on supprime le cercle (r : 20)</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Patrons de conception"><a class="Link3" href="#">Patrons de conception</a></h1><div class="Body3"><br>Un <b>patron de conception</b> (design pattern) est un arrangement caractéristique de modules, reconnu comme bonne pratique en réponse à un problème de conception d'un logiciel. Il décrit une solution standard, utilisable dans la conception de différents logiciels. Un patron de conception est issu de l'expérience des concepteurs de logiciels. Il décrit un arrangement récurrent de rôles et d'actions joués par des modules d'un logiciel, et le nom du patron sert de vocabulaire commun entre le concepteur et le programmeur. D'une manière analogue à un motif de conception en architecture, le patron de conception décrit les grandes lignes d'une solution, qui peuvent ensuite être modifiées et adaptées en fonction des besoins.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620957910286"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620957910286");</script></div><br><h2 class="Title7 GTitle2" id="Patrons de conception-Créer un patron singleton"><a class="Link9" href="#Patrons de conception">Créer un patron singleton</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include "GDatabase.h"
 //===============================================
 int main(int argc, char** argv) {
