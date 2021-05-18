@@ -693,7 +693,95 @@ Rectangle (-1, 2, -2, 2) : perimeter : 14.00
 Rectangle (-1, 2, -2, 2) : area : 12.00
 Rectangle (-1, 2, -2, 2) : area : 12.00
 Rectangle (-1, 2, -2, 2) : contain (0,-1) : 1
-Rectangle (-1, 2, -2, 2) : contain (0,-3) : 0</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programmation orientée objet"><a class="Link3" href="#">Programmation orientée objet</a></h1><div class="Body3"><br>La <b>programmation orientée objet</b> (POO) est un paradigme de programmation informatique qui consiste en la définition et l'interaction de briques logicielles appelées objets ; un objet représente un concept, une idée ou toute entité du monde physique, comme une voiture, une personne ou encore une page d'un livre. Il possède une structure interne et un comportement, et il sait interagir avec ses pairs. Il s'agit donc de représenter ces objets et leurs relations ; l'interaction entre les objets via leurs relations permet de concevoir et réaliser les fonctionnalités attendues, de mieux résoudre le ou les problèmes. Dès lors, l'étape de modélisation revêt une importance majeure et nécessaire pour la POO. C'est elle qui permet de transcrire les éléments du réel sous forme virtuelle. La programmation orientée objet consiste à utiliser des techniques de programmation pour mettre en œuvre une conception basée sur les objets. Celle-ci peut être élaborée en utilisant des méthodologies de développement logiciel objet, dont la plus connue est le processus unifié et exprimée à l'aide de langages de modélisation tels que le Unified Modeling Language (UML).<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620957525148"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620957525148");</script></div><br><h2 class="Title7 GTitle2" id="Programmation orientée objet-Créer une classe"><a class="Link9" href="#Programmation orientée objet">Créer une classe</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+Rectangle (-1, 2, -2, 2) : contain (0,-3) : 0</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Créer une exception"><a class="Link9" href="#Fondamentaux">Créer une exception</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;iostream&gt;
+//===============================================
+double divide(double a, double b);
+//===============================================
+int main(int argc, char** argv) {
+    try {
+        printf("divide (22, 7) : %.2f\n", divide(22, 7));
+        printf("divide (33, 8) : %.2f\n", divide(33, 8));
+        printf("divide (44, 0) : %.2f\n", divide(44, 0));
+    }
+    catch(const std::string& e) {
+        std::cerr &lt;&lt; e &lt;&lt; "\n";
+    }
+    return 0;
+}
+//===============================================
+double divide(double a, double b) {
+    if(b == 0) {
+        throw std::string("[erreur] division par zero");
+    }
+    return a/b;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">divide (22, 7) : 3.14
+divide (33, 8) : 4.12
+[erreur] division par zero</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Créer une exception de classe"><a class="Link9" href="#Fondamentaux">Créer une exception de classe</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GError.h"
+//===============================================
+double divide(double a, double b);
+//===============================================
+int main(int argc, char** argv) {
+    try {
+        printf("divide (22, 7) : %.2f\n", divide(22, 7));
+        printf("divide (33, 8) : %.2f\n", divide(33, 8));
+        printf("divide (44, 0) : %.2f\n", divide(44, 0));
+    }
+    catch(const std::exception& e) {
+        std::cerr &lt;&lt; e.what() &lt;&lt; "\n";
+    }
+    return 0;
+}
+//===============================================
+double divide(double a, double b) {
+    if(b == 0) {
+        throw GError(1, "[erreur] division par zero", 2);
+    }
+    return a/b;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GError.h</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#ifndef _GError_
+#define _GError_
+//===============================================
+#include &lt;iostream&gt;
+#include &lt;exception&gt;
+//===============================================
+class GError : public std::exception {
+public:
+    GError(int num, const std::string& msg, int level) throw();
+    ~GError() throw();
+
+public:
+    const char* what() const throw();
+
+private:
+    int m_num;
+    std::string m_msg;
+    int m_level;
+};
+//===============================================
+#endif
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GError.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GError.h"
+//===============================================
+GError::GError(int num, const std::string& msg, int level) throw() {
+    m_num = num;
+    m_msg = msg;
+    m_level = level;
+}
+//===============================================
+GError::~GError() throw() {
+    
+}
+//===============================================
+const char* GError::what() const throw() {
+    return m_msg.c_str();
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">divide (22, 7) : 3.14
+divide (33, 8) : 4.12
+[erreur] division par zero</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programmation orientée objet"><a class="Link3" href="#">Programmation orientée objet</a></h1><div class="Body3"><br>La <b>programmation orientée objet</b> (POO) est un paradigme de programmation informatique qui consiste en la définition et l'interaction de briques logicielles appelées objets ; un objet représente un concept, une idée ou toute entité du monde physique, comme une voiture, une personne ou encore une page d'un livre. Il possède une structure interne et un comportement, et il sait interagir avec ses pairs. Il s'agit donc de représenter ces objets et leurs relations ; l'interaction entre les objets via leurs relations permet de concevoir et réaliser les fonctionnalités attendues, de mieux résoudre le ou les problèmes. Dès lors, l'étape de modélisation revêt une importance majeure et nécessaire pour la POO. C'est elle qui permet de transcrire les éléments du réel sous forme virtuelle. La programmation orientée objet consiste à utiliser des techniques de programmation pour mettre en œuvre une conception basée sur les objets. Celle-ci peut être élaborée en utilisant des méthodologies de développement logiciel objet, dont la plus connue est le processus unifié et exprimée à l'aide de langages de modélisation tels que le Unified Modeling Language (UML).<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620957525148"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620957525148");</script></div><br><h2 class="Title7 GTitle2" id="Programmation orientée objet-Créer une classe"><a class="Link9" href="#Programmation orientée objet">Créer une classe</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include "GPerson.h"
 //===============================================
 int main(int argc, char** argv) {
@@ -2134,4 +2222,4 @@ int main(int argc, char** argv) {
     gsl_odeiv2_driver_free (d);
     return app.exec();
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_ode_2.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_ode_2.png"></div><br></div></div></div></div><br>
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_ode_2.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_ode_2.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Notes et références"><a class="Link3" href="#">Notes et références</a></h1><div class="Body3"><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://cs.stanford.edu/people/eroberts/courses/cs106b/materials/cppdoc/">https://cs.stanford.edu/people/eroberts/courses/cs106b/materials/cppdoc/</a><br><br></div></div></div></div><br>
