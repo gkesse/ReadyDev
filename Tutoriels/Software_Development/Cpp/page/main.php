@@ -1268,7 +1268,7 @@ void GDatabase::save() {
 //===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">ouvrir la base de donnees
 charger les donnees
 mettre a jour les donnees
-sauvegarder les donnees</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Patrons de conception-Créer un manager de données"><a class="Link9" href="#Patrons de conception">Créer un manager de données</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+sauvegarder les donnees</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Créer un manager de données"><a class="Link3" href="#">Créer un manager de données</a></h1><div class="Body3"><br>Le <b>manager de données</b> que nous présentons ici est une architecture logicielle permettant d'accéder à toutes les données de notre application.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1621364608073"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1621364608073");</script></div><br><h2 class="Title7 GTitle2" id="Créer un manager de données-main.cpp"><a class="Link9" href="#Créer un manager de données">main.cpp</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include "GManager.h"
 //===============================================
 int main(int argc, char** argv) {
@@ -1278,7 +1278,7 @@ int main(int argc, char** argv) {
     printf("lApp-&gt;win_height : %d\n", lApp-&gt;win_height);
     return 0;
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GManager.h</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer un manager de données-GManager.h"><a class="Link9" href="#Créer un manager de données">GManager.h</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #ifndef _GManager_
 #define _GManager_
 //===============================================
@@ -1316,7 +1316,7 @@ struct _sGApp {
 };
 //===============================================
 #endif
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GManager.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer un manager de données-GManager.cpp"><a class="Link9" href="#Créer un manager de données">GManager.cpp</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include "GManager.h"
 //===============================================
 GManager* GManager::m_instance = 0;
@@ -1345,9 +1345,9 @@ GManager* GManager::Instance() {
 sGManager* GManager::getData() const {
     return mgr;
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">lApp-&gt;app_name : ReadyDev
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer un manager de données-Résultat"><a class="Link9" href="#Créer un manager de données">Résultat</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">lApp-&gt;app_name : ReadyDev
 lApp-&gt;win_width : 640
-lApp-&gt;win_height : 48</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Système d'administration"><a class="Link3" href="#">Système d'administration</a></h1><div class="Body3"><br>Le <b>système d'administration</b> que nous présentons ici est une interface en ligne de commande permettant d'accéder à toutes les fonctionnalités de notre application.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1621005046333"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1621005046333");</script></div><br><h2 class="Title7 GTitle2" id="Système d'administration-main.cpp"><a class="Link9" href="#Système d'administration">main.cpp</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+lApp-&gt;win_height : </xmp><br></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Système d'administration"><a class="Link3" href="#">Système d'administration</a></h1><div class="Body3"><br>Le <b>système d'administration</b> que nous présentons ici est une interface en ligne de commande permettant d'accéder à toutes les fonctionnalités de notre application.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1621005046333"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1621005046333");</script></div><br><h2 class="Title7 GTitle2" id="Système d'administration-main.cpp"><a class="Link9" href="#Système d'administration">main.cpp</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include "GProcess.h"
 //===============================================
 int main(int argc, char** argv) {
