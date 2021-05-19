@@ -593,7 +593,7 @@ Rectangle (-1, 2, -2, 2) : perimeter : 14
 Rectangle (-1, 2, -2, 2) : area : 12
 Rectangle (-1, 2, -2, 2) : area : 12
 Rectangle (-1, 2, -2, 2) : contain (0,-1) : 1
-Rectangle (-1, 2, -2, 2) : contain (0,-3) : 0</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Créer un template de classe (header)"><a class="Link9" href="#Fondamentaux">Créer un template de classe (header)</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+Rectangle (-1, 2, -2, 2) : contain (0,-3) : 0</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Créer un template de classe header"><a class="Link9" href="#Fondamentaux">Créer un template de classe header</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include "GRectangle.h"
 //===============================================
 int main(int argc, char** argv) {
@@ -737,7 +737,7 @@ int main(int argc, char** argv) {
 //===============================================
 double divide(double a, double b) {
     if(b == 0) {
-        throw GError(1, "[erreur] division par zero", 2);
+        throw GError("[erreur] division par zero");
     }
     return a/b;
 }
@@ -750,26 +750,22 @@ double divide(double a, double b) {
 //===============================================
 class GError : public std::exception {
 public:
-    GError(int num, const std::string& msg, int level) throw();
+    GError(const std::string& msg) throw();
     ~GError() throw();
 
 public:
     const char* what() const throw();
 
 private:
-    int m_num;
     std::string m_msg;
-    int m_level;
 };
 //===============================================
 #endif
 //===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GError.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include "GError.h"
 //===============================================
-GError::GError(int num, const std::string& msg, int level) throw() {
-    m_num = num;
+GError::GError(const std::string& msg) throw() {
     m_msg = msg;
-    m_level = level;
 }
 //===============================================
 GError::~GError() throw() {
@@ -781,7 +777,58 @@ const char* GError::what() const throw() {
 }
 //===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">divide (22, 7) : 3.14
 divide (33, 8) : 4.12
-[erreur] division par zero</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programmation orientée objet"><a class="Link3" href="#">Programmation orientée objet</a></h1><div class="Body3"><br>La <b>programmation orientée objet</b> (POO) est un paradigme de programmation informatique qui consiste en la définition et l'interaction de briques logicielles appelées objets ; un objet représente un concept, une idée ou toute entité du monde physique, comme une voiture, une personne ou encore une page d'un livre. Il possède une structure interne et un comportement, et il sait interagir avec ses pairs. Il s'agit donc de représenter ces objets et leurs relations ; l'interaction entre les objets via leurs relations permet de concevoir et réaliser les fonctionnalités attendues, de mieux résoudre le ou les problèmes. Dès lors, l'étape de modélisation revêt une importance majeure et nécessaire pour la POO. C'est elle qui permet de transcrire les éléments du réel sous forme virtuelle. La programmation orientée objet consiste à utiliser des techniques de programmation pour mettre en œuvre une conception basée sur les objets. Celle-ci peut être élaborée en utilisant des méthodologies de développement logiciel objet, dont la plus connue est le processus unifié et exprimée à l'aide de langages de modélisation tels que le Unified Modeling Language (UML).<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620957525148"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620957525148");</script></div><br><h2 class="Title7 GTitle2" id="Programmation orientée objet-Créer une classe"><a class="Link9" href="#Programmation orientée objet">Créer une classe</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+[erreur] division par zero</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Créer une référence LValue"><a class="Link9" href="#Fondamentaux">Créer une référence LValue</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;iostream&gt;
+//===============================================
+int main(int argc, char** argv) {
+    int a = 100;
+    int& b = a;
+    printf("a : %d\n", a);
+    b = 200;
+    printf("a : %d\n", a);
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">a : 100
+a : 200</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Créer une référence LValue de fonction"><a class="Link9" href="#Fondamentaux">Créer une référence LValue de fonction</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;iostream&gt;
+//===============================================
+int a = 100;
+//===============================================
+int& getA();
+//===============================================
+int main(int argc, char** argv) {
+    printf("a : %d\n", a);
+    getA() = 200;
+    printf("a : %d\n", a);
+    return 0;
+}
+//===============================================
+int& getA() {
+    return a;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">a : 100
+a : 200</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Créer une référence RValue (C++11)"><a class="Link9" href="#Fondamentaux">Créer une référence RValue (C++11)</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;iostream&gt;
+//===============================================
+int a = 100;
+//===============================================
+int getA();
+//===============================================
+int main(int argc, char** argv) {
+    printf("a : %d\n", a);
+    int&& b = getA();
+    b = 200;
+    printf("a : %d\n", a);
+    printf("b : %d\n", b);
+    return 0;
+}
+//===============================================
+int getA() {
+    return a;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">a : 100
+a : 100
+b : 200</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programmation orientée objet"><a class="Link3" href="#">Programmation orientée objet</a></h1><div class="Body3"><br>La <b>programmation orientée objet</b> (POO) est un paradigme de programmation informatique qui consiste en la définition et l'interaction de briques logicielles appelées objets ; un objet représente un concept, une idée ou toute entité du monde physique, comme une voiture, une personne ou encore une page d'un livre. Il possède une structure interne et un comportement, et il sait interagir avec ses pairs. Il s'agit donc de représenter ces objets et leurs relations ; l'interaction entre les objets via leurs relations permet de concevoir et réaliser les fonctionnalités attendues, de mieux résoudre le ou les problèmes. Dès lors, l'étape de modélisation revêt une importance majeure et nécessaire pour la POO. C'est elle qui permet de transcrire les éléments du réel sous forme virtuelle. La programmation orientée objet consiste à utiliser des techniques de programmation pour mettre en œuvre une conception basée sur les objets. Celle-ci peut être élaborée en utilisant des méthodologies de développement logiciel objet, dont la plus connue est le processus unifié et exprimée à l'aide de langages de modélisation tels que le Unified Modeling Language (UML).<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620957525148"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620957525148");</script></div><br><h2 class="Title7 GTitle2" id="Programmation orientée objet-Créer une classe"><a class="Link9" href="#Programmation orientée objet">Créer une classe</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include "GPerson.h"
 //===============================================
 int main(int argc, char** argv) {
