@@ -946,20 +946,79 @@ product (5, 6) : 30</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Fondamen
 //===============================================
 int main(int argc, char** argv) {
     std::vector&lt;int&gt; nums {1, 2, 3, 4, 5};
-    auto show = [](const int& n) -&gt; void {printf("%d ; ", n);};
-    std::for_each(nums.cbegin(), nums.cend(), show);
+    int i;
+    auto show = [&i](const int& n) -&gt; void {
+        if(i != 0) {printf(" ; ");}
+        printf("%d", n);
+        i = 1;
+    };
+    i = 0; std::for_each(nums.cbegin(), nums.cend(), show);
     printf("\n");
     //
     std::for_each(nums.begin(), nums.end(), [](int &n) -&gt; void { 
-        n *= 5;;
+        n *= 5;
     });
     //
-    std::for_each(nums.cbegin(), nums.cend(), show);
+    i = 0; std::for_each(nums.cbegin(), nums.cend(), show);
     return 0;
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">1 ; 2 ; 3 ; 4 ; 5 ;
-5 ; 10 ; 15 ; 20 ; 25 ;</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Créer un paramètre non utilisé"><a class="Link9" href="#Fondamentaux">Créer un paramètre non utilisé</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">1 ; 2 ; 3 ; 4 ; 5
+5 ; 10 ; 15 ; 20 ; 25</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Créer une fonction lambda comme paramètre (C++14)"><a class="Link9" href="#Fondamentaux">Créer une fonction lambda comme paramètre (C++14)</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
 //===============================================
+int main(int argc, char** argv) {
+    auto lambda = [](auto params, auto onFunc) -&gt; void {
+        onFunc(params);
+    };
+
+    lambda(42, [](int x) -&gt; void {printf("%d\n", x);});
+    
+    auto lambda_vec = [](auto vec, auto onFunc) -&gt; void {
+        for(auto x : vec) {
+            onFunc(x);           
+        }
+    };
+
+    std::vector&lt;int&gt; vec_nums {1, 2, 3, 4, 5};
+
+    int i = 0;
+    lambda_vec(vec_nums, [&i](int x) -&gt; void {
+        if(i != 0) {printf(" ; ");}
+        printf("%d", x);
+        i = 1;
+    });
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">42
+1 ; 2 ; 3 ; 4 ; 5</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Créer une boucle for basée sur une palge (C++11)"><a class="Link9" href="#Fondamentaux">Créer une boucle for basée sur une palge (C++11)</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+//===============================================
+int main(int argc, char** argv) {
+    std::vector&lt;int&gt; vec_nums {1, 2, 3, 4, 5};
+    int i = 0;
+    for(auto x : vec_nums) {
+        if(i != 0) {printf(" ; ");}
+        printf("%d", x);
+        i = 1;
+    }
+    printf("\n");
+    //
+    int tab_nums[] = {5, 6, 7, 8, 9};
+    i = 0;
+    for(auto x : tab_nums) {
+        if(i != 0) {printf(" ; ");}
+        printf("%d", x);
+        i = 1;
+    }
+    printf("\n");
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">1 ; 2 ; 3 ; 4 ; 5
+5 ; 6 ; 7 ; 8 ; 9</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Créer un paramètre non utilisé"><a class="Link9" href="#Fondamentaux">Créer un paramètre non utilisé</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;iostream&gt;
 //===============================================
 int main(int argc, char** argv) {
