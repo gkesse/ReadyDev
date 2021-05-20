@@ -828,7 +828,83 @@ int getA() {
 }
 //===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">a : 100
 a : 100
-b : 200</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programmation orientée objet"><a class="Link3" href="#">Programmation orientée objet</a></h1><div class="Body3"><br>La <b>programmation orientée objet</b> (POO) est un paradigme de programmation informatique qui consiste en la définition et l'interaction de briques logicielles appelées objets ; un objet représente un concept, une idée ou toute entité du monde physique, comme une voiture, une personne ou encore une page d'un livre. Il possède une structure interne et un comportement, et il sait interagir avec ses pairs. Il s'agit donc de représenter ces objets et leurs relations ; l'interaction entre les objets via leurs relations permet de concevoir et réaliser les fonctionnalités attendues, de mieux résoudre le ou les problèmes. Dès lors, l'étape de modélisation revêt une importance majeure et nécessaire pour la POO. C'est elle qui permet de transcrire les éléments du réel sous forme virtuelle. La programmation orientée objet consiste à utiliser des techniques de programmation pour mettre en œuvre une conception basée sur les objets. Celle-ci peut être élaborée en utilisant des méthodologies de développement logiciel objet, dont la plus connue est le processus unifié et exprimée à l'aide de langages de modélisation tels que le Unified Modeling Language (UML).<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620957525148"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620957525148");</script></div><br><h2 class="Title7 GTitle2" id="Programmation orientée objet-Créer une classe"><a class="Link9" href="#Programmation orientée objet">Créer une classe</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+b : 200</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Créer une référence RValue de fonction (C++11)"><a class="Link9" href="#Fondamentaux">Créer une référence RValue de fonction (C++11)</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;iostream&gt;
+//===============================================
+int a = 100;
+//===============================================
+int getA();
+void printV(std::string k, int&& v);
+//===============================================
+int main(int argc, char** argv) {
+    // printV("a", a); // genere une erreur
+    printV("a", getA());
+    printV("v", 200);
+    return 0;
+}
+//===============================================
+int getA() {
+    return a;
+}
+//===============================================
+void printV(std::string k, int&& v) {
+    printf("%s : %d\n", k.c_str(), v);
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">a : 100
+v : 200</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Créer une déduction de type avec auto (C++11)"><a class="Link9" href="#Fondamentaux">Créer une déduction de type avec auto (C++11)</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;iostream&gt;
+//===============================================
+int main(int argc, char** argv) {
+    auto var_int = 100;
+    auto var_double = 3.14;
+    auto var_bool = true;
+    auto var_string = "voici ma chaine";
+    printf("var_int : %d\n", var_int);
+    printf("var_double : %.2f\n", var_double);
+    printf("var_bool : %d\n", var_bool);
+    printf("var_string : %s\n", var_string);
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">var_int : 100
+var_double : 3.14
+var_bool : 1
+var_string : voici ma chaine</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Créer une déduction de type liste avec auto (C++11)"><a class="Link9" href="#Fondamentaux">Créer une déduction de type liste avec auto (C++11)</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;iostream&gt;
+//===============================================
+int main(int argc, char** argv) {
+    // std::initializer_list&lt;int&gt;
+    auto vec_int = {1, 2, 3, 4, 5}; int i;
+    i = 0;
+    for(int x : vec_int) {
+        if(i != 0) {printf(" ; ");}
+        printf("%d", x);
+        i = 1;
+    }
+    printf("\n");
+    // std::initializer_list&lt;double&gt;
+    auto vec_double = {1.1, 2.2, 3.3, 4.4, 5.5};
+    i = 0;
+    for(double x : vec_double) {
+        if(i != 0) {printf(" ; ");}
+        printf("%.1f", x);
+        i = 1;
+    }
+    printf("\n");
+    // std::initializer_list&lt;const char*&gt;
+    auto vec_string = {"un", "deux", "trois", "quatre", "cinq"};
+    i = 0;
+    for(const char* x : vec_string) {
+        if(i != 0) {printf(" ; ");}
+        printf("%s", x);
+        i = 1;
+    }
+    printf("\n");
+    //
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">1 ; 2 ; 3 ; 4 ; 5
+1.1 ; 2.2 ; 3.3 ; 4.4 ; 5.5
+un ; deux ; trois ; quatre ; cinq</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programmation orientée objet"><a class="Link3" href="#">Programmation orientée objet</a></h1><div class="Body3"><br>La <b>programmation orientée objet</b> (POO) est un paradigme de programmation informatique qui consiste en la définition et l'interaction de briques logicielles appelées objets ; un objet représente un concept, une idée ou toute entité du monde physique, comme une voiture, une personne ou encore une page d'un livre. Il possède une structure interne et un comportement, et il sait interagir avec ses pairs. Il s'agit donc de représenter ces objets et leurs relations ; l'interaction entre les objets via leurs relations permet de concevoir et réaliser les fonctionnalités attendues, de mieux résoudre le ou les problèmes. Dès lors, l'étape de modélisation revêt une importance majeure et nécessaire pour la POO. C'est elle qui permet de transcrire les éléments du réel sous forme virtuelle. La programmation orientée objet consiste à utiliser des techniques de programmation pour mettre en œuvre une conception basée sur les objets. Celle-ci peut être élaborée en utilisant des méthodologies de développement logiciel objet, dont la plus connue est le processus unifié et exprimée à l'aide de langages de modélisation tels que le Unified Modeling Language (UML).<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620957525148"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620957525148");</script></div><br><h2 class="Title7 GTitle2" id="Programmation orientée objet-Créer une classe"><a class="Link9" href="#Programmation orientée objet">Créer une classe</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include "GPerson.h"
 //===============================================
 int main(int argc, char** argv) {
