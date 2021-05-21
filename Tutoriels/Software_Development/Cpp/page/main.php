@@ -1175,7 +1175,20 @@ int main(int argc, char** argv) {
     return 0;
 }
 //===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">template : 2
-require  : 1</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Créer un paramètre non utilisé"><a class="Link9" href="#Fondamentaux">Créer un paramètre non utilisé</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+require  : 1</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Créer une fonction avec consteval (C++20)"><a class="Link9" href="#Fondamentaux">Créer une fonction avec consteval (C++20)</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;iostream&gt;
+//===============================================
+consteval int square(int n) {
+  return n*n;
+}
+//===============================================
+int main(int argc, char** argv) {
+    constexpr int a = 5;
+    constexpr int b = square(a);
+    printf("consteval (%d) : %d\n", a, b);
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">consteval (5) : 25</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Créer un paramètre non utilisé"><a class="Link9" href="#Fondamentaux">Créer un paramètre non utilisé</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;iostream&gt;
 //===============================================
 int main(int argc, char** argv) {
