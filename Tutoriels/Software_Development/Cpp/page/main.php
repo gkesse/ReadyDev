@@ -1139,7 +1139,43 @@ A: false
 A&: false
 A*: true
 int(int): false
-int(*)(int): true</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Créer un paramètre non utilisé"><a class="Link9" href="#Fondamentaux">Créer un paramètre non utilisé</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+int(*)(int): true</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Créer un prédicat avec concept (C++20)"><a class="Link9" href="#Fondamentaux">Créer un prédicat avec concept (C++20)</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;iostream&gt;
+#include &lt;type_traits&gt;
+//===============================================
+template &lt;typename T&gt;
+concept Integral = std::is_integral&lt;T&gt;::value;
+//===============================================
+template &lt;Integral T&gt;
+void fun(T v) { std::cout &lt;&lt; "concept  : 1\n"; } 
+//===============================================
+template &lt;typename T&gt;
+void fun(T v) { std::cout &lt;&lt; "template : 2\n"; } 
+//===============================================
+int main(int argc, char** argv) {
+    fun("A");
+    fun(1);
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">template : 2
+concept  : 1</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Créer un predicat avec requires (C++20)"><a class="Link9" href="#Fondamentaux">Créer un predicat avec requires (C++20)</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;iostream&gt;
+#include &lt;type_traits&gt;
+//===============================================
+template &lt;typename T&gt;
+requires std::is_integral_v&lt;T&gt;
+void fun(T v) { std::cout &lt;&lt; "require  : 1\n"; } 
+//===============================================
+template &lt;typename T&gt;
+void fun(T v) { std::cout &lt;&lt; "template : 2\n"; } 
+//===============================================
+int main(int argc, char** argv) {
+    fun("A");
+    fun(1);
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">template : 2
+require  : 1</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Créer un paramètre non utilisé"><a class="Link9" href="#Fondamentaux">Créer un paramètre non utilisé</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;iostream&gt;
 //===============================================
 int main(int argc, char** argv) {
@@ -2605,4 +2641,4 @@ OK
 Sélectionner votre thème favori -&gt; Foncé
 Suivant
 Dossier projet par défaut -&gt; C:\Users\Admin\Documents\Embarcadero\Studio\Projets
-Démarrer</xmp></pre></div><br><h2 class="Title7 GTitle2" id="C++ Builder-Tester C++Builder sous Windows"><a class="Link9" href="#C++ Builder">Tester C++Builder sous Windows</a></h2><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Notes et références"><a class="Link3" href="#">Notes et références</a></h1><div class="Body3"><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://cs.stanford.edu/people/eroberts/courses/cs106b/materials/cppdoc/">https://cs.stanford.edu/people/eroberts/courses/cs106b/materials/cppdoc/</a><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://vector-of-bool.github.io/2019/03/10/modules-1.html">https://vector-of-bool.github.io/2019/03/10/modules-1.html</a><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://gcc.gnu.org/wiki/cxx-modules">https://gcc.gnu.org/wiki/cxx-modules</a><br><br></div></div></div></div><br>
+Démarrer</xmp></pre></div><br><h2 class="Title7 GTitle2" id="C++ Builder-Tester C++Builder sous Windows"><a class="Link9" href="#C++ Builder">Tester C++Builder sous Windows</a></h2><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Notes et références"><a class="Link3" href="#">Notes et références</a></h1><div class="Body3"><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://cs.stanford.edu/people/eroberts/courses/cs106b/materials/cppdoc/">https://cs.stanford.edu/people/eroberts/courses/cs106b/materials/cppdoc/</a><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://vector-of-bool.github.io/2019/03/10/modules-1.html">https://vector-of-bool.github.io/2019/03/10/modules-1.html</a><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://gcc.gnu.org/wiki/cxx-modules">https://gcc.gnu.org/wiki/cxx-modules</a><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.modernescpp.com/index.php/c-20-concepts-defining-concepts">https://www.modernescpp.com/index.php/c-20-concepts-defining-concepts</a><br><br></div></div></div></div><br>
