@@ -1039,7 +1039,107 @@ export void sayHello (std::string_view const &name) {
 }
 //===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Compiler le projet</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">set "PATH=winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1\mingw64\bin;%PATH%"</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">g++ -std=gnu++20 -fmodules-ts -c main.cpp -o main.o
 g++ -std=gnu++20 -fmodules-ts -c GHello.cpp -o GHello.o
-g++ -std=gnu++20 -fmodules-ts -o rdcpp.exe main.o GHello.o</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">rdcpp.exe</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">[module] Bonjour Gerard KESSE</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Créer un paramètre non utilisé"><a class="Link9" href="#Fondamentaux">Créer un paramètre non utilisé</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+g++ -std=gnu++20 -fmodules-ts -o rdcpp.exe main.o GHello.o</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">rdcpp.exe</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">[module] Bonjour Gerard KESSE</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Activer la sortie boolalpha (C++11)"><a class="Link9" href="#Fondamentaux">Activer la sortie boolalpha (C++11)</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;iostream&gt;
+#include &lt;sstream&gt;
+#include &lt;locale&gt;
+//===============================================
+int main(int argc, char** argv) {
+    // boolalpha output
+    std::cout &lt;&lt; std::boolalpha 
+    &lt;&lt; "boolalpha true: " &lt;&lt; true &lt;&lt; "\n"
+    &lt;&lt; "boolalpha false: " &lt;&lt; false &lt;&lt; "\n";
+    std::cout &lt;&lt; std::noboolalpha 
+    &lt;&lt; "noboolalpha true: " &lt;&lt; true &lt;&lt; "\n"
+    &lt;&lt; "noboolalpha false: " &lt;&lt; false &lt;&lt; "\n";
+    // boolalpha parse
+    bool b1, b2;
+    std::istringstream is("true false");
+    is &gt;&gt; std::boolalpha &gt;&gt; b1 &gt;&gt; b2;
+    std::cout &lt;&lt; "\"" &lt;&lt; is.str() 
+    &lt;&lt; "\" parsed as " &lt;&lt; b1 &lt;&lt; " " &lt;&lt; b2 &lt;&lt; "\n";
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">boolalpha true: true
+boolalpha false: false
+noboolalpha true: 1
+noboolalpha false: 0
+"true false" parsed as 1 0</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Activier la sortie noboolalpha (C++11)"><a class="Link9" href="#Fondamentaux">Activier la sortie noboolalpha (C++11)</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;iostream&gt;
+#include &lt;sstream&gt;
+#include &lt;locale&gt;
+//===============================================
+int main(int argc, char** argv) {
+    // boolalpha output
+    std::cout &lt;&lt; std::boolalpha 
+    &lt;&lt; "boolalpha true: " &lt;&lt; true &lt;&lt; "\n"
+    &lt;&lt; "boolalpha false: " &lt;&lt; false &lt;&lt; "\n";
+    std::cout &lt;&lt; std::noboolalpha 
+    &lt;&lt; "noboolalpha true: " &lt;&lt; true &lt;&lt; "\n"
+    &lt;&lt; "noboolalpha false: " &lt;&lt; false &lt;&lt; "\n";
+    // boolalpha parse
+    bool b1, b2;
+    std::istringstream is("true false");
+    is &gt;&gt; std::boolalpha &gt;&gt; b1 &gt;&gt; b2;
+    std::cout &lt;&lt; "\"" &lt;&lt; is.str() 
+    &lt;&lt; "\" parsed as " &lt;&lt; b1 &lt;&lt; " " &lt;&lt; b2 &lt;&lt; "\n";
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">boolalpha true: true
+boolalpha false: false
+noboolalpha true: 1
+noboolalpha false: 0
+"true false" parsed as 1 0</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Vérifier si un type a une mise en forme standard (C++11)"><a class="Link9" href="#Fondamentaux">Vérifier si un type a une mise en forme standard (C++11)</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;iostream&gt;
+#include &lt;type_traits&gt;
+//===============================================
+struct A {
+    int m;
+};
+//===============================================
+struct B {
+    int m1;
+private:
+    int m2;
+};
+//===============================================
+struct C {
+    virtual void foo();
+};
+//===============================================
+int main(int argc, char** argv) {
+    std::cout &lt;&lt; std::boolalpha;
+    std::cout &lt;&lt; std::is_standard_layout&lt;A&gt;::value &lt;&lt; "\n";
+    std::cout &lt;&lt; std::is_standard_layout&lt;B&gt;::value &lt;&lt; "\n";
+    std::cout &lt;&lt; std::is_standard_layout&lt;C&gt;::value &lt;&lt; "\n";
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">true
+false
+false</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Vérifier si un type a une mise en forme scalaire (C++11)"><a class="Link9" href="#Fondamentaux">Vérifier si un type a une mise en forme scalaire (C++11)</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;iostream&gt;
+#include &lt;type_traits&gt;
+//===============================================
+class A {};
+//===============================================
+int main(int argc, char** argv) {
+    std::cout &lt;&lt; std::boolalpha;
+    std::cout &lt;&lt; "is_scalar:" &lt;&lt; std::endl;
+    std::cout &lt;&lt; "int: " &lt;&lt; std::is_scalar&lt;int&gt;::value &lt;&lt; std::endl;
+    std::cout &lt;&lt; "A: " &lt;&lt; std::is_scalar&lt;A&gt;::value &lt;&lt; std::endl;
+    std::cout &lt;&lt; "A&: " &lt;&lt; std::is_scalar&lt;A&&gt;::value &lt;&lt; std::endl;
+    std::cout &lt;&lt; "A*: " &lt;&lt; std::is_scalar&lt;A*&gt;::value &lt;&lt; std::endl;
+    std::cout &lt;&lt; "int(int): " &lt;&lt; std::is_scalar&lt;int(int)&gt;::value &lt;&lt; std::endl;
+    std::cout &lt;&lt; "int(*)(int): " &lt;&lt; std::is_scalar&lt;int(*)(int)&gt;::value &lt;&lt; std::endl;
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">is_scalar:
+int: true
+A: false
+A&: false
+A*: true
+int(int): false
+int(*)(int): true</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Créer un paramètre non utilisé"><a class="Link9" href="#Fondamentaux">Créer un paramètre non utilisé</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;iostream&gt;
 //===============================================
 int main(int argc, char** argv) {
