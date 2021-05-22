@@ -304,7 +304,7 @@ int main(int argc, char** argv) {
 //===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">initialiser le systeme
 afficher la liste des methodes
 choisir une methode
-executer la methode</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Créer une surchage de fonctions"><a class="Link9" href="#Fondamentaux">Créer une surchage de fonctions</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+executer la methode</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Créer une surcharge de fonctions"><a class="Link9" href="#Fondamentaux">Créer une surcharge de fonctions</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;iostream&gt;
 //===============================================
 void sayHello();
@@ -694,7 +694,30 @@ Rectangle (-1, 2, -2, 2) : perimeter : 14.00
 Rectangle (-1, 2, -2, 2) : area : 12.00
 Rectangle (-1, 2, -2, 2) : area : 12.00
 Rectangle (-1, 2, -2, 2) : contain (0,-1) : 1
-Rectangle (-1, 2, -2, 2) : contain (0,-3) : 0</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Créer une exception"><a class="Link9" href="#Fondamentaux">Créer une exception</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+Rectangle (-1, 2, -2, 2) : contain (0,-3) : 0</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Créer un template variadique (C++11)"><a class="Link9" href="#Fondamentaux">Créer un template variadique (C++11)</a></h2><br>Un pack de paramètres de modèle est un paramètre de modèle qui accepte zéro ou plusieurs arguments de modèle (non-types, types ou modèles). Un pack de paramètres de fonction est un paramètre de fonction qui accepte zéro ou plusieurs arguments de fonction. Un modèle avec au moins un pack de paramètres est appelé un modèle variadique.<br><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;iostream&gt;
+//===============================================
+void tprintf(const char* format) {
+    std::cout &lt;&lt; format;
+}
+//===============================================
+template&lt;typename T, typename... Targs&gt;
+void tprintf(const char* format, T value, Targs... Fargs) {
+    for ( ; *format != '\0'; format++ ) {
+        if ( *format == '%' ) {
+           std::cout &lt;&lt; value;
+           tprintf(format+1, Fargs...);
+           return;
+        }
+        std::cout &lt;&lt; *format;
+    }
+}
+//===============================================
+int main(int argc, char** argv) {
+    tprintf("% tout le monde % %\n","Bonjour",'!',123);
+    return 0;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">Bonjour tout le monde ! 123</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Créer une exception"><a class="Link9" href="#Fondamentaux">Créer une exception</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;iostream&gt;
 //===============================================
 double divide(double a, double b);
@@ -1188,7 +1211,52 @@ int main(int argc, char** argv) {
     printf("consteval (%d) : %d\n", a, b);
     return 0;
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">consteval (5) : 25</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Créer un paramètre non utilisé"><a class="Link9" href="#Fondamentaux">Créer un paramètre non utilisé</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">consteval (5) : 25</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Créer une fonction de coroutine (C++20)"><a class="Link9" href="#Fondamentaux">Créer une fonction de coroutine (C++20)</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;coroutine&gt;
+#include &lt;iostream&gt;
+#include &lt;stdexcept&gt;
+#include &lt;thread&gt;
+//===============================================
+auto switch_to_new_thread(std::jthread& out) {
+    struct awaitable {
+        std::jthread* p_out;
+        bool await_ready() { return false; }
+        void await_suspend(std::coroutine_handle&lt;&gt; h) {
+            std::jthread& out = *p_out;
+            if (out.joinable()) {throw std::runtime_error("Output jthread parameter not empty");}
+            out = std::jthread([h] { h.resume(); });
+            std::cout &lt;&lt; "New thread ID: " &lt;&lt; out.get_id() &lt;&lt; "\n";
+        }
+        void await_resume() {}
+    };
+    return awaitable{&out};
+}
+//===============================================
+struct task {
+    struct promise_type {
+        task get_return_object() { return {}; }
+        std::suspend_never initial_suspend() { return {}; }
+        std::suspend_never final_suspend() noexcept { return {}; }
+        void return_void() {}
+        void unhandled_exception() {}
+    };
+};
+//===============================================
+task resuming_on_new_thread(std::jthread& out) {
+    std::cout &lt;&lt; "Coroutine started on thread: " 
+    &lt;&lt; std::this_thread::get_id() &lt;&lt; "\n";
+    co_await switch_to_new_thread(out);
+    std::cout &lt;&lt; "Coroutine resumed on thread: " 
+    &lt;&lt; std::this_thread::get_id() &lt;&lt; "\n";
+}
+//===============================================
+int main() {
+    std::jthread out;
+    resuming_on_new_thread(out);
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">Coroutine started on thread: 1
+New thread ID: 2
+Coroutine resumed on thread: 2</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Créer un paramètre non utilisé"><a class="Link9" href="#Fondamentaux">Créer un paramètre non utilisé</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;iostream&gt;
 //===============================================
 int main(int argc, char** argv) {
@@ -1966,7 +2034,7 @@ void GProcess::runQuit(int argc, char** argv) {
     else if(lAnswer == "o") {m_state = "end";}
     else if(lAnswer == "-q") {m_state = "end";}
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Résultat"><a class="Link9" href="#Système d'administration">Résultat</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_admin_system.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_admin_system.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Interface Homme-Machine avec Qt"><a class="Link3" href="#">Interface Homme-Machine avec Qt</a></h1><div class="Body3"><br><b>Qt </b>est une API orientée objet et développée en C++ qui offre des composants d'interface graphique (widgets), d'accès aux données, de connexions réseaux, de gestion des fils d'exécution, d'analyse XML, etc. Par certains aspects, elle ressemble à un framework lorsqu'on l'utilise pour concevoir des interfaces graphiques ou que l'on conçoit l'architecture de son application en utilisant les mécanismes des signaux et slots par exemple. Qt permet la portabilité des applications qui n'utilisent que ses composants par simple recompilation du code source. Les environnements pris en charge sont les Unix (dont GNU/Linux) qui utilisent le système graphique X Window System ou Wayland, Windows, Mac OS X, Tizen et également Genode. Le fait d'être une bibliothèque logicielle multiplateforme attire un grand nombre de personnes qui ont donc l'occasion de diffuser leurs programmes sur les principaux OS existants. Qt intègre des bindings avec plus d'une dizaine de langages autres que le C++, comme Ada, C#, Java, Python, Ruby, Visual Basic, etc. Qt est notamment connu pour être le framework sur lequel repose l'environnement graphique KDE Plasma, l'un des environnements de bureau par défaut de plusieurs distributions GNU/Linux. <br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1617838385077"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1617838385077");</script></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/b_qt.png" alt="/Tutoriels/Software_Development/Cpp/img/b_qt.png"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-Installer l'environnement Qt sous MSYS2"><a class="Link9" href="#Interface Homme-Machine avec Qt">Installer l'environnement Qt sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Installer Qt</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">pacman -S --needed --noconfirm mingw-w64-i686-qt5
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Résultat"><a class="Link9" href="#Système d'administration">Résultat</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_admin_system.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_admin_system.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Multithreading"><a class="Link3" href="#">Multithreading</a></h1><div class="Body3"><br>Un processeur est dit <b>multithread </b>s'il est capable d'exécuter efficacement plusieurs threads simultanément. Contrairement aux systèmes multiprocesseurs (tels les systèmes multi-cœur), les threads doivent partager les ressources d'un unique cœur1 : les unités de traitement, le cache processeur et le translation lookaside buffer ; certaines parties sont néanmoins dupliquées : chaque thread dispose de ses propres registres et de son propre pointeur d'instruction. Là où les systèmes multiprocesseurs incluent plusieurs unités de traitement complètes, le multithreading a pour but d'augmenter l'utilisation d'un seul cœur en tirant profit des propriétés des threads et du parallélisme au niveau des instructions. Comme les deux techniques sont complémentaires, elles sont parfois combinées dans des systèmes comprenant de multiples processeurs multithreads ou des processeurs avec de multiples cœurs multithreads.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1621701307236"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1621701307236");</script></div><br><br><br><br><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Interface Homme-Machine avec Qt"><a class="Link3" href="#">Interface Homme-Machine avec Qt</a></h1><div class="Body3"><br><b>Qt </b>est une API orientée objet et développée en C++ qui offre des composants d'interface graphique (widgets), d'accès aux données, de connexions réseaux, de gestion des fils d'exécution, d'analyse XML, etc. Par certains aspects, elle ressemble à un framework lorsqu'on l'utilise pour concevoir des interfaces graphiques ou que l'on conçoit l'architecture de son application en utilisant les mécanismes des signaux et slots par exemple. Qt permet la portabilité des applications qui n'utilisent que ses composants par simple recompilation du code source. Les environnements pris en charge sont les Unix (dont GNU/Linux) qui utilisent le système graphique X Window System ou Wayland, Windows, Mac OS X, Tizen et également Genode. Le fait d'être une bibliothèque logicielle multiplateforme attire un grand nombre de personnes qui ont donc l'occasion de diffuser leurs programmes sur les principaux OS existants. Qt intègre des bindings avec plus d'une dizaine de langages autres que le C++, comme Ada, C#, Java, Python, Ruby, Visual Basic, etc. Qt est notamment connu pour être le framework sur lequel repose l'environnement graphique KDE Plasma, l'un des environnements de bureau par défaut de plusieurs distributions GNU/Linux. <br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1617838385077"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1617838385077");</script></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/b_qt.png" alt="/Tutoriels/Software_Development/Cpp/img/b_qt.png"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-Installer l'environnement Qt sous MSYS2"><a class="Link9" href="#Interface Homme-Machine avec Qt">Installer l'environnement Qt sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Installer Qt</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">pacman -S --needed --noconfirm mingw-w64-i686-qt5
 pacman -S --needed --noconfirm mingw-w64-i686-qt-creator
 pacman -S --needed --noconfirm mingw-w64-i686-gdb
 pacman -S --needed --noconfirm mingw-w64-i686-cmake
@@ -2654,4 +2722,4 @@ OK
 Sélectionner votre thème favori -&gt; Foncé
 Suivant
 Dossier projet par défaut -&gt; C:\Users\Admin\Documents\Embarcadero\Studio\Projets
-Démarrer</xmp></pre></div><br><h2 class="Title7 GTitle2" id="C++ Builder-Tester C++Builder sous Windows"><a class="Link9" href="#C++ Builder">Tester C++Builder sous Windows</a></h2><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Notes et références"><a class="Link3" href="#">Notes et références</a></h1><div class="Body3"><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://cs.stanford.edu/people/eroberts/courses/cs106b/materials/cppdoc/">https://cs.stanford.edu/people/eroberts/courses/cs106b/materials/cppdoc/</a><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://vector-of-bool.github.io/2019/03/10/modules-1.html">https://vector-of-bool.github.io/2019/03/10/modules-1.html</a><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://gcc.gnu.org/wiki/cxx-modules">https://gcc.gnu.org/wiki/cxx-modules</a><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.modernescpp.com/index.php/c-20-concepts-defining-concepts">https://www.modernescpp.com/index.php/c-20-concepts-defining-concepts</a><br><br></div></div></div></div><br>
+Démarrer</xmp></pre></div><br><h2 class="Title7 GTitle2" id="C++ Builder-Tester C++Builder sous Windows"><a class="Link9" href="#C++ Builder">Tester C++Builder sous Windows</a></h2><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Notes et références"><a class="Link3" href="#">Notes et références</a></h1><div class="Body3"><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://cs.stanford.edu/people/eroberts/courses/cs106b/materials/cppdoc/">https://cs.stanford.edu/people/eroberts/courses/cs106b/materials/cppdoc/</a><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://vector-of-bool.github.io/2019/03/10/modules-1.html">https://vector-of-bool.github.io/2019/03/10/modules-1.html</a><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://gcc.gnu.org/wiki/cxx-modules">https://gcc.gnu.org/wiki/cxx-modules</a><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.modernescpp.com/index.php/c-20-concepts-defining-concepts">https://www.modernescpp.com/index.php/c-20-concepts-defining-concepts</a><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.ionos.fr/digitalguide/sites-internet/developpement-web/quest-ce-que-le-builder-pattern/">https://www.ionos.fr/digitalguide/sites-internet/developpement-web/quest-ce-que-le-builder-pattern/</a><br><br></div></div></div></div><br>
