@@ -7,8 +7,8 @@
 <!-- ============================================ -->
 </div> <!-- HtmlPage -->
 <!-- ============================================ -->
-<script type="text/javascript" src="/js/class/GAce.js"></script>
-<script type="text/javascript" src="/js/class/GParallax.js"></script>
+<script src="/js/class/GAce.js"></script>
+<script src="/js/class/GParallax.js"></script>
 <!-- ============================================ -->
 </body>
 </html>
