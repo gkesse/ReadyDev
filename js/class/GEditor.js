@@ -970,9 +970,9 @@ var GEditor = (function() {
                     lData = this.encodeHtml(lData, "ace");
                     var lHtml = '';
                     lHtml += '<div class="GCode1">';
-                    lHtml += '<pre class="Code2"><xmp class="AceCode" data-mode="'+lLanguage+'">';
+                    lHtml += '<div class="Code2"><xmp class="AceCode" data-mode="'+lLanguage+'">';
                     lHtml += lData;
-                    lHtml += '</xmp></pre>';
+                    lHtml += '</xmp></div>';
                     lHtml += '</div>';
                     document.execCommand("insertHTML", false, lHtml);
                     if(lLang != lLanguage) {
