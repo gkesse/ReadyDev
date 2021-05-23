@@ -114,12 +114,143 @@ Listen 8080</xmp></pre></div><br><h3 class="Title8 GTitle3">Configurer les racin
     &lt;/Directory&gt;
 &lt;/VirtualHost&gt;
 #================================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Configurer l'extension PDO SQLite</h3><br>/etc/php/7.4/apache2/php.ini<br><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">extension=pdo_sqlite</xmp></pre></div><br><h3 class="Title8 GTitle3">Configurer l'affichage des erreurs</h3><br>/etc/php/7.4/apache2/php.ini<br><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">error_reporting = E_ALL
-display_errors = On</xmp></pre></div><br><h3 class="Title8 GTitle3">Redémarrer Apache</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">sudo service apache2 reload</xmp></pre></div><br><h3 class="Title8 GTitle3">Vérifier l'installation</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="http://192.168.1.45:8080/">http://192.168.1.45:8080/</a><br><br><div class="Img3 GImage"><img src="/Tutoriels/Web/PHP/img/i_php_test_ubuntu_server.png" alt="/Tutoriels/Web/PHP/img/i_php_test_ubuntu_server.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Tests"><a class="Link3" href="#">Tests</a></h1><div class="Body3"><br>Créer un projet PHP.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1617649178149"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1617649178149");</script></div><br><h2 class="Title7 GTitle2" id="Tests-1 - Test sous Windows"><a class="Link9" href="#Tests">1 - Test sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Tests-1.1 - Test sous WampServer"><a class="Link9" href="#Tests">1.1 - Test sous WampServer</a></h2><br><h2 class="Title7 GTitle2" id="Tests-1.1.1 - Éditer le programme"><a class="Link9" href="#Tests">1.1.1 - Éditer le programme</a></h2><br><h3 class="Title8 GTitle3">index.php</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="php">&lt;?php
+display_errors = On</xmp></pre></div><br><h3 class="Title8 GTitle3">Redémarrer Apache</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">sudo service apache2 reload</xmp></pre></div><br><h3 class="Title8 GTitle3">Vérifier l'installation</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="http://192.168.1.45:8080/">http://192.168.1.45:8080/</a><br><br><div class="Img3 GImage"><img src="/Tutoriels/Web/PHP/img/i_php_test_ubuntu_server.png" alt="/Tutoriels/Web/PHP/img/i_php_test_ubuntu_server.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Tests"><a class="Link3" href="#">Tests</a></h1><div class="Body3"><br>Créer un projet PHP.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1617649178149"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1617649178149");</script></div><br><h2 class="Title7 GTitle2" id="Tests-Tester un projet PHP avec WampServer sous Windows"><a class="Link9" href="#Tests">Tester un projet PHP avec WampServer sous Windows</a></h2><br><h3 class="Title8 GTitle3">Editer le programme (index.php)</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="php">&lt;?php
 //===============================================
-// on affiche un message a l'ecran
 echo "Bonjour tout le monde";
 //===============================================
-?&gt;</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Tests-1.1.2 - Afficher la page web"><a class="Link9" href="#Tests">1.1.2 - Afficher la page web</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="http://localhost:8800/">http://localhost:8800/</a><br><br><div class="Img3 GImage"><img src="/Tutoriels/Web/PHP/img/i_php_test.png" alt="/Tutoriels/Web/PHP/img/i_php_test.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Système d'administration"><a class="Link3" href="#">Système d'administration</a></h1><div class="Body3"><br>Créer un système d'administration en PHP.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1619045578000"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1619045578000");</script></div><br><div class="Img3 GImage"><img src="/Tutoriels/Web/PHP/img/b_php_admin_system.png" alt="/Tutoriels/Web/PHP/img/b_php_admin_system.png"></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Introduction"><a class="Link9" href="#Système d'administration">Introduction</a></h2><br>Le système d'administration que nous présentons ici est une interface en ligne de commande permettant d'accéder à toutes les fonctionnalités d'une application.<br><br><h2 class="Title7 GTitle2" id="Système d'administration-Programme principal"><a class="Link9" href="#Système d'administration">Programme principal</a></h2><br><h3 class="Title8 GTitle3">index.php</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="php">&lt;?php   
+?&gt;</xmp></pre></div><br><h3 class="Title8 GTitle3">Vérifier la page web</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="http://localhost:8800/">http://localhost:8800/</a><br><br><div class="Img3 GImage"><img src="/Tutoriels/Web/PHP/img/i_php_test.png" alt="/Tutoriels/Web/PHP/img/i_php_test.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Fondamentaux"><a class="Link3" href="#">Fondamentaux</a></h1><div class="Body3"><br>Les fondamentaux de PHP.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1621792429086"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1621792429086");</script></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Ouvrir le débogueur web sous Firefox"><a class="Link9" href="#Fondamentaux">Ouvrir le débogueur web sous Firefox</a></h2><br>Un débugueur (de l'anglais debugger) ou <b>débogueur </b>(de la francisation bogue) est un logiciel qui aide un développeur à analyser les bugs d'un programme. Pour cela, il permet d'exécuter le programme pas-à-pas, c'est-à-dire le plus souvent ligne par ligne, d'afficher la valeur des variables à tout moment et de mettre en place des points d'arrêt sur des conditions ou sur des lignes du programme. Il s'agit de l'application à la programmation informatique du processus de troubleshooting.<br><br><h3 class="Title8 GTitle3">Firefox</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="php">Menu
+Développeur web
+Outils de développement web</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Créer une réécriture d'URL"><a class="Link9" href="#Fondamentaux">Créer une réécriture d'URL</a></h2><br>Un moteur de réécriture est un composant logiciel qui effectue la réécriture sur les localisateurs de ressources uniformes, en modifiant leur apparence. Cette modification s'appelle la <b>réécriture d'URL</b>. C'est un moyen d'implémenter le mappage ou le routage d'URL dans une application Web. Le moteur est généralement un composant d'un serveur Web ou d' un cadre d'application Web. Les URLs réécrites (parfois appelées URLs courtes, jolies ou sophistiquées, compatibles avec les moteurs de recherche - URL SEF ou slugs) sont utilisées pour fournir des liens plus courts et plus pertinents vers des pages Web. La technique ajoute une couche d'abstraction entre les fichiers utilisés pour générer une page Web et l'URL présentée au monde extérieur.<br><br><h3 class="Title8 GTitle3">.htaccess</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">#================================================
+&lt;IfModule mod_rewrite.c&gt;
+#================================================
+RewriteEngine on
+#================================================
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /?pageid=$1 [L,QSA]
+#================================================
+&lt;/IfModule&gt;
+#================================================</xmp></pre></div><br><h3 class="Title8 GTitle3">index.php</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="php">&lt;?php
+echo sprintf("&lt;a href='/'&gt;ReadyDev&lt;/a&gt;\n");
+echo sprintf("|\n");
+echo sprintf("&lt;a href='/home'&gt;Accueil&lt;/a&gt;\n");
+echo sprintf("|\n");
+echo sprintf("&lt;a href='/home/login'&gt;Connexion&lt;/a&gt;\n");
+var_dump($_REQUEST);
+?&gt;</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Web/PHP/img/i_php_rewrite.gif" alt="/Tutoriels/Web/PHP/img/i_php_rewrite.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programmation orientée objet"><a class="Link3" href="#">Programmation orientée objet</a></h1><div class="Body3"><br>La <b>programmation orientée objet</b> (POO), ou programmation par objet, est un paradigme de programmation informatique. Elle consiste en la définition et l'interaction de briques logicielles appelées objets ; un objet représente un concept, une idée ou toute entité du monde physique, comme une voiture, une personne ou encore une page d'un livre. Il possède une structure interne et un comportement, et il sait interagir avec ses pairs. Il s'agit donc de représenter ces objets et leurs relations ; l'interaction entre les objets via leurs relations permet de concevoir et réaliser les fonctionnalités attendues, de mieux résoudre le ou les problèmes. Dès lors, l'étape de modélisation revêt une importance majeure et nécessaire pour la POO. C'est elle qui permet de transcrire les éléments du réel sous forme virtuelle. La programmation par objet consiste à utiliser des techniques de programmation pour mettre en œuvre une conception basée sur les objets. Celle-ci peut être élaborée en utilisant des méthodologies de développement logiciel objet, dont la plus connue est le processus unifié (« Unified Software Development Process » en anglais), et exprimée à l'aide de langages de modélisation tels que le Unified Modeling Language (UML).<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1621794907558"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1621794907558");</script></div><br><h2 class="Title7 GTitle2" id="Programmation orientée objet-Créer une classe"><a class="Link9" href="#Programmation orientée objet">Créer une classe</a></h2><br>En programmation orientée objet, la déclaration d'une <b>classe </b>regroupe des membres, méthodes et propriétés (attributs) communs à un ensemble d'objets. La classe déclare, d'une part, des attributs représentant l'état des objets et, d'autre part, des méthodes représentant leur comportement. Une classe représente donc une catégorie d'objets. Elle apparaît aussi comme un moule ou une usine à partir de laquelle il est possible de créer des objets ; c'est en quelque sorte une « boîte à outils » qui permet de fabriquer un objet. On parle alors d'un objet en tant qu'instance d'une classe (création d'un objet ayant les propriétés de la classe).<br><br><h3 class="Title8 GTitle3">index.php</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="php">&lt;?php
+//===============================================
+require "GPerson.php";
+$lPerson = new GPerson("Gerard KESSE", 123456, 3.14);
+$lPerson-&gt;print();
+//===============================================
+?&gt;</xmp></pre></div><br><h3 class="Title8 GTitle3">GPerson.php</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="php">&lt;?php
+class GPerson {
+    //===============================================
+    private $name;
+    private $code;
+    private $coef;
+    //===============================================
+    public function __construct($name, $code, $coef) {
+        $this-&gt;name = $name;
+        $this-&gt;code = $code;
+        $this-&gt;coef = $coef;
+    }
+    //===============================================
+    public function print() {
+        echo sprintf("Person[Nom] : %s&lt;br/&gt;\n", $this-&gt;name);
+        echo sprintf("Person[Code] : %d&lt;br/&gt;\n", $this-&gt;code);
+        echo sprintf("Person[Coef] : %.2f&lt;br/&gt;\n", $this-&gt;coef);
+    }
+    //===============================================
+}
+?&gt;</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="php">Person[Nom] : Gerard KESSE
+Person[Code] : 123456
+Person[Coef] : 3.14</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Programmation orientée objet-Créer un chargement automatique des classes"><a class="Link9" href="#Programmation orientée objet">Créer un chargement automatique des classes</a></h2><br>Dans la programmation informatique , le <b>chargement automatique</b> est la capacité de charger et de relier automatiquement des parties d'un programme à partir d' une mémoire de masse lorsque cela est nécessaire, de sorte que le programmeur n'est pas obligé de définir ou d'inclure ces parties du programme explicitement. De nombreux langages de programmation de haut niveau incluent des capacités de chargement automatique, qui sacrifient une certaine vitesse d'exécution pour faciliter le codage et la vitesse de compilation / liaison initiale. Les systèmes de chargement automatique typiques interceptent les appels de procédure à des sous-programmes non définis. Le chargeur automatique recherche dans un chemin de répertoires dans le système de fichiers de l'ordinateur, pour trouver un fichier contenant le code source ou objet qui définit le sous-programme. L'autochargeur charge alors et lie le fichier, et remet le contrôle au programme principal afin que le sous-programme soit exécuté comme s'il avait déjà été défini et lié avant l'appel.<br><br><h3 class="Title8 GTitle3">index.php</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="php">&lt;?php
+//===============================================
+require "autoload.php";
+$lPerson = new GPerson("Gerard KESSE", 123456, 3.14);
+$lPerson-&gt;print();
+//===============================================
+?&gt;</xmp></pre></div><br><h3 class="Title8 GTitle3">autoload.php</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="php">&lt;?php
+//===============================================
+spl_autoload_register(function($class_name) {
+    $lFile = $class_name . ".php";
+    require $lFile;
+});
+//===============================================
+?&gt;</xmp></pre></div><br><h3 class="Title8 GTitle3">GPerson.php</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="php">&lt;?php
+class GPerson {
+    //===============================================
+    private $name;
+    private $code;
+    private $coef;
+    //===============================================
+    public function __construct($name, $code, $coef) {
+        $this-&gt;name = $name;
+        $this-&gt;code = $code;
+        $this-&gt;coef = $coef;
+    }
+    //===============================================
+    public function print() {
+        echo sprintf("Person[Nom] : %s&lt;br/&gt;\n", $this-&gt;name);
+        echo sprintf("Person[Code] : %d&lt;br/&gt;\n", $this-&gt;code);
+        echo sprintf("Person[Coef] : %.2f&lt;br/&gt;\n", $this-&gt;coef);
+    }
+    //===============================================
+}
+?&gt;</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="php">Person[Nom] : Gerard KESSE
+Person[Code] : 123456
+Person[Coef] : 3.14</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Patrons de conception"><a class="Link3" href="#">Patrons de conception</a></h1><div class="Body3"><br>En informatique, et plus particulièrement en développement logiciel, un <b>patron de conception</b> (souvent appelé design pattern) est un arrangement caractéristique de modules, reconnu comme bonne pratique en réponse à un problème de conception d'un logiciel. Il décrit une solution standard, utilisable dans la conception de différents logiciels. Un patron de conception est issu de l'expérience des concepteurs de logiciels. Il décrit un arrangement récurrent de rôles et d'actions joués par des modules d'un logiciel, et le nom du patron sert de vocabulaire commun entre le concepteur et le programmeur. D'une manière analogue à un motif de conception en architecture, le patron de conception décrit les grandes lignes d'une solution, qui peuvent ensuite être modifiées et adaptées en fonction des besoins. Les patrons de conception décrivent des procédés de conception généraux et permettent en conséquence de capitaliser l'expérience appliquée à la conception de logiciel. Ils ont une influence sur l'architecture logicielle d'un système informatique. <br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1621797261800"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1621797261800");</script></div><br><h2 class="Title7 GTitle2" id="Patrons de conception-Créer un patron singleton"><a class="Link9" href="#Patrons de conception">Créer un patron singleton</a></h2><br>En génie logiciel, le singleton est un patron de conception (design pattern) dont l'objectif est de restreindre l'instanciation d'une classe à un seul objet (ou bien à quelques objets seulement). Il est utilisé lorsqu'on a besoin exactement d'un objet pour coordonner des opérations dans un système. Le modèle est parfois utilisé pour son efficacité, lorsque le système est plus rapide ou occupe moins de mémoire avec peu d'objets qu'avec beaucoup d'objets similaires.<br><br><h3 class="Title8 GTitle3">index.php</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="php">&lt;?php
+//===============================================
+require "autoload.php";
+GDatabase::Instance()-&gt;open();
+GDatabase::Instance()-&gt;load();
+GDatabase::Instance()-&gt;update();
+GDatabase::Instance()-&gt;save();
+GDatabase::Instance()-&gt;close();
+//===============================================
+?&gt;</xmp></pre></div><br><h3 class="Title8 GTitle3">GDatabase.php</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="php">&lt;?php
+class GDatabase {
+    //===============================================
+    private static $instance = null;
+    //===============================================
+    public function __construct() {
+
+    }
+    //===============================================
+    public static function Instance() {
+        if(is_null(self::$instance)) {
+            self::$instance = new GDatabase();  
+        }
+        return self::$instance;
+    }
+    //===============================================
+    public function open() {
+        echo sprintf("on ouvre la base de données&lt;br/&gt;\n");
+    }
+    //===============================================
+    public function load() {
+        echo sprintf("on charge la base de données&lt;br/&gt;\n");
+    }
+    //===============================================
+    public function update() {
+        echo sprintf("on modifie la base de données&lt;br/&gt;\n");
+    }
+    //===============================================
+    public function save() {
+        echo sprintf("on enregistre la base de données&lt;br/&gt;\n");
+    }
+    //===============================================
+    public function close() {
+        echo sprintf("on ferme la base de données&lt;br/&gt;\n");
+    }
+    //===============================================
+}
+?&gt;</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="php">on ouvre la base de données
+on charge la base de données
+on modifie la base de données
+on enregistre la base de données
+on ferme la base de données</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Système d'administration"><a class="Link3" href="#">Système d'administration</a></h1><div class="Body3"><br>Le <b>système d'administration</b> que nous présentons ici est une interface web permettant d'accéder à toutes les fonctionnalités d'une application.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1619045578000"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1619045578000");</script></div><br><div class="Img3 GImage"><img src="/Tutoriels/Web/PHP/img/b_php_admin_system.png" alt="/Tutoriels/Web/PHP/img/b_php_admin_system.png"></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Introduction"><a class="Link9" href="#Système d'administration">Introduction</a></h2><br>Le système d'administration que nous présentons ici est une interface en ligne de commande permettant d'accéder à toutes les fonctionnalités d'une application.<br><br><h2 class="Title7 GTitle2" id="Système d'administration-Programme principal"><a class="Link9" href="#Système d'administration">Programme principal</a></h2><br><h3 class="Title8 GTitle3">index.php</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="php">&lt;?php   
 //===============================================
 // on appelle le chargeur automatique de classes
 require $_SERVER["DOCUMENT_ROOT"]."/webroot/php/class/GAutoload.php";

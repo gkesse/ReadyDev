@@ -50,6 +50,11 @@
     $lHeaderData = GJson::Instance()->getData("data/json/header.json");
     $lSiteName = $lHeaderData["site"]["name"];    
     $lSiteLogo = $lHeaderData["site"]["logo"];    
+
+    if (isset($_SERVER['HTTP_USER_AGENT']) &&
+    (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== false)) {
+        header('X-UA-Compatible: IE=edge,chrome=1');
+    }
 ?>
 <!-- ============================================ -->
 <!DOCTYPE html>
@@ -59,7 +64,7 @@
         <title><?php echo $lTitle; ?> | <?php echo $lSiteName; ?></title>
         <meta charset="UTF-8"/>
         <link rel="shortcut icon" type="image/png" href="/data/img/defaults/readydev.png"/>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <!-- meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/ -->
         <!-- ============================================ -->
         <!-- Responsive Web Design -->
         <meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1.0, user-scalable=no"/>
