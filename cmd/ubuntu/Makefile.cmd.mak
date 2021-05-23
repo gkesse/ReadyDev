@@ -95,6 +95,6 @@ git_rm:
 git_clone:
 	@cd $(GPROJECT_ROOT) && git clone $(GGIT_URL) $(GGIT_NAME) 
 git_store:
-	git config --global credential.helper store
+	@git config --global credential.helper store
 #================================================
 
