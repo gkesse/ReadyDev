@@ -160,7 +160,7 @@
                         <ul class="Menu" id="HeaderMenu">
                             <li class="Item">
                                 <a class="Title" href="/">
-                                    <img class="Img4" src="<?php echo $lSiteLogo; ?>"/>
+                                    <img class="Img4" src="<?php echo $lSiteLogo; ?>" alt="<?php echo $lSiteLogo; ?>"/>
                                     <span class="Title11"><?php echo $lSiteName; ?></span>
                                 </a>
                             </li>
