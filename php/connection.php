@@ -25,7 +25,7 @@
     <div class="Content10" id="DisconnectionBody">
         <div class="Button3 Close" onclick="closeDisconnection(this)"><i class="fa fa-close"></i></div>
         <div class="Title5">Déconnexion</div>
-        <div class="Body4" id="ConnectionForm" method="post" action="">
+        <div class="Body4" id="DisconnectionForm" method="post" action="">
             <div class="Row11">Êtes-vous sûr de vous déconnecter ?</div>
             <div class="Row13">
                 <div class="Button4" onclick="disconnect(this)"><i class="fa fa-power-off"></i> Se Déconnecter</div>
