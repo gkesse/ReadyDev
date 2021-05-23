@@ -1,4 +1,4 @@
-<div class="Parallax GParallax1"><div class="Img Binary"><div class="Caption"><a href="#"><div class="Text">Programmation web en PHP<br></div></a></div></div><div class="Body2 Orange"><br>Le but de ce tutoriel est de vous apprendre la programmation web en <b>PHP</b>.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary1"><div class="Body0" id="Loader_1529412976174"><div class="Row26">Summary 1</div></div><script>loadSummary1("Loader_1529412976174");</script></div><br></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Introduction"><a class="Link3" href="#">Introduction</a></h1><div class="Body3"><br><b>PHP</b> est un langage de programmation orientée objet utilisé pour produire des pages Web dynamiques via un serveur HTTP, pouvant également fonctionner comme n'importe quel langage interprété de façon locale.<br><br><div class="Img3 GImage"><img src="/Tutoriels/Web/PHP/img/b_php.png" alt="/Tutoriels/Web/PHP/img/b_php.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Installation"><a class="Link3" href="#">Installation</a></h1><div class="Body3"><br>Installer l'environnement PHP.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1617649094292"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1617649094292");</script></div><br><h2 class="Title7 GTitle2" id="Installation-1 - Installation sous Windows"><a class="Link9" href="#Installation">1 - Installation sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Installation-1.1 - Installation sous WampServer"><a class="Link9" href="#Installation">1.1 - Installation sous WampServer</a></h2><br><h2 class="Title7 GTitle2" id="Installation-1.1.1 - Télécharger WampServer"><a class="Link9" href="#Installation">1.1.1 - Télécharger WampServer</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.wampserver.com/">https://www.wampserver.com/</a><br><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://sourceforge.net/projects/wampserver/files/">https://sourceforge.net/projects/wampserver/files/</a><br><br><b>wampserver3.2.3_x64.exe</b><br><br><h2 class="Title7 GTitle2" id="Installation-1.1.2 - Installer WampServer"><a class="Link9" href="#Installation">1.1.2 - Installer WampServer</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">wampserver3.2.3_x64.exe
+<div class="Parallax GParallax1"><div class="Img Binary"><div class="Caption"><a href="#"><div class="Text">Programmation web en PHP<br></div></a></div></div><div class="Body2 Orange"><br>Le but de ce tutoriel est de vous apprendre la programmation web en <b>PHP</b>.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary1"><div class="Body0" id="Loader_1529412976174"><div class="Row26">Summary 1</div></div><script>loadSummary1("Loader_1529412976174");</script></div><br></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Introduction"><a class="Link3" href="#">Introduction</a></h1><div class="Body3"><br><b>PHP </b>est un langage de programmation libre, principalement utilisé pour produire des pages Web dynamiques via un serveur HTTP, mais pouvant également fonctionner comme n'importe quel langage interprété de façon locale. PHP est un langage impératif orienté objet. PHP a permis de créer un grand nombre de sites web célèbres, comme Facebook et Wikipédia. Il est considéré comme une des bases de la création de sites web dits dynamiques mais également des applications web. <br><br><div class="Img3 GImage"><img src="/Tutoriels/Web/PHP/img/b_php.png" alt="/Tutoriels/Web/PHP/img/b_php.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Installation"><a class="Link3" href="#">Installation</a></h1><div class="Body3"><br>Installer l'environnement PHP.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1617649094292"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1617649094292");</script></div><br><h2 class="Title7 GTitle2" id="Installation-Installer l'environnement PHP avec WampServer sous Windows"><a class="Link9" href="#Installation">Installer l'environnement PHP avec WampServer sous Windows</a></h2><br><h3 class="Title8 GTitle3">Télécharger WampServer</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.wampserver.com/">https://www.wampserver.com/</a><br><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://sourceforge.net/projects/wampserver/files/">https://sourceforge.net/projects/wampserver/files/</a><br><br><b>wampserver3.2.3_x64.exe</b><br><br><h3 class="Title8 GTitle3">Installer WampServer</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">wampserver3.2.3_x64.exe
 Langue de l'assistant d'installation -&gt; Français
 OK
 Cocher -&gt; Je comprends et J'accepte les termes du contrat de licence
@@ -21,24 +21,12 @@ Pour l'utilisation de MariaDB et MySQL
 ⦁	Voir le fichier : wamp(64)\mariadb_mysql.txt
 
 Suivant
-Terminer</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Installation-1.1.3 - Démarrer le serveur"><a class="Link9" href="#Installation">1.1.3 - Démarrer le serveur</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Windows
-WampServer</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Installation-1.1.4 - Vérifier le serveur"><a class="Link9" href="#Installation">1.1.4 - Vérifier le serveur</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="http://localhost/">http://localhost/</a><br><br><h2 class="Title7 GTitle2" id="Installation-1.1.5 - Configurer le serveur"><a class="Link9" href="#Installation">1.1.5 - Configurer le serveur</a></h2><br><h3 class="Title8 GTitle3">httpd.conf</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh"># on active le module cgi
-LoadModule cgi_module modules/mod_cgi.so
-# on active le module rewrite
-LoadModule rewrite_module modules/mod_rewrite.so
-# on active le module vhost
-LoadModule vhost_alias_module modules/mod_vhost_alias.so
-# on inclut le fichier de configuration
-# des machines virtuelles
-Include conf/extra/httpd-vhosts.conf
-# on configure les ports a ecouter
-Listen 0.0.0.0:80
+Terminer</xmp></pre></div><br><h3 class="Title8 GTitle3">Démarrer le serveur</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Windows
+WampServer</xmp></pre></div><br><h3 class="Title8 GTitle3">Vérifier l'installation</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="http://localhost/">http://localhost/</a><br><br><div class="Img3 GImage"><img src="/Tutoriels/Web/PHP/img/i_php_test_wampserver.png" alt="/Tutoriels/Web/PHP/img/i_php_test_wampserver.png"></div><br><h3 class="Title8 GTitle3">Configurer le module CGI<br></h3><br>C:\wamp64\bin\apache\apache2.4.46\conf\httpd.conf<br><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">LoadModule cgi_module modules/mod_cgi.so</xmp></pre></div><br><h3 class="Title8 GTitle3">Configurer le module de réécriture d'URL</h3><br>C:\wamp64\bin\apache\apache2.4.46\conf\httpd.conf<br><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">LoadModule rewrite_module modules/mod_rewrite.so</xmp></pre></div><br><h3 class="Title8 GTitle3">Configurer le module des machines virtuelles</h3><br>C:\wamp64\bin\apache\apache2.4.46\conf\httpd.conf<br><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">LoadModule vhost_alias_module modules/mod_vhost_alias.so
+Include conf/extra/httpd-vhosts.conf</xmp></pre></div><br><h3 class="Title8 GTitle3">Configurer les ports du serveur</h3><br>C:\wamp64\bin\apache\apache2.4.46\conf\httpd.conf<br><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">Listen 0.0.0.0:80
 Listen [::0]:80
 Listen 0.0.0.0:8800
-Listen [::0]:8800</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Installation-1.1.6 - Configurer les machines virtuelles"><a class="Link9" href="#Installation">1.1.6 - Configurer les machines virtuelles</a></h2><br><h3 class="Title8 GTitle3">httpd-vhosts.conf</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">#================================================
-# Virtual Hosts
-#================================================
-# on configure le serveur associe au port 80
+Listen [::0]:8800</xmp></pre></div><br><h3 class="Title8 GTitle3">Configurer les machines virtuelles</h3><br>C:\wamp64\bin\apache\apache2.4.46\conf\extra\httpd-vhosts.conf<br><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">#================================================
 &lt;VirtualHost *:80&gt;
     ServerName localhost
     ServerAlias localhost
@@ -50,36 +38,21 @@ Listen [::0]:8800</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Installati
     &lt;/Directory&gt;
 &lt;/VirtualHost&gt;
 #================================================
-# on configure le serveur associe au port 80
 &lt;VirtualHost *:8800&gt;
-    # on definit le nom du serveur
     ServerName www.readydev.com
-    # on definit l'email de l'administrateur
     ServerAdmin gerard.kesse@outlook.fr
-    # on definit la racine du serveur
     DocumentRoot "C:/Users/Admin/Downloads/Programs/ReadyDev"
     
-    # on definit les directives autorisees sur le serveur
     &lt;Directory "C:/Users/Admin/Downloads/Programs/ReadyDev"&gt;
-        # on autorise toutes les options
-        # ExecCGI | FollowSymLinks | Includes | Indexes
-        # MultiViews | SymLinksIfOwnerMatch
         Options All
-        # on autorise la lecture du fichier .htaccess
         AllowOverride All
-        # on definit l'ordre de traitement des adresses ip 
-        # en optant en premier lieu pour le traitement 
-        # des adresses ip autorisees puis en second lieu 
-        # pour le traitement des adresses ip interdites
         Order allow,deny
-        # on donne l'autorisation d'acces a toutes les adresses ip
         allow from all
-        # on autorise tout mode d'acces au serveur sans restriction
         Require all granted
     &lt;/Directory&gt;
 &lt;/VirtualHost&gt;
-#================================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Installation-1.1.7 - Redémarrer les services"><a class="Link9" href="#Installation">1.1.7 - Redémarrer les services</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">WampServer
-Clic gauche -&gt; Redémarrer les services</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Installation-2 - Installation sous Mac"><a class="Link9" href="#Installation">2 - Installation sous Mac</a></h2><br><h2 class="Title7 GTitle2" id="Installation-2.1 - Installation sous MAMP"><a class="Link9" href="#Installation">2.1 - Installation sous MAMP</a></h2><br><h2 class="Title7 GTitle2" id="Installation-2.1.1 - Télécharger MAMP"><a class="Link9" href="#Installation">2.1.1 - Télécharger MAMP</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.mamp.info/en/downloads/">https://www.mamp.info/en/downloads/</a><br><br><b>MAMP_MAMP_PRO_6.3.pkg</b><br><br><h2 class="Title7 GTitle2" id="Installation-2.1.2 - Installer MAMP"><a class="Link9" href="#Installation">2.1.2 - Installer MAMP</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">MAMP_MAMP_PRO_6.3.pkg
+#================================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Redémarrer les services</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">WampServer
+Clic gauche -&gt; Redémarrer les services</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Installation-Installer l'environnement PHP avec MAMP sous Mac"><a class="Link9" href="#Installation">Installer l'environnement PHP avec MAMP sous Mac</a></h2><br><h3 class="Title8 GTitle3">Télécharger MAMP</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.mamp.info/en/downloads/">https://www.mamp.info/en/downloads/</a><br><br><b>MAMP_MAMP_PRO_6.3.pkg</b><br><br><h3 class="Title8 GTitle3">Installer MAMP</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">MAMP_MAMP_PRO_6.3.pkg
 Continuer
 Continuer
 Contrat de licence -&gt; English
@@ -93,33 +66,55 @@ Mot de passe -&gt; ****
 Installer le logiciel
 Continuer
 Fermer
-Placer dans la corbeille</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Installation-2.1.3 - Ouvrir MAMP"><a class="Link9" href="#Installation">2.1.3 - Ouvrir MAMP</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Recherche Spotlight
+Placer dans la corbeille</xmp></pre></div><br><h3 class="Title8 GTitle3">Ouvrir MAMP</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">Recherche Spotlight
 MAMP
-</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Installation-2.1.4 - Démarrer le serveur MAMP"><a class="Link9" href="#Installation">2.1.4 - Démarrer le serveur MAMP</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">MAMP
-Start</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Installation-2.1.5 - Arrêter le serveur MAMP"><a class="Link9" href="#Installation">2.1.5 - Arrêter le serveur MAMP</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">MAMP
-Stop</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Installation-2.1.6 - Vérification"><a class="Link9" href="#Installation">2.1.6 - Vérification</a></h2><br><h2 class="Title7 GTitle2" id="Installation-2.1.6.1 - Afficher la page d'accueil"><a class="Link9" href="#Installation">2.1.6.1 - Afficher la page d'accueil</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="http://localhost:8888/MAMP/">http://localhost:8888/MAMP/</a><br><br><h2 class="Title7 GTitle2" id="Installation-2.1.6.2 - Afficher la page phpinfo"><a class="Link9" href="#Installation">2.1.6.2 - Afficher la page phpinfo</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="http://localhost:8888/MAMP/phpinfo.php">http://localhost:8888/MAMP/phpinfo.php</a><br><br><h2 class="Title7 GTitle2" id="Installation-2.1.7 - Configuration"><a class="Link9" href="#Installation">2.1.7 - Configuration</a></h2><br><h2 class="Title7 GTitle2" id="Installation-2.1.7.1 - Configuration sous Apache"><a class="Link9" href="#Installation">2.1.7.1 - Configuration sous Apache</a></h2><br><h2 class="Title7 GTitle2" id="Installation-2.1.7.1.1 - Configurer la racine du serveur"><a class="Link9" href="#Installation">2.1.7.1.1 - Configurer la racine du serveur</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">MAMP
+</xmp></pre></div><br><h3 class="Title8 GTitle3">Démarrer le serveur MAMP</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">MAMP
+Start</xmp></pre></div><br><h3 class="Title8 GTitle3">Arrêter le serveur MAMP</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">MAMP
+Stop</xmp></pre></div><br><h3 class="Title8 GTitle3">Vérifier l'installation</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="http://localhost:8888/MAMP/">http://localhost:8888/MAMP/</a><br><br><h3 class="Title8 GTitle3">Vérifier la page phpinfo</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="http://localhost:8888/MAMP/phpinfo.php">http://localhost:8888/MAMP/phpinfo.php</a><br><br><h3 class="Title8 GTitle3">Configurer la racine du serveur</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">MAMP
 Preferences
 Server
 Document Root -&gt; Choose -&gt; /Users/imac/Desktop/Programs
-OK</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Installation-2.1.7.1.2 - Configurer le port du serveur"><a class="Link9" href="#Installation">2.1.7.1.2 - Configurer le port du serveur</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">MAMP
+OK</xmp></pre></div><br><h3 class="Title8 GTitle3">Configurer le port du serveur</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">MAMP
 Preferences
 Ports
 Apache Port -&gt; 8888
-OK</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Installation-2.1.7.1.3 - Configurer le module rewrite"><a class="Link9" href="#Installation">2.1.7.1.3 - Configurer le module rewrite</a></h2><br><h3 class="Title8 GTitle3">/etc/apache2/httpd.conf</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh"># on active le module rewrite
-LoadModule rewrite_module libexec/apache2/mod_rewrite.so</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Installation-2.1.7.1.4 - Configurer le module virtual host"><a class="Link9" href="#Installation">2.1.7.1.4 - Configurer le module virtual host</a></h2><br><h3 class="Title8 GTitle3">/etc/apache2/httpd.conf</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh"># on active le module virtual host
-LoadModule vhost_alias_module libexec/apache2/mod_vhost_alias.so
-
-# on active le fichier de definition des machines virtuelles
-Include /private/etc/apache2/extra/httpd-vhosts.conf</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Installation-2.1.7.2 - Configuration sous PHP"><a class="Link9" href="#Installation">2.1.7.2 - Configuration sous PHP</a></h2><br><h2 class="Title7 GTitle2" id="Installation-2.1.7.2.1 - Configurer l'affichage des erreurs"><a class="Link9" href="#Installation">2.1.7.2.1 - Configurer l'affichage des erreurs</a></h2><br><h3 class="Title8 GTitle3">/Applications/MAMP/bin/php/php7.4.12/conf/php.ini</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh"># on autorise l'affichage de toutes les erreurs
-error_reporting  =  E_ALL
-
-# on active l'affichage des erreurs
-display_errors = On</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Installation-2.1.7.2.2 - Configurer le module SQLite"><a class="Link9" href="#Installation">2.1.7.2.2 - Configurer le module SQLite</a></h2><br><h3 class="Title8 GTitle3">/Applications/MAMP/bin/php/php7.4.12/conf/php.ini</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh"># on active le module PDO
-extension=php_pdo.so
-
-# on active le module SQLite
+OK</xmp></pre></div><br><h3 class="Title8 GTitle3">Configurer le module de réécriture d'URL</h3><br>/etc/apache2/httpd.conf<br><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">LoadModule rewrite_module libexec/apache2/mod_rewrite.so</xmp></pre></div><br><h3 class="Title8 GTitle3">Configurer le module des machines virtuelles</h3><br>/etc/apache2/httpd.conf<br><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">LoadModule vhost_alias_module libexec/apache2/mod_vhost_alias.so
+Include /private/etc/apache2/extra/httpd-vhosts.conf</xmp></pre></div><br><h3 class="Title8 GTitle3">Configurer l'affichage des erreurs</h3><br>/Applications/MAMP/bin/php/php7.4.12/conf/php.ini<br><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">error_reporting  =  E_ALL
+display_errors = On</xmp></pre></div><br><h3 class="Title8 GTitle3">Configurer le module SQLite</h3><br>/Applications/MAMP/bin/php/php7.4.12/conf/php.ini<br><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">extension=php_pdo.so
 extension=php_pdo_sqlite.so
-extension=php_sqlite3.so</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Tests"><a class="Link3" href="#">Tests</a></h1><div class="Body3"><br>Créer un projet PHP.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1617649178149"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1617649178149");</script></div><br><h2 class="Title7 GTitle2" id="Tests-1 - Test sous Windows"><a class="Link9" href="#Tests">1 - Test sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Tests-1.1 - Test sous WampServer"><a class="Link9" href="#Tests">1.1 - Test sous WampServer</a></h2><br><h2 class="Title7 GTitle2" id="Tests-1.1.1 - Éditer le programme"><a class="Link9" href="#Tests">1.1.1 - Éditer le programme</a></h2><br><h3 class="Title8 GTitle3">index.php</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="php">&lt;?php
+extension=php_sqlite3.so</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Installation-Installer l'environnement PHP avec LAMP sous Ubuntu"><a class="Link9" href="#Installation">Installer l'environnement PHP avec LAMP sous Ubuntu</a></h2><br><h3 class="Title8 GTitle3">Supprimer un package</h3><br>Cette commande est à utuilser si vous rencontrez un problème avec un package lors de la mise à jour du système.<br><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">sudo apt remove package_name</xmp></pre></div><br><h3 class="Title8 GTitle3">Mettre à jour le système<br></h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">sudo apt update
+sudo apt full-upgrade</xmp></pre></div><br><h3 class="Title8 GTitle3">Installer Apache</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">sudo apt install -y apache2
+sudo apt install -y libapache2-mod-php</xmp></pre></div><br><h3 class="Title8 GTitle3">Installer MySQL</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">sudo apt install -y mysql-server</xmp></pre></div><br><h3 class="Title8 GTitle3">Installer PHP</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">sudo apt install -y php
+sudo apt install -y php-mysql</xmp></pre></div><br><h3 class="Title8 GTitle3">Installer les modules les plus utilisés</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">sudo apt install -y php-curl
+sudo apt install -y php-gd
+sudo apt install -y php-intl
+sudo apt install -y php-json
+sudo apt install -y php-mbstring
+sudo apt install -y php-xml
+sudo apt install -y php-zip</xmp></pre></div><br><h3 class="Title8 GTitle3">Déterminer l'adresse ip</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">ip a s</xmp></pre></div><br><h3 class="Title8 GTitle3">Vérifier l'installation</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="http://192.168.1.45/">http://192.168.1.45/</a><br><br><div class="Img3 GImage"><img src="/Tutoriels/Web/PHP/img/i_php_test_ubuntu.png" alt="/Tutoriels/Web/PHP/img/i_php_test_ubuntu.png"></div><br><h3 class="Title8 GTitle3">Configurer les ports du serveur<br></h3><br>/etc/apache2/ports.conf<br><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">Listen 80
+Listen 8080</xmp></pre></div><br><h3 class="Title8 GTitle3">Configurer les racines du serveur</h3><br>/etc/apache2/sites-available/000-default.conf<br><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">#================================================
+&lt;VirtualHost *:80&gt;
+	ServerAdmin webmaster@localhost
+	DocumentRoot /var/www/html
+	ErrorLog ${APACHE_LOG_DIR}/error.log
+	CustomLog ${APACHE_LOG_DIR}/access.log combined
+&lt;/VirtualHost&gt;
+#================================================
+&lt;VirtualHost *:8080&gt;
+    ServerName www.readydev.com
+    ServerAdmin gerard.kesse@outlook.fr
+    DocumentRoot "/home/rpi4/Programs/ReadyDev/"
+    
+    &lt;Directory "/home/rpi4/Programs/ReadyDev/"&gt;
+        Options All
+        AllowOverride All
+        Order allow,deny
+        allow from all
+        Require all granted
+    &lt;/Directory&gt;
+&lt;/VirtualHost&gt;
+#================================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Configurer l'extension PDO SQLite</h3><br>/etc/php/7.4/apache2/php.ini<br><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">extension=pdo_sqlite</xmp></pre></div><br><h3 class="Title8 GTitle3">Configurer l'affichage des erreurs</h3><br>/etc/php/7.4/apache2/php.ini<br><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">error_reporting = E_ALL
+display_errors = On</xmp></pre></div><br><h3 class="Title8 GTitle3">Redémarrer Apache</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">sudo service apache2 reload</xmp></pre></div><br><h3 class="Title8 GTitle3">Vérifier l'installation</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="http://192.168.1.45:8080/">http://192.168.1.45:8080/</a><br><br><div class="Img3 GImage"><img src="/Tutoriels/Web/PHP/img/i_php_test_ubuntu_server.png" alt="/Tutoriels/Web/PHP/img/i_php_test_ubuntu_server.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Tests"><a class="Link3" href="#">Tests</a></h1><div class="Body3"><br>Créer un projet PHP.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1617649178149"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1617649178149");</script></div><br><h2 class="Title7 GTitle2" id="Tests-1 - Test sous Windows"><a class="Link9" href="#Tests">1 - Test sous Windows</a></h2><br><h2 class="Title7 GTitle2" id="Tests-1.1 - Test sous WampServer"><a class="Link9" href="#Tests">1.1 - Test sous WampServer</a></h2><br><h2 class="Title7 GTitle2" id="Tests-1.1.1 - Éditer le programme"><a class="Link9" href="#Tests">1.1.1 - Éditer le programme</a></h2><br><h3 class="Title8 GTitle3">index.php</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="php">&lt;?php
 //===============================================
 // on affiche un message a l'ecran
 echo "Bonjour tout le monde";
