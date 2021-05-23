@@ -108,14 +108,14 @@
         <link rel="stylesheet" href="/libs/font_awesome/4.7.0/css/font-awesome.min.css"/>
         <!-- ============================================ -->
         <!-- Script -->
-        <script type="text/javascript" src="/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
         <!-- ============================================ -->
         <?php if($lAce) { ?>
-        <script type="text/javascript" src="/libs/ace/1.4.6/src-min/ace.js"></script>
+        <script src="/libs/ace/1.4.6/src-min/ace.js"></script>
         <?php } ?>
         <!-- ============================================ -->
         <?php if($lMathJax) { ?>
-        <script type="text/javascript" async src="/libs/mathjax/2.7.3/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script async src="/libs/mathjax/2.7.3/MathJax.js?config=TeX-MML-AM_CHTML"></script>
         <script type="text/x-mathjax-config">
         MathJax.Hub.Config({
             tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
@@ -125,7 +125,7 @@
         <!-- ============================================ -->
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <!--script async src="https://www.googletagmanager.com/gtag/js?id=UA-109595989-1"></script-->
-        <script type="text/javascript" async src="/libs/google_tag_manager/1.0.0/gtag.js?id=UA-109595989-1"></script>
+        <script async src="/libs/google_tag_manager/1.0.0/gtag.js?id=UA-109595989-1"></script>
         <script>
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
@@ -133,12 +133,12 @@
 
           gtag('config', 'UA-149825656-1');
         </script>
-        <script type="text/javascript" src="/js/class/GConfig.js"></script>
-        <script type="text/javascript" src="/js/class/GHeader.js"></script>
-        <script type="text/javascript" src="/js/class/GLoader.js"></script>
+        <script src="/js/class/GConfig.js"></script>
+        <script src="/js/class/GHeader.js"></script>
+        <script src="/js/class/GLoader.js"></script>
         <!-- ============================================ -->
-        <script type="text/javascript" src="/js/header.js"></script>
-        <script type="text/javascript" src="/js/loader.js"></script>
+        <script src="/js/header.js"></script>
+        <script src="/js/loader.js"></script>
         <!-- ============================================ -->
         <link rel="stylesheet" href="/css/style.php"/>
         <!-- ============================================ -->
