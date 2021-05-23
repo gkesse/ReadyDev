@@ -1857,7 +1857,6 @@ int main(int argc, char** argv) {
 //===============================================
 class GMatrix {
 public:
-    GMatrix(int row, int col);
     GMatrix(int row, int col, const std::vector&lt;double&gt;& data);
     ~GMatrix();
 
@@ -1877,15 +1876,8 @@ private:
 };
 //===============================================
 #endif
-//==============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GMatrix.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GMatrix.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include "GMatrix.h"
-//===============================================
-GMatrix::GMatrix(int w, int h) {
-    m_row = w;
-    m_col = h;
-    int lSize = m_row * m_col;
-    m_data = new double[lSize];
-}
 //===============================================
 GMatrix::GMatrix(int w, int h, const std::vector&lt;double&gt;& data) {
     m_row = w;
@@ -1938,7 +1930,392 @@ std::ostream& operator&lt;&lt;(std::ostream& os, const GMatrix& m) {
 }
 //===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">|   1 |   2 |   3 |
 |   4 |   5 |   6 |
-|   7 |   8 |   9 |</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Créer un manager de données"><a class="Link3" href="#">Créer un manager de données</a></h1><div class="Body3"><br>Le <b>manager de données</b> que nous présentons ici est une architecture logicielle permettant d'accéder à toutes les données de notre application.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1621364608073"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1621364608073");</script></div><br><h2 class="Title7 GTitle2" id="Créer un manager de données-main.cpp"><a class="Link9" href="#Créer un manager de données">main.cpp</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+|   7 |   8 |   9 |</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Surchage d'opérateurs-Créer un constructeur de copie"><a class="Link9" href="#Surchage d'opérateurs">Créer un constructeur de copie</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GMatrix.h"
+//===============================================
+int main(int argc, char** argv) {
+    GMatrix A(3, 3, {1, 2, 3, 4, 5, 6, 7, 8, 9});
+    std::cout &lt;&lt; A &lt;&lt; "\n";
+    GMatrix B(A);
+    std::cout &lt;&lt; B &lt;&lt; "\n";
+    return (0);
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GMatrix.h</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#ifndef _GMatrix_
+#define _GMatrix_
+//===============================================
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+//===============================================
+class GMatrix {
+public:
+    GMatrix(int row, int col, const std::vector&lt;double&gt;& data);
+    GMatrix(const GMatrix& m);
+    ~GMatrix();
+
+public:
+    void set(int row, int col, double d);
+    double get(int row, int col) const;
+    void load(const std::vector&lt;double&gt;& data);
+    void load(const GMatrix& m);
+    void print() const;
+    
+public:
+    friend std::ostream& operator&lt;&lt;(std::ostream& os, const GMatrix& m);
+    
+private:
+    double* m_data;
+    int m_row;
+    int m_col;
+};
+//===============================================
+#endif
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GMatrix.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GMatrix.h"
+//===============================================
+GMatrix::GMatrix(int w, int h, const std::vector&lt;double&gt;& data) {
+    m_row = w;
+    m_col = h;
+    int lSize = m_row * m_col;
+    m_data = new double[lSize];
+    load(data);
+}
+//===============================================
+GMatrix::GMatrix(const GMatrix& m) {
+    m_row = m.m_row;
+    m_col = m.m_col;
+    int lSize = m_row * m_col;
+    m_data = new double[lSize];
+    load(m);
+}
+//===============================================
+GMatrix::~GMatrix() {
+    delete[] m_data;
+}
+//===============================================
+void GMatrix::set(int row, int col, double d) {
+    int i = row * m_col + col;
+    m_data[i] = d;
+}
+//===============================================
+double GMatrix::get(int row, int col) const {
+    int i = row * m_col + col;
+    return m_data[i];
+}
+//===============================================
+void GMatrix::load(const std::vector&lt;double&gt;& data) {
+    for(int row = 0; row &lt; m_row; row++) {
+        for(int col = 0; col &lt; m_col; col++) {
+            int i = row * m_col + col;
+            double lData = data[i];
+            set(row, col, lData);
+        }
+    }
+}
+//===============================================
+void GMatrix::load(const GMatrix& m) {
+    for(int row = 0; row &lt; m_row; row++) {
+        for(int col = 0; col &lt; m_col; col++) {
+            double lData = m.get(row, col);
+            set(row, col, lData);
+        }
+    }
+}
+//===============================================
+void GMatrix::print() const {
+    for(int row = 0; row &lt; m_row; row++) {
+        printf("| ");
+        for(int col = 0; col &lt; m_col; col++) {
+            if(col != 0) {printf(" | ");}
+            double d = get(row, col);
+            printf("%3.0f", d);
+        }
+        printf(" |");
+        printf("\n");
+    }
+}
+//===============================================
+std::ostream& operator&lt;&lt;(std::ostream& os, const GMatrix& m) {
+    m.print();
+    return os;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">|   1 |   2 |   3 |
+|   4 |   5 |   6 |
+|   7 |   8 |   9 |
+
+|   1 |   2 |   3 |
+|   4 |   5 |   6 |
+|   7 |   8 |   9 |</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Surchage d'opérateurs-Créer une surcharge de l'opérateur d'affectation (=)"><a class="Link9" href="#Surchage d'opérateurs">Créer une surcharge de l'opérateur d'affectation (=)</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GMatrix.h"
+//===============================================
+int main(int argc, char** argv) {
+    GMatrix A(3, 3, {1, 2, 3, 4, 5, 6, 7, 8, 9});
+    std::cout &lt;&lt; A &lt;&lt; "\n";
+    GMatrix B;
+    B = A;
+    std::cout &lt;&lt; B &lt;&lt; "\n";
+    return (0);
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GMatrix.h</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#ifndef _GMatrix_
+#define _GMatrix_
+//===============================================
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+//===============================================
+class GMatrix {
+public:
+    GMatrix();
+    GMatrix(int row, int col, const std::vector&lt;double&gt;& data);
+    GMatrix(const GMatrix& m);
+    ~GMatrix();
+
+public:
+    void set(int row, int col, double d);
+    double get(int row, int col) const;
+    void load(const std::vector&lt;double&gt;& data);
+    void load(const GMatrix& m);
+    void print() const;
+    
+public:
+    GMatrix& operator=(const GMatrix& m);
+
+public:
+    friend std::ostream& operator&lt;&lt;(std::ostream& os, const GMatrix& m);
+    
+private:
+    double* m_data;
+    int m_row;
+    int m_col;
+};
+//===============================================
+#endif
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GMatrix.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GMatrix.h"
+//===============================================
+GMatrix::GMatrix() {
+    m_row = 0;
+    m_col = 0;
+    m_data = 0;
+}
+//===============================================
+GMatrix::GMatrix(int w, int h, const std::vector&lt;double&gt;& data) {
+    m_row = w;
+    m_col = h;
+    int lSize = m_row * m_col;
+    m_data = new double[lSize];
+    load(data);
+}
+//===============================================
+GMatrix::GMatrix(const GMatrix& m) {
+    m_row = m.m_row;
+    m_col = m.m_col;
+    int lSize = m_row * m_col;
+    m_data = new double[lSize];
+    load(m);
+}
+//===============================================
+GMatrix::~GMatrix() {
+    delete[] m_data;
+}
+//===============================================
+void GMatrix::set(int row, int col, double d) {
+    int i = row * m_col + col;
+    m_data[i] = d;
+}
+//===============================================
+double GMatrix::get(int row, int col) const {
+    int i = row * m_col + col;
+    return m_data[i];
+}
+//===============================================
+void GMatrix::load(const std::vector&lt;double&gt;& data) {
+    for(int row = 0; row &lt; m_row; row++) {
+        for(int col = 0; col &lt; m_col; col++) {
+            int i = row * m_col + col;
+            double lData = data[i];
+            set(row, col, lData);
+        }
+    }
+}
+//===============================================
+void GMatrix::load(const GMatrix& m) {
+    for(int row = 0; row &lt; m_row; row++) {
+        for(int col = 0; col &lt; m_col; col++) {
+            double lData = m.get(row, col);
+            set(row, col, lData);
+        }
+    }
+}
+//===============================================
+void GMatrix::print() const {
+    for(int row = 0; row &lt; m_row; row++) {
+        printf("| ");
+        for(int col = 0; col &lt; m_col; col++) {
+            if(col != 0) {printf(" | ");}
+            double d = get(row, col);
+            printf("%3.0f", d);
+        }
+        printf(" |");
+        printf("\n");
+    }
+}
+//===============================================
+GMatrix& GMatrix::operator=(const GMatrix& m) {
+    if(m_data != 0) {delete this;}
+    m_row = m.m_row;
+    m_col = m.m_col;
+    int lSize = m_row * m_col;
+    m_data = new double[lSize];
+    load(m);
+    return *this;
+}
+//===============================================
+std::ostream& operator&lt;&lt;(std::ostream& os, const GMatrix& m) {
+    m.print();
+    return os;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">|   1 |   2 |   3 |
+|   4 |   5 |   6 |
+|   7 |   8 |   9 |
+
+|   1 |   2 |   3 |
+|   4 |   5 |   6 |
+|   7 |   8 |   9 |</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Surchage d'opérateurs-Créer une surcharge de l'opérateur addition (+)"><a class="Link9" href="#Surchage d'opérateurs">Créer une surcharge de l'opérateur addition (+)</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GMatrix.h"
+//===============================================
+int main(int argc, char** argv) {
+    GMatrix A(3, 3, {1, 2, 3, 4, 5, 6, 7, 8, 9});
+    std::cout &lt;&lt; A &lt;&lt; "\n";
+    GMatrix B = A + A;
+    std::cout &lt;&lt; B &lt;&lt; "\n";
+    return (0);
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GMatrix.h</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#ifndef _GMatrix_
+#define _GMatrix_
+//===============================================
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+//===============================================
+class GMatrix {
+public:
+    GMatrix(int row, int col, const std::vector&lt;double&gt;& data);
+    GMatrix(const GMatrix& m);
+    ~GMatrix();
+
+public:
+    void set(int row, int col, double d);
+    double get(int row, int col) const;
+    void load(const std::vector&lt;double&gt;& data);
+    void load(const GMatrix& m);
+    void add(const GMatrix& m);
+    void print() const;
+    
+public:
+    friend std::ostream& operator&lt;&lt;(std::ostream& os, const GMatrix& m);
+    friend GMatrix operator+(GMatrix const& a, GMatrix const& b);
+    
+private:
+    double* m_data;
+    int m_row;
+    int m_col;
+};
+//===============================================
+#endif
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GMatrix.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GMatrix.h"
+//===============================================
+GMatrix::GMatrix(int w, int h, const std::vector&lt;double&gt;& data) {
+    m_row = w;
+    m_col = h;
+    int lSize = m_row * m_col;
+    m_data = new double[lSize];
+    load(data);
+}
+//===============================================
+GMatrix::GMatrix(const GMatrix& m) {
+    m_row = m.m_row;
+    m_col = m.m_col;
+    int lSize = m_row * m_col;
+    m_data = new double[lSize];
+    load(m);
+}
+//===============================================
+GMatrix::~GMatrix() {
+    delete[] m_data;
+}
+//===============================================
+void GMatrix::set(int row, int col, double d) {
+    int i = row * m_col + col;
+    m_data[i] = d;
+}
+//===============================================
+double GMatrix::get(int row, int col) const {
+    int i = row * m_col + col;
+    return m_data[i];
+}
+//===============================================
+void GMatrix::load(const std::vector&lt;double&gt;& data) {
+    for(int row = 0; row &lt; m_row; row++) {
+        for(int col = 0; col &lt; m_col; col++) {
+            int i = row * m_col + col;
+            double lData = data[i];
+            set(row, col, lData);
+        }
+    }
+}
+//===============================================
+void GMatrix::load(const GMatrix& m) {
+    for(int row = 0; row &lt; m_row; row++) {
+        for(int col = 0; col &lt; m_col; col++) {
+            double lData = m.get(row, col);
+            set(row, col, lData);
+        }
+    }
+}
+//===============================================
+void GMatrix::add(const GMatrix& m) {
+    for(int row = 0; row &lt; m_row; row++) {
+        for(int col = 0; col &lt; m_col; col++) {
+            double Ai = m.get(row, col);
+            double Bi = get(row, col);
+            double Ci = Ai + Bi;
+            set(row, col, Ci);
+        }
+    }
+}
+//===============================================
+void GMatrix::print() const {
+    for(int row = 0; row &lt; m_row; row++) {
+        printf("| ");
+        for(int col = 0; col &lt; m_col; col++) {
+            if(col != 0) {printf(" | ");}
+            double d = get(row, col);
+            printf("%3.0f", d);
+        }
+        printf(" |");
+        printf("\n");
+    }
+}
+//===============================================
+std::ostream& operator&lt;&lt;(std::ostream& os, const GMatrix& m) {
+    m.print();
+    return os;
+}
+//===============================================
+GMatrix operator+(GMatrix const& a, GMatrix const& b) {
+    GMatrix c(a);
+    c.add(b);
+    return c;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">|   1 |   2 |   3 |
+|   4 |   5 |   6 |
+|   7 |   8 |   9 |
+
+|   2 |   4 |   6 |
+|   8 |  10 |  12 |
+|  14 |  16 |  18 |</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Créer un manager de données"><a class="Link3" href="#">Créer un manager de données</a></h1><div class="Body3"><br>Le <b>manager de données</b> que nous présentons ici est une architecture logicielle permettant d'accéder à toutes les données de notre application.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1621364608073"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1621364608073");</script></div><br><h2 class="Title7 GTitle2" id="Créer un manager de données-main.cpp"><a class="Link9" href="#Créer un manager de données">main.cpp</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include "GManager.h"
 //===============================================
 int main(int argc, char** argv) {
