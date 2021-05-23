@@ -1,0 +1,10 @@
+#!/bin/bash
+#================================================
+export "PATH=/home/pi/opt/certbot_auto:$PATH"
+#================================================
+export "GPROJECT_ROOT=/home/rpi4/Programs"
+export "GPROJECT_PATH=${GPROJECT_ROOT}/ReadyDev"
+#================================================
+export "GGIT_URL=https://github.com/gkesse/ReadyDev.git"
+export "GGIT_NAME=ReadyDev"
+#================================================
