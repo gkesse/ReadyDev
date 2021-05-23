@@ -71,7 +71,7 @@
         <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0">
         <!-- ============================================ -->
         <!-- Google -->
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <!--meta http-equiv="Content-Type" content="text/html; charset=utf-8"/-->
         <?php if($lExistMetaDesc == true) { ?>
         <meta name="description" content="<?php echo $lMetaDesc; ?>"/>
         <?php } ?>
