@@ -2034,7 +2034,7 @@ void GProcess::runQuit(int argc, char** argv) {
     else if(lAnswer == "o") {m_state = "end";}
     else if(lAnswer == "-q") {m_state = "end";}
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Résultat"><a class="Link9" href="#Système d'administration">Résultat</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_admin_system.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_admin_system.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Multithreading"><a class="Link3" href="#">Multithreading</a></h1><div class="Body3"><br>Un processeur est dit <b>multithread </b>s'il est capable d'exécuter efficacement plusieurs threads simultanément. Contrairement aux systèmes multiprocesseurs (tels les systèmes multi-cœur), les threads doivent partager les ressources d'un unique cœur1 : les unités de traitement, le cache processeur et le translation lookaside buffer ; certaines parties sont néanmoins dupliquées : chaque thread dispose de ses propres registres et de son propre pointeur d'instruction. Là où les systèmes multiprocesseurs incluent plusieurs unités de traitement complètes, le multithreading a pour but d'augmenter l'utilisation d'un seul cœur en tirant profit des propriétés des threads et du parallélisme au niveau des instructions. Comme les deux techniques sont complémentaires, elles sont parfois combinées dans des systèmes comprenant de multiples processeurs multithreads ou des processeurs avec de multiples cœurs multithreads.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1621701307236"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1621701307236");</script></div><br><h2 class="Title7 GTitle2" id="Multithreading-Créer un thread (C++11)"><a class="Link9" href="#Multithreading">Créer un thread (C++11)</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">//===============================================
+//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Résultat"><a class="Link9" href="#Système d'administration">Résultat</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_admin_system.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_admin_system.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Multithreading"><a class="Link3" href="#">Multithreading</a></h1><div class="Body3"><br>Un processeur est dit <b>multithread </b>s'il est capable d'exécuter efficacement plusieurs threads simultanément. Contrairement aux systèmes multiprocesseurs (tels les systèmes multi-cœur), les threads doivent partager les ressources d'un unique cœur1 : les unités de traitement, le cache processeur et le translation lookaside buffer ; certaines parties sont néanmoins dupliquées : chaque thread dispose de ses propres registres et de son propre pointeur d'instruction. Là où les systèmes multiprocesseurs incluent plusieurs unités de traitement complètes, le multithreading a pour but d'augmenter l'utilisation d'un seul cœur en tirant profit des propriétés des threads et du parallélisme au niveau des instructions. Comme les deux techniques sont complémentaires, elles sont parfois combinées dans des systèmes comprenant de multiples processeurs multithreads ou des processeurs avec de multiples cœurs multithreads.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1621701307236"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1621701307236");</script></div><br><h2 class="Title7 GTitle2" id="Multithreading-Créer un thread"><a class="Link9" href="#Multithreading">Créer un thread</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;iostream&gt;
 #include &lt;thread&gt;
 //===============================================
@@ -2052,7 +2052,7 @@ int main(int argc, char** argv) {
     lThreadB.join();
     return (0);
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">Thread[A][0] : on execute le thread
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">Thread[A][0] : on execute le thread
 Thread[B][0] : on execute le thread
 Thread[A][1] : on execute le thread
 Thread[B][1] : on execute le thread
@@ -2066,7 +2066,149 @@ Thread[B][5] : on execute le thread
 Thread[B][6] : on execute le thread
 Thread[B][7] : on execute le thread
 Thread[B][8] : on execute le thread
-Thread[B][9] : on execute le thread</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Interface Homme-Machine avec Qt"><a class="Link3" href="#">Interface Homme-Machine avec Qt</a></h1><div class="Body3"><br><b>Qt </b>est une API orientée objet et développée en C++ qui offre des composants d'interface graphique (widgets), d'accès aux données, de connexions réseaux, de gestion des fils d'exécution, d'analyse XML, etc. Par certains aspects, elle ressemble à un framework lorsqu'on l'utilise pour concevoir des interfaces graphiques ou que l'on conçoit l'architecture de son application en utilisant les mécanismes des signaux et slots par exemple. Qt permet la portabilité des applications qui n'utilisent que ses composants par simple recompilation du code source. Les environnements pris en charge sont les Unix (dont GNU/Linux) qui utilisent le système graphique X Window System ou Wayland, Windows, Mac OS X, Tizen et également Genode. Le fait d'être une bibliothèque logicielle multiplateforme attire un grand nombre de personnes qui ont donc l'occasion de diffuser leurs programmes sur les principaux OS existants. Qt intègre des bindings avec plus d'une dizaine de langages autres que le C++, comme Ada, C#, Java, Python, Ruby, Visual Basic, etc. Qt est notamment connu pour être le framework sur lequel repose l'environnement graphique KDE Plasma, l'un des environnements de bureau par défaut de plusieurs distributions GNU/Linux. <br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1617838385077"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1617838385077");</script></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/b_qt.png" alt="/Tutoriels/Software_Development/Cpp/img/b_qt.png"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-Installer l'environnement Qt sous MSYS2"><a class="Link9" href="#Interface Homme-Machine avec Qt">Installer l'environnement Qt sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Installer Qt</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">pacman -S --needed --noconfirm mingw-w64-i686-qt5
+Thread[B][9] : on execute le thread</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Multithreading-Créer un objet atomique"><a class="Link9" href="#Multithreading">Créer un objet atomique</a></h2><br>Les objets de types <b>atomiques </b>contiennent une valeur d'un type particulier (T). La principale caractéristique des objets atomiques est que l'accès à cette valeur contenue à partir de différents threads ne peut pas provoquer de courses de données (c'est-à-dire que faire cela est un comportement bien défini , avec des accès correctement séquencés). Généralement, pour tous les autres objets, la possibilité de provoquer une course aux données pour accéder simultanément au même objet qualifie l'opération comme un comportement indéfini. Aditionellement, les objets atomiques ont la capacité de synchroniser l'accès à d'autres objets non atomiques dans leurs threads en spécifiant différents ordres de mémoire .<br><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;iostream&gt;
+#include &lt;thread&gt;
+#include &lt;atomic&gt;
+//===============================================
+std::atomic&lt;int&gt; gCounter(0);
+//===============================================
+static void onRun(const std::string& name, int n) {
+    for(int i = 0; i &lt; n; i++) {
+        int lCounter = gCounter.load(std::memory_order_relaxed);
+        printf("Thread[%2d][%s][%d] : on execute le thread\n", lCounter, name.c_str(), i);
+        std::this_thread::sleep_for(std::chrono::milliseconds(200));
+        gCounter++;
+    }
+};
+//===============================================
+int main(int argc, char** argv) {
+    std::thread lThreadA(onRun, "A", 5);
+    std::thread lThreadB(onRun, "B", 10);
+    lThreadA.join();
+    lThreadB.join();
+    return (0);
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">Thread[ 0][A][0] : on execute le thread
+Thread[ 0][B][0] : on execute le thread
+Thread[ 1][A][1] : on execute le thread
+Thread[ 2][B][1] : on execute le thread
+Thread[ 3][A][2] : on execute le thread
+Thread[ 4][B][2] : on execute le thread
+Thread[ 5][A][3] : on execute le thread
+Thread[ 6][B][3] : on execute le thread
+Thread[ 7][A][4] : on execute le thread
+Thread[ 8][B][4] : on execute le thread
+Thread[10][B][5] : on execute le thread
+Thread[11][B][6] : on execute le thread
+Thread[12][B][7] : on execute le thread
+Thread[13][B][8] : on execute le thread
+Thread[14][B][9] : on execute le thread</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Multithreading-Créer un appel de fonction unique"><a class="Link9" href="#Multithreading">Créer un appel de fonction unique</a></h2><br>L'appel à <b>call_once</b> exécute la fonction passée en argument exactement une fois, même s'il est appelé simultanément, à partir de plusieurs threads.<br><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;iostream&gt;
+#include &lt;thread&gt;
+#include &lt;mutex&gt;
+//===============================================
+std::string gWinner;
+std::once_flag gOnceFlag;
+//===============================================
+static void onCallOnce(const std::string& name) {
+    gWinner = name;
+}
+//===============================================
+static void onRun(const std::string& name) {
+    std::this_thread::sleep_for(std::chrono::milliseconds(200));
+    std::call_once(gOnceFlag, onCallOnce, name);
+}
+//===============================================
+int main(int argc, char** argv) {
+    std::thread lThreadA(onRun, "A");
+    std::thread lThreadB(onRun, "B");
+    std::thread lThreadC(onRun, "C");
+    std::thread lThreadD(onRun, "D");
+    lThreadA.join();
+    lThreadB.join();
+    lThreadC.join();
+    lThreadD.join();
+    std::printf("Thread gagnant : Thread [%s]\n", gWinner.c_str());
+    return (0);
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">Thread gagnant : Thread [C]</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Multithreading-Créer un mutex"><a class="Link9" href="#Multithreading">Créer un mutex</a></h2><br>Un <b>mutex </b>est un objet verrouillable qui est conçu pour signaler quand des sections critiques de code ont besoin d'un accès exclusif, empêchant d'autres threads avec la même protection de s'exécuter simultanément et d'accéder aux mêmes emplacements de mémoire. Les objets mutex fournissent la propriété exclusive et ne prennent pas en charge la récursivité (c'est-à-dire qu'un thread ne doit pas verrouiller un mutex qu'il possède déjà).<br><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;iostream&gt;
+#include &lt;thread&gt;
+#include &lt;mutex&gt;
+//===============================================
+std::mutex gMutex;
+//===============================================
+static void onRun(const std::string& name) {
+    gMutex.lock();
+    printf("Thread [%s] : ", name.c_str());
+    for(int i = 0; i &lt; 20; i++) {
+        printf("%s", name.c_str());
+        std::this_thread::sleep_for(std::chrono::milliseconds(1));
+    }
+    printf("\n");
+    gMutex.unlock();
+}
+//===============================================
+int main(int argc, char** argv) {
+    std::thread lThreadA(onRun, "A");
+    std::thread lThreadB(onRun, "B");
+    std::thread lThreadC(onRun, "C");
+    std::thread lThreadD(onRun, "D");
+    lThreadA.join();
+    lThreadB.join();
+    lThreadC.join();
+    lThreadD.join();
+    return (0);
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">Thread [A] : AAAAAAAAAAAAAAAAAAAA
+Thread [B] : BBBBBBBBBBBBBBBBBBBB
+Thread [C] : CCCCCCCCCCCCCCCCCCCC
+Thread [D] : DDDDDDDDDDDDDDDDDDDD</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Multithreading-Créer un mutex récursif"><a class="Link9" href="#Multithreading">Créer un mutex récursif</a></h2><br>Un <b>mutex récursif</b> est un objet verrouillable, tout comme mutex, mais permet au même thread d'acquérir plusieurs niveaux de propriété sur l'objet mutex. Cela permet de verrouiller (ou d' essayer de verrouiller) l'objet mutex à partir d'un thread qui le verrouille déjà, en acquérant un nouveau niveau de propriété sur l'objet mutex : l' objet mutex restera en fait verrouillé en possédant le thread jusqu'à ce que son membre ouvrir est appelé autant de fois que ce niveau d'appropriation.<br><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include &lt;iostream&gt;
+#include &lt;thread&gt;
+#include &lt;mutex&gt;
+//===============================================
+std::recursive_mutex gMutex;
+//===============================================
+static void onRun(const std::string& name) {
+    std::lock_guard&lt;std::recursive_mutex&gt; lLock(gMutex);
+    printf("onRun_1 Thread [%s] : ", name.c_str());
+    for(int i = 0; i &lt; 20; i++) {
+        printf("%s", name.c_str());
+        std::this_thread::sleep_for(std::chrono::milliseconds(1));
+    }
+    printf("\n");
+}
+//===============================================
+static void onRun2(const std::string& name) {
+    std::lock_guard&lt;std::recursive_mutex&gt; lLock(gMutex);
+    printf("onRun_2 Thread [%s] : ", name.c_str());
+    for(int i = 0; i &lt; 20; i++) {
+        printf("%s", name.c_str());
+        std::this_thread::sleep_for(std::chrono::milliseconds(1));
+    }
+    printf("\n");
+    onRun(name);
+}
+//===============================================
+int main(int argc, char** argv) {
+    std::thread lThreadA(onRun, "A");
+    std::thread lThreadB(onRun, "B");
+    std::thread lThreadC(onRun2, "C");
+    std::thread lThreadD(onRun2, "D");
+    lThreadA.join();
+    lThreadB.join();
+    lThreadC.join();
+    lThreadD.join();
+    return (0);
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">onRun_1 Thread [A] : AAAAAAAAAAAAAAAAAAAA
+onRun_1 Thread [B] : BBBBBBBBBBBBBBBBBBBB
+onRun_2 Thread [C] : CCCCCCCCCCCCCCCCCCCC
+onRun_1 Thread [C] : CCCCCCCCCCCCCCCCCCCC
+onRun_2 Thread [D] : DDDDDDDDDDDDDDDDDDDD
+onRun_1 Thread [D] : DDDDDDDDDDDDDDDDDDDD</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Interface Homme-Machine avec Qt"><a class="Link3" href="#">Interface Homme-Machine avec Qt</a></h1><div class="Body3"><br><b>Qt </b>est une API orientée objet et développée en C++ qui offre des composants d'interface graphique (widgets), d'accès aux données, de connexions réseaux, de gestion des fils d'exécution, d'analyse XML, etc. Par certains aspects, elle ressemble à un framework lorsqu'on l'utilise pour concevoir des interfaces graphiques ou que l'on conçoit l'architecture de son application en utilisant les mécanismes des signaux et slots par exemple. Qt permet la portabilité des applications qui n'utilisent que ses composants par simple recompilation du code source. Les environnements pris en charge sont les Unix (dont GNU/Linux) qui utilisent le système graphique X Window System ou Wayland, Windows, Mac OS X, Tizen et également Genode. Le fait d'être une bibliothèque logicielle multiplateforme attire un grand nombre de personnes qui ont donc l'occasion de diffuser leurs programmes sur les principaux OS existants. Qt intègre des bindings avec plus d'une dizaine de langages autres que le C++, comme Ada, C#, Java, Python, Ruby, Visual Basic, etc. Qt est notamment connu pour être le framework sur lequel repose l'environnement graphique KDE Plasma, l'un des environnements de bureau par défaut de plusieurs distributions GNU/Linux. <br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1617838385077"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1617838385077");</script></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/b_qt.png" alt="/Tutoriels/Software_Development/Cpp/img/b_qt.png"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Qt-Installer l'environnement Qt sous MSYS2"><a class="Link9" href="#Interface Homme-Machine avec Qt">Installer l'environnement Qt sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Installer Qt</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">pacman -S --needed --noconfirm mingw-w64-i686-qt5
 pacman -S --needed --noconfirm mingw-w64-i686-qt-creator
 pacman -S --needed --noconfirm mingw-w64-i686-gdb
 pacman -S --needed --noconfirm mingw-w64-i686-cmake
