@@ -1840,7 +1840,105 @@ void GDatabase::save() {
 //===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">ouvrir la base de donnees
 charger les donnees
 mettre a jour les donnees
-sauvegarder les donnees</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Créer un manager de données"><a class="Link3" href="#">Créer un manager de données</a></h1><div class="Body3"><br>Le <b>manager de données</b> que nous présentons ici est une architecture logicielle permettant d'accéder à toutes les données de notre application.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1621364608073"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1621364608073");</script></div><br><h2 class="Title7 GTitle2" id="Créer un manager de données-main.cpp"><a class="Link9" href="#Créer un manager de données">main.cpp</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+sauvegarder les donnees</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Surchage d'opérateurs"><a class="Link3" href="#">Surchage d'opérateurs</a></h1><div class="Body3"><br>La <b>surcharge d'opérateurs</b> est une fonctionnalité offerte par certains langages de programmation qui permet d'utiliser des opérateurs (comme +, = ou ==) comme des fonctions ou des méthodes en les définissant pour de nouveaux types de données. Les opérateurs ne sont pas nécessairement des symboles. Parfois, la définition de nouveaux opérateurs est autorisée.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1621731936719"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1621731936719");</script></div><br><h2 class="Title7 GTitle2" id="Surchage d'opérateurs-Créer une surcharge de l'opérateur d'affichage (<<)"><a class="Link9" href="#Surchage d'opérateurs">Créer une surcharge de l'opérateur d'affichage (&lt;&lt;)</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GMatrix.h"
+//===============================================
+int main(int argc, char** argv) {
+    GMatrix A(3, 3, {1, 2, 3, 4, 5, 6, 7, 8, 9});
+    std::cout &lt;&lt; A &lt;&lt; "\n";
+    return (0);
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GMatrix.h</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#ifndef _GMatrix_
+#define _GMatrix_
+//===============================================
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+//===============================================
+class GMatrix {
+public:
+    GMatrix(int row, int col);
+    GMatrix(int row, int col, const std::vector&lt;double&gt;& data);
+    ~GMatrix();
+
+public:
+    void set(int row, int col, double d);
+    double get(int row, int col) const;
+    void load(const std::vector&lt;double&gt;& data);
+    void print() const;
+    
+public:
+    friend std::ostream& operator&lt;&lt;(std::ostream& os, const GMatrix& m);
+    
+private:
+    double* m_data;
+    int m_row;
+    int m_col;
+};
+//===============================================
+#endif
+//==============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GMatrix.cpp</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+#include "GMatrix.h"
+//===============================================
+GMatrix::GMatrix(int w, int h) {
+    m_row = w;
+    m_col = h;
+    int lSize = m_row * m_col;
+    m_data = new double[lSize];
+}
+//===============================================
+GMatrix::GMatrix(int w, int h, const std::vector&lt;double&gt;& data) {
+    m_row = w;
+    m_col = h;
+    int lSize = m_row * m_col;
+    m_data = new double[lSize];
+    load(data);
+}
+//===============================================
+GMatrix::~GMatrix() {
+    delete[] m_data;
+}
+//===============================================
+void GMatrix::set(int row, int col, double d) {
+    int i = row * m_col + col;
+    m_data[i] = d;
+}
+//===============================================
+double GMatrix::get(int row, int col) const {
+    int i = row * m_col + col;
+    return m_data[i];
+}
+//===============================================
+void GMatrix::load(const std::vector&lt;double&gt;& data) {
+    for(int row = 0; row &lt; m_row; row++) {
+        for(int col = 0; col &lt; m_col; col++) {
+            int i = row * m_col + col;
+            double lData = data[i];
+            set(row, col, lData);
+        }
+    }
+}
+//===============================================
+void GMatrix::print() const {
+    for(int row = 0; row &lt; m_row; row++) {
+        printf("| ");
+        for(int col = 0; col &lt; m_col; col++) {
+            if(col != 0) {printf(" | ");}
+            double d = get(row, col);
+            printf("%3.0f", d);
+        }
+        printf(" |");
+        printf("\n");
+    }
+}
+//===============================================
+std::ostream& operator&lt;&lt;(std::ostream& os, const GMatrix& m) {
+    m.print();
+    return os;
+}
+//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">|   1 |   2 |   3 |
+|   4 |   5 |   6 |
+|   7 |   8 |   9 |</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Créer un manager de données"><a class="Link3" href="#">Créer un manager de données</a></h1><div class="Body3"><br>Le <b>manager de données</b> que nous présentons ici est une architecture logicielle permettant d'accéder à toutes les données de notre application.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1621364608073"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1621364608073");</script></div><br><h2 class="Title7 GTitle2" id="Créer un manager de données-main.cpp"><a class="Link9" href="#Créer un manager de données">main.cpp</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
 #include "GManager.h"
 //===============================================
 int main(int argc, char** argv) {
