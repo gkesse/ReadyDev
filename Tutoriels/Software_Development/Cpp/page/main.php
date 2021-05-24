@@ -7,7 +7,7 @@ Suivant
 Suivant
 Terminer</pre></div></div><br><br><h3 class="Title8 GTitle3">Démarrer MSYS2</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="txt">Windows
 MSYS2</pre></div></div><br><h3 class="Title8 GTitle3">Mettre à jour les packages MSYS2</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">pacman -Syu</pre></div></div><br><h3 class="Title8 GTitle3">Installer le package (make)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">pacman -S --needed --noconfirm make</pre></div></div><br><h3 class="Title8 GTitle3">Installer le package (gcc)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">pacman -S --needed --noconfirm gcc</pre></div></div><br><h2 class="Title7 GTitle2" id="Installation-Installer l'environnement C++ sous WinLibs"><a class="Link9" href="#Installation">Installer l'environnement C++ sous WinLibs</a></h2><br><h3 class="Title8 GTitle3">Télécharger WinLibs</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://winlibs.com/#download-release">https://winlibs.com/#download-release</a><br><br><b>winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1.7z</b><br><br><h3 class="Title8 GTitle3">Extraire WinLibs</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1.7z -&gt; Clic droit
-Extraire vers winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1\</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Tests"><a class="Link3" href="#">Tests</a></h1><div class="Body3"><br>Créer un projet C++.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1616682650861"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1616682650861");</script></div><br><h2 class="Title7 GTitle2" id="Tests-Tester un projet C++ sous MSYS2"><a class="Link9" href="#Tests">Tester un projet C++ sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Éditer le programme (main.cpp)<br></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
+Extraire vers winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1\</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Bonjour-aller-a-l-ecole"><a class="Link3" href="#">Bonjour aller à l'école</a></h1><div class="Body3">Ajouter un texte ici...</div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Tests"><a class="Link3" href="#">Tests</a></h1><div class="Body3"><br>Créer un projet C++.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1616682650861"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1616682650861");</script></div><br><h2 class="Title7 GTitle2" id="Tests-Tester un projet C++ sous MSYS2"><a class="Link9" href="#Tests">Tester un projet C++ sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Éditer le programme (main.cpp)<br></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;iostream&gt;
 //===============================================
 int main(int argc, char** argv) {
@@ -308,7 +308,7 @@ executer la methode</pre></div></div><br><h2 class="Title7 GTitle2" id="Fondamen
 #include &lt;iostream&gt;
 //===============================================
 void sayHello();
-void sayHello(const std::string& name);
+void sayHello(const std::string&amp; name);
 //===============================================
 int main(int argc, char** argv) {
     sayHello();
@@ -320,7 +320,7 @@ void sayHello() {
     printf("Bonjour tout le monde\n");
 }
 //===============================================
-void sayHello(const std::string& name) {
+void sayHello(const std::string&amp; name) {
     std::cout &lt;&lt; "Bonjour " &lt;&lt; name &lt;&lt; "\n";
 }
 //===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">Bonjour tout le monde
@@ -430,9 +430,9 @@ inline void GHello::sayHello() {
 //===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">Bonjour tout le monde</pre></div></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Créer une référence"><a class="Link9" href="#Fondamentaux">Créer une référence</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;iostream&gt;
 //===============================================
-void updateData(int& ptr, int value);
+void updateData(int&amp; ptr, int value);
 //===============================================
-void updateData(int& ptr, int value) {
+void updateData(int&amp; ptr, int value) {
     ptr = value;
 }
 //===============================================
@@ -475,7 +475,7 @@ void rd::sayHello() {
 //===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">Bonjour tout le monde</pre></div></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Créer un template de fonction"><a class="Link9" href="#Fondamentaux">Créer un template de fonction</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;iostream&gt;
 //===============================================
-template &lt;typename T&gt; T min(const T &x, const T &y);
+template &lt;typename T&gt; T min(const T &amp;x, const T &amp;y);
 //===============================================
 int main(int argc, char** argv) {
     printf("%s : %.1f\n", "min&lt;double&gt;(20.5, 50.5)", 
@@ -487,7 +487,7 @@ int main(int argc, char** argv) {
     return 0;
 }
 //===============================================
-template &lt;typename T&gt; T min(const T &x, const T &y) {
+template &lt;typename T&gt; T min(const T &amp;x, const T &amp;y) {
     return (x &lt; y) ? x : y;
 }
 //===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">min&lt;double&gt;(20.5, 50.5) : 20.5
@@ -515,13 +515,13 @@ int main(int argc, char** argv) {
 template &lt;typename T&gt; 
 class GRectangle {
 public:
-    GRectangle(const T& x1, const T& x2, const T& y1, const T& y2);
+    GRectangle(const T&amp; x1, const T&amp; x2, const T&amp; y1, const T&amp; y2);
     ~GRectangle();
 
 public:
     T width() const;
     T height() const;
-    bool contain(const T& x, const T& y) const;
+    bool contain(const T&amp; x, const T&amp; y) const;
     T perimeter() const;
     T area() const;
     
@@ -537,7 +537,7 @@ private:
 #include "GRectangle.h"
 //===============================================
 template &lt;typename T&gt;
-GRectangle&lt;T&gt;::GRectangle(const T& x1, const T& x2, const T& y1, const T& y2) {
+GRectangle&lt;T&gt;::GRectangle(const T&amp; x1, const T&amp; x2, const T&amp; y1, const T&amp; y2) {
     m_x1 = x1;
     m_x2 = x2;
     m_y1 = y1;
@@ -565,7 +565,7 @@ T GRectangle&lt;T&gt;::height() const {
 }
 //===============================================
 template &lt;typename T&gt;
-bool GRectangle&lt;T&gt;::contain(const T& x, const T& y) const {
+bool GRectangle&lt;T&gt;::contain(const T&amp; x, const T&amp; y) const {
     if(x &lt; m_x1 || x &gt; m_x2) {return 0;}
     if(y &lt; m_y1 || y &gt; m_y2) {return 0;}
     return 1;
@@ -617,13 +617,13 @@ int main(int argc, char** argv) {
 template &lt;typename T&gt; 
 class GRectangle {
 public:
-    GRectangle(const T& x1, const T& x2, const T& y1, const T& y2);
+    GRectangle(const T&amp; x1, const T&amp; x2, const T&amp; y1, const T&amp; y2);
     ~GRectangle();
 
 public:
     T width() const;
     T height() const;
-    bool contain(const T& x, const T& y) const;
+    bool contain(const T&amp; x, const T&amp; y) const;
     T perimeter() const;
     T area() const;
     
@@ -635,7 +635,7 @@ private:
 };
 //===============================================
 template &lt;typename T&gt;
-GRectangle&lt;T&gt;::GRectangle(const T& x1, const T& x2, const T& y1, const T& y2) {
+GRectangle&lt;T&gt;::GRectangle(const T&amp; x1, const T&amp; x2, const T&amp; y1, const T&amp; y2) {
     m_x1 = x1;
     m_x2 = x2;
     m_y1 = y1;
@@ -663,7 +663,7 @@ T GRectangle&lt;T&gt;::height() const {
 }
 //===============================================
 template &lt;typename T&gt;
-bool GRectangle&lt;T&gt;::contain(const T& x, const T& y) const {
+bool GRectangle&lt;T&gt;::contain(const T&amp; x, const T&amp; y) const {
     if(x &lt; m_x1 || x &gt; m_x2) {return 0;}
     if(y &lt; m_y1 || y &gt; m_y2) {return 0;}
     return 1;
@@ -728,7 +728,7 @@ int main(int argc, char** argv) {
         printf("divide (33, 8) : %.2f\n", divide(33, 8));
         printf("divide (44, 0) : %.2f\n", divide(44, 0));
     }
-    catch(const std::string& e) {
+    catch(const std::string&amp; e) {
         std::cerr &lt;&lt; e &lt;&lt; "\n";
     }
     return 0;
@@ -753,7 +753,7 @@ int main(int argc, char** argv) {
         printf("divide (33, 8) : %.2f\n", divide(33, 8));
         printf("divide (44, 0) : %.2f\n", divide(44, 0));
     }
-    catch(const std::exception& e) {
+    catch(const std::exception&amp; e) {
         std::cerr &lt;&lt; e.what() &lt;&lt; "\n";
     }
     return 0;
@@ -774,7 +774,7 @@ double divide(double a, double b) {
 //===============================================
 class GError : public std::exception {
 public:
-    GError(const std::string& msg) throw();
+    GError(const std::string&amp; msg) throw();
     ~GError() throw();
 
 public:
@@ -788,7 +788,7 @@ private:
 //===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GError.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include "GError.h"
 //===============================================
-GError::GError(const std::string& msg) throw() {
+GError::GError(const std::string&amp; msg) throw() {
     m_msg = msg;
 }
 //===============================================
@@ -806,7 +806,7 @@ divide (33, 8) : 4.12
 //===============================================
 int main(int argc, char** argv) {
     int a = 100;
-    int& b = a;
+    int&amp; b = a;
     printf("a : %d\n", a);
     b = 200;
     printf("a : %d\n", a);
@@ -818,7 +818,7 @@ a : 200</pre></div></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Créer 
 //===============================================
 int a = 100;
 //===============================================
-int& getA();
+int&amp; getA();
 //===============================================
 int main(int argc, char** argv) {
     printf("a : %d\n", a);
@@ -827,7 +827,7 @@ int main(int argc, char** argv) {
     return 0;
 }
 //===============================================
-int& getA() {
+int&amp; getA() {
     return a;
 }
 //===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">a : 100
@@ -840,7 +840,7 @@ int getA();
 //===============================================
 int main(int argc, char** argv) {
     printf("a : %d\n", a);
-    int&& b = getA();
+    int&amp;&amp; b = getA();
     b = 200;
     printf("a : %d\n", a);
     printf("b : %d\n", b);
@@ -858,7 +858,7 @@ b : 200</pre></div></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Créer 
 int a = 100;
 //===============================================
 int getA();
-void printV(std::string k, int&& v);
+void printV(std::string k, int&amp;&amp; v);
 //===============================================
 int main(int argc, char** argv) {
     // printV("a", a); // genere une erreur
@@ -871,7 +871,7 @@ int getA() {
     return a;
 }
 //===============================================
-void printV(std::string k, int&& v) {
+void printV(std::string k, int&amp;&amp; v) {
     printf("%s : %d\n", k.c_str(), v);
 }
 //===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">a : 100
@@ -971,7 +971,7 @@ product (5, 6) : 30</pre></div></div><br><h2 class="Title7 GTitle2" id="Fondamen
 int main(int argc, char** argv) {
     std::vector&lt;int&gt; nums {1, 2, 3, 4, 5};
     int i;
-    auto show = [&i](const int& n) -&gt; void {
+    auto show = [&amp;i](const int&amp; n) -&gt; void {
         if(i != 0) {printf(" ; ");}
         printf("%d", n);
         i = 1;
@@ -979,7 +979,7 @@ int main(int argc, char** argv) {
     i = 0; std::for_each(nums.cbegin(), nums.cend(), show);
     printf("\n");
     //
-    std::for_each(nums.begin(), nums.end(), [](int &n) -&gt; void { 
+    std::for_each(nums.begin(), nums.end(), [](int &amp;n) -&gt; void { 
         n *= 5;
     });
     //
@@ -1008,7 +1008,7 @@ int main(int argc, char** argv) {
     std::vector&lt;int&gt; vec_nums {1, 2, 3, 4, 5};
 
     int i = 0;
-    lambda_vec(vec_nums, [&i](int x) -&gt; void {
+    lambda_vec(vec_nums, [&amp;i](int x) -&gt; void {
         if(i != 0) {printf(" ; ");}
         printf("%d", x);
         i = 1;
@@ -1057,7 +1057,7 @@ module;
 //===============================================
 export module hello;
 //===============================================
-export void sayHello (std::string_view const &name) {
+export void sayHello (std::string_view const &amp;name) {
     std::cout &lt;&lt; "[module] Bonjour " &lt;&lt; name &lt;&lt; "!\n";
 }
 //===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Compiler le projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="batchfile">set "PATH=winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1\mingw64\bin;%PATH%"</pre></div></div><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">g++ -std=gnu++20 -fmodules-ts -c main.cpp -o main.o
@@ -1150,7 +1150,7 @@ int main(int argc, char** argv) {
     std::cout &lt;&lt; "is_scalar:" &lt;&lt; std::endl;
     std::cout &lt;&lt; "int: " &lt;&lt; std::is_scalar&lt;int&gt;::value &lt;&lt; std::endl;
     std::cout &lt;&lt; "A: " &lt;&lt; std::is_scalar&lt;A&gt;::value &lt;&lt; std::endl;
-    std::cout &lt;&lt; "A&: " &lt;&lt; std::is_scalar&lt;A&&gt;::value &lt;&lt; std::endl;
+    std::cout &lt;&lt; "A&amp;: " &lt;&lt; std::is_scalar&lt;A&amp;&gt;::value &lt;&lt; std::endl;
     std::cout &lt;&lt; "A*: " &lt;&lt; std::is_scalar&lt;A*&gt;::value &lt;&lt; std::endl;
     std::cout &lt;&lt; "int(int): " &lt;&lt; std::is_scalar&lt;int(int)&gt;::value &lt;&lt; std::endl;
     std::cout &lt;&lt; "int(*)(int): " &lt;&lt; std::is_scalar&lt;int(*)(int)&gt;::value &lt;&lt; std::endl;
@@ -1159,7 +1159,7 @@ int main(int argc, char** argv) {
 //===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">is_scalar:
 int: true
 A: false
-A&: false
+A&amp;: false
 A*: true
 int(int): false
 int(*)(int): true</pre></div></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Créer un prédicat avec concept (C++20)"><a class="Link9" href="#Fondamentaux">Créer un prédicat avec concept (C++20)</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
@@ -1217,19 +1217,19 @@ int main(int argc, char** argv) {
 #include &lt;stdexcept&gt;
 #include &lt;thread&gt;
 //===============================================
-auto switch_to_new_thread(std::jthread& out) {
+auto switch_to_new_thread(std::jthread&amp; out) {
     struct awaitable {
         std::jthread* p_out;
         bool await_ready() { return false; }
         void await_suspend(std::coroutine_handle&lt;&gt; h) {
-            std::jthread& out = *p_out;
+            std::jthread&amp; out = *p_out;
             if (out.joinable()) {throw std::runtime_error("Output jthread parameter not empty");}
             out = std::jthread([h] { h.resume(); });
             std::cout &lt;&lt; "New thread ID: " &lt;&lt; out.get_id() &lt;&lt; "\n";
         }
         void await_resume() {}
     };
-    return awaitable{&out};
+    return awaitable{&amp;out};
 }
 //===============================================
 struct task {
@@ -1242,7 +1242,7 @@ struct task {
     };
 };
 //===============================================
-task resuming_on_new_thread(std::jthread& out) {
+task resuming_on_new_thread(std::jthread&amp; out) {
     std::cout &lt;&lt; "Coroutine started on thread: " 
     &lt;&lt; std::this_thread::get_id() &lt;&lt; "\n";
     co_await switch_to_new_thread(out);
@@ -1282,7 +1282,7 @@ int main(int argc, char** argv) {
 //===============================================
 class GPerson {
 public:
-    GPerson(const std::string& name, const int& code, const double& coef);
+    GPerson(const std::string&amp; name, const int&amp; code, const double&amp; coef);
     ~GPerson();
 
 public:
@@ -1298,7 +1298,7 @@ private:
 //===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GPerson.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include "GPerson.h"
 //===============================================
-GPerson::GPerson(const std::string& name, const int& code, const double& coef) {
+GPerson::GPerson(const std::string&amp; name, const int&amp; code, const double&amp; coef) {
     m_name = name;
     m_code = code;
     m_coef = coef;
@@ -1338,11 +1338,11 @@ int main(int argc, char** argv) {
 //===============================================
 class GAnimal {
 public:
-    GAnimal(const std::string& name);
+    GAnimal(const std::string&amp; name);
     ~GAnimal();
 
 public:
-    void setCategory(const std::string& category);
+    void setCategory(const std::string&amp; category);
     void print();
     
 protected:
@@ -1354,7 +1354,7 @@ protected:
 //===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GAnimal.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include "GAnimal.h"
 //===============================================
-GAnimal::GAnimal(const std::string& name) {
+GAnimal::GAnimal(const std::string&amp; name) {
     m_name = name;
 }
 //===============================================
@@ -1362,7 +1362,7 @@ GAnimal::~GAnimal() {
     
 }
 //===============================================
-void GAnimal::setCategory(const std::string& category) {
+void GAnimal::setCategory(const std::string&amp; category) {
     m_category = category;
 }
 //===============================================
@@ -1378,7 +1378,7 @@ void GAnimal::print() {
 //===============================================
 class GDog : public GAnimal {
 public:
-    GDog(const std::string& name, int weight);
+    GDog(const std::string&amp; name, int weight);
     ~GDog();
 
 public:
@@ -1392,7 +1392,7 @@ private:
 //===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GDog.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include "GDog.h"
 //===============================================
-GDog::GDog(const std::string& name, int weight) :
+GDog::GDog(const std::string&amp; name, int weight) :
 GAnimal(name) {
     m_weight = weight;
 }
@@ -1441,11 +1441,11 @@ int main(int argc, char** argv) {
 //===============================================
 class GAnimal {
 public:
-    GAnimal(const std::string& name);
+    GAnimal(const std::string&amp; name);
     virtual ~GAnimal();
 
 public:
-    virtual void setCategory(const std::string& category);
+    virtual void setCategory(const std::string&amp; category);
     virtual void print();
     
 protected:
@@ -1457,7 +1457,7 @@ protected:
 //===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GAnimal.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include "GAnimal.h"
 //===============================================
-GAnimal::GAnimal(const std::string& name) {
+GAnimal::GAnimal(const std::string&amp; name) {
     m_name = name;
 }
 //===============================================
@@ -1465,7 +1465,7 @@ GAnimal::~GAnimal() {
     
 }
 //===============================================
-void GAnimal::setCategory(const std::string& category) {
+void GAnimal::setCategory(const std::string&amp; category) {
     m_category = category;
 }
 //===============================================
@@ -1481,7 +1481,7 @@ void GAnimal::print() {
 //===============================================
 class GDog : public GAnimal {
 public:
-    GDog(const std::string& name, int weight);
+    GDog(const std::string&amp; name, int weight);
     ~GDog();
 
 public:
@@ -1495,7 +1495,7 @@ private:
 //===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GDog.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include "GDog.h"
 //===============================================
-GDog::GDog(const std::string& name, int weight) :
+GDog::GDog(const std::string&amp; name, int weight) :
 GAnimal(name) {
     m_weight = weight;
 }
@@ -1541,11 +1541,11 @@ int main(int argc, char** argv) {
 //===============================================
 class GAnimal {
 public:
-    GAnimal(const std::string& name);
+    GAnimal(const std::string&amp; name);
     virtual ~GAnimal();
 
 public:
-    virtual void setCategory(const std::string& category);
+    virtual void setCategory(const std::string&amp; category);
     virtual void print() = 0;
     
 protected:
@@ -1557,7 +1557,7 @@ protected:
 //===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GAnimal.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include "GAnimal.h"
 //===============================================
-GAnimal::GAnimal(const std::string& name) {
+GAnimal::GAnimal(const std::string&amp; name) {
     m_name = name;
 }
 //===============================================
@@ -1565,7 +1565,7 @@ GAnimal::~GAnimal() {
     
 }
 //===============================================
-void GAnimal::setCategory(const std::string& category) {
+void GAnimal::setCategory(const std::string&amp; category) {
     m_category = category;
 }
 //===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GDog.h</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
@@ -1576,7 +1576,7 @@ void GAnimal::setCategory(const std::string& category) {
 //===============================================
 class GDog : public GAnimal {
 public:
-    GDog(const std::string& name, int weight);
+    GDog(const std::string&amp; name, int weight);
     ~GDog();
 
 public:
@@ -1590,7 +1590,7 @@ private:
 //===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GDog.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include "GDog.h"
 //===============================================
-GDog::GDog(const std::string& name, int weight) :
+GDog::GDog(const std::string&amp; name, int weight) :
 GAnimal(name) {
     m_weight = weight;
 }
@@ -1611,7 +1611,7 @@ void GDog::print() {
 //===============================================
 class GCat : public GAnimal {
 public:
-    GCat(const std::string& name, int price);
+    GCat(const std::string&amp; name, int price);
     ~GCat();
 
 public:
@@ -1625,7 +1625,7 @@ private:
 //===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GCat.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include "GCat.h"
 //===============================================
-GCat::GCat(const std::string& name, int price) :
+GCat::GCat(const std::string&amp; name, int price) :
 GAnimal(name) {
     m_price = price;
 }
@@ -1857,17 +1857,17 @@ int main(int argc, char** argv) {
 //===============================================
 class GMatrix {
 public:
-    GMatrix(int row, int col, const std::vector&lt;double&gt;& data);
+    GMatrix(int row, int col, const std::vector&lt;double&gt;&amp; data);
     ~GMatrix();
 
 public:
     void set(int row, int col, double d);
     double get(int row, int col) const;
-    void load(const std::vector&lt;double&gt;& data);
+    void load(const std::vector&lt;double&gt;&amp; data);
     void print() const;
     
 public:
-    friend std::ostream& operator&lt;&lt;(std::ostream& os, const GMatrix& m);
+    friend std::ostream&amp; operator&lt;&lt;(std::ostream&amp; os, const GMatrix&amp; m);
     
 private:
     double* m_data;
@@ -1879,7 +1879,7 @@ private:
 //===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GMatrix.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include "GMatrix.h"
 //===============================================
-GMatrix::GMatrix(int w, int h, const std::vector&lt;double&gt;& data) {
+GMatrix::GMatrix(int w, int h, const std::vector&lt;double&gt;&amp; data) {
     m_row = w;
     m_col = h;
     int lSize = m_row * m_col;
@@ -1901,7 +1901,7 @@ double GMatrix::get(int row, int col) const {
     return m_data[i];
 }
 //===============================================
-void GMatrix::load(const std::vector&lt;double&gt;& data) {
+void GMatrix::load(const std::vector&lt;double&gt;&amp; data) {
     for(int row = 0; row &lt; m_row; row++) {
         for(int col = 0; col &lt; m_col; col++) {
             int i = row * m_col + col;
@@ -1924,7 +1924,7 @@ void GMatrix::print() const {
     }
 }
 //===============================================
-std::ostream& operator&lt;&lt;(std::ostream& os, const GMatrix& m) {
+std::ostream&amp; operator&lt;&lt;(std::ostream&amp; os, const GMatrix&amp; m) {
     m.print();
     return os;
 }
@@ -1949,19 +1949,19 @@ int main(int argc, char** argv) {
 //===============================================
 class GMatrix {
 public:
-    GMatrix(int row, int col, const std::vector&lt;double&gt;& data);
-    GMatrix(const GMatrix& m);
+    GMatrix(int row, int col, const std::vector&lt;double&gt;&amp; data);
+    GMatrix(const GMatrix&amp; m);
     ~GMatrix();
 
 public:
     void set(int row, int col, double d);
     double get(int row, int col) const;
-    void load(const std::vector&lt;double&gt;& data);
-    void load(const GMatrix& m);
+    void load(const std::vector&lt;double&gt;&amp; data);
+    void load(const GMatrix&amp; m);
     void print() const;
     
 public:
-    friend std::ostream& operator&lt;&lt;(std::ostream& os, const GMatrix& m);
+    friend std::ostream&amp; operator&lt;&lt;(std::ostream&amp; os, const GMatrix&amp; m);
     
 private:
     double* m_data;
@@ -1973,7 +1973,7 @@ private:
 //===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GMatrix.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include "GMatrix.h"
 //===============================================
-GMatrix::GMatrix(int w, int h, const std::vector&lt;double&gt;& data) {
+GMatrix::GMatrix(int w, int h, const std::vector&lt;double&gt;&amp; data) {
     m_row = w;
     m_col = h;
     int lSize = m_row * m_col;
@@ -1981,7 +1981,7 @@ GMatrix::GMatrix(int w, int h, const std::vector&lt;double&gt;& data) {
     load(data);
 }
 //===============================================
-GMatrix::GMatrix(const GMatrix& m) {
+GMatrix::GMatrix(const GMatrix&amp; m) {
     m_row = m.m_row;
     m_col = m.m_col;
     int lSize = m_row * m_col;
@@ -2003,7 +2003,7 @@ double GMatrix::get(int row, int col) const {
     return m_data[i];
 }
 //===============================================
-void GMatrix::load(const std::vector&lt;double&gt;& data) {
+void GMatrix::load(const std::vector&lt;double&gt;&amp; data) {
     for(int row = 0; row &lt; m_row; row++) {
         for(int col = 0; col &lt; m_col; col++) {
             int i = row * m_col + col;
@@ -2013,7 +2013,7 @@ void GMatrix::load(const std::vector&lt;double&gt;& data) {
     }
 }
 //===============================================
-void GMatrix::load(const GMatrix& m) {
+void GMatrix::load(const GMatrix&amp; m) {
     for(int row = 0; row &lt; m_row; row++) {
         for(int col = 0; col &lt; m_col; col++) {
             double lData = m.get(row, col);
@@ -2035,7 +2035,7 @@ void GMatrix::print() const {
     }
 }
 //===============================================
-std::ostream& operator&lt;&lt;(std::ostream& os, const GMatrix& m) {
+std::ostream&amp; operator&lt;&lt;(std::ostream&amp; os, const GMatrix&amp; m) {
     m.print();
     return os;
 }
@@ -2066,22 +2066,22 @@ int main(int argc, char** argv) {
 class GMatrix {
 public:
     GMatrix();
-    GMatrix(int row, int col, const std::vector&lt;double&gt;& data);
-    GMatrix(const GMatrix& m);
+    GMatrix(int row, int col, const std::vector&lt;double&gt;&amp; data);
+    GMatrix(const GMatrix&amp; m);
     ~GMatrix();
 
 public:
     void set(int row, int col, double d);
     double get(int row, int col) const;
-    void load(const std::vector&lt;double&gt;& data);
-    void load(const GMatrix& m);
+    void load(const std::vector&lt;double&gt;&amp; data);
+    void load(const GMatrix&amp; m);
     void print() const;
     
 public:
-    GMatrix& operator=(const GMatrix& m);
+    GMatrix&amp; operator=(const GMatrix&amp; m);
 
 public:
-    friend std::ostream& operator&lt;&lt;(std::ostream& os, const GMatrix& m);
+    friend std::ostream&amp; operator&lt;&lt;(std::ostream&amp; os, const GMatrix&amp; m);
     
 private:
     double* m_data;
@@ -2099,7 +2099,7 @@ GMatrix::GMatrix() {
     m_data = 0;
 }
 //===============================================
-GMatrix::GMatrix(int w, int h, const std::vector&lt;double&gt;& data) {
+GMatrix::GMatrix(int w, int h, const std::vector&lt;double&gt;&amp; data) {
     m_row = w;
     m_col = h;
     int lSize = m_row * m_col;
@@ -2107,7 +2107,7 @@ GMatrix::GMatrix(int w, int h, const std::vector&lt;double&gt;& data) {
     load(data);
 }
 //===============================================
-GMatrix::GMatrix(const GMatrix& m) {
+GMatrix::GMatrix(const GMatrix&amp; m) {
     m_row = m.m_row;
     m_col = m.m_col;
     int lSize = m_row * m_col;
@@ -2129,7 +2129,7 @@ double GMatrix::get(int row, int col) const {
     return m_data[i];
 }
 //===============================================
-void GMatrix::load(const std::vector&lt;double&gt;& data) {
+void GMatrix::load(const std::vector&lt;double&gt;&amp; data) {
     for(int row = 0; row &lt; m_row; row++) {
         for(int col = 0; col &lt; m_col; col++) {
             int i = row * m_col + col;
@@ -2139,7 +2139,7 @@ void GMatrix::load(const std::vector&lt;double&gt;& data) {
     }
 }
 //===============================================
-void GMatrix::load(const GMatrix& m) {
+void GMatrix::load(const GMatrix&amp; m) {
     for(int row = 0; row &lt; m_row; row++) {
         for(int col = 0; col &lt; m_col; col++) {
             double lData = m.get(row, col);
@@ -2161,7 +2161,7 @@ void GMatrix::print() const {
     }
 }
 //===============================================
-GMatrix& GMatrix::operator=(const GMatrix& m) {
+GMatrix&amp; GMatrix::operator=(const GMatrix&amp; m) {
     if(m_data != 0) {delete this;}
     m_row = m.m_row;
     m_col = m.m_col;
@@ -2171,7 +2171,7 @@ GMatrix& GMatrix::operator=(const GMatrix& m) {
     return *this;
 }
 //===============================================
-std::ostream& operator&lt;&lt;(std::ostream& os, const GMatrix& m) {
+std::ostream&amp; operator&lt;&lt;(std::ostream&amp; os, const GMatrix&amp; m) {
     m.print();
     return os;
 }
@@ -2200,21 +2200,21 @@ int main(int argc, char** argv) {
 //===============================================
 class GMatrix {
 public:
-    GMatrix(int row, int col, const std::vector&lt;double&gt;& data);
-    GMatrix(const GMatrix& m);
+    GMatrix(int row, int col, const std::vector&lt;double&gt;&amp; data);
+    GMatrix(const GMatrix&amp; m);
     ~GMatrix();
 
 public:
     void set(int row, int col, double d);
     double get(int row, int col) const;
-    void load(const std::vector&lt;double&gt;& data);
-    void load(const GMatrix& m);
-    void add(const GMatrix& m);
+    void load(const std::vector&lt;double&gt;&amp; data);
+    void load(const GMatrix&amp; m);
+    void add(const GMatrix&amp; m);
     void print() const;
     
 public:
-    friend std::ostream& operator&lt;&lt;(std::ostream& os, const GMatrix& m);
-    friend GMatrix operator+(GMatrix const& a, GMatrix const& b);
+    friend std::ostream&amp; operator&lt;&lt;(std::ostream&amp; os, const GMatrix&amp; m);
+    friend GMatrix operator+(GMatrix const&amp; a, GMatrix const&amp; b);
     
 private:
     double* m_data;
@@ -2226,7 +2226,7 @@ private:
 //===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GMatrix.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include "GMatrix.h"
 //===============================================
-GMatrix::GMatrix(int w, int h, const std::vector&lt;double&gt;& data) {
+GMatrix::GMatrix(int w, int h, const std::vector&lt;double&gt;&amp; data) {
     m_row = w;
     m_col = h;
     int lSize = m_row * m_col;
@@ -2234,7 +2234,7 @@ GMatrix::GMatrix(int w, int h, const std::vector&lt;double&gt;& data) {
     load(data);
 }
 //===============================================
-GMatrix::GMatrix(const GMatrix& m) {
+GMatrix::GMatrix(const GMatrix&amp; m) {
     m_row = m.m_row;
     m_col = m.m_col;
     int lSize = m_row * m_col;
@@ -2256,7 +2256,7 @@ double GMatrix::get(int row, int col) const {
     return m_data[i];
 }
 //===============================================
-void GMatrix::load(const std::vector&lt;double&gt;& data) {
+void GMatrix::load(const std::vector&lt;double&gt;&amp; data) {
     for(int row = 0; row &lt; m_row; row++) {
         for(int col = 0; col &lt; m_col; col++) {
             int i = row * m_col + col;
@@ -2266,7 +2266,7 @@ void GMatrix::load(const std::vector&lt;double&gt;& data) {
     }
 }
 //===============================================
-void GMatrix::load(const GMatrix& m) {
+void GMatrix::load(const GMatrix&amp; m) {
     for(int row = 0; row &lt; m_row; row++) {
         for(int col = 0; col &lt; m_col; col++) {
             double lData = m.get(row, col);
@@ -2275,7 +2275,7 @@ void GMatrix::load(const GMatrix& m) {
     }
 }
 //===============================================
-void GMatrix::add(const GMatrix& m) {
+void GMatrix::add(const GMatrix&amp; m) {
     for(int row = 0; row &lt; m_row; row++) {
         for(int col = 0; col &lt; m_col; col++) {
             double Ai = m.get(row, col);
@@ -2299,12 +2299,12 @@ void GMatrix::print() const {
     }
 }
 //===============================================
-std::ostream& operator&lt;&lt;(std::ostream& os, const GMatrix& m) {
+std::ostream&amp; operator&lt;&lt;(std::ostream&amp; os, const GMatrix&amp; m) {
     m.print();
     return os;
 }
 //===============================================
-GMatrix operator+(GMatrix const& a, GMatrix const& b) {
+GMatrix operator+(GMatrix const&amp; a, GMatrix const&amp; b) {
     GMatrix c(a);
     c.add(b);
     return c;
@@ -2394,7 +2394,7 @@ sGManager* GManager::getData() const {
 }
 //===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Créer un manager de données-Résultat"><a class="Link9" href="#Créer un manager de données">Résultat</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">lApp-&gt;app_name : ReadyDev
 lApp-&gt;win_width : 640
-lApp-&gt;win_height : </xmp><br></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Système d'administration"><a class="Link3" href="#">Système d'administration</a></h1><div class="Body3"><br>Le <b>système d'administration</b> que nous présentons ici est une interface en ligne de commande permettant d'accéder à toutes les fonctionnalités de notre application.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1621005046333"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1621005046333");</script></div><br><h2 class="Title7 GTitle2" id="Système d'administration-main.cpp"><a class="Link9" href="#Système d'administration">main.cpp</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
+lApp-&gt;win_height : <br></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Système d'administration"><a class="Link3" href="#">Système d'administration</a></h1><div class="Body3"><br>Le <b>système d'administration</b> que nous présentons ici est une interface en ligne de commande permettant d'accéder à toutes les fonctionnalités de notre application.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1621005046333"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1621005046333");</script></div><br><h2 class="Title7 GTitle2" id="Système d'administration-main.cpp"><a class="Link9" href="#Système d'administration">main.cpp</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include "GProcess.h"
 //===============================================
 int main(int argc, char** argv) {
@@ -2513,7 +2513,7 @@ void GProcess::runQuit(int argc, char** argv) {
 #include &lt;iostream&gt;
 #include &lt;thread&gt;
 //===============================================
-static void onRun(const std::string& name, int n) {
+static void onRun(const std::string&amp; name, int n) {
     for(int i = 0; i &lt; n; i++) {
         printf("Thread[%s][%d] : on execute le thread\n", name.c_str(), i);
         std::this_thread::sleep_for(std::chrono::milliseconds(200));
@@ -2548,7 +2548,7 @@ Thread[B][9] : on execute le thread</pre></div></div><br><h2 class="Title7 GTitl
 //===============================================
 std::atomic&lt;int&gt; gCounter(0);
 //===============================================
-static void onRun(const std::string& name, int n) {
+static void onRun(const std::string&amp; name, int n) {
     for(int i = 0; i &lt; n; i++) {
         int lCounter = gCounter.load(std::memory_order_relaxed);
         printf("Thread[%2d][%s][%d] : on execute le thread\n", lCounter, name.c_str(), i);
@@ -2586,11 +2586,11 @@ Thread[14][B][9] : on execute le thread</pre></div></div><br><h2 class="Title7 G
 std::string gWinner;
 std::once_flag gOnceFlag;
 //===============================================
-static void onCallOnce(const std::string& name) {
+static void onCallOnce(const std::string&amp; name) {
     gWinner = name;
 }
 //===============================================
-static void onRun(const std::string& name) {
+static void onRun(const std::string&amp; name) {
     std::this_thread::sleep_for(std::chrono::milliseconds(200));
     std::call_once(gOnceFlag, onCallOnce, name);
 }
@@ -2614,7 +2614,7 @@ int main(int argc, char** argv) {
 //===============================================
 std::mutex gMutex;
 //===============================================
-static void onRun(const std::string& name) {
+static void onRun(const std::string&amp; name) {
     gMutex.lock();
     printf("Thread [%s] : ", name.c_str());
     for(int i = 0; i &lt; 20; i++) {
@@ -2646,7 +2646,7 @@ Thread [D] : DDDDDDDDDDDDDDDDDDDD</pre></div></div><br><h2 class="Title7 GTitle2
 //===============================================
 std::recursive_mutex gMutex;
 //===============================================
-static void onRun(const std::string& name) {
+static void onRun(const std::string&amp; name) {
     std::lock_guard&lt;std::recursive_mutex&gt; lLock(gMutex);
     printf("onRun_1 Thread [%s] : ", name.c_str());
     for(int i = 0; i &lt; 20; i++) {
@@ -2656,7 +2656,7 @@ static void onRun(const std::string& name) {
     printf("\n");
 }
 //===============================================
-static void onRun2(const std::string& name) {
+static void onRun2(const std::string&amp; name) {
     std::lock_guard&lt;std::recursive_mutex&gt; lLock(gMutex);
     printf("onRun_2 Thread [%s] : ", name.c_str());
     for(int i = 0; i &lt; 20; i++) {
@@ -3098,7 +3098,7 @@ int main(int argc, char** argv) {
 class DuplicateIconPainter : public QtAwesomeIconPainter {
 public:
     //================================================
-    virtual void paint(QtAwesome* awesome, QPainter* painter, const QRect& rectIn, QIcon::Mode mode, QIcon::State state, const QVariantMap& options) {
+    virtual void paint(QtAwesome* awesome, QPainter* painter, const QRect&amp; rectIn, QIcon::Mode mode, QIcon::State state, const QVariantMap&amp; options) {
         int drawSize = qRound(rectIn.height()*0.5);
         int offset = rectIn.height() / 4;
         QChar chr = QChar(static_cast&lt;int&gt;(fa::plus));
@@ -3283,7 +3283,7 @@ int onJacobian (double t, const double y[], double *dfdy, double dfdt[], void *p
     (void)(t);
     double mu = *(double *)params;
     gsl_matrix_view dfdy_mat = gsl_matrix_view_array (dfdy, 2, 2);
-    gsl_matrix * m = &dfdy_mat.matrix;
+    gsl_matrix * m = &amp;dfdy_mat.matrix;
     gsl_matrix_set (m, 0, 0, 0.0);
     gsl_matrix_set (m, 0, 1, 1.0);
     gsl_matrix_set (m, 1, 0, -2.0*mu*y[0]*y[1] - 1.0);
@@ -3297,10 +3297,10 @@ int main(int argc, char** argv) {
     QApplication app(argc, argv);
     
     double mu = 10;
-    gsl_odeiv2_system sys = {onFunction, onJacobian, 2, &mu};
+    gsl_odeiv2_system sys = {onFunction, onJacobian, 2, &amp;mu};
 
     gsl_odeiv2_driver * d =
-    gsl_odeiv2_driver_alloc_y_new (&sys, gsl_odeiv2_step_rk8pd, 1e-6, 1e-6, 0.0);
+    gsl_odeiv2_driver_alloc_y_new (&amp;sys, gsl_odeiv2_step_rk8pd, 1e-6, 1e-6, 0.0);
     int i;
     double t = 0.0, t1 = 100.0;
     double y[2] = { 1.0, 0.0 };
@@ -3310,7 +3310,7 @@ int main(int argc, char** argv) {
     
     for (i = 1; i &lt;= 100; i++) {
         double ti = i * t1 / 100.0;
-        int status = gsl_odeiv2_driver_apply (d, &t, ti, y);
+        int status = gsl_odeiv2_driver_apply (d, &amp;t, ti, y);
 
         if (status != GSL_SUCCESS) {
             printf ("error, return value=%d\n", status);
@@ -3371,4 +3371,4 @@ OK
 Sélectionner votre thème favori -&gt; Foncé
 Suivant
 Dossier projet par défaut -&gt; C:\Users\Admin\Documents\Embarcadero\Studio\Projets
-Démarrer</pre></div></div><br><h2 class="Title7 GTitle2" id="C++ Builder-Tester C++Builder sous Windows"><a class="Link9" href="#C++ Builder">Tester C++Builder sous Windows</a></h2><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Notes et références"><a class="Link3" href="#">Notes et références</a></h1><div class="Body3"><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://cs.stanford.edu/people/eroberts/courses/cs106b/materials/cppdoc/">https://cs.stanford.edu/people/eroberts/courses/cs106b/materials/cppdoc/</a><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://vector-of-bool.github.io/2019/03/10/modules-1.html">https://vector-of-bool.github.io/2019/03/10/modules-1.html</a><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://gcc.gnu.org/wiki/cxx-modules">https://gcc.gnu.org/wiki/cxx-modules</a><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.modernescpp.com/index.php/c-20-concepts-defining-concepts">https://www.modernescpp.com/index.php/c-20-concepts-defining-concepts</a><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.ionos.fr/digitalguide/sites-internet/developpement-web/quest-ce-que-le-builder-pattern/">https://www.ionos.fr/digitalguide/sites-internet/developpement-web/quest-ce-que-le-builder-pattern/</a><br><br></div></div></div></div><br>
+Démarrer</pre></div></div><br><h2 class="Title7 GTitle2" id="C++ Builder-Tester C++Builder sous Windows"><a class="Link9" href="#C++ Builder">Tester C++Builder sous Windows</a></h2><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Notes et références"><a class="Link3" href="#">Notes et références</a></h1><div class="Body3"><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://cs.stanford.edu/people/eroberts/courses/cs106b/materials/cppdoc/">https://cs.stanford.edu/people/eroberts/courses/cs106b/materials/cppdoc/</a><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://vector-of-bool.github.io/2019/03/10/modules-1.html">https://vector-of-bool.github.io/2019/03/10/modules-1.html</a><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://gcc.gnu.org/wiki/cxx-modules">https://gcc.gnu.org/wiki/cxx-modules</a><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.modernescpp.com/index.php/c-20-concepts-defining-concepts">https://www.modernescpp.com/index.php/c-20-concepts-defining-concepts</a><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.ionos.fr/digitalguide/sites-internet/developpement-web/quest-ce-que-le-builder-pattern/">https://www.ionos.fr/digitalguide/sites-internet/developpement-web/quest-ce-que-le-builder-pattern/</a><br><br></div></div></div></div><br></div>
