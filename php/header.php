@@ -240,7 +240,7 @@
                                     ?>
                                     <div class="Col4"><i class="fa fa-chevron-right"></i></div>
                                     <?php } ?>
-                                    <div class="Col4"><a class="Link8" href="<?php echo $lLink["link"]; ?>"><?php echo $lLink["name"]; ?></a></div>
+                                    <div class="Col4"><a class="Link8" href="<?php echo GManager::Instance()->getUrl($lLink["link"]); ?>"><?php echo $lLink["name"]; ?></a></div>
                                     <?php } ?>
                                 </div>
                             </div>

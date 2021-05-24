@@ -32,6 +32,16 @@ class GManager {
         return $this->mgr;
     }
     //===============================================
+    public function getUrl($url) {
+        $lUrl = $url;
+        $lUrl = Normalizer::normalize($lUrl , Normalizer::FORM_D);
+        $lUrl = preg_replace('/[\x{0300}-\x{036f}]/u', "", $lUrl);
+        $lUrl = preg_replace('/\s/u', "-", $lUrl);
+        $lUrl = str_replace("'", "-", $lUrl);
+        $lUrl = str_replace('"', "-", $lUrl);
+        return $lUrl;
+    }
+    //===============================================
 }
 //===============================================
 // struct
