@@ -34,11 +34,12 @@ class GManager {
     //===============================================
     public function getUrl($url) {
         $lUrl = $url;
+        echo $lUrl;
         $lUrl = Normalizer::normalize($lUrl , Normalizer::FORM_D);
-        /*$lUrl = preg_replace('/[\x{0300}-\x{036f}]/u', "", $lUrl);
+        $lUrl = preg_replace('/[\x{0300}-\x{036f}]/u', "", $lUrl);
         $lUrl = preg_replace('/\s/u', "-", $lUrl);
         $lUrl = str_replace(chr(34), "-", $lUrl);
-        $lUrl = str_replace(chr(39), "-", $lUrl);*/
+        $lUrl = str_replace(chr(39), "-", $lUrl);
         return $lUrl;
     }
     //===============================================
