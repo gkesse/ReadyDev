@@ -19,9 +19,10 @@ var GLoader = (function() {
                     var lHtml = '';
                     for(var i = 0; i < lNodeMap.length; i++) {
                         var lTitle = lNodeMap[i].firstChild.firstChild.firstChild.innerText;
+                        var lHrefUrl = GManager.Instance().getUrl(lTitle);
                         lHtml += '<div class="Item4">';
                         lHtml += '<span class="Icon10 fa fa-book"></span>';
-                        lHtml += '<a class="Link4" href="#'+lTitle+'">';
+                        lHtml += '<a class="Link4" href="#'+lHrefUrl+'">';
                         lHtml += lTitle;
                         lHtml += '</a>';
                         lHtml += '</div>';
@@ -63,9 +64,10 @@ var GLoader = (function() {
                     var lHtml = '';
                     for(var i = 0; i < lNodeMap.length; i++) {
                         var lTitle = lNodeMap[i].innerText
+                        var lHrefUrl = GManager.Instance().getUrl(lMainTitle+lTitle);
                         lHtml += '<div class="Item4">';
                         lHtml += '<span class="Icon10 fa fa-book"></span>';
-                        lHtml += '<a class="Link4" href="#'+lMainTitle+lTitle+'">';
+                        lHtml += '<a class="Link4" href="#'+lHrefUrl+'">';
                         lHtml += lTitle;
                         lHtml += '</a>';
                         lHtml += '</div>';

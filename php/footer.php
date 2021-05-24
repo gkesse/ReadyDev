@@ -7,6 +7,7 @@
 <!-- ============================================ -->
 </div> <!-- HtmlPage -->
 <!-- ============================================ -->
+<script src="/js/class/GManager.js"></script>
 <script src="/js/class/GAce.js"></script>
 <script src="/js/class/GParallax.js"></script>
 <!-- ============================================ -->

@@ -129,11 +129,12 @@ var GEditor = (function() {
                     lRange.setStart(lStartNode, 0);
                     lRange.setEnd(lStartNode, lLength);
                     lSelection.addRange(lRange);
+                    var lIdUrl = GManager.Instance().getUrl(lData);
                     var lHtml = '';
                     lHtml += '<div class="Content2 GTitle1">';
                     lHtml += '<div class="MainBlock2">';
                     lHtml += '<div class="Content">';
-                    lHtml += '<h1 class="Title2 Center" id="'+lData+'">';
+                    lHtml += '<h1 class="Title2 Center" id="'+lIdUrl+'">';
                     lHtml += '<a class="Link3" href="#">';
                     lHtml += lData;
                     lHtml += '</a>';
@@ -183,9 +184,11 @@ var GEditor = (function() {
                     lRange.setStart(lStartNode, 0);
                     lRange.setEnd(lStartNode, lLength);
                     lSelection.addRange(lRange);
+                    var lIdUrl = GManager.Instance().getUrl(lTitleID+lData);
+                    var lHrefUrl = GManager.Instance().getUrl(lTitle);
                     var lHtml = '';
-                    lHtml += '<h2 class="Title7 GTitle2" id="'+lTitleID+lData+'">';
-                    lHtml += '<a class="Link9" href="#'+lTitle+'">';
+                    lHtml += '<h2 class="Title7 GTitle2" id="'+lIdUrl+'">';
+                    lHtml += '<a class="Link9" href="#'+lHrefUrl+'">';
                     lHtml += lData;
                     lHtml += '</a>';
                     lHtml += '</h2>';
