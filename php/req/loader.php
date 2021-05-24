@@ -13,7 +13,8 @@
         foreach($lDataMap as $lItem) {
 			$lDataSum .= '<div class="Item4">';
 			$lDataSum .= '<span class="Icon10 fa fa-book"></span>';
-			$lDataSum .= '<a class="Link4" href="'.$lItem["link"].'">';
+            $lHref = GManager::Instance()->getUrl($lItem["link"]);
+			$lDataSum .= '<a class="Link4" href="'.$lHref.'">';
 			$lDataSum .= $lItem["name"];
 			$lDataSum .= '</a>';
 			$lDataSum .= '</div>';
