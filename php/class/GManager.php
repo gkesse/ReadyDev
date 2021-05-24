@@ -39,7 +39,7 @@ class GManager {
         $lUrl = preg_replace('/\s/u', "-", $lUrl);
         $lUrl = str_replace("'", "-", $lUrl);
         $lUrl = str_replace('"', "-", $lUrl);
-        return $lUrl;
+        return $lUrl; 
     }
     //===============================================
 }
