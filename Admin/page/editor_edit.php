@@ -58,6 +58,7 @@
                 <option value="Html5">Html Supprimer</option>
                 <option value="File_Content">Fichier Ajouter</option>
                 <option value="File_Link">Fichier Lien</option>
+                <option value="Title1_ID">Titre 1 ID Modifier</option>
             </select>
         </div>
 	</div>
