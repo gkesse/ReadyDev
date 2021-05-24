@@ -59,6 +59,7 @@
                 <option value="File_Content">Fichier Ajouter</option>
                 <option value="File_Link">Fichier Lien</option>
                 <option value="Title1_ID">Titre 1 ID Modifier</option>
+                <option value="Title2_ID">Titre 2 ID Modifier</option>
             </select>
         </div>
 	</div>
@@ -71,6 +72,7 @@
     <!-- ============================================ -->
 </div>
 <!-- ============================================ -->
+<script src="/js/class/GManager.js"></script>
 <script src="/js/class/GSelection.js"></script>
 <script src="/js/class/GComboBox.js"></script>
 <script src="/js/class/GConfig.js"></script>

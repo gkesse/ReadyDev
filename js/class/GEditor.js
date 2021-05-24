@@ -1392,10 +1392,30 @@ var GEditor = (function() {
                     var lNodeMap = document.getElementsByClassName("GTitle1");
                     for(var i = 0; i < lNodeMap.length; i++) {
                         var lTitleNode = lNodeMap[i].firstChild.firstChild.firstChild;
-                        var lTitle = lTitleNode.innerText;
                         var lId = lTitleNode.getAttribute("id");
                         var lIdUpdate = GManager.Instance().getUrl(lId);
                         lTitleNode.setAttribute("id", lIdUpdate);
+                    }
+                    break;
+                //===============================================
+                case 'Title2_ID':
+                    var lNodeMap = document.getElementsByClassName("GTitle1");
+                    for(var i = 0; i < lNodeMap.length; i++) {
+                        var lTitleNode = lNodeMap[i].firstChild.firstChild.firstChild;
+                        var lTitleParent = lTitleNode.parentNode;
+                        var lTitleMap = lTitleParent.getElementsByClassName("GTitle2");
+                        for(var j = 0; j < lTitleMap.length; j++) {
+                            var lTitle = lTitleMap[j];
+                            var lId = lTitle.getAttribute("id");
+                            var lIdUpdate = GManager.Instance().getUrl(lId);
+                            lTitle.setAttribute("id", lIdUpdate);
+                            var lHrefNode = lTitle.firstChild;
+                            var lHref = lHrefNode.getAttribute("href");
+                            lHref = lHref.substring(1);
+                            var lHrefUpdate = GManager.Instance().getUrl(lHref);
+                            lHrefUpdate = "#" + lHrefUpdate;
+                            lHrefNode.setAttribute("href", lHrefUpdate);
+                        }
                     }
                     break;
                 //===============================================
