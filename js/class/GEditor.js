@@ -1388,6 +1388,17 @@ var GEditor = (function() {
                     }
                     break;
                 //===============================================
+                case 'Title1_ID':
+                    var lNodeMap = document.getElementsByClassName("GTitle1");
+                    for(var i = 0; i < lNodeMap.length; i++) {
+                        var lTitleNode = lNodeMap[i].firstChild.firstChild.firstChild;
+                        var lTitle = lTitleNode.innerText;
+                        var lId = lTitleNode.getAttribute("id");
+                        var lIdUpdate = GManager.Instance().getUrl(lId);
+                        lTitleNode.setAttribute("id", lIdUpdate);
+                    }
+                    break;
+                //===============================================
                 }
             },
             //===============================================
