@@ -1420,11 +1420,11 @@ var GEditor = (function() {
                     break;
                 //===============================================
                 case 'Code1_XMP':
-                    var lXmpMap = document.getElementsByTagName("xmp");
-                    if(lXmpMap.length == 0) {return;}
                     var lPreMap = document.getElementsByTagName("pre");
                     for(var i = 0; i < lPreMap.length; i++) {
                         var lPreNode = lPreMap[i];
+                        if(lPreNode.firstChild.nodeType == Node.TEXT_NODE) {continue;}
+                        if(lPreNode.firstChild.className.includes("AceCode") == false) {continue;}
                         var lNewDiv = document.createElement('DIV');
 
                         for(var j = 0; j < lPreNode.attributes.length; j++){
@@ -1438,9 +1438,9 @@ var GEditor = (function() {
                         
                         var lNewPre = document.createElement('PRE');
 
-                        for(var k = 0; k < lXmpMap.attributes.length; k++){
-                            var lNodeName  = lXmpMap.attributes.item(k).nodeName;
-                            var lNodeValue = lXmpMap.attributes.item(k).nodeValue;
+                        for(var j = 0; j < lXmpMap.attributes.length; j++){
+                            var lNodeName  = lXmpMap.attributes.item(j).nodeName;
+                            var lNodeValue = lXmpMap.attributes.item(j).nodeValue;
                             lNewPre.setAttribute(lNodeName, lNodeValue);
                         }
                         
@@ -1462,7 +1462,7 @@ var GEditor = (function() {
                     '<br>': '\n|txt',
                     '&lt;': '<|txt',
                     '&gt;': '>|txt',
-                    '&amp;': '&|tex;txt',
+                    '&amp;': '&|tex;txt'
                 };
                 for(key in lEntityMap) {
                     var lVal = lEntityMap[key];
