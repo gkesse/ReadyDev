@@ -1,4 +1,10 @@
 #================================================
+# php
+php_all:
+
+php_install:
+	@sudo apt install -y php-intl
+#================================================
 # certbot
 certbot_all: certbot_apache_stop certbot_renew certbot_apache_start certbot_list
 
