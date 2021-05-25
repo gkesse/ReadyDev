@@ -60,6 +60,7 @@
                 <option value="File_Link">Fichier Lien</option>
                 <option value="Title1_ID">Titre 1 ID Modifier</option>
                 <option value="Title2_ID">Titre 2 ID Modifier</option>
+                <option value="Code1_XMP">Code 1 XMP Modifier</option>
             </select>
         </div>
 	</div>
