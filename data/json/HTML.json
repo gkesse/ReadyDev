@@ -1,0 +1,21 @@
+{
+    "sitemap":"yes",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+			"Le but de ce tutoriel est de vous apprendre",
+            "la programmation web en HTML.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Tutoriels/Web/HTML/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Web/HTML/img/b_html.png"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"Web","link":"/Tutoriels/#Développement Web","follow":"no"},
+        {"name":"HTML","link":"","follow":"no"}
+    ]
+}
+                        

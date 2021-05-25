@@ -104,6 +104,27 @@
             "description":"Programmez sous<br/> ASP.NET",
             "link":"/Tutoriels/Web/ASP.NET/",
 			"follow":"yes"
+        },
+        {
+            "icon":"fa fa-globe",
+            "theme":"HTML",
+            "description":"Programmez sous<br/> HTML",
+            "link":"/Tutoriels/Web/HTML/",
+			"follow":"yes"
+        },
+        {
+            "icon":"fa fa-globe",
+            "theme":"CSS",
+            "description":"Programmez sous<br/> CSS",
+            "link":"/Tutoriels/Web/CSS3/",
+			"follow":"yes"
+        },
+        {
+            "icon":"fa fa-globe",
+            "theme":"JavaScript",
+            "description":"Programmez sous<br/> JavaScript",
+            "link":"/Tutoriels/Web/JavaScript/",
+			"follow":"yes"
         }
     ],    
     "mobile":
