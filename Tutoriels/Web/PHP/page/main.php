@@ -118,7 +118,23 @@ display_errors = On</pre></div></div><br><h3 class="Title8 GTitle3">Redémarrer 
 //===============================================
 echo "Bonjour tout le monde";
 //===============================================
-?&gt;</pre></div></div><br><h3 class="Title8 GTitle3">Vérifier la page web</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="http://localhost:8800/">http://localhost:8800/</a><br><br><div class="Img3 GImage"><img src="/Tutoriels/Web/PHP/img/i_php_test.png" alt="/Tutoriels/Web/PHP/img/i_php_test.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Fondamentaux"><a class="Link3" href="#">Fondamentaux</a></h1><div class="Body3"><br>Les fondamentaux de PHP.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1621792429086"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1621792429086");</script></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Creer-une-reecriture-d-URL"><a class="Link9" href="#Fondamentaux">Créer une réécriture d'URL</a></h2><br>Un moteur de <b>réécriture </b>est un composant logiciel qui effectue la réécriture sur les localisateurs de ressources uniformes, en modifiant leur apparence. Cette modification s'appelle la réécriture d'URL. C'est un moyen d'implémenter le mappage ou le routage d'URL dans une application Web. Le moteur est généralement un composant d'un serveur Web ou d' un cadre d'application Web. Les URLs réécrites (parfois appelées URLs courtes, jolies ou sophistiquées, compatibles avec les moteurs de recherche - URL SEF ou slugs) sont utilisées pour fournir des liens plus courts et plus pertinents vers des pages Web. La technique ajoute une couche d'abstraction entre les fichiers utilisés pour générer une page Web et l'URL présentée au monde extérieur.<br><br><h3 class="Title8 GTitle3">.htaccess</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">#================================================
+?&gt;</pre></div></div><br><h3 class="Title8 GTitle3">Vérifier la page web</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="http://localhost:8800/">http://localhost:8800/</a><br><br><div class="Img3 GImage"><img src="/Tutoriels/Web/PHP/img/i_php_test.png" alt="/Tutoriels/Web/PHP/img/i_php_test.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Fondamentaux"><a class="Link3" href="#">Fondamentaux</a></h1><div class="Body3"><br>Les fondamentaux de PHP.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1621792429086"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1621792429086");</script></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Creer-un-passage-par-reference"><a class="Link9" href="#Fondamentaux">Créer un passage par référence</a></h2><br>En programmation, une <b>référence </b>est une valeur qui est un moyen d'accéder en lecture et/ou écriture à une donnée située soit en mémoire principale soit ailleurs. Une référence n'est pas la donnée elle-même mais seulement une information sur sa localisation. Beaucoup de langages de programmation permettent l'utilisation de références, que ce soit de façon explicite ou implicite.<br><br><h3 class="Title8 GTitle3">index.php</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="php">&lt;?php
+//===============================================
+function setName(&amp;$nameId, $nameText) {
+    $nameId = $nameText;
+}
+//===============================================
+function sayHello($nameId) {
+    echo sprintf("Bonjour %s&lt;br&gt;\n", $nameId);
+}
+//===============================================
+$lName = "tout le monde";
+sayHello($lName);
+setName($lName, "Gerard KESSE");
+sayHello($lName);
+//===============================================
+?&gt;</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="php">Bonjour tout le monde
+Bonjour Gerard KESSE</pre></div></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Creer-une-reecriture-d-URL"><a class="Link9" href="#Fondamentaux">Créer une réécriture d'URL</a></h2><br>Un moteur de <b>réécriture </b>est un composant logiciel qui effectue la réécriture sur les localisateurs de ressources uniformes, en modifiant leur apparence. Cette modification s'appelle la réécriture d'URL. C'est un moyen d'implémenter le mappage ou le routage d'URL dans une application Web. Le moteur est généralement un composant d'un serveur Web ou d' un cadre d'application Web. Les URLs réécrites (parfois appelées URLs courtes, jolies ou sophistiquées, compatibles avec les moteurs de recherche - URL SEF ou slugs) sont utilisées pour fournir des liens plus courts et plus pertinents vers des pages Web. La technique ajoute une couche d'abstraction entre les fichiers utilisés pour générer une page Web et l'URL présentée au monde extérieur.<br><br><h3 class="Title8 GTitle3">.htaccess</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">#================================================
 &lt;IfModule mod_rewrite.c&gt;
 #================================================
 RewriteEngine on
@@ -129,12 +145,14 @@ RewriteRule ^(.*)$ /?pageid=$1 [L,QSA]
 #================================================
 &lt;/IfModule&gt;
 #================================================</pre></div></div><br><h3 class="Title8 GTitle3">index.php</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="php">&lt;?php
+//===============================================
 echo sprintf("&lt;a href='/'&gt;ReadyDev&lt;/a&gt;\n");
 echo sprintf("|\n");
 echo sprintf("&lt;a href='/home'&gt;Accueil&lt;/a&gt;\n");
 echo sprintf("|\n");
 echo sprintf("&lt;a href='/home/login'&gt;Connexion&lt;/a&gt;\n");
 var_dump($_REQUEST);
+//===============================================
 ?&gt;</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Web/PHP/img/i_php_rewrite.gif" alt="/Tutoriels/Web/PHP/img/i_php_rewrite.gif"></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Creer-une-normalisation-unicode"><a class="Link9" href="#Fondamentaux">Créer une normalisation unicode</a></h2><br>La <b>normalisation Unicode</b> est une normalisation de texte qui transforme des caractères ou séquences de caractères équivalents en représentation fondamentale afin que celle-ci puisse être facilement comparée. La décomposition canonique peut être utilisée dans l’échange normalisé de textes. Elle permet d’effectuer une comparaison binaire tout en conservant une équivalence canonique avec le texte non normalisé d’origine. <br><br><h3 class="Title8 GTitle3">Installer le système d'internationalisation sous Ubuntu</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="php">sudo apt install -y php-intl</pre></div></div><br><h3 class="Title8 GTitle3">Configurer le système d'internationalisation sous Ubuntu</h3><br>/etc/php/7.0/apache2/php.ini<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="php">extension=php_intl.dll</pre></div></div><br><h3 class="Title8 GTitle3">index.php</h3><br><div class="GCode1"><div class="Code2"><code class="AceCode" data-mode="php">&lt;?php
 //===============================================
 $lText = "á fête été ère à hôte ça";
@@ -261,143 +279,28 @@ class GDatabase {
 on charge la base de données
 on modifie la base de données
 on enregistre la base de données
-on ferme la base de données</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Systeme-d-administration"><a class="Link3" href="#">Système d'administration</a></h1><div class="Body3"><br>Le <b>système d'administration</b> que nous présentons ici est une interface web permettant d'accéder à toutes les fonctionnalités d'une application.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1619045578000"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1619045578000");</script></div><br><div class="Img3 GImage"><img src="/Tutoriels/Web/PHP/img/b_php_admin_system.png" alt="/Tutoriels/Web/PHP/img/b_php_admin_system.png"></div><br><h2 class="Title7 GTitle2" id="Systeme-d-administration-Introduction"><a class="Link9" href="#Systeme-d-administration">Introduction</a></h2><br>Le système d'administration que nous présentons ici est une interface en ligne de commande permettant d'accéder à toutes les fonctionnalités d'une application.<br><br><h2 class="Title7 GTitle2" id="Systeme-d-administration-Programme-principal"><a class="Link9" href="#Systeme-d-administration">Programme principal</a></h2><br><h3 class="Title8 GTitle3">index.php</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="php">&lt;?php   
+on ferme la base de données</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Methodes-magiques"><a class="Link3" href="#">Méthodes magiques</a></h1><div class="Body3"><br>La <b>surcharge magique</b> en PHP permet de "créer" dynamiquement des propriétés et des méthodes. Ces entités dynamiques sont traitées via des méthodes magiques établies que l'on peut positionner dans une classe pour divers types d'actions. Les méthodes magiques de surcharge sont appelées lors de l'interaction avec des propriétés ou des méthodes qui n'ont pas été déclarées ou ne sont pas visibles dans le contexte courant. Toutes les méthodes magiques de surcharge doivent être définies comme public. Aucun des arguments de ces méthodes magiques ne peut être passé par référence.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1621977314749"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1621977314749");</script></div><br><h2 class="Title7 GTitle2" id="Methodes-magiques-Utiliser-la-methode-__construct"><a class="Link9" href="#Methodes-magiques">Utiliser la méthode __construct</a></h2><br>PHP permet aux développeurs de déclarer des <b>constructeurs </b>pour les classes. Les classes qui possèdent une méthode constructeur appellent cette méthode à chaque création d'une nouvelle instance de l'objet, ce qui est intéressant pour toutes les initialisations dont l'objet a besoin avant d'être utilisé. <br><br><h3 class="Title8 GTitle3">index.php</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="php">&lt;?php
 //===============================================
-// on appelle le chargeur automatique de classes
-require $_SERVER["DOCUMENT_ROOT"]."/webroot/php/class/GAutoload.php";
-//===============================================
-// on appelle le patron post-redirect-get 
-// afin de resoudre les problemes 
-// de soumissions multiples de formulaire
-GManager::Instance()-&gt;redirectPost();
-// on appelle le system d'aministration
-GProcess::Instance()-&gt;run();
-//===============================================
-?&gt;</pre></div></div><br><h2 class="Title7 GTitle2" id="Systeme-d-administration-Structure-du-systeme-d-administration"><a class="Link9" href="#Systeme-d-administration">Structure du système d'administration</a></h2><br><h3 class="Title8 GTitle3">GProcess.php</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="php">&lt;?php   
-//===============================================
-class GProcess {
-    //===============================================
-    private static $m_instance = null;
-    //===============================================
-    private function __construct() {
-        
-    }
-    //===============================================
-    public static function Instance() {
-        if(is_null(self::$m_instance)) {
-            self::$m_instance = new GProcess();  
-        }
-        return self::$m_instance;
-    }
-    //===============================================
-    // on definit le systeme d'administration
-    //===============================================
-    public function run() {
-        // on recupere le manager de donnees
-        $lApp = GManager::Instance()-&gt;getData()-&gt;app;
-        // on cree le gestionnaire de page web
-        $lApp-&gt;win = GWidget::Create("window");
-        
-        // on cree les base donnees du systeme
-        GSQLite::Instance();
-        // on charge les donnees du systeme
-        GManager::Instance()-&gt;loadData();
-        // on incremente le nombre vue de la page courante
-        GView::Instance()-&gt;increment();
-        // on cree le super-utilisateur root
-        GLogin::Instance()-&gt;createRoot();
-        
-        // on cree l'entete de la page
-        GWidget::Create("header")-&gt;run();
-        // on cree le corps de la page
-        GWidget::Create("body")-&gt;run();
-        // on cree le pied de la page
-        GWidget::Create("footer")-&gt;run();
-    }
-    //===============================================
-}
-//===============================================
-?&gt;</pre></div></div><br><h2 class="Title7 GTitle2" id="Systeme-d-administration-Gestionnaire-de-page-web"><a class="Link9" href="#Systeme-d-administration">Gestionnaire de page web</a></h2><br><h3 class="Title8 GTitle3">GWindow.php</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="php">&lt;?php   
-//===============================================
-class GWindow extends GWidget {
-    //===============================================
-    // on definit la construction du systeme
-    //===============================================
+class GObject {
     public function __construct() {
-        // on recupere le manager de donnee
-        $lApp = GManager::Instance()-&gt;getData()-&gt;app;
-        // on cree le systeme
-        $lApp-&gt;page_map = GWidget::Create("stackwidget");
-        
-        // on ajoute des pages dans le systeme
-        // on ajoute la page du module accueil
-        $lApp-&gt;page_map-&gt;addPage("home", "home", "Accueil");
-        // on ajoute la page du module deconnexion
-        if($lApp-&gt;login_on == "on") {$lApp-&gt;page_map-&gt;addPage("home/logout", "logout", "Déconnexion");}
-        // on ajoute la page du module connexion
-        else {$lApp-&gt;page_map-&gt;addPage("home/login", "login", "Connexion");}
-        // on ajoute la page du moduleutilisateur
-        $lApp-&gt;page_map-&gt;addPage("home/users", "user", "Utilisateurs");
-        // on ajoute la page du module profil
-        $lApp-&gt;page_map-&gt;addPage("home/profile", "profile", "Profil");
-        // on ajoute la page du module sqlite
-        $lApp-&gt;page_map-&gt;addPage("home/sqlite", "sqlite", "SQLite");
-        // on ajoute la page du module timesheet
-        $lApp-&gt;page_map-&gt;addPage("home/timesheet", "timesheet", "Feuille de temps");
-        // on ajoute la page du module filesystem
-        $lApp-&gt;page_map-&gt;addPage("home/filesystem", "filesystem", "Filesystem");
-        // on ajoute la page d'erreur
-        $lApp-&gt;page_map-&gt;addPage("home/message", "message", "Message");
+        echo sprintf("on appelle le constructeur&lt;br&gt;\n");
     }
-    //===============================================
-    // on definit la creation d'une page a partir de son id
-    //===============================================
-    public function run() {
-        // on recupere le manager de donnees
-        $lApp = GManager::Instance()-&gt;getData()-&gt;app;
-        // on encadre la page dans une balise div
-        echo sprintf("&lt;div class='window'&gt;\n");
-        // on aff
-        $lApp-&gt;page_map-&gt;run2($lApp-&gt;page_id);
-        echo sprintf("&lt;/div&gt;\n");
-    }
-    //===============================================
 }
 //===============================================
-?&gt;</pre></div></div><br><h2 class="Title7 GTitle2" id="Systeme-d-administration-Page-d-accueil"><a class="Link9" href="#Systeme-d-administration">Page d'accueil</a></h2><br><h3 class="Title8 GTitle3">GHome.php</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="php">&lt;?php   
+$lObj = new GObject();
 //===============================================
-class GHome extends GWidget {
-    //===============================================
+?&gt;</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="php">on appelle le constructeur</pre></div></div><br><h2 class="Title7 GTitle2" id="Methodes-magiques-Utiliser-la-methode-__destruct"><a class="Link9" href="#Methodes-magiques">Utiliser la méthode __destruct</a></h2><br>PHP possède un concept de <b>destructeur </b>similaire à celui d'autres langages orientés objet, comme le C++. La méthode destructeur est appelée dès qu'il n'y a plus de référence sur un objet donné, ou dans n'importe quel ordre pendant la séquence d'arrêt. <br><br><h3 class="Title8 GTitle3">index.php</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="php">&lt;?php
+//===============================================
+class GObject {
     public function __construct() {
-        
+        echo sprintf("on appelle le constructeur&lt;br&gt;\n");
     }
-    //===============================================
-    // on definit la construction de la page d'accueil
-    //===============================================
-    public function run() {
-        // on recupere le manager de donnees
-        $lApp = GManager::Instance()-&gt;getData()-&gt;app;
-        $lApp-&gt;filesystem = ".";
-        
-        // on ajoute des pages a la page d'accueil
-        // en indiquant pour chaque page son adresse,
-        // son nom et son icone
-        echo sprintf("&lt;div class=''&gt;\n");
-        if($lApp-&gt;login_on == "on") {$this-&gt;addItem("home/logout", "Déconnexion", "power-off");}
-        else {$this-&gt;addItem("home/login", "Connexion", "user");}
-        $this-&gt;addItem("/home/users", "Utilisateurs", "users");
-        $this-&gt;addItem("/home/profile", "Profil", "address-book-o");
-        $this-&gt;addItem("/home/sqlite", "SQLite", "database");
-        $this-&gt;addItem("/home/timesheet", "Timesheet", "calendar");
-        $this-&gt;addItem("/home/filesystem", "Filesystem", "hdd-o");
-        echo sprintf("&lt;/div&gt;\n");
+    public function __destruct() {
+        echo sprintf("on appelle le destructeur&lt;br&gt;\n");
     }
-    //===============================================
-    public function addItem($key, $text, $icon) {
-        echo sprintf("&lt;a class='button2' href='%s'&gt;&lt;i class='icon fa fa-%s'&gt;&lt;/i&gt; %s&lt;/a&gt;\n",
-        $key, $icon, $text);
-    }
-    //===============================================
 }
 //===============================================
-?&gt;</pre></div></div><br><h2 class="Title7 GTitle2" id="Systeme-d-administration-Resultat-des-operations"><a class="Link9" href="#Systeme-d-administration">Résultat des opérations</a></h2><br><h2 class="Title7 GTitle2" id="Systeme-d-administration-1---Page-d-accueil"><a class="Link9" href="#Systeme-d-administration">1 - Page d'accueil</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Web/PHP/img/i_php_admin_system.png" alt="/Tutoriels/Web/PHP/img/i_php_admin_system.png"></div><br><h2 class="Title7 GTitle2" id="Systeme-d-administration-2---Interface-du-module-Connexion"><a class="Link9" href="#Systeme-d-administration">2 - Interface du module Connexion</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Web/PHP/img/i_php_admin_system_02.png" alt="/Tutoriels/Web/PHP/img/i_php_admin_system_02.png"></div><br><h2 class="Title7 GTitle2" id="Systeme-d-administration-3---Interface-du-module-SQLite"><a class="Link9" href="#Systeme-d-administration">3 - Interface du module SQLite</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Web/PHP/img/i_php_admin_system_03.png" alt="/Tutoriels/Web/PHP/img/i_php_admin_system_03.png"></div><br><h2 class="Title7 GTitle2" id="Systeme-d-administration-3-1---Affichage-d-une-table"><a class="Link9" href="#Systeme-d-administration">3.1 - Affichage d'une table</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Web/PHP/img/i_php_admin_system_04.png" alt="/Tutoriels/Web/PHP/img/i_php_admin_system_04.png"></div><br><h2 class="Title7 GTitle2" id="Systeme-d-administration-4---Interface-du-module-Filesystem"><a class="Link9" href="#Systeme-d-administration">4 - Interface du module Filesystem</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Web/PHP/img/i_php_admin_system_05.png" alt="/Tutoriels/Web/PHP/img/i_php_admin_system_05.png"></div><br></div></div></div></div><br>
+$lObj = new GObject();
+//===============================================
+?&gt;</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="php">on appelle le constructeur
+on appelle le destructeur</pre></div></div><br></div></div></div></div><br>
