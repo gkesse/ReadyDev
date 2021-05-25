@@ -20,7 +20,7 @@ var GAce = (function() {
             setSyntaxNode: function(node) {
                     var lMode = node.dataset.mode;
                     var lHtml = node.innerHTML;
-                    lHtml = this.encodeHtml(lHtml, "txt");
+                    //lHtml = this.encodeHtml(lHtml, "txt");
                     node.innerHTML = lHtml;
                     var lTheme = "gruvbox";
                     var lEditor = ace.edit(node);
