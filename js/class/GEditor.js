@@ -1419,6 +1419,38 @@ var GEditor = (function() {
                     }
                     break;
                 //===============================================
+                case 'Code1_XMP':
+                    var lXmpMap = document.getElementsByTagName("xmp");
+                    if(lXmpMap.length == 0) {return;}
+                    var lPreMap = document.getElementsByTagName("pre");
+                    for(var i = 0; i < lPreMap.length; i++) {
+                        var lPreNode = lPreMap[i];
+                        var lNewDiv = document.createElement('DIV');
+
+                        for(var j = 0; j < lPreNode.attributes.length; j++){
+                            var lNodeName  = lPreNode.attributes.item(j).nodeName;
+                            var lNodeValue = lPreNode.attributes.item(j).nodeValue;
+                            lNewDiv.setAttribute(lNodeName, lNodeValue);
+                        }
+                        
+                        lNewDiv.innerHTML = lPreNode.innerHTML;
+                        lXmpMap = lNewDiv.firstChild;
+                        
+                        var lNewPre = document.createElement('PRE');
+
+                        for(var k = 0; k < lXmpMap.attributes.length; k++){
+                            var lNodeName  = lXmpMap.attributes.item(k).nodeName;
+                            var lNodeValue = lXmpMap.attributes.item(k).nodeValue;
+                            lNewPre.setAttribute(lNodeName, lNodeValue);
+                        }
+                        
+                        lNewPre.innerHTML = lXmpMap.innerHTML;
+                        lXmpMap.parentNode.replaceChild(lNewPre, lXmpMap);
+                        lPreNode.parentNode.replaceChild(lNewDiv, lPreNode);
+                    }
+                    alert("La mise à jour est terminée !");
+                    break;
+                //===============================================
                 }
             },
             //===============================================
