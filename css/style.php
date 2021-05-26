@@ -1297,6 +1297,7 @@ span {
     padding: 10px;
     text-align: left;
     max-width: 1000px;
+    word-break: break-word;
 }
 
 .MainBlock {
