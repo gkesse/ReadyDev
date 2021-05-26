@@ -465,4 +465,4 @@ echo sprintf("&lt;/html&gt;\n");
 var lazyLoadInstance = new LazyLoad({
     // presonnalisation
 });
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Web/PHP/img/i_lazyload_simple.gif" alt="/Tutoriels/Web/PHP/img/i_lazyload_simple.gif"></div><br><br><br><br></div></div></div></div><br>
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Web/PHP/img/i_lazyload_simple.gif" alt="/Tutoriels/Web/PHP/img/i_lazyload_simple.gif"></div><br></div></div></div></div><br>
