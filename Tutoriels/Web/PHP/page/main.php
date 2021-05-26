@@ -184,7 +184,79 @@ Unicode : a fete ete ere a hote ca</pre></div></div><br><h2 class="Title7 GTitle
 Menu
 Développeur web
 Outils de développement web</pre></div></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Valider-le-balisage-d-une-page-web-avec-validator"><a class="Link9" href="#Fondamentaux">Valider le balisage d'une page web avec validator</a></h2><br>Le Markup <b>Validator </b>est un outil et un service gratuit qui valide le balisage : en d'autres termes, il vérifie la syntaxe des documents Web, écrits dans des formats tels que (X) HTML. Le validateur est un peu comme lintpour C. Il compare votre document HTML à la syntaxe définie du HTML et signale toute divergence.<br><br><h3 class="Title8 GTitle3">Accéder à l'interface de validation</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://validator.w3.org/">https://validator.w3.org/</a><br><br><h3 class="Title8 GTitle3">Valider une page web</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="php">Address -&gt; https://readydev.ovh/Accueil/
-Check</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Web/PHP/img/i_php_validator.png" alt="/Tutoriels/Web/PHP/img/i_php_validator.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programmation-orientee-objet"><a class="Link3" href="#">Programmation orientée objet</a></h1><div class="Body3"><br>La <b>programmation orientée objet</b> (POO), ou programmation par objet, est un paradigme de programmation informatique. Elle consiste en la définition et l'interaction de briques logicielles appelées objets ; un objet représente un concept, une idée ou toute entité du monde physique, comme une voiture, une personne ou encore une page d'un livre. Il possède une structure interne et un comportement, et il sait interagir avec ses pairs. Il s'agit donc de représenter ces objets et leurs relations ; l'interaction entre les objets via leurs relations permet de concevoir et réaliser les fonctionnalités attendues, de mieux résoudre le ou les problèmes. Dès lors, l'étape de modélisation revêt une importance majeure et nécessaire pour la POO. C'est elle qui permet de transcrire les éléments du réel sous forme virtuelle. La programmation par objet consiste à utiliser des techniques de programmation pour mettre en œuvre une conception basée sur les objets. Celle-ci peut être élaborée en utilisant des méthodologies de développement logiciel objet, dont la plus connue est le processus unifié (« Unified Software Development Process » en anglais), et exprimée à l'aide de langages de modélisation tels que le Unified Modeling Language (UML).<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1621794907558"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1621794907558");</script></div><br><h2 class="Title7 GTitle2" id="Programmation-orientee-objet-Creer-une-classe"><a class="Link9" href="#Programmation-orientee-objet">Créer une classe</a></h2><br>En programmation orientée objet, la déclaration d'une <b>classe </b>regroupe des membres, méthodes et propriétés (attributs) communs à un ensemble d'objets. La classe déclare, d'une part, des attributs représentant l'état des objets et, d'autre part, des méthodes représentant leur comportement. Une classe représente donc une catégorie d'objets. Elle apparaît aussi comme un moule ou une usine à partir de laquelle il est possible de créer des objets ; c'est en quelque sorte une « boîte à outils » qui permet de fabriquer un objet. On parle alors d'un objet en tant qu'instance d'une classe (création d'un objet ayant les propriétés de la classe).<br><br><h3 class="Title8 GTitle3">index.php</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="php">&lt;?php
+Check</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Web/PHP/img/i_php_validator.png" alt="/Tutoriels/Web/PHP/img/i_php_validator.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Tableaux"><a class="Link3" href="#">Tableaux</a></h1><div class="Body3"><br>En informatique, un <b>tableau </b>est une structure de données représentant une séquence finie d'éléments auxquels on peut accéder efficacement par leur position, ou indice, dans la séquence. C'est un type de conteneur que l'on retrouve dans un grand nombre de langages de programmation. Dans les langages à typage statique (comme C, Java et OCaml), tous les éléments d’un tableau doivent être du même type. Certains langages à typage dynamique (tels APL et Python) permettent des tableaux hétérogènes.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1622009601582"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1622009601582");</script></div><br><h2 class="Title7 GTitle2" id="Tableaux-Creer-un-tableau"><a class="Link9" href="#Tableaux">Créer un tableau</a></h2><br><h3 class="Title8 GTitle3">index.php</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="php">&lt;?php
+//===============================================
+function showTab($tab) {
+    foreach($tab as $key =&gt; $value) {
+        echo sprintf("[%d] : %s&lt;br&gt;\n", $key, $value);
+    }
+}
+//===============================================
+$lTab = array("un", "deux", "trois");
+showTab($lTab);
+//===============================================
+?&gt;</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="php">[0] : un
+[1] : deux
+[2] : trois</pre></div></div><br><h2 class="Title7 GTitle2" id="Tableaux-Lire-la-valeur-d-un-element"><a class="Link9" href="#Tableaux">Lire la valeur d'un élément</a></h2><br><h3 class="Title8 GTitle3">index.php</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="php">&lt;?php
+//===============================================
+function showTab($tab) {
+    foreach($tab as $key =&gt; $value) {
+        echo sprintf("[%d] : %s&lt;br&gt;\n", $key, $value);
+    }
+}
+//===============================================
+$lTab = array("un", "deux", "trois");
+$lData = $lTab[0];
+echo sprintf("lData : %s&lt;br&gt;\n", $lData);
+//===============================================
+?&gt;</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="php">lData : un</pre></div></div><br><h2 class="Title7 GTitle2" id="Tableaux-Modifier-la-valeur-d-un-element"><a class="Link9" href="#Tableaux">Modifier la valeur d'un élément</a></h2><br><h3 class="Title8 GTitle3">index.php</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="php">&lt;?php
+//===============================================
+function showTab($tab) {
+    foreach($tab as $key =&gt; $value) {
+        echo sprintf("[%d] : %s&lt;br&gt;\n", $key, $value);
+    }
+}
+//===============================================
+$lTab = array("un", "deux", "trois");
+$lTab[0] = "onze";
+showTab($lTab);
+//===============================================
+?&gt;</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="php">[0] : onze
+[1] : deux
+[2] : trois</pre></div></div><br><h2 class="Title7 GTitle2" id="Tableaux-Ajouter-un-nouveau-element"><a class="Link9" href="#Tableaux">Ajouter un nouveau élément</a></h2><br><h3 class="Title8 GTitle3">index.php</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="php">&lt;?php
+//===============================================
+function showTab($tab) {
+    foreach($tab as $key =&gt; $value) {
+        echo sprintf("[%d] : %s&lt;br&gt;\n", $key, $value);
+    }
+}
+//===============================================
+$lTab = array("un", "deux", "trois");
+array_push($lTab, "quatre", "cinq");
+showTab($lTab);
+//===============================================
+?&gt;</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="php">[0] : un
+[1] : deux
+[2] : trois
+[3] : quatre
+[4] : cinq</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Tableaux-associatifs"><a class="Link3" href="#">Tableaux associatifs</a></h1><div class="Body3"><br>En informatique, un <b>tableau associatif</b> (aussi appelé dictionnaire ou table d'association) est un type de données associant à un ensemble de clefs, un ensemble correspondant de valeurs. Chaque clef est associée à une seule valeur (au plus) : un tableau associatif correspond donc à une application de domaine fini en mathématiques. Du point de vue du programmeur, le tableau associatif peut être vu comme une généralisation du tableau : alors que le tableau traditionnel associe des entiers consécutifs à des valeurs, le tableau associatif associe des clefs d'un type arbitraire à des valeurs d'un autre type. <br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1622014199442"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1622014199442");</script></div><br><h2 class="Title7 GTitle2" id="Tableaux-associatifs-Creer-un-tableau-associatif"><a class="Link9" href="#Tableaux-associatifs">Créer un tableau associatif</a></h2><br><h3 class="Title8 GTitle3">index.php</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="php">&lt;?php
+//===============================================
+function showTab($tab) {
+    foreach($tab as $key =&gt; $value) {
+        echo sprintf("[%s] : %s&lt;br&gt;\n", $key, $value);
+    }
+}
+//===============================================
+$lTab = array(
+"name" =&gt; "Gerard KESSE",
+"code" =&gt; 123456, 
+"coef" =&gt; 3.14
+);
+showTab($lTab);
+//===============================================
+?&gt;</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="php">[name] : Gerard KESSE
+[code] : 123456
+[coef] : 3.14</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programmation-orientee-objet"><a class="Link3" href="#">Programmation orientée objet</a></h1><div class="Body3"><br>La <b>programmation orientée objet</b> (POO), ou programmation par objet, est un paradigme de programmation informatique. Elle consiste en la définition et l'interaction de briques logicielles appelées objets ; un objet représente un concept, une idée ou toute entité du monde physique, comme une voiture, une personne ou encore une page d'un livre. Il possède une structure interne et un comportement, et il sait interagir avec ses pairs. Il s'agit donc de représenter ces objets et leurs relations ; l'interaction entre les objets via leurs relations permet de concevoir et réaliser les fonctionnalités attendues, de mieux résoudre le ou les problèmes. Dès lors, l'étape de modélisation revêt une importance majeure et nécessaire pour la POO. C'est elle qui permet de transcrire les éléments du réel sous forme virtuelle. La programmation par objet consiste à utiliser des techniques de programmation pour mettre en œuvre une conception basée sur les objets. Celle-ci peut être élaborée en utilisant des méthodologies de développement logiciel objet, dont la plus connue est le processus unifié (« Unified Software Development Process » en anglais), et exprimée à l'aide de langages de modélisation tels que le Unified Modeling Language (UML).<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1621794907558"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1621794907558");</script></div><br><h2 class="Title7 GTitle2" id="Programmation-orientee-objet-Creer-une-classe"><a class="Link9" href="#Programmation-orientee-objet">Créer une classe</a></h2><br>En programmation orientée objet, la déclaration d'une <b>classe </b>regroupe des membres, méthodes et propriétés (attributs) communs à un ensemble d'objets. La classe déclare, d'une part, des attributs représentant l'état des objets et, d'autre part, des méthodes représentant leur comportement. Une classe représente donc une catégorie d'objets. Elle apparaît aussi comme un moule ou une usine à partir de laquelle il est possible de créer des objets ; c'est en quelque sorte une « boîte à outils » qui permet de fabriquer un objet. On parle alors d'un objet en tant qu'instance d'une classe (création d'un objet ayant les propriétés de la classe).<br><br><h3 class="Title8 GTitle3">index.php</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="php">&lt;?php
 //===============================================
 require "GPerson.php";
 $lPerson = new GPerson("Gerard KESSE", 123456, 3.14);
