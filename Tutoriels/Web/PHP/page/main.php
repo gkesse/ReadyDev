@@ -134,7 +134,25 @@ setName($lName, "Gerard KESSE");
 sayHello($lName);
 //===============================================
 ?&gt;</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="php">Bonjour tout le monde
-Bonjour Gerard KESSE</pre></div></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Creer-une-reecriture-d-URL"><a class="Link9" href="#Fondamentaux">Créer une réécriture d'URL</a></h2><br>Un moteur de <b>réécriture </b>est un composant logiciel qui effectue la réécriture sur les localisateurs de ressources uniformes, en modifiant leur apparence. Cette modification s'appelle la réécriture d'URL. C'est un moyen d'implémenter le mappage ou le routage d'URL dans une application Web. Le moteur est généralement un composant d'un serveur Web ou d' un cadre d'application Web. Les URLs réécrites (parfois appelées URLs courtes, jolies ou sophistiquées, compatibles avec les moteurs de recherche - URL SEF ou slugs) sont utilisées pour fournir des liens plus courts et plus pertinents vers des pages Web. La technique ajoute une couche d'abstraction entre les fichiers utilisés pour générer une page Web et l'URL présentée au monde extérieur.<br><br><h3 class="Title8 GTitle3">.htaccess</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">#================================================
+Bonjour Gerard KESSE</pre></div></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Appeler-une-fonction-de-rappel"><a class="Link9" href="#Fondamentaux">Appeler une fonction de rappel</a></h2><br><h3 class="Title8 GTitle3">index.php</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="php">&lt;?php
+//===============================================
+class GObject {
+    public function __construct() {
+
+    }
+    public function print() {
+        echo sprintf("Je suis un objet de type GObject&lt;br&gt;\n");
+    }
+}
+//===============================================
+$lObj = new GObject();
+echo sprintf("%d&lt;br&gt;", is_callable(array($lObj, "print")));
+echo sprintf("%d&lt;br&gt;", is_callable(array($lObj, "no_print")));
+call_user_func(array($lObj, "print"));
+//===============================================
+?&gt;</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="php">1
+0
+Je suis un objet de type GObject</pre></div></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Creer-une-reecriture-d-URL"><a class="Link9" href="#Fondamentaux">Créer une réécriture d'URL</a></h2><br>Un moteur de <b>réécriture </b>est un composant logiciel qui effectue la réécriture sur les localisateurs de ressources uniformes, en modifiant leur apparence. Cette modification s'appelle la réécriture d'URL. C'est un moyen d'implémenter le mappage ou le routage d'URL dans une application Web. Le moteur est généralement un composant d'un serveur Web ou d' un cadre d'application Web. Les URLs réécrites (parfois appelées URLs courtes, jolies ou sophistiquées, compatibles avec les moteurs de recherche - URL SEF ou slugs) sont utilisées pour fournir des liens plus courts et plus pertinents vers des pages Web. La technique ajoute une couche d'abstraction entre les fichiers utilisés pour générer une page Web et l'URL présentée au monde extérieur.<br><br><h3 class="Title8 GTitle3">.htaccess</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">#================================================
 &lt;IfModule mod_rewrite.c&gt;
 #================================================
 RewriteEngine on
@@ -279,7 +297,7 @@ class GDatabase {
 on charge la base de données
 on modifie la base de données
 on enregistre la base de données
-on ferme la base de données</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Methodes-magiques"><a class="Link3" href="#">Méthodes magiques</a></h1><div class="Body3"><br>La <b>surcharge magique</b> en PHP permet de "créer" dynamiquement des propriétés et des méthodes. Ces entités dynamiques sont traitées via des méthodes magiques établies que l'on peut positionner dans une classe pour divers types d'actions. Les méthodes magiques de surcharge sont appelées lors de l'interaction avec des propriétés ou des méthodes qui n'ont pas été déclarées ou ne sont pas visibles dans le contexte courant. Toutes les méthodes magiques de surcharge doivent être définies comme public. Aucun des arguments de ces méthodes magiques ne peut être passé par référence.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1621977314749"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1621977314749");</script></div><br><h2 class="Title7 GTitle2" id="Methodes-magiques-Utiliser-la-methode-__construct"><a class="Link9" href="#Methodes-magiques">Utiliser la méthode __construct</a></h2><br>PHP permet aux développeurs de déclarer des <b>constructeurs </b>pour les classes. Les classes qui possèdent une méthode constructeur appellent cette méthode à chaque création d'une nouvelle instance de l'objet, ce qui est intéressant pour toutes les initialisations dont l'objet a besoin avant d'être utilisé. <br><br><h3 class="Title8 GTitle3">index.php</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="php">&lt;?php
+on ferme la base de données</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Methodes-magiques"><a class="Link3" href="#">Méthodes magiques</a></h1><div class="Body3"><br>La <b>surcharge magique</b> en PHP permet de "créer" dynamiquement des propriétés et des méthodes. Ces entités dynamiques sont traitées via des méthodes magiques établies que l'on peut positionner dans une classe pour divers types d'actions. Les méthodes magiques de surcharge sont appelées lors de l'interaction avec des propriétés ou des méthodes qui n'ont pas été déclarées ou ne sont pas visibles dans le contexte courant. Toutes les méthodes magiques de surcharge doivent être définies comme public. Aucun des arguments de ces méthodes magiques ne peut être passé par référence.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1621977314749"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1621977314749");</script></div><br><h2 class="Title7 GTitle2" id="Methodes-magiques-Utiliser-la-methode-magique-__construct"><a class="Link9" href="#Methodes-magiques">Utiliser la méthode magique __construct</a></h2><br>PHP permet aux développeurs de déclarer des <b>constructeurs </b>pour les classes. Les classes qui possèdent une méthode constructeur appellent cette méthode à chaque création d'une nouvelle instance de l'objet, ce qui est intéressant pour toutes les initialisations dont l'objet a besoin avant d'être utilisé. <br><br><h3 class="Title8 GTitle3">index.php</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="php">&lt;?php
 //===============================================
 class GObject {
     public function __construct() {
@@ -289,7 +307,7 @@ class GObject {
 //===============================================
 $lObj = new GObject();
 //===============================================
-?&gt;</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="php">on appelle le constructeur</pre></div></div><br><h2 class="Title7 GTitle2" id="Methodes-magiques-Utiliser-la-methode-__destruct"><a class="Link9" href="#Methodes-magiques">Utiliser la méthode __destruct</a></h2><br>PHP possède un concept de <b>destructeur </b>similaire à celui d'autres langages orientés objet, comme le C++. La méthode destructeur est appelée dès qu'il n'y a plus de référence sur un objet donné, ou dans n'importe quel ordre pendant la séquence d'arrêt. <br><br><h3 class="Title8 GTitle3">index.php</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="php">&lt;?php
+?&gt;</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="php">on appelle le constructeur</pre></div></div><br><h2 class="Title7 GTitle2" id="Methodes-magiques-Utiliser-la-methode-magique-__destruct"><a class="Link9" href="#Methodes-magiques">Utiliser la méthode magique __destruct</a></h2><br>PHP possède un concept de <b>destructeur </b>similaire à celui d'autres langages orientés objet, comme le C++. La méthode destructeur est appelée dès qu'il n'y a plus de référence sur un objet donné, ou dans n'importe quel ordre pendant la séquence d'arrêt. <br><br><h3 class="Title8 GTitle3">index.php</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="php">&lt;?php
 //===============================================
 class GObject {
     public function __construct() {
@@ -303,4 +321,56 @@ class GObject {
 $lObj = new GObject();
 //===============================================
 ?&gt;</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="php">on appelle le constructeur
+on appelle le destructeur</pre></div></div><br><h2 class="Title7 GTitle2" id="Methodes-magiques-Utiliser-la-methode-magique-__set"><a class="Link9" href="#Methodes-magiques">Utiliser la méthode magique __set</a></h2><br><h3 class="Title8 GTitle3">index.php</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="php">&lt;?php
+//===============================================
+class GObject {
+    private $private_data;
+    protected $protected_data;
+    
+    public function __construct() {
+        echo sprintf("on appelle le constructeur&lt;br&gt;\n");
+    }
+    public function __destruct() {
+        echo sprintf("on appelle le destructeur&lt;br&gt;\n");
+    }
+    public function __set($key, $name) {
+        echo sprintf("on initialise une propriété inexistante : obj-&gt;%s : %s&lt;br&gt;\n", $key, $name);
+    }
+}
+//===============================================
+$lObj = new GObject();
+$lObj-&gt;no_exist_data = "no_exist_data";
+$lObj-&gt;private_data = "private_data";
+$lObj-&gt;protected_data = "protected_data";
+//===============================================
+?&gt;</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="php">on appelle le constructeur
+on initialise une propriété inexistante : obj-&gt;no_exist_data : no_exist_data
+on initialise une propriété inexistante : obj-&gt;private_data : private_data
+on initialise une propriété inexistante : obj-&gt;protected_data : protected_data
+on appelle le destructeur</pre></div></div><br><h2 class="Title7 GTitle2" id="Methodes-magiques-Utiliser-la-methode-magique-__get"><a class="Link9" href="#Methodes-magiques">Utiliser la méthode magique __get</a></h2><br>La méthode <b>__get()</b> est appelée pour lire des données depuis des propriétés inaccessibles (protégées ou privées) ou non existante. <br><br><h3 class="Title8 GTitle3">index.php</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="php">&lt;?php
+//===============================================
+class GObject {
+    private $private_data;
+    protected $protected_data;
+    
+    public function __construct() {
+        echo sprintf("on appelle le constructeur&lt;br&gt;\n");
+    }
+    public function __destruct() {
+        echo sprintf("on appelle le destructeur&lt;br&gt;\n");
+    }
+    public function __get($name) {
+        echo sprintf("on lire une propriété inexistante : %s&lt;br&gt;\n", $name);
+    }
+}
+//===============================================
+$lObj = new GObject();
+echo $lObj-&gt;no_exist_data;
+echo $lObj-&gt;private_data;
+echo $lObj-&gt;protected_data;
+//===============================================
+?&gt;</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="php">on appelle le constructeur
+on lire une propriété inexistante : no_exist_data
+on lire une propriété inexistante : private_data
+on lire une propriété inexistante : protected_data
 on appelle le destructeur</pre></div></div><br></div></div></div></div><br>
