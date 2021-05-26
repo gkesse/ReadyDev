@@ -351,6 +351,7 @@ span {
 .Body3 {
     padding: 10px;
     text-align: left;
+    word-break: break-word;
 }
 
 .Body4 {
@@ -1297,7 +1298,6 @@ span {
     padding: 10px;
     text-align: left;
     max-width: 1000px;
-    word-break: break-word;
 }
 
 .MainBlock {
