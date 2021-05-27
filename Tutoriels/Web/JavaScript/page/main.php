@@ -71,4 +71,79 @@ function onClick(color) {
 }
 //===============================================
 onClick("green");
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Web/JavaScript/img/i_javascript_defer.gif" class="lazy" data-src="/Tutoriels/Web/JavaScript/img/i_javascript_defer.gif"></div><br></div></div></div></div><br>
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Web/JavaScript/img/i_javascript_defer.gif" class="lazy entered loaded" data-src="/Tutoriels/Web/JavaScript/img/i_javascript_defer.gif" data-ll-status="loaded" src="/Tutoriels/Web/JavaScript/img/i_javascript_defer.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Timers"><a class="Link3" href="#">Timers</a></h1><div class="Body3"><br>L'obje <span class="GCode3"><code style="color:#cccccc;">window</code></span> permet l'exécution de code à des <b>intervalles de temps</b> spécifiés. Ces intervalles de temps sont appelés événements de chronométrage.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1622129349360"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1622129349360");</script></div><br><h2 class="Title7 GTitle2" id="Timers-Creer-un-timer-avec-setInterval"><a class="Link9" href="#Timers">Créer un timer avec setInterval</a></h2><br>La méthode <b>setInterval </b>répète une fonction donnée à chaque intervalle de temps donné.<br><br><h3 class="Title8 GTitle3">index.html</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="html">&lt;!DOCTYPE html&gt;
+&lt;html lang='fr'&gt;
+    &lt;head&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;title&gt;ReadyApp&lt;/title&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;script src='/script.js' async&gt;&lt;/script&gt;
+        &lt;!-- ============================================ --&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;button onclick="onClick('start')"&gt;Start&lt;/button&gt;
+        &lt;button onclick="onClick('stop')"&gt;Stop&lt;/button&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;p id="count" class="msg"&gt;0&lt;/p&gt;
+        &lt;!-- ============================================ --&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</pre></div></div><br><h3 class="Title8 GTitle3">script.js</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="javascript">//===============================================
+var gTimer = null;
+//===============================================
+function onTimer() {
+    var lCountId = document.getElementById("count");
+    var lCount = parseInt(lCountId.innerText);
+    lCount += 1;
+    lCountId.innerText = lCount;
+}
+//===============================================
+function onClick(key) {
+    if(key == "start") {gTimer = setInterval(onTimer, 1000);}
+    else if(key == "stop") {clearInterval(gTimer);}
+}
+//===============================================
+function main() {
+    onClick("stop");
+}
+//===============================================
+main();
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Web/JavaScript/img/i_javascript_setinterval.gif" alt="/Tutoriels/Web/JavaScript/img/i_javascript_setinterval.gif"></div><br><h2 class="Title7 GTitle2" id="Timers-Creer-un-timer-avec-setTimeout"><a class="Link9" href="#Timers">Créer un timer avec setTimeout</a></h2><br>La méthode <b>setTimeout </b>exécute une seule fois une fonction donnée après avoir attendue un nombre spécifié de millisecondes.<br><br><h3 class="Title8 GTitle3">index.html</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="html">&lt;!DOCTYPE html&gt;
+&lt;html lang='fr'&gt;
+    &lt;head&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;title&gt;ReadyApp&lt;/title&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;script src='/script.js' async&gt;&lt;/script&gt;
+        &lt;!-- ============================================ --&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;button onclick="onClick('start')"&gt;Start&lt;/button&gt;
+        &lt;button onclick="onClick('stop')"&gt;Stop&lt;/button&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;p id="count" class="msg"&gt;0&lt;/p&gt;
+        &lt;!-- ============================================ --&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</pre></div></div><br><h3 class="Title8 GTitle3">script.js</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="javascript">//===============================================
+var gContinue = true;
+//===============================================
+function onTimer() {
+    var lCountId = document.getElementById("count");
+    var lCount = parseInt(lCountId.innerText);
+    lCount += 1;
+    lCountId.innerText = lCount;
+    if(gContinue) {setTimeout(onTimer, 1000);}
+}
+//===============================================
+function onClick(key) {
+    if(key == "start") {gContinue = true; setTimeout(onTimer, 1000);}
+    else if(key == "stop") {gContinue = false;}
+}
+//===============================================
+function main() {
+    onClick("stop");
+}
+//===============================================
+main();
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Web/JavaScript/img/i_javascript_settimeout.gif" alt="/Tutoriels/Web/JavaScript/img/i_javascript_settimeout.gif"></div><br></div></div></div></div><br>

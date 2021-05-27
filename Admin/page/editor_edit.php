@@ -14,6 +14,7 @@
 		<button class="Button5" type="button" title="Texte à Droite" onclick="getCommand('justifyright')"><i class="fa fa-align-right"></i></button>		
 		<button class="Button5" type="button" title="Texte Justifié" onclick="getCommand('justifyfull')"><i class="fa fa-align-justify"></i></button>		
 		<button class="Button5" type="button" title="Ajouter un Code" onclick="getCommand('code')"><i class="fa fa-code"></i></button>		
+		<button class="Button5" type="button" title="Ajouter un Code 2" onclick="getCommand('code3')">C</button>		
 		<!-- ============================================ -->
 		<div class="ComboBox" data-run="false">
             <select onchange="getCommand('readystyle', this.value); this.selectedIndex = 0">

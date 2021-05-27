@@ -14,10 +14,10 @@ var GLoader = (function() {
                 var lObj = document.getElementById(id);
                 var lNodeMap = document.getElementsByClassName("GTitle1");
                 var lCount = 0;
-				var lTimer = setInterval(function() {
-                    if(++lCount > 200) clearInterval(lTimer);
+				//var lTimer = setInterval(function() {
+				setTimeout(function() {
+                    //if(++lCount > 5) {clearInterval(lTimer);}
                     var lHtml = '';
-                    console.log(lNodeMap.length+"\n");
                     for(var i = 0; i < lNodeMap.length; i++) {
                         var lTitle = lNodeMap[i].firstChild.firstChild.firstChild.innerText;
                         var lHrefUrl = GManager.Instance().getUrl(lTitle);
@@ -60,8 +60,9 @@ var GLoader = (function() {
                     lNodeMap = lCurrentNode.getElementsByClassName("GTitle2");
                 }
                 var lCount = 0;
-				var lTimer = setInterval(function() {
-                    if(++lCount > 10) clearInterval(lTimer);
+				//var lTimer = setInterval(function() {
+				setTimeout(function() {
+                    //if(++lCount > 10) {clearInterval(lTimer);}
                     var lHtml = '';
                     for(var i = 0; i < lNodeMap.length; i++) {
                         var lTitle = lNodeMap[i].innerText

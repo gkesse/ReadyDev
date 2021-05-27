@@ -17,6 +17,8 @@ class GManager {
         $this->mgr->app->sqlite_db_path = "/data/sqlite/database.dat";
         $this->mgr->app->view_offset = 250;
         $this->mgr->app->cv_path = "https://github.com/gkesse/ReadyDev/raw/master";    
+        $this->mgr->app->img_path = "/data/img/defaults";
+        $this->mgr->app->img_map = array();
     }
     //===============================================
     public static function Instance() {
@@ -32,6 +34,8 @@ class GManager {
         return $this->mgr;
     }
     //===============================================
+    // url
+    //===============================================
     public function getUrl($url) {
         $lUrl = $url;
         $lUrl = Normalizer::normalize($lUrl , Normalizer::FORM_D);
@@ -40,6 +44,30 @@ class GManager {
         $lUrl = str_replace("'", "-", $lUrl);
         $lUrl = str_replace('"', "-", $lUrl);
         return $lUrl;
+    }
+    //===============================================
+    // img
+    //===============================================
+    public function loadImg() {
+        $lApp = $this->mgr->app;
+        $lFullPath = $_SERVER["DOCUMENT_ROOT"]."/".$lApp->img_path;
+        $lDir = opendir($lFullPath);
+        if($lDir) {
+            while(1) {
+                $lFile = readdir($lDir);
+                if(!$lFile) {break;}
+                if(is_dir($lFile)) {continue;}
+                $lPath = $lApp->img_path ."/".$lFile;
+                $lApp->img_map[$lFile] = $lPath;
+            }
+            closedir($lDir);
+        }
+    }
+    //===============================================
+    public function getImg($img) {
+        $lApp = $this->mgr->app;
+        $lPath = $lApp->img_path ."/".$img;
+        return $lPath;
     }
     //===============================================
 }
@@ -63,6 +91,9 @@ class sGApp {
     public $view_offset;
     // cv
     public $cv_path;
+    // img
+    public $img_map;
+    public $img_path;
 }
 //===============================================
 ?>
