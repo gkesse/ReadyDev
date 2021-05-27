@@ -133,6 +133,9 @@
 
           gtag('config', 'UA-149825656-1');
         </script>
+        <!-- ============================================ -->
+        <script src='https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js' async></script>
+        <!-- ============================================ -->
         <script src="/js/class/GConfig.js" async></script>
         <script src="/js/class/GHeader.js" async></script>
         <script src="/js/class/GLoader.js" async></script>
