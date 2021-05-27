@@ -17,7 +17,7 @@ var GLoader = (function() {
 				var lTimer = setInterval(function() {
                     if(++lCount > 200) clearInterval(lTimer);
                     var lHtml = '';
-                    //console.log(lNodeMap.length+"\n");
+                    console.log(lNodeMap.length+"\n");
                     for(var i = 0; i < lNodeMap.length; i++) {
                         var lTitle = lNodeMap[i].firstChild.firstChild.firstChild.innerText;
                         var lHrefUrl = GManager.Instance().getUrl(lTitle);

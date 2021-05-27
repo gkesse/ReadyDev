@@ -1415,12 +1415,11 @@ var GEditor = (function() {
                         var lTitleMap = lTitleParent.getElementsByClassName("GTitle2");
                         for(var j = 0; j < lTitleMap.length; j++) {
                             var lTitle = lTitleMap[j];
-                            var lId = lTitle.getAttribute("id");
+                            var lId = lTitleNode.innerText+"-"+lTitle.innerText;
                             var lIdUpdate = GManager.Instance().getUrl(lId);
                             lTitle.setAttribute("id", lIdUpdate);
                             var lHrefNode = lTitle.firstChild;
-                            var lHref = lHrefNode.getAttribute("href");
-                            lHref = lHref.substring(1);
+                            var lHref = lTitleNode.innerText;
                             var lHrefUpdate = GManager.Instance().getUrl(lHref);
                             lHrefUpdate = "#" + lHrefUpdate;
                             lHrefNode.setAttribute("href", lHrefUpdate);
