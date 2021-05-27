@@ -116,7 +116,7 @@
         <!-- ============================================ -->
         <?php if($lMathJax) { ?>
         <script src="/libs/mathjax/2.7.3/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
-        <script type="text/x-mathjax-config" async>
+        <script type="text/x-mathjax-config">
         MathJax.Hub.Config({
             tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
         });
