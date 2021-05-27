@@ -6,15 +6,21 @@ var GManager = (function() {
     var Container = function() {
         return {
             //===============================================
+            // Init
+            //===============================================
             init: function() {
                 this.updateLazyLoad();
 			},
+            //===============================================
+            // URL
             //===============================================
             getUrl: function(data) {
                 var lUrl = data.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
                 lUrl = lUrl.replace(/\W/g, '-');
                 return lUrl;
             },
+            //===============================================
+            // LazyLoad
             //===============================================
             updateLazyLoad: function() {
                 var lLazyLoadInstance = new LazyLoad({

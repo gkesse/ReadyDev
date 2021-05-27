@@ -1388,6 +1388,14 @@ var GEditor = (function() {
                     }
                     break;
                 //===============================================
+                case 'Update1_All':
+                    this.editReadyStyle("Title1_ID", false);
+                    this.editReadyStyle("Title2_ID", false);
+                    this.editReadyStyle("Code1_XMP", false);
+                    this.editReadyStyle("Img1_Lazy", false);
+                    alert("La mise à jour est terminée !");
+                    break;
+                //===============================================
                 case 'Title1_ID':
                     var lNodeMap = document.getElementsByClassName("GTitle1");
                     for(var i = 0; i < lNodeMap.length; i++) {
@@ -1396,7 +1404,7 @@ var GEditor = (function() {
                         var lIdUpdate = GManager.Instance().getUrl(lId);
                         lTitleNode.setAttribute("id", lIdUpdate);
                     }
-                    alert("La mise à jour est terminée !");
+                    //alert("La mise à jour est terminée !");
                     break;
                 //===============================================
                 case 'Title2_ID':
@@ -1418,7 +1426,7 @@ var GEditor = (function() {
                             lHrefNode.setAttribute("href", lHrefUpdate);
                         }
                     }
-                    alert("La mise à jour est terminée !");
+                    //alert("La mise à jour est terminée !");
                     break;
                 //===============================================
                 case 'Code1_XMP':
@@ -1450,7 +1458,7 @@ var GEditor = (function() {
                         lXmpMap.parentNode.replaceChild(lNewPre, lXmpMap);
                         lPreNode.parentNode.replaceChild(lNewDiv, lPreNode);
                     }
-                    alert("La mise à jour est terminée !");
+                    //alert("La mise à jour est terminée !");
                     break;
                 //===============================================
                 case 'Img1_Lazy':
@@ -1467,7 +1475,7 @@ var GEditor = (function() {
                         lNewImg.setAttribute("data-src", lImgSrc);
                         lImgNode.parentNode.replaceChild(lNewImg, lImgNode);
                     }
-                    alert("La mise à jour est terminée !");
+                    //alert("La mise à jour est terminée !");
                     break;
                 //===============================================
                 }
