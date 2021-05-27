@@ -13,7 +13,7 @@ var GLoader = (function() {
             loadSummary1: function(id) {
                 var lObj = document.getElementById(id);
                 var lNodeMap = document.getElementsByClassName("GTitle1");
-                var lCount = 0;
+                //var lCount = 0;
 				//var lTimer = setInterval(function() {
 				setTimeout(function() {
                     //if(++lCount > 5) {clearInterval(lTimer);}
@@ -59,7 +59,7 @@ var GLoader = (function() {
                 else if(lAction == "GTitle1") {
                     lNodeMap = lCurrentNode.getElementsByClassName("GTitle2");
                 }
-                var lCount = 0;
+                //var lCount = 0;
 				//var lTimer = setInterval(function() {
 				setTimeout(function() {
                     //if(++lCount > 10) {clearInterval(lTimer);}
@@ -79,39 +79,43 @@ var GLoader = (function() {
             },
             //===============================================
             loadList1: function(id, file, key) {
-                var lObj = document.getElementById(id);
-                var lXmlhttp = new XMLHttpRequest();
-                lXmlhttp.onreadystatechange = function() {
-                    if(this.readyState == 4 && this.status == 200) {
-                        var lData = this.responseText;
-                        lObj.innerHTML = lData;
+				setTimeout(function() {
+                    var lObj = document.getElementById(id);
+                    var lXmlhttp = new XMLHttpRequest();
+                    lXmlhttp.onreadystatechange = function() {
+                        if(this.readyState == 4 && this.status == 200) {
+                            var lData = this.responseText;
+                            lObj.innerHTML = lData;
+                        }
                     }
-                }
-                lXmlhttp.open("POST", "/php/req/loader.php", true);
-                lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                lXmlhttp.send(
-                "req=" + "LIST_1" +
-                "&file=" + file +
-                "&key=" + key
-                );
+                    lXmlhttp.open("POST", "/php/req/loader.php", true);
+                    lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                    lXmlhttp.send(
+                    "req=" + "LIST_1" +
+                    "&file=" + file +
+                    "&key=" + key
+                    );
+                }, 2);
             },
             //===============================================
             loadList2: function(id, file, key) {
-                var lObj = document.getElementById(id);
-                var lXmlhttp = new XMLHttpRequest();
-                lXmlhttp.onreadystatechange = function() {
-                    if(this.readyState == 4 && this.status == 200) {
-                        var lData = this.responseText;
-                        lObj.innerHTML = lData;
+				setTimeout(function() {
+                    var lObj = document.getElementById(id);
+                    var lXmlhttp = new XMLHttpRequest();
+                    lXmlhttp.onreadystatechange = function() {
+                        if(this.readyState == 4 && this.status == 200) {
+                            var lData = this.responseText;
+                            lObj.innerHTML = lData;
+                        }
                     }
-                }
-                lXmlhttp.open("POST", "/php/req/loader.php", true);
-                lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                lXmlhttp.send(
-                "req=" + "LIST_2" +
-                "&file=" + file +
-                "&key=" + key
-                );
+                    lXmlhttp.open("POST", "/php/req/loader.php", true);
+                    lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                    lXmlhttp.send(
+                    "req=" + "LIST_2" +
+                    "&file=" + file +
+                    "&key=" + key
+                    );
+                }, 2);
             },
             //===============================================
             loadList3: function(id, file, key) {
