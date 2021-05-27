@@ -7,13 +7,19 @@ var GManager = (function() {
         return {
             //===============================================
             init: function() {
-
+                this.updateLazyLoad();
 			},
             //===============================================
             getUrl: function(data) {
                 var lUrl = data.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
                 lUrl = lUrl.replace(/\W/g, '-');
                 return lUrl;
+            },
+            //===============================================
+            updateLazyLoad: function() {
+                var lLazyLoadInstance = new LazyLoad({
+                    
+                });
             },
             //===============================================
         };

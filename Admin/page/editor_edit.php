@@ -58,9 +58,10 @@
                 <option value="Html5">Html Supprimer</option>
                 <option value="File_Content">Fichier Ajouter</option>
                 <option value="File_Link">Fichier Lien</option>
-                <option value="Title1_ID">Titre 1 ID Modifier</option>
-                <option value="Title2_ID">Titre 2 ID Modifier</option>
-                <option value="Code1_XMP">Code 1 XMP Modifier</option>
+                <option value="Title1_ID">Update Titre 1 ID</option>
+                <option value="Title2_ID">Update Titre 2 ID</option>
+                <option value="Code1_XMP">Update Code 1 XMP</option>
+                <option value="Img1_Lazy">Update IMG Lazy</option>
             </select>
         </div>
 	</div>

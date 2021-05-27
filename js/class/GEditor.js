@@ -1396,6 +1396,7 @@ var GEditor = (function() {
                         var lIdUpdate = GManager.Instance().getUrl(lId);
                         lTitleNode.setAttribute("id", lIdUpdate);
                     }
+                    alert("La mise à jour est terminée !");
                     break;
                 //===============================================
                 case 'Title2_ID':
@@ -1417,6 +1418,7 @@ var GEditor = (function() {
                             lHrefNode.setAttribute("href", lHrefUpdate);
                         }
                     }
+                    alert("La mise à jour est terminée !");
                     break;
                 //===============================================
                 case 'Code1_XMP':
@@ -1447,6 +1449,23 @@ var GEditor = (function() {
                         lNewPre.innerHTML = lXmpMap.innerHTML;
                         lXmpMap.parentNode.replaceChild(lNewPre, lXmpMap);
                         lPreNode.parentNode.replaceChild(lNewDiv, lPreNode);
+                    }
+                    alert("La mise à jour est terminée !");
+                    break;
+                //===============================================
+                case 'Img1_Lazy':
+                    var lImgMap = document.getElementsByTagName("img");
+                    for(var i = 0; i < lImgMap.length; i++) {
+                        var lImgNode = lImgMap[i];
+                        var lSrcCheck = lImgNode.hasAttribute("src");
+                        if(lSrcCheck == false) {continue;}
+                        if(lImgNode.parentNode.className.includes("GImage") == false) {continue;}
+                        var lImgSrc = lImgNode.getAttribute("src");
+                        var lNewImg = document.createElement("IMG");
+                        lNewImg.setAttribute("alt", lImgSrc);
+                        lNewImg.setAttribute("class", "lazy");
+                        lNewImg.setAttribute("data-src", lImgSrc);
+                        lImgNode.parentNode.replaceChild(lNewImg, lImgNode);
                     }
                     alert("La mise à jour est terminée !");
                     break;
