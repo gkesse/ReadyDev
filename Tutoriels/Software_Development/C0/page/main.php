@@ -1,21 +1,21 @@
-<div class="Parallax GParallax1"><div class="Img Binary"><div class="Caption"><a href="#"><div class="Text">Apprendre la programmation en C<br></div></a></div></div><div class="Body2 Orange"><br>Le but de ce tutoriel est de vous apprendre la programmation en <b>C</b>.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary1"><div class="Body0" id="Loader_1529412976174"><div class="Row26">Summary 1</div></div><script>loadSummary1("Loader_1529412976174");</script></div><br></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Introduction"><a class="Link3" href="#">Introduction</a></h1><div class="Body3"><br><b>C </b>est un langage de programmation impératif généraliste, de bas niveau offrant au développeur une marge de contrôle importante sur la machine (notamment sur la gestion de la mémoire) et est de ce fait utilisé pour réaliser les fondations (compilateurs, interpréteurs) des langages plus modernes.<br><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/b_c.png" alt="/Tutoriels/Software_Development/C0/img/b_c.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Installation"><a class="Link3" href="#">Installation</a></h1><div class="Body3"><br>Installer l'environnement C.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1616843526757"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1616843526757");</script></div><br><h2 class="Title7 GTitle2" id="Installation-Installer l'environnement C sous MSYS2"><a class="Link9" href="#Installation">Installer l'environnement C sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Télécharger MSYS2</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://repo.msys2.org/distrib/x86_64/">https://repo.msys2.org/distrib/x86_64/</a><br><br><b>msys2-x86_64-20210228.exe</b><br><br><h3 class="Title8 GTitle3">Démarrer l'installation</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">msys2-x86_64-20210228.exe
+<div class="Parallax GParallax1"><div class="Img Binary"><div class="Caption"><a href="#"><div class="Text">Apprendre la programmation en C<br></div></a></div></div><div class="Body2 Orange"><br>Le but de ce tutoriel est de vous apprendre la programmation en <b>C</b>.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary1"><div class="Body0" id="Loader_1529412976174"><div class="Row26">Summary 1</div></div><script>loadSummary1("Loader_1529412976174");</script></div><br></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Introduction"><a class="Link3" href="#">Introduction</a></h1><div class="Body3"><br><b>C </b>est un langage de programmation impératif généraliste, de bas niveau offrant au développeur une marge de contrôle importante sur la machine (notamment sur la gestion de la mémoire) et est de ce fait utilisé pour réaliser les fondations (compilateurs, interpréteurs) des langages plus modernes.<br><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/C0/img/b_c.png" class="lazy" data-src="/Tutoriels/Software_Development/C0/img/b_c.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Installation"><a class="Link3" href="#">Installation</a></h1><div class="Body3"><br>Installer l'environnement C.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1616843526757"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1616843526757");</script></div><br><h2 class="Title7 GTitle2" id="Installation-Installer-l-environnement-C-sous-MSYS2"><a class="Link9" href="#Installation">Installer l'environnement C sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Télécharger MSYS2</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://repo.msys2.org/distrib/x86_64/">https://repo.msys2.org/distrib/x86_64/</a><br><br><b>msys2-x86_64-20210228.exe</b><br><br><h3 class="Title8 GTitle3">Démarrer l'installation</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="txt">msys2-x86_64-20210228.exe
 Suivant
-Dossier d'installation -> C:\msys64
+Dossier d'installation -&gt; C:\msys64
 Suivant
-Raccourci du menu Démarrer -> MSYS2 64bit
+Raccourci du menu Démarrer -&gt; MSYS2 64bit
 Suivant
 Suivant
-Terminer</xmp></pre></div><br><h3 class="Title8 GTitle3">Démarrer MSYS2</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Windows
-MSYS2</xmp></pre></div><br><h3 class="Title8 GTitle3">Installer les packages</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">pacman -Syu
+Terminer</pre></div></div><br><h3 class="Title8 GTitle3">Démarrer MSYS2</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">Windows
+MSYS2</pre></div></div><br><h3 class="Title8 GTitle3">Installer les packages</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">pacman -Syu
 pacman -S --needed --noconfirm make
-pacman -S --needed --noconfirm gcc</xmp><br></pre></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Tests"><a class="Link3" href="#">Tests</a></h1><div class="Body3"><br>Créer un projet C.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1616852257743"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1616852257743");</script></div><br><h2 class="Title7 GTitle2" id="Tests-Tester un programme C sous MSYS2"><a class="Link9" href="#Tests">Tester un programme C sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Éditer le programme</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">//===============================================
+pacman -S --needed --noconfirm gcc</pre><br></div></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Tests"><a class="Link3" href="#">Tests</a></h1><div class="Body3"><br>Créer un projet C.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1616852257743"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1616852257743");</script></div><br><h2 class="Title7 GTitle2" id="Tests-Tester-un-programme-C-sous-MSYS2"><a class="Link9" href="#Tests">Tester un programme C sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Éditer le programme</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">//===============================================
 #include &lt;stdio.h&gt;
 //===============================================
 int main(int argc, char** argv) {
     printf("Bonjour tout le monde\n");
     return 0;
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Compiler le projet</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">gcc -std=gnu11 -c ./main.c -o ./main.o </xmp></pre></div><br><h3 class="Title8 GTitle3">Éditer les liens du projet</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">gcc -o ./rdc.exe ./main.o </xmp></pre></div><br><h3 class="Title8 GTitle3">Exécuter le projet</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">./rdc.exe</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">Bonjour tout le monde</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Fondamentaux"><a class="Link3" href="#">Fondamentaux</a></h1><div class="Body3"><br>Les fondamentaux de C.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620691663743"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620691663743");</script></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Créer un commentaire"><a class="Link9" href="#Les fondamentaux">Créer un commentaire</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Compiler le projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">gcc -std=gnu11 -c ./main.c -o ./main.o </pre></div></div><br><h3 class="Title8 GTitle3">Éditer les liens du projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">gcc -o ./rdc.exe ./main.o </pre></div></div><br><h3 class="Title8 GTitle3">Exécuter le projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">./rdc.exe</pre></div></div><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">Bonjour tout le monde</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Fondamentaux"><a class="Link3" href="#">Fondamentaux</a></h1><div class="Body3"><br>Les fondamentaux de C.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620691663743"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620691663743");</script></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Creer-un-commentaire"><a class="Link9" href="#Fondamentaux">Créer un commentaire</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 //===============================================
 int main(int argc, char** argv) {
@@ -23,14 +23,14 @@ int main(int argc, char** argv) {
     int var = 10;
     return 0;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Créer un commentaire à droite"><a class="Link9" href="#Les fondamentaux">Créer un commentaire à droite</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Creer-un-commentaire-a-droite"><a class="Link9" href="#Fondamentaux">Créer un commentaire à droite</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 //===============================================
 int main(int argc, char** argv) {
     int var = 10; // voici mon commentaire
     return 0;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Créer un commentaire sur plusieurs lignes"><a class="Link9" href="#Les fondamentaux">Créer un commentaire sur plusieurs lignes</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Creer-un-commentaire-sur-plusieurs-lignes"><a class="Link9" href="#Fondamentaux">Créer un commentaire sur plusieurs lignes</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 //===============================================
 int main(int argc, char** argv) {
@@ -42,14 +42,14 @@ int main(int argc, char** argv) {
     int var = 10;
     return 0;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Afficher un message"><a class="Link9" href="#Les fondamentaux">Afficher un message</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Afficher-un-message"><a class="Link9" href="#Fondamentaux">Afficher un message</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 //===============================================
 int main(int argc, char** argv) {
     printf("voici mon message\n");
     return 0;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Formater l'affichage d'un message"><a class="Link9" href="#Les fondamentaux">Formater l'affichage d'un message</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Formater-l-affichage-d-un-message"><a class="Link9" href="#Fondamentaux">Formater l'affichage d'un message</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 //===============================================
 int main(int argc, char** argv) {
@@ -58,7 +58,7 @@ int main(int argc, char** argv) {
     printf("%-20s : %d\n", "Code", 1234);
     return 0;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Définir la largeur de formatage de l'affichage d'un message"><a class="Link9" href="#Les fondamentaux">Définir la largeur de formatage de l'affichage d'un message</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Definir-la-largeur-de-formatage-de-l-affichage-d-un-message"><a class="Link9" href="#Fondamentaux">Définir la largeur de formatage de l'affichage d'un message</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 //===============================================
 int main(int argc, char** argv) {
@@ -68,21 +68,21 @@ int main(int argc, char** argv) {
     printf("%*s : %d\n", lWidth, "Code", 1234);
     return 0;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Déclarer une varibale"><a class="Link9" href="#Les fondamentaux">Déclarer une varibale</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Declarer-une-varibale"><a class="Link9" href="#Fondamentaux">Déclarer une varibale</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 //===============================================
 int main(int argc, char** argv) {
     int var;
     return 0;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Initialiser une variable au moment de sa déclaration"><a class="Link9" href="#Les fondamentaux">Initialiser une variable au moment de sa déclaration</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Initialiser-une-variable-au-moment-de-sa-declaration"><a class="Link9" href="#Fondamentaux">Initialiser une variable au moment de sa déclaration</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 //===============================================
 int main(int argc, char** argv) {
     int var = 10;
     return 0;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Affecter une valeur à une variable"><a class="Link9" href="#Les fondamentaux">Affecter une valeur à une variable</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Affecter-une-valeur-a-une-variable"><a class="Link9" href="#Fondamentaux">Affecter une valeur à une variable</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 //===============================================
 int main(int argc, char** argv) {
@@ -90,7 +90,7 @@ int main(int argc, char** argv) {
     var = 20;
     return 0;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Afficher une variable"><a class="Link9" href="#Les fondamentaux">Afficher une variable</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Afficher-une-variable"><a class="Link9" href="#Fondamentaux">Afficher une variable</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 //===============================================
 int main(int argc, char** argv) {
@@ -98,7 +98,7 @@ int main(int argc, char** argv) {
     printf("var : %d\n", var);
     return 0;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Saisir un entier au clavier"><a class="Link9" href="#Les fondamentaux">Saisir un entier au clavier</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Saisir-un-entier-au-clavier"><a class="Link9" href="#Fondamentaux">Saisir un entier au clavier</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 #include &lt;string.h&gt;
@@ -108,13 +108,13 @@ int main(int argc, char** argv) {
     while(1) {
         printf("Saisier un entier : ");
         fflush(stdout);
-        scanf("%d", &lInt);
+        scanf("%d", &amp;lInt);
         printf("Int: [%d]\n", lInt);
         if(lInt == -1) {break;}
     }
     return 0;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Saisir un réel au clavier"><a class="Link9" href="#Les fondamentaux">Saisir un réel au clavier</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Saisir-un-reel-au-clavier"><a class="Link9" href="#Fondamentaux">Saisir un réel au clavier</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 #include &lt;string.h&gt;
@@ -124,13 +124,13 @@ int main(int argc, char** argv) {
     while(1) {
         printf("Saisier un reel : ");
         fflush(stdout);
-        scanf("%f", &lFloat);
+        scanf("%f", &amp;lFloat);
         printf("Float : [%f]\n", lFloat);
         if(lFloat == -1) {break;}
     }
     return 0;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Saisir un mot au clavier"><a class="Link9" href="#Les fondamentaux">Saisir un mot au clavier</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Saisir-un-mot-au-clavier"><a class="Link9" href="#Fondamentaux">Saisir un mot au clavier</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 #include &lt;string.h&gt;
@@ -140,13 +140,13 @@ int main(int argc, char** argv) {
     while(1) {
         printf("Saisier une chaine sans espace : ");
         fflush(stdout);
-        scanf("%s", &lString);
+        scanf("%s", &amp;lString);
         printf("lString : [%s]\n", lString);
         if(!strcmp(lString, "-q")) {break;}
     }
     return 0;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Saisir une chaîne de caractère au clavier"><a class="Link9" href="#Les fondamentaux">Saisir une chaîne de caractère au clavier</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Saisir-une-chaine-de-caractere-au-clavier"><a class="Link9" href="#Fondamentaux">Saisir une chaîne de caractère au clavier</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 #include &lt;string.h&gt;
@@ -163,7 +163,7 @@ int main(int argc, char** argv) {
     }
     return 0;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Créer une condition if"><a class="Link9" href="#Les fondamentaux">Créer une condition if</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Creer-une-condition-if"><a class="Link9" href="#Fondamentaux">Créer une condition if</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 //===============================================
 int main(int argc, char** argv) {
@@ -174,7 +174,7 @@ int main(int argc, char** argv) {
     }
     return 0;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Créer une condition if else"><a class="Link9" href="#Les fondamentaux">Créer une condition if else</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Creer-une-condition-if-else"><a class="Link9" href="#Fondamentaux">Créer une condition if else</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 //===============================================
 int main(int argc, char** argv) {
@@ -188,7 +188,7 @@ int main(int argc, char** argv) {
     }
     return 0;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Créer une condition else if"><a class="Link9" href="#Les fondamentaux">Créer une condition else if</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Creer-une-condition-else-if"><a class="Link9" href="#Fondamentaux">Créer une condition else if</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 //===============================================
 int main(int argc, char** argv) {
@@ -205,7 +205,7 @@ int main(int argc, char** argv) {
     }
     return 0;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Créer une condition ternaire"><a class="Link9" href="#Les fondamentaux">Créer une condition ternaire</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Creer-une-condition-ternaire"><a class="Link9" href="#Fondamentaux">Créer une condition ternaire</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 //===============================================
@@ -215,7 +215,7 @@ int main(int argc, char** argv) {
     printf("Categorie : %s\n", lCategory);
     return 0;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Créer une condition switch case"><a class="Link9" href="#Les fondamentaux">Créer une condition switch case</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Creer-une-condition-switch-case"><a class="Link9" href="#Fondamentaux">Créer une condition switch case</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 //===============================================
@@ -241,7 +241,7 @@ int main(int argc, char** argv) {
     }
     return 0;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Créer une boucle for"><a class="Link9" href="#Les fondamentaux">Créer une boucle for</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Creer-une-boucle-for"><a class="Link9" href="#Fondamentaux">Créer une boucle for</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 //===============================================
 int main(int argc, char** argv) {
@@ -250,7 +250,7 @@ int main(int argc, char** argv) {
     }
     return 0;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Créer une boucle while"><a class="Link9" href="#Les fondamentaux">Créer une boucle while</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Creer-une-boucle-while"><a class="Link9" href="#Fondamentaux">Créer une boucle while</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 //===============================================
 int main(int argc, char** argv) {
@@ -261,7 +261,7 @@ int main(int argc, char** argv) {
     }        
     return 0;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Créer une boucle do while"><a class="Link9" href="#Les fondamentaux">Créer une boucle do while</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Creer-une-boucle-do-while"><a class="Link9" href="#Fondamentaux">Créer une boucle do while</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 //===============================================
 int main(int argc, char** argv) {
@@ -272,7 +272,7 @@ int main(int argc, char** argv) {
     } while(i &lt; 10);
     return 0;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Créer une fonction"><a class="Link9" href="#Les fondamentaux">Créer une fonction</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Creer-une-fonction"><a class="Link9" href="#Fondamentaux">Créer une fonction</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 //===============================================
 void sayHello() {
@@ -283,7 +283,7 @@ int main(int argc, char** argv) {
     sayHello();
     return 0;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Créer une fonction avec un paramètre"><a class="Link9" href="#Les fondamentaux">Créer une fonction avec un paramètre</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Creer-une-fonction-avec-un-parametre"><a class="Link9" href="#Fondamentaux">Créer une fonction avec un paramètre</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 //===============================================
 void sayHello(const char* name) {
@@ -294,7 +294,7 @@ int main(int argc, char** argv) {
     sayHello("Gerard KESSE");
     return 0;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Créer une fonction qui retourne une valeur"><a class="Link9" href="#Les fondamentaux">Créer une fonction qui retourne une valeur</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Creer-une-fonction-qui-retourne-une-valeur"><a class="Link9" href="#Fondamentaux">Créer une fonction qui retourne une valeur</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 //===============================================
 int volume(int width, int height, int depth) {
@@ -307,7 +307,7 @@ int main(int argc, char** argv) {
     printf("Volume : %d\n", lVolume);
     return 0;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Créer une fonction récursive"><a class="Link9" href="#Les fondamentaux">Créer une fonction récursive</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Creer-une-fonction-recursive"><a class="Link9" href="#Fondamentaux">Créer une fonction récursive</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 //===============================================
 int factorial(int n) {
@@ -320,7 +320,7 @@ int main(int argc, char** argv) {
     printf("Factorial : %d\n", lFactorial);
     return 0;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Créer une structure"><a class="Link9" href="#Les fondamentaux">Créer une structure</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Creer-une-structure"><a class="Link9" href="#Fondamentaux">Créer une structure</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 //===============================================
 typedef struct {
@@ -334,7 +334,7 @@ int main(int argc, char** argv) {
     printf("Code : %d\n", lPerson.code);
     return 0;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Créer un pointeur de fonction"><a class="Link9" href="#Les fondamentaux">Créer un pointeur de fonction</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Creer-un-pointeur-de-fonction"><a class="Link9" href="#Fondamentaux">Créer un pointeur de fonction</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 //===============================================
 void sayHello() {
@@ -349,7 +349,7 @@ int main(int argc, char** argv) {
     client(sayHello);
     return 0;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Créer un type pointeur de fonction"><a class="Link9" href="#Les fondamentaux">Créer un type pointeur de fonction</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Creer-un-type-pointeur-de-fonction"><a class="Link9" href="#Fondamentaux">Créer un type pointeur de fonction</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 //===============================================
 typedef void (*FUNC_CB)();
@@ -366,7 +366,7 @@ int main(int argc, char** argv) {
     client(sayHello);
     return 0;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les fondamentaux-Créer une machine à états finis"><a class="Link9" href="#Les fondamentaux">Créer une machine à états finis</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Creer-une-machine-a-etats-finis"><a class="Link9" href="#Fondamentaux">Créer une machine à états finis</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 #include &lt;string.h&gt;
@@ -394,7 +394,7 @@ int main(int argc, char** argv) {
     }
     return 0;
 }
-//===============================================</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programmation orientée objet"><a class="Link3" href="#">Programmation orientée objet</a></h1><div class="Body3"><br>La <b>programmation orientée objet</b> (POO) est un paradigme de programmation informatique qui consiste en la définition et l'interaction de briques logicielles appelées objets ; un objet représente un concept, une idée ou toute entité du monde physique, comme une voiture, une personne ou encore une page d'un livre. Il possède une structure interne et un comportement, et il sait interagir avec ses pairs. Il s'agit donc de représenter ces objets et leurs relations ; l'interaction entre les objets via leurs relations permet de concevoir et réaliser les fonctionnalités attendues, de mieux résoudre le ou les problèmes. Dès lors, l'étape de modélisation revêt une importance majeure et nécessaire pour la POO. C'est elle qui permet de transcrire les éléments du réel sous forme virtuelle. La programmation orientée objet consiste à utiliser des techniques de programmation pour mettre en œuvre une conception basée sur les objets. Celle-ci peut être élaborée en utilisant des méthodologies de développement logiciel objet, dont la plus connue est le processus unifié et exprimée à l'aide de langages de modélisation tels que le Unified Modeling Language (UML).<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620730109517"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620730109517");</script></div><br><h2 class="Title7 GTitle2" id="La programmation orientée objet-Créer une classe"><a class="Link9" href="#La programmation orientée objet">Créer une classe</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programmation-orientee-objet"><a class="Link3" href="#">Programmation orientée objet</a></h1><div class="Body3"><br>La <b>programmation orientée objet</b> (POO) est un paradigme de programmation informatique qui consiste en la définition et l'interaction de briques logicielles appelées objets ; un objet représente un concept, une idée ou toute entité du monde physique, comme une voiture, une personne ou encore une page d'un livre. Il possède une structure interne et un comportement, et il sait interagir avec ses pairs. Il s'agit donc de représenter ces objets et leurs relations ; l'interaction entre les objets via leurs relations permet de concevoir et réaliser les fonctionnalités attendues, de mieux résoudre le ou les problèmes. Dès lors, l'étape de modélisation revêt une importance majeure et nécessaire pour la POO. C'est elle qui permet de transcrire les éléments du réel sous forme virtuelle. La programmation orientée objet consiste à utiliser des techniques de programmation pour mettre en œuvre une conception basée sur les objets. Celle-ci peut être élaborée en utilisant des méthodologies de développement logiciel objet, dont la plus connue est le processus unifié et exprimée à l'aide de langages de modélisation tels que le Unified Modeling Language (UML).<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620730109517"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620730109517");</script></div><br><h2 class="Title7 GTitle2" id="Programmation-orientee-objet-Creer-une-classe"><a class="Link9" href="#Programmation-orientee-objet">Créer une classe</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include "GAnimal.h"
 //===============================================
 int main(int argc, char** argv) {
@@ -403,7 +403,7 @@ int main(int argc, char** argv) {
     lAnimal-&gt;Delete(lAnimal);
     return 0;
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GAnimal.h</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GAnimal.h</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #ifndef _GAnimal_
 #define _GAnimal_
 //===============================================
@@ -422,7 +422,7 @@ struct _GAnimalO {
 GAnimalO* GAnimal_New(const char* name, int weight);
 //===============================================
 #endif
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GAnimal.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GAnimal.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include "GAnimal.h"
 //===============================================
 static void GAnimal_Delete(GAnimalO* obj);
@@ -446,7 +446,7 @@ static void GAnimal_Delete(GAnimalO* obj) {
 static void GAnimal_Print(GAnimalO* obj) {
     printf("Nom : %s | Poids : %d (kg)\n", obj-&gt;name, obj-&gt;weight);
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">Nom : Chat | Poids : 10 (kg)</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Patrons de conception"><a class="Link3" href="#">Patrons de conception</a></h1><div class="Body3"><br>Un <b>patron de conception</b> (design pattern) est un arrangement caractéristique de modules, reconnu comme bonne pratique en réponse à un problème de conception d'un logiciel. Il décrit une solution standard, utilisable dans la conception de différents logiciels. Un patron de conception est issu de l'expérience des concepteurs de logiciels. Il décrit un arrangement récurrent de rôles et d'actions joués par des modules d'un logiciel, et le nom du patron sert de vocabulaire commun entre le concepteur et le programmeur. D'une manière analogue à un motif de conception en architecture, le patron de conception décrit les grandes lignes d'une solution, qui peuvent ensuite être modifiées et adaptées en fonction des besoins.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620728386561"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620728386561");</script></div><br><h2 class="Title7 GTitle2" id="Les patrons de conception-Créer un patron singleton"><a class="Link9" href="#Les patrons de conception">Créer un patron singleton</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">Nom : Chat | Poids : 10 (kg)</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Patrons-de-conception"><a class="Link3" href="#">Patrons de conception</a></h1><div class="Body3"><br>Un <b>patron de conception</b> (design pattern) est un arrangement caractéristique de modules, reconnu comme bonne pratique en réponse à un problème de conception d'un logiciel. Il décrit une solution standard, utilisable dans la conception de différents logiciels. Un patron de conception est issu de l'expérience des concepteurs de logiciels. Il décrit un arrangement récurrent de rôles et d'actions joués par des modules d'un logiciel, et le nom du patron sert de vocabulaire commun entre le concepteur et le programmeur. D'une manière analogue à un motif de conception en architecture, le patron de conception décrit les grandes lignes d'une solution, qui peuvent ensuite être modifiées et adaptées en fonction des besoins.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620728386561"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620728386561");</script></div><br><h2 class="Title7 GTitle2" id="Patrons-de-conception-Creer-un-patron-singleton"><a class="Link9" href="#Patrons-de-conception">Créer un patron singleton</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include "GDatabase.h"
 //===============================================
 int main(int argc, char** argv) {
@@ -457,7 +457,7 @@ int main(int argc, char** argv) {
     GDatabase()-&gt;Delete();
     return 0;
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GDatabase.h</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GDatabase.h</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #ifndef _GDatabase_
 #define _GDatabase_
 //===============================================
@@ -477,7 +477,7 @@ struct _GDatabaseO {
 GDatabaseO* GDatabase();
 //===============================================
 #endif
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GDatabase.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GDatabase.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include "GDatabase.h"
 //===============================================
 static GDatabaseO* m_GDatabaseO = 0;
@@ -527,10 +527,10 @@ static void GDatabase_Update() {
 static void GDatabase_Save() {
     printf("on sauvegarde la base de donnee\n");
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">on ouvre la base de donnee
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">on ouvre la base de donnee
 on charge la base de donnees
 on met a jour la base de donnees
-on sauvegarde la base de donnee</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les patrons de conception-Créer un patron stratégie"><a class="Link9" href="#Les patrons de conception">Créer un patron stratégie</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+on sauvegarde la base de donnee</pre></div></div><br><h2 class="Title7 GTitle2" id="Patrons-de-conception-Creer-un-patron-strategie"><a class="Link9" href="#Patrons-de-conception">Créer un patron stratégie</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include "GAnimal.h"
 #include "GCat.h"
 #include "GDog.h"
@@ -550,7 +550,7 @@ int main(int argc, char** argv) {
     
     return 0;
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GAnimal.h</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GAnimal.h</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #ifndef _GAnimal_
 #define _GAnimal_
 //===============================================
@@ -569,7 +569,7 @@ GAnimalO* GAnimal_New();
 void GAnimal_Delete(GAnimalO* obj);
 //===============================================
 #endif
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GAnimal.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GAnimal.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include "GAnimal.h"
 //===============================================
 static void GAnimal_Print(GAnimalO* obj);
@@ -589,7 +589,7 @@ void GAnimal_Delete(GAnimalO* obj) {
 static void GAnimal_Print(GAnimalO* obj) {
     printf("Je suis un animal\n");
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GCat.h</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GCat.h</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #ifndef _GCat_
 #define _GCat_
 //===============================================
@@ -606,7 +606,7 @@ struct _GCatO {
 GAnimalO* GCat_New(const char* name);
 //===============================================
 #endif
-//===============================================</xmp></pre></div><br><br><h3 class="Title8 GTitle3">GCat.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><br><h3 class="Title8 GTitle3">GCat.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include "GCat.h"
 //===============================================
 static void GCat_Delete(GAnimalO* obj);
@@ -632,7 +632,7 @@ static void GCat_Print(GAnimalO* obj) {
     GCatO* lObj = obj-&gt;child;
     printf("Je suis un chat : mon nom est : %s\n", lObj-&gt;name);
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GDog.h</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GDog.h</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #ifndef _GDog_
 #define _GDog_
 //===============================================
@@ -649,7 +649,7 @@ struct _GDogO {
 GAnimalO* GDog_New(int weight);
 //===============================================
 #endif
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GDog.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GDog.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include "GDog.h"
 //===============================================
 static void GDog_Delete(GAnimalO* obj);
@@ -675,9 +675,9 @@ static void GDog_Print(GAnimalO* obj) {
     GDogO* lObj = obj-&gt;child;
     printf("Je suis un chien : mon poids est : %d (kg)\n", lObj-&gt;weight);
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">Je suis un animal
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">Je suis un animal
 Je suis un chat : mon nom est : Tom
-Je suis un chien : mon poids est : 10 (kg)</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les patrons de conception-Créer un patron fabrique"><a class="Link9" href="#Les patrons de conception">Créer un patron fabrique</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+Je suis un chien : mon poids est : 10 (kg)</pre></div></div><br><h2 class="Title7 GTitle2" id="Patrons-de-conception-Creer-un-patron-fabrique"><a class="Link9" href="#Patrons-de-conception">Créer un patron fabrique</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include "GAnimal.h"
 //===============================================
 int main(int argc, char** argv) {
@@ -695,7 +695,7 @@ int main(int argc, char** argv) {
     
     return 0;
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GAnimal.h</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GAnimal.h</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #ifndef _GAnimal_
 #define _GAnimal_
 //===============================================
@@ -716,7 +716,7 @@ GAnimalO* GAnimal_New();
 void GAnimal_Delete(GAnimalO* obj);
 //===============================================
 #endif
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GAnimal.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GAnimal.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include "GAnimal.h"
 #include "GCat.h"
 #include "GDog.h"
@@ -745,7 +745,7 @@ GAnimalO* GAnimal(const char* key) {
 static void GAnimal_Print(GAnimalO* obj) {
     printf("Je suis un animal\n");
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GCat.h</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GCat.h</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #ifndef _GCat_
 #define _GCat_
 //===============================================
@@ -761,7 +761,7 @@ struct _GCatO {
 GAnimalO* GCat_New();
 //===============================================
 #endif
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GCat.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GCat.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include "GCat.h"
 //===============================================
 static void GCat_Delete(GAnimalO* obj);
@@ -784,7 +784,7 @@ static void GCat_Delete(GAnimalO* obj) {
 static void GCat_Print(GAnimalO* obj) {
     printf("Je suis un chat\n");
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GDog.h</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GDog.h</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #ifndef _GDog_
 #define _GDog_
 //===============================================
@@ -800,7 +800,7 @@ struct _GDogO {
 GAnimalO* GDog_New();
 //===============================================
 #endif
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GDog.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GDog.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include "GDog.h"
 //===============================================
 static void GDog_Delete(GAnimalO* obj);
@@ -823,9 +823,9 @@ static void GDog_Delete(GAnimalO* obj) {
 static void GDog_Print(GAnimalO* obj) {
     printf("Je suis un chien\n");
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">Je suis un animal
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">Je suis un animal
 Je suis un chat
-Je suis un chien</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Les patrons de conception-Créer un patron observateur"><a class="Link9" href="#Les patrons de conception">Créer un patron observateur</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+Je suis un chien</pre></div></div><br><h2 class="Title7 GTitle2" id="Patrons-de-conception-Creer-un-patron-observateur"><a class="Link9" href="#Patrons-de-conception">Créer un patron observateur</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include "GWidget.h"
 //===============================================
 int main(int argc, char** argv) {
@@ -840,7 +840,7 @@ int main(int argc, char** argv) {
     
     return 0;
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GWidget.h</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GWidget.h</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #ifndef _GWidget_
 #define _GWidget_
 //===============================================
@@ -866,7 +866,7 @@ GWidgetO* GWidget_New();
 void GWidget_Delete(GWidgetO* obj);
 //===============================================
 #endif
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GWidget.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GWidget.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include "GWidget.h"
 #include "GButton.h"
 #include "GLed.h"
@@ -914,7 +914,7 @@ static void GWidget_AddClick(GWidgetO* obj, GWidgetO* obs) {
 //===============================================
 static void GWidget_Click(GWidgetO* obj) {}
 static void GWidget_OnClick(GWidgetO* obj) {}
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GButton.h</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GButton.h</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #ifndef _GButton_
 #define _GButton_
 //===============================================
@@ -930,7 +930,7 @@ struct _GButtonO {
 GWidgetO* GButton_New();
 //===============================================
 #endif
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GButton.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GButton.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include "GButton.h"
 //===============================================
 static void GButton_Delete(GWidgetO* obj);
@@ -954,7 +954,7 @@ static void GButton_Click(GWidgetO* obj) {
     printf("Je clique sur le BOUTON\n");
     obj-&gt;EmitClick(obj);
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GLed.h</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GLed.h</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #ifndef _GLed_
 #define _GLed_
 //===============================================
@@ -971,7 +971,7 @@ struct _GLedO {
 GWidgetO* GLed_New();
 //===============================================
 #endif
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">GLed.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GLed.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include "GLed.h"
 //===============================================
 static void GLed_Delete(GWidgetO* obj);
@@ -1004,14 +1004,14 @@ static void GLed_OnClick(GWidgetO* obj) {
         lObj-&gt;state = "off";
     }
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">Je clique sur le BOUTON
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">Je clique sur le BOUTON
 Je fais allumer la LED [ON]
 Je clique sur le BOUTON
 Je fais eteindre la LED [OFF]
 Je clique sur le BOUTON
 Je fais allumer la LED [ON]
 Je clique sur le BOUTON
-Je fais eteindre la LED [OFF]</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Système d'administration"><a class="Link3" href="#">Système d'administration</a></h1><div class="Body3"><br>Le <b>système d'administration</b> que nous présentons ici est une interface en ligne de commande permettant d'accéder à toutes les fonctionnalités d'une application.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620770747229"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620770747229");</script></div><br><h2 class="Title7 GTitle2" id="Système d'administration-main.c"><a class="Link9" href="#Système d'administration">main.c</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+Je fais eteindre la LED [OFF]</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Systeme-d-administration"><a class="Link3" href="#">Système d'administration</a></h1><div class="Body3"><br>Le <b>système d'administration</b> que nous présentons ici est une interface en ligne de commande permettant d'accéder à toutes les fonctionnalités d'une application.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620770747229"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620770747229");</script></div><br><h2 class="Title7 GTitle2" id="Systeme-d-administration-main-c"><a class="Link9" href="#Systeme-d-administration">main.c</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 #include &lt;string.h&gt;
@@ -1089,7 +1089,7 @@ static void run_quit(int argc, char** argv) {
     else if(!strcmp(l_answer, "n")) {g_state = "init";}
     else if(!strcmp(l_answer, "")) {g_state = "init";}
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Système d'administration-Résultat"><a class="Link9" href="#Système d'administration">Résultat</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_admin_system.gif" alt="/Tutoriels/Software_Development/C0/img/i_admin_system.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Gestionnaire de fichier log"><a class="Link3" href="#">Gestionnaire de fichier log</a></h1><div class="Body3"><br>Le <b>gestionnaire de fichier log</b> que nous présentons ici est une interface permettant de transférer des données depuis notre application vers un fichier texte qui peut être exploité par la suite par un système d'analyse de fichier log dédié. Un fichier log permet de suivre l'historique des traces laissées par un système au cours de son exécution. L'un des avantages de ce concept est de pouvoir analyser en temps réel les actions et réactions du système.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620776207075"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620776207075");</script></div><br><h2 class="Title7 GTitle2" id="Gestionnaire de fichier log-Créer un gestionnaire de fichier simple"><a class="Link9" href="#Gestionnaire de fichier log">Créer un gestionnaire de fichier simple</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Systeme-d-administration-Resultat"><a class="Link9" href="#Systeme-d-administration">Résultat</a></h2><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/C0/img/i_admin_system.gif" class="lazy" data-src="/Tutoriels/Software_Development/C0/img/i_admin_system.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Gestionnaire-de-fichier-log"><a class="Link3" href="#">Gestionnaire de fichier log</a></h1><div class="Body3"><br>Le <b>gestionnaire de fichier log</b> que nous présentons ici est une interface permettant de transférer des données depuis notre application vers un fichier texte qui peut être exploité par la suite par un système d'analyse de fichier log dédié. Un fichier log permet de suivre l'historique des traces laissées par un système au cours de son exécution. L'un des avantages de ce concept est de pouvoir analyser en temps réel les actions et réactions du système.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620776207075"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620776207075");</script></div><br><h2 class="Title7 GTitle2" id="Gestionnaire-de-fichier-log-Creer-un-gestionnaire-de-fichier-simple"><a class="Link9" href="#Gestionnaire-de-fichier-log">Créer un gestionnaire de fichier simple</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 #include &lt;string.h&gt;
@@ -1113,7 +1113,7 @@ static void log_write(const char* format, ...) {
     va_end(lArgs);
     fclose(lFile);
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_log_simple.png" alt="/Tutoriels/Software_Development/C0/img/i_log_simple.png"></div><br><h2 class="Title7 GTitle2" id="Gestionnaire de fichier log-Créer un gestionnaire de fichier complexe"><a class="Link9" href="#Gestionnaire de fichier log">Créer un gestionnaire de fichier complexe</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/C0/img/i_log_simple.png" class="lazy" data-src="/Tutoriels/Software_Development/C0/img/i_log_simple.png"></div><br><h2 class="Title7 GTitle2" id="Gestionnaire-de-fichier-log-Creer-un-gestionnaire-de-fichier-complexe"><a class="Link9" href="#Gestionnaire-de-fichier-log">Créer un gestionnaire de fichier complexe</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 #include &lt;string.h&gt;
@@ -1140,7 +1140,7 @@ int main(int argc, char** argv) {
     sGPerson lPerson = {"Gerard KESSE", 1234, 3.14};
     
     log_write(3, "Affichage de donnees complexes", 3, "\n", 0);
-    log_write(4, log_person, &lPerson, 0);
+    log_write(4, log_person, &amp;lPerson, 0);
 
     return 0;
 }
@@ -1211,14 +1211,14 @@ static void log_person(void* params) {
     log_write(3, "\t", 30, -15, "Person[id]", 3, " : ", 1, lPerson-&gt;id, 3, "\n", 0);
     log_write(3, "\t", 30, -15, "Person[coef]", 3, " : ", 2, lPerson-&gt;coef, 3, "\n", 0);
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_log_complexe.png" alt="/Tutoriels/Software_Development/C0/img/i_log_complexe.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Interface Homme-Machine avec Gtk"><a class="Link3" href="#">Interface Homme-Machine avec Gtk</a></h1><div class="Body3"><br><b>GTK </b>est une bibliothèque de création d'interfaces homme-machine dévoppé à l'origine pour les besoins du logiciel de traitement d'images GIMP. GTK+ est maintenant utilisé dans de nombreux projets, dont les environnements de bureau GNOME, Xfce, Lxde et ROX. GTK est un projet libre et multiplate-forme.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1618606543470"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1618606543470");</script></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-Installer Gtk sous MSYS2"><a class="Link9" href="#Interface Homme-Machine avec Gtk">Installer Gtk sous MSYS2</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">pacman -S --needed --noconfirm mingw-w64-i686-gtk3</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-Tester un programme Gtk sous MSYS2"><a class="Link9" href="#Interface Homme-Machine avec Gtk">Tester un programme Gtk sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/C0/img/i_log_complexe.png" class="lazy" data-src="/Tutoriels/Software_Development/C0/img/i_log_complexe.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Interface-Homme-Machine-avec-Gtk"><a class="Link3" href="#">Interface Homme-Machine avec Gtk</a></h1><div class="Body3"><br><b>GTK </b>est une bibliothèque de création d'interfaces homme-machine dévoppé à l'origine pour les besoins du logiciel de traitement d'images GIMP. GTK+ est maintenant utilisé dans de nombreux projets, dont les environnements de bureau GNOME, Xfce, Lxde et ROX. GTK est un projet libre et multiplate-forme.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1618606543470"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1618606543470");</script></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Gtk-Installer-Gtk-sous-MSYS2"><a class="Link9" href="#Interface-Homme-Machine-avec-Gtk">Installer Gtk sous MSYS2</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">pacman -S --needed --noconfirm mingw-w64-i686-gtk3</pre></div></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Gtk-Tester-un-programme-Gtk-sous-MSYS2"><a class="Link9" href="#Interface-Homme-Machine-avec-Gtk">Tester un programme Gtk sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;gtk/gtk.h&gt;
 //===============================================
 static void GWindow_OnDestroy(GtkWidget* obj, gpointer params);
 static gboolean GWindow_OnDeleteEvent(GtkWidget* obj, GdkEvent* event, gpointer params);
 //===============================================
 int main(int argc, char** argv) {
-    gtk_init(&argc, &argv);
+    gtk_init(&amp;argc, &amp;argv);
     
     GtkWidget* lWindow = gtk_window_new(GTK_WINDOW_TOPLEVEL);
     gtk_window_set_title(GTK_WINDOW(lWindow), "ReadyApp");
@@ -1243,26 +1243,26 @@ int main(int argc, char** argv) {
 static void GWindow_OnDestroy(GtkWidget* obj, gpointer params) {
     gtk_main_quit();
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Compiler le projet</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">gcc -std=gnu11 -c ./main.c -o ./main.o \
-`pkg-config --cflags gtk+-3.0`</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">gcc -std=gnu11 -c ./main.c -o ./main.o \
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Compiler le projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">gcc -std=gnu11 -c ./main.c -o ./main.o \
+`pkg-config --cflags gtk+-3.0`</pre></div></div><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">gcc -std=gnu11 -c ./main.c -o ./main.o \
 -I/mingw32/include/gtk-3.0 -I/mingw32/include/pango-1.0 -I/mingw32/include -I/mingw32/include/glib-2.0 \
 -I/mingw32/lib/glib-2.0/include -I/mingw32/include/harfbuzz -I/mingw32/include/freetype2 \
 -I/mingw32/include/libpng16 -mms-bitfields -I/mingw32/include/fribidi -I/mingw32/include/cairo \
 -I/mingw32/include/lzo -I/mingw32/include/pixman-1 -mms-bitfields -mms-bitfields -mms-bitfields \
 -mms-bitfields -mms-bitfields -mms-bitfields -mms-bitfields -I/mingw32/include/gdk-pixbuf-2.0 \
 -mms-bitfields -mms-bitfields -mms-bitfields -I/mingw32/include/atk-1.0 -mms-bitfields -mms-bitfields \
--mms-bitfields -pthread -mms-bitfields</xmp></pre></div><br><h3 class="Title8 GTitle3">Éditer les liens du projet</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">gcc -o ./rdc.exe ./main.o  \
-`pkg-config --libs gtk+-3.0`</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">gcc -o ./rdc.exe ./main.o  \
+-mms-bitfields -pthread -mms-bitfields</pre></div></div><br><h3 class="Title8 GTitle3">Éditer les liens du projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">gcc -o ./rdc.exe ./main.o  \
+`pkg-config --libs gtk+-3.0`</pre></div></div><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">gcc -o ./rdc.exe ./main.o  \
 -L/mingw32/lib \ 
 -lgtk-3 -lgdk-3 -lz -lgdi32 -limm32 -lshell32 -lole32 -Wl,-luuid -lwinmm -ldwmapi -lsetupapi \
 -lcfgmgr32 -lpangowin32-1.0 -lpangocairo-1.0 -lpango-1.0 -lharfbuzz -latk-1.0 -lcairo-gobject \
--lcairo -lgdk_pixbuf-2.0 -lgio-2.0 -lgobject-2.0 -lglib-2.0 -lintl</xmp></pre></div><br><h3 class="Title8 GTitle3">Exécuter le projet</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">./rdc.exe</xmp></pre></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_gtk_test.png" alt="/Tutoriels/Software_Development/C0/img/i_gtk_test.png"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-Céer un bouton"><a class="Link9" href="#Interface Homme-Machine avec Gtk">Céer un bouton</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+-lcairo -lgdk_pixbuf-2.0 -lgio-2.0 -lgobject-2.0 -lglib-2.0 -lintl</pre></div></div><br><h3 class="Title8 GTitle3">Exécuter le projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">./rdc.exe</pre></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/C0/img/i_gtk_test.png" class="lazy" data-src="/Tutoriels/Software_Development/C0/img/i_gtk_test.png"></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Gtk-Ceer-un-bouton"><a class="Link9" href="#Interface-Homme-Machine-avec-Gtk">Céer un bouton</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;gtk/gtk.h&gt;
 //===============================================
 static void GWindow_OnDestroy(GtkWidget* obj, gpointer params);
 //===============================================
 int main(int argc, char** argv) {
-    gtk_init(&argc, &argv);
+    gtk_init(&amp;argc, &amp;argv);
      
     GtkWidget* lWindow = gtk_window_new(GTK_WINDOW_TOPLEVEL);
     gtk_window_set_title(GTK_WINDOW(lWindow), "ReadyApp");
@@ -1290,13 +1290,13 @@ int main(int argc, char** argv) {
 static void GWindow_OnDestroy(GtkWidget* obj, gpointer params) {
     gtk_main_quit();
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_gtk_button.png" alt="/Tutoriels/Software_Development/C0/img/i_gtk_button.png"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-Créer un bouton sans bordure"><a class="Link9" href="#Interface Homme-Machine avec Gtk">Créer un bouton sans bordure</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/C0/img/i_gtk_button.png" class="lazy" data-src="/Tutoriels/Software_Development/C0/img/i_gtk_button.png"></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Gtk-Creer-un-bouton-sans-bordure"><a class="Link9" href="#Interface-Homme-Machine-avec-Gtk">Créer un bouton sans bordure</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;gtk/gtk.h&gt;
 //===============================================
 static void GWindow_OnDestroy(GtkWidget* obj, gpointer params);
 //===============================================
 int main(int argc, char** argv) {
-    gtk_init(&argc, &argv);
+    gtk_init(&amp;argc, &amp;argv);
      
     GtkWidget* lWindow = gtk_window_new(GTK_WINDOW_TOPLEVEL);
     gtk_window_set_title(GTK_WINDOW(lWindow), "ReadyApp");
@@ -1325,13 +1325,13 @@ int main(int argc, char** argv) {
 static void GWindow_OnDestroy(GtkWidget* obj, gpointer params) {
     gtk_main_quit();
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_gtk_button_no_border.gif" alt="/Tutoriels/Software_Development/C0/img/i_gtk_button_no_border.gif"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-Charger une image"><a class="Link9" href="#Interface Homme-Machine avec Gtk">Charger une image</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/C0/img/i_gtk_button_no_border.gif" class="lazy" data-src="/Tutoriels/Software_Development/C0/img/i_gtk_button_no_border.gif"></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Gtk-Charger-une-image"><a class="Link9" href="#Interface-Homme-Machine-avec-Gtk">Charger une image</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;gtk/gtk.h&gt;
 //===============================================
 static void GWindow_OnDestroy(GtkWidget* obj, gpointer params);
 //===============================================
 int main(int argc, char** argv) {
-    gtk_init(&argc, &argv);
+    gtk_init(&amp;argc, &amp;argv);
      
     GtkWidget* lWindow = gtk_window_new(GTK_WINDOW_TOPLEVEL);
     gtk_window_set_title(GTK_WINDOW(lWindow), "ReadyApp");
@@ -1360,19 +1360,19 @@ int main(int argc, char** argv) {
 static void GWindow_OnDestroy(GtkWidget* obj, gpointer params) {
     gtk_main_quit();
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_gtk_image.png" alt="/Tutoriels/Software_Development/C0/img/i_gtk_image.png"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-Redimensionner une&nbsp; image"><a class="Link9" href="#Interface Homme-Machine avec Gtk">Redimensionner une&nbsp; image</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><br><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_gtk_image_resize.png" alt="/Tutoriels/Software_Development/C0/img/i_gtk_image_resize.png"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-Utiliser une police personnalisée"><a class="Link9" href="#Interface Homme-Machine avec Gtk">Utiliser une police personnalisée</a></h2><br><h3 class="Title8 GTitle3">Télécharger FontAwesome</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://github.com/beakerbrowser/beakerbrowser.com/tree/master/fonts">https://github.com/beakerbrowser/beakerbrowser.com/tree/master/fonts</a><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://github.com/FortAwesome/Font-Awesome/tree/master/otfs">https://github.com/FortAwesome/Font-Awesome/tree/master/otfs</a><br><br><b>fontawesome-webfont.ttf</b><br><br><h3 class="Title8 GTitle3">Installer FontAwesome sous Windows</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">fontawesome-webfont.ttf
-Clic droit -&gt; Installer pour tous les utilisateurs</xmp></pre></div><br><h3 class="Title8 GTitle3">Vérifier l'installation de FontAwesome sous Windows</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">Ouvrir un document Word
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/C0/img/i_gtk_image.png" class="lazy" data-src="/Tutoriels/Software_Development/C0/img/i_gtk_image.png"></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Gtk-Redimensionner-une--image"><a class="Link9" href="#Interface-Homme-Machine-avec-Gtk">Redimensionner une&nbsp; image</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><br><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/C0/img/i_gtk_image_resize.png" class="lazy" data-src="/Tutoriels/Software_Development/C0/img/i_gtk_image_resize.png"></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Gtk-Utiliser-une-police-personnalisee"><a class="Link9" href="#Interface-Homme-Machine-avec-Gtk">Utiliser une police personnalisée</a></h2><br><h3 class="Title8 GTitle3">Télécharger FontAwesome</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://github.com/beakerbrowser/beakerbrowser.com/tree/master/fonts">https://github.com/beakerbrowser/beakerbrowser.com/tree/master/fonts</a><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://github.com/FortAwesome/Font-Awesome/tree/master/otfs">https://github.com/FortAwesome/Font-Awesome/tree/master/otfs</a><br><br><b>fontawesome-webfont.ttf</b><br><br><h3 class="Title8 GTitle3">Installer FontAwesome sous Windows</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">fontawesome-webfont.ttf
+Clic droit -&gt; Installer pour tous les utilisateurs</pre></div></div><br><h3 class="Title8 GTitle3">Vérifier l'installation de FontAwesome sous Windows</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">Ouvrir un document Word
 Insert
 Symbols
 Symbol
 More symbols
-Font -&gt; FontAwesome</xmp></pre></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_gtk_custom_font_install_windows.png" alt="/Tutoriels/Software_Development/C0/img/i_gtk_custom_font_install_windows.png"></div><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+Font -&gt; FontAwesome</pre></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/C0/img/i_gtk_custom_font_install_windows.png" class="lazy" data-src="/Tutoriels/Software_Development/C0/img/i_gtk_custom_font_install_windows.png"></div><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;gtk/gtk.h&gt;
 //===============================================
 static void GWindow_OnDestroy(GtkWidget* obj, gpointer params);
 //===============================================
 int main(int argc, char** argv) {
-    gtk_init(&argc, &argv);
+    gtk_init(&amp;argc, &amp;argv);
      
     GtkWidget* lWindow = gtk_window_new(GTK_WINDOW_TOPLEVEL);
     gtk_window_set_title(GTK_WINDOW(lWindow), "ReadyApp");
@@ -1403,13 +1403,13 @@ int main(int argc, char** argv) {
 static void GWindow_OnDestroy(GtkWidget* obj, gpointer params) {
     gtk_main_quit();
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_gtk_custom_font.png" alt="/Tutoriels/Software_Development/C0/img/i_gtk_custom_font.png"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-Créer un label avec un lien"><a class="Link9" href="#Interface Homme-Machine avec Gtk">Créer un label avec un lien</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/C0/img/i_gtk_custom_font.png" class="lazy" data-src="/Tutoriels/Software_Development/C0/img/i_gtk_custom_font.png"></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Gtk-Creer-un-label-avec-un-lien"><a class="Link9" href="#Interface-Homme-Machine-avec-Gtk">Créer un label avec un lien</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;gtk/gtk.h&gt;
 //===============================================
 static void GWindow_OnDestroy(GtkWidget* obj, gpointer params);
 //===============================================
 int main(int argc, char** argv) {
-    gtk_init(&argc, &argv);
+    gtk_init(&amp;argc, &amp;argv);
     
     GtkWidget* lWindow = gtk_window_new(GTK_WINDOW_TOPLEVEL);
     gtk_window_set_title(GTK_WINDOW(lWindow), "ReadyApp");
@@ -1436,14 +1436,14 @@ int main(int argc, char** argv) {
 static void GWindow_OnDestroy(GtkWidget* obj, gpointer params) {
     gtk_main_quit();
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_gtk_label_link.gif" alt="/Tutoriels/Software_Development/C0/img/i_gtk_label_link.gif"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-Sélectionner le texte d'un label"><a class="Link9" href="#Interface Homme-Machine avec Gtk">Sélectionner le texte d'un label</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/C0/img/i_gtk_label_link.gif" class="lazy" data-src="/Tutoriels/Software_Development/C0/img/i_gtk_label_link.gif"></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Gtk-Selectionner-le-texte-d-un-label"><a class="Link9" href="#Interface-Homme-Machine-avec-Gtk">Sélectionner le texte d'un label</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;gtk/gtk.h&gt;
 //===============================================
 static void GWindow_OnDestroy(GtkWidget* obj, gpointer params);
 static gboolean GWindow_OnDeleteEvent(GtkWidget* obj, GdkEvent* event, gpointer params);
 //===============================================
 int main(int argc, char** argv) {
-    gtk_init(&argc, &argv);
+    gtk_init(&amp;argc, &amp;argv);
     
     GtkWidget* lWindow = gtk_window_new(GTK_WINDOW_TOPLEVEL);
     gtk_window_set_title(GTK_WINDOW(lWindow), "ReadyApp");
@@ -1465,14 +1465,14 @@ int main(int argc, char** argv) {
 static void GWindow_OnDestroy(GtkWidget* obj, gpointer params) {
     gtk_main_quit();
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_gtk_label_select.png" alt="/Tutoriels/Software_Development/C0/img/i_gtk_label_select.png"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-Ajouter un code mnémonique à un bouton"><a class="Link9" href="#Interface Homme-Machine avec Gtk">Ajouter un code mnémonique à un bouton</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/C0/img/i_gtk_label_select.png" class="lazy" data-src="/Tutoriels/Software_Development/C0/img/i_gtk_label_select.png"></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Gtk-Ajouter-un-code-mnemonique-a-un-bouton"><a class="Link9" href="#Interface-Homme-Machine-avec-Gtk">Ajouter un code mnémonique à un bouton</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;gtk/gtk.h&gt;
 //===============================================
 static void GWindow_OnDestroy(GtkWidget* obj, gpointer params);
 static gboolean GWindow_OnDeleteEvent(GtkWidget* obj, GdkEvent* event, gpointer params);
 //===============================================
 int main(int argc, char** argv) {
-    gtk_init(&argc, &argv);
+    gtk_init(&amp;argc, &amp;argv);
     
     GtkWidget* lWindow = gtk_window_new(GTK_WINDOW_TOPLEVEL);
     gtk_window_set_title(GTK_WINDOW(lWindow), "ReadyApp");
@@ -1495,7 +1495,7 @@ int main(int argc, char** argv) {
 static void GWindow_OnDestroy(GtkWidget* obj, gpointer params) {
     gtk_main_quit();
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_gtk_button_mnemonic.png" alt="/Tutoriels/Software_Development/C0/img/i_gtk_button_mnemonic.png"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-Ajouter des éléments au début d'un layout vertical"><a class="Link9" href="#Interface Homme-Machine avec Gtk">Ajouter des éléments au début d'un layout vertical</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/C0/img/i_gtk_button_mnemonic.png" class="lazy" data-src="/Tutoriels/Software_Development/C0/img/i_gtk_button_mnemonic.png"></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Gtk-Ajouter-des-elements-au-debut-d-un-layout-vertical"><a class="Link9" href="#Interface-Homme-Machine-avec-Gtk">Ajouter des éléments au début d'un layout vertical</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;gtk/gtk.h&gt;
 //===============================================
 #define NUM_NAMES 4
@@ -1504,7 +1504,7 @@ const gchar* names[] = { "Andrew", "Joe", "Samantha", "Jonathan" };
 static void GWindow_OnDestroy(GtkWidget* obj, gpointer params);
 //===============================================
 int main(int argc, char** argv) {
-    gtk_init(&argc, &argv);
+    gtk_init(&amp;argc, &amp;argv);
     
     GtkWidget* lWindow = gtk_window_new(GTK_WINDOW_TOPLEVEL);
     gtk_window_set_title(GTK_WINDOW(lWindow), "ReadyApp");
@@ -1532,7 +1532,7 @@ int main(int argc, char** argv) {
 static void GWindow_OnDestroy(GtkWidget* obj, gpointer params) {
     gtk_main_quit();
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_gtk_box_vertical_start.png" alt="/Tutoriels/Software_Development/C0/img/i_gtk_box_vertical_start.png"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-Ajouter des éléments à la fin d'un layout vertical"><a class="Link9" href="#Interface Homme-Machine avec Gtk">Ajouter des éléments à la fin d'un layout vertical</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/C0/img/i_gtk_box_vertical_start.png" class="lazy" data-src="/Tutoriels/Software_Development/C0/img/i_gtk_box_vertical_start.png"></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Gtk-Ajouter-des-elements-a-la-fin-d-un-layout-vertical"><a class="Link9" href="#Interface-Homme-Machine-avec-Gtk">Ajouter des éléments à la fin d'un layout vertical</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;gtk/gtk.h&gt;
 //===============================================
 #define NUM_NAMES 4
@@ -1541,7 +1541,7 @@ const gchar* names[] = { "Andrew", "Joe", "Samantha", "Jonathan" };
 static void GWindow_OnDestroy(GtkWidget* obj, gpointer params);
 //===============================================
 int main(int argc, char** argv) {
-    gtk_init(&argc, &argv);
+    gtk_init(&amp;argc, &amp;argv);
     
     GtkWidget* lWindow = gtk_window_new(GTK_WINDOW_TOPLEVEL);
     gtk_window_set_title(GTK_WINDOW(lWindow), "ReadyApp");
@@ -1569,14 +1569,14 @@ int main(int argc, char** argv) {
 static void GWindow_OnDestroy(GtkWidget* obj, gpointer params) {
     gtk_main_quit();
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_gtk_box_vertical_end.png" alt="/Tutoriels/Software_Development/C0/img/i_gtk_box_vertical_end.png"></div><br><h2 class="Title7 GTitle2" id="Interface Homme-Machine avec Gtk-Associer un gestionnaire d'évènement à un widget"><a class="Link9" href="#Interface Homme-Machine avec Gtk">Associer un gestionnaire d'évènement à un widget</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/C0/img/i_gtk_box_vertical_end.png" class="lazy" data-src="/Tutoriels/Software_Development/C0/img/i_gtk_box_vertical_end.png"></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Gtk-Associer-un-gestionnaire-d-evenement-a-un-widget"><a class="Link9" href="#Interface-Homme-Machine-avec-Gtk">Associer un gestionnaire d'évènement à un widget</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;gtk/gtk.h&gt;
 //===============================================
 static void GWindow_OnDestroy(GtkWidget* obj, gpointer params);
 static gboolean button_pressed (GtkWidget *eventbox, GdkEventButton *event, GtkLabel *label);
 //===============================================
 int main(int argc, char** argv) {
-    gtk_init(&argc, &argv);
+    gtk_init(&amp;argc, &amp;argv);
     
     GtkWidget* lWindow = gtk_window_new(GTK_WINDOW_TOPLEVEL);
     gtk_window_set_title(GTK_WINDOW(lWindow), "ReadyApp");
@@ -1616,13 +1616,13 @@ static gboolean button_pressed (GtkWidget *eventbox, GdkEventButton *event, GtkL
     }
     return FALSE;
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_gtk_eventbox.gif" alt="/Tutoriels/Software_Development/C0/img/i_gtk_eventbox.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Vision par Ordinateur avec OpenCV"><a class="Link3" href="#">Vision par Ordinateur avec OpenCV</a></h1><div class="Body3"><br><b>OpenCV </b>est une bibliothèque de vision par ordinateur.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1618653283888"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1618653283888");</script></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/b_opencv.png" alt="/Tutoriels/Software_Development/C0/img/b_opencv.png"></div><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-Installer OpenCV sous MinGW"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">Installer OpenCV sous MinGW</a></h2><br><h3 class="Title8 GTitle3">Télécharger OpenCV</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://github.com/opencv/opencv/archive/refs/tags/2.4.13.7.zip">https://github.com/opencv/opencv/archive/refs/tags/2.4.13.7.zip</a><br><br><h3 class="Title8 GTitle3">Extraire OpenCV</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">2.4.13.7.zip -&gt; Clic droit
-Extraire vers 2.4.13.7\</xmp></pre></div><br><h3 class="Title8 GTitle3">Construire OpenCV</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">set "PATH=C:\TDM-GCC-64\bin:%PATH%"</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">cd 2.4.13.7
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/C0/img/i_gtk_eventbox.gif" class="lazy" data-src="/Tutoriels/Software_Development/C0/img/i_gtk_eventbox.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Vision-par-Ordinateur-avec-OpenCV"><a class="Link3" href="#">Vision par Ordinateur avec OpenCV</a></h1><div class="Body3"><br><b>OpenCV </b>est une bibliothèque de vision par ordinateur.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1618653283888"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1618653283888");</script></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/C0/img/b_opencv.png" class="lazy" data-src="/Tutoriels/Software_Development/C0/img/b_opencv.png"></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Installer-OpenCV-sous-MinGW"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Installer OpenCV sous MinGW</a></h2><br><h3 class="Title8 GTitle3">Télécharger OpenCV</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://github.com/opencv/opencv/archive/refs/tags/2.4.13.7.zip">https://github.com/opencv/opencv/archive/refs/tags/2.4.13.7.zip</a><br><br><h3 class="Title8 GTitle3">Extraire OpenCV</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="txt">2.4.13.7.zip -&gt; Clic droit
+Extraire vers 2.4.13.7\</pre></div></div><br><h3 class="Title8 GTitle3">Construire OpenCV</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="batchfile">set "PATH=C:\TDM-GCC-64\bin:%PATH%"</pre></div></div><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="batchfile">cd 2.4.13.7
 mkdir build
 cd build
 cmake .. -G "MinGW Makefiles" -DCMAKE_INSTALL_PREFIX=dev
 mingw32-make
-mingw32-make install</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Vision par Ordinateur avec OpenCV-Tester OpenCV sous MinGW"><a class="Link9" href="#Vision par Ordinateur avec OpenCV">Tester OpenCV sous MinGW</a></h2><br><h3 class="Title8 GTitle3">Editer le programme</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+mingw32-make install</pre></div></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Tester-OpenCV-sous-MinGW"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Tester OpenCV sous MinGW</a></h2><br><h3 class="Title8 GTitle3">Editer le programme</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;opencv2/core/core_c.h&gt;
 #include &lt;opencv2/highgui/highgui_c.h&gt;
 //===============================================
@@ -1631,13 +1631,13 @@ int main(int argc, char** argv) {
     cvNamedWindow("ReadyApp", CV_WINDOW_AUTOSIZE);
     cvShowImage("ReadyApp", lImg);
     cvWaitKey(0);
-    cvReleaseImage(&lImg);
+    cvReleaseImage(&amp;lImg);
     cvDestroyAllWindows();
     return 0;
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Compiler le projet</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">set "PATH=C:\TDM-GCC-64\bin;%PATH%"
-set "PATH=ReadyLib\opencv\bin;%PATH%"</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">gcc -c main.c -o main.o -I"ReadyLib\opencv\include"</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">gcc -o rdc.exe main.o -L"ReadyLib\opencv\lib" ^
--lopencv_core2413 -lopencv_highgui2413</xmp></pre></div><br><h3 class="Title8 GTitle3">Exécuter le projet</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="batchfile">rdc.exe</xmp></pre></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_opencv_test.png" alt="/Tutoriels/Software_Development/C0/img/i_opencv_test.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Base de données avec SQLite"><a class="Link3" href="#">Base de données avec SQLite</a></h1><div class="Body3"><br><b>SQLite </b>est un système de gestion de base de données relationnelle accessible par le langage SQL et dont l'intégralité de la base de données (déclarations, tables, index et données) est stockée dans un fichier indépendant de la plateforme.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1618653104019"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1618653104019");</script></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/b_sqlite.png" alt="/Tutoriels/Software_Development/C0/img/b_sqlite.png"></div><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-Installer SQLite sous MSYS2"><a class="Link9" href="#Base de données avec SQLite">Installer SQLite sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Installer SQLite</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">pacman -S --needed --noconfirm mingw-w64-i686-sqlite3</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-Tester SQLite sous MSYS2"><a class="Link9" href="#Base de données avec SQLite">Tester SQLite sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Éditer le programme</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Compiler le projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="batchfile">set "PATH=C:\TDM-GCC-64\bin;%PATH%"
+set "PATH=ReadyLib\opencv\bin;%PATH%"</pre></div></div><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="batchfile">gcc -c main.c -o main.o -I"ReadyLib\opencv\include"</pre></div></div><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="batchfile">gcc -o rdc.exe main.o -L"ReadyLib\opencv\lib" ^
+-lopencv_core2413 -lopencv_highgui2413</pre></div></div><br><h3 class="Title8 GTitle3">Exécuter le projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="batchfile">rdc.exe</pre></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/C0/img/i_opencv_test.png" class="lazy" data-src="/Tutoriels/Software_Development/C0/img/i_opencv_test.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Base-de-donnees-avec-SQLite"><a class="Link3" href="#">Base de données avec SQLite</a></h1><div class="Body3"><br><b>SQLite </b>est un système de gestion de base de données relationnelle accessible par le langage SQL et dont l'intégralité de la base de données (déclarations, tables, index et données) est stockée dans un fichier indépendant de la plateforme.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1618653104019"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1618653104019");</script></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/C0/img/b_sqlite.png" class="lazy" data-src="/Tutoriels/Software_Development/C0/img/b_sqlite.png"></div><br><h2 class="Title7 GTitle2" id="Base-de-donnees-avec-SQLite-Installer-SQLite-sous-MSYS2"><a class="Link9" href="#Base-de-donnees-avec-SQLite">Installer SQLite sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Installer SQLite</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">pacman -S --needed --noconfirm mingw-w64-i686-sqlite3</pre></div></div><br><h2 class="Title7 GTitle2" id="Base-de-donnees-avec-SQLite-Tester-SQLite-sous-MSYS2"><a class="Link9" href="#Base-de-donnees-avec-SQLite">Tester SQLite sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Éditer le programme</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;sqlite3.h&gt;
 #include &lt;stdio.h&gt;
 //===============================================
@@ -1648,9 +1648,9 @@ int main(int argc, char** argv) {
     printf("SQLite version %s\n", lVersion);
     return 0;
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Compiler le projet</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">gcc -std=gnu11 -c ./main.c -o ./main.o \
--I/mingw32/include</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">gcc -o ./rdc.exe ./main.o  \
--L/mingw32/lib -lsqlite3</xmp></pre></div><br><h3 class="Title8 GTitle3">Exécuter le projet</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="sh">./rdc.exe</xmp></pre></div><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="txt">SQLite version 3.35.2</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-Afficher la version de SQLite"><a class="Link9" href="#Base de données avec SQLite">Afficher la version de SQLite</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Compiler le projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">gcc -std=gnu11 -c ./main.c -o ./main.o \
+-I/mingw32/include</pre></div></div><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">gcc -o ./rdc.exe ./main.o  \
+-L/mingw32/lib -lsqlite3</pre></div></div><br><h3 class="Title8 GTitle3">Exécuter le projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">./rdc.exe</pre></div></div><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="txt">SQLite version 3.35.2</pre></div></div><br><h2 class="Title7 GTitle2" id="Base-de-donnees-avec-SQLite-Afficher-la-version-de-SQLite"><a class="Link9" href="#Base-de-donnees-avec-SQLite">Afficher la version de SQLite</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 #include &lt;sqlite3.h&gt;
 //===============================================
@@ -1659,7 +1659,7 @@ int main(int argc, char** argv) {
     printf("SQLite version %s\n", lVersion);
     return 0;
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">SQLite version 3.35.4</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-Créer une table"><a class="Link9" href="#Base de données avec SQLite">Créer une table</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">SQLite version 3.35.4</pre></div></div><br><h2 class="Title7 GTitle2" id="Base-de-donnees-avec-SQLite-Creer-une-table"><a class="Link9" href="#Base-de-donnees-avec-SQLite">Créer une table</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 #include &lt;sqlite3.h&gt;
 //===============================================
@@ -1673,12 +1673,12 @@ int main(int argc, char** argv) {
     "config_value text\n"
     ")\n"
     "";
-    sqlite3_open("database.dat", &lDb);
-    sqlite3_exec(lDb, lSql, 0, 0, &lError);
+    sqlite3_open("database.dat", &amp;lDb);
+    sqlite3_exec(lDb, lSql, 0, 0, &amp;lError);
     sqlite3_close(lDb);
     return 0;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-Insérer des données dans la table"><a class="Link9" href="#Base de données avec SQLite">Insérer des données dans la table</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Base-de-donnees-avec-SQLite-Inserer-des-donnees-dans-la-table"><a class="Link9" href="#Base-de-donnees-avec-SQLite">Insérer des données dans la table</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 #include &lt;sqlite3.h&gt;
 //===============================================
@@ -1690,12 +1690,12 @@ int main(int argc, char** argv) {
     "insert into config_data(config_key, config_value)\n"
     "values('fullname', 'Gerard KESSE')\n"
     "";
-    sqlite3_open("database.dat", &lDb);
-    sqlite3_exec(lDb, lSql, 0, 0, &lError);
+    sqlite3_open("database.dat", &amp;lDb);
+    sqlite3_exec(lDb, lSql, 0, 0, &amp;lError);
     sqlite3_close(lDb);
     return 0;
 }
-//===============================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-Afficher la liste des tables"><a class="Link9" href="#Base de données avec SQLite">Afficher la liste des tables</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Base-de-donnees-avec-SQLite-Afficher-la-liste-des-tables"><a class="Link9" href="#Base-de-donnees-avec-SQLite">Afficher la liste des tables</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 #include &lt;sqlite3.h&gt;
 //===============================================
@@ -1709,8 +1709,8 @@ int main(int argc, char** argv) {
     "select name from sqlite_master\n"
     "where type='table'\n"
     "";
-    sqlite3_open("database.dat", &lDb);
-    sqlite3_exec(lDb, lSql, onExec, 0, &lError);
+    sqlite3_open("database.dat", &amp;lDb);
+    sqlite3_exec(lDb, lSql, onExec, 0, &amp;lError);
     sqlite3_close(lDb);
     return 0;
 }
@@ -1720,7 +1720,7 @@ static int onExec(void* params, int colCount, char** colValue, char** colName) {
     printf("%s\n", lValue);
     return 0;
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">config_data</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-Afficher les données de la table"><a class="Link9" href="#Base de données avec SQLite">Afficher les données de la table</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">config_data</pre></div></div><br><h2 class="Title7 GTitle2" id="Base-de-donnees-avec-SQLite-Afficher-les-donnees-de-la-table"><a class="Link9" href="#Base-de-donnees-avec-SQLite">Afficher les données de la table</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 #include &lt;sqlite3.h&gt;
 //===============================================
@@ -1732,8 +1732,8 @@ int main(int argc, char** argv) {
     char lSql[256] = ""
     "select * from config_data\n"
     "";
-    sqlite3_open("database.dat", &lDb);
-    sqlite3_exec(lDb, lSql, onExec, 0, &lError);
+    sqlite3_open("database.dat", &amp;lDb);
+    sqlite3_exec(lDb, lSql, onExec, 0, &amp;lError);
     sqlite3_close(lDb);
     return 0;
 }
@@ -1747,9 +1747,9 @@ static int onExec(void* params, int colCount, char** colValue, char** colName) {
     printf("\n");
     return 0;
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">fullname             | Gerard KESSE
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">fullname             | Gerard KESSE
 username             | gkesse
-password             | 123456</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-Afficher les noms des colonnes"><a class="Link9" href="#Base de données avec SQLite">Afficher les noms des colonnes</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+password             | 123456</pre></div></div><br><h2 class="Title7 GTitle2" id="Base-de-donnees-avec-SQLite-Afficher-les-noms-des-colonnes"><a class="Link9" href="#Base-de-donnees-avec-SQLite">Afficher les noms des colonnes</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 #include &lt;sqlite3.h&gt;
 //===============================================
@@ -1762,8 +1762,8 @@ int main(int argc, char** argv) {
     char lSql[256] = ""
     "select * from config_data\n"
     "";
-    sqlite3_open("database.dat", &lDb);
-    sqlite3_exec(lDb, lSql, onExec, &lHeader, &lError);
+    sqlite3_open("database.dat", &amp;lDb);
+    sqlite3_exec(lDb, lSql, onExec, &amp;lHeader, &amp;lError);
     sqlite3_close(lDb);
     return 0;
 }
@@ -1789,10 +1789,10 @@ static int onExec(void* params, int colCount, char** colValue, char** colName) {
     printf("\n");
     return 0;
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">config_key           | config_value
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">config_key           | config_value
 fullname             | Gerard KESSE
 username             | gkesse
-password             | 123456</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Base de données avec SQLite-Ajouter un&nbsp; séparateur entre les noms des colonnes et les données"><a class="Link9" href="#Base de données avec SQLite">Ajouter un&nbsp; séparateur entre les noms des colonnes et les données</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+password             | 123456</pre></div></div><br><h2 class="Title7 GTitle2" id="Base-de-donnees-avec-SQLite-Ajouter-un--separateur-entre-les-noms-des-colonnes-et-les-donnees"><a class="Link9" href="#Base-de-donnees-avec-SQLite">Ajouter un&nbsp; séparateur entre les noms des colonnes et les données</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 #include &lt;sqlite3.h&gt;
 //===============================================
@@ -1805,8 +1805,8 @@ int main(int argc, char** argv) {
     char lSql[256] = ""
     "select * from config_data\n"
     "";
-    sqlite3_open("database.dat", &lDb);
-    sqlite3_exec(lDb, lSql, onExec, &lHeader, &lError);
+    sqlite3_open("database.dat", &amp;lDb);
+    sqlite3_exec(lDb, lSql, onExec, &amp;lHeader, &amp;lError);
     sqlite3_close(lDb);
     return 0;
 }
@@ -1840,11 +1840,11 @@ static int onExec(void* params, int colCount, char** colValue, char** colName) {
     printf("\n");
     return 0;
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">config_key           | config_value
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">config_key           | config_value
 ---------------------|---------------------
 fullname             | Gerard KESSE
 username             | gkesse
-password             | 123456</xmp></pre></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Socket sous Windows"><a class="Link3" href="#">Socket sous Windows</a></h1><div class="Body3"><br>Une <b>Socket </b>est une structure logicielle dans un nœud de réseau d'un réseau informatique qui sert de point de terminaison pour envoyer et recevoir des données sur le réseau. La structure et les propriétés d'une socket sont définies par une interface de programmation d'application (API) pour l'architecture réseau. Les sockets sont créées uniquement pendant la durée de vie d'un processus d'une application s'exécutant dans le nœud. Une socket est identifiée de manière externe aux autres hôtes par son adresse de socket , qui est la triade du protocole de transport , de l'adresse IP et du numéro de port . Une socket est aussi utilisée pour le point de terminaison logiciel de la communication inter-processus interne au nœud (IPC).<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620670499920"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620670499920");</script></div><br><h2 class="Title7 GTitle2" id="Socket - Windows-Afficher les interfaces réseau"><a class="Link9" href="#Socket - Windows">Afficher les interfaces réseau</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+password             | 123456</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Socket-sous-Windows"><a class="Link3" href="#">Socket sous Windows</a></h1><div class="Body3"><br>Une <b>Socket </b>est une structure logicielle dans un nœud de réseau d'un réseau informatique qui sert de point de terminaison pour envoyer et recevoir des données sur le réseau. La structure et les propriétés d'une socket sont définies par une interface de programmation d'application (API) pour l'architecture réseau. Les sockets sont créées uniquement pendant la durée de vie d'un processus d'une application s'exécutant dans le nœud. Une socket est identifiée de manière externe aux autres hôtes par son adresse de socket , qui est la triade du protocole de transport , de l'adresse IP et du numéro de port . Une socket est aussi utilisée pour le point de terminaison logiciel de la communication inter-processus interne au nœud (IPC).<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620670499920"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620670499920");</script></div><br><h2 class="Title7 GTitle2" id="Socket-sous-Windows-Afficher-les-interfaces-reseau"><a class="Link9" href="#Socket-sous-Windows">Afficher les interfaces réseau</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 #include &lt;winsock2.h&gt;
@@ -1860,10 +1860,10 @@ int main(int argc, char** argv) {
     char* lFamilyName;
     char lHost[256];
     
-    WSAStartup(MAKEWORD(2, 2), &d);
+    WSAStartup(MAKEWORD(2, 2), &amp;d);
 
     adapters = (PIP_ADAPTER_ADDRESSES)malloc(asize);
-    GetAdaptersAddresses(AF_UNSPEC, GAA_FLAG_INCLUDE_PREFIX, 0, adapters, &asize);
+    GetAdaptersAddresses(AF_UNSPEC, GAA_FLAG_INCLUDE_PREFIX, 0, adapters, &amp;asize);
     
     while(1) {
         if(adapters == 0) {break;}
@@ -1893,13 +1893,13 @@ int main(int argc, char** argv) {
     WSACleanup();
     return 0;
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_socket_network_interface.png" alt="/Tutoriels/Software_Development/C0/img/i_socket_network_interface.png"></div><br><h2 class="Title7 GTitle2" id="Socket - Windows-Afficher la version maximale de winsock2 supportée"><a class="Link9" href="#Socket - Windows">Afficher la version maximale de winsock2 supportée</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/C0/img/i_socket_network_interface.png" class="lazy" data-src="/Tutoriels/Software_Development/C0/img/i_socket_network_interface.png"></div><br><h2 class="Title7 GTitle2" id="Socket-sous-Windows-Afficher-la-version-maximale-de-winsock2-supportee"><a class="Link9" href="#Socket-sous-Windows">Afficher la version maximale de winsock2 supportée</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 #include &lt;winsock2.h&gt;
 //===============================================
 int main(int argc, char** argv) {
     WSADATA wsaData;
-    WSAStartup(MAKEWORD(2,1), &wsaData);
+    WSAStartup(MAKEWORD(2,1), &amp;wsaData);
     
     printf("Version en cours : %u.%u\n", LOBYTE(wsaData.wVersion),
     HIBYTE(wsaData.wVersion));
@@ -1909,13 +1909,13 @@ int main(int argc, char** argv) {
     WSACleanup();
     return 0;
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_socket_version.png" alt="/Tutoriels/Software_Development/C0/img/i_socket_version.png"></div><br><h2 class="Title7 GTitle2" id="Socket - Windows-Echanger des données entre un client/serveur"><a class="Link9" href="#Socket - Windows">Echanger des données entre un client/serveur</a></h2><br><h3 class="Title8 GTitle3">main.c (serveur)<br></h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/C0/img/i_socket_version.png" class="lazy" data-src="/Tutoriels/Software_Development/C0/img/i_socket_version.png"></div><br><h2 class="Title7 GTitle2" id="Socket-sous-Windows-Echanger-des-donnees-entre-un-client-serveur"><a class="Link9" href="#Socket-sous-Windows">Echanger des données entre un client/serveur</a></h2><br><h3 class="Title8 GTitle3">main.c (serveur)<br></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 #include &lt;winsock2.h&gt;
 //===============================================
 int main(int argc, char** argv) {
     WSADATA wsaData;
-    WSAStartup(MAKEWORD(2,1), &wsaData);
+    WSAStartup(MAKEWORD(2,1), &amp;wsaData);
     
     int Port = 5150;
     SOCKADDR_IN ServerAddr;
@@ -1924,7 +1924,7 @@ int main(int argc, char** argv) {
     ServerAddr.sin_addr.s_addr = htonl(INADDR_ANY);    
 
     SOCKET ListeningSocket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
-    bind(ListeningSocket, (SOCKADDR *)&ServerAddr, sizeof(ServerAddr));
+    bind(ListeningSocket, (SOCKADDR *)&amp;ServerAddr, sizeof(ServerAddr));
     listen(ListeningSocket, 5);
     
     SOCKET NewConnection = accept(ListeningSocket, NULL, NULL);
@@ -1942,7 +1942,7 @@ int main(int argc, char** argv) {
     WSACleanup();
     return 0;
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">main.c (client)</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">main.c (client)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 #include &lt;winsock2.h&gt;
@@ -1951,7 +1951,7 @@ int main(int argc, char** argv) {
 //===============================================
 int main(int argc, char** argv) {
     WSADATA wsaData;
-    WSAStartup(MAKEWORD(2, 2), &wsaData);
+    WSAStartup(MAKEWORD(2, 2), &amp;wsaData);
 
     int Port = 5150;
     SOCKADDR_IN ServerAddr;
@@ -1960,7 +1960,7 @@ int main(int argc, char** argv) {
     ServerAddr.sin_addr.s_addr = inet_addr("127.0.0.1");
      
     SOCKET SendingSocket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
-    connect(SendingSocket, (SOCKADDR *) &ServerAddr, sizeof(ServerAddr));
+    connect(SendingSocket, (SOCKADDR *) &amp;ServerAddr, sizeof(ServerAddr));
         
     char lMessage[256];
     sprintf(lMessage, "Bonjour ! Qui est-tu ?");
@@ -1974,7 +1974,7 @@ int main(int argc, char** argv) {
     WSACleanup();
     return 0;
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat (serveur)</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_socket_win_data_server.png" alt="/Tutoriels/Software_Development/C0/img/i_socket_win_data_server.png"></div><br><h3 class="Title8 GTitle3">Résultat (client)</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_socket_win_data_client.png" alt="/Tutoriels/Software_Development/C0/img/i_socket_win_data_client.png"></div><br><h2 class="Title7 GTitle2" id="Socket - Windows-Echanger la date entre un client/serveur"><a class="Link9" href="#Socket - Windows">Echanger la date entre un client/serveur</a></h2><br><h3 class="Title8 GTitle3">main.c (serveur)<br></h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat (serveur)</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/C0/img/i_socket_win_data_server.png" class="lazy" data-src="/Tutoriels/Software_Development/C0/img/i_socket_win_data_server.png"></div><br><h3 class="Title8 GTitle3">Résultat (client)</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/C0/img/i_socket_win_data_client.png" class="lazy" data-src="/Tutoriels/Software_Development/C0/img/i_socket_win_data_client.png"></div><br><h2 class="Title7 GTitle2" id="Socket-sous-Windows-Echanger-la-date-entre-un-client-serveur"><a class="Link9" href="#Socket-sous-Windows">Echanger la date entre un client/serveur</a></h2><br><h3 class="Title8 GTitle3">main.c (serveur)<br></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 #include &lt;winsock2.h&gt;
@@ -1983,16 +1983,16 @@ int main(int argc, char** argv) {
 //===============================================
 int main(int argc, char** argv) {
     WSADATA d;
-    WSAStartup(MAKEWORD(2, 2), &d);
+    WSAStartup(MAKEWORD(2, 2), &amp;d);
 
     struct addrinfo hints;
-    memset(&hints, 0, sizeof(hints));
+    memset(&amp;hints, 0, sizeof(hints));
     hints.ai_family = AF_INET;
     hints.ai_socktype = SOCK_STREAM;
     hints.ai_flags = AI_PASSIVE;
     
     struct addrinfo *bind_address;
-    getaddrinfo(0, "8080", &hints, &bind_address);
+    getaddrinfo(0, "8080", &amp;hints, &amp;bind_address);
 
     SOCKET socket_listen = socket(bind_address-&gt;ai_family,
     bind_address-&gt;ai_socktype, bind_address-&gt;ai_protocol);
@@ -2002,7 +2002,7 @@ int main(int argc, char** argv) {
 
     struct sockaddr_storage client_address;
     socklen_t client_len = sizeof(client_address);
-    SOCKET socket_client = accept(socket_listen, (struct sockaddr*) &client_address, &client_len);
+    SOCKET socket_client = accept(socket_listen, (struct sockaddr*) &amp;client_address, &amp;client_len);
     
     char lMessage[256];
     int lBytes = recv(socket_client, lMessage, sizeof(lMessage), 0);
@@ -2010,8 +2010,8 @@ int main(int argc, char** argv) {
     printf("[server] recv : %s\n", lMessage);
     
     time_t timer;
-    time(&timer);
-    char *time_msg = ctime(&timer);
+    time(&amp;timer);
+    char *time_msg = ctime(&amp;timer);
     send(socket_client, time_msg, strlen(time_msg), 0);
     printf("[server] send : %s\n", time_msg);
     
@@ -2020,7 +2020,7 @@ int main(int argc, char** argv) {
     WSACleanup();
     return 0;
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">main.c (client)</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">main.c (client)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 #include &lt;winsock2.h&gt;
@@ -2029,14 +2029,14 @@ int main(int argc, char** argv) {
 //===============================================
 int main(int argc, char** argv) {
     WSADATA wsaData;
-    WSAStartup(MAKEWORD(2, 2), &wsaData);
+    WSAStartup(MAKEWORD(2, 2), &amp;wsaData);
 
     struct addrinfo hints;
-    memset(&hints, 0, sizeof(hints));
+    memset(&amp;hints, 0, sizeof(hints));
     hints.ai_socktype = SOCK_STREAM;
 
     struct addrinfo *peer_address;
-    getaddrinfo("127.0.0.1", "8080", &hints, &peer_address);
+    getaddrinfo("127.0.0.1", "8080", &amp;hints, &amp;peer_address);
     
     SOCKET socket_peer = socket(peer_address-&gt;ai_family, 
     peer_address-&gt;ai_socktype, peer_address-&gt;ai_protocol);
@@ -2057,7 +2057,7 @@ int main(int argc, char** argv) {
     WSACleanup();
     return 0;
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat (serveur)</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_socket_win_date_server.png" alt="/Tutoriels/Software_Development/C0/img/i_socket_win_date_server.png"></div><br><h3 class="Title8 GTitle3">Résultat (client)</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_socket_win_date_client.png" alt="/Tutoriels/Software_Development/C0/img/i_socket_win_date_client.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Date"><a class="Link3" href="#">Date</a></h1><div class="Body3"><br>La <b>date </b>est une indication de temps visant à définir un jour unique, généralement du calendrier grégorien. On l’utilise notamment pour repérer, avec l’heure, un événement temporel donné. Le calendrier grégorien, utilisé aujourd’hui par la plupart des pays européens, se base sur une année terrestre, c’est-à-dire une révolution de la Terre autour du soleil. Il découpe l’année en douze mois, pour un total de 365 jours (à l’exception des années bissextiles qui en comportent 366), soit 28 (29 pour les années bissextiles), 30 ou 31 jours par mois.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620671644111"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620671644111");</script></div><br><h2 class="Title7 GTitle2" id="Date-Afficher la date"><a class="Link9" href="#Date">Afficher la date</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat (serveur)</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/C0/img/i_socket_win_date_server.png" class="lazy" data-src="/Tutoriels/Software_Development/C0/img/i_socket_win_date_server.png"></div><br><h3 class="Title8 GTitle3">Résultat (client)</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/C0/img/i_socket_win_date_client.png" class="lazy" data-src="/Tutoriels/Software_Development/C0/img/i_socket_win_date_client.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Date"><a class="Link3" href="#">Date</a></h1><div class="Body3"><br>La <b>date </b>est une indication de temps visant à définir un jour unique, généralement du calendrier grégorien. On l’utilise notamment pour repérer, avec l’heure, un événement temporel donné. Le calendrier grégorien, utilisé aujourd’hui par la plupart des pays européens, se base sur une année terrestre, c’est-à-dire une révolution de la Terre autour du soleil. Il découpe l’année en douze mois, pour un total de 365 jours (à l’exception des années bissextiles qui en comportent 366), soit 28 (29 pour les années bissextiles), 30 ou 31 jours par mois.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620671644111"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620671644111");</script></div><br><h2 class="Title7 GTitle2" id="Date-Afficher-la-date"><a class="Link9" href="#Date">Afficher la date</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 #include &lt;time.h&gt;
 //===============================================
@@ -2065,10 +2065,10 @@ int main(int argc, char** argv) {
     time_t timer;
     char* lDate;
     
-    time(&timer);
-    lDate = ctime(&timer);
+    time(&amp;timer);
+    lDate = ctime(&amp;timer);
     
     printf ("Local time is: %s", lDate);
     return 0;
 }
-//===============================================</xmp></pre></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/C0/img/i_date_show.png" alt="/Tutoriels/Software_Development/C0/img/i_date_show.png"></div><br></div></div></div></div><br>
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/C0/img/i_date_show.png" class="lazy" data-src="/Tutoriels/Software_Development/C0/img/i_date_show.png"></div><br></div></div></div></div><br>
