@@ -100,12 +100,12 @@
         <meta property="og:site_name" content="<?php echo $lSiteName; ?>"/>
         <!-- ============================================ -->
         <!-- Stylesheet -->
-        <link rel="stylesheet" href="/libs/google_fonts/1.0.0/Aclonica/css.css"/>
-        <link rel="stylesheet" href="/libs/google_fonts/1.0.0/Akronim/css.css"/>
-        <link rel="stylesheet" href="/libs/google_fonts/1.0.0/Allan/css.css"/>
-        <link rel="stylesheet" href="/libs/google_fonts/1.0.0/Archivo_Narrow/css.css"/>
-        <link rel="stylesheet" href="/libs/google_fonts/1.0.0/Anton/css.css"/>
-        <link rel="stylesheet" href="/libs/font_awesome/4.7.0/css/font-awesome.min.css"/>
+        <link rel="stylesheet" href="/libs/google_fonts/1.0.0/Aclonica/css.css" media="none" onload="if(media!='all')media='all'"/>
+        <link rel="stylesheet" href="/libs/google_fonts/1.0.0/Akronim/css.css" media="none" onload="if(media!='all')media='all'"/>
+        <link rel="stylesheet" href="/libs/google_fonts/1.0.0/Allan/css.css" media="none" onload="if(media!='all')media='all'"/>
+        <link rel="stylesheet" href="/libs/google_fonts/1.0.0/Archivo_Narrow/css.css" media="none" onload="if(media!='all')media='all'"/>
+        <link rel="stylesheet" href="/libs/google_fonts/1.0.0/Anton/css.css" media="none" onload="if(media!='all')media='all'"/>
+        <link rel="stylesheet" href="/libs/font_awesome/4.7.0/css/font-awesome.min.css" media="none" onload="if(media!='all')media='all'"/>
         <!-- ============================================ -->
         <!-- Script -->
         <!--script src="/libs/jquery/3.3.1/jquery.min.js" async></script-->
