@@ -1016,6 +1016,51 @@ var GEditor = (function() {
                     document.execCommand("insertHTML", false, lHtml);
                     break;
                 //===============================================
+                case 'Code3':
+                    var lParentNode = lStartNode.parentNode;
+                    if(!lSelection.toString()) {
+                        while(1) {
+                            var lClassName = lParentNode.className;
+                            if(lClassName.includes("GEndEditor")) {
+                                break;
+                            }
+                            if(lClassName.includes("GCode3")) {
+                                lRange.selectNode(lParentNode);
+                                lSelection.addRange(lRange);
+                                var lFragment = lSelection.getRangeAt(0).cloneContents();
+                                var lDiv = document.createElement('DIV');
+                                lDiv.appendChild(lFragment);
+                                var lHtml = lDiv.firstChild.firstChild.innerHTML;
+                                document.execCommand("insertHTML", false, lHtml);
+                                return;
+                            }
+                            lParentNode = lParentNode.parentNode;
+                        }
+                    }
+                    if(!lSelection.toString()) return;
+                    var lColor = GConfig.Instance().getData("CODE_COLOR");
+                	var lArg = prompt("Color ?", lColor);
+                    if(!lArg) return;
+					var lArgMap = lArg.split(";");
+                    if(lArgMap.length < 1) return;
+					var lColor = lArgMap[0].trim();
+                    if(!lColor) return;
+                    var lFragment = lSelection.getRangeAt(0).cloneContents();
+                    var lDiv = document.createElement('DIV');
+                    lDiv.appendChild(lFragment);
+                    lData = lDiv.innerHTML;
+                    lData = this.encodeHtml(lData, "txt");
+                    lData = this.encodeHtml(lData, "ace");
+                    var lHtml = '';
+                    lHtml += '<span class="GCode3">';
+                    lHtml += '<code style="color:'+lColor+';">';
+                    lHtml += lData;
+                    lHtml += '</code>';
+                    lHtml += '</span>';
+                    document.execCommand("insertHTML", false, lHtml);
+                    GConfig.Instance().setData("CODE_COLOR", lColor);
+                    break;
+                //===============================================
                 case 'Parallax1':
                     var lParentNode = lStartNode.parentNode;
                     if(!lSelection.toString()) {

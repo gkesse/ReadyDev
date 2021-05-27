@@ -12,6 +12,8 @@ var GAce = (function() {
             //===============================================
             setSyntax: function() {
                 var lAceCode = document.getElementsByClassName("AceCode");
+                console.log("helloo");
+                console.log("helloo");
                 for(var i = 0; i < lAceCode.length; i++) {
                     this.setSyntaxNode(lAceCode[i]);                    
                 }
