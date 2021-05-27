@@ -29,7 +29,7 @@ var GLoader = (function() {
                         lHtml += '</div>';
                     }
                     lObj.innerHTML = lHtml;
-				}, 50);
+				}, 2);
             },
             //===============================================
             loadSummary2: function(id) {
@@ -75,7 +75,7 @@ var GLoader = (function() {
                         lHtml += '</div>';
                     }
                     lObj.innerHTML = lHtml;
-				}, 50);
+				}, 2);
             },
             //===============================================
             loadList1: function(id, file, key) {
