@@ -112,6 +112,7 @@
         <!-- ============================================ -->
         <?php if($lAce) { ?>
         <script src="/libs/ace/1.4.6/src-min/ace.js" async></script>
+        <!--script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.min.js" async></script-->
         <?php } ?>
         <!-- ============================================ -->
         <?php if($lMathJax) { ?>

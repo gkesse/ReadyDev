@@ -1,4 +1,4 @@
-<div class="Parallax GParallax1"><div class="Img Binary"><div class="Caption"><a href="#"><div class="Text">Créer des interfaces homme-machine avec Qt<br></div></a></div></div><div class="Body2 Orange"><br>Le but de ce tutoriel est de vous apprendre à créer des interfaces homme-machine avec <b>Qt</b>.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary1"><div class="Body0" id="Loader_1529412976174"><div class="Row26">Summary 1</div></div><script>loadSummary1("Loader_1529412976174");</script></div><br></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Introduction"><a class="Link3" href="#">Introduction</a></h1><div class="Body3"><br><b>Qt </b>est une API orientée objet et développée en C++ qui offre des composants d'interface graphique (widgets), d'accès aux données, de connexions réseaux, de gestion des fils d'exécution, d'analyse XML, etc. Elle ressemble à un framework lorsqu'on l'utilise pour concevoir des interfaces graphiques ou que l'on conçoit l'architecture de son application en utilisant les mécanismes des signaux et slots par exemple. Qt permet la portabilité des applications qui n'utilisent que ses composants par simple recompilation du code source. Les environnements pris en charge sont les systèmes Linux, le système graphique X Window System ou Wayland, Windows, Mac OS X, Tizen et également Genode. Le fait d'être une bibliothèque logicielle multiplateforme attire un grand nombre de personnes qui ont donc l'occasion de diffuser leurs programmes sur les principaux OS existants. Qt intègre des bindings avec plus d'une dizaine de langages autres que le C++, comme Ada, C#, Java, Python, Ruby, Visual Basic, etc.<br><br><div class="Img3 GImage"><img src="/Tutoriels/Resources/Qt/img/b_qt.png" alt="/Tutoriels/Resources/Qt/img/b_qt.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programme minimal"><a class="Link3" href="#">Programme minimal</a></h1><div class="Body3"><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620559286422"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620559286422");</script></div><br><h2 class="Title7 GTitle2" id="Programme minimal-main.cpp"><a class="Link9" href="#Programme minimal">main.cpp</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//================================================
+<div class="Parallax GParallax1"><div class="Img Binary"><div class="Caption"><a href="#"><div class="Text">Créer des interfaces homme-machine avec Qt<br></div></a></div></div><div class="Body2 Orange"><br>Le but de ce tutoriel est de vous apprendre à créer des interfaces homme-machine avec <b>Qt</b>.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary1"><div class="Body0" id="Loader_1529412976174"><div class="Row26">Summary 1</div></div><script>loadSummary1("Loader_1529412976174");</script></div><br></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Introduction"><a class="Link3" href="#">Introduction</a></h1><div class="Body3"><br><b>Qt </b>est une API orientée objet et développée en C++ qui offre des composants d'interface graphique (widgets), d'accès aux données, de connexions réseaux, de gestion des fils d'exécution, d'analyse XML, etc. Elle ressemble à un framework lorsqu'on l'utilise pour concevoir des interfaces graphiques ou que l'on conçoit l'architecture de son application en utilisant les mécanismes des signaux et slots par exemple. Qt permet la portabilité des applications qui n'utilisent que ses composants par simple recompilation du code source. Les environnements pris en charge sont les systèmes Linux, le système graphique X Window System ou Wayland, Windows, Mac OS X, Tizen et également Genode. Le fait d'être une bibliothèque logicielle multiplateforme attire un grand nombre de personnes qui ont donc l'occasion de diffuser leurs programmes sur les principaux OS existants. Qt intègre des bindings avec plus d'une dizaine de langages autres que le C++, comme Ada, C#, Java, Python, Ruby, Visual Basic, etc.<br><br><div class="Img3 GImage"><img alt="/Tutoriels/Resources/Qt/img/b_qt.png" class="lazy" data-src="/Tutoriels/Resources/Qt/img/b_qt.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programme-minimal"><a class="Link3" href="#">Programme minimal</a></h1><div class="Body3"><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620559286422"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620559286422");</script></div><br><h2 class="Title7 GTitle2" id="Programme-minimal-main-cpp"><a class="Link9" href="#Programme-minimal">main.cpp</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//================================================
 #include &lt;QApplication&gt;
 #include &lt;QtWidgets&gt;
 //================================================
@@ -22,7 +22,7 @@ int main(int argc, char** argv) {
 
     return app.exec();
 }
-//================================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Programme minimal-Résultat"><a class="Link9" href="#Programme minimal">Résultat</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Resources/Qt/img/i_minimal_program.png" alt="/Tutoriels/Resources/Qt/img/i_minimal_program.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Créer une fenêtre personnalisée"><a class="Link3" href="#">Créer une fenêtre personnalisée</a></h1><div class="Body3"><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620560391393"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620560391393");</script></div><br><h2 class="Title7 GTitle2" id="Créer une fenêtre-main.cpp"><a class="Link9" href="#Créer une fenêtre">main.cpp</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//================================================
+//================================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Programme-minimal-Resultat"><a class="Link9" href="#Programme-minimal">Résultat</a></h2><br><div class="Img3 GImage"><img alt="/Tutoriels/Resources/Qt/img/i_minimal_program.png" class="lazy" data-src="/Tutoriels/Resources/Qt/img/i_minimal_program.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Creer-une-fenetre-personnalisee"><a class="Link3" href="#">Créer une fenêtre personnalisée</a></h1><div class="Body3"><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620560391393"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620560391393");</script></div><br><h2 class="Title7 GTitle2" id="Creer-une-fenetre-main-cpp"><a class="Link9" href="#Creer-une-fenetre">main.cpp</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//================================================
 #include &lt;QApplication&gt;
 #include "GWindow.h"
 //================================================
@@ -36,7 +36,7 @@ int main(int argc, char** argv) {
 
     return app.exec();
 }
-//================================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer une fenêtre-GWindow.h"><a class="Link9" href="#Créer une fenêtre">GWindow.h</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//================================================
+//================================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Creer-une-fenetre-GWindow-h"><a class="Link9" href="#Creer-une-fenetre">GWindow.h</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//================================================
 #ifndef _GWindow_
 #define _GWindow_
 //================================================
@@ -49,7 +49,7 @@ public:
 };
 //================================================
 #endif
-//================================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer une fenêtre-GWindow.cpp"><a class="Link9" href="#Créer une fenêtre">GWindow.cpp</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//================================================
+//================================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Creer-une-fenetre-GWindow-cpp"><a class="Link9" href="#Creer-une-fenetre">GWindow.cpp</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//================================================
 #include "GWindow.h"
 //================================================
 GWindow::GWindow(QWidget* parent) : QWidget(parent) {
@@ -66,7 +66,7 @@ GWindow::GWindow(QWidget* parent) : QWidget(parent) {
 GWindow::~GWindow() {
     
 }
-//================================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer une fenêtre-Résulltat"><a class="Link9" href="#Créer une fenêtre">Résulltat</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Resources/Qt/img/i_custom_widget.png" alt="/Tutoriels/Resources/Qt/img/i_custom_widget.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Utiliser le mécanisme signal-slot"><a class="Link3" href="#">Utiliser le mécanisme signal-slot</a></h1><div class="Body3"><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620560496027"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620560496027");</script></div><br><h2 class="Title7 GTitle2" id="Utiliser le mécanisme signal-slot-main.cpp"><a class="Link9" href="#Utiliser le mécanisme signal-slot">main.cpp</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//================================================
+//================================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Creer-une-fenetre-Resulltat"><a class="Link9" href="#Creer-une-fenetre">Résulltat</a></h2><br><div class="Img3 GImage"><img alt="/Tutoriels/Resources/Qt/img/i_custom_widget.png" class="lazy" data-src="/Tutoriels/Resources/Qt/img/i_custom_widget.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Utiliser-le-mecanisme-signal-slot"><a class="Link3" href="#">Utiliser le mécanisme signal-slot</a></h1><div class="Body3"><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620560496027"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620560496027");</script></div><br><h2 class="Title7 GTitle2" id="Utiliser-le-mecanisme-signal-slot-main-cpp"><a class="Link9" href="#Utiliser-le-mecanisme-signal-slot">main.cpp</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//================================================
 #include &lt;QApplication&gt;
 #include "GWindow.h"
 //================================================
@@ -80,7 +80,7 @@ int main(int argc, char** argv) {
 
     return app.exec();
 }
-//================================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Utiliser le mécanisme signal-slot-GWindow.h"><a class="Link9" href="#Utiliser le mécanisme signal-slot">GWindow.h</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//================================================
+//================================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Utiliser-le-mecanisme-signal-slot-GWindow-h"><a class="Link9" href="#Utiliser-le-mecanisme-signal-slot">GWindow.h</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//================================================
 #ifndef _GWindow_
 #define _GWindow_
 //================================================
@@ -102,7 +102,7 @@ private:
 };
 //================================================
 #endif
-//================================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Utiliser le mécanisme signal-slot-GWindow.cpp"><a class="Link9" href="#Utiliser le mécanisme signal-slot">GWindow.cpp</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//================================================
+//================================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Utiliser-le-mecanisme-signal-slot-GWindow-cpp"><a class="Link9" href="#Utiliser-le-mecanisme-signal-slot">GWindow.cpp</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//================================================
 #include "GWindow.h"
 //================================================
 GWindow::GWindow(QWidget* parent) : QWidget(parent) {
@@ -137,7 +137,7 @@ void GWindow::onClick() {
 void GWindow::onClear() {
     m_textEdit-&gt;clear();
 }
-//================================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Utiliser le mécanisme signal-slot-Résulltat"><a class="Link9" href="#Utiliser le mécanisme signal-slot">Résulltat</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Resources/Qt/img/i_signal_slot.gif" alt="/Tutoriels/Resources/Qt/img/i_signal_slot.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Créer une boîte de dialogue"><a class="Link3" href="#">Créer une boîte de dialogue</a></h1><div class="Body3"><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620566536383"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620566536383");</script></div><br><h2 class="Title7 GTitle2" id="Créer une boîte de dialogue-main.cpp"><a class="Link9" href="#Créer une boîte de dialogue">main.cpp</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//================================================
+//================================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Utiliser-le-mecanisme-signal-slot-Resulltat"><a class="Link9" href="#Utiliser-le-mecanisme-signal-slot">Résulltat</a></h2><br><div class="Img3 GImage"><img alt="/Tutoriels/Resources/Qt/img/i_signal_slot.gif" class="lazy" data-src="/Tutoriels/Resources/Qt/img/i_signal_slot.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Creer-une-boite-de-dialogue"><a class="Link3" href="#">Créer une boîte de dialogue</a></h1><div class="Body3"><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620566536383"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620566536383");</script></div><br><h2 class="Title7 GTitle2" id="Creer-une-boite-de-dialogue-main-cpp"><a class="Link9" href="#Creer-une-boite-de-dialogue">main.cpp</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//================================================
 #include &lt;QApplication&gt;
 #include "GWindow.h"
 //================================================
@@ -151,7 +151,7 @@ int main(int argc, char** argv) {
 
     return app.exec();
 }
-//================================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer une boîte de dialogue-GWindow.h"><a class="Link9" href="#Créer une boîte de dialogue">GWindow.h</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//================================================
+//================================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Creer-une-boite-de-dialogue-GWindow-h"><a class="Link9" href="#Creer-une-boite-de-dialogue">GWindow.h</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//================================================
 #ifndef _GWindow_
 #define _GWindow_
 //================================================
@@ -172,7 +172,7 @@ private:
 };
 //================================================
 #endif
-//================================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer une boîte de dialogue-GWindow.cpp"><a class="Link9" href="#Créer une boîte de dialogue">GWindow.cpp</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//================================================
+//================================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Creer-une-boite-de-dialogue-GWindow-cpp"><a class="Link9" href="#Creer-une-boite-de-dialogue">GWindow.cpp</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//================================================
 #include "GWindow.h"
 #include "GDialog.h"
 //================================================
@@ -208,7 +208,7 @@ void GWindow::onClick() {
         m_textEdit-&gt;append("QDialog::Rejected");
     }
 }
-//================================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer une boîte de dialogue-GDialog.h"><a class="Link9" href="#Créer une boîte de dialogue">GDialog.h</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//================================================
+//================================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Creer-une-boite-de-dialogue-GDialog-h"><a class="Link9" href="#Creer-une-boite-de-dialogue">GDialog.h</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//================================================
 #ifndef _GDialog_
 #define _GDialog_
 //================================================
@@ -223,7 +223,7 @@ public:
 };
 //================================================
 #endif
-//================================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer une boîte de dialogue-GDialog.cpp"><a class="Link9" href="#Créer une boîte de dialogue">GDialog.cpp</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//================================================
+//================================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Creer-une-boite-de-dialogue-GDialog-cpp"><a class="Link9" href="#Creer-une-boite-de-dialogue">GDialog.cpp</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//================================================
 #include "GDialog.h"
 //================================================
 GDialog::GDialog(QWidget* parent) : QDialog(parent) {
@@ -256,7 +256,7 @@ GDialog::GDialog(QWidget* parent) : QDialog(parent) {
 GDialog::~GDialog() {
     
 }
-//================================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer une boîte de dialogue-Résulltat"><a class="Link9" href="#Créer une boîte de dialogue">Résulltat</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Resources/Qt/img/i_dialog.gif" alt="/Tutoriels/Resources/Qt/img/i_dialog.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Créer une fenêtre principale"><a class="Link3" href="#">Créer une fenêtre principale</a></h1><div class="Body3"><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620582036631"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620582036631");</script></div><br><h2 class="Title7 GTitle2" id="Créer une fenêtre principale-main.cpp"><a class="Link9" href="#Créer une fenêtre principale">main.cpp</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//================================================
+//================================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Creer-une-boite-de-dialogue-Resulltat"><a class="Link9" href="#Creer-une-boite-de-dialogue">Résulltat</a></h2><br><div class="Img3 GImage"><img alt="/Tutoriels/Resources/Qt/img/i_dialog.gif" class="lazy" data-src="/Tutoriels/Resources/Qt/img/i_dialog.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Creer-une-fenetre-principale"><a class="Link3" href="#">Créer une fenêtre principale</a></h1><div class="Body3"><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620582036631"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620582036631");</script></div><br><h2 class="Title7 GTitle2" id="Creer-une-fenetre-principale-main-cpp"><a class="Link9" href="#Creer-une-fenetre-principale">main.cpp</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//================================================
 #include &lt;QApplication&gt;
 #include "GWindow.h"
 //================================================
@@ -270,7 +270,7 @@ int main(int argc, char** argv) {
 
     return app.exec();
 }
-//================================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer une fenêtre principale-GWindow.h"><a class="Link9" href="#Créer une fenêtre principale">GWindow.h</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//================================================
+//================================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Creer-une-fenetre-principale-GWindow-h"><a class="Link9" href="#Creer-une-fenetre-principale">GWindow.h</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//================================================
 #ifndef _GWindow_
 #define _GWindow_
 //================================================
@@ -291,7 +291,7 @@ private:
 };
 //================================================
 #endif
-//================================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer une fenêtre principale-GWindow.cpp"><a class="Link9" href="#Créer une fenêtre principale">GWindow.cpp</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//================================================
+//================================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Creer-une-fenetre-principale-GWindow-cpp"><a class="Link9" href="#Creer-une-fenetre-principale">GWindow.cpp</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//================================================
 #include "GWindow.h"
 //================================================
 GWindow::GWindow(QWidget* parent) : QMainWindow(parent) {
@@ -370,7 +370,7 @@ void GWindow::onClick() {
     QString lText = lAction-&gt;text();
     m_textEdit-&gt;append(lText);
 }
-//================================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Créer une fenêtre principale-Résulltat"><a class="Link9" href="#Créer une fenêtre principale">Résulltat</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Resources/Qt/img/i_mainwindow.gif" alt="/Tutoriels/Resources/Qt/img/i_mainwindow.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Enregistrer des données au format binaire"><a class="Link3" href="#">Enregistrer des données au format binaire</a></h1><div class="Body3"><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620598337296"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620598337296");</script></div><br><h2 class="Title7 GTitle2" id="Enregistrer des données au format binaire-main.cpp"><a class="Link9" href="#Enregistrer des données au format binaire">main.cpp</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//================================================
+//================================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Creer-une-fenetre-principale-Resulltat"><a class="Link9" href="#Creer-une-fenetre-principale">Résulltat</a></h2><br><div class="Img3 GImage"><img alt="/Tutoriels/Resources/Qt/img/i_mainwindow.gif" class="lazy" data-src="/Tutoriels/Resources/Qt/img/i_mainwindow.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Enregistrer-des-donnees-au-format-binaire"><a class="Link3" href="#">Enregistrer des données au format binaire</a></h1><div class="Body3"><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1620598337296"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1620598337296");</script></div><br><h2 class="Title7 GTitle2" id="Enregistrer-des-donnees-au-format-binaire-main-cpp"><a class="Link9" href="#Enregistrer-des-donnees-au-format-binaire">main.cpp</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//================================================
 #include &lt;QApplication&gt;
 #include "GWindow.h"
 //================================================
@@ -384,7 +384,7 @@ int main(int argc, char** argv) {
 
     return app.exec();
 }
-//================================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Enregistrer des données au format binaire-GWindow.h"><a class="Link9" href="#Enregistrer des données au format binaire">GWindow.h</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//================================================
+//================================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Enregistrer-des-donnees-au-format-binaire-GWindow-h"><a class="Link9" href="#Enregistrer-des-donnees-au-format-binaire">GWindow.h</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//================================================
 #ifndef _GWindow_
 #define _GWindow_
 //================================================
@@ -420,16 +420,16 @@ struct sGUser {
     QString email;
 };
 //================================================
-inline QDataStream& operator&lt;&lt;(QDataStream& stream, const sGUser& user) {
+inline QDataStream&amp; operator&lt;&lt;(QDataStream&amp; stream, const sGUser&amp; user) {
     return stream &lt;&lt; user.id &lt;&lt; user.name &lt;&lt; user.email;
 }
 //================================================
-inline QDataStream& operator&gt;&gt;(QDataStream& stream, sGUser& user) {
+inline QDataStream&amp; operator&gt;&gt;(QDataStream&amp; stream, sGUser&amp; user) {
     return stream &gt;&gt; user.id &gt;&gt; user.name &gt;&gt; user.email;
 }
 //================================================
 #endif
-//================================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Enregistrer des données au format binaire-GWindow.cpp"><a class="Link9" href="#Enregistrer des données au format binaire">GWindow.cpp</a></h2><br><div class="GCode1"><pre class="Code2"><xmp class="AceCode" data-mode="c_cpp">//================================================
+//================================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Enregistrer-des-donnees-au-format-binaire-GWindow-cpp"><a class="Link9" href="#Enregistrer-des-donnees-au-format-binaire">GWindow.cpp</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//================================================
 #include "GWindow.h"
 //================================================
 GWindow::GWindow(QWidget* parent) : QMainWindow(parent) {
@@ -481,7 +481,7 @@ void GWindow::loadData() {
     m_index = 0;
     if (!lFile.open(QIODevice::ReadOnly)) {return;}
 
-    QDataStream in(&lFile);
+    QDataStream in(&amp;lFile);
     in &gt;&gt; m_userMap;
     m_index = m_userMap.size();
     showData();
@@ -492,7 +492,7 @@ void GWindow::saveData() {
 
     if (!lFile.open(QIODevice::WriteOnly)) {return;}
 
-    QDataStream out(&lFile);
+    QDataStream out(&amp;lFile);
     out &lt;&lt; m_userMap;
 }
 //================================================
@@ -515,4 +515,4 @@ void GWindow::addData() {
     m_userMap.push_back(lUser);
     showData();
 }
-//================================================</xmp></pre></div><br><h2 class="Title7 GTitle2" id="Enregistrer des données au format binaire-Résulltat"><a class="Link9" href="#Enregistrer des données au format binaire">Résulltat</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Resources/Qt/img/i_datastream.gif" alt="/Tutoriels/Resources/Qt/img/i_datastream.gif"></div><br></div></div></div></div><br>
+//================================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Enregistrer-des-donnees-au-format-binaire-Resulltat"><a class="Link9" href="#Enregistrer-des-donnees-au-format-binaire">Résulltat</a></h2><br><div class="Img3 GImage"><img alt="/Tutoriels/Resources/Qt/img/i_datastream.gif" class="lazy" data-src="/Tutoriels/Resources/Qt/img/i_datastream.gif"></div><br></div></div></div></div><br>

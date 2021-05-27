@@ -15,8 +15,9 @@ var GLoader = (function() {
                 var lNodeMap = document.getElementsByClassName("GTitle1");
                 var lCount = 0;
 				var lTimer = setInterval(function() {
-                    if(++lCount > 10) clearInterval(lTimer);
+                    if(++lCount > 200) clearInterval(lTimer);
                     var lHtml = '';
+                    //console.log(lNodeMap.length+"\n");
                     for(var i = 0; i < lNodeMap.length; i++) {
                         var lTitle = lNodeMap[i].firstChild.firstChild.firstChild.innerText;
                         var lHrefUrl = GManager.Instance().getUrl(lTitle);
