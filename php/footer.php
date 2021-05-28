@@ -11,9 +11,9 @@
 <script src="/js/class/GManager.js" async></script>
 <!-- ============================================ -->
 <script src="/js/class/GHeader.js" async></script>
-<script src="/js/class/GAce.js" async></script>
 <script src="/js/class/GParallax.js" async></script>
 <script src="/js/class/GLoader.js" async></script>
+<script src="/js/class/GAce.js" defer></script>
 <!-- ============================================ -->
 <script src="/js/header.js" async></script>
 <!-- ============================================ -->
