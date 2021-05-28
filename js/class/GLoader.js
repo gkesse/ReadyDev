@@ -7,11 +7,13 @@ var GLoader = (function() {
         return {
             //===============================================
             init: function() {
-                this.loadSummary1("id");
-                this.loadSummary2("id");
+                //this.loadSummary1();
+                this.loadList1();
+                this.loadList3();
+                this.loadSummary2();
             },
             //===============================================
-            loadSummary1: function(id) {
+            loadSummary1: function() {
                 var lSummary1 = document.getElementsByClassName("GSummary1")[0];
                 var lTitle1_Map = document.getElementsByClassName("GTitle1");
                 var lHtml = '';
@@ -28,7 +30,7 @@ var GLoader = (function() {
                 lSummary1.innerHTML = lHtml;
             },
             //===============================================
-            loadSummary2: function(id) {
+            loadSummary2: function() {
                 var lSummary2_Map = document.getElementsByClassName("GSummary2");
                 for(var i = 0; i < lSummary2_Map.length; i++) {
                     var lSummary2 = lSummary2_Map[i];
@@ -44,30 +46,36 @@ var GLoader = (function() {
                         lHtml += lTitle2;
                         lHtml += '</a>';
                         lHtml += '</div>';
-                        break;
                     }
                     lSummary2.innerHTML = lHtml;
                 }
             },
             //===============================================
-            loadList1: function(id, file, key) {
-				setTimeout(function() {
-                    var lObj = document.getElementById(id);
+            loadList1: function() {
+                var lList1_Map = document.getElementsByClassName("GList1");
+                for(var i = 0; i < lList1_Map.length; i++) {
+                    var lList1_Node = lList1_Map[i];
+                    var lList1_Url = lList1_Node.firstChild.firstChild.innerText;
+                    var lList1_Item = lList1_Url.split(">");
+                    var lList1_File = lList1_Item[1].trim();
+                    var lList1_Key = lList1_Item[2].trim();
+
                     var lXmlhttp = new XMLHttpRequest();
                     lXmlhttp.onreadystatechange = function() {
                         if(this.readyState == 4 && this.status == 200) {
                             var lData = this.responseText;
-                            lObj.innerHTML = lData;
+                            lList1_Node.innerHTML = lData;
                         }
                     }
+                    
                     lXmlhttp.open("POST", "/php/req/loader.php", true);
                     lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                     lXmlhttp.send(
                     "req=" + "LIST_1" +
-                    "&file=" + file +
-                    "&key=" + key
+                    "&file=" + lList1_File +
+                    "&key=" + lList1_Key
                     );
-                }, 2);
+                }
             },
             //===============================================
             loadList2: function(id, file, key) {
@@ -90,22 +98,31 @@ var GLoader = (function() {
                 }, 2);
             },
             //===============================================
-            loadList3: function(id, file, key) {
-                var lObj = document.getElementById(id);
-                var lXmlhttp = new XMLHttpRequest();
-                lXmlhttp.onreadystatechange = function() {
-                    if(this.readyState == 4 && this.status == 200) {
-                        var lData = this.responseText;
-                        lObj.innerHTML = lData;
+            loadList3: function() {
+                var lList3_Map = document.getElementsByClassName("GList3");
+                for(var i = 0; i < lList3_Map.length; i++) {
+                    var lList3_Node = lList3_Map[i];
+                    var lList3_Url = lList3_Node.firstChild.firstChild.innerText;
+                    var lList3_Item = lList3_Url.split(">");
+                    var lList3_File = lList3_Item[1].trim();
+                    var lList3_Key = lList3_Item[2].trim();
+
+                    var lXmlhttp = new XMLHttpRequest();
+                    lXmlhttp.onreadystatechange = function() {
+                        if(this.readyState == 4 && this.status == 200) {
+                            var lData = this.responseText;
+                            lList3_Node.innerHTML = lData;
+                        }
                     }
+                    
+                    lXmlhttp.open("POST", "/php/req/loader.php", true);
+                    lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                    lXmlhttp.send(
+                    "req=" + "LIST_3" +
+                    "&file=" + lList3_File +
+                    "&key=" + lList3_Key
+                    );
                 }
-                lXmlhttp.open("POST", "/php/req/loader.php", true);
-                lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                lXmlhttp.send(
-                "req=" + "LIST_3" +
-                "&file=" + file +
-                "&key=" + key
-                );
             },
             //===============================================
             loadList4: function(id, file, key) {
