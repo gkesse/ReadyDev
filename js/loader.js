@@ -1,6 +1,8 @@
 //===============================================
 function loadSummary1(id) {
-	GLoader.Instance().loadSummary1(id);
+    setTimeout(function() {
+        GLoader.Instance().loadSummary1(id);
+    }, 1);
 }
 //===============================================
 function loadSummary2(id) {
