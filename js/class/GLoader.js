@@ -7,91 +7,46 @@ var GLoader = (function() {
         return {
             //===============================================
             init: function() {
-                this.loadSummary1V1();
-            },
-            //===============================================
-            loadSummary1V1: function() {
-                var lObj = document.getElementsByClassName("GSummary1")[0];
-                var lNodeMap = document.getElementsByClassName("GTitle1");
-                var lHtml = '';
-                for(var i = 0; i < lNodeMap.length; i++) {
-                    var lTitle = lNodeMap[i].firstChild.firstChild.firstChild.innerText;
-                    var lHrefUrl = GManager.Instance().getUrl(lTitle);
-                    lHtml += '<div class="Item4">';
-                    lHtml += '<span class="Icon10 fa fa-book"></span>';
-                    lHtml += '<a class="Link4" href="#'+lHrefUrl+'">';
-                    lHtml += lTitle;
-                    lHtml += '</a>';
-                    lHtml += '</div>';
-                }
-                lObj.innerHTML = lHtml;
+                this.loadSummary1("id");
+                this.loadSummary2("id");
             },
             //===============================================
             loadSummary1: function(id) {
-                var lObj = document.getElementById(id);
-                var lNodeMap = document.getElementsByClassName("GTitle1");
-                //var lCount = 0;
-				//var lTimer = setInterval(function() {
-                    //if(++lCount > 10) {clearInterval(lTimer);}
-                    var lHtml = '';
-                    for(var i = 0; i < lNodeMap.length; i++) {
-                        var lTitle = lNodeMap[i].firstChild.firstChild.firstChild.innerText;
-                        var lHrefUrl = GManager.Instance().getUrl(lTitle);
-                        lHtml += '<div class="Item4">';
-                        lHtml += '<span class="Icon10 fa fa-book"></span>';
-                        lHtml += '<a class="Link4" href="#'+lHrefUrl+'">';
-                        lHtml += lTitle;
-                        lHtml += '</a>';
-                        lHtml += '</div>';
-                    }
-                    lObj.innerHTML = lHtml;
-				//}, 50);
+                var lSummary1 = document.getElementsByClassName("GSummary1")[0];
+                var lTitle1_Map = document.getElementsByClassName("GTitle1");
+                var lHtml = '';
+                for(var i = 0; i < lTitle1_Map.length; i++) {
+                    var lTitle1 = lTitle1_Map[i].firstChild.firstChild.firstChild.innerText;
+                    var lTitle1_Href = GManager.Instance().getUrl(lTitle1);
+                    lHtml += '<div class="Item4">';
+                    lHtml += '<span class="Icon10 fa fa-book"></span>';
+                    lHtml += '<a class="Link4" href="#'+lTitle1_Href+'">';
+                    lHtml += lTitle1;
+                    lHtml += '</a>';
+                    lHtml += '</div>';
+                }
+                lSummary1.innerHTML = lHtml;
             },
             //===============================================
             loadSummary2: function(id) {
-                var lObj = document.getElementById(id);
-                var lAction = "None";
-                var lCurrentNode;
-                var lParentNode = lObj.parentNode;
-                var lMainTitle = "";
-                while(1) {
-                    var lClassName = lParentNode.className;
-                    if(lClassName.includes("MainPage")) {
-                        break;
+                var lSummary2_Map = document.getElementsByClassName("GSummary2");
+                for(var i = 0; i < lSummary2_Map.length; i++) {
+                    var lSummary2 = lSummary2_Map[i];
+                    var lTitle2_Map = lSummary2.parentNode.getElementsByClassName("GTitle2");
+                    var lSummary2_Html = '';
+                    for(var j = 0; j < lSummary2_Map.length; j++) {
+                        var lTitle2_Node = lTitle2_Map[j];
+                        var lTitle2 = lTitle2_Node.firstChild.innerText;
+                        var lHrefUrl = GManager.Instance().getUrl(lTitle2);
+                        lSummary2_Html += '<div class="Item4">';
+                        //lSummary2_Html += '<i class="Icon10 fa fa-book"></i>';
+                        //lSummary2_Html += '<a class="Link4" href="#'+"lHrefUrl"+'">';
+                        lSummary2_Html += "lTitle2";
+                        //lSummary2_Html += '</a>';
+                        lSummary2_Html += '</div>';
                     }
-                    if(lClassName.includes("GTitle1")) {
-                        lAction = "GTitle1";
-                        lCurrentNode = lParentNode;
-                        lMainTitle = lParentNode.firstChild.firstChild.firstChild.innerText;
-                        lMainTitle += '-';
-                        break;
-                    }
-                    lParentNode = lParentNode.parentNode;
+                    lSummary2.innerHTML = lSummary2_Html;
                 }
-                var lNodeMap;
-                if(lAction == "None") {
-                    lNodeMap = document.getElementsByClassName("GTitle2");
-                }
-                else if(lAction == "GTitle1") {
-                    lNodeMap = lCurrentNode.getElementsByClassName("GTitle2");
-                }
-                //var lCount = 0;
-				//var lTimer = setInterval(function() {
-				//setTimeout(function() {
-                    //if(++lCount > 10) {clearInterval(lTimer);}
-                    var lHtml = '';
-                    for(var i = 0; i < lNodeMap.length; i++) {
-                        var lTitle = lNodeMap[i].innerText
-                        var lHrefUrl = GManager.Instance().getUrl(lMainTitle+lTitle);
-                        lHtml += '<div class="Item4">';
-                        lHtml += '<span class="Icon10 fa fa-book"></span>';
-                        lHtml += '<a class="Link4" href="#'+lHrefUrl+'">';
-                        lHtml += lTitle;
-                        lHtml += '</a>';
-                        lHtml += '</div>';
-                    }
-                    lObj.innerHTML = lHtml;
-				//}, 200);
             },
             //===============================================
             loadList1: function(id, file, key) {

@@ -1,14 +1,10 @@
 //===============================================
 function loadSummary1(id) {
-    setTimeout(function() {
-        GLoader.Instance().loadSummary1(id);
-    }, 200);
+    //GLoader.Instance().loadSummary1(id);
 }
 //===============================================
 function loadSummary2(id) {
-    setTimeout(function() {
-        GLoader.Instance().loadSummary2(id);
-    }, 200);
+    //GLoader.Instance().loadSummary2(id);
 }
 //===============================================
 function loadList1(id, file, key) {
