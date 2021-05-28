@@ -33,19 +33,20 @@ var GLoader = (function() {
                 for(var i = 0; i < lSummary2_Map.length; i++) {
                     var lSummary2 = lSummary2_Map[i];
                     var lTitle2_Map = lSummary2.parentNode.getElementsByClassName("GTitle2");
-                    var lSummary2_Html = '';
+                    var lHtml = '';
                     for(var j = 0; j < lSummary2_Map.length; j++) {
                         var lTitle2_Node = lTitle2_Map[j];
                         var lTitle2 = lTitle2_Node.firstChild.innerText;
-                        var lHrefUrl = GManager.Instance().getUrl(lTitle2);
-                        lSummary2_Html += '<div class="Item4">';
-                        //lSummary2_Html += '<i class="Icon10 fa fa-book"></i>';
-                        //lSummary2_Html += '<a class="Link4" href="#'+"lHrefUrl"+'">';
-                        lSummary2_Html += "lTitle2";
-                        //lSummary2_Html += '</a>';
-                        lSummary2_Html += '</div>';
+                        var lTitle2_Href = GManager.Instance().getUrl(lTitle2);
+                        lHtml += '<div class="Item4">';
+                        lHtml += '<i class="Icon10 fa fa-book"></i>';
+                        lHtml += '<a class="Link4" href="#'+lTitle2_Href+'">';
+                        lHtml += lTitle2;
+                        lHtml += '</a>';
+                        lHtml += '</div>';
+                        break;
                     }
-                    lSummary2.innerHTML = lSummary2_Html;
+                    lSummary2.innerHTML = lHtml;
                 }
             },
             //===============================================
