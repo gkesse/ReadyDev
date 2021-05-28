@@ -60,7 +60,7 @@ var GLoader = (function() {
                 }
                 //var lCount = 0;
 				//var lTimer = setInterval(function() {
-				setTimeout(function() {
+				//setTimeout(function() {
                     //if(++lCount > 10) {clearInterval(lTimer);}
                     var lHtml = '';
                     for(var i = 0; i < lNodeMap.length; i++) {
@@ -74,7 +74,7 @@ var GLoader = (function() {
                         lHtml += '</div>';
                     }
                     lObj.innerHTML = lHtml;
-				}, 200);
+				//}, 200);
             },
             //===============================================
             loadList1: function(id, file, key) {

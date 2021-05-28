@@ -6,7 +6,9 @@ function loadSummary1(id) {
 }
 //===============================================
 function loadSummary2(id) {
-	GLoader.Instance().loadSummary2(id);
+    setTimeout(function() {
+        GLoader.Instance().loadSummary2(id);
+    }, 10);
 }
 //===============================================
 function loadList1(id, file, key) {
