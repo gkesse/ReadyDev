@@ -7,7 +7,6 @@ var GLoader = (function() {
         return {
             //===============================================
             init: function() {
-                alert("ooooooooooo");
                 this.loadSummary1();
                 this.loadSummary2();
                 this.loadList1();
