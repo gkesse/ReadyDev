@@ -9,7 +9,7 @@
 <!-- ============================================ -->
 <script src="/js/class/GConfig.js" async></script>
 <script src="/js/class/GHeader.js" async></script>
-<script src="/js/class/GLoader.js" async></script>
+<script src="/js/class/GLoader.js" defer></script>
 <!-- ============================================ -->
 <script src="/js/class/GManager.js" async></script>
 <script src="/js/class/GAce.js" async></script>
