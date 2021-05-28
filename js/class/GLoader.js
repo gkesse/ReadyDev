@@ -53,8 +53,9 @@ var GLoader = (function() {
                     var lHtml = '';
                     for(var j = 0; j < lTitle2_Map.length; j++) {
                         var lTitle2_Node = lTitle2_Map[j];
+                        var lTitle1 = lTitle2_Node.parentNode.parentNode.firstChild.innerText;
                         var lTitle2 = lTitle2_Node.firstChild.innerText;
-                        var lTitle2_Href = GManager.Instance().getUrl(lTitle2);
+                        var lTitle2_Href = GManager.Instance().getUrl(lTitle1+"-"+lTitle2);
                         lHtml += '<div class="Item4">';
                         lHtml += '<i class="Icon10 fa fa-book"></i>';
                         lHtml += '<a class="Link4" href="#'+lTitle2_Href+'">';
