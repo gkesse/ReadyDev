@@ -282,8 +282,7 @@ var GLoader = (function() {
                 m_instance = Container();
             }
             return m_instance;
-   GLoader.Instance().init();
-     }
+        }
     };
     //===============================================
 })();
