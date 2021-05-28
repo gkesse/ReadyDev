@@ -7,10 +7,10 @@ var GLoader = (function() {
         return {
             //===============================================
             init: function() {
-                //this.loadSummary1();
+                this.loadSummary1();
+                this.loadSummary2();
                 this.loadList1();
                 this.loadList3();
-                this.loadSummary2();
             },
             //===============================================
             loadSummary1: function() {
