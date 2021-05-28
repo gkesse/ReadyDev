@@ -9,10 +9,17 @@ var GLoader = (function() {
             init: function() {
                 this.loadSummary1();
                 this.loadSummary2();
+                //
                 this.loadList1();
                 this.loadList2();
                 this.loadList3();
                 this.loadList4();
+                this.loadList5();
+                this.loadList6();
+                //
+                this.loadData1();
+                this.loadData2();
+                this.loadData3();
             },
             //===============================================
             loadSummary1: function() {
@@ -169,99 +176,155 @@ var GLoader = (function() {
                 }
             },
             //===============================================
-            loadList5: function(id, file, key1, key2) {
-                var lObj = document.getElementById(id);
-                var lXmlhttp = new XMLHttpRequest();
-                lXmlhttp.onreadystatechange = function() {
-                    if(this.readyState == 4 && this.status == 200) {
-                        var lData = this.responseText;
-                        lObj.innerHTML = lData;
-                    }
+            loadList5: function() {
+                var lList5_Map = document.getElementsByClassName("GList5");
+                for(var i = 0; i < lList5_Map.length; i++) {
+                    (function(){
+                        var lList5_Node = lList5_Map[i];
+                        var lList5_Url = lList5_Node.firstChild.firstChild.innerText;
+                        var lList5_Item = lList5_Url.split(">");
+                        var lList5_File = lList5_Item[1].trim();
+                        var lList5_Key1 = lList5_Item[2].trim();
+                        var lList5_Key2 = lList5_Item[3].trim();
+
+                        var lXmlhttp = new XMLHttpRequest();
+                        lXmlhttp.onreadystatechange = function() {
+                            if(this.readyState == 4 && this.status == 200) {
+                                var lData = this.responseText;
+                                lList5_Node.innerHTML = lData;
+                            }
+                        }
+                        
+                        lXmlhttp.open("POST", "/php/req/loader.php", true);
+                        lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                        lXmlhttp.send(
+                        "req=" + "LIST_5" +
+                        "&file=" + lList5_File +
+                        "&key1=" + lList5_Key1 +
+                        "&key2=" + lList5_Key2
+                        );
+                    })();
                 }
-                lXmlhttp.open("POST", "/php/req/loader.php", true);
-                lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                lXmlhttp.send(
-                "req=" + "LIST_5" +
-                "&file=" + file +
-                "&key1=" + key1 +
-                "&key2=" + key2
-                );
             },
             //===============================================
-            loadList6: function(id, file, key1, key2) {
-                var lObj = document.getElementById(id);
-                var lXmlhttp = new XMLHttpRequest();
-                lXmlhttp.onreadystatechange = function() {
-                    if(this.readyState == 4 && this.status == 200) {
-                        var lData = this.responseText;
-                        lObj.innerHTML = lData;
-                    }
+            loadList6: function() {
+                var lList6_Map = document.getElementsByClassName("GList6");
+                for(var i = 0; i < lList6_Map.length; i++) {
+                    (function(){
+                        var lList6_Node = lList6_Map[i];
+                        var lList6_Url = lList6_Node.firstChild.firstChild.innerText;
+                        var lList6_Item = lList6_Url.split(">");
+                        var lList6_File = lList6_Item[1].trim();
+                        var lList6_Key1 = lList6_Item[2].trim();
+                        var lList6_Key2 = lList6_Item[3].trim();
+
+                        var lXmlhttp = new XMLHttpRequest();
+                        lXmlhttp.onreadystatechange = function() {
+                            if(this.readyState == 4 && this.status == 200) {
+                                var lData = this.responseText;
+                                lList6_Node.innerHTML = lData;
+                            }
+                        }
+                        
+                        lXmlhttp.open("POST", "/php/req/loader.php", true);
+                        lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                        lXmlhttp.send(
+                        "req=" + "LIST_6" +
+                        "&file=" + lList6_File +
+                        "&key1=" + lList6_Key1 +
+                        "&key2=" + lList6_Key2
+                        );
+                    })();
                 }
-                lXmlhttp.open("POST", "/php/req/loader.php", true);
-                lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                lXmlhttp.send(
-                "req=" + "LIST_6" +
-                "&file=" + file +
-                "&key1=" + key1 +
-                "&key2=" + key2
-                );
             },
             //===============================================
             loadData1: function(id, file, key) {
-                var lObj = document.getElementById(id);
-                var lXmlhttp = new XMLHttpRequest();
-                lXmlhttp.onreadystatechange = function() {
-                    if(this.readyState == 4 && this.status == 200) {
-                        var lData = this.responseText;
-                        var lDataMap = JSON.parse(lData);
-                        lObj.innerHTML = lDataMap["data"];
+                var lData1_Map = document.getElementsByClassName("GData1");
+                for(var i = 0; i < lData1_Map.length; i++) {
+                    var lData1_Node = lData1_Map[i];
+                    var lData1_Url = lData1_Node.firstChild.firstChild.innerText;
+                    var lData1_Item = lData1_Url.split(">");
+                    var lData1_File = lData1_Item[1].trim();
+                    var lData1_Key = lData1_Item[2].trim();
+
+                    var lXmlhttp = new XMLHttpRequest();
+                    lXmlhttp.onreadystatechange = function() {
+                        if(this.readyState == 4 && this.status == 200) {
+                            var lData = this.responseText;
+                            lData1_Node.innerHTML = lData;
+                        }
                     }
+                    
+                    lXmlhttp.open("POST", "/php/req/loader.php", true);
+                    lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                    lXmlhttp.send(
+                    "req=" + "DATA_1" +
+                    "&file=" + lData1_File +
+                    "&key=" + lData1_Key
+                    );
                 }
-                lXmlhttp.open("POST", "/php/req/loader.php", true);
-                lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                lXmlhttp.send(
-                "req=" + "DATA_1" +
-                "&file=" + file +
-                "&key=" + key
-                );
             },
             //===============================================
-            loadData2: function(id, file, key1, key2) {
-                var lObj = document.getElementById(id);
-                var lXmlhttp = new XMLHttpRequest();
-                lXmlhttp.onreadystatechange = function() {
-                    if(this.readyState == 4 && this.status == 200) {
-                        var lData = this.responseText;
-                        lObj.innerHTML = lData;
-                    }
+            loadData2: function() {
+                var lData2_Map = document.getElementsByClassName("GData2");
+                for(var i = 0; i < lData2_Map.length; i++) {
+                    (function(){
+                        var lData2_Node = lData2_Map[i];
+                        var lData2_Url = lData2_Node.firstChild.firstChild.innerText;
+                        var lData2_Item = lData2_Url.split(">");
+                        var lData2_File = lData2_Item[1].trim();
+                        var lData2_Key1 = lData2_Item[2].trim();
+                        var lData2_Key2 = lData2_Item[3].trim();
+
+                        var lXmlhttp = new XMLHttpRequest();
+                        lXmlhttp.onreadystatechange = function() {
+                            if(this.readyState == 4 && this.status == 200) {
+                                var lData = this.responseText;
+                                lData2_Node.innerHTML = lData;
+                            }
+                        }
+                        
+                        lXmlhttp.open("POST", "/php/req/loader.php", true);
+                        lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                        lXmlhttp.send(
+                        "req=" + "DATA_2" +
+                        "&file=" + lData2_File +
+                        "&key1=" + lData2_Key1 +
+                        "&key2=" + lData2_Key2
+                        );
+                    })();
                 }
-                lXmlhttp.open("POST", "/php/req/loader.php", true);
-                lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                lXmlhttp.send(
-                "req=" + "DATA_2" +
-                "&file=" + file +
-                "&key1=" + key1 +
-                "&key2=" + key2
-                );
             },
             //===============================================
-            loadData3: function(id, file, key1, key2) {
-                var lObj = document.getElementById(id);
-                var lXmlhttp = new XMLHttpRequest();
-                lXmlhttp.onreadystatechange = function() {
-                    if(this.readyState == 4 && this.status == 200) {
-                        var lData = this.responseText;
-                        lObj.innerHTML = lData;
-                    }
+            loadData3: function() {
+                var lData3_Map = document.getElementsByClassName("GData3");
+                for(var i = 0; i < lData3_Map.length; i++) {
+                    (function(){
+                        var lData3_Node = lData3_Map[i];
+                        var lData3_Url = lData3_Node.firstChild.firstChild.innerText;
+                        var lData3_Item = lData3_Url.split(">");
+                        var lData3_File = lData3_Item[1].trim();
+                        var lData3_Key1 = lData3_Item[2].trim();
+                        var lData3_Key2 = lData3_Item[3].trim();
+
+                        var lXmlhttp = new XMLHttpRequest();
+                        lXmlhttp.onreadystatechange = function() {
+                            if(this.readyState == 4 && this.status == 200) {
+                                var lData = this.responseText;
+                                lData3_Node.innerHTML = lData;
+                            }
+                        }
+                        
+                        lXmlhttp.open("POST", "/php/req/loader.php", true);
+                        lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                        lXmlhttp.send(
+                        "req=" + "DATA_3" +
+                        "&file=" + lData3_File +
+                        "&key1=" + lData3_Key1 +
+                        "&key2=" + lData3_Key2
+                        );
+                    })();
                 }
-                lXmlhttp.open("POST", "/php/req/loader.php", true);
-                lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                lXmlhttp.send(
-                "req=" + "DATA_3" +
-                "&file=" + file +
-                "&key1=" + key1 +
-                "&key2=" + key2
-                );
             },
             //===============================================
             loadPdf1: function(id, file, key) {
