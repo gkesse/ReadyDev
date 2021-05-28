@@ -22,6 +22,8 @@ var GLoader = (function() {
                 this.loadData3();
                 //
                 this.loadPdf1();
+                //
+                this.loadFileLink();
             },
             //===============================================
             loadSummary1: function() {
@@ -362,21 +364,31 @@ var GLoader = (function() {
                 }
             },
             //===============================================
-            loadFileLink: function(id, file) {
-                var lObj = document.getElementById(id);
-                var lXmlhttp = new XMLHttpRequest();
-                lXmlhttp.onreadystatechange = function() {
-                    if(this.readyState == 4 && this.status == 200) {
-                        var lData = this.responseText;
-                        lObj.innerHTML = lData;
-                    }
+            loadFileLink: function() {
+                var lFileLink_Map = document.getElementsByClassName("GFileLink");
+                for(var i = 0; i < lFileLink_Map.length; i++) {
+                    (function() {
+                        var lFileLink_Node = lFileLink_Map[i];
+                        var lFileLink_Url = lFileLink_Node.firstChild.firstChild.innerText;
+                        var lFileLink_Item = lFileLink_Url.split(">");
+                        var lFileLink_File = lFileLink_Item[1].trim();
+
+                        var lXmlhttp = new XMLHttpRequest();
+                        lXmlhttp.onreadystatechange = function() {
+                            if(this.readyState == 4 && this.status == 200) {
+                                var lData = this.responseText;
+                                lFileLink_Node.innerHTML = lData;
+                            }
+                        }
+                        
+                        lXmlhttp.open("POST", "/php/req/loader.php", true);
+                        lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                        lXmlhttp.send(
+                        "req=" + "FILE_LINK" +
+                        "&file=" + lFileLink_File
+                        );
+                    })();
                 }
-                lXmlhttp.open("POST", "/php/req/loader.php", true);
-                lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                lXmlhttp.send(
-                "req=" + "FILE_LINK" +
-                "&file=" + file
-                );
             }
             //===============================================
         };
