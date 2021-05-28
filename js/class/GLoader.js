@@ -8,11 +8,11 @@ var GLoader = (function() {
             //===============================================
             init: function() {
                 this.loadSummary1();
-                //this.loadSummary2();
+                this.loadSummary2();
                 this.loadList1();
-                //this.loadList2();
+                this.loadList2();
                 this.loadList3();
-                //this.loadList4();
+                this.loadList4();
             },
             //===============================================
             loadSummary1: function() {
