@@ -99,30 +99,32 @@ var GLoader = (function() {
             },
             //===============================================
             loadList3: function() {
-                var lList3_Map = document.getElementsByClassName("GList3");
-                for(var i = 0; i < lList3_Map.length; i++) {
-                    var lList3_Node = lList3_Map[i];
-                    var lList3_Url = lList3_Node.firstChild.firstChild.innerText;
-                    var lList3_Item = lList3_Url.split(">");
-                    var lList3_File = lList3_Item[1].trim();
-                    var lList3_Key = lList3_Item[2].trim();
+                    var lList3_Map = document.getElementsByClassName("GList3");
+                    for(var i = 0; i < lList3_Map.length; i++) {
+                        (function () {
+                            var lList3_Node = lList3_Map[i];
+                            var lList3_Url = lList3_Node.firstChild.firstChild.innerText;
+                            var lList3_Item = lList3_Url.split(">");
+                            var lList3_File = lList3_Item[1].trim();
+                            var lList3_Key = lList3_Item[2].trim();
 
-                    var lXmlhttp = new XMLHttpRequest();
-                    lXmlhttp.onreadystatechange = function() {
-                        if(this.readyState == 4 && this.status == 200) {
-                            var lData = this.responseText;
-                            lList3_Node.innerHTML = lData;
-                        }
+                            var lXmlhttp = new XMLHttpRequest();
+                            lXmlhttp.onreadystatechange = function() {
+                                if(this.readyState == 4 && this.status == 200) {
+                                    var lData = this.responseText;
+                                    lList3_Node.innerHTML = lData;
+                                }
+                            }
+                            
+                            lXmlhttp.open("POST", "/php/req/loader.php", true);
+                            lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                            lXmlhttp.send(
+                            "req=" + "LIST_3" +
+                            "&file=" + lList3_File +
+                            "&key=" + lList3_Key
+                            );
+                        })();
                     }
-                    
-                    lXmlhttp.open("POST", "/php/req/loader.php", true);
-                    lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                    lXmlhttp.send(
-                    "req=" + "LIST_3" +
-                    "&file=" + lList3_File +
-                    "&key=" + lList3_Key
-                    );
-                }
             },
             //===============================================
             loadList4: function(id, file, key) {
