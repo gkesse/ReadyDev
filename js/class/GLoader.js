@@ -10,6 +10,7 @@ var GLoader = (function() {
                 this.loadSummary1();
                 this.loadSummary2();
                 this.loadList1();
+                this.loadList2();
                 this.loadList3();
             },
             //===============================================
@@ -54,54 +55,65 @@ var GLoader = (function() {
             loadList1: function() {
                 var lList1_Map = document.getElementsByClassName("GList1");
                 for(var i = 0; i < lList1_Map.length; i++) {
-                    var lList1_Node = lList1_Map[i];
-                    var lList1_Url = lList1_Node.firstChild.firstChild.innerText;
-                    var lList1_Item = lList1_Url.split(">");
-                    var lList1_File = lList1_Item[1].trim();
-                    var lList1_Key = lList1_Item[2].trim();
+                    (function(){
+                        var lList1_Node = lList1_Map[i];
+                        var lList1_Url = lList1_Node.firstChild.firstChild.innerText;
+                        var lList1_Item = lList1_Url.split(">");
+                        var lList1_File = lList1_Item[1].trim();
+                        var lList1_Key = lList1_Item[2].trim();
 
-                    var lXmlhttp = new XMLHttpRequest();
-                    lXmlhttp.onreadystatechange = function() {
-                        if(this.readyState == 4 && this.status == 200) {
-                            var lData = this.responseText;
-                            lList1_Node.innerHTML = lData;
+                        var lXmlhttp = new XMLHttpRequest();
+                        lXmlhttp.onreadystatechange = function() {
+                            if(this.readyState == 4 && this.status == 200) {
+                                var lData = this.responseText;
+                                lList1_Node.innerHTML = lData;
+                            }
                         }
-                    }
-                    
-                    lXmlhttp.open("POST", "/php/req/loader.php", true);
-                    lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                    lXmlhttp.send(
-                    "req=" + "LIST_1" +
-                    "&file=" + lList1_File +
-                    "&key=" + lList1_Key
-                    );
+                        
+                        lXmlhttp.open("POST", "/php/req/loader.php", true);
+                        lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                        lXmlhttp.send(
+                        "req=" + "LIST_1" +
+                        "&file=" + lList1_File +
+                        "&key=" + lList1_Key
+                        );
+                    })();
                 }
             },
             //===============================================
-            loadList2: function(id, file, key) {
-				setTimeout(function() {
-                    var lObj = document.getElementById(id);
-                    var lXmlhttp = new XMLHttpRequest();
-                    lXmlhttp.onreadystatechange = function() {
-                        if(this.readyState == 4 && this.status == 200) {
-                            var lData = this.responseText;
-                            lObj.innerHTML = lData;
+            loadList2: function() {
+                var lList2_Map = document.getElementsByClassName("GList2");
+                for(var i = 0; i < lList2_Map.length; i++) {
+                    (function(){
+                        var lList2_Node = lList2_Map[i];
+                        var lList2_Url = lList2_Node.firstChild.firstChild.innerText;
+                        var lList2_Item = lList2_Url.split(">");
+                        var lList2_File = lList2_Item[1].trim();
+                        var lList2_Key = lList2_Item[2].trim();
+
+                        var lXmlhttp = new XMLHttpRequest();
+                        lXmlhttp.onreadystatechange = function() {
+                            if(this.readyState == 4 && this.status == 200) {
+                                var lData = this.responseText;
+                                lList2_Node.innerHTML = lData;
+                            }
                         }
-                    }
-                    lXmlhttp.open("POST", "/php/req/loader.php", true);
-                    lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                    lXmlhttp.send(
-                    "req=" + "LIST_2" +
-                    "&file=" + file +
-                    "&key=" + key
-                    );
-                }, 2);
+                                
+                        lXmlhttp.open("POST", "/php/req/loader.php", true);
+                        lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                        lXmlhttp.send(
+                        "req=" + "LIST_2" +
+                        "&file=" + lList2_File +
+                        "&key=" + lList2_Key
+                        );
+                    })();
+                }                    
             },
             //===============================================
             loadList3: function() {
                     var lList3_Map = document.getElementsByClassName("GList3");
                     for(var i = 0; i < lList3_Map.length; i++) {
-                        (function () {
+                        (function(){
                             var lList3_Node = lList3_Map[i];
                             var lList3_Url = lList3_Node.firstChild.firstChild.innerText;
                             var lList3_Item = lList3_Url.split(">");
