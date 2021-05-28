@@ -14,8 +14,8 @@ var GLoader = (function() {
                 var lObj = document.getElementById(id);
                 var lNodeMap = document.getElementsByClassName("GTitle1");
                 //var lCount = 0;
-				//var lTimer = setInterval(function() {
-				setTimeout(function() {
+				var lTimer = setInterval(function() {
+				//setTimeout(function() {
                     //if(++lCount > 5) {clearInterval(lTimer);}
                     var lHtml = '';
                     for(var i = 0; i < lNodeMap.length; i++) {
@@ -27,9 +27,10 @@ var GLoader = (function() {
                         lHtml += lTitle;
                         lHtml += '</a>';
                         lHtml += '</div>';
+                        clearInterval(lTimer);
                     }
                     lObj.innerHTML = lHtml;
-				}, 200);
+				}, 10);
             },
             //===============================================
             loadSummary2: function(id) {
