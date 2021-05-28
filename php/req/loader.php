@@ -258,8 +258,8 @@
 		$lFilename = "data/json/".$lFile.".json";
 		$lData = GJson::Instance()->getData($lFilename);
         $lDataMap = array();
-		$lDataMap["data"] = join(" ", $lData[$lKey]);
-		print_r(json_encode($lDataMap));
+		$lDataV = join(" ", $lData[$lKey]);
+		print_r($lDataV);
 	}
 	//===============================================
 	else if($lReq == "DATA_2") {

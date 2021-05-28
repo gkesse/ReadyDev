@@ -254,8 +254,7 @@ var GLoader = (function() {
                         lXmlhttp.onreadystatechange = function() {
                             if(this.readyState == 4 && this.status == 200) {
                                 var lData = this.responseText;
-                                var lDataMap = JSON.parse(lData);
-                                lData1_Node.innerHTML = lDataMap["data"];                                lData1_Node.innerHTML = lData;
+                                lData1_Node.innerHTML = lData;                                lData1_Node.innerHTML = lData;
                             }
                         }
                         
