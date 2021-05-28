@@ -13,10 +13,9 @@ var GLoader = (function() {
             loadSummary1: function(id) {
                 var lObj = document.getElementById(id);
                 var lNodeMap = document.getElementsByClassName("GTitle1");
-                //var lCount = 0;
+                var lCount = 0;
 				var lTimer = setInterval(function() {
-				//setTimeout(function() {
-                    //if(++lCount > 5) {clearInterval(lTimer);}
+                    if(++lCount > 10) {clearInterval(lTimer);}
                     var lHtml = '';
                     for(var i = 0; i < lNodeMap.length; i++) {
                         var lTitle = lNodeMap[i].firstChild.firstChild.firstChild.innerText;
@@ -27,10 +26,9 @@ var GLoader = (function() {
                         lHtml += lTitle;
                         lHtml += '</a>';
                         lHtml += '</div>';
-                        clearInterval(lTimer);
                     }
                     lObj.innerHTML = lHtml;
-				}, 10);
+				}, 50);
             },
             //===============================================
             loadSummary2: function(id) {
