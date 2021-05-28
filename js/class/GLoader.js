@@ -7,6 +7,7 @@ var GLoader = (function() {
         return {
             //===============================================
             init: function() {
+                alert("ooooooooooo");
                 this.loadSummary1();
                 this.loadSummary2();
                 this.loadList1();
@@ -282,7 +283,8 @@ var GLoader = (function() {
                 m_instance = Container();
             }
             return m_instance;
-        }
+   GLoader.Instance().init();
+     }
     };
     //===============================================
 })();
