@@ -44,7 +44,7 @@ var GLoader = (function() {
             loadSummary2: function() {
                 var lSummary2_Map = document.getElementsByClassName("GSummary2");
                 for(var i = 0; i < lSummary2_Map.length; i++) {
-                    var lSummary2 = lSummary2_Map[i];
+                    var lSummary2_Node = lSummary2_Map[i];
                     var lTitle2_Map = lSummary2.parentNode.getElementsByClassName("GTitle2");
                     var lHtml = '';
                     for(var j = 0; j < lSummary2_Map.length; j++) {
@@ -58,7 +58,7 @@ var GLoader = (function() {
                         lHtml += '</a>';
                         lHtml += '</div>';
                     }
-                    lSummary2.innerHTML = lHtml;
+                    lSummary2_Node.innerHTML = lHtml;
                 }
             },
             //===============================================
@@ -238,7 +238,7 @@ var GLoader = (function() {
                 }
             },
             //===============================================
-            loadData1: function(id, file, key) {
+            loadData1: function() {
                 var lData1_Map = document.getElementsByClassName("GData1");
                 for(var i = 0; i < lData1_Map.length; i++) {
                     var lData1_Node = lData1_Map[i];
