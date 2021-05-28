@@ -20,6 +20,8 @@ var GLoader = (function() {
                 this.loadData1();
                 this.loadData2();
                 this.loadData3();
+                //
+                this.loadPdf1();
             },
             //===============================================
             loadSummary1: function() {
@@ -331,22 +333,33 @@ var GLoader = (function() {
                 }
             },
             //===============================================
-            loadPdf1: function(id, file, key) {
-                var lObj = document.getElementById(id);
-                var lXmlhttp = new XMLHttpRequest();
-                lXmlhttp.onreadystatechange = function() {
-                    if(this.readyState == 4 && this.status == 200) {
-                        var lData = this.responseText;
-                        lObj.innerHTML = lData;
-                    }
+            loadPdf1: function() {
+                var lPdf1_Map = document.getElementsByClassName("GPdf1");
+                for(var i = 0; i < lPdf1_Map.length; i++) {
+                    (function() {
+                        var lPdf1_Node = lPdf1_Map[i];
+                        var lPdf1_Url = lPdf1_Node.firstChild.firstChild.innerText;
+                        var lPdf1_Item = lPdf1_Url.split(">");
+                        var lPdf1_File = lPdf1_Item[1].trim();
+                        var lPdf1_Key = lPdf1_Item[2].trim();
+
+                        var lXmlhttp = new XMLHttpRequest();
+                        lXmlhttp.onreadystatechange = function() {
+                            if(this.readyState == 4 && this.status == 200) {
+                                var lData = this.responseText;
+                                lPdf1_Node.innerHTML = lData;
+                            }
+                        }
+                        
+                        lXmlhttp.open("POST", "/php/req/loader.php", true);
+                        lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                        lXmlhttp.send(
+                        "req=" + "PDF_1" +
+                        "&file=" + lPdf1_File +
+                        "&key=" + lPdf1_Key
+                        );
+                    })();
                 }
-                lXmlhttp.open("POST", "/php/req/loader.php", true);
-                lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                lXmlhttp.send(
-                "req=" + "PDF_1" +
-                "&file=" + file +
-                "&key=" + key
-                );
             },
             //===============================================
             loadFileLink: function(id, file) {
