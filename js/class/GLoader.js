@@ -65,27 +65,29 @@ var GLoader = (function() {
             loadList1: function() {
                 var lList1_Map = document.getElementsByClassName("GList1");
                 for(var i = 0; i < lList1_Map.length; i++) {
-                    var lList1_Node = lList1_Map[i];
-                    var lList1_Url = lList1_Node.firstChild.firstChild.innerText;
-                    var lList1_Item = lList1_Url.split(">");
-                    var lList1_File = lList1_Item[1].trim();
-                    var lList1_Key = lList1_Item[2].trim();
+                    (function() {
+                        var lList1_Node = lList1_Map[i];
+                        var lList1_Url = lList1_Node.firstChild.firstChild.innerText;
+                        var lList1_Item = lList1_Url.split(">");
+                        var lList1_File = lList1_Item[1].trim();
+                        var lList1_Key = lList1_Item[2].trim();
 
-                    var lXmlhttp = new XMLHttpRequest();
-                    lXmlhttp.onreadystatechange = function() {
-                        if(this.readyState == 4 && this.status == 200) {
-                            var lData = this.responseText;
-                            lList1_Node.innerHTML = lData;
+                        var lXmlhttp = new XMLHttpRequest();
+                        lXmlhttp.onreadystatechange = function() {
+                            if(this.readyState == 4 && this.status == 200) {
+                                var lData = this.responseText;
+                                lList1_Node.innerHTML = lData;
+                            }
                         }
-                    }
-                    
-                    lXmlhttp.open("POST", "/php/req/loader.php", true);
-                    lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                    lXmlhttp.send(
-                    "req=" + "LIST_1" +
-                    "&file=" + lList1_File +
-                    "&key=" + lList1_Key
-                    );
+                        
+                        lXmlhttp.open("POST", "/php/req/loader.php", true);
+                        lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                        lXmlhttp.send(
+                        "req=" + "LIST_1" +
+                        "&file=" + lList1_File +
+                        "&key=" + lList1_Key
+                        );
+                    })();
                 }
             },
             //===============================================
@@ -241,27 +243,30 @@ var GLoader = (function() {
             loadData1: function() {
                 var lData1_Map = document.getElementsByClassName("GData1");
                 for(var i = 0; i < lData1_Map.length; i++) {
-                    var lData1_Node = lData1_Map[i];
-                    var lData1_Url = lData1_Node.firstChild.firstChild.innerText;
-                    var lData1_Item = lData1_Url.split(">");
-                    var lData1_File = lData1_Item[1].trim();
-                    var lData1_Key = lData1_Item[2].trim();
+                    (function() {
+                        var lData1_Node = lData1_Map[i];
+                        var lData1_Url = lData1_Node.firstChild.firstChild.innerText;
+                        var lData1_Item = lData1_Url.split(">");
+                        var lData1_File = lData1_Item[1].trim();
+                        var lData1_Key = lData1_Item[2].trim();
 
-                    var lXmlhttp = new XMLHttpRequest();
-                    lXmlhttp.onreadystatechange = function() {
-                        if(this.readyState == 4 && this.status == 200) {
-                            var lData = this.responseText;
-                            lData1_Node.innerHTML = lData;
+                        var lXmlhttp = new XMLHttpRequest();
+                        lXmlhttp.onreadystatechange = function() {
+                            if(this.readyState == 4 && this.status == 200) {
+                                var lData = this.responseText;
+                                var lDataMap = JSON.parse(lData);
+                                lData1_Node.innerHTML = lDataMap["data"];                                lData1_Node.innerHTML = lData;
+                            }
                         }
-                    }
-                    
-                    lXmlhttp.open("POST", "/php/req/loader.php", true);
-                    lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                    lXmlhttp.send(
-                    "req=" + "DATA_1" +
-                    "&file=" + lData1_File +
-                    "&key=" + lData1_Key
-                    );
+                        
+                        lXmlhttp.open("POST", "/php/req/loader.php", true);
+                        lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                        lXmlhttp.send(
+                        "req=" + "DATA_1" +
+                        "&file=" + lData1_File +
+                        "&key=" + lData1_Key
+                        );
+                    })();
                 }
             },
             //===============================================
