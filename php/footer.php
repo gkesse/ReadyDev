@@ -16,7 +16,6 @@
 <script src="/js/class/GLoader.js" async></script>
 <!-- ============================================ -->
 <script src="/js/header.js" async></script>
-<script src="/js/loader.js" async></script>
 <!-- ============================================ -->
 </body>
 </html>
