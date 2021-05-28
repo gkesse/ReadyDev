@@ -137,13 +137,6 @@
         <!-- ============================================ -->
         <script src='https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js' async></script>
         <!-- ============================================ -->
-        <script src="/js/class/GConfig.js" async></script>
-        <script src="/js/class/GHeader.js" async></script>
-        <script src="/js/class/GLoader.js" async></script>
-        <!-- ============================================ -->
-        <script src="/js/header.js" async></script>
-        <script src="/js/loader.js" async></script>
-        <!-- ============================================ -->
         <link rel="stylesheet" href="/css/style.php"/>
         <!-- ============================================ -->
     </head>
