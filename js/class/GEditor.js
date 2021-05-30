@@ -973,7 +973,7 @@ var GEditor = (function() {
                     lData = this.encodeHtml(lData, "ace");
                     var lHtml = '';
                     lHtml += '<div class="GCode1">';
-                    lHtml += '<div class="Code2"><pre class="AceCode" data-mode="'+lLanguage+'">';
+                    lHtml += '<div class="Code2"><pre class="AceCode" data-state="off" data-mode="'+lLanguage+'">';
                     lHtml += lData;
                     lHtml += '</pre></div>';
                     lHtml += '</div>';
