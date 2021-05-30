@@ -346,7 +346,7 @@ body {
     &lt;/head&gt;
     &lt;body onscroll="onClick('scroll')"&gt;
         &lt;!-- ============================================ --&gt;
-        &lt;div class="msg" data-state="off" data-count="2"&gt;
+        &lt;div class="msg" data-state="off"&gt;
 &lt;pre&gt;
 //===============================================
 #include &lt;iostream&gt;
@@ -359,7 +359,7 @@ int main(int argc, char** argv) {
 &lt;/pre&gt;
         &lt;/div&gt;
         &lt;!-- ============================================ --&gt;
-        &lt;div class="msg" data-state="off" data-count="2"&gt;
+        &lt;div class="msg" data-state="off"&gt;
 &lt;pre&gt;
 //===============================================
 #include &lt;iostream&gt;
@@ -372,7 +372,7 @@ int main(int argc, char** argv) {
 &lt;/pre&gt;
         &lt;/div&gt;
         &lt;!-- ============================================ --&gt;
-        &lt;div class="msg" data-state="off" data-count="2"&gt;
+        &lt;div class="msg" data-state="off"&gt;
 &lt;pre&gt;
 //===============================================
 #include &lt;iostream&gt;
@@ -494,4 +494,176 @@ body {
     line-height: 200px;
     text-align: center;
 }
-/*===============================================*/</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Web/JavaScript/img/i_intersectionobserver_detect.gif" alt="/Tutoriels/Web/JavaScript/img/i_intersectionobserver_detect.gif"></div><br></div></div></div></div><br>
+/*===============================================*/</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Web/JavaScript/img/i_intersectionobserver_detect.gif" alt="/Tutoriels/Web/JavaScript/img/i_intersectionobserver_detect.gif"></div><br><h2 class="Title7 GTitle2" id="Intersection-Observer-Creer-le-chargement-paresseux-d-un-element"><a class="Link9" href="#Intersection-Observer">Créer le chargement paresseux d'un élément</a></h2><br>Le <b>chargement paresseux</b> (également connu sous le nom de chargement asynchrone ) est un modèle de conception couramment utilisé dans la programmation informatique et principalement dans la conception et le développement Web pour différer l'initialisation d'un objet jusqu'au point où il est nécessaire. Il peut contribuer à l'efficacité du fonctionnement du programme s'il est utilisé correctement et de manière appropriée. Cela le rend idéal dans les cas d'utilisation où le contenu du réseau est accessible et où les temps d'initialisation doivent être réduits au minimum, comme dans le cas des pages Web . Par exemple, différer le chargement des images sur une page Web jusqu'à ce qu'elles soient nécessaires peut accélérer l'affichage initial de la page Web. Le contraire du chargement paresseux est le chargement impatient .<br><br><h3 class="Title8 GTitle3">index.html</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="html">&lt;!DOCTYPE html&gt;
+&lt;html lang='fr'&gt;
+    &lt;head&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;title&gt;ReadyApp&lt;/title&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;script src='/script.js' async&gt;&lt;/script&gt;
+        &lt;link rel="stylesheet" href="/style.css"&gt;
+        &lt;!-- ============================================ --&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;div class="msg" data-state="off" data-count="1"&gt;Bonjour tout le monde (1)&lt;/div&gt;
+        &lt;div class="msg" data-state="off" data-count="2"&gt;Bonjour tout le monde (2)&lt;/div&gt;
+        &lt;div class="msg" data-state="off" data-count="3"&gt;Bonjour tout le monde (3)&lt;/div&gt;
+        &lt;!-- ============================================ --&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</pre></div></div><br><h3 class="Title8 GTitle3">script.js</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="javascript">//===============================================
+var lMsg_Map = document.querySelectorAll(".msg");
+//===============================================
+var lObs_Options = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 1.0
+};
+//===============================================
+var lObs = new IntersectionObserver(objs =&gt; {
+    objs.forEach(obj =&gt; {
+        var lSpot_Node = document.getElementsByClassName("spot")[0];
+        if (obj.intersectionRatio &gt; 0) {
+            var lTarget = obj.target;
+            if(lTarget.dataset.state == "on") {return;}
+            var lCount = parseInt(lTarget.dataset.count);
+            lCount *= 10;
+            lTarget.dataset.count = lCount;
+            var lHtml = "Bonjour tout le monde ("+lCount+")";
+            lTarget.innerHTML = lHtml;
+            lTarget.dataset.state = "on";
+        } 
+    });
+}, lObs_Options);
+//===============================================
+lMsg_Map.forEach(obj =&gt; {
+    lObs.observe(obj);
+});
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">style.css</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="css">/*===============================================*/
+body {
+    margin: 500px 10px 500px 10px;
+}
+/*===============================================*/
+.spot {
+    position: fixed;
+    left: 10px;
+    top: 40px;
+    border: 1px solid black;
+    min-width: 120px;
+    min-height: 50px;
+    text-align: left;
+    padding: 5px;
+}
+/*===============================================*/
+.msg {
+    border: 1px solid black;
+    margin: auto;
+    margin: 50px 0px;
+    line-height: 200px;
+    text-align: center;
+}
+/*===============================================*/</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Web/JavaScript/img/i_intersectionobserver_lazyload.gif" alt="/Tutoriels/Web/JavaScript/img/i_intersectionobserver_lazyload.gif"></div><br><h2 class="Title7 GTitle2" id="Intersection-Observer-Creer-le-chargement-paresseux-d-un-element-AceJS"><a class="Link9" href="#Intersection-Observer">Créer le chargement paresseux d'un élément AceJS</a></h2><br><b>Ace </b>(de Ajax.org Cloud9 Editor ) est un éditeur de code autonome écrit en JavaScript . L'objectif est de créer un éditeur de code Web qui correspond et étend les fonctionnalités, la convivialité et les performances des éditeurs natifs existants tels que TextMate , Vim ou Eclipse . Il peut être facilement intégré dans n'importe quelle page Web et application JavaScript. Ace est développé en tant qu'éditeur principal pour Cloud9 IDE et en tant que successeur du projet Mozilla Skywriter.<br><br><h3 class="Title8 GTitle3">index.html</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="html">&lt;!DOCTYPE html&gt;
+&lt;html lang='fr'&gt;
+    &lt;head&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;title&gt;ReadyApp&lt;/title&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;script src='/libs/ace/src-min-noconflict/ace.js' async&gt;&lt;/script&gt;
+        &lt;link rel="stylesheet" href="/style.css"&gt;
+        &lt;!-- ============================================ --&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;div class="msg" data-state="off"&gt;
+&lt;pre&gt;
+//===============================================
+#include &lt;iostream&gt;
+//===============================================
+int main(int argc, char** argv) {
+    std::cout &lt;&lt; "Bonjour tout le monde (1)\n";
+    return 0;
+}
+//===============================================
+&lt;/pre&gt;
+        &lt;/div&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;div class="msg" data-state="off"&gt;
+&lt;pre&gt;
+//===============================================
+#include &lt;iostream&gt;
+//===============================================
+int main(int argc, char** argv) {
+    std::cout &lt;&lt; "Bonjour tout le monde (2)\n";
+    return 0;
+}
+//===============================================
+&lt;/pre&gt;
+        &lt;/div&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;div class="msg" data-state="off"&gt;
+&lt;pre&gt;
+//===============================================
+#include &lt;iostream&gt;
+//===============================================
+int main(int argc, char** argv) {
+    std::cout &lt;&lt; "Bonjour tout le monde (3)\n";
+    return 0;
+}
+//===============================================
+&lt;/pre&gt;
+        &lt;/div&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;script src='/script.js' async&gt;&lt;/script&gt;
+        &lt;!-- ============================================ --&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</pre></div></div><br><h3 class="Title8 GTitle3">script.js</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="javascript">//===============================================
+var lMsg_Map = document.querySelectorAll(".msg");
+//===============================================
+var lObs_Options = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 1.0
+};
+//===============================================
+var lObs = new IntersectionObserver(objs =&gt; {
+    objs.forEach(obj =&gt; {
+        var lSpot_Node = document.getElementsByClassName("spot")[0];
+        if (obj.intersectionRatio &gt; 0) {
+            var lTarget = obj.target;
+            if(lTarget.dataset.state == "on") {return;}
+            // start lazy loading
+            var lEditor = ace.edit(lTarget);
+            lEditor.setTheme("ace/theme/monokai");
+            lEditor.session.setMode("ace/mode/c_cpp");
+            // end lazy loading
+            lTarget.dataset.state = "on";
+        } 
+    });
+}, lObs_Options);
+//===============================================
+lMsg_Map.forEach(obj =&gt; {
+    lObs.observe(obj);
+});
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">style.css</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="css">/*===============================================*/
+body {
+    margin: 500px 10px 500px 10px;
+}
+/*===============================================*/
+.spot {
+    position: fixed;
+    left: 10px;
+    top: 40px;
+    border: 1px solid black;
+    min-width: 120px;
+    min-height: 50px;
+    text-align: left;
+    padding: 5px;
+}
+/*===============================================*/
+.msg {
+    border: 1px solid black;
+    margin: auto;
+    margin: 50px 0px;
+    min-height: 200px;
+}
+/*===============================================*/</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Web/JavaScript/img/i_intersectionobserver_lazyload_ace.gif" alt="/Tutoriels/Web/JavaScript/img/i_intersectionobserver_lazyload_ace.gif"></div><br></div></div></div></div><br>
