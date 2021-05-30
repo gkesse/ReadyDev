@@ -334,7 +334,7 @@ body {
     line-height: 300px;
     text-align: center;
 }
-/*===============================================*/</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Web/JavaScript/img/i_viewport_lazyload.gif" alt="/Tutoriels/Web/JavaScript/img/i_viewport_lazyload.gif"></div><br><h2 class="Title7 GTitle2" id="Viewport-Creer-le-chargement-paresseux-d-un-element-AceJS"><a class="Link9" href="#Viewport">Créer le chargement paresseux d'un élément AceJS</a></h2><br><b>Ace </b>(de Ajax.org Cloud9 Editor ) est un éditeur de code autonome écrit en JavaScript . L'objectif est de créer un éditeur de code Web qui correspond et étend les fonctionnalités, la convivialité et les performances des éditeurs natifs existants tels que TextMate , Vim ou Eclipse . Il peut être facilement intégré dans n'importe quelle page Web et application JavaScript. Ace est développé en tant qu'éditeur principal pour Cloud9 IDE et en tant que successeur du projet Mozilla Skywriter .<br><h3 class="Title8 GTitle3">index.html</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="html">&lt;!DOCTYPE html&gt;
+/*===============================================*/</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Web/JavaScript/img/i_viewport_lazyload.gif" alt="/Tutoriels/Web/JavaScript/img/i_viewport_lazyload.gif"></div><br><h2 class="Title7 GTitle2" id="Viewport-Creer-le-chargement-paresseux-d-un-element-AceJS"><a class="Link9" href="#Viewport">Créer le chargement paresseux d'un élément AceJS</a></h2><br><b>Ace </b>(de Ajax.org Cloud9 Editor ) est un éditeur de code autonome écrit en JavaScript . L'objectif est de créer un éditeur de code Web qui correspond et étend les fonctionnalités, la convivialité et les performances des éditeurs natifs existants tels que TextMate , Vim ou Eclipse . Il peut être facilement intégré dans n'importe quelle page Web et application JavaScript. Ace est développé en tant qu'éditeur principal pour Cloud9 IDE et en tant que successeur du projet Mozilla Skywriter.<br><br><h3 class="Title8 GTitle3">index.html</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="html">&lt;!DOCTYPE html&gt;
 &lt;html lang='fr'&gt;
     &lt;head&gt;
         &lt;!-- ============================================ --&gt;
@@ -432,4 +432,66 @@ body {
     min-height: 200px;
     padding: 20px;
 }
-/*===============================================*/</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Web/JavaScript/img/i_viewport_lazyload_ace.gif" alt="/Tutoriels/Web/JavaScript/img/i_viewport_lazyload_ace.gif"></div><br></div></div></div></div><br>
+/*===============================================*/</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Web/JavaScript/img/i_viewport_lazyload_ace.gif" alt="/Tutoriels/Web/JavaScript/img/i_viewport_lazyload_ace.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Intersection-Observer"><a class="Link3" href="#">Intersection Observer</a></h1><div class="Body3"><br>L'API <b>Intersection Observer</b> permet d'observer de manière asynchrone l'évolution de l'intersection d'un élément cible avec un élément ancêtre ou avec la zone d'affichage d'un document de niveau supérieur. La donnée de l'intersection est requise pour de nombreuses raisons, telles que: Le chargement paresseux d'images ou d'autres types de contenus au fur et à mesure que la page défile ; L'implantation de « défilement infini », où de plus en plus de contenu est chargé tandis que l'utilisateur défile, afin qu'il n'ait pas à changer de page ; Le signalement de la visibilité pour les publicités afin de calculer les revenus publicitaires ; La décision d'exécuter ou non une tâche ou une animation selon que l'utilisateur va en voir le résultat ou non.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1622394403838"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1622394403838");</script></div><br><h2 class="Title7 GTitle2" id="Intersection-Observer-Detecter-la-visibilite-d-un-element"><a class="Link9" href="#Intersection-Observer">Détecter la visibilité d'un élément</a></h2><br><h3 class="Title8 GTitle3">index.html</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="html">&lt;!DOCTYPE html&gt;
+&lt;html lang='fr'&gt;
+    &lt;head&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;title&gt;ReadyApp&lt;/title&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;script src='/script.js' async&gt;&lt;/script&gt;
+        &lt;link rel="stylesheet" href="/style.css"&gt;
+        &lt;!-- ============================================ --&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;div class="spot"&gt;&lt;/div&gt;
+        &lt;div class="msg"&gt;Bonjour tout le monde&lt;/div&gt;
+        &lt;!-- ============================================ --&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</pre></div></div><br><h3 class="Title8 GTitle3">script.js</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="javascript">//===============================================
+var lMsg_Map = document.querySelectorAll(".msg");
+//===============================================
+var lObs_Options = {
+    root: null,
+    rootMargin: '0px',
+    threshold: [0.0, 1.0] 
+};
+//===============================================
+var lObs = new IntersectionObserver(objs =&gt; {
+    objs.forEach(obj =&gt; {
+        var lSpot_Node = document.getElementsByClassName("spot")[0];
+        if (obj.intersectionRatio &gt; 0) {
+            lSpot_Node.innerHTML = 'VISIBLE';
+        } else {
+            lSpot_Node.innerHTML = 'HIDDEN';
+        }
+    });
+}, lObs_Options);
+//===============================================
+lMsg_Map.forEach(obj =&gt; {
+    lObs.observe(obj);
+});
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">style.css</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="css">/*===============================================*/
+body {
+    margin: 500px 10px 500px 150px;
+}
+/*===============================================*/
+.spot {
+    position: fixed;
+    left: 10px;
+    top: 40px;
+    border: 1px solid black;
+    min-width: 120px;
+    min-height: 50px;
+    text-align: left;
+    padding: 5px;
+}
+/*===============================================*/
+.msg {
+    border: 1px solid black;
+    margin: auto;
+    max-width: 400px;
+    line-height: 200px;
+    text-align: center;
+}
+/*===============================================*/</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Web/JavaScript/img/i_intersectionobserver_detect.gif" alt="/Tutoriels/Web/JavaScript/img/i_intersectionobserver_detect.gif"></div><br></div></div></div></div><br>
