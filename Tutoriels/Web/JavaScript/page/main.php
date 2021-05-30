@@ -146,4 +146,192 @@ function main() {
 }
 //===============================================
 main();
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Web/JavaScript/img/i_javascript_settimeout.gif" alt="/Tutoriels/Web/JavaScript/img/i_javascript_settimeout.gif"></div><br></div></div></div></div><br>
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Web/JavaScript/img/i_javascript_settimeout.gif" alt="/Tutoriels/Web/JavaScript/img/i_javascript_settimeout.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Viewport"><a class="Link3" href="#">Viewport</a></h1><div class="Body3"><br>Le <b>viewport </b>du navigateur est la zone de la fenêtre dans laquelle le contenu web peut être vu. Souvent, cette zone n'a pas la même taille que la page rendue, auquel cas le navigateur fournit des barres de défilement pour que l'utilisateur et l'utilisatrice puissent faire défiler la page et accéder à tout le contenu.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1622246708832"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1622246708832");</script></div><br><h2 class="Title7 GTitle2" id="Viewport-Recuperer-les-positions-d-un-element"><a class="Link9" href="#Viewport">Récupérer les positions d'un élément</a></h2><br><h3 class="Title8 GTitle3">index.html</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="html">&lt;!DOCTYPE html&gt;
+&lt;html lang='fr'&gt;
+    &lt;head&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;title&gt;ReadyApp&lt;/title&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;script src='/script.js' async&gt;&lt;/script&gt;
+        &lt;link rel="stylesheet" href="/style.css"&gt;
+        &lt;!-- ============================================ --&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;button class="run" onclick="onClick('run')"&gt;Run&lt;/button&gt;
+        &lt;div class="spot"&gt;&lt;/div&gt;
+        &lt;div class="msg"&gt;Bonjour tout le monde&lt;/div&gt;
+        &lt;!-- ============================================ --&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</pre></div></div><br><h3 class="Title8 GTitle3">script.js</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="javascript">//===============================================
+function showRect() {
+    var lMsg_Node = document.getElementsByClassName("msg")[0];
+    var lSpot_Node = document.getElementsByClassName("spot")[0];
+    var lMsg_Rect = lMsg_Node.getBoundingClientRect();
+    var lViewport_W = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+    var lViewport_H = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
+    var lMsg = "";
+    lMsg += "left : " + lMsg_Rect.left + "&lt;br&gt;";
+    lMsg += "right : " + lMsg_Rect.right + "&lt;br&gt;";
+    lMsg += "top : " + lMsg_Rect.top.toFixed(2) + "&lt;br&gt;";
+    lMsg += "bottom : " + lMsg_Rect.bottom.toFixed(2) + "&lt;br&gt;";
+    lMsg += "width : " + lMsg_Rect.width + "&lt;br&gt;";
+    lMsg += "height : " + lMsg_Rect.height + "&lt;br&gt;";
+    lMsg += "Viewport_W : " + lViewport_W + "&lt;br&gt;";
+    lMsg += "Viewport_H : " + lViewport_H + "&lt;br&gt;";
+    lSpot_Node.innerHTML = lMsg;
+}
+//===============================================
+function onClick(key) {
+    if(key == "run") {showRect();}
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">style.css</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="css">/*===============================================*/
+body {
+    margin: 500px 50px 500px 150px;
+}
+/*===============================================*/
+.msg {
+    border: 1px solid black;
+    margin: auto;
+    max-width: 400px;
+    line-height: 300px;
+    text-align: center;
+}
+/*===============================================*/
+.run {
+    position: fixed;
+    left: 10px;
+    top: 10px;
+    min-width: 130px;
+}
+/*===============================================*/
+.spot {
+    position: fixed;
+    left: 10px;
+    top: 40px;
+    border: 1px solid black;
+    min-width: 120px;
+    min-height: 50px;
+    text-align: left;
+    padding: 5px;
+}
+/*===============================================*/</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Web/JavaScript/img/i_viewport_positions.gif" alt="/Tutoriels/Web/JavaScript/img/i_viewport_positions.gif"></div><br><h2 class="Title7 GTitle2" id="Viewport-Detecter-la-visibilite-d-un-element"><a class="Link9" href="#Viewport">Détecter la visibilité d'un élément</a></h2><br><h3 class="Title8 GTitle3">index.html</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="html">&lt;!DOCTYPE html&gt;
+&lt;html lang='fr'&gt;
+    &lt;head&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;title&gt;ReadyApp&lt;/title&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;script src='/script.js' async&gt;&lt;/script&gt;
+        &lt;link rel="stylesheet" href="/style.css"&gt;
+        &lt;!-- ============================================ --&gt;
+    &lt;/head&gt;
+    &lt;body onscroll="onClick('scroll')"&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;div class="spot"&gt;&lt;/div&gt;
+        &lt;div class="msg"&gt;Bonjour tout le monde&lt;/div&gt;
+        &lt;!-- ============================================ --&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</pre></div></div><br><h3 class="Title8 GTitle3">script.js</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="javascript">//===============================================
+function onScroll() {
+    var lMsg_Node = document.getElementsByClassName("msg")[0];
+    var lSpot_Node = document.getElementsByClassName("spot")[0];
+    var lMsg_Rect = lMsg_Node.getBoundingClientRect();
+    var lTop = lMsg_Rect.top;
+    var lBottom = lMsg_Rect.bottom;
+    var lViewport_H = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
+    var lFlag = true;
+    var lHtml = "VISIBLE";
+    if(lBottom &lt; 0) {lFlag = false;}
+    else if(lTop &gt; lViewport_H) {lFlag = false;}
+    if(!lFlag) {lHtml = "HIDDEN";}
+    lSpot_Node.innerHTML = lHtml;
+}
+//===============================================
+function onClick(key) {
+    if(key == "scroll") {onScroll();}
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">style.css</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="css">/*===============================================*/
+body {
+    margin: 500px 50px 500px 150px;
+}
+/*===============================================*/
+.msg {
+    border: 1px solid black;
+    margin: auto;
+    max-width: 400px;
+    line-height: 300px;
+    text-align: center;
+}
+/*===============================================*/
+.spot {
+    position: fixed;
+    left: 10px;
+    top: 40px;
+    border: 1px solid black;
+    min-width: 120px;
+    min-height: 50px;
+    text-align: left;
+    padding: 5px;
+}
+/*===============================================*/</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Web/JavaScript/img/i_viewport_detect.gif" alt="/Tutoriels/Web/JavaScript/img/i_viewport_detect.gif"></div><br><h2 class="Title7 GTitle2" id="Viewport-Creer-le-chargement-paresseux-d-un-element"><a class="Link9" href="#Viewport">Créer le chargement paresseux d'un élément</a></h2><br>Le <b>chargement paresseux</b> (également connu sous le nom de chargement asynchrone ) est un modèle de conception couramment utilisé dans la programmation informatique et principalement dans la conception et le développement Web pour différer l'initialisation d'un objet jusqu'au point où il est nécessaire. Il peut contribuer à l'efficacité du fonctionnement du programme s'il est utilisé correctement et de manière appropriée. Cela le rend idéal dans les cas d'utilisation où le contenu du réseau est accessible et où les temps d'initialisation doivent être réduits au minimum, comme dans le cas des pages Web . Par exemple, différer le chargement des images sur une page Web jusqu'à ce qu'elles soient nécessaires peut accélérer l'affichage initial de la page Web. Le contraire du chargement paresseux est le chargement impatient .<br><br><h3 class="Title8 GTitle3">index.html</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="html">&lt;!DOCTYPE html&gt;
+&lt;html lang='fr'&gt;
+    &lt;head&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;title&gt;ReadyApp&lt;/title&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;script src='/script.js' async&gt;&lt;/script&gt;
+        &lt;link rel="stylesheet" href="/style.css"&gt;
+        &lt;!-- ============================================ --&gt;
+    &lt;/head&gt;
+    &lt;body onscroll="onClick('scroll')"&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;div class="msg" data-state="off" data-count="1"&gt;Bonjour tout le monde (1)&lt;/div&gt;
+        &lt;div class="msg" data-state="off" data-count="2"&gt;Bonjour tout le monde (2)&lt;/div&gt;
+        &lt;div class="msg" data-state="off" data-count="3"&gt;Bonjour tout le monde (3)&lt;/div&gt;
+        &lt;!-- ============================================ --&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</pre></div></div><br><h3 class="Title8 GTitle3">script.js</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="javascript">//===============================================
+function isInViewport(obj) {
+    var lRect = obj.getBoundingClientRect();
+    var lTop = lRect.top;
+    var lBottom = lRect.bottom;
+    var lViewport_H = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
+    var lFlag = true;
+    if(lTop &lt; 0) {lFlag = false;}
+    else if(lBottom &gt; lViewport_H) {lFlag = false;}
+    return lFlag;
+}
+//===============================================
+function onScroll() {
+    var lMsg_Map = document.getElementsByClassName("msg");
+    for(var i = 0; i &lt; lMsg_Map.length; i++) {
+        var lMsg_Node = lMsg_Map[i];
+        var lFlag = isInViewport(lMsg_Node);
+        if(!lFlag) {continue;}
+        var lState = lMsg_Node.getAttribute("data-state");
+        if(lState == "on") {continue;}
+        var lCount = lMsg_Node.getAttribute("data-count");
+        lCount *= 10;
+        lMsg_Node.setAttribute("data-count", lCount);
+        lMsg_Node.innerHTML = "Bonjour tout le monde ("+lCount+")";
+        lMsg_Node.setAttribute("data-state", "on");
+    }
+}
+//===============================================
+function onClick(key) {
+    if(key == "scroll") {onScroll();}
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">style.css</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="css">/*===============================================*/
+body {
+    margin: 500px 50px 500px 50px;
+}
+/*===============================================*/
+.msg {
+    border: 1px solid black;
+    margin: auto;
+    margin: 100px 0px;
+    max-width: 400px;
+    line-height: 300px;
+    text-align: center;
+}
+/*===============================================*/</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Web/JavaScript/img/i_viewport_lazyload.gif" alt="/Tutoriels/Web/JavaScript/img/i_viewport_lazyload.gif"></div><br></div></div></div></div><br>
