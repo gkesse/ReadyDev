@@ -334,4 +334,102 @@ body {
     line-height: 300px;
     text-align: center;
 }
-/*===============================================*/</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Web/JavaScript/img/i_viewport_lazyload.gif" alt="/Tutoriels/Web/JavaScript/img/i_viewport_lazyload.gif"></div><br></div></div></div></div><br>
+/*===============================================*/</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Web/JavaScript/img/i_viewport_lazyload.gif" alt="/Tutoriels/Web/JavaScript/img/i_viewport_lazyload.gif"></div><br><h2 class="Title7 GTitle2" id="Viewport-Creer-le-chargement-paresseux-d-un-element-AceJS"><a class="Link9" href="#Viewport">Créer le chargement paresseux d'un élément AceJS</a></h2><br><b>Ace </b>(de Ajax.org Cloud9 Editor ) est un éditeur de code autonome écrit en JavaScript . L'objectif est de créer un éditeur de code Web qui correspond et étend les fonctionnalités, la convivialité et les performances des éditeurs natifs existants tels que TextMate , Vim ou Eclipse . Il peut être facilement intégré dans n'importe quelle page Web et application JavaScript. Ace est développé en tant qu'éditeur principal pour Cloud9 IDE et en tant que successeur du projet Mozilla Skywriter .<br><h3 class="Title8 GTitle3">index.html</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="html">&lt;!DOCTYPE html&gt;
+&lt;html lang='fr'&gt;
+    &lt;head&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;title&gt;ReadyApp&lt;/title&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;script src='/libs/ace/src-min-noconflict/ace.js' async&gt;&lt;/script&gt;
+        &lt;link rel="stylesheet" href="/style.css"&gt;
+        &lt;!-- ============================================ --&gt;
+    &lt;/head&gt;
+    &lt;body onscroll="onClick('scroll')"&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;div class="msg" data-state="off" data-count="2"&gt;
+&lt;pre&gt;
+//===============================================
+#include &lt;iostream&gt;
+//===============================================
+int main(int argc, char** argv) {
+    std::cout &lt;&lt; "Bonjour tout le monde (1)\n";
+    return 0;
+}
+//===============================================
+&lt;/pre&gt;
+        &lt;/div&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;div class="msg" data-state="off" data-count="2"&gt;
+&lt;pre&gt;
+//===============================================
+#include &lt;iostream&gt;
+//===============================================
+int main(int argc, char** argv) {
+    std::cout &lt;&lt; "Bonjour tout le monde (2)\n";
+    return 0;
+}
+//===============================================
+&lt;/pre&gt;
+        &lt;/div&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;div class="msg" data-state="off" data-count="2"&gt;
+&lt;pre&gt;
+//===============================================
+#include &lt;iostream&gt;
+//===============================================
+int main(int argc, char** argv) {
+    std::cout &lt;&lt; "Bonjour tout le monde (3)\n";
+    return 0;
+}
+//===============================================
+&lt;/pre&gt;
+        &lt;/div&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;script src='/script.js' async&gt;&lt;/script&gt;
+        &lt;!-- ============================================ --&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</pre></div></div><br><h3 class="Title8 GTitle3">script.js</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="javascript">//===============================================
+function isInViewport(obj) {
+    var lRect = obj.getBoundingClientRect();
+    var lTop = lRect.top;
+    var lBottom = lRect.bottom;
+    var lViewport_H = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
+    var lFlag = true;
+    if(lTop &lt; 0) {lFlag = false;}
+    else if(lBottom &gt; lViewport_H) {lFlag = false;}
+    return lFlag;
+}
+//===============================================
+function onScroll() {
+    var lMsg_Map = document.getElementsByClassName("msg");
+    for(var i = 0; i &lt; lMsg_Map.length; i++) {
+        var lMsg_Node = lMsg_Map[i];
+        var lFlag = isInViewport(lMsg_Node);
+        if(!lFlag) {continue;}
+        var lState = lMsg_Node.getAttribute("data-state");
+        if(lState == "on") {continue;}
+        // start lazy loading
+        var lEditor = ace.edit(lMsg_Node);
+        lEditor.setTheme("ace/theme/monokai");
+        lEditor.session.setMode("ace/mode/c_cpp");
+        // end lazy loading
+        lMsg_Node.setAttribute("data-state", "on");
+    }
+}
+//===============================================
+function onClick(key) {
+    if(key == "scroll") {onScroll();}
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">style.css</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="css">/*===============================================*/
+body {
+    margin: 500px 10px 500px 10px;
+}
+/*===============================================*/
+.msg {
+    border: 1px solid black;
+    margin: auto;
+    margin: 100px 0px;
+    min-height: 200px;
+    padding: 20px;
+}
+/*===============================================*/</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Web/JavaScript/img/i_viewport_lazyload_ace.gif" alt="/Tutoriels/Web/JavaScript/img/i_viewport_lazyload_ace.gif"></div><br></div></div></div></div><br>

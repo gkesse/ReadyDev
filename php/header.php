@@ -128,11 +128,11 @@
         <!--script src="https://www.googletagmanager.com/gtag/js?id=UA-109595989-1" async></script-->
         <script src="/libs/google_tag_manager/1.0.0/gtag.js?id=UA-109595989-1" async></script>
         <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
 
-          gtag('config', 'UA-149825656-1');
+            gtag('config', 'UA-149825656-1');
         </script>
         <!-- ============================================ -->
         <script src='https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js' async></script>
