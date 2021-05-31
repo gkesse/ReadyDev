@@ -3315,7 +3315,6 @@ GWindow::GWindow(QWidget* parent) : QFrame(parent) {
 
     customPlot-&gt;setLocale(QLocale(QLocale::English, QLocale::UnitedKingdom));
 
-    //graph(0)
     customPlot-&gt;addGraph();
     
     QPen pen;
@@ -3334,7 +3333,6 @@ GWindow::GWindow(QWidget* parent) : QFrame(parent) {
     customPlot-&gt;graph(1)-&gt;setPen(pen);
     customPlot-&gt;graph(0)-&gt;setChannelFillGraph(customPlot-&gt;graph(1));
 
-    //graph(1)
     customPlot-&gt;addGraph();
     
     pen.setStyle(Qt::DashLine);
@@ -3344,13 +3342,12 @@ GWindow::GWindow(QWidget* parent) : QFrame(parent) {
     customPlot-&gt;graph(2)-&gt;setPen(pen);
     customPlot-&gt;graph(2)-&gt;setName("Theory Curve");
     
-    // graph(3)
     customPlot-&gt;addGraph();
     customPlot-&gt;graph(3)-&gt;setPen(QPen(Qt::blue));
     customPlot-&gt;graph(3)-&gt;setName("Measurement");
     customPlot-&gt;graph(3)-&gt;setLineStyle(QCPGraph::lsNone);
     customPlot-&gt;graph(3)-&gt;setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssCross, 4));
-    // errorBars
+    
     QCPErrorBars *errorBars = new QCPErrorBars(customPlot-&gt;xAxis, customPlot-&gt;yAxis);
     errorBars-&gt;removeFromLegend();
     errorBars-&gt;setAntialiased(false);
@@ -3371,7 +3368,7 @@ GWindow::GWindow(QWidget* parent) : QFrame(parent) {
     for (int i=0; i&lt;50; ++i) {
         double tmp1 = rand()/(double)RAND_MAX;
         double tmp2 = rand()/(double)RAND_MAX;
-        double r = qSqrt(-2*qLn(tmp1))*qCos(2*M_PI*tmp2); // box-muller transform for gaussian distribution
+        double r = qSqrt(-2*qLn(tmp1))*qCos(2*M_PI*tmp2);
 
         x1[i] = (i/50.0-0.5)*30+0.25;
         y1[i] = qSin(x1[i])/x1[i]+r*0.15;
@@ -3379,22 +3376,21 @@ GWindow::GWindow(QWidget* parent) : QFrame(parent) {
         y1err[i] = 0.15;
     }
 
-    //setData
     customPlot-&gt;graph(0)-&gt;setData(x0, yConfUpper);
     customPlot-&gt;graph(1)-&gt;setData(x0, yConfLower);
     customPlot-&gt;graph(2)-&gt;setData(x0, y0);
     customPlot-&gt;graph(3)-&gt;setData(x1, y1);
     errorBars-&gt;setData(y1err);
-    // rescaleAxes
+    
     customPlot-&gt;graph(2)-&gt;rescaleAxes();
     customPlot-&gt;graph(3)-&gt;rescaleAxes(true);
-    // xAxis
+    
     customPlot-&gt;xAxis-&gt;setTickLabelRotation(30);
     customPlot-&gt;xAxis-&gt;ticker()-&gt;setTickCount(9);
     customPlot-&gt;xAxis-&gt;setNumberFormat("ebc");
     customPlot-&gt;xAxis-&gt;setNumberPrecision(1);
     customPlot-&gt;xAxis-&gt;moveRange(-10);
-    // setupFullAxesBox
+    
     customPlot-&gt;axisRect()-&gt;setupFullAxesBox();
   
     QVBoxLayout* lMainLayout = new QVBoxLayout;
@@ -3406,7 +3402,285 @@ GWindow::GWindow(QWidget* parent) : QFrame(parent) {
 GWindow::~GWindow() {
     
 }
-//================================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_scatter.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_scatter.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Vision-par-Ordinateur-avec-OpenCV"><a class="Link3" href="#">Vision par Ordinateur avec OpenCV</a></h1><div class="Body3"><br><b>OpenCV </b>est une bibliothèque graphique libre, spécialisée dans le traitement d'images en temps réel. La bibliothèque OpenCV met à disposition de nombreuses fonctionnalités très diversifiées permettant de créer des programmes en partant des données brutes pour aller jusqu'à la création d'interfaces graphiques basiques. OpenCV propose la plupart des opérations classiques en traitement bas niveau des images : lecture, écriture et affichage d’une image ; calcul de l'histogramme des niveaux de gris ou d'histogrammes couleurs ; lissage, filtrage ; seuillage d'image (méthode d'Otsu, seuillage adaptatif) ; segmentation (composantes connexes, GrabCut) ; morphologie mathématique.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1617840709282"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1617840709282");</script></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/b_opencv.png" class="lazy entered loaded" data-src="/Tutoriels/Software_Development/Cpp/img/b_opencv.png" data-ll-status="loaded" src="/Tutoriels/Software_Development/Cpp/img/b_opencv.png"></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Installer-l-environnement-OpenCV-sous-MSYS2"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Installer l'environnement OpenCV sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Télécharger OpenCV</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">pacman -S --needed --noconfirm mingw-w64-i686-opencv</pre></div></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Tester-un-projet-OpenCV-sous-MSYS2"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Tester un projet OpenCV sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Éditer le programme (main.cpp)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
+//================================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_scatter.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_scatter.png"></div><br><h2 class="Title7 GTitle2" id="Trace-de-courbes-2D-avec-QCustomPlot-Creer-un-graphe-avec-un-nuage-de-points-differents"><a class="Link9" href="#Trace-de-courbes-2D-avec-QCustomPlot">Créer un graphe avec un nuage de points différents</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GWindow.h"
+//===============================================
+int main(int argc, char** argv) {
+    QApplication app(argc, argv);
+    
+    GWindow* lWindow = new GWindow;
+    lWindow-&gt;setWindowTitle("ReadyApp");
+    lWindow-&gt;resize(500, 300);
+    lWindow-&gt;show();
+    
+    return app.exec();
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GWindow.h</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//================================================
+#ifndef _GWindow_
+#define _GWindow_
+//================================================
+#include &lt;QApplication&gt;
+#include &lt;QtWidgets&gt;
+#include &lt;qcustomplot.h&gt;
+//================================================
+class GWindow : public QFrame {
+    Q_OBJECT
+    
+public:
+    GWindow(QWidget* parent = 0);
+    ~GWindow();
+    
+private:
+    QCustomPlot* customPlot;
+};
+//================================================
+#endif
+//================================================</pre></div></div><br><h3 class="Title8 GTitle3">GWindow.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//================================================
+#include "GWindow.h"
+//================================================
+GWindow::GWindow(QWidget* parent) : QFrame(parent) {
+    customPlot = new QCustomPlot;
+
+    customPlot-&gt;legend-&gt;setVisible(true);
+    customPlot-&gt;legend-&gt;setFont(QFont("Helvetica", 9));
+    customPlot-&gt;legend-&gt;setRowSpacing(-3);
+    
+    QVector&lt;QCPScatterStyle::ScatterShape&gt; shapes;
+    shapes &lt;&lt; QCPScatterStyle::ssCross;
+    shapes &lt;&lt; QCPScatterStyle::ssPlus;
+    shapes &lt;&lt; QCPScatterStyle::ssCircle;
+    shapes &lt;&lt; QCPScatterStyle::ssDisc;
+    shapes &lt;&lt; QCPScatterStyle::ssSquare;
+    shapes &lt;&lt; QCPScatterStyle::ssDiamond;
+    shapes &lt;&lt; QCPScatterStyle::ssStar;
+    shapes &lt;&lt; QCPScatterStyle::ssTriangle;
+    shapes &lt;&lt; QCPScatterStyle::ssTriangleInverted;
+    shapes &lt;&lt; QCPScatterStyle::ssCrossSquare;
+    shapes &lt;&lt; QCPScatterStyle::ssPlusSquare;
+    shapes &lt;&lt; QCPScatterStyle::ssCrossCircle;
+    shapes &lt;&lt; QCPScatterStyle::ssPlusCircle;
+    shapes &lt;&lt; QCPScatterStyle::ssPeace;
+    shapes &lt;&lt; QCPScatterStyle::ssCustom;
+
+    QPen pen;
+    for (int i = 0; i &lt; shapes.size(); ++i) {
+        customPlot-&gt;addGraph();
+        pen.setColor(QColor(qSin(i*0.3)*100+100, qSin(i*0.6+0.7)*100+100, qSin(i*0.4+0.6)*100+100));
+
+        QVector&lt;double&gt; x(10), y(10);
+        for (int k = 0; k &lt; 10; ++k) {
+            x[k] = k/10.0 * 4*3.14 + 0.01;
+            y[k] = 7*qSin(x[k])/x[k] + (shapes.size()-i)*5;
+        }
+        
+        customPlot-&gt;graph()-&gt;setData(x, y);
+        customPlot-&gt;graph()-&gt;rescaleAxes(true);
+        customPlot-&gt;graph()-&gt;setPen(pen);
+        customPlot-&gt;graph()-&gt;setName(QCPScatterStyle::staticMetaObject.enumerator(QCPScatterStyle::staticMetaObject.indexOfEnumerator("ScatterShape")).valueToKey(shapes.at(i)));
+        customPlot-&gt;graph()-&gt;setLineStyle(QCPGraph::lsLine);
+
+        if (shapes.at(i) != QCPScatterStyle::ssCustom) {
+            customPlot-&gt;graph()-&gt;setScatterStyle(QCPScatterStyle(shapes.at(i), 10));
+        }
+        else {
+            QPainterPath customScatterPath;
+            for (int i = 0; i &lt; 3; ++i) {
+                customScatterPath.cubicTo(qCos(2*M_PI*i/3.0)*9, qSin(2*M_PI*i/3.0)*9, qCos(2*M_PI*(i+0.9)/3.0)*9, qSin(2*M_PI*(i+0.9)/3.0)*9, 0, 0);
+            }
+            customPlot-&gt;graph()-&gt;setScatterStyle(QCPScatterStyle(customScatterPath, QPen(Qt::black, 0), QColor(40, 70, 255, 50), 10));
+        }
+    }
+
+    customPlot-&gt;rescaleAxes();
+    customPlot-&gt;xAxis-&gt;setTicks(false);
+    customPlot-&gt;yAxis-&gt;setTicks(false);
+    customPlot-&gt;xAxis-&gt;setTickLabels(false);
+    customPlot-&gt;yAxis-&gt;setTickLabels(false);
+
+    customPlot-&gt;axisRect()-&gt;setupFullAxesBox();
+
+    QVBoxLayout* lMainLayout = new QVBoxLayout;
+    lMainLayout-&gt;addWidget(customPlot);
+
+    setLayout(lMainLayout);
+}
+//================================================
+GWindow::~GWindow() {
+
+}
+//================================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_scatter_style.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_scatter_style.png"></div><br><h2 class="Title7 GTitle2" id="Trace-de-courbes-2D-avec-QCustomPlot-Creer-un-graphe-avec-des-lignes"><a class="Link9" href="#Trace-de-courbes-2D-avec-QCustomPlot">Créer un graphe avec des lignes</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GWindow.h"
+//===============================================
+int main(int argc, char** argv) {
+    QApplication app(argc, argv);
+    
+    GWindow* lWindow = new GWindow;
+    lWindow-&gt;setWindowTitle("ReadyApp");
+    lWindow-&gt;resize(500, 300);
+    lWindow-&gt;show();
+    
+    return app.exec();
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GWindow.h</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//================================================
+#ifndef _GWindow_
+#define _GWindow_
+//================================================
+#include &lt;QApplication&gt;
+#include &lt;QtWidgets&gt;
+#include &lt;qcustomplot.h&gt;
+//================================================
+class GWindow : public QFrame {
+    Q_OBJECT
+    
+public:
+    GWindow(QWidget* parent = 0);
+    ~GWindow();
+    
+private:
+    QCustomPlot* customPlot;
+};
+//================================================
+#endif
+//================================================</pre></div></div><br><h3 class="Title8 GTitle3">GWindow.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//================================================
+#include "GWindow.h"
+//================================================
+GWindow::GWindow(QWidget* parent) : QFrame(parent) {
+    customPlot = new QCustomPlot;
+
+    customPlot-&gt;legend-&gt;setVisible(true);
+    customPlot-&gt;legend-&gt;setFont(QFont("Helvetica", 9));
+
+    QPen pen;
+    QStringList lineNames;
+    lineNames &lt;&lt; "lsNone" &lt;&lt; "lsLine" &lt;&lt; "lsStepLeft" &lt;&lt; "lsStepRight" &lt;&lt; "lsStepCenter" &lt;&lt; "lsImpulse";
+
+    for (int i=QCPGraph::lsNone; i&lt;=QCPGraph::lsImpulse; ++i) {
+        customPlot-&gt;addGraph();
+        pen.setColor(QColor(qSin(i*1+1.2)*80+80, qSin(i*0.3+0)*80+80, qSin(i*0.3+1.5)*80+80));
+        customPlot-&gt;graph()-&gt;setPen(pen);
+        customPlot-&gt;graph()-&gt;setName(lineNames.at(i-QCPGraph::lsNone));
+        customPlot-&gt;graph()-&gt;setLineStyle((QCPGraph::LineStyle)i);
+        customPlot-&gt;graph()-&gt;setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssCircle, 5));
+
+        QVector&lt;double&gt; x(15), y(15);
+        for (int j=0; j&lt;15; ++j) {
+            x[j] = j/15.0 * 5*3.14 + 0.01;
+            y[j] = 7*qSin(x[j])/x[j] - (i-QCPGraph::lsNone)*5 + (QCPGraph::lsImpulse)*5 + 2;
+        }
+        customPlot-&gt;graph()-&gt;setData(x, y);
+        customPlot-&gt;graph()-&gt;rescaleAxes(true);
+    }
+
+    customPlot-&gt;yAxis-&gt;scaleRange(1.1, customPlot-&gt;yAxis-&gt;range().center());
+    customPlot-&gt;xAxis-&gt;scaleRange(1.1, customPlot-&gt;xAxis-&gt;range().center());
+
+    customPlot-&gt;xAxis-&gt;setTicks(false);
+    customPlot-&gt;yAxis-&gt;setTicks(true);
+    customPlot-&gt;xAxis-&gt;setTickLabels(false);
+    customPlot-&gt;yAxis-&gt;setTickLabels(true);
+
+    customPlot-&gt;axisRect()-&gt;setupFullAxesBox();
+
+    QVBoxLayout* lMainLayout = new QVBoxLayout;
+    lMainLayout-&gt;addWidget(customPlot);
+
+    setLayout(lMainLayout);
+}
+//================================================
+GWindow::~GWindow() {
+
+}
+//================================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_line.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_line.png"></div><br><h2 class="Title7 GTitle2" id="Trace-de-courbes-2D-avec-QCustomPlot-Creer-un-graphe-avec-une-image-de-fond"><a class="Link9" href="#Trace-de-courbes-2D-avec-QCustomPlot">Créer un graphe avec une image de fond</a></h2><br>La méthode <b>QCPAxisRect :: setBackground</b> permet de définir le pixmap d'arrière-plan de l'axe rect, s'il doit être mis à l'échelle et comment il doit être mis à l'échelle en un seul appel.<br><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GWindow.h"
+//===============================================
+int main(int argc, char** argv) {
+    QApplication app(argc, argv);
+    
+    GWindow* lWindow = new GWindow;
+    lWindow-&gt;setWindowTitle("ReadyApp");
+    lWindow-&gt;resize(500, 300);
+    lWindow-&gt;show();
+    
+    return app.exec();
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GWindow.h</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//================================================
+#ifndef _GWindow_
+#define _GWindow_
+//================================================
+#include &lt;QApplication&gt;
+#include &lt;QtWidgets&gt;
+#include &lt;qcustomplot.h&gt;
+//================================================
+class GWindow : public QFrame {
+    Q_OBJECT
+    
+public:
+    GWindow(QWidget* parent = 0);
+    ~GWindow();
+    
+private:
+    QCustomPlot* customPlot;
+};
+//================================================
+#endif
+//================================================</pre></div></div><br><h3 class="Title8 GTitle3">GWindow.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//================================================
+#include "GWindow.h"
+//================================================
+GWindow::GWindow(QWidget* parent) : QFrame(parent) {
+    customPlot = new QCustomPlot;
+
+    customPlot-&gt;axisRect()-&gt;setBackground(QPixmap("solarpanels.jpg"));
+    
+    customPlot-&gt;addGraph();
+    customPlot-&gt;graph()-&gt;setLineStyle(QCPGraph::lsLine);
+    
+    QPen pen;
+    pen.setColor(QColor(255, 200, 20, 200));
+    pen.setStyle(Qt::DashLine);
+    pen.setWidthF(2.5);
+    
+    customPlot-&gt;graph()-&gt;setPen(pen);
+    customPlot-&gt;graph()-&gt;setBrush(QBrush(QColor(255,200,20,70)));
+    customPlot-&gt;graph()-&gt;setScatterStyle(QCPScatterStyle(QPixmap("./sun.png")));
+
+    customPlot-&gt;graph()-&gt;setName("Data from Photovoltaic\nenergy barometer 2011");
+
+    QVector&lt;double&gt; year, value;
+    year  &lt;&lt; 2005 &lt;&lt; 2006 &lt;&lt; 2007 &lt;&lt; 2008  &lt;&lt; 2009  &lt;&lt; 2010 &lt;&lt; 2011;
+    value &lt;&lt; 2.17 &lt;&lt; 3.42 &lt;&lt; 4.94 &lt;&lt; 10.38 &lt;&lt; 15.86 &lt;&lt; 29.33 &lt;&lt; 52.1;
+    customPlot-&gt;graph()-&gt;setData(year, value);
+
+    customPlot-&gt;plotLayout()-&gt;insertRow(0);
+    customPlot-&gt;plotLayout()-&gt;addElement(0, 0, new QCPTextElement(customPlot, "Regenerative Energies", QFont("sans", 12, QFont::Bold)));
+
+    customPlot-&gt;xAxis-&gt;setLabel("Year");
+    customPlot-&gt;yAxis-&gt;setLabel("Installed Gigawatts of\nphotovoltaic in the European Union");
+    customPlot-&gt;xAxis2-&gt;setVisible(true);
+    customPlot-&gt;yAxis2-&gt;setVisible(true);
+    customPlot-&gt;xAxis2-&gt;setTickLabels(false);
+    customPlot-&gt;yAxis2-&gt;setTickLabels(false);
+    customPlot-&gt;xAxis2-&gt;setTicks(false);
+    customPlot-&gt;yAxis2-&gt;setTicks(false);
+    customPlot-&gt;xAxis2-&gt;setSubTicks(false);
+    customPlot-&gt;yAxis2-&gt;setSubTicks(false);
+    customPlot-&gt;xAxis-&gt;setRange(2004.5, 2011.5);
+    customPlot-&gt;yAxis-&gt;setRange(0, 52);
+
+    customPlot-&gt;legend-&gt;setFont(QFont(font().family(), 7));
+    customPlot-&gt;legend-&gt;setIconSize(50, 20);
+    customPlot-&gt;legend-&gt;setVisible(true);
+    customPlot-&gt;axisRect()-&gt;insetLayout()-&gt;setInsetAlignment(0, Qt::AlignLeft | Qt::AlignTop);
+
+    QVBoxLayout* lMainLayout = new QVBoxLayout;
+    lMainLayout-&gt;addWidget(customPlot);
+
+    setLayout(lMainLayout);
+}
+//================================================
+GWindow::~GWindow() {
+
+}
+//================================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_image.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_image.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Vision-par-Ordinateur-avec-OpenCV"><a class="Link3" href="#">Vision par Ordinateur avec OpenCV</a></h1><div class="Body3"><br><b>OpenCV </b>est une bibliothèque graphique libre, spécialisée dans le traitement d'images en temps réel. La bibliothèque OpenCV met à disposition de nombreuses fonctionnalités très diversifiées permettant de créer des programmes en partant des données brutes pour aller jusqu'à la création d'interfaces graphiques basiques. OpenCV propose la plupart des opérations classiques en traitement bas niveau des images : lecture, écriture et affichage d’une image ; calcul de l'histogramme des niveaux de gris ou d'histogrammes couleurs ; lissage, filtrage ; seuillage d'image (méthode d'Otsu, seuillage adaptatif) ; segmentation (composantes connexes, GrabCut) ; morphologie mathématique.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1617840709282"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1617840709282");</script></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/b_opencv.png" class="lazy entered loaded" data-src="/Tutoriels/Software_Development/Cpp/img/b_opencv.png" data-ll-status="loaded" src="/Tutoriels/Software_Development/Cpp/img/b_opencv.png"></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Installer-l-environnement-OpenCV-sous-MSYS2"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Installer l'environnement OpenCV sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Télécharger OpenCV</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">pacman -S --needed --noconfirm mingw-w64-i686-opencv</pre></div></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Tester-un-projet-OpenCV-sous-MSYS2"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Tester un projet OpenCV sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Éditer le programme (main.cpp)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;opencv2/opencv.hpp&gt;
 //===============================================
 int main(int argc, char** argv) {
@@ -3429,7 +3703,7 @@ int main(int argc, char** argv) {
 -lopencv_plot -lopencv_videostab -lopencv_videoio -lopencv_xfeatures2d -lopencv_shape \
 -lopencv_ml -lopencv_ximgproc -lopencv_video -lopencv_dnn -lopencv_xobjdetect \
 -lopencv_objdetect -lopencv_calib3d -lopencv_imgcodecs -lopencv_features2d -lopencv_flann \
--lopencv_xphoto -lopencv_photo -lopencv_imgproc -lopencv_core</pre></div></div><br><h3 class="Title8 GTitle3">Exécuter le projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">./rdcpp.exe</pre></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_opencv_test.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/i_opencv_test.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Calcul-scientifique-avec-GSL"><a class="Link3" href="#">Calcul scientifique avec GSL</a></h1><div class="Body3"><br><b>GSL </b>est une bibliothèque de calcul scientifique comportant une collection de routines pour le calcul numérique. Les routines ont été écrites à partir de zéro en C et présentent une interface de programmation d'applications (API) moderne pour les programmeurs C, permettant d'écrire des wrappers pour des langages de très haut niveau. Le code source est distribué sous la licence publique générale GNU.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1617832634274"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1617832634274");</script></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/b_gsl.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/b_gsl.png"></div><br><h2 class="Title7 GTitle2" id="Calcul-scientifique-avec-GSL-Installer-l-environnement-GSL-sous-MSYS2"><a class="Link9" href="#Calcul-scientifique-avec-GSL">Installer l'environnement GSL sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Installer GSL</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">pacman -S --needed --noconfirm mingw-w64-i686-gsl</pre></div></div><br><h2 class="Title7 GTitle2" id="Calcul-scientifique-avec-GSL-Tester-un-projet-GSL-sous-MSYS2"><a class="Link9" href="#Calcul-scientifique-avec-GSL">Tester un projet GSL sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Editer le programme (main.cpp)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
+-lopencv_xphoto -lopencv_photo -lopencv_imgproc -lopencv_core</pre></div></div><br><h3 class="Title8 GTitle3">Exécuter le projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">./rdcpp.exe</pre></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_opencv_test.png" class="lazy entered loaded" data-src="/Tutoriels/Software_Development/Cpp/img/i_opencv_test.png" data-ll-status="loaded" src="/Tutoriels/Software_Development/Cpp/img/i_opencv_test.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Calcul-scientifique-avec-GSL"><a class="Link3" href="#">Calcul scientifique avec GSL</a></h1><div class="Body3"><br><b>GSL </b>est une bibliothèque de calcul scientifique comportant une collection de routines pour le calcul numérique. Les routines ont été écrites à partir de zéro en C et présentent une interface de programmation d'applications (API) moderne pour les programmeurs C, permettant d'écrire des wrappers pour des langages de très haut niveau. Le code source est distribué sous la licence publique générale GNU.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1617832634274"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1617832634274");</script></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/b_gsl.png" class="lazy entered loaded" data-src="/Tutoriels/Software_Development/Cpp/img/b_gsl.png" data-ll-status="loaded" src="/Tutoriels/Software_Development/Cpp/img/b_gsl.png"></div><br><h2 class="Title7 GTitle2" id="Calcul-scientifique-avec-GSL-Installer-l-environnement-GSL-sous-MSYS2"><a class="Link9" href="#Calcul-scientifique-avec-GSL">Installer l'environnement GSL sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Installer GSL</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">pacman -S --needed --noconfirm mingw-w64-i686-gsl</pre></div></div><br><h2 class="Title7 GTitle2" id="Calcul-scientifique-avec-GSL-Tester-un-projet-GSL-sous-MSYS2"><a class="Link9" href="#Calcul-scientifique-avec-GSL">Tester un projet GSL sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Editer le programme (main.cpp)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 #include &lt;gsl/gsl_sf_bessel.h&gt;
 //===============================================
@@ -3567,7 +3841,7 @@ int main(int argc, char** argv) {
     gsl_odeiv2_driver_free (d);
     return app.exec();
 }
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_ode_2.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_ode_2.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="C---Builder"><a class="Link3" href="#">C++ Builder</a></h1><div class="Body3"><br><b>C++Builder</b> est un logiciel de développement rapide d'applications (RAD) conçu par Borland qui reprend les mêmes concepts, la même interface et la même bibliothèque que Delphi en utilisant le langage C++. Il permet de créer rapidement des applications Win32, Win64, MacOS, iOS, Android, ainsi qu'une interface graphique avec son éditeur de ressources. Utilisant en interne le compilateur Clang, ll est compatible avec la version de norme ISO C++ C++17. <br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1622227586232"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1622227586232");</script></div><br><h2 class="Title7 GTitle2" id="C---Builder-Installer-l-environnement-C--Builder-sous-Windows"><a class="Link9" href="#C---Builder">Installer l'environnement C++Builder sous Windows</a></h2><br><h3 class="Title8 GTitle3">Télécharger C++Builder</h3><br><b>RADStudio-1042-esd-4203.exe</b><br><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.embarcadero.com/fr/products/cbuilder/start-for-free">https://www.embarcadero.com/fr/products/cbuilder/start-for-free</a><br><br><h3 class="Title8 GTitle3">Installer C++Builder</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">RADStudio-1042-esd-4203.exe
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_ode_2.png" class="lazy entered loaded" data-src="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_ode_2.png" data-ll-status="loaded" src="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_ode_2.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="C---Builder"><a class="Link3" href="#">C++ Builder</a></h1><div class="Body3"><br><b>C++Builder</b> est un logiciel de développement rapide d'applications (RAD) conçu par Borland qui reprend les mêmes concepts, la même interface et la même bibliothèque que Delphi en utilisant le langage C++. Il permet de créer rapidement des applications Win32, Win64, MacOS, iOS, Android, ainsi qu'une interface graphique avec son éditeur de ressources. Utilisant en interne le compilateur Clang, ll est compatible avec la version de norme ISO C++ C++17. <br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1622227586232"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1622227586232");</script></div><br><h2 class="Title7 GTitle2" id="C---Builder-Installer-l-environnement-C--Builder-sous-Windows"><a class="Link9" href="#C---Builder">Installer l'environnement C++Builder sous Windows</a></h2><br><h3 class="Title8 GTitle3">Télécharger C++Builder</h3><br><b>RADStudio-1042-esd-4203.exe</b><br><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.embarcadero.com/fr/products/cbuilder/start-for-free">https://www.embarcadero.com/fr/products/cbuilder/start-for-free</a><br><br><h3 class="Title8 GTitle3">Installer C++Builder</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">RADStudio-1042-esd-4203.exe
 Cocher -&gt; J'accepte le contrat de licence RAD Studio et la politique de confidentialité
 Suivant
 Cocher -&gt; Je me suis inscrit pour une version d'évaluation sur embarcadero.com
