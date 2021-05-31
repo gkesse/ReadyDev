@@ -3194,7 +3194,219 @@ SOURCES +=\
     
 HEADERS +=\
     $$PWD/qcustomplot.h \</pre></div></div><br><h3 class="Title8 GTitle3">Compiler le projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">export "PATH=/mingw32/bin:$PATH"</pre></div></div><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="txt">qmake
-make</pre></div></div><br><h3 class="Title8 GTitle3">Exécuter le projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="txt">./release/rdcpp.exe</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_test.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_test.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Vision-par-Ordinateur-avec-OpenCV"><a class="Link3" href="#">Vision par Ordinateur avec OpenCV</a></h1><div class="Body3"><br><b>OpenCV </b>est une bibliothèque graphique libre, spécialisée dans le traitement d'images en temps réel. La bibliothèque OpenCV met à disposition de nombreuses fonctionnalités très diversifiées permettant de créer des programmes en partant des données brutes pour aller jusqu'à la création d'interfaces graphiques basiques. OpenCV propose la plupart des opérations classiques en traitement bas niveau des images : lecture, écriture et affichage d’une image ; calcul de l'histogramme des niveaux de gris ou d'histogrammes couleurs ; lissage, filtrage ; seuillage d'image (méthode d'Otsu, seuillage adaptatif) ; segmentation (composantes connexes, GrabCut) ; morphologie mathématique.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1617840709282"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1617840709282");</script></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/b_opencv.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/b_opencv.png"></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Installer-l-environnement-OpenCV-sous-MSYS2"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Installer l'environnement OpenCV sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Télécharger OpenCV</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">pacman -S --needed --noconfirm mingw-w64-i686-opencv</pre></div></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Tester-un-projet-OpenCV-sous-MSYS2"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Tester un projet OpenCV sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Éditer le programme (main.cpp)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
+make</pre></div></div><br><h3 class="Title8 GTitle3">Exécuter le projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="txt">./release/rdcpp.exe</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_test.png" class="lazy entered loaded" data-src="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_test.png" data-ll-status="loaded" src="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_test.png"></div><br><h2 class="Title7 GTitle2" id="Trace-de-courbes-2D-avec-QCustomPlot-Creer-un-graphe-avec-des-interactions"><a class="Link9" href="#Trace-de-courbes-2D-avec-QCustomPlot">Créer un graphe avec des interactions</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GWindow.h"
+//===============================================
+int main(int argc, char** argv) {
+    QApplication app(argc, argv);
+    
+    GWindow* lWindow = new GWindow;
+    lWindow-&gt;setWindowTitle("ReadyApp");
+    lWindow-&gt;resize(500, 300);
+    lWindow-&gt;show();
+    
+    return app.exec();
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GWindow.h</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//================================================
+#ifndef _GWindow_
+#define _GWindow_
+//================================================
+#include &lt;QApplication&gt;
+#include &lt;QtWidgets&gt;
+#include &lt;qcustomplot.h&gt;
+//================================================
+class GWindow : public QFrame {
+    Q_OBJECT
+    
+public:
+    GWindow(QWidget* parent = 0);
+    ~GWindow();
+    
+private:
+    QCustomPlot* customPlot;
+};
+//================================================
+#endif
+//================================================</pre></div></div><br><h3 class="Title8 GTitle3">GWindow.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//================================================
+#include "GWindow.h"
+//================================================
+GWindow::GWindow(QWidget* parent) : QFrame(parent) {
+    customPlot = new QCustomPlot;
+    
+    customPlot-&gt;addGraph();
+    customPlot-&gt;graph(0)-&gt;setPen(QPen(Qt::blue)); 
+    customPlot-&gt;graph(0)-&gt;setBrush(QBrush(QColor(0, 0, 255, 20))); 
+    customPlot-&gt;addGraph();
+    customPlot-&gt;graph(1)-&gt;setPen(QPen(Qt::red)); 
+
+    QVector&lt;double&gt; x(250), y0(250), y1(250);
+    for (int i=0; i&lt;250; ++i) {
+        x[i] = i;
+        y0[i] = qExp(-i/150.0)*qCos(i/10.0);
+        y1[i] = qExp(-i/150.0);
+    }
+
+    customPlot-&gt;xAxis2-&gt;setVisible(true);
+    customPlot-&gt;xAxis2-&gt;setTickLabels(false);
+    customPlot-&gt;yAxis2-&gt;setVisible(true);
+    customPlot-&gt;yAxis2-&gt;setTickLabels(false);
+
+    connect(customPlot-&gt;xAxis, SIGNAL(rangeChanged(QCPRange)), customPlot-&gt;xAxis2, SLOT(setRange(QCPRange)));
+    connect(customPlot-&gt;yAxis, SIGNAL(rangeChanged(QCPRange)), customPlot-&gt;yAxis2, SLOT(setRange(QCPRange)));
+
+    customPlot-&gt;graph(0)-&gt;setData(x, y0);
+    customPlot-&gt;graph(1)-&gt;setData(x, y1);
+
+    customPlot-&gt;graph(0)-&gt;rescaleAxes();
+    customPlot-&gt;graph(1)-&gt;rescaleAxes(true);
+
+    customPlot-&gt;setInteractions(QCP::iRangeDrag | QCP::iRangeZoom | QCP::iSelectPlottables);    
+
+    QVBoxLayout* lMainLayout = new QVBoxLayout;
+    lMainLayout-&gt;addWidget(customPlot);
+    
+    setLayout(lMainLayout);
+}
+//================================================
+GWindow::~GWindow() {
+    
+}
+//================================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_interactions.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_interactions.gif"></div><br><h2 class="Title7 GTitle2" id="Trace-de-courbes-2D-avec-QCustomPlot-Creer-un-graphe-avec-un-nuage-de-points"><a class="Link9" href="#Trace-de-courbes-2D-avec-QCustomPlot">Créer un graphe avec un nuage de points</a></h2><br>En statistiques, un <b>nuage de points</b> est une représentation de données dépendant de plusieurs variables. Il permet de mettre en évidence le degré de corrélation entre au moins deux variables liées. Les différentes observations des nuages de points permettent de déterminer : des tendances ; des dépendances ; des relations positives, négatives, directes, indirectes ou inverses ; des répartitions plus ou moins homogènes ; des données aberrantes s'écartant de l'écart type ; des sous groupes pouvant correspondre à l'application d'une loi normale.<br><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GWindow.h"
+//===============================================
+int main(int argc, char** argv) {
+    QApplication app(argc, argv);
+    
+    GWindow* lWindow = new GWindow;
+    lWindow-&gt;setWindowTitle("ReadyApp");
+    lWindow-&gt;resize(500, 300);
+    lWindow-&gt;show();
+    
+    return app.exec();
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GWindow.h</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//================================================
+#ifndef _GWindow_
+#define _GWindow_
+//================================================
+#include &lt;QApplication&gt;
+#include &lt;QtWidgets&gt;
+#include &lt;qcustomplot.h&gt;
+//================================================
+class GWindow : public QFrame {
+    Q_OBJECT
+    
+public:
+    GWindow(QWidget* parent = 0);
+    ~GWindow();
+    
+private:
+    QCustomPlot* customPlot;
+};
+//================================================
+#endif
+//================================================</pre></div></div><br><h3 class="Title8 GTitle3">GWindow.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//================================================
+#include "GWindow.h"
+//================================================
+GWindow::GWindow(QWidget* parent) : QFrame(parent) {
+    customPlot = new QCustomPlot;
+    
+    customPlot-&gt;legend-&gt;setVisible(true);
+    customPlot-&gt;legend-&gt;setFont(QFont("Helvetica",9));
+
+    customPlot-&gt;setLocale(QLocale(QLocale::English, QLocale::UnitedKingdom));
+
+    //graph(0)
+    customPlot-&gt;addGraph();
+    
+    QPen pen;
+    pen.setStyle(Qt::DotLine);
+    pen.setWidth(1);
+    pen.setColor(QColor(180,180,180));
+    
+    customPlot-&gt;graph(0)-&gt;setName("Confidence Band 68%");
+    customPlot-&gt;graph(0)-&gt;setPen(pen);
+    customPlot-&gt;graph(0)-&gt;setBrush(QBrush(QColor(255,50,30,20)));
+    
+    customPlot-&gt;addGraph();
+    
+    customPlot-&gt;legend-&gt;removeItem(customPlot-&gt;legend-&gt;itemCount()-1); 
+
+    customPlot-&gt;graph(1)-&gt;setPen(pen);
+    customPlot-&gt;graph(0)-&gt;setChannelFillGraph(customPlot-&gt;graph(1));
+
+    //graph(1)
+    customPlot-&gt;addGraph();
+    
+    pen.setStyle(Qt::DashLine);
+    pen.setWidth(2);
+    pen.setColor(Qt::red);
+    
+    customPlot-&gt;graph(2)-&gt;setPen(pen);
+    customPlot-&gt;graph(2)-&gt;setName("Theory Curve");
+    
+    // graph(3)
+    customPlot-&gt;addGraph();
+    customPlot-&gt;graph(3)-&gt;setPen(QPen(Qt::blue));
+    customPlot-&gt;graph(3)-&gt;setName("Measurement");
+    customPlot-&gt;graph(3)-&gt;setLineStyle(QCPGraph::lsNone);
+    customPlot-&gt;graph(3)-&gt;setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssCross, 4));
+    // errorBars
+    QCPErrorBars *errorBars = new QCPErrorBars(customPlot-&gt;xAxis, customPlot-&gt;yAxis);
+    errorBars-&gt;removeFromLegend();
+    errorBars-&gt;setAntialiased(false);
+    errorBars-&gt;setDataPlottable(customPlot-&gt;graph(3));
+    errorBars-&gt;setPen(QPen(QColor(180,180,180)));
+
+    QVector&lt;double&gt; x0(250), y0(250);
+    QVector&lt;double&gt; yConfUpper(250), yConfLower(250);
+    for (int i=0; i&lt;250; ++i) {
+        x0[i] = (i/249.0-0.5)*30+0.01; 
+        y0[i] = qSin(x0[i])/x0[i]; 
+        yConfUpper[i] = y0[i]+0.15;
+        yConfLower[i] = y0[i]-0.15;
+        x0[i] *= 1000;
+    }
+    
+    QVector&lt;double&gt; x1(50), y1(50), y1err(50);
+    for (int i=0; i&lt;50; ++i) {
+        double tmp1 = rand()/(double)RAND_MAX;
+        double tmp2 = rand()/(double)RAND_MAX;
+        double r = qSqrt(-2*qLn(tmp1))*qCos(2*M_PI*tmp2); // box-muller transform for gaussian distribution
+
+        x1[i] = (i/50.0-0.5)*30+0.25;
+        y1[i] = qSin(x1[i])/x1[i]+r*0.15;
+        x1[i] *= 1000;
+        y1err[i] = 0.15;
+    }
+
+    //setData
+    customPlot-&gt;graph(0)-&gt;setData(x0, yConfUpper);
+    customPlot-&gt;graph(1)-&gt;setData(x0, yConfLower);
+    customPlot-&gt;graph(2)-&gt;setData(x0, y0);
+    customPlot-&gt;graph(3)-&gt;setData(x1, y1);
+    errorBars-&gt;setData(y1err);
+    // rescaleAxes
+    customPlot-&gt;graph(2)-&gt;rescaleAxes();
+    customPlot-&gt;graph(3)-&gt;rescaleAxes(true);
+    // xAxis
+    customPlot-&gt;xAxis-&gt;setTickLabelRotation(30);
+    customPlot-&gt;xAxis-&gt;ticker()-&gt;setTickCount(9);
+    customPlot-&gt;xAxis-&gt;setNumberFormat("ebc");
+    customPlot-&gt;xAxis-&gt;setNumberPrecision(1);
+    customPlot-&gt;xAxis-&gt;moveRange(-10);
+    // setupFullAxesBox
+    customPlot-&gt;axisRect()-&gt;setupFullAxesBox();
+  
+    QVBoxLayout* lMainLayout = new QVBoxLayout;
+    lMainLayout-&gt;addWidget(customPlot);
+    
+    setLayout(lMainLayout);
+}
+//================================================
+GWindow::~GWindow() {
+    
+}
+//================================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_scatter.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_scatter.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Vision-par-Ordinateur-avec-OpenCV"><a class="Link3" href="#">Vision par Ordinateur avec OpenCV</a></h1><div class="Body3"><br><b>OpenCV </b>est une bibliothèque graphique libre, spécialisée dans le traitement d'images en temps réel. La bibliothèque OpenCV met à disposition de nombreuses fonctionnalités très diversifiées permettant de créer des programmes en partant des données brutes pour aller jusqu'à la création d'interfaces graphiques basiques. OpenCV propose la plupart des opérations classiques en traitement bas niveau des images : lecture, écriture et affichage d’une image ; calcul de l'histogramme des niveaux de gris ou d'histogrammes couleurs ; lissage, filtrage ; seuillage d'image (méthode d'Otsu, seuillage adaptatif) ; segmentation (composantes connexes, GrabCut) ; morphologie mathématique.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1617840709282"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1617840709282");</script></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/b_opencv.png" class="lazy entered loaded" data-src="/Tutoriels/Software_Development/Cpp/img/b_opencv.png" data-ll-status="loaded" src="/Tutoriels/Software_Development/Cpp/img/b_opencv.png"></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Installer-l-environnement-OpenCV-sous-MSYS2"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Installer l'environnement OpenCV sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Télécharger OpenCV</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">pacman -S --needed --noconfirm mingw-w64-i686-opencv</pre></div></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Tester-un-projet-OpenCV-sous-MSYS2"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Tester un projet OpenCV sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Éditer le programme (main.cpp)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;opencv2/opencv.hpp&gt;
 //===============================================
 int main(int argc, char** argv) {
