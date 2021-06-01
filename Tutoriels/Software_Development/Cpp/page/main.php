@@ -4060,7 +4060,218 @@ void GWindow::realtimeDataSlot() {
         frameCount = 0;
     }
 }
-//================================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_realtime.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_realtime.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Vision-par-Ordinateur-avec-OpenCV"><a class="Link3" href="#">Vision par Ordinateur avec OpenCV</a></h1><div class="Body3"><br><b>OpenCV </b>est une bibliothèque graphique libre, spécialisée dans le traitement d'images en temps réel. La bibliothèque OpenCV met à disposition de nombreuses fonctionnalités très diversifiées permettant de créer des programmes en partant des données brutes pour aller jusqu'à la création d'interfaces graphiques basiques. OpenCV propose la plupart des opérations classiques en traitement bas niveau des images : lecture, écriture et affichage d’une image ; calcul de l'histogramme des niveaux de gris ou d'histogrammes couleurs ; lissage, filtrage ; seuillage d'image (méthode d'Otsu, seuillage adaptatif) ; segmentation (composantes connexes, GrabCut) ; morphologie mathématique.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV-Installer-l-environnement-OpenCV-sous-MSYS2">Installer l'environnement OpenCV sous MSYS2</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV-Tester-un-projet-OpenCV-sous-MSYS2">Tester un projet OpenCV sous MSYS2</a></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/b_opencv.png" class="lazy entered loaded" data-src="/Tutoriels/Software_Development/Cpp/img/b_opencv.png" data-ll-status="loaded" src="/Tutoriels/Software_Development/Cpp/img/b_opencv.png"></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Installer-l-environnement-OpenCV-sous-MSYS2"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Installer l'environnement OpenCV sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Télécharger OpenCV</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">pacman -S --needed --noconfirm mingw-w64-i686-opencv</pre></div></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Tester-un-projet-OpenCV-sous-MSYS2"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Tester un projet OpenCV sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Éditer le programme (main.cpp)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
+//================================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_realtime.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_realtime.gif"></div><br><h2 class="Title7 GTitle2" id="Trace-de-courbes-2D-avec-QCustomPlot-Creer-un-graphe-parametrique"><a class="Link9" href="#Trace-de-courbes-2D-avec-QCustomPlot">Créer un graphe paramétrique</a></h2><br>En mathématiques, une <b>représentation paramétrique</b> ou paramétrage d’un ensemble est sa description comme ensemble image d’une fonction d’une ou plusieurs variables appelées alors paramètres. Pour un ensemble de points du plan ou d’un espace de plus grande dimension muni d’un repère, l’expression des différentes composantes se décompose en équations paramétriques. En particulier, elle peut définir un chemin ou un ensemble géométrique ; comme une courbe ou une surface. Elle est importante en cinématique ; le paramètre est alors généralement le temps. Cette représentation est duale de la description de l’ensemble par des équations cartésiennes.<br><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GWindow.h"
+//===============================================
+int main(int argc, char** argv) {
+    QApplication app(argc, argv);
+    
+    GWindow* lWindow = new GWindow;
+    lWindow-&gt;setWindowTitle("ReadyApp");
+    lWindow-&gt;resize(500, 300);
+    lWindow-&gt;show();
+    
+    return app.exec();
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GWindow.h</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//================================================
+#ifndef _GWindow_
+#define _GWindow_
+//================================================
+#include &lt;QApplication&gt;
+#include &lt;QtWidgets&gt;
+#include &lt;qcustomplot.h&gt;
+//================================================
+class GWindow : public QFrame {
+    Q_OBJECT
+    
+public:
+    GWindow(QWidget* parent = 0);
+    ~GWindow();
+    
+private:
+    QCustomPlot* customPlot;
+};
+//================================================
+#endif
+//================================================</pre></div></div><br><h3 class="Title8 GTitle3">GWindow.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//================================================
+#include "GWindow.h"
+//================================================
+GWindow::GWindow(QWidget* parent) : QFrame(parent) {
+    customPlot = new QCustomPlot;
+
+    QCPCurve *fermatSpiral1 = new QCPCurve(customPlot-&gt;xAxis, customPlot-&gt;yAxis);
+    QCPCurve *fermatSpiral2 = new QCPCurve(customPlot-&gt;xAxis, customPlot-&gt;yAxis);
+    QCPCurve *deltoidRadial = new QCPCurve(customPlot-&gt;xAxis, customPlot-&gt;yAxis);
+
+    const int pointCount = 500;
+    QVector&lt;QCPCurveData&gt; dataSpiral1(pointCount), dataSpiral2(pointCount), dataDeltoid(pointCount);
+    for (int i=0; i&lt;pointCount; ++i) {
+        double phi = i/(double)(pointCount-1)*8*M_PI;
+        double theta = i/(double)(pointCount-1)*2*M_PI;
+        dataSpiral1[i] = QCPCurveData(i, qSqrt(phi)*qCos(phi), qSqrt(phi)*qSin(phi));
+        dataSpiral2[i] = QCPCurveData(i, -dataSpiral1[i].key, -dataSpiral1[i].value);
+        dataDeltoid[i] = QCPCurveData(i, 2*qCos(2*theta)+qCos(1*theta)+2*qSin(theta), 2*qSin(2*theta)-qSin(1*theta));
+    }
+
+    fermatSpiral1-&gt;data()-&gt;set(dataSpiral1, true);
+    fermatSpiral2-&gt;data()-&gt;set(dataSpiral2, true);
+    deltoidRadial-&gt;data()-&gt;set(dataDeltoid, true);
+
+    fermatSpiral1-&gt;setPen(QPen(Qt::blue));
+    fermatSpiral1-&gt;setBrush(QBrush(QColor(0, 0, 255, 20)));
+    fermatSpiral2-&gt;setPen(QPen(QColor(255, 120, 0)));
+    fermatSpiral2-&gt;setBrush(QBrush(QColor(255, 120, 0, 30)));
+
+    QRadialGradient radialGrad(QPointF(310, 180), 200);
+    radialGrad.setColorAt(0, QColor(170, 20, 240, 100));
+    radialGrad.setColorAt(0.5, QColor(20, 10, 255, 40));
+    radialGrad.setColorAt(1,QColor(120, 20, 240, 10));
+
+    deltoidRadial-&gt;setPen(QPen(QColor(170, 20, 240)));
+    deltoidRadial-&gt;setBrush(QBrush(radialGrad));
+
+    customPlot-&gt;setInteractions(QCP::iRangeDrag | QCP::iRangeZoom | QCP::iSelectPlottables);
+    customPlot-&gt;axisRect()-&gt;setupFullAxesBox();
+    customPlot-&gt;rescaleAxes();
+
+    QVBoxLayout* lMainLayout = new QVBoxLayout;
+    lMainLayout-&gt;addWidget(customPlot);
+
+    setLayout(lMainLayout);
+}
+//================================================
+GWindow::~GWindow() {
+
+}
+//================================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_curveparametric.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_curveparametric.gif"></div><br><h2 class="Title7 GTitle2" id="Trace-de-courbes-2D-avec-QCustomPlot-Creer-un-graphe-a-barres"><a class="Link9" href="#Trace-de-courbes-2D-avec-QCustomPlot">Créer un graphe à barres</a></h2><br>Un <b>diagramme à barres</b> (ou en barres), également appelé diagramme à bâtons (ou en bâtons), est un graphique qui présente des variables catégorielles avec des barres rectangulaires avec des hauteurs ou des longueurs proportionnelles aux valeurs qu'elles représentent. Les barres peuvent être tracées verticalement ou horizontalement. Un diagramme à barres montre des comparaisons entre des catégories discrètes. Un axe du diagramme montre les catégories spécifiques comparées et l'autre axe représente une valeur mesurée. Certains diagrammes à barres présentent des barres regroupées, indiquant les valeurs de plusieurs variables mesurées.<br><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GWindow.h"
+//===============================================
+int main(int argc, char** argv) {
+    QApplication app(argc, argv);
+    
+    GWindow* lWindow = new GWindow;
+    lWindow-&gt;setWindowTitle("ReadyApp");
+    lWindow-&gt;resize(500, 300);
+    lWindow-&gt;show();
+    
+    return app.exec();
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GWindow.h</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//================================================
+#ifndef _GWindow_
+#define _GWindow_
+//================================================
+#include &lt;QApplication&gt;
+#include &lt;QtWidgets&gt;
+#include &lt;qcustomplot.h&gt;
+//================================================
+class GWindow : public QFrame {
+    Q_OBJECT
+    
+public:
+    GWindow(QWidget* parent = 0);
+    ~GWindow();
+    
+private:
+    QCustomPlot* customPlot;
+};
+//================================================
+#endif
+//================================================</pre></div></div><br><h3 class="Title8 GTitle3">GWindow.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//================================================
+#include "GWindow.h"
+//================================================
+GWindow::GWindow(QWidget* parent) : QFrame(parent) {
+    customPlot = new QCustomPlot;
+
+    QLinearGradient gradient(0, 0, 0, 400);
+    gradient.setColorAt(0, QColor(90, 90, 90));
+    gradient.setColorAt(0.38, QColor(105, 105, 105));
+    gradient.setColorAt(1, QColor(70, 70, 70));
+    customPlot-&gt;setBackground(QBrush(gradient));
+
+    QCPBars *regen = new QCPBars(customPlot-&gt;xAxis, customPlot-&gt;yAxis);
+    QCPBars *nuclear = new QCPBars(customPlot-&gt;xAxis, customPlot-&gt;yAxis);
+    QCPBars *fossil = new QCPBars(customPlot-&gt;xAxis, customPlot-&gt;yAxis);
+
+    regen-&gt;setAntialiased(false); 
+    nuclear-&gt;setAntialiased(false);
+    fossil-&gt;setAntialiased(false);
+
+    regen-&gt;setStackingGap(1);
+    nuclear-&gt;setStackingGap(1);
+    fossil-&gt;setStackingGap(1);
+
+    fossil-&gt;setName("Fossil fuels");
+    fossil-&gt;setPen(QPen(QColor(111, 9, 176).lighter(170)));
+    fossil-&gt;setBrush(QColor(111, 9, 176));
+
+    nuclear-&gt;setName("Nuclear");
+    nuclear-&gt;setPen(QPen(QColor(250, 170, 20).lighter(150)));
+    nuclear-&gt;setBrush(QColor(250, 170, 20));
+
+    regen-&gt;setName("Regenerative");
+    regen-&gt;setPen(QPen(QColor(0, 168, 140).lighter(130)));
+    regen-&gt;setBrush(QColor(0, 168, 140));
+
+    nuclear-&gt;moveAbove(fossil);
+    regen-&gt;moveAbove(nuclear);
+
+    QVector&lt;double&gt; ticks;
+    QVector&lt;QString&gt; labels;
+    ticks &lt;&lt; 1 &lt;&lt; 2 &lt;&lt; 3 &lt;&lt; 4 &lt;&lt; 5 &lt;&lt; 6 &lt;&lt; 7;
+    labels &lt;&lt; "USA" &lt;&lt; "Japan" &lt;&lt; "Germany" &lt;&lt; "France" &lt;&lt; "UK" &lt;&lt; "Italy" &lt;&lt; "Canada";
+    QSharedPointer&lt;QCPAxisTickerText&gt; textTicker(new QCPAxisTickerText);
+    textTicker-&gt;addTicks(ticks, labels);
+    customPlot-&gt;xAxis-&gt;setTicker(textTicker);
+    customPlot-&gt;xAxis-&gt;setTickLabelRotation(60);
+    customPlot-&gt;xAxis-&gt;setSubTicks(false);
+    customPlot-&gt;xAxis-&gt;setTickLength(0, 4);
+    customPlot-&gt;xAxis-&gt;setRange(0, 8);
+    customPlot-&gt;xAxis-&gt;setBasePen(QPen(Qt::white));
+    customPlot-&gt;xAxis-&gt;setTickPen(QPen(Qt::white));
+    customPlot-&gt;xAxis-&gt;grid()-&gt;setVisible(true);
+    customPlot-&gt;xAxis-&gt;grid()-&gt;setPen(QPen(QColor(130, 130, 130), 0, Qt::DotLine));
+    customPlot-&gt;xAxis-&gt;setTickLabelColor(Qt::white);
+    customPlot-&gt;xAxis-&gt;setLabelColor(Qt::white);
+
+    customPlot-&gt;yAxis-&gt;setRange(0, 12.1);
+    customPlot-&gt;yAxis-&gt;setPadding(5); 
+    customPlot-&gt;yAxis-&gt;setLabel("Power Consumption in\nKilowatts per Capita (2007)");
+    customPlot-&gt;yAxis-&gt;setBasePen(QPen(Qt::white));
+    customPlot-&gt;yAxis-&gt;setTickPen(QPen(Qt::white));
+    customPlot-&gt;yAxis-&gt;setSubTickPen(QPen(Qt::white));
+    customPlot-&gt;yAxis-&gt;grid()-&gt;setSubGridVisible(true);
+    customPlot-&gt;yAxis-&gt;setTickLabelColor(Qt::white);
+    customPlot-&gt;yAxis-&gt;setLabelColor(Qt::white);
+    customPlot-&gt;yAxis-&gt;grid()-&gt;setPen(QPen(QColor(130, 130, 130), 0, Qt::SolidLine));
+    customPlot-&gt;yAxis-&gt;grid()-&gt;setSubGridPen(QPen(QColor(130, 130, 130), 0, Qt::DotLine));
+
+    QVector&lt;double&gt; fossilData, nuclearData, regenData;
+    fossilData  &lt;&lt; 0.86*10.5 &lt;&lt; 0.83*5.5 &lt;&lt; 0.84*5.5 &lt;&lt; 0.52*5.8 &lt;&lt; 0.89*5.2 &lt;&lt; 0.90*4.2 &lt;&lt; 0.67*11.2;
+    nuclearData &lt;&lt; 0.08*10.5 &lt;&lt; 0.12*5.5 &lt;&lt; 0.12*5.5 &lt;&lt; 0.40*5.8 &lt;&lt; 0.09*5.2 &lt;&lt; 0.00*4.2 &lt;&lt; 0.07*11.2;
+    regenData   &lt;&lt; 0.06*10.5 &lt;&lt; 0.05*5.5 &lt;&lt; 0.04*5.5 &lt;&lt; 0.06*5.8 &lt;&lt; 0.02*5.2 &lt;&lt; 0.07*4.2 &lt;&lt; 0.25*11.2;
+    fossil-&gt;setData(ticks, fossilData);
+    nuclear-&gt;setData(ticks, nuclearData);
+    regen-&gt;setData(ticks, regenData);
+
+    customPlot-&gt;legend-&gt;setVisible(true);
+    customPlot-&gt;axisRect()-&gt;insetLayout()-&gt;setInsetAlignment(0, Qt::AlignTop|Qt::AlignHCenter);
+    customPlot-&gt;legend-&gt;setBrush(QColor(255, 255, 255, 100));
+    customPlot-&gt;legend-&gt;setBorderPen(Qt::NoPen);
+    QFont legendFont = font();
+    legendFont.setPointSize(10);
+    customPlot-&gt;legend-&gt;setFont(legendFont);
+    customPlot-&gt;setInteractions(QCP::iRangeDrag | QCP::iRangeZoom);
+
+    QVBoxLayout* lMainLayout = new QVBoxLayout;
+    lMainLayout-&gt;addWidget(customPlot);
+
+    setLayout(lMainLayout);
+}
+//================================================
+GWindow::~GWindow() {
+
+}
+//================================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_barchart.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_barchart.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Vision-par-Ordinateur-avec-OpenCV"><a class="Link3" href="#">Vision par Ordinateur avec OpenCV</a></h1><div class="Body3"><br><b>OpenCV </b>est une bibliothèque graphique libre, spécialisée dans le traitement d'images en temps réel. La bibliothèque OpenCV met à disposition de nombreuses fonctionnalités très diversifiées permettant de créer des programmes en partant des données brutes pour aller jusqu'à la création d'interfaces graphiques basiques. OpenCV propose la plupart des opérations classiques en traitement bas niveau des images : lecture, écriture et affichage d’une image ; calcul de l'histogramme des niveaux de gris ou d'histogrammes couleurs ; lissage, filtrage ; seuillage d'image (méthode d'Otsu, seuillage adaptatif) ; segmentation (composantes connexes, GrabCut) ; morphologie mathématique.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV-Installer-l-environnement-OpenCV-sous-MSYS2">Installer l'environnement OpenCV sous MSYS2</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV-Tester-un-projet-OpenCV-sous-MSYS2">Tester un projet OpenCV sous MSYS2</a></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/b_opencv.png" class="lazy entered loaded" data-src="/Tutoriels/Software_Development/Cpp/img/b_opencv.png" data-ll-status="loaded" src="/Tutoriels/Software_Development/Cpp/img/b_opencv.png"></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Installer-l-environnement-OpenCV-sous-MSYS2"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Installer l'environnement OpenCV sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Télécharger OpenCV</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">pacman -S --needed --noconfirm mingw-w64-i686-opencv</pre></div></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Tester-un-projet-OpenCV-sous-MSYS2"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Tester un projet OpenCV sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Éditer le programme (main.cpp)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;opencv2/opencv.hpp&gt;
 //===============================================
 int main(int argc, char** argv) {
