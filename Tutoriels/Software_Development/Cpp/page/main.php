@@ -4271,7 +4271,82 @@ GWindow::GWindow(QWidget* parent) : QFrame(parent) {
 GWindow::~GWindow() {
 
 }
-//================================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_barchart.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_barchart.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Vision-par-Ordinateur-avec-OpenCV"><a class="Link3" href="#">Vision par Ordinateur avec OpenCV</a></h1><div class="Body3"><br><b>OpenCV </b>est une bibliothèque graphique libre, spécialisée dans le traitement d'images en temps réel. La bibliothèque OpenCV met à disposition de nombreuses fonctionnalités très diversifiées permettant de créer des programmes en partant des données brutes pour aller jusqu'à la création d'interfaces graphiques basiques. OpenCV propose la plupart des opérations classiques en traitement bas niveau des images : lecture, écriture et affichage d’une image ; calcul de l'histogramme des niveaux de gris ou d'histogrammes couleurs ; lissage, filtrage ; seuillage d'image (méthode d'Otsu, seuillage adaptatif) ; segmentation (composantes connexes, GrabCut) ; morphologie mathématique.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV-Installer-l-environnement-OpenCV-sous-MSYS2">Installer l'environnement OpenCV sous MSYS2</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV-Tester-un-projet-OpenCV-sous-MSYS2">Tester un projet OpenCV sous MSYS2</a></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/b_opencv.png" class="lazy entered loaded" data-src="/Tutoriels/Software_Development/Cpp/img/b_opencv.png" data-ll-status="loaded" src="/Tutoriels/Software_Development/Cpp/img/b_opencv.png"></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Installer-l-environnement-OpenCV-sous-MSYS2"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Installer l'environnement OpenCV sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Télécharger OpenCV</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">pacman -S --needed --noconfirm mingw-w64-i686-opencv</pre></div></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Tester-un-projet-OpenCV-sous-MSYS2"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Tester un projet OpenCV sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Éditer le programme (main.cpp)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
+//================================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_barchart.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_barchart.png"></div><br><h2 class="Title7 GTitle2" id="Trace-de-courbes-2D-avec-QCustomPlot-Creer-un-graphe-a-moustaches"><a class="Link9" href="#Trace-de-courbes-2D-avec-QCustomPlot">Créer un graphe à moustaches</a></h2><br>Dans les représentations graphiques de données statistiques, la <b>boîte à moustaches</b> (aussi appelée diagramme en boîte, boîte de Tukey ou box-and-whisker plot, plus simplement box plot en anglais) est un moyen rapide de figurer le profil essentiel d'une série statistique quantitative. Elle a été inventée en 1977 par John Tukey, mais peut faire l'objet de certains aménagements selon les utilisateurs. Son nom est la traduction de Box and Whiskers Plot. La boîte à moustaches résume seulement quelques indicateurs de position du caractère étudié (médiane, quartiles, minimum, maximum ou déciles). Ce diagramme est utilisé principalement pour comparer un même caractère dans deux populations de tailles différentes.<br><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GWindow.h"
+//===============================================
+int main(int argc, char** argv) {
+    QApplication app(argc, argv);
+    
+    GWindow* lWindow = new GWindow;
+    lWindow-&gt;setWindowTitle("ReadyApp");
+    lWindow-&gt;resize(500, 300);
+    lWindow-&gt;show();
+    
+    return app.exec();
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GWindow.h</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//================================================
+#ifndef _GWindow_
+#define _GWindow_
+//================================================
+#include &lt;QApplication&gt;
+#include &lt;QtWidgets&gt;
+#include &lt;qcustomplot.h&gt;
+//================================================
+class GWindow : public QFrame {
+    Q_OBJECT
+    
+public:
+    GWindow(QWidget* parent = 0);
+    ~GWindow();
+    
+private:
+    QCustomPlot* customPlot;
+};
+//================================================
+#endif
+//================================================</pre></div></div><br><h3 class="Title8 GTitle3">GWindow.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//================================================
+#include "GWindow.h"
+//================================================
+GWindow::GWindow(QWidget* parent) : QFrame(parent) {
+    customPlot = new QCustomPlot;
+
+    customPlot-&gt;setInteractions(QCP::iRangeDrag | QCP::iRangeZoom);
+
+    QCPStatisticalBox *statistical = new QCPStatisticalBox(customPlot-&gt;xAxis, customPlot-&gt;yAxis);
+    QBrush boxBrush(QColor(60, 60, 255, 100));
+    boxBrush.setStyle(Qt::Dense6Pattern); 
+    statistical-&gt;setBrush(boxBrush);
+
+    statistical-&gt;addData(1, 1.1, 1.9, 2.25, 2.7, 4.2);
+    statistical-&gt;addData(2, 0.8, 1.6, 2.2, 3.2, 4.9, 
+    QVector&lt;double&gt;() &lt;&lt; 0.7 &lt;&lt; 0.34 &lt;&lt; 0.45 &lt;&lt; 6.2 &lt;&lt; 5.84); 
+    statistical-&gt;addData(3, 0.2, 0.7, 1.1, 1.6, 2.9);
+
+    customPlot-&gt;xAxis-&gt;setSubTicks(false);
+    customPlot-&gt;xAxis-&gt;setTickLength(0, 4);
+    customPlot-&gt;xAxis-&gt;setTickLabelRotation(20);
+    QSharedPointer&lt;QCPAxisTickerText&gt; textTicker(new QCPAxisTickerText);
+    textTicker-&gt;addTick(1, "Sample 1");
+    textTicker-&gt;addTick(2, "Sample 2");
+    textTicker-&gt;addTick(3, "Control Group");
+    customPlot-&gt;xAxis-&gt;setTicker(textTicker);
+
+    customPlot-&gt;yAxis-&gt;setLabel(QString::fromUtf8("O₂ Absorption [mg]"));
+    customPlot-&gt;rescaleAxes();
+    customPlot-&gt;xAxis-&gt;scaleRange(1.7, customPlot-&gt;xAxis-&gt;range().center());
+    customPlot-&gt;yAxis-&gt;setRange(0, 7);
+    customPlot-&gt;setInteractions(QCP::iRangeDrag | QCP::iRangeZoom);
+
+    QVBoxLayout* lMainLayout = new QVBoxLayout;
+    lMainLayout-&gt;addWidget(customPlot);
+
+    setLayout(lMainLayout);
+}
+//================================================
+GWindow::~GWindow() {
+
+}
+//================================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_boxplot.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_boxplot.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Vision-par-Ordinateur-avec-OpenCV"><a class="Link3" href="#">Vision par Ordinateur avec OpenCV</a></h1><div class="Body3"><br><b>OpenCV </b>est une bibliothèque graphique libre, spécialisée dans le traitement d'images en temps réel. La bibliothèque OpenCV met à disposition de nombreuses fonctionnalités très diversifiées permettant de créer des programmes en partant des données brutes pour aller jusqu'à la création d'interfaces graphiques basiques. OpenCV propose la plupart des opérations classiques en traitement bas niveau des images : lecture, écriture et affichage d’une image ; calcul de l'histogramme des niveaux de gris ou d'histogrammes couleurs ; lissage, filtrage ; seuillage d'image (méthode d'Otsu, seuillage adaptatif) ; segmentation (composantes connexes, GrabCut) ; morphologie mathématique.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV-Installer-l-environnement-OpenCV-sous-MSYS2">Installer l'environnement OpenCV sous MSYS2</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV-Tester-un-projet-OpenCV-sous-MSYS2">Tester un projet OpenCV sous MSYS2</a></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/b_opencv.png" class="lazy entered loaded" data-src="/Tutoriels/Software_Development/Cpp/img/b_opencv.png" data-ll-status="loaded" src="/Tutoriels/Software_Development/Cpp/img/b_opencv.png"></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Installer-l-environnement-OpenCV-sous-MSYS2"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Installer l'environnement OpenCV sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Télécharger OpenCV</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">pacman -S --needed --noconfirm mingw-w64-i686-opencv</pre></div></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Tester-un-projet-OpenCV-sous-MSYS2"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Tester un projet OpenCV sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Éditer le programme (main.cpp)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;opencv2/opencv.hpp&gt;
 //===============================================
 int main(int argc, char** argv) {
