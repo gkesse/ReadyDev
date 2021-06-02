@@ -4410,7 +4410,142 @@ GWindow::GWindow(QWidget* parent) : QFrame(parent) {
 GWindow::~GWindow() {
 
 }
-//================================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_text.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_text.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Vision-par-Ordinateur-avec-OpenCV"><a class="Link3" href="#">Vision par Ordinateur avec OpenCV</a></h1><div class="Body3"><br><b>OpenCV </b>est une bibliothèque graphique libre, spécialisée dans le traitement d'images en temps réel. La bibliothèque OpenCV met à disposition de nombreuses fonctionnalités très diversifiées permettant de créer des programmes en partant des données brutes pour aller jusqu'à la création d'interfaces graphiques basiques. OpenCV propose la plupart des opérations classiques en traitement bas niveau des images : lecture, écriture et affichage d’une image ; calcul de l'histogramme des niveaux de gris ou d'histogrammes couleurs ; lissage, filtrage ; seuillage d'image (méthode d'Otsu, seuillage adaptatif) ; segmentation (composantes connexes, GrabCut) ; morphologie mathématique.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV-Installer-l-environnement-OpenCV-sous-MSYS2">Installer l'environnement OpenCV sous MSYS2</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV-Tester-un-projet-OpenCV-sous-MSYS2">Tester un projet OpenCV sous MSYS2</a></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/b_opencv.png" class="lazy entered loaded" data-src="/Tutoriels/Software_Development/Cpp/img/b_opencv.png" data-ll-status="loaded" src="/Tutoriels/Software_Development/Cpp/img/b_opencv.png"></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Installer-l-environnement-OpenCV-sous-MSYS2"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Installer l'environnement OpenCV sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Télécharger OpenCV</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">pacman -S --needed --noconfirm mingw-w64-i686-opencv</pre></div></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Tester-un-projet-OpenCV-sous-MSYS2"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Tester un projet OpenCV sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Éditer le programme (main.cpp)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
+//================================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_text.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_text.png"></div><br><h2 class="Title7 GTitle2" id="Trace-de-courbes-2D-avec-QCustomPlot-Creer-un-graphe-style"><a class="Link9" href="#Trace-de-courbes-2D-avec-QCustomPlot">Créer un graphe stylé</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GWindow.h"
+//===============================================
+int main(int argc, char** argv) {
+    QApplication app(argc, argv);
+    
+    GWindow* lWindow = new GWindow;
+    lWindow-&gt;setWindowTitle("ReadyApp");
+    lWindow-&gt;resize(500, 300);
+    lWindow-&gt;show();
+    
+    return app.exec();
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GWindow.h</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//================================================
+#ifndef _GWindow_
+#define _GWindow_
+//================================================
+#include &lt;QApplication&gt;
+#include &lt;QtWidgets&gt;
+#include &lt;qcustomplot.h&gt;
+//================================================
+class GWindow : public QFrame {
+    Q_OBJECT
+    
+public:
+    GWindow(QWidget* parent = 0);
+    ~GWindow();
+    
+private:
+    QCustomPlot* customPlot;
+};
+//================================================
+#endif
+//================================================</pre></div></div><br><h3 class="Title8 GTitle3">GWindow.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//================================================
+#include "GWindow.h"
+//================================================
+GWindow::GWindow(QWidget* parent) : QFrame(parent) {
+    customPlot = new QCustomPlot;
+
+    QVector&lt;double&gt; x1(20), y1(20);
+    QVector&lt;double&gt; x2(100), y2(100);
+    QVector&lt;double&gt; x3(20), y3(20);
+    QVector&lt;double&gt; x4(20), y4(20);
+    for (int i=0; i&lt;x1.size(); ++i) {
+        x1[i] = i/(double)(x1.size()-1)*10;
+        y1[i] = qCos(x1[i]*0.8+qSin(x1[i]*0.16+1.0))*qSin(x1[i]*0.54)+1.4;
+    }
+    for (int i=0; i&lt;x2.size(); ++i) {
+        x2[i] = i/(double)(x2.size()-1)*10;
+        y2[i] = qCos(x2[i]*0.85+qSin(x2[i]*0.165+1.1))*qSin(x2[i]*0.50)+1.7;
+    }
+    for (int i=0; i&lt;x3.size(); ++i) {
+        x3[i] = i/(double)(x3.size()-1)*10;
+        y3[i] = 0.05+3*(0.5+qCos(x3[i]*x3[i]*0.2+2)*0.5)/(double)(x3[i]+0.7)+std::rand()/(double)RAND_MAX*0.01;
+    }
+    for (int i=0; i&lt;x4.size(); ++i) {
+        x4[i] = x3[i];
+        y4[i] = (0.5-y3[i])+((x4[i]-2)*(x4[i]-2)*0.02);
+    }
+
+    QCPGraph *graph1 = customPlot-&gt;addGraph();
+    graph1-&gt;setData(x1, y1);
+    graph1-&gt;setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssCircle, QPen(Qt::black, 1.5), QBrush(Qt::white), 9));
+    graph1-&gt;setPen(QPen(QColor(120, 120, 120), 2));
+
+    QCPGraph *graph2 = customPlot-&gt;addGraph();
+    graph2-&gt;setData(x2, y2);
+    graph2-&gt;setPen(Qt::NoPen);
+    graph2-&gt;setBrush(QColor(200, 200, 200, 20));
+    graph2-&gt;setChannelFillGraph(graph1);
+
+    QCPBars *bars1 = new QCPBars(customPlot-&gt;xAxis, customPlot-&gt;yAxis);
+    bars1-&gt;setWidth(9/(double)x3.size());
+    bars1-&gt;setData(x3, y3);
+    bars1-&gt;setPen(Qt::NoPen);
+    bars1-&gt;setBrush(QColor(10, 140, 70, 160));
+
+    QCPBars *bars2 = new QCPBars(customPlot-&gt;xAxis, customPlot-&gt;yAxis);
+    bars2-&gt;setWidth(9/(double)x4.size());
+    bars2-&gt;setData(x4, y4);
+    bars2-&gt;setPen(Qt::NoPen);
+    bars2-&gt;setBrush(QColor(10, 100, 50, 70));
+    bars2-&gt;moveAbove(bars1);
+
+    customPlot-&gt;addLayer("abovemain", customPlot-&gt;layer("main"), QCustomPlot::limAbove);
+    customPlot-&gt;addLayer("belowmain", customPlot-&gt;layer("main"), QCustomPlot::limBelow);
+    graph1-&gt;setLayer("abovemain");
+    customPlot-&gt;xAxis-&gt;grid()-&gt;setLayer("belowmain");
+    customPlot-&gt;yAxis-&gt;grid()-&gt;setLayer("belowmain");
+
+    customPlot-&gt;xAxis-&gt;setBasePen(QPen(Qt::white, 1));
+    customPlot-&gt;yAxis-&gt;setBasePen(QPen(Qt::white, 1));
+    customPlot-&gt;xAxis-&gt;setTickPen(QPen(Qt::white, 1));
+    customPlot-&gt;yAxis-&gt;setTickPen(QPen(Qt::white, 1));
+    customPlot-&gt;xAxis-&gt;setSubTickPen(QPen(Qt::white, 1));
+    customPlot-&gt;yAxis-&gt;setSubTickPen(QPen(Qt::white, 1));
+    customPlot-&gt;xAxis-&gt;setTickLabelColor(Qt::white);
+    customPlot-&gt;yAxis-&gt;setTickLabelColor(Qt::white);
+    customPlot-&gt;xAxis-&gt;grid()-&gt;setPen(QPen(QColor(140, 140, 140), 1, Qt::DotLine));
+    customPlot-&gt;yAxis-&gt;grid()-&gt;setPen(QPen(QColor(140, 140, 140), 1, Qt::DotLine));
+    customPlot-&gt;xAxis-&gt;grid()-&gt;setSubGridPen(QPen(QColor(80, 80, 80), 1, Qt::DotLine));
+    customPlot-&gt;yAxis-&gt;grid()-&gt;setSubGridPen(QPen(QColor(80, 80, 80), 1, Qt::DotLine));
+    customPlot-&gt;xAxis-&gt;grid()-&gt;setSubGridVisible(true);
+    customPlot-&gt;yAxis-&gt;grid()-&gt;setSubGridVisible(true);
+    customPlot-&gt;xAxis-&gt;grid()-&gt;setZeroLinePen(Qt::NoPen);
+    customPlot-&gt;yAxis-&gt;grid()-&gt;setZeroLinePen(Qt::NoPen);
+    customPlot-&gt;xAxis-&gt;setUpperEnding(QCPLineEnding::esSpikeArrow);
+    customPlot-&gt;yAxis-&gt;setUpperEnding(QCPLineEnding::esSpikeArrow);
+
+    QLinearGradient plotGradient;
+    plotGradient.setStart(0, 0);
+    plotGradient.setFinalStop(0, 350);
+    plotGradient.setColorAt(0, QColor(80, 80, 80));
+    plotGradient.setColorAt(1, QColor(50, 50, 50));
+    customPlot-&gt;setBackground(plotGradient);
+
+    QLinearGradient axisRectGradient;
+    axisRectGradient.setStart(0, 0);
+    axisRectGradient.setFinalStop(0, 350);
+    axisRectGradient.setColorAt(0, QColor(80, 80, 80));
+    axisRectGradient.setColorAt(1, QColor(30, 30, 30));
+    customPlot-&gt;axisRect()-&gt;setBackground(axisRectGradient);
+
+    customPlot-&gt;rescaleAxes();
+    customPlot-&gt;yAxis-&gt;setRange(0, 2);
+
+    QVBoxLayout* lMainLayout = new QVBoxLayout;
+    lMainLayout-&gt;addWidget(customPlot);
+
+    setLayout(lMainLayout);
+}
+//================================================
+GWindow::~GWindow() {
+
+}
+//================================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_style.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_style.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Vision-par-Ordinateur-avec-OpenCV"><a class="Link3" href="#">Vision par Ordinateur avec OpenCV</a></h1><div class="Body3"><br><b>OpenCV </b>est une bibliothèque graphique libre, spécialisée dans le traitement d'images en temps réel. La bibliothèque OpenCV met à disposition de nombreuses fonctionnalités très diversifiées permettant de créer des programmes en partant des données brutes pour aller jusqu'à la création d'interfaces graphiques basiques. OpenCV propose la plupart des opérations classiques en traitement bas niveau des images : lecture, écriture et affichage d’une image ; calcul de l'histogramme des niveaux de gris ou d'histogrammes couleurs ; lissage, filtrage ; seuillage d'image (méthode d'Otsu, seuillage adaptatif) ; segmentation (composantes connexes, GrabCut) ; morphologie mathématique.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV-Installer-l-environnement-OpenCV-sous-MSYS2">Installer l'environnement OpenCV sous MSYS2</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV-Tester-un-projet-OpenCV-sous-MSYS2">Tester un projet OpenCV sous MSYS2</a></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/b_opencv.png" class="lazy entered loaded" data-src="/Tutoriels/Software_Development/Cpp/img/b_opencv.png" data-ll-status="loaded" src="/Tutoriels/Software_Development/Cpp/img/b_opencv.png"></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Installer-l-environnement-OpenCV-sous-MSYS2"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Installer l'environnement OpenCV sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Télécharger OpenCV</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">pacman -S --needed --noconfirm mingw-w64-i686-opencv</pre></div></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Tester-un-projet-OpenCV-sous-MSYS2"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Tester un projet OpenCV sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Éditer le programme (main.cpp)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;opencv2/opencv.hpp&gt;
 //===============================================
 int main(int argc, char** argv) {
