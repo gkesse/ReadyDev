@@ -4974,7 +4974,191 @@ GWindow::GWindow(QWidget* parent) : QFrame(parent) {
 GWindow::~GWindow() {
 
 }
-//================================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_polar.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_polar.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Vision-par-Ordinateur-avec-OpenCV"><a class="Link3" href="#">Vision par Ordinateur avec OpenCV</a></h1><div class="Body3"><br><b>OpenCV </b>est une bibliothèque graphique libre, spécialisée dans le traitement d'images en temps réel. La bibliothèque OpenCV met à disposition de nombreuses fonctionnalités très diversifiées permettant de créer des programmes en partant des données brutes pour aller jusqu'à la création d'interfaces graphiques basiques. OpenCV propose la plupart des opérations classiques en traitement bas niveau des images : lecture, écriture et affichage d’une image ; calcul de l'histogramme des niveaux de gris ou d'histogrammes couleurs ; lissage, filtrage ; seuillage d'image (méthode d'Otsu, seuillage adaptatif) ; segmentation (composantes connexes, GrabCut) ; morphologie mathématique.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV-Installer-l-environnement-OpenCV-sous-MSYS2">Installer l'environnement OpenCV sous MSYS2</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV-Tester-un-projet-OpenCV-sous-MSYS2">Tester un projet OpenCV sous MSYS2</a></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/b_opencv.png" class="lazy entered loaded" data-src="/Tutoriels/Software_Development/Cpp/img/b_opencv.png" data-ll-status="loaded" src="/Tutoriels/Software_Development/Cpp/img/b_opencv.png"></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Installer-l-environnement-OpenCV-sous-MSYS2"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Installer l'environnement OpenCV sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Télécharger OpenCV</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">pacman -S --needed --noconfirm mingw-w64-i686-opencv</pre></div></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Tester-un-projet-OpenCV-sous-MSYS2"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Tester un projet OpenCV sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Éditer le programme (main.cpp)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
+//================================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_polar.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_polar.png"></div><br><h2 class="Title7 GTitle2" id="Trace-de-courbes-2D-avec-QCustomPlot-Creer-un-graphe-avec-des-accolades"><a class="Link9" href="#Trace-de-courbes-2D-avec-QCustomPlot">Créer un graphe avec des accolades</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GWindow.h"
+//===============================================
+int main(int argc, char** argv) {
+    QApplication app(argc, argv);
+    
+    GWindow* lWindow = new GWindow;
+    lWindow-&gt;setWindowTitle("ReadyApp");
+    lWindow-&gt;resize(500, 300);
+    lWindow-&gt;show();
+    
+    return app.exec();
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GWindow.h</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//================================================
+#ifndef _GWindow_
+#define _GWindow_
+//================================================
+#include &lt;QApplication&gt;
+#include &lt;QtWidgets&gt;
+#include &lt;qcustomplot.h&gt;
+//================================================
+class GWindow : public QFrame {
+    Q_OBJECT
+    
+public:
+    GWindow(QWidget* parent = 0);
+    ~GWindow();
+    
+private slots:
+    void bracketDataSlot();
+
+private:
+    QCustomPlot* customPlot;
+    QTimer dataTimer;
+    QCPItemTracer *itemDemoPhaseTracer;
+};
+//================================================
+#endif
+//================================================</pre></div></div><br><h3 class="Title8 GTitle3">GWindow.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//================================================
+#include "GWindow.h"
+//================================================
+GWindow::GWindow(QWidget* parent) : QFrame(parent) {
+    customPlot = new QCustomPlot;
+
+    customPlot-&gt;setInteractions(QCP::iRangeDrag | QCP::iRangeZoom);
+    QCPGraph *graph = customPlot-&gt;addGraph();
+    int n = 500;
+    double phase = 0;
+    double k = 3;
+    QVector&lt;double&gt; x(n), y(n);
+    for (int i=0; i&lt;n; ++i) {
+        x[i] = i/(double)(n-1)*34 - 17;
+        y[i] = qExp(-x[i]*x[i]/20.0)*qSin(k*x[i]+phase);
+    }
+    graph-&gt;setData(x, y);
+    graph-&gt;setPen(QPen(Qt::blue));
+    graph-&gt;rescaleKeyAxis();
+    customPlot-&gt;yAxis-&gt;setRange(-1.45, 1.65);
+    customPlot-&gt;xAxis-&gt;grid()-&gt;setZeroLinePen(Qt::NoPen);
+
+    QCPItemBracket *bracket = new QCPItemBracket(customPlot);
+    bracket-&gt;left-&gt;setCoords(-8, 1.1);
+    bracket-&gt;right-&gt;setCoords(8, 1.1);
+    bracket-&gt;setLength(13);
+
+    QCPItemText *wavePacketText = new QCPItemText(customPlot);
+    wavePacketText-&gt;position-&gt;setParentAnchor(bracket-&gt;center);
+    wavePacketText-&gt;position-&gt;setCoords(0, -10); 
+    wavePacketText-&gt;setPositionAlignment(Qt::AlignBottom|Qt::AlignHCenter);
+    wavePacketText-&gt;setText("Wavepacket");
+    wavePacketText-&gt;setFont(QFont(font().family(), 10));
+
+    QCPItemTracer *phaseTracer = new QCPItemTracer(customPlot);
+    itemDemoPhaseTracer = phaseTracer; 
+    phaseTracer-&gt;setGraph(graph);
+    phaseTracer-&gt;setGraphKey((M_PI*1.5-phase)/k);
+    phaseTracer-&gt;setInterpolating(true);
+    phaseTracer-&gt;setStyle(QCPItemTracer::tsCircle);
+    phaseTracer-&gt;setPen(QPen(Qt::red));
+    phaseTracer-&gt;setBrush(Qt::red);
+    phaseTracer-&gt;setSize(7);
+
+    QCPItemText *phaseTracerText = new QCPItemText(customPlot);
+    phaseTracerText-&gt;position-&gt;setType(QCPItemPosition::ptAxisRectRatio);
+    phaseTracerText-&gt;setPositionAlignment(Qt::AlignRight|Qt::AlignBottom);
+    phaseTracerText-&gt;position-&gt;setCoords(1.0, 0.95); 
+    phaseTracerText-&gt;setText("Points of fixed\nphase define\nphase velocity vp");
+    phaseTracerText-&gt;setTextAlignment(Qt::AlignLeft);
+    phaseTracerText-&gt;setFont(QFont(font().family(), 9));
+    phaseTracerText-&gt;setPadding(QMargins(8, 0, 0, 0));
+
+    QCPItemCurve *phaseTracerArrow = new QCPItemCurve(customPlot);
+    phaseTracerArrow-&gt;start-&gt;setParentAnchor(phaseTracerText-&gt;left);
+    phaseTracerArrow-&gt;startDir-&gt;setParentAnchor(phaseTracerArrow-&gt;start);
+    phaseTracerArrow-&gt;startDir-&gt;setCoords(-40, 0); 
+    phaseTracerArrow-&gt;end-&gt;setParentAnchor(phaseTracer-&gt;position);
+    phaseTracerArrow-&gt;end-&gt;setCoords(10, 10);
+    phaseTracerArrow-&gt;endDir-&gt;setParentAnchor(phaseTracerArrow-&gt;end);
+    phaseTracerArrow-&gt;endDir-&gt;setCoords(30, 30);
+    phaseTracerArrow-&gt;setHead(QCPLineEnding::esSpikeArrow);
+    phaseTracerArrow-&gt;setTail(QCPLineEnding(QCPLineEnding::esBar, (phaseTracerText-&gt;bottom-&gt;pixelPosition().y()-phaseTracerText-&gt;top-&gt;pixelPosition().y())*0.85));
+
+    QCPItemTracer *groupTracer = new QCPItemTracer(customPlot);
+    groupTracer-&gt;setGraph(graph);
+    groupTracer-&gt;setGraphKey(5.5);
+    groupTracer-&gt;setInterpolating(true);
+    groupTracer-&gt;setStyle(QCPItemTracer::tsCircle);
+    groupTracer-&gt;setPen(QPen(Qt::green));
+    groupTracer-&gt;setBrush(Qt::green);
+    groupTracer-&gt;setSize(7);
+
+    QCPItemText *groupTracerText = new QCPItemText(customPlot);
+    groupTracerText-&gt;position-&gt;setType(QCPItemPosition::ptAxisRectRatio);
+    groupTracerText-&gt;setPositionAlignment(Qt::AlignRight|Qt::AlignTop);
+    groupTracerText-&gt;position-&gt;setCoords(1.0, 0.20); // lower right corner of axis rect
+    groupTracerText-&gt;setText("Fixed positions in\nwave packet define\ngroup velocity vg");
+    groupTracerText-&gt;setTextAlignment(Qt::AlignLeft);
+    groupTracerText-&gt;setFont(QFont(font().family(), 9));
+    groupTracerText-&gt;setPadding(QMargins(8, 0, 0, 0));
+
+    QCPItemCurve *groupTracerArrow = new QCPItemCurve(customPlot);
+    groupTracerArrow-&gt;start-&gt;setParentAnchor(groupTracerText-&gt;left);
+    groupTracerArrow-&gt;startDir-&gt;setParentAnchor(groupTracerArrow-&gt;start);
+    groupTracerArrow-&gt;startDir-&gt;setCoords(-40, 0); // direction 30 pixels to the left of parent anchor (tracerArrow-&gt;start)
+    groupTracerArrow-&gt;end-&gt;setCoords(5.5, 0.4);
+    groupTracerArrow-&gt;endDir-&gt;setParentAnchor(groupTracerArrow-&gt;end);
+    groupTracerArrow-&gt;endDir-&gt;setCoords(0, -40);
+    groupTracerArrow-&gt;setHead(QCPLineEnding::esSpikeArrow);
+    groupTracerArrow-&gt;setTail(QCPLineEnding(QCPLineEnding::esBar, (groupTracerText-&gt;bottom-&gt;pixelPosition().y()-groupTracerText-&gt;top-&gt;pixelPosition().y())*0.85));
+
+    QCPItemCurve *arrow = new QCPItemCurve(customPlot);
+    arrow-&gt;start-&gt;setCoords(1, -1.1);
+    arrow-&gt;startDir-&gt;setCoords(-1, -1.3);
+    arrow-&gt;endDir-&gt;setCoords(-5, -0.3);
+    arrow-&gt;end-&gt;setCoords(-10, -0.2);
+    arrow-&gt;setHead(QCPLineEnding::esSpikeArrow);
+
+    QCPItemText *dispersionText = new QCPItemText(customPlot);
+    dispersionText-&gt;position-&gt;setCoords(-6, -0.9);
+    dispersionText-&gt;setRotation(40);
+    dispersionText-&gt;setText("Dispersion with\nvp &lt; vg");
+    dispersionText-&gt;setFont(QFont(font().family(), 10));
+    
+    connect(&amp;dataTimer, SIGNAL(timeout()), this, SLOT(bracketDataSlot()));
+    dataTimer.start(0); 
+
+    QVBoxLayout* lMainLayout = new QVBoxLayout;
+    lMainLayout-&gt;addWidget(customPlot);
+
+    setLayout(lMainLayout);
+}
+//================================================
+GWindow::~GWindow() {
+
+}
+//================================================
+void GWindow::bracketDataSlot() {
+    double secs = QCPAxisTickerDateTime::dateTimeToKey(QDateTime::currentDateTime());
+
+    int n = 500;
+    double phase = secs*5;
+    double k = 3;
+    QVector&lt;double&gt; x(n), y(n);
+    for (int i=0; i&lt;n; ++i) {
+        x[i] = i/(double)(n-1)*34 - 17;
+        y[i] = qExp(-x[i]*x[i]/20.0)*qSin(k*x[i]+phase);
+    }
+    customPlot-&gt;graph()-&gt;setData(x, y);
+    itemDemoPhaseTracer-&gt;setGraphKey((8*M_PI+fmod(M_PI*1.5-phase, 6*M_PI))/k);
+    customPlot-&gt;replot();
+
+    double key = secs;
+    static double lastFpsKey;
+    static int frameCount;
+    ++frameCount;
+    if (key-lastFpsKey &gt; 2) {
+        qDebug() &lt;&lt;
+        QString("%1 FPS, Total Data points: %2")
+        .arg(frameCount/(key-lastFpsKey), 0, 'f', 0)
+        .arg(customPlot-&gt;graph(0)-&gt;data()-&gt;size());
+        lastFpsKey = key;
+        frameCount = 0;
+    }
+}
+//================================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_bracket.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_bracket.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Vision-par-Ordinateur-avec-OpenCV"><a class="Link3" href="#">Vision par Ordinateur avec OpenCV</a></h1><div class="Body3"><br><b>OpenCV </b>est une bibliothèque graphique libre, spécialisée dans le traitement d'images en temps réel. La bibliothèque OpenCV met à disposition de nombreuses fonctionnalités très diversifiées permettant de créer des programmes en partant des données brutes pour aller jusqu'à la création d'interfaces graphiques basiques. OpenCV propose la plupart des opérations classiques en traitement bas niveau des images : lecture, écriture et affichage d’une image ; calcul de l'histogramme des niveaux de gris ou d'histogrammes couleurs ; lissage, filtrage ; seuillage d'image (méthode d'Otsu, seuillage adaptatif) ; segmentation (composantes connexes, GrabCut) ; morphologie mathématique.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV-Installer-l-environnement-OpenCV-sous-MSYS2">Installer l'environnement OpenCV sous MSYS2</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV-Tester-un-projet-OpenCV-sous-MSYS2">Tester un projet OpenCV sous MSYS2</a></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/b_opencv.png" class="lazy entered loaded" data-src="/Tutoriels/Software_Development/Cpp/img/b_opencv.png" data-ll-status="loaded" src="/Tutoriels/Software_Development/Cpp/img/b_opencv.png"></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Installer-l-environnement-OpenCV-sous-MSYS2"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Installer l'environnement OpenCV sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Télécharger OpenCV</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">pacman -S --needed --noconfirm mingw-w64-i686-opencv</pre></div></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Tester-un-projet-OpenCV-sous-MSYS2"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Tester un projet OpenCV sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Éditer le programme (main.cpp)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;opencv2/opencv.hpp&gt;
 //===============================================
 int main(int argc, char** argv) {
