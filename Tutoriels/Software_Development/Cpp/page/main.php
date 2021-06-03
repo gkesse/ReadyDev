@@ -3142,7 +3142,7 @@ int main(int argc, char** argv) {
 
     return app.exec();
 }
-//================================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_qtawesome_custom.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/i_qtawesome_custom.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Trace-de-courbes-2D-avec-QCustomPlot"><a class="Link3" href="#">Tracé de courbes 2D avec QCustomPlot</a></h1><div class="Body3"><br><b>QCustomPlot </b>est un widget Qt en C++ pour le traçage et la visualisation des données 2D. Il n'a pas d'autres dépendances et est bien documenté. Il se concentre sur la création de tracés 2D, de graphiques et offre de hautes performances pour les applications de visualisation de données en temps réel. Il permet d'exporter les graphes vers divers formats de fichiers tels que les fichiers PDF vectorisés et les images pixelisées comme PNG, JPG et BMP. QCustomPlot est la solution idéale pour afficher des données en temps réel dans une application ainsi que pour produire des tracés 2D de haute qualité pour d'autres médias.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Trace-de-courbes-2D-avec-QCustomPlot-Installer-l-environnement-QCustomPlot-sous-MSYS">Installer l'environnement QCustomPlot sous MSYS</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Trace-de-courbes-2D-avec-QCustomPlot-Tester-un-projet-QCustomPlot-sous-MSYS2">Tester un projet QCustomPlot sous MSYS2</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Trace-de-courbes-2D-avec-QCustomPlot-Creer-un-graphe-avec-des-interactions">Créer un graphe avec des interactions</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Trace-de-courbes-2D-avec-QCustomPlot-Creer-un-graphe-avec-un-nuage-de-points">Créer un graphe avec un nuage de points</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Trace-de-courbes-2D-avec-QCustomPlot-Creer-un-graphe-avec-un-nuage-de-points-differents">Créer un graphe avec un nuage de points différents</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Trace-de-courbes-2D-avec-QCustomPlot-Creer-un-graphe-avec-des-lignes">Créer un graphe avec des lignes</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Trace-de-courbes-2D-avec-QCustomPlot-Creer-un-graphe-avec-une-image-de-fond">Créer un graphe avec une image de fond</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Trace-de-courbes-2D-avec-QCustomPlot-Creer-un-graphe-avec-des-textures">Créer un graphe avec des textures</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Trace-de-courbes-2D-avec-QCustomPlot-Creer-plusieurs-graphes-avec-des-reperes-differents">Créer plusieurs graphes avec des repères différents</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Trace-de-courbes-2D-avec-QCustomPlot-Creer-un-graphe-logarithmique">Créer un graphe logarithmique</a></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/b_qcustomplot_demo.gif" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/b_qcustomplot_demo.gif"></div><br><h2 class="Title7 GTitle2" id="Trace-de-courbes-2D-avec-QCustomPlot-Installer-l-environnement-QCustomPlot-sous-MSYS"><a class="Link9" href="#Trace-de-courbes-2D-avec-QCustomPlot">Installer l'environnement QCustomPlot sous MSYS</a></h2><br><h3 class="Title8 GTitle3">Télécharger QCustomPlot</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.qcustomplot.com/index.php/download">https://www.qcustomplot.com/index.php/download</a><br><br><b>QCustomPlot.tar.gz</b><br><br><h3 class="Title8 GTitle3">Extraire QCustomPlot</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">QCustomPlot.tar.gz
+//================================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_qtawesome_custom.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/i_qtawesome_custom.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Trace-de-courbes-2D-avec-QCustomPlot"><a class="Link3" href="#">Tracé de courbes 2D avec QCustomPlot</a></h1><div class="Body3"><br><b>QCustomPlot </b>est un widget Qt en C++ pour le traçage et la visualisation des données 2D. Il n'a pas d'autres dépendances et est bien documenté. Il se concentre sur la création de tracés 2D, de graphiques et offre de hautes performances pour les applications de visualisation de données en temps réel. Il permet d'exporter les graphes vers divers formats de fichiers tels que les fichiers PDF vectorisés et les images pixelisées comme PNG, JPG et BMP. QCustomPlot est la solution idéale pour afficher des données en temps réel dans une application ainsi que pour produire des tracés 2D de haute qualité pour d'autres médias.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Trace-de-courbes-2D-avec-QCustomPlot-Installer-l-environnement-QCustomPlot-sous-MSYS">Installer l'environnement QCustomPlot sous MSYS</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Trace-de-courbes-2D-avec-QCustomPlot-Tester-un-projet-QCustomPlot-sous-MSYS2">Tester un projet QCustomPlot sous MSYS2</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Trace-de-courbes-2D-avec-QCustomPlot-Creer-un-graphe-avec-des-interactions">Créer un graphe avec des interactions</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Trace-de-courbes-2D-avec-QCustomPlot-Creer-un-graphe-avec-un-nuage-de-points">Créer un graphe avec un nuage de points</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Trace-de-courbes-2D-avec-QCustomPlot-Creer-un-graphe-avec-un-nuage-de-points-differents">Créer un graphe avec un nuage de points différents</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Trace-de-courbes-2D-avec-QCustomPlot-Creer-un-graphe-avec-des-lignes">Créer un graphe avec des lignes</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Trace-de-courbes-2D-avec-QCustomPlot-Creer-un-graphe-avec-une-image-de-fond">Créer un graphe avec une image de fond</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Trace-de-courbes-2D-avec-QCustomPlot-Creer-un-graphe-avec-des-textures">Créer un graphe avec des textures</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Trace-de-courbes-2D-avec-QCustomPlot-Creer-plusieurs-graphes-avec-des-reperes-differents">Créer plusieurs graphes avec des repères différents</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Trace-de-courbes-2D-avec-QCustomPlot-Creer-un-graphe-logarithmique">Créer un graphe logarithmique</a></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_style.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_style.png"></div><br><h2 class="Title7 GTitle2" id="Trace-de-courbes-2D-avec-QCustomPlot-Installer-l-environnement-QCustomPlot-sous-MSYS"><a class="Link9" href="#Trace-de-courbes-2D-avec-QCustomPlot">Installer l'environnement QCustomPlot sous MSYS</a></h2><br><h3 class="Title8 GTitle3">Télécharger QCustomPlot</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.qcustomplot.com/index.php/download">https://www.qcustomplot.com/index.php/download</a><br><br><b>QCustomPlot.tar.gz</b><br><br><h3 class="Title8 GTitle3">Extraire QCustomPlot</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">QCustomPlot.tar.gz
 Clic droit -&gt; Extraire vers QCustomPlot\</pre></div></div><br><h2 class="Title7 GTitle2" id="Trace-de-courbes-2D-avec-QCustomPlot-Tester-un-projet-QCustomPlot-sous-MSYS2"><a class="Link9" href="#Trace-de-courbes-2D-avec-QCustomPlot">Tester un projet QCustomPlot sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Observer la structure du projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">ReadyTest/QCustomPlot/
 |___ main.cpp
 |___ qcustomplot.h
@@ -5192,7 +5192,7 @@ int main(int argc, char** argv) {
     return 0;
 }
 //===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Compiler le projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">export "PATH=/mingw32/bin:$PATH"</pre></div></div><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">g++ -std=gnu++11 -c main.cpp -o main.o -I/mingw32/include
-g++ -o rdcpp.exe main.o -lgsl -lgslcblas -lm</pre></div></div><br><h3 class="Title8 GTitle3">Exécuter le projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">./rdcpp.exe</pre></div></div><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">J0(5) = -1.775967713143382920e-01</pre></div></div><br><h2 class="Title7 GTitle2" id="Calcul-scientifique-avec-GSL-Resoudre-une-equation-differentielle-d-ordre-2"><a class="Link9" href="#Calcul-scientifique-avec-GSL">Résoudre une équation différentielle d'ordre 2</a></h2><br><h3 class="Title8 GTitle3">Définir l'équation différentielle</h3><br><div class="Formula GFormula1"><div class="Formula2">\begin{eqnarray} 
+g++ -o rdcpp.exe main.o -lgsl -lgslcblas -lm</pre></div></div><br><h3 class="Title8 GTitle3">Exécuter le projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">./rdcpp.exe</pre></div></div><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">J0(5) = -1.775967713143382920e-01</pre></div></div><br><h2 class="Title7 GTitle2" id="Calcul-scientifique-avec-GSL-Resoudre-une-equation-differentielle-ordinaire"><a class="Link9" href="#Calcul-scientifique-avec-GSL">Résoudre une équation différentielle ordinaire</a></h2><br>En mathématiques, une <b>équation différentielle ordinaire</b> (parfois simplement appelée équation différentielle et abrégée en EDO) est une équation différentielle dont la ou les fonctions inconnues ne dépendent que d'une seule variable; elle se présente sous la forme d'une relation entre ces fonctions inconnues et leurs dérivées successives. Le terme ordinaire est utilisé par opposition au terme équation différentielle partielle (plus communément équation aux dérivées partielles, ou EDP) où la ou les fonctions inconnues peuvent dépendre de plusieurs variables. L'ordre d'une équation différentielle correspond au degré maximal de dérivation auquel l'une des fonctions inconnues a été soumise.<br><br><h3 class="Title8 GTitle3">Définir l'équation différentielle</h3><br><div class="Formula GFormula1"><div class="Formula2">\begin{eqnarray} 
 u''(t)+µu'(t)\left(u(t)^2-1\right)+u(t) &amp;=&amp; 0
 \end{eqnarray}</div></div><br><h3 class="Title8 GTitle3">Déterminer les dérivées premières de l'équation différentielle</h3><br><div class="Formula GFormula1"><div class="Formula2">$$\left \{
 \begin{array}{r c l}
@@ -5319,7 +5319,255 @@ int main(int argc, char** argv) {
     gsl_odeiv2_driver_free (d);
     return app.exec();
 }
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_gsl_ode_2.png" alt="/Tutoriels/Software_Development/Cpp/img/i_gsl_ode_2.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="C---Builder"><a class="Link3" href="#">C++ Builder</a></h1><div class="Body3"><br><b>C++Builder</b> est un logiciel de développement rapide d'applications (RAD) conçu par Borland qui reprend les mêmes concepts, la même interface et la même bibliothèque que Delphi en utilisant le langage C++. Il permet de créer rapidement des applications Win32, Win64, MacOS, iOS, Android, ainsi qu'une interface graphique avec son éditeur de ressources. Utilisant en interne le compilateur Clang, ll est compatible avec la version de norme ISO C++ C++17. <br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#C---Builder-Installer-l-environnement-C--Builder-sous-Windows">Installer l'environnement C++Builder sous Windows</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#C---Builder-Tester-C--Builder-sous-Windows">Tester C++Builder sous Windows</a></div></div><br><h2 class="Title7 GTitle2" id="C---Builder-Installer-l-environnement-C--Builder-sous-Windows"><a class="Link9" href="#C---Builder">Installer l'environnement C++Builder sous Windows</a></h2><br><h3 class="Title8 GTitle3">Télécharger C++Builder</h3><br><b>RADStudio-1042-esd-4203.exe</b><br><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.embarcadero.com/fr/products/cbuilder/start-for-free">https://www.embarcadero.com/fr/products/cbuilder/start-for-free</a><br><br><h3 class="Title8 GTitle3">Installer C++Builder</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">RADStudio-1042-esd-4203.exe
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_gsl_ode_2.png" alt="/Tutoriels/Software_Development/Cpp/img/i_gsl_ode_2.png"></div><br><h2 class="Title7 GTitle2" id="Calcul-scientifique-avec-GSL-Rechercher-une-interpolation-lineaire"><a class="Link9" href="#Calcul-scientifique-avec-GSL">Rechercher une interpolation linéaire</a></h2><br>L’<b>interpolation linéaire</b> est la méthode la plus simple pour estimer la valeur prise par une fonction continue entre deux points déterminés (interpolation). Elle consiste à utiliser pour cela la fonction affine (de la forme <span class="GCode3"><code style="color:#cccccc;">f(x) = m.x + b</code></span>) passant par les deux points déterminés. Cette technique était d'un emploi systématique lorsque l'on ne disposait que de tables numériques pour le calcul avec les fonctions transcendantes : les tables comportaient d'ailleurs à cet effet en marge les « différences tabulaires », auxiliaire de calcul servant à l'interpolation linéaire. Enfin l'interpolation linéaire est la base de la technique de quadrature numérique par la méthode des trapèzes. <br><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GWindow.h"
+//===============================================
+int main(int argc, char** argv) {
+    QApplication app(argc, argv);
+
+    GWindow* lWindow = new GWindow;
+    lWindow-&gt;setWindowTitle("ReadyApp");
+    lWindow-&gt;resize(500, 300);
+    lWindow-&gt;show();
+
+    return app.exec();
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GWindow.h</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//================================================
+#ifndef _GWindow_
+#define _GWindow_
+//================================================
+#include &lt;QApplication&gt;
+#include &lt;QtWidgets&gt;
+#include &lt;qcustomplot.h&gt;
+#include &lt;gsl/gsl_interp.h&gt;
+//================================================
+struct sGCoord {
+    double x;
+    double y;
+    operator QString() const {
+        QString d = QString("sGCoord (%1 ; %2)")
+        .arg(x, 0, 'g', 2).arg(y, 0, 'g', 2);
+        return d;
+    }
+};
+//================================================
+class GWindow : public QFrame {
+    Q_OBJECT
+    
+public:
+    GWindow(QWidget* parent = 0);
+    ~GWindow();
+    
+public:
+    void onEvent(const QString&amp; event);
+    void detectPoint();
+    void interpolation();
+    void sort();
+    
+public slots:
+    void slotMousePress(QMouseEvent* event);
+    void slotMouseMove(QMouseEvent* event);
+    void onClick();
+
+private:
+    QCustomPlot* customPlot;
+    double m_x;
+    double m_y;
+    double m_xmin;
+    double m_xmax;
+    double m_ymin;
+    double m_ymax;
+    int m_iClear;
+    QVector&lt;double&gt; m_xData;
+    QVector&lt;double&gt; m_yData;
+    QCPItemText* m_coords;
+    bool m_clearFlag;
+    QMap&lt;QWidget*, QString&gt; m_widgetMap;
+};
+//================================================
+#endif
+//================================================</pre></div></div><br><h3 class="Title8 GTitle3">GWindow.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//================================================
+#include "GWindow.h"
+//================================================
+GWindow::GWindow(QWidget* parent) : QFrame(parent) {
+    customPlot = new QCustomPlot;
+
+    m_xmin = -10.1; m_xmax = 10.1; m_ymin = -10.1; m_ymax = 10.1;
+    
+    customPlot-&gt;addGraph();
+    customPlot-&gt;addGraph();
+    customPlot-&gt;addGraph();
+    customPlot-&gt;addGraph();
+    
+    customPlot-&gt;graph(0)-&gt;setPen(QPen(Qt::NoPen));
+    customPlot-&gt;graph(0)-&gt;setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssCircle, QPen(Qt::black, 1.5), QBrush(Qt::white), 9));    
+    customPlot-&gt;graph(1)-&gt;setPen(QPen(Qt::blue));
+    customPlot-&gt;graph(2)-&gt;setPen(QPen(Qt::NoPen));
+    customPlot-&gt;graph(2)-&gt;setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssCircle, QPen(Qt::gray, 1.5), QBrush(Qt::NoBrush), 16));    
+    customPlot-&gt;graph(3)-&gt;setPen(QPen(Qt::NoPen));
+    customPlot-&gt;graph(3)-&gt;setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssCircle, QPen(Qt::blue, 3), QBrush(Qt::NoBrush), 9));    
+    
+    m_coords = new QCPItemText(customPlot);
+    m_coords-&gt;setPositionAlignment(Qt::AlignTop|Qt::AlignHCenter);
+    m_coords-&gt;position-&gt;setType(QCPItemPosition::ptPlotCoords);
+    m_coords-&gt;setFont(QFont(font().family(), 10));
+    m_coords-&gt;setPen(QPen(Qt::NoPen)); 
+    m_coords-&gt;setText("");
+    
+    customPlot-&gt;xAxis-&gt;setLabel("x");
+    customPlot-&gt;yAxis-&gt;setLabel("y");
+    customPlot-&gt;xAxis-&gt;setRange(m_xmin, m_xmax);
+    customPlot-&gt;yAxis-&gt;setRange(m_ymin, m_ymax);
+
+    m_clearFlag = false;
+
+    QPushButton* lRun = new QPushButton;
+    lRun-&gt;setText("Run");
+    m_widgetMap[lRun] = "run";
+
+    QHBoxLayout* lButtonLayout = new QHBoxLayout;
+    lButtonLayout-&gt;addWidget(lRun);
+    lButtonLayout-&gt;setAlignment(Qt::AlignLeft);
+    
+    QVBoxLayout* lMainLayout = new QVBoxLayout;
+    lMainLayout-&gt;addLayout(lButtonLayout);
+    lMainLayout-&gt;addWidget(customPlot);
+
+    setLayout(lMainLayout);
+    
+    connect(lRun, SIGNAL(clicked()), this, SLOT(onClick()));
+    connect(customPlot, SIGNAL(mousePress(QMouseEvent*)), this, SLOT(slotMousePress(QMouseEvent*)));
+    connect(customPlot, SIGNAL(mouseMove(QMouseEvent*)), this, SLOT(slotMouseMove(QMouseEvent*)));
+}
+//================================================
+GWindow::~GWindow() {
+
+}
+//================================================
+void GWindow::onClick() {
+    QWidget* lWidget = qobject_cast&lt;QWidget*&gt;(sender());
+    QString lWidgetId = m_widgetMap[lWidget];
+    onEvent(lWidgetId);
+}
+//================================================
+void GWindow::onEvent(const QString&amp; event) {
+    if(event == "add_point") {
+        m_xData &lt;&lt; m_x;
+        m_yData &lt;&lt; m_y;
+        customPlot-&gt;graph(0)-&gt;setData(m_xData, m_yData);
+        customPlot-&gt;replot();
+    }
+    else if(event == "clear_point") {
+        if(m_clearFlag == false) {return;}
+        m_xData.removeAt(m_iClear);
+        m_yData.removeAt(m_iClear);
+        customPlot-&gt;graph(0)-&gt;setData(m_xData, m_yData);
+        customPlot-&gt;graph(3)-&gt;setData({}, {});
+        customPlot-&gt;replot();
+    }
+    else if(event == "mouse_move") {
+        m_clearFlag = false;
+        m_coords-&gt;position-&gt;setCoords(m_x, m_y + 2.5);
+        customPlot-&gt;graph(3)-&gt;setData({}, {});
+        detectPoint();
+        m_coords-&gt;setText(QString("(%1 ; %2)").arg(m_x, 0, 'g', 2).arg(m_y, 0, 'g', 2));
+        customPlot-&gt;graph(2)-&gt;setData({m_x}, {m_y});
+        customPlot-&gt;replot();
+    }
+    else if(event == "run") {
+        interpolation();
+    }
+}
+//================================================
+void GWindow::interpolation() {
+    int lSize = m_xData.size();
+    if(lSize &lt;= 1) {return;}
+    sort();
+    gsl_interp* lInter = gsl_interp_alloc(gsl_interp_linear, lSize);
+    gsl_interp_init(lInter, m_xData.data(), m_yData.data(), lSize);
+    gsl_interp_accel* lAccel = gsl_interp_accel_alloc();
+    
+    double lXmin = m_xData.first();
+    double lXmax = m_xData.last();
+    double lN = 200;
+    double dX = (lXmax - lXmin) / lN;
+    
+    customPlot-&gt;graph(1)-&gt;setData({}, {});
+    
+    for(double lX = lXmin; lX &lt;= lXmax; lX += dX) { 
+        double lY = gsl_interp_eval(lInter , m_xData.data(), m_yData.data(), lX, lAccel);
+        customPlot-&gt;graph(1)-&gt;addData(lX, lY);
+    }
+    
+    customPlot-&gt;replot();
+    
+    qDebug() &lt;&lt; "gsl_interp_name : " &lt;&lt; gsl_interp_name(lInter);
+    qDebug() &lt;&lt; "gsl_interp_min_size : " &lt;&lt; gsl_interp_min_size(lInter);
+    qDebug() &lt;&lt; "gsl_interp_type_min_size : " &lt;&lt; gsl_interp_type_min_size(gsl_interp_linear);
+    
+    gsl_interp_free(lInter);
+    gsl_interp_accel_free(lAccel);
+}
+//================================================
+void GWindow::sort() {
+    if(m_xData.size() &lt;= 1) {return;}
+    QVector&lt;sGCoord&gt; lCoords;
+    for(int i = 0; i &lt; m_xData.size(); i++) {
+        double lX = m_xData.at(i);
+        double lY = m_yData.at(i);
+        sGCoord lCoord = {lX, lY};
+        lCoords &lt;&lt; lCoord;
+    }
+    qSort(lCoords.begin(), lCoords.end(), [](const sGCoord&amp; a, const sGCoord&amp; b) {
+        return a.x &lt; b.x;
+    });
+    m_xData.clear();
+    m_yData.clear();
+    for(int i = 0; i &lt; lCoords.size(); i++) {
+        sGCoord lCoord = lCoords.at(i);
+        double lX = lCoord.x;
+        double lY = lCoord.y;
+        m_xData &lt;&lt; lX;
+        m_yData &lt;&lt; lY;
+    }
+}
+//================================================
+void GWindow::detectPoint() {
+    for(int i = 0; i &lt; m_xData.size(); i++) {
+        double lX = m_xData.at(i);
+        double lY = m_yData.at(i);
+        double dX = lX - m_x;
+        double dY = lY - m_y;
+        double dR = qSqrt(dX*dX + dY*dY);
+        if(dR &lt;= 0.15) {
+            m_iClear = i;
+            customPlot-&gt;graph(3)-&gt;setData({lX}, {lY});
+            customPlot-&gt;replot();
+            m_clearFlag = true;
+            break;
+        }
+    }
+}
+//================================================
+void GWindow::slotMousePress(QMouseEvent* event) {
+    if(event-&gt;button() == Qt::LeftButton) {
+        m_x = customPlot-&gt;xAxis-&gt;pixelToCoord(event-&gt;pos().x());
+        m_y = customPlot-&gt;yAxis-&gt;pixelToCoord(event-&gt;pos().y());
+        onEvent("add_point");
+    }
+    else if(event-&gt;button() == Qt::RightButton) {
+        onEvent("clear_point");
+    }
+}
+//================================================
+void GWindow::slotMouseMove(QMouseEvent* event) {
+    m_x = customPlot-&gt;xAxis-&gt;pixelToCoord(event-&gt;pos().x());
+    m_y = customPlot-&gt;yAxis-&gt;pixelToCoord(event-&gt;pos().y());
+    onEvent("mouse_move");
+}
+//================================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_gsl_interpolation_linear.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_gsl_interpolation_linear.gif"></div><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">gsl_interp_name :  linear
+gsl_interp_min_size :  2
+gsl_interp_type_min_size :  2</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="C---Builder"><a class="Link3" href="#">C++ Builder</a></h1><div class="Body3"><br><b>C++Builder</b> est un logiciel de développement rapide d'applications (RAD) conçu par Borland qui reprend les mêmes concepts, la même interface et la même bibliothèque que Delphi en utilisant le langage C++. Il permet de créer rapidement des applications Win32, Win64, MacOS, iOS, Android, ainsi qu'une interface graphique avec son éditeur de ressources. Utilisant en interne le compilateur Clang, ll est compatible avec la version de norme ISO C++ C++17. <br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#C---Builder-Installer-l-environnement-C--Builder-sous-Windows">Installer l'environnement C++Builder sous Windows</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#C---Builder-Tester-C--Builder-sous-Windows">Tester C++Builder sous Windows</a></div></div><br><h2 class="Title7 GTitle2" id="C---Builder-Installer-l-environnement-C--Builder-sous-Windows"><a class="Link9" href="#C---Builder">Installer l'environnement C++Builder sous Windows</a></h2><br><h3 class="Title8 GTitle3">Télécharger C++Builder</h3><br><b>RADStudio-1042-esd-4203.exe</b><br><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.embarcadero.com/fr/products/cbuilder/start-for-free">https://www.embarcadero.com/fr/products/cbuilder/start-for-free</a><br><br><h3 class="Title8 GTitle3">Installer C++Builder</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">RADStudio-1042-esd-4203.exe
 Cocher -&gt; J'accepte le contrat de licence RAD Studio et la politique de confidentialité
 Suivant
 Cocher -&gt; Je me suis inscrit pour une version d'évaluation sur embarcadero.com
