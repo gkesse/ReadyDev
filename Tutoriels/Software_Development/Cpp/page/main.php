@@ -5567,7 +5567,261 @@ void GWindow::slotMouseMove(QMouseEvent* event) {
 }
 //================================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_gsl_interpolation_linear.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_gsl_interpolation_linear.gif"></div><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">gsl_interp_name :  linear
 gsl_interp_min_size :  2
-gsl_interp_type_min_size :  2</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="C---Builder"><a class="Link3" href="#">C++ Builder</a></h1><div class="Body3"><br><b>C++Builder</b> est un logiciel de développement rapide d'applications (RAD) conçu par Borland qui reprend les mêmes concepts, la même interface et la même bibliothèque que Delphi en utilisant le langage C++. Il permet de créer rapidement des applications Win32, Win64, MacOS, iOS, Android, ainsi qu'une interface graphique avec son éditeur de ressources. Utilisant en interne le compilateur Clang, ll est compatible avec la version de norme ISO C++ C++17. <br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#C---Builder-Installer-l-environnement-C--Builder-sous-Windows">Installer l'environnement C++Builder sous Windows</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#C---Builder-Tester-C--Builder-sous-Windows">Tester C++Builder sous Windows</a></div></div><br><h2 class="Title7 GTitle2" id="C---Builder-Installer-l-environnement-C--Builder-sous-Windows"><a class="Link9" href="#C---Builder">Installer l'environnement C++Builder sous Windows</a></h2><br><h3 class="Title8 GTitle3">Télécharger C++Builder</h3><br><b>RADStudio-1042-esd-4203.exe</b><br><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.embarcadero.com/fr/products/cbuilder/start-for-free">https://www.embarcadero.com/fr/products/cbuilder/start-for-free</a><br><br><h3 class="Title8 GTitle3">Installer C++Builder</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">RADStudio-1042-esd-4203.exe
+gsl_interp_type_min_size :  2</pre></div></div><br><h2 class="Title7 GTitle2" id="Calcul-scientifique-avec-GSL-Rechercher-une-interploation-polynomiale"><a class="Link9" href="#Calcul-scientifique-avec-GSL">Rechercher une interploation polynomiale</a></h2><br>En mathématiques, en analyse numérique, l'<b>interpolation polynomiale</b> est une technique d'interpolation d'un ensemble de données ou d'une fonction par un polynôme. En d'autres termes, étant donné un ensemble de points (obtenu, par exemple, à la suite d'une expérience), on cherche un polynôme qui passe par tous ces points, et éventuellement vérifie d'autres conditions, de degré si possible le plus bas. Le résultat n'est toutefois pas toujours à la hauteur des espérances : dans le cas de l'interpolation lagrangienne, par exemple, le choix des points d'interpolation est critique. L'interpolation en des points régulièrement espacés peut fort bien diverger même pour des fonctions très régulières (phénomène de Runge).<br><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GWindow.h"
+//===============================================
+int main(int argc, char** argv) {
+    QApplication app(argc, argv);
+
+    GWindow* lWindow = new GWindow;
+    lWindow-&gt;setWindowTitle("ReadyApp");
+    lWindow-&gt;resize(500, 300);
+    lWindow-&gt;show();
+
+    return app.exec();
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GWindow.h</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//================================================
+#ifndef _GWindow_
+#define _GWindow_
+//================================================
+#include &lt;QApplication&gt;
+#include &lt;QtWidgets&gt;
+#include &lt;qcustomplot.h&gt;
+#include &lt;gsl/gsl_interp.h&gt;
+//================================================
+struct sGCoord {
+    double x;
+    double y;
+    operator QString() const {
+        QString d = QString("sGCoord (%1 ; %2)")
+        .arg(x, 0, 'g', 2).arg(y, 0, 'g', 2);
+        return d;
+    }
+};
+//================================================
+class GWindow : public QFrame {
+    Q_OBJECT
+    
+public:
+    GWindow(QWidget* parent = 0);
+    ~GWindow();
+    
+public:
+    void onEvent(const QString&amp; event);
+    void detectPoint();
+    void interpolation();
+    void sort();
+    
+public slots:
+    void slotMousePress(QMouseEvent* event);
+    void slotMouseMove(QMouseEvent* event);
+    void onClick();
+
+private:
+    QCustomPlot* customPlot;
+    double m_x;
+    double m_y;
+    double m_xmin;
+    double m_xmax;
+    double m_ymin;
+    double m_ymax;
+    int m_iClear;
+    QVector&lt;double&gt; m_xData;
+    QVector&lt;double&gt; m_yData;
+    QCPItemText* m_coords;
+    bool m_clearFlag;
+    QMap&lt;QWidget*, QString&gt; m_widgetMap;
+};
+//================================================
+#endif
+//================================================</pre></div></div><br><h3 class="Title8 GTitle3">GWindow.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//================================================
+#include "GWindow.h"
+//================================================
+GWindow::GWindow(QWidget* parent) : QFrame(parent) {
+    customPlot = new QCustomPlot;
+
+    m_xmin = -10.1; m_xmax = 10.1; m_ymin = -10.1; m_ymax = 10.1;
+    
+    customPlot-&gt;addGraph();
+    customPlot-&gt;addGraph();
+    customPlot-&gt;addGraph();
+    customPlot-&gt;addGraph();
+    
+    customPlot-&gt;graph(0)-&gt;setPen(QPen(Qt::NoPen));
+    customPlot-&gt;graph(0)-&gt;setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssCircle, QPen(Qt::black, 1.5), QBrush(Qt::white), 9));    
+    customPlot-&gt;graph(1)-&gt;setPen(QPen(Qt::blue));
+    customPlot-&gt;graph(2)-&gt;setPen(QPen(Qt::NoPen));
+    customPlot-&gt;graph(2)-&gt;setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssCircle, QPen(Qt::gray, 1.5), QBrush(Qt::NoBrush), 16));    
+    customPlot-&gt;graph(3)-&gt;setPen(QPen(Qt::NoPen));
+    customPlot-&gt;graph(3)-&gt;setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssCircle, QPen(Qt::blue, 3), QBrush(Qt::NoBrush), 9));    
+    
+    m_coords = new QCPItemText(customPlot);
+    m_coords-&gt;setPositionAlignment(Qt::AlignTop|Qt::AlignHCenter);
+    m_coords-&gt;position-&gt;setType(QCPItemPosition::ptPlotCoords);
+    m_coords-&gt;setFont(QFont(font().family(), 10));
+    m_coords-&gt;setPen(QPen(Qt::NoPen)); 
+    m_coords-&gt;setText("");
+    
+    customPlot-&gt;xAxis-&gt;setLabel("x");
+    customPlot-&gt;yAxis-&gt;setLabel("y");
+    customPlot-&gt;xAxis-&gt;setRange(m_xmin, m_xmax);
+    customPlot-&gt;yAxis-&gt;setRange(m_ymin, m_ymax);
+
+    m_clearFlag = false;
+
+    QPushButton* lRun = new QPushButton;
+    lRun-&gt;setText("Run");
+    m_widgetMap[lRun] = "run";
+
+    QHBoxLayout* lButtonLayout = new QHBoxLayout;
+    lButtonLayout-&gt;addWidget(lRun);
+    lButtonLayout-&gt;setAlignment(Qt::AlignLeft);
+    
+    QVBoxLayout* lMainLayout = new QVBoxLayout;
+    lMainLayout-&gt;addLayout(lButtonLayout);
+    lMainLayout-&gt;addWidget(customPlot);
+
+    setLayout(lMainLayout);
+    
+    connect(lRun, SIGNAL(clicked()), this, SLOT(onClick()));
+    connect(customPlot, SIGNAL(mousePress(QMouseEvent*)), this, SLOT(slotMousePress(QMouseEvent*)));
+    connect(customPlot, SIGNAL(mouseMove(QMouseEvent*)), this, SLOT(slotMouseMove(QMouseEvent*)));
+}
+//================================================
+GWindow::~GWindow() {
+
+}
+//================================================
+void GWindow::onClick() {
+    QWidget* lWidget = qobject_cast&lt;QWidget*&gt;(sender());
+    QString lWidgetId = m_widgetMap[lWidget];
+    onEvent(lWidgetId);
+}
+//================================================
+void GWindow::onEvent(const QString&amp; event) {
+    if(event == "add_point") {
+        m_xData &lt;&lt; m_x;
+        m_yData &lt;&lt; m_y;
+        customPlot-&gt;graph(0)-&gt;setData(m_xData, m_yData);
+        customPlot-&gt;replot();
+    }
+    else if(event == "clear_point") {
+        if(m_clearFlag == false) {return;}
+        m_xData.removeAt(m_iClear);
+        m_yData.removeAt(m_iClear);
+        customPlot-&gt;graph(0)-&gt;setData(m_xData, m_yData);
+        customPlot-&gt;graph(3)-&gt;setData({}, {});
+        customPlot-&gt;replot();
+    }
+    else if(event == "mouse_move") {
+        m_clearFlag = false;
+        m_coords-&gt;position-&gt;setCoords(m_x, m_y + 2.5);
+        customPlot-&gt;graph(3)-&gt;setData({}, {});
+        detectPoint();
+        m_coords-&gt;setText(QString("(%1 ; %2)").arg(m_x, 0, 'g', 2).arg(m_y, 0, 'g', 2));
+        customPlot-&gt;graph(2)-&gt;setData({m_x}, {m_y});
+        customPlot-&gt;replot();
+    }
+    else if(event == "run") {
+        interpolation();
+    }
+}
+//================================================
+void GWindow::interpolation() {
+    int lSize = m_xData.size();
+    if(lSize &lt;= 1) {return;}
+    sort();
+    gsl_interp* lInter = gsl_interp_alloc(gsl_interp_polynomial, lSize);
+    gsl_interp_init(lInter, m_xData.data(), m_yData.data(), lSize);
+    gsl_interp_accel* lAccel = gsl_interp_accel_alloc();
+    
+    double lXmin = m_xData.first();
+    double lXmax = m_xData.last();
+    double lN = 200;
+    double dX = (lXmax - lXmin) / lN;
+    
+    customPlot-&gt;graph(1)-&gt;setData({}, {});
+    
+    m_ymin = m_yData.at(0);
+    m_ymax = m_yData.at(0);
+    
+    for(double lX = lXmin; lX &lt;= lXmax; lX += dX) { 
+        double lY = gsl_interp_eval(lInter , m_xData.data(), m_yData.data(), lX, lAccel);
+        if(lY &lt; m_ymin) {m_ymin = lY;}
+        if(lY &gt; m_ymax) {m_ymax = lY;}
+        customPlot-&gt;graph(1)-&gt;addData(lX, lY);
+    }
+    
+    customPlot-&gt;yAxis-&gt;setRange(m_ymin - 1.0, m_ymax + 1.0);
+    customPlot-&gt;replot();
+    
+    qDebug() &lt;&lt; "gsl_interp_name : " &lt;&lt; gsl_interp_name(lInter);
+    qDebug() &lt;&lt; "gsl_interp_min_size : " &lt;&lt; gsl_interp_min_size(lInter);
+    qDebug() &lt;&lt; "gsl_interp_type_min_size : " &lt;&lt; gsl_interp_type_min_size(gsl_interp_polynomial);
+    
+    gsl_interp_free(lInter);
+    gsl_interp_accel_free(lAccel);
+}
+//================================================
+void GWindow::sort() {
+    if(m_xData.size() &lt;= 1) {return;}
+    QVector&lt;sGCoord&gt; lCoords;
+    for(int i = 0; i &lt; m_xData.size(); i++) {
+        double lX = m_xData.at(i);
+        double lY = m_yData.at(i);
+        sGCoord lCoord = {lX, lY};
+        lCoords &lt;&lt; lCoord;
+    }
+    qSort(lCoords.begin(), lCoords.end(), [](const sGCoord&amp; a, const sGCoord&amp; b) {
+        return a.x &lt; b.x;
+    });
+    m_xData.clear();
+    m_yData.clear();
+    for(int i = 0; i &lt; lCoords.size(); i++) {
+        sGCoord lCoord = lCoords.at(i);
+        double lX = lCoord.x;
+        double lY = lCoord.y;
+        m_xData &lt;&lt; lX;
+        m_yData &lt;&lt; lY;
+    }
+}
+//================================================
+void GWindow::detectPoint() {
+    for(int i = 0; i &lt; m_xData.size(); i++) {
+        double lX = m_xData.at(i);
+        double lY = m_yData.at(i);
+        double dX = lX - m_x;
+        double dY = lY - m_y;
+        double dR = qSqrt(dX*dX + dY*dY);
+        if(dR &lt;= 0.15) {
+            m_iClear = i;
+            customPlot-&gt;graph(3)-&gt;setData({lX}, {lY});
+            customPlot-&gt;replot();
+            m_clearFlag = true;
+            break;
+        }
+    }
+}
+//================================================
+void GWindow::slotMousePress(QMouseEvent* event) {
+    if(event-&gt;button() == Qt::LeftButton) {
+        m_x = customPlot-&gt;xAxis-&gt;pixelToCoord(event-&gt;pos().x());
+        m_y = customPlot-&gt;yAxis-&gt;pixelToCoord(event-&gt;pos().y());
+        onEvent("add_point");
+    }
+    else if(event-&gt;button() == Qt::RightButton) {
+        onEvent("clear_point");
+    }
+}
+//================================================
+void GWindow::slotMouseMove(QMouseEvent* event) {
+    m_x = customPlot-&gt;xAxis-&gt;pixelToCoord(event-&gt;pos().x());
+    m_y = customPlot-&gt;yAxis-&gt;pixelToCoord(event-&gt;pos().y());
+    onEvent("mouse_move");
+}
+//================================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_gsl_interpolation_polynomial.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_gsl_interpolation_polynomial.gif"></div><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">gsl_interp_name :  polynomial
+gsl_interp_min_size :  3
+gsl_interp_type_min_size :  3</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="C---Builder"><a class="Link3" href="#">C++ Builder</a></h1><div class="Body3"><br><b>C++Builder</b> est un logiciel de développement rapide d'applications (RAD) conçu par Borland qui reprend les mêmes concepts, la même interface et la même bibliothèque que Delphi en utilisant le langage C++. Il permet de créer rapidement des applications Win32, Win64, MacOS, iOS, Android, ainsi qu'une interface graphique avec son éditeur de ressources. Utilisant en interne le compilateur Clang, ll est compatible avec la version de norme ISO C++ C++17. <br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#C---Builder-Installer-l-environnement-C--Builder-sous-Windows">Installer l'environnement C++Builder sous Windows</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#C---Builder-Tester-C--Builder-sous-Windows">Tester C++Builder sous Windows</a></div></div><br><h2 class="Title7 GTitle2" id="C---Builder-Installer-l-environnement-C--Builder-sous-Windows"><a class="Link9" href="#C---Builder">Installer l'environnement C++Builder sous Windows</a></h2><br><h3 class="Title8 GTitle3">Télécharger C++Builder</h3><br><b>RADStudio-1042-esd-4203.exe</b><br><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.embarcadero.com/fr/products/cbuilder/start-for-free">https://www.embarcadero.com/fr/products/cbuilder/start-for-free</a><br><br><h3 class="Title8 GTitle3">Installer C++Builder</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">RADStudio-1042-esd-4203.exe
 Cocher -&gt; J'accepte le contrat de licence RAD Studio et la politique de confidentialité
 Suivant
 Cocher -&gt; Je me suis inscrit pour une version d'évaluation sur embarcadero.com
