@@ -170,4 +170,4 @@ if "%lAnswer%" == "-q" ( set "g_state=end"
 ) else ( if "%lAnswer%" == "n" ( set "g_state=init"
 ) else ( if "%lAnswer%" == "o" ( set "g_state=end"
 ))))
-::===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Systeme-d-administration-Resultat"><a class="Link9" href="#Systeme-d-administration">Résultat</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Batch/img/i_admin_system.gif" alt="/Tutoriels/Software_Development/Batch/img/i_admin_system.gif"></div><br></div></div></div></div><br>
+::===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Systeme-d-administration-Resultat"><a class="Link9" href="#Systeme-d-administration">Résultat</a></h2><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Batch/img/i_batch_admin_system.gif" alt="/Tutoriels/Software_Development/Batch/img/i_batch_admin_system.gif"></div><br></div></div></div></div><br>
