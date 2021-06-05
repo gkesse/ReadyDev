@@ -5158,7 +5158,7 @@ void GWindow::bracketDataSlot() {
         frameCount = 0;
     }
 }
-//================================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_bracket.gif" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_bracket.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Communication-Inter-Processus-avec-D-Bus-sous-Qt"><a class="Link3" href="#">Communication Inter-Processus avec D-Bus sous Qt</a></h1><div class="Body3"><br><b>D-Bus</b> est un mécanisme de communication inter-processus (IPC) et d'appel de procédure à distance (RPC) développé à l'origine pour Linux afin de remplacer les solutions IPC existantes et concurrentes par un protocole unifié. Il a également été conçu pour permettre la communication entre les processus au niveau du système (tels que les services d'imprimante et de pilote matériel) et les processus utilisateur normaux. Il utilise un protocole de transmission de messages binaire rapide, qui convient à la communication avec la même machine en raison de sa faible latence et de sa faible surcharge. Son cahier des charges est actuellement défini par le projet freedesktop.org, et est accessible à toutes les parties. La communication s'effectue en général via une application serveur centrale, appelée "bus" (d'où le nom), mais une communication directe d'application à application est également possible. Lorsqu'elles communiquent sur un bus, les applications peuvent demander  quelles sont les services disponibles, ainsi qu'en activer un à la demande.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1622824278017"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1622824278017");</script></div><br><h2 class="Title7 GTitle2" id="Communication-Inter-Processus-avec-D-Bus-sous-Qt-Envoyer-un-message-a-toutes-les-applications"><a class="Link9" href="#Communication-Inter-Processus-avec-D-Bus-sous-Qt">Envoyer un message à toutes les applications</a></h2><br>Nous anlysons cette section à travers la création d'un sytème de chat en ligne. Le <b>chat en ligne</b>, dialogue en ligne, ou clavardage, peut faire référence à tout type de communication sur Internet offrant une transmission en temps réel de messages texte de l'expéditeur au destinataire. Les messages de discussion sont généralement courts afin de permettre aux autres participants de répondre rapidement. <br><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//================================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_bracket.gif" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_bracket.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Communication-Inter-Processus-avec-D-Bus-sous-Qt"><a class="Link3" href="#">Communication Inter-Processus avec D-Bus sous Qt</a></h1><div class="Body3"><br><b>D-Bus</b> est un mécanisme de communication inter-processus (IPC) et d'appel de procédure à distance (RPC) développé à l'origine pour Linux afin de remplacer les solutions IPC existantes et concurrentes par un protocole unifié. Il a également été conçu pour permettre la communication entre les processus au niveau du système (tels que les services d'imprimante et de pilote matériel) et les processus utilisateur normaux. Il utilise un protocole de transmission de messages binaire rapide, qui convient à la communication avec la même machine en raison de sa faible latence et de sa faible surcharge. Son cahier des charges est actuellement défini par le projet freedesktop.org, et est accessible à toutes les parties. La communication s'effectue en général via une application serveur centrale, appelée "bus" (d'où le nom), mais une communication directe d'application à application est également possible. Lorsqu'elles communiquent sur un bus, les applications peuvent demander  quelles sont les services disponibles, ainsi qu'en activer un à la demande.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1622824278017"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1622824278017");</script></div><br><h2 class="Title7 GTitle2" id="Communication-Inter-Processus-avec-D-Bus-sous-Qt-Envoyer-un-message-a-toutes-les-applications"><a class="Link9" href="#Communication-Inter-Processus-avec-D-Bus-sous-Qt">Envoyer un message à toutes les applications</a></h2><br>Création d'un sytème de chat en ligne. Le <b>chat en ligne</b>, dialogue en ligne, ou clavardage, peut faire référence à tout type de communication sur Internet offrant une transmission en temps réel de messages texte de l'expéditeur au destinataire. Les messages de discussion sont généralement courts afin de permettre aux autres participants de répondre rapidement. <br><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 #include "GWindow.h"
 //===============================================
 int main(int argc, char** argv) {
@@ -5417,7 +5417,87 @@ QDBusAbstractInterface(service, path, "com.readydev.app", connection, parent) {
 GDBusInterface::~GDBusInterface() {
 
 }
-//================================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_dbus_qt_chat.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_dbus_qt_chat.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Vision-par-Ordinateur-avec-OpenCV"><a class="Link3" href="#">Vision par Ordinateur avec OpenCV</a></h1><div class="Body3"><br><b>OpenCV </b>est une bibliothèque graphique libre, spécialisée dans le traitement d'images en temps réel. La bibliothèque OpenCV met à disposition de nombreuses fonctionnalités très diversifiées permettant de créer des programmes en partant des données brutes pour aller jusqu'à la création d'interfaces graphiques basiques. OpenCV propose la plupart des opérations classiques en traitement bas niveau des images : lecture, écriture et affichage d’une image ; calcul de l'histogramme des niveaux de gris ou d'histogrammes couleurs ; lissage, filtrage ; seuillage d'image (méthode d'Otsu, seuillage adaptatif) ; segmentation (composantes connexes, GrabCut) ; morphologie mathématique.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV-Installer-l-environnement-OpenCV-sous-MSYS2">Installer l'environnement OpenCV sous MSYS2</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV-Tester-un-projet-OpenCV-sous-MSYS2">Tester un projet OpenCV sous MSYS2</a></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/b_opencv.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/b_opencv.png"></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Installer-l-environnement-OpenCV-sous-MSYS2"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Installer l'environnement OpenCV sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Télécharger OpenCV</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">pacman -S --needed --noconfirm mingw-w64-i686-opencv</pre></div></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Tester-un-projet-OpenCV-sous-MSYS2"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Tester un projet OpenCV sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Éditer le programme (main.cpp)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
+//================================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_dbus_qt_chat.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_dbus_qt_chat.gif"></div><br><h2 class="Title7 GTitle2" id="Communication-Inter-Processus-avec-D-Bus-sous-Qt-Appeler-une-procedure-a-distance"><a class="Link9" href="#Communication-Inter-Processus-avec-D-Bus-sous-Qt">Appeler une procédure à distance</a></h2><br>Création d'un système RPC. En informatique et en télécommunication, <b>RPC </b>(remote procedure call) est un protocole réseau permettant de faire des appels de procédures sur un ordinateur distant à l'aide d'un serveur d'applications. Ce protocole est utilisé dans le modèle client-serveur pour assurer la communication entre le client, le serveur et d’éventuels intermédiaires. Ce système est également utilisé pour la conception des micro-noyaux. <br><br><h3 class="Title8 GTitle3">Serveur (main.cpp)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GDBusObject.h"
+//===============================================
+int main(int argc, char** argv) {
+    QApplication app(argc, argv);
+    if (!QDBusConnection::sessionBus().isConnected()) {
+        qDebug() &lt;&lt; "[error] connexion bus session";
+        return 0;
+    }
+    if (!QDBusConnection::sessionBus().registerService("com.readydev.app")) {
+        qDebug() &lt;&lt; "[error] enregistrement service";
+        return 0;
+    }
+    GDBusObject lObject;
+    QDBusConnection::sessionBus().registerObject("/", &amp;lObject, QDBusConnection::ExportAllSlots);    
+    return app.exec();
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Serveur (GDBusObject.h)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//================================================
+#ifndef _GDBusObject_
+#define _GDBusObject_
+//================================================
+#include &lt;QApplication&gt;
+#include &lt;QtDBus/QtDBus&gt;
+//================================================
+class GDBusObject : public QObject {
+    Q_OBJECT
+    
+public:
+    GDBusObject(QObject* parent = 0);
+    ~GDBusObject();
+    
+public slots:
+    QString say_hello();
+    int add_data(const int&amp; a, const int&amp; b);
+};
+//================================================
+#endif
+//================================================</pre></div></div><br><h3 class="Title8 GTitle3">Serveur (GDBusObject.cpp)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//================================================
+#include "GDBusObject.h"
+//================================================
+GDBusObject::GDBusObject(QObject* parent) : 
+QObject(parent) {
+
+}
+//================================================
+GDBusObject::~GDBusObject() {
+
+}
+//================================================
+QString GDBusObject::say_hello() {
+    return QString("Bonjour tout le monde");
+}
+//================================================
+int GDBusObject::add_data(const int&amp; a, const int&amp; b) {
+    return (a + b);
+}
+//================================================</pre></div></div><br><h3 class="Title8 GTitle3">Client (main.cpp)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include &lt;QApplication&gt;
+#include &lt;QtDBus/QtDBus&gt;
+//===============================================
+int main(int argc, char** argv) {
+    QApplication app(argc, argv);
+    if (!QDBusConnection::sessionBus().isConnected()) {
+        qDebug() &lt;&lt; "[error] connexion bus session";
+        return 0;
+    }
+    QDBusInterface lInterface("com.readydev.app", "/", "", QDBusConnection::sessionBus());
+    if (lInterface.isValid()) {
+        QDBusReply&lt;QString&gt; lReplyHello = lInterface.call("say_hello");
+        if (lReplyHello.isValid()) {
+            printf("say_hello : %s\n", qPrintable(lReplyHello.value()));
+        }
+        QDBusReply&lt;int&gt; lReplyAdd = lInterface.call("add_data", 20, 30);
+        if (lReplyAdd.isValid()) {
+            printf("add_data : %d\n", lReplyAdd.value());
+        }
+    }
+    return 0;
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Lancer le serveur</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">./server</pre></div></div><br><h3 class="Title8 GTitle3">Lancer le client</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">./client</pre></div></div><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">say_hello : Bonjour tout le monde
+add_data : 50</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Vision-par-Ordinateur-avec-OpenCV"><a class="Link3" href="#">Vision par Ordinateur avec OpenCV</a></h1><div class="Body3"><br><b>OpenCV </b>est une bibliothèque graphique libre, spécialisée dans le traitement d'images en temps réel. La bibliothèque OpenCV met à disposition de nombreuses fonctionnalités très diversifiées permettant de créer des programmes en partant des données brutes pour aller jusqu'à la création d'interfaces graphiques basiques. OpenCV propose la plupart des opérations classiques en traitement bas niveau des images : lecture, écriture et affichage d’une image ; calcul de l'histogramme des niveaux de gris ou d'histogrammes couleurs ; lissage, filtrage ; seuillage d'image (méthode d'Otsu, seuillage adaptatif) ; segmentation (composantes connexes, GrabCut) ; morphologie mathématique.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV-Installer-l-environnement-OpenCV-sous-MSYS2">Installer l'environnement OpenCV sous MSYS2</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV-Tester-un-projet-OpenCV-sous-MSYS2">Tester un projet OpenCV sous MSYS2</a></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/b_opencv.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/b_opencv.png"></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Installer-l-environnement-OpenCV-sous-MSYS2"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Installer l'environnement OpenCV sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Télécharger OpenCV</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">pacman -S --needed --noconfirm mingw-w64-i686-opencv</pre></div></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Tester-un-projet-OpenCV-sous-MSYS2"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Tester un projet OpenCV sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Éditer le programme (main.cpp)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;opencv2/opencv.hpp&gt;
 //===============================================
 int main(int argc, char** argv) {
