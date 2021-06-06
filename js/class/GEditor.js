@@ -1329,11 +1329,25 @@ var GEditor = (function() {
                     break;
                 //===============================================
                 case 'Update1_All':
+                    this.editReadyStyle("Summary2_Load", false);
                     this.editReadyStyle("Title1_ID", false);
                     this.editReadyStyle("Title2_ID", false);
                     this.editReadyStyle("Code1_XMP", false);
                     this.editReadyStyle("Img1_Lazy", false);
                     alert("La mise à jour est terminée !");
+                    break;
+                //===============================================
+                case 'Summary2_Load':
+                    var lNodeMap = document.getElementsByClassName("GSummary2");
+                    var lHtml = '';
+                    lHtml += '<div class="Row26">';
+                    lHtml += 'Summary 2';
+                        lHtml += '</div>';
+                    for(var i = 0; i < lNodeMap.length; i++) {
+                        var lSummary2_Node = lNodeMap[i];
+                        lSummary2_Node.innerHTML = lHtml;
+                    }
+                    //alert("La mise à jour est terminée !");
                     break;
                 //===============================================
                 case 'Title1_ID':
