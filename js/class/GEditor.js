@@ -264,22 +264,15 @@ var GEditor = (function() {
                     lFilename = prompt("Chemin ?", lFilename);
                     if(!lFilename) return;
                     GConfig.Instance().setData("G_FILE_PATH", lFilename);
-                    var lDate = Date.now();
-                    var lID = "Loader_" + lDate;
-					var lXmlhttp = new XMLHttpRequest();
-					lXmlhttp.onreadystatechange = function() {
-						if(this.readyState == 4 && this.status == 200) {
-							var lData = this.responseText;
-							document.execCommand("insertHTML", false, lData);
-						}
-					}
-					lXmlhttp.open("POST", "/php/req/editor.php", true);
-					lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-					lXmlhttp.send(
-					"req=" + "FILE_LINK" +
-					"&file=" + lFilename +
-					"&id=" + lID
-					);
+                    var lHtml = '';
+                    lHtml += '<div class="Content0 GFileLink">';
+                    lHtml += '<div class="Row26">';
+                    lHtml += '<div>';
+                    lHtml += 'File Link > ' + lFilename;
+                    lHtml += '</div>';
+                    lHtml += '</div>';
+                    lHtml += '</div>';
+                    document.execCommand("insertHTML", false, lHtml);
                     break;
                 //===============================================
                 case 'Summary1':
@@ -300,18 +293,11 @@ var GEditor = (function() {
                         }
                     }
                     if(lData) return;
-                    var lDate = Date.now();
-                    var lID = "Loader_" + lDate;
                     var lHtml = '';
                     lHtml += '<div class="Content0 GSummary1">';
-                    lHtml += '<div class="Body0" id="'+lID+'">';
                     lHtml += '<div class="Row26">';
                     lHtml += 'Summary 1';
                     lHtml += '</div>';
-                    lHtml += '</div>';
-                    lHtml += '<script>';
-                    lHtml += 'loadSummary1("'+lID+'");';
-                    lHtml += '</script>';
                     lHtml += '</div>';
                     document.execCommand("insertHTML", false, lHtml);
                     break;
@@ -334,18 +320,11 @@ var GEditor = (function() {
                         }
                     }
                     if(lData) return;
-                    var lDate = Date.now();
-                    var lID = "Loader_" + lDate;
                     var lHtml = '';
                     lHtml += '<div class="Content0 GSummary2">';
-                    lHtml += '<div class="Body0" id="'+lID+'">';
                     lHtml += '<div class="Row26">';
                     lHtml += 'Summary 2';
                     lHtml += '</div>';
-                    lHtml += '</div>';
-                    lHtml += '<script>';
-                    lHtml += 'loadSummary2("'+lID+'");';
-                    lHtml += '</script>';
                     lHtml += '</div>';
                     document.execCommand("insertHTML", false, lHtml);                
                     break;
@@ -375,23 +354,15 @@ var GEditor = (function() {
 					var lFilename = lArgMap[0].trim();
 					var lKey = lArgMap[1].trim();
                     if(!lFilename || !lKey) return;
-                    var lDate = Date.now();
-                    var lID = "Loader_" + lDate;
-					var lXmlhttp = new XMLHttpRequest();
-					lXmlhttp.onreadystatechange = function() {
-						if(this.readyState == 4 && this.status == 200) {
-							var lData = this.responseText;
-							document.execCommand("insertHTML", false, lData);
-						}
-					}
-					lXmlhttp.open("POST", "/php/req/editor.php", true);
-					lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-					lXmlhttp.send(
-					"req=" + "LIST_1" +
-					"&file=" + lFilename +
-					"&key=" + lKey +
-					"&id=" + lID
-					);
+                    var lHtml = '';
+                    lHtml += '<div class="Content0 GList1">';
+                    lHtml += '<div class="Row26">';
+                    lHtml += '<div>';
+                    lHtml += 'List 1 > ' + lFilename + ' > ' + lKey;
+                    lHtml += '</div>';
+                    lHtml += '</div>';
+                    lHtml += '</div>';
+                    document.execCommand("insertHTML", false, lHtml);
                     break;
                 //===============================================
                 case 'List2':
@@ -419,23 +390,15 @@ var GEditor = (function() {
 					var lFilename = lArgMap[0].trim();
 					var lKey = lArgMap[1].trim();
                     if(!lFilename || !lKey) return;
-                    var lDate = Date.now();
-                    var lID = "Loader_" + lDate;
-					var lXmlhttp = new XMLHttpRequest();
-					lXmlhttp.onreadystatechange = function() {
-						if(this.readyState == 4 && this.status == 200) {
-							var lData = this.responseText;
-							document.execCommand("insertHTML", false, lData);
-						}
-					}
-					lXmlhttp.open("POST", "/php/req/editor.php", true);
-					lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-					lXmlhttp.send(
-					"req=" + "LIST_2" +
-					"&file=" + lFilename +
-					"&key=" + lKey +
-					"&id=" + lID
-					);
+                    var lHtml = '';
+                    lHtml += '<div class="Content0 Center GList2">';
+                    lHtml += '<div class="Row26">';
+                    lHtml += '<div>';
+                    lHtml += 'List 2 > ' + lFilename + ' > ' + lKey;
+                    lHtml += '</div>';
+                    lHtml += '</div>';
+                    lHtml += '</div>';
+                    document.execCommand("insertHTML", false, lHtml);
                     break;
                 //===============================================
                 case 'List3':
@@ -463,23 +426,15 @@ var GEditor = (function() {
 					var lFilename = lArgMap[0].trim();
 					var lKey = lArgMap[1].trim();
                     if(!lFilename || !lKey) return;
-                    var lDate = Date.now();
-                    var lID = "Loader_" + lDate;
-					var lXmlhttp = new XMLHttpRequest();
-					lXmlhttp.onreadystatechange = function() {
-						if(this.readyState == 4 && this.status == 200) {
-							var lData = this.responseText;
-							document.execCommand("insertHTML", false, lData);
-						}
-					}
-					lXmlhttp.open("POST", "/php/req/editor.php", true);
-					lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-					lXmlhttp.send(
-					"req=" + "LIST_3" +
-					"&file=" + lFilename +
-					"&key=" + lKey +
-					"&id=" + lID
-					);
+                    var lHtml = '';
+                    lHtml += '<div class="Content0 GList3">';
+                    lHtml += '<div class="Row26">';
+                    lHtml += '<div>';
+                    lHtml += 'List 3 > ' + lFilename + ' > ' + lKey;
+                    lHtml += '</div>';
+                    lHtml += '</div>';
+                    lHtml += '</div>';
+                    document.execCommand("insertHTML", false, lHtml);
                     break;
                 //===============================================
                 case 'List4':
@@ -507,23 +462,15 @@ var GEditor = (function() {
 					var lFilename = lArgMap[0].trim();
 					var lKey = lArgMap[1].trim();
                     if(!lFilename || !lKey) return;
-                    var lDate = Date.now();
-                    var lID = "Loader_" + lDate;
-					var lXmlhttp = new XMLHttpRequest();
-					lXmlhttp.onreadystatechange = function() {
-						if(this.readyState == 4 && this.status == 200) {
-							var lData = this.responseText;
-							document.execCommand("insertHTML", false, lData);
-						}
-					}
-					lXmlhttp.open("POST", "/php/req/editor.php", true);
-					lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-					lXmlhttp.send(
-					"req=" + "LIST_4" +
-					"&file=" + lFilename +
-					"&key=" + lKey +
-					"&id=" + lID
-					);
+                    var lHtml = '';
+                    lHtml += '<div class="Content0 GList4">';
+                    lHtml += '<div class="Row26">';
+                    lHtml += '<div>';
+                    lHtml += 'List 4 > ' + lFilename + ' > ' + lKey;
+                    lHtml += '</div>';
+                    lHtml += '</div>';
+                    lHtml += '</div>';
+                    document.execCommand("insertHTML", false, lHtml);
                     break;
                 //===============================================
                 case 'List5':
@@ -552,24 +499,15 @@ var GEditor = (function() {
 					var lKey1 = lArgMap[1].trim();
 					var lKey2 = lArgMap[2].trim();
                     if(!lFilename || !lKey1 || !lKey2) return;
-                    var lDate = Date.now();
-                    var lID = "Loader_" + lDate;
-					var lXmlhttp = new XMLHttpRequest();
-					lXmlhttp.onreadystatechange = function() {
-						if(this.readyState == 4 && this.status == 200) {
-							var lData = this.responseText;
-							document.execCommand("insertHTML", false, lData);
-						}
-					}
-					lXmlhttp.open("POST", "/php/req/editor.php", true);
-					lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-					lXmlhttp.send(
-					"req=" + "LIST_5" +
-					"&file=" + lFilename +
-					"&key1=" + lKey1 +
-					"&key2=" + lKey2 +
-					"&id=" + lID
-					);
+                    var lHtml = '';
+                    lHtml += '<div class="Content0 GList5">';
+                    lHtml += '<div class="Row26">';
+                    lHtml += '<div>';
+                    lHtml += 'List 5 > ' + lFilename + ' > ' + lKey1 + ' > ' + lKey2;
+                    lHtml += '</div>';
+                    lHtml += '</div>';
+                    lHtml += '</div>';
+                    document.execCommand("insertHTML", false, lHtml);
                     break;
                 //===============================================
                 case 'List6':
@@ -598,24 +536,15 @@ var GEditor = (function() {
 					var lKey1 = lArgMap[1].trim();
 					var lKey2 = lArgMap[2].trim();
                     if(!lFilename || !lKey1 || !lKey2) return;
-                    var lDate = Date.now();
-                    var lID = "Loader_" + lDate;
-					var lXmlhttp = new XMLHttpRequest();
-					lXmlhttp.onreadystatechange = function() {
-						if(this.readyState == 4 && this.status == 200) {
-							var lData = this.responseText;
-							document.execCommand("insertHTML", false, lData);
-						}
-					}
-					lXmlhttp.open("POST", "/php/req/editor.php", true);
-					lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-					lXmlhttp.send(
-					"req=" + "LIST_6" +
-					"&file=" + lFilename +
-					"&key1=" + lKey1 +
-					"&key2=" + lKey2 +
-					"&id=" + lID
-					);
+                    var lHtml = '';
+                    lHtml += '<div class="Content0 GList6">';
+                    lHtml += '<div class="Row26">';
+                    lHtml += '<div>';
+                    lHtml += 'List 6 > ' + lFilename + ' > ' + lKey1 + ' > ' + lKey2;
+                    lHtml += '</div>';
+                    lHtml += '</div>';
+                    lHtml += '</div>';
+                    document.execCommand("insertHTML", false, lHtml);
                     break;
                 //===============================================
                 case 'Data1':
@@ -643,23 +572,15 @@ var GEditor = (function() {
 					var lFilename = lArgMap[0].trim();
 					var lKey = lArgMap[1].trim();
                     if(!lFilename || !lKey) return;
-                    var lDate = Date.now();
-                    var lID = "Loader_" + lDate;
-					var lXmlhttp = new XMLHttpRequest();
-					lXmlhttp.onreadystatechange = function() {
-						if(this.readyState == 4 && this.status == 200) {
-							var lData = this.responseText;
-							document.execCommand("insertHTML", false, lData);
-						}
-					}
-					lXmlhttp.open("POST", "/php/req/editor.php", true);
-					lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-					lXmlhttp.send(
-					"req=" + "DATA_1" +
-					"&file=" + lFilename +
-					"&key=" + lKey +
-					"&id=" + lID
-					);
+                    var lHtml = '';
+                    lHtml += '<div class="Content0 GData1">';
+                    lHtml += '<div class="Row26">';
+                    lHtml += '<div>';
+                    lHtml += 'Data 1 > ' + lFilename + ' > ' + lKey;
+                    lHtml += '</div>';
+                    lHtml += '</div>';
+                    lHtml += '</div>';
+                    document.execCommand("insertHTML", false, lHtml);
                     break;
                 //===============================================
                 case 'Data2':
@@ -688,24 +609,15 @@ var GEditor = (function() {
 					var lKey1 = lArgMap[1].trim();
 					var lKey2 = lArgMap[2].trim();
                     if(!lFilename || !lKey1 || !lKey2) return;
-                    var lDate = Date.now();
-                    var lID = "Loader_" + lDate;
-					var lXmlhttp = new XMLHttpRequest();
-					lXmlhttp.onreadystatechange = function() {
-						if(this.readyState == 4 && this.status == 200) {
-							var lData = this.responseText;
-							document.execCommand("insertHTML", false, lData);
-						}
-					}
-					lXmlhttp.open("POST", "/php/req/editor.php", true);
-					lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-					lXmlhttp.send(
-					"req=" + "DATA_2" +
-					"&file=" + lFilename +
-					"&key1=" + lKey1 +
-					"&key2=" + lKey2 +
-					"&id=" + lID
-					);
+                    var lHtml = '';
+                    lHtml += '<div class="Content0 GData2">';
+                    lHtml += '<div class="Row26">';
+                    lHtml += '<div>';
+                    lHtml += 'Data 2 > ' + lFilename + ' > ' + lKey1 + ' > ' + lKey2;
+                    lHtml += '</div>';
+                    lHtml += '</div>';
+                    lHtml += '</div>';
+                    document.execCommand("insertHTML", false, lHtml);
                     break;
                 //===============================================
                 case 'Data3':
@@ -734,24 +646,15 @@ var GEditor = (function() {
 					var lKey1 = lArgMap[1].trim();
 					var lKey2 = lArgMap[2].trim();
                     if(!lFilename || !lKey1 || !lKey2) return;
-                    var lDate = Date.now();
-                    var lID = "Loader_" + lDate;
-					var lXmlhttp = new XMLHttpRequest();
-					lXmlhttp.onreadystatechange = function() {
-						if(this.readyState == 4 && this.status == 200) {
-							var lData = this.responseText;
-							document.execCommand("insertHTML", false, lData);
-						}
-					}
-					lXmlhttp.open("POST", "/php/req/editor.php", true);
-					lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-					lXmlhttp.send(
-					"req=" + "DATA_3" +
-					"&file=" + lFilename +
-					"&key1=" + lKey1 +
-					"&key2=" + lKey2 +
-					"&id=" + lID
-					);
+                    var lHtml = '';
+                    lHtml += '<div class="Content0 GData3">';
+                    lHtml += '<div class="Row26">';
+                    lHtml += '<div>';
+                    lHtml += 'Data 3 > ' + lFilename + ' > ' + lKey1 + ' > ' + lKey2;
+                    lHtml += '</div>';
+                    lHtml += '</div>';
+                    lHtml += '</div>';
+                    document.execCommand("insertHTML", false, lHtml);
                     break;
                 //===============================================
                 case 'Pdf1':
@@ -779,23 +682,15 @@ var GEditor = (function() {
 					var lFilename = lArgMap[0].trim();
 					var lKey = lArgMap[1].trim();
                     if(!lFilename || !lKey) return;
-                    var lDate = Date.now();
-                    var lID = "Loader_" + lDate;
-					var lXmlhttp = new XMLHttpRequest();
-					lXmlhttp.onreadystatechange = function() {
-						if(this.readyState == 4 && this.status == 200) {
-							var lData = this.responseText;
-							document.execCommand("insertHTML", false, lData);
-						}
-					}
-					lXmlhttp.open("POST", "/php/req/editor.php", true);
-					lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-					lXmlhttp.send(
-					"req=" + "PDF_1" +
-					"&file=" + lFilename +
-					"&key=" + lKey +
-					"&id=" + lID
-					);
+                    var lHtml = '';
+                    lHtml += '<div class="Content0 GPdf1">';
+                    lHtml += '<div class="Row26">';
+                    lHtml += '<div>';
+                    lHtml += 'Pdf 1 > ' + lFilename + ' > ' + lKey;
+                    lHtml += '</div>';
+                    lHtml += '</div>';
+                    lHtml += '</div>';
+                    document.execCommand("insertHTML", false, lHtml);
                     break;
                 //===============================================
                 case 'LineBreak1':
