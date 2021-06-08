@@ -1211,39 +1211,203 @@ static void log_person(void* params) {
     log_write(3, "\t", 30, -15, "Person[id]", 3, " : ", 1, lPerson-&gt;id, 3, "\n", 0);
     log_write(3, "\t", 30, -15, "Person[coef]", 3, " : ", 2, lPerson-&gt;coef, 3, "\n", 0);
 }
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/C0/img/i_log_complexe.png" class="lazy" data-src="/Tutoriels/Software_Development/C0/img/i_log_complexe.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Multithreading"><a class="Link3" href="#">Multithreading</a></h1><div class="Body3"><br>Un processeur est dit <b>multithread </b>s'il est capable d'exécuter efficacement plusieurs threads simultanément. Contrairement aux systèmes multiprocesseurs (tels les systèmes multi-cœur), les threads doivent partager les ressources d'un unique cœur : les unités de traitement, le cache processeur et le translation lookaside buffer ; certaines parties sont néanmoins dupliquées : chaque thread dispose de ses propres registres et de son propre pointeur d'instruction. Là où les systèmes multiprocesseurs incluent plusieurs unités de traitement complètes, le multithreading a pour but d'augmenter l'utilisation d'un seul cœur en tirant profit des propriétés des threads et du parallélisme au niveau des instructions. Comme les deux techniques sont complémentaires, elles sont parfois combinées dans des systèmes comprenant de multiples processeurs multithreads ou des processeurs avec de multiples cœurs multithreads.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Multithreading-Creer-un-thread"><a class="Link9" href="#Multithreading">Créer un thread</a></h2><br>La fonction <b>pthread_create</b> crée un nouveau thread s'exécutant simultanément avec le thread appelant. Le nouveau thread exécute la fonction <span class="GCode3"><code style="color:#cccccc;">start_routine </code></span>en lui passant <span class="GCode3"><code style="color:#cccccc;">arg </code></span>comme premier argument. Le nouveau thread s'achève soit explicitement en appelant <span class="GCode3"><code style="color:#cccccc;">pthread_exit</code></span>, ou implicitement lorsque la fonction <span class="GCode3"><code style="color:#cccccc;">start_routine </code></span>s'achève. <br><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/C0/img/i_log_complexe.png" class="lazy entered loaded" data-src="/Tutoriels/Software_Development/C0/img/i_log_complexe.png" data-ll-status="loaded" src="/Tutoriels/Software_Development/C0/img/i_log_complexe.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Fork"><a class="Link3" href="#">Fork</a></h1><div class="Body3"><br>La fonction <b>fork </b>fait partie des appels système standard d'UNIX (norme POSIX). Cette fonction permet à un processus (un programme en cours d'exécution) de donner naissance à un nouveau processus qui est sa copie conforme, par exemple en vue de réaliser un second traitement parallèlement au premier. Un bon moyen de visualiser l'effet d'un fork sur un processus est d'imaginer une division cellulaire. Il existe une filiation dans les processus : le créateur d'un nouveau processus est appelé le père et le nouveau processus, le fils. La plupart des attributs système du père (par exemple les droits sur le système de fichier) sont transmis au fils, de la même manière que l'héritage. Au démarrage d'un système Unix, un seul processus existe (de numéro 1). Tous les autres processus qui peuvent exister au cours de la vie du système descendent de ce premier processus, appelé <span class="GCode3"><code style="color:#cccccc;">init</code></span>, via des appels système comme <span class="GCode3"><code style="color:#cccccc;">fork</code></span>, <span class="GCode3"><code style="color:#cccccc;">vfork</code></span>, <span class="GCode3"><code style="color:#cccccc;">posix_spawn </code></span>ou d'autres moyens. Sur les premiers UNIX, seul l'appel système fork permet de créer de nouveaux processus<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Fork-Creer-un-fork"><a class="Link9" href="#Fork">Créer un fork</a></h2><br>Un <b>fork </b>est un processus lourd, comprenez par là que l'intégralité du contexte d'exécution du processus père est recopié dans le nouveau processus fils. Ne cherchez pas, comme avec les threads, a échanger des variables entre les processus car cela ne marchera pas. Il faut utiliser des techniques de communication inter-processus comme les tubes, sockets ou encore sémaphores.<br><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+#include &lt;unistd.h&gt;
+//===============================================
+int main() {
+    pid_t pid = fork();
+    if (pid == -1) {
+        printf("[error] creation fork\n");
+        return 0;
+    } 
+    else if (pid == 0) {
+        printf("[fils] Mon PID est %i et celui de mon père est %i\n", getpid(),    getppid());
+    } 
+    else {
+        printf("[pere] Mon PID est %i et celui de mon fils est %i\n", getpid(), pid);
+    }
+    return 0;
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">[pere] Mon PID est 77544 et celui de mon fils est 77545
+[fils] Mon PID est 77545 et celui de mon père est 77544</pre></div></div><br><h2 class="Title7 GTitle2" id="Fork-Creer-plusieurs-fork"><a class="Link9" href="#Fork">Créer plusieurs fork</a></h2><br>Lorsque l'on a plusieurs forks à gérer, il faut garder la trace de chacun des numéros de processus et également attendre la fin de chacun des fils.  L'appel système <b>wait</b> suspend l'exécution du processus appelant jusqu'à ce que l'un de ses fils se termine.<br><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;sys/types.h&gt;
+#include &lt;sys/wait.h&gt;
+//===============================================
+#define NB_FORK 5
+#define INCREMENT_LIMIT 3
+//===============================================
+int data = 0;
+//===============================================
+void onTask() {
+    int lPid = getpid();
+    while (data &lt; INCREMENT_LIMIT) {
+        data++;
+        printf("fork [%i] data [%i]\n", lPid, data);
+        sleep(1);
+    }
+    printf("Fin du fork [%i]\n", lPid);
+    exit(0);
+}
+//===============================================
+void waitForAll() {
+    int status;
+    pid_t lPid;
+    int n = 0;
+    while (n &lt; NB_FORK) {
+        lPid = wait(&amp;status);
+        printf("Fork [%i] terminé avec le code [%i]\n", lPid, status);
+        n++;
+    }
+}
+//===============================================
+int main() {
+    for (int i = 0; i &lt; NB_FORK; i++) {
+        pid_t pid = fork();
+        if (pid == -1) {
+            printf("[error] creation fork");
+            return 0;
+        } else if (pid == 0) {
+            // On est dans le fils
+            onTask();
+        } else {
+            // On est dans le père
+        }
+    }
+    waitForAll();
+    return 0;
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">fork [84400] data [1]
+fork [84401] data [1]
+fork [84403] data [1]
+fork [84404] data [1]
+fork [84402] data [1]
+fork [84400] data [2]
+fork [84401] data [2]
+fork [84403] data [2]
+fork [84402] data [2]
+fork [84404] data [2]
+fork [84400] data [3]
+fork [84401] data [3]
+fork [84403] data [3]
+fork [84402] data [3]
+fork [84404] data [3]
+Fin du fork [84400]
+Fin du fork [84401]
+Fork [84400] terminé avec le code [0]
+Fin du fork [84403]
+Fin du fork [84402]
+Fork [84403] terminé avec le code [0]
+Fin du fork [84404]
+Fork [84402] terminé avec le code [0]
+Fork [84404] terminé avec le code [0]
+Fork [84401] terminé avec le code [0]</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Daemon"><a class="Link3" href="#">Daemon</a></h1><div class="Body3"><br>Un <b>daemon</b>, mot anglais qui signifie démon, désigne un type de programme informatique, un processus ou un ensemble de processus qui s'exécute en arrière-plan plutôt que sous le contrôle direct d'un utilisateur. Les daemons sont souvent démarrés lors du chargement du système d'exploitation, et servent en général à répondre à des requêtes du réseau, à l'activité du matériel ou à d'autres programmes en exécutant certaines tâches. Sous Microsoft Windows, ces fonctions sont exécutées par des programmes appelés « services ».<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Daemon-Creer-un-daemon"><a class="Link9" href="#Daemon">Créer un daemon</a></h2><br>Il peut être intéressant pour un programme, lorsque l'on cherche à écrire un serveur, que celui-ci se détache du processus qui l'a démarré : ce procédé s'appelle la <b>démonisation</b>.<br><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;unistd.h&gt;
+//===============================================
+int main() {
+    printf("PID du processus principal [%i]\n", getpid());
+    daemon(0,0);
+    sleep(10);
+    return 0;
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">PID du processus principal [97120]</pre></div></div><br><h3 class="Title8 GTitle3">Afficher les processus en cours (avant)<br></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">ps -ef | grep rdc</pre></div></div><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">rpi4       97920       1  0 10:36 ?        00:00:00 bin/rdc
+rpi4       97934   69312  0 10:37 pts/0    00:00:00 grep --color=auto rdc</pre></div></div><br><h3 class="Title8 GTitle3">Afficher les processus en cours (après)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">ps -ef | grep rdc</pre></div></div><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">rpi4       97934   69312  0 10:37 pts/0    00:00:00 grep --color=auto rdc</pre></div></div><br><h2 class="Title7 GTitle2" id="Daemon-Recuperer-le-PID-du-daemon"><a class="Link9" href="#Daemon">Récupérer le PID du daemon</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;unistd.h&gt;
+//===============================================
+int main() {
+    printf("PID du processus principal [%i]\n", getpid());
+    daemon(0, 1);
+    printf("PID du demon [%i]\n", getpid());
+    return 0;
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">PID du processus principal [103081]
+PID du demon [103083]</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Multithreading"><a class="Link3" href="#">Multithreading</a></h1><div class="Body3"><br>Un processeur est dit <b>multithread </b>s'il est capable d'exécuter efficacement plusieurs threads simultanément. Contrairement aux systèmes multiprocesseurs (tels les systèmes multi-cœur), les threads doivent partager les ressources d'un unique cœur : les unités de traitement, le cache processeur et le translation lookaside buffer ; certaines parties sont néanmoins dupliquées : chaque thread dispose de ses propres registres et de son propre pointeur d'instruction. Là où les systèmes multiprocesseurs incluent plusieurs unités de traitement complètes, le multithreading a pour but d'augmenter l'utilisation d'un seul cœur en tirant profit des propriétés des threads et du parallélisme au niveau des instructions. Comme les deux techniques sont complémentaires, elles sont parfois combinées dans des systèmes comprenant de multiples processeurs multithreads ou des processeurs avec de multiples cœurs multithreads.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Multithreading-Creer-un-thread"><a class="Link9" href="#Multithreading">Créer un thread</a></h2><br>La fonction <b>pthread_create</b> crée un nouveau thread s'exécutant simultanément avec le thread appelant. Le nouveau thread exécute la fonction <span class="GCode3"><code style="color:#cccccc;">start_routine </code></span>en lui passant <span class="GCode3"><code style="color:#cccccc;">arg </code></span>comme premier argument. Le nouveau thread s'achève soit explicitement en appelant <span class="GCode3"><code style="color:#cccccc;">pthread_exit</code></span>, ou implicitement lorsque la fonction <span class="GCode3"><code style="color:#cccccc;">start_routine </code></span>s'achève. Ce dernier cas est équivalent à appeler <span class="GCode3"><code style="color:#cccccc;">pthread_exit</code></span> avec la valeur renvoyée par <span class="GCode3"><code style="color:#cccccc;">start_routine </code></span>comme code de sortie. L'argument <span class="GCode3"><code style="color:#cccccc;">attr </code></span>indique les attributs du nouveau thread. Voir <span class="GCode3"><code style="color:#cccccc;">pthread_attr_init</code></span> pour une liste complète des attributs. L'argument <span class="GCode3"><code style="color:#cccccc;">attr </code></span>peut être <span class="GCode3"><code style="color:#cccccc;">NULL</code></span>, auquel cas, les attributs par défaut sont utilisés : le thread créé est joignable (non détaché) et utilise la politique d'ordonnancement normale (pas temps-réel).   <br><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 #include &lt;pthread.h&gt;
 #include &lt;unistd.h&gt;
 //===============================================
-static void* onTask(void* params) {
-    char* lName = (char*)params;
+pthread_t gThreadA;
+pthread_t gThreadB;
+//===============================================
+static void* onTaskA(void* params) {
     for(int i = 0; i &lt; 5; i++) {
-        printf("on execute le thread %s\n", lName);
+        printf("on execute le thread A (%d)\n", i);
+        sleep(1);
+    }
+    return 0;
+}
+//===============================================
+static void* onTaskB(void* params) {
+    for(int i = 0; i &lt; 5; i++) {
+        printf("on execute le thread B (%d)\n", i);
         sleep(1);
     }
     return 0;
 }
 //===============================================
 int main(int argc, char** argv) {
-    pthread_t  lThreadA;
-    pthread_t  lThreadB;
-    pthread_create(&amp;lThreadA, NULL, onTask, "A");
-    pthread_create(&amp;lThreadB, NULL, onTask, "B");
-    pthread_join(lThreadA, NULL);
-    pthread_join(lThreadB, NULL);
+    pthread_create(&amp;gThreadA, 0, onTaskA, 0);
+    pthread_create(&amp;gThreadB, 0, onTaskB, 0);
+    pthread_join(gThreadA, 0);
+    pthread_join(gThreadB, 0);
     return 0;
 }
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">on execute le thread A
-on execute le thread B
-on execute le thread B
-on execute le thread A
-on execute le thread A
-on execute le thread B
-on execute le thread B
-on execute le thread A
-on execute le thread A
-on execute le thread B</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Interface-Homme-Machine-avec-Gtk"><a class="Link3" href="#">Interface Homme-Machine avec Gtk</a></h1><div class="Body3"><br><b>GTK </b>est une bibliothèque de création d'interfaces homme-machine dévoppé à l'origine pour les besoins du logiciel de traitement d'images GIMP. GTK+ est maintenant utilisé dans de nombreux projets, dont les environnements de bureau GNOME, Xfce, Lxde et ROX. GTK est un projet libre et multiplate-forme.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1618606543470"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1618606543470");</script></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Gtk-Installer-Gtk-sous-MSYS2"><a class="Link9" href="#Interface-Homme-Machine-avec-Gtk">Installer Gtk sous MSYS2</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">pacman -S --needed --noconfirm mingw-w64-i686-gtk3</pre></div></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Gtk-Tester-un-programme-Gtk-sous-MSYS2"><a class="Link9" href="#Interface-Homme-Machine-avec-Gtk">Tester un programme Gtk sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">on execute le thread A (0)
+on execute le thread B (0)
+on execute le thread B (1)
+on execute le thread A (1)
+on execute le thread B (2)
+on execute le thread A (2)
+on execute le thread B (3)
+on execute le thread A (3)
+on execute le thread B (4)
+on execute le thread A (4)</pre></div></div><br><h2 class="Title7 GTitle2" id="Multithreading-Arreter-un-thread"><a class="Link9" href="#Multithreading">Arrêter un thread</a></h2><br>La fonction <b>pthread_exit</b> termine l'exécution du thread appelant. Tous les gestionnaires de nettoyage enregistrés pour le thread courant par <span class="GCode3"><code style="color:#cccccc;">pthread_cleanup_push</code></span> sont exécutés dans l'ordre inverse d'enregistrement. Les fonctions de fin pour les données spécifiques au thread sont ensuite appelées pour toutes les clés qui ont une valeur non NULL associée dans le thread appelant (voir <span class="GCode3"><code style="color:#cccccc;">pthread_key_create</code></span>). Enfin, l'exécution du thread appelant est arrêtée.<br>L'argument <span class="GCode3"><code style="color:#cccccc;">retval </code></span>est la valeur de retour du thread. Il peut être consulté par un autre thread en utilisant <span class="GCode3"><code style="color:#cccccc;">pthread_join</code></span>.  <br><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+#include &lt;pthread.h&gt;
+#include &lt;unistd.h&gt;
+//===============================================
+pthread_t gThreadA;
+pthread_t gThreadB;
+//===============================================
+static void* onTaskA(void* params) {
+    for(int i = 0; i &lt; 5; i++) {
+        if(i == 3) {pthread_exit(0);}
+        printf("on execute le thread A (%d)\n", i);
+        sleep(1);
+    }
+    return 0;
+}
+//===============================================
+static void* onTaskB(void* params) {
+    for(int i = 0; i &lt; 5; i++) {
+        printf("on execute le thread B (%d)\n", i);
+        sleep(1);
+    }
+    return 0;
+}
+//===============================================
+int main(int argc, char** argv) {
+    pthread_create(&amp;gThreadA, 0, onTaskA, 0);
+    pthread_create(&amp;gThreadB, 0, onTaskB, 0);
+    pthread_join(gThreadA, 0);
+    pthread_join(gThreadB, 0);
+    return 0;
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">on execute le thread A (0)
+on execute le thread B (0)
+on execute le thread A (1)
+on execute le thread B (1)
+on execute le thread A (2)
+on execute le thread B (2)
+on execute le thread B (3)
+on execute le thread B (4)</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Interface-Homme-Machine-avec-Gtk"><a class="Link3" href="#">Interface Homme-Machine avec Gtk</a></h1><div class="Body3"><br><b>GTK </b>est une bibliothèque de création d'interfaces homme-machine dévoppé à l'origine pour les besoins du logiciel de traitement d'images GIMP. GTK+ est maintenant utilisé dans de nombreux projets, dont les environnements de bureau GNOME, Xfce, Lxde et ROX. GTK est un projet libre et multiplate-forme.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1618606543470"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1618606543470");</script></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Gtk-Installer-Gtk-sous-MSYS2"><a class="Link9" href="#Interface-Homme-Machine-avec-Gtk">Installer Gtk sous MSYS2</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">pacman -S --needed --noconfirm mingw-w64-i686-gtk3</pre></div></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Gtk-Tester-un-programme-Gtk-sous-MSYS2"><a class="Link9" href="#Interface-Homme-Machine-avec-Gtk">Tester un programme Gtk sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;gtk/gtk.h&gt;
 //===============================================
 static void GWindow_OnDestroy(GtkWidget* obj, gpointer params);
