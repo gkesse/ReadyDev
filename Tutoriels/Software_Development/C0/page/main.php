@@ -1328,7 +1328,223 @@ int main() {
     return 0;
 }
 //===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">PID du processus principal [103081]
-PID du demon [103083]</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Multithreading"><a class="Link3" href="#">Multithreading</a></h1><div class="Body3"><br>Un processeur est dit <b>multithread </b>s'il est capable d'exécuter efficacement plusieurs threads simultanément. Contrairement aux systèmes multiprocesseurs (tels les systèmes multi-cœur), les threads doivent partager les ressources d'un unique cœur : les unités de traitement, le cache processeur et le translation lookaside buffer ; certaines parties sont néanmoins dupliquées : chaque thread dispose de ses propres registres et de son propre pointeur d'instruction. Là où les systèmes multiprocesseurs incluent plusieurs unités de traitement complètes, le multithreading a pour but d'augmenter l'utilisation d'un seul cœur en tirant profit des propriétés des threads et du parallélisme au niveau des instructions. Comme les deux techniques sont complémentaires, elles sont parfois combinées dans des systèmes comprenant de multiples processeurs multithreads ou des processeurs avec de multiples cœurs multithreads.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Multithreading-Creer-un-thread"><a class="Link9" href="#Multithreading">Créer un thread</a></h2><br>La fonction <b>pthread_create</b> crée un nouveau thread s'exécutant simultanément avec le thread appelant. Le nouveau thread exécute la fonction <span class="GCode3"><code style="color:#cccccc;">start_routine </code></span>en lui passant <span class="GCode3"><code style="color:#cccccc;">arg </code></span>comme premier argument. Le nouveau thread s'achève soit explicitement en appelant <span class="GCode3"><code style="color:#cccccc;">pthread_exit</code></span>, ou implicitement lorsque la fonction <span class="GCode3"><code style="color:#cccccc;">start_routine </code></span>s'achève. Ce dernier cas est équivalent à appeler <span class="GCode3"><code style="color:#cccccc;">pthread_exit</code></span> avec la valeur renvoyée par <span class="GCode3"><code style="color:#cccccc;">start_routine </code></span>comme code de sortie. L'argument <span class="GCode3"><code style="color:#cccccc;">attr </code></span>indique les attributs du nouveau thread. Voir <span class="GCode3"><code style="color:#cccccc;">pthread_attr_init</code></span> pour une liste complète des attributs. L'argument <span class="GCode3"><code style="color:#cccccc;">attr </code></span>peut être <span class="GCode3"><code style="color:#cccccc;">NULL</code></span>, auquel cas, les attributs par défaut sont utilisés : le thread créé est joignable (non détaché) et utilise la politique d'ordonnancement normale (pas temps-réel).   <br><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+PID du demon [103083]</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Communication-Inter-Processus-avec-Pipe"><a class="Link3" href="#">Communication Inter-Processus avec Pipe</a></h1><div class="Body3"><br>Les shell des systèmes d'exploitation de type Unix disposent d'un mécanisme appelé tube, pipeline ou <b>pipe</b>. Ce mécanisme permet de chaîner des processus de sorte que la sortie d'un processus (<span class="GCode3"><code style="color:#cccccc;">stdout</code></span>) alimente directement l'entrée (<span class="GCode3"><code style="color:#cccccc;">stdin</code></span>) du suivant. Chaque connexion est implantée par un tube anonyme. Les programmes filtres sont souvent utilisés dans cette configuration. Douglas McIlroy a inventé ce concept pour les shells Unix et le nom anglais découle de l'analogie avec un pipeline physique.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Communication-Inter-Processus-avec-Pipe-Creer-un-tube-uni-directionnelle"><a class="Link9" href="#Communication-Inter-Processus-avec-Pipe">Créer un tube uni-directionnelle</a></h2><br>Lorsqu'un processus crée un fils. Le <b>pipe </b>est alors automatiquement partagé entre le père et le fils. Si l'un écrit dans le pipe alors on ne sait pas lequel des deux va recevoir l'information. Ceci peut donner des résultats inattendus.  Pour être certain de qui va écrire et qui va lire dans le pipe, il faut que les processus ferment les extrémités qu'ils n'utilisent pas.<br><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;sys/types.h&gt;
+#include &lt;sys/wait.h&gt;
+#include &lt;string.h&gt;
+//===============================================
+#define NB_FORK 5
+#define LENGTH_MSG 256
+//===============================================
+char message[LENGTH_MSG+1] = "";
+//===============================================
+void job(int * tube) {
+    int lPid = getpid();
+    int i = 5;
+    while (i &gt; 0) {
+        if (read(*tube, message, LENGTH_MSG) &gt; 0) {
+            printf("[fils] Message du processus [%i] : %s", lPid, message);
+            break;
+        }
+        sleep(1);
+    }
+}
+//===============================================
+void waitForAll() {
+    int status;
+    pid_t pid;
+    int n = 0;
+    while (n &lt; NB_FORK) {
+        pid = wait(&amp;status);
+        n++;
+    }
+}
+//===============================================
+int main(int argc, char** argv) {
+    for (int i = 0; i &lt; NB_FORK; i++) {
+        int tube[2];
+        pipe(tube);
+        pid_t pid = fork();
+        if (pid == -1) {
+            perror("[error] creation fork");
+            return EXIT_FAILURE;
+        } 
+        else if (pid == 0) {
+            // On est dans le fils
+            close(tube[1]);
+            job(&amp;tube[0]);
+            close(tube[0]);
+            exit(EXIT_SUCCESS);
+        } 
+        else {
+            // On est dans le pere
+            close(tube[0]);
+            sprintf(message, "Fork [%i], je suis ton pere !\n", pid);
+            write(tube[1], message, LENGTH_MSG);
+            close(tube[1]);
+        }
+    }
+    waitForAll();
+    return EXIT_SUCCESS;
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">[fils] Message du processus [131485] : Fork [131485], je suis ton pere !
+[fils] Message du processus [131486] : Fork [131486], je suis ton pere !
+[fils] Message du processus [131488] : Fork [131488], je suis ton pere !
+[fils] Message du processus [131487] : Fork [131487], je suis ton pere !
+[fils] Message du processus [131489] : Fork [131489], je suis ton pere !</pre></div></div><br><h2 class="Title7 GTitle2" id="Communication-Inter-Processus-avec-Pipe-Creer-un-tube-bi-directionnelle"><a class="Link9" href="#Communication-Inter-Processus-avec-Pipe">Créer un tube bi-directionnelle</a></h2><br>Si l'on souhaite échanger des informations dans l'autre sens il faut créer un deuxième <b>pipe </b>et l'initialiser dans l'autre sens.<br><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;sys/types.h&gt;
+#include &lt;sys/wait.h&gt;
+#include &lt;string.h&gt;
+//===============================================
+typedef struct fdpipe {
+    int father[2];
+    int son[2];
+} fdpipe;
+//===============================================
+#define NB_FORK 5
+#define LENGTH_MSG 256
+//===============================================
+char message[LENGTH_MSG+1] = "";
+//===============================================
+void job(fdpipe* pipes) {
+    int lPid = getpid();
+    if (read((*pipes).father[0], message, LENGTH_MSG) &gt; 0) {
+        printf("[fils] Message du processus [%i] : %s\n", lPid, message);
+    }
+    sprintf(message, "je suis [%i] et j'ai bien reçu ton message !", lPid);
+    write((*pipes).son[1], message, LENGTH_MSG);
+}
+//===============================================
+void waitForAll() {
+    int status;
+    pid_t pid;
+    int n = 0;
+    while (n &lt; NB_FORK) {
+        pid = wait(&amp;status);
+        n++;
+    }
+}
+//===============================================
+int main(int argc, char** argv) {
+    for (int i = 0; i &lt; NB_FORK; i++) {
+        fdpipe pipes;
+        pipe(pipes.father);
+        pipe(pipes.son);
+        pid_t pid = fork();
+        if (pid == -1) {
+            // Il y a une erreur
+            perror("[error] creation fork");
+            return EXIT_FAILURE;
+        } 
+        else if (pid == 0) {
+            // On est dans le fils
+            close(pipes.father[1]);
+            close(pipes.son[0]);
+            job(&amp;pipes);
+            close(pipes.father[0]);
+            close(pipes.son[1]);
+            exit(EXIT_SUCCESS);
+        } 
+        else {
+            // On est dans le père
+            close(pipes.father[0]);
+            close(pipes.son[1]);
+            sprintf(message, "Fork [%i], je suis ton père !", pid);
+            write(pipes.father[1], message, LENGTH_MSG);
+            if (read(pipes.son[0], message, LENGTH_MSG) &gt; 0) {
+                printf("[pere] Réponse du fils : %s\n", message);
+            }
+            close(pipes.father[1]);
+            close(pipes.son[0]);
+        }
+    }
+    waitForAll();
+    return EXIT_SUCCESS;
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">[fils] Message du processus [129887] : Fork [129887], je suis ton père !
+[pere] Réponse du fils : je suis [129887] et j'ai bien reçu ton message !
+[fils] Message du processus [129888] : Fork [129888], je suis ton père !
+[pere] Réponse du fils : je suis [129888] et j'ai bien reçu ton message !
+[fils] Message du processus [129889] : Fork [129889], je suis ton père !
+[pere] Réponse du fils : je suis [129889] et j'ai bien reçu ton message !
+[fils] Message du processus [129890] : Fork [129890], je suis ton père !
+[pere] Réponse du fils : je suis [129890] et j'ai bien reçu ton message !
+[fils] Message du processus [129891] : Fork [129891], je suis ton père !
+[pere] Réponse du fils : je suis [129891] et j'ai bien reçu ton message !</pre></div></div><br><h2 class="Title7 GTitle2" id="Communication-Inter-Processus-avec-Pipe-Creer-un-tube-nomme"><a class="Link9" href="#Communication-Inter-Processus-avec-Pipe">Créer un tube nommé</a></h2><br>En informatique, le terme tube nommé (calqué sur l'anglais <b>named pipe</b>) est une mise en œuvre des tubes Unix. Comme les tubes anonymes, les tubes nommés sont des zones de données organisées en FIFO mais contrairement à ceux-ci qui sont détruits lorsque le processus qui les a créés disparait, les tubes nommés sont liés au système d'exploitation et ils doivent être explicitement détruits. Ce type de mécanisme se retrouve bien sûr dans tous les systèmes d'exploitation de type Unix mais aussi dans les systèmes d'exploitation de Microsoft cependant leur sémantique est sensiblement différente. Il s'agit de l'une des techniques permettant la communication inter-processus. Un tube peut aussi être appelé Conduite, notamment dans la page man Unix. En pratique, cela sert à rediriger la sortie d'un processus vers l'entrée d'un autre.<br><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;sys/types.h&gt;
+#include &lt;sys/wait.h&gt;
+#include &lt;string.h&gt;
+#include &lt;pthread.h&gt;
+#include &lt;sys/types.h&gt;
+#include &lt;sys/stat.h&gt;
+#include &lt;fcntl.h&gt;
+#include &lt;errno.h&gt;
+//===============================================
+#define FIFO_NAME "/tmp/test.fifo"
+#define BUFFER_LENGTH 256
+//===============================================
+const mode_t FIFO_MODE = 0760;
+//===============================================
+void * job(void * args) {
+    int fdread;
+    if ((fdread = open(FIFO_NAME, O_RDONLY)) == -1) {
+        fprintf(stderr, "[thread] Impossible d'ouvrir le tube en lecture: %s\n", strerror(errno));
+        exit(EXIT_FAILURE);
+    }
+
+    char buffer[BUFFER_LENGTH+1];
+    read(fdread, buffer, BUFFER_LENGTH);
+    printf("[thread] Le tube contient : %s\n", buffer);
+    pthread_exit(EXIT_SUCCESS);
+}
+//===============================================
+int main(int argc, char** argv) {
+    // On supprime le tube s'il existe déjà
+    if (mkfifo(FIFO_NAME, FIFO_MODE) == -1) {
+        printf("[main] Suppression du tube existant: %s\n", FIFO_NAME);
+        unlink(FIFO_NAME);
+    }
+
+    pthread_t thread;
+    
+    // Création du tube FIFO
+    if (mkfifo(FIFO_NAME, FIFO_MODE) == -1) {
+        printf("[main] Erreur de création du tube: %s\n", strerror(errno));
+        exit(EXIT_FAILURE);
+    }
+    else{
+        printf("[main] Création du tube: %s\n", FIFO_NAME);
+    }
+    
+    // Création du thread
+    pthread_create(&amp;thread, NULL, job, NULL);
+
+    int fdwrite;
+    if ((fdwrite = open(FIFO_NAME, O_WRONLY)) == -1) {
+        printf("Impossible d'ouvrir le tube en écriture: %s\n", strerror(errno));
+        exit(EXIT_FAILURE);
+    }
+    
+    // Ecriture dans le tube
+    char message[] = "Bonjour thread";
+    write(fdwrite,  message, sizeof(message));
+
+    pthread_join(thread, NULL);
+
+    return EXIT_SUCCESS;
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">[main] Suppression du tube existant: /tmp/test.fifo
+[main] Création du tube: /tmp/test.fifo
+[thread] Le tube contient : Bonjour thread</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Multithreading"><a class="Link3" href="#">Multithreading</a></h1><div class="Body3"><br>Un processeur est dit <b>multithread </b>s'il est capable d'exécuter efficacement plusieurs threads simultanément. Contrairement aux systèmes multiprocesseurs (tels les systèmes multi-cœur), les threads doivent partager les ressources d'un unique cœur : les unités de traitement, le cache processeur et le translation lookaside buffer ; certaines parties sont néanmoins dupliquées : chaque thread dispose de ses propres registres et de son propre pointeur d'instruction. Là où les systèmes multiprocesseurs incluent plusieurs unités de traitement complètes, le multithreading a pour but d'augmenter l'utilisation d'un seul cœur en tirant profit des propriétés des threads et du parallélisme au niveau des instructions. Comme les deux techniques sont complémentaires, elles sont parfois combinées dans des systèmes comprenant de multiples processeurs multithreads ou des processeurs avec de multiples cœurs multithreads.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Multithreading-Creer-un-thread"><a class="Link9" href="#Multithreading">Créer un thread</a></h2><br>La fonction <b>pthread_create</b> crée un nouveau thread s'exécutant simultanément avec le thread appelant. Le nouveau thread exécute la fonction <span class="GCode3"><code style="color:#cccccc;">start_routine </code></span>en lui passant <span class="GCode3"><code style="color:#cccccc;">arg </code></span>comme premier argument. Le nouveau thread s'achève soit explicitement en appelant <span class="GCode3"><code style="color:#cccccc;">pthread_exit</code></span>, ou implicitement lorsque la fonction <span class="GCode3"><code style="color:#cccccc;">start_routine </code></span>s'achève. Ce dernier cas est équivalent à appeler <span class="GCode3"><code style="color:#cccccc;">pthread_exit</code></span> avec la valeur renvoyée par <span class="GCode3"><code style="color:#cccccc;">start_routine </code></span>comme code de sortie. L'argument <span class="GCode3"><code style="color:#cccccc;">attr </code></span>indique les attributs du nouveau thread. Voir <span class="GCode3"><code style="color:#cccccc;">pthread_attr_init</code></span> pour une liste complète des attributs. L'argument <span class="GCode3"><code style="color:#cccccc;">attr </code></span>peut être <span class="GCode3"><code style="color:#cccccc;">NULL</code></span>, auquel cas, les attributs par défaut sont utilisés : le thread créé est joignable (non détaché) et utilise la politique d'ordonnancement normale (pas temps-réel).   <br><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 #include &lt;pthread.h&gt;
 #include &lt;unistd.h&gt;
