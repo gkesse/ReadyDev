@@ -1849,7 +1849,122 @@ int main(int argc, char** argv) {
 [Thread_A] on incremente le compteur : 7
 [Thread_B] on incremente le compteur : 8
 [Thread_A] on incremente le compteur : 9
-[Thread_B] on incremente le compteur : 10</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Interface-Homme-Machine-avec-Gtk"><a class="Link3" href="#">Interface Homme-Machine avec Gtk</a></h1><div class="Body3"><br><b>GTK </b>est une bibliothèque de création d'interfaces homme-machine dévoppé à l'origine pour les besoins du logiciel de traitement d'images GIMP. GTK+ est maintenant utilisé dans de nombreux projets, dont les environnements de bureau GNOME, Xfce, Lxde et ROX. GTK est un projet libre et multiplate-forme.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Gtk-Installer-Gtk-sous-MSYS2"><a class="Link9" href="#Interface-Homme-Machine-avec-Gtk">Installer Gtk sous MSYS2</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">pacman -S --needed --noconfirm mingw-w64-i686-gtk3</pre></div></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Gtk-Tester-un-programme-Gtk-sous-MSYS2"><a class="Link9" href="#Interface-Homme-Machine-avec-Gtk">Tester un programme Gtk sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
+[Thread_B] on incremente le compteur : 10</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Memoire-partagee"><a class="Link3" href="#">Mémoire partagée</a></h1><div class="Body3"><br>Dans un contexte de la programmation concurrente, le <b>partage de mémoire</b> est un moyen de partager des données entre différents processus : une même zone de la mémoire vive est accédée par plusieurs processus. C'est le comportement de la mémoire de threads issus d'un même processus. Pour cela, dans un système utilisant la pagination, la table de page de chaque processus contient les pages mémoires communes, mais chaque processus ne les voit pas nécessairement à la même adresse.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Memoire-partagee-Creer-une-memoire-partagee"><a class="Link9" href="#Memoire-partagee">Créer une mémoire partagée</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+#include &lt;sys/ipc.h&gt;
+#include &lt;sys/shm.h&gt;
+#include &lt;sys/stat.h&gt;
+//===============================================
+int main(int argc, char** argv) {
+    int segment_id;
+    char bogus;
+    char* shared_memory;
+    struct shmid_ds shmbuffer;
+    int segment_size;
+    const int shared_segment_size = 0x6400;
+
+    printf("### Allocate a shared memory segment.\n");
+    segment_id = shmget (IPC_PRIVATE, shared_segment_size, IPC_CREAT | IPC_EXCL | S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP);
+    
+    printf("### Attach the shared memory segment.\n");
+    printf("Shared memory segment ID is %d\n", segment_id);
+    shared_memory = (char*) shmat (segment_id, 0, 0);
+    printf ("shared memory attached at address %p\n", shared_memory);
+    
+    printf("### Determine the segment's size.\n");
+    shmctl (segment_id, IPC_STAT, &amp;shmbuffer);
+    segment_size  = shmbuffer.shm_segsz;
+    printf ("segment size: %d\n", segment_size);
+
+    printf("### Write a string to the shared memory segment.\n");
+    sprintf (shared_memory, "Bonjour tout le monde");
+    
+    printf("### Detach the shared memory segment.\n");
+    shmdt (shared_memory);
+    return 0;
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">### Allocate a shared memory segment.
+### Attach the shared memory segment.
+Shared memory segment ID is 4
+shared memory attached at address 0xffffbe5a7000
+### Determine the segment's size.
+segment size: 25600
+### Write a string to the shared memory segment.
+### Detach the shared memory segment.</pre></div></div><br><h2 class="Title7 GTitle2" id="Memoire-partagee-Lire-une-memoire-partagee-existante"><a class="Link9" href="#Memoire-partagee">Lire une mémoire partagée existante</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+#include &lt;sys/ipc.h&gt;
+#include &lt;sys/shm.h&gt;
+#include &lt;sys/stat.h&gt;
+//===============================================
+int main (int argc, char** argv) {
+    int segment_id;
+    char bogus;
+    char* shared_memory;
+    struct shmid_ds shmbuffer;
+    int segment_size;
+    const int shared_segment_size = 0x6400;
+
+    printf("Enter the shared memory id: ");
+    scanf("%d", &amp;segment_id);
+
+    printf("### Reattach the shared memory segment, at a different address.\n");
+    shared_memory = (char*) shmat (segment_id, (void*) 0x5000000, 0);
+    printf ("shared memory reattached at address %p\n", shared_memory);
+    
+    printf("### Print out the string from shared memory.\n");
+    printf ("The contents of the shared memory is:\n%s\n", shared_memory);
+    
+    printf("### Detach the shared memory segment.\n");
+    shmdt (shared_memory);
+
+    return 0;
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">Enter the shared memory id: 7
+### Reattach the shared memory segment, at a different address.
+shared memory reattached at address 0x5000000
+### Print out the string from shared memory.
+The contents of the shared memory is:
+Bonjour tout le monde
+### Detach the shared memory segment.</pre></div></div><br><h2 class="Title7 GTitle2" id="Memoire-partagee-Modifier-une-memoire-partagee-existante"><a class="Link9" href="#Memoire-partagee">Modifier une mémoire partagée existante</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+#include &lt;sys/ipc.h&gt;
+#include &lt;sys/shm.h&gt;
+#include &lt;sys/stat.h&gt;
+#include &lt;time.h&gt;
+//===============================================
+int main (int argc, char** argv) {
+    int segment_id;
+    char bogus;
+    char* shared_memory;
+    struct shmid_ds shmbuffer;
+    int segment_size;
+    const int shared_segment_size = 0x6400;
+
+    time_t t;
+    time(&amp;t);
+
+    printf("### Enter the shared memory id: ");
+    scanf("%d", &amp;segment_id);
+
+    printf("### Reattach the shared memory segment, at a different address\n");
+    shared_memory = (char*) shmat (segment_id, (void*) 0x5000000, 0);
+    printf ("shared memory reattached at address %p\n", shared_memory);
+
+    printf("### Add to the segment\n");
+    sprintf (shared_memory, "Modified the segment at %s", ctime(&amp;t));
+
+    printf("### Print out the string from shared memory\n");
+    printf ("The contents of the shared memory is:\n%s", shared_memory);
+
+    return 0;
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">### Enter the shared memory id: 7
+### Reattach the shared memory segment, at a different address
+shared memory reattached at address 0x5000000
+### Add to the segment
+### Print out the string from shared memory
+The contents of the shared memory is:
+Modified the segment at Thu Jun 10 16:05:15 2021</pre></div></div><br><br><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Interface-Homme-Machine-avec-Gtk"><a class="Link3" href="#">Interface Homme-Machine avec Gtk</a></h1><div class="Body3"><br><b>GTK </b>est une bibliothèque de création d'interfaces homme-machine dévoppé à l'origine pour les besoins du logiciel de traitement d'images GIMP. GTK+ est maintenant utilisé dans de nombreux projets, dont les environnements de bureau GNOME, Xfce, Lxde et ROX. GTK est un projet libre et multiplate-forme.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Gtk-Installer-Gtk-sous-MSYS2"><a class="Link9" href="#Interface-Homme-Machine-avec-Gtk">Installer Gtk sous MSYS2</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">pacman -S --needed --noconfirm mingw-w64-i686-gtk3</pre></div></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Gtk-Tester-un-programme-Gtk-sous-MSYS2"><a class="Link9" href="#Interface-Homme-Machine-avec-Gtk">Tester un programme Gtk sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;gtk/gtk.h&gt;
 //===============================================
 static void GWindow_OnDestroy(GtkWidget* obj, gpointer params);
