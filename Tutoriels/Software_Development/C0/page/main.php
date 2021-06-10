@@ -1544,7 +1544,45 @@ int main(int argc, char** argv) {
 }
 //===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">[main] Suppression du tube existant: /tmp/test.fifo
 [main] Création du tube: /tmp/test.fifo
-[thread] Le tube contient : Bonjour thread</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Multithreading"><a class="Link3" href="#">Multithreading</a></h1><div class="Body3"><br>Un processeur est dit <b>multithread </b>s'il est capable d'exécuter efficacement plusieurs threads simultanément. Contrairement aux systèmes multiprocesseurs (tels les systèmes multi-cœur), les threads doivent partager les ressources d'un unique cœur : les unités de traitement, le cache processeur et le translation lookaside buffer ; certaines parties sont néanmoins dupliquées : chaque thread dispose de ses propres registres et de son propre pointeur d'instruction. Là où les systèmes multiprocesseurs incluent plusieurs unités de traitement complètes, le multithreading a pour but d'augmenter l'utilisation d'un seul cœur en tirant profit des propriétés des threads et du parallélisme au niveau des instructions. Comme les deux techniques sont complémentaires, elles sont parfois combinées dans des systèmes comprenant de multiples processeurs multithreads ou des processeurs avec de multiples cœurs multithreads.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Multithreading-Creer-un-thread"><a class="Link9" href="#Multithreading">Créer un thread</a></h2><br>La fonction <b>pthread_create</b> crée un nouveau thread s'exécutant simultanément avec le thread appelant. Le nouveau thread exécute la fonction <span class="GCode3"><code style="color:#cccccc;">start_routine </code></span>en lui passant <span class="GCode3"><code style="color:#cccccc;">arg </code></span>comme premier argument. Le nouveau thread s'achève soit explicitement en appelant <span class="GCode3"><code style="color:#cccccc;">pthread_exit</code></span>, ou implicitement lorsque la fonction <span class="GCode3"><code style="color:#cccccc;">start_routine </code></span>s'achève. Ce dernier cas est équivalent à appeler <span class="GCode3"><code style="color:#cccccc;">pthread_exit</code></span> avec la valeur renvoyée par <span class="GCode3"><code style="color:#cccccc;">start_routine </code></span>comme code de sortie. L'argument <span class="GCode3"><code style="color:#cccccc;">attr </code></span>indique les attributs du nouveau thread. Voir <span class="GCode3"><code style="color:#cccccc;">pthread_attr_init</code></span> pour une liste complète des attributs. L'argument <span class="GCode3"><code style="color:#cccccc;">attr </code></span>peut être <span class="GCode3"><code style="color:#cccccc;">NULL</code></span>, auquel cas, les attributs par défaut sont utilisés : le thread créé est joignable (non détaché) et utilise la politique d'ordonnancement normale (pas temps-réel).   <br><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+[thread] Le tube contient : Bonjour thread</pre></div></div><br><h2 class="Title7 GTitle2" id="Communication-Inter-Processus-avec-Pipe-Creer-un-tube-entre-deux-commandes"><a class="Link9" href="#Communication-Inter-Processus-avec-Pipe">Créer un tube entre deux commandes</a></h2><br>Simulation de la commande <span class="GCode3"><code style="color:#cccccc;">"ls | wc"</code></span>. La fonction <b>execlp </b>permet de remplacer le processus en cours par l'exécution d'une commande : dans notre cas la commande <span class="GCode3"><code style="color:#cccccc;">"wc"</code></span> est appelée dans le processus fils et la commande <span class="GCode3"><code style="color:#cccccc;">"ls"</code></span> est appelée dans le processus père. Cette fonction ne retourne rien sauf si une erreur se produit à l'exécution de la commande.<br><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include &lt;stdio.h&gt;
+#include &lt;memory.h&gt;
+#include &lt;unistd.h&gt;
+//===============================================
+int main(int argc, char ** argv) {
+    /* create the pipe */
+    int pfd[2];
+    if (pipe(pfd) == -1) {
+        printf("[main] pipe failed\n");
+        return 1;
+    }
+
+    /* create the child */
+    int pid;
+    if ((pid = fork()) &lt; 0) {
+        printf("[main] fork failed\n");
+        return 2;
+    }
+    else if (pid == 0) {
+        /* child */
+        close(pfd[1]); 
+        dup2(pfd[0], 0); 
+        close(pfd[0]); 
+        execlp("wc", "wc", (char *) 0);
+        printf("[fils] wc failed"); 
+        return 3;
+    }
+    else {
+        /* parent */
+        close(pfd[0]); 
+        dup2(pfd[1], 1); 
+        close(pfd[1]);
+        execlp("ls", "ls", (char *)0);
+        printf("[pere] ls failed"); 
+    }
+    return 0;
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">5       5      45</pre></div></div><br><h3 class="Title8 GTitle3">Test réel en console</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">ls | wc</pre></div></div><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">5       5      45</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Multithreading"><a class="Link3" href="#">Multithreading</a></h1><div class="Body3"><br>Un processeur est dit <b>multithread </b>s'il est capable d'exécuter efficacement plusieurs threads simultanément. Contrairement aux systèmes multiprocesseurs (tels les systèmes multi-cœur), les threads doivent partager les ressources d'un unique cœur : les unités de traitement, le cache processeur et le translation lookaside buffer ; certaines parties sont néanmoins dupliquées : chaque thread dispose de ses propres registres et de son propre pointeur d'instruction. Là où les systèmes multiprocesseurs incluent plusieurs unités de traitement complètes, le multithreading a pour but d'augmenter l'utilisation d'un seul cœur en tirant profit des propriétés des threads et du parallélisme au niveau des instructions. Comme les deux techniques sont complémentaires, elles sont parfois combinées dans des systèmes comprenant de multiples processeurs multithreads ou des processeurs avec de multiples cœurs multithreads.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Multithreading-Creer-un-thread"><a class="Link9" href="#Multithreading">Créer un thread</a></h2><br>La fonction <b>pthread_create</b> crée un nouveau thread s'exécutant simultanément avec le thread appelant. Le nouveau thread exécute la fonction <span class="GCode3"><code style="color:#cccccc;">start_routine </code></span>en lui passant <span class="GCode3"><code style="color:#cccccc;">arg </code></span>comme premier argument. Le nouveau thread s'achève soit explicitement en appelant <span class="GCode3"><code style="color:#cccccc;">pthread_exit</code></span>, ou implicitement lorsque la fonction <span class="GCode3"><code style="color:#cccccc;">start_routine </code></span>s'achève. Ce dernier cas est équivalent à appeler <span class="GCode3"><code style="color:#cccccc;">pthread_exit</code></span> avec la valeur renvoyée par <span class="GCode3"><code style="color:#cccccc;">start_routine </code></span>comme code de sortie. L'argument <span class="GCode3"><code style="color:#cccccc;">attr </code></span>indique les attributs du nouveau thread. Voir <span class="GCode3"><code style="color:#cccccc;">pthread_attr_init</code></span> pour une liste complète des attributs. L'argument <span class="GCode3"><code style="color:#cccccc;">attr </code></span>peut être <span class="GCode3"><code style="color:#cccccc;">NULL</code></span>, auquel cas, les attributs par défaut sont utilisés : le thread créé est joignable (non détaché) et utilise la politique d'ordonnancement normale (pas temps-réel).   <br><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 #include &lt;pthread.h&gt;
 #include &lt;unistd.h&gt;
