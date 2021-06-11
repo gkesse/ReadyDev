@@ -16,10 +16,6 @@
         {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
         {"name":"Web","link":"/Tutoriels/#Développement Web","follow":"no"},
         {"name":"ASP.NET","link":"","follow":"no"}
-    ],
-    "basics":
-    [
-        {"name":"Créer un projet en ASP.NET","link":"/Tutoriels/Web/ASP.NET/Cours/Project/","follow":"yes"}
     ]
 }
                         

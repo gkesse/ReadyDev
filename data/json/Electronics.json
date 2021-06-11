@@ -13,13 +13,8 @@
     },    
     "links":
     [
+        {"name":"Accueil","link":"/","follow":"no"},
         {"name":"Cours","link":"/Cours/","follow":"no"},
         {"name":"Électronique","link":"","follow":"no"}
-    ],
-    "analog":
-    [
-        {"name":"Pont diviseur de tension","link":"/Cours/Electronics/Voltage_Divider/","follow":"yes"},
-        {"name":"Pont diviseur de courant","link":"/Cours/Electronics/Current_Divider/","follow":"yes"}
     ]
 }
-                        
