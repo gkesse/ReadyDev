@@ -1,0 +1,21 @@
+{
+    "sitemap":"yes",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+			"Le but de ce tutoriel est de vous apprendre",
+            "la revue de code avec Gerrit.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Tutoriels/Version_Control/Gerrit/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Version_Control/Gerrit/img/b_git.png"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"Revue de code","link":"/Tutoriels/#Système de revue de code","follow":"no"},
+        {"name":"Gerrit","link":"","follow":"no"}
+    ]
+}
+                        

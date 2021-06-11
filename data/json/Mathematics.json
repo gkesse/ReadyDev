@@ -13,12 +13,9 @@
     },    
     "links":
     [
+        {"name":"Accueil","link":"/","follow":"no"},
         {"name":"Cours","link":"/Cours/","follow":"no"},
         {"name":"Mathématiques","link":"","follow":"no"}
-    ],
-    "geometry":
-    [
-        {"name":"Théorème de Pythagore","link":"/Cours/Mathematics/Pythagorean_Theorem/","follow":"yes"}
     ]
 }
                         

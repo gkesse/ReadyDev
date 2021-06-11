@@ -13,12 +13,9 @@
     },    
     "links":
     [
+        {"name":"Accueil","link":"/","follow":"no"},
         {"name":"Cours","link":"/Cours/","follow":"no"},
         {"name":"Physique","link":"","follow":"no"}
-    ],
-    "kinematics":
-    [
-        {"name":"Chute libre","link":"/Cours/Physics/Free_Fall/","follow":"yes"}
     ]
 }
                         
