@@ -1768,7 +1768,7 @@ void GCircle::area() const {
 [Rectangle] on supprime le rectangle (r : 30 ; w : 40)
 [Circle] Perimetre (r : 20) : 126 (m)
 [Circle] Aire (r : 20) : 1257 (m2)
-[Circle] on supprime le cercle (r : 20)</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Patrons-de-conception"><a class="Link3" href="#">Patrons de conception</a></h1><div class="Body3"><br>Un <b>patron de conception</b> (design pattern) est un arrangement caractéristique de modules, reconnu comme bonne pratique en réponse à un problème de conception d'un logiciel. Il décrit une solution standard, utilisable dans la conception de différents logiciels. Un patron de conception est issu de l'expérience des concepteurs de logiciels. Il décrit un arrangement récurrent de rôles et d'actions joués par des modules d'un logiciel, et le nom du patron sert de vocabulaire commun entre le concepteur et le programmeur. D'une manière analogue à un motif de conception en architecture, le patron de conception décrit les grandes lignes d'une solution, qui peuvent ensuite être modifiées et adaptées en fonction des besoins.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Patrons-de-conception-Creer-un-patron-singleton">Créer un patron singleton</a></div></div><br><h2 class="Title7 GTitle2" id="Patrons-de-conception-Creer-un-patron-singleton"><a class="Link9" href="#Patrons-de-conception">Créer un patron singleton</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
+[Circle] on supprime le cercle (r : 20)</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Patrons-de-conception"><a class="Link3" href="#">Patrons de conception</a></h1><div class="Body3"><br>Un <b>patron de conception</b> (design pattern) est un arrangement caractéristique de modules, reconnu comme bonne pratique en réponse à un problème de conception d'un logiciel. Il décrit une solution standard, utilisable dans la conception de différents logiciels. Un patron de conception est issu de l'expérience des concepteurs de logiciels. Il décrit un arrangement récurrent de rôles et d'actions joués par des modules d'un logiciel, et le nom du patron sert de vocabulaire commun entre le concepteur et le programmeur. D'une manière analogue à un motif de conception en architecture, le patron de conception décrit les grandes lignes d'une solution, qui peuvent ensuite être modifiées et adaptées en fonction des besoins.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Patrons-de-conception-Creer-un-patron-singleton">Créer un patron singleton</a></div></div><br><h2 class="Title7 GTitle2" id="Patrons-de-conception-Creer-un-patron-singleton"><a class="Link9" href="#Patrons-de-conception">Créer un patron singleton</a></h2><br>Le <b>singleton </b>est un patron de conception dont l'objet est de restreindre l'instanciation d'une classe à un seul objet (ou bien à quelques objets seulement). Il est utilisé lorsque l'on a besoin d'exactement un objet pour coordonner des opérations dans un système. Le modèle est parfois utilisé pour son efficacité, lorsque le système est plus rapide ou occupe moins de mémoire avec peu d'objets qu'avec beaucoup d'objets similaires. On implémente le singleton en écrivant une classe contenant une méthode qui crée une instance uniquement s'il n'en existe pas encore. Sinon elle renvoie une référence vers l'objet qui existe déjà. Dans beaucoup de langages de type objet, il faudra veiller à ce que le constructeur de la classe soit privé ou bien protégé, afin de s'assurer que la classe ne puisse être instanciée autrement que par la méthode de création contrôlée. Le singleton doit être implémenté avec précaution dans les applications multi-thread. Si deux processus légers exécutent en même temps la méthode de création alors que l'objet unique n'existe pas encore, il faut absolument s'assurer qu'un seul créera l'objet, et que l'autre obtiendra une référence vers ce nouvel objet. La solution classique à ce problème consiste à utiliser l'exclusion mutuelle (mutex) pour indiquer que l'objet est en cours d'instanciation. Dans un langage à base de prototypes, où sont utilisés des objets mais pas des classes, un singleton désigne seulement un objet qui n'a pas de copies, et qui n'est pas utilisé comme prototype pour d'autres objets.<br><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include "GDatabase.h"
 //===============================================
 int main(int argc, char** argv) {
@@ -2833,7 +2833,7 @@ GWindow::~GWindow() {
 void GWindow::onClick() {
     m_textEdit-&gt;append("on traite l'action associée au clic");
 }
-//================================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_qt_button.gif" class="lazy entered loaded" data-src="/Tutoriels/Software_Development/Cpp/img/i_qt_button.gif" data-ll-status="loaded" src="/Tutoriels/Software_Development/Cpp/img/i_qt_button.gif"></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Qt-Creer-un-bouton-avec-un-texte-et-une-icone"><a class="Link9" href="#Interface-Homme-Machine-avec-Qt">Créer un bouton avec un texte et une icône</a></h2><br><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Qt-Creer-un-bouton-avec-une-icone-sans-texte"><a class="Link9" href="#Interface-Homme-Machine-avec-Qt">Créer un bouton avec une icône sans texte</a></h2><br><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Qt-Ouvrir-un-fichier"><a class="Link9" href="#Interface-Homme-Machine-avec-Qt">Ouvrir un fichier</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//================================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_qt_button.gif" class="lazy entered loaded" data-src="/Tutoriels/Software_Development/Cpp/img/i_qt_button.gif" data-ll-status="loaded" src="/Tutoriels/Software_Development/Cpp/img/i_qt_button.gif"></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Qt-Creer-un-bouton-avec-un-texte-et-une-icone"><a class="Link9" href="#Interface-Homme-Machine-avec-Qt">Créer un bouton avec un texte et une icône</a></h2><br><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Qt-Creer-un-bouton-avec-une-icone-sans-texte"><a class="Link9" href="#Interface-Homme-Machine-avec-Qt">Créer un bouton avec une icône sans texte</a></h2><br><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Qt-Ouvrir-un-fichier"><a class="Link9" href="#Interface-Homme-Machine-avec-Qt">Ouvrir un fichier</a></h2><br><b>QFileDialog </b>fournit une boîte de dialogue qui permet aux utilisateurs de sélectionner des fichiers ou des répertoires. QFileDialog permet à un utilisateur de parcourir le système de fichiers afin de sélectionner un ou plusieurs fichiers ou un répertoire. La façon la plus simple de créer un QFileDialog est d'utiliser les fonctions statiques. Vous pouvez créer votre propre QFileDialog sans utiliser les fonctions statiques. En appelant <span class="GCode3"><code style="color:#cccccc;">setFileMode</code></span>, vous pouvez spécifier ce que l'utilisateur doit sélectionner dans la boîte de dialogue. La propriété <span class="GCode3"><code style="color:#cccccc;">fileMode </code></span>contient le mode de fonctionnement de la boîte de dialogue ; cela indique quels types d'objets l'utilisateur est censé sélectionner. Utilisez <span class="GCode3"><code style="color:#cccccc;">setNameFilter </code></span>pour définir le filtre de fichier de la boîte de dialogue.<br><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 #include "GWindow.h"
 //===============================================
 int main(int argc, char** argv) {
@@ -3225,7 +3225,166 @@ void GWindow::slotClick() {
     QString lWidgetId = m_widgetMap[lWidget];
     onEvent(lWidgetId);
 }
-//================================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_qgraphicsscene_image_zoom.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_qgraphicsscene_image_zoom.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Creation-de-pitogrammes-avec-QtAwesome"><a class="Link3" href="#">Création de pitogrammes avec QtAwesome</a></h1><div class="Body3"><br><b>QtAwesome</b> est une bibliothèque simple qui peut être utilisée pour ajouter des icônes Font Awesome à votre application Qt. Bien que le nom soit QtAwesome et qu'il soit actuellement très basé sur Font Awesome, vous pouvez utiliser toutes les autres polices d'icônes / glyphes de votre choix. La classe peut également être utilisée pour gérer vos propres icônes dessinées par code dynamique, en ajoutant des peintres d'icônes nommés. Cette bibliothèque a été mise à jour vers la version 4.7.0 de Font Awesome <br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Creation-de-pitogrammes-avec-QtAwesome-Installer-l-environnement-QtAwesome-sous-MSYS2">Installer l'environnement QtAwesome sous MSYS2</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Creation-de-pitogrammes-avec-QtAwesome-Tester-un-projet-QtAwesome-sous-MSYS2">Tester un projet QtAwesome sous MSYS2</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Creation-de-pitogrammes-avec-QtAwesome-Creer-un-pictogramme-a-partir-de-son-id">Créer un pictogramme à partir de son id</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Creation-de-pitogrammes-avec-QtAwesome-Creer-un-pictogramme-a-partir-de-son-nom">Créer un pictogramme à partir de son nom</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Creation-de-pitogrammes-avec-QtAwesome-Creer-un-pictogramme-a-partir-de-son-caractere">Créer un pictogramme à partir de son caractère</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Creation-de-pitogrammes-avec-QtAwesome-Definir-la-couleur-d-un-pictogramme">Définir la couleur d'un pictogramme</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Creation-de-pitogrammes-avec-QtAwesome-Definir-la-couleur-par-defaut-des-pictogrammes">Définir la couleur par défaut des pictogrammes</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Creation-de-pitogrammes-avec-QtAwesome-Creer-un-pictogramme-anime">Créer un pictogramme animé</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Creation-de-pitogrammes-avec-QtAwesome-Basculer-d-un-pictogramme-a-l-autre-entre-deux-etats">Basculer d'un pictogramme à l'autre entre deux états</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Creation-de-pitogrammes-avec-QtAwesome-Creer-un-pictogramme-personnalise">Créer un pictogramme personnalisé</a></div></div><br><h2 class="Title7 GTitle2" id="Creation-de-pitogrammes-avec-QtAwesome-Installer-l-environnement-QtAwesome-sous-MSYS2"><a class="Link9" href="#Creation-de-pitogrammes-avec-QtAwesome">Installer l'environnement QtAwesome sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Télécharger QtAwesome</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://github.com/gamecreature/QtAwesome">https://github.com/gamecreature/QtAwesome</a><br><br><b>QtAwesome-master.zip</b><br><br><h3 class="Title8 GTitle3">Extraire QtAwesome</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">QtAwesome-master.zip
+//================================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_qgraphicsscene_image_zoom.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_qgraphicsscene_image_zoom.gif"></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Qt-Integrer-un-projet-OpenGL-dans-Qt"><a class="Link9" href="#Interface-Homme-Machine-avec-Qt">Intégrer un projet OpenGL dans Qt</a></h2><br><b>QOpenGLWindow </b>est une sous-classe pratique de QWindow pour effectuer la peinture OpenGL. QOpenGLWindow est un QWindow amélioré qui permet de créer facilement des fenêtres qui effectuent un rendu OpenGL à l'aide d'une API compatible avec QOpenGLWidget et similaire à l'ancien QGLWidget. Contrairement à QOpenGLWidget , QOpenGLWindow ne dépend pas du module widgets et offre de meilleures performances. Pour programmer un repeint, appelez la fonction <span class="GCode3"><code style="color:#cccccc;">update</code></span>. Notez que cela n'entraînera pas immédiatement un appel à <span class="GCode3"><code style="color:#cccccc;">paintGL</code></span>. Appeler <span class="GCode3"><code style="color:#cccccc;">update </code></span>plusieurs fois de suite ne changera en rien le comportement.<br><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GWindow.h"
+//===============================================
+int main(int argc, char** argv) {
+    QApplication app(argc, argv);
+
+    GWindow* lWindow = new GWindow;
+    lWindow-&gt;setWindowTitle("ReadyApp");
+    lWindow-&gt;resize(500, 300);
+    lWindow-&gt;show();   
+    
+    return app.exec();
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Gwindow.h</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//================================================
+#ifndef _GWindow_
+#define _GWindow_
+//================================================
+#include &lt;QApplication&gt;
+#include &lt;QtWidgets&gt;
+//================================================
+class GWindow : public QFrame {
+    Q_OBJECT
+    
+public:
+    GWindow(QWidget* parent = 0);
+    ~GWindow();
+};
+//================================================
+#endif
+//================================================</pre></div></div><br><h3 class="Title8 GTitle3">GWindow.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//================================================
+#include "GWindow.h"
+#include "GWindowGL.h"
+//================================================
+GWindow::GWindow(QWidget* parent) : QFrame(parent) {    
+    GWindowGL* lWindowGL = new GWindowGL;
+    QWidget* lWindowGLW = QWidget::createWindowContainer(lWindowGL, this);
+    
+    QVBoxLayout* lMainLayout = new QVBoxLayout;
+    lMainLayout-&gt;addWidget(lWindowGLW);
+    
+    setLayout(lMainLayout);
+}
+//================================================
+GWindow::~GWindow() {
+
+}
+//================================================</pre></div></div><br><h3 class="Title8 GTitle3">GWindowGL.h</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//================================================
+#ifndef _GWindowGL_
+#define _GWindowGL_
+//================================================
+#include &lt;QtWidgets&gt;
+#include &lt;QOpenGLWindow&gt;
+//================================================
+class GWindowGL : public QOpenGLWindow {
+    Q_OBJECT
+    
+public:
+    GWindowGL();
+    ~GWindowGL();
+
+protected:
+	void initializeGL();
+	void paintEvent(QPaintEvent *event);
+	void resizeEvent(QResizeEvent *event);
+    
+private:
+	QOpenGLContext* m_context;
+    QOpenGLVertexArrayObject* m_vao;
+    QOpenGLShaderProgram* m_shaderProgram;
+};
+//================================================
+#endif
+//================================================</pre></div></div><br><h3 class="Title8 GTitle3">GWindowGL.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//================================================
+#include "GWindowGL.h"
+//================================================
+GWindowGL::GWindowGL() : QOpenGLWindow() {
+	setSurfaceType(QWindow::OpenGLSurface);
+
+	QSurfaceFormat lFormat;
+	lFormat.setProfile(QSurfaceFormat::CoreProfile);
+	lFormat.setVersion(3, 2);
+	setFormat(lFormat);
+
+	QOpenGLContext* lContext = new QOpenGLContext();
+    m_context = lContext;
+	lContext-&gt;setFormat(lFormat);
+	lContext-&gt;create();
+	lContext-&gt;makeCurrent(this);
+}
+//================================================
+GWindowGL::~GWindowGL() {
+
+}
+//================================================
+void GWindowGL::initializeGL() {
+	static const char* lVertexShader =
+	"#version 330 core\n"
+	"layout(location = 0) in vec2 posAttr;\n"
+	"void main() {\n"
+	"gl_Position = vec4(posAttr, 0.0, 1.0);\n"
+    "}";
+
+	static const char* lFragmentShader =
+	"#version 330 core\n"
+	"out vec4 col;\n"
+	"void main() {\n"
+	"col = vec4(1.0, 0.0, 0.0, 1.0);\n"
+    "}";
+
+	QOpenGLShaderProgram* lShaderProgram = new QOpenGLShaderProgram(this);
+	m_shaderProgram = lShaderProgram;
+    lShaderProgram-&gt;addShaderFromSourceCode(QOpenGLShader::Vertex, lVertexShader);
+	lShaderProgram-&gt;addShaderFromSourceCode(QOpenGLShader::Fragment, lFragmentShader);
+	lShaderProgram-&gt;link();
+
+	GLfloat lVertices[] = {
+		-1.0f, -1.0f,
+		1.0f, -1.0f,
+		0.0f,  1.0f
+	};
+
+	QOpenGLVertexArrayObject* lVao = new QOpenGLVertexArrayObject();
+	m_vao = lVao;
+    lVao-&gt;create();
+	lVao-&gt;bind();
+
+	QOpenGLBuffer* lVbo = new QOpenGLBuffer(QOpenGLBuffer::VertexBuffer);
+	lVbo-&gt;create();
+	lVbo-&gt;setUsagePattern(QOpenGLBuffer::StaticDraw);
+	lVbo-&gt;bind();
+	lVbo-&gt;allocate(lVertices, sizeof(lVertices) * sizeof(GLfloat));
+
+	lVao-&gt;release();
+}
+//================================================
+void GWindowGL::paintEvent(QPaintEvent *event) {
+    const qreal lRatio = devicePixelRatio();
+    glViewport(0, 0, width() * lRatio, height() * lRatio);
+
+	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+	glClear(GL_COLOR_BUFFER_BIT);
+
+	m_vao-&gt;bind();
+	m_shaderProgram-&gt;bind();
+
+	m_shaderProgram-&gt;bindAttributeLocation("posAttr", 0);
+	m_shaderProgram-&gt;enableAttributeArray(0);
+	m_shaderProgram-&gt;setAttributeBuffer(0, GL_FLOAT, 0, 2);
+
+	glDrawArrays(GL_TRIANGLES, 0, 3);
+
+	m_shaderProgram-&gt;release();
+	m_vao-&gt;release();
+}
+//================================================
+void GWindowGL::resizeEvent(QResizeEvent *event) {
+	glViewport(0, 0, width(), height());
+	update();
+}
+//================================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_opengl_integrate.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_opengl_integrate.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Creation-de-pitogrammes-avec-QtAwesome"><a class="Link3" href="#">Création de pitogrammes avec QtAwesome</a></h1><div class="Body3"><br><b>QtAwesome</b> est une bibliothèque simple qui peut être utilisée pour ajouter des icônes Font Awesome à votre application Qt. Bien que le nom soit QtAwesome et qu'il soit actuellement très basé sur Font Awesome, vous pouvez utiliser toutes les autres polices d'icônes / glyphes de votre choix. La classe peut également être utilisée pour gérer vos propres icônes dessinées par code dynamique, en ajoutant des peintres d'icônes nommés. Cette bibliothèque a été mise à jour vers la version 4.7.0 de Font Awesome <br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Creation-de-pitogrammes-avec-QtAwesome-Installer-l-environnement-QtAwesome-sous-MSYS2">Installer l'environnement QtAwesome sous MSYS2</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Creation-de-pitogrammes-avec-QtAwesome-Tester-un-projet-QtAwesome-sous-MSYS2">Tester un projet QtAwesome sous MSYS2</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Creation-de-pitogrammes-avec-QtAwesome-Creer-un-pictogramme-a-partir-de-son-id">Créer un pictogramme à partir de son id</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Creation-de-pitogrammes-avec-QtAwesome-Creer-un-pictogramme-a-partir-de-son-nom">Créer un pictogramme à partir de son nom</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Creation-de-pitogrammes-avec-QtAwesome-Creer-un-pictogramme-a-partir-de-son-caractere">Créer un pictogramme à partir de son caractère</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Creation-de-pitogrammes-avec-QtAwesome-Definir-la-couleur-d-un-pictogramme">Définir la couleur d'un pictogramme</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Creation-de-pitogrammes-avec-QtAwesome-Definir-la-couleur-par-defaut-des-pictogrammes">Définir la couleur par défaut des pictogrammes</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Creation-de-pitogrammes-avec-QtAwesome-Creer-un-pictogramme-anime">Créer un pictogramme animé</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Creation-de-pitogrammes-avec-QtAwesome-Basculer-d-un-pictogramme-a-l-autre-entre-deux-etats">Basculer d'un pictogramme à l'autre entre deux états</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Creation-de-pitogrammes-avec-QtAwesome-Creer-un-pictogramme-personnalise">Créer un pictogramme personnalisé</a></div></div><br><h2 class="Title7 GTitle2" id="Creation-de-pitogrammes-avec-QtAwesome-Installer-l-environnement-QtAwesome-sous-MSYS2"><a class="Link9" href="#Creation-de-pitogrammes-avec-QtAwesome">Installer l'environnement QtAwesome sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Télécharger QtAwesome</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://github.com/gamecreature/QtAwesome">https://github.com/gamecreature/QtAwesome</a><br><br><b>QtAwesome-master.zip</b><br><br><h3 class="Title8 GTitle3">Extraire QtAwesome</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">QtAwesome-master.zip
 Clic droit -&gt; Extraire vers QtAwesome-master\</pre></div></div><br><h2 class="Title7 GTitle2" id="Creation-de-pitogrammes-avec-QtAwesome-Tester-un-projet-QtAwesome-sous-MSYS2"><a class="Link9" href="#Creation-de-pitogrammes-avec-QtAwesome">Tester un projet QtAwesome sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Observer la structure du projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">ReadyTest/QtAwesome/
 |___ main.cpp
 |___ QtAwesome.cpp  
