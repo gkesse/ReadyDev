@@ -2866,54 +2866,36 @@ public slots:
     
 private:
     QMap&lt;QWidget*, QString&gt; m_widgetMap;
-    QTextEdit* m_workspace;
+    QTextEdit* m_textEdit;
 };
 //================================================
 #endif
 //================================================</pre></div></div><br><h3 class="Title8 GTitle3">GWindon.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//================================================
-#include "GWindow.h"
+#ifndef _GWindow_
+#define _GWindow_
 //================================================
-GWindow::GWindow(QWidget* parent) : QFrame(parent) {
-    QPushButton* lOpen = new QPushButton;
-    lOpen-&gt;setText("Open");
-    m_widgetMap[lOpen] = "open";
-    
-    QHBoxLayout* lButtonLayout = new QHBoxLayout;
-    lButtonLayout-&gt;addWidget(lOpen);
-    lButtonLayout-&gt;setAlignment(Qt::AlignLeft);
-    lButtonLayout-&gt;setMargin(0);
-    
-    QTextEdit* lWorkspace = new QTextEdit;
-    m_workspace = lWorkspace;
-    lWorkspace-&gt;setReadOnly(true);
-    
-    QVBoxLayout* lMainLayout = new QVBoxLayout;
-    lMainLayout-&gt;addLayout(lButtonLayout);
-    lMainLayout-&gt;addWidget(lWorkspace, 1);
-    
-    setLayout(lMainLayout);
-    
-    connect(lOpen, SIGNAL(clicked()), this, SLOT(slotClick()));
-}
+#include &lt;QApplication&gt;
+#include &lt;QtWidgets&gt;
 //================================================
-GWindow::~GWindow() {
+class GWindow : public QFrame {
+    Q_OBJECT
+    
+public:
+    GWindow(QWidget* parent = 0);
+    ~GWindow();
 
-}
+public:
+    void onEvent(const QString&amp; event);
+
+public slots:
+    void slotClick();
+    
+private:
+    QMap&lt;QWidget*, QString&gt; m_widgetMap;
+    QTextEdit* m_textEdit;
+};
 //================================================
-void GWindow::onEvent(const QString&amp; event) {
-    if(event == "open") {
-        QString lFilename = QFileDialog::getOpenFileName(
-        this, tr("Ouvrir une image"), ".", tr("Fichiers Image (*.png *.jpg *.bmp)"));
-        if(lFilename == "") {return;}
-        m_workspace-&gt;append(lFilename);
-    }
-}
-//================================================
-void GWindow::slotClick() {
-    QWidget* lWidget = qobject_cast&lt;QWidget*&gt;(sender());
-    QString lWidgetId = m_widgetMap[lWidget];
-    onEvent(lWidgetId);
-}
+#endif
 //================================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_open_file.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_open_file.gif"></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Qt-Ouvrir-une-image-dans-QGraphicsScene"><a class="Link9" href="#Interface-Homme-Machine-avec-Qt">Ouvrir une image dans QGraphicsScene</a></h2><br><b>QGraphicsScene</b> sert de conteneur pour QGraphicsItems. Il est utilisé avec QGraphicsView pour visualiser des éléments graphiques, tels que des lignes, des rectangles, du texte ou même des éléments personnalisés, sur une surface 2D. QGraphicsScene fait partie de Graphics View Framework . QGraphicsScene fournit également une fonctionnalité qui vous permet de déterminer efficacement à la fois l'emplacement des éléments et pour déterminer quels éléments sont visibles dans une zone arbitraire de la scène. Avec le widget QGraphicsView , vous pouvez soit visualiser l'ensemble de la scène, soit zoomer et afficher uniquement des parties de la scène.<br><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 #include "GWindow.h"
 //===============================================
