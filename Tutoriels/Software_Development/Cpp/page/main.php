@@ -2687,7 +2687,9 @@ onRun_1 Thread [D] : DDDDDDDDDDDDDDDDDDDD</pre></div></div><br></div></div></div
 pacman -S --needed --noconfirm mingw-w64-i686-qt-creator
 pacman -S --needed --noconfirm mingw-w64-i686-gdb
 pacman -S --needed --noconfirm mingw-w64-i686-cmake
-pacman -S --needed --noconfirm mingw-w64-i686-clang</pre></div></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Qt-Compiler-un-projet-Qt-sous-MSYS2"><a class="Link9" href="#Interface-Homme-Machine-avec-Qt">Compiler un projet Qt sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Éditer le fichier projet (GProject.pro)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">TEMPLATE = app
+pacman -S --needed --noconfirm mingw-w64-i686-clang</pre></div></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Qt-Installer-l-environnement-Qt-sous-ubuntu"><a class="Link9" href="#Interface-Homme-Machine-avec-Qt">Installer l'environnement Qt sous ubuntu</a></h2><br><h3 class="Title8 GTitle3">Installer Qt</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">sudo apt install -y qtcreator
+sudo apt install -y qtbase5-dev
+sudo apt install -y qt5-qmake</pre></div></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Qt-Compiler-un-projet-Qt-sous-MSYS2"><a class="Link9" href="#Interface-Homme-Machine-avec-Qt">Compiler un projet Qt sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Éditer le fichier projet (GProject.pro)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">TEMPLATE = app
 TARGET = rdcpp
 DESTDIR = bin
 OBJECTS_DIR = build
@@ -2896,7 +2898,136 @@ private:
 };
 //================================================
 #endif
-//================================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_open_file.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_open_file.gif"></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Qt-Ouvrir-une-image-dans-QGraphicsScene"><a class="Link9" href="#Interface-Homme-Machine-avec-Qt">Ouvrir une image dans QGraphicsScene</a></h2><br><b>QGraphicsScene</b> sert de conteneur pour QGraphicsItems. Il est utilisé avec QGraphicsView pour visualiser des éléments graphiques, tels que des lignes, des rectangles, du texte ou même des éléments personnalisés, sur une surface 2D. QGraphicsScene fait partie de Graphics View Framework . QGraphicsScene fournit également une fonctionnalité qui vous permet de déterminer efficacement à la fois l'emplacement des éléments et pour déterminer quels éléments sont visibles dans une zone arbitraire de la scène. Avec le widget QGraphicsView , vous pouvez soit visualiser l'ensemble de la scène, soit zoomer et afficher uniquement des parties de la scène.<br><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//================================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_file_open.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_file_open.gif"></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Qt-Parcourir-un-repertoire-de-fichiers"><a class="Link9" href="#Interface-Homme-Machine-avec-Qt">Parcourir un répertoire de fichiers</a></h2><br><b>QDir </b>est utilisé pour manipuler les noms de chemin, accéder aux informations concernant les chemins et les fichiers et manipuler le système de fichiers sous-jacent. Il peut également être utilisé pour accéder au système de ressources de Qt . Qt utilise <span class="GCode3"><code style="color:#cccccc;">"/"</code></span> comme séparateur de répertoire universel de la même manière que <span class="GCode3"><code style="color:#cccccc;">"/"</code></span> est utilisé comme séparateur de chemin dans les URL. Si vous utilisez toujours <span class="GCode3"><code style="color:#cccccc;">"/"</code></span> comme séparateur de répertoire, Qt traduira vos chemins pour se conformer au système d'exploitation sous-jacent. QDir peut pointer vers un fichier en utilisant un chemin relatif ou absolu. Les chemins absolus commencent par le séparateur de répertoire (éventuellement précédé d'une spécification de lecteur sous Windows). Les noms de fichiers relatifs commencent par un nom de répertoire ou un nom de fichier et spécifient un chemin relatif au répertoire actuel.<br><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GWindow.h"
+//===============================================
+int main(int argc, char** argv) {
+    QApplication app(argc, argv);
+
+    GWindow* lWindow = new GWindow;
+    lWindow-&gt;setWindowTitle("ReadyApp");
+    lWindow-&gt;resize(500, 300);
+    lWindow-&gt;show();   
+    
+    return app.exec();
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GWindow.h</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//================================================
+#ifndef _GWindow_
+#define _GWindow_
+//================================================
+#include &lt;QApplication&gt;
+#include &lt;QtWidgets&gt;
+//================================================
+class GWindow : public QFrame {
+    Q_OBJECT
+    
+public:
+    GWindow(QWidget* parent = 0);
+    ~GWindow();
+
+public:
+    void onEvent(const QString&amp; event);
+
+public slots:
+    void slotClick();
+    
+private:
+    QMap&lt;QWidget*, QString&gt; m_widgetMap;
+    QTextEdit* m_textEdit;
+    QString m_filename;
+};
+//================================================
+#endif
+//================================================</pre></div></div><br><h3 class="Title8 GTitle3">GWindow.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//================================================
+#include "GWindow.h"
+//================================================
+GWindow::GWindow(QWidget* parent) : QFrame(parent) {
+    QPushButton* lOpen = new QPushButton;
+    lOpen-&gt;setText("Open");
+    m_widgetMap[lOpen] = "open";
+    
+    QPushButton* lNext = new QPushButton;
+    lNext-&gt;setText("Next");
+    m_widgetMap[lNext] = "next";
+    
+    QPushButton* lPrevious = new QPushButton;
+    lPrevious-&gt;setText("Previous");
+    m_widgetMap[lPrevious] = "previous";
+    
+    QHBoxLayout* lButtonLayout = new QHBoxLayout;
+    lButtonLayout-&gt;addWidget(lOpen);
+    lButtonLayout-&gt;addWidget(lPrevious);
+    lButtonLayout-&gt;addWidget(lNext);
+    lButtonLayout-&gt;setAlignment(Qt::AlignLeft);
+    lButtonLayout-&gt;setMargin(0);
+    
+    QTextEdit* lTextedit = new QTextEdit;
+    m_textEdit = lTextedit;
+    lTextedit-&gt;setReadOnly(true);
+    
+    QVBoxLayout* lMainLayout = new QVBoxLayout;
+    lMainLayout-&gt;addLayout(lButtonLayout);
+    lMainLayout-&gt;addWidget(lTextedit, 1);
+    
+    setLayout(lMainLayout);
+    
+    connect(lOpen, SIGNAL(clicked()), this, SLOT(slotClick()));
+    connect(lNext, SIGNAL(clicked()), this, SLOT(slotClick()));
+    connect(lPrevious, SIGNAL(clicked()), this, SLOT(slotClick()));
+}
+//================================================
+GWindow::~GWindow() {
+
+}
+//================================================
+void GWindow::onEvent(const QString&amp; event) {
+    if(event == "open") {
+        QString lFilename = QFileDialog::getOpenFileName(
+        this, tr("Ouvrir une image"), ".", tr("Fichiers Image (*.png *.jpg *.bmp)"));
+        if(lFilename == "") {return;}
+        m_textEdit-&gt;append(lFilename);
+        m_filename = lFilename;
+    }
+    else if(event == "next") {
+        if(m_filename == "") {return;}
+        QFileInfo lFileInfo(m_filename);
+        QDir lDir = lFileInfo.absoluteDir();
+        QStringList lFilters;
+        lFilters &lt;&lt; "*.png" &lt;&lt; "*.bmp" &lt;&lt; "*.jpg";
+        QStringList lFilenames = lDir.entryList(lFilters, QDir::Files, QDir::Name);
+        int lIndex = lFilenames.indexOf(QRegExp(QRegExp::escape(lFileInfo.fileName())));
+        if(lIndex &lt; lFilenames.size() - 1) {
+            QString lFilename = lDir.absoluteFilePath(lFilenames.at(lIndex + 1));
+            m_textEdit-&gt;append(lFilename);
+            m_filename = lFilename;
+        } else {
+            m_textEdit-&gt;append("Cette image est la dernière...");
+        }    
+    }
+    else if(event == "previous") {
+        if(m_filename == "") {return;}
+        QFileInfo lFileInfo(m_filename);
+        QDir lDir = lFileInfo.absoluteDir();
+        QStringList lFilters;
+        lFilters &lt;&lt; "*.png" &lt;&lt; "*.bmp" &lt;&lt; "*.jpg";
+        QStringList lFilenames = lDir.entryList(lFilters, QDir::Files, QDir::Name);
+        int lIndex = lFilenames.indexOf(QRegExp(QRegExp::escape(lFileInfo.fileName())));
+        if(lIndex &gt; 0) {
+            QString lFilename = lDir.absoluteFilePath(lFilenames.at(lIndex - 1));
+            m_textEdit-&gt;append(lFilename);
+            m_filename = lFilename;
+        } else {
+            m_textEdit-&gt;append("Cette image est la première...");
+        }    
+    }
+}
+//================================================
+void GWindow::slotClick() {
+    QWidget* lWidget = qobject_cast&lt;QWidget*&gt;(sender());
+    QString lWidgetId = m_widgetMap[lWidget];
+    onEvent(lWidgetId);
+}
+//================================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_file_browser.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_file_browser.gif"></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Qt-Ouvrir-une-image-dans-QGraphicsScene"><a class="Link9" href="#Interface-Homme-Machine-avec-Qt">Ouvrir une image dans QGraphicsScene</a></h2><br><b>QGraphicsScene</b> sert de conteneur pour QGraphicsItems. Il est utilisé avec QGraphicsView pour visualiser des éléments graphiques, tels que des lignes, des rectangles, du texte ou même des éléments personnalisés, sur une surface 2D. QGraphicsScene fait partie de Graphics View Framework . QGraphicsScene fournit également une fonctionnalité qui vous permet de déterminer efficacement à la fois l'emplacement des éléments et pour déterminer quels éléments sont visibles dans une zone arbitraire de la scène. Avec le widget QGraphicsView , vous pouvez soit visualiser l'ensemble de la scène, soit zoomer et afficher uniquement des parties de la scène.<br><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 #include "GWindow.h"
 //===============================================
 int main(int argc, char** argv) {
