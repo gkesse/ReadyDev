@@ -171,7 +171,26 @@ void main() {
         GDelay_ms(200);
     }
 }
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_delay_software.gif" alt="/Tutoriels/Embedded_System/8051/img/i_delay_software.gif"></div><br><h2 class="Title7 GTitle2" id="Delai-Creer-un-delai-materiel-Timer-T0-en-mode-16-bit"><a class="Link9" href="#Delai">Créer un délai matériel Timer T0 en mode 16-bit</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_delay_software.gif" alt="/Tutoriels/Embedded_System/8051/img/i_delay_software.gif"></div><br><h2 class="Title7 GTitle2" id="Delai-Creer-un-delai-materiel-Timer-T0-en-mode-16-bit"><a class="Link9" href="#Delai">Créer un délai matériel Timer T0 en mode 16-bit</a></h2><br><h3 class="Title8 GTitle3">Calculer les valeurs de préchargement</h3><br><div class="Formula GFormula1"><div class="Formula2">\begin{eqnarray}
+f_{osc} &amp;\to&amp; fréquence\ de\ l'oscillateur\ (Hz)\\
+f_{timer} &amp;\to&amp; fréquence\ du\  timer\ (Hz)\\\\
+f_{timer} &amp;=&amp; \dfrac{f_{osc}}{12}\\
+T_{timer} &amp;=&amp; \dfrac{1}{f_{timer}}\\
+T_{timer} &amp;=&amp; \dfrac{12}{f_{osc}}\\\\
+T_{delay} &amp;\to&amp; Durée\ du\ delai\ (s)\\
+n_{delay} &amp;\to&amp; Pas\ du\ delai\\\\
+T_{delay} &amp;=&amp; n_{delay}T_{timer}\\
+n_{delay} &amp;=&amp; \dfrac{T_{delay}}{T_{timer}}\\
+n_{delay} &amp;=&amp; \dfrac{f_{osc}t_{delay}}{12}\\\\
+n_{max} &amp;\to&amp; Pas\ maximal\\
+n_{bits} &amp;\to&amp; Nombre\ de\ bits\\\\ 
+n_{max} &amp;=&amp; 2^{n_{bits}}\\\\
+n_{bits} = 8 &amp;\to&amp; n_{max} = 256\\
+n_{bits} = 16 &amp;\to&amp; n_{max} = 65536\\\\
+n_{preload} &amp;\to&amp; Pas\ de\ chargement\\\\
+n_{preload} &amp;=&amp; n_{max} - n_{delay}\\
+n_{preload} &amp;=&amp; n_{max} - \dfrac{f_{osc}*t_{delay}}{12}\
+\end{eqnarray}</div></div><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 #include &lt;reg52.h&gt;
 //===============================================
 typedef unsigned int uint;
