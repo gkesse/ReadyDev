@@ -148,4 +148,266 @@ AT89C52 -&gt; Clic droit -&gt; Edit Properties
 Program File -&gt; ..\keil\Objects\rd8051.hex
 Ok</pre></div></div><br><h3 class="Title8 GTitle3"> Démarrer la simulation</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">Proteus
 Schematic Capture
-Run the simulation</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Embedded_System/8051/img/i_8051_test_proteus.png" class="lazy" data-src="/Tutoriels/Embedded_System/8051/img/i_8051_test_proteus.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Notes-et-references"><a class="Link3" href="#">Notes et références</a></h1><div class="Body3"><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.alldatasheet.com/">https://www.alldatasheet.com/</a><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.alldatasheet.com/datasheet-pdf/pdf/56216/ATMEL/AT89C52.html">https://www.alldatasheet.com/datasheet-pdf/pdf/56216/ATMEL/AT89C52.html</a><br><br></div></div></div></div><br>
+Run the simulation</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Embedded_System/8051/img/i_8051_test_proteus.png" class="lazy" data-src="/Tutoriels/Embedded_System/8051/img/i_8051_test_proteus.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Delai"><a class="Link3" href="#">Délai</a></h1><div class="Body3"><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Delai-Creer-un-delai-logiciel"><a class="Link9" href="#Delai">Créer un délai logiciel</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include &lt;reg52.h&gt;
+//===============================================
+#define TIME_1_MS (125)
+//===============================================
+typedef unsigned int uint;
+//===============================================
+sbit g_pin = P1^0;
+//===============================================
+void GDelay_ms(uint ms) {
+    uint i, j;
+    for(i = 0; i &lt; ms; i++) {
+        for(j = 0; j &lt; TIME_1_MS; j++);
+    }
+}
+//===============================================
+void main() {
+    g_pin = 0;
+    while(1) {
+        g_pin = !g_pin;
+        GDelay_ms(200);
+    }
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_delay_software.gif" alt="/Tutoriels/Embedded_System/8051/img/i_delay_software.gif"></div><br><h2 class="Title7 GTitle2" id="Delai-Creer-un-delai-materiel-Timer-T0-en-mode-16-bit"><a class="Link9" href="#Delai">Créer un délai matériel Timer T0 en mode 16-bit</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include &lt;reg52.h&gt;
+//===============================================
+typedef unsigned int uint;
+//===============================================
+#define TIME_MS (50)
+#define OSC_FREQ (12000000UL)
+#define OSC_PER_INST (12) 
+//===============================================
+#define PRELOAD (65536 - ((OSC_FREQ * TIME_MS) / (OSC_PER_INST * 1000)))
+#define PRELOAD_H (PRELOAD / 256)
+#define PRELOAD_L (PRELOAD % 256)
+//===============================================
+sbit g_pin = P1^0;
+//===============================================
+void GDelay_T0_50ms() {
+    TMOD &amp;= 0xF0; 
+    TMOD |= 0x01; 
+    ET0 = 0; 
+    TH0 = PRELOAD_H; 
+    TL0 = PRELOAD_L; 
+    TF0 = 0; 
+    TR0 = 1; 
+    while (TF0 == 0); 
+    TR0 = 0;
+}
+//===============================================
+void GDelay_50ms(uint ms) {
+    uint i;
+    for(i = 0; i &lt; ms; i++) {
+        GDelay_T0_50ms();
+    }
+}
+//===============================================
+void main() {
+    g_pin = 0;
+    while(1) {
+        g_pin = !g_pin;
+        GDelay_50ms(20);
+    }
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_delay_hardware.gif" alt="/Tutoriels/Embedded_System/8051/img/i_delay_hardware.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Ports"><a class="Link3" href="#">Ports</a></h1><div class="Body3"><br>Les <b>ports </b>du microcontrôleur lui permettent d'interagir avec son environnement extérieur. Chaque port est constitué d'un ensemble de 8 broches et est adressable à travers un registre de 8 bits.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Ports-Ecrire-une-donnee-sur-un-port"><a class="Link9" href="#Ports">Écrire une donnée sur un port</a></h2><br>La fonction <b>GPort_Data_Write </b>permet d'écrire un octet sur port. Elle prend en entrée le numéro du port et la valeur de l'octet à écrire.<br><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GTask.h"
+#include "GDelay.h"
+//===============================================
+void main() {
+    GTask_Init(1, 0xC3);
+    while(1) {
+        GTask_Update();
+        GDelay_ms(1000);
+    }
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GTask.h</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#ifndef _GTask_
+#define _GTask_
+//===============================================
+#include "GInclude.h"
+//===============================================
+void GTask_Init(uchar port, uchar d);
+void GTask_Update();
+//===============================================
+#endif
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GTask.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GTask.h"
+#include "GPort.h"
+//===============================================
+static uchar g_port;
+static uchar g_data;
+static bit g_state = 0;
+//===============================================
+void GTask_Init(uchar port, uchar d) {
+    g_port = port;
+    g_data = d;
+    GPort_Data_Write(g_port, g_data);
+}
+//===============================================
+void GTask_Update() {
+    if(g_state == 0) {
+        GPort_Data_Write(g_port, g_data);
+        g_state = 1;
+    }
+    else {
+        GPort_Data_Write(g_port, ~g_data);
+        g_state = 0;
+    }
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GPort.h</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#ifndef _GPort_
+#define _GPort_
+//===============================================
+#include "GInclude.h"
+//===============================================
+void GPort_Data_Write(uchar port, uchar d);
+//===============================================
+#endif
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GPort.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GPort.h"
+//===============================================
+#define PORT_0 P0
+#define PORT_1 P1
+#define PORT_2 P2
+#define PORT_3 P3
+//===============================================
+void GPort_Data_Write(uchar port, uchar d) {
+    if(port == 0) {PORT_0 = d;}
+    else if(port == 1) {PORT_1 = d;}
+    else if(port == 2) {PORT_2 = d;}
+    else if(port == 3) {PORT_3 = d;}
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GDelay.h</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#ifndef _GDelay_
+#define _GDelay_
+//===============================================
+#include "GInclude.h"
+//===============================================
+void GDelay_ms(uint ms);
+//===============================================
+#endif
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GDelay.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GDelay.h"
+//===============================================
+#define TIME_1_MS (125)
+//===============================================
+void GDelay_ms(uint ms) {
+    uint i, j;
+    for(i = 0; i &lt; ms; i++) {
+        for(j = 0; j &lt; TIME_1_MS; j++);
+    }
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GInclude.h</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#ifndef _GInclude_
+#define _GInclude_
+//===============================================
+#include &lt;reg52.h&gt;
+//===============================================
+typedef unsigned char uchar;
+typedef unsigned int uint;
+typedef unsigned long ulong;
+//===============================================
+#endif
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_port_data_write.gif" alt="/Tutoriels/Embedded_System/8051/img/i_port_data_write.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Boucle-infinie"><a class="Link3" href="#">Boucle infinie</a></h1><div class="Body3"><br>La structure logicielle de la <b>boucle infinie</b> est basée sur une boucle dont la condition de sortie ne peut pas être satisfaite. En conséquence, la boucle ne peut se terminer qu'à l'interruption du programme qui l'utilise. L'architecture boucle infinie contient une zone d'initialisation du système située à l'extérieur de la boucle et une zone d'opérations située à l'intérieur de la boucle. La zone d'opérations est constituée de la mise à jour des tâches du système et un délai de temposrisation.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Boucle-infinie-Creer-une-architecture-boucle-infinie"><a class="Link9" href="#Boucle-infinie">Créer une architecture boucle infinie</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GTask.h"
+#include "GDelay.h"
+//===============================================
+void main() {
+    GTask_Init(1, 0xC3);
+    while(1) {
+        GTask_Update();
+        GDelay_ms(1000);
+    }
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GTask.h</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#ifndef _GTask_
+#define _GTask_
+//===============================================
+#include "GInclude.h"
+//===============================================
+void GTask_Init(uchar port, uchar d);
+void GTask_Update();
+//===============================================
+#endif
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GTask.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GTask.h"
+#include "GPort.h"
+//===============================================
+static uchar g_port;
+static uchar g_data;
+static bit g_state = 0;
+//===============================================
+void GTask_Init(uchar port, uchar d) {
+    g_port = port;
+    g_data = d;
+    GPort_Data_Write(g_port, g_data);
+}
+//===============================================
+void GTask_Update() {
+    if(g_state == 0) {
+        GPort_Data_Write(g_port, g_data);
+        g_state = 1;
+    }
+    else {
+        GPort_Data_Write(g_port, ~g_data);
+        g_state = 0;
+    }
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GPort.h</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#ifndef _GPort_
+#define _GPort_
+//===============================================
+#include "GInclude.h"
+//===============================================
+void GPort_Data_Write(uchar port, uchar d);
+//===============================================
+#endif
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GPort.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GPort.h"
+//===============================================
+#define PORT_0 P0
+#define PORT_1 P1
+#define PORT_2 P2
+#define PORT_3 P3
+//===============================================
+void GPort_Data_Write(uchar port, uchar d) {
+    if(port == 0) {PORT_0 = d;}
+    else if(port == 1) {PORT_1 = d;}
+    else if(port == 2) {PORT_2 = d;}
+    else if(port == 3) {PORT_3 = d;}
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GDelay.h</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#ifndef _GDelay_
+#define _GDelay_
+//===============================================
+#include "GInclude.h"
+//===============================================
+void GDelay_ms(uint ms);
+//===============================================
+#endif
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GDelay.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GDelay.h"
+//===============================================
+#define TIME_1_MS (125)
+//===============================================
+void GDelay_ms(uint ms) {
+    uint i, j;
+    for(i = 0; i &lt; ms; i++) {
+        for(j = 0; j &lt; TIME_1_MS; j++);
+    }
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GInclude.h</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#ifndef _GInclude_
+#define _GInclude_
+//===============================================
+#include &lt;reg52.h&gt;
+//===============================================
+typedef unsigned char uchar;
+typedef unsigned int uint;
+typedef unsigned long ulong;
+//===============================================
+#endif
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_loop_delay_software.gif" alt="/Tutoriels/Embedded_System/8051/img/i_loop_delay_software.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Systeme-d-exploitation-embarque-simple"><a class="Link3" href="#">Système d'exploitation embarqué simple</a></h1><div class="Body3">Ajouter un texte ici...</div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Notes-et-references"><a class="Link3" href="#">Notes et références</a></h1><div class="Body3"><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.alldatasheet.com/">https://www.alldatasheet.com/</a><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.alldatasheet.com/datasheet-pdf/pdf/56216/ATMEL/AT89C52.html">https://www.alldatasheet.com/datasheet-pdf/pdf/56216/ATMEL/AT89C52.html</a><br><br></div></div></div></div><br>
