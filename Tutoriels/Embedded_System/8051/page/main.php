@@ -171,7 +171,7 @@ void main() {
         GDelay_ms(200);
     }
 }
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_delay_software.gif" alt="/Tutoriels/Embedded_System/8051/img/i_delay_software.gif"></div><br><h2 class="Title7 GTitle2" id="Delai-Creer-un-delai-materiel-Timer-T0-en-mode-16-bit"><a class="Link9" href="#Delai">Créer un délai matériel Timer T0 en mode 16-bit</a></h2><br><h3 class="Title8 GTitle3">Calculer les valeurs de préchargement</h3><br><div class="Formula GFormula1"><div class="Formula2">\begin{eqnarray}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_delay_software.gif" alt="/Tutoriels/Embedded_System/8051/img/i_delay_software.gif"></div><br><h2 class="Title7 GTitle2" id="Delai-Creer-un-delai-materiel-Timer-T0-en-mode-16-bit"><a class="Link9" href="#Delai">Créer un délai matériel Timer T0 en mode 16-bit</a></h2><br><h3 class="Title8 GTitle3">Calculer les valeurs de préchargement</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_delay_hardware.png" alt="/Tutoriels/Embedded_System/8051/img/i_delay_hardware.png"></div><br><div class="Formula GFormula1"><div class="Formula2">\begin{eqnarray}
 f_{osc} &amp;\to&amp; fréquence\ de\ l'oscillateur\ (Hz)\\
 k_{osc} &amp;\to&amp; diviseur\ de\ la\ fréquence\ de\ l'oscillateur\\\\
 f_{osc} &amp;=&amp; 12\ MHz=12\ 000\ 000\ Hz\\
