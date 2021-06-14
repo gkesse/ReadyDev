@@ -173,23 +173,31 @@ void main() {
 }
 //===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_delay_software.gif" alt="/Tutoriels/Embedded_System/8051/img/i_delay_software.gif"></div><br><h2 class="Title7 GTitle2" id="Delai-Creer-un-delai-materiel-Timer-T0-en-mode-16-bit"><a class="Link9" href="#Delai">Créer un délai matériel Timer T0 en mode 16-bit</a></h2><br><h3 class="Title8 GTitle3">Calculer les valeurs de préchargement</h3><br><div class="Formula GFormula1"><div class="Formula2">\begin{eqnarray}
 f_{osc} &amp;\to&amp; fréquence\ de\ l'oscillateur\ (Hz)\\
-f_{timer} &amp;\to&amp; fréquence\ du\  timer\ (Hz)\\\\
-f_{timer} &amp;=&amp; \dfrac{f_{osc}}{12}\\
+k_{osc} &amp;\to&amp; diviseur\ de\ la\ fréquence\ de\ l'oscillateur\\\\
+f_{osc} &amp;=&amp; 12\ MHz=12\ 000\ 000\ Hz\\
+k_{osc} &amp;=&amp; 12\\\\
+f_{timer} &amp;\to&amp; fréquence\ du\  timer\ (Hz)\\
+T_{timer} &amp;\to&amp; Période\ du\  timer\ (Hz)\\\\
+f_{timer} &amp;=&amp; \dfrac{f_{osc}}{k_{osc}}\\
 T_{timer} &amp;=&amp; \dfrac{1}{f_{timer}}\\
-T_{timer} &amp;=&amp; \dfrac{12}{f_{osc}}\\\\
+T_{timer} &amp;=&amp; \dfrac{k_{osc}}{f_{osc}}\\\\
 T_{delay} &amp;\to&amp; Durée\ du\ delai\ (s)\\
 n_{delay} &amp;\to&amp; Pas\ du\ delai\\\\
-T_{delay} &amp;=&amp; n_{delay}T_{timer}\\
+T_{delay} &amp;=&amp; n_{delay}*T_{timer}\\
 n_{delay} &amp;=&amp; \dfrac{T_{delay}}{T_{timer}}\\
-n_{delay} &amp;=&amp; \dfrac{f_{osc}t_{delay}}{12}\\\\
+n_{delay} &amp;=&amp; \dfrac{f_{osc}*T_{delay}}{k_{osc}}\\\\
 n_{max} &amp;\to&amp; Pas\ maximal\\
 n_{bits} &amp;\to&amp; Nombre\ de\ bits\\\\ 
 n_{max} &amp;=&amp; 2^{n_{bits}}\\\\
 n_{bits} = 8 &amp;\to&amp; n_{max} = 256\\
 n_{bits} = 16 &amp;\to&amp; n_{max} = 65536\\\\
-n_{preload} &amp;\to&amp; Pas\ de\ chargement\\\\
+n_{preload} &amp;\to&amp; Pas\ de\ préchargement\\\\
 n_{preload} &amp;=&amp; n_{max} - n_{delay}\\
-n_{preload} &amp;=&amp; n_{max} - \dfrac{f_{osc}*t_{delay}}{12}\
+n_{preload} &amp;=&amp; n_{max} - \dfrac{f_{osc}*T_{delay}}{k_{osc}}\\\\
+T_{delay} &amp;\to&amp; Temps\ en\ (s)\\
+T_{delay}(ms) &amp;\to&amp; Temps\ en\ (ms)\\\\
+T_{delay} &amp;=&amp; \dfrac{T_{delay}(ms)}{1000}\\\\
+n_{preload} &amp;=&amp; n_{max} - \dfrac{f_{osc}*T_{delay}(ms)}{k_{osc}*1000}\\
 \end{eqnarray}</div></div><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 #include &lt;reg52.h&gt;
 //===============================================
