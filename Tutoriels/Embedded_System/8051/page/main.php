@@ -148,7 +148,7 @@ AT89C52 -&gt; Clic droit -&gt; Edit Properties
 Program File -&gt; ..\keil\Objects\rd8051.hex
 Ok</pre></div></div><br><h3 class="Title8 GTitle3"> Démarrer la simulation</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">Proteus
 Schematic Capture
-Run the simulation</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Embedded_System/8051/img/i_8051_test_proteus.png" class="lazy" data-src="/Tutoriels/Embedded_System/8051/img/i_8051_test_proteus.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Delai"><a class="Link3" href="#">Délai</a></h1><div class="Body3"><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Delai-Creer-un-delai-logiciel"><a class="Link9" href="#Delai">Créer un délai logiciel</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+Run the simulation</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Embedded_System/8051/img/i_8051_test_proteus.png" class="lazy" data-src="/Tutoriels/Embedded_System/8051/img/i_8051_test_proteus.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Delai"><a class="Link3" href="#">Délai</a></h1><div class="Body3"><br>Un <b>délai </b>est un temps accordé pour faire une chose, ou à l’expiration duquel on sera tenu de faire une certaine chose.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Delai-Creer-un-delai-logiciel"><a class="Link9" href="#Delai">Créer un délai logiciel</a></h2><br>Le <b>délai logiciel</b> est basé sur l'utilisation d'une boucle réalisée par programme. Il est facile à mettre en œuvre, mais moins précis.<br><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 #include &lt;reg52.h&gt;
 //===============================================
 #define TIME_1_MS (125)
@@ -168,7 +168,7 @@ void main() {
     g_pin = 0;
     while(1) {
         g_pin = !g_pin;
-        GDelay_ms(200);
+        GDelay_ms(1000);
     }
 }
 //===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_delay_software.gif" alt="/Tutoriels/Embedded_System/8051/img/i_delay_software.gif"></div><br><h2 class="Title7 GTitle2" id="Delai-Creer-un-delai-materiel-Timer-T0-en-mode-16-bit"><a class="Link9" href="#Delai">Créer un délai matériel Timer T0 en mode 16-bit</a></h2><br><h3 class="Title8 GTitle3">Calculer les valeurs de préchargement</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_delay_hardware.png" alt="/Tutoriels/Embedded_System/8051/img/i_delay_hardware.png"></div><br><div class="Formula GFormula1"><div class="Formula2">\begin{eqnarray}
@@ -239,7 +239,48 @@ void main() {
         GDelay_50ms(20);
     }
 }
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_delay_hardware.gif" alt="/Tutoriels/Embedded_System/8051/img/i_delay_hardware.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Ports"><a class="Link3" href="#">Ports</a></h1><div class="Body3"><br>Les <b>ports </b>du microcontrôleur lui permettent d'interagir avec son environnement extérieur. Chaque port est constitué d'un ensemble de 8 broches et est adressable à travers un registre de 8 bits.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Ports-Ecrire-une-donnee-sur-un-port"><a class="Link9" href="#Ports">Écrire une donnée sur un port</a></h2><br>La fonction <b>GPort_Data_Write </b>permet d'écrire un octet sur port. Elle prend en entrée le numéro du port et la valeur de l'octet à écrire.<br><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_delay_hardware_timer_t0.gif" alt="/Tutoriels/Embedded_System/8051/img/i_delay_hardware_timer_t0.gif"></div><br><br><h2 class="Title7 GTitle2" id="Delai-Creer-un-delai-materiel-Timer-T1-en-mode-16-bit"><a class="Link9" href="#Delai">Créer un délai matériel Timer T1 en mode 16-bit</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include &lt;reg52.h&gt;
+//===============================================
+typedef unsigned int uint;
+//===============================================
+#define TIME_MS (50)
+#define OSC_FREQ (12000000UL)
+#define OSC_PER_INST (12) 
+//===============================================
+#define PRELOAD (65536 - ((OSC_FREQ * TIME_MS) / (OSC_PER_INST * 1000)))
+#define PRELOAD_H (PRELOAD / 256)
+#define PRELOAD_L (PRELOAD % 256)
+//===============================================
+sbit g_pin = P1^0;
+//===============================================
+void GDelay_T1_50ms() {
+    TMOD &amp;= 0x0F; 
+    TMOD |= 0x10; 
+    ET1 = 0; 
+    TH1 = PRELOAD_H;
+    TL1 = PRELOAD_L; 
+    TF1 = 0; 
+    TR1 = 1; 
+    while (TF1 == 0); 
+    TR1 = 0;
+}
+//===============================================
+void GDelay_50ms(uint ms) {
+    uint i;
+    for(i = 0; i &lt; ms; i++) {
+        GDelay_T1_50ms();
+    }
+}
+//===============================================
+void main() {
+    g_pin = 0;
+    while(1) {
+        g_pin = !g_pin;
+        GDelay_50ms(20);
+    }
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_delay_hardware_timer_t1.gif" alt="/Tutoriels/Embedded_System/8051/img/i_delay_hardware_timer_t1.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Ports"><a class="Link3" href="#">Ports</a></h1><div class="Body3"><br>Les <b>ports </b>du microcontrôleur lui permettent d'interagir avec son environnement extérieur. Chaque port est constitué d'un ensemble de 8 broches et est adressable à travers un registre de 8 bits.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Ports-Ecrire-une-donnee-sur-un-port"><a class="Link9" href="#Ports">Écrire une donnée sur un port</a></h2><br>La fonction <b>GPort_Data_Write </b>permet d'écrire un octet sur port. Elle prend en entrée le numéro du port et la valeur de l'octet à écrire.<br><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 #include "GTask.h"
 #include "GDelay.h"
 //===============================================
