@@ -239,7 +239,7 @@ void main() {
         GDelay_50ms(20);
     }
 }
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_delay_hardware_timer_t0.gif" alt="/Tutoriels/Embedded_System/8051/img/i_delay_hardware_timer_t0.gif"></div><br><br><h2 class="Title7 GTitle2" id="Delai-Creer-un-delai-materiel-Timer-T1-en-mode-16-bit"><a class="Link9" href="#Delai">Créer un délai matériel Timer T1 en mode 16-bit</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_delay_hardware_timer_t0.gif" alt="/Tutoriels/Embedded_System/8051/img/i_delay_hardware_timer_t0.gif"></div><br><h2 class="Title7 GTitle2" id="Delai-Creer-un-delai-materiel-Timer-T1-en-mode-16-bit"><a class="Link9" href="#Delai">Créer un délai matériel Timer T1 en mode 16-bit</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 #include &lt;reg52.h&gt;
 //===============================================
 typedef unsigned int uint;
@@ -280,7 +280,49 @@ void main() {
         GDelay_50ms(20);
     }
 }
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_delay_hardware_timer_t1.gif" alt="/Tutoriels/Embedded_System/8051/img/i_delay_hardware_timer_t1.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Ports"><a class="Link3" href="#">Ports</a></h1><div class="Body3"><br>Les <b>ports </b>du microcontrôleur lui permettent d'interagir avec son environnement extérieur. Chaque port est constitué d'un ensemble de 8 broches et est adressable à travers un registre de 8 bits.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Ports-Ecrire-une-donnee-sur-un-port"><a class="Link9" href="#Ports">Écrire une donnée sur un port</a></h2><br>La fonction <b>GPort_Data_Write </b>permet d'écrire un octet sur port. Elle prend en entrée le numéro du port et la valeur de l'octet à écrire.<br><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_delay_hardware_timer_t1.gif" alt="/Tutoriels/Embedded_System/8051/img/i_delay_hardware_timer_t1.gif"></div><br><h2 class="Title7 GTitle2" id="Delai-Creer-un-delai-materiel-Timer-T2-en-mode-16-bit"><a class="Link9" href="#Delai">Créer un délai matériel Timer T2 en mode 16-bit</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include &lt;reg52.h&gt;
+//===============================================
+typedef unsigned int uint;
+//===============================================
+#define TIME_MS (50)
+#define OSC_FREQ (12000000UL)
+#define OSC_PER_INST (12) 
+//===============================================
+#define PRELOAD (65536 - ((OSC_FREQ * TIME_MS) / (OSC_PER_INST * 1000)))
+#define PRELOAD_H (PRELOAD / 256)
+#define PRELOAD_L (PRELOAD % 256)
+//===============================================
+sbit g_pin = P1^0;
+//===============================================
+void GDelay_T2_50ms() {
+    T2CON = 0x04;
+    ET2 = 0; 
+    TH2 = PRELOAD_H;
+    TL2 = PRELOAD_L; 
+    RCAP2H = PRELOAD_H;
+    RCAP2L = PRELOAD_L; 
+    TF2 = 0; 
+    TR2 = 1; 
+    while (TF2 == 0); 
+    TR2 = 0;
+}
+//===============================================
+void GDelay_50ms(uint ms) {
+    uint i;
+    for(i = 0; i &lt; ms; i++) {
+        GDelay_T2_50ms();
+    }
+}
+//===============================================
+void main() {
+    g_pin = 0;
+    while(1) {
+        g_pin = !g_pin;
+        GDelay_50ms(20);
+    }
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_delay_hardware_timer_t2.gif" alt="/Tutoriels/Embedded_System/8051/img/i_delay_hardware_timer_t2.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Ports"><a class="Link3" href="#">Ports</a></h1><div class="Body3"><br>Les <b>ports </b>du microcontrôleur lui permettent d'interagir avec son environnement extérieur. Chaque port est constitué d'un ensemble de 8 broches et est adressable à travers un registre de 8 bits.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Ports-Ecrire-une-donnee-sur-un-port"><a class="Link9" href="#Ports">Écrire une donnée sur un port</a></h2><br>La fonction <b>GPort_Data_Write </b>permet d'écrire un octet sur port. Elle prend en entrée le numéro du port et la valeur de l'octet à écrire.<br><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 #include "GTask.h"
 #include "GDelay.h"
 //===============================================
