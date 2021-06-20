@@ -111,7 +111,7 @@ Build Time Elapsed:  00:00:04</pre></div></div><br><h3 class="Title8 GTitle3">V�
 Debug -&gt; Start/Stop Debug Session</pre></div></div><br><h3 class="Title8 GTitle3">Ouvrir le port P1</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">Keil µVision5
 Peripherals -&gt; I/O - Ports -&gt; Port 1</pre></div></div><br><h3 class="Title8 GTitle3">Démarrer la simulation</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">Keil µVision5
 Debug -&gt; Run</pre></div></div><br><h3 class="Title8 GTitle3">Arrêter la simulation</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">Keil µVision5
-Debug -&gt; Run</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Embedded_System/8051/img/i_8051_test_keil.png" class="lazy entered exited" data-src="/Tutoriels/Embedded_System/8051/img/i_8051_test_keil.png"></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Compiler-un-projet-8051-sous-SDDC"><a class="Link9" href="#Fondamentaux">Compiler un projet 8051 sous SDDC</a></h2><br><h3 class="Title8 GTitle3">Editer le programme (main.c)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+Debug -&gt; Run</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Embedded_System/8051/img/i_8051_test_keil.png" class="lazy entered loaded" data-src="/Tutoriels/Embedded_System/8051/img/i_8051_test_keil.png" data-ll-status="loaded" src="/Tutoriels/Embedded_System/8051/img/i_8051_test_keil.png"></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Compiler-un-projet-8051-sous-SDDC"><a class="Link9" href="#Fondamentaux">Compiler un projet 8051 sous SDDC</a></h2><br><h3 class="Title8 GTitle3">Editer le programme (main.c)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 #include &lt;reg52.h&gt;
 //===============================================
 void main() {
@@ -148,7 +148,38 @@ AT89C52 -&gt; Clic droit -&gt; Edit Properties
 Program File -&gt; ..\keil\Objects\rd8051.hex
 Ok</pre></div></div><br><h3 class="Title8 GTitle3"> Démarrer la simulation</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">Proteus
 Schematic Capture
-Run the simulation</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Embedded_System/8051/img/i_8051_test_proteus.png" class="lazy entered loaded" data-src="/Tutoriels/Embedded_System/8051/img/i_8051_test_proteus.png" data-ll-status="loaded" src="/Tutoriels/Embedded_System/8051/img/i_8051_test_proteus.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Delai"><a class="Link3" href="#">Délai</a></h1><div class="Body3"><br>Un <b>délai </b>est un temps accordé pour faire une chose, ou à l’expiration duquel on sera tenu de faire une certaine chose.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Delai-Creer-un-delai-logiciel">Créer un délai logiciel</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Delai-Creer-un-delai-materiel-Timer-T0-en-mode-16-bit">Créer un délai matériel Timer T0 en mode 16-bit</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Delai-Creer-un-delai-materiel-Timer-T1-en-mode-16-bit">Créer un délai matériel Timer T1 en mode 16-bit</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Delai-Creer-un-delai-materiel-Timer-T2-en-mode-16-bit">Créer un délai matériel Timer T2 en mode 16-bit</a></div></div><br><h2 class="Title7 GTitle2" id="Delai-Creer-un-delai-logiciel"><a class="Link9" href="#Delai">Créer un délai logiciel</a></h2><br>Le <b>délai logiciel</b> est basé sur l'utilisation d'une boucle réalisée par programme. Il est facile à mettre en œuvre, mais moins précis.<br><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+Run the simulation</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Embedded_System/8051/img/i_8051_test_proteus.png" class="lazy entered loaded" data-src="/Tutoriels/Embedded_System/8051/img/i_8051_test_proteus.png" data-ll-status="loaded" src="/Tutoriels/Embedded_System/8051/img/i_8051_test_proteus.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Boucle-infinie"><a class="Link3" href="#">Boucle infinie</a></h1><div class="Body3"><br>Une <b>boucle infinie</b> est basée sur une boucle dont la condition de sortie ne peut pas être satisfaite. En conséquence, la boucle ne peut se terminer qu'à l'interruption du programme qui l'utilise.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Boucle-infinie-Creer-une-architecture-boucle-infinie"><a class="Link9" href="#Boucle-infinie">Créer une architecture boucle infinie</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include &lt;reg52.h&gt;
+//===============================================
+#define TIME_1_MS (125)
+//===============================================
+typedef unsigned int uint;
+//===============================================
+sbit g_pin = P1^0;
+//===============================================
+static void GDelay_ms(uint ms) {
+    uint i, j;
+    for(i = 0; i &lt; ms; i++) {
+        for(j = 0; j &lt; TIME_1_MS; j++);
+    }
+}
+//===============================================
+static void GTask_Init() {
+    g_pin = 0;
+}
+//===============================================
+static void GTask_Update() {
+    g_pin = !g_pin;
+}
+//===============================================
+void main() {
+    GTask_Init();
+    while(1) {
+        GTask_Update();
+        GDelay_ms(1000);
+    }
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_loop_delay_software.gif" alt="/Tutoriels/Embedded_System/8051/img/i_loop_delay_software.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Delai"><a class="Link3" href="#">Délai</a></h1><div class="Body3"><br>Un <b>délai </b>est un temps accordé pour faire une chose, ou à l’expiration duquel on sera tenu de faire une certaine chose.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Delai-Creer-un-delai-logiciel">Créer un délai logiciel</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Delai-Creer-un-delai-materiel-Timer-T0-en-mode-16-bit">Créer un délai matériel Timer T0 en mode 16-bit</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Delai-Creer-un-delai-materiel-Timer-T1-en-mode-16-bit">Créer un délai matériel Timer T1 en mode 16-bit</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Delai-Creer-un-delai-materiel-Timer-T2-en-mode-16-bit">Créer un délai matériel Timer T2 en mode 16-bit</a></div></div><br><h2 class="Title7 GTitle2" id="Delai-Creer-un-delai-logiciel"><a class="Link9" href="#Delai">Créer un délai logiciel</a></h2><br>Le <b>délai logiciel</b> est basé sur l'utilisation d'une boucle réalisée par programme. Il est plus facile à mettre en œuvre, mais il est moins précis.<br><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 #include &lt;reg52.h&gt;
 //===============================================
 #define TIME_1_MS (125)
@@ -171,7 +202,7 @@ void main() {
         GDelay_ms(1000);
     }
 }
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_delay_software.gif" alt="/Tutoriels/Embedded_System/8051/img/i_delay_software.gif"></div><br><h2 class="Title7 GTitle2" id="Delai-Creer-un-delai-materiel-Timer-T0-en-mode-16-bit"><a class="Link9" href="#Delai">Créer un délai matériel Timer T0 en mode 16-bit</a></h2><br>Le <b>Timer 0</b> fonctionne comme un temporisateur ou un compteur d'événements dans quatre modes de fonctionnement. Le Timer 0 est contrôlé par les quatre bits inférieurs du registre TMOD et les bits 0, 1, 4 et 5 du registre TCON. Le registre TMOD sélectionne la méthode de déclenchement du Timer (GATE0), le fonctionnement du temporisateur ou du compteur (T/C0) et le mode de fonctionnement (M10 et M00). Le registre TCON fournit des fonctions de contrôle du Timer 0&nbsp;: indicateur de débordement (TF0), bit de contrôle d'exécution (TR0), indicateur d'interruption (IE0) et bit de contrôle de type d'interruption (IT0). Pour le fonctionnement normal du Timer (GATE0 = 0), le réglage à 1 de TR0 permet d'incrémenter TL0 par l'entrée sélectionnée. Le réglage à 1 de GATE0 et TR0 permet à la broche externe INT0 de contrôler le fonctionnement du Timer. Le dépassement du Timer 0 (lorsque tous les bits du Timer passent de 1 à 0) définit à 1 l'indicateur TF0 générant une demande d'interruption. Il est important d'arrêter le Timer/Counter avant de changer de mode.<br><br><h3 class="Title8 GTitle3">Calculer les valeurs de préchargement</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_delay_hardware.png" alt="/Tutoriels/Embedded_System/8051/img/i_delay_hardware.png"></div><br><div class="Formula GFormula1"><div class="Formula2">\begin{eqnarray}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_delay_software.gif" alt="/Tutoriels/Embedded_System/8051/img/i_delay_software.gif"></div><br><h2 class="Title7 GTitle2" id="Delai-Creer-un-delai-materiel-Timer-T0-en-mode-16-bit"><a class="Link9" href="#Delai">Créer un délai matériel Timer T0 en mode 16-bit</a></h2><br>Un <b>timer </b>est un périphérique matériel permettant de mesurer des durées (généralement inclus dans les microcontrôleurs). Son rôle est de permettre la synchronisation des opérations que le microcontrôleur est chargé d'effectuer. Le<b> </b>délai matériel<b> </b>est basé sur l'utilisation d'un Timer. Il est moins facile à mettre en œuvre, mais il est plus précis. <br><br><h3 class="Title8 GTitle3">Calculer les valeurs de préchargement</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_delay_hardware.png" alt="/Tutoriels/Embedded_System/8051/img/i_delay_hardware.png"></div><br><div class="Formula GFormula1"><div class="Formula2">\begin{eqnarray}
 f_{osc} &amp;\to&amp; fréquence\ de\ l'oscillateur\ (Hz)\\
 k_{osc} &amp;\to&amp; diviseur\ de\ la\ fréquence\ de\ l'oscillateur\\\\
 f_{osc} &amp;=&amp; 12\ MHz=12\ 000\ 000\ Hz\\
@@ -239,7 +270,7 @@ void main() {
         GDelay_50ms(20);
     }
 }
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_delay_hardware_timer_t0.gif" alt="/Tutoriels/Embedded_System/8051/img/i_delay_hardware_timer_t0.gif"></div><br><h2 class="Title7 GTitle2" id="Delai-Creer-un-delai-materiel-Timer-T1-en-mode-16-bit"><a class="Link9" href="#Delai">Créer un délai matériel Timer T1 en mode 16-bit</a></h2><br>Le <b>Timer 1</b> est identique au Timer 0 à l'exception du mode 3 qui est un mode de compte en attente. Les commentaires suivants aident à comprendre les différences : Le Timer 1 fonctionne comme un temporisateur ou un compteur d'événements dans trois modes de fonctionnement. Le mode 3 du Timer 1 est un mode de compte en attente. Le Timer 1 est contrôlé par les quatre bits de poids fort du registre TMOD et les bits 2, 3, 6 et 7 du registre TCON. Le registre TMOD sélectionne la méthode de déclenchement du Timer (GATE1), le fonctionnement du temporisateur ou du compteur (C/T1) et le mode de fonctionnement (M11 et M01). Le registre TCON fournit des fonctions de contrôle du Timer 1: indicateur de débordement (TF1), bit de contrôle d'exécution (TR1), indicateur d'interruption (IE1) et bit de contrôle de type d'interruption (IT1). Le Timer 1 peut servir de générateur de débit en bauds pour le port série. Le mode 2 est le mieux adapté à cette fin. Pour un fonctionnement normal du Timer (GATE1 = 0), le réglage à 1 de TR1 permet à TL1 d'être incrémenté par l'entrée sélectionnée. Le réglage à 1 de GATE1 et TR1 permet à la broche externe INT1 de contrôler le fonctionnement du Timer. Le débordement du Timer 1 (lorsque tous les bits du Timer passent de 1 à 0) définit à 1 le drapeau TF1 générant une demande d'interruption. Lorsque le Timer 1 est en mode 3, il utilise l'indicateur de débordement du Timer 1 (TF1) et le bit de contrôle d'exécution (TR1). Dans cette situation, utilisez le Timer 1 uniquement pour les applications qui ne nécessitent pas d'interruption (comme un générateur de débit en bauds pour le port série) et basculez le Timer 1 dans et hors du mode 3 pour l'éteindre et le rallumer. Il est important d'arrêter le Timer/Counter avant de changer de mode.<br><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_delay_hardware_timer_t0.gif" alt="/Tutoriels/Embedded_System/8051/img/i_delay_hardware_timer_t0.gif"></div><br><h2 class="Title7 GTitle2" id="Delai-Creer-un-delai-materiel-Timer-T1-en-mode-16-bit"><a class="Link9" href="#Delai">Créer un délai matériel Timer T1 en mode 16-bit</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 #include &lt;reg52.h&gt;
 //===============================================
 typedef unsigned int uint;
@@ -322,202 +353,4 @@ void main() {
         GDelay_50ms(20);
     }
 }
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_delay_hardware_timer_t2.gif" alt="/Tutoriels/Embedded_System/8051/img/i_delay_hardware_timer_t2.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Ports"><a class="Link3" href="#">Ports</a></h1><div class="Body3"><br>Les <b>ports </b>du microcontrôleur lui permettent d'interagir avec son environnement extérieur. Chaque port est constitué d'un ensemble de 8 broches et est adressable à travers un registre de 8 bits.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Ports-Ecrire-une-donnee-sur-un-port">Écrire une donnée sur un port</a></div></div><br><h2 class="Title7 GTitle2" id="Ports-Ecrire-une-donnee-sur-un-port"><a class="Link9" href="#Ports">Écrire une donnée sur un port</a></h2><br>La fonction <b>GPort_Data_Write </b>permet d'écrire un octet sur port. Elle prend en entrée le numéro du port et la valeur de l'octet à écrire.<br><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
-#include "GTask.h"
-#include "GDelay.h"
-//===============================================
-void main() {
-    GTask_Init(1, 0xC3);
-    while(1) {
-        GTask_Update();
-        GDelay_ms(1000);
-    }
-}
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GTask.h</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
-#ifndef _GTask_
-#define _GTask_
-//===============================================
-#include "GInclude.h"
-//===============================================
-void GTask_Init(uchar port, uchar d);
-void GTask_Update();
-//===============================================
-#endif
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GTask.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
-#include "GTask.h"
-#include "GPort.h"
-//===============================================
-static uchar g_port;
-static uchar g_data;
-static bit g_state = 0;
-//===============================================
-void GTask_Init(uchar port, uchar d) {
-    g_port = port;
-    g_data = d;
-    GPort_Data_Write(g_port, g_data);
-}
-//===============================================
-void GTask_Update() {
-    if(g_state == 0) {
-        GPort_Data_Write(g_port, g_data);
-        g_state = 1;
-    }
-    else {
-        GPort_Data_Write(g_port, ~g_data);
-        g_state = 0;
-    }
-}
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GPort.h</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
-#ifndef _GPort_
-#define _GPort_
-//===============================================
-#include "GInclude.h"
-//===============================================
-void GPort_Data_Write(uchar port, uchar d);
-//===============================================
-#endif
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GPort.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
-#include "GPort.h"
-//===============================================
-#define PORT_0 P0
-#define PORT_1 P1
-#define PORT_2 P2
-#define PORT_3 P3
-//===============================================
-void GPort_Data_Write(uchar port, uchar d) {
-    if(port == 0) {PORT_0 = d;}
-    else if(port == 1) {PORT_1 = d;}
-    else if(port == 2) {PORT_2 = d;}
-    else if(port == 3) {PORT_3 = d;}
-}
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GDelay.h</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
-#ifndef _GDelay_
-#define _GDelay_
-//===============================================
-#include "GInclude.h"
-//===============================================
-void GDelay_ms(uint ms);
-//===============================================
-#endif
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GDelay.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
-#include "GDelay.h"
-//===============================================
-#define TIME_1_MS (125)
-//===============================================
-void GDelay_ms(uint ms) {
-    uint i, j;
-    for(i = 0; i &lt; ms; i++) {
-        for(j = 0; j &lt; TIME_1_MS; j++);
-    }
-}
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GInclude.h</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
-#ifndef _GInclude_
-#define _GInclude_
-//===============================================
-#include &lt;reg52.h&gt;
-//===============================================
-typedef unsigned char uchar;
-typedef unsigned int uint;
-typedef unsigned long ulong;
-//===============================================
-#endif
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_port_data_write.gif" alt="/Tutoriels/Embedded_System/8051/img/i_port_data_write.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Boucle-infinie"><a class="Link3" href="#">Boucle infinie</a></h1><div class="Body3"><br>La structure logicielle de la <b>boucle infinie</b> est basée sur une boucle dont la condition de sortie ne peut pas être satisfaite. En conséquence, la boucle ne peut se terminer qu'à l'interruption du programme qui l'utilise. L'architecture boucle infinie contient une zone d'initialisation du système située à l'extérieur de la boucle et une zone d'opérations située à l'intérieur de la boucle. La zone d'opérations est constituée de la mise à jour des tâches du système et un délai de temposrisation.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Boucle-infinie-Creer-une-architecture-boucle-infinie">Créer une architecture boucle infinie</a></div></div><br><h2 class="Title7 GTitle2" id="Boucle-infinie-Creer-une-architecture-boucle-infinie"><a class="Link9" href="#Boucle-infinie">Créer une architecture boucle infinie</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
-#include "GTask.h"
-#include "GDelay.h"
-//===============================================
-void main() {
-    GTask_Init(1, 0xC3);
-    while(1) {
-        GTask_Update();
-        GDelay_ms(1000);
-    }
-}
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GTask.h</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
-#ifndef _GTask_
-#define _GTask_
-//===============================================
-#include "GInclude.h"
-//===============================================
-void GTask_Init(uchar port, uchar d);
-void GTask_Update();
-//===============================================
-#endif
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GTask.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
-#include "GTask.h"
-#include "GPort.h"
-//===============================================
-static uchar g_port;
-static uchar g_data;
-static bit g_state = 0;
-//===============================================
-void GTask_Init(uchar port, uchar d) {
-    g_port = port;
-    g_data = d;
-    GPort_Data_Write(g_port, g_data);
-}
-//===============================================
-void GTask_Update() {
-    if(g_state == 0) {
-        GPort_Data_Write(g_port, g_data);
-        g_state = 1;
-    }
-    else {
-        GPort_Data_Write(g_port, ~g_data);
-        g_state = 0;
-    }
-}
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GPort.h</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
-#ifndef _GPort_
-#define _GPort_
-//===============================================
-#include "GInclude.h"
-//===============================================
-void GPort_Data_Write(uchar port, uchar d);
-//===============================================
-#endif
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GPort.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
-#include "GPort.h"
-//===============================================
-#define PORT_0 P0
-#define PORT_1 P1
-#define PORT_2 P2
-#define PORT_3 P3
-//===============================================
-void GPort_Data_Write(uchar port, uchar d) {
-    if(port == 0) {PORT_0 = d;}
-    else if(port == 1) {PORT_1 = d;}
-    else if(port == 2) {PORT_2 = d;}
-    else if(port == 3) {PORT_3 = d;}
-}
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GDelay.h</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
-#ifndef _GDelay_
-#define _GDelay_
-//===============================================
-#include "GInclude.h"
-//===============================================
-void GDelay_ms(uint ms);
-//===============================================
-#endif
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GDelay.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
-#include "GDelay.h"
-//===============================================
-#define TIME_1_MS (125)
-//===============================================
-void GDelay_ms(uint ms) {
-    uint i, j;
-    for(i = 0; i &lt; ms; i++) {
-        for(j = 0; j &lt; TIME_1_MS; j++);
-    }
-}
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GInclude.h</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
-#ifndef _GInclude_
-#define _GInclude_
-//===============================================
-#include &lt;reg52.h&gt;
-//===============================================
-typedef unsigned char uchar;
-typedef unsigned int uint;
-typedef unsigned long ulong;
-//===============================================
-#endif
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_loop_delay_software.gif" alt="/Tutoriels/Embedded_System/8051/img/i_loop_delay_software.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Systeme-d-exploitation-embarque-simple"><a class="Link3" href="#">Système d'exploitation embarqué simple</a></h1><div class="Body3">Ajouter un texte ici...</div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Notes-et-references"><a class="Link3" href="#">Notes et références</a></h1><div class="Body3"><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.alldatasheet.com/">https://www.alldatasheet.com/</a><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.alldatasheet.com/datasheet-pdf/pdf/56216/ATMEL/AT89C52.html">https://www.alldatasheet.com/datasheet-pdf/pdf/56216/ATMEL/AT89C52.html</a><br><br></div></div></div></div><br>
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_delay_hardware_timer_t2.gif" alt="/Tutoriels/Embedded_System/8051/img/i_delay_hardware_timer_t2.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Notes-et-references"><a class="Link3" href="#">Notes et références</a></h1><div class="Body3"><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.alldatasheet.com/">https://www.alldatasheet.com/</a><br><br></div></div></div></div><br>
