@@ -188,7 +188,7 @@ typedef unsigned int uint;
 //===============================================
 sbit g_pin = P1^0;
 //===============================================
-void GDelay_ms(uint ms) {
+static void GDelay_ms(uint ms) {
     uint i, j;
     for(i = 0; i &lt; ms; i++) {
         for(j = 0; j &lt; TIME_1_MS; j++);
@@ -244,7 +244,7 @@ typedef unsigned int uint;
 //===============================================
 sbit g_pin = P1^0;
 //===============================================
-void GDelay_T0_50ms() {
+static void GDelay_T0_50ms() {
     TMOD &amp;= 0xF0; 
     TMOD |= 0x01; 
     ET0 = 0; 
@@ -256,7 +256,7 @@ void GDelay_T0_50ms() {
     TR0 = 0;
 }
 //===============================================
-void GDelay_50ms(uint ms) {
+static void GDelay_50ms(uint ms) {
     uint i;
     for(i = 0; i &lt; ms; i++) {
         GDelay_T0_50ms();
@@ -285,7 +285,7 @@ typedef unsigned int uint;
 //===============================================
 sbit g_pin = P1^0;
 //===============================================
-void GDelay_T1_50ms() {
+static void GDelay_T1_50ms() {
     TMOD &amp;= 0x0F; 
     TMOD |= 0x10; 
     ET1 = 0; 
@@ -297,7 +297,7 @@ void GDelay_T1_50ms() {
     TR1 = 0;
 }
 //===============================================
-void GDelay_50ms(uint ms) {
+static void GDelay_50ms(uint ms) {
     uint i;
     for(i = 0; i &lt; ms; i++) {
         GDelay_T1_50ms();
@@ -326,7 +326,7 @@ typedef unsigned int uint;
 //===============================================
 sbit g_pin = P1^0;
 //===============================================
-void GDelay_T2_50ms() {
+static void GDelay_T2_50ms() {
     T2CON = 0x04;
     ET2 = 0; 
     TH2 = PRELOAD_H;
@@ -339,7 +339,7 @@ void GDelay_T2_50ms() {
     TR2 = 0;
 }
 //===============================================
-void GDelay_50ms(uint ms) {
+static void GDelay_50ms(uint ms) {
     uint i;
     for(i = 0; i &lt; ms; i++) {
         GDelay_T2_50ms();
@@ -353,4 +353,64 @@ void main() {
         GDelay_50ms(20);
     }
 }
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_delay_hardware_timer_t2.gif" alt="/Tutoriels/Embedded_System/8051/img/i_delay_hardware_timer_t2.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Notes-et-references"><a class="Link3" href="#">Notes et références</a></h1><div class="Body3"><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.alldatasheet.com/">https://www.alldatasheet.com/</a><br><br></div></div></div></div><br>
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_delay_hardware_timer_t2.gif" alt="/Tutoriels/Embedded_System/8051/img/i_delay_hardware_timer_t2.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Mode-Idle"><a class="Link3" href="#">Mode Idle</a></h1><div class="Body3"><br>Le mode <b>Idle </b>est un mode de réduction d'énergie qui réduit la consommation d'énergie. Dans ce mode, l'exécution du programme s'arrête. Le mode Idle gèle l'horloge du CPU à des états connus tandis que les périphériques continuent d'être cadencés. L'état du processeur avant d'entrer en mode Idle est préservé, c'est-à-dire que le compteur de programme et le registre de mots d'état de programme conservent leurs données pendant la durée du mode Idle. Le contenu des SFR et de la RAM est également conservé. Il existe deux manières de quitter le mode Idle : Générer une interruption activée ou Générer une réinitialisation.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Mode-Idle-Configurer-le-mode-Idle-avec-l-option-Reset"><a class="Link9" href="#Mode-Idle">Configurer le mode Idle avec l'option Reset</a></h2><br><h3 class="Title8 GTitle3">Registre de configuration de l'alimentation (PCON)</h3><br><span class="GCode3"><code style="color:#cccccc;">7-4 - Réservé</code></span><br>La valeur lue sur ces bits est indéterminée. Ne définissez pas ces bits.<br><br><span class="GCode3"><code style="color:#cccccc;">3 - GF1</code></span><br>Drapeau à usage général 1<br>Une utilisation est d'indiquer si une interruption s'est produite pendant le fonctionnement normal ou pendant le mode veille.<br><br><span class="GCode3"><code style="color:#cccccc;">2 - GF0</code></span><br>Drapeau à usage général 0<br>Une utilisation est d'indiquer si une interruption s'est produite pendant le fonctionnement normal ou pendant le mode veille.<br><br><span class="GCode3"><code style="color:#cccccc;">1 - PD</code></span><br>Bit de mode de mise hors tension<br>0 $\to$ par le matériel lorsqu'une interruption ou une réinitialisation se produit.<br>1 $\to$ pour activer le mode de mise hors tension. Si IDL et PD sont tous les deux définis à 1, PD est prioritaire.<br><br><span class="GCode3"><code style="color:#cccccc;">0 - IDL</code></span><br>Bit de mode veille<br>0 $\to$ par le matériel lorsqu'une interruption ou une réinitialisation se produit.<br>1 $\to$ pour activer le mode veille. Si IDL et PD sont tous les deux définis, PD est prioritaire.<br><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include &lt;reg52.h&gt;
+//===============================================
+#define TIME_1_MS (125)
+#define TIME_IDLE (10)
+//===============================================
+typedef unsigned int uint;
+//===============================================
+sbit g_pin = P1^0;
+//===============================================
+static uint g_idle_count = 0;
+//===============================================
+static void GDelay_ms(uint ms) {
+    uint i, j;
+    for(i = 0; i &lt; ms; i++) {
+        for(j = 0; j &lt; TIME_1_MS; j++);
+    }
+}
+//===============================================
+void main() {
+    g_pin = 0;
+    while(1) {
+        g_pin = !g_pin;
+        if(++g_idle_count &gt;= TIME_IDLE) {
+            g_pin = 1;
+            PCON |= 0x01;
+        }
+        GDelay_ms(200);
+    }
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_mode_idle_reset.gif" alt="/Tutoriels/Embedded_System/8051/img/i_mode_idle_reset.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Mode-Power-Down"><a class="Link3" href="#">Mode Power Down</a></h1><div class="Body3"><br>Le mode <b>Power Down</b> place le CPU dans un état d'alimentation très faible. Le mode Power Down arrête l'oscillateur, gèle toutes les horloges aux états connus. L'état du CPU avant d'entrer en mode Power Down est conservé, c'est-à-dire que le compteur de programme et le registre de mots d'état du programme conservent leurs données pendant la durée du mode Power Down. De plus, les contenus SFR et RAM sont conservés. Il existe deux manières de quitter le mode Power down : Générer une interruption externe activée ou Générer une réinitialisation.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Mode-Power-Down-Configurer-le-mode-Power-Down-avec-l-option-Reset"><a class="Link9" href="#Mode-Power-Down">Configurer le mode Power Down avec l'option Reset</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include &lt;reg52.h&gt;
+//===============================================
+#define TIME_1_MS (125)
+#define TIME_POWER_DOWN (10)
+//===============================================
+typedef unsigned int uint;
+//===============================================
+sbit g_pin = P1^0;
+//===============================================
+static uint g_power_down_count = 0;
+//===============================================
+static void GDelay_ms(uint ms) {
+    uint i, j;
+    for(i = 0; i &lt; ms; i++) {
+        for(j = 0; j &lt; TIME_1_MS; j++);
+    }
+}
+//===============================================
+void main() {
+    g_pin = 0;
+    while(1) {
+        g_pin = !g_pin;
+        if(++g_power_down_count &gt;= TIME_POWER_DOWN) {
+            g_pin = 1;
+            PCON |= 0x02;
+        }
+        GDelay_ms(200);
+    }
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_mode_power_down_reset.gif" alt="/Tutoriels/Embedded_System/8051/img/i_mode_power_down_reset.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Notes-et-references"><a class="Link3" href="#">Notes et références</a></h1><div class="Body3"><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.alldatasheet.com/">https://www.alldatasheet.com/</a><br><br></div></div></div></div><br>
