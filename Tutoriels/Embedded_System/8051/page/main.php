@@ -148,7 +148,7 @@ AT89C52 -&gt; Clic droit -&gt; Edit Properties
 Program File -&gt; ..\keil\Objects\rd8051.hex
 Ok</pre></div></div><br><h3 class="Title8 GTitle3"> Démarrer la simulation</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">Proteus
 Schematic Capture
-Run the simulation</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Embedded_System/8051/img/i_8051_test_proteus.png" class="lazy entered loaded" data-src="/Tutoriels/Embedded_System/8051/img/i_8051_test_proteus.png" data-ll-status="loaded" src="/Tutoriels/Embedded_System/8051/img/i_8051_test_proteus.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Boucle-infinie"><a class="Link3" href="#">Boucle infinie</a></h1><div class="Body3"><br>Une <b>boucle infinie</b> est basée sur une boucle dont la condition de sortie ne peut pas être satisfaite. En conséquence, la boucle ne peut se terminer qu'à l'interruption du programme qui l'utilise. L'architecture boucle infinie est le plus simple des systèmes d'exploitation que l'on puisse réaliser sur un microcontrôleur. Elle utilise une base de temps qui peut être définie sous forme logicielle ou matérielle pour fixer le tick time (~1 ms) lui permettant de synchroniser l'exécution des différentes tâches du système.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Boucle-infinie-Analyser-les-registres"><a class="Link9" href="#Boucle-infinie">Analyser les registres</a></h2><br><h3 class="Title8 GTitle3">Registre de contrôle du mode Timer (TMOD)</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_registre_tmod.png" alt="/Tutoriels/Embedded_System/8051/img/i_registre_tmod.png"></div><br><span class="GCode3"><code style="color:#cccccc;">7 - GATE1</code></span><br>Bit de contrôle de synchronisation du Timer 1<br>0 $\to$ pour activer le Timer 1 chaque fois que le bit TR1 est défini.<br>1 $\to$ pour activer le Timer 1 uniquement lorsque la broche INT1 est élevée et que le bit TR1 est défini.<br><br><span class="GCode3"><code style="color:#cccccc;">6 - C/T1</code></span><br>Bit de sélection du Timer 1<br>0 $\to$ pour le fonctionnement de la minuterie : le Timer 1 compte l'horloge système divisée.<br>1 $\to$ pour le fonctionnement du compteur : le timer 1 compte les transitions négatives sur la broche externe T1.<br><br><span class="GCode3"><code style="color:#cccccc;">5,4 - M11,M01</code></span><br>Bits de sélection de mode du Timer 1 <br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">M11 | M01 | Mode de fonctionnement
+Run the simulation</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Embedded_System/8051/img/i_8051_test_proteus.png" class="lazy entered loaded" data-src="/Tutoriels/Embedded_System/8051/img/i_8051_test_proteus.png" data-ll-status="loaded" src="/Tutoriels/Embedded_System/8051/img/i_8051_test_proteus.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Boucle-infinie"><a class="Link3" href="#">Boucle infinie</a></h1><div class="Body3"><br>Une <b>boucle infinie</b> est basée sur une boucle dont la condition de sortie ne peut pas être satisfaite. En conséquence, la boucle ne peut se terminer qu'à l'interruption du programme qui l'utilise. L'architecture boucle infinie est le plus simple des systèmes d'exploitation que l'on puisse réaliser sur un microcontrôleur. Elle utilise une base de temps qui peut être définie sous forme logicielle ou matérielle pour fixer le tick time (entre 1 et 50 ms) lui permettant de synchroniser l'exécution des différentes tâches du système.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Boucle-infinie-Analyser-les-registres"><a class="Link9" href="#Boucle-infinie">Analyser les registres</a></h2><br><h3 class="Title8 GTitle3">Registre de contrôle du mode Timer (TMOD)</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_registre_tmod.png" alt="/Tutoriels/Embedded_System/8051/img/i_registre_tmod.png"></div><br><span class="GCode3"><code style="color:#cccccc;">7 - GATE1</code></span><br>Bit de contrôle de synchronisation du Timer 1<br>0 $\to$ pour activer le Timer 1 chaque fois que le bit TR1 est défini.<br>1 $\to$ pour activer le Timer 1 uniquement lorsque la broche INT1 est élevée et que le bit TR1 est défini.<br><br><span class="GCode3"><code style="color:#cccccc;">6 - C/T1</code></span><br>Bit de sélection du Timer 1<br>0 $\to$ pour le fonctionnement de la minuterie : le Timer 1 compte l'horloge système divisée.<br>1 $\to$ pour le fonctionnement du compteur : le timer 1 compte les transitions négatives sur la broche externe T1.<br><br><span class="GCode3"><code style="color:#cccccc;">5,4 - M11,M01</code></span><br>Bits de sélection de mode du Timer 1 <br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">M11 | M01 | Mode de fonctionnement
 ----+-----+-----------------------
 0   | 0   | Mode 0 : Timer/Compteur 13 bits.
 0   | 1   | Mode 1 : Timer/Compteur 16 bits.
@@ -460,7 +460,171 @@ void main() {
         GDelay_ms();
     }
 }
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_loop_delay_timer_t2.gif" alt="/Tutoriels/Embedded_System/8051/img/i_loop_delay_timer_t2.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Systeme-d-exploitation-embarque-simple"><a class="Link3" href="#">Système d'exploitation embarqué simple</a></h1><div class="Body3"><br>Le système d'exploitation embarqué simple (<b>sEOS</b>) que nous proposons ici est basé sur l'utilisation de l'intérruption du Timer T2 cadencé à une certaine fréquence (~1 ms) pour fixer le tick time (~1 ms) lui permettant de synchroniser l'exécution des différentes tâches du système.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Systeme-d-exploitation-embarque-simple-Creer-une-interruption-du-Timer-T2"><a class="Link9" href="#Systeme-d-exploitation-embarque-simple">Créer une interruption du Timer T2</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><br><h3 class="Title8 GTitle3">Résultat</h3><br><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Interruptions"><a class="Link3" href="#">Interruptions</a></h1><div class="Body3"><br>Dans les systèmes numériques, une <b>interruption </b>est une réponse du processeur à un événement qui nécessite l'attention du logiciel. Une condition d'interruption alerte le processeur et sert de demande au processeur d'interrompre le code en cours d'exécution lorsque cela est autorisé, de sorte que l'événement puisse être traité en temps opportun. Si la demande est acceptée, le processeur répond en suspendant ses activités en cours, en sauvegardant son état et en exécutant une fonction appelée gestionnaire d'interruption(ou une routine de service d'interruption, ISR) pour traiter l'événement. Cette interruption est temporaire et, à moins que l'interruption n'indique une erreur fatale, le processeur reprend ses activités normales une fois le gestionnaire d'interruption terminé.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Interruptions-Analyser-les-registres"><a class="Link9" href="#Interruptions">Analyser les registres</a></h2><br><h3 class="Title8 GTitle3">Registre d'activation d'interruption (IEN0)</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_registre_ien0.png" alt="/Tutoriels/Embedded_System/8051/img/i_registre_ien0.png"></div><br><span class="GCode3"><code style="color:#cccccc;">7 - EA</code></span><br>Activer tout bit d'interruption<br>0 $\to$ pour désactiver toutes les interruptions.<br>1 $\to$ pour activer toutes les interruptions. Si EA=1, chaque source d'interruption est activée ou désactivée individuellement en réglant ou effaçant son bit d'activation d'interruption.<br><br><span class="GCode3"><code style="color:#cccccc;">6 - CE</code></span><br>Activer l'interruption PCA<br>0 $\to$ pour désactiver l'interruption PCA.<br>1 $\to$ pour activer l'interruption PCA.<br><br><span class="GCode3"><code style="color:#cccccc;">5 - ET2</code></span><br>Bit d'activation d'interruption de débordement du Timer 2<br>0 $\to$ pour désactiver l'interruption de débordement du Timer 2.<br>1 $\to$ pour activer l'interruption de débordement du Timer 2.<br><br><span class="GCode3"><code style="color:#cccccc;">4 - ES</code></span><br>Bit d'activation du port série<br>0 $\to$ pour désactiver l'interruption du port série.<br>1 $\to$ pour activer l'interruption du port série.<br><br><span class="GCode3"><code style="color:#cccccc;">3 - ET1</code></span><br>Bit d'activation de l'interruption de débordement du Timer 1<br>0 $\to$ pour désactiver l'interruption de débordement du Timer 1.<br>1 $\to$ pour activer l'interruption de débordement du Timer 1.<br><br><span class="GCode3"><code style="color:#cccccc;">2 - EX1</code></span><br>Interruption externe 1 Bit d'activation<br>0 $\to$ pour désactiver l'interruption externe 1.<br>1 $\to$ pour activer l'interruption externe 1.<br><br><span class="GCode3"><code style="color:#cccccc;">1 - ET0</code></span><br>Bit d'activation de l'interruption de débordement du Timer 0<br>0 $\to$ pour désactiver l'interruption de débordement du Timer 0.<br>1 $\to$ pour activer l'interruption de débordement du Timer 0.<br><br><span class="GCode3"><code style="color:#cccccc;">0 - EX0</code></span><br>Interruption externe 0 Bit d'activation<br>0 $\to$ pour désactiver l'interruption externe 0.<br>1 $\to$ pour activer l'interruption externe 0.<br><br><h3 class="Title8 GTitle3">Adresses des vecteurs d'interruption</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_registre_interrupt_vectors.png" alt="/Tutoriels/Embedded_System/8051/img/i_registre_interrupt_vectors.png"></div><br><h3 class="Title8 GTitle3">Numéros d'interruption en C</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">#define INTERRUPT_EXTERNAL_INT0 0
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_loop_delay_timer_t2.gif" alt="/Tutoriels/Embedded_System/8051/img/i_loop_delay_timer_t2.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Systeme-d-exploitation-embarque-simple"><a class="Link3" href="#">Système d'exploitation embarqué simple</a></h1><div class="Body3"><br>Le système d'exploitation embarqué simple (<b>sEOS</b>) que nous proposons ici est basé sur l'utilisation de l'intérruption du Timer T2 cadencé à une certaine fréquence (entre 1 et 50 ms) pour fixer le tick time lui permettant de synchroniser l'exécution des différentes tâches du système. Il prend en charge l'économie d'énergie avec le mode Idle.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Systeme-d-exploitation-embarque-simple-Creer-une-interruption-du-Timer-T2"><a class="Link9" href="#Systeme-d-exploitation-embarque-simple">Créer une interruption du Timer T2</a></h2><br>Cette stratégie permet d'exécuter l'ensemble des tâches du système dans la <b>routine d'interruption</b> du Timer T2.<br><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include &lt;reg52.h&gt;
+//===============================================
+typedef unsigned char uchar;
+//===============================================
+#define OSC_FREQ (12000000UL)
+#define OSC_PER_INST (12) 
+//===============================================
+#define PRELOAD(ms) (65536 - ((OSC_FREQ * ms) / (OSC_PER_INST * 1000)))
+#define PRELOAD_H(ms) (PRELOAD(ms) / 256)
+#define PRELOAD_L(ms) (PRELOAD(ms) % 256)
+//===============================================
+#define INTERRUPT_TIMER_T2      5
+//===============================================
+sbit g_led_pin = P1^0;
+sbit g_button_pin = P1^7;
+//===============================================
+static bit g_button_state = 0;
+//===============================================
+static uchar g_button_time = 1;
+static uchar g_led_time = 0;
+//===============================================
+static void GSeos_Init(uchar ms) {
+    T2CON = 0x04;
+    TH2 = PRELOAD_H(ms);
+    TL2 = PRELOAD_L(ms); 
+    RCAP2H = PRELOAD_H(ms);
+    RCAP2L = PRELOAD_L(ms); 
+    TF2 = 0;
+    ET2 = 1;
+    TR2 = 1; 
+}
+//===============================================
+static void GSeos_Start() {
+    EA = 1;
+}
+//===============================================
+static void GTask_Init() {
+    g_led_pin = 1;
+    g_button_pin = 1;
+}
+//===============================================
+static void GButton_Update() {
+    if(++g_button_time &gt;= 20) {
+        if(g_button_pin == 0) {
+            g_button_state = !g_button_state;
+            if(g_button_state == 0) {
+                g_led_pin = 1;
+            }
+        }
+        g_button_time = 0;
+    }
+}
+//===============================================
+static void GLed_Update() {
+    if(++g_led_time &gt;= 20) {
+        if(g_button_state == 1) {
+            g_led_pin = !g_led_pin;
+        }
+        g_led_time = 0;
+    }
+}
+//===============================================
+static void GTask_Update() {
+    GButton_Update();
+    GLed_Update();
+}
+//===============================================
+static void GSeos_Update() interrupt INTERRUPT_TIMER_T2 {
+    TF2 = 0;
+    GTask_Update();
+}
+//===============================================
+void main() {
+    GSeos_Init(10);
+    GTask_Init();
+    GSeos_Start();
+    while(1);
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_seos_interrupt_timer_t2.gif" alt="/Tutoriels/Embedded_System/8051/img/i_seos_interrupt_timer_t2.gif"></div><br><h2 class="Title7 GTitle2" id="Systeme-d-exploitation-embarque-simple-Configurer-le-mode-Idle"><a class="Link9" href="#Systeme-d-exploitation-embarque-simple">Configurer le mode Idle</a></h2><br>Cette technique permet de faire basculer le système en <b>mode veille</b> pour réduire énormement sa consommation d'énergie. On quitte le mode veille suite au déclenchement d'une interruption ou à la réinitialisation du système.<br><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include &lt;reg52.h&gt;
+//===============================================
+typedef unsigned char uchar;
+//===============================================
+#define OSC_FREQ (12000000UL)
+#define OSC_PER_INST (12) 
+//===============================================
+#define PRELOAD(ms) (65536 - ((OSC_FREQ * ms) / (OSC_PER_INST * 1000)))
+#define PRELOAD_H(ms) (PRELOAD(ms) / 256)
+#define PRELOAD_L(ms) (PRELOAD(ms) % 256)
+//===============================================
+#define INTERRUPT_TIMER_T2      5
+//===============================================
+sbit g_led_pin = P1^0;
+sbit g_button_pin = P1^7;
+//===============================================
+static bit g_button_state = 0;
+//===============================================
+static uchar g_button_time = 1;
+static uchar g_led_time = 0;
+//===============================================
+static void GSeos_Init(uchar ms) {
+    T2CON = 0x04;
+    TH2 = PRELOAD_H(ms);
+    TL2 = PRELOAD_L(ms); 
+    RCAP2H = PRELOAD_H(ms);
+    RCAP2L = PRELOAD_L(ms); 
+    TF2 = 0;
+    ET2 = 1;
+    TR2 = 1; 
+}
+//===============================================
+static void GSeos_Start() {
+    EA = 1;
+}
+//===============================================
+static void GSeos_Idle() {
+    PCON |= 0x01;
+}
+//===============================================
+static void GTask_Init() {
+    g_led_pin = 1;
+    g_button_pin = 1;
+}
+//===============================================
+static void GButton_Update() {
+    if(++g_button_time &gt;= 20) {
+        if(g_button_pin == 0) {
+            g_button_state = !g_button_state;
+            if(g_button_state == 0) {
+                g_led_pin = 1;
+            }
+        }
+        g_button_time = 0;
+    }
+}
+//===============================================
+static void GLed_Update() {
+    if(++g_led_time &gt;= 20) {
+        if(g_button_state == 1) {
+            g_led_pin = !g_led_pin;
+        }
+        g_led_time = 0;
+    }
+}
+//===============================================
+static void GTask_Update() {
+    GButton_Update();
+    GLed_Update();
+}
+//===============================================
+static void GSeos_Update() interrupt INTERRUPT_TIMER_T2 {
+    TF2 = 0;
+    GTask_Update();
+}
+//===============================================
+void main() {
+    GSeos_Init(10);
+    GTask_Init();
+    GSeos_Start();
+    while(1) {
+        GSeos_Idle();
+    }
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_seos_mode_idle.gif" alt="/Tutoriels/Embedded_System/8051/img/i_seos_mode_idle.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Interruptions"><a class="Link3" href="#">Interruptions</a></h1><div class="Body3"><br>Dans les systèmes numériques, une <b>interruption </b>est une réponse du processeur à un événement qui nécessite l'attention du logiciel. Une condition d'interruption alerte le processeur et sert de demande au processeur d'interrompre le code en cours d'exécution lorsque cela est autorisé, de sorte que l'événement puisse être traité en temps opportun. Si la demande est acceptée, le processeur répond en suspendant ses activités en cours, en sauvegardant son état et en exécutant une fonction appelée gestionnaire d'interruption(ou une routine de service d'interruption, ISR) pour traiter l'événement. Cette interruption est temporaire et, à moins que l'interruption n'indique une erreur fatale, le processeur reprend ses activités normales une fois le gestionnaire d'interruption terminé.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Interruptions-Analyser-les-registres"><a class="Link9" href="#Interruptions">Analyser les registres</a></h2><br><h3 class="Title8 GTitle3">Registre d'activation d'interruption (IEN0)</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_registre_ien0.png" alt="/Tutoriels/Embedded_System/8051/img/i_registre_ien0.png"></div><br><span class="GCode3"><code style="color:#cccccc;">7 - EA</code></span><br>Activer tout bit d'interruption<br>0 $\to$ pour désactiver toutes les interruptions.<br>1 $\to$ pour activer toutes les interruptions. Si EA=1, chaque source d'interruption est activée ou désactivée individuellement en réglant ou effaçant son bit d'activation d'interruption.<br><br><span class="GCode3"><code style="color:#cccccc;">6 - CE</code></span><br>Activer l'interruption PCA<br>0 $\to$ pour désactiver l'interruption PCA.<br>1 $\to$ pour activer l'interruption PCA.<br><br><span class="GCode3"><code style="color:#cccccc;">5 - ET2</code></span><br>Bit d'activation d'interruption de débordement du Timer 2<br>0 $\to$ pour désactiver l'interruption de débordement du Timer 2.<br>1 $\to$ pour activer l'interruption de débordement du Timer 2.<br><br><span class="GCode3"><code style="color:#cccccc;">4 - ES</code></span><br>Bit d'activation du port série<br>0 $\to$ pour désactiver l'interruption du port série.<br>1 $\to$ pour activer l'interruption du port série.<br><br><span class="GCode3"><code style="color:#cccccc;">3 - ET1</code></span><br>Bit d'activation de l'interruption de débordement du Timer 1<br>0 $\to$ pour désactiver l'interruption de débordement du Timer 1.<br>1 $\to$ pour activer l'interruption de débordement du Timer 1.<br><br><span class="GCode3"><code style="color:#cccccc;">2 - EX1</code></span><br>Interruption externe 1 Bit d'activation<br>0 $\to$ pour désactiver l'interruption externe 1.<br>1 $\to$ pour activer l'interruption externe 1.<br><br><span class="GCode3"><code style="color:#cccccc;">1 - ET0</code></span><br>Bit d'activation de l'interruption de débordement du Timer 0<br>0 $\to$ pour désactiver l'interruption de débordement du Timer 0.<br>1 $\to$ pour activer l'interruption de débordement du Timer 0.<br><br><span class="GCode3"><code style="color:#cccccc;">0 - EX0</code></span><br>Interruption externe 0 Bit d'activation<br>0 $\to$ pour désactiver l'interruption externe 0.<br>1 $\to$ pour activer l'interruption externe 0.<br><br><h3 class="Title8 GTitle3">Adresses des vecteurs d'interruption</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_registre_interrupt_vectors.png" alt="/Tutoriels/Embedded_System/8051/img/i_registre_interrupt_vectors.png"></div><br><h3 class="Title8 GTitle3">Numéros d'interruption en C</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">#define INTERRUPT_EXTERNAL_INT0 0
 #define INTERRUPT_TIMER_T0      1
 #define INTERRUPT_EXTERNAL_INT1 2
 #define INTERRUPT_TIMER_T1      3
