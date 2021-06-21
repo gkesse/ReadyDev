@@ -183,7 +183,8 @@ void main() {
 #define INTERRUPT_TIMER_T0      1
 #define INTERRUPT_EXTERNAL_INT1 2
 #define INTERRUPT_TIMER_T1      3
-#define INTERRUPT_UART          4</pre></div></div><br><h2 class="Title7 GTitle2" id="Interruptions-Creer-une-interruption-Timer-T0"><a class="Link9" href="#Interruptions">Créer une interruption Timer T0</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#define INTERRUPT_UART          4
+#define INTERRUPT_TIMER_T2      5</pre></div></div><br><h2 class="Title7 GTitle2" id="Interruptions-Creer-une-interruption-Timer-T0"><a class="Link9" href="#Interruptions">Créer une interruption Timer T0</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 #include &lt;reg52.h&gt;
 //===============================================
 typedef unsigned char uchar;
@@ -235,7 +236,59 @@ void main() {
     GInterrupt_Start();
     while(1);
 }
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_interrupt_timer_t0.gif" alt="/Tutoriels/Embedded_System/8051/img/i_interrupt_timer_t0.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Ports"><a class="Link3" href="#">Ports</a></h1><div class="Body3"><br>Un <b>port </b>est une ensemble de 8 broches permettant au microcontrôleur de communiquer avec son environnement extérieur.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Ports-Ecrire-sur-un-port"><a class="Link9" href="#Ports">Écrire sur un port</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_interrupt_timer_t0.gif" alt="/Tutoriels/Embedded_System/8051/img/i_interrupt_timer_t0.gif"></div><br><h2 class="Title7 GTitle2" id="Interruptions-Creer-une-interruption-Timer-T1"><a class="Link9" href="#Interruptions">Créer une interruption Timer T1</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include &lt;reg52.h&gt;
+//===============================================
+typedef unsigned char uchar;
+typedef unsigned int uint;
+//===============================================
+#define OSC_FREQ (12000000UL)
+#define OSC_PER_INST (12) 
+//===============================================
+#define PRELOAD(ms) (65536 - ((OSC_FREQ * ms) / (OSC_PER_INST * 1000)))
+#define PRELOAD_H(ms) (PRELOAD(ms) / 256)
+#define PRELOAD_L(ms) (PRELOAD(ms) % 256)
+//===============================================
+#define INTERRUPT_TIMER_T1      3
+//===============================================
+static uchar g_preload_h;
+static uchar g_preload_l;
+//===============================================
+sbit g_pin = P1^0;
+//===============================================
+static void GTimer_T1_Init(uchar ms) {
+    g_preload_h = PRELOAD_H(ms); 
+    g_preload_l = PRELOAD_L(ms); 
+    TMOD &amp;= 0x0F; 
+    TMOD |= 0x10; 
+    TH1 = g_preload_h; 
+    TL1 = g_preload_l; 
+    TF1 = 0; 
+    ET1 = 1;
+    TR1 = 1; 
+}
+//===============================================
+static void GTimer_T1_Reload() {
+    TH1 = g_preload_h; 
+    TL1 = g_preload_l; 
+    TF1 = 0; 
+}
+//===============================================
+static void GTimer_T1_Update() interrupt INTERRUPT_TIMER_T1 {
+    GTimer_T1_Reload();
+    g_pin = !g_pin;
+}
+//===============================================
+static void GInterrupt_Start() {
+    EA = 1;
+}
+//===============================================
+void main() {
+    GTimer_T1_Init(50);
+    GInterrupt_Start();
+    while(1);
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_interrupt_timer_t1.gif" alt="/Tutoriels/Embedded_System/8051/img/i_interrupt_timer_t1.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Ports"><a class="Link3" href="#">Ports</a></h1><div class="Body3"><br>Un <b>port </b>est une ensemble de 8 broches permettant au microcontrôleur de communiquer avec son environnement extérieur.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Ports-Ecrire-sur-un-port"><a class="Link9" href="#Ports">Écrire sur un port</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 #include &lt;reg52.h&gt;
 //===============================================
 #define TIME_1_MS (125)
