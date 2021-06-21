@@ -179,7 +179,59 @@ void main() {
         GDelay_ms(1000);
     }
 }
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_loop_delay_software.gif" alt="/Tutoriels/Embedded_System/8051/img/i_loop_delay_software.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Ports"><a class="Link3" href="#">Ports</a></h1><div class="Body3"><br>Un <b>port </b>est une ensemble de 8 broches permettant au microcontrôleur de communiquer avec son environnement extérieur.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Ports-Ecrire-sur-un-port"><a class="Link9" href="#Ports">Écrire sur un port</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_loop_delay_software.gif" alt="/Tutoriels/Embedded_System/8051/img/i_loop_delay_software.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Interruptions"><a class="Link3" href="#">Interruptions</a></h1><div class="Body3"><br>Dans les systèmes numériques, une <b>interruption </b>est une réponse du processeur à un événement qui nécessite l'attention du logiciel. Une condition d'interruption alerte le processeur et sert de demande au processeur d'interrompre le code en cours d'exécution lorsque cela est autorisé, de sorte que l'événement puisse être traité en temps opportun. Si la demande est acceptée, le processeur répond en suspendant ses activités en cours, en sauvegardant son état et en exécutant une fonction appelée gestionnaire d'interruption(ou une routine de service d'interruption, ISR) pour traiter l'événement. Cette interruption est temporaire et, à moins que l'interruption n'indique une erreur fatale, le processeur reprend ses activités normales une fois le gestionnaire d'interruption terminé.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Interruptions-Analyser-les-registres"><a class="Link9" href="#Interruptions">Analyser les registres</a></h2><br><h3 class="Title8 GTitle3">Registre d'activation d'interruption (IEN0)</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_registre_ien0.png" alt="/Tutoriels/Embedded_System/8051/img/i_registre_ien0.png"></div><br><span class="GCode3"><code style="color:#cccccc;">7 - EA</code></span><br>Activer tout bit d'interruption<br>0 $\to$ pour désactiver toutes les interruptions.<br>1 $\to$ pour activer toutes les interruptions. Si EA=1, chaque source d'interruption est activée ou désactivée individuellement en réglant ou effaçant son bit d'activation d'interruption.<br><br><span class="GCode3"><code style="color:#cccccc;">6 - CE</code></span><br>Activer l'interruption PCA<br>0 $\to$ pour désactiver l'interruption PCA.<br>1 $\to$ pour activer l'interruption PCA.<br><br><span class="GCode3"><code style="color:#cccccc;">5 - ET2</code></span><br>Bit d'activation d'interruption de débordement du Timer 2<br>0 $\to$ pour désactiver l'interruption de débordement du Timer 2.<br>1 $\to$ pour activer l'interruption de débordement du Timer 2.<br><br><span class="GCode3"><code style="color:#cccccc;">4 - ES</code></span><br>Bit d'activation du port série<br>0 $\to$ pour désactiver l'interruption du port série.<br>1 $\to$ pour activer l'interruption du port série.<br><br><span class="GCode3"><code style="color:#cccccc;">3 - ET1</code></span><br>Bit d'activation de l'interruption de débordement du Timer 1<br>0 $\to$ pour désactiver l'interruption de débordement du Timer 1.<br>1 $\to$ pour activer l'interruption de débordement du Timer 1.<br><br><span class="GCode3"><code style="color:#cccccc;">2 - EX1</code></span><br>Interruption externe 1 Bit d'activation<br>0 $\to$ pour désactiver l'interruption externe 1.<br>1 $\to$ pour activer l'interruption externe 1.<br><br><span class="GCode3"><code style="color:#cccccc;">1 - ET0</code></span><br>Bit d'activation de l'interruption de débordement du Timer 0<br>0 $\to$ pour désactiver l'interruption de débordement du Timer 0.<br>1 $\to$ pour activer l'interruption de débordement du Timer 0.<br><br><span class="GCode3"><code style="color:#cccccc;">0 - EX0</code></span><br>Interruption externe 0 Bit d'activation<br>0 $\to$ pour désactiver l'interruption externe 0.<br>1 $\to$ pour activer l'interruption externe 0.<br><br><h2 class="Title7 GTitle2" id="Interruptions-Creer-une-interruption-Timer-T0"><a class="Link9" href="#Interruptions">Créer une interruption Timer T0</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include &lt;reg52.h&gt;
+//===============================================
+typedef unsigned char uchar;
+typedef unsigned int uint;
+//===============================================
+#define OSC_FREQ (12000000UL)
+#define OSC_PER_INST (12) 
+//===============================================
+#define PRELOAD(ms) (65536 - ((OSC_FREQ * ms) / (OSC_PER_INST * 1000)))
+#define PRELOAD_H(ms) (PRELOAD(ms) / 256)
+#define PRELOAD_L(ms) (PRELOAD(ms) % 256)
+//===============================================
+#define INTERRUPT_TIMER_T0 1
+//===============================================
+static uchar g_preload_h;
+static uchar g_preload_l;
+//===============================================
+sbit g_pin = P1^0;
+//===============================================
+static void GTimer_T0_Init(uchar ms) {
+    g_preload_h = PRELOAD_H(ms); 
+    g_preload_l = PRELOAD_L(ms); 
+    TMOD &amp;= 0xF0; 
+    TMOD |= 0x01; 
+    TH0 = g_preload_h; 
+    TL0 = g_preload_l; 
+    TF0 = 0; 
+    ET0 = 1;
+    TR0 = 1; 
+}
+//===============================================
+static void GTimer_T0_Reload() {
+    TH0 = g_preload_h; 
+    TL0 = g_preload_l; 
+    TF0 = 0; 
+}
+//===============================================
+static void GTimer_T0_Update() interrupt INTERRUPT_TIMER_T0 {
+    GTimer_T0_Reload();
+    g_pin = !g_pin;
+}
+//===============================================
+static void GInterrupt_Start() {
+    EA = 1;
+}
+//===============================================
+void main() {
+    GTimer_T0_Init(50);
+    GInterrupt_Start();
+    while(1);
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_interrupt_timer_t0.gif" alt="/Tutoriels/Embedded_System/8051/img/i_interrupt_timer_t0.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Ports"><a class="Link3" href="#">Ports</a></h1><div class="Body3"><br>Un <b>port </b>est une ensemble de 8 broches permettant au microcontrôleur de communiquer avec son environnement extérieur.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Ports-Ecrire-sur-un-port"><a class="Link9" href="#Ports">Écrire sur un port</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 #include &lt;reg52.h&gt;
 //===============================================
 #define TIME_1_MS (125)
