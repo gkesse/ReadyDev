@@ -280,7 +280,55 @@ void main() {
         GDelay_ms(200);
     }
 }
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_port_byte_read.gif" alt="/Tutoriels/Embedded_System/8051/img/i_port_byte_read.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Delai"><a class="Link3" href="#">Délai</a></h1><div class="Body3"><br>Un <b>délai </b>est un temps accordé pour faire une chose, ou à l’expiration duquel on sera tenu de faire une certaine chose.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Delai-Creer-un-delai-logiciel">Créer un délai logiciel</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Delai-Creer-un-delai-materiel-Timer-T0-en-mode-16-bit">Créer un délai matériel Timer T0 en mode 16-bit</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Delai-Creer-un-delai-materiel-Timer-T1-en-mode-16-bit">Créer un délai matériel Timer T1 en mode 16-bit</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Delai-Creer-un-delai-materiel-Timer-T2-en-mode-16-bit">Créer un délai matériel Timer T2 en mode 16-bit</a></div></div><br><h2 class="Title7 GTitle2" id="Delai-Creer-un-delai-logiciel"><a class="Link9" href="#Delai">Créer un délai logiciel</a></h2><br>Le <b>délai logiciel</b> est basé sur l'utilisation d'une boucle réalisée par programme. Il est plus facile à mettre en œuvre, mais il est moins précis.<br><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_port_byte_read.gif" alt="/Tutoriels/Embedded_System/8051/img/i_port_byte_read.gif"></div><br><h2 class="Title7 GTitle2" id="Ports-Ecrire-sur-une-broche"><a class="Link9" href="#Ports">Ecrire sur une broche</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include &lt;reg52.h&gt;
+//===============================================
+#define TIME_1_MS (125)
+//===============================================
+typedef unsigned char uchar;
+typedef unsigned int uint;
+//===============================================
+static uchar g_port = 0;
+static uchar g_pin_1 = 0;
+static uchar g_pin_2 = 0;
+static bit g_data = 0;
+//===============================================
+static void GDelay_ms(uint ms) {
+    uint i, j;
+    for(i = 0; i &lt; ms; i++) {
+        for(j = 0; j &lt; TIME_1_MS; j++);
+    }
+}
+//=============================================== 
+static void GPort_Bit_Write(uchar port, uchar pin, bit d) {
+    uchar l_mask = 0x01;
+    l_mask &lt;&lt;= pin;
+    if(port == 0) {P0 = (d == 0) ? (P0 &amp; (~l_mask)) : (P0 | l_mask);}
+    else if(port == 1) {P1 = (d == 0) ? (P1 &amp; (~l_mask)) : (P1 | l_mask);}
+    else if(port == 2) {P2 = (d == 0) ? (P2 &amp; (~l_mask)) : (P2 | l_mask);}
+    else if(port == 3) {P3 = (d == 0) ? (P3 &amp; (~l_mask)) : (P3 | l_mask);}
+}
+//===============================================
+static void GTask_Init(uchar port, uchar pin_1, uchar pin_2) {
+    g_port = port;
+    g_pin_1 = pin_1;
+    g_pin_2 = pin_2;
+}
+//===============================================
+static void GTask_Update() {
+    g_data = !g_data;
+    GPort_Bit_Write(g_port, g_pin_1, g_data);
+    GPort_Bit_Write(g_port, g_pin_2, g_data);
+}
+//===============================================
+void main() {
+    GTask_Init(1, 0, 7);
+    while(1) {
+        GTask_Update();
+        GDelay_ms(1000);
+    }
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_port_bit_write.gif" alt="/Tutoriels/Embedded_System/8051/img/i_port_bit_write.gif"></div><br><h2 class="Title7 GTitle2" id="Ports-Lire-une-broche"><a class="Link9" href="#Ports">Lire une broche</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_port_bit_read.gif" alt="/Tutoriels/Embedded_System/8051/img/i_port_bit_read.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Delai"><a class="Link3" href="#">Délai</a></h1><div class="Body3"><br>Un <b>délai </b>est un temps accordé pour faire une chose, ou à l’expiration duquel on sera tenu de faire une certaine chose.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Delai-Creer-un-delai-logiciel">Créer un délai logiciel</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Delai-Creer-un-delai-materiel-Timer-T0-en-mode-16-bit">Créer un délai matériel Timer T0 en mode 16-bit</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Delai-Creer-un-delai-materiel-Timer-T1-en-mode-16-bit">Créer un délai matériel Timer T1 en mode 16-bit</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Delai-Creer-un-delai-materiel-Timer-T2-en-mode-16-bit">Créer un délai matériel Timer T2 en mode 16-bit</a></div></div><br><h2 class="Title7 GTitle2" id="Delai-Creer-un-delai-logiciel"><a class="Link9" href="#Delai">Créer un délai logiciel</a></h2><br>Le <b>délai logiciel</b> est basé sur l'utilisation d'une boucle réalisée par programme. Il est plus facile à mettre en œuvre, mais il est moins précis.<br><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 #include &lt;reg52.h&gt;
 //===============================================
 #define TIME_1_MS (125)
