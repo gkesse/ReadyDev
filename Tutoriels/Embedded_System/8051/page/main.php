@@ -1241,23 +1241,11 @@ static void GSch_Go_To_Sleep() {
     PCON |= 0x01;
 }
 //===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_sch_interrupt_timer_t2.gif" alt="/Tutoriels/Embedded_System/8051/img/i_sch_interrupt_timer_t2.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Ports"><a class="Link3" href="#">Ports</a></h1><div class="Body3"><br>Un <b>port </b>est une ensemble de 8 broches permettant au microcontrôleur de communiquer avec son environnement extérieur.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Ports-Ecrire-sur-un-port">Écrire sur un port</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Ports-Lire-un-port">Lire un port</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Ports-Ecrire-sur-une-broche">Ecrire sur une broche</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Ports-Lire-une-broche">Lire une broche</a></div></div><br><h2 class="Title7 GTitle2" id="Ports-Ecrire-sur-un-port"><a class="Link9" href="#Ports">Écrire sur un port</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
-#include &lt;reg52.h&gt;
-//===============================================
-#define TIME_1_MS (125)
-//===============================================
-typedef unsigned char uchar;
-typedef unsigned int uint;
+#include "GSch.h"
 //===============================================
 static uchar g_port = 0;
 static uchar g_data = 0;
 static uchar g_state = 0;
-//===============================================
-static void GDelay_ms(uint ms) {
-    uint i, j;
-    for(i = 0; i &lt; ms; i++) {
-        for(j = 0; j &lt; TIME_1_MS; j++);
-    }
-}
 //===============================================
 static void GPort_Data_Write(uchar port, uchar d) {
     if(port == 0) {P0 = d;}
@@ -1284,10 +1272,12 @@ static void GTask_Update() {
 }
 //===============================================
 void main() {
-    GTask_Init(1, 0xAA);
+    GSch_Init(10);
+    GTask_Init(1, 0xC3);
+    GSch_Add_Task(GTask_Update, 1, 100);
+    GSch_Start();
     while(1) {
-        GTask_Update();
-        GDelay_ms(1000);
+        GSch_Dispatch_Tasks();
     }
 }
 //===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_port_byte_write.gif" alt="/Tutoriels/Embedded_System/8051/img/i_port_byte_write.gif"></div><br><h2 class="Title7 GTitle2" id="Ports-Lire-un-port"><a class="Link9" href="#Ports">Lire un port</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
