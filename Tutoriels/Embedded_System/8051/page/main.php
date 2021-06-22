@@ -1417,14 +1417,16 @@ static uchar g_button_pin;
 static bit g_button_state;
 static uchar g_led_port;
 static uchar g_led_pin;
-static bit g_led_state = 1;
-static uchar g_led_count = 0;
+static bit g_led_state;
+static uchar g_led_count;
 //===============================================
-static void GTask_Init(uchar button_port, uchar button_pin, uchar led_port, uchar led_pin) {
-    g_button_port = button_port;
-    g_button_pin = button_pin;
-    g_led_port = led_port;
-    g_led_pin = led_pin;
+static void GTask_Init() {
+    g_button_port = 1;
+    g_button_pin = 7;
+    g_led_port = 1;
+    g_led_pin = 0;
+    g_led_state = 1;
+    g_led_count = 0;
     GPort_Bit_Write(g_button_port, g_button_pin, 1);
     GPort_Bit_Write(g_led_port, g_led_pin, g_led_state);
 }
@@ -1456,7 +1458,7 @@ static void GLed_Stop_Update() {
 //===============================================
 void main() {
     GSch_Init(1);
-    GTask_Init(1, 7, 1, 0);
+    GTask_Init();
     GSch_Add_Task(GButton_Update, 0, 200);
     GSch_Add_Task(GLed_Flash_Update, 1, 200);
     GSch_Add_Task(GLed_Stop_Update, 2, 200);
@@ -1465,4 +1467,75 @@ void main() {
         GSch_Dispatch_Tasks();
     }
 }
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_led_flash.gif" alt="/Tutoriels/Embedded_System/8051/img/i_led_flash.gif"></div><br><h2 class="Title7 GTitle2" id="Diode-LED-Realiser-un-chenillard"><a class="Link9" href="#Diode-LED">Réaliser un chenillard</a></h2><br><br><h3 class="Title8 GTitle3">main.c</h3><br><br><h3 class="Title8 GTitle3">Résultat</h3><br><br><br><br></div></div></div></div><br>
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GPort.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GPort.h"
+//=============================================== 
+void GPort_Bit_Write(uchar port, uchar pin, bit d) {
+    uchar l_mask = 0x01;
+    l_mask &lt;&lt;= pin;
+    if(port == 0) {P0 = (d == 0) ? (P0 &amp; (~l_mask)) : (P0 | l_mask);}
+    else if(port == 1) {P1 = (d == 0) ? (P1 &amp; (~l_mask)) : (P1 | l_mask);}
+    else if(port == 2) {P2 = (d == 0) ? (P2 &amp; (~l_mask)) : (P2 | l_mask);}
+    else if(port == 3) {P3 = (d == 0) ? (P3 &amp; (~l_mask)) : (P3 | l_mask);}
+}
+//=============================================== 
+bit GPort_Bit_Read(uchar port, uchar pin) {
+    uchar l_mask = 0x01;
+    bit l_data = 0;
+    l_mask &lt;&lt;= pin;
+    if(port == 0) {l_data = ((P0 &amp; l_mask) == 0) ? 0 : 1;}
+    else if(port == 1) {l_data = ((P1 &amp; l_mask) == 0) ? 0 : 1;}
+    else if(port == 2) {l_data = ((P2 &amp; l_mask) == 0) ? 0 : 1;}
+    else if(port == 3) {l_data = ((P3 &amp; l_mask) == 0) ? 0 : 1;}
+    return l_data;
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_led_flash.gif" alt="/Tutoriels/Embedded_System/8051/img/i_led_flash.gif"></div><br><h2 class="Title7 GTitle2" id="Diode-LED-Realiser-un-chenillard"><a class="Link9" href="#Diode-LED">Réaliser un chenillard</a></h2><br>On peut utiliser un <b>chenillard </b>pour indiquer une direction à suivre par exemple de haut en bas. Pour réaliser cela, on dispose des diodes LED suivant la verticale, ensuite on allume 3 diodes LED et on les fait déplacer chaque 500 ms.<br><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GSch.h"
+#include "GPort.h"
+//===============================================
+static uchar g_chase_count;
+static uchar g_chase_port;
+//===============================================
+static void GTask_Init() {
+    g_chase_count = 0;
+    g_chase_port = 1;
+}
+//===============================================
+static void GChase_Update() {
+    GPort_Data_Write(g_chase_port, 0xFF);
+    GPort_Bit_Write(g_chase_port, g_chase_count, 0);
+    GPort_Bit_Write(g_chase_port, g_chase_count + 1, 0);
+    GPort_Bit_Write(g_chase_port, g_chase_count + 2, 0);
+    if(++g_chase_count &gt;= 8) {
+        g_chase_count = 0;
+    }
+}
+//===============================================
+void main() {
+    GSch_Init(1);
+    GTask_Init();
+    GSch_Add_Task(GChase_Update, 0, 500);
+    GSch_Start();
+    while(1) {
+        GSch_Dispatch_Tasks();
+    }
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GPort.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GPort.h"
+//===============================================
+void GPort_Data_Write(uchar port, uchar d) {
+    if(port == 0) {P0 = d;}
+    else if(port == 1) {P1 = d;}
+    else if(port == 2) {P2 = d;}
+    else if(port == 3) {P3 = d;}
+}
+//=============================================== 
+void GPort_Bit_Write(uchar port, uchar pin, bit d) {
+    uchar l_mask = 0x01;
+    l_mask &lt;&lt;= pin;
+    if(port == 0) {P0 = (d == 0) ? (P0 &amp; (~l_mask)) : (P0 | l_mask);}
+    else if(port == 1) {P1 = (d == 0) ? (P1 &amp; (~l_mask)) : (P1 | l_mask);}
+    else if(port == 2) {P2 = (d == 0) ? (P2 &amp; (~l_mask)) : (P2 | l_mask);}
+    else if(port == 3) {P3 = (d == 0) ? (P3 &amp; (~l_mask)) : (P3 | l_mask);}
+}
+//===============================================</pre></div></div>&nbsp;<br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_led_chase.gif" alt="/Tutoriels/Embedded_System/8051/img/i_led_chase.gif"></div><br><br><br></div></div></div></div><br>
