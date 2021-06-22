@@ -740,7 +740,167 @@ void main() {
         GSeos_Go_To_Sleep();
     }
 }
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_seos_interrupt_timer_t2.gif" alt="/Tutoriels/Embedded_System/8051/img/i_seos_interrupt_timer_t2.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Systeme-d-exploitation-temps-reel"><a class="Link3" href="#">Système d'exploitation temps réel</a></h1><div class="Body3"><br>Le système d'exploitation temps réel (<b>RTOS</b>) que nous proposons ici est basé sur l'architecture des systèmes à déclenchement temporel (TTA) certifié pour le développement de systèmes à sécurité critique. Il utilise un Timer pour fixer la cadence d'entrainement d'un ordonnanceur (<b>Scheduler</b>) de tâches reparties dans un tableau. Il prend en charge le mode Idle permettant de faire basculer le système en mode veille réduisant ainsi sa consommation d'énergie.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Systeme-d-exploitation-temps-reel-Modeliser-une-tache"><a class="Link9" href="#Systeme-d-exploitation-temps-reel">Modéliser une tâche</a></h2><br>Dans cette architecture, on modélise une <b>tâche </b>par une fonction (<span class="GCode3"><code style="color:#cccccc;">pTask</code></span>) à laquelle on associe un delai d'exécution (<span class="GCode3"><code style="color:#cccccc;">delay</code></span>), une période d'exécution (<span class="GCode3"><code style="color:#cccccc;">period</code></span>) et un drapeau d'exécution (<span class="GCode3"><code style="color:#cccccc;">run_me</code></span>). qui est le temps à partir duquel on commence à exécuter la tâche et une période d'exécution (<span class="GCode3"><code style="color:#cccccc;">period</code></span>).<br><br><h2 class="Title7 GTitle2" id="Systeme-d-exploitation-temps-reel-Creer-un-ordonnanceur-multitache"><a class="Link9" href="#Systeme-d-exploitation-temps-reel">Créer un ordonnanceur multitâche</a></h2><br><br><br><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Ports"><a class="Link3" href="#">Ports</a></h1><div class="Body3"><br>Un <b>port </b>est une ensemble de 8 broches permettant au microcontrôleur de communiquer avec son environnement extérieur.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Ports-Ecrire-sur-un-port">Écrire sur un port</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Ports-Lire-un-port">Lire un port</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Ports-Ecrire-sur-une-broche">Ecrire sur une broche</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Ports-Lire-une-broche">Lire une broche</a></div></div><br><h2 class="Title7 GTitle2" id="Ports-Ecrire-sur-un-port"><a class="Link9" href="#Ports">Écrire sur un port</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_seos_interrupt_timer_t2.gif" alt="/Tutoriels/Embedded_System/8051/img/i_seos_interrupt_timer_t2.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Systeme-d-exploitation-temps-reel"><a class="Link3" href="#">Système d'exploitation temps réel</a></h1><div class="Body3"><br>Le système d'exploitation temps réel (<b>RTOS</b>) que nous proposons ici est basé sur l'architecture des systèmes à déclenchement temporel (TTA) certifié pour le développement de systèmes à sécurité critique. Il utilise un Timer pour fixer la cadence d'entrainement d'un ordonnanceur (<b>Scheduler</b>) de tâches reparties dans un tableau. Il prend en charge le mode Idle permettant de faire basculer le système en mode veille réduisant ainsi sa consommation d'énergie.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Systeme-d-exploitation-temps-reel-Modeliser-une-tache"><a class="Link9" href="#Systeme-d-exploitation-temps-reel">Modéliser une tâche</a></h2><br>Dans cette architecture, on modélise une <b>tâche </b>par une fonction (<span class="GColor1" style="color:lime;">pTask</span>) à laquelle on associe un delai d'exécution (<span class="GColor1" style="color:lime;">delay</span>), une période d'exécution (<span class="GColor1" style="color:lime;">period</span>) et un drapeau d'exécution (<span class="GColor1" style="color:lime;">run_me</span>).<br><br><h3 class="Title8 GTitle3">Structure d'une tâche</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+struct _sGTask {
+    void (*pTask)();
+    uint delay;
+    uint period;
+    uchar run_me;
+};
+//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Systeme-d-exploitation-temps-reel-Creer-un-ordonnanceur-multitache"><a class="Link9" href="#Systeme-d-exploitation-temps-reel">Créer un ordonnanceur multitâche</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GSch.h"
+//===============================================
+sbit g_led_pin = P1^0;
+sbit g_button_pin = P1^7;
+//===============================================
+static bit g_button_state = 0;
+//===============================================
+static void GTask_Init() {
+    g_led_pin = 1;
+    g_button_pin = 1;
+}
+//===============================================
+static void GButton_Update() {
+    if(g_button_pin == 0) {
+        g_button_state = !g_button_state;
+        if(g_button_state == 0) {
+            g_led_pin = 1;
+        }
+    }
+}
+//===============================================
+static void GLed_Update() {
+    if(g_button_state == 1) {
+        g_led_pin = !g_led_pin;
+    }
+}
+//===============================================
+void main() {
+    GSch_Init(10);
+    GTask_Init();
+    GSch_Add_Task(GButton_Update, 0, 20);
+    GSch_Add_Task(GLed_Update, 1, 20);
+    GSch_Start();
+    while(1) {
+        GSch_Dispatch_Tasks();
+    }
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GSch.h</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#ifndef _GSch_
+#define _GSch_
+//===============================================
+#include &lt;reg52.h&gt;
+//===============================================
+typedef unsigned char uchar;
+typedef unsigned int uint;
+typedef unsigned long ulong;
+//===============================================
+void GSch_Init(uchar ms);
+void GSch_Add_Task(void (*pTask)(), const uint delay, const uint period);
+void GSch_Start();
+void GSch_Dispatch_Tasks();
+//===============================================
+#endif
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GSch.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GSch.h"
+//===============================================
+#define OSC_FREQ (12000000UL)
+#define OSC_PER_INST (12) 
+//===============================================
+#define PRELOAD(ms) (65536 - ((OSC_FREQ * ms) / (OSC_PER_INST * 1000))) 
+#define PRELOAD_H(ms) (PRELOAD(ms) / 256)
+#define PRELOAD_L(ms) (PRELOAD(ms) % 256)
+//===============================================
+#define INTERRUPT_TIMER_T2 5
+//===============================================
+#define SCH_MAX_TASKS (8)
+//===============================================
+typedef struct _sGTask sGTask;
+//===============================================
+struct _sGTask {
+    void (*pTask)();
+    uint delay;
+    uint period;
+    uchar run_me;
+};
+//===============================================
+sGTask g_task_map[SCH_MAX_TASKS];
+//===============================================
+static void GSch_Go_To_Sleep();
+static void GSch_Delete_Task(uchar index);
+//===============================================
+void GSch_Init(uchar ms) {
+    uchar l_index;
+    for(l_index = 0; l_index &lt; SCH_MAX_TASKS; l_index++) {
+        GSch_Delete_Task(l_index);
+    }
+    T2CON = 0x00; 
+    TH2 = PRELOAD_H(ms); 
+    TL2 = PRELOAD_L(ms); 
+    RCAP2H = PRELOAD_H(ms); 
+    RCAP2L = PRELOAD_L(ms);
+    TF2 = 0;
+    ET2 = 1;
+    TR2 = 1;
+}
+//===============================================
+void GSch_Add_Task(void (*pTask)(), const uint delay, const uint period) {
+    uchar l_index = 0;
+    while((g_task_map[l_index].pTask != 0) &amp;&amp; (l_index &lt; SCH_MAX_TASKS)) l_index++;
+    if(l_index == SCH_MAX_TASKS) return;
+    g_task_map[l_index].pTask = pTask;
+    g_task_map[l_index].delay = delay;
+    g_task_map[l_index].period = period;
+    g_task_map[l_index].run_me = 0;
+}
+//===============================================
+void GSch_Start() {
+    EA = 1;
+}
+//===============================================
+static void GSch_Update() interrupt INTERRUPT_TIMER_T2 {
+    uchar l_index;
+    TF2 = 0;
+    for(l_index = 0; l_index &lt; SCH_MAX_TASKS; l_index++) {
+        if(g_task_map[l_index].pTask != 0) {
+            if(g_task_map[l_index].delay == 0) {
+                g_task_map[l_index].run_me += 1;
+                if(g_task_map[l_index].period != 0) {
+                    g_task_map[l_index].delay = g_task_map[l_index].period;
+                }
+            }
+            else {
+                g_task_map[l_index].delay -= 1;
+            }
+        }
+    }
+}
+//===============================================
+void GSch_Dispatch_Tasks() {
+    uchar l_index;
+    for(l_index = 0; l_index &lt; SCH_MAX_TASKS; l_index++) {
+        if(g_task_map[l_index].run_me &gt; 0) {
+            (*g_task_map[l_index].pTask)();
+            g_task_map[l_index].run_me -= 1;
+            if(g_task_map[l_index].period == 0) {
+                GSch_Delete_Task(l_index);
+            }
+        }
+    }
+    GSch_Go_To_Sleep();
+}
+//===============================================
+static void GSch_Delete_Task(uchar index) {
+    g_task_map[index].pTask = 0x0000;
+    g_task_map[index].delay = 0;
+    g_task_map[index].period = 0;
+    g_task_map[index].run_me = 0;
+}
+//===============================================
+static void GSch_Go_To_Sleep() {
+    PCON |= 0x01;
+}
+//===============================================</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Ports"><a class="Link3" href="#">Ports</a></h1><div class="Body3"><br>Un <b>port </b>est une ensemble de 8 broches permettant au microcontrôleur de communiquer avec son environnement extérieur.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Ports-Ecrire-sur-un-port">Écrire sur un port</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Ports-Lire-un-port">Lire un port</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Ports-Ecrire-sur-une-broche">Ecrire sur une broche</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Ports-Lire-une-broche">Lire une broche</a></div></div><br><h2 class="Title7 GTitle2" id="Ports-Ecrire-sur-un-port"><a class="Link9" href="#Ports">Écrire sur un port</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 #include &lt;reg52.h&gt;
 //===============================================
 #define TIME_1_MS (125)
