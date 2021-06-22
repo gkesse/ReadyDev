@@ -1281,22 +1281,10 @@ void main() {
     }
 }
 //===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_port_byte_write.gif" alt="/Tutoriels/Embedded_System/8051/img/i_port_byte_write.gif"></div><br><h2 class="Title7 GTitle2" id="Ports-Lire-un-port"><a class="Link9" href="#Ports">Lire un port</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
-#include &lt;reg52.h&gt;
+#include "GSch.h"
 //===============================================
-#define TIME_1_MS (125)
-//===============================================
-typedef unsigned char uchar;
-typedef unsigned int uint;
-//===============================================
-static uchar g_port_read = 0;
-static uchar g_port_write = 0;
-//===============================================
-static void GDelay_ms(uint ms) {
-    uint i, j;
-    for(i = 0; i &lt; ms; i++) {
-        for(j = 0; j &lt; TIME_1_MS; j++);
-    }
-}
+static uchar g_read_port;
+static uchar g_write_port;
 //===============================================
 static void GPort_Data_Write(uchar port, uchar d) {
     if(port == 0) {P0 = d;}
@@ -1315,42 +1303,32 @@ static uchar GPort_Data_Read(uchar port) {
 }
 //===============================================
 static void GTask_Init(uchar read_port, uchar write_port) {
-    g_port_read = read_port;
-    g_port_write = write_port;
-    GPort_Data_Write(g_port_read, 0xFF);
+    g_read_port = read_port;
+    g_write_port = write_port;
+    GPort_Data_Write(g_read_port, 0xFF);
 }
 //===============================================
 static void GTask_Update() {
-    uchar l_data = GPort_Data_Read(g_port_read);
-    GPort_Data_Write(g_port_write, l_data);
+    uchar l_data = GPort_Data_Read(g_read_port);
+    GPort_Data_Write(g_write_port, l_data);
 }
 //===============================================
 void main() {
+    GSch_Init(10);
     GTask_Init(3, 1);
+    GSch_Add_Task(GTask_Update, 1, 20);
+    GSch_Start();
     while(1) {
-        GTask_Update();
-        GDelay_ms(200);
+        GSch_Dispatch_Tasks();
     }
 }
 //===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_port_byte_read.gif" alt="/Tutoriels/Embedded_System/8051/img/i_port_byte_read.gif"></div><br><h2 class="Title7 GTitle2" id="Ports-Ecrire-sur-une-broche"><a class="Link9" href="#Ports">Ecrire sur une broche</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
-#include &lt;reg52.h&gt;
+#include "GSch.h"
 //===============================================
-#define TIME_1_MS (125)
-//===============================================
-typedef unsigned char uchar;
-typedef unsigned int uint;
-//===============================================
-static uchar g_port = 0;
-static uchar g_pin_1 = 0;
-static uchar g_pin_2 = 0;
+static uchar g_port;
+static uchar g_pin_1;
+static uchar g_pin_2;
 static bit g_data = 0;
-//===============================================
-static void GDelay_ms(uint ms) {
-    uint i, j;
-    for(i = 0; i &lt; ms; i++) {
-        for(j = 0; j &lt; TIME_1_MS; j++);
-    }
-}
 //=============================================== 
 static void GPort_Bit_Write(uchar port, uchar pin, bit d) {
     uchar l_mask = 0x01;
@@ -1374,10 +1352,12 @@ static void GTask_Update() {
 }
 //===============================================
 void main() {
+    GSch_Init(10);
     GTask_Init(1, 0, 7);
+    GSch_Add_Task(GTask_Update, 1, 100);
+    GSch_Start();
     while(1) {
-        GTask_Update();
-        GDelay_ms(1000);
+        GSch_Dispatch_Tasks();
     }
 }
 //===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_port_bit_write.gif" alt="/Tutoriels/Embedded_System/8051/img/i_port_bit_write.gif"></div><br><h2 class="Title7 GTitle2" id="Ports-Lire-une-broche"><a class="Link9" href="#Ports">Lire une broche</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
