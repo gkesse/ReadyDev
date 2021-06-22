@@ -1538,4 +1538,4 @@ void GPort_Bit_Write(uchar port, uchar pin, bit d) {
     else if(port == 2) {P2 = (d == 0) ? (P2 &amp; (~l_mask)) : (P2 | l_mask);}
     else if(port == 3) {P3 = (d == 0) ? (P3 &amp; (~l_mask)) : (P3 | l_mask);}
 }
-//===============================================</pre></div></div>&nbsp;<br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_led_chase.gif" alt="/Tutoriels/Embedded_System/8051/img/i_led_chase.gif"></div><br><br><br></div></div></div></div><br>
+//===============================================</pre></div></div>&nbsp;<br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_led_chase.gif" alt="/Tutoriels/Embedded_System/8051/img/i_led_chase.gif"></div><br></div></div></div></div><br>
