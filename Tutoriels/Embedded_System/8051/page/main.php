@@ -1361,23 +1361,11 @@ void main() {
     }
 }
 //===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_port_bit_write.gif" alt="/Tutoriels/Embedded_System/8051/img/i_port_bit_write.gif"></div><br><h2 class="Title7 GTitle2" id="Ports-Lire-une-broche"><a class="Link9" href="#Ports">Lire une broche</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
-#include &lt;reg52.h&gt;
+#include "GSch.h"
 //===============================================
-#define TIME_1_MS (125)
-//===============================================
-typedef unsigned char uchar;
-typedef unsigned int uint;
-//===============================================
-static uchar g_port = 0;
-static uchar g_pin_read = 0;
-static uchar g_pin_write = 0;
-//===============================================
-static void GDelay_ms(uint ms) {
-    uint i, j;
-    for(i = 0; i &lt; ms; i++) {
-        for(j = 0; j &lt; TIME_1_MS; j++);
-    }
-}
+static uchar g_port;
+static uchar g_read_pin;
+static uchar g_write_pin;
 //=============================================== 
 static void GPort_Bit_Write(uchar port, uchar pin, bit d) {
     uchar l_mask = 0x01;
@@ -1392,7 +1380,6 @@ static bit GPort_Bit_Read(uchar port, uchar pin) {
     uchar l_mask = 0x01;
     bit l_data = 0;
     l_mask &lt;&lt;= pin;
-    GPort_Bit_Write(port, pin, 1);
     if(port == 0) {l_data = ((P0 &amp; l_mask) == 0) ? 0 : 1;}
     else if(port == 1) {l_data = ((P1 &amp; l_mask) == 0) ? 0 : 1;}
     else if(port == 2) {l_data = ((P2 &amp; l_mask) == 0) ? 0 : 1;}
@@ -1402,21 +1389,23 @@ static bit GPort_Bit_Read(uchar port, uchar pin) {
 //===============================================
 static void GTask_Init(uchar port, uchar read_pin, uchar write_pin) {
     g_port = port;
-    g_pin_read = read_pin;
-    g_pin_write = write_pin;
-    GPort_Bit_Write(g_port, g_pin_read, 1);
+    g_read_pin = read_pin;
+    g_write_pin = write_pin;
+    GPort_Bit_Write(g_port, g_read_pin, 1);
 }
 //===============================================
 static void GTask_Update() {
-    bit l_data = GPort_Bit_Read(g_port, g_pin_read);
-    GPort_Bit_Write(g_port, g_pin_write, l_data);
+    bit l_data = GPort_Bit_Read(g_port, g_read_pin);
+    GPort_Bit_Write(g_port, g_write_pin, l_data);
 }
 //===============================================
 void main() {
+    GSch_Init(10);
     GTask_Init(1, 7, 0);
+    GSch_Add_Task(GTask_Update, 1, 20);
+    GSch_Start();
     while(1) {
-        GTask_Update();
-        GDelay_ms(200);
+        GSch_Dispatch_Tasks();
     }
 }
 //===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_port_bit_read.gif" alt="/Tutoriels/Embedded_System/8051/img/i_port_bit_read.gif"></div><br></div></div></div></div><br>
