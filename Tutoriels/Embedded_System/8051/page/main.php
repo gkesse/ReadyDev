@@ -759,7 +759,335 @@ struct _sGTask {
 #define SCH_MAX_TASKS (8)
 //===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Tableau des tâches</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 sGTask g_task_map[SCH_MAX_TASKS];
-//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Systeme-d-exploitation-temps-reel-Creer-un-ordonnanceur-multitache"><a class="Link9" href="#Systeme-d-exploitation-temps-reel">Créer un ordonnanceur multitâche</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Systeme-d-exploitation-temps-reel-Creer-un-ordonnanceur-a-base-du-Timer-T0"><a class="Link9" href="#Systeme-d-exploitation-temps-reel">Créer un ordonnanceur à base du Timer T0</a></h2><br>Le <b>Timer T0</b> propose dans son mode 1 un compteur 16 bits à rechargement manuel.<br><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GSch.h"
+//===============================================
+sbit g_led_pin = P1^0;
+sbit g_button_pin = P1^7;
+//===============================================
+static bit g_button_state = 0;
+//===============================================
+static void GTask_Init() {
+    g_led_pin = 1;
+    g_button_pin = 1;
+}
+//===============================================
+static void GButton_Update() {
+    if(g_button_pin == 0) {
+        g_button_state = !g_button_state;
+        if(g_button_state == 0) {
+            g_led_pin = 1;
+        }
+    }
+}
+//===============================================
+static void GLed_Update() {
+    if(g_button_state == 1) {
+        g_led_pin = !g_led_pin;
+    }
+}
+//===============================================
+void main() {
+    GSch_Init(10);
+    GTask_Init();
+    GSch_Add_Task(GButton_Update, 0, 20);
+    GSch_Add_Task(GLed_Update, 1, 20);
+    GSch_Start();
+    while(1) {
+        GSch_Dispatch_Tasks();
+    }
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GSch.h</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#ifndef _GSch_
+#define _GSch_
+//===============================================
+#include &lt;reg52.h&gt;
+//===============================================
+typedef unsigned char uchar;
+typedef unsigned int uint;
+typedef unsigned long ulong;
+//===============================================
+void GSch_Init(uchar ms);
+void GSch_Add_Task(void (*pTask)(), const uint delay, const uint period);
+void GSch_Start();
+void GSch_Dispatch_Tasks();
+//===============================================
+#endif
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GSch.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GSch.h"
+//===============================================
+#define OSC_FREQ (12000000UL)
+#define OSC_PER_INST (12) 
+//===============================================
+#define PRELOAD(ms) (65536 - ((OSC_FREQ * ms) / (OSC_PER_INST * 1000))) 
+#define PRELOAD_H(ms) (PRELOAD(ms) / 256)
+#define PRELOAD_L(ms) (PRELOAD(ms) % 256)
+//===============================================
+#define INTERRUPT_TIMER_T0 1
+//===============================================
+#define SCH_MAX_TASKS (8)
+//===============================================
+typedef struct _sGTask sGTask;
+//===============================================
+struct _sGTask {
+    void (*pTask)();
+    uint delay;
+    uint period;
+    uchar run_me;
+};
+//===============================================
+sGTask g_task_map[SCH_MAX_TASKS];
+//===============================================
+static uchar g_preload_h;
+static uchar g_preload_l;
+//===============================================
+static void GSch_Go_To_Sleep();
+static void GSch_Delete_Task(uchar index);
+static void GSch_Reload();
+//===============================================
+void GSch_Init(uchar ms) {
+    uchar l_index;
+    for(l_index = 0; l_index &lt; SCH_MAX_TASKS; l_index++) {
+        GSch_Delete_Task(l_index);
+    }
+    g_preload_h = PRELOAD_H(ms); 
+    g_preload_l = PRELOAD_L(ms); 
+    TMOD &amp;= 0xF0; 
+    TMOD |= 0x01; 
+    TH0 = g_preload_h; 
+    TL0 = g_preload_l; 
+    TF0 = 0; 
+    ET0 = 1;
+    TR0 = 1; 
+}
+//===============================================
+static void GSch_Reload() {
+    TH0 = g_preload_h; 
+    TL0 = g_preload_l; 
+    TF0 = 0; 
+}
+//===============================================
+void GSch_Add_Task(void (*pTask)(), const uint delay, const uint period) {
+    uchar l_index = 0;
+    while((g_task_map[l_index].pTask != 0) &amp;&amp; (l_index &lt; SCH_MAX_TASKS)) l_index++;
+    if(l_index == SCH_MAX_TASKS) return;
+    g_task_map[l_index].pTask = pTask;
+    g_task_map[l_index].delay = delay;
+    g_task_map[l_index].period = period;
+    g_task_map[l_index].run_me = 0;
+}
+//===============================================
+void GSch_Start() {
+    EA = 1;
+}
+//===============================================
+static void GSch_Update() interrupt INTERRUPT_TIMER_T0 {
+    uchar l_index;
+    GSch_Reload();
+    for(l_index = 0; l_index &lt; SCH_MAX_TASKS; l_index++) {
+        if(g_task_map[l_index].pTask != 0) {
+            if(g_task_map[l_index].delay == 0) {
+                g_task_map[l_index].run_me += 1;
+                if(g_task_map[l_index].period != 0) {
+                    g_task_map[l_index].delay = g_task_map[l_index].period;
+                }
+            }
+            else {
+                g_task_map[l_index].delay -= 1;
+            }
+        }
+    }
+}
+//===============================================
+void GSch_Dispatch_Tasks() {
+    uchar l_index;
+    for(l_index = 0; l_index &lt; SCH_MAX_TASKS; l_index++) {
+        if(g_task_map[l_index].run_me &gt; 0) {
+            (*g_task_map[l_index].pTask)();
+            g_task_map[l_index].run_me -= 1;
+            if(g_task_map[l_index].period == 0) {
+                GSch_Delete_Task(l_index);
+            }
+        }
+    }
+    GSch_Go_To_Sleep();
+}
+//===============================================
+static void GSch_Delete_Task(uchar index) {
+    g_task_map[index].pTask = 0x0000;
+    g_task_map[index].delay = 0;
+    g_task_map[index].period = 0;
+    g_task_map[index].run_me = 0;
+}
+//===============================================
+static void GSch_Go_To_Sleep() {
+    PCON |= 0x01;
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_sch_interrupt_timer_t0.gif" alt="/Tutoriels/Embedded_System/8051/img/i_sch_interrupt_timer_t0.gif"></div><br><h2 class="Title7 GTitle2" id="Systeme-d-exploitation-temps-reel-Creer-un-ordonnanceur-a-base-du-Timer-T1"><a class="Link9" href="#Systeme-d-exploitation-temps-reel">Créer un ordonnanceur à base du Timer T1</a></h2><br>Le <b>Timer T1</b> propose dans son mode 1 un compteur 16 bits à rechargement manuel.<br><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GSch.h"
+//===============================================
+sbit g_led_pin = P1^0;
+sbit g_button_pin = P1^7;
+//===============================================
+static bit g_button_state = 0;
+//===============================================
+static void GTask_Init() {
+    g_led_pin = 1;
+    g_button_pin = 1;
+}
+//===============================================
+static void GButton_Update() {
+    if(g_button_pin == 0) {
+        g_button_state = !g_button_state;
+        if(g_button_state == 0) {
+            g_led_pin = 1;
+        }
+    }
+}
+//===============================================
+static void GLed_Update() {
+    if(g_button_state == 1) {
+        g_led_pin = !g_led_pin;
+    }
+}
+//===============================================
+void main() {
+    GSch_Init(10);
+    GTask_Init();
+    GSch_Add_Task(GButton_Update, 0, 20);
+    GSch_Add_Task(GLed_Update, 1, 20);
+    GSch_Start();
+    while(1) {
+        GSch_Dispatch_Tasks();
+    }
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GSch.h</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#ifndef _GSch_
+#define _GSch_
+//===============================================
+#include &lt;reg52.h&gt;
+//===============================================
+typedef unsigned char uchar;
+typedef unsigned int uint;
+typedef unsigned long ulong;
+//===============================================
+void GSch_Init(uchar ms);
+void GSch_Add_Task(void (*pTask)(), const uint delay, const uint period);
+void GSch_Start();
+void GSch_Dispatch_Tasks();
+//===============================================
+#endif
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GSch.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GSch.h"
+//===============================================
+#define OSC_FREQ (12000000UL)
+#define OSC_PER_INST (12) 
+//===============================================
+#define PRELOAD(ms) (65536 - ((OSC_FREQ * ms) / (OSC_PER_INST * 1000))) 
+#define PRELOAD_H(ms) (PRELOAD(ms) / 256)
+#define PRELOAD_L(ms) (PRELOAD(ms) % 256)
+//===============================================
+#define INTERRUPT_TIMER_T1 3
+//===============================================
+#define SCH_MAX_TASKS (8)
+//===============================================
+typedef struct _sGTask sGTask;
+//===============================================
+struct _sGTask {
+    void (*pTask)();
+    uint delay;
+    uint period;
+    uchar run_me;
+};
+//===============================================
+sGTask g_task_map[SCH_MAX_TASKS];
+//===============================================
+static uchar g_preload_h;
+static uchar g_preload_l;
+//===============================================
+static void GSch_Go_To_Sleep();
+static void GSch_Delete_Task(uchar index);
+static void GSch_Reload();
+//===============================================
+void GSch_Init(uchar ms) {
+    uchar l_index;
+    for(l_index = 0; l_index &lt; SCH_MAX_TASKS; l_index++) {
+        GSch_Delete_Task(l_index);
+    }
+    g_preload_h = PRELOAD_H(ms); 
+    g_preload_l = PRELOAD_L(ms); 
+    TMOD &amp;= 0x0F; 
+    TMOD |= 0x10; 
+    TH1 = g_preload_h; 
+    TL1 = g_preload_l; 
+    TF1 = 0; 
+    ET1 = 1;
+    TR1 = 1; 
+}
+//===============================================
+static void GSch_Reload() {
+    TH1 = g_preload_h; 
+    TL1 = g_preload_l; 
+    TF1 = 0; 
+}
+//===============================================
+void GSch_Add_Task(void (*pTask)(), const uint delay, const uint period) {
+    uchar l_index = 0;
+    while((g_task_map[l_index].pTask != 0) &amp;&amp; (l_index &lt; SCH_MAX_TASKS)) l_index++;
+    if(l_index == SCH_MAX_TASKS) return;
+    g_task_map[l_index].pTask = pTask;
+    g_task_map[l_index].delay = delay;
+    g_task_map[l_index].period = period;
+    g_task_map[l_index].run_me = 0;
+}
+//===============================================
+void GSch_Start() {
+    EA = 1;
+}
+//===============================================
+static void GSch_Update() interrupt INTERRUPT_TIMER_T1 {
+    uchar l_index;
+    GSch_Reload();
+    for(l_index = 0; l_index &lt; SCH_MAX_TASKS; l_index++) {
+        if(g_task_map[l_index].pTask != 0) {
+            if(g_task_map[l_index].delay == 0) {
+                g_task_map[l_index].run_me += 1;
+                if(g_task_map[l_index].period != 0) {
+                    g_task_map[l_index].delay = g_task_map[l_index].period;
+                }
+            }
+            else {
+                g_task_map[l_index].delay -= 1;
+            }
+        }
+    }
+}
+//===============================================
+void GSch_Dispatch_Tasks() {
+    uchar l_index;
+    for(l_index = 0; l_index &lt; SCH_MAX_TASKS; l_index++) {
+        if(g_task_map[l_index].run_me &gt; 0) {
+            (*g_task_map[l_index].pTask)();
+            g_task_map[l_index].run_me -= 1;
+            if(g_task_map[l_index].period == 0) {
+                GSch_Delete_Task(l_index);
+            }
+        }
+    }
+    GSch_Go_To_Sleep();
+}
+//===============================================
+static void GSch_Delete_Task(uchar index) {
+    g_task_map[index].pTask = 0x0000;
+    g_task_map[index].delay = 0;
+    g_task_map[index].period = 0;
+    g_task_map[index].run_me = 0;
+}
+//===============================================
+static void GSch_Go_To_Sleep() {
+    PCON |= 0x01;
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_sch_interrupt_timer_t1.gif" alt="/Tutoriels/Embedded_System/8051/img/i_sch_interrupt_timer_t1.gif"></div><br><h2 class="Title7 GTitle2" id="Systeme-d-exploitation-temps-reel-Creer-un-ordonnanceur-a-base-du-Timer-T2"><a class="Link9" href="#Systeme-d-exploitation-temps-reel">Créer un ordonnanceur à base du Timer T2</a></h2><br>Le <b>Timer T2</b> propose un compteur 16 bits à rechargement automatique.<br><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 #include "GSch.h"
 //===============================================
 sbit g_led_pin = P1^0;
