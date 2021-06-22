@@ -1408,4 +1408,61 @@ void main() {
         GSch_Dispatch_Tasks();
     }
 }
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_port_bit_read.gif" alt="/Tutoriels/Embedded_System/8051/img/i_port_bit_read.gif"></div><br></div></div></div></div><br>
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_port_bit_read.gif" alt="/Tutoriels/Embedded_System/8051/img/i_port_bit_read.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Diode-LED"><a class="Link3" href="#">Diode LED</a></h1><div class="Body3"><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Diode-LED-Clignoter-une-diode-LED"><a class="Link9" href="#Diode-LED">Clignoter une diode LED</a></h2><br>On peut faire clignoter une diode LED pour informer un utilisateur suite à la mise sous tension d'un système. Pour réaliser cela, on se sert d'un bouton poussoir pour modéliser la mise sous tension du système et on fait clignoter la diode LED chaque 200 ms pendant 3 s puis on l'éteint.<br><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GSch.h"
+#include "GPort.h"
+//===============================================
+static uchar g_button_port;
+static uchar g_button_pin;
+static bit g_button_state;
+static uchar g_led_port;
+static uchar g_led_pin;
+static bit g_led_state = 1;
+static uchar g_led_count = 0;
+//===============================================
+static void GTask_Init(uchar button_port, uchar button_pin, uchar led_port, uchar led_pin) {
+    g_button_port = button_port;
+    g_button_pin = button_pin;
+    g_led_port = led_port;
+    g_led_pin = led_pin;
+    GPort_Bit_Write(g_button_port, g_button_pin, 1);
+    GPort_Bit_Write(g_led_port, g_led_pin, g_led_state);
+}
+//===============================================
+static void GButton_Update() {
+    bit l_button_state = GPort_Bit_Read(g_button_port, g_button_pin);
+    if(l_button_state == 0) {
+        g_button_state = 1;
+    }
+}
+//===============================================
+static void GLed_Flash_Update() {
+    if(g_button_state == 1) {
+        g_led_state = !g_led_state;
+        GPort_Bit_Write(g_led_port, g_led_pin, g_led_state);
+    }
+}
+//===============================================
+static void GLed_Stop_Update() {
+    if(g_button_state == 1) {
+        if(g_led_count++ == 15) {
+            g_led_count = 0;
+            g_button_state = 0;
+            g_led_state = 1;
+            GPort_Bit_Write(g_led_port, g_led_pin, g_led_state);
+        }
+    }
+}
+//===============================================
+void main() {
+    GSch_Init(1);
+    GTask_Init(1, 7, 1, 0);
+    GSch_Add_Task(GButton_Update, 0, 200);
+    GSch_Add_Task(GLed_Flash_Update, 1, 200);
+    GSch_Add_Task(GLed_Stop_Update, 2, 200);
+    GSch_Start();
+    while(1) {
+        GSch_Dispatch_Tasks();
+    }
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_led_flash.gif" alt="/Tutoriels/Embedded_System/8051/img/i_led_flash.gif"></div><br><h2 class="Title7 GTitle2" id="Diode-LED-Realiser-un-chenillard"><a class="Link9" href="#Diode-LED">Réaliser un chenillard</a></h2><br><br><h3 class="Title8 GTitle3">main.c</h3><br><br><h3 class="Title8 GTitle3">Résultat</h3><br><br><br><br></div></div></div></div><br>
