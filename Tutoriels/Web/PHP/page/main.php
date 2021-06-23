@@ -445,12 +445,18 @@ echo $lObj-&gt;protected_data;
 on lit une propriété inexistante : no_exist_data
 on lit une propriété inexistante : private_data
 on lit une propriété inexistante : protected_data
-on appelle le destructeur</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Fichier"><a class="Link3" href="#">Fichier</a></h1><div class="Body3"><br>Un fichier peut être utilisé pour conserver des données ou des informations sur un système.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Fichier-Ajouter-un-texte-a-la-fin-d-un-fichier"><a class="Link9" href="#Fichier">Ajouter un texte à la fin d'un fichier</a></h2><br>Cette technique peut être utiliser pour enregistrer les traces de l'évolution d'un système dans un fichier log.<br><br><h3 class="Title8 GTitle3">index.php</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="php">&lt;?php
+on appelle le destructeur</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Fichier"><a class="Link3" href="#">Fichier</a></h1><div class="Body3"><br>Un fichier peut être utilisé pour conserver des données ou des informations sur un système.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Fichier-Ajouter-un-texte-a-la-fin-d-un-fichier"><a class="Link9" href="#Fichier">Ajouter un texte à la fin d'un fichier</a></h2><br>Cette technique peut être utiliser pour enregistrer les traces de l'évolution d'un système dans un fichier log.<br><br><h3 class="Title8 GTitle3">Méthode 1 (index.php)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="php">&lt;?php
 //===============================================
 $lFile = "debug.txt";
 $lContent = file_get_contents($lFile);
 $lContent .= "Bonjour tout le monde\n";
 file_put_contents($lFile, $lContent);
+//===============================================
+?&gt;</pre></div></div><br><h3 class="Title8 GTitle3">Méthode 2 (index.php)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="php">&lt;?php
+//===============================================
+$lFile = "debug.txt";
+$lContent = "Bonjour tout le monde\n";
+file_put_contents($lFile, $lContent, FILE_APPEND | LOCK_EX);
 //===============================================
 ?&gt;</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="php">debug.txt
 
