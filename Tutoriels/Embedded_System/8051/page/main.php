@@ -1538,4 +1538,52 @@ void GPort_Bit_Write(uchar port, uchar pin, bit d) {
     else if(port == 2) {P2 = (d == 0) ? (P2 &amp; (~l_mask)) : (P2 | l_mask);}
     else if(port == 3) {P3 = (d == 0) ? (P3 &amp; (~l_mask)) : (P3 | l_mask);}
 }
-//===============================================</pre></div></div>&nbsp;<br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_led_chase.gif" alt="/Tutoriels/Embedded_System/8051/img/i_led_chase.gif"></div><br></div></div></div></div><br>
+//===============================================</pre></div></div>&nbsp;<br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_led_chase.gif" alt="/Tutoriels/Embedded_System/8051/img/i_led_chase.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Afficheur-7-segment"><a class="Link3" href="#">Afficheur 7-segment</a></h1><div class="Body3"><br>Un afficheur <b>7-segment</b> peut être utilisé pour afficher des chiffres.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Afficheur-7-segment-Realiser-un-compteur-de-0-a-9"><a class="Link9" href="#Afficheur-7-segment">Réaliser un compteur de 0 à 9</a></h2><br>Un <b>compteur </b>peut être associé à des feux de circulation pour indiquer le temps restant avant d'être autorisé à circuler.<br><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GSch.h"
+#include "G7Seg.h"
+//===============================================
+static uchar g_counter_port;
+static uchar g_counter_data;
+//===============================================
+static void GTask_Init() {
+    g_counter_port = 1;
+    g_counter_data = 0;
+}
+//===============================================
+static void GCounter_Update() {
+    G7Seg_Digit_Write(g_counter_port, g_counter_data);
+    if(++g_counter_data &gt; 9) {
+        g_counter_data = 0;
+    }
+}
+//===============================================
+void main() {
+    GSch_Init(1);
+    GTask_Init();
+    GSch_Add_Task(GCounter_Update, 0, 500);
+    GSch_Start();
+    while(1) {
+        GSch_Dispatch_Tasks();
+    }
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GPort.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GPort.h"
+//===============================================
+void GPort_Data_Write(uchar port, uchar d) {
+    if(port == 0) {P0 = d;}
+    else if(port == 1) {P1 = d;}
+    else if(port == 2) {P2 = d;}
+    else if(port == 3) {P3 = d;}
+}
+//===============================================</pre></div></div>&nbsp;<br><h3 class="Title8 GTitle3">G7Seg.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "G7Seg.h"
+#include "GPort.h"
+//===============================================
+static code uchar g_digit_map[] = {
+    0x3f, 0x06, 0x5b,0x4f, 0x66, 0x6d, 0x7d, 0x07, 0x7f, 0x6F
+};
+//===============================================
+void G7Seg_Digit_Write(uchar port, uchar digit) {
+    GPort_Data_Write(port, ~g_digit_map[digit]);
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_7seg_1_digit.gif" alt="/Tutoriels/Embedded_System/8051/img/i_7seg_1_digit.gif"></div><br></div></div></div></div><br>
