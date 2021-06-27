@@ -332,7 +332,70 @@ on ouvre la base de données
 on charge la base de données
 on modifie la base de données
 on enregistre la base de données
-on ferme la base de données</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Timers"><a class="Link3" href="#">Timers</a></h1><div class="Body3"><br>L'obje <span class="GCode3"><code style="color:#cccccc;">window</code></span> permet l'exécution de code à des <b>intervalles de temps</b> spécifiés. Ces intervalles de temps sont appelés événements de chronométrage.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1622129349360"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1622129349360");</script></div><br><h2 class="Title7 GTitle2" id="Timers-Creer-un-timer-avec-setInterval"><a class="Link9" href="#Timers">Créer un timer avec setInterval</a></h2><br>La méthode <b>setInterval </b>répète une fonction donnée à chaque intervalle de temps donné.<br><br><h3 class="Title8 GTitle3">index.html</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="html">&lt;!DOCTYPE html&gt;
+on ferme la base de données</pre></div></div><br><h2 class="Title7 GTitle2" id="Patrons-de-conception-Creer-un-patron-strategie"><a class="Link9" href="#Patrons-de-conception">Créer un patron stratégie</a></h2><br>En génie logiciel, le patron <b>stratégie </b>est un patron de conception (design pattern) de type comportemental grâce auquel des algorithmes peuvent être sélectionnés à la volée au cours du temps d'exécution selon certaines conditions. Le patron de conception stratégie est utile pour des situations où il est nécessaire de permuter dynamiquement les algorithmes utilisés dans une application. Le patron stratégie est prévu pour fournir le moyen de définir une famille d'algorithmes, encapsuler chacun d'eux en tant qu'objet, et les rendre interchangeables. Ce patron laisse les algorithmes changer indépendamment des clients qui les emploient. <br><br><h3 class="Title8 GTitle3">index.html</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="html">&lt;!DOCTYPE html&gt;
+&lt;html lang="fr"&gt;
+    &lt;head&gt;
+        &lt;title&gt;ReadyApp&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;div id="msg"&gt;&lt;/div&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;script src="/manager.js"&gt;&lt;/script&gt;
+        &lt;script src="/script.js"&gt;&lt;/script&gt;
+        &lt;!-- ============================================ --&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</pre></div></div><br><h3 class="Title8 GTitle3">script.js</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="javascript">//===============================================
+class GAnimal {
+    constructor(name) {
+        this.name = name;
+    }
+    print() {
+        message("[GAnimal] Je suis un animal&lt;br&gt;");
+        message("[GAnimal] Mon nom est {0}&lt;br&gt;", this.name);
+    }
+}
+//===============================================
+class GCat extends GAnimal {
+    constructor(name, price) {
+        super(name);
+        this.price = price;
+    }
+    print() {
+        message("[GCat] Je suis un chat&lt;br&gt;");
+        message("[GCat] Mon nom est {0}&lt;br&gt;", this.name);
+        message("[GCat] Mon prix est {0} €&lt;br&gt;", this.price);
+    }
+}
+//===============================================
+class GDog extends GAnimal {
+    constructor(name, weight) {
+        super(name);
+        this.weight = weight;
+    }
+    print() {
+        message("[GDog] Je suis un chien&lt;br&gt;");
+        message("[GDog] Mon nom est {0}&lt;br&gt;", this.name);
+        message("[GDog] Mon poids est {0} kg&lt;br&gt;", this.weight);
+    }
+}
+//===============================================
+var lAnimals = [];
+lAnimals.push(new GAnimal("Jerry"));
+lAnimals.push(new GCat("Tom", 100));
+lAnimals.push(new GDog("Medor", 25));
+for(var i = 0; i &lt; lAnimals.length; i++) {
+    var lAnimal = lAnimals[i];
+    lAnimal.print();
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="html">[GAnimal] Je suis un animal
+[GAnimal] Mon nom est Jerry
+[GCat] Je suis un chat
+[GCat] Mon nom est Tom
+[GCat] Mon prix est 100 €
+[GDog] Je suis un chien
+[GDog] Mon nom est Medor
+[GDog] Mon poids est 25 kg</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Timers"><a class="Link3" href="#">Timers</a></h1><div class="Body3"><br>L'obje <span class="GCode3"><code style="color:#cccccc;">window</code></span> permet l'exécution de code à des <b>intervalles de temps</b> spécifiés. Ces intervalles de temps sont appelés événements de chronométrage.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1622129349360"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1622129349360");</script></div><br><h2 class="Title7 GTitle2" id="Timers-Creer-un-timer-avec-setInterval"><a class="Link9" href="#Timers">Créer un timer avec setInterval</a></h2><br>La méthode <b>setInterval </b>répète une fonction donnée à chaque intervalle de temps donné.<br><br><h3 class="Title8 GTitle3">index.html</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="html">&lt;!DOCTYPE html&gt;
 &lt;html lang='fr'&gt;
     &lt;head&gt;
         &lt;!-- ============================================ --&gt;
