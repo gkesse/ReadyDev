@@ -1,4 +1,4 @@
-<div class="Parallax GParallax1"><div class="Img Binary"><div class="Caption"><a href="#"><div class="Text">Programmation web en JavaScript<br></div></a></div></div><div class="Body2 Orange"><br>Le but de ce tutoriel est de vous apprendre la programmation web en <b>JavaScript</b>.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary1"><div class="Body0" id="Loader_1529412976174"><div class="Row26">Summary 1</div></div><script>loadSummary1("Loader_1529412976174");</script></div><br></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Introduction"><a class="Link3" href="#">Introduction</a></h1><div class="Body3"><br><b>JavaScript </b>est un langage de programmation de scripts principalement employé dans les pages web interactives et à ce titre est une partie essentielle des applications web. Avec les technologies HTML et CSS, JavaScript est parfois considéré comme l'une des technologies cœur du World Wide Web. Une grande majorité des sites web l'utilisent, et la majorité des navigateurs web disposent d'un moteur JavaScript dédié pour l'interpréter, indépendamment des considérations de sécurité qui peuvent se poser le cas échéant. C'est un langage orienté objet à prototype : les bases du langage et ses principales interfaces sont fournies par des objets. Cependant, à la différence d'un langage orienté objets, les objets de base ne sont pas des instances de classes. <br><br><div class="Img3 GImage"><img alt="/Tutoriels/Web/JavaScript/img/b_javascript.png" class="lazy" data-src="/Tutoriels/Web/JavaScript/img/b_javascript.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Fondamentaux"><a class="Link3" href="#">Fondamentaux</a></h1><div class="Body3"><br>Les fondamentaux de JavaScript.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1621915613102"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1621915613102");</script></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Creer-un-script-de-test"><a class="Link9" href="#Fondamentaux">Créer un script de test</a></h2><br>Le <b>script </b>est récupéré et exécuté immédiatement, avant que le navigateur ne poursuive l'analyse de la page. C'est pourquoi, dans la pratique, il est communément admis de placer, dans la mesure du possible, les balises &lt;script&gt; à la fin du document juste avant la fermeture de &lt;/body&gt;.<br><br><h3 class="Title8 GTitle3">index.html</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="html">&lt;!DOCTYPE html&gt;
+<div class="Parallax GParallax1"><div class="Img Binary"><div class="Caption"><a href="#"><div class="Text">Programmation web en JavaScript<br></div></a></div></div><div class="Body2 Orange"><br>Le but de ce tutoriel est de vous apprendre la programmation web en <b>JavaScript</b>.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary1"><div class="Body0" id="Loader_1529412976174"><div class="Row26">Summary 1</div></div><script>loadSummary1("Loader_1529412976174");</script></div><br></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Introduction"><a class="Link3" href="#">Introduction</a></h1><div class="Body3"><br><b>JavaScript </b>est un langage de programmation de scripts principalement employé dans les pages web interactives et à ce titre est une partie essentielle des applications web. Avec les technologies HTML et CSS, JavaScript est parfois considéré comme l'une des technologies cœur du World Wide Web. Une grande majorité des sites web l'utilisent, et la majorité des navigateurs web disposent d'un moteur JavaScript dédié pour l'interpréter, indépendamment des considérations de sécurité qui peuvent se poser le cas échéant. C'est un langage orienté objet à prototype : les bases du langage et ses principales interfaces sont fournies par des objets. Cependant, à la différence d'un langage orienté objets, les objets de base ne sont pas des instances de classes. <br><br><div class="Img3 GImage"><img src="/Tutoriels/Web/JavaScript/img/b_javascript.png" alt="/Tutoriels/Web/JavaScript/img/b_javascript.png"></div><br><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Fondamentaux"><a class="Link3" href="#">Fondamentaux</a></h1><div class="Body3"><br>Les fondamentaux de JavaScript.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1621915613102"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1621915613102");</script></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Installation"><a class="Link9" href="#Fondamentaux">Installation</a></h2><br>Aucune installation n'est nécessaire.<br><br><h2 class="Title7 GTitle2" id="Fondamentaux-Creer-un-script-de-test"><a class="Link9" href="#Fondamentaux">Créer un script de test</a></h2><br>Le <b>script </b>est récupéré et exécuté immédiatement, avant que le navigateur ne poursuive l'analyse de la page. C'est pourquoi, dans la pratique, il est communément admis de placer, dans la mesure du possible, les balises &lt;script&gt; à la fin du document juste avant la fermeture de &lt;/body&gt;.<br><br><h3 class="Title8 GTitle3">index.html</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="html">&lt;!DOCTYPE html&gt;
 &lt;html lang='fr'&gt;
     &lt;head&gt;
         &lt;title&gt;ReadyApp&lt;/title&gt;
@@ -71,7 +71,207 @@ function onClick(color) {
 }
 //===============================================
 onClick("green");
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Web/JavaScript/img/i_javascript_defer.gif" class="lazy entered loaded" data-src="/Tutoriels/Web/JavaScript/img/i_javascript_defer.gif" data-ll-status="loaded" src="/Tutoriels/Web/JavaScript/img/i_javascript_defer.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Timers"><a class="Link3" href="#">Timers</a></h1><div class="Body3"><br>L'obje <span class="GCode3"><code style="color:#cccccc;">window</code></span> permet l'exécution de code à des <b>intervalles de temps</b> spécifiés. Ces intervalles de temps sont appelés événements de chronométrage.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1622129349360"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1622129349360");</script></div><br><h2 class="Title7 GTitle2" id="Timers-Creer-un-timer-avec-setInterval"><a class="Link9" href="#Timers">Créer un timer avec setInterval</a></h2><br>La méthode <b>setInterval </b>répète une fonction donnée à chaque intervalle de temps donné.<br><br><h3 class="Title8 GTitle3">index.html</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="html">&lt;!DOCTYPE html&gt;
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Web/JavaScript/img/i_javascript_defer.gif" class="lazy entered loaded" data-src="/Tutoriels/Web/JavaScript/img/i_javascript_defer.gif" data-ll-status="loaded" src="/Tutoriels/Web/JavaScript/img/i_javascript_defer.gif"></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Formater-une-chaine-de-caractere"><a class="Link9" href="#Fondamentaux">Formater une chaîne de caractère</a></h2><br>Le <b>formatage </b>de chaîne de caractères permet de faire de la concaténation et de l'insertion de données dans une chaîne.<br><br><h3 class="Title8 GTitle3">index.html</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="html">&lt;!DOCTYPE html&gt;
+&lt;html lang='fr'&gt;
+    &lt;head&gt;
+        &lt;title&gt;ReadyApp&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;div id="msg"&gt;&lt;/div&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;script src='/script.js'&gt;&lt;/script&gt;
+        &lt;!-- ============================================ --&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</pre></div></div><br><h3 class="Title8 GTitle3">script.js</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="javascript">//===============================================
+function format(fmt, ...args) {
+    if (!fmt.match(/^(?:(?:(?:[^{}]|(?:\{\{)|(?:\}\}))+)|(?:\{[0-9]+\}))+$/)) {
+        throw new Error('invalid format string.');
+    }
+    return fmt.replace(/((?:[^{}]|(?:\{\{)|(?:\}\}))+)|(?:\{([0-9]+)\})/g, (m, str, index) =&gt; {
+        if (str) {
+            return str.replace(/(?:{{)|(?:}})/g, m =&gt; m[0]);
+        } else {
+            if (index &gt;= args.length) {
+                throw new Error('argument index is out of range in format');
+            }
+            return args[index];
+        }
+    });
+}
+//===============================================
+var lMsg = document.getElementById("msg");
+var lHtml = "";
+lHtml += format("Bonjour {0} le {1}&lt;br&gt;", "tout", "monde");
+lHtml += format("Année : {0}&lt;br&gt;", 2021);
+lHtml += format("PI : {0}&lt;br&gt;", 3.14);
+lMsg.innerHTML = lHtml;
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="javascript">Bonjour tout le monde
+Année : 2021
+PI : 3.14</pre></div></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Creer-un-systeme-de-console"><a class="Link9" href="#Fondamentaux">Créer un système de console</a></h2><br>Une <b>console </b>permet d'afficher des messages sur une interface permettant de déboguer un projet.<br><br><h3 class="Title8 GTitle3">index.html</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="html">&lt;!DOCTYPE html&gt;
+&lt;html lang='fr'&gt;
+    &lt;head&gt;
+        &lt;title&gt;ReadyApp&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;div id="msg"&gt;&lt;/div&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;script src='/manager.js'&gt;&lt;/script&gt;
+        &lt;script src='/script.js'&gt;&lt;/script&gt;
+        &lt;!-- ============================================ --&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</pre></div></div><br><h3 class="Title8 GTitle3">manager.js</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="javascript">//===============================================
+function format(fmt, ...args) {
+    if (!fmt.match(/^(?:(?:(?:[^{}]|(?:\{\{)|(?:\}\}))+)|(?:\{[0-9]+\}))+$/)) {
+        throw new Error('invalid format string.');
+    }
+    return fmt.replace(/((?:[^{}]|(?:\{\{)|(?:\}\}))+)|(?:\{([0-9]+)\})/g, (m, str, index) =&gt; {
+        if (str) {
+            return str.replace(/(?:{{)|(?:}})/g, m =&gt; m[0]);
+        } else {
+            if (index &gt;= args.length) {
+                throw new Error('argument index is out of range in format');
+            }
+            return args[index];
+        }
+    });
+}
+//===============================================
+function message(fmt, ...args) {
+    var lMsg = document.getElementById("msg");
+    var lHtml = format(fmt, ...args);
+    lMsg.innerHTML += lHtml;
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">script.js</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="javascript">//===============================================
+message("Bonjour {0} le {1}&lt;br&gt;", "tout", "monde");
+message("Année : {0}&lt;br&gt;", 2021);
+message("PI : {0}&lt;br&gt;", 3.14);
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="javascript">Bonjour tout le monde
+Année : 2021
+PI : 3.14</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programmation-orientee-objet"><a class="Link3" href="#">Programmation orientée objet</a></h1><div class="Body3"><br>La <b>programmation orientée objet</b> (POO), ou programmation par objet, est un paradigme de programmation informatique. Elle consiste en la définition et l'interaction de briques logicielles appelées objets ; un objet représente un concept, une idée ou toute entité du monde physique, comme une voiture, une personne ou encore une page d'un livre. Il possède une structure interne et un comportement, et il sait interagir avec ses pairs. Il s'agit donc de représenter ces objets et leurs relations ; l'interaction entre les objets via leurs relations permet de concevoir et réaliser les fonctionnalités attendues, de mieux résoudre le ou les problèmes. Dès lors, l'étape de modélisation revêt une importance majeure et nécessaire pour la POO. C'est elle qui permet de transcrire les éléments du réel sous forme virtuelle. La programmation par objet consiste à utiliser des techniques de programmation pour mettre en œuvre une conception basée sur les objets. Celle-ci peut être élaborée en utilisant des méthodologies de développement logiciel objet, dont la plus connue est le processus unifié (« Unified Software Development Process » en anglais), et exprimée à l'aide de langages de modélisation tels que le Unified Modeling Language (UML).<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Programmation-orientee-objet-Creer-une-classe"><a class="Link9" href="#Programmation-orientee-objet">Créer une classe</a></h2><br>En programmation orientée objet, la déclaration d'une <b>classe </b>regroupe des membres, méthodes et propriétés (attributs) communs à un ensemble d'objets. La classe déclare, d'une part, des attributs représentant l'état des objets et, d'autre part, des méthodes représentant leur comportement. Une classe représente donc une catégorie d'objets. Elle apparaît aussi comme un moule ou une usine à partir de laquelle il est possible de créer des objets ; c'est en quelque sorte une « boîte à outils » qui permet de fabriquer un objet. On parle alors d'un objet en tant qu'instance d'une classe (création d'un objet ayant les propriétés de la classe).<br><br><h3 class="Title8 GTitle3">index.html</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="html">&lt;!DOCTYPE html&gt;
+&lt;html lang='fr'&gt;
+    &lt;head&gt;
+        &lt;title&gt;ReadyApp&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;div id="msg"&gt;&lt;/div&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;script src='/manager.js'&gt;&lt;/script&gt;
+        &lt;script src='/script.js'&gt;&lt;/script&gt;
+        &lt;!-- ============================================ --&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</pre></div></div><br><h3 class="Title8 GTitle3">script.js</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="html">//===============================================
+class GPerson {
+    constructor(name, code, coef) {
+        this.name = name;
+        this.code = code;
+        this.coef = coef;
+    }
+    //===============================================
+    print() {
+        var lMsg = document.getElementById("msg");
+        var lHtml = "";
+        lHtml += format("Nom : {0}&lt;br&gt;", this.name);
+        lHtml += format("Code : {0}&lt;br&gt;", this.code);
+        lHtml += format("Coef : {0}&lt;br&gt;", this.coef);
+        lMsg.innerHTML = lHtml;
+    }
+}
+//===============================================
+var lPerson = new GPerson("Gerard KESSE", 123456, 3.14);
+lPerson.print();
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="javascript">Nom : Gerard KESSE
+Code : 123456
+Coef : 3.14</pre></div></div><br><h2 class="Title7 GTitle2" id="Programmation-orientee-objet-Creer-un-heritage-de-classe"><a class="Link9" href="#Programmation-orientee-objet">Créer un héritage de classe</a></h2><br>En programmation orientée objet, l’<b>héritage </b>est un mécanisme qui permet, lors de la déclaration d’une nouvelle classe, d'y inclure les caractéristiques d’une autre classe. L'héritage établit une relation de généralisation-spécialisation qui permet d'hériter dans la déclaration d’une nouvelle classe (appelée classe dérivée, classe fille, classe enfant ou sous-classe) des caractéristiques (propriétés et méthodes) de la déclaration d'une autre classe (appelée classe de base, classe mère, classe parent ou super-classe).<br><br><h3 class="Title8 GTitle3">index.html</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="html">&lt;!DOCTYPE html&gt;
+&lt;html lang="fr"&gt;
+    &lt;head&gt;
+        &lt;title&gt;ReadyApp&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;div id="msg"&gt;&lt;/div&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;script src="/manager.js"&gt;&lt;/script&gt;
+        &lt;script src="/script.js"&gt;&lt;/script&gt;
+        &lt;!-- ============================================ --&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</pre></div></div><br><h3 class="Title8 GTitle3">script.js</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="javascript">//===============================================
+class GPerson {
+    constructor(name) {
+        this.name = name;
+    }
+    printName() {
+        message("[{0}] Mon nom est {0}&lt;br&gt;", this.name);
+    }
+}
+//===============================================
+class GStudent extends GPerson {
+    constructor(name, average) {
+        super(name);
+        this.average = average;
+    }
+    printAverage() {
+        message("[{0}] Ma moyenne est {1}&lt;br&gt;", this.name, this.average);
+    }
+}
+//===============================================
+var lPerson = new GPerson("Gerard KESSE");
+lPerson.printName();
+var lStudent = new GStudent("Pierre DUPONT", 15.25);
+lStudent.printName();
+lStudent.printAverage();
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="html">[Gerard KESSE] Mon nom est Gerard KESSE
+[Pierre DUPONT] Mon nom est Pierre DUPONT
+[Pierre DUPONT] Ma moyenne est 15.25</pre></div></div><br><h2 class="Title7 GTitle2" id="Programmation-orientee-objet-Creer-un-polymorphisme-de-classe"><a class="Link9" href="#Programmation-orientee-objet">Créer un polymorphisme de classe</a></h2><br>En informatique et en théorie des types, le <b>polymorphisme</b>, est le concept consistant à fournir une interface unique à des entités pouvant avoir différents types. Par exemple, des opérations telles que la multiplication peuvent ainsi être étendues à des scalaires aux vecteurs ou aux matrices, l'addition, des scalaires aux fonctions ou aux chaînes de caractères, etc.<br><br><h3 class="Title8 GTitle3">index.html</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="html">&lt;!DOCTYPE html&gt;
+&lt;html lang="fr"&gt;
+    &lt;head&gt;
+        &lt;title&gt;ReadyApp&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;div id="msg"&gt;&lt;/div&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;script src="/manager.js"&gt;&lt;/script&gt;
+        &lt;script src="/script.js"&gt;&lt;/script&gt;
+        &lt;!-- ============================================ --&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</pre></div></div><br><h3 class="Title8 GTitle3">script.js</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="javascript">//===============================================
+class GPerson {
+    constructor(name) {
+        this.name = name;
+    }
+    print() {
+        message("[GPerson] Je suis une personne&lt;br&gt;");
+        message("[GPerson] Mon nom est {0}&lt;br&gt;", this.name);
+    }
+}
+//===============================================
+class GStudent extends GPerson {
+    constructor(name, average) {
+        super(name);
+        this.average = average;
+    }
+    print() {
+        message("[GStudent] Je suis un étudiant&lt;br&gt;");
+        message("[GStudent] Mon nom est {0}&lt;br&gt;", this.name);
+        message("[GStudent] Ma moyenne est {0}&lt;br&gt;", this.average);
+    }
+}
+//===============================================
+var lPersons = [];
+lPersons.push(new GPerson("Gerard KESSE"));
+lPersons.push(new GStudent("Pierre DUPONT", 15.25));
+for(var i = 0; i &lt; lPersons.length; i++) {
+    var lPerson = lPersons[i];
+    lPerson.print();
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="html">[GPerson] Je suis une personne
+[GPerson] Mon nom est Gerard KESSE
+[GStudent] Je suis un étudiant
+[GStudent] Mon nom est Pierre DUPONT
+[GStudent] Ma moyenne est 15.25</pre></div></div><div align="left"><br></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Timers"><a class="Link3" href="#">Timers</a></h1><div class="Body3"><br>L'obje <span class="GCode3"><code style="color:#cccccc;">window</code></span> permet l'exécution de code à des <b>intervalles de temps</b> spécifiés. Ces intervalles de temps sont appelés événements de chronométrage.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1622129349360"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1622129349360");</script></div><br><h2 class="Title7 GTitle2" id="Timers-Creer-un-timer-avec-setInterval"><a class="Link9" href="#Timers">Créer un timer avec setInterval</a></h2><br>La méthode <b>setInterval </b>répète une fonction donnée à chaque intervalle de temps donné.<br><br><h3 class="Title8 GTitle3">index.html</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="html">&lt;!DOCTYPE html&gt;
 &lt;html lang='fr'&gt;
     &lt;head&gt;
         &lt;!-- ============================================ --&gt;
