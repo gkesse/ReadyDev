@@ -271,7 +271,68 @@ for(var i = 0; i &lt; lPersons.length; i++) {
 [GPerson] Mon nom est Gerard KESSE
 [GStudent] Je suis un étudiant
 [GStudent] Mon nom est Pierre DUPONT
-[GStudent] Ma moyenne est 15.25</pre></div></div><div align="left"><br></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Timers"><a class="Link3" href="#">Timers</a></h1><div class="Body3"><br>L'obje <span class="GCode3"><code style="color:#cccccc;">window</code></span> permet l'exécution de code à des <b>intervalles de temps</b> spécifiés. Ces intervalles de temps sont appelés événements de chronométrage.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1622129349360"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1622129349360");</script></div><br><h2 class="Title7 GTitle2" id="Timers-Creer-un-timer-avec-setInterval"><a class="Link9" href="#Timers">Créer un timer avec setInterval</a></h2><br>La méthode <b>setInterval </b>répète une fonction donnée à chaque intervalle de temps donné.<br><br><h3 class="Title8 GTitle3">index.html</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="html">&lt;!DOCTYPE html&gt;
+[GStudent] Ma moyenne est 15.25</pre></div></div><div align="left"><br></div></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Patrons-de-conception"><a class="Link3" href="#">Patrons de conception</a></h1><div class="Body3"><br>En informatique, et plus particulièrement en développement logiciel, un <b>patron de conception</b> (souvent appelé design pattern) est un arrangement caractéristique de modules, reconnu comme bonne pratique en réponse à un problème de conception d'un logiciel. Il décrit une solution standard, utilisable dans la conception de différents logiciels. Un patron de conception est issu de l'expérience des concepteurs de logiciels. Il décrit un arrangement récurrent de rôles et d'actions joués par des modules d'un logiciel, et le nom du patron sert de vocabulaire commun entre le concepteur et le programmeur. D'une manière analogue à un motif de conception en architecture, le patron de conception décrit les grandes lignes d'une solution, qui peuvent ensuite être modifiées et adaptées en fonction des besoins. Les patrons de conception décrivent des procédés de conception généraux et permettent en conséquence de capitaliser l'expérience appliquée à la conception de logiciel. Ils ont une influence sur l'architecture logicielle d'un système informatique. <br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Patrons-de-conception-Creer-un-patron-singleton"><a class="Link9" href="#Patrons-de-conception">Créer un patron singleton</a></h2><br>En génie logiciel, le <b>singleton </b>est un patron de conception (design pattern) dont l'objectif est de restreindre l'instanciation d'une classe à un seul objet (ou bien à quelques objets seulement). Il est utilisé lorsqu'on a besoin exactement d'un objet pour coordonner des opérations dans un système. Le modèle est parfois utilisé pour son efficacité, lorsque le système est plus rapide ou occupe moins de mémoire avec peu d'objets qu'avec beaucoup d'objets similaires.<br><br><h3 class="Title8 GTitle3">index.html</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="html">&lt;!DOCTYPE html&gt;
+&lt;html lang="fr"&gt;
+    &lt;head&gt;
+        &lt;title&gt;ReadyApp&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;div id="msg"&gt;&lt;/div&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;script src="/manager.js"&gt;&lt;/script&gt;
+        &lt;script src="/script.js"&gt;&lt;/script&gt;
+        &lt;!-- ============================================ --&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</pre></div></div><br><h3 class="Title8 GTitle3">script.js</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="javascript">//===============================================
+class GDatabase {
+    //===============================================
+    static instance = null;
+    //===============================================
+    constructor() {
+        message("on crée le singleton&lt;br&gt;");
+    }
+    //===============================================
+    static Instance() {
+        if(this.instance == null) {
+            this.instance = new GDatabase();
+        }
+        return this.instance;
+    }
+    //===============================================
+    open() {
+        message("on ouvre la base de données&lt;br&gt;");
+    }
+    //===============================================
+    load() {
+        message("on charge la base de données&lt;br&gt;");
+    }
+    //===============================================
+    update() {
+        message("on modifie la base de données&lt;br&gt;");
+    }
+    //===============================================
+    save() {
+        message("on enregistre la base de données&lt;br&gt;");
+    }
+    //===============================================
+    close() {
+        message("on ferme la base de données&lt;br&gt;");
+    }
+    //===============================================
+}
+//===============================================
+GDatabase.Instance().open();
+GDatabase.Instance().load();
+GDatabase.Instance().update();
+GDatabase.Instance().save();
+GDatabase.Instance().close();
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="javascript">on crée le singleton
+on ouvre la base de données
+on charge la base de données
+on modifie la base de données
+on enregistre la base de données
+on ferme la base de données</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Timers"><a class="Link3" href="#">Timers</a></h1><div class="Body3"><br>L'obje <span class="GCode3"><code style="color:#cccccc;">window</code></span> permet l'exécution de code à des <b>intervalles de temps</b> spécifiés. Ces intervalles de temps sont appelés événements de chronométrage.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1622129349360"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1622129349360");</script></div><br><h2 class="Title7 GTitle2" id="Timers-Creer-un-timer-avec-setInterval"><a class="Link9" href="#Timers">Créer un timer avec setInterval</a></h2><br>La méthode <b>setInterval </b>répète une fonction donnée à chaque intervalle de temps donné.<br><br><h3 class="Title8 GTitle3">index.html</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="html">&lt;!DOCTYPE html&gt;
 &lt;html lang='fr'&gt;
     &lt;head&gt;
         &lt;!-- ============================================ --&gt;
