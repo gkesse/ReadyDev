@@ -395,7 +395,121 @@ for(var i = 0; i &lt; lAnimals.length; i++) {
 [GCat] Mon prix est 100 €
 [GDog] Je suis un chien
 [GDog] Mon nom est Medor
-[GDog] Mon poids est 25 kg</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Timers"><a class="Link3" href="#">Timers</a></h1><div class="Body3"><br>L'obje <span class="GCode3"><code style="color:#cccccc;">window</code></span> permet l'exécution de code à des <b>intervalles de temps</b> spécifiés. Ces intervalles de temps sont appelés événements de chronométrage.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1622129349360"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1622129349360");</script></div><br><h2 class="Title7 GTitle2" id="Timers-Creer-un-timer-avec-setInterval"><a class="Link9" href="#Timers">Créer un timer avec setInterval</a></h2><br>La méthode <b>setInterval </b>répète une fonction donnée à chaque intervalle de temps donné.<br><br><h3 class="Title8 GTitle3">index.html</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="html">&lt;!DOCTYPE html&gt;
+[GDog] Mon poids est 25 kg</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Manager-de-donnees"><a class="Link3" href="#">Manager de données</a></h1><div class="Body3"><br>Le <b>manager de données</b> que nous présentons ici est une architecture logicielle permettant d'accéder à toutes les données d'une application.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Manager-de-donnees-Creer-un-manager-de-donnees"><a class="Link9" href="#Manager-de-donnees">Créer un manager de données</a></h2><br><h3 class="Title8 GTitle3">index.html</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="html">&lt;!DOCTYPE html&gt;
+&lt;html lang="fr"&gt;
+    &lt;head&gt;
+        &lt;title&gt;ReadyApp&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;div id="msg"&gt;&lt;/div&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;script src="/manager.js"&gt;&lt;/script&gt;
+        &lt;script src="/script.js"&gt;&lt;/script&gt;
+        &lt;!-- ============================================ --&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</pre></div></div><br><h3 class="Title8 GTitle3">script.js</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="javascript">//===============================================
+class sGManager {}
+class sGApp {}
+//===============================================
+class GManager {
+    //===============================================
+    static instance = null;
+    //===============================================
+    constructor() {
+        // manager
+        this.mgr = new sGManager();
+        // app
+        this.mgr.app = new sGApp();
+        this.mgr.app.app_name = "ReadyApp";
+        this.mgr.app.win_width = 640;
+        this.mgr.app.win_height = 480;
+    }
+    //===============================================
+    static Instance() {
+        if(this.instance == null) {
+            this.instance = new GManager();
+        }
+        return this.instance;
+    }
+    //===============================================
+    getData() {
+        return this.mgr;
+    }
+    //===============================================
+}
+//===============================================
+var lApp = GManager.Instance().getData().app;
+message("app_name : {0}&lt;br&gt;", lApp.app_name);
+message("win_width : {0}&lt;br&gt;", lApp.win_width);
+message("win_height : {0}&lt;br&gt;", lApp.win_height);
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="javascript">app_name : ReadyApp
+win_width : 640
+win_height : 480</pre></div></div><br><h2 class="Title7 GTitle2" id="Manager-de-donnees-Creer-un-manager-de-donnees--2-"><a class="Link9" href="#Manager-de-donnees">Créer un manager de données (2)</a></h2><br><h3 class="Title8 GTitle3">index.html</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="html">&lt;!DOCTYPE html&gt;
+&lt;html lang="fr"&gt;
+    &lt;head&gt;
+        &lt;title&gt;ReadyApp&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;div id="msg"&gt;&lt;/div&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;script src="/manager.js"&gt;&lt;/script&gt;
+        &lt;script src="/script.js"&gt;&lt;/script&gt;
+        &lt;!-- ============================================ --&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</pre></div></div><br><h3 class="Title8 GTitle3">script.js</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="javascript">//===============================================
+function sGManager() {}
+function sGApp() {}
+//===============================================
+var GManager = (function() {
+    //===============================================
+    var m_instance;
+    //===============================================
+    var mgr;
+    //===============================================
+    var Container = function() {
+        return {
+            //===============================================
+            init: function() {
+                this.construct();
+            },
+            //===============================================
+            construct: function() {
+                // manager
+                this.mgr = new sGManager();
+                // app
+                this.mgr.app = new sGApp();
+                this.mgr.app.app_name = "ReadyApp";
+                this.mgr.app.win_width = 640;
+                this.mgr.app.win_height = 480;
+            },
+            //===============================================
+            getData: function() {
+                return this.mgr;
+            }
+            //===============================================
+        };
+    }
+    //===============================================
+    return {
+        Instance: function() {
+            if(!m_instance) {
+                m_instance = Container();
+            }
+            return m_instance;
+        }
+    };
+    //===============================================
+})();
+//===============================================
+GManager.Instance().init();
+//===============================================
+var lApp = GManager.Instance().getData().app;
+message("app_name : {0}&lt;br&gt;", lApp.app_name);
+message("win_width : {0}&lt;br&gt;", lApp.win_width);
+message("win_height : {0}&lt;br&gt;", lApp.win_height);
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><br><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Timers"><a class="Link3" href="#">Timers</a></h1><div class="Body3"><br>L'obje <span class="GCode3"><code style="color:#cccccc;">window</code></span> permet l'exécution de code à des <b>intervalles de temps</b> spécifiés. Ces intervalles de temps sont appelés événements de chronométrage.<br><br><div class="Content0 GSummary2"><div class="Body0" id="Loader_1622129349360"><div class="Row26">Summary 2</div></div><script>loadSummary2("Loader_1622129349360");</script></div><br><h2 class="Title7 GTitle2" id="Timers-Creer-un-timer-avec-setInterval"><a class="Link9" href="#Timers">Créer un timer avec setInterval</a></h2><br>La méthode <b>setInterval </b>répète une fonction donnée à chaque intervalle de temps donné.<br><br><h3 class="Title8 GTitle3">index.html</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="html">&lt;!DOCTYPE html&gt;
 &lt;html lang='fr'&gt;
     &lt;head&gt;
         &lt;!-- ============================================ --&gt;
@@ -990,4 +1104,117 @@ body {
     margin: 50px 0px;
     min-height: 200px;
 }
-/*===============================================*/</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Web/JavaScript/img/i_intersectionobserver_lazyload_ace.gif" alt="/Tutoriels/Web/JavaScript/img/i_intersectionobserver_lazyload_ace.gif"></div><br></div></div></div></div><br>
+/*===============================================*/</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Web/JavaScript/img/i_intersectionobserver_lazyload_ace.gif" alt="/Tutoriels/Web/JavaScript/img/i_intersectionobserver_lazyload_ace.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Chunked-transfer-encoding"><a class="Link3" href="#">Chunked transfer encoding</a></h1><div class="Body3"><br><b>Chunked transfer encoding</b> (ou Encodage de transfert en bloc) est un mécanisme de transfert de données de la version 1.1 du protocole Hypertext Transfer Protocol (HTTP), qui permet à un serveur ou à un client de commencer à transmettre des données par blocs sans avoir à connaître à l'avance la taille totale des données qui seront transmises. Dans le protocole HTTP, l'en-tête "Content-Length: [nombre correspondant au poids en octets du corps de message transmis]" peut remplacer la directive "Chunked transfer encoding". La taille en octets de chaque bloc est envoyée, sous forme de texte en hexadecimal, juste avant le bloc lui-même afin que le serveur puisse dire au client quand il a fini de recevoir les données de ce bloc. Le transfert total d'un fichier encodé par blocs se termine par un bloc final au contenu nul.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Chunked-transfer-encoding-Creer-un-encodage-de-transfert-par-bloc-avec-MyChunkUploader"><a class="Link9" href="#Chunked-transfer-encoding">Créer un encodage de transfert par bloc avec MyChunkUploader</a></h2><br><b>MyChunkUploader </b>permet d'implémenter une fonctionnalité de téléchargement de fichiers par bloc à l'aide d'une classe JavaScript côté client/navigateur et d'une classe PHP côté serveur. Ce concept est particulièrement utile lorsqu'on souhaite surmonter les paramètres de rectriction <span class="GCode3"><code style="color:#cccccc;">upload_max_filesize</code></span> et <span class="GCode3"><code style="color:#cccccc;">post_max_size </code></span>définis dans le fichier de configuration <span class="GCode3"><code style="color:#cccccc;">php.ini</code></span><br><br><h3 class="Title8 GTitle3">Télécharger MyChunkUploader</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://github.com/eugenmihailescu/my-chunk-uploader">https://github.com/eugenmihailescu/my-chunk-uploader</a><br><br><h3 class="Title8 GTitle3">Comprendre la mise en oeuvre avec MyChunkUploader</h3><br>Un fichier principal <span class="GCode3"><code style="color:#cccccc;">index.html</code></span> initialise un objet JavaScript <span class="GCode3"><code style="color:#cccccc;">MyChunkUploader </code></span>(voir <span class="GCode3"><code style="color:#cccccc;">chunk-uploader.js</code></span>) qu'on utilise pour commencer à envoyer le fichier au serveur distant. Pour ce faire, on appelle la méthode <span class="GCode3"><code style="color:#cccccc;">upload_chunked('/upload.php', FILE)</code></span>. Cet appel divise le fichier en plusieurs morceaux et les envoie via une série de requêtes Ajax POST au script PHP <span class="GCode3"><code style="color:#cccccc;">upload.php</code></span>. Le fichier <span class="GCode3"><code style="color:#cccccc;">upload.php</code></span> est un simple dispatcher ; il reçoit les requêtes POST et les transmet à une instance PHP <span class="GCode3"><code style="color:#cccccc;">MyChunkUploader </code></span>(voir <span class="GCode3"><code style="color:#cccccc;">MyChunkUploader.php</code></span>). L'instance PHP <span class="GCode3"><code style="color:#cccccc;">MyChunkUploader </code></span>enregistre chaque morceau dans un fichier temporaire ; lorsque tous les morceaux sont reçus, les fichiers temporaires/en morceaux sont concaténés, ce qui donne le fichier téléchargé final qui sera stocké dans un dossier prédéfini sur le serveur Web.<br><br><h3 class="Title8 GTitle3">index.html</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="html">&lt;!DOCTYPE html&gt;
+&lt;html lang="fr"&gt;
+    &lt;head&gt;
+        &lt;title&gt;ReadyApp&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body onload="onEvent(this, 'on_init')"&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;div&gt;&lt;input type="file" onchange="onEvent(this, 'image_load')"/&gt;&lt;/div&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;div id="msg"&gt;&lt;/div&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;script src="/chunk-uploader.js"&gt;&lt;/script&gt;
+        &lt;script src="/manager.js"&gt;&lt;/script&gt;
+        &lt;script src="/script.js"&gt;&lt;/script&gt;
+        &lt;!-- ============================================ --&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</pre></div></div><br><h3 class="Title8 GTitle3">script.js</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="javascript">//===============================================
+function onEvent(obj, action) {
+    message(action + "...&lt;br&gt;");
+    //===============================================
+    if(action == "on_init") {
+        window.chunk_uploader = new MyChunkUploader();
+    }
+    //===============================================
+    else if(action == "image_load") {
+        var lFile = obj.files[0];
+        message("&lt;div&gt;file_name : {0}&lt;/div&gt;", lFile.name);
+        message("&lt;div&gt;file_size : {0} MB&lt;/div&gt;", (lFile.size/(1024*1024)).toFixed(2));
+
+        chunk_uploader.on_ready = function(response) {
+            message("&lt;div&gt;on_ready...&lt;/div&gt;");
+        };
+
+        chunk_uploader.on_done = function() {
+            message("&lt;div&gt;on_done...&lt;/div&gt;");
+        };
+        
+        chunk_uploader.on_error = function(object, err_type) {
+            message("&lt;div&gt;on_error...&lt;/div&gt;");
+        };
+
+        chunk_uploader.on_abort = function(object) {
+            message("&lt;div&gt;on_abort...&lt;/div&gt;");
+        };
+
+        chunk_uploader.on_upload_progress = function(progress) {
+            message("&lt;div&gt;on_upload_progress...({0} %)&lt;/div&gt;", progress.percentage);
+        };
+
+        chunk_uploader.options.max_chunk_size = 1048576; 
+        chunk_uploader.options.raw_post = false;
+        chunk_uploader.options.max_parallel_chunks = 10;
+        chunk_uploader.options.send_interval = 20;
+
+        chunk_uploader.upload_chunked('/upload.php',lFile);
+    }
+    //===============================================
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Web/JavaScript/img/i_chunk_uploader_one_file.gif" alt="/Tutoriels/Web/JavaScript/img/i_chunk_uploader_one_file.gif"> <br></div><br><h2 class="Title7 GTitle2" id="Chunked-transfer-encoding-Uploader-plusieurs-fichiers-avec-MyChunkUploader"><a class="Link9" href="#Chunked-transfer-encoding">Uploader plusieurs fichiers avec MyChunkUploader</a></h2><br><h3 class="Title8 GTitle3">index.html</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="html">&lt;!DOCTYPE html&gt;
+&lt;html lang="fr"&gt;
+    &lt;head&gt;
+        &lt;title&gt;ReadyApp&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body onload="onEvent(this, 'on_init')"&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;div&gt;&lt;input type="file" onchange="onEvent(this, 'image_load')" multiple/&gt;&lt;/div&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;div id="msg"&gt;&lt;/div&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;script src="/chunk-uploader.js"&gt;&lt;/script&gt;
+        &lt;script src="/manager.js"&gt;&lt;/script&gt;
+        &lt;script src="/script.js"&gt;&lt;/script&gt;
+        &lt;!-- ============================================ --&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</pre></div></div><br><h3 class="Title8 GTitle3">script.js</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="javascript">//===============================================
+function onEvent(obj, action) {
+    message(action + "...&lt;br&gt;");
+    //===============================================
+    if(action == "on_init") {
+    }
+    //===============================================
+    else if(action == "image_load") {
+        for(var i = 0; i &lt; obj.files.length; i++) {
+            (function() {
+                var lFile = obj.files[i];
+                var chunk_uploader = new MyChunkUploader();
+                
+                chunk_uploader.on_ready = function(response) {
+                };
+
+                chunk_uploader.on_done = function() {
+                    message("&lt;div&gt;on_done...&lt;/div&gt;");
+                    message("&lt;div&gt;file_name : {0}&lt;/div&gt;", lFile.name);
+                    message("&lt;div&gt;file_size : {0} KB&lt;/div&gt;", (lFile.size/(1024)).toFixed(2));
+                };
+                
+                chunk_uploader.on_error = function(object, err_type) {
+                    message("&lt;div&gt;on_error...&lt;/div&gt;");
+                };
+
+                chunk_uploader.on_abort = function(object) {
+                    message("&lt;div&gt;on_abort...&lt;/div&gt;");
+                };
+
+                chunk_uploader.on_upload_progress = function(progress) {
+                };
+
+                chunk_uploader.upload_chunked('/upload.php',lFile);
+            })();
+        }
+    }
+    //===============================================
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Web/JavaScript/img/i_chunk_uploader_multiple_file.gif" alt="/Tutoriels/Web/JavaScript/img/i_chunk_uploader_multiple_file.gif"></div><br></div></div></div></div><br>
