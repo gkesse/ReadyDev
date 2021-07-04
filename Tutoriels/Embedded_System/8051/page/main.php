@@ -1539,7 +1539,136 @@ void GLed_Set_Start(uchar d) {
     g_led_data_start = d;
     g_led_data = g_led_data_start;
 }
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_led_chase.gif" alt="/Tutoriels/Embedded_System/8051/img/i_led_chase.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Afficheur-7-segment"><a class="Link3" href="#">Afficheur 7-segment</a></h1><div class="Body3"><br>Un afficheur <b>7-segment</b> peut être utilisé pour afficher des chiffres.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Afficheur-7-segment-Realiser-un-compteur-a-1-digit-de-0-a-9"><a class="Link9" href="#Afficheur-7-segment">Réaliser un compteur à 1 digit de 0 à 9</a></h2><br>Un <b>compteur </b>peut être associé à des feux de circulation pour indiquer le temps restant avant d'être autorisé à circuler.<br><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_led_chase.gif" alt="/Tutoriels/Embedded_System/8051/img/i_led_chase.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Boutons-poussoirs"><a class="Link3" href="#">Boutons poussoirs</a></h1><div class="Body3"><br>Un <b>bouton poussoir</b> peut être utilisé pour déclencher une action suite à un appui.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Boutons-poussoirs-Creer-un-systeme-de-controle-de-direction"><a class="Link9" href="#Boutons-poussoirs">Créer un système de contrôle de direction</a></h2><br>Un système de <b>contrôle de direction</b> peut être utilisé pour indiquer la direction que doit suivre un système.<br><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GSch.h"
+#include "GButton.h"
+#include "GLed.h"
+//===============================================
+static void GTask_Init() {
+    GButton_Init();
+    GLed_Init();
+}
+//===============================================
+void main() {
+    GSch_Init(1);
+    GTask_Init();
+    GSch_Add_Task(GButton_Update, 0, 200);
+    GSch_Add_Task(GLed_Update, 1, 200);
+    GSch_Start();
+    while(1) {
+        GSch_Dispatch_Tasks();
+    }
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GButton.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GButton.h"
+//===============================================
+#define BUTTON_PORT P1
+//===============================================
+typedef enum _eGState {
+    OFF,
+    UP,
+    DOWN,
+    LEFT,
+    RIGHT
+} eGState;
+//===============================================
+sbit g_button_up = BUTTON_PORT^0;
+sbit g_button_down = BUTTON_PORT^1;
+sbit g_button_left = BUTTON_PORT^2;
+sbit g_button_right = BUTTON_PORT^3;
+sbit g_button_off = BUTTON_PORT^4;
+//===============================================
+static uchar g_button_state;
+//===============================================
+void GButton_Init() {
+    g_button_up = 1;
+    g_button_down = 1;
+    g_button_left = 1;
+    g_button_right = 1;
+    g_button_state = OFF;
+}
+//===============================================
+void GButton_Update() {
+    if(g_button_up == 0) {
+        g_button_state = UP;
+    }
+    else if(g_button_down == 0) {
+        g_button_state = DOWN;
+    }
+    else if(g_button_left == 0) {
+        g_button_state = LEFT;
+    }
+    else if(g_button_right == 0) {
+        g_button_state = RIGHT;
+    }
+    else if(g_button_off == 0) {
+        g_button_state = OFF;
+    }
+}
+//===============================================
+uchar GButton_Get_State() {
+    return g_button_state;
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GLed.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GLed.h"
+#include "GButton.h"
+//===============================================
+#define LED_PORT P3
+//===============================================
+typedef enum _eGState {
+    OFF,
+    UP,
+    DOWN,
+    LEFT,
+    RIGHT
+} eGState;
+//===============================================
+sbit g_led_up = LED_PORT^0;
+sbit g_led_down = LED_PORT^1;
+sbit g_led_left = LED_PORT^2;
+sbit g_led_right = LED_PORT^3;
+//===============================================
+void GLed_Init() {
+    g_led_up = 1;
+    g_led_down = 1;
+    g_led_left = 1;
+    g_led_right = 1;
+}
+//===============================================
+void GLed_Update() {
+    uchar l_button_state = GButton_Get_State();
+    if(l_button_state == UP) {
+        g_led_up = !g_led_up;
+        g_led_down = 1;
+        g_led_left = 1;
+        g_led_right = 1;
+    }
+    else if(l_button_state == DOWN) {
+        g_led_down = !g_led_down;
+        g_led_up = 1;
+        g_led_left = 1;
+        g_led_right = 1;
+    }
+    else if(l_button_state == LEFT) {
+        g_led_left = !g_led_left;
+        g_led_up = 1;
+        g_led_down = 1;
+        g_led_right = 1;
+    }
+    else if(l_button_state == RIGHT) {
+        g_led_right = !g_led_right;
+        g_led_up = 1;
+        g_led_down = 1;
+        g_led_left = 1;
+    }
+    else if(l_button_state == OFF) {
+        g_led_up = 1;
+        g_led_down = 1;
+        g_led_left = 1;
+        g_led_right = 1;
+    }
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_button_direction.gif" alt="/Tutoriels/Embedded_System/8051/img/i_button_direction.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Afficheur-7-segment"><a class="Link3" href="#">Afficheur 7-segment</a></h1><div class="Body3"><br>Un afficheur <b>7-segment</b> peut être utilisé pour afficher des chiffres.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Afficheur-7-segment-Realiser-un-compteur-a-1-digit-de-0-a-9"><a class="Link9" href="#Afficheur-7-segment">Réaliser un compteur à 1 digit de 0 à 9</a></h2><br>Un <b>compteur </b>peut être associé à des feux de circulation pour indiquer le temps restant avant d'être autorisé à circuler.<br><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 #include "GSch.h"
 #include "G7Seg.h"
 //===============================================
