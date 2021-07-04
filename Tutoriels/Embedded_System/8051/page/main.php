@@ -1577,58 +1577,6 @@ static code uchar g_digit_map[] = {
 void G7Seg_Digit_Write(uchar d) {
     DATA_PORT = ~g_digit_map[d];
 }
-<<<<<<< HEAD
-//===============================================</pre></div></div>&nbsp;<br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_led_chase.gif" alt="/Tutoriels/Embedded_System/8051/img/i_led_chase.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Afficheur-7-segment"><a class="Link3" href="#">Afficheur 7-segment</a></h1><div class="Body3"><br>Un afficheur <b>7-segment</b> peut être utilisé pour afficher des chiffres.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Afficheur-7-segment-Realiser-un-compteur-a-1-digit-de-0-a-9"><a class="Link9" href="#Afficheur-7-segment">Réaliser un compteur à 1 digit de 0 à 9</a></h2><br>Un <b>compteur </b>peut être associé à des feux de circulation pour indiquer le temps restant avant d'être autorisé à circuler.<br><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
-=======
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_7seg_1_digit.gif" alt="/Tutoriels/Embedded_System/8051/img/i_7seg_1_digit.gif"></div><br><h2 class="Title7 GTitle2" id="Afficheur-7-segment-Realiser-un-compteur-a-2-digits-de-0-a-99"><a class="Link9" href="#Afficheur-7-segment">Réaliser un compteur à 2 digits de 0 à 99</a></h2><br>Un <b>compteur </b>peut être associé à des feux de circulation pour indiquer le temps restant avant d'être autorisé à circuler.<br><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
->>>>>>> 2e3ec076f3d2fbc5912ed896a7b2a6f29d9c8ed4
-#include "GSch.h"
-#include "G7Seg.h"
-//===============================================
-static uchar g_counter_data;
-//===============================================
-static void GTask_Init() {
-    g_counter_data = 0;
-    G7Seg_Init();
-}
-//===============================================
-static void GCounter_Update() {
-    G7Seg_Digit_Write(g_counter_data);
-<<<<<<< HEAD
-    if(++g_counter_data &gt; 9) {
-=======
-    if(++g_counter_data &gt; 99) {
->>>>>>> 2e3ec076f3d2fbc5912ed896a7b2a6f29d9c8ed4
-        g_counter_data = 0;
-    }
-}
-//===============================================
-void main() {
-    GSch_Init(1);
-    GTask_Init();
-<<<<<<< HEAD
-=======
-    GSch_Add_Task(G7Seg_Update, 0, 40);
->>>>>>> 2e3ec076f3d2fbc5912ed896a7b2a6f29d9c8ed4
-    GSch_Add_Task(GCounter_Update, 1, 1000);
-    GSch_Start();
-    while(1) {
-        GSch_Dispatch_Tasks();
-    }
-}
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">G7Seg.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
-<<<<<<< HEAD
-#include "G7Seg.h"
-//===============================================
-#define DATA_PORT   P1
-//===============================================
-static code uchar g_digit_map[] = {
-    0x3f, 0x06, 0x5b,0x4f, 0x66, 0x6d, 0x7d, 0x07, 0x7f, 0x6F
-};
-//===============================================
-void G7Seg_Digit_Write(uchar d) {
-    DATA_PORT = ~g_digit_map[d];
-}
 //===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_7seg_1_digit.gif" alt="/Tutoriels/Embedded_System/8051/img/i_7seg_1_digit.gif"></div><br><h2 class="Title7 GTitle2" id="Afficheur-7-segment-Realiser-un-compteur-a-2-digits-de-0-a-99"><a class="Link9" href="#Afficheur-7-segment">Réaliser un compteur à 2 digits de 0 à 99</a></h2><br>Un <b>compteur </b>peut être associé à des feux de circulation pour indiquer le temps restant avant d'être autorisé à circuler.<br><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 #include "GSch.h"
 #include "G7Seg.h"
@@ -1660,10 +1608,6 @@ void main() {
 //===============================================</pre></div></div><br><h3 class="Title8 GTitle3">G7Seg.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 #include "G7Seg.h"
 //===============================================
-=======
-#include "G7Seg.h"
-//===============================================
->>>>>>> 2e3ec076f3d2fbc5912ed896a7b2a6f29d9c8ed4
 #define DATA_PORT   P1
 #define COM_PORT    P3
 //===============================================
