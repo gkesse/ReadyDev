@@ -1410,50 +1410,13 @@ void main() {
 }
 //===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_port_bit_read.gif" alt="/Tutoriels/Embedded_System/8051/img/i_port_bit_read.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Diode-LED"><a class="Link3" href="#">Diode LED</a></h1><div class="Body3"><br>Une <b>diode LED</b> peut servir de voyant lumineux pour interpeller un utilisateur.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Diode-LED-Clignoter-une-diode-LED"><a class="Link9" href="#Diode-LED">Clignoter une diode LED</a></h2><br>On peut faire <b>clignoter </b>une diode LED pour informer un utilisateur suite à la mise sous tension d'un système. Pour réaliser cela, on se sert d'un bouton poussoir pour modéliser la mise sous tension du système et on fait clignoter la diode LED chaque 200 ms pendant 3 s puis on l'éteint.<br><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 #include "GSch.h"
-#include "GPort.h"
-//===============================================
-static uchar g_button_port;
-static uchar g_button_pin;
-static bit g_button_state;
-static uchar g_led_port;
-static uchar g_led_pin;
-static bit g_led_state;
-static uchar g_led_count;
+#include "GButton.h"
+#include "GLed.h"
 //===============================================
 static void GTask_Init() {
-    g_button_port = 1;
-    g_button_pin = 7;
-    g_led_port = 1;
-    g_led_pin = 0;
-    g_led_state = 1;
-    g_led_count = 0;
-    GPort_Bit_Write(g_button_port, g_button_pin, 1);
-    GPort_Bit_Write(g_led_port, g_led_pin, g_led_state);
-}
-//===============================================
-static void GButton_Update() {
-    bit l_button_state = GPort_Bit_Read(g_button_port, g_button_pin);
-    if(l_button_state == 0) {
-        g_button_state = 1;
-    }
-}
-//===============================================
-static void GLed_Flash_Update() {
-    if(g_button_state == 1) {
-        g_led_state = !g_led_state;
-        GPort_Bit_Write(g_led_port, g_led_pin, g_led_state);
-    }
-}
-//===============================================
-static void GLed_Stop_Update() {
-    if(g_button_state == 1) {
-        if(g_led_count++ == 15) {
-            g_led_count = 0;
-            g_button_state = 0;
-            g_led_state = 1;
-            GPort_Bit_Write(g_led_port, g_led_pin, g_led_state);
-        }
-    }
+    GButton_Init();
+    GLed_Init();
+    GLed_Set_Time(15);
 }
 //===============================================
 void main() {
@@ -1467,78 +1430,116 @@ void main() {
         GSch_Dispatch_Tasks();
     }
 }
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GPort.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
-#include "GPort.h"
-//=============================================== 
-void GPort_Bit_Write(uchar port, uchar pin, bit d) {
-    uchar l_mask = 0x01;
-    l_mask &lt;&lt;= pin;
-    if(port == 0) {P0 = (d == 0) ? (P0 &amp; (~l_mask)) : (P0 | l_mask);}
-    else if(port == 1) {P1 = (d == 0) ? (P1 &amp; (~l_mask)) : (P1 | l_mask);}
-    else if(port == 2) {P2 = (d == 0) ? (P2 &amp; (~l_mask)) : (P2 | l_mask);}
-    else if(port == 3) {P3 = (d == 0) ? (P3 &amp; (~l_mask)) : (P3 | l_mask);}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GButton.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GButton.h"
+//===============================================
+#define BUTTON_PORT P1
+//===============================================
+sbit g_button_pin = BUTTON_PORT^7;
+//===============================================
+static bit g_button_state;
+//===============================================
+void GButton_Init() {
+    g_button_pin = 1;
+    g_button_state = 0;
 }
-//=============================================== 
-bit GPort_Bit_Read(uchar port, uchar pin) {
-    uchar l_mask = 0x01;
-    bit l_data = 0;
-    l_mask &lt;&lt;= pin;
-    if(port == 0) {l_data = ((P0 &amp; l_mask) == 0) ? 0 : 1;}
-    else if(port == 1) {l_data = ((P1 &amp; l_mask) == 0) ? 0 : 1;}
-    else if(port == 2) {l_data = ((P2 &amp; l_mask) == 0) ? 0 : 1;}
-    else if(port == 3) {l_data = ((P3 &amp; l_mask) == 0) ? 0 : 1;}
-    return l_data;
+//===============================================
+void GButton_Update() {
+    if(g_button_pin == 0) {
+        g_button_state = 1;
+    }
+}
+//===============================================
+bit GButton_Get_State() {
+    return g_button_state;
+}
+//===============================================
+void GButton_Set_State(bit state) {
+    g_button_state = state;
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GLed.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GLed.h"
+#include "GButton.h"
+//===============================================
+#define LED_PORT P1
+//===============================================
+sbit g_led_pin = LED_PORT^0;
+//===============================================
+static uchar g_led_time;
+static uchar g_led_time_count;
+//===============================================
+void GLed_Init() {
+    g_led_pin = 1;
+    g_led_time = 5;
+    g_led_time_count = 0;
+}
+//===============================================
+void GLed_Flash_Update() {
+    bit l_button_state = GButton_Get_State();
+    if(l_button_state == 1) {
+        g_led_pin = !g_led_pin;
+    }
+}
+//===============================================
+void GLed_Stop_Update() {
+    bit l_button_state = GButton_Get_State();
+    if(l_button_state == 1) {
+        if(++g_led_time_count &gt; g_led_time) {
+            g_led_time_count = 0;
+            GButton_Set_State(0);
+            g_led_pin = 1;
+        }
+    }
+}
+//===============================================
+void GLed_Set_Time(uchar time) {
+    g_led_time = time;
 }
 //===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_led_flash.gif" alt="/Tutoriels/Embedded_System/8051/img/i_led_flash.gif"></div><br><h2 class="Title7 GTitle2" id="Diode-LED-Realiser-un-chenillard"><a class="Link9" href="#Diode-LED">Réaliser un chenillard</a></h2><br>On peut utiliser un <b>chenillard </b>pour indiquer une direction à suivre par exemple de haut en bas. Pour réaliser cela, on dispose des diodes LED suivant la verticale, ensuite on allume 3 diodes LED et on les fait déplacer chaque 500 ms.<br><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 #include "GSch.h"
-#include "GPort.h"
-//===============================================
-static uchar g_chase_count;
-static uchar g_chase_port;
+#include "GLed.h"
 //===============================================
 static void GTask_Init() {
-    g_chase_count = 0;
-    g_chase_port = 1;
-}
-//===============================================
-static void GChase_Update() {
-    GPort_Data_Write(g_chase_port, 0xFF);
-    GPort_Bit_Write(g_chase_port, g_chase_count, 0);
-    GPort_Bit_Write(g_chase_port, g_chase_count + 1, 0);
-    GPort_Bit_Write(g_chase_port, g_chase_count + 2, 0);
-    if(++g_chase_count &gt;= 8) {
-        g_chase_count = 0;
-    }
+    GLed_Init();
+    GLed_Set_Start(0x07);
 }
 //===============================================
 void main() {
     GSch_Init(1);
     GTask_Init();
-    GSch_Add_Task(GChase_Update, 0, 500);
+    GSch_Add_Task(GLed_Update, 0, 500);
     GSch_Start();
     while(1) {
         GSch_Dispatch_Tasks();
     }
 }
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GPort.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
-#include "GPort.h"
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GLed.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GLed.h"
+#include "GButton.h"
 //===============================================
-void GPort_Data_Write(uchar port, uchar d) {
-    if(port == 0) {P0 = d;}
-    else if(port == 1) {P1 = d;}
-    else if(port == 2) {P2 = d;}
-    else if(port == 3) {P3 = d;}
+#define LED_PORT P1
+//===============================================
+static uchar g_led_data;
+static uchar g_led_data_start;
+//===============================================
+void GLed_Init() {
+    g_led_data_start = 0x07;
+    g_led_data = g_led_data_start;
 }
-//=============================================== 
-void GPort_Bit_Write(uchar port, uchar pin, bit d) {
-    uchar l_mask = 0x01;
-    l_mask &lt;&lt;= pin;
-    if(port == 0) {P0 = (d == 0) ? (P0 &amp; (~l_mask)) : (P0 | l_mask);}
-    else if(port == 1) {P1 = (d == 0) ? (P1 &amp; (~l_mask)) : (P1 | l_mask);}
-    else if(port == 2) {P2 = (d == 0) ? (P2 &amp; (~l_mask)) : (P2 | l_mask);}
-    else if(port == 3) {P3 = (d == 0) ? (P3 &amp; (~l_mask)) : (P3 | l_mask);}
+//===============================================
+void GLed_Update() {
+    LED_PORT = ~g_led_data;
+    g_led_data &lt;&lt;= 1;
+    if(g_led_data == 0) {
+        g_led_data = g_led_data_start;
+    }
 }
-//===============================================</pre></div></div>&nbsp;<br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_led_chase.gif" alt="/Tutoriels/Embedded_System/8051/img/i_led_chase.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Afficheur-7-segment"><a class="Link3" href="#">Afficheur 7-segment</a></h1><div class="Body3"><br>Un afficheur <b>7-segment</b> peut être utilisé pour afficher des chiffres.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Afficheur-7-segment-Realiser-un-compteur-a-1-digit-de-0-a-9"><a class="Link9" href="#Afficheur-7-segment">Réaliser un compteur à 1 digit de 0 à 9</a></h2><br>Un <b>compteur </b>peut être associé à des feux de circulation pour indiquer le temps restant avant d'être autorisé à circuler.<br><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================
+void GLed_Set_Start(uchar d) {
+    g_led_data_start = d;
+    g_led_data = g_led_data_start;
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_led_chase.gif" alt="/Tutoriels/Embedded_System/8051/img/i_led_chase.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Afficheur-7-segment"><a class="Link3" href="#">Afficheur 7-segment</a></h1><div class="Body3"><br>Un afficheur <b>7-segment</b> peut être utilisé pour afficher des chiffres.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Afficheur-7-segment-Realiser-un-compteur-a-1-digit-de-0-a-9"><a class="Link9" href="#Afficheur-7-segment">Réaliser un compteur à 1 digit de 0 à 9</a></h2><br>Un <b>compteur </b>peut être associé à des feux de circulation pour indiquer le temps restant avant d'être autorisé à circuler.<br><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 #include "GSch.h"
 #include "G7Seg.h"
 //===============================================
