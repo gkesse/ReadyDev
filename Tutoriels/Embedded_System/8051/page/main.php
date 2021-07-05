@@ -2061,4 +2061,55 @@ void main() {
         GSch_Dispatch_Tasks();
     }
 }
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_lcd_8_bit_shift_right.gif" alt="/Tutoriels/Embedded_System/8051/img/i_lcd_8_bit_shift_right.gif"></div><br></div></div></div></div><br>
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_lcd_8_bit_shift_right.gif" alt="/Tutoriels/Embedded_System/8051/img/i_lcd_8_bit_shift_right.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Protocole-UART"><a class="Link3" href="#">Protocole UART</a></h1><div class="Body3"><br>Le protocole <b>UART</b> est un protocole série qui permet d'échanger des données entre le microcontrôleur et un ordianteur.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Protocole-UART-Envoyer-une-chaine-de-caractere"><a class="Link9" href="#Protocole-UART">Envoyer une chaine de caractère</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GSch.h"
+#include "GUart.h"
+//===============================================
+static void GTask_Init() {
+    GUart_Init(9600);
+    GUart_Write_String("BONJOUR TOUT LE MONDE\n");
+    GUart_Write_String("BIENVENUE SUR READYDEV\n");
+}
+//===============================================
+static void GTask_Update() {
+
+}
+//===============================================
+void main() {
+    GSch_Init(1);
+    GTask_Init();
+    GSch_Add_Task(GTask_Update, 0, 0);
+    GSch_Start();
+    while(1) {
+        GSch_Dispatch_Tasks();
+    }
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GUart.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GUart.h"
+//===============================================
+#define OSC_FREQ (11059200UL)
+#define OSC_PER_INST (12) 
+//===============================================
+#define PRELOAD(baud) (256 - (uchar)((((ulong)OSC_FREQ / 100) * 3125) / ((ulong)baud * OSC_PER_INST * 1000)));
+//===============================================
+void GUart_Init(uint baud) {
+    TMOD |= 0x20;
+    TH1 = PRELOAD(baud);
+    SCON = 0x50;
+    TR1 = 1;
+}
+//===============================================
+void GUart_Write_Char(uchar d) {
+    if(d == '\n') {d = 0x0D;}
+    SBUF = d;
+	while (TI == 0);
+	TI = 0;
+}
+//===============================================
+void GUart_Write_String(const uchar* d) {
+    uchar i;
+    for(i = 0; d[i] != '\0'; i++) {
+        GUart_Write_Char(d[i]);
+    }
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_uart_string.gif" alt="/Tutoriels/Embedded_System/8051/img/i_uart_string.gif"></div><br></div></div></div></div><br>
