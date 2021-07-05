@@ -1997,4 +1997,68 @@ void GDelay_40us(uint us) {
         _nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_();
     }
 }
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_lcd_4_bit.png" alt="/Tutoriels/Embedded_System/8051/img/i_lcd_4_bit.png"></div><br></div></div></div></div><br>
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_lcd_4_bit.png" alt="/Tutoriels/Embedded_System/8051/img/i_lcd_4_bit.png"></div><br><h2 class="Title7 GTitle2" id="Afficheur-LCD-Faire-defiler-un-texte-vers-la-gauche"><a class="Link9" href="#Afficheur-LCD">Faire défiler un texte vers la gauche</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GSch.h"
+#include "GLcd.h"
+//===============================================
+static uchar g_shift_count;
+//===============================================
+static void GTask_Init() {
+    GLcd_Init();
+    GLcd_Write_Pos(0, 0);
+    GLcd_Write_String("BIENVENUE SUR");
+    GLcd_Write_Pos(1, 0);
+    GLcd_Write_String("READYDEV");
+    g_shift_count = 0;
+}
+//===============================================
+static void GTask_Update() {
+    GLcd_Write_Cmd(LCD_CMD_DISPLAY_SHIFT_LEFT);
+    if(++g_shift_count &gt; 13) {
+        g_shift_count = 0;
+        GLcd_Write_Cmd(LCD_CMD_CURSOR_HOME);
+    }
+}
+//===============================================
+void main() {
+    GSch_Init(1);
+    GTask_Init();
+    GSch_Add_Task(GTask_Update, 1000, 500);
+    GSch_Start();
+    while(1) {
+        GSch_Dispatch_Tasks();
+    }
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_lcd_8_bit_shift_left.gif" alt="/Tutoriels/Embedded_System/8051/img/i_lcd_8_bit_shift_left.gif"></div><br><h2 class="Title7 GTitle2" id="Afficheur-LCD-Faire-defiler-un-texte-vers-la-droite"><a class="Link9" href="#Afficheur-LCD">Faire défiler un texte vers la droite</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GSch.h"
+#include "GLcd.h"
+//===============================================
+static uchar g_shift_count;
+//===============================================
+static void GTask_Init() {
+    GLcd_Init();
+    GLcd_Write_Pos(0, 0);
+    GLcd_Write_String("BIENVENUE SUR");
+    GLcd_Write_Pos(1, 0);
+    GLcd_Write_String("READYDEV");
+    g_shift_count = 0;
+}
+//===============================================
+static void GTask_Update() {
+    GLcd_Write_Cmd(LCD_CMD_DISPLAY_SHIFT_RIGHT);
+    if(++g_shift_count &gt; 16) {
+        g_shift_count = 0;
+        GLcd_Write_Cmd(LCD_CMD_CURSOR_HOME);
+    }
+}
+//===============================================
+void main() {
+    GSch_Init(1);
+    GTask_Init();
+    GSch_Add_Task(GTask_Update, 1000, 500);
+    GSch_Start();
+    while(1) {
+        GSch_Dispatch_Tasks();
+    }
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_lcd_8_bit_shift_right.gif" alt="/Tutoriels/Embedded_System/8051/img/i_lcd_8_bit_shift_right.gif"></div><br></div></div></div></div><br>
