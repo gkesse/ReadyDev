@@ -1779,4 +1779,222 @@ void G7Seg_Update() {
         g_com_state = 0;
     }
 }
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_7seg_2_digit.png" alt="/Tutoriels/Embedded_System/8051/img/i_7seg_2_digit.png"></div><br></div></div></div></div><br>
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_7seg_2_digit.png" alt="/Tutoriels/Embedded_System/8051/img/i_7seg_2_digit.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Afficheur-LCD"><a class="Link3" href="#">Afficheur LCD</a></h1><div class="Body3"><br>Un <b>afficheur LCD</b> permet d'afficher des informations utiles à l'utilisateur. Il peut être monté soit en mode 8-bit ou soit en mode 4-bit.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Afficheur-LCD-Documentation-sur-les-commandes-LCD"><a class="Link9" href="#Afficheur-LCD">Documentation sur les commandes LCD</a></h2><br><h3 class="Title8 GTitle3">Accéder à la documentation sur les commandes LCD<br></h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://mil.ufl.edu/3744/docs/lcdmanual/commands.html">https://mil.ufl.edu/3744/docs/lcdmanual/commands.html</a><br><br><h2 class="Title7 GTitle2" id="Afficheur-LCD-Definition-de-quelques-commandes-LCD"><a class="Link9" href="#Afficheur-LCD">Définition de quelques commandes LCD</a></h2><br><h3 class="Title8 GTitle3">Visualiser quelques commandes LCD</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#define LCD_CMD_MODE_8_BIT_2_LINES_5x7 0x38
+#define LCD_CMD_MODE_4_BIT 0x02
+#define LCD_CMD_MODE_4_BIT_2_LINES_5x7 0x28
+#define LCD_CMD_DISPLAY_ON_CURSOR_ON_BLINK_ON 0x0F
+#define LCD_CMD_DISPLAY_ON_CURSOR_OFF_BLINK_OFF 0x0C
+#define LCD_CMD_DISPLAY_CLEAR 0x01
+#define LCD_CMD_DISPLAY_SHIFT_LEFT 0x18
+#define LCD_CMD_DISPLAY_SHIFT_RIGHT 0x1C
+#define LCD_CMD_CURSOR_HOME 0x02
+#define LCD_CMD_CURSOR_INCREMENT 0x06
+#define LCD_CMD_CURSOR_DECREMENT 0x04
+#define LCD_CMD_CURSOR_POS_R0_C0 0x80
+#define LCD_CMD_CURSOR_POS_R1_C0 0xC0
+//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Afficheur-LCD-Utiliser-l-afficheur-LCD-en-mode-8-bit"><a class="Link9" href="#Afficheur-LCD">Utiliser l'afficheur LCD en mode 8-bit</a></h2><br>En <b>mode 8-bit</b> le microcontrôleur utilise 8-bit de données pour communiquer avec l'afficheur LCD. Ce qui rend le montage plus encombrant mais plus rapide.<br><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GSch.h"
+#include "GLcd.h"
+//===============================================
+static void GTask_Init() {
+    GLcd_Init();
+    GLcd_Write_Pos(0, 0);
+    GLcd_Write_String("BIENVENUE SUR");
+    GLcd_Write_Pos(1, 0);
+    GLcd_Write_String("READYDEV");
+}
+//===============================================
+static void GTask_Update() {
+
+}
+//===============================================
+void main() {
+    GSch_Init(1);
+    GTask_Init();
+    GSch_Add_Task(GTask_Update, 0, 0);
+    GSch_Start();
+    while(1) {
+        GSch_Dispatch_Tasks();
+    }
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GLcd.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GLcd.h"
+#include "GDelay.h"
+//===============================================
+#define LCD_DATA_PORT P1
+#define LCD_CMD_PORT P3
+//===============================================
+sbit g_lcd_en = LCD_CMD_PORT^0;
+sbit g_lcd_rw = LCD_CMD_PORT^1;
+sbit g_lcd_rs = LCD_CMD_PORT^2;
+//===============================================
+void GLcd_Init() {
+    GLcd_Write_Cmd(LCD_CMD_MODE_8_BIT_2_LINES_5x7);
+    GDelay_60us(10);
+    GLcd_Write_Cmd(LCD_CMD_DISPLAY_ON_CURSOR_OFF_BLINK_OFF);
+    GDelay_60us(10);
+    GLcd_Write_Cmd(LCD_CMD_CURSOR_INCREMENT);
+    GDelay_60us(10);
+    GLcd_Write_Cmd(LCD_CMD_DISPLAY_CLEAR);
+    GDelay_60us(10);
+    GLcd_Write_Cmd(LCD_CMD_CURSOR_POS_R0_C0);
+    GDelay_60us(10);
+}
+//===============================================
+void GLcd_Write_Cmd(uchar d) {
+    LCD_DATA_PORT = d;
+    g_lcd_rs = 0;
+    g_lcd_rw = 0;
+    g_lcd_en = 1;
+    GDelay_60us(1);
+    g_lcd_en = 0;
+}
+//===============================================
+void GLcd_Write_Pos(uchar row, uchar col) {
+    uchar l_pos = LCD_CMD_CURSOR_POS_R0_C0;
+    if(row == 1) {l_pos = LCD_CMD_CURSOR_POS_R1_C0;}
+    l_pos += col;
+    GLcd_Write_Cmd(l_pos);
+}
+//===============================================
+void GLcd_Write_Char(uchar d) {
+    LCD_DATA_PORT = d;
+    g_lcd_rs = 1;
+    g_lcd_rw = 0;
+    g_lcd_en = 1;
+    GDelay_60us(1);
+    g_lcd_en = 0;
+}
+//===============================================
+void GLcd_Write_String(const uchar* d) {
+    uchar i;
+    for(i = 0; d[i] != '\0'; i++) {
+        GLcd_Write_Char(d[i]);
+    }
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GDelay.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GDelay.h"
+//===============================================
+void GDelay_60us(uint us) {
+    uint i;
+    for(i = 0; i &lt; us; i++) {
+        _nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_();
+        _nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_();
+        _nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_();
+        _nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_();
+        _nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_();
+        _nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_();
+    }
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_lcd_8_bit.png" alt="/Tutoriels/Embedded_System/8051/img/i_lcd_8_bit.png"></div><br><h2 class="Title7 GTitle2" id="Afficheur-LCD-Utiliser-l-afficheur-LCD-en-mode-4-bit"><a class="Link9" href="#Afficheur-LCD">Utiliser l'afficheur LCD en mode 4-bit</a></h2><br>En <b>mode 4-bit</b> le microcontrôleur utilise 4 lignes de données pour communiquer avec l'afficheur LCD. Ce qui rend le montage moins encombrant mais moins rapide.<br><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GSch.h"
+#include "GLcd.h"
+//===============================================
+static void GTask_Init() {
+    GLcd_Init();
+    GLcd_Write_Pos(0, 0);
+    GLcd_Write_String("BIENVENUE SUR");
+    GLcd_Write_Pos(1, 0);
+    GLcd_Write_String("READYDEV");
+}
+//===============================================
+static void GTask_Update() {
+
+}
+//===============================================
+void main() {
+    GSch_Init(1);
+    GTask_Init();
+    GSch_Add_Task(GTask_Update, 0, 0);
+    GSch_Start();
+    while(1) {
+        GSch_Dispatch_Tasks();
+    }
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GLcd.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GLcd.h"
+#include "GDelay.h"
+//===============================================
+#define LCD_DATA_PORT P1
+#define LCD_CMD_PORT P3
+//===============================================
+sbit g_lcd_en = LCD_CMD_PORT^0;
+sbit g_lcd_rw = LCD_CMD_PORT^1;
+sbit g_lcd_rs = LCD_CMD_PORT^2;
+//===============================================
+void GLcd_Init() {
+    GLcd_Write_Cmd(LCD_CMD_MODE_4_BIT);
+    GDelay_40us(10);
+    GLcd_Write_Cmd(LCD_CMD_MODE_4_BIT_2_LINES_5x7);
+    GDelay_40us(10);
+    GLcd_Write_Cmd(LCD_CMD_DISPLAY_ON_CURSOR_OFF_BLINK_OFF);
+    GDelay_40us(10);
+    GLcd_Write_Cmd(LCD_CMD_CURSOR_INCREMENT);
+    GDelay_40us(10);
+    GLcd_Write_Cmd(LCD_CMD_DISPLAY_CLEAR);
+    GDelay_40us(10);
+    GLcd_Write_Cmd(LCD_CMD_CURSOR_POS_R0_C0);
+    GDelay_40us(10);
+}
+//===============================================
+void GLcd_Write_Cmd(uchar d) {
+    g_lcd_rs = 0;
+    g_lcd_rw = 0;
+    
+    LCD_DATA_PORT = (LCD_DATA_PORT &amp; 0x0F) | (0xF0 &amp; d);
+    g_lcd_en = 1;
+    GDelay_40us(1);
+    g_lcd_en = 0;
+        
+    GDelay_40us(1);
+
+    LCD_DATA_PORT = (LCD_DATA_PORT &amp; 0x0F) | (d &lt;&lt; 4);
+    g_lcd_en = 1;
+    GDelay_40us(1);
+    g_lcd_en = 0;
+}
+//===============================================
+void GLcd_Write_Pos(uchar row, uchar col) {
+    uchar l_pos = LCD_CMD_CURSOR_POS_R0_C0;
+    if(row == 1) {l_pos = LCD_CMD_CURSOR_POS_R1_C0;}
+    l_pos += col;
+    GLcd_Write_Cmd(l_pos);
+}
+//===============================================
+void GLcd_Write_Char(uchar d) {
+    g_lcd_rs = 1;
+    g_lcd_rw = 0;
+    
+    LCD_DATA_PORT = (LCD_DATA_PORT &amp; 0x0F) | (0xF0 &amp; d);
+    g_lcd_en = 1;
+    GDelay_40us(1);
+    g_lcd_en = 0;
+    
+    GDelay_40us(1);
+
+    LCD_DATA_PORT = (LCD_DATA_PORT &amp; 0x0F) | (d &lt;&lt; 4);
+    g_lcd_en = 1;
+    GDelay_40us(1);
+    g_lcd_en = 0;
+}
+//===============================================
+void GLcd_Write_String(const uchar* d) {
+    uchar i;
+    for(i = 0; d[i] != '\0'; i++) {
+        GLcd_Write_Char(d[i]);
+    }
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GDelay.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GDelay.h"
+//===============================================
+void GDelay_40us(uint us) {
+    uint i;
+    for(i = 0; i &lt; us; i++) {
+        _nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_();
+        _nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_();
+        _nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_();
+        _nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_();
+    }
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_lcd_4_bit.png" alt="/Tutoriels/Embedded_System/8051/img/i_lcd_4_bit.png"></div><br></div></div></div></div><br>
