@@ -2112,4 +2112,69 @@ void GUart_Write_String(const uchar* d) {
         GUart_Write_Char(d[i]);
     }
 }
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_uart_string.gif" alt="/Tutoriels/Embedded_System/8051/img/i_uart_string.gif"></div><br></div></div></div></div><br>
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_uart_string.gif" alt="/Tutoriels/Embedded_System/8051/img/i_uart_string.gif"></div><br><h2 class="Title7 GTitle2" id="Protocole-UART-Recevoir-un-caractere"><a class="Link9" href="#Protocole-UART">Recevoir un caractère</a></h2><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GSch.h"
+#include "GUart.h"
+//===============================================
+static void GTask_Init() {
+    GUart_Init(9600);
+}
+//===============================================
+static void GTask_Update() {
+    uchar l_data = GUart_Read_Char();
+    if(l_data != 0) {
+        GUart_Write_Char(l_data);
+        GUart_Clear_Read_Char();
+    }
+}
+//===============================================
+void main() {
+    GSch_Init(1);
+    GTask_Init();
+    GSch_Add_Task(GUart_Read_Char_Update, 0, 100);
+    GSch_Add_Task(GTask_Update, 1, 100);
+    GSch_Start();
+    while(1) {
+        GSch_Dispatch_Tasks();
+    }
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GUart.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GUart.h"
+//===============================================
+#define OSC_FREQ (11059200UL)
+#define OSC_PER_INST (12) 
+//===============================================
+#define PRELOAD(baud) (256 - (uchar)((((ulong)OSC_FREQ / 100) * 3125) / ((ulong)baud * OSC_PER_INST * 1000)));
+//===============================================
+static uchar g_read_char;
+//===============================================
+void GUart_Init(uint baud) {
+    TMOD |= 0x20;
+    TH1 = PRELOAD(baud);
+    SCON = 0x50;
+    TR1 = 1;
+    g_read_char = 0;
+}
+//===============================================
+void GUart_Write_Char(uchar d) {
+    if(d == '\n') {d = 0x0D;}
+    SBUF = d;
+	while (TI == 0);
+	TI = 0;
+}
+//===============================================
+void GUart_Read_Char_Update() {
+    if(RI) {
+        g_read_char = SBUF;
+        RI = 0;
+    }    
+}
+//===============================================
+uchar GUart_Read_Char() {
+    return g_read_char;    
+}
+//===============================================
+void GUart_Clear_Read_Char() {
+    g_read_char = 0;    
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Embedded_System/8051/img/i_uart_read_char.gif" alt="/Tutoriels/Embedded_System/8051/img/i_uart_read_char.gif"></div><br><br></div></div></div></div><br>
