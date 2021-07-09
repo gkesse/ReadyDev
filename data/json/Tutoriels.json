@@ -268,13 +268,6 @@
         },
         {
             "icon":"fa fa-cogs",
-            "theme":"OpenCV",
-            "description":"Vision par<br/> Ordinateur",
-            "link":"/Tutoriels/Resources/OpenCV/",
-			"follow":"yes"
-        },
-        {
-            "icon":"fa fa-cogs",
             "theme":"ToolBox",
             "description":"Quelques<br/> Outils utiles",
             "link":"/Tutoriels/Resources/ToolBox/",
