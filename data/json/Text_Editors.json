@@ -14,7 +14,7 @@
     "links":
     [
         {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
-        {"name":"Resources","link":"/Tutoriels/#Ressources","follow":"no"},
+        {"name":"Ressources","link":"/Tutoriels/#Ressources","follow":"no"},
         {"name":"Editeurs de texte","link":"","follow":"no"}
     ]
 }
