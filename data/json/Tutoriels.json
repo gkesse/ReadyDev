@@ -210,6 +210,13 @@
             "description":"Apprenez<br/> la gestion de versions",
             "link":"/Tutoriels/Version_Control/Git/",
 			"follow":"yes"
+        },
+        {
+            "icon":"fa fa-sitemap",
+            "theme":"Mercurial",
+            "description":"Apprenez<br/> la gestion de versions",
+            "link":"/Tutoriels/Version_Control/Mercurial/",
+			"follow":"yes"
         }
     ],    
     "code_review":
