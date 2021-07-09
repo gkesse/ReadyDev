@@ -38,4 +38,42 @@ OK
 Nom de la base de données -&gt; bdd_keepass
 Nom de l'utilisateur par défaut -&gt; xxxxxx
 OK
-Feuille de secours -&gt; Imprimer</pre></div></div><br></div></div></div></div><br>
+Feuille de secours -&gt; Imprimer</pre></div></div><br><h2 class="Title7 GTitle2" id="Keepass-Demarrer-Keepass"><a class="Link9" href="#Keepass">Démarrer Keepass</a></h2><br><h3 class="Title8 GTitle3">Démarrer Keepass</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="batchfile">Keepass
+Cocher -&gt; Mot de passe maître -&gt; xxxxxx (produitpargerardkesse)
+OK</pre></div></div><br><h2 class="Title7 GTitle2" id="Keepass-Generer-un-mot-de-passe"><a class="Link9" href="#Keepass">Générer un mot de passe</a></h2><br><h3 class="Title8 GTitle3">Générer un mot de passe</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="batchfile">Keepass
+Entrée
+Ajouter une entrée
+Général
+Titre -&gt; Votre titre
+Nom d'utilisateur -&gt; xxxxxxxxxx
+Générer un mot de passe
+Ouvrir le générateur de mot de passe
+Cocher -&gt; Générer en utilisant un jeu de caractères
+Longueur dun mot de passe généré -&gt; Votre longueur (30)
+Cocher -&gt; Vos choix
+Inclure également les caractères suivants -&gt; Vos caractères
+OK</pre></div></div><br><br><h2 class="Title7 GTitle2" id="Keepass-Enregistrer-un-mot-de-passe-existant"><a class="Link9" href="#Keepass">Enregistrer un mot de passe existant</a></h2><br><h3 class="Title8 GTitle3">Enregistrer un mot de passe existant</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="batchfile">Keepass
+Entrée
+Ajouter une entrée
+Général
+Titre -&gt; xxxxxx (ReadyDev)
+Nom d'utilisateur -&gt; xxxxxx
+Générer un mot de passe
+Ouvrir le générateur de mot de passe
+Cocher -&gt; Générer en utilisant un jeu de caractères
+Longueur dun mot de passe généré -&gt; Votre longueur (30)
+Cocher -&gt; Vos choix
+Inclure également les caractères suivants -&gt; Vos caractères
+OK</pre></div></div><br><h2 class="Title7 GTitle2" id="Keepass-Exporter-les-mots-de-passe"><a class="Link9" href="#Keepass">Exporter les mots de passe</a></h2><br><h3 class="Title8 GTitle3">Exporter les mots de passe</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="batchfile">Keepass
+Fichier
+Enregistrer sous
+Enregistrer sous le fichier
+Nom du fichier -&gt; C:\Users\Admin\Documents\keepass_bdd.kdbx
+Enregistrer</pre></div></div><br><h2 class="Title7 GTitle2" id="Keepass-Importer-les-mots-de-passe"><a class="Link9" href="#Keepass">Importer les mots de passe</a></h2><br><h3 class="Title8 GTitle3">Importer les mots de passe</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="batchfile">Keepass
+Fichier
+Ouvrir
+Ouvrir un fichier
+Nom du fichier -&gt; C:\Users\Admin\Documents\keepass_bdd.kdbx
+Ouvrir
+Cocher -&gt; Mot de passe maître -&gt; xxxxxx (produitpargerardkesse)
+OK</pre></div></div><br></div></div></div></div><br>
