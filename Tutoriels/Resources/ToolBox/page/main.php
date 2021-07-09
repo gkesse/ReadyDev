@@ -76,4 +76,19 @@ Ouvrir un fichier
 Nom du fichier -&gt; C:\Users\Admin\Documents\keepass_bdd.kdbx
 Ouvrir
 Cocher -&gt; Mot de passe maître -&gt; xxxxxx (produitpargerardkesse)
-OK</pre></div></div><br></div></div></div></div><br>
+OK</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Oracle-Database"><a class="Link3" href="#">Oracle Database</a></h1><div class="Body3"><br><b>Oracle Database</b> (communément appelé Oracle DBMS ou simplement Oracle ) est un système de gestion de base de données multi-modèle produit et commercialisé par Oracle Corporation . Il s'agit d'une base de données couramment utilisée pour exécuter des charges de travail de base de données de traitement des transactions en ligne (OLTP), d' entreposage de données (DW) et mixtes (OLTP et DW). Oracle Database est disponible par plusieurs fournisseurs de services sur site , sur le cloud ou en tant qu'installation cloud hybride. Il peut être exécuté sur des serveurs tiers ainsi que sur du matériel Oracle ( Exadata on-prem, sur Oracle Cloud ou chez Cloud at Customer).<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Installer-l-environnement-Oracle-Database-sous-Windonws"><a class="Link9" href="#Oracle-Database">Installer l'environnement Oracle Database sous Windonws</a></h2><br><h3 class="Title8 GTitle3">Télécharger Oracle Database</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.oracle.com/database/technologies/xe-downloads.html">https://www.oracle.com/database/technologies/xe-downloads.html</a><br><br><b>OracleXE184_Win64.zip</b><br><br><h3 class="Title8 GTitle3">Extraire Oracle Database</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="batchfile">OracleXE184_Win64.zip
+Clic droit
+Extraire vers OracleXE184_Win64\</pre></div></div><br><h3 class="Title8 GTitle3">Installer Oracle Database</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="batchfile">OracleXE184_Win64
+Setup.exe
+Next
+Cocher -&gt; I accept the terms in the license agreement
+Next
+Install Oracle Database -&gt; C:\app\Admin\product\18.0.0\
+Next
+Database Password -&gt; xxxxxxxxxx
+Confirm Database Password -&gt; xxxxxxxxxx
+Next
+Destination Folder -&gt; C:\app\Admin\product\18.0.0\
+Oracle Home -&gt; C:\app\Admin\product\18.0.0\dbhomeXE\
+Oracle Base -&gt; C:\app\Admin\product\18.0.0\
+Install</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Oracle-SQL-Developer"><a class="Link3" href="#">Oracle SQL Developer</a></h1><div class="Body3">Ajouter un texte ici...</div></div></div></div><br><br><br><br>
