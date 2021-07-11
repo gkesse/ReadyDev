@@ -161,7 +161,7 @@ Tester
 Connexion</pre></div></div><br><h3 class="Title8 GTitle3">Ouvrir une feuille de calcul SQL</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="batchfile">Oracle connexions
 MY_CONNECTION
 Clic droit
-Ouvrir une feuille de calcul SQL</pre></div></div><br><h3 class="Title8 GTitle3">Exécuter une requête SQL</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="batchfile">MY_CONNECTION
+Ouvrir une feuille de calcul SQL</pre></div></div><br><h3 class="Title8 GTitle3">Exécuter une requête SQL</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">MY_CONNECTION
 Feuille de calcul
 
 select * from v$version;
