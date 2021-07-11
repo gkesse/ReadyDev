@@ -142,4 +142,19 @@ Java JDK Home -&gt; C:\Program Files\Java\jdk1.8.0_291
 OK
 Importer une installation SQL ? -&gt; Non
 Cocher -&gt; Autoriser l'envoi de rapports d'utilisation à Oracle
-OK</pre></div></div><br>Oracle connexions<br>Clic droit<br>Nouvelle connexion<br>Name -&gt; MY_CONNEXION<br>Type de base de données -&gt; Oracle<br>Informations utilisateur<br>Type d'authentification -&gt; Par défaut<br>Nom d'utilisateur -&gt; sys<br>Mot de passe -&gt; xxxxxxxxxx<br>Type de connexion -&gt; De base<br>Détails<br>Nom de l'hôte -&gt; localhost<br>Port -&gt; 1521<br>Cocher -&gt; SID -&gt; xe<br>Tester<br><br><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Borland-C---Builder"><a class="Link3" href="#">Borland C++ Builder</a></h1><div class="Body3"><br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Borland-C---Builder-Installer-l-envrionnement-Borland-C---Builder-sous-Windows"><a class="Link9" href="#Borland-C---Builder">Installer l'envrionnement Borland C++ Builder sous Windows</a></h2><br><h3 class="Title8 GTitle3">Télécharger Borland C++ Builder</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://archive.org/details/BorlandC5.02">https://archive.org/details/BorlandC5.02</a><br><br><br><br><br><br></div></div></div></div><br>
+OK</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-SQL-Developer-Demarrer-une-nouvelle-connexion"><a class="Link9" href="#Oracle-SQL-Developer">Démarrer une nouvelle connexion</a></h2><br><h3 class="Title8 GTitle3">Démarrer une nouvelle connexion</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="batchfile">Oracle connexions
+Clic droit
+Nouvelle connexion
+Name -&gt; MY_CONNEXION
+Type de base de données -&gt; Oracle
+Informations utilisateur
+Type d'authentification -&gt; Par défaut
+Nom d'utilisateur -&gt; sys
+Rôle -&gt; SYSDBA
+Mot de passe -&gt; xxxxxxxxxx
+Type de connexion -&gt; De base
+Détails
+Nom de l'hôte -&gt; localhost
+Port -&gt; 1521
+Cocher -&gt; SID -&gt; xe
+Tester</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Borland-C---Builder"><a class="Link3" href="#">Borland C++ Builder</a></h1><div class="Body3"><br><b>Borland C++Builder</b> est un logiciel de développement rapide d'applications (RAD) conçu par Borland qui reprend les mêmes concepts, la même interface et la même bibliothèque que Delphi en utilisant le langage C++. Il permet de créer rapidement des applications Win32, Win64, MacOS, iOS, Android, ainsi qu'une interface graphique avec son éditeur de ressources. Utilisant en interne le compilateur Clang, ll est compatible avec la version de norme ISO C++ C++17.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Borland-C---Builder-Installer-l-envrionnement-Borland-C---Builder-sous-Windows"><a class="Link9" href="#Borland-C---Builder">Installer l'envrionnement Borland C++ Builder sous Windows</a></h2><br><h3 class="Title8 GTitle3">Télécharger Borland C++ Builder</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://archive.org/details/BorlandC5.02">https://archive.org/details/BorlandC5.02</a><br><br><b>BORLAND C++.zip</b><br><br><h3 class="Title8 GTitle3">Installer Borland C++</h3><br>BORLAND C++<br>BORLAND C<br>SETUP.EXE<br><br><br></div></div></div></div><br>
