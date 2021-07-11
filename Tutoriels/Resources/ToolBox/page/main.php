@@ -128,4 +128,61 @@ PDB$SEED
 READ ONLY
 
 XEPDB1
-READ WRITE</pre></div></div><br><h3 class="Title8 GTitle3">Quitter</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="batchfile">exit;</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Oracle-SQL-Developer"><a class="Link3" href="#">Oracle SQL Developer</a></h1><div class="Body3"><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><br><br><br><br><br><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Borland-C---Builder"><a class="Link3" href="#">Borland C++ Builder</a></h1><div class="Body3"><br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Borland-C---Builder-Installer-l-envrionnement-Borland-C---Builder-sous-Windows"><a class="Link9" href="#Borland-C---Builder">Installer l'envrionnement Borland C++ Builder sous Windows</a></h2><br><h3 class="Title8 GTitle3">Télécharger Borland C++ Builder</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://archive.org/details/BorlandC5.02">https://archive.org/details/BorlandC5.02</a><br><br><br><br><br><br></div></div></div></div><br>
+READ WRITE</pre></div></div><br><h3 class="Title8 GTitle3">Quitter</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="batchfile">exit;</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Oracle-SQL-Developer"><a class="Link3" href="#">Oracle SQL Developer</a></h1><div class="Body3"><br><b>Oracle SQL Developer</b> est un environnement de développement intégré gratuit qui simplifie le développement et la gestion d'Oracle Database dans les déploiements traditionnels et cloud. SQL Developer propose un développement complet de bout en bout de vos applications PL/SQL, une feuille de calcul pour exécuter des requêtes et des scripts, une console DBA pour gérer la base de données, une interface de rapports, une solution complète de modélisation de données et une plateforme de migration pour déplacer votre Bases de données tierces vers Oracle.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Oracle-SQL-Developer-Installer-l-environnement-JDK-8-sous-Windows"><a class="Link9" href="#Oracle-SQL-Developer">Installer l'environnement JDK 8 sous Windows</a></h2><br><h3 class="Title8 GTitle3">Télécharger JDK 8</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html">https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html</a><br><br><b>jdk-8u291-windows-x64.exe</b><br><br><h3 class="Title8 GTitle3">Installer JDK 8</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="batchfile">jdk-8u291-windows-x64.exe
+Next
+Install To -&gt; C:\Program Files\Java\jdk1.8.0_291\
+Next
+Installer dans -&gt; C:\Program Files\Java\jre1.8.0_291\
+Suivant
+Close</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-SQL-Developer-Installer-l-environnement-Oracle-SQL-Developer-sous-Windows"><a class="Link9" href="#Oracle-SQL-Developer">Installer l'environnement Oracle SQL Developer sous Windows</a></h2><br><h3 class="Title8 GTitle3">Télécharger Oracle SQL Developer</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.oracle.com/tools/downloads/sqldev-downloads.html">https://www.oracle.com/tools/downloads/sqldev-downloads.html</a><br><br><b>sqldeveloper-20.4.1.407.0006-no-jre.zip</b><br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="batchfile">sqldeveloper-20.4.1.407.0006-no-jre.zip
+Clic droit
+Extraire vers sqldeveloper-20.4.1.407.0006-no-jre\</pre></div></div><br><h3 class="Title8 GTitle3">Installer Oracle SQL Developer</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="batchfile">sqldeveloper-20.4.1.407.0006-no-jre
+sqldeveloper.exe
+Java JDK Home -&gt; C:\Program Files\Java\jdk1.8.0_291
+OK
+Importer une installation SQL ? -&gt; Non
+Cocher -&gt; Autoriser l'envoi de rapports d'utilisation à Oracle
+OK</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-SQL-Developer-Demarrer-une-nouvelle-connexion"><a class="Link9" href="#Oracle-SQL-Developer">Démarrer une nouvelle connexion</a></h2><br><h3 class="Title8 GTitle3">Démarrer une nouvelle connexion</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="batchfile">Oracle connexions
+Clic droit
+Nouvelle connexion
+Name -&gt; MY_CONNEXION
+Type de base de données -&gt; Oracle
+Informations utilisateur
+Type d'authentification -&gt; Par défaut
+Nom d'utilisateur -&gt; sys
+Rôle -&gt; SYSDBA
+Mot de passe -&gt; xxxxxxxxxx
+Type de connexion -&gt; De base
+Détails
+Nom de l'hôte -&gt; localhost
+Port -&gt; 1521
+Cocher -&gt; SID -&gt; xe
+Tester</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Borland-C---Builder"><a class="Link3" href="#">Borland C++ Builder</a></h1><div class="Body3"><br><b>Borland C++Builder</b> est un logiciel de développement rapide d'applications (RAD) conçu par Borland qui reprend les mêmes concepts, la même interface et la même bibliothèque que Delphi en utilisant le langage C++. Il permet de créer rapidement des applications Win32, Win64, MacOS, iOS, Android, ainsi qu'une interface graphique avec son éditeur de ressources. Utilisant en interne le compilateur Clang, ll est compatible avec la version de norme ISO C++ C++17.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Borland-C---Builder-Installer-l-envrionnement-Borland-C---Builder-sous-Windows"><a class="Link9" href="#Borland-C---Builder">Installer l'envrionnement Borland C++ Builder sous Windows</a></h2><br><h3 class="Title8 GTitle3">Télécharger Borland C++ Builder</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://archive.org/details/BorlandC5.02">https://archive.org/details/BorlandC5.02</a><br><br><b>BORLAND C++.zip</b><br><br><h3 class="Title8 GTitle3">Extraire Borland C++ Builder</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="batchfile">BORLAND C++.zip
+Clic droit
+Extraire vers BORLAND C++\</pre></div></div><br><h3 class="Title8 GTitle3">Installer Borland C++</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="batchfile">BORLAND C++
+BORLAND C
+SETUP.EXE
+Borland C++ 5.02
+INSTALL.TXT -&gt; Next
+Fermer -&gt; Fichier
+Cocher -&gt; Typical
+Next
+Location of Borland C++ -&gt; C:\BC5
+Location of Borland C++ Default Desktop -&gt; C:\BC5\BIN
+Source Drive -&gt; C
+Windows Directory -&gt; C:\WINDOWS
+Next
+Database Location -&gt; C:\Program Files\Borland\Common Files\BDE
+Configuration Location -&gt; C:\Program Files\Borland\Common Files\BDE
+Cocher -&gt; Maintain configuration to support existing Win3.1 applications
+Next
+BDE Location -&gt; C:\BDE32
+Next
+Install
+OK
+Reboot -&gt; OK
+README.TXT -&gt; Next
+Fermer -&gt; Fichier
+OK
+Registration -&gt; Next
+OK</pre></div></div><br></div></div></div></div><br>
