@@ -91,4 +91,41 @@ Next
 Destination Folder -&gt; C:\app\Admin\product\18.0.0\
 Oracle Home -&gt; C:\app\Admin\product\18.0.0\dbhomeXE\
 Oracle Base -&gt; C:\app\Admin\product\18.0.0\
-Install</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Oracle-SQL-Developer"><a class="Link3" href="#">Oracle SQL Developer</a></h1><div class="Body3">Ajouter un texte ici...</div></div></div></div><br><br><br><br>
+Install
+Multitenant container database -&gt; localhost:1521
+Pluggable database -&gt; localhost:1521/XEPDB1
+EM Express URL -&gt; https://localhost:5500/em
+Finish</pre></div></div><br><h3 class="Title8 GTitle3">Démarrer la connexion</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="batchfile">sqlplus / as sysdba</pre></div></div><br><h3 class="Title8 GTitle3">Vérifier la version</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="batchfile">select * from v$version;
+
+BANNER
+--------------------------------------------------------------------------------
+BANNER_FULL
+--------------------------------------------------------------------------------
+BANNER_LEGACY
+--------------------------------------------------------------------------------
+    CON_ID
+----------
+Oracle Database 18c Express Edition Release 18.0.0.0.0 - Production
+Oracle Database 18c Express Edition Release 18.0.0.0.0 - Production
+Version 18.4.0.0.0
+Oracle Database 18c Express Edition Release 18.0.0.0.0 - Production
+         0
+
+BANNER
+--------------------------------------------------------------------------------
+BANNER_FULL
+--------------------------------------------------------------------------------
+BANNER_LEGACY
+--------------------------------------------------------------------------------
+    CON_ID
+----------</pre></div></div><br><h3 class="Title8 GTitle3">Vérifier le mode d'ouverture</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="batchfile">select name, open_mode from v$pdbs;
+
+NAME
+--------------------------------------------------------------------------------
+OPEN_MODE
+----------
+PDB$SEED
+READ ONLY
+
+XEPDB1
+READ WRITE</pre></div></div><br><h3 class="Title8 GTitle3">Quitter</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="batchfile">exit;</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Oracle-SQL-Developer"><a class="Link3" href="#">Oracle SQL Developer</a></h1><div class="Body3"><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><br><br><br><br><br><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Borland-C---Builder"><a class="Link3" href="#">Borland C++ Builder</a></h1><div class="Body3"><br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Borland-C---Builder-Installer-l-envrionnement-Borland-C---Builder-sous-Windows"><a class="Link9" href="#Borland-C---Builder">Installer l'envrionnement Borland C++ Builder sous Windows</a></h2><br><h3 class="Title8 GTitle3">Télécharger Borland C++ Builder</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://archive.org/details/BorlandC5.02">https://archive.org/details/BorlandC5.02</a><br><br><br><br><br><br></div></div></div></div><br>
