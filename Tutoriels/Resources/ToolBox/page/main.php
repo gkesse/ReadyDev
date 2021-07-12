@@ -151,7 +151,7 @@ declare
 begin 
     dbms_output.put_line(l_message); 
 end;
-/</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">Bonjour tout le monde</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Declarer-une-variable-entiere"><a class="Link9" href="#Oracle-Database">Déclarer une variable entière</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+/</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">Bonjour tout le monde</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Declarer-une-variable"><a class="Link9" href="#Oracle-Database">Déclarer une variable</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
 set serveroutput on;
 -- ==============================================
 declare 
@@ -160,7 +160,17 @@ begin
     null; 
 end;
 /
--- ==============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Creer-un-sous-type"><a class="Link9" href="#Oracle-Database">Créer un sous-type</a></h2><br>Un <b>sous-type</b> est un sous-ensemble d'un autre type de données, appelé son type de base. Un sous-type a les mêmes opérations valides que son type de base, mais seulement un sous-ensemble de ses valeurs valides.<br><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+-- ==============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Afficher-une-variable"><a class="Link9" href="#Oracle-Database">Afficher une variable</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+set serveroutput on;
+-- ==============================================
+declare 
+    l_integer integer; 
+begin
+    l_integer := 2021;
+    dbms_output.put_line('l_integer : ' || l_integer); 
+end;
+/
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">l_integer : 2021</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Creer-un-sous-type"><a class="Link9" href="#Oracle-Database">Créer un sous-type</a></h2><br>Un <b>sous-type</b> est un sous-ensemble d'un autre type de données, appelé son type de base. Un sous-type a les mêmes opérations valides que son type de base, mais seulement un sous-ensemble de ses valeurs valides.<br><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
 set serveroutput on;
 -- ==============================================
 declare
