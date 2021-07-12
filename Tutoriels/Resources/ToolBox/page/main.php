@@ -130,14 +130,14 @@ READ ONLY
 XEPDB1
 READ WRITE</pre></div></div><br><h3 class="Title8 GTitle3">Quitter</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">exit;</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Executer-une-requete-a-partir-d-un-fichier"><a class="Link9" href="#Oracle-Database">Exécuter une requête à partir d'un fichier</a></h2><br><h3 class="Title8 GTitle3">Créer le script (script.sql)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">select * from v$version;</pre></div></div><br><h3 class="Title8 GTitle3">Démarrer la connexion</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">sqlplus / as sysdba</pre></div></div><br><h3 class="Title8 GTitle3">Exécuter le script</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">@script.sql</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Afficher-un-message"><a class="Link9" href="#Oracle-Database">Afficher un message</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">set serveroutput on;
 declare 
-    l_message  varchar2(128):= 'Bonjour tout le monde'; 
+    l_message  varchar2(128) := 'Bonjour tout le monde'; 
 begin 
     dbms_output.put_line(l_message); 
 end;
 /</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">Bonjour tout le monde</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Creer-un-commentaire-simple"><a class="Link9" href="#Oracle-Database">Créer un commentaire simple</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- creer un commentaire simple
 set serveroutput on;
 declare 
-    l_message  varchar2(128):= 'Bonjour tout le monde'; 
+    l_message  varchar2(128) := 'Bonjour tout le monde'; 
 begin 
     dbms_output.put_line(l_message); 
 end;
@@ -147,7 +147,7 @@ end;
 */
 set serveroutput on;
 declare 
-    l_message  varchar2(128):= 'Bonjour tout le monde'; 
+    l_message  varchar2(128) := 'Bonjour tout le monde'; 
 begin 
     dbms_output.put_line(l_message); 
 end;
