@@ -170,7 +170,25 @@ begin
     dbms_output.put_line('l_integer : ' || l_integer); 
 end;
 /
--- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">l_integer : 2021</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Creer-une-variable-constante"><a class="Link9" href="#Oracle-Database">Créer une variable constante</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">l_integer : 2021</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Initialiser-une-variable-lors-de-la-declaration--1-"><a class="Link9" href="#Oracle-Database">Initialiser une variable lors de la déclaration (1)</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+set serveroutput on;
+-- ==============================================
+declare 
+    l_string char(32) := 'Bonjour tout le monde'; 
+begin
+    dbms_output.put_line(l_string); 
+end;
+/
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">Bonjour tout le monde</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Initialiser-une-variable-lors-de-la-declaration--2-"><a class="Link9" href="#Oracle-Database">Initialiser une variable lors de la déclaration (2)</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+set serveroutput on;
+-- ==============================================
+declare 
+    l_string char(32) default 'Bonjour tout le monde'; 
+begin
+    dbms_output.put_line(l_string); 
+end;
+/
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">Bonjour tout le monde</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Creer-une-variable-constante"><a class="Link9" href="#Oracle-Database">Créer une variable constante</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
 set serveroutput on;
 -- ==============================================
 declare 
