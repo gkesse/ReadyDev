@@ -76,7 +76,7 @@ Ouvrir un fichier
 Nom du fichier -&gt; C:\Users\Admin\Documents\keepass_bdd.kdbx
 Ouvrir
 Cocher -&gt; Mot de passe maître -&gt; xxxxxx (produitpargerardkesse)
-OK</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Oracle-Database"><a class="Link3" href="#">Oracle Database</a></h1><div class="Body3"><br><b>Oracle Database</b> (communément appelé Oracle DBMS ou simplement Oracle ) est un système de gestion de base de données multi-modèle produit et commercialisé par Oracle Corporation . Il s'agit d'une base de données couramment utilisée pour exécuter des charges de travail de base de données de traitement des transactions en ligne (OLTP), d' entreposage de données (DW) et mixtes (OLTP et DW). Oracle Database est disponible par plusieurs fournisseurs de services sur site , sur le cloud ou en tant qu'installation cloud hybride. Il peut être exécuté sur des serveurs tiers ainsi que sur du matériel Oracle ( Exadata on-prem, sur Oracle Cloud ou chez Cloud at Customer).<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Installer-l-environnement-Oracle-Database-sous-Windonws"><a class="Link9" href="#Oracle-Database">Installer l'environnement Oracle Database sous Windonws</a></h2><br><h3 class="Title8 GTitle3">Télécharger Oracle Database</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.oracle.com/database/technologies/xe-downloads.html">https://www.oracle.com/database/technologies/xe-downloads.html</a><br><br><b>OracleXE184_Win64.zip</b><br><br><h3 class="Title8 GTitle3">Extraire Oracle Database</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="batchfile">OracleXE184_Win64.zip
+OK</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Oracle-Database"><a class="Link3" href="#">Oracle Database</a></h1><div class="Body3"><br><b>Oracle Database</b> (communément appelé Oracle DBMS ou simplement Oracle ) est un système de gestion de base de données multi-modèle produit et commercialisé par Oracle Corporation . Il s'agit d'une base de données couramment utilisée pour exécuter des charges de travail de base de données de traitement des transactions en ligne (OLTP), d' entreposage de données (DW) et mixtes (OLTP et DW). Oracle Database est disponible par plusieurs fournisseurs de services sur site , sur le cloud ou en tant qu'installation cloud hybride. Il peut être exécuté sur des serveurs tiers ainsi que sur du matériel Oracle ( Exadata on-prem, sur Oracle Cloud ou chez Cloud at Customer).<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Documentation-sur-Oracle-PL-SQL"><a class="Link9" href="#Oracle-Database">Documentation sur Oracle PL/SQL</a></h2><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.techonthenet.com/oracle/index.php">https://www.techonthenet.com/oracle/index.php</a><br><br><h2 class="Title7 GTitle2" id="Oracle-Database-Installer-l-environnement-Oracle-Database-sous-Windonws"><a class="Link9" href="#Oracle-Database">Installer l'environnement Oracle Database sous Windonws</a></h2><br><h3 class="Title8 GTitle3">Télécharger Oracle Database</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.oracle.com/database/technologies/xe-downloads.html">https://www.oracle.com/database/technologies/xe-downloads.html</a><br><br><b>OracleXE184_Win64.zip</b><br><br><h3 class="Title8 GTitle3">Extraire Oracle Database</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="batchfile">OracleXE184_Win64.zip
 Clic droit
 Extraire vers OracleXE184_Win64\</pre></div></div><br><h3 class="Title8 GTitle3">Installer Oracle Database</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="batchfile">OracleXE184_Win64
 Setup.exe
@@ -401,14 +401,58 @@ begin
     end case;
 end;
 /
--- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">continuer l'opearation</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Creer-une-boucle-for"><a class="Link9" href="#Oracle-Database">Créer une boucle for</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">continuer l'opearation</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Creer-une-boucle-loop"><a class="Link9" href="#Oracle-Database">Créer une boucle loop</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+set serveroutput on;
+-- ==============================================
+declare
+    l_count integer := 0;
+-- ==============================================
+begin
+    loop
+        if (l_count = 10) then exit; end if;
+        dbms_output.put_line(l_count);
+        l_count := l_count + 1;
+    end loop;
+end;
+/
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">0
+1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Creer-une-boucle-while"><a class="Link9" href="#Oracle-Database">Créer une boucle while</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+set serveroutput on;
+-- ==============================================
+declare
+    l_count integer := 0;
+-- ==============================================
+begin
+    while l_count &lt; 10 loop
+        dbms_output.put_line(l_count);
+        l_count := l_count + 1;
+    end loop;
+end;
+/
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">0
+1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Creer-une-boucle-for"><a class="Link9" href="#Oracle-Database">Créer une boucle for</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
 set serveroutput on;
 -- ==============================================
 begin
-    &lt;&lt;e_loop&gt;&gt;
     for i in 1..10 loop
         dbms_output.put_line(i);
-    end loop e_loop;
+    end loop;
 end;
 /
 -- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">1
@@ -420,30 +464,108 @@ end;
 7
 8
 9
-10</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Creer-des-bloucles-for-imbriquees"><a class="Link9" href="#Oracle-Database">Créer des bloucles for imbriquées</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+10</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Creer-une-boucle-for-inverse"><a class="Link9" href="#Oracle-Database">Créer une boucle for inversé</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
 set serveroutput on;
 -- ==============================================
 begin
-    &lt;&lt;e_loop&gt;&gt;
-    for i in 1..9 loop
-        dbms_output.put(utl_lms.format_message('[%d] : ', i));
-        &lt;&lt;e_loop2&gt;&gt;
-        for j in 1..9 loop
-            dbms_output.put(j || ' ; ');
-        end loop e_loop2;
-        dbms_output.new_line;
-    end loop e_loop;
+    for i in 1..10 loop
+        dbms_output.put_line(i);
+    end loop;
 end;
 /
--- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">[1] : 1 ; 2 ; 3 ; 4 ; 5 ; 6 ; 7 ; 8 ; 9 ;
-[2] : 1 ; 2 ; 3 ; 4 ; 5 ; 6 ; 7 ; 8 ; 9 ;
-[3] : 1 ; 2 ; 3 ; 4 ; 5 ; 6 ; 7 ; 8 ; 9 ;
-[4] : 1 ; 2 ; 3 ; 4 ; 5 ; 6 ; 7 ; 8 ; 9 ;
-[5] : 1 ; 2 ; 3 ; 4 ; 5 ; 6 ; 7 ; 8 ; 9 ;
-[6] : 1 ; 2 ; 3 ; 4 ; 5 ; 6 ; 7 ; 8 ; 9 ;
-[7] : 1 ; 2 ; 3 ; 4 ; 5 ; 6 ; 7 ; 8 ; 9 ;
-[8] : 1 ; 2 ; 3 ; 4 ; 5 ; 6 ; 7 ; 8 ; 9 ;
-[9] : 1 ; 2 ; 3 ; 4 ; 5 ; 6 ; 7 ; 8 ; 9 ;</pre></div></div><br>Créer une bloucle for<br><br>script.sql<br><br><br>Résultat<br><br>Créer une bloucle for<br><br>script.sql<br><br><br>Résultat<br><br>Créer une bloucle for<br><br>script.sql<br><br><br>Résultat<br><br><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Oracle-SQL-Developer"><a class="Link3" href="#">Oracle SQL Developer</a></h1><div class="Body3"><br><b>Oracle SQL Developer</b> est un environnement de développement intégré gratuit qui simplifie le développement et la gestion d'Oracle Database dans les déploiements traditionnels et cloud. SQL Developer propose un développement complet de bout en bout de vos applications PL/SQL, une feuille de calcul pour exécuter des requêtes et des scripts, une console DBA pour gérer la base de données, une interface de rapports, une solution complète de modélisation de données et une plateforme de migration pour déplacer votre Bases de données tierces vers Oracle.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Oracle-SQL-Developer-Installer-l-environnement-JDK-8-sous-Windows"><a class="Link9" href="#Oracle-SQL-Developer">Installer l'environnement JDK 8 sous Windows</a></h2><br><h3 class="Title8 GTitle3">Télécharger JDK 8</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html">https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html</a><br><br><b>jdk-8u291-windows-x64.exe</b><br><br><h3 class="Title8 GTitle3">Installer JDK 8</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="batchfile">jdk-8u291-windows-x64.exe
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">10
+9
+8
+7
+6
+5
+4
+3
+2
+1</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Realiser-des-operations-sur-les-chaines"><a class="Link9" href="#Oracle-Database">Réaliser des opérations sur les chaines</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+set serveroutput on;
+-- ==============================================
+declare
+    l_string varchar(32) := 'Bonjour tout le monde';
+    l_string2 varchar(32) := ' ! Bienvenue sur ReadyDev';
+    l_string3 varchar(32) := '    ReadyDev    ';
+    l_char char(1) := 'A';
+    l_code number(2) := ascii('A');
+    l_char2 char(1) := 'o';
+begin
+    dbms_output.put_line('ascii(l_char) = ' || ascii(l_char));
+    dbms_output.put_line('chr(l_code) = ' || chr(l_code));
+    dbms_output.put_line('initcap(l_string) = ' || initcap(l_string));
+    dbms_output.put_line('lower(l_string) = ' || lower(l_string));
+    dbms_output.put_line('upper(l_string) = ' || upper(l_string));
+    dbms_output.put_line('lpad(l_string, 5) = ' || lpad(l_string, 25));
+    dbms_output.put_line('lpad(l_string, 5, *) = ' || lpad(l_string, 25, '*'));
+    dbms_output.put_line('rpad(l_string, 5) = ' || rpad(l_string, 25));
+    dbms_output.put_line('rpad(l_string, 5, *) = ' || rpad(l_string, 25, '*'));
+    dbms_output.put_line('ltrim(l_string3, '' '') = ' || ltrim(l_string3, ' '));
+    dbms_output.put_line('rtrim(l_string3, '' '') = ' || rtrim(l_string3, ' '));
+    dbms_output.put_line('substr(l_string, 1, 7) = ' || substr(l_string, 1, 7));
+    dbms_output.put_line('substr(l_string, 8) = ' || substr(l_string, 8));
+    dbms_output.put_line('replace(l_string, Bonjour, Bienvenue) = ' || replace(l_string, 'Bonjour', 'Bienvenue'));
+    dbms_output.put_line('instr(l_string, l_char2) = ' || instr(l_string, l_char2));
+    dbms_output.put_line('instr(l_string, l_char2, 3) = ' || instr(l_string, l_char2, 3));
+    dbms_output.put_line('instr(l_string, l_char2, 1, 2) = ' || instr(l_string, l_char2, 1, 2));
+    dbms_output.put_line('instr(l_string, l_char2, 1, 3) = ' || instr(l_string, l_char2, 1, 3));
+    dbms_output.put_line('instr(l_string, l_char2, -1, 1) = ' || instr(l_string, l_char2, -1, 1));
+    dbms_output.put_line('instrb(l_string, l_char2) = ' || instrb(l_string, l_char2));
+    dbms_output.put_line('instrb(l_string, l_char2, 3) = ' || instrb(l_string, l_char2, 3));
+    dbms_output.put_line('instrb(l_string, l_char2, 1, 2) = ' || instrb(l_string, l_char2, 1, 2));
+    dbms_output.put_line('instrb(l_string, l_char2, 1, 3) = ' || instrb(l_string, l_char2, 1, 3));
+    dbms_output.put_line('instrb(l_string, l_char2, -1, 1) = ' || instrb(l_string, l_char2, -1, 1));
+    dbms_output.put_line('length(l_string) = ' || length(l_string));
+    dbms_output.put_line('lengthb(l_string) = ' || lengthb(l_string));
+    dbms_output.put_line('concat(l_string, l_string2) = ' || concat(l_string, l_string2));
+end;
+/
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">ascii(l_char) = 65
+chr(l_code) = A
+initcap(l_string) = Bonjour Tout Le Monde
+lower(l_string) = bonjour tout le monde
+upper(l_string) = BONJOUR TOUT LE MONDE
+lpad(l_string, 5) =     Bonjour tout le monde
+lpad(l_string, 5, *) = ****Bonjour tout le monde
+rpad(l_string, 5) = Bonjour tout le monde
+rpad(l_string, 5, *) = Bonjour tout le monde****
+ltrim(l_string3, ' ') = ReadyDev
+rtrim(l_string3, ' ') =     ReadyDev
+substr(l_string, 1, 7) = Bonjour
+substr(l_string, 8) =  tout le monde
+replace(l_string, Bonjour, Bienvenue) = Bienvenue tout le monde
+instr(l_string, l_char2) = 2
+instr(l_string, l_char2, 3) = 5
+instr(l_string, l_char2, 1, 2) = 5
+instr(l_string, l_char2, 1, 3) = 10
+instr(l_string, l_char2, -1, 1) = 18
+instrb(l_string, l_char2) = 2
+instrb(l_string, l_char2, 3) = 5
+instrb(l_string, l_char2, 1, 2) = 5
+instrb(l_string, l_char2, 1, 3) = 10
+instrb(l_string, l_char2, -1, 1) = 18
+length(l_string) = 21
+lengthb(l_string) = 21
+concat(l_string, l_string2) = Bonjour tout le monde ! Bienvenue sur ReadyDev</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Creer-un-tableau-varray"><a class="Link9" href="#Oracle-Database">Créer un tableau varray</a></h2><br><b>Varray </b>est une structure de données qui permet de stocker une collection séquentielle de taille fixe d'éléments du même type. Un varray est utilisé pour stocker une collection ordonnée de données. Tous les varrays sont constitués d'emplacements de mémoire contigus. L'adresse la plus basse correspond au premier élément et l'adresse la plus haute au dernier élément.<br><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+set serveroutput on;
+-- ==============================================
+declare
+    type t_stringlist is varray(5) of varchar(10);
+    l_digits t_stringlist := t_stringlist('Un', 'Deux', 'Trois', 'Quatre', 'Cinq');
+    l_count integer:= l_digits.count;
+begin
+    for i in 1..l_count loop
+        dbms_output.put_line(l_digits(i));
+    end loop;
+end;
+/
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">Un
+Deux
+Trois
+Quatre
+Cinq</pre></div></div><br>Créer une bloucle for<br><br>script.sql<br><br><br>Résultat<br><br><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Oracle-SQL-Developer"><a class="Link3" href="#">Oracle SQL Developer</a></h1><div class="Body3"><br><b>Oracle SQL Developer</b> est un environnement de développement intégré gratuit qui simplifie le développement et la gestion d'Oracle Database dans les déploiements traditionnels et cloud. SQL Developer propose un développement complet de bout en bout de vos applications PL/SQL, une feuille de calcul pour exécuter des requêtes et des scripts, une console DBA pour gérer la base de données, une interface de rapports, une solution complète de modélisation de données et une plateforme de migration pour déplacer votre Bases de données tierces vers Oracle.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Oracle-SQL-Developer-Installer-l-environnement-JDK-8-sous-Windows"><a class="Link9" href="#Oracle-SQL-Developer">Installer l'environnement JDK 8 sous Windows</a></h2><br><h3 class="Title8 GTitle3">Télécharger JDK 8</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html">https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html</a><br><br><b>jdk-8u291-windows-x64.exe</b><br><br><h3 class="Title8 GTitle3">Installer JDK 8</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="batchfile">jdk-8u291-windows-x64.exe
 Next
 Install To -&gt; C:\Program Files\Java\jdk1.8.0_291\
 Next
