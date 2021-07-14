@@ -492,6 +492,7 @@ declare
     l_char char(1) := 'A';
     l_code number(2) := ascii('A');
     l_char2 char(1) := 'o';
+-- ==============================================
 begin
     dbms_output.put_line('ascii(l_char) = ' || ascii(l_char));
     dbms_output.put_line('chr(l_code) = ' || chr(l_code));
@@ -555,6 +556,7 @@ declare
     type t_stringlist is varray(5) of varchar(10);
     l_digits t_stringlist := t_stringlist('Un', 'Deux', 'Trois', 'Quatre', 'Cinq');
     l_count integer:= l_digits.count;
+-- ==============================================
 begin
     for i in 1..l_count loop
         dbms_output.put_line(l_digits(i));
