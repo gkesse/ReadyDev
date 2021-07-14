@@ -342,7 +342,66 @@ end;
 1 || 1 = 1
 1 &amp;&amp; 0 = 0
 0 &amp;&amp; 0 = 0
-1 &amp;&amp; 1 = 1</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Creer-une-boucle-for"><a class="Link9" href="#Oracle-Database">Créer une boucle for</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+1 &amp;&amp; 1 = 1</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Creer-une-condition-if"><a class="Link9" href="#Oracle-Database">Créer une condition if</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+set serveroutput on;
+-- ==============================================
+declare
+    a integer := 22;
+    b integer := 7;
+-- ==============================================
+begin
+    if (a &gt; b) then
+        dbms_output.put_line('a est superieur a b');
+    end if;
+end;
+/
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">a est superieur a b</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Creer-une-condition-if-else"><a class="Link9" href="#Oracle-Database">Créer une condition if else</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+set serveroutput on;
+-- ==============================================
+declare
+    a integer := 22;
+    b integer := 7;
+-- ==============================================
+begin
+    if (a &lt; b) then
+        dbms_output.put_line('a est inferieur a b');
+    else
+        dbms_output.put_line('a est superieur ou egal a b');
+    end if;
+end;
+/
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">a est superieur ou egal a b</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Creer-une-condition-else-if"><a class="Link9" href="#Oracle-Database">Créer une condition else if</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+set serveroutput on;
+-- ==============================================
+declare
+    a integer := 22;
+    b integer := 22;
+-- ==============================================
+begin
+    if (a &lt; b) then
+        dbms_output.put_line('a est inferieur a b');
+    elsif (a = b) then
+        dbms_output.put_line('a est egal a b');
+    else
+        dbms_output.put_line('a est superieur a b');
+    end if;
+end;
+/
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">a est egal a b</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Creer-une-condition-case-when"><a class="Link9" href="#Oracle-Database">Créer une condition case when</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+set serveroutput on;
+-- ==============================================
+declare
+    a char(3) := 'yes';
+-- ==============================================
+begin
+    case a
+        when 'yes' then dbms_output.put_line('continuer l''opearation'); 
+        when 'no' then dbms_output.put_line('annuler l''opearation'); 
+        else dbms_output.put_line('lancer l''operation par defaut'); 
+    end case;
+end;
+/
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">continuer l'opearation</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Creer-une-boucle-for"><a class="Link9" href="#Oracle-Database">Créer une boucle for</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
 set serveroutput on;
 -- ==============================================
 begin
