@@ -130,14 +130,14 @@ READ ONLY
 XEPDB1
 READ WRITE</pre></div></div><br><h3 class="Title8 GTitle3">Quitter</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">exit;</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Executer-une-requete-a-partir-d-un-fichier"><a class="Link9" href="#Oracle-Database">Exécuter une requête à partir d'un fichier</a></h2><br><h3 class="Title8 GTitle3">Créer le script (script.sql)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">select * from v$version;</pre></div></div><br><h3 class="Title8 GTitle3">Démarrer la connexion</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">sqlplus / as sysdba</pre></div></div><br><h3 class="Title8 GTitle3">Exécuter le script</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">@script.sql</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Afficher-un-message"><a class="Link9" href="#Oracle-Database">Afficher un message</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">set serveroutput on;
 declare 
-    l_message  varchar2(128):= 'Bonjour tout le monde'; 
+    l_message  varchar2(128) := 'Bonjour tout le monde'; 
 begin 
     dbms_output.put_line(l_message); 
 end;
 /</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">Bonjour tout le monde</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Creer-un-commentaire-simple"><a class="Link9" href="#Oracle-Database">Créer un commentaire simple</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- creer un commentaire simple
 set serveroutput on;
 declare 
-    l_message  varchar2(128):= 'Bonjour tout le monde'; 
+    l_message  varchar2(128) := 'Bonjour tout le monde'; 
 begin 
     dbms_output.put_line(l_message); 
 end;
@@ -147,7 +147,7 @@ end;
 */
 set serveroutput on;
 declare 
-    l_message  varchar2(128):= 'Bonjour tout le monde'; 
+    l_message  varchar2(128) := 'Bonjour tout le monde'; 
 begin 
     dbms_output.put_line(l_message); 
 end;
@@ -170,7 +170,29 @@ begin
     dbms_output.put_line('l_integer : ' || l_integer); 
 end;
 /
+<<<<<<< HEAD
 -- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">l_integer : 2021</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Creer-une-variable-constante"><a class="Link9" href="#Oracle-Database">Créer une variable constante</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+=======
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">l_integer : 2021</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Initialiser-une-variable-lors-de-la-declaration--1-"><a class="Link9" href="#Oracle-Database">Initialiser une variable lors de la déclaration (1)</a></h2><br>Chaque fois qu'on déclare une variable, PL/SQL lui attribue une valeur par défaut NULL. Si on souhaite <b>initialiser </b>une variable avec une valeur autre que la valeur NULL, on peut le faire pendant la déclaration.<br><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+set serveroutput on;
+-- ==============================================
+declare 
+    l_string char(32) := 'Bonjour tout le monde'; 
+begin
+    dbms_output.put_line(l_string); 
+end;
+/
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">Bonjour tout le monde</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Initialiser-une-variable-lors-de-la-declaration--2-"><a class="Link9" href="#Oracle-Database">Initialiser une variable lors de la déclaration (2)</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+set serveroutput on;
+-- ==============================================
+declare 
+    l_string char(32) default 'Bonjour tout le monde'; 
+begin
+    dbms_output.put_line(l_string); 
+end;
+/
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">Bonjour tout le monde</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Creer-une-variable-constante"><a class="Link9" href="#Oracle-Database">Créer une variable constante</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+>>>>>>> 7e51c1ee0ab40e1c5aa0b59309aa424cdd21042a
 set serveroutput on;
 -- ==============================================
 declare 
@@ -199,7 +221,178 @@ begin
     dbms_output.put_line('l_string : ' || l_string); 
 end;
 /
+<<<<<<< HEAD
 -- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">l_string : Bonjour tout le monde</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Oracle-SQL-Developer"><a class="Link3" href="#">Oracle SQL Developer</a></h1><div class="Body3"><br><b>Oracle SQL Developer</b> est un environnement de développement intégré gratuit qui simplifie le développement et la gestion d'Oracle Database dans les déploiements traditionnels et cloud. SQL Developer propose un développement complet de bout en bout de vos applications PL/SQL, une feuille de calcul pour exécuter des requêtes et des scripts, une console DBA pour gérer la base de données, une interface de rapports, une solution complète de modélisation de données et une plateforme de migration pour déplacer votre Bases de données tierces vers Oracle.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Oracle-SQL-Developer-Installer-l-environnement-JDK-8-sous-Windows"><a class="Link9" href="#Oracle-SQL-Developer">Installer l'environnement JDK 8 sous Windows</a></h2><br><h3 class="Title8 GTitle3">Télécharger JDK 8</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html">https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html</a><br><br><b>jdk-8u291-windows-x64.exe</b><br><br><h3 class="Title8 GTitle3">Installer JDK 8</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="batchfile">jdk-8u291-windows-x64.exe
+=======
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">l_string : Bonjour tout le monde</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Echapper-un-caractere"><a class="Link9" href="#Oracle-Database">Echapper un caractère</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+set serveroutput on;
+-- ==============================================
+declare 
+    l_string char(64) default 'Toute ame qui s''eleve eleve le monde'; 
+begin
+    dbms_output.put_line(l_string); 
+end;
+/
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">Toute ame qui s'eleve eleve le monde</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Formater-une-chaine"><a class="Link9" href="#Oracle-Database">Formater une chaine</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+set serveroutput on;
+-- ==============================================
+begin
+    dbms_output.put_line(utl_lms.format_message('%s : %s', 'Nom', 'Gerard KESSE'));
+    dbms_output.put_line(utl_lms.format_message('%s : %d', 'Identifiant', 123456));
+end;
+/
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">Nom : Gerard KESSE
+Identifiant : 123456</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Realiser-des-operations-arithmetiques"><a class="Link9" href="#Oracle-Database">Réaliser des opérations arithmétiques</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+set serveroutput on;
+-- ==============================================
+declare
+    a integer := 22;
+    b integer := 7;
+-- ==============================================
+begin
+    dbms_output.put_line(a || ' + ' || b || ' = ' || (a + b));
+    dbms_output.put_line(a || ' - ' || b || ' = ' || (a - b));
+    dbms_output.put_line(a || ' * ' || b || ' = ' || (a * b));
+    dbms_output.put_line(a || ' / ' || b || ' = ' || (a / b));
+    dbms_output.put_line(a || ' % ' || b || ' = ' || mod(a, b));
+    dbms_output.put_line(a || ' ^ ' || b || ' = ' || (a ** b));
+end;
+/
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">22 + 7 = 29
+22 - 7 = 15
+22 * 7 = 154
+22 / 7 = 3,14285714285714285714285714285714285714
+22 % 7 = 1
+22 ^ 7 = 2494357888</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Realiser-des-operations-de-comparaison"><a class="Link9" href="#Oracle-Database">Réaliser des opérations de comparaison</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+set serveroutput on;
+-- ==============================================
+declare
+    a integer := 22;
+    b integer := 7;
+    c varchar(7) := 'Bonjour';
+    d varchar(4) := 'jour';
+    e varchar(10) := 'two';
+    f varchar(10) := 'five';
+    g varchar(10) := null;
+    h varchar(10);
+    i integer := 10;
+    j integer := 30;
+-- ==============================================
+begin
+    dbms_output.put_line(a || ' == ' || b || ' = ' || sys.diutil.bool_to_int(a = b));
+    dbms_output.put_line(a || ' != ' || b || ' = ' || sys.diutil.bool_to_int(a != b));
+    dbms_output.put_line(a || ' != ' || b || ' = ' || sys.diutil.bool_to_int(a ~= b));
+    dbms_output.put_line(a || ' != ' || b || ' = ' || sys.diutil.bool_to_int(a &lt;&gt; b));
+    dbms_output.put_line(a || ' &gt;  ' || b || ' = ' || sys.diutil.bool_to_int(a &gt; b));
+    dbms_output.put_line(a || ' &lt;  ' || b || ' = ' || sys.diutil.bool_to_int(a &lt; b));
+    dbms_output.put_line(a || ' &gt;= ' || b || ' = ' || sys.diutil.bool_to_int(a &gt;= b));
+    dbms_output.put_line(a || ' &lt;= ' || b || ' = ' || sys.diutil.bool_to_int(a &lt;= b));
+    dbms_output.put_line(c || ' like ' || d || ' = ' || sys.diutil.bool_to_int(c like d));
+    dbms_output.put_line(d || ' like ' || c || ' = ' || sys.diutil.bool_to_int(d like c));
+    dbms_output.put_line(c || ' like ' || '%' || d || ' = ' || sys.diutil.bool_to_int(c like ('%' || d)));
+    dbms_output.put_line('%' || d || ' like ' || c || ' = ' || sys.diutil.bool_to_int(('%' || d) like c));
+    dbms_output.put_line(e || ' in ' || '(one, two, three)' || ' = ' || sys.diutil.bool_to_int(e in ('one', 'two', 'three')));
+    dbms_output.put_line(f || ' in ' || '(one, two, three)' || ' = ' || sys.diutil.bool_to_int(f in ('one', 'two', 'three')));
+    dbms_output.put_line(f || ' is null' || ' = ' || sys.diutil.bool_to_int(f is null));
+    dbms_output.put_line(g || ' is null' || ' = ' || sys.diutil.bool_to_int(g is null));
+    dbms_output.put_line(h || ' is null' || ' = ' || sys.diutil.bool_to_int(h is null));
+    dbms_output.put_line(i || ' between ' || a || ' and ' || b || ' = ' || sys.diutil.bool_to_int(i between a and b));
+    dbms_output.put_line(i || ' between ' || b || ' and ' || a || ' = ' || sys.diutil.bool_to_int(i between b and a));
+    dbms_output.put_line(j || ' between ' || a || ' and ' || b || ' = ' || sys.diutil.bool_to_int(i between j and b));
+    dbms_output.put_line(i || ' between ' || b || ' and ' || a || ' = ' || sys.diutil.bool_to_int(i between j and a));
+end;
+/
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">22 == 7 = 0
+22 != 7 = 1
+22 != 7 = 1
+22 != 7 = 1
+22 &gt;  7 = 1
+22 &lt;  7 = 0
+22 &gt;= 7 = 1
+22 &lt;= 7 = 0
+Bonjour like jour = 0
+jour like Bonjour = 0
+Bonjour like %jour = 1
+%jour like Bonjour = 0
+two in (one, two, three) = 1
+five in (one, two, three) = 0
+five is null = 0
+is null = 1
+is null = 1
+10 between 22 and 7 = 0
+10 between 7 and 22 = 1
+30 between 22 and 7 = 0
+10 between 7 and 22 = 0</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Realiser-des-operations-logiques"><a class="Link9" href="#Oracle-Database">Réaliser des opérations logiques</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+set serveroutput on;
+-- ==============================================
+declare
+    a boolean := true;
+    b boolean := false;
+-- ==============================================
+begin
+    dbms_output.put_line('!' || sys.diutil.bool_to_int(a) || ' = ' || sys.diutil.bool_to_int(not(a)));
+    dbms_output.put_line('!' || sys.diutil.bool_to_int(b) || ' = ' || sys.diutil.bool_to_int(not(b)));
+    dbms_output.put_line(sys.diutil.bool_to_int(a) || ' || ' || sys.diutil.bool_to_int(b) || ' = ' || sys.diutil.bool_to_int(a or b));
+    dbms_output.put_line(sys.diutil.bool_to_int(a) || ' || ' || sys.diutil.bool_to_int(b) || ' = ' || sys.diutil.bool_to_int(a or b));
+    dbms_output.put_line(sys.diutil.bool_to_int(b) || ' || ' || sys.diutil.bool_to_int(b) || ' = ' || sys.diutil.bool_to_int(b or b));
+    dbms_output.put_line(sys.diutil.bool_to_int(a) || ' || ' || sys.diutil.bool_to_int(a) || ' = ' || sys.diutil.bool_to_int(a or a));
+    dbms_output.put_line(sys.diutil.bool_to_int(a) || ' &amp;&amp; ' || sys.diutil.bool_to_int(b) || ' = ' || sys.diutil.bool_to_int(a and b));
+    dbms_output.put_line(sys.diutil.bool_to_int(b) || ' &amp;&amp; ' || sys.diutil.bool_to_int(b) || ' = ' || sys.diutil.bool_to_int(b and b));
+    dbms_output.put_line(sys.diutil.bool_to_int(a) || ' &amp;&amp; ' || sys.diutil.bool_to_int(a) || ' = ' || sys.diutil.bool_to_int(a and a));
+end;
+/
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">!1 = 0
+!0 = 1
+1 || 0 = 1
+1 || 0 = 1
+0 || 0 = 0
+1 || 1 = 1
+1 &amp;&amp; 0 = 0
+0 &amp;&amp; 0 = 0
+1 &amp;&amp; 1 = 1</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Creer-une-boucle-for"><a class="Link9" href="#Oracle-Database">Créer une boucle for</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+set serveroutput on;
+-- ==============================================
+begin
+    &lt;&lt;e_loop&gt;&gt;
+    for i in 1..10 loop
+        dbms_output.put_line(i);
+    end loop e_loop;
+end;
+/
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">1
+2
+3
+4
+5
+6
+7
+8
+9
+10</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Creer-des-bloucles-for-imbriquees"><a class="Link9" href="#Oracle-Database">Créer des bloucles for imbriquées</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+set serveroutput on;
+-- ==============================================
+begin
+    &lt;&lt;e_loop&gt;&gt;
+    for i in 1..9 loop
+        dbms_output.put(utl_lms.format_message('[%d] : ', i));
+        &lt;&lt;e_loop2&gt;&gt;
+        for j in 1..9 loop
+            dbms_output.put(j || ' ; ');
+        end loop e_loop2;
+        dbms_output.new_line;
+    end loop e_loop;
+end;
+/
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">[1] : 1 ; 2 ; 3 ; 4 ; 5 ; 6 ; 7 ; 8 ; 9 ;
+[2] : 1 ; 2 ; 3 ; 4 ; 5 ; 6 ; 7 ; 8 ; 9 ;
+[3] : 1 ; 2 ; 3 ; 4 ; 5 ; 6 ; 7 ; 8 ; 9 ;
+[4] : 1 ; 2 ; 3 ; 4 ; 5 ; 6 ; 7 ; 8 ; 9 ;
+[5] : 1 ; 2 ; 3 ; 4 ; 5 ; 6 ; 7 ; 8 ; 9 ;
+[6] : 1 ; 2 ; 3 ; 4 ; 5 ; 6 ; 7 ; 8 ; 9 ;
+[7] : 1 ; 2 ; 3 ; 4 ; 5 ; 6 ; 7 ; 8 ; 9 ;
+[8] : 1 ; 2 ; 3 ; 4 ; 5 ; 6 ; 7 ; 8 ; 9 ;
+[9] : 1 ; 2 ; 3 ; 4 ; 5 ; 6 ; 7 ; 8 ; 9 ;</pre></div></div><br>Créer une bloucle for<br><br>script.sql<br><br><br>Résultat<br><br>Créer une bloucle for<br><br>script.sql<br><br><br>Résultat<br><br>Créer une bloucle for<br><br>script.sql<br><br><br>Résultat<br><br><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Oracle-SQL-Developer"><a class="Link3" href="#">Oracle SQL Developer</a></h1><div class="Body3"><br><b>Oracle SQL Developer</b> est un environnement de développement intégré gratuit qui simplifie le développement et la gestion d'Oracle Database dans les déploiements traditionnels et cloud. SQL Developer propose un développement complet de bout en bout de vos applications PL/SQL, une feuille de calcul pour exécuter des requêtes et des scripts, une console DBA pour gérer la base de données, une interface de rapports, une solution complète de modélisation de données et une plateforme de migration pour déplacer votre Bases de données tierces vers Oracle.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Oracle-SQL-Developer-Installer-l-environnement-JDK-8-sous-Windows"><a class="Link9" href="#Oracle-SQL-Developer">Installer l'environnement JDK 8 sous Windows</a></h2><br><h3 class="Title8 GTitle3">Télécharger JDK 8</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html">https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html</a><br><br><b>jdk-8u291-windows-x64.exe</b><br><br><h3 class="Title8 GTitle3">Installer JDK 8</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="batchfile">jdk-8u291-windows-x64.exe
+>>>>>>> 7e51c1ee0ab40e1c5aa0b59309aa424cdd21042a
 Next
 Install To -&gt; C:\Program Files\Java\jdk1.8.0_291\
 Next
@@ -248,7 +441,13 @@ OK</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-SQL-Developer-Exec
 Ouvrir
 Nom du fichier -&gt; script.sql
 Ouvrir
-Exécuter un script (F5)</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Borland-C---Builder"><a class="Link3" href="#">Borland C++ Builder</a></h1><div class="Body3"><br><b>Borland C++Builder</b> est un logiciel de développement rapide d'applications (RAD) conçu par Borland qui reprend les mêmes concepts, la même interface et la même bibliothèque que Delphi en utilisant le langage C++. Il permet de créer rapidement des applications Win32, Win64, MacOS, iOS, Android, ainsi qu'une interface graphique avec son éditeur de ressources. Utilisant en interne le compilateur Clang, ll est compatible avec la version de norme ISO C++ C++17.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Borland-C---Builder-Installer-l-envrionnement-Borland-C---Builder-sous-Windows"><a class="Link9" href="#Borland-C---Builder">Installer l'envrionnement Borland C++ Builder sous Windows</a></h2><br><h3 class="Title8 GTitle3">Télécharger Borland C++ Builder</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://archive.org/details/BorlandC5.02">https://archive.org/details/BorlandC5.02</a><br><br><b>BORLAND C++.zip</b><br><br><h3 class="Title8 GTitle3">Extraire Borland C++ Builder</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="batchfile">BORLAND C++.zip
+Exécuter un script (F5)</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="OCILIB"><a class="Link3" href="#">OCILIB</a></h1><div class="Body3"><br><b>OCILIB </b>est un driver C/C++ open source et multiplateforme qui offre un accès efficace aux bases de données Oracle. La bibliothèque OCILIB offre une API riche, complète et facile à utiliser sur toutes les plateformes Oracle. Elle est écrite en code ISO C99 pur avec une prise en charge native ISO C Unicode et fournit également une API C++ écrite en standard C++03. Elle permet une productivité élevée et encapsule OCI (Oracle Call Interface) qui est le wrapper OCI le plus complet disponible. OCILIB est développé par Vincent Rogier.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="OCILIB-Installer-l-environnement-OCILIB-sous-Windows"><a class="Link9" href="#OCILIB">Installer l'environnement OCILIB sous Windows</a></h2><br><h3 class="Title8 GTitle3">Télécharger OCILIB</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://github.com/vrogier/ocilib/releases">https://github.com/vrogier/ocilib/releases</a><br><br><b>ocilib-4.7.3-windows.zip</b><br><br><h3 class="Title8 GTitle3">Extraire OCILIB</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">ocilib-4.7.3-windows.zip
+Clic droit
+Extraire vers ocilib-4.7.3-windows\</pre></div></div><br><h2 class="Title7 GTitle2" id="OCILIB-Compiler-un-projet-OCILIB"><a class="Link9" href="#OCILIB">Compiler un projet OCILIB</a></h2><br><h3 class="Title8 GTitle3">Configurer les variables d'environnement</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="batchfile">::===============================================
+set "PATH=winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-9.0.0-r2\mingw64\bin;%PATH%"
+set "PATH=ocilib-4.7.3-windows\lib64;%PATH%"
+::===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Compiler le projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="batchfile">g++ -std=gnu++11  -c main.cpp -o main.o -Iocilib-4.7.3-windows\include
+g++ -std=gnu++11  -o rdcpp.exe main.o  -Locilib-4.7.3-windows\lib64 -lociliba -locilibw</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Borland-C---Builder"><a class="Link3" href="#">Borland C++ Builder</a></h1><div class="Body3"><br><b>Borland C++Builder</b> est un logiciel de développement rapide d'applications (RAD) conçu par Borland qui reprend les mêmes concepts, la même interface et la même bibliothèque que Delphi en utilisant le langage C++. Il permet de créer rapidement des applications Win32, Win64, MacOS, iOS, Android, ainsi qu'une interface graphique avec son éditeur de ressources. Utilisant en interne le compilateur Clang, ll est compatible avec la version de norme ISO C++ C++17.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Borland-C---Builder-Installer-l-envrionnement-Borland-C---Builder-sous-Windows"><a class="Link9" href="#Borland-C---Builder">Installer l'envrionnement Borland C++ Builder sous Windows</a></h2><br><h3 class="Title8 GTitle3">Télécharger Borland C++ Builder</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://archive.org/details/BorlandC5.02">https://archive.org/details/BorlandC5.02</a><br><br><b>BORLAND C++.zip</b><br><br><h3 class="Title8 GTitle3">Extraire Borland C++ Builder</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="batchfile">BORLAND C++.zip
 Clic droit
 Extraire vers BORLAND C++\</pre></div></div><br><h3 class="Title8 GTitle3">Installer Borland C++</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="batchfile">BORLAND C++
 BORLAND C
