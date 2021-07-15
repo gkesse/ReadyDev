@@ -788,7 +788,12 @@ select * from users;
 -- ==============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Supprimer-une-colonne-dans-une-table"><a class="Link9" href="#Oracle-Database">Supprimer une colonne dans une table</a></h2><br><h3 class="Title8 GTitle3">Créer une nouvelle copie (script.sql)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
 create table users_2 as
 select email, password from users;
--- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Supprimer l'ancienne (script.sql)</h3><br>-- ==============================================<br>drop table users;<br>-- ==============================================<br><br><h3 class="Title8 GTitle3">Renommer la nouvelle (script.sql)</h3><br>-- ==============================================<br>alter table users_2<br>rename to users;<br>-- ==============================================<br><br><h3 class="Title8 GTitle3">Afficher (script.sql)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Supprimer l'ancienne (script.sql)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+drop table users;
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Renommer la nouvelle (script.sql)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+alter table users_2
+rename to users;
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Afficher (script.sql)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
 column email format a20;
 column password format a20;
 -- ==============================================
