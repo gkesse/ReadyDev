@@ -233,44 +233,16 @@
     [
         {
             "icon":"fa fa-cogs",
-            "theme":"Project Euler",
-            "description":"Programmez les<br/> mathématiques",
-            "link":"/Tutoriels/Resources/Project_Euler/",
-			"follow":"yes"
-        },
-        {
-            "icon":"fa fa-cogs",
-            "theme":"SSH",
-            "description":"Apprenez le<br/> protocole SSH",
-            "link":"/Tutoriels/Resources/SSH/",
-			"follow":"yes"
-        },
-        {
-            "icon":"fa fa-cogs",
-            "theme":"Editeurs de texte",
-            "description":"Apprenez les<br/> Editeurs de texte",
-            "link":"/Tutoriels/Resources/Text_Editors/",
-			"follow":"yes"
-        },
-        {
-            "icon":"fa fa-cogs",
-            "theme":"ProgMag",
-            "description":"Apprenez la<br/> Programmation",
-            "link":"/Tutoriels/Resources/Programming/",
-			"follow":"yes"
-        },
-        {
-            "icon":"fa fa-cogs",
-            "theme":"Qt",
-            "description":"Créez des interfaces<br/> homme-machine",
-            "link":"/Tutoriels/Resources/Qt/",
-			"follow":"yes"
-        },
-        {
-            "icon":"fa fa-cogs",
             "theme":"ToolBox",
-            "description":"Quelques<br/> Outils utiles",
+            "description":"Bibliothèque<br/> d'outils",
             "link":"/Tutoriels/Resources/ToolBox/",
+			"follow":"yes"
+        },
+        {
+            "icon":"fa fa-cogs",
+            "theme":"ProjectBox",
+            "description":"Bibliothèque<br/>de projets C/C++",
+            "link":"/Tutoriels/Resources/ProjectBox/",
 			"follow":"yes"
         }
     ]

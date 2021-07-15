@@ -5,17 +5,17 @@
         "meta_desc":
         [
 			"Le but de ce tutoriel est de vous présenter",
-            "quelques outils utiles.",
+            "quelques projets C/C++.",
             "Produit par Gérard KESSE."
         ],
-        "meta_cano":"/Tutoriels/Resources/ToolBox/",
-        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Resources/ToolBox/img/b_toolbox.png"
+        "meta_cano":"/Tutoriels/Resources/ProjectBox/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/Resources/ProjectBox/img/b_projectbox.png"
     },    
     "links":
     [
         {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
         {"name":"Ressources","link":"/Tutoriels/#Ressources","follow":"no"},
-        {"name":"ToolBox","link":"","follow":"no"}
+        {"name":"ProjectBox","link":"","follow":"no"}
     ]
 }
                         
