@@ -220,8 +220,6 @@ void GWindow::slotConnect() {
 }
 //===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Resources/ProjectBox/img/i_user_create.gif" alt="/Tutoriels/Resources/ProjectBox/img/i_user_create.gif"></div><br><h2 class="Title7 GTitle2" id="Creer-un-nouvel-utilisateur-Traiter-l-enregistrement"><a class="Link9" href="#Creer-un-nouvel-utilisateur">Traiter l'enregistrement</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 #include "GWindow.h"
-#include "GSQLite.h"
-#include "GManager.h"
 //===============================================
 int main(int argc, char** argv) {
     QApplication app(argc, argv);
@@ -314,16 +312,19 @@ void GWindow::slotConnect() {
     lValid &amp;= (lPassword == lConfirm);
     if(lValid) {
         GManager::Instance()-&gt;saveUser(lUsername, lPassword);
+        m_usernameEdit-&gt;clear();
+        m_passwordEdit-&gt;clear();
+        m_confirmEdit-&gt;clear();
         GManager::Instance()-&gt;showMessage(this, "Enregistrement",
         "L'enregistrement a réussi.");
     }
     else {
         GManager::Instance()-&gt;showWarning(this, "Enregistrement",
         "L'enregistrement a échoué !\n"
-        "Vérifiez les paramètres.");
+        "Veuillez vérifier les paramètres.");
     }
 }
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GManager.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><br><h3 class="Title8 GTitle3">GManager.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GManager::saveUser(const QString&amp; username, const QString&amp; password) {
     int lCount = countUser(username);
     if(lCount == 0) {
