@@ -116,14 +116,14 @@ GWindow::GWindow(QWidget* parent) : QWidget(parent) {
     
     setLayout(lMainLayout);
     
-    connect(lConnectButton, SIGNAL(clicked()), this, SLOT(slotConnect()));
+    connect(lConnectButton, SIGNAL(clicked()), this, SLOT(onEvent()));
 }
 //===============================================
 GWindow::~GWindow() {
 
 }
 //===============================================
-void GWindow::slotConnect() {
+void GWindow::onEvent() {
     QString lUsername = m_usernameEdit-&gt;text();
     QString lPassword = m_passwordEdit-&gt;text();
     qDebug() &lt;&lt; QString("traiter la connexion : (%1 ; %2)")
@@ -204,14 +204,14 @@ GWindow::GWindow(QWidget* parent) : QWidget(parent) {
     
     setLayout(lMainLayout);
     
-    connect(lCreateButton, SIGNAL(clicked()), this, SLOT(slotConnect()));
+    connect(lCreateButton, SIGNAL(clicked()), this, SLOT(onEvent()));
 }
 //===============================================
 GWindow::~GWindow() {
 
 }
 //===============================================
-void GWindow::slotConnect() {
+void GWindow::onEvent() {
     QString lUsername = m_usernameEdit-&gt;text();
     QString lPassword = m_passwordEdit-&gt;text();
     QString lConfirm = m_confirmEdit-&gt;text();
@@ -294,14 +294,14 @@ GWindow::GWindow(QWidget* parent) : QWidget(parent) {
     
     setLayout(lMainLayout);
     
-    connect(lSaveButton, SIGNAL(clicked()), this, SLOT(slotConnect()));
+    connect(lSaveButton, SIGNAL(clicked()), this, SLOT(onEvent()));
 }
 //===============================================
 GWindow::~GWindow() {
 
 }
 //===============================================
-void GWindow::slotConnect() {
+void GWindow::onEvent() {
     QString lUsername = m_usernameEdit-&gt;text();
     QString lPassword = m_passwordEdit-&gt;text();
     QString lConfirm = m_confirmEdit-&gt;text();
@@ -324,7 +324,7 @@ void GWindow::slotConnect() {
         "Veuillez vérifier les paramètres.");
     }
 }
-//===============================================</pre></div></div><br><br><h3 class="Title8 GTitle3">GManager.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GManager.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GManager::saveUser(const QString&amp; username, const QString&amp; password) {
     int lCount = countUser(username);
     if(lCount == 0) {
