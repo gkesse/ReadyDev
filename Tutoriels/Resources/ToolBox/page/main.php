@@ -885,4 +885,21 @@ README.TXT -&gt; Next
 Fermer -&gt; Fichier
 OK
 Registration -&gt; Next
-OK</pre></div></div><br></div></div></div></div><br>
+OK</pre></div></div><br><h2 class="Title7 GTitle2" id="Borland-C---Builder-Creer-une-application-console"><a class="Link9" href="#Borland-C---Builder">Créer une application console</a></h2><br><h3 class="Title8 GTitle3">Créer une applocation console</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">File
+New
+Project
+Project Path and Name -&gt; ReadyTest\rdcpp.ide
+Target Name -&gt; rcpp
+Target Type -&gt; Application (.exe)
+Plateform -&gt; Win32
+Target Model -&gt; console
+Framework -&gt; Décocher Tout
+Controls -&gt; Décocher Tout
+Librairies -&gt; Décocher Tout
+Cocher -&gt; Dynamic
+Cocher -&gt; Multithread
+Advanced
+Initial Nodes
+Cocher -&gt; .cpp Node
+Décocher -&gt; .rc
+Décocher -&gt; .def</pre></div></div><br><br><br><br><br><br><br><br><br><br></div></div></div></div><br>

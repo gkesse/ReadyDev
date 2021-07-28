@@ -22,9 +22,9 @@
             </div>
         </div>
         <div class="Body2 Orange">
-            <div class="Row8">
+            <div class="Row8"><br>
                 <?php echo join(" ", $lData["intro"]) ?>
-            </div>
+            </div><br>
             <div class="Row0">
                 <ul class="fa-ul">
                     <?php 
@@ -39,7 +39,7 @@
                         </li>
                     <?php } ?>
                 </ul>            
-            </div>
+            </div><br>
         </div>
     </div>
     <!-- ============================================ -->
