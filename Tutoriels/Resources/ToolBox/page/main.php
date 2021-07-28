@@ -917,4 +917,35 @@ int main(int argc, char** argv) {
 Compile</pre></div></div><br><h3 class="Title8 GTitle3">Compiler le projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">Project
 Make all</pre></div></div><br><h3 class="Title8 GTitle3">Construire le projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">Project
 Build all</pre></div></div><br><h3 class="Title8 GTitle3">Exécuter le projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">Project
-Run</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">Bonjour tout le monde</pre></div></div><br><br></div></div></div></div><br>
+Run</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">Bonjour tout le monde</pre></div></div><br><h2 class="Title7 GTitle2" id="Borland-C---Builder-Creer-une-application-GUI-OWL"><a class="Link9" href="#Borland-C---Builder">Créer une application GUI OWL</a></h2><br><h3 class="Title8 GTitle3">Créer une applocation GUI</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">File
+New
+Project
+Project Path and Name -&gt; ReadyTest\rdcpp.ide
+Target Name -&gt; rcpp
+Target Type -&gt; Application (.exe)
+Plateform -&gt; Win32
+Target Model -&gt; GUI
+Framework -&gt; Décocher -&gt; MFC
+Framework -&gt; Cocher -&gt; OWL
+Framework -&gt; Décocher -&gt; OCF
+Controls -&gt; Décocher Tout
+Librairies -&gt; Décocher Tout
+Cocher -&gt; Dynamic
+Cocher -&gt; Multithread
+Advanced
+Initial Nodes
+Cocher -&gt; .cpp Node
+Décocher -&gt; .rc
+Décocher -&gt; .def
+OK
+OK</pre></div></div><br><h3 class="Title8 GTitle3">Editer le programme principal (rdcpp.cpp)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include &lt;owl\applicat.h&gt;
+//===============================================
+int OwlMain(int argc, char** argv) {
+    return TApplication().Run();
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Compiler le programme</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">Project
+Compile</pre></div></div><br><h3 class="Title8 GTitle3">Compiler le projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">Project
+Make all</pre></div></div><br><h3 class="Title8 GTitle3">Construire le projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">Project
+Build all</pre></div></div><br><h3 class="Title8 GTitle3">Exécuter le projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">Project
+Run</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Resources/ToolBox/img/i_borland_gui_owl.png" alt="/Tutoriels/Resources/ToolBox/img/i_borland_gui_owl.png"></div><br></div></div></div></div><br>
