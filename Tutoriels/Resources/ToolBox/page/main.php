@@ -902,4 +902,19 @@ Advanced
 Initial Nodes
 Cocher -&gt; .cpp Node
 Décocher -&gt; .rc
-Décocher -&gt; .def</pre></div></div><br><br><br><br><br><br><br><br><br><br></div></div></div></div><br>
+Décocher -&gt; .def
+OK
+OK</pre></div></div><br><h3 class="Title8 GTitle3">Editer le programme principal (rdcpp.cpp)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include &lt;iostream&gt;
+#include &lt;stdlib&gt;
+//===============================================
+int main(int argc, char** argv) {
+   cout &lt;&lt; "Bonjour tout le monde\n";
+   system("pause");
+   return 0;
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Compiler le programme</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">Project
+Compile</pre></div></div><br><h3 class="Title8 GTitle3">Compiler le projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">Project
+Make all</pre></div></div><br><h3 class="Title8 GTitle3">Construire le projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">Project
+Build all</pre></div></div><br><h3 class="Title8 GTitle3">Exécuter le projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">Project
+Run</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">Bonjour tout le monde</pre></div></div><br></div></div></div></div><br>
