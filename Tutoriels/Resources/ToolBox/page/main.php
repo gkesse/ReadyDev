@@ -885,7 +885,7 @@ README.TXT -&gt; Next
 Fermer -&gt; Fichier
 OK
 Registration -&gt; Next
-OK</pre></div></div><br><h2 class="Title7 GTitle2" id="Borland-C---Builder-Creer-une-application-console"><a class="Link9" href="#Borland-C---Builder">Créer une application console</a></h2><br><h3 class="Title8 GTitle3">Créer une applocation console</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">File
+OK</pre></div></div><br><h2 class="Title7 GTitle2" id="Borland-C---Builder-Documentation-sur-Borland-C---Builder"><a class="Link9" href="#Borland-C---Builder">Documentation sur Borland C++ Builder</a></h2><br><h3 class="Title8 GTitle3">Documentation sur Borland C++ v5.02</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="http://docplayer.fr/12623573-Tp1-c-presentation-de-borland-c-5-02-rappels-de-c.html">http://docplayer.fr/12623573-Tp1-c-presentation-de-borland-c-5-02-rappels-de-c.html</a><br><br><h2 class="Title7 GTitle2" id="Borland-C---Builder-Creer-une-application-console"><a class="Link9" href="#Borland-C---Builder">Créer une application console</a></h2><br><h3 class="Title8 GTitle3">Créer une applocation console</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">File
 New
 Project
 Project Path and Name -&gt; ReadyTest\rdcpp.ide
