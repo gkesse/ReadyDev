@@ -948,4 +948,10 @@ int OwlMain(int argc, char** argv) {
 Compile</pre></div></div><br><h3 class="Title8 GTitle3">Compiler le projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">Project
 Make all</pre></div></div><br><h3 class="Title8 GTitle3">Construire le projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">Project
 Build all</pre></div></div><br><h3 class="Title8 GTitle3">Exécuter le projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">Project
-Run</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Resources/ToolBox/img/i_borland_gui_owl.png" alt="/Tutoriels/Resources/ToolBox/img/i_borland_gui_owl.png"></div><br></div></div></div></div><br>
+Run</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Resources/ToolBox/img/i_borland_gui_owl.png" alt="/Tutoriels/Resources/ToolBox/img/i_borland_gui_owl.png"></div><br><h2 class="Title7 GTitle2" id="Borland-C---Builder-Creer-une-nouvelle-ressource"><a class="Link9" href="#Borland-C---Builder">Créer une nouvelle ressource</a></h2><br><h3 class="Title8 GTitle3">Créer une nouvelle ressource</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">rdcpp.rc
+Doucle clic
+Identifiers
+Clic droit
+New Resource
+MENU
+OK</pre></div></div><br></div></div></div></div><br>
