@@ -954,4 +954,88 @@ Identifiers
 Clic droit
 New Resource
 MENU
-OK</pre></div></div><br></div></div></div></div><br>
+OK</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="CSV"><a class="Link3" href="#">CSV</a></h1><div class="Body3"><br><b>Comma-separated values</b> (CSV) est un format texte ouvert représentant des données tabulaires sous forme de valeurs séparées par des virgules. Ce format n'a jamais vraiment fait l'objet d'une spécification formelle. Toutefois, la RFC 41801 décrit la forme la plus courante et établit son type MIME « text/csv », enregistré auprès de l'IANA. Un fichier CSV est un fichier texte, par opposition aux formats dits « binaires ». Chaque ligne du texte correspond à une ligne du tableau et les virgules correspondent aux séparations entre les colonnes. Les portions de texte séparées par une virgule correspondent ainsi aux contenus des cellules du tableau. Une ligne est une suite ordonnée de caractères terminée par un caractère de fin de ligne (line break – LF ou CRLF), la dernière ligne pouvant en être exemptée.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="CSV-Installer-l-environnement-Fast-C---CSV-Parser-sous-MSYS2"><a class="Link9" href="#CSV">Installer l'environnement Fast C++ CSV Parser sous MSYS2</a></h2><br><b>Fast C++ CSV Parser</b> est une petite bibliothèque d'en-tête rapide, facile à utiliser et permettant de lire les fichiers CSV (comma separated value).<br><br><h3 class="Title8 GTitle3">Télécharger Fast C++ CSV Parser</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://github.com/ben-strasser/fast-cpp-csv-parser">https://github.com/ben-strasser/fast-cpp-csv-parser</a><br><br><h2 class="Title7 GTitle2" id="CSV-Compiler-un-projet-Fast-C---CSV-Parser"><a class="Link9" href="#CSV">Compiler un projet Fast C++ CSV Parser</a></h2><br><h3 class="Title8 GTitle3">Compiler le projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">g++ -std=gnu++11  -c main.cpp -o main.o -Ifast-cpp-csv-parser
+g++ -std=gnu++11  -o rdcpp.exe main.o  -lpthread</pre></div></div><br><h2 class="Title7 GTitle2" id="CSV-Lire-un-fichier-CVS-sous-Fast-C---CSV-Parser"><a class="Link9" href="#CSV">Lire un fichier CVS sous Fast C++ CSV Parser</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+# include "csv.h"
+//===============================================
+int main(int argc, char** argv) {
+    io::CSVReader&lt;3&gt; in("ram.csv");
+    in.read_header(io::ignore_extra_column, "vendor", "size", "speed");
+    std::string vendor; int size; double speed;
+    while(in.read_row(vendor, size, speed)) {
+        printf("%-10s , %d , %.2f\n", vendor.c_str(), size, speed);
+    }
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">ram.csv</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">vendor,size,speed
+PEUGEOT,100,10.10
+RENAULT,200,20.20
+CITROEN,300,30.30
+MERCEDES,400,40.40
+BMW,500,50.50
+AUDI,600,60.60</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">PEUGEOT    , 100 , 10.10
+RENAULT    , 200 , 20.20
+CITROEN    , 300 , 30.30
+MERCEDES   , 400 , 40.40
+BMW        , 500 , 50.50
+AUDI       , 600 , 60.60</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="FTP"><a class="Link3" href="#">FTP</a></h1><div class="Body3"><br><b>File Transfer Protocol</b> (protocole de transfert de fichier), ou FTP, est un protocole de communication destiné au partage de fichiers sur un réseau TCP/IP. Il permet, depuis un ordinateur, de copier des fichiers vers un autre ordinateur du réseau, ou encore de supprimer ou de modifier des fichiers sur cet ordinateur. Ce mécanisme de copie est souvent utilisé pour alimenter un site web hébergé chez un tiers. La variante de FTP protégée par les protocoles SSL ou TLS (SSL étant le prédécesseur de TLS) s'appelle FTPS. FTP obéit à un modèle client-serveur, c'est-à-dire qu'une des deux parties, le client, envoie des requêtes auxquelles réagit l'autre, appelé serveur. En pratique, le serveur est un ordinateur sur lequel fonctionne un logiciel lui-même appelé serveur FTP, qui rend publique une arborescence de fichiers similaire à un système de fichiers UNIX. Pour accéder à un serveur FTP, on utilise un logiciel client FTP (possédant une interface graphique ou en ligne de commande). <br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="FTP-Installer-l-environnement-fineFTP-Server-sous-Ubutnu"><a class="Link9" href="#FTP">Installer l'environnement fineFTP Server sous Ubutnu</a></h2><br><b>FineFTP </b>est une bibliothèque de serveur FTP minimale pour les versions Windows et Unix. Le projet est basé sur CMake et ne dépend que d'asio, qui est intégré en tant que sous-module git. Aucun boost n'est nécessaire. Vous pouvez facilement intégrer cette bibliothèque dans votre propre projet afin de créer un serveur FTP intégré. <br><br><h3 class="Title8 GTitle3">Fonctionnalités</h3><br>$\checkmark$ Mode FTP passif (le seul mode dont vous avez besoin de nos jours)<br>$\checkmark$ Répertorier les répertoires<br>$\checkmark$ Chargement et téléchargement de fichiers<br>$\checkmark$ Création et suppression de fichiers et de répertoires<br>$\checkmark$ Authentification de l'utilisateur (et utilisateur anonyme sans authentification)<br>$\checkmark$ Chemin d'accès local individuel pour chaque utilisateur<br>$\checkmark$ Contrôle d'accès par utilisateur<br><br><h3 class="Title8 GTitle3">Télécharger fineFTP Server</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://github.com/continental/fineftp-server">https://github.com/continental/fineftp-server</a><br><br><h3 class="Title8 GTitle3">Télécharger Asio</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://github.com/chriskohlhoff/asio">https://github.com/chriskohlhoff/asio</a><br><br><h2 class="Title7 GTitle2" id="FTP-Compiler-un-projet-sous-fineFTP-Server"><a class="Link9" href="#FTP">Compiler un projet sous fineFTP Server</a></h2><br><h3 class="Title8 GTitle3">Compiler le projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">g++ -std=gnu++14  -c main.cpp -o main.o \
+-Ifineftp-server/include \
+-Ifineftp-server/src \
+-Iasio/include
+
+g++ -std=gnu++14  -c fineftp-server/src/filesystem.cpp -o filesystem.o \
+-Ifineftp-server/include \
+-Ifineftp-server/src \
+-Iasio/include
+
+g++ -std=gnu++14  -c fineftp-server/src/ftp_session.cpp -o ftp_session.o \
+-Ifineftp-server/include \
+-Ifineftp-server/src \
+-Iasio/include
+
+g++ -std=gnu++14  -c fineftp-server/src/server.cpp -o server.o \
+-Ifineftp-server/include \
+-Ifineftp-server/src \
+-Iasio/include
+
+g++ -std=gnu++14  -c fineftp-server/src/server_impl.cpp -o server_impl.o \
+-Ifineftp-server/include \
+-Ifineftp-server/src \
+-Iasio/include
+
+g++ -std=gnu++14  -c fineftp-server/src/user_database.cpp -o user_database.o \
+-Ifineftp-server/include \
+-Ifineftp-server/src \
+-Iasio/include
+
+g++ -std=gnu++14  -o rdcpp.exe  main.o \
+filesystem.o ftp_session.o server.o server_impl.o user_database.o \
+-lpthread</pre></div></div><br><h2 class="Title7 GTitle2" id="FTP-Creer-un-serveur-FTP-sous-fineFTP-Server"><a class="Link9" href="#FTP">Créer un serveur FTP sous fineFTP Server</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include &lt;fineftp/server.h&gt;
+#include &lt;iostream&gt;
+#include &lt;thread&gt;
+#include &lt;string&gt;
+//===============================================
+int main(int argc, char** argv) {
+#ifdef WIN32
+	std::string local_root =  "C:\\";
+#else
+	std::string local_root =  "/";
+#endif
+
+	fineftp::FtpServer server(2121);
+	server.addUserAnonymous(local_root, fineftp::Permission::All);
+	server.addUser("MyUser", "MyPassword", local_root, fineftp::Permission::ReadOnly);
+	server.addUser("Uploader", "123456", local_root, fineftp::Permission::DirList | fineftp::Permission::DirCreate | fineftp::Permission::FileWrite | fineftp::Permission::FileAppend);
+	server.start(4);
+    
+	while(1) {
+		std::this_thread::sleep_for(std::chrono::milliseconds(100));
+	}
+
+	return 0;
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">Successfully added anonymous user.
+Successfully added user "MyUser".
+Successfully added user "Uploader".
+FTP Server created.
+Listening at address 0.0.0.0 on port 2121:</pre></div></div><br></div></div></div></div><br>
