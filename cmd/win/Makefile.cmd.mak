@@ -13,4 +13,6 @@ git_pull:
 	@cd $(GPROJECT_PATH) && git pull
 git_clone:
 	@cd $(GPROJECT_ROOT) && git clone $(GGIT_URL) $(GGIT_NAME) 
+git_ssh:
+	@cd $(GPROJECT_PATH) && git remote set-url origin ssh://git@github.com:gkesse/ReadyDev.git
 #================================================

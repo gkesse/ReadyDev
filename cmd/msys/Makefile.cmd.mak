@@ -1,32 +1,4 @@
 #================================================
-# php
-php_all:
-
-php_install:
-	@sudo apt install -y php-intl
-#================================================
-# certbot
-certbot_all: certbot_apache_stop certbot_renew certbot_apache_start certbot_list
-
-certbot_list:
-	@certbot-auto certificates
-certbot_renew:
-	@certbot-auto renew
-certbot_apache_stop:
-	@sudo systemctl stop apache2
-certbot_apache_start:
-	@sudo systemctl start apache2
-#================================================
-# geany
-geany_install:
-	@sudo apt install -y geany
-geany_start:
-	@geany &
-#================================================
-# cmd
-cmd_chmod:
-	sudo chmod -R 777 $(GPROJECT_PATH)
-#================================================
 # git
 git_status:
 	@cd $(GPROJECT_PATH) && git status -u
@@ -45,6 +17,9 @@ git_rm:
 git_clone:
 	@cd $(GPROJECT_ROOT) && git clone $(GGIT_URL) $(GGIT_NAME) 
 git_store:
-	git config --global credential.helper store
+	@git config --global credential.helper store
+git_ssh:
+	@cd $(GPROJECT_PATH) && git remote set-url origin ssh://git@github.com/gkesse/ReadyDev.git
+git_https:
+	@cd $(GPROJECT_PATH) && git remote set-url origin https://github.com/gkesse/ReadyDev.git
 #================================================
-
