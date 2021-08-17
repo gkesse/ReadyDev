@@ -9,8 +9,14 @@ git_push:
 	@cd $(GPROJECT_PATH) && git pull && git add --all && git commit -m "Initial Commit" && git push -u origin master
 git_push_o:
 	@cd $(GPROJECT_PATH) && git add --all && git commit -m "Initial Commit" && git push -u origin master
+git_push_u:
+	@cd $(GPROJECT_PATH) && git push -u origin master
 git_pull:
 	@cd $(GPROJECT_PATH) && git pull
 git_clone:
 	@cd $(GPROJECT_ROOT) && git clone $(GGIT_URL) $(GGIT_NAME) 
+git_ssh:
+	@cd $(GPROJECT_PATH) && git remote set-url origin ssh://git@github.com/gkesse/ReadyDev.git
+git_https:
+	@cd $(GPROJECT_PATH) && git remote set-url origin https://github.com/gkesse/ReadyDev.git
 #================================================
