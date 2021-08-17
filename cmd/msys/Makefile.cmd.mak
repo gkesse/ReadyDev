@@ -22,4 +22,6 @@ git_ssh:
 	@cd $(GPROJECT_PATH) && git remote set-url origin ssh://git@github.com/gkesse/ReadyDev.git
 git_https:
 	@cd $(GPROJECT_PATH) && git remote set-url origin https://github.com/gkesse/ReadyDev.git
+git_remote:
+	@cd $(GPROJECT_PATH) && git remote -v
 #================================================
