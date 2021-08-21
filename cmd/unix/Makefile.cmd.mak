@@ -35,7 +35,7 @@ git_push:
 git_push_o:
 	@cd $(GPROJECT_PATH) && git add --all && git commit -m "Initial Commit" && git push -u origin master
 git_push_u:
-	@cd $(GPROJECT_PATH) && git push -u origin master
+	@cd $(GPROJECT_PATH) && git push -u origin main
 git_pull:
 	@cd $(GPROJECT_PATH) && git pull && sudo chmod -R 777 $(GPROJECT_PATH)
 git_add:
