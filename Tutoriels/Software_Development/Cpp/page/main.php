@@ -2715,7 +2715,98 @@ set "lFile="
 for %%a in (*.pro) do ( set "lFile=%%~na" )
 set "lSetup=release\%lFile%"
 %lSetup%
-::===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Qt-Creer-une-fenetre"><a class="Link9" href="#Interface-Homme-Machine-avec-Qt">Créer une fenêtre</a></h2><br><b>QWidget </b>est la classe de base de tous les objets d'interface utilisateur. Le widget est l'atome de l'interface utilisateur : il reçoit la souris, le clavier et d'autres événements du système de fenêtres, et peint une représentation de lui-même sur l'écran. Chaque widget est rectangulaire et ils sont triés dans un ordre Z. Un widget est découpé par son parent et par les widgets qui le précèdent. Un widget qui n'est pas intégré dans un widget parent est appelé une fenêtre. Habituellement, les fenêtres ont un cadre et une barre de titre, bien qu'il soit également possible de créer des fenêtres sans une telle décoration en utilisant des indicateurs de fenêtre appropriés).<br><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+::===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Qt-Creer-une-horloge-analogique"><a class="Link9" href="#Interface-Homme-Machine-avec-Qt">Créer une horloge analogique</a></h2><br>L'exemple d'<b>horloge analogique</b> montre comment dessiner le contenu d'un widget personnalisé. Cet exemple montre également comment les fonctionnalités de transformation et de mise à l'échelle de QPainter peuvent être utilisées pour faciliter le dessin de widgets personnalisés<br><br><h3 class="Title8 GTitle3">GAnalogClock.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GAnalogClock.h"
+//===============================================
+GAnalogClock::GAnalogClock(QWidget* parent) : GQtUi(parent) {
+    QTimer *timer = new QTimer(this);
+    connect(timer, SIGNAL(timeout()), this, SLOT(onEvent()));
+    timer-&gt;start(1000);
+}
+//===============================================
+GAnalogClock::~GAnalogClock() {
+
+}
+//===============================================
+void GAnalogClock::resize() {
+	QFrame::resize(400, 350);
+}
+//===============================================
+void GAnalogClock::paintEvent(QPaintEvent* event) {
+    static const QPoint hourHand[3] = {
+        QPoint(7, 8),
+        QPoint(-7, 8),
+        QPoint(0, -40)
+    };
+    static const QPoint minuteHand[3] = {
+        QPoint(7, 8),
+        QPoint(-7, 8),
+        QPoint(0, -70)
+    };
+    static const QPoint secondeHand[3] = {
+        QPoint(7, 8),
+        QPoint(-7, 8),
+        QPoint(0, -90)
+    };
+
+    QColor hourColor(127, 0, 127);
+    QColor minuteColor(0, 127, 127, 191);
+    QColor secondeColor(127, 127, 0, 191);
+
+    int side = qMin(width(), height());
+    QTime time = QTime::currentTime();
+
+    QPainter painter(this);
+
+    painter.setRenderHint(QPainter::Antialiasing);
+    painter.translate(width() / 2, height() / 2);
+    painter.scale(side / 200.0, side / 200.0);
+
+    painter.setPen(Qt::NoPen);
+    painter.setBrush(hourColor);
+
+    painter.save();
+    painter.rotate(30.0 * ((time.hour() + time.minute() / 60.0)));
+    painter.drawConvexPolygon(hourHand, 3);
+    painter.restore();
+
+    painter.setPen(hourColor);
+
+    for (int i = 0; i &lt; 12; ++i) {
+        painter.drawLine(88, 0, 96, 0);
+        painter.rotate(30.0);
+    }
+
+    painter.setPen(Qt::NoPen);
+    painter.setBrush(minuteColor);
+
+    painter.save();
+    painter.rotate(6.0 * (time.minute() + time.second() / 60.0));
+    painter.drawConvexPolygon(minuteHand, 3);
+    painter.restore();
+
+    painter.setPen(minuteColor);
+
+    for (int j = 0; j &lt; 60; ++j) {
+        if ((j % 5) != 0) {
+            painter.drawLine(92, 0, 96, 0);
+        }
+        painter.rotate(6.0);
+    }
+
+    painter.setPen(Qt::NoPen);
+    painter.setBrush(secondeColor);
+
+    painter.save();
+    painter.rotate(6.0 * (time.second() % 60));
+    painter.drawConvexPolygon(secondeHand, 3);
+    painter.restore();
+}
+//===============================================
+void GAnalogClock::onEvent() {
+    update();
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_analog_clock.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_analog_clock.gif"></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Qt-Creer-une-fenetre"><a class="Link9" href="#Interface-Homme-Machine-avec-Qt">Créer une fenêtre</a></h2><br><b>QWidget </b>est la classe de base de tous les objets d'interface utilisateur. Le widget est l'atome de l'interface utilisateur : il reçoit la souris, le clavier et d'autres événements du système de fenêtres, et peint une représentation de lui-même sur l'écran. Chaque widget est rectangulaire et ils sont triés dans un ordre Z. Un widget est découpé par son parent et par les widgets qui le précèdent. Un widget qui n'est pas intégré dans un widget parent est appelé une fenêtre. Habituellement, les fenêtres ont un cadre et une barre de titre, bien qu'il soit également possible de créer des fenêtres sans une telle décoration en utilisant des indicateurs de fenêtre appropriés).<br><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 #include &lt;QApplication&gt;
 #include &lt;QtWidgets&gt;
 //===============================================
