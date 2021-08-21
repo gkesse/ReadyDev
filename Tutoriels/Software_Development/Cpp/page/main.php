@@ -3193,7 +3193,358 @@ QSize GCalculatorButton::sizeHint() const {
     size.rwidth() = qMax(size.width(), size.height());
     return size;
 }
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_calculator.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_calculator.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Creation-de-pitogrammes-avec-QtAwesome"><a class="Link3" href="#">Création de pitogrammes avec QtAwesome</a></h1><div class="Body3"><br><b>QtAwesome</b> est une bibliothèque simple qui peut être utilisée pour ajouter des icônes Font Awesome à votre application Qt. Bien que le nom soit QtAwesome et qu'il soit actuellement très basé sur Font Awesome, vous pouvez utiliser toutes les autres polices d'icônes / glyphes de votre choix. La classe peut également être utilisée pour gérer vos propres icônes dessinées par code dynamique, en ajoutant des peintres d'icônes nommés. Cette bibliothèque a été mise à jour vers la version 4.7.0 de Font Awesome <br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Creation-de-pitogrammes-avec-QtAwesome-Installer-l-environnement-QtAwesome-sous-MSYS2"><a class="Link9" href="#Creation-de-pitogrammes-avec-QtAwesome">Installer l'environnement QtAwesome sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Télécharger QtAwesome</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://github.com/gamecreature/QtAwesome">https://github.com/gamecreature/QtAwesome</a><br><br><b>QtAwesome-master.zip</b><br><br><h3 class="Title8 GTitle3">Extraire QtAwesome</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">QtAwesome-master.zip
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_calculator.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_calculator.gif"></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Qt-Creer-un-calendrier"><a class="Link9" href="#Interface-Homme-Machine-avec-Qt">Créer un calendrier</a></h2><br>L'exemple du <b>calendrier </b>montre l'utilisation de QCalendarWidget . QCalendarWidget affiche un mois calendaire à la fois et permet à l'utilisateur de sélectionner une date. Le calendrier se compose de quatre composants : une barre de navigation qui permet à l'utilisateur de modifier le mois affiché, une grille où chaque cellule représente un jour du mois et deux en-têtes qui affichent les noms et les numéros des jours de la semaine. L'exemple du clendrier affiche un QCalendarWidget et permet à l'utilisateur de configurer son apparence et son comportement à l'aide de QComboBox, QCheckBox et QDateEdit. De plus, l'utilisateur peut influencer le formatage des dates et des en-têtes individuels.<br><br><h3 class="Title8 GTitle3">GCalendar.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GCalendar.h"
+//===============================================
+GCalendar::GCalendar(QWidget* parent) : GQtUi(parent) {
+	createPreviewGroupBox();
+	createGeneralOptionsGroupBox();
+	createDatesGroupBox();
+	createTextFormatsGroupBox();
+
+	QGridLayout *layout = new QGridLayout;
+	layout-&gt;addWidget(previewGroupBox, 0, 0);
+	layout-&gt;addWidget(generalOptionsGroupBox, 0, 1);
+	layout-&gt;addWidget(datesGroupBox, 1, 0);
+	layout-&gt;addWidget(textFormatsGroupBox, 1, 1);
+	layout-&gt;setSizeConstraint(QLayout::SetFixedSize);
+	setLayout(layout);
+
+	previewLayout-&gt;setRowMinimumHeight(0, calendar-&gt;sizeHint().height());
+	previewLayout-&gt;setColumnMinimumWidth(0, calendar-&gt;sizeHint().width());
+
+	setWindowTitle(tr("Calendar Widget"));
+}
+//===============================================
+GCalendar::~GCalendar() {
+
+}
+//===============================================
+void GCalendar::createPreviewGroupBox() {
+	previewGroupBox = new QGroupBox(tr("Preview"));
+
+	calendar = new QCalendarWidget;
+	calendar-&gt;setMinimumDate(QDate(1900, 1, 1));
+	calendar-&gt;setMaximumDate(QDate(3000, 1, 1));
+	calendar-&gt;setGridVisible(true);
+
+	connect(calendar, SIGNAL(currentPageChanged(int, int)), this, SLOT(onEvent(int, int)));
+
+	previewLayout = new QGridLayout;
+	previewLayout-&gt;addWidget(calendar, 0, 0, Qt::AlignCenter);
+	previewGroupBox-&gt;setLayout(previewLayout);
+}
+//===============================================
+void GCalendar::createGeneralOptionsGroupBox() {
+	generalOptionsGroupBox = new QGroupBox(tr("General Options"));
+
+	localeCombo = new QComboBox;
+	int curLocaleIndex = -1;
+	int index = 0;
+	for (int _lang = QLocale::C; _lang &lt;= QLocale::LastLanguage; ++_lang) {
+		QLocale::Language lang = static_cast&lt;QLocale::Language&gt;(_lang);
+		QList&lt;QLocale::Country&gt; countries = QLocale::countriesForLanguage(lang);
+		for (int i = 0; i &lt; countries.count(); ++i) {
+			QLocale::Country country = countries.at(i);
+			QString label = QLocale::languageToString(lang);
+			label += QLatin1Char('/');
+			label += QLocale::countryToString(country);
+			QLocale locale(lang, country);
+			if (this-&gt;locale().language() == lang &amp;&amp; this-&gt;locale().country() == country)
+				curLocaleIndex = index;
+			localeCombo-&gt;addItem(label, locale);
+			++index;
+		}
+	}
+	if (curLocaleIndex != -1) {
+		localeCombo-&gt;setCurrentIndex(curLocaleIndex);
+	}
+	localeLabel = new QLabel(tr("&amp;Locale"));
+	localeLabel-&gt;setBuddy(localeCombo);
+
+	firstDayCombo = new QComboBox;
+	firstDayCombo-&gt;addItem(tr("Sunday"), Qt::Sunday);
+	firstDayCombo-&gt;addItem(tr("Monday"), Qt::Monday);
+	firstDayCombo-&gt;addItem(tr("Tuesday"), Qt::Tuesday);
+	firstDayCombo-&gt;addItem(tr("Wednesday"), Qt::Wednesday);
+	firstDayCombo-&gt;addItem(tr("Thursday"), Qt::Thursday);
+	firstDayCombo-&gt;addItem(tr("Friday"), Qt::Friday);
+	firstDayCombo-&gt;addItem(tr("Saturday"), Qt::Saturday);
+
+	firstDayLabel = new QLabel(tr("Wee&amp;k starts on:"));
+	firstDayLabel-&gt;setBuddy(firstDayCombo);
+
+	selectionModeCombo = new QComboBox;
+	selectionModeCombo-&gt;addItem(tr("Single selection"),
+			QCalendarWidget::SingleSelection);
+	selectionModeCombo-&gt;addItem(tr("None"), QCalendarWidget::NoSelection);
+
+	selectionModeLabel = new QLabel(tr("&amp;Selection mode:"));
+	selectionModeLabel-&gt;setBuddy(selectionModeCombo);
+
+	gridCheckBox = new QCheckBox(tr("&amp;Grid"));
+	gridCheckBox-&gt;setChecked(calendar-&gt;isGridVisible());
+
+	navigationCheckBox = new QCheckBox(tr("&amp;Navigation bar"));
+	navigationCheckBox-&gt;setChecked(true);
+
+	horizontalHeaderCombo = new QComboBox;
+	horizontalHeaderCombo-&gt;addItem(tr("Single letter day names"),
+			QCalendarWidget::SingleLetterDayNames);
+	horizontalHeaderCombo-&gt;addItem(tr("Short day names"),
+			QCalendarWidget::ShortDayNames);
+	horizontalHeaderCombo-&gt;addItem(tr("None"),
+			QCalendarWidget::NoHorizontalHeader);
+	horizontalHeaderCombo-&gt;setCurrentIndex(1);
+
+	horizontalHeaderLabel = new QLabel(tr("&amp;Horizontal header:"));
+	horizontalHeaderLabel-&gt;setBuddy(horizontalHeaderCombo);
+
+	verticalHeaderCombo = new QComboBox;
+	verticalHeaderCombo-&gt;addItem(tr("ISO week numbers"),
+			QCalendarWidget::ISOWeekNumbers);
+	verticalHeaderCombo-&gt;addItem(tr("None"), QCalendarWidget::NoVerticalHeader);
+
+	verticalHeaderLabel = new QLabel(tr("&amp;Vertical header:"));
+	verticalHeaderLabel-&gt;setBuddy(verticalHeaderCombo);
+
+	connect(localeCombo, SIGNAL(currentIndexChanged(QString)), this, SLOT(onEvent(QString)));
+	connect(firstDayCombo, SIGNAL(currentIndexChanged(QString)), this, SLOT(onEvent(QString)));
+	connect(selectionModeCombo, SIGNAL(currentIndexChanged(QString)), this, SLOT(onEvent(QString)));
+	connect(gridCheckBox, SIGNAL(toggled(bool)), calendar, SLOT(setGridVisible(bool)));
+	connect(navigationCheckBox, SIGNAL(toggled(bool)), calendar, SLOT(setNavigationBarVisible(bool)));
+	connect(horizontalHeaderCombo, SIGNAL(currentIndexChanged(QString)), this, SLOT(onEvent(QString)));
+	connect(verticalHeaderCombo, SIGNAL(currentIndexChanged(QString)), this, SLOT(onEvent(QString)));
+
+	QHBoxLayout *checkBoxLayout = new QHBoxLayout;
+	checkBoxLayout-&gt;addWidget(gridCheckBox);
+	checkBoxLayout-&gt;addStretch();
+	checkBoxLayout-&gt;addWidget(navigationCheckBox);
+
+	QGridLayout *outerLayout = new QGridLayout;
+	outerLayout-&gt;addWidget(localeLabel, 0, 0);
+	outerLayout-&gt;addWidget(localeCombo, 0, 1);
+	outerLayout-&gt;addWidget(firstDayLabel, 1, 0);
+	outerLayout-&gt;addWidget(firstDayCombo, 1, 1);
+	outerLayout-&gt;addWidget(selectionModeLabel, 2, 0);
+	outerLayout-&gt;addWidget(selectionModeCombo, 2, 1);
+	outerLayout-&gt;addLayout(checkBoxLayout, 3, 0, 1, 2);
+	outerLayout-&gt;addWidget(horizontalHeaderLabel, 4, 0);
+	outerLayout-&gt;addWidget(horizontalHeaderCombo, 4, 1);
+	outerLayout-&gt;addWidget(verticalHeaderLabel, 5, 0);
+	outerLayout-&gt;addWidget(verticalHeaderCombo, 5, 1);
+	generalOptionsGroupBox-&gt;setLayout(outerLayout);
+
+	firstDayChanged(firstDayCombo-&gt;currentIndex());
+	selectionModeChanged(selectionModeCombo-&gt;currentIndex());
+	horizontalHeaderChanged(horizontalHeaderCombo-&gt;currentIndex());
+	verticalHeaderChanged(verticalHeaderCombo-&gt;currentIndex());
+}
+//===============================================
+void GCalendar::createDatesGroupBox() {
+	datesGroupBox = new QGroupBox(tr("Dates"));
+
+	minimumDateEdit = new QDateEdit;
+	minimumDateEdit-&gt;setDisplayFormat("MMM d yyyy");
+	minimumDateEdit-&gt;setDateRange(calendar-&gt;minimumDate(),
+			calendar-&gt;maximumDate());
+	minimumDateEdit-&gt;setDate(calendar-&gt;minimumDate());
+
+	minimumDateLabel = new QLabel(tr("&amp;Minimum Date:"));
+	minimumDateLabel-&gt;setBuddy(minimumDateEdit);
+
+	currentDateEdit = new QDateEdit;
+	currentDateEdit-&gt;setDisplayFormat("MMM d yyyy");
+	currentDateEdit-&gt;setDate(calendar-&gt;selectedDate());
+	currentDateEdit-&gt;setDateRange(calendar-&gt;minimumDate(),
+			calendar-&gt;maximumDate());
+
+	currentDateLabel = new QLabel(tr("&amp;Current Date:"));
+	currentDateLabel-&gt;setBuddy(currentDateEdit);
+
+	maximumDateEdit = new QDateEdit;
+	maximumDateEdit-&gt;setDisplayFormat("MMM d yyyy");
+	maximumDateEdit-&gt;setDateRange(calendar-&gt;minimumDate(),
+			calendar-&gt;maximumDate());
+	maximumDateEdit-&gt;setDate(calendar-&gt;maximumDate());
+
+	maximumDateLabel = new QLabel(tr("Ma&amp;ximum Date:"));
+	maximumDateLabel-&gt;setBuddy(maximumDateEdit);
+
+	connect(currentDateEdit, SIGNAL(dateChanged(QDate)), calendar, SLOT(setSelectedDate(QDate)));
+	connect(calendar, SIGNAL(selectionChanged()), this, SLOT(onEvent()));
+	connect(minimumDateEdit, SIGNAL(dateChanged(QDate)), this, SLOT(onEvent(QDate)));
+	connect(maximumDateEdit, SIGNAL(dateChanged(QDate)), this, SLOT(onEvent(QDate)));
+
+	QGridLayout *dateBoxLayout = new QGridLayout;
+	dateBoxLayout-&gt;addWidget(currentDateLabel, 1, 0);
+	dateBoxLayout-&gt;addWidget(currentDateEdit, 1, 1);
+	dateBoxLayout-&gt;addWidget(minimumDateLabel, 0, 0);
+	dateBoxLayout-&gt;addWidget(minimumDateEdit, 0, 1);
+	dateBoxLayout-&gt;addWidget(maximumDateLabel, 2, 0);
+	dateBoxLayout-&gt;addWidget(maximumDateEdit, 2, 1);
+	dateBoxLayout-&gt;setRowStretch(3, 1);
+
+	datesGroupBox-&gt;setLayout(dateBoxLayout);
+}
+//===============================================
+void GCalendar::createTextFormatsGroupBox() {
+	textFormatsGroupBox = new QGroupBox(tr("Text Formats"));
+
+	weekdayColorCombo = createColorComboBox();
+	weekdayColorCombo-&gt;setCurrentIndex(weekdayColorCombo-&gt;findText(tr("Black")));
+
+	weekdayColorLabel = new QLabel(tr("&amp;Weekday color:"));
+	weekdayColorLabel-&gt;setBuddy(weekdayColorCombo);
+
+	weekendColorCombo = createColorComboBox();
+	weekendColorCombo-&gt;setCurrentIndex(weekendColorCombo-&gt;findText(tr("Red")));
+
+	weekendColorLabel = new QLabel(tr("Week&amp;end color:"));
+	weekendColorLabel-&gt;setBuddy(weekendColorCombo);
+
+	headerTextFormatCombo = new QComboBox;
+	headerTextFormatCombo-&gt;addItem(tr("Bold"));
+	headerTextFormatCombo-&gt;addItem(tr("Italic"));
+	headerTextFormatCombo-&gt;addItem(tr("Plain"));
+
+	headerTextFormatLabel = new QLabel(tr("&amp;Header text:"));
+	headerTextFormatLabel-&gt;setBuddy(headerTextFormatCombo);
+
+	firstFridayCheckBox = new QCheckBox(tr("&amp;First Friday in blue"));
+
+	mayFirstCheckBox = new QCheckBox(tr("May &amp;1 in red"));
+
+	connect(weekdayColorCombo, SIGNAL(currentIndexChanged(QString)), this, SLOT(onEvent(QString)));
+	connect(weekdayColorCombo, SIGNAL(currentIndexChanged(QString)), this, SLOT(onEvent(QString)));
+	connect(weekendColorCombo, SIGNAL(currentIndexChanged(QString)), this, SLOT(onEvent(QString)));
+	connect(weekendColorCombo, SIGNAL(currentIndexChanged(QString)), this, SLOT(onEvent(QString)));
+	connect(headerTextFormatCombo, SIGNAL(currentIndexChanged(QString)), this, SLOT(onEvent(QString)));
+	connect(firstFridayCheckBox, SIGNAL(toggled(bool)), this, SLOT(onEvent(bool)));
+	connect(mayFirstCheckBox, SIGNAL(toggled(bool)), this, SLOT(onEvent(bool)));
+
+	QHBoxLayout *checkBoxLayout = new QHBoxLayout;
+	checkBoxLayout-&gt;addWidget(firstFridayCheckBox);
+	checkBoxLayout-&gt;addStretch();
+	checkBoxLayout-&gt;addWidget(mayFirstCheckBox);
+
+	QGridLayout *outerLayout = new QGridLayout;
+	outerLayout-&gt;addWidget(weekdayColorLabel, 0, 0);
+	outerLayout-&gt;addWidget(weekdayColorCombo, 0, 1);
+	outerLayout-&gt;addWidget(weekendColorLabel, 1, 0);
+	outerLayout-&gt;addWidget(weekendColorCombo, 1, 1);
+	outerLayout-&gt;addWidget(headerTextFormatLabel, 2, 0);
+	outerLayout-&gt;addWidget(headerTextFormatCombo, 2, 1);
+	outerLayout-&gt;addLayout(checkBoxLayout, 3, 0, 1, 2);
+	textFormatsGroupBox-&gt;setLayout(outerLayout);
+
+	weekdayFormatChanged();
+	weekendFormatChanged();
+	reformatHeaders();
+	reformatCalendarPage();
+}
+//===============================================
+QComboBox *GCalendar::createColorComboBox() {
+	QComboBox *comboBox = new QComboBox;
+	comboBox-&gt;addItem(tr("Red"), QColor(Qt::red));
+	comboBox-&gt;addItem(tr("Blue"), QColor(Qt::blue));
+	comboBox-&gt;addItem(tr("Black"), QColor(Qt::black));
+	comboBox-&gt;addItem(tr("Magenta"), QColor(Qt::magenta));
+	return comboBox;
+}
+//===============================================
+void GCalendar::firstDayChanged(int index) {
+	calendar-&gt;setFirstDayOfWeek(
+			Qt::DayOfWeek(firstDayCombo-&gt;itemData(index).toInt()));
+}
+//===============================================
+void GCalendar::selectionModeChanged(int index) {
+	calendar-&gt;setSelectionMode(QCalendarWidget::SelectionMode(
+			selectionModeCombo-&gt;itemData(index).toInt()));
+}
+//===============================================
+void GCalendar::horizontalHeaderChanged(int index) {
+	calendar-&gt;setHorizontalHeaderFormat(
+			QCalendarWidget::HorizontalHeaderFormat(
+					horizontalHeaderCombo-&gt;itemData(index).toInt()));
+}
+//===============================================
+void GCalendar::verticalHeaderChanged(int index) {
+	calendar-&gt;setVerticalHeaderFormat(
+			QCalendarWidget::VerticalHeaderFormat(
+					verticalHeaderCombo-&gt;itemData(index).toInt()));
+}
+//===============================================
+void GCalendar::weekdayFormatChanged() {
+	QTextCharFormat format;
+
+	format.setForeground(qvariant_cast&lt;QColor&gt;(weekdayColorCombo-&gt;itemData(weekdayColorCombo-&gt;currentIndex())));
+	calendar-&gt;setWeekdayTextFormat(Qt::Monday, format);
+	calendar-&gt;setWeekdayTextFormat(Qt::Tuesday, format);
+	calendar-&gt;setWeekdayTextFormat(Qt::Wednesday, format);
+	calendar-&gt;setWeekdayTextFormat(Qt::Thursday, format);
+	calendar-&gt;setWeekdayTextFormat(Qt::Friday, format);
+}
+//===============================================
+void GCalendar::weekendFormatChanged() {
+    QTextCharFormat format;
+
+    format.setForeground(qvariant_cast&lt;QColor&gt;(weekendColorCombo-&gt;itemData(weekendColorCombo-&gt;currentIndex())));
+    calendar-&gt;setWeekdayTextFormat(Qt::Saturday, format);
+    calendar-&gt;setWeekdayTextFormat(Qt::Sunday, format);
+}
+//===============================================
+void GCalendar::reformatHeaders() {
+    QString text = headerTextFormatCombo-&gt;currentText();
+    QTextCharFormat format;
+
+    if (text == tr("Bold"))
+        format.setFontWeight(QFont::Bold);
+    else if (text == tr("Italic"))
+        format.setFontItalic(true);
+    else if (text == tr("Green"))
+        format.setForeground(Qt::green);
+    calendar-&gt;setHeaderTextFormat(format);
+}
+//===============================================
+void GCalendar::reformatCalendarPage() {
+    QTextCharFormat mayFirstFormat;
+    const QDate mayFirst(calendar-&gt;yearShown(), 5, 1);
+
+    QTextCharFormat firstFridayFormat;
+    QDate firstFriday(calendar-&gt;yearShown(), calendar-&gt;monthShown(), 1);
+    while (firstFriday.dayOfWeek() != Qt::Friday)
+        firstFriday = firstFriday.addDays(1);
+
+    if (firstFridayCheckBox-&gt;isChecked()) {
+        firstFridayFormat.setForeground(Qt::blue);
+    }
+    else {
+        Qt::DayOfWeek dayOfWeek(static_cast&lt;Qt::DayOfWeek&gt;(firstFriday.dayOfWeek()));
+        firstFridayFormat.setForeground(calendar-&gt;weekdayTextFormat(dayOfWeek).foreground());
+    }
+
+    calendar-&gt;setDateTextFormat(firstFriday, firstFridayFormat);
+
+    if (mayFirstCheckBox-&gt;isChecked()) {
+        mayFirstFormat.setForeground(Qt::red);
+    }
+    else if (!firstFridayCheckBox-&gt;isChecked() || firstFriday != mayFirst) {
+        Qt::DayOfWeek dayOfWeek(static_cast&lt;Qt::DayOfWeek&gt;(mayFirst.dayOfWeek()));
+        calendar-&gt;setDateTextFormat(mayFirst, calendar-&gt;weekdayTextFormat(dayOfWeek));
+    }
+
+    calendar-&gt;setDateTextFormat(mayFirst, mayFirstFormat);
+}
+//===============================================
+void GCalendar::onEvent(int year, int month) {
+
+}
+//===============================================
+void GCalendar::onEvent(const QString&amp; text) {
+
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_calendar.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_calendar.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Creation-de-pitogrammes-avec-QtAwesome"><a class="Link3" href="#">Création de pitogrammes avec QtAwesome</a></h1><div class="Body3"><br><b>QtAwesome</b> est une bibliothèque simple qui peut être utilisée pour ajouter des icônes Font Awesome à votre application Qt. Bien que le nom soit QtAwesome et qu'il soit actuellement très basé sur Font Awesome, vous pouvez utiliser toutes les autres polices d'icônes / glyphes de votre choix. La classe peut également être utilisée pour gérer vos propres icônes dessinées par code dynamique, en ajoutant des peintres d'icônes nommés. Cette bibliothèque a été mise à jour vers la version 4.7.0 de Font Awesome <br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Creation-de-pitogrammes-avec-QtAwesome-Installer-l-environnement-QtAwesome-sous-MSYS2"><a class="Link9" href="#Creation-de-pitogrammes-avec-QtAwesome">Installer l'environnement QtAwesome sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Télécharger QtAwesome</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://github.com/gamecreature/QtAwesome">https://github.com/gamecreature/QtAwesome</a><br><br><b>QtAwesome-master.zip</b><br><br><h3 class="Title8 GTitle3">Extraire QtAwesome</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">QtAwesome-master.zip
 Clic droit -&gt; Extraire vers QtAwesome-master\</pre></div></div><br><h2 class="Title7 GTitle2" id="Creation-de-pitogrammes-avec-QtAwesome-Tester-un-projet-QtAwesome-sous-MSYS2"><a class="Link9" href="#Creation-de-pitogrammes-avec-QtAwesome">Tester un projet QtAwesome sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Observer la structure du projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">ReadyTest/QtAwesome/
 |___ main.cpp
 |___ QtAwesome.cpp  
@@ -3254,7 +3605,7 @@ HEADERS +=\
 
 RESOURCES +=\
     $$PWD/QtAwesome.qrc \</pre></div></div><br><h3 class="Title8 GTitle3">Compiler le projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">export "PATH=/mingw32/bin:$PATH"</pre></div></div><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">qmake
-make</pre></div></div><br><h3 class="Title8 GTitle3">Exécuter le projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">./release/rdcpp</pre></div></div><br><h3 class="Title8 GTitle3">Résulat</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_qtawesome_test.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/i_qtawesome_test.png"></div><br><h2 class="Title7 GTitle2" id="Creation-de-pitogrammes-avec-QtAwesome-Creer-un-pictogramme-a-partir-de-son-id"><a class="Link9" href="#Creation-de-pitogrammes-avec-QtAwesome">Créer un pictogramme à partir de son id</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//================================================
+make</pre></div></div><br><h3 class="Title8 GTitle3">Exécuter le projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">./release/rdcpp</pre></div></div><br><h3 class="Title8 GTitle3">Résulat</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_qtawesome_test.png" class="lazy entered loaded exited" data-src="/Tutoriels/Software_Development/Cpp/img/i_qtawesome_test.png" data-ll-status="loaded" src="/Tutoriels/Software_Development/Cpp/img/i_qtawesome_test.png"></div><br><h2 class="Title7 GTitle2" id="Creation-de-pitogrammes-avec-QtAwesome-Creer-un-pictogramme-a-partir-de-son-id"><a class="Link9" href="#Creation-de-pitogrammes-avec-QtAwesome">Créer un pictogramme à partir de son id</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//================================================
 #include &lt;QApplication&gt;
 #include &lt;QtWidgets&gt;
 #include &lt;QtAwesome.h&gt;
