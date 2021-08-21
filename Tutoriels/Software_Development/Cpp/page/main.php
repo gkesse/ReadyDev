@@ -2806,7 +2806,394 @@ void GAnalogClock::paintEvent(QPaintEvent* event) {
 void GAnalogClock::onEvent() {
     update();
 }
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_analog_clock.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_analog_clock.gif"></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Qt-Creer-une-calculatrice"><a class="Link9" href="#Interface-Homme-Machine-avec-Qt">Créer une calculatrice</a></h2><br>L'exemple de la <b>calculatrice </b>montre comment utiliser des signaux et des slots pour implémenter la fonctionnalité d'un widget de calculatrice, et comment utiliser QGridLayout pour placer des widgets enfants dans une grille.<br><br><h3 class="Title8 GTitle3">GCalculator.cpp</h3><br><br><h3 class="Title8 GTitle3">GCalculatorButton.cpp</h3><br><br><h3 class="Title8 GTitle3">Résultat</h3><br><br><br><br><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Creation-de-pitogrammes-avec-QtAwesome"><a class="Link3" href="#">Création de pitogrammes avec QtAwesome</a></h1><div class="Body3"><br><b>QtAwesome</b> est une bibliothèque simple qui peut être utilisée pour ajouter des icônes Font Awesome à votre application Qt. Bien que le nom soit QtAwesome et qu'il soit actuellement très basé sur Font Awesome, vous pouvez utiliser toutes les autres polices d'icônes / glyphes de votre choix. La classe peut également être utilisée pour gérer vos propres icônes dessinées par code dynamique, en ajoutant des peintres d'icônes nommés. Cette bibliothèque a été mise à jour vers la version 4.7.0 de Font Awesome <br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Creation-de-pitogrammes-avec-QtAwesome-Installer-l-environnement-QtAwesome-sous-MSYS2"><a class="Link9" href="#Creation-de-pitogrammes-avec-QtAwesome">Installer l'environnement QtAwesome sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Télécharger QtAwesome</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://github.com/gamecreature/QtAwesome">https://github.com/gamecreature/QtAwesome</a><br><br><b>QtAwesome-master.zip</b><br><br><h3 class="Title8 GTitle3">Extraire QtAwesome</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">QtAwesome-master.zip
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_analog_clock.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_analog_clock.gif"></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Qt-Creer-une-calculatrice"><a class="Link9" href="#Interface-Homme-Machine-avec-Qt">Créer une calculatrice</a></h2><br>L'exemple de la <b>calculatrice </b>montre comment utiliser des signaux et des slots pour implémenter la fonctionnalité d'un widget de calculatrice, et comment utiliser QGridLayout pour placer des widgets enfants dans une grille.<br><br><h3 class="Title8 GTitle3">GCalculator.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GCalculator.h"
+//===============================================
+GCalculator::GCalculator(QWidget* parent) : GQtUi(parent) {
+    display = new QLineEdit("0");
+    display-&gt;setReadOnly(true);
+    display-&gt;setAlignment(Qt::AlignRight);
+    display-&gt;setMaxLength(15);
+
+    QFont font = display-&gt;font();
+    font.setPointSize(font.pointSize() + 8);
+    display-&gt;setFont(font);
+
+    for (int i = 0; i &lt; NumDigitButtons; ++i) {
+        GCalculatorButton* digitButton = createButton(QString::number(i), SLOT(onEvent()));
+        widgetMap[digitButton] = "digit";
+        digitButtons[i] = digitButton;
+    }
+
+    GCalculatorButton* pointButton = createButton(tr("."), SLOT(onEvent()));
+    widgetMap[pointButton] = "point";
+    GCalculatorButton* changeSignButton = createButton(tr("\302\261"), SLOT(onEvent()));
+    widgetMap[changeSignButton] = "change_sign";
+
+    GCalculatorButton* backspaceButton = createButton(tr("Backspace"), SLOT(onEvent()));
+    widgetMap[backspaceButton] = "backspace";
+    GCalculatorButton* clearButton = createButton(tr("Clear"), SLOT(onEvent()));
+    widgetMap[clearButton] = "clear";
+    GCalculatorButton* clearAllButton = createButton(tr("Clear All"), SLOT(onEvent()));
+    widgetMap[clearAllButton] = "clear_all";
+
+    GCalculatorButton* clearMemoryButton = createButton(tr("MC"), SLOT(onEvent()));
+    widgetMap[clearMemoryButton] = "clear_memory";
+    GCalculatorButton* readMemoryButton = createButton(tr("MR"), SLOT(onEvent()));
+    widgetMap[readMemoryButton] = "read_memory";
+    GCalculatorButton* setMemoryButton = createButton(tr("MS"), SLOT(onEvent()));
+    widgetMap[setMemoryButton] = "set_memory";
+    GCalculatorButton* addToMemoryButton = createButton(tr("M+"), SLOT(onEvent()));
+    widgetMap[addToMemoryButton] = "add_to_memory";
+
+    GCalculatorButton* divisionButton = createButton(tr("\303\267"), SLOT(onEvent()));
+    widgetMap[divisionButton] = "division";
+    GCalculatorButton* timesButton = createButton(tr("\303\227"), SLOT(onEvent()));
+    widgetMap[timesButton] = "times";
+    GCalculatorButton* minusButton = createButton(tr("-"), SLOT(onEvent()));
+    widgetMap[minusButton] = "minus";
+    GCalculatorButton* plusButton = createButton(tr("+"), SLOT(onEvent()));
+    widgetMap[plusButton] = "plus";
+
+    GCalculatorButton* squareRootButton = createButton(tr("Sqrt"), SLOT(onEvent()));
+    widgetMap[squareRootButton] = "square_root";
+    GCalculatorButton* powerButton = createButton(tr("x\302\262"), SLOT(onEvent()));
+    widgetMap[powerButton] = "power";
+    GCalculatorButton* reciprocalButton = createButton(tr("1/x"), SLOT(onEvent()));
+    widgetMap[reciprocalButton] = "reciprocal";
+    GCalculatorButton* equalButton = createButton(tr("="), SLOT(onEvent()));
+    widgetMap[equalButton] = "equal";
+
+    QGridLayout *mainLayout = new QGridLayout;
+
+    mainLayout-&gt;setSizeConstraint(QLayout::SetFixedSize);
+    mainLayout-&gt;addWidget(display, 0, 0, 1, 6);
+    mainLayout-&gt;addWidget(backspaceButton, 1, 0, 1, 2);
+    mainLayout-&gt;addWidget(clearButton, 1, 2, 1, 2);
+    mainLayout-&gt;addWidget(clearAllButton, 1, 4, 1, 2);
+
+    mainLayout-&gt;addWidget(clearMemoryButton, 2, 0);
+    mainLayout-&gt;addWidget(readMemoryButton, 3, 0);
+    mainLayout-&gt;addWidget(setMemoryButton, 4, 0);
+    mainLayout-&gt;addWidget(addToMemoryButton, 5, 0);
+
+    for (int i = 1; i &lt; NumDigitButtons; ++i) {
+        int row = ((9 - i) / 3) + 2;
+        int column = ((i - 1) % 3) + 1;
+        mainLayout-&gt;addWidget(digitButtons[i], row, column);
+    }
+
+    mainLayout-&gt;addWidget(digitButtons[0], 5, 1);
+    mainLayout-&gt;addWidget(pointButton, 5, 2);
+    mainLayout-&gt;addWidget(changeSignButton, 5, 3);
+
+    mainLayout-&gt;addWidget(divisionButton, 2, 4);
+    mainLayout-&gt;addWidget(timesButton, 3, 4);
+    mainLayout-&gt;addWidget(minusButton, 4, 4);
+    mainLayout-&gt;addWidget(plusButton, 5, 4);
+
+    mainLayout-&gt;addWidget(squareRootButton, 2, 5);
+    mainLayout-&gt;addWidget(powerButton, 3, 5);
+    mainLayout-&gt;addWidget(reciprocalButton, 4, 5);
+    mainLayout-&gt;addWidget(equalButton, 5, 5);
+
+    setLayout(mainLayout);
+
+    waitingForOperand = true;
+    sumInMemory = 0.0;
+    sumSoFar = 0.0;
+    factorSoFar = 0.0;
+}
+//===============================================
+GCalculator::~GCalculator() {
+
+}
+//===============================================
+GCalculatorButton* GCalculator::createButton(const QString &amp;text, const char *member) {
+    GCalculatorButton* button = new GCalculatorButton(text);
+    connect(button, SIGNAL(clicked()), this, member);
+    return button;
+}
+//===============================================
+bool GCalculator::calculate(double rightOperand, const QString &amp;pendingOperator) {
+    if (pendingOperator == tr("+")) {
+        sumSoFar += rightOperand;
+    } else if (pendingOperator == tr("-")) {
+        sumSoFar -= rightOperand;
+    } else if (pendingOperator == tr("\303\227")) {
+        factorSoFar *= rightOperand;
+    } else if (pendingOperator == tr("\303\267")) {
+        if (rightOperand == 0.0) {
+            return false;
+        }
+        factorSoFar /= rightOperand;
+    }
+    return true;
+}
+//===============================================
+void GCalculator::abortOperation() {
+    onEvent("clear_all");
+    display-&gt;setText(tr("####"));
+}
+//===============================================
+void GCalculator::onEvent() {
+    GCalculatorButton* clickedButton = qobject_cast&lt;GCalculatorButton*&gt;(sender());
+    QString key = widgetMap[clickedButton];
+    onEvent(key);
+}
+//===============================================
+void GCalculator::onEvent(const QString&amp; key) {
+    // digit
+    if(key == "digit") {
+        GCalculatorButton* clickedButton = qobject_cast&lt;GCalculatorButton*&gt;(sender());
+        int digitValue = clickedButton-&gt;text().toInt();
+        if (display-&gt;text() == "0" &amp;&amp; digitValue == 0) {
+            return;
+        }
+
+        if (waitingForOperand) {
+            display-&gt;clear();
+            waitingForOperand = false;
+        }
+
+        display-&gt;setText(display-&gt;text() + QString::number(digitValue));
+    }
+    // point
+    else if(key == "point") {
+        if (waitingForOperand) {
+            display-&gt;setText("0");
+        }
+        if (!display-&gt;text().contains('.')) {
+            display-&gt;setText(display-&gt;text() + tr("."));
+        }
+        waitingForOperand = false;
+    }
+    // change_sign
+    else if(key == "change_sign") {
+        QString text = display-&gt;text();
+        double value = text.toDouble();
+
+        if (value &gt; 0.0) {
+            text.prepend(tr("-"));
+        } else if (value &lt; 0.0) {
+            text.remove(0, 1);
+        }
+
+        display-&gt;setText(text);
+    }
+    // backspace
+    else if(key == "backspace") {
+        if (waitingForOperand) {
+            return;
+        }
+
+        QString text = display-&gt;text();
+        text.chop(1);
+
+        if (text.isEmpty()) {
+            text = "0";
+            waitingForOperand = true;
+        }
+
+        display-&gt;setText(text);
+    }
+    // clear
+    else if(key == "clear") {
+        if (waitingForOperand) {
+            return;
+        }
+
+        display-&gt;setText("0");
+        waitingForOperand = true;
+    }
+    // clear_all
+    else if(key == "clear_all") {
+        sumSoFar = 0.0;
+        factorSoFar = 0.0;
+        pendingAdditiveOperator.clear();
+        pendingMultiplicativeOperator.clear();
+        display-&gt;setText("0");
+        waitingForOperand = true;
+    }
+    // clear_memory
+    else if(key == "clear_memory") {
+        sumInMemory = 0.0;
+    }
+    // read_memory
+    else if(key == "read_memory") {
+        display-&gt;setText(QString::number(sumInMemory));
+        waitingForOperand = true;
+    }
+    // set_memory
+    else if(key == "set_memory") {
+        onEvent("equal");
+        sumInMemory = display-&gt;text().toDouble();
+    }
+    // add_to_memory
+    else if(key == "add_to_memory") {
+        onEvent("equal");
+        sumInMemory += display-&gt;text().toDouble();
+    }
+    // division
+    else if(key == "division") {
+        onEvent("division_times");
+    }
+    // times
+    else if(key == "times") {
+        onEvent("division_times");
+    }
+    // division_times
+    else if(key == "division_times") {
+        GCalculatorButton* clickedButton = qobject_cast&lt;GCalculatorButton*&gt;(sender());
+        if (!clickedButton) {
+            return;
+        }
+        QString clickedOperator = clickedButton-&gt;text();
+        double operand = display-&gt;text().toDouble();
+
+        if (!pendingMultiplicativeOperator.isEmpty()) {
+            if (!calculate(operand, pendingMultiplicativeOperator)) {
+                abortOperation();
+                return;
+            }
+            display-&gt;setText(QString::number(factorSoFar));
+        }
+        else {
+            factorSoFar = operand;
+        }
+
+        pendingMultiplicativeOperator = clickedOperator;
+        waitingForOperand = true;
+    }
+    // minus
+    else if(key == "minus") {
+        onEvent("minus_plus");
+    }
+    // plus
+    else if(key == "plus") {
+        onEvent("minus_plus");
+    }
+    // minus_plus
+    else if(key == "minus_plus") {
+        GCalculatorButton *clickedButton = qobject_cast&lt;GCalculatorButton*&gt;(sender());
+        if (!clickedButton) {
+            return;
+        }
+
+        QString clickedOperator = clickedButton-&gt;text();
+        double operand = display-&gt;text().toDouble();
+
+        if (!pendingMultiplicativeOperator.isEmpty()) {
+            if (!calculate(operand, pendingMultiplicativeOperator)) {
+                abortOperation();
+                return;
+            }
+            display-&gt;setText(QString::number(factorSoFar));
+            operand = factorSoFar;
+            factorSoFar = 0.0;
+            pendingMultiplicativeOperator.clear();
+        }
+
+        if (!pendingAdditiveOperator.isEmpty()) {
+            if (!calculate(operand, pendingAdditiveOperator)) {
+                abortOperation();
+                return;
+            }
+            display-&gt;setText(QString::number(sumSoFar));
+        }
+        else {
+            sumSoFar = operand;
+        }
+
+        pendingAdditiveOperator = clickedOperator;
+        waitingForOperand = true;
+    }
+    // square_root
+    else if(key == "square_root") {
+        onEvent("square_root_power_reciprocal");
+    }
+    // power
+    else if(key == "power") {
+        onEvent("square_root_power_reciprocal");
+    }
+    // reciprocal
+    else if(key == "reciprocal") {
+        onEvent("square_root_power_reciprocal");
+    }
+    // square_root_power_reciprocal
+    else if(key == "square_root_power_reciprocal") {
+        GCalculatorButton *clickedButton = qobject_cast&lt;GCalculatorButton*&gt;(sender());
+        QString clickedOperator = clickedButton-&gt;text();
+        double operand = display-&gt;text().toDouble();
+        double result = 0.0;
+
+        if (clickedOperator == tr("Sqrt")) {
+            if (operand &lt; 0.0) {
+                abortOperation();
+                return;
+            }
+            result = std::sqrt(operand);
+        }
+        else if (clickedOperator == tr("x\302\262")) {
+            result = std::pow(operand, 2.0);
+        }
+        else if (clickedOperator == tr("1/x")) {
+            if (operand == 0.0) {
+                abortOperation();
+                return;
+            }
+            result = 1.0 / operand;
+        }
+        display-&gt;setText(QString::number(result));
+        waitingForOperand = true;
+    }
+    // equal
+    else if(key == "equal") {
+        double operand = display-&gt;text().toDouble();
+
+        if (!pendingMultiplicativeOperator.isEmpty()) {
+            if (!calculate(operand, pendingMultiplicativeOperator)) {
+                abortOperation();
+                return;
+            }
+            operand = factorSoFar;
+            factorSoFar = 0.0;
+            pendingMultiplicativeOperator.clear();
+        }
+        if (!pendingAdditiveOperator.isEmpty()) {
+            if (!calculate(operand, pendingAdditiveOperator)) {
+                abortOperation();
+                return;
+            }
+            pendingAdditiveOperator.clear();
+        } else {
+            sumSoFar = operand;
+        }
+
+        display-&gt;setText(QString::number(sumSoFar));
+        sumSoFar = 0.0;
+        waitingForOperand = true;
+    }
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GCalculatorButton.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GCalculatorButton.h"
+//===============================================
+GCalculatorButton::GCalculatorButton(const QString &amp;text, QWidget* parent) : QToolButton(parent) {
+    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
+    setText(text);
+}
+//===============================================
+GCalculatorButton::~GCalculatorButton() {
+
+}
+//===============================================
+QSize GCalculatorButton::sizeHint() const {
+    QSize size = QToolButton::sizeHint();
+    size.rheight() += 20;
+    size.rwidth() = qMax(size.width(), size.height());
+    return size;
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_calculator.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_calculator.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Creation-de-pitogrammes-avec-QtAwesome"><a class="Link3" href="#">Création de pitogrammes avec QtAwesome</a></h1><div class="Body3"><br><b>QtAwesome</b> est une bibliothèque simple qui peut être utilisée pour ajouter des icônes Font Awesome à votre application Qt. Bien que le nom soit QtAwesome et qu'il soit actuellement très basé sur Font Awesome, vous pouvez utiliser toutes les autres polices d'icônes / glyphes de votre choix. La classe peut également être utilisée pour gérer vos propres icônes dessinées par code dynamique, en ajoutant des peintres d'icônes nommés. Cette bibliothèque a été mise à jour vers la version 4.7.0 de Font Awesome <br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Creation-de-pitogrammes-avec-QtAwesome-Installer-l-environnement-QtAwesome-sous-MSYS2"><a class="Link9" href="#Creation-de-pitogrammes-avec-QtAwesome">Installer l'environnement QtAwesome sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Télécharger QtAwesome</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://github.com/gamecreature/QtAwesome">https://github.com/gamecreature/QtAwesome</a><br><br><b>QtAwesome-master.zip</b><br><br><h3 class="Title8 GTitle3">Extraire QtAwesome</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">QtAwesome-master.zip
 Clic droit -&gt; Extraire vers QtAwesome-master\</pre></div></div><br><h2 class="Title7 GTitle2" id="Creation-de-pitogrammes-avec-QtAwesome-Tester-un-projet-QtAwesome-sous-MSYS2"><a class="Link9" href="#Creation-de-pitogrammes-avec-QtAwesome">Tester un projet QtAwesome sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Observer la structure du projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">ReadyTest/QtAwesome/
 |___ main.cpp
 |___ QtAwesome.cpp  
