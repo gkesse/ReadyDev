@@ -3384,7 +3384,39 @@ void GWindowGL::resizeEvent(QResizeEvent *event) {
 	glViewport(0, 0, width(), height());
 	update();
 }
+<<<<<<< HEAD
 //================================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_qt_opengl_integrate.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/i_qt_opengl_integrate.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Creation-de-pitogrammes-avec-QtAwesome"><a class="Link3" href="#">Création de pitogrammes avec QtAwesome</a></h1><div class="Body3"><br><b>QtAwesome</b> est une bibliothèque simple qui peut être utilisée pour ajouter des icônes Font Awesome à votre application Qt. Bien que le nom soit QtAwesome et qu'il soit actuellement très basé sur Font Awesome, vous pouvez utiliser toutes les autres polices d'icônes / glyphes de votre choix. La classe peut également être utilisée pour gérer vos propres icônes dessinées par code dynamique, en ajoutant des peintres d'icônes nommés. Cette bibliothèque a été mise à jour vers la version 4.7.0 de Font Awesome <br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Creation-de-pitogrammes-avec-QtAwesome-Installer-l-environnement-QtAwesome-sous-MSYS2"><a class="Link9" href="#Creation-de-pitogrammes-avec-QtAwesome">Installer l'environnement QtAwesome sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Télécharger QtAwesome</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://github.com/gamecreature/QtAwesome">https://github.com/gamecreature/QtAwesome</a><br><br><b>QtAwesome-master.zip</b><br><br><h3 class="Title8 GTitle3">Extraire QtAwesome</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">QtAwesome-master.zip
+=======
+//================================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_qt_opengl_integrate.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/i_qt_opengl_integrate.png"></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Qt-Operations-sur-le-module-QImage"><a class="Link9" href="#Interface-Homme-Machine-avec-Qt">Opérations sur le module QImage</a></h2><br>La classe <b>QImage </b>fournit une représentation d'image indépendante du matériel qui permet un accès direct aux données de pixels et peut être utilisée comme périphérique de peinture.<br><br><h3 class="Title8 GTitle3">GQtTest.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GQtTest.h"
+//===============================================
+GQtTest::GQtTest(QWidget* parent) : GQtUi(parent) {
+    QString lImageFile = "qt4logo.png";
+    QImage lImage(lImageFile);
+    int lImageWidth = lImage.width();
+    int lImageHeight = lImage.height();
+    QRgb lImagePixel = lImage.pixel(lImageWidth*0.5, lImageHeight*0.5);
+    QColor lImagePixelColor = QColor(lImagePixel);
+
+    QTextEdit* lTextEdit = new QTextEdit;
+    lTextEdit-&gt;setReadOnly(true);
+    lTextEdit-&gt;append(QString("%1 : %2").arg("lImageFile").arg(lImageFile));
+    lTextEdit-&gt;append(QString("%1 : %2").arg("lImageWidth").arg(lImageWidth));
+    lTextEdit-&gt;append(QString("%1 : %2").arg("lImageHeight").arg(lImageHeight));
+    lTextEdit-&gt;append(QString("%1 : %2").arg("lImagePixel").arg(lImagePixel));
+    lTextEdit-&gt;append(QString("%1 : %2").arg("lImagePixelColor").arg(lImagePixelColor.name()));
+
+    QVBoxLayout* lMainLayout = new QVBoxLayout;
+    lMainLayout-&gt;addWidget(lTextEdit);
+
+    setLayout(lMainLayout);
+}
+//===============================================
+GQtTest::~GQtTest() {
+
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_qimage.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_qimage.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Creation-de-pitogrammes-avec-QtAwesome"><a class="Link3" href="#">Création de pitogrammes avec QtAwesome</a></h1><div class="Body3"><br><b>QtAwesome</b> est une bibliothèque simple qui peut être utilisée pour ajouter des icônes Font Awesome à votre application Qt. Bien que le nom soit QtAwesome et qu'il soit actuellement très basé sur Font Awesome, vous pouvez utiliser toutes les autres polices d'icônes / glyphes de votre choix. La classe peut également être utilisée pour gérer vos propres icônes dessinées par code dynamique, en ajoutant des peintres d'icônes nommés. Cette bibliothèque a été mise à jour vers la version 4.7.0 de Font Awesome <br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Creation-de-pitogrammes-avec-QtAwesome-Installer-l-environnement-QtAwesome-sous-MSYS2"><a class="Link9" href="#Creation-de-pitogrammes-avec-QtAwesome">Installer l'environnement QtAwesome sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Télécharger QtAwesome</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://github.com/gamecreature/QtAwesome">https://github.com/gamecreature/QtAwesome</a><br><br><b>QtAwesome-master.zip</b><br><br><h3 class="Title8 GTitle3">Extraire QtAwesome</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">QtAwesome-master.zip
+>>>>>>> 8537548dd24db81446d2a11d517730800942eb12
 Clic droit -&gt; Extraire vers QtAwesome-master\</pre></div></div><br><h2 class="Title7 GTitle2" id="Creation-de-pitogrammes-avec-QtAwesome-Tester-un-projet-QtAwesome-sous-MSYS2"><a class="Link9" href="#Creation-de-pitogrammes-avec-QtAwesome">Tester un projet QtAwesome sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Observer la structure du projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">ReadyTest/QtAwesome/
 |___ main.cpp
 |___ QtAwesome.cpp  
