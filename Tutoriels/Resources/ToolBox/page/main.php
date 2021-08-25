@@ -802,7 +802,82 @@ select * from users;
 -------------------- --------------------
 gerard@readydev.com  gerpass
 pierre@readydev.com  piepass
-paul@readydev.com    paupass</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Oracle-SQL-Developer"><a class="Link3" href="#">Oracle SQL Developer</a></h1><div class="Body3"><br><b>Oracle SQL Developer</b> est un environnement de développement intégré gratuit qui simplifie le développement et la gestion d'Oracle Database dans les déploiements traditionnels et cloud. SQL Developer propose un développement complet de bout en bout de vos applications PL/SQL, une feuille de calcul pour exécuter des requêtes et des scripts, une console DBA pour gérer la base de données, une interface de rapports, une solution complète de modélisation de données et une plateforme de migration pour déplacer votre Bases de données tierces vers Oracle.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Oracle-SQL-Developer-Installer-l-environnement-JDK-8-sous-Windows"><a class="Link9" href="#Oracle-SQL-Developer">Installer l'environnement JDK 8 sous Windows</a></h2><br><h3 class="Title8 GTitle3">Télécharger JDK 8</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html">https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html</a><br><br><b>jdk-8u291-windows-x64.exe</b><br><br><h3 class="Title8 GTitle3">Installer JDK 8</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="batchfile">jdk-8u291-windows-x64.exe
+paul@readydev.com    paupass</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Package"><a class="Link9" href="#Oracle-Database">Package</a></h2><br>Les <b>packages </b>sont des objets de schéma qui regroupent des types, des variables et des sous-programmes PL/SQL logiquement liés. Un package aura deux parties obligatoires : la spécification de l'emballage et le corps ou la définition du package. Le corps du package contient les codes des différentes méthodes déclarées dans la spécification du package et d'autres déclarations privées, qui sont masquées du code à l'extérieur du package.<br><br><h3 class="Title8 GTitle3">Créer un package</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+create package pkg_fnc_hello as
+    function fnc_hello return varchar2;
+end pkg_fnc_hello;
+/
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Vérifier l'existence d'un package</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+select count(*)
+from user_objects
+where object_name = upper('pkg_fnc_hello')
+and object_type = upper('package');
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Supprimer un package</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+drop package pkg_fnc_hello;
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Créer le corps du package</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+create or replace package body pkg_fnc_hello as
+    function fnc_hello return varchar2 is 
+    begin
+        return 'Bonjour tout le monde';
+    end fnc_hello;
+end pkg_fnc_hello;
+/
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Appeler un package</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+begin 
+    dbms_output.put_line(pkg_fnc_hello.fnc_hello); 
+end;
+/
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Créer une surcharge de fonctions</h3><br>Création du package<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+create package pkg_fnc_hello as
+    function fnc_hello return varchar2;
+    function fnc_hello(name in varchar2) return varchar2;
+end pkg_fnc_hello;
+/
+-- ==============================================</pre></div></div><br>Création du corps du package<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+create or replace package body pkg_fnc_hello as
+    function fnc_hello return varchar2 is 
+    begin
+        return 'Bonjour tout le monde';
+    end fnc_hello;
+    -- ==============================================
+    function fnc_hello(name in varchar2) return varchar2 is 
+    begin
+        return 'Bonjour ' || name;
+    end fnc_hello;
+end pkg_fnc_hello;
+/
+-- ==============================================</pre></div></div><br>Appel des fonctions<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+begin 
+    dbms_output.put_line(pkg_fnc_hello.fnc_hello); 
+    dbms_output.put_line(pkg_fnc_hello.fnc_hello('Gerard KESSE')); 
+end;
+/
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Créer une surcharge de procedures</h3><br>Création du package<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+create package pkg_prc_hello as
+    procedure prc_hello;
+    procedure prc_hello(name in varchar2);
+end pkg_prc_hello;
+/
+-- ==============================================</pre></div></div><br>Création du corps du package<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+create or replace package body pkg_prc_hello as
+    procedure prc_hello is 
+    begin
+        dbms_output.put_line('Bonjour tout le monde');
+    end prc_hello;
+    -- ==============================================
+    procedure prc_hello(name in varchar2) is 
+    begin
+        dbms_output.put_line('Bonjour ' || name);
+    end prc_hello;
+end pkg_prc_hello;
+/
+-- ==============================================</pre></div></div><br>Appel des procédures<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+begin 
+    pkg_prc_hello.prc_hello; 
+    pkg_prc_hello.prc_hello('Gerard KESSE'); 
+end;
+/
+-- ==============================================</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Oracle-SQL-Developer"><a class="Link3" href="#">Oracle SQL Developer</a></h1><div class="Body3"><br><b>Oracle SQL Developer</b> est un environnement de développement intégré gratuit qui simplifie le développement et la gestion d'Oracle Database dans les déploiements traditionnels et cloud. SQL Developer propose un développement complet de bout en bout de vos applications PL/SQL, une feuille de calcul pour exécuter des requêtes et des scripts, une console DBA pour gérer la base de données, une interface de rapports, une solution complète de modélisation de données et une plateforme de migration pour déplacer votre Bases de données tierces vers Oracle.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Oracle-SQL-Developer-Installer-l-environnement-JDK-8-sous-Windows"><a class="Link9" href="#Oracle-SQL-Developer">Installer l'environnement JDK 8 sous Windows</a></h2><br><h3 class="Title8 GTitle3">Télécharger JDK 8</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html">https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html</a><br><br><b>jdk-8u291-windows-x64.exe</b><br><br><h3 class="Title8 GTitle3">Installer JDK 8</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="batchfile">jdk-8u291-windows-x64.exe
 Next
 Install To -&gt; C:\Program Files\Java\jdk1.8.0_291\
 Next
