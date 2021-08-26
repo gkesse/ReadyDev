@@ -877,57 +877,66 @@ begin
     pkg_prc_hello.prc_hello('Gerard KESSE'); 
 end;
 /
--- ==============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Curseur"><a class="Link9" href="#Oracle-Database">Curseur</a></h2><br>Un <b>curseur </b>est un pointeur vers une zone mémoire créee par Oracle, appelée zone de contexte, pour le traitement d'une instruction SQL, qui contient toutes les informations nécessaires au traitement de l'instruction ; par exemple, le nombre de lignes traitées, etc. Il existe deux types de curseurs : les curseurs implicites et les curseurs explicites. Les curseurs implicites sont automatiquement créés par Oracle chaque fois qu'une instruction SQL est exécutée, lorsqu'il n'y a pas de curseur explicite pour l'instruction.<br><br><h3 class="Title8 GTitle3">Utiliser le curseur (found)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+-- ==============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Curseur"><a class="Link9" href="#Oracle-Database">Curseur</a></h2><br>Un <b>curseur </b>est un pointeur vers une zone mémoire créee par Oracle, appelée zone de contexte, pour le traitement d'une instruction SQL, qui contient toutes les informations nécessaires au traitement de l'instruction ; par exemple, le nombre de lignes traitées, etc. Il existe deux types de curseurs : les curseurs implicites et les curseurs explicites. Les curseurs implicites sont automatiquement créés par Oracle chaque fois qu'une instruction SQL est exécutée, lorsqu'il n'y a pas de curseur explicite pour l'instruction.<br><br><h3 class="Title8 GTitle3">Utiliser le curseur implicite (found)</h3><br>-- ==============================================<br>begin <br>    -- execution d'une requete sql (select, insert, update)<br>    update ma_table<br>    set col_1 = ma_donnee_1<br>    where col_2 = ma_donnee_2<br>    --<br>    if sql%found then <br>        -- code si ligne trouvee<br>    end if;  <br>end; <br>/     <br>-- ==============================================<br><br><h3 class="Title8 GTitle3">Utiliser le curseur implicite (notfound)<br></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
 begin 
-    -- requete sql (select, insert, update)
-    if sql%found then 
-        -- code si ligne trouvee
-    end if;  
-end; 
-/     
--- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Utiliser le curseur (notfound)<br></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
-begin 
-    -- requete sql (select, insert, update)
+    -- execution d'une requete sql (select, insert, update)
+    update ma_table
+    set col_1 = ma_donnee_1
+    where col_2 = ma_donnee_2
+    --
     if sql%notfound then 
         -- code si ligne non trouve
     end if;  
 end; 
 /     
--- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Utiliser le curseur (isopen)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Utiliser le curseur implicite (isopen)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
 begin 
-    -- requete sql (select, insert, update)
+    -- execution d'une requete sql (select, insert, update)
+    update ma_table
+    set col_1 = ma_donnee_1
+    where col_2 = ma_donnee_2
+    --
     if sql%isopen then 
         -- code si curseur ouvert
     end if;  
 end; 
 /     
--- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Utiliser le curseur (rowcount)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Utiliser le curseur implicite (rowcount)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
 begin 
-    -- requete sql (select, insert, update)
+    -- execution d'une requete sql (select, insert, update)
+    update ma_table
+    set col_1 = ma_donnee_1
+    where col_2 = ma_donnee_2
+    --
     if sql%found then 
         -- recuperation du nombre de ligne
         nombre_ligne := sql%rowcount;
     end if;  
 end; 
 /     
--- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Utiliser un curseur explicite (cursor)<br></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+-- ==============================================</pre></div></div><br><br><h3 class="Title8 GTitle3">Utiliser un curseur explicite (cursor)<br></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
 declare
-    -- declaration de variables;
+    -- declaration des colonnes de table;
+    c_col_1 ma_table.col_1%type;
+    c_col_2 ma_table.col_2%type;
+    c_col_3 ma_table.col_3%type;
     -- declaration du curseur
     cursor mon_curseur is
-        ma_requete_sql_select;
-    -- declaration de variables;
+        select col_1, col_2, col_3
+        from ma_table;
 begin 
     -- ouverture du curseur
     open mon_curseur;
     -- parcours des donnees du curseur
     loop
         -- recuperation de la ligne de donnees suivante du curseur
-        fetch mon_curseur into col_1, col_2, col_3;
+        fetch mon_curseur into c_col_1, c_col_2, c_col_3;
         -- fermeture de la boucle si ligne non trouvee dans le curseur
         exit when mon_curseur%notfound;
         -- utilisation des colonnes de donnees du curseur
-        -- col_1, col_2, col_3
+        -- c_col_1
+        -- c_col_2
+        -- c_col_3
     end loop;
 end; 
 /     
@@ -939,7 +948,7 @@ begin
     -- chargement de l'enregsitrement
     select * into mon_enregsitrement
     from ma_table
-    where ma_condition;
+    where col_1 = ma_donnee_1;
     -- utilisation des colonnes de mon enregistrement
     -- mon_enregsitrement.col_1
     -- mon_enregsitrement.col_2
@@ -949,7 +958,7 @@ end;
 -- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Créer un enregistrement (curseur)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
 declare
     -- declaration de mon curseur
-    mon_curseur is
+    cursor mon_curseur is
         select col_1, col_2, col_3
         from ma_table;
     -- declaration de l'enregistrement
@@ -1030,7 +1039,7 @@ end;
 /     
 -- ==============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Exception"><a class="Link9" href="#Oracle-Database">Exception</a></h2><br>Une <b>exception </b>est une condition d'erreur lors de l'exécution d'un programme. PL/SQL aide les programmeurs à détecter de telles conditions à l'aide du bloc exception dans le programme et une action appropriée est entreprise contre la condition d'erreur. Il existe deux types d'exceptions : les exceptions définies par le système et les exceptions définies par l'utilisateur<br><br><h3 class="Title8 GTitle3">Capturer l'exception (no_data_found)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
 declare
-    -- declaration de variables
+    -- declaration des colonnes de table
     c_col_1 ma_table.col_1%type;
     c_col_2 ma_table.col_2%type;
     c_col_3 ma_table.col_3%type;
@@ -1039,7 +1048,7 @@ begin
     select col_1, col_2, col_3
     into c_col_1, c_col_2, c_col_3
     from ma_table
-    where ma_condition;
+    where col_4 = ma_donnee_4;
     -- utilisation des variables
     -- c_col_1
     -- c_col_2
@@ -1051,7 +1060,81 @@ exception
         -- code exception par defaut
 end; 
 /     
--- ==============================================</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Oracle-SQL-Developer"><a class="Link3" href="#">Oracle SQL Developer</a></h1><div class="Body3"><br><b>Oracle SQL Developer</b> est un environnement de développement intégré gratuit qui simplifie le développement et la gestion d'Oracle Database dans les déploiements traditionnels et cloud. SQL Developer propose un développement complet de bout en bout de vos applications PL/SQL, une feuille de calcul pour exécuter des requêtes et des scripts, une console DBA pour gérer la base de données, une interface de rapports, une solution complète de modélisation de données et une plateforme de migration pour déplacer votre Bases de données tierces vers Oracle.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Oracle-SQL-Developer-Installer-l-environnement-JDK-8-sous-Windows">Installer l'environnement JDK 8 sous Windows</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Oracle-SQL-Developer-Installer-l-environnement-Oracle-SQL-Developer-sous-Windows">Installer l'environnement Oracle SQL Developer sous Windows</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Oracle-SQL-Developer-Demarrer-une-nouvelle-connexion">Démarrer une nouvelle connexion</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Oracle-SQL-Developer-Executer-un-nouveau-script">Exécuter un nouveau script</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Oracle-SQL-Developer-Executer-un-script-existant">Exécuter un script existant</a></div></div><br><h2 class="Title7 GTitle2" id="Oracle-SQL-Developer-Installer-l-environnement-JDK-8-sous-Windows"><a class="Link9" href="#Oracle-SQL-Developer">Installer l'environnement JDK 8 sous Windows</a></h2><br><h3 class="Title8 GTitle3">Télécharger JDK 8</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html">https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html</a><br><br><b>jdk-8u291-windows-x64.exe</b><br><br><h3 class="Title8 GTitle3">Installer JDK 8</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="batchfile">jdk-8u291-windows-x64.exe
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Créer une exception utilisateur</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+declare
+    -- declaration des donnees de table;
+    c_col_1 ma_table.col_1%type;
+    c_col_2 ma_table.col_2%type;
+    c_col_3 ma_table.col_3%type;
+    -- declaration de l'exception;
+    mon_exception exception;
+begin
+    if ma_condition = false then
+        -- lancement de l'exception
+        raise mon_exception;
+    else
+        -- execution d'une requete sql
+        select col_1, col_2, col_3
+        into c_col_1, c_col_2, c_col_3
+        from ma_table
+        where col_4 = ma_donnee_4;
+        -- utilisation des colonnes de donnees
+        -- c_col_1
+        -- c_col_2
+        -- c_col_3
+    end if;
+exception
+    when mon_exception then
+        -- code si exception utilisateur
+    when no_data_found then
+        -- code si exception donnee non trouvee
+    when others then
+        -- code si exception par defaut
+end; 
+/     
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Liste des exceptions prédéfinies</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">Exception	        | Error | CODE   | Description
+--------------------+-------+--------+------------
+ACCESS_INTO_NULL    | 06530 | -6530  | si un objet null reçoit automatiquement une valeur.
+--------------------+-------+--------+------------
+CASE_NOT_FOUND      | 06592 | -6592  | si aucun choix pour la clause WHEN...CASE n'est sélectionné
+                                       et pas de clause ELSE.
+--------------------+-------+--------+------------
+COLLECTION_IS_NULL  | 06531 | -6531  | si un programme tente d'appliquer des méthodes de collecte 
+                                       autres que EXISTS à une table ou un varray imbriqué non initialisé, 
+                                       ou le programme tente d'affecter des valeurs aux éléments d'une table 
+                                       ou d'un varray imbriqué non initialisé.
+--------------------+-------+--------+------------
+DUP_VAL_ON_INDEX    | 00001 | -1     | si des valeurs en double sont tentées d'être stockées dans une colonne 
+                                       avec un index unique.
+--------------------+-------+--------+------------
+INVALID_CURSOR      | 01001 | -1001  | si des tentatives sont faites pour effectuer une opération de curseur 
+                                       qui n'est pas autorisée, telle que la fermeture d'un curseur non ouvert.
+--------------------+-------+--------+------------
+NUMÉRO INVALIDE     | 01722 | -1722  | si la conversion d'une chaîne de caractères en nombre échoue 
+                                       car la chaîne ne représente pas un nombre valide.
+--------------------+-------+--------+------------
+LOGIN_DENIED        | 01017 | -1017  | si un programme tente de se connecter à la base de données 
+                                          avec un nom d'utilisateur ou un mot de passe invalide.
+--------------------+-------+--------+------------
+NO_DATA_FOUND       | 01403 | +100   | si une instruction SELECT INTO ne renvoie aucune ligne.
+--------------------+-------+--------+------------
+NOT_LOGGED_ON       | 01012 | -1012  | si un appel de base de données est émis sans être connecté à la base de données.
+--------------------+-------+--------+------------
+PROGRAM_ERROR       | 06501 | -6501  | si PL/SQL a un problème interne.
+--------------------+-------+--------+------------
+ROWTYPE_MISMATCH    | 06504 | -6504  | si un curseur récupère une valeur dans une variable ayant un type de données incompatible.
+--------------------+-------+--------+------------
+SELF_IS_NULL        | 30625 | -30625 | si une méthode membre est invoquée, mais que l'instance du type d'objet n'a pas été initialisée.
+--------------------+-------+--------+------------
+STORAGE_ERROR       | 06500 | -6500  | si PL/SQL manque de mémoire ou que la mémoire est corrompue.
+--------------------+-------+--------+------------
+TOO_MANY_ROWS       | 01422 | -1422  | si une instruction SELECT INTO renvoie plusieurs lignes.
+--------------------+-------+--------+------------
+VALUE_ERROR         | 06502 | -6502  | si une erreur d'arithmétique, de conversion, de troncature 
+                                          ou de contrainte de taille se produit.
+--------------------+-------+--------+------------
+ZERO_DIVIDE         | 01476 | 1476   | si on tente de diviser un nombre par zéro.
+--------------------+-------+--------+------------</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Oracle-SQL-Developer"><a class="Link3" href="#">Oracle SQL Developer</a></h1><div class="Body3"><br><b>Oracle SQL Developer</b> est un environnement de développement intégré gratuit qui simplifie le développement et la gestion d'Oracle Database dans les déploiements traditionnels et cloud. SQL Developer propose un développement complet de bout en bout de vos applications PL/SQL, une feuille de calcul pour exécuter des requêtes et des scripts, une console DBA pour gérer la base de données, une interface de rapports, une solution complète de modélisation de données et une plateforme de migration pour déplacer votre Bases de données tierces vers Oracle.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Oracle-SQL-Developer-Installer-l-environnement-JDK-8-sous-Windows">Installer l'environnement JDK 8 sous Windows</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Oracle-SQL-Developer-Installer-l-environnement-Oracle-SQL-Developer-sous-Windows">Installer l'environnement Oracle SQL Developer sous Windows</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Oracle-SQL-Developer-Demarrer-une-nouvelle-connexion">Démarrer une nouvelle connexion</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Oracle-SQL-Developer-Executer-un-nouveau-script">Exécuter un nouveau script</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Oracle-SQL-Developer-Executer-un-script-existant">Exécuter un script existant</a></div></div><br><h2 class="Title7 GTitle2" id="Oracle-SQL-Developer-Installer-l-environnement-JDK-8-sous-Windows"><a class="Link9" href="#Oracle-SQL-Developer">Installer l'environnement JDK 8 sous Windows</a></h2><br><h3 class="Title8 GTitle3">Télécharger JDK 8</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html">https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html</a><br><br><b>jdk-8u291-windows-x64.exe</b><br><br><h3 class="Title8 GTitle3">Installer JDK 8</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="batchfile">jdk-8u291-windows-x64.exe
 Next
 Install To -&gt; C:\Program Files\Java\jdk1.8.0_291\
 Next
