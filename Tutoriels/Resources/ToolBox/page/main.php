@@ -972,6 +972,27 @@ begin
     close mon_curseur;
 end; 
 /     
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Créer un enregistrement (utilisateur)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+declare
+    -- declaration du type de l'enregistrement
+    type mon_type_enregsitrement is record (
+        col_1 mon_type_1(ma_taille_1),
+        col_2 mon_type_2(ma_taille_2),
+        col_3 mon_type_3(ma_taille_3)
+    );
+    -- declaration de l'enregistrement
+    mon_enregsitrement mon_type_enregsitrement;
+begin 
+    -- chargement de mon enregistrement
+    mon_enregsitrement.col_1 = ma_donnee_1;
+    mon_enregsitrement.col_2 = ma_donnee_2;
+    mon_enregsitrement.col_3 = ma_donnee_3;
+    -- utilisation des colonnes de mon enregistrement
+    -- mon_enregsitrement.col_1
+    -- mon_enregsitrement.col_2
+    -- mon_enregsitrement.col_3
+end; 
+/     
 -- ==============================================</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Oracle-SQL-Developer"><a class="Link3" href="#">Oracle SQL Developer</a></h1><div class="Body3"><br><b>Oracle SQL Developer</b> est un environnement de développement intégré gratuit qui simplifie le développement et la gestion d'Oracle Database dans les déploiements traditionnels et cloud. SQL Developer propose un développement complet de bout en bout de vos applications PL/SQL, une feuille de calcul pour exécuter des requêtes et des scripts, une console DBA pour gérer la base de données, une interface de rapports, une solution complète de modélisation de données et une plateforme de migration pour déplacer votre Bases de données tierces vers Oracle.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Oracle-SQL-Developer-Installer-l-environnement-JDK-8-sous-Windows">Installer l'environnement JDK 8 sous Windows</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Oracle-SQL-Developer-Installer-l-environnement-Oracle-SQL-Developer-sous-Windows">Installer l'environnement Oracle SQL Developer sous Windows</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Oracle-SQL-Developer-Demarrer-une-nouvelle-connexion">Démarrer une nouvelle connexion</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Oracle-SQL-Developer-Executer-un-nouveau-script">Exécuter un nouveau script</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Oracle-SQL-Developer-Executer-un-script-existant">Exécuter un script existant</a></div></div><br><h2 class="Title7 GTitle2" id="Oracle-SQL-Developer-Installer-l-environnement-JDK-8-sous-Windows"><a class="Link9" href="#Oracle-SQL-Developer">Installer l'environnement JDK 8 sous Windows</a></h2><br><h3 class="Title8 GTitle3">Télécharger JDK 8</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html">https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html</a><br><br><b>jdk-8u291-windows-x64.exe</b><br><br><h3 class="Title8 GTitle3">Installer JDK 8</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="batchfile">jdk-8u291-windows-x64.exe
 Next
 Install To -&gt; C:\Program Files\Java\jdk1.8.0_291\
