@@ -1324,7 +1324,39 @@ select sysdate from dual;
 select to_char(current_date, 'DD-MM-YYYY HH:MI:SS') from dual;    
 -- ==============================================
 
-31-08-2012 05:26:14</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Oracle-SQL-Developer"><a class="Link3" href="#">Oracle SQL Developer</a></h1><div class="Body3"><br><b>Oracle SQL Developer</b> est un environnement de développement intégré gratuit qui simplifie le développement et la gestion d'Oracle Database dans les déploiements traditionnels et cloud. SQL Developer propose un développement complet de bout en bout de vos applications PL/SQL, une feuille de calcul pour exécuter des requêtes et des scripts, une console DBA pour gérer la base de données, une interface de rapports, une solution complète de modélisation de données et une plateforme de migration pour déplacer votre Bases de données tierces vers Oracle.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Oracle-SQL-Developer-Installer-l-environnement-JDK-8-sous-Windows">Installer l'environnement JDK 8 sous Windows</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Oracle-SQL-Developer-Installer-l-environnement-Oracle-SQL-Developer-sous-Windows">Installer l'environnement Oracle SQL Developer sous Windows</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Oracle-SQL-Developer-Demarrer-une-nouvelle-connexion">Démarrer une nouvelle connexion</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Oracle-SQL-Developer-Executer-un-nouveau-script">Exécuter un nouveau script</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Oracle-SQL-Developer-Executer-un-script-existant">Exécuter un script existant</a></div></div><br><h2 class="Title7 GTitle2" id="Oracle-SQL-Developer-Installer-l-environnement-JDK-8-sous-Windows"><a class="Link9" href="#Oracle-SQL-Developer">Installer l'environnement JDK 8 sous Windows</a></h2><br><h3 class="Title8 GTitle3">Télécharger JDK 8</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html">https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html</a><br><br><b>jdk-8u291-windows-x64.exe</b><br><br><h3 class="Title8 GTitle3">Installer JDK 8</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="batchfile">jdk-8u291-windows-x64.exe
+31-08-2012 05:26:14</pre></div></div><br><h3 class="Title8 GTitle3">Ajouter des mois à la date et l'heure courantes</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+select add_months(sysdate, nombre_mois) from dual;    
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Valeurs des chanmps associés à DATETIME et INTERVAL</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="txt">Nom             | Valeurs DATETIME               | Valeurs INTERVAL
+----------------+--------------------------------+------------------
+YEAR	        | -4712 à 9999 (hors année 0)	 | Tout entier différent de zéro
+----------------+--------------------------------+------------------
+MONTH	        | 01 à 12	                     | 0 à 11
+----------------+--------------------------------+------------------
+DAY 	        | 01 à 31 (limité par les        | Tout entier différent de zéro
+                | valeurs de MOIS et ANNÉE,      |
+                | selon les règles du calendrier |  
+                | de la locale)                  |
+----------------+--------------------------------+------------------
+HOUR	        | 00 à 23	                     | 0 à 23
+----------------+--------------------------------+------------------
+MINUTE	        | 00 à 59	                     | 0 à 59
+----------------+--------------------------------+------------------
+SECOND	        | 00 à 59                        | 0 à 59
+----------------+--------------------------------+------------------
+TIMEZONE_HOUR   | -12 à 14 (la plage s'adapte    | N'est pas applicable
+                | aux changements d'heure d'été) |
+                | Non applicable pour DATE ou    |
+                | TIMESTAMP.                     |
+----------------+--------------------------------+------------------
+TIMEZONE_MINUTE | 00 à 59 Non applicable pour    | N'est pas applicable
+                | DATE ou TIMESTAMP.             |
+----------------+--------------------------------+------------------
+TIMEZONE_REGION	| Non applicable pour DATE ou    | N'est pas applicable
+                | TIMESTAMP.	                 |
+----------------+--------------------------------+------------------
+TIMEZONE_ABBR	| Non applicable pour DATE ou    | N'est pas applicable
+                | TIMESTAMP.	                 |
+----------------+--------------------------------+------------------</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Oracle-SQL-Developer"><a class="Link3" href="#">Oracle SQL Developer</a></h1><div class="Body3"><br><b>Oracle SQL Developer</b> est un environnement de développement intégré gratuit qui simplifie le développement et la gestion d'Oracle Database dans les déploiements traditionnels et cloud. SQL Developer propose un développement complet de bout en bout de vos applications PL/SQL, une feuille de calcul pour exécuter des requêtes et des scripts, une console DBA pour gérer la base de données, une interface de rapports, une solution complète de modélisation de données et une plateforme de migration pour déplacer votre Bases de données tierces vers Oracle.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Oracle-SQL-Developer-Installer-l-environnement-JDK-8-sous-Windows">Installer l'environnement JDK 8 sous Windows</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Oracle-SQL-Developer-Installer-l-environnement-Oracle-SQL-Developer-sous-Windows">Installer l'environnement Oracle SQL Developer sous Windows</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Oracle-SQL-Developer-Demarrer-une-nouvelle-connexion">Démarrer une nouvelle connexion</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Oracle-SQL-Developer-Executer-un-nouveau-script">Exécuter un nouveau script</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Oracle-SQL-Developer-Executer-un-script-existant">Exécuter un script existant</a></div></div><br><h2 class="Title7 GTitle2" id="Oracle-SQL-Developer-Installer-l-environnement-JDK-8-sous-Windows"><a class="Link9" href="#Oracle-SQL-Developer">Installer l'environnement JDK 8 sous Windows</a></h2><br><h3 class="Title8 GTitle3">Télécharger JDK 8</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html">https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html</a><br><br><b>jdk-8u291-windows-x64.exe</b><br><br><h3 class="Title8 GTitle3">Installer JDK 8</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="batchfile">jdk-8u291-windows-x64.exe
 Next
 Install To -&gt; C:\Program Files\Java\jdk1.8.0_291\
 Next
