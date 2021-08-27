@@ -1158,9 +1158,9 @@ values (ma_donnee_1, ma_donnee_2, ma_donnee_3)
 update ma_table 
 set col_1 = ma_donnee_1_2
 where col_2 = ma_donnee_2
--- ==============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Collection"><a class="Link9" href="#Oracle-Database">Collection</a></h2><br>Une <b>collection </b>est un groupe ordonné d'éléments ayant le même type de données. Chaque élément est identifié par un indice unique qui représente sa position dans la collection. PL/SQL fournit trois types de collections : les tableaux indexées ou tableaux associatifs, les tableaux imbriquées et les tableaux de taille variable ou varray.<br><br><h3 class="Title8 GTitle3">Créer un tableau associatif</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+-- ==============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Collection"><a class="Link9" href="#Oracle-Database">Collection</a></h2><br>Une <b>collection </b>est un groupe ordonné d'éléments ayant le même type de données. Chaque élément est identifié par un indice unique qui représente sa position dans la collection. PL/SQL fournit trois types de collections : les tableaux indexées ou tableaux associatifs, les tableaux imbriquées et les tableaux de taille variable ou varray.<br><br><h3 class="Title8 GTitle3">Créer un tableau associatif (utilisateur)<br></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
 declare
-    -- declaration du type du tableau associatif
+    -- declaration du type de la collection
     type mon_type_collection is
         table of number index by varchar2(ma_taille)
     -- declaration de la collection
@@ -1172,6 +1172,35 @@ begin
     ma_collection('cle_1') := nombre_1;
     ma_collection('cle_2') := nombre_2;
     ma_collection('cle_3') := nombre_3;
+    -- parcours de la collection
+    ma_cle := ma_collection.first;
+    while ma_cle is not null loop
+        -- utilisation des donnees
+        -- ma_cle
+        -- ma_collection(ma_cle)
+        -- recuperation de la donnee suivante
+        ma_cle := ma_collection.next(ma_cle);
+    end loop;
+end; 
+/     
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Créer un tableau indexé (table)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+declare
+    -- declaration du curseur
+    cursor mon_curseur is
+        select col_1 from ma_table;
+    -- declaration du type de la collection
+    type mon_type_collection is
+        table of ma_table.col_1%type index by binary_integer;
+    -- declaration de la collection
+    ma_collection mon_type_collection;
+    -- declaration de variable
+    ma_cle integer := 0;
+begin
+    -- chargement de la collection
+    for mon_element in mon_curseur loop
+        ma_cle := ma_cle + 1;
+        ma_collection(ma_cle) := mon_element.col_1;
+    end loop;
     -- parcours de la collection
     ma_cle := ma_collection.first;
     while ma_cle is not null loop
