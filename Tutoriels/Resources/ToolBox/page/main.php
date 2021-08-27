@@ -1257,7 +1257,58 @@ begin
     end loop;
 end; 
 /     
--- ==============================================</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Oracle-SQL-Developer"><a class="Link3" href="#">Oracle SQL Developer</a></h1><div class="Body3"><br><b>Oracle SQL Developer</b> est un environnement de développement intégré gratuit qui simplifie le développement et la gestion d'Oracle Database dans les déploiements traditionnels et cloud. SQL Developer propose un développement complet de bout en bout de vos applications PL/SQL, une feuille de calcul pour exécuter des requêtes et des scripts, une console DBA pour gérer la base de données, une interface de rapports, une solution complète de modélisation de données et une plateforme de migration pour déplacer votre Bases de données tierces vers Oracle.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Oracle-SQL-Developer-Installer-l-environnement-JDK-8-sous-Windows">Installer l'environnement JDK 8 sous Windows</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Oracle-SQL-Developer-Installer-l-environnement-Oracle-SQL-Developer-sous-Windows">Installer l'environnement Oracle SQL Developer sous Windows</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Oracle-SQL-Developer-Demarrer-une-nouvelle-connexion">Démarrer une nouvelle connexion</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Oracle-SQL-Developer-Executer-un-nouveau-script">Exécuter un nouveau script</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Oracle-SQL-Developer-Executer-un-script-existant">Exécuter un script existant</a></div></div><br><h2 class="Title7 GTitle2" id="Oracle-SQL-Developer-Installer-l-environnement-JDK-8-sous-Windows"><a class="Link9" href="#Oracle-SQL-Developer">Installer l'environnement JDK 8 sous Windows</a></h2><br><h3 class="Title8 GTitle3">Télécharger JDK 8</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html">https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html</a><br><br><b>jdk-8u291-windows-x64.exe</b><br><br><h3 class="Title8 GTitle3">Installer JDK 8</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="batchfile">jdk-8u291-windows-x64.exe
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Liste des méthodes associées à une collection</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="txt">Nom         | Description
+------------+------------------------------------
+EXISTS(n)   | Renvoie TRUE si le nième élément d'une collection existe ; 
+            | sinon renvoie FALSE.
+------------+------------------------------------
+COUNT       | Renvoie le nombre d'éléments qu'une collection contient actuellement.
+------------+------------------------------------
+LIMIT       | Vérifie la taille maximale d'une collection.
+------------+------------------------------------
+FIRST       | Renvoie les premiers (plus petits) numéros d'index dans une collection 
+            | qui utilise les indices entiers.
+------------+------------------------------------
+LAST        | Renvoie les derniers (plus grands) numéros d'index d'une collection 
+            | qui utilise les indices entiers.
+------------+------------------------------------
+PRIOR(n)    | Renvoie le numéro d'index qui précède l'index n dans une collection.
+------------+------------------------------------
+NEXT(n)     | Renvoie le numéro d'index qui succède à l'index n.
+------------+------------------------------------
+EXTEND      | Ajoute un élément null à une collection.
+------------+------------------------------------
+EXTEND(n)   | Ajoute n éléments null à une collection.
+------------+------------------------------------
+EXTEND(n,i) | Ajoute n copies du ième élément à une collection.
+------------+------------------------------------
+TRIM        | Supprime un élément de la fin d'une collection.
+------------+------------------------------------
+TRIM(n)     | Supprime n éléments de la fin d'une collection.
+------------+------------------------------------
+DELETE      | Supprime tous les éléments d'une collection, en définissant COUNT sur 0.
+------------+------------------------------------
+DELETE(n)   | Supprime le n ième élément d'un tableau associatif avec une clé numérique
+            | ou une table imbriquée. Si le tableau associatif a une clé de chaîne, l'élément 
+            | correspondant à la valeur de la clé est supprimé. Si n est nul, DELETE(n) ne fait rien.
+------------+------------------------------------
+DELETE(m,n) | Supprime tous les éléments de la plage m..n d'un tableau associatif ou d'un tableau 
+            | imbriqué. Si m est supérieur à n ou si m ou n est nul, DELETE(m,n) ne fait rien.
+------------+------------------------------------</pre></div></div><br><h3 class="Title8 GTitle3">Liste des exceptions associées à une collection</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="txt">Exception               | Description
+------------------------+------------------------
+COLLECTION_IS_NULL	| Vous essayez d'opérer sur une collection atomiquement nulle.
+------------------------+------------------------
+NO_DATA_FOUND	        | Un indice désigne un élément qui a été supprimé, ou un élément 
+                        | inexistant d'un tableau associatif.
+------------------------+------------------------
+SUBSCRIPT_BEYOND_COUNT	| Un indice dépasse le nombre d'éléments dans une collection.
+------------------------+------------------------
+SUBSCRIPT_OUTSIDE_LIMIT | Un indice est en dehors de la plage autorisée.
+------------------------+------------------------
+VALUE_ERROR	        | Un indice est nul ou non convertible en type de clé. 
+                        | Cette exception peut se produire si la clé est définie comme une plage 
+                        | PLS_INTEGER et que l'indice est en dehors de cette plage.
+------------------------+------------------------</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Oracle-SQL-Developer"><a class="Link3" href="#">Oracle SQL Developer</a></h1><div class="Body3"><br><b>Oracle SQL Developer</b> est un environnement de développement intégré gratuit qui simplifie le développement et la gestion d'Oracle Database dans les déploiements traditionnels et cloud. SQL Developer propose un développement complet de bout en bout de vos applications PL/SQL, une feuille de calcul pour exécuter des requêtes et des scripts, une console DBA pour gérer la base de données, une interface de rapports, une solution complète de modélisation de données et une plateforme de migration pour déplacer votre Bases de données tierces vers Oracle.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Oracle-SQL-Developer-Installer-l-environnement-JDK-8-sous-Windows">Installer l'environnement JDK 8 sous Windows</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Oracle-SQL-Developer-Installer-l-environnement-Oracle-SQL-Developer-sous-Windows">Installer l'environnement Oracle SQL Developer sous Windows</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Oracle-SQL-Developer-Demarrer-une-nouvelle-connexion">Démarrer une nouvelle connexion</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Oracle-SQL-Developer-Executer-un-nouveau-script">Exécuter un nouveau script</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Oracle-SQL-Developer-Executer-un-script-existant">Exécuter un script existant</a></div></div><br><h2 class="Title7 GTitle2" id="Oracle-SQL-Developer-Installer-l-environnement-JDK-8-sous-Windows"><a class="Link9" href="#Oracle-SQL-Developer">Installer l'environnement JDK 8 sous Windows</a></h2><br><h3 class="Title8 GTitle3">Télécharger JDK 8</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html">https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html</a><br><br><b>jdk-8u291-windows-x64.exe</b><br><br><h3 class="Title8 GTitle3">Installer JDK 8</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="batchfile">jdk-8u291-windows-x64.exe
 Next
 Install To -&gt; C:\Program Files\Java\jdk1.8.0_291\
 Next
