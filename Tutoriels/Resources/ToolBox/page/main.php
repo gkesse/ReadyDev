@@ -1373,7 +1373,243 @@ ROUND(x [, unité]);     | Arrondit x .
 SYSDATE();              | Renvoie la date/heure actuelle.
 ------------------------+------------------------
 TRUNC(x [, unité]);     | Tronque x .
-------------------------+------------------------</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Oracle-SQL-Developer"><a class="Link3" href="#">Oracle SQL Developer</a></h1><div class="Body3"><br><b>Oracle SQL Developer</b> est un environnement de développement intégré gratuit qui simplifie le développement et la gestion d'Oracle Database dans les déploiements traditionnels et cloud. SQL Developer propose un développement complet de bout en bout de vos applications PL/SQL, une feuille de calcul pour exécuter des requêtes et des scripts, une console DBA pour gérer la base de données, une interface de rapports, une solution complète de modélisation de données et une plateforme de migration pour déplacer votre Bases de données tierces vers Oracle.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Oracle-SQL-Developer-Installer-l-environnement-JDK-8-sous-Windows">Installer l'environnement JDK 8 sous Windows</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Oracle-SQL-Developer-Installer-l-environnement-Oracle-SQL-Developer-sous-Windows">Installer l'environnement Oracle SQL Developer sous Windows</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Oracle-SQL-Developer-Demarrer-une-nouvelle-connexion">Démarrer une nouvelle connexion</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Oracle-SQL-Developer-Executer-un-nouveau-script">Exécuter un nouveau script</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Oracle-SQL-Developer-Executer-un-script-existant">Exécuter un script existant</a></div></div><br><h2 class="Title7 GTitle2" id="Oracle-SQL-Developer-Installer-l-environnement-JDK-8-sous-Windows"><a class="Link9" href="#Oracle-SQL-Developer">Installer l'environnement JDK 8 sous Windows</a></h2><br><h3 class="Title8 GTitle3">Télécharger JDK 8</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html">https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html</a><br><br><b>jdk-8u291-windows-x64.exe</b><br><br><h3 class="Title8 GTitle3">Installer JDK 8</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="batchfile">jdk-8u291-windows-x64.exe
+------------------------+------------------------</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Sortie-du-SGBD"><a class="Link9" href="#Oracle-Database">Sortie du SGBD</a></h2><br>La <b>sortie du SGBD</b> en PL/SQL est géré par le package DBMS_OUTPUT qui permet d'afficher la sortie, les informations de débogage et d'envoyer des messages à partir de blocs PL/SQL, de sous-programmes, de packages et de déclencheurs.<br><br><h3 class="Title8 GTitle3">Afficher la liste des tables</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+begin
+    for t in (select table_name 
+    from user_tables) loop
+        dbms_output.put_line(t.table_name);
+    end loop;
+end;
+/
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Liste de méthodes associées à dbms_output</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="txt">Nom                                             | Description
+------------------------------------------------+----------------------------------
+DBMS_OUTPUT.DISABLE;                            | Désactive la sortie des messages.
+------------------------------------------------+----------------------------------
+DBMS_OUTPUT.ENABLE(                             | Active la sortie des messages. 
+buffer_size IN INTEGER DEFAULT 20000);          | Une valeur NULL de buffer_size représente 
+                                                | une taille de tampon illimitée.
+------------------------------------------------+----------------------------------
+DBMS_OUTPUT.GET_LINE (                          | Récupère une seule ligne d'informations 
+line OUT VARCHAR2, status OUT INTEGER);         | mises en mémoire tampon.
+------------------------------------------------+----------------------------------
+DBMS_OUTPUT.GET_LINES (                         | Récupère un tableau de lignes du tampon.
+lines OUT CHARARR, numlines IN OUT INTEGER);    |
+------------------------------------------------+----------------------------------
+DBMS_OUTPUT.NEW_LINE;                           | Place un marqueur de fin de ligne.
+------------------------------------------------+----------------------------------
+DBMS_OUTPUT.PUT(item IN VARCHAR2);              | Place une ligne partielle dans le tampon.
+------------------------------------------------+----------------------------------
+DBMS_OUTPUT.PUT_LINE(item IN VARCHAR2);         | Place une ligne dans le tampon.
+------------------------------------------------+----------------------------------</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-BDD-orientee-objet"><a class="Link9" href="#Oracle-Database">BDD orientée objet</a></h2><br>PL/SQL permet de définir un type d'objet, ce qui aide à concevoir une <b>base de données orientée objet</b> dans Oracle. Un type d'objet vous permet de créer des types composites. L'utilisation d'objets vous permet d'implémenter des objets du monde réel avec une structure de données spécifique et des méthodes pour l'exploiter. Les objets ont des attributs et des méthodes. Les attributs sont des propriétés d'un objet et sont utilisés pour stocker l'état d'un objet ; et les méthodes sont utilisées pour modéliser son comportement. La méthode <b>MAP </b>est une fonction implémentée sans paramètre en entrée de telle manière que sa valeur dépend de la valeur des attributs et permet comparer deux objets entre eux. La méthode <b>ORDER </b>implémente une logique interne pour comparer deux objets entre eux et prend en entrée un seul paramètre du même type que l'objet. PL/SQL permet de créer des objets à partir des objets de base existants. Pour implémenter l'héritage, les objets de base doivent être déclarés comme <b>NOT FINAL</b> . La valeur par défaut est <b>FINALE</b>.<br><br><h3 class="Title8 GTitle3">Créer un objet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+create or replace type mon_type_objet as object (
+    attr_1 varchar2(10),
+    attr_2 varchar2(20),
+    attr_3 varchar2(30)
+);
+/
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Utilisation de l'objet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+declare
+    -- declaration de l'objet
+    mon_objet mon_type_objet;
+begin
+    -- chargement de l'objet
+    mon_objet := mon_type_objet('donnee_1', 'donnee_2', 'donnee_3');
+    -- utilisation de l'objet
+    -- mon_objet.attr_1
+    -- mon_objet.attr_2
+    -- mon_objet.attr_2
+end;
+/
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Créer un objet avec des méthodes</h3><br>Création de l'objet<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+create or replace type mon_type_objet as object (
+    attr_1 varchar2(10),
+    attr_2 varchar2(20),
+    attr_3 varchar2(30),
+    member function ma_fonction(arg_1 number) return number,
+    member procedure ma_procedure(arg_1 number)
+);
+/
+-- ==============================================</pre></div></div><br>Création du corps de l'objet<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+create or replace type body mon_type_objet as
+    member function ma_fonction(arg_1 number) return number is
+    begin
+        -- utilisation des attributs et des arguments
+        -- attr_1
+        -- attr_2
+        -- attr_3
+        -- arg_1
+        -- mon_retour1 := mon_calcul(attr_1, attr_2, attr_3, arg_1)
+        return mon_retour1;
+    end ma_fonction;
+    -- ==============================================
+    member procedure ma_procedure(arg_1 number) is
+    begin
+        -- utilisation des attributs et des arguments
+        -- attr_1
+        -- attr_2
+        -- attr_3
+        -- arg_1
+    end ma_procedure;
+end;
+/
+-- ==============================================</pre></div></div><br>Utilisation de l'objet<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+declare
+    -- declaration des objets
+    mon_objet mon_type_objet;
+    -- declaration des variables
+    mon_retour number;
+begin
+    -- initialisation des objets
+    mon_objet := mon_type_objet(arg_1, arg_2, arg_3);
+    -- utilisation de la methode (fonction)
+    mon_retour := mon_objet_1.ma_fonction(arg_1);
+    -- utilisation de la methode (procedure)
+    mon_objet.ma_procedure(arg_1);
+end;
+/
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Créer un objet avec une méthode (map)</h3><br>Création de l'objet<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+create or replace type mon_type_objet as object (
+    attr_1 varchar2(10),
+    attr_2 varchar2(20),
+    attr_3 varchar2(30),
+    map member function ma_fonction_map return number
+);
+/
+-- ==============================================</pre></div></div><br>Création du corps de l'objet<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+create or replace type body mon_type_objet as
+    map member function ma_fonction_map return number is
+    begin
+        -- utilisation des attributs de l'objet
+        -- mon_retour_1 := mon_calcul(attr_1, attr_2, attr_3)
+        return mon_retour_1;
+    end ma_fonction_map;
+end;
+/
+-- ==============================================</pre></div></div><br>Utilisation de l'objet<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+declare
+    -- declaration des objets
+    mon_objet_1 mon_type_objet;
+    mon_objet_2 mon_type_objet;
+begin
+    -- initialisation des objets
+    mon_objet_1 := mon_type_objet(arg_1, arg_2, arg_3);
+    mon_objet_2 := mon_type_objet(arg_1, arg_2, arg_3);
+    -- utilisation de la methode map (automatique)
+    if mon_objet_1 &gt; mon_objet_2 then
+        -- code si obj_1 &gt; obj_2
+    elsif mon_objet_1 = mon_objet_2 then
+        -- code si obj_1 = obj_2
+    else
+        -- code si obj_1 &lt; obj_2
+    end if;
+end;
+/
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Créer un objet avec une méthode (order)</h3><br>Création de l'objet<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+create or replace type mon_type_objet as object (
+    attr_1 varchar2(10),
+    attr_2 varchar2(20),
+    attr_3 varchar2(30),
+    order member function ma_fonction_order(obj mon_type_objet) return number
+);
+/
+-- ==============================================</pre></div></div><br>Création du corps de l'objet<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+create or replace type body mon_type_objet as
+    -- ==============================================
+    order member function ma_fonction_order(obj mon_type_objet) return number is
+    begin
+        -- utilisation des attributs de l'objet (appelant)
+        -- mon_retour_1 := mon_calcul(self.attr_1, self.attr_2, self.attr_3)
+        -- utilisation des attributs de l'objet (entrant)
+        -- mon_retour_2 := mon_calcul(obj.attr_1, obj.attr_2, obj.attr_3)
+        -- comparaison des resultat
+        if mon_retour_1 &gt; mon_retour_2 then
+            return 1;
+        elsif mon_retour_1 = mon_retour_2 then
+            return 0;
+        else
+            return -1;
+        end if;        
+    end ma_fonction_order;
+end;
+/
+-- ==============================================</pre></div></div><br>Utilisation de l'objet<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+declare
+    -- declaration des objets
+    mon_objet_1 mon_type_objet;
+    mon_objet_2 mon_type_objet;
+begin
+    -- initialisation des objets
+    mon_objet_1 := mon_type_objet(arg_1, arg_2, arg_3);
+    mon_objet_2 := mon_type_objet(arg_1, arg_2, arg_3);
+    -- utilisation de la methode order (automatique)
+    if mon_objet_1 &gt; mon_objet_2 then
+        -- code si obj_1 &gt; obj_2
+    elsif mon_objet_1 = mon_objet_2 then
+        -- code si obj_1 = obj_2
+    else
+        -- code si obj_1 &lt; obj_2
+    end if;
+end;
+/
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Créer un héritage d'objet</h3><br>Création de l'objet de base<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+create or replace type mon_objet_base as object (
+    attr_1 varchar2(10),
+    member function ma_fonction return number,
+    not final member procedure ma_procedure
+) not final;
+/
+-- ==============================================</pre></div></div><br>Création du corps de l'objet de base<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+create or replace type body mon_objet_base as
+    member function ma_fonction return number is
+    begin
+        -- utilisation des attributs de l'objet
+        -- mon_retour_1 := mon_calcul(attr_1)
+        return mon_retour_1;
+    end ma_fonction;
+    -- ==============================================
+    member procedure ma_procedure is
+    begin
+        -- utilisation des attributs de l'objet
+        -- attr_1
+    end ma_procedure;
+end;
+/
+-- ==============================================</pre></div></div><br>Création de l'objet héritier<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+create or replace type mon_objet_heritier under mon_objet_base (
+    attr_2 varchar2(10),
+    overriding member procedure ma_procedure
+);
+/
+-- ==============================================</pre></div></div><br>Création du corps de l'objet héritier<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+create or replace type body mon_objet_heritier as
+    overriding member procedure ma_procedure is
+    begin
+        -- utilisation des attributs de l'objet
+        -- attr_1
+        -- attr_2
+    end ma_procedure;
+end;
+/
+-- ==============================================</pre></div></div><br>Utilisation des objets de base et héritier<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+declare
+    -- declaration des objets
+    mon_obj_base mon_objet_base;
+    mon_obj_heritier mon_objet_heritier;
+    -- declaration des objets
+    mon_retour number;
+begin
+    -- initialisation des objets
+    mon_obj_base := mon_objet_base(arg_1);
+    mon_obj_heritier := mon_objet_heritier(arg_1, arg_2);
+    -- utilisation de la methode de l'objet (base)
+    mon_retour := mon_obj_base.ma_fonction;
+    mon_obj_base.ma_procedure;
+    -- utilisation de la methode de l'objet (heritier)
+    mon_retour := mon_obj_heritier.ma_fonction;
+    mon_obj_heritier.ma_procedure;
+end;
+/
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Créer un objet abstrait</h3><br><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Oracle-SQL-Developer"><a class="Link3" href="#">Oracle SQL Developer</a></h1><div class="Body3"><br><b>Oracle SQL Developer</b> est un environnement de développement intégré gratuit qui simplifie le développement et la gestion d'Oracle Database dans les déploiements traditionnels et cloud. SQL Developer propose un développement complet de bout en bout de vos applications PL/SQL, une feuille de calcul pour exécuter des requêtes et des scripts, une console DBA pour gérer la base de données, une interface de rapports, une solution complète de modélisation de données et une plateforme de migration pour déplacer votre Bases de données tierces vers Oracle.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Oracle-SQL-Developer-Installer-l-environnement-JDK-8-sous-Windows">Installer l'environnement JDK 8 sous Windows</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Oracle-SQL-Developer-Installer-l-environnement-Oracle-SQL-Developer-sous-Windows">Installer l'environnement Oracle SQL Developer sous Windows</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Oracle-SQL-Developer-Demarrer-une-nouvelle-connexion">Démarrer une nouvelle connexion</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Oracle-SQL-Developer-Executer-un-nouveau-script">Exécuter un nouveau script</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Oracle-SQL-Developer-Executer-un-script-existant">Exécuter un script existant</a></div></div><br><h2 class="Title7 GTitle2" id="Oracle-SQL-Developer-Installer-l-environnement-JDK-8-sous-Windows"><a class="Link9" href="#Oracle-SQL-Developer">Installer l'environnement JDK 8 sous Windows</a></h2><br><h3 class="Title8 GTitle3">Télécharger JDK 8</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html">https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html</a><br><br><b>jdk-8u291-windows-x64.exe</b><br><br><h3 class="Title8 GTitle3">Installer JDK 8</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="batchfile">jdk-8u291-windows-x64.exe
 Next
 Install To -&gt; C:\Program Files\Java\jdk1.8.0_291\
 Next
