@@ -1400,14 +1400,14 @@ DBMS_OUTPUT.NEW_LINE;                           | Place un marqueur de fin de li
 DBMS_OUTPUT.PUT(item IN VARCHAR2);              | Place une ligne partielle dans le tampon.
 ------------------------------------------------+----------------------------------
 DBMS_OUTPUT.PUT_LINE(item IN VARCHAR2);         | Place une ligne dans le tampon.
-------------------------------------------------+----------------------------------</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-BDD-orientee-objet"><a class="Link9" href="#Oracle-Database">BDD orientée objet</a></h2><br>PL/SQL permet de définir un type d'objet, ce qui aide à concevoir une <b>base de données orientée objet</b> dans Oracle. Un type d'objet vous permet de créer des types composites. L'utilisation d'objets vous permet d'implémenter des objets du monde réel avec une structure de données spécifique et des méthodes pour l'exploiter. Les objets ont des attributs et des méthodes. Les attributs sont des propriétés d'un objet et sont utilisés pour stocker l'état d'un objet ; et les méthodes sont utilisées pour modéliser son comportement. La méthode <b>MAP </b>est une fonction implémentée sans paramètre en entrée de telle manière que sa valeur dépend de la valeur des attributs et permet comparer deux objets entre eux. La méthode <b>ORDER </b>implémente une logique interne pour comparer deux objets entre eux et prend en entrée un seul paramètre du même type que l'objet. PL/SQL permet de créer des objets à partir des objets de base existants. Pour implémenter l'héritage, les objets de base doivent être déclarés comme <b>NOT FINAL</b> . La valeur par défaut est <b>FINALE</b>.<br><br><h3 class="Title8 GTitle3">Créer un objet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+------------------------------------------------+----------------------------------</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-BDD-orientee-objet"><a class="Link9" href="#Oracle-Database">BDD orientée objet</a></h2><br>PL/SQL permet de définir un type d'objet, ce qui aide à concevoir une <b>base de données orientée objet</b> dans Oracle. Un type d'objet vous permet de créer des types composites. L'utilisation d'objets vous permet d'implémenter des objets du monde réel avec une structure de données spécifique et des méthodes pour l'exploiter. Les objets ont des attributs et des méthodes. Les attributs sont des propriétés d'un objet et sont utilisés pour stocker l'état d'un objet ; et les méthodes sont utilisées pour modéliser son comportement. La méthode <b>MAP </b>est une fonction implémentée sans paramètre en entrée de telle manière que sa valeur dépend de la valeur des attributs et permet comparer deux objets entre eux. La méthode <b>ORDER </b>implémente une logique interne pour comparer deux objets entre eux et prend en entrée un seul paramètre du même type que l'objet. PL/SQL permet de créer des objets à partir des objets de base existants. Pour implémenter l'héritage, les objets de base doivent être déclarés comme <b>NOT FINAL</b> . La valeur par défaut est <b>FINALE</b>. La clause <b>NOT INSTANTIABLE</b> permet de déclarer un objet abstrait. Vous ne pouvez pas utiliser un objet abstrait tel quel ; vous devrez créer un sous-type ou un type enfant de ces objets pour utiliser ses fonctionnalités.<br><br><h3 class="Title8 GTitle3">Créer un objet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
 create or replace type mon_type_objet as object (
     attr_1 varchar2(10),
     attr_2 varchar2(20),
     attr_3 varchar2(30)
 );
 /
--- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Utilisation de l'objet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Utiliser un objet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
 declare
     -- declaration de l'objet
     mon_objet mon_type_objet;
@@ -1576,7 +1576,7 @@ end;
 /
 -- ==============================================</pre></div></div><br>Création de l'objet héritier<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
 create or replace type mon_objet_heritier under mon_objet_base (
-    attr_2 varchar2(10),
+    attr_2 varchar2(20),
     overriding member procedure ma_procedure
 );
 /
