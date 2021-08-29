@@ -485,242 +485,221 @@ begin
     end loop;
 end;
 /
--- ==============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Creer-une-procedure-stockee"><a class="Link9" href="#Oracle-Database">Créer une procédure stockée</a></h2><br>En informatique, dans la technologie des bases de données, une <b>procédure stockée</b> (ou stored procedure en anglais) est un ensemble d'instructions SQL précompilées, stockées dans une base de données et exécutées sur demande par le SGBD qui manipule la base de données. Les procédures stockées peuvent être lancées par un utilisateur, un administrateur DBA ou encore de façon automatique par un événement déclencheur (de l'anglais "trigger"). Il existe des procédures stockées pour ce qui est de la manipulation de données comme pour le 'tuning de base'.<br><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
-set serveroutput on;
--- ==============================================
-create procedure p_hello as
--- ==============================================
-begin
-    dbms_output.put_line('Bonjour tout le monde');
-end;
-/
--- ==============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Executer-une-procedure-stockee"><a class="Link9" href="#Oracle-Database">Exécuter une procédure stockée</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
-execute p_hello;
--- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">Bonjour tout le monde</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Appeler-une-procedure-stockee"><a class="Link9" href="#Oracle-Database">Appeler une procédure stockée</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
-set serveroutput on;
--- ==============================================
-begin
-    p_hello;
-end;
-/
--- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">Bonjour tout le monde</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Supprimer-une-procedure-stockee"><a class="Link9" href="#Oracle-Database">Supprimer une procédure stockée</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
-drop procedure p_hello;
--- ==============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Creer-une-procedure-non-stockee"><a class="Link9" href="#Oracle-Database">Créer une procédure non stockée</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
-set serveroutput on;
--- ==============================================
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Etendre un tableau varray</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
 declare
--- ==============================================
-procedure p_hello is
--- ==============================================
-begin
-    dbms_output.put_line('Bonjour tout le monde'); 
-end;
--- ==============================================
+    -- declaration du curseur
+    cursor mon_curseur is
+        select col_1 from ma_table;
+    -- declaration du types de la collection
+    type mon_type_collection is 
+        varray(6) of ma_table.col_1%type;
+    -- declaration de la collection
+    ma_collection mon_type_collection := mon_type_collection();
+    -- declaration des variables
+    mon_compteur integer := 0;
 begin 
-    p_hello; 
+    -- chargement de la collection
+    for mon_element in mon_curseur loop
+        mon_compteur := mon_compteur + 1;
+        ma_collection.extend;
+        ma_collection(mon_compteur) := mon_element;
+    -- utilisation de la collection
+    for i in 1 .. ma_collection.count loop
+        -- utilisation des donnees
+        -- ma_collection(i)
+    end loop;
+end;
+/
+-- ==============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Procedure"><a class="Link9" href="#Oracle-Database">Procédure</a></h2><br>Une <b>procédure </b>est un ensemble d'instructions SQL pré-compilées, stockées dans une base de données et exécutées sur demande par le SGBD qui manipule la base de données. Les procédures peuvent être lancées par un utilisateur, un administrateur DBA ou encore de façon automatique par un événement déclencheur (trigger). Les procédures ne renvoient pas de valeur directement pour effectuer une action. Les paramètres réels peuvent être transmis à une procédure de trois manières : en notation positionnelle, en notation nommée ou en notation mixte. En <b>notation positionnelle</b>, le premier paramètre réel se substitue au premier paramètre formel ; le deuxième paramètre réel se substitue au deuxième paramètre formel, et ainsi de suite. En <b>notation nommée</b>, le paramètre réel est associé au paramètre formel à l'aide du symbole flèche ( =&gt; ) . En <b>notation mixte</b>, vous pouvez mélanger les deux notations dans l'appel de procédure ; cependant, la notation positionnelle doit précéder la notation nommée<br><br><h3 class="Title8 GTitle3">Créer une procédure</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+create or replace procedure ma_procedure as
+begin
+    -- code de la procedure
+end;
+/
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Exécuter une procédure</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+execute ma_procedure;
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Appeler une procédure<br></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+begin
+    ma_procedure;
+end;
+/
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Supprimer une procédure</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+drop procedure ma_procedure;
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Créer une procédure avec des entrées et des sorties</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+declare
+    -- declaration des variables
+    c_in_1 number := 10;
+    c_out_1 number;
+procedure ma_procedure(in_1 in number, out_1 out number) is
+begin
+    -- utilisation des arguments
+    -- out_1 = mon_calcul(in_1)
+end;
+begin
+    -- utilisation de la procedure
+    ma_procedure(c_in_1, c_out_1);
+    -- utilisation de la sortie
+    -- c_out_1
+end;
+/
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Créer une procédure avec un passage par référence</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+declare
+    -- declaration des variables
+    c_ref_1 number := 10;
+procedure ma_procedure(ref_1 in out number) is
+begin
+    -- utilisation des arguments
+    -- ref_1 = mon_calcul(ref_1)
+end;
+begin
+    -- utilisation de la procedure
+    ma_procedure(c_ref_1);
+    -- utilisation de la reference
+    -- c_ref_1
+end;
+/
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Appeler une procédure en notation positionnelle</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+declare
+    -- declaration des variables
+    c_in_1 number := 10;
+    c_out_1 number;
+procedure ma_procedure(in_1 in number, out_1 out number) is
+begin
+    -- utilisation des arguments
+    -- out_1 = mon_calcul(in_1)
+end;
+begin
+    -- utilisation de la procedure
+    -- en notation positionnelle
+    ma_procedure(c_in_1, c_out_1);
+    -- utilisation de la sortie
+    -- c_out_1
+end;
+/
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Appeler une procédure en notation nommée</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+declare
+    -- declaration des variables
+    c_in_1 number := 10;
+    c_out_1 number;
+procedure ma_procedure(in_1 in number, out_1 out number) is
+begin
+    -- utilisation des arguments
+    -- out_1 = mon_calcul(in_1)
+end;
+begin
+    -- utilisation de la procedure
+    -- en notation nommée
+    ma_procedure(in_1 =&gt; c_in_1, out_1 =&gt; c_out_1);
+    -- utilisation de la sortie
+    -- c_out_1
+end;
+/
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Appeler une procédure en notation mixte</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+declare
+    -- declaration des variables
+    c_in_1 number := 10;
+    c_out_1 number;
+procedure ma_procedure(in_1 in number, out_1 out number) is
+begin
+    -- utilisation des arguments
+    -- out_1 = mon_calcul(in_1)
+end;
+begin
+    -- utilisation de la procedure
+    -- en notation mixte
+    ma_procedure(c_in_1, out_1 =&gt; c_out_1);
+    -- utilisation de la sortie
+    -- c_out_1
+end;
+/
+-- ==============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Fonction"><a class="Link9" href="#Oracle-Database">Fonction</a></h2><br>Une <b>fonction </b>est un ensemble d'instructions SQL pré-compilées, stockées dans une base de données et exécutées sur demande par le SGBD qui manipule la base de données. Les fonctions peuvent être lancées par un utilisateur, un administrateur DBA ou encore de façon automatique par un événement déclencheur (trigger). Les fonctions renvoient une seule valeur obligatoirement. Elles sont principalement utilisées pour calculer et renvoyer une valeur. Une fonction récursive est une fonction qui s'appelle lui-même.<br><br><h3 class="Title8 GTitle3">Créer une fonction</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+create or replace function ma_fonction
+return number is
+    -- declaration des variables
+    c_count number;
+begin
+    -- calcul de la valeur de retout
+    select count(*) into c_count
+    from ma_table;
+    -- valeur de retour
+    return c_count;
+end;
+/
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Supprimer une fonction</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+drop function ma_fonction;
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Appeler une fonction</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+declare     
+    -- declaration des variables
+    c_count number;
+begin     
+    -- utilisation de la fonction
+    c_count := ma_fonction;
+    -- utilisation de la valeur de retour
+    -- c_count
 end; 
 /
--- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">Bonjour tout le monde</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Creer-une-procedure-avec-des-entrees-et-des-sorties"><a class="Link9" href="#Oracle-Database">Créer une procédure avec des entrées et des sorties</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
-set serveroutput on;
--- ==============================================
-declare
-    a number;
-    b number;
-    c number;
--- ==============================================
-procedure p_min(x in number, y in number, z out number) is
--- ==============================================
-begin
-    if (x &lt; y) then 
-        z := x; 
-    else 
-        z := y; 
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Créer une fonction récursive</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+declare     
+    -- declaration des variables globales
+    c_x number := 10;
+    c_f number;
+function ma_factorielle(x number)
+return number is
+    -- declaration des variables locales
+    f number;
+begin     
+    -- condition de sortie
+    if x = 0 then
+        f := 1;
+    -- appel recursive
+    else
+        f := x * ma_factorielle(x - 1);
     end if;
+    -- valeur de retour
+    return f;
 end;
--- ==============================================
-begin 
-    a := 23; 
-    b := 45; 
-    p_min(a, b, c); 
-    dbms_output.put_line('p_min(a, b, c) = ' || c); 
-end; 
-/
--- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">p_min(a, b, c) = 23</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Creer-une-procedure-avec-un-passage-par-reference"><a class="Link9" href="#Oracle-Database">Créer une procédure avec un passage par référence</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
-set serveroutput on;
--- ==============================================
-declare
-    a number;
--- ==============================================
-procedure p_square(x in out number) is
--- ==============================================
-begin
-    x := x * x; 
-end;
--- ==============================================
-begin
-    a := 5;
-    p_square(a);
-    dbms_output.put_line('p_square(a) = ' || a); 
-end; 
-/
--- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">p_square(a) = 25</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Appeler-une-procedure-en-notation-positionnelle"><a class="Link9" href="#Oracle-Database">Appeler une procédure en notation positionnelle</a></h2><br>En <b>notation positionnelle</b>, le premier paramètre réel se substitue au premier paramètre formel ; le deuxième paramètre réel se substitue au deuxième paramètre formel, et ainsi de suite.<br><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
-set serveroutput on;
--- ==============================================
-declare
-    a number;
-    b number;
-    c number;
--- ==============================================
-procedure p_rect_area(x in number, y in number, z out number) is
--- ==============================================
-begin
-    z := x * y; 
-end;
--- ==============================================
-begin
-    a := 3;
-    b := 4;
-    p_rect_area(a, b, c);
-    dbms_output.put_line('p_rect_area(a, b, c) = ' || c); 
-end; 
-/
--- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">p_rect_area(a, b, c) = 12</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Appeler-une-procedure-en-notation-nommee"><a class="Link9" href="#Oracle-Database">Appeler une procédure en notation nommée</a></h2><br>En <b>notation nommée</b>, le paramètre réel est associé au paramètre formel à l'aide du symbole flèche <span class="GCode3"><code style="color:#cccccc;">( =&gt; )</code></span> .<br><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
-set serveroutput on;
--- ==============================================
-declare
-    a number;
-    b number;
-    c number;
--- ==============================================
-procedure p_rect_area(x in number, y in number, z out number) is
--- ==============================================
-begin
-    z := x * y; 
-end;
--- ==============================================
-begin
-    a := 3;
-    b := 4;
-    p_rect_area(x =&gt; a, y =&gt; b, z =&gt; c);
-    dbms_output.put_line('p_rect_area(a, b, c) = ' || c); 
-end; 
-/
--- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">p_rect_area(a, b, c) = 12</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Appeler-une-procedure-en-notation-mixte"><a class="Link9" href="#Oracle-Database">Appeler une procédure en notation mixte</a></h2><br>En <b>notation mixte</b>, vous pouvez mélanger les deux notations dans l'appel de procédure ; cependant, la notation positionnelle doit précéder la notation nommée.<br><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
-set serveroutput on;
--- ==============================================
-declare
-    a number;
-    b number;
-    c number;
--- ==============================================
-procedure p_rect_area(x in number, y in number, z out number) is
--- ==============================================
-begin
-    z := x * y; 
-end;
--- ==============================================
-begin
-    a := 3;
-    b := 4;
-    p_rect_area(a, b, z =&gt; c);
-    dbms_output.put_line('p_rect_area(a, b, c) = ' || c); 
-end; 
-/
--- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">p_rect_area(a, b, c) = 12</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Creer-une-fonction-stockee"><a class="Link9" href="#Oracle-Database">Créer une fonction stockée</a></h2><br>Une <b>fonction </b>est identique à une procédure sauf qu'elle renvoie une valeur.<br><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
-set serveroutput on;
--- ==============================================
-create function p_client_count 
-return number is 
-   l_count number(2) := 25; 
--- ==============================================
 begin     
-   return l_count; 
+    -- utilisation de la fonction
+    c_f := ma_factorielle(c_x);
+    -- utilisation de la valeur de retour
+    -- c_f
 end; 
 /
--- ==============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Supprimer-une-fonction-stockee"><a class="Link9" href="#Oracle-Database">Supprimer une fonction stockée</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
-drop function f_name;
--- ==============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Appeler-une-fonction-stockee"><a class="Link9" href="#Oracle-Database">Appeler une fonction stockée</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
-set serveroutput on;
+-- ==============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Table"><a class="Link9" href="#Oracle-Database">Table</a></h2><br>Une <b>table </b>est un ensemble de données associées conservées sous forme de table dans une base de données . Il se compose de colonnes et de lignes . Dans les bases de données relationnelles , et les bases de données à fichiers plats , une table est un ensemble d'éléments de données (valeurs) utilisant un modèle de colonnes verticales (identifiables par leur nom) et de lignes horizontales ,la cellule étant l'unité d'intersection d'une ligne et d'une colonne. Un tableau a un nombre spécifié de colonnes, mais peut avoir n'importe quel nombre de lignes. Chaque ligne est identifiée par une ou plusieurs valeurs apparaissant dans un sous-ensemble de colonnes particulier. Un choix spécifique de colonnes qui identifient de manière unique les lignes est appelé clé primaire .<br><br><h3 class="Title8 GTitle3">Créer une table</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+create table ma_table ( 
+col_1 varchar2(50),
+col_2 varchar2(50),
+col_3 varchar2(50)
+);
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Insérer des données dans une table</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+insert into ma_table (col_1, col_2, col_3)
+values ('donnee_1', 'donnee_2', 'donnee_3');
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Afficher les données d'une table</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+select col_1, col_2, col_3
+from ma_table;
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Afficher les données d'une table (taille des colonnes)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+column col_1 format a10;
+column col_2 format a20;
+column col_3 format a30;
 -- ==============================================
-begin     
-    dbms_output.put_line('p_client_count: ' || p_client_count()); 
-end; 
-/
--- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">p_client_count: 25</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Creer-une-table"><a class="Link9" href="#Oracle-Database">Créer une table</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
-create table users ( 
-email varchar2(50),
-password varchar2(50) 
-)
--- ==============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Inserer-des-donnees-dans-une-table"><a class="Link9" href="#Oracle-Database">Insérer des données dans une table</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
-insert into users (email, password)
-values ('gerard@readydev.com', 'gerpass');
-insert into users (email, password)
-values ('pierre@readydev.com', 'piepass');
-insert into users (email, password)
-values ('paul@readydev.com', 'paupass');
--- ==============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Afficher-les-donnees-d-une-table"><a class="Link9" href="#Oracle-Database">Afficher les données d'une table</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
-column email format a20;
-column password format a20;
--- ==============================================
-select * from users;
--- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">EMAIL                PASSWORD
--------------------- --------------------
-gerard@readydev.com  gerpass
-pierre@readydev.com  piepass
-paul@readydev.com    paupass</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Ajouter-une-nouvelle-colonne-a-une-table"><a class="Link9" href="#Oracle-Database">Ajouter une nouvelle colonne à une table</a></h2><br><h3 class="Title8 GTitle3">Ajouter (script.sql)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
-alter table users
-add active char(1) DEFAULT '1';
--- ==============================================
-</pre></div></div><br><h3 class="Title8 GTitle3">Afficher (script.sql)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
-column email format a20;
-column password format a20;
-column active format a20;
--- ==============================================
-select * from users;
--- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">EMAIL                PASSWORD             ACTIVE
--------------------- -------------------- --------------------
-gerard@readydev.com  gerpass              1
-pierre@readydev.com  piepass              1
-paul@readydev.com    paupass              1</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Creer-une-table-a-partir-d-une-autre-une-table"><a class="Link9" href="#Oracle-Database">Créer une table à partir d'une autre une table</a></h2><br><h3 class="Title8 GTitle3">Créer (script.sql)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
-create table users_2 as
-select email, password from users;
--- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Afficher (script.sql)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
-column email format a20;
-column password format a20;
--- ==============================================
-select * from users_2;
--- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">EMAIL                PASSWORD
--------------------- --------------------
-gerard@readydev.com  gerpass
-pierre@readydev.com  piepass
-paul@readydev.com    paupass</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Supprimer-une-table"><a class="Link9" href="#Oracle-Database">Supprimer une table</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+select col_1, col_2, col_3
+from ma_table;
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Ajouter une nouvelle colonne à une table</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+alter table ma_table
+add col_4 char(1) default '0';
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Créer une table à partir d'une autre une table</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+create table ma_table_2 as
+select col_1, col_2, col_3 
+from ma_table_1;
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Supprimer une table</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
 drop table users;
--- ==============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Renommer-une-table"><a class="Link9" href="#Oracle-Database">Renommer une table</a></h2><br><h3 class="Title8 GTitle3">Renommer (script.sql)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
-alter table users_2
-rename to users;
--- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Afficher (script.sql)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
-column email format a20;
-column password format a20;
--- ==============================================
-select * from users;
--- ==============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Supprimer-une-colonne-dans-une-table"><a class="Link9" href="#Oracle-Database">Supprimer une colonne dans une table</a></h2><br><h3 class="Title8 GTitle3">Créer une nouvelle copie (script.sql)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
-create table users_2 as
-select email, password from users;
--- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Supprimer l'ancienne (script.sql)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
-drop table users;
--- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Renommer la nouvelle (script.sql)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
-alter table users_2
-rename to users;
--- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Afficher (script.sql)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
-column email format a20;
-column password format a20;
--- ==============================================
-select * from users;
--- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">EMAIL                PASSWORD
--------------------- --------------------
-gerard@readydev.com  gerpass
-pierre@readydev.com  piepass
-paul@readydev.com    paupass</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Package"><a class="Link9" href="#Oracle-Database">Package</a></h2><br>Les <b>packages </b>sont des objets de schéma qui regroupent des types, des variables et des sous-programmes PL/SQL logiquement liés. Un package aura deux parties obligatoires : la spécification de l'emballage et le corps ou la définition du package. Le corps du package contient les codes des différentes méthodes déclarées dans la spécification du package et d'autres déclarations privées, qui sont masquées du code à l'extérieur du package.<br><br><h3 class="Title8 GTitle3">Créer un package</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Renommer une table</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+alter table ma_table_1
+rename to ma_table_2;
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Supprimer une colonne dans une table</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+alter table ma_table
+drop column col_1;
+-- ==============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Package"><a class="Link9" href="#Oracle-Database">Package</a></h2><br>Les <b>packages </b>sont des objets de schéma qui regroupent des types, des variables et des sous-programmes PL/SQL logiquement liés. Un package aura deux parties obligatoires : la spécification de l'emballage et le corps ou la définition du package. Le corps du package contient les codes des différentes méthodes déclarées dans la spécification du package et d'autres déclarations privées, qui sont masquées du code à l'extérieur du package.<br><br><h3 class="Title8 GTitle3">Créer un package</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
 create package pkg_fnc_hello as
     function fnc_hello return varchar2;
 end pkg_fnc_hello;
