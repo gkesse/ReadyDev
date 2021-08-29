@@ -95,479 +95,397 @@ Install
 Multitenant container database -&gt; localhost:1521
 Pluggable database -&gt; localhost:1521/XEPDB1
 EM Express URL -&gt; https://localhost:5500/em
-Finish</pre></div></div><br><h3 class="Title8 GTitle3">Démarrer la connexion</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">sqlplus / as sysdba</pre></div></div><br><h3 class="Title8 GTitle3">Vérifier la version</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">select * from v$version;
-
-BANNER
---------------------------------------------------------------------------------
-BANNER_FULL
---------------------------------------------------------------------------------
-BANNER_LEGACY
---------------------------------------------------------------------------------
-    CON_ID
-----------
-Oracle Database 18c Express Edition Release 18.0.0.0.0 - Production
-Oracle Database 18c Express Edition Release 18.0.0.0.0 - Production
-Version 18.4.0.0.0
-Oracle Database 18c Express Edition Release 18.0.0.0.0 - Production
-         0
-
-BANNER
---------------------------------------------------------------------------------
-BANNER_FULL
---------------------------------------------------------------------------------
-BANNER_LEGACY
---------------------------------------------------------------------------------
-    CON_ID
-----------</pre></div></div><br><h3 class="Title8 GTitle3">Vérifier le mode d'ouverture</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">select name, open_mode from v$pdbs;
-
-NAME
---------------------------------------------------------------------------------
-OPEN_MODE
-----------
-PDB$SEED
-READ ONLY
-
-XEPDB1
-READ WRITE</pre></div></div><br><h3 class="Title8 GTitle3">Quitter</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">exit;</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Executer-une-requete-a-partir-d-un-fichier"><a class="Link9" href="#Oracle-Database">Exécuter une requête à partir d'un fichier</a></h2><br><h3 class="Title8 GTitle3">Créer le script (script.sql)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">select * from v$version;</pre></div></div><br><h3 class="Title8 GTitle3">Démarrer la connexion</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">sqlplus / as sysdba</pre></div></div><br><h3 class="Title8 GTitle3">Exécuter le script</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">@script.sql</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Afficher-un-message"><a class="Link9" href="#Oracle-Database">Afficher un message</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">set serveroutput on;
+Finish</pre></div></div><br><h3 class="Title8 GTitle3">Démarrer la connexion</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">sqlplus / as sysdba</pre></div></div><br><h3 class="Title8 GTitle3">Vérifier la version</h3><br>select * from v$version;<br><br><h3 class="Title8 GTitle3">Vérifier le mode d'ouverture</h3><br>select name, open_mode from v$pdbs;<br><br><h3 class="Title8 GTitle3">Quitter</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">exit;</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Executer-une-requete-a-partir-d-un-fichier"><a class="Link9" href="#Oracle-Database">Exécuter une requête à partir d'un fichier</a></h2><br><h3 class="Title8 GTitle3">Créer le script (script.sql)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">select * from v$version;</pre></div></div><br><h3 class="Title8 GTitle3">Démarrer la connexion</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">sqlplus / as sysdba</pre></div></div><br><h3 class="Title8 GTitle3">Exécuter le script</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">@script.sql</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Programme-minimal"><a class="Link9" href="#Oracle-Database">Programme minimal</a></h2><br>PL/SQL est un langage structuré par blocs ; cela signifie que les <b>programmes</b> PL/SQL sont divisés et écrits en blocs de code logiques. Chaque bloc se compose de trois sous-parties : le bloc de déclaration des variables, le bloc d'exécution des commandes et le bloc de gestion des erreurs. Chaque instruction PL/SQL se termine par un point-virgule (;). Les blocs PL/SQL peuvent être imbriqués dans d'autres blocs PL/SQL à l'aide de <b>BEGIN </b>et <b>END</b>. Seul le bloc d'exécution des commandes est obligatoire.<br><br><h3 class="Title8 GTitle3">Créer un programme minimal complet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
 declare 
-    l_message  varchar2(128) := 'Bonjour tout le monde'; 
+    -- declaration des variables
 begin 
-    dbms_output.put_line(l_message); 
+    -- execution des commandes
+exception 
+    -- gestion des erreurs
 end;
-/</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">Bonjour tout le monde</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Creer-un-commentaire-simple"><a class="Link9" href="#Oracle-Database">Créer un commentaire simple</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- creer un commentaire simple
-set serveroutput on;
-declare 
-    l_message  varchar2(128) := 'Bonjour tout le monde'; 
+/
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Créer un programme minimal simplifié</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
 begin 
-    dbms_output.put_line(l_message); 
+    -- execution des commandes
 end;
-/</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">Bonjour tout le monde</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Creer-un-commentaire-multiple"><a class="Link9" href="#Oracle-Database">Créer un commentaire multiple</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">/* 
- creer un commentaire multiple
- creer un commentaire multiple
-*/
+/
+-- ==============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Affichage-de-message"><a class="Link9" href="#Oracle-Database">Affichage de message</a></h2><br>Le package <b>DBMS_OUTPUT </b>vous permet d'envoyer des messages à partir de procédures stockées et de packages. Le package est particulièrement utile pour afficher les informations de débogage PL/SQL.<br><br><h3 class="Title8 GTitle3">Afficher un message simple<br></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
 set serveroutput on;
-declare 
-    l_message  varchar2(128) := 'Bonjour tout le monde'; 
+-- ==============================================
 begin 
-    dbms_output.put_line(l_message); 
+    dbms_output.put_line('mon_message'); 
 end;
-/</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">Bonjour tout le monde</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Declarer-une-variable"><a class="Link9" href="#Oracle-Database">Déclarer une variable</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+/
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Afficher le contenu d'une variable<br></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
 set serveroutput on;
 -- ==============================================
-declare 
-    l_integer integer; 
 begin 
-    null; 
+    dbms_output.put_line('ma_variable : ' || ma_variable); 
 end;
 /
--- ==============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Afficher-une-variable"><a class="Link9" href="#Oracle-Database">Afficher une variable</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
-set serveroutput on;
--- ==============================================
-declare 
-    l_integer integer; 
-begin
-    l_integer := 2021;
-    dbms_output.put_line('l_integer : ' || l_integer); 
-end;
-/
--- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">l_integer : 2021</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Initialiser-une-variable-lors-de-la-declaration--1-"><a class="Link9" href="#Oracle-Database">Initialiser une variable lors de la déclaration (1)</a></h2><br>Chaque fois qu'on déclare une variable, PL/SQL lui attribue une valeur par défaut NULL. Si on souhaite <b>initialiser </b>une variable avec une valeur autre que la valeur NULL, on peut le faire pendant la déclaration.<br><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
-set serveroutput on;
--- ==============================================
-declare 
-    l_string char(32) := 'Bonjour tout le monde'; 
-begin
-    dbms_output.put_line(l_string); 
-end;
-/
--- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">Bonjour tout le monde</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Initialiser-une-variable-lors-de-la-declaration--2-"><a class="Link9" href="#Oracle-Database">Initialiser une variable lors de la déclaration (2)</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
-set serveroutput on;
--- ==============================================
-declare 
-    l_string char(32) default 'Bonjour tout le monde'; 
-begin
-    dbms_output.put_line(l_string); 
-end;
-/
--- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">Bonjour tout le monde</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Creer-une-variable-constante"><a class="Link9" href="#Oracle-Database">Créer une variable constante</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
-set serveroutput on;
--- ==============================================
-declare 
-    c_pi constant double precision := 3.14; 
-begin
-    dbms_output.put_line('c_pi : ' || c_pi); 
-end;
-/
--- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">c_pi : 3,14</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Creer-un-sous-type"><a class="Link9" href="#Oracle-Database">Créer un sous-type</a></h2><br>Un <b>sous-type</b> est un sous-ensemble d'un autre type de données, appelé son type de base. Un sous-type a les mêmes opérations valides que son type de base, mais seulement un sous-ensemble de ses valeurs valides.<br><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
-set serveroutput on;
--- ==============================================
+-- ==============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Commentaire"><a class="Link9" href="#Oracle-Database">Commentaire</a></h2><br><h3 class="Title8 GTitle3">Créer un commentaire sur une ligne</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+-- voici mon commentaire sur une ligne
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Créer un commentaire sur plusieurs lignes</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+/*
+ * voici mon commentaire sur plusieurs lignes
+ * voici mon commentaire sur plusieurs lignes
+ * voici mon commentaire sur plusieurs lignes
+ */
+-- ==============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Variable"><a class="Link9" href="#Oracle-Database">Variable</a></h2><br>Une <b>variable </b>n'est rien d'autre qu'un nom donné à une zone de stockage que nos programmes peuvent manipuler. Chaque variable en PL/SQL a un type de données spécifique, qui détermine la taille et la disposition de la mémoire de la variable ; la plage de valeurs qui peuvent être stockées dans cette mémoire et l'ensemble des opérations qui peuvent être appliquées à la variable. PL/SQL permet l'imbrication de blocs, c'est-à-dire que chaque bloc de programme peut contenir un autre bloc interne. Si une variable est déclarée dans un bloc interne, elle n'est pas accessible au bloc externe. Cependant, si une variable est déclarée et accessible à un bloc externe, elle est également accessible à tous les blocs internes imbriqués. Il existe deux types de portée variable : les variables locales et les variables globales. Les variables locales sont des variables déclarées dans un bloc interne et non accessibles aux blocs externes. Les variables globales sont des variables déclarées dans le bloc le plus à l'extérieur ou dans un package.<br><br><h3 class="Title8 GTitle3">Déclarer une variable<br></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
 declare
-    subtype s_name is char(256);
-    l_name s_name;
-begin
-    l_name := 'Gerard KESSE';
-    dbms_output.put_line('Bonjour ' || l_name); 
+    -- declaration des variables
+    ma_variable number; 
+begin 
+    -- execution des commandes
 end;
 /
--- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">Bonjour Gerard KESSE</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Creer-une-declaration-contrainte"><a class="Link9" href="#Oracle-Database">Créer une déclaration contrainte</a></h2><br>Une <b>déclaration contrainte</b> est réalisée lorsqu'on fournit une taille, une échelle ou une limite de précision avec le type de données. Les déclarations contraintes nécessitent moins de mémoire que les déclarations non contraintes.<br><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
-set serveroutput on;
--- ==============================================
-declare 
-    l_string char(32) := 'Bonjour tout le monde'; 
-begin
-    dbms_output.put_line('l_string : ' || l_string); 
-end;
-/
--- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">l_string : Bonjour tout le monde</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Echapper-un-caractere"><a class="Link9" href="#Oracle-Database">Echapper un caractère</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
-set serveroutput on;
--- ==============================================
-declare 
-    l_string char(64) default 'Toute ame qui s''eleve eleve le monde'; 
-begin
-    dbms_output.put_line(l_string); 
-end;
-/
--- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">Toute ame qui s'eleve eleve le monde</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Formater-une-chaine"><a class="Link9" href="#Oracle-Database">Formater une chaine</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
-set serveroutput on;
--- ==============================================
-begin
-    dbms_output.put_line(utl_lms.format_message('%s : %s', 'Nom', 'Gerard KESSE'));
-    dbms_output.put_line(utl_lms.format_message('%s : %d', 'Identifiant', 123456));
-end;
-/
--- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">Nom : Gerard KESSE
-Identifiant : 123456</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Realiser-des-operations-arithmetiques"><a class="Link9" href="#Oracle-Database">Réaliser des opérations arithmétiques</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
-set serveroutput on;
--- ==============================================
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Initialiser une variable à la déclaration</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
 declare
-    a integer := 22;
-    b integer := 7;
--- ==============================================
-begin
-    dbms_output.put_line(a || ' + ' || b || ' = ' || (a + b));
-    dbms_output.put_line(a || ' - ' || b || ' = ' || (a - b));
-    dbms_output.put_line(a || ' * ' || b || ' = ' || (a * b));
-    dbms_output.put_line(a || ' / ' || b || ' = ' || (a / b));
-    dbms_output.put_line(a || ' % ' || b || ' = ' || mod(a, b));
-    dbms_output.put_line(a || ' ^ ' || b || ' = ' || (a ** b));
+    -- declaration des variables
+    ma_variable_1 number := 10; 
+    ma_variable_2 number default 20; 
+begin 
+    -- execution des commandes
 end;
 /
--- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">22 + 7 = 29
-22 - 7 = 15
-22 * 7 = 154
-22 / 7 = 3,14285714285714285714285714285714285714
-22 % 7 = 1
-22 ^ 7 = 2494357888</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Realiser-des-operations-de-comparaison"><a class="Link9" href="#Oracle-Database">Réaliser des opérations de comparaison</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
-set serveroutput on;
--- ==============================================
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Affecter une variable</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
 declare
-    a integer := 22;
-    b integer := 7;
-    c varchar(7) := 'Bonjour';
-    d varchar(4) := 'jour';
-    e varchar(10) := 'two';
-    f varchar(10) := 'five';
-    g varchar(10) := null;
-    h varchar(10);
-    i integer := 10;
-    j integer := 30;
--- ==============================================
-begin
-    dbms_output.put_line(a || ' == ' || b || ' = ' || sys.diutil.bool_to_int(a = b));
-    dbms_output.put_line(a || ' != ' || b || ' = ' || sys.diutil.bool_to_int(a != b));
-    dbms_output.put_line(a || ' != ' || b || ' = ' || sys.diutil.bool_to_int(a ~= b));
-    dbms_output.put_line(a || ' != ' || b || ' = ' || sys.diutil.bool_to_int(a &lt;&gt; b));
-    dbms_output.put_line(a || ' &gt;  ' || b || ' = ' || sys.diutil.bool_to_int(a &gt; b));
-    dbms_output.put_line(a || ' &lt;  ' || b || ' = ' || sys.diutil.bool_to_int(a &lt; b));
-    dbms_output.put_line(a || ' &gt;= ' || b || ' = ' || sys.diutil.bool_to_int(a &gt;= b));
-    dbms_output.put_line(a || ' &lt;= ' || b || ' = ' || sys.diutil.bool_to_int(a &lt;= b));
-    dbms_output.put_line(c || ' like ' || d || ' = ' || sys.diutil.bool_to_int(c like d));
-    dbms_output.put_line(d || ' like ' || c || ' = ' || sys.diutil.bool_to_int(d like c));
-    dbms_output.put_line(c || ' like ' || '%' || d || ' = ' || sys.diutil.bool_to_int(c like ('%' || d)));
-    dbms_output.put_line('%' || d || ' like ' || c || ' = ' || sys.diutil.bool_to_int(('%' || d) like c));
-    dbms_output.put_line(e || ' in ' || '(one, two, three)' || ' = ' || sys.diutil.bool_to_int(e in ('one', 'two', 'three')));
-    dbms_output.put_line(f || ' in ' || '(one, two, three)' || ' = ' || sys.diutil.bool_to_int(f in ('one', 'two', 'three')));
-    dbms_output.put_line(f || ' is null' || ' = ' || sys.diutil.bool_to_int(f is null));
-    dbms_output.put_line(g || ' is null' || ' = ' || sys.diutil.bool_to_int(g is null));
-    dbms_output.put_line(h || ' is null' || ' = ' || sys.diutil.bool_to_int(h is null));
-    dbms_output.put_line(i || ' between ' || a || ' and ' || b || ' = ' || sys.diutil.bool_to_int(i between a and b));
-    dbms_output.put_line(i || ' between ' || b || ' and ' || a || ' = ' || sys.diutil.bool_to_int(i between b and a));
-    dbms_output.put_line(j || ' between ' || a || ' and ' || b || ' = ' || sys.diutil.bool_to_int(i between j and b));
-    dbms_output.put_line(i || ' between ' || b || ' and ' || a || ' = ' || sys.diutil.bool_to_int(i between j and a));
+    -- declaration des variable
+    ma_variable number; 
+begin 
+    -- affectation des variables
+    ma_variable := 10;
 end;
 /
--- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">22 == 7 = 0
-22 != 7 = 1
-22 != 7 = 1
-22 != 7 = 1
-22 &gt;  7 = 1
-22 &lt;  7 = 0
-22 &gt;= 7 = 1
-22 &lt;= 7 = 0
-Bonjour like jour = 0
-jour like Bonjour = 0
-Bonjour like %jour = 1
-%jour like Bonjour = 0
-two in (one, two, three) = 1
-five in (one, two, three) = 0
-five is null = 0
-is null = 1
-is null = 1
-10 between 22 and 7 = 0
-10 between 7 and 22 = 1
-30 between 22 and 7 = 0
-10 between 7 and 22 = 0</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Realiser-des-operations-logiques"><a class="Link9" href="#Oracle-Database">Réaliser des opérations logiques</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
-set serveroutput on;
--- ==============================================
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Créer une variable constante</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
 declare
-    a boolean := true;
-    b boolean := false;
--- ==============================================
-begin
-    dbms_output.put_line('!' || sys.diutil.bool_to_int(a) || ' = ' || sys.diutil.bool_to_int(not(a)));
-    dbms_output.put_line('!' || sys.diutil.bool_to_int(b) || ' = ' || sys.diutil.bool_to_int(not(b)));
-    dbms_output.put_line(sys.diutil.bool_to_int(a) || ' || ' || sys.diutil.bool_to_int(b) || ' = ' || sys.diutil.bool_to_int(a or b));
-    dbms_output.put_line(sys.diutil.bool_to_int(a) || ' || ' || sys.diutil.bool_to_int(b) || ' = ' || sys.diutil.bool_to_int(a or b));
-    dbms_output.put_line(sys.diutil.bool_to_int(b) || ' || ' || sys.diutil.bool_to_int(b) || ' = ' || sys.diutil.bool_to_int(b or b));
-    dbms_output.put_line(sys.diutil.bool_to_int(a) || ' || ' || sys.diutil.bool_to_int(a) || ' = ' || sys.diutil.bool_to_int(a or a));
-    dbms_output.put_line(sys.diutil.bool_to_int(a) || ' &amp;&amp; ' || sys.diutil.bool_to_int(b) || ' = ' || sys.diutil.bool_to_int(a and b));
-    dbms_output.put_line(sys.diutil.bool_to_int(b) || ' &amp;&amp; ' || sys.diutil.bool_to_int(b) || ' = ' || sys.diutil.bool_to_int(b and b));
-    dbms_output.put_line(sys.diutil.bool_to_int(a) || ' &amp;&amp; ' || sys.diutil.bool_to_int(a) || ' = ' || sys.diutil.bool_to_int(a and a));
+    -- declaration des variables
+    ma_constante constant number := 10; 
+begin 
+    -- execution des commandes
 end;
 /
--- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">!1 = 0
-!0 = 1
-1 || 0 = 1
-1 || 0 = 1
-0 || 0 = 0
-1 || 1 = 1
-1 &amp;&amp; 0 = 0
-0 &amp;&amp; 0 = 0
-1 &amp;&amp; 1 = 1</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Creer-une-condition-if"><a class="Link9" href="#Oracle-Database">Créer une condition if</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
-set serveroutput on;
--- ==============================================
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Créer des variables locales et globales</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
 declare
-    a integer := 22;
-    b integer := 7;
--- ==============================================
-begin
-    if (a &gt; b) then
-        dbms_output.put_line('a est superieur a b');
+    -- declaration des variable globales
+    ma_variable_globale number := 10; 
+begin 
+    -- execution des commandes globales
+    declare
+        -- declaration des variable locales
+        ma_variable_locale number := 20;
+    begin
+        -- execution des commandes locales
+    end;
+end;
+/
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Affecter le résultat d'une requête à une varibale</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+declare
+    -- declaration des variables
+    c_col_1 ma_table.col_1%type := donnee_1; 
+    c_col_2 ma_table.col_2%type; 
+    c_col_3 ma_table.col_3%type; 
+begin 
+    -- affectation des variables
+    select col_1, col_2, col_3
+    into c_col_1, c_col_2, c_col_3
+    from ma_table
+    where col_4 = donnee_4
+    -- utilisation des variables
+    -- c_col_1
+    -- c_col_2
+    -- c_col_3
+end;
+/
+-- ==============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Opearateur"><a class="Link9" href="#Oracle-Database">Opéarateur</a></h2><br>Un <b>opérateur </b>est un symbole qui indique au compilateur d'effectuer une manipulation mathématique ou logique spécifique. Le langage PL/SQL est riche en opérateurs intégrés et fournit les types d'opérateurs suivants : les opérateurs arithmétiques, les opérateurs relationnels, les opérateurs de comparaison, les opérateurs logiques, les opérateurs de chaîne. Les opérateurs relationnels comparent deux expressions ou valeurs et renvoient un résultat booléen.<br><br><h3 class="Title8 GTitle3">Réaliser des opérations arithmétiques</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+declare
+    -- declaration des variables
+    a number := 22; 
+    b number := 7;
+    mon_addition number;
+    ma_soustraction number;
+    ma_multiplication number;
+    ma_division number;
+    ma_puissance number;
+begin 
+    -- realisation des operations arithmetiques
+    mon_addition := a + b;
+    ma_soustraction := a - b;
+    ma_multiplication := a * b;
+    ma_division := a / b;
+    ma_puissance := a ** b;
+end;
+/
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Réaliser des opérations relationnelles</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+declare
+    -- declaration des variables
+    a number := 22; 
+    b number := 7;
+    est_egal boolean;
+    est_different_1 boolean;
+    est_different_2 boolean;
+    est_different_3 boolean;
+    est_superieur boolean;
+    est_inferieur boolean;
+    est_superieur_egal boolean;
+    est_inferieur_egal boolean;
+begin 
+    -- realisation des operations relationnelles
+    est_egal := (a = b);
+    est_different_1 := (a != b);
+    est_different_2 := (a &lt;&gt; b);
+    est_different_3 := (a ~= b);
+    est_superieur := (a &gt; b);
+    est_inferieur := (a &lt; b);
+    est_superieur_egal := (a &gt;= b);
+    est_inferieur_egal := (a &lt;= b);
+end;
+/
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Réaliser des opérations de comparaison</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+declare
+    -- declaration des variables
+    a number := 22; 
+    b number := 7;
+    ma_chaine varchar2(10);
+    mon_nombre number;
+    mon_element  varchar2(20);
+    ma_variable  varchar2(20);
+begin 
+    -- like
+    if ma_chaine like 'mon_motif%' then
+        -- code si chaine correspond a motif
+    end if;
+    -- between
+    if mon_nombre between a and b then
+        -- code si nombre appartient [a ; b]
+    end if;
+    -- in
+    if mon_element in (item_1, item_2, item_3) then
+        -- code si nombre appartient ensemble
+    end if;
+    -- is null
+    if ma_variable is null then
+        -- code si variable nulle
     end if;
 end;
 /
--- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">a est superieur a b</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Creer-une-condition-if-else"><a class="Link9" href="#Oracle-Database">Créer une condition if else</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
-set serveroutput on;
--- ==============================================
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Réaliser des opérations logiques</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
 declare
-    a integer := 22;
-    b integer := 7;
--- ==============================================
-begin
-    if (a &lt; b) then
-        dbms_output.put_line('a est inferieur a b');
+    -- declaration des variables
+    ma_condition_1 boolean;
+    ma_condition_2 boolean;
+begin 
+    -- and
+    if ma_condition_1 and ma_condition_1 then
+        -- code si la condition_1 et la condition_2 sont varies
+    end if;
+    -- or
+    if ma_condition_1 or ma_condition_1 then
+        -- code si la condition_1 ou la condition_2 est varie
+    end if;
+    -- not
+    if not ma_condition_1 then
+        -- code si la condition_1 est fausse
+    end if;
+end;
+/
+-- ==============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Condition"><a class="Link9" href="#Oracle-Database">Condition</a></h2><br>Les structures de prise de décision exigent que le programmeur spécifie une ou plusieurs <b>conditions </b>à évaluer ou à tester par le programme, ainsi qu'une ou plusieurs instructions à exécuter si la condition est déterminée comme étant vraie, et facultativement, d'autres instructions à exécuter si le condition est considérée comme fausse.<br><br><h3 class="Title8 GTitle3">Créer une condition if</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+declare
+    -- declaration des variables
+    a number := 20;
+    b number := 10;
+begin 
+    if a &gt; b then
+        -- code si condition est vraie
+    end if;
+end;
+/
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Créer une condition if else</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+declare
+    -- declaration des variables
+    a number := 20;
+    b number := 10;
+begin 
+    if a &gt; b then
+        -- code si condition est vraie
     else
-        dbms_output.put_line('a est superieur ou egal a b');
+        -- code dans le cas contraire
     end if;
 end;
 /
--- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">a est superieur ou egal a b</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Creer-une-condition-else-if"><a class="Link9" href="#Oracle-Database">Créer une condition else if</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
-set serveroutput on;
--- ==============================================
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Créer une condition elsif</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
 declare
-    a integer := 22;
-    b integer := 22;
--- ==============================================
-begin
-    if (a &lt; b) then
-        dbms_output.put_line('a est inferieur a b');
-    elsif (a = b) then
-        dbms_output.put_line('a est egal a b');
+    -- declaration des variables
+    a number := 20;
+    b number := 10;
+begin 
+    if a &gt; b then
+        -- code si condition_1 est vraie
+    elsif a = b then
+        -- code sinon si condition_2 est vraie
     else
-        dbms_output.put_line('a est superieur a b');
+        -- code dans le cas contraire
     end if;
 end;
 /
--- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">a est egal a b</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Creer-une-condition-case-when"><a class="Link9" href="#Oracle-Database">Créer une condition case when</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
-set serveroutput on;
--- ==============================================
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Créer une condition case when</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
 declare
-    a char(3) := 'yes';
--- ==============================================
-begin
-    case a
-        when 'yes' then dbms_output.put_line('continuer l''opearation'); 
-        when 'no' then dbms_output.put_line('annuler l''opearation'); 
-        else dbms_output.put_line('lancer l''operation par defaut'); 
+    -- declaration des variables
+    ma_variable integer := 3;
+begin 
+    case ma_variable
+        when 1 then
+            -- code si condition_1 vraie
+        when 2 then
+            -- code si condition_2 vraie
+        when 3 then
+            -- code si condition_3 vraie
+        else
+            -- code dans le cas contraire
     end case;
 end;
 /
--- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">continuer l'opearation</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Creer-une-boucle-loop"><a class="Link9" href="#Oracle-Database">Créer une boucle loop</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
-set serveroutput on;
--- ==============================================
+-- ==============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Boucle"><a class="Link9" href="#Oracle-Database">Boucle</a></h2><br>Il peut arriver que vous deviez exécuter un bloc de code plusieurs fois. En général, les instructions sont exécutées séquentiellement : la première instruction d'une fonction est exécutée en premier, suivie de la seconde, et ainsi de suite. Les langages de programmation fournissent diverses structures de contrôle qui permettent des chemins d'exécution plus complexes. Une instruction de <b>boucle </b>nous permet d'exécuter une instruction ou un groupe d'instructions plusieurs fois.<br><br><h3 class="Title8 GTitle3">Créer une boucle loop</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
 declare
-    l_count integer := 0;
--- ==============================================
-begin
+    -- declaration des variables
+    mon_compteur integer := 0;
+begin 
     loop
-        if (l_count = 10) then exit; end if;
-        dbms_output.put_line(l_count);
-        l_count := l_count + 1;
+        -- condition de sortie
+        if mon_compteur = 10 then exit; end if;
+        --
+        -- code a executer en boucle
+        --
+        -- incrementation du compteur
+        mon_compteur := mon_compteur + 1;
     end loop;
 end;
 /
--- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">0
-1
-2
-3
-4
-5
-6
-7
-8
-9</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Creer-une-boucle-while"><a class="Link9" href="#Oracle-Database">Créer une boucle while</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
-set serveroutput on;
--- ==============================================
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Créer une boucle while</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
 declare
-    l_count integer := 0;
--- ==============================================
-begin
-    while l_count &lt; 10 loop
-        dbms_output.put_line(l_count);
-        l_count := l_count + 1;
+    -- declaration des variables
+    mon_compteur integer := 0;
+begin 
+    while mon_compteur &lt; 10 loop
+        --
+        -- code a executer en boucle
+        --
+        -- incrementation du compteur
+        mon_compteur := mon_compteur + 1;
     end loop;
 end;
 /
--- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">0
-1
-2
-3
-4
-5
-6
-7
-8
-9</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Creer-une-boucle-for"><a class="Link9" href="#Oracle-Database">Créer une boucle for</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
-set serveroutput on;
--- ==============================================
-begin
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Créer une boucle for</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+declare
+    -- declaration des variables
+begin 
     for i in 1..10 loop
-        dbms_output.put_line(i);
+        --
+        -- code a executer en boucle
+        --
     end loop;
 end;
 /
--- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">1
-2
-3
-4
-5
-6
-7
-8
-9
-10</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Creer-une-boucle-for-inverse"><a class="Link9" href="#Oracle-Database">Créer une boucle for inversé</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
-set serveroutput on;
--- ==============================================
-begin
-    for i in 1..10 loop
-        dbms_output.put_line(i);
-    end loop;
-end;
-/
--- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">10
-9
-8
-7
-6
-5
-4
-3
-2
-1</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Realiser-des-operations-sur-les-chaines"><a class="Link9" href="#Oracle-Database">Réaliser des opérations sur les chaines</a></h2><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
-set serveroutput on;
--- ==============================================
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Créer une boucle for inversé</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
 declare
-    l_string varchar(32) := 'Bonjour tout le monde';
-    l_string2 varchar(32) := ' ! Bienvenue sur ReadyDev';
-    l_string3 varchar(32) := '    ReadyDev    ';
-    l_char char(1) := 'A';
-    l_code number(2) := ascii('A');
-    l_char2 char(1) := 'o';
--- ==============================================
-begin
-    dbms_output.put_line('ascii(l_char) = ' || ascii(l_char));
-    dbms_output.put_line('chr(l_code) = ' || chr(l_code));
-    dbms_output.put_line('initcap(l_string) = ' || initcap(l_string));
-    dbms_output.put_line('lower(l_string) = ' || lower(l_string));
-    dbms_output.put_line('upper(l_string) = ' || upper(l_string));
-    dbms_output.put_line('lpad(l_string, 5) = ' || lpad(l_string, 25));
-    dbms_output.put_line('lpad(l_string, 5, *) = ' || lpad(l_string, 25, '*'));
-    dbms_output.put_line('rpad(l_string, 5) = ' || rpad(l_string, 25));
-    dbms_output.put_line('rpad(l_string, 5, *) = ' || rpad(l_string, 25, '*'));
-    dbms_output.put_line('ltrim(l_string3, '' '') = ' || ltrim(l_string3, ' '));
-    dbms_output.put_line('rtrim(l_string3, '' '') = ' || rtrim(l_string3, ' '));
-    dbms_output.put_line('substr(l_string, 1, 7) = ' || substr(l_string, 1, 7));
-    dbms_output.put_line('substr(l_string, 8) = ' || substr(l_string, 8));
-    dbms_output.put_line('replace(l_string, Bonjour, Bienvenue) = ' || replace(l_string, 'Bonjour', 'Bienvenue'));
-    dbms_output.put_line('instr(l_string, l_char2) = ' || instr(l_string, l_char2));
-    dbms_output.put_line('instr(l_string, l_char2, 3) = ' || instr(l_string, l_char2, 3));
-    dbms_output.put_line('instr(l_string, l_char2, 1, 2) = ' || instr(l_string, l_char2, 1, 2));
-    dbms_output.put_line('instr(l_string, l_char2, 1, 3) = ' || instr(l_string, l_char2, 1, 3));
-    dbms_output.put_line('instr(l_string, l_char2, -1, 1) = ' || instr(l_string, l_char2, -1, 1));
-    dbms_output.put_line('instrb(l_string, l_char2) = ' || instrb(l_string, l_char2));
-    dbms_output.put_line('instrb(l_string, l_char2, 3) = ' || instrb(l_string, l_char2, 3));
-    dbms_output.put_line('instrb(l_string, l_char2, 1, 2) = ' || instrb(l_string, l_char2, 1, 2));
-    dbms_output.put_line('instrb(l_string, l_char2, 1, 3) = ' || instrb(l_string, l_char2, 1, 3));
-    dbms_output.put_line('instrb(l_string, l_char2, -1, 1) = ' || instrb(l_string, l_char2, -1, 1));
-    dbms_output.put_line('length(l_string) = ' || length(l_string));
-    dbms_output.put_line('lengthb(l_string) = ' || lengthb(l_string));
-    dbms_output.put_line('concat(l_string, l_string2) = ' || concat(l_string, l_string2));
-end;
-/
--- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">ascii(l_char) = 65
-chr(l_code) = A
-initcap(l_string) = Bonjour Tout Le Monde
-lower(l_string) = bonjour tout le monde
-upper(l_string) = BONJOUR TOUT LE MONDE
-lpad(l_string, 5) =     Bonjour tout le monde
-lpad(l_string, 5, *) = ****Bonjour tout le monde
-rpad(l_string, 5) = Bonjour tout le monde
-rpad(l_string, 5, *) = Bonjour tout le monde****
-ltrim(l_string3, ' ') = ReadyDev
-rtrim(l_string3, ' ') =     ReadyDev
-substr(l_string, 1, 7) = Bonjour
-substr(l_string, 8) =  tout le monde
-replace(l_string, Bonjour, Bienvenue) = Bienvenue tout le monde
-instr(l_string, l_char2) = 2
-instr(l_string, l_char2, 3) = 5
-instr(l_string, l_char2, 1, 2) = 5
-instr(l_string, l_char2, 1, 3) = 10
-instr(l_string, l_char2, -1, 1) = 18
-instrb(l_string, l_char2) = 2
-instrb(l_string, l_char2, 3) = 5
-instrb(l_string, l_char2, 1, 2) = 5
-instrb(l_string, l_char2, 1, 3) = 10
-instrb(l_string, l_char2, -1, 1) = 18
-length(l_string) = 21
-lengthb(l_string) = 21
-concat(l_string, l_string2) = Bonjour tout le monde ! Bienvenue sur ReadyDev</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Creer-un-tableau-varray"><a class="Link9" href="#Oracle-Database">Créer un tableau varray</a></h2><br><b>Varray </b>est une structure de données qui permet de stocker une collection séquentielle de taille fixe d'éléments du même type. Un varray est utilisé pour stocker une collection ordonnée de données. Tous les varrays sont constitués d'emplacements de mémoire contigus. L'adresse la plus basse correspond au premier élément et l'adresse la plus haute au dernier élément.<br><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
-set serveroutput on;
--- ==============================================
-declare
-    type t_stringlist is varray(5) of varchar(10);
-    l_digits t_stringlist := t_stringlist('Un', 'Deux', 'Trois', 'Quatre', 'Cinq');
-    l_count integer:= l_digits.count;
--- ==============================================
-begin
-    for i in 1..l_count loop
-        dbms_output.put_line(l_digits(i));
+    -- declaration des variables
+begin 
+    for i in reverse 1..10 loop
+        --
+        -- code a executer en boucle
+        --
     end loop;
 end;
 /
--- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">Un
-Deux
-Trois
-Quatre
-Cinq</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Creer-une-procedure-stockee"><a class="Link9" href="#Oracle-Database">Créer une procédure stockée</a></h2><br>En informatique, dans la technologie des bases de données, une <b>procédure stockée</b> (ou stored procedure en anglais) est un ensemble d'instructions SQL précompilées, stockées dans une base de données et exécutées sur demande par le SGBD qui manipule la base de données. Les procédures stockées peuvent être lancées par un utilisateur, un administrateur DBA ou encore de façon automatique par un événement déclencheur (de l'anglais "trigger"). Il existe des procédures stockées pour ce qui est de la manipulation de données comme pour le 'tuning de base'.<br><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+-- ==============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Chaine"><a class="Link9" href="#Oracle-Database">Chaîne</a></h2><br>La <b>chaîne </b>en PL/SQL est en fait une séquence de caractères avec une spécification de taille facultative. Les caractères peuvent être des chiffres, des lettres, des blancs, des caractères spéciaux ou une combinaison de tous. PL/SQL propose trois types de chaînes : les chaînes de longueur fixe,&nbsp; les chaînes de longueur variable et les objets de grande taille (CLOB). Dans les chaînes de longueur fixe, les programmeurs spécifient la longueur lors de la déclaration de la chaîne. La chaîne est complétée à droite avec des espaces jusqu'à la longueur spécifiée. ans les chaînes de longueur variable, une longueur maximale jusqu'à 32 767, pour la chaîne est spécifiée et aucun remplissage n'a lieu. Dans les objets de grande taille (CLOB), Il s'agit de chaînes de longueur variable pouvant atteindre 128 téraoctets.<br><br><h3 class="Title8 GTitle3">Déclarer une chaîne</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+declare
+    -- declaration des variables
+    ma_chaine_fixe varchar2(10);
+    ma_chaine_variable varchar2;
+    ma_chaine_clob clob;
+begin 
+    -- utilisation des chaines
+    -- ma_chaine_fixe
+    -- ma_chaine_variable
+    -- ma_chaine_clob
+end;
+/
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Liste des fonctions associées à une chaîne</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="txt">Nom                             | Description
+--------------------------------+----------------------------------------
+ASCII(x);                       | Renvoie la valeur ASCII du caractère x.	
+--------------------------------+----------------------------------------
+CHR(x);                         | Renvoie le caractère avec la valeur ASCII de x.
+--------------------------------+----------------------------------------
+CONCAT(x, y);                   | Concatène les chaînes x et y et renvoie la chaîne ajoutée.
+--------------------------------+----------------------------------------
+INITCAP(x);                     | Convertit la lettre initiale de chaque mot de x en majuscule et renvoie cette chaîne.	
+--------------------------------+----------------------------------------
+INSTR(x, find_string            | Recherche find_string dans x et renvoie la position à laquelle il se produit.	
+[, start] [, occurrence]);      |
+--------------------------------+----------------------------------------
+INSTRB(x);                      | Renvoie l'emplacement d'une chaîne dans une autre chaîne, mais renvoie la valeur en octets.	
+--------------------------------+----------------------------------------
+LENGTH(x);                      | Renvoie le nombre de caractères dans x.	
+--------------------------------+----------------------------------------
+LENGTHB(x);                     | Renvoie la longueur d'une chaîne de caractères en octets pour un jeu de caractères à un octet.	
+--------------------------------+----------------------------------------
+LOWER(x);                       | Convertit les lettres de x en minuscules et renvoie cette chaîne.	
+--------------------------------+----------------------------------------
+LPAD(x, width [, pad_string]) ; | Remplit x avec des espaces à gauche, pour amener la longueur totale de la chaîne jusqu'à la largeur des caractères.	
+--------------------------------+----------------------------------------
+LTRIM(x [, trim_string]);       | Coupe les caractères à partir de la gauche de x .
+--------------------------------+----------------------------------------
+NANVL(x, valeur);               | Renvoie la valeur si x correspond à la valeur spéciale NaN (pas un nombre), sinon x est renvoyé.
+--------------------------------+----------------------------------------
+NLS_INITCAP(x);                 | Identique à la fonction INITCAP sauf qu'elle peut utiliser une méthode de tri différente comme spécifié par NLSSORT.
+--------------------------------+----------------------------------------
+NLS_LOWER(x) ;                  | Identique à la fonction LOWER, sauf qu'elle peut utiliser une méthode de tri différente comme spécifié par NLSSORT.
+--------------------------------+----------------------------------------
+NLS_UPPER(x);                   | Identique à la fonction UPPER, sauf qu'elle peut utiliser une méthode de tri différente comme spécifié par NLSSORT.
+--------------------------------+----------------------------------------
+NLSSORT(x);                     | Modifie la méthode de tri des caractères. Doit être spécifié avant toute fonction NLS ; sinon, le tri par défaut sera utilisé.
+--------------------------------+----------------------------------------
+NVL(x, valeur);                 | Renvoie la valeur si x est nul ; sinon, x est renvoyé.
+--------------------------------+----------------------------------------
+NVL2(x, valeur1, valeur2) ;     | Renvoie value1 si x n'est pas nul ; si x est nul, value2 est renvoyé.
+--------------------------------+----------------------------------------
+REPLACE(x, search_string,       | Recherche x pour search_string et le remplace par replace_string.
+replace_string);                |
+--------------------------------+----------------------------------------
+RPAD(x, width [, pad_string]);  | Tampons x vers la droite.
+--------------------------------+----------------------------------------
+RTRIM(x [, trim_string]);       | Coupe x à partir de la droite.
+--------------------------------+----------------------------------------
+SOUNDEX(x) ;                    | Renvoie une chaîne contenant la représentation phonétique de x .
+--------------------------------+----------------------------------------
+SUBSTR(x, start [, length]);    | Renvoie une sous-chaîne de x qui commence à la position spécifiée par start. Une longueur facultative pour la sous-chaîne peut être fournie.
+--------------------------------+----------------------------------------
+SUBSTRB(x);                     | Identique à SUBSTR sauf que les paramètres sont exprimés en octets au lieu de caractères pour les systèmes de caractères à un octet.
+--------------------------------+----------------------------------------
+TRIM([trim_char FROM) x);       | Coupe les caractères à gauche et à droite de x .
+--------------------------------+----------------------------------------
+UPPER(x);                       | Convertit les lettres de x en majuscules et renvoie cette chaîne.
+--------------------------------+----------------------------------------</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Tableau"><a class="Link9" href="#Oracle-Database">Tableau</a></h2><br>Le langage de programmation PL/SQL fournit une structure de données appelée <b>VARRAY </b>, qui peut stocker une collection séquentielle de taille fixe d'éléments du même type. Un varray est utilisé pour stocker une collection ordonnée de données, mais il est souvent préférable de considérer un tableau comme une collection de variables du même type. Tous les varrays sont constitués d'emplacements de mémoire contigus. L'adresse la plus basse correspond au premier élément et l'adresse la plus élevée au dernier élément. <br><br><h3 class="Title8 GTitle3">Créer un tableau varray (hors bloc)<br></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="txt">-- ==============================================
+create or replace type mon_type_varray as varray(3) of varchar2(10);
+/
+-- ==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Créer un tableau varray (dans un bloc)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
+declare
+    -- declaration des collections
+    type mon_type_collection is 
+        varray(3) varchar2(10);
+    -- declaration des variables
+    ma_collection mon_type_collection;
+begin 
+    -- chargement des collections
+    ma_collection := mon_type_collection('donnee_1', 'donnee_2', 'donnee_3');
+    -- utilisation des collections 
+    for i in 1 .. ma_collection.count loop
+        -- utilisation des donnees
+        -- ma_collection(i)
+    end loop;
+end;
+/
+-- ==============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Oracle-Database-Creer-une-procedure-stockee"><a class="Link9" href="#Oracle-Database">Créer une procédure stockée</a></h2><br>En informatique, dans la technologie des bases de données, une <b>procédure stockée</b> (ou stored procedure en anglais) est un ensemble d'instructions SQL précompilées, stockées dans une base de données et exécutées sur demande par le SGBD qui manipule la base de données. Les procédures stockées peuvent être lancées par un utilisateur, un administrateur DBA ou encore de façon automatique par un événement déclencheur (de l'anglais "trigger"). Il existe des procédures stockées pour ce qui est de la manipulation de données comme pour le 'tuning de base'.<br><br><h3 class="Title8 GTitle3">script.sql</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sql">-- ==============================================
 set serveroutput on;
 -- ==============================================
 create procedure p_hello as
