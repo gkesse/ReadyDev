@@ -6210,7 +6210,7 @@ int main(int argc, char** argv) {
     return 0;
 }
 //===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Lancer le serveur</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">./server</pre></div></div><br><h3 class="Title8 GTitle3">Lancer le client</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">./client</pre></div></div><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">say_hello : Bonjour tout le monde
-add_data : 50</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Vision-par-Ordinateur-avec-OpenCV"><a class="Link3" href="#">Vision par Ordinateur avec OpenCV</a></h1><div class="Body3"><br><b>OpenCV </b>est une bibliothèque graphique libre, spécialisée dans le traitement d'images en temps réel. La bibliothèque OpenCV met à disposition de nombreuses fonctionnalités très diversifiées permettant de créer des programmes en partant des données brutes pour aller jusqu'à la création d'interfaces graphiques basiques. OpenCV propose la plupart des opérations classiques en traitement bas niveau des images : lecture, écriture et affichage d’une image ; calcul de l'histogramme des niveaux de gris ou d'histogrammes couleurs ; lissage, filtrage ; seuillage d'image (méthode d'Otsu, seuillage adaptatif) ; segmentation (composantes connexes, GrabCut) ; morphologie mathématique.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV-Installer-l-environnement-OpenCV-sous-MSYS2">Installer l'environnement OpenCV sous MSYS2</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV-Compiler-un-projet-OpenCV">Compiler un projet OpenCV</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV-Image">Image</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV-Video">Vidéo</a></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/b_opencv.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/b_opencv.png"></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Installer-l-environnement-OpenCV-sous-MSYS2"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Installer l'environnement OpenCV sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Installer OpenCV</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">pacman -S --needed --noconfirm mingw-w64-i686-opencv</pre></div></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Compiler-un-projet-OpenCV"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Compiler un projet OpenCV</a></h2><br><h3 class="Title8 GTitle3">Compiler le projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">export "PATH=/mingw32/bin:$PATH"
+add_data : 50</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Vision-par-Ordinateur-avec-OpenCV"><a class="Link3" href="#">Vision par Ordinateur avec OpenCV</a></h1><div class="Body3"><br><b>OpenCV </b>est une bibliothèque graphique libre, spécialisée dans le traitement d'images en temps réel. La bibliothèque OpenCV met à disposition de nombreuses fonctionnalités très diversifiées permettant de créer des programmes en partant des données brutes pour aller jusqu'à la création d'interfaces graphiques basiques. OpenCV propose la plupart des opérations classiques en traitement bas niveau des images : lecture, écriture et affichage d’une image ; calcul de l'histogramme des niveaux de gris ou d'histogrammes couleurs ; lissage, filtrage ; seuillage d'image (méthode d'Otsu, seuillage adaptatif) ; segmentation (composantes connexes, GrabCut) ; morphologie mathématique.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV-Installer-l-environnement-OpenCV-sous-MSYS2">Installer l'environnement OpenCV sous MSYS2</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV-Compiler-un-projet-OpenCV">Compiler un projet OpenCV</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV-Image">Image</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV-Video">Vidéo</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV-Type-de-donnee">Type de donnée</a></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/b_opencv.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/b_opencv.png"></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Installer-l-environnement-OpenCV-sous-MSYS2"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Installer l'environnement OpenCV sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Installer OpenCV</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">pacman -S --needed --noconfirm mingw-w64-i686-opencv</pre></div></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Compiler-un-projet-OpenCV"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Compiler un projet OpenCV</a></h2><br><h3 class="Title8 GTitle3">Compiler le projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">export "PATH=/mingw32/bin:$PATH"
 
 g++ -std=gnu++11  -c main.cpp -o main.o \
 -I/mingw32/include/opencv4
@@ -6285,7 +6285,7 @@ void GImageCanny::run(int argc, char** argv) {
     cv::imshow( "ReadyApp Canny", img_cny );
     cv::waitKey(0);
 }
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Lire la valeur des pixels d'une image</h3><br>Le <b>pixel </b>est est l'unité de base permettant de mesurer la définition d'une image numérique matricielle. Son nom provient de la locution anglaise picture element, qui signifie « élément d'image ». Le pixel est l'unité minimale adressable par le contrôleur vidéo. C'est aussi l'unité utilisée pour spécifier les définitions d'affichage (largeur × hauteur).<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opencv_image_canny.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opencv_image_canny.png"></div><br><h3 class="Title8 GTitle3">Lire la valeur des pixels d'une image</h3><br>Le <b>pixel </b>est est l'unité de base permettant de mesurer la définition d'une image numérique matricielle. Son nom provient de la locution anglaise picture element, qui signifie « élément d'image ». Le pixel est l'unité minimale adressable par le contrôleur vidéo. C'est aussi l'unité utilisée pour spécifier les définitions d'affichage (largeur × hauteur).<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GImagePixel::run(int argc, char** argv) {
     sGApp* lApp = GManager::Instance()-&gt;getData()-&gt;app;
 
@@ -6320,19 +6320,19 @@ void GImagePixel::run(int argc, char** argv) {
 }
 //===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Video"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Vidéo</a></h2><br>Lire une <b>vidéo </b>avec OpenCV est presque aussi simple que d'afficher une seule image. Nous avons besoin d'une sorte de boucle pour lire chaque image dans l'ordre ; nous pouvons également avoir besoin d'un moyen de sortir de cette boucle si le film est trop long.<br><br><h3 class="Title8 GTitle3">Lire un fichier vidéo</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GVideoLoad::run(int argc, char** argv) {
-	sGApp* lApp = GManager::Instance()-&gt;getData()-&gt;app;
-	cv::namedWindow( "ReadyApp", cv::WINDOW_AUTOSIZE );
-	cv::VideoCapture cap;
-	cap.open( lApp-&gt;opencv_video_file );
-	cv::Mat frame;
-	while(1) {
-		cap &gt;&gt; frame;
-		if( frame.empty() ) {break;}
-		cv::imshow( "ReadyApp", frame );
-		if( cv::waitKey(33) &gt;= 0 ) break;
-	}
+    sGApp* lApp = GManager::Instance()-&gt;getData()-&gt;app;
+    cv::namedWindow( "ReadyApp", cv::WINDOW_AUTOSIZE );
+    cv::VideoCapture cap;
+    cap.open( lApp-&gt;opencv_video_file );
+    cv::Mat frame;
+    while(1) {
+        cap &gt;&gt; frame;
+        if( frame.empty() ) {break;}
+        cv::imshow( "ReadyApp", frame );
+        if( cv::waitKey(33) &gt;= 0 ) break;
+    }
 }
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Ajouter une barre de défilement à une vidéo</h3><br>Structure des paramètres<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opencv_video_load.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_opencv_video_load.gif"></div><br><h3 class="Title8 GTitle3">Ajouter une barre de défilement à une vidéo</h3><br>Structure des paramètres<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 struct _sGParams {
     cv::VideoCapture g_cap;
     int g_slider_position;
@@ -6393,7 +6393,7 @@ void GVideoTrackbar::onTrackbarSlide( int pos, void* params ) {
     }
     lParams-&gt;g_dontset = 0;
 }
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Lire une camera vidéo</h3><br>Une <b>caméra </b>est un appareil de prise de vues destiné à enregistrer ou à transmettre des images photographiques successives afin de restituer l'impression de mouvement pour le cinéma, la télévision, la recherche, la télésurveillance, l'imagerie industrielle et médicale, ou bien pour d'autres applications, professionnelles ou domestiques.<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opencv_video_trackbar.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_opencv_video_trackbar.gif"></div><br><h3 class="Title8 GTitle3">Lire une camera vidéo</h3><br>Une <b>caméra </b>est un appareil de prise de vues destiné à enregistrer ou à transmettre des images photographiques successives afin de restituer l'impression de mouvement pour le cinéma, la télévision, la recherche, la télésurveillance, l'imagerie industrielle et médicale, ou bien pour d'autres applications, professionnelles ou domestiques.<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GVideoCamera::run(int argc, char** argv) {
     sGApp* lApp = GManager::Instance()-&gt;getData()-&gt;app;
     cv::namedWindow( "ReadyApp", cv::WINDOW_AUTOSIZE );
@@ -6412,7 +6412,7 @@ void GVideoWrite::run(int argc, char** argv) {
     sGApp* lApp = GManager::Instance()-&gt;getData()-&gt;app;
 
     cv::namedWindow( "ReadyApp", cv::WINDOW_AUTOSIZE );
-    cv::namedWindow( "ReadyApp-Log_Polar", cv::WINDOW_AUTOSIZE );
+    cv::namedWindow( "ReadyApp-2", cv::WINDOW_AUTOSIZE );
 
     cv::VideoCapture capture( lApp-&gt;opencv_video_file );
 
@@ -6423,39 +6423,36 @@ void GVideoWrite::run(int argc, char** argv) {
     );
     cv::VideoWriter writer;
     writer.open( lApp-&gt;opencv_video_write, cv::VideoWriter::fourcc('M','J','P','G'), fps, size );
-    cv::Mat logpolar_frame, bgr_frame;
+    cv::Mat bgr_frame, bgr_frame_2;
 
     while(1) {
         capture &gt;&gt; bgr_frame;
         if( bgr_frame.empty() ) {break;}
         cv::imshow( "ReadyApp", bgr_frame );
-        cv::logPolar(
-                bgr_frame,
-                logpolar_frame,
-                cv::Point2f( bgr_frame.cols/2, bgr_frame.rows/2),
-                40, cv::WARP_FILL_OUTLIERS
-        );
-        cv::imshow( "ReadyApp-Log_Polar", logpolar_frame );
-        writer &lt;&lt; logpolar_frame;
+        cv::cvtColor( bgr_frame, bgr_frame_2, cv::COLOR_BGR2GRAY);
+        cv::cvtColor( bgr_frame_2, bgr_frame_2, cv::COLOR_GRAY2BGR);
+        cv::imshow( "ReadyApp-2", bgr_frame_2 );
+        writer &lt;&lt; bgr_frame_2;
         char c = cv::waitKey(10);
         if( c == 27 ) {break;}
     }
     capture.release();
 }
-//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Type-de-donnee"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Type de donnée</a></h2><br>OpenCV a de nombreux <b>types de données</b>, qui sont conçus pour rendre la représentation et la manipulation d'importants concepts de vision par ordinateur relativement faciles et intuitives. Dans le même temps, de nombreux développeurs d'algorithmes ont besoin d'un ensemble de primitives relativement puissantes qui peuvent être généralisées ou étendues pour leurs besoins particuliers. OpenCV tente de répondre à ces deux besoins en utilisant des modèles pour les types de données fondamentaux et des spécialisations de ces modèles qui facilitent les opérations quotidiennes.<br><br><h3 class="Title8 GTitle3">Calculer un produit scalaire</h3><br>Le <b>produit scalaire</b> est une opération algébrique s'ajoutant aux lois s'appliquant aux vecteurs. À deux vecteurs, elle associe un scalaire, c'est-à-dire un nombre tel que ceux qui définissent cet espace vectoriel - réel pour un espace vectoriel réel. Le produit scalaire permet d'exploiter les notions de la géométrie euclidienne traditionnelle : longueurs, angles, orthogonalité en dimension deux et trois, mais aussi de les étendre à des espaces vectoriels réels de toute dimension, et (avec certaines modifications dans la définition) aux espaces vectoriels complexes.<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
-cv::Point3d p_1(x_1, y_1, z_1);
-cv::Point3d p_2(x_2, y_2, z_2);
-double mon_produit_scalaire = p_1.dot(p_2);
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opencv_video_writer.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_opencv_video_writer.gif"></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Type-de-donnee"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Type de donnée</a></h2><br>OpenCV a de nombreux <b>types de données</b>, qui sont conçus pour rendre la représentation et la manipulation d'importants concepts de vision par ordinateur relativement faciles et intuitives. Dans le même temps, de nombreux développeurs d'algorithmes ont besoin d'un ensemble de primitives relativement puissantes qui peuvent être généralisées ou étendues pour leurs besoins particuliers. OpenCV tente de répondre à ces deux besoins en utilisant des modèles pour les types de données fondamentaux et des spécialisations de ces modèles qui facilitent les opérations quotidiennes.<br><br><h3 class="Title8 GTitle3">Calculer un produit scalaire</h3><br>Le <b>produit scalaire</b> est une opération algébrique s'ajoutant aux lois s'appliquant aux vecteurs. À deux vecteurs, elle associe un scalaire, c'est-à-dire un nombre tel que ceux qui définissent cet espace vectoriel - réel pour un espace vectoriel réel. Le produit scalaire permet d'exploiter les notions de la géométrie euclidienne traditionnelle : longueurs, angles, orthogonalité en dimension deux et trois, mais aussi de les étendre à des espaces vectoriels réels de toute dimension, et (avec certaines modifications dans la définition) aux espaces vectoriels complexes.<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+cv::Point3d point_1(x_1, y_1, z_1);
+cv::Point3d point_2(x_2, y_2, z_2);
+double produit_scalaire = point_1.dot(point_2);
 //===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Calculer un produit vectoriel</h3><br>Le <b>produit vectoriel</b> est une opération vectorielle effectuée dans les espaces euclidiens orientés de dimension 3. Le produit vectoriel de deux vecteurs est un vecteur dont les coordonnées dépendent de celles des deux vecteurs de départ. Le produit vectoriel s'applique seulement dans un espace de dimensions 3. Le produit vectoriel du vecteur <span class="GCode3"><code style="color:#cccccc;">a</code></span> et du vecteur <span class="GCode3"><code style="color:#cccccc;">b</code></span> est égal à la norme du vecteur <span class="GCode3"><code style="color:#cccccc;">a</code></span> multiplié par celle du vecteur <span class="GCode3"><code style="color:#cccccc;">b</code></span>, le tout multiplié par le <span class="GCode3"><code style="color:#cccccc;">sinus </code></span>du plus petit angle (noté <span class="GCode3"><code style="color:#cccccc;">θ</code></span>) formé par ces vecteurs, le tout multiplié par le vecteur <span class="GCode3"><code style="color:#cccccc;">c</code></span> qui est un vecteur unitaire (dont la norme est égale à un) perpendiculaire aux deux autres vecteurs.<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
-cv::Point3d p_1(x_1, y_1, z_1);
-cv::Point3d p_2(x_2, y_2, z_2);
-cv::Point3d mon_produit_vectoriel;
-mon_produit_vectoriel = p_1.cross(p_2);
+cv::Point3d point_1(x_1, y_1, z_1);
+cv::Point3d point_2(x_2, y_2, z_2);
+cv::Point3d produit_vectoriel = point_1.cross(point_2);
 //===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Déterminer si un point est à l'intérieur d'un rectangle</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
-cv::Point2d p_1(x_1, y_1);
-cv::Rect2d r_1(x_1, y_1, w_1, h_1);
-bool est_interieur;
-est_interieur = p_1.inside(r_1);
+cv::Point2d point(x_1, y_1);
+cv::Rect2d rectangle(x_1, y_1, w_1, h_1);
+bool est_interieur = point.inside(rectangle);
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Créer une saturation sur une variable</h3><br>Dans OpenCV, on peut parfois effectuer des opérations qui risquent de déborder les valeurs disponibles dans la destination de certains calculs. Ceci est particulièrement courant lorsque vous effectuez des opérations sur des types non signés qui impliquent une soustraction, mais cela peut<br>arriver n'importe où. Pour faire face à ce problème, OpenCV s'appuie sur une construction appelée mise en forme par <b>saturation</b>.<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+double valeur_reelle = calcul(x_1, x_2, x_3);
+uchar saturation = cv::saturate_cast&lt;uchar&gt;(valeur_reelle);
 //===============================================</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Calcul-scientifique-avec-GSL"><a class="Link3" href="#">Calcul scientifique avec GSL</a></h1><div class="Body3"><br><b>GSL </b>est une bibliothèque de calcul scientifique comportant une collection de routines pour le calcul numérique. Les routines ont été écrites à partir de zéro en C et présentent une interface de programmation d'applications (API) moderne pour les programmeurs C, permettant d'écrire des wrappers pour des langages de très haut niveau. Le code source est distribué sous la licence publique générale GNU.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Calcul-scientifique-avec-GSL-Installer-l-environnement-GSL-sous-MSYS2">Installer l'environnement GSL sous MSYS2</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Calcul-scientifique-avec-GSL-Tester-un-projet-GSL-sous-MSYS2">Tester un projet GSL sous MSYS2</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Calcul-scientifique-avec-GSL-Resoudre-une-equation-differentielle-ordinaire">Résoudre une équation différentielle ordinaire</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Calcul-scientifique-avec-GSL-Rechercher-une-interpolation-lineaire">Rechercher une interpolation linéaire</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Calcul-scientifique-avec-GSL-Rechercher-une-interploation-polynomiale">Rechercher une interploation polynomiale</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Calcul-scientifique-avec-GSL-Rechercher-une-interpolation-spline-cubique">Rechercher une interpolation spline cubique</a></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/b_gsl.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/b_gsl.png"></div><br><h2 class="Title7 GTitle2" id="Calcul-scientifique-avec-GSL-Installer-l-environnement-GSL-sous-MSYS2"><a class="Link9" href="#Calcul-scientifique-avec-GSL">Installer l'environnement GSL sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Installer GSL</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">pacman -S --needed --noconfirm mingw-w64-i686-gsl</pre></div></div><br><h2 class="Title7 GTitle2" id="Calcul-scientifique-avec-GSL-Tester-un-projet-GSL-sous-MSYS2"><a class="Link9" href="#Calcul-scientifique-avec-GSL">Tester un projet GSL sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Editer le programme (main.cpp)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 #include &lt;gsl/gsl_sf_bessel.h&gt;
