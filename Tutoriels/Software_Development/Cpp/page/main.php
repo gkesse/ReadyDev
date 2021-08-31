@@ -6318,7 +6318,30 @@ void GImagePixel::run(int argc, char** argv) {
 
     img_rgb.at&lt; cv::Vec3b &gt;(y, x) = intensity;
 }
-//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Video"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Vidéo</a></h2><br>Lire une <b>vidéo </b>avec OpenCV est presque aussi simple que d'afficher une seule image. Nous avons besoin d'une sorte de boucle pour lire chaque image dans l'ordre ; nous pouvons également avoir besoin d'un moyen de sortir de cette boucle si le film est trop long.<br><br><h3 class="Title8 GTitle3">Lire un fichier vidéo</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Mélanger deux images</h3><br>Le <b>mélange alpha</b> est le processus consistant à combiner une image avec un arrière-plan pour créer l'apparence d'une transparence partielle ou totale . Il est souvent utile de restituer des éléments d'image (pixels) dans des passes ou des couches séparées, puis de combiner les images 2D résultantes en une seule image finale appelée composite . La composition est largement utilisée dans les films lors de la combinaison d' éléments d' image rendus par ordinateur avec des séquences en direct .<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GImageBlend::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;getData()-&gt;app;
+
+    cv::Mat src1 = cv::imread(lApp-&gt;opencv_image_file, 1);
+    cv::Mat src2 = cv::imread(lApp-&gt;opencv_image_blend, 1);
+
+    int w1 = src1.cols;
+    int h1 = src1.rows;
+    int w2 = src2.cols;
+    int h2 = src2.rows;
+    int x1 = w1 - w2 -10;
+    int y1 = h1 - h2 - 10;
+
+    double alpha = 1.0;
+    double beta = 1.0;
+    cv::Mat roi1( src1, cv::Rect(x1, y1, w2, h2) );
+    cv::Mat roi2( src2, cv::Rect(0, 0, w2, h2) );
+    cv::addWeighted( roi1, alpha, roi2, beta, 0.0, roi1 );
+    cv::namedWindow( "ReadyApp", 1 );
+    cv::imshow( "ReadyApp", src1 );
+    cv::waitKey( 0 );
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opencv_image_blend.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opencv_image_blend.png"></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Video"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Vidéo</a></h2><br>Lire une <b>vidéo </b>avec OpenCV est presque aussi simple que d'afficher une seule image. Nous avons besoin d'une sorte de boucle pour lire chaque image dans l'ordre ; nous pouvons également avoir besoin d'un moyen de sortir de cette boucle si le film est trop long.<br><br><h3 class="Title8 GTitle3">Lire un fichier vidéo</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GVideoLoad::run(int argc, char** argv) {
     sGApp* lApp = GManager::Instance()-&gt;getData()-&gt;app;
     cv::namedWindow( "ReadyApp", cv::WINDOW_AUTOSIZE );
@@ -6329,7 +6352,7 @@ void GVideoLoad::run(int argc, char** argv) {
         cap &gt;&gt; frame;
         if( frame.empty() ) {break;}
         cv::imshow( "ReadyApp", frame );
-        if( cv::waitKey(33) &gt;= 0 ) break;
+        if( cv::waitKey(33) &gt;= 0 ) {break;}
     }
 }
 //===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opencv_video_load.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_opencv_video_load.gif"></div><br><h3 class="Title8 GTitle3">Ajouter une barre de défilement à une vidéo</h3><br>Structure des paramètres<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
@@ -6438,7 +6461,26 @@ void GVideoWrite::run(int argc, char** argv) {
     }
     capture.release();
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opencv_video_writer.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_opencv_video_writer.gif"></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Type-de-donnee"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Type de donnée</a></h2><br>OpenCV a de nombreux <b>types de données</b>, qui sont conçus pour rendre la représentation et la manipulation d'importants concepts de vision par ordinateur relativement faciles et intuitives. Dans le même temps, de nombreux développeurs d'algorithmes ont besoin d'un ensemble de primitives relativement puissantes qui peuvent être généralisées ou étendues pour leurs besoins particuliers. OpenCV tente de répondre à ces deux besoins en utilisant des modèles pour les types de données fondamentaux et des spécialisations de ces modèles qui facilitent les opérations quotidiennes.<br><br><h3 class="Title8 GTitle3">Calculer un produit scalaire</h3><br>Le <b>produit scalaire</b> est une opération algébrique s'ajoutant aux lois s'appliquant aux vecteurs. À deux vecteurs, elle associe un scalaire, c'est-à-dire un nombre tel que ceux qui définissent cet espace vectoriel - réel pour un espace vectoriel réel. Le produit scalaire permet d'exploiter les notions de la géométrie euclidienne traditionnelle : longueurs, angles, orthogonalité en dimension deux et trois, mais aussi de les étendre à des espaces vectoriels réels de toute dimension, et (avec certaines modifications dans la définition) aux espaces vectoriels complexes.<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opencv_video_writer.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_opencv_video_writer.gif"></div><br><h3 class="Title8 GTitle3">Déterminer le format codage d'une vidéo (codec)<br></h3><br>Un <b>format de codage vidéo</b> est un format de représentation de contenu pour le stockage ou la transmission de contenu vidéo numérique (comme dans un fichier de données ou un flux binaire ). Il utilise généralement un algorithme de compression vidéo standardisé , le plus souvent basé sur le codage par transformée en cosinus discrète (DCT) et la compensation de mouvement .<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GVideoCodec::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;getData()-&gt;app;
+
+    cv::VideoCapture cap;
+    cap.open( lApp-&gt;opencv_video_file );
+
+    unsigned f = (unsigned)cap.get( cv::CAP_PROP_FOURCC );
+
+    char fourcc[] = {
+            (char) f,
+            (char)(f &gt;&gt; 8),
+            (char)(f &gt;&gt; 16),
+            (char)(f &gt;&gt; 24),
+            '\0'
+    };
+
+    std::cout &lt;&lt;"FourCC for this video was: " &lt;&lt; fourcc &lt;&lt; std::endl;
+}
+//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Type-de-donnee"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Type de donnée</a></h2><br>OpenCV a de nombreux <b>types de données</b>, qui sont conçus pour rendre la représentation et la manipulation d'importants concepts de vision par ordinateur relativement faciles et intuitives. Dans le même temps, de nombreux développeurs d'algorithmes ont besoin d'un ensemble de primitives relativement puissantes qui peuvent être généralisées ou étendues pour leurs besoins particuliers. OpenCV tente de répondre à ces deux besoins en utilisant des modèles pour les types de données fondamentaux et des spécialisations de ces modèles qui facilitent les opérations quotidiennes.<br><br><h3 class="Title8 GTitle3">Calculer un produit scalaire</h3><br>Le <b>produit scalaire</b> est une opération algébrique s'ajoutant aux lois s'appliquant aux vecteurs. À deux vecteurs, elle associe un scalaire, c'est-à-dire un nombre tel que ceux qui définissent cet espace vectoriel - réel pour un espace vectoriel réel. Le produit scalaire permet d'exploiter les notions de la géométrie euclidienne traditionnelle : longueurs, angles, orthogonalité en dimension deux et trois, mais aussi de les étendre à des espaces vectoriels réels de toute dimension, et (avec certaines modifications dans la définition) aux espaces vectoriels complexes.<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 cv::Point3d point_1(x_1, y_1, z_1);
 cv::Point3d point_2(x_2, y_2, z_2);
 double produit_scalaire = point_1.dot(point_2);
