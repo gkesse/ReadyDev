@@ -7389,20 +7389,25 @@ void GWindow::slotMouseMove(QMouseEvent* event) {
 }
 //================================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_gsl_interpolation_spline.gif" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/i_gsl_interpolation_spline.gif"></div><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">gsl_spline_name :  cspline
 gsl_spline_min_size :  3
-gsl_interp_type_min_size :  3</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="C---Builder"><a class="Link3" href="#">C++ Builder</a></h1><div class="Body3"><br><b>C++Builder</b> est un logiciel de développement rapide d'applications (RAD) conçu par Borland qui reprend les mêmes concepts, la même interface et la même bibliothèque que Delphi en utilisant le langage C++. Il permet de créer rapidement des applications Win32, Win64, MacOS, iOS, Android, ainsi qu'une interface graphique avec son éditeur de ressources. Utilisant en interne le compilateur Clang, ll est compatible avec la version de norme ISO C++ C++17. <br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#C---Builder-Installer-l-environnement-C--Builder-sous-Windows">Installer l'environnement C++Builder sous Windows</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#C---Builder-Tester-C--Builder-sous-Windows">Tester C++Builder sous Windows</a></div></div><br><h2 class="Title7 GTitle2" id="C---Builder-Installer-l-environnement-C--Builder-sous-Windows"><a class="Link9" href="#C---Builder">Installer l'environnement C++Builder sous Windows</a></h2><br><h3 class="Title8 GTitle3">Télécharger C++Builder</h3><br><b>RADStudio-1042-esd-4203.exe</b><br><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.embarcadero.com/fr/products/cbuilder/start-for-free">https://www.embarcadero.com/fr/products/cbuilder/start-for-free</a><br><br><h3 class="Title8 GTitle3">Installer C++Builder</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">RADStudio-1042-esd-4203.exe
-Cocher -&gt; J'accepte le contrat de licence RAD Studio et la politique de confidentialité
-Suivant
-Cocher -&gt; Je me suis inscrit pour une version d'évaluation sur embarcadero.com
-Numéro de série -&gt; HSAL-D9C8CU-4PR4SY-HJQS
-S'enregistrer
-Cocher -&gt; C++Builder Windows Entreprise Trial
-Continuer
-Autres Options -&gt; Décocher -&gt; Tout
-Installer
-Commencer à travailler
-Association de fichiers -&gt; Tout désélectionner
-OK
-Sélectionner votre thème favori -&gt; Foncé
-Suivant
-Dossier projet par défaut -&gt; C:\Users\Admin\Documents\Embarcadero\Studio\Projets
-Démarrer</pre></div></div><br><h2 class="Title7 GTitle2" id="C---Builder-Tester-C--Builder-sous-Windows"><a class="Link9" href="#C---Builder">Tester C++Builder sous Windows</a></h2><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Notes-et-references"><a class="Link3" href="#">Notes et références</a></h1><div class="Body3"><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://cs.stanford.edu/people/eroberts/courses/cs106b/materials/cppdoc/">https://cs.stanford.edu/people/eroberts/courses/cs106b/materials/cppdoc/</a><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://vector-of-bool.github.io/2019/03/10/modules-1.html">https://vector-of-bool.github.io/2019/03/10/modules-1.html</a><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://gcc.gnu.org/wiki/cxx-modules">https://gcc.gnu.org/wiki/cxx-modules</a><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.modernescpp.com/index.php/c-20-concepts-defining-concepts">https://www.modernescpp.com/index.php/c-20-concepts-defining-concepts</a><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.ionos.fr/digitalguide/sites-internet/developpement-web/quest-ce-que-le-builder-pattern/">https://www.ionos.fr/digitalguide/sites-internet/developpement-web/quest-ce-que-le-builder-pattern/</a><br><br></div></div></div></div><br>
+gsl_interp_type_min_size :  3</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programmation-reseau-avec-Boost-Asio"><a class="Link3" href="#">Programmation réseau avec Boost.Asio</a></h1><div class="Body3"><br><b>Boost.Asio</b> est une bibliothèque C++ multiplateforme , open source et disponible gratuitement pour la programmation réseau . Il fournit aux développeurs un modèle d' E/S asynchrone cohérent utilisant une approche C++ moderne.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Programmation-reseau-avec-Boost-Asio-Installer-l-environnement-Boost-Asio-sous-MSYS2"><a class="Link9" href="#Programmation-reseau-avec-Boost-Asio">Installer l'environnement Boost.Asio sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Installer Boost</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">pacman -S --needed --noconfirm mingw32/mingw-w64-i686-boost</pre></div></div><br><h2 class="Title7 GTitle2" id="Programmation-reseau-avec-Boost-Asio-Accpeter-une-connexion"><a class="Link9" href="#Programmation-reseau-avec-Boost-Asio">Accpeter une connexion</a></h2><br><h3 class="Title8 GTitle3">Accepter une connexion (serveur)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GServerAccept::run(int argc, char** argv) {
+    const int BACKLOG_SIZE = 30;
+    unsigned short port_num = 3333;
+    boost::asio::ip::tcp::endpoint ep(boost::asio::ip::address_v4::any(), port_num);
+    boost::asio::io_service ios;
+
+    try {
+        boost::asio::ip::tcp::acceptor acceptor(ios, ep.protocol());
+        acceptor.bind(ep);
+        acceptor.listen(BACKLOG_SIZE);
+        boost::asio::ip::tcp::socket sock(ios);
+        acceptor.accept(sock);
+        // code d'envoi et de reception de donnees
+    }
+    catch (boost::system::system_error &amp;e) {
+        std::cout
+        &lt;&lt; "Error occured! Error code = " &lt;&lt; e.code()
+        &lt;&lt; ". Message: " &lt;&lt; e.what() &lt;&lt; std::endl;
+    }
+}
+//===============================================</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programmation-reseau-avec-cURL"><a class="Link3" href="#">Programmation réseau avec cURL</a></h1><div class="Body3"><br><b>libcurl </b>est une bibliothèque de requêtes aux URL destinée à récupérer le contenu d'une ressource accessible par un réseau informatique. La ressource est désignée à l'aide d'une URL et doit être d'un type supporté par la bibliothèque. libcurl permet de créer ou modifier une ressource et peut ainsi être utilisé en tant que client REST. La bibliothèque supporte notamment les protocoles DICT, file, FTP, FTPS, Gopher, HTTP, HTTPS, IMAP, IMAPS, LDAP, LDAPS, POP3, POP3S, RTSP, SCP, SFTP, SMB, SMBS, SMTP, SMTPS, Telnet et TFTP.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Programmation-reseau-avec-cURL-Installer-l-environnement-libcurl-sous-MSYS2"><a class="Link9" href="#Programmation-reseau-avec-cURL">Installer l'environnement libcurl sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Installer libcurl</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">pacman -S --needed --noconfirm libcurl-devel</pre></div></div><br><br></div></div></div></div><br>
