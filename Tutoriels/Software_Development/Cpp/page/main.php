@@ -6550,7 +6550,23 @@ while (!glfwWindowShouldClose(window)) {
     glfwSwapBuffers(window);
     glfwPollEvents();
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_window_clear.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_window_clear.png"></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Shader"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Shader</a></h2><br>OpenGL Shading Language (GLSL) est un langage d'ombrage de haut niveau avec une syntaxe basée sur le langage de programmation C. Il a été créé par l' OpenGL ARB (OpenGL Architecture Review Board) pour donner aux développeurs un contrôle plus direct du pipeline graphique sans avoir à utiliser le langage d'assemblage ARB ou des langages spécifiques au matériel. Avec les progrès des cartes graphiques, de nouvelles fonctionnalités ont été ajoutées pour permettre une flexibilité accrue dans le pipeline de rendu au niveau des sommets et des fragments. La programmabilité à ce niveau est obtenue grâce à l'utilisation de <b>shaders </b>de fragments et de vertex. À l'origine, cette fonctionnalité était obtenue en écrivant des shaders en langage assembleur ARB - une tâche complexe et peu intuitive. L' OpenGL ARB a créé l'OpenGL Shading Language pour fournir une méthode plus intuitive de programmation de l' unité de traitement graphique tout en conservant l'avantage des normes ouvertes qui a guidé OpenGL tout au long de son histoire.<br><br><h3 class="Title8 GTitle3">Charger des shaders de vertex et de fragments</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_window_clear.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_window_clear.png"></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Shader"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Shader</a></h2><br>OpenGL Shading Language (GLSL) est un langage d'ombrage de haut niveau avec une syntaxe basée sur le langage de programmation C. Il a été créé par l' OpenGL ARB (OpenGL Architecture Review Board) pour donner aux développeurs un contrôle plus direct du pipeline graphique sans avoir à utiliser le langage d'assemblage ARB ou des langages spécifiques au matériel. Avec les progrès des cartes graphiques, de nouvelles fonctionnalités ont été ajoutées pour permettre une flexibilité accrue dans le pipeline de rendu au niveau des sommets et des fragments. La programmabilité à ce niveau est obtenue grâce à l'utilisation de <b>shaders </b>de fragments et de vertex. À l'origine, cette fonctionnalité était obtenue en écrivant des shaders en langage assembleur ARB - une tâche complexe et peu intuitive. L' OpenGL ARB a créé l'OpenGL Shading Language pour fournir une méthode plus intuitive de programmation de l' unité de traitement graphique tout en conservant l'avantage des normes ouvertes qui a guidé OpenGL tout au long de son histoire.<br><br><h3 class="Title8 GTitle3">Vertex shader</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+const char *vertexShaderSource = ""
+        "#version 330 core\n"
+        "layout (location = 0) in vec3 aPos;\n"
+        "void main()\n"
+        "{\n"
+        "   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
+        "}\n";
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Fragment shader</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+const char *fragmentShaderSource = ""
+        "#version 330 core\n"
+        "out vec4 FragColor;\n"
+        "void main()\n"
+        "{\n"
+        "   FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
+        "}\n";
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Charger un shader de vertex et de fragment</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 unsigned int GManager::loadShaders(const char* vertexShaderSource, const char* fragmentShaderSource) {
     // vertex shader
     unsigned int vertexShader = glCreateShader(GL_VERTEX_SHADER);
@@ -6589,24 +6605,8 @@ unsigned int GManager::loadShaders(const char* vertexShaderSource, const char* f
     glDeleteShader(fragmentShader);
     return shaderProgram;
 }
-//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Triangle"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Triangle</a></h2><br><h3 class="Title8 GTitle3">Créer un triangle</h3><br>Vertex shader<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
-const char *vertexShaderSource = ""
-        "#version 330 core\n"
-        "layout (location = 0) in vec3 aPos;\n"
-        "void main()\n"
-        "{\n"
-        "   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
-        "}\n";
-//===============================================</pre></div></div><br>Fragment shader<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
-const char *fragmentShaderSource = ""
-        "#version 330 core\n"
-        "out vec4 FragColor;\n"
-        "void main()\n"
-        "{\n"
-        "   FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
-        "}\n";
-//===============================================</pre></div></div><br>Dessin du triangle<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
-void GTriangleDraw::run(int argc, char** argv) {
+//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Triangle"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Triangle</a></h2><br><h3 class="Title8 GTitle3">Créer un triangle</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGLUi::run(int argc, char** argv) {
     glfwInit();
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
@@ -6630,41 +6630,8 @@ void GTriangleDraw::run(int argc, char** argv) {
         return;
     }
 
-    // vertex shader
-    unsigned int vertexShader = glCreateShader(GL_VERTEX_SHADER);
-    glShaderSource(vertexShader, 1, &amp;vertexShaderSource, NULL);
-    glCompileShader(vertexShader);
-    // check for shader compile errors
-    int success;
-    char infoLog[512];
-    glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &amp;success);
-    if (!success) {
-        glGetShaderInfoLog(vertexShader, 512, NULL, infoLog);
-        std::cout &lt;&lt; "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n" &lt;&lt; infoLog &lt;&lt; std::endl;
-    }
-    // fragment shader
-    unsigned int fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-    glShaderSource(fragmentShader, 1, &amp;fragmentShaderSource, NULL);
-    glCompileShader(fragmentShader);
-    // check for shader compile errors
-    glGetShaderiv(fragmentShader, GL_COMPILE_STATUS, &amp;success);
-    if (!success) {
-        glGetShaderInfoLog(fragmentShader, 512, NULL, infoLog);
-        std::cout &lt;&lt; "ERROR::SHADER::FRAGMENT::COMPILATION_FAILED\n" &lt;&lt; infoLog &lt;&lt; std::endl;
-    }
-    // link shaders
-    unsigned int shaderProgram = glCreateProgram();
-    glAttachShader(shaderProgram, vertexShader);
-    glAttachShader(shaderProgram, fragmentShader);
-    glLinkProgram(shaderProgram);
-    // check for linking errors
-    glGetProgramiv(shaderProgram, GL_LINK_STATUS, &amp;success);
-    if (!success) {
-        glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
-        std::cout &lt;&lt; "ERROR::SHADER::PROGRAM::LINKING_FAILED\n" &lt;&lt; infoLog &lt;&lt; std::endl;
-    }
-    glDeleteShader(vertexShader);
-    glDeleteShader(fragmentShader);
+    unsigned int shaderProgram = GManager::Instance()-&gt;loadShaders(
+            vertexShaderSource, fragmentShaderSource);
 
     float vertices[] = {
             -0.5f, -0.5f, 0.0f, // left
@@ -6688,7 +6655,7 @@ void GTriangleDraw::run(int argc, char** argv) {
 
     while (!glfwWindowShouldClose(window)) {
         processInput(window);
-
+        //===============================================
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
         //===============================================
@@ -6706,23 +6673,7 @@ void GTriangleDraw::run(int argc, char** argv) {
 
     glfwTerminate();
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_triangle_draw.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_triangle_draw.png"></div><br><h3 class="Title8 GTitle3">Créer un triangle (index)</h3><br>Vertex shader<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
-const char *vertexShaderSource = ""
-        "#version 330 core\n"
-        "layout (location = 0) in vec3 aPos;\n"
-        "void main()\n"
-        "{\n"
-        "   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
-        "}\n";
-//===============================================</pre></div></div><br>Fragment shader<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
-const char *fragmentShaderSource = ""
-        "#version 330 core\n"
-        "out vec4 FragColor;\n"
-        "void main()\n"
-        "{\n"
-        "   FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
-        "}\n";
-//===============================================</pre></div></div><br>Dessin du triangle<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_triangle_draw.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_triangle_draw.png"></div><br><h3 class="Title8 GTitle3">Créer un triangle (index)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GTriangleIndex::run(int argc, char** argv) {
     glfwInit();
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
