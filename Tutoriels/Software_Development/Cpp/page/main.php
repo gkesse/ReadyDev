@@ -6495,7 +6495,305 @@ bool est_interieur = point.inside(rectangle);
 //===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Créer une saturation sur une variable</h3><br>Dans OpenCV, on peut parfois effectuer des opérations qui risquent de déborder les valeurs disponibles dans la destination de certains calculs. Ceci est particulièrement courant lorsque vous effectuez des opérations sur des types non signés qui impliquent une soustraction, mais cela peut<br>arriver n'importe où. Pour faire face à ce problème, OpenCV s'appuie sur une construction appelée mise en forme par <b>saturation</b>.<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 double valeur_reelle = calcul(x_1, x_2, x_3);
 uchar saturation = cv::saturate_cast&lt;uchar&gt;(valeur_reelle);
-//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Persistance-des-donnees"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Persistance des données</a></h2><br>OpenCV fournit un mécanisme de <b>sérialisation </b>et de <b>désérialisation </b>de ses différents types de données vers et depuis le disque au format YAML ou XML. Ces méthodes peuvent être utilisées pour charger ou stocker n'importe quel nombre d'objets de données OpenCV (y compris les types de base comme int , float , etc.) dans un seul fichier.<br><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Calcul-scientifique-avec-GSL"><a class="Link3" href="#">Calcul scientifique avec GSL</a></h1><div class="Body3"><br><b>GSL </b>est une bibliothèque de calcul scientifique comportant une collection de routines pour le calcul numérique. Les routines ont été écrites à partir de zéro en C et présentent une interface de programmation d'applications (API) moderne pour les programmeurs C, permettant d'écrire des wrappers pour des langages de très haut niveau. Le code source est distribué sous la licence publique générale GNU.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Calcul-scientifique-avec-GSL-Installer-l-environnement-GSL-sous-MSYS2">Installer l'environnement GSL sous MSYS2</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Calcul-scientifique-avec-GSL-Tester-un-projet-GSL-sous-MSYS2">Tester un projet GSL sous MSYS2</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Calcul-scientifique-avec-GSL-Resoudre-une-equation-differentielle-ordinaire">Résoudre une équation différentielle ordinaire</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Calcul-scientifique-avec-GSL-Rechercher-une-interpolation-lineaire">Rechercher une interpolation linéaire</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Calcul-scientifique-avec-GSL-Rechercher-une-interploation-polynomiale">Rechercher une interploation polynomiale</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Calcul-scientifique-avec-GSL-Rechercher-une-interpolation-spline-cubique">Rechercher une interpolation spline cubique</a></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/b_gsl.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/b_gsl.png"></div><br><h2 class="Title7 GTitle2" id="Calcul-scientifique-avec-GSL-Installer-l-environnement-GSL-sous-MSYS2"><a class="Link9" href="#Calcul-scientifique-avec-GSL">Installer l'environnement GSL sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Installer GSL</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">pacman -S --needed --noconfirm mingw-w64-i686-gsl</pre></div></div><br><h2 class="Title7 GTitle2" id="Calcul-scientifique-avec-GSL-Tester-un-projet-GSL-sous-MSYS2"><a class="Link9" href="#Calcul-scientifique-avec-GSL">Tester un projet GSL sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Editer le programme (main.cpp)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Persistance-des-donnees"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Persistance des données</a></h2><br>OpenCV fournit un mécanisme de <b>sérialisation </b>et de <b>désérialisation </b>de ses différents types de données vers et depuis le disque au format YAML ou XML. Ces méthodes peuvent être utilisées pour charger ou stocker n'importe quel nombre d'objets de données OpenCV (y compris les types de base comme int , float , etc.) dans un seul fichier.<br><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programmation-3D-avec-OpenGL"><a class="Link3" href="#">Programmation 3D avec OpenGL</a></h1><div class="Body3"><br><b>OpenGL </b>(Open Graphics Library) est une interface de programmation d'applications (API) multi-langage et multi-plateforme pour le rendu de graphiques vectoriels 2D et 3D . L'API est généralement utilisée pour interagir avec une unité de traitement graphique (GPU) afin d'obtenir un rendu accéléré par le matériel . OpenGL est abondamment utilisé dans les domaines de la conception assistée par ordinateur (CAO), de la réalité virtuelle , de la visualisation scientifique , de la visualisation de l' information, de la simulation de vol et des jeux vidéo .<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Configuration-l-environnement-GLFW-sous-Ubuntu"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Configuration l'environnement GLFW sous Ubuntu</a></h2><br><b>GLFW </b>est une bibliothèque utilitaire légère à utiliser avec OpenGL . GLFW signifie Graphics Library Framework. Il offre aux programmeurs la possibilité de créer et de gérer des fenêtres et des contextes OpenGL, ainsi que de gérer les entrées du joystick , du clavier et de la souris . <br><br><h3 class="Title8 GTitle3">Installer GLFW</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">sudo apt install -y libglfw3-dev</pre></div></div><br><h3 class="Title8 GTitle3">Installer GLAD</h3><br><b>GLAD </b>est un générateur de chargeur multilingue pour GL/GLES/EGL/GLX/WGL basé sur les spécifications officielles du groupe Khronos. Il génère un chargeur pour les besoins des développeurs sur la base des spécifications à jour et peut facilement être étendu à d'autres langages.<br><br>Télécharger GLAD<br><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://glad.dav1d.de/">https://glad.dav1d.de/</a><br><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Compiler-un-projet-GLFW-sous-Ubuntu"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Compiler un projet GLFW sous Ubuntu</a></h2><br><h3 class="Title8 GTitle3">Fichiers headers</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//==============================================
+#include &lt;glad/glad.h&gt;
+#include &lt;GLFW/glfw3.h&gt;
+//==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Compiler le projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">g++ -std=gnu++11 -c main.cpp -o main.o -Iglad/include
+gcc -std=gnu11 -c glad/src/glad.c -o glad.o -Iglad/include
+g++ -std=gnu++11 -o rdcpp main.o glad.o -lglfw -ldl</pre></div></div><br><h3 class="Title8 GTitle3">Exécuter le projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">./rdcpp</pre></div></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Fenetre"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Fenêtre</a></h2><br><h3 class="Title8 GTitle3">Créer une fenêtre sous GLFW</h3><br>Création de la fenêtre<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GWindowCreate::run(int argc, char** argv) {
+    glfwInit();
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+
+#ifdef __APPLE__
+    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+#endif
+
+    GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "LearnOpenGL", NULL, NULL);
+
+    glfwMakeContextCurrent(window);
+    glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
+
+    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
+        std::cout &lt;&lt; "Failed to initialize GLAD" &lt;&lt; std::endl;
+        return;
+    }
+
+    while (!glfwWindowShouldClose(window)) {
+        processInput(window);
+
+        glfwSwapBuffers(window);
+        glfwPollEvents();
+    }
+
+    glfwTerminate();
+}
+//===============================================</pre></div></div><br>Gestion du redimensionnement de la fenêtre<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GWindowCreate::framebuffer_size_callback(GLFWwindow* window, int width, int height) {
+    glViewport(0, 0, width, height);
+}
+//===============================================</pre></div></div><br>Gestion des évènement de la fenêtre<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GWindowCreate::processInput(GLFWwindow *window) {
+    if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
+        glfwSetWindowShouldClose(window, true);
+    }
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_window_create.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_window_create.png"></div><br><h3 class="Title8 GTitle3">Ajouter une couleur de fond</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+while (!glfwWindowShouldClose(window)) {
+    processInput(window);
+
+    glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT);
+
+    glfwSwapBuffers(window);
+    glfwPollEvents();
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_window_clear.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_window_clear.png"></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Triangle"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Triangle</a></h2><br><h3 class="Title8 GTitle3">Créer un triangle</h3><br>Vertex shader<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+const char *vertexShaderSource = ""
+        "#version 330 core\n"
+        "layout (location = 0) in vec3 aPos;\n"
+        "void main()\n"
+        "{\n"
+        "   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
+        "}\n";
+//===============================================</pre></div></div><br>Fragment shader<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+const char *fragmentShaderSource = ""
+        "#version 330 core\n"
+        "out vec4 FragColor;\n"
+        "void main()\n"
+        "{\n"
+        "   FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
+        "}\n";
+//===============================================</pre></div></div><br>Dessin du triangle<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GTriangleDraw::run(int argc, char** argv) {
+    glfwInit();
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+
+#ifdef __APPLE__
+    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+#endif
+
+    GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "LearnOpenGL", NULL, NULL);
+    if (window == NULL) {
+        std::cout &lt;&lt; "Failed to create GLFW window" &lt;&lt; std::endl;
+        glfwTerminate();
+        return;
+    }
+    glfwMakeContextCurrent(window);
+    glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
+
+    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
+        std::cout &lt;&lt; "Failed to initialize GLAD" &lt;&lt; std::endl;
+        return;
+    }
+
+    // vertex shader
+    unsigned int vertexShader = glCreateShader(GL_VERTEX_SHADER);
+    glShaderSource(vertexShader, 1, &amp;vertexShaderSource, NULL);
+    glCompileShader(vertexShader);
+    // check for shader compile errors
+    int success;
+    char infoLog[512];
+    glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &amp;success);
+    if (!success) {
+        glGetShaderInfoLog(vertexShader, 512, NULL, infoLog);
+        std::cout &lt;&lt; "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n" &lt;&lt; infoLog &lt;&lt; std::endl;
+    }
+    // fragment shader
+    unsigned int fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
+    glShaderSource(fragmentShader, 1, &amp;fragmentShaderSource, NULL);
+    glCompileShader(fragmentShader);
+    // check for shader compile errors
+    glGetShaderiv(fragmentShader, GL_COMPILE_STATUS, &amp;success);
+    if (!success) {
+        glGetShaderInfoLog(fragmentShader, 512, NULL, infoLog);
+        std::cout &lt;&lt; "ERROR::SHADER::FRAGMENT::COMPILATION_FAILED\n" &lt;&lt; infoLog &lt;&lt; std::endl;
+    }
+    // link shaders
+    unsigned int shaderProgram = glCreateProgram();
+    glAttachShader(shaderProgram, vertexShader);
+    glAttachShader(shaderProgram, fragmentShader);
+    glLinkProgram(shaderProgram);
+    // check for linking errors
+    glGetProgramiv(shaderProgram, GL_LINK_STATUS, &amp;success);
+    if (!success) {
+        glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
+        std::cout &lt;&lt; "ERROR::SHADER::PROGRAM::LINKING_FAILED\n" &lt;&lt; infoLog &lt;&lt; std::endl;
+    }
+    glDeleteShader(vertexShader);
+    glDeleteShader(fragmentShader);
+
+    float vertices[] = {
+            -0.5f, -0.5f, 0.0f, // left
+            0.5f, -0.5f, 0.0f,  // right
+            0.0f,  0.5f, 0.0f   // top
+    };
+
+    unsigned int VBO, VAO;
+    glGenVertexArrays(1, &amp;VAO);
+    glGenBuffers(1, &amp;VBO);
+    glBindVertexArray(VAO);
+
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+    glEnableVertexAttribArray(0);
+
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    glBindVertexArray(0);
+
+    while (!glfwWindowShouldClose(window)) {
+        processInput(window);
+
+        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+        glClear(GL_COLOR_BUFFER_BIT);
+        //===============================================
+        glUseProgram(shaderProgram);
+        glBindVertexArray(VAO);
+        glDrawArrays(GL_TRIANGLES, 0, 3);
+        //===============================================
+        glfwSwapBuffers(window);
+        glfwPollEvents();
+    }
+
+    glDeleteVertexArrays(1, &amp;VAO);
+    glDeleteBuffers(1, &amp;VBO);
+    glDeleteProgram(shaderProgram);
+
+    glfwTerminate();
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_triangle_draw.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_triangle_draw.png"></div><br><h3 class="Title8 GTitle3">Créer un triangle (index)</h3><br>Vertex shader<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+const char *vertexShaderSource = ""
+        "#version 330 core\n"
+        "layout (location = 0) in vec3 aPos;\n"
+        "void main()\n"
+        "{\n"
+        "   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
+        "}\n";
+//===============================================</pre></div></div><br>Fragment shader<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+const char *fragmentShaderSource = ""
+        "#version 330 core\n"
+        "out vec4 FragColor;\n"
+        "void main()\n"
+        "{\n"
+        "   FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
+        "}\n";
+//===============================================</pre></div></div><br>Dessin du triangle<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GTriangleIndex::run(int argc, char** argv) {
+    glfwInit();
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+
+#ifdef __APPLE__
+    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+#endif
+
+    GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "LearnOpenGL", NULL, NULL);
+    if (window == NULL) {
+        std::cout &lt;&lt; "Failed to create GLFW window" &lt;&lt; std::endl;
+        glfwTerminate();
+        return;
+    }
+    glfwMakeContextCurrent(window);
+    glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
+
+    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
+        std::cout &lt;&lt; "Failed to initialize GLAD" &lt;&lt; std::endl;
+        return;
+    }
+
+    // vertex shader
+    unsigned int vertexShader = glCreateShader(GL_VERTEX_SHADER);
+    glShaderSource(vertexShader, 1, &amp;vertexShaderSource, NULL);
+    glCompileShader(vertexShader);
+    // check for shader compile errors
+    int success;
+    char infoLog[512];
+    glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &amp;success);
+    if (!success) {
+        glGetShaderInfoLog(vertexShader, 512, NULL, infoLog);
+        std::cout &lt;&lt; "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n" &lt;&lt; infoLog &lt;&lt; std::endl;
+    }
+    // fragment shader
+    unsigned int fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
+    glShaderSource(fragmentShader, 1, &amp;fragmentShaderSource, NULL);
+    glCompileShader(fragmentShader);
+    // check for shader compile errors
+    glGetShaderiv(fragmentShader, GL_COMPILE_STATUS, &amp;success);
+    if (!success) {
+        glGetShaderInfoLog(fragmentShader, 512, NULL, infoLog);
+        std::cout &lt;&lt; "ERROR::SHADER::FRAGMENT::COMPILATION_FAILED\n" &lt;&lt; infoLog &lt;&lt; std::endl;
+    }
+    // link shaders
+    unsigned int shaderProgram = glCreateProgram();
+    glAttachShader(shaderProgram, vertexShader);
+    glAttachShader(shaderProgram, fragmentShader);
+    glLinkProgram(shaderProgram);
+    // check for linking errors
+    glGetProgramiv(shaderProgram, GL_LINK_STATUS, &amp;success);
+    if (!success) {
+        glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
+        std::cout &lt;&lt; "ERROR::SHADER::PROGRAM::LINKING_FAILED\n" &lt;&lt; infoLog &lt;&lt; std::endl;
+    }
+    glDeleteShader(vertexShader);
+    glDeleteShader(fragmentShader);
+
+    float vertices[] = {
+            0.5f,  0.5f, 0.0f,  // top right
+            0.5f, -0.5f, 0.0f,  // bottom right
+            -0.5f, -0.5f, 0.0f, // bottom left
+            -0.5f,  0.5f, 0.0f  // top left
+    };
+    unsigned int indices[] = {
+            0, 1, 3,  // first Triangle
+            1, 2, 3   // second Triangle
+    };
+    unsigned int VBO, VAO, EBO;
+    glGenVertexArrays(1, &amp;VAO);
+    glGenBuffers(1, &amp;VBO);
+    glGenBuffers(1, &amp;EBO);
+    glBindVertexArray(VAO);
+
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+    glEnableVertexAttribArray(0);
+
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    glBindVertexArray(0);
+
+    while (!glfwWindowShouldClose(window)) {
+        processInput(window);
+        //===============================================
+        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+        glClear(GL_COLOR_BUFFER_BIT);
+        //===============================================
+        glUseProgram(shaderProgram);
+        glBindVertexArray(VAO);
+        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+        //===============================================
+        glfwSwapBuffers(window);
+        glfwPollEvents();
+    }
+
+    glDeleteVertexArrays(1, &amp;VAO);
+    glDeleteBuffers(1, &amp;VBO);
+    glDeleteBuffers(1, &amp;EBO);
+    glDeleteProgram(shaderProgram);
+
+    glfwTerminate();
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_triangle_index.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_triangle_index.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Calcul-scientifique-avec-GSL"><a class="Link3" href="#">Calcul scientifique avec GSL</a></h1><div class="Body3"><br><b>GSL </b>est une bibliothèque de calcul scientifique comportant une collection de routines pour le calcul numérique. Les routines ont été écrites à partir de zéro en C et présentent une interface de programmation d'applications (API) moderne pour les programmeurs C, permettant d'écrire des wrappers pour des langages de très haut niveau. Le code source est distribué sous la licence publique générale GNU.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Calcul-scientifique-avec-GSL-Installer-l-environnement-GSL-sous-MSYS2">Installer l'environnement GSL sous MSYS2</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Calcul-scientifique-avec-GSL-Tester-un-projet-GSL-sous-MSYS2">Tester un projet GSL sous MSYS2</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Calcul-scientifique-avec-GSL-Resoudre-une-equation-differentielle-ordinaire">Résoudre une équation différentielle ordinaire</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Calcul-scientifique-avec-GSL-Rechercher-une-interpolation-lineaire">Rechercher une interpolation linéaire</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Calcul-scientifique-avec-GSL-Rechercher-une-interploation-polynomiale">Rechercher une interploation polynomiale</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Calcul-scientifique-avec-GSL-Rechercher-une-interpolation-spline-cubique">Rechercher une interpolation spline cubique</a></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/b_gsl.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/b_gsl.png"></div><br><h2 class="Title7 GTitle2" id="Calcul-scientifique-avec-GSL-Installer-l-environnement-GSL-sous-MSYS2"><a class="Link9" href="#Calcul-scientifique-avec-GSL">Installer l'environnement GSL sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Installer GSL</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">pacman -S --needed --noconfirm mingw-w64-i686-gsl</pre></div></div><br><h2 class="Title7 GTitle2" id="Calcul-scientifique-avec-GSL-Tester-un-projet-GSL-sous-MSYS2"><a class="Link9" href="#Calcul-scientifique-avec-GSL">Tester un projet GSL sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Editer le programme (main.cpp)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;stdio.h&gt;
 #include &lt;gsl/gsl_sf_bessel.h&gt;
 //===============================================
