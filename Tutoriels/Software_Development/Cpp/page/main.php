@@ -6605,6 +6605,16 @@ unsigned int GManager::loadShaders(const char* vertexShaderSource, const char* f
     glDeleteShader(fragmentShader);
     return shaderProgram;
 }
+//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-VBO"><a class="Link9" href="#Programmation-3D-avec-OpenGL">VBO</a></h2><br>Un Vertex Buffer Object (<b>VBO</b>) est une fonctionnalité OpenGL qui fournit des méthodes pour télécharger des données de sommet (position , vecteur normal , couleur, etc.) vers le périphérique vidéo pour un rendu en mode non immédiat. Les VBO offrent des gains de performances substantiels par rapport au rendu en mode immédiat, principalement parce que les données résident dans la mémoire du périphérique vidéo plutôt que dans la mémoire système et peuvent donc être rendues directement par le périphérique vidéo. Ils sont équivalents aux vertex buffers dans Direct3D . La spécification de l'objet de tampon de sommet a été normalisée par l' OpenGL Architecture Review Board à partir de la version 1.5 d' OpenGL (en 2003).<br><br><h3 class="Title8 GTitle3">Manipuler un VBO</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+unsigned int VBO;
+glGenBuffers(1, &amp;VBO);
+glBindBuffer(GL_ARRAY_BUFFER, VBO);
+glDeleteBuffers(1, &amp;VBO);
+//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-VAO"><a class="Link9" href="#Programmation-3D-avec-OpenGL">VAO</a></h2><br>Un Vertex Array Object (<b>VAO</b>) est un objet OpenGL qui stocke tout l'état nécessaire pour fournir les données de vertex. Il stocke le format des données de sommet ainsi que les objets tampon fournissant les tableaux de données de sommet. Notez que les VAO ne copient pas, ne gèlent pas et ne stockent pas le contenu des tampons référencés - si vous modifiez l'une des données dans les tampons référencés par un VAO existant, ces modifications seront vues par les utilisateurs du VAO.<br><br><h3 class="Title8 GTitle3">Manipuler un VAO</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+unsigned int VAO;
+glGenVertexArrays(1, &amp;VAO);
+glBindVertexArray(VAO);
+glDeleteVertexArrays(1, &amp;VAO);
 //===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Triangle"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Triangle</a></h2><br><h3 class="Title8 GTitle3">Créer un triangle</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GOpenGLUi::run(int argc, char** argv) {
     glfwInit();
