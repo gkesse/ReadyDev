@@ -6674,7 +6674,7 @@ void GOpenGLUi::run(int argc, char** argv) {
     glfwTerminate();
 }
 //===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_triangle_draw.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_triangle_draw.png"></div><br><h3 class="Title8 GTitle3">Créer un triangle (index)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
-void GTriangleIndex::run(int argc, char** argv) {
+void GOpenGLUi::run(int argc, char** argv) {
     glfwInit();
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
@@ -6698,41 +6698,8 @@ void GTriangleIndex::run(int argc, char** argv) {
         return;
     }
 
-    // vertex shader
-    unsigned int vertexShader = glCreateShader(GL_VERTEX_SHADER);
-    glShaderSource(vertexShader, 1, &amp;vertexShaderSource, NULL);
-    glCompileShader(vertexShader);
-    // check for shader compile errors
-    int success;
-    char infoLog[512];
-    glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &amp;success);
-    if (!success) {
-        glGetShaderInfoLog(vertexShader, 512, NULL, infoLog);
-        std::cout &lt;&lt; "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n" &lt;&lt; infoLog &lt;&lt; std::endl;
-    }
-    // fragment shader
-    unsigned int fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-    glShaderSource(fragmentShader, 1, &amp;fragmentShaderSource, NULL);
-    glCompileShader(fragmentShader);
-    // check for shader compile errors
-    glGetShaderiv(fragmentShader, GL_COMPILE_STATUS, &amp;success);
-    if (!success) {
-        glGetShaderInfoLog(fragmentShader, 512, NULL, infoLog);
-        std::cout &lt;&lt; "ERROR::SHADER::FRAGMENT::COMPILATION_FAILED\n" &lt;&lt; infoLog &lt;&lt; std::endl;
-    }
-    // link shaders
-    unsigned int shaderProgram = glCreateProgram();
-    glAttachShader(shaderProgram, vertexShader);
-    glAttachShader(shaderProgram, fragmentShader);
-    glLinkProgram(shaderProgram);
-    // check for linking errors
-    glGetProgramiv(shaderProgram, GL_LINK_STATUS, &amp;success);
-    if (!success) {
-        glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
-        std::cout &lt;&lt; "ERROR::SHADER::PROGRAM::LINKING_FAILED\n" &lt;&lt; infoLog &lt;&lt; std::endl;
-    }
-    glDeleteShader(vertexShader);
-    glDeleteShader(fragmentShader);
+    unsigned int shaderProgram = GManager::Instance()-&gt;loadShaders(
+            vertexShaderSource, fragmentShaderSource);
 
     float vertices[] = {
             0.5f,  0.5f, 0.0f,  // top right
@@ -6783,8 +6750,8 @@ void GTriangleIndex::run(int argc, char** argv) {
 
     glfwTerminate();
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_triangle_index.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_triangle_index.png"></div><br><h3 class="Title8 GTitle3">Créer un triangle (double)</h3><br>Création du triangle<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
-void GTriangleDouble::run(int argc, char** argv) {
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_triangle_index.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_triangle_index.png"></div><br><h3 class="Title8 GTitle3">Créer un triangle (double)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGLUi::run(int argc, char** argv) {
     glfwInit();
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
