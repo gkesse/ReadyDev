@@ -6591,13 +6591,12 @@ const char *fragmentShaderSource = ""
         "{\n"
         "   FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
         "}\n";
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Charger un shader de vertex et de fragment</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Charger un shader de vertex et de fragment (texte)<br></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 unsigned int GManager::loadShaders(const char* vertexShaderSource, const char* fragmentShaderSource) {
-    // vertex shader
     unsigned int vertexShader = glCreateShader(GL_VERTEX_SHADER);
     glShaderSource(vertexShader, 1, &amp;vertexShaderSource, NULL);
     glCompileShader(vertexShader);
-    // check for shader compile errors
+
     int success;
     char infoLog[512];
     glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &amp;success);
@@ -6605,22 +6604,22 @@ unsigned int GManager::loadShaders(const char* vertexShaderSource, const char* f
         glGetShaderInfoLog(vertexShader, 512, NULL, infoLog);
         std::cout &lt;&lt; "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n" &lt;&lt; infoLog &lt;&lt; std::endl;
     }
-    // fragment shader
+
     unsigned int fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
     glShaderSource(fragmentShader, 1, &amp;fragmentShaderSource, NULL);
     glCompileShader(fragmentShader);
-    // check for shader compile errors
+
     glGetShaderiv(fragmentShader, GL_COMPILE_STATUS, &amp;success);
     if (!success) {
         glGetShaderInfoLog(fragmentShader, 512, NULL, infoLog);
         std::cout &lt;&lt; "ERROR::SHADER::FRAGMENT::COMPILATION_FAILED\n" &lt;&lt; infoLog &lt;&lt; std::endl;
     }
-    // link shaders
+
     unsigned int shaderProgram = glCreateProgram();
     glAttachShader(shaderProgram, vertexShader);
     glAttachShader(shaderProgram, fragmentShader);
     glLinkProgram(shaderProgram);
-    // check for linking errors
+
     glGetProgramiv(shaderProgram, GL_LINK_STATUS, &amp;success);
     if (!success) {
         glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
@@ -6629,6 +6628,39 @@ unsigned int GManager::loadShaders(const char* vertexShaderSource, const char* f
     glDeleteShader(vertexShader);
     glDeleteShader(fragmentShader);
     return shaderProgram;
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Charger un shader de vertex et de fragment (fichier)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+unsigned int GManager::loadShaders(const std::string&amp; vertexShaderFile, const std::string&amp; fragmentShaderFile) {
+    unsigned int shaderProgram;
+    std::string vertexSharderCode;
+    std::string fragmentShaderCode;
+    std::ifstream vertexShaderFileIn;
+    std::ifstream fragmentShaderFileIn;
+
+    vertexShaderFileIn.exceptions (std::ifstream::failbit | std::ifstream::badbit);
+    fragmentShaderFileIn.exceptions (std::ifstream::failbit | std::ifstream::badbit);
+
+    try {
+        vertexShaderFileIn.open(vertexShaderFile.c_str());
+        fragmentShaderFileIn.open(fragmentShaderFile.c_str());
+        std::stringstream vertexShaderStream, fragmentShaderStream;
+
+        vertexShaderStream &lt;&lt; vertexShaderFileIn.rdbuf();
+        fragmentShaderStream &lt;&lt; fragmentShaderFileIn.rdbuf();
+
+        vertexShaderFileIn.close();
+        fragmentShaderFileIn.close();
+
+        vertexSharderCode   = vertexShaderStream.str();
+        fragmentShaderCode = fragmentShaderStream.str();
+    }
+    catch (std::ifstream::failure&amp; e) {
+        std::cout &lt;&lt; "ERROR::SHADER::FILE_NOT_SUCCESFULLY_READ" &lt;&lt; std::endl;
+    }
+
+    const char* vertexShaderSource = vertexSharderCode.c_str();
+    const char* fragmentShaderSource = fragmentShaderCode.c_str();
+    return loadShaders(vertexShaderSource, fragmentShaderSource);
 }
 //===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-VBO"><a class="Link9" href="#Programmation-3D-avec-OpenGL">VBO</a></h2><br>Un Vertex Buffer Object (<b>VBO</b>) est une fonctionnalité OpenGL qui fournit des méthodes pour télécharger des données de sommet (position , vecteur normal , couleur, etc.) vers le périphérique vidéo pour un rendu en mode non immédiat. Les VBO offrent des gains de performances substantiels par rapport au rendu en mode immédiat, principalement parce que les données résident dans la mémoire du périphérique vidéo plutôt que dans la mémoire système et peuvent donc être rendues directement par le périphérique vidéo. Ils sont équivalents aux vertex buffers dans Direct3D . La spécification de l'objet de tampon de sommet a été normalisée par l' OpenGL Architecture Review Board à partir de la version 1.5 d' OpenGL (en 2003).<br><br><h3 class="Title8 GTitle3">Manipuler un VBO</h3><br>Déclaration des sommets<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 float vertices[] = {
