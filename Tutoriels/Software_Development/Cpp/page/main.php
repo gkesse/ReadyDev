@@ -6505,10 +6505,10 @@ Configure
 Configure
 Generate</pre></div></div><br>Construire GLFW<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">cd GLFW/build
 mingw32-make</pre></div></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Compiler-un-projet-GLFW-sous-Ubuntu"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Compiler un projet GLFW sous Ubuntu</a></h2><br><h3 class="Title8 GTitle3">Fichiers headers</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//==============================================
-#include &lt;glad/glad.h&gt;
+#include &lt;glad/gl.h&gt;
 #include &lt;GLFW/glfw3.h&gt;
-//==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Compiler le projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">g++ -std=gnu++11 -c main.cpp -o main.o -Iglad/include
-gcc -std=gnu11 -c glad/src/glad.c -o glad.o -Iglad/include
+//==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Compiler le projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">g++ -std=gnu++11 -c main.cpp -o main.o -IRLib/include
+gcc -std=gnu11 -c RLib/glad/src/glad_gl.c -o glad_gl.o -IRLib/include
 g++ -std=gnu++11 -o rdcpp main.o glad.o -lglfw -ldl</pre></div></div><br><h3 class="Title8 GTitle3">Exécuter le projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">./rdcpp</pre></div></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Fenetre"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Fenêtre</a></h2><br><h3 class="Title8 GTitle3">Créer une fenêtre sous GLFW</h3><br>Création de la fenêtre<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GWindowCreate::run(int argc, char** argv) {
     glfwInit();
