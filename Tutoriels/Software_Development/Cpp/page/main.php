@@ -4393,7 +4393,7 @@ GWindow::GWindow(QWidget* parent) : QFrame(parent) {
 GWindow::~GWindow() {
 
 }
-//================================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_image.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_image.png"></div><br><h2 class="Title7 GTitle2" id="Trace-de-courbes-2D-avec-QCustomPlot-Creer-un-graphe-avec-des-textures"><a class="Link9" href="#Trace-de-courbes-2D-avec-QCustomPlot">Créer un graphe avec des textures</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//================================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_image.png" class="lazy entered loaded" data-src="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_image.png" data-ll-status="loaded" src="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_image.png"></div><br><h2 class="Title7 GTitle2" id="Trace-de-courbes-2D-avec-QCustomPlot-Creer-un-graphe-avec-des-textures"><a class="Link9" href="#Trace-de-courbes-2D-avec-QCustomPlot">Créer un graphe avec des textures</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 #include "GWindow.h"
 //===============================================
 int main(int argc, char** argv) {
@@ -4492,7 +4492,7 @@ GWindow::GWindow(QWidget* parent) : QFrame(parent) {
 GWindow::~GWindow() {
 
 }
-//================================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_texture.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_texture.png"></div><br><h2 class="Title7 GTitle2" id="Trace-de-courbes-2D-avec-QCustomPlot-Creer-plusieurs-graphes-avec-des-reperes-differents"><a class="Link9" href="#Trace-de-courbes-2D-avec-QCustomPlot">Créer plusieurs graphes avec des repères différents</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//================================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_texture.png" class="lazy entered loaded" data-src="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_texture.png" data-ll-status="loaded" src="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_texture.png"></div><br><h2 class="Title7 GTitle2" id="Trace-de-courbes-2D-avec-QCustomPlot-Creer-plusieurs-graphes-avec-des-reperes-differents"><a class="Link9" href="#Trace-de-courbes-2D-avec-QCustomPlot">Créer plusieurs graphes avec des repères différents</a></h2><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 #include "GWindow.h"
 //===============================================
 int main(int argc, char** argv) {
@@ -6828,29 +6828,27 @@ void main()
 void GOpenGLUi::run(int argc, char** argv) {
     sGApp* lApp = GManager::Instance()-&gt;getData()-&gt;app;
 
-    glfwInit();
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+    glfwSetErrorCallback(onError);
 
-#ifdef __APPLE__
-    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
-#endif
+    if (!glfwInit()) {
+        return;
+    }
 
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 2);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
 
     GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "ReadyApp", NULL, NULL);
-    if (window == NULL) {
-        std::cout &lt;&lt; "Failed to create GLFW window" &lt;&lt; std::endl;
+    if (!window) {
         glfwTerminate();
         return;
     }
-    glfwMakeContextCurrent(window);
-    glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
-    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
-        std::cout &lt;&lt; "Failed to initialize GLAD" &lt;&lt; std::endl;
-        return;
-    }
+    glfwSetKeyCallback(window, onKey);
+
+    glfwMakeContextCurrent(window);
+    gladLoadGL(glfwGetProcAddress);
+    glfwSwapInterval(1);
+    glfwSetFramebufferSizeCallback(window, onResize);
 
     unsigned int shaderProgram = GManager::Instance()-&gt;loadShaders(
             lApp-&gt;shader_vertex_file, lApp-&gt;shader_fragment_file);
@@ -6886,8 +6884,6 @@ void GOpenGLUi::run(int argc, char** argv) {
     unsigned int texture = GManager::Instance()-&gt;loadTexture(lApp-&gt;texture_file);
 
     while (!glfwWindowShouldClose(window)) {
-        processInput(window);
-        //===============================================
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
         //===============================================
@@ -6904,6 +6900,7 @@ void GOpenGLUi::run(int argc, char** argv) {
     glDeleteBuffers(1, &amp;VBO);
     glDeleteBuffers(1, &amp;EBO);
 
+    glfwDestroyWindow(window);
     glfwTerminate();
 }
 //===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_texture_load.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_texture_load.png"></div><br><h3 class="Title8 GTitle3">Combiner des textures (image + couleur)</h3><br>Création du vertex shader<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
