@@ -7048,7 +7048,21 @@ void GOpenGLUi::run(int argc, char** argv) {
     glfwDestroyWindow(window);
     glfwTerminate();
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_texture_combine.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_texture_combine.png"></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Uniform-shader"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Uniform shader</a></h2><br>Un <b>uniform </b>est une variable globale shader déclarée avec le qualificatif de stockage "uniform" . Ceux-ci agissent comme des paramètres que l'utilisateur d'un programme shader peut passer à ce programme. Leurs valeurs sont stockées dans un objet programme . Les uniform sont ainsi nommés car ils ne changent pas d'une invocation de shader à l'autre au sein d'un appel de rendu particulier, leur valeur est donc uniforme parmi toutes les invocations. Cela les rend différents des entrées et sorties de l'étage de shader, qui sont souvent différentes pour chaque invocation d'un étage de shader.<br><br><h3 class="Title8 GTitle3">Créer un uniform shader</h3><br>Création du vertex shader<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_texture_combine.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_texture_combine.png"></div><br><h3 class="Title8 GTitle3">Combiner des textures (image + image + flip)</h3><br>Création du fragment shader<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#version 330 core
+out vec4 FragColor;
+
+in vec3 ourColor;
+in vec2 TexCoord;
+
+uniform sampler2D texture1;
+uniform sampler2D texture2;
+
+void main()
+{
+    FragColor = mix(texture(texture1, TexCoord), texture(texture2, vec2(1.0 - TexCoord.x, TexCoord.y)), 0.2);
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_texture_combine_flip.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_texture_combine_flip.png"></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Uniform-shader"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Uniform shader</a></h2><br>Un <b>uniform </b>est une variable globale shader déclarée avec le qualificatif de stockage "uniform" . Ceux-ci agissent comme des paramètres que l'utilisateur d'un programme shader peut passer à ce programme. Leurs valeurs sont stockées dans un objet programme . Les uniform sont ainsi nommés car ils ne changent pas d'une invocation de shader à l'autre au sein d'un appel de rendu particulier, leur valeur est donc uniforme parmi toutes les invocations. Cela les rend différents des entrées et sorties de l'étage de shader, qui sont souvent différentes pour chaque invocation d'un étage de shader.<br><br><h3 class="Title8 GTitle3">Créer un uniform shader</h3><br>Création du vertex shader<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 const char *vertexShaderSource =""
     "#version 330 core\n"
     "layout (location = 0) in vec3 aPos;\n"
