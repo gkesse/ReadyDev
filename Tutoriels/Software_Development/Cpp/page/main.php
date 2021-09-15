@@ -3984,7 +3984,7 @@ GWindow::GWindow(QWidget* parent) : QFrame(parent) {
 GWindow::~GWindow() {
     
 }
-//================================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_interactions.gif" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_interactions.gif"></div><br><h2 class="Title7 GTitle2" id="Trace-de-courbes-2D-avec-QCustomPlot-Creer-un-graphe-avec-un-nuage-de-points"><a class="Link9" href="#Trace-de-courbes-2D-avec-QCustomPlot">Créer un graphe avec un nuage de points</a></h2><br>En statistiques, un <b>nuage de points</b> est une représentation de données dépendant de plusieurs variables. Il permet de mettre en évidence le degré de corrélation entre au moins deux variables liées. Les différentes observations des nuages de points permettent de déterminer : des tendances ; des dépendances ; des relations positives, négatives, directes, indirectes ou inverses ; des répartitions plus ou moins homogènes ; des données aberrantes s'écartant de l'écart type ; des sous groupes pouvant correspondre à l'application d'une loi normale.<br><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//================================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_interactions.gif" class="lazy entered loaded" data-src="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_interactions.gif" data-ll-status="loaded" src="/Tutoriels/Software_Development/Cpp/img/i_qcustomplot_interactions.gif"></div><br><h2 class="Title7 GTitle2" id="Trace-de-courbes-2D-avec-QCustomPlot-Creer-un-graphe-avec-un-nuage-de-points"><a class="Link9" href="#Trace-de-courbes-2D-avec-QCustomPlot">Créer un graphe avec un nuage de points</a></h2><br>En statistiques, un <b>nuage de points</b> est une représentation de données dépendant de plusieurs variables. Il permet de mettre en évidence le degré de corrélation entre au moins deux variables liées. Les différentes observations des nuages de points permettent de déterminer : des tendances ; des dépendances ; des relations positives, négatives, directes, indirectes ou inverses ; des répartitions plus ou moins homogènes ; des données aberrantes s'écartant de l'écart type ; des sous groupes pouvant correspondre à l'application d'une loi normale.<br><br><h3 class="Title8 GTitle3">main.cpp</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 #include "GWindow.h"
 //===============================================
 int main(int argc, char** argv) {
@@ -7745,7 +7745,7 @@ void main()
     gl_Position = vec4(aPos, 1.0); 
     ourPosition = aPos;
 }
-//===============================================</pre></div></div><br>Création du fragment shader<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">&lt;div class="GCode1"&gt;&lt;div class="Code2"&gt;&lt;pre class="AceCode" data-state="off" data-mode="c_cpp"&gt;//===============================================
+//===============================================</pre></div></div><br>Création du fragment shader<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 #version 330 core
 out vec4 FragColor;
 in vec3 ourPosition;
@@ -7754,35 +7754,31 @@ void main()
 {
     FragColor = vec4(ourPosition, 1.0);
 }
-//===============================================&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-Création du triangle
-
-//===============================================
+//===============================================</pre></div></div><br>Création du triangle<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GOpenGLUi::run(int argc, char** argv) {
     sGApp* lApp = GManager::Instance()-&gt;getData()-&gt;app;
 
-    glfwInit();
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+    glfwSetErrorCallback(onError);
 
-#ifdef __APPLE__
-    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
-#endif
+    if (!glfwInit()) {
+        return;
+    }
+
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 2);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
 
     GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "ReadyApp", NULL, NULL);
-    if (window == NULL) {
-        std::cout &lt;&lt; "Failed to create GLFW window" &lt;&lt; std::endl;
+    if (!window) {
         glfwTerminate();
         return;
     }
-    glfwMakeContextCurrent(window);
-    glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
-    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
-        std::cout &lt;&lt; "Failed to initialize GLAD" &lt;&lt; std::endl;
-        return;
-    }
+    glfwSetKeyCallback(window, onKey);
+
+    glfwMakeContextCurrent(window);
+    gladLoadGL(glfwGetProcAddress);
+    glfwSwapInterval(1);
+    glfwSetFramebufferSizeCallback(window, onResize);
 
     unsigned int shaderProgram = GManager::Instance()-&gt;loadShaders(
             lApp-&gt;shader_vertex_file, lApp-&gt;shader_fragment_file);
@@ -7807,8 +7803,6 @@ void GOpenGLUi::run(int argc, char** argv) {
     glBindVertexArray(VAO);
 
     while (!glfwWindowShouldClose(window)) {
-        processInput(window);
-        //===============================================
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
         //===============================================
@@ -7822,6 +7816,7 @@ void GOpenGLUi::run(int argc, char** argv) {
     glDeleteBuffers(1, &amp;VBO);
     glDeleteProgram(shaderProgram);
 
+    glfwDestroyWindow(window);
     glfwTerminate();
 }
 //===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_triangle_position_color.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_triangle_position_color.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Calcul-scientifique-avec-GSL"><a class="Link3" href="#">Calcul scientifique avec GSL</a></h1><div class="Body3"><br><b>GSL </b>est une bibliothèque de calcul scientifique comportant une collection de routines pour le calcul numérique. Les routines ont été écrites à partir de zéro en C et présentent une interface de programmation d'applications (API) moderne pour les programmeurs C, permettant d'écrire des wrappers pour des langages de très haut niveau. Le code source est distribué sous la licence publique générale GNU.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Calcul-scientifique-avec-GSL-Installer-l-environnement-GSL-sous-MSYS2">Installer l'environnement GSL sous MSYS2</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Calcul-scientifique-avec-GSL-Tester-un-projet-GSL-sous-MSYS2">Tester un projet GSL sous MSYS2</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Calcul-scientifique-avec-GSL-Resoudre-une-equation-differentielle-ordinaire">Résoudre une équation différentielle ordinaire</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Calcul-scientifique-avec-GSL-Rechercher-une-interpolation-lineaire">Rechercher une interpolation linéaire</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Calcul-scientifique-avec-GSL-Rechercher-une-interploation-polynomiale">Rechercher une interploation polynomiale</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Calcul-scientifique-avec-GSL-Rechercher-une-interpolation-spline-cubique">Rechercher une interpolation spline cubique</a></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/b_gsl.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/b_gsl.png"></div><br><h2 class="Title7 GTitle2" id="Calcul-scientifique-avec-GSL-Installer-l-environnement-GSL-sous-MSYS2"><a class="Link9" href="#Calcul-scientifique-avec-GSL">Installer l'environnement GSL sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Installer GSL</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">pacman -S --needed --noconfirm mingw-w64-i686-gsl</pre></div></div><br><h2 class="Title7 GTitle2" id="Calcul-scientifique-avec-GSL-Tester-un-projet-GSL-sous-MSYS2"><a class="Link9" href="#Calcul-scientifique-avec-GSL">Tester un projet GSL sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Editer le programme (main.cpp)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
