@@ -1,4 +1,4 @@
-<div class="Parallax GParallax1"><div class="Img Binary"><div class="Caption"><a href="#"><div class="Text">Apprendre la programmation en C++<br></div></a></div></div><div class="Body2 Orange"><br>Le but de ce tutoriel est de vous apprendre la programmation en <b>C++</b>.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary1"><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Introduction">Introduction</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Installation">Installation</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Tests">Tests</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Fondamentaux">Fondamentaux</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Programmation-orientee-objet">Programmation orientée objet</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Patrons-de-conception">Patrons de conception</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Surchage-d-operateurs">Surchage d'opérateurs</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Manager-de-donnees">Manager de données</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Systeme-d-administration">Système d'administration</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Multithreading">Multithreading</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Interface-Homme-Machine-avec-Qt">Interface Homme-Machine avec Qt</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Creation-de-pitogrammes-avec-QtAwesome">Création de pitogrammes avec QtAwesome</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Trace-de-courbes-2D-avec-QCustomPlot">Tracé de courbes 2D avec QCustomPlot</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Communication-Inter-Processus-avec-D-Bus-sous-Qt">Communication Inter-Processus avec D-Bus sous Qt</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV">Vision par Ordinateur avec OpenCV</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Calcul-scientifique-avec-GSL">Calcul scientifique avec GSL</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#C---Builder">C++ Builder</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Notes-et-references">Notes et références</a></div></div><br></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Introduction"><a class="Link3" href="#">Introduction</a></h1><div class="Body3"><br><b>C++</b> est un langage de programmation compilé permettant la programmation sous de multiples paradigmes (comme la programmation procédurale, orientée objet ou générique). Ses bonnes performances, et sa compatibilité avec le C en font un des langages de programmation les plus utilisés dans les applications où la performance est critique.<br><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/b_cpp.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/b_cpp.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Installation"><a class="Link3" href="#">Installation</a></h1><div class="Body3"><br>Installer l'environnement C++.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Installation-Installer-l-environnement-C---sous-MSYS2">Installer l'environnement C++ sous MSYS2</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Installation-Installer-l-environnement-C---sous-WinLibs">Installer l'environnement C++ sous WinLibs</a></div></div><br><h2 class="Title7 GTitle2" id="Installation-Installer-l-environnement-C---sous-MSYS2"><a class="Link9" href="#Installation">Installer l'environnement C++ sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Télécharger MSYS2</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://repo.msys2.org/distrib/x86_64/msys2-x86_64-20210228.exe">https://repo.msys2.org/distrib/x86_64/msys2-x86_64-20210228.exe</a><br><br><h3 class="Title8 GTitle3">Installer MSYS2</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="php">msys2-x86_64-20210228.exe
+<div class="Parallax GParallax1"><div class="Img Binary"><div class="Caption"><a href="#"><div class="Text">Apprendre la programmation en C++<br></div></a></div></div><div class="Body2 Orange"><br>Le but de ce tutoriel est de vous apprendre la programmation en <b>C++</b>.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary1"><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Introduction">Introduction</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Installation">Installation</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Tests">Tests</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Fondamentaux">Fondamentaux</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Programmation-orientee-objet">Programmation orientée objet</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Patrons-de-conception">Patrons de conception</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Surchage-d-operateurs">Surchage d'opérateurs</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Manager-de-donnees">Manager de données</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Systeme-d-administration">Système d'administration</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Multithreading">Multithreading</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Interface-Homme-Machine-avec-Qt">Interface Homme-Machine avec Qt</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Creation-de-pitogrammes-avec-QtAwesome">Création de pitogrammes avec QtAwesome</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Trace-de-courbes-2D-avec-QCustomPlot">Tracé de courbes 2D avec QCustomPlot</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Communication-Inter-Processus-avec-D-Bus-sous-Qt">Communication Inter-Processus avec D-Bus sous Qt</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV">Vision par Ordinateur avec OpenCV</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Programmation-3D-avec-OpenGL">Programmation 3D avec OpenGL</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Calcul-scientifique-avec-GSL">Calcul scientifique avec GSL</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Programmation-reseau-avec-Boost-Asio">Programmation réseau avec Boost.Asio</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Programmation-reseau-avec-cURL">Programmation réseau avec cURL</a></div></div><br></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Introduction"><a class="Link3" href="#">Introduction</a></h1><div class="Body3"><br><b>C++</b> est un langage de programmation compilé permettant la programmation sous de multiples paradigmes (comme la programmation procédurale, orientée objet ou générique). Ses bonnes performances, et sa compatibilité avec le C en font un des langages de programmation les plus utilisés dans les applications où la performance est critique.<br><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/b_cpp.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/b_cpp.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Installation"><a class="Link3" href="#">Installation</a></h1><div class="Body3"><br>Installer l'environnement C++.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Installation-Installer-l-environnement-C---sous-MSYS2">Installer l'environnement C++ sous MSYS2</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Installation-Installer-l-environnement-C---sous-WinLibs">Installer l'environnement C++ sous WinLibs</a></div></div><br><h2 class="Title7 GTitle2" id="Installation-Installer-l-environnement-C---sous-MSYS2"><a class="Link9" href="#Installation">Installer l'environnement C++ sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Télécharger MSYS2</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://repo.msys2.org/distrib/x86_64/msys2-x86_64-20210228.exe">https://repo.msys2.org/distrib/x86_64/msys2-x86_64-20210228.exe</a><br><br><h3 class="Title8 GTitle3">Installer MSYS2</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="php">msys2-x86_64-20210228.exe
 Suivant
 Dossier d'installation -&gt; C:\msys64
 Suivant
@@ -6210,7 +6210,7 @@ int main(int argc, char** argv) {
     return 0;
 }
 //===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Lancer le serveur</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">./server</pre></div></div><br><h3 class="Title8 GTitle3">Lancer le client</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">./client</pre></div></div><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">say_hello : Bonjour tout le monde
-add_data : 50</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Vision-par-Ordinateur-avec-OpenCV"><a class="Link3" href="#">Vision par Ordinateur avec OpenCV</a></h1><div class="Body3"><br><b>OpenCV </b>est une bibliothèque graphique libre, spécialisée dans le traitement d'images en temps réel. La bibliothèque OpenCV met à disposition de nombreuses fonctionnalités très diversifiées permettant de créer des programmes en partant des données brutes pour aller jusqu'à la création d'interfaces graphiques basiques. OpenCV propose la plupart des opérations classiques en traitement bas niveau des images : lecture, écriture et affichage d’une image ; calcul de l'histogramme des niveaux de gris ou d'histogrammes couleurs ; lissage, filtrage ; seuillage d'image (méthode d'Otsu, seuillage adaptatif) ; segmentation (composantes connexes, GrabCut) ; morphologie mathématique.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV-Installer-l-environnement-OpenCV-sous-MSYS2">Installer l'environnement OpenCV sous MSYS2</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV-Compiler-un-projet-OpenCV">Compiler un projet OpenCV</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV-Image">Image</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV-Video">Vidéo</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV-Type-de-donnee">Type de donnée</a></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/b_opencv.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/b_opencv.png"></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Installer-l-environnement-OpenCV-sous-MSYS2"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Installer l'environnement OpenCV sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Installer OpenCV</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">pacman -S --needed --noconfirm mingw-w64-i686-opencv</pre></div></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Compiler-un-projet-OpenCV"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Compiler un projet OpenCV</a></h2><br><h3 class="Title8 GTitle3">Compiler le projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">export "PATH=/mingw32/bin:$PATH"
+add_data : 50</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Vision-par-Ordinateur-avec-OpenCV"><a class="Link3" href="#">Vision par Ordinateur avec OpenCV</a></h1><div class="Body3"><br><b>OpenCV </b>est une bibliothèque graphique libre, spécialisée dans le traitement d'images en temps réel. La bibliothèque OpenCV met à disposition de nombreuses fonctionnalités très diversifiées permettant de créer des programmes en partant des données brutes pour aller jusqu'à la création d'interfaces graphiques basiques. OpenCV propose la plupart des opérations classiques en traitement bas niveau des images : lecture, écriture et affichage d’une image ; calcul de l'histogramme des niveaux de gris ou d'histogrammes couleurs ; lissage, filtrage ; seuillage d'image (méthode d'Otsu, seuillage adaptatif) ; segmentation (composantes connexes, GrabCut) ; morphologie mathématique.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV-Installer-l-environnement-OpenCV-sous-MSYS2">Installer l'environnement OpenCV sous MSYS2</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV-Compiler-un-projet-OpenCV">Compiler un projet OpenCV</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV-Image">Image</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV-Video">Vidéo</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV-Type-de-donnee">Type de donnée</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV-Persistance-des-donnees">Persistance des données</a></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/b_opencv.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/b_opencv.png"></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Installer-l-environnement-OpenCV-sous-MSYS2"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Installer l'environnement OpenCV sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Installer OpenCV</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">pacman -S --needed --noconfirm mingw-w64-i686-opencv</pre></div></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Compiler-un-projet-OpenCV"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Compiler un projet OpenCV</a></h2><br><h3 class="Title8 GTitle3">Compiler le projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">export "PATH=/mingw32/bin:$PATH"
 
 g++ -std=gnu++11  -c main.cpp -o main.o \
 -I/mingw32/include/opencv4
@@ -6495,7 +6495,7 @@ bool est_interieur = point.inside(rectangle);
 //===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Créer une saturation sur une variable</h3><br>Dans OpenCV, on peut parfois effectuer des opérations qui risquent de déborder les valeurs disponibles dans la destination de certains calculs. Ceci est particulièrement courant lorsque vous effectuez des opérations sur des types non signés qui impliquent une soustraction, mais cela peut<br>arriver n'importe où. Pour faire face à ce problème, OpenCV s'appuie sur une construction appelée mise en forme par <b>saturation</b>.<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 double valeur_reelle = calcul(x_1, x_2, x_3);
 uchar saturation = cv::saturate_cast&lt;uchar&gt;(valeur_reelle);
-//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Persistance-des-donnees"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Persistance des données</a></h2><br>OpenCV fournit un mécanisme de <b>sérialisation </b>et de <b>désérialisation </b>de ses différents types de données vers et depuis le disque au format YAML ou XML. Ces méthodes peuvent être utilisées pour charger ou stocker n'importe quel nombre d'objets de données OpenCV (y compris les types de base comme int , float , etc.) dans un seul fichier.<br><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programmation-3D-avec-OpenGL"><a class="Link3" href="#">Programmation 3D avec OpenGL</a></h1><div class="Body3"><br><b>OpenGL </b>(Open Graphics Library) est une interface de programmation d'applications (API) multi-langage et multi-plateforme pour le rendu de graphiques vectoriels 2D et 3D . L'API est généralement utilisée pour interagir avec une unité de traitement graphique (GPU) afin d'obtenir un rendu accéléré par le matériel . OpenGL est abondamment utilisé dans les domaines de la conception assistée par ordinateur (CAO), de la réalité virtuelle , de la visualisation scientifique , de la visualisation de l' information, de la simulation de vol et des jeux vidéo .<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Installer-l-environnement-GLFW-sous-Ubuntu"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Installer l'environnement GLFW sous Ubuntu</a></h2><br><b>GLFW </b>est une bibliothèque utilitaire légère à utiliser avec OpenGL . GLFW signifie Graphics Library Framework. Il offre aux programmeurs la possibilité de créer et de gérer des fenêtres et des contextes OpenGL, ainsi que de gérer les entrées du joystick , du clavier et de la souris . <br><br><h3 class="Title8 GTitle3">Installer GLFW</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">sudo apt install -y libglfw3-dev</pre></div></div><br><h3 class="Title8 GTitle3">Télécharger les dépendances</h3><br>Télécharger GLFW<br><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://github.com/glfw/glfw/releases">https://github.com/glfw/glfw/releases</a><br><br><b>glfw-3.3.4.zip</b><br><br>Décompresser GLFW<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">unzip glfw-3.3.4.zip</pre></div></div><br>Vérifier les dépendances<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">ls -l glfw-3.3.4/deps</pre></div></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Installer-l-environnement-GLFW-sous-WinLibs"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Installer l'environnement GLFW sous WinLibs</a></h2><br><h3 class="Title8 GTitle3">Télécharger GLFW</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://github.com/glfw/glfw/releases">https://github.com/glfw/glfw/releases</a><br><br><b>glfw-3.3.4.zip</b><br><br><h3 class="Title8 GTitle3">Configurer GLFW sous CMake</h3><br>Démarrer CMake<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="batchfile">set "PATH=winlibs-i686-posix-dwarf-gcc-11.2.0-llvm-12.0.1-mingw-w64-9.0.0-r1/mingw32/bin;%PATH%"
+//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Persistance-des-donnees"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Persistance des données</a></h2><br>OpenCV fournit un mécanisme de <b>sérialisation </b>et de <b>désérialisation </b>de ses différents types de données vers et depuis le disque au format YAML ou XML. Ces méthodes peuvent être utilisées pour charger ou stocker n'importe quel nombre d'objets de données OpenCV (y compris les types de base comme int , float , etc.) dans un seul fichier.<br><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programmation-3D-avec-OpenGL"><a class="Link3" href="#">Programmation 3D avec OpenGL</a></h1><div class="Body3"><br><b>OpenGL </b>(Open Graphics Library) est une interface de programmation d'applications (API) multi-langage et multi-plateforme pour le rendu de graphiques vectoriels 2D et 3D . L'API est généralement utilisée pour interagir avec une unité de traitement graphique (GPU) afin d'obtenir un rendu accéléré par le matériel . OpenGL est abondamment utilisé dans les domaines de la conception assistée par ordinateur (CAO), de la réalité virtuelle , de la visualisation scientifique , de la visualisation de l' information, de la simulation de vol et des jeux vidéo .<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-3D-avec-OpenGL-Installer-l-environnement-GLFW-sous-Ubuntu">Installer l'environnement GLFW sous Ubuntu</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-3D-avec-OpenGL-Installer-l-environnement-GLFW-sous-WinLibs">Installer l'environnement GLFW sous WinLibs</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-3D-avec-OpenGL-Compiler-un-projet-GLFW-sous-Ubuntu">Compiler un projet GLFW sous Ubuntu</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-3D-avec-OpenGL-Compiler-un-projet-GLFW-sous-WinLibs">Compiler un projet GLFW sous WinLibs</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-3D-avec-OpenGL-Fenetre">Fenêtre</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-3D-avec-OpenGL-Shader">Shader</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-3D-avec-OpenGL-VBO">VBO</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-3D-avec-OpenGL-VAO">VAO</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-3D-avec-OpenGL-EBO">EBO</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-3D-avec-OpenGL-Texture">Texture</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-3D-avec-OpenGL-Uniform-shader">Uniform shader</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-3D-avec-OpenGL-Interpolation-shader">Interpolation shader</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-3D-avec-OpenGL-Triangle">Triangle</a></div></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Installer-l-environnement-GLFW-sous-Ubuntu"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Installer l'environnement GLFW sous Ubuntu</a></h2><br><b>GLFW </b>est une bibliothèque utilitaire légère à utiliser avec OpenGL . GLFW signifie Graphics Library Framework. Il offre aux programmeurs la possibilité de créer et de gérer des fenêtres et des contextes OpenGL, ainsi que de gérer les entrées du joystick , du clavier et de la souris . <br><br><h3 class="Title8 GTitle3">Installer GLFW</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">sudo apt install -y libglfw3-dev</pre></div></div><br><h3 class="Title8 GTitle3">Télécharger les dépendances</h3><br>Télécharger GLFW<br><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://github.com/glfw/glfw/releases">https://github.com/glfw/glfw/releases</a><br><br><b>glfw-3.3.4.zip</b><br><br>Décompresser GLFW<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">unzip glfw-3.3.4.zip</pre></div></div><br>Vérifier les dépendances<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">ls -l glfw-3.3.4/deps</pre></div></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Installer-l-environnement-GLFW-sous-WinLibs"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Installer l'environnement GLFW sous WinLibs</a></h2><br><h3 class="Title8 GTitle3">Télécharger GLFW</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://github.com/glfw/glfw/releases">https://github.com/glfw/glfw/releases</a><br><br><b>glfw-3.3.4.zip</b><br><br><h3 class="Title8 GTitle3">Configurer GLFW sous CMake</h3><br>Démarrer CMake<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="batchfile">set "PATH=winlibs-i686-posix-dwarf-gcc-11.2.0-llvm-12.0.1-mingw-w64-9.0.0-r1/mingw32/bin;%PATH%"
 set "PATH=C:\Program Files\CMake\bin;%PATH%"
 
 cmake-gui</pre></div></div><br>Configurer GLFW<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">Source code -&gt; GLFW/src
@@ -6521,78 +6521,98 @@ g++ -std=gnu++11 -o rdcpp main.o glad.o -lglfw3dll</pre></div></div><br><h3 clas
 set "PATH=RLib\lib;%PATH%"
 
 .\rdcpp</pre></div></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Fenetre"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Fenêtre</a></h2><br><h3 class="Title8 GTitle3">Créer une fenêtre sous GLFW</h3><br>Création de la fenêtre<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
-void GWindowCreate::run(int argc, char** argv) {
-    glfwInit();
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+void GOpenGLUi::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;getData()-&gt;app;
 
-#ifdef __APPLE__
-    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
-#endif
+    glfwSetErrorCallback(onError);
 
-    GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "ReadyApp", NULL, NULL);
-
-    glfwMakeContextCurrent(window);
-    glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
-
-    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
-        std::cout &lt;&lt; "Failed to initialize GLAD" &lt;&lt; std::endl;
+    if (!glfwInit()) {
         return;
     }
 
-    while (!glfwWindowShouldClose(window)) {
-        processInput(window);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 2);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
 
+    GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "ReadyApp", NULL, NULL);
+    if (!window) {
+        glfwTerminate();
+        return;
+    }
+
+    glfwSetKeyCallback(window, onKey);
+
+    glfwMakeContextCurrent(window);
+    gladLoadGL(glfwGetProcAddress);
+    glfwSwapInterval(1);
+    glfwSetFramebufferSizeCallback(window, onResize);
+
+    //===============================================
+    // initialisation de l'application
+    //===============================================
+
+    while (!glfwWindowShouldClose(window)) {
+        //===============================================
+        // code de l'application
+        //===============================================
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
 
+    glfwDestroyWindow(window);
     glfwTerminate();
 }
 //===============================================</pre></div></div><br>Gestion du redimensionnement de la fenêtre<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
-void GWindowCreate::framebuffer_size_callback(GLFWwindow* window, int width, int height) {
+void GOpenGLUi::onResize(GLFWwindow* window, int width, int height) {
     glViewport(0, 0, width, height);
 }
-//===============================================</pre></div></div><br>Gestion des évènement de la fenêtre<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
-void GWindowCreate::processInput(GLFWwindow *window) {
-    if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
-        glfwSetWindowShouldClose(window, true);
+//===============================================</pre></div></div><br>Gestion des évènement du clavier<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGLUi::onKey(GLFWwindow* window, int key, int scancode, int action, int mods) {
+    if (key == GLFW_KEY_ESCAPE &amp;&amp; action == GLFW_PRESS) {
+        glfwSetWindowShouldClose(window, GLFW_TRUE);
     }
 }
 //===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_window_create.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_window_create.png"></div><br><h3 class="Title8 GTitle3">Ajouter une couleur de fond</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
-void GWindowCreate::run(int argc, char** argv) {
-    glfwInit();
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+void GOpenGLUi::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;getData()-&gt;app;
 
-#ifdef __APPLE__
-    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
-#endif
+    glfwSetErrorCallback(onError);
 
-    GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "ReadyApp", NULL, NULL);
-
-    glfwMakeContextCurrent(window);
-    glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
-
-    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
-        std::cout &lt;&lt; "Failed to initialize GLAD" &lt;&lt; std::endl;
+    if (!glfwInit()) {
         return;
     }
 
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 2);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
+
+    GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "ReadyApp", NULL, NULL);
+    if (!window) {
+        glfwTerminate();
+        return;
+    }
+
+    glfwSetKeyCallback(window, onKey);
+
+    glfwMakeContextCurrent(window);
+    gladLoadGL(glfwGetProcAddress);
+    glfwSwapInterval(1);
+    glfwSetFramebufferSizeCallback(window, onResize);
+
     //===============================================
+    // initialisation de l'application
+    //===============================================
+
     while (!glfwWindowShouldClose(window)) {
-        processInput(window);
-        //===============================================
-        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT);
+    	//===============================================
+    	glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+    	glClear(GL_COLOR_BUFFER_BIT);
+    	//===============================================
+    	// code de l'application
         //===============================================
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
-    //===============================================
 
+    glfwDestroyWindow(window);
     glfwTerminate();
 }
 //===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_window_clear.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_window_clear.png"></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Shader"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Shader</a></h2><br>OpenGL Shading Language (GLSL) est un langage d'ombrage de haut niveau avec une syntaxe basée sur le langage de programmation C. Il a été créé par l' OpenGL ARB (OpenGL Architecture Review Board) pour donner aux développeurs un contrôle plus direct du pipeline graphique sans avoir à utiliser le langage d'assemblage ARB ou des langages spécifiques au matériel. Avec les progrès des cartes graphiques, de nouvelles fonctionnalités ont été ajoutées pour permettre une flexibilité accrue dans le pipeline de rendu au niveau des sommets et des fragments. La programmabilité à ce niveau est obtenue grâce à l'utilisation de <b>shaders </b>de fragments et de vertex. À l'origine, cette fonctionnalité était obtenue en écrivant des shaders en langage assembleur ARB - une tâche complexe et peu intuitive. L' OpenGL ARB a créé l'OpenGL Shading Language pour fournir une méthode plus intuitive de programmation de l' unité de traitement graphique tout en conservant l'avantage des normes ouvertes qui a guidé OpenGL tout au long de son histoire.<br><br><h3 class="Title8 GTitle3">Vertex shader</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
@@ -7210,28 +7230,29 @@ void GOpenGLUi::run(int argc, char** argv) {
 }
 //===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_interpolation_shader.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_interpolation_shader.png"></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Triangle"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Triangle</a></h2><br><h3 class="Title8 GTitle3">Créer un triangle</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GOpenGLUi::run(int argc, char** argv) {
-    glfwInit();
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+    sGApp* lApp = GManager::Instance()-&gt;getData()-&gt;app;
 
-#ifdef __APPLE__
-    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
-#endif
+    glfwSetErrorCallback(onError);
+
+    if (!glfwInit()) {
+        return;
+    }
+
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 2);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
 
     GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "ReadyApp", NULL, NULL);
-    if (window == NULL) {
-        std::cout &lt;&lt; "Failed to create GLFW window" &lt;&lt; std::endl;
+    if (!window) {
         glfwTerminate();
         return;
     }
-    glfwMakeContextCurrent(window);
-    glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
-    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
-        std::cout &lt;&lt; "Failed to initialize GLAD" &lt;&lt; std::endl;
-        return;
-    }
+    glfwSetKeyCallback(window, onKey);
+
+    glfwMakeContextCurrent(window);
+    gladLoadGL(glfwGetProcAddress);
+    glfwSwapInterval(1);
+    glfwSetFramebufferSizeCallback(window, onResize);
 
     unsigned int shaderProgram = GManager::Instance()-&gt;loadShaders(
             vertexShaderSource, fragmentShaderSource);
@@ -7245,7 +7266,7 @@ void GOpenGLUi::run(int argc, char** argv) {
     unsigned int VBO, VAO;
     glGenVertexArrays(1, &amp;VAO);
     glGenBuffers(1, &amp;VBO);
-    
+
     glBindVertexArray(VAO);
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
@@ -7256,8 +7277,6 @@ void GOpenGLUi::run(int argc, char** argv) {
     glBindVertexArray(0);
 
     while (!glfwWindowShouldClose(window)) {
-        processInput(window);
-        //===============================================
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
         //===============================================
@@ -7273,32 +7292,34 @@ void GOpenGLUi::run(int argc, char** argv) {
     glDeleteBuffers(1, &amp;VBO);
     glDeleteProgram(shaderProgram);
 
+    glfwDestroyWindow(window);
     glfwTerminate();
 }
 //===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_triangle_draw.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_triangle_draw.png"></div><br><h3 class="Title8 GTitle3">Créer un triangle (EBO)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GOpenGLUi::run(int argc, char** argv) {
-    glfwInit();
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+    sGApp* lApp = GManager::Instance()-&gt;getData()-&gt;app;
 
-#ifdef __APPLE__
-    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
-#endif
+    glfwSetErrorCallback(onError);
+
+    if (!glfwInit()) {
+        return;
+    }
+
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 2);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
 
     GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "ReadyApp", NULL, NULL);
-    if (window == NULL) {
-        std::cout &lt;&lt; "Failed to create GLFW window" &lt;&lt; std::endl;
+    if (!window) {
         glfwTerminate();
         return;
     }
-    glfwMakeContextCurrent(window);
-    glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
-    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
-        std::cout &lt;&lt; "Failed to initialize GLAD" &lt;&lt; std::endl;
-        return;
-    }
+    glfwSetKeyCallback(window, onKey);
+
+    glfwMakeContextCurrent(window);
+    gladLoadGL(glfwGetProcAddress);
+    glfwSwapInterval(1);
+    glfwSetFramebufferSizeCallback(window, onResize);
 
     unsigned int shaderProgram = GManager::Instance()-&gt;loadShaders(
             vertexShaderSource, fragmentShaderSource);
@@ -7317,7 +7338,7 @@ void GOpenGLUi::run(int argc, char** argv) {
     glGenVertexArrays(1, &amp;VAO);
     glGenBuffers(1, &amp;VBO);
     glGenBuffers(1, &amp;EBO);
-    
+
     glBindVertexArray(VAO);
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
@@ -7330,8 +7351,6 @@ void GOpenGLUi::run(int argc, char** argv) {
     glBindVertexArray(0);
 
     while (!glfwWindowShouldClose(window)) {
-        processInput(window);
-        //===============================================
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
         //===============================================
@@ -7347,35 +7366,37 @@ void GOpenGLUi::run(int argc, char** argv) {
     glDeleteBuffers(1, &amp;VBO);
     glDeleteBuffers(1, &amp;EBO);
     glDeleteProgram(shaderProgram);
-
+    
+    glfwDestroyWindow(window);
     glfwTerminate();
 }
 //===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_triangle_index.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_triangle_index.png"></div><br><h3 class="Title8 GTitle3">Créer un triangle (double vertex)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GOpenGLUi::run(int argc, char** argv) {
-    glfwInit();
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+    sGApp* lApp = GManager::Instance()-&gt;getData()-&gt;app;
 
-#ifdef __APPLE__
-    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
-#endif
+    glfwSetErrorCallback(onError);
+
+    if (!glfwInit()) {
+        return;
+    }
+
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 2);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
 
     GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "ReadyApp", NULL, NULL);
-    if (window == NULL) {
-        std::cout &lt;&lt; "Failed to create GLFW window" &lt;&lt; std::endl;
+    if (!window) {
         glfwTerminate();
         return;
     }
+
+    glfwSetKeyCallback(window, onKey);
+
     glfwMakeContextCurrent(window);
-    glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
+    gladLoadGL(glfwGetProcAddress);
+    glfwSwapInterval(1);
+    glfwSetFramebufferSizeCallback(window, onResize);
 
-    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
-        std::cout &lt;&lt; "Failed to initialize GLAD" &lt;&lt; std::endl;
-        return;
-    }
-
-    unsigned int shaderProgram = GManager::Instance()-&gt;createProgram(
+    unsigned int shaderProgram = GManager::Instance()-&gt;loadShaders(
             vertexShaderSource, fragmentShaderSource);
 
     float vertices[] = {
@@ -7384,15 +7405,15 @@ void GOpenGLUi::run(int argc, char** argv) {
             -0.0f, -0.5f, 0.0f,  // right
             -0.45f, 0.5f, 0.0f,  // top
             // second triangle
-            0.0f, -0.5f, 0.0f,  // left
-            0.9f, -0.5f, 0.0f,  // right
-            0.45f, 0.5f, 0.0f   // top
+            0.0f, -0.5f, 0.0f,   // left
+            0.9f, -0.5f, 0.0f,   // right
+            0.45f, 0.5f, 0.0f    // top
     };
 
     unsigned int VBO, VAO;
     glGenVertexArrays(1, &amp;VAO);
     glGenBuffers(1, &amp;VBO);
-    
+
     glBindVertexArray(VAO);
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
@@ -7403,8 +7424,6 @@ void GOpenGLUi::run(int argc, char** argv) {
     glBindVertexArray(0);
 
     while (!glfwWindowShouldClose(window)) {
-        processInput(window);
-        //===============================================
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
         //===============================================
@@ -7420,6 +7439,7 @@ void GOpenGLUi::run(int argc, char** argv) {
     glDeleteBuffers(1, &amp;VBO);
     glDeleteProgram(shaderProgram);
 
+    glfwDestroyWindow(window);
     glfwTerminate();
 }
 //===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_triangle_double.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_triangle_double.png"></div><br><h3 class="Title8 GTitle3">Créer un triangle (double VBO)</h3><br>Déclaration du vertex shader<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
@@ -7429,7 +7449,7 @@ const char *vertexShaderSource = ""
     "void main()\n"
     "{\n"
     "   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
-    "}\0";
+    "}\n";
 //===============================================</pre></div></div><br>Déclaration du fragment shader (orange)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 const char *fragmentShader1Source = ""
     "#version 330 core\n"
@@ -7437,7 +7457,7 @@ const char *fragmentShader1Source = ""
     "void main()\n"
     "{\n"
     "   FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
-    "}\n\0";
+    "}\n";
 //===============================================</pre></div></div><br>Déclaration du fragment shader (jaune)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 const char *fragmentShader2Source = ""
     "#version 330 core\n"
@@ -7445,32 +7465,33 @@ const char *fragmentShader2Source = ""
     "void main()\n"
     "{\n"
     "   FragColor = vec4(1.0f, 1.0f, 0.0f, 1.0f);\n"
-    "}\n\0";
+    "}\n";
 
 //===============================================</pre></div></div><br>Création du triangle<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GOpenGLUi::run(int argc, char** argv) {
-    glfwInit();
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+    sGApp* lApp = GManager::Instance()-&gt;getData()-&gt;app;
 
-#ifdef __APPLE__
-    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
-#endif
+    glfwSetErrorCallback(onError);
 
-    GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "LearnOpenGL", NULL, NULL);
-    if (window == NULL) {
-        std::cout &lt;&lt; "Failed to create GLFW window" &lt;&lt; std::endl;
+    if (!glfwInit()) {
+        return;
+    }
+
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 2);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
+
+    GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "ReadyApp", NULL, NULL);
+    if (!window) {
         glfwTerminate();
         return;
     }
-    glfwMakeContextCurrent(window);
-    glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
-    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
-        std::cout &lt;&lt; "Failed to initialize GLAD" &lt;&lt; std::endl;
-        return;
-    }
+    glfwSetKeyCallback(window, onKey);
+
+    glfwMakeContextCurrent(window);
+    gladLoadGL(glfwGetProcAddress);
+    glfwSwapInterval(1);
+    glfwSetFramebufferSizeCallback(window, onResize);
 
     unsigned int shaderProgramOrange = GManager::Instance()-&gt;loadShaders(
      		vertexShaderSource, fragmentShader1Source);
@@ -7483,9 +7504,9 @@ void GOpenGLUi::run(int argc, char** argv) {
             -0.45f, 0.5f, 0.0f,  // top
     };
     float secondTriangle[] = {
-            0.0f, -0.5f, 0.0f,  // left
-            0.9f, -0.5f, 0.0f,  // right
-            0.45f, 0.5f, 0.0f   // top
+            0.0f, -0.5f, 0.0f,   // left
+            0.9f, -0.5f, 0.0f,   // right
+            0.45f, 0.5f, 0.0f    // top
     };
     unsigned int VBOs[2], VAOs[2];
     glGenVertexArrays(2, VAOs);
@@ -7505,8 +7526,6 @@ void GOpenGLUi::run(int argc, char** argv) {
     glEnableVertexAttribArray(0);
 
     while (!glfwWindowShouldClose(window)) {
-        processInput(window);
-        //===============================================
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
         //===============================================
@@ -7527,6 +7546,7 @@ void GOpenGLUi::run(int argc, char** argv) {
     glDeleteProgram(shaderProgramOrange);
     glDeleteProgram(shaderProgramYellow);
 
+    glfwDestroyWindow(window);
     glfwTerminate();
 }
 //===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_triangle_double_vbo.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_triangle_double_vbo.png"></div><br><h3 class="Title8 GTitle3">Créer un triangle (inversé)</h3><br>Déclaration du vertex<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
@@ -7554,35 +7574,34 @@ void main()
 void GOpenGLUi::run(int argc, char** argv) {
     sGApp* lApp = GManager::Instance()-&gt;getData()-&gt;app;
 
-    glfwInit();
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+    glfwSetErrorCallback(onError);
 
-#ifdef __APPLE__
-    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
-#endif
+    if (!glfwInit()) {
+        return;
+    }
+
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 2);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
 
     GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "ReadyApp", NULL, NULL);
-    if (window == NULL) {
-        std::cout &lt;&lt; "Failed to create GLFW window" &lt;&lt; std::endl;
+    if (!window) {
         glfwTerminate();
         return;
     }
-    glfwMakeContextCurrent(window);
-    glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
-    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
-        std::cout &lt;&lt; "Failed to initialize GLAD" &lt;&lt; std::endl;
-        return;
-    }
+    glfwSetKeyCallback(window, onKey);
+
+    glfwMakeContextCurrent(window);
+    gladLoadGL(glfwGetProcAddress);
+    glfwSwapInterval(1);
+    glfwSetFramebufferSizeCallback(window, onResize);
 
     unsigned int shaderProgram = GManager::Instance()-&gt;loadShaders(
             lApp-&gt;shader_vertex_file, lApp-&gt;shader_fragment_file);
 
     float vertices[] = {
             // positions        // colors
-            0.5f, -0.5f, 0.0f,    1.0f, 0.0f, 0.0f,  // bottom right
+            0.5f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f,  // bottom right
             -0.5f, -0.5f, 0.0f, 0.0f, 1.0f, 0.0f,  // bottom left
             0.0f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f   // top
     };
@@ -7602,8 +7621,6 @@ void GOpenGLUi::run(int argc, char** argv) {
     glUseProgram(shaderProgram);
 
     while (!glfwWindowShouldClose(window)) {
-        processInput(window);
-        //===============================================
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
         //===============================================
@@ -7618,6 +7635,7 @@ void GOpenGLUi::run(int argc, char** argv) {
     glDeleteBuffers(1, &amp;VBO);
     glDeleteProgram(shaderProgram);
 
+    glfwDestroyWindow(window);
     glfwTerminate();
 }
 //===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_triangle_inverse.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_triangle_inverse.png"></div><br><h3 class="Title8 GTitle3">Créer un triangle (mobile)</h3><br>Création du vertex shader<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
@@ -8700,7 +8718,7 @@ void GWindow::slotMouseMove(QMouseEvent* event) {
 }
 //================================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_gsl_interpolation_spline.gif" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/i_gsl_interpolation_spline.gif"></div><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">gsl_spline_name :  cspline
 gsl_spline_min_size :  3
-gsl_interp_type_min_size :  3</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programmation-reseau-avec-Boost-Asio"><a class="Link3" href="#">Programmation réseau avec Boost.Asio</a></h1><div class="Body3"><br><b>Boost.Asio</b> est une bibliothèque C++ multiplateforme , open source et disponible gratuitement pour la programmation réseau . Il fournit aux développeurs un modèle d' E/S asynchrone cohérent utilisant une approche C++ moderne.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Programmation-reseau-avec-Boost-Asio-Installer-l-environnement-Boost-Asio-sous-MSYS2"><a class="Link9" href="#Programmation-reseau-avec-Boost-Asio">Installer l'environnement Boost.Asio sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Installer Boost</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">pacman -S --needed --noconfirm mingw32/mingw-w64-i686-boost</pre></div></div><br><h2 class="Title7 GTitle2" id="Programmation-reseau-avec-Boost-Asio-Accpeter-une-connexion"><a class="Link9" href="#Programmation-reseau-avec-Boost-Asio">Accpeter une connexion</a></h2><br><h3 class="Title8 GTitle3">Accepter une connexion (serveur)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+gsl_interp_type_min_size :  3</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programmation-reseau-avec-Boost-Asio"><a class="Link3" href="#">Programmation réseau avec Boost.Asio</a></h1><div class="Body3"><br><b>Boost.Asio</b> est une bibliothèque C++ multiplateforme , open source et disponible gratuitement pour la programmation réseau . Il fournit aux développeurs un modèle d' E/S asynchrone cohérent utilisant une approche C++ moderne.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-reseau-avec-Boost-Asio-Installer-l-environnement-Boost-Asio-sous-MSYS2">Installer l'environnement Boost.Asio sous MSYS2</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-reseau-avec-Boost-Asio-Accpeter-une-connexion">Accpeter une connexion</a></div></div><br><h2 class="Title7 GTitle2" id="Programmation-reseau-avec-Boost-Asio-Installer-l-environnement-Boost-Asio-sous-MSYS2"><a class="Link9" href="#Programmation-reseau-avec-Boost-Asio">Installer l'environnement Boost.Asio sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Installer Boost</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">pacman -S --needed --noconfirm mingw32/mingw-w64-i686-boost</pre></div></div><br><h2 class="Title7 GTitle2" id="Programmation-reseau-avec-Boost-Asio-Accpeter-une-connexion"><a class="Link9" href="#Programmation-reseau-avec-Boost-Asio">Accpeter une connexion</a></h2><br><h3 class="Title8 GTitle3">Accepter une connexion (serveur)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GServerAccept::run(int argc, char** argv) {
     const int BACKLOG_SIZE = 30;
     unsigned short port_num = 3333;
@@ -8721,4 +8739,4 @@ void GServerAccept::run(int argc, char** argv) {
         &lt;&lt; ". Message: " &lt;&lt; e.what() &lt;&lt; std::endl;
     }
 }
-//===============================================</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programmation-reseau-avec-cURL"><a class="Link3" href="#">Programmation réseau avec cURL</a></h1><div class="Body3"><br><b>libcurl </b>est une bibliothèque de requêtes aux URL destinée à récupérer le contenu d'une ressource accessible par un réseau informatique. La ressource est désignée à l'aide d'une URL et doit être d'un type supporté par la bibliothèque. libcurl permet de créer ou modifier une ressource et peut ainsi être utilisé en tant que client REST. La bibliothèque supporte notamment les protocoles DICT, file, FTP, FTPS, Gopher, HTTP, HTTPS, IMAP, IMAPS, LDAP, LDAPS, POP3, POP3S, RTSP, SCP, SFTP, SMB, SMBS, SMTP, SMTPS, Telnet et TFTP.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Programmation-reseau-avec-cURL-Installer-l-environnement-libcurl-sous-MSYS2"><a class="Link9" href="#Programmation-reseau-avec-cURL">Installer l'environnement libcurl sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Installer libcurl</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">pacman -S --needed --noconfirm libcurl-devel</pre></div></div><br><br></div></div></div></div><br>
+//===============================================</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programmation-reseau-avec-cURL"><a class="Link3" href="#">Programmation réseau avec cURL</a></h1><div class="Body3"><br><b>libcurl </b>est une bibliothèque de requêtes aux URL destinée à récupérer le contenu d'une ressource accessible par un réseau informatique. La ressource est désignée à l'aide d'une URL et doit être d'un type supporté par la bibliothèque. libcurl permet de créer ou modifier une ressource et peut ainsi être utilisé en tant que client REST. La bibliothèque supporte notamment les protocoles DICT, file, FTP, FTPS, Gopher, HTTP, HTTPS, IMAP, IMAPS, LDAP, LDAPS, POP3, POP3S, RTSP, SCP, SFTP, SMB, SMBS, SMTP, SMTPS, Telnet et TFTP.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-reseau-avec-cURL-Installer-l-environnement-libcurl-sous-MSYS2">Installer l'environnement libcurl sous MSYS2</a></div></div><br><h2 class="Title7 GTitle2" id="Programmation-reseau-avec-cURL-Installer-l-environnement-libcurl-sous-MSYS2"><a class="Link9" href="#Programmation-reseau-avec-cURL">Installer l'environnement libcurl sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Installer libcurl</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">pacman -S --needed --noconfirm libcurl-devel</pre></div></div><br><br></div></div></div></div><br>
