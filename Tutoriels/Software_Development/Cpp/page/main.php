@@ -6964,28 +6964,27 @@ void main()
 void GOpenGLUi::run(int argc, char** argv) {
     sGApp* lApp = GManager::Instance()-&gt;getData()-&gt;app;
 
-    glfwInit();
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+    glfwSetErrorCallback(onError);
 
-#ifdef __APPLE__
-    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
-#endif
+    if (!glfwInit()) {
+        return;
+    }
+
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 2);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
 
     GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "ReadyApp", NULL, NULL);
-    if (window == NULL) {
-        std::cout &lt;&lt; "Failed to create GLFW window" &lt;&lt; std::endl;
+    if (!window) {
         glfwTerminate();
         return;
     }
-    glfwMakeContextCurrent(window);
-    glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
-    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
-        std::cout &lt;&lt; "Failed to initialize GLAD" &lt;&lt; std::endl;
-        return;
-    }
+    glfwSetKeyCallback(window, onKey);
+
+    glfwMakeContextCurrent(window);
+    gladLoadGL(glfwGetProcAddress);
+    glfwSwapInterval(1);
+    glfwSetFramebufferSizeCallback(window, onResize);
 
     unsigned int shaderProgram = GManager::Instance()-&gt;loadShaders(
                 lApp-&gt;shader_vertex_file, lApp-&gt;shader_fragment_file);
@@ -7019,7 +7018,6 @@ void GOpenGLUi::run(int argc, char** argv) {
     glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
     glEnableVertexAttribArray(2);
 
-
     unsigned int texture1 = GManager::Instance()-&gt;loadTexture(lApp-&gt;texture_file, true);
     unsigned int texture2 = GManager::Instance()-&gt;loadTexture(lApp-&gt;texture_file_02);
 
@@ -7028,8 +7026,6 @@ void GOpenGLUi::run(int argc, char** argv) {
     GManager::Instance()-&gt;setInt(shaderProgram, "texture2", 1);
 
     while (!glfwWindowShouldClose(window))     {
-        processInput(window);
-        //===============================================
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
         //===============================================
@@ -7049,6 +7045,7 @@ void GOpenGLUi::run(int argc, char** argv) {
     glDeleteBuffers(1, &amp;VBO);
     glDeleteBuffers(1, &amp;EBO);
 
+    glfwDestroyWindow(window);
     glfwTerminate();
 }
 //===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_texture_combine.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_texture_combine.png"></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Uniform-shader"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Uniform shader</a></h2><br>Un <b>uniform </b>est une variable globale shader déclarée avec le qualificatif de stockage "uniform" . Ceux-ci agissent comme des paramètres que l'utilisateur d'un programme shader peut passer à ce programme. Leurs valeurs sont stockées dans un objet programme . Les uniform sont ainsi nommés car ils ne changent pas d'une invocation de shader à l'autre au sein d'un appel de rendu particulier, leur valeur est donc uniforme parmi toutes les invocations. Cela les rend différents des entrées et sorties de l'étage de shader, qui sont souvent différentes pour chaque invocation d'un étage de shader.<br><br><h3 class="Title8 GTitle3">Créer un uniform shader</h3><br>Création du vertex shader<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
@@ -7070,28 +7067,29 @@ const char *fragmentShaderSource = ""
     "}\n";
 //===============================================</pre></div></div><br>Utilisation de la variable uniform shader<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GOpenGLUi::run(int argc, char** argv) {
-    glfwInit();
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+    sGApp* lApp = GManager::Instance()-&gt;getData()-&gt;app;
 
-#ifdef __APPLE__
-    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
-#endif
+    glfwSetErrorCallback(onError);
+
+    if (!glfwInit()) {
+        return;
+    }
+
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 2);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
 
     GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "ReadyApp", NULL, NULL);
-    if (window == NULL) {
-        std::cout &lt;&lt; "Failed to create GLFW window" &lt;&lt; std::endl;
+    if (!window) {
         glfwTerminate();
         return;
     }
-    glfwMakeContextCurrent(window);
-    glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
-    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
-        std::cout &lt;&lt; "Failed to initialize GLAD" &lt;&lt; std::endl;
-        return;
-    }
+    glfwSetKeyCallback(window, onKey);
+
+    glfwMakeContextCurrent(window);
+    gladLoadGL(glfwGetProcAddress);
+    glfwSwapInterval(1);
+    glfwSetFramebufferSizeCallback(window, onResize);
 
     unsigned int shaderProgram = GManager::Instance()-&gt;loadShaders(
             vertexShaderSource, fragmentShaderSource);
@@ -7115,8 +7113,6 @@ void GOpenGLUi::run(int argc, char** argv) {
     glBindVertexArray(VAO);
 
     while (!glfwWindowShouldClose(window)) {
-        processInput(window);
-        //===============================================
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
         //===============================================
@@ -7135,6 +7131,7 @@ void GOpenGLUi::run(int argc, char** argv) {
     glDeleteBuffers(1, &amp;VBO);
     glDeleteProgram(shaderProgram);
 
+    glfwDestroyWindow(window);
     glfwTerminate();
 }
 //===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_uniform_shader.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_uniform_shader.gif"></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Interpolation-shader"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Interpolation shader</a></h2><br>L'<b>interpolation </b>est un moyen simple de combiner deux couleurs entre elles en fonction d'autres paramètres. OpenGL utilise une interpolation barycentrique sur les valeurs émises par un vertex shader vers les valeurs d'entrée par fragment d'un fragment shader.<br><br><h3 class="Title8 GTitle3">Créer une interpolation shader</h3><br>Création du vertex shader<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
@@ -7159,28 +7156,29 @@ const char *fragmentShaderSource = ""
     "}\n";
 //===============================================</pre></div></div><br>Utilisation de l'interpolation shader<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GOpenGLUi::run(int argc, char** argv) {
-    glfwInit();
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+    sGApp* lApp = GManager::Instance()-&gt;getData()-&gt;app;
 
-#ifdef __APPLE__
-    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
-#endif
+    glfwSetErrorCallback(onError);
+
+    if (!glfwInit()) {
+        return;
+    }
+
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 2);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
 
     GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "ReadyApp", NULL, NULL);
-    if (window == NULL) {
-        std::cout &lt;&lt; "Failed to create GLFW window" &lt;&lt; std::endl;
+    if (!window) {
         glfwTerminate();
         return;
     }
-    glfwMakeContextCurrent(window);
-    glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
-    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
-        std::cout &lt;&lt; "Failed to initialize GLAD" &lt;&lt; std::endl;
-        return;
-    }
+    glfwSetKeyCallback(window, onKey);
+
+    glfwMakeContextCurrent(window);
+    gladLoadGL(glfwGetProcAddress);
+    glfwSwapInterval(1);
+    glfwSetFramebufferSizeCallback(window, onResize);
 
     unsigned int shaderProgram = GManager::Instance()-&gt;loadShaders(
     		vertexShaderSource, fragmentShaderSource);
@@ -7207,8 +7205,6 @@ void GOpenGLUi::run(int argc, char** argv) {
     glUseProgram(shaderProgram);
 
     while (!glfwWindowShouldClose(window)) {
-        processInput(window);
-        //===============================================
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
         //===============================================
@@ -7223,6 +7219,7 @@ void GOpenGLUi::run(int argc, char** argv) {
     glDeleteBuffers(1, &amp;VBO);
     glDeleteProgram(shaderProgram);
 
+    glfwDestroyWindow(window);
     glfwTerminate();
 }
 //===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_interpolation_shader.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_interpolation_shader.png"></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Triangle"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Triangle</a></h2><br><h3 class="Title8 GTitle3">Créer un triangle</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
@@ -7662,28 +7659,27 @@ void main()
 void GOpenGLUi::run(int argc, char** argv) {
     sGApp* lApp = GManager::Instance()-&gt;getData()-&gt;app;
 
-    glfwInit();
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+    glfwSetErrorCallback(onError);
 
-#ifdef __APPLE__
-    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
-#endif
+    if (!glfwInit()) {
+        return;
+    }
+
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 2);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
 
     GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "ReadyApp", NULL, NULL);
-    if (window == NULL) {
-        std::cout &lt;&lt; "Failed to create GLFW window" &lt;&lt; std::endl;
+    if (!window) {
         glfwTerminate();
         return;
     }
-    glfwMakeContextCurrent(window);
-    glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
-    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
-        std::cout &lt;&lt; "Failed to initialize GLAD" &lt;&lt; std::endl;
-        return;
-    }
+    glfwSetKeyCallback(window, onKey);
+
+    glfwMakeContextCurrent(window);
+    gladLoadGL(glfwGetProcAddress);
+    glfwSwapInterval(1);
+    glfwSetFramebufferSizeCallback(window, onResize);
 
     unsigned int shaderProgram = GManager::Instance()-&gt;loadShaders(
             lApp-&gt;shader_vertex_file, lApp-&gt;shader_fragment_file);
@@ -7711,8 +7707,6 @@ void GOpenGLUi::run(int argc, char** argv) {
     glBindVertexArray(VAO);
 
     while (!glfwWindowShouldClose(window)) {
-        processInput(window);
-        //===============================================
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
         //===============================================
@@ -7729,6 +7723,7 @@ void GOpenGLUi::run(int argc, char** argv) {
     glDeleteBuffers(1, &amp;VBO);
     glDeleteProgram(shaderProgram);
 
+    glfwDestroyWindow(window);
     glfwTerminate();
 }
 //===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_triangle_move.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_triangle_move.gif"></div><br><h3 class="Title8 GTitle3">Créer un triangle (position vers couleur)</h3><br>Création du vertex shader<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
