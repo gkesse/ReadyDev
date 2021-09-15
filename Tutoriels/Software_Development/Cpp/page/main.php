@@ -6495,11 +6495,20 @@ bool est_interieur = point.inside(rectangle);
 //===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Créer une saturation sur une variable</h3><br>Dans OpenCV, on peut parfois effectuer des opérations qui risquent de déborder les valeurs disponibles dans la destination de certains calculs. Ceci est particulièrement courant lorsque vous effectuez des opérations sur des types non signés qui impliquent une soustraction, mais cela peut<br>arriver n'importe où. Pour faire face à ce problème, OpenCV s'appuie sur une construction appelée mise en forme par <b>saturation</b>.<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 double valeur_reelle = calcul(x_1, x_2, x_3);
 uchar saturation = cv::saturate_cast&lt;uchar&gt;(valeur_reelle);
-//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Persistance-des-donnees"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Persistance des données</a></h2><br>OpenCV fournit un mécanisme de <b>sérialisation </b>et de <b>désérialisation </b>de ses différents types de données vers et depuis le disque au format YAML ou XML. Ces méthodes peuvent être utilisées pour charger ou stocker n'importe quel nombre d'objets de données OpenCV (y compris les types de base comme int , float , etc.) dans un seul fichier.<br><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programmation-3D-avec-OpenGL"><a class="Link3" href="#">Programmation 3D avec OpenGL</a></h1><div class="Body3"><br><b>OpenGL </b>(Open Graphics Library) est une interface de programmation d'applications (API) multi-langage et multi-plateforme pour le rendu de graphiques vectoriels 2D et 3D . L'API est généralement utilisée pour interagir avec une unité de traitement graphique (GPU) afin d'obtenir un rendu accéléré par le matériel . OpenGL est abondamment utilisé dans les domaines de la conception assistée par ordinateur (CAO), de la réalité virtuelle , de la visualisation scientifique , de la visualisation de l' information, de la simulation de vol et des jeux vidéo .<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Configuration-l-environnement-GLFW-sous-Ubuntu"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Configuration l'environnement GLFW sous Ubuntu</a></h2><br><b>GLFW </b>est une bibliothèque utilitaire légère à utiliser avec OpenGL . GLFW signifie Graphics Library Framework. Il offre aux programmeurs la possibilité de créer et de gérer des fenêtres et des contextes OpenGL, ainsi que de gérer les entrées du joystick , du clavier et de la souris . <br><br><h3 class="Title8 GTitle3">Installer GLFW</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">sudo apt install -y libglfw3-dev</pre></div></div><br><h3 class="Title8 GTitle3">Installer GLAD</h3><br><b>GLAD </b>est un générateur de chargeur multilingue pour GL/GLES/EGL/GLX/WGL basé sur les spécifications officielles du groupe Khronos. Il génère un chargeur pour les besoins des développeurs sur la base des spécifications à jour et peut facilement être étendu à d'autres langages.<br><br>Télécharger GLAD<br><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://glad.dav1d.de/">https://glad.dav1d.de/</a><br><br><h3 class="Title8 GTitle3">Installer STB</h3><br>STB est une collection de bibliothèques du domaine public à fichier unique pour C/C++.<br><br>La collection contient :<br><br>- un chargeur d'images : stb_image.h<br>- un rédacteur d'image : stb_image_write.h<br>- un redimensionneur d'image : stb_image_resize.h<br>- un rastériseur de texte de police : stb_truetype.h<br>- des conteneurs typesafe : stb_ds.h<br><br>Télécharger STB<br><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://github.com/nothings/stb">https://github.com/nothings/stb</a><br><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Compiler-un-projet-GLFW-sous-Ubuntu"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Compiler un projet GLFW sous Ubuntu</a></h2><br><h3 class="Title8 GTitle3">Fichiers headers</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//==============================================
-#include &lt;glad/glad.h&gt;
+//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Persistance-des-donnees"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Persistance des données</a></h2><br>OpenCV fournit un mécanisme de <b>sérialisation </b>et de <b>désérialisation </b>de ses différents types de données vers et depuis le disque au format YAML ou XML. Ces méthodes peuvent être utilisées pour charger ou stocker n'importe quel nombre d'objets de données OpenCV (y compris les types de base comme int , float , etc.) dans un seul fichier.<br><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programmation-3D-avec-OpenGL"><a class="Link3" href="#">Programmation 3D avec OpenGL</a></h1><div class="Body3"><br><b>OpenGL </b>(Open Graphics Library) est une interface de programmation d'applications (API) multi-langage et multi-plateforme pour le rendu de graphiques vectoriels 2D et 3D . L'API est généralement utilisée pour interagir avec une unité de traitement graphique (GPU) afin d'obtenir un rendu accéléré par le matériel . OpenGL est abondamment utilisé dans les domaines de la conception assistée par ordinateur (CAO), de la réalité virtuelle , de la visualisation scientifique , de la visualisation de l' information, de la simulation de vol et des jeux vidéo .<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Installer-l-environnement-GLFW-sous-Ubuntu"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Installer l'environnement GLFW sous Ubuntu</a></h2><br><b>GLFW </b>est une bibliothèque utilitaire légère à utiliser avec OpenGL . GLFW signifie Graphics Library Framework. Il offre aux programmeurs la possibilité de créer et de gérer des fenêtres et des contextes OpenGL, ainsi que de gérer les entrées du joystick , du clavier et de la souris . <br><br><h3 class="Title8 GTitle3">Installer GLFW</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">sudo apt install -y libglfw3-dev</pre></div></div><br><h3 class="Title8 GTitle3">Télécharger les dépendances</h3><br>Télécharger GLFW<br><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://github.com/glfw/glfw/releases">https://github.com/glfw/glfw/releases</a><br><br><b>glfw-3.3.4.zip</b><br><br>Décompresser GLFW<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">unzip glfw-3.3.4.zip</pre></div></div><br>Vérifier les dépendances<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">ls -l glfw-3.3.4/deps</pre></div></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Installer-l-environnement-GLFW-sous-WinLibs"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Installer l'environnement GLFW sous WinLibs</a></h2><br><h3 class="Title8 GTitle3">Télécharger GLFW</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://github.com/glfw/glfw/releases">https://github.com/glfw/glfw/releases</a><br><br><b>glfw-3.3.4.zip</b><br><br><h3 class="Title8 GTitle3">Configurer GLFW sous CMake</h3><br>Démarrer CMake<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="batchfile">set "PATH=winlibs-i686-posix-dwarf-gcc-11.2.0-llvm-12.0.1-mingw-w64-9.0.0-r1/mingw32/bin;%PATH%"
+set "PATH=C:\Program Files\CMake\bin;%PATH%"
+
+cmake-gui</pre></div></div><br>Configurer GLFW<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">Source code -&gt; GLFW/src
+Build binaries -&gt; GLFW/build
+BUILD_SHARED_LIBS -&gt; Cocher
+Configure
+Configure
+Generate</pre></div></div><br>Construire GLFW<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">cd GLFW/build
+mingw32-make</pre></div></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Compiler-un-projet-GLFW-sous-Ubuntu"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Compiler un projet GLFW sous Ubuntu</a></h2><br><h3 class="Title8 GTitle3">Fichiers headers</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//==============================================
+#include &lt;glad/gl.h&gt;
 #include &lt;GLFW/glfw3.h&gt;
-//==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Compiler le projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">g++ -std=gnu++11 -c main.cpp -o main.o -Iglad/include
-gcc -std=gnu11 -c glad/src/glad.c -o glad.o -Iglad/include
+//==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Compiler le projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">g++ -std=gnu++11 -c main.cpp -o main.o -IRLib/include
+gcc -std=gnu11 -c RLib/glad/src/glad_gl.c -o glad_gl.o -IRLib/include
 g++ -std=gnu++11 -o rdcpp main.o glad.o -lglfw -ldl</pre></div></div><br><h3 class="Title8 GTitle3">Exécuter le projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">./rdcpp</pre></div></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Fenetre"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Fenêtre</a></h2><br><h3 class="Title8 GTitle3">Créer une fenêtre sous GLFW</h3><br>Création de la fenêtre<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GWindowCreate::run(int argc, char** argv) {
     glfwInit();
@@ -6732,6 +6741,30 @@ unsigned int GManager::loadTexture(const std::string&amp; textureFile) {
     stbi_image_free(data);
     return texture;
 }
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Charger une texture (flip)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+unsigned int GManager::loadTexture(const std::string&amp; textureFile, bool flip) {
+    unsigned int texture;
+    glGenTextures(1, &amp;texture);
+
+    glBindTexture(GL_TEXTURE_2D, texture);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    int width, height, nrChannels;
+    if(flip) {stbi_set_flip_vertically_on_load(true);}
+    unsigned char *data = stbi_load(textureFile.c_str(), &amp;width, &amp;height, &amp;nrChannels, 0);
+
+    if (data) {
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+        glGenerateMipmap(GL_TEXTURE_2D);
+    }
+    else {
+        std::cout &lt;&lt; "Failed to load texture" &lt;&lt; std::endl;
+    }
+    stbi_image_free(data);
+    return texture;
+}
 //===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Appliquer une texture sur un carré</h3><br>Création du vertex shader <br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 #version 330 core
 layout (location = 0) in vec3 aPos;
@@ -6842,7 +6875,155 @@ void GOpenGLUi::run(int argc, char** argv) {
 
     glfwTerminate();
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_texture_load.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_texture_load.png"></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Uniform-shader"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Uniform shader</a></h2><br>Un <b>uniform </b>est une variable globale shader déclarée avec le qualificatif de stockage "uniform" . Ceux-ci agissent comme des paramètres que l'utilisateur d'un programme shader peut passer à ce programme. Leurs valeurs sont stockées dans un objet programme . Les uniform sont ainsi nommés car ils ne changent pas d'une invocation de shader à l'autre au sein d'un appel de rendu particulier, leur valeur est donc uniforme parmi toutes les invocations. Cela les rend différents des entrées et sorties de l'étage de shader, qui sont souvent différentes pour chaque invocation d'un étage de shader.<br><br><h3 class="Title8 GTitle3">Créer un uniform shader</h3><br>Création du vertex shader<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_texture_load.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_texture_load.png"></div><br><h3 class="Title8 GTitle3">Combiner des textures (image + couleur)</h3><br>Création du vertex shader<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#version 330 core
+layout (location = 0) in vec3 aPos;
+layout (location = 1) in vec3 aColor;
+layout (location = 2) in vec2 aTexCoord;
+
+out vec3 ourColor;
+out vec2 TexCoord;
+
+void main()
+{
+    gl_Position = vec4(aPos, 1.0);
+    ourColor = aColor;
+    TexCoord = vec2(aTexCoord.x, aTexCoord.y);
+}
+//===============================================</pre></div></div><br>Création du fragment shader<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#version 330 core
+out vec4 FragColor;
+
+in vec3 ourColor;
+in vec2 TexCoord;
+
+uniform sampler2D texture1;
+
+void main()
+{
+    FragColor = texture(texture1, TexCoord) * vec4(ourColor, 1.0);
+}
+//===============================================</pre></div></div><br>Combinaison des textures<br><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_texture_combine_color.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_texture_combine_color.png"></div><br><h3 class="Title8 GTitle3">Combiner des textures (image + image)<br></h3><br>Création du vertex shader<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#version 330 core
+layout (location = 0) in vec3 aPos;
+layout (location = 1) in vec3 aColor;
+layout (location = 2) in vec2 aTexCoord;
+
+out vec3 ourColor;
+out vec2 TexCoord;
+
+void main()
+{
+    gl_Position = vec4(aPos, 1.0);
+    ourColor = aColor;
+    TexCoord = vec2(aTexCoord.x, aTexCoord.y);
+}
+//===============================================</pre></div></div><br>Création du fragment shader<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#version 330 core
+out vec4 FragColor;
+
+in vec3 ourColor;
+in vec2 TexCoord;
+
+uniform sampler2D texture1;
+uniform sampler2D texture2;
+
+void main()
+{
+    FragColor = mix(texture(texture1, TexCoord), texture(texture2, TexCoord), 0.2);
+}
+//===============================================</pre></div></div><br>Combinaison des textures<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGLUi::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;getData()-&gt;app;
+
+    glfwInit();
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+
+#ifdef __APPLE__
+    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+#endif
+
+    GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "ReadyApp", NULL, NULL);
+    if (window == NULL) {
+        std::cout &lt;&lt; "Failed to create GLFW window" &lt;&lt; std::endl;
+        glfwTerminate();
+        return;
+    }
+    glfwMakeContextCurrent(window);
+    glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
+
+    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
+        std::cout &lt;&lt; "Failed to initialize GLAD" &lt;&lt; std::endl;
+        return;
+    }
+
+    unsigned int shaderProgram = GManager::Instance()-&gt;loadShaders(
+                lApp-&gt;shader_vertex_file, lApp-&gt;shader_fragment_file);
+
+    float vertices[] = {
+            // positions         // colors           // texture coords
+            0.5f,  0.5f, 0.0f,   1.0f, 0.0f, 0.0f,   1.0f, 1.0f, // top right
+            0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f,   1.0f, 0.0f, // bottom right
+            -0.5f, -0.5f, 0.0f,  0.0f, 0.0f, 1.0f,   0.0f, 0.0f, // bottom left
+            -0.5f,  0.5f, 0.0f,  1.0f, 1.0f, 0.0f,   0.0f, 1.0f  // top left
+    };
+    unsigned int indices[] = {
+            0, 1, 3, // first triangle
+            1, 2, 3  // second triangle
+    };
+    unsigned int VBO, VAO, EBO;
+    glGenVertexArrays(1, &amp;VAO);
+    glGenBuffers(1, &amp;VBO);
+    glGenBuffers(1, &amp;EBO);
+
+    glBindVertexArray(VAO);
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
+    glEnableVertexAttribArray(0);
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
+    glEnableVertexAttribArray(1);
+    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
+    glEnableVertexAttribArray(2);
+
+
+    unsigned int texture1 = GManager::Instance()-&gt;loadTexture(lApp-&gt;texture_file, true);
+    unsigned int texture2 = GManager::Instance()-&gt;loadTexture(lApp-&gt;texture_file_02);
+
+    GManager::Instance()-&gt;useProgram(shaderProgram);
+    GManager::Instance()-&gt;setInt(shaderProgram, "texture1", 0);
+    GManager::Instance()-&gt;setInt(shaderProgram, "texture2", 1);
+
+    while (!glfwWindowShouldClose(window))     {
+        processInput(window);
+        //===============================================
+        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+        glClear(GL_COLOR_BUFFER_BIT);
+        //===============================================
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, texture1);
+        glActiveTexture(GL_TEXTURE1);
+        glBindTexture(GL_TEXTURE_2D, texture2);
+        GManager::Instance()-&gt;useProgram(shaderProgram);
+        glBindVertexArray(VAO);
+        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+        //===============================================
+        glfwSwapBuffers(window);
+        glfwPollEvents();
+    }
+
+    glDeleteVertexArrays(1, &amp;VAO);
+    glDeleteBuffers(1, &amp;VBO);
+    glDeleteBuffers(1, &amp;EBO);
+
+    glfwTerminate();
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_texture_combine.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_texture_combine.png"></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Uniform-shader"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Uniform shader</a></h2><br>Un <b>uniform </b>est une variable globale shader déclarée avec le qualificatif de stockage "uniform" . Ceux-ci agissent comme des paramètres que l'utilisateur d'un programme shader peut passer à ce programme. Leurs valeurs sont stockées dans un objet programme . Les uniform sont ainsi nommés car ils ne changent pas d'une invocation de shader à l'autre au sein d'un appel de rendu particulier, leur valeur est donc uniforme parmi toutes les invocations. Cela les rend différents des entrées et sorties de l'étage de shader, qui sont souvent différentes pour chaque invocation d'un étage de shader.<br><br><h3 class="Title8 GTitle3">Créer un uniform shader</h3><br>Création du vertex shader<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 const char *vertexShaderSource =""
     "#version 330 core\n"
     "layout (location = 0) in vec3 aPos;\n"
