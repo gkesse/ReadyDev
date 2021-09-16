@@ -6749,7 +6749,7 @@ glGenBuffers(1, &amp;EBO);
 glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
 glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 glDeleteBuffers(1, &amp;EBO);
-//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Texture"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Texture</a></h2><br>Une <b>texture </b>est un objet OpenGL qui contient une ou plusieurs images ayant toutes le même format d'image . Une texture peut être utilisée de deux manières : elle peut être la source d'un accès à une texture depuis un Shader , ou elle peut être utilisée comme cible de rendu.<br><br><h3 class="Title8 GTitle3">Charger une texture</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Texture"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Texture</a></h2><br>Une <b>texture </b>est un objet OpenGL qui contient une ou plusieurs images ayant toutes le même format d'image . Une texture peut être utilisée de deux manières : elle peut être la source d'un accès à une texture depuis un Shader , ou elle peut être utilisée comme cible de rendu.<br><br><h3 class="Title8 GTitle3">Charger une texture (GL_REPEAT)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 unsigned int GManager::loadTexture(const std::string&amp; textureFile) {
     unsigned int texture;
     glGenTextures(1, &amp;texture);
@@ -6772,7 +6772,7 @@ unsigned int GManager::loadTexture(const std::string&amp; textureFile) {
     stbi_image_free(data);
     return texture;
 }
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Charger une texture (flip)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Charger une texture (GL_REPEAT + FLIP)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 unsigned int GManager::loadTexture(const std::string&amp; textureFile, bool flip) {
     unsigned int texture;
     glGenTextures(1, &amp;texture);
