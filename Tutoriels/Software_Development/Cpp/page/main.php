@@ -6759,6 +6759,7 @@ unsigned int GManager::loadTexture(const std::string&amp; textureFile) {
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
     int width, height, nrChannels;
     unsigned char *data = stbi_load(textureFile.c_str(), &amp;width, &amp;height, &amp;nrChannels, 0);
 
@@ -6782,8 +6783,10 @@ unsigned int GManager::loadTexture(const std::string&amp; textureFile, bool flip
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    int width, height, nrChannels;
+
     if(flip) {stbi_set_flip_vertically_on_load(true);}
+
+    int width, height, nrChannels;
     unsigned char *data = stbi_load(textureFile.c_str(), &amp;width, &amp;height, &amp;nrChannels, 0);
 
     if (data) {
