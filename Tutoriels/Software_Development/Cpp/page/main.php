@@ -10515,7 +10515,7 @@ void GSocketClient::run(int argc, char** argv) {
 void GSocketServer::run(int argc, char** argv) {
     int lSocket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
     struct sockaddr_in lAddress;
-    bzero(&amp;lAddress, sizeof(lSocket));
+    bzero(&amp;lAddress, sizeof(lAddress));
     lAddress.sin_family = AF_INET;
     lAddress.sin_addr.s_addr = htonl(INADDR_ANY);
     lAddress.sin_port = htons(8585);
