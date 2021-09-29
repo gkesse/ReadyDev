@@ -10320,7 +10320,148 @@ void GWindow::slotMouseMove(QMouseEvent* event) {
 }
 //================================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_gsl_interpolation_spline.gif" class="lazy entered loaded exited" data-src="/Tutoriels/Software_Development/Cpp/img/i_gsl_interpolation_spline.gif" data-ll-status="loaded" src="/Tutoriels/Software_Development/Cpp/img/i_gsl_interpolation_spline.gif"></div><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">gsl_spline_name :  cspline
 gsl_spline_min_size :  3
-gsl_interp_type_min_size :  3</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programmation-reseau-socket-sous-Windows"><a class="Link3" href="#">Programmation réseau socket sous Windows</a></h1><div class="Body3"><br>Un <b>socket </b>réseau est une structure logicielle au sein d'un nœud de réseau d'un réseau informatique qui sert de point de terminaison pour l'envoi et la réception de données sur le réseau. La structure et les propriétés d'un socket sont définies par une interface de programmation d'application (API) pour l'architecture réseau. Les sockets sont créés uniquement pendant la durée de vie d'un processus d'une application s'exécutant dans le nœud.<br><br><br><br><br><br><br><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programmation-reseau-avec-Boost-Asio"><a class="Link3" href="#">Programmation réseau avec Boost.Asio</a></h1><div class="Body3"><br><b>Boost.Asio</b> est une bibliothèque C++ multiplateforme , open source et disponible gratuitement pour la programmation réseau . Il fournit aux développeurs un modèle d' E/S asynchrone cohérent utilisant une approche C++ moderne.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-reseau-avec-Boost-Asio-Installer-l-environnement-Boost-Asio-sous-MSYS2">Installer l'environnement Boost.Asio sous MSYS2</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-reseau-avec-Boost-Asio-Accpeter-une-connexion">Accpeter une connexion</a></div></div><br><h2 class="Title7 GTitle2" id="Programmation-reseau-avec-Boost-Asio-Installer-l-environnement-Boost-Asio-sous-MSYS2"><a class="Link9" href="#Programmation-reseau-avec-Boost-Asio">Installer l'environnement Boost.Asio sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Installer Boost</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">pacman -S --needed --noconfirm mingw32/mingw-w64-i686-boost</pre></div></div><br><h2 class="Title7 GTitle2" id="Programmation-reseau-avec-Boost-Asio-Accpeter-une-connexion"><a class="Link9" href="#Programmation-reseau-avec-Boost-Asio">Accpeter une connexion</a></h2><br><h3 class="Title8 GTitle3">Accepter une connexion (serveur)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+gsl_interp_type_min_size :  3</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programmation-reseau-socket-sous-Windows"><a class="Link3" href="#">Programmation réseau socket sous Windows</a></h1><div class="Body3"><br>Un <b>socket </b>réseau est une structure logicielle au sein d'un nœud de réseau d'un réseau informatique qui sert de point de terminaison pour l'envoi et la réception de données sur le réseau. La structure et les propriétés d'un socket sont définies par une interface de programmation d'application (API) pour l'architecture réseau. Les sockets sont créés uniquement pendant la durée de vie d'un processus d'une application s'exécutant dans le nœud.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Programmation-reseau-socket-sous-Windows-Creer-une-connexion-TCP-IP"><a class="Link9" href="#Programmation-reseau-socket-sous-Windows">Créer une connexion TCP/IP</a></h2><br><h3 class="Title8 GTitle3">Création du serveur</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GSocketServer::run(int argc, char** argv) {
+    WSADATA lWsaData;
+    WSAStartup(MAKEWORD(2, 2), &amp;lWsaData);
+    SOCKET lSocket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
+    sockaddr_in lAddress;
+    lAddress.sin_family = AF_INET;
+    InetPton(AF_INET, "127.0.0.1", &amp;lAddress.sin_addr.s_addr);
+    lAddress.sin_port = htons(8585);
+    memset(&amp;lAddress.sin_zero, 0, sizeof(lAddress.sin_zero));
+    bind(lSocket, (SOCKADDR *)&amp; lAddress, sizeof(lAddress));
+    listen(lSocket, 5);
+    SOCKET lSocket2 = accept(lSocket, NULL, NULL);
+    closesocket(lSocket);
+    //===============================================
+    const int DEFAULT_BUFLEN = 256;
+    char lBuffer[DEFAULT_BUFLEN];
+    std::string lFilename;
+
+    int lBytes = recv(lSocket2, lBuffer, DEFAULT_BUFLEN, 0);
+    for (int i = 0; i &lt; lBytes; i++) lFilename += lBuffer[i];
+
+    GFile lFile;
+    lFile.setFilename(lFilename);
+    GString lString;
+    lString.setData(lFile.getSize());
+    lString.toChar(lBuffer);
+
+    send(lSocket2, lBuffer, strlen(lBuffer), 0);
+    //===============================================
+    shutdown(lSocket2, SD_SEND);
+    closesocket(lSocket2);
+    WSACleanup();
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Création du client</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GSocketClient::run(int argc, char** argv) {
+    WSADATA lWsaData;
+    WSAStartup(MAKEWORD(2, 2), &amp;lWsaData);
+    SOCKET lSocket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
+    sockaddr_in lAddress;
+    lAddress.sin_family = AF_INET;
+    InetPton(AF_INET, "127.0.0.1", &amp;lAddress.sin_addr.s_addr);
+    lAddress.sin_port = htons(8585);
+    memset(&amp;lAddress.sin_zero, 0, sizeof(lAddress.sin_zero));
+    connect(lSocket, (SOCKADDR*)&amp;lAddress, sizeof(lAddress));
+    //===============================================
+    const int DEFAULT_BUFLEN = 256;
+    char lFilename[DEFAULT_BUFLEN] = {0};
+    std::cout &lt;&lt; "Name of file: ";
+    std::cin.getline(lFilename, DEFAULT_BUFLEN, '\n');
+
+    char lBuffer[DEFAULT_BUFLEN];
+    std::string lMessage = "";
+
+    send(lSocket, lFilename, strlen(lFilename), 0);
+
+    int lBytes = recv(lSocket, lBuffer, DEFAULT_BUFLEN, 0);
+    for (int i = 0; i &lt; lBytes; i++) lMessage += lBuffer[i];
+
+    std::cout &lt;&lt; "The size of file \"" &lt;&lt; lFilename &lt;&lt; "\" is: " &lt;&lt; lMessage &lt;&lt; "\n";
+    //===============================================
+    shutdown(lSocket, SD_SEND);
+    closesocket(lSocket);
+    WSACleanup();
+}
+//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Programmation-reseau-socket-sous-Windows-Creer-une-connexion-UDP"><a class="Link9" href="#Programmation-reseau-socket-sous-Windows">Créer une connexion UDP</a></h2><br><h3 class="Title8 GTitle3">Création du serveur</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GSocketServer::run(int argc, char** argv) {
+    WSADATA lWsaData;
+    WSAStartup(MAKEWORD(2, 2), &amp;lWsaData);
+    SOCKET lSocket = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
+    sockaddr_in lAddress;
+    lAddress.sin_family = AF_INET;
+    InetPton(AF_INET, "0.0.0.0", &amp;lAddress.sin_addr.s_addr);
+    lAddress.sin_port = htons(8585);
+    memset(&amp;lAddress.sin_zero, 0, sizeof(lAddress.sin_zero));
+    bind(lSocket, (SOCKADDR*)&amp;lAddress, sizeof(lAddress));
+    //===============================================
+    const int DEFAULT_BUFLEN = 256;
+    char lBuffer[DEFAULT_BUFLEN];
+
+    struct sockaddr_in lAddress2;
+    int lAddressSize2 = sizeof(lAddress2);
+
+    int lBytes = recvfrom(lSocket, lBuffer, DEFAULT_BUFLEN, 0, (struct sockaddr*)&amp;lAddress2, &amp;lAddressSize2);
+
+    GString lFilename;
+    lFilename.setData(lBuffer, lBytes);
+
+    char lAddressIP[INET_ADDRSTRLEN];
+    inet_ntop(AF_INET, &amp;lAddress2.sin_addr, lAddressIP, INET_ADDRSTRLEN);
+    std::cout &lt;&lt; "Recieved name from: " &lt;&lt; lAddressIP &lt;&lt; std::endl;
+
+    GFile lFile;
+    lFile.setFilename(lFilename.c_str());
+    GString lString;
+    lString.setData(lFile.getSize());
+    lString.toChar(lBuffer);
+
+    inet_ntop(AF_INET, &amp;lAddress2.sin_addr, lAddressIP, INET_ADDRSTRLEN);
+    std::cout &lt;&lt; "Sending size to: " &lt;&lt; lAddressIP &lt;&lt; std::endl;
+
+    sendto(lSocket, lBuffer, strlen(lBuffer), 0, (struct sockaddr*)&amp;lAddress2, lAddressSize2);
+    //===============================================
+    closesocket(lSocket);
+    WSACleanup();
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Création du client</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GSocketClient::run(int argc, char** argv) {
+    WSADATA lWsaData;
+    WSAStartup(MAKEWORD(2, 2), &amp;lWsaData);
+    SOCKET lSocket = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
+    sockaddr_in lAddress;
+    lAddress.sin_family = AF_INET;
+    InetPton(AF_INET, "127.0.0.1", &amp;lAddress.sin_addr.s_addr);
+    lAddress.sin_port = htons(8585);
+    memset(&amp;lAddress.sin_zero, 0, sizeof(lAddress.sin_zero));
+    //===============================================
+    const int DEFAULT_BUFLEN = 256;
+    char lFilename[DEFAULT_BUFLEN] = {0};
+    char lBuffer[DEFAULT_BUFLEN];
+    char lAddress2[INET_ADDRSTRLEN];
+    
+    std::cout &lt;&lt; "Name of file: ";
+    std::cin.getline(lFilename, DEFAULT_BUFLEN, '\n');
+
+    inet_ntop(AF_INET, &amp;lAddress.sin_addr, lAddress2, INET_ADDRSTRLEN);
+    std::cout &lt;&lt; "Sending name to: " &lt;&lt; lAddress2 &lt;&lt; std::endl;
+    sendto(lSocket, lFilename, strlen(lFilename), 0, (struct sockaddr*)&amp;lAddress, sizeof(lAddress));
+
+    int lAddressSize = sizeof(lAddress);
+    int lBytes = recvfrom(lSocket, lBuffer, DEFAULT_BUFLEN, 0, (struct sockaddr*)&amp;lAddress, &amp;lAddressSize);
+    GString lString;
+    lString.setData(lBuffer, lBytes);
+    std::cout &lt;&lt; "The size of file \"" &lt;&lt; lFilename &lt;&lt; "\" is: " &lt;&lt; lString.c_str() &lt;&lt; std::endl;
+
+    inet_ntop(AF_INET, &amp;lAddress.sin_addr, lAddress2, INET_ADDRSTRLEN);
+    std::cout &lt;&lt; "Recieved size from: " &lt;&lt; lAddress2 &lt;&lt; std::endl;
+    //===============================================
+    closesocket(lSocket);
+    WSACleanup();
+}
+//===============================================</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programmation-reseau-avec-Boost-Asio"><a class="Link3" href="#">Programmation réseau avec Boost.Asio</a></h1><div class="Body3"><br><b>Boost.Asio</b> est une bibliothèque C++ multiplateforme , open source et disponible gratuitement pour la programmation réseau . Il fournit aux développeurs un modèle d' E/S asynchrone cohérent utilisant une approche C++ moderne.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-reseau-avec-Boost-Asio-Installer-l-environnement-Boost-Asio-sous-MSYS2">Installer l'environnement Boost.Asio sous MSYS2</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-reseau-avec-Boost-Asio-Accpeter-une-connexion">Accpeter une connexion</a></div></div><br><h2 class="Title7 GTitle2" id="Programmation-reseau-avec-Boost-Asio-Installer-l-environnement-Boost-Asio-sous-MSYS2"><a class="Link9" href="#Programmation-reseau-avec-Boost-Asio">Installer l'environnement Boost.Asio sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Installer Boost</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">pacman -S --needed --noconfirm mingw32/mingw-w64-i686-boost</pre></div></div><br><h2 class="Title7 GTitle2" id="Programmation-reseau-avec-Boost-Asio-Accpeter-une-connexion"><a class="Link9" href="#Programmation-reseau-avec-Boost-Asio">Accpeter une connexion</a></h2><br><h3 class="Title8 GTitle3">Accepter une connexion (serveur)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GServerAccept::run(int argc, char** argv) {
     const int BACKLOG_SIZE = 30;
     unsigned short port_num = 3333;
