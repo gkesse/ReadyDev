@@ -10532,7 +10532,6 @@ void GSocketServer::run(int argc, char** argv) {
     }
     //===============================================
     close(lSocket);
-    return;
 }
 //===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Création du client</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GSocketClient::run(int argc, char** argv) {
