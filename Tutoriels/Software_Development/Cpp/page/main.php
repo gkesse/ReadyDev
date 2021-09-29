@@ -10461,6 +10461,56 @@ void GSocketClient::run(int argc, char** argv) {
     closesocket(lSocket);
     WSACleanup();
 }
+//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Programmation-reseau-socket-sous-Windows-Creer-une-connexion-TCP-IP--asynchrone-"><a class="Link9" href="#Programmation-reseau-socket-sous-Windows">Créer une connexion TCP/IP (asynchrone)</a></h2><br><h3 class="Title8 GTitle3">Création du serveur</h3><br>Création du serveur<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GSocketServer::run(int argc, char** argv) {
+    WSADATA lWsaData;
+    WSAStartup(MAKEWORD(2, 2), &amp;lWsaData);
+    const auto lSocket = socket(AF_INET, SOCK_STREAM, 0);
+
+    SOCKADDR_IN lAddress;
+    lAddress.sin_addr.s_addr = INADDR_ANY;
+    lAddress.sin_family = AF_INET;
+    lAddress.sin_port = htons(5555);
+
+    bind(lSocket, reinterpret_cast&lt;SOCKADDR*&gt;(&amp;lAddress), sizeof(lAddress));
+    listen(lSocket, 5);
+
+    SOCKADDR_IN lAddress2;
+    int lAddressSize2 = sizeof(lAddress2);
+    //===============================================
+    while(1) {
+        SOCKET lSocket2 = accept(lSocket, reinterpret_cast&lt;SOCKADDR*&gt;(&amp;lAddress2), &amp;lAddressSize2);
+        auto lAsync = std::async(std::launch::async, on_client_connect, lSocket2);
+    }
+    //===============================================
+    closesocket(lSocket);
+    WSACleanup();
+}
+//===============================================</pre></div></div><br>Création de la fonction de rappel<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GSocketServer::on_client_connect(SOCKET _socket) {
+    char lBuffer[1024];
+    recv(_socket, lBuffer, sizeof(lBuffer), 0);
+    std::cout &lt;&lt; "Client says: " &lt;&lt; lBuffer &lt;&lt; std::endl;
+    memset(lBuffer, 0, sizeof(lBuffer));
+    closesocket(_socket);
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Création du client</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GSocketClient::run(int argc, char** argv) {
+    std::string lBuffer = "Bonjour tout le monde";
+    WSADATA lWsaData;
+    SOCKADDR_IN lAddress;
+    WSAStartup(MAKEWORD(2, 0), &amp;lWsaData);
+    const auto lSocket = socket(AF_INET, SOCK_STREAM, 0);
+    InetPton(AF_INET, "127.0.0.1", &amp;lAddress.sin_addr.s_addr);
+    lAddress.sin_family = AF_INET;
+    lAddress.sin_port = htons(5555);
+    connect(lSocket, reinterpret_cast&lt;SOCKADDR*&gt;(&amp;lAddress), sizeof(lAddress));
+    //===============================================
+    send(lSocket, lBuffer.c_str(), lBuffer.length(), 0);
+    //===============================================
+    closesocket(lSocket);
+    WSACleanup();
+}
 //===============================================</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programmation-reseau-avec-Boost-Asio"><a class="Link3" href="#">Programmation réseau avec Boost.Asio</a></h1><div class="Body3"><br><b>Boost.Asio</b> est une bibliothèque C++ multiplateforme , open source et disponible gratuitement pour la programmation réseau . Il fournit aux développeurs un modèle d' E/S asynchrone cohérent utilisant une approche C++ moderne.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-reseau-avec-Boost-Asio-Installer-l-environnement-Boost-Asio-sous-MSYS2">Installer l'environnement Boost.Asio sous MSYS2</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-reseau-avec-Boost-Asio-Accpeter-une-connexion">Accpeter une connexion</a></div></div><br><h2 class="Title7 GTitle2" id="Programmation-reseau-avec-Boost-Asio-Installer-l-environnement-Boost-Asio-sous-MSYS2"><a class="Link9" href="#Programmation-reseau-avec-Boost-Asio">Installer l'environnement Boost.Asio sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Installer Boost</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">pacman -S --needed --noconfirm mingw32/mingw-w64-i686-boost</pre></div></div><br><h2 class="Title7 GTitle2" id="Programmation-reseau-avec-Boost-Asio-Accpeter-une-connexion"><a class="Link9" href="#Programmation-reseau-avec-Boost-Asio">Accpeter une connexion</a></h2><br><h3 class="Title8 GTitle3">Accepter une connexion (serveur)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GServerAccept::run(int argc, char** argv) {
     const int BACKLOG_SIZE = 30;
