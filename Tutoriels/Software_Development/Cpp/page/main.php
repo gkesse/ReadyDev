@@ -10515,7 +10515,7 @@ void GSocketClient::run(int argc, char** argv) {
 void GSocketServer::run(int argc, char** argv) {
     int lSocket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
     struct sockaddr_in lAddress;
-    bzero(&amp;lAddress, sizeof(lSocket));
+    bzero(&amp;lAddress, sizeof(lAddress));
     lAddress.sin_family = AF_INET;
     lAddress.sin_addr.s_addr = htonl(INADDR_ANY);
     lAddress.sin_port = htons(8585);
@@ -10523,18 +10523,17 @@ void GSocketServer::run(int argc, char** argv) {
     listen(lSocket, 5);
     const char* lMessage = "Bonjour tout le monde";
     //===============================================
+    struct sockaddr_in lAddress2 = {0};
+    socklen_t lAdresseSize2 = sizeof(lAddress2);
     while (1) {
-        struct sockaddr_in lAddress2 = {0};
-        int lAdresseSize2 = sizeof(lAddress2);
-        int lSocket2 = accept(lSocket,(struct sockaddr *)&amp;lAddress2, (socklen_t*)&amp;lAdresseSize2);
+        int lSocket2 = accept(lSocket,(struct sockaddr *)&amp;lAddress2, &amp;lAdresseSize2);
         write(lSocket2, lMessage, strlen(lMessage));
         close(lSocket2);
     }
     //===============================================
     close(lSocket);
-    return;
 }
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Création du client</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><br><h3 class="Title8 GTitle3">Création du client</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GSocketClient::run(int argc, char** argv) {
     char lBuffer[256];
     int lSocket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
@@ -10547,6 +10546,53 @@ void GSocketClient::run(int argc, char** argv) {
     //===============================================
     read(lSocket, lBuffer, sizeof(lBuffer));
     std::cout &lt;&lt; lBuffer &lt;&lt; "...\n";
+    //===============================================
+    close(lSocket);
+}
+//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Programmation-reseau-socket-sous-Linux-Creer-une-connexion-UDP"><a class="Link9" href="#Programmation-reseau-socket-sous-Linux">Créer une connexion UDP</a></h2><br><h3 class="Title8 GTitle3">Création du serveur</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GSocketServer::run(int argc, char** argv) {
+    int lSocket = socket(AF_INET, SOCK_DGRAM, 0);
+    struct sockaddr_in lAddress;
+    bzero(&amp;lAddress, sizeof(lAddress));
+    lAddress.sin_family = AF_INET;
+    lAddress.sin_addr.s_addr = htonl(INADDR_ANY);
+    lAddress.sin_port = htons(8585);
+    bind(lSocket, (struct sockaddr*)&amp;lAddress, sizeof(lAddress));
+    //===============================================
+    struct sockaddr_in lAddress2;
+    socklen_t lAdresseSize2 = sizeof(lAddress2);
+    char lBuffer[256];
+    while (1) {
+        recvfrom(lSocket, lBuffer, 256, 0, (struct sockaddr*)&amp;lAddress2, &amp;lAdresseSize2);
+        printf("Received: %s\n", lBuffer);
+        strcpy(lBuffer, "OK");
+        sendto(lSocket, lBuffer, strlen(lBuffer), 0,(struct sockaddr*)&amp;lAddress2, sizeof(lAddress2));
+    }
+    //===============================================
+    close(lSocket);
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Création du client</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GSocketClient::run(int argc, char** argv) {
+    int lSocket = socket(AF_INET, SOCK_DGRAM, 0);
+    struct sockaddr_in lAddress;
+    bzero(&amp;lAddress, sizeof(lAddress));
+    lAddress.sin_family = AF_INET;
+    lAddress.sin_addr.s_addr = INADDR_ANY;
+    lAddress.sin_port = 0;
+    bind(lSocket, (struct sockaddr*)&amp;lAddress, sizeof(lAddress));
+    struct sockaddr_in lAddress2;
+    bzero(&amp;lAddress2, sizeof(lAddress2));
+    lAddress2.sin_family = AF_INET;
+    lAddress2.sin_addr.s_addr = inet_addr("127.0.0.1");
+    lAddress2.sin_port = htons(8585);
+    socklen_t lAdresseSize2 = sizeof(lAddress2);
+    //===============================================
+    char lBuffer[256];
+    strcpy(lBuffer, "Bonjour tout le monde");
+    sendto(lSocket, lBuffer, strlen(lBuffer), 0, (struct sockaddr*)&amp;lAddress2, sizeof(lAddress2));
+    int lBytes = recvfrom(lSocket, lBuffer, 256, 0, (struct sockaddr*)&amp;lAddress2, &amp;lAdresseSize2);
+    lBuffer[lBytes] = 0;
+    printf("Received: %s\n", lBuffer);
     //===============================================
     close(lSocket);
 }
