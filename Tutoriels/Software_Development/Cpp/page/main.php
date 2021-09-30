@@ -10596,6 +10596,74 @@ void GSocketClient::run(int argc, char** argv) {
     //===============================================
     close(lSocket);
 }
+//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Programmation-reseau-socket-sous-Linux-Transferer-un-fichier-sur-une-connexion-TCP-IP"><a class="Link9" href="#Programmation-reseau-socket-sous-Linux">Transférer un fichier sur une connexion TCP/IP</a></h2><br><h3 class="Title8 GTitle3">Création du serveur</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GSocketServer::run(int argc, char** argv) {
+    const int BUFFER_SIZE = 1024;
+    char lBuffer[BUFFER_SIZE + 1];
+
+    int lSocket = socket(AF_INET, SOCK_STREAM, 0);
+    struct sockaddr_in lAddress;
+    bzero(&amp;lAddress, sizeof(lAddress));
+    lAddress.sin_family = AF_INET;
+    lAddress.sin_addr.s_addr = INADDR_ANY;
+    lAddress.sin_port = htons(8585);
+    bind(lSocket, (struct sockaddr*)&amp;lAddress, sizeof(lAddress));
+    listen(lSocket, 5);
+    struct sockaddr_in lAddress2;
+    socklen_t lAdresseSize2 = sizeof(lAddress2);
+
+    while(1) {
+        int lSocket2 = accept(lSocket, (struct sockaddr*)&amp;lAddress2, &amp;lAdresseSize2);
+        int lReadBytes = read(lSocket2, lBuffer, BUFFER_SIZE);
+        GString lFilename;
+        lFilename.setData(lBuffer, lReadBytes);
+        printf("Reading file %s\n", lFilename.c_str());
+        GFile2 lFile;
+        lFile.setFilename(lFilename.c_str());
+        lFile.openFile2();
+
+        while(1) {
+            int lReadBytes = lFile.readData(lBuffer, BUFFER_SIZE);
+            if(lReadBytes &lt;= 0) {break;}
+            write(lSocket2, lBuffer, lReadBytes);
+        }
+
+        close(lSocket2);
+        lFile.closeFile();
+    }
+
+    close (lSocket);
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Création du client</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GSocketClient::run(int argc, char** argv) {
+    const int BUFFER_SIZE = 1024;
+    char lBuffer[BUFFER_SIZE + 1];
+    const char* lFilename = "data/server/test.xml";
+
+    int lSocket = socket(AF_INET, SOCK_STREAM, 0);
+    struct sockaddr_in lAddress;
+    bzero(&amp;lAddress, sizeof(lAddress));
+    lAddress.sin_family = AF_INET;
+    lAddress.sin_addr.s_addr = inet_addr("127.0.0.1");
+    lAddress.sin_port = htons(8585);
+    connect(lSocket, (struct sockaddr*)&amp;lAddress, sizeof(lAddress));
+    write(lSocket, lFilename, strlen(lFilename));
+    shutdown(lSocket, SHUT_WR);
+    GString lData;
+
+    while(1) {
+        int lBytes = read(lSocket, lBuffer, BUFFER_SIZE);
+        if(lBytes &lt;= 0) {break;}
+        lData.addData(lBuffer, lBytes);
+    }
+
+    GFile2 lFile;
+    lFile.setFilename("data/client/test.xml");
+    lFile.openFile();
+    lFile.writeData(lData);
+
+    close(lSocket);
+}
 //===============================================</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programmation-reseau-avec-Boost-Asio"><a class="Link3" href="#">Programmation réseau avec Boost.Asio</a></h1><div class="Body3"><br><b>Boost.Asio</b> est une bibliothèque C++ multiplateforme , open source et disponible gratuitement pour la programmation réseau . Il fournit aux développeurs un modèle d' E/S asynchrone cohérent utilisant une approche C++ moderne.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-reseau-avec-Boost-Asio-Installer-l-environnement-Boost-Asio-sous-MSYS2">Installer l'environnement Boost.Asio sous MSYS2</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-reseau-avec-Boost-Asio-Accpeter-une-connexion">Accpeter une connexion</a></div></div><br><h2 class="Title7 GTitle2" id="Programmation-reseau-avec-Boost-Asio-Installer-l-environnement-Boost-Asio-sous-MSYS2"><a class="Link9" href="#Programmation-reseau-avec-Boost-Asio">Installer l'environnement Boost.Asio sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Installer Boost</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">pacman -S --needed --noconfirm mingw32/mingw-w64-i686-boost</pre></div></div><br><h2 class="Title7 GTitle2" id="Programmation-reseau-avec-Boost-Asio-Accpeter-une-connexion"><a class="Link9" href="#Programmation-reseau-avec-Boost-Asio">Accpeter une connexion</a></h2><br><h3 class="Title8 GTitle3">Accepter une connexion (serveur)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GServerAccept::run(int argc, char** argv) {
     const int BACKLOG_SIZE = 30;
