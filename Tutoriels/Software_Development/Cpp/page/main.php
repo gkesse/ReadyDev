@@ -10523,17 +10523,17 @@ void GSocketServer::run(int argc, char** argv) {
     listen(lSocket, 5);
     const char* lMessage = "Bonjour tout le monde";
     //===============================================
+    struct sockaddr_in lAddress2 = {0};
+    socklen_t lAdresseSize2 = sizeof(lAddress2);
     while (1) {
-        struct sockaddr_in lAddress2 = {0};
-        int lAdresseSize2 = sizeof(lAddress2);
-        int lSocket2 = accept(lSocket,(struct sockaddr *)&amp;lAddress2, (socklen_t*)&amp;lAdresseSize2);
+        int lSocket2 = accept(lSocket,(struct sockaddr *)&amp;lAddress2, &amp;lAdresseSize2);
         write(lSocket2, lMessage, strlen(lMessage));
         close(lSocket2);
     }
     //===============================================
     close(lSocket);
 }
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Création du client</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><br><h3 class="Title8 GTitle3">Création du client</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GSocketClient::run(int argc, char** argv) {
     char lBuffer[256];
     int lSocket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
