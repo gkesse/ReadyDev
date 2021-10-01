@@ -10623,9 +10623,9 @@ void GSocketServer::run(int argc, char** argv) {
         lFile.openFile2();
 
         while(1) {
-            int lReadBytes = lFile.readData(lBuffer, BUFFER_SIZE);
-            if(lReadBytes &lt;= 0) {break;}
-            write(lSocket2, lBuffer, lReadBytes);
+            int lBytes = lFile.readData(lBuffer, BUFFER_SIZE);
+            if(lBytes &lt;= 0) {break;}
+            write(lSocket2, lBuffer, lBytes);
         }
 
         close(lSocket2);
