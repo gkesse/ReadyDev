@@ -10596,7 +10596,7 @@ void GSocketClient::run(int argc, char** argv) {
     //===============================================
     close(lSocket);
 }
-//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Programmation-reseau-socket-sous-Linux-Transferer-un-fichier-sur-une-connexion-TCP-IP"><a class="Link9" href="#Programmation-reseau-socket-sous-Linux">Transférer un fichier sur une connexion TCP/IP</a></h2><br><h3 class="Title8 GTitle3">Création du serveur</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Programmation-reseau-socket-sous-Linux-Transferer-un-fichier-sur-une-connexion-TCP-IP"><a class="Link9" href="#Programmation-reseau-socket-sous-Linux">Transférer un fichier sur une connexion TCP/IP</a></h2><br>Un <b>fichier </b>est une suite de données structurée (souvent sous la forme d'une liste d'enregistrements suivant un même format), portant un nom et codé sur un support. Le contenu est l'essence du fichier. Il existe des centaines, voire des milliers de types de fichiers, qui se différencient par la nature du contenu, le format, le logiciel utilisé pour manipuler le contenu, et l'usage qu'en fait l'ordinateur. La nature du contenu peut être des textes, des images, de l'audio ou de la vidéo. Le format de fichier est la convention selon laquelle les informations sont numérisées et organisées dans le fichier et sert d'emballage dans lequel sera mis le contenu ainsi que les métadonnées. L´extension lorsqu'elle est présente, suffixe un nom du fichier, afin de renseigner sur le format du fichier et donc sur les logiciels pouvant être utilisés pour le manipuler. Chaque fichier peut être enregistré n'importe où dans le système de fichiers, et le logiciel qui le manipule propose un emplacement conventionnel de stockage.<br><br><h3 class="Title8 GTitle3">Création du serveur</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GSocketServer::run(int argc, char** argv) {
     const int BUFFER_SIZE = 1024;
     char lBuffer[BUFFER_SIZE + 1];
@@ -10660,6 +10660,78 @@ void GSocketClient::run(int argc, char** argv) {
     GFile2 lFile;
     lFile.setFilename("data/client/test.xml");
     lFile.openFile();
+    lFile.writeData(lData);
+    lFile.closeFile();
+    close(lSocket);
+}
+//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Programmation-reseau-socket-sous-Linux-Transferer-une-longue-chaine-sur-une-connexion-TCP-IP"><a class="Link9" href="#Programmation-reseau-socket-sous-Linux">Transférer une longue chaine sur une connexion TCP/IP</a></h2><br><h3 class="Title8 GTitle3">Création du serveur</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GSocketServer::run(int argc, char** argv) {
+    const int BUFFER_SIZE = 1024;
+    char lBuffer[BUFFER_SIZE + 1];
+
+    int lSocket = socket(AF_INET, SOCK_STREAM, 0);
+    struct sockaddr_in lAddress;
+    bzero(&amp;lAddress, sizeof(lAddress));
+    lAddress.sin_family = AF_INET;
+    lAddress.sin_addr.s_addr = INADDR_ANY;
+    lAddress.sin_port = htons(8585);
+    bind(lSocket, (struct sockaddr*)&amp;lAddress, sizeof(lAddress));
+    listen(lSocket, 5);
+    struct sockaddr_in lAddress2;
+    socklen_t lAdresseSize2 = sizeof(lAddress2);
+
+    while(1) {
+        int lSocket2 = accept(lSocket, (struct sockaddr*)&amp;lAddress2, &amp;lAdresseSize2);
+        int lBytes = read(lSocket2, lBuffer, BUFFER_SIZE);
+        GString lFilename;
+        lFilename.setData(lBuffer, lBytes);
+        printf("Reading file %s\n", lFilename.c_str());
+        GFile2 lFile;
+        lFile.setFilename(lFilename.c_str());
+        lFile.openFile2();
+        GString lData;
+        lFile.readAll(lData);
+        lFile.closeFile();
+        int lIndex = 0;
+
+        while(1) {
+        	lBytes = lData.toChar(lBuffer, lIndex, BUFFER_SIZE);
+            if(lBytes &lt;= 0) {break;}
+            lIndex += lBytes;
+            write(lSocket2, lBuffer, lBytes);
+        }
+
+        close(lSocket2);
+    }
+
+    close (lSocket);
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Création du client<br></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GSocketClient::run(int argc, char** argv) {
+    const int BUFFER_SIZE = 1024;
+    char lBuffer[BUFFER_SIZE + 1];
+    const char* lFilename = "data/server/test.xml";
+
+    int lSocket = socket(AF_INET, SOCK_STREAM, 0);
+    struct sockaddr_in lAddress;
+    bzero(&amp;lAddress, sizeof(lAddress));
+    lAddress.sin_family = AF_INET;
+    lAddress.sin_addr.s_addr = inet_addr("127.0.0.1");
+    lAddress.sin_port = htons(8585);
+    connect(lSocket, (struct sockaddr*)&amp;lAddress, sizeof(lAddress));
+    write(lSocket, lFilename, strlen(lFilename));
+    shutdown(lSocket, SHUT_WR);
+    GString lData;
+
+    while(1) {
+        int lBytes = read(lSocket, lBuffer, BUFFER_SIZE);
+        if(lBytes &lt;= 0) {break;}
+        lData.addData(lBuffer, lBytes);
+    }
+
+    GFile2 lFile;
+    lFile.setFilename("data/client/test.xml");
+    lFile.openFile3();
     lFile.writeData(lData);
     lFile.closeFile();
     close(lSocket);
