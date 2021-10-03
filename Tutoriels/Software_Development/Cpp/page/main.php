@@ -6558,6 +6558,7 @@ void GOpenGL::init() {
     glHint(GL_POINT_SMOOTH_HINT, GL_NICEST);
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glEnable(GL_ALPHA_TEST) ;
 }
 //===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Fermeture de la fenêtre OpenGL</h3><br>Détection de la fermeture de la fenêtre<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 bool GOpenGL::isClose() {
