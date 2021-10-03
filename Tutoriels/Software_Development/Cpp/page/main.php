@@ -6730,7 +6730,7 @@ void GOpenGLUi::run(int argc, char** argv) {
         lOpenGL.grid(5.f, 1.f, 0.1f);
         lOpenGL.axis(5.f, 1.f , 5.f, {1.f, 1.f, 1.f, 0.5f});
         lPhase += 0.02f;
-        lOpenGL.sinus(0.8f, lPhase, 200, 10.f);
+        lOpenGL.sinus(0.8f, lPhase, 200, 10.f, 5.f, 10.f);
         lOpenGL.pollEvents();
     }
 
@@ -6746,8 +6746,8 @@ sGData* GFunction::sinus(float _max, float _phase, int _size, float _range) {
     }
     return m_data;
 }
-//===============================================</pre></div></div><br>Affichage des données<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
-void GOpenGL::line(GFunction&amp; _func) {
+//===============================================</pre></div></div><br>Affichage des lignes de données<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGL::line(GFunction&amp; _func, float _linesize) {
     for(int i = 0; i &lt; _func.size() - 1; i++) {
         GLfloat x1 = _func.data()[i].x;
         GLfloat y1 = _func.data()[i].y;
@@ -6756,7 +6756,16 @@ void GOpenGL::line(GFunction&amp; _func) {
 
         sGVertex v1 = {x1, y1, 0.0f, 0.0f, 1.0f, 1.0f, 0.5f};
         sGVertex v2 = {x2, y2, 0.0f, 0.0f, 1.0f, 0.0f, 0.5f};
-        line(v1, v2, 4.0f);
+        line(v1, v2, _linesize);
+    }
+}
+//===============================================</pre></div></div><br>Affichage des points de données<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGL::point(GFunction&amp; _func, float _psize) {
+    for(int i = 0; i &lt; _func.size(); i++) {
+        GLfloat x = _func.data()[i].x;
+        GLfloat y = _func.data()[i].y;
+        sGVertex v = {x, y, 0.0f, 1.0, 1.0, 1.0, 0.7f};
+        point(v, _psize);
     }
 }
 //===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_sinus.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_sinus.png"></div><br><h3 class="Title8 GTitle3">Création d'une carte de chaleur (Gaussian 2D)</h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
@@ -6823,7 +6832,26 @@ void GOpenGL::heatMap(float _v, float _vmin, float _vmax, float&amp; _r, float&a
     if(_r &lt; 0) {_r = 0.f;}
     _g = 1.0f - _b - _r;
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_gaussian_2d.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_gaussian_2d.png"></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Fenetre"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Fenêtre</a></h2><br><h3 class="Title8 GTitle3">Créer une fenêtre sous GLFW</h3><br>Création de la fenêtre<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_gaussian_2d.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_gaussian_2d.png"></div><br><h3 class="Title8 GTitle3">Affichage de données ECG</h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGLUi::run(int argc, char** argv) {
+    GOpenGL lOpenGL;
+    lOpenGL.init();
+
+    int lCount = 0;
+
+    while (!lOpenGL.isClose()) {
+        lOpenGL.viewport();
+        lOpenGL.grid(5.f, 1.f, 0.1f);
+        lOpenGL.axis(5.f, 1.f , 5.f, {1.f, 1.f, 1.f, 0.5f});
+        if(lCount &gt; 5000) {lCount = 0;}
+        lCount += 5;
+        lOpenGL.ecg(data_ecg, lCount, 1024, 2.f);
+        lOpenGL.pollEvents();
+    }
+
+    lOpenGL.close();
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_ecg.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_ecg.png"></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Fenetre"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Fenêtre</a></h2><br><h3 class="Title8 GTitle3">Créer une fenêtre sous GLFW</h3><br>Création de la fenêtre<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GOpenGLUi::run(int argc, char** argv) {
     sGApp* lApp = GManager::Instance()-&gt;getData()-&gt;app;
 
