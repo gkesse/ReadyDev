@@ -6546,7 +6546,219 @@ gcc -c RLib/glad/src/glad_gl.c -o glad_gl.o -IRLib/include
 g++ -o rdcpp main.o glad.o -lglfw3dll</pre></div></div><br><h3 class="Title8 GTitle3">Exécuter le projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="batchfile">set "PATH=winlibs-i686-posix-dwarf-gcc-11.2.0-llvm-12.0.1-mingw-w64-9.0.0-r1\mingw32\bin;%PATH%";
 set "PATH=RLib\lib;%PATH%"
 
-.\rdcpp</pre></div></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Fenetre"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Fenêtre</a></h2><br><h3 class="Title8 GTitle3">Créer une fenêtre sous GLFW</h3><br>Création de la fenêtre<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+.\rdcpp</pre></div></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Introduction"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Introduction</a></h2><br><h3 class="Title8 GTitle3">Initialisation d'OpenGL<br></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGL::init() {
+    glfwInit();
+    m_window = glfwCreateWindow(m_width, m_height, m_title.c_str(), NULL, NULL);
+    glfwMakeContextCurrent(m_window);
+    glfwSwapInterval(1);
+    glEnable(GL_LINE_SMOOTH);
+    glHint(GL_LINE_SMOOTH_HINT, GL_NICEST);
+    glEnable(GL_POINT_SMOOTH);
+    glHint(GL_POINT_SMOOTH_HINT, GL_NICEST);
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Fermeture de la fenêtre OpenGL</h3><br>Détection de la fermeture de la fenêtre<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+bool GOpenGL::isClose() {
+    return glfwWindowShouldClose(m_window);
+}
+//===============================================</pre></div></div><br>Fermeture de la fenêtre<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGL::close() {
+    glfwDestroyWindow(m_window);
+    glfwTerminate();
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Initialisation de la caméra</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGL::viewport() {
+    float lRatio;
+    glfwGetFramebufferSize(m_window, &amp;m_width, &amp;m_height);
+    lRatio = (float)m_width / (float)m_height;
+    glViewport(0, 0, m_width, m_height);
+    glClear(GL_COLOR_BUFFER_BIT);
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    glOrtho(-lRatio, lRatio, -1.0f, 1.0f, 1.0f, -1.0f);
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Structure de données</h3><br>Structure de données d'un vertex<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//==============================================
+struct _sGVertex {
+    float x, y, z;
+    float r, g, b, a;
+};
+//==============================================</pre></div></div><br>Structure de données d'un point<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//==============================================
+struct _sGData {
+    float x, y, z;
+};
+//==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Création d'un point</h3><br>Création d'un point<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGL::point(const sGVertex&amp; _obj, int _width) {
+    glPointSize(_width);
+    glBegin(GL_POINTS);
+    glColor4f(_obj.r, _obj.g, _obj.b, _obj.a);
+    glVertex3f(_obj.x, _obj.y, _obj.z);
+    glEnd();
+}
+//===============================================</pre></div></div><br>Création des points<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGL::point() {
+    GLfloat size = 5.0f;
+    for(GLfloat x = 0.0f; x &lt;= 1.0f; x += 0.2f, size += 5.0f){
+        sGVertex v1 = {x, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f};
+        point(v1, size);
+    }
+}
+//===============================================</pre></div></div><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGLUi::run(int argc, char** argv) {
+    GOpenGL lOpenGL;
+    lOpenGL.init2();
+
+    while (!lOpenGL.isClose()) {
+        lOpenGL.viewport2();
+        glRotatef((float)glfwGetTime() * 50.f, 0.f, 0.f, 1.f);
+        lOpenGL.point();
+        lOpenGL.pollEvents();
+    }
+
+    lOpenGL.close();
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_point.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_point.png"></div><br><h3 class="Title8 GTitle3">Création d'une ligne</h3><br>Création de la ligne<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGL::line(const sGVertex* _obj, int _width) {
+    glLineWidth(_width);
+    glBegin(GL_LINES);
+    for(int i = 0; i &lt; 2; i++) {
+        sGVertex lObj = _obj[i];
+        glColor4f(lObj.r, lObj.g, lObj.b, lObj.a);
+        glVertex3f(lObj.x, lObj.y, lObj.z);
+    }
+    glEnd();
+}
+//===============================================</pre></div></div><br>Création d'une grille<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGL::grid(float _width, float _height, float _div) {
+    // horizontal
+    for(float i = -_height; i &lt; _height; i += _div){
+        sGVertex v1 = {-_width, i, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f};
+        sGVertex v2 = {_width, i, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f};
+        line(v1, v2, 1.f);
+    }
+    // vertical
+    for(float i = -_width; i &lt; _width; i += _div){
+        sGVertex v1 = {i, -_height, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f};
+        sGVertex v2 = {i, _height, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f};
+        line(v1, v2, 1.f);
+    }
+}
+//===============================================</pre></div></div><br>Création des axes<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGL::axis(float _width, float _height, float _size) {
+    sGVertex v1 = {-_width, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.7f};
+    sGVertex v2 = {_width, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.7f};
+    sGVertex v3 = {0.0f, _height, 0.0f, 0.0f, 0.0f, 1.0f, 0.7f};
+    sGVertex v4 = {0.0f, -_height, 0.0f, 0.0f, 0.0f, 1.0f, 0.7f};
+    line(v1, v2, _size);
+    line(v3, v4, _size);
+}
+//===============================================</pre></div></div><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGLUi::run(int argc, char** argv) {
+    GOpenGL lOpenGL;
+    lOpenGL.init();
+
+    while (!lOpenGL.isClose()) {
+        lOpenGL.viewport();
+        lOpenGL.grid(5.f, 1.f, 0.1f);
+        lOpenGL.axis(5.f, 1.f, 10.f);
+        lOpenGL.pollEvents();
+    }
+
+    lOpenGL.close();
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_line.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_line.png"></div><br><h3 class="Title8 GTitle3">Création d'un triangle</h3><br>Création du triangle<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGL::triangle(const sGTriangle* obj) {
+    glBegin(GL_TRIANGLES);
+    for(int i = 0; i &lt; 3; i++) {
+        sGTriangle lObj = obj[i];
+        glColor3f(lObj.r, lObj.g, lObj.b);
+        glVertex3f(lObj.x, lObj.y, lObj.z);
+    }
+    glEnd();
+}
+//===============================================</pre></div></div><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGLUi::run(int argc, char** argv) {
+    GOpenGL lOpenGL;
+    lOpenGL.init();
+
+    sGVertex lTraingle[] = {
+            {-0.6f, -0.4f, 0.f, 1.f, 0.f, 0.f},
+            {0.6f, -0.4f, 0.f, 0.f, 1.f, 0.f},
+            {0.f, 0.6f, 0.f, 0.f, 0.f, 1.f}
+    };
+
+    while (!lOpenGL.isClose()) {
+        lOpenGL.viewport();
+        glRotatef((float)glfwGetTime() * 50.f, 0.f, 0.f, 1.f);
+        lOpenGL.triangle(lTraingle);
+        lOpenGL.pollEvents();
+    }
+
+    lOpenGL.close();
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_triangle.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_triangle.png"></div><br><h3 class="Title8 GTitle3">Création d'un triangle (grille)</h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGLUi::run(int argc, char** argv) {
+    GOpenGL lOpenGL;
+    lOpenGL.init();
+
+    sGVertex v1 = {0.0f, 0.8f, 0.0f, 1.0f, 0.0f, 0.0f, 0.6f};
+    sGVertex v2 = {-1.0f, -0.8f, 0.0f, 0.0f, 1.0f, 0.0f, 0.6f};
+    sGVertex v3 = {1.0f, -0.8f, 0.0f, 0.0f, 0.0f, 1.0f, 0.6f};
+
+    while (!lOpenGL.isClose()) {
+        lOpenGL.viewport();
+        lOpenGL.grid(5.f, 1.f, 0.1f);
+        lOpenGL.triangle(v1, v2, v3);
+        lOpenGL.pollEvents();
+    }
+
+    lOpenGL.close();
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_triangle_grid.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_triangle_grid.png"></div><br><h3 class="Title8 GTitle3">Création d'une fonction sinusoïdale</h3><br>Création de la fonction sinusoïdale<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+sGData* GFunction::sinus(float _max, float _phase, int _size, float _range) {
+    sGData* lData = (sGData*)malloc(_size*sizeof(sGData));
+    for(int i = 0; i &lt; _size; i++) {
+        lData[i].x = ((float)i/_size) * _range - _range/2.0f;
+        lData[i].y = _max * cosf(lData[i].x * 3.14f + _phase);
+    }
+    return lData;
+}
+//===============================================</pre></div></div><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGLUi::run(int argc, char** argv) {
+    GOpenGL lOpenGL;
+    lOpenGL.init();
+
+    float lPhase = 0.f;
+
+    while (!lOpenGL.isClose()) {
+        lOpenGL.viewport();
+        lOpenGL.grid(5.f, 1.f, 0.1f);
+        lOpenGL.axis(5.f, 1.f , 5.f, {1.f, 1.f, 1.f, 0.5f});
+        lPhase += 0.02f;
+        lOpenGL.sinus(0.8f, lPhase, 200, 10.f);
+        lOpenGL.pollEvents();
+    }
+
+    lOpenGL.close();
+}
+//===============================================</pre></div></div><br>Affichage d'un tableau de données<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGL::line(sGData* _data, int _size) {
+    for(int i = 0; i &lt; _size - 1; i++) {
+        GLfloat x1 = _data[i].x;
+        GLfloat y1 = _data[i].y;
+        GLfloat x2 = _data[i + 1].x;
+        GLfloat y2 = _data[i + 1].y;
+
+        sGVertex v1 = {x1, y1, 0.0f, 0.0f, 1.0f, 1.0f, 0.5f};
+        sGVertex v2 = {x2, y2, 0.0f, 0.0f, 1.0f, 0.0f, 0.5f};
+        line(v1, v2, 4.0f);
+    }
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_sinus.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_sinus.png"></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Fenetre"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Fenêtre</a></h2><br><h3 class="Title8 GTitle3">Créer une fenêtre sous GLFW</h3><br>Création de la fenêtre<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GOpenGLUi::run(int argc, char** argv) {
     sGApp* lApp = GManager::Instance()-&gt;getData()-&gt;app;
 
