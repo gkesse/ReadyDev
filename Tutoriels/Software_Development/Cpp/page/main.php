@@ -6852,7 +6852,91 @@ void GOpenGLUi::run(int argc, char** argv) {
 
     lOpenGL.close();
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_ecg.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_ecg.png"></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Fenetre"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Fenêtre</a></h2><br><h3 class="Title8 GTitle3">Créer une fenêtre sous GLFW</h3><br>Création de la fenêtre<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_ecg.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_ecg.png"></div><br><h3 class="Title8 GTitle3">Créer un rendu 3D</h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGLUi::run(int argc, char** argv) {
+    lOpenGL.init();
+    lOpenGL.onResize(onResize);
+    lOpenGL.onKey(onKey);
+
+    lParams.sigma = 0.1f;
+    lParams.sign = 1.0f;
+    lParams.step = 0.01f;
+    lParams.alpha = 210.0f;
+    lParams.beta = -70.0f;
+    lParams.zoom = 2.0f;
+    lParams.lock = false;
+    lParams.freeze = false;
+
+    while (!lOpenGL.isClose()) {
+        lOpenGL.position(lParams.alpha, lParams.beta, lParams.zoom);
+        lOpenGL.grid(5.f, 1.f, 0.1f);
+        lOpenGL.axis(5.f, 1.f , 5.f, {1.f, 1.f, 1.f, 0.5f});
+        if(!lParams.freeze) {
+            lParams.sigma = lParams.sigma + lParams.sign*lParams.step;
+            if(lParams.sigma &gt; 1.0f) {lParams.sign = -1.0f;}
+            if(lParams.sigma &lt; 0.1){lParams.sign = 1.0f;}
+        }
+        lOpenGL.gaussian2D(1000, 1000, lParams.sigma, 2.f);
+        lOpenGL.pollEvents();
+    }
+
+    lOpenGL.close();
+}
+//===============================================
+void GOpenGLUi::onResize(GLFWwindow* window, int width, int height) {
+    lOpenGL.camera(45.f, 0.1f, 128.f, width, height);
+}
+//===============================================
+void GOpenGLUi::onKey(GLFWwindow* window, int key, int scancode, int action, int mods) {
+    lOpenGL.onKey(action, key, lParams.freeze, lParams.alpha, lParams.beta, lParams.zoom);
+}
+//===============================================</pre></div></div><br>Gestion de la caméra<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGL::camera(float _fovY, float _front, float _back, int width, int height) {
+    const double DEG2RAD = 3.14159265 / 180;
+    m_ratio = 1.0f; m_width = width; m_height = height;
+    if(m_height &gt; 0) {m_ratio = (float) m_width / (float) m_height;}
+    glViewport(0, 0, m_width, m_height);
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    float lTangent = tan(_fovY / 2 * DEG2RAD);
+    float lHeightF = _front * lTangent;
+    float lWidthF = lHeightF * m_ratio;
+    glFrustum(-lWidthF, lWidthF, -lHeightF, lHeightF, _front, _back);
+}
+//===============================================</pre></div></div><br>Gestion du clavier<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGL::onKey(int action, int key, bool&amp; _freeze, float&amp; _alpha, float&amp; _beta, float&amp; _zoom) {
+    if (action != GLFW_PRESS) {return;}
+    switch (key) {
+        case GLFW_KEY_ESCAPE:
+            glfwSetWindowShouldClose(m_window, GL_TRUE);
+            break;
+        case GLFW_KEY_SPACE:
+            _freeze = !_freeze;
+            break;
+        case GLFW_KEY_LEFT:
+            _alpha += 5.0f;
+            break;
+        case GLFW_KEY_RIGHT:
+            _alpha -= 5.0f;
+            break;
+        case GLFW_KEY_UP:
+            _beta -= 5.0f;
+            break;
+        case GLFW_KEY_DOWN:
+            _beta += 5.0f;
+            break;
+        case GLFW_KEY_PAGE_UP:
+            _zoom -= 0.25f;
+            if (_zoom &lt; 0.0f) {_zoom = 0.0f;}
+            break;
+        case GLFW_KEY_PAGE_DOWN:
+            _zoom += 0.25f;
+            break;
+        default:
+            break;
+    }
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_plot_3d.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_plot_3d.png"></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Fenetre"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Fenêtre</a></h2><br><h3 class="Title8 GTitle3">Créer une fenêtre sous GLFW</h3><br>Création de la fenêtre<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GOpenGLUi::run(int argc, char** argv) {
     sGApp* lApp = GManager::Instance()-&gt;getData()-&gt;app;
 
