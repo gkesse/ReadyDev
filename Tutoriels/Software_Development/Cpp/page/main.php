@@ -6852,6 +6852,29 @@ void GOpenGLUi::run(int argc, char** argv) {
 
     lOpenGL.close();
 }
+//===============================================</pre></div></div><br>Affichage des données ECG<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGL::ecg(const float* _data, int _offset, int _size, float _linesize) {
+    ecg(_data, _offset, _size, -0.5f, 0.1f, _linesize);
+    ecg(_data, _offset + _size, _size, 0.0f, 0.5f, _linesize);
+    ecg(_data, _offset + _size*2, _size, 0.5f, -0.25f, _linesize);
+}
+//===============================================
+void GOpenGL::ecg(const float* _data, int _offset, int _size, float _yoffset, float _scale, float _linesize) {
+    const float lSpace = 2.0f / _size * m_ratio;
+    float lPos = -_size * lSpace / 2.0f;
+    glLineWidth(_linesize);
+
+    glBegin(GL_LINE_STRIP);
+    glColor4f(0.1f, 1.0f, 0.1f, 0.8f);
+
+    for(int i = _offset; i &lt; _size + _offset; i++){
+        const float data = _scale * _data[i] + _yoffset;
+        glVertex3f(lPos, data, 0.0f);
+        lPos += lSpace;
+    }
+
+    glEnd();
+}
 //===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_ecg.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_ecg.png"></div><br><h3 class="Title8 GTitle3">Créer un rendu 3D</h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GOpenGLUi::run(int argc, char** argv) {
     lOpenGL.init();
@@ -6891,6 +6914,10 @@ void GOpenGLUi::onKey(GLFWwindow* window, int key, int scancode, int action, int
     lOpenGL.onKey(action, key, lParams.freeze, lParams.alpha, lParams.beta, lParams.zoom);
 }
 //===============================================</pre></div></div><br>Gestion de la caméra<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGLUi::onResize(GLFWwindow* _window, int _width, int _height) {
+    lOpenGL.camera(45.f, 0.1f, 128.f, _width, _height);
+}
+//===============================================
 void GOpenGL::camera(float _fovY, float _front, float _back, int width, int height) {
     const double DEG2RAD = 3.14159265 / 180;
     m_ratio = 1.0f; m_width = width; m_height = height;
@@ -6904,6 +6931,10 @@ void GOpenGL::camera(float _fovY, float _front, float _back, int width, int heig
     glFrustum(-lWidthF, lWidthF, -lHeightF, lHeightF, _front, _back);
 }
 //===============================================</pre></div></div><br>Gestion du clavier<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGLUi::onKey(GLFWwindow* _window, int _key, int _scancode, int _action, int _mods) {
+    lOpenGL.onKey(_action, _key, lParams.freeze, lParams.alpha, lParams.beta, lParams.zoom);
+}
+//===============================================
 void GOpenGL::onKey(int action, int key, bool&amp; _freeze, float&amp; _alpha, float&amp; _beta, float&amp; _zoom) {
     if (action != GLFW_PRESS) {return;}
     switch (key) {
@@ -6936,7 +6967,47 @@ void GOpenGL::onKey(int action, int key, bool&amp; _freeze, float&amp; _alpha, f
             break;
     }
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_plot_3d.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_plot_3d.png"></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Fenetre"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Fenêtre</a></h2><br><h3 class="Title8 GTitle3">Créer une fenêtre sous GLFW</h3><br>Création de la fenêtre<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br>Gestion du scroll de la souris<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGLUi::onScroll(GLFWwindow* _window, double _x, double _y) {
+	lOpenGL.onScroll(_x, _y, lParams.zoom);
+}
+//===============================================
+void GOpenGL::onScroll(double _x, double _y, float&amp; _zoom) {
+	_zoom += (float) _y / 4.0f;
+    if (_zoom &lt; 0.0f) {
+    	_zoom = 0.0f;
+    }
+}
+//===============================================</pre></div></div><br>Gestion des boutons de la souris<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGLUi::onMouse(GLFWwindow* _window, int _button, int _action, int _mods) {
+    lOpenGL.onMouse(_button, _action, lParams.lock);
+}
+//===============================================
+void GOpenGL::onMouse(int _button, int _action, bool&amp; lock) {
+    if (_button != GLFW_MOUSE_BUTTON_LEFT) {return;}
+    if (_action == GLFW_PRESS) {
+        glfwSetInputMode(m_window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+        lock = true;
+    }
+    else {
+        lock = false;
+        glfwSetInputMode(m_window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+    }
+}
+//===============================================</pre></div></div><br>Gestion du curseur de la souris<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGLUi::onCursor(GLFWwindow* _window, double _x, double _y) {
+    lOpenGL.onCursor(_x, _y, lParams.lock, lParams.alpha, lParams.beta, lParams.cursorX, lParams.cursorY);
+}
+//===============================================
+void GOpenGL::onCursor(double _x, double _y, bool&amp; _lock, float&amp; _alpha, float&amp; _beta, int _cursorX, int&amp; _cursorY) {
+    if (_lock) {
+        _alpha += (float) (_x - _cursorX) / 10.0f;
+        _beta += (float) (_y - _cursorY) / 10.0f;
+    }
+    _cursorX = (int) _x;
+    _cursorY = (int) _y;
+}
+//===============================================</pre></div></div><br><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_plot_3d.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_plot_3d.png"></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Fenetre"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Fenêtre</a></h2><br><h3 class="Title8 GTitle3">Créer une fenêtre sous GLFW</h3><br>Création de la fenêtre<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GOpenGLUi::run(int argc, char** argv) {
     sGApp* lApp = GManager::Instance()-&gt;getData()-&gt;app;
 
