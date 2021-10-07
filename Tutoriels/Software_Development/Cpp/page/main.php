@@ -7125,7 +7125,62 @@ void GOpenGL::mcml(GFunction&amp; _func, float _pointsize, float _alpha) {
     }
     glEnd();
 }
-//===============================================</pre></div></div><br>DEPTH (ON)<br><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_volume_3d.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_volume_3d.png"></div><br>DEPTH (OFF)<br><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_volume_3d_2.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_volume_3d_2.png"></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Fenetre"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Fenêtre</a></h2><br><h3 class="Title8 GTitle3">Créer une fenêtre sous GLFW</h3><br>Création de la fenêtre<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br>DEPTH (ON)<br><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_volume_3d.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_volume_3d.png"></div><br>DEPTH (OFF)<br><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_volume_3d_2.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_volume_3d_2.png"></div><br><h3 class="Title8 GTitle3">Utilisation d'un shader</h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGLUi::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
+
+    const GLfloat lVertices[] = {
+            -1.0f, -1.0f, 0.0f,
+            1.0f, -1.0f, 0.0f,
+            1.0f, 1.0f, 0.0f,
+            -1.0f, -1.0f, 0.0f,
+            1.0f, 1.0f, 0.0f,
+            -1.0f, 1.0f, 0.0f
+    };
+    const GLfloat lColors[] = {
+            0.0f, 0.0f, 1.0f,
+            0.0f, 1.0f, 0.0f,
+            1.0f, 0.0f, 0.0f,
+            0.0f, 0.0f, 1.0f,
+            1.0f, 0.0f, 0.0f,
+            0.0f, 1.0f, 0.0f
+    };
+
+    lParams.vertex = lVertices;
+    lParams.color = lColors;
+    lParams.vertex_size = sizeof(lVertices);
+    lParams.color_size = sizeof(lColors);
+
+    lOpenGL.init2();
+
+    lOpenGL.shader(lApp-&gt;vertex_shader_file, lApp-&gt;fragment_shader_file);
+
+    lOpenGL.vao(1, &amp;lParams.vao);
+    lOpenGL.vbo(1, &amp;lParams.vbo_vertex);
+    lOpenGL.vbo(1, &amp;lParams.vbo_color);
+    lOpenGL.vbo(lParams.vbo_vertex, lParams.vertex, lParams.vertex_size);
+    lOpenGL.vbo(lParams.vbo_color, lParams.color, lParams.color_size);
+    lOpenGL.vbo(lParams.vbo_vertex, lParams.attrib_vertex, "position");
+    lOpenGL.vbo(lParams.vbo_color, lParams.attrib_color, "color_in");
+    lOpenGL.fragment(0, "color_out");
+
+    lOpenGL.use();
+
+    while (!lOpenGL.isClose()) {
+    	lOpenGL.bgcolor();
+        glDrawArrays(GL_TRIANGLES, 0, 6);
+        lOpenGL.pollEvents();
+    }
+
+    lOpenGL.disableAttrib(lParams.attrib_vertex);
+    lOpenGL.disableAttrib(lParams.attrib_color);
+    lOpenGL.deleteVbo(1, &amp;lParams.vbo_vertex);
+    lOpenGL.deleteVbo(1, &amp;lParams.vbo_color);
+    lOpenGL.deleteVao(1, &amp;lParams.vao);
+    lOpenGL.deleteProgram();
+    lOpenGL.close();
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_shader.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_shader.png"></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Fenetre"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Fenêtre</a></h2><br><h3 class="Title8 GTitle3">Créer une fenêtre sous GLFW</h3><br>Création de la fenêtre<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GOpenGLUi::run(int argc, char** argv) {
     sGApp* lApp = GManager::Instance()-&gt;getData()-&gt;app;
 
