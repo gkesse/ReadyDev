@@ -6875,7 +6875,7 @@ void GOpenGL::ecg(const float* _data, int _offset, int _size, float _yoffset, fl
 
     glEnd();
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_ecg.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_ecg.png"></div><br><h3 class="Title8 GTitle3">Créer un rendu 3D</h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_ecg.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_ecg.png"></div><br><h3 class="Title8 GTitle3">Création d'un rendu de forme 3D</h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GOpenGLUi::run(int argc, char** argv) {
     lOpenGL.init();
     lOpenGL.onResize(onResize);
@@ -6885,7 +6885,7 @@ void GOpenGLUi::run(int argc, char** argv) {
     lParams.sign = 1.0f;
     lParams.step = 0.01f;
     lParams.alpha = 210.0f;
-    lParams.beta = -70.0f;
+    lParams.beta = 70.0f;
     lParams.zoom = 2.0f;
     lParams.lock = false;
     lParams.freeze = false;
@@ -7007,7 +7007,111 @@ void GOpenGL::onCursor(double _x, double _y, bool&amp; _lock, float&amp; _alpha,
     _cursorX = (int) _x;
     _cursorY = (int) _y;
 }
-//===============================================</pre></div></div><br><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_plot_3d.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_plot_3d.png"></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Fenetre"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Fenêtre</a></h2><br><h3 class="Title8 GTitle3">Créer une fenêtre sous GLFW</h3><br>Création de la fenêtre<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_plot_3d.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_plot_3d.png"></div><br><h3 class="Title8 GTitle3">Création d'un rendu de volume 3D</h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGLUi::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
+
+    lOpenGL.init();
+    lOpenGL.onResize(onResize);
+    lOpenGL.onKey(onKey);
+    lOpenGL.onScroll(onScroll);
+    lOpenGL.onMouse(onMouse);
+    lOpenGL.onCursor(onCursor);
+
+    lParams.filename = lApp-&gt;mcml_file.c_str();
+    lParams.xsize = 50;
+    lParams.ysize = 50;
+    lParams.zsize = 200;
+    lParams.color = {1.f, 1.f, 1.f, 1.f};
+    lParams.alpha = 220.0f;
+    lParams.beta = -60.0f;
+    lParams.zoom = 2.5f;
+    lParams.lock = false;
+    lParams.cursorX = 0;
+    lParams.cursorY = 0;
+    lParams.xslice = 0;
+    lParams.yslice = 0;
+    lParams.zslice = 0;
+    lParams.pointsize = 5.f;
+    lParams.linesize = 5.f;
+    lParams.transparency = 0.5f;
+
+    GFunction lFunction;
+    lFunction.mcml(lParams.filename, lParams.xsize, lParams.ysize, lParams.zsize, lParams.color);
+
+    while (!lOpenGL.isClose()) {
+        lOpenGL.position(lParams.alpha, lParams.beta, lParams.zoom);
+        lOpenGL.grid(5.f, 1.f, 0.1f);
+        lOpenGL.depth(false);
+        lOpenGL.mcml(lFunction, lParams.pointsize, 0.15f);
+        lOpenGL.depth(true);
+        lOpenGL.slice(lFunction, lParams.xsize, lParams.ysize, lParams.zsize, lParams.xslice, lParams.yslice, lParams.zslice, lParams.pointsize);
+        lOpenGL.origin(lParams.linesize, lParams.transparency);
+        lOpenGL.pollEvents();
+    }
+
+    lOpenGL.close();
+}
+//===============================================
+void GOpenGLUi::onResize(GLFWwindow* _window, int _width, int _height) {
+    lOpenGL.camera(45.f, 0.1f, 128.f, _width, _height);
+}
+//===============================================
+void GOpenGLUi::onKey(GLFWwindow* _window, int _key, int _scancode, int _action, int _mods) {
+    lOpenGL.onKey2(_action, _key, lParams.xsize, lParams.ysize, lParams.zsize, lParams.pointsize, lParams.xslice, lParams.yslice, lParams.zslice, lParams.zoom);
+}
+//===============================================
+void GOpenGLUi::onScroll(GLFWwindow* _window, double _x, double _y) {
+    lOpenGL.onScroll(_x, _y, lParams.zoom);
+}
+//===============================================
+void GOpenGLUi::onMouse(GLFWwindow* _window, int _button, int _action, int _mods) {
+    lOpenGL.onMouse(_button, _action, lParams.lock);
+}
+//===============================================
+void GOpenGLUi::onCursor(GLFWwindow* _window, double _x, double _y) {
+    lOpenGL.onCursor(_x, _y, lParams.lock, lParams.alpha, lParams.beta, lParams.cursorX, lParams.cursorY);
+}
+//===============================================</pre></div></div><br>Chargement des données 3D<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GFunction::mcml(const char* _filename, int _xsize, int _ysize, int _zsize, const sGColor&amp; _color) {
+    GFile lFile;
+    lFile.filename(_filename);
+    lFile.open();
+    allocate(_xsize, _ysize, _zsize);
+    float lData, lMin, lMax;
+    GOpenGL _lOpenGL;
+
+    for(int x = 0; x &lt; _xsize; x++){
+        for(int z = 0; z &lt; _zsize; z++){
+            for(int y = 0; y &lt; _ysize; y++) {
+                if(lFile.read(lData) != EOF) {
+                    lData = log(lData + 1);
+                    m_float3D[x][y][z] = lData;
+                    m_vertex3D[x][y][z].x = (float)(x - _xsize / 2.0f) / _xsize;
+                    m_vertex3D[x][y][z].y = (float)(y - _ysize / 2.0f) / _ysize;
+                    m_vertex3D[x][y][z].z = (float)(z - _zsize / 2.0f) / _zsize * 2.0f;
+                }
+            }
+        }
+    }
+
+    zMinMax2(lMin, lMax);
+
+    for(int z = 0; z &lt; _zsize; z++){
+        for(int x = 0; x &lt; _xsize; x++){
+            for(int y = 0; y &lt; _ysize; y++) {
+                float lData = m_float3D[x][y][z];
+                sGColor lColor = _lOpenGL.heatMap(lData, lMin, lMax, _color);
+                m_vertex3D[x][y][z].r = lColor.r;
+                m_vertex3D[x][y][z].g = lColor.g;
+                m_vertex3D[x][y][z].b = lColor.b;
+            }
+        }
+    }
+
+    lFile.close();
+}
+//===============================================</pre></div></div><br>DEPTH (ON)<br><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_volume_3d.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_volume_3d.png"></div><br>DEPTH (OFF)<br><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_volume_3d_2.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_volume_3d_2.png"></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Fenetre"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Fenêtre</a></h2><br><h3 class="Title8 GTitle3">Créer une fenêtre sous GLFW</h3><br>Création de la fenêtre<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GOpenGLUi::run(int argc, char** argv) {
     sGApp* lApp = GManager::Instance()-&gt;getData()-&gt;app;
 
