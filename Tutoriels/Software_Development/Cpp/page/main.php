@@ -6546,7 +6546,7 @@ gcc -c RLib/glad/src/glad_gl.c -o glad_gl.o -IRLib/include
 g++ -o rdcpp main.o glad.o -lglfw3dll -lopengl32</pre></div></div><br><h3 class="Title8 GTitle3">Exécuter le projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="batchfile">set "PATH=winlibs-i686-posix-dwarf-gcc-11.2.0-llvm-12.0.1-mingw-w64-9.0.0-r1\mingw32\bin;%PATH%";
 set "PATH=RLib\lib;%PATH%"
 
-.\rdcpp</pre></div></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Introduction"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Introduction</a></h2><br><h3 class="Title8 GTitle3">Initialisation d'OpenGL<br></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+.\rdcpp</pre></div></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Visualisation-de-donnees-3D"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Visualisation de données 3D</a></h2><br><h3 class="Title8 GTitle3">Initialisation d'OpenGL<br></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GOpenGL::init() {
     glfwInit();
     m_window = glfwCreateWindow(m_width, m_height, m_title.c_str(), NULL, NULL);
@@ -7007,7 +7007,7 @@ void GOpenGL::onCursor(double _x, double _y, bool&amp; _lock, float&amp; _alpha,
     _cursorX = (int) _x;
     _cursorY = (int) _y;
 }
-//===============================================</pre></div></div><br><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_plot_3d.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_plot_3d.png"></div><br><h3 class="Title8 GTitle3">Création d'un rendu de volume 3D</h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_plot_3d.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_plot_3d.png"></div><br><h3 class="Title8 GTitle3">Création d'un rendu de volume 3D</h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GOpenGLUi::run(int argc, char** argv) {
     sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
 
@@ -7110,6 +7110,20 @@ void GFunction::mcml(const char* _filename, int _xsize, int _ysize, int _zsize, 
     }
 
     lFile.close();
+}
+//===============================================</pre></div></div><br>Affichage des données 3D<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGL::mcml(GFunction&amp; _func, float _pointsize, float _alpha) {
+    glPointSize(_pointsize);
+    glBegin(GL_POINTS);
+    for(int z = 0; z &lt; _func.zsize(); z++){
+        for(int x = 0; x &lt; _func.xsize(); x++){
+            for(int y = 0; y &lt; _func.ysize(); y++){
+                glColor4f(_func.vertex3D()[x][y][z].r, _func.vertex3D()[x][y][z].g, _func.vertex3D()[x][y][z].b, _alpha);
+                glVertex3f(_func.vertex3D()[x][y][z].x, _func.vertex3D()[x][y][z].y, _func.vertex3D()[x][y][z].z);
+            }
+        }
+    }
+    glEnd();
 }
 //===============================================</pre></div></div><br>DEPTH (ON)<br><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_volume_3d.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_volume_3d.png"></div><br>DEPTH (OFF)<br><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_volume_3d_2.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_volume_3d_2.png"></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Fenetre"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Fenêtre</a></h2><br><h3 class="Title8 GTitle3">Créer une fenêtre sous GLFW</h3><br>Création de la fenêtre<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GOpenGLUi::run(int argc, char** argv) {
