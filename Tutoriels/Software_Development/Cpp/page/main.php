@@ -7384,7 +7384,116 @@ void main()
 {
 	FragColor = texture(texture1, TexCoord);
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_texture.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_texture.png"></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Visualiser-des-donnees-3D-avec-OpenGL"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Visualiser des données 3D avec OpenGL</a></h2><br><h3 class="Title8 GTitle3">Initialisation d'OpenGL<br></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_texture.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_texture.png"></div><br><h3 class="Title8 GTitle3">Mélange de plusieurs textures</h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGLUi::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
+
+    lOpenGL.init2();
+    lOpenGL.onResize(onResize);
+    lOpenGL.onKey(onKey);
+
+    lParams.color = {0.2f, 0.3f, 0.3f, 1.f};
+
+    GOpenGL lOpenGL2;
+
+    lOpenGL.shader2(lApp-&gt;shader_vertex_file, lApp-&gt;shader_fragment_file);
+    lOpenGL.texture2(lApp-&gt;texture_file);
+    lOpenGL2.texture3(lApp-&gt;texture_file2);
+
+    GLfloat lVertices[] = {
+        // positions          // colors           // texture coords
+         0.5f,  0.5f, 0.0f,   1.0f, 0.0f, 0.0f,   1.0f, 1.0f, // top right
+         0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f,   1.0f, 0.0f, // bottom right
+        -0.5f, -0.5f, 0.0f,   0.0f, 0.0f, 1.0f,   0.0f, 0.0f, // bottom left
+        -0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 0.0f,   0.0f, 1.0f  // top left
+    };
+    GLuint lIndices[] = {
+        0, 1, 3, // first triangle
+        1, 2, 3  // second triangle
+    };
+
+    lOpenGL.vao(1, &amp;lParams.vao);
+    lOpenGL.vbo(1, &amp;lParams.vbo);
+    lOpenGL.vbo(1, &amp;lParams.ebo);
+
+    lOpenGL.vao(lParams.vao);
+    lOpenGL.vbo(lParams.vbo, lVertices, sizeof(lVertices));
+    lOpenGL.vbo2(lParams.ebo, lIndices, sizeof(lIndices));
+    lOpenGL.vbo(0, 3, 8, 0);
+    lOpenGL.vbo(1, 3, 8, 3);
+    lOpenGL.vbo(2, 2, 8, 6);
+
+    lOpenGL.use();
+    lOpenGL.uniform2("texture1", 0);
+    lOpenGL.uniform2("texture2", 1);
+
+    while(!lOpenGL.isClose()) {
+        lOpenGL.bgcolor(lParams.color);
+        lOpenGL.use();
+        lOpenGL.texture(GL_TEXTURE0);
+        lOpenGL2.texture(GL_TEXTURE1);
+        lOpenGL.vao(lParams.vao);
+        lOpenGL.triangle2(0, 6);
+        lOpenGL.pollEvents();
+    }
+
+    lOpenGL.deleteVao(1, &amp;lParams.vao);
+    lOpenGL.deleteVbo(1, &amp;lParams.vbo);
+    lOpenGL.deleteVbo(1, &amp;lParams.ebo);
+    lOpenGL.deleteTexture();
+    lOpenGL.deleteProgram();
+    lOpenGL.close();
+}
+//===============================================</pre></div></div><br>Chargement d'une texture (PNG)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGL::texture3(const std::string&amp; _image) {
+    glGenTextures(1, &amp;m_texture);
+    glBindTexture(GL_TEXTURE_2D, m_texture);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+    int lWidth, lHeight, lChannels;
+
+    unsigned char* lData = stbi_load(_image.c_str(), &amp;lWidth, &amp;lHeight, &amp;lChannels, 0);
+
+    if(lData) {
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, lWidth, lHeight, 0, GL_RGBA, GL_UNSIGNED_BYTE, lData);
+        glGenerateMipmap(GL_TEXTURE_2D);
+    }
+
+    stbi_image_free(lData);
+}
+//===============================================</pre></div></div><br>Vertex shader<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#version 330 core
+layout (location = 0) in vec3 aPos;
+layout (location = 1) in vec3 aColor;
+layout (location = 2) in vec2 aTexCoord;
+
+out vec3 ourColor;
+out vec2 TexCoord;
+
+void main()
+{
+    gl_Position = vec4(aPos, 1.0);
+    ourColor = aColor;
+    TexCoord = vec2(aTexCoord.x, aTexCoord.y);
+}
+//===============================================</pre></div></div><br>Fragment shader<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#version 330 core
+out vec4 FragColor;
+
+in vec3 ourColor;
+in vec2 TexCoord;
+
+uniform sampler2D texture1;
+uniform sampler2D texture2;
+
+void main()
+{
+    FragColor = mix(texture(texture1, TexCoord), texture(texture2, TexCoord), 0.2);
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_texture_blend.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_texture_blend.png"></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Visualiser-des-donnees-3D-avec-OpenGL"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Visualiser des données 3D avec OpenGL</a></h2><br><h3 class="Title8 GTitle3">Initialisation d'OpenGL<br></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GOpenGL::init() {
     glfwInit();
     m_window = glfwCreateWindow(m_width, m_height, m_title.c_str(), NULL, NULL);
