@@ -1,4 +1,4 @@
-<div class="Parallax GParallax1"><div class="Img Binary"><div class="Caption"><a href="#"><div class="Text">Apprendre la programmation en C++<br></div></a></div></div><div class="Body2 Orange"><br>Le but de ce tutoriel est de vous apprendre la programmation en <b>C++</b>.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary1"><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Introduction">Introduction</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Installation">Installation</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Tests">Tests</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Fondamentaux">Fondamentaux</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Programmation-orientee-objet">Programmation orientée objet</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Patrons-de-conception">Patrons de conception</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Surchage-d-operateurs">Surchage d'opérateurs</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Manager-de-donnees">Manager de données</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Systeme-d-administration">Système d'administration</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Multithreading">Multithreading</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Interface-Homme-Machine-avec-Qt">Interface Homme-Machine avec Qt</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Creation-de-pitogrammes-avec-QtAwesome">Création de pitogrammes avec QtAwesome</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Trace-de-courbes-2D-avec-QCustomPlot">Tracé de courbes 2D avec QCustomPlot</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Communication-Inter-Processus-avec-D-Bus-sous-Qt">Communication Inter-Processus avec D-Bus sous Qt</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV">Vision par Ordinateur avec OpenCV</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Programmation-3D-avec-OpenGL">Programmation 3D avec OpenGL</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Calcul-scientifique-avec-GSL">Calcul scientifique avec GSL</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Programmation-reseau-avec-Boost-Asio">Programmation réseau avec Boost.Asio</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Analyse-de-donnees-XML-avec-Libxml2">Analyse de données XML avec Libxml2</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Programmation-reseau-RPC-avec-XML-RPC">Programmation réseau RPC avec XML-RPC</a></div></div><br></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Introduction"><a class="Link3" href="#">Introduction</a></h1><div class="Body3"><br><b>C++</b> est un langage de programmation compilé permettant la programmation sous de multiples paradigmes (comme la programmation procédurale, orientée objet ou générique). Ses bonnes performances, et sa compatibilité avec le C en font un des langages de programmation les plus utilisés dans les applications où la performance est critique.<br><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/b_cpp.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/b_cpp.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Installation"><a class="Link3" href="#">Installation</a></h1><div class="Body3"><br>Installer l'environnement C++.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Installation-Installer-l-environnement-C---sous-MSYS2">Installer l'environnement C++ sous MSYS2</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Installation-Installer-l-environnement-C---sous-WinLibs">Installer l'environnement C++ sous WinLibs</a></div></div><br><h2 class="Title7 GTitle2" id="Installation-Installer-l-environnement-C---sous-MSYS2"><a class="Link9" href="#Installation">Installer l'environnement C++ sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Télécharger MSYS2</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://repo.msys2.org/distrib/x86_64/msys2-x86_64-20210228.exe">https://repo.msys2.org/distrib/x86_64/msys2-x86_64-20210228.exe</a><br><br><h3 class="Title8 GTitle3">Installer MSYS2</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="php">msys2-x86_64-20210228.exe
+<div class="Parallax GParallax1"><div class="Img Binary"><div class="Caption"><a href="#"><div class="Text">Apprendre la programmation en C++<br></div></a></div></div><div class="Body2 Orange"><br>Le but de ce tutoriel est de vous apprendre la programmation en <b>C++</b>.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary1"><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Introduction">Introduction</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Installation">Installation</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Tests">Tests</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Fondamentaux">Fondamentaux</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Programmation-orientee-objet">Programmation orientée objet</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Patrons-de-conception">Patrons de conception</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Surchage-d-operateurs">Surchage d'opérateurs</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Manager-de-donnees">Manager de données</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Systeme-d-administration">Système d'administration</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Multithreading">Multithreading</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Interface-Homme-Machine-avec-Qt">Interface Homme-Machine avec Qt</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Creation-de-pitogrammes-avec-QtAwesome">Création de pitogrammes avec QtAwesome</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Trace-de-courbes-2D-avec-QCustomPlot">Tracé de courbes 2D avec QCustomPlot</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Communication-Inter-Processus-avec-D-Bus-sous-Qt">Communication Inter-Processus avec D-Bus sous Qt</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV">Vision par Ordinateur avec OpenCV</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Programmation-3D-avec-OpenGL">Programmation 3D avec OpenGL</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Calcul-scientifique-avec-GSL">Calcul scientifique avec GSL</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Programmation-reseau-socket-sous-Windows">Programmation réseau socket sous Windows</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Programmation-reseau-socket-sous-Linux">Programmation réseau socket sous Linux</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Programmation-reseau-avec-Boost-Asio">Programmation réseau avec Boost.Asio</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Programmation-reseau-RPC-avec-XML-RPC">Programmation réseau RPC avec XML-RPC</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Programmation-reseau-avec-cURL">Programmation réseau avec cURL</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Analyse-de-donnees-XML-avec-Libxml2">Analyse de données XML avec Libxml2</a></div></div><br></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Introduction"><a class="Link3" href="#">Introduction</a></h1><div class="Body3"><br><b>C++</b> est un langage de programmation compilé permettant la programmation sous de multiples paradigmes (comme la programmation procédurale, orientée objet ou générique). Ses bonnes performances, et sa compatibilité avec le C en font un des langages de programmation les plus utilisés dans les applications où la performance est critique.<br><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/b_cpp.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/b_cpp.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Installation"><a class="Link3" href="#">Installation</a></h1><div class="Body3"><br>Installer l'environnement C++.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Installation-Installer-l-environnement-C---sous-MSYS2">Installer l'environnement C++ sous MSYS2</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Installation-Installer-l-environnement-C---sous-WinLibs">Installer l'environnement C++ sous WinLibs</a></div></div><br><h2 class="Title7 GTitle2" id="Installation-Installer-l-environnement-C---sous-MSYS2"><a class="Link9" href="#Installation">Installer l'environnement C++ sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Télécharger MSYS2</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://repo.msys2.org/distrib/x86_64/msys2-x86_64-20210228.exe">https://repo.msys2.org/distrib/x86_64/msys2-x86_64-20210228.exe</a><br><br><h3 class="Title8 GTitle3">Installer MSYS2</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="php">msys2-x86_64-20210228.exe
 Suivant
 Dossier d'installation -&gt; C:\msys64
 Suivant
@@ -6521,7 +6521,7 @@ bool est_interieur = point.inside(rectangle);
 //===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Créer une saturation sur une variable</h3><br>Dans OpenCV, on peut parfois effectuer des opérations qui risquent de déborder les valeurs disponibles dans la destination de certains calculs. Ceci est particulièrement courant lorsque vous effectuez des opérations sur des types non signés qui impliquent une soustraction, mais cela peut<br>arriver n'importe où. Pour faire face à ce problème, OpenCV s'appuie sur une construction appelée mise en forme par <b>saturation</b>.<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 double valeur_reelle = calcul(x_1, x_2, x_3);
 uchar saturation = cv::saturate_cast&lt;uchar&gt;(valeur_reelle);
-//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Persistance-des-donnees"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Persistance des données</a></h2><br>OpenCV fournit un mécanisme de <b>sérialisation </b>et de <b>désérialisation </b>de ses différents types de données vers et depuis le disque au format YAML ou XML. Ces méthodes peuvent être utilisées pour charger ou stocker n'importe quel nombre d'objets de données OpenCV (y compris les types de base comme int , float , etc.) dans un seul fichier.<br><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programmation-3D-avec-OpenGL"><a class="Link3" href="#">Programmation 3D avec OpenGL</a></h1><div class="Body3"><br><b>OpenGL </b>(Open Graphics Library) est une interface de programmation d'applications (API) multi-langage et multi-plateforme pour le rendu de graphiques vectoriels 2D et 3D . L'API est généralement utilisée pour interagir avec une unité de traitement graphique (GPU) afin d'obtenir un rendu accéléré par le matériel . OpenGL est abondamment utilisé dans les domaines de la conception assistée par ordinateur (CAO), de la réalité virtuelle , de la visualisation scientifique , de la visualisation de l' information, de la simulation de vol et des jeux vidéo .<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-3D-avec-OpenGL-Installer-l-environnement-GLFW-sous-Ubuntu">Installer l'environnement GLFW sous Ubuntu</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-3D-avec-OpenGL-Installer-l-environnement-GLFW-sous-WinLibs">Installer l'environnement GLFW sous WinLibs</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-3D-avec-OpenGL-Compiler-un-projet-GLFW-sous-Ubuntu">Compiler un projet GLFW sous Ubuntu</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-3D-avec-OpenGL-Compiler-un-projet-GLFW-sous-WinLibs">Compiler un projet GLFW sous WinLibs</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-3D-avec-OpenGL-Fenetre">Fenêtre</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-3D-avec-OpenGL-Shader">Shader</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-3D-avec-OpenGL-VBO">VBO</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-3D-avec-OpenGL-VAO">VAO</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-3D-avec-OpenGL-EBO">EBO</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-3D-avec-OpenGL-Texture">Texture</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-3D-avec-OpenGL-Uniform-shader">Uniform shader</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-3D-avec-OpenGL-Interpolation-shader">Interpolation shader</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-3D-avec-OpenGL-Triangle">Triangle</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-3D-avec-OpenGL-Transformation">Transformation</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-3D-avec-OpenGL-Systemes-de-coordonnees">Systèmes de coordonnées</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-3D-avec-OpenGL-Cameras">Caméras</a></div></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Installer-l-environnement-GLFW-sous-Ubuntu"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Installer l'environnement GLFW sous Ubuntu</a></h2><br><b>GLFW </b>est une bibliothèque utilitaire légère à utiliser avec OpenGL . GLFW signifie Graphics Library Framework. Il offre aux programmeurs la possibilité de créer et de gérer des fenêtres et des contextes OpenGL, ainsi que de gérer les entrées du joystick , du clavier et de la souris . <br><br><h3 class="Title8 GTitle3">Installer GLFW</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">sudo apt install -y libglfw3-dev</pre></div></div><br><h3 class="Title8 GTitle3">Télécharger les dépendances</h3><br>Télécharger GLFW<br><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://github.com/glfw/glfw/releases">https://github.com/glfw/glfw/releases</a><br><br><b>glfw-3.3.4.zip</b><br><br>Décompresser GLFW<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">unzip glfw-3.3.4.zip</pre></div></div><br>Vérifier les dépendances<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">ls -l glfw-3.3.4/deps</pre></div></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Installer-l-environnement-GLFW-sous-WinLibs"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Installer l'environnement GLFW sous WinLibs</a></h2><br><h3 class="Title8 GTitle3">Télécharger GLFW</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://github.com/glfw/glfw/releases">https://github.com/glfw/glfw/releases</a><br><br><b>glfw-3.3.4.zip</b><br><br><h3 class="Title8 GTitle3">Configurer GLFW sous CMake</h3><br>Démarrer CMake<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="batchfile">set "PATH=winlibs-i686-posix-dwarf-gcc-11.2.0-llvm-12.0.1-mingw-w64-9.0.0-r1/mingw32/bin;%PATH%"
+//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Persistance-des-donnees"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Persistance des données</a></h2><br>OpenCV fournit un mécanisme de <b>sérialisation </b>et de <b>désérialisation </b>de ses différents types de données vers et depuis le disque au format YAML ou XML. Ces méthodes peuvent être utilisées pour charger ou stocker n'importe quel nombre d'objets de données OpenCV (y compris les types de base comme int , float , etc.) dans un seul fichier.<br><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programmation-3D-avec-OpenGL"><a class="Link3" href="#">Programmation 3D avec OpenGL</a></h1><div class="Body3"><br><b>OpenGL </b>(Open Graphics Library) est une interface de programmation d'applications (API) multi-langage et multi-plateforme pour le rendu de graphiques vectoriels 2D et 3D . L'API est généralement utilisée pour interagir avec une unité de traitement graphique (GPU) afin d'obtenir un rendu accéléré par le matériel . OpenGL est abondamment utilisé dans les domaines de la conception assistée par ordinateur (CAO), de la réalité virtuelle , de la visualisation scientifique , de la visualisation de l' information, de la simulation de vol et des jeux vidéo .<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-3D-avec-OpenGL-Installer-l-environnement-GLFW-sous-Ubuntu">Installer l'environnement GLFW sous Ubuntu</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-3D-avec-OpenGL-Installer-l-environnement-GLFW-sous-WinLibs">Installer l'environnement GLFW sous WinLibs</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-3D-avec-OpenGL-Compiler-un-projet-GLFW-sous-Ubuntu">Compiler un projet GLFW sous Ubuntu</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-3D-avec-OpenGL-Compiler-un-projet-GLFW-sous-WinLibs">Compiler un projet GLFW sous WinLibs</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-3D-avec-OpenGL-Apprendre-OpenGL">Apprendre OpenGL</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-3D-avec-OpenGL-Visualiser-des-donnees-3D-avec-OpenGL">Visualiser des données 3D avec OpenGL</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-3D-avec-OpenGL-Domaine-du-temps-reel">Domaine du temps réel</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-3D-avec-OpenGL-Fenetre">Fenêtre</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-3D-avec-OpenGL-Shader">Shader</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-3D-avec-OpenGL-VBO">VBO</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-3D-avec-OpenGL-VAO">VAO</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-3D-avec-OpenGL-EBO">EBO</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-3D-avec-OpenGL-Texture">Texture</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-3D-avec-OpenGL-Uniform-shader">Uniform shader</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-3D-avec-OpenGL-Interpolation-shader">Interpolation shader</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-3D-avec-OpenGL-Triangle">Triangle</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-3D-avec-OpenGL-Transformation">Transformation</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-3D-avec-OpenGL-Systemes-de-coordonnees">Systèmes de coordonnées</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-3D-avec-OpenGL-Cameras">Caméras</a></div></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Installer-l-environnement-GLFW-sous-Ubuntu"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Installer l'environnement GLFW sous Ubuntu</a></h2><br><b>GLFW </b>est une bibliothèque utilitaire légère à utiliser avec OpenGL . GLFW signifie Graphics Library Framework. Il offre aux programmeurs la possibilité de créer et de gérer des fenêtres et des contextes OpenGL, ainsi que de gérer les entrées du joystick , du clavier et de la souris . <br><br><h3 class="Title8 GTitle3">Installer GLFW</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">sudo apt install -y libglfw3-dev</pre></div></div><br><h3 class="Title8 GTitle3">Télécharger les dépendances</h3><br>Télécharger GLFW<br><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://github.com/glfw/glfw/releases">https://github.com/glfw/glfw/releases</a><br><br><b>glfw-3.3.4.zip</b><br><br>Décompresser GLFW<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">unzip glfw-3.3.4.zip</pre></div></div><br>Vérifier les dépendances<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">ls -l glfw-3.3.4/deps</pre></div></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Installer-l-environnement-GLFW-sous-WinLibs"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Installer l'environnement GLFW sous WinLibs</a></h2><br><h3 class="Title8 GTitle3">Télécharger GLFW</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://github.com/glfw/glfw/releases">https://github.com/glfw/glfw/releases</a><br><br><b>glfw-3.3.4.zip</b><br><br><h3 class="Title8 GTitle3">Configurer GLFW sous CMake</h3><br>Démarrer CMake<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="batchfile">set "PATH=winlibs-i686-posix-dwarf-gcc-11.2.0-llvm-12.0.1-mingw-w64-9.0.0-r1/mingw32/bin;%PATH%"
 set "PATH=C:\Program Files\CMake\bin;%PATH%"
 
 cmake-gui</pre></div></div><br>Configurer GLFW<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">Source code -&gt; GLFW/src
@@ -7674,7 +7674,253 @@ void main()
 {
 	FragColor = mix(texture(texture1, TexCoord), texture(texture2, TexCoord), 0.2);
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_texture_repeat.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_texture_repeat.png"></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Visualiser-des-donnees-3D-avec-OpenGL"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Visualiser des données 3D avec OpenGL</a></h2><br><h3 class="Title8 GTitle3">Initialisation d'OpenGL<br></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_texture_repeat.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_texture_repeat.png"></div><br><h3 class="Title8 GTitle3">Zoom d'une texture sur une surface</h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGLUi::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
+
+    lOpenGL.init2();
+    lOpenGL.onResize(onResize);
+    lOpenGL.onKey(onKey);
+
+    lParams.color = {0.2f, 0.3f, 0.3f, 1.f};
+
+    GOpenGL lOpenGL2;
+
+    lOpenGL.shader2(lApp-&gt;shader_vertex_file, lApp-&gt;shader_fragment_file);
+    lOpenGL.texture4(lApp-&gt;texture_file);
+    lOpenGL2.texture5(lApp-&gt;texture_file2);
+
+    GLfloat lVertices[] = {
+        // positions          // colors           // texture coords
+         0.5f,  0.5f, 0.0f,   1.0f, 0.0f, 0.0f,   0.55f, 0.55f, // top right
+         0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f,   0.55f, 0.45f, // bottom right
+        -0.5f, -0.5f, 0.0f,   0.0f, 0.0f, 1.0f,   0.45f, 0.45f, // bottom left
+        -0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 0.0f,   0.45f, 0.55f  // top left
+    };
+    GLuint lIndices[] = {
+        0, 1, 3, // first triangle
+        1, 2, 3  // second triangle
+    };
+
+    lOpenGL.vao(1, &amp;lParams.vao);
+    lOpenGL.vbo(1, &amp;lParams.vbo);
+    lOpenGL.vbo(1, &amp;lParams.ebo);
+
+    lOpenGL.vao(lParams.vao);
+    lOpenGL.vbo(lParams.vbo, lVertices, sizeof(lVertices));
+    lOpenGL.vbo2(lParams.ebo, lIndices, sizeof(lIndices));
+    lOpenGL.vbo(0, 3, 8, 0);
+    lOpenGL.vbo(1, 3, 8, 3);
+    lOpenGL.vbo(2, 2, 8, 6);
+
+    lOpenGL.use();
+    lOpenGL.uniform2("texture1", 0);
+    lOpenGL.uniform2("texture2", 1);
+
+    while(!lOpenGL.isClose()) {
+        lOpenGL.bgcolor(lParams.color);
+        lOpenGL.use();
+        lOpenGL.texture(GL_TEXTURE0);
+        lOpenGL2.texture(GL_TEXTURE1);
+        lOpenGL.vao(lParams.vao);
+        lOpenGL.triangle2(0, 6);
+        lOpenGL.pollEvents();
+    }
+
+    lOpenGL.deleteVao(1, &amp;lParams.vao);
+    lOpenGL.deleteVbo(1, &amp;lParams.vbo);
+    lOpenGL.deleteVbo(1, &amp;lParams.ebo);
+    lOpenGL.deleteTexture();
+    lOpenGL2.deleteTexture();
+    lOpenGL.deleteProgram();
+    lOpenGL.close();
+}
+//===============================================</pre></div></div><br>Chargement de la texture (GL_CLAMP_TO_EDGE - GL_NEAREST)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGL::texture4(const std::string&amp; _image) {
+    glGenTextures(1, &amp;m_texture);
+    glBindTexture(GL_TEXTURE_2D, m_texture);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+
+    int lWidth, lHeight, lChannels;
+
+    stbi_set_flip_vertically_on_load(true);
+
+    unsigned char* lData = stbi_load(_image.c_str(), &amp;lWidth, &amp;lHeight, &amp;lChannels, 0);
+
+    if(lData) {
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, lWidth, lHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, lData);
+        glGenerateMipmap(GL_TEXTURE_2D);
+    }
+
+    stbi_image_free(lData);
+}
+//===============================================</pre></div></div><br>Chargement de la texture (GL_REPEAT - GL_NEAREST)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGL::texture5(const std::string&amp; _image) {
+    glGenTextures(1, &amp;m_texture);
+    glBindTexture(GL_TEXTURE_2D, m_texture);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+
+    int lWidth, lHeight, lChannels;
+
+    unsigned char* lData = stbi_load(_image.c_str(), &amp;lWidth, &amp;lHeight, &amp;lChannels, 0);
+
+    if(lData) {
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, lWidth, lHeight, 0, GL_RGBA, GL_UNSIGNED_BYTE, lData);
+        glGenerateMipmap(GL_TEXTURE_2D);
+    }
+
+    stbi_image_free(lData);
+}
+//===============================================</pre></div></div><br>Vertex shader<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#version 330 core
+layout (location = 0) in vec3 aPos;
+layout (location = 1) in vec3 aColor;
+layout (location = 2) in vec2 aTexCoord;
+
+out vec3 ourColor;
+out vec2 TexCoord;
+
+void main()
+{
+    gl_Position = vec4(aPos, 1.0);
+    ourColor = aColor;
+    TexCoord = vec2(aTexCoord.x, aTexCoord.y);
+}
+//===============================================</pre></div></div><br>Fragment shader<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#version 330 core
+out vec4 FragColor;
+
+in vec3 ourColor;
+in vec2 TexCoord;
+
+uniform sampler2D texture1;
+uniform sampler2D texture2;
+
+void main()
+{
+    FragColor = mix(texture(texture1, TexCoord), texture(texture2, TexCoord), 0.2);
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_texture_zoom.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_texture_zoom.png"></div><br><h3 class="Title8 GTitle3">Variation du taux de mélange de plusieurs textures</h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGLUi::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
+
+    lOpenGL.init2();
+    lOpenGL.onResize(onResize);
+    lOpenGL.onKey(onKey);
+
+    lParams.color = {0.2f, 0.3f, 0.3f, 1.f};
+    lParams.mixValue = 0.2f;
+
+    GOpenGL lOpenGL2;
+
+    lOpenGL.shader2(lApp-&gt;shader_vertex_file, lApp-&gt;shader_fragment_file);
+    lOpenGL.texture2(lApp-&gt;texture_file);
+    lOpenGL2.texture3(lApp-&gt;texture_file2);
+
+    GLfloat lVertices[] = {
+        // positions          // colors           // texture coords
+         0.5f,  0.5f, 0.0f,   1.0f, 0.0f, 0.0f,   1.0f, 1.0f, // top right
+         0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f,   1.0f, 0.0f, // bottom right
+        -0.5f, -0.5f, 0.0f,   0.0f, 0.0f, 1.0f,   0.0f, 0.0f, // bottom left
+        -0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 0.0f,   0.0f, 1.0f  // top left
+    };
+    GLuint lIndices[] = {
+        0, 1, 3, // first triangle
+        1, 2, 3  // second triangle
+    };
+
+    lOpenGL.vao(1, &amp;lParams.vao);
+    lOpenGL.vbo(1, &amp;lParams.vbo);
+    lOpenGL.vbo(1, &amp;lParams.ebo);
+
+    lOpenGL.vao(lParams.vao);
+    lOpenGL.vbo(lParams.vbo, lVertices, sizeof(lVertices));
+    lOpenGL.vbo2(lParams.ebo, lIndices, sizeof(lIndices));
+    lOpenGL.vbo(0, 3, 8, 0);
+    lOpenGL.vbo(1, 3, 8, 3);
+    lOpenGL.vbo(2, 2, 8, 6);
+
+    lOpenGL.use();
+    lOpenGL.uniform2("texture1", 0);
+    lOpenGL.uniform2("texture2", 1);
+
+    while(!lOpenGL.isClose()) {
+        lOpenGL.bgcolor(lParams.color);
+        lOpenGL.use();
+        lOpenGL.texture(GL_TEXTURE0);
+        lOpenGL2.texture(GL_TEXTURE1);
+        lOpenGL.uniform("mixValue", lParams.mixValue);
+        lOpenGL.vao(lParams.vao);
+        lOpenGL.triangle2(0, 6);
+        lOpenGL.pollEvents();
+    }
+
+    lOpenGL.deleteVao(1, &amp;lParams.vao);
+    lOpenGL.deleteVbo(1, &amp;lParams.vbo);
+    lOpenGL.deleteVbo(1, &amp;lParams.ebo);
+    lOpenGL.deleteTexture();
+    lOpenGL2.deleteTexture();
+    lOpenGL.deleteProgram();
+    lOpenGL.close();
+}
+//===============================================</pre></div></div><br>Gestion du clavier<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGL::onKey(GLfloat&amp; _mixValue) {
+    if(glfwGetKey(m_window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
+        glfwSetWindowShouldClose(m_window, true);
+    }
+
+    if(glfwGetKey(m_window, GLFW_KEY_UP) == GLFW_PRESS) {
+        _mixValue += 0.01f;
+        if(_mixValue &gt;= 1.0f) {
+            _mixValue = 1.0f;
+        }
+    }
+
+    if (glfwGetKey(m_window, GLFW_KEY_DOWN) == GLFW_PRESS) {
+        _mixValue -= 0.01f;
+        if (_mixValue &lt;= 0.0f) {
+            _mixValue = 0.0f;
+        }
+    }
+}
+//===============================================</pre></div></div><br>Vertex shader<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#version 330 core
+layout (location = 0) in vec3 aPos;
+layout (location = 1) in vec3 aColor;
+layout (location = 2) in vec2 aTexCoord;
+
+out vec3 ourColor;
+out vec2 TexCoord;
+
+void main()
+{
+	gl_Position = vec4(aPos, 1.0);
+	ourColor = aColor;
+	TexCoord = vec2(aTexCoord.x, aTexCoord.y);
+}
+//===============================================</pre></div></div><br>Fragment shader<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#version 330 core
+out vec4 FragColor;
+
+in vec3 ourColor;
+in vec2 TexCoord;
+
+uniform float mixValue;
+
+uniform sampler2D texture1;
+uniform sampler2D texture2;
+
+void main()
+{
+    FragColor = mix(texture(texture1, TexCoord), texture(texture2, TexCoord), mixValue);
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_texture_mix.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_texture_mix.gif"></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Visualiser-des-donnees-3D-avec-OpenGL"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Visualiser des données 3D avec OpenGL</a></h2><br><h3 class="Title8 GTitle3">Initialisation d'OpenGL<br></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GOpenGL::init() {
     glfwInit();
     m_window = glfwCreateWindow(m_width, m_height, m_title.c_str(), NULL, NULL);
@@ -12108,7 +12354,7 @@ void GWindow::slotMouseMove(QMouseEvent* event) {
 }
 //================================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_gsl_interpolation_spline.gif" class="lazy entered loaded exited" data-src="/Tutoriels/Software_Development/Cpp/img/i_gsl_interpolation_spline.gif" data-ll-status="loaded" src="/Tutoriels/Software_Development/Cpp/img/i_gsl_interpolation_spline.gif"></div><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">gsl_spline_name :  cspline
 gsl_spline_min_size :  3
-gsl_interp_type_min_size :  3</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programmation-reseau-socket-sous-Windows"><a class="Link3" href="#">Programmation réseau socket sous Windows</a></h1><div class="Body3"><br>Un <b>socket </b>réseau est une structure logicielle au sein d'un nœud de réseau d'un réseau informatique qui sert de point de terminaison pour l'envoi et la réception de données sur le réseau. La structure et les propriétés d'un socket sont définies par une interface de programmation d'application (API) pour l'architecture réseau. Les sockets sont créés uniquement pendant la durée de vie d'un processus d'une application s'exécutant dans le nœud.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Programmation-reseau-socket-sous-Windows-Creer-une-connexion-TCP-IP"><a class="Link9" href="#Programmation-reseau-socket-sous-Windows">Créer une connexion TCP/IP</a></h2><br><b>TCP </b>est plutôt orienté connexion, fiable et basé sur les flux. Dans le principe de fonctionnement, le serveur crée une socket, lie la socket à une adresse, puis écoute les connexions. Lorsqu'un client se connecte, le serveur accpete la connexion et echange les données avec le client via la connexion sécurisée.<br><br><h3 class="Title8 GTitle3">Création du serveur</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+gsl_interp_type_min_size :  3</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programmation-reseau-socket-sous-Windows"><a class="Link3" href="#">Programmation réseau socket sous Windows</a></h1><div class="Body3"><br>Un <b>socket </b>réseau est une structure logicielle au sein d'un nœud de réseau d'un réseau informatique qui sert de point de terminaison pour l'envoi et la réception de données sur le réseau. La structure et les propriétés d'un socket sont définies par une interface de programmation d'application (API) pour l'architecture réseau. Les sockets sont créés uniquement pendant la durée de vie d'un processus d'une application s'exécutant dans le nœud.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-reseau-socket-sous-Windows-Creer-une-connexion-TCP-IP">Créer une connexion TCP/IP</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-reseau-socket-sous-Windows-Creer-une-connexion-UDP">Créer une connexion UDP</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-reseau-socket-sous-Windows-Creer-une-connexion-TCP-IP--asynchrone-">Créer une connexion TCP/IP (asynchrone)</a></div></div><br><h2 class="Title7 GTitle2" id="Programmation-reseau-socket-sous-Windows-Creer-une-connexion-TCP-IP"><a class="Link9" href="#Programmation-reseau-socket-sous-Windows">Créer une connexion TCP/IP</a></h2><br><b>TCP </b>est plutôt orienté connexion, fiable et basé sur les flux. Dans le principe de fonctionnement, le serveur crée une socket, lie la socket à une adresse, puis écoute les connexions. Lorsqu'un client se connecte, le serveur accpete la connexion et echange les données avec le client via la connexion sécurisée.<br><br><h3 class="Title8 GTitle3">Création du serveur</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GSocketServer::run(int argc, char** argv) {
     WSADATA lWsaData;
     WSAStartup(MAKEWORD(2, 2), &amp;lWsaData);
@@ -12299,7 +12545,7 @@ void GSocketClient::run(int argc, char** argv) {
     closesocket(lSocket);
     WSACleanup();
 }
-//===============================================</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programmation-reseau-socket-sous-Linux"><a class="Link3" href="#">Programmation réseau socket sous Linux</a></h1><div class="Body3"><br>Un <b>socket </b>réseau est une structure logicielle au sein d'un nœud de réseau d'un réseau informatique qui sert de point de terminaison pour l'envoi et la réception de données sur le réseau. La structure et les propriétés d'un socket sont définies par une interface de programmation d'application (API) pour l'architecture réseau. Les sockets sont créés uniquement pendant la durée de vie d'un processus d'une application s'exécutant dans le nœud.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Programmation-reseau-socket-sous-Linux-Creer-une-connexion-TCP-IP"><a class="Link9" href="#Programmation-reseau-socket-sous-Linux">Créer une connexion TCP/IP</a></h2><br><b>TCP </b>est plutôt orienté connexion, fiable et basé sur les flux. Dans le principe de fonctionnement, le serveur crée une socket, lie la socket à une adresse, puis écoute les connexions. Lorsqu'un client se connecte, le serveur accpete la connexion et echange les données avec le client via la connexion sécurisée.<br><br><h3 class="Title8 GTitle3">Création du serveur</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programmation-reseau-socket-sous-Linux"><a class="Link3" href="#">Programmation réseau socket sous Linux</a></h1><div class="Body3"><br>Un <b>socket </b>réseau est une structure logicielle au sein d'un nœud de réseau d'un réseau informatique qui sert de point de terminaison pour l'envoi et la réception de données sur le réseau. La structure et les propriétés d'un socket sont définies par une interface de programmation d'application (API) pour l'architecture réseau. Les sockets sont créés uniquement pendant la durée de vie d'un processus d'une application s'exécutant dans le nœud.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-reseau-socket-sous-Linux-Creer-une-connexion-TCP-IP">Créer une connexion TCP/IP</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-reseau-socket-sous-Linux-Creer-une-connexion-UDP">Créer une connexion UDP</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-reseau-socket-sous-Linux-Transferer-un-fichier-volumineux-sur-une-connexion-TCP-IP">Transférer un fichier volumineux sur une connexion TCP/IP</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-reseau-socket-sous-Linux-Transferer-une-chaine-volumineuse-sur-une-connexion-TCP-IP">Transférer une chaine volumineuse sur une connexion TCP/IP</a></div></div><br><h2 class="Title7 GTitle2" id="Programmation-reseau-socket-sous-Linux-Creer-une-connexion-TCP-IP"><a class="Link9" href="#Programmation-reseau-socket-sous-Linux">Créer une connexion TCP/IP</a></h2><br><b>TCP </b>est plutôt orienté connexion, fiable et basé sur les flux. Dans le principe de fonctionnement, le serveur crée une socket, lie la socket à une adresse, puis écoute les connexions. Lorsqu'un client se connecte, le serveur accpete la connexion et echange les données avec le client via la connexion sécurisée.<br><br><h3 class="Title8 GTitle3">Création du serveur</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GSocketServer::run(int argc, char** argv) {
     int lSocket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
     struct sockaddr_in lAddress;
