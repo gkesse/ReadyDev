@@ -7920,7 +7920,187 @@ void main()
 {
     FragColor = mix(texture(texture1, TexCoord), texture(texture2, TexCoord), mixValue);
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_texture_mix.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_texture_mix.gif"></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Visualiser-des-donnees-3D-avec-OpenGL"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Visualiser des données 3D avec OpenGL</a></h2><br><h3 class="Title8 GTitle3">Initialisation d'OpenGL<br></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_texture_mix.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_texture_mix.gif"></div><br><h3 class="Title8 GTitle3">Application d'une transformation (Translation - Rotation)</h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGLUi::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
+
+    lOpenGL.init2();
+    lOpenGL.onResize(onResize);
+    lOpenGL.onKey(onKey);
+
+    lParams.color = {0.2f, 0.3f, 0.3f, 1.f};
+
+    GOpenGL lOpenGL2;
+
+    lOpenGL.shader2(lApp-&gt;shader_vertex_file, lApp-&gt;shader_fragment_file);
+    lOpenGL.texture2(lApp-&gt;texture_file);
+    lOpenGL2.texture3(lApp-&gt;texture_file2);
+
+    GLfloat lVertices[] = {
+        // positions          // texture coords
+         0.5f,  0.5f, 0.0f,   1.0f, 1.0f, // top right
+         0.5f, -0.5f, 0.0f,   1.0f, 0.0f, // bottom right
+        -0.5f, -0.5f, 0.0f,   0.0f, 0.0f, // bottom left
+        -0.5f,  0.5f, 0.0f,   0.0f, 1.0f  // top left
+    };
+    GLuint lIndices[] = {
+        0, 1, 3, // first triangle
+        1, 2, 3  // second triangle
+    };
+
+    lOpenGL.vao(1, &amp;lParams.vao);
+    lOpenGL.vbo(1, &amp;lParams.vbo);
+    lOpenGL.vbo(1, &amp;lParams.ebo);
+
+    lOpenGL.vao(lParams.vao);
+    lOpenGL.vbo(lParams.vbo, lVertices, sizeof(lVertices));
+    lOpenGL.vbo2(lParams.ebo, lIndices, sizeof(lIndices));
+    lOpenGL.vbo(0, 3, 5, 0);
+    lOpenGL.vbo(1, 2, 5, 3);
+
+    lOpenGL.use();
+    lOpenGL.uniform2("texture1", 0);
+    lOpenGL.uniform2("texture2", 1);
+
+    while(!lOpenGL.isClose()) {
+        lOpenGL.bgcolor(lParams.color);
+        lOpenGL.use();
+        lOpenGL.texture(GL_TEXTURE0);
+        lOpenGL2.texture(GL_TEXTURE1);
+        glm::mat4 lTransform = glm::mat4(1.0f);
+        lTransform = glm::translate(lTransform, glm::vec3(0.5f, -0.5f, 0.0f));
+        lTransform = glm::rotate(lTransform, (float)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f));
+        lOpenGL.uniform("transform", glm::value_ptr(lTransform));
+        lOpenGL.vao(lParams.vao);
+        lOpenGL.triangle2(0, 6);
+        lOpenGL.pollEvents();
+    }
+
+    lOpenGL.deleteVao(1, &amp;lParams.vao);
+    lOpenGL.deleteVbo(1, &amp;lParams.vbo);
+    lOpenGL.deleteVbo(1, &amp;lParams.ebo);
+    lOpenGL.deleteTexture();
+    lOpenGL2.deleteTexture();
+    lOpenGL.deleteProgram();
+    lOpenGL.close();
+}
+//===============================================</pre></div></div><br>Vertex shader<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+layout (location = 0) in vec3 aPos;
+layout (location = 1) in vec2 aTexCoord;
+
+out vec2 TexCoord;
+
+uniform mat4 transform;
+
+void main()
+{
+    gl_Position = transform * vec4(aPos, 1.0);
+    TexCoord = vec2(aTexCoord.x, aTexCoord.y);
+}
+//===============================================</pre></div></div><br>Fragment shader<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#version 330 core
+out vec4 FragColor;
+
+in vec2 TexCoord;
+
+uniform sampler2D texture1;
+uniform sampler2D texture2;
+
+void main()
+{
+    FragColor = mix(texture(texture1, TexCoord), texture(texture2, TexCoord), 0.2);
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_transform_tr.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_transform_tr.gif"></div><br><h3 class="Title8 GTitle3">Application d'une transformation (Rotation - Translation)</h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGLUi::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
+
+    lOpenGL.init2();
+    lOpenGL.onResize(onResize);
+    lOpenGL.onKey(onKey);
+
+    lParams.color = {0.2f, 0.3f, 0.3f, 1.f};
+
+    GOpenGL lOpenGL2;
+
+    lOpenGL.shader2(lApp-&gt;shader_vertex_file, lApp-&gt;shader_fragment_file);
+    lOpenGL.texture2(lApp-&gt;texture_file);
+    lOpenGL2.texture3(lApp-&gt;texture_file2);
+
+    GLfloat lVertices[] = {
+        // positions          // texture coords
+         0.5f,  0.5f, 0.0f,   1.0f, 1.0f, // top right
+         0.5f, -0.5f, 0.0f,   1.0f, 0.0f, // bottom right
+        -0.5f, -0.5f, 0.0f,   0.0f, 0.0f, // bottom left
+        -0.5f,  0.5f, 0.0f,   0.0f, 1.0f  // top left
+    };
+    GLuint lIndices[] = {
+        0, 1, 3, // first triangle
+        1, 2, 3  // second triangle
+    };
+
+    lOpenGL.vao(1, &amp;lParams.vao);
+    lOpenGL.vbo(1, &amp;lParams.vbo);
+    lOpenGL.vbo(1, &amp;lParams.ebo);
+
+    lOpenGL.vao(lParams.vao);
+    lOpenGL.vbo(lParams.vbo, lVertices, sizeof(lVertices));
+    lOpenGL.vbo2(lParams.ebo, lIndices, sizeof(lIndices));
+    lOpenGL.vbo(0, 3, 5, 0);
+    lOpenGL.vbo(1, 2, 5, 3);
+
+    lOpenGL.use();
+    lOpenGL.uniform2("texture1", 0);
+    lOpenGL.uniform2("texture2", 1);
+
+    while(!lOpenGL.isClose()) {
+        lOpenGL.bgcolor(lParams.color);
+        lOpenGL.use();
+        lOpenGL.texture(GL_TEXTURE0);
+        lOpenGL2.texture(GL_TEXTURE1);
+        glm::mat4 lTransform = glm::mat4(1.0f);
+        lTransform = glm::rotate(lTransform, (float)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f));
+        lTransform = glm::translate(lTransform, glm::vec3(0.5f, -0.5f, 0.0f));
+        lOpenGL.uniform("transform", glm::value_ptr(lTransform));
+        lOpenGL.vao(lParams.vao);
+        lOpenGL.triangle2(0, 6);
+        lOpenGL.pollEvents();
+    }
+
+    lOpenGL.deleteVao(1, &amp;lParams.vao);
+    lOpenGL.deleteVbo(1, &amp;lParams.vbo);
+    lOpenGL.deleteVbo(1, &amp;lParams.ebo);
+    lOpenGL.deleteTexture();
+    lOpenGL2.deleteTexture();
+    lOpenGL.deleteProgram();
+    lOpenGL.close();
+}
+//===============================================</pre></div></div><br>Vertex shader<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+layout (location = 0) in vec3 aPos;
+layout (location = 1) in vec2 aTexCoord;
+
+out vec2 TexCoord;
+
+uniform mat4 transform;
+
+void main()
+{
+    gl_Position = transform * vec4(aPos, 1.0);
+    TexCoord = vec2(aTexCoord.x, aTexCoord.y);
+}
+//===============================================</pre></div></div><br>Fragment shader<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#version 330 core
+out vec4 FragColor;
+
+in vec2 TexCoord;
+
+uniform sampler2D texture1;
+uniform sampler2D texture2;
+
+void main()
+{
+    FragColor = mix(texture(texture1, TexCoord), texture(texture2, TexCoord), 0.2);
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_transform_rt.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_transform_rt.gif"></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Visualiser-des-donnees-3D-avec-OpenGL"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Visualiser des données 3D avec OpenGL</a></h2><br><h3 class="Title8 GTitle3">Initialisation d'OpenGL<br></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GOpenGL::init() {
     glfwInit();
     m_window = glfwCreateWindow(m_width, m_height, m_title.c_str(), NULL, NULL);
