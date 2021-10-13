@@ -6546,7 +6546,746 @@ gcc -c RLib/glad/src/glad_gl.c -o glad_gl.o -IRLib/include
 g++ -o rdcpp main.o glad.o -lglfw3dll -lopengl32</pre></div></div><br><h3 class="Title8 GTitle3">Exécuter le projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="batchfile">set "PATH=winlibs-i686-posix-dwarf-gcc-11.2.0-llvm-12.0.1-mingw-w64-9.0.0-r1\mingw32\bin;%PATH%";
 set "PATH=RLib\lib;%PATH%"
 
-.\rdcpp</pre></div></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Visualisation-de-donnees-3D"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Visualisation de données 3D</a></h2><br><h3 class="Title8 GTitle3">Initialisation d'OpenGL<br></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+.\rdcpp</pre></div></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Apprendre-OpenGL"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Apprendre OpenGL</a></h2><br><h3 class="Title8 GTitle3">Création d'un triangle</h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGLUi::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
+
+    lOpenGL.init2();
+    lOpenGL.onResize(onResize);
+    lOpenGL.onKey(onKey);
+
+    lParams.color = {0.2f, 0.3f, 0.3f, 1.f};
+
+    lParams.shader_vertex_code = ""
+            "#version 330 core\n"
+            "layout (location = 0) in vec3 aPos;\n"
+            "void main()\n"
+            "{\n"
+            "   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
+            "}\n";
+
+    lParams.shader_fragment_code = ""
+            "#version 330 core\n"
+            "out vec4 FragColor;\n"
+            "void main()\n"
+            "{\n"
+            "   FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
+            "}\n";
+
+    lOpenGL.shader(lParams.shader_vertex_code, lParams.shader_fragment_code);
+
+    GLfloat lVertices[] = {
+        -0.5f, -0.5f, 0.0f, // left
+         0.5f, -0.5f, 0.0f, // right
+         0.0f,  0.5f, 0.0f  // top
+    };
+
+    lOpenGL.vao(1, &amp;lParams.vao);
+    lOpenGL.vbo(1, &amp;lParams.vbo);
+
+    lOpenGL.vao(lParams.vao);
+    lOpenGL.vbo(lParams.vbo, lVertices, sizeof(lVertices));
+    lOpenGL.vbo(0, 3, 3, 0);
+
+    while(!lOpenGL.isClose()) {
+        lOpenGL.bgcolor(lParams.color);
+        lOpenGL.use();
+        lOpenGL.vao(lParams.vao);
+        lOpenGL.triangle(0, 3);
+        lOpenGL.pollEvents();
+    }
+
+    lOpenGL.deleteVao(1, &amp;lParams.vao);
+    lOpenGL.deleteVbo(1, &amp;lParams.vbo);
+    lOpenGL.deleteProgram();
+    lOpenGL.close();
+}
+//===============================================</pre></div></div><br>Création du triangle<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGL::triangle(GLint _index, GLsizei _count) {
+    glDrawArrays(GL_TRIANGLES, _index, _count);
+}
+//===============================================</pre></div></div><br>Initialisation du système<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGL::init2() {
+    glfwInit();
+    m_window = glfwCreateWindow(m_width, m_height, m_title.c_str(), NULL, NULL);
+    glfwMakeContextCurrent(m_window);
+    glfwSwapInterval(1);
+    glEnable(GL_LINE_SMOOTH);
+    glHint(GL_LINE_SMOOTH_HINT, GL_NICEST);
+    glEnable(GL_POINT_SMOOTH);
+    glHint(GL_POINT_SMOOTH_HINT, GL_NICEST);
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glEnable(GL_ALPHA_TEST) ;
+    glewExperimental = true;
+    glewInit();
+}
+//===============================================</pre></div></div><br>Gestion du redimensionnement de la fenêtre<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGL::viewport(int _width, int _height) {
+    glViewport(0, 0, _width, _height);
+}
+//===============================================</pre></div></div><br>Gestion du clavier<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGL::onKey() {
+    if(glfwGetKey(m_window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
+        glfwSetWindowShouldClose(m_window, true);
+    }
+}
+//===============================================</pre></div></div><br>Chargement des shaders<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGL::shader(const std::string&amp; _vertex, const std::string&amp; _fragment) {
+    GLuint lVertexId = glCreateShader(GL_VERTEX_SHADER);
+    compile(lVertexId, _vertex);
+
+    GLuint lFragmentId = glCreateShader(GL_FRAGMENT_SHADER);
+    compile(lFragmentId, _fragment);
+
+    m_program = glCreateProgram();
+
+    glAttachShader(m_program, lVertexId);
+    glAttachShader(m_program, lFragmentId);
+    glLinkProgram(m_program);
+
+    GLint lResult = 0;
+    int logLength;
+
+    glGetProgramiv(m_program, GL_LINK_STATUS, &amp;lResult);
+    glGetProgramiv(m_program, GL_INFO_LOG_LENGTH, &amp;logLength);
+
+    glDeleteShader(lVertexId);
+    glDeleteShader(lFragmentId);
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_triangle.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_triangle.png"></div><br><h3 class="Title8 GTitle3">Création de 2 triangles</h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGLUi::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
+
+    lOpenGL.init2();
+    lOpenGL.onResize(onResize);
+    lOpenGL.onKey(onKey);
+
+    lParams.color = {0.2f, 0.3f, 0.3f, 1.f};
+
+    lParams.shader_vertex_code = ""
+            "#version 330 core\n"
+            "layout (location = 0) in vec3 aPos;\n"
+            "void main()\n"
+            "{\n"
+            "   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
+            "}\n";
+
+    lParams.shader_fragment_code = ""
+            "#version 330 core\n"
+            "out vec4 FragColor;\n"
+            "void main()\n"
+            "{\n"
+            "   FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
+            "}\n";
+
+    lOpenGL.shader(lParams.shader_vertex_code, lParams.shader_fragment_code);
+
+    GLfloat lVertices[] = {
+        // first triangle
+        -0.9f, -0.5f, 0.0f,  // left
+        -0.0f, -0.5f, 0.0f,  // right
+        -0.45f, 0.5f, 0.0f,  // top
+        // second triangle
+         0.0f, -0.5f, 0.0f,  // left
+         0.9f, -0.5f, 0.0f,  // right
+         0.45f, 0.5f, 0.0f   // top
+    };
+
+    lOpenGL.vao(1, &amp;lParams.vao);
+    lOpenGL.vbo(1, &amp;lParams.vbo);
+
+    lOpenGL.vao(lParams.vao);
+    lOpenGL.vbo(lParams.vbo, lVertices, sizeof(lVertices));
+    lOpenGL.vbo(0, 3, 3, 0);
+
+    while(!lOpenGL.isClose()) {
+        lOpenGL.bgcolor(lParams.color);
+        lOpenGL.use();
+        lOpenGL.vao(lParams.vao);
+        lOpenGL.triangle(0, 6);
+        lOpenGL.pollEvents();
+    }
+
+    lOpenGL.deleteVao(1, &amp;lParams.vao);
+    lOpenGL.deleteVbo(1, &amp;lParams.vbo);
+    lOpenGL.deleteProgram();
+    lOpenGL.close();
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_triangle_2.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_triangle_2.png"></div><br><h3 class="Title8 GTitle3">Utilisation de plusieurs VAOs et VBOs</h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGLUi::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
+
+    lOpenGL.init2();
+    lOpenGL.onResize(onResize);
+    lOpenGL.onKey(onKey);
+
+    lParams.color = {0.2f, 0.3f, 0.3f, 1.f};
+
+    lParams.shader_vertex_code = ""
+            "#version 330 core\n"
+            "layout (location = 0) in vec3 aPos;\n"
+            "void main()\n"
+            "{\n"
+            "   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
+            "}\n";
+
+    lParams.shader_fragment_code = ""
+            "#version 330 core\n"
+            "out vec4 FragColor;\n"
+            "void main()\n"
+            "{\n"
+            "   FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
+            "}\n";
+
+    lOpenGL.shader(lParams.shader_vertex_code, lParams.shader_fragment_code);
+
+    float lFirstTriangle[] = {
+        -0.9f, -0.5f, 0.0f,  // left
+        -0.0f, -0.5f, 0.0f,  // right
+        -0.45f, 0.5f, 0.0f,  // top
+    };
+    float lSecondTriangle[] = {
+        0.0f, -0.5f, 0.0f,  // left
+        0.9f, -0.5f, 0.0f,  // right
+        0.45f, 0.5f, 0.0f   // top
+    };
+
+    lOpenGL.vao(2, lParams.vao);
+    lOpenGL.vbo(2, lParams.vbo);
+
+    lOpenGL.vao(lParams.vao[0]);
+    lOpenGL.vbo(lParams.vbo[0], lFirstTriangle, sizeof(lFirstTriangle));
+    lOpenGL.vbo(0, 3, 3, 0);
+
+    lOpenGL.vao(lParams.vao[1]);
+    lOpenGL.vbo(lParams.vbo[1], lSecondTriangle, sizeof(lSecondTriangle));
+    lOpenGL.vbo(0, 3, 0, 0);
+
+    while(!lOpenGL.isClose()) {
+        lOpenGL.bgcolor(lParams.color);
+        lOpenGL.use();
+        lOpenGL.vao(lParams.vao[0]);
+        lOpenGL.triangle(0, 3);
+        lOpenGL.vao(lParams.vao[1]);
+        lOpenGL.triangle(0, 3);
+        lOpenGL.pollEvents();
+    }
+
+    lOpenGL.deleteVao(2, lParams.vao);
+    lOpenGL.deleteVbo(2, lParams.vbo);
+    lOpenGL.deleteProgram();
+    lOpenGL.close();
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_2_vao_vbo.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_2_vao_vbo.png"></div><br><h3 class="Title8 GTitle3">Utilisation de points indexés (EBO)<br></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGLUi::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
+
+    lOpenGL.init2();
+    lOpenGL.onResize(onResize);
+    lOpenGL.onKey(onKey);
+
+    lParams.color = {0.2f, 0.3f, 0.3f, 1.f};
+
+    lParams.shader_vertex_code = ""
+            "#version 330 core\n"
+            "layout (location = 0) in vec3 aPos;\n"
+            "void main()\n"
+            "{\n"
+            "   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
+            "}\n";
+
+    lParams.shader_fragment_code = ""
+            "#version 330 core\n"
+            "out vec4 FragColor;\n"
+            "void main()\n"
+            "{\n"
+            "   FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
+            "}\n";
+
+    lOpenGL.shader(lParams.shader_vertex_code, lParams.shader_fragment_code);
+
+    GLfloat lVertices[] = {
+            0.5f,  0.5f, 0.0f,  // top right
+            0.5f, -0.5f, 0.0f,  // bottom right
+            -0.5f, -0.5f, 0.0f, // bottom left
+            -0.5f,  0.5f, 0.0f  // top left
+    };
+    GLuint lIndices[] = {
+            0, 1, 3,  // first Triangle
+            1, 2, 3   // second Triangle
+    };
+
+    lOpenGL.vao(1, &amp;lParams.vao);
+    lOpenGL.vbo(1, &amp;lParams.vbo);
+    lOpenGL.vbo(1, &amp;lParams.ebo);
+    lOpenGL.vbo(lParams.vbo, lVertices, sizeof(lVertices));
+    lOpenGL.vbo2(lParams.ebo, lIndices, sizeof(lIndices));
+    lOpenGL.vbo(0, 3, 3, 0);
+    lOpenGL.vbo(0);
+    lOpenGL.vao(0);
+
+    while(!lOpenGL.isClose()) {
+        lOpenGL.bgcolor(lParams.color);
+        lOpenGL.use();
+        lOpenGL.vao(lParams.vao);
+        lOpenGL.triangle2(0, 6);
+        lOpenGL.pollEvents();
+    }
+
+    lOpenGL.deleteVao(1, &amp;lParams.vao);
+    lOpenGL.deleteVbo(1, &amp;lParams.vbo);
+    lOpenGL.deleteVbo(1, &amp;lParams.ebo);
+    lOpenGL.deleteProgram();
+    lOpenGL.close();
+}
+//===============================================</pre></div></div><br>Affichage des sommets<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGL::triangle2(const void* _indices, GLsizei _count) {
+    glDrawElements(GL_TRIANGLES, _count, GL_UNSIGNED_INT, _indices);
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_triangle_index.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_triangle_index.png"></div><br><h3 class="Title8 GTitle3">Utilisation de plusieurs shaders</h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGLUi::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
+
+    lOpenGL.init2();
+    lOpenGL.onResize(onResize);
+    lOpenGL.onKey(onKey);
+
+    lParams.color = {0.2f, 0.3f, 0.3f, 1.f};
+
+    lParams.shader_vertex_code = ""
+            "#version 330 core\n"
+            "layout (location = 0) in vec3 aPos;\n"
+            "void main()\n"
+            "{\n"
+            "   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
+            "}\n";
+
+    lParams.shader_fragment_code = ""
+            "#version 330 core\n"
+            "out vec4 FragColor;\n"
+            "void main()\n"
+            "{\n"
+            "   FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
+            "}\n";
+
+    lParams.shader_fragment_code2 = ""
+            "#version 330 core\n"
+            "out vec4 FragColor;\n"
+            "void main()\n"
+            "{\n"
+            "   FragColor = vec4(1.0f, 1.0f, 0.0f, 1.0f);\n"
+            "}\n";
+
+    GOpenGL lOpenGL2;
+
+    lOpenGL.shader(lParams.shader_vertex_code, lParams.shader_fragment_code);
+    lOpenGL2.shader(lParams.shader_vertex_code, lParams.shader_fragment_code2);
+
+    GLfloat lFirstTriangle[] = {
+        -0.9f, -0.5f, 0.0f,  // left
+        -0.0f, -0.5f, 0.0f,  // right
+        -0.45f, 0.5f, 0.0f,  // top
+    };
+    GLfloat lSecondTriangle[] = {
+        0.0f, -0.5f, 0.0f,  // left
+        0.9f, -0.5f, 0.0f,  // right
+        0.45f, 0.5f, 0.0f   // top
+    };
+
+    lOpenGL.vao(2, lParams.vao);
+    lOpenGL.vbo(2, lParams.vbo);
+
+    lOpenGL.vao(lParams.vao[0]);
+    lOpenGL.vbo(lParams.vbo[0], lFirstTriangle, sizeof(lFirstTriangle));
+    lOpenGL.vbo(0, 3, 3, 0);
+
+    lOpenGL.vao(lParams.vao[1]);
+    lOpenGL.vbo(lParams.vbo[1], lSecondTriangle, sizeof(lSecondTriangle));
+    lOpenGL.vbo(0, 3, 3, 0);
+
+    while(!lOpenGL.isClose()) {
+        lOpenGL.bgcolor(lParams.color);
+        lOpenGL.use();
+        lOpenGL.vao(lParams.vao[0]);
+        lOpenGL.triangle(0, 3);
+        lOpenGL2.use();
+        lOpenGL.vao(lParams.vao[1]);
+        lOpenGL.triangle(0, 3);
+        lOpenGL.pollEvents();
+    }
+
+    lOpenGL.deleteVao(2, lParams.vao);
+    lOpenGL.deleteVbo(2, lParams.vbo);
+    lOpenGL.deleteProgram();
+    lOpenGL2.deleteProgram();
+    lOpenGL.close();
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_2_shaders.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_2_shaders.png"></div><br><h3 class="Title8 GTitle3">Utilisation d'une variable shader uniform</h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGLUi::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
+
+    lOpenGL.init2();
+    lOpenGL.onResize(onResize);
+    lOpenGL.onKey(onKey);
+
+    lParams.color = {0.2f, 0.3f, 0.3f, 1.f};
+
+    lParams.shader_vertex_code =""
+            "#version 330 core\n"
+            "layout (location = 0) in vec3 aPos;\n"
+            "void main()\n"
+            "{\n"
+            "   gl_Position = vec4(aPos, 1.0);\n"
+            "}\n";
+
+    lParams.shader_fragment_code = ""
+            "#version 330 core\n"
+            "out vec4 FragColor;\n"
+            "uniform vec4 ourColor;\n"
+            "void main()\n"
+            "{\n"
+            "   FragColor = ourColor;\n"
+            "}\n";
+
+    lOpenGL.shader(lParams.shader_vertex_code, lParams.shader_fragment_code);
+
+    GLfloat lVertices[] = {
+            0.5f, -0.5f, 0.0f,  // bottom right
+            -0.5f, -0.5f, 0.0f, // bottom left
+            0.0f,  0.5f, 0.0f   // top
+    };
+
+    lOpenGL.vao(1, &amp;lParams.vao);
+    lOpenGL.vbo(1, &amp;lParams.vbo);
+
+    lOpenGL.vao(lParams.vao);
+    lOpenGL.vbo(lParams.vbo, lVertices, sizeof(lVertices));
+    lOpenGL.vbo(0, 3, 3, 0);
+
+    while(!lOpenGL.isClose()) {
+        lOpenGL.bgcolor(lParams.color);
+        lOpenGL.use();
+        float lTimeValue = glfwGetTime();
+        float lGreenValue = sin(lTimeValue) / 2.0f + 0.5f;
+        lOpenGL.uniform("ourColor", 0.0f, lGreenValue, 0.0f, 1.0f);
+        lOpenGL.vao(lParams.vao);
+        lOpenGL.triangle(0, 3);
+        lOpenGL.pollEvents();
+    }
+
+    lOpenGL.deleteVao(1, &amp;lParams.vao);
+    lOpenGL.deleteVbo(1, &amp;lParams.vbo);
+    lOpenGL.deleteProgram();
+    lOpenGL.close();
+}
+//===============================================</pre></div></div><br>Affectation de la variable shader uniform<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGL::uniform(const char* _name, GLfloat _v0, GLfloat _v1, GLfloat _v2, GLfloat _v3) {
+    int lLocation = glGetUniformLocation(m_program, _name);
+    glUniform4f(lLocation, _v0, _v1, _v2, _v3);
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_uniform.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_uniform.gif"></div><br><h3 class="Title8 GTitle3">Utilisation de la technique d'interpolation</h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGLUi::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
+
+    lOpenGL.init2();
+    lOpenGL.onResize(onResize);
+    lOpenGL.onKey(onKey);
+
+    lParams.color = {0.2f, 0.3f, 0.3f, 1.f};
+
+    lParams.shader_vertex_code = ""
+    	    "#version 330 core\n"
+    	    "layout (location = 0) in vec3 aPos;\n"
+    	    "layout (location = 1) in vec3 aColor;\n"
+    	    "out vec3 ourColor;\n"
+    	    "void main()\n"
+    	    "{\n"
+    	    "   gl_Position = vec4(aPos, 1.0);\n"
+    	    "   ourColor = aColor;\n"
+    	    "}\n";
+
+    lParams.shader_fragment_code = ""
+    	    "#version 330 core\n"
+    	    "out vec4 FragColor;\n"
+    	    "in vec3 ourColor;\n"
+    	    "void main()\n"
+    	    "{\n"
+    	    "   FragColor = vec4(ourColor, 1.0f);\n"
+    	    "}\n";
+
+    lOpenGL.shader(lParams.shader_vertex_code, lParams.shader_fragment_code);
+
+    GLfloat lVertices[] = {
+        // positions         // colors
+         0.5f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f,  // bottom right
+        -0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,  // bottom left
+         0.0f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f   // top
+    };
+
+    lOpenGL.vao(1, &amp;lParams.vao);
+    lOpenGL.vbo(1, &amp;lParams.vbo);
+
+    lOpenGL.vao(lParams.vao);
+    lOpenGL.vbo(lParams.vbo, lVertices, sizeof(lVertices));
+    lOpenGL.vbo(0, 3, 6, 0);
+    lOpenGL.vbo(1, 3, 6, 3);
+
+    while(!lOpenGL.isClose()) {
+        lOpenGL.bgcolor(lParams.color);
+        lOpenGL.use();
+        lOpenGL.vao(lParams.vao);
+        lOpenGL.triangle(0, 3);
+        lOpenGL.pollEvents();
+    }
+
+    lOpenGL.deleteVao(1, &amp;lParams.vao);
+    lOpenGL.deleteVbo(1, &amp;lParams.vbo);
+    lOpenGL.deleteProgram();
+    lOpenGL.close();
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_interpolation.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_interpolation.png"></div><br><h3 class="Title8 GTitle3">Chargement des shaders à partir de fichiers</h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGLUi::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
+
+    lOpenGL.init2();
+    lOpenGL.onResize(onResize);
+    lOpenGL.onKey(onKey);
+
+    lParams.color = {0.2f, 0.3f, 0.3f, 1.f};
+
+    lOpenGL.shader2(lApp-&gt;shader_vertex_file, lApp-&gt;shader_fragment_file);
+
+    GLfloat lVertices[] = {
+        // positions         // colors
+         0.5f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f,  // bottom right
+        -0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,  // bottom left
+         0.0f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f   // top
+    };
+
+    lOpenGL.vao(1, &amp;lParams.vao);
+    lOpenGL.vbo(1, &amp;lParams.vbo);
+
+    lOpenGL.vao(lParams.vao);
+    lOpenGL.vbo(lParams.vbo, lVertices, sizeof(lVertices));
+    lOpenGL.vbo(0, 3, 6, 0);
+    lOpenGL.vbo(1, 3, 6, 3);
+
+    while(!lOpenGL.isClose()) {
+        lOpenGL.bgcolor(lParams.color);
+        lOpenGL.use();
+        lOpenGL.vao(lParams.vao);
+        lOpenGL.triangle(0, 3);
+        lOpenGL.pollEvents();
+    }
+
+    lOpenGL.deleteVao(1, &amp;lParams.vao);
+    lOpenGL.deleteVbo(1, &amp;lParams.vbo);
+    lOpenGL.deleteProgram();
+    lOpenGL.close();
+}
+//===============================================</pre></div></div><br>Chargement des shaders<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGL::shader2(const std::string&amp; _vertex, const std::string&amp; _fragment) {
+    GFile lFile;
+    lFile.filename(_vertex);
+    std::string lVertexCode = lFile.read();
+    lFile.filename(_fragment);
+    std::string lFragmentCode = lFile.read();
+    shader(lVertexCode, lFragmentCode);
+}
+//===============================================</pre></div></div><br>Vertex shader<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#version 330 core
+layout (location = 0) in vec3 aPos;
+layout (location = 1) in vec3 aColor;
+
+out vec3 ourColor;
+
+void main()
+{
+    gl_Position = vec4(aPos, 1.0);
+    ourColor = aColor;
+}
+//===============================================</pre></div></div><br>Fragment shader<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#version 330 core
+out vec4 FragColor;
+
+in vec3 ourColor;
+
+void main()
+{
+    FragColor = vec4(ourColor, 1.0f);
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_shaders_files.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_shaders_files.png"></div><br><h3 class="Title8 GTitle3">Manipulation des sommets dans le vertex shader</h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGLUi::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
+
+    lOpenGL.init2();
+    lOpenGL.onResize(onResize);
+    lOpenGL.onKey(onKey);
+
+    lParams.color = {0.2f, 0.3f, 0.3f, 1.f};
+
+    lOpenGL.shader2(lApp-&gt;shader_vertex_file, lApp-&gt;shader_fragment_file);
+
+    GLfloat lVertices[] = {
+        // positions         // colors
+         0.5f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f,  // bottom right
+        -0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,  // bottom left
+         0.0f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f   // top
+    };
+
+    lOpenGL.vao(1, &amp;lParams.vao);
+    lOpenGL.vbo(1, &amp;lParams.vbo);
+
+    lOpenGL.vao(lParams.vao);
+    lOpenGL.vbo(lParams.vbo, lVertices, sizeof(lVertices));
+    lOpenGL.vbo(0, 3, 6, 0);
+    lOpenGL.vbo(1, 3, 6, 3);
+
+    while(!lOpenGL.isClose()) {
+        lOpenGL.bgcolor(lParams.color);
+        lOpenGL.use();
+        lOpenGL.vao(lParams.vao);
+        lOpenGL.triangle(0, 3);
+        lOpenGL.pollEvents();
+    }
+
+    lOpenGL.deleteVao(1, &amp;lParams.vao);
+    lOpenGL.deleteVbo(1, &amp;lParams.vbo);
+    lOpenGL.deleteProgram();
+    lOpenGL.close();
+}
+//===============================================</pre></div></div><br>Manipulation des sommets<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#version 330 core
+layout (location = 0) in vec3 aPos;
+layout (location = 1) in vec3 aColor;
+
+out vec3 ourColor;
+
+void main()
+{
+    gl_Position = vec4(aPos.x, -aPos.y, aPos.z, 1.0);
+    ourColor = aColor;
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_vertex_shader.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_vertex_shader.png"></div><br><h3 class="Title8 GTitle3">Manipulation des sommets dans le vertex shader (uniform)</h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGLUi::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
+
+    lOpenGL.init2();
+    lOpenGL.onResize(onResize);
+    lOpenGL.onKey(onKey);
+
+    lParams.color = {0.2f, 0.3f, 0.3f, 1.f};
+
+    lOpenGL.shader2(lApp-&gt;shader_vertex_file, lApp-&gt;shader_fragment_file);
+
+    GLfloat lVertices[] = {
+        // positions         // colors
+         0.5f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f,  // bottom right
+        -0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,  // bottom left
+         0.0f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f   // top
+    };
+
+    lOpenGL.vao(1, &amp;lParams.vao);
+    lOpenGL.vbo(1, &amp;lParams.vbo);
+
+    lOpenGL.vao(lParams.vao);
+    lOpenGL.vbo(lParams.vbo, lVertices, sizeof(lVertices));
+    lOpenGL.vbo(0, 3, 6, 0);
+    lOpenGL.vbo(1, 3, 6, 3);
+
+    while(!lOpenGL.isClose()) {
+        lOpenGL.bgcolor(lParams.color);
+        lOpenGL.use();
+        float lOffset = 0.5f;
+        lOpenGL.uniform("xOffset", lOffset);
+        lOpenGL.vao(lParams.vao);
+        lOpenGL.triangle(0, 3);
+        lOpenGL.pollEvents();
+    }
+
+    lOpenGL.deleteVao(1, &amp;lParams.vao);
+    lOpenGL.deleteVbo(1, &amp;lParams.vbo);
+    lOpenGL.deleteProgram();
+    lOpenGL.close();
+}
+//===============================================</pre></div></div><br>Vertex shader<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#version 330 core
+layout (location = 0) in vec3 aPos;
+layout (location = 1) in vec3 aColor;
+
+out vec3 ourColor;
+
+uniform float xOffset;
+
+void main()
+{
+    gl_Position = vec4(aPos.x + xOffset, aPos.y, aPos.z, 1.0);
+    ourColor = aColor;
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_vertex_shader_2.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_vertex_shader_2.png"></div><br><h3 class="Title8 GTitle3">Interpolation des couleurs dans le fragment shader</h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGLUi::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
+
+    lOpenGL.init2();
+    lOpenGL.onResize(onResize);
+    lOpenGL.onKey(onKey);
+
+    lParams.color = {0.2f, 0.3f, 0.3f, 1.f};
+
+    lOpenGL.shader2(lApp-&gt;shader_vertex_file, lApp-&gt;shader_fragment_file);
+
+    GLfloat lVertices[] = {
+        // positions         // colors
+         0.5f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f,  // bottom right
+        -0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,  // bottom left
+         0.0f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f   // top
+    };
+
+    lOpenGL.vao(1, &amp;lParams.vao);
+    lOpenGL.vbo(1, &amp;lParams.vbo);
+
+    lOpenGL.vao(lParams.vao);
+    lOpenGL.vbo(lParams.vbo, lVertices, sizeof(lVertices));
+    lOpenGL.vbo(0, 3, 6, 0);
+    lOpenGL.vbo(1, 3, 6, 3);
+
+    while(!lOpenGL.isClose()) {
+        lOpenGL.bgcolor(lParams.color);
+        lOpenGL.use();
+        lOpenGL.vao(lParams.vao);
+        lOpenGL.triangle(0, 3);
+        lOpenGL.pollEvents();
+    }
+
+    lOpenGL.deleteVao(1, &amp;lParams.vao);
+    lOpenGL.deleteVbo(1, &amp;lParams.vbo);
+    lOpenGL.deleteProgram();
+    lOpenGL.close();
+}
+//===============================================</pre></div></div><br>Vertex shader<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#version 330 core
+layout (location = 0) in vec3 aPos;
+layout (location = 1) in vec3 aColor;
+
+out vec3 ourPosition;
+
+void main()
+{
+    gl_Position = vec4(aPos, 1.0); 
+    ourPosition = aPos;
+}
+//===============================================</pre></div></div><br>Fragment shader<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#version 330 core
+out vec4 FragColor;
+// in vec3 ourColor;
+in vec3 ourPosition;
+
+void main()
+{
+    FragColor = vec4(ourPosition, 1.0);
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_color_interpolation.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_color_interpolation.png"></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Visualiser-des-donnees-3D-avec-OpenGL"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Visualiser des données 3D avec OpenGL</a></h2><br><h3 class="Title8 GTitle3">Initialisation d'OpenGL<br></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GOpenGL::init() {
     glfwInit();
     m_window = glfwCreateWindow(m_width, m_height, m_title.c_str(), NULL, NULL);
@@ -7180,7 +7919,33 @@ void GOpenGLUi::run(int argc, char** argv) {
     lOpenGL.deleteProgram();
     lOpenGL.close();
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_shader.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_shader.png"></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Fenetre"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Fenêtre</a></h2><br><h3 class="Title8 GTitle3">Créer une fenêtre sous GLFW</h3><br>Création de la fenêtre<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_shader.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_shader.png"></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Domaine-du-temps-reel"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Domaine du temps réel</a></h2><br><h3 class="Title8 GTitle3">Création d'un système de masse-ressort</h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGLUi::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
+
+    lOpenGL.init(argc, argv);
+
+    lParams.cam.eye = {0.f, 0.f, 0.f};
+    lParams.cam.center = {0.f, 0.f, 0.f};
+    lParams.cam.up = {0.f, 1.f, 0.f};
+    lParams.rho = 2.f;
+    lParams.theta = 0.f;
+    lParams.phi = 0.f;
+    lParams.ncircle = 100;
+    lParams.nvertex = 50;
+    lParams.indice = 4 * lParams.nvertex * (lParams.ncircle - 1);
+    lParams.vertex = new float[3 * lParams.ncircle * lParams.nvertex];
+    lParams.normals = new GLfloat[3 * lParams.ncircle * lParams.nvertex];
+    lParams.indices =  new GLuint[lParams.indice];
+
+    lOpenGL.onDisplay(onDisplay);
+    lOpenGL.loop();
+}
+//===============================================
+void GOpenGLUi::onDisplay() {
+    lOpenGL.onDisplay(lParams);
+}
+//===============================================</pre></div></div><br><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Fenetre"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Fenêtre</a></h2><br><h3 class="Title8 GTitle3">Créer une fenêtre sous GLFW</h3><br>Création de la fenêtre<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GOpenGLUi::run(int argc, char** argv) {
     sGApp* lApp = GManager::Instance()-&gt;getData()-&gt;app;
 
