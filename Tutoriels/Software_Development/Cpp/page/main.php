@@ -8915,21 +8915,7 @@ void GOpenGL::onKey(sGCamera&amp; _cam, GLfloat&amp; _deltaTime) {
     	_cam.eye += glm::normalize(glm::cross(_cam.front, _cam.up)) * _cam.speed;
     }
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_camera_move.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_camera_move.gif"></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Visualiser-des-donnees-3D-avec-OpenGL"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Visualiser des données 3D avec OpenGL</a></h2><br><h3 class="Title8 GTitle3">Initialisation d'OpenGL<br></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
-void GOpenGL::init() {
-    glfwInit();
-    m_window = glfwCreateWindow(m_width, m_height, m_title.c_str(), NULL, NULL);
-    glfwMakeContextCurrent(m_window);
-    glfwSwapInterval(1);
-    glEnable(GL_LINE_SMOOTH);
-    glHint(GL_LINE_SMOOTH_HINT, GL_NICEST);
-    glEnable(GL_POINT_SMOOTH);
-    glHint(GL_POINT_SMOOTH_HINT, GL_NICEST);
-    glEnable(GL_BLEND);
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    glEnable(GL_ALPHA_TEST) ;
-}
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Fermeture de la fenêtre OpenGL</h3><br>Détection de la fermeture de la fenêtre<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_camera_move.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_camera_move.gif"></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Visualiser-des-donnees-3D-avec-OpenGL"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Visualiser des données 3D avec OpenGL</a></h2><br><h3 class="Title8 GTitle3">Fermeture de la fenêtre OpenGL</h3><br>Détection de la fermeture de la fenêtre<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 bool GOpenGL::isClose() {
     return glfwWindowShouldClose(m_window);
 }
@@ -8991,7 +8977,21 @@ void GOpenGL::point() {
         point(v1, size);
     }
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_point.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_point.png"></div><br><h3 class="Title8 GTitle3">Création d'une ligne</h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br>Initialisation du système<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGL::init() {
+    glfwInit();
+    m_window = glfwCreateWindow(m_width, m_height, m_title.c_str(), NULL, NULL);
+    glfwMakeContextCurrent(m_window);
+    glfwSwapInterval(1);
+    glEnable(GL_LINE_SMOOTH);
+    glHint(GL_LINE_SMOOTH_HINT, GL_NICEST);
+    glEnable(GL_POINT_SMOOTH);
+    glHint(GL_POINT_SMOOTH_HINT, GL_NICEST);
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glEnable(GL_ALPHA_TEST) ;
+}
+//===============================================</pre></div></div><br><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_point.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_point.png"></div><br><h3 class="Title8 GTitle3">Création d'une ligne</h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GOpenGLUi::run(int argc, char** argv) {
     GOpenGL lOpenGL;
     lOpenGL.init();
