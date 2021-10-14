@@ -8501,8 +8501,8 @@ void GOpenGLUi::run(int argc, char** argv) {
         for (unsigned int i = 0; i &lt; 10; i++) {
             glm::mat4 lModel = glm::mat4(1.0f);
             lModel = glm::translate(lModel, lCubePositions[i]);
-            float angle = 20.0f * (i + 1);
-            lModel = glm::rotate(lModel, glm::radians(angle), glm::vec3(1.0f, 0.3f, 0.5f));
+            float lAngle = 20.0f * (i + 1);
+            lModel = glm::rotate(lModel, glm::radians(lAngle), glm::vec3(1.0f, 0.3f, 0.5f));
             lOpenGL.uniform("model", glm::value_ptr(lModel));
             lOpenGL.triangle(0, 36);
         }
