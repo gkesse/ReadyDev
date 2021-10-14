@@ -8639,7 +8639,132 @@ void GOpenGLUi::run(int argc, char** argv) {
     lOpenGL.deleteProgram();
     lOpenGL.close();
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_object_multiple_rotate.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_object_multiple_rotate.gif"></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Visualiser-des-donnees-3D-avec-OpenGL"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Visualiser des données 3D avec OpenGL</a></h2><br><h3 class="Title8 GTitle3">Initialisation d'OpenGL<br></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_object_multiple_rotate.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_object_multiple_rotate.gif"></div><br><h3 class="Title8 GTitle3">Rotation d'une camera autour d'une scène</h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGLUi::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
+
+    lOpenGL.init2();
+    lOpenGL.onResize(onResize);
+    lOpenGL.onKey(onKey);
+
+    lParams.color = {0.2f, 0.3f, 0.3f, 1.f};
+    lParams.cam.eye = glm::vec3(0.f, 0.f, 0.f);
+    lParams.cam.center = glm::vec3(0.f, 0.f, 0.f);
+    lParams.cam.up = glm::vec3(0.f, 1.f, 0.f);
+    lParams.radius = 10.f;
+
+    GOpenGL lOpenGL2;
+
+    lOpenGL.shader2(lApp-&gt;shader_vertex_file, lApp-&gt;shader_fragment_file);
+    lOpenGL.texture2(lApp-&gt;texture_file);
+    lOpenGL2.texture3(lApp-&gt;texture_file2);
+
+    float lVertices[] = {
+        -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
+         0.5f, -0.5f, -0.5f,  1.0f, 0.0f,
+         0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+         0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+        -0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
+        -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
+
+        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+         0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
+         0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
+         0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
+        -0.5f,  0.5f,  0.5f,  0.0f, 1.0f,
+        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+
+        -0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+        -0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+        -0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+
+         0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+         0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+         0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+         0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+         0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+         0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+
+        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+         0.5f, -0.5f, -0.5f,  1.0f, 1.0f,
+         0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
+         0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
+        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+
+        -0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
+         0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+         0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+         0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+        -0.5f,  0.5f,  0.5f,  0.0f, 0.0f,
+        -0.5f,  0.5f, -0.5f,  0.0f, 1.0f
+    };
+    glm::vec3 lCubePositions[] = {
+        glm::vec3( 0.0f,  0.0f,  0.0f),
+        glm::vec3( 2.0f,  5.0f, -15.0f),
+        glm::vec3(-1.5f, -2.2f, -2.5f),
+        glm::vec3(-3.8f, -2.0f, -12.3f),
+        glm::vec3( 2.4f, -0.4f, -3.5f),
+        glm::vec3(-1.7f,  3.0f, -7.5f),
+        glm::vec3( 1.3f, -2.0f, -2.5f),
+        glm::vec3( 1.5f,  2.0f, -2.5f),
+        glm::vec3( 1.5f,  0.2f, -1.5f),
+        glm::vec3(-1.3f,  1.0f, -1.5f)
+    };
+
+    lOpenGL.vao(1, &amp;lParams.vao);
+    lOpenGL.vbo(1, &amp;lParams.vbo);
+    lOpenGL.vbo(1, &amp;lParams.ebo);
+
+    lOpenGL.vao(lParams.vao);
+    lOpenGL.vbo(lParams.vbo, lVertices, sizeof(lVertices));
+    lOpenGL.vbo(0, 3, 5, 0);
+    lOpenGL.vbo(1, 2, 5, 3);
+
+    lOpenGL.use();
+    lOpenGL.uniform2("texture1", 0);
+    lOpenGL.uniform2("texture2", 1);
+
+    lOpenGL2.depthOn();
+
+    while(!lOpenGL.isClose()) {
+        lOpenGL.bgcolor2(lParams.color);
+        lOpenGL.use();
+        lOpenGL.texture(GL_TEXTURE0);
+        lOpenGL2.texture(GL_TEXTURE1);
+        lOpenGL.vao(lParams.vao);
+
+        lParams.cam.eye[0] = lParams.radius * sin(glfwGetTime());
+        lParams.cam.eye[2] = lParams.radius * cos(glfwGetTime());
+        lParams.mvp.view = lOpenGL.camera(lParams.cam);
+        lOpenGL.uniform("view", glm::value_ptr(lParams.mvp.view));
+
+        lParams.mvp.projection = glm::perspective(glm::radians(45.0f), (float)lOpenGL.width() / (float)lOpenGL.height(), 0.1f, 100.0f);
+        lOpenGL.uniform("projection", glm::value_ptr(lParams.mvp.projection));
+
+        for (int i = 0; i &lt; 10; i++) {
+        	lParams.mvp.model = glm::mat4(1.0f);
+        	lParams.mvp.model = glm::translate(lParams.mvp.model, lCubePositions[i]);
+            lParams.angle = 20.0f * (i + 1);
+            lParams.mvp.model = glm::rotate(lParams.mvp.model, glm::radians(lParams.angle), glm::vec3(1.0f, 0.3f, 0.5f));
+            lOpenGL.uniform("model", glm::value_ptr(lParams.mvp.model));
+            lOpenGL.triangle(0, 36);
+        }
+
+        lOpenGL.pollEvents();
+    }
+
+    lOpenGL.deleteVao(1, &amp;lParams.vao);
+    lOpenGL.deleteVbo(1, &amp;lParams.vbo);
+    lOpenGL.deleteTexture();
+    lOpenGL2.deleteTexture();
+    lOpenGL.deleteProgram();
+    lOpenGL.close();
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_camera_rotate.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_camera_rotate.gif"></div><br><h3 class="Title8 GTitle3">Déplacement d'une camera dans une scène</h3><br><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Visualiser-des-donnees-3D-avec-OpenGL"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Visualiser des données 3D avec OpenGL</a></h2><br><h3 class="Title8 GTitle3">Initialisation d'OpenGL<br></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GOpenGL::init() {
     glfwInit();
     m_window = glfwCreateWindow(m_width, m_height, m_title.c_str(), NULL, NULL);
