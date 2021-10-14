@@ -8196,7 +8196,450 @@ void main()
 {
     FragColor = mix(texture(texture1, TexCoord), texture(texture2, TexCoord), 0.2);
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_transform_zoom_io.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_transform_zoom_io.gif"></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Visualiser-des-donnees-3D-avec-OpenGL"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Visualiser des données 3D avec OpenGL</a></h2><br><h3 class="Title8 GTitle3">Initialisation d'OpenGL<br></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_transform_zoom_io.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_transform_zoom_io.gif"></div><br><h3 class="Title8 GTitle3">Utilisation du système de coordonnées</h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGLUi::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
+
+    lOpenGL.init2();
+    lOpenGL.onResize(onResize);
+    lOpenGL.onKey(onKey);
+
+    lParams.color = {0.2f, 0.3f, 0.3f, 1.f};
+
+    GOpenGL lOpenGL2;
+
+    lOpenGL.shader2(lApp-&gt;shader_vertex_file, lApp-&gt;shader_fragment_file);
+    lOpenGL.texture2(lApp-&gt;texture_file);
+    lOpenGL2.texture3(lApp-&gt;texture_file2);
+
+    GLfloat lVertices[] = {
+            // positions          // texture coords
+            0.5f,  0.5f, 0.0f,    1.0f, 1.0f, // top right
+            0.5f, -0.5f, 0.0f,    1.0f, 0.0f, // bottom right
+            -0.5f, -0.5f, 0.0f,   0.0f, 0.0f, // bottom left
+            -0.5f,  0.5f, 0.0f,   0.0f, 1.0f  // top left
+    };
+    GLuint lIndices[] = {
+            0, 1, 3, // first triangle
+            1, 2, 3  // second triangle
+    };
+
+    lOpenGL.vao(1, &amp;lParams.vao);
+    lOpenGL.vbo(1, &amp;lParams.vbo);
+    lOpenGL.vbo(1, &amp;lParams.ebo);
+
+    lOpenGL.vao(lParams.vao);
+    lOpenGL.vbo(lParams.vbo, lVertices, sizeof(lVertices));
+    lOpenGL.vbo2(lParams.ebo, lIndices, sizeof(lIndices));
+    lOpenGL.vbo(0, 3, 5, 0);
+    lOpenGL.vbo(1, 2, 5, 3);
+
+    lOpenGL.use();
+    lOpenGL.uniform2("texture1", 0);
+    lOpenGL.uniform2("texture2", 1);
+
+    while(!lOpenGL.isClose()) {
+        lOpenGL.bgcolor(lParams.color);
+        lOpenGL.use();
+        lOpenGL.texture(GL_TEXTURE0);
+        lOpenGL2.texture(GL_TEXTURE1);
+        lOpenGL.vao(lParams.vao);
+        glm::mat4 lModel = glm::mat4(1.0f);
+        glm::mat4 lView = glm::mat4(1.0f);
+        glm::mat4 lProjection = glm::mat4(1.0f);
+        lModel = glm::rotate(lModel, glm::radians(-55.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+        lView = glm::translate(lView, glm::vec3(0.0f, 0.0f, -3.0f));
+        lProjection = glm::perspective(glm::radians(45.0f), (float)lOpenGL.width() / (float)lOpenGL.height(), 0.1f, 100.0f);
+        lOpenGL.uniform("model", glm::value_ptr(lModel));
+        lOpenGL.uniform("view", glm::value_ptr(lView));
+        lOpenGL.uniform("projection", glm::value_ptr(lProjection));
+        lOpenGL.triangle2(0, 6);
+        lOpenGL.pollEvents();
+    }
+
+    lOpenGL.deleteVao(1, &amp;lParams.vao);
+    lOpenGL.deleteVbo(1, &amp;lParams.vbo);
+    lOpenGL.deleteVbo(1, &amp;lParams.ebo);
+    lOpenGL.deleteTexture();
+    lOpenGL2.deleteTexture();
+    lOpenGL.deleteProgram();
+    lOpenGL.close();
+}
+//===============================================</pre></div></div><br>Vertex shader<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#version 330 core
+layout (location = 0) in vec3 aPos;
+layout (location = 1) in vec2 aTexCoord;
+
+out vec2 TexCoord;
+
+uniform mat4 model;
+uniform mat4 view;
+uniform mat4 projection;
+
+void main()
+{
+    gl_Position = projection * view * model * vec4(aPos, 1.0);
+    TexCoord = vec2(aTexCoord.x, aTexCoord.y);
+}
+//===============================================</pre></div></div><br>Fragment shader<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#version 330 core
+out vec4 FragColor;
+
+in vec2 TexCoord;
+
+uniform sampler2D texture1;
+uniform sampler2D texture2;
+
+void main()
+{
+    FragColor = mix(texture(texture1, TexCoord), texture(texture2, TexCoord), 0.2);
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_coordinate_system.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_coordinate_system.png"></div><br><h3 class="Title8 GTitle3">Prise en compte de la profondeur (GL_DEPTH_TEST)</h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGLUi::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
+
+    lOpenGL.init2();
+    lOpenGL.onResize(onResize);
+    lOpenGL.onKey(onKey);
+
+    lParams.color = {0.2f, 0.3f, 0.3f, 1.f};
+
+    GOpenGL lOpenGL2;
+
+    lOpenGL.shader2(lApp-&gt;shader_vertex_file, lApp-&gt;shader_fragment_file);
+    lOpenGL.texture2(lApp-&gt;texture_file);
+    lOpenGL2.texture3(lApp-&gt;texture_file2);
+
+    float lVertices[] = {
+        -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
+         0.5f, -0.5f, -0.5f,  1.0f, 0.0f,
+         0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+         0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+        -0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
+        -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
+
+        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+         0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
+         0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
+         0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
+        -0.5f,  0.5f,  0.5f,  0.0f, 1.0f,
+        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+
+        -0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+        -0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+        -0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+
+         0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+         0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+         0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+         0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+         0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+         0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+
+        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+         0.5f, -0.5f, -0.5f,  1.0f, 1.0f,
+         0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
+         0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
+        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+
+        -0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
+         0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+         0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+         0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+        -0.5f,  0.5f,  0.5f,  0.0f, 0.0f,
+        -0.5f,  0.5f, -0.5f,  0.0f, 1.0f
+    };
+
+    lOpenGL.vao(1, &amp;lParams.vao);
+    lOpenGL.vbo(1, &amp;lParams.vbo);
+    lOpenGL.vbo(1, &amp;lParams.ebo);
+
+    lOpenGL.vao(lParams.vao);
+    lOpenGL.vbo(lParams.vbo, lVertices, sizeof(lVertices));
+    lOpenGL.vbo(0, 3, 5, 0);
+    lOpenGL.vbo(1, 2, 5, 3);
+
+    lOpenGL.use();
+    lOpenGL.uniform2("texture1", 0);
+    lOpenGL.uniform2("texture2", 1);
+
+    lOpenGL2.depthOn();
+
+    while(!lOpenGL.isClose()) {
+        lOpenGL.bgcolor2(lParams.color);
+        lOpenGL.use();
+        lOpenGL.texture(GL_TEXTURE0);
+        lOpenGL2.texture(GL_TEXTURE1);
+        lOpenGL.vao(lParams.vao);
+        glm::mat4 lModel = glm::mat4(1.0f);
+        glm::mat4 lView = glm::mat4(1.0f);
+        glm::mat4 lProjection = glm::mat4(1.0f);
+        lModel = glm::rotate(lModel, (float)glfwGetTime(), glm::vec3(0.5f, 1.0f, 0.0f));
+        lView  = glm::translate(lView, glm::vec3(0.0f, 0.0f, -3.0f));
+		lProjection = glm::perspective(glm::radians(45.0f), (float)lOpenGL.width() / (float)lOpenGL.height(), 0.1f, 100.0f);        lOpenGL.uniform("model", glm::value_ptr(lModel));
+        lOpenGL.uniform("view", glm::value_ptr(lView));
+        lOpenGL.uniform("projection", glm::value_ptr(lProjection));
+        lOpenGL.triangle(0, 36);
+        lOpenGL.pollEvents();
+    }
+
+    lOpenGL.deleteVao(1, &amp;lParams.vao);
+    lOpenGL.deleteVbo(1, &amp;lParams.vbo);
+    lOpenGL.deleteTexture();
+    lOpenGL2.deleteTexture();
+    lOpenGL.deleteProgram();
+    lOpenGL.close();
+}
+//===============================================</pre></div></div><br>Autorisation de la prise en compte de la profondeur<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGL::depthOn() {
+    glEnable(GL_DEPTH_TEST);
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_coordinate_system_depth.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_coordinate_system_depth.gif"></div><br><h3 class="Title8 GTitle3">Affichage de plusieurs objets</h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGLUi::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
+
+    lOpenGL.init2();
+    lOpenGL.onResize(onResize);
+    lOpenGL.onKey(onKey);
+
+    lParams.color = {0.2f, 0.3f, 0.3f, 1.f};
+
+    GOpenGL lOpenGL2;
+
+    lOpenGL.shader2(lApp-&gt;shader_vertex_file, lApp-&gt;shader_fragment_file);
+    lOpenGL.texture2(lApp-&gt;texture_file);
+    lOpenGL2.texture3(lApp-&gt;texture_file2);
+
+    float lVertices[] = {
+        -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
+         0.5f, -0.5f, -0.5f,  1.0f, 0.0f,
+         0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+         0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+        -0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
+        -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
+
+        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+         0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
+         0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
+         0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
+        -0.5f,  0.5f,  0.5f,  0.0f, 1.0f,
+        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+
+        -0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+        -0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+        -0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+
+         0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+         0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+         0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+         0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+         0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+         0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+
+        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+         0.5f, -0.5f, -0.5f,  1.0f, 1.0f,
+         0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
+         0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
+        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+
+        -0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
+         0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+         0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+         0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+        -0.5f,  0.5f,  0.5f,  0.0f, 0.0f,
+        -0.5f,  0.5f, -0.5f,  0.0f, 1.0f
+    };
+    glm::vec3 lCubePositions[] = {
+        glm::vec3( 0.0f,  0.0f,  0.0f),
+        glm::vec3( 2.0f,  5.0f, -15.0f),
+        glm::vec3(-1.5f, -2.2f, -2.5f),
+        glm::vec3(-3.8f, -2.0f, -12.3f),
+        glm::vec3( 2.4f, -0.4f, -3.5f),
+        glm::vec3(-1.7f,  3.0f, -7.5f),
+        glm::vec3( 1.3f, -2.0f, -2.5f),
+        glm::vec3( 1.5f,  2.0f, -2.5f),
+        glm::vec3( 1.5f,  0.2f, -1.5f),
+        glm::vec3(-1.3f,  1.0f, -1.5f)
+    };
+
+    lOpenGL.vao(1, &amp;lParams.vao);
+    lOpenGL.vbo(1, &amp;lParams.vbo);
+    lOpenGL.vbo(1, &amp;lParams.ebo);
+
+    lOpenGL.vao(lParams.vao);
+    lOpenGL.vbo(lParams.vbo, lVertices, sizeof(lVertices));
+    lOpenGL.vbo(0, 3, 5, 0);
+    lOpenGL.vbo(1, 2, 5, 3);
+
+    lOpenGL.use();
+    lOpenGL.uniform2("texture1", 0);
+    lOpenGL.uniform2("texture2", 1);
+
+    lOpenGL2.depthOn();
+
+    while(!lOpenGL.isClose()) {
+        lOpenGL.bgcolor2(lParams.color);
+        lOpenGL.use();
+        lOpenGL.texture(GL_TEXTURE0);
+        lOpenGL2.texture(GL_TEXTURE1);
+        lOpenGL.vao(lParams.vao);
+        glm::mat4 lView = glm::mat4(1.0f);
+        glm::mat4 lProjection = glm::mat4(1.0f);
+        lProjection = glm::perspective(glm::radians(45.0f), (float)lOpenGL.width() / (float)lOpenGL.height(), 0.1f, 100.0f);
+        lView = glm::translate(lView, glm::vec3(0.0f, 0.0f, -3.0f));
+        lOpenGL.uniform("projection", glm::value_ptr(lProjection));
+        lOpenGL.uniform("view", glm::value_ptr(lView));
+
+        for (unsigned int i = 0; i &lt; 10; i++) {
+            glm::mat4 lModel = glm::mat4(1.0f);
+            lModel = glm::translate(lModel, lCubePositions[i]);
+            float angle = 20.0f * (i + 1);
+            lModel = glm::rotate(lModel, glm::radians(angle), glm::vec3(1.0f, 0.3f, 0.5f));
+            lOpenGL.uniform("model", glm::value_ptr(lModel));
+            lOpenGL.triangle(0, 36);
+        }
+
+        lOpenGL.pollEvents();
+    }
+
+    lOpenGL.deleteVao(1, &amp;lParams.vao);
+    lOpenGL.deleteVbo(1, &amp;lParams.vbo);
+    lOpenGL.deleteTexture();
+    lOpenGL2.deleteTexture();
+    lOpenGL.deleteProgram();
+    lOpenGL.close();
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_object_multiple.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_object_multiple.png"></div><br><h3 class="Title8 GTitle3">Rotation de plusieurs objets</h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGLUi::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
+
+    lOpenGL.init2();
+    lOpenGL.onResize(onResize);
+    lOpenGL.onKey(onKey);
+
+    lParams.color = {0.2f, 0.3f, 0.3f, 1.f};
+
+    GOpenGL lOpenGL2;
+
+    lOpenGL.shader2(lApp-&gt;shader_vertex_file, lApp-&gt;shader_fragment_file);
+    lOpenGL.texture2(lApp-&gt;texture_file);
+    lOpenGL2.texture3(lApp-&gt;texture_file2);
+
+    float lVertices[] = {
+        -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
+         0.5f, -0.5f, -0.5f,  1.0f, 0.0f,
+         0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+         0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+        -0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
+        -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
+
+        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+         0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
+         0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
+         0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
+        -0.5f,  0.5f,  0.5f,  0.0f, 1.0f,
+        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+
+        -0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+        -0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+        -0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+
+         0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+         0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+         0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+         0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+         0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+         0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+
+        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+         0.5f, -0.5f, -0.5f,  1.0f, 1.0f,
+         0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
+         0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
+        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+
+        -0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
+         0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+         0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+         0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+        -0.5f,  0.5f,  0.5f,  0.0f, 0.0f,
+        -0.5f,  0.5f, -0.5f,  0.0f, 1.0f
+    };
+    glm::vec3 lCubePositions[] = {
+        glm::vec3( 0.0f,  0.0f,  0.0f),
+        glm::vec3( 2.0f,  5.0f, -15.0f),
+        glm::vec3(-1.5f, -2.2f, -2.5f),
+        glm::vec3(-3.8f, -2.0f, -12.3f),
+        glm::vec3( 2.4f, -0.4f, -3.5f),
+        glm::vec3(-1.7f,  3.0f, -7.5f),
+        glm::vec3( 1.3f, -2.0f, -2.5f),
+        glm::vec3( 1.5f,  2.0f, -2.5f),
+        glm::vec3( 1.5f,  0.2f, -1.5f),
+        glm::vec3(-1.3f,  1.0f, -1.5f)
+    };
+
+    lOpenGL.vao(1, &amp;lParams.vao);
+    lOpenGL.vbo(1, &amp;lParams.vbo);
+    lOpenGL.vbo(1, &amp;lParams.ebo);
+
+    lOpenGL.vao(lParams.vao);
+    lOpenGL.vbo(lParams.vbo, lVertices, sizeof(lVertices));
+    lOpenGL.vbo(0, 3, 5, 0);
+    lOpenGL.vbo(1, 2, 5, 3);
+
+    lOpenGL.use();
+    lOpenGL.uniform2("texture1", 0);
+    lOpenGL.uniform2("texture2", 1);
+
+    lOpenGL2.depthOn();
+
+    while(!lOpenGL.isClose()) {
+        lOpenGL.bgcolor2(lParams.color);
+        lOpenGL.use();
+        lOpenGL.texture(GL_TEXTURE0);
+        lOpenGL2.texture(GL_TEXTURE1);
+        lOpenGL.vao(lParams.vao);
+        glm::mat4 lView = glm::mat4(1.0f);
+        glm::mat4 lProjection = glm::mat4(1.0f);
+        lProjection = glm::perspective(glm::radians(45.0f), (float)lOpenGL.width() / (float)lOpenGL.height(), 0.1f, 100.0f);
+        lView = glm::translate(lView, glm::vec3(0.0f, 0.0f, -3.0f));
+        lOpenGL.uniform("projection", glm::value_ptr(lProjection));
+        lOpenGL.uniform("view", glm::value_ptr(lView));
+
+        for (unsigned int i = 0; i &lt; 10; i++) {
+            glm::mat4 lModel = glm::mat4(1.0f);
+            lModel = glm::translate(lModel, lCubePositions[i]);
+            float lAngle = 20.0f * (i + 1);
+            if(i % 3 == 0) {
+            	lAngle = glfwGetTime() * 25.0f;
+            }
+            lModel = glm::rotate(lModel, glm::radians(lAngle), glm::vec3(1.0f, 0.3f, 0.5f));
+            lOpenGL.uniform("model", glm::value_ptr(lModel));
+            lOpenGL.triangle(0, 36);
+        }
+
+        lOpenGL.pollEvents();
+    }
+
+    lOpenGL.deleteVao(1, &amp;lParams.vao);
+    lOpenGL.deleteVbo(1, &amp;lParams.vbo);
+    lOpenGL.deleteTexture();
+    lOpenGL2.deleteTexture();
+    lOpenGL.deleteProgram();
+    lOpenGL.close();
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_object_multiple_rotate.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_object_multiple_rotate.gif"></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Visualiser-des-donnees-3D-avec-OpenGL"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Visualiser des données 3D avec OpenGL</a></h2><br><h3 class="Title8 GTitle3">Initialisation d'OpenGL<br></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GOpenGL::init() {
     glfwInit();
     m_window = glfwCreateWindow(m_width, m_height, m_title.c_str(), NULL, NULL);
