@@ -8915,45 +8915,13 @@ void GOpenGL::onKey(sGCamera&amp; _cam, GLfloat&amp; _deltaTime) {
     	_cam.eye += glm::normalize(glm::cross(_cam.front, _cam.up)) * _cam.speed;
     }
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_camera_move.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_camera_move.gif"></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Visualiser-des-donnees-3D-avec-OpenGL"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Visualiser des données 3D avec OpenGL</a></h2><br><h3 class="Title8 GTitle3">Fermeture de la fenêtre OpenGL</h3><br>Détection de la fermeture de la fenêtre<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
-bool GOpenGL::isClose() {
-    return glfwWindowShouldClose(m_window);
-}
-//===============================================</pre></div></div><br>Fermeture de la fenêtre<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
-void GOpenGL::close() {
-    glfwDestroyWindow(m_window);
-    glfwTerminate();
-}
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Initialisation de la caméra</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
-void GOpenGL::viewport() {
-    float lRatio;
-    glfwGetFramebufferSize(m_window, &amp;m_width, &amp;m_height);
-    lRatio = (float)m_width / (float)m_height;
-    glViewport(0, 0, m_width, m_height);
-    glClear(GL_COLOR_BUFFER_BIT);
-    glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
-    glOrtho(-lRatio, lRatio, -1.0f, 1.0f, 1.0f, -1.0f);
-    glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity();
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-}
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Structure de données</h3><br>Structure de données d'un vertex<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//==============================================
-struct _sGVertex {
-    float x, y, z;
-    float r, g, b, a;
-};
-//==============================================</pre></div></div><br>Structure de données d'un point<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//==============================================
-struct _sGData {
-    float x, y, z;
-};
-//==============================================</pre></div></div><br><h3 class="Title8 GTitle3">Création d'un point</h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_camera_move.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_learn_camera_move.gif"></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Visualiser-des-donnees-3D-avec-OpenGL"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Visualiser des données 3D avec OpenGL</a></h2><br><h3 class="Title8 GTitle3">Création d'un point</h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GOpenGLUi::run(int argc, char** argv) {
     GOpenGL lOpenGL;
-    lOpenGL.init2();
+    lOpenGL.init();
 
     while (!lOpenGL.isClose()) {
-        lOpenGL.viewport2();
+        lOpenGL.viewport();
         glRotatef((float)glfwGetTime() * 50.f, 0.f, 0.f, 1.f);
         lOpenGL.point();
         lOpenGL.pollEvents();
@@ -8969,7 +8937,7 @@ void GOpenGL::point(const sGVertex&amp; _obj, int _width) {
     glVertex3f(_obj.x, _obj.y, _obj.z);
     glEnd();
 }
-//===============================================</pre></div></div><br>Création des points<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br>Création de points alignés<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GOpenGL::point() {
     GLfloat size = 5.0f;
     for(GLfloat x = 0.0f; x &lt;= 1.0f; x += 0.2f, size += 5.0f){
@@ -8991,7 +8959,26 @@ void GOpenGL::init() {
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glEnable(GL_ALPHA_TEST) ;
 }
-//===============================================</pre></div></div><br><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_point.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_point.png"></div><br><h3 class="Title8 GTitle3">Création d'une ligne</h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br>Initialisation de la caméra<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGL::viewport() {
+    float lRatio;
+    glfwGetFramebufferSize(m_window, &amp;m_width, &amp;m_height);
+    lRatio = (float)m_width / (float)m_height;
+    glViewport(0, 0, m_width, m_height);
+    glClear(GL_COLOR_BUFFER_BIT);
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    glOrtho(-lRatio, lRatio, -1.0f, 1.0f, 1.0f, -1.0f);
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+}
+//===============================================</pre></div></div><br>Fermeture de la fenetre<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGL::close() {
+    glfwDestroyWindow(m_window);
+    glfwTerminate();
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_point.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_point.png"></div><br><h3 class="Title8 GTitle3">Création d'une ligne</h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GOpenGLUi::run(int argc, char** argv) {
     GOpenGL lOpenGL;
     lOpenGL.init();
