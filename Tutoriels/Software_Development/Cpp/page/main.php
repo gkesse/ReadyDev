@@ -2401,7 +2401,7 @@ int main(int argc, char** argv) {
     GProcess::Instance()-&gt;run(argc, argv);
     return 0;
 }
-//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Systeme-d-administration-GProcess-h"><a class="Link9" href="#Systeme-d-administration">GProcess.h</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Systeme-d-administration-GProcess-h"><a class="Link9" href="#Systeme-d-administration">GProcess.h</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp" data-state="off">//===============================================
 #ifndef _GProcess_
 #define _GProcess_
 //===============================================
@@ -2431,7 +2431,7 @@ private:
 };
 //===============================================
 #endif
-//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Systeme-d-administration-GProcess-cpp"><a class="Link9" href="#Systeme-d-administration">GProcess.cpp</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Systeme-d-administration-GProcess-cpp"><a class="Link9" href="#Systeme-d-administration">GProcess.cpp</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp" data-state="off">//===============================================
 #include "GProcess.h"
 //===============================================
 GProcess* GProcess::m_instance = 0;
@@ -6236,7 +6236,7 @@ int main(int argc, char** argv) {
     return 0;
 }
 //===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Lancer le serveur</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">./server</pre></div></div><br><h3 class="Title8 GTitle3">Lancer le client</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">./client</pre></div></div><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">say_hello : Bonjour tout le monde
-add_data : 50</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Vision-par-Ordinateur-avec-OpenCV"><a class="Link3" href="#">Vision par Ordinateur avec OpenCV</a></h1><div class="Body3"><br><b>OpenCV </b>est une bibliothèque graphique libre, spécialisée dans le traitement d'images en temps réel. La bibliothèque OpenCV met à disposition de nombreuses fonctionnalités très diversifiées permettant de créer des programmes en partant des données brutes pour aller jusqu'à la création d'interfaces graphiques basiques. OpenCV propose la plupart des opérations classiques en traitement bas niveau des images : lecture, écriture et affichage d’une image ; calcul de l'histogramme des niveaux de gris ou d'histogrammes couleurs ; lissage, filtrage ; seuillage d'image (méthode d'Otsu, seuillage adaptatif) ; segmentation (composantes connexes, GrabCut) ; morphologie mathématique.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV-Installer-l-environnement-OpenCV-sous-MSYS2">Installer l'environnement OpenCV sous MSYS2</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV-Compiler-un-projet-OpenCV">Compiler un projet OpenCV</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV-Image">Image</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV-Video">Vidéo</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV-Type-de-donnee">Type de donnée</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV-Persistance-des-donnees">Persistance des données</a></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/b_opencv.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/b_opencv.png"></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Installer-l-environnement-OpenCV-sous-MSYS2"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Installer l'environnement OpenCV sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Installer OpenCV</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">pacman -S --needed --noconfirm mingw-w64-i686-opencv</pre></div></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Compiler-un-projet-OpenCV"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Compiler un projet OpenCV</a></h2><br><h3 class="Title8 GTitle3">Compiler le projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">export "PATH=/mingw32/bin:$PATH"
+add_data : 50</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Vision-par-Ordinateur-avec-OpenCV"><a class="Link3" href="#">Vision par Ordinateur avec OpenCV</a></h1><div class="Body3"><br><b>OpenCV </b>est une bibliothèque graphique libre, spécialisée dans le traitement d'images en temps réel. La bibliothèque OpenCV met à disposition de nombreuses fonctionnalités très diversifiées permettant de créer des programmes en partant des données brutes pour aller jusqu'à la création d'interfaces graphiques basiques. OpenCV propose la plupart des opérations classiques en traitement bas niveau des images : lecture, écriture et affichage d’une image ; calcul de l'histogramme des niveaux de gris ou d'histogrammes couleurs ; lissage, filtrage ; seuillage d'image (méthode d'Otsu, seuillage adaptatif) ; segmentation (composantes connexes, GrabCut) ; morphologie mathématique.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV-Installer-l-environnement-OpenCV-sous-MSYS2">Installer l'environnement OpenCV sous MSYS2</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV-Compiler-un-projet-OpenCV">Compiler un projet OpenCV</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV-Image">Image</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV-Video">Vidéo</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV-Type-de-donnee">Type de donnée</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV-Persistance-des-donnees">Persistance des données</a></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/b_opencv.png" class="lazy entered loaded" data-src="/Tutoriels/Software_Development/Cpp/img/b_opencv.png" data-ll-status="loaded" src="/Tutoriels/Software_Development/Cpp/img/b_opencv.png"></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Installer-l-environnement-OpenCV-sous-MSYS2"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Installer l'environnement OpenCV sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Installer OpenCV</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh" data-state="off">pacman -S --needed --noconfirm mingw-w64-i686-opencv</pre></div></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Compiler-un-projet-OpenCV"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Compiler un projet OpenCV</a></h2><br><h3 class="Title8 GTitle3">Compiler le projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">export "PATH=/mingw32/bin:$PATH"
 
 g++ -std=gnu++11  -c main.cpp -o main.o \
 -I/mingw32/include/opencv4
@@ -6253,7 +6253,100 @@ g++ -std=gnu++11 -o rdcpp.exe main.o \
 -lopencv_plot -lopencv_videostab -lopencv_videoio -lopencv_xfeatures2d -lopencv_shape \
 -lopencv_ml -lopencv_ximgproc -lopencv_video -lopencv_dnn -lopencv_xobjdetect \
 -lopencv_objdetect -lopencv_calib3d -lopencv_imgcodecs -lopencv_features2d -lopencv_flann \
--lopencv_xphoto -lopencv_photo -lopencv_imgproc -lopencv_core</pre></div></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Image"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Image</a></h2><br>OpenCV fournit des utilitaires pour la lecture d'un large éventail de types de fichiers <b>image</b>, ainsi que de vidéos et de caméras. Ces utilitaires font partie d'une boîte à outils appelée <b>HighGUI</b>, qui est incluse dans le package OpenCV.<br><br><h3 class="Title8 GTitle3">Afficher une image</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+-lopencv_xphoto -lopencv_photo -lopencv_imgproc -lopencv_core</pre></div></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Apprendre-OpenCV"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Apprendre OpenCV</a></h2><br><h3 class="Title8 GTitle3">Affichage d'une image</h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenCVUi::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
+    GOpenCV lOpenCV;
+    lOpenCV.filename(lApp-&gt;image_file);
+    lOpenCV.image();
+}
+//===============================================</pre></div></div><br>Affichage de l'image<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenCV::image() {
+    cv::Mat lImg = cv::imread(m_filename, cv::IMREAD_UNCHANGED);
+    cv::namedWindow(m_title, cv::WINDOW_AUTOSIZE);
+    cv::imshow(m_title, lImg);
+    cv::waitKey(0);
+    cv::destroyWindow(m_title);
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_image_show.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_image_show.png"></div><br>Affichage d'une vidéo<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenCVUi::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
+    GOpenCV lOpenCV;
+    lOpenCV.filename(lApp-&gt;video_file);
+    lOpenCV.video();
+}
+//===============================================</pre></div></div><br>Affichage de la vidéo<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenCV::video() {
+    cv::namedWindow(m_title, cv::WINDOW_AUTOSIZE);
+    cv::VideoCapture lCap;
+    lCap.open(m_filename);
+    cv::Mat lImg;
+
+    while(1) {
+        lCap &gt;&gt; lImg;
+        if(lImg.empty()) break;
+        cv::imshow(m_title, lImg);
+        if((char)cv::waitKey(33) &gt;= 0) break;
+    }
+}
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Utilisation d'une barre de défilement dans une vidéo</h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenCVUi::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
+
+    lOpenCV.filename(lApp-&gt;video_file);
+    lOpenCV.open();
+
+    sGParams lParams;
+    lParams.frames = lOpenCV.frames();
+    lParams.frame = 0;
+    lParams.run = 1;
+    lParams.dontset = 0;
+
+    GOpenCV lWindow;
+    lWindow.window();
+    lWindow.onTrackbar(onTrackbar);
+    lWindow.trackbar("Frame", &amp;lParams.frame, lParams.frames, 0);
+
+    while(1) {
+        if(lParams.run != 0) {
+            lOpenCV.read();
+            if(lOpenCV.empty()) break;
+            lParams.frame = lOpenCV.frame();
+            lParams.dontset = 1;
+            lWindow.trackbar("Frame", lParams.frame);
+            lOpenCV.show(lWindow.title());
+            lParams.run -= 1;
+        }
+        if(!lWindow.onKey(10, lParams.run)) break;
+    }
+}
+//===============================================
+void GOpenCVUi::onTrackbar(int _pos, void* _params) {
+    lOpenCV.onTrackbar(_pos, lParams.run, lParams.dontset);
+}
+//===============================================</pre></div></div><br>Gestion du clavier<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+bool GOpenCV::onKey(int _ms, int&amp; _run) const {
+	bool lContinue = true;
+    int lChar = (char)cv::waitKey(_ms);
+
+    if(lChar == 's') {
+        _run = 1;
+    }
+    if(lChar == 'r') {
+        _run = -1;
+    }
+    if(lChar == 27) {
+        lContinue = false;
+    }
+    return lContinue;
+}
+//===============================================</pre></div></div><br>Gestion de la barre de défilement<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenCV::onTrackbar(int _pos, int&amp; _run, int&amp; _dontset) {
+    m_cap.set(cv::CAP_PROP_POS_FRAMES, _pos);
+    if(!_dontset) _run = 1;
+    _dontset = 0;
+}
+//===============================================</pre></div></div><br><br><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Image"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Image</a></h2><br>OpenCV fournit des utilitaires pour la lecture d'un large éventail de types de fichiers <b>image</b>, ainsi que de vidéos et de caméras. Ces utilitaires font partie d'une boîte à outils appelée <b>HighGUI</b>, qui est incluse dans le package OpenCV.<br><br><h3 class="Title8 GTitle3">Afficher une image</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GImageLoad::run(int argc, char** argv) {
 	cv::Mat img = cv::imread("qt4logo.png",-1);
 	if( img.empty() ) {return;}
@@ -9536,7 +9629,7 @@ void GOpenGLUi::run(int argc, char** argv) {
     lOpenGL.deleteProgram();
     lOpenGL.close();
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_shader.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_shader.png"></div><br><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Calcul-scientifique-avec-GSL"><a class="Link3" href="#">Calcul scientifique avec GSL</a></h1><div class="Body3"><br><b>GSL </b>est une bibliothèque de calcul scientifique comportant une collection de routines pour le calcul numérique. Les routines ont été écrites à partir de zéro en C et présentent une interface de programmation d'applications (API) moderne pour les programmeurs C, permettant d'écrire des wrappers pour des langages de très haut niveau. Le code source est distribué sous la licence publique générale GNU.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Calcul-scientifique-avec-GSL-Installer-l-environnement-GSL-sous-MSYS2">Installer l'environnement GSL sous MSYS2</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Calcul-scientifique-avec-GSL-Tester-un-projet-GSL-sous-MSYS2">Tester un projet GSL sous MSYS2</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Calcul-scientifique-avec-GSL-Resoudre-une-equation-differentielle-ordinaire">Résoudre une équation différentielle ordinaire</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Calcul-scientifique-avec-GSL-Rechercher-une-interpolation-lineaire">Rechercher une interpolation linéaire</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Calcul-scientifique-avec-GSL-Rechercher-une-interploation-polynomiale">Rechercher une interploation polynomiale</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Calcul-scientifique-avec-GSL-Rechercher-une-interpolation-spline-cubique">Rechercher une interpolation spline cubique</a></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/b_gsl.png" class="lazy entered loaded" data-src="/Tutoriels/Software_Development/Cpp/img/b_gsl.png" data-ll-status="loaded" src="/Tutoriels/Software_Development/Cpp/img/b_gsl.png"></div><br><h2 class="Title7 GTitle2" id="Calcul-scientifique-avec-GSL-Installer-l-environnement-GSL-sous-MSYS2"><a class="Link9" href="#Calcul-scientifique-avec-GSL">Installer l'environnement GSL sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Installer GSL</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh" data-state="off">pacman -S --needed --noconfirm mingw-w64-i686-gsl</pre></div></div><br><h2 class="Title7 GTitle2" id="Calcul-scientifique-avec-GSL-Tester-un-projet-GSL-sous-MSYS2"><a class="Link9" href="#Calcul-scientifique-avec-GSL">Tester un projet GSL sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Editer le programme (main.cpp)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp" data-state="off">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_shader.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_shader.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Calcul-scientifique-avec-GSL"><a class="Link3" href="#">Calcul scientifique avec GSL</a></h1><div class="Body3"><br><b>GSL </b>est une bibliothèque de calcul scientifique comportant une collection de routines pour le calcul numérique. Les routines ont été écrites à partir de zéro en C et présentent une interface de programmation d'applications (API) moderne pour les programmeurs C, permettant d'écrire des wrappers pour des langages de très haut niveau. Le code source est distribué sous la licence publique générale GNU.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Calcul-scientifique-avec-GSL-Installer-l-environnement-GSL-sous-MSYS2">Installer l'environnement GSL sous MSYS2</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Calcul-scientifique-avec-GSL-Tester-un-projet-GSL-sous-MSYS2">Tester un projet GSL sous MSYS2</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Calcul-scientifique-avec-GSL-Resoudre-une-equation-differentielle-ordinaire">Résoudre une équation différentielle ordinaire</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Calcul-scientifique-avec-GSL-Rechercher-une-interpolation-lineaire">Rechercher une interpolation linéaire</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Calcul-scientifique-avec-GSL-Rechercher-une-interploation-polynomiale">Rechercher une interploation polynomiale</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Calcul-scientifique-avec-GSL-Rechercher-une-interpolation-spline-cubique">Rechercher une interpolation spline cubique</a></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/b_gsl.png" class="lazy entered loaded" data-src="/Tutoriels/Software_Development/Cpp/img/b_gsl.png" data-ll-status="loaded" src="/Tutoriels/Software_Development/Cpp/img/b_gsl.png"></div><br><h2 class="Title7 GTitle2" id="Calcul-scientifique-avec-GSL-Installer-l-environnement-GSL-sous-MSYS2"><a class="Link9" href="#Calcul-scientifique-avec-GSL">Installer l'environnement GSL sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Installer GSL</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh" data-state="off">pacman -S --needed --noconfirm mingw-w64-i686-gsl</pre></div></div><br><h2 class="Title7 GTitle2" id="Calcul-scientifique-avec-GSL-Tester-un-projet-GSL-sous-MSYS2"><a class="Link9" href="#Calcul-scientifique-avec-GSL">Tester un projet GSL sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Editer le programme (main.cpp)</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp" data-state="off">//===============================================
 #include &lt;stdio.h&gt;
 #include &lt;gsl/gsl_sf_bessel.h&gt;
 //===============================================
@@ -9547,7 +9640,7 @@ int main(int argc, char** argv) {
     return 0;
 }
 //===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Compiler le projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh" data-state="off">export "PATH=/mingw32/bin:$PATH"</pre></div></div><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh" data-state="off">g++ -std=gnu++11 -c main.cpp -o main.o -I/mingw32/include
-g++ -o rdcpp.exe main.o -lgsl -lgslcblas -lm</pre></div></div><br><h3 class="Title8 GTitle3">Exécuter le projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">./rdcpp.exe</pre></div></div><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh" data-state="off">J0(5) = -1.775967713143382920e-01</pre></div></div><br><h2 class="Title7 GTitle2" id="Calcul-scientifique-avec-GSL-Resoudre-une-equation-differentielle-ordinaire"><a class="Link9" href="#Calcul-scientifique-avec-GSL">Résoudre une équation différentielle ordinaire</a></h2><br>En mathématiques, une <b>équation différentielle ordinaire</b> (parfois simplement appelée équation différentielle et abrégée en EDO) est une équation différentielle dont la ou les fonctions inconnues ne dépendent que d'une seule variable; elle se présente sous la forme d'une relation entre ces fonctions inconnues et leurs dérivées successives. Le terme ordinaire est utilisé par opposition au terme équation différentielle partielle (plus communément équation aux dérivées partielles, ou EDP) où la ou les fonctions inconnues peuvent dépendre de plusieurs variables. L'ordre d'une équation différentielle correspond au degré maximal de dérivation auquel l'une des fonctions inconnues a été soumise.<br><br><h3 class="Title8 GTitle3">Définir l'équation différentielle</h3><br><div class="Formula GFormula1"><div class="Formula2">\begin{eqnarray} 
+g++ -o rdcpp.exe main.o -lgsl -lgslcblas -lm</pre></div></div><br><h3 class="Title8 GTitle3">Exécuter le projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh" data-state="off">./rdcpp.exe</pre></div></div><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh" data-state="off">J0(5) = -1.775967713143382920e-01</pre></div></div><br><h2 class="Title7 GTitle2" id="Calcul-scientifique-avec-GSL-Resoudre-une-equation-differentielle-ordinaire"><a class="Link9" href="#Calcul-scientifique-avec-GSL">Résoudre une équation différentielle ordinaire</a></h2><br>En mathématiques, une <b>équation différentielle ordinaire</b> (parfois simplement appelée équation différentielle et abrégée en EDO) est une équation différentielle dont la ou les fonctions inconnues ne dépendent que d'une seule variable; elle se présente sous la forme d'une relation entre ces fonctions inconnues et leurs dérivées successives. Le terme ordinaire est utilisé par opposition au terme équation différentielle partielle (plus communément équation aux dérivées partielles, ou EDP) où la ou les fonctions inconnues peuvent dépendre de plusieurs variables. L'ordre d'une équation différentielle correspond au degré maximal de dérivation auquel l'une des fonctions inconnues a été soumise.<br><br><h3 class="Title8 GTitle3">Définir l'équation différentielle</h3><br><div class="Formula GFormula1"><div class="Formula2">\begin{eqnarray} 
 u''(t)+µu'(t)\left(u(t)^2-1\right)+u(t) &amp;=&amp; 0
 \end{eqnarray}</div></div><br><h3 class="Title8 GTitle3">Déterminer les dérivées premières de l'équation différentielle</h3><br><div class="Formula GFormula1"><div class="Formula2">$$\left \{
 \begin{array}{r c l}
