@@ -6256,38 +6256,49 @@ g++ -std=gnu++11 -o rdcpp.exe main.o \
 -lopencv_xphoto -lopencv_photo -lopencv_imgproc -lopencv_core</pre></div></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Apprendre-OpenCV"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Apprendre OpenCV</a></h2><br><h3 class="Title8 GTitle3">Affichage d'une image</h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GOpenCVUi::run(int argc, char** argv) {
     sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
-    GOpenCV lOpenCV;
+
     lOpenCV.filename(lApp-&gt;image_file);
-    lOpenCV.image();
+    lOpenCV.load();
+    lOpenCV.show();
+    lOpenCV.wait();
+}
+//===============================================</pre></div></div><br>Chargement de l'image<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenCV::load() {
+    m_img = cv::imread(m_filename);
 }
 //===============================================</pre></div></div><br>Affichage de l'image<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
-void GOpenCV::image() {
-    cv::Mat lImg = cv::imread(m_filename, cv::IMREAD_UNCHANGED);
-    cv::namedWindow(m_title, cv::WINDOW_AUTOSIZE);
-    cv::imshow(m_title, lImg);
-    cv::waitKey(0);
-    cv::destroyWindow(m_title);
+void GOpenCV::show() {
+    cv::imshow(m_title, m_img);
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_image_show.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_image_show.png"></div><br>Affichage d'une vidéo<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_image_show.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_image_show.png"></div><br><h3 class="Title8 GTitle3">Affichage d'une vidéo</h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GOpenCVUi::run(int argc, char** argv) {
     sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
-    GOpenCV lOpenCV;
+
     lOpenCV.filename(lApp-&gt;video_file);
-    lOpenCV.video();
-}
-//===============================================</pre></div></div><br>Affichage de la vidéo<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
-void GOpenCV::video() {
-    cv::namedWindow(m_title, cv::WINDOW_AUTOSIZE);
-    cv::VideoCapture lCap;
-    lCap.open(m_filename);
-    cv::Mat lImg;
+    lOpenCV.open();
+    lOpenCV.window();
 
     while(1) {
-        lCap &gt;&gt; lImg;
-        if(lImg.empty()) break;
-        cv::imshow(m_title, lImg);
-        if((char)cv::waitKey(33) &gt;= 0) break;
+    	lOpenCV.read();
+    	if(lOpenCV.empty()) {break;}
+    	lOpenCV.show();
+    	if(!lOpenCV.wait(33)) {break;}
     }
+}
+//===============================================</pre></div></div><br>Ouverture de la video<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenCV::open() {
+    m_cap.open(m_filename);
+}
+//===============================================</pre></div></div><br>Lecture d'une image vidéo<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenCV::read() {
+    m_cap &gt;&gt; m_img;
+}
+//===============================================</pre></div></div><br>Gestion du délai de lecture<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+bool GOpenCV::wait(int _ms) {
+	bool lContinue = true;
+    char lChar = (char)cv::waitKey(_ms);
+    if(lChar != -1) {lContinue = false;}
+    return lContinue;
 }
 //===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Utilisation d'une barre de défilement dans une vidéo</h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GOpenCVUi::run(int argc, char** argv) {
@@ -6346,7 +6357,25 @@ void GOpenCV::onTrackbar(int _pos, int&amp; _run, int&amp; _dontset) {
     if(!_dontset) _run = 1;
     _dontset = 0;
 }
-//===============================================</pre></div></div><br><br><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Image"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Image</a></h2><br>OpenCV fournit des utilitaires pour la lecture d'un large éventail de types de fichiers <b>image</b>, ainsi que de vidéos et de caméras. Ces utilitaires font partie d'une boîte à outils appelée <b>HighGUI</b>, qui est incluse dans le package OpenCV.<br><br><h3 class="Title8 GTitle3">Afficher une image</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Création d'un flou gaussien</h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenCVUi::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
+
+    GOpenCV lGaussian;
+
+    lOpenCV.filename(lApp-&gt;image_file);
+    lOpenCV.load();
+    lOpenCV.gaussian(lGaussian);
+    lGaussian.gaussian(lGaussian);
+    lGaussian.gaussian(lGaussian);
+    lOpenCV.show(lGaussian);
+    lOpenCV.wait();
+}
+//===============================================</pre></div></div><br>Création du flou gaussien<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenCV::gaussian(GOpenCV&amp; _out) {
+	cv::GaussianBlur(m_img, _out.img(), cv::Size(5, 5), 3, 3);
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_gaussian.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_gaussian.png"></div><br><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Image"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Image</a></h2><br>OpenCV fournit des utilitaires pour la lecture d'un large éventail de types de fichiers <b>image</b>, ainsi que de vidéos et de caméras. Ces utilitaires font partie d'une boîte à outils appelée <b>HighGUI</b>, qui est incluse dans le package OpenCV.<br><br><h3 class="Title8 GTitle3">Afficher une image</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GImageLoad::run(int argc, char** argv) {
 	cv::Mat img = cv::imread("qt4logo.png",-1);
 	if( img.empty() ) {return;}
