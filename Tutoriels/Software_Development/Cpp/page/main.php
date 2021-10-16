@@ -6304,31 +6304,31 @@ bool GOpenCV::wait(int _ms) {
 void GOpenCVUi::run(int argc, char** argv) {
     sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
 
-    lOpenCV.filename(lApp-&gt;video_file);
-    lOpenCV.open();
-
     sGParams lParams;
-    lParams.frames = lOpenCV.frames();
     lParams.frame = 0;
     lParams.run = 1;
     lParams.dontset = 0;
 
-    GOpenCV lWindow;
-    lWindow.window();
-    lWindow.onTrackbar(onTrackbar);
-    lWindow.trackbar("Frame", &amp;lParams.frame, lParams.frames, 0);
+    lOpenCV.filename(lApp-&gt;video_file);
+    lOpenCV.open();
+
+    lParams.frames = lOpenCV.frames();
+
+    lOpenCV.window();
+    lOpenCV.onTrackbar(onTrackbar);
+    lOpenCV.trackbar("Frame", &amp;lParams.frame, lParams.frames, 0);
 
     while(1) {
         if(lParams.run != 0) {
             lOpenCV.read();
-            if(lOpenCV.empty()) break;
+            if(lOpenCV.empty()) {break;}
             lParams.frame = lOpenCV.frame();
             lParams.dontset = 1;
-            lWindow.trackbar("Frame", lParams.frame);
-            lOpenCV.show(lWindow.title());
+            lOpenCV.trackbar("Frame", lParams.frame);
+            lOpenCV.show();
             lParams.run -= 1;
         }
-        if(!lWindow.onKey(10, lParams.run)) break;
+        if(!lOpenCV.wait(33, lParams.run)) {break;}
     }
 }
 //===============================================
@@ -6336,25 +6336,18 @@ void GOpenCVUi::onTrackbar(int _pos, void* _params) {
     lOpenCV.onTrackbar(_pos, lParams.run, lParams.dontset);
 }
 //===============================================</pre></div></div><br>Gestion du clavier<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
-bool GOpenCV::onKey(int _ms, int&amp; _run) const {
-	bool lContinue = true;
-    int lChar = (char)cv::waitKey(_ms);
-
-    if(lChar == 's') {
-        _run = 1;
-    }
-    if(lChar == 'r') {
-        _run = -1;
-    }
-    if(lChar == 27) {
-        lContinue = false;
-    }
+    bool GOpenCV::wait(int _ms, int&amp; _run) {
+    bool lContinue = true;
+    char lChar = (char)cv::waitKey(_ms);
+    if(lChar == 's') {_run = 1;}
+    if(lChar == 'r') {_run = -1;}
+    if(lChar == 27) {lContinue = false;}
     return lContinue;
 }
 //===============================================</pre></div></div><br>Gestion de la barre de défilement<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GOpenCV::onTrackbar(int _pos, int&amp; _run, int&amp; _dontset) {
     m_cap.set(cv::CAP_PROP_POS_FRAMES, _pos);
-    if(!_dontset) _run = 1;
+    if(!_dontset) {_run = 1;}
     _dontset = 0;
 }
 //===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Création d'un flou gaussien</h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
@@ -6375,7 +6368,24 @@ void GOpenCVUi::run(int argc, char** argv) {
 void GOpenCV::gaussian(GOpenCV&amp; _out) {
 	cv::GaussianBlur(m_img, _out.img(), cv::Size(5, 5), 3, 3);
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_gaussian.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_gaussian.png"></div><br><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Image"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Image</a></h2><br>OpenCV fournit des utilitaires pour la lecture d'un large éventail de types de fichiers <b>image</b>, ainsi que de vidéos et de caméras. Ces utilitaires font partie d'une boîte à outils appelée <b>HighGUI</b>, qui est incluse dans le package OpenCV.<br><br><h3 class="Title8 GTitle3">Afficher une image</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_gaussian.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_gaussian.png"></div><br><h3 class="Title8 GTitle3">Création d'une pyramide d'images</h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenCVUi::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
+
+    GOpenCV lPyramid;
+
+    lOpenCV.filename(lApp-&gt;image_file);
+    lOpenCV.load();
+    lOpenCV.pyramid(lPyramid);
+    lOpenCV.show();
+    lPyramid.show();
+    lOpenCV.wait();
+}
+//===============================================</pre></div></div><br>Création de la pyramide<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenCV::pyramid(GOpenCV&amp; _out) {
+    cv::pyrDown(m_img, _out.img());
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_pyramid.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_pyramid.png"></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Image"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Image</a></h2><br>OpenCV fournit des utilitaires pour la lecture d'un large éventail de types de fichiers <b>image</b>, ainsi que de vidéos et de caméras. Ces utilitaires font partie d'une boîte à outils appelée <b>HighGUI</b>, qui est incluse dans le package OpenCV.<br><br><h3 class="Title8 GTitle3">Afficher une image</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GImageLoad::run(int argc, char** argv) {
 	cv::Mat img = cv::imread("qt4logo.png",-1);
 	if( img.empty() ) {return;}
