@@ -6236,7 +6236,7 @@ int main(int argc, char** argv) {
     return 0;
 }
 //===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Lancer le serveur</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">./server</pre></div></div><br><h3 class="Title8 GTitle3">Lancer le client</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">./client</pre></div></div><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">say_hello : Bonjour tout le monde
-add_data : 50</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Vision-par-Ordinateur-avec-OpenCV"><a class="Link3" href="#">Vision par Ordinateur avec OpenCV</a></h1><div class="Body3"><br><b>OpenCV </b>est une bibliothèque graphique libre, spécialisée dans le traitement d'images en temps réel. La bibliothèque OpenCV met à disposition de nombreuses fonctionnalités très diversifiées permettant de créer des programmes en partant des données brutes pour aller jusqu'à la création d'interfaces graphiques basiques. OpenCV propose la plupart des opérations classiques en traitement bas niveau des images : lecture, écriture et affichage d’une image ; calcul de l'histogramme des niveaux de gris ou d'histogrammes couleurs ; lissage, filtrage ; seuillage d'image (méthode d'Otsu, seuillage adaptatif) ; segmentation (composantes connexes, GrabCut) ; morphologie mathématique.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV-Installer-l-environnement-OpenCV-sous-MSYS2">Installer l'environnement OpenCV sous MSYS2</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV-Compiler-un-projet-OpenCV">Compiler un projet OpenCV</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV-Image">Image</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV-Video">Vidéo</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV-Type-de-donnee">Type de donnée</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV-Persistance-des-donnees">Persistance des données</a></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/b_opencv.png" class="lazy entered loaded" data-src="/Tutoriels/Software_Development/Cpp/img/b_opencv.png" data-ll-status="loaded" src="/Tutoriels/Software_Development/Cpp/img/b_opencv.png"></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Installer-l-environnement-OpenCV-sous-MSYS2"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Installer l'environnement OpenCV sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Installer OpenCV</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh" data-state="off">pacman -S --needed --noconfirm mingw-w64-i686-opencv</pre></div></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Compiler-un-projet-OpenCV"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Compiler un projet OpenCV</a></h2><br><h3 class="Title8 GTitle3">Compiler le projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">export "PATH=/mingw32/bin:$PATH"
+add_data : 50</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Vision-par-Ordinateur-avec-OpenCV"><a class="Link3" href="#">Vision par Ordinateur avec OpenCV</a></h1><div class="Body3"><br><b>OpenCV </b>est une bibliothèque graphique libre, spécialisée dans le traitement d'images en temps réel. La bibliothèque OpenCV met à disposition de nombreuses fonctionnalités très diversifiées permettant de créer des programmes en partant des données brutes pour aller jusqu'à la création d'interfaces graphiques basiques. OpenCV propose la plupart des opérations classiques en traitement bas niveau des images : lecture, écriture et affichage d’une image ; calcul de l'histogramme des niveaux de gris ou d'histogrammes couleurs ; lissage, filtrage ; seuillage d'image (méthode d'Otsu, seuillage adaptatif) ; segmentation (composantes connexes, GrabCut) ; morphologie mathématique.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/b_opencv.png" class="lazy entered loaded" data-src="/Tutoriels/Software_Development/Cpp/img/b_opencv.png" data-ll-status="loaded" src="/Tutoriels/Software_Development/Cpp/img/b_opencv.png"></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Installer-l-environnement-OpenCV-sous-MSYS2"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Installer l'environnement OpenCV sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Installer OpenCV</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh" data-state="off">pacman -S --needed --noconfirm mingw-w64-i686-opencv</pre></div></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Compiler-un-projet-OpenCV"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Compiler un projet OpenCV</a></h2><br><h3 class="Title8 GTitle3">Compiler le projet</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">export "PATH=/mingw32/bin:$PATH"
 
 g++ -std=gnu++11  -c main.cpp -o main.o \
 -I/mingw32/include/opencv4
@@ -6385,7 +6385,111 @@ void GOpenCVUi::run(int argc, char** argv) {
 void GOpenCV::pyramid(GOpenCV&amp; _out) {
     cv::pyrDown(m_img, _out.img());
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_pyramid.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_pyramid.png"></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Image"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Image</a></h2><br>OpenCV fournit des utilitaires pour la lecture d'un large éventail de types de fichiers <b>image</b>, ainsi que de vidéos et de caméras. Ces utilitaires font partie d'une boîte à outils appelée <b>HighGUI</b>, qui est incluse dans le package OpenCV.<br><br><h3 class="Title8 GTitle3">Afficher une image</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_pyramid.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_pyramid.png"></div><br><h3 class="Title8 GTitle3">Conversion d'une image en niveau de gris</h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenCVUi::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
+
+    GOpenCV lGray;
+
+    lOpenCV.filename(lApp-&gt;image_file);
+    lOpenCV.load();
+    lOpenCV.gray(lGray);
+    lOpenCV.show(lGray);
+    lOpenCV.wait();
+}
+//===============================================</pre></div></div><br>Conversion de l'image en niveau de gris<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenCV::gray(GOpenCV&amp; _out) {
+    cv::cvtColor(m_img, _out.img(), cv::COLOR_BGR2GRAY);
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_gray.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_gray.png"></div><br><h3 class="Title8 GTitle3">Redimensionnement d'une image</h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenCVUi::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
+
+    GOpenCV lResize;
+
+    lOpenCV.filename(lApp-&gt;image_file);
+    lOpenCV.load();
+    lOpenCV.resize(lResize, lOpenCV.width2()/2, lOpenCV.height2()/2);
+    lOpenCV.show(lResize);
+    lOpenCV.wait();
+}
+//===============================================</pre></div></div><br>Redimensionnement de l'image<br><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_resize.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_resize.png"></div><br><h3 class="Title8 GTitle3">Egalisation de l'histogramme d'une image</h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenCVUi::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
+
+    GOpenCV lEqualize;
+
+    lOpenCV.filename(lApp-&gt;image_file);
+    lOpenCV.load();
+    lOpenCV.gray(lEqualize);
+    lEqualize.equalize(lEqualize);
+    lOpenCV.show(lEqualize);
+    lOpenCV.wait();
+}
+//===============================================</pre></div></div><br>Egalisation de l'histogramme de l'image<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenCV::equalize(GOpenCV&amp; _out) {
+    cv::equalizeHist(m_img, _out.img());
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_equalize.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_equalize.png"></div><br><h3 class="Title8 GTitle3">Détection faciale</h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenCVUi::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
+
+    cv::Scalar lColors[] = {
+        cv::Scalar(0, 0, 255),
+        cv::Scalar(0, 128, 255),
+        cv::Scalar(0, 255, 255),
+        cv::Scalar(0, 255, 0)
+    };
+
+    GOpenCV lCascade;
+    lCascade.filename(lApp-&gt;cascade_file);
+    lCascade.scaleFactor(1.1);
+    lCascade.minNeighbors(3);
+    lCascade.minSize(20, 20);
+    lCascade.maxSize(80, 80);
+    lCascade.cascade();
+
+    lOpenCV.filename(lApp-&gt;image_file);
+    lOpenCV.load();
+    lOpenCV.gray(lCascade);
+    lCascade.equalize(lCascade);
+    lCascade.objects();
+    lOpenCV.resize(0.3);
+    lOpenCV.objects(lCascade, lColors, 4, 0.3);
+    lOpenCV.show();
+    lOpenCV.wait();
+
+    std::cout &lt;&lt; "Faces : " &lt;&lt; lCascade.count() &lt;&lt; "\n";
+}
+//===============================================</pre></div></div><br>Chargement du modèle<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenCV::cascade() {
+    m_cascade.reset(new cv::CascadeClassifier(m_filename));
+}
+//===============================================</pre></div></div><br>Détection faciale<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenCV::objects() {
+    m_cascade-&gt;detectMultiScale(
+            m_img,
+            m_objects,
+            m_scaleFactor,
+            m_minNeighbors,
+            cv::CASCADE_DO_CANNY_PRUNING,
+            m_minSize,
+            m_maxSize
+    );
+}
+//===============================================</pre></div></div><br>Affichage des faces<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenCV::objects(cv::Scalar* _colors, int _n, double _scale) {
+    std::vector&lt;cv::Rect&gt;::iterator it = m_objects.begin();
+    for(int i = 0; it != m_objects.end(); it++, i++) {
+        cv::Rect lRect = (*it);
+        lRect.x *= _scale;
+        lRect.y *= _scale;
+        lRect.width *= _scale;
+        lRect.height *= _scale;
+        cv::rectangle(m_img, lRect, _colors[i % _n]);
+    }
+}
+//===============================================</pre></div></div><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">Faces : 27</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_face_detect.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_face_detect.png"></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Image"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Image</a></h2><br>OpenCV fournit des utilitaires pour la lecture d'un large éventail de types de fichiers <b>image</b>, ainsi que de vidéos et de caméras. Ces utilitaires font partie d'une boîte à outils appelée <b>HighGUI</b>, qui est incluse dans le package OpenCV.<br><br><h3 class="Title8 GTitle3">Afficher une image</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GImageLoad::run(int argc, char** argv) {
 	cv::Mat img = cv::imread("qt4logo.png",-1);
 	if( img.empty() ) {return;}
