@@ -63,6 +63,7 @@
                 <option value="Summary2_Load">Update Sommaire 2</option>
                 <option value="Title1_ID">Update Titre 1 ID</option>
                 <option value="Title2_ID">Update Titre 2 ID</option>
+                <option value="Title3_ID">Update Titre 3 ID</option>
                 <option value="Code1_XMP">Update Code 1 XMP</option>
                 <option value="Img1_Lazy">Update IMG Lazy</option>
             </select>

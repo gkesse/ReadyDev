@@ -149,77 +149,21 @@ var GEditor = (function() {
                     break;
                 //===============================================
                 case 'Title2':
-                    if(!lData) return;
-                    var lLength = lData.length;
-                    var lAction = "None";
-                    var lParentNode = lStartNode.parentNode;
-                    while(1) {
-                        var lClassName = lParentNode.className;
-                        if(lClassName.includes("GEndEditor")) {
-                            break;
-                        }
-                        if(lClassName.includes("GTitle2")) {
-                            lRange.selectNode(lParentNode);
-                            lSelection.addRange(lRange);
-                            document.execCommand("insertHTML", false, lData);
-                            return;
-                        }
-                        lParentNode = lParentNode.parentNode;
-                    }
-                    var lParentNode = lStartNode.parentNode;
-                    var lTitle = "";
-                    var lTitleID = "";
-                    while(1) {
-                        var lClassName = lParentNode.className;
-                        if(lClassName.includes("GEndEditor")) {
-                            break;
-                        }
-                        if(lClassName.includes("GTitle1")) {
-                            lTitle = lParentNode.firstChild.firstChild.firstChild.innerText;
-                            lTitleID = lTitle+'-';
-                            break;
-                        }
-                        lParentNode = lParentNode.parentNode;
-                    }
-                    lRange.setStart(lStartNode, 0);
-                    lRange.setEnd(lStartNode, lLength);
-                    lSelection.addRange(lRange);
-                    var lIdUrl = GManager.Instance().getUrl(lTitleID+lData);
-                    var lHrefUrl = GManager.Instance().getUrl(lTitle);
-                    var lHtml = '';
-                    lHtml += '<h2 class="Title7 GTitle2" id="'+lIdUrl+'">';
-                    lHtml += '<a class="Link9" href="#'+lHrefUrl+'">';
-                    lHtml += lData;
-                    lHtml += '</a>';
-                    lHtml += '</h2>';
-                    document.execCommand("insertHTML", false, lHtml);
+                    var lControl = new GControl();
+                    lControl.selection();
+                    if(!lControl.data()) return;
+                    if(lControl.remove("GTitle2")) return;
+                    if(!lControl.title2()) return;
+                    lControl.title22();
                     break;
                 //===============================================
                 case 'Title3':
-                    if(!lData) return;
-                    var lLength = lData.length;
-                    var lParentNode = lStartNode.parentNode;
-                    while(1) {
-                        var lClassName = lParentNode.className;
-                        if(lClassName.includes("GEndEditor")) {
-                            break;
-                        }
-                        if(lClassName.includes("GTitle3")) {
-                            lRange.selectNode(lParentNode);
-                            lSelection.addRange(lRange);
-                            document.execCommand("insertHTML", false, lData);
-                            return;
-                        }
-                        lParentNode = lParentNode.parentNode;
-                    }
-                    lRange.setStart(lStartNode, 0);
-                    lRange.setEnd(lStartNode, lLength);
-                    lSelection.addRange(lRange);
-                    var lHtml = '';
-                    lHtml += '<h3 class="Title8 GTitle3">';
-                    lHtml += lData;
-                    lHtml += '</h3>';
-                    document.execCommand("insertHTML", false, lHtml);
+                    var lControl = new GControl();
+                    lControl.selection();
+                    if(!lControl.data()) return;
+                    if(lControl.remove("GTitle3")) return;
+                    if(!lControl.title3()) return;
+                    lControl.title32();
                     break;
                 //===============================================
                 case 'File_Content':
@@ -1332,6 +1276,7 @@ var GEditor = (function() {
                     this.editReadyStyle("Summary2_Load", false);
                     this.editReadyStyle("Title1_ID", false);
                     this.editReadyStyle("Title2_ID", false);
+                    this.editReadyStyle("Title3_ID", false);
                     this.editReadyStyle("Code1_XMP", false);
                     this.editReadyStyle("Img1_Lazy", false);
                     alert("La mise à jour est terminée !");
@@ -1380,6 +1325,11 @@ var GEditor = (function() {
                         }
                     }
                     //alert("La mise à jour est terminée !");
+                    break;
+                //===============================================
+                case 'Title3_ID':
+                    var lControl = new GControl();
+                    lControl.title33();
                     break;
                 //===============================================
                 case 'Code1_XMP':
