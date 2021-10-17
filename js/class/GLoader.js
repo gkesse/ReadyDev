@@ -9,6 +9,7 @@ var GLoader = (function() {
             init: function() {
                 this.loadSummary1();
                 this.loadSummary2();
+                this.loadSummary3();
                 //
                 this.loadList1();
                 this.loadList2();
@@ -65,6 +66,11 @@ var GLoader = (function() {
                     }
                     lSummary2_Node.innerHTML = lHtml;
                 }
+            },
+            //===============================================
+            loadSummary3: function() {
+                var lControl = new GControl();
+                lControl.summary32();
             },
             //===============================================
             loadList1: function() {
