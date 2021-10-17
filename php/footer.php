@@ -7,6 +7,7 @@
 <!-- ============================================ -->
 </div> <!-- HtmlPage -->
 <!-- ============================================ -->
+<script src="/js/class/GControl.js" async></script>
 <script src="/js/class/GManager.js" async></script>
 <script src="/js/class/GConfig.js" async></script>
 <script src="/js/class/GHeader.js" async></script>

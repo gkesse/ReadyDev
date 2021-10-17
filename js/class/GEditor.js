@@ -273,6 +273,12 @@ var GEditor = (function() {
                     document.execCommand("insertHTML", false, lHtml);                
                     break;
                 //===============================================
+                case 'Summary3':
+                    var lControl = new GControl();
+                    lControl.selection();
+                    lControl.summary3();
+                    break;
+                //===============================================
                 case 'List1':
                     var lParentNode = lStartNode.parentNode;
                     if(!lSelection.toString()) {

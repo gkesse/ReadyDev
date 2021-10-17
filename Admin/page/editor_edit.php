@@ -24,6 +24,7 @@
                 <option value="Title3">Titre 3</option>
                 <option value="Summary1">Sommaire 1</option>
                 <option value="Summary2">Sommaire 2</option>
+                <option value="Summary3">Sommaire 3</option>
                 <option value="List1">Liste 1</option>
                 <option value="List2">Liste 2</option>
                 <option value="List3">Liste 3</option>
