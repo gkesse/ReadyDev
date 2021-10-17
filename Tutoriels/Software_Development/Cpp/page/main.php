@@ -6253,7 +6253,7 @@ g++ -std=gnu++11 -o rdcpp.exe main.o \
 -lopencv_plot -lopencv_videostab -lopencv_videoio -lopencv_xfeatures2d -lopencv_shape \
 -lopencv_ml -lopencv_ximgproc -lopencv_video -lopencv_dnn -lopencv_xobjdetect \
 -lopencv_objdetect -lopencv_calib3d -lopencv_imgcodecs -lopencv_features2d -lopencv_flann \
--lopencv_xphoto -lopencv_photo -lopencv_imgproc -lopencv_core</pre></div></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Apprendre-OpenCV"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Apprendre OpenCV</a></h2><br><div class="Content0 GSummary3"><div class="Row26">Summary 3</div></div><br><h3 class="GTitle3" id="Vision-par-Ordinateur-avec-OpenCV-Apprendre-OpenCV-Affichage-d-une-image"><a class="Title8" href="#Vision-par-Ordinateur-avec-OpenCV-Apprendre-OpenCV">Affichage d'une image</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+-lopencv_xphoto -lopencv_photo -lopencv_imgproc -lopencv_core</pre></div></div><br><h2 class="Title7 GTitle2" id="Vision-par-Ordinateur-avec-OpenCV-Apprendre-OpenCV"><a class="Link9" href="#Vision-par-Ordinateur-avec-OpenCV">Apprendre OpenCV</a></h2><br><div class="Content0 GSummary3"><div class="Row26">Summary 3</div></div><br><h3 class="GTitle3" id="Vision-par-Ordinateur-avec-OpenCV-Apprendre-OpenCV-Affichage-d-une-image"><a class="Title8" href="#Vision-par-Ordinateur-avec-OpenCV-Apprendre-OpenCV">Affichage d'une image</a></h3><br>Cette opération permet d'<b>afficher une image</b>. L'image est chargée depuis le disque dur de l'ordinateur et affichée dans une fenêtre.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GOpenCVUi::run(int argc, char** argv) {
     sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
 
@@ -6270,7 +6270,7 @@ void GOpenCV::load() {
 void GOpenCV::show() {
     cv::imshow(m_title, m_img);
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_image_show.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_image_show.png"></div><br><h3 class="Title8 GTitle3" id="Vision-par-Ordinateur-avec-OpenCV-Apprendre-OpenCV-Affichage-d-une-video"><a class="Title8" href="#Vision-par-Ordinateur-avec-OpenCV-Apprendre-OpenCV">Affichage d'une vidéo</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_image_show.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_image_show.png"></div><br><h3 class="Title8 GTitle3" id="Vision-par-Ordinateur-avec-OpenCV-Apprendre-OpenCV-Affichage-d-une-video"><a class="Title8" href="#Vision-par-Ordinateur-avec-OpenCV-Apprendre-OpenCV">Affichage d'une vidéo</a></h3><br>Cette opération permet d'<b>afficher une vidéo</b>. La vidéo est chargée depuis le disque dur de l'ordinateur et à chaque tour de boucle on récupère une image vidéo pour l'afficher dans une fenêtre. <br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GOpenCVUi::run(int argc, char** argv) {
     sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
 
@@ -6300,7 +6300,7 @@ bool GOpenCV::wait(int _ms) {
     if(lChar != -1) {lContinue = false;}
     return lContinue;
 }
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Vision-par-Ordinateur-avec-OpenCV-Apprendre-OpenCV-Utilisation-d-une-barre-de-defilement-dans-une-video"><a class="Title8" href="#Vision-par-Ordinateur-avec-OpenCV-Apprendre-OpenCV">Utilisation d'une barre de défilement dans une vidéo</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Vision-par-Ordinateur-avec-OpenCV-Apprendre-OpenCV-Utilisation-d-une-barre-de-defilement-dans-une-video"><a class="Title8" href="#Vision-par-Ordinateur-avec-OpenCV-Apprendre-OpenCV">Utilisation d'une barre de défilement dans une vidéo</a></h3><br>Cette opération permet d'<b>associer une barre de défilement</b> à la fenêtre d'affichage de la vidéo. La modification de la position de la barre de défilement génère un évènement qui permet de controler la position de lecture de la trame vidéo. Cette technique permet de déclencher plusieurs action de traitement en fonction de la valeur de la position de la barre de défilement.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GOpenCVUi::run(int argc, char** argv) {
     sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
 
@@ -6350,7 +6350,7 @@ void GOpenCV::onTrackbar(int _pos, int&amp; _run, int&amp; _dontset) {
     if(!_dontset) {_run = 1;}
     _dontset = 0;
 }
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Vision-par-Ordinateur-avec-OpenCV-Apprendre-OpenCV-Creation-d-un-flou-gaussien"><a class="Title8" href="#Vision-par-Ordinateur-avec-OpenCV-Apprendre-OpenCV">Création d'un flou gaussien</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Vision-par-Ordinateur-avec-OpenCV-Apprendre-OpenCV-Creation-d-un-flou-gaussien"><a class="Title8" href="#Vision-par-Ordinateur-avec-OpenCV-Apprendre-OpenCV">Création d'un flou gaussien</a></h3><br>Cette opération permet de <b>flouter une image</b>. L'image de sortie est construite à travers un filtre flou basé sur une fonction gaussienne (appelée également distribution normale) pour calculer la transformation à appliquer à chaque pixel de l'image d'entrée.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GOpenCVUi::run(int argc, char** argv) {
     sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
 
