@@ -117,7 +117,7 @@ class GControl {
     }
     //===============================================
     title3() {
-        var lTitle = "";
+        var lTitle1 = "";
         var lTitle2 = "";
         var lParentNode = this.m_start.parentNode;
         while(1) {
@@ -126,7 +126,7 @@ class GControl {
                 break;
             }
             if(lClassName.includes("GTitle1")) {
-                lTitle = lParentNode.firstChild.firstChild.firstChild.innerText;
+                lTitle1 = lParentNode.firstChild.firstChild.firstChild.innerText;
                 break;
             }
             lParentNode = lParentNode.parentNode;
@@ -142,8 +142,8 @@ class GControl {
             lParentNode = lParentNode.previousSibling;
         }
         var lString = new GString();
-        var lTitle = lTitle + '-' + lTitle2;
-        var lTitleID = lTitle + '-' + lTitle2 + '-' + this.m_data;
+        var lTitle = lTitle1 + '-' + lTitle2;
+        var lTitleID = lTitle1 + '-' + lTitle2 + '-' + this.m_data;
         this.m_title = lString.url(lTitle);
         this.m_titleID = lString.url(lTitleID);
         return true;
