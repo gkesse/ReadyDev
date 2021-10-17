@@ -6401,7 +6401,7 @@ void GOpenCVUi::run(int argc, char** argv) {
 void GOpenCV::gray(GOpenCV&amp; _out) {
     cv::cvtColor(m_img, _out.img(), cv::COLOR_BGR2GRAY);
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_gray.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_gray.png"></div><br><h3 class="Title8 GTitle3" id="Vision-par-Ordinateur-avec-OpenCV-Apprendre-OpenCV-Redimensionnement-d-une-image"><a class="Title8" href="#Vision-par-Ordinateur-avec-OpenCV-Apprendre-OpenCV">Redimensionnement d'une image</a></h3><br>Cette opération permet de <b>rédimensionner une image</b>. Les dimensions de l'image d'entrée sont multiplier par un facteur pour fournir l'image de sortie.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_gray.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_gray.png"></div><br><h3 class="Title8 GTitle3" id="Vision-par-Ordinateur-avec-OpenCV-Apprendre-OpenCV-Redimensionnement-d-une-image"><a class="Title8" href="#Vision-par-Ordinateur-avec-OpenCV-Apprendre-OpenCV">Redimensionnement d'une image</a></h3><br>Cette opération permet de <b>rédimensionner une image</b>. Les dimensions de l'image d'entrée sont multipliées par un facteur pour fournir l'image de sortie.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GOpenCVUi::run(int argc, char** argv) {
     sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
 
@@ -6430,7 +6430,72 @@ void GOpenCVUi::run(int argc, char** argv) {
 void GOpenCV::equalize(GOpenCV&amp; _out) {
     cv::equalizeHist(m_img, _out.img());
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_equalize.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_equalize.png"></div><br><h3 class="GTitle3" id="Vision-par-Ordinateur-avec-OpenCV-Apprendre-OpenCV-Detection-faciale"><a class="Title8" href="#Vision-par-Ordinateur-avec-OpenCV-Apprendre-OpenCV">Détection faciale</a></h3><br>Cette opération permet de <b>détecter des visgaes</b> de personnes de différentes tailles dans une image d'entrée. Les visages détectés sont renvoyés sous forme de liste de rectangles. La liste de rectangles est utilisée par la suite pour encadrer les viages détectés dans l'image d'entrée.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_equalize.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_equalize.png"></div><br><h3 class="GTitle3" id="Vision-par-Ordinateur-avec-OpenCV-Apprendre-OpenCV-Apprentissage-automatique"><a class="Title8" href="#Vision-par-Ordinateur-avec-OpenCV-Apprendre-OpenCV">Apprentissage automatique</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenCVUi::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
+
+    float lPriors[] = {1.0, 10.0};
+
+    lOpenCV.filename(lApp-&gt;train_file);
+    lOpenCV.train();
+    lOpenCV.split(0.9f);
+    lOpenCV.tree();
+    lOpenCV.maxDepth(8);
+    lOpenCV.minSample(10);
+    lOpenCV.accuracy(0.01f);
+    lOpenCV.surrogates(false);
+    lOpenCV.maxCategories(15);
+    lOpenCV.folds(0);
+    lOpenCV.rule(true);
+    lOpenCV.truncate(true);
+    lOpenCV.priors(1, 2, lPriors);
+    lOpenCV.trainTree();
+    lOpenCV.performanceData();
+    lOpenCV.performanceTest();
+    lOpenCV.names();
+    lOpenCV.responses();
+    lOpenCV.print();
+}
+//===============================================</pre></div></div><br>Chargement des données d'apprentissage<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenCV::train() {
+    m_trainData = cv::ml::TrainData::loadFromCSV(
+            m_filename,
+            m_headerLine,
+            m_startIndex,
+            m_endIndex,
+            m_specType,
+            m_delimiter,
+            m_missch
+    );
+}
+//===============================================</pre></div></div><br>Démarrage de l'apprentissage<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenCV::tree() {
+    m_treeData = cv::ml::RTrees::create();
+}
+//===============================================
+void GOpenCV::trainTree() {
+    m_treeData-&gt;train(m_trainData);
+}
+//===============================================</pre></div></div><br>Analyse des résultat de l'apprentissage<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenCV::responses() {
+    cv::Mat lResponses = m_trainData-&gt;getResponses();
+    m_good = 0, m_bad = 0, m_total = 0;
+    for (int i = 0; i &lt; m_trainData-&gt;getNTrainSamples(); ++i) {
+        float lReceived = m_resultData.at&lt;float&gt;(i, 0);
+        float lExpected = lResponses.at&lt;float&gt;(i, 0);
+        cv::String lReceivedName = m_names[(int)lReceived];
+        cv::String lExpectedName = m_names[(int)lExpected];
+        std::cout &lt;&lt; "Received: " &lt;&lt; lReceivedName &lt;&lt; ", Expected: " &lt;&lt; lExpectedName &lt;&lt; std::endl;
+        if(lReceived == lExpected) {
+            m_good++;
+        }
+        else {
+            m_bad++;
+        }
+        m_total++;
+    }
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_ml_traindata.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_ml_traindata.png"></div><br><h3 class="GTitle3" id="Vision-par-Ordinateur-avec-OpenCV-Apprendre-OpenCV-Detection-faciale"><a class="Title8" href="#Vision-par-Ordinateur-avec-OpenCV-Apprendre-OpenCV">Détection faciale</a></h3><br>Cette opération permet de <b>détecter des visgaes</b> de personnes de différentes tailles dans une image d'entrée. Les visages détectés sont renvoyés sous forme de liste de rectangles. La liste de rectangles est utilisée par la suite pour encadrer les viages détectés dans l'image d'entrée.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GOpenCVUi::run(int argc, char** argv) {
     sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
 
