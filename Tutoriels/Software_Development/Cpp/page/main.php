@@ -6430,7 +6430,29 @@ void GOpenCVUi::run(int argc, char** argv) {
 void GOpenCV::equalize(GOpenCV&amp; _out) {
     cv::equalizeHist(m_img, _out.img());
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_equalize.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_equalize.png"></div><br><h3 class="GTitle3" id="Vision-par-Ordinateur-avec-OpenCV-Apprendre-OpenCV-Apprentissage-automatique-avec-TrainData"><a class="Title8" href="#Vision-par-Ordinateur-avec-OpenCV-Apprendre-OpenCV">Apprentissage automatique avec TrainData</a></h3><br>Cette opération permet de <b>prédire les valeurs</b> que peut prendre une variable. L'estimation du modèle est réalisé à travers l'analyse d'un jeu de donnée d'entrées. Le jeu de données est chargé à partir d'un fichier au format CSV. Une quantité importante de données d'entrée permet d'améliorer la précision du modèle.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_equalize.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_equalize.png"></div><br><h3 class="GTitle3" id="Vision-par-Ordinateur-avec-OpenCV-Apprendre-OpenCV-Detection-de-contours-avec-le-filtre-de-canny"><a class="Title8" href="#Vision-par-Ordinateur-avec-OpenCV-Apprendre-OpenCV">Détection de contours avec le filtre de canny</a></h3><br>Cette opération permet de <b>détecter des contours</b> dans une image. L'image de sortie est construite à travers un filtre de sobel appliqué à l'image d'entrée.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenCVUi::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
+
+    lOpenCV.filename(lApp-&gt;image_file);
+    lOpenCV.load();
+    lOpenCV.gray(lOpenCV);
+    lOpenCV.canny(lOpenCV);
+    lOpenCV.show();
+    lOpenCV.wait();
+}
+//===============================================</pre></div></div><br>Utilisation du filtre de canny<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenCV::canny(GOpenCV&amp; _out) {
+    cv::Canny(
+            m_img,
+            _out.img(),
+            m_minThreshold,
+            m_maxThreshold,
+            m_apertureSize,
+            m_gradient
+    );
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_canny.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_canny.png"></div><br><h3 class="GTitle3" id="Vision-par-Ordinateur-avec-OpenCV-Apprendre-OpenCV-Apprentissage-automatique-avec-TrainData"><a class="Title8" href="#Vision-par-Ordinateur-avec-OpenCV-Apprendre-OpenCV">Apprentissage automatique avec TrainData</a></h3><br>Cette opération permet de <b>prédire les valeurs</b> que peut prendre une variable. L'estimation du modèle est réalisé à travers l'analyse d'un jeu de donnée d'entrées. Le jeu de données est chargé à partir d'un fichier au format CSV. Une quantité importante de données d'entrée permet d'améliorer la précision du modèle.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GOpenCVUi::run(int argc, char** argv) {
     sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
 
