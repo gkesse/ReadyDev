@@ -6430,7 +6430,7 @@ void GOpenCVUi::run(int argc, char** argv) {
 void GOpenCV::equalize(GOpenCV&amp; _out) {
     cv::equalizeHist(m_img, _out.img());
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_equalize.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_equalize.png"></div><br><h3 class="GTitle3" id="Vision-par-Ordinateur-avec-OpenCV-Apprendre-OpenCV-Apprentissage-automatique"><a class="Title8" href="#Vision-par-Ordinateur-avec-OpenCV-Apprendre-OpenCV">Apprentissage automatique</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_equalize.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_equalize.png"></div><br><h3 class="GTitle3" id="Vision-par-Ordinateur-avec-OpenCV-Apprendre-OpenCV-Apprentissage-automatique-avec-TrainData"><a class="Title8" href="#Vision-par-Ordinateur-avec-OpenCV-Apprendre-OpenCV">Apprentissage automatique avec TrainData</a></h3><br>Cette opération permet de <b>prédire les valeurs</b> que peut prendre une variable. L'estimation du modèle est réalisé à travers l'analyse d'un jeu de donnée d'entrées. Le jeu de données est chargé à partir d'un fichier au format CSV. Une quantité importante de données d'entrée permet d'améliorer la précision du modèle.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GOpenCVUi::run(int argc, char** argv) {
     sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
 
@@ -6452,7 +6452,6 @@ void GOpenCVUi::run(int argc, char** argv) {
     lOpenCV.trainTree();
     lOpenCV.performanceData();
     lOpenCV.performanceTest();
-    lOpenCV.names();
     lOpenCV.responses();
     lOpenCV.print();
 }
@@ -6469,15 +6468,12 @@ void GOpenCV::train() {
     );
 }
 //===============================================</pre></div></div><br>Démarrage de l'apprentissage<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
-void GOpenCV::tree() {
-    m_treeData = cv::ml::RTrees::create();
-}
-//===============================================
 void GOpenCV::trainTree() {
     m_treeData-&gt;train(m_trainData);
 }
 //===============================================</pre></div></div><br>Analyse des résultat de l'apprentissage<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GOpenCV::responses() {
+    m_trainData-&gt;getNames(m_names);
     cv::Mat lResponses = m_trainData-&gt;getResponses();
     m_good = 0, m_bad = 0, m_total = 0;
     for (int i = 0; i &lt; m_trainData-&gt;getNTrainSamples(); ++i) {
