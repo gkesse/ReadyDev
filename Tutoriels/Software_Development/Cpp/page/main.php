@@ -6452,7 +6452,46 @@ void GOpenCV::canny(GOpenCV&amp; _out) {
             m_gradient
     );
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_canny.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_canny.png"></div><br><h3 class="GTitle3" id="Vision-par-Ordinateur-avec-OpenCV-Apprendre-OpenCV-Apprentissage-automatique-avec-TrainData"><a class="Title8" href="#Vision-par-Ordinateur-avec-OpenCV-Apprendre-OpenCV">Apprentissage automatique avec TrainData</a></h3><br>Cette opération permet de <b>prédire les valeurs</b> que peut prendre une variable. L'estimation du modèle est réalisé à travers l'analyse d'un jeu de donnée d'entrées. Le jeu de données est chargé à partir d'un fichier au format CSV. Une quantité importante de données d'entrée permet d'améliorer la précision du modèle.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_canny.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_canny.png"></div><br><h3 class="GTitle3" id="Vision-par-Ordinateur-avec-OpenCV-Apprendre-OpenCV-Lecture-et-modification-des-valeurs-d-un-pixel"><a class="Title8" href="#Vision-par-Ordinateur-avec-OpenCV-Apprendre-OpenCV">Lecture et modification des valeurs d'un pixel</a></h3><br>Cette opération permet de <b>lire et modifier</b> la valeur d'un pixel en un point donné de l'image.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenCVUi::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
+
+    GOpenCV lGray;
+
+    lOpenCV.filename(lApp-&gt;image_file);
+    lOpenCV.load();
+    lOpenCV.pixel(10, 10, 50, 100, 150);
+    lOpenCV.pixel(10, 10);
+    lOpenCV.print2();
+    lOpenCV.gray(lGray);
+    lGray.pixel(10, 10, 127);
+    lGray.pixel2(10, 10);
+    lGray.print3();
+}
+//===============================================</pre></div></div><br>Modification d'un pixel RGB<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenCV::pixel(int _x, int _y, uchar _red, uchar _green, uchar _blue) {
+    cv::Vec3b lPixel;
+    lPixel[2] = _red;
+    lPixel[1] = _green;
+    lPixel[0] = _blue;
+    m_img.at&lt;cv::Vec3b&gt;(_y, _x) = lPixel;
+}
+//===============================================</pre></div></div><br>Modification d'un pixel en niveau de gris<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenCV::pixel(int _x, int _y, uchar _pixel) {
+    m_img.at&lt;uchar&gt;(_y, _x) = _pixel;
+}
+//===============================================</pre></div></div><br>Lecture d'un pixel RGB<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenCV::pixel(int _x, int _y) {
+    m_pixel = m_img.at&lt;cv::Vec3b&gt;(_y, _x);
+    m_red = m_pixel[2];
+    m_green = m_pixel[1];
+    m_blue = m_pixel[0];
+}
+//===============================================</pre></div></div><br>Lecture d'un pixel en niveau de gris<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenCV::pixel2(int _x, int _y) {
+    m_pixel2 = m_img.at&lt;uchar&gt;(_y, _x);
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_pixel.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_pixel.png"></div><br><h3 class="GTitle3" id="Vision-par-Ordinateur-avec-OpenCV-Apprendre-OpenCV-Apprentissage-automatique-avec-TrainData"><a class="Title8" href="#Vision-par-Ordinateur-avec-OpenCV-Apprendre-OpenCV">Apprentissage automatique avec TrainData</a></h3><br>Cette opération permet de <b>prédire les valeurs</b> que peut prendre une variable. L'estimation du modèle est réalisé à travers l'analyse d'un jeu de donnée d'entrées. Le jeu de données est chargé à partir d'un fichier au format CSV. Une quantité importante de données d'entrée permet d'améliorer la précision du modèle.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GOpenCVUi::run(int argc, char** argv) {
     sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
 
