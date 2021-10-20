@@ -6452,7 +6452,7 @@ void GOpenCV::canny(GOpenCV&amp; _out) {
             m_gradient
     );
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_canny.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_canny.png"></div><br><h3 class="GTitle3" id="Vision-par-Ordinateur-avec-OpenCV-Apprendre-OpenCV-Lecture-et-modification-des-valeurs-d-un-pixel"><a class="Title8" href="#Vision-par-Ordinateur-avec-OpenCV-Apprendre-OpenCV">Lecture et modification des valeurs d'un pixel</a></h3><br>Cette opération permet de <b>lire et modifier</b> la valeur d'un pixel en un point donné de l'image.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_canny.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_canny.png"></div><br><h3 class="GTitle3" id="Vision-par-Ordinateur-avec-OpenCV-Apprendre-OpenCV-Lecture-et-modification-des-valeurs-d-un-pixel"><a class="Title8" href="#Vision-par-Ordinateur-avec-OpenCV-Apprendre-OpenCV">Lecture et modification des valeurs d'un pixel</a></h3><br>Cette opération permet de <b>lire et modifier</b> la valeur d'un pixel en un point donné de l'image. <br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GOpenCVUi::run(int argc, char** argv) {
     sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
 
@@ -6491,7 +6491,44 @@ void GOpenCV::pixel(int _x, int _y) {
 void GOpenCV::pixel2(int _x, int _y) {
     m_pixel2 = m_img.at&lt;uchar&gt;(_y, _x);
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_pixel.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_pixel.png"></div><br><h3 class="GTitle3" id="Vision-par-Ordinateur-avec-OpenCV-Apprendre-OpenCV-Apprentissage-automatique-avec-TrainData"><a class="Title8" href="#Vision-par-Ordinateur-avec-OpenCV-Apprendre-OpenCV">Apprentissage automatique avec TrainData</a></h3><br>Cette opération permet de <b>prédire les valeurs</b> que peut prendre une variable. L'estimation du modèle est réalisé à travers l'analyse d'un jeu de donnée d'entrées. Le jeu de données est chargé à partir d'un fichier au format CSV. Une quantité importante de données d'entrée permet d'améliorer la précision du modèle.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_pixel.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opencv_learn_pixel.png"></div><br><h3 class="GTitle3" id="Vision-par-Ordinateur-avec-OpenCV-Apprendre-OpenCV-Enregistrement-d-une-video"><a class="Title8" href="#Vision-par-Ordinateur-avec-OpenCV-Apprendre-OpenCV">Enregistrement d'une vidéo</a></h3><br>Cette opération permet d'<b>enregistrer une vidéo</b>. Le module d'enregistrement est initialisé avec la taille de chaque image vidéo, le FPS et l'encodage de la vidéo. Le FPS définit le nombre d'images pouvant être lu par seconde. L'encodage est une combianison de 4 caractères au format ('M', 'J', 'P', 'G').<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenCVUi::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
+
+    lOpenCV.filename(lApp-&gt;video_file);
+    lOpenCV.open();
+    lOpenCV.read();
+    lOpenCV.window();
+
+    GOpenCV lWriter;
+    lWriter.filename(lApp-&gt;video_file2);
+    lWriter.fps(lOpenCV);
+    lWriter.size2(lOpenCV);
+    lWriter.open2();
+
+    while(1) {
+    	lOpenCV.read();
+    	if(lOpenCV.empty()) break;
+    	lOpenCV.gray(lOpenCV);
+    	lOpenCV.bgr(lOpenCV);
+    	lWriter.write(lOpenCV);
+    	lOpenCV.show();
+    	if(!lOpenCV.wait(33)) break;
+    }
+}
+//===============================================</pre></div></div><br>Ouverture du module d'enregistrement<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenCV::open2() {
+    m_writer.open(m_filename, m_fourcc, m_fps, m_size);
+}
+//===============================================</pre></div></div><br>Construction de l'encodage<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenCV::fourcc(char _c1, char _c2, char _c3, char _c4) {
+    m_fourcc = cv::VideoWriter::fourcc(_c1, _c2, _c3, _c4);
+}
+//===============================================</pre></div></div><br>Enregistrement de l'image vidéo<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenCV::write(GOpenCV&amp; _out) {
+    m_writer &lt;&lt; _out.img();
+}
+//===============================================</pre></div></div><br><h3 class="GTitle3" id="Vision-par-Ordinateur-avec-OpenCV-Apprendre-OpenCV-Apprentissage-automatique-avec-TrainData"><a class="Title8" href="#Vision-par-Ordinateur-avec-OpenCV-Apprendre-OpenCV">Apprentissage automatique avec TrainData</a></h3><br>Cette opération permet de <b>prédire les valeurs</b> que peut prendre une variable. L'estimation du modèle est réalisé à travers l'analyse d'un jeu de donnée d'entrées. Le jeu de données est chargé à partir d'un fichier au format CSV. Une quantité importante de données d'entrée permet d'améliorer la précision du modèle.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GOpenCVUi::run(int argc, char** argv) {
     sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
 
@@ -10957,19 +10994,73 @@ void GServerAccept::run(int argc, char** argv) {
         &lt;&lt; ". Message: " &lt;&lt; e.what() &lt;&lt; std::endl;
     }
 }
-//===============================================</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programmation-reseau-RPC-avec-XML-RPC"><a class="Link3" href="#">Programmation réseau RPC avec XML-RPC</a></h1><div class="Body3"><br><b>XML-RPC</b> est une méthode d'appel de procédure distante qui utilise XML transmis via HTTP(S) comme moyen de transport. Avec lui, un client peut appeler des méthodes avec des paramètres sur un serveur distant (le serveur est nommé par un URI) et récupérer des données structurées. Ce module prend en charge l'écriture de code client XML-RPC ; il gère tous les détails de la traduction entre les objets Python conformes et XML sur le fil.<br><br><br><br><br><br><br><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programmation-reseau-avec-cURL"><a class="Link3" href="#">Programmation réseau avec cURL</a></h1><div class="Body3"><br><b>libcurl </b>est une bibliothèque de requêtes aux URL destinée à récupérer le contenu d'une ressource accessible par un réseau informatique. La ressource est désignée à l'aide d'une URL et doit être d'un type supporté par la bibliothèque. libcurl permet de créer ou modifier une ressource et peut ainsi être utilisé en tant que client REST. La bibliothèque supporte notamment les protocoles DICT, file, FTP, FTPS, Gopher, HTTP, HTTPS, IMAP, IMAPS, LDAP, LDAPS, POP3, POP3S, RTSP, SCP, SFTP, SMB, SMBS, SMTP, SMTPS, Telnet et TFTP.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Programmation-reseau-avec-cURL-Installer-l-environnement-libcurl-sous-MSYS2"><a class="Link9" href="#Programmation-reseau-avec-cURL">Installer l'environnement libcurl sous MSYS2</a></h2><br><h3 class="Title8 GTitle3" id="Programmation-reseau-avec-cURL-Installer-l-environnement-libcurl-sous-MSYS2-Installer-libcurl"><a class="Title8" href="#Programmation-reseau-avec-cURL-Installer-l-environnement-libcurl-sous-MSYS2">Installer libcurl</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">pacman -S --needed --noconfirm libcurl-devel</pre></div></div><br><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Analyse-de-donnees-XML-avec-Libxml2"><a class="Link3" href="#">Analyse de données XML avec Libxml2</a></h1><div class="Body3"><br><b>Libxml2 </b>est un analyseur et une boîte à outils XML C développé pour le projet Gnome (mais utilisable en dehors de la plate-forme Gnome), c'est un logiciel gratuit disponible sous la licence MIT . XML lui-même est un métalangage pour concevoir des langages de balisage, c'est-à-dire un langage de texte où la sémantique et la structure sont ajoutées au contenu en utilisant des informations de « balisage » supplémentaires entre crochets angulaires. HTML est le langage de balisage le plus connu. Bien que la bibliothèque soit écrite en C, diverses liaisons de langage la rendent disponible dans d'autres environnements. Libxml2 est connu pour être très portable, la bibliothèque devrait être construite et fonctionner sans problèmes sérieux sur une variété de systèmes (Linux, Unix, Windows, CygWin, MacOS, MacOS X, RISC Os, OS/2, VMS, QNX, MVS, VxWorks).<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Analyse-de-donnees-XML-avec-Libxml2-Afficher-un-le-contenu-d-un-document-XML"><a class="Link9" href="#Analyse-de-donnees-XML-avec-Libxml2">Afficher un le contenu d'un document XML</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programmation-reseau-RPC-avec-XML-RPC"><a class="Link3" href="#">Programmation réseau RPC avec XML-RPC</a></h1><div class="Body3"><br><b>XML-RPC</b> est une méthode d'appel de procédure distante qui utilise XML transmis via HTTP(S) comme moyen de transport. Avec lui, un client peut appeler des méthodes avec des paramètres sur un serveur distant (le serveur est nommé par un URI) et récupérer des données structurées. Ce module prend en charge l'écriture de code client XML-RPC ; il gère tous les détails de la traduction entre les objets Python conformes et XML sur le fil.<br><br><br><br><br><br><br><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programmation-reseau-avec-cURL"><a class="Link3" href="#">Programmation réseau avec cURL</a></h1><div class="Body3"><br><b>libcurl </b>est une bibliothèque de requêtes aux URL destinée à récupérer le contenu d'une ressource accessible par un réseau informatique. La ressource est désignée à l'aide d'une URL et doit être d'un type supporté par la bibliothèque. libcurl permet de créer ou modifier une ressource et peut ainsi être utilisé en tant que client REST. La bibliothèque supporte notamment les protocoles DICT, file, FTP, FTPS, Gopher, HTTP, HTTPS, IMAP, IMAPS, LDAP, LDAPS, POP3, POP3S, RTSP, SCP, SFTP, SMB, SMBS, SMTP, SMTPS, Telnet et TFTP.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Programmation-reseau-avec-cURL-Installer-l-environnement-libcurl-sous-MSYS2"><a class="Link9" href="#Programmation-reseau-avec-cURL">Installer l'environnement libcurl sous MSYS2</a></h2><br><h3 class="Title8 GTitle3" id="Programmation-reseau-avec-cURL-Installer-l-environnement-libcurl-sous-MSYS2-Installer-libcurl"><a class="Title8" href="#Programmation-reseau-avec-cURL-Installer-l-environnement-libcurl-sous-MSYS2">Installer libcurl</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">pacman -S --needed --noconfirm libcurl-devel</pre></div></div><br><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Analyse-de-donnees-XML-avec-Libxml2"><a class="Link3" href="#">Analyse de données XML avec Libxml2</a></h1><div class="Body3"><br><b>Libxml2 </b>est un analyseur XML gratuit et disponible sous la licence MIT . XML est un métalangage pour concevoir des langages de balisage, c'est-à-dire un langage de texte où la sémantique et la structure sont ajoutées au contenu en utilisant des informations de « balisage » supplémentaires entre crochets angulaires. HTML est le langage de balisage le plus connu. Bien que la bibliothèque soit écrite en C, diverses liaisons de langage la rendent disponible dans d'autres environnements. Libxml2 est connu pour être très portable, la bibliothèque devrait être construite et fonctionner sans problèmes sérieux sur une variété de systèmes (Linux, Unix, Windows, CygWin, MacOS, MacOS X, RISC Os, OS/2, VMS, QNX, MVS, VxWorks).<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Analyse-de-donnees-XML-avec-Libxml2-Utilisation-de-la-bibliotheque-libxml2"><a class="Link9" href="#Analyse-de-donnees-XML-avec-Libxml2">Utilisation de la bibliothèque libxml2</a></h2><br><div class="Content0 GSummary3"><div class="Row26">Summary 3</div></div><br><h3 class="GTitle3" id="Analyse-de-donnees-XML-avec-Libxml2-Utilisation-de-la-bibliotheque-libxml2-Affichage-du-contenu-d-un-document-XML"><a class="Title8" href="#Analyse-de-donnees-XML-avec-Libxml2-Utilisation-de-la-bibliotheque-libxml2">Affichage du contenu d'un document XML</a></h3><br>Cette opération permet d'<b>afficher le contenu</b> d'un document XML. On charge le document XML à partir d'un fichier stocké sur le disque dur de l'ordianteur. On autorise d'ignorer les blancs. On analyse le document à travers un parser. On récupère son noeud racine. Et on l'affiche dans la console.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GXmlUi::run(int argc, char** argv) {
-    sGApp* lApp = GManager::Instance()-&gt;getData()-&gt;app;
-    xmlDocPtr doc = xmlParseFile(lApp-&gt;xml_file_path.c_str());
+    sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
 
-    if (doc == NULL ) {
-        fprintf(stderr, "Le document n'a pas été analysé avec succès.\n");
-        return;
-    }
-
-    xmlSaveFormatFileEnc("-", doc, "UTF-8", 1);
-
-    xmlFreeDoc(doc);
-    xmlCleanupParser();
+    GXml lXml;
+    lXml.filename(lApp-&gt;xml_file);
+    lXml.blank();
+    lXml.parse();
+    lXml.root();
+    lXml.print();
+    lXml.free();
 }
-//===============================================</pre></div></div><br></div></div></div></div><br>
+//===============================================</pre></div></div><br>Analyse du document XML<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GXml::parse() {
+    m_doc = xmlParseFile(m_filename.c_str());
+}
+//===============================================</pre></div></div><br>Récupération du noeud racine<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GXml::root() {
+    m_node = xmlDocGetRootElement(m_doc);
+}
+//===============================================</pre></div></div><br>Affichage du document XML<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GXml::print() const {
+    xmlDocFormatDump(stdout, m_doc, 1);
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_xml_using_print.png" alt="/Tutoriels/Software_Development/Cpp/img/i_xml_using_print.png"></div><br><h3 class="GTitle3" id="Analyse-de-donnees-XML-avec-Libxml2-Utilisation-de-la-bibliotheque-libxml2-Ajout-d-un-element-a-un-document-XML"><a class="Title8" href="#Analyse-de-donnees-XML-avec-Libxml2-Utilisation-de-la-bibliotheque-libxml2">Ajout d'un element à un document XML</a></h3><br>Cette opération permet d'<b>ajouter un élément</b> à un document XML. On charge le document XML à partir d'un fichier stocké sur le disque dur de l'ordianteur. On autorise d'ignorer les blancs. On analyse le document à travers un parser. On récupère son noeud racine. On récupère le noeud à la position 1 (le premier noeud). On crée un nouveau noeud. On ajoute le nouveau au document. Et on l'affiche dans la console. La récupération d'un noeud est réalisée à travers une requête XPath.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GXmlUi::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
+
+    GXml lXml;
+    lXml.filename(lApp-&gt;xml_file);
+    lXml.blank();
+    lXml.parse();
+    lXml.root();
+
+    GXml lProduct;
+    lProduct.xpath(lXml, "/catalog/product[position()=1]");
+
+    GXml lNew;
+    lNew.create("REF123456", "Capteur ReadyDev", "10.00");
+
+    lProduct.nextSibling(lNew);
+
+    lXml.print();
+
+    lXml.free();
+}
+//===============================================</pre></div></div><br>Exécution d'une requête XPath<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GXml::xpath(GXml&amp; _xml, const std::string&amp; _xpath) {
+    xmlXPathInit();
+    xmlXPathContextPtr lContext = xmlXPathNewContext(_xml.m_doc);
+    xmlXPathObjectPtr lResult = xmlXPathEvalExpression(BAD_CAST(_xpath.c_str()), lContext);
+    if(lResult &amp;&amp; XPATH_NODESET == lResult-&gt;type &amp;&amp; lResult-&gt;nodesetval-&gt;nodeNr == 1) {
+        m_node = lResult-&gt;nodesetval-&gt;nodeTab[0];
+    }
+    xmlXPathFreeObject(lResult);
+    xmlXPathFreeContext(lContext);
+}
+//===============================================</pre></div></div><br>Création du nouveau noeud<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GXml::create(const std::string&amp; _reference, const std::string&amp; _name, const std::string&amp; _price) {
+    node("product");
+    attribute("reference", _reference);
+
+    GXml lName;
+    lName.node("name");
+    lName.data(_name);
+
+    child(lName);
+    child("price", _price);
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_xml_using_node_add.png" alt="/Tutoriels/Software_Development/Cpp/img/i_xml_using_node_add.png"></div><br></div></div></div></div><br>
