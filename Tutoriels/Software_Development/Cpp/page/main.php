@@ -10992,6 +10992,43 @@ void GAsio::socket() {
 void GAsio::acceptor() {
     m_acceptor = boost::make_shared&lt;boost::asio::ip::tcp::acceptor&gt;(m_ios, *m_endpoint);
 }
+//===============================================</pre></div></div><br><h3 class="GTitle3" id="Programmation-reseau-avec-Boost-Asio-Apprendre-Boost-Asio-Utilisation-du-multithreading"><a class="Title8" href="#Programmation-reseau-avec-Boost-Asio-Apprendre-Boost-Asio">Utilisation du multithreading</a></h3><br>Cette opération permet de <b>traiter simultanement plusieurs connexions</b> client. A chaque connexion client, on crée un thread séparé dans lequel on traite la demande du client. Cela augmente les performances du serveur et permet de gagner en éfficacité.<br><br>Programme principal (Serveur)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GAsioServer::run(int argc, char** argv) {
+    GAsio lServer;
+    lServer.address();
+    lServer.endpoint();
+    lServer.acceptor();
+    lServer.start();
+    while(1) {
+        lServer.socket();
+        lServer.accept();
+        lServer.thread(onThread, lServer.socket2());
+    }
+}
+//===============================================</pre></div></div><br>Programme principal (Client)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GAsioClient::run(int argc, char** argv) {
+    GAsio lClient;
+    lClient.ip("127.0.0.1");
+    lClient.address();
+    lClient.endpoint();
+    lClient.socket();
+    lClient.connect();
+    lClient.send("Bonjour tout le monde");
+    lClient.recv();
+    lClient.print();
+}
+//===============================================</pre></div></div><br>Création du thread de traitement<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GAsio::thread(GAsio::onThreadCB _func, GAsio::socket_ptr _socket) {
+    boost::thread(boost::bind(_func, _socket));
+}
+//===============================================</pre></div></div><br>Gestion du thread de traitement<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GAsioServer::onThread(GAsio::socket_ptr _socket) {
+    GAsio lServer;
+    lServer.socket(_socket);
+    lServer.recv();
+    lServer.send("ok");
+    lServer.print();
+}
 //===============================================</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programmation-reseau-RPC-avec-XML-RPC"><a class="Link3" href="#">Programmation réseau RPC avec XML-RPC</a></h1><div class="Body3"><br><b>XML-RPC</b> est une méthode d'appel de procédure distante qui utilise XML transmis via HTTP(S) comme moyen de transport. Avec lui, un client peut appeler des méthodes avec des paramètres sur un serveur distant (le serveur est nommé par un URI) et récupérer des données structurées. Ce module prend en charge l'écriture de code client XML-RPC ; il gère tous les détails de la traduction entre les objets Python conformes et XML sur le fil.<br><br><br><br><br><br><br><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programmation-reseau-avec-cURL"><a class="Link3" href="#">Programmation réseau avec cURL</a></h1><div class="Body3"><br><b>libcurl </b>est une bibliothèque de requêtes aux URL destinée à récupérer le contenu d'une ressource accessible par un réseau informatique. La ressource est désignée à l'aide d'une URL et doit être d'un type supporté par la bibliothèque. libcurl permet de créer ou modifier une ressource et peut ainsi être utilisé en tant que client REST. La bibliothèque supporte notamment les protocoles DICT, file, FTP, FTPS, Gopher, HTTP, HTTPS, IMAP, IMAPS, LDAP, LDAPS, POP3, POP3S, RTSP, SCP, SFTP, SMB, SMBS, SMTP, SMTPS, Telnet et TFTP.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Programmation-reseau-avec-cURL-Installer-l-environnement-libcurl-sous-MSYS2"><a class="Link9" href="#Programmation-reseau-avec-cURL">Installer l'environnement libcurl sous MSYS2</a></h2><br><h3 class="Title8 GTitle3" id="Programmation-reseau-avec-cURL-Installer-l-environnement-libcurl-sous-MSYS2-Installer-libcurl"><a class="Title8" href="#Programmation-reseau-avec-cURL-Installer-l-environnement-libcurl-sous-MSYS2">Installer libcurl</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">pacman -S --needed --noconfirm libcurl-devel</pre></div></div><br><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Analyse-de-donnees-XML-avec-Libxml2"><a class="Link3" href="#">Analyse de données XML avec Libxml2</a></h1><div class="Body3"><br><b>Libxml2 </b>est un analyseur XML gratuit et disponible sous la licence MIT . XML est un métalangage pour concevoir des langages de balisage, c'est-à-dire un langage de texte où la sémantique et la structure sont ajoutées au contenu en utilisant des informations de « balisage » supplémentaires entre crochets angulaires. HTML est le langage de balisage le plus connu. Bien que la bibliothèque soit écrite en C, diverses liaisons de langage la rendent disponible dans d'autres environnements. Libxml2 est connu pour être très portable, la bibliothèque devrait être construite et fonctionner sans problèmes sérieux sur une variété de systèmes (Linux, Unix, Windows, CygWin, MacOS, MacOS X, RISC Os, OS/2, VMS, QNX, MVS, VxWorks).<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Analyse-de-donnees-XML-avec-Libxml2-Utilisation-de-la-bibliotheque-libxml2"><a class="Link9" href="#Analyse-de-donnees-XML-avec-Libxml2">Utilisation de la bibliothèque libxml2</a></h2><br><div class="Content0 GSummary3"><div class="Row26">Summary 3</div></div><br><h3 class="GTitle3" id="Analyse-de-donnees-XML-avec-Libxml2-Utilisation-de-la-bibliotheque-libxml2-Affichage-du-contenu-d-un-document-XML"><a class="Title8" href="#Analyse-de-donnees-XML-avec-Libxml2-Utilisation-de-la-bibliotheque-libxml2">Affichage du contenu d'un document XML</a></h3><br>Cette opération permet d'<b>afficher le contenu</b> d'un document XML. On charge le document XML à partir d'un fichier stocké sur le disque dur de l'ordianteur. On autorise d'ignorer les blancs. On analyse le document à travers un parser. On récupère son noeud racine. Et on l'affiche dans la console.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GXmlUi::run(int argc, char** argv) {
     sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
