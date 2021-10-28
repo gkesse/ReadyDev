@@ -9663,7 +9663,81 @@ void GOpenGLUi::run(int argc, char** argv) {
     lOpenGL.deleteProgram();
     lOpenGL.close();
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_shader.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_shader.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Calcul-scientifique-avec-GSL"><a class="Link3" href="#">Calcul scientifique avec GSL</a></h1><div class="Body3"><br><b>GSL </b>est une bibliothèque de calcul scientifique comportant une collection de routines pour le calcul numérique. Les routines ont été écrites à partir de zéro en C et présentent une interface de programmation d'applications (API) moderne pour les programmeurs C, permettant d'écrire des wrappers pour des langages de très haut niveau. Le code source est distribué sous la licence publique générale GNU.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/b_gsl.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/b_gsl.png"></div><br><h2 class="Title7 GTitle2" id="Calcul-scientifique-avec-GSL-Installer-l-environnement-GSL-sous-MSYS2"><a class="Link9" href="#Calcul-scientifique-avec-GSL">Installer l'environnement GSL sous MSYS2</a></h2><br><h3 class="Title8 GTitle3" id="Calcul-scientifique-avec-GSL-Installer-l-environnement-GSL-sous-MSYS2-Installer-GSL"><a class="Title8" href="#Calcul-scientifique-avec-GSL-Installer-l-environnement-GSL-sous-MSYS2">Installer GSL</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh" data-state="off">pacman -S --needed --noconfirm mingw-w64-i686-gsl</pre></div></div><br><h2 class="Title7 GTitle2" id="Calcul-scientifique-avec-GSL-Tester-un-projet-GSL-sous-MSYS2"><a class="Link9" href="#Calcul-scientifique-avec-GSL">Tester un projet GSL sous MSYS2</a></h2><br><h3 class="Title8 GTitle3" id="Calcul-scientifique-avec-GSL-Tester-un-projet-GSL-sous-MSYS2-Editer-le-programme--main-cpp-"><a class="Title8" href="#Calcul-scientifique-avec-GSL-Tester-un-projet-GSL-sous-MSYS2">Editer le programme (main.cpp)</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp" data-state="off">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_shader.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_shader.png"></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Comprendre les shaders avec OpenGL</a></h2><br><br><br><br><br><br><br><br><h3 class="GTitle3" id="Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL-Simulation-d-une-vague"><a class="Title8" href="#Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL">Simulation d'une vague</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGLUi::run(int argc, char** argv) {
+	sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
+
+    lOpenGL.init3();
+    lOpenGL.depthOn();
+    lOpenGL.onResize(onResize);
+    lOpenGL.shader2(lApp-&gt;shader_vertex_file, lApp-&gt;shader_fragment_file);
+    lOpenGL.use();
+
+    lParams.bgcolor = {0.1f, 0.2f, 0.3f, 1.0f};
+
+    GLfloat lVertices[] = {
+        -1.0f, -1.0f, 0.0f,
+		1.0f, -1.0f, 0.0f,
+		1.0f, 1.0f, 0.0f,
+        -1.0f, -1.0f, 0.0f,
+		1.0f, 1.0f, 0.0f,
+		-1.0f, 1.0f, 0.0f
+    };
+    GLfloat lTextCoord[] = {
+        0.0f, 0.0f,
+		1.0f, 0.0f,
+		1.0f, 1.0f,
+        0.0f, 0.0f,
+		1.0f, 1.0f,
+		0.0f, 1.0f
+    };
+
+    lOpenGL.vao(1, lParams.vao);
+    lOpenGL.vbo(2, lParams.vbo);
+
+    lOpenGL.vao(lParams.vao[0]);
+    lOpenGL.vbo(lParams.vbo[0], lVertices, sizeof(lVertices));
+    lOpenGL.vbo(0, 3, 0, 0);
+    lOpenGL.vbo(lParams.vbo[1], lTextCoord, sizeof(lTextCoord));
+    lOpenGL.vbo(2, 2, 0, 0);
+
+    lOpenGL.uniform("Color", glm::vec4(1.0f, 0.0f, 0.0f, 1.0f));
+    lOpenGL.uniform2("NoiseTex", 0);
+
+    lParams.slice = glm::rotate(lParams.slice, glm::radians(10.0f), glm::vec3(1.0, 0.0, 0.0));
+    lParams.slice = glm::rotate(lParams.slice, glm::radians(-20.0f), glm::vec3(0.0,0.0,1.0));
+    lParams.slice = glm::scale(lParams.slice, glm::vec3(40.0, 40.0, 1.0));
+    lParams.slice = glm::translate(lParams.slice, glm::vec3(-0.35, -0.5, 2.0));
+
+    lOpenGL.uniform("Slice", lParams.slice);
+
+    lParams.noise.baseFreq = 4.0f;
+    lParams.noise.persistence = 0.5f;
+    lParams.noise.width = 128;
+    lParams.noise.height = 128;
+    lParams.noise.periodic = false;
+
+    GFunction lNoise;
+    lNoise.noise(lParams.noise);
+    lOpenGL.texture(lNoise.noise(), lParams.noise.width, lParams.noise.height);
+    lNoise.deleteNoise();
+
+    lOpenGL.texture(GL_TEXTURE0);
+
+    while (!lOpenGL.isClose()) {
+        lOpenGL.bgcolor2(lParams.bgcolor);
+        lParams.mvp.view = glm::mat4(1.0f);
+        lParams.mvp.model = glm::mat4(1.0f);
+    	lParams.mvp.projection = glm::mat4(1.0f);
+        lOpenGL.uniform("MVP", lParams.mvp.projection * lParams.mvp.view * lParams.mvp.model);
+        lOpenGL.vao(lParams.vao[0]);
+        lOpenGL.triangle(0, 6);
+        lOpenGL.pollEvents();
+    }
+
+    lOpenGL.close();
+}
+//===============================================</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Calcul-scientifique-avec-GSL"><a class="Link3" href="#">Calcul scientifique avec GSL</a></h1><div class="Body3"><br><b>GSL </b>est une bibliothèque de calcul scientifique comportant une collection de routines pour le calcul numérique. Les routines ont été écrites à partir de zéro en C et présentent une interface de programmation d'applications (API) moderne pour les programmeurs C, permettant d'écrire des wrappers pour des langages de très haut niveau. Le code source est distribué sous la licence publique générale GNU.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/b_gsl.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/b_gsl.png"></div><br><h2 class="Title7 GTitle2" id="Calcul-scientifique-avec-GSL-Installer-l-environnement-GSL-sous-MSYS2"><a class="Link9" href="#Calcul-scientifique-avec-GSL">Installer l'environnement GSL sous MSYS2</a></h2><br><h3 class="Title8 GTitle3" id="Calcul-scientifique-avec-GSL-Installer-l-environnement-GSL-sous-MSYS2-Installer-GSL"><a class="Title8" href="#Calcul-scientifique-avec-GSL-Installer-l-environnement-GSL-sous-MSYS2">Installer GSL</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh" data-state="off">pacman -S --needed --noconfirm mingw-w64-i686-gsl</pre></div></div><br><h2 class="Title7 GTitle2" id="Calcul-scientifique-avec-GSL-Tester-un-projet-GSL-sous-MSYS2"><a class="Link9" href="#Calcul-scientifique-avec-GSL">Tester un projet GSL sous MSYS2</a></h2><br><h3 class="Title8 GTitle3" id="Calcul-scientifique-avec-GSL-Tester-un-projet-GSL-sous-MSYS2-Editer-le-programme--main-cpp-"><a class="Title8" href="#Calcul-scientifique-avec-GSL-Tester-un-projet-GSL-sous-MSYS2">Editer le programme (main.cpp)</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp" data-state="off">//===============================================
 #include &lt;stdio.h&gt;
 #include &lt;gsl/gsl_sf_bessel.h&gt;
 //===============================================
