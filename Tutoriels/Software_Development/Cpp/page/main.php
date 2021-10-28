@@ -9663,7 +9663,181 @@ void GOpenGLUi::run(int argc, char** argv) {
     lOpenGL.deleteProgram();
     lOpenGL.close();
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_shader.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_shader.png"></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Comprendre les shaders avec OpenGL</a></h2><br><br><br><br><br><br><br><br><h3 class="GTitle3" id="Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL-Simulation-d-une-vague"><a class="Title8" href="#Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL">Simulation d'une vague</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_shader.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_shader.png"></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Comprendre les shaders avec OpenGL</a></h2><br><div class="Content0 GSummary3"><div class="Row26">Summary 3</div></div><br><h3 class="GTitle3" id="Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL-Creation-d-un-triangle"><a class="Title8" href="#Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL">Création d'un triangle</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGLUi::run(int argc, char** argv) {
+	sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
+
+    lOpenGL.init(4, 5, 4);
+    lOpenGL.depthOn();
+    lOpenGL.onResize(onResize);
+    lOpenGL.shader2(lApp-&gt;shader_vertex_file, lApp-&gt;shader_fragment_file);
+    lOpenGL.use();
+
+    lParams.bgcolor = {0.1f, 0.2f, 0.3f, 1.0f};
+
+    GLfloat lVertices[] = {
+            -0.8f, -0.8f, 0.0f,
+            0.8f, -0.8f, 0.0f,
+            0.0f,  0.8f, 0.0f
+    };
+    GLfloat lColors[] = {
+            1.0f, 0.0f, 0.0f,
+            0.0f, 1.0f, 0.0f,
+            0.0f, 0.0f, 1.0f
+    };
+
+    lOpenGL.vao(1, lParams.vao);
+    lOpenGL.vbo(2, lParams.vbo);
+
+    lOpenGL.vao(lParams.vao[0]);
+    lOpenGL.vbo(lParams.vbo[0], lVertices, sizeof(lVertices));
+    lOpenGL.vbo(0, 3, 3, 0);
+    lOpenGL.vbo(lParams.vbo[1], lColors, sizeof(lColors));
+    lOpenGL.vbo(1, 3, 3, 0);
+
+    while (!lOpenGL.isClose()) {
+        lOpenGL.bgcolor2(lParams.bgcolor);
+        lOpenGL.vao(lParams.vao[0]);
+        lOpenGL.triangle(0, 3);
+        lOpenGL.pollEvents();
+    }
+
+    lOpenGL.close();
+}
+//===============================================</pre></div></div><br>Vertex shader<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#version 450
+
+layout (location=0) in vec3 VertexPosition;
+layout (location=1) in vec3 VertexColor;
+
+layout (location=0) out vec3 vColor;
+
+void main()
+{
+    vColor = VertexColor;
+    gl_Position = vec4(VertexPosition,1.0);
+}
+//===============================================</pre></div></div><br>Fragment shader<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#version 450
+
+layout(location=0) in vec3 vColor;
+
+layout (location=0) out vec4 FragColor;
+
+void main() {
+    FragColor = vec4(vColor, 1.0);
+}
+//===============================================</pre></div></div><br>Initialisation du système<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGL::init(int _major, int _minor, int _samples) {
+    glfwInit();
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, _major);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, _minor);
+    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+    glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GL_TRUE);
+    glfwWindowHint(GLFW_SAMPLES, _samples);
+    m_window = glfwCreateWindow(m_width, m_height, m_title.c_str(), NULL, NULL);
+    glfwMakeContextCurrent(m_window);
+    glfwSwapInterval(1);
+    glEnable(GL_LINE_SMOOTH);
+    glHint(GL_LINE_SMOOTH_HINT, GL_NICEST);
+    glEnable(GL_POINT_SMOOTH);
+    glHint(GL_POINT_SMOOTH_HINT, GL_NICEST);
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glEnable(GL_ALPHA_TEST) ;
+    glewExperimental = true;
+    glewInit();
+}
+//===============================================</pre></div></div><br>Chargement des shaders<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGL::shader(const std::string&amp; _vertex, const std::string&amp; _fragment) {
+    GLuint lVertexId = glCreateShader(GL_VERTEX_SHADER);
+    compile(lVertexId, _vertex);
+
+    GLuint lFragmentId = glCreateShader(GL_FRAGMENT_SHADER);
+    compile(lFragmentId, _fragment);
+
+    m_program = glCreateProgram();
+
+    glAttachShader(m_program, lVertexId);
+    glAttachShader(m_program, lFragmentId);
+    glLinkProgram(m_program);
+
+    GLint lResult = 0;
+    int logLength;
+
+    glGetProgramiv(m_program, GL_LINK_STATUS, &amp;lResult);
+    glGetProgramiv(m_program, GL_INFO_LOG_LENGTH, &amp;logLength);
+
+    glDeleteShader(lVertexId);
+    glDeleteShader(lFragmentId);
+}
+//===============================================</pre></div></div><br>Création du triangle<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGL::triangle(GLint _index, GLsizei _count) {
+    glDrawArrays(GL_TRIANGLES, _index, _count);
+}
+//===============================================</pre></div></div><br>Gestion du redimensionnement de la fenêtre<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGLUi::onResize(GLFWwindow* _window, int _width, int _height) {
+    lOpenGL.viewport(_width, _height);
+}
+//===============================================</pre></div></div><br>Traitement du redimensionnement de la fenêtre<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGL::viewport(int _width, int _height) {
+    glViewport(0, 0, _width, _height);
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_triangle.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_triangle.png"></div><br><h3 class="GTitle3" id="Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL-Utilisation-d-un-pipeline"><a class="Title8" href="#Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL">Utilisation d'un pipeline</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGLUi::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
+
+    lOpenGL.init(4, 5, 4);
+    lOpenGL.depthOn();
+    lOpenGL.onResize(onResize);
+
+    GOpenGL lFragment1, lFragment2, lPipeline1, lPipeline2;
+    lOpenGL.shader4(lApp-&gt;shader_vertex_file, GL_VERTEX_SHADER);
+    lFragment1.shader4(lApp-&gt;shader_fragment_file, GL_FRAGMENT_SHADER);
+    lFragment2.shader4(lApp-&gt;shader_fragment_file_2, GL_FRAGMENT_SHADER);
+    lPipeline1.pipeline(lOpenGL, lFragment1);
+    lPipeline2.pipeline(lOpenGL, lFragment2);
+
+    lParams.bgcolor = {0.1f, 0.2f, 0.3f, 1.0f};
+
+    GLfloat lVertices[] = {
+            -0.8f, -0.8f, 0.0f,
+            0.8f, -0.8f, 0.0f,
+            0.0f,  0.8f, 0.0f
+    };
+    GLfloat lColors[] = {
+            1.0f, 0.0f, 0.0f,
+            0.0f, 1.0f, 0.0f,
+            0.0f, 0.0f, 1.0f
+    };
+
+    lOpenGL.vao(1, lParams.vao);
+    lOpenGL.vbo(2, lParams.vbo);
+
+    lOpenGL.vao(lParams.vao[0]);
+    lOpenGL.vbo(lParams.vbo[0], lVertices, sizeof(lVertices));
+    lOpenGL.vbo(0, 3, 3, 0);
+    lOpenGL.vbo(lParams.vbo[1], lColors, sizeof(lColors));
+    lOpenGL.vbo(1, 3, 3, 0);
+
+    while (!lOpenGL.isClose()) {
+        lOpenGL.bgcolor2(lParams.bgcolor);
+        lOpenGL.use(0);
+        lOpenGL.uniform2("uColorMask", 0.0f, 1.0f, 0.0f);
+        lOpenGL.vao(lParams.vao[0]);
+        lOpenGL.viewport(0.f, 0.f, 0.5f, 1.f);
+        lPipeline1.pipeline();
+        lOpenGL.triangle(0, 3);
+        lOpenGL.viewport(0.5f, 0.f, 0.5f, 1.f);
+        lPipeline2.pipeline();
+        lOpenGL.triangle(0, 3);
+        lOpenGL.pollEvents();
+    }
+
+    lOpenGL.close();
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_pipeline.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_pipeline.png"></div><br><h3 class="GTitle3" id="Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL-Simulation-d-une-vague"><a class="Title8" href="#Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL">Simulation d'une vague</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GOpenGLUi::run(int argc, char** argv) {
 	sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
 
