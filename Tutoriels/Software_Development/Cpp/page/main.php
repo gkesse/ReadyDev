@@ -9837,6 +9837,74 @@ void GOpenGLUi::run(int argc, char** argv) {
 
     lOpenGL.close();
 }
+//===============================================</pre></div></div><br>Vertex shader<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#version 410
+
+layout (location=0) in vec3 VertexPosition;
+layout (location=1) in vec3 VertexColor;
+
+uniform vec3 uColorMask = vec3(0.0);
+
+layout (location=0) out vec3 Color;
+
+out gl_PerVertex
+{
+    vec4 gl_Position;
+    float gl_PointSize;
+    float gl_ClipDistance[];
+};
+
+void main()
+{
+    Color = VertexColor * uColorMask;
+    gl_Position = vec4(VertexPosition,1.0);
+}
+//===============================================</pre></div></div><br>Fragment shader (1)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#version 410
+
+layout(location=0) in vec3 Color;
+layout (location=0) out vec4 FragColor;
+
+void main() {
+    FragColor = vec4(Color, 1.0);
+}
+//===============================================</pre></div></div><br>Fragment shader (2)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#version 410
+
+const float PI = 3.141592653589793;
+
+layout(location=0) in vec3 Color;
+layout (location=0) out vec4 FragColor;
+
+void main() {
+    float fac = 1.0 + 0.5 * cos( gl_FragCoord.x * 100 / PI );
+    FragColor = vec4(fac * Color, 1.0);
+}
+//===============================================</pre></div></div><br>Création d'un programme shader séparé<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGL::shader4(const std::string&amp; _shaderFile, GLenum _shaderType) {
+    GFile lFile;
+    GLint lStatus;
+
+    lFile.filename(_shaderFile);
+    std::string lShaderCode = lFile.read();
+    GLuint lShaderId = glCreateShader(_shaderType);
+    compile(lShaderId, lShaderCode);
+    m_programID = glCreateProgram();
+    glProgramParameteri(m_programID, GL_PROGRAM_SEPARABLE, GL_TRUE);
+    glAttachShader(m_programID, lShaderId);
+    glLinkProgram(m_programID);
+    glGetProgramiv(m_programID, GL_LINK_STATUS, &amp;lStatus);
+}
+//===============================================</pre></div></div><br>Création d'un pipeline<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGL::pipeline(const GOpenGL&amp; _vertex, const GOpenGL&amp; _fragment) {
+    glCreateProgramPipelines(1, &amp;m_pipelineID);
+    glUseProgramStages(m_pipelineID, GL_VERTEX_SHADER_BIT, _vertex.m_programID);
+    glUseProgramStages(m_pipelineID, GL_FRAGMENT_SHADER_BIT, _fragment.m_programID);
+}
+//===============================================</pre></div></div><br>Utilisation d'un pipeline<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGL::pipeline() {
+    glBindProgramPipeline(m_pipelineID);
+}
 //===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_pipeline.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_pipeline.png"></div><br><h3 class="GTitle3" id="Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL-Simulation-d-une-vague"><a class="Title8" href="#Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL">Simulation d'une vague</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GOpenGLUi::run(int argc, char** argv) {
 	sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
