@@ -9846,7 +9846,95 @@ void GOpenGL::attributs() {
         delete[] lName;
     }
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_attributs_liste.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_attributs_liste.png"></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_attributs_img.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_attributs_img.png"></div><br><h3 class="GTitle3" id="Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL-Utilisation-des-pipelines"><a class="Title8" href="#Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL">Utilisation des pipelines</a></h3><br>Cette opération permet de <b>combiner plusieurs shaders</b>, sans avoir besoin de les lier. On crée un programID pour chaque shade qu'on associe à un objet pipeline.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_attributs_liste.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_attributs_liste.png"></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_attributs_img.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_attributs_img.png"></div><br><h3 class="GTitle3" id="Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL-Utilisation-de-variables-uniformes"><a class="Title8" href="#Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL">Utilisation de variables uniformes</a></h3><br>Cette opération permet de <b>réaliser la rotation d'un triangle</b> à travers l'utilisation d'une variable uniforme. On incrémente l'angle de rotation à chaque boucle. On calcule la matrice de rotation et on la transmet au shader via une variable uniforme.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGLUi::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
+
+    lOpenGL.init(4, 5, 4);
+    lOpenGL.depthOn();
+    lOpenGL.onResize(onResize);
+    lOpenGL.onKey(onKey);
+
+    lOpenGL.shader2(lApp-&gt;shader_vertex_file, lApp-&gt;shader_fragment_file);
+    lOpenGL.use();
+
+    lParams.bgcolor = {0.1f, 0.2f, 0.3f, 1.0f};
+    lParams.animate = true;
+    lParams.angle = 0.f;
+
+    GLfloat lVertices[] = {
+            -0.8f, -0.8f, 0.0f,
+            0.8f, -0.8f, 0.0f,
+            0.0f,  0.8f, 0.0f
+    };
+    GLfloat lColors[] = {
+            1.0f, 0.0f, 0.0f,
+            0.0f, 1.0f, 0.0f,
+            0.0f, 0.0f, 1.0f
+    };
+
+    lOpenGL.vao(1, lParams.vao);
+    lOpenGL.vbo(2, lParams.vbo);
+
+    lOpenGL.vao(lParams.vao[0]);
+    lOpenGL.vbo(lParams.vbo[0], lVertices, sizeof(lVertices));
+    lOpenGL.vbo(0, 3, 3, 0);
+    lOpenGL.vbo(lParams.vbo[1], lColors, sizeof(lColors));
+    lOpenGL.vbo(1, 3, 3, 0);
+
+    while (!lOpenGL.isClose()) {
+        lOpenGL.bgcolor2(lParams.bgcolor);
+    	lOpenGL.angle(lParams.animate, lParams.angle);
+    	lOpenGL.rotation(lParams.rotation, lParams.angle);
+    	lOpenGL.uniform("RotationMatrix", &amp;lParams.rotation[0][0]);
+        lOpenGL.vao(lParams.vao[0]);
+        lOpenGL.triangle(0, 3);
+        lOpenGL.pollEvents();
+    }
+
+    lOpenGL.close();
+}
+//===============================================</pre></div></div><br>Vertex shader<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#version 410
+
+layout (location = 0) in vec3 VertexPosition;
+layout (location = 1) in vec3 VertexColor;
+
+out vec3 Color;
+
+uniform mat4 RotationMatrix;
+
+void main()
+{
+    Color = VertexColor;
+    gl_Position = RotationMatrix * vec4(VertexPosition,1.0);
+}
+//===============================================</pre></div></div><br>Fragment shader<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#version 410
+
+in vec3 Color;
+layout (location = 0) out vec4 FragColor;
+
+void main() {
+    FragColor = vec4(Color, 1.0);
+}
+//===============================================</pre></div></div><br>Incrémentation de l'angle de rotation<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGL::angle(bool _animate, float&amp; _angle) {
+    if(_animate) {
+        _angle += 0.1f;
+        if(_angle &gt;= 360.0f) _angle -= 360.0f;
+    }
+}
+//===============================================</pre></div></div><br>Calcul de la matrice de rotation<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGL::rotation(glm::mat4&amp; _rotation, float _angle) {
+    _rotation = glm::rotate(glm::mat4(1.0f), _angle, glm::vec3(0.0f, 0.0f, 1.0f));
+}
+//===============================================</pre></div></div><br>Transfert de la matrice de rotation<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGL::uniform(const char* _name, const GLfloat* _v0) {
+    GLint lLocation = glGetUniformLocation(m_programID, _name);
+    glUniformMatrix4fv(lLocation, 1, GL_FALSE, _v0);
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_uniform.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_uniform.png"></div><br><h3 class="GTitle3" id="Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL-Utilisation-des-pipelines"><a class="Title8" href="#Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL">Utilisation des pipelines</a></h3><br>Cette opération permet de <b>combiner plusieurs shaders</b>, sans avoir besoin de les lier. On crée un programID pour chaque shade qu'on associe à un objet pipeline.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GOpenGLUi::run(int argc, char** argv) {
     sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
 
