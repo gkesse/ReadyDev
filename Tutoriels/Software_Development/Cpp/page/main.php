@@ -9663,9 +9663,9 @@ void GOpenGLUi::run(int argc, char** argv) {
     lOpenGL.deleteProgram();
     lOpenGL.close();
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_shader.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_shader.png"></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Comprendre les shaders avec OpenGL</a></h2><br><div class="Content0 GSummary3"><div class="Row26">Summary 3</div></div><br><h3 class="GTitle3" id="Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL-Creation-d-un-triangle"><a class="Title8" href="#Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL">Création d'un triangle</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_shader.png" class="lazy entered loaded exited" data-src="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_shader.png" data-ll-status="loaded" src="/Tutoriels/Software_Development/Cpp/img/i_opengl_intro_shader.png"></div><br><h2 class="Title7 GTitle2" id="Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL"><a class="Link9" href="#Programmation-3D-avec-OpenGL">Comprendre les shaders avec OpenGL</a></h2><br><div class="Content0 GSummary3"><div class="Row26">Summary 3</div></div><br><h3 class="GTitle3" id="Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL-Creation-d-un-triangle"><a class="Title8" href="#Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL">Création d'un triangle</a></h3><br>Cette opération permet d'<b>utiliser les shaders</b> pour créer un triangle avec des couleurs. On initialise le système. On charge les shaders.shaders. On lie les shaders au programme. On active les shaders. Et on déssine le triangle.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GOpenGLUi::run(int argc, char** argv) {
-	sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
+    sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
 
     lOpenGL.init(4, 5, 4);
     lOpenGL.depthOn();
@@ -9784,7 +9784,69 @@ void GOpenGLUi::onResize(GLFWwindow* _window, int _width, int _height) {
 void GOpenGL::viewport(int _width, int _height) {
     glViewport(0, 0, _width, _height);
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_triangle.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_triangle.png"></div><br><h3 class="GTitle3" id="Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL-Utilisation-des-pipelines"><a class="Title8" href="#Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL">Utilisation des pipelines</a></h3><br>Cette opération permet de <b>combiner plusieurs shaders</b>, sans avoir besoin de les lier. On crée un programID pour chaque shade qu'on associe à un objet pipeline.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_triangle.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_triangle.png"></div><br><h3 class="GTitle3" id="Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL-Utilisation-des-attributs"><a class="Title8" href="#Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL">Utilisation des attributs</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGLUi::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
+
+    lOpenGL.init(4, 5, 4);
+    lOpenGL.depthOn();
+    lOpenGL.onResize(onResize);
+
+    lOpenGL.shader2(lApp-&gt;shader_vertex_file, lApp-&gt;shader_fragment_file);
+    lOpenGL.use();
+    lParams.bgcolor = {0.1f, 0.2f, 0.3f, 1.0f};
+
+    GLfloat lVertices[] = {
+        -0.8f, -0.8f, 0.0f,
+         0.8f, -0.8f, 0.0f,
+         0.0f,  0.8f, 0.0f
+    };
+    GLfloat lColors[] = {
+        1.0f, 0.0f, 0.0f,
+        0.0f, 1.0f, 0.0f,
+        0.0f, 0.0f, 1.0f
+    };
+
+    lOpenGL.vao(1, lParams.vao);
+    lOpenGL.vbo(2, lParams.vbo);
+
+    lOpenGL.vao(lParams.vao[0]);
+    lOpenGL.vbo(lParams.vbo[0], lVertices, sizeof(lVertices));
+    lOpenGL.vbo2(0, lParams.vbo[0], 0, 3);
+    lOpenGL.attribut(0, 3, 0);
+    lOpenGL.vbo(lParams.vbo[1], lColors, sizeof(lColors));
+    lOpenGL.vbo2(1, lParams.vbo[1], 0, 3);
+    lOpenGL.attribut(1, 3, 0);
+
+    lOpenGL.attributs();
+
+    while (!lOpenGL.isClose()) {
+        lOpenGL.bgcolor2(lParams.bgcolor);
+        lOpenGL.vao(lParams.vao[0]);
+        lOpenGL.triangle(0, 3);
+        lOpenGL.pollEvents();
+    }
+
+    lOpenGL.close();
+}
+//===============================================</pre></div></div><br>Liste des attributs<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGL::attributs() {
+    GLint lCount;
+    glGetProgramInterfaceiv(m_programID, GL_PROGRAM_INPUT, GL_ACTIVE_RESOURCES, &amp;lCount);
+    GLenum lProperties[] = {GL_NAME_LENGTH, GL_TYPE, GL_LOCATION};
+
+    printf("Active attributes.....:\n");
+    for(int i = 0; i &lt; lCount; i++) {
+        GLint lResults[3];
+        glGetProgramResourceiv(m_programID, GL_PROGRAM_INPUT, i, 3, lProperties, 3, NULL, lResults);
+        GLint lSize = lResults[0] + 1;
+        char* lName = new char[lSize];
+        glGetProgramResourceName(m_programID, GL_PROGRAM_INPUT, i, lSize, NULL, lName);
+        printf(".....[%-5d] : %s (%s)\n", lResults[2], lName, type(lResults[1]));
+        delete[] lName;
+    }
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_attributs_liste.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_attributs_liste.png"></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_attributs_img.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_attributs_img.png"></div><br><h3 class="GTitle3" id="Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL-Utilisation-des-pipelines"><a class="Title8" href="#Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL">Utilisation des pipelines</a></h3><br>Cette opération permet de <b>combiner plusieurs shaders</b>, sans avoir besoin de les lier. On crée un programID pour chaque shade qu'on associe à un objet pipeline.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GOpenGLUi::run(int argc, char** argv) {
     sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
 
