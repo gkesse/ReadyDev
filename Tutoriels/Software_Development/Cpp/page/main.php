@@ -9846,7 +9846,7 @@ void GOpenGL::attributs() {
         delete[] lName;
     }
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_attributs_liste.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_attributs_liste.png"></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_attributs_img.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_attributs_img.png"></div><br><h3 class="GTitle3" id="Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL-Utilisation-de-variables-uniformes"><a class="Title8" href="#Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL">Utilisation de variables uniformes</a></h3><br>Cette opération permet de <b>réaliser la rotation d'un triangle</b> à travers l'utilisation d'une variable uniforme. On incrémente l'angle de rotation à chaque boucle. On calcule la matrice de rotation et on la transmet au shader via une variable uniforme.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_attributs_list.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_attributs_list.png"></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_attributs_img.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_attributs_img.png"></div><br><h3 class="GTitle3" id="Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL-Utilisation-de-variables-uniformes"><a class="Title8" href="#Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL">Utilisation de variables uniformes</a></h3><br>Cette opération permet de <b>réaliser la rotation d'un triangle</b> à travers l'utilisation d'une variable uniforme. On incrémente l'angle de rotation à chaque boucle. On calcule la matrice de rotation et on la transmet au shader via une variable uniforme.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GOpenGLUi::run(int argc, char** argv) {
     sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
 
@@ -9934,7 +9934,140 @@ void GOpenGL::uniform(const char* _name, const GLfloat* _v0) {
     GLint lLocation = glGetUniformLocation(m_programID, _name);
     glUniformMatrix4fv(lLocation, 1, GL_FALSE, _v0);
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_uniform.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_uniform.png"></div><br><h3 class="GTitle3" id="Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL-Utilisation-des-pipelines"><a class="Title8" href="#Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL">Utilisation des pipelines</a></h3><br>Cette opération permet de <b>combiner plusieurs shaders</b>, sans avoir besoin de les lier. On crée un programID pour chaque shade qu'on associe à un objet pipeline.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_uniform.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_uniform.png"></div><br><h3 class="GTitle3" id="Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL-Utilisation-des-blocs-de-variables-uniformes"><a class="Title8" href="#Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL">Utilisation des blocs de variables uniformes</a></h3><br>Cette opération permet de <b>regrouper des variables uniformes</b> dans un bloc avant de les appliquer à un shader. On alloue la mémoire du bloc. On charge les données dans la mémoire. Et on lie le bloc de données au shader.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGLUi::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
+
+    lOpenGL.init(4, 5, 4);
+    lOpenGL.depthOn();
+    lOpenGL.onResize(onResize);
+    lOpenGL.onKey(onKey);
+
+    lOpenGL.shader2(lApp-&gt;shader_vertex_file, lApp-&gt;shader_fragment_file);
+    lOpenGL.use();
+
+    lParams.bgcolor = {0.1f, 0.2f, 0.3f, 1.0f};
+    lParams.animate = true;
+    lParams.angle = 0.f;
+
+    float lVertices[] = {
+            -0.8f, -0.8f, 0.0f,
+            0.8f, -0.8f, 0.0f,
+            0.8f,  0.8f, 0.0f,
+            -0.8f, -0.8f, 0.0f,
+            0.8f, 0.8f, 0.0f,
+            -0.8f, 0.8f, 0.0f
+    };
+    GLfloat lTextures[] = {
+            0.0f, 0.0f,
+            1.0f, 0.0f,
+            1.0f, 1.0f,
+            0.0f, 0.0f,
+            1.0f, 1.0f,
+            0.0f, 1.0f
+    };
+
+    lOpenGL.vao(1, lParams.vao);
+    lOpenGL.vbo(3, lParams.vbo);
+
+    lOpenGL.vao(lParams.vao[0]);
+    lOpenGL.vbo(lParams.vbo[0], lVertices, sizeof(lVertices));
+    lOpenGL.vbo(0, 3, 3, 0);
+    lOpenGL.vbo(lParams.vbo[1], lTextures, sizeof(lTextures));
+    lOpenGL.vbo(1, 2, 2, 0);
+
+    const char* lBlobSettings[] = {
+            "BlobSettings.InnerColor",
+            "BlobSettings.OuterColor",
+            "BlobSettings.RadiusInner",
+            "BlobSettings.RadiusOuter"
+    };
+
+    GLfloat lOuterColor[] = {0.0f, 0.0f, 0.0f, 0.0f};
+    GLfloat lInnerColor[] = {1.0f, 1.0f, 0.75f, 1.0f};
+    GLfloat lRadiusInner[] = {0.25f};
+    GLfloat lRadiusOuter[] = {0.45f};
+
+    lOpenGL.uniformBloc("BlobSettings");
+    lOpenGL.uniformBloc(4, lBlobSettings);
+    lOpenGL.uniformBloc(0, 4, lInnerColor);
+    lOpenGL.uniformBloc(1, 4, lOuterColor);
+    lOpenGL.uniformBloc(2, 1, lRadiusInner);
+    lOpenGL.uniformBloc(3, 1, lRadiusOuter);
+    lOpenGL.uniformBloc(lParams.vbo[2]);
+    lOpenGL.uniformBloc();
+
+    lOpenGL.uniformBlocs();
+
+    while (!lOpenGL.isClose()) {
+        lOpenGL.bgcolor2(lParams.bgcolor);
+        lOpenGL.vao(lParams.vao[0]);
+        lOpenGL.triangle(0, 6);
+        lOpenGL.pollEvents();
+    }
+
+    lOpenGL.close();
+}
+//===============================================</pre></div></div><br>Vertex shader<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#version 430
+
+layout (location = 0) in vec3 VertexPosition;
+layout (location = 1) in vec3 VertexTexCoord;
+
+out vec3 TexCoord;
+
+void main()
+{
+    TexCoord = VertexTexCoord;
+    gl_Position = vec4(VertexPosition,1.0);
+}
+//===============================================</pre></div></div><br>Fragment shader<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#version 430
+
+in vec3 TexCoord;
+layout (location = 0) out vec4 FragColor;
+
+layout (binding = 1) uniform BlobSettings {
+    vec4 InnerColor;
+    vec4 OuterColor;
+    float RadiusInner;
+    float RadiusOuter;
+} Blob;
+
+void main() {
+    float dx = TexCoord.x - 0.5;
+    float dy = TexCoord.y - 0.5;
+    float dist = sqrt(dx * dx + dy * dy);
+    FragColor = mix(
+        Blob.InnerColor, 
+        Blob.OuterColor,
+        smoothstep(Blob.RadiusInner, Blob.RadiusOuter, dist)
+    );
+}
+//===============================================</pre></div></div><br>Allocation d'un bloc de variables uniformes<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGL::uniformBloc(const char* _name) {
+    GLuint lLocation = glGetUniformBlockIndex(m_programID, _name);
+    glGetActiveUniformBlockiv(m_programID, lLocation, GL_UNIFORM_BLOCK_DATA_SIZE, &amp;m_blockSize);
+    m_blockBuffer = new GLubyte[m_blockSize];
+}
+//===============================================</pre></div></div><br>Allocation des indices et des offsets<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGL::uniformBloc(int _size, const char** _names) {
+    m_indices = new GLuint[_size];
+    m_offset = new GLint[_size];
+    glGetUniformIndices(m_programID, _size, _names, m_indices);
+    glGetActiveUniformsiv(m_programID, _size, m_indices, GL_UNIFORM_OFFSET, m_offset);
+}
+//===============================================</pre></div></div><br>Chargement des données<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGL::uniformBloc(int _offset, int _size, GLfloat* _data) {
+    memcpy(m_blockBuffer + m_offset[_offset], _data, _size * sizeof(GLfloat));
+}
+//===============================================</pre></div></div><br>Liaison des données<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGL::uniformBloc(GLuint _vbo) {
+    glBindBuffer(GL_UNIFORM_BUFFER, _vbo);
+    glBufferData( GL_UNIFORM_BUFFER, m_blockSize, m_blockBuffer, GL_DYNAMIC_DRAW);
+    glBindBufferBase( GL_UNIFORM_BUFFER, 1, _vbo);
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_uniform_block_list.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_uniform_block_list.png"></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_uniform_block_img.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_uniform_block_img.png"></div><br><h3 class="GTitle3" id="Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL-Utilisation-des-pipelines"><a class="Title8" href="#Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL">Utilisation des pipelines</a></h3><br>Cette opération permet de <b>combiner plusieurs shaders</b>, sans avoir besoin de les lier. On crée un programID pour chaque shade qu'on associe à un objet pipeline.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GOpenGLUi::run(int argc, char** argv) {
     sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
 
