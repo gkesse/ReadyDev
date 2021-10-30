@@ -9947,8 +9947,6 @@ void GOpenGLUi::run(int argc, char** argv) {
     lOpenGL.use();
 
     lParams.bgcolor = {0.1f, 0.2f, 0.3f, 1.0f};
-    lParams.animate = true;
-    lParams.angle = 0.f;
 
     float lVertices[] = {
             -0.8f, -0.8f, 0.0f,
