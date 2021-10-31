@@ -10198,7 +10198,7 @@ void GOpenGLUi::run(int argc, char** argv) {
     lOpenGL.shader2(lApp-&gt;shader_vertex_file, lApp-&gt;shader_fragment_file);
     lOpenGL.use();
 
-    lParams.bgcolor = {0.1f, 0.2f, 0.3f, 1.f};
+    lParams.bgcolor = {0.2f, 0.3f, 0.3f, 1.f};
 
     lParams.mvp2.model.identity();
     lParams.mvp2.model.rotate(-35.0f, 1.0f, 0.0f, 0.0f);
@@ -10213,9 +10213,6 @@ void GOpenGLUi::run(int argc, char** argv) {
     lTorus.torus(0.7f, 0.3f, 30, 30);
     lTorus.init();
     lTorus.clear();
-
-    lOpenGL.info();
-    lOpenGL.debug();
 
     while(!lOpenGL.isClose()) {
         lOpenGL.bgcolor2(lParams.bgcolor);
@@ -10382,7 +10379,119 @@ void GObject::init(){
 
     glBindVertexArray(0);
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_light_diffuse.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_light_diffuse.png"></div><br><h3 class="GTitle3" id="Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL-Simulation-d-une-vague"><a class="Title8" href="#Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL">Simulation d'une vague</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_light_diffuse.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_light_diffuse.png"></div><br><h3 class="GTitle3" id="Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL-Creation-de-l-ombrage-de-Phong"><a class="Title8" href="#Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL">Création de l'ombrage de Phong</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGLUi::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
+
+    lOpenGL.init(4, 5, 4);
+    lOpenGL.depthOn();
+    lOpenGL.onResize(onResize);
+    lOpenGL.onKey(onKey);
+
+    lOpenGL.shader2(lApp-&gt;shader_vertex_file, lApp-&gt;shader_fragment_file);
+    lOpenGL.use();
+
+    lParams.bgcolor = {0.2f, 0.3f, 0.3f, 1.f};
+    lParams.angle = 0.f;
+    lParams.animate = true;
+
+    lParams.mvp2.view.lookAt(0.0f, 0.0f, 2.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f);
+    lParams.light.world.data(5.0f, 5.0f, 2.0f, 1.0f);
+
+    lOpenGL.uniform("Material.Kd", 0.9f, 0.5f, 0.3f);
+    lOpenGL.uniform("Light.Ld", 1.0f, 1.0f, 1.0f);
+    lOpenGL.uniform("Light.Position", lParams.mvp2.view.dot(lParams.light.world));
+    lOpenGL.uniform("Material.Ka", 0.9f, 0.5f, 0.3f);
+    lOpenGL.uniform("Light.La", 0.4f, 0.4f, 0.4f);
+    lOpenGL.uniform("Material.Ks", 0.8f, 0.8f, 0.8f);
+    lOpenGL.uniform("Light.Ls", 1.0f, 1.0f, 1.0f);
+    lOpenGL.uniform("Material.Shininess", 100.0f);
+
+    GObject lTorus;
+    lTorus.torus(0.7f, 0.3f, 30, 30);
+    lTorus.init();
+    lTorus.clear();
+
+    while(!lOpenGL.isClose()) {
+        lOpenGL.bgcolor2(lParams.bgcolor);
+        lOpenGL.angle(lParams.animate, lParams.angle, 1.f);
+
+        lParams.mvp2.model.identity();
+        lParams.mvp2.model.rotate(lParams.angle, 0.0f, 1.0f, 0.0f);
+        lParams.mvp2.model.rotate(-35.0f, 1.0f, 0.0f, 0.0f);
+        lParams.mvp2.model.rotate(35.0f, 0.0f, 1.0f, 0.0f);
+
+        lParams.mvp2.mv.dot(lParams.mvp2.view, lParams.mvp2.model);
+        lOpenGL.uniform("ModelViewMatrix", lParams.mvp2.mv.mat4());
+        lOpenGL.uniform("NormalMatrix", lParams.mvp2.mv.mat3());
+        lOpenGL.uniform("MVP", lParams.mvp2.projection.dot2(lParams.mvp2.mv));
+
+        lTorus.render();
+
+        lOpenGL.pollEvents();
+    }
+
+    lOpenGL.debug2();
+    lTorus.deletes();
+    lOpenGL.close();
+}
+//===============================================</pre></div></div><br>Vertex shader<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#version 410
+
+layout (location = 0) in vec3 VertexPosition;
+layout (location = 1) in vec3 VertexNormal;
+
+out vec3 LightIntensity;
+
+uniform struct LightInfo {
+    vec4 Position; // Light position in eye coords.
+    vec3 La;       // Ambient light intensity
+    vec3 Ld;       // Diffuse light intensity
+    vec3 Ls;       // Specular light intensity
+} Light;
+
+uniform struct MaterialInfo {
+    vec3 Ka;            // Ambient reflectivity
+    vec3 Kd;            // Diffuse reflectivity
+    vec3 Ks;            // Specular reflectivity
+    float Shininess;    // Specular shininess factor
+} Material;
+
+uniform mat4 ModelViewMatrix;
+uniform mat3 NormalMatrix;
+uniform mat4 ProjectionMatrix;
+uniform mat4 MVP;
+
+void main()
+{
+    vec3 n = normalize( NormalMatrix * VertexNormal);
+    vec4 camCoords = ModelViewMatrix * vec4(VertexPosition,1.0);
+
+    vec3 ambient = Light.La * Material.Ka;
+    vec3 s = normalize(vec3(Light.Position - camCoords));
+    float sDotN = max( dot(s,n), 0.0 );
+    vec3 diffuse = Light.Ld * Material.Kd * sDotN;
+    vec3 spec = vec3(0.0);
+    if( sDotN &gt; 0.0 ) {
+        vec3 v = normalize(-camCoords.xyz);
+        vec3 r = reflect( -s, n );
+        spec = Light.Ls * Material.Ks *
+                pow( max( dot(r,v), 0.0 ), Material.Shininess );
+    }
+
+    LightIntensity = ambient + diffuse + spec;
+    gl_Position = MVP * vec4(VertexPosition,1.0);
+}
+//===============================================</pre></div></div><br>Fragment shader<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#version 410
+
+in vec3 LightIntensity;
+layout( location = 0 ) out vec4 FragColor;
+
+void main() {
+    FragColor = vec4(LightIntensity, 1.0);
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_light_phong.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_light_phong.png"></div><br><h3 class="GTitle3" id="Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL-Simulation-d-une-vague"><a class="Title8" href="#Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL">Simulation d'une vague</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GOpenGLUi::run(int argc, char** argv) {
 	sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
 
