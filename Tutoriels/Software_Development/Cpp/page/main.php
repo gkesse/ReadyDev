@@ -10186,7 +10186,203 @@ void GOpenGL::pipeline(const GOpenGL&amp; _vertex, const GOpenGL&amp; _fragment)
 void GOpenGL::pipeline() {
     glBindProgramPipeline(m_pipelineID);
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_pipeline.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_pipeline.png"></div><br><h3 class="GTitle3" id="Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL-Simulation-d-une-vague"><a class="Title8" href="#Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL">Simulation d'une vague</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_pipeline.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_pipeline.png"></div><br><h3 class="GTitle3" id="Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL-Creation-d-une-lumiere-diffuse"><a class="Title8" href="#Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL">Création d'une lumière diffuse</a></h3><br>Cette opération permet de <b>créer une lumière qui diffuse</b> dans toutes les directions au contact d'un objet. Cette technique suppose que l'intensité de la lumière au point de contact est maximale lorsque le rayon incident est parallèle à la normale et nulle lorsque le rayon incident est perpendiculaire à la normale.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGLUi::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
+
+    lOpenGL.init(4, 5, 4);
+    lOpenGL.depthOn();
+    lOpenGL.onResize(onResize);
+    lOpenGL.onKey(onKey);
+
+    lOpenGL.shader2(lApp-&gt;shader_vertex_file, lApp-&gt;shader_fragment_file);
+    lOpenGL.use();
+
+    lParams.bgcolor = {0.1f, 0.2f, 0.3f, 1.f};
+
+    lParams.mvp2.model.identity();
+    lParams.mvp2.model.rotate(-35.0f, 1.0f, 0.0f, 0.0f);
+    lParams.mvp2.model.rotate(35.0f, 0.0f, 1.0f, 0.0f);
+    lParams.mvp2.view.lookAt(0.0f, 0.0f, 2.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f);
+
+    lOpenGL.uniform("Kd", 0.9f, 0.5f, 0.3f);
+    lOpenGL.uniform("Ld", 1.0f, 1.0f, 1.0f);
+    lOpenGL.uniform("LightPosition", lParams.mvp2.view.dot(5.0f, 5.0f, 2.0f, 1.0f));
+
+    GObject lTorus;
+    lTorus.torus(0.7f, 0.3f, 30, 30);
+    lTorus.init();
+    lTorus.clear();
+
+    lOpenGL.info();
+    lOpenGL.debug();
+
+    while(!lOpenGL.isClose()) {
+        lOpenGL.bgcolor2(lParams.bgcolor);
+        lParams.mvp2.mv.dot(lParams.mvp2.view, lParams.mvp2.model);
+        lOpenGL.uniform("ModelViewMatrix", lParams.mvp2.mv.mat4());
+        lOpenGL.uniform("NormalMatrix", lParams.mvp2.mv.mat3());
+        lParams.mvp2.mvp.dot(lParams.mvp2.projection, lParams.mvp2.mv);
+        lOpenGL.uniform("MVP", lParams.mvp2.mvp.mat4());
+        lTorus.render();
+        lOpenGL.pollEvents();
+    }
+
+    lOpenGL.debug2();
+    lTorus.deletes();
+    lOpenGL.close();
+}
+//===============================================</pre></div></div><br>Vertex shader<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#version 410
+
+layout (location = 0) in vec3 VertexPosition;
+layout (location = 1) in vec3 VertexNormal;
+
+out vec3 LightIntensity;
+
+uniform vec4 LightPosition; // Light position in eye coords.
+uniform vec3 Kd;            // Diffuse reflectivity
+uniform vec3 Ld;            // Diffuse light intensity
+
+uniform mat4 ModelViewMatrix;
+uniform mat3 NormalMatrix;
+uniform mat4 ProjectionMatrix;
+uniform mat4 MVP;
+
+void main()
+{
+    vec3 tnorm = normalize( NormalMatrix * VertexNormal);
+    vec4 eyeCoords = ModelViewMatrix * vec4(VertexPosition,1.0);
+    vec3 s = normalize(vec3(LightPosition - eyeCoords));
+
+    LightIntensity = Ld * Kd * max( dot( s, tnorm ), 0.0 );
+
+    gl_Position = MVP * vec4(VertexPosition,1.0);
+}
+//===============================================</pre></div></div><br>Fragment shader<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#version 410
+
+in vec3 LightIntensity;
+
+layout( location = 0 ) out vec4 FragColor;
+
+void main() {
+    FragColor = vec4(LightIntensity, 1.0);
+}
+//===============================================</pre></div></div><br>Création du tore<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GObject::torus(GLfloat _outerRadius, GLfloat _innerRadius, GLuint _nsides, GLuint _nrings) {
+    GLuint faces = _nsides * _nrings;
+    int nVerts  = _nsides * (_nrings + 1);
+
+    m_points.resize(3 * nVerts);
+    m_normals.resize(3 * nVerts);
+    m_texCoords.resize(2 * nVerts);
+    m_indices.resize(6 * faces);
+
+    float ringFactor = glm::two_pi&lt;float&gt;() / _nrings;
+    float sideFactor = glm::two_pi&lt;float&gt;() / _nsides;
+    int idx = 0, tidx = 0;
+
+    for(GLuint ring = 0; ring &lt;= _nrings; ring++) {
+        float u = ring * ringFactor;
+        float cu = cos(u);
+        float su = sin(u);
+        for( GLuint side = 0; side &lt; _nsides; side++ ) {
+            float v = side * sideFactor;
+            float cv = cos(v);
+            float sv = sin(v);
+            float r = (_outerRadius + _innerRadius * cv);
+            m_points[idx + 0] = r * cu;
+            m_points[idx + 1] = r * su;
+            m_points[idx + 2] = _innerRadius * sv;
+            m_normals[idx + 0] = cv * cu * r;
+            m_normals[idx + 1] = cv * su * r;
+            m_normals[idx + 2] = sv * r;
+            m_texCoords[tidx + 0] = u / glm::two_pi&lt;float&gt;();
+            m_texCoords[tidx + 1] = v / glm::two_pi&lt;float&gt;();
+            tidx += 2;
+
+            float len = sqrt(
+                    m_normals[idx + 0] * m_normals[idx] +
+                    m_normals[idx + 1] * m_normals[idx+1] +
+                    m_normals[idx + 2] * m_normals[idx+2]
+            );
+
+            m_normals[idx + 0] /= len;
+            m_normals[idx + 1] /= len;
+            m_normals[idx + 2] /= len;
+            idx += 3;
+        }
+    }
+
+    idx = 0;
+    for( GLuint ring = 0; ring &lt; _nrings; ring++ ) {
+        GLuint ringStart = ring * _nsides;
+        GLuint nextRingStart = (ring + 1) * _nsides;
+        for( GLuint side = 0; side &lt; _nsides; side++ ) {
+            int nextSide = (side+1) % _nsides;
+            m_indices[idx + 0] = (ringStart + side);
+            m_indices[idx + 1] = (nextRingStart + side);
+            m_indices[idx + 2] = (nextRingStart + nextSide);
+            m_indices[idx + 3] = ringStart + side;
+            m_indices[idx + 4] = nextRingStart + nextSide;
+            m_indices[idx + 5] = (ringStart + nextSide);
+            idx += 6;
+        }
+    }
+}
+//===============================================</pre></div></div><br>Chargement des buffers<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GObject::init(){
+    if(!m_buffers.empty()) deletes();
+    if(m_indices.empty() || m_points.empty() || m_normals.empty()) return;
+
+    m_nVerts = (GLuint)m_indices.size();
+
+    GLuint indexBuf = 0, posBuf = 0, normBuf = 0, tcBuf = 0, tangentBuf = 0;
+
+    glGenVertexArrays(1, &amp;m_vao);
+    glBindVertexArray(m_vao);
+
+    glGenBuffers(1, &amp;indexBuf);
+    m_buffers.push_back(indexBuf);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuf);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, m_indices.size() * sizeof(GLuint), m_indices.data(), GL_STATIC_DRAW);
+
+    glGenBuffers(1, &amp;posBuf);
+    m_buffers.push_back(posBuf);
+    glBindBuffer(GL_ARRAY_BUFFER, posBuf);
+    glBufferData(GL_ARRAY_BUFFER, m_points.size() * sizeof(GLfloat), m_points.data(), GL_STATIC_DRAW);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, (void*)(0));
+    glEnableVertexAttribArray(0);
+
+    glGenBuffers(1, &amp;normBuf);
+    m_buffers.push_back(normBuf);
+    glBindBuffer(GL_ARRAY_BUFFER, normBuf);
+    glBufferData(GL_ARRAY_BUFFER, m_normals.size() * sizeof(GLfloat), m_normals.data(), GL_STATIC_DRAW);
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, (void*)(0));
+    glEnableVertexAttribArray(1);
+
+    if(!m_texCoords.empty()) {
+        glGenBuffers(1, &amp;tcBuf);
+        m_buffers.push_back(tcBuf);
+        glBindBuffer(GL_ARRAY_BUFFER, tcBuf);
+        glBufferData(GL_ARRAY_BUFFER, m_texCoords.size() * sizeof(GLfloat), m_texCoords.data(), GL_STATIC_DRAW);
+        glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 0, (void*)(0));
+        glEnableVertexAttribArray(2);
+    }
+
+    if(!m_tangents.empty()) {
+        glGenBuffers(1, &amp;tangentBuf);
+        m_buffers.push_back(tangentBuf);
+        glBindBuffer(GL_ARRAY_BUFFER, tangentBuf);
+        glBufferData(GL_ARRAY_BUFFER, m_tangents.size() * sizeof(GLfloat), m_tangents.data(), GL_STATIC_DRAW);
+        glVertexAttribPointer(3, 4, GL_FLOAT, GL_FALSE, 0, (void*)(0));
+        glEnableVertexAttribArray(3);
+    }
+
+    glBindVertexArray(0);
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_light_diffuse.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_light_diffuse.png"></div><br><h3 class="GTitle3" id="Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL-Simulation-d-une-vague"><a class="Title8" href="#Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL">Simulation d'une vague</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GOpenGLUi::run(int argc, char** argv) {
 	sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
 
