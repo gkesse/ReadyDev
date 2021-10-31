@@ -10378,6 +10378,16 @@ void GObject::init(){
 
     glBindVertexArray(0);
 }
+//===============================================</pre></div></div><br>Gestion du redimensionnement<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGLUi::onResize(GLFWwindow* _window, int _width, int _height) {
+    lOpenGL.viewport(_width,_height);
+    lParams.mvp2.projection.perspective(70.0f, 0.3f, 100.0f, _width, _height);
+}
+//===============================================</pre></div></div><br>Traitement du redimensionnement<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GGml::perspective(float _angle, float _zNear, float _zFar, int _width, int _height) {
+    float lRatio = (float)_width/_height;
+    m_mat4 = glm::perspective(glm::radians(_angle), lRatio, _zNear, _zFar);
+}
 //===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_light_diffuse.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_light_diffuse.png"></div><br><h3 class="GTitle3" id="Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL-Creation-de-l-ombrage-de-Phong"><a class="Title8" href="#Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL">Création de l'ombrage de Phong</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GOpenGLUi::run(int argc, char** argv) {
     sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
@@ -10489,81 +10499,187 @@ layout( location = 0 ) out vec4 FragColor;
 void main() {
     FragColor = vec4(LightIntensity, 1.0);
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_light_phong.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_light_phong.png"></div><br><h3 class="GTitle3" id="Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL-Simulation-d-une-vague"><a class="Title8" href="#Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL">Simulation d'une vague</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_light_phong.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_light_phong.png"></div><br><h3 class="GTitle3" id="Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL-Creation-d-une-surface-ondulante"><a class="Title8" href="#Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL">Création d'une surface ondulante</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GOpenGLUi::run(int argc, char** argv) {
-	sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
+    sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
 
-    lOpenGL.init3();
+    lOpenGL.init(4, 5, 4);
     lOpenGL.depthOn();
     lOpenGL.onResize(onResize);
+    lOpenGL.onKey(onKey);
+
     lOpenGL.shader2(lApp-&gt;shader_vertex_file, lApp-&gt;shader_fragment_file);
-    lOpenGL.use();
+    lOpenGL.useProgram();
 
-    lParams.bgcolor = {0.1f, 0.2f, 0.3f, 1.0f};
+    lParams.bgcolor = {0.2f, 0.3f, 0.3f, 1.f};
 
-    GLfloat lVertices[] = {
-        -1.0f, -1.0f, 0.0f,
-		1.0f, -1.0f, 0.0f,
-		1.0f, 1.0f, 0.0f,
-        -1.0f, -1.0f, 0.0f,
-		1.0f, 1.0f, 0.0f,
-		-1.0f, 1.0f, 0.0f
-    };
-    GLfloat lTextCoord[] = {
-        0.0f, 0.0f,
-		1.0f, 0.0f,
-		1.0f, 1.0f,
-        0.0f, 0.0f,
-		1.0f, 1.0f,
-		0.0f, 1.0f
-    };
+    lOpenGL.uniform("Light.Intensity", glm::vec3(1.0f,1.0f,1.0f));
+    lOpenGL.halfPi(lParams.angle);
 
-    lOpenGL.vao(1, lParams.vao);
-    lOpenGL.vbo(2, lParams.vbo);
+    GObject lPlane;
+    lPlane.plane(13.0f, 10.0f, 200, 2, 1.f, 1.f);
+    lPlane.init();
+    lPlane.clear();
 
-    lOpenGL.vao(lParams.vao[0]);
-    lOpenGL.vbo(lParams.vbo[0], lVertices, sizeof(lVertices));
-    lOpenGL.vbo(0, 3, 0, 0);
-    lOpenGL.vbo(lParams.vbo[1], lTextCoord, sizeof(lTextCoord));
-    lOpenGL.vbo(2, 2, 0, 0);
-
-    lOpenGL.uniform("Color", glm::vec4(1.0f, 0.0f, 0.0f, 1.0f));
-    lOpenGL.uniform2("NoiseTex", 0);
-
-    lParams.slice = glm::rotate(lParams.slice, glm::radians(10.0f), glm::vec3(1.0, 0.0, 0.0));
-    lParams.slice = glm::rotate(lParams.slice, glm::radians(-20.0f), glm::vec3(0.0,0.0,1.0));
-    lParams.slice = glm::scale(lParams.slice, glm::vec3(40.0, 40.0, 1.0));
-    lParams.slice = glm::translate(lParams.slice, glm::vec3(-0.35, -0.5, 2.0));
-
-    lOpenGL.uniform("Slice", lParams.slice);
-
-    lParams.noise.baseFreq = 4.0f;
-    lParams.noise.persistence = 0.5f;
-    lParams.noise.width = 128;
-    lParams.noise.height = 128;
-    lParams.noise.periodic = false;
-
-    GFunction lNoise;
-    lNoise.noise(lParams.noise);
-    lOpenGL.texture(lNoise.noise(), lParams.noise.width, lParams.noise.height);
-    lNoise.deleteNoise();
-
-    lOpenGL.texture(GL_TEXTURE0);
-
-    while (!lOpenGL.isClose()) {
+    while(!lOpenGL.isClose()) {
         lOpenGL.bgcolor2(lParams.bgcolor);
-        lParams.mvp.view = glm::mat4(1.0f);
-        lParams.mvp.model = glm::mat4(1.0f);
-    	lParams.mvp.projection = glm::mat4(1.0f);
-        lOpenGL.uniform("MVP", lParams.mvp.projection * lParams.mvp.view * lParams.mvp.model);
-        lOpenGL.vao(lParams.vao[0]);
-        lOpenGL.triangle(0, 6);
+
+        lOpenGL.times(lParams.times);
+        lOpenGL.size(lParams.width, lParams.height);
+        lOpenGL.uniform("Time", lParams.times);
+        lParams.mvp2.view.lookAt(10.0f * cos(lParams.angle), 4.0f, 10.0f * sin(lParams.angle), 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f);
+        lParams.mvp2.projection.perspective(60.0f, 0.3f, 100.0f, lParams.width, lParams.height);
+
+        lOpenGL.uniform("Material.Kd", 0.9f, 0.5f, 0.3f);
+        lOpenGL.uniform("Material.Ks", 0.8f, 0.8f, 0.8f);
+        lOpenGL.uniform("Material.Ka", 0.2f, 0.2f, 0.2f);
+        lOpenGL.uniform("Material.Shininess", 100.0f);
+
+        lParams.mvp2.model.identity();
+        lParams.mvp2.model.rotate(-10.0f, 0.0f, 0.0f, 1.0f);
+        lParams.mvp2.model.rotate(50.0f, 1.0f, 0.0f, 0.0f);
+
+        lParams.mvp2.mv.dot(lParams.mvp2.view, lParams.mvp2.model);
+        lOpenGL.uniform("ModelViewMatrix", lParams.mvp2.mv.mat4());
+        lOpenGL.uniform("NormalMatrix", lParams.mvp2.mv.mat3());
+        lOpenGL.uniform("MVP", lParams.mvp2.projection.dot2(lParams.mvp2.mv));
+
+        lPlane.render();
+
         lOpenGL.pollEvents();
     }
 
+    lPlane.deletes();
     lOpenGL.close();
 }
-//===============================================</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Calcul-scientifique-avec-GSL"><a class="Link3" href="#">Calcul scientifique avec GSL</a></h1><div class="Body3"><br><b>GSL </b>est une bibliothèque de calcul scientifique comportant une collection de routines pour le calcul numérique. Les routines ont été écrites à partir de zéro en C et présentent une interface de programmation d'applications (API) moderne pour les programmeurs C, permettant d'écrire des wrappers pour des langages de très haut niveau. Le code source est distribué sous la licence publique générale GNU.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/b_gsl.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/b_gsl.png"></div><br><h2 class="Title7 GTitle2" id="Calcul-scientifique-avec-GSL-Installer-l-environnement-GSL-sous-MSYS2"><a class="Link9" href="#Calcul-scientifique-avec-GSL">Installer l'environnement GSL sous MSYS2</a></h2><br><h3 class="Title8 GTitle3" id="Calcul-scientifique-avec-GSL-Installer-l-environnement-GSL-sous-MSYS2-Installer-GSL"><a class="Title8" href="#Calcul-scientifique-avec-GSL-Installer-l-environnement-GSL-sous-MSYS2">Installer GSL</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh" data-state="off">pacman -S --needed --noconfirm mingw-w64-i686-gsl</pre></div></div><br><h2 class="Title7 GTitle2" id="Calcul-scientifique-avec-GSL-Tester-un-projet-GSL-sous-MSYS2"><a class="Link9" href="#Calcul-scientifique-avec-GSL">Tester un projet GSL sous MSYS2</a></h2><br><h3 class="Title8 GTitle3" id="Calcul-scientifique-avec-GSL-Tester-un-projet-GSL-sous-MSYS2-Editer-le-programme--main-cpp-"><a class="Title8" href="#Calcul-scientifique-avec-GSL-Tester-un-projet-GSL-sous-MSYS2">Editer le programme (main.cpp)</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp" data-state="off">//===============================================
+//===============================================</pre></div></div><br>Vertex shader<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#version 400
+
+layout (location = 0 ) in vec3 VertexPosition;
+layout (location = 1) in vec3 VertexNormal;
+layout (location = 2) in vec2 VertexTexCoord;
+
+out vec4 Position;
+out vec3 Normal;
+out vec2 TexCoord;
+
+uniform float Time;
+uniform float Freq = 2.5;
+uniform float Velocity = 2.5;
+uniform float Amp = 0.6;
+
+uniform mat4 ModelViewMatrix;
+uniform mat3 NormalMatrix;
+uniform mat4 MVP;
+
+void main()
+{
+    vec4 pos = vec4(VertexPosition,1.0);
+
+    float u = Freq * pos.x - Velocity * Time;
+    pos.y = Amp * sin( u );
+
+    vec3 n = vec3(0.0);
+    n.xy = normalize(vec2(cos( u ), 1.0));
+
+    Position = ModelViewMatrix * pos;
+    Normal = NormalMatrix * n;
+    TexCoord = VertexTexCoord;
+    gl_Position = MVP * pos;
+}
+//===============================================</pre></div></div><br>Fragment shader<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#version 400
+
+uniform struct LightInfo {
+    vec4 Position;
+    vec3 Intensity;
+} Light;
+
+uniform struct MaterialInfo {
+    vec3 Ka;
+    vec3 Kd;
+    vec3 Ks;
+    float Shininess;
+} Material;
+
+in vec4 Position;
+in vec3 Normal;
+in vec2 TexCoord;
+
+uniform float Time;
+
+layout ( location = 0 ) out vec4 FragColor;
+
+vec3 phongModel(vec3 kd) {
+    vec3 n = Normal;
+    vec3 s = normalize(Light.Position.xyz - Position.xyz);
+    vec3 v = normalize(-Position.xyz);
+    vec3 r = reflect( -s, n );
+    float sDotN = max( dot(s,n), 0.0 );
+    vec3 diffuse = Light.Intensity * kd * sDotN;
+    vec3 spec = vec3(0.0);
+    if( sDotN &gt; 0.0 )
+        spec = Light.Intensity * Material.Ks *
+            pow( max( dot(r,v), 0.0 ), Material.Shininess );
+
+    return Material.Ka * Light.Intensity + diffuse + spec;
+}
+
+void main()
+{
+    FragColor = vec4( phongModel(Material.Kd) , 1.0 );
+}
+//===============================================</pre></div></div><br>Création du plan<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GObject::plane(float _xsize, float _zsize, int _xdivs, int _zdivs, float _smax, float _tmax) {
+    m_points.resize(3 * (_xdivs + 1) * (_zdivs + 1));
+    m_normals.resize(3 * (_xdivs + 1) * (_zdivs + 1));
+    m_texCoords.resize(2 * (_xdivs + 1) * (_zdivs + 1));
+    m_indices.resize(6 * _xdivs * _zdivs);
+
+    float x2 = _xsize / 2.0f;
+    float z2 = _zsize / 2.0f;
+    float iFactor = (float)_zsize / _zdivs;
+    float jFactor = (float)_xsize / _xdivs;
+    float texi = _smax / _zdivs;
+    float texj = _tmax / _xdivs;
+    float x, z;
+    int vidx = 0, tidx = 0;
+    for( int i = 0; i &lt;= _zdivs; i++ ) {
+        z = iFactor * i - z2;
+        for( int j = 0; j &lt;= _xdivs; j++ ) {
+            x = jFactor * j - x2;
+            m_points[vidx + 0] = x;
+            m_points[vidx + 1] = 0.0f;
+            m_points[vidx + 2] = z;
+            m_normals[vidx + 0] = 0.0f;
+            m_normals[vidx + 1] = 1.0f;
+            m_normals[vidx + 2] = 0.0f;
+
+            m_texCoords[tidx + 0] = j * texi;
+            m_texCoords[tidx + 1] = i * texj;
+
+            vidx += 3;
+            tidx += 2;
+        }
+    }
+
+    GLuint rowStart, nextRowStart;
+    int idx = 0;
+    for( int i = 0; i &lt; _zdivs; i++ ) {
+        rowStart = (GLuint)( i * (_xdivs+1) );
+        nextRowStart = (GLuint)( (i+1) * (_xdivs+1));
+        for( int j = 0; j &lt; _xdivs; j++ ) {
+            m_indices[idx + 0] = rowStart + j;
+            m_indices[idx + 1] = nextRowStart + j;
+            m_indices[idx + 2] = nextRowStart + j + 1;
+            m_indices[idx + 3] = rowStart + j;
+            m_indices[idx + 4] = nextRowStart + j + 1;
+            m_indices[idx + 5] = rowStart + j + 1;
+            idx += 6;
+        }
+    }
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_wave.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_wave.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Calcul-scientifique-avec-GSL"><a class="Link3" href="#">Calcul scientifique avec GSL</a></h1><div class="Body3"><br><b>GSL </b>est une bibliothèque de calcul scientifique comportant une collection de routines pour le calcul numérique. Les routines ont été écrites à partir de zéro en C et présentent une interface de programmation d'applications (API) moderne pour les programmeurs C, permettant d'écrire des wrappers pour des langages de très haut niveau. Le code source est distribué sous la licence publique générale GNU.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/b_gsl.png" class="lazy entered loaded exited" data-src="/Tutoriels/Software_Development/Cpp/img/b_gsl.png" data-ll-status="loaded" src="/Tutoriels/Software_Development/Cpp/img/b_gsl.png"></div><br><h2 class="Title7 GTitle2" id="Calcul-scientifique-avec-GSL-Installer-l-environnement-GSL-sous-MSYS2"><a class="Link9" href="#Calcul-scientifique-avec-GSL">Installer l'environnement GSL sous MSYS2</a></h2><br><h3 class="Title8 GTitle3" id="Calcul-scientifique-avec-GSL-Installer-l-environnement-GSL-sous-MSYS2-Installer-GSL"><a class="Title8" href="#Calcul-scientifique-avec-GSL-Installer-l-environnement-GSL-sous-MSYS2">Installer GSL</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh" data-state="off">pacman -S --needed --noconfirm mingw-w64-i686-gsl</pre></div></div><br><h2 class="Title7 GTitle2" id="Calcul-scientifique-avec-GSL-Tester-un-projet-GSL-sous-MSYS2"><a class="Link9" href="#Calcul-scientifique-avec-GSL">Tester un projet GSL sous MSYS2</a></h2><br><h3 class="Title8 GTitle3" id="Calcul-scientifique-avec-GSL-Tester-un-projet-GSL-sous-MSYS2-Editer-le-programme--main-cpp-"><a class="Title8" href="#Calcul-scientifique-avec-GSL-Tester-un-projet-GSL-sous-MSYS2">Editer le programme (main.cpp)</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp" data-state="off">//===============================================
 #include &lt;stdio.h&gt;
 #include &lt;gsl/gsl_sf_bessel.h&gt;
 //===============================================
