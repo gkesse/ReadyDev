@@ -10198,7 +10198,7 @@ void GOpenGLUi::run(int argc, char** argv) {
     lOpenGL.shader2(lApp-&gt;shader_vertex_file, lApp-&gt;shader_fragment_file);
     lOpenGL.use();
 
-    lParams.bgcolor = {0.1f, 0.2f, 0.3f, 1.f};
+    lParams.bgcolor = {0.2f, 0.3f, 0.3f, 1.f};
 
     lParams.mvp2.model.identity();
     lParams.mvp2.model.rotate(-35.0f, 1.0f, 0.0f, 0.0f);
@@ -10213,9 +10213,6 @@ void GOpenGLUi::run(int argc, char** argv) {
     lTorus.torus(0.7f, 0.3f, 30, 30);
     lTorus.init();
     lTorus.clear();
-
-    lOpenGL.info();
-    lOpenGL.debug();
 
     while(!lOpenGL.isClose()) {
         lOpenGL.bgcolor2(lParams.bgcolor);
