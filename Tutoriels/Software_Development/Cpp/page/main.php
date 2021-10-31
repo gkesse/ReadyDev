@@ -10225,7 +10225,6 @@ void GOpenGLUi::run(int argc, char** argv) {
         lOpenGL.pollEvents();
     }
 
-    lOpenGL.debug2();
     lTorus.deletes();
     lOpenGL.close();
 }
@@ -10431,7 +10430,6 @@ void GOpenGLUi::run(int argc, char** argv) {
         lOpenGL.pollEvents();
     }
 
-    lOpenGL.debug2();
     lTorus.deletes();
     lOpenGL.close();
 }
