@@ -10679,7 +10679,130 @@ void GObject::plane(float _xsize, float _zsize, int _xdivs, int _zdivs, float _s
         }
     }
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_wave.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_wave.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Calcul-scientifique-avec-GSL"><a class="Link3" href="#">Calcul scientifique avec GSL</a></h1><div class="Body3"><br><b>GSL </b>est une bibliothèque de calcul scientifique comportant une collection de routines pour le calcul numérique. Les routines ont été écrites à partir de zéro en C et présentent une interface de programmation d'applications (API) moderne pour les programmeurs C, permettant d'écrire des wrappers pour des langages de très haut niveau. Le code source est distribué sous la licence publique générale GNU.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/b_gsl.png" class="lazy entered loaded exited" data-src="/Tutoriels/Software_Development/Cpp/img/b_gsl.png" data-ll-status="loaded" src="/Tutoriels/Software_Development/Cpp/img/b_gsl.png"></div><br><h2 class="Title7 GTitle2" id="Calcul-scientifique-avec-GSL-Installer-l-environnement-GSL-sous-MSYS2"><a class="Link9" href="#Calcul-scientifique-avec-GSL">Installer l'environnement GSL sous MSYS2</a></h2><br><h3 class="Title8 GTitle3" id="Calcul-scientifique-avec-GSL-Installer-l-environnement-GSL-sous-MSYS2-Installer-GSL"><a class="Title8" href="#Calcul-scientifique-avec-GSL-Installer-l-environnement-GSL-sous-MSYS2">Installer GSL</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh" data-state="off">pacman -S --needed --noconfirm mingw-w64-i686-gsl</pre></div></div><br><h2 class="Title7 GTitle2" id="Calcul-scientifique-avec-GSL-Tester-un-projet-GSL-sous-MSYS2"><a class="Link9" href="#Calcul-scientifique-avec-GSL">Tester un projet GSL sous MSYS2</a></h2><br><h3 class="Title8 GTitle3" id="Calcul-scientifique-avec-GSL-Tester-un-projet-GSL-sous-MSYS2-Editer-le-programme--main-cpp-"><a class="Title8" href="#Calcul-scientifique-avec-GSL-Tester-un-projet-GSL-sous-MSYS2">Editer le programme (main.cpp)</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp" data-state="off">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_wave.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_wave.png"></div><br><h3 class="GTitle3" id="Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL-Creation-d-une-fontaine-de-particules"><a class="Title8" href="#Programmation-3D-avec-OpenGL-Comprendre-les-shaders-avec-OpenGL">Création d'une fontaine de particules</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GOpenGLUi::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
+
+    lOpenGL.init(4, 5, 4);
+    lOpenGL.blendOn();
+
+    lOpenGL.onResize(onResize);
+    lOpenGL.onKey(onKey);
+
+    lOpenGL.shader2(lApp-&gt;shader_vertex_file, lApp-&gt;shader_fragment_file);
+    lOpenGL.useProgram();
+
+    lParams.bgcolor = {0.2f, 0.3f, 0.3f, 1.f};
+
+    lOpenGL.pointsize(10.0f);
+    lOpenGL.halfPi(lParams.angle);
+
+	GObject lParticles;
+	lParticles.particles();
+
+    GOpenGL lParticlesTex;
+    lParticlesTex.texture6(lApp-&gt;texture_file);
+    lParticlesTex.texture(GL_TEXTURE0);
+
+    lOpenGL.uniform2("ParticleTex", 0);
+    lOpenGL.uniform("ParticleLifetime", 3.5f);
+    lOpenGL.uniform("Gravity", glm::vec3(0.0f, -0.2f, 0.0f));
+
+    while(!lOpenGL.isClose()) {
+        lOpenGL.bgcolor2(lParams.bgcolor);
+
+        lOpenGL.times(lParams.times);
+        lOpenGL.uniform("Time", lParams.times);
+        lParams.mvp2.view.lookAt(3.0f * cos(lParams.angle), 1.5f, 3.0f * sin(lParams.angle), 0.0f, 1.5f, 0.0f, 0.0f, 1.0f, 0.0f);
+        lParams.mvp2.model.identity();
+        lParams.mvp2.mv.dot(lParams.mvp2.view, lParams.mvp2.model);
+        lOpenGL.uniform("MVP", lParams.mvp2.projection.dot2(lParams.mvp2.mv));
+
+        lParticles.render();
+
+        lOpenGL.pollEvents();
+    }
+
+    lParticles.deletes();
+    lOpenGL.close();
+}
+//===============================================</pre></div></div><br>Vertex shader<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#version 400
+
+layout (location = 0) in vec3 VertexInitVel; // Particle initial velocity
+layout (location = 1) in float StartTime;    // Particle "birth" time
+
+out float Transp;    // Transparency of the particle
+
+uniform float Time;  // Animation time
+uniform vec3 Gravity = vec3(0.0,-0.05,0.0);  // world coords
+uniform float ParticleLifetime;              // Max particle lifetime
+
+uniform mat4 MVP;
+
+void main()
+{
+    // Assume the initial position is (0,0,0).
+    vec3 pos = vec3(0.0);
+    Transp = 0.0;
+
+    // Particle dosen't exist until the start time
+    if( Time &gt; StartTime ) {
+        float t = Time - StartTime;
+
+        if( t &lt; ParticleLifetime ) {
+            pos = VertexInitVel * t + Gravity * t * t;
+            Transp = 1.0 - t / ParticleLifetime;
+        }
+    }
+
+    // Draw at the current position
+    gl_Position = MVP * vec4(pos, 1.0);
+}
+//===============================================</pre></div></div><br>Fragment shader<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#version 400
+
+in float Transp;
+uniform sampler2D ParticleTex;
+
+layout ( location = 0 ) out vec4 FragColor;
+
+void main()
+{
+    FragColor = texture(ParticleTex, gl_PointCoord);
+    FragColor.a *= Transp;
+}
+//===============================================</pre></div></div><br>Création du vecteur vitesse initiale<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GFunction::velocity(int _nParticles, float _vmin, float _vmax, float _fovZ) {
+    glm::vec3 v(0.0f);
+    float velocity, theta, phi;
+    m_velocity = new GLfloat[_nParticles * 3];
+    for(GLuint i = 0; i &lt; _nParticles; i++ ) {
+        theta = glm::mix(0.0f, glm::pi&lt;float&gt;() * _fovZ, randFloat());
+        phi = glm::mix(0.0f, glm::two_pi&lt;float&gt;(), randFloat());
+
+        v.x = sinf(theta) * cosf(phi);
+        v.y = cosf(theta);
+        v.z = sinf(theta) * sinf(phi);
+
+        velocity = glm::mix(_vmin, _vmax, randFloat());
+        v = glm::normalize(v) * velocity;
+
+        m_velocity[3*i + 0] = v.x;
+        m_velocity[3*i + 1] = v.y;
+        m_velocity[3*i + 2] = v.z;
+    }
+}
+//===============================================</pre></div></div><br>Création du vecteur temps<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GFunction::times(int _nParticles, float _rate) {
+    m_times = new GLfloat[_nParticles];
+    float lTime = 0.0f;
+    for( GLuint i = 0; i &lt; _nParticles; i++ ) {
+        m_times[i] = lTime;
+        lTime += _rate;
+    }
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_particles.png" alt="/Tutoriels/Software_Development/Cpp/img/i_opengl_shader_particles.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Calcul-scientifique-avec-GSL"><a class="Link3" href="#">Calcul scientifique avec GSL</a></h1><div class="Body3"><br><b>GSL </b>est une bibliothèque de calcul scientifique comportant une collection de routines pour le calcul numérique. Les routines ont été écrites à partir de zéro en C et présentent une interface de programmation d'applications (API) moderne pour les programmeurs C, permettant d'écrire des wrappers pour des langages de très haut niveau. Le code source est distribué sous la licence publique générale GNU.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/b_gsl.png" class="lazy entered loaded exited" data-src="/Tutoriels/Software_Development/Cpp/img/b_gsl.png" data-ll-status="loaded" src="/Tutoriels/Software_Development/Cpp/img/b_gsl.png"></div><br><h2 class="Title7 GTitle2" id="Calcul-scientifique-avec-GSL-Installer-l-environnement-GSL-sous-MSYS2"><a class="Link9" href="#Calcul-scientifique-avec-GSL">Installer l'environnement GSL sous MSYS2</a></h2><br><h3 class="Title8 GTitle3" id="Calcul-scientifique-avec-GSL-Installer-l-environnement-GSL-sous-MSYS2-Installer-GSL"><a class="Title8" href="#Calcul-scientifique-avec-GSL-Installer-l-environnement-GSL-sous-MSYS2">Installer GSL</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh" data-state="off">pacman -S --needed --noconfirm mingw-w64-i686-gsl</pre></div></div><br><h2 class="Title7 GTitle2" id="Calcul-scientifique-avec-GSL-Tester-un-projet-GSL-sous-MSYS2"><a class="Link9" href="#Calcul-scientifique-avec-GSL">Tester un projet GSL sous MSYS2</a></h2><br><h3 class="Title8 GTitle3" id="Calcul-scientifique-avec-GSL-Tester-un-projet-GSL-sous-MSYS2-Editer-le-programme--main-cpp-"><a class="Title8" href="#Calcul-scientifique-avec-GSL-Tester-un-projet-GSL-sous-MSYS2">Editer le programme (main.cpp)</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp" data-state="off">//===============================================
 #include &lt;stdio.h&gt;
 #include &lt;gsl/gsl_sf_bessel.h&gt;
 //===============================================
