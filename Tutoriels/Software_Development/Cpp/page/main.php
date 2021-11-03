@@ -1,4 +1,4 @@
-<div class="Parallax GParallax1"><div class="Img Binary"><div class="Caption"><a href="#"><div class="Text">Apprendre la programmation en C++<br></div></a></div></div><div class="Body2 Orange"><br>Le but de ce tutoriel est de vous apprendre la programmation en <b>C++</b>.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary1"><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Introduction">Introduction</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Installation">Installation</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Tests">Tests</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Fondamentaux">Fondamentaux</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Programmation-orientee-objet">Programmation orientée objet</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Patrons-de-conception">Patrons de conception</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Surchage-d-operateurs">Surchage d'opérateurs</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Manager-de-donnees">Manager de données</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Systeme-d-administration">Système d'administration</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Multithreading">Multithreading</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Interface-Homme-Machine-avec-Qt">Interface Homme-Machine avec Qt</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Creation-de-pitogrammes-avec-QtAwesome">Création de pitogrammes avec QtAwesome</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Trace-de-courbes-2D-avec-QCustomPlot">Tracé de courbes 2D avec QCustomPlot</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Communication-Inter-Processus-avec-D-Bus-sous-Qt">Communication Inter-Processus avec D-Bus sous Qt</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV">Vision par Ordinateur avec OpenCV</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Programmation-3D-avec-OpenGL">Programmation 3D avec OpenGL</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Calcul-scientifique-avec-GSL">Calcul scientifique avec GSL</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Programmation-reseau-socket-sous-Windows">Programmation réseau socket sous Windows</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Programmation-reseau-socket-sous-Linux">Programmation réseau socket sous Linux</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Programmation-reseau-avec-Boost-Asio">Programmation réseau avec Boost.Asio</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Programmation-reseau-RPC-avec-XML-RPC">Programmation réseau RPC avec XML-RPC</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Programmation-reseau-avec-cURL">Programmation réseau avec cURL</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Analyse-de-donnees-XML-avec-Libxml2">Analyse de données XML avec Libxml2</a></div></div><br></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Introduction"><a class="Link3" href="#">Introduction</a></h1><div class="Body3"><br><b>C++</b> est un langage de programmation compilé permettant la programmation sous de multiples paradigmes (comme la programmation procédurale, orientée objet ou générique). Ses bonnes performances, et sa compatibilité avec le C en font un des langages de programmation les plus utilisés dans les applications où la performance est critique.<br><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/b_cpp.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/b_cpp.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Installation"><a class="Link3" href="#">Installation</a></h1><div class="Body3"><br>Installer l'environnement C++.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Installation-Installer-l-environnement-C---sous-MSYS2"><a class="Link9" href="#Installation">Installer l'environnement C++ sous MSYS2</a></h2><br><h3 class="Title8 GTitle3" id="Installation-Installer-l-environnement-C---sous-MSYS2-Telecharger-MSYS2"><a class="Title8" href="#Installation-Installer-l-environnement-C---sous-MSYS2">Télécharger MSYS2</a></h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://repo.msys2.org/distrib/x86_64/msys2-x86_64-20210228.exe">https://repo.msys2.org/distrib/x86_64/msys2-x86_64-20210228.exe</a><br><br><h3 class="Title8 GTitle3" id="Installation-Installer-l-environnement-C---sous-MSYS2-Installer-MSYS2"><a class="Title8" href="#Installation-Installer-l-environnement-C---sous-MSYS2">Installer MSYS2</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="php">msys2-x86_64-20210228.exe
+<div class="Parallax GParallax1"><div class="Img Binary"><div class="Caption"><a href="#"><div class="Text">Apprendre la programmation en C++<br></div></a></div></div><div class="Body2 Orange"><br>Le but de ce tutoriel est de vous apprendre la programmation en <b>C++</b>.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary1"><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Introduction">Introduction</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Installation">Installation</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Tests">Tests</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Fondamentaux">Fondamentaux</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Programmation-orientee-objet">Programmation orientée objet</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Patrons-de-conception">Patrons de conception</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Surchage-d-operateurs">Surchage d'opérateurs</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Manager-de-donnees">Manager de données</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Systeme-d-administration">Système d'administration</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Multithreading">Multithreading</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Interface-Homme-Machine-avec-Qt">Interface Homme-Machine avec Qt</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Creation-de-pitogrammes-avec-QtAwesome">Création de pitogrammes avec QtAwesome</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Trace-de-courbes-2D-avec-QCustomPlot">Tracé de courbes 2D avec QCustomPlot</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Communication-Inter-Processus-avec-D-Bus-sous-Qt">Communication Inter-Processus avec D-Bus sous Qt</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV">Vision par Ordinateur avec OpenCV</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Programmation-3D-avec-OpenGL">Programmation 3D avec OpenGL</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Calcul-scientifique-avec-GSL">Calcul scientifique avec GSL</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Programmation-reseau-socket-sous-Windows">Programmation réseau socket sous Windows</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Programmation-reseau-socket-sous-Linux">Programmation réseau socket sous Linux</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Programmation-reseau-avec-Boost-Asio">Programmation réseau avec Boost.Asio</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Programmation-reseau-RPC-avec-XML-RPC">Programmation réseau RPC avec XML-RPC</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Programmation-reseau-avec-cURL">Programmation réseau avec cURL</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Analyse-de-donnees-XML-avec-Libxml2">Analyse de données XML avec Libxml2</a></div></div><br></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Introduction"><a class="Link3" href="#">Introduction</a></h1><div class="Body3"><br><b>C++</b> est un langage de programmation compilé permettant la programmation sous de multiples paradigmes (comme la programmation procédurale, orientée objet ou générique). Ses bonnes performances, et sa compatibilité avec le C en font un des langages de programmation les plus utilisés dans les applications où la performance est critique.<br><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/b_cpp.png" class="lazy entered loaded" data-src="/Tutoriels/Software_Development/Cpp/img/b_cpp.png" data-ll-status="loaded" src="/Tutoriels/Software_Development/Cpp/img/b_cpp.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Installation"><a class="Link3" href="#">Installation</a></h1><div class="Body3"><br>Installer l'environnement C++.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Installation-Installer-l-environnement-C---sous-MSYS2"><a class="Link9" href="#Installation">Installer l'environnement C++ sous MSYS2</a></h2><br><h3 class="Title8 GTitle3" id="Installation-Installer-l-environnement-C---sous-MSYS2-Telecharger-MSYS2"><a class="Title8" href="#Installation-Installer-l-environnement-C---sous-MSYS2">Télécharger MSYS2</a></h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://repo.msys2.org/distrib/x86_64/msys2-x86_64-20210228.exe">https://repo.msys2.org/distrib/x86_64/msys2-x86_64-20210228.exe</a><br><br><h3 class="Title8 GTitle3" id="Installation-Installer-l-environnement-C---sous-MSYS2-Installer-MSYS2"><a class="Title8" href="#Installation-Installer-l-environnement-C---sous-MSYS2">Installer MSYS2</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="php">msys2-x86_64-20210228.exe
 Suivant
 Dossier d'installation -&gt; C:\msys64
 Suivant
@@ -1265,7 +1265,211 @@ int main(int argc, char** argv) {
     printf("Bonjour tout le monde\n");
     return 0;
 }
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Fondamentaux-Creer-un-parametre-non-utilise-Resultat"><a class="Title8" href="#Fondamentaux-Creer-un-parametre-non-utilise">Résultat</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">Bonjour tout le monde</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programmation-orientee-objet"><a class="Link3" href="#">Programmation orientée objet</a></h1><div class="Body3"><br>La <b>programmation orientée objet</b> (POO) est un paradigme de programmation informatique qui consiste en la définition et l'interaction de briques logicielles appelées objets ; un objet représente un concept, une idée ou toute entité du monde physique, comme une voiture, une personne ou encore une page d'un livre. Il possède une structure interne et un comportement, et il sait interagir avec ses pairs. Il s'agit donc de représenter ces objets et leurs relations ; l'interaction entre les objets via leurs relations permet de concevoir et réaliser les fonctionnalités attendues, de mieux résoudre le ou les problèmes. Dès lors, l'étape de modélisation revêt une importance majeure et nécessaire pour la POO. C'est elle qui permet de transcrire les éléments du réel sous forme virtuelle. La programmation orientée objet consiste à utiliser des techniques de programmation pour mettre en œuvre une conception basée sur les objets. Celle-ci peut être élaborée en utilisant des méthodologies de développement logiciel objet, dont la plus connue est le processus unifié et exprimée à l'aide de langages de modélisation tels que le Unified Modeling Language (UML).<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Programmation-orientee-objet-Creer-une-classe"><a class="Link9" href="#Programmation-orientee-objet">Créer une classe</a></h2><br>En programmation orientée objet, la déclaration d'une <b>classe </b>regroupe des membres, méthodes et propriétés (attributs) communs à un ensemble d'objets. La classe déclare, d'une part, des attributs représentant l'état des objets et, d'autre part, des méthodes représentant leur comportement. Une classe représente donc une catégorie d'objets. Elle apparaît aussi comme un moule ou une usine à partir de laquelle il est possible de créer des objets ; c'est en quelque sorte une « boîte à outils » qui permet de fabriquer un objet. On parle alors d'un objet en tant qu'instance d'une classe (création d'un objet ayant les propriétés de la classe). Il est possible de restreindre l'ensemble d'objets représenté par une classe A grâce à un mécanisme d'héritage. Dans ce cas, on crée une nouvelle classe B liée à la classe A et qui ajoute de nouvelles propriétés.<br><br><h3 class="Title8 GTitle3" id="Programmation-orientee-objet-Creer-une-classe-main-cpp"><a class="Title8" href="#Programmation-orientee-objet-Creer-une-classe">main.cpp</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Fondamentaux-Creer-un-parametre-non-utilise-Resultat"><a class="Title8" href="#Fondamentaux-Creer-un-parametre-non-utilise">Résultat</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">Bonjour tout le monde</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programmation-orientee-objet"><a class="Link3" href="#">Programmation orientée objet</a></h1><div class="Body3"><br>La <b>programmation orientée objet</b> (POO) est un paradigme de programmation informatique qui consiste en la définition et l'interaction de briques logicielles appelées objets ; un objet représente un concept, une idée ou toute entité du monde physique, comme une voiture, une personne ou encore une page d'un livre. Il possède une structure interne et un comportement, et il sait interagir avec ses pairs. Il s'agit donc de représenter ces objets et leurs relations ; l'interaction entre les objets via leurs relations permet de concevoir et réaliser les fonctionnalités attendues, de mieux résoudre le ou les problèmes. Dès lors, l'étape de modélisation revêt une importance majeure et nécessaire pour la POO. C'est elle qui permet de transcrire les éléments du réel sous forme virtuelle. La programmation orientée objet consiste à utiliser des techniques de programmation pour mettre en œuvre une conception basée sur les objets. Celle-ci peut être élaborée en utilisant des méthodologies de développement logiciel objet, dont la plus connue est le processus unifié et exprimée à l'aide de langages de modélisation tels que le Unified Modeling Language (UML). <br><br>La programmation orientée objet permet d'encapsuler dans une classe les attributs d'un objet et les méthodes qui permettent d'interagir avec l'objet.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Programmation-orientee-objet-Apprendre-la-programmation-orientee-objet"><a class="Link9" href="#Programmation-orientee-objet">Apprendre la programmation orientée objet</a></h2><br><div class="Content0 GSummary3"><div class="Row26">Summary 3</div></div><br><h3 class="GTitle3" id="Programmation-orientee-objet-Apprendre-la-programmation-orientee-objet-Creation-d-une-classe"><a class="Title8" href="#Programmation-orientee-objet-Apprendre-la-programmation-orientee-objet">Création d'une classe</a></h3><br>Cette opération permet de présenter la <b>structure d'une classe</b>. Une classe est créée grâce au mot clé <span class="GCode3"><code style="color:#cccccc;">class</code></span>.<br><br>Création de la classe<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+class GClass {
+
+};
+//===============================================</pre></div></div><br><h3 class="GTitle3" id="Programmation-orientee-objet-Apprendre-la-programmation-orientee-objet-Creation-d-une-classe"><a class="Title8" href="#Programmation-orientee-objet-Apprendre-la-programmation-orientee-objet">Création d'un constructeur</a></h3><br>Cette opération permet d'<b>appeler une méthode à chaque construction</b> d'un objet de la classe. Un objet est construit au moment de la déclaration de l'objet.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GCppUi::run(int _argc, char** _argv) {
+    GClass lObj;
+}
+//===============================================</pre></div></div><br>Définition du constructeur (.cpp)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+GClass::GClass() {
+    printf("Je suis le constructeur\n");
+}
+//===============================================</pre></div></div><br>Déclaration du constructeur (.h)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+class GClass {
+public:
+    GClass();
+};
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_constructor.png" alt="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_constructor.png"></div><br><h3 class="GTitle3" id="Programmation-orientee-objet-Apprendre-la-programmation-orientee-objet-Creation-d-un-destructeur"><a class="Title8" href="#Programmation-orientee-objet-Apprendre-la-programmation-orientee-objet">Création d'un destructeur</a></h3><br>Cette opération permet d'<b>appeler une méthode à chaque destruction</b> d'un objet de la classe. Un objet est détruit quand sort de la portée ou du contexte de déclaration de l'objet.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GCppUi::run(int _argc, char** _argv) {
+    GClass lObj;
+}
+//===============================================</pre></div></div><br>Création du destructeur (.cpp)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+GClass::~GClass() {
+    printf("Je suis le destructeur\n");
+}
+//===============================================</pre></div></div><br>Déclaration du destructeur (.h)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+class GClass {
+public:
+    GClass();
+    ~GClass();
+};
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_destructor.png" alt="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_destructor.png"></div><br><h3 class="GTitle3" id="Programmation-orientee-objet-Apprendre-la-programmation-orientee-objet-Creation-d-un-mutateur--setter-"><a class="Title8" href="#Programmation-orientee-objet-Apprendre-la-programmation-orientee-objet">Création d'un mutateur (setter)</a></h3><br>Cette opération permet d'<b>initialiser un attribut</b> d'un objet depuis l'extérieur.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GCppUi::run(int _argc, char** _argv) {
+    GClass lObj;
+    lObj.setName("Gerard KESSE");
+}
+//===============================================</pre></div></div><br>Création du mutateur (.cpp)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GClass::setName(const std::string&amp; _name) {
+    printf("Je suis le mutateur\n");
+    m_name = _name;
+}
+//===============================================</pre></div></div><br>Déclaration du mutateur (.h)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+class GClass {
+public:
+    GClass();
+    ~GClass();
+    void setName(const std::string&amp; _name);
+
+private:
+    std::string m_name;
+};
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_setter.png" alt="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_setter.png"></div><br><h3 class="GTitle3" id="Programmation-orientee-objet-Apprendre-la-programmation-orientee-objet-Creation-d-un-accesseur--getter-"><a class="Title8" href="#Programmation-orientee-objet-Apprendre-la-programmation-orientee-objet">Création d'un accesseur (getter)</a></h3><br>Cette opération permet d'<b>accéder à un attribut</b> d'un objet depuis l'extérieur.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GCppUi::run(int _argc, char** _argv) {
+    GClass lObj;
+    lObj.setName("Gerard KESSE");
+    std::string lName = lObj.getName();
+    std::cout &lt;&lt; "Name : " &lt;&lt; lName &lt;&lt; "\n";
+}
+//===============================================</pre></div></div><br>Création de l'accesseur (.cpp)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+std::string GClass::getName() const {
+    printf("Je suis l'accesseur\n");
+    return m_name;
+}
+//===============================================</pre></div></div><br>Déclaration de l'accesseur (.h)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+class GClass {
+public:
+    GClass();
+    ~GClass();
+    void setName(const std::string&amp; _name);
+    std::string getName() const;
+
+private:
+    std::string m_name;
+};
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_getter.png" alt="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_getter.png"></div><br><h3 class="GTitle3" id="Programmation-orientee-objet-Apprendre-la-programmation-orientee-objet-Initialisation-d-un-objet-avec-des-accolades"><a class="Title8" href="#Programmation-orientee-objet-Apprendre-la-programmation-orientee-objet">Initialisation d'un objet avec des accolades</a></h3><br>Cette opération permet de <b>reproduire le concept d'initialisation</b> d'une structure avec des accolades.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GCppUi::run(int _argc, char** _argv) {
+    GClass lObj = {"Gerard KESSE"};
+    std::string lName = lObj.getName();
+    std::cout &lt;&lt; "Name : " &lt;&lt; lName &lt;&lt; "\n";
+}
+//===============================================</pre></div></div><br>Création du constructeur de l'objet (.cpp)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+GClass::GClass(const std::string&amp; _name) {
+    printf("Je suis le constructeur (2)\n");
+    m_name = _name;
+}
+//===============================================</pre></div></div><br>Déclaration du constructeur de l'objet (.h)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+class GClass {
+public:
+    GClass();
+    GClass(const std::string&amp; _name);
+    ~GClass();
+    void setName(const std::string&amp; _name);
+    std::string getName() const;
+
+private:
+    std::string m_name;
+};
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_accolade.png" alt="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_accolade.png"></div><br><h3 class="GTitle3" id="Programmation-orientee-objet-Apprendre-la-programmation-orientee-objet-Heritage-d-une-classe"><a class="Title8" href="#Programmation-orientee-objet-Apprendre-la-programmation-orientee-objet">Héritage d'une classe</a></h3><br>Cette opération permet à une classe fille de <b>réutiliser les attributs et les méthodes</b> d'une classe mère.<br><br>Programme principal (sans accolades)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GCppUi::run(int _argc, char** _argv) {
+    GClassA lObj;
+    lObj.setName("Gerard KESSE");
+    lObj.setEmail("gerard.kesse@readydev.com");
+    std::string lName = lObj.getName();
+    std::string lEmail = lObj.getEmail();
+    std::cout &lt;&lt; "Name....: " &lt;&lt; lName &lt;&lt; "\n";
+    std::cout &lt;&lt; "Email...: " &lt;&lt; lEmail &lt;&lt; "\n";
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_inheritance.png" alt="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_inheritance.png"></div><br>Programme principal (avec accolades)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GCppUi::run(int _argc, char** _argv) {
+    GClassA lObj = {"Gerard KESSE", "gerard.kesse@readydev.com"};
+    std::string lName = lObj.getName();
+    std::string lEmail = lObj.getEmail();
+    std::cout &lt;&lt; "Name....: " &lt;&lt; lName &lt;&lt; "\n";
+    std::cout &lt;&lt; "Email...: " &lt;&lt; lEmail &lt;&lt; "\n";
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_inheritance_2.png" alt="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_inheritance_2.png"></div><br>Création de la classe mère (.cpp)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GClass.h"
+//===============================================
+GClass::GClass() {
+    printf("Je suis le constructeur\n");
+}
+//===============================================
+GClass::GClass(const std::string&amp; _name) {
+    printf("Je suis le constructeur (2)\n");
+    m_name = _name;
+}
+//===============================================
+GClass::~GClass() {
+    printf("Je suis le destructeur\n");
+}
+//===============================================
+void GClass::setName(const std::string&amp; _name) {
+    printf("Je suis le mutateur\n");
+    m_name = _name;
+}
+//===============================================
+std::string GClass::getName() const {
+    printf("Je suis l'accesseur\n");
+    return m_name;
+}
+//===============================================</pre></div></div><br>Déclaration de la classe mère (.h)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#ifndef _GClass_
+#define _GClass_
+//===============================================
+#include "GInclude.h"
+//===============================================
+class GClass {
+public:
+    GClass();
+    GClass(const std::string&amp; _name);
+    ~GClass();
+    void setName(const std::string&amp; _name);
+    std::string getName() const;
+
+private:
+    std::string m_name;
+};
+//===============================================
+#endif
+//===============================================</pre></div></div><br>Création de la classe fille (.cpp)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GClassA.h"
+//===============================================
+GClassA::GClassA() {
+    printf("Je suis le constructeur A\n");
+}
+//===============================================
+GClassA::GClassA(const std::string&amp; _name, const std::string&amp; _email) :
+GClass(_name) {
+    printf("Je suis le constructeur A(2)\n");
+    m_email = _email;
+}
+//===============================================
+GClassA::~GClassA() {
+    printf("Je suis le destructeur A\n");
+}
+//===============================================
+void GClassA::setEmail(const std::string&amp; _email) {
+    printf("Je suis le mutateur A\n");
+    m_email = _email;
+}
+//===============================================
+std::string GClassA::getEmail() const {
+    printf("Je suis l'accesseur A\n");
+    return m_email;
+}
+//===============================================</pre></div></div><br>Déclaration de la classe fille (.h)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#ifndef _GClassA_
+#define _GClassA_
+//===============================================
+#include "GClass.h"
+//===============================================
+class GClassA : public GClass {
+public:
+    GClassA();
+    GClassA(const std::string&amp; _name, const std::string&amp; _email);
+    ~GClassA();
+    void setEmail(const std::string&amp; _email);
+    std::string getEmail() const;
+
+private:
+    std::string m_email;
+};
+//===============================================
+#endif
+//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Programmation-orientee-objet-Creer-une-classe"><a class="Link9" href="#Programmation-orientee-objet">Créer une classe</a></h2><br>En programmation orientée objet, la déclaration d'une <b>classe </b>regroupe des membres, méthodes et propriétés (attributs) communs à un ensemble d'objets. La classe déclare, d'une part, des attributs représentant l'état des objets et, d'autre part, des méthodes représentant leur comportement. Une classe représente donc une catégorie d'objets. Elle apparaît aussi comme un moule ou une usine à partir de laquelle il est possible de créer des objets ; c'est en quelque sorte une « boîte à outils » qui permet de fabriquer un objet. On parle alors d'un objet en tant qu'instance d'une classe (création d'un objet ayant les propriétés de la classe). Il est possible de restreindre l'ensemble d'objets représenté par une classe A grâce à un mécanisme d'héritage. Dans ce cas, on crée une nouvelle classe B liée à la classe A et qui ajoute de nouvelles propriétés.<br><br><h3 class="Title8 GTitle3" id="Programmation-orientee-objet-Creer-une-classe-main-cpp"><a class="Title8" href="#Programmation-orientee-objet-Creer-une-classe">main.cpp</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include "GPerson.h"
 //===============================================
 int main(int argc, char** argv) {
