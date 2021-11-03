@@ -1,22 +1,24 @@
-<div class="Parallax GParallax1"><div class="Img Binary"><div class="Caption"><a href="#"><div class="Text">Apprendre la programmation en C++<br></div></a></div></div><div class="Body2 Orange"><br>Le but de ce tutoriel est de vous apprendre la programmation en <b>C++</b>.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary1"><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Introduction">Introduction</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Installation">Installation</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Tests">Tests</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Fondamentaux">Fondamentaux</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Programmation-orientee-objet">Programmation orientée objet</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Patrons-de-conception">Patrons de conception</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Surchage-d-operateurs">Surchage d'opérateurs</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Manager-de-donnees">Manager de données</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Systeme-d-administration">Système d'administration</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Multithreading">Multithreading</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Interface-Homme-Machine-avec-Qt">Interface Homme-Machine avec Qt</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Creation-de-pitogrammes-avec-QtAwesome">Création de pitogrammes avec QtAwesome</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Trace-de-courbes-2D-avec-QCustomPlot">Tracé de courbes 2D avec QCustomPlot</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Communication-Inter-Processus-avec-D-Bus-sous-Qt">Communication Inter-Processus avec D-Bus sous Qt</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV">Vision par Ordinateur avec OpenCV</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Programmation-3D-avec-OpenGL">Programmation 3D avec OpenGL</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Calcul-scientifique-avec-GSL">Calcul scientifique avec GSL</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Programmation-reseau-socket-sous-Windows">Programmation réseau socket sous Windows</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Programmation-reseau-socket-sous-Linux">Programmation réseau socket sous Linux</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Programmation-reseau-avec-Boost-Asio">Programmation réseau avec Boost.Asio</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Programmation-reseau-RPC-avec-XML-RPC">Programmation réseau RPC avec XML-RPC</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Programmation-reseau-avec-cURL">Programmation réseau avec cURL</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Analyse-de-donnees-XML-avec-Libxml2">Analyse de données XML avec Libxml2</a></div></div><br></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Introduction"><a class="Link3" href="#">Introduction</a></h1><div class="Body3"><br><b>C++</b> est un langage de programmation compilé permettant la programmation sous de multiples paradigmes (comme la programmation procédurale, orientée objet ou générique). Ses bonnes performances, et sa compatibilité avec le C en font un des langages de programmation les plus utilisés dans les applications où la performance est critique.<br><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/b_cpp.png" class="lazy entered loaded" data-src="/Tutoriels/Software_Development/Cpp/img/b_cpp.png" data-ll-status="loaded" src="/Tutoriels/Software_Development/Cpp/img/b_cpp.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Fondamentaux"><a class="Link3" href="#">Fondamentaux</a></h1><div class="Body3"><br>Les fondamentaux de C++.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Installation-Installer-l-environnement-C---sous-MSYS2"><a class="Link9" href="#Installation">Installer l'environnement C++ sous MSYS2</a></h2><br><h3 class="Title8 GTitle3" id="Installation-Installer-l-environnement-C---sous-MSYS2-Telecharger-MSYS2"><a class="Title8" href="#Installation-Installer-l-environnement-C---sous-MSYS2">Télécharger MSYS2</a></h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://repo.msys2.org/distrib/x86_64/msys2-x86_64-20210228.exe">https://repo.msys2.org/distrib/x86_64/msys2-x86_64-20210228.exe</a><br><br><h3 class="Title8 GTitle3" id="Installation-Installer-l-environnement-C---sous-MSYS2-Installer-MSYS2"><a class="Title8" href="#Installation-Installer-l-environnement-C---sous-MSYS2">Installer MSYS2</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="php">msys2-x86_64-20210228.exe
+<div class="Parallax GParallax1"><div class="Img Binary"><div class="Caption"><a href="#"><div class="Text">Apprendre la programmation en C++<br></div></a></div></div><div class="Body2 Orange"><br>Le but de ce tutoriel est de vous apprendre la programmation en <b>C++</b>.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary1"><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Introduction">Introduction</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Installation">Installation</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Tests">Tests</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Fondamentaux">Fondamentaux</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Programmation-orientee-objet">Programmation orientée objet</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Patrons-de-conception">Patrons de conception</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Surchage-d-operateurs">Surchage d'opérateurs</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Manager-de-donnees">Manager de données</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Systeme-d-administration">Système d'administration</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Multithreading">Multithreading</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Interface-Homme-Machine-avec-Qt">Interface Homme-Machine avec Qt</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Creation-de-pitogrammes-avec-QtAwesome">Création de pitogrammes avec QtAwesome</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Trace-de-courbes-2D-avec-QCustomPlot">Tracé de courbes 2D avec QCustomPlot</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Communication-Inter-Processus-avec-D-Bus-sous-Qt">Communication Inter-Processus avec D-Bus sous Qt</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV">Vision par Ordinateur avec OpenCV</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Programmation-3D-avec-OpenGL">Programmation 3D avec OpenGL</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Calcul-scientifique-avec-GSL">Calcul scientifique avec GSL</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Programmation-reseau-socket-sous-Windows">Programmation réseau socket sous Windows</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Programmation-reseau-socket-sous-Linux">Programmation réseau socket sous Linux</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Programmation-reseau-avec-Boost-Asio">Programmation réseau avec Boost.Asio</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Programmation-reseau-RPC-avec-XML-RPC">Programmation réseau RPC avec XML-RPC</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Programmation-reseau-avec-cURL">Programmation réseau avec cURL</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Analyse-de-donnees-XML-avec-Libxml2">Analyse de données XML avec Libxml2</a></div></div><br></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Introduction"><a class="Link3" href="#">Introduction</a></h1><div class="Body3"><br><b>C++</b> est un langage de programmation compilé permettant la programmation sous de multiples paradigmes (comme la programmation procédurale, orientée objet ou générique). Ses bonnes performances, et sa compatibilité avec le C en font un des langages de programmation les plus utilisés dans les applications où la performance est critique.<br><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/b_cpp.png" class="lazy entered loaded" data-src="/Tutoriels/Software_Development/Cpp/img/b_cpp.png" data-ll-status="loaded" src="/Tutoriels/Software_Development/Cpp/img/b_cpp.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Fondamentaux"><a class="Link3" href="#">Fondamentaux</a></h1><div class="Body3"><br>Les fondamentaux de C++.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Installation-Installer-l-environnement-C---sous-MSYS2"><a class="Link9" href="#Installation">Installer l'environnement C++ sous MSYS2</a></h2><br><h3 class="Title8 GTitle3" id="Fondamentaux-Installer-l-environnement-C---sous-MSYS2-Telecharger-MSYS2"><a class="Title8" href="#Fondamentaux-Installer-l-environnement-C---sous-MSYS2">Télécharger MSYS2</a></h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://repo.msys2.org/distrib/x86_64/msys2-x86_64-20210228.exe">https://repo.msys2.org/distrib/x86_64/msys2-x86_64-20210228.exe</a><br><br><h3 class="Title8 GTitle3" id="Fondamentaux-Installer-l-environnement-C---sous-MSYS2-Installer-MSYS2"><a class="Title8" href="#Fondamentaux-Installer-l-environnement-C---sous-MSYS2">Installer MSYS2</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="php">msys2-x86_64-20210228.exe
 Suivant
 Dossier d'installation -&gt; C:\msys64
 Suivant
 Raccourci du menu Démarrer -&gt; MSYS2 64bit
 Suivant
 Suivant
-Terminer</pre></div></div><br><h3 class="Title8 GTitle3" id="Installation-Installer-l-environnement-C---sous-MSYS2-Demarrer-MSYS2"><a class="Title8" href="#Installation-Installer-l-environnement-C---sous-MSYS2">Démarrer MSYS2</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="txt">Windows
-MSYS2</pre></div></div><br><h3 class="Title8 GTitle3" id="Installation-Installer-l-environnement-C---sous-MSYS2-Mettre-a-jour-les-packages-MSYS2"><a class="Title8" href="#Installation-Installer-l-environnement-C---sous-MSYS2">Mettre à jour les packages MSYS2</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">pacman -Syu</pre></div></div><br><h3 class="Title8 GTitle3" id="Installation-Installer-l-environnement-C---sous-MSYS2-Installer-le-package--make-"><a class="Title8" href="#Installation-Installer-l-environnement-C---sous-MSYS2">Installer le package (make)</a>&lt;
+Terminer</pre></div></div><br><h3 class="Title8 GTitle3" id="Fondamentaux-Installer-l-environnement-C---sous-MSYS2-Demarrer-MSYS2"><a class="Title8" href="#Fondamentaux-Installer-l-environnement-C---sous-MSYS2">Démarrer MSYS2</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="txt">Windows
+MSYS2</pre></div></div><br><h3 class="Title8 GTitle3" id="Fondamentaux-Installer-l-environnement-C---sous-MSYS2-Mettre-a-jour-les-packages-MSYS2"><a class="Title8" href="#Fondamentaux-Installer-l-environnement-C---sous-MSYS2">Mettre à jour les packages MSYS2</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">pacman -Syu</pre></div></div><br><h3 class="Title8 GTitle3" id="Fondamentaux-Installer-l-environnement-C---sous-MSYS2-Installer-le-package--make----h3---pacman--S---needed---noconfirm-make--"><a class="Title8" href="#Fondamentaux-Installer-l-environnement-C---sous-MSYS2">Installer le package (make)&lt; /h3&gt;
 
-/h3&gt;<br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">pacman -S --needed --noconfirm make</pre></div></div><br></h3><h3 class="Title8 GTitle3" id="Installation-Installer-l-environnement-C---sous-MSYS2-Installer-le-package--gcc-"><a class="Title8" href="#Installation-Installer-l-environnement-C---sous-MSYS2">Installer le package (gcc)</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">pacman -S --needed --noconfirm gcc</pre></div></div><br><h2 class="Title7 GTitle2" id="Installation-Installer-l-environnement-C---sous-WinLibs"><a class="Link9" href="#Installation">Installer l'environnement C++ sous WinLibs</a></h2><br><h3 class="Title8 GTitle3" id="Installation-Installer-l-environnement-C---sous-WinLibs-Telecharger-WinLibs"><a class="Title8" href="#Installation-Installer-l-environnement-C---sous-WinLibs">Télécharger WinLibs</a></h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://winlibs.com/#download-release">https://winlibs.com/#download-release</a><br><br><b>winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1.7z</b><br><br><h3 class="Title8 GTitle3" id="Installation-Installer-l-environnement-C---sous-WinLibs-Extraire-WinLibs"><a class="Title8" href="#Installation-Installer-l-environnement-C---sous-WinLibs">Extraire WinLibs</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1.7z -&gt; Clic droit
-Extraire vers winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1\</pre></div></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Compiler-un-projet-C---sous-MSYS2"><a class="Link9" href="#Fondamentaux">Compiler un projet C++ sous MSYS2</a></h2><br><h3 class="Title8 GTitle3" id="Tests-Tester-un-projet-C---sous-MSYS2-Editer-le-programme--main-cpp-"><a class="Title8" href="#Tests-Tester-un-projet-C---sous-MSYS2">Éditer le programme (main.cpp)</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
+pacman -S --needed --noconfirm make
+
+</a></h3><h3 class="Title8 GTitle3" id="Fondamentaux-Installer-l-environnement-C---sous-MSYS2-Installer-le-package--gcc-"><a class="Title8" href="#Fondamentaux-Installer-l-environnement-C---sous-MSYS2">Installer le package (gcc)</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">pacman -S --needed --noconfirm gcc</pre></div></div><br><h2 class="Title7 GTitle2" id="Installation-Installer-l-environnement-C---sous-WinLibs"><a class="Link9" href="#Installation">Installer l'environnement C++ sous WinLibs</a></h2><br><h3 class="Title8 GTitle3" id="Fondamentaux-Installer-l-environnement-C---sous-WinLibs-Telecharger-WinLibs"><a class="Title8" href="#Fondamentaux-Installer-l-environnement-C---sous-WinLibs">Télécharger WinLibs</a></h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://winlibs.com/#download-release">https://winlibs.com/#download-release</a><br><br><b>winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1.7z</b><br><br><h3 class="Title8 GTitle3" id="Fondamentaux-Installer-l-environnement-C---sous-WinLibs-Extraire-WinLibs"><a class="Title8" href="#Fondamentaux-Installer-l-environnement-C---sous-WinLibs">Extraire WinLibs</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1.7z -&gt; Clic droit
+Extraire vers winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1\</pre></div></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Compiler-un-projet-C---sous-MSYS2"><a class="Link9" href="#Fondamentaux">Compiler un projet C++ sous MSYS2</a></h2><br><h3 class="Title8 GTitle3" id="Fondamentaux-Compiler-un-projet-C---sous-MSYS2-Editer-le-programme--main-cpp-"><a class="Title8" href="#Fondamentaux-Compiler-un-projet-C---sous-MSYS2">Éditer le programme (main.cpp)</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;iostream&gt;
 //===============================================
 int main(int argc, char** argv) {
     std::cout &lt;&lt; "Bonjour tout le monde\n";
     return 0;
 }
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Tests-Tester-un-projet-C---sous-MSYS2-Compiler-le-projet"><a class="Title8" href="#Tests-Tester-un-projet-C---sous-MSYS2">Compiler le projet</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">g++ -std=gnu++11 -c main.cpp -o main.o</pre></div></div><br><h3 class="Title8 GTitle3" id="Tests-Tester-un-projet-C---sous-MSYS2-Editer-les-liens-du-projet"><a class="Title8" href="#Tests-Tester-un-projet-C---sous-MSYS2">Éditer les liens du projet</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">g++ -o rdcpp.exe main.o</pre></div></div><br><h3 class="Title8 GTitle3" id="Tests-Tester-un-projet-C---sous-MSYS2-Executer-le-projet"><a class="Title8" href="#Tests-Tester-un-projet-C---sous-MSYS2">Exécuter le projet</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">./rdcpp.exe</pre></div></div><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">Bonjour tout le monde</pre></div></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Creer-une-condition-if"><a class="Link9" href="#Fondamentaux">Créer une condition if</a></h2><br><h3 class="Title8 GTitle3" id="Fondamentaux-Creer-une-condition-if-main-cpp"><a class="Title8" href="#Fondamentaux-Creer-une-condition-if">main.cpp</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Fondamentaux-Compiler-un-projet-C---sous-MSYS2-Compiler-le-projet"><a class="Title8" href="#Fondamentaux-Compiler-un-projet-C---sous-MSYS2">Compiler le projet</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">g++ -std=gnu++11 -c main.cpp -o main.o</pre></div></div><br><h3 class="Title8 GTitle3" id="Fondamentaux-Compiler-un-projet-C---sous-MSYS2-Editer-les-liens-du-projet"><a class="Title8" href="#Fondamentaux-Compiler-un-projet-C---sous-MSYS2">Éditer les liens du projet</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">g++ -o rdcpp.exe main.o</pre></div></div><br><h3 class="Title8 GTitle3" id="Fondamentaux-Compiler-un-projet-C---sous-MSYS2-Executer-le-projet"><a class="Title8" href="#Fondamentaux-Compiler-un-projet-C---sous-MSYS2">Exécuter le projet</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">./rdcpp.exe</pre></div></div><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">Bonjour tout le monde</pre></div></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Creer-une-condition-if"><a class="Link9" href="#Fondamentaux">Créer une condition if</a></h2><br><h3 class="Title8 GTitle3" id="Fondamentaux-Creer-une-condition-if-main-cpp"><a class="Title8" href="#Fondamentaux-Creer-une-condition-if">main.cpp</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;iostream&gt;
 //===============================================
 int main(int argc, char** argv) {
@@ -1267,15 +1269,15 @@ int main(int argc, char** argv) {
     printf("Bonjour tout le monde\n");
     return 0;
 }
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Fondamentaux-Creer-un-parametre-non-utilise-Resultat"><a class="Title8" href="#Fondamentaux-Creer-un-parametre-non-utilise">Résultat</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">Bonjour tout le monde</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programmation-orientee-objet"><a class="Link3" href="#">Programmation orientée objet</a></h1><div class="Body3"><br>La <b>programmation orientée objet</b> (POO) est un paradigme de programmation informatique qui consiste en la définition et l'interaction de briques logicielles appelées objets ; un objet représente un concept, une idée ou toute entité du monde physique, comme une voiture, une personne ou encore une page d'un livre. Il possède une structure interne et un comportement, et il sait interagir avec ses pairs. Il s'agit donc de représenter ces objets et leurs relations ; l'interaction entre les objets via leurs relations permet de concevoir et réaliser les fonctionnalités attendues, de mieux résoudre le ou les problèmes. Dès lors, l'étape de modélisation revêt une importance majeure et nécessaire pour la POO. C'est elle qui permet de transcrire les éléments du réel sous forme virtuelle. La programmation orientée objet consiste à utiliser des techniques de programmation pour mettre en œuvre une conception basée sur les objets. Celle-ci peut être élaborée en utilisant des méthodologies de développement logiciel objet, dont la plus connue est le processus unifié et exprimée à l'aide de langages de modélisation tels que le Unified Modeling Language (UML). <br><br>La programmation orientée objet permet d'encapsuler dans une classe les attributs d'un objet et les méthodes qui permettent d'interagir avec l'objet.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Programmation-orientee-objet-Fondamentaux"><a class="Link9" href="#Programmation-orientee-objet">Fondamentaux</a></h2><br><div class="Content0 GSummary3"><div class="Row26">Summary 3</div></div><br><h3 class="GTitle3" id="Programmation-orientee-objet-Apprendre-la-programmation-orientee-objet-Creation-d-une-classe"><a class="Title8" href="#Programmation-orientee-objet-Apprendre-la-programmation-orientee-objet">Création d'une classe</a></h3><br>Cette opération permet de présenter la <b>structure d'une classe</b>. Une classe est créée grâce au mot clé <span class="GCode3"><code style="color:#cccccc;">class</code></span>.<br><br>Création de la classe<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Fondamentaux-Creer-un-parametre-non-utilise-Resultat"><a class="Title8" href="#Fondamentaux-Creer-un-parametre-non-utilise">Résultat</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">Bonjour tout le monde</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programmation-orientee-objet"><a class="Link3" href="#">Programmation orientée objet</a></h1><div class="Body3"><br>La <b>programmation orientée objet</b> (POO) est un paradigme de programmation informatique qui consiste en la définition et l'interaction de briques logicielles appelées objets ; un objet représente un concept, une idée ou toute entité du monde physique, comme une voiture, une personne ou encore une page d'un livre. Il possède une structure interne et un comportement, et il sait interagir avec ses pairs. Il s'agit donc de représenter ces objets et leurs relations ; l'interaction entre les objets via leurs relations permet de concevoir et réaliser les fonctionnalités attendues, de mieux résoudre le ou les problèmes. Dès lors, l'étape de modélisation revêt une importance majeure et nécessaire pour la POO. C'est elle qui permet de transcrire les éléments du réel sous forme virtuelle. La programmation orientée objet consiste à utiliser des techniques de programmation pour mettre en œuvre une conception basée sur les objets. Celle-ci peut être élaborée en utilisant des méthodologies de développement logiciel objet, dont la plus connue est le processus unifié et exprimée à l'aide de langages de modélisation tels que le Unified Modeling Language (UML). <br><br>La programmation orientée objet permet d'encapsuler dans une classe les attributs d'un objet et les méthodes qui permettent d'interagir avec l'objet.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Programmation-orientee-objet-Fondamentaux"><a class="Link9" href="#Programmation-orientee-objet">Fondamentaux</a></h2><br><div class="Content0 GSummary3"><div class="Row26">Summary 3</div></div><br><h3 class="GTitle3" id="Programmation-orientee-objet-Fondamentaux-Creation-d-une-classe"><a class="Title8" href="#Programmation-orientee-objet-Fondamentaux">Création d'une classe</a></h3><br>Cette opération permet de présenter la <b>structure d'une classe</b>. Une classe est créée grâce au mot clé <b>class</b>.<br><br>Création de la classe<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 class GClass {
 
 };
-//===============================================</pre></div></div><br><h3 class="GTitle3" id="Programmation-orientee-objet-Apprendre-la-programmation-orientee-objet-Creation-d-une-classe"><a class="Title8" href="#Programmation-orientee-objet-Apprendre-la-programmation-orientee-objet">Création d'un constructeur</a></h3><br>Cette opération permet d'<b>appeler une méthode à chaque construction</b> d'un objet de la classe. Un objet est construit au moment de la déclaration de l'objet.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="GTitle3" id="Programmation-orientee-objet-Fondamentaux-Creation-d-un-constructeur"><a class="Title8" href="#Programmation-orientee-objet-Fondamentaux">Création d'un constructeur</a></h3><br>Cette opération permet d'<b>appeler une méthode à chaque construction</b> d'un objet de la classe. Un objet est construit au moment de la déclaration de l'objet.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GCppUi::run(int _argc, char** _argv) {
     GClass lObj;
 }
-//===============================================</pre></div></div><br>Définition du constructeur (.cpp)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br>Implémentation du constructeur (.cpp)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 GClass::GClass() {
     printf("Je suis le constructeur\n");
 }
@@ -1284,11 +1286,11 @@ class GClass {
 public:
     GClass();
 };
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_constructor.png" alt="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_constructor.png"></div><br><h3 class="GTitle3" id="Programmation-orientee-objet-Apprendre-la-programmation-orientee-objet-Creation-d-un-destructeur"><a class="Title8" href="#Programmation-orientee-objet-Apprendre-la-programmation-orientee-objet">Création d'un destructeur</a></h3><br>Cette opération permet d'<b>appeler une méthode à chaque destruction</b> d'un objet de la classe. Un objet est détruit quand sort de la portée ou du contexte de déclaration de l'objet.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_constructor.png" alt="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_constructor.png"></div><br><h3 class="GTitle3" id="Programmation-orientee-objet-Fondamentaux-Creation-d-un-destructeur"><a class="Title8" href="#Programmation-orientee-objet-Fondamentaux">Création d'un destructeur</a></h3><br>Cette opération permet d'<b>appeler une méthode à chaque destruction</b> d'un objet de la classe. Un objet est détruit quand sort de la portée ou du contexte de déclaration de l'objet.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GCppUi::run(int _argc, char** _argv) {
     GClass lObj;
 }
-//===============================================</pre></div></div><br>Création du destructeur (.cpp)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br>Implémentation du destructeur (.cpp)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 GClass::~GClass() {
     printf("Je suis le destructeur\n");
 }
@@ -1298,12 +1300,12 @@ public:
     GClass();
     ~GClass();
 };
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_destructor.png" alt="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_destructor.png"></div><br><h3 class="GTitle3" id="Programmation-orientee-objet-Apprendre-la-programmation-orientee-objet-Creation-d-un-mutateur--setter-"><a class="Title8" href="#Programmation-orientee-objet-Apprendre-la-programmation-orientee-objet">Création d'un mutateur (setter)</a></h3><br>Cette opération permet d'<b>initialiser un attribut</b> d'un objet depuis l'extérieur.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_destructor.png" alt="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_destructor.png"></div><br><h3 class="GTitle3" id="Programmation-orientee-objet-Fondamentaux-Creation-d-un-mutateur--setter-"><a class="Title8" href="#Programmation-orientee-objet-Fondamentaux">Création d'un mutateur (setter)</a></h3><br>Cette opération permet d'<b>initialiser un attribut</b> d'un objet depuis l'extérieur.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GCppUi::run(int _argc, char** _argv) {
     GClass lObj;
     lObj.setName("Gerard KESSE");
 }
-//===============================================</pre></div></div><br>Création du mutateur (.cpp)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br>Implémentation du mutateur (.cpp)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GClass::setName(const std::string&amp; _name) {
     printf("Je suis le mutateur\n");
     m_name = _name;
@@ -1318,14 +1320,14 @@ public:
 private:
     std::string m_name;
 };
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_setter.png" alt="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_setter.png"></div><br><h3 class="GTitle3" id="Programmation-orientee-objet-Apprendre-la-programmation-orientee-objet-Creation-d-un-accesseur--getter-"><a class="Title8" href="#Programmation-orientee-objet-Apprendre-la-programmation-orientee-objet">Création d'un accesseur (getter)</a></h3><br>Cette opération permet d'<b>accéder à un attribut</b> d'un objet depuis l'extérieur.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_setter.png" alt="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_setter.png"></div><br><h3 class="GTitle3" id="Programmation-orientee-objet-Fondamentaux-Creation-d-un-accesseur--getter-"><a class="Title8" href="#Programmation-orientee-objet-Fondamentaux">Création d'un accesseur (getter)</a></h3><br>Cette opération permet d'<b>accéder à un attribut</b> d'un objet depuis l'extérieur.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GCppUi::run(int _argc, char** _argv) {
     GClass lObj;
     lObj.setName("Gerard KESSE");
     std::string lName = lObj.getName();
     std::cout &lt;&lt; "Name : " &lt;&lt; lName &lt;&lt; "\n";
 }
-//===============================================</pre></div></div><br>Création de l'accesseur (.cpp)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br>Implémentation de l'accesseur (.cpp)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 std::string GClass::getName() const {
     printf("Je suis l'accesseur\n");
     return m_name;
@@ -1341,13 +1343,13 @@ public:
 private:
     std::string m_name;
 };
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_getter.png" alt="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_getter.png"></div><br><h3 class="GTitle3" id="Programmation-orientee-objet-Apprendre-la-programmation-orientee-objet-Initialisation-d-un-objet-avec-des-accolades"><a class="Title8" href="#Programmation-orientee-objet-Apprendre-la-programmation-orientee-objet">Initialisation d'un objet avec des accolades</a></h3><br>Cette opération permet de <b>reproduire le concept d'initialisation</b> d'une structure avec des accolades.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_getter.png" alt="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_getter.png"></div><br><h3 class="GTitle3" id="Programmation-orientee-objet-Fondamentaux-Initialisation-d-un-objet-avec-des-accolades"><a class="Title8" href="#Programmation-orientee-objet-Fondamentaux">Initialisation d'un objet avec des accolades</a></h3><br>Cette opération permet de <b>reproduire le concept d'initialisation</b> d'une structure avec des accolades.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GCppUi::run(int _argc, char** _argv) {
     GClass lObj = {"Gerard KESSE"};
     std::string lName = lObj.getName();
     std::cout &lt;&lt; "Name : " &lt;&lt; lName &lt;&lt; "\n";
 }
-//===============================================</pre></div></div><br>Création du constructeur de l'objet (.cpp)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br>Implémentation du constructeur de l'objet (.cpp)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 GClass::GClass(const std::string&amp; _name) {
     printf("Je suis le constructeur (2)\n");
     m_name = _name;
@@ -1364,7 +1366,7 @@ public:
 private:
     std::string m_name;
 };
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_accolade.png" alt="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_accolade.png"></div><br><h3 class="GTitle3" id="Programmation-orientee-objet-Apprendre-la-programmation-orientee-objet-Heritage-d-une-classe"><a class="Title8" href="#Programmation-orientee-objet-Apprendre-la-programmation-orientee-objet">Héritage d'une classe</a></h3><br>Cette opération permet à une classe fille de <b>réutiliser les attributs et les méthodes</b> d'une classe mère.<br><br>Programme principal (sans accolades)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_accolade.png" alt="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_accolade.png"></div><br><h2 class="Title7 GTitle2" id="Programmation-orientee-objet-Heritage-de-classe"><a class="Link9" href="#Programmation-orientee-objet">Héritage de classe</a></h2><br><div class="Content0 GSummary3"><div class="Row26">Summary 3</div></div><br><h3 class="GTitle3" id="Programmation-orientee-objet-Heritage-de-classe-Heritage-d-une-classe"><a class="Title8" href="#Programmation-orientee-objet-Heritage-de-classe">Héritage d'une classe</a></h3><br>Cette opération permet à une classe fille de <b>réutiliser les attributs et les méthodes</b> d'une classe mère.<br><br>Programme principal (sans accolades)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GCppUi::run(int _argc, char** _argv) {
     GClassA lObj;
     lObj.setName("Gerard KESSE");
@@ -1382,9 +1384,7 @@ void GCppUi::run(int _argc, char** _argv) {
     std::cout &lt;&lt; "Name....: " &lt;&lt; lName &lt;&lt; "\n";
     std::cout &lt;&lt; "Email...: " &lt;&lt; lEmail &lt;&lt; "\n";
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_inheritance_2.png" alt="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_inheritance_2.png"></div><br>Création de la classe mère (.cpp)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
-#include "GClass.h"
-//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_inheritance_2.png" alt="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_inheritance_2.png"></div><br>Implémentation de la classe mère (.cpp)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 GClass::GClass() {
     printf("Je suis le constructeur\n");
 }
@@ -1408,11 +1408,6 @@ std::string GClass::getName() const {
     return m_name;
 }
 //===============================================</pre></div></div><br>Déclaration de la classe mère (.h)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
-#ifndef _GClass_
-#define _GClass_
-//===============================================
-#include "GInclude.h"
-//===============================================
 class GClass {
 public:
     GClass();
@@ -1424,11 +1419,7 @@ public:
 private:
     std::string m_name;
 };
-//===============================================
-#endif
-//===============================================</pre></div></div><br>Création de la classe fille (.cpp)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
-#include "GClassA.h"
-//===============================================
+//===============================================</pre></div></div><br>Implémentation de la classe fille (.cpp)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 GClassA::GClassA() {
     printf("Je suis le constructeur A\n");
 }
@@ -1453,11 +1444,6 @@ std::string GClassA::getEmail() const {
     return m_email;
 }
 //===============================================</pre></div></div><br>Déclaration de la classe fille (.h)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
-#ifndef _GClassA_
-#define _GClassA_
-//===============================================
-#include "GClass.h"
-//===============================================
 class GClassA : public GClass {
 public:
     GClassA();
@@ -1469,367 +1455,196 @@ public:
 private:
     std::string m_email;
 };
-//===============================================
-#endif
-//===============================================</pre></div></div><br><h3 class="GTitle3" id="Programmation-orientee-objet-Fondamentaux-Polymorphisme-de-classe"><a class="Title8" href="#Programmation-orientee-objet-Fondamentaux">Polymorphisme de classe</a></h3><br><br><h2 class="Title7 GTitle2" id="Programmation-orientee-objet-Creer-un-polymorphisme"><a class="Link9" href="#Programmation-orientee-objet">Créer un polymorphisme</a></h2><br>En informatique et en théorie des types, le <b>polymorphisme </b>est le concept consistant à fournir une interface unique à des entités pouvant avoir différents types. Par exemple, des opérations telles que la multiplication  peuvent ainsi être étendues à des <span class="GCode3"><code style="color:#cccccc;">scalaires </code></span>aux <span class="GCode3"><code style="color:#cccccc;">vecteurs </code></span>ou aux <span class="GCode3"><code style="color:#cccccc;">matrices</code></span>, l'addition des scalaires aux <span class="GCode3"><code style="color:#cccccc;">fonctions </code></span>ou aux <span class="GCode3"><code style="color:#cccccc;">chaînes de caractères</code></span>, etc.<br><br><h3 class="Title8 GTitle3" id="Programmation-orientee-objet-Creer-un-polymorphisme-main-cpp"><a class="Title8" href="#Programmation-orientee-objet-Creer-un-polymorphisme">main.cpp</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
-#include "GAnimal.h"
-#include "GDog.h"
-//===============================================
-int main(int argc, char** argv) {
-    GAnimal *lAnimal, *lAnimals[2];
+//===============================================</pre></div></div><br><h3 class="GTitle3" id="Programmation-orientee-objet-Heritage-de-classe-Polymorphisme-de-classe"><a class="Title8" href="#Programmation-orientee-objet-Heritage-de-classe">Polymorphisme de classe</a></h3><br>Cette opération permet de <b>créer une méthode qui peut prendre plusieurs formes</b> en fonction du type de l'objet. La méthode polymorphe est appelée méthode virtuelle et elle créée grâce au mot clé <b>virtual</b>.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GCppUi::run(int _argc, char** _argv) {
+    std::vector&lt;GClass*&gt; lObjs;
+    GClass* lObjA = new GClass("Pierre DUPONT");
+    GClassA* lObjB = new GClassA("Gerard KESSE", "gerard.kesse@readydev.com");
 
-    lAnimal = new GAnimal("Tom");
-    lAnimal-&gt;setCategory("Chat");
-    lAnimals[0] = lAnimal;
+    lObjs.push_back(lObjA);
+    lObjs.push_back(lObjB);
 
-    lAnimal = new GDog("Medor", 20);
-    lAnimal-&gt;setCategory("Chien");
-    lAnimals[1] = lAnimal;
-
-    for(int i = 0; i &lt; 2; i++) {
-        lAnimal = lAnimals[i];
-        lAnimal-&gt;print();
+    for(int i = 0; i &lt; lObjs.size(); i++) {
+        GClass* lObj = lObjs.at(i);
+        lObj-&gt;print();
+        delete lObj;
     }
-    
-    return 0;
 }
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Programmation-orientee-objet-Creer-un-polymorphisme-GAnimal-h"><a class="Title8" href="#Programmation-orientee-objet-Creer-un-polymorphisme">GAnimal.h</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
-#ifndef _GAnimal_
-#define _GAnimal_
-//===============================================
-#include &lt;iostream&gt;
-#include &lt;string&gt;
-//===============================================
-class GAnimal {
+//===============================================</pre></div></div><br>Implémentation de la méthode polymorphe dans la classe mère (.cpp)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GClass::print() const {
+    printf("Je suis une methode polymorphe\n");
+    printf("Name.....: %s\n", m_name.c_str());
+}
+//===============================================</pre></div></div><br>Déclaration de la méthode polymorphe dans la classe mère (.h)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+class GClass {
 public:
-    GAnimal(const std::string&amp; name);
-    virtual ~GAnimal();
+    GClass();
+    GClass(const std::string&amp; _name);
+    virtual ~GClass();
+    void setName(const std::string&amp; _name);
+    std::string getName() const;
+    virtual void print() const;
 
-public:
-    virtual void setCategory(const std::string&amp; category);
-    virtual void print();
-    
 protected:
     std::string m_name;
-    std::string m_category;
 };
-//===============================================
-#endif
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Programmation-orientee-objet-Creer-un-polymorphisme-GAnimal-cpp"><a class="Title8" href="#Programmation-orientee-objet-Creer-un-polymorphisme">GAnimal.cpp</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
-#include "GAnimal.h"
-//===============================================
-GAnimal::GAnimal(const std::string&amp; name) {
-    m_name = name;
+//===============================================</pre></div></div><br>Implémentation de la méthode polymorphe dans la classe fille (.cpp)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GClassA::print() const {
+    printf("Je suis une methode polymorphe A\n");
+    printf("Name.....: %s\n", m_name.c_str());
+    printf("Email....: %s\n", m_email.c_str());
 }
-//===============================================
-GAnimal::~GAnimal() {
-    
-}
-//===============================================
-void GAnimal::setCategory(const std::string&amp; category) {
-    m_category = category;
-}
-//===============================================
-void GAnimal::print() {
-    printf("[Animal] Nom : %s | Categorie : %s\n", 
-    m_name.c_str(), m_category.c_str());
-}
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Programmation-orientee-objet-Creer-un-polymorphisme-GDog-h"><a class="Title8" href="#Programmation-orientee-objet-Creer-un-polymorphisme">GDog.h</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
-#ifndef _GDog_
-#define _GDog_
-//===============================================
-#include "GAnimal.h"
-//===============================================
-class GDog : public GAnimal {
+//===============================================</pre></div></div><br>Déclaration de la méthode polymorphe dans la classe fille (.h)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+class GClassA : public GClass {
 public:
-    GDog(const std::string&amp; name, int weight);
-    ~GDog();
+    GClassA();
+    GClassA(const std::string&amp; _name, const std::string&amp; _email);
+    ~GClassA();
+    void setEmail(const std::string&amp; _email);
+    std::string getEmail() const;
+    void print() const;
 
-public:
-    void print();
-    
 private:
-    int m_weight;
+    std::string m_email;
 };
-//===============================================
-#endif
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Programmation-orientee-objet-Creer-un-polymorphisme-GDog-cpp"><a class="Title8" href="#Programmation-orientee-objet-Creer-un-polymorphisme">GDog.cpp</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
-#include "GDog.h"
-//===============================================
-GDog::GDog(const std::string&amp; name, int weight) :
-GAnimal(name) {
-    m_weight = weight;
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_polymorphism.png" alt="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_polymorphism.png"></div><br><h3 class="GTitle3" id="Programmation-orientee-objet-Heritage-de-classe-Creation-d-une-classe-abstraite"><a class="Title8" href="#Programmation-orientee-objet-Heritage-de-classe">Création d'une classe abstraite</a></h3><br>Cette opération permet de <b>grouper un ensemble de méthodes standards et au moins une méthode virtuelle pure</b> dans une classe mère. Les classes filles doivent implémenter l'ensemble des méthodes virtuelles pures. Il est impossible de créer une instance de la classe abstraite.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GCppUi::run(int _argc, char** _argv) {
+    GClass* lObj = new GClassA("Gerard KESSE", "gerard.kesse@readydev.com");
+    lObj-&gt;print();
+    delete lObj;
+}
+//===============================================</pre></div></div><br>Création des méthodes non virtuelles pures dans la classe mère (.cpp)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+GClass::GClass() {
+    printf("Je suis le constructeur\n");
 }
 //===============================================
-GDog::~GDog() {
-    
+GClass::GClass(const std::string&amp; _name) {
+    printf("Je suis le constructeur (2)\n");
+    m_name = _name;
 }
 //===============================================
-void GDog::print() {
-    printf("[Dog] Nom : %s | Categorie : %s | Poids : %d (kg)\n", 
-    m_name.c_str(), m_category.c_str(), m_weight);
+GClass::~GClass() {
+    printf("Je suis le destructeur\n");
 }
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Programmation-orientee-objet-Creer-un-polymorphisme-Resultat"><a class="Title8" href="#Programmation-orientee-objet-Creer-un-polymorphisme">Résultat</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">[Animal] Nom : Tom | Categorie : Chat
-[Dog] Nom : Medor | Categorie : Chien | Poids : 20 (kg)</pre></div></div><br><h2 class="Title7 GTitle2" id="Programmation-orientee-objet-Creer-une-classe-abstraite"><a class="Link9" href="#Programmation-orientee-objet">Créer une classe abstraite</a></h2><br>En programmation orientée objet (POO), une <b>classe abstraite</b> est une classe dont l'implémentation n'est pas complète et qui n'est pas instanciable. Elle sert de base à d'autres classes dérivées (héritées). En <span class="GCode3"><code style="color:#cccccc;">C++</code></span>, une classe est abstraite si elle contient au moins une méthode déclarée virtuelle pure, c'est-à-dire commençant par virtual et terminée par <span class="GCode3"><code style="color:#cccccc;">= 0</code></span>. Ce type de classe n'est pas instanciable. On peut néanmoins créer des pointeurs ou des références du type de la classe abstraite qui pointeront ou référenceront des objets d'une classe dérivée non abstraite. Une fonction virtuelle pure doit être définie ou redéclarée explicitement virtuelle pure.<br><br><h3 class="Title8 GTitle3" id="Programmation-orientee-objet-Creer-une-classe-abstraite-main-cpp"><a class="Title8" href="#Programmation-orientee-objet-Creer-une-classe-abstraite">main.cpp</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
-#include "GAnimal.h"
-#include "GCat.h"
-#include "GDog.h"
 //===============================================
-int main(int argc, char** argv) {
-    GAnimal *lAnimal, *lAnimals[2];
-
-    lAnimal = new GCat("Tom", 1000);
-    lAnimal-&gt;setCategory("Chat");
-    lAnimals[0] = lAnimal;
-
-    lAnimal = new GDog("Medor", 20);
-    lAnimal-&gt;setCategory("Chien");
-    lAnimals[1] = lAnimal;
-
-    for(int i = 0; i &lt; 2; i++) {
-        lAnimal = lAnimals[i];
-        lAnimal-&gt;print();
-    }
-    
-    return 0;
+void GClass::setName(const std::string&amp; _name) {
+    printf("Je suis le mutateur\n");
+    m_name = _name;
 }
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Programmation-orientee-objet-Creer-une-classe-abstraite-GAnimal-h"><a class="Title8" href="#Programmation-orientee-objet-Creer-une-classe-abstraite">GAnimal.h</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
-#ifndef _GAnimal_
-#define _GAnimal_
 //===============================================
-#include &lt;iostream&gt;
-#include &lt;string&gt;
-//===============================================
-class GAnimal {
+std::string GClass::getName() const {
+    printf("Je suis l'accesseur\n");
+    return m_name;
+}
+//===============================================</pre></div></div><br>Déclaration de la méthode virtuelle pure dans la classe mère (.h)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+class GClass {
 public:
-    GAnimal(const std::string&amp; name);
-    virtual ~GAnimal();
+    GClass();
+    GClass(const std::string&amp; _name);
+    virtual ~GClass();
+    void setName(const std::string&amp; _name);
+    std::string getName() const;
+    virtual void print() const = 0;
 
-public:
-    virtual void setCategory(const std::string&amp; category);
-    virtual void print() = 0;
-    
 protected:
     std::string m_name;
-    std::string m_category;
 };
-//===============================================
-#endif
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Programmation-orientee-objet-Creer-une-classe-abstraite-GAnimal-cpp"><a class="Title8" href="#Programmation-orientee-objet-Creer-une-classe-abstraite">GAnimal.cpp</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
-#include "GAnimal.h"
-//===============================================
-GAnimal::GAnimal(const std::string&amp; name) {
-    m_name = name;
+//===============================================</pre></div></div><br>Implémentation de la méthode polymorphe dans la classe fille (.cpp)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+GClassA::GClassA() {
+    printf("Je suis le constructeur A\n");
 }
 //===============================================
-GAnimal::~GAnimal() {
-    
+GClassA::GClassA(const std::string&amp; _name, const std::string&amp; _email) :
+GClass(_name) {
+    printf("Je suis le constructeur A(2)\n");
+    m_email = _email;
 }
 //===============================================
-void GAnimal::setCategory(const std::string&amp; category) {
-    m_category = category;
+GClassA::~GClassA() {
+    printf("Je suis le destructeur A\n");
 }
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Programmation-orientee-objet-Creer-une-classe-abstraite-GDog-h"><a class="Title8" href="#Programmation-orientee-objet-Creer-une-classe-abstraite">GDog.h</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
-#ifndef _GDog_
-#define _GDog_
 //===============================================
-#include "GAnimal.h"
+void GClassA::setEmail(const std::string&amp; _email) {
+    printf("Je suis le mutateur A\n");
+    m_email = _email;
+}
 //===============================================
-class GDog : public GAnimal {
+std::string GClassA::getEmail() const {
+    printf("Je suis l'accesseur A\n");
+    return m_email;
+}
+//===============================================
+void GClassA::print() const {
+    printf("Je suis une methode polymorphe A\n");
+    printf("Name.....: %s\n", m_name.c_str());
+    printf("Email....: %s\n", m_email.c_str());
+}
+//===============================================</pre></div></div><br>Déclaration de la méthode polymorphe dans la classe fille (.h)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+class GClassA : public GClass {
 public:
-    GDog(const std::string&amp; name, int weight);
-    ~GDog();
+    GClassA();
+    GClassA(const std::string&amp; _name, const std::string&amp; _email);
+    ~GClassA();
+    void setEmail(const std::string&amp; _email);
+    std::string getEmail() const;
+    void print() const;
 
-public:
-    void print();
-    
 private:
-    int m_weight;
+    std::string m_email;
 };
-//===============================================
-#endif
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Programmation-orientee-objet-Creer-une-classe-abstraite-GDog-cpp"><a class="Title8" href="#Programmation-orientee-objet-Creer-une-classe-abstraite">GDog.cpp</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
-#include "GDog.h"
-//===============================================
-GDog::GDog(const std::string&amp; name, int weight) :
-GAnimal(name) {
-    m_weight = weight;
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_abstract_class.png" alt="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_abstract_class.png"></div><br><h3 class="GTitle3" id="Programmation-orientee-objet-Heritage-de-classe-Creation-d-une-interface"><a class="Title8" href="#Programmation-orientee-objet-Heritage-de-classe">Création d'une interface</a></h3><br>Cette opération permet de <b>grouper un ensemble de méthodes virtuelles pures</b> dans une classe mère. Les classes filles doivent implémenter l'ensemble des méthodes virtuelles pures. Il est impossible de créer une instance de l'interface.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GCppUi::run(int _argc, char** _argv) {
+    GClass* lObj = new GClassA("Gerard KESSE", "gerard.kesse@readydev.com");
+    lObj-&gt;print();
+    delete lObj;
 }
-//===============================================
-GDog::~GDog() {
-    
-}
-//===============================================
-void GDog::print() {
-    printf("[Dog] Nom : %s | Categorie : %s | Poids : %d (kg)\n", 
-    m_name.c_str(), m_category.c_str(), m_weight);
-}
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Programmation-orientee-objet-Creer-une-classe-abstraite-GCat-h"><a class="Title8" href="#Programmation-orientee-objet-Creer-une-classe-abstraite">GCat.h</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
-#ifndef _GCat_
-#define _GCat_
-//===============================================
-#include "GAnimal.h"
-//===============================================
-class GCat : public GAnimal {
+//===============================================</pre></div></div><br>Déclaration des méthodes virtuelles pures dans la classe mère(.h)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+class GClass {
 public:
-    GCat(const std::string&amp; name, int price);
-    ~GCat();
-
-public:
-    void print();
-    
-private:
-    int m_price;
+    virtual ~GClass() {}
+    virtual void print() const = 0;
 };
-//===============================================
-#endif
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Programmation-orientee-objet-Creer-une-classe-abstraite-GCat-cpp"><a class="Title8" href="#Programmation-orientee-objet-Creer-une-classe-abstraite">GCat.cpp</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
-#include "GCat.h"
-//===============================================
-GCat::GCat(const std::string&amp; name, int price) :
-GAnimal(name) {
-    m_price = price;
+//===============================================</pre></div></div><br>Implémentation des méthodes polymorphes dans la classe fille (.cpp)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+GClassA::GClassA() {
+    printf("Je suis le constructeur A\n");
 }
 //===============================================
-GCat::~GCat() {
-    
+GClassA::GClassA(const std::string&amp; _name, const std::string&amp; _email) {
+    printf("Je suis le constructeur A(2)\n");
+    m_name = _name;
+    m_email = _email;
 }
 //===============================================
-void GCat::print() {
-    printf("[Cat] Nom : %s | Categorie : %s | Prix : %d (€)\n", 
-    m_name.c_str(), m_category.c_str(), m_price);
-}
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Programmation-orientee-objet-Creer-une-classe-abstraite-Resultat"><a class="Title8" href="#Programmation-orientee-objet-Creer-une-classe-abstraite">Résultat</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">[Cat] Nom : Tom | Categorie : Chat | Prix : 1000 (€)
-[Dog] Nom : Medor | Categorie : Chien | Poids : 20 (kg)</pre></div></div><br><h2 class="Title7 GTitle2" id="Programmation-orientee-objet-Creer-une-interface"><a class="Link9" href="#Programmation-orientee-objet">Créer une interface</a></h2><br>En programmation orientée objet, une <b>interface </b>est un ensemble de signatures de méthodes publiques d'un objet. Il s'agit donc d'un ensemble de méthodes accessibles depuis l'extérieur d'une classe, par lesquelles on peut modifier un objet, ou plus généralement communiquer avec lui. Pour rappel, la différenciation entre méthodes publiques et méthodes privées introduit une abstraction qui empêche le programmeur d'application (qui emploie une classe) de manipuler l'objet de façon indue, puisque les seules modifications possibles d'une instance sont celles indiquées comme publiques par le concepteur de la classe ; permet au programmeur de la classe, de modifier l'implémentation interne de ces méthodes de manière transparente. Selon le langage de programmation, l'utilité, la portée et la manière de décrire une interface, varient. Néanmoins il est commun à toutes les interfaces de déclarer chacune de leurs méthodes sous la forme d'une signature.<br><br><h3 class="Title8 GTitle3" id="Programmation-orientee-objet-Creer-une-interface-main-cpp"><a class="Title8" href="#Programmation-orientee-objet-Creer-une-interface">main.cpp</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
-#include "GShape.h"
-#include "GRectangle.h"
-#include "GCircle.h"
-//===============================================
-int main(int argc, char** argv) {
-    GShape *lShape, *lShapes[2];
-
-    lShape = new GRectangle(30, 40);
-    lShapes[0] = lShape;
-
-    lShape = new GCircle(20);
-    lShapes[1] = lShape;
-
-    for(int i = 0; i &lt; 2; i++) {
-        lShape = lShapes[i];
-        lShape-&gt;perimeter();
-        lShape-&gt;area();
-        delete lShape;
-    }
-    
-    return 0;
-}
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Programmation-orientee-objet-Creer-une-interface-GShape-h"><a class="Title8" href="#Programmation-orientee-objet-Creer-une-interface">GShape.h</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
-#ifndef _GShape_
-#define _GShape_
-//===============================================
-#define _USE_MATH_DEFINES
-//===============================================
-#include &lt;iostream&gt;
-#include &lt;cmath&gt;
-//===============================================
-class GShape {
-public:
-    virtual ~GShape() {}
-    virtual void perimeter() const = 0;
-    virtual void area() const = 0;
-};
-//===============================================
-#endif
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Programmation-orientee-objet-Creer-une-interface-GShape-cpp"><a class="Title8" href="#Programmation-orientee-objet-Creer-une-interface">GShape.cpp</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
-#include "GShape.h"
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Programmation-orientee-objet-Creer-une-interface-GRectangle-h"><a class="Title8" href="#Programmation-orientee-objet-Creer-une-interface">GRectangle.h</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
-#ifndef _GRectangle_
-#define _GRectangle_
-//===============================================
-#include "GShape.h"
-//===============================================
-class GRectangle : public GShape {
-public:
-    GRectangle(double w, double h);
-    ~GRectangle();
-
-public:
-    void perimeter() const;
-    void area() const;
-    
-private:
-    double m_w;
-    double m_h;
-};
-//===============================================
-#endif
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Programmation-orientee-objet-Creer-une-interface-GRectangle-cpp"><a class="Title8" href="#Programmation-orientee-objet-Creer-une-interface">GRectangle.cpp</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
-#include "GRectangle.h"
-//===============================================
-GRectangle::GRectangle(double w, double h) {
-    m_w = w;
-    m_h = h;
+GClassA::~GClassA() {
+    printf("Je suis le destructeur A\n");
 }
 //===============================================
-GRectangle::~GRectangle() {
-    printf("[Rectangle] on supprime le rectangle (r : %.0f ; w : %.0f)\n", m_w, m_h);
+void GClassA::setName(const std::string&amp; _name) {
+    printf("Je suis le mutateur A(1)\n");
+    m_name = _name;
 }
 //===============================================
-void GRectangle::perimeter() const {
-    double lPerimeter = 2 * (m_w + m_h);
-    printf("[Rectangle] Perimetre (w : %.0f, h : %.0f) : %.0f (m)\n", m_w, m_h, lPerimeter);
+std::string GClassA::getName() const {
+    printf("Je suis l'accesseur A(1)\n");
+    return m_name;
 }
 //===============================================
-void GRectangle::area() const {
-    double lArea = m_w * m_h;
-    printf("[Rectangle] Aire (w : %.0f, h : %.0f) : %.0f (m2)\n", m_w, m_h, lArea);
-}
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Programmation-orientee-objet-Creer-une-interface-GCircle-h"><a class="Title8" href="#Programmation-orientee-objet-Creer-une-interface">GCircle.h</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
-#ifndef _GCircle_
-#define _GCircle_
-//===============================================
-#include "GShape.h"
-//===============================================
-class GCircle : public GShape {
-public:
-    GCircle(double r);
-    ~GCircle();
-
-public:
-    void perimeter() const;
-    void area() const;
-    
-private:
-    double m_r;
-};
-//===============================================
-#endif
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Programmation-orientee-objet-Creer-une-interface-GCircle-cpp"><a class="Title8" href="#Programmation-orientee-objet-Creer-une-interface">GCircle.cpp</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
-#include "GCircle.h"
-//===============================================
-GCircle::GCircle(double r) {
-    m_r = r;
+void GClassA::setEmail(const std::string&amp; _email) {
+    printf("Je suis le mutateur A\n");
+    m_email = _email;
 }
 //===============================================
-GCircle::~GCircle() {
-    printf("[Circle] on supprime le cercle (r : %.0f)\n", m_r);
+std::string GClassA::getEmail() const {
+    printf("Je suis l'accesseur A\n");
+    return m_email;
 }
 //===============================================
-void GCircle::perimeter() const {
-    double lPerimeter = 2 * M_PI * m_r;
-    printf("[Circle] Perimetre (r : %.0f) : %.0f (m)\n", m_r, lPerimeter);
+void GClassA::print() const {
+    printf("Je suis une methode polymorphe A\n");
+    printf("Name.....: %s\n", m_name.c_str());
+    printf("Email....: %s\n", m_email.c_str());
 }
-//===============================================
-void GCircle::area() const {
-    double lArea = M_PI * m_r * m_r;
-    printf("[Circle] Aire (r : %.0f) : %.0f (m2)\n", m_r, lArea);
-}
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Programmation-orientee-objet-Creer-une-interface-Resultat"><a class="Title8" href="#Programmation-orientee-objet-Creer-une-interface">Résultat</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">[Rectangle] Perimetre (w : 30, h : 40) : 140 (m)
-[Rectangle] Aire (w : 30, h : 40) : 1200 (m2)
-[Rectangle] on supprime le rectangle (r : 30 ; w : 40)
-[Circle] Perimetre (r : 20) : 126 (m)
-[Circle] Aire (r : 20) : 1257 (m2)
-[Circle] on supprime le cercle (r : 20)</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Patrons-de-conception"><a class="Link3" href="#">Patrons de conception</a></h1><div class="Body3"><br>Un <b>patron de conception</b> (design pattern) est un arrangement caractéristique de modules, reconnu comme bonne pratique en réponse à un problème de conception d'un logiciel. Il décrit une solution standard, utilisable dans la conception de différents logiciels. Un patron de conception est issu de l'expérience des concepteurs de logiciels. Il décrit un arrangement récurrent de rôles et d'actions joués par des modules d'un logiciel, et le nom du patron sert de vocabulaire commun entre le concepteur et le programmeur. D'une manière analogue à un motif de conception en architecture, le patron de conception décrit les grandes lignes d'une solution, qui peuvent ensuite être modifiées et adaptées en fonction des besoins.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Patrons-de-conception-Creer-un-patron-singleton"><a class="Link9" href="#Patrons-de-conception">Créer un patron singleton</a></h2><br>Le <b>singleton </b>est un patron de conception dont l'objet est de restreindre l'instanciation d'une classe à un seul objet (ou bien à quelques objets seulement). Il est utilisé lorsque l'on a besoin d'exactement un objet pour coordonner des opérations dans un système. Le modèle est parfois utilisé pour son efficacité, lorsque le système est plus rapide ou occupe moins de mémoire avec peu d'objets qu'avec beaucoup d'objets similaires. On implémente le singleton en écrivant une classe contenant une méthode qui crée une instance uniquement s'il n'en existe pas encore. Sinon elle renvoie une référence vers l'objet qui existe déjà. Dans beaucoup de langages de type objet, il faudra veiller à ce que le constructeur de la classe soit privé ou bien protégé, afin de s'assurer que la classe ne puisse être instanciée autrement que par la méthode de création contrôlée. Le singleton doit être implémenté avec précaution dans les applications multi-thread. Si deux processus légers exécutent en même temps la méthode de création alors que l'objet unique n'existe pas encore, il faut absolument s'assurer qu'un seul créera l'objet, et que l'autre obtiendra une référence vers ce nouvel objet. La solution classique à ce problème consiste à utiliser l'exclusion mutuelle (mutex) pour indiquer que l'objet est en cours d'instanciation. Dans un langage à base de prototypes, où sont utilisés des objets mais pas des classes, un singleton désigne seulement un objet qui n'a pas de copies, et qui n'est pas utilisé comme prototype pour d'autres objets.<br><br><h3 class="Title8 GTitle3" id="Patrons-de-conception-Creer-un-patron-singleton-main-cpp"><a class="Title8" href="#Patrons-de-conception-Creer-un-patron-singleton">main.cpp</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_interface.png" alt="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_interface.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Patrons-de-conception"><a class="Link3" href="#">Patrons de conception</a></h1><div class="Body3"><br>Un <b>patron de conception</b> (design pattern) est un arrangement caractéristique de modules, reconnu comme bonne pratique en réponse à un problème de conception d'un logiciel. Il décrit une solution standard, utilisable dans la conception de différents logiciels. Un patron de conception est issu de l'expérience des concepteurs de logiciels. Il décrit un arrangement récurrent de rôles et d'actions joués par des modules d'un logiciel, et le nom du patron sert de vocabulaire commun entre le concepteur et le programmeur. D'une manière analogue à un motif de conception en architecture, le patron de conception décrit les grandes lignes d'une solution, qui peuvent ensuite être modifiées et adaptées en fonction des besoins.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Patrons-de-conception-Creer-un-patron-singleton"><a class="Link9" href="#Patrons-de-conception">Créer un patron singleton</a></h2><br>Le <b>singleton </b>est un patron de conception dont l'objet est de restreindre l'instanciation d'une classe à un seul objet (ou bien à quelques objets seulement). Il est utilisé lorsque l'on a besoin d'exactement un objet pour coordonner des opérations dans un système. Le modèle est parfois utilisé pour son efficacité, lorsque le système est plus rapide ou occupe moins de mémoire avec peu d'objets qu'avec beaucoup d'objets similaires. On implémente le singleton en écrivant une classe contenant une méthode qui crée une instance uniquement s'il n'en existe pas encore. Sinon elle renvoie une référence vers l'objet qui existe déjà. Dans beaucoup de langages de type objet, il faudra veiller à ce que le constructeur de la classe soit privé ou bien protégé, afin de s'assurer que la classe ne puisse être instanciée autrement que par la méthode de création contrôlée. Le singleton doit être implémenté avec précaution dans les applications multi-thread. Si deux processus légers exécutent en même temps la méthode de création alors que l'objet unique n'existe pas encore, il faut absolument s'assurer qu'un seul créera l'objet, et que l'autre obtiendra une référence vers ce nouvel objet. La solution classique à ce problème consiste à utiliser l'exclusion mutuelle (mutex) pour indiquer que l'objet est en cours d'instanciation. Dans un langage à base de prototypes, où sont utilisés des objets mais pas des classes, un singleton désigne seulement un objet qui n'a pas de copies, et qui n'est pas utilisé comme prototype pour d'autres objets.<br><br><h3 class="Title8 GTitle3" id="Patrons-de-conception-Creer-un-patron-singleton-main-cpp"><a class="Title8" href="#Patrons-de-conception-Creer-un-patron-singleton">main.cpp</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include "GDatabase.h"
 //===============================================
 int main(int argc, char** argv) {
@@ -12414,7 +12229,7 @@ GLIBS =\
 export "PATH=/mingw32/bin:$PATH"
 #================================================
 ./rdcpp.exe
-#================================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Analyse-de-donnees-XML-avec-Libxml2-Apprendre-libxml2"><a class="Link9" href="#Analyse-de-donnees-XML-avec-Libxml2">Apprendre libxml2</a></h2><br><div class="Content0 GSummary3"><div class="Row26">Summary 3</div></div><br><h3 class="GTitle3" id="Analyse-de-donnees-XML-avec-Libxml2-Utilisation-de-la-bibliotheque-libxml2-Affichage-du-contenu-d-un-document-XML"><a class="Title8" href="#Analyse-de-donnees-XML-avec-Libxml2-Utilisation-de-la-bibliotheque-libxml2">Affichage du contenu d'un document XML</a></h3><br>Cette opération permet d'<b>afficher le contenu</b> d'un document XML. On charge le document XML à partir d'un fichier stocké sur le disque dur de l'ordianteur. On autorise d'ignorer les blancs. On analyse le document à travers un parser. On récupère son noeud racine. Et on l'affiche dans la console.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#================================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Analyse-de-donnees-XML-avec-Libxml2-Apprendre-libxml2"><a class="Link9" href="#Analyse-de-donnees-XML-avec-Libxml2">Apprendre libxml2</a></h2><br><div class="Content0 GSummary3"><div class="Row26">Summary 3</div></div><br><h3 class="GTitle3" id="Analyse-de-donnees-XML-avec-Libxml2-Apprendre-libxml2-Affichage-du-contenu-d-un-document-XML"><a class="Title8" href="#Analyse-de-donnees-XML-avec-Libxml2-Apprendre-libxml2">Affichage du contenu d'un document XML</a></h3><br>Cette opération permet d'<b>afficher le contenu</b> d'un document XML. On charge le document XML à partir d'un fichier stocké sur le disque dur de l'ordianteur. On autorise d'ignorer les blancs. On analyse le document à travers un parser. On récupère son noeud racine. Et on l'affiche dans la console.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GXmlUi::run(int argc, char** argv) {
     sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
 
@@ -12438,7 +12253,7 @@ void GXml::root() {
 void GXml::print() const {
     xmlDocFormatDump(stdout, m_doc, 1);
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_xml_using_print.png" alt="/Tutoriels/Software_Development/Cpp/img/i_xml_using_print.png"></div><br><h3 class="GTitle3" id="Analyse-de-donnees-XML-avec-Libxml2-Utilisation-de-la-bibliotheque-libxml2-Ajout-d-un-element-a-un-document-XML"><a class="Title8" href="#Analyse-de-donnees-XML-avec-Libxml2-Utilisation-de-la-bibliotheque-libxml2">Ajout d'un element à un document XML</a></h3><br>Cette opération permet d'<b>ajouter un élément</b> à un document XML. On charge le document XML à partir d'un fichier stocké sur le disque dur de l'ordianteur. On autorise d'ignorer les blancs. On analyse le document à travers un parser. On récupère son noeud racine. On récupère le noeud à la position 1 (le premier noeud). On crée un nouveau noeud. On ajoute le nouveau au document. Et on l'affiche dans la console. La récupération d'un noeud est réalisée à travers une requête XPath.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_xml_using_print.png" alt="/Tutoriels/Software_Development/Cpp/img/i_xml_using_print.png"></div><br><h3 class="GTitle3" id="Analyse-de-donnees-XML-avec-Libxml2-Apprendre-libxml2-Ajout-d-un-element-a-un-document-XML"><a class="Title8" href="#Analyse-de-donnees-XML-avec-Libxml2-Apprendre-libxml2">Ajout d'un element à un document XML</a></h3><br>Cette opération permet d'<b>ajouter un élément</b> à un document XML. On charge le document XML à partir d'un fichier stocké sur le disque dur de l'ordianteur. On autorise d'ignorer les blancs. On analyse le document à travers un parser. On récupère son noeud racine. On récupère le noeud à la position 1 (le premier noeud). On crée un nouveau noeud. On ajoute le nouveau au document. Et on l'affiche dans la console. La récupération d'un noeud est réalisée à travers une requête XPath.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GXmlUi::run(int argc, char** argv) {
     sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
 
