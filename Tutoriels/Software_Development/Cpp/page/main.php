@@ -6,11 +6,7 @@ Raccourci du menu Démarrer -&gt; MSYS2 64bit
 Suivant
 Suivant
 Terminer</pre></div></div><br><h3 class="Title8 GTitle3" id="Fondamentaux-Installer-l-environnement-C---sous-MSYS2-Demarrer-MSYS2"><a class="Title8" href="#Fondamentaux-Installer-l-environnement-C---sous-MSYS2">Démarrer MSYS2</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="txt">Windows
-MSYS2</pre></div></div><br><h3 class="Title8 GTitle3" id="Fondamentaux-Installer-l-environnement-C---sous-MSYS2-Mettre-a-jour-les-packages-MSYS2"><a class="Title8" href="#Fondamentaux-Installer-l-environnement-C---sous-MSYS2">Mettre à jour les packages MSYS2</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">pacman -Syu</pre></div></div><br><h3 class="Title8 GTitle3" id="Fondamentaux-Installer-l-environnement-C---sous-MSYS2-Installer-le-package--make----h3---pacman--S---needed---noconfirm-make--"><a class="Title8" href="#Fondamentaux-Installer-l-environnement-C---sous-MSYS2">Installer le package (make)&lt; /h3&gt;
-
-pacman -S --needed --noconfirm make
-
-</a></h3><h3 class="Title8 GTitle3" id="Fondamentaux-Installer-l-environnement-C---sous-MSYS2-Installer-le-package--gcc-"><a class="Title8" href="#Fondamentaux-Installer-l-environnement-C---sous-MSYS2">Installer le package (gcc)</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">pacman -S --needed --noconfirm gcc</pre></div></div><br><h2 class="Title7 GTitle2" id="Installation-Installer-l-environnement-C---sous-WinLibs"><a class="Link9" href="#Installation">Installer l'environnement C++ sous WinLibs</a></h2><br><h3 class="Title8 GTitle3" id="Fondamentaux-Installer-l-environnement-C---sous-WinLibs-Telecharger-WinLibs"><a class="Title8" href="#Fondamentaux-Installer-l-environnement-C---sous-WinLibs">Télécharger WinLibs</a></h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://winlibs.com/#download-release">https://winlibs.com/#download-release</a><br><br><b>winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1.7z</b><br><br><h3 class="Title8 GTitle3" id="Fondamentaux-Installer-l-environnement-C---sous-WinLibs-Extraire-WinLibs"><a class="Title8" href="#Fondamentaux-Installer-l-environnement-C---sous-WinLibs">Extraire WinLibs</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1.7z -&gt; Clic droit
+MSYS2</pre></div></div><br><h3 class="Title8 GTitle3" id="Fondamentaux-Installer-l-environnement-C---sous-MSYS2-Mettre-a-jour-les-packages-MSYS2"><a class="Title8" href="#Fondamentaux-Installer-l-environnement-C---sous-MSYS2">Mettre à jour les packages MSYS2</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">pacman -Syu</pre></div></div><br><h3 class="Title8 GTitle3" id="Fondamentaux-Installer-l-environnement-C---sous-MSYS2-Installer-le-package--make----h3--pacman--S---needed---noconfirm-make"><a class="Title8" href="#Fondamentaux-Installer-l-environnement-C---sous-MSYS2">Installer le package (make)&lt; /h3&gt; pacman -S --needed --noconfirm make</a></h3><h3 class="Title8 GTitle3" id="Fondamentaux-Installer-l-environnement-C---sous-MSYS2-Installer-le-package--gcc-"><a class="Title8" href="#Fondamentaux-Installer-l-environnement-C---sous-MSYS2">Installer le package (gcc)</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">pacman -S --needed --noconfirm gcc</pre></div></div><br><h2 class="Title7 GTitle2" id="Installation-Installer-l-environnement-C---sous-WinLibs"><a class="Link9" href="#Installation">Installer l'environnement C++ sous WinLibs</a></h2><br><h3 class="Title8 GTitle3" id="Fondamentaux-Installer-l-environnement-C---sous-WinLibs-Telecharger-WinLibs"><a class="Title8" href="#Fondamentaux-Installer-l-environnement-C---sous-WinLibs">Télécharger WinLibs</a></h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://winlibs.com/#download-release">https://winlibs.com/#download-release</a><br><br><b>winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1.7z</b><br><br><h3 class="Title8 GTitle3" id="Fondamentaux-Installer-l-environnement-C---sous-WinLibs-Extraire-WinLibs"><a class="Title8" href="#Fondamentaux-Installer-l-environnement-C---sous-WinLibs">Extraire WinLibs</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1.7z -&gt; Clic droit
 Extraire vers winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1\</pre></div></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Compiler-un-projet-C---sous-MSYS2"><a class="Link9" href="#Fondamentaux">Compiler un projet C++ sous MSYS2</a></h2><br><h3 class="Title8 GTitle3" id="Fondamentaux-Compiler-un-projet-C---sous-MSYS2-Editer-le-programme--main-cpp-"><a class="Title8" href="#Fondamentaux-Compiler-un-projet-C---sous-MSYS2">Éditer le programme (main.cpp)</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;iostream&gt;
 //===============================================
@@ -1679,7 +1675,7 @@ void GClassA::print() const {
     printf("Name.....: %s\n", m_name.c_str());
     printf("Email....: %s\n", m_email.c_str());
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_interface.png" alt="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_interface.png"></div><br><h2 class="Title7 GTitle2" id="Programmation-orientee-objet-Surchage-d-operateurs"><a class="Link9" href="#Programmation-orientee-objet">Surchage d'opérateurs</a></h2><br>Cette opération permet d'<b>associer des méthodes à des opérateurs</b> et de les appliquer sur des objets.<br><br><div class="Content0 GSummary3"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-orientee-objet-Surchage-d-operateurs-Surchage-de-l-operateur-d-affichage-----">Surchage de l'opérateur d'affichage (&lt;&lt;)</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-orientee-objet-Surchage-d-operateurs-Surchage-de-l-operateur-d-affectation----">Surchage de l'opérateur d'affectation (=)</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-orientee-objet-Surchage-d-operateurs-Surcharge-de-l-operateur-addition----">Surcharge de l'opérateur addition (+)</a></div></div><br><h3 class="GTitle3" id="Programmation-orientee-objet-Surchage-d-operateurs-Surchage-de-l-operateur-d-affichage-----"><a class="Title8" href="#Programmation-orientee-objet-Surchage-d-operateurs">Surchage de l'opérateur d'affichage (&lt;&lt;)</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_interface.png" alt="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_interface.png"></div><br><h2 class="Title7 GTitle2" id="Programmation-orientee-objet-Surchage-d-operateurs"><a class="Link9" href="#Programmation-orientee-objet">Surchage d'opérateurs</a></h2><br>Cette opération permet d'<b>associer des méthodes à des opérateurs</b> et de les appliquer sur des objets.<br><br><div class="Content0 GSummary3"><div class="Row26">Summary 3</div></div><br><h3 class="GTitle3" id="Programmation-orientee-objet-Surchage-d-operateurs-Surcharge-de-l-operateur-d-affichage-----"><a class="Title8" href="#Programmation-orientee-objet-Surchage-d-operateurs">Surcharge de l'opérateur d'affichage (&lt;&lt;)</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GCppUi::run(int _argc, char** _argv) {
     GClass lObjA(100);
     std::cout &lt;&lt; "lObjA...: " &lt;&lt; lObjA &lt;&lt; "\n";
@@ -1703,7 +1699,7 @@ public:
 protected:
     int m_data;
 };
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_operator_print.png" alt="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_operator_print.png"></div><br><h3 class="GTitle3" id="Programmation-orientee-objet-Surchage-d-operateurs-Surchage-de-l-operateur-d-affectation----"><a class="Title8" href="#Programmation-orientee-objet-Surchage-d-operateurs">Surchage de l'opérateur d'affectation (=)</a></h3><br>Cette opération permet d'<b>affecter un objet à un autre objet</b>.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_operator_print.png" alt="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_operator_print.png"></div><br><h3 class="GTitle3" id="Programmation-orientee-objet-Surchage-d-operateurs-Surcharge-de-l-operateur-d-affectation----"><a class="Title8" href="#Programmation-orientee-objet-Surchage-d-operateurs">Surcharge de l'opérateur d'affectation (=)</a></h3><br>Cette opération permet d'<b>affecter un objet à un autre objet</b>.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GCppUi::run(int _argc, char** _argv) {
     GClass lObjA(100);
     GClass lObjB = lObjA;
@@ -1761,7 +1757,119 @@ public:
 protected:
     int m_data;
 };
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_operator_add_assign.png" alt="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_operator_add_assign.png"></div><br><h3 class="GTitle3" id="Programmation-orientee-objet-Surchage-d-operateurs-Surcharge-de-l-operateur-addition----"><a class="Title8" href="#Programmation-orientee-objet-Surchage-d-operateurs">Surcharge de l'opérateur addition (+)</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_operator_add_assign.png" alt="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_operator_add_assign.png"></div><br><h3 class="GTitle3" id="Programmation-orientee-objet-Surchage-d-operateurs-Surcharge-de-l-operateur-soustraction-affectation-----"><a class="Title8" href="#Programmation-orientee-objet-Surchage-d-operateurs">Surcharge de l'opérateur soustraction-affectation (-=)</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GCppUi::run(int _argc, char** _argv) {
+    GClass lObjA(100);
+    GClass lObjB(50);
+    lObjB -= lObjA;
+    std::cout &lt;&lt; "lObjA...: " &lt;&lt; lObjA &lt;&lt; "\n";
+    std::cout &lt;&lt; "lObjB...: " &lt;&lt; lObjB &lt;&lt; "\n";
+}
+//===============================================</pre></div></div><br>Implémentation de la surcharge de l'opérateur soustraction-affectation (.cpp)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+GClass&amp; GClass::operator-=(const GClass&amp; _c) {
+    printf("Je surcharge l'operateur de soustraction-affectation (-=)\n");
+    m_data -= _c.m_data;
+    return *this;
+}
+//===============================================</pre></div></div><br>Déclaration de la surcharge de l'opérateur soustraction-affectation (.h)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+class GClass {
+public:
+    GClass();
+    GClass(int _data);
+    GClass(const GClass&amp; _class);
+    virtual ~GClass();
+
+public:
+    GClass&amp; operator-=(const GClass&amp; _c);
+
+protected:
+    int m_data;
+};
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_operator_add_assign.png" alt="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_operator_add_assign.png"></div><br><h3 class="GTitle3" id="Programmation-orientee-objet-Surchage-d-operateurs-Surcharge-de-l-operateur-multiplication-affectation-----"><a class="Title8" href="#Programmation-orientee-objet-Surchage-d-operateurs">Surcharge de l'opérateur multiplication-affectation (*=)</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GCppUi::run(int _argc, char** _argv) {
+    GClass lObjA(100);
+    GClass lObjB(50);
+    lObjB *= lObjA;
+    std::cout &lt;&lt; "lObjA...: " &lt;&lt; lObjA &lt;&lt; "\n";
+    std::cout &lt;&lt; "lObjB...: " &lt;&lt; lObjB &lt;&lt; "\n";
+}
+//===============================================</pre></div></div><br>Implémentation de la surcharge de l'opérateur multiplication-affectation (.cpp)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+GClass&amp; GClass::operator*=(const GClass&amp; _c) {
+    printf("Je surcharge l'operateur de multiplication-affectation (*=)\n");
+    m_data *= _c.m_data;
+    return *this;
+}
+//===============================================</pre></div></div><br>Déclaration de la surcharge de l'opérateur multiplication-affectation (.h)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+class GClass {
+public:
+    GClass();
+    GClass(int _data);
+    GClass(const GClass&amp; _class);
+    virtual ~GClass();
+
+public:
+    GClass&amp; operator*=(const GClass&amp; _c);
+
+protected:
+    int m_data;
+};
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_operator_mul_assign.png" alt="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_operator_mul_assign.png"></div><br><h3 class="GTitle3" id="Programmation-orientee-objet-Surchage-d-operateurs-Surcharge-de-l-operateur-division-affectation-----"><a class="Title8" href="#Programmation-orientee-objet-Surchage-d-operateurs">Surcharge de l'opérateur division-affectation (/=)</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GCppUi::run(int _argc, char** _argv) {
+    GClass lObjA(50);
+    GClass lObjB(100);
+    lObjB /= lObjA;
+    std::cout &lt;&lt; "lObjA...: " &lt;&lt; lObjA &lt;&lt; "\n";
+    std::cout &lt;&lt; "lObjB...: " &lt;&lt; lObjB &lt;&lt; "\n";
+}
+//===============================================</pre></div></div><br>Implémentation de la surcharge de l'opérateur division-affectation (.cpp)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+GClass&amp; GClass::operator/=(const GClass&amp; _c) {
+    printf("Je surcharge l'operateur d'division-affectation (/=)\n");
+    m_data /= _c.m_data;
+    return *this;
+}
+//===============================================</pre></div></div><br>Déclaration de la surcharge de l'opérateur division-affectation (.h)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+class GClass {
+public:
+    GClass();
+    GClass(int _data);
+    GClass(const GClass&amp; _class);
+    virtual ~GClass();
+
+public:
+    GClass&amp; operator/=(const GClass&amp; _c);
+
+protected:
+    int m_data;
+};
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_operator_div_assign.png" alt="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_operator_div_assign.png"></div><br><h3 class="GTitle3" id="Programmation-orientee-objet-Surchage-d-operateurs-Surcharge-de-l-operateur-modulo-affectation-----"><a class="Title8" href="#Programmation-orientee-objet-Surchage-d-operateurs">Surcharge de l'opérateur modulo-affectation (%=)</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GCppUi::run(int _argc, char** _argv) {
+    GClass lObjA(50);
+    GClass lObjB(105);
+    lObjB %= lObjA;
+    std::cout &lt;&lt; "lObjA...: " &lt;&lt; lObjA &lt;&lt; "\n";
+    std::cout &lt;&lt; "lObjB...: " &lt;&lt; lObjB &lt;&lt; "\n";
+}
+//===============================================</pre></div></div><br>Implémentation de la surcharge de l'opérateur modulo-affectation (.cpp)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+GClass&amp; GClass::operator%=(const GClass&amp; _c) {
+    printf("Je surcharge l'operateur de modulo-affectation (%=)\n");
+    m_data %= _c.m_data;
+    return *this;
+}
+//===============================================</pre></div></div><br>Déclaration de la surcharge de l'opérateur modulo-affectation (.h)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+class GClass {
+public:
+    GClass();
+    GClass(int _data);
+    GClass(const GClass&amp; _class);
+    virtual ~GClass();
+
+public:
+    GClass&amp; operator%=(const GClass&amp; _c);
+
+protected:
+    int m_data;
+};
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_operator_mod_assign.png" alt="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_operator_mod_assign.png"></div><br><h3 class="GTitle3" id="Programmation-orientee-objet-Surchage-d-operateurs-Surcharge-de-l-operateur-addition----"><a class="Title8" href="#Programmation-orientee-objet-Surchage-d-operateurs">Surcharge de l'opérateur addition (+)</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GCppUi::run(int _argc, char** _argv) {
     GClass lObjA(100);
     GClass lObjB(50);
@@ -1791,7 +1899,7 @@ friend GClass operator+(const GClass&amp; _c1, const GClass&amp; _c2);
 protected:
 int m_data;
 };
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_operator_add.png" alt="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_operator_add.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Patrons-de-conception"><a class="Link3" href="#">Patrons de conception</a></h1><div class="Body3"><br>Un <b>patron de conception</b> (design pattern) est un arrangement caractéristique de modules, reconnu comme bonne pratique en réponse à un problème de conception d'un logiciel. Il décrit une solution standard, utilisable dans la conception de différents logiciels. Un patron de conception est issu de l'expérience des concepteurs de logiciels. Il décrit un arrangement récurrent de rôles et d'actions joués par des modules d'un logiciel, et le nom du patron sert de vocabulaire commun entre le concepteur et le programmeur. D'une manière analogue à un motif de conception en architecture, le patron de conception décrit les grandes lignes d'une solution, qui peuvent ensuite être modifiées et adaptées en fonction des besoins.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Patrons-de-conception-Creer-un-patron-singleton">Créer un patron singleton</a></div></div><br><h2 class="Title7 GTitle2" id="Patrons-de-conception-Creer-un-patron-singleton"><a class="Link9" href="#Patrons-de-conception">Créer un patron singleton</a></h2><br>Le <b>singleton </b>est un patron de conception dont l'objet est de restreindre l'instanciation d'une classe à un seul objet (ou bien à quelques objets seulement). Il est utilisé lorsque l'on a besoin d'exactement un objet pour coordonner des opérations dans un système. Le modèle est parfois utilisé pour son efficacité, lorsque le système est plus rapide ou occupe moins de mémoire avec peu d'objets qu'avec beaucoup d'objets similaires. On implémente le singleton en écrivant une classe contenant une méthode qui crée une instance uniquement s'il n'en existe pas encore. Sinon elle renvoie une référence vers l'objet qui existe déjà. Dans beaucoup de langages de type objet, il faudra veiller à ce que le constructeur de la classe soit privé ou bien protégé, afin de s'assurer que la classe ne puisse être instanciée autrement que par la méthode de création contrôlée. Le singleton doit être implémenté avec précaution dans les applications multi-thread. Si deux processus légers exécutent en même temps la méthode de création alors que l'objet unique n'existe pas encore, il faut absolument s'assurer qu'un seul créera l'objet, et que l'autre obtiendra une référence vers ce nouvel objet. La solution classique à ce problème consiste à utiliser l'exclusion mutuelle (mutex) pour indiquer que l'objet est en cours d'instanciation. Dans un langage à base de prototypes, où sont utilisés des objets mais pas des classes, un singleton désigne seulement un objet qui n'a pas de copies, et qui n'est pas utilisé comme prototype pour d'autres objets.<br><br><h3 class="Title8 GTitle3" id="Patrons-de-conception-Creer-un-patron-singleton-main-cpp"><a class="Title8" href="#Patrons-de-conception-Creer-un-patron-singleton">main.cpp</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_operator_add.png" alt="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_operator_add.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Patrons-de-conception"><a class="Link3" href="#">Patrons de conception</a></h1><div class="Body3"><br>Un <b>patron de conception</b> (design pattern) est un arrangement caractéristique de modules, reconnu comme bonne pratique en réponse à un problème de conception d'un logiciel. Il décrit une solution standard, utilisable dans la conception de différents logiciels. Un patron de conception est issu de l'expérience des concepteurs de logiciels. Il décrit un arrangement récurrent de rôles et d'actions joués par des modules d'un logiciel, et le nom du patron sert de vocabulaire commun entre le concepteur et le programmeur. D'une manière analogue à un motif de conception en architecture, le patron de conception décrit les grandes lignes d'une solution, qui peuvent ensuite être modifiées et adaptées en fonction des besoins.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Patrons-de-conception-Creer-un-patron-singleton">Créer un patron singleton</a></div></div><br><h2 class="Title7 GTitle2" id="Patrons-de-conception-Creer-un-patron-singleton"><a class="Link9" href="#Patrons-de-conception">Créer un patron singleton</a></h2><br>Le <b>singleton </b>est un patron de conception dont l'objet est de restreindre l'instanciation d'une classe à un seul objet (ou bien à quelques objets seulement). Il est utilisé lorsque l'on a besoin d'exactement un objet pour coordonner des opérations dans un système. Le modèle est parfois utilisé pour son efficacité, lorsque le système est plus rapide ou occupe moins de mémoire avec peu d'objets qu'avec beaucoup d'objets similaires. On implémente le singleton en écrivant une classe contenant une méthode qui crée une instance uniquement s'il n'en existe pas encore. Sinon elle renvoie une référence vers l'objet qui existe déjà. Dans beaucoup de langages de type objet, il faudra veiller à ce que le constructeur de la classe soit privé ou bien protégé, afin de s'assurer que la classe ne puisse être instanciée autrement que par la méthode de création contrôlée. Le singleton doit être implémenté avec précaution dans les applications multi-thread. Si deux processus légers exécutent en même temps la méthode de création alors que l'objet unique n'existe pas encore, il faut absolument s'assurer qu'un seul créera l'objet, et que l'autre obtiendra une référence vers ce nouvel objet. La solution classique à ce problème consiste à utiliser l'exclusion mutuelle (mutex) pour indiquer que l'objet est en cours d'instanciation. Dans un langage à base de prototypes, où sont utilisés des objets mais pas des classes, un singleton désigne seulement un objet qui n'a pas de copies, et qui n'est pas utilisé comme prototype pour d'autres objets.<br><br><h3 class="Title8 GTitle3" id="Patrons-de-conception-Creer-un-patron-singleton-main-cpp"><a class="Title8" href="#Patrons-de-conception-Creer-un-patron-singleton">main.cpp</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp" data-state="off">//===============================================
 #include "GDatabase.h"
 //===============================================
 int main(int argc, char** argv) {
@@ -1801,7 +1909,7 @@ int main(int argc, char** argv) {
     GDatabase::Instance()-&gt;save();
     return 0;
 }
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Patrons-de-conception-Creer-un-patron-singleton-GDatabase-h"><a class="Title8" href="#Patrons-de-conception-Creer-un-patron-singleton">GDatabase.h</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Patrons-de-conception-Creer-un-patron-singleton-GDatabase-h"><a class="Title8" href="#Patrons-de-conception-Creer-un-patron-singleton">GDatabase.h</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp" data-state="off">//===============================================
 #ifndef _GDatabase_
 #define _GDatabase_
 //===============================================
@@ -1825,7 +1933,7 @@ private:
 };
 //===============================================
 #endif
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Patrons-de-conception-Creer-un-patron-singleton-GDatabase-cpp"><a class="Title8" href="#Patrons-de-conception-Creer-un-patron-singleton">GDatabase.cpp</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Patrons-de-conception-Creer-un-patron-singleton-GDatabase-cpp"><a class="Title8" href="#Patrons-de-conception-Creer-un-patron-singleton">GDatabase.cpp</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp" data-state="off">//===============================================
 #include "GDatabase.h"
 //===============================================
 GDatabase* GDatabase::m_instance = 0;
@@ -1860,485 +1968,10 @@ void GDatabase::update() {
 void GDatabase::save() {
     printf("sauvegarder les donnees\n");
 }
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Patrons-de-conception-Creer-un-patron-singleton-Resultat"><a class="Title8" href="#Patrons-de-conception-Creer-un-patron-singleton">Résultat</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">ouvrir la base de donnees
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Patrons-de-conception-Creer-un-patron-singleton-Resultat"><a class="Title8" href="#Patrons-de-conception-Creer-un-patron-singleton">Résultat</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp" data-state="off">ouvrir la base de donnees
 charger les donnees
 mettre a jour les donnees
-sauvegarder les donnees</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Surchage-d-operateurs"><a class="Link3" href="#">Surchage d'opérateurs</a></h1><div class="Body3"><br>La <b>surcharge d'opérateurs</b> est une fonctionnalité offerte par certains langages de programmation qui permet d'utiliser des opérateurs (comme +, = ou ==) comme des fonctions ou des méthodes en les définissant pour de nouveaux types de données. Les opérateurs ne sont pas nécessairement des symboles. Parfois, la définition de nouveaux opérateurs est autorisée.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Surchage-d-operateurs-Creer-une-surcharge-de-l-operateur-d-affichage-----">Créer une surcharge de l'opérateur d'affichage (&lt;&lt;)</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Surchage-d-operateurs-Creer-un-constructeur-de-copie">Créer un constructeur de copie</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Surchage-d-operateurs-Creer-une-surcharge-de-l-operateur-d-affectation----">Créer une surcharge de l'opérateur d'affectation (=)</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Surchage-d-operateurs-Creer-une-surcharge-de-l-operateur-addition----">Créer une surcharge de l'opérateur addition (+)</a></div></div><br><h2 class="Title7 GTitle2" id="Surchage-d-operateurs-Creer-une-surcharge-de-l-operateur-d-affichage-----"><a class="Link9" href="#Surchage-d-operateurs">Créer une surcharge de l'opérateur d'affichage (&lt;&lt;)</a></h2><br><h3 class="Title8 GTitle3" id="Surchage-d-operateurs-Creer-une-surcharge-de-l-operateur-d-affichage------main-cpp"><a class="Title8" href="#Surchage-d-operateurs-Creer-une-surcharge-de-l-operateur-d-affichage-----">main.cpp</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
-#include "GMatrix.h"
-//===============================================
-int main(int argc, char** argv) {
-    GMatrix A(3, 3, {1, 2, 3, 4, 5, 6, 7, 8, 9});
-    std::cout &lt;&lt; A &lt;&lt; "\n";
-    return (0);
-}
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Surchage-d-operateurs-Creer-une-surcharge-de-l-operateur-d-affichage------GMatrix-h"><a class="Title8" href="#Surchage-d-operateurs-Creer-une-surcharge-de-l-operateur-d-affichage-----">GMatrix.h</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
-#ifndef _GMatrix_
-#define _GMatrix_
-//===============================================
-#include &lt;iostream&gt;
-#include &lt;vector&gt;
-//===============================================
-class GMatrix {
-public:
-    GMatrix(int row, int col, const std::vector&lt;double&gt;&amp; data);
-    ~GMatrix();
-
-public:
-    void set(int row, int col, double d);
-    double get(int row, int col) const;
-    void load(const std::vector&lt;double&gt;&amp; data);
-    void print() const;
-    
-public:
-    friend std::ostream&amp; operator&lt;&lt;(std::ostream&amp; os, const GMatrix&amp; m);
-    
-private:
-    double* m_data;
-    int m_row;
-    int m_col;
-};
-//===============================================
-#endif
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Surchage-d-operateurs-Creer-une-surcharge-de-l-operateur-d-affichage------GMatrix-cpp"><a class="Title8" href="#Surchage-d-operateurs-Creer-une-surcharge-de-l-operateur-d-affichage-----">GMatrix.cpp</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
-#include "GMatrix.h"
-//===============================================
-GMatrix::GMatrix(int w, int h, const std::vector&lt;double&gt;&amp; data) {
-    m_row = w;
-    m_col = h;
-    int lSize = m_row * m_col;
-    m_data = new double[lSize];
-    load(data);
-}
-//===============================================
-GMatrix::~GMatrix() {
-    delete[] m_data;
-}
-//===============================================
-void GMatrix::set(int row, int col, double d) {
-    int i = row * m_col + col;
-    m_data[i] = d;
-}
-//===============================================
-double GMatrix::get(int row, int col) const {
-    int i = row * m_col + col;
-    return m_data[i];
-}
-//===============================================
-void GMatrix::load(const std::vector&lt;double&gt;&amp; data) {
-    for(int row = 0; row &lt; m_row; row++) {
-        for(int col = 0; col &lt; m_col; col++) {
-            int i = row * m_col + col;
-            double lData = data[i];
-            set(row, col, lData);
-        }
-    }
-}
-//===============================================
-void GMatrix::print() const {
-    for(int row = 0; row &lt; m_row; row++) {
-        printf("| ");
-        for(int col = 0; col &lt; m_col; col++) {
-            if(col != 0) {printf(" | ");}
-            double d = get(row, col);
-            printf("%3.0f", d);
-        }
-        printf(" |");
-        printf("\n");
-    }
-}
-//===============================================
-std::ostream&amp; operator&lt;&lt;(std::ostream&amp; os, const GMatrix&amp; m) {
-    m.print();
-    return os;
-}
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Surchage-d-operateurs-Creer-une-surcharge-de-l-operateur-d-affichage------Resultat"><a class="Title8" href="#Surchage-d-operateurs-Creer-une-surcharge-de-l-operateur-d-affichage-----">Résultat</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">|   1 |   2 |   3 |
-|   4 |   5 |   6 |
-|   7 |   8 |   9 |</pre></div></div><br><h2 class="Title7 GTitle2" id="Surchage-d-operateurs-Creer-un-constructeur-de-copie"><a class="Link9" href="#Surchage-d-operateurs">Créer un constructeur de copie</a></h2><br><h3 class="Title8 GTitle3" id="Surchage-d-operateurs-Creer-un-constructeur-de-copie-main-cpp"><a class="Title8" href="#Surchage-d-operateurs-Creer-un-constructeur-de-copie">main.cpp</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
-#include "GMatrix.h"
-//===============================================
-int main(int argc, char** argv) {
-    GMatrix A(3, 3, {1, 2, 3, 4, 5, 6, 7, 8, 9});
-    std::cout &lt;&lt; A &lt;&lt; "\n";
-    GMatrix B(A);
-    std::cout &lt;&lt; B &lt;&lt; "\n";
-    return (0);
-}
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Surchage-d-operateurs-Creer-un-constructeur-de-copie-GMatrix-h"><a class="Title8" href="#Surchage-d-operateurs-Creer-un-constructeur-de-copie">GMatrix.h</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
-#ifndef _GMatrix_
-#define _GMatrix_
-//===============================================
-#include &lt;iostream&gt;
-#include &lt;vector&gt;
-//===============================================
-class GMatrix {
-public:
-    GMatrix(int row, int col, const std::vector&lt;double&gt;&amp; data);
-    GMatrix(const GMatrix&amp; m);
-    ~GMatrix();
-
-public:
-    void set(int row, int col, double d);
-    double get(int row, int col) const;
-    void load(const std::vector&lt;double&gt;&amp; data);
-    void load(const GMatrix&amp; m);
-    void print() const;
-    
-public:
-    friend std::ostream&amp; operator&lt;&lt;(std::ostream&amp; os, const GMatrix&amp; m);
-    
-private:
-    double* m_data;
-    int m_row;
-    int m_col;
-};
-//===============================================
-#endif
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Surchage-d-operateurs-Creer-un-constructeur-de-copie-GMatrix-cpp"><a class="Title8" href="#Surchage-d-operateurs-Creer-un-constructeur-de-copie">GMatrix.cpp</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
-#include "GMatrix.h"
-//===============================================
-GMatrix::GMatrix(int w, int h, const std::vector&lt;double&gt;&amp; data) {
-    m_row = w;
-    m_col = h;
-    int lSize = m_row * m_col;
-    m_data = new double[lSize];
-    load(data);
-}
-//===============================================
-GMatrix::GMatrix(const GMatrix&amp; m) {
-    m_row = m.m_row;
-    m_col = m.m_col;
-    int lSize = m_row * m_col;
-    m_data = new double[lSize];
-    load(m);
-}
-//===============================================
-GMatrix::~GMatrix() {
-    delete[] m_data;
-}
-//===============================================
-void GMatrix::set(int row, int col, double d) {
-    int i = row * m_col + col;
-    m_data[i] = d;
-}
-//===============================================
-double GMatrix::get(int row, int col) const {
-    int i = row * m_col + col;
-    return m_data[i];
-}
-//===============================================
-void GMatrix::load(const std::vector&lt;double&gt;&amp; data) {
-    for(int row = 0; row &lt; m_row; row++) {
-        for(int col = 0; col &lt; m_col; col++) {
-            int i = row * m_col + col;
-            double lData = data[i];
-            set(row, col, lData);
-        }
-    }
-}
-//===============================================
-void GMatrix::load(const GMatrix&amp; m) {
-    for(int row = 0; row &lt; m_row; row++) {
-        for(int col = 0; col &lt; m_col; col++) {
-            double lData = m.get(row, col);
-            set(row, col, lData);
-        }
-    }
-}
-//===============================================
-void GMatrix::print() const {
-    for(int row = 0; row &lt; m_row; row++) {
-        printf("| ");
-        for(int col = 0; col &lt; m_col; col++) {
-            if(col != 0) {printf(" | ");}
-            double d = get(row, col);
-            printf("%3.0f", d);
-        }
-        printf(" |");
-        printf("\n");
-    }
-}
-//===============================================
-std::ostream&amp; operator&lt;&lt;(std::ostream&amp; os, const GMatrix&amp; m) {
-    m.print();
-    return os;
-}
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Surchage-d-operateurs-Creer-un-constructeur-de-copie-Resultat"><a class="Title8" href="#Surchage-d-operateurs-Creer-un-constructeur-de-copie">Résultat</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">|   1 |   2 |   3 |
-|   4 |   5 |   6 |
-|   7 |   8 |   9 |
-
-|   1 |   2 |   3 |
-|   4 |   5 |   6 |
-|   7 |   8 |   9 |</pre></div></div><br><h2 class="Title7 GTitle2" id="Surchage-d-operateurs-Creer-une-surcharge-de-l-operateur-d-affectation----"><a class="Link9" href="#Surchage-d-operateurs">Créer une surcharge de l'opérateur d'affectation (=)</a></h2><br><h3 class="Title8 GTitle3" id="Surchage-d-operateurs-Creer-une-surcharge-de-l-operateur-d-affectation-----main-cpp"><a class="Title8" href="#Surchage-d-operateurs-Creer-une-surcharge-de-l-operateur-d-affectation----">main.cpp</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
-#include "GMatrix.h"
-//===============================================
-int main(int argc, char** argv) {
-    GMatrix A(3, 3, {1, 2, 3, 4, 5, 6, 7, 8, 9});
-    std::cout &lt;&lt; A &lt;&lt; "\n";
-    GMatrix B;
-    B = A;
-    std::cout &lt;&lt; B &lt;&lt; "\n";
-    return (0);
-}
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Surchage-d-operateurs-Creer-une-surcharge-de-l-operateur-d-affectation-----GMatrix-h"><a class="Title8" href="#Surchage-d-operateurs-Creer-une-surcharge-de-l-operateur-d-affectation----">GMatrix.h</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
-#ifndef _GMatrix_
-#define _GMatrix_
-//===============================================
-#include &lt;iostream&gt;
-#include &lt;vector&gt;
-//===============================================
-class GMatrix {
-public:
-    GMatrix();
-    GMatrix(int row, int col, const std::vector&lt;double&gt;&amp; data);
-    GMatrix(const GMatrix&amp; m);
-    ~GMatrix();
-
-public:
-    void set(int row, int col, double d);
-    double get(int row, int col) const;
-    void load(const std::vector&lt;double&gt;&amp; data);
-    void load(const GMatrix&amp; m);
-    void print() const;
-    
-public:
-    GMatrix&amp; operator=(const GMatrix&amp; m);
-
-public:
-    friend std::ostream&amp; operator&lt;&lt;(std::ostream&amp; os, const GMatrix&amp; m);
-    
-private:
-    double* m_data;
-    int m_row;
-    int m_col;
-};
-//===============================================
-#endif
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Surchage-d-operateurs-Creer-une-surcharge-de-l-operateur-d-affectation-----GMatrix-cpp"><a class="Title8" href="#Surchage-d-operateurs-Creer-une-surcharge-de-l-operateur-d-affectation----">GMatrix.cpp</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
-#include "GMatrix.h"
-//===============================================
-GMatrix::GMatrix() {
-    m_row = 0;
-    m_col = 0;
-    m_data = 0;
-}
-//===============================================
-GMatrix::GMatrix(int w, int h, const std::vector&lt;double&gt;&amp; data) {
-    m_row = w;
-    m_col = h;
-    int lSize = m_row * m_col;
-    m_data = new double[lSize];
-    load(data);
-}
-//===============================================
-GMatrix::GMatrix(const GMatrix&amp; m) {
-    m_row = m.m_row;
-    m_col = m.m_col;
-    int lSize = m_row * m_col;
-    m_data = new double[lSize];
-    load(m);
-}
-//===============================================
-GMatrix::~GMatrix() {
-    delete[] m_data;
-}
-//===============================================
-void GMatrix::set(int row, int col, double d) {
-    int i = row * m_col + col;
-    m_data[i] = d;
-}
-//===============================================
-double GMatrix::get(int row, int col) const {
-    int i = row * m_col + col;
-    return m_data[i];
-}
-//===============================================
-void GMatrix::load(const std::vector&lt;double&gt;&amp; data) {
-    for(int row = 0; row &lt; m_row; row++) {
-        for(int col = 0; col &lt; m_col; col++) {
-            int i = row * m_col + col;
-            double lData = data[i];
-            set(row, col, lData);
-        }
-    }
-}
-//===============================================
-void GMatrix::load(const GMatrix&amp; m) {
-    for(int row = 0; row &lt; m_row; row++) {
-        for(int col = 0; col &lt; m_col; col++) {
-            double lData = m.get(row, col);
-            set(row, col, lData);
-        }
-    }
-}
-//===============================================
-void GMatrix::print() const {
-    for(int row = 0; row &lt; m_row; row++) {
-        printf("| ");
-        for(int col = 0; col &lt; m_col; col++) {
-            if(col != 0) {printf(" | ");}
-            double d = get(row, col);
-            printf("%3.0f", d);
-        }
-        printf(" |");
-        printf("\n");
-    }
-}
-//===============================================
-GMatrix&amp; GMatrix::operator=(const GMatrix&amp; m) {
-    if(m_data != 0) {delete this;}
-    m_row = m.m_row;
-    m_col = m.m_col;
-    int lSize = m_row * m_col;
-    m_data = new double[lSize];
-    load(m);
-    return *this;
-}
-//===============================================
-std::ostream&amp; operator&lt;&lt;(std::ostream&amp; os, const GMatrix&amp; m) {
-    m.print();
-    return os;
-}
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Surchage-d-operateurs-Creer-une-surcharge-de-l-operateur-d-affectation-----Resultat"><a class="Title8" href="#Surchage-d-operateurs-Creer-une-surcharge-de-l-operateur-d-affectation----">Résultat</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">|   1 |   2 |   3 |
-|   4 |   5 |   6 |
-|   7 |   8 |   9 |
-
-|   1 |   2 |   3 |
-|   4 |   5 |   6 |
-|   7 |   8 |   9 |</pre></div></div><br><h2 class="Title7 GTitle2" id="Surchage-d-operateurs-Creer-une-surcharge-de-l-operateur-addition----"><a class="Link9" href="#Surchage-d-operateurs">Créer une surcharge de l'opérateur addition (+)</a></h2><br><h3 class="Title8 GTitle3" id="Surchage-d-operateurs-Creer-une-surcharge-de-l-operateur-addition-----main-cpp"><a class="Title8" href="#Surchage-d-operateurs-Creer-une-surcharge-de-l-operateur-addition----">main.cpp</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
-#include "GMatrix.h"
-//===============================================
-int main(int argc, char** argv) {
-    GMatrix A(3, 3, {1, 2, 3, 4, 5, 6, 7, 8, 9});
-    std::cout &lt;&lt; A &lt;&lt; "\n";
-    GMatrix B = A + A;
-    std::cout &lt;&lt; B &lt;&lt; "\n";
-    return (0);
-}
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Surchage-d-operateurs-Creer-une-surcharge-de-l-operateur-addition-----GMatrix-h"><a class="Title8" href="#Surchage-d-operateurs-Creer-une-surcharge-de-l-operateur-addition----">GMatrix.h</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
-#ifndef _GMatrix_
-#define _GMatrix_
-//===============================================
-#include &lt;iostream&gt;
-#include &lt;vector&gt;
-//===============================================
-class GMatrix {
-public:
-    GMatrix(int row, int col, const std::vector&lt;double&gt;&amp; data);
-    GMatrix(const GMatrix&amp; m);
-    ~GMatrix();
-
-public:
-    void set(int row, int col, double d);
-    double get(int row, int col) const;
-    void load(const std::vector&lt;double&gt;&amp; data);
-    void load(const GMatrix&amp; m);
-    void add(const GMatrix&amp; m);
-    void print() const;
-    
-public:
-    friend std::ostream&amp; operator&lt;&lt;(std::ostream&amp; os, const GMatrix&amp; m);
-    friend GMatrix operator+(GMatrix const&amp; a, GMatrix const&amp; b);
-    
-private:
-    double* m_data;
-    int m_row;
-    int m_col;
-};
-//===============================================
-#endif
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Surchage-d-operateurs-Creer-une-surcharge-de-l-operateur-addition-----GMatrix-cpp"><a class="Title8" href="#Surchage-d-operateurs-Creer-une-surcharge-de-l-operateur-addition----">GMatrix.cpp</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
-#include "GMatrix.h"
-//===============================================
-GMatrix::GMatrix(int w, int h, const std::vector&lt;double&gt;&amp; data) {
-    m_row = w;
-    m_col = h;
-    int lSize = m_row * m_col;
-    m_data = new double[lSize];
-    load(data);
-}
-//===============================================
-GMatrix::GMatrix(const GMatrix&amp; m) {
-    m_row = m.m_row;
-    m_col = m.m_col;
-    int lSize = m_row * m_col;
-    m_data = new double[lSize];
-    load(m);
-}
-//===============================================
-GMatrix::~GMatrix() {
-    delete[] m_data;
-}
-//===============================================
-void GMatrix::set(int row, int col, double d) {
-    int i = row * m_col + col;
-    m_data[i] = d;
-}
-//===============================================
-double GMatrix::get(int row, int col) const {
-    int i = row * m_col + col;
-    return m_data[i];
-}
-//===============================================
-void GMatrix::load(const std::vector&lt;double&gt;&amp; data) {
-    for(int row = 0; row &lt; m_row; row++) {
-        for(int col = 0; col &lt; m_col; col++) {
-            int i = row * m_col + col;
-            double lData = data[i];
-            set(row, col, lData);
-        }
-    }
-}
-//===============================================
-void GMatrix::load(const GMatrix&amp; m) {
-    for(int row = 0; row &lt; m_row; row++) {
-        for(int col = 0; col &lt; m_col; col++) {
-            double lData = m.get(row, col);
-            set(row, col, lData);
-        }
-    }
-}
-//===============================================
-void GMatrix::add(const GMatrix&amp; m) {
-    for(int row = 0; row &lt; m_row; row++) {
-        for(int col = 0; col &lt; m_col; col++) {
-            double Ai = m.get(row, col);
-            double Bi = get(row, col);
-            double Ci = Ai + Bi;
-            set(row, col, Ci);
-        }
-    }
-}
-//===============================================
-void GMatrix::print() const {
-    for(int row = 0; row &lt; m_row; row++) {
-        printf("| ");
-        for(int col = 0; col &lt; m_col; col++) {
-            if(col != 0) {printf(" | ");}
-            double d = get(row, col);
-            printf("%3.0f", d);
-        }
-        printf(" |");
-        printf("\n");
-    }
-}
-//===============================================
-std::ostream&amp; operator&lt;&lt;(std::ostream&amp; os, const GMatrix&amp; m) {
-    m.print();
-    return os;
-}
-//===============================================
-GMatrix operator+(GMatrix const&amp; a, GMatrix const&amp; b) {
-    GMatrix c(a);
-    c.add(b);
-    return c;
-}
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Surchage-d-operateurs-Creer-une-surcharge-de-l-operateur-addition-----Resultat"><a class="Title8" href="#Surchage-d-operateurs-Creer-une-surcharge-de-l-operateur-addition----">Résultat</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">|   1 |   2 |   3 |
-|   4 |   5 |   6 |
-|   7 |   8 |   9 |
-
-|   2 |   4 |   6 |
-|   8 |  10 |  12 |
-|  14 |  16 |  18 |</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Manager-de-donnees"><a class="Link3" href="#">Manager de données</a></h1><div class="Body3"><br>Le <b>manager de données</b> que nous présentons ici est une architecture logicielle permettant d'accéder à toutes les données de notre application.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Manager-de-donnees-main-cpp">main.cpp</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Manager-de-donnees-GManager-h">GManager.h</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Manager-de-donnees-GManager-cpp">GManager.cpp</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Manager-de-donnees-Resultat">Résultat</a></div></div><br><h2 class="Title7 GTitle2" id="Manager-de-donnees-main-cpp"><a class="Link9" href="#Manager-de-donnees">main.cpp</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+sauvegarder les donnees</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Manager-de-donnees"><a class="Link3" href="#">Manager de données</a></h1><div class="Body3"><br>Le <b>manager de données</b> que nous présentons ici est une architecture logicielle permettant d'accéder à toutes les données de notre application.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Manager-de-donnees-main-cpp">main.cpp</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Manager-de-donnees-GManager-h">GManager.h</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Manager-de-donnees-GManager-cpp">GManager.cpp</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Manager-de-donnees-Resultat">Résultat</a></div></div><br><h2 class="Title7 GTitle2" id="Manager-de-donnees-main-cpp"><a class="Link9" href="#Manager-de-donnees">main.cpp</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 #include "GManager.h"
 //===============================================
 int main(int argc, char** argv) {
