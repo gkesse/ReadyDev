@@ -1679,7 +1679,58 @@ void GClassA::print() const {
     printf("Name.....: %s\n", m_name.c_str());
     printf("Email....: %s\n", m_email.c_str());
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_interface.png" alt="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_interface.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Patrons-de-conception"><a class="Link3" href="#">Patrons de conception</a></h1><div class="Body3"><br>Un <b>patron de conception</b> (design pattern) est un arrangement caractéristique de modules, reconnu comme bonne pratique en réponse à un problème de conception d'un logiciel. Il décrit une solution standard, utilisable dans la conception de différents logiciels. Un patron de conception est issu de l'expérience des concepteurs de logiciels. Il décrit un arrangement récurrent de rôles et d'actions joués par des modules d'un logiciel, et le nom du patron sert de vocabulaire commun entre le concepteur et le programmeur. D'une manière analogue à un motif de conception en architecture, le patron de conception décrit les grandes lignes d'une solution, qui peuvent ensuite être modifiées et adaptées en fonction des besoins.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Patrons-de-conception-Creer-un-patron-singleton"><a class="Link9" href="#Patrons-de-conception">Créer un patron singleton</a></h2><br>Le <b>singleton </b>est un patron de conception dont l'objet est de restreindre l'instanciation d'une classe à un seul objet (ou bien à quelques objets seulement). Il est utilisé lorsque l'on a besoin d'exactement un objet pour coordonner des opérations dans un système. Le modèle est parfois utilisé pour son efficacité, lorsque le système est plus rapide ou occupe moins de mémoire avec peu d'objets qu'avec beaucoup d'objets similaires. On implémente le singleton en écrivant une classe contenant une méthode qui crée une instance uniquement s'il n'en existe pas encore. Sinon elle renvoie une référence vers l'objet qui existe déjà. Dans beaucoup de langages de type objet, il faudra veiller à ce que le constructeur de la classe soit privé ou bien protégé, afin de s'assurer que la classe ne puisse être instanciée autrement que par la méthode de création contrôlée. Le singleton doit être implémenté avec précaution dans les applications multi-thread. Si deux processus légers exécutent en même temps la méthode de création alors que l'objet unique n'existe pas encore, il faut absolument s'assurer qu'un seul créera l'objet, et que l'autre obtiendra une référence vers ce nouvel objet. La solution classique à ce problème consiste à utiliser l'exclusion mutuelle (mutex) pour indiquer que l'objet est en cours d'instanciation. Dans un langage à base de prototypes, où sont utilisés des objets mais pas des classes, un singleton désigne seulement un objet qui n'a pas de copies, et qui n'est pas utilisé comme prototype pour d'autres objets.<br><br><h3 class="Title8 GTitle3" id="Patrons-de-conception-Creer-un-patron-singleton-main-cpp"><a class="Title8" href="#Patrons-de-conception-Creer-un-patron-singleton">main.cpp</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_interface.png" alt="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_interface.png"></div><br><h2 class="Title7 GTitle2" id="Programmation-orientee-objet-Surchage-d-operateurs"><a class="Link9" href="#Programmation-orientee-objet">Surchage d'opérateurs</a></h2><br>Cette opération permet d'<b>associer des méthodes à des opérateurs</b> et de les appliquer sur des objets.<br><br><div class="Content0 GSummary3"><div class="Row26">Summary 3</div></div><br><h3 class="GTitle3" id="Programmation-orientee-objet-Surchage-d-operateurs-Surchage-de-l-operateur-d-affichage-----"><a class="Title8" href="#Programmation-orientee-objet-Surchage-d-operateurs">Surchage de l'opérateur d'affichage (&lt;&lt;)</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GCppUi::run(int _argc, char** _argv) {
+    GClass lObjA(100);
+    std::cout &lt;&lt; "lObjA...: " &lt;&lt; lObjA &lt;&lt; "\n";
+}
+//===============================================</pre></div></div><br>Implémentation de la surcharge de l'opérateur d'affichage (.cpp)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+std::ostream&amp; operator&lt;&lt;(std::ostream&amp; _os, const GClass&amp; _c) {
+    _os &lt;&lt; _c.m_data;
+    return _os;
+}
+//===============================================</pre></div></div><br>Implémentation de la surcharge de l'opérateur d'affichage (.h)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+class GClass {
+public:
+    GClass();
+    GClass(int _data);
+    GClass(const GClass&amp; _class);
+    virtual ~GClass();
+
+public:
+    friend std::ostream&amp; operator&lt;&lt;(std::ostream&amp; _os, const GClass&amp; _c);
+
+protected:
+    int m_data;
+};
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_operator_print.png" alt="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_operator_print.png"></div><br><h3 class="GTitle3" id="Programmation-orientee-objet-Surchage-d-operateurs-Surchage-de-l-operateur-d-affectation----"><a class="Title8" href="#Programmation-orientee-objet-Surchage-d-operateurs">Surchage de l'opérateur d'affectation (=)</a></h3><br>Cette opération permet d'<b>affecter un objet à un autre objet</b>.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GCppUi::run(int _argc, char** _argv) {
+    GClass lObj("Gerard KESSE");
+    GClass lObjA = lObj;
+    GClass lObjB;
+    lObjB = lObj;
+}
+//===============================================</pre></div></div><br>Implémenation de la surcharge de l'opérateur affectation (.cpp)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+GClass&amp; GClass::operator=(const GClass&amp; _class) {
+    printf("Je suis l'operateur d'affectation (=)\n");
+    m_name = _class.m_name;
+    return *this;
+}
+//===============================================</pre></div></div><br>Déclaration de la surcharge de l'opérateur affectation (.h)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+class GClass {
+public:
+    GClass();
+    GClass(const std::string&amp; _name);
+    GClass(const GClass&amp; _class);
+    ~GClass();
+
+public:
+    GClass&amp; operator=(const GClass&amp; _class);
+
+private:
+    std::string m_name;
+};
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_operator_assign.png" alt="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_operator_assign.png"></div><br><h3 class="GTitle3" id="Programmation-orientee-objet-Surchage-d-operateurs-Surcharge-de-l-operateur-addition----"><a class="Title8" href="#Programmation-orientee-objet-Surchage-d-operateurs">Surcharge de l'opérateur addition (+)</a></h3><br><br><br><br><br><br><br><br><br><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Patrons-de-conception"><a class="Link3" href="#">Patrons de conception</a></h1><div class="Body3"><br>Un <b>patron de conception</b> (design pattern) est un arrangement caractéristique de modules, reconnu comme bonne pratique en réponse à un problème de conception d'un logiciel. Il décrit une solution standard, utilisable dans la conception de différents logiciels. Un patron de conception est issu de l'expérience des concepteurs de logiciels. Il décrit un arrangement récurrent de rôles et d'actions joués par des modules d'un logiciel, et le nom du patron sert de vocabulaire commun entre le concepteur et le programmeur. D'une manière analogue à un motif de conception en architecture, le patron de conception décrit les grandes lignes d'une solution, qui peuvent ensuite être modifiées et adaptées en fonction des besoins.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Patrons-de-conception-Creer-un-patron-singleton"><a class="Link9" href="#Patrons-de-conception">Créer un patron singleton</a></h2><br>Le <b>singleton </b>est un patron de conception dont l'objet est de restreindre l'instanciation d'une classe à un seul objet (ou bien à quelques objets seulement). Il est utilisé lorsque l'on a besoin d'exactement un objet pour coordonner des opérations dans un système. Le modèle est parfois utilisé pour son efficacité, lorsque le système est plus rapide ou occupe moins de mémoire avec peu d'objets qu'avec beaucoup d'objets similaires. On implémente le singleton en écrivant une classe contenant une méthode qui crée une instance uniquement s'il n'en existe pas encore. Sinon elle renvoie une référence vers l'objet qui existe déjà. Dans beaucoup de langages de type objet, il faudra veiller à ce que le constructeur de la classe soit privé ou bien protégé, afin de s'assurer que la classe ne puisse être instanciée autrement que par la méthode de création contrôlée. Le singleton doit être implémenté avec précaution dans les applications multi-thread. Si deux processus légers exécutent en même temps la méthode de création alors que l'objet unique n'existe pas encore, il faut absolument s'assurer qu'un seul créera l'objet, et que l'autre obtiendra une référence vers ce nouvel objet. La solution classique à ce problème consiste à utiliser l'exclusion mutuelle (mutex) pour indiquer que l'objet est en cours d'instanciation. Dans un langage à base de prototypes, où sont utilisés des objets mais pas des classes, un singleton désigne seulement un objet qui n'a pas de copies, et qui n'est pas utilisé comme prototype pour d'autres objets.<br><br><h3 class="Title8 GTitle3" id="Patrons-de-conception-Creer-un-patron-singleton-main-cpp"><a class="Title8" href="#Patrons-de-conception-Creer-un-patron-singleton">main.cpp</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include "GDatabase.h"
 //===============================================
 int main(int argc, char** argv) {
