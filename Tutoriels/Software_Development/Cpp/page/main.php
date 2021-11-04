@@ -2078,79 +2078,117 @@ public:
 protected:
     int m_data;
 };
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_operator_and_assign.png" alt="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_operator_and_assign.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Patrons-de-conception"><a class="Link3" href="#">Patrons de conception</a></h1><div class="Body3"><br>Un <b>patron de conception</b> (design pattern) est un arrangement caractéristique de modules, reconnu comme bonne pratique en réponse à un problème de conception d'un logiciel. Il décrit une solution standard, utilisable dans la conception de différents logiciels. Un patron de conception est issu de l'expérience des concepteurs de logiciels. Il décrit un arrangement récurrent de rôles et d'actions joués par des modules d'un logiciel, et le nom du patron sert de vocabulaire commun entre le concepteur et le programmeur. D'une manière analogue à un motif de conception en architecture, le patron de conception décrit les grandes lignes d'une solution, qui peuvent ensuite être modifiées et adaptées en fonction des besoins.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Patrons-de-conception-Creer-un-patron-singleton"><a class="Link9" href="#Patrons-de-conception">Créer un patron singleton</a></h2><br>Le <b>singleton </b>est un patron de conception dont l'objet est de restreindre l'instanciation d'une classe à un seul objet (ou bien à quelques objets seulement). Il est utilisé lorsque l'on a besoin d'exactement un objet pour coordonner des opérations dans un système. Le modèle est parfois utilisé pour son efficacité, lorsque le système est plus rapide ou occupe moins de mémoire avec peu d'objets qu'avec beaucoup d'objets similaires. On implémente le singleton en écrivant une classe contenant une méthode qui crée une instance uniquement s'il n'en existe pas encore. Sinon elle renvoie une référence vers l'objet qui existe déjà. Dans beaucoup de langages de type objet, il faudra veiller à ce que le constructeur de la classe soit privé ou bien protégé, afin de s'assurer que la classe ne puisse être instanciée autrement que par la méthode de création contrôlée. Le singleton doit être implémenté avec précaution dans les applications multi-thread. Si deux processus légers exécutent en même temps la méthode de création alors que l'objet unique n'existe pas encore, il faut absolument s'assurer qu'un seul créera l'objet, et que l'autre obtiendra une référence vers ce nouvel objet. La solution classique à ce problème consiste à utiliser l'exclusion mutuelle (mutex) pour indiquer que l'objet est en cours d'instanciation. Dans un langage à base de prototypes, où sont utilisés des objets mais pas des classes, un singleton désigne seulement un objet qui n'a pas de copies, et qui n'est pas utilisé comme prototype pour d'autres objets.<br><br><h3 class="Title8 GTitle3" id="Patrons-de-conception-Creer-un-patron-singleton-main-cpp"><a class="Title8" href="#Patrons-de-conception-Creer-un-patron-singleton">main.cpp</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp" data-state="off">//===============================================
-#include "GDatabase.h"
-//===============================================
-int main(int argc, char** argv) {
-    GDatabase::Instance()-&gt;open();
-    GDatabase::Instance()-&gt;load();
-    GDatabase::Instance()-&gt;update();
-    GDatabase::Instance()-&gt;save();
-    return 0;
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_operator_and_assign.png" alt="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_operator_and_assign.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Patrons-de-conception"><a class="Link3" href="#">Patrons de conception</a></h1><div class="Body3"><br>Les <b>patrons de conception</b> permettent de proposer des modèles de conception à des problèmes de conception rencontrés en développement logiciel.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Patrons-de-conception-Patrons-de-creation"><a class="Link9" href="#Patrons-de-conception">Patrons de création</a></h2><br>Les <b>patrons de création</b> permettent de résoudre les problèmes liés à la création et la configuration d'objets.<br><br><div class="Content0 GSummary3"><div class="Row26">Summary 3</div></div><br><h3 class="GTitle3" id="Patrons-de-conception-Patrons-de-creation-Patron-singleton"><a class="Title8" href="#Patrons-de-conception-Patrons-de-creation">Patron singleton</a></h3><br>Le patron singleton permet de <b>restreindre l'instanciation d'une classe</b> à un seul objet. <br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GCppUi::run(int _argc, char** _argv) {
+    GClass::Instance()-&gt;run();
+    GClass::Instance()-&gt;run();
 }
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Patrons-de-conception-Creer-un-patron-singleton-GDatabase-h"><a class="Title8" href="#Patrons-de-conception-Creer-un-patron-singleton">GDatabase.h</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp" data-state="off">//===============================================
-#ifndef _GDatabase_
-#define _GDatabase_
-//===============================================
-#include &lt;iostream&gt;
-#include &lt;string&gt;
-//===============================================
-class GDatabase {
+//===============================================</pre></div></div><br>Déclaration du singleton (.h)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+class GClass {
 public:
-    GDatabase();
-    ~GDatabase();
+    GClass();
+    ~GClass();
+    static GClass* Instance();
+    void run();
 
-public:
-    static GDatabase* Instance();
-    void open();
-    void load();
-    void update();
-    void save();
-    
 private:
-    static GDatabase* m_instance;
+    static GClass* m_instance;
 };
+//===============================================</pre></div></div><br>Implémentation du singleton (.cpp)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+GClass* GClass::m_instance = 0;
 //===============================================
-#endif
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Patrons-de-conception-Creer-un-patron-singleton-GDatabase-cpp"><a class="Title8" href="#Patrons-de-conception-Creer-un-patron-singleton">GDatabase.cpp</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp" data-state="off">//===============================================
-#include "GDatabase.h"
-//===============================================
-GDatabase* GDatabase::m_instance = 0;
-//===============================================
-GDatabase::GDatabase() {
-
+GClass::GClass() {
+    printf("appel du constructeur\n");
 }
 //===============================================
-GDatabase::~GDatabase() {
+GClass::~GClass() {
     
 }
 //===============================================
-GDatabase* GDatabase::Instance() {
+GClass* GClass::Instance() {
     if(m_instance == 0) {
-        m_instance = new GDatabase;
+    	m_instance = new GClass;
     }
     return m_instance;
 }
 //===============================================
-void GDatabase::open() {
-    printf("ouvrir la base de donnees\n");
+void GClass::run() {
+    printf("appel de la methode (run)\n");
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_design_creation_singleton.png" alt="/Tutoriels/Software_Development/Cpp/img/i_design_creation_singleton.png"></div><br><h3 class="GTitle3" id="Patrons-de-conception-Patrons-de-creation-Patron-prototype"><a class="Title8" href="#Patrons-de-conception-Patrons-de-creation">Patron prototype</a></h3><br>Le patron prototype permet de <b>faciliter le création d'un objet complexe</b> à partir d'un objet de référence et une méthode de clonage.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GCppUi::run(int _argc, char** _argv) {
+    printf("### creation de la reference\n");
+    GClass* lRefA = new GClassA("Gerard KESSE", "gerard.kesse@readydev.com");
+    lRefA-&gt;print();
+    printf("### clonage de la reference\n");
+    GClass* lObjA = lRefA-&gt;clone();
+    lObjA-&gt;print();
+}
+//===============================================</pre></div></div><br>Déclaration de la classe mère (.h)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+class GClass {
+public:
+    GClass();
+    GClass(const std::string&amp; _name);
+    virtual ~GClass();
+    virtual GClass* clone() const = 0;
+    virtual void print() const = 0;
+
+protected:
+    std::string m_name;
+};
+//===============================================</pre></div></div><br>Implémentation de la classe mère (.cpp)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+GClass::GClass() {
+
 }
 //===============================================
-void GDatabase::load() {
-    printf("charger les donnees\n");
+GClass::GClass(const std::string&amp; _name) {
+    m_name = _name;
 }
 //===============================================
-void GDatabase::update() {
-    printf("mettre a jour les donnees\n");
+GClass::~GClass() {
+
+}
+//===============================================</pre></div></div><br>Déclaration de la classe fille (.h)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+class GClassA : public GClass {
+public:
+    GClassA();
+    GClassA(const std::string&amp; _name, const std::string&amp; _email);
+    GClassA(const GClassA&amp; _c);
+    ~GClassA();
+    GClass* clone() const;
+    void print() const;
+
+private:
+    std::string m_email;
+};
+//===============================================</pre></div></div><br>Implémentation de la classe fille (.cpp)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+GClassA::GClassA() {
+
 }
 //===============================================
-void GDatabase::save() {
-    printf("sauvegarder les donnees\n");
+GClassA::GClassA(const std::string&amp; _name, const std::string&amp; _email) :
+GClass(_name) {
+	m_email = _email;
 }
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Patrons-de-conception-Creer-un-patron-singleton-Resultat"><a class="Title8" href="#Patrons-de-conception-Creer-un-patron-singleton">Résultat</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp" data-state="off">ouvrir la base de donnees
-charger les donnees
-mettre a jour les donnees
-sauvegarder les donnees</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Manager-de-donnees"><a class="Link3" href="#">Manager de données</a></h1><div class="Body3"><br>Le <b>manager de données</b> que nous présentons ici est une architecture logicielle permettant d'accéder à toutes les données de notre application.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Manager-de-donnees-main-cpp"><a class="Link9" href="#Manager-de-donnees">main.cpp</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================
+GClassA::GClassA(const GClassA&amp; _c) :
+GClass(_c.m_name) {
+	m_email = _c.m_email;
+}
+//===============================================
+GClassA::~GClassA() {
+
+}
+//===============================================
+GClass* GClassA::clone() const {
+    return new GClassA(*this);
+}
+//===============================================
+void GClassA::print() const {
+    printf("Name.....: %s\n", m_name.c_str());
+    printf("Email....: %s\n", m_email.c_str());
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_design_creation_prototype.png" alt="/Tutoriels/Software_Development/Cpp/img/i_design_creation_prototype.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Manager-de-donnees"><a class="Link3" href="#">Manager de données</a></h1><div class="Body3"><br>Le <b>manager de données</b> que nous présentons ici est une architecture logicielle permettant d'accéder à toutes les données de notre application.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Manager-de-donnees-main-cpp"><a class="Link9" href="#Manager-de-donnees">main.cpp</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 #include "GManager.h"
 //===============================================
 int main(int argc, char** argv) {
