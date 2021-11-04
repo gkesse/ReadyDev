@@ -2188,7 +2188,60 @@ void GClassA::print() const {
     printf("Name.....: %s\n", m_name.c_str());
     printf("Email....: %s\n", m_email.c_str());
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_design_creation_prototype.png" alt="/Tutoriels/Software_Development/Cpp/img/i_design_creation_prototype.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Manager-de-donnees"><a class="Link3" href="#">Manager de données</a></h1><div class="Body3"><br>Le <b>manager de données</b> que nous présentons ici est une architecture logicielle permettant d'accéder à toutes les données de notre application.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Manager-de-donnees-main-cpp"><a class="Link9" href="#Manager-de-donnees">main.cpp</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_design_creation_prototype.png" alt="/Tutoriels/Software_Development/Cpp/img/i_design_creation_prototype.png"></div><br><h3 class="GTitle3" id="Patrons-de-conception-Patrons-de-creation-Patron-fabrique"><a class="Title8" href="#Patrons-de-conception-Patrons-de-creation">Patron fabrique</a></h3><br>Le patron fabrique permet de <b>créer des objets de types différents</b> à partir d'un paramètre.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GCppUi::run(int _argc, char** _argv) {
+    GClass* lObj = 0;
+    lObj = GClass::Create("class");
+    lObj-&gt;run();
+    lObj = GClass::Create("classa");
+    lObj-&gt;run();
+}
+//===============================================</pre></div></div><br>Déclaration de la classe mère (.h)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+class GClass {
+public:
+    GClass();
+    virtual ~GClass();
+    static GClass* Create(const std::string&amp; _key);
+    virtual void run() const;
+};
+//===============================================</pre></div></div><br>Implémentation de la classe mère (.cpp)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+GClass::GClass() {
+
+}
+//===============================================
+GClass::~GClass() {
+
+}
+//===============================================
+GClass* GClass::Create(const std::string&amp; _key) {
+    if(_key == "class") return new GClass;
+    if(_key == "classa") return new GClassA;
+    return new GClass;
+}
+//===============================================
+void GClass::run() const {
+    printf("appel de la methode par defaut (run)\n");
+}
+//===============================================</pre></div></div><br>Déclaration de la classe fille (.h)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+class GClassA : public GClass {
+public:
+    GClassA();
+    ~GClassA();
+    void run() const;
+};
+//===============================================</pre></div></div><br>Implémentation de la classe fille (.cpp)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+GClassA::GClassA() {
+
+}
+//===============================================
+GClassA::~GClassA() {
+
+}
+//===============================================
+void GClassA::run() const {
+    printf("appel de la methode concrete (run) \n");
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_design_creation_fabrique.png" alt="/Tutoriels/Software_Development/Cpp/img/i_design_creation_fabrique.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Manager-de-donnees"><a class="Link3" href="#">Manager de données</a></h1><div class="Body3"><br>Le <b>manager de données</b> que nous présentons ici est une architecture logicielle permettant d'accéder à toutes les données de notre application.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Manager-de-donnees-main-cpp"><a class="Link9" href="#Manager-de-donnees">main.cpp</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 #include "GManager.h"
 //===============================================
 int main(int argc, char** argv) {
