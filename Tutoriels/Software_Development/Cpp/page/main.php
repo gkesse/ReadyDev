@@ -1300,7 +1300,42 @@ public:
     GClass();
     ~GClass();
 };
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_destructor.png" alt="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_destructor.png"></div><br><h3 class="GTitle3" id="Programmation-orientee-objet-Fondamentaux-Creation-d-un-mutateur--setter-"><a class="Title8" href="#Programmation-orientee-objet-Fondamentaux">Création d'un mutateur (setter)</a></h3><br>Cette opération permet d'<b>initialiser un attribut</b> d'un objet depuis l'extérieur.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_destructor.png" alt="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_destructor.png"></div><br><h3 class="GTitle3" id="Programmation-orientee-objet-Fondamentaux-Creation-d-un-constructeur-de-copie"><a class="Title8" href="#Programmation-orientee-objet-Fondamentaux">Création d'un constructeur de copie</a></h3><br>Cette opération permet d'<b>initialiser un objet avec un autre objet</b> au moment de la déclaration de l'objet.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GCppUi::run(int _argc, char** _argv) {
+    GClass lObj("Gerard KESSE");
+    GClass lObjA(lObj);
+    GClass lObjB = lObj;
+}
+//===============================================</pre></div></div><br>Implémentation du constructeur de copie (.cpp)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+GClass::GClass() {
+    printf("Je suis le constructeur\n");
+}
+//===============================================
+GClass::GClass(const std::string&amp; _name) {
+    printf("Je suis le constructeur (2)\n");
+    m_name = _name;
+}
+//===============================================
+GClass::GClass(const GClass&amp; _class) {
+    printf("Je suis le constructeur de copie\n");
+    m_name = _class.m_name;
+}
+//===============================================
+GClass::~GClass() {
+    printf("Je suis le destructeur\n");
+}
+//===============================================</pre></div></div><br>Déclaration du constructeur de copie (.h)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+class GClass {
+public:
+    GClass();
+    GClass(const std::string&amp; _name);
+    GClass(const GClass&amp; _class);
+    virtual ~GClass();
+
+protected:
+    std::string m_name;
+};
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_copy_constructor.png" alt="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_copy_constructor.png"></div><br><h3 class="GTitle3" id="Programmation-orientee-objet-Fondamentaux-Creation-d-un-mutateur--setter-"><a class="Title8" href="#Programmation-orientee-objet-Fondamentaux">Création d'un mutateur (setter)</a></h3><br>Cette opération permet d'<b>initialiser un attribut</b> d'un objet depuis l'extérieur.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GCppUi::run(int _argc, char** _argv) {
     GClass lObj;
     lObj.setName("Gerard KESSE");
