@@ -2241,7 +2241,123 @@ GClassA::~GClassA() {
 void GClassA::run() const {
     printf("appel de la methode concrete (run) \n");
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_design_creation_fabrique.png" alt="/Tutoriels/Software_Development/Cpp/img/i_design_creation_fabrique.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Manager-de-donnees"><a class="Link3" href="#">Manager de données</a></h1><div class="Body3"><br>Le <b>manager de données</b> que nous présentons ici est une architecture logicielle permettant d'accéder à toutes les données de notre application.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Manager-de-donnees-main-cpp"><a class="Link9" href="#Manager-de-donnees">main.cpp</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_design_creation_fabrique.png" alt="/Tutoriels/Software_Development/Cpp/img/i_design_creation_fabrique.png"></div><br><h3 class="GTitle3" id="Patrons-de-conception-Patrons-de-creation-Patron-monteur"><a class="Title8" href="#Patrons-de-conception-Patrons-de-creation">Patron monteur</a></h3><br>Le patron monteur permet de <b>construire une variété d'objets complexes</b> à partir d'un objet de référence.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GCppUi::run(int _argc, char** _argv) {
+    GClass* lBuilderA = new GClassA;
+    GClass* lBuilderB = new GClassB;
+    GClassC* lServer = new GClassC;
+    printf("### montage de l'objet avec la reference (A)\n");
+    lServer-&gt;setBuilder(lBuilderA);
+    lServer-&gt;build();
+    printf("### montage de l'objet avec la reference (B)\n");
+    lServer-&gt;setBuilder(lBuilderB);
+    lServer-&gt;build();
+}
+//===============================================</pre></div></div><br>Déclaration de la classe mère (.h)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+class GClass {
+public:
+    GClass();
+    virtual ~GClass();
+    virtual void pastry() = 0;
+    virtual void sauce() = 0;
+    virtual void garnish() = 0;
+};
+//===============================================</pre></div></div><br>Implémentation de la classe mère (.cpp)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+GClass::GClass() {
+
+}
+//===============================================
+GClass::~GClass() {
+
+}
+//===============================================</pre></div></div><br>Déclaration de la classe fille A (.h)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+class GClassA : public GClass {
+public:
+    GClassA();
+    ~GClassA();
+    void pastry();
+    void sauce();
+    void garnish();
+};
+//===============================================</pre></div></div><br>Implémentation de la classe fille A (.cpp)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+GClassA::GClassA() {
+
+}
+//===============================================
+GClassA::~GClassA() {
+
+}
+//===============================================
+void GClassA::pastry() {
+    printf("ajouter les pates (A) \n");
+}
+//===============================================
+void GClassA::sauce() {
+    printf("ajouter la sauce (A) \n");
+}
+//===============================================
+void GClassA::garnish() {
+    printf("ajouter les garnitures (A) \n");
+}
+//===============================================</pre></div></div><br>Déclaration de la classe fille B (.h)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+class GClassB : public GClass {
+public:
+    GClassB();
+    ~GClassB();
+    void pastry();
+    void sauce();
+    void garnish();
+};
+//===============================================</pre></div></div><br>Implémentation de la classe fille B (.cpp)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+GClassB::GClassB() {
+
+}
+//===============================================
+GClassB::~GClassB() {
+
+}
+//===============================================
+void GClassB::pastry() {
+    printf("ajouter les pates (B) \n");
+}
+//===============================================
+void GClassB::sauce() {
+    printf("ajouter la sauce (B) \n");
+}
+//===============================================
+void GClassB::garnish() {
+    printf("ajouter les garnitures (B) \n");
+}
+//===============================================</pre></div></div><br>Déclaration du serveur (.h)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+class GClassC {
+public:
+    GClassC();
+    ~GClassC();
+    void setBuilder(GClass* _builder);
+    void build();
+
+private:
+    GClass* m_builder;
+};
+//===============================================</pre></div></div><br>Implémentation du serveur (.cpp)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+GClassC::GClassC() {
+	m_builder = 0;
+}
+//===============================================
+GClassC::~GClassC() {
+
+}
+//===============================================
+void GClassC::setBuilder(GClass* _builder) {
+	m_builder = _builder;
+}
+//===============================================
+void GClassC::build() {
+	m_builder-&gt;pastry();
+	m_builder-&gt;sauce();
+	m_builder-&gt;garnish();
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_design_creation_builder.png" alt="/Tutoriels/Software_Development/Cpp/img/i_design_creation_builder.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Manager-de-donnees"><a class="Link3" href="#">Manager de données</a></h1><div class="Body3"><br>Le <b>manager de données</b> que nous présentons ici est une architecture logicielle permettant d'accéder à toutes les données de notre application.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Manager-de-donnees-main-cpp"><a class="Link9" href="#Manager-de-donnees">main.cpp</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 #include "GManager.h"
 //===============================================
 int main(int argc, char** argv) {
