@@ -2357,7 +2357,77 @@ void GClassC::build() {
 	m_builder-&gt;sauce();
 	m_builder-&gt;garnish();
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_design_creation_builder.png" alt="/Tutoriels/Software_Development/Cpp/img/i_design_creation_builder.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Manager-de-donnees"><a class="Link3" href="#">Manager de données</a></h1><div class="Body3"><br>Le <b>manager de données</b> que nous présentons ici est une architecture logicielle permettant d'accéder à toutes les données de notre application.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Manager-de-donnees-main-cpp"><a class="Link9" href="#Manager-de-donnees">main.cpp</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_design_creation_builder.png" alt="/Tutoriels/Software_Development/Cpp/img/i_design_creation_builder.png"></div><br><h2 class="Title7 GTitle2" id="Patrons-de-conception-Patrons-de-comportement"><a class="Link9" href="#Patrons-de-conception">Patrons de comportement</a></h2><br>Les patrons de comportement permettent de <b>résoudre les problèmes liés aux comportements</b> et à l'interaction entre les classes.<br><br><h3 class="GTitle3" id="Patrons-de-conception-Patrons-de-comportement-Patron-strategie"><a class="Title8" href="#Patrons-de-conception-Patrons-de-comportement">Patron stratégie</a></h3><br>Le patron stratégie permet de <b>changer dynamiquement d'algorithme</b> selon le contexte.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GCppUi::run(int _argc, char** _argv) {
+    GClass* lObjs[] = {
+        new GClass,
+	    new GClassA,
+	    new GClassB
+    };
+
+    for(int i = 0; i &lt; 3; i++) {
+    	GClass* lObj = lObjs[i];
+        lObj-&gt;algo();
+    }
+}
+//===============================================</pre></div></div><br>Déclaration de la classe mère (.h)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+class GClass {
+public:
+    GClass();
+    virtual ~GClass();
+    virtual void algo();
+};
+//===============================================</pre></div></div><br>Implémentation de la classe mère (.cpp)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+GClass::GClass() {
+
+}
+//===============================================
+GClass::~GClass() {
+
+}
+//===============================================
+void GClass::algo() {
+    printf("appel de l'algorithme par defaut\n");
+}
+//===============================================</pre></div></div><br>Déclaration de la classe fille A (.h)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+class GClassA : public GClass {
+public:
+    GClassA();
+    ~GClassA();
+    void algo();
+};
+//===============================================</pre></div></div><br>Implémentation de la classe fille A (.cpp)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+GClassA::GClassA() {
+
+}
+//===============================================
+GClassA::~GClassA() {
+
+}
+//===============================================
+void GClassA::algo() {
+    printf("appel de l'algorithme (A)\n");
+}
+//===============================================</pre></div></div><br>Déclaration de la classe fille B (.h)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+class GClassB : public GClass {
+public:
+    GClassB();
+    ~GClassB();
+    void algo();
+};
+//===============================================</pre></div></div><br>Implémentation de la classe fille B (.cpp)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+GClassB::GClassB() {
+
+}
+//===============================================
+GClassB::~GClassB() {
+
+}
+//===============================================
+void GClassB::algo() {
+    printf("appel de l'algorithme (B)\n");
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_design_behavior_strategy.png" alt="/Tutoriels/Software_Development/Cpp/img/i_design_behavior_strategy.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Manager-de-donnees"><a class="Link3" href="#">Manager de données</a></h1><div class="Body3"><br>Le <b>manager de données</b> que nous présentons ici est une architecture logicielle permettant d'accéder à toutes les données de notre application.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Manager-de-donnees-main-cpp"><a class="Link9" href="#Manager-de-donnees">main.cpp</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 #include "GManager.h"
 //===============================================
 int main(int argc, char** argv) {
