@@ -2427,7 +2427,89 @@ GClassB::~GClassB() {
 void GClassB::algo() {
     printf("appel de l'algorithme (B)\n");
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_design_behavior_strategy.png" alt="/Tutoriels/Software_Development/Cpp/img/i_design_behavior_strategy.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Manager-de-donnees"><a class="Link3" href="#">Manager de données</a></h1><div class="Body3"><br>Le <b>manager de données</b> que nous présentons ici est une architecture logicielle permettant d'accéder à toutes les données de notre application.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Manager-de-donnees-main-cpp"><a class="Link9" href="#Manager-de-donnees">main.cpp</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_design_behavior_strategy.png" alt="/Tutoriels/Software_Development/Cpp/img/i_design_behavior_strategy.png"></div><br><h3 class="GTitle3" id="Patrons-de-conception-Patrons-de-comportement-Patron-observateur"><a class="Title8" href="#Patrons-de-conception-Patrons-de-comportement">Patron observateur</a></h3><br>Le patron observateur permet d'<b>envoyer un signal à des modules</b> qui jouent le rôle d'observateur. En cas de notification, les observateurs effectuent alors l'action adéquate en fonction des informations qui parviennent depuis les modules qu'ils observent (les observables).<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GCppUi::run(int _argc, char** _argv) {
+    GClass* lLed = new GClassA;
+    GClass* lButton = new GClassB;
+    lButton-&gt;addObserver(lLed);
+    lButton-&gt;on();
+    lButton-&gt;on();
+}
+//===============================================</pre></div></div><br>Déclaration de la classe mère (.h)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+class GClass {
+public:
+    GClass();
+    virtual ~GClass();
+    void addObserver(GClass* _obs);
+    void notify();
+    virtual void update();
+    virtual void on();
+
+protected:
+    std::vector&lt;GClass*&gt; m_obs;
+};
+//===============================================</pre></div></div><br>Implémentation de la classe mère (.cpp)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+GClass::GClass() {
+
+}
+//===============================================
+GClass::~GClass() {
+
+}
+//===============================================
+void GClass::addObserver(GClass* _obs) {
+    m_obs.push_back(_obs);
+}
+//===============================================
+void GClass::notify() {
+    for(int i = 0; i &lt; m_obs.size(); i++) {
+        GClass* lObs = m_obs.at(i);
+        lObs-&gt;update();
+    }
+}
+//===============================================
+void GClass::on() {}
+void GClass::update() {}
+//===============================================</pre></div></div><br>Déclaration de la classe fille A (observateur) (.h)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+class GClassA : public GClass {
+public:
+    GClassA();
+    ~GClassA();
+    void update();
+};
+//===============================================</pre></div></div><br>Implémentation de la classe fille A (observateur) (.cpp)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+GClassA::GClassA() {
+
+}
+//===============================================
+GClassA::~GClassA() {
+
+}
+//===============================================
+void GClassA::update() {
+    printf("on allume la led\n");
+}
+//===============================================</pre></div></div><br>Déclaration de la classe fille B (observable) (.h)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+class GClassB : public GClass {
+public:
+    GClassB();
+    ~GClassB();
+    void on();
+};
+//===============================================</pre></div></div><br>Implémentation de la classe fille B (observable) (.cpp)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+GClassB::GClassB() {
+
+}
+//===============================================
+GClassB::~GClassB() {
+
+}
+//===============================================
+void GClassB::on() {
+    printf("on appuye sur le bouton\n");
+    notify();
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_design_behavior_observer.png" alt="/Tutoriels/Software_Development/Cpp/img/i_design_behavior_observer.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Manager-de-donnees"><a class="Link3" href="#">Manager de données</a></h1><div class="Body3"><br>Le <b>manager de données</b> que nous présentons ici est une architecture logicielle permettant d'accéder à toutes les données de notre application.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Manager-de-donnees-main-cpp"><a class="Link9" href="#Manager-de-donnees">main.cpp</a></h2><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 #include "GManager.h"
 //===============================================
 int main(int argc, char** argv) {
