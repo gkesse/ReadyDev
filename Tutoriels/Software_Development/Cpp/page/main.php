@@ -12001,7 +12001,7 @@ void GSocketServer::run(int argc, char** argv) {
     lServer.close();
     lServer.clean();
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_socket_learn_tcp_ip_server.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/i_socket_learn_tcp_ip_server.png"></div><br>Programme principal (Client)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_socket_learn_tcp_ip_server.png" class="lazy entered loaded exited" data-src="/Tutoriels/Software_Development/Cpp/img/i_socket_learn_tcp_ip_server.png" data-ll-status="loaded" src="/Tutoriels/Software_Development/Cpp/img/i_socket_learn_tcp_ip_server.png"></div><br>Programme principal (Client)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GSocketClient::run(int argc, char** argv) {
     GSocket lClient;
     lClient.init();
@@ -12015,7 +12015,7 @@ void GSocketClient::run(int argc, char** argv) {
     lClient.close();
     lClient.clean();
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_socket_learn_tcp_ip_client.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/i_socket_learn_tcp_ip_client.png"></div><br>Initialisation du système<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_socket_learn_tcp_ip_client.png" class="lazy entered loaded exited" data-src="/Tutoriels/Software_Development/Cpp/img/i_socket_learn_tcp_ip_client.png" data-ll-status="loaded" src="/Tutoriels/Software_Development/Cpp/img/i_socket_learn_tcp_ip_client.png"></div><br>Initialisation du système<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GSocket::init() {
     WSADATA lWsaData;
     WSAStartup(MAKEWORD(m_major, m_minor), &amp;lWsaData);
@@ -12157,7 +12157,88 @@ void GSocket::recvs(GString&amp; _data) {
         _data.add(m_buffer);
     }
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_socket_learn_tcp_ip_big_data.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/i_socket_learn_tcp_ip_big_data.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programmation-reseau-socket-sous-Linux"><a class="Link3" href="#">Programmation réseau socket sous Linux</a></h1><div class="Body3"><br>Un <b>socket </b>réseau est une structure logicielle au sein d'un nœud de réseau d'un réseau informatique qui sert de point de terminaison pour l'envoi et la réception de données sur le réseau. La structure et les propriétés d'un socket sont définies par une interface de programmation d'application (API) pour l'architecture réseau. Les sockets sont créés uniquement pendant la durée de vie d'un processus d'une application s'exécutant dans le nœud.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-reseau-socket-sous-Linux-Apprendre-les-sockets">Apprendre les sockets</a></div></div><br><h2 class="Title7 GTitle2" id="Programmation-reseau-socket-sous-Linux-Apprendre-les-sockets"><a class="Link9" href="#Programmation-reseau-socket-sous-Linux">Apprendre les sockets</a></h2><br><div class="Content0 GSummary3"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-reseau-socket-sous-Linux-Apprendre-les-sockets-Creation-d-une-connexion-TCP-IP">Création d'une connexion TCP/IP</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-reseau-socket-sous-Linux-Apprendre-les-sockets-Creation-d-une-connexion-UDP">Création d'une connexion UDP</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-reseau-socket-sous-Linux-Apprendre-les-sockets-Transfert-de-donnees-volumineuses">Transfert de données volumineuses</a></div></div><br><h3 class="GTitle3" id="Programmation-reseau-socket-sous-Linux-Apprendre-les-sockets-Creation-d-une-connexion-TCP-IP"><a class="Title8" href="#Programmation-reseau-socket-sous-Linux-Apprendre-les-sockets">Création d'une connexion TCP/IP</a></h3><br>Cette opération permet d'<b>échanger des données</b> sur connexion TCP/IP. La connexion TCP/IP est une connexion sécurisée et fiable. On initialise le système. On configure l'adresse et le port de connexion. On crée le socket. On établit la liaison entre le socket et l'adresse de connexion côté serveur. On configure le nombre de connexions acceptable côte serveur. On engage l'acceptation d'une connexion client côté serveur. Et on démarre l'émission et la réception des données.<br><br>Programme principal (Serveur)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_socket_learn_tcp_ip_big_data.png" class="lazy entered loaded" data-src="/Tutoriels/Software_Development/Cpp/img/i_socket_learn_tcp_ip_big_data.png" data-ll-status="loaded" src="/Tutoriels/Software_Development/Cpp/img/i_socket_learn_tcp_ip_big_data.png"></div><br><h3 class="GTitle3" id="Programmation-reseau-socket-sous-Windows-Apprendre-les-sockets-Utilisation-du-multithreading"><a class="Title8" href="#Programmation-reseau-socket-sous-Windows-Apprendre-les-sockets">Utilisation du multithreading</a></h3><br>Cette opération permet d<b>'accepter et de traiter en parallèle plusieurs clients</b> à la fois de manière asynchrone.<br><br>Programme principal (Serveur)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GSocketServer::run(int argc, char** argv) {
+    GSocket lServer;
+    sGSocket lParams;
+    GThread lThread;
+    lParams.on_start = (void*)onStart;
+    lServer.start(lParams);
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_socket_learn_multithreading_server.png" alt="/Tutoriels/Software_Development/Cpp/img/i_socket_learn_multithreading_server.png"></div><br>Programme principal (Client)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GSocketClient::run(int _argc, char** _argv) {
+    GSocket lServer;
+    sGSocket lParams;
+    std::string lData;
+    lParams.address_ip = "127.0.0.1";
+
+    lServer.call(lParams, "Bonjour tout le monde", lData);
+
+    printf("Hostname.....: %s\n", lParams.hostname.c_str());
+    printf("Data.........: %s\n", lData.c_str());
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_socket_learn_multithreading_client.png" alt="/Tutoriels/Software_Development/Cpp/img/i_socket_learn_multithreading_client.png"></div><br>Démarrage du serveur<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GSocket::start(sGSocket&amp; _socket) {
+    GSocket lServer;
+    GThread lThread;
+
+    lServer.init(_socket.major, _socket.minor);
+    lServer.hostname(_socket.hostname);
+    lServer.address(_socket.address_ip, _socket.port);
+    lServer.sockets();
+    lServer.binds();
+    lServer.listens(_socket.backlog);
+
+    printf("Demarrage du serveur...\n");
+    printf("Hostname.....: %s\n", _socket.hostname.c_str());
+
+    while(1) {
+        GSocket* lClient = new GSocket;
+        lServer.accepts(*lClient);
+        lClient-&gt;ip(_socket.client_ip);
+        _socket.socket = lClient;
+        lThread.create((GThread::onThreadCB)_socket.on_start, &amp;_socket);
+    }
+
+    lServer.close();
+    lServer.clean();
+}
+//===============================================</pre></div></div><br>Appel du client<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GSocket::call(sGSocket&amp; _socket, const std::string&amp; _write, std::string&amp; _read) {
+    GSocket lClient;
+    lClient.init(_socket.major, _socket.minor);
+    lClient.hostname(_socket.hostname);
+    lClient.address(_socket.address_ip, _socket.port);
+    lClient.sockets();
+    lClient.connects();
+    lClient.writes(_write);
+    lClient.shutdownWR();
+    lClient.reads(_read);
+    lClient.close();
+    lClient.clean();
+}
+//===============================================</pre></div></div><br>Création d'un thread<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GThread::create(onThreadCB _onThread, void* _params) {
+    m_handleID = CreateThread(0, 0, _onThread, _params, 0, &amp;m_threadID);
+}
+//===============================================</pre></div></div><br>Traitement d'un thread<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+DWORD WINAPI GSocketServer::onStart(LPVOID _params) {
+    sGSocket* lSocket = (sGSocket*)_params;
+    GSocket* lClient = lSocket-&gt;socket;
+    std::string lData;
+
+    lClient-&gt;reads(lData);
+    lClient-&gt;shutdownRD();
+    lClient-&gt;writes("OK");
+
+    printf("Client IP....: %s\n", lSocket-&gt;client_ip.c_str());
+    printf("Data.........: %s\n", lData.c_str());
+
+    lClient-&gt;close();
+    delete lClient;
+    return 0;
+}
+//===============================================</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programmation-reseau-socket-sous-Linux"><a class="Link3" href="#">Programmation réseau socket sous Linux</a></h1><div class="Body3"><br>Un <b>socket </b>réseau est une structure logicielle au sein d'un nœud de réseau d'un réseau informatique qui sert de point de terminaison pour l'envoi et la réception de données sur le réseau. La structure et les propriétés d'un socket sont définies par une interface de programmation d'application (API) pour l'architecture réseau. Les sockets sont créés uniquement pendant la durée de vie d'un processus d'une application s'exécutant dans le nœud.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-reseau-socket-sous-Linux-Apprendre-les-sockets">Apprendre les sockets</a></div></div><br><h2 class="Title7 GTitle2" id="Programmation-reseau-socket-sous-Linux-Apprendre-les-sockets"><a class="Link9" href="#Programmation-reseau-socket-sous-Linux">Apprendre les sockets</a></h2><br><div class="Content0 GSummary3"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-reseau-socket-sous-Linux-Apprendre-les-sockets-Creation-d-une-connexion-TCP-IP">Création d'une connexion TCP/IP</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-reseau-socket-sous-Linux-Apprendre-les-sockets-Creation-d-une-connexion-UDP">Création d'une connexion UDP</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-reseau-socket-sous-Linux-Apprendre-les-sockets-Transfert-de-donnees-volumineuses">Transfert de données volumineuses</a></div></div><br><h3 class="GTitle3" id="Programmation-reseau-socket-sous-Linux-Apprendre-les-sockets-Creation-d-une-connexion-TCP-IP"><a class="Title8" href="#Programmation-reseau-socket-sous-Linux-Apprendre-les-sockets">Création d'une connexion TCP/IP</a></h3><br>Cette opération permet d'<b>échanger des données</b> sur connexion TCP/IP. La connexion TCP/IP est une connexion sécurisée et fiable. On initialise le système. On configure l'adresse et le port de connexion. On crée le socket. On établit la liaison entre le socket et l'adresse de connexion côté serveur. On configure le nombre de connexions acceptable côte serveur. On engage l'acceptation d'une connexion client côté serveur. Et on démarre l'émission et la réception des données.<br><br>Programme principal (Serveur)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GSocketServer::run(int argc, char** argv) {
     GSocket lServer;
     GSocket lClient;
