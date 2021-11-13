@@ -3113,7 +3113,104 @@ void GSocket::address() {
         qDebug() &lt;&lt; lAddress;
     }
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_socket_address_list.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_socket_address_list.png"></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Qt-Creer-une-horloge-analogique"><a class="Link9" href="#Interface-Homme-Machine-avec-Qt">Créer une horloge analogique</a></h2><br>L'exemple dde l'<b>horloge analogique</b> montre comment dessiner le contenu d'un widget personnalisé. Cet exemple montre également comment les fonctionnalités de transformation et de mise à l'échelle de QPainter peuvent être utilisées pour faciliter le dessin de widgets personnalisés<br><br><h3 class="Title8 GTitle3" id="Interface-Homme-Machine-avec-Qt-Creer-une-horloge-analogique-GAnalogClock-cpp"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Creer-une-horloge-analogique">GAnalogClock.cpp</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_socket_address_list.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_socket_address_list.png"></div><br><h3 class="GTitle3" id="Interface-Homme-Machine-avec-Qt-Apprendre-les-sockets-Creation-d-une-connexion-TCP-IP"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Apprendre-les-sockets">Création d'une connexion TCP/IP</a></h3><br>Programme principal (Serveur)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GSocketServer::run(int _argc, char** _argv) {
+    QApplication lApp(_argc, _argv);
+    GSocket lServer;
+    sGSocket lParams;
+    printf("Demarrage du serveur...\n");
+    lServer.server();
+    lServer.listen(lParams.address, lParams.port);
+    connect(&amp;lServer, SIGNAL(onEmit(QString)), this, SLOT(onEvent(QString)));
+    lApp.exec();
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_socket_tcp_ip_server.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_socket_tcp_ip_server.png"></div><br>Programme principal (Client)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GSocketClient::run(int _argc, char** _argv) {
+    QApplication lApp(_argc, _argv);
+    GSocket lClient;
+    sGSocket lParams;
+    lParams.address = "127.0.0.1";
+    lClient.socket();
+    connect(&amp;lClient, SIGNAL(onEmit(QString)), this, SLOT(onEvent(QString)));
+    lClient.connects(lParams.address, lParams.port);
+    lApp.exec();
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_socket_tcp_ip_client.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_socket_tcp_ip_client.png"></div><br>Gestion de la communication (côté serveur)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GSocketServer::onEvent(const QString&amp; _text) {
+    if(_text == "new_connection") {
+        GSocket* lServer = qobject_cast&lt;GSocket*&gt;(sender());
+        lServer-&gt;accept();
+    }
+    else if(_text == "ready_read") {
+        GSocket* lServer = qobject_cast&lt;GSocket*&gt;(sender());
+        QString lData;
+        lServer-&gt;read(lData);
+        qDebug() &lt;&lt; lData;
+        lServer-&gt;write("OK");
+    }
+    else if(_text == "disconnect") {
+        GSocket* lServer = qobject_cast&lt;GSocket*&gt;(sender());
+        lServer-&gt;disconnect();
+    }
+}
+//===============================================</pre></div></div><br>Gestion de la communication (côté client)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GSocketClient::onEvent(const QString&amp; _text) {
+    if(_text == "connect") {
+        GSocket* lClient = qobject_cast&lt;GSocket*&gt;(sender());
+        lClient-&gt;write("Bonjour tout le monde");
+    }
+    else if(_text == "ready_read") {
+        GSocket* lClient = qobject_cast&lt;GSocket*&gt;(sender());
+        QString lData;
+        lClient-&gt;read(lData);
+        qDebug() &lt;&lt; lData;
+        qApp-&gt;quit();
+    }
+}
+//===============================================</pre></div></div><br>Création du socket serveur (côté serveur)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GSocket::server() {
+    m_tcpServer = new QTcpServer(this);
+    connect(m_tcpServer, SIGNAL(newConnection()), this, SLOT(onNewConnection()));
+}
+//===============================================</pre></div></div><br>Ecoute d'un port (côté serveur)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GSocket::listen(const QHostAddress&amp; _address, int _port) {
+    m_tcpServer-&gt;listen(_address, _port);
+}
+//===============================================</pre></div></div><br>Acceptation d'un client (côté serveur)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GSocket::connects(const QHostAddress&amp; _address, int _port) {
+    m_tcpSocket-&gt;abort();
+    m_tcpSocket-&gt;connectToHost(_address, _port);
+}
+//===============================================</pre></div></div><br>Création du socket client (côté client)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GSocket::socket() {
+    m_tcpSocket = new QTcpSocket(this);
+    connect(m_tcpSocket, SIGNAL(connected()), this, SLOT(onConnected()));
+    connect(m_tcpSocket, SIGNAL(disconnected()), this, SLOT(onDisconnected()));
+    connect(m_tcpSocket, SIGNAL(readyRead()), this, SLOT(onReadyRead()));
+}
+//===============================================</pre></div></div><br>Connection d'un client (côté client)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GSocket::connects(const QHostAddress&amp; _address, int _port) {
+    m_tcpSocket-&gt;abort();
+    m_tcpSocket-&gt;connectToHost(_address, _port);
+}
+//===============================================</pre></div></div><br>Ecriture d'une donnée<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GSocket::write(const QString&amp; _data) {
+    QByteArray lData;
+    QDataStream lStreamOut(&amp;lData, QIODevice::WriteOnly);
+    lStreamOut.setVersion(QDataStream::Qt_5_10);
+    lStreamOut &lt;&lt; _data;
+    m_tcpSocket-&gt;write(lData);
+}
+//===============================================</pre></div></div><br>Lecture d'une donnée<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GSocket::read(QString&amp; _data) {
+    QDataStream lStreamIn;
+    lStreamIn.setDevice(m_tcpSocket);
+    lStreamIn.setVersion(QDataStream::Qt_5_10);
+    lStreamIn.startTransaction();
+    lStreamIn &gt;&gt; _data;
+    lStreamIn.commitTransaction();
+}
+//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Qt-Creer-une-horloge-analogique"><a class="Link9" href="#Interface-Homme-Machine-avec-Qt">Créer une horloge analogique</a></h2><br>L'exemple dde l'<b>horloge analogique</b> montre comment dessiner le contenu d'un widget personnalisé. Cet exemple montre également comment les fonctionnalités de transformation et de mise à l'échelle de QPainter peuvent être utilisées pour faciliter le dessin de widgets personnalisés<br><br><div class="Content0 GSummary3"><div class="Row26">Summary 3</div></div><br><h3 class="Title8 GTitle3" id="Interface-Homme-Machine-avec-Qt-Creer-une-horloge-analogique-GAnalogClock-cpp"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Creer-une-horloge-analogique">GAnalogClock.cpp</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 #include "GAnalogClock.h"
 //===============================================
 GAnalogClock::GAnalogClock(QWidget* parent) : GQtUi(parent) {
@@ -3204,7 +3301,7 @@ void GAnalogClock::paintEvent(QPaintEvent* event) {
 void GAnalogClock::onEvent() {
     update();
 }
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Interface-Homme-Machine-avec-Qt-Creer-une-horloge-analogique-Resultat"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Creer-une-horloge-analogique">Résultat</a></h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_qt_analog_clock.gif" class="lazy entered loaded" data-src="/Tutoriels/Software_Development/Cpp/img/i_qt_analog_clock.gif" data-ll-status="loaded" src="/Tutoriels/Software_Development/Cpp/img/i_qt_analog_clock.gif"></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Qt-Creer-une-calculatrice"><a class="Link9" href="#Interface-Homme-Machine-avec-Qt">Créer une calculatrice</a></h2><br>L'exemple de la <b>calculatrice </b>montre comment utiliser des signaux et des slots pour implémenter la fonctionnalité d'un widget de calculatrice, et comment utiliser QGridLayout pour placer des widgets enfants dans une grille.<br><br><h3 class="Title8 GTitle3" id="Interface-Homme-Machine-avec-Qt-Creer-une-calculatrice-GCalculator-cpp"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Creer-une-calculatrice">GCalculator.cpp</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Interface-Homme-Machine-avec-Qt-Creer-une-horloge-analogique-Resultat"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Creer-une-horloge-analogique">Résultat</a></h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_qt_analog_clock.gif" class="lazy entered loaded" data-src="/Tutoriels/Software_Development/Cpp/img/i_qt_analog_clock.gif" data-ll-status="loaded" src="/Tutoriels/Software_Development/Cpp/img/i_qt_analog_clock.gif"></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Qt-Creer-une-calculatrice"><a class="Link9" href="#Interface-Homme-Machine-avec-Qt">Créer une calculatrice</a></h2><br>L'exemple de la <b>calculatrice </b>montre comment utiliser des signaux et des slots pour implémenter la fonctionnalité d'un widget de calculatrice, et comment utiliser QGridLayout pour placer des widgets enfants dans une grille.<br><br><div class="Content0 GSummary3"><div class="Row26">Summary 3</div></div><br><h3 class="Title8 GTitle3" id="Interface-Homme-Machine-avec-Qt-Creer-une-calculatrice-GCalculator-cpp"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Creer-une-calculatrice">GCalculator.cpp</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 #include "GCalculator.h"
 //===============================================
 GCalculator::GCalculator(QWidget* parent) : GQtUi(parent) {
@@ -3591,7 +3688,7 @@ QSize GCalculatorButton::sizeHint() const {
     size.rwidth() = qMax(size.width(), size.height());
     return size;
 }
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Interface-Homme-Machine-avec-Qt-Creer-une-calculatrice-Resultat"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Creer-une-calculatrice">Résultat</a></h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_qt_calculator.gif" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/i_qt_calculator.gif"></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Qt-Creer-un-calendrier"><a class="Link9" href="#Interface-Homme-Machine-avec-Qt">Créer un calendrier</a></h2><br>L'exemple du <b>calendrier </b>montre l'utilisation de QCalendarWidget . QCalendarWidget affiche un mois calendaire à la fois et permet à l'utilisateur de sélectionner une date. Le calendrier se compose de quatre composants : une barre de navigation qui permet à l'utilisateur de modifier le mois affiché, une grille où chaque cellule représente un jour du mois et deux en-têtes qui affichent les noms et les numéros des jours de la semaine. L'exemple du clendrier affiche un QCalendarWidget et permet à l'utilisateur de configurer son apparence et son comportement à l'aide de QComboBox, QCheckBox et QDateEdit. De plus, l'utilisateur peut influencer le formatage des dates et des en-têtes individuels.<br><br><h3 class="Title8 GTitle3" id="Interface-Homme-Machine-avec-Qt-Creer-un-calendrier-GCalendar-cpp"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Creer-un-calendrier">GCalendar.cpp</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Interface-Homme-Machine-avec-Qt-Creer-une-calculatrice-Resultat"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Creer-une-calculatrice">Résultat</a></h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_qt_calculator.gif" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/i_qt_calculator.gif"></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Qt-Creer-un-calendrier"><a class="Link9" href="#Interface-Homme-Machine-avec-Qt">Créer un calendrier</a></h2><br>L'exemple du <b>calendrier </b>montre l'utilisation de QCalendarWidget . QCalendarWidget affiche un mois calendaire à la fois et permet à l'utilisateur de sélectionner une date. Le calendrier se compose de quatre composants : une barre de navigation qui permet à l'utilisateur de modifier le mois affiché, une grille où chaque cellule représente un jour du mois et deux en-têtes qui affichent les noms et les numéros des jours de la semaine. L'exemple du clendrier affiche un QCalendarWidget et permet à l'utilisateur de configurer son apparence et son comportement à l'aide de QComboBox, QCheckBox et QDateEdit. De plus, l'utilisateur peut influencer le formatage des dates et des en-têtes individuels.<br><br><div class="Content0 GSummary3"><div class="Row26">Summary 3</div></div><br><h3 class="Title8 GTitle3" id="Interface-Homme-Machine-avec-Qt-Creer-un-calendrier-GCalendar-cpp"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Creer-un-calendrier">GCalendar.cpp</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 #include "GCalendar.h"
 //===============================================
 GCalendar::GCalendar(QWidget* parent) : GQtUi(parent) {
@@ -3942,7 +4039,7 @@ void GCalendar::onEvent(int year, int month) {
 void GCalendar::onEvent(const QString&amp; text) {
 
 }
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Interface-Homme-Machine-avec-Qt-Creer-un-calendrier-Resultat"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Creer-un-calendrier">Résultat</a></h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_qt_calendar.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/i_qt_calendar.png"></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Qt-QProcess"><a class="Link9" href="#Interface-Homme-Machine-avec-Qt">QProcess</a></h2><br>La classe <b>QProcess </b>est utilisée pour démarrer des programmes externes et pour communiquer avec eux. Pour démarrer un processus, passez le nom et les arguments de ligne de commande du programme que vous souhaitez exécuter en tant qu'arguments pour start(). Les arguments sont fournis sous forme de chaînes individuelles dans une QStringList . Vous pouvez également configurer le programme pour qu'il s'exécute avec setProgram () et setArguments(), puis appeler start() ou open().<br><br><h3 class="Title8 GTitle3" id="Interface-Homme-Machine-avec-Qt-QProcess-Executer-un-programme-et-recuperer-la-sortie"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-QProcess">Exécuter un programme et récupérer la sortie</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Interface-Homme-Machine-avec-Qt-Creer-un-calendrier-Resultat"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Creer-un-calendrier">Résultat</a></h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_qt_calendar.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/i_qt_calendar.png"></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Qt-QProcess"><a class="Link9" href="#Interface-Homme-Machine-avec-Qt">QProcess</a></h2><br>La classe <b>QProcess </b>est utilisée pour démarrer des programmes externes et pour communiquer avec eux. Pour démarrer un processus, passez le nom et les arguments de ligne de commande du programme que vous souhaitez exécuter en tant qu'arguments pour start(). Les arguments sont fournis sous forme de chaînes individuelles dans une QStringList . Vous pouvez également configurer le programme pour qu'il s'exécute avec setProgram () et setArguments(), puis appeler start() ou open().<br><br><div class="Content0 GSummary3"><div class="Row26">Summary 3</div></div><br><h3 class="Title8 GTitle3" id="Interface-Homme-Machine-avec-Qt-QProcess-Executer-un-programme-et-recuperer-la-sortie"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-QProcess">Exécuter un programme et récupérer la sortie</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GQtUi::run(int argc, char** argv) {
     QProcess lProcess;
     lProcess.start("sqlite3 --version");
