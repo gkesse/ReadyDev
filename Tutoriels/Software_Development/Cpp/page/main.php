@@ -13241,4 +13241,21 @@ void GXmlUi::run(int argc, char** argv) {
 void GXml::parse(const std::string&amp; _data) {
     m_doc = xmlParseDoc((xmlChar*)_data.c_str());
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_xml_learn_doc_from_string.png" alt="/Tutoriels/Software_Development/Cpp/img/i_xml_learn_doc_from_string.png"></div><br></div></div></div></div><br>
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_xml_learn_doc_from_string.png" alt="/Tutoriels/Software_Development/Cpp/img/i_xml_learn_doc_from_string.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Analyse-de-donnees-XML-avec-PugiXml"><a class="Link3" href="#">Analyse de données XML avec PugiXml</a></h1><div class="Body3"><br><b>PugiXml </b>permet de manipuler des documents XML. <b>XML </b>permet de mieux structurer les données sous un format orienté objet. <b>XPath </b>permet de naviguer dans un document XML à travers des requêtes.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Analyse-de-donnees-XML-avec-PugiXml-Compiler-un-projet-PugiXml-sous-MinGW"><a class="Link9" href="#Analyse-de-donnees-XML-avec-PugiXml">Compiler un projet PugiXml sous MinGW</a></h2><br><h3 class="GTitle3" id="Analyse-de-donnees-XML-avec-PugiXml-Compiler-un-projet-PugiXml-sous-MinGW-Telechargement-de-PugiXml"><a class="Title8" href="#Analyse-de-donnees-XML-avec-PugiXml-Compiler-un-projet-PugiXml-sous-MinGW">Téléchargement de PugiXml</a></h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://pugixml.org/">https://pugixml.org/</a><br><br><h2 class="Title7 GTitle2" id="Analyse-de-donnees-XML-avec-PugiXml-Apprendre-PugiXml"><a class="Link9" href="#Analyse-de-donnees-XML-avec-PugiXml">Apprendre PugiXml</a></h2><br><div class="Content0 GSummary3"><div class="Row26">Summary 3</div></div><br><h3 class="GTitle3" id="Analyse-de-donnees-XML-avec-PugiXml-Apprendre-PugiXml-Chargement-d-un-document-XML"><a class="Title8" href="#Analyse-de-donnees-XML-avec-PugiXml-Apprendre-PugiXml">Chargement d'un document XML</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GXmlUi::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
+    GXml lXml;
+    std::string lData;
+    lXml.load(lApp-&gt;xml_file).print();
+}
+//===============================================</pre></div></div><br>Chargement du document<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+GXml&amp; GXml::load(const std::string&amp; _filename) {
+    m_result = m_doc.load_file(_filename.c_str());
+    return *this;
+}
+//===============================================</pre></div></div><br>Affichage du document<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+GXml&amp; GXml::print() {
+    m_doc.save(std::cout, "   ", pugi::format_indent, pugi::encoding_utf8);
+    return *this;
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_pugixml_learn_doc_load.png" alt="/Tutoriels/Software_Development/Cpp/img/i_pugixml_learn_doc_load.png"></div><br></div></div></div></div><br>
