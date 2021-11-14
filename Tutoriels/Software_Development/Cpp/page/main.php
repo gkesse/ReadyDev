@@ -13172,4 +13172,35 @@ void GXml::child(GXml&amp; _child, const std::string&amp; _key, const std::strin
 void GXml::attribute(const std::string&amp; _key, const std::string&amp; _value) {
     xmlNewProp(m_node, BAD_CAST(_key.c_str()), BAD_CAST(_value.c_str()));
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_xml_learn_doc_create.png" alt="/Tutoriels/Software_Development/Cpp/img/i_xml_learn_doc_create.png"></div><br></div></div></div></div><br>
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_xml_learn_doc_create.png" alt="/Tutoriels/Software_Development/Cpp/img/i_xml_learn_doc_create.png"></div><br><h3 class="GTitle3" id="Analyse-de-donnees-XML-avec-Libxml2-Apprendre-libxml2-Encodage-d-un-document-XML"><a class="Title8" href="#Analyse-de-donnees-XML-avec-Libxml2-Apprendre-libxml2">Encodage d'un document XML</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GXmlUi::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
+
+    GXml lXml, lProduct, lName, lPrice;
+    std::string lData;
+    lXml.blank();
+    lXml.doc();
+    lXml.root("catalog");
+    lXml.child(lProduct, "product");
+    lProduct.attribute("reference", "REF123");
+    lProduct.child(lName, "name", "ZigBee ReadyDev");
+    lProduct.child(lPrice, "price", "2.50");
+    lXml.toString(lData, "UTF-8");
+    printf("%s\n", lData.c_str());
+    lXml.print("UTF-8");
+    lXml.free();
+}
+//===============================================</pre></div></div><br>Encodage du document<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+int GXml::toString(std::string&amp; _data, const std::string&amp; _encoding, int _format) {
+    xmlChar* lBuffer = NULL;
+    int lSize;
+    xmlDocDumpFormatMemoryEnc(m_doc, &amp;lBuffer, &amp;lSize, _encoding.c_str(), _format);
+    _data = (char*)lBuffer;
+    xmlFree(lBuffer);
+    return lSize;
+}
+//===============================================</pre></div></div><br>Affichage du document<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GXml::print(const std::string&amp; _encoding, int _format) const {
+    xmlSaveFormatFileEnc("-", m_doc, _encoding.c_str(), _format);
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_xml_learn_doc_encoding.png" alt="/Tutoriels/Software_Development/Cpp/img/i_xml_learn_doc_encoding.png"></div><br></div></div></div></div><br>
