@@ -13140,7 +13140,7 @@ void GXml::toString(GXml&amp; _xml, std::string&amp; _data) {
 }
 //===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_xml_learn_node_content.png" alt="/Tutoriels/Software_Development/Cpp/img/i_xml_learn_node_content.png"></div><br><h3 class="GTitle3" id="Analyse-de-donnees-XML-avec-Libxml2-Apprendre-libxml2-Creation-d-un-document-XML"><a class="Title8" href="#Analyse-de-donnees-XML-avec-Libxml2-Apprendre-libxml2">Création d'un document XML</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GXmlUi::run(int argc, char** argv) {
-GXml lXml, lProduct, lName, lPrice;
+    GXml lXml, lProduct, lName, lPrice;
     lXml.blank();
     lXml.doc();
     lXml.root("catalog");
