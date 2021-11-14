@@ -13117,4 +13117,59 @@ void GXmlUi::run(int argc, char** argv) {
 void GXml::append(GXml&amp; _child) {
     xmlAddSibling(m_node, _child.m_node);
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_xml_learn_node_append.png" alt="/Tutoriels/Software_Development/Cpp/img/i_xml_learn_node_append.png"></div><br></div></div></div></div><br>
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_xml_learn_node_append.png" alt="/Tutoriels/Software_Development/Cpp/img/i_xml_learn_node_append.png"></div><br><h3 class="GTitle3" id="Analyse-de-donnees-XML-avec-Libxml2-Apprendre-libxml2-Recuperation-du-contenu-d-un-noeud"><a class="Title8" href="#Analyse-de-donnees-XML-avec-Libxml2-Apprendre-libxml2">Récupération du contenu d'un noeud</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GXmlUi::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
+
+    GXml lXml, lProduct;
+    std::string lData;
+    lXml.blank();
+    lXml.parse(lApp-&gt;xml_file_01);
+    lXml.root();
+    lProduct.xpath(lXml, "/catalog/product[position()=1]");
+    lProduct.toString(lXml, lData);
+    printf("%s\n", lData.c_str());
+    lXml.free();
+}
+//===============================================</pre></div></div><br>Récupération du contenu d'un noeud<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GXml::toString(GXml&amp; _xml, std::string&amp; _data) {
+    xmlBufferPtr lBuffer = xmlBufferCreate();
+    xmlNodeDump(lBuffer, _xml.m_doc, m_node, 0, 1);
+    _data = (char*)lBuffer-&gt;content;
+    xmlBufferFree(lBuffer);
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_xml_learn_node_content.png" alt="/Tutoriels/Software_Development/Cpp/img/i_xml_learn_node_content.png"></div><br><h3 class="GTitle3" id="Analyse-de-donnees-XML-avec-Libxml2-Apprendre-libxml2-Creation-d-un-document-XML"><a class="Title8" href="#Analyse-de-donnees-XML-avec-Libxml2-Apprendre-libxml2">Création d'un document XML</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GXmlUi::run(int argc, char** argv) {
+GXml lXml, lProduct, lName, lPrice;
+    lXml.blank();
+    lXml.doc();
+    lXml.root("catalog");
+    lXml.child(lProduct, "product");
+    lProduct.attribute("reference", "REF123");
+    lProduct.child(lName, "name", "ZigBee ReadyDev");
+    lProduct.child(lPrice, "price", "2.50");
+    lXml.print();
+    lXml.free();
+}
+//===============================================</pre></div></div><br>Création du document<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GXml::doc(const std::string&amp; _version) {
+    m_doc = xmlNewDoc(BAD_CAST(_version.c_str()));
+}
+//===============================================</pre></div></div><br>Création du noeud racine<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GXml::root(const std::string&amp; _name) {
+    m_node = xmlNewNode(NULL, BAD_CAST(_name.c_str()));
+    xmlDocSetRootElement(m_doc, m_node);
+}
+//===============================================</pre></div></div><br>Création d'un noeud enfant (sans contenu)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GXml::child(GXml&amp; _child, const std::string&amp; _key) {
+    _child.m_node = xmlNewChild(m_node, NULL, BAD_CAST(_key.c_str()), NULL);
+}
+//===============================================</pre></div></div><br>Création du noeud enfant (avec contenu)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GXml::child(GXml&amp; _child, const std::string&amp; _key, const std::string&amp; _value) {
+    _child.m_node = xmlNewChild(m_node, NULL, BAD_CAST(_key.c_str()), BAD_CAST(_value.c_str()));
+}
+//===============================================</pre></div></div><br>Création d'un attribut<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GXml::attribute(const std::string&amp; _key, const std::string&amp; _value) {
+    xmlNewProp(m_node, BAD_CAST(_key.c_str()), BAD_CAST(_value.c_str()));
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_xml_learn_doc_create.png" alt="/Tutoriels/Software_Development/Cpp/img/i_xml_learn_doc_create.png"></div><br></div></div></div></div><br>
