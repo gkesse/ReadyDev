@@ -13009,7 +13009,7 @@ size_t GCurl::append(void* _content, size_t _size, size_t _nmemb, void* _params)
     lData-&gt;append(lContent, _size * _nmemb);
     return _size * _nmemb;
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_curl_learn_content_download.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/i_curl_learn_content_download.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Analyse-de-donnees-XML-avec-Libxml2"><a class="Link3" href="#">Analyse de données XML avec Libxml2</a></h1><div class="Body3"><br><b>Libxml2 </b>est un analyseur XML gratuit et disponible sous la licence MIT . XML est un métalangage pour concevoir des langages de balisage, c'est-à-dire un langage de texte où la sémantique et la structure sont ajoutées au contenu en utilisant des informations de « balisage » supplémentaires entre crochets angulaires. HTML est le langage de balisage le plus connu. Bien que la bibliothèque soit écrite en C, diverses liaisons de langage la rendent disponible dans d'autres environnements. Libxml2 est connu pour être très portable, la bibliothèque devrait être construite et fonctionner sans problèmes sérieux sur une variété de systèmes (Linux, Unix, Windows, CygWin, MacOS, MacOS X, RISC Os, OS/2, VMS, QNX, MVS, VxWorks).<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Analyse-de-donnees-XML-avec-Libxml2-Compiler-un-projet-LibXml2-sous-MSYS2">Compiler un projet LibXml2 sous MSYS2</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Analyse-de-donnees-XML-avec-Libxml2-Apprendre-libxml2">Apprendre libxml2</a></div></div><br><h2 class="Title7 GTitle2" id="Analyse-de-donnees-XML-avec-Libxml2-Compiler-un-projet-LibXml2-sous-MSYS2"><a class="Link9" href="#Analyse-de-donnees-XML-avec-Libxml2">Compiler un projet LibXml2 sous MSYS2</a></h2><br><h3 class="GTitle3" id="Analyse-de-donnees-XML-avec-Libxml2-Compiler-un-projet-LibXml2-sous-MSYS2-Fichiers-header"><a class="Title8" href="#Analyse-de-donnees-XML-avec-Libxml2-Compiler-un-projet-LibXml2-sous-MSYS2">Fichiers header</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//==============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_curl_learn_content_download.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/i_curl_learn_content_download.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Analyse-de-donnees-XML-avec-Libxml2"><a class="Link3" href="#">Analyse de données XML avec Libxml2</a></h1><div class="Body3"><br><b>LibXml2 </b>permet de manipuler des documents XML. <b>XML </b>permet de mieux structurer les données sous un format orienté objet. <b>XPath </b>permet de naviguer dans un document XML à travers des requêtes.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Analyse-de-donnees-XML-avec-Libxml2-Compiler-un-projet-LibXml2-sous-MSYS2">Compiler un projet LibXml2 sous MSYS2</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Analyse-de-donnees-XML-avec-Libxml2-Apprendre-libxml2">Apprendre libxml2</a></div></div><br><h2 class="Title7 GTitle2" id="Analyse-de-donnees-XML-avec-Libxml2-Compiler-un-projet-LibXml2-sous-MSYS2"><a class="Link9" href="#Analyse-de-donnees-XML-avec-Libxml2">Compiler un projet LibXml2 sous MSYS2</a></h2><br><h3 class="GTitle3" id="Analyse-de-donnees-XML-avec-Libxml2-Compiler-un-projet-LibXml2-sous-MSYS2-Fichiers-header"><a class="Title8" href="#Analyse-de-donnees-XML-avec-Libxml2-Compiler-un-projet-LibXml2-sous-MSYS2">Fichiers header</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//==============================================
 #include &lt;libxml/tree.h&gt;
 #include &lt;libxml/xpath.h&gt;
 //==============================================</pre></div></div><br><h3 class="GTitle3" id="Analyse-de-donnees-XML-avec-Libxml2-Compiler-un-projet-LibXml2-sous-MSYS2-Compilation-du-projet"><a class="Title8" href="#Analyse-de-donnees-XML-avec-Libxml2-Compiler-un-projet-LibXml2-sous-MSYS2">Compilation du projet</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="sh">GINCS =\
@@ -13022,21 +13022,20 @@ GLIBS =\
 export "PATH=/mingw32/bin:$PATH"
 #================================================
 ./rdcpp.exe
-#================================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Analyse-de-donnees-XML-avec-Libxml2-Apprendre-libxml2"><a class="Link9" href="#Analyse-de-donnees-XML-avec-Libxml2">Apprendre libxml2</a></h2><br><div class="Content0 GSummary3"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Analyse-de-donnees-XML-avec-Libxml2-Apprendre-libxml2-Affichage-du-contenu-d-un-document-XML">Affichage du contenu d'un document XML</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Analyse-de-donnees-XML-avec-Libxml2-Apprendre-libxml2-Ajout-d-un-element-a-un-document-XML">Ajout d'un element à un document XML</a></div></div><br><h3 class="GTitle3" id="Analyse-de-donnees-XML-avec-Libxml2-Apprendre-libxml2-Affichage-du-contenu-d-un-document-XML"><a class="Title8" href="#Analyse-de-donnees-XML-avec-Libxml2-Apprendre-libxml2">Affichage du contenu d'un document XML</a></h3><br>Cette opération permet d'<b>afficher le contenu</b> d'un document XML. On charge le document XML à partir d'un fichier stocké sur le disque dur de l'ordianteur. On autorise d'ignorer les blancs. On analyse le document à travers un parser. On récupère son noeud racine. Et on l'affiche dans la console.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#================================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Analyse-de-donnees-XML-avec-Libxml2-Compiler-un-projet-LibXml2-sous-MinGW"><a class="Link9" href="#Analyse-de-donnees-XML-avec-Libxml2">Compiler un projet LibXml2 sous MinGW</a></h2><br><h3 class="GTitle3" id="Analyse-de-donnees-XML-avec-Libxml2-Compiler-un-projet-LibXml2-sous-MinGW-Telechargement-de-LibXml2"><a class="Title8" href="#Analyse-de-donnees-XML-avec-Libxml2-Compiler-un-projet-LibXml2-sous-MinGW">Téléchargement de LibXml2</a></h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="http://xmlsoft.org/sources/win32/64bit/">http://xmlsoft.org/sources/win32/64bit/</a><br><br><h2 class="Title7 GTitle2" id="Analyse-de-donnees-XML-avec-Libxml2-Apprendre-libxml2"><a class="Link9" href="#Analyse-de-donnees-XML-avec-Libxml2">Apprendre libxml2</a></h2><br><div class="Content0 GSummary3"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Analyse-de-donnees-XML-avec-Libxml2-Apprendre-libxml2-Affichage-du-contenu-d-un-document-XML">Affichage du contenu d'un document XML</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Analyse-de-donnees-XML-avec-Libxml2-Apprendre-libxml2-Ajout-d-un-element-a-un-document-XML">Ajout d'un element à un document XML</a></div></div><br><h3 class="GTitle3" id="Analyse-de-donnees-XML-avec-Libxml2-Apprendre-libxml2-Affichage-d-un-document-XML"><a class="Title8" href="#Analyse-de-donnees-XML-avec-Libxml2-Apprendre-libxml2">Affichage d'un document XML</a></h3><br>Cette opération permet d'<b>afficher le contenu</b> d'un document XML. On charge le document XML à partir d'un fichier stocké sur le disque dur de l'ordianteur. On autorise d'ignorer les blancs. On analyse le document à travers un parser. On récupère son noeud racine. Et on l'affiche dans la console.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GXmlUi::run(int argc, char** argv) {
     sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
 
     GXml lXml;
-    lXml.filename(lApp-&gt;xml_file);
     lXml.blank();
-    lXml.parse();
+    lXml.parse(lApp-&gt;xml_file);
     lXml.root();
     lXml.print();
     lXml.free();
 }
 //===============================================</pre></div></div><br>Analyse du document XML<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
-void GXml::parse() {
-    m_doc = xmlParseFile(m_filename.c_str());
+void GXml::parse(const std::string&amp; _filename) {
+    m_doc = xmlParseFile(_filename.c_str());
 }
 //===============================================</pre></div></div><br>Récupération du noeud racine<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GXml::root() {
@@ -13046,26 +13045,18 @@ void GXml::root() {
 void GXml::print() const {
     xmlDocFormatDump(stdout, m_doc, 1);
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_xml_using_print.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/i_xml_using_print.png"></div><br><h3 class="GTitle3" id="Analyse-de-donnees-XML-avec-Libxml2-Apprendre-libxml2-Ajout-d-un-element-a-un-document-XML"><a class="Title8" href="#Analyse-de-donnees-XML-avec-Libxml2-Apprendre-libxml2">Ajout d'un element à un document XML</a></h3><br>Cette opération permet d'<b>ajouter un élément</b> à un document XML. On charge le document XML à partir d'un fichier stocké sur le disque dur de l'ordianteur. On autorise d'ignorer les blancs. On analyse le document à travers un parser. On récupère son noeud racine. On récupère le noeud à la position 1 (le premier noeud). On crée un nouveau noeud. On ajoute le nouveau au document. Et on l'affiche dans la console. La récupération d'un noeud est réalisée à travers une requête XPath.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_xml_using_print.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/i_xml_using_print.png"></div><br><h3 class="GTitle3" id="Analyse-de-donnees-XML-avec-Libxml2-Apprendre-libxml2-Ajout-du-noeud-suivant-direct"><a class="Title8" href="#Analyse-de-donnees-XML-avec-Libxml2-Apprendre-libxml2">Ajout du noeud suivant direct</a></h3><br>Cette opération permet d'<b>ajouter un élément</b> à un document XML. On charge le document XML à partir d'un fichier stocké sur le disque dur de l'ordianteur. On autorise d'ignorer les blancs. On analyse le document à travers un parser. On récupère son noeud racine. On récupère le noeud à la position 1 (le premier noeud). On crée un nouveau noeud. On ajoute le nouveau au document. Et on l'affiche dans la console. La récupération d'un noeud est réalisée à travers une requête XPath.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GXmlUi::run(int argc, char** argv) {
     sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
 
-    GXml lXml;
-    lXml.filename(lApp-&gt;xml_file);
+    GXml lXml, lProduct, lNew;
     lXml.blank();
-    lXml.parse();
+    lXml.parse(lApp-&gt;xml_file_01);
     lXml.root();
-
-    GXml lProduct;
     lProduct.xpath(lXml, "/catalog/product[position()=1]");
-
-    GXml lNew;
-    lNew.create("REF123456", "Capteur ReadyDev", "10.00");
-
+    create(lNew, "REF123456", "Capteur ReadyDev", "10.00");
     lProduct.nextSibling(lNew);
-
     lXml.print();
-
     lXml.free();
 }
 //===============================================</pre></div></div><br>Exécution d'une requête XPath<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
@@ -13080,15 +13071,50 @@ void GXml::xpath(GXml&amp; _xml, const std::string&amp; _xpath) {
     xmlXPathFreeContext(lContext);
 }
 //===============================================</pre></div></div><br>Création du nouveau noeud<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
-void GXml::create(const std::string&amp; _reference, const std::string&amp; _name, const std::string&amp; _price) {
-    node("product");
-    attribute("reference", _reference);
-
-    GXml lName;
-    lName.node("name");
-    lName.data(_name);
-
-    child(lName);
-    child("price", _price);
+void GXmlUi::create(GXml&amp; _xml, const std::string&amp; _reference, const std::string&amp; _name, const std::string&amp; _price) {
+    _xml.node("product");
+    _xml.attribute("reference", _reference);
+    _xml.child("name", _name);
+    _xml.child("price", _price);
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_xml_using_node_add.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/i_xml_using_node_add.png"></div><br></div></div></div></div><br>
+//===============================================</pre></div></div><br>Ajout du noeud suivant direct<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GXml::nextSibling(GXml&amp; _child) {
+    xmlAddNextSibling(m_node, _child.m_node);
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_xml_using_node_add.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/i_xml_using_node_add.png"></div><br><h3 class="GTitle3" id="Analyse-de-donnees-XML-avec-Libxml2-Apprendre-libxml2-Ajout-d-un-noeud-precedent-direct"><a class="Title8" href="#Analyse-de-donnees-XML-avec-Libxml2-Apprendre-libxml2">Ajout d'un noeud précédent direct</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GXmlUi::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
+
+    GXml lXml, lProduct, lNew;
+    lXml.blank();
+    lXml.parse(lApp-&gt;xml_file_01);
+    lXml.root();
+    lProduct.xpath(lXml, "/catalog/product[position()=1]");
+    create(lNew, "REF123456", "Capteur ReadyDev", "10.00");
+    lProduct.prevSibling(lNew);
+    lXml.print();
+    lXml.free();
+}
+//===============================================</pre></div></div><br>Ajout d'un noeud précédent direct<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GXml::prevSibling(GXml&amp; _child) {
+    xmlAddPrevSibling(m_node, _child.m_node);
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_xml_learn_node_prev_sibling.png" alt="/Tutoriels/Software_Development/Cpp/img/i_xml_learn_node_prev_sibling.png"></div><br><h3 class="GTitle3" id="Analyse-de-donnees-XML-avec-Libxml2-Apprendre-libxml2-Ajout-d-un-noeud-a-la-fin"><a class="Title8" href="#Analyse-de-donnees-XML-avec-Libxml2-Apprendre-libxml2">Ajout d'un noeud à la fin</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GXmlUi::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
+
+    GXml lXml, lProduct, lNew;
+    lXml.blank();
+    lXml.parse(lApp-&gt;xml_file_01);
+    lXml.root();
+    lProduct.xpath(lXml, "/catalog/product[position()=1]");
+    create(lNew, "REF123456", "Capteur ReadyDev", "10.00");
+    lProduct.append(lNew);
+    lXml.print();
+    lXml.free();
+}
+//===============================================</pre></div></div><br>Ajout d'un noeud à la fin<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GXml::append(GXml&amp; _child) {
+    xmlAddSibling(m_node, _child.m_node);
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_xml_learn_node_append.png" alt="/Tutoriels/Software_Development/Cpp/img/i_xml_learn_node_append.png"></div><br></div></div></div></div><br>
