@@ -13316,4 +13316,20 @@ GXml&amp; GXml::addEncoding(const std::string&amp; _encoding) {
     m_node.append_attribute("encoding").set_value(_encoding.c_str());
     return *this;
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_pugixml_learn_doc_create.png" alt="/Tutoriels/Software_Development/Cpp/img/i_pugixml_learn_doc_create.png"></div><br></div></div></div></div><br>
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_pugixml_learn_doc_create.png" alt="/Tutoriels/Software_Development/Cpp/img/i_pugixml_learn_doc_create.png"></div><br><h3 class="GTitle3" id="Analyse-de-donnees-XML-avec-PugiXml-Apprendre-PugiXml-Enregistrement-d-un-document-XML"><a class="Title8" href="#Analyse-de-donnees-XML-avec-PugiXml-Apprendre-PugiXml">Enregistrement d'un document XML</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GXmlUi::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
+    GXml lXml;
+    lXml.createDoc();
+    lXml.addVersion("1.0");
+    lXml.addEncoding("UTF-8");
+    lXml.createRoot("catalog");
+    append(lXml, "REF123", "ZigBee ReadyDev", "2.50");
+    lXml.saveFile(lApp-&gt;xml_file);
+}
+//===============================================</pre></div></div><br>Enregistrement du document<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+GXml&amp; GXml::saveFile(const std::string&amp; _filename) {
+    m_doc.save_file(_filename.c_str(), "   ", pugi::format_indent, pugi::encoding_utf8);
+    return *this;
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_pugixml_learn_doc_save.png" alt="/Tutoriels/Software_Development/Cpp/img/i_pugixml_learn_doc_save.png"></div><br></div></div></div></div><br>
