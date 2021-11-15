@@ -13246,16 +13246,74 @@ void GXmlUi::run(int argc, char** argv) {
     sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
     GXml lXml;
     std::string lData;
-    lXml.load(lApp-&gt;xml_file).print();
+    lXml.loadFile(lApp-&gt;xml_file).printDoc();
 }
 //===============================================</pre></div></div><br>Chargement du document<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
-GXml&amp; GXml::load(const std::string&amp; _filename) {
+GXml&amp; GXml::loadFile(const std::string&amp; _filename) {
     m_result = m_doc.load_file(_filename.c_str());
     return *this;
 }
 //===============================================</pre></div></div><br>Affichage du document<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
-GXml&amp; GXml::print() {
+GXml&amp; GXml::printDoc() {
     m_doc.save(std::cout, "   ", pugi::format_indent, pugi::encoding_utf8);
     return *this;
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_pugixml_learn_doc_load.png" alt="/Tutoriels/Software_Development/Cpp/img/i_pugixml_learn_doc_load.png"></div><br></div></div></div></div><br>
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_pugixml_learn_doc_load.png" alt="/Tutoriels/Software_Development/Cpp/img/i_pugixml_learn_doc_load.png"></div><br><h3 class="GTitle3" id="Analyse-de-donnees-XML-avec-PugiXml-Apprendre-PugiXml-Ajout-d-un-nouveau-noeud"><a class="Title8" href="#Analyse-de-donnees-XML-avec-PugiXml-Apprendre-PugiXml">Ajout d'un nouveau noeud</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GXmlUi::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
+    GXml lXml;
+    lXml.loadFile(lApp-&gt;xml_file).getRoot();
+    append(lXml, "REF123", "ZigBee ReadyDev", "2.50");
+    lXml.printDoc();
+}
+//===============================================</pre></div></div><br>Ajout du nouveau noeud<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GXmlUi::append(GXml&amp; _xml, const std::string&amp; _reference, const std::string&amp; _name, const std::string&amp; _price) {
+    GXml lProduct, lName, lPrice;
+    _xml.appendChild(lProduct, "product");
+    lProduct.appendAttribute("reference", _reference);
+    lProduct.appendChild(lName, "name");
+    lName.setNodeValue(_name);
+    lProduct.appendChild(lPrice, "price");
+    lPrice.setNodeValue(_price);
+}
+//===============================================</pre></div></div><br>Ajout d'un noeud à la fin<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+GXml&amp; GXml::appendChild(GXml&amp; _child, const std::string&amp; _name) {
+    _child.m_node = m_node.append_child(_name.c_str());
+    return *this;
+}
+//===============================================</pre></div></div><br>Ajout d'un attribut à la fin<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+GXml&amp; GXml::appendAttribute(const std::string&amp; _name, const std::string&amp; _value) {
+    m_node.append_attribute(_name.c_str()).set_value(_value.c_str());
+    return *this;
+}
+//===============================================</pre></div></div><br>Assignation d'une valeur à un noeud<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+GXml&amp; GXml::setNodeValue(const std::string&amp; _value) {
+    m_node.append_child(pugi::node_pcdata).set_value(_value.c_str());
+    return *this;
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_pugixml_learn_node_append.png" alt="/Tutoriels/Software_Development/Cpp/img/i_pugixml_learn_node_append.png"></div><br><h3 class="GTitle3" id="Analyse-de-donnees-XML-avec-PugiXml-Apprendre-PugiXml-Creation-d-un-document-XML"><a class="Title8" href="#Analyse-de-donnees-XML-avec-PugiXml-Apprendre-PugiXml">Création d'un document XML</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GXmlUi::append(GXml&amp; _xml, const std::string&amp; _reference, const std::string&amp; _name, const std::string&amp; _price) {
+    GXml lProduct, lName, lPrice;
+    _xml.appendChild(lProduct, "product");
+    lProduct.appendAttribute("reference", _reference);
+    lProduct.appendChild(lName, "name");
+    lName.setNodeValue(_name);
+    lProduct.appendChild(lPrice, "price");
+    lPrice.setNodeValue(_price);
+}
+//===============================================</pre></div></div><br>Création du document<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+GXml&amp; GXml::createDoc() {
+	m_node = m_doc.append_child(pugi::node_declaration);
+    return *this;
+}
+//===============================================</pre></div></div><br>Ajout de la version<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+GXml&amp; GXml::addVersion(const std::string&amp; _version) {
+	m_node.append_attribute("version").set_value(_version.c_str());
+    return *this;
+}
+//===============================================</pre></div></div><br>Ajout de l'encodage<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+GXml&amp; GXml::addEncoding(const std::string&amp; _encoding) {
+    m_node.append_attribute("encoding").set_value(_encoding.c_str());
+    return *this;
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_pugixml_learn_doc_create.png" alt="/Tutoriels/Software_Development/Cpp/img/i_pugixml_learn_doc_create.png"></div><br></div></div></div></div><br>
