@@ -13332,4 +13332,45 @@ GXml&amp; GXml::saveFile(const std::string&amp; _filename) {
     m_doc.save_file(_filename.c_str(), "   ", pugi::format_indent, pugi::encoding_utf8);
     return *this;
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_pugixml_learn_doc_save.png" alt="/Tutoriels/Software_Development/Cpp/img/i_pugixml_learn_doc_save.png"></div><br></div></div></div></div><br>
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_pugixml_learn_doc_save.png" alt="/Tutoriels/Software_Development/Cpp/img/i_pugixml_learn_doc_save.png"></div><br><h3 class="GTitle3" id="Analyse-de-donnees-XML-avec-PugiXml-Apprendre-PugiXml-Conversion-d-un-document-en-chaine"><a class="Title8" href="#Analyse-de-donnees-XML-avec-PugiXml-Apprendre-PugiXml">Conversion d'un document en chaine</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GXmlUi::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
+    GXml lXml;
+    std::string lData;
+    lXml.createDoc();
+    lXml.addVersion("1.0");
+    lXml.addEncoding("UTF-8");
+    lXml.createRoot("catalog");
+    append(lXml, "REF123", "ZigBee ReadyDev", "2.50");
+    lXml.docToString(lData);
+    printf("%s\n", lData.c_str());
+}
+//===============================================</pre></div></div><br>Conversion du document en chaine<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+GXml&amp; GXml::docToString(std::string&amp; _data) {
+    std::stringstream lStream;
+    m_doc.save(lStream, "   ", pugi::format_indent, pugi::encoding_utf8);
+    _data = lStream.str();
+    return *this;
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_pugixml_learn_doc_string.png" alt="/Tutoriels/Software_Development/Cpp/img/i_pugixml_learn_doc_string.png"></div><br><h3 class="GTitle3" id="Analyse-de-donnees-XML-avec-PugiXml-Apprendre-PugiXml-Conversion-d-un-noeud-en-chaine"><a class="Title8" href="#Analyse-de-donnees-XML-avec-PugiXml-Apprendre-PugiXml">Conversion d'un noeud en chaine</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GXmlUi::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
+    GXml lXml, lProduct;
+    std::string lData;
+    lXml.createDoc();
+    lXml.addVersion("1.0");
+    lXml.addEncoding("UTF-8");
+    lXml.createRoot("catalog");
+    append(lXml, "REF123", "ZigBee ReadyDev", "2.50");
+    lXml.firstChild(lProduct);
+    lProduct.nodeToString(lData);
+    printf("%s\n", lData.c_str());
+}
+//===============================================</pre></div></div><br>Conversion du noeud en chaine<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+GXml&amp; GXml::nodeToString(std::string&amp; _data) {
+    std::stringstream lStream;
+    m_node.print(lStream, "   ", pugi::format_indent, pugi::encoding_utf8);
+    _data = lStream.str();
+    return *this;
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_pugixml_learn_node_string.png" alt="/Tutoriels/Software_Development/Cpp/img/i_pugixml_learn_node_string.png"></div><br></div></div></div></div><br>
