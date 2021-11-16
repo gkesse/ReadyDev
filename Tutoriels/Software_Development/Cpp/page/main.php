@@ -13373,4 +13373,45 @@ GXml&amp; GXml::nodeToString(std::string&amp; _data) {
     _data = lStream.str();
     return *this;
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_pugixml_learn_node_string.png" alt="/Tutoriels/Software_Development/Cpp/img/i_pugixml_learn_node_string.png"></div><br></div></div></div></div><br>
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_pugixml_learn_node_string.png" alt="/Tutoriels/Software_Development/Cpp/img/i_pugixml_learn_node_string.png"></div><br><h3 class="GTitle3" id="Analyse-de-donnees-XML-avec-PugiXml-Apprendre-PugiXml-Conversion-d-une-chaine-en-document"><a class="Title8" href="#Analyse-de-donnees-XML-avec-PugiXml-Apprendre-PugiXml">Conversion d'une chaine en document</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GXmlUi::run(int argc, char** argv) {
+    GXml lXml, lDoc;
+    std::string lData;
+    lXml.createDoc();
+    lXml.addVersion("1.0");
+    lXml.addEncoding("UTF-8");
+    lXml.createRoot("catalog");
+    append(lXml, "REF123", "ZigBee ReadyDev", "2.50");
+    lXml.docToString(lData);
+    lDoc.parseData(lData);
+    lDoc.printDoc();
+}
+//===============================================</pre></div></div><br>Conversion de la chaine en document<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+GXml&amp; GXml::parseData(const std::string&amp; _xml) {
+    m_result = m_doc.load_string(_xml.c_str());
+    return *this;
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_pugixml_learn_string_doc.png" alt="/Tutoriels/Software_Development/Cpp/img/i_pugixml_learn_string_doc.png"></div><br><h3 class="GTitle3" id="Analyse-de-donnees-XML-avec-PugiXml-Apprendre-PugiXml-Ajout-d-un-document-a-la-fin-d-un-autre"><a class="Title8" href="#Analyse-de-donnees-XML-avec-PugiXml-Apprendre-PugiXml">Ajout d'un document à la fin d'un autre</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GXmlUi::run(int argc, char** argv) {
+    sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
+    GXml lXml, lDoc, lProduct, lNew;
+    std::string lData;
+    lXml.createDoc();
+    lXml.addVersion("1.0");
+    lXml.addEncoding("UTF-8");
+    lXml.createRoot("catalog");
+    append(lXml, "REF123", "ZigBee ReadyDev", "2.50");
+    lXml.docToString(lData);
+    lDoc.parseData(lData);
+    lXml.firstChild(lProduct);
+    lProduct.nodeToString(lData);
+    lNew.parseData(lData);
+    lXml.appendDoc(lNew);
+    lXml.printDoc();
+}
+//===============================================</pre></div></div><br>Ajout du document à la fin de l'autre<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+GXml&amp; GXml::appendDoc(GXml&amp; _doc) {
+    m_node.append_copy(_doc.m_doc.document_element());
+    return *this;
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_pugixml_learn_doc_doc.png" alt="/Tutoriels/Software_Development/Cpp/img/i_pugixml_learn_doc_doc.png"></div><br></div></div></div></div><br>
