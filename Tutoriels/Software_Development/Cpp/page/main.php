@@ -2877,7 +2877,7 @@ onRun_1 Thread [B] : BBBBBBBBBBBBBBBBBBBB
 onRun_2 Thread [C] : CCCCCCCCCCCCCCCCCCCC
 onRun_1 Thread [C] : CCCCCCCCCCCCCCCCCCCC
 onRun_2 Thread [D] : DDDDDDDDDDDDDDDDDDDD
-onRun_1 Thread [D] : DDDDDDDDDDDDDDDDDDDD</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Interface-Homme-Machine-avec-Qt"><a class="Link3" href="#">Interface Homme-Machine avec Qt</a></h1><div class="Body3"><br>Qt permet de créer des <b>interfaces homme-machine</b> multiplateforme. <br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Installer-l-environnement-Qt-sous-MSYS2">Installer l'environnement Qt sous MSYS2</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Installer-l-environnement-Qt-sous-ubuntu">Installer l'environnement Qt sous ubuntu</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Compiler-un-projet-Qt-sous-MSYS2">Compiler un projet Qt sous MSYS2</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Executer-un-projet-Qt-existant-sous-Windows">Exécuter un projet Qt existant sous Windows</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Apprendre-XML">Apprendre XML</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Creer-une-horloge-analogique">Créer une horloge analogique</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Creer-une-calculatrice">Créer une calculatrice</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Creer-un-calendrier">Créer un calendrier</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-QProcess">QProcess</a></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/b_qt.png" class="lazy entered loaded" data-src="/Tutoriels/Software_Development/Cpp/img/b_qt.png" data-ll-status="loaded" src="/Tutoriels/Software_Development/Cpp/img/b_qt.png"></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Qt-Installer-l-environnement-Qt-sous-MSYS2"><a class="Link9" href="#Interface-Homme-Machine-avec-Qt">Installer l'environnement Qt sous MSYS2</a></h2><br><h3 class="Title8 GTitle3" id="Interface-Homme-Machine-avec-Qt-Installer-l-environnement-Qt-sous-MSYS2-Installer-Qt"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Installer-l-environnement-Qt-sous-MSYS2">Installer Qt</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh" data-state="off">pacman -S --needed --noconfirm mingw-w64-i686-qt5
+onRun_1 Thread [D] : DDDDDDDDDDDDDDDDDDDD</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Interface-Homme-Machine-avec-Qt"><a class="Link3" href="#">Interface Homme-Machine avec Qt</a></h1><div class="Body3"><br><b>Qt </b>permet de créer des interfaces homme-machine multiplateforme. <br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Installer-l-environnement-Qt-sous-MSYS2">Installer l'environnement Qt sous MSYS2</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Installer-l-environnement-Qt-sous-ubuntu">Installer l'environnement Qt sous ubuntu</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Compiler-un-projet-Qt-sous-MSYS2">Compiler un projet Qt sous MSYS2</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Executer-un-projet-Qt-existant-sous-Windows">Exécuter un projet Qt existant sous Windows</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Apprendre-XML">Apprendre XML</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Creer-une-horloge-analogique">Créer une horloge analogique</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Creer-une-calculatrice">Créer une calculatrice</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Creer-un-calendrier">Créer un calendrier</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-QProcess">QProcess</a></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/b_qt.png" class="lazy entered loaded" data-src="/Tutoriels/Software_Development/Cpp/img/b_qt.png" data-ll-status="loaded" src="/Tutoriels/Software_Development/Cpp/img/b_qt.png"></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Qt-Installer-l-environnement-Qt-sous-MSYS2"><a class="Link9" href="#Interface-Homme-Machine-avec-Qt">Installer l'environnement Qt sous MSYS2</a></h2><br><h3 class="Title8 GTitle3" id="Interface-Homme-Machine-avec-Qt-Installer-l-environnement-Qt-sous-MSYS2-Installer-Qt"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Installer-l-environnement-Qt-sous-MSYS2">Installer Qt</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh" data-state="off">pacman -S --needed --noconfirm mingw-w64-i686-qt5
 pacman -S --needed --noconfirm mingw-w64-i686-qt-creator
 pacman -S --needed --noconfirm mingw-w64-i686-gdb
 pacman -S --needed --noconfirm mingw-w64-i686-cmake
@@ -2909,7 +2909,57 @@ set "lFile="
 for %%a in (*.pro) do ( set "lFile=%%~na" )
 set "lSetup=release\%lFile%"
 %lSetup%
-::===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Qt-Apprendre-le-XML"><a class="Link9" href="#Interface-Homme-Machine-avec-Qt">Apprendre le XML</a></h2><br>XML permet de mieux <b>structurer les données</b> sous un format orienté objet.<br><br><div class="Content0 GSummary3"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Apprendre-XML-Affichage-d-un-document-XML">Affichage d'un document XML</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Apprendre-XML-Recuperation-du-noeud-racine">Récupération du noeud racine</a></div></div><br><h3 class="GTitle3" id="Interface-Homme-Machine-avec-Qt-Apprendre-XML-Chargement-du-document-XML"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Apprendre-XML">Chargement du document XML</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+::===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Qt-Apprendre-Qt"><a class="Link9" href="#Interface-Homme-Machine-avec-Qt">Apprendre Qt</a></h2><br><div class="Content0 GSummary3"><div class="Row26">Summary 3</div></div><br><h3 class="GTitle3" id="Interface-Homme-Machine-avec-Qt-Apprendre-Qt-Affichage-d-un-message"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Apprendre-Qt">Affichage d'un message</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+GQtWindow::GQtWindow(QWidget* _parent) :
+GQtWidget(_parent) {
+    sGQt lParams;
+    GQt lLabel, lMainLayout;
+
+    lLabel.createQLabel();
+    lLabel.setText("Bonjour tout le monde");
+    lMainLayout.createQHBoxLayout();
+    lMainLayout.addWidget(lLabel);
+    lMainLayout.setAlignment(Qt::AlignCenter);
+    lMainLayout.setLayout(this);
+    setWindowTitle(lParams.app_name);
+    resize(lParams.width, lParams.height);
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_learn_label_message.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_learn_label_message.png"></div><br><h3 class="GTitle3" id="Interface-Homme-Machine-avec-Qt-Apprendre-Qt-Creation-d-une-connexion"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Apprendre-Qt">Création d'une connexion</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+GQtWindow::GQtWindow(QWidget* _parent) :
+GQtWidget(_parent) {
+    sGQt lParams;
+    GQt lButton, lMainLayout;
+
+    lButton.createQPushButton("Quitter");
+    lMainLayout.createQVBoxLayout();
+    lMainLayout.addWidget(lButton);
+    lMainLayout.setAlignment(Qt::AlignTop);
+    lMainLayout.setLayout(this);
+    setWindowTitle(lParams.app_name);
+    resize(lParams.width, lParams.height);
+    lButton.connectObject(SIGNAL(clicked()), this, SLOT(close()));
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_learn_connection_create.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_learn_connection_create.png"></div><br><h3 class="GTitle3" id="Interface-Homme-Machine-avec-Qt-Apprendre-Qt-Connexion-entre-deux-objets"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Apprendre-Qt">Connexion entre deux objets</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+GQtWindow::GQtWindow(QWidget* _parent) :
+GQtWidget(_parent) {
+    sGQt lParams;
+    GQt lSpinBox, lSlider, lMainLayout;
+
+    lSpinBox.createQSpinBox();
+    lSpinBox.setRange(0, 130);
+    lSlider.createQSlider();
+    lSlider.setRange(0,  130);
+    lMainLayout.createQHBoxLayout();
+    lMainLayout.addWidget(lSpinBox);
+    lMainLayout.addWidget(lSlider);
+    lMainLayout.setAlignment(Qt::AlignTop);
+    lMainLayout.setLayout(this);
+    setWindowTitle(lParams.app_name);
+    resize(lParams.width, lParams.height);
+    lSpinBox.connectObject(SIGNAL(valueChanged(int)), lSlider, SLOT(setValue(int)));
+    lSlider.connectObject(SIGNAL(valueChanged(int)), lSpinBox, SLOT(setValue(int)));
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_learn_object_connect.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_learn_object_connect.png"></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Qt-Apprendre-le-XML"><a class="Link9" href="#Interface-Homme-Machine-avec-Qt">Apprendre le XML</a></h2><br>XML permet de mieux <b>structurer les données</b> sous un format orienté objet.<br><br><div class="Content0 GSummary3"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Apprendre-XML-Affichage-d-un-document-XML">Affichage d'un document XML</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Apprendre-XML-Recuperation-du-noeud-racine">Récupération du noeud racine</a></div></div><br><h3 class="GTitle3" id="Interface-Homme-Machine-avec-Qt-Apprendre-XML-Chargement-du-document-XML"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Apprendre-XML">Chargement du document XML</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GQXmlUi::run(int _argc, char** _argv) {
     sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
 
