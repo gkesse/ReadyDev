@@ -3012,8 +3012,7 @@ void GQtFindDialog::onFindEdit(const QString&amp; _text) {
 void GQtFindDialog::onFindButton() {
     GLOG-&gt;log(GMSG);
     QString lFindText = m_findEdit.getText();
-    Qt::CaseSensitivity lCase = m_caseCheckBox.isChecked() ?
-            Qt::CaseSensitive : Qt::CaseInsensitive;
+    Qt::CaseSensitivity lCase = m_caseCheckBox.getCaseSensitivity();
     if(m_backwardCheckBox.isChecked()) {
         emit emitFindPrevious(lFindText, lCase);
     }
