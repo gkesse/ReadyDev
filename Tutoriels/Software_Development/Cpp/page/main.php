@@ -3003,12 +3003,12 @@ GQtDialog(_parent) {
     m_findEdit.connectObject(SIGNAL(textChanged(QString)), this, SLOT(onFindEdit(QString)));
     lCloseButton.connectObject(SIGNAL(clicked()), this, SLOT(close()));
 }
-//===============================================</pre></div></div><br>Gestion de l'édition de texte (recercher)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br>Gestion de l'édition de texte (Recerche)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GQtFindDialog::onFindEdit(const QString&amp; _text) {
     GLOG-&gt;log(GMSG);
     m_findButton.setEnabled(!m_findEdit.isEmpty());
 }
-//===============================================</pre></div></div><br>Gestion du bonton (rechercher)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br>Gestion du bonton (Rechercher)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GQtFindDialog::onFindButton() {
     GLOG-&gt;log(GMSG);
     QString lFindText = m_findEdit.getText();
@@ -3020,7 +3020,46 @@ void GQtFindDialog::onFindButton() {
         emit emitFindNext(lFindText, lCase);
     }
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_learn_dialog_search.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_learn_dialog_search.png"></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Qt-Apprendre-le-XML"><a class="Link9" href="#Interface-Homme-Machine-avec-Qt">Apprendre le XML</a></h2><br><b>XML </b>permet de mieux structurer les données sous un format orienté objet.<br><br><div class="Content0 GSummary3"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Apprendre-XML-Affichage-d-un-document-XML">Affichage d'un document XML</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Apprendre-XML-Recuperation-du-noeud-racine">Récupération du noeud racine</a></div></div><br><h3 class="GTitle3" id="Interface-Homme-Machine-avec-Qt-Apprendre-XML-Chargement-du-document-XML"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Apprendre-XML">Chargement du document XML</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_learn_dialog_search.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_learn_dialog_search.png"></div><br><h3 class="GTitle3" id="Interface-Homme-Machine-avec-Qt-Apprendre-Qt-Boite-de-dialogue-de-localisation-d-une-cellule"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Apprendre-Qt">Boîte de dialogue de localisation d'une cellule</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+GQtCellLocation::GQtCellLocation(QWidget* _parent) :
+GQtDialog(_parent) {
+    sGQt lParams;
+    lParams.app_name = "ReadyApp | Localisation de la cellule ";
+    GQt lTopLayout, lMainLayout;
+    GQt lCellLabel;
+
+    lCellLabel.createQLabel("Cellule :");
+    m_cellEdit.createQLineEdit();
+    m_cellEdit.setValidator("[A-Za-z][1-9][0-9]{0,2}", this);
+    lCellLabel.setBuddy(m_cellEdit);
+    lTopLayout.createQHBoxLayout();
+    lTopLayout.addWidget(lCellLabel);
+    lTopLayout.addWidget(m_cellEdit);
+
+    m_buttonBox.createQDialogButtonBox();
+    m_buttonBox.addButton(QDialogButtonBox::Ok);
+    m_buttonBox.addButton(QDialogButtonBox::Cancel);
+    m_buttonBox.setEnabled(QDialogButtonBox::Ok, false);
+
+    lMainLayout.createQVBoxLayout();
+    lMainLayout.addLayout(lTopLayout);
+    lMainLayout.addWidget(m_buttonBox);
+    lMainLayout.setLayout(this);
+
+    setWindowTitle(lParams.app_name);
+    resize(lParams.width, lParams.height);
+    setFixedHeight(sizeHint().height());
+
+    m_buttonBox.connectObject(SIGNAL(accepted()), this, SLOT(accept()));
+    m_buttonBox.connectObject(SIGNAL(rejected()), this, SLOT(reject()));
+    m_cellEdit.connectObject(SIGNAL(textChanged(QString)), this, SLOT(onCellEdit(QString)));
+}
+//===============================================</pre></div></div><br>Gestion de l'édition de texte (Cellue)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GQtCellLocation::onCellEdit(const QString&amp; _text) {
+    GLOG-&gt;log(GMSG);
+    m_buttonBox.setEnabled(QDialogButtonBox::Ok, m_cellEdit);
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_learn_cell_location.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_learn_cell_location.png"></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Qt-Apprendre-le-XML"><a class="Link9" href="#Interface-Homme-Machine-avec-Qt">Apprendre le XML</a></h2><br><b>XML </b>permet de mieux structurer les données sous un format orienté objet.<br><br><div class="Content0 GSummary3"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Apprendre-XML-Affichage-d-un-document-XML">Affichage d'un document XML</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Apprendre-XML-Recuperation-du-noeud-racine">Récupération du noeud racine</a></div></div><br><h3 class="GTitle3" id="Interface-Homme-Machine-avec-Qt-Apprendre-XML-Chargement-du-document-XML"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Apprendre-XML">Chargement du document XML</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GQXmlUi::run(int _argc, char** _argv) {
     sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
 
