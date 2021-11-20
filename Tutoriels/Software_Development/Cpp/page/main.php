@@ -2933,7 +2933,7 @@ GQtWidget(_parent) {
     lButton.createQPushButton("Quitter");
     lMainLayout.createQVBoxLayout();
     lMainLayout.addWidget(lButton);
-    lMainLayout.setAlignment(Qt::AlignTop);
+    lMainLayout.setAlignment(Qt::AlignTop | Qt::AlignRight);
     lMainLayout.setLayout(this);
     setWindowTitle(lParams.app_name);
     resize(lParams.width, lParams.height);
@@ -2959,7 +2959,69 @@ GQtWidget(_parent) {
     lSpinBox.connectObject(SIGNAL(valueChanged(int)), lSlider, SLOT(setValue(int)));
     lSlider.connectObject(SIGNAL(valueChanged(int)), lSpinBox, SLOT(setValue(int)));
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_learn_object_connect.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_learn_object_connect.png"></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Qt-Apprendre-le-XML"><a class="Link9" href="#Interface-Homme-Machine-avec-Qt">Apprendre le XML</a></h2><br>XML permet de mieux <b>structurer les données</b> sous un format orienté objet.<br><br><div class="Content0 GSummary3"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Apprendre-XML-Affichage-d-un-document-XML">Affichage d'un document XML</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Apprendre-XML-Recuperation-du-noeud-racine">Récupération du noeud racine</a></div></div><br><h3 class="GTitle3" id="Interface-Homme-Machine-avec-Qt-Apprendre-XML-Chargement-du-document-XML"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Apprendre-XML">Chargement du document XML</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_learn_object_connect.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_learn_object_connect.png"></div><br><h3 class="GTitle3" id="Interface-Homme-Machine-avec-Qt-Apprendre-Qt-Boite-de-dialogue-de-recherche"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Apprendre-Qt">Boîte de dialogue de recherche</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+GQtFindDialog::GQtFindDialog(QWidget* _parent) :
+GQtDialog(_parent) {
+    sGQt lParams;
+    lParams.app_name = "ReadyApp | Recherche";
+    GQt lTopLayout, lLeftLayout, lRightLayout, lMainLayout;
+    GQt lFindLabel, lCloseButton;
+
+    m_findEdit.createQLineEdit();
+    lFindLabel.createQLabel("Recherche :");
+    lFindLabel.setBuddy(m_findEdit);
+    lTopLayout.createQHBoxLayout();
+    lTopLayout.addWidget(lFindLabel);
+    lTopLayout.addWidget(m_findEdit);
+
+    m_caseCheckBox.createQCheckBox("Sensible à la casse");
+    m_backwardCheckBox.createQCheckBox("Recherche arrière");
+    lLeftLayout.createQVBoxLayout();
+    lLeftLayout.addLayout(lTopLayout);
+    lLeftLayout.addWidget(m_caseCheckBox);
+    lLeftLayout.addWidget(m_backwardCheckBox);
+
+    m_findButton.createQPushButton("Rechercher");
+    m_findButton.setDefault(true);
+    m_findButton.setEnabled(false);
+    lCloseButton.createQPushButton("Quitter");
+    lRightLayout.createQVBoxLayout();
+    lRightLayout.addWidget(m_findButton);
+    lRightLayout.addWidget(lCloseButton);
+    lRightLayout.addStretch();
+
+    lMainLayout.createQHBoxLayout();
+    lMainLayout.addLayout(lLeftLayout);
+    lMainLayout.addLayout(lRightLayout);
+    lMainLayout.setLayout(this);
+
+    setWindowTitle(lParams.app_name);
+    resize(lParams.width, lParams.height);
+    setFixedHeight(sizeHint().height());
+
+    m_findButton.connectObject(SIGNAL(clicked()), this, SLOT(onFindButton()));
+    m_findEdit.connectObject(SIGNAL(textChanged(QString)), this, SLOT(onFindEdit(QString)));
+    lCloseButton.connectObject(SIGNAL(clicked()), this, SLOT(close()));
+}
+//===============================================</pre></div></div><br>Gestion de l'édition de texte (recercher)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GQtFindDialog::onFindEdit(const QString&amp; _text) {
+    GLOG-&gt;log(GMSG);
+    m_findButton.setEnabled(!m_findEdit.isEmpty());
+}
+//===============================================</pre></div></div><br>Gestion du bonton (rechercher)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GQtFindDialog::onFindButton() {
+    GLOG-&gt;log(GMSG);
+    QString lFindText = m_findEdit.getText();
+    Qt::CaseSensitivity lCase = m_caseCheckBox.isChecked() ?
+            Qt::CaseSensitive : Qt::CaseInsensitive;
+    if(m_backwardCheckBox.isChecked()) {
+        emit emitFindPrevious(lFindText, lCase);
+    }
+    else {
+        emit emitFindNext(lFindText, lCase);
+    }
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_learn_dialog_search.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_learn_dialog_search.png"></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Qt-Apprendre-le-XML"><a class="Link9" href="#Interface-Homme-Machine-avec-Qt">Apprendre le XML</a></h2><br><b>XML </b>permet de mieux structurer les données sous un format orienté objet.<br><br><div class="Content0 GSummary3"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Apprendre-XML-Affichage-d-un-document-XML">Affichage d'un document XML</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Apprendre-XML-Recuperation-du-noeud-racine">Récupération du noeud racine</a></div></div><br><h3 class="GTitle3" id="Interface-Homme-Machine-avec-Qt-Apprendre-XML-Chargement-du-document-XML"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Apprendre-XML">Chargement du document XML</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GQXmlUi::run(int _argc, char** _argv) {
     sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
 
