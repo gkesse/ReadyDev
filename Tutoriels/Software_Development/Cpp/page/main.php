@@ -2959,11 +2959,11 @@ GQtWidget(_parent) {
     lSpinBox.connectObject(SIGNAL(valueChanged(int)), lSlider, SLOT(setValue(int)));
     lSlider.connectObject(SIGNAL(valueChanged(int)), lSpinBox, SLOT(setValue(int)));
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_learn_object_connect.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_learn_object_connect.png"></div><br><h3 class="GTitle3" id="Interface-Homme-Machine-avec-Qt-Apprendre-Qt-Boite-de-dialogue-de-recherche"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Apprendre-Qt">Boîte de dialogue de recherche</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_learn_object_connect.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_learn_object_connect.png"></div><br><h3 class="GTitle3" id="Interface-Homme-Machine-avec-Qt-Apprendre-Qt-Boite-de-dialogue-de-recherche-de-texte"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Apprendre-Qt">Boîte de dialogue de recherche de texte</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 GQtFindDialog::GQtFindDialog(QWidget* _parent) :
 GQtDialog(_parent) {
     sGQt lParams;
-    lParams.app_name = "ReadyApp | Recherche";
+    lParams.app_name = "ReadyApp | Recherche de texte";
     GQt lTopLayout, lLeftLayout, lRightLayout, lMainLayout;
     GQt lFindLabel, lCloseButton;
 
@@ -3020,11 +3020,11 @@ void GQtFindDialog::onFindButton() {
         emit emitFindNext(lFindText, lCase);
     }
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_learn_dialog_search.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_learn_dialog_search.png"></div><br><h3 class="GTitle3" id="Interface-Homme-Machine-avec-Qt-Apprendre-Qt-Boite-de-dialogue-de-localisation-d-une-cellule"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Apprendre-Qt">Boîte de dialogue de localisation d'une cellule</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_learn_dialog_search.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_learn_dialog_search.png"></div><br><h3 class="GTitle3" id="Interface-Homme-Machine-avec-Qt-Apprendre-Qt-Boite-de-dialogue-de-localisation-de-cellule"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Apprendre-Qt">Boîte de dialogue de localisation de cellule</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 GQtCellLocation::GQtCellLocation(QWidget* _parent) :
 GQtDialog(_parent) {
     sGQt lParams;
-    lParams.app_name = "ReadyApp | Localisation de la cellule ";
+    lParams.app_name = "ReadyApp | Localisation de cellule ";
     GQt lTopLayout, lMainLayout;
     GQt lCellLabel;
 
