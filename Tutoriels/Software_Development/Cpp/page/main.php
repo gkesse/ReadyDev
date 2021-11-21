@@ -3057,7 +3057,52 @@ void GQtCellLocation::onCellEdit(const QString&amp; _text) {
     GLOG-&gt;log(GMSG); GQt lQt;
     lQt.setEnabled(m_buttonBox, QDialogButtonBox::Ok, m_cellEdit-&gt;hasAcceptableInput());
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_learn_cell_location.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_learn_cell_location.png"></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Qt-Apprendre-le-XML"><a class="Link9" href="#Interface-Homme-Machine-avec-Qt">Apprendre le XML</a></h2><br><b>XML </b>permet de mieux structurer les données sous un format orienté objet.<br><br><div class="Content0 GSummary3"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Apprendre-XML-Chargement-du-document-XML">Chargement du document XML</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Apprendre-XML-Recuperation-du-noeud-racine">Récupération du noeud racine</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Apprendre-XML-Recuperation-du-premier-noeud-enfant">Récupération du premier noeud enfant</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Apprendre-XML-Recuperation-du-noeud-suivant-direct">Récupération du noeud suivant direct</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Apprendre-XML-Recuperation-d-une-liste-de-noeuds">Récupération d'une liste de noeuds</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Apprendre-XML-Recuperation-du-noeud-precedent-direct">Récupération du noeud précédent direct</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Apprendre-XML-Recuperation-d-un-attribut">Récupération d'un attribut</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Apprendre-XML-Modification-d-un-attribut">Modification d'un attribut</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Apprendre-XML-Creation-d-un-nouveau-noeud">Création d'un nouveau noeud</a></div></div><br><h3 class="GTitle3" id="Interface-Homme-Machine-avec-Qt-Apprendre-XML-Chargement-du-document-XML"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Apprendre-XML">Chargement du document XML</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_learn_cell_location.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_learn_cell_location.png"></div><br><h3 class="GTitle3" id="Interface-Homme-Machine-avec-Qt-Apprendre-Qt-Boite-de-dialogue-de-tri-de-cellule"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Apprendre-Qt">Boîte de dialogue de tri de cellule</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+GQtSortDialog::GQtSortDialog(QWidget* _parent) :
+GQtDialog(_parent) {
+    sGQt lParams; GQt lQt;
+    lParams.app_name = "ReadyApp | Tri de cellule";
+    lParams.height = 10;
+
+    GQtWidget* lPrimaryBox = GQtWidget::Create("widget/sortbox");
+    GQtWidget* lSecondBox = GQtWidget::Create("widget/sortbox");
+    GQtWidget* lThirdBox = GQtWidget::Create("widget/sortbox");
+
+    lSecondBox-&gt;hide();
+    lThirdBox-&gt;hide();
+
+    lSecondBox-&gt;setTitle("Clé secondaire");
+    lThirdBox-&gt;setTitle("Clé tertiare");
+
+    QPushButton* lOkButton = new QPushButton("OK");
+    QPushButton* lCancelButton = new QPushButton("Annuler");
+    QPushButton* lMoreButton = new QPushButton("Avancé");
+    lMoreButton-&gt;setCheckable(true);
+    QVBoxLayout* lRightLayout = new QVBoxLayout;
+    lRightLayout-&gt;addWidget(lOkButton);
+    lRightLayout-&gt;addWidget(lCancelButton);
+    lQt.addSpacer(lRightLayout);
+    lRightLayout-&gt;addWidget(lMoreButton);
+
+    QGridLayout* lMainLayout = new QGridLayout;
+    lMainLayout-&gt;addWidget(lPrimaryBox, 0, 0);
+    lMainLayout-&gt;addLayout(lRightLayout, 0, 1, 2, 1);
+    lQt.addVSpacer(lMainLayout, 1, 0);
+    lMainLayout-&gt;addWidget(lSecondBox, 2, 0);
+    lMainLayout-&gt;addWidget(lThirdBox, 3, 0);
+
+    setLayout(lMainLayout);
+    setWindowTitle(lParams.app_name);
+    resize(lParams.width, lParams.height);
+
+    layout()-&gt;setSizeConstraint(QLayout::SetFixedSize);
+
+    connect(lOkButton, SIGNAL(clicked()), this, SLOT(accept()));
+    connect(lCancelButton, SIGNAL(clicked()), this, SLOT(reject()));
+    connect(lMoreButton, SIGNAL(toggled(bool)), lSecondBox, SLOT(setVisible(bool)));
+    connect(lMoreButton, SIGNAL(toggled(bool)), lThirdBox, SLOT(setVisible(bool)));
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_learn_sort_dialog.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_learn_sort_dialog.png"></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Qt-Apprendre-le-XML"><a class="Link9" href="#Interface-Homme-Machine-avec-Qt">Apprendre le XML</a></h2><br><b>XML </b>permet de mieux structurer les données sous un format orienté objet.<br><br><div class="Content0 GSummary3"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Apprendre-XML-Chargement-du-document-XML">Chargement du document XML</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Apprendre-XML-Recuperation-du-noeud-racine">Récupération du noeud racine</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Apprendre-XML-Recuperation-du-premier-noeud-enfant">Récupération du premier noeud enfant</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Apprendre-XML-Recuperation-du-noeud-suivant-direct">Récupération du noeud suivant direct</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Apprendre-XML-Recuperation-d-une-liste-de-noeuds">Récupération d'une liste de noeuds</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Apprendre-XML-Recuperation-du-noeud-precedent-direct">Récupération du noeud précédent direct</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Apprendre-XML-Recuperation-d-un-attribut">Récupération d'un attribut</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Apprendre-XML-Modification-d-un-attribut">Modification d'un attribut</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Apprendre-XML-Creation-d-un-nouveau-noeud">Création d'un nouveau noeud</a></div></div><br><h3 class="GTitle3" id="Interface-Homme-Machine-avec-Qt-Apprendre-XML-Chargement-du-document-XML"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Apprendre-XML">Chargement du document XML</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GQXmlUi::run(int _argc, char** _argv) {
     sGApp* lApp = GManager::Instance()-&gt;data()-&gt;app;
 
