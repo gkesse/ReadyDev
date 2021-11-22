@@ -1374,7 +1374,7 @@ public:
 private:
     std::string m_name;
 };
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_getter.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_getter.png"></div><br><h3 class="GTitle3" id="Programmation-orientee-objet-Fondamentaux-Initialisation-d-un-objet-avec-des-accolades"><a class="Title8" href="#Programmation-orientee-objet-Fondamentaux">Initialisation d'un objet avec des accolades</a></h3><br>Cette opération permet de <b>reproduire le concept d'initialisation</b> d'une structure avec des accolades.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_getter.png" class="lazy entered exited" data-src="/Tutoriels/Software_Development/Cpp/img/i_poo_learn_getter.png"></div><br><h3 class="GTitle3" id="Programmation-orientee-objet-Fondamentaux-Initialisation-d-un-objet-avec-des-accolades"><a class="Title8" href="#Programmation-orientee-objet-Fondamentaux">Initialisation d'un objet avec des accolades</a></h3><br>Cette opération permet de <b>reproduire le concept d'initialisation</b> d'une structure avec des accolades.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GCppUi::run(int _argc, char** _argv) {
     GClass lObj = {"Gerard KESSE"};
     std::string lName = lObj.getName();
@@ -2703,7 +2703,7 @@ void GProcess::runQuit(int argc, char** argv) {
     else if(lAnswer == "o") {m_state = "end";}
     else if(lAnswer == "-q") {m_state = "end";}
 }
-//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Systeme-d-administration-Resultat"><a class="Link9" href="#Systeme-d-administration">Résultat</a></h2><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_admin_system.gif" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/i_admin_system.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Multithreading"><a class="Link3" href="#">Multithreading</a></h1><div class="Body3"><br>Un processeur est dit <b>multithread </b>s'il est capable d'exécuter efficacement plusieurs threads simultanément. Contrairement aux systèmes multiprocesseurs (tels les systèmes multi-cœur), les threads doivent partager les ressources d'un unique cœur1 : les unités de traitement, le cache processeur et le translation lookaside buffer ; certaines parties sont néanmoins dupliquées : chaque thread dispose de ses propres registres et de son propre pointeur d'instruction. Là où les systèmes multiprocesseurs incluent plusieurs unités de traitement complètes, le multithreading a pour but d'augmenter l'utilisation d'un seul cœur en tirant profit des propriétés des threads et du parallélisme au niveau des instructions. Comme les deux techniques sont complémentaires, elles sont parfois combinées dans des systèmes comprenant de multiples processeurs multithreads ou des processeurs avec de multiples cœurs multithreads.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Multithreading-Creer-un-thread">Créer un thread</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Multithreading-Creer-un-objet-atomique">Créer un objet atomique</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Multithreading-Creer-un-appel-de-fonction-unique">Créer un appel de fonction unique</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Multithreading-Creer-un-mutex">Créer un mutex</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Multithreading-Creer-un-mutex-recursif">Créer un mutex récursif</a></div></div><br><h2 class="Title7 GTitle2" id="Multithreading-Creer-un-thread"><a class="Link9" href="#Multithreading">Créer un thread</a></h2><br><h3 class="Title8 GTitle3" id="Multithreading-Creer-un-thread-main-cpp"><a class="Title8" href="#Multithreading-Creer-un-thread">main.cpp</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Systeme-d-administration-Resultat"><a class="Link9" href="#Systeme-d-administration">Résultat</a></h2><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_admin_system.gif" class="lazy entered loaded" data-src="/Tutoriels/Software_Development/Cpp/img/i_admin_system.gif" data-ll-status="loaded" src="/Tutoriels/Software_Development/Cpp/img/i_admin_system.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Multithreading"><a class="Link3" href="#">Multithreading</a></h1><div class="Body3"><br>Un processeur est dit <b>multithread </b>s'il est capable d'exécuter efficacement plusieurs threads simultanément. Contrairement aux systèmes multiprocesseurs (tels les systèmes multi-cœur), les threads doivent partager les ressources d'un unique cœur1 : les unités de traitement, le cache processeur et le translation lookaside buffer ; certaines parties sont néanmoins dupliquées : chaque thread dispose de ses propres registres et de son propre pointeur d'instruction. Là où les systèmes multiprocesseurs incluent plusieurs unités de traitement complètes, le multithreading a pour but d'augmenter l'utilisation d'un seul cœur en tirant profit des propriétés des threads et du parallélisme au niveau des instructions. Comme les deux techniques sont complémentaires, elles sont parfois combinées dans des systèmes comprenant de multiples processeurs multithreads ou des processeurs avec de multiples cœurs multithreads.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Multithreading-Creer-un-thread">Créer un thread</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Multithreading-Creer-un-objet-atomique">Créer un objet atomique</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Multithreading-Creer-un-appel-de-fonction-unique">Créer un appel de fonction unique</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Multithreading-Creer-un-mutex">Créer un mutex</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Multithreading-Creer-un-mutex-recursif">Créer un mutex récursif</a></div></div><br><h2 class="Title7 GTitle2" id="Multithreading-Creer-un-thread"><a class="Link9" href="#Multithreading">Créer un thread</a></h2><br><h3 class="Title8 GTitle3" id="Multithreading-Creer-un-thread-main-cpp"><a class="Title8" href="#Multithreading-Creer-un-thread">main.cpp</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp" data-state="off">//===============================================
 #include &lt;iostream&gt;
 #include &lt;thread&gt;
 //===============================================
@@ -2721,7 +2721,7 @@ int main(int argc, char** argv) {
     lThreadB.join();
     return (0);
 }
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Multithreading-Creer-un-thread-Resultat"><a class="Title8" href="#Multithreading-Creer-un-thread">Résultat</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">Thread[A][0] : on execute le thread
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Multithreading-Creer-un-thread-Resultat"><a class="Title8" href="#Multithreading-Creer-un-thread">Résultat</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp" data-state="off">Thread[A][0] : on execute le thread
 Thread[B][0] : on execute le thread
 Thread[A][1] : on execute le thread
 Thread[B][1] : on execute le thread
@@ -2735,7 +2735,7 @@ Thread[B][5] : on execute le thread
 Thread[B][6] : on execute le thread
 Thread[B][7] : on execute le thread
 Thread[B][8] : on execute le thread
-Thread[B][9] : on execute le thread</pre></div></div><br><h2 class="Title7 GTitle2" id="Multithreading-Creer-un-objet-atomique"><a class="Link9" href="#Multithreading">Créer un objet atomique</a></h2><br>Les objets de types <b>atomiques </b>contiennent une valeur d'un type particulier (T). La principale caractéristique des objets atomiques est que l'accès à cette valeur contenue à partir de différents threads ne peut pas provoquer de courses de données (c'est-à-dire que faire cela est un comportement bien défini , avec des accès correctement séquencés). Généralement, pour tous les autres objets, la possibilité de provoquer une course aux données pour accéder simultanément au même objet qualifie l'opération comme un comportement indéfini. Aditionellement, les objets atomiques ont la capacité de synchroniser l'accès à d'autres objets non atomiques dans leurs threads en spécifiant différents ordres de mémoire .<br><br><h3 class="Title8 GTitle3" id="Multithreading-Creer-un-objet-atomique-main-cpp"><a class="Title8" href="#Multithreading-Creer-un-objet-atomique">main.cpp</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
+Thread[B][9] : on execute le thread</pre></div></div><br><h2 class="Title7 GTitle2" id="Multithreading-Creer-un-objet-atomique"><a class="Link9" href="#Multithreading">Créer un objet atomique</a></h2><br>Les objets de types <b>atomiques </b>contiennent une valeur d'un type particulier (T). La principale caractéristique des objets atomiques est que l'accès à cette valeur contenue à partir de différents threads ne peut pas provoquer de courses de données (c'est-à-dire que faire cela est un comportement bien défini , avec des accès correctement séquencés). Généralement, pour tous les autres objets, la possibilité de provoquer une course aux données pour accéder simultanément au même objet qualifie l'opération comme un comportement indéfini. Aditionellement, les objets atomiques ont la capacité de synchroniser l'accès à d'autres objets non atomiques dans leurs threads en spécifiant différents ordres de mémoire .<br><br><h3 class="Title8 GTitle3" id="Multithreading-Creer-un-objet-atomique-main-cpp"><a class="Title8" href="#Multithreading-Creer-un-objet-atomique">main.cpp</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp" data-state="off">//===============================================
 #include &lt;iostream&gt;
 #include &lt;thread&gt;
 #include &lt;atomic&gt;
@@ -2758,7 +2758,7 @@ int main(int argc, char** argv) {
     lThreadB.join();
     return (0);
 }
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Multithreading-Creer-un-objet-atomique-Resultat"><a class="Title8" href="#Multithreading-Creer-un-objet-atomique">Résultat</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">Thread[ 0][A][0] : on execute le thread
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Multithreading-Creer-un-objet-atomique-Resultat"><a class="Title8" href="#Multithreading-Creer-un-objet-atomique">Résultat</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp" data-state="off">Thread[ 0][A][0] : on execute le thread
 Thread[ 0][B][0] : on execute le thread
 Thread[ 1][A][1] : on execute le thread
 Thread[ 2][B][1] : on execute le thread
@@ -2801,7 +2801,7 @@ int main(int argc, char** argv) {
     std::printf("Thread gagnant : Thread [%s]\n", gWinner.c_str());
     return (0);
 }
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Multithreading-Creer-un-appel-de-fonction-unique-Resultat"><a class="Title8" href="#Multithreading-Creer-un-appel-de-fonction-unique">Résultat</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">Thread gagnant : Thread [C]</pre></div></div><br><h2 class="Title7 GTitle2" id="Multithreading-Creer-un-mutex"><a class="Link9" href="#Multithreading">Créer un mutex</a></h2><br>Un <b>mutex </b>est un objet verrouillable qui est conçu pour signaler quand des sections critiques de code ont besoin d'un accès exclusif, empêchant d'autres threads avec la même protection de s'exécuter simultanément et d'accéder aux mêmes emplacements de mémoire. Les objets mutex fournissent la propriété exclusive et ne prennent pas en charge la récursivité (c'est-à-dire qu'un thread ne doit pas verrouiller un mutex qu'il possède déjà).<br><br><h3 class="Title8 GTitle3" id="Multithreading-Creer-un-mutex-main-cpp"><a class="Title8" href="#Multithreading-Creer-un-mutex">main.cpp</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Multithreading-Creer-un-appel-de-fonction-unique-Resultat"><a class="Title8" href="#Multithreading-Creer-un-appel-de-fonction-unique">Résultat</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp" data-state="off">Thread gagnant : Thread [C]</pre></div></div><br><h2 class="Title7 GTitle2" id="Multithreading-Creer-un-mutex"><a class="Link9" href="#Multithreading">Créer un mutex</a></h2><br>Un <b>mutex </b>est un objet verrouillable qui est conçu pour signaler quand des sections critiques de code ont besoin d'un accès exclusif, empêchant d'autres threads avec la même protection de s'exécuter simultanément et d'accéder aux mêmes emplacements de mémoire. Les objets mutex fournissent la propriété exclusive et ne prennent pas en charge la récursivité (c'est-à-dire qu'un thread ne doit pas verrouiller un mutex qu'il possède déjà).<br><br><h3 class="Title8 GTitle3" id="Multithreading-Creer-un-mutex-main-cpp"><a class="Title8" href="#Multithreading-Creer-un-mutex">main.cpp</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp" data-state="off">//===============================================
 #include &lt;iostream&gt;
 #include &lt;thread&gt;
 #include &lt;mutex&gt;
@@ -2830,10 +2830,10 @@ int main(int argc, char** argv) {
     lThreadD.join();
     return (0);
 }
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Multithreading-Creer-un-mutex-Resultat"><a class="Title8" href="#Multithreading-Creer-un-mutex">Résultat</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">Thread [A] : AAAAAAAAAAAAAAAAAAAA
+//===============================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Multithreading-Creer-un-mutex-Resultat"><a class="Title8" href="#Multithreading-Creer-un-mutex">Résultat</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp" data-state="off">Thread [A] : AAAAAAAAAAAAAAAAAAAA
 Thread [B] : BBBBBBBBBBBBBBBBBBBB
 Thread [C] : CCCCCCCCCCCCCCCCCCCC
-Thread [D] : DDDDDDDDDDDDDDDDDDDD</pre></div></div><br><h2 class="Title7 GTitle2" id="Multithreading-Creer-un-mutex-recursif"><a class="Link9" href="#Multithreading">Créer un mutex récursif</a></h2><br>Un <b>mutex récursif</b> est un objet verrouillable, tout comme mutex, mais permet au même thread d'acquérir plusieurs niveaux de propriété sur l'objet mutex. Cela permet de verrouiller (ou d' essayer de verrouiller) l'objet mutex à partir d'un thread qui le verrouille déjà, en acquérant un nouveau niveau de propriété sur l'objet mutex : l' objet mutex restera en fait verrouillé en possédant le thread jusqu'à ce que son membre ouvrir est appelé autant de fois que ce niveau d'appropriation.<br><br><h3 class="Title8 GTitle3" id="Multithreading-Creer-un-mutex-recursif-main-cpp"><a class="Title8" href="#Multithreading-Creer-un-mutex-recursif">main.cpp</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
+Thread [D] : DDDDDDDDDDDDDDDDDDDD</pre></div></div><br><h2 class="Title7 GTitle2" id="Multithreading-Creer-un-mutex-recursif"><a class="Link9" href="#Multithreading">Créer un mutex récursif</a></h2><br>Un <b>mutex récursif</b> est un objet verrouillable, tout comme mutex, mais permet au même thread d'acquérir plusieurs niveaux de propriété sur l'objet mutex. Cela permet de verrouiller (ou d' essayer de verrouiller) l'objet mutex à partir d'un thread qui le verrouille déjà, en acquérant un nouveau niveau de propriété sur l'objet mutex : l' objet mutex restera en fait verrouillé en possédant le thread jusqu'à ce que son membre ouvrir est appelé autant de fois que ce niveau d'appropriation.<br><br><h3 class="Title8 GTitle3" id="Multithreading-Creer-un-mutex-recursif-main-cpp"><a class="Title8" href="#Multithreading-Creer-un-mutex-recursif">main.cpp</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp" data-state="off">//===============================================
 #include &lt;iostream&gt;
 #include &lt;thread&gt;
 #include &lt;mutex&gt;
@@ -2877,7 +2877,204 @@ onRun_1 Thread [B] : BBBBBBBBBBBBBBBBBBBB
 onRun_2 Thread [C] : CCCCCCCCCCCCCCCCCCCC
 onRun_1 Thread [C] : CCCCCCCCCCCCCCCCCCCC
 onRun_2 Thread [D] : DDDDDDDDDDDDDDDDDDDD
-onRun_1 Thread [D] : DDDDDDDDDDDDDDDDDDDD</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Interface-Homme-Machine-avec-Qt"><a class="Link3" href="#">Interface Homme-Machine avec Qt</a></h1><div class="Body3"><br><b>Qt </b>permet de créer des interfaces homme-machine multiplateforme. <br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Installer-l-environnement-Qt-sous-MSYS2">Installer l'environnement Qt sous MSYS2</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Installer-l-environnement-Qt-sous-ubuntu">Installer l'environnement Qt sous ubuntu</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Compiler-un-projet-Qt-sous-MSYS2">Compiler un projet Qt sous MSYS2</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Executer-un-projet-Qt-existant-sous-Windows">Exécuter un projet Qt existant sous Windows</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Apprendre-Qt">Apprendre Qt</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Apprendre-le-XML">Apprendre le XML</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Apprendre-les-sockets">Apprendre les sockets</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Creer-une-horloge-analogique">Créer une horloge analogique</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Creer-une-calculatrice">Créer une calculatrice</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Creer-un-calendrier">Créer un calendrier</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-QProcess">QProcess</a></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/b_qt.png" class="lazy entered loaded" data-src="/Tutoriels/Software_Development/Cpp/img/b_qt.png" data-ll-status="loaded" src="/Tutoriels/Software_Development/Cpp/img/b_qt.png"></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Qt-Installer-l-environnement-Qt-sous-MSYS2"><a class="Link9" href="#Interface-Homme-Machine-avec-Qt">Installer l'environnement Qt sous MSYS2</a></h2><br><h3 class="Title8 GTitle3" id="Interface-Homme-Machine-avec-Qt-Installer-l-environnement-Qt-sous-MSYS2-Installer-Qt"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Installer-l-environnement-Qt-sous-MSYS2">Installer Qt</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh" data-state="off">pacman -S --needed --noconfirm mingw-w64-i686-qt5
+onRun_1 Thread [D] : DDDDDDDDDDDDDDDDDDDD</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Base-de-donnees-avec-SQLite"><a class="Link3" href="#">Base de données avec SQLite</a></h1><div class="Body3"><br><b>SQLite </b>permet de gérer une base données relationnelle dans un fichier au format binaire.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Base-de-donnees-avec-SQLite-Installer-l-environnement-SQLite-sous-MinGW"><a class="Link9" href="#Base-de-donnees-avec-SQLite">Installer l'environnement SQLite sous MinGW</a></h2><br><h3 class="GTitle3" id="Base-de-donnees-avec-SQLite-Installer-l-environnement-SQLite-sous-MinGW-Telechargement-de-SQLIte"><a class="Title8" href="#Base-de-donnees-avec-SQLite-Installer-l-environnement-SQLite-sous-MinGW">Téléchargement de SQLIte</a></h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://www.sqlite.org/download.html">https://www.sqlite.org/download.html</a><br><br><h2 class="Title7 GTitle2" id="Base-de-donnees-avec-SQLite-Compiler-un-projet-SQLite-sous-MinGW"><a class="Link9" href="#Base-de-donnees-avec-SQLite">Compiler un projet SQLite sous MinGW</a></h2><br><h3 class="GTitle3" id="Base-de-donnees-avec-SQLite-Compiler-un-projet-SQLite-sous-MinGW-Fichiers-header"><a class="Title8" href="#Base-de-donnees-avec-SQLite-Compiler-un-projet-SQLite-sous-MinGW">Fichiers header</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//==============================================
+#include &lt;sqlite3.h&gt;
+//==============================================</pre></div></div><br><h3 class="GTitle3" id="Base-de-donnees-avec-SQLite-Compiler-un-projet-SQLite-sous-MinGW-Librairies"><a class="Title8" href="#Base-de-donnees-avec-SQLite-Compiler-un-projet-SQLite-sous-MinGW">Librairies</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">LIBS +=\
+&nbsp;&nbsp;&nbsp; -lsqlite3</pre></div></div><br><h2 class="Title7 GTitle2" id="Base-de-donnees-avec-SQLite-Apprendre-SQLite"><a class="Link9" href="#Base-de-donnees-avec-SQLite">Apprendre SQLite</a></h2><br><div class="Content0 GSummary3"><div class="Row26">Summary 3</div></div><br><h3 class="GTitle3" id="Base-de-donnees-avec-SQLite-Apprendre-SQLite-Lecture-de-la-version"><a class="Title8" href="#Base-de-donnees-avec-SQLite-Apprendre-SQLite">Lecture de la version</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GSQLiteUi::run(int argc, char** argv) {
+    sGApp* lApp = GResource::Instance()-&gt;data()-&gt;app;
+    sGSQLite lParams; GSQLite lSQlite;
+    lSQlite.getVersion(lParams.version);
+    printf("%s\n", lParams.version.c_str());
+}
+//===============================================</pre></div></div><br>Lecture de la version<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GSQLite::getVersion(std::string&amp; _version) {
+    _version = sqlite3_libversion();
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_sqlite_learn_version.png" alt="/Tutoriels/Software_Development/Cpp/img/i_sqlite_learn_version.png"></div><br><h3 class="GTitle3" id="Base-de-donnees-avec-SQLite-Apprendre-SQLite-Execution-d-une-requete-preparee"><a class="Title8" href="#Base-de-donnees-avec-SQLite-Apprendre-SQLite">Exécution d'une requête préparée</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GSQLiteUi::run(int argc, char** argv) {
+    sGApp* lApp = GResource::Instance()-&gt;data()-&gt;app;
+    sGSQLite lParams; GSQLite lSQlite; std::string lData;
+    lSQlite.openDatabase(lApp-&gt;sqlite_file);
+    lSQlite.prepareQuery("select SQLITE_VERSION()");
+    lSQlite.stepQuery();
+    lSQlite.getColumnData(lData, 0);
+    printf("%s\n", lData.c_str());
+}
+//===============================================</pre></div></div><br>Ouverture de la base de données<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GSQLite::openDatabase(const std::string&amp; _filename) {
+    sqlite3_open(_filename.c_str(), &amp;m_sqlite3);
+}
+//===============================================</pre></div></div><br>Préparation de la requête<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GSQLite::prepareQuery(const std::string&amp; _query) {
+    sqlite3_prepare_v2(m_sqlite3, _query.c_str(), -1, &amp;m_stmt, 0);
+}
+//===============================================</pre></div></div><br>Exécution de la requête<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GSQLite::stepQuery() {
+    sqlite3_step(m_stmt);
+}
+//===============================================</pre></div></div><br>Lecture d'une colonne<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GSQLite::getColumnData(std::string&amp; _data, int _col) {
+    _data = (char*)sqlite3_column_text(m_stmt, _col);
+}
+//===============================================</pre></div></div><br>Finalisation de la requête<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GSQLite::finalizeQuery() {
+    sqlite3_finalize(m_stmt);
+}
+//===============================================</pre></div></div><br>Fermeture de la base de données<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GSQLite::closeDatabase() {
+    sqlite3_close(m_sqlite3);
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_sqlite_learn_version.png" alt="/Tutoriels/Software_Development/Cpp/img/i_sqlite_learn_version.png"></div><br><h3 class="GTitle3" id="Base-de-donnees-avec-SQLite-Apprendre-SQLite-Insertion-de-donnees"><a class="Title8" href="#Base-de-donnees-avec-SQLite-Apprendre-SQLite">Insertion de données</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GSQLiteUi::run(int argc, char** argv) {
+    GSQLITE-&gt;writeData(""
+            " drop table if exists user_data "
+            "");
+    GSQLITE-&gt;writeData(""
+            " create table if not exists user_data ( "
+            " _id integer primary key autoincrement not null, "
+            " _username text, "
+            " _email text "
+            " ) "
+            "");
+    GSQLITE-&gt;writeData(""
+            " insert into user_data  (_username, _email) "
+            " values ('Gerard KESSE', 'gerard.kesse@readydev.com') "
+            "");
+    GSQLITE-&gt;writeData(""
+            " insert into user_data (_username, _email) "
+            " values ('Pierre DUPONT', 'pierre.dupont@readydev.com') "
+            "");
+    GSQLITE-&gt;writeData(""
+            " insert into user_data  (_username, _email) "
+            " values ('Paul GASTON', 'paul.gaston@readydev.com') "
+            "");
+}
+//===============================================</pre></div></div><br>Exécution d'une requête<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GSQLite::writeData(const std::string&amp; _query) {
+    executeQuery(_query, 0, 0);
+}
+//===============================================</pre></div></div><br><h3 class="GTitle3" id="Base-de-donnees-avec-SQLite-Apprendre-SQLite-Lecture-d-une-donnee"><a class="Title8" href="#Base-de-donnees-avec-SQLite-Apprendre-SQLite">Lecture d'une donnée</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GSQLiteUi::run(int argc, char** argv) {
+    std::vector&lt;std::string&gt; lNames;
+    std::string lData = GSQLITE-&gt;readData(""
+            " select _username from user_data "
+            " where _id = 1 "
+            "", &amp;lNames);
+    GCONSOLE-&gt;showData(lNames);
+    GCONSOLE-&gt;showData(lData);
+}
+//===============================================</pre></div></div><br>Exécution de la requête<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+std::string GSQLite::readData(const std::string&amp; _query, std::vector&lt;std::string&gt;* _names) {
+    sGSQLite lParams;
+    lParams.names = _names;
+    executeQuery(_query, onReadData, &amp;lParams);
+    return lParams.data_val;
+}
+//===============================================</pre></div></div><br>Lecture de la donnée<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+int GSQLite::onReadData(void* _params, int _colCount, char** _colVals, char** _colNames) {
+    sGSQLite* lParams = (sGSQLite*)_params;
+    if(lParams-&gt;row_count == 0) {
+        if(lParams-&gt;names &amp;&amp; lParams-&gt;names_on) {
+            lParams-&gt;names-&gt;push_back(_colNames[0]);
+        }
+        lParams-&gt;data_val = _colVals[0];
+        lParams-&gt;names_on = false;
+        lParams-&gt;row_count++;
+    }
+    return 0;
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_sqlite_learn_data_val.png" alt="/Tutoriels/Software_Development/Cpp/img/i_sqlite_learn_data_val.png"></div><br><h3 class="GTitle3" id="Base-de-donnees-avec-SQLite-Apprendre-SQLite-Lecture-d-une-ligne-de-donnees"><a class="Title8" href="#Base-de-donnees-avec-SQLite-Apprendre-SQLite">Lecture d'une ligne de données</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GSQLiteUi::run(int argc, char** argv) {
+    std::vector&lt;std::string&gt; lNames;
+    std::vector&lt;std::string&gt; lData = GSQLITE-&gt;readRow(""
+            " select * from user_data "
+            " where _id = 1 "
+            "", &amp;lNames);
+    GCONSOLE-&gt;showData(lNames);
+    GCONSOLE-&gt;showData(lData);
+}
+//===============================================</pre></div></div><br>Exécution de la requête<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+std::vector&lt;std::string&gt; GSQLite::readRow(const std::string&amp; _query, std::vector&lt;std::string&gt;* _names) {
+    sGSQLite lParams;
+    lParams.names = _names;
+    executeQuery(_query, onReadRow, &amp;lParams);
+    return lParams.data_list;
+}
+//===============================================</pre></div></div><br>Lecture de la ligne de données<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+int GSQLite::onReadRow(void* _params, int _colCount, char** _colVals, char** _colNames) {
+    sGSQLite* lParams = (sGSQLite*)_params;
+    if(lParams-&gt;row_count == 0) {
+        for(int i = 0; i &lt; _colCount; i++) {
+            if(lParams-&gt;names &amp;&amp; lParams-&gt;names_on) {
+                lParams-&gt;names-&gt;push_back(_colNames[i]);
+            }
+            lParams-&gt;data_list.push_back(_colVals[i]);
+        }
+        lParams-&gt;names_on = false;
+        lParams-&gt;row_count++;
+    }
+    return 0;
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_sqlite_learn_data_row.png" alt="/Tutoriels/Software_Development/Cpp/img/i_sqlite_learn_data_row.png"></div><br><h3 class="GTitle3" id="Base-de-donnees-avec-SQLite-Apprendre-SQLite-Lecture-d-une-colonne-de-donnees"><a class="Title8" href="#Base-de-donnees-avec-SQLite-Apprendre-SQLite">Lecture d'une colonne de données</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GSQLiteUi::run(int argc, char** argv) {
+    std::vector&lt;std::string&gt; lNames;
+    std::vector&lt;std::string&gt; lData = GSQLITE-&gt;readCol(""
+            " select _username from user_data "
+            "", &amp;lNames);
+    GCONSOLE-&gt;showData(lNames);
+    GCONSOLE-&gt;showData(lData);
+}
+//===============================================</pre></div></div><br>Exécution de la requête<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+std::vector&lt;std::string&gt; GSQLite::readCol(const std::string&amp; _query, std::vector&lt;std::string&gt;* _names) {
+    sGSQLite lParams;
+    lParams.names = _names;
+    executeQuery(_query, onReadCol, &amp;lParams);
+    return lParams.data_list;
+}
+//===============================================</pre></div></div><br>Lecture de la colonne de données<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+int GSQLite::onReadCol(void* _params, int _colCount, char** _colVals, char** _colNames) {
+    sGSQLite* lParams = (sGSQLite*)_params;
+    if(lParams-&gt;names &amp;&amp; lParams-&gt;names_on) {
+        lParams-&gt;names-&gt;push_back(_colNames[0]);
+    }
+    lParams-&gt;data_list.push_back(_colVals[0]);
+    lParams-&gt;names_on = false;
+    lParams-&gt;row_count++;
+    return 0;
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_sqlite_learn_data_col.png" alt="/Tutoriels/Software_Development/Cpp/img/i_sqlite_learn_data_col.png"></div><br><h3 class="GTitle3" id="Base-de-donnees-avec-SQLite-Apprendre-SQLite-Lecture-d-une-matrice-de-donnees"><a class="Title8" href="#Base-de-donnees-avec-SQLite-Apprendre-SQLite">Lecture d'une matrice de données</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GSQLiteUi::run(int argc, char** argv) {
+    std::vector&lt;std::string&gt; lNames;
+    std::vector&lt;std::vector&lt;std::string&gt;&gt; lData = GSQLITE-&gt;readMap(""
+            " select * from user_data "
+            "", &amp;lNames);
+    GCONSOLE-&gt;showData(lNames);
+    GCONSOLE-&gt;showData(lData);
+}
+//===============================================</pre></div></div><br>Exécution de la requête<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+std::vector&lt;std::vector&lt;std::string&gt;&gt; GSQLite::readMap(const std::string&amp; _query, std::vector&lt;std::string&gt;* _names) {
+    sGSQLite lParams;
+    lParams.names = _names;
+    executeQuery(_query, onReadMap, &amp;lParams);
+    return lParams.data_map;
+}
+//===============================================</pre></div></div><br>Lecture de la matrice de données<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+int GSQLite::onReadMap(void* _params, int _colCount, char** _colVals, char** _colNames) {
+    sGSQLite* lParams = (sGSQLite*)_params;
+    std::vector&lt;std::string&gt; lData;
+    for(int i = 0; i &lt; _colCount; i++) {
+        if(lParams-&gt;names &amp;&amp; lParams-&gt;names_on) {
+            lParams-&gt;names-&gt;push_back(_colNames[i]);
+        }
+        lData.push_back(_colVals[i]);
+    }
+    lParams-&gt;names_on = false;
+    lParams-&gt;data_map.push_back(lData);
+    lParams-&gt;row_count++;
+    return 0;
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_sqlite_learn_data_map.png" alt="/Tutoriels/Software_Development/Cpp/img/i_sqlite_learn_data_map.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Interface-Homme-Machine-avec-Qt"><a class="Link3" href="#">Interface Homme-Machine avec Qt</a></h1><div class="Body3"><br><b>Qt </b>permet de créer des interfaces homme-machine multiplateforme. <br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Installer-l-environnement-Qt-sous-MSYS2">Installer l'environnement Qt sous MSYS2</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Installer-l-environnement-Qt-sous-ubuntu">Installer l'environnement Qt sous ubuntu</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Compiler-un-projet-Qt-sous-MSYS2">Compiler un projet Qt sous MSYS2</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Executer-un-projet-Qt-existant-sous-Windows">Exécuter un projet Qt existant sous Windows</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Apprendre-Qt">Apprendre Qt</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Apprendre-le-XML">Apprendre le XML</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Apprendre-les-sockets">Apprendre les sockets</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Creer-une-horloge-analogique">Créer une horloge analogique</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Creer-une-calculatrice">Créer une calculatrice</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Creer-un-calendrier">Créer un calendrier</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-QProcess">QProcess</a></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/b_qt.png" class="lazy entered loaded" data-src="/Tutoriels/Software_Development/Cpp/img/b_qt.png" data-ll-status="loaded" src="/Tutoriels/Software_Development/Cpp/img/b_qt.png"></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Qt-Installer-l-environnement-Qt-sous-MSYS2"><a class="Link9" href="#Interface-Homme-Machine-avec-Qt">Installer l'environnement Qt sous MSYS2</a></h2><br><h3 class="Title8 GTitle3" id="Interface-Homme-Machine-avec-Qt-Installer-l-environnement-Qt-sous-MSYS2-Installer-Qt"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Installer-l-environnement-Qt-sous-MSYS2">Installer Qt</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh" data-state="off">pacman -S --needed --noconfirm mingw-w64-i686-qt5
 pacman -S --needed --noconfirm mingw-w64-i686-qt-creator
 pacman -S --needed --noconfirm mingw-w64-i686-gdb
 pacman -S --needed --noconfirm mingw-w64-i686-cmake
@@ -3024,7 +3221,7 @@ void GQtFindDialog::onFindButton() {
 GQtCellLocation::GQtCellLocation(QWidget* _parent) :
 GQtDialog(_parent) {
     sGQt lParams; GQt lQt;
-    lParams.app_name = "ReadyApp | Localisation de cellule ";
+    lParams.app_name = "ReadyApp | Localisation de cellule";
 
     QLabel* lCellLabel = new QLabel("Cellule :");
     m_cellEdit = new QLineEdit;
@@ -12475,7 +12672,7 @@ void GWindow::slotMouseMove(QMouseEvent* event) {
     m_y = customPlot-&gt;yAxis-&gt;pixelToCoord(event-&gt;pos().y());
     onEvent("mouse_move");
 }
-//================================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Calcul-scientifique-avec-GSL-Rechercher-une-interpolation-spline-cubique-Resultat"><a class="Title8" href="#Calcul-scientifique-avec-GSL-Rechercher-une-interpolation-spline-cubique">Résultat</a></h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_gsl_interpolation_spline.gif" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/i_gsl_interpolation_spline.gif"></div><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">gsl_spline_name :  cspline
+//================================================</pre></div></div><br><h3 class="Title8 GTitle3" id="Calcul-scientifique-avec-GSL-Rechercher-une-interpolation-spline-cubique-Resultat"><a class="Title8" href="#Calcul-scientifique-avec-GSL-Rechercher-une-interpolation-spline-cubique">Résultat</a></h3><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_gsl_interpolation_spline.gif" class="lazy entered loaded" data-src="/Tutoriels/Software_Development/Cpp/img/i_gsl_interpolation_spline.gif" data-ll-status="loaded" src="/Tutoriels/Software_Development/Cpp/img/i_gsl_interpolation_spline.gif"></div><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">gsl_spline_name :  cspline
 gsl_spline_min_size :  3
 gsl_interp_type_min_size :  3</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programmation-reseau-socket-sous-Windows"><a class="Link3" href="#">Programmation réseau socket sous Windows</a></h1><div class="Body3"><br>Un <b>socket </b>réseau est une structure logicielle au sein d'un nœud de réseau d'un réseau informatique qui sert de point de terminaison pour l'envoi et la réception de données sur le réseau. La structure et les propriétés d'un socket sont définies par une interface de programmation d'application (API) pour l'architecture réseau. Les sockets sont créés uniquement pendant la durée de vie d'un processus d'une application s'exécutant dans le nœud.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-reseau-socket-sous-Windows-Apprendre-les-sockets">Apprendre les sockets</a></div></div><br><h2 class="Title7 GTitle2" id="Programmation-reseau-socket-sous-Windows-Apprendre-les-sockets"><a class="Link9" href="#Programmation-reseau-socket-sous-Windows">Apprendre les sockets</a></h2><br><div class="Content0 GSummary3"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-reseau-socket-sous-Windows-Apprendre-les-sockets-Creation-d-une-connexion-TCP-IP">Création d'une connexion TCP/IP</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-reseau-socket-sous-Windows-Apprendre-les-sockets-Creation-d-une-connexion-UDP">Création d'une connexion UDP</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-reseau-socket-sous-Windows-Apprendre-les-sockets-Transfert-de-donnees-volumineuses">Transfert de données volumineuses</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-reseau-socket-sous-Windows-Apprendre-les-sockets-Utilisation-du-multithreading">Utilisation du multithreading</a></div></div><br><h3 class="GTitle3" id="Programmation-reseau-socket-sous-Windows-Apprendre-les-sockets-Creation-d-une-connexion-TCP-IP"><a class="Title8" href="#Programmation-reseau-socket-sous-Windows-Apprendre-les-sockets">Création d'une connexion TCP/IP</a></h3><br>Cette opération permet d'<b>échanger des données</b> sur connexion TCP/IP. La connexion TCP/IP est une connexion sécurisée et fiable. On initialise le système. On configure l'adresse et le port de connexion. On crée le socket. On établit la liaison entre le socket et l'adresse de connexion côté serveur. On configure le nombre de connexions acceptable côte serveur. On engage l'acceptation d'une connexion client côté serveur. Et on démarre l'émission et la réception des données.<br><br>Programme principal (Serveur)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GSocketServer::run(int argc, char** argv) {
