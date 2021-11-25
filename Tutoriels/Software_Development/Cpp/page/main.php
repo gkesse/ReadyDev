@@ -3600,7 +3600,51 @@ void GSocket::read(QString&amp; _data) {
     lStreamIn &gt;&gt; _data;
     lStreamIn.commitTransaction();
 }
-//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Qt-Conception-d-un-tableur"><a class="Link9" href="#Interface-Homme-Machine-avec-Qt">Conception d'un tableur</a></h2><br>Le but de ce projet est de proposer une application de conception d'un <b>tableur</b>. Un tableur permet de manipuler des feuilles de calcul. La fenêtre princiapale est basée sur un QMainWindow. Le tableur est basé sur un QTableWidget. Les cellules sont basées sur un QTableWidgetItem.<br><br><div class="Content0 GSummary3"><div class="Row26">Summary 3</div></div><br><h3 class="GTitle3" id="Interface-Homme-Machine-avec-Qt-Conception-d-une-feuille-de-calculs-Initialisation-du-tableur"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Conception-d-une-feuille-de-calculs">Initialisation du tableur</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Qt-Manipuler-les-fichiers"><a class="Link9" href="#Interface-Homme-Machine-avec-Qt">Manipuler les fichiers</a></h2><br><div class="Content0 GSummary3"><div class="Row26">Summary 3</div></div><br><h3 class="GTitle3" id="Interface-Homme-Machine-avec-Qt-Manipuler-les-fichiers-Ecriture-et-lecture-de-donnees-au-format-binaire"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Manipuler-les-fichiers">Ecriture et lecture de données au format binaire</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GFileUi::run(int argc, char** argv) {
+    GQtFile lFile; int lInt; QString lString;
+    lFile.openFileWR("test.txt");
+    lFile.writeData(1000).writeData("Bonjour tout le monde");
+    lFile.openFileRD("test.txt");
+    lFile.readData(lInt).readData(lString);
+    qDebug() &lt;&lt; lInt;
+    qDebug() &lt;&lt; lString;
+}
+//===============================================</pre></div></div><br>Ouverture du fichier en mode écriture<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+bool GQtFile::openFileWR(const QString&amp; _filename) {
+    m_QFile.reset(new QFile(_filename));
+    if(!m_QFile-&gt;open(QIODevice::WriteOnly)) {
+        GLOG-&gt;addError(GERR, "Erreur l'ouverture du fichier a échoué (%s)", _filename.toStdString().c_str());
+        return false;
+    }
+
+    m_QDataStream.reset(new QDataStream(m_QFile.get()));
+    m_QDataStream-&gt;setVersion(m_version);
+    return true;
+}
+//===============================================</pre></div></div><br>Ouverture du fichier en mode lecture<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+bool GQtFile::openFileRD(const QString&amp; _filename) {
+    m_QFile.reset(new QFile(_filename));
+    if(!m_QFile-&gt;open(QIODevice::ReadOnly)) {
+        GLOG-&gt;addError(GERR, "Erreur l'ouverture du fichier a échoué (%s)", _filename.toStdString().c_str());
+        return false;
+    }
+
+    m_QDataStream.reset(new QDataStream(m_QFile.get()));
+    m_QDataStream-&gt;setVersion(m_version);
+    return true;
+}
+//===============================================</pre></div></div><br>Ecriture d'une donnée<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+GQtFile&amp; GQtFile::writeData(const QString&amp; _data) {
+    *m_QDataStream &lt;&lt; _data;
+    return *this;
+}
+//===============================================</pre></div></div><br>Lecture d'une donnée<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+GQtFile&amp; GQtFile::readData(QString&amp; _data) {
+    *m_QDataStream &gt;&gt; _data;
+    return *this;
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_file_binary_read_write.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_file_binary_read_write.png"></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_file_binary_read_write_file.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_file_binary_read_write_file.png"></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Qt-Conception-d-un-tableur"><a class="Link9" href="#Interface-Homme-Machine-avec-Qt">Conception d'un tableur</a></h2><br>Le but de ce projet est de proposer une application de conception d'un <b>tableur</b>. Un tableur permet de manipuler des feuilles de calcul. La fenêtre princiapale est basée sur un QMainWindow. Le tableur est basé sur un QTableWidget. Les cellules sont basées sur un QTableWidgetItem.<br><br><div class="Content0 GSummary3"><div class="Row26">Summary 3</div></div><br><h3 class="GTitle3" id="Interface-Homme-Machine-avec-Qt-Conception-d-une-feuille-de-calculs-Initialisation-du-tableur"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Conception-d-une-feuille-de-calculs">Initialisation du tableur</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 GQtSpreadWindow::GQtSpreadWindow(QWidget* _parent) :
 GQtMainWindow(_parent) {
     sGQt lParams; GQt lQt;
