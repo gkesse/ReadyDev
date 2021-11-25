@@ -3644,7 +3644,32 @@ GQtFile&amp; GQtFile::readData(QString&amp; _data) {
     *m_QDataStream &gt;&gt; _data;
     return *this;
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_file_binary_read_write.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_file_binary_read_write.png"></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_file_binary_read_write_file.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_file_binary_read_write_file.png"></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Qt-Conception-d-un-tableur"><a class="Link9" href="#Interface-Homme-Machine-avec-Qt">Conception d'un tableur</a></h2><br>Le but de ce projet est de proposer une application de conception d'un <b>tableur</b>. Un tableur permet de manipuler des feuilles de calcul. La fenêtre princiapale est basée sur un QMainWindow. Le tableur est basé sur un QTableWidget. Les cellules sont basées sur un QTableWidgetItem.<br><br><div class="Content0 GSummary3"><div class="Row26">Summary 3</div></div><br><h3 class="GTitle3" id="Interface-Homme-Machine-avec-Qt-Conception-d-une-feuille-de-calculs-Initialisation-du-tableur"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Conception-d-une-feuille-de-calculs">Initialisation du tableur</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_file_binary_read_write.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_file_binary_read_write.png"></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_file_binary_read_write_file.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_file_binary_read_write_file.png"></div><br><h3 class="GTitle3" id="Interface-Homme-Machine-avec-Qt-Manipuler-les-fichiers-Recuperation-du-nom-et-l-extension-d-un-fichier"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Manipuler-les-fichiers">Récupération du nom et l'extension d'un fichier</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GFileUi::run(int argc, char** argv) {
+    GQtFile lFile;
+    lFile.getFileInfo("test.txt");
+    qDebug() &lt;&lt; lFile.getFilename();
+    qDebug() &lt;&lt; lFile.getFullname();
+    qDebug() &lt;&lt; lFile.getBasename();
+    qDebug() &lt;&lt; lFile.getExtension();
+}
+//===============================================</pre></div></div><br>Récupération du nom de fichier<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+QString GQtFile::getFilename() const {
+    return m_QFileInfo-&gt;fileName();
+}
+//===============================================</pre></div></div><br>Récupération du nom de base<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+QString GQtFile::getBasename() const {
+    return m_QFileInfo-&gt;baseName();
+}
+//===============================================</pre></div></div><br>Récupération du nom complet<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+QString GQtFile::getFullname() const {
+    return m_QFileInfo-&gt;absoluteFilePath();
+}
+//===============================================</pre></div></div><br>Récupération de l'extension<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+QString GQtFile::getExtension() const {
+    return m_QFileInfo-&gt;completeSuffix();
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_file_get_filename.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_file_get_filename.png"></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Qt-Conception-d-un-tableur"><a class="Link9" href="#Interface-Homme-Machine-avec-Qt">Conception d'un tableur</a></h2><br>Le but de ce projet est de proposer une application de conception d'un <b>tableur</b>. Un tableur permet de manipuler des feuilles de calcul. La fenêtre princiapale est basée sur un QMainWindow. Le tableur est basé sur un QTableWidget. Les cellules sont basées sur un QTableWidgetItem.<br><br><div class="Content0 GSummary3"><div class="Row26">Summary 3</div></div><br><h3 class="GTitle3" id="Interface-Homme-Machine-avec-Qt-Conception-d-une-feuille-de-calculs-Initialisation-du-tableur"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Conception-d-une-feuille-de-calculs">Initialisation du tableur</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 GQtSpreadWindow::GQtSpreadWindow(QWidget* _parent) :
 GQtMainWindow(_parent) {
     sGQt lParams; GQt lQt;
