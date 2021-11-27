@@ -3901,7 +3901,23 @@ void GQtSpreadWindow::updateRecentFileActions() {
     }
     m_separatorAction-&gt;setVisible(!m_recentFiles.isEmpty());
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_spreadsheet_recent_files.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_spreadsheet_recent_files.png"></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Qt-Creer-une-horloge-analogique"><a class="Link9" href="#Interface-Homme-Machine-avec-Qt">Créer une horloge analogique</a></h2><br>L'exemple dde l'<b>horloge analogique</b> montre comment dessiner le contenu d'un widget personnalisé. Cet exemple montre également comment les fonctionnalités de transformation et de mise à l'échelle de QPainter peuvent être utilisées pour faciliter le dessin de widgets personnalisés<br><br><div class="Content0 GSummary3"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Creer-une-horloge-analogique-GAnalogClock-cpp">GAnalogClock.cpp</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Creer-une-horloge-analogique-Resultat">Résultat</a></div></div><br><h3 class="Title8 GTitle3" id="Interface-Homme-Machine-avec-Qt-Creer-une-horloge-analogique-GAnalogClock-cpp"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Creer-une-horloge-analogique">GAnalogClock.cpp</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_spreadsheet_recent_files.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_spreadsheet_recent_files.png"></div><br><h3 class="GTitle3" id="Interface-Homme-Machine-avec-Qt-Conception-d-un-tableur-Affichage-ou-masquage-des-grilles"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Conception-d-un-tableur">Affichage ou masquage des grilles</a></h3><br>Création de l'action<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GQtSpreadWindow::createActions() {
+    GLOG-&gt;showMsg(GMSG);
+    m_showGridAction = new QAction(tr("&amp;Afficher la grille"), this);
+    m_showGridAction-&gt;setCheckable(true);
+    m_showGridAction-&gt;setChecked(m_spreadsheet-&gt;showGrid());
+    m_showGridAction-&gt;setStatusTip(tr("Afficher ou masquer la grille du tableur"));
+    connect(m_showGridAction, SIGNAL(toggled(bool)), m_spreadsheet, SLOT(setShowGrid(bool)));
+}
+//===============================================</pre></div></div><br>Ajout de l'action dans le menu<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GQtSpreadWindow::createMenus() {
+    GLOG-&gt;showMsg(GMSG);
+    // options
+    m_optionsMenu = menuBar()-&gt;addMenu(tr("&amp;Options"));
+    m_optionsMenu-&gt;addAction(m_showGridAction);
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_spreadsheet_grid.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_spreadsheet_grid.png"></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Qt-Creer-une-horloge-analogique"><a class="Link9" href="#Interface-Homme-Machine-avec-Qt">Créer une horloge analogique</a></h2><br>L'exemple dde l'<b>horloge analogique</b> montre comment dessiner le contenu d'un widget personnalisé. Cet exemple montre également comment les fonctionnalités de transformation et de mise à l'échelle de QPainter peuvent être utilisées pour faciliter le dessin de widgets personnalisés<br><br><div class="Content0 GSummary3"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Creer-une-horloge-analogique-GAnalogClock-cpp">GAnalogClock.cpp</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Creer-une-horloge-analogique-Resultat">Résultat</a></div></div><br><h3 class="Title8 GTitle3" id="Interface-Homme-Machine-avec-Qt-Creer-une-horloge-analogique-GAnalogClock-cpp"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Creer-une-horloge-analogique">GAnalogClock.cpp</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 #include "GAnalogClock.h"
 //===============================================
 GAnalogClock::GAnalogClock(QWidget* parent) : GQtUi(parent) {
