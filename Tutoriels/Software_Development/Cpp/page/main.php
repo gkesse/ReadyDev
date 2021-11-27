@@ -6,7 +6,7 @@ Raccourci du menu Démarrer -&gt; MSYS2 64bit
 Suivant
 Suivant
 Terminer</pre></div></div><br><h3 class="Title8 GTitle3" id="Fondamentaux-Installer-l-environnement-C---sous-MSYS2-Demarrer-MSYS2"><a class="Title8" href="#Fondamentaux-Installer-l-environnement-C---sous-MSYS2">Démarrer MSYS2</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="txt">Windows
-MSYS2</pre></div></div><br><h3 class="Title8 GTitle3" id="Fondamentaux-Installer-l-environnement-C---sous-MSYS2-Mettre-a-jour-les-packages-MSYS2"><a class="Title8" href="#Fondamentaux-Installer-l-environnement-C---sous-MSYS2">Mettre à jour les packages MSYS2</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">pacman -Syu</pre></div></div><br><h3 class="Title8 GTitle3" id="Fondamentaux-Installer-l-environnement-C---sous-MSYS2-Installer-le-package--make----h3--pacman--S---needed---noconfirm-make"><a class="Title8" href="#Fondamentaux-Installer-l-environnement-C---sous-MSYS2">Installer le package (make)&lt; /h3&gt; pacman -S --needed --noconfirm make</a></h3><h3 class="Title8 GTitle3" id="Fondamentaux-Installer-l-environnement-C---sous-MSYS2-Installer-le-package--gcc-"><a class="Title8" href="#Fondamentaux-Installer-l-environnement-C---sous-MSYS2">Installer le package (gcc)</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">pacman -S --needed --noconfirm gcc</pre></div></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Installer-l-environnement-C---sous-WinLibs"><a class="Link9" href="#Fondamentaux">Installer l'environnement C++ sous WinLibs</a></h2><br><h3 class="Title8 GTitle3" id="Fondamentaux-Installer-l-environnement-C---sous-WinLibs-Telecharger-WinLibs"><a class="Title8" href="#Fondamentaux-Installer-l-environnement-C---sous-WinLibs">Télécharger WinLibs</a></h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://winlibs.com/#download-release">https://winlibs.com/#download-release</a><br><br><b>winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1.7z</b><br><br><h3 class="Title8 GTitle3" id="Fondamentaux-Installer-l-environnement-C---sous-WinLibs-Extraire-WinLibs"><a class="Title8" href="#Fondamentaux-Installer-l-environnement-C---sous-WinLibs">Extraire WinLibs</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1.7z -&gt; Clic droit
+MSYS2</pre></div></div><br><h3 class="Title8 GTitle3" id="Fondamentaux-Installer-l-environnement-C---sous-MSYS2-Mettre-a-jour-les-packages-MSYS2"><a class="Title8" href="#Fondamentaux-Installer-l-environnement-C---sous-MSYS2">Mettre à jour les packages MSYS2</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="sh">pacman -Syu</pre></div></div><br><h3 class="GTitle3" id="Fondamentaux-Installer-l-environnement-C---sous-MSYS2-Installer-le-package--make-"><a class="Title8" href="#Fondamentaux-Installer-l-environnement-C---sous-MSYS2">Installer le package (make)</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">pacman -S --needed --noconfirm make</pre></div></div><br><h3 class="GTitle3" id="Fondamentaux-Installer-l-environnement-C---sous-MSYS2-Installer-le-package--gcc-"><a class="Title8" href="#Fondamentaux-Installer-l-environnement-C---sous-MSYS2">Installer le package (gcc)</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">pacman -S --needed --noconfirm gcc</pre></div></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Installer-l-environnement-C---sous-WinLibs"><a class="Link9" href="#Fondamentaux">Installer l'environnement C++ sous WinLibs</a></h2><br><h3 class="Title8 GTitle3" id="Fondamentaux-Installer-l-environnement-C---sous-WinLibs-Telecharger-WinLibs"><a class="Title8" href="#Fondamentaux-Installer-l-environnement-C---sous-WinLibs">Télécharger WinLibs</a></h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://winlibs.com/#download-release">https://winlibs.com/#download-release</a><br><br><b>winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1.7z</b><br><br><h3 class="Title8 GTitle3" id="Fondamentaux-Installer-l-environnement-C---sous-WinLibs-Extraire-WinLibs"><a class="Title8" href="#Fondamentaux-Installer-l-environnement-C---sous-WinLibs">Extraire WinLibs</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1.7z -&gt; Clic droit
 Extraire vers winlibs-x86_64-posix-seh-gcc-11.1.0-llvm-12.0.0-mingw-w64-8.0.2-r1\</pre></div></div><br><h2 class="Title7 GTitle2" id="Fondamentaux-Compiler-un-projet-C---sous-MSYS2"><a class="Link9" href="#Fondamentaux">Compiler un projet C++ sous MSYS2</a></h2><br><h3 class="Title8 GTitle3" id="Fondamentaux-Compiler-un-projet-C---sous-MSYS2-Editer-le-programme--main-cpp-"><a class="Title8" href="#Fondamentaux-Compiler-un-projet-C---sous-MSYS2">Éditer le programme (main.cpp)</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include &lt;iostream&gt;
 //===============================================
@@ -3514,7 +3514,7 @@ void GSocketServer::run(int _argc, char** _argv) {
     connect(&amp;lServer, SIGNAL(onEmit(QString)), this, SLOT(onEvent(QString)));
     lApp.exec();
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_qt_socket_tcp_ip_server.png" class="lazy entered loaded exited" data-src="/Tutoriels/Software_Development/Cpp/img/i_qt_socket_tcp_ip_server.png" data-ll-status="loaded" src="/Tutoriels/Software_Development/Cpp/img/i_qt_socket_tcp_ip_server.png"></div><br>Programme principal (Client)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_qt_socket_tcp_ip_server.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/i_qt_socket_tcp_ip_server.png"></div><br>Programme principal (Client)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GSocketClient::run(int _argc, char** _argv) {
     QApplication lApp(_argc, _argv);
     GSocket lClient;
@@ -3525,7 +3525,7 @@ void GSocketClient::run(int _argc, char** _argv) {
     lClient.connects(lParams.address, lParams.port);
     lApp.exec();
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_qt_socket_tcp_ip_client.png" class="lazy entered loaded" data-src="/Tutoriels/Software_Development/Cpp/img/i_qt_socket_tcp_ip_client.png" data-ll-status="loaded" src="/Tutoriels/Software_Development/Cpp/img/i_qt_socket_tcp_ip_client.png"></div><br>Gestion de la communication (côté serveur)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_qt_socket_tcp_ip_client.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/i_qt_socket_tcp_ip_client.png"></div><br>Gestion de la communication (côté serveur)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GSocketServer::onEvent(const QString&amp; _text) {
     if(_text == "new_connection") {
         GSocket* lServer = qobject_cast&lt;GSocket*&gt;(sender());
@@ -3644,7 +3644,7 @@ GQtFile&amp; GQtFile::readData(QString&amp; _data) {
     *m_QDataStream &gt;&gt; _data;
     return *this;
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_file_binary_read_write.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_file_binary_read_write.png"></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_file_binary_read_write_file.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_file_binary_read_write_file.png"></div><br><h3 class="GTitle3" id="Interface-Homme-Machine-avec-Qt-Manipuler-les-fichiers-Recuperation-du-nom-et-l-extension-d-un-fichier"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Manipuler-les-fichiers">Récupération du nom et l'extension d'un fichier</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_qt_file_binary_read_write.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/i_qt_file_binary_read_write.png"></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_qt_file_binary_read_write_file.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/i_qt_file_binary_read_write_file.png"></div><br><h3 class="GTitle3" id="Interface-Homme-Machine-avec-Qt-Manipuler-les-fichiers-Recuperation-du-nom-et-l-extension-d-un-fichier"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Manipuler-les-fichiers">Récupération du nom et l'extension d'un fichier</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GFileUi::run(int argc, char** argv) {
     GQtFile lFile;
     lFile.getFileInfo("test.txt");
@@ -3669,7 +3669,7 @@ QString GQtFile::getFullname() const {
 QString GQtFile::getExtension() const {
     return m_QFileInfo-&gt;completeSuffix();
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_file_get_filename.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_file_get_filename.png"></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Qt-Conception-d-un-tableur"><a class="Link9" href="#Interface-Homme-Machine-avec-Qt">Conception d'un tableur</a></h2><br>Le but de ce projet est de proposer une application de conception d'un <b>tableur</b>. Un tableur permet de manipuler des feuilles de calcul. La fenêtre princiapale est basée sur un QMainWindow. Le tableur est basé sur un QTableWidget. Les cellules sont basées sur un QTableWidgetItem.<br><br><div class="Content0 GSummary3"><div class="Row26">Summary 3</div></div><br><h3 class="GTitle3" id="Interface-Homme-Machine-avec-Qt-Conception-d-une-feuille-de-calculs-Initialisation-du-tableur"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Conception-d-une-feuille-de-calculs">Initialisation du tableur</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_qt_file_get_filename.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/i_qt_file_get_filename.png"></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Qt-Conception-d-un-tableur"><a class="Link9" href="#Interface-Homme-Machine-avec-Qt">Conception d'un tableur</a></h2><br>Le but de ce projet est de proposer une application de conception d'un <b>tableur</b>. Un tableur permet de manipuler des feuilles de calcul. La fenêtre princiapale est basée sur un QMainWindow. Le tableur est basé sur un QTableWidget. Les cellules sont basées sur un QTableWidgetItem.<br><br><div class="Content0 GSummary3"><div class="Row26">Summary 3</div></div><br><h3 class="GTitle3" id="Interface-Homme-Machine-avec-Qt-Conception-d-un-tableur-Initialisation-du-tableur"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Conception-d-un-tableur">Initialisation du tableur</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 GQtSpreadWindow::GQtSpreadWindow(QWidget* _parent) :
 GQtMainWindow(_parent) {
     sGQt lParams; GQt lQt;
@@ -3691,7 +3691,7 @@ GQtTableWidget(_parent) {
 GQtCell::GQtCell() {
 
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_spreadsheet_init.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_spreadsheet_init.png"></div><br><h3 class="GTitle3" id="Interface-Homme-Machine-avec-Qt-Conception-d-un-tableur-Initialisation-des-lignes-et-des-colonnes-du-tableur"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Conception-d-un-tableur">Initialisation des lignes et des colonnes du tableur</a></h3><br>Initialisation des lignes et des colonnes<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_qt_spreadsheet_init.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/i_qt_spreadsheet_init.png"></div><br><h3 class="GTitle3" id="Interface-Homme-Machine-avec-Qt-Conception-d-un-tableur-Initialisation-des-lignes-et-des-colonnes-du-tableur"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Conception-d-un-tableur">Initialisation des lignes et des colonnes du tableur</a></h3><br>Initialisation des lignes et des colonnes<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 void GQtSpreadSheet::clear() {
     setRowCount(0);
     setColumnCount(0);
@@ -3706,7 +3706,202 @@ void GQtSpreadSheet::clear() {
 
     setCurrentCell(0, 0);
 }
-//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_spreadsheet_row_col_init.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_spreadsheet_row_col_init.png"></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Qt-Creer-une-horloge-analogique"><a class="Link9" href="#Interface-Homme-Machine-avec-Qt">Créer une horloge analogique</a></h2><br>L'exemple dde l'<b>horloge analogique</b> montre comment dessiner le contenu d'un widget personnalisé. Cet exemple montre également comment les fonctionnalités de transformation et de mise à l'échelle de QPainter peuvent être utilisées pour faciliter le dessin de widgets personnalisés<br><br><div class="Content0 GSummary3"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Creer-une-horloge-analogique-GAnalogClock-cpp">GAnalogClock.cpp</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Creer-une-horloge-analogique-Resultat">Résultat</a></div></div><br><h3 class="Title8 GTitle3" id="Interface-Homme-Machine-avec-Qt-Creer-une-horloge-analogique-GAnalogClock-cpp"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Creer-une-horloge-analogique">GAnalogClock.cpp</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_qt_spreadsheet_row_col_init.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/i_qt_spreadsheet_row_col_init.png"></div><br><h3 class="GTitle3" id="Interface-Homme-Machine-avec-Qt-Conception-d-un-tableur-Enregistrement-du-tableur"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Conception-d-un-tableur">Enregistrement du tableur</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+bool GQtSpreadWindow::saveFile(const QString&amp; _filename) {
+    GLOG-&gt;showMsg(GMSG);
+    if(!m_spreadsheet-&gt;saveFile(_filename)) {
+        statusBar()-&gt;showMessage(tr("Erreur la sauvegarde du tableur a échoué"), 2000);
+        GLOG-&gt;addError(GERR, tr("Erreur la sauvegarde du tableur a échoué"));
+        return false;
+    }
+    statusBar()-&gt;showMessage(tr("Le tableur a été sauvegardé"), 2000);
+    return true;
+}
+//===============================================</pre></div></div><br>Enregistrement du tableur<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+bool GQtSpreadSheet::saveFile(const QString&amp; _filename) {
+    GLOG-&gt;showMsg(GMSG);
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+    GQtFile lFile;
+    if(!lFile.openFileWR(_filename)) {
+        GLOG-&gt;addError(GERR, "Erreur la sauvegarde du tableur a échoué");
+        return false;
+    }
+    lFile.writeData(MagicNumber);
+    for (int row = 0; row &lt; RowCount; ++row) {
+        for (int column = 0; column &lt; ColumnCount; ++column) {
+            QString lFormula = getFormula(row, column);
+            if (!lFormula.isEmpty()) {
+                lFile.writeData(row).writeData(column).writeData(lFormula);
+            }
+        }
+    }
+    QApplication::restoreOverrideCursor();
+    return true;
+}
+//===============================================</pre></div></div><br>Enregistrement des données<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+GQtFile&amp; GQtFile::writeData(const QString&amp; _data) {
+    *m_QDataStream &lt;&lt; _data;
+    return *this;
+}
+//===============================================</pre></div></div><br>Récupération de la formule<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+QString GQtSpreadSheet::getFormula(int _row, int _column) const {
+    GQtTableWidgetItem* lCell = getCell(_row, _column);
+    if (lCell) {
+        return lCell-&gt;getFormula();
+    }
+    else {
+        return "";
+    }
+}
+//===============================================</pre></div></div><br>Récupération de la cellule<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+GQtTableWidgetItem* GQtSpreadSheet::getCell(int _row, int _column) const {
+    return static_cast&lt;GQtTableWidgetItem*&gt;(item(_row, _column));
+}
+//===============================================</pre></div></div><br>Récupération de la formule de la cellule<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+QString GQtCell::getFormula() const {
+    return data(Qt::EditRole).toString();
+}
+//===============================================</pre></div></div><br>Récupération du contenu de la cellule<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+QVariant GQtCell::data(int _role) const {
+    if (_role == Qt::DisplayRole) {
+        if (value().isValid()) {
+            return value().toString();
+        }
+        else {
+            return "####";
+        }
+    }
+    else if (_role == Qt::TextAlignmentRole) {
+        if (value().type() == QVariant::String) {
+            return int(Qt::AlignLeft | Qt::AlignVCenter);
+        }
+        else {
+            return int(Qt::AlignRight | Qt::AlignVCenter);
+        }
+    }
+    else {
+        return QTableWidgetItem::data(_role);
+    }
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/Cpp/img/i_qt_spreadsheet_save.png" class="lazy" data-src="/Tutoriels/Software_Development/Cpp/img/i_qt_spreadsheet_save.png"></div><br><h3 class="GTitle3" id="Interface-Homme-Machine-avec-Qt-Conception-d-un-tableur-Chargement-du-tableur"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Conception-d-un-tableur">Chargement du tableur</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+bool GQtSpreadWindow::loadFile(const QString&amp; _filename) {
+    if (!m_spreadsheet-&gt;loadFile(_filename)) {
+        statusBar()-&gt;showMessage(tr("Erreur le chargement du tableur a échoué"), 2000);
+        return false;
+    }
+    statusBar()-&gt;showMessage(tr("Le tableur a été chargé"), 2000);
+    return true;
+}
+//===============================================</pre></div></div><br>Chargement du tableur<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+bool GQtSpreadSheet::loadFile(const QString&amp; _filename) {
+    GLOG-&gt;showMsg(GMSG);
+    GQtFile lFile;
+    if(!lFile.openFileRD(_filename)) {
+        GLOG-&gt;addError(GERR, "Erreur le chargement du tableur a échoué");
+        return false;
+    }
+    int lMagicNumber;
+    lFile.readData(lMagicNumber);
+    if(lMagicNumber != MagicNumber) {
+        GLOG-&gt;addError(GERR, "Erreur le fichier n'est pas un tableur\n(%s)", _filename.toStdString().c_str());
+        return false;
+    }
+    clear();
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+    int lRow, lCol; QString lFormula;
+    while(!lFile.atEnd()) {
+        lFile.readData(lRow).readData(lCol).readData(lFormula);
+        setFormula(lRow, lCol, lFormula);
+    }
+    QApplication::restoreOverrideCursor();
+    return true;
+}
+//===============================================</pre></div></div><br>Chargement des données<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+GQtFile&amp; GQtFile::readData(QString&amp; _data) {
+    *m_QDataStream &gt;&gt; _data;
+    return *this;
+}
+//===============================================</pre></div></div><br>Chargement de la formule<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GQtSpreadSheet::setFormula(int _row, int _column, const QString&amp; _formula) {
+    GQtTableWidgetItem* lCell = getCell(_row, _column);
+    if (!lCell) {
+        lCell = GQtTableWidgetItem::Create("item/cell");
+        setItem(_row, _column, lCell);
+    }
+    lCell-&gt;setFormula(_formula);
+}
+//===============================================</pre></div></div><br>Récupération de la cellule<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+GQtTableWidgetItem* GQtSpreadSheet::getCell(int _row, int _column) const {
+    return static_cast&lt;GQtTableWidgetItem*&gt;(item(_row, _column));
+}
+//===============================================</pre></div></div><br>Chargement de la formaule de la cellule<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GQtCell::setFormula(const QString&amp; _formula) {
+    setData(Qt::EditRole, _formula);
+}
+//===============================================</pre></div></div><br>Chargement du contenu de la cellule<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GQtCell::setData(int _role, const QVariant&amp; _value) {
+    QTableWidgetItem::setData(_role, _value);
+    if (_role == Qt::EditRole) {
+        setDirty();
+    }
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_spreadsheet_load.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_spreadsheet_load.png"></div><br><h3 class="GTitle3" id="Interface-Homme-Machine-avec-Qt-Conception-d-un-tableur-Gestion-des-fichiers-recents"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Conception-d-un-tableur">Gestion des fichiers récents</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GQtSpreadWindow::setCurrentFile(const QString&amp; _filename) {
+    GLOG-&gt;showMsg(GMSG);
+    m_currentFile = _filename;
+    setWindowModified(false);
+    QString lShowName = tr("Untitled");
+
+    if (!m_currentFile.isEmpty()) {
+        lShowName = strippedName(m_currentFile);
+        m_recentFiles.removeAll(m_currentFile);
+        m_recentFiles.prepend(m_currentFile);
+        updateRecentFileActions();
+    }
+
+    setWindowTitle(tr("%1 | %2[*]").arg(m_params.app_name).arg(lShowName));
+}
+//===============================================</pre></div></div><br>Création des actions<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GQtSpreadWindow::createActions() {
+    GLOG-&gt;showMsg(GMSG);
+    for (int i = 0; i &lt; MaxRecentFiles; ++i) {
+        m_recentFileActions[i] = new QAction(this);
+        m_recentFileActions[i]-&gt;setVisible(false);
+        connect(m_recentFileActions[i], SIGNAL(triggered()), this, SLOT(openRecentFile()));
+    }
+}
+//===============================================</pre></div></div><br>Ajout des actions dans le menu<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GQtSpreadWindow::createMenus() {
+    GLOG-&gt;showMsg(GMSG);
+    m_separatorAction = m_fileMenu-&gt;addSeparator();
+    for (int i = 0; i &lt; MaxRecentFiles; ++i) {
+        m_fileMenu-&gt;addAction(m_recentFileActions[i]);
+    }
+    m_fileMenu-&gt;addSeparator();
+}
+//===============================================</pre></div></div><br>Mise à jour des fichiers récents<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+void GQtSpreadWindow::updateRecentFileActions() {
+    GLOG-&gt;showMsg(GMSG);
+    QMutableStringListIterator lFile(m_recentFiles);
+    while (lFile.hasNext()) {
+        if (!QFile::exists(lFile.next())) {
+            lFile.remove();
+        }
+    }
+    for (int j = 0; j &lt; MaxRecentFiles; ++j) {
+        if (j &lt; m_recentFiles.count()) {
+            QString text = tr("&amp;%1 - %2").arg(j + 1).arg(strippedName(m_recentFiles[j]));
+            m_recentFileActions[j]-&gt;setText(text);
+            m_recentFileActions[j]-&gt;setData(m_recentFiles[j]);
+            m_recentFileActions[j]-&gt;setVisible(true);
+        }
+        else {
+            m_recentFileActions[j]-&gt;setVisible(false);
+        }
+    }
+    m_separatorAction-&gt;setVisible(!m_recentFiles.isEmpty());
+}
+//===============================================</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_spreadsheet_recent_files.png" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_spreadsheet_recent_files.png"></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Qt-Creer-une-horloge-analogique"><a class="Link9" href="#Interface-Homme-Machine-avec-Qt">Créer une horloge analogique</a></h2><br>L'exemple dde l'<b>horloge analogique</b> montre comment dessiner le contenu d'un widget personnalisé. Cet exemple montre également comment les fonctionnalités de transformation et de mise à l'échelle de QPainter peuvent être utilisées pour faciliter le dessin de widgets personnalisés<br><br><div class="Content0 GSummary3"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Creer-une-horloge-analogique-GAnalogClock-cpp">GAnalogClock.cpp</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Interface-Homme-Machine-avec-Qt-Creer-une-horloge-analogique-Resultat">Résultat</a></div></div><br><h3 class="Title8 GTitle3" id="Interface-Homme-Machine-avec-Qt-Creer-une-horloge-analogique-GAnalogClock-cpp"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Creer-une-horloge-analogique">GAnalogClock.cpp</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
 #include "GAnalogClock.h"
 //===============================================
 GAnalogClock::GAnalogClock(QWidget* parent) : GQtUi(parent) {
