@@ -3673,7 +3673,7 @@ QString GQtFile::getExtension() const {
 GQtSpreadWindow::GQtSpreadWindow(QWidget* _parent) :
 GQtMainWindow(_parent) {
     sGQt lParams; GQt lQt;
-    lParams.app_name = "ReadyApp | Feuille de calculs";
+    lParams.app_name = "ReadyApp-Spreadsheet";
 
     setCentralWidget(GQtTableWidget::Create("page/spreadsheet"));
 
