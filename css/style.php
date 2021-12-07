@@ -1368,6 +1368,20 @@ span {
     left: 5px;
 }
 
+.ReadyPad {
+    background-color: #ff0000;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 5px;
+    border-radius: 5px;
+    font-family: Allan;
+    font-size: 18px;
+    position: absolute;
+    top: 110px;
+    left: 46%;
+    z-index: 1;
+}
+
 .ReadyCGI {
     background-color: #ff0000;
     display: inline-block;

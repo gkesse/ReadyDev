@@ -34,6 +34,8 @@ class GHeader extends GWidget {
         echo sprintf("<link rel='stylesheet' href='%s/css/style.css'/>\n", $this->getRootPath());
         echo sprintf("</head>\n");
         echo sprintf("<body onload='body_onload()'>\n");
+        echo sprintf("<div class='body_page'>\n");
+        echo sprintf("<a class='readydev_link' href='https://readydev.ovh/Accueil/'><i class='fa fa-sign-in'></i> ReadyDev</a>\n");
     }
     //===============================================
     public function getLang() {
@@ -59,7 +61,6 @@ class GHeader extends GWidget {
         $lCount = $this->dom->getNode("fonts")->countNode();
         for($i = 0; $i < $lCount; $i++) {
             $this->dom->getNodeItem("font", $i);
-            
             $lFont = $this->dom->getValue();
             echo sprintf("<link rel='stylesheet' href='%s%s'/>\n", $this->getRootPath(), $lFont);
         }

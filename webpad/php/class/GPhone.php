@@ -21,7 +21,6 @@ class GPhone extends GWidget {
     }
     //===============================================
     public function show() {
-        echo sprintf("<div class='phone'>\n");
         echo sprintf("<div class='phone_body'>\n");
         $lCountBox = $this->countBox();
         $lBoxPerPage = $this->getBoxPerPage();
@@ -49,7 +48,6 @@ class GPhone extends GWidget {
             echo sprintf("<div class='phone_slide_bar_dot' title='Page %d'
             onclick='phone_slide_bar_dot_onclick(%d)'></div>\n", $i + 1, $i + 1);
         }
-        echo sprintf("</div>\n");
         echo sprintf("</div>\n");
         echo sprintf("</div>\n");
     }

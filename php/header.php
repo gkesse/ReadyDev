@@ -200,6 +200,7 @@
                                 <div class="Body">
                                     <div class="Row">
                                         <a href="/home"><div class="ReadyPHP"><i class="fa fa-sign-in"></i> ReadyPHP</div></a>
+                                        <a href="/readypad"><div class="ReadyPad"><i class="fa fa-sign-in"></i> ReadyPad</div></a>
                                         <a href="http://readycgi.freeddns.org:8833"><div class="ReadyCGI"><i class="fa fa-sign-in"></i> ReadyCGI</div></a>
                                         <div class="Form">
                                             <div class="Label">
