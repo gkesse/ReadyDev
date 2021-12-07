@@ -109,7 +109,7 @@ class GDomXml extends GObject {
     //===============================================
     public function countNode() {
         if(!$this->validateNode()) return 0;
-        $lCount = $this->node->childNodes->count();
+        $lCount = $this->node->childNodes->length;
         return $lCount;
     }
     //===============================================
