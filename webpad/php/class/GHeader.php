@@ -24,7 +24,7 @@ class GHeader extends GWidget {
         echo sprintf("<!DOCTYPE html>\n");
         echo sprintf("<html lang='%s'>\n", $this->getLang());
         echo sprintf("<head>\n");
-        echo sprintf("<title>%s</title>\n", $this->geTitle());
+        echo sprintf("<title>%s</title>\n", $this->getTitle());
         echo sprintf("<meta charset='UTF-8'/>\n");
         echo sprintf("<link rel='shortcut icon' type='image/png' href='%s%s'/>\n", $this->getRootPath(), $this->getLogo());
         echo sprintf("<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'/>\n");
@@ -35,7 +35,11 @@ class GHeader extends GWidget {
         echo sprintf("</head>\n");
         echo sprintf("<body onload='body_onload()'>\n");
         echo sprintf("<div class='body_page'>\n");
-        echo sprintf("<a class='readydev_link' href='https://readydev.ovh/Accueil/'><i class='fa fa-sign-in'></i> ReadyDev</a>\n");
+        echo sprintf("<a class='app_name' href='%s'><i class='fa fa-%s'></i> %s</a>\n", $this->getAppLink(), $this->getAppIcon(), $this->getAppName());
+        echo sprintf("<a class='app_ref' href='%s'><i class='fa fa-%s'></i> %s</a>\n", $this->getRefLink(), $this->getRefIcon(), $this->getRefName());
+        echo sprintf("<div class='app_title'>\n");
+        echo sprintf("<div>%s</div>\n", $this->getPageTitle());
+        echo sprintf("</div>\n");
     }
     //===============================================
     public function getLang() {
@@ -44,16 +48,66 @@ class GHeader extends GWidget {
         return $lLang;
     }
     //===============================================
-    public function geTitle() {
+    public function getTitle() {
         $this->dom->getRoot("rdv")->getNode("header");
         $lTitle = $this->dom->getNode("site")->getValue();
         return $lTitle;
+    }
+    //===============================================
+    public function getPageTitle() {
+        $this->dom->createXPath();
+        $this->dom->queryXPath("/rdv/header/titles/title/link");
+        $this->dom->getXPathNode(1);
+        $lPageId = $this->dom->getValue();
+        return $lPageId;
     }
     //===============================================
     public function getLogo() {
         $this->dom->getRoot("rdv")->getNode("header");
         $lLogo = $this->dom->getNode("logo")->getValue();
         return $lLogo;
+    }
+    //===============================================
+    public function getAppName() {
+        $this->dom->getRoot("rdv")->getNode("header");
+        $this->dom->getNode("app")->getNode("name");
+        $lData = $this->dom->getValue();
+        return $lData;
+    }
+    //===============================================
+    public function getAppLink() {
+        $this->dom->getRoot("rdv")->getNode("header");
+        $this->dom->getNode("app")->getNode("link");
+        $lData = $this->dom->getValue();
+        return $lData;
+    }
+    //===============================================
+    public function getAppIcon() {
+        $this->dom->getRoot("rdv")->getNode("header");
+        $this->dom->getNode("app")->getNode("icon");
+        $lData = $this->dom->getValue();
+        return $lData;
+    }
+    //===============================================
+    public function getRefName() {
+        $this->dom->getRoot("rdv")->getNode("header");
+        $this->dom->getNode("ref")->getNode("name");
+        $lData = $this->dom->getValue();
+        return $lData;
+    }
+    //===============================================
+    public function getRefLink() {
+        $this->dom->getRoot("rdv")->getNode("header");
+        $this->dom->getNode("ref")->getNode("link");
+        $lData = $this->dom->getValue();
+        return $lData;
+    }
+    //===============================================
+    public function getRefIcon() {
+        $this->dom->getRoot("rdv")->getNode("header");
+        $this->dom->getNode("ref")->getNode("icon");
+        $lData = $this->dom->getValue();
+        return $lData;
     }
     //===============================================
     public function loadFonts() {

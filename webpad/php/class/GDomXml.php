@@ -17,7 +17,7 @@ class GDomXml extends GObject {
     }
     //===============================================
     public function loadXmlFile($file) {
-        $lPath = $this->getDataPath("xml", $file);
+        $lPath = $this->getXmlPath($file);
         if($lPath == "") return;
         $this->dom->load($lPath);
     }
@@ -27,7 +27,7 @@ class GDomXml extends GObject {
     }
     //===============================================
     public function saveXmlFile($file) {
-        $lPath = $this->getDataPath("xml", $file);
+        $lPath = $this->getXmlPath($file);
         if($lPath == "") return;
         $this->dom->save($lPath);
     }
@@ -49,6 +49,20 @@ class GDomXml extends GObject {
     public function queryXPath($query) {
         if(!$this->validateXPath()) return $this;
         $this->nodes = $this->xpath->query($query);
+        return $this;
+    }
+    //===============================================
+    public function getXPathNode($index) {
+        if(!$this->validateNodes()) return $this;
+        $lCount = 0;
+        foreach($this->nodes as $lNode) {
+            if($lCount == $index) {
+                $this->node = $lNode;
+                return $this;
+            }
+            $lCount++;
+        }
+        $this->node = null;
         return $this;
     }
     //===============================================
@@ -147,6 +161,14 @@ class GDomXml extends GObject {
     public function validateNode() {
         if($this->node == null) {
             GError::Instance()->addError("Error le (noeud) est null");
+            return false;
+        }
+        return true;
+    }
+    //===============================================
+    public function validateNodes() {
+        if($this->nodes == null) {
+            GError::Instance()->addError("Error le (noeuds) est null");
             return false;
         }
         return true;
