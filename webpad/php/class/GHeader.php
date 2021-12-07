@@ -26,7 +26,7 @@ class GHeader extends GWidget {
         echo sprintf("<head>\n");
         echo sprintf("<title>%s</title>\n", $this->geTitle());
         echo sprintf("<meta charset='UTF-8'/>\n");
-        echo sprintf("<link rel='shortcut icon' type='image/png' href='%s'/>\n", $this->getLogo());
+        echo sprintf("<link rel='shortcut icon' type='image/png' href='%s%s'/>\n", $this->getRootPath(), $this->getLogo());
         echo sprintf("<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'/>\n");
         echo sprintf("<meta name='viewport' content='width=device-width, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1.0, user-scalable=no'/>\n");
         echo sprintf("<link rel='stylesheet' href='%s/libs/font_awesome/css/font-awesome.min.css'/>\n", $this->getRootPath());
