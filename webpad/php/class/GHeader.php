@@ -60,7 +60,7 @@ class GHeader extends GWidget {
         for($i = 0; $i < $lCount; $i++) {
             $this->dom->getNodeItem("font", $i);
             $lFont = $this->dom->getValue();
-            echo sprintf("<link rel='stylesheet' href='%s'/>\n", $lFont);
+            echo sprintf("<link rel='stylesheet' href='%s%s'/>\n", $this->getRootPath(), $lFont);
         }
     }
     //===============================================
