@@ -1,0 +1,14 @@
+/* ============================================== */
+@font-face {
+  font-family: "Allan";
+  font-style: normal;
+  src: url("Allan-Regular.ttf");
+}
+/* ============================================== */
+@font-face {
+  font-family: "Courier Prime";
+  font-style: normal;
+  font-weight: bold;
+  src: url("Allan-Bold.ttf");
+}
+/* ============================================== */

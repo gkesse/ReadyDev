@@ -610,4 +610,56 @@ Add
 Host -&gt; readyapp
 Top Level -&gt; freeddns.org
 Add
-IPv4 Address -&gt; ADRESSE_IP_PUBLIQUE</pre></div></div><br></div></div></div></div><br>
+IPv4 Address -&gt; ADRESSE_IP_PUBLIQUE</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Gestion-de-document-XML-avec-DOM"><a class="Link3" href="#">Gestion de document XML avec DOM</a></h1><div class="Body3"><br><b>XML </b>permet de mieux structurer les données sous un format orienté objet. <b>DOM </b>permet de manipuler des documents XML.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Gestion-de-document-XML-avec-DOM-Apprendre-DOM"><a class="Link9" href="#Gestion-de-document-XML-avec-DOM">Apprendre DOM</a></h2><br><div class="Content0 GSummary3"><div class="Row26">Summary 3</div></div><br><h3 class="GTitle3" id="Gestion-de-document-XML-avec-DOM-Apprendre-DOM-Creation-d-un-document-XML"><a class="Title8" href="#Gestion-de-document-XML-avec-DOM-Apprendre-DOM">Création d'un document XML</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="php">&lt;?php
+//===============================================
+require "./php/class/GAutoload.php";
+//===============================================
+$lDom = new GDomXml();
+$lDom-&gt;createDom();
+$lDom-&gt;createRoot("catalog");
+$lProduct = new GDomXml();
+$lProduct-&gt;createNode($lDom, "product");
+$lProduct-&gt;setAttribute("reference", "REF1234");
+$lName = new GDomXml();
+$lName-&gt;createNode($lDom, "T-Shirt", "100.0");
+$lProduct-&gt;appendChild($lName);
+$lDom-&gt;appendChild($lProduct);
+echo $lDom-&gt;getDomXml();
+//===============================================
+?&gt;</pre></div></div><br><h3 class="GTitle3" id="Gestion-de-document-XML-avec-DOM-Apprendre-DOM-Enregistrement-d-un-document-XML"><a class="Title8" href="#Gestion-de-document-XML-avec-DOM-Apprendre-DOM">Enregistrement d'un document XML</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="php">&lt;?php
+//===============================================
+require "./php/class/GAutoload.php";
+//===============================================
+$lDom = new GDomXml();
+$lDom-&gt;createDom();
+$lDom-&gt;createRoot("catalog");
+$lProduct = new GDomXml();
+$lProduct-&gt;createNode($lDom, "product");
+$lProduct-&gt;setAttribute("reference", "REF1234");
+$lName = new GDomXml();
+$lName-&gt;createNode($lDom, "T-Shirt", "100.0");
+$lProduct-&gt;appendChild($lName);
+$lDom-&gt;appendChild($lProduct);
+echo $lDom-&gt;saveXmlFile("test.xml");
+//===============================================
+?&gt;</pre></div></div><br><h3 class="GTitle3" id="Gestion-de-document-XML-avec-DOM-Apprendre-DOM-Chargement-d-un-document-XML"><a class="Title8" href="#Gestion-de-document-XML-avec-DOM-Apprendre-DOM">Chargement d'un document XML</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="php">&lt;?php
+//===============================================
+require "./php/class/GAutoload.php";
+//===============================================
+$lDom = new GDomXml();
+$lDom-&gt;createDom();
+$lDom-&gt;loadXmlFile("header.xml");
+echo $lDom-&gt;getDomXml();
+//===============================================
+?&gt;</pre></div></div><br><h3 class="GTitle3" id="Gestion-de-document-XML-avec-DOM-Apprendre-DOM-Lecture-de-la-valeur-d-un-noeud"><a class="Title8" href="#Gestion-de-document-XML-avec-DOM-Apprendre-DOM">Lecture de la valeur d'un noeud</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="php">&lt;?php
+//===============================================
+require "./php/class/GAutoload.php";
+//===============================================
+$lDom = new GDomXml();
+$lDom = new GDomXml();
+$lDom-&gt;createDom();
+$lDom-&gt;loadXmlFile("header.xml");
+echo $lDom-&gt;getRoot("header")-&gt;getNode("app_name")-&gt;getValue();
+GError::Instance()-&gt;showError();
+//===============================================
+?&gt;</pre></div></div><br></div></div></div></div><br>

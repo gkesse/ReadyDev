@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdv>
+    <header>
+        <site>ReadyDev</site>
+        <logo>/data/img/logo_web.png</logo>
+        <lang>fr</lang>
+        <fonts>
+            <font>/libs/google_fonts/Allan/css.css</font>
+            <font>/libs/google_fonts/Archivo_Narrow/css.css</font>
+        </fonts>
+    </header>
+</rdv>

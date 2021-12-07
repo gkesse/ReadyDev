@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdv>
+    <phone>
+        <settings>
+            <boxperpage>4</boxperpage>
+        </settings>
+        <boxes>
+            <box>
+                <title>Notifications</title>
+                <icon>bell</icon>
+            </box>
+            <box>
+                <title>Accueil</title>
+                <icon>home</icon>
+            </box>
+            <box>
+                <title>Accueil</title>
+                <icon>home</icon>
+            </box>
+            <box>
+                <title>Accueil</title>
+                <icon>home</icon>
+            </box>
+            <box>
+                <title>Accueil</title>
+                <icon>home</icon>
+            </box>
+            <box>
+                <title>Accueil</title>
+                <icon>home</icon>
+            </box>
+            <box>
+                <title>Accueil</title>
+                <icon>home</icon>
+            </box>
+            <box>
+                <title>Accueil</title>
+                <icon>home</icon>
+            </box>
+            <box>
+                <title>Accueil</title>
+                <icon>home</icon>
+            </box>
+        </boxes>
+    </phone>
+</rdv>
