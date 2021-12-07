@@ -59,6 +59,7 @@ class GHeader extends GWidget {
         $lCount = $this->dom->getNode("fonts")->countNode();
         for($i = 0; $i < $lCount; $i++) {
             $this->dom->getNodeItem("font", $i);
+            
             $lFont = $this->dom->getValue();
             echo sprintf("<link rel='stylesheet' href='%s%s'/>\n", $this->getRootPath(), $lFont);
         }
