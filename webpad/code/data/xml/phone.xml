@@ -8,38 +8,67 @@
             <box>
                 <title>Notifications</title>
                 <icon>bell</icon>
+                <link>/home/notifications</link>
             </box>
             <box>
                 <title>Accueil</title>
                 <icon>home</icon>
+                <link>home</link>
             </box>
             <box>
                 <title>Accueil</title>
                 <icon>home</icon>
+                <link>home</link>
             </box>
             <box>
                 <title>Accueil</title>
                 <icon>home</icon>
+                <link>home</link>
             </box>
             <box>
                 <title>Accueil</title>
                 <icon>home</icon>
+                <link>home</link>
             </box>
             <box>
                 <title>Accueil</title>
                 <icon>home</icon>
+                <link>home</link>
             </box>
             <box>
                 <title>Accueil</title>
                 <icon>home</icon>
+                <link>home</link>
             </box>
             <box>
                 <title>Accueil</title>
                 <icon>home</icon>
+                <link>home</link>
             </box>
             <box>
                 <title>Accueil</title>
                 <icon>home</icon>
+                <link>home</link>
+            </box>
+            <box>
+                <title>Accueil</title>
+                <icon>home</icon>
+                <link>home</link>
+            </box>
+            <box>
+                <title>Accueil</title>
+                <icon>home</icon>
+                <link>home</link>
+            </box>
+            <box>
+                <title>Accueil</title>
+                <icon>home</icon>
+                <link>home</link>
+            </box>
+            <box>
+                <title>Accueil</title>
+                <icon>home</icon>
+                <link>home</link>
             </box>
         </boxes>
     </phone>

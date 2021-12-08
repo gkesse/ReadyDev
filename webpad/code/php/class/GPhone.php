@@ -81,6 +81,13 @@ class GPhone extends GWidget {
         return $lTitle;
     }
     //===============================================
+    public function getBoxLink($index) {
+        $this->dom->createXPath();
+        $this->dom->queryXPath(sprintf("/rdv/phone/boxes/box[position()=%d]/link", $index));
+        $lData = $this->dom->getNodeIndex(0)->getValue();
+        return $lData;
+    }
+    //===============================================
 }
 //===============================================
 ?>

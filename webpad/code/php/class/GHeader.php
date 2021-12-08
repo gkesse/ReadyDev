@@ -56,10 +56,9 @@ class GHeader extends GWidget {
     //===============================================
     public function getPageTitle() {
         $this->dom->createXPath();
-        $this->dom->queryXPath("/rdv/header/titles/title/link");
-        $this->dom->getXPathNode(1);
-        $lPageId = $this->dom->getValue();
-        return $lPageId;
+        $this->dom->queryXPath(sprintf("/rdv/header/titles/title[link/.='%s']/name", $this->getPageId()));
+        $lData = $this->dom->getNodeIndex(0)->getValue();
+        return $lData;
     }
     //===============================================
     public function getLogo() {

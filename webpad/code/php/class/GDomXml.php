@@ -52,20 +52,6 @@ class GDomXml extends GObject {
         return $this;
     }
     //===============================================
-    public function getXPathNode($index) {
-        if(!$this->validateNodes()) return $this;
-        $lCount = 0;
-        foreach($this->nodes as $lNode) {
-            if($lCount == $index) {
-                $this->node = $lNode;
-                return $this;
-            }
-            $lCount++;
-        }
-        $this->node = null;
-        return $this;
-    }
-    //===============================================
     public function createRoot($name) {
         $this->node = $this->dom->createElement($name);
         $this->dom->appendChild($this->node);
@@ -119,6 +105,28 @@ class GDomXml extends GObject {
         }
         $this->node = null;
         return $this;
+    }
+    //===============================================
+    public function getNodeIndex($index) {
+        if(!$this->checkNodes()) return $this;
+        $lCount = 0;
+        foreach($this->nodes as $lNode) {
+            if($lCount == $index) {
+                $this->node = $lNode;
+                return $this;
+            }
+            $lCount++;
+        }
+        $this->node = null;
+        return $this;
+    }
+    //===============================================
+    public function checkNodes() {
+        if(!$this->nodes) {
+            $this->node = null;
+            return false;
+        }
+        return true;
     }
     //===============================================
     public function countNode() {
