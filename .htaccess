@@ -15,11 +15,11 @@ RewriteRule ^home$ webroot/?pageid= [L,QSA]
 #================================================
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^readypad/(.*)$ webpad/?pageid=$1 [L,QSA]
+RewriteRule ^readypad/(.*)$ webpad/code/?pageid=$1 [L,QSA]
 #================================================
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^readypad$ webpad/?pageid= [L,QSA]
+RewriteRule ^readypad$ webpad/code/?pageid= [L,QSA]
 #================================================
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d

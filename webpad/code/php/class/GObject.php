@@ -7,7 +7,7 @@ class GObject {
     protected $webroot;
     //===============================================
     public function __construct() {
-        $this->webroot = "webpad";
+        $this->webroot = "webpad/code";
     }
     //===============================================
     public static function Instance() {
