@@ -45,6 +45,7 @@ button:active {
     font-family: allan;
     font-size: 16px;
     text-decoration: none;
+    z-index: 1;
 }
 /* ============================================== */
 .app_title {
@@ -74,6 +75,7 @@ button:active {
     font-family: allan;
     font-size: 16px;
     text-decoration: none;
+    z-index: 1;
 }
 /* ============================================== */
 .phone_body {
