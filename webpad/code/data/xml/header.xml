@@ -18,15 +18,5 @@
             <font>/libs/google_fonts/Allan/css.css</font>
             <font>/libs/google_fonts/Archivo_Narrow/css.css</font>
         </fonts>
-        <titles>
-            <title>
-                <link>home</link>
-                <name>Accueil</name>
-            </title>
-            <title>
-                <link>home/notifications</link>
-                <name>Notifications</name>
-            </title>
-        </titles>
     </header>
 </rdv>
