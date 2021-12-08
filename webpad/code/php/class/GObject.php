@@ -6,10 +6,12 @@ class GObject {
     //===============================================
     protected $webroot;
     protected $webkey;
+    protected $appname;
     //===============================================
     public function __construct() {
         $this->webroot = "webpad/code";
         $this->webkey = "/readypad";
+        $this->appname = "phone";
     }
     //===============================================
     public static function Instance() {
@@ -53,6 +55,15 @@ class GObject {
             $lPageId = substr($lPageId, 0, -1);
         }
         return $lPageId;
+    }
+    //===============================================
+    public function getObj() {
+        if($this->appname == "phone") return new GPhone();
+        return new GObject();
+    }
+    //===============================================
+    public function getPageTitle() {
+        return "";
     }
     //===============================================
 }
