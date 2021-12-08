@@ -231,6 +231,18 @@ span {
 }
 
 /* ============================================== */
+/* special */
+/* ============================================== */
+
+.banner_url {
+    position: absolute;
+    top: 110px;
+    left: 0px;
+    right: 0px;
+    z-index: 1;
+}
+
+/* ============================================== */
 /* Custom */
 /* ============================================== */
 
@@ -1376,10 +1388,6 @@ span {
     border-radius: 5px;
     font-family: Allan;
     font-size: 18px;
-    position: absolute;
-    top: 110px;
-    left: 46%;
-    z-index: 1;
 }
 
 .ReadyCGI {
