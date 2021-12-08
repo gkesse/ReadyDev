@@ -32,10 +32,12 @@ class GPhone extends GWidget {
                 if($lBoxIndex == $lCountBox) break;
                 $lIcon = $this->getIcon($lBoxIndex);
                 $lTitle = $this->getTitle($lBoxIndex);
-                echo sprintf("<div class='phone_box'>\n");
+                $lLink = $this->getBoxLink($lBoxIndex);
+                echo $lLink;
+                echo sprintf("<a class='phone_box' href='%s'>\n", $lLink);
                 echo sprintf("<i class='phone_box_icon fa fa-%s'></i>\n", $lIcon);
                 echo sprintf("<div class='phone_box_title'>%s</div>\n", $lTitle);
-                echo sprintf("</div>\n");
+                echo sprintf("</a>\n");
             }
             echo sprintf("</div>\n");
         }
@@ -83,8 +85,9 @@ class GPhone extends GWidget {
     //===============================================
     public function getBoxLink($index) {
         $this->dom->createXPath();
-        $this->dom->queryXPath(sprintf("/rdv/phone/boxes/box[position()=%d]/link", $index));
+        $this->dom->queryXPath(sprintf("/rdv/phone/boxes/box[position()=%d]/link", $index + 1));
         $lData = $this->dom->getNodeIndex(0)->getValue();
+        $lData = sprintf("%s%s", $this->webkey, $lData);
         return $lData;
     }
     //===============================================

@@ -94,6 +94,7 @@ button:active {
 .phone_box {
     position: relative;
     background-color: #4d5656;
+    color: white;
     display: inline-block;
     padding: 10px;
     margin: 10px;
@@ -103,6 +104,7 @@ button:active {
     width: 100px;
     font-size: 16px;
     cursor: pointer;
+    text-decoration: none;
 }
 /* ============================================== */
 .phone_box_icon {
