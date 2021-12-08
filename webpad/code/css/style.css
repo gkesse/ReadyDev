@@ -45,6 +45,7 @@ button:active {
     font-family: allan;
     font-size: 16px;
     text-decoration: none;
+    z-index: 1;
 }
 /* ============================================== */
 .app_title {
@@ -74,6 +75,7 @@ button:active {
     font-family: allan;
     font-size: 16px;
     text-decoration: none;
+    z-index: 1;
 }
 /* ============================================== */
 .phone_body {
@@ -94,6 +96,7 @@ button:active {
 .phone_box {
     position: relative;
     background-color: #4d5656;
+    color: white;
     display: inline-block;
     padding: 10px;
     margin: 10px;
@@ -103,6 +106,7 @@ button:active {
     width: 100px;
     font-size: 16px;
     cursor: pointer;
+    text-decoration: none;
 }
 /* ============================================== */
 .phone_box_icon {

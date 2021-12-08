@@ -30,12 +30,13 @@ class GPhone extends GWidget {
             for($i = 0; $i < $lBoxPerPage; $i++) {
                 $lBoxIndex = $j * $lBoxPerPage + $i;
                 if($lBoxIndex == $lCountBox) break;
-                $lIcon = $this->getIcon($lBoxIndex);
-                $lTitle = $this->getTitle($lBoxIndex);
-                echo sprintf("<div class='phone_box'>\n");
+                $lIcon = $this->getBoxIcon($lBoxIndex);
+                $lTitle = $this->getBoxTitle($lBoxIndex);
+                $lLink = $this->getBoxLink($lBoxIndex);
+                echo sprintf("<a class='phone_box' href='%s'>\n", $lLink);
                 echo sprintf("<i class='phone_box_icon fa fa-%s'></i>\n", $lIcon);
                 echo sprintf("<div class='phone_box_title'>%s</div>\n", $lTitle);
-                echo sprintf("</div>\n");
+                echo sprintf("</a>\n");
             }
             echo sprintf("</div>\n");
         }
@@ -65,7 +66,7 @@ class GPhone extends GWidget {
         return $lBoxPerPage;
     }
     //===============================================
-    public function getIcon($index) {
+    public function getBoxIcon($index) {
         $this->dom->getRoot("rdv")->getNode("phone");
         $this->dom->getNode("boxes");
         $this->dom->getNodeItem("box", $index);
@@ -73,7 +74,7 @@ class GPhone extends GWidget {
         return $lIcon;
     }
     //===============================================
-    public function getTitle($index) {
+    public function getBoxTitle($index) {
         $this->dom->getRoot("rdv")->getNode("phone");
         $this->dom->getNode("boxes");
         $this->dom->getNodeItem("box", $index);
@@ -83,8 +84,9 @@ class GPhone extends GWidget {
     //===============================================
     public function getBoxLink($index) {
         $this->dom->createXPath();
-        $this->dom->queryXPath(sprintf("/rdv/phone/boxes/box[position()=%d]/link", $index));
+        $this->dom->queryXPath(sprintf("/rdv/phone/boxes/box[position()=%d]/link", $index + 1));
         $lData = $this->dom->getNodeIndex(0)->getValue();
+        $lData = sprintf("%s%s", $this->webkey, $lData);
         return $lData;
     }
     //===============================================

@@ -5,9 +5,11 @@ class GObject {
     private static $m_instance = null;
     //===============================================
     protected $webroot;
+    protected $webkey;
     //===============================================
     public function __construct() {
         $this->webroot = "webpad/code";
+        $this->webkey = "/readypad";
     }
     //===============================================
     public static function Instance() {
@@ -46,6 +48,9 @@ class GObject {
         $lPageId = $_GET["pageid"];
         if($lPageId == "") {
             $lPageId = "home";
+        }
+        if(substr($lPageId, -1) == '/') {
+            $lPageId = substr($lPageId, 0, -1);
         }
         return $lPageId;
     }
