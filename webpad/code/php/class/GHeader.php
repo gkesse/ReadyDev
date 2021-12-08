@@ -38,7 +38,7 @@ class GHeader extends GWidget {
         echo sprintf("<a class='app_name' href='%s'><i class='fa fa-%s'></i> %s</a>\n", $this->getAppLink(), $this->getAppIcon(), $this->getAppName());
         echo sprintf("<a class='app_ref' href='%s'><i class='fa fa-%s'></i> %s</a>\n", $this->getRefLink(), $this->getRefIcon(), $this->getRefName());
         echo sprintf("<div class='app_title'>\n");
-        echo sprintf("<div>%s</div>\n", $this->getPageTitle());
+        echo sprintf("<div>%s</div>\n", $this->getObj()->getPageTitle());
         echo sprintf("</div>\n");
     }
     //===============================================

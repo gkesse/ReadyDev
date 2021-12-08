@@ -11,14 +11,14 @@
                 <link>/home/notifications/</link>
             </box>
             <box>
-                <title>Accueil</title>
-                <icon>home</icon>
-                <link>/home/</link>
+                <title>Paramètres</title>
+                <icon>cog</icon>
+                <link>/home/parametres/</link>
             </box>
             <box>
-                <title>Accueil</title>
-                <icon>home</icon>
-                <link>/home/</link>
+                <title>Veille</title>
+                <icon>power-off</icon>
+                <link>/home/veille/</link>
             </box>
             <box>
                 <title>Accueil</title>

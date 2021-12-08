@@ -90,6 +90,13 @@ class GPhone extends GWidget {
         return $lData;
     }
     //===============================================
+    public function getPageTitle() {
+        $this->dom->createXPath();
+        $this->dom->queryXPath(sprintf("/rdv/phone/boxes/box[link/.='/%s/']/title", $this->getPageId()));
+        $lData = $this->dom->getNodeIndex(0)->getValue();
+        return $lData;
+    }
+    //===============================================
 }
 //===============================================
 ?>
