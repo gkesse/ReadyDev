@@ -2,9 +2,9 @@
 //===============================================
 class GHeader extends GWidget {
     //===============================================
-    private static $m_instance = null;
+    static private $m_instance = null;
     //===============================================
-    protected $dom;
+    private $dom;
     //===============================================
     public function __construct() {
         parent::__construct();
@@ -34,12 +34,6 @@ class GHeader extends GWidget {
         echo sprintf("<link rel='stylesheet' href='%s/css/style.css'/>\n", $this->getRootPath());
         echo sprintf("</head>\n");
         echo sprintf("<body onload='body_onload()'>\n");
-        echo sprintf("<div class='body_page'>\n");
-        echo sprintf("<a class='app_name' href='%s'><i class='fa fa-%s'></i> %s</a>\n", $this->getAppLink(), $this->getAppIcon(), $this->getAppName());
-        echo sprintf("<a class='app_ref' href='%s'><i class='fa fa-%s'></i> %s</a>\n", $this->getRefLink(), $this->getRefIcon(), $this->getRefName());
-        echo sprintf("<div class='app_title'>\n");
-        echo sprintf("<div>%s</div>\n", $this->getObj()->getPageTitle());
-        echo sprintf("</div>\n");
     }
     //===============================================
     public function getLang() {
@@ -65,48 +59,6 @@ class GHeader extends GWidget {
         $this->dom->getRoot("rdv")->getNode("header");
         $lLogo = $this->dom->getNode("logo")->getValue();
         return $lLogo;
-    }
-    //===============================================
-    public function getAppName() {
-        $this->dom->getRoot("rdv")->getNode("header");
-        $this->dom->getNode("app")->getNode("name");
-        $lData = $this->dom->getValue();
-        return $lData;
-    }
-    //===============================================
-    public function getAppLink() {
-        $this->dom->getRoot("rdv")->getNode("header");
-        $this->dom->getNode("app")->getNode("link");
-        $lData = $this->dom->getValue();
-        return $lData;
-    }
-    //===============================================
-    public function getAppIcon() {
-        $this->dom->getRoot("rdv")->getNode("header");
-        $this->dom->getNode("app")->getNode("icon");
-        $lData = $this->dom->getValue();
-        return $lData;
-    }
-    //===============================================
-    public function getRefName() {
-        $this->dom->getRoot("rdv")->getNode("header");
-        $this->dom->getNode("ref")->getNode("name");
-        $lData = $this->dom->getValue();
-        return $lData;
-    }
-    //===============================================
-    public function getRefLink() {
-        $this->dom->getRoot("rdv")->getNode("header");
-        $this->dom->getNode("ref")->getNode("link");
-        $lData = $this->dom->getValue();
-        return $lData;
-    }
-    //===============================================
-    public function getRefIcon() {
-        $this->dom->getRoot("rdv")->getNode("header");
-        $this->dom->getNode("ref")->getNode("icon");
-        $lData = $this->dom->getValue();
-        return $lData;
     }
     //===============================================
     public function loadFonts() {

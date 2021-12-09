@@ -2,9 +2,9 @@
 //===============================================
 class GPhone extends GWidget {
     //===============================================
-    private static $m_instance = null;
+    static private $m_instance = null;
     //===============================================
-    protected $dom;
+    private $dom;
     //===============================================
     public function __construct() {
         parent::__construct();
@@ -21,6 +21,11 @@ class GPhone extends GWidget {
     }
     //===============================================
     public function show() {
+        echo sprintf("<div class='body_main'>\n");
+        if($this->getPageId() == "home/notifications") {
+            echo sprintf("<a class='phone_notifications' href='/readypad/'>phone_notifications</a>\n");
+        }
+        $this->setPageHeader();
         echo sprintf("<div class='phone_body'>\n");
         $lCountBox = $this->countBox();
         $lBoxPerPage = $this->getBoxPerPage();
@@ -50,6 +55,8 @@ class GPhone extends GWidget {
             onclick='phone_slide_bar_dot_onclick(%d)'></div>\n", $i + 1, $i + 1);
         }
         echo sprintf("</div>\n");
+        echo sprintf("</div>\n");
+        $this->setPageFooter();
         echo sprintf("</div>\n");
     }
     //===============================================
@@ -86,7 +93,7 @@ class GPhone extends GWidget {
         $this->dom->createXPath();
         $this->dom->queryXPath(sprintf("/rdv/phone/boxes/box[position()=%d]/link", $index + 1));
         $lData = $this->dom->getNodeIndex(0)->getValue();
-        $lData = sprintf("%s%s", $this->webkey, $lData);
+        $lData = sprintf("%s%s", $this->getWebKey(), $lData);
         return $lData;
     }
     //===============================================

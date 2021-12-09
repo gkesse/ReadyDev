@@ -2,21 +2,20 @@
 //===============================================
 class GObject {
     //===============================================
-    private static $m_instance = null;
+    static private $m_instance = null;
     //===============================================
-    protected $webroot;
-    protected $webkey;
-    protected $appname;
+    private $webroot;
+    private $webkey;
+    private $appname = "phone";
     //===============================================
     public function __construct() {
         $this->webroot = "webpad/code";
         $this->webkey = "/readypad";
-        $this->appname = "phone";
     }
     //===============================================
     public static function Instance() {
         if(is_null(self::$m_instance)) {
-            self::$m_instance = new GFooter();  
+            self::$m_instance = new GObject();  
         }
         return self::$m_instance;
     }
@@ -58,12 +57,16 @@ class GObject {
     }
     //===============================================
     public function getObj() {
-        if($this->appname == "phone") return new GPhone();
-        return new GObject();
+        if($this->appname == "phone") return GPhone::Instance();
+        return GObject::Instance();
     }
     //===============================================
     public function getPageTitle() {
         return "";
+    }
+    //===============================================
+    public function getWebKey() {
+        return $this->webkey;
     }
     //===============================================
 }

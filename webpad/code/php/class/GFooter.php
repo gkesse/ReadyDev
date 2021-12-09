@@ -2,9 +2,9 @@
 //===============================================
 class GFooter extends GWidget {
     //===============================================
-    private static $m_instance = null;
+    static private $m_instance = null;
     //===============================================
-    protected $dom;
+    private $dom;
     //===============================================
     public function __construct() {
         parent::__construct();
@@ -21,7 +21,6 @@ class GFooter extends GWidget {
     }
     //===============================================
     public function show() {
-        echo sprintf("</div>\n");
         $this->loadScripts();
         echo sprintf("</body>\n");
         echo sprintf("</html>\n");
