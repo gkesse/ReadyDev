@@ -2,9 +2,9 @@
 //===============================================
 class GError extends GObject {
     //===============================================
-    private static $m_instance = null;
+    static private $m_instance = null;
     //===============================================
-    protected $erros = array();
+    private $errors = array();
     //===============================================
     public function __construct() {
         parent::__construct();
