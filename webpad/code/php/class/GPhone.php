@@ -23,7 +23,10 @@ class GPhone extends GWidget {
     public function show() {
         echo sprintf("<div class='body_main'>\n");
         if($this->getPageId() == "home/notifications") {
-            echo sprintf("<a class='phone_notifications' href='/readypad/'>phone_notifications</a>\n");
+            echo sprintf("<a class='phone_notifications' href='/readypad/'></a>\n");
+            echo sprintf("<div class='phone_notifications_box'>\n");
+            echo sprintf("<div class='phone_notifications_box_item'>Times</div>\n");
+            echo sprintf("</div>\n");
         }
         $this->setPageHeader();
         echo sprintf("<div class='phone_body'>\n");
