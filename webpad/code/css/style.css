@@ -117,6 +117,27 @@ button:active {
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
+    background-attachment: fixed;
+    text-decoration: none;
+    color: white;
+}
+/* ============================================== */
+.phone_notifications_box {
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    text-align: center;
+}
+/* ============================================== */
+.phone_notifications_box_item {
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.4);
+    display: inline-block;
+    padding: 20px;
+    border-radius: 10px;
 }
 /* ============================================== */
 .phone_slide {
