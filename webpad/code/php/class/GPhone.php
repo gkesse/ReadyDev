@@ -22,17 +22,27 @@ class GPhone extends GWidget {
     //===============================================
     public function show() {
         echo sprintf("<div class='body_main'>\n");
+        $this->setPageHeader();
         if($this->getPageId() == "home/notifications") {
             echo sprintf("<a class='phone_notifications' href='/readypad/'></a>\n");
-            echo sprintf("<div class='phone_notifications_box'>\n");
-            echo sprintf("<div class='phone_notifications_header'>\n");
-            echo sprintf("<i class='phone_notifications_icon fa fa-info'></i>\n");
-            echo sprintf("<div class='phone_notifications_title'>ReadyPad</div>\n");
-            echo sprintf("<div class='phone_notifications_time'>2 mn</div>\n");
-            echo sprintf("</div>\n");
-            echo sprintf("</div>\n");
+            echo sprintf ( "<div class='phone_notifications_box'>\n" );
+            for($i = 0; $i < 10; $i++) {
+                echo sprintf ( "<div class='phone_notifications_item'>\n" );
+                echo sprintf ( "<div class='phone_notifications_header'>\n" );
+                echo sprintf ( "<i class='phone_notifications_icon fa fa-info'></i>\n" );
+                echo sprintf ( "<div class='phone_notifications_app'>ReadyPad</div>\n" );
+                echo sprintf ( "<div class='phone_notifications_time'>2 mn</div>\n" );
+                echo sprintf ( "</div>\n" );
+                echo sprintf ( "<div class='phone_notifications_body'>\n" );
+                echo sprintf ( "<div class='phone_notifications_title'>Titre</div>\n" );
+                echo sprintf ( "<div class='phone_notifications_msg'>Message</div>\n" );
+                echo sprintf ( "<i class='phone_notifications_img fa fa-envelope'></i>\n" );
+                echo sprintf ( "<div class='phone_notifications_none'></div>\n" );
+                echo sprintf ( "</div>\n" );
+                echo sprintf ( "</div>\n" );
+            }
+            echo sprintf ( "</div>\n" );
         }
-        $this->setPageHeader();
         echo sprintf("<div class='phone_body'>\n");
         $lCountBox = $this->countBox();
         $lBoxPerPage = $this->getBoxPerPage();
