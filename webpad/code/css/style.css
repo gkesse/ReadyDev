@@ -126,9 +126,13 @@ button:active {
     background-color: transparent;
     position: absolute;
     top: 80px;
+    bottom: 70px;
     left: 50%;
     transform: translate(-50%, 0);
     z-index: 2;
+    overflow: auto;
+    min-width: 350px;
+    padding-right: 10px;
 }
 /* ============================================== */
 .phone_notifications_item {
@@ -138,35 +142,30 @@ button:active {
     text-align: center;
     padding: 10px;
     font-family: allan;
-    margin: 20px 0px; 
+    margin: 20px 0px;
+    min-width: 300px;
 }
 /* ============================================== */
 .phone_notifications_header {
     background-color: transparent;
-	position: relative;
-    min-height: 30px;
-    min-width: 300px;
+    display: grid;
+    grid-gap: 5px;
+    padding: 0px;
 }
 /* ============================================== */
 .phone_notifications_icon {
     background-color: rgba(255,0,0, 0.4);
-    position: absolute;
-    top: 0px;
-    bottom: 0px;
-    left: 0px;
-    min-width: 30px;
+    grid-row: 1;
+    grid-column: 1;
     font-size: 18px;
     border-radius: 5px;
-    padding-top: 5px;
+    padding: 5px;
 }
 /* ============================================== */
 .phone_notifications_app {
     background-color: transparent;
-    position: absolute;
-    top: 0px;
-    bottom: 0px;
-    left: 35px;
-    right: 45px;
+    grid-row: 1;
+    grid-column: 2 / span 8;
     font-size: 16px;
     text-align: left;
     padding-top: 5px;
@@ -174,11 +173,8 @@ button:active {
 /* ============================================== */
 .phone_notifications_time {
     background-color: transparent;
-    position: absolute;
-    top: 0px;
-    bottom: 0px;
-    right: 0px;
-    min-width: 30px;
+    grid-row: 1;
+    grid-column: 10;
     font-size: 14px;
     padding-top: 5px;
     padding-right: 5px;
@@ -188,45 +184,32 @@ button:active {
 .phone_notifications_body {
     background-color: transparent;
     display: grid;
-    grid-template-areas: 
-    'title title title title title title title title title img'
-    'msg msg msg msg msg  msg msg msg msg none'
-    'msg msg msg msg msg  msg msg msg msg none'
-    'msg msg msg msg msg  msg msg msg msg none'
-    'msg msg msg msg msg  msg msg msg msg none'
-    'msg msg msg msg msg  msg msg msg msg none'
-    'msg msg msg msg msg  msg msg msg msg none'
-    'msg msg msg msg msg  msg msg msg msg none'
-    'msg msg msg msg msg  msg msg msg msg none'
-    'msg msg msg msg msg  msg msg msg msg none';
     grid-gap: 0px;
     padding: 0px;
 }
 /* ============================================== */
 .phone_notifications_title {
     background-color: transparent;
-    grid-area: title;
+    grid-row: 1;
+    grid-column: 1 / span 9;
     padding: 5px;
     text-align: left;
 }
 /* ============================================== */
 .phone_notifications_msg {
     background-color: transparent;
-    grid-area: msg;
+    grid-row: 2;
+    grid-column: 1 / span 9;
     padding: 5px;
     text-align: left;
 }
 /* ============================================== */
 .phone_notifications_img {
     background-color: rgba(0,255,0, 0.4);
-    grid-area: img;
+    grid-row: 1;
+    grid-column: 10;
     padding-top: 5px;
     border-radius: 5px;
-}
-/* ============================================== */
-.phone_notifications_none {
-    background-color: transparent;
-    grid-area: none;
 }
 /* ============================================== */
 .phone_slide {
