@@ -1388,6 +1388,9 @@ span {
     border-radius: 5px;
     font-family: Allan;
     font-size: 18px;
+    position: absolute;
+    top: 50px;
+    left: 5px;
 }
 
 .ReadyCGI {
