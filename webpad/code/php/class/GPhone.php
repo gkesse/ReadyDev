@@ -36,7 +36,6 @@ class GPhone extends GWidget {
                 echo sprintf ( "<div class='phone_notifications_title'>Titre</div>\n" );
                 echo sprintf ( "<div class='phone_notifications_msg'>Message</div>\n" );
                 echo sprintf ( "<i class='phone_notifications_img fa fa-envelope'></i>\n" );
-                echo sprintf ( "<div class='phone_notifications_none'></div>\n" );
                 echo sprintf ( "</div>\n" );
                 echo sprintf ( "</div>\n" );
             }
