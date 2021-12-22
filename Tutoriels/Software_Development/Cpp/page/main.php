@@ -4817,7 +4817,99 @@ enum ProcessError {
     WriteError,
     UnknownError   //### no error
 };
-//===============================================</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Creation-de-pitogrammes-avec-QtAwesome"><a class="Link3" href="#">Création de pitogrammes avec QtAwesome</a></h1><div class="Body3"><br><b>QtAwesome</b> est une bibliothèque simple qui peut être utilisée pour ajouter des icônes Font Awesome à votre application Qt. Bien que le nom soit QtAwesome et qu'il soit actuellement très basé sur Font Awesome, vous pouvez utiliser toutes les autres polices d'icônes / glyphes de votre choix. La classe peut également être utilisée pour gérer vos propres icônes dessinées par code dynamique, en ajoutant des peintres d'icônes nommés. Cette bibliothèque a été mise à jour vers la version 4.7.0 de Font Awesome <br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Creation-de-pitogrammes-avec-QtAwesome-Installer-l-environnement-QtAwesome-sous-MSYS2"><a class="Link9" href="#Creation-de-pitogrammes-avec-QtAwesome">Installer l'environnement QtAwesome sous MSYS2</a></h2><br><h3 class="Title8 GTitle3" id="Creation-de-pitogrammes-avec-QtAwesome-Installer-l-environnement-QtAwesome-sous-MSYS2-Telecharger-QtAwesome"><a class="Title8" href="#Creation-de-pitogrammes-avec-QtAwesome-Installer-l-environnement-QtAwesome-sous-MSYS2">Télécharger QtAwesome</a></h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://github.com/gamecreature/QtAwesome">https://github.com/gamecreature/QtAwesome</a><br><br><b>QtAwesome-master.zip</b><br><br><h3 class="Title8 GTitle3" id="Creation-de-pitogrammes-avec-QtAwesome-Installer-l-environnement-QtAwesome-sous-MSYS2-Extraire-QtAwesome"><a class="Title8" href="#Creation-de-pitogrammes-avec-QtAwesome-Installer-l-environnement-QtAwesome-sous-MSYS2">Extraire QtAwesome</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">QtAwesome-master.zip
+//===============================================</pre></div></div><br><h2 class="Title7 GTitle2" id="Interface-Homme-Machine-avec-Qt-Conception-d-une-application-SDI"><a class="Link9" href="#Interface-Homme-Machine-avec-Qt">Conception d'une application SDI</a></h2><br>Le but de ce projet est de vous apprendre à concevoir une application SDI. Une application SDI est une application basée sur une interface de document unique.<br><br><div class="Content0 GSummary3"><div class="Row26">Summary 3</div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_sdi_app_demo.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_sdi_app_demo.gif"></div><br><h3 class="GTitle3" id="Interface-Homme-Machine-avec-Qt-Conception-d-une-application-SDI-Creation-d-un-nouveau-document"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Conception-d-une-application-SDI">Création d'un nouveau document</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">if(lKey == "file/new") {
+    GQtSdi* lSdiWindow = new GQtSdi;
+    lSdiWindow-&gt;setWindowFlag(this);
+    lSdiWindow-&gt;setPosition(this);
+    lSdiWindow-&gt;show();
+    lSdiWindow-&gt;activateWindow();
+}</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_sdi_app_new.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_sdi_app_new.gif"></div><br><h3 class="GTitle3" id="Interface-Homme-Machine-avec-Qt-Conception-d-une-application-SDI-Ouverture-d-un-document-existant"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Conception-d-une-application-SDI">Ouverture d'un document existant</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">else if(lKey == "file/open") {
+    const QString lFilename = QFileDialog::getOpenFileName(this);
+    if (!lFilename.isEmpty()) {
+        openFile(lFilename);
+    }
+}</pre></div></div><br>Gestion de l'ouverture d'un fichier<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">void GQtSdi::openFile(const QString&amp; _filename) {
+    GQtSdi* existing = findMainWindow(_filename);
+    if (existing) {
+        existing-&gt;show();
+        existing-&gt;raise();
+        existing-&gt;activateWindow();
+        return;
+    }
+
+    if (m_untitled &amp;&amp; m_textEdit-&gt;document()-&gt;isEmpty() &amp;&amp; !isWindowModified()) {
+        loadFile(_filename);
+        return;
+    }
+
+    GQtSdi* other = new GQtSdi;
+    other-&gt;loadFile(_filename);
+    if (other-&gt;m_untitled) {
+        delete other;
+        return;
+    }
+    other-&gt;show();
+}</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_sdi_app_open.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_sdi_app_open.gif"></div><br><h3 class="GTitle3" id="Interface-Homme-Machine-avec-Qt-Conception-d-une-application-SDI-Enregsitrement-d-un-document"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Conception-d-une-application-SDI">Enregsitrement d'un document</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">else if(lKey == "file/save") {
+    save();
+}
+else if(lKey == "file/saveas") {
+    saveAs();
+}</pre></div></div><br>Gestion de l'enregistrement<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">bool GQtSdi::save() {
+    if(m_untitled) {
+        return saveAs();
+    }
+    else {
+        return saveFile(m_currentFile);
+    }
+}</pre></div></div><br>Gestion de l'enregistrement sous<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">bool GQtSdi::saveAs() {
+    QString lTitle = "Enregistrer sous";
+    QString lFilename = QFileDialog::getSaveFileName(this, lTitle, m_currentFile);
+    if (lFilename.isEmpty()) return false;
+    return saveFile(lFilename);
+}</pre></div></div><br>Enregsitrement d'un document<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">bool GQtSdi::saveFile(const QString&amp; _filename) {
+    QGuiApplication::setOverrideCursor(Qt::WaitCursor);
+    QSaveFile lFile(_filename);
+    if(lFile.open(QFile::WriteOnly | QFile::Text)) {
+        QTextStream out(&amp;lFile);
+        out &lt;&lt; m_textEdit-&gt;toPlainText();
+        if (!lFile.commit()) {
+            GQTLOG-&gt;addError(QString("Erreur la methode (saveFile) a echoue\n"
+                    "sur le fichier (%1) (1).").arg(_filename));
+            return false;
+        }
+    }
+    else {
+        GQTLOG-&gt;addError(QString("Erreur la methode (saveFile) a echoue\n"
+                "sur le fichier (%1) (2).").arg(_filename));
+        return false;
+    }
+    QGuiApplication::restoreOverrideCursor();
+
+    setCurrentFile(_filename);
+    statusBar()-&gt;showMessage(tr("Le fichier a été sauvegardé"), 2000);
+    return true;
+}</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_sdi_app_save.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_sdi_app_save.gif"></div><br><h3 class="GTitle3" id="Interface-Homme-Machine-avec-Qt-Conception-d-une-application-SDI-Ouverture-d-un-fichier-recent"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Conception-d-une-application-SDI">Ouverture d'un fichier récent</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">if(lKey == "file/recent") {
+    updateRecentFiles();
+}</pre></div></div><br>Gestion des fichiers récents<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">void GQtMainWindow::updateRecentFiles() {
+    QStringList recentFiles = readRecentFiles();
+    int lMax = getKeyInt("file/recent/max");
+    int lCount = qMin(lMax, recentFiles.size());
+    for(int i = 0; i &lt; lMax; i++) {
+        QString lKey = getKeyIndex("file/recent", i);
+        QAction* lAction = getKeyAction(lKey);
+        if(i &lt; lCount) {
+            const QString fileName = strippedName(recentFiles.at(i));
+            lAction-&gt;setText(tr("&amp;%1 - %2").arg(i + 1).arg(fileName));
+            lAction-&gt;setData(recentFiles.at(i));
+            lAction-&gt;setVisible(true);
+        }
+        else {
+            lAction-&gt;setVisible(false);
+        }
+    }
+}</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_sdi_app_recent.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_sdi_app_recent.gif"></div><br><h3 class="GTitle3" id="Interface-Homme-Machine-avec-Qt-Conception-d-une-application-SDI-Gestion-du-couper-coller"><a class="Title8" href="#Interface-Homme-Machine-avec-Qt-Conception-d-une-application-SDI">Gestion du couper/coller</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">else if(lKey == "edit/cut") {
+    m_textEdit-&gt;cut();
+}</pre></div></div><br>Activation du couper/coller<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">connect(m_textEdit, SIGNAL(copyAvailable(bool)), lCutAction, SLOT(setEnabled(bool)));</pre></div></div><br><div class="Img3 GImage"><img src="/Tutoriels/Software_Development/Cpp/img/i_qt_sdi_app_cut.gif" alt="/Tutoriels/Software_Development/Cpp/img/i_qt_sdi_app_cut.gif"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Creation-de-pitogrammes-avec-QtAwesome"><a class="Link3" href="#">Création de pitogrammes avec QtAwesome</a></h1><div class="Body3"><br><b>QtAwesome</b> est une bibliothèque simple qui peut être utilisée pour ajouter des icônes Font Awesome à votre application Qt. Bien que le nom soit QtAwesome et qu'il soit actuellement très basé sur Font Awesome, vous pouvez utiliser toutes les autres polices d'icônes / glyphes de votre choix. La classe peut également être utilisée pour gérer vos propres icônes dessinées par code dynamique, en ajoutant des peintres d'icônes nommés. Cette bibliothèque a été mise à jour vers la version 4.7.0 de Font Awesome <br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Creation-de-pitogrammes-avec-QtAwesome-Installer-l-environnement-QtAwesome-sous-MSYS2"><a class="Link9" href="#Creation-de-pitogrammes-avec-QtAwesome">Installer l'environnement QtAwesome sous MSYS2</a></h2><br><h3 class="Title8 GTitle3" id="Creation-de-pitogrammes-avec-QtAwesome-Installer-l-environnement-QtAwesome-sous-MSYS2-Telecharger-QtAwesome"><a class="Title8" href="#Creation-de-pitogrammes-avec-QtAwesome-Installer-l-environnement-QtAwesome-sous-MSYS2">Télécharger QtAwesome</a></h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://github.com/gamecreature/QtAwesome">https://github.com/gamecreature/QtAwesome</a><br><br><b>QtAwesome-master.zip</b><br><br><h3 class="Title8 GTitle3" id="Creation-de-pitogrammes-avec-QtAwesome-Installer-l-environnement-QtAwesome-sous-MSYS2-Extraire-QtAwesome"><a class="Title8" href="#Creation-de-pitogrammes-avec-QtAwesome-Installer-l-environnement-QtAwesome-sous-MSYS2">Extraire QtAwesome</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">QtAwesome-master.zip
 Clic droit -&gt; Extraire vers QtAwesome-master\</pre></div></div><br><h2 class="Title7 GTitle2" id="Creation-de-pitogrammes-avec-QtAwesome-Tester-un-projet-QtAwesome-sous-MSYS2"><a class="Link9" href="#Creation-de-pitogrammes-avec-QtAwesome">Tester un projet QtAwesome sous MSYS2</a></h2><br><h3 class="Title8 GTitle3" id="Creation-de-pitogrammes-avec-QtAwesome-Tester-un-projet-QtAwesome-sous-MSYS2-Observer-la-structure-du-projet"><a class="Title8" href="#Creation-de-pitogrammes-avec-QtAwesome-Tester-un-projet-QtAwesome-sous-MSYS2">Observer la structure du projet</a></h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">ReadyTest/QtAwesome/
 |___ main.cpp
 |___ QtAwesome.cpp  
