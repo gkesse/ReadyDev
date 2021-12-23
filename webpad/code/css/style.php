@@ -1,0 +1,387 @@
+<?php
+    header('content-type: text/css');
+    require $_SERVER["DOCUMENT_ROOT"]."/webpad/code"."/php/class/GAutoload.php";
+    $lKey = GProcess::Instance()->getProcessName();
+?>
+/* ============================================== */
+html {
+    padding: 0px;
+    margin: 0px;
+    scrollbar-color: #4d5656 #2e4053;
+}
+/* ============================================== */
+body {
+	background-color: #222222;
+    color: white;
+    font-family: arial;
+    font-size: 16px;
+    padding: 0px;
+    margin: 0px;
+}
+/* ============================================== */
+button {
+	background-color: #2e4053;
+    color: white;
+    font-family: arial;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
+/* ============================================== */
+button:hover {
+    background-color: gray;
+}
+/* ============================================== */
+button:active {
+    background-color: #2e4053;
+}
+/* ============================================== */
+::-webkit-scrollbar {
+    width: 12px;
+}
+/* ============================================== */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px yellow;
+    border-radius: 8px;
+}
+/* ============================================== */
+::-webkit-scrollbar-thumb {
+    background: cyan;
+    border-radius: 10px;
+}
+/* ============================================== */
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(110, 110, 110);
+}
+/* ============================================== */
+::-webkit-scrollbar-track-piece {
+    background: rgba(0,0,0, 0.4);
+}
+/* ============================================== */
+.body_main {
+    position: relative;
+	background-color: transparent;
+	padding: 0px 10px;
+}
+/* ============================================== */
+.body_page {
+    position: relative;
+    background-color: transparent;
+    padding: 80px 0px 30px 0px;   
+    max-width: 600px;
+    margin: auto;
+}
+/* ============================================== */
+.app_name {
+    background-color: #c0392b;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 5px;
+    position: absolute;
+    top: 20px;
+    left: 0px;
+    color: white;
+    font-family: allan;
+    font-size: 16px;
+    text-decoration: none;
+    z-index: 1;
+}
+/* ============================================== */
+.app_title {
+    background-color: transparent;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 5px;
+    position: absolute;
+    top: 20px;
+    left: 0px;
+    right: 0px;
+    color: white;
+    font-family: arial;
+    font-size: 20px;
+    text-align: center;
+}
+/* ============================================== */
+.app_ref {
+    background-color: #c0392b;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 5px;
+    position: absolute;
+    top: 20px;
+    right: 0px;
+    color: white;
+    font-family: allan;
+    font-size: 16px;
+    text-decoration: none;
+    z-index: 1;
+}
+/* ============================================== */
+.header_nav {
+    position: absolute;
+    background-color: rgba(255,0,255,0.4);
+    min-height: 40px;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    padding-left: 5px;
+}
+/* ============================================== */
+.header_nav_site_name {
+    position: absolute;
+    display: inline-block;
+    background-color: rgba(0,0,0,0.4);
+    border-radius: 5px;
+    font-family: allan;
+    padding: 5px 10px;
+    cursor: pontier;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+/* ============================================== */
+.header_nav_site_logo {
+    display: inline-block;
+    width: auto;
+    height: 14px;
+}
+/* ============================================== */
+.header_nav_site_text {
+    display: inline-block;
+}
+/* ============================================== */
+.header_nav_body {
+    position: absolute;
+    background-color: rgba(0,255,255,0.4);
+    top: 40px;
+    bottom: 40px;
+    left: 0px;
+    right: 0px;
+}
+/* ============================================== */
+.header_nav_footer {
+    position: absolute;
+    background-color: rgba(255,255,0,0.4);
+    min-height: 40px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+}
+/* ============================================== */
+.phone_body {
+    position: relative;
+    background-color: #2e4053;
+    padding: 10px;   
+    padding-bottom: 30px;   
+    border-radius: 10px;
+    min-height: 500px;
+    font-size: 0px;
+    text-align: center;
+}
+/* ============================================== */
+.phone_notifications {
+	background-image: url("../data/img/phone_notifications.jpg");
+    background-color: #111111;
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+    opacity: 0.8;
+	position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+	z-index: 2;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+    background-attachment: fixed;
+    text-decoration: none;
+    color: white;
+}
+/* ============================================== */
+.phone_notifications_box {
+    background-color: transparent;
+    position: absolute;
+    top: 80px;
+    bottom: 70px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 2;
+    overflow: auto;
+    min-width: 350px;
+    padding-right: 10px;
+}
+/* ============================================== */
+.phone_notifications_item {
+    background-color: rgba(0,0,0, 0.4);
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-family: allan;
+    margin: 20px 0px;
+    min-width: 300px;
+}
+/* ============================================== */
+.phone_notifications_header {
+    background-color: transparent;
+    display: grid;
+    grid-gap: 5px;
+    padding: 0px;
+}
+/* ============================================== */
+.phone_notifications_icon {
+    background-color: rgba(255,0,0, 0.4);
+    grid-row: 1;
+    grid-column: 1;
+    font-size: 18px;
+    border-radius: 5px;
+    padding: 5px;
+}
+/* ============================================== */
+.phone_notifications_app {
+    background-color: transparent;
+    grid-row: 1;
+    grid-column: 2 / span 8;
+    font-size: 16px;
+    text-align: left;
+    padding-top: 5px;
+}
+/* ============================================== */
+.phone_notifications_time {
+    background-color: transparent;
+    grid-row: 1;
+    grid-column: 10;
+    font-size: 14px;
+    padding-top: 5px;
+    padding-right: 5px;
+    text-align: right;
+}
+/* ============================================== */
+.phone_notifications_body {
+    background-color: transparent;
+    display: grid;
+    grid-gap: 0px;
+    padding: 0px;
+}
+/* ============================================== */
+.phone_notifications_title {
+    background-color: transparent;
+    grid-row: 1;
+    grid-column: 1 / span 9;
+    padding: 5px;
+    text-align: left;
+}
+/* ============================================== */
+.phone_notifications_msg {
+    background-color: transparent;
+    grid-row: 2;
+    grid-column: 1 / span 9;
+    padding: 5px;
+    text-align: left;
+}
+/* ============================================== */
+.phone_notifications_img {
+    background-color: rgba(0,255,0, 0.4);
+    grid-row: 1;
+    grid-column: 10;
+    padding-top: 5px;
+    border-radius: 5px;
+}
+/* ============================================== */
+.phone_slide {
+    background-color: transparent;
+}
+/* ============================================== */
+.phone_box {
+    position: relative;
+    background-color: #4d5656;
+    color: white;
+    display: inline-block;
+    padding: 10px;
+    margin: 10px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    height: 100px;
+    width: 100px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+}
+/* ============================================== */
+.phone_box_icon {
+    background-color: #2e4053;
+    border: 2px solid #2e4053;
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    top: 10px;
+    bottom: 10px;
+    font-size: 80px;
+    padding-top: 5px;
+    border-radius: 50%;
+}
+/* ============================================== */
+.phone_box:hover .phone_box_icon {
+    background-color: #4d5656;
+    border: 2px solid #2e4053;
+}
+/* ============================================== */
+.phone_box_title {
+    background-color: transparent;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 100%;
+    height: 20px;
+}
+/* ============================================== */
+.phone_slide_prev {
+    background-color: transparent;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    font-size: 24px;
+    color: #85929e;
+    cursor: pointer;
+}
+/* ============================================== */
+.phone_slide_next {
+    background-color: transparent;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    font-size: 24px;
+    color: #85929e;
+    cursor: pointer;
+}
+/* ============================================== */
+.phone_slide_bar {
+    background-color: transparent;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    bottom: 0%;
+    font-size: 16px;
+}
+/* ============================================== */
+.phone_slide_bar_dot {
+    background-color: transparent;
+    border: 2px solid #85929e;
+    height: 15px;
+    width: 15px;
+    margin: 10px 2px;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+}
+/* ============================================== */
+.phone_slide_bar_dot.active {
+    background-color: #85929e;
+}
+/* ============================================== */
+.phone_slide_bar_dot:hover {
+    background-color: #85929e;
+}
+/* ============================================== */

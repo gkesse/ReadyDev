@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdv>
+    <process>
+        <name>phone</name>
+	    <names>
+            <name>cdiscount</name>
+            <name>auchan</name>
+            <name>amazon</name>
+            <name>phone</name>
+	    </names>
+    </process>
+</rdv>

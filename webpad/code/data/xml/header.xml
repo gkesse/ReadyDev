@@ -4,19 +4,14 @@
         <site>ReadyPad</site>
         <logo>/data/img/logo_web.png</logo>
         <lang>fr</lang>
-        <app>
-            <name>ReadyPad</name>
-            <link>/readypad/</link>
-            <icon>sign-in</icon>
-        </app>
-        <ref>
-            <name>ReadyDev</name>
-            <link>https://readydev.ovh/</link>
-            <icon>sign-in</icon>
-        </ref>
         <fonts>
             <font>/libs/google_fonts/Allan/css.css</font>
             <font>/libs/google_fonts/Archivo_Narrow/css.css</font>
         </fonts>
+        <scripts>
+            <script>/js/class/GObject.js</script>
+            <script>/js/class/GPhone.js</script>
+            <script>/js/script.js</script>
+        </scripts>
     </header>
 </rdv>

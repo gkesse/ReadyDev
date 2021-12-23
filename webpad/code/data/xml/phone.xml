@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rdv>
     <phone>
+		<header>
+			<app>
+				<name>ReadyPad</name>
+				<link>/readypad/</link>
+				<icon>sign-in</icon>
+			</app>
+			<ref>
+				<name>ReadyDev</name>
+				<link>https://readydev.ovh/</link>
+				<icon>sign-in</icon>
+			</ref>
+		</header>
         <settings>
             <boxperpage>4</boxperpage>
         </settings>

@@ -1,33 +1,31 @@
 <?php   
 //===============================================
-class GError extends GObject {
+class GCDiscount extends GWidget {
     //===============================================
     static private $m_instance = null;
     //===============================================
-    private $errors = array();
-    //===============================================
     public function __construct() {
         parent::__construct();
+        $this->createDom();
     }
     //===============================================
     public static function Instance() {
         if(is_null(self::$m_instance)) {
-            self::$m_instance = new GError();  
+            self::$m_instance = new GCDiscount();  
         }
         return self::$m_instance;
     }
     //===============================================
-    public function addError($error) {
-        $this->errors[] = $error;
+    public function createDom() {
+        $this->dom = new GDomXml();
+        $this->dom->createDom();
+        $this->dom->loadXmlFile("phone.xml");
     }
     //===============================================
-    public function showError() {
-        if(empty($this->errors)) return;
-        $lError = "";
-        foreach($this->errors as $error) {
-            $lError .= sprintf("%s<br>", $error);
-        }
-        echo $lError;
+    public function show() {
+        echo sprintf("<div class='body_main'>\n");
+
+        echo sprintf("</div>\n");
     }
     //===============================================
 }

@@ -2,9 +2,7 @@
 //===============================================
 require "./php/class/GAutoload.php";
 //===============================================
-GHeader::Instance()->show();
-GPhone::Instance()->show();
-GFooter::Instance()->show();
+GProcess::Instance()->show();
 GError::Instance()->showError();
 //===============================================
 ?>

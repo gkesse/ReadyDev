@@ -1,6 +1,6 @@
-<?php   
+<?php
 //===============================================
-class GFooter extends GWidget {
+class GProcess extends GObject {
     //===============================================
     static private $m_instance = null;
     //===============================================
@@ -11,7 +11,7 @@ class GFooter extends GWidget {
     //===============================================
     public static function Instance() {
         if(is_null(self::$m_instance)) {
-            self::$m_instance = new GFooter();  
+            self::$m_instance = new GProcess();
         }
         return self::$m_instance;
     }
@@ -19,24 +19,21 @@ class GFooter extends GWidget {
     public function createDom() {
         $this->dom = new GDomXml();
         $this->dom->createDom();
-        $this->dom->loadXmlFile("header.xml");
-        $this->dom->createXPath();
+        $this->dom->loadXmlFile("process.xml");
     }
     //===============================================
     public function show() {
-        $this->loadScripts();
-        echo sprintf("</body>\n");
-        echo sprintf("</html>\n");
+        $lProcess = $this->getProcessName();
+        GHeader::Instance()->show();
+        $this->getObj()->show();
+        GFooter::Instance()->show();
     }
     //===============================================
-    public function loadScripts() {
-        $this->dom->queryXPath(sprintf("/rdv/header/scripts/script"));
-        $lCount = $this->dom->countXPath();
-        for($i = 0; $i < $lCount; $i++) {
-            $this->dom->getNodeIndex($i);
-            $lScript = $this->dom->getValue();
-            echo sprintf("<script src='%s%s'></script>\n", $this->getWebRoot(), $lScript);
-        }
+    public function getProcessName() {
+        $this->dom->getRoot("rdv")->getNode("process");
+        $this->dom->getNode("name");
+        $lData = $this->dom->getValue();
+        return $lData;
     }
     //===============================================
 }
