@@ -159,7 +159,6 @@ button:active {
     padding: 5px;
     border-radius: 5px;
     text-align: center;
-    font-weight: bold;
 }
 /* ============================================== */
 .phone_header_app_ref {
@@ -329,7 +328,6 @@ button:active {
     height: 20px;
     font-family: arial;
     font-size: 12px;
-    font-weight: bold;
 }
 /* ============================================== */
 .phone_slide_bar {
