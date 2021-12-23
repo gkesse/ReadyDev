@@ -42,12 +42,9 @@ class GPhone extends GWidget {
         else {
             echo sprintf("<div class='phone_body'>\n"); //phone_body
         }
-        echo sprintf("<i class='phone_slide_prev fa fa-chevron-left'
-        onclick='phone_slide_prev_onclick()'></i>\n");
-        echo sprintf("<i class='phone_slide_next fa fa-chevron-right'
-        onclick='phone_slide_next_onclick()'></i>\n");        
+        $this->showChevron();
         echo sprintf("<div class='phone_body_page'>\n"); //phone_body_page
-        echo sprintf("<div class=''>%s</div>\n", $this->getCData());
+        $this->showBoxes();
         echo sprintf("</div>\n"); //phone_body_page
         echo sprintf("</div>\n"); //phone_body
         if($this->getBgImg()) {
@@ -56,30 +53,9 @@ class GPhone extends GWidget {
         else {
             echo sprintf("<div class='phone_footer'>\n"); //phone_footer
         }
+        $this->showDot();
         echo sprintf("</div>\n"); //phone_footer
         echo sprintf("</div>\n"); //phone_main
-    }
-    //===============================================
-    public function showNotifications() {
-        if($this->getPageId() == "home/notifications") {
-            echo sprintf("<a class='phone_notifications' href='/readypad/'></a>\n");
-            echo sprintf ( "<div class='phone_notifications_box'>\n" ); //phone_notifications_box
-            for($i = 0; $i < 10; $i++) {
-                echo sprintf ( "<div class='phone_notifications_item'>\n" ); //phone_notifications_item
-                echo sprintf ( "<div class='phone_notifications_header'>\n" ); //phone_notifications_header
-                echo sprintf ( "<i class='phone_notifications_icon fa fa-info'></i>\n" );
-                echo sprintf ( "<div class='phone_notifications_app'>ReadyPad</div>\n" );
-                echo sprintf ( "<div class='phone_notifications_time'>2 mn</div>\n" );
-                echo sprintf ( "</div>\n" ); //phone_notifications_header
-                echo sprintf ( "<div class='phone_notifications_body'>\n" ); //phone_notifications_body
-                echo sprintf ( "<div class='phone_notifications_title'>Titre</div>\n" );
-                echo sprintf ( "<div class='phone_notifications_msg'>Message</div>\n" );
-                echo sprintf ( "<i class='phone_notifications_img fa fa-envelope'></i>\n" );
-                echo sprintf ( "</div>\n" ); //phone_notifications_body
-                echo sprintf ( "</div>\n" ); //phone_notifications_item
-            }
-            echo sprintf ( "</div>\n" ); //phone_notifications_box
-        }
     }
     //===============================================
     public function showHeader() {
@@ -90,6 +66,61 @@ class GPhone extends GWidget {
         echo sprintf("<div>%s</div>\n", $this->getPageTitle());
         echo sprintf("</div>\n"); //phone_header_app_title
         echo sprintf("</div>\n"); //phone_header
+    }
+    //===============================================
+    public function showBoxes() {
+        $lCountBox = $this->countBox();
+        $lBoxPerPage = $this->getBoxPerPage();
+        $lCountPage = ceil($lCountBox / $lBoxPerPage);
+        for($j = 0; $j < $lCountPage; $j++) {
+            echo sprintf("<div class='phone_slide'>\n"); //phone_slide
+            for($i = 0; $i < $lBoxPerPage; $i++) {
+                $lBoxIndex = $j * $lBoxPerPage + $i;
+                if($lBoxIndex == $lCountBox) break;
+                $lIcon = $this->getBoxIcon($lBoxIndex);
+                $lTitle = $this->getBoxTitle($lBoxIndex);
+                $lLink = $this->getBoxLink($lBoxIndex);
+                echo sprintf("<a class='phone_box' href='%s'>\n", $lLink); //phone_box
+                echo sprintf("<div class='phone_box_icon'><i class='phone_box_icon_fa fa fa-%s'></i></div>\n", $lIcon);
+                echo sprintf("<div class='phone_box_title'>%s</div>\n", $lTitle);
+                echo sprintf("</a>\n"); //phone_box
+            }
+            echo sprintf("</div>\n"); //phone_slide
+        }
+    }
+    //===============================================
+    public function showChevron() {
+        $lCountBox = $this->countBox();
+        $lBoxPerPage = $this->getBoxPerPage();
+        $lCountPage = ceil($lCountBox / $lBoxPerPage);
+        if($lCountPage > 1) {
+            if($this->getBgImg()) {
+                echo sprintf("<i class='phone_slide_prev_img fa fa-chevron-left'
+                onclick='phone_slide_prev_onclick()'></i>\n");
+                echo sprintf("<i class='phone_slide_next_img fa fa-chevron-right'
+                onclick='phone_slide_next_onclick()'></i>\n");
+            }
+            else {
+                echo sprintf("<i class='phone_slide_prev fa fa-chevron-left'
+                onclick='phone_slide_prev_onclick()'></i>\n");
+                echo sprintf("<i class='phone_slide_next fa fa-chevron-right'
+                onclick='phone_slide_next_onclick()'></i>\n");
+            }
+        }
+    }
+    //===============================================
+    public function showDot() {
+        $lCountBox = $this->countBox();
+        $lBoxPerPage = $this->getBoxPerPage();
+        $lCountPage = ceil($lCountBox / $lBoxPerPage);
+        if($lCountPage > 1) {
+            echo sprintf("<div class='phone_slide_bar'>");
+            for($i = 0; $i < $lCountPage; $i++) {
+                echo sprintf("<div class='phone_slide_bar_dot' title='Page %d'
+                onclick='phone_slide_bar_dot_onclick(%d)'></div>\n", $i + 1, $i + 1);
+            }
+            echo sprintf("</div>");
+        }
     }
     //===============================================
     public function getBgImg() {

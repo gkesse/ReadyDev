@@ -17,10 +17,11 @@
             <bgimg>1</bgimg>		
 		</body>
         <boxes>
-            <boxperpage>5</boxperpage>
+            <boxperpage>6</boxperpage>
             <map>
 	            <box>
-	                <title>Notifications</title>
+                    <name>Notifications</name>
+                    <title>Notifications</title>
 	                <icon>bell</icon>
 	                <link>/home/notifications/</link>
 	            </box>
