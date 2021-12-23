@@ -19,7 +19,7 @@ class GHeader extends GWidget {
     public function createDom() {
         $this->dom = new GDomXml();
         $this->dom->createDom();
-        $this->dom->loadXmlFile("header.xml");
+        $this->dom->loadXmlFile("app_header.xml");
         $this->dom->createXPath();
     }
     //===============================================

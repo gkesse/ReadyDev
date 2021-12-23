@@ -20,6 +20,7 @@ class GCDiscount extends GWidget {
         $this->dom = new GDomXml();
         $this->dom->createDom();
         $this->dom->loadXmlFile("phone.xml");
+        $this->dom->createXPath();
     }
     //===============================================
     public function show() {

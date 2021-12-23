@@ -6,7 +6,7 @@ html {
 }
 /* ============================================== */
 body {
-	background-color: #222222;
+    background-color: #222222;
     color: white;
     font-family: arial;
     font-size: 16px;
@@ -15,7 +15,7 @@ body {
 }
 /* ============================================== */
 button {
-	background-color: #2e4053;
+    background-color: #2e4053;
     color: white;
     font-family: arial;
     font-size: 16px;
@@ -55,28 +55,37 @@ button:active {
     background: rgba(0,0,0, 0.4);
 }
 /* ============================================== */
-.body_main {
-    position: relative;
-	background-color: transparent;
-	padding: 0px 10px;
-}
-/* ============================================== */
-.body_page {
-    position: relative;
+.phone_main {
     background-color: transparent;
-    padding: 80px 0px 30px 0px;   
-    max-width: 600px;
-    margin: auto;
+    background-image: url("../data/img/phone_notifications.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
 }
 /* ============================================== */
-.app_name {
+.phone_header {
+    background-color: transparent;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    left: 10px;
+    min-height: 40px;
+}
+/* ============================================== */
+.phone_header_app_name {
     background-color: #c0392b;
-    display: inline-block;
-    padding: 10px;
-    border-radius: 5px;
     position: absolute;
-    top: 20px;
+    top: 50%;
     left: 0px;
+    transform: translate(0, -50%);
+    padding: 5px;
+    border-radius: 5px;
     color: white;
     font-family: allan;
     font-size: 16px;
@@ -84,29 +93,26 @@ button:active {
     z-index: 1;
 }
 /* ============================================== */
-.app_title {
+.phone_header_app_title {
     background-color: transparent;
-    display: inline-block;
-    padding: 10px;
-    border-radius: 5px;
     position: absolute;
-    top: 20px;
+    top: 50%;
     left: 0px;
     right: 0px;
-    color: white;
-    font-family: arial;
-    font-size: 20px;
+    transform: translate(0, -50%);
+    padding: 5px;
+    border-radius: 5px;
     text-align: center;
 }
 /* ============================================== */
-.app_ref {
+.phone_header_app_ref {
     background-color: #c0392b;
-    display: inline-block;
-    padding: 10px;
-    border-radius: 5px;
     position: absolute;
-    top: 20px;
+    top: 50%;
     right: 0px;
+    transform: translate(0, -50%);
+    padding: 5px;
+    border-radius: 5px;
     color: white;
     font-family: allan;
     font-size: 16px;
@@ -115,31 +121,62 @@ button:active {
 }
 /* ============================================== */
 .phone_body {
-    position: relative;
+    background-color: rgba(0,0,0, 0.4);
+    position: fixed;
+    top: 60px;
+    bottom: 60px;
+    right: 10px;
+    left: 10px;
+    border-radius: 5px;
+}
+/* ============================================== */
+.phone_slide_prev {
+    background-color: transparent;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translate(0, -50%);
+    font-size: 24px;
+    color: #85929e;
+    cursor: pointer;
+}
+/* ============================================== */
+.phone_slide_next {
+    background-color: transparent;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translate(0, -50%);
+    font-size: 24px;
+    color: #85929e;
+    cursor: pointer;
+}
+/* ============================================== */
+.phone_footer {
     background-color: #2e4053;
-    padding: 10px;   
-    padding-bottom: 30px;   
-    border-radius: 10px;
-    min-height: 500px;
-    font-size: 0px;
-    text-align: center;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    left: 10px;
+    min-height: 40px;
+    border-radius: 5px;
 }
 /* ============================================== */
 .phone_notifications {
-	background-image: url("../data/img/phone_notifications.jpg");
+    background-image: url("../data/img/phone_notifications.jpg");
     background-color: #111111;
     filter: blur(8px);
     -webkit-filter: blur(8px);
     opacity: 0.8;
-	position: absolute;
+    position: absolute;
     top: 0px;
     bottom: 0px;
     left: 0px;
     right: 0px;
-	z-index: 2;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
+    z-index: 2;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     background-attachment: fixed;
     text-decoration: none;
     color: white;
@@ -248,9 +285,9 @@ button:active {
     margin: 10px;
     margin-bottom: 20px;
     border-radius: 10px;
-    height: 100px;
-    width: 100px;
-    font-size: 16px;
+    height: 70px;
+    width: 70px;
+    font-size: 14px;
     cursor: pointer;
     text-decoration: none;
 }
@@ -263,7 +300,6 @@ button:active {
     right: 10px;
     top: 10px;
     bottom: 10px;
-    font-size: 80px;
     padding-top: 5px;
     border-radius: 50%;
 }
@@ -273,33 +309,23 @@ button:active {
     border: 2px solid #2e4053;
 }
 /* ============================================== */
+.phone_box_icon_fa {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);    
+    font-size: 50px;
+}
+/* ============================================== */
 .phone_box_title {
     background-color: transparent;
     position: absolute;
     left: 0px;
     right: 0px;
-    top: 100%;
+    bottom: -25px;
     height: 20px;
-}
-/* ============================================== */
-.phone_slide_prev {
-    background-color: transparent;
-    position: absolute;
-    left: 10px;
-    top: 50%;
-    font-size: 24px;
-    color: #85929e;
-    cursor: pointer;
-}
-/* ============================================== */
-.phone_slide_next {
-    background-color: transparent;
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    font-size: 24px;
-    color: #85929e;
-    cursor: pointer;
+    font-family: arial;
+    font-size: 16px;
 }
 /* ============================================== */
 .phone_slide_bar {

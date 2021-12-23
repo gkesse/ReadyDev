@@ -19,20 +19,19 @@ class GProcess extends GObject {
     public function createDom() {
         $this->dom = new GDomXml();
         $this->dom->createDom();
-        $this->dom->loadXmlFile("process.xml");
+        $this->dom->loadXmlFile("app_process.xml");
+        $this->dom->createXPath();
     }
     //===============================================
     public function show() {
-        $lProcess = $this->getProcessName();
         GHeader::Instance()->show();
         $this->getObj()->show();
         GFooter::Instance()->show();
     }
     //===============================================
     public function getProcessName() {
-        $this->dom->getRoot("rdv")->getNode("process");
-        $this->dom->getNode("name");
-        $lData = $this->dom->getValue();
+        $this->dom->queryXPath(sprintf("/rdv/process/name"));
+        $lData = $this->dom->getNodeIndex(0)->getValue();
         return $lData;
     }
     //===============================================

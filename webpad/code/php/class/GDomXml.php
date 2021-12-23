@@ -71,7 +71,7 @@ class GDomXml extends GObject {
             return $this;
         }
         $this->nodes = $this->xpath->query($query);
-        if(!$this->nodes) {
+        if(!$this->nodes->length) {
             GError::Instance()->addError(sprintf("Erreur la méthode (queryXPath) a échoué ".
                     "sur la requête (%s) (2).", $query));
             return $this;
@@ -211,10 +211,17 @@ class GDomXml extends GObject {
     //===============================================
     public function getValue() {
         if(!$this->node) {
-            // GError::Instance()->addError(sprintf("Erreur la méthode (getValue) a échoué."));
             return "";
         }
         $lValue = $this->node->nodeValue;
+        return $lValue;
+    }
+    //===============================================
+    public function getContent() {
+        if(!$this->node) {
+            return "";
+        }
+        $lValue = $this->node->textContent;
         return $lValue;
     }
     //===============================================

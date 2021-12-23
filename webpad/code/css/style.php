@@ -60,28 +60,88 @@ button:active {
     background: rgba(0,0,0, 0.4);
 }
 /* ============================================== */
-.body_main {
-    position: relative;
-	background-color: transparent;
-	padding: 0px 10px;
-}
-/* ============================================== */
-.body_page {
-    position: relative;
-    background-color: transparent;
-    padding: 80px 0px 30px 0px;   
-    max-width: 600px;
-    margin: auto;
-}
-/* ============================================== */
-.app_name {
-    background-color: #c0392b;
-    display: inline-block;
-    padding: 10px;
+.error {
+    background-color: #c0932b;
+    position: fixed;
+    top: 50%;
+    left: 50%;
     border-radius: 5px;
+    padding: 30px 30px 10px 10px;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+/* ============================================== */
+.error_close  {
+    background-color: rgba(0,0,0,0.4);
     position: absolute;
-    top: 20px;
+    top: 5px;
+    right: 5px;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+/* ============================================== */
+.error_close:hover  {
+    background-color: rgba(0,0,0,0.2);
+}
+/* ============================================== */
+.error_close:active  {
+    background-color: rgba(0,0,0,0.4);
+}
+/* ============================================== */
+.error_close_fa {
+    background-color: transparent;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -55%);
+}
+/* ============================================== */
+.error_main {
+    background-color: transparent;
+}
+/* ============================================== */
+.phone_main {
+    background-color: transparent;
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
     left: 0px;
+}
+/* ============================================== */
+.phone_main_img {
+    background-color: transparent;
+    background-image: url("../data/img/car_range_rover.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+}
+/* ============================================== */
+.phone_header {
+    background-color: transparent;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    left: 10px;
+    min-height: 40px;
+}
+/* ============================================== */
+.phone_header_app_name {
+    background-color: #c0392b;
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    transform: translate(0, -50%);
+    padding: 5px;
+    border-radius: 5px;
     color: white;
     font-family: allan;
     font-size: 16px;
@@ -89,99 +149,108 @@ button:active {
     z-index: 1;
 }
 /* ============================================== */
-.app_title {
+.phone_header_app_title {
     background-color: transparent;
-    display: inline-block;
-    padding: 10px;
-    border-radius: 5px;
     position: absolute;
-    top: 20px;
+    top: 50%;
     left: 0px;
     right: 0px;
-    color: white;
-    font-family: arial;
-    font-size: 20px;
+    transform: translate(0, -50%);
+    padding: 5px;
+    border-radius: 5px;
     text-align: center;
 }
 /* ============================================== */
-.app_ref {
+.phone_header_app_ref {
     background-color: #c0392b;
-    display: inline-block;
-    padding: 10px;
-    border-radius: 5px;
     position: absolute;
-    top: 20px;
+    top: 50%;
     right: 0px;
+    transform: translate(0, -50%);
+    padding: 5px;
+    border-radius: 5px;
     color: white;
     font-family: allan;
     font-size: 16px;
     text-decoration: none;
     z-index: 1;
-}
-/* ============================================== */
-.header_nav {
-    position: absolute;
-    background-color: rgba(255,0,255,0.4);
-    min-height: 40px;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    padding-left: 5px;
-}
-/* ============================================== */
-.header_nav_site_name {
-    position: absolute;
-    display: inline-block;
-    background-color: rgba(0,0,0,0.4);
-    border-radius: 5px;
-    font-family: allan;
-    padding: 5px 10px;
-    cursor: pontier;
-    top: 50%;
-    transform: translate(0, -50%);
-}
-/* ============================================== */
-.header_nav_site_logo {
-    display: inline-block;
-    width: auto;
-    height: 14px;
-}
-/* ============================================== */
-.header_nav_site_text {
-    display: inline-block;
-}
-/* ============================================== */
-.header_nav_body {
-    position: absolute;
-    background-color: rgba(0,255,255,0.4);
-    top: 40px;
-    bottom: 40px;
-    left: 0px;
-    right: 0px;
-}
-/* ============================================== */
-.header_nav_footer {
-    position: absolute;
-    background-color: rgba(255,255,0,0.4);
-    min-height: 40px;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
 }
 /* ============================================== */
 .phone_body {
-    position: relative;
     background-color: #2e4053;
-    padding: 10px;   
-    padding-bottom: 30px;   
-    border-radius: 10px;
-    min-height: 500px;
-    font-size: 0px;
-    text-align: center;
+    position: fixed;
+    top: 60px;
+    bottom: 60px;
+    right: 10px;
+    left: 10px;
+    border-radius: 5px;
+}
+/* ============================================== */
+.phone_body_img {
+    background-color: rgba(0,0,0, 0.4);
+    position: fixed;
+    top: 60px;
+    bottom: 60px;
+    right: 10px;
+    left: 10px;
+    border-radius: 5px;
+}
+/* ============================================== */
+.phone_body_page {
+    background-color: rgba(0,0,0, 0.4);
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    left: 35px;
+    right: 35px;
+    border-radius: 5px;
+    overflow: auto;
+}
+/* ============================================== */
+.phone_slide_prev {
+    background-color: transparent;
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translate(0, -50%);
+    font-size: 24px;
+    color: #85929e;
+    cursor: pointer;
+}
+/* ============================================== */
+.phone_slide_next {
+    background-color: transparent;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translate(0, -50%);
+    font-size: 24px;
+    color: #85929e;
+    cursor: pointer;
+}
+/* ============================================== */
+.phone_footer {
+    background-color: #2e4053;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    left: 10px;
+    min-height: 40px;
+    border-radius: 5px;
+}
+/* ============================================== */
+.phone_footer_img {
+    background-color: rgba(0,0,0, 0.4);
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    left: 10px;
+    min-height: 40px;
+    border-radius: 5px;
 }
 /* ============================================== */
 .phone_notifications {
-	background-image: url("../data/img/phone_notifications.jpg");
+	background-image: url("../data/img/car_range_rover.jpg");
     background-color: #111111;
     filter: blur(8px);
     -webkit-filter: blur(8px);
@@ -303,9 +372,9 @@ button:active {
     margin: 10px;
     margin-bottom: 20px;
     border-radius: 10px;
-    height: 100px;
-    width: 100px;
-    font-size: 16px;
+    height: 70px;
+    width: 70px;
+    font-size: 14px;
     cursor: pointer;
     text-decoration: none;
 }
@@ -318,7 +387,6 @@ button:active {
     right: 10px;
     top: 10px;
     bottom: 10px;
-    font-size: 80px;
     padding-top: 5px;
     border-radius: 50%;
 }
@@ -328,33 +396,23 @@ button:active {
     border: 2px solid #2e4053;
 }
 /* ============================================== */
+.phone_box_icon_fa {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);    
+    font-size: 50px;
+}
+/* ============================================== */
 .phone_box_title {
     background-color: transparent;
     position: absolute;
     left: 0px;
     right: 0px;
-    top: 100%;
+    bottom: -25px;
     height: 20px;
-}
-/* ============================================== */
-.phone_slide_prev {
-    background-color: transparent;
-    position: absolute;
-    left: 10px;
-    top: 50%;
-    font-size: 24px;
-    color: #85929e;
-    cursor: pointer;
-}
-/* ============================================== */
-.phone_slide_next {
-    background-color: transparent;
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    font-size: 24px;
-    color: #85929e;
-    cursor: pointer;
+    font-family: arial;
+    font-size: 16px;
 }
 /* ============================================== */
 .phone_slide_bar {

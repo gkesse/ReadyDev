@@ -8,10 +8,10 @@ class GObject {
     protected $webkey;
     //===============================================
     protected $dom = null;
+    protected $domData = null;
     //===============================================
     public function __construct() {
         $this->initObj();
-        $this->createDom();
     }
     //===============================================
     public static function Instance() {
@@ -24,10 +24,6 @@ class GObject {
     public function initObj() {
         $this->webroot = "webpad/code";
         $this->webkey = "/readypad";
-    }
-    //===============================================
-    public function createDom() {
-
     }
     //===============================================
     public function getRepoPath($repo, $file) {
@@ -73,6 +69,12 @@ class GObject {
         if($key == "phone") return GPhone::Instance();
         if($key == "cdiscount") return GCDiscount::Instance();
         return GObject::Instance();
+    }
+    //===============================================
+    public function getCData() {
+        $this->domData->queryXPath(sprintf("/rdv/cdata"));
+        $lData = $this->domData->getNodeIndex(0)->getValue();
+        return $lData;
     }
     //===============================================
 }
