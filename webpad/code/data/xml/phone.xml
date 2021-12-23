@@ -17,7 +17,7 @@
             <bgimg>1</bgimg>		
 		</body>
         <boxes>
-            <boxperpage>6</boxperpage>
+            <boxperpage>12</boxperpage>
             <map>
 	            <box>
                     <name>Notifications</name>
