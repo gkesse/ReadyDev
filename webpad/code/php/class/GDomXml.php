@@ -90,7 +90,8 @@ class GDomXml extends GObject {
     //===============================================
     public function createRoot($name) {
         if(!$this->dom) {
-            GError::Instance()->addError(sprintf("Erreur la méthode (createRoot) a échoué."));
+            GError::Instance()->addError(sprintf("Erreur la méthode (createRoot) a échoué ".
+                    "sur le noeud (%s).", $name));
             return $this;
         }
         $this->node = $this->dom->createElement($name);
@@ -99,7 +100,8 @@ class GDomXml extends GObject {
     //===============================================
     public function getRoot($name) {
         if(!$this->dom) {
-            GError::Instance()->addError(sprintf("Erreur la méthode (getRoot) a échoué."));
+            GError::Instance()->addError(sprintf("Erreur la méthode (getRoot) a échoué ".
+                    "sur le noeud (%s).", $name));
             return $this;
         }
         $lNodes = $this->dom->childNodes;

@@ -57,11 +57,16 @@ class GHeader extends GWidget {
         return $lData;
     }
     //===============================================
+    public function countFonts() {
+        $this->dom->queryXPath(sprintf("/rdv/header/fonts/font"));
+        $lData = $this->dom->countXPath();
+        return $lData;
+    }
+    //===============================================
     public function loadFonts() {
-        $this->dom->getRoot("rdv")->getNode("header");
-        $lCount = $this->dom->getNode("fonts")->countNode("font");
+        $lCount = $this->countFonts();
         for($i = 0; $i < $lCount; $i++) {
-            $this->dom->getNodeItem("font", $i);
+            $this->dom->getNodeIndex($i);
             $lFont = $this->dom->getValue();
             echo sprintf("<link rel='stylesheet' href='%s%s'/>\n", $this->getWebRoot(), $lFont);
         }

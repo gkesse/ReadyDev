@@ -88,7 +88,7 @@ class GPhone extends GWidget {
         echo sprintf("<a class='app_name' href='%s'><i class='fa fa-%s'></i> %s</a>\n", $this->getAppLink(), $this->getAppIcon(), $this->getAppName());
         echo sprintf("<a class='app_ref' href='%s'><i class='fa fa-%s'></i> %s</a>\n", $this->getRefLink(), $this->getRefIcon(), $this->getRefName());
         echo sprintf("<div class='app_title'>\n");
-        echo sprintf("<div>%s</div>\n", $this->getObj()->getPageTitle());
+        echo sprintf("<div>%s</div>\n", $this->getPageTitle());
         echo sprintf("</div>\n");
     }
     //===============================================
@@ -129,9 +129,9 @@ class GPhone extends GWidget {
     }
     //===============================================
     public function countBox() {
-        $this->dom->getRoot("rdv")->getNode("phone");
-        $lCount = $this->dom->getNode("boxes")->countNode("box");
-        return $lCount;
+        $this->dom->queryXPath(sprintf("/rdv/phone/boxes/box"));
+        $lData = $this->dom->countXPath();
+        return $lData;
     }
     //===============================================
     public function getBoxPerPage() {

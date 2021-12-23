@@ -29,9 +29,14 @@ class GFooter extends GWidget {
         echo sprintf("</html>\n");
     }
     //===============================================
-    public function loadScripts() {
+    public function countScripts() {
         $this->dom->queryXPath(sprintf("/rdv/header/scripts/script"));
-        $lCount = $this->dom->countXPath();
+        $lData = $this->dom->countXPath();
+        return $lData;
+    }
+    //===============================================
+    public function loadScripts() {
+        $lCount = $this->countScripts();
         for($i = 0; $i < $lCount; $i++) {
             $this->dom->getNodeIndex($i);
             $lScript = $this->dom->getValue();
