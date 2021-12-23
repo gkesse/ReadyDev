@@ -4,13 +4,14 @@ class GObject {
     //===============================================
     static private $m_instance = null;
     //===============================================
-    private $webroot;
-    private $webkey;
-    private $appname = "phone";
+    protected $webroot;
+    protected $webkey;
+    //===============================================
+    protected $dom = null;
+    protected $domData = null;
     //===============================================
     public function __construct() {
-        $this->webroot = "webpad/code";
-        $this->webkey = "/readypad";
+        $this->initObj();
     }
     //===============================================
     public static function Instance() {
@@ -20,6 +21,11 @@ class GObject {
         return self::$m_instance;
     }
     //===============================================
+    public function initObj() {
+        $this->webroot = "webpad/code";
+        $this->webkey = "/readypad";
+    }
+    //===============================================
     public function getRepoPath($repo, $file) {
         $lPath = $repo;
         if($this->webroot != "") {
@@ -27,17 +33,23 @@ class GObject {
         }
         $lPath = sprintf("%s/%s/%s", $_SERVER["DOCUMENT_ROOT"], $lPath, $file);
         if(!file_exists($lPath)) {
-            GError::Instance()->addError(sprintf("Error le fichier n'existe pas : %s", $lPath));
+            GError::Instance()->addError(sprintf("Erreur la méthode (getRepoPath) a échoué ".
+                    "sur le repo (%s) et le fichier (%s).", $repo, $file));
             return "";
         }
         return $lPath;
     }
     //===============================================
     public function getXmlPath($file) {
-        return $this->getRepoPath("data/xml", $file);
+        $lPath = $this->getRepoPath("data/xml", $file);
+        if($lPath == "") {
+            GError::Instance()->addError(sprintf("Erreur la méthode (getXmlPath) a échoué ".
+                    "sur le fichier (%s).", $file));
+        }
+        return $lPath;
     }
     //===============================================
-    public function getRootPath() {
+    public function getWebRoot() {
         $lRoot = "";
         if($this->webroot != "") {
             $lRoot = sprintf("/%s", $this->webroot);
@@ -45,28 +57,24 @@ class GObject {
         return $lRoot;
     }
     //===============================================
-    public function getPageId() {
-        $lPageId = $_GET["pageid"];
-        if($lPageId == "") {
-            $lPageId = "home";
-        }
-        if(substr($lPageId, -1) == '/') {
-            $lPageId = substr($lPageId, 0, -1);
-        }
-        return $lPageId;
+    public function getWebKey() {
+        return $this->webkey;
     }
     //===============================================
-    public function getObj() {
-        if($this->appname == "phone") return GPhone::Instance();
+    public function getObj($key = "") {
+        if($key == "") {
+            $key = GProcess::Instance()->getProcessName();
+        }
+        if($key == "process") return GProcess::Instance();
+        if($key == "phone") return GPhone::Instance();
+        if($key == "cdiscount") return GCDiscount::Instance();
         return GObject::Instance();
     }
     //===============================================
-    public function getPageTitle() {
-        return "";
-    }
-    //===============================================
-    public function getWebKey() {
-        return $this->webkey;
+    public function getCData() {
+        $this->domData->queryXPath(sprintf("/rdv/cdata"));
+        $lData = $this->domData->getNodeIndex(0)->getValue();
+        return $lData;
     }
     //===============================================
 }

@@ -1,6 +1,6 @@
-<?php   
+<?php
 //===============================================
-class GFooter extends GWidget {
+class GProcess extends GObject {
     //===============================================
     static private $m_instance = null;
     //===============================================
@@ -11,7 +11,7 @@ class GFooter extends GWidget {
     //===============================================
     public static function Instance() {
         if(is_null(self::$m_instance)) {
-            self::$m_instance = new GFooter();  
+            self::$m_instance = new GProcess();
         }
         return self::$m_instance;
     }
@@ -19,29 +19,20 @@ class GFooter extends GWidget {
     public function createDom() {
         $this->dom = new GDomXml();
         $this->dom->createDom();
-        $this->dom->loadXmlFile("app_header.xml");
+        $this->dom->loadXmlFile("app_process.xml");
         $this->dom->createXPath();
     }
     //===============================================
     public function show() {
-        $this->loadScripts();
-        echo sprintf("</body>\n");
-        echo sprintf("</html>\n");
+        GHeader::Instance()->show();
+        $this->getObj()->show();
+        GFooter::Instance()->show();
     }
     //===============================================
-    public function countScripts() {
-        $this->dom->queryXPath(sprintf("/rdv/header/scripts/script"));
-        $lData = $this->dom->countXPath();
+    public function getProcessName() {
+        $this->dom->queryXPath(sprintf("/rdv/process/name"));
+        $lData = $this->dom->getNodeIndex(0)->getValue();
         return $lData;
-    }
-    //===============================================
-    public function loadScripts() {
-        $lCount = $this->countScripts();
-        for($i = 0; $i < $lCount; $i++) {
-            $this->dom->getNodeIndex($i);
-            $lScript = $this->dom->getValue();
-            echo sprintf("<script src='%s%s'></script>\n", $this->getWebRoot(), $lScript);
-        }
     }
     //===============================================
 }

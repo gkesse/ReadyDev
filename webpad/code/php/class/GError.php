@@ -25,9 +25,12 @@ class GError extends GObject {
         if(empty($this->errors)) return;
         $lError = "";
         foreach($this->errors as $error) {
-            $lError = sprintf("%s<br>", $error);
+            $lError .= sprintf("%s<br>", $error);
         }
-        echo $lError;
+        echo sprintf("<div class='error'>");
+        echo sprintf("<div class='error_close' onclick='error_close_onclick(this)'><i class='error_close_fa fa fa-times'></i></div>");
+        echo sprintf("<div class='error_main'>%s</div>", $lError);
+        echo sprintf("</div>");
     }
     //===============================================
 }
