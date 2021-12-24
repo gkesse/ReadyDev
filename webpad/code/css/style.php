@@ -1,7 +1,7 @@
 <?php
     header('content-type: text/css');
     require $_SERVER["DOCUMENT_ROOT"]."/webpad/code"."/php/class/GAutoload.php";
-    $lKey = GProcess::Instance()->getProcessName();
+    //$lKey = GProcess::Instance()->getProcessName();
 ?>
 /* ============================================== */
 html {
@@ -68,6 +68,8 @@ button:active {
     border-radius: 5px;
     padding: 30px 30px 10px 10px;
     transform: translate(-50%, -50%);
+    max-height: 500px;
+    overflow: auto;
     z-index: 2;
 }
 /* ============================================== */

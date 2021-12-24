@@ -42,19 +42,26 @@ class GPhone extends GWidget {
         else {
             echo sprintf("<div class='phone_body'>\n"); //phone_body
         }
-        $this->showChevron();
+        if(!$this->getScroll()) {
+            $this->showChevron();
+        }
         echo sprintf("<div class='phone_body_page'>\n"); //phone_body_page
-        $this->showBoxes();
+        if(!$this->getScroll()) {
+            $this->showBoxes();
+        }
         echo sprintf("</div>\n"); //phone_body_page
         echo sprintf("</div>\n"); //phone_body
-        if($this->getBgImg()) {
-            echo sprintf("<div class='phone_footer_img'>\n"); //phone_footer
+        echo sprintf("<div class='phone_footer_scroll' hidden>%s</div>\n", $this->getScroll());
+        if(!$this->getScroll()) {
+            if($this->getBgImg()) {
+                echo sprintf("<div class='phone_footer_img'>\n"); //phone_footer
+            }
+            else {
+                echo sprintf("<div class='phone_footer'>\n"); //phone_footer
+            }
+            $this->showDot();
+            echo sprintf("</div>\n"); //phone_footer
         }
-        else {
-            echo sprintf("<div class='phone_footer'>\n"); //phone_footer
-        }
-        $this->showDot();
-        echo sprintf("</div>\n"); //phone_footer
         echo sprintf("</div>\n"); //phone_main
     }
     //===============================================
@@ -124,7 +131,7 @@ class GPhone extends GWidget {
     }
     //===============================================
     public function getBgImg() {
-        $this->dom->queryXPath(sprintf("/rdv/phone/body/bgimg"));
+        $this->dom->queryXPath(sprintf("/rdv/phone/settings/bgimg"));
         $lData = ($this->dom->getNodeIndex(0)->getValue() == "1");
         return $lData;
     }
@@ -166,39 +173,45 @@ class GPhone extends GWidget {
     }
     //===============================================
     public function countBox() {
-        $this->dom->queryXPath(sprintf("/rdv/phone/boxes/map/box"));
+        $this->dom->queryXPath(sprintf("/rdv/phone/boxes/box"));
         $lData = $this->dom->countXPath();
         return $lData;
     }
     //===============================================
     public function getBoxPerPage() {
-        $this->dom->queryXPath(sprintf("/rdv/phone/boxes/boxperpage"));
+        $this->dom->queryXPath(sprintf("/rdv/phone/settings/boxperpage"));
         $lData = $this->dom->getNodeIndex(0)->getValue();
         return $lData;
     }
     //===============================================
     public function getBoxIcon($index) {
-        $this->dom->queryXPath(sprintf("/rdv/phone/boxes/map/box/icon"));
+        $this->dom->queryXPath(sprintf("/rdv/phone/boxes/box/icon"));
         $lData = $this->dom->getNodeIndex($index)->getValue();
         return $lData;
     }
     //===============================================
     public function getBoxTitle($index) {
-        $this->dom->queryXPath(sprintf("/rdv/phone/boxes/map/box/title"));
+        $this->dom->queryXPath(sprintf("/rdv/phone/boxes/box/title"));
         $lData = $this->dom->getNodeIndex($index)->getValue();
         return $lData;
     }
     //===============================================
     public function getBoxLink($index) {
-        $this->dom->queryXPath(sprintf("/rdv/phone/boxes/map/box/link"));
+        $this->dom->queryXPath(sprintf("/rdv/phone/boxes/box/link"));
         $lData = $this->dom->getNodeIndex($index)->getValue();
         $lData = sprintf("%s%s", $this->getWebKey(), $lData);
         return $lData;
     }
     //===============================================
     public function getPageTitle() {
-        $this->dom->queryXPath(sprintf("/rdv/phone/boxes/map/box[link/.='/%s/']/title", $this->getPageId()));
+        $this->dom->queryXPath(sprintf("/rdv/phone/boxes/box[link/.='/%s/']/title", $this->getPageId()));
         $lData = $this->dom->getNodeIndex(0)->getValue();
+        return $lData;
+    }
+    //===============================================
+    public function getScroll() {
+        $this->dom->queryXPath(sprintf("/rdv/phone/settings/scroll"));
+        $lData = ($this->dom->getNodeIndex(0)->getValue() == "1");
         return $lData;
     }
     //===============================================
