@@ -36,18 +36,36 @@ class GPhone extends GWidget {
             echo sprintf("<div class='phone_main'>\n"); //phone_main
         }
         $this->showHeader();
-        if($this->getBgImg()) {
-            echo sprintf("<div class='phone_body_img'>\n"); //phone_body
+        if(!$this->getScroll()) {
+            if($this->getBgImg()) {
+                echo sprintf("<div class='phone_body_img'>\n"); //phone_body
+            }
+            else {
+                echo sprintf("<div class='phone_body'>\n"); //phone_body
+            }
         }
         else {
-            echo sprintf("<div class='phone_body'>\n"); //phone_body
+            if($this->getBgImg()) {
+                echo sprintf("<div class='phone_body_img_scroll'>\n"); //phone_body
+            }
+            else {
+                echo sprintf("<div class='phone_body_scroll'>\n"); //phone_body
+            }
         }
         if(!$this->getScroll()) {
             $this->showChevron();
         }
-        echo sprintf("<div class='phone_body_page'>\n"); //phone_body_page
+        if(!$this->getScroll()) {
+            echo sprintf("<div class='phone_body_page'>\n"); //phone_body_page
+        }
+        else {
+            echo sprintf("<div class='phone_body_page_scroll'>\n"); //phone_body_page
+        }
         if(!$this->getScroll()) {
             $this->showBoxes();
+        }
+        else {
+            $this->showBoxesScroll();
         }
         echo sprintf("</div>\n"); //phone_body_page
         echo sprintf("</div>\n"); //phone_body
@@ -94,6 +112,20 @@ class GPhone extends GWidget {
             }
             echo sprintf("</div>\n"); //phone_slide
         }
+    }
+    //===============================================
+    public function showBoxesScroll() {
+        $lCountBox = $this->countBox();
+        for($i = 0; $i < $lCountBox; $i++) {
+            $lIcon = $this->getBoxIcon($i);
+            $lTitle = $this->getBoxTitle($i);
+            $lLink = $this->getBoxLink($i);
+            echo sprintf("<a class='phone_box' href='%s'>\n", $lLink); //phone_box
+            echo sprintf("<div class='phone_box_icon'><i class='phone_box_icon_fa fa fa-%s'></i></div>\n", $lIcon);
+            echo sprintf("<div class='phone_box_title'>%s</div>\n", $lTitle);
+            echo sprintf("</a>\n"); //phone_box
+        }
+
     }
     //===============================================
     public function showChevron() {

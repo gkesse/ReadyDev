@@ -49,6 +49,10 @@ class GObject {
         return $lPath;
     }
     //===============================================
+    public function getXmlContent($file) {
+        return file_get_contents($this->getXmlPath("phone.xml"));
+    }
+    //===============================================
     public function getWebRoot() {
         $lRoot = "";
         if($this->webroot != "") {

@@ -188,11 +188,31 @@ button:active {
     border-radius: 5px;
 }
 /* ============================================== */
+.phone_body_scroll {
+    background-color: #2e4053;
+    position: fixed;
+    top: 60px;
+    bottom: 10px;
+    right: 10px;
+    left: 10px;
+    border-radius: 5px;
+}
+/* ============================================== */
 .phone_body_img {
     background-color: rgba(0,0,0,0.4);
     position: fixed;
     top: 60px;
     bottom: 60px;
+    right: 10px;
+    left: 10px;
+    border-radius: 5px;
+}
+/* ============================================== */
+.phone_body_img_scroll {
+    background-color: rgba(0,0,0,0.4);
+    position: fixed;
+    top: 60px;
+    bottom: 10px;
     right: 10px;
     left: 10px;
     border-radius: 5px;
@@ -205,6 +225,18 @@ button:active {
     bottom: 10px;
     left: 35px;
     right: 35px;
+    border-radius: 5px;
+    overflow: auto;
+    text-align: center;
+}
+/* ============================================== */
+.phone_body_page_scroll {
+    background-color: rgba(0,0,0,0);
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
     border-radius: 5px;
     overflow: auto;
     text-align: center;
