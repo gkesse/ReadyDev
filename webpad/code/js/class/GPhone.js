@@ -4,9 +4,13 @@ class GPhone extends GObject {
     static m_instance = null;
     //===============================================
     static slideIndex;
+   //===============================================
+    dom = null;
     //===============================================
     constructor() {
         super();
+        this.dom = new GXml();
+        this.dom.loadXmlFile("phone.xml");
     }
     //===============================================
     static Instance() {
@@ -14,6 +18,14 @@ class GPhone extends GObject {
             this.m_instance = new GPhone();
         }
         return this.m_instance;
+    }
+    //===============================================
+    init() {
+        var lScroll = document.getElementsByClassName("phone_footer_scroll")[0];
+        var lScrollOn = (lScroll.innerText == "1");
+        if(!lScrollOn) {
+            this.showSlide(1);
+        }
     }
     //===============================================
     showSlide(index) {
@@ -45,5 +57,5 @@ class GPhone extends GObject {
     //===============================================
 }
 //===============================================
-GPhone.Instance().showSlide(1);
+GPhone.Instance().init();
 //===============================================
