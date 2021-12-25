@@ -33,7 +33,7 @@ class GObject {
         }
         $lPath = sprintf("%s/%s/%s", $_SERVER["DOCUMENT_ROOT"], $lPath, $file);
         if(!file_exists($lPath)) {
-            GError::Instance()->addError(sprintf("Erreur la méthode (getRepoPath) a échoué ".
+            GLog::Instance()->addError(sprintf("Erreur la méthode (getRepoPath) a échoué ".
                     "sur le repo (%s) et le fichier (%s).", $repo, $file));
             return "";
         }
@@ -43,7 +43,7 @@ class GObject {
     public function getXmlPath($file) {
         $lPath = $this->getRepoPath("data/xml", $file);
         if($lPath == "") {
-            GError::Instance()->addError(sprintf("Erreur la méthode (getXmlPath) a échoué ".
+            GLog::Instance()->addError(sprintf("Erreur la méthode (getXmlPath) a échoué ".
                     "sur le fichier (%s).", $file));
         }
         return $lPath;
