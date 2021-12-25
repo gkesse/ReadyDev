@@ -321,8 +321,8 @@ button:active {
     margin: 10px;
     margin-bottom: 20px;
     border-radius: 10px;
-    height: 50px;
-    width: 50px;
+    height: 45px;
+    width: 45px;
     font-size: 14px;
     cursor: pointer;
     text-decoration: none;
