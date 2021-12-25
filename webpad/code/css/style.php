@@ -321,8 +321,8 @@ button:active {
     margin: 10px;
     margin-bottom: 20px;
     border-radius: 10px;
-    height: 45px;
-    width: 45px;
+    height: 40px;
+    width: 40px;
     font-size: 14px;
     cursor: pointer;
     text-decoration: none;
@@ -350,7 +350,7 @@ button:active {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);    
-    font-size: 35px;
+    font-size: 30px;
 }
 /* ============================================== */
 .phone_box_title {
