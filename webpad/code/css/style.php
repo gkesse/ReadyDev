@@ -469,7 +469,7 @@ button:active {
     background-color: rgba(0,0,0,0.4);
     border-radius: 50%;
     display: inline-block;
-    width: 100px;
+    width: 70px;
     haight: auto;
     padding: 10px;
 }
@@ -478,10 +478,10 @@ button:active {
     background-color: rgba(0,0,0,0.4);
     border-radius: 50%;
     display: inline-block;
-    width: 100px;
-    line-height: 100px;
+    width: 70px;
+    line-height: 70px;
     padding: 10px;
-    font-size: 80px;
+    font-size: 50px;
 }
 /* ============================================== */
 .infos_kv {
