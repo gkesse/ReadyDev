@@ -525,6 +525,7 @@ button:active {
 /* ---------------------------------------------- */
 @media (max-width:550px) {
 	.infos {
+    	background-color: rgba(0,0,0,0);
 		min-width: 100%;
     	padding: 0px;
 	}
