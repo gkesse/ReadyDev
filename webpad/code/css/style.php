@@ -459,6 +459,7 @@ button:active {
     display: inline-block;
     min-width: 400px;
     padding-bottom: 30px;
+    font-family: arial;
 }
 /* ============================================== */
 .infos_profil {

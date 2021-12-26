@@ -20,6 +20,12 @@
 		</settings>
         <boxes>
             <box>
+                <name>Accueil</name>
+                <title>Accueil</title>
+                <icon>home</icon>
+                <link>/home/</link>
+            </box>
+            <box>
                 <name>Je Ken</name>
                 <title>Vendre un objet</title>
                 <icon>shopping-basket</icon>
