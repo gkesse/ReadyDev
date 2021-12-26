@@ -4,10 +4,24 @@
     //$lKey = GProcess::Instance()->getProcessName();
 ?>
 /* ============================================== */
+* {
+    color: white;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* ============================================== */
+*:focus { 
+    border: none;
+    outline: none;
+}
+/* ============================================== */
 html {
-    padding: 0px;
-    margin: 0px;
-    scrollbar-color: #4d5656 #2e4053;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    overflow: auto;
+    scrollbar-color: #5f6681 #051039;
+    scrollbar-width: auto;
 }
 /* ============================================== */
 body {
