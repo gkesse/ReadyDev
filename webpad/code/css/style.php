@@ -366,7 +366,7 @@ button:active {
 /* ============================================== */
 .phone_title {
     background-color: rgba(0,0,0,0);
-    padding: 0px 10px 20px 10px;
+    padding: 10px 10px 20px 10px;
 }
 /* ============================================== */
 .phone_slide {
@@ -524,7 +524,10 @@ button:active {
 }
 /* ---------------------------------------------- */
 @media (max-width:550px) {
-
+	.infos {
+		min-width: 100%;
+    	padding: 0px;
+	}
 }
 /* ---------------------------------------------- */
 @media (max-width:520px) {
