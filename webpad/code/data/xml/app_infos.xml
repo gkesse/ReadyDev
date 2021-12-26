@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdv>
+    <infos>
+        <info>
+            <type>profil</type>
+            <img>/data/img/logo_web.png</img>
+            <fa>info</fa>
+            <faon>0</faon>
+            <active>1</active>
+        </info>
+        <info>
+            <type>key_value</type>
+            <key>Nom de l'application</key>
+            <value>ReadyPad</value>
+            <active>1</active>
+        </info>
+        <info>
+            <type>key_value</type>
+            <key>Numéro de version</key>
+            <value>1.0.0</value>
+            <active>1</active>
+        </info>
+       <info>
+            <type>key_value</type>
+            <key>Langage</key>
+            <value>PHP</value>
+            <active>1</active>
+        </info>
+        <info>
+            <type>key_value</type>
+            <key>Développeur</key>
+            <value>Gérard KESSE</value>
+            <active>1</active>
+        </info>
+         <info>
+            <type>key_value</type>
+            <key>Organisation</key>
+            <value>ReadyDev</value>
+            <active>1</active>
+        </info>
+    </infos>
+</rdv>
