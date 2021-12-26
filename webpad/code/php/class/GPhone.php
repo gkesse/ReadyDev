@@ -61,12 +61,7 @@ class GPhone extends GWidget {
         else {
             echo sprintf("<div class='phone_body_page_scroll'>\n"); //phone_body_page
         }
-        if(!$this->getScroll()) {
-            $this->showBoxes();
-        }
-        else {
-            $this->showBoxesScroll();
-        }
+        $this->showBody();
         echo sprintf("</div>\n"); //phone_body_page
         echo sprintf("</div>\n"); //phone_body
         echo sprintf("<div class='phone_footer_scroll' hidden>%s</div>\n", $this->getScroll());
@@ -93,6 +88,64 @@ class GPhone extends GWidget {
         echo sprintf("</div>\n"); //phone_header
     }
     //===============================================
+    public function showBody() {
+        if($this->checkPageId()) {
+            $lPageId = $this->getPageId();
+            $this->showTitle();
+            if($lPageId == "home") {$this->showHome();}
+            else if($lPageId == "home/ken") {$this->showKen();}
+            else if($lPageId == "home/shopping") {$this->showShopping();}
+            else if($lPageId == "home/infos") {$this->showInfos();}
+        }
+        else {
+            GLog::Instance()->addError(sprintf("La page demandée n'esiste pas !!!"));
+        }
+    }
+    //===============================================
+    public function showHome() {
+        if(!$this->getScroll()) {
+            $this->showBoxes();
+        }
+        else {
+            $this->showBoxesScroll();
+        }
+    }
+    //===============================================
+    public function showKen() {
+        echo sprintf("<div class='ken'>\n");
+        echo sprintf("<div class=''>ken</div>\n");
+        echo sprintf("</div>\n");
+    }
+    //===============================================
+    public function showShopping() {
+        echo sprintf("<div class='shopping'>\n");
+        echo sprintf("<div class=''>shopping</div>\n");
+        echo sprintf("</div>\n");
+    }
+    //===============================================
+    public function showInfos() {
+        GInfos::Instance()->show();
+    }
+    //===============================================
+    public function showTitle() {
+        $lPageId = $this->getPageId();
+        if($lPageId != "home") {
+            echo sprintf("<div class='phone_title'>\n");
+            $lMap = explode("/", $lPageId);
+            $lHref = $this->webkey;
+            for($i = 0; $i < count($lMap); $i++) {
+                $lKey = $lMap[$i];
+                if($i != 0) {
+                    echo sprintf("<i class='fa fa-chevron-right'></i>\n");
+                }
+                $lHref .= "/";
+                $lHref .= $lKey;
+                echo sprintf("<a class='' href='%s'>%s</a>\n", $lHref, $lKey);
+            }
+            echo sprintf("</div>\n");
+        }
+    }
+    //===============================================
     public function showBoxes() {
         $lCountBox = $this->countBox();
         $lBoxPerPage = $this->getBoxPerPage();
@@ -103,7 +156,7 @@ class GPhone extends GWidget {
                 $lBoxIndex = $j * $lBoxPerPage + $i;
                 if($lBoxIndex == $lCountBox) break;
                 $lIcon = $this->getBoxIcon($lBoxIndex);
-                $lTitle = $this->getBoxTitle($lBoxIndex);
+                $lTitle = $this->getBoxName($lBoxIndex);
                 $lLink = $this->getBoxLink($lBoxIndex);
                 echo sprintf("<a class='phone_box' href='%s'>\n", $lLink); //phone_box
                 echo sprintf("<div class='phone_box_icon'><i class='phone_box_icon_fa fa fa-%s'></i></div>\n", $lIcon);
@@ -118,7 +171,7 @@ class GPhone extends GWidget {
         $lCountBox = $this->countBox();
         for($i = 0; $i < $lCountBox; $i++) {
             $lIcon = $this->getBoxIcon($i);
-            $lTitle = $this->getBoxTitle($i);
+            $lTitle = $this->getBoxName($i);
             $lLink = $this->getBoxLink($i);
             echo sprintf("<a class='phone_box' href='%s'>\n", $lLink); //phone_box
             echo sprintf("<div class='phone_box_icon'><i class='phone_box_icon_fa fa fa-%s'></i></div>\n", $lIcon);
@@ -222,8 +275,8 @@ class GPhone extends GWidget {
         return $lData;
     }
     //===============================================
-    public function getBoxTitle($index) {
-        $this->dom->queryXPath(sprintf("/rdv/phone/boxes/box/title"));
+    public function getBoxName($index) {
+        $this->dom->queryXPath(sprintf("/rdv/phone/boxes/box/name"));
         $lData = $this->dom->getNodeIndex($index)->getValue();
         return $lData;
     }
@@ -236,8 +289,19 @@ class GPhone extends GWidget {
     }
     //===============================================
     public function getPageTitle() {
-        $this->dom->queryXPath(sprintf("/rdv/phone/boxes/box[link/.='/%s/']/title", $this->getPageId()));
+        $this->dom->queryXPathEmpty(sprintf("/rdv/phone/boxes/box[link/.='/%s/']/title", $this->getPageId()));
         $lData = $this->dom->getNodeIndex(0)->getValue();
+        if($lData == "") {
+            $this->dom->queryXPathEmpty(sprintf("/rdv/phone/boxes/box[link/.='/%s/']/name", $this->getPageId()));
+            $lData = $this->dom->getNodeIndex(0)->getValue();
+        }
+        return $lData;
+    }
+    //===============================================
+    public function checkPageId() {
+        if($this->getPageId() == "home") return true;
+        $this->dom->queryXPathEmpty(sprintf("/rdv/phone/boxes/box[link/.='/%s/']/name", $this->getPageId()));
+        $lData = ($this->dom->getNodeIndex(0)->getValue() != "");
         return $lData;
     }
     //===============================================

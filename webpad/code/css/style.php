@@ -19,6 +19,11 @@ body {
     margin: 0px;
 }
 /* ============================================== */
+a {
+    color: white;
+    text-decoration: none;
+}
+/* ============================================== */
 button {
 	background-color: #2e4053;
     color: white;
@@ -102,6 +107,50 @@ button:active {
 /* ============================================== */
 .error_main {
     background-color: transparent;
+}
+/* ============================================== */
+.log {
+    background-color: #366b51;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    border-radius: 5px;
+    padding: 30px 30px 10px 10px;
+    transform: translate(-50%, -50%);
+    max-height: 500px;
+    overflow: auto;
+    z-index: 2;
+}
+/* ============================================== */
+.log_close  {
+    background-color: rgba(0,0,0,0.4);
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+/* ============================================== */
+.log_close:hover  {
+    background-color: rgba(0,0,0,0.2);
+}
+/* ============================================== */
+.log_close:active  {
+    background-color: rgba(0,0,0,0.4);
+}
+/* ============================================== */
+.log_close_fa {
+    background-color: transparent;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -55%);
+}
+/* ============================================== */
+.log_main {
+    background-color: rgba(0,0,0,0);
 }
 /* ============================================== */
 .phone_main {
@@ -308,6 +357,11 @@ button:active {
     text-align: center;
 }
 /* ============================================== */
+.phone_title {
+    background-color: rgba(0,0,0,0);
+    padding: 0px 10px 20px 10px;
+}
+/* ============================================== */
 .phone_slide {
     background-color: transparent;
 }
@@ -350,7 +404,7 @@ button:active {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);    
-    font-size: 30px;
+    font-size: 20px;
 }
 /* ============================================== */
 .phone_box_title {
@@ -391,3 +445,94 @@ button:active {
     background-color: #85929e;
 }
 /* ============================================== */
+.infos {
+    background-color: rgba(0,0,0,0.4);
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
+    min-width: 400px;
+    padding-bottom: 30px;
+}
+/* ============================================== */
+.infos_profil {
+    padding: 20px 0px;
+}
+/* ============================================== */
+.infos_profil_img {
+    background-color: rgba(0,0,0,0.4);
+    border-radius: 50%;
+    display: inline-block;
+    width: 100px;
+    haight: auto;
+    padding: 10px;
+}
+/* ============================================== */
+.infos_profil_fa {
+    background-color: rgba(0,0,0,0.4);
+    border-radius: 50%;
+    display: inline-block;
+    width: 100px;
+    line-height: 100px;
+    padding: 10px;
+    font-size: 80px;
+}
+/* ============================================== */
+.infos_kv {
+    background-color: rgba(0,0,0,0);
+    text-align: left;
+    border-bottom: 1px solid #ffffff;
+    padding: 10px;
+}
+/* ============================================== */
+.infos_kv_key {
+    background-color: rgba(0,0,0,0);
+    text-align: left;
+    display: inline-block;
+    min-width: 200px;
+}
+/* ============================================== */
+.infos_kv_value {
+    background-color: rgba(0,0,0,0);
+    text-align: left;
+    display: inline-block;
+    color: #ffffff;
+}
+/* ============================================== */
+/* Mobile */ 
+/* ---------------------------------------------- */
+@media (max-width:1024px) {
+
+}
+/* ---------------------------------------------- */
+@media (max-width:960px) {
+
+}
+/* ---------------------------------------------- */
+@media (max-width:750px) {
+
+}
+/* ---------------------------------------------- */
+@media (max-width:640px) {  
+
+}
+/* ---------------------------------------------- */
+@media (max-width:550px) {
+
+}
+/* ---------------------------------------------- */
+@media (max-width:520px) {
+
+}
+/* ---------------------------------------------- */
+@media (max-width:420px) {
+
+}
+/* ---------------------------------------------- */
+@media (max-width:350px) {
+
+}
+/* ---------------------------------------------- */
+@media (max-width:320px) {
+
+}
+/* ---------------------------------------------- */

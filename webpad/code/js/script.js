@@ -12,6 +12,13 @@ function error_close_onclick() {
     lError.style.display = "none"; 
 }
 //===============================================
+// log
+//===============================================
+function log_close_onclick() {
+    var lLog = document.getElementsByClassName("log")[0];
+    lLog.style.display = "none"; 
+}
+//===============================================
 // phone
 //===============================================
 function phone_slide_prev_onclick() {

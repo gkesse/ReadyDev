@@ -4,5 +4,6 @@ require "./php/class/GAutoload.php";
 //===============================================
 GProcess::Instance()->show();
 GLog::Instance()->showError();
+GLog::Instance()->showLog();
 //===============================================
 ?>

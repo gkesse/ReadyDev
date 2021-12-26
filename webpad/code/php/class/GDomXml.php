@@ -79,6 +79,16 @@ class GDomXml extends GObject {
         return $this;
     }
     //===============================================
+    public function queryXPathEmpty($query) {
+        if(!$this->xpath) {
+            GLog::Instance()->addError(sprintf("Erreur la méthode (queryXPath) a échoué ".
+                    "sur la requête (%s) (1).", $query));
+            return $this;
+        }
+        $this->nodes = $this->xpath->query($query);
+        return $this;
+    }
+    //===============================================
     public function countXPath() {
         if(!$this->nodes) {
             GLog::Instance()->addError(sprintf("Erreur la méthode (countXPath) a échoué."));
@@ -167,11 +177,6 @@ class GDomXml extends GObject {
     }
     //===============================================
     public function getNodeIndex($index) {
-        if(!$this->checkNodes()) {
-            GLog::Instance()->addError(sprintf("Erreur la méthode (getNodeIndex) a échoué ".
-                    "sur l'index (%d).", $index));
-            return $this;
-        }
         $lCount = 0;
         foreach($this->nodes as $lNode) {
             if($lCount == $index) {
@@ -182,14 +187,6 @@ class GDomXml extends GObject {
         }
         $this->node = null;
         return $this;
-    }
-    //===============================================
-    public function checkNodes() {
-        if(!$this->nodes) {
-            $this->node = null;
-            return false;
-        }
-        return true;
     }
     //===============================================
     public function countNode($name) {
