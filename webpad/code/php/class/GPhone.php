@@ -155,13 +155,16 @@ class GPhone extends GWidget {
             for($i = 0; $i < $lBoxPerPage; $i++) {
                 $lBoxIndex = $j * $lBoxPerPage + $i;
                 if($lBoxIndex == $lCountBox) break;
-                $lIcon = $this->getBoxIcon($lBoxIndex);
-                $lTitle = $this->getBoxName($lBoxIndex);
-                $lLink = $this->getBoxLink($lBoxIndex);
-                echo sprintf("<a class='phone_box' href='%s'>\n", $lLink); //phone_box
-                echo sprintf("<div class='phone_box_icon'><i class='phone_box_icon_fa fa fa-%s'></i></div>\n", $lIcon);
-                echo sprintf("<div class='phone_box_title'>%s</div>\n", $lTitle);
-                echo sprintf("</a>\n"); //phone_box
+                $lActive = $this->getBoxActive($lBoxIndex);
+                if($lActive) {
+                    $lIcon = $this->getBoxIcon($lBoxIndex);
+                    $lTitle = $this->getBoxName($lBoxIndex);
+                    $lLink = $this->getBoxLink($lBoxIndex);
+                    echo sprintf("<a class='phone_box' href='%s'>\n", $lLink); //phone_box
+                    echo sprintf("<div class='phone_box_icon'><i class='phone_box_icon_fa fa fa-%s'></i></div>\n", $lIcon);
+                    echo sprintf("<div class='phone_box_title'>%s</div>\n", $lTitle);
+                    echo sprintf("</a>\n"); //phone_box
+                }
             }
             echo sprintf("</div>\n"); //phone_slide
         }
@@ -170,13 +173,15 @@ class GPhone extends GWidget {
     public function showBoxesScroll() {
         $lCountBox = $this->countBox();
         for($i = 0; $i < $lCountBox; $i++) {
-            $lIcon = $this->getBoxIcon($i);
-            $lTitle = $this->getBoxName($i);
-            $lLink = $this->getBoxLink($i);
-            echo sprintf("<a class='phone_box' href='%s'>\n", $lLink); //phone_box
-            echo sprintf("<div class='phone_box_icon'><i class='phone_box_icon_fa fa fa-%s'></i></div>\n", $lIcon);
-            echo sprintf("<div class='phone_box_title'>%s</div>\n", $lTitle);
-            echo sprintf("</a>\n"); //phone_box
+            $lActive = $this->getBoxActive($i);
+            if($lActive) {$lIcon = $this->getBoxIcon($i);
+                $lTitle = $this->getBoxName($i);
+                $lLink = $this->getBoxLink($i);
+                echo sprintf("<a class='phone_box' href='%s'>\n", $lLink); //phone_box
+                echo sprintf("<div class='phone_box_icon'><i class='phone_box_icon_fa fa fa-%s'></i></div>\n", $lIcon);
+                echo sprintf("<div class='phone_box_title'>%s</div>\n", $lTitle);
+                echo sprintf("</a>\n"); //phone_box
+            }
         }
 
     }
@@ -269,21 +274,27 @@ class GPhone extends GWidget {
         return $lData;
     }
     //===============================================
+    public function getBoxActive($index) {
+        $this->dom->queryXPathEmpty(sprintf("/rdv/phone/boxes/box[position()=%d]/active", $index + 1));
+        $lData = ($this->dom->getNodeIndex(0)->getValue() == "1");
+        return $lData;
+    }
+    //===============================================
     public function getBoxIcon($index) {
-        $this->dom->queryXPath(sprintf("/rdv/phone/boxes/box/icon"));
-        $lData = $this->dom->getNodeIndex($index)->getValue();
+        $this->dom->queryXPath(sprintf("/rdv/phone/boxes/box[position()=%d]/icon", $index + 1));
+        $lData = $this->dom->getNodeIndex(0)->getValue();
         return $lData;
     }
     //===============================================
     public function getBoxName($index) {
-        $this->dom->queryXPath(sprintf("/rdv/phone/boxes/box/name"));
-        $lData = $this->dom->getNodeIndex($index)->getValue();
+        $this->dom->queryXPath(sprintf("/rdv/phone/boxes/box[position()=%d]/name", $index + 1));
+        $lData = $this->dom->getNodeIndex(0)->getValue();
         return $lData;
     }
     //===============================================
     public function getBoxLink($index) {
-        $this->dom->queryXPath(sprintf("/rdv/phone/boxes/box/link"));
-        $lData = $this->dom->getNodeIndex($index)->getValue();
+        $this->dom->queryXPath(sprintf("/rdv/phone/boxes/box[position()=%d]/link", $index + 1));
+        $lData = $this->dom->getNodeIndex(0)->getValue();
         $lData = sprintf("%s%s", $this->getWebKey(), $lData);
         return $lData;
     }

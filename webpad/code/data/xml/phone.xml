@@ -24,24 +24,28 @@
                 <title>Accueil</title>
                 <icon>home</icon>
                 <link>/home/</link>
+                <active>0</active>
             </box>
             <box>
                 <name>Je Ken</name>
                 <title>Vendre un objet</title>
                 <icon>shopping-basket</icon>
                 <link>/home/ken/</link>
+                <active>1</active>
             </box>
             <box>
                 <name>Je Shop</name>
                 <title>Acheter un produit</title>
                 <icon>shopping-cart</icon>
                 <link>/home/shopping/</link>
+                <active>1</active>
             </box>
             <box>
                 <name>Infos</name>
                 <title>Informations</title>
                 <icon>info </icon>
                 <link>/home/infos/</link>
+                <active>1</active>
             </box>
         </boxes>
     </phone>
