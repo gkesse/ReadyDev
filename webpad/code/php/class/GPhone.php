@@ -160,7 +160,8 @@ class GPhone extends GWidget {
                     $lIcon = $this->getBoxIcon($lBoxIndex);
                     $lTitle = $this->getBoxName($lBoxIndex);
                     $lLink = $this->getBoxLink($lBoxIndex);
-                    echo sprintf("<a class='phone_box' href='%s'>\n", $lLink); //phone_box
+                    $lTitle = $this->getBoxTitle($i);
+                    echo sprintf("<a class='phone_box' href='%s' title='%s'>\n", $lLink, $lTitle); //phone_box
                     echo sprintf("<div class='phone_box_icon'><i class='phone_box_icon_fa fa fa-%s'></i></div>\n", $lIcon);
                     echo sprintf("<div class='phone_box_title'>%s</div>\n", $lTitle);
                     echo sprintf("</a>\n"); //phone_box
@@ -175,11 +176,12 @@ class GPhone extends GWidget {
         for($i = 0; $i < $lCountBox; $i++) {
             $lActive = $this->getBoxActive($i);
             if($lActive) {$lIcon = $this->getBoxIcon($i);
-                $lTitle = $this->getBoxName($i);
+                $lName = $this->getBoxName($i);
                 $lLink = $this->getBoxLink($i);
-                echo sprintf("<a class='phone_box' href='%s'>\n", $lLink); //phone_box
+                $lTitle = $this->getBoxTitle($i);
+                echo sprintf("<a class='phone_box' href='%s' title='%s'>\n", $lLink, $lTitle); //phone_box
                 echo sprintf("<div class='phone_box_icon'><i class='phone_box_icon_fa fa fa-%s'></i></div>\n", $lIcon);
-                echo sprintf("<div class='phone_box_title'>%s</div>\n", $lTitle);
+                echo sprintf("<div class='phone_box_title'>%s</div>\n", $lName);
                 echo sprintf("</a>\n"); //phone_box
             }
         }
@@ -288,6 +290,12 @@ class GPhone extends GWidget {
     //===============================================
     public function getBoxName($index) {
         $this->dom->queryXPath(sprintf("/rdv/phone/boxes/box[position()=%d]/name", $index + 1));
+        $lData = $this->dom->getNodeIndex(0)->getValue();
+        return $lData;
+    }
+    //===============================================
+    public function getBoxTitle($index) {
+        $this->dom->queryXPath(sprintf("/rdv/phone/boxes/box[position()=%d]/title", $index + 1));
         $lData = $this->dom->getNodeIndex(0)->getValue();
         return $lData;
     }

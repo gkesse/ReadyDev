@@ -27,14 +27,14 @@
                 <active>0</active>
             </box>
             <box>
-                <name>Je Ken</name>
+                <name>Plan</name>
                 <title>Vendre un objet</title>
                 <icon>shopping-basket</icon>
                 <link>/home/ken/</link>
                 <active>1</active>
             </box>
             <box>
-                <name>Je Shop</name>
+                <name>Shopping</name>
                 <title>Acheter un produit</title>
                 <icon>shopping-cart</icon>
                 <link>/home/shopping/</link>
