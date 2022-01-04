@@ -234,6 +234,95 @@ span {
 /* special */
 /* ============================================== */
 
+.error {
+    background-color: #c0932b;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    border-radius: 5px;
+    padding: 30px 30px 10px 10px;
+    transform: translate(-50%, -50%);
+    max-height: 500px;
+    overflow: auto;
+    z-index: 2;
+}
+
+.error_close  {
+    background-color: rgba(0,0,0,0.4);
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.error_close:hover  {
+    background-color: rgba(0,0,0,0.2);
+}
+
+.error_close:active  {
+    background-color: rgba(0,0,0,0.4);
+}
+
+.error_close_fa {
+    background-color: transparent;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -55%);
+}
+
+.error_main {
+    background-color: transparent;
+}
+
+.log {
+    background-color: #366b51;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    border-radius: 5px;
+    padding: 30px 30px 10px 10px;
+    transform: translate(-50%, -50%);
+    max-height: 500px;
+    overflow: auto;
+    z-index: 2;
+}
+
+.log_close  {
+    background-color: rgba(0,0,0,0.4);
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.log_close:hover  {
+    background-color: rgba(0,0,0,0.2);
+}
+
+.log_close:active  {
+    background-color: rgba(0,0,0,0.4);
+}
+
+.log_close_fa {
+    background-color: transparent;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -55%);
+}
+
+.log_main {
+    background-color: rgba(0,0,0,0);
+}
+
+
 .banner_url {
     position: absolute;
     top: 110px;

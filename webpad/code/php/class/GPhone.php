@@ -93,7 +93,7 @@ class GPhone extends GWidget {
             $lPageId = $this->getPageId();
             $this->showTitle();
             if($lPageId == "home") {$this->showHome();}
-            else if($lPageId == "home/ken") {$this->showKen();}
+            else if($lPageId == "home/plan") {$this->showPlan();}
             else if($lPageId == "home/shopping") {$this->showShopping();}
             else if($lPageId == "home/infos") {$this->showInfos();}
         }
@@ -111,16 +111,12 @@ class GPhone extends GWidget {
         }
     }
     //===============================================
-    public function showKen() {
-        echo sprintf("<div class='ken'>\n");
-        echo sprintf("<div class=''>ken</div>\n");
-        echo sprintf("</div>\n");
+    public function showPlan() {
+        GPlan::Instance()->show();
     }
     //===============================================
     public function showShopping() {
-        echo sprintf("<div class='shopping'>\n");
-        echo sprintf("<div class=''>shopping</div>\n");
-        echo sprintf("</div>\n");
+        GShopping::Instance()->show();
     }
     //===============================================
     public function showInfos() {

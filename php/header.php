@@ -1,5 +1,10 @@
 <?php     
     GPostRedirectGet::Instance()->redirect();
+    
+    $lHeaderObj = GHeader::Instance();
+    $lLogObj = GLog::Instance();
+    $lHappyYear = $lHeaderObj->getHappyYear();
+    
     GMetaData::Instance()->getData();
 
     $lTitle = GConfig::Instance()->getData("title"); 
@@ -144,7 +149,7 @@
         <!-- ============================================ -->
         <div class="HtmlPage">
             <!-- ============================================ -->
-            <div class="Background Top"><div class="HappyDay">Bonne et Heureuse Année 2021</div></div>
+            <div class="Background Top"><div class="HappyDay"><?php echo $lHappyYear; ?></div></div>
             <div class="Background Middle"></div>
             <div class="Background Bottom"></div>
             <!-- ============================================ -->

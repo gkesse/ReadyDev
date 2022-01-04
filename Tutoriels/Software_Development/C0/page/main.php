@@ -1,4 +1,4 @@
-<div class="Parallax GParallax1"><div class="Img Binary"><div class="Caption"><a href="#"><div class="Text">Apprendre la programmation en C<br></div></a></div></div><div class="Body2 Orange"><br>Le but de ce tutoriel est de vous apprendre la programmation en <b>C</b>.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary1"><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Introduction">Introduction</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Installation">Installation</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Tests">Tests</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Fondamentaux">Fondamentaux</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Programmation-orientee-objet">Programmation orientée objet</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Patrons-de-conception">Patrons de conception</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Systeme-d-administration">Système d'administration</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Gestionnaire-de-fichier-log">Gestionnaire de fichier log</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Duplication-de-processus-avec-Fork">Duplication de processus avec Fork</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Demonisation-de-processus-avec-Daemon">Démonisation de processus avec Daemon</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Communication-Inter-Processus-avec-Pipe">Communication Inter-Processus avec Pipe</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Multithreading-avec-PThread">Multithreading avec PThread</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Memoire-partagee">Mémoire partagée</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#File-d-attente-de-messages-avec-ZeroMQ">File d'attente de messages avec ZeroMQ</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Interface-Homme-Machine-avec-Gtk">Interface Homme-Machine avec Gtk</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV">Vision par Ordinateur avec OpenCV</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Base-de-donnees-avec-SQLite">Base de données avec SQLite</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Socket-sous-Windows">Socket sous Windows</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Date">Date</a></div></div><br></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Introduction"><a class="Link3" href="#">Introduction</a></h1><div class="Body3"><br><b>C </b>est un langage de programmation impératif généraliste, de bas niveau offrant au développeur une marge de contrôle importante sur la machine (notamment sur la gestion de la mémoire) et est de ce fait utilisé pour réaliser les fondations (compilateurs, interpréteurs) des langages plus modernes.<br><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/C0/img/b_c.png" class="lazy entered loaded" data-src="/Tutoriels/Software_Development/C0/img/b_c.png" data-ll-status="loaded" src="/Tutoriels/Software_Development/C0/img/b_c.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Installation"><a class="Link3" href="#">Installation</a></h1><div class="Body3"><br>Installer l'environnement C.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Installation-Installer-l-environnement-C-sous-MSYS2">Installer l'environnement C sous MSYS2</a></div></div><br><h2 class="Title7 GTitle2" id="Installation-Installer-l-environnement-C-sous-MSYS2"><a class="Link9" href="#Installation">Installer l'environnement C sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Télécharger MSYS2</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://repo.msys2.org/distrib/x86_64/">https://repo.msys2.org/distrib/x86_64/</a><br><br><b>msys2-x86_64-20210228.exe</b><br><br><h3 class="Title8 GTitle3">Démarrer l'installation</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="txt" data-state="off">msys2-x86_64-20210228.exe
+<div class="Parallax GParallax1"><div class="Img Binary"><div class="Caption"><a href="#"><div class="Text">Apprendre la programmation en C<br></div></a></div></div><div class="Body2 Orange"><br>Le but de ce tutoriel est de vous apprendre la programmation en <b>C</b>.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="Content0 GSummary1"><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Introduction">Introduction</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Installation">Installation</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Tests">Tests</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Fondamentaux">Fondamentaux</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Programmation-orientee-objet">Programmation orientée objet</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Patrons-de-conception">Patrons de conception</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Systeme-d-administration">Système d'administration</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Gestionnaire-de-fichier-log">Gestionnaire de fichier log</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Duplication-de-processus-avec-Fork">Duplication de processus avec Fork</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Demonisation-de-processus-avec-Daemon">Démonisation de processus avec Daemon</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Communication-Inter-Processus-avec-Pipe">Communication Inter-Processus avec Pipe</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Multithreading-avec-PThread">Multithreading avec PThread</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Memoire-partagee">Mémoire partagée</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#File-d-attente-de-messages-avec-ZeroMQ">File d'attente de messages avec ZeroMQ</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Interface-Homme-Machine-avec-Gtk">Interface Homme-Machine avec Gtk</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Vision-par-Ordinateur-avec-OpenCV">Vision par Ordinateur avec OpenCV</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Base-de-donnees-avec-SQLite">Base de données avec SQLite</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Socket-sous-Windows">Socket sous Windows</a></div><div class="Item4"><span class="Icon10 fa fa-book"></span><a class="Link4" href="#Date">Date</a></div></div><br></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Introduction"><a class="Link3" href="#">Introduction</a></h1><div class="Body3"><br><b>C </b>est un langage de bas niveau permettant de programmer les microcontrôleur. Le langage C offre au développeur une marge de contrôle importante sur la machine (notamment sur la gestion de la mémoire) et est de ce fait utilisé pour réaliser les fondations (compilateurs, interpréteurs) des langages plus modernes.<br><br><div class="Img3 GImage"><img alt="/Tutoriels/Software_Development/C0/img/b_c.png" class="lazy entered loaded" data-src="/Tutoriels/Software_Development/C0/img/b_c.png" data-ll-status="loaded" src="/Tutoriels/Software_Development/C0/img/b_c.png"></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Installation"><a class="Link3" href="#">Installation</a></h1><div class="Body3"><br>Installer l'environnement C.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Installation-Installer-l-environnement-C-sous-MSYS2">Installer l'environnement C sous MSYS2</a></div></div><br><h2 class="Title7 GTitle2" id="Installation-Installer-l-environnement-C-sous-MSYS2"><a class="Link9" href="#Installation">Installer l'environnement C sous MSYS2</a></h2><br><h3 class="Title8 GTitle3">Télécharger MSYS2</h3><br><a class="Link7 GLink1" style="color:lime;" target="_blank" href="https://repo.msys2.org/distrib/x86_64/">https://repo.msys2.org/distrib/x86_64/</a><br><br><b>msys2-x86_64-20210228.exe</b><br><br><h3 class="Title8 GTitle3">Démarrer l'installation</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="txt" data-state="off">msys2-x86_64-20210228.exe
 Suivant
 Dossier d'installation -&gt; C:\msys64
 Suivant
@@ -394,59 +394,143 @@ int main(int argc, char** argv) {
     }
     return 0;
 }
-//===============================================</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programmation-orientee-objet"><a class="Link3" href="#">Programmation orientée objet</a></h1><div class="Body3"><br>La <b>programmation orientée objet</b> (POO) est un paradigme de programmation informatique qui consiste en la définition et l'interaction de briques logicielles appelées objets ; un objet représente un concept, une idée ou toute entité du monde physique, comme une voiture, une personne ou encore une page d'un livre. Il possède une structure interne et un comportement, et il sait interagir avec ses pairs. Il s'agit donc de représenter ces objets et leurs relations ; l'interaction entre les objets via leurs relations permet de concevoir et réaliser les fonctionnalités attendues, de mieux résoudre le ou les problèmes. Dès lors, l'étape de modélisation revêt une importance majeure et nécessaire pour la POO. C'est elle qui permet de transcrire les éléments du réel sous forme virtuelle. La programmation orientée objet consiste à utiliser des techniques de programmation pour mettre en œuvre une conception basée sur les objets. Celle-ci peut être élaborée en utilisant des méthodologies de développement logiciel objet, dont la plus connue est le processus unifié et exprimée à l'aide de langages de modélisation tels que le Unified Modeling Language (UML).<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Programmation-orientee-objet-Creer-une-classe">Créer une classe</a></div></div><br><h2 class="Title7 GTitle2" id="Programmation-orientee-objet-Creer-une-classe"><a class="Link9" href="#Programmation-orientee-objet">Créer une classe</a></h2><br>En programmation orientée objet, la déclaration d'une <b>classe </b>regroupe des membres, méthodes et propriétés (attributs) communs à un ensemble d'objets. La classe déclare, d'une part, des attributs représentant l'état des objets et, d'autre part, des méthodes représentant leur comportement. Une classe représente donc une catégorie d'objets. Elle apparaît aussi comme un moule ou une usine à partir de laquelle il est possible de créer des objets ; c'est en quelque sorte une « boîte à outils » qui permet de fabriquer un objet. On parle alors d'un objet en tant qu'instance d'une classe (création d'un objet ayant les propriétés de la classe). Il est possible de restreindre l'ensemble d'objets représenté par une classe A grâce à un mécanisme d'héritage. Dans ce cas, on crée une nouvelle classe B liée à la classe A et qui ajoute de nouvelles propriétés.<br><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
-#include "GAnimal.h"
+//===============================================</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Programmation-orientee-objet"><a class="Link3" href="#">Programmation orientée objet</a></h1><div class="Body3"><br>La <b>programmation orientée objet</b> (POO) permet d'encapsuler dans une même structure les propriétés et les méthodes associées à un objet.<br><br><div class="Content0 GSummary2"><div class="Row26">Summary 2</div></div><br><h2 class="Title7 GTitle2" id="Programmation-orientee-objet-Fondamentaux"><a class="Link9" href="#Programmation-orientee-objet">Fondamentaux</a></h2><br><div class="Content0 GSummary3"><div class="Row26">Summary 3</div></div><br><h3 class="GTitle3" id="Programmation-orientee-objet-Fondamentaux-Classe"><a class="Title8" href="#Programmation-orientee-objet-Fondamentaux">Classe</a></h3><br>Une classe permet de regrouper les propriétés et les méthodes associées à un objet dans une structure.<br><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GObject.h"
 //===============================================
-int main(int argc, char** argv) {
-    GAnimalO* lAnimal = GAnimal_New("Chat", 10);
-    lAnimal-&gt;Print(lAnimal);
-    lAnimal-&gt;Delete(lAnimal);
+int main(int _argc, char** _argv) {
+    GObjectO* lObj = GObject_New();
+    lObj-&gt;Run(lObj, _argc, _argv);
+    lObj-&gt;Delete(lObj);
     return 0;
 }
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GAnimal.h</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
-#ifndef _GAnimal_
-#define _GAnimal_
+//===============================================</pre></div></div><br>Déclaration de la classe (GObject.h)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#ifndef _GObject_
+#define _GObject_
 //===============================================
-#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
+#include "GInclude.h"
 //===============================================
-typedef struct _GAnimalO GAnimalO;
+typedef struct _GObjectO GObjectO;
 //===============================================
-struct _GAnimalO {
-    void (*Delete)(GAnimalO* obj);
-    void (*Print)(GAnimalO* obj);
-    char name[256];
-    int weight;
+struct _GObjectO {
+    void (*Delete)(GObjectO* _obj);
+    void (*Run)(GObjectO* _obj, int _argc, char** _argv);
 };
 //===============================================
-GAnimalO* GAnimal_New(const char* name, int weight);
+GObjectO* GObject_New();
 //===============================================
 #endif
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">GAnimal.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
-#include "GAnimal.h"
+//===============================================</pre></div></div><br>Définition de la classe (GObject.cpp)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GObject.h"
 //===============================================
-static void GAnimal_Delete(GAnimalO* obj);
-static void GAnimal_Print(GAnimalO* obj);
+static void GObject_Delete(GObjectO* _obj);
+static void GObject_Run(GObjectO* _obj, int _argc, char** _argv);
 //===============================================
-GAnimalO* GAnimal_New(const char* name, int weight) {
-    GAnimalO* lObj = (GAnimalO*)malloc(sizeof(GAnimalO));
-    
-    sprintf(lObj-&gt;name, "%s", name);
-    lObj-&gt;weight = weight;
-    
-    lObj-&gt;Delete = GAnimal_Delete;
-    lObj-&gt;Print = GAnimal_Print;
+GObjectO* GObject_New() {
+    GObjectO* lObj = (GObjectO*)malloc(sizeof(GObjectO));
+        
+    lObj-&gt;Delete = GObject_Delete;
+    lObj-&gt;Run = GObject_Run;
     return lObj;
 }
 //===============================================
-static void GAnimal_Delete(GAnimalO* obj) {
-    free(obj);
+static void GObject_Delete(GObjectO* _obj) {
+    free(_obj);
+    _obj = 0;
 }
 //===============================================
-static void GAnimal_Print(GAnimalO* obj) {
-    printf("Nom : %s | Poids : %d (kg)\n", obj-&gt;name, obj-&gt;weight);
+static void GObject_Run(GObjectO* _obj, int _argc, char** _argv) {
+    printf("%s\n", __FUNCTION__);
 }
-//===============================================</pre></div></div><br><h3 class="Title8 GTitle3">Résultat</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">Nom : Chat | Poids : 10 (kg)</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Patrons-de-conception"><a class="Link3" href="#">Patrons de conception</a></h1><div class="Body3"><br>Un <b>patron de conception</b> (design pattern) est un arrangement caractéristique de modules, reconnu comme bonne pratique en réponse à un problème de conception d'un logiciel. Il décrit une solution standard, utilisable dans la conception de différents logiciels. Un patron de conception est issu de l'expérience des concepteurs de logiciels. Il décrit un arrangement récurrent de rôles et d'actions joués par des modules d'un logiciel, et le nom du patron sert de vocabulaire commun entre le concepteur et le programmeur. D'une manière analogue à un motif de conception en architecture, le patron de conception décrit les grandes lignes d'une solution, qui peuvent ensuite être modifiées et adaptées en fonction des besoins.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Patrons-de-conception-Creer-un-patron-singleton">Créer un patron singleton</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Patrons-de-conception-Creer-un-patron-strategie">Créer un patron stratégie</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Patrons-de-conception-Creer-un-patron-fabrique">Créer un patron fabrique</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Patrons-de-conception-Creer-un-patron-observateur">Créer un patron observateur</a></div></div><br><h2 class="Title7 GTitle2" id="Patrons-de-conception-Creer-un-patron-singleton"><a class="Link9" href="#Patrons-de-conception">Créer un patron singleton</a></h2><br>Le <b>singleton </b>est un patron de conception dont l'objet est de restreindre l'instanciation d'une classe à un seul objet (ou bien à quelques objets seulement). Il est utilisé lorsque l'on a besoin d'exactement un objet pour coordonner des opérations dans un système. Le modèle est parfois utilisé pour son efficacité, lorsque le système est plus rapide ou occupe moins de mémoire avec peu d'objets qu'avec beaucoup d'objets similaires. On implémente le singleton en écrivant une classe contenant une méthode qui crée une instance uniquement s'il n'en existe pas encore. Sinon elle renvoie une référence vers l'objet qui existe déjà. Dans beaucoup de langages de type objet, il faudra veiller à ce que le constructeur de la classe soit privé ou bien protégé, afin de s'assurer que la classe ne puisse être instanciée autrement que par la méthode de création contrôlée. Le singleton doit être implémenté avec précaution dans les applications multi-thread. Si deux processus légers exécutent en même temps la méthode de création alors que l'objet unique n'existe pas encore, il faut absolument s'assurer qu'un seul créera l'objet, et que l'autre obtiendra une référence vers ce nouvel objet. La solution classique à ce problème consiste à utiliser l'exclusion mutuelle (mutex) pour indiquer que l'objet est en cours d'instanciation. Dans un langage à base de prototypes, où sont utilisés des objets mais pas des classes, un singleton désigne seulement un objet qui n'a pas de copies, et qui n'est pas utilisé comme prototype pour d'autres objets.<br><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
+//===============================================</pre></div></div><br><h3 class="GTitle3" id="Programmation-orientee-objet-Fondamentaux-Heritage-de-classe"><a class="Title8" href="#Programmation-orientee-objet-Fondamentaux">Héritage de classe</a></h3><br>Programme principal<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GProcess.h"
+//===============================================
+int main(int _argc, char** _argv) {
+    GObjectO* lProcess = GProcess_New();
+    lProcess-&gt;Run(lProcess, _argc, _argv);
+    lProcess-&gt;Delete(lProcess);
+    return 0;
+}
+//===============================================</pre></div></div><br>Déclaration de la classe mére (GObject.h)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#ifndef _GObject_
+#define _GObject_
+//===============================================
+#include "GInclude.h"
+//===============================================
+typedef struct _GObjectO GObjectO;
+//===============================================
+struct _GObjectO {
+    void* child;
+    void (*Delete)(GObjectO* _obj);
+    void (*Run)(GObjectO* _obj, int _argc, char** _argv);
+};
+//===============================================
+GObjectO* GObject_New();
+void GObject_Delete(GObjectO* _obj);
+//===============================================
+#endif
+//===============================================</pre></div></div><br>Définition de la classe mére (GObject.cpp)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GObject.h"
+//===============================================
+static void GObject_Run(GObjectO* _obj, int _argc, char** _argv);
+//===============================================
+GObjectO* GObject_New() {
+    GObjectO* lObj = (GObjectO*)malloc(sizeof(GObjectO));
+
+    lObj-&gt;child = lObj;
+    lObj-&gt;Delete = GObject_Delete;
+    lObj-&gt;Run = GObject_Run;
+    return lObj;
+}
+//===============================================
+void GObject_Delete(GObjectO* _obj) {
+    free(_obj-&gt;child);
+    _obj-&gt;child = 0;
+    free(_obj);
+    _obj = 0;
+}
+//===============================================
+static void GObject_Run(GObjectO* _obj, int _argc, char** _argv) {
+    printf("%s\n", __FUNCTION__);
+}
+//===============================================</pre></div></div><br>Déclaration de la classe fille (GProcess.h)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#ifndef _GProcess_
+#define _GProcess_
+//===============================================
+#include "GObject.h"
+//===============================================
+typedef struct _GProcessO GProcessO;
+//===============================================
+struct _GProcessO {
+
+};
+//===============================================
+GObjectO* GProcess_New();
+//===============================================
+#endif
+//===============================================</pre></div></div><br>Définition de la classe fille (GProcess.cpp)<br><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-state="off" data-mode="c_cpp">//===============================================
+#include "GProcess.h"
+//===============================================
+static void GProcess_Delete(GObjectO* _obj);
+static void GProcess_Run(GObjectO* _obj, int _argc, char** _argv);
+//===============================================
+GObjectO* GProcess_New() {
+    GObjectO* lParent = GObject_New();
+    GProcessO* lChild = (GProcessO*)malloc(sizeof(GProcessO));
+
+    lParent-&gt;child = lChild;
+    lParent-&gt;Delete = GProcess_Delete;
+    lParent-&gt;Run = GProcess_Run;
+    return lParent;
+}
+//===============================================
+static void GProcess_Delete(GObjectO* _obj) {
+    GObject_Delete(_obj);
+}
+//===============================================
+static void GProcess_Run(GObjectO* _obj, int _argc, char** _argv) {
+    printf("%s\n", __FUNCTION__);
+}
+//===============================================</pre></div></div><br></div></div></div></div><br><div class="Content2 GTitle1"><div class="MainBlock2"><div class="Content"><h1 class="Title2 Center" id="Patrons-de-conception"><a class="Link3" href="#">Patrons de conception</a></h1><div class="Body3"><br>Un <b>patron de conception</b> (design pattern) est un arrangement caractéristique de modules, reconnu comme bonne pratique en réponse à un problème de conception d'un logiciel. Il décrit une solution standard, utilisable dans la conception de différents logiciels. Un patron de conception est issu de l'expérience des concepteurs de logiciels. Il décrit un arrangement récurrent de rôles et d'actions joués par des modules d'un logiciel, et le nom du patron sert de vocabulaire commun entre le concepteur et le programmeur. D'une manière analogue à un motif de conception en architecture, le patron de conception décrit les grandes lignes d'une solution, qui peuvent ensuite être modifiées et adaptées en fonction des besoins.<br><br><div class="Content0 GSummary2"><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Patrons-de-conception-Creer-un-patron-singleton">Créer un patron singleton</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Patrons-de-conception-Creer-un-patron-strategie">Créer un patron stratégie</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Patrons-de-conception-Creer-un-patron-fabrique">Créer un patron fabrique</a></div><div class="Item4"><i class="Icon10 fa fa-book"></i><a class="Link4" href="#Patrons-de-conception-Creer-un-patron-observateur">Créer un patron observateur</a></div></div><br><h2 class="Title7 GTitle2" id="Patrons-de-conception-Creer-un-patron-singleton"><a class="Link9" href="#Patrons-de-conception">Créer un patron singleton</a></h2><br>Le <b>singleton </b>est un patron de conception dont l'objet est de restreindre l'instanciation d'une classe à un seul objet (ou bien à quelques objets seulement). Il est utilisé lorsque l'on a besoin d'exactement un objet pour coordonner des opérations dans un système. Le modèle est parfois utilisé pour son efficacité, lorsque le système est plus rapide ou occupe moins de mémoire avec peu d'objets qu'avec beaucoup d'objets similaires. On implémente le singleton en écrivant une classe contenant une méthode qui crée une instance uniquement s'il n'en existe pas encore. Sinon elle renvoie une référence vers l'objet qui existe déjà. Dans beaucoup de langages de type objet, il faudra veiller à ce que le constructeur de la classe soit privé ou bien protégé, afin de s'assurer que la classe ne puisse être instanciée autrement que par la méthode de création contrôlée. Le singleton doit être implémenté avec précaution dans les applications multi-thread. Si deux processus légers exécutent en même temps la méthode de création alors que l'objet unique n'existe pas encore, il faut absolument s'assurer qu'un seul créera l'objet, et que l'autre obtiendra une référence vers ce nouvel objet. La solution classique à ce problème consiste à utiliser l'exclusion mutuelle (mutex) pour indiquer que l'objet est en cours d'instanciation. Dans un langage à base de prototypes, où sont utilisés des objets mais pas des classes, un singleton désigne seulement un objet qui n'a pas de copies, et qui n'est pas utilisé comme prototype pour d'autres objets.<br><br><h3 class="Title8 GTitle3">main.c</h3><br><div class="GCode1"><div class="Code2"><pre class="AceCode" data-mode="c_cpp">//===============================================
 #include "GDatabase.h"
 //===============================================
 int main(int argc, char** argv) {

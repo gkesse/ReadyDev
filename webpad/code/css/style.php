@@ -506,6 +506,12 @@ button:active {
     color: #ffffff;
 }
 /* ============================================== */
+.shopping {
+    background-color: rgba(0,0,0,0.4);
+    padding: 10px;
+    border-radius: 5px;
+}
+/* ============================================== */
 /* Mobile */ 
 /* ---------------------------------------------- */
 @media (max-width:1024px) {

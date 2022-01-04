@@ -3,6 +3,9 @@
 <!-- ============================================ -->
 <?php require $_SERVER["DOCUMENT_ROOT"]."/php/footer_page.php";  ?>
 <!-- ============================================ -->
+<?php GLog::Instance()->showError(); ?>
+<?php GLog::Instance()->showLog(); ?>
+<!-- ============================================ -->
 </div> <!-- BodyPage -->
 <!-- ============================================ -->
 </div> <!-- HtmlPage -->
@@ -16,6 +19,7 @@
 <script src="/js/class/GAce.js" async></script>
 <!-- ============================================ -->
 <script src="/js/header.js" async></script>
+<script src="/js/script.js" async></script>
 <!-- ============================================ -->
 </body>
 </html>

@@ -1,6 +1,6 @@
 <?php   
 //===============================================
-class GCDiscount extends GWidget {
+class GHeader extends GObject {
     //===============================================
     static private $m_instance = null;
     //===============================================
@@ -11,7 +11,7 @@ class GCDiscount extends GWidget {
     //===============================================
     public static function Instance() {
         if(is_null(self::$m_instance)) {
-            self::$m_instance = new GCDiscount();  
+            self::$m_instance = new GHeader();  
         }
         return self::$m_instance;
     }
@@ -19,14 +19,22 @@ class GCDiscount extends GWidget {
     public function createDom() {
         $this->dom = new GDomXml();
         $this->dom->createDom();
-        $this->dom->loadXmlFile("phone.xml");
+        $this->dom->loadXmlFile($this->getResourcePath("xml", "header.xml"));
         $this->dom->createXPath();
     }
     //===============================================
-    public function show() {
-        echo sprintf("<div class='body_main'>\n");
-
-        echo sprintf("</div>\n");
+    public function getHappy() {
+        $this->dom->queryXPath(sprintf("/rdv/header/happyyear/text"));
+        $this->dom->getNodeXPath();
+        $lData = $this->dom->getValue();
+        return $lData;
+    }
+    //===============================================
+    public function getHappyYear() {
+        $lHappy = $this->getHappy();
+        $lYear = date("Y");
+        $lData = sprintf("%s %s", $lHappy, $lYear);
+        return $lData;
     }
     //===============================================
 }
