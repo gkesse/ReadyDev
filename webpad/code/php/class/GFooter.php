@@ -23,23 +23,29 @@ class GFooter extends GWidget {
         $this->dom->createXPath();
     }
     //===============================================
-    public function show() {
+    public function run() {
         $this->loadScripts();
         echo sprintf("</body>\n");
         echo sprintf("</html>\n");
     }
     //===============================================
     public function countScripts() {
-        $this->dom->queryXPath(sprintf("/rdv/header/scripts/script"));
+        $this->dom->queryXPath(sprintf("/rdv/datas/data[code='scripts']/map/data"));
         $lData = $this->dom->countXPath();
+        return $lData;
+    }
+    //===============================================
+    public function getScript($index) {
+        $this->dom->queryXPath(sprintf("/rdv/datas/data[code='scripts']/map/data"));
+        $this->dom->getNodeIndex($index);
+        $lData = $this->dom->getValue();
         return $lData;
     }
     //===============================================
     public function loadScripts() {
         $lCount = $this->countScripts();
         for($i = 0; $i < $lCount; $i++) {
-            $this->dom->getNodeIndex($i);
-            $lScript = $this->dom->getValue();
+            $lScript = $this->getScript($i);
             echo sprintf("<script src='%s%s'></script>\n", $this->getWebRoot(), $lScript);
         }
     }

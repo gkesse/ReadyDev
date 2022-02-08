@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rdv>
-    <cdata> 
-        <![CDATA[
+    <datas>
+    	<data>
+    		<code>text/data</code>
+    		<data>
+        		<![CDATA[
 ooooooooo ooooooooooooooo <span style='color:red;'>oooooooooooooooooooo</span><br>
 ooooooooo ooooooooooooooo oooooooooooooooooooo<br>
 ooooooooo ooooooooooooooo oooooooooooooooooooo<br>
@@ -42,6 +45,8 @@ ooooooooo ooooooooooooooo oooooooooooooooooooo<br>
 ooooooooo ooooooooooooooo oooooooooooooooooooo<br>
 ooooooooo ooooooooooooooo oooooooooooooooooooo<br>
 ooooooooo ooooooooooooooo oooooooooooooooooooo<br>
-        ]]>
-    </cdata>
+        			]]>
+        	</data>
+        </data>
+    </datas>
 </rdv>
