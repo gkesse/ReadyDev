@@ -28,7 +28,7 @@ class GInfos extends GWidget {
         $this->domData->createXPath();
     }
     //===============================================
-    public function show() {
+    public function run() {
         echo sprintf("<div class='infos'>\n");
         for($i = 0; $i < $this->countInfos(); $i++) {
             $lActive = $this->getActive($i);

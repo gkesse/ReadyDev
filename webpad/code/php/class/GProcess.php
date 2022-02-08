@@ -23,16 +23,28 @@ class GProcess extends GObject {
         $this->dom->createXPath();
     }
     //===============================================
-    public function show() {
-        GHeader::Instance()->show();
-        $this->getObj()->show();
-        GFooter::Instance()->show();
+    public function getConfigItem($data) {
+        $this->dom->queryXPath(sprintf("/rdv/datas/data[code='config']/%s", $data));
+        $this->dom->getNodeIndex(0);
+        $lData = $this->dom->getValue();
+        return $lData;
     }
     //===============================================
-    public function getProcessName() {
-        $this->dom->queryXPath(sprintf("/rdv/process/name"));
-        $lData = $this->dom->getNodeIndex(0)->getValue();
-        return $lData;
+    public function run() {
+        GHeader::Instance()->run();
+        $this->runProcess();
+        GFooter::Instance()->run();
+    }
+    //===============================================
+    public function runProcess() {
+        $lKey = $this->getConfigItem("process");
+        if($lKey == "studio") {
+            $this->runStudio();
+        }
+    }
+    //===============================================
+    public function runStudio() {
+        GStudio::Instance()->run();
     }
     //===============================================
 }

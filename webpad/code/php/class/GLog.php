@@ -33,8 +33,12 @@ class GLog extends GObject {
             $lError .= sprintf("%s<br>", $error);
         }
         echo sprintf("<div class='error'>\n");
-        echo sprintf("<div class='error_close' onclick='error_close_onclick(this)'><i class='error_close_fa fa fa-times'></i></div>\n");
-        echo sprintf("<div class='error_main'>%s</div>\n", $lError);
+        echo sprintf("<div class='error_body'>\n");
+        echo sprintf("<a class='button_close' onclick='error_close_onclick()'><i class='button_close_fa fa fa-times'></i></a>\n");
+        echo sprintf("<div class='title_text'>%s</div>\n", "ERREUR");
+        echo sprintf("<hr class='title_hr'>\n");
+        echo sprintf("<div class='row_line'>%s</div>\n", $lError);
+        echo sprintf("</div>\n");
         echo sprintf("</div>\n");
     }
     //===============================================
@@ -45,8 +49,12 @@ class GLog extends GObject {
             $lLog .= sprintf("%s<br>", $log);
         }
         echo sprintf("<div class='log'>\n");
-        echo sprintf("<div class='log_close' onclick='log_close_onclick(this)'><i class='error_close_fa fa fa-times'></i></div>\n");
-        echo sprintf("<div class='log_main'>%s</div>\n", $lLog);
+        echo sprintf("<div class='log_body'>\n");
+        echo sprintf("<a class='button_close' onclick='log_close_onclick()'><i class='button_close_fa fa fa-times'></i></a>\n");
+        echo sprintf("<div class='title_text'>%s</div>\n", "LOG");
+        echo sprintf("<hr class='title_hr'>\n");
+        echo sprintf("<div class='row_line'>%s</div>\n", $lLog);
+        echo sprintf("</div>\n");
         echo sprintf("</div>\n");
     }
     //===============================================

@@ -23,7 +23,7 @@ class GPlan extends GWidget {
         $this->dom->createXPath();
     }
     //===============================================
-    public function show() {
+    public function run() {
         echo sprintf("<div class='plan'>\n");
         echo sprintf("<div class=''>plan</div>\n");
         echo sprintf("</div>\n");

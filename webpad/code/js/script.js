@@ -19,6 +19,15 @@ function log_close_onclick() {
     lLog.style.display = "none"; 
 }
 //===============================================
+// studio
+//===============================================
+function studio_header_connect_onclick() {
+    GStudio.Instance().openConnection();
+}
+function studio_connection_close_onclick() {
+    GStudio.Instance().closeConnection();
+}
+//===============================================
 // phone
 //===============================================
 function phone_slide_prev_onclick() {

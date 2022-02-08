@@ -1,6 +1,6 @@
-<?php   
+<?php
 //===============================================
-class GShopping extends GWidget {
+class GData extends GObject {
     //===============================================
     static private $m_instance = null;
     //===============================================
@@ -11,7 +11,7 @@ class GShopping extends GWidget {
     //===============================================
     public static function Instance() {
         if(is_null(self::$m_instance)) {
-            self::$m_instance = new GShopping();  
+            self::$m_instance = new GData();
         }
         return self::$m_instance;
     }
@@ -19,22 +19,17 @@ class GShopping extends GWidget {
     public function createDom() {
         $this->dom = new GDomXml();
         $this->dom->createDom();
-        $this->dom->loadXmlFile("shopping.xml");
+        $this->dom->loadXmlFile("app_data.xml");
         $this->dom->createXPath();
     }
     //===============================================
-    public function run() {
-        echo sprintf("<div class='shopping'>\n");
-        echo sprintf("<div class=''>%s</div>\n", $this->getTitle());
-        echo sprintf("</div>\n");
-    }
-    //===============================================
-    public function getTitle() {
-        $this->dom->queryXPath(sprintf("/rdv/shopping/product/title"));
-        $lData = $this->dom->getNodeIndex(0)->getValue();
+    public function getData($code) {
+        $this->dom->queryXPath(sprintf("/rdv/datas/data[code='%s']/data", $code));
+        $this->dom->getNodeIndex(0);
+        $lData = $this->dom->getValue();
         return $lData;
     }
     //===============================================
- }
+}
 //===============================================
 ?>

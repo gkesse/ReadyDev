@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdv>
+    <datas>
+    	<!-- header -->
+    	<data>
+    		<code>header</code>
+    		<map>
+    			<data>
+    				<type>button/icon/link/color</type>
+    				<name>ReadyPad</name>
+    				<picto>snowflake-o</picto>
+    				<font_color>#ffaa55</font_color>
+    				<link>home</link>
+    			</data>
+    			<data>
+    				<type>button/icon/post</type>
+    				<category>admin</category>
+    				<name>Mise à jour</name>
+    				<picto>database</picto>
+    				<picto_color>#aaaaff</picto_color>
+    				<link>database/update</link>
+    			</data>
+    			<data>
+    				<type>button/icon/post</type>
+    				<category>admin</category>
+    				<name>Procédure de Test </name>
+    				<picto>code</picto>
+    				<picto_color>#aaaaff</picto_color>
+    				<link>procedure/test/run</link>
+    			</data>
+    			<data>
+    				<type>button/icon/link</type>
+    				<category>login</category>
+    				<name>Connexion</name>
+    				<picto>user</picto>
+    				<picto_color>#aaaaff</picto_color>
+    				<link>user/login</link>
+    			</data>
+    			<data>
+    				<type>button/icon/post</type>
+    				<category>logout</category>
+    				<name>Déconnexion</name>
+    				<picto>power-off</picto>
+    				<picto_color>#aaaaff</picto_color>
+    				<link>user/logout</link>
+    			</data>
+    		</map>
+    	</data>
+    	<!-- connection -->
+    	<data>
+    		<code>connection</code>
+    		<action>user/login</action>
+    		<title>CONNEXION</title>
+    		<map>
+    			<data>
+    				<type>lineedit/email</type>
+    				<label>Email</label>
+    				<key>email</key>
+    				<picto>envelope-o</picto>
+    				<picto_color>#aaaaff</picto_color>
+    				<max_length>32</max_length>
+    				<holder>Saisissez votre email</holder>
+    			</data>
+    			<data>
+    				<type>lineedit/password</type>
+    				<label>Mot de passe</label>
+    				<key>password</key>
+    				<picto>key</picto>
+    				<picto_color>#aaaaff</picto_color>
+    				<max_length>32</max_length>
+    				<holder>Saisissez votre mot de passe</holder>
+    			</data>
+    			<data>
+    				<type>text/color</type>
+    				<category>error</category>
+    				<text>Votre identifiant ou mot de passe est incorrect.</text>
+    				<font_color>#ffaa55</font_color>
+    			</data>
+    			<data>
+    				<type>button</type>
+    				<name>Connexion</name>
+    				<key>connect</key>
+    				<picto>user</picto>
+    				<picto_color>#aaaaff</picto_color>
+    			</data>
+    			<data>
+    				<type>text/link</type>
+    				<text><![CDATA[Envie de nous rejoindre ? 
+    				<a class='link' href='{link}'>Créer un compte</a>]]></text>
+    				<link>user/account/create</link>
+    			</data>
+    		</map>
+    	</data>
+    	<!-- disconnection -->
+    	<data>
+    		<code>disconnection</code>
+    		<action>user/logout</action>
+    		<title>DECONNEXION</title>
+    		<map>
+    			<data>
+    				<type>text/color</type>
+    				<text>Êtes-vous sûr de vouloir vous déconnecter ?</text>
+    				<font_color>#aaaaff</font_color>
+    			</data>
+    			<data>
+    				<type>button</type>
+    				<name>Déconnexion</name>
+    				<key>disconnect</key>
+    				<picto>power-off</picto>
+    				<picto_color>#aaaaff</picto_color>
+    			</data>
+    		</map>
+    	</data>
+    	<!-- account -->
+    	<data>
+    		<code>account</code>
+    		<action>user/account/create</action>
+    		<title>CREATION D'UN COMPTE</title>
+    		<map>
+    			<data>
+    				<type>lineedit/email</type>
+    				<label>Email</label>
+    				<key>email</key>
+    				<picto>envelope-o</picto>
+    				<picto_color>#aaaaff</picto_color>
+    				<max_length>32</max_length>
+    				<holder>Saisissez votre email</holder>
+    			</data>
+    			<data>
+    				<type>lineedit/password</type>
+    				<label>Mot de passe</label>
+    				<key>password</key>
+    				<picto>key</picto>
+    				<picto_color>#aaaaff</picto_color>
+    				<max_length>32</max_length>
+    				<holder>Saisissez votre mot de passe</holder>
+    			</data>
+    			<data>
+    				<type>lineedit/password</type>
+    				<label>Confirmation</label>
+    				<key>confirm</key>
+    				<picto>key</picto>
+    				<picto_color>#aaaaff</picto_color>
+    				<max_length>32</max_length>
+    				<holder>Confirmez votre mot de passe</holder>
+    			</data>
+    			<data>
+    				<type>text/color</type>
+    				<category>error</category>
+    				<text>Votre identifiant ou mot de passe est incorrect.</text>
+    				<font_color>#ffaa55</font_color>
+    			</data>
+    			<data>
+    				<type>button</type>
+    				<name>Création</name>
+    				<key>create</key>
+    				<picto>plus</picto>
+    				<picto_color>#aaaaff</picto_color>
+    			</data>
+    		</map>
+    	</data>
+    	<!-- error -->
+    	<data>
+    		<code>error</code>
+    		<title>ERREUR</title>
+    		<map>
+     			<data>
+    				<type>text/icon</type>
+    				<text><![CDATA[PAGE NON TROUVEE]]></text>
+    				<picto>exclamation-triangle</picto>
+    			</data>
+    		</map>
+    	</data>
+    	<!-- page -->
+    	<data>
+    		<code>page</code>
+    		<map>
+    			<link>home</link>
+    			<link>user/login</link>
+    			<link>user/logout</link>
+    			<link>user/connect</link>
+    			<link>user/account/create</link>
+    			<link>database/update</link>
+    			<link>procedure/test/run</link>
+    		</map>
+    	</data>
+    	<!-- translator -->
+    	<data>
+    		<code>translator</code>
+    		<lang>fr</lang>
+    		<map>
+    			<data>
+    				<id>1</id>
+    				<fr>Les mots de passe ne sont pas identiques</fr>
+    			</data>
+    			<data>
+    				<id>2</id>
+    				<fr>Cet utilisateur existe déjà</fr>
+    			</data>
+    		</map>
+    	</data>
+    	<!-- end -->
+    </datas>
+</rdv>

@@ -28,7 +28,7 @@ class GPhone extends GWidget {
         $this->domData->createXPath();
     }
     //===============================================
-    public function show() {
+    public function run() {
         if($this->getBgImg()) {
             echo sprintf("<div class='phone_main_img'>\n"); //phone_main
         }
@@ -112,15 +112,15 @@ class GPhone extends GWidget {
     }
     //===============================================
     public function showPlan() {
-        GPlan::Instance()->show();
+        GPlan::Instance()->run();
     }
     //===============================================
     public function showShopping() {
-        GShopping::Instance()->show();
+        GShopping::Instance()->run();
     }
     //===============================================
     public function showInfos() {
-        GInfos::Instance()->show();
+        GInfos::Instance()->run();
     }
     //===============================================
     public function showTitle() {

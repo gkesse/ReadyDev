@@ -21,7 +21,7 @@ class GDomXml extends GObject {
     }
     //===============================================
     public function loadXmlFile($file) {
-        $lPath = $this->getXmlPath($file);
+        $lPath = $this->getRepoPath("data/xml", $file);
         if($lPath == "") return;
         if(!$this->dom) {
             GLog::Instance()->addError(sprintf("Erreur la méthode (loadXmlFile) a échoué ".
@@ -66,14 +66,10 @@ class GDomXml extends GObject {
     //===============================================
     public function queryXPath($query) {
         if(!$this->xpath) {
-            GLog::Instance()->addError(sprintf("Erreur la méthode (queryXPath) a échoué ".
-                    "sur la requête (%s) (1).", $query));
             return $this;
         }
         $this->nodes = $this->xpath->query($query);
         if(!$this->nodes->length) {
-            GLog::Instance()->addError(sprintf("Erreur la méthode (queryXPath) a échoué ".
-                    "sur la requête (%s) (2).", $query));
             return $this;
         }
         return $this;

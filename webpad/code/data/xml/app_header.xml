@@ -1,18 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rdv>
-    <header>
-        <site>ReadyPad</site>
-        <logo>/data/img/logo_web.png</logo>
-        <lang>fr</lang>
-        <fonts>
-            <font>/libs/google_fonts/Allan/css.css</font>
-            <font>/libs/google_fonts/Archivo_Narrow/css.css</font>
-        </fonts>
-        <scripts>
-            <script>/js/class/GObject.js</script>
-            <script>/js/class/GXml.js</script>
-            <script>/js/class/GPhone.js</script>
-            <script>/js/script.js</script>
-        </scripts>
-    </header>
+    <datas>
+    	<!-- settings -->
+    	<data>
+    		<code>settings</code>
+	        <title>ReadyPad</title>
+	        <logo>/data/img/logo_web.png</logo>
+	        <lang>fr</lang>
+    	</data>
+    	<!-- fonts -->
+    	<data>
+    		<code>fonts</code>
+	        <map>
+           		<data>/libs/google_fonts/Allan/css.css</data>
+           		<data>/libs/google_fonts/Archivo_Narrow/css.css</data>
+	        </map>
+    	</data>
+    	<!-- scripts -->
+        <data>
+        	<code>scripts</code>
+        	<map>
+	            <data>/js/class/GObject.js</data>
+	            <data>/js/class/GXml.js</data>
+	            <data>/js/class/GStudio.js</data>
+	            <data>/js/class/GPhone.js</data>
+	            <data>/js/script.js</data>       	
+        	</map>
+        </data>
+    </datas>
 </rdv>
