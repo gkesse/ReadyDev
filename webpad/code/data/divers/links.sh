@@ -6,6 +6,22 @@
 https://stackoverflow.com/questions/36008369/single-space-as-field-separator-with-awk
 
 #================================================
+### carte
+#================================================
+
+# supprimer fond image
+https://www.remove.bg/upload
+
+# ajouter un fond d'image
+https://www.designify.com/categories/314da8c8-3d0d-4aa4-b0ce-d9a8e2900a93?iid=7fb15660-7ffd-4d84-b64e-5e6f8bbc5e79&tid=15213550-bb94-4a1f-a06e-e3ea4044b455
+
+# image afrique
+https://www.pinterest.fr/pin/402579654199359701/feedback/?invite_code=097a4cea0216469c96c92df2e1351230&sender_id=837528999361287225
+
+# image feuille tropical
+https://www.istockphoto.com/fr/vectoriel/carte-danniversaire-typographie-de-joyeux-anniversaire-de-paillettes-dor-et-de-gm697902550-129388963
+
+#================================================
 ### eclipse
 #================================================
 
@@ -24,6 +40,9 @@ https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/maxlength
 
 # gerer les scrollbars
 https://www.w3schools.com/howto/howto_css_custom_scrollbar.asp
+
+# changer la couleur de fond jaune du remplissage automatique de safari
+https://stackoverflow.com/questions/41871618/how-to-change-safari-autofill-yellow-background-color
 
 #================================================
 ### notepad++
@@ -82,6 +101,9 @@ https://www.php.net/manual/en/function.implode.php
 # verifier si une url est tapee ou provient d'un clic en php
 https://stackoverflow.com/questions/7009807/how-to-check-if-a-url-is-typed-or-coming-from-a-click-in-php/10900715
 
+# installer intl
+https://stackoverflow.com/questions/8597146/class-normalizer-not-found-in-php-5-3-8
+
 #================================================
 ### shell
 #================================================
@@ -113,6 +135,13 @@ https://stackoverflow.com/questions/17617610/set-default-value-of-an-integer-col
 
 # ajouter un commentaire sur les colonnes sous sqlite
 https://stackoverflow.com/questions/7426205/sqlite-adding-comment-on-descriptions-to-tables-and-columns
+
+#================================================
+### traitement image
+#================================================
+
+# supprimer l'arriere-plan d'une image à l'aide de python
+https://stackoverflow.com/questions/69516143/remove-the-background-from-a-picture-using-python
 
 #================================================
 ### xdebug

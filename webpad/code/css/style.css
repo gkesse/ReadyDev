@@ -5,12 +5,10 @@
     outline: none;
     background-color: transparent;
 }
-/* ============================================== */
 html {
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: transparent;
 }
-/* ============================================== */
 body {
 	background-color: #111111;
     color: white;
@@ -19,12 +17,10 @@ body {
     padding: 0px;
     margin: 0px;
 }
-/* ============================================== */
 a {
     color: white;
     text-decoration: none;
 }
-/* ============================================== */
 button {
     background-color: transparent;
 	border: 2px solid #aaaaff;
@@ -41,7 +37,6 @@ button:hover {
 button:active {
     background-color: transparent;
 }
-/* ============================================== */
 input {
     background-color: transparent;
 	border: 2px solid #aaaaff;
@@ -57,15 +52,15 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active{
     -webkit-box-shadow: 0 0 0 30px #111111 inset !important;
     -webkit-text-fill-color: white !important;
+    background-color: #111111 !important;
+    background-clip: content-box !important;    
     font-family: arial;
     font-size: 16px;
 }
-/* ============================================== */
 * {
 	scrollbar-color: #aaaaff #111111;
     scrollbar-width: thin;
 }
-/* ============================================== */
 *::-webkit-scrollbar {
   	width: 5px;
   	height: 5px;
@@ -95,7 +90,7 @@ input:-webkit-autofill:active{
 	height: 5px;
 }
 /* ============================================== */
-/* global */
+/* custom */
 /* ============================================== */
 .border {
 	border: 2px solid #aaffaa;
@@ -109,6 +104,57 @@ input:-webkit-autofill:active{
 .button_form {
 	position: relative;
 	padding-left: 30px;
+}
+.button_close  {
+    background-color: transparent;
+	border: 2px solid #aaaaff;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border-radius: 50%;
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+}
+.button_close:hover  {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+.button_close:active  {
+    background-color: transparent;
+}
+.button_close_fa {
+    background-color: transparent;
+    color: #aaaaff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.box_bottom {
+    border-bottom: 2px solid #aaaaff;
+    padding: 10px;
+    overflow-x: auto;
+    white-space: nowrap;    
+}
+.box {
+	background-color: #111111;
+	position: fixed;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+    padding: 50px 10px 50px 10px;
+    overflow: auto;
+}
+.box_body {
+	background-color: transparent;
+	border: 2px solid #aaaaff;
+    padding: 40px 20px 40px 20px;
+    border-radius: 5px;
+    max-width: 400px;
+    min-height: 10px;
+    margin: auto;
+    position: relative;
 }
 .form_button {
 	background-color: transparent;
@@ -166,10 +212,10 @@ input:-webkit-autofill:active{
 	color: #aaaaff;
 }
 .title_hr {
-	color: #aaaaff;
+	border: 1px solid #aaaaff;
 }
 .title_hr_margin {
-	color: #aaaaff;
+	border: 1px solid #aaaaff;
 	margin-bottom: 40px;
 }
 .title_text {
@@ -179,156 +225,6 @@ input:-webkit-autofill:active{
 	left: 20px;
 	right: 45px;
 	text-align: center;
-}
-/* ============================================== */
-.button_close  {
-    background-color: transparent;
-	border: 2px solid #aaaaff;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    border-radius: 50%;
-    width: 25px;
-    height: 25px;
-    cursor: pointer;
-}
-.button_close:hover  {
-    background-color: rgba(255, 255, 255, 0.3);
-}
-.button_close:active  {
-    background-color: transparent;
-}
-.button_close_fa {
-    background-color: transparent;
-    color: #aaaaff;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-55%, -55%);
-}
-/* ============================================== */
-/* error */
-/* ============================================== */
-.error {
-	background-color: transparent;
-	position: fixed;
-	top: 0px;
-	bottom: 0px;
-	left: 0px;
-	right: 0px;
-    padding: 10px;
-}
-.error_body {
-	background-color: #111111;
-	border: 2px solid #aaaaff;
-    padding: 40px 20px 40px 20px;
-    border-radius: 5px;
-    min-width: 400px;
-    min-height: 10px;
-    position: absolute;
- 	top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-/* ============================================== */
-/* log */
-/* ============================================== */
-.log {
-	background-color: transparent;
-	position: fixed;
-	top: 0px;
-	bottom: 0px;
-	left: 0px;
-	right: 0px;
-    padding: 10px;
-}
-.log_body {
-	background-color: #111111;
-	border: 2px solid #aaaaff;
-    padding: 40px 20px 40px 20px;
-    border-radius: 5px;
-    min-width: 400px;
-    min-height: 10px;
-    position: absolute;
- 	top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-/* ============================================== */
-/* studio */
-/* ============================================== */
-.studio_header {
-    border-bottom: 2px solid #aaaaff;
-    padding: 10px;
-    overflow-x: auto;
-    white-space: nowrap;    
-}
-/* ============================================== */
-.box {
-	background-color: #111111;
-	position: fixed;
-	top: 0px;
-	bottom: 0px;
-	left: 0px;
-	right: 0px;
-    padding: 10px;
-}
-.box_body {
-	background-color: transparent;
-	border: 2px solid #aaaaff;
-    padding: 40px 20px 40px 20px;
-    border-radius: 5px;
-    min-width: 400px;
-    min-height: 10px;
-    position: absolute;
- 	top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-/* ============================================== */
-.studio_connection {
-	background-color: #111111;
-	position: fixed;
-	top: 0px;
-	bottom: 0px;
-	left: 0px;
-	right: 0px;
-    padding: 10px;
-    overflow: auto;
-}
-.studio_connection_body {
-	background-color: transparent;
-	border: 2px solid #aaaaff;
-    padding: 40px 20px 40px 20px;
-    border-radius: 5px;
-    min-width: 400px;
-    min-height: 100px;
-    position: absolute;
- 	top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-/* ============================================== */
-.studio_error {
-	background-color: #111111;
-	position: fixed;
-	top: 0px;
-	bottom: 0px;
-	left: 0px;
-	right: 0px;
-    padding: 10px;
-}
-.studio_error_body {
-	background-color: transparent;
-	border: 2px solid #aaaaff;
-    padding: 40px 20px 40px 20px;
-    border-radius: 5px;
-    min-width: 400px;
-    min-height: 10px;
-    position: absolute;
- 	top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 }
 /* ============================================== */
 /* xdebug */
@@ -347,5 +243,75 @@ input:-webkit-autofill:active{
     height: 300px;
     overflow-y: auto;
     overflow-x: hidden;
+}
+/* ============================================== */
+/* Responsive Web Design */ 
+/* ============================================== */
+.RwdC01 {width: 4.16%;}
+.RwdC02 {width: 8.33%;}
+.RwdC03 {width: 12.5%;}
+.RwdC04 {width: 16.66%;}
+.RwdC05 {width: 20.83%;}
+.RwdC06 {width: 25%;}
+.RwdC07 {width: 29.16%;}
+.RwdC08 {width: 33.33%;}
+.RwdC09 {width: 37.5%;}
+.RwdC10 {width: 41.66%;}
+.RwdC11 {width: 45.83%;}
+.RwdC12 {width: 50%;}
+.RwdC13 {width: 54.16%;}
+.RwdC14 {width: 58.33%;}
+.RwdC15 {width: 62.5%;}
+.RwdC16 {width: 66.66%;}
+.RwdC17 {width: 70.83%;}
+.RwdC18 {width: 75%;}
+.RwdC19 {width: 79.16%;}
+.RwdC20 {width: 83.33%;}
+.RwdC21 {width: 87.5%;}
+.RwdC22 {width: 91.66%;}
+.RwdC23 {width: 95.83%;}
+.RwdC24 {width: 100%;}
+/* ---------------------------------------------- */
+[class*="RwdC"] {
+    display: inline-block;
+    vertical-align: top;
+    font-size: 16px;
+    padding: 5px;
+}
+/* ============================================== */
+@media (max-width:1024px) {
+
+}
+/* ---------------------------------------------- */
+@media (max-width:960px) {
+
+}
+/* ---------------------------------------------- */
+@media (max-width:750px) {
+
+}
+/* ---------------------------------------------- */
+@media (max-width:640px) {  
+
+}
+/* ---------------------------------------------- */
+@media (max-width:550px) {
+ 
+}
+/* ---------------------------------------------- */
+@media (max-width:520px) {
+
+}
+/* ---------------------------------------------- */
+@media (max-width:420px) {
+
+}
+/* ---------------------------------------------- */
+@media (max-width:350px) {
+
+}
+/* ---------------------------------------------- */
+@media (max-width:320px) {
+
 }
 /* ============================================== */

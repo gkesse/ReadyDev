@@ -32,8 +32,8 @@ class GLog extends GObject {
         foreach($this->errors as $error) {
             $lError .= sprintf("%s<br>", $error);
         }
-        echo sprintf("<div class='error'>\n");
-        echo sprintf("<div class='error_body'>\n");
+        echo sprintf("<div class='error box'>\n");
+        echo sprintf("<div class='box_body'>\n");
         echo sprintf("<a class='button_close' onclick='error_close_onclick()'><i class='button_close_fa fa fa-times'></i></a>\n");
         echo sprintf("<div class='title_text'>%s</div>\n", "ERREUR");
         echo sprintf("<hr class='title_hr'>\n");
@@ -48,8 +48,8 @@ class GLog extends GObject {
         foreach($this->logs as $log) {
             $lLog .= sprintf("%s<br>", $log);
         }
-        echo sprintf("<div class='log'>\n");
-        echo sprintf("<div class='log_body'>\n");
+        echo sprintf("<div class='log box'>\n");
+        echo sprintf("<div class='box_body'>\n");
         echo sprintf("<a class='button_close' onclick='log_close_onclick()'><i class='button_close_fa fa fa-times'></i></a>\n");
         echo sprintf("<div class='title_text'>%s</div>\n", "LOG");
         echo sprintf("<hr class='title_hr'>\n");
