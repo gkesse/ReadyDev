@@ -39,7 +39,7 @@ class GStudio extends GWidget {
         $lLoginOn = $this->isLogin();
         $lAdminOn = $this->isAdmin();
         
-        echo sprintf("<div class='studio_header'>\n");
+        echo sprintf("<div class='box_bottom'>\n");
         
         for($i = 0; $i < $lCount; $i++) {
             $lType = $this->getHeaderItem($i, "type");
@@ -115,8 +115,8 @@ class GStudio extends GWidget {
         $lPostOn = $this->hasPost();
         $lLoginOn = $this->hasLogin();
         
-        echo sprintf("<div class='studio_connection'>\n");
-        echo sprintf("<div class='studio_connection_body'>\n");
+        echo sprintf("<div class='box'>\n");
+        echo sprintf("<div class='box_body'>\n");
         echo sprintf("<a class='button_close' href='%s'><i class='button_close_fa fa fa-times'></i></a>\n", $lHomeLink);
         echo sprintf("<div class='title_text'>%s</div>\n", $lTitle);
         echo sprintf("<hr class='title_hr_margin'>\n");
@@ -212,8 +212,8 @@ class GStudio extends GWidget {
             $this->setLogin();
         }
         
-        echo sprintf("<div class='studio_connection'>\n");
-        echo sprintf("<div class='studio_connection_body'>\n");
+        echo sprintf("<div class='box'>\n");
+        echo sprintf("<div class='box_body'>\n");
         echo sprintf("<a class='button_close' href='%s'><i class='button_close_fa fa fa-times'></i></a>\n", $lHomeLink);
         echo sprintf("<div class='title_text'>%s</div>\n", $lTitle);
         echo sprintf("<hr class='title_hr_margin'>\n");
@@ -428,8 +428,8 @@ class GStudio extends GWidget {
         
         $lHome = $this->getLink("home");
         
-        echo sprintf("<div class='studio_error'>\n");
-        echo sprintf("<div class='studio_error_body'>\n");
+        echo sprintf("<div class='box'>\n");
+        echo sprintf("<div class='box_body'>\n");
         echo sprintf("<a class='button_close' href='%s'><i class='button_close_fa fa fa-times'></i></a>\n", $lHome);
         echo sprintf("<div class='title_text'>%s</div>\n", $lTitle);
         echo sprintf("<hr class='title_hr'>\n");

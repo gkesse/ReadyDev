@@ -27,6 +27,7 @@
 /**/build/classes/
 /**/WecContent/
 /**/Servers/
+/**/sqlite/db/
 
 #================================================
 # Eclipse
