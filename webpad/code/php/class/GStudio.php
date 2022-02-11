@@ -30,6 +30,7 @@ class GStudio extends GWidget {
         $this->createDisconnection();
         $this->updateDatabase();
         $this->runTestProcedure();
+        $this->runTestPhp();
         $this->createError();
     }
     // ===============================================
@@ -49,6 +50,7 @@ class GStudio extends GWidget {
             $lPictoColor = $this->getHeaderItem($i, "picto_color");
             $lAction = $this->getHeaderItem($i, "action");
             $lLink = $this->getHeaderItem($i, "link");
+            $lALink = $this->getHeaderItem($i, "link");
             $lFontColor = $this->getHeaderItem($i, "font_color");
             
             $lLink = $this->getLink($lLink);            
@@ -75,6 +77,9 @@ class GStudio extends GWidget {
             }
             else if($lType == "button/icon/link/color") {
                 echo sprintf("<a href='%s'><button class='button_float' style='color:%s;'><i class='icon_float fa fa-%s'></i> %s</button></a>\n", $lLink, $lFontColor, $lPicto, $lName);
+            }
+            else if($lType == "button/icon/alink/color") {
+                echo sprintf("<a href='%s'><button class='button_float' style='color:%s;'><i class='icon_float fa fa-%s'></i> %s</button></a>\n", $lALink, $lFontColor, $lPicto, $lName);
             }
             else if($lType == "button/icon/post") {
                 echo sprintf("<form class='form_button' action='%s' method='post'>", $lLink);
@@ -411,6 +416,11 @@ class GStudio extends GWidget {
         if(!$this->hasPost()) $this->redirectUrl("home");
         $lSqlite = new GSQLite();
         $lSqlite->runTestProcedure();
+    }
+    //===============================================
+    public function runTestPhp() {
+        $lMail = new GMail();
+        $lMail->sendMail();
     }
     //===============================================
     public function hasPage($page) {

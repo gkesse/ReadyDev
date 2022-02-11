@@ -29,6 +29,14 @@
     				<link>procedure/test/run</link>
     			</data>
     			<data>
+    				<type>button/icon/post</type>
+    				<category>admin</category>
+    				<name>PHPTest </name>
+    				<picto>code</picto>
+    				<picto_color>#aaaaff</picto_color>
+    				<link>php/test/run</link>
+    			</data>
+    			<data>
     				<type>button/icon/link</type>
     				<category>login</category>
     				<name>Connexion</name>
@@ -43,6 +51,13 @@
     				<picto>power-off</picto>
     				<picto_color>#aaaaff</picto_color>
     				<link>user/logout</link>
+    			</data>
+    			<data>
+    				<type>button/icon/alink/color</type>
+    				<name>ReadyDev</name>
+    				<picto>snowflake-o</picto>
+    				<font_color>#ffaa55</font_color>
+    				<link>/</link>
     			</data>
     		</map>
     	</data>
@@ -182,6 +197,7 @@
     			<link>user/account/create</link>
     			<link>database/update</link>
     			<link>procedure/test/run</link>
+    			<link>php/test/run</link>
     		</map>
     	</data>
     	<!-- translator -->
