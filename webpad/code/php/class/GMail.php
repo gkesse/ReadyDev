@@ -24,7 +24,7 @@ class GMail extends GObject {
     }
     //===============================================
     public function sendMail() {
-        $from = "no-reply@readydev.com";
+        $from = "paul.dmitri@outlook.fr";
         $to = "pierre.yuri@outlook.fr";
         $subject = "Essai de PHP Mail";
         $message = "PHP Mail fonctionne parfaitement";
