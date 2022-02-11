@@ -104,6 +104,12 @@ https://stackoverflow.com/questions/7009807/how-to-check-if-a-url-is-typed-or-co
 # installer intl
 https://stackoverflow.com/questions/8597146/class-normalizer-not-found-in-php-5-3-8
 
+# envoyer des mail en php
+https://www.hostinger.fr/tutoriels/php-mail/
+
+# envoyer la verification de mails en php pour les nouveaux comptes
+https://www.phptutorial.net/php-tutorial/php-email-verification/
+
 #================================================
 ### shell
 #================================================
