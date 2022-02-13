@@ -22,6 +22,16 @@ https://www.pinterest.fr/pin/402579654199359701/feedback/?invite_code=097a4cea02
 https://www.istockphoto.com/fr/vectoriel/carte-danniversaire-typographie-de-joyeux-anniversaire-de-paillettes-dor-et-de-gm697902550-129388963
 
 #================================================
+### dbeaver
+#================================================
+
+# Installation Via le paquet fournit sur le site officiel
+https://doc.ubuntu-fr.org/dbeaver
+
+# Activer les snaps sur Raspberry Pi et installer dbeaver-ce
+https://snapcraft.io/install/dbeaver-ce/raspbian
+
+#================================================
 ### eclipse
 #================================================
 
@@ -110,6 +120,26 @@ https://www.hostinger.fr/tutoriels/php-mail/
 # envoyer la verification de mails en php pour les nouveaux comptes
 https://www.phptutorial.net/php-tutorial/php-email-verification/
 
+# echapper l'apostrophe a l'interieur d'une entree faite avec des apostrophes
+https://stackoverflow.com/questions/36591448/how-to-escape-apostrophe-inside-an-input-made-with-apostrophes
+https://stackoverflow.com/questions/12374442/chrome-ignores-autocomplete-off
+
+#================================================
+### raspberrypi
+#================================================
+
+# afficher un nom d utilisateur et un mot de passe Pi
+https://forums.raspberrypi.com/viewtopic.php?t=256543#:~:text=No%2C%20you%20cannot%20display%20passwords,much%20use%20without%20the%20password.
+
+#================================================
+### sendmail
+#================================================
+
+# configurer sendmail
+https://qastack.fr/programming/10359437/sendmail-how-to-configure-sendmail-on-ubuntu
+https://kenfavors.com/code/how-to-install-and-configure-sendmail-on-ubuntu/
+https://www.srccodes.com/change-hostname-ubuntu-microsoft-windows-subsystem-for-linux-wsl-wsl2-wsl-conf-unable-resolve-hosts-name-service-not-known-list-running-shutdown-vm-srccodes/
+
 #================================================
 ### shell
 #================================================
@@ -141,6 +171,12 @@ https://stackoverflow.com/questions/17617610/set-default-value-of-an-integer-col
 
 # ajouter un commentaire sur les colonnes sous sqlite
 https://stackoverflow.com/questions/7426205/sqlite-adding-comment-on-descriptions-to-tables-and-columns
+
+# inserer une nouvelle colonne dans la table dans sqlite
+https://stackoverflow.com/questions/4253804/insert-new-column-into-table-in-sqlite
+
+# Mettre à jour une colonne à partir d'une autre colonne à l'aide de SQLite
+https://stackoverflow.com/questions/32505423/update-a-column-from-another-column-using-sqlite
 
 #================================================
 ### traitement image

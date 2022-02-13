@@ -126,7 +126,7 @@ class GStudio extends GWidget {
         echo sprintf("<div class='title_text'>%s</div>\n", $lTitle);
         echo sprintf("<hr class='title_hr_margin'>\n");
         echo sprintf("<form action='%s' method='post'>\n", $lActionLink);
-                
+        
         for($i = 0; $i < $lCount; $i++) {
             $lType = $this->getConnectionItem($i, "type");
             $lCategory = $this->getConnectionItem($i, "category");
@@ -140,6 +140,8 @@ class GStudio extends GWidget {
             $lPicto = $this->getConnectionItem($i, "picto");
             $lPictoColor = $this->getConnectionItem($i, "picto_color");
             $lFontColor = $this->getConnectionItem($i, "font_color");
+            
+            $lHolder = htmlentities($lHolder, ENT_QUOTES | ENT_HTML5);
             
             $lValue = "";
             
@@ -156,7 +158,7 @@ class GStudio extends GWidget {
                 echo sprintf("<label class='label' for='%s'>%s</label>\n", $lKey, $lLabel);
                 echo sprintf("<div class='row_float'>
                 <i class='icon_float fa fa-%s' style='color: %s;'></i>
-                <input class='input_float' type='text' id='%s' name='%s' placeholder='%s' value='%s' maxlength='%s' required/>
+                <input class='input_float' type='text' id='%s' name='%s' placeholder='%s' value='%s' maxlength='%s' onfocus='this.removeAttribute(\"readonly\");' readonly required/>
                 </div>\n", $lPicto, $lPictoColor, $lKey, $lKey, $lHolder, $lValue, $lMaxLength);
             }
             else if($lType == "lineedit/email"){
@@ -164,7 +166,7 @@ class GStudio extends GWidget {
                 echo sprintf("<label class='label' for='%s'>%s</label>\n", $lKey, $lLabel);
                 echo sprintf("<div class='row_float'>
                 <i class='icon_float fa fa-%s' style='color: %s;'></i>
-                <input class='input_float' type='email' id='%s' name='%s' placeholder='%s' value='%s' maxlength='%s' required/>
+                <input class='input_float' type='email' id='%s' name='%s' placeholder='%s' value='%s' maxlength='%s' onfocus='this.removeAttribute(\"readonly\");' readonly required/>
                 </div>\n", $lPicto, $lPictoColor, $lKey, $lKey, $lHolder, $lValue, $lMaxLength);
             }
             if($lType == "lineedit/password"){
@@ -237,7 +239,9 @@ class GStudio extends GWidget {
             $lPicto = $this->getAccountItem($i, "picto");
             $lPictoColor = $this->getAccountItem($i, "picto_color");
             $lFontColor = $this->getAccountItem($i, "font_color");
-                        
+            
+            $lHolder = htmlentities($lHolder, ENT_QUOTES | ENT_HTML5);
+            
             $lValue = "";
             
             if($lCategory == "error") {
@@ -251,7 +255,7 @@ class GStudio extends GWidget {
                 echo sprintf("<label class='label' for='%s'>%s</label>\n", $lKey, $lLabel);
                 echo sprintf("<div class='row_float'>
                 <i class='icon_float fa fa-%s' style='color: %s;'></i>
-                <input class='input_float' type='text' id='%s' name='%s' placeholder='%s' value='%s' maxlength='%s' required/>
+                <input class='input_float' type='text' id='%s' name='%s' placeholder='%s' value='%s' maxlength='%s' onfocus='this.removeAttribute(\"readonly\");' readonly required/>
                 </div>\n", $lPicto, $lPictoColor, $lKey, $lKey, $lHolder, $lValue, $lMaxLength);
             }
             else if($lType == "lineedit/email"){
@@ -259,7 +263,7 @@ class GStudio extends GWidget {
                 echo sprintf("<label class='label' for='%s'>%s</label>\n", $lKey, $lLabel);
                 echo sprintf("<div class='row_float'>
                 <i class='icon_float fa fa-%s' style='color: %s;'></i>
-                <input class='input_float' type='email' id='%s' name='%s' placeholder='%s' value='%s' maxlength='%s' required/>
+                <input class='input_float' type='email' id='%s' name='%s' placeholder='%s' value='%s' maxlength='%s' onfocus='this.removeAttribute(\"readonly\");' readonly required/>
                 </div>\n", $lPicto, $lPictoColor, $lKey, $lKey, $lHolder, $lValue, $lMaxLength);
             }
             if($lType == "lineedit/password"){
@@ -419,6 +423,8 @@ class GStudio extends GWidget {
     }
     //===============================================
     public function runTestPhp() {
+        if(!$this->isPage("php/test/run")) return;
+        if(!$this->hasPost()) $this->redirectUrl("home");
         $lMail = new GMail();
         $lMail->sendMail();
     }

@@ -210,10 +210,10 @@ class GSQLite extends GObject {
     public function createScript() {
         $this->writeQuery(sprintf("
             create table if not exists scripts (
-                id integer primary key autoincrement,
-                s_id varchar(12) not null,
-                sc_date datetime default current_timestamp,
-                s_name varchar(256) not null
+                id integer primary key autoincrement, -- script identifiant
+                s_id varchar(12) not null, -- script id
+                sc_date datetime default current_timestamp, -- script create date
+                s_name varchar(256) not null -- script name
             )
         "));
     }
@@ -236,45 +236,47 @@ class GSQLite extends GObject {
     public function executeScript($filename, $dbpath) {
         $lCommand = sprintf("bash %s %s 2>&1", $filename, $dbpath);
         $lOutput = shell_exec($lCommand);
-        if(1) {
+        if($lOutput != "") {
             GLog::Instance()->addLog(sprintf("%s", $lOutput));
         }
-        return $lOutput;
+        else {
+            GLog::Instance()->addLog(sprintf("L'opération a été exécutée avec succès."));
+        }
     }
     //===============================================
-    public function countUser($email, $password) {
-        $password = $this->encodePassword($email, $password);
+    public function countUser($pseudo, $password) {
+        $password = $this->encodePassword($pseudo, $password);
         $lData = $this->readData(sprintf("
             select count(*) from users
-            where u_email = '%s'
+            where u_pseudo = '%s'
             and u_password = '%s'
-        ", $email, $password));
+        ", $pseudo, $password));
         return intval($lData);
     }
     //===============================================
-    public function createUser($email, $password) {
-        $password = $this->encodePassword($email, $password);
+    public function createUser($pseudo, $password) {
+        $password = $this->encodePassword($pseudo, $password);
         $this->writeQuery(sprintf("
-            insert into users (u_email, u_password)
+            insert into users (u_pseudo, u_password)
             values ('%s', '%s')
-        ", $email, $password));
+        ", $pseudo, $password));
     }
     //===============================================
-    public function hasUser($email) {
+    public function hasUser($pseudo) {
         $lData = $this->readData(sprintf("
             select count(*) from users
-            where u_email = '%s'
-        ", $email));
+            where u_pseudo = '%s'
+        ", $pseudo));
         return (intval($lData) != 0);
     }
     //===============================================
-    public function getUserId($email, $password) {
-        $password = $this->encodePassword($email, $password);
+    public function getUserId($pseudo, $password) {
+        $password = $this->encodePassword($pseudo, $password);
         $lData = $this->readData(sprintf("
             select id from users
-            where u_email = '%s'
+            where u_pseudo = '%s'
             and u_password = '%s'
-        ", $email, $password));
+        ", $pseudo, $password));
         return intval($lData);
     }
     //===============================================
