@@ -29,7 +29,13 @@ class GMail extends GObject {
         $subject = "Essai de PHP Mail";
         $message = "PHP Mail fonctionne parfaitement";
         $headers = "De :" . $from;        
-        mail($to, $subject, $message, $headers);
+        $lOk = mail($to, $subject, $message, $headers);
+        if($lOk) {
+            GLog::Instance()->addLog(sprintf("Le mail a été envoyé avec susscès"));
+        }
+        else {
+            GLog::Instance()->addLog(sprintf("L'envoi du mail a échoué"));            
+        }
     }
     //===============================================
 }

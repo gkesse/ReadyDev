@@ -68,13 +68,13 @@
     		<title>CONNEXION</title>
     		<map>
     			<data>
-    				<type>lineedit/email</type>
-    				<label>Email</label>
-    				<key>email</key>
+    				<type>lineedit</type>
+    				<label>Nom d'utilisateur</label>
+    				<key>pseudo</key>
     				<picto>envelope-o</picto>
     				<picto_color>#aaaaff</picto_color>
     				<max_length>32</max_length>
-    				<holder>Saisissez votre email</holder>
+    				<holder>Saisissez votre nom d'utilisateur</holder>
     			</data>
     			<data>
     				<type>lineedit/password</type>
@@ -133,13 +133,13 @@
     		<title>CREATION D'UN COMPTE</title>
     		<map>
     			<data>
-    				<type>lineedit/email</type>
-    				<label>Email</label>
-    				<key>email</key>
+    				<type>lineedit</type>
+    				<label>Nom d'utilisateur</label>
+    				<key>pseudo</key>
     				<picto>envelope-o</picto>
     				<picto_color>#aaaaff</picto_color>
     				<max_length>32</max_length>
-    				<holder>Saisissez votre email</holder>
+    				<holder>Saisissez votre nom d'utilisateur</holder>
     			</data>
     			<data>
     				<type>lineedit/password</type>

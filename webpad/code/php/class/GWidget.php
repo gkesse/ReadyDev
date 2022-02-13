@@ -39,7 +39,7 @@ class GWidget extends GObject {
         $lPost = $this->hasPost();
         if(!$lPost) return false;
         $lSqlite = new GSQLite();
-        $lEmail = $_POST["email"];
+        $lEmail = $_POST["pseudo"];
         $lPassword = $_POST["password"];
         $lCount = $lSqlite->countUser($lEmail, $lPassword);
         return ($lCount != 0);
@@ -49,19 +49,19 @@ class GWidget extends GObject {
         $lPostOn = $this->hasPost();
         if(!$lPostOn) return false;
         $lSqlite = new GSQLite();
-        $lEmail = $_POST["email"];
+        $lPseudo = $_POST["pseudo"];
         $lPassword = $_POST["password"];
         $lConfirm = $_POST["confirm"];
         if($lPassword != $lConfirm) {
             $this->addErrors($this->getTranslator(1));
             return false;
         }
-        $lUserOn = $lSqlite->hasUser($lEmail);
+        $lUserOn = $lSqlite->hasUser($lPseudo);
         if($lUserOn) {
             $this->addErrors($this->getTranslator(2));
             return false;
         }
-        $lSqlite->createUser($lEmail, $lPassword);
+        $lSqlite->createUser($lPseudo, $lPassword);
         return true;
     }
     //===============================================
@@ -81,9 +81,9 @@ class GWidget extends GObject {
     //===============================================
     public function setLogin() {
         $lSqlite = new GSQLite();
-        $lEmail = $_POST["email"];
+        $lPseudo = $_POST["pseudo"];
         $lPassword = $_POST["password"];
-        $lUserId = $lSqlite->getUserId($lEmail, $lPassword);
+        $lUserId = $lSqlite->getUserId($lPseudo, $lPassword);
         $this->setSession("user/login", true);
         $this->setSession("user/id", $lUserId);
         $this->redirectUrl("home");
