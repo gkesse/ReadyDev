@@ -14,7 +14,7 @@
     			</data>
     			<data>
     				<type>button/icon/post</type>
-    				<category>admin</category>
+    				<category>admino</category>
     				<name>Mise à jour</name>
     				<picto>database</picto>
     				<picto_color>#aaaaff</picto_color>
