@@ -228,6 +228,16 @@
             "link":"/Tutoriels/Code_Review/Gerrit/",
 			"follow":"yes"
         }
+    ],    
+    "devops":
+    [
+        {
+            "icon":"fa fa-recycle",
+            "theme":"Ansible",
+            "description":"Apprenez<br/> Ansible",
+            "link":"/Tutoriels/DevOps/Ansible/",
+			"follow":"yes"
+        }
     ],
     "resources":
     [
