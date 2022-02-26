@@ -82,6 +82,16 @@
 			"follow":"yes"
         }
     ],    
+    "bdd":
+    [
+        {
+            "icon":"fa fa-database",
+            "theme":"MySQL",
+            "description":"Programmez avec<br/> MySQL",
+            "link":"/Tutoriels/Database/MySQL/",
+			"follow":"yes"
+        }
+	],
     "web":
     [
         {
@@ -226,6 +236,16 @@
             "theme":"Gerrit",
             "description":"Apprenez<br/> la revue de code",
             "link":"/Tutoriels/Code_Review/Gerrit/",
+			"follow":"yes"
+        }
+    ],    
+    "devops":
+    [
+        {
+            "icon":"fa fa-recycle",
+            "theme":"Ansible",
+            "description":"Apprenez<br/> Ansible",
+            "link":"/Tutoriels/DevOps/Ansible/",
 			"follow":"yes"
         }
     ],

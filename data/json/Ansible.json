@@ -1,0 +1,21 @@
+{
+    "sitemap":"yes",
+    "meta_data":
+    {
+        "meta_desc":
+        [
+			"Le but de ce tutoriel est de vous apprendre",
+            "la gestion de configurations avec Ansible.",
+            "Produit par Gérard KESSE."
+        ],
+        "meta_cano":"/Tutoriels/Version_Control/Mercurial/",
+        "meta_img":"https://raw.githubusercontent.com/gkesse/ReadyDev/master/Tutoriels/DevOps/Ansible/img/b_ansible.png"
+    },    
+    "links":
+    [
+        {"name":"Tutoriels","link":"/Tutoriels/","follow":"no"},
+        {"name":"DevOps","link":"/Tutoriels/#DevOps","follow":"no"},
+        {"name":"Ansible","link":"","follow":"no"}
+    ]
+}
+                        
