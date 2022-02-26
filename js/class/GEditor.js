@@ -1441,7 +1441,36 @@ var GEditor = (function() {
                 var lClipboardData = e.clipboardData || window.clipboardData;
                 var lData = lClipboardData.getData("text");
                 lData = this.encodeHtml(lData, "html");
-                document.execCommand("insertHTML", false, lData);
+				if(lData != "") {
+					document.execCommand("insertHTML", false, lData);
+				}
+				else {
+					this.pasteImageBlob(e, this.pasteImageBlobCB);
+				}
+            },
+            //===============================================
+            pasteImageBlob: function(e, callback) {
+				if(e.clipboardData == false) return;
+				var items = e.clipboardData.items;
+				if(items == undefined) return;
+				for (var i = 0; i < items.length; i++) {
+					if (items[i].type.indexOf("image") == -1) continue;
+					var blob = items[i].getAsFile();
+					if(typeof(callback) == "function"){
+						callback(blob);
+					}
+				}
+            },
+            //===============================================
+            pasteImageBlobCB: function(imageBlob, node) {
+				if(imageBlob) {
+					var img = new Image();
+					img.onload = function() {
+						document.execCommand("insertImage", false, img.src);
+					};
+					var URLObj = window.URL || window.webkitURL;
+					img.src = URLObj.createObjectURL(imageBlob);
+				}
             },
             //===============================================
             viewPage: function() {
