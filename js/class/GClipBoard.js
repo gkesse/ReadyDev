@@ -11,7 +11,6 @@ var GClipBoard = (function() {
             },
             //===============================================
             pasteText: function(e) {
-                e.preventDefault();
                 var lClipboardData = e.clipboardData || window.clipboardData;
                 var lData = lClipboardData.getData("text");
 				// text
@@ -37,19 +36,18 @@ var GClipBoard = (function() {
             },
             //===============================================
             pasteImageCB: function(imageBlob) {
-				var lId = "canvas" + Date.now;
-				var lHtml = "<canvas style='border:1px solid grey;' id='"+lId+"'></canvas>";
-				document.execCommand("insertHTML, false, lHtml);
-				var canvas = document.getElementById(lId);
-				var ctx = canvas.getContext('2d');
-				var img = new Image();
-				img.onload = function() {
-					canvas.width = this.width;
-					canvas.height = this.height;
-					ctx.drawImage(img, 0, 0);
+				var lId = 'img_' + Date.now();
+				var lHtml = '';
+				lHtml += '<div class="Img3 GImage">';
+				lHtml += '<img id="' + lId + '" alt="' + lId + '"/>';
+				lHtml += '</div>';
+				document.execCommand("insertHTML", false, lHtml);
+				var lImg = document.getElementById(lId);
+				var lFileReader = new FileReader();
+				lFileReader.onload = function(e) {
+					lImg.src = e.target.result;
 				};
-				var URLObj = window.URL || window.webkitURL;
-				img.src = URLObj.createObjectURL(imageBlob);
+				lFileReader.readAsDataURL(imageBlob);
             },
             //===============================================
             encodeHtml: function(data, lang) {

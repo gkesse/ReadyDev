@@ -59,6 +59,7 @@ function saveFileTextKey(e) {
 }
 //===============================================
 function pasteText(e) {
+	e.preventDefault();
 	GClipBoard.Instance().pasteText(e);
 }
 //===============================================
