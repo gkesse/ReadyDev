@@ -103,20 +103,6 @@
         },
         {
             "icon":"fa fa-globe",
-            "theme":"J2EE",
-            "description":"Programmez sous<br/> J2EE",
-            "link":"/Tutoriels/Web/J2EE/",
-			"follow":"yes"
-        },
-        {
-            "icon":"fa fa-globe",
-            "theme":"ASP.NET",
-            "description":"Programmez sous<br/> ASP.NET",
-            "link":"/Tutoriels/Web/ASP.NET/",
-			"follow":"yes"
-        },
-        {
-            "icon":"fa fa-globe",
             "theme":"HTML",
             "description":"Programmez sous<br/> HTML",
             "link":"/Tutoriels/Web/HTML/",
@@ -126,7 +112,7 @@
             "icon":"fa fa-globe",
             "theme":"CSS",
             "description":"Programmez sous<br/> CSS",
-            "link":"/Tutoriels/Web/CSS3/",
+            "link":"/Tutoriels/Web/CSS/",
 			"follow":"yes"
         },
         {
