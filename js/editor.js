@@ -59,7 +59,7 @@ function saveFileTextKey(e) {
 }
 //===============================================
 function pasteText(e) {
-	GEditor.Instance().pasteText(e);
+	GClipBoard.Instance().pasteText(e);
 }
 //===============================================
 function selectFile() {
