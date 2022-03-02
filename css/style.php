@@ -1430,7 +1430,6 @@ span {
     width: 100%;
     height: 100vh;
     background-color: rgba(255, 255, 255, 0.4);
-    /*background-image: url("<?php echo $lStyle["modal"]["img"]; ?>");*/
     overflow: auto;
     scrollbar-color: #5f6681 #051039;
     scrollbar-width: auto;
@@ -1971,18 +1970,5 @@ span {
 @media (max-width:320px) {
 
 }
-
-/* ============================================== */
-/* Mobile */ 
-/* ============================================== */
-
-/*
-@media (max-width:<?php echo $lStyle["background"]["top_middle"]["width"]; ?>) {  
-    .Background.Top {
-        background-position: top left, top right, center top, left top;
-        background-size: auto, auto, 100% auto, 100% 100%;    
-    }
-}
-*/
 
 /* ============================================== */
