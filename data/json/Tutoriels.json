@@ -162,13 +162,6 @@
             "description":"Programmez le<br/>RaspberryPi",
             "link":"/Tutoriels/Embedded_System/RaspberryPi/",
 			"follow":"yes"
-        },
-        {
-            "icon":"fa fa-microchip",
-            "theme":"Texas Instrument",
-            "description":"Programmez les<br/>Processeurs TI",
-            "link":"/Tutoriels/Embedded_System/TI/",
-			"follow":"yes"
         }
     ],    
     "3d_modeling":
