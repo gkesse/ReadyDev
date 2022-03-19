@@ -2,33 +2,24 @@
 //===============================================
 class GHeader extends GWidget {
     //===============================================
-    static private $m_instance = null;
-    //===============================================
     public function __construct() {
         parent::__construct();
         $this->createDom();
     }
     //===============================================
-    public static function Instance() {
-        if(is_null(self::$m_instance)) {
-            self::$m_instance = new GHeader();  
-        }
-        return self::$m_instance;
-    }
-    //===============================================
     public function createDom() {
         $this->dom = new GDomXml();
         $this->dom->createDom();
-        $this->dom->loadXmlFile("app_header.xml");
+        $this->dom->loadXmlFile("pad.xml");
         $this->dom->createXPath();
     }
     //===============================================
     public function run() {
-        $lLang = $this->getSettingItem("lang");
-        $lTitle = $this->getSettingItem("title");
-        $lLogo = $this->getSettingItem("logo");
-        $lWebRoot = $this->getWebRoot();
-        $lProcess = GProcess::Instance()->getConfigItem("process");
+        $lLang = $this->getItem("header", "lang");
+        $lTitle = $this->getItem("header", "title");
+        $lLogo = $this->getItem("header", "logo");
+        $lWebRoot = "/" . $this->getConfig("webroot");
+        $lProcess = $this->getItem("process", "onload");
         
         echo sprintf("<!DOCTYPE html>\n");
         echo sprintf("<html lang='%s'>\n", $lLang);
@@ -45,31 +36,12 @@ class GHeader extends GWidget {
         echo sprintf("<body onload='body_onload(\"%s\")'>\n", $lProcess);
     }
     //===============================================
-    public function getSettingItem($data) {
-        $this->dom->queryXPath(sprintf("/rdv/datas/data[code='settings']/%s", $data));
-        $this->dom->getNodeIndex(0);
-        $lData = $this->dom->getValue();
-        return $lData;
-    }
-    //===============================================
-    public function countFonts() {
-        $this->dom->queryXPath(sprintf("/rdv/datas/data[code='fonts']/map/data"));
-        $lData = $this->dom->countXPath();
-        return $lData;
-    }
-    //===============================================
-    public function getFont($index) {
-        $this->dom->queryXPath(sprintf("/rdv/datas/data[code='fonts']/map/data"));
-        $this->dom->getNodeIndex($index);
-        $lData = $this->dom->getValue();
-        return $lData;
-    }
-    //===============================================
     public function loadFonts() {
-        $lCount = $this->countFonts();
+        $lWebRoot = "/" . $this->getConfig("webroot");
+        $lCount = $this->countItem("css/fonts");
         for($i = 0; $i < $lCount; $i++) {
-            $lFont = $this->getFont($i);
-            echo sprintf("<link rel='stylesheet' href='%s%s'/>\n", $this->getWebRoot(), $lFont);
+            $lFont = $this->getItem2("css/fonts", $i);
+            echo sprintf("<link rel='stylesheet' href='%s%s'/>\n", $lWebRoot, $lFont);
         }
     }
     //===============================================

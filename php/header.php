@@ -1,8 +1,7 @@
 <?php     
     GPostRedirectGet::Instance()->redirect();
     
-    $lHeaderObj = GHeader::Instance();
-    $lLogObj = GLog::Instance();
+    $lHeaderObj = new GHeader();
     $lHappyYear = $lHeaderObj->getHappyYear();
     
     GMetaData::Instance()->getData();

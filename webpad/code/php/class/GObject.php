@@ -1,56 +1,59 @@
 <?php   
 //===============================================
 class GObject {
-    //===============================================
-    static private $m_instance = null;
-    //===============================================
-    private $webroot;
-    private $webkey;
+    //===============================================;
+    protected $dom = null;
+    //===============================================;
+    private $config;
     private $errors;
     //===============================================
-    protected $dom = null;
-    //===============================================
     public function __construct() {
-        $this->initObj();
-    }
-    //===============================================
-    public static function Instance() {
-        if(is_null(self::$m_instance)) {
-            self::$m_instance = new GObject();  
-        }
-        return self::$m_instance;
-    }
-    //===============================================
-    private function initObj() {
-        $this->webroot = "webpad/code";
-        $this->webkey = "/readypad";
+        // config
+        $this->config = array(
+            "webroot" => "webpad/code",
+            "datapath" => "data",
+            "webkey" => "readypad",
+        );
+        // errors
         $this->errors = array();
     }
     //===============================================
-    public function getRepoPath($repo, $file) {
-        $lPath = $repo;
-        if($this->webroot != "") {
-            $lPath = sprintf("%s/%s", $this->webroot, $lPath);
-        }
-        $lPath = sprintf("%s/%s/%s", $_SERVER["DOCUMENT_ROOT"], $lPath, $file);
-        return $lPath;
-    }
-    //===============================================
-    public function getWebRoot() {
-        $lRoot = "";
-        if($this->webroot != "") {
-            $lRoot = sprintf("/%s", $this->webroot);
-        }
-        return $lRoot;
-    }
-    //===============================================
-    public function getWebKey() {
-        return $this->webkey;
+    public function getConfig($key) {
+        $lData = $this->config[$key];
+        return $lData;
     }
     //===============================================
     public function getLink($link) {
-        $lLink = sprintf("%s/%s", $this->webkey, $link);
+        $lWebKey = $this->getConfig("webkey");
+        $lLink = sprintf("/%s/%s", $lWebKey, $link);
         return $lLink;
+    }
+    //===============================================
+    public function getItem($code, $data) {
+        $this->dom->queryXPath(sprintf("/rdv/datas/data[code='%s']/%s", $code, $data));
+        $this->dom->getNodeIndex(0);
+        $lData = $this->dom->getValue();
+        return $lData;
+    }
+    //===============================================
+    public function getItem2($code, $index) {
+        $this->dom->queryXPath(sprintf("/rdv/datas/data[code='%s']/map/data[position()=%d]", $code, $index + 1));
+        $this->dom->getNodeIndex(0);
+        $lData = $this->dom->getValue();
+        return $lData;
+    }
+    //===============================================
+    public function getItem3($code, $data, $index) {
+        $this->dom->queryXPath(sprintf("/rdv/datas/data[code='%s']/map/data[position()=%d]/%s", $code, $index + 1, $data));
+        $this->dom->getNodeIndex(0);
+        $lData = $this->dom->getValue();
+        return $lData;
+    }
+    //===============================================
+    public function countItem($code) {
+        $this->dom->queryXPath(sprintf("/rdv/datas/data[code='%s']/map/data", $code));
+        $lData = $this->dom->countXPath();
+        return $lData;
     }
     //===============================================
     public function addErrors($error) {
@@ -87,28 +90,6 @@ class GObject {
     public function unsetSession($key) {
         $lKeyLink = $this->getLink($key);
         unset($_SESSION[$lKeyLink]);
-    }
-    //===============================================
-    public function redirectUrl($url) {
-        $lUrlLink = $this->getLink($url);
-        $lLocation = sprintf("Location: %s", $lUrlLink);
-        header($lLocation);
-        exit;
-    }
-    //===============================================
-    public function redirectPost() {
-        if(!empty($_POST) OR !empty($_FILES)) {
-            $_SESSION["_SAVE_POST_"] = $_POST;
-            $_SESSION["_SAVE_FILES_"] = $_FILES;
-            $lUrl = $_SERVER["REQUEST_URI"];
-            header("Location: " . $lUrl);
-            exit;
-        }
-        if(isset($_SESSION["_SAVE_POST_"])) {
-            $_POST = $_SESSION["_SAVE_POST_"];
-            $_FILES = $_SESSION["_SAVE_FILES_"];
-            unset($_SESSION["_SAVE_POST_"], $_SESSION["_SAVE_FILES_"]);
-        }
     }
     //===============================================
     public function encodePassword($email, $password) {

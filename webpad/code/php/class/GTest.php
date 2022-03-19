@@ -1,6 +1,6 @@
 <?php   
 //===============================================
-class GFooter extends GWidget {
+class GTest extends GWidget {
     //===============================================
     public function __construct() {
         parent::__construct();
@@ -15,18 +15,7 @@ class GFooter extends GWidget {
     }
     //===============================================
     public function run() {
-        $this->loadScripts();
-        echo sprintf("</body>\n");
-        echo sprintf("</html>\n");
-    }
-    //===============================================
-    public function loadScripts() {
-        $lWebRoot = "/" . $this->getConfig("webroot");
-        $lCount = $this->countItem("js/scripts");
-        for($i = 0; $i < $lCount; $i++) {
-            $lScript = $this->getItem2("js/scripts", $i);
-            echo sprintf("<script src='%s%s'></script>\n", $lWebRoot, $lScript);
-        }
+        echo "ooooooooooooooo<br>";
     }
     //===============================================
 }

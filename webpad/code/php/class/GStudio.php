@@ -2,18 +2,9 @@
 // ===============================================
 class GStudio extends GWidget {
     // ===============================================
-    private static $m_instance = null;
-    // ===============================================
     public function __construct() {
         parent::__construct();
         $this->createDom();
-    }
-    // ===============================================
-    public static function Instance() {
-        if (is_null(self::$m_instance)) {
-            self::$m_instance = new GStudio();
-        }
-        return self::$m_instance;
     }
     // ===============================================
     public function createDom() {

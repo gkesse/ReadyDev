@@ -6,7 +6,7 @@
         protected $dom = null;
         //===============================================
         public function __construct() {
-            
+
         }
         //===============================================
         public static function Instance() {
