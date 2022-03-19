@@ -2,18 +2,9 @@
 //===============================================
 class GHeader extends GObject {
     //===============================================
-    static private $m_instance = null;
-    //===============================================
     public function __construct() {
         parent::__construct();
         $this->createDom();
-    }
-    //===============================================
-    public static function Instance() {
-        if(is_null(self::$m_instance)) {
-            self::$m_instance = new GHeader();  
-        }
-        return self::$m_instance;
     }
     //===============================================
     public function createDom() {

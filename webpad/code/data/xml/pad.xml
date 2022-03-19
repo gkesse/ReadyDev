@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdv>
+    <datas>
+    	<!-- header -->
+    	<data>
+    		<code>header</code>
+    		<lang>fr</lang>
+    		<title>ReadyPad</title>
+    		<logo>/data/img/readydev.png</logo>
+        </data>
+    	<!-- process -->
+   		<data>
+    		<code>process</code>
+	        <name>studio</name>
+	        <onload></onload>
+    	</data>
+    	<!-- css/fonts -->
+   		<data>
+    		<code>css/fonts</code>
+	        <map>
+           		<data>/libs/google_fonts/Allan/css.css</data>
+           		<data>/libs/google_fonts/Archivo_Narrow/css.css</data>
+	        </map>
+    	</data>
+    	<!-- js/scripts -->
+    	<data>
+    		<code>js/scripts</code>
+        	<map>
+	            <data>/js/class/GObject.js</data>
+	            <data>/js/class/GXml.js</data>
+	            <data>/js/class/GStudio.js</data>
+	            <data>/js/class/GPhone.js</data>
+	            <data>/js/script.js</data>       	
+        	</map>
+        </data>
+        <!-- end -->
+    </datas>
+</rdv>

@@ -21,7 +21,8 @@ class GDomXml extends GObject {
     }
     //===============================================
     public function loadXmlFile($file) {
-        $lPath = $this->getRepoPath("data/xml", $file);
+        $lPathObj = new GPath();
+        $lPath = $lPathObj->getPath("data/xml", $file);
         if($lPath == "") return;
         if(!$this->dom) {
             GLog::Instance()->addError(sprintf("Erreur la méthode (loadXmlFile) a échoué ".
