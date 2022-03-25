@@ -1,6 +1,6 @@
 <?php
 // ===============================================
-class GStudio extends GWidget {
+class GPad extends GObject {
     // ===============================================
     public function __construct() {
         parent::__construct();
@@ -9,8 +9,8 @@ class GStudio extends GWidget {
     // ===============================================
     public function createDom() {
         $this->dom = new GDomXml();
-        $this->dom->createDom();
-        $this->dom->loadXmlFile("studio.xml");
+        $this->dom->createDoc();
+        $this->dom->loadXmlFile("pad.xml");
         $this->dom->createXPath();
     }
     // ===============================================
@@ -26,25 +26,28 @@ class GStudio extends GWidget {
     }
     // ===============================================
     public function createHeader() {
-        $lCount = $this->countHeaderItems();
+        $lUser = new GUser();
+        $lPage = new GPage();
         
-        $lLoginOn = $this->isLogin();
-        $lAdminOn = $this->isAdmin();
+        $lCount = $this->countItem("header");
+        
+        $lLoginOn = $lUser->isLogin();
+        $lAdminOn = $lUser->isAdmin();
         
         echo sprintf("<div class='box_bottom'>\n");
         
         for($i = 0; $i < $lCount; $i++) {
-            $lType = $this->getHeaderItem($i, "type");
-            $lCategory = $this->getHeaderItem($i, "category");
-            $lName = $this->getHeaderItem($i, "name");
-            $lPicto = $this->getHeaderItem($i, "picto");
-            $lPictoColor = $this->getHeaderItem($i, "picto_color");
-            $lAction = $this->getHeaderItem($i, "action");
-            $lLink = $this->getHeaderItem($i, "link");
-            $lALink = $this->getHeaderItem($i, "link");
-            $lFontColor = $this->getHeaderItem($i, "font_color");
+            $lType = $this->getItem3("header", "type", $i);
+            $lCategory = $this->getItem3("header", "category", $i);
+            $lName = $this->getItem3("header", "name", $i);
+            $lPicto = $this->getItem3("header", "picto", $i);
+            $lPictoColor = $this->getItem3("header", "picto_color", $i);
+            $lAction = $this->getItem3("header", "action", $i);
+            $lLink = $this->getItem3("header", "link", $i);
+            $lALink = $this->getItem3("header", "link", $i);
+            $lFontColor = $this->getItem3("header", "font_color", $i);
             
-            $lLink = $this->getLink($lLink);            
+            $lLink = $lPage->getLink($lLink);            
             
             if($lCategory == "login") {
                 if($lLoginOn) continue;
@@ -83,33 +86,24 @@ class GStudio extends GWidget {
         echo sprintf("</div>\n");       
     }
     // ===============================================
-    public function countHeaderItems() {
-        $this->dom->queryXPath(sprintf("/rdv/datas/data[code='header']/map/data"));
-        $lData = $this->dom->countXPath();
-        return $lData;
-    }
-    // ===============================================
-    public function getHeaderItem($index, $data) {
-        $this->dom->queryXPath(sprintf("/rdv/datas/data[code='header']/map/data[position()=%d]/%s", $index + 1, $data));
-        $this->dom->getNodeIndex(0);
-        $lData = $this->dom->getValue();
-        return $lData;
-    }
-    // ===============================================
     public function createConnection() {
-        if(!$this->isPage("user/login")) return;
-        $lLoginOn = $this->isLogin();
+        $lPage = new GPage();
+        $lUser = new GUser();
+        $lPost = new GPost();
+        
+        if(!$lPage->isPage("user/login")) return;
+        $lLoginOn = $lUser->isLogin();
         if($lLoginOn) return;
         
-        $lCount = $this->countConnectionItems();
-        $lAction = $this->getConnectionData("action");
-        $lTitle = $this->getConnectionData("title");
+        $lCount = $this->countItem("connection");
+        $lAction = $this->getItem("connection", "action");
+        $lTitle = $this->getItem("connection", "title");
         
-        $lActionLink = $this->getLink($lAction);
-        $lHomeLink = $this->getLink("home");
+        $lActionLink = $lPage->getLink($lAction);
+        $lHomeLink = $lPage->getLink("home");
         
-        $lPostOn = $this->hasPost();
-        $lLoginOn = $this->hasLogin();
+        $lPostOn = $lPost->hasPost();
+        $lLoginOn = $lUser->hasLogin();
         
         echo sprintf("<div class='box'>\n");
         echo sprintf("<div class='box_body'>\n");
@@ -119,18 +113,18 @@ class GStudio extends GWidget {
         echo sprintf("<form action='%s' method='post'>\n", $lActionLink);
         
         for($i = 0; $i < $lCount; $i++) {
-            $lType = $this->getConnectionItem($i, "type");
-            $lCategory = $this->getConnectionItem($i, "category");
-            $lLabel = $this->getConnectionItem($i, "label");
-            $lName = $this->getConnectionItem($i, "name");
-            $lText = $this->getConnectionItem($i, "text");
-            $lMaxLength = $this->getConnectionItem($i, "max_length");
-            $lKey = $this->getConnectionItem($i, "key");
-            $lHolder = $this->getConnectionItem($i, "holder");
-            $lLink = $this->getConnectionItem($i, "link");
-            $lPicto = $this->getConnectionItem($i, "picto");
-            $lPictoColor = $this->getConnectionItem($i, "picto_color");
-            $lFontColor = $this->getConnectionItem($i, "font_color");
+            $lType = $this->getItem3("connection", "type", $i);
+            $lCategory = $this->getItem3("connection", "category", $i);
+            $lLabel = $this->getItem3("connection", "label", $i);
+            $lName = $this->getItem3("connection", "name", $i);
+            $lText = $this->getItem3("connection", "text", $i);
+            $lMaxLength = $this->getItem3("connection", "max_length", $i);
+            $lKey = $this->getItem3("connection", "key", $i);
+            $lHolder = $this->getItem3("connection", "holder", $i);
+            $lLink = $this->getItem3("connection", "link", $i);
+            $lPicto = $this->getItem3("connection", "picto", $i);
+            $lPictoColor = $this->getItem3("connection", "picto_color", $i);
+            $lFontColor = $this->getItem3("connection", "font_color", $i);
             
             $lHolder = htmlentities($lHolder, ENT_QUOTES | ENT_HTML5);
             
@@ -142,10 +136,11 @@ class GStudio extends GWidget {
                     $this->setLogin();
                     continue;
                 }
+                if($lUser->hasErrors()) $lText = $lUser->getErrors();
             }
             
             if($lType == "lineedit"){
-                if($lPostOn) {$lValue = $this->getPost($lKey);}
+                if($lPostOn) {$lValue = $lPost->getPost($lKey);}
                 echo sprintf("<label class='label' for='%s'>%s</label>\n", $lKey, $lLabel);
                 echo sprintf("<div class='row_float'>
                 <i class='icon_float fa fa-%s' style='color: %s;'></i>
@@ -153,7 +148,7 @@ class GStudio extends GWidget {
                 </div>\n", $lPicto, $lPictoColor, $lKey, $lKey, $lHolder, $lValue, $lMaxLength);
             }
             else if($lType == "lineedit/email"){
-                if($lPostOn) {$lValue = $this->getPost($lKey);}
+                if($lPostOn) {$lValue = $lPost->getPost($lKey);}
                 echo sprintf("<label class='label' for='%s'>%s</label>\n", $lKey, $lLabel);
                 echo sprintf("<div class='row_float'>
                 <i class='icon_float fa fa-%s' style='color: %s;'></i>
@@ -161,7 +156,7 @@ class GStudio extends GWidget {
                 </div>\n", $lPicto, $lPictoColor, $lKey, $lKey, $lHolder, $lValue, $lMaxLength);
             }
             if($lType == "lineedit/password"){
-                if($lPostOn) {$lValue = $this->getPost($lKey);}
+                if($lPostOn) {$lValue = $lPost->getPost($lKey);}
                 echo sprintf("<label class='label' for='%s'>%s</label>\n", $lKey, $lLabel);
                 echo sprintf("<div class='row_float'>
                 <i class='icon_float fa fa-%s' style='color: %s;'></i>
@@ -181,7 +176,7 @@ class GStudio extends GWidget {
                 echo sprintf("<div class='row_center' style='color: %s;'>%s</div>\n", $lFontColor, $lText);
             }
             else if($lType == "text/link"){
-                $lLink = $this->getLink($lLink);
+                $lLink = $lPage->getLink($lLink);
                 $lText = str_replace("{link}", $lLink, $lText);
                 echo sprintf("<div class='row_center'>%s</div>\n", $lText);
             }
@@ -193,21 +188,25 @@ class GStudio extends GWidget {
     }
     // ===============================================
     public function createAccount() {
-        if(!$this->isPage("user/account/create")) return;
-        $lLoginOn = $this->isLogin();
+        $lPage = new GPage();
+        $lPost = new GPost();
+        $lUser = new GUser();
+        
+        if(!$lPage->isPage("user/account/create")) return;
+        $lLoginOn = $lUser->isLogin();
         if($lLoginOn) return;
         
-        $lCount = $this->countAccountItems();
-        $lAction = $this->getAccountData("action");
-        $lTitle = $this->getAccountData("title");
+        $lCount = $this->countItem("account");
+        $lAction = $this->getItem("account", "action");
+        $lTitle = $this->getItem("account", "title");
         
-        $lActionLink = $this->getLink($lAction);
-        $lHomeLink = $this->getLink("home");
+        $lActionLink = $lPage->getLink($lAction);
+        $lHomeLink = $lPage->getLink("home");
 
-        $lPostOn = $this->hasPost();
-        $lRegisterOn = $this->hasRegister();
+        $lPostOn = $lPost->hasPost();
+        $lRegisterOn = $lUser->hasRegister();
         if($lRegisterOn) {
-            $this->setLogin();
+            $lUser->setLogin();
         }
         
         echo sprintf("<div class='box'>\n");
@@ -218,18 +217,18 @@ class GStudio extends GWidget {
         echo sprintf("<form action='%s' method='post'>\n", $lActionLink);
                 
         for($i = 0; $i < $lCount; $i++) {
-            $lType = $this->getAccountItem($i, "type");
-            $lCategory = $this->getAccountItem($i, "category");
-            $lLabel = $this->getAccountItem($i, "label");
-            $lName = $this->getAccountItem($i, "name");
-            $lText = $this->getAccountItem($i, "text");
-            $lMaxLength = $this->getConnectionItem($i, "max_length");
-            $lKey = $this->getAccountItem($i, "key");
-            $lHolder = $this->getAccountItem($i, "holder");
-            $lLink = $this->getAccountItem($i, "link");
-            $lPicto = $this->getAccountItem($i, "picto");
-            $lPictoColor = $this->getAccountItem($i, "picto_color");
-            $lFontColor = $this->getAccountItem($i, "font_color");
+            $lType = $this->getItem3("account", "type", $i);
+            $lCategory = $this->getItem3("account", "category", $i);
+            $lLabel = $this->getItem3("account", "label", $i);
+            $lName = $this->getItem3("account", "name", $i);
+            $lText = $this->getItem3("account", "text", $i);
+            $lMaxLength = $this->getItem3("account", "max_length", $i);
+            $lKey = $this->getItem3("account", "key", $i);
+            $lHolder = $this->getItem3("account", "holder", $i);
+            $lLink = $this->getItem3("account", "link", $i);
+            $lPicto = $this->getItem3("account", "picto", $i);
+            $lPictoColor = $this->getItem3("account", "picto_color", $i);
+            $lFontColor = $this->getItem3("account", "font_color", $i);
             
             $lHolder = htmlentities($lHolder, ENT_QUOTES | ENT_HTML5);
             
@@ -238,11 +237,11 @@ class GStudio extends GWidget {
             if($lCategory == "error") {
                 if(!$lPostOn) continue;
                 if($lRegisterOn) continue;
-                if($this->hasErrors()) $lText = $this->getErrors();
+                if($lUser->hasErrors()) $lText = $lUser->getErrors();
             }
             
             if($lType == "lineedit"){
-                if($lPostOn) {$lValue = $this->getPost($lKey);}
+                if($lPostOn) {$lValue = $lPost->getPost($lKey);}
                 echo sprintf("<label class='label' for='%s'>%s</label>\n", $lKey, $lLabel);
                 echo sprintf("<div class='row_float'>
                 <i class='icon_float fa fa-%s' style='color: %s;'></i>
@@ -250,7 +249,7 @@ class GStudio extends GWidget {
                 </div>\n", $lPicto, $lPictoColor, $lKey, $lKey, $lHolder, $lValue, $lMaxLength);
             }
             else if($lType == "lineedit/email"){
-                if($lPostOn) {$lValue = $this->getPost($lKey);}
+                if($lPostOn) {$lValue = $lPost->getPost($lKey);}
                 echo sprintf("<label class='label' for='%s'>%s</label>\n", $lKey, $lLabel);
                 echo sprintf("<div class='row_float'>
                 <i class='icon_float fa fa-%s' style='color: %s;'></i>
@@ -258,7 +257,7 @@ class GStudio extends GWidget {
                 </div>\n", $lPicto, $lPictoColor, $lKey, $lKey, $lHolder, $lValue, $lMaxLength);
             }
             if($lType == "lineedit/password"){
-                if($lPostOn) {$lValue = $this->getPost($lKey);}
+                if($lPostOn) {$lValue = $lPost->getPost($lKey);}
                 echo sprintf("<label class='label' for='%s'>%s</label>\n", $lKey, $lLabel);
                 echo sprintf("<div class='row_float'>
                 <i class='icon_float fa fa-%s' style='color: %s;'></i>
@@ -278,7 +277,7 @@ class GStudio extends GWidget {
                 echo sprintf("<div class='row_center' style='color: %s;'>%s</div>\n", $lFontColor, $lText);
             }
             else if($lType == "text/link"){
-                $lLink = $this->getLink($lLink);
+                $lLink = $lPage->getLink($lLink);
                 $lText = str_replace("{link}", $lLink, $lText);
                 echo sprintf("<div class='row_center'>%s</div>\n", $lText);
             }
@@ -290,21 +289,25 @@ class GStudio extends GWidget {
     }
     // ===============================================
     public function createDisconnection() {
-        if(!$this->isPage("user/logout")) return;
-        if(!$this->hasPost()) $this->redirectUrl("home");
-        $lLoginOn = $this->isLogin();
+        $lPage = new GPage();
+        $lUser = new GUser();
+        $lPost = new GPost();
+        
+        if(!$lPage->isPage("user/logout")) return;
+        if(!$lPost->hasPost()) $lPage->redirectUrl("home");
+        $lLoginOn = $lUser->isLogin();
         if(!$lLoginOn) return;
         
-        $lCount = $this->countDisconnectionItems();
-        $lAction = $this->getDisconnectionData("action");
-        $lTitle = $this->getDisconnectionData("title");
+        $lCount = $this->countItem("disconnection");
+        $lAction = $this->getItem("disconnection", "action");
+        $lTitle = $this->getItem("disconnection", "title");
         
-        $lActionLink = $this->getLink($lAction);
-        $lHomeLink = $this->getLink("home");
+        $lActionLink = $lPage->getLink($lAction);
+        $lHomeLink = $lPage->getLink("home");
         
-        $lSubmit = $this->getPost("submit");
+        $lSubmit = $lPost->getPost("submit");
         if($lSubmit == "disconnect") {
-            $this->setLogout();
+            $lUser->setLogout();
         }
         
         echo sprintf("<div class='box'>\n");
@@ -315,13 +318,13 @@ class GStudio extends GWidget {
         echo sprintf("<form action='%s' method='post'>\n", $lActionLink);                
                 
         for($i = 0; $i < $lCount; $i++) {
-            $lType = $this->getDisconnectionItem($i, "type");
-            $lName = $this->getDisconnectionItem($i, "name");
-            $lText = $this->getDisconnectionItem($i, "text");
-            $lKey = $this->getDisconnectionItem($i, "key");
-            $lPicto = $this->getDisconnectionItem($i, "picto");
-            $lPictoColor = $this->getDisconnectionItem($i, "picto_color");
-            $lFontColor = $this->getDisconnectionItem($i, "font_color");
+            $lType = $this->getItem3("disconnection", "type", $i);
+            $lName = $this->getItem3("disconnection", "name", $i);
+            $lText = $this->getItem3("disconnection", "text", $i);
+            $lKey = $this->getItem3("disconnection", "key", $i);
+            $lPicto = $this->getItem3("disconnection", "picto", $i);
+            $lPictoColor = $this->getItem3("disconnection", "picto_color", $i);
+            $lFontColor = $this->getItem3("disconnection", "font_color", $i);
             
             if($lType == "button"){
                 echo sprintf("<div class='row_right'>
@@ -338,84 +341,30 @@ class GStudio extends GWidget {
         echo sprintf("</div>\n");
         echo sprintf("</div>\n");       
     }
-    // ===============================================
-    public function countConnectionItems() {
-        $this->dom->queryXPath(sprintf("/rdv/datas/data[code='connection']/map/data"));
-        $lData = $this->dom->countXPath();
-        return $lData;
-    }
-    // ===============================================
-    public function countAccountItems() {
-        $this->dom->queryXPath(sprintf("/rdv/datas/data[code='account']/map/data"));
-        $lData = $this->dom->countXPath();
-        return $lData;
-    }
-    // ===============================================
-    public function countDisconnectionItems() {
-        $this->dom->queryXPath(sprintf("/rdv/datas/data[code='disconnection']/map/data"));
-        $lData = $this->dom->countXPath();
-        return $lData;
-    }
-    // ===============================================
-    public function getConnectionItem($index, $data) {
-        $this->dom->queryXPath(sprintf("/rdv/datas/data[code='connection']/map/data[position()=%d]/%s", $index + 1, $data));
-        $this->dom->getNodeIndex(0);
-        $lData = $this->dom->getValue();
-        return $lData;
-    }
-    // ===============================================
-    public function getAccountItem($index, $data) {
-        $this->dom->queryXPath(sprintf("/rdv/datas/data[code='account']/map/data[position()=%d]/%s", $index + 1, $data));
-        $this->dom->getNodeIndex(0);
-        $lData = $this->dom->getValue();
-        return $lData;
-    }
-    // ===============================================
-    public function getDisconnectionItem($index, $data) {
-        $this->dom->queryXPath(sprintf("/rdv/datas/data[code='disconnection']/map/data[position()=%d]/%s", $index + 1, $data));
-        $this->dom->getNodeIndex(0);
-        $lData = $this->dom->getValue();
-        return $lData;
-    }
-    // ===============================================
-    public function getConnectionData($data) {
-        $this->dom->queryXPath(sprintf("/rdv/datas/data[code='connection']/%s", $data));
-        $this->dom->getNodeIndex(0);
-        $lData = $this->dom->getValue();
-        return $lData;
-    }
-    // ===============================================
-    public function getDisconnectionData($data) {
-        $this->dom->queryXPath(sprintf("/rdv/datas/data[code='disconnection']/%s", $data));
-        $this->dom->getNodeIndex(0);
-        $lData = $this->dom->getValue();
-        return $lData;
-    }
-    // ===============================================
-    public function getAccountData($data) {
-        $this->dom->queryXPath(sprintf("/rdv/datas/data[code='account']/%s", $data));
-        $this->dom->getNodeIndex(0);
-        $lData = $this->dom->getValue();
-        return $lData;
-    }
     //===============================================
     public function updateDatabase() {
-        if(!$this->isPage("database/update")) return;
-        if(!$this->hasPost()) $this->redirectUrl("home");
+        $lPage = new GPage();
+        $lPost = new GPost();        
+        if(!$lPage->isPage("database/update")) return;
+        if(!$lPost->hasPost()) $this->redirectUrl("home");
         $lSqlite = new GSQLite();
         $lSqlite->updateDatabase();
     }
     //===============================================
     public function runTestProcedure() {
-        if(!$this->isPage("procedure/test/run")) return;
-        if(!$this->hasPost()) $this->redirectUrl("home");
+        $lPage = new GPage();
+        $lPost = new GPost();
+        if(!$lPage->isPage("procedure/test/run")) return;
+        if(!$lPost->hasPost()) $this->redirectUrl("home");
         $lSqlite = new GSQLite();
         $lSqlite->runTestProcedure();
     }
     //===============================================
     public function runTestPhp() {
-        if(!$this->isPage("php/test/run")) return;
-        if(!$this->hasPost()) $this->redirectUrl("home");
+        $lPage = new GPage();
+        $lPost = new GPost();
+        if(!$lPage->isPage("php/test/run")) return;
+        if(!$lPost->hasPost()) $this->redirectUrl("home");
         $lMail = new GMail();
         $lMail->sendMail();
     }
@@ -427,7 +376,8 @@ class GStudio extends GWidget {
     }
     // ===============================================
     public function createError() {
-        $lPageId = $this->getPageId();
+        $lPage = new GPage();
+        $lPageId = $lPage->getPageId();
         if($this->hasPage($lPageId)) return;
         
         $lCount = $this->countErrorItems();
@@ -456,26 +406,6 @@ class GStudio extends GWidget {
         
         echo sprintf("</div>\n");
         echo sprintf("</div>\n");
-    }
-    // ===============================================
-    public function countErrorItems() {
-        $this->dom->queryXPath(sprintf("/rdv/datas/data[code='error']/map/data"));
-        $lData = $this->dom->countXPath();
-        return $lData;
-    }
-    // ===============================================
-    public function getErrorItem($index, $data) {
-        $this->dom->queryXPath(sprintf("/rdv/datas/data[code='error']/map/data[position()=%d]/%s", $index + 1, $data));
-        $this->dom->getNodeIndex(0);
-        $lData = $this->dom->getValue();
-        return $lData;
-    }
-    // ===============================================
-    public function getErrorItem2($data) {
-        $this->dom->queryXPath(sprintf("/rdv/datas/data[code='error']/%s", $data));
-        $this->dom->getNodeIndex(0);
-        $lData = $this->dom->getValue();
-        return $lData;
     }
     // ===============================================
 }

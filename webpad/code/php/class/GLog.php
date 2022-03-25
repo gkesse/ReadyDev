@@ -4,11 +4,11 @@ class GLog extends GObject {
     //===============================================
     static private $m_instance = null;
     //===============================================
-    private $errors = array();
-    private $logs = array();
+    private $logs;
     //===============================================
     public function __construct() {
         parent::__construct();
+        $this->logs = array();
     }
     //===============================================
     public static function Instance() {
@@ -18,28 +18,24 @@ class GLog extends GObject {
         return self::$m_instance;
     }
     //===============================================
-    public function addError($error) {
-        $this->errors[] = $error;
-    }
-    //===============================================
-    public function addLog($log) {
-        $this->logs[] = $log;
-    }
+    // errors
     //===============================================
     public function showError() {
-        if(empty($this->errors)) return;
-        $lError = "";
-        foreach($this->errors as $error) {
-            $lError .= sprintf("%s<br>", $error);
-        }
+        if(!$this->hasErrors()) return;
         echo sprintf("<div class='error box'>\n");
         echo sprintf("<div class='box_body'>\n");
         echo sprintf("<a class='button_close' onclick='error_close_onclick()'><i class='button_close_fa fa fa-times'></i></a>\n");
         echo sprintf("<div class='title_text'>%s</div>\n", "ERREUR");
         echo sprintf("<hr class='title_hr'>\n");
-        echo sprintf("<div class='row_line'>%s</div>\n", $lError);
+        echo sprintf("<div class='row_line_courier'>%s</div>\n", $this->getErrors());
         echo sprintf("</div>\n");
         echo sprintf("</div>\n");
+    }
+    //===============================================
+    // logs
+    //===============================================
+    public function addLog($log) {
+        $this->logs[] = $log;
     }
     //===============================================
     public function showLog() {

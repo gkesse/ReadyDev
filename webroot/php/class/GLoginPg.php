@@ -52,7 +52,7 @@ class GLoginPg extends GWidget {
         if(isset($_POST["action"])) {
             $lAction = $_POST["action"];
             if($lAction == "login") {
-                GLogin::Instance()->login();
+                GUser::Instance()->login();
                 if($lApp->login_on == "off") {$this->m_error = true;}
             }
         }

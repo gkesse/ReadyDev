@@ -11,24 +11,25 @@ class GDomXml extends GObject {
         parent::__construct();
     }
     //===============================================
-    public function createDom($version = "1.0", $encoding = "UTF-8") {
+    public function createDoc($version = "1.0", $encoding = "UTF-8") {
         $this->dom = new DOMDocument($version, $encoding);
         if(!$this->dom) {
-            GLog::Instance()->addError(sprintf("Erreur la méthode (createDom) a échoué ".
-                    "sur la version (%s) et l'encodage (%s).", $version, $encoding));
+            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué<br>
+            - version......: %s<br>
+            - encodage.....: %s", __METHOD__, $version, $encoding));
             return false;
         }$this->dom->preserveWhiteSpace = false;
     }
     //===============================================
     public function loadXmlFile($file) {
         if(!file_exists($file)) {
-            GLog::Instance()->addError(sprintf("Erreur la méthode (loadXmlFile) a échoué ".
-                    "sur le fichier (%s) (1).", $file));
+            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué (1)<br>
+            - fichier......: %s", __METHOD__, $file));
             return $this;
         }
         if(!$this->dom) {
-            GLog::Instance()->addError(sprintf("Erreur la méthode (loadXmlFile) a échoué ".
-                    "sur le fichier (%s) (2).", $file));
+            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué (2)<br>
+            - fichier......: %s", __METHOD__, $file));
             return $this;
         }
         $this->dom->load($file);

@@ -1,9 +1,31 @@
 <?php
 //===============================================
-class GRedirect extends GObject {
+class GPage extends GObject {
     //===============================================
     public function __construct() {
-        
+        parent::__construct();
+    }
+    //===============================================
+    public function getPageId() {
+        $lPageId = $_GET["pageid"];
+        if($lPageId == "") {
+            $lPageId = "home";
+        }
+        if(substr($lPageId, -1) == '/') {
+            $lPageId = substr($lPageId, 0, -1);
+        }
+        return $lPageId;
+    }
+    //===============================================
+    public function isPage($page) {
+        $lPageId = $this->getPageId();
+        return ($lPageId == $page);
+    }
+    //===============================================
+    public function getLink($link) {
+        $lWebKey = $this->getConfig("webkey");
+        $lLink = sprintf("/%s/%s", $lWebKey, $link);
+        return $lLink;
     }
     //===============================================
     public function redirectUrl($url) {

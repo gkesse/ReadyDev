@@ -10,7 +10,7 @@ class GLogin {
     //===============================================
     public static function Instance() {
         if(is_null(self::$m_instance)) {
-            self::$m_instance = new GLogin();  
+            self::$m_instance = new GUser();  
         }
         return self::$m_instance;
     }
