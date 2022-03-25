@@ -9,7 +9,7 @@ class GHeader extends GObject {
     //===============================================
     public function createDom() {
         $this->dom = new GDomXml();
-        $this->dom->createDom();
+        $this->dom->createDoc();
         $this->dom->loadXmlFile($this->getResourcePath("xml", "header.xml"));
         $this->dom->createXPath();
     }

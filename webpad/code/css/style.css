@@ -156,6 +156,14 @@ input:-webkit-autofill:active{
     margin: auto;
     position: relative;
 }
+.console {
+	margin-top: 40px;
+	text-align: center;
+	color: #aaaaff;
+	font-family: courier;
+	text-align: left;
+	font-size: 16px;
+}
 .form_button {
 	background-color: transparent;
 	display: inline;
@@ -192,6 +200,9 @@ input:-webkit-autofill:active{
 .none {
 	display: none;
 }
+.padding {
+	padding: 10px;
+}
 .row {
 	margin-top: 20px;
 }
@@ -211,6 +222,14 @@ input:-webkit-autofill:active{
 	text-align: center;
 	color: #aaaaff;
 }
+.row_line_courier {
+	margin-top: 40px;
+	text-align: center;
+	color: #aaaaff;
+	font-family: courier;
+	text-align: left;
+	font-size: 16px;
+}
 .title_hr {
 	border: 1px solid #aaaaff;
 }
@@ -225,6 +244,13 @@ input:-webkit-autofill:active{
 	left: 20px;
 	right: 45px;
 	text-align: center;
+}
+.title_hr_text {
+	color: #aaaaff;
+	text-align: center;
+	padding: 10px;
+	border-bottom: 2px solid #aaaaff;
+	margin-bottom: 20px;
 }
 /* ============================================== */
 /* xdebug */

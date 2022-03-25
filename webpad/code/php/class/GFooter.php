@@ -1,6 +1,6 @@
 <?php   
 //===============================================
-class GFooter extends GWidget {
+class GFooter extends GObject {
     //===============================================
     public function __construct() {
         parent::__construct();
@@ -9,8 +9,8 @@ class GFooter extends GWidget {
     //===============================================
     public function createDom() {
         $this->dom = new GDomXml();
-        $this->dom->createDom();
-        $this->dom->loadXmlFile("pad.xml");
+        $this->dom->createDoc();
+        $this->dom->loadXmlFile("process.xml");
         $this->dom->createXPath();
     }
     //===============================================

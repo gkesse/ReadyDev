@@ -2,13 +2,10 @@
 //===============================================
 require "./php/class/GAutoload.php";
 //===============================================
-$lPath = new GPath();
-$lPath->getPath("xml", "pad.xml");
-$lRedirect = new GRedirect();
+$lPage = new GPage();
 $lProcess = new GProcess();
-$lRedirect->redirectPost();
+$lPage->redirectPost();
 $lProcess->run();
 GLog::Instance()->showError();
-GLog::Instance()->showLog();
 //===============================================
 ?>

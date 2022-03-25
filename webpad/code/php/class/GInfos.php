@@ -1,6 +1,6 @@
 <?php   
 //===============================================
-class GInfos extends GWidget {
+class GInfos extends GObject {
     //===============================================
     static private $m_instance = null;
     //===============================================
@@ -18,12 +18,12 @@ class GInfos extends GWidget {
     //===============================================
     public function createDom() {
         $this->dom = new GDomXml();
-        $this->dom->createDom();
+        $this->dom->createDoc();
         $this->dom->loadXmlFile("app_infos.xml");
         $this->dom->createXPath();
         //
         $this->domData = new GDomXml();
-        $this->domData->createDom();
+        $this->domData->createDoc();
         $this->domData->loadXmlFile("app_data.xml");
         $this->domData->createXPath();
     }
@@ -53,13 +53,13 @@ class GInfos extends GWidget {
     //===============================================
     public function getType($index) {
         $this->dom->queryXPathEmpty(sprintf("/rdv/infos/info[position()=%d]/type", $index + 1));
-        $lData = $this->dom->getNodeIndex(0)->getValue();
+        $lData = $this->dom->getNodeIndex(0)->getNodeValue();
         return $lData;
     }
     //===============================================
     public function getActive($index) {
         $this->dom->queryXPathEmpty(sprintf("/rdv/infos/info[position()=%d]/active", $index + 1));
-        $lData = ($this->dom->getNodeIndex(0)->getValue() == "1");
+        $lData = ($this->dom->getNodeIndex(0)->getNodeValue() == "1");
         return $lData;
     }
     //===============================================
@@ -79,19 +79,19 @@ class GInfos extends GWidget {
     //===============================================
     public function getProfilImg($index) {
         $this->dom->queryXPath(sprintf("/rdv/infos/info[position()=%d]/img", $index + 1));
-        $lData = $this->dom->getNodeIndex(0)->getValue();
+        $lData = $this->dom->getNodeIndex(0)->getNodeValue();
         return $lData;
     }
     //===============================================
     public function getProfilFa($index) {
         $this->dom->queryXPath(sprintf("/rdv/infos/info[position()=%d]/fa", $index + 1));
-        $lData = $this->dom->getNodeIndex(0)->getValue();
+        $lData = $this->dom->getNodeIndex(0)->getNodeValue();
         return $lData;
     }
     //===============================================
     public function getProfilFaOn($index) {
         $this->dom->queryXPath(sprintf("/rdv/infos/info[position()=%d]/faon", $index + 1));
-        $lData = ($this->dom->getNodeIndex(0)->getValue() == "1");
+        $lData = ($this->dom->getNodeIndex(0)->getNodeValue() == "1");
         return $lData;
     }
     //===============================================
@@ -107,13 +107,13 @@ class GInfos extends GWidget {
     //===============================================
     public function getKey($index) {
         $this->dom->queryXPath(sprintf("/rdv/infos/info[position()=%d]/key", $index + 1));
-        $lData = $this->dom->getNodeIndex(0)->getValue();
+        $lData = $this->dom->getNodeIndex(0)->getNodeValue();
         return $lData;
     }
     //===============================================
     public function getValue($index) {
         $this->dom->queryXPath(sprintf("/rdv/infos/info[position()=%d]/value", $index + 1));
-        $lData = $this->dom->getNodeIndex(0)->getValue();
+        $lData = $this->dom->getNodeIndex(0)->getNodeValue();
         return $lData;
     }
     //===============================================

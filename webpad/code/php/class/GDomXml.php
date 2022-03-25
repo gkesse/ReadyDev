@@ -2,84 +2,83 @@
 //===============================================
 class GDomXml extends GObject {
     //===============================================
-    protected $dom = null;
-    protected $node = null;
-    protected $nodes = null;
-    protected $xpath = null;
+    private $doc = null;
+    private $node = null;
+    private $nodes = null;
+    private $xpath = null;
     //===============================================
     public function __construct() {
         parent::__construct();
     }
     //===============================================
-    public function createDom($version = "1.0", $encoding = "UTF-8") {
-        $this->dom = new DOMDocument($version, $encoding);
-        if(!$this->dom) {
-            GLog::Instance()->addError(sprintf("Erreur la méthode (createDom) a échoué ".
-                    "sur la version (%s) et l'encodage (%s).", $version, $encoding));
-            return false;
-        }$this->dom->preserveWhiteSpace = false;
+    public function createDoc($version = "1.0", $encoding = "UTF-8") {
+        $this->doc = new DOMDocument($version, $encoding);
+        if(!$this->doc) {
+            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué<br>
+            - version......: %s<br>
+            - encodage.....: %s", __METHOD__, $version, $encoding));
+            return;
+        }
+        $this->doc->preserveWhiteSpace = false;
+        $this->doc->formatOutput = true;
     }
     //===============================================
     public function loadXmlFile($file) {
         $lPathObj = new GPath();
         $lPath = $lPathObj->getPath("data/xml", $file);
-        if($lPath == "") return;
-        if(!$this->dom) {
-            GLog::Instance()->addError(sprintf("Erreur la méthode (loadXmlFile) a échoué ".
-                    "sur le fichier (%s).", $file));
-            return false;
+        if($lPath == "") {
+            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué (1)<br>
+            - fichier......: %s", __METHOD__, $file));
+            return;
         }
-        $this->dom->load($lPath);
+        if(!$this->doc) {
+            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué (2)<br>
+            - fichier......: %s", __METHOD__, $file));
+            return;
+        }
+        $this->doc->load($lPath);
     }
     //===============================================
     public function loadXmlData($xml) {
-        $this->dom->loadXml($xml);
+        if(!$this->doc) {
+            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué<br>
+            ", __METHOD__));
+            return;
+        }
+        $this->doc->loadXml($xml);
         return $this;
     }
     //===============================================
     public function saveXmlFile($file) {
         $lPath = $this->getXmlPath($file);
         if($lPath == "") {
-            GLog::Instance()->addError(sprintf("Erreur la méthode (saveXmlFile) a échoué ".
-                    "sur le fichier (%s).", $file));            
-            return $this;
+            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué (1)<br>
+            - fichier......: %s", __METHOD__, $file));
+            return;
         }
-        $this->dom->save($lPath);
+        if(!$this->doc) {
+            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué (2)<br>
+            - fichier......: %s", __METHOD__, $file));
+            return;
+        }
+        $this->doc->save($lPath);
         return $this;
     }
     //===============================================
-    public function getDomXml() {
-        return $this->dom->saveXML();
-    }
-    //===============================================
-    public function getNodeXml($xml) {
-        return $this->dom->saveXML($xml->node);
-    }
-    //===============================================
     public function createXPath() {
-        if(!$this->dom) {
-            GLog::Instance()->addError(sprintf("Erreur la méthode (createXPath) a échoué."));
-            return $this;
+        if(!$this->doc) {
+            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué<br>
+            ", __METHOD__));
+            return;
         }
-        $this->xpath = new DOMXpath($this->dom);
+        $this->xpath = new DOMXpath($this->doc);
         return $this;
     }
     //===============================================
     public function queryXPath($query) {
         if(!$this->xpath) {
-            return $this;
-        }
-        $this->nodes = $this->xpath->query($query);
-        if(!$this->nodes->length) {
-            return $this;
-        }
-        return $this;
-    }
-    //===============================================
-    public function queryXPathEmpty($query) {
-        if(!$this->xpath) {
-            GLog::Instance()->addError(sprintf("Erreur la méthode (queryXPath) a échoué ".
-                    "sur la requête (%s) (1).", $query));
+            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué<br>
+            - requête......: %s", __METHOD__, $query));
             return $this;
         }
         $this->nodes = $this->xpath->query($query);
@@ -88,7 +87,8 @@ class GDomXml extends GObject {
     //===============================================
     public function countXPath() {
         if(!$this->nodes) {
-            GLog::Instance()->addError(sprintf("Erreur la méthode (countXPath) a échoué."));
+            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué<br>
+            ", __METHOD__));
             return 0;
         }
         $lCount = $this->nodes->length;
@@ -96,22 +96,23 @@ class GDomXml extends GObject {
     }
     //===============================================
     public function createRoot($name) {
-        if(!$this->dom) {
-            GLog::Instance()->addError(sprintf("Erreur la méthode (createRoot) a échoué ".
-                    "sur le noeud (%s).", $name));
+        if(!$this->doc) {
+            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué<br>
+            - noeud......: %s", __METHOD__, $name));
             return $this;
         }
-        $this->node = $this->dom->createElement($name);
-        $this->dom->appendChild($this->node);
+        $this->node = $this->doc->createElement($name);
+        $this->doc->appendChild($this->node);
+        return $this;
     }
     //===============================================
     public function getRoot($name) {
-        if(!$this->dom) {
-            GLog::Instance()->addError(sprintf("Erreur la méthode (getRoot) a échoué ".
-                    "sur le noeud (%s).", $name));
+        if(!$this->doc) {
+            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué<br>
+            - noeud......: %s", __METHOD__, $name));
             return $this;
         }
-        $lNodes = $this->dom->childNodes;
+        $lNodes = $this->doc->childNodes;
         foreach($lNodes as $lNode) {
             $lNodeName = $lNode->nodeName;
             if($lNodeName == $name) {
@@ -123,19 +124,153 @@ class GDomXml extends GObject {
     }
     //===============================================
     public function createNode($xml, $name, $value = "") {
-        if(!$xml->dom) {
-            GLog::Instance()->addError(sprintf("Erreur la méthode (createNode) a échoué ".
-                    "sur le noeud (%s) et la valeur (%s).", $name, $value));
+        if(!$xml->doc) {
+            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué<br>
+            - noeud......: %s<br>
+            - valeur.....: %s", __METHOD__, $name, $value));
             return $this;
         }
-        $this->node = $xml->dom->createElement($name, $value);
+        $this->node = $xml->doc->createElement($name, $value);
         return $this;
+    }
+    //===============================================
+    public function createNode2($path, $value = "", $root = "rdv") {
+        $path = trim($path);
+        $lFirst = substr($path, 0, 1);
+        
+        if($lFirst == "/") {
+            $this->getRoot($root);
+        }
+        
+        $lMap = explode("/", $path);
+                
+        for($i = 0, $j = 0; $i < count($lMap); $i++) {
+            $lItem = $lMap[$i];
+            $lItem = trim($lItem);
+            if($lItem == "") continue;
+            $j++;
+            
+            if($j == 1) {
+                if($lFirst == "/") {
+                    $lName = $this->getNodeName();
+                    if($lName != $lItem) {
+                        GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué<br>
+                        - root......: %s<br>
+                        - noeud.....: %s", __METHOD__, $lName, $lItem));
+                        break;
+                    }
+                    continue;
+                }
+            }
+            
+            $lCount = $this->countNode($lItem);
+            
+            if(!$lCount) {
+                $this->appendNode4($lItem);
+            }
+            else {
+                $this->getNode($lItem);
+            }
+        }
+        if($value != "") {
+            $this->setNodeValue($value);
+        }        
+    }
+    //===============================================
+    public function createNode3($path, $value = "", $root = "rdv") {
+        $path = trim($path);
+        $lFirst = substr($path, 0, 1);
+        
+        if($lFirst == "/") {
+            $this->getRoot($root);
+        }
+        
+        $lMap = explode("/", $path);
+                
+        for($i = 0, $j = 0; $i < count($lMap); $i++) {
+            $lItem = $lMap[$i];
+            $lItem = trim($lItem);
+            if($lItem == "") continue;
+            $j++;
+            
+            if($j == 1) {
+                if($lFirst == "/") {
+                    $lName = $this->getNodeName();
+                    if($lName != $lItem) {
+                        GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué<br>
+                        - root......: %s<br>
+                        - noeud.....: %s", __METHOD__, $lName, $lItem));
+                        break;
+                    }
+                    continue;
+                }
+            }
+            
+            $lCount = $this->countNode($lItem);
+            
+            if(!$lCount || $j == 1) {
+                $this->appendNode4($lItem);
+            }
+            else {
+                $this->getNode($lItem);
+            }
+        }
+        if($value != "") {
+            $this->setNodeValue($value);
+        }        
+    }
+    //===============================================
+    public function createNode4($path, $value = "", $root = "rdv") {
+        $path = trim($path);
+        $lFirst = substr($path, 0, 1);
+        
+        if($lFirst == "/") {
+            $this->getRoot($root);
+        }
+        
+        $lMap = explode("/", $path);
+        
+        $lCurrentNode = $this->node;
+        
+        for($i = 0, $j = 0; $i < count($lMap); $i++) {
+            $lItem = $lMap[$i];
+            $lItem = trim($lItem);
+            if($lItem == "") continue;
+            $j++;
+            
+            if($j == 1) {
+                if($lFirst == "/") {
+                    $lName = $this->getNodeName();
+                    if($lName != $lItem) {
+                        GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué<br>
+                        - root......: %s<br>
+                        - noeud.....: %s", __METHOD__, $lName, $lItem));
+                        break;
+                    }
+                    continue;
+                }
+            }
+            
+            $lCount = $this->countNode($lItem);
+            
+            if(!$lCount) {
+                $this->appendNode4($lItem);
+            }
+            else {
+                $this->getNode($lItem);
+            }
+        }
+        if($value != "") {
+            $this->setNodeValue($value);
+        }
+        
+        $this->node = $lCurrentNode;
     }
     //===============================================
     public function getNode($name) {
         if(!$this->node) {
-            GLog::Instance()->addError(sprintf("Erreur la méthode (getNode) a échoué ".
-                    "sur le noeud (%s).", $name));
+            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué<br>
+            - noeud......: %s", __METHOD__, $name));
             return $this;
         }
         $lNodes = $this->node->childNodes;
@@ -151,10 +286,20 @@ class GDomXml extends GObject {
         return $this;
     }
     //===============================================
+    public function getNodeName() {
+        if(!$this->node) {
+            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué<br>
+            ", __METHOD__));
+            return "";
+        }
+        return $this->node->nodeName;
+    }
+    //===============================================
     public function getNodeItem($name, $index) {
         if(!$this->node) {
-            GLog::Instance()->addError(sprintf("Erreur la méthode (getNodeItem) a échoué ".
-                    "sur le noeud (%s) et l'index (%d).", $name, $index));
+            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué<br>
+            - noeud......: %s<br>
+            - index......: %d", __METHOD__, $name, $index));
             return $this;
         }
         $lNodes = $this->nodes->childNodes;
@@ -203,7 +348,7 @@ class GDomXml extends GObject {
         return $lCount;
     }
     //===============================================
-    public function getValue() {
+    public function getNodeValue() {
         if(!$this->node) {
             return "";
         }
@@ -211,7 +356,7 @@ class GDomXml extends GObject {
         return $lValue;
     }
     //===============================================
-    public function getContent() {
+    public function getNodeContent() {
         if(!$this->node) {
             return "";
         }
@@ -221,29 +366,64 @@ class GDomXml extends GObject {
     //===============================================
     public function setAttribute($name, $value) {
         if(!$this->node) {
-            GLog::Instance()->addError(sprintf("Erreur la méthode (setAttribute) a échoué ".
-                    "sur le noeud (%s) et la valeur (%s).", $name, $value));
+            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué<br>
+            - noeud......: %s<br>
+            - valeur.....: %s", __METHOD__, $name, $value));
             return "";
         }
         $this->node->setAttribute($name, $value);
     }
     //===============================================
+    public function setNodeValue($value) {
+        if(!$this->node) {
+            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué<br>
+            - valeur.....: %s", __METHOD__, $value));
+            return "";
+        }
+        $this->node->nodeValue = $value;
+    }
+    //===============================================
     public function getAttribute($name) {
         if(!$this->node) {
-            GLog::Instance()->addError(sprintf("Erreur la méthode (setAttribute) a échoué ".
-                    "sur le noeud (%s).", $name));
+            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué<br>
+            - noeud......: %s", __METHOD__, $name));
             return "";
         }
         return $this->node->setAttribute($name);
     }
     //===============================================
-    public function appendChild($xml) {
+    public function appendNode($xml) {
         $this->node->appendChild($xml->node);
+    }
+    //===============================================
+    public function appendNode2($name, $value = "") {
+        $lNode = new GDomXml();
+        $lNode->createNode($this, $name, $value);
+        $this->appendNode($lNode);
+    }
+    //===============================================
+    public function appendNode3($xml) {
+        $this->node->appendChild($xml->node);
+        $this->node = $xml->node;
+    }
+    //===============================================
+    public function appendNode4($name, $value = "") {
+        $lNode = new GDomXml();
+        $lNode->createNode($this, $name, $value);
+        $this->appendNode3($lNode);
     }
     //===============================================
     public function convertEncode($content, $toEncoding = 'HTML-ENTITIES', $fromEncoding = 'UTF-8') {
         $lContent = mb_convert_encoding($content, $toEncoding, $fromEncoding);
         return $lContent;
+    }
+    //===============================================
+    public function toString() {
+        return $this->doc->saveXML();
+    }
+    //===============================================
+    public function toStringNode($xml) {
+        return $this->doc->saveXML($xml->node);
     }
     //===============================================
 }

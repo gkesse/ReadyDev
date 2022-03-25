@@ -3,7 +3,7 @@
         //===============================================
         private static $m_instance = null;
         //===============================================
-        protected $dom = null;
+        protected $doc = null;
         //===============================================
         public function __construct() {
 

@@ -22,7 +22,7 @@ class GProcess {
         GSQLite::Instance();
         GManager::Instance()->loadData();
         GView::Instance()->increment();
-        GLogin::Instance()->createRoot();
+        GUser::Instance()->createRoot();
         //
         GWidget::Create("header")->run();
         GWidget::Create("body")->run();
