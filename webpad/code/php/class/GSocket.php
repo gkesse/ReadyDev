@@ -3,6 +3,7 @@
 class GSocket extends GObject {
     //===============================================
     const BUFFER_DATA_SIZE = 1024;
+    const BUFFER_NDATA_SIZE = 8;
     //===============================================
     private $socket;
     //===============================================
@@ -97,7 +98,7 @@ class GSocket extends GObject {
     public function writeData($data) {
         $lLength = strlen($data);
         $lSize = ceil($lLength/self::BUFFER_DATA_SIZE);
-        $lData = str_pad($lSize, self::BUFFER_DATA_SIZE);
+        $lData = str_pad($lSize, self::BUFFER_NDATA_SIZE);
         $this->sendData($lData);
         
         $lBytes = 0;
@@ -116,13 +117,18 @@ class GSocket extends GObject {
     }
     //===============================================
     public function recvData() {
-        $lBuffer = socket_read($this->socket, self::BUFFER_DATA_SIZE, PHP_BINARY_READ);
+        $lBuffer = $this->recvDataSize(self::BUFFER_DATA_SIZE);
+        return $lBuffer;
+    }
+    //===============================================
+    public function recvDataSize($size) {
+        $lBuffer = socket_read($this->socket, $size, PHP_BINARY_READ);
         return $lBuffer;
     }
     //===============================================
     public function readData() {
-        $lBuffer = $this->recvData();
-        $lSize = intval($lBuffer);
+        $lBuffer = $this->recvData(BUFFER_NDATA_SIZE);
+        $lSize = intval(trim($lBuffer));
         $lData = "";
         
         for($i = 0; $i < $lSize; $i++) {
