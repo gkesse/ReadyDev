@@ -127,7 +127,7 @@ class GSocket extends GObject {
     }
     //===============================================
     public function readData() {
-        $lBuffer = $this->recvData(BUFFER_NDATA_SIZE);
+        $lBuffer = $this->recvData(self::BUFFER_NDATA_SIZE);
         $lSize = intval(trim($lBuffer));
         $lData = "";
         
