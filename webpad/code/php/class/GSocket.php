@@ -3,7 +3,7 @@
 class GSocket extends GObject {
     //===============================================
     const BUFFER_DATA_SIZE = 1024;
-    const BUFFER_NDATA_SIZE = 8;
+    const BUFFER_NDATA_SIZE = 256;
     //===============================================
     private $socket;
     //===============================================
