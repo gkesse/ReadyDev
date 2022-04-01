@@ -98,7 +98,7 @@ class GSocket extends GObject {
     public function writeData($data) {
         $lLength = strlen($data);
         $lSize = ceil($lLength/self::BUFFER_DATA_SIZE);
-        $lData = str_pad($lSize, self::BUFFER_NDATA_SIZE);
+        $lData = str_pad($lSize, self::BUFFER_NDATA_SIZE, " ", STR_PAD_LEFT);
         $this->sendData($lData);
         
         $lBytes = 0;
