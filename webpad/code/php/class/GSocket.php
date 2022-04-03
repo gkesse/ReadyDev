@@ -61,7 +61,7 @@ class GSocket extends GObject {
     public function createSocket($domain, $type, $protocol) {
         $this->socket = socket_create($domain, $type, $protocol);
         if($this->socket === false) {
-            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué<br>
+            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué.<br>
             - error......: %s", __METHOD__, socket_strerror(socket_last_error())));
         }
     }
@@ -69,7 +69,7 @@ class GSocket extends GObject {
     public function bindSocket($address, $port) {
         $lRes = socket_bind($this->socket, $address, $port);
         if($lRes === false) {
-            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué<br>
+            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué.<br>
             - error......: %s", __METHOD__, socket_strerror(socket_last_error())));
         }
     }
@@ -77,7 +77,7 @@ class GSocket extends GObject {
     public function listenSocket($backlog) {
         $lRes = socket_listen($this->socket, $backlog);
         if($lRes === false) {
-            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué<br>
+            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué.<br>
             - error......: %s", __METHOD__, socket_strerror(socket_last_error())));
         }
     }
@@ -85,7 +85,7 @@ class GSocket extends GObject {
     public function acceptSocket(GSocket $socket) {
         $socket->socket = socket_accept($this->socket);
         if($socket->socket === false) {
-            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué<br>
+            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué.<br>
             - error......: %s", __METHOD__, socket_strerror(socket_last_error())));
         }
     }
@@ -93,7 +93,7 @@ class GSocket extends GObject {
     public function connectSocket($address, $port) {
         $lRes = socket_connect($this->socket, $address, $port);
         if($lRes === false) {
-            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué<br>
+            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué.<br>
             - error......: %s", __METHOD__, socket_strerror(socket_last_error())));
         }
     }
@@ -101,7 +101,7 @@ class GSocket extends GObject {
     public function sendData($data) {
         $lBytes = socket_write($this->socket, $data, strlen($data));
         if($lBytes === false) {
-            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué<br>
+            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué.<br>
             - error......: %s", __METHOD__, socket_strerror(socket_last_error())));
         }
         return $lBytes;
@@ -119,7 +119,7 @@ class GSocket extends GObject {
             $lData = substr($data, $lBytes, self::BUFFER_DATA_SIZE);
             $iBytes = $this->sendData($lData);
             if($iBytes === false) {
-                GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué<br>
+                GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué.<br>
                 - error......: %s", __METHOD__, socket_strerror(socket_last_error())));
                 break;
             }
@@ -146,7 +146,7 @@ class GSocket extends GObject {
         for($i = 0; $i < $lSize; $i++) {
             $lBuffer = $this->recvData();
             if($lBuffer === false) {
-                GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué<br>
+                GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué.<br>
                 - error......: %s", __METHOD__, socket_strerror(socket_last_error())));
                 break;
             }
@@ -177,7 +177,11 @@ class GSocket extends GObject {
         
         $this->writeData($dataIn);
         $lDataOut = $this->readData();
-                
+        
+        if($lDataOut == "") {
+            GLog::Instance()->addError(sprintf("Erreur la connexion au serveur a échoué."));            
+        }
+        
         $this->closeSocket();
         
         return $lDataOut;

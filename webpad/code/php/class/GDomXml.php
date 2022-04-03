@@ -14,7 +14,7 @@ class GDomXml extends GObject {
     public function createDoc($version = "1.0", $encoding = "UTF-8") {
         $this->doc = new DOMDocument($version, $encoding);
         if(!$this->doc) {
-            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué<br>
+            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué.<br>
             - version......: %s<br>
             - encodage.....: %s", __METHOD__, $version, $encoding));
             return;
@@ -41,7 +41,7 @@ class GDomXml extends GObject {
     //===============================================
     public function loadXmlData($xml) {
         if(!$this->doc) {
-            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué<br>
+            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué.<br>
             ", __METHOD__));
             return;
         }
@@ -67,7 +67,7 @@ class GDomXml extends GObject {
     //===============================================
     public function createXPath() {
         if(!$this->doc) {
-            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué<br>
+            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué.<br>
             ", __METHOD__));
             return;
         }
@@ -77,7 +77,7 @@ class GDomXml extends GObject {
     //===============================================
     public function queryXPath($query) {
         if(!$this->xpath) {
-            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué<br>
+            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué.<br>
             - requête......: %s", __METHOD__, $query));
             return $this;
         }
@@ -87,7 +87,7 @@ class GDomXml extends GObject {
     //===============================================
     public function countXPath() {
         if(!$this->nodes) {
-            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué<br>
+            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué.<br>
             ", __METHOD__));
             return 0;
         }
@@ -97,7 +97,7 @@ class GDomXml extends GObject {
     //===============================================
     public function createRoot($name) {
         if(!$this->doc) {
-            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué<br>
+            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué.<br>
             - noeud......: %s", __METHOD__, $name));
             return $this;
         }
@@ -108,7 +108,7 @@ class GDomXml extends GObject {
     //===============================================
     public function getRoot($name) {
         if(!$this->doc) {
-            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué<br>
+            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué.<br>
             - noeud......: %s", __METHOD__, $name));
             return $this;
         }
@@ -125,7 +125,7 @@ class GDomXml extends GObject {
     //===============================================
     public function createNode($xml, $name, $value = "") {
         if(!$xml->doc) {
-            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué<br>
+            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué.<br>
             - noeud......: %s<br>
             - valeur.....: %s", __METHOD__, $name, $value));
             return $this;
@@ -154,7 +154,7 @@ class GDomXml extends GObject {
                 if($lFirst == "/") {
                     $lName = $this->getNodeName();
                     if($lName != $lItem) {
-                        GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué<br>
+                        GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué.<br>
                         - root......: %s<br>
                         - noeud.....: %s", __METHOD__, $lName, $lItem));
                         break;
@@ -197,7 +197,7 @@ class GDomXml extends GObject {
                 if($lFirst == "/") {
                     $lName = $this->getNodeName();
                     if($lName != $lItem) {
-                        GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué<br>
+                        GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué.<br>
                         - root......: %s<br>
                         - noeud.....: %s", __METHOD__, $lName, $lItem));
                         break;
@@ -242,7 +242,7 @@ class GDomXml extends GObject {
                 if($lFirst == "/") {
                     $lName = $this->getNodeName();
                     if($lName != $lItem) {
-                        GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué<br>
+                        GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué.<br>
                         - root......: %s<br>
                         - noeud.....: %s", __METHOD__, $lName, $lItem));
                         break;
@@ -269,7 +269,7 @@ class GDomXml extends GObject {
     //===============================================
     public function getNode($name) {
         if(!$this->node) {
-            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué<br>
+            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué.<br>
             - noeud......: %s", __METHOD__, $name));
             return $this;
         }
@@ -288,7 +288,7 @@ class GDomXml extends GObject {
     //===============================================
     public function getNodeName() {
         if(!$this->node) {
-            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué<br>
+            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué.<br>
             ", __METHOD__));
             return "";
         }
@@ -297,7 +297,7 @@ class GDomXml extends GObject {
     //===============================================
     public function getNodeItem($name, $index) {
         if(!$this->node) {
-            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué<br>
+            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué.<br>
             - noeud......: %s<br>
             - index......: %d", __METHOD__, $name, $index));
             return $this;
@@ -366,7 +366,7 @@ class GDomXml extends GObject {
     //===============================================
     public function setAttribute($name, $value) {
         if(!$this->node) {
-            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué<br>
+            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué.<br>
             - noeud......: %s<br>
             - valeur.....: %s", __METHOD__, $name, $value));
             return "";
@@ -376,7 +376,7 @@ class GDomXml extends GObject {
     //===============================================
     public function setNodeValue($value) {
         if(!$this->node) {
-            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué<br>
+            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué.<br>
             - valeur.....: %s", __METHOD__, $value));
             return "";
         }
@@ -385,7 +385,7 @@ class GDomXml extends GObject {
     //===============================================
     public function getAttribute($name) {
         if(!$this->node) {
-            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué<br>
+            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué.<br>
             - noeud......: %s", __METHOD__, $name));
             return "";
         }
