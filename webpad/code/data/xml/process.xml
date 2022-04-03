@@ -60,7 +60,7 @@
         <!-- ============================================ -->
    		<data>
     		<code>process</code>
-	        <name>studio</name>
+	        <name>test</name>
 	        <onload></onload>
     	</data>
         <!-- ============================================ -->
@@ -68,7 +68,7 @@
         <!-- ============================================ -->
    		<data>
     		<code>test</code>
-	        <name>pad</name>
+	        <name>env</name>
     	</data>
         <!-- ============================================ -->
     	<!-- test/map -->
@@ -128,7 +128,8 @@
 	        <protocol>SOL_TCP</protocol>
 	        <server_ip>readydev.ovh</server_ip>
 	        <client_ip>0.0.0.0</client_ip>
-	        <port>9090</port>
+	        <prod_port>9090</prod_port>
+	        <test_port>9091</test_port>
 	        <backlog>5</backlog>
     	</data>
         <!-- ============================================ -->

@@ -46,6 +46,18 @@ class GSocket extends GObject {
         return $lProtocol;
     }
     //===============================================
+    public function loadPort() {
+        $lEnvObj = new GEnv();
+        $lPort = $this->loadPortEnv($lEnvObj->isTestEnv());
+        return $lPort;
+    }
+    //===============================================
+    public function loadPortEnv($isTestEnv) {
+        $lPort = intval($this->getItem("socket", "prod_port"));
+        if($isTestEnv) $lPort = intval($this->getItem("socket", "test_port"));
+        return $lPort;
+    }
+    //===============================================
     public function createSocket($domain, $type, $protocol) {
         $this->socket = socket_create($domain, $type, $protocol);
         if($this->socket === false) {
@@ -158,7 +170,7 @@ class GSocket extends GObject {
         $lType = $this->loadType();
         $lProtocol = $this->loadProtocol();
         $lAddress = gethostbyname($this->getItem("socket", "server_ip"));
-        $lPort = intval($this->getItem("socket", "port"));
+        $lPort = $this->loadPort();
         
         $this->createSocket($lDomain, $lType, $lProtocol);
         $this->connectSocket($lAddress, $lPort);

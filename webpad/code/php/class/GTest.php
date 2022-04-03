@@ -63,6 +63,10 @@ class GTest extends GObject {
         else if($key == "request/error") {
             $this->runRequestError();
         }
+        // env
+        else if($key == "env") {
+            $this->runEnv();
+        }
         // end
         else {
             $this->runDefault($key);
@@ -299,6 +303,17 @@ class GTest extends GObject {
         GLog::Instance()->loadErrors($lData);
         
         GConsole::Instance()->printCode($lData);
+    }
+    //===============================================
+    public function runEnv() {
+        echo sprintf("%s<br>", __METHOD__);
+        $lEnvObj = new GEnv();
+        $lSocket = new GSocket();
+        $lEnv = $lEnvObj->getEnv("GPROJECT_ENV");
+        echo sprintf("GPROJECT_ENV......: %s<br>\n", $lEnv);
+        echo sprintf("PROD_ENV..........: %s<br>\n", $lEnvObj->isProdEnv());
+        echo sprintf("TEST_ENV..........: %s<br>\n", $lEnvObj->isTestEnv());
+        echo sprintf("PORT..............: %d<br>\n", $lSocket->loadPort());
     }
     //===============================================
 }
