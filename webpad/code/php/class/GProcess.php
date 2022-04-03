@@ -23,13 +23,19 @@ class GProcess extends GObject {
     }
     //===============================================
     public function runProcess() {
-        $lKey = $this->getItem("process", "name");
+        $lEnvObj = new GEnv();
+        $this->runProcessEnv($lEnvObj->isTestEnv());
+    }
+    //===============================================
+    public function runProcessEnv($isTestEnv) {
+        $lKey = "pad";
+        if($isTestEnv) $lKey = $this->getItem("process", "name");
         
         if($lKey == "test") {
             $this->runTest();
         }
-        // studio
-        else if($lKey == "studio") {
+        // pad
+        else if($lKey == "pad") {
             $this->runPad();
         }
         // end
