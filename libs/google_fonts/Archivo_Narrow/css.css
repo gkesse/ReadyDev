@@ -1,0 +1,27 @@
+/* ============================================== */
+@font-face {
+  font-family: "Archivo Narrow";
+  font-style: normal;
+  src: url("ArchivoNarrow-Regular.ttf");
+}
+/* ============================================== */
+@font-face {
+  font-family: "Archivo Narrow";
+  font-style: normal;
+  font-weight: bold;
+  src: url("ArchivoNarrow-Bold.ttf");
+}
+/* ============================================== */
+@font-face {
+  font-family: "Archivo Narrow";
+  font-style: italic;
+  src: url("ArchivoNarrow-Italic.ttf");
+}
+/* ============================================== */
+@font-face {
+  font-family: "Archivo Narrow";
+  font-style: italic;
+  font-weight: bold;
+  src: url("ArchivoNarrow-BoldItalic.ttf");
+}
+/* ============================================== */
