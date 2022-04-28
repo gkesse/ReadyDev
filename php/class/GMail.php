@@ -16,7 +16,7 @@
         //===============================================
         public function receiveMail($data) {
             date_default_timezone_set("Etc/UTC");
-            require_once $_SERVER["DOCUMENT_ROOT"]."/libs/phpmailer/5.2.23/PHPMailerAutoload.php";
+            require_once $_SERVER["DOCUMENT_ROOT"]."/libs/phpmailer/PHPMailerAutoload.php";
             
             $m_file = $_SERVER["DOCUMENT_ROOT"]."/data/email/contacts/email.php";
             $m_content = GFile::Instance()->getInclude($m_file, $data);

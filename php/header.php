@@ -111,16 +111,12 @@
         <link rel="stylesheet" href="/libs/google_fonts/Anton/css.css" media="none" onload="if(media!='all')media='all'"/>
         <link rel="stylesheet" href="/libs/font_awesome/css/font-awesome.min.css" media="none" onload="if(media!='all')media='all'"/>
         <!-- ============================================ -->
-        <!-- Script -->
-        <!--script src="/libs/jquery/3.3.1/jquery.min.js" async></script-->
-        <!-- ============================================ -->
         <?php if($lAce) { ?>
-        <script src="/libs/ace/1.4.6/src-min/ace.js" async></script>
-        <!--script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.min.js" async></script-->
+        <script src="/libs/ace/src-min/ace.js" async></script>
         <?php } ?>
         <!-- ============================================ -->
         <?php if($lMathJax) { ?>
-        <script src="/libs/mathjax/2.7.3/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="/libs/mathjax/MathJax.js?config=TeX-MML-AM_CHTML"></script>
         <script type="text/x-mathjax-config">
         MathJax.Hub.Config({
             tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
@@ -129,8 +125,7 @@
         <?php } ?>
         <!-- ============================================ -->
         <!-- Global site tag (gtag.js) - Google Analytics -->
-        <!--script src="https://www.googletagmanager.com/gtag/js?id=UA-109595989-1" async></script-->
-        <script src="/libs/google_tag_manager/1.0.0/gtag.js?id=UA-109595989-1" async></script>
+        <script src="/libs/google_tag_manager/gtag.js?id=UA-109595989-1" async></script>
         <script>
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
