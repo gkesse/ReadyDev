@@ -26,8 +26,8 @@
             return $lData;
         }
         //===============================================
-        public function getItem3($code, $key, $index) {
-            $this->dom->queryXPath(sprintf("/rdv/datas/data[code='%s']/map/%s[position()=%d]", $code, $key, $index + 1));
+        public function getItem3($code, $index) {
+            $this->dom->queryXPath(sprintf("/rdv/datas/data[code='%s']/map/data[position()=%d]", $code, $index + 1));
             $this->dom->getNodeIndex(0);
             $lData = $this->dom->getNodeValue();
             return $lData;

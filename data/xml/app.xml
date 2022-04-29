@@ -2,6 +2,70 @@
 <rdv>
     <datas>
         <!-- ============================================ -->
+    	<!-- header -->
+        <!-- ============================================ -->
+    	<data>
+    		<code>header</code>
+    		<lang>fr</lang>
+    		<title>ReadyDev</title>
+    		<logo>/data/img/defaults/readydev.png</logo>
+     	</data>
+        <!-- ============================================ -->
+    	<!-- fonts -->
+        <!-- ============================================ -->
+    	<data>
+    		<code>fonts</code>
+    		<map>
+    			<data>/libs/google_fonts/Aclonica/css.css</data>
+    			<data>/libs/google_fonts/Akronim/css.css</data>
+    			<data>/libs/google_fonts/Allan/css.css</data>
+    			<data>/libs/google_fonts/Archivo_Narrow/css.css</data>
+    			<data>/libs/google_fonts/Anton/css.css</data>
+    			<data>/libs/font_awesome/css/font-awesome.min.css</data>
+    			<data>/css/style.php</data>
+    		</map>
+     	</data>
+        <!-- ============================================ -->
+    	<!-- menu -->
+        <!-- ============================================ -->
+    	<data>
+    		<code>menu</code>
+    		<map>
+    			<data>
+    				<name>CV</name>
+    				<link>/home/cv</link>
+    			</data>
+    			<data>
+    				<name>Présentation</name>
+    				<link>/home/presentation</link>
+    			</data>
+    			<data>
+    				<name>Tutoriels</name>
+    				<link>/home/tutoriels</link>
+    			</data>
+    			<data>
+    				<name>Cours</name>
+    				<link>/home/cours</link>
+    			</data>
+    			<data>
+    				<name>Contacts</name>
+    				<link>/home/contacts</link>
+    			</data>
+    			<data>
+    				<name>Connexion</name>
+    				<link>/home/connexion</link>
+    			</data>
+    			<data>
+    				<name>Admin</name>
+    				<link>/home/admin</link>
+    			</data>
+    			<data>
+    				<name>Doc</name>
+    				<link>/home/doc</link>
+    			</data>
+    		</map>
+     	</data>
+        <!-- ============================================ -->
     	<!-- home -->
         <!-- ============================================ -->
     	<data>
@@ -20,7 +84,7 @@
         <!-- ============================================ -->
     	<data>
     		<code>test</code>
-    		<env>dev</env>
+    		<env>prod</env>
      	</data>
         <!-- ============================================ -->
     	<!-- end -->

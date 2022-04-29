@@ -22,13 +22,22 @@ class GProcess extends GObject {
         if($lEnv == "prod") {
             $this->runProd();
         }
+        else if($lEnv == "ready") {
+            $this->runReady();
+        }
         else if($lEnv == "dev") {
-            $this->runTestDev();            
+            $this->runTestDev();
         }
     }
     //===============================================
     public function runTestDev() {
-        echo "ooooooooooooooooooo";
+        $lTestObj = new GTest();
+        $lTestObj->run();
+    }
+    //===============================================
+    public function runReady() {
+        $lReadyObj = new GReady();
+        $lReadyObj->run();
     }
     //===============================================
     public function runProd() {

@@ -1,27 +1,51 @@
-<?php   
-    class GPage {
-        //===============================================
-        private static $m_instance = null;
-        //===============================================
-        private function __construct() {
-        
-        }
-        //===============================================
-        public static function Instance() {
-            if(is_null(self::$m_instance)) {
-                self::$m_instance = new GPage();  
-            }
-            return self::$m_instance;
-        }
-        //===============================================
-        public function setPage($page) {
-            require $_SERVER["DOCUMENT_ROOT"].$page;
-        }
-        //===============================================
-        public function setPage2($page) {
-            $lCurrentDir = GConfig::Instance()->getData("dir");
-            require $lCurrentDir.$page;
-        }
-        //===============================================
+<?php
+class GPage extends GObject {
+    //===============================================
+    public function __construct() {
+        parent::__construct();
     }
+    //===============================================
+    public function getPageId() {
+        $lPageId = $_GET["pageid"];
+        $lPageId = sprintf("/home/%s", $lPageId);
+        if(substr($lPageId, -1) == '/') {
+            $lPageId = substr($lPageId, 0, -1);
+        }
+        return $lPageId;
+    }
+    //===============================================
+    public function isPage($page) {
+        $lPageId = $this->getPageId();
+        return ($lPageId == $page);
+    }
+    //===============================================
+    public function getLink($link) {
+        $lWebKey = $this->getConfig("webkey");
+        $lLink = sprintf("/%s/%s", $lWebKey, $link);
+        return $lLink;
+    }
+    //===============================================
+    public function redirectUrl($url) {
+        $lUrlLink = $this->getLink($url);
+        $lLocation = sprintf("Location: %s", $lUrlLink);
+        header($lLocation);
+        exit;
+    }
+    //===============================================
+    public function redirectPost() {
+        if(!empty($_POST) OR !empty($_FILES)) {
+            $_SESSION["_SAVE_POST_"] = $_POST;
+            $_SESSION["_SAVE_FILES_"] = $_FILES;
+            $lUrl = $_SERVER["REQUEST_URI"];
+            header("Location: " . $lUrl);
+            exit;
+        }
+        if(isset($_SESSION["_SAVE_POST_"])) {
+            $_POST = $_SESSION["_SAVE_POST_"];
+            $_FILES = $_SESSION["_SAVE_FILES_"];
+            unset($_SESSION["_SAVE_POST_"], $_SESSION["_SAVE_FILES_"]);
+        }
+    }
+    //===============================================
+}
 ?>
