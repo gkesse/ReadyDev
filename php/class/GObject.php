@@ -1,37 +1,42 @@
 <?php   
     class GObject {
         //===============================================
-        private static $m_instance = null;
-        //===============================================
-        protected $doc = null;
+        protected $dom = null;
         //===============================================
         public function __construct() {
 
         }
         //===============================================
-        public static function Instance() {
-            if(is_null(self::$m_instance)) {
-                self::$m_instance = new GObject();  
-            }
-            return self::$m_instance;
+        public function createDoms() {
+            $this->dom = new GXml();
+            $this->dom->createDocFile("data/xml", "app.xml");
         }
         //===============================================
-        public function getDataPath() {
-            $lRoot = $_SERVER["DOCUMENT_ROOT"];
-            $lData = "data";
-            $lPath = sprintf("%s/%s", $lRoot, $lData);
-            return $lPath;
+        public function getItem($code, $key) {
+            $this->dom->queryXPath(sprintf("/rdv/datas/data[code='%s']/%s", $code, $key));
+            $this->dom->getNodeIndex(0);
+            $lData = $this->dom->getNodeValue();
+            return $lData;
         }
         //===============================================
-        public function getResourcePath($resource, $filename) {
-            $lPath = $filename;
-            if($resource != "") {
-                $lPath = sprintf("%s/%s", $resource, $lPath);
-            }
-            if($this->getDataPath() != "") {
-                $lPath = sprintf("%s/%s", $this->getDataPath(), $lPath);
-            }
-            return $lPath;
+        public function getItem2($code, $key, $index) {
+            $this->dom->queryXPath(sprintf("/rdv/datas/data[code='%s']/map/data[position()=%d]/%s", $code, $index + 1, $key));
+            $this->dom->getNodeIndex(0);
+            $lData = $this->dom->getNodeValue();
+            return $lData;
+        }
+        //===============================================
+        public function getItem3($code, $key, $index) {
+            $this->dom->queryXPath(sprintf("/rdv/datas/data[code='%s']/map/%s[position()=%d]", $code, $key, $index + 1));
+            $this->dom->getNodeIndex(0);
+            $lData = $this->dom->getNodeValue();
+            return $lData;
+        }
+        //===============================================
+        public function countItem($code) {
+            $this->dom->queryXPath(sprintf("/rdv/datas/data[code='%s']/map/data", $code));
+            $lData = $this->dom->countXPath();
+            return $lData;
         }
         //===============================================
     }

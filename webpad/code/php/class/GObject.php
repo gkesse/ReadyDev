@@ -59,8 +59,8 @@ class GObject {
     //===============================================
     // dom
     //===============================================
-    public function getItem($code, $data) {
-        $this->dom->queryXPath(sprintf("/rdv/datas/data[code='%s']/%s", $code, $data));
+    public function getItem($code, $key) {
+        $this->dom->queryXPath(sprintf("/rdv/datas/data[code='%s']/%s", $code, $key));
         $this->dom->getNodeIndex(0);
         $lData = $this->dom->getNodeValue();
         return $lData;
