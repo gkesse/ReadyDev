@@ -1146,7 +1146,7 @@ span {
 }
 
 .Img.Developer {
-    background-image: url("<?php echo $lObj->getItem("style", "img_devloper"); ?>");
+    background-image: url("<?php echo $lObj->getItem("style", "img_developer"); ?>");
 }
 
 .Img.Grid {
