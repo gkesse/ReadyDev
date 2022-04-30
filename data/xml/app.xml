@@ -129,8 +129,8 @@
         	<!-- ============================================ -->
     		<!-- image -->    		
         	<!-- ============================================ -->
-    		<img_wave>/data/img/defaults/wave.jpg</img_wave>
-    		<img_binary>/data/img/defaults/binary.jpg</img_binary>
+    		<img_wave>/data/img/defaults/wave.png</img_wave>
+    		<img_binary>/data/img/defaults/binary.png</img_binary>
     		<img_signal>/data/img/defaults/signal.jpg</img_signal>
     		<img_chip>/data/img/defaults/chip.jpg</img_chip>
     		<img_developer>/data/img/defaults/developer.jpg</img_developer>
