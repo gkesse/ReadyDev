@@ -32,36 +32,60 @@
     		<code>menu</code>
     		<map>
     			<data>
+    				<type>link/image</type>
+		    		<name>ReadyDev</name>
+		    		<img>/data/img/defaults/readydev.png</img>
+    				<link>/home</link>
+    			</data>
+    			<data>
+    				<type>link</type>
     				<name>CV</name>
     				<link>/home/cv</link>
     			</data>
     			<data>
+    				<type>link</type>
     				<name>Présentation</name>
     				<link>/home/presentation</link>
     			</data>
     			<data>
+    				<type>link</type>
     				<name>Tutoriels</name>
     				<link>/home/tutoriels</link>
     			</data>
     			<data>
+    				<type>link</type>
     				<name>Cours</name>
     				<link>/home/cours</link>
     			</data>
     			<data>
+    				<type>link</type>
     				<name>Contacts</name>
     				<link>/home/contacts</link>
     			</data>
     			<data>
-    				<name>Connexion</name>
-    				<link>/home/connexion</link>
-    			</data>
-    			<data>
+    				<type>link</type>
     				<name>Admin</name>
     				<link>/home/admin</link>
     			</data>
     			<data>
+    				<type>link</type>
     				<name>Doc</name>
     				<link>/home/doc</link>
+    			</data>
+    			<data>
+    				<type>link</type>
+    				<name>Connexion</name>
+    				<link>/home/connexion</link>
+    			</data>
+    			<data>
+    				<type>link</type>
+    				<name>Déconnexion</name>
+    				<link>/home/deconnexion</link>
+    			</data>
+    			<data>
+    				<type>link</type>
+    				<name><![CDATA[<i class='fa fa-bars'></i>]]></name>
+    				<link>/home/menu</link>
     			</data>
     		</map>
      	</data>
@@ -84,7 +108,38 @@
         <!-- ============================================ -->
     	<data>
     		<code>test</code>
-    		<env>prod</env>
+    		<env>ready</env>
+     	</data>
+        <!-- ============================================ -->
+    	<!-- style -->
+        <!-- ============================================ -->
+    	<data>
+    		<code>style</code>
+        	<!-- ============================================ -->
+    		<!-- background -->    		
+        	<!-- ============================================ -->
+    		<bg_img_top>/data/img/defaults/top_masque.png</bg_img_top>
+    		<bg_img_top_bg>/data/img/defaults/fond.jpg</bg_img_top_bg>
+    		<bg_img_middle>/data/img/defaults/middle.gif</bg_img_middle>
+    		<bg_img_bottom>/data/img/defaults/footer.jpg</bg_img_bottom>
+        	<!-- ============================================ -->
+    		<!-- border -->    		
+        	<!-- ============================================ -->
+    		<border_img>/data/img/defaults/border.png</border_img>
+        	<!-- ============================================ -->
+    		<!-- image -->    		
+        	<!-- ============================================ -->
+    		<img_wave>/data/img/defaults/wave.jpg</img_wave>
+    		<img_binary>/data/img/defaults/binary.jpg</img_binary>
+    		<img_signal>/data/img/defaults/signal.jpg</img_signal>
+    		<img_chip>/data/img/defaults/chip.jpg</img_chip>
+    		<img_developer>/data/img/defaults/developer.jpg</img_developer>
+    		<img_grid>/data/img/defaults/grid.jpg</img_grid>
+    		<img_dashboard>/data/img/defaults/dashboard.jpg</img_dashboard>
+    		<img_contact>/data/img/defaults/contact.jpg</img_contact>
+        	<!-- ============================================ -->
+    		<!-- end -->    		
+        	<!-- ============================================ -->
      	</data>
         <!-- ============================================ -->
     	<!-- end -->

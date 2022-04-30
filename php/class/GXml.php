@@ -352,7 +352,7 @@ class GXml extends GObject {
         return $lValue;
     }
     //===============================================
-    public function getNodeContent() {
+    public function getNodeCData() {
         if(!$this->node) {
             return "";
         }

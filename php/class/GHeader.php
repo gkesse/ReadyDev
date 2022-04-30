@@ -48,18 +48,9 @@ class GHeader extends GObject {
         echo sprintf("<div class='Background Bottom'></div>\n");
     }
     //===============================================
-    public function onMenu() {
-        $lTitle = $this->getItem("header", "title");
-        $lLogo = $this->getItem("header", "logo");
-        
+    public function onMenu() {        
         echo sprintf("<header class='Header'>\n");
         echo sprintf("<ul class='Menu' id='HeaderMenu'>\n");
-        echo sprintf("<li class='Item'>\n");
-        echo sprintf("<a class='Title' href='/home'>\n");
-        echo sprintf("<img class='Img4' src='%s' alt='%s'/>\n", $lLogo, $lLogo);
-        echo sprintf("<span class='Title11'>%s</span>\n", $lTitle);
-        echo sprintf("</a>\n");
-        echo sprintf("</li>\n");
                 
         $lCount = $this->countItem("menu");
 
@@ -67,16 +58,28 @@ class GHeader extends GObject {
         $lPage = $lPageObj->getPageId();
         
         for($i = 0; $i < $lCount; $i++) {
+            $lType = $this->getItem2("menu", "type", $i);
             $lName = $this->getItem2("menu", "name", $i);
+            $lImg = $this->getItem2("menu", "img", $i);
             $lLink = $this->getItem2("menu", "link", $i);
             $lActive = "";
             if($lLink == $lPage) $lActive = " Active";
             
-            echo sprintf("<li class='Item'>\n");
-            echo sprintf("<a class='Link%s' href='%s'>\n", $lActive, $lLink);
-            echo sprintf("%s\n", $lName);
-            echo sprintf("</a>\n");
-            echo sprintf("</li>\n");
+            if($lType == "link") {
+                echo sprintf("<li class='Item'>\n");
+                echo sprintf("<a class='Link%s' href='%s'>\n", $lActive, $lLink);
+                echo sprintf("%s\n", $lName);
+                echo sprintf("</a>\n");
+                echo sprintf("</li>\n");
+            }
+            else if($lType == "link/image") {
+                echo sprintf("<li class='Item'>\n");
+                echo sprintf("<a class='Title' href='%s'>\n", $lLink);
+                echo sprintf("<img class='Img4' src='%s' alt='%s'/>\n", $lImg, $lImg);
+                echo sprintf("<span class='Title11'>%s</span>\n", $lName);
+                echo sprintf("</a>\n");
+                echo sprintf("</li>\n");
+            }
         }
         
         echo sprintf("</ul>\n");

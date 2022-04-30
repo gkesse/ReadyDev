@@ -1,7 +1,11 @@
 <?php
-    header('content-type: text/css');
-    require $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoloadRegister.php";
-    $lMgr = GManager::Instance();
+//===============================================
+header('content-type: text/css');
+require $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoloadRegister.php";
+//===============================================
+$lObj = new GObject();
+$lObj->createDoms();
+//===============================================
 ?>
 /* ============================================== */
 /* Global */ 
@@ -343,8 +347,8 @@ span {
 }
 
 .Background.Top {
-    background-image: url("<?php echo $lMgr->getImg("top_masque.png"); ?>"), 
-    url("<?php echo $lMgr->getImg("fond.jpg"); ?>");
+    background-image: url("<?php echo $lObj->getItem("style", "bg_img_top"); ?>"), 
+    url("<?php echo $lObj->getItem("style", "bg_img_top_bg"); ?>");
     background-position: center top, left top;
     background-repeat: no-repeat, no-repeat;    
     background-size: auto 85%, 100% 100%;    
@@ -353,10 +357,10 @@ span {
     right: 0px;
     z-index: -1;
     border: 10px solid transparent;
-    border-image: url("<?php echo $lMgr->getImg("border.png"); ?>") 30 round;
-    -webkit-border-image: url("<?php echo $lMgr->getImg("border.png"); ?>") 30 round; 
-    -moz-border-image: url("<?php echo $lMgr->getImg("border.png"); ?>") 30 round; 
-    -o-border-image: url("<?php echo $lMgr->getImg("border.png"); ?>") 30 round;
+    border-image: url("<?php echo $lObj->getItem("style", "border_img"); ?>") 30 round;
+    -webkit-border-image: url("<?php echo $lObj->getItem("style", "border_img"); ?>") 30 round; 
+    -moz-border-image: url("<?php echo $lObj->getItem("style", "border_img"); ?>") 30 round; 
+    -o-border-image: url("<?php echo $lObj->getItem("style", "border_img"); ?>") 30 round;
 }
 
 .Background.Middle {
@@ -365,7 +369,7 @@ span {
     left: 0px;
     right: 0px;
     z-index: -1;
-    background-image: url("<?php echo $lMgr->getImg("middle.gif"); ?>");
+    background-image: url("<?php echo $lObj->getItem("style", "bg_img_middle"); ?>");
     background-position: center center;
     background-repeat: repeat;    
     background-size: auto;    
@@ -376,15 +380,15 @@ span {
     left: 0px;
     right: 0px;
     z-index: -1;
-    background-image: url("<?php echo $lMgr->getImg("footer.jpg"); ?>");
+    background-image: url("<?php echo $lObj->getItem("style", "bg_img_bottom"); ?>");
     background-position: left top;
     background-repeat: no-repeat;    
     background-size: 100% 100%;    
     border: 10px solid transparent;
-    border-image: url("<?php echo $lMgr->getImg("border.png"); ?>") 30 round;
-    -webkit-border-image: url("<?php echo $lMgr->getImg("border.png"); ?>") 30 round; 
-    -moz-border-image: url("<?php echo $lMgr->getImg("border.png"); ?>") 30 round; 
-    -o-border-image: url("<?php echo $lMgr->getImg("border.png"); ?>") 30 round;
+    border-image: url("<?php echo $lObj->getItem("style", "border_img"); ?>") 30 round;
+    -webkit-border-image: url("<?php echo $lObj->getItem("style", "border_img"); ?>") 30 round; 
+    -moz-border-image: url("<?php echo $lObj->getItem("style", "border_img"); ?>") 30 round; 
+    -o-border-image: url("<?php echo $lObj->getItem("style", "border_img"); ?>") 30 round;
 }
 
 .Bars {
@@ -1026,10 +1030,10 @@ span {
     width: 300px;
     margin-left: -150px;
     border: 10px solid transparent;
-    border-image: url("<?php echo $lMgr->getImg("border.png"); ?>") 30 round;
-    -webkit-border-image: url("<?php echo $lMgr->getImg("border.png"); ?>") 30 round; 
-    -moz-border-image: url("<?php echo $lMgr->getImg("border.png"); ?>") 30 round; 
-    -o-border-image: url("<?php echo $lMgr->getImg("border.png"); ?>") 30 round;
+    border-image: url("<?php echo $lObj->getItem("style", "border_img"); ?>") 30 round;
+    -webkit-border-image: url("<?php echo $lObj->getItem("style", "border_img"); ?>") 30 round; 
+    -moz-border-image: url("<?php echo $lObj->getItem("style", "border_img"); ?>") 30 round; 
+    -o-border-image: url("<?php echo $lObj->getItem("style", "border_img"); ?>") 30 round;
 }
 
 .HtmlPage {
@@ -1112,7 +1116,7 @@ span {
 }
 
 .Img {
-    background-image: url("<?php echo $lMgr->getImg("wave.png"); ?>");
+    background-image: url("<?php echo $lObj->getItem("style", "img_wave"); ?>");
     min-height: 500px;
     position: relative;
     opacity: 0.65;
@@ -1126,35 +1130,35 @@ span {
 }
 
 .Img.Wave {
-    background-image: url("<?php echo $lMgr->getImg("wave.png"); ?>");
+    background-image: url("<?php echo $lObj->getItem("style", "img_wave"); ?>");
 }
 
 .Img.Binary {
-    background-image: url("<?php echo $lMgr->getImg("binary.png"); ?>");
+    background-image: url("<?php echo $lObj->getItem("style", "img_binary"); ?>");
 }
 
 .Img.Signal {
-    background-image: url("<?php echo $lMgr->getImg("signal.jpg"); ?>");
+    background-image: url("<?php echo $lObj->getItem("style", "img_signal"); ?>");
 }
 
 .Img.Chip {
-    background-image: url("<?php echo $lMgr->getImg("chip.jpg"); ?>");
+    background-image: url("<?php echo $lObj->getItem("style", "img_chip"); ?>");
 }
 
 .Img.Developer {
-    background-image: url("<?php echo $lMgr->getImg("developer.jpg"); ?>");
+    background-image: url("<?php echo $lObj->getItem("style", "img_devloper"); ?>");
 }
 
 .Img.Grid {
-    background-image: url("<?php echo $lMgr->getImg("grid.jpg"); ?>");
+    background-image: url("<?php echo $lObj->getItem("style", "img_grid"); ?>");
 }
 
 .Img.Dashboard {
-    background-image: url("<?php echo $lMgr->getImg("dashboard.jpg"); ?>");
+    background-image: url("<?php echo $lObj->getItem("style", "img_dashboard"); ?>");
 }
 
 .Img.Contact {
-    background-image: url("<?php echo $lMgr->getImg("contact.jpg"); ?>");
+    background-image: url("<?php echo $lObj->getItem("style", "img_contact"); ?>");
 }
 
 .Img2 {
@@ -1404,10 +1408,10 @@ span {
 .MainPage {
     background-color: #051039;
     border: 10px solid transparent;
-    border-image: url("<?php echo $lMgr->getImg("border.png"); ?>") 30 round;
-    -webkit-border-image: url("<?php echo $lMgr->getImg("border.png"); ?>") 30 round; 
-    -moz-border-image: url("<?php echo $lMgr->getImg("border.png"); ?>") 30 round; 
-    -o-border-image: url("<?php echo $lMgr->getImg("border.png"); ?>") 30 round;
+    border-image: url("<?php echo $lObj->getItem("style", "border_img"); ?>") 30 round;
+    -webkit-border-image: url("<?php echo $lObj->getItem("style", "border_img"); ?>") 30 round; 
+    -moz-border-image: url("<?php echo $lObj->getItem("style", "border_img"); ?>") 30 round; 
+    -o-border-image: url("<?php echo $lObj->getItem("style", "border_img"); ?>") 30 round;
     padding-bottom: 0px;
 }
 
