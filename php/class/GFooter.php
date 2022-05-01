@@ -12,11 +12,42 @@
         //===============================================
         public function onFooter() {
             echo sprintf("</div>\n");
+            $this->onNetwork();
             echo sprintf("</div>\n");
             echo sprintf("</div>\n");
             $this->loadScripts();
             echo sprintf("</body>\n");
             echo sprintf("</html>\n");
+        }
+        //===============================================
+        public function onNetwork() {
+            $lCount = $this->countItem("networks");
+            $lCopyright = $this->getItem("copyright", "text");
+            $lStartDate = $this->getItem("copyright", "date");
+            $lTitle = $this->getItem("copyright", "title");
+            $lCurrentDate = date("Y");
+            
+            echo sprintf("<footer class='Footer'>\n");
+            echo sprintf("<div class='Row2'>\n");
+            echo sprintf("<div>Réseaux Sociaux - Réjoignez-nous</div>\n");            
+            
+            for($i = 0; $i < $lCount; $i++) {
+                $lIcon = $this->getItem2("networks", "icon", $i);
+                $lLink = $this->getItem2("networks", "link", $i);
+                
+                echo sprintf("<a href='%s'>\n", $lLink);
+                echo sprintf("<i class='Network %s'></i>\n", $lIcon);
+                echo sprintf("</a>\n");
+            }
+            
+            echo sprintf("</div>\n");
+            echo sprintf("<div class='Row2'>\n");
+            echo sprintf("<div>\n");
+            echo sprintf("<i class='fa fa-copyright'></i>\n");
+            echo sprintf("<span>%s - %s | %s</span>\n", $lStartDate, $lCurrentDate, $lTitle);
+            echo sprintf("</div>\n");
+            echo sprintf("<div>%s</div>\n", $lCopyright);
+            echo sprintf("</div>\n");
         }
         //===============================================
         public function loadScripts() {

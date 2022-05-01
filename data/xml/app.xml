@@ -90,6 +90,47 @@
     		</map>
      	</data>
         <!-- ============================================ -->
+    	<!-- networks -->
+        <!-- ============================================ -->
+    	<data>
+    		<code>networks</code>
+    		<map>
+    			<data>
+    				<name>Facebook</name>
+    				<icon>fa fa-facebook</icon>
+    				<link>#</link>
+    			</data>
+    			<data>
+    				<name>Skype</name>
+    				<icon>fa fa-skype</icon>
+    				<link>#</link>
+    			</data>
+    			<data>
+    				<name>GitHub</name>
+    				<icon>fa fa-github</icon>
+    				<link>#</link>
+    			</data>
+    			<data>
+    				<name>LinkedIn</name>
+    				<icon>fa fa-linkedin</icon>
+    				<link>#</link>
+    			</data>
+    		</map>
+     	</data>
+        <!-- ============================================ -->
+    	<!-- copyright -->
+        <!-- ============================================ -->
+    	<data>
+    		<code>copyright</code>
+    		<date>2017</date>
+    		<title>ReadyDev</title>
+    		<text><![CDATA[
+    			Plateforme de Développement Continu<br>
+    			Produit par <b>Gérard KESSE</b><br>
+    			Polytech'Montpellier
+    		]]></text>
+     	</data>
+        <!-- ============================================ -->
     	<!-- home -->
         <!-- ============================================ -->
     	<data>
