@@ -34,12 +34,17 @@ class GUser extends GObject {
         if(!$lPostOn) return false;
         $lPseudo = $lPost->getPost("pseudo");
         $lPassword = $lPost->getPost("password");
-        $lCount = $this->hasUserPassword($lPseudo, $lPassword);
-        if(GLog::Instance()->hasErrors()) {
-            $this->addError($this->getTranslator(4));
+        $lUserOn = $this->hasUser($lPseudo);
+        if(!$lUserOn) {
+            $this->addError($this->getTranslator(5));
             return false;
         }
-        return ($lCount != 0);
+        $lUserOn = $this->hasUserPassword($lPseudo, $lPassword);
+        if(GLog::Instance()->hasErrors()) {
+            $this->addError($this->getTranslator(5));
+            return false;
+        }
+        return $lUserOn;
     }
     //===============================================
     public function hasRegister() {
@@ -54,7 +59,7 @@ class GUser extends GObject {
             return false;
         }
         $lUserOn = $this->hasUser($lPseudo);
-        if(!$lUserOn) {
+        if($lUserOn) {
             $this->addError($this->getTranslator(2));
             return false;
         }
@@ -145,7 +150,7 @@ class GUser extends GObject {
     public function hasUser($pseudo) {
         $lReq = new GCode();
         $lReq->createObj();
-        $lReq->createRequest("user", "get_user");
+        $lReq->createRequest("user", "has_user");
         $lReq->addParameter("pseudo", $pseudo);
         $lClient = new GSocket();
         $lRes = $lClient->callServer($lReq->toString());

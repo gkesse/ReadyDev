@@ -235,6 +235,14 @@
     				<id>4</id>
     				<fr>Erreur lors de la connexion de l'utilisateur.</fr>
     			</data>
+    			<data>
+    				<id>5</id>
+    				<fr>Cet utilisateur n'existe pas encore.</fr>
+    			</data>
+    			<data>
+    				<id>6</id>
+    				<fr>Le mot de passe est incorrect.</fr>
+    			</data>
     		</map>
     	</data>
         <!-- ============================================ -->
