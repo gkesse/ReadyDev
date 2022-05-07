@@ -5,7 +5,6 @@ class GUser extends GObject {
     private $id;
     private $pseudo;
     private $password;
-    private $confirm;
     private $group;
     private $active;
     // ===============================================
@@ -15,7 +14,6 @@ class GUser extends GObject {
         $this->id = 0;
         $this->pseudo = "";
         $this->password = "";
-        $this->confirm = "";
         $this->group = "";
         $this->active = "";
     }
@@ -80,20 +78,20 @@ class GUser extends GObject {
         $lPost = new GPost();
         $lPostOn = $lPost->hasPost();
         if(!$lPostOn) return false;
-        $lPseudo = $lPost->getPost("pseudo");
-        $lPassword = $lPost->getPost("password");
+        $this->pseudo = $lPost->getPost("pseudo");
+        $this->password = $lPost->getPost("password");
         $lConfirm = $lPost->getPost("confirm");
-        if($lPassword != $lConfirm) {
+        if($this->password != $lConfirm) {
             $this->addError($this->getTranslator(1));
             return false;
         }
-        $lUserOn = $this->hasUser($lPseudo);
+        $lUserOn = $this->hasUser();
         if($lUserOn) {
             $this->addError($this->getTranslator(2));
             return false;
         }
-        $this->createUser($lPseudo, $lPassword);
-        if(GLog::Instance()->hasErrors()) {
+        $lCreateOn = $this->createUser();
+        if(!$lCreateOn) {
             $this->addError($this->getTranslator(3));
             return false;
         }
@@ -187,15 +185,14 @@ class GUser extends GObject {
     }
     //===============================================
     public function createUser($pseudo, $password) {
-        $lReq = new GCode();
-        $lReq->createObj();
-        $lReq->createRequest("user", "create_user");
-        $lReq->addParameter("pseudo", $pseudo);
-        $lReq->addParameter("password", $password);
+        $this->computePassword();
+        $lParams = $this->serialize();
         $lClient = new GSocket();
-        $lRes = $lClient->callServer($lReq->toString());
+        $lRes = $lClient->callServer("user", "create_user", $lParams);
         GLog::Instance()->loadErrors($lRes);
         if(GLog::Instance()->hasErrors()) return 0;
+        $this->deserialize($lRes);
+        return ($this->id != 0);
     }
     //===============================================
     public function computePassword() {
