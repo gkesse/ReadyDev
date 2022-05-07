@@ -52,15 +52,29 @@ class GCode extends GDomXml {
         $this->getNodeIndex(0);
     }
     //===============================================
-    public function getCode2($code, $key, $index) {
+    public function getItem($code, $key) {
+        $this->queryXPath(sprintf("/rdv/datas/data[code='%s']/%s", $code, $key));
+        $this->getNodeIndex(0);
+        $lData = $this->getNodeValue();
+        return $lData;
+    }
+    //===============================================
+    public function getItem2($code, $key, $index) {
         $this->queryXPath(sprintf("/rdv/datas/data[code='%s']/map/data[position()=%d]/%s", $code, $index + 1, $key));
         $this->getNodeIndex(0);
         $lData = $this->getNodeValue();
         return $lData;
     }
     //===============================================
-    public function countCode($code, $key) {
-        $this->queryXPath(sprintf("/rdv/datas/data[code='%s']/map/data/%s", $code, $key));
+    public function getItem3($code, $index) {
+        $this->queryXPath(sprintf("/rdv/datas/data[code='%s']/map/data[position()=%d]", $code, $index + 1));
+        $this->getNodeIndex(0);
+        $lData = $this->getNodeValue();
+        return $lData;
+    }
+    //===============================================
+    public function countCode($code) {
+        $this->queryXPath(sprintf("/rdv/datas/data[code='%s']/map/data", $code));
         return $this->countXPath();
     }
     //===============================================

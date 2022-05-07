@@ -30,10 +30,10 @@ class GObject {
         $lRes = new GCode();
         $lRes->loadXmlData($xml);
         
-        $lCount = $lRes->countCode("error", "msg");
+        $lCount = $lRes->countCode("error");
         
         for($i = 0; $i < $lCount; $i++) {
-            $lError = $lRes->getCode2("error", "msg", $i);
+            $lError = $lRes->getItem3("error", $i);
             $this->errors[] = $lError;
         }
     }

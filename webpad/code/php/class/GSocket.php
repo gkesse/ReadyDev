@@ -155,6 +155,7 @@ class GSocket extends GObject {
         $lBuffer = $lMap[1];
         $lSize = intval($lBuffer);
         $lBytes = 0;
+        $lData = "";
         
         while(1) {
             if($lBytes >= $lSize) break;
