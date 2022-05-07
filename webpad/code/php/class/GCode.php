@@ -24,7 +24,7 @@ class GCode extends GDomXml {
     }
     //===============================================
     public function addParameter($key, $value) {
-        $this->createCode2("parameters", $key, $value);
+        $this->createCode2("params", $key, $value);
     }
     //===============================================
     public function createCode($code) {
