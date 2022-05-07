@@ -193,7 +193,7 @@ class GTest extends GObject {
         $lReq->createRequest("test", "get_user");
         
         $lClient = new GSocket();        
-        $lData = $lClient->callServer($lReq->toString());
+        $lData = $lClient->callServerTcp($lReq->toString());
         
         GConsole::Instance()->printCode($lData);        
     }
@@ -273,7 +273,7 @@ class GTest extends GObject {
         $lReq->createRequest("test", "get_user");
         
         $lClient = new GSocket();
-        $lData = $lClient->callServer($lReq->toString());
+        $lData = $lClient->callServerTcp($lReq->toString());
         
         GConsole::Instance()->printCode($lData);
     }
@@ -287,7 +287,7 @@ class GTest extends GObject {
         $lReq->createCode2("parameters", "lastname", "KESSE");
         
         $lClient = new GSocket();
-        $lData = $lClient->callServer($lReq->toString());
+        $lData = $lClient->callServerTcp($lReq->toString());
         
         GConsole::Instance()->printCode($lData);
     }
@@ -299,7 +299,7 @@ class GTest extends GObject {
         $lReq->createRequest("test", "error");
         
         $lClient = new GSocket();
-        $lData = $lClient->callServer($lReq->toString());
+        $lData = $lClient->callServerTcp($lReq->toString());
         GLog::Instance()->loadErrors($lData);
         
         GConsole::Instance()->printCode($lData);
