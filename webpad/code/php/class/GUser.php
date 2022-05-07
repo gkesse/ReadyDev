@@ -5,6 +5,7 @@ class GUser extends GObject {
     public function __construct() {
         parent::__construct();
         $this->createDom();
+        $this->id = 0;
     }
     // ===============================================
     public function createDom() {
@@ -12,6 +13,12 @@ class GUser extends GObject {
         $this->dom->createDoc();
         $this->dom->loadXmlFile("pad.xml");
         $this->dom->createXPath();
+    }
+    // ===============================================
+    public function deserialize($data) {
+        $lCode = new GCode();
+        $lCode->loadXmlData($data);
+        $this->id = intval($lCode->getItem("user", "id"));
     }
     //===============================================
     // login
@@ -27,7 +34,7 @@ class GUser extends GObject {
         if(!$lPostOn) return false;
         $lPseudo = $lPost->getPost("pseudo");
         $lPassword = $lPost->getPost("password");
-        $lCount = $this->countUser($lPseudo, $lPassword);
+        $lCount = $this->hasUserPassword($lPseudo, $lPassword);
         if(GLog::Instance()->hasErrors()) {
             $this->addError($this->getTranslator(4));
             return false;
@@ -47,7 +54,7 @@ class GUser extends GObject {
             return false;
         }
         $lUserOn = $this->hasUser($lPseudo);
-        if($lUserOn) {
+        if(!$lUserOn) {
             $this->addError($this->getTranslator(2));
             return false;
         }
@@ -105,8 +112,8 @@ class GUser extends GObject {
         $lClient = new GSocket();
         $lRes = $lClient->callServer($lReq->toString());
         GLog::Instance()->loadErrors($lRes);
-        $lUserId = 1;
-        return $lUserId;
+        $this->deserialize($lRes);
+        return ($this->id != 0);
     }
     //===============================================
     public function getUserGroup($userId) {
@@ -121,31 +128,31 @@ class GUser extends GObject {
         return $lUserId;
     }
     //===============================================
-    public function countUser($pseudo, $password) {
+    public function hasUserPassword($pseudo, $password) {
         $lReq = new GCode();
         $lReq->createObj();
-        $lReq->createRequest("user", "count_user");
+        $lReq->createRequest("user", "has_user_password");
         $lReq->addParameter("pseudo", $pseudo);
         $lReq->addParameter("password", $password);
         $lClient = new GSocket();
         $lRes = $lClient->callServer($lReq->toString());
         GLog::Instance()->loadErrors($lRes);
         if(GLog::Instance()->hasErrors()) return 0;
-        $lCount = 0;
-        return $lCount;
+        $this->deserialize($lRes);
+        return ($this->id != 0);
     }
     //===============================================
     public function hasUser($pseudo) {
         $lReq = new GCode();
         $lReq->createObj();
-        $lReq->createRequest("user", "has_user");
+        $lReq->createRequest("user", "get_user");
         $lReq->addParameter("pseudo", $pseudo);
         $lClient = new GSocket();
         $lRes = $lClient->callServer($lReq->toString());
         GLog::Instance()->loadErrors($lRes);
         if(GLog::Instance()->hasErrors()) return 0;
-        $lUserOn = 0;
-        return $lUserOn;
+        $this->deserialize($lRes);
+        return ($this->id != 0);
     }
     //===============================================
     public function createUser($pseudo, $password) {
