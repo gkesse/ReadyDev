@@ -40,12 +40,23 @@ class GDomXml extends GObject {
     }
     //===============================================
     public function loadXmlData($xml) {
-        if(!$this->doc) {
-            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué.<br>
-            ", __METHOD__));
-            return;
-        }
+        if(!$this->doc) return $this;
         $this->doc->loadXml($xml);
+        return $this;
+    }
+    //===============================================
+    public function loadNodeData($data) {
+        if(!$this->doc) return $this;
+        $lDom = new DOMDocument();
+        $lDom->preserveWhiteSpace = false;
+        $lDom->formatOutput = true;     
+        $lDom->loadXML(sprintf("<rdv>%s</rdv>", $data));
+        $lChild = $lDom->documentElement->firstChild;
+        while($lChild) {
+            $lNode = $this->doc->importNode($lChild, true);
+            $this->node->appendChild($lNode);
+            $lChild = $lChild->nextSibling;
+        }
         return $this;
     }
     //===============================================

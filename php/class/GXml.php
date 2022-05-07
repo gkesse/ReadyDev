@@ -19,7 +19,7 @@ class GXml extends GObject {
             - encodage.....: %s", __METHOD__, $version, $encoding));
             return;
         }
-        $this->doc->preserveWhiteSpace = false;
+        $this->doc->preserveWhiteSpace = true;
         $this->doc->formatOutput = true;
     }
     //===============================================

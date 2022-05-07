@@ -187,6 +187,7 @@ class GSocket extends GObject {
         $lReq = new GCode();
         $lReq->createObj();
         $lReq->createRequest($module, $method);
+        $lReq->loadCode($params);
         $lDataOut = $this->callServerTcp($lReq->toString());
         return $lDataOut;
     }

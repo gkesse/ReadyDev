@@ -36,6 +36,7 @@ class GCode extends GDomXml {
     }
     //===============================================
     public function createCode2($code, $key, $value) {
+        if($value == "") return;
         $this->createCode($code);
         $this->getCode($code);
         $this->createNode4($key, $value);        
@@ -76,6 +77,14 @@ class GCode extends GDomXml {
     public function countCode($code) {
         $this->queryXPath(sprintf("/rdv/datas/data[code='%s']/map/data", $code));
         return $this->countXPath();
+    }
+    //===============================================
+    public function loadCode($data) {
+        if($data == "") return $this;
+        $this->queryXPath(sprintf("/rdv/datas"));
+        $this->getNodeIndex(0);
+        $this->loadNodeData($data);
+        return $this;
     }
     //===============================================
     public function toStringCode($code) {
