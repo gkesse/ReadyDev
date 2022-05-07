@@ -20,16 +20,16 @@
             echo sprintf("</html>\n");
         }
         //===============================================
-        public function onNetwork() {
+        public function onNetwork() {            
+            echo sprintf("<footer class='Footer'>\n");
+            echo sprintf("<div class='Row2'>\n");
+            echo sprintf("<div>Réseaux Sociaux - Réjoignez-nous</div>\n");            
+            
             $lCount = $this->countItem("networks");
             $lCopyright = $this->getItem("copyright", "text");
             $lStartDate = $this->getItem("copyright", "date");
             $lTitle = $this->getItem("copyright", "title");
             $lCurrentDate = date("Y");
-            
-            echo sprintf("<footer class='Footer'>\n");
-            echo sprintf("<div class='Row2'>\n");
-            echo sprintf("<div>Réseaux Sociaux - Réjoignez-nous</div>\n");            
             
             for($i = 0; $i < $lCount; $i++) {
                 $lIcon = $this->getItem2("networks", "icon", $i);
@@ -48,6 +48,7 @@
             echo sprintf("</div>\n");
             echo sprintf("<div>%s</div>\n", $lCopyright);
             echo sprintf("</div>\n");
+            echo sprintf("</footer>\n");
         }
         //===============================================
         public function loadScripts() {

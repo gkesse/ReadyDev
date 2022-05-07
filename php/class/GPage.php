@@ -6,7 +6,8 @@ class GPage extends GObject {
     }
     //===============================================
     public function getPageId() {
-        $lPageId = $_GET["pageid"];
+        $lGetObj = new GGet();
+        $lPageId = $lGetObj->getGet("pageid");
         $lPageId = sprintf("/home/%s", $lPageId);
         if(substr($lPageId, -1) == '/') {
             $lPageId = substr($lPageId, 0, -1);
@@ -19,15 +20,8 @@ class GPage extends GObject {
         return ($lPageId == $page);
     }
     //===============================================
-    public function getLink($link) {
-        $lWebKey = $this->getConfig("webkey");
-        $lLink = sprintf("/%s/%s", $lWebKey, $link);
-        return $lLink;
-    }
-    //===============================================
     public function redirectUrl($url) {
-        $lUrlLink = $this->getLink($url);
-        $lLocation = sprintf("Location: %s", $lUrlLink);
+        $lLocation = sprintf("Location: %s", $url);
         header($lLocation);
         exit;
     }

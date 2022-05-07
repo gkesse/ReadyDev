@@ -131,6 +131,7 @@
 	        <prod_port>9090</prod_port>
 	        <test_port>9091</test_port>
 	        <backlog>5</backlog>
+	        <api_key>16ac9e66cde8bd80d6141dadb74b5083</api_key>
     	</data>
         <!-- ============================================ -->
     	<!-- css/fonts -->

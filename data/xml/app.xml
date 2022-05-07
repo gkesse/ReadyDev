@@ -26,6 +26,16 @@
     		</map>
      	</data>
         <!-- ============================================ -->
+    	<!-- scripts -->
+        <!-- ============================================ -->
+    	<data>
+    		<code>scripts</code>
+    		<map>
+    			<data>/js/class/GMenu.js</data>
+    			<data>/js/script.js</data>
+    		</map>
+     	</data>
+        <!-- ============================================ -->
     	<!-- menu -->
         <!-- ============================================ -->
     	<data>
@@ -63,29 +73,31 @@
     				<link>/home/contacts</link>
     			</data>
     			<data>
-    				<type>link</type>
+    				<type>link/admin</type>
     				<name>Admin</name>
     				<link>/home/admin</link>
     			</data>
     			<data>
-    				<type>link</type>
+    				<type>link/admin</type>
     				<name>Doc</name>
     				<link>/home/doc</link>
     			</data>
     			<data>
-    				<type>link</type>
+    				<type>link/login</type>
     				<name>Connexion</name>
     				<link>/home/connexion</link>
+    				<onclick><![CDATA[header_connection_onclick(this);]]></onclick>
     			</data>
     			<data>
-    				<type>link</type>
+    				<type>link/logout</type>
     				<name>Déconnexion</name>
     				<link>/home/deconnexion</link>
+    				<onclick><![CDATA[header_disconnection_onclick(this);]]></onclick>
     			</data>
     			<data>
-    				<type>link</type>
+    				<type>link/menu</type>
     				<name><![CDATA[<i class='fa fa-bars'></i>]]></name>
-    				<link>/home/menu</link>
+    				<onclick><![CDATA[header_menu_onclick(this);]]></onclick>
     			</data>
     		</map>
      	</data>
@@ -108,12 +120,12 @@
     			<data>
     				<name>GitHub</name>
     				<icon>fa fa-github</icon>
-    				<link>#</link>
+    				<link>https://github.com/gkesse/</link>
     			</data>
     			<data>
     				<name>LinkedIn</name>
     				<icon>fa fa-linkedin</icon>
-    				<link>#</link>
+    				<link>https://www.linkedin.com/in/tia-gerard-kesse/</link>
     			</data>
     		</map>
      	</data>
@@ -127,7 +139,7 @@
     		<text><![CDATA[
     			Plateforme de Développement Continu<br>
     			Produit par <b>Gérard KESSE</b><br>
-    			Polytech'Montpellier
+    			Polytech'Montpellier<br>
     		]]></text>
      	</data>
         <!-- ============================================ -->

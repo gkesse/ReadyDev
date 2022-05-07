@@ -51,21 +51,53 @@ class GHeader extends GObject {
     public function onMenu() {        
         echo sprintf("<header class='Header'>\n");
         echo sprintf("<ul class='Menu' id='HeaderMenu'>\n");
-                
-        $lCount = $this->countItem("menu");
-
+             
         $lPageObj = new GPage();
+        $lSessionObj = new GSession();
+        
+        $lCount = $this->countItem("menu");        
         $lPage = $lPageObj->getPageId();
+        $lLoginOn = $lSessionObj->issetSession("login");
         
         for($i = 0; $i < $lCount; $i++) {
             $lType = $this->getItem2("menu", "type", $i);
             $lName = $this->getItem2("menu", "name", $i);
             $lImg = $this->getItem2("menu", "img", $i);
             $lLink = $this->getItem2("menu", "link", $i);
+            $lOnClick = $this->getItem2("menu", "onclick", $i);
             $lActive = "";
             if($lLink == $lPage) $lActive = " Active";
             
             if($lType == "link") {
+                echo sprintf("<li class='Item'>\n");
+                echo sprintf("<a class='Link%s' href='%s'>\n", $lActive, $lLink);
+                echo sprintf("%s\n", $lName);
+                echo sprintf("</a>\n");
+                echo sprintf("</li>\n");
+            }
+            else if($lType == "link/menu") {
+                echo sprintf("<li class='Bars' onclick='%s'>\n", $lOnClick);
+                echo sprintf("%s\n", $lName);
+                echo sprintf("</li>\n");
+            }
+            else if($lType == "link/admin") {
+                if(!$lLoginOn) continue;
+                echo sprintf("<li class='Item'>\n");
+                echo sprintf("<a class='Link%s' href='%s'>\n", $lActive, $lLink);
+                echo sprintf("%s\n", $lName);
+                echo sprintf("</a>\n");
+                echo sprintf("</li>\n");
+            }
+            else if($lType == "link/login") {
+                if($lLoginOn) continue;
+                echo sprintf("<li class='Item'>\n");
+                echo sprintf("<a class='Link%s' href='%s'>\n", $lActive, $lLink);
+                echo sprintf("%s\n", $lName);
+                echo sprintf("</a>\n");
+                echo sprintf("</li>\n");
+            }
+            else if($lType == "link/logout") {
+                if(!$lLoginOn) continue;
                 echo sprintf("<li class='Item'>\n");
                 echo sprintf("<a class='Link%s' href='%s'>\n", $lActive, $lLink);
                 echo sprintf("%s\n", $lName);

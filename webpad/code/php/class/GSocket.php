@@ -108,19 +108,23 @@ class GSocket extends GObject {
     }
     //===============================================
     public function writeData($data) {
-        $lLength = strlen($data);
-        $lSize = ceil($lLength/self::BUFFER_DATA_SIZE);
-        $lData = str_pad($lSize, self::BUFFER_NDATA_SIZE, " ", STR_PAD_LEFT);
-        $this->sendData($lData);
+        $lSize = strlen($data);
+        $lKey = $this->getItem("socket", "api_key");
+        $lBuffer = sprintf("%s;%d", $lKey, $lSize);
+        $lBuffer = str_pad($lBuffer, self::BUFFER_NDATA_SIZE, " ", STR_PAD_RIGHT);
+        $this->sendData($lBuffer);
         
         $lBytes = 0;
         
-        for($i = 0; $i < $lSize; $i++) {
-            $lData = substr($data, $lBytes, self::BUFFER_DATA_SIZE);
-            $iBytes = $this->sendData($lData);
+        while(1) {
+            if($lBytes >= $lSize) break;
+            $lBuffer = substr($data, $lBytes, self::BUFFER_DATA_SIZE);
+            $iBytes = $this->sendData($lBuffer);
             if($iBytes === false) {
-                GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué.<br>
-                - error......: %s", __METHOD__, socket_strerror(socket_last_error())));
+                GLog::Instance()->addError(sprintf("
+                    Erreur lors de l'envoi des donnees.<br>
+                    error........: (%s)<br>"
+                    , socket_strerror(socket_last_error())));
                 break;
             }
             $lBytes += $iBytes;
@@ -140,17 +144,30 @@ class GSocket extends GObject {
     //===============================================
     public function readData() {
         $lBuffer = $this->recvData(self::BUFFER_NDATA_SIZE);
-        $lSize = intval(trim($lBuffer));
-        $lData = "";
+        $lSize = strlen($lBuffer);
+        if($lSize != self::BUFFER_NDATA_SIZE) return "";
+        $lBuffer = trim($lBuffer);
+        $lMap = explode(";", $lBuffer);
+        if(count($lMap) != 2) return "";
+        $lBuffer = $lMap[0];
+        $lKey = $this->getItem("socket", "api_key");
+        if($lBuffer != $lKey) return "";
+        $lBuffer = $lMap[1];
+        $lSize = intval($lBuffer);
+        $lBytes = 0;
         
-        for($i = 0; $i < $lSize; $i++) {
+        while(1) {
+            if($lBytes >= $lSize) break;
             $lBuffer = $this->recvData();
             if($lBuffer === false) {
-                GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué.<br>
-                - error......: %s", __METHOD__, socket_strerror(socket_last_error())));
+                GLog::Instance()->addError(sprintf("
+                    Erreur lors de la reception des donnees.<br>
+                    error........: (%s)<br>"
+                    , socket_strerror(socket_last_error())));
                 break;
             }
             $lData .= $lBuffer;
+            $lBytes += strlen($lBuffer);
         }
         
         return $lData;
