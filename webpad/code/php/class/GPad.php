@@ -133,7 +133,7 @@ class GPad extends GObject {
             if($lCategory == "error") {
                 if(!$lPostOn) continue;
                 if($lLoginOn) {
-                    $this->setLogin();
+                    $lUser->setLogin();
                     continue;
                 }
                 if($lUser->hasErrors()) $lText = $lUser->getErrors();

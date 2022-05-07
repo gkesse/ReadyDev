@@ -2,11 +2,25 @@
 // ===============================================
 class GUser extends GObject {
     // ===============================================
+    private $id;
+    private $pseudo;
+    private $password;
+    private $confirm;
+    private $group;
+    private $active;
+    // ===============================================
     public function __construct() {
         parent::__construct();
         $this->createDom();
         $this->id = 0;
+        $this->pseudo = "";
+        $this->password = "";
+        $this->confirm = "";
+        $this->group = "";
+        $this->active = "";
     }
+    // ===============================================
+    // dom
     // ===============================================
     public function createDom() {
         $this->dom = new GDomXml();
@@ -15,10 +29,25 @@ class GUser extends GObject {
         $this->dom->createXPath();
     }
     // ===============================================
+    public function serialize() {
+        $lReq = new GCode();
+        $lReq->createObj();
+        $lReq->addParameter("id", strval($this->id));
+        $lReq->addParameter("pseudo", $this->pseudo);
+        $lReq->addParameter("password", $this->password);
+        $lReq->addParameter("group", $this->group);
+        $lReq->addParameter("active", $this->active);
+        return $lReq->toStringNode();
+    }
+    // ===============================================
     public function deserialize($data) {
         $lCode = new GCode();
         $lCode->loadXmlData($data);
         $this->id = intval($lCode->getItem("user", "id"));
+        $this->pseudo = $lCode->getItem("user", "pseudo");
+        $this->password = $lCode->getItem("user", "password");
+        $this->group = $lCode->getItem("user", "group");
+        $this->active = $lCode->getItem("user", "active");
     }
     //===============================================
     // login
@@ -32,16 +61,16 @@ class GUser extends GObject {
         $lPost = new GPost();
         $lPostOn = $lPost->hasPost();
         if(!$lPostOn) return false;
-        $lPseudo = $lPost->getPost("pseudo");
-        $lPassword = $lPost->getPost("password");
-        $lUserOn = $this->hasUser($lPseudo);
+        $this->pseudo = $lPost->getPost("pseudo");
+        $this->password = $lPost->getPost("password");
+        $lUserOn = $this->hasUser();
         if(!$lUserOn) {
             $this->addError($this->getTranslator(5));
             return false;
         }
         $lUserOn = $this->hasUserPassword($lPseudo, $lPassword);
-        if(GLog::Instance()->hasErrors()) {
-            $this->addError($this->getTranslator(5));
+        if(!$lUserOn) {
+            $this->addError($this->getTranslator(6));
             return false;
         }
         return $lUserOn;
@@ -147,13 +176,10 @@ class GUser extends GObject {
         return ($this->id != 0);
     }
     //===============================================
-    public function hasUser($pseudo) {
-        $lReq = new GCode();
-        $lReq->createObj();
-        $lReq->createRequest("user", "has_user");
-        $lReq->addParameter("pseudo", $pseudo);
+    public function hasUser() {
+        $lParams = $this->serialize();
         $lClient = new GSocket();
-        $lRes = $lClient->callServer($lReq->toString());
+        $lRes = $lClient->callServer("user", "has_user", $lParams);
         GLog::Instance()->loadErrors($lRes);
         if(GLog::Instance()->hasErrors()) return 0;
         $this->deserialize($lRes);
@@ -170,6 +196,13 @@ class GUser extends GObject {
         $lRes = $lClient->callServer($lReq->toString());
         GLog::Instance()->loadErrors($lRes);
         if(GLog::Instance()->hasErrors()) return 0;
+    }
+    //===============================================
+    public function computePassword() {
+        if($this->pseudo == "") return;
+        if($this->password == "") return;
+        $this->password = sprintf("%s|%s", $this->pseudo, $this->password);
+        $this->password = md5($this->password);
     }
     // ===============================================
 }

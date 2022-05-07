@@ -78,6 +78,13 @@ class GCode extends GDomXml {
         return $this->countXPath();
     }
     //===============================================
+    public function toStringCode($code) {
+        $this->queryXPath(sprintf("/rdv/datas/data[code='%s']", $code));
+        $this->getNodeIndex(0);
+        $lData = $this->toStringNode();
+        return $lData;
+    }
+    //===============================================
 }
 //===============================================
 ?>

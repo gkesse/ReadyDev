@@ -183,7 +183,15 @@ class GSocket extends GObject {
         echo sprintf("démarrage du serveur...<br>");
     }
     //===============================================
-    public function callServer($dataIn) {        
+    public function callServer($module, $method, $params) {
+        $lReq = new GCode();
+        $lReq->createObj();
+        $lReq->createRequest($module, $method);
+        $lDataOut = $this->callServerTcp($lReq->toString());
+        return $lDataOut;
+    }
+    //===============================================
+    public function callServerTcp($dataIn) {
         $lDomain = $this->loadDomain();
         $lType = $this->loadType();
         $lProtocol = $this->loadProtocol();
@@ -197,7 +205,7 @@ class GSocket extends GObject {
         $lDataOut = $this->readData();
         
         if($lDataOut == "") {
-            GLog::Instance()->addError(sprintf("Erreur la connexion au serveur a échoué."));            
+            GLog::Instance()->addError(sprintf("Erreur la connexion au serveur a échoué."));
         }
         
         $this->closeSocket();

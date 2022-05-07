@@ -419,11 +419,14 @@ class GDomXml extends GObject {
     }
     //===============================================
     public function toString() {
+        if(!$this->doc) return "";
         return $this->doc->saveXML();
     }
     //===============================================
-    public function toStringNode($xml) {
-        return $this->doc->saveXML($xml->node);
+    public function toStringNode() {
+        if(!$this->doc) return "";
+        if(!$this->node) return "";
+        return $this->doc->saveXML($this->node);
     }
     //===============================================
 }
