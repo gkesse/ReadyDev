@@ -1,6 +1,4 @@
 #================================================
-https://doc.ubuntu-fr.org/lamp
-#================================================
 sudo apt install apache2
 sudo apt install php
 sudo apt install php-dom
@@ -23,8 +21,6 @@ Listen 80
 Listen 8888
 Listen 8801
 #================================================
-https://www.digitalocean.com/community/tutorials/how-to-set-up-apache-virtual-hosts-on-ubuntu-18-04-quickstart
-#================================================
 sudo chmod 777 /home/gkesse
 sudo chmod 755 /home/gkesse
 #================================================
@@ -41,7 +37,17 @@ mkdir -p /home/gkesse/Programs/ReadyCode/app/html/p01/logs
 sudo chmod -R 777 /home/gkesse/Programs/ReadyCode/app/html/p01
 sudo chown -R $USER:$USER /home/gkesse/Programs/ReadyCode/app/html/p01
 #================================================
-echo "" _ > /home/gkesse/Programs/ReadyCode/app/html/p01/index.html
+echo "" > /home/gkesse/Programs/ReadyCode/app/html/p01/index.html
+#================================================
+sudo snap install core
+sudo snap refresh core
+sudo snap install --classic certbot
+sudo ln -s /snap/bin/certbot /usr/bin/certbot
+sudo certbot --apache
+email : tiakagerard@hotmail.com
+agree : yes
+campaign : yes
+all : vide
 #================================================
 sudo systemctl restart apache2
 #================================================
