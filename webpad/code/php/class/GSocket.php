@@ -61,48 +61,60 @@ class GSocket extends GObject {
     public function createSocket($domain, $type, $protocol) {
         $this->socket = socket_create($domain, $type, $protocol);
         if($this->socket === false) {
-            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué.<br>
-            - error......: %s", __METHOD__, socket_strerror(socket_last_error())));
+            GLog::Instance()->addError(sprintf(
+                "Erreur la creation du socket.<br>
+                - error......: (%s)<br>"
+                , socket_strerror(socket_last_error())));
         }
     }
     //===============================================
     public function bindSocket($address, $port) {
         $lRes = socket_bind($this->socket, $address, $port);
         if($lRes === false) {
-            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué.<br>
-            - error......: %s", __METHOD__, socket_strerror(socket_last_error())));
+            GLog::Instance()->addError(sprintf(
+                "Erreur lors liaison du socket a l'adresse.<br>
+                - error......: (%s)<br>"
+                , socket_strerror(socket_last_error())));
         }
     }
     //===============================================
     public function listenSocket($backlog) {
         $lRes = socket_listen($this->socket, $backlog);
         if($lRes === false) {
-            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué.<br>
-            - error......: %s", __METHOD__, socket_strerror(socket_last_error())));
+            GLog::Instance()->addError(sprintf(
+                "Erreur lors l'initialisation du nombre de connexion a ecouter.<br>
+                - error......: (%s)<br>"
+                , socket_strerror(socket_last_error())));
         }
     }
     //===============================================
     public function acceptSocket(GSocket $socket) {
         $socket->socket = socket_accept($this->socket);
         if($socket->socket === false) {
-            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué.<br>
-            - error......: %s", __METHOD__, socket_strerror(socket_last_error())));
+            GLog::Instance()->addError(sprintf(
+                "Erreur lors de l'acceptation de la connexion d'un client.<br>
+                - error......: (%s)<br>"
+                , socket_strerror(socket_last_error())));
         }
     }
     //===============================================
     public function connectSocket($address, $port) {
         $lRes = socket_connect($this->socket, $address, $port);
         if($lRes === false) {
-            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué.<br>
-            - error......: %s", __METHOD__, socket_strerror(socket_last_error())));
+            GLog::Instance()->addError(sprintf(
+                "Erreur lors de la connexion au serveur.<br>
+                - error......: (%s)<br>"
+                , socket_strerror(socket_last_error())));
         }
     }
     //===============================================
     public function sendData($data) {
         $lBytes = socket_write($this->socket, $data, strlen($data));
         if($lBytes === false) {
-            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué.<br>
-            - error......: %s", __METHOD__, socket_strerror(socket_last_error())));
+            GLog::Instance()->addError(sprintf(
+                "Erreur lors de l'envoi des donnees.<br>
+                - error......: (%s)<br>"
+                , socket_strerror(socket_last_error())));
         }
         return $lBytes;
     }
@@ -121,8 +133,8 @@ class GSocket extends GObject {
             $lBuffer = substr($data, $lBytes, self::BUFFER_DATA_SIZE);
             $iBytes = $this->sendData($lBuffer);
             if($iBytes === false) {
-                GLog::Instance()->addError(sprintf("
-                    Erreur lors de l'envoi des donnees.<br>
+                GLog::Instance()->addError(sprintf(
+                    "Erreur lors de l'envoi des donnees.<br>
                     error........: (%s)<br>"
                     , socket_strerror(socket_last_error())));
                 break;
@@ -161,8 +173,8 @@ class GSocket extends GObject {
             if($lBytes >= $lSize) break;
             $lBuffer = $this->recvData();
             if($lBuffer === false) {
-                GLog::Instance()->addError(sprintf("
-                    Erreur lors de la reception des donnees.<br>
+                GLog::Instance()->addError(sprintf(
+                    "Erreur lors de la reception des donnees.<br>
                     error........: (%s)<br>"
                     , socket_strerror(socket_last_error())));
                 break;
@@ -201,11 +213,13 @@ class GSocket extends GObject {
         
         $this->createSocket($lDomain, $lType, $lProtocol);
         $this->connectSocket($lAddress, $lPort);
-        
+                
         $this->writeData($dataIn);
         $lDataOut = $this->readData();
+        GLog::Instance()->loadErrors($lDataOut);
         
-        if($lDataOut == "") {
+        if(GLog::Instance()->hasErrors()) {
+            GLog::Instance()->clearErrors();
             GLog::Instance()->addError(sprintf("Erreur la connexion au serveur a échoué."));
         }
         

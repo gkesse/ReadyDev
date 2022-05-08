@@ -118,6 +118,7 @@ class GPad extends GObject {
             $lLabel = $this->getItem3("connection", "label", $i);
             $lName = $this->getItem3("connection", "name", $i);
             $lText = $this->getItem3("connection", "text", $i);
+            $lMinLength = $this->getItem3("connection", "min_length", $i);
             $lMaxLength = $this->getItem3("connection", "max_length", $i);
             $lKey = $this->getItem3("connection", "key", $i);
             $lHolder = $this->getItem3("connection", "holder", $i);
@@ -144,24 +145,24 @@ class GPad extends GObject {
                 echo sprintf("<label class='label' for='%s'>%s</label>\n", $lKey, $lLabel);
                 echo sprintf("<div class='row_float'>
                 <i class='icon_float fa fa-%s' style='color: %s;'></i>
-                <input class='input_float' type='text' id='%s' name='%s' placeholder='%s' value='%s' maxlength='%s' onfocus='this.removeAttribute(\"readonly\");' readonly required/>
-                </div>\n", $lPicto, $lPictoColor, $lKey, $lKey, $lHolder, $lValue, $lMaxLength);
+                <input class='input_float' type='text' id='%s' name='%s' placeholder='%s' value='%s' minlength='%s' maxlength='%s' onfocus='this.removeAttribute(\"readonly\");' readonly required/>
+                </div>\n", $lPicto, $lPictoColor, $lKey, $lKey, $lHolder, $lValue, $lMinLength, $lMaxLength);
             }
             else if($lType == "lineedit/email"){
                 if($lPostOn) {$lValue = $lPost->getPost($lKey);}
                 echo sprintf("<label class='label' for='%s'>%s</label>\n", $lKey, $lLabel);
                 echo sprintf("<div class='row_float'>
                 <i class='icon_float fa fa-%s' style='color: %s;'></i>
-                <input class='input_float' type='email' id='%s' name='%s' placeholder='%s' value='%s' maxlength='%s' onfocus='this.removeAttribute(\"readonly\");' readonly required/>
-                </div>\n", $lPicto, $lPictoColor, $lKey, $lKey, $lHolder, $lValue, $lMaxLength);
+                <input class='input_float' type='email' id='%s' name='%s' placeholder='%s' value='%s' minlength='%s' maxlength='%s' onfocus='this.removeAttribute(\"readonly\");' readonly required/>
+                </div>\n", $lPicto, $lPictoColor, $lKey, $lKey, $lHolder, $lValue, $lMinLength, $lMaxLength);
             }
             if($lType == "lineedit/password"){
                 if($lPostOn) {$lValue = $lPost->getPost($lKey);}
                 echo sprintf("<label class='label' for='%s'>%s</label>\n", $lKey, $lLabel);
                 echo sprintf("<div class='row_float'>
                 <i class='icon_float fa fa-%s' style='color: %s;'></i>
-                <input class='input_float' type='password' id='%s' name='%s' placeholder='%s' value='%s' maxlength='%s' required/>
-                </div>\n", $lPicto, $lPictoColor, $lKey, $lKey, $lHolder, $lValue, $lMaxLength);
+                <input class='input_float' type='password' id='%s' name='%s' placeholder='%s' value='%s' minlength='%s' maxlength='%s' required/>
+                </div>\n", $lPicto, $lPictoColor, $lKey, $lKey, $lHolder, $lValue, $lMinLength, $lMaxLength);
             }
             else if($lType == "button"){
                 echo sprintf("<div class='row_right'>
@@ -222,6 +223,7 @@ class GPad extends GObject {
             $lLabel = $this->getItem3("account", "label", $i);
             $lName = $this->getItem3("account", "name", $i);
             $lText = $this->getItem3("account", "text", $i);
+            $lMinLength = $this->getItem3("account", "min_length", $i);
             $lMaxLength = $this->getItem3("account", "max_length", $i);
             $lKey = $this->getItem3("account", "key", $i);
             $lHolder = $this->getItem3("account", "holder", $i);
@@ -245,24 +247,24 @@ class GPad extends GObject {
                 echo sprintf("<label class='label' for='%s'>%s</label>\n", $lKey, $lLabel);
                 echo sprintf("<div class='row_float'>
                 <i class='icon_float fa fa-%s' style='color: %s;'></i>
-                <input class='input_float' type='text' id='%s' name='%s' placeholder='%s' value='%s' maxlength='%s' onfocus='this.removeAttribute(\"readonly\");' readonly required/>
-                </div>\n", $lPicto, $lPictoColor, $lKey, $lKey, $lHolder, $lValue, $lMaxLength);
+                <input class='input_float' type='text' id='%s' name='%s' placeholder='%s' value='%s' minlength='%s' maxlength='%s' onfocus='this.removeAttribute(\"readonly\");' readonly required/>
+                </div>\n", $lPicto, $lPictoColor, $lKey, $lKey, $lHolder, $lValue, $lMinLength, $lMaxLength);
             }
             else if($lType == "lineedit/email"){
                 if($lPostOn) {$lValue = $lPost->getPost($lKey);}
                 echo sprintf("<label class='label' for='%s'>%s</label>\n", $lKey, $lLabel);
                 echo sprintf("<div class='row_float'>
                 <i class='icon_float fa fa-%s' style='color: %s;'></i>
-                <input class='input_float' type='email' id='%s' name='%s' placeholder='%s' value='%s' maxlength='%s' onfocus='this.removeAttribute(\"readonly\");' readonly required/>
-                </div>\n", $lPicto, $lPictoColor, $lKey, $lKey, $lHolder, $lValue, $lMaxLength);
+                <input class='input_float' type='email' id='%s' name='%s' placeholder='%s' value='%s' minlength='%s' maxlength='%s' onfocus='this.removeAttribute(\"readonly\");' readonly required/>
+                </div>\n", $lPicto, $lPictoColor, $lKey, $lKey, $lHolder, $lValue, $lMinLength, $lMaxLength);
             }
             if($lType == "lineedit/password"){
                 if($lPostOn) {$lValue = $lPost->getPost($lKey);}
                 echo sprintf("<label class='label' for='%s'>%s</label>\n", $lKey, $lLabel);
                 echo sprintf("<div class='row_float'>
                 <i class='icon_float fa fa-%s' style='color: %s;'></i>
-                <input class='input_float' type='password' id='%s' name='%s' placeholder='%s' value='%s' maxlength='%s' required/>
-                </div>\n", $lPicto, $lPictoColor, $lKey, $lKey, $lHolder, $lValue, $lMaxLength);
+                <input class='input_float' type='password' id='%s' name='%s' placeholder='%s' value='%s' minlength='%s' maxlength='%s' required/>
+                </div>\n", $lPicto, $lPictoColor, $lKey, $lKey, $lHolder, $lValue, $lMinLength, $lMaxLength);
             }
             else if($lType == "button"){
                 echo sprintf("<div class='row_right'>

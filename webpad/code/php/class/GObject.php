@@ -27,6 +27,7 @@ class GObject {
     }
     //===============================================
     public function loadErrors($xml) {
+        if($xml == "") return;
         $lRes = new GCode();
         $lRes->loadXmlData($xml);
         
