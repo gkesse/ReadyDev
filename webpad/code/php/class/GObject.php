@@ -44,7 +44,7 @@ class GObject {
     }
     //===============================================
     public function getErrors() {
-        return implode($this->errors, "<br>");
+        return implode("<br>", $this->errors);
     }
     //===============================================
     public function clearErrors() {
