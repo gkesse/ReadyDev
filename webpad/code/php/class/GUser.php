@@ -39,6 +39,7 @@ class GUser extends GObject {
     }
     // ===============================================
     public function deserialize($data) {
+        if($data == "") return;
         $lCode = new GCode();
         $lCode->loadXmlData($data);
         $this->id = intval($lCode->getItem("user", "id"));
