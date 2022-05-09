@@ -137,6 +137,7 @@ sudo systemctl restart apache2
 sudo systemctl restart pad
 sudo systemctl status pad
 sudo systemctl stop pad
+sudo systemctl daemon-reload
 #================================================
 http://readydev.ovh/
 https://readydev.ovh/
@@ -183,4 +184,9 @@ ExecStart=/home/gkesse/Programs/ReadyCode/app/cpp/unix/code/src/data/server/pads
 [Install]
 WantedBy=multi-user.target
 _EOF_
+#================================================
+sudo chmod 777 /etc/php/8.0/apache2/php.ini
+sudo chmod 644 /etc/php/8.0/apache2/php.ini
+#================================================
+display_errors = On
 #================================================
