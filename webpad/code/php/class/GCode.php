@@ -13,6 +13,7 @@ class GCode extends GDomXml {
     }
     //===============================================
     public function loadXmlData($xml) {
+        if($xml == "") return;
         $this->createDoc();
         parent::loadXmlData($xml);
         $this->createXPath();
