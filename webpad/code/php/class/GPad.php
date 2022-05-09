@@ -349,8 +349,8 @@ class GPad extends GObject {
         $lPost = new GPost();        
         if(!$lPage->isPage("database/update")) return;
         if(!$lPost->hasPost()) $this->redirectUrl("home");
-        $lSqlite = new GSQLite();
-        $lSqlite->updateDatabase();
+        $lMaj = new GMaj();
+        $lMaj->updateDatabase();
     }
     //===============================================
     public function runTestProcedure() {

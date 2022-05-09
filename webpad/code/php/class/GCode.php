@@ -24,8 +24,19 @@ class GCode extends GDomXml {
         $this->createCode2("request", "method", $method);
     }
     //===============================================
-    public function addParameter($key, $value) {
+    public function addParam($key, $value) {
         $this->createCode2("params", $key, $value);
+    }
+    //===============================================
+    public function addSession($key, $value) {
+        $this->createCode2("session", $key, $value);
+    }
+    //===============================================
+    public function addUser() {
+        $lUser = new GUser();
+        if(!$lUser->isLogin()) return;
+        $lId = $lUser->getUserId();
+        $this->addSession("user_id", $lId);
     }
     //===============================================
     public function createCode($code) {

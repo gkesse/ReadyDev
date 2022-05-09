@@ -34,7 +34,7 @@ class GObject {
         $lCount = $lRes->countCode("error");
         
         for($i = 0; $i < $lCount; $i++) {
-            $lError = $lRes->getItem3("error", $i);
+            $lError = $lRes->getItem2("error", $i);
             $this->errors[] = $lError;
         }
     }
@@ -74,15 +74,15 @@ class GObject {
         return $lData;
     }
     //===============================================
-    public function getItem3($code, $data, $index) {
-        $this->dom->queryXPath(sprintf("/rdv/datas/data[code='%s']/map/data[position()=%d]/%s", $code, $index + 1, $data));
+    public function getItem3($code, $key, $index) {
+        $this->dom->queryXPath(sprintf("/rdv/datas/data[code='%s']/map/data[position()=%d]/%s", $code, $index + 1, $key));
         $this->dom->getNodeIndex(0);
         $lData = $this->dom->getNodeValue();
         return $lData;
     }
     //===============================================
-    public function getItem4($code, $idKey, $idValue, $data) {
-        $this->dom->queryXPath(sprintf("/rdv/datas/data[code='%s']/map/data[%s='%s']/%s", $code, $idKey, $idValue, $data));
+    public function getItem4($code, $idKey, $idValue, $key) {
+        $this->dom->queryXPath(sprintf("/rdv/datas/data[code='%s']/map/data[%s='%s']/%s", $code, $idKey, $idValue, $key));
         $this->dom->getNodeIndex(0);
         $lData = $this->dom->getNodeValue();
         return $lData;

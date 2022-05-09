@@ -195,11 +195,12 @@ class GSocket extends GObject {
         echo sprintf("démarrage du serveur...<br>");
     }
     //===============================================
-    public function callServer($module, $method, $params) {
+    public function callServer($module, $method, $params = "") {
         $lReq = new GCode();
         $lReq->createObj();
         $lReq->createRequest($module, $method);
         $lReq->loadCode($params);
+        $lReq->addUser();
         $lDataOut = $this->callServerTcp($lReq->toString());
         return $lDataOut;
     }

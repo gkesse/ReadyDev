@@ -30,11 +30,11 @@ class GUser extends GObject {
     public function serialize() {
         $lReq = new GCode();
         $lReq->createObj();
-        $lReq->addParameter("id", strval($this->id));
-        $lReq->addParameter("pseudo", $this->pseudo);
-        $lReq->addParameter("password", $this->password);
-        $lReq->addParameter("group", $this->group);
-        $lReq->addParameter("active", $this->active);
+        $lReq->addParam("id", strval($this->id));
+        $lReq->addParam("pseudo", $this->pseudo);
+        $lReq->addParam("password", $this->password);
+        $lReq->addParam("group", $this->group);
+        $lReq->addParam("active", $this->active);
         return $lReq->toStringNode();
     }
     // ===============================================
@@ -114,6 +114,8 @@ class GUser extends GObject {
         $lPage = new GPage();
         $lSession = new GSession();
         $lSession->unsetSession("user/login");
+        $lSession->unsetSession("user/id");
+        $lSession->unsetSession("user/group");
         $lPage->redirectUrl("home");
     }
     //===============================================
