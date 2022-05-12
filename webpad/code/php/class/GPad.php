@@ -8,10 +8,8 @@ class GPad extends GObject {
     }
     // ===============================================
     public function createDom() {
-        $this->dom = new GDomXml();
-        $this->dom->createDoc();
-        $this->dom->loadXmlFile("pad.xml");
-        $this->dom->createXPath();
+        $this->dom = new GXml();
+        $this->dom->createDocFile("pad.xml");
     }
     // ===============================================
     public function run() {
@@ -20,8 +18,6 @@ class GPad extends GObject {
         $this->createAccount();
         $this->createDisconnection();
         $this->updateDatabase();
-        $this->runTestProcedure();
-        $this->runTestPhp();
         $this->createError();
     }
     // ===============================================
@@ -58,8 +54,7 @@ class GPad extends GObject {
             else if($lCategory == "admin") {
                 if(!$lAdminOn) continue;
             }
-            
-            
+                       
             if($lType == "button") {
                 echo sprintf("<button>%s</button>\n", $lName);
             }
@@ -345,47 +340,23 @@ class GPad extends GObject {
     }
     //===============================================
     public function updateDatabase() {
-        $lPage = new GPage();
-        $lPost = new GPost();        
-        if(!$lPage->isPage("database/update")) return;
-        if(!$lPost->hasPost()) $this->redirectUrl("home");
+        $lPageObj = new GPage();
+        $lPostObj = new GPost();        
+        if(!$lPageObj->isPage("database/update")) return;
+        if(!$lPostObj->hasPost()) $lPageObj->redirectUrl("home");
         $lMaj = new GMaj();
         $lMaj->updateDatabase();
     }
-    //===============================================
-    public function runTestProcedure() {
-        $lPage = new GPage();
-        $lPost = new GPost();
-        if(!$lPage->isPage("procedure/test/run")) return;
-        if(!$lPost->hasPost()) $this->redirectUrl("home");
-        $lSqlite = new GSQLite();
-        $lSqlite->runTestProcedure();
-    }
-    //===============================================
-    public function runTestPhp() {
-        $lPage = new GPage();
-        $lPost = new GPost();
-        if(!$lPage->isPage("php/test/run")) return;
-        if(!$lPost->hasPost()) $this->redirectUrl("home");
-        $lMail = new GMail();
-        $lMail->sendMail();
-    }
-    //===============================================
-    public function hasPage($page) {
-        $this->dom->queryXPath(sprintf("/rdv/datas/data[code='page']/map/link[.='%s']", $page));
-        $lData = $this->dom->countXPath();
-        return $lData;
-    }
     // ===============================================
     public function createError() {
-        $lPage = new GPage();
-        $lPageId = $lPage->getPageId();
-        if($this->hasPage($lPageId)) return;
+        $lPageObj = new GPage();
+        $lPageId = $lPageObj->getPageId();
+        if($lPageObj->hasPage($lPageId)) return;
         
-        $lCount = $this->countErrorItems();
-        $lTitle = $this->getErrorItem2("title");
+        $lCount = $this->countItem("error");
+        $lTitle = $this->getItem("error", "title");
         
-        $lHome = $this->getLink("home");
+        $lHome = $lPageObj->getLink("home");
         
         echo sprintf("<div class='box'>\n");
         echo sprintf("<div class='box_body'>\n");
@@ -394,9 +365,9 @@ class GPad extends GObject {
         echo sprintf("<hr class='title_hr'>\n");
         
         for($i = 0; $i < $lCount; $i++) {
-            $lType = $this->getErrorItem($i, "type");
-            $lText = $this->getErrorItem($i, "text");
-            $lPicto = $this->getErrorItem($i, "picto");
+            $lType = $this->getItem3("error", "type", $i);
+            $lText = $this->getItem3("error", "text", $i);
+            $lPicto = $this->getItem3("error", "picto", $i);
             
             if($lType == "text"){
                 echo sprintf("<div class='row_line'>%s</div>\n", $lText);

@@ -8,121 +8,76 @@ class GTest extends GObject {
     }
     //===============================================
     public function createDom() {
-        $this->dom = new GDomXml();
-        $this->dom->createDoc();
-        $this->dom->loadXmlFile("process.xml");
-        $this->dom->createXPath();
+        $this->dom = new GXml();
+        $this->dom->createDocFile("pad.xml");
     }
     //===============================================
     public function run() {
         $lKey = $this->getItem("test", "name");
-        $this->runKey($lKey);
-    }
-    //===============================================
-    public function runKey($key) {
-        if($key == "test") {
+        //===============================================
+        // test
+        //===============================================
+        if($lKey == "test") {
             $this->runTest();
         }
-        // pad
-        else if($key == "pad") {
-            $this->runPad();
-        }
+        //===============================================
         // service
-        else if($key == "service/port") {
+        //===============================================
+        else if($lKey == "service/port") {
             $this->runServicePort();
         }
-        else if($key == "service/ip") {
+        else if($lKey == "service/ip") {
             $this->runServiceIp();
         }
+        //===============================================
         // socket
-        else if($key == "socket/server") {
+        //===============================================
+        else if($lKey == "socket/server") {
             $this->runSocketServer();
         }
-        else if($key == "socket/client") {
+        else if($lKey == "socket/client") {
             $this->runSocketClient();
         }
-        else if($key == "socket/client/write") {
+        else if($lKey == "socket/client/write") {
             $this->runSocketClientWrite();
         }
-        else if($key == "socket/client/http") {
+        else if($lKey == "socket/client/http") {
             $this->runSocketClientHttp();
         }
+        //===============================================
         // request
-        else if($key == "request/create") {
+        //===============================================
+        else if($lKey == "request/create") {
             $this->runRequestCreate();
         }
-        else if($key == "request/code") {
+        else if($lKey == "request/code") {
             $this->runRequestCode();
         }
-        else if($key == "request/get_user") {
+        else if($lKey == "request/get_user") {
             $this->runRequestGetUser();
         }
-        else if($key == "request/save_user") {
+        else if($lKey == "request/save_user") {
             $this->runRequestSaveUser();
         }
-        else if($key == "request/error") {
+        else if($lKey == "request/error") {
             $this->runRequestError();
         }
+        //===============================================
         // env
-        else if($key == "env") {
+        //===============================================
+        else if($lKey == "env") {
             $this->runEnv();
         }
+        //===============================================
         // end
+        //===============================================
         else {
-            $this->runDefault($key);
+            $this->runTest();
         }
-    }
-    //===============================================
-    public function runDefault($key) {
-        $lProcess = new GProcess();
-        $lProcess->unknownProcess(__METHOD__, $key);
     }
     //===============================================
     public function runTest() {
         echo sprintf("%s<br>", __METHOD__);
-    }
-    //===============================================
-    public function runPad() {
-        $lCount = $this->countItem("test/map");
-        
-        $lPost = new GPost();
-        $lSession = new GSession();
-        $lSelectKey = $lSession->getSession("test/map/select", "none");
-                
-        if($lPost->hasPost()) {
-            $lSelectKey = $lPost->getPost("test");
-            $lSession->setSession("test/map/select", $lSelectKey);
-        }        
-                
-        echo sprintf("<div class='padding'>\n");
-        echo sprintf("<div class='title_hr_text'>TEST-PAD</div>\n");
-                
-        echo sprintf("<form action='' method='post'>\n");
-        echo sprintf("<div class='custom-select' style='width:200px;display:inline-block;'>\n");
-        echo sprintf("<select id='test' name='test'>\n");
-        for($i = 0; $i < $lCount; $i++) {
-            $lName = $this->getItem3("test/map", "name", $i);
-            $lKey = $this->getItem3("test/map", "key", $i);
-            if($lKey == $lSelectKey) {
-                echo sprintf("<option value='%s' selected='true'>%s</option>\n", $lKey, $lName);                
-            }
-            else {
-                echo sprintf("<option value='%s'>%s</option>\n", $lKey, $lName);
-            }
-        }
-        echo sprintf("</select>\n");
-        echo sprintf("</div>\n");
-        echo sprintf("<button type='submit' name='submit' value='run'>Run</button>\n");
-        echo sprintf("</form>\n");
-        echo sprintf("<br>\n");
-        
-        if($lPost->hasPost()) {
-            echo sprintf("<div class='consoleo'>\n");
-            $this->runKey($lSelectKey);
-            echo sprintf("</div>\n");
-        }
-        
-        echo sprintf("</div>");
     }
     //===============================================
     public function runServicePort() {
@@ -237,7 +192,7 @@ class GTest extends GObject {
     //===============================================
     public function runRequestCreate() {
         echo sprintf("%s<br>", __METHOD__);
-        $lReq = new GDomXml();
+        $lReq = new GXml();
         $lReq->createDoc();
         $lReq->createRoot("rdv");
         $lReq->createXPath();

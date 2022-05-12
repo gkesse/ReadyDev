@@ -8,10 +8,8 @@ class GProcess extends GObject {
     }
     //===============================================
     public function createDom() {
-        $this->dom = new GDomXml();
-        $this->dom->createDoc();
-        $this->dom->loadXmlFile("process.xml");
-        $this->dom->createXPath();
+        $this->dom = new GXml();
+        $this->dom->createDocFile("pad.xml");
     }
     //===============================================
     public function run() {
@@ -24,46 +22,32 @@ class GProcess extends GObject {
     //===============================================
     public function runProcess() {
         $lEnvObj = new GEnv();
-        $this->runProcessEnv($lEnvObj->isTestEnv());
-    }
-    //===============================================
-    public function runProcessEnv($isTestEnv) {
-        $lKey = "pad";
-        if($isTestEnv) $lKey = $this->getItem("process", "name");
-        
-        if($lKey == "test") {
+        if($lEnvObj->isProdEnv()) {
+            $this->runProd();
+        }
+        else {
             $this->runTest();
         }
-        // pad
-        else if($lKey == "pad") {
-            $this->runPad();
-        }
-        // end
-        else {
-            $this->runDefault($lKey);
-        }
-    }
-    //===============================================
-    public function runDefault($key) {
-        $this->unknownProcess(__METHOD__, $key);
     }
     //===============================================
     public function runTest() {
-        $lModule = new GTest();
-        $lModule->run();
+        $lEnv = $this->getItem("test", "env");
+        if($lEnv == "prod") {
+            $this->runProd();
+        }
+        else if($lEnv == "dev") {
+            $this->runTestDev();
+        }
     }
     //===============================================
-    public function runPad() {
-        $lModule = new GPad();
-        $lModule->run();
+    public function runTestDev() {
+        $lTestObj = new GTest();
+        $lTestObj->run();
     }
     //===============================================
-    public function unknownProcess($method, $key) {
-        echo sprintf("<div class='padding'>");
-        echo sprintf("<div class='border padding'>");
-        echo sprintf("%s : process inconnu : (%s)<br>", $method, $key);
-        echo sprintf("</div>");
-        echo sprintf("</div>");
+    public function runProd() {
+        $lPadObj = new GPad();
+        $lPadObj->run();
     }
     //===============================================
 }

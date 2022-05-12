@@ -1,6 +1,6 @@
 <?php   
 //===============================================
-class GDomXml extends GObject {
+class GXml extends GObject {
     //===============================================
     private $doc = null;
     private $node = null;
@@ -21,6 +21,12 @@ class GDomXml extends GObject {
         }
         $this->doc->preserveWhiteSpace = false;
         $this->doc->formatOutput = true;
+    }
+    //===============================================
+    public function createDocFile($filename) {
+        $this->createDoc();
+        $this->loadXmlFile($filename);
+        $this->createXPath();        
     }
     //===============================================
     public function loadXmlFile($file) {
@@ -408,7 +414,7 @@ class GDomXml extends GObject {
     }
     //===============================================
     public function appendNode2($name, $value = "") {
-        $lNode = new GDomXml();
+        $lNode = new GXml();
         $lNode->createNode($this, $name, $value);
         $this->appendNode($lNode);
     }
@@ -419,7 +425,7 @@ class GDomXml extends GObject {
     }
     //===============================================
     public function appendNode4($name, $value = "") {
-        $lNode = new GDomXml();
+        $lNode = new GXml();
         $lNode->createNode($this, $name, $value);
         $this->appendNode3($lNode);
     }

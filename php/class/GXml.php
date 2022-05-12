@@ -393,7 +393,7 @@ class GXml extends GObject {
     }
     //===============================================
     public function appendNode2($name, $value = "") {
-        $lNode = new GDomXml();
+        $lNode = new GXml();
         $lNode->createNode($this, $name, $value);
         $this->appendNode($lNode);
     }
@@ -404,7 +404,7 @@ class GXml extends GObject {
     }
     //===============================================
     public function appendNode4($name, $value = "") {
-        $lNode = new GDomXml();
+        $lNode = new GXml();
         $lNode->createNode($this, $name, $value);
         $this->appendNode3($lNode);
     }

@@ -8,10 +8,8 @@ class GHeader extends GObject {
     }
     //===============================================
     public function createDom() {
-        $this->dom = new GDomXml();
-        $this->dom->createDoc();
-        $this->dom->loadXmlFile("process.xml");
-        $this->dom->createXPath();
+        $this->dom = new GXml();
+        $this->dom->createDocFile("pad.xml");
     }
     //===============================================
     public function run() {
@@ -19,7 +17,6 @@ class GHeader extends GObject {
         $lTitle = $this->getItem("header", "title");
         $lLogo = $this->getItem("header", "logo");
         $lWebRoot = "/" . $this->getConfig("webroot");
-        $lProcess = $this->getItem("process", "onload");
         
         echo sprintf("<!DOCTYPE html>\n");
         echo sprintf("<html lang='%s'>\n", $lLang);
@@ -33,7 +30,7 @@ class GHeader extends GObject {
         $this->loadFonts();
         echo sprintf("<link rel='stylesheet' href='%s/css/style.css'/>\n", $lWebRoot);
         echo sprintf("</head>\n");
-        echo sprintf("<body onload='body_onload(\"%s\")'>\n", $lProcess);
+        echo sprintf("<body>\n");
     }
     //===============================================
     public function loadFonts() {

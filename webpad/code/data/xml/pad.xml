@@ -2,6 +2,108 @@
 <rdv>
     <datas>
         <!-- ============================================ -->
+    	<!-- settings -->
+        <!-- ============================================ -->
+    	<data>
+    		<code>settings</code>
+    		<lang>fr</lang>
+    		<title>ReadyPad</title>
+    		<logo>/data/img/readydev.png</logo>
+        </data>
+        <!-- ============================================ -->
+    	<!-- infos -->
+        <!-- ============================================ -->
+        <data>
+            <code>infos</code>
+            <map>
+                <data>
+                    <type>profil</type>
+                    <img>/data/img/logo_web.png</img>
+                    <fa>info</fa>
+                    <faon>0</faon>
+                    <active>1</active>
+                </data>
+                <data>
+                    <type>key_value</type>
+                    <key>Nom de l'application</key>
+                    <value>ReadyPad</value>
+                    <active>1</active>
+                </data>
+                <data>
+                    <type>key_value</type>
+                    <key>Numéro de version</key>
+                    <value>1.0.0</value>
+                    <active>1</active>
+                </data>
+               <data>
+                    <type>key_value</type>
+                    <key>Langage</key>
+                    <value>PHP</value>
+                    <active>1</active>
+                </data>
+                <data>
+                    <type>key_value</type>
+                    <key>Développeur</key>
+                    <value>Gérard KESSE</value>
+                    <active>1</active>
+                </data>
+                 <data>
+                    <type>key_value</type>
+                    <key>Organisation</key>
+                    <value>ReadyDev</value>
+                    <active>1</active>
+                </data>
+            </map>
+        </data>
+        <!-- ============================================ -->
+    	<!-- test -->
+        <!-- ============================================ -->
+   		<data>
+    		<code>test</code>
+	        <env>prod</env>
+	        <name>email</name>
+    	</data>
+        <!-- ============================================ -->
+    	<!-- socket -->
+        <!-- ============================================ -->
+   		<data>
+    		<code>socket</code>
+	        <domain>AF_INET</domain>
+	        <type>SOCK_STREAM</type>
+	        <protocol>SOL_TCP</protocol>
+	        <server_ip>readydev.ovh</server_ip>
+	        <client_ip>0.0.0.0</client_ip>
+	        <prod_port>9090</prod_port>
+	        <test_port>9091</test_port>
+	        <backlog>5</backlog>
+	        <api_key>16ac9e66cde8bd80d6141dadb74b5083</api_key>
+    	</data>
+        <!-- ============================================ -->
+    	<!-- css/fonts -->
+        <!-- ============================================ -->
+   		<data>
+    		<code>css/fonts</code>
+	        <map>
+           		<data>/libs/google_fonts/Allan/css.css</data>
+           		<data>/libs/google_fonts/Archivo_Narrow/css.css</data>
+           		<data>/css/custom/combobox.css</data>
+	        </map>
+    	</data>
+        <!-- ============================================ -->
+    	<!-- js/scripts -->
+        <!-- ============================================ -->
+    	<data>
+    		<code>js/scripts</code>
+        	<map>
+	            <data>/js/class/GObject.js</data>
+	            <data>/js/class/GXml.js</data>
+	            <data>/js/class/GStudio.js</data>
+	            <data>/js/class/GPhone.js</data>
+	            <data>/js/custom/combobox.js</data>       	
+	            <data>/js/script.js</data>       	
+        	</map>
+        </data>
+        <!-- ============================================ -->
     	<!-- header -->
         <!-- ============================================ -->
     	<data>
@@ -21,22 +123,6 @@
     				<picto>database</picto>
     				<picto_color>#aaaaff</picto_color>
     				<link>database/update</link>
-    			</data>
-    			<data>
-    				<type>button/icon/post</type>
-    				<category>admin</category>
-    				<name>Procédure de Test </name>
-    				<picto>code</picto>
-    				<picto_color>#aaaaff</picto_color>
-    				<link>procedure/test/run</link>
-    			</data>
-    			<data>
-    				<type>button/icon/post</type>
-    				<category>admin</category>
-    				<name>PHPTest </name>
-    				<picto>code</picto>
-    				<picto_color>#aaaaff</picto_color>
-    				<link>php/test/run</link>
     			</data>
     			<data>
     				<type>button/icon/link</type>
@@ -207,14 +293,12 @@
     	<data>
     		<code>page</code>
     		<map>
-    			<link>home</link>
-    			<link>user/login</link>
-    			<link>user/logout</link>
-    			<link>user/connect</link>
-    			<link>user/account/create</link>
-    			<link>database/update</link>
-    			<link>procedure/test/run</link>
-    			<link>php/test/run</link>
+    			<data>home</data>
+    			<data>user/login</data>
+    			<data>user/logout</data>
+    			<data>user/connect</data>
+    			<data>user/account/create</data>
+    			<data>database/update</data>
     		</map>
     	</data>
         <!-- ============================================ -->

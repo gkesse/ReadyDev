@@ -1,6 +1,6 @@
 <?php
 //===============================================
-class GCode extends GDomXml {
+class GCode extends GXml {
     //===============================================
     public function __construct() {
         parent::__construct();

@@ -4,13 +4,18 @@ class GPage extends GObject {
     //===============================================
     public function __construct() {
         parent::__construct();
+        $this->createDoms();
+    }
+    //===============================================
+    public function createDoms() {
+        $this->dom = new GXml();
+        $this->dom->createDocFile("pad.xml");
     }
     //===============================================
     public function getPageId() {
-        $lPageId = $_GET["pageid"];
-        if($lPageId == "") {
-            $lPageId = "home";
-        }
+        $lGetObj = new GGet();
+        $lPageId = $lGetObj->getGet("pageid");
+        $lPageId = sprintf("%s", $lPageId);
         if(substr($lPageId, -1) == '/') {
             $lPageId = substr($lPageId, 0, -1);
         }
@@ -20,6 +25,12 @@ class GPage extends GObject {
     public function isPage($page) {
         $lPageId = $this->getPageId();
         return ($lPageId == $page);
+    }
+    //===============================================
+    public function hasPage($page) {
+        $this->dom->queryXPath(sprintf("/rdv/datas/data[code='page']/map/data[.='%s']", $page));
+        $lData = $this->dom->countXPath();
+        return $lData;
     }
     //===============================================
     public function getLink($link) {

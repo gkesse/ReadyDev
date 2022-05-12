@@ -17,15 +17,11 @@ class GInfos extends GObject {
     }
     //===============================================
     public function createDom() {
-        $this->dom = new GDomXml();
-        $this->dom->createDoc();
-        $this->dom->loadXmlFile("app_infos.xml");
-        $this->dom->createXPath();
+        $this->dom = new GXml();
+        $this->dom->createDocFile("app_infos.xml");
         //
-        $this->domData = new GDomXml();
-        $this->domData->createDoc();
-        $this->domData->loadXmlFile("app_data.xml");
-        $this->domData->createXPath();
+        $this->domData = new GXml();
+        $this->domData->createDocFile("app_data.xml");
     }
     //===============================================
     public function run() {
