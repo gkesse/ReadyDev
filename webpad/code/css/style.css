@@ -89,6 +89,9 @@ input:-webkit-autofill:active{
 	background: #aaaaff;
 	height: 5px;
 }
+xmp {
+	white-space: pre-wrap;
+}
 /* ============================================== */
 /* custom */
 /* ============================================== */
@@ -130,12 +133,6 @@ input:-webkit-autofill:active{
     left: 50%;
     transform: translate(-50%, -50%);
 }
-.box_bottom {
-    border-bottom: 2px solid #aaaaff;
-    padding: 10px;
-    overflow-x: auto;
-    white-space: nowrap;    
-}
 .box {
 	background-color: #111111;
 	position: fixed;
@@ -146,6 +143,12 @@ input:-webkit-autofill:active{
     padding: 50px 10px 50px 10px;
     overflow: auto;
 }
+.box_bottom {
+    border-bottom: 2px solid #aaaaff;
+    padding: 10px;
+    overflow-x: auto;
+    white-space: nowrap;    
+}
 .box_body {
 	background-color: transparent;
 	border: 2px solid #aaaaff;
@@ -155,14 +158,6 @@ input:-webkit-autofill:active{
     min-height: 10px;
     margin: auto;
     position: relative;
-}
-.console {
-	margin-top: 40px;
-	text-align: center;
-	color: #aaaaff;
-	font-family: courier;
-	text-align: left;
-	font-size: 16px;
 }
 .form_button {
 	background-color: transparent;
@@ -200,6 +195,9 @@ input:-webkit-autofill:active{
 .none {
 	display: none;
 }
+.overflow {
+	overflow: scroll;
+}
 .padding {
 	padding: 10px;
 }
@@ -229,6 +227,17 @@ input:-webkit-autofill:active{
 	font-family: courier;
 	text-align: left;
 	font-size: 16px;
+}
+.row_line_courier_over {
+	margin-top: 40px;
+	text-align: center;
+	color: #aaaaff;
+	font-family: courier;
+	text-align: left;
+	font-size: 16px;
+	overflow: auto;
+    white-space: nowrap;
+    padding: 10px 0px;                                                                                                                 
 }
 .title_hr {
 	border: 1px solid #aaaaff;

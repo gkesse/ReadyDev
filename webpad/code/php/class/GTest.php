@@ -77,23 +77,21 @@ class GTest extends GObject {
     }
     //===============================================
     public function runTest() {
-        echo sprintf("%s<br>", __METHOD__);
+        $lKey = $this->getItem("test", "name");
+        GLog::Instance()->addLog($lKey);
     }
     //===============================================
     public function runServicePort() {
-        echo sprintf("%s<br>", __METHOD__);
         $lPort = getservbyname('www', 'tcp');
-        echo sprintf("%d<br>", $lPort);
+        GLog::Instance()->addLog($lPort);
     }
     //===============================================
     public function runServiceIp() {
-        echo sprintf("%s<br>", __METHOD__);
         $lAddress = gethostbyname('readydev.ovh');
-        echo sprintf("%s<br>", $lAddress);
+        GLog::Instance()->addLog($lAddress);
     }
     //===============================================
     public function runSocketServer() {
-        echo sprintf("%s<br>", __METHOD__);
         $lServer = new GSocket();
         $lClient = new GSocket();
 
@@ -114,14 +112,13 @@ class GTest extends GObject {
         $lData = $lClient->recvData();
         $lClient->sendData("<result>ok</result>");
         
-        GConsole::Instance()->printData($lData);
+        GLog::Instance()->addLog($lData);
         
         $lClient->closeSocket();
         $lServer->closeSocket();
     }
     //===============================================
     public function runSocketClient() {
-        echo sprintf("%s<br>", __METHOD__);
         $lClient = new GSocket();
         
         $lDomain = $lClient->loadDomain();
@@ -136,25 +133,23 @@ class GTest extends GObject {
         $lClient->sendData("[php] : Bonjour tout le monde");
         $lData = $lClient->recvData();
         
-        GConsole::Instance()->printData($lData);
-        GConsole::Instance()->printData(strlen($lData));
+        GLog::Instance()->addLog($lData);
+        GLog::Instance()->addLog(strlen($lData));
         
         $lClient->closeSocket();
     }
     //===============================================
     public function runSocketClientWrite() {
-        echo sprintf("%s<br>", __METHOD__);        
         $lReq = new GCode();
         $lReq->createRequest("test", "get_user");
         
         $lClient = new GSocket();        
         $lData = $lClient->callServerTcp($lReq->toString());
         
-        GConsole::Instance()->printCode($lData);        
+        GLog::Instance()->addLog($lData);        
     }
     //===============================================
     public function runSocketClientHttp() {
-        echo sprintf("%s<br>", __METHOD__);
         $lClient = new GSocket();
         
         $lDomain = $lClient->loadDomain();
@@ -173,25 +168,26 @@ class GTest extends GObject {
         $lClient->createSocket($lDomain, $lType, $lProtocol);
         $lClient->connectSocket($lAddress, $lPort);
         
-        echo "=====><br>";
-        echo "Sending HTTP HEAD request...<br>";
+        GLog::Instance()->addLog(sprintf(
+            "Sending HTTP HEAD request..."));
         $lClient->sendData($lRequest);
-        echo "OK.<br><br>";
+        GLog::Instance()->addLog(sprintf(
+            "OK..."));
         
-        echo "=====><br>";
-        echo "Reading response:<br>";
+        GLog::Instance()->addLog(sprintf(
+            "Reading response..."));
         while (($lBuffer = $lClient->recvData($lBufferSize))) {
             echo mb_convert_encoding($lBuffer, 'UTF-8');
         }
         
-        echo "=====><br>";
-        echo "Closing socket...<br>";
+        GLog::Instance()->addLog(sprintf(
+            "Closing socket..."));
         $lClient->closeSocket();
-        echo "OK.<br><br>";
+        GLog::Instance()->addLog(sprintf(
+            "OK..."));
     }
     //===============================================
     public function runRequestCreate() {
-        echo sprintf("%s<br>", __METHOD__);
         $lReq = new GXml();
         $lReq->createDoc();
         $lReq->createRoot("rdv");
@@ -207,22 +203,20 @@ class GTest extends GObject {
         $lReq->createNode4("code", "result");
         $lReq->createNode4("msg", "ok");
         
-        GConsole::Instance()->printCode($lReq->toString());
+        GLog::Instance()->addLog($lReq->toString());
     }
     //===============================================
     public function runRequestCode() {
-        echo sprintf("%s<br>", __METHOD__);
         $lReq = new GCode();
         $lReq->createObj();
         $lReq->createRequest("user", "get_user");
         $lReq->createCode2("parameters", "firstname", "Gerard");
         $lReq->createCode2("parameters", "lastname", "KESSE");
-        $lReq->createCode2("result", "msg", "ok");        
-        GConsole::Instance()->printCode($lReq->toString());
+        $lReq->createCode2("result", "msg", "ok");
+        GLog::Instance()->addLog($lReq->toString());
     }
     //===============================================
     public function runRequestGetUser() {
-        echo sprintf("%s<br>", __METHOD__);
         $lReq = new GCode();
         $lReq->createObj();
         $lReq->createRequest("test", "get_user");
@@ -230,11 +224,10 @@ class GTest extends GObject {
         $lClient = new GSocket();
         $lData = $lClient->callServerTcp($lReq->toString());
         
-        GConsole::Instance()->printCode($lData);
+        GLog::Instance()->addLog($lData);
     }
     //===============================================
     public function runRequestSaveUser() {
-        echo sprintf("%s<br>", __METHOD__);
         $lReq = new GCode();
         $lReq->createObj();
         $lReq->createRequest("test", "save_user");
@@ -244,11 +237,10 @@ class GTest extends GObject {
         $lClient = new GSocket();
         $lData = $lClient->callServerTcp($lReq->toString());
         
-        GConsole::Instance()->printCode($lData);
+        GLog::Instance()->addLog($lData);
     }
     //===============================================
     public function runRequestError() {
-        echo sprintf("%s<br>", __METHOD__);
         $lReq = new GCode();
         $lReq->createObj();
         $lReq->createRequest("test", "error");
@@ -257,18 +249,17 @@ class GTest extends GObject {
         $lData = $lClient->callServerTcp($lReq->toString());
         GLog::Instance()->loadErrors($lData);
         
-        GConsole::Instance()->printCode($lData);
+        GLog::Instance()->addLog($lData);
     }
     //===============================================
     public function runEnv() {
-        echo sprintf("%s<br>", __METHOD__);
         $lEnvObj = new GEnv();
         $lSocket = new GSocket();
         $lEnv = $lEnvObj->getEnv("GPROJECT_ENV");
-        echo sprintf("GPROJECT_ENV......: %s<br>\n", $lEnv);
-        echo sprintf("PROD_ENV..........: %s<br>\n", $lEnvObj->isProdEnv());
-        echo sprintf("TEST_ENV..........: %s<br>\n", $lEnvObj->isTestEnv());
-        echo sprintf("PORT..............: %d<br>\n", $lSocket->loadPort());
+        GLog::Instance()->addLog(sprintf("GPROJECT_ENV......: %s\n", $lEnv));
+        GLog::Instance()->addLog(sprintf("PROD_ENV..........: %s\n", $lEnvObj->isProdEnv()));
+        GLog::Instance()->addLog(sprintf("TEST_ENV..........: %s\n", $lEnvObj->isTestEnv()));
+        GLog::Instance()->addLog(sprintf("PORT..............: %d\n", $lSocket->loadPort()));
     }
     //===============================================
 }
