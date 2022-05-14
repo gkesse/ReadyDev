@@ -14,12 +14,8 @@ class GPath extends GObject {
         if($lServerRoot != "") {$lPath .= $lServerRoot;}
         // web_root
         if($lWebRoot != "") {
-            if($lPath == "") {
-                $lPath .= $lWebRoot;
-            }
-            else {
-                $lPath .= "/" . $lWebRoot;
-            }
+            if($lPath == "") {$lPath .= $lWebRoot;}
+            else {$lPath .= "/" . $lWebRoot;}
         }
         // repo
         if($repo != "") {
