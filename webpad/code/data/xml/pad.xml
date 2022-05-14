@@ -61,7 +61,7 @@
    		<data>
     		<code>test</code>
 	        <env>dev</env>
-	        <name>env</name>
+	        <name>mail</name>
     	</data>
         <!-- ============================================ -->
     	<!-- socket -->
@@ -271,6 +271,73 @@
     				<picto>plus</picto>
     				<picto_color>#aaaaff</picto_color>
     			</data>
+    		</map>
+    	</data>
+        <!-- ============================================ -->
+    	<!-- mail -->
+        <!-- ============================================ -->
+    	<data>
+    		<code>mail</code>
+    		<host>smtp.gmail.com</host>
+    		<port>587</port>
+    		<smtp_secure>tls</smtp_secure>
+    		<smtp_auth_on>1</smtp_auth_on>
+    		<charset>UFT-8</charset>
+    		<smtp_debug>1</smtp_debug>
+    		<debug_output>html</debug_output>
+    		<word_wrap>50</word_wrap>
+    		<html_on>1</html_on>
+    		<username>readydevz@gmail.com</username>
+    		<password>gma87@RDv</password>
+    		<from>readydevz@gmail.com</from>
+    		<from_name>ReadyDev</from_name>
+    		<subject><![CDATA[subject mail]]></subject>
+    		<body><![CDATA[body mail]]></body>
+    		<altbody><![CDATA[altbody mail]]></altbody>
+    		<map>
+        		<!-- ============================================ -->
+        		<!-- dst -->
+        		<!-- ============================================ -->
+     			<data>
+    				<category>dst</category>
+    				<name>Gerard KESSE</name>
+    				<email>tiakagerard@hotmail.com</email>
+    			</data>
+        		<!-- ============================================ -->
+        		<!-- cc -->
+        		<!-- ============================================ -->
+     			<data>
+    				<category>cc</category>
+    				<name>Pierre YURI</name>
+    				<email>pierre.yuri@outlook.fr</email>
+    			</data>
+        		<!-- ============================================ -->
+        		<!-- bcc -->
+        		<!-- ============================================ -->
+     			<data>
+    				<category>bcc</category>
+    				<name>Paul DMITRI</name>
+    				<email>paul.dmitri@outlook.fr</email>
+    			</data>
+        		<!-- ============================================ -->
+        		<!-- reply -->
+        		<!-- ============================================ -->
+     			<data>
+    				<category>reply</category>
+    				<name>ReadyDev</name>
+    				<email>readydevz@gmail.com</email>
+    			</data>
+        		<!-- ============================================ -->
+        		<!-- attach -->
+        		<!-- ============================================ -->
+     			<data>
+    				<category>attach</category>
+    				<file>data/img/readydev.png</file>
+    				<name>readydev.png</name>
+    			</data>
+        		<!-- ============================================ -->
+        		<!-- end -->
+        		<!-- ============================================ -->
     		</map>
     	</data>
         <!-- ============================================ -->

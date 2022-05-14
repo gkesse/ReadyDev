@@ -69,6 +69,12 @@ class GTest extends GObject {
             $this->runEnv();
         }
         //===============================================
+        // mail
+        //===============================================
+        else if($lKey == "mail") {
+            $this->runMail();
+        }
+        //===============================================
         // end
         //===============================================
         else {
@@ -260,6 +266,11 @@ class GTest extends GObject {
         GLog::Instance()->addLog(sprintf("PROD_ENV..........: %s\n", $lEnvObj->isProdEnv()));
         GLog::Instance()->addLog(sprintf("TEST_ENV..........: %s\n", $lEnvObj->isTestEnv()));
         GLog::Instance()->addLog(sprintf("PORT..............: %d\n", $lSocket->loadPort()));
+    }
+    //===============================================
+    public function runMail() {
+        $lMailObj = new GMail();
+        $lMailObj->sendMail();
     }
     //===============================================
 }
