@@ -72,14 +72,14 @@ class GCode extends GXml {
         return $lData;
     }
     //===============================================
-    public function getItem2($code, $index) {
+    public function getItem3($code, $index) {
         $this->queryXPath(sprintf("/rdv/datas/data[code='%s']/map/data[position()=%d]", $code, $index + 1));
         $this->getNodeIndex(0);
         $lData = $this->getNodeValue();
         return $lData;
     }
     //===============================================
-    public function getItem3($code, $key, $index) {
+    public function getItem2($code, $key, $index) {
         $this->queryXPath(sprintf("/rdv/datas/data[code='%s']/map/data[position()=%d]/%s", $code, $index + 1, $key));
         $this->getNodeIndex(0);
         $lData = $this->getNodeValue();

@@ -41,8 +41,8 @@ class GProcess extends GObject {
     }
     //===============================================
     public function runProd() {
-        $lRedirectObj = new GRedirect();
-        $lRedirectObj->homePage();
+        $lPageObj = new GPage();
+        $lPageObj->homePage();
     }
     //===============================================
  }

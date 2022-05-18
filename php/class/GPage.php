@@ -3,6 +3,7 @@ class GPage extends GObject {
     //===============================================
     public function __construct() {
         parent::__construct();
+        $this->createDoms();
     }
     //===============================================
     public function getPageId() {
@@ -39,6 +40,11 @@ class GPage extends GObject {
             $_FILES = $_SESSION["_SAVE_FILES_"];
             unset($_SESSION["_SAVE_POST_"], $_SESSION["_SAVE_FILES_"]);
         }
+    }
+    //===============================================
+    public function homePage() {
+        $lHomePage = $this->getItem("home", "page");
+        $this->redirectUrl($lHomePage);
     }
     //===============================================
 }

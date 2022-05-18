@@ -34,7 +34,7 @@ class GObject {
         $lCount = $lRes->countCode("error");
         
         for($i = 0; $i < $lCount; $i++) {
-            $lError = $lRes->getItem2("error", $i);
+            $lError = $lRes->getItem3("error", $i);
             $this->errors[] = $lError;
         }
     }

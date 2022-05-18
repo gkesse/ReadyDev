@@ -22,11 +22,12 @@
         }
         //===============================================
         public function onBody() {
-            echo sprintf("%s<br>\n", __METHOD__);
             $lPageObj = new GPage();
             $lPage = $lPageObj->getPageId();
-            echo sprintf("%s<br>\n", $lPage);
-            
+            $lContent = $lPage;
+            echo sprintf("<div class='MainBody'>");
+            echo $lContent;
+            echo sprintf("</div>");            
         }
         //===============================================
     }

@@ -32,8 +32,8 @@
             $lCurrentDate = date("Y");
             
             for($i = 0; $i < $lCount; $i++) {
-                $lIcon = $this->getItem2("networks", "icon", $i);
-                $lLink = $this->getItem2("networks", "link", $i);
+                $lIcon = $this->getItem3("networks", "icon", $i);
+                $lLink = $this->getItem3("networks", "link", $i);
                 
                 echo sprintf("<a href='%s'>\n", $lLink);
                 echo sprintf("<i class='Network %s'></i>\n", $lIcon);
@@ -54,7 +54,7 @@
         public function loadScripts() {
             $lCount = $this->countItem("scripts");
             for($i = 0; $i < $lCount; $i++) {
-                $lScript = $this->getItem3("scripts", $i);
+                $lScript = $this->getItem2("scripts", $i);
                 echo sprintf("<script src='%s'></script>\n", $lScript);
             }
         }

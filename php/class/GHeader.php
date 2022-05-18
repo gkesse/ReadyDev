@@ -8,10 +8,10 @@ class GHeader extends GObject {
     }
     //===============================================
     public function run() {
-        $this->onHeader();
+        $this->onInit();
     }
     //===============================================
-    public function onHeader() {
+    public function onInit() {
         $lLang = $this->getItem("header", "lang");
         $lTitle = $this->getItem("header", "title");
         $lLogo = $this->getItem("header", "logo");
@@ -29,15 +29,25 @@ class GHeader extends GObject {
         echo sprintf("<body>\n");
         echo sprintf("<div class='HtmlPage'>\n");
         $this->onBackground();
+        $this->onConnection();
+        $this->onDisconnection();
         echo sprintf("<div class='BodyPage'>\n");
         echo sprintf("<div class='MainPage'>\n");
+        $this->onHeader();
+    }
+    //===============================================
+    public function onHeader() {
+        echo sprintf("<header class='Header'>\n");
         $this->onMenu();
+        $this->onTitle();
+        $this->onLink();
+        echo sprintf("</header>\n");        
     }
     //===============================================
     public function onFonts() {
         $lCount = $this->countItem("fonts");
         for($i = 0; $i < $lCount; $i++) {
-            $lFont = $this->getItem3("fonts", $i);
+            $lFont = $this->getItem2("fonts", $i);
             echo sprintf("<link rel='stylesheet' href='%s'/>\n", $lFont);
         }
     }
@@ -48,8 +58,47 @@ class GHeader extends GObject {
         echo sprintf("<div class='Background Bottom'></div>\n");
     }
     //===============================================
+    public function onConnection() {
+        echo sprintf("<div class='Modal Connection' id='ModalConnection' onkeypress='header_connection_key_press(this, event)'>\n");
+        echo sprintf("<div class='Content10' id='ConnectionBody'>\n");
+        echo sprintf("<div class='Button3 Close' onclick='header_connection_close(this)'><i class='fa fa-close'></i></div>\n");
+        echo sprintf("<div class='Title5'>Connexion</div>\n");
+        echo sprintf("<form class='Body4' id='ConnectionForm' method='post'>\n");
+        echo sprintf("<div class='Row11'>Entrez vos identifiants de connexion.</div>\n");
+        echo sprintf("<div class='Row12'>\n");
+        echo sprintf("<div class='Label3'>Email :</div>\n");
+        echo sprintf("<div class='Field3'><input class='Input2' type='text' name='Email'/></div>\n");
+        echo sprintf("</div>\n");
+        echo sprintf("<div class='Row12'>\n");
+        echo sprintf("<div class='Label3'>Mot de passe :</div>\n");
+        echo sprintf("<div class='Field3'><input class='Input2' type='password' name='Password'/></div>\n");
+        echo sprintf("</div>\n");
+        echo sprintf("<div class='Row13'>\n");
+        echo sprintf("<div class='Button4' onclick='header_connection_connect(this)'><i class='fa fa-paper-plane-o'></i> Se Connecter</div>\n");
+        echo sprintf("</div>\n");
+        echo sprintf("</form>\n");
+        echo sprintf("<div class='Row14' id='ConnectionMsg'></div>\n");
+        echo sprintf("</div>\n");
+        echo sprintf("</div>\n");
+    }
+    //===============================================
+    public function onDisconnection() {
+        echo sprintf("<div class='Modal Disconnection' id='ModalDisconnection'>\n");
+        echo sprintf("<div class='Content10' id='DisconnectionBody'>\n");
+        echo sprintf("<div class='Button3 Close' onclick='header_disconnection_close(this)'><i class='fa fa-close'></i></div>\n");
+        echo sprintf("<div class='Title5'>Déconnexion</div>\n");
+        echo sprintf("<div class='Body4' id='DisconnectionForm'>\n");
+        echo sprintf("<div class='Row11'>Êtes-vous sûr de vous déconnecter ?</div>\n");
+        echo sprintf("<div class='Row13'>\n");
+        echo sprintf("<div class='Button4' onclick='header_disconnection_disconnect(this)'><i class='fa fa-power-off'></i> Se Déconnecter</div>\n");
+        echo sprintf("</div>\n");
+        echo sprintf("</div>\n");
+        echo sprintf("<div class='Row14' id='DisconnectionMsg'></div>\n");
+        echo sprintf("</div>\n");
+        echo sprintf("</div>\n");
+    }
+    //===============================================
     public function onMenu() {        
-        echo sprintf("<header class='Header'>\n");
         echo sprintf("<ul class='Menu' id='HeaderMenu'>\n");
              
         $lPageObj = new GPage();
@@ -60,11 +109,12 @@ class GHeader extends GObject {
         $lLoginOn = $lSessionObj->issetSession("login");
         
         for($i = 0; $i < $lCount; $i++) {
-            $lType = $this->getItem2("menu", "type", $i);
-            $lName = $this->getItem2("menu", "name", $i);
-            $lImg = $this->getItem2("menu", "img", $i);
-            $lLink = $this->getItem2("menu", "link", $i);
-            $lOnClick = $this->getItem2("menu", "onclick", $i);
+            $lType = $this->getItem3("menu", "type", $i);
+            $lName = $this->getItem3("menu", "name", $i);
+            $lImg = $this->getItem3("menu", "img", $i);
+            $lLink = $this->getItem3("menu", "link", $i);
+            $lOnClick = $this->getItem3("menu", "onclick", $i);
+            
             $lActive = "";
             if($lLink == $lPage) $lActive = " Active";
             
@@ -96,12 +146,26 @@ class GHeader extends GObject {
                 echo sprintf("</a>\n");
                 echo sprintf("</li>\n");
             }
+            else if($lType == "link/login/js") {
+                if($lLoginOn) continue;
+                echo sprintf("<li class='Item'>\n");
+                echo sprintf("<span class='Link' onclick='%s'>%s</span>\n"
+                    , $lOnClick, $lName);
+                echo sprintf("</li>\n");
+            }
             else if($lType == "link/logout") {
                 if(!$lLoginOn) continue;
                 echo sprintf("<li class='Item'>\n");
                 echo sprintf("<a class='Link%s' href='%s'>\n", $lActive, $lLink);
                 echo sprintf("%s\n", $lName);
                 echo sprintf("</a>\n");
+                echo sprintf("</li>\n");
+            }
+            else if($lType == "link/logout/js") {
+                if(!$lLoginOn) continue;
+                echo sprintf("<li class='Item'>\n");
+                echo sprintf("<span class='Link' onclick='%s'>%s</span>\n"
+                    , $lOnClick, $lName);
                 echo sprintf("</li>\n");
             }
             else if($lType == "link/image") {
@@ -115,7 +179,104 @@ class GHeader extends GObject {
         }
         
         echo sprintf("</ul>\n");
-        echo sprintf("</header>\n");
+    }
+    //===============================================
+    public function onTitle() {
+        echo sprintf("<div class='MainBlock'>\n");
+        echo sprintf("<div class='Content'>\n");
+        echo sprintf("<h1 class='Title2'>%s</h1>\n", "Title");
+        echo sprintf("<div class='Body'>\n");
+        $this->onSite();
+        echo sprintf("</div>");
+        echo sprintf("</div>");
+        echo sprintf("</div>");
+    }
+    //===============================================
+    public function onSite() {
+        echo sprintf("<div class='Row'>\n");
+        
+        $lCount = $this->countItem("header");
+        
+        for($i = 0; $i < $lCount; $i++) {
+            $lCategory = $this->getItem3("header", "category", $i);
+            $lLink = $this->getItem3("header", "link", $i);
+            $lClass = $this->getItem3("header", "class", $i);
+            $lTitle = $this->getItem3("header", "title", $i);
+            $lPicto = $this->getItem3("header", "picto", $i);
+            
+            if($lCategory != "site") continue;
+            
+            echo sprintf("<a href='%s'><div class='%s'><i class='fa fa-%s'></i> %s</div></a>\n"
+                , $lLink, $lClass, $lPicto, $lTitle);
+        }
+        $this->onView();        
+        echo sprintf("</div>");
+        $this->onNetworks();        
+    }
+    //===============================================
+    public function onView() {
+        $lViewCount = 30;
+        
+        echo sprintf("<div class='Form'>\n");
+        echo sprintf("<div class='Label'>\n");
+        echo sprintf("<i class='Icon fa fa-eye'></i>\n");
+        echo sprintf("<span>Vues</span>\n");
+        echo sprintf("</div>\n");
+        echo sprintf("<div class='Field'>\n");
+        echo sprintf("<span>%d</span>\n", $lViewCount);
+        echo sprintf("</div>\n");
+        echo sprintf("</div>");
+    }
+    //===============================================
+    public function onLink() {
+        echo sprintf("<div class='MainBlock0'>");
+        echo sprintf("<div class='Content11'>");
+        echo sprintf("<div class='Row22'>");
+        
+        $lCount = 3;
+        
+        for($i = 0; $i < $lCount; $i++) {
+            $lName = "Name";
+            $lLink = "Link";
+            if($i != 0) {
+                echo sprintf("<div class='Col4'><i class='fa fa-chevron-right'></i></div>");                
+            }
+            echo sprintf("<div class='Col4'><a class='Link8' href='%s'>%s</a></div>"
+                , $lLink, $lName);
+        }                
+        echo sprintf("</div>");
+        echo sprintf("</div>");
+        echo sprintf("</div>");        
+    }
+    //===============================================
+    public function onNetworks() {
+        $lUrl = $this->getUrl();
+        
+        echo sprintf("<div class='Row22'>\n");
+        
+        $lCount = $this->countItem("header");
+        
+        for($i = 0; $i < $lCount; $i++) {
+            $lCategory = $this->getItem3("header", "category", $i);
+            $lLink = $this->getItem3("header", "link", $i);
+            $lClass = $this->getItem3("header", "class", $i);
+            $lPicto = $this->getItem3("header", "picto", $i);
+            
+            if($lCategory != "networks") continue;
+                
+            $lTitle = "Titre";
+            $lSummary = "Sommaire";
+            
+            $lLink = str_replace("{url}", $lUrl, $lLink);
+            $lLink = str_replace("{title}", $lTitle, $lLink);
+            $lLink = str_replace("{summary}", $lSummary, $lLink);
+            
+            echo sprintf("<a class='Col' href='%s' target='_blank'>\n", $lLink);
+            echo sprintf("<i class='Link2 %s fa fa-%s'></i>\n", $lClass, $lPicto);
+            echo sprintf("</a>\n");
+        }
+        
+        echo sprintf("</div>\n");
     }
     //===============================================
     public function getHappyYear() {
@@ -123,6 +284,14 @@ class GHeader extends GObject {
         $lYear = date("Y");
         $lData = sprintf("%s %s", $lHappy, $lYear);
         return $lData;
+    }
+    //===============================================
+    public function getUrl() {
+        $lUrl = "";
+        $lUrl .= "http://";
+        $lUrl .= $_SERVER['HTTP_HOST'];
+        $lUrl .=  $_SERVER['REQUEST_URI'];    
+        return $lUrl;
     }
     //===============================================
 }

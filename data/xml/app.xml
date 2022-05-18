@@ -9,6 +9,43 @@
     		<lang>fr</lang>
     		<title>ReadyDev</title>
     		<logo>/data/img/defaults/readydev.png</logo>
+    		<map>
+		        <!-- ============================================ -->
+		    	<!-- site -->
+		        <!-- ============================================ -->
+    			<data>
+    				<category>site</category>
+    				<title>ReadyPad</title>
+    				<link>/readypad</link>
+    				<class>ReadyPHP</class>
+    				<picto>sign-in</picto>
+    			</data>
+    			<data>
+    				<category>site</category>
+    				<title>ReadyCGI</title>
+    				<link>http://readycgi.freeddns.org:8833</link>
+    				<class>ReadyCGI</class>
+    				<picto>sign-in</picto>
+    			</data>
+		        <!-- ============================================ -->
+		    	<!-- networks -->
+		        <!-- ============================================ -->
+    			<data>
+    				<category>networks</category>
+    				<link><![CDATA[http://www.facebook.com/sharer.php?u={url}]]></link>
+    				<class>Facebook</class>
+    				<picto>facebook</picto>
+    			</data>
+    			<data>
+    				<category>networks</category>
+    				<link><![CDATA[https://www.linkedin.com/shareArticle?mini=true&url={url}&title={title}&summary={summary}]]></link>
+    				<class>Twitter</class>
+    				<picto>linkedin</picto>
+    			</data>
+		        <!-- ============================================ -->
+		    	<!-- end -->
+		        <!-- ============================================ -->
+    		</map>
      	</data>
         <!-- ============================================ -->
     	<!-- fonts -->
@@ -31,6 +68,7 @@
     	<data>
     		<code>scripts</code>
     		<map>
+    			<data>/js/class/GConnection.js</data>
     			<data>/js/class/GMenu.js</data>
     			<data>/js/script.js</data>
     		</map>
@@ -83,21 +121,20 @@
     				<link>/home/doc</link>
     			</data>
     			<data>
-    				<type>link/login</type>
+    				<type>link/login/js</type>
     				<name>Connexion</name>
-    				<link>/home/connexion</link>
-    				<onclick><![CDATA[header_connection_onclick(this);]]></onclick>
+    				<onclick><![CDATA[header_connection_open(this);]]></onclick>
     			</data>
     			<data>
-    				<type>link/logout</type>
+    				<type>link/logout/js</type>
     				<name>Déconnexion</name>
-    				<link>/home/deconnexion</link>
-    				<onclick><![CDATA[header_disconnection_onclick(this);]]></onclick>
+    				<onclick><![CDATA[header_disconnection_open(this);]]></onclick>
     			</data>
     			<data>
     				<type>link/menu</type>
+    				<id>HeaderMenu</id>
     				<name><![CDATA[<i class='fa fa-bars'></i>]]></name>
-    				<onclick><![CDATA[header_menu_onclick(this);]]></onclick>
+    				<onclick><![CDATA[header_menu_open(this);]]></onclick>
     			</data>
     		</map>
      	</data>

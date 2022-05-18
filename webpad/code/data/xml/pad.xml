@@ -60,8 +60,8 @@
         <!-- ============================================ -->
    		<data>
     		<code>test</code>
-	        <env>dev</env>
-	        <name>mail</name>
+	        <env>prod</env>
+	        <name>prod</name>
     	</data>
         <!-- ============================================ -->
     	<!-- socket -->

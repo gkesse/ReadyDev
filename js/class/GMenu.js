@@ -5,7 +5,7 @@ class GMenu {
 		
     }
     //===============================================
-    openMenu() {
+    openMenu(obj) {
 		var lHeaderMenu = document.getElementById("HeaderMenu");
 		var lBars = '<i class="fa fa-bars"></i>';
 		if(lBars == obj.innerHTML) {
