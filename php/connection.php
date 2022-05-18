@@ -36,5 +36,4 @@
 </div>
 <!-- ============================================ -->
 <script src="/js/class/GConnection.js"></script>
-<script src="/js/script.js"></script>
 <!-- ============================================ -->

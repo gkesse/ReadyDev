@@ -183,10 +183,10 @@
                             </li>
                             <?php } ?>
                             <?php if(!isset($_SESSION["login"])) { ?>
-                            <li class="Item"><span class="Link" onclick="openConnection(this);">Connexion</span> </li>
+                            <li class="Item"><span class="Link" onclick="header_connection_open(this);">Connexion</span> </li>
                             <?php } ?>
                             <?php if(isset($_SESSION["login"])) { ?>
-                            <li class="Item"><span class="Link" onclick="openDisconnection(this);">Déconnexion</span> </li>
+                            <li class="Item"><span class="Link" onclick="header_disconnection_open(this);">Déconnexion</span> </li>
                             <?php } ?>
                             <li class="Bars" onclick="openHeaderMenu(this);"><i class="fa fa-bars"></i></li>
                         </ul>
