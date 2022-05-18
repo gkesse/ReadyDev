@@ -61,6 +61,7 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover, 
 input:-webkit-autofill:focus {
     -webkit-text-fill-color: white ;
+    -webkit-box-shadow: 0 0 0 30px #051039 inset !important;
     transition: background-color 5000s ease-in-out 0s;
 }
 
@@ -1191,7 +1192,7 @@ span {
 }
 
 .Input2 {
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid #3A405B;
     height: 100%;   
     width: 100%;
     padding: 5px 10px;
