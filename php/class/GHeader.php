@@ -1,10 +1,76 @@
 <?php   
 //===============================================
-class GHeader extends GObject {
+class GHeader extends GModule {
+    //===============================================
+    private $msg = "";
+    private $email = "";
+    private $password = "";
     //===============================================
     public function __construct() {
         parent::__construct();
         $this->createDoms();
+    }
+    //===============================================
+    public function serialize($code = "header") {
+        $lData = new GCode();
+        $lData->createDoc();
+        $lData->addData($code, "msg", $this->msg);
+        return $lData->toStringCode($code);
+    }
+    //===============================================
+    public function deserialize($data, $code = "header") {
+        parent::deserialize($data);
+        $lData = new GCode();
+        $lData->loadXmlData($data);
+        $this->msg = $lData->getItem($code, "msg");
+        $this->email = $lData->getItem($code, "email");
+        $this->password = $lData->getItem($code, "password");
+    }
+    //===============================================
+    public function onModule($data, $server) {
+        $this->deserialize($data);
+        $lMethod = $this->method;
+        //===============================================
+        if($lMethod == "") {
+            return false;
+        }
+        //===============================================
+        // method
+        //===============================================
+        else if($lMethod == "run_connection") {
+            $this->onRunConnection($server);
+        }
+        else if($lMethod == "run_disconnection") {
+            $this->onRunDisconnection($server);
+        }
+        //===============================================
+        // end
+        //===============================================
+        else return false;
+        return true;
+    }
+    //===============================================
+    public function onRunConnection($server) {
+        $this->runConnection();
+        $lData = $this->serialize();
+        $server->addResponse($lData);
+    }
+    //===============================================
+    public function onRunDisconnection($server) {
+        $this->runDisconnection();
+        $lData = $this->serialize();
+        $server->addResponse($lData);
+    }
+    //===============================================
+    public function runConnection() {
+        echo $this->email;
+    }
+    //===============================================
+    public function runDisconnection() {
+        if(isset($_SESSION["login"])) {
+            unset($_SESSION["login"]);
+            $this->msg = "Bonne Déconnexion";
+        }
     }
     //===============================================
     public function run() {
@@ -61,7 +127,7 @@ class GHeader extends GObject {
     public function onConnection() {
         echo sprintf("<div class='Modal Connection' id='ModalConnection' onkeypress='header_connection_key_press(this, event)'>\n");
         echo sprintf("<div class='Content10' id='ConnectionBody'>\n");
-        echo sprintf("<div class='Button3 Close' onclick='header_connection_close(this)'><i class='fa fa-close'></i></div>\n");
+        echo sprintf("<div class='Button3 Close' onclick='server_call(\"header\", \"close_connection\");'><i class='fa fa-close'></i></div>\n");
         echo sprintf("<div class='Title5'>Connexion</div>\n");
         echo sprintf("<form class='Body4' id='ConnectionForm' method='post'>\n");
         echo sprintf("<div class='Row11'>Entrez vos identifiants de connexion.</div>\n");
@@ -74,7 +140,7 @@ class GHeader extends GObject {
         echo sprintf("<div class='Field3'><input class='Input2' type='password' name='Password'/></div>\n");
         echo sprintf("</div>\n");
         echo sprintf("<div class='Row13'>\n");
-        echo sprintf("<div class='Button4' onclick='header_connection_connect(this)'><i class='fa fa-paper-plane-o'></i> Se Connecter</div>\n");
+        echo sprintf("<div class='Button4' onclick='server_call(\"header\", \"run_connection\");'><i class='fa fa-paper-plane-o'></i> Se Connecter</div>\n");
         echo sprintf("</div>\n");
         echo sprintf("</form>\n");
         echo sprintf("<div class='Row14' id='ConnectionMsg'></div>\n");
@@ -85,12 +151,12 @@ class GHeader extends GObject {
     public function onDisconnection() {
         echo sprintf("<div class='Modal Disconnection' id='ModalDisconnection'>\n");
         echo sprintf("<div class='Content10' id='DisconnectionBody'>\n");
-        echo sprintf("<div class='Button3 Close' onclick='header_disconnection_close(this)'><i class='fa fa-close'></i></div>\n");
+        echo sprintf("<div class='Button3 Close' onclick='server_call(\"header\", \"close_disconnection\")'><i class='fa fa-close'></i></div>\n");
         echo sprintf("<div class='Title5'>Déconnexion</div>\n");
         echo sprintf("<div class='Body4' id='DisconnectionForm'>\n");
         echo sprintf("<div class='Row11'>Êtes-vous sûr de vous déconnecter ?</div>\n");
         echo sprintf("<div class='Row13'>\n");
-        echo sprintf("<div class='Button4' onclick='header_disconnection_disconnect(this)'><i class='fa fa-power-off'></i> Se Déconnecter</div>\n");
+        echo sprintf("<div class='Button4' onclick='server_call(\"header\", \"run_disconnection\")'><i class='fa fa-power-off'></i> Se Déconnecter</div>\n");
         echo sprintf("</div>\n");
         echo sprintf("</div>\n");
         echo sprintf("<div class='Row14' id='DisconnectionMsg'></div>\n");
@@ -114,6 +180,8 @@ class GHeader extends GObject {
             $lImg = $this->getItem3("menu", "img", $i);
             $lLink = $this->getItem3("menu", "link", $i);
             $lOnClick = $this->getItem3("menu", "onclick", $i);
+            $lModule = $this->getItem3("menu", "module", $i);
+            $lMethod = $this->getItem3("menu", "method", $i);
             
             $lActive = "";
             if($lLink == $lPage) $lActive = " Active";
@@ -149,8 +217,8 @@ class GHeader extends GObject {
             else if($lType == "link/login/js") {
                 if($lLoginOn) continue;
                 echo sprintf("<li class='Item'>\n");
-                echo sprintf("<span class='Link' onclick='%s'>%s</span>\n"
-                    , $lOnClick, $lName);
+                echo sprintf("<span class='Link' onclick='server_call(\"%s\", \"%s\");'>%s</span>\n"
+                    , $lModule, $lMethod, $lName);
                 echo sprintf("</li>\n");
             }
             else if($lType == "link/logout") {
@@ -164,8 +232,8 @@ class GHeader extends GObject {
             else if($lType == "link/logout/js") {
                 if(!$lLoginOn) continue;
                 echo sprintf("<li class='Item'>\n");
-                echo sprintf("<span class='Link' onclick='%s'>%s</span>\n"
-                    , $lOnClick, $lName);
+                echo sprintf("<span class='Link' onclick='server_call(\"%s\", \"%s\");'>%s</span>\n"
+                    , $lModule, $lMethod, $lName);
                 echo sprintf("</li>\n");
             }
             else if($lType == "link/image") {
@@ -187,9 +255,9 @@ class GHeader extends GObject {
         echo sprintf("<h1 class='Title2'>%s</h1>\n", "Title");
         echo sprintf("<div class='Body'>\n");
         $this->onSite();
-        echo sprintf("</div>");
-        echo sprintf("</div>");
-        echo sprintf("</div>");
+        echo sprintf("</div>\n");
+        echo sprintf("</div>\n");
+        echo sprintf("</div>\n");
     }
     //===============================================
     public function onSite() {
@@ -210,7 +278,7 @@ class GHeader extends GObject {
                 , $lLink, $lClass, $lPicto, $lTitle);
         }
         $this->onView();        
-        echo sprintf("</div>");
+        echo sprintf("</div>\n");
         $this->onNetworks();        
     }
     //===============================================
@@ -225,7 +293,7 @@ class GHeader extends GObject {
         echo sprintf("<div class='Field'>\n");
         echo sprintf("<span>%d</span>\n", $lViewCount);
         echo sprintf("</div>\n");
-        echo sprintf("</div>");
+        echo sprintf("</div>\n");
     }
     //===============================================
     public function onLink() {
@@ -244,9 +312,9 @@ class GHeader extends GObject {
             echo sprintf("<div class='Col4'><a class='Link8' href='%s'>%s</a></div>"
                 , $lLink, $lName);
         }                
-        echo sprintf("</div>");
-        echo sprintf("</div>");
-        echo sprintf("</div>");        
+        echo sprintf("</div>\n");
+        echo sprintf("</div>\n");
+        echo sprintf("</div>\n");        
     }
     //===============================================
     public function onNetworks() {

@@ -17,6 +17,7 @@
 <script src="/js/class/GParallax.js" async></script>
 <script src="/js/class/GLoader.js" async></script>
 <script src="/js/class/GAce.js" async></script>
+<script src="/js/class/GServer.js" async></script>
 <!-- ============================================ -->
 <script src="/js/header.js" async></script>
 <script src="/js/script.js" async></script>

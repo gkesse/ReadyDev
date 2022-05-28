@@ -1,8 +1,8 @@
 //===============================================
-class GConnection {
+class GConnection extends GObject {
     //===============================================
     constructor() {
-
+		super();
     }
     //===============================================
     openConnection(obj) {

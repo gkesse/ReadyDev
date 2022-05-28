@@ -1,48 +1,356 @@
 <?php   
-    class GSitemap {
+    class GSitemap extends GModule {
         //===============================================
-        private static $m_instance = null;
-        private $m_change = array();
-        private $m_xml = null;
-        private $m_filename;
-        private $m_file;
-        private $m_urls = array();
-        private $m_urlMap = array();
-        private $m_compiler = array();
-        private $m_siteMap = array();
-        private $m_countUrl = 0;
+        private $change = array();
+        private $xml = null;
+        private $filename;
+        private $file;
+        private $urls = array();
+        private $urlMap = array();
+        private $compiler = array();
+        private $sitemaps = array();
+        private $urlCount = 0;
+        private $urlList = "";
+        private $sitemapCount = 0;
+        private $sitemapsXml = "";
+        private $sitemapXml = "";
+        private $msg = "";
         //===============================================
         const URL_MAX = 50000;
         //===============================================
-        private function __construct() {
-            $this->m_change = array(
-            'always', 
-            'hourly', 
-            'daily', 
-            'weekly', 
-            'monthly', 
-            'yearly', 
-            'never');
+        public function __construct() {
+            parent::__construct();
+            $this->createDoms();
             
-            $this->m_compiler = array(
-            "/NMake/", 
-            "/MinGW/", 
-            "/Cygwin/", 
-            "/Make/", 
-            "/CMake/NMake/", 
-            "/QMake/NMake/");
+            $this->change = array(
+                'always', 
+                'hourly', 
+                'daily', 
+                'weekly', 
+                'monthly', 
+                'yearly', 
+                'never'                
+            );
             
-            $this->m_urlMap[] = array(
-            "link" => "/",
-            "freq" => "daily",
-            "prio" => "1.0");
+            $this->compiler = array(
+                "/NMake/", 
+                "/MinGW/", 
+                "/Cygwin/", 
+                "/Make/", 
+                "/CMake/NMake/", 
+                "/QMake/NMake/"               
+            );
+            
+            $this->urlMap[] = array(
+                "link" => "/",
+                "freq" => "daily",
+                "prio" => "1.0"                
+            );
         }
         //===============================================
-        public static function Instance() {
-            if(is_null(self::$m_instance)) {
-                self::$m_instance = new GSitemap();  
+        public function serialize($code = "sitemap") {
+            $lData = new GCode();
+            $lData->createDoc();
+            $lData->addData($code, "url_count", $this->urlCount);
+            $lData->addData($code, "url_list", $this->urlList, true);
+            $lData->addData($code, "sitemap_count", $this->sitemapCount);
+            $lData->addData($code, "sitemaps_xml", $this->sitemapsXml, true);
+            $lData->addData($code, "sitemap_xml", $this->sitemapXml, true);
+            $lData->addData($code, "msg", $this->msg);
+            return $lData->toStringCode($code);
+        }
+        //===============================================
+        public function deserialize($data, $code = "sitemap") {
+            parent::deserialize($data);
+        }
+        //===============================================
+        public function run() {
+            $lId = $this->getItem("sitemap", "id");
+            $lTitle = $this->getItem("sitemap", "title");
+            echo sprintf("<div class='MainBlock'>\n");
+            echo sprintf("<div class='Content'>\n");
+            echo sprintf("<h1 class='Title2' id='%s'>\n", $lId);
+            echo sprintf("<a class='Link3' href='#'>%s</a>\n", $lTitle);
+            echo sprintf("</h1>\n");
+            echo sprintf("<div class='Body'>\n");
+            $this->onHeader();
+            $this->onHome();
+            $this->onEnum();
+            $this->onList();
+            $this->onGenerate();
+            $this->onVisualize();
+            echo sprintf("</div>\n");
+            echo sprintf("</div>\n");
+            echo sprintf("</div>\n");
+        }
+        //===============================================
+        public function onHeader() {
+            echo sprintf("<div class='Row10'>\n");
+            
+            $lCount = $this->countItem("sitemap");
+            
+            for($i = 0; $i < $lCount; $i++) {
+                $lCategory = $this->getItem3("sitemap", "category", $i);
+                $lToolTip = $this->getItem3("sitemap", "tooltip", $i);
+                $lId = $this->getItem3("sitemap", "id", $i);
+                $lName = $this->getItem3("sitemap", "name", $i);
+                if($lCategory != "header") continue;
+                echo sprintf("<div class='Col'>\n");
+                echo sprintf("<button class='Button2 SitemapTab' title=\"%s\"\n", $lToolTip);
+                echo sprintf("onclick='openSitemapTab(this, \"%s\");'>%s</button>\n", $lId, $lName);
+                echo sprintf("</div>\n");
             }
-            return self::$m_instance;
+            
+            echo sprintf("</div>\n");
+        }
+        //===============================================
+        public function onHome() {
+            $lId = $this->getItem("sitemap/home", "id");
+            $lTitle = $this->getItem("sitemap/home", "title");
+            $lIntro = $this->getItem("sitemap/home", "intro");
+            echo sprintf("<div class='Row Left SitemapTabCtn' id='%s'>\n", $lId);
+            echo sprintf("<h2 class='Title4'>%s</h2>\n", $lTitle);
+            echo sprintf("<div class='Body6'>\n");
+            echo sprintf("<div class='Content9'>%s</div>\n", $lIntro);
+            echo sprintf("</div>\n");
+            echo sprintf("</div>\n");            
+        }
+        //===============================================
+        public function onEnum() {
+            $lId = $this->getItem("sitemap/enum", "id");
+            $lTitle = $this->getItem("sitemap/enum", "title");
+            $lCount = $this->countItem("sitemap/enum");
+            
+            echo sprintf("<div class='Row Left SitemapTabCtn' id='%s'\n", $lId);
+            echo sprintf("onkeypress='saveFileKey(event);'>\n");
+            echo sprintf("<h2 class='Title4'>%s</h2>\n", $lTitle);
+            echo sprintf("<div class='Body13 Center'>\n");
+            
+            for($i = 0; $i < $lCount; $i++) {
+                $lCategory = $this->getItem3("sitemap/enum", "category", $i);
+                $lName = $this->getItem3("sitemap/enum", "name", $i);
+                $lPicto = $this->getItem3("sitemap/enum", "picto", $i);
+                $lToolTip = $this->getItem3("sitemap/enum", "tooltip", $i);
+                $lOnClick = $this->getItem3("sitemap/enum", "onclick", $i);
+                $lModule = $this->getItem3("sitemap/enum", "module", $i);
+                $lMethod = $this->getItem3("sitemap/enum", "method", $i);
+                
+                if($lCategory == "action") {
+                    echo sprintf("<button class='Button7' type='button' title=\"%s\"\n", $lToolTip);
+                    echo sprintf("onclick='%s'><i class='fa fa-%s'></i> %s</button>\n", $lOnClick, $lPicto, $lName);
+                }
+                else if($lCategory == "action/server") {
+                    echo sprintf("<button class='Button7' type='button' title=\"%s\"\n", $lToolTip);
+                    echo sprintf("onclick='server_call(\"%s\", \"%s\");'><i class='fa fa-%s'></i> %s</button>\n", $lModule, $lMethod, $lPicto, $lName);
+                }
+            }
+            
+            echo sprintf("</div>\n");
+            echo sprintf("<div class='Body14'>\n");
+            echo sprintf("<div class='Content9'>\n");
+            
+            for($i = 0; $i < $lCount; $i++) {
+                $lCategory = $this->getItem3("sitemap/enum", "category", $i);
+                $lLabel = $this->getItem3("sitemap/enum", "label", $i);
+                $lId = $this->getItem3("sitemap/enum", "id", $i);
+                if($lCategory != "form") continue;
+                echo sprintf("<div class='Row9'>\n");
+                echo sprintf("<span class='Label4'>%s</span>\n", $lLabel);
+                echo sprintf("<span class='Field5' id='%s'></span>\n", $lId);
+                echo sprintf("</div>\n");
+            }          
+            
+            echo sprintf("</div>\n");
+            echo sprintf("</div>\n");
+            echo sprintf("</div>\n");
+        }
+        //===============================================
+        public function onList() {
+            $lId = $this->getItem("sitemap/list", "id");
+            $lUrl = $this->getItem("sitemap/list", "url");
+            $lTitle = $this->getItem("sitemap/list", "title");
+            $lCount = $this->countItem("sitemap/list");
+            
+            echo sprintf("<div class='Row Left SitemapTabCtn' id='%s'>\n", $lId);
+            echo sprintf("<h2 class='Title4'>%s</h2>\n", $lTitle);
+            echo sprintf("<div class='Body13 Center'>\n");
+            
+            for($i = 0; $i < $lCount; $i++) {
+                $lCategory = $this->getItem3("sitemap/list", "category", $i);
+                $lName = $this->getItem3("sitemap/list", "name", $i);
+                $lPicto = $this->getItem3("sitemap/list", "picto", $i);
+                $lToolTip = $this->getItem3("sitemap/list", "tooltip", $i);
+                $lOnClick = $this->getItem3("sitemap/list", "onclick", $i);
+                $lModule = $this->getItem3("sitemap/list", "module", $i);
+                $lMethod = $this->getItem3("sitemap/list", "method", $i);
+                
+                if($lCategory == "action") {
+                    echo sprintf("<button class='Button7' type='button' title=\"%s\"\n", $lToolTip);
+                    echo sprintf("onclick='%s'><i class='fa fa-%s'></i> %s</button>\n", $lOnClick, $lPicto, $lName);
+                }
+                else if($lCategory == "action/server") {
+                    echo sprintf("<button class='Button7' type='button' title=\"%s\"\n", $lToolTip);
+                    echo sprintf("onclick='server_call(\"%s\", \"%s\");'><i class='fa fa-%s'></i> %s</button>\n", $lModule, $lMethod, $lPicto, $lName);
+                }
+            }
+            
+            echo sprintf("</div>\n");
+            echo sprintf("<div class='Body15'>\n");
+            echo sprintf("<div class='Row21'>\n");
+            echo sprintf("<div class='Content9' id='%s'></div>\n", $lUrl);
+            echo sprintf("</div>\n");
+            echo sprintf("</div>\n");
+            echo sprintf("</div>\n");
+        }
+        //===============================================
+        public function onModule($data, $server) {
+            $this->deserialize($data);
+            $lMethod = $this->method;
+            //===============================================
+            if($lMethod == "") {
+                return false;
+            }
+            //===============================================
+            // method
+            //===============================================
+            else if($lMethod == "get_enum") {
+                $this->onGetEnum($server);
+            }
+            else if($lMethod == "get_list") {
+                $this->onGetList($server);
+            }
+            else if($lMethod == "get_generate") {
+                $this->onGetGenerate($server);
+            }
+            else if($lMethod == "get_visualize") {
+                $this->onGetVisualize($server);
+            }
+            //===============================================
+            // end
+            //===============================================
+            else return false;
+            return true;
+        }
+        //===============================================
+        public function onGenerate() {
+            $lId = $this->getItem("sitemap/generate", "id");
+            $lUrl = $this->getItem("sitemap/generate", "url");
+            $lTitle = $this->getItem("sitemap/generate", "title");
+            $lCount = $this->countItem("sitemap/generate");
+            
+            echo sprintf("<div class='Row Left SitemapTabCtn' id='%s'>\n", $lId);
+            echo sprintf("<h2 class='Title4'>%s</h2>\n", $lTitle);
+            echo sprintf("<div class='Body13 Center'>\n");
+            
+            for($i = 0; $i < $lCount; $i++) {
+                $lCategory = $this->getItem3("sitemap/generate", "category", $i);
+                $lName = $this->getItem3("sitemap/generate", "name", $i);
+                $lPicto = $this->getItem3("sitemap/generate", "picto", $i);
+                $lToolTip = $this->getItem3("sitemap/generate", "tooltip", $i);
+                $lOnClick = $this->getItem3("sitemap/generate", "onclick", $i);
+                $lModule = $this->getItem3("sitemap/generate", "module", $i);
+                $lMethod = $this->getItem3("sitemap/generate", "method", $i);
+                
+                if($lCategory == "action") {
+                    echo sprintf("<button class='Button7' type='button' title=\"%s\"\n", $lToolTip);
+                    echo sprintf("onclick='%s'><i class='fa fa-%s'></i> %s</button>\n", $lOnClick, $lPicto, $lName);
+                }
+                else if($lCategory == "action/server") {
+                    echo sprintf("<button class='Button7' type='button' title=\"%s\"\n", $lToolTip);
+                    echo sprintf("onclick='server_call(\"%s\", \"%s\");'><i class='fa fa-%s'></i> %s</button>\n", $lModule, $lMethod, $lPicto, $lName);
+                }
+            }
+            
+            echo sprintf("</div>\n");
+            echo sprintf("<div class='Body15'>\n");
+            echo sprintf("<div class='Row21'>\n");
+            echo sprintf("<div class='Content9' id='%s'></div>\n", $lUrl);
+            echo sprintf("</div>\n");
+            echo sprintf("</div>\n");
+            echo sprintf("</div>\n");
+        }
+        //===============================================
+        public function onGetEnum($server) {
+            $this->getInfos();
+            $lData = $this->serialize();
+            $server->addResponse($lData);
+        }
+        //===============================================
+        public function onGetList($server) {
+            $this->getInfos();
+            $this->getList();
+            $lData = $this->serialize();
+            $server->addResponse($lData);
+        }
+        //===============================================
+        public function onGetGenerate($server) {
+            $this->generate();
+            $lData = $this->serialize();
+            $server->addResponse($lData);
+        }
+        //===============================================
+        public function onGetVisualize($server) {
+            $this->generate();
+            $this->getVisualize();
+            $lData = $this->serialize();
+            $server->addResponse($lData);
+        }
+        //===============================================
+        public function onVisualize() {
+            $lId = $this->getItem("sitemap/visualize", "id");
+            $lTitle = $this->getItem("sitemap/visualize", "title");
+            $lCount = $this->countItem("sitemap/visualize");
+            
+            echo sprintf("<div class='Row Left SitemapTabCtn' id='%s'>\n", $lId);
+            echo sprintf("<h2 class='Title4'>%s</h2>\n", $lTitle);
+            
+            echo sprintf("<div class='Body7 Center'>\n");            
+            for($i = 0; $i < $lCount; $i++) {
+                $lCategory = $this->getItem3("sitemap/visualize", "category", $i);
+                $lName = $this->getItem3("sitemap/visualize", "name", $i);
+                $lPicto = $this->getItem3("sitemap/visualize", "picto", $i);
+                $lToolTip = $this->getItem3("sitemap/visualize", "tooltip", $i);
+                $lOnClick = $this->getItem3("sitemap/visualize", "onclick", $i);
+                $lModule = $this->getItem3("sitemap/visualize", "module", $i);
+                $lMethod = $this->getItem3("sitemap/visualize", "method", $i);
+                
+                if($lCategory == "action") {
+                    echo sprintf("<button class='Button7' type='button' title=\"%s\"\n", $lToolTip);
+                    echo sprintf("onclick='%s'><i class='fa fa-%s'></i> %s</button>\n", $lOnClick, $lPicto, $lName);
+                }
+                else if($lCategory == "action/server") {
+                    echo sprintf("<button class='Button7' type='button' title=\"%s\"\n", $lToolTip);
+                    echo sprintf("onclick='server_call(\"%s\", \"%s\");'><i class='fa fa-%s'></i> %s</button>\n", $lModule, $lMethod, $lPicto, $lName);
+                }
+            }           
+            echo sprintf("</div>\n");
+            
+            echo sprintf("<div class='Body0 Center'>\n");
+            for($i = 0; $i < $lCount; $i++) {
+                $lCategory = $this->getItem3("sitemap/visualize", "category", $i);
+                $lName = $this->getItem3("sitemap/visualize", "name", $i);
+                $lPicto = $this->getItem3("sitemap/visualize", "picto", $i);
+                $lToolTip = $this->getItem3("sitemap/visualize", "tooltip", $i);
+                $lOnClick = $this->getItem3("sitemap/visualize", "onclick", $i);
+                if($lCategory != "sitemap") continue;
+                echo sprintf("<button class='Button8 SitemapFileTab' type='button' title=\"%s\"\n", $lToolTip);
+                echo sprintf("onclick='openSitemapFileTab(this, \"%s\");'><i class='fa fa-%s'></i> %s</button>\n", $lOnClick, $lPicto, $lName);
+            }
+            echo sprintf("</div>\n");            
+            
+            echo sprintf("<div class='Body14'>\n");
+            for($i = 0; $i < $lCount; $i++) {
+                $lCategory = $this->getItem3("sitemap/visualize", "category", $i);
+                $lId = $this->getItem3("sitemap/visualize", "id", $i);
+                $lTitle = $this->getItem3("sitemap/visualize", "title", $i);
+                $lContent = $this->getItem3("sitemap/visualize", "content", $i);
+                if($lCategory != "content") continue;
+                echo sprintf("<div class='SitemapFileTabCtn' id='%s'>\n", $lId);
+                echo sprintf("<h3 class='Title6'>%s</h3>\n", $lTitle);
+                echo sprintf("<div class='Content9' id='%s'></div>\n", $lContent);
+                echo sprintf("</div>\n");
+            }
+            echo sprintf("</div>\n");
         }
         //===============================================
         public function generate() {            
@@ -50,48 +358,49 @@
             $this->addUrls();
             $this->deleteXml();
             
-             foreach($this->m_urls as $m_url) {
-                if($this->m_countUrl % self::URL_MAX == 0) {
+             foreach($this->urls as $m_url) {
+                if($this->urlCount % self::URL_MAX == 0) {
                     $this->closeXml();
                     $this->openXml();
                 }
-                $this->m_xml->startElement("url");
+                $this->xml->startElement("url");
                 foreach($m_url as $key => $value) {
-                    if(isset($m_url[$key]) == true) $this->m_xml->writeElement($key, $value);
+                    if(isset($m_url[$key]) == true) $this->xml->writeElement($key, $value);
                 }
-                $this->m_xml->endElement();
-                $this->m_countUrl++;
+                $this->xml->endElement();
+                $this->urlCount++;
             }
             
             $this->closeXml();
             $this->sitemap();
+            $this->msg = "SUCCES: La génération du Sitemap a réussie...";           
         }
         //===============================================
         public function getUrls() {
-            $m_root = "/data/json/";
-            $m_path = GGlobal::Instance()->getPath($m_root);
-            $m_handle = opendir($m_path);
-            if($m_handle == true) { 
+            $lRoot = "/data/json/";
+            $lPath = GGlobal::Instance()->getPath($lRoot);
+            $lHandle = opendir($lPath);
+            if($lHandle == true) { 
                 while(1) {
-                    $m_doc = readdir($m_handle);
-                    if($m_doc == false) break;
-                    if($m_doc == "." || $m_doc == "..") continue;
-                    $m_ext = pathinfo($m_doc, PATHINFO_EXTENSION);
-                    if($m_ext != "json") continue; 
-                    $m_path = $m_root.$m_doc;
-                    $m_data = GJson::Instance()->getData($m_path);
-                    if(isset($m_data["sitemap"])) {
-                        if($m_data["sitemap"] == "yes") {
-                            $this->getData($m_data);
+                    $lDoc = readdir($lHandle);
+                    if($lDoc == false) break;
+                    if($lDoc == "." || $lDoc == "..") continue;
+                    $lExt = pathinfo($lDoc, PATHINFO_EXTENSION);
+                    if($lExt != "json") continue; 
+                    $lPath = $lRoot.$lDoc;
+                    $lData = GJson::Instance()->getData($lPath);
+                    if(isset($lData["sitemap"])) {
+                        if($lData["sitemap"] == "yes") {
+                            $this->getData($lData);
                         }
                     }
                 }
             }
-			$m_urlCol = array();
-			foreach ($this->m_urlMap as $key => $row) {
-				$m_urlCol[$key]  = $row['link'];
+			$lUrlCol = array();
+			foreach ($this->urlMap as $lKey => $lRow) {
+			    $lUrlCol[$lKey]  = $lRow['link'];
 			}
-			array_multisort($m_urlCol, SORT_ASC, $this->m_urlMap);
+			array_multisort($lUrlCol, SORT_ASC, $this->urlMap);
         }
         //===============================================
         public function getUrls2() {
@@ -125,18 +434,18 @@
                     else {
                         if(!is_numeric($key) && $key == "follow") {
                             if($value == "yes") {
-								$m_search = GGlobal::Instance()->searchData($this->m_urlMap, "link", $data["link"]);
+								$m_search = GGlobal::Instance()->searchData($this->urlMap, "link", $data["link"]);
 								if(empty($m_search)) {
 									$m_isCompiler = preg_match("#.*/NMake/.*#", $value);
 									if($m_isCompiler == true) {
-										foreach($this->m_compiler as $m_item) {
+										foreach($this->compiler as $m_item) {
 											$m_result = str_replace("/NMake/", $m_item, $value);
 											$data["link"] = $m_result;
-											$this->m_urlMap[] = $data;
+											$this->urlMap[] = $data;
 										}
 									}
 									else {
-										$this->m_urlMap[] = $data;
+										$this->urlMap[] = $data;
 									}
 								}
                             }
@@ -156,18 +465,18 @@
                         if(!is_numeric($key) && $key == "link") {
                             if($value != "") {
                                 if($value[0] != "#") {
-                                    $m_search = GGlobal::Instance()->search($this->m_urlMap, "link", $value);
+                                    $m_search = GGlobal::Instance()->search($this->urlMap, "link", $value);
                                     if(empty($m_search)) {
                                         $m_isCompiler = preg_match("#.*/NMake/.*#", $value);
                                         if($m_isCompiler == true) {
-                                            foreach($this->m_compiler as $m_item) {
+                                            foreach($this->compiler as $m_item) {
                                                 $m_result = str_replace("/NMake/", $m_item, $value);
                                                 $data["link"] = $m_result;
-                                                $this->m_urlMap[] = $data;
+                                                $this->urlMap[] = $data;
                                             }
                                         }
                                         else {
-                                            $this->m_urlMap[] = $data;
+                                            $this->urlMap[] = $data;
                                         }
                                     }
                                 }
@@ -179,66 +488,66 @@
         }
         //===============================================
         public function addUrls() {
-            foreach($this->m_urlMap as $m_link) {
-                $m_url = array();
-                if(isset($m_link["link"])) $m_url["loc"] = GGlobal::Instance()->getUrl($m_link["link"]);
-                if(isset($m_link["link"])) $m_url["lastmod"] = GFile::Instance()->getDateTime($m_link["link"]);
-                $m_url["changefreq"] = "weekly";
-                if(isset($m_link["freq"])) $m_url["changefreq"] = $m_link["freq"];
-                $m_url["priority"] = "0.8";
-                if(isset($m_link["prio"])) $m_url["priority"] = $m_link["prio"];
-                $this->m_urls[] = $m_url;
+            foreach($this->urlMap as $lLink) {
+                $lUrl = array();
+                if(isset($lLink["link"])) $lUrl["loc"] = GGlobal::Instance()->getUrl($lLink["link"]);
+                if(isset($lLink["link"])) $lUrl["lastmod"] = GFile::Instance()->getDateTime($lLink["link"]);
+                $lUrl["changefreq"] = "weekly";
+                if(isset($lLink["freq"])) $lUrl["changefreq"] = $lLink["freq"];
+                $lUrl["priority"] = "0.8";
+                if(isset($lLink["prio"])) $lUrl["priority"] = $lLink["prio"];
+                $this->urls[] = $lUrl;
             }
         }
         //===============================================
         public function openXml($openId = 0) {
-            $this->m_xml = new xmlwriter();
-            $this->m_xml->openMemory();
-            $this->m_xml->setIndent(TRUE);
-            $this->m_xml->setIndentString('    ');
-            $this->m_xml->startDocument('1.0', 'UTF-8');
+            $this->xml = new xmlwriter();
+            $this->xml->openMemory();
+            $this->xml->setIndent(TRUE);
+            $this->xml->setIndentString('    ');
+            $this->xml->startDocument('1.0', 'UTF-8');
             
             if($openId == 0) {
-                $m_index = $this->m_countUrl / self::URL_MAX;
+                $m_index = $this->urlCount / self::URL_MAX;
                 $m_index = ($m_index == 0) ? "" : ($m_index + 1);
                 $m_path = "data/sitemaps/sitemap".$m_index.".xml";
-                $this->m_siteMap[] = GGlobal::Instance()->getUrl($m_path);
-                $this->m_xml->startElement("urlset");
+                $this->sitemaps[] = GGlobal::Instance()->getUrl($m_path);
+                $this->xml->startElement("urlset");
             }
             else if($openId == 1) {
                 $m_path = "data/sitemaps/sitemaps.xml";
-                $this->m_xml->startElement("sitemapindex");
+                $this->xml->startElement("sitemapindex");
             }
             
-            $this->m_filename = GGlobal::Instance()->getPath2($m_path);
-            $this->m_file = fopen($this->m_filename, "w");
+            $this->filename = GGlobal::Instance()->getPath2($m_path);
+            $this->file = fopen($this->filename, "w");
             
-            $this->m_xml->writeAttribute("xmlns", 
+            $this->xml->writeAttribute("xmlns", 
             "http://www.sitemaps.org/schemas/sitemap/0.9");
-            $this->m_xml->writeAttribute("xmlns:xsi", 
+            $this->xml->writeAttribute("xmlns:xsi", 
             "http://www.w3.org/2001/XMLSchema-instance");
-            $this->m_xml->writeAttribute("xsi:schemaLocation", 
+            $this->xml->writeAttribute("xsi:schemaLocation", 
             "http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd");
         }
         //===============================================
         public function closeXml() {
-            if(is_null($this->m_xml)) return;
-            $this->m_xml->endElement();
-            fwrite($this->m_file, $this->m_xml->flush());
-            fclose($this->m_file);
+            if(is_null($this->xml)) return;
+            $this->xml->endElement();
+            fwrite($this->file, $this->xml->flush());
+            fclose($this->file);
         }
         //===============================================
         public function deleteXml() {
             $m_root = "/data/sitemaps/";
             $m_path = GGlobal::Instance()->getPath($m_root);
             $m_handle = opendir($m_path);
-            if($m_handle == true) { 
+            if($m_handle == true) {
                 while(1) {
                     $m_doc = readdir($m_handle);
                     if($m_doc == false) break;
                     if($m_doc == "." || $m_doc == ".." || $m_doc == "index.php") continue;
                     $m_fullname = $m_path."/".$m_doc;
-					$m_fullname = realpath($m_fullname);
+                    $m_fullname = realpath($m_fullname);
                     unlink($m_fullname);
                 }
             }
@@ -246,22 +555,49 @@
         //===============================================
         public function sitemap() {
             $this->openXml(1);
-            foreach($this->m_siteMap as $siteMap) {
-                $this->m_xml->startElement("sitemap");
-                $this->m_xml->writeElement("loc", $siteMap);
-                $this->m_xml->writeElement("lastmod", date("Y-m-d"));
-                $this->m_xml->endElement();
+            foreach($this->sitemaps as $lSitemap) {
+                $this->xml->startElement("sitemap");
+                $this->xml->writeElement("loc", $lSitemap);
+                $this->xml->writeElement("lastmod", date("Y-m-d"));
+                $this->xml->endElement();
             }
             $this->closeXml();
         }
         //===============================================
-        public function getInfos() { 
-            $m_infos = array();
+        public function getInfos() {
             $this->getUrls();
-            $m_infos["url_number"] = count($this->m_urlMap);
-            $m_infos["sitemap_number"] = (int)($m_infos["url_number"] / 50000) + 1;
-            $m_infos["url_list"] = $this->m_urlMap;
-            return $m_infos;
+            $this->urlCount = count($this->urlMap);
+            $this->sitemapCount = ceil($this->urlCount / 50000);
+        }
+        //===============================================
+        public function getList() {
+            $lData = array_column($this->urlMap, "link");
+            $lDataVal = "";
+            $lDataVal .= "<ol class='List3'>";
+            for($i = 0; $i < count($lData); $i++) {
+                $lDataVal .= "<li>".$lData[$i]."</li>";
+            }
+            $lDataVal .= "</ol>";
+            $this->urlList = $lDataVal;
+        }
+        //===============================================
+        public function getVisualize() {
+            $lFileObj = new GFile();
+            $lFileArr = array("sitemaps", "sitemap");
+            $lDataArr = array();
+            for($i = 0; $i < count($lFileArr); $i++) {
+                $lFile = "/data/sitemaps/".$lFileArr[$i].".xml";
+                $lData = $lFileObj->getData($lFile);
+                $lDataVal = '';
+                $lDataVal .= '<pre>';
+                $lDataVal .= '<xmp class="Code prettyprint linenums">';
+                $lDataVal .= $lData;
+                $lDataVal .= '</xmp>';
+                $lDataVal .= '</pre>';
+                $lDataArr[$lFileArr[$i]] = $lDataVal;
+            }
+            $this->sitemapsXml = $lDataArr["sitemaps"];
+            $this->sitemapXml = $lDataArr["sitemap"];
         }
         //===============================================
     }

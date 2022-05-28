@@ -37,9 +37,8 @@
             $lPage = $lPageObj->getPageId();
             if($lPage != "/home/admin") return;
             $this->foundOn = true;
-            echo sprintf("<div>\n");
-            echo sprintf("<div>ADMIN</div>\n");
-            echo sprintf("</div>\n");
+            $lAdminObj = new GAdmin();
+            $lAdminObj->run();
         }
         //===============================================
         public function onError() {

@@ -13,14 +13,10 @@ class GXml extends GObject {
     //===============================================
     public function createDoc($version = "1.0", $encoding = "UTF-8") {
         $this->doc = new DOMDocument($version, $encoding);
-        if(!$this->doc) {
-            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué.<br>
-            - version......: %s<br>
-            - encodage.....: %s", __METHOD__, $version, $encoding));
-            return;
-        }
+        if(!$this->doc) return false;
         $this->doc->preserveWhiteSpace = true;
         $this->doc->formatOutput = true;
+        return true;
     }
     //===============================================
     public function createDocFile($res, $file) {
@@ -31,62 +27,56 @@ class GXml extends GObject {
     }
     //===============================================
     public function loadXmlFile($file) {
-        if(!$this->doc) return;
+        if(!$this->doc) return false;
         $this->doc->load($file);
+        return true;
+    }
+    //===============================================
+    public function loadNode($data) {
+        if(!$this->doc) return $this;
+        $lDom = new DOMDocument();
+        $lDom->preserveWhiteSpace = false;
+        $lDom->formatOutput = true;
+        $lDom->loadXML(sprintf("<rdv>%s</rdv>", $data));
+        $lChild = $lDom->documentElement->firstChild;
+        while($lChild) {
+            $lNode = $this->doc->importNode($lChild, true);
+            $this->node->appendChild($lNode);
+            $lChild = $lChild->nextSibling;
+        }
+        return $this;
     }
     //===============================================
     public function loadXmlData($xml) {
-        if(!$this->doc) {
-            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué.<br>
-            ", __METHOD__));
-            return;
-        }
+        if($xml == "") return false;
+        if(!$this->doc) return false;
         $this->doc->loadXml($xml);
-        return $this;
+        return true;
     }
     //===============================================
     public function saveXmlFile($file) {
+        $lOk = true;
         $lPath = $this->getXmlPath($file);
-        if($lPath == "") {
-            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué (1)<br>
-            - fichier......: %s", __METHOD__, $file));
-            return;
-        }
-        if(!$this->doc) {
-            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué (2)<br>
-            - fichier......: %s", __METHOD__, $file));
-            return;
-        }
-        $this->doc->save($lPath);
-        return $this;
+        if($lPath == "") return false;
+        if(!$this->doc) return false;
+        $lOk &= ($this->doc->save($lPath));
+        return $lOk;
     }
     //===============================================
     public function createXPath() {
-        if(!$this->doc) {
-            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué.<br>
-            ", __METHOD__));
-            return;
-        }
+        if(!$this->doc) return false;
         $this->xpath = new DOMXpath($this->doc);
-        return $this;
+        return true;
     }
     //===============================================
     public function queryXPath($query) {
-        if(!$this->xpath) {
-            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué.<br>
-            - requête......: %s", __METHOD__, $query));
-            return $this;
-        }
+        if(!$this->xpath) return false;
         $this->nodes = $this->xpath->query($query);
-        return $this;
+        return true;
     }
     //===============================================
     public function countXPath() {
-        if(!$this->nodes) {
-            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué.<br>
-            ", __METHOD__));
-            return 0;
-        }
+        if(!$this->nodes) return 0;
         $lCount = $this->nodes->length;
         return $lCount;
     }
@@ -120,14 +110,9 @@ class GXml extends GObject {
     }
     //===============================================
     public function createNode($xml, $name, $value = "") {
-        if(!$xml->doc) {
-            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué.<br>
-            - noeud......: %s<br>
-            - valeur.....: %s", __METHOD__, $name, $value));
-            return $this;
-        }
+        if(!$xml->doc) return false;
         $this->node = $xml->doc->createElement($name, $value);
-        return $this;
+        return true;
     }
     //===============================================
     public function createNode2($path, $value = "", $root = "rdv") {
@@ -216,8 +201,9 @@ class GXml extends GObject {
         }        
     }
     //===============================================
-    public function createNode4($path, $value = "", $root = "rdv") {
+    public function createNode4($path, $value = "", $root = "rdv", $isCData = false) {
         $path = trim($path);
+        if($path == "") return false;
         $lFirst = substr($path, 0, 1);
         
         if($lFirst == "/") {
@@ -237,12 +223,7 @@ class GXml extends GObject {
             if($j == 1) {
                 if($lFirst == "/") {
                     $lName = $this->getNodeName();
-                    if($lName != $lItem) {
-                        GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué.<br>
-                        - root......: %s<br>
-                        - noeud.....: %s", __METHOD__, $lName, $lItem));
-                        break;
-                    }
+                    if($lName != $lItem) return false;
                     continue;
                 }
             }
@@ -257,7 +238,7 @@ class GXml extends GObject {
             }
         }
         if($value != "") {
-            $this->setNodeValue($value);
+            $this->setNodeValue($value, $isCData);
         }
         
         $this->node = $lCurrentNode;
@@ -370,13 +351,17 @@ class GXml extends GObject {
         $this->node->setAttribute($name, $value);
     }
     //===============================================
-    public function setNodeValue($value) {
-        if(!$this->node) {
-            GLog::Instance()->addError(sprintf("Erreur la méthode (%s) a échoué.<br>
-            - valeur.....: %s", __METHOD__, $value));
-            return "";
+    public function setNodeValue($value, $isCData = false) {
+        if($this->doc == null) return false;
+        if($this->node == null) return false;
+        if(!$isCData) {
+            $this->node->nodeValue = $value;
         }
-        $this->node->nodeValue = $value;
+        else {
+            $lCData = $this->doc->createCDATASection($value);
+            $this->node->appendChild($lCData);
+        }
+        return true;
     }
     //===============================================
     public function getAttribute($name) {
@@ -418,8 +403,10 @@ class GXml extends GObject {
         return $this->doc->saveXML();
     }
     //===============================================
-    public function toStringNode($xml) {
-        return $this->doc->saveXML($xml->node);
+    public function toStringNode() {
+        if(!$this->doc) return "";
+        if(!$this->node) return "";
+        return $this->doc->saveXML($this->node);
     }
     //===============================================
 }

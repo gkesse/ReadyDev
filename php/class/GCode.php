@@ -6,30 +6,19 @@ class GCode extends GXml {
         parent::__construct();
     }
     //===============================================
-    public function createObj() {
-        $this->createDoc("1.0", "UTF-8");
-        $this->createRoot("rdv");
-        $this->createXPath();
-    }
-    //===============================================
-    public function loadXmlData($xml) {
-        if($xml == "") return;
-        $this->createDoc();
-        parent::loadXmlData($xml);
-        $this->createXPath();
-    }
-    //===============================================
-    public function createRequest($module, $method) {
-        $this->createCode2("request", "module", $module);
-        $this->createCode2("request", "method", $method);
+    public function addData($code, $key, $value, $isCData = false) {
+        if($value == "") return;
+        $this->createCode($code);
+        $this->getCode($code);
+        $this->createNode4($key, $value, $isCData);
     }
     //===============================================
     public function addParam($key, $value) {
-        $this->createCode2("params", $key, $value);
+        $this->addData("params", $key, $value);
     }
     //===============================================
     public function addSession($key, $value) {
-        $this->createCode2("session", $key, $value);
+        $this->addData("session", $key, $value);
     }
     //===============================================
     public function addUser() {
@@ -37,6 +26,11 @@ class GCode extends GXml {
         if(!$lUser->isLogin()) return;
         $lId = $lUser->getUserId();
         $this->addSession("user_id", $lId);
+    }
+    //===============================================
+    public function countCode($code) {
+        $this->queryXPath(sprintf("/rdv/datas/data[code='%s']/map/data", $code));
+        return $this->countXPath();
     }
     //===============================================
     public function createCode($code) {
@@ -47,17 +41,15 @@ class GCode extends GXml {
         }
     }
     //===============================================
-    public function createCode2($code, $key, $value) {
-        if($value == "") return;
-        $this->createCode($code);
-        $this->getCode($code);
-        $this->createNode4($key, $value);        
+    public function createDoc($version = "1.0", $encoding = "UTF-8") {
+        parent::createDoc($version, $encoding);
+        $this->createRoot("rdv");
+        $this->createXPath();
     }
     //===============================================
-    public function hasCode($code) {
-        $this->queryXPath(sprintf("/rdv/datas/data[code='%s']", $code));
-        $lData = $this->countXPath();
-        return ($lData != 0);
+    public function createRequest($module, $method) {
+        $this->addData("request", "module", $module);
+        $this->addData("request", "method", $method);
     }
     //===============================================
     public function getCode($code) {
@@ -86,17 +78,24 @@ class GCode extends GXml {
         return $lData;
     }
     //===============================================
-    public function countCode($code) {
-        $this->queryXPath(sprintf("/rdv/datas/data[code='%s']/map/data", $code));
-        return $this->countXPath();
+    public function hasCode($code) {
+        $this->queryXPath(sprintf("/rdv/datas/data[code='%s']", $code));
+        $lData = $this->countXPath();
+        return ($lData != 0);
     }
     //===============================================
     public function loadCode($data) {
         if($data == "") return $this;
-        $this->queryXPath(sprintf("/rdv/datas"));
-        $this->getNodeIndex(0);
-        $this->loadNodeData($data);
+        $this->createNode2("/rdv/datas");
+        $this->loadNode($data);
         return $this;
+    }
+    //===============================================
+    public function loadXmlData($xml) {
+        if($xml == "") return;
+        $this->createDoc();
+        parent::loadXmlData($xml);
+        $this->createXPath();
     }
     //===============================================
     public function toStringCode($code) {

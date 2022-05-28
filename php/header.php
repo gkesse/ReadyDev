@@ -136,6 +136,8 @@
         <!-- ============================================ -->
         <script src='https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js' async></script>
         <!-- ============================================ -->
+		<script src="/js/class/GObject.js"></script>
+        <!-- ============================================ -->
         <link rel="stylesheet" href="/css/style.php"/>
         <!-- ============================================ -->
     </head>

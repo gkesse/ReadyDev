@@ -763,6 +763,12 @@ span {
     scrollbar-width: auto;
 }
 
+.Code3 {
+	text-align: left;
+    font-family: 'courier new';
+    padding: 10px;
+}
+
 .Col {
     display: inline-block;
     vertical-align: middle;

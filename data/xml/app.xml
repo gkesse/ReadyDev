@@ -68,8 +68,15 @@
     	<data>
     		<code>scripts</code>
     		<map>
-    			<data>/js/class/GConnection.js</data>
-    			<data>/js/class/GMenu.js</data>
+    			<data>/js/functions.js</data>
+    			<data>/js/class/GObject.js</data>
+    			<data>/js/class/GXml.js</data>
+    			<data>/js/class/GCode.js</data>
+    			<data>/js/class/GAjax.js</data>
+    			<data>/js/class/GSitemap.js</data>
+    			<data>/js/class/GHeader.js</data>
+    			<data>/js/class/GTest.js</data>
+    			<data>/js/class/GServer.js</data>
     			<data>/js/script.js</data>
     		</map>
      	</data>
@@ -123,12 +130,14 @@
     			<data>
     				<type>link/login/js</type>
     				<name>Connexion</name>
-    				<onclick><![CDATA[header_connection_open(this);]]></onclick>
+    				<module>header</module>
+    				<method>open_connection</method>
     			</data>
     			<data>
     				<type>link/logout/js</type>
     				<name>Déconnexion</name>
-    				<onclick><![CDATA[header_disconnection_open(this);]]></onclick>
+    				<module>header</module>
+    				<method>open_disconnection</method>
     			</data>
     			<data>
     				<type>link/menu</type>
@@ -174,9 +183,9 @@
     		<date>2017</date>
     		<title>ReadyDev</title>
     		<text><![CDATA[
-    			Plateforme de Développement Continu<br>
-    			Produit par <b>Gérard KESSE</b><br>
-    			Polytech'Montpellier<br>
+    			Plateforme de Développement Continu<br/>
+    			Produit par <b>Gérard KESSE</b><br/>
+    			Polytech'Montpellier<br/>
     		]]></text>
      	</data>
         <!-- ============================================ -->
@@ -194,11 +203,291 @@
     		<msg>Bonne et Heureuse Année</msg>
      	</data>
         <!-- ============================================ -->
+    	<!-- admin -->
+        <!-- ============================================ -->
+    	<data>
+    		<code>admin</code>
+    		<title>Administration</title>
+    		<intro><![CDATA[
+		        <b>ReadyAdmin</b> est l'interface d'administration du site <b>ReadyDev</b>.<br/>
+		        Il vous permet d'ajouter et de modifier le contenu du site <b>ReadyDev</b>.<br/>
+		        Produit par <b>Gérard KESSE</b>.
+    		]]></intro>
+    		<map>
+       			<!-- ============================================ -->
+       			<!-- intro/link -->
+       			<!-- ============================================ -->
+    			<data>
+    				<category>intro/link</category>
+    				<name>Éditeur de Sitemap</name>
+    				<link>#Editeur_Sitemap</link>
+    			</data>
+    			<data>
+    				<category>intro/link</category>
+    				<name>Éditeur de Page HTML</name>
+    				<link>#Editeur_Page_HTML</link>
+    			</data>
+       			<!-- ============================================ -->
+       			<!-- end -->
+       			<!-- ============================================ -->
+    		</map>
+     	</data>
+        <!-- ============================================ -->
+    	<!-- sitemap -->
+        <!-- ============================================ -->
+    	<data>
+    		<code>sitemap</code>
+    		<title>Éditeur de Sitemap</title>
+    		<id>Editeur_Sitemap</id>
+    		<intro><![CDATA[
+		        <b>ReadyAdmin</b> est l'interface d'administration du site <b>ReadyDev</b>.<br/>
+		        Il vous permet d'ajouter et de modifier le contenu du site <b>ReadyDev</b>.<br/>
+		        Produit par <b>Gérard KESSE</b>.
+    		]]></intro>
+    		<map>
+       			<!-- ============================================ -->
+       			<!-- header -->
+       			<!-- ============================================ -->
+    			<data>
+    				<category>header</category>
+    				<tooltip>Accueil</tooltip>
+    				<id>SitemapTab0</id>
+    				<name><![CDATA[<i class='fa fa-home'></i>]]></name>
+    			</data>
+    			<data>
+    				<category>header</category>
+    				<tooltip>Enumération</tooltip>
+    				<id>SitemapTab1</id>
+    				<name>Enumération</name>
+    			</data>
+    			<data>
+    				<category>header</category>
+    				<tooltip>Liste</tooltip>
+    				<id>SitemapTab2</id>
+    				<name>Liste</name>
+    			</data>
+    			<data>
+    				<category>header</category>
+    				<tooltip>Génération</tooltip>
+    				<id>SitemapTab3</id>
+    				<name>Génération</name>
+    			</data>
+    			<data>
+    				<category>header</category>
+    				<tooltip>Visualisation</tooltip>
+    				<id>SitemapTab4</id>
+    				<name>Visualisation</name>
+    			</data>
+       			<!-- ============================================ -->
+       			<!-- end -->
+       			<!-- ============================================ -->
+    		</map>
+     	</data>
+        <!-- ============================================ -->
+    	<!-- sitemap/home -->
+        <!-- ============================================ -->
+    	<data>
+    		<code>sitemap/home</code>
+			<title>ReadySitemap</title>
+			<id>SitemapTab0</id>
+			<intro><![CDATA[
+                <b>ReadySitemap</b> est un éditeur de sitemap.
+                Il vous permet d'énumérer et de lister les URLs du siteweb à indexer, 
+                Et ensuite de générer et de visualiser le sitemap correspondant au siteweb.
+                C'est une interface développée en <b>PHP</b>
+                et maintenue par <b>Gérard KESSE</b>, concepteur du site <b>ReadyDev</b>,
+                la Plateforme de Développement Continu.
+           	]]></intro>
+     	</data>
+        <!-- ============================================ -->
+    	<!-- sitemap/enum -->
+        <!-- ============================================ -->
+    	<data>
+    		<code>sitemap/enum</code>
+    		<title>Énumération</title>
+    		<id>SitemapTab1</id>
+    		<map>
+       			<!-- ============================================ -->
+       			<!-- action -->
+       			<!-- ============================================ -->
+    			<data>
+    				<category>action/server</category>
+    				<name>Énumérer</name>
+    				<picto>list</picto>
+    				<tooltip>Énumérer</tooltip>
+    				<module>sitemap</module>
+    				<method>get_enum</method>
+    			</data>
+    			<data>
+    				<category>action/server</category>
+    				<name>Supprimer</name>
+    				<picto>trash</picto>
+    				<tooltip>Supprimer</tooltip>
+    				<module>sitemap</module>
+    				<method>clear_enum</method>
+    			</data>
+       			<!-- ============================================ -->
+       			<!-- form -->
+       			<!-- ============================================ -->
+    			<data>
+    				<category>form</category>
+    				<label>URLs du site :</label>
+    				<id>SitemapUrlSite</id>
+    			</data>
+    			<data>
+    				<category>form</category>
+    				<label>URLs maximal :</label>
+    				<id>SitemapUrlMax</id>
+    			</data>
+    			<data>
+    				<category>form</category>
+    				<label>Sitemap total :</label>
+    				<id>SitemapTotal</id>
+    			</data>
+       			<!-- ============================================ -->
+       			<!-- end -->
+       			<!-- ============================================ -->
+    		</map>
+     	</data>
+        <!-- ============================================ -->
+    	<!-- sitemap/list -->
+        <!-- ============================================ -->
+    	<data>
+    		<code>sitemap/list</code>
+    		<title>Liste</title>
+    		<id>SitemapTab2</id>
+    		<url>SitemapListUrl</url>
+    		<map>
+       			<!-- ============================================ -->
+       			<!-- action -->
+       			<!-- ============================================ -->
+    			<data>
+    				<category>action/server</category>
+    				<name>Lister</name>
+    				<picto>list</picto>
+    				<tooltip>Lister</tooltip>
+    				<module>sitemap</module>
+    				<method>get_list</method>
+    			</data>
+    			<data>
+    				<category>action/server</category>
+    				<name>Supprimer</name>
+    				<picto>trash</picto>
+    				<tooltip>Supprimer</tooltip>
+    				<module>sitemap</module>
+    				<method>clear_list</method>
+    			</data>
+       			<!-- ============================================ -->
+       			<!-- end -->
+       			<!-- ============================================ -->
+    		</map>
+     	</data>
+        <!-- ============================================ -->
+    	<!-- sitemap/generate -->
+        <!-- ============================================ -->
+    	<data>
+    		<code>sitemap/generate</code>
+    		<title>Génération</title>
+    		<id>SitemapTab3</id>
+    		<url>SitemapGenerateUrl</url>
+    		<map>
+       			<!-- ============================================ -->
+       			<!-- action -->
+       			<!-- ============================================ -->
+    			<data>
+    				<category>action/server</category>
+    				<name>Générer</name>
+    				<picto>list</picto>
+    				<tooltip>Générer</tooltip>
+    				<module>sitemap</module>
+    				<method>get_generate</method>
+    			</data>
+    			<data>
+    				<category>action/server</category>
+    				<name>Supprimer</name>
+    				<picto>trash</picto>
+    				<tooltip>Supprimer</tooltip>
+    				<module>sitemap</module>
+    				<method>clear_generate</method>
+    			</data>
+       			<!-- ============================================ -->
+       			<!-- end -->
+       			<!-- ============================================ -->
+    		</map>
+     	</data>
+        <!-- ============================================ -->
+    	<!-- sitemap/visualize -->
+        <!-- ============================================ -->
+    	<data>
+    		<code>sitemap/visualize</code>
+    		<title>Visualisation</title>
+    		<id>SitemapTab4</id>
+    		<url>SitemapGenerateUrl</url>
+    		<map>
+       			<!-- ============================================ -->
+       			<!-- action -->
+       			<!-- ============================================ -->
+    			<data>
+    				<category>action/server</category>
+    				<name>Visualiser</name>
+    				<picto>list</picto>
+    				<tooltip>Visualiser</tooltip>
+    				<module>sitemap</module>
+    				<method>get_visualize</method>
+    			</data>
+    			<data>
+    				<category>action/server</category>
+    				<name>Supprimer</name>
+    				<picto>trash</picto>
+    				<tooltip>Supprimer</tooltip>
+    				<module>sitemap</module>
+    				<method>clear_visualize</method>
+    			</data>
+       			<!-- ============================================ -->
+       			<!-- sitemap -->
+       			<!-- ============================================ -->
+    			<data>
+    				<category>sitemap</category>
+    				<name>sitemaps.xml</name>
+    				<picto>list</picto>
+    				<tooltip>sitemaps.xml</tooltip>
+    				<onclick>SitemapFileTab0</onclick>
+    			</data>
+    			<data>
+    				<category>sitemap</category>
+    				<name>sitemap.xml</name>
+    				<picto>list</picto>
+    				<tooltip>sitemap.xml</tooltip>
+    				<onclick>SitemapFileTab1</onclick>
+    			</data>
+       			<!-- ============================================ -->
+       			<!-- content -->
+       			<!-- ============================================ -->
+    			<data>
+    				<category>content</category>
+    				<id>SitemapFileTab0</id>
+    				<title>sitemaps.xml :</title>
+    				<content>SitemapVisualizeSite</content>
+    			</data>
+    			<data>
+    				<category>content</category>
+    				<id>SitemapFileTab1</id>
+    				<title>sitemap.xml :</title>
+    				<content>SitemapVisualizeUrl</content>
+    			</data>
+       			<!-- ============================================ -->
+       			<!-- end -->
+       			<!-- ============================================ -->
+    		</map>
+     	</data>
+        <!-- ============================================ -->
     	<!-- test -->
         <!-- ============================================ -->
     	<data>
     		<code>test</code>
-    		<env>ready</env>
+    		<env>dev</env>
+    		<dev>js</dev>
+    		<js>xml/template</js>
      	</data>
         <!-- ============================================ -->
     	<!-- style -->

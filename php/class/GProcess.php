@@ -26,11 +26,11 @@ class GProcess extends GObject {
             $this->runReady();
         }
         else if($lEnv == "dev") {
-            $this->runTestDev();
+            $this->runDev();
         }
     }
     //===============================================
-    public function runTestDev() {
+    public function runDev() {
         $lTestObj = new GTest();
         $lTestObj->run();
     }

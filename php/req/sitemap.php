@@ -4,24 +4,22 @@
 	$lReq = $_REQUEST["req"];
 	//===============================================
 	if($lReq == "ENUMERATE") {
-		$lInfos = GSitemap::Instance()->getInfos();
-		$lData = array();
-		$lData["url_number"] = $lInfos["url_number"];
-		$lData["sitemap_number"] = $lInfos["sitemap_number"];
-		$lJson = json_encode($lData);
-		print_r($lJson);
+		$lServer = new GServer();
+		$lSitemap = new GSitemap();
+		$lSitemap->getInfos();
+		$lData = $lSitemap->serialize();
+		$lServer->addResponse($lData);
+		$lServer->sendResponse();
 	}
 	//===============================================
 	else if($lReq == "LIST") {
-		$lInfos = GSitemap::Instance()->getInfos();
-		$lData = array_column($lInfos["url_list"], "link");
-		$lDataVal = "";
-		$lDataVal .= "<ol class='List3'>";
-		for($i = 0; $i < count($lData); $i++) {
-			$lDataVal .= "<li>".$lData[$i]."</li>";
-		}
-		$lDataVal .= "</ol>";
-		print_r($lDataVal);
+	    $lServer = new GServer();
+	    $lSitemap = new GSitemap();
+	    $lSitemap->getInfos();
+	    $lSitemap->getList();
+	    $lData = $lSitemap->serialize();
+	    $lServer->addResponse($lData);
+	    $lServer->sendResponse();
 	}
 	//===============================================
 	else if($lReq == "GENERATE") {
