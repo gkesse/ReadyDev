@@ -17,6 +17,9 @@ class GServer extends GObject {
 	    //===============================================
 		// module
 	    //===============================================
+		else if(module == "test") {
+			this.onTest(method);
+		}
 		else if(module == "sitemap") {
 			this.onSitemap(method);
 		}

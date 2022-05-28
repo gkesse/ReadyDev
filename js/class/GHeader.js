@@ -6,6 +6,7 @@ class GHeader extends GObject {
 		this.msg = "";
 		this.email = "";
 		this.password = "";
+		this.status = false;
     }
     //===============================================
 	serialize(code = "header") {
@@ -14,6 +15,7 @@ class GHeader extends GObject {
 		lData.addData(code, "msg", this.msg);
 		lData.addData(code, "email", this.email);
 		lData.addData(code, "password", this.password);
+		lData.addData(code, "status", this.status);
 		return lData.toStringCode(code);
 	}
     //===============================================
@@ -23,11 +25,18 @@ class GHeader extends GObject {
 		this.msg = lData.getItem(code, "msg");
 		this.email = lData.getItem(code, "email");
 		this.password = lData.getItem(code, "password");
+		this.status = lData.getItem(code, "status");
 	}
     //===============================================
     onModule(method) {
 		if(method == "") {
 			return false;
+		}
+    	//===============================================
+		// menu
+    	//===============================================
+		else if(method == "open_menu") {
+			this.onOpenMenu();
 		}
     	//===============================================
 		// connection
@@ -59,6 +68,23 @@ class GHeader extends GObject {
 		else return false;
 		return true;
 	}
+    //===============================================
+    // menu
+    //===============================================
+    onOpenMenu() {
+		var lHeaderMenu = document.getElementById("HeaderMenu");
+		var lHeaderMenuBars = document.getElementById("HeaderMenuBars");
+		var lBars = '<i class="fa fa-bars"></i>';
+		if(lBars == lHeaderMenuBars.innerHTML.trim()) {
+			lBars = '<i class="fa fa-close"></i>';
+			lHeaderMenu.className += " RWD";
+		}
+		else {
+			var lClassName = lHeaderMenu.className;
+			lHeaderMenu.className = lClassName.replace(" RWD", "");
+		}
+		lHeaderMenuBars.innerHTML = lBars;	
+    }
     //===============================================
     // connection
     //===============================================
@@ -126,8 +152,24 @@ class GHeader extends GObject {
     onRunConnectionCB(data) {
         var lConnectionMsg = document.getElementById("ConnectionMsg");
         var lConnectionForm = document.getElementById("ConnectionForm");
-		var lHeader = new GHeader();
-		alert(data);
+        lConnectionMsg.style.display = "none";
+        var lHeader = new GHeader();
+		lHeader.deserialize(data);
+        if(!lHeader.status) {
+            var lHtml = "<i style='color:#ff9933' class='fa fa-exclamation-triangle'></i> "; 
+            lHtml += lHeader.msg; 
+            lConnectionMsg.innerHTML = lHtml;
+            lConnectionMsg.style.color = "#ff9933";
+            lConnectionMsg.style.display = "block";
+        }
+        else {
+            var lHtml = "<i style='color:#339933' class='fa fa-paper-plane-o'></i> "; 
+            lHtml += lHeader.msg; 
+            lConnectionMsg.innerHTML = lHtml;
+            lConnectionMsg.style.color = "#339933";
+            lConnectionMsg.style.display = "block";
+            lConnectionForm.submit();
+        }
     }
     //===============================================
     // disconnection

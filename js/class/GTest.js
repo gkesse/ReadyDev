@@ -194,14 +194,24 @@ class GTest extends GObject {
 	runXmlCData() {
 		var lData = "<rdv><![CDATA[<hello>]]></rdv>";
 		var lParser = new DOMParser();
-		var lDom = lParser.parseFromString(lData, "application/xml");
-		var lNode = lDom.getElementsByTagName("rdv")[0];
+		var lDoc = lParser.parseFromString(lData, "application/xml");
+		var lNode = lDoc.getElementsByTagName("rdv")[0];
 		lData = lNode.firstChild.nodeValue;
 		this.printData(sprintf("[%s]\n", lData));
 	}
     //===============================================
 	runXmlTemplate() {
-		lData = this.key;
+		var lData = "<rdv><msg>un</msg></rdv>";
+		var lParser = new DOMParser();
+		var lDoc = lParser.parseFromString(lData, "application/xml");
+		var lNode = lDoc.getElementsByTagName("rdv")[0];
+		var lTemplate = lDoc.createElement('template');
+	    lData = "<msg>deux</msg>";
+	    lTemplate.innerHTML = lData;
+		var lMsg = lTemplate.childNodes[0];
+		lNode.appendChild(lMsg);
+		lData = lNode.outerHTML;
+		//lData = lTemplate.outerHTML;
 		this.printData(sprintf("[%s]\n", lData));
 	}
     //===============================================

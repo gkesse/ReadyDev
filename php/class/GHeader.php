@@ -5,6 +5,7 @@ class GHeader extends GModule {
     private $msg = "";
     private $email = "";
     private $password = "";
+    private $status = false;
     //===============================================
     public function __construct() {
         parent::__construct();
@@ -15,6 +16,9 @@ class GHeader extends GModule {
         $lData = new GCode();
         $lData->createDoc();
         $lData->addData($code, "msg", $this->msg);
+        $lData->addData($code, "email", $this->email);
+        $lData->addData($code, "password", $this->password);
+        $lData->addData($code, "status", $this->status);
         return $lData->toStringCode($code);
     }
     //===============================================
@@ -25,6 +29,7 @@ class GHeader extends GModule {
         $this->msg = $lData->getItem($code, "msg");
         $this->email = $lData->getItem($code, "email");
         $this->password = $lData->getItem($code, "password");
+        $this->status = $lData->getItem($code, "status");
     }
     //===============================================
     public function onModule($data, $server) {
@@ -63,7 +68,34 @@ class GHeader extends GModule {
     }
     //===============================================
     public function runConnection() {
-        echo $this->email;
+        if($this->email == "") return false;
+        if($this->password == "") return false;
+        $lEmail= $this->email;
+        $lPassword = $this->password;
+        $lUserMap = GJson::Instance()->getData("data/json/users.json");
+        $lExist = GGlobal::Instance()->existData($lUserMap["users"], "email", $lEmail);
+        if(!$lExist) {
+            $this->status = false;
+            $this->msg = "Email n'existe pas";
+            return false;
+        }
+        $lEncrypt = md5($lEmail."|".$lPassword);
+        $lExist = GGlobal::Instance()->existData($lUserMap["users"], "password", $lEncrypt);
+        if(!$lExist) {
+            $this->status = false;
+            $this->msg = "Mot de passe est incorrect";
+            return false;
+        }
+        $this->status = true;
+        $this->msg = "Bonne Connexion";
+        $lGroup = GGlobal::Instance()->getData($lUserMap["users"], "email", $lEmail, "group");
+        if(!isset($_SESSION["login"])) {
+            $_SESSION["login"] = array(
+                "email" => $lEmail,
+                "group" => $lGroup
+            );
+        }
+        return true;
     }
     //===============================================
     public function runDisconnection() {
@@ -194,7 +226,7 @@ class GHeader extends GModule {
                 echo sprintf("</li>\n");
             }
             else if($lType == "link/menu") {
-                echo sprintf("<li class='Bars' onclick='%s'>\n", $lOnClick);
+                echo sprintf("<li id='HeaderMenuBars' class='Bars' onclick='server_call(\"%s\", \"%s\");'>\n", $lModule, $lMethod);
                 echo sprintf("%s\n", $lName);
                 echo sprintf("</li>\n");
             }

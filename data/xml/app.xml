@@ -143,7 +143,8 @@
     				<type>link/menu</type>
     				<id>HeaderMenu</id>
     				<name><![CDATA[<i class='fa fa-bars'></i>]]></name>
-    				<onclick><![CDATA[header_menu_open(this);]]></onclick>
+    				<module>header</module>
+    				<method>open_menu</method>
     			</data>
     		</map>
      	</data>
@@ -485,7 +486,7 @@
         <!-- ============================================ -->
     	<data>
     		<code>test</code>
-    		<env>dev</env>
+    		<env>ready</env>
     		<dev>js</dev>
     		<js>xml/template</js>
      	</data>
