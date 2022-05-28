@@ -64,6 +64,35 @@
             parent::deserialize($data);
         }
         //===============================================
+        public function onModule($data, $server) {
+            $this->deserialize($data);
+            $lMethod = $this->method;
+            //===============================================
+            if($lMethod == "") {
+                return false;
+            }
+            //===============================================
+            // method
+            //===============================================
+            else if($lMethod == "get_enum") {
+                $this->onGetEnum($server);
+            }
+            else if($lMethod == "get_list") {
+                $this->onGetList($server);
+            }
+            else if($lMethod == "get_generate") {
+                $this->onGetGenerate($server);
+            }
+            else if($lMethod == "get_visualize") {
+                $this->onGetVisualize($server);
+            }
+            //===============================================
+            // end
+            //===============================================
+            else return false;
+            return true;
+        }
+        //===============================================
         public function run() {
             $lId = $this->getItem("sitemap", "id");
             $lTitle = $this->getItem("sitemap", "title");
@@ -94,11 +123,13 @@
                 $lToolTip = $this->getItem3("sitemap", "tooltip", $i);
                 $lId = $this->getItem3("sitemap", "id", $i);
                 $lName = $this->getItem3("sitemap", "name", $i);
-                if($lCategory != "header") continue;
-                echo sprintf("<div class='Col'>\n");
-                echo sprintf("<button class='Button2 SitemapTab' title=\"%s\"\n", $lToolTip);
-                echo sprintf("onclick='openSitemapTab(this, \"%s\");'>%s</button>\n", $lId, $lName);
-                echo sprintf("</div>\n");
+                
+                if($lCategory == "header") {
+                    echo sprintf("<div class='Col'>\n");
+                    echo sprintf("<button class='Button2 SitemapTab' title=\"%s\"\n", $lToolTip);
+                    echo sprintf("onclick='server_call(\"sitemap\", \"open_header\", this, \"%s\");'>%s</button>\n", $lId, $lName);
+                    echo sprintf("</div>\n");
+                }
             }
             
             echo sprintf("</div>\n");
@@ -131,15 +162,10 @@
                 $lName = $this->getItem3("sitemap/enum", "name", $i);
                 $lPicto = $this->getItem3("sitemap/enum", "picto", $i);
                 $lToolTip = $this->getItem3("sitemap/enum", "tooltip", $i);
-                $lOnClick = $this->getItem3("sitemap/enum", "onclick", $i);
                 $lModule = $this->getItem3("sitemap/enum", "module", $i);
                 $lMethod = $this->getItem3("sitemap/enum", "method", $i);
                 
                 if($lCategory == "action") {
-                    echo sprintf("<button class='Button7' type='button' title=\"%s\"\n", $lToolTip);
-                    echo sprintf("onclick='%s'><i class='fa fa-%s'></i> %s</button>\n", $lOnClick, $lPicto, $lName);
-                }
-                else if($lCategory == "action/server") {
                     echo sprintf("<button class='Button7' type='button' title=\"%s\"\n", $lToolTip);
                     echo sprintf("onclick='server_call(\"%s\", \"%s\");'><i class='fa fa-%s'></i> %s</button>\n", $lModule, $lMethod, $lPicto, $lName);
                 }
@@ -153,11 +179,12 @@
                 $lCategory = $this->getItem3("sitemap/enum", "category", $i);
                 $lLabel = $this->getItem3("sitemap/enum", "label", $i);
                 $lId = $this->getItem3("sitemap/enum", "id", $i);
-                if($lCategory != "form") continue;
-                echo sprintf("<div class='Row9'>\n");
-                echo sprintf("<span class='Label4'>%s</span>\n", $lLabel);
-                echo sprintf("<span class='Field5' id='%s'></span>\n", $lId);
-                echo sprintf("</div>\n");
+                if($lCategory == "form") {
+                    echo sprintf("<div class='Row9'>\n");
+                    echo sprintf("<span class='Label4'>%s</span>\n", $lLabel);
+                    echo sprintf("<span class='Field5' id='%s'></span>\n", $lId);
+                    echo sprintf("</div>\n");
+                }
             }          
             
             echo sprintf("</div>\n");
@@ -180,15 +207,10 @@
                 $lName = $this->getItem3("sitemap/list", "name", $i);
                 $lPicto = $this->getItem3("sitemap/list", "picto", $i);
                 $lToolTip = $this->getItem3("sitemap/list", "tooltip", $i);
-                $lOnClick = $this->getItem3("sitemap/list", "onclick", $i);
                 $lModule = $this->getItem3("sitemap/list", "module", $i);
                 $lMethod = $this->getItem3("sitemap/list", "method", $i);
                 
                 if($lCategory == "action") {
-                    echo sprintf("<button class='Button7' type='button' title=\"%s\"\n", $lToolTip);
-                    echo sprintf("onclick='%s'><i class='fa fa-%s'></i> %s</button>\n", $lOnClick, $lPicto, $lName);
-                }
-                else if($lCategory == "action/server") {
                     echo sprintf("<button class='Button7' type='button' title=\"%s\"\n", $lToolTip);
                     echo sprintf("onclick='server_call(\"%s\", \"%s\");'><i class='fa fa-%s'></i> %s</button>\n", $lModule, $lMethod, $lPicto, $lName);
                 }
@@ -201,35 +223,6 @@
             echo sprintf("</div>\n");
             echo sprintf("</div>\n");
             echo sprintf("</div>\n");
-        }
-        //===============================================
-        public function onModule($data, $server) {
-            $this->deserialize($data);
-            $lMethod = $this->method;
-            //===============================================
-            if($lMethod == "") {
-                return false;
-            }
-            //===============================================
-            // method
-            //===============================================
-            else if($lMethod == "get_enum") {
-                $this->onGetEnum($server);
-            }
-            else if($lMethod == "get_list") {
-                $this->onGetList($server);
-            }
-            else if($lMethod == "get_generate") {
-                $this->onGetGenerate($server);
-            }
-            else if($lMethod == "get_visualize") {
-                $this->onGetVisualize($server);
-            }
-            //===============================================
-            // end
-            //===============================================
-            else return false;
-            return true;
         }
         //===============================================
         public function onGenerate() {
@@ -247,15 +240,10 @@
                 $lName = $this->getItem3("sitemap/generate", "name", $i);
                 $lPicto = $this->getItem3("sitemap/generate", "picto", $i);
                 $lToolTip = $this->getItem3("sitemap/generate", "tooltip", $i);
-                $lOnClick = $this->getItem3("sitemap/generate", "onclick", $i);
                 $lModule = $this->getItem3("sitemap/generate", "module", $i);
                 $lMethod = $this->getItem3("sitemap/generate", "method", $i);
                 
                 if($lCategory == "action") {
-                    echo sprintf("<button class='Button7' type='button' title=\"%s\"\n", $lToolTip);
-                    echo sprintf("onclick='%s'><i class='fa fa-%s'></i> %s</button>\n", $lOnClick, $lPicto, $lName);
-                }
-                else if($lCategory == "action/server") {
                     echo sprintf("<button class='Button7' type='button' title=\"%s\"\n", $lToolTip);
                     echo sprintf("onclick='server_call(\"%s\", \"%s\");'><i class='fa fa-%s'></i> %s</button>\n", $lModule, $lMethod, $lPicto, $lName);
                 }
@@ -310,15 +298,10 @@
                 $lName = $this->getItem3("sitemap/visualize", "name", $i);
                 $lPicto = $this->getItem3("sitemap/visualize", "picto", $i);
                 $lToolTip = $this->getItem3("sitemap/visualize", "tooltip", $i);
-                $lOnClick = $this->getItem3("sitemap/visualize", "onclick", $i);
                 $lModule = $this->getItem3("sitemap/visualize", "module", $i);
                 $lMethod = $this->getItem3("sitemap/visualize", "method", $i);
                 
                 if($lCategory == "action") {
-                    echo sprintf("<button class='Button7' type='button' title=\"%s\"\n", $lToolTip);
-                    echo sprintf("onclick='%s'><i class='fa fa-%s'></i> %s</button>\n", $lOnClick, $lPicto, $lName);
-                }
-                else if($lCategory == "action/server") {
                     echo sprintf("<button class='Button7' type='button' title=\"%s\"\n", $lToolTip);
                     echo sprintf("onclick='server_call(\"%s\", \"%s\");'><i class='fa fa-%s'></i> %s</button>\n", $lModule, $lMethod, $lPicto, $lName);
                 }
@@ -331,10 +314,14 @@
                 $lName = $this->getItem3("sitemap/visualize", "name", $i);
                 $lPicto = $this->getItem3("sitemap/visualize", "picto", $i);
                 $lToolTip = $this->getItem3("sitemap/visualize", "tooltip", $i);
-                $lOnClick = $this->getItem3("sitemap/visualize", "onclick", $i);
-                if($lCategory != "sitemap") continue;
-                echo sprintf("<button class='Button8 SitemapFileTab' type='button' title=\"%s\"\n", $lToolTip);
-                echo sprintf("onclick='openSitemapFileTab(this, \"%s\");'><i class='fa fa-%s'></i> %s</button>\n", $lOnClick, $lPicto, $lName);
+                $lModule = $this->getItem3("sitemap/visualize", "module", $i);
+                $lMethod = $this->getItem3("sitemap/visualize", "method", $i);
+                $lId = $this->getItem3("sitemap/visualize", "id", $i);
+                
+                if($lCategory == "sitemap") {
+                    echo sprintf("<button class='Button8 SitemapFileTab' type='button' title=\"%s\"\n", $lToolTip);
+                    echo sprintf("onclick='server_call(\"%s\", \"%s\", this, \"%s\");'><i class='fa fa-%s'></i> %s</button>\n", $lModule, $lMethod, $lId, $lPicto, $lName);
+                }
             }
             echo sprintf("</div>\n");            
             
@@ -344,11 +331,13 @@
                 $lId = $this->getItem3("sitemap/visualize", "id", $i);
                 $lTitle = $this->getItem3("sitemap/visualize", "title", $i);
                 $lContent = $this->getItem3("sitemap/visualize", "content", $i);
-                if($lCategory != "content") continue;
-                echo sprintf("<div class='SitemapFileTabCtn' id='%s'>\n", $lId);
-                echo sprintf("<h3 class='Title6'>%s</h3>\n", $lTitle);
-                echo sprintf("<div class='Content9' id='%s'></div>\n", $lContent);
-                echo sprintf("</div>\n");
+                
+                if($lCategory == "content") {
+                    echo sprintf("<div class='SitemapFileTabCtn' id='%s'>\n", $lId);
+                    echo sprintf("<h3 class='Title6'>%s</h3>\n", $lTitle);
+                    echo sprintf("<div class='Content9' id='%s'></div>\n", $lContent);
+                    echo sprintf("</div>\n");
+                }
             }
             echo sprintf("</div>\n");
         }

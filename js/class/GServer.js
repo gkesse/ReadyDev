@@ -7,7 +7,7 @@ class GServer extends GObject {
 		this.method = "";
     }
     //===============================================
-	run(module, method) {
+	run(module, method, obj = null, data = "") {
 		if(module == "") {
 			return false;
 		}
@@ -21,7 +21,7 @@ class GServer extends GObject {
 			this.onTest(method);
 		}
 		else if(module == "sitemap") {
-			this.onSitemap(method);
+			this.onSitemap(method, obj, data);
 		}
 		else if(module == "header") {
 			this.onHeader(method);
@@ -43,9 +43,9 @@ class GServer extends GObject {
 		lHeader.onModule(method)
 	}
     //===============================================
-	onSitemap(method) {
+	onSitemap(method, obj, data) {
 		var lSitemap = new GSitemap();
-		lSitemap.onModule(method)
+		lSitemap.onModule(method, obj, data)
 	}
     //===============================================
 }

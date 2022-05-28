@@ -312,7 +312,7 @@
        			<!-- action -->
        			<!-- ============================================ -->
     			<data>
-    				<category>action/server</category>
+    				<category>action</category>
     				<name>Énumérer</name>
     				<picto>list</picto>
     				<tooltip>Énumérer</tooltip>
@@ -320,7 +320,7 @@
     				<method>get_enum</method>
     			</data>
     			<data>
-    				<category>action/server</category>
+    				<category>action</category>
     				<name>Supprimer</name>
     				<picto>trash</picto>
     				<tooltip>Supprimer</tooltip>
@@ -363,7 +363,7 @@
        			<!-- action -->
        			<!-- ============================================ -->
     			<data>
-    				<category>action/server</category>
+    				<category>action</category>
     				<name>Lister</name>
     				<picto>list</picto>
     				<tooltip>Lister</tooltip>
@@ -371,7 +371,7 @@
     				<method>get_list</method>
     			</data>
     			<data>
-    				<category>action/server</category>
+    				<category>action</category>
     				<name>Supprimer</name>
     				<picto>trash</picto>
     				<tooltip>Supprimer</tooltip>
@@ -396,7 +396,7 @@
        			<!-- action -->
        			<!-- ============================================ -->
     			<data>
-    				<category>action/server</category>
+    				<category>action</category>
     				<name>Générer</name>
     				<picto>list</picto>
     				<tooltip>Générer</tooltip>
@@ -404,7 +404,7 @@
     				<method>get_generate</method>
     			</data>
     			<data>
-    				<category>action/server</category>
+    				<category>action</category>
     				<name>Supprimer</name>
     				<picto>trash</picto>
     				<tooltip>Supprimer</tooltip>
@@ -429,7 +429,7 @@
        			<!-- action -->
        			<!-- ============================================ -->
     			<data>
-    				<category>action/server</category>
+    				<category>action</category>
     				<name>Visualiser</name>
     				<picto>list</picto>
     				<tooltip>Visualiser</tooltip>
@@ -437,7 +437,7 @@
     				<method>get_visualize</method>
     			</data>
     			<data>
-    				<category>action/server</category>
+    				<category>action</category>
     				<name>Supprimer</name>
     				<picto>trash</picto>
     				<tooltip>Supprimer</tooltip>
@@ -453,13 +453,18 @@
     				<picto>list</picto>
     				<tooltip>sitemaps.xml</tooltip>
     				<onclick>SitemapFileTab0</onclick>
+    				<module>sitemap</module>
+    				<method>open_sitemap</method>
+    				<id>SitemapFileTab0</id>
     			</data>
     			<data>
     				<category>sitemap</category>
     				<name>sitemap.xml</name>
     				<picto>list</picto>
     				<tooltip>sitemap.xml</tooltip>
-    				<onclick>SitemapFileTab1</onclick>
+    				<module>sitemap</module>
+    				<method>open_sitemap</method>
+    				<id>SitemapFileTab1</id>
     			</data>
        			<!-- ============================================ -->
        			<!-- content -->

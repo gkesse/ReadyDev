@@ -12,6 +12,61 @@ class GSitemap extends GObject {
 		this.msg = "";
     }
     //===============================================
+	deserialize(data, code = "sitemap") {
+		var lData = new GCode();
+		lData.loadXml(data);
+		this.urlCount = lData.getItem(code, "url_count");
+		this.urlList = lData.getItem(code, "url_list", true);
+		this.sitemapCount = lData.getItem(code, "sitemap_count");
+		this.sitemapsXml = lData.getItem(code, "sitemaps_xml", true);
+		this.sitemapXml = lData.getItem(code, "sitemap_xml", true);
+		this.msg = lData.getItem(code, "msg");
+	}
+    //===============================================
+    onModule(method, obj = null, data = "") {
+		if(method == "") {
+			return false;
+		}
+    	//===============================================
+		// method
+    	//===============================================
+		else if(method == "get_enum") {
+			this.onGetEnum();
+		}
+		else if(method == "clear_enum") {
+			this.onClearEnum();
+		}
+		else if(method == "get_list") {
+			this.onGetList();
+		}
+		else if(method == "clear_list") {
+			this.onClearList();
+		}
+		else if(method == "get_generate") {
+			this.onGetGenerate();
+		}
+		else if(method == "clear_generate") {
+			this.onClearGenerate();
+		}
+		else if(method == "get_visualize") {
+			this.onGetVisualize();
+		}
+		else if(method == "clear_visualize") {
+			this.onClearVisualize();
+		}
+		else if(method == "open_header") {
+			this.onOpenHeader(obj, data);
+		}
+		else if(method == "open_sitemap") {
+			this.onOpenSitemap(obj, data);
+		}
+    	//===============================================
+    	// end
+    	//===============================================
+		else return false;
+		return true;
+	}
+    //===============================================
     init() {
         var lTabCtn = document.getElementsByClassName("SitemapTab");
         var lObj = lTabCtn[0];
@@ -52,58 +107,6 @@ class GSitemap extends GObject {
         var lTabId = document.getElementById(name);
         lTabId.style.display = "block";
     }
-    //===============================================
-	deserialize(data, code = "sitemap") {
-		var lData = new GCode();
-		lData.loadXml(data);
-		this.urlCount = lData.getItem(code, "url_count");
-		this.urlList = lData.getItem(code, "url_list", true);
-		this.sitemapCount = lData.getItem(code, "sitemap_count");
-		this.sitemapsXml = lData.getItem(code, "sitemaps_xml", true);
-		this.sitemapXml = lData.getItem(code, "sitemap_xml", true);
-		this.msg = lData.getItem(code, "msg");
-	}
-    //===============================================
-    onModule(method) {
-		if(method == "") {
-			return false;
-		}
-    	//===============================================
-		else if(method == "get_enum") {
-			this.onGetEnum();
-		}
-    	//===============================================
-		else if(method == "clear_enum") {
-			this.onClearEnum();
-		}
-    	//===============================================
-		else if(method == "get_list") {
-			this.onGetList();
-		}
-    	//===============================================
-		else if(method == "clear_list") {
-			this.onClearList();
-		}
-    	//===============================================
-		else if(method == "get_generate") {
-			this.onGetGenerate();
-		}
-    	//===============================================
-		else if(method == "clear_generate") {
-			this.onClearGenerate();
-		}
-    	//===============================================
-		else if(method == "get_visualize") {
-			this.onGetVisualize();
-		}
-    	//===============================================
-		else if(method == "clear_visualize") {
-			this.onClearVisualize();
-		}
-    	//===============================================
-		else return false;
-		return true;
-	}
     //===============================================
     onGetEnum() {
 		var lAjax = new GAjax();
@@ -185,6 +188,16 @@ class GSitemap extends GObject {
         lVisualizeSite.innerHTML = "";
         lVisualizeUrl.innerHTML = "";
     }
+    //===============================================
+    onOpenHeader(obj, data) {
+		var lSitemap = new GSitemap();
+		lSitemap.openSitemapTab(obj, data);
+	}
+    //===============================================
+    onOpenSitemap(obj, data) {
+		var lSitemap = new GSitemap();
+		lSitemap.openSitemapFileTab(obj, data);
+	}
     //===============================================
 }
 //===============================================
