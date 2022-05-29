@@ -172,7 +172,7 @@ class GHeader extends GModule {
         echo sprintf("<div class='Field3'><input class='Input2' type='password' name='Password'/></div>\n");
         echo sprintf("</div>\n");
         echo sprintf("<div class='Row13'>\n");
-        echo sprintf("<div class='Button4' onclick='server_call(\"header\", \"run_connection\");'><i class='fa fa-paper-plane-o'></i> Se Connecter</div>\n");
+        echo sprintf("<div class='Button4' onclick='server_call(\"user\", \"run_connection\");'><i class='fa fa-paper-plane-o'></i> Se Connecter</div>\n");
         echo sprintf("</div>\n");
         echo sprintf("</form>\n");
         echo sprintf("<div class='Row14' id='ConnectionMsg'></div>\n");
