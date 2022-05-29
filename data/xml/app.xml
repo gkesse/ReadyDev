@@ -75,6 +75,7 @@
     			<data>/js/class/GAjax.js</data>
     			<data>/js/class/GSitemap.js</data>
     			<data>/js/class/GHeader.js</data>
+    			<data>/js/class/GUser.js</data>
     			<data>/js/class/GTest.js</data>
     			<data>/js/class/GServer.js</data>
     			<data>/js/script.js</data>

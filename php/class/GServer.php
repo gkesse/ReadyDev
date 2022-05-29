@@ -36,11 +36,14 @@ class GServer extends GModule {
         //===============================================
         // module
         //===============================================
-        else if($lModule == "sitemap") {
-            $this->onSitemap($data, $this);
-        }
         else if($lModule == "header") {
             $this->onHeader($data, $this);
+        }
+        else if($lModule == "user") {
+            $this->onUser($data, $this);
+        }
+        else if($lModule == "sitemap") {
+            $this->onSitemap($data, $this);
         }
         //===============================================
         // end
@@ -49,14 +52,19 @@ class GServer extends GModule {
         return true;
     }
     //===============================================
-    public function onSitemap($data, $server) {
-        $lSitemap = new GSitemap();
-        $lSitemap->onModule($data, $server);
-    }
-    //===============================================
     public function onHeader($data, $server) {
         $lHeader = new GHeader();
         $lHeader->onModule($data, $server);
+    }
+    //===============================================
+    public function onUser($data, $server) {
+        $lUser = new GUser();
+        $lUser->onModule($data, $server);
+    }
+    //===============================================
+    public function onSitemap($data, $server) {
+        $lSitemap = new GSitemap();
+        $lSitemap->onModule($data, $server);
     }
     //===============================================
     public function sendResponse() {
