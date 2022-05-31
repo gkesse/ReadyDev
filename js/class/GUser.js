@@ -57,6 +57,12 @@ class GUser extends GObject {
 			this.onRunDisconnection();
 		}
     	//===============================================
+		// event
+    	//===============================================
+		else if(method == "key_press") {
+			this.onKeyPress();
+		}
+    	//===============================================
 		// end
     	//===============================================
 		else return false;
@@ -180,14 +186,18 @@ class GUser extends GObject {
     //===============================================
     onRunDisconnectionCB(data) {
         var lDisconnectionMsg = document.getElementById("DisconnectionMsg");
-		var lHeader = new GHeader();
-		lHeader.deserialize(data);
+		var lUser = new GUser();
+		lUser.deserialize(data);
         var lHtml = "<i style='color:#339933' class='fa fa-power-off'></i> "; 
-        lHtml += lHeader.msg; 
+        lHtml += lUser.msg; 
         lDisconnectionMsg.innerHTML = lHtml;
         lDisconnectionMsg.style.color = "#339933";
         lDisconnectionMsg.style.display = "block";
         location.reload();
+    }
+    //===============================================
+    onKeyPress() {
+        //alert("Bonjour tout le monde");
     }
     //===============================================
 }

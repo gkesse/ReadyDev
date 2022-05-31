@@ -55,7 +55,7 @@ class GHeader extends GModule {
     }
     //===============================================
     public function onConnection() {
-        echo sprintf("<div class='Modal Connection' id='ModalConnection' onkeypress='header_connection_key_press(this, event)'>\n");
+        echo sprintf("<div class='Modal Connection' id='ModalConnection' onkeypress='server_call(\"user\", \"key_press\");'>\n");
         echo sprintf("<div class='Content10' id='ConnectionBody'>\n");
         echo sprintf("<div class='Button3 Close' onclick='server_call(\"user\", \"close_connection\");'><i class='fa fa-close'></i></div>\n");
         echo sprintf("<div class='Title5'>Connexion</div>\n");

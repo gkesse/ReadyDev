@@ -74,7 +74,6 @@
     			<data>/js/class/GCode.js</data>
     			<data>/js/class/GAjax.js</data>
     			<data>/js/class/GSitemap.js</data>
-    			<data>/js/class/GHeader.js</data>
     			<data>/js/class/GUser.js</data>
     			<data>/js/class/GMenu.js</data>
     			<data>/js/class/GTest.js</data>
@@ -132,7 +131,7 @@
     			<data>
     				<type>link/login/js</type>
     				<name>Connexion</name>
-    				<module>header</module>
+    				<module>user</module>
     				<method>open_connection</method>
     			</data>
     			<data>

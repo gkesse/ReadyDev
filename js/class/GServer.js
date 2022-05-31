@@ -20,9 +20,6 @@ class GServer extends GObject {
 		else if(module == "test") {
 			this.onTest(method);
 		}
-		else if(module == "header") {
-			this.onHeader(method);
-		}
 		else if(module == "menu") {
 			this.onMenu(method);
 		}
@@ -42,11 +39,6 @@ class GServer extends GObject {
 	onTest(method) {
 		var lTest = new GTest();
 		lTest.onModule(method)
-	}
-    //===============================================
-	onHeader(method) {
-		var lHeader = new GHeader();
-		lHeader.onModule(method)
 	}
     //===============================================
 	onMenu(method) {
