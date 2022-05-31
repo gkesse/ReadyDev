@@ -88,6 +88,7 @@ class GUser extends GObject {
         lConnectionMsg.style.display = "none";
         var lUser = new GUser();
 		lUser.deserialize(data);
+		alert(data);
         if(!lUser.status) {
             var lHtml = "<i style='color:#ff9933' class='fa fa-exclamation-triangle'></i> "; 
             lHtml += lUser.msg; 

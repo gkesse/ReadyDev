@@ -52,39 +52,16 @@ class GUser extends GModule {
     }
     //===============================================
     public function onRunConnection($server) {
-        //$this->runConnection();
+        $this->runConnection();
         $lData = $this->serialize();
         $server->addResponse($lData);        
     }
     //===============================================
     public function runConnection() {
-        if($this->email == "") return false;
-        if($this->password == "") return false;
-        $lEmail= $this->email;
-        $lPassword = $this->password;
-
-        if(!$lExist) {
-            $this->status = false;
-            $this->msg = "Email n'existe pas";
-            return false;
-        }
-        $lEncrypt = md5($lEmail."|".$lPassword);
-        $lExist = GGlobal::Instance()->existData($lUserMap["users"], "password", $lEncrypt);
-        if(!$lExist) {
-            $this->status = false;
-            $this->msg = "Mot de passe est incorrect";
-            return false;
-        }
-        $this->status = true;
-        $this->msg = "Bonne Connexion";
-        $lGroup = GGlobal::Instance()->getData($lUserMap["users"], "email", $lEmail, "group");
-        if(!isset($_SESSION["login"])) {
-            $_SESSION["login"] = array(
-                "email" => $lEmail,
-                "group" => $lGroup
-            );
-        }
-        return true;
+        $lClient = new GSocket();
+        $lData = $this->serialize();
+        $lData = $lClient->callServer($this->module, $this->method, $lData);
+        $this->deserialize($lData);
     }
     //===============================================
 }
