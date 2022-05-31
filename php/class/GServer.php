@@ -36,9 +36,6 @@ class GServer extends GModule {
         //===============================================
         // module
         //===============================================
-        else if($lModule == "header") {
-            $this->onHeader($data, $this);
-        }
         else if($lModule == "user") {
             $this->onUser($data, $this);
         }
@@ -50,11 +47,6 @@ class GServer extends GModule {
         //===============================================
         else return false;
         return true;
-    }
-    //===============================================
-    public function onHeader($data, $server) {
-        $lHeader = new GHeader();
-        $lHeader->onModule($data, $server);
     }
     //===============================================
     public function onUser($data, $server) {

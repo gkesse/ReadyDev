@@ -76,6 +76,7 @@
     			<data>/js/class/GSitemap.js</data>
     			<data>/js/class/GHeader.js</data>
     			<data>/js/class/GUser.js</data>
+    			<data>/js/class/GMenu.js</data>
     			<data>/js/class/GTest.js</data>
     			<data>/js/class/GServer.js</data>
     			<data>/js/script.js</data>
@@ -137,14 +138,14 @@
     			<data>
     				<type>link/logout/js</type>
     				<name>Déconnexion</name>
-    				<module>header</module>
+    				<module>user</module>
     				<method>open_disconnection</method>
     			</data>
     			<data>
     				<type>link/menu</type>
     				<id>HeaderMenu</id>
     				<name><![CDATA[<i class='fa fa-bars'></i>]]></name>
-    				<module>header</module>
+    				<module>menu</module>
     				<method>open_menu</method>
     			</data>
     		</map>

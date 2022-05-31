@@ -2,8 +2,23 @@
 //===============================================
 class GSession extends GObject {
     //===============================================
+    protected $userId = 0;
+    //===============================================
     public function __construct() {
         parent::__construct();
+    }
+    //===============================================
+    public function serialize($code = "session") {
+        $lData = new GCode();
+        $lData->createDoc();
+        $lData->addData($code, "user_id", $this->userId);
+        return $lData->toStringCode($code);
+    }
+    //===============================================
+    public function deserialize($data, $code = "session") {
+        $lData = new GCode();
+        $lData->loadXmlData($data);
+        $this->userId = $lData->getItem($code, "user_id");
     }
     //===============================================
     public function setSession($key, $value) {

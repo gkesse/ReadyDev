@@ -33,10 +33,28 @@ class GUser extends GObject {
 			return false;
 		}
     	//===============================================
-		// method
+		// connection
     	//===============================================
+		else if(method == "open_connection") {
+			this.onOpenConnection();
+		}
+		else if(method == "close_connection") {
+			this.onCloseConnection();
+		}
 		else if(method == "run_connection") {
 			this.onRunConnection();
+		}
+    	//===============================================
+		// disconnection
+    	//===============================================
+		else if(method == "open_disconnection") {
+			this.onOpenDisconnection();
+		}
+		else if(method == "close_disconnection") {
+			this.onCloseDisconnection();
+		}
+		else if(method == "run_disconnection") {
+			this.onRunDisconnection();
 		}
     	//===============================================
 		// end
@@ -44,6 +62,32 @@ class GUser extends GObject {
 		else return false;
 		return true;
 	}
+    //===============================================
+    // connection
+    //===============================================
+    onOpenConnection() {
+        var lModalConnection = document.getElementById("ModalConnection");
+        var lConnectionBody = document.getElementById("ConnectionBody");
+        var lConnectionMsg = document.getElementById("ConnectionMsg");
+        var lClassName = lConnectionBody.className;
+        lConnectionMsg.style.display = "none";
+        lConnectionBody.className = lClassName.replace(" AnimateShow", "");
+        lConnectionBody.className = lClassName.replace(" AnimateHide", "");
+        lConnectionBody.className += " AnimateShow";
+        lModalConnection.style.display = "block";
+    }
+    //===============================================
+    onCloseConnection() {
+        var lModalConnection = document.getElementById("ModalConnection");
+        var lConnectionBody = document.getElementById("ConnectionBody");
+        var lClassName = lConnectionBody.className;
+        lConnectionBody.className = lClassName.replace(" AnimateShow", "");
+        lConnectionBody.className = lClassName.replace(" AnimateHide", "");
+        lConnectionBody.className += " AnimateHide";
+        setTimeout(function() {
+            lModalConnection.style.display = "none";
+        }, 400);
+    }
     //===============================================
     onRunConnection() {
         var lEmail = document.getElementsByName("Email")[0];
@@ -88,7 +132,6 @@ class GUser extends GObject {
         lConnectionMsg.style.display = "none";
         var lUser = new GUser();
 		lUser.deserialize(data);
-		alert(data);
         if(!lUser.status) {
             var lHtml = "<i style='color:#ff9933' class='fa fa-exclamation-triangle'></i> "; 
             lHtml += lUser.msg; 
@@ -104,6 +147,47 @@ class GUser extends GObject {
             lConnectionMsg.style.display = "block";
             lConnectionForm.submit();
         }
+    }
+    //===============================================
+    // disconnection
+    //===============================================
+    onOpenDisconnection() {
+        var lModalDisconnection = document.getElementById("ModalDisconnection");
+        var lDisconnectionBody = document.getElementById("DisconnectionBody");
+        var lClassName = lDisconnectionBody.className;
+        lDisconnectionBody.className = lClassName.replace(" AnimateShow", "");
+        lDisconnectionBody.className = lClassName.replace(" AnimateHide", "");
+        lDisconnectionBody.className += " AnimateShow";
+        lModalDisconnection.style.display = "block";
+    }
+    //===============================================
+    onCloseDisconnection() {
+        var lModalDisconnection = document.getElementById("ModalDisconnection");
+        var lDisconnectionBody = document.getElementById("DisconnectionBody");
+        var lClassName = lDisconnectionBody.className;
+        lDisconnectionBody.className = lClassName.replace(" AnimateShow", "");
+        lDisconnectionBody.className = lClassName.replace(" AnimateHide", "");
+        lDisconnectionBody.className += " AnimateHide";
+        setTimeout(function() {
+            lModalDisconnection.style.display = "none";
+        }, 400);
+    }
+    //===============================================
+    onRunDisconnection() {
+		var lAjax = new GAjax();
+		lAjax.call("user", "run_disconnection", "", this.onRunDisconnectionCB);		
+    }
+    //===============================================
+    onRunDisconnectionCB(data) {
+        var lDisconnectionMsg = document.getElementById("DisconnectionMsg");
+		var lHeader = new GHeader();
+		lHeader.deserialize(data);
+        var lHtml = "<i style='color:#339933' class='fa fa-power-off'></i> "; 
+        lHtml += lHeader.msg; 
+        lDisconnectionMsg.innerHTML = lHtml;
+        lDisconnectionMsg.style.color = "#339933";
+        lDisconnectionMsg.style.display = "block";
+        location.reload();
     }
     //===============================================
 }
