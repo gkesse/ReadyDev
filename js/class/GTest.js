@@ -7,7 +7,7 @@ class GTest extends GObject {
 		this.key = "";
     }
     //===============================================
-	onModule(key) {
+	onModule(key, obj, data) {
 		this.key = key;
     	//===============================================
 		// test

@@ -55,7 +55,7 @@ class GHeader extends GModule {
     }
     //===============================================
     public function onConnection() {
-        echo sprintf("<div class='Modal Connection' id='ModalConnection' onkeypress='server_call(\"user\", \"key_press\");'>\n");
+        echo sprintf("<div class='Modal Connection' id='ModalConnection' onkeypress='server_call(\"user\", \"key_press\", this, event);'>\n");
         echo sprintf("<div class='Content10' id='ConnectionBody'>\n");
         echo sprintf("<div class='Button3 Close' onclick='server_call(\"user\", \"close_connection\");'><i class='fa fa-close'></i></div>\n");
         echo sprintf("<div class='Title5'>Connexion</div>\n");
@@ -63,14 +63,14 @@ class GHeader extends GModule {
         echo sprintf("<div class='Row11'>Entrez vos identifiants de connexion.</div>\n");
         echo sprintf("<div class='Row12'>\n");
         echo sprintf("<div class='Label3'>Email :</div>\n");
-        echo sprintf("<div class='Field3'><input class='Input2' type='text' name='Email'/></div>\n");
+        echo sprintf("<div class='Field3'><input id='ConnectionEmail' class='Input2' type='text' name='Email'/></div>\n");
         echo sprintf("</div>\n");
         echo sprintf("<div class='Row12'>\n");
         echo sprintf("<div class='Label3'>Mot de passe :</div>\n");
         echo sprintf("<div class='Field3'><input class='Input2' type='password' name='Password'/></div>\n");
         echo sprintf("</div>\n");
         echo sprintf("<div class='Row13'>\n");
-        echo sprintf("<div class='Button4' onclick='server_call(\"user\", \"run_connection\");'><i class='fa fa-paper-plane-o'></i> Se Connecter</div>\n");
+        echo sprintf("<div id='ConnectionButton' class='Button4' onclick='server_call(\"user\", \"run_connection\");'><i class='fa fa-paper-plane-o'></i> Se Connecter</div>\n");
         echo sprintf("</div>\n");
         echo sprintf("</form>\n");
         echo sprintf("<div class='Row14' id='ConnectionMsg'></div>\n");

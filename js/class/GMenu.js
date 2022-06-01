@@ -5,7 +5,7 @@ class GMenu extends GObject {
 		super();
     }
     //===============================================
-    onModule(method) {
+    onModule(method, obj, data) {
 		if(method == "") {
 			return false;
 		}

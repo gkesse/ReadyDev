@@ -28,7 +28,7 @@ class GUser extends GObject {
 		this.status = lData.getItem(code, "status");
 	}
     //===============================================
-    onModule(method) {
+    onModule(method, obj, data) {
 		if(method == "") {
 			return false;
 		}
@@ -60,7 +60,7 @@ class GUser extends GObject {
 		// event
     	//===============================================
 		else if(method == "key_press") {
-			this.onKeyPress();
+			this.onKeyPress(obj, data);
 		}
     	//===============================================
 		// end
@@ -75,12 +75,14 @@ class GUser extends GObject {
         var lModalConnection = document.getElementById("ModalConnection");
         var lConnectionBody = document.getElementById("ConnectionBody");
         var lConnectionMsg = document.getElementById("ConnectionMsg");
-        var lClassName = lConnectionBody.className;
+        var lConnectionEmail = document.getElementById("ConnectionEmail");
+		var lClassName = lConnectionBody.className;
         lConnectionMsg.style.display = "none";
         lConnectionBody.className = lClassName.replace(" AnimateShow", "");
         lConnectionBody.className = lClassName.replace(" AnimateHide", "");
         lConnectionBody.className += " AnimateShow";
         lModalConnection.style.display = "block";
+		lConnectionEmail.focus();
     }
     //===============================================
     onCloseConnection() {
@@ -196,8 +198,11 @@ class GUser extends GObject {
         location.reload();
     }
     //===============================================
-    onKeyPress() {
-        //alert("Bonjour tout le monde");
+    onKeyPress(obj, event) {
+		var lConnectionButton = document.getElementById("ConnectionButton");
+		if(event.key == "Enter") {
+			lConnectionButton.click();
+		}
     }
     //===============================================
 }

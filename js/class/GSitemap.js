@@ -23,7 +23,7 @@ class GSitemap extends GObject {
 		this.msg = lData.getItem(code, "msg");
 	}
     //===============================================
-    onModule(method, obj = null, data = "") {
+    onModule(method, obj, data) {
 		if(method == "") {
 			return false;
 		}
