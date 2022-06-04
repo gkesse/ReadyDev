@@ -31,6 +31,12 @@
             else if($lKey == "xml/code") {
                 $this->runXmlCode();
             }
+            else if($lKey == "xml/node") {
+                $this->runXmlNode();
+            }
+            else if($lKey == "xml/sitemap") {
+                $this->runXmlSitemap();
+            }
             //===============================================
             // js
             //===============================================
@@ -97,6 +103,27 @@
             $lData = $lSitemap->serialize();
             $lServer->addResponse($lData);
             $lData = $lServer->getResponse();
+            $this->printData($lData);
+        }
+        //===============================================
+        public function runXmlNode() {
+            $lDom = new GXml();
+            $lDom->createDoc();
+            $lDom->createXPath();
+            $lDom->createXNode("/un/deux/trois", "ooooooo");
+            $lDom->createXNode("/un/deux/quatre", "ooooooo");
+            $lDom->createXAttribute("", "doto", "ooooooo");
+            $lDom->createXAttribute("/un/deux/trois", "doto", "ooooooo");
+            $lDom->createXAttribute("/un/deux/trois", "doto", "aaaaaaa");
+            $lData = $lDom->toString();
+            $this->printData($lData);
+        }
+        //===============================================
+        public function runXmlSitemap() {
+            $lSitemap = new GSitemap();
+            $lData = $lSitemap->generateRoot();
+            $this->printData($lData);
+            $lData = $lSitemap->generateItem();
             $this->printData($lData);
         }
         //===============================================

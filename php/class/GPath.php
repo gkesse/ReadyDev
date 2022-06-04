@@ -5,11 +5,11 @@ class GPath extends GObject {
         parent::__construct();
     }
     //===============================================
-    public function getResourcePath($resource, $filename) {
+    public function getPath($path, $filename = "") {
         $lPath = $_SERVER["DOCUMENT_ROOT"];
-        if($resource != "") {
-            if($lPath == "") $lPath = $resource;
-            else $lPath = sprintf("%s/%s", $lPath, $resource);
+        if($path != "") {
+            if($lPath == "") $lPath = $path;
+            else $lPath = sprintf("%s/%s", $lPath, $path);
         }
         if($filename != "") {
             if($lPath == "") $lPath = $filename;
@@ -18,5 +18,16 @@ class GPath extends GObject {
         return $lPath;
     }
     //===============================================
+    public function getUrl($data) {
+        if($data != "") {
+            if($data[0] != "/") {
+                $data = "/".$data;
+            }
+        }
+        $lUrl = "https://";
+        $lUrl .= $_SERVER['HTTP_HOST'];
+        $lUrl .= $data;
+        return $lUrl;
+    }//===============================================
 }
 ?>

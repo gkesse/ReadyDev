@@ -34,6 +34,10 @@ class GAjax extends GObject {
         this.xhttp.onreadystatechange = function() {
             if(this.readyState == 4 && this.status == 200) {
                 var lData = this.responseText;
+				var lLog = new GLog();
+				lLog.deserialize(lData);
+				lLog.showErrors();
+				lLog.showLogs();
                 callback(lData);
             }
         }

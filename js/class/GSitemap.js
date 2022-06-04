@@ -4,7 +4,7 @@ class GSitemap extends GObject {
     constructor() {
 		super();
 		this.urlCount = 0;
-		this.urlMax = 50000;
+		this.urlMax = 0;
 		this.urlList = "";
 		this.sitemapCount = 0;
 		this.sitemapsXml = "";
@@ -16,6 +16,7 @@ class GSitemap extends GObject {
 		var lData = new GCode();
 		lData.loadXml(data);
 		this.urlCount = lData.getItem(code, "url_count");
+		this.urlMax = lData.getItem(code, "url_max");
 		this.urlList = lData.getItem(code, "url_list", true);
 		this.sitemapCount = lData.getItem(code, "sitemap_count");
 		this.sitemapsXml = lData.getItem(code, "sitemaps_xml", true);

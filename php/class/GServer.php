@@ -18,6 +18,16 @@ class GServer extends GModule {
         $this->res->loadCode($res);
     }
     //===============================================
+    public function addError() {
+        $lLog = GLog::Instance();
+        $lError = $lLog->serialize();
+        $this->addResponse($lError);
+    }
+    //===============================================
+    public function addLog() {
+
+    }
+    //===============================================
     public function getResponse() {
         return $this->res->toString();
     }

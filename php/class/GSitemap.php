@@ -10,6 +10,7 @@
         private $compiler = array();
         private $sitemaps = array();
         private $urlCount = 0;
+        private $urlMax = 50000;
         private $urlList = "";
         private $sitemapCount = 0;
         private $sitemapsXml = "";
@@ -52,6 +53,7 @@
             $lData = new GCode();
             $lData->createDoc();
             $lData->addData($code, "url_count", $this->urlCount);
+            $lData->addData($code, "url_max", $this->urlMax);
             $lData->addData($code, "url_list", $this->urlList, true);
             $lData->addData($code, "sitemap_count", $this->sitemapCount);
             $lData->addData($code, "sitemaps_xml", $this->sitemapsXml, true);
@@ -259,13 +261,13 @@
         }
         //===============================================
         public function onGetEnum($server) {
-            $this->getInfos();
+            $this->getEnum();
             $lData = $this->serialize();
             $server->addResponse($lData);
         }
         //===============================================
         public function onGetList($server) {
-            $this->getInfos();
+            $this->getEnum();
             $this->getList();
             $lData = $this->serialize();
             $server->addResponse($lData);
@@ -342,229 +344,117 @@
             echo sprintf("</div>\n");
         }
         //===============================================
-        public function generate() {            
-            $this->getUrls();
-            $this->addUrls();
-            $this->deleteXml();
+        public function generate() {
+            $this->generateRoot();
+            $this->generateItem();
+            $this->msg = "SUCCES: La génération du Sitemap a réussie...";
+        }
+        //===============================================
+        public function generateRoot() {
+            $lPathObj = new GPath();            
+            $lPath = $this->getItem("sitemap/configs", "path");
+            $lFile = $this->getItem("sitemap/configs", "file");
+            $lExt = $this->getItem("sitemap/configs", "ext");
+            $lXmlns = $this->getItem("sitemap/configs", "xmlns");
+            $lXsi = $this->getItem("sitemap/configs", "xsi");
+            $lSchema = $this->getItem("sitemap/configs", "schema");
+            $lUrlMax = $this->getItem("sitemap/configs", "url_max");
             
-             foreach($this->urls as $m_url) {
-                if($this->urlCount % self::URL_MAX == 0) {
-                    $this->closeXml();
-                    $this->openXml();
-                }
-                $this->xml->startElement("url");
-                foreach($m_url as $key => $value) {
-                    if(isset($m_url[$key]) == true) $this->xml->writeElement($key, $value);
-                }
-                $this->xml->endElement();
-                $this->urlCount++;
-            }
+            $lFilename = sprintf("%s/%s_%02d.%s", $lPath, $lFile, 0, $lExt);
+            $lFilename = $lPathObj->getPath($lFilename);
             
-            $this->closeXml();
-            $this->sitemap();
-            $this->msg = "SUCCES: La génération du Sitemap a réussie...";           
-        }
-        //===============================================
-        public function getUrls() {
-            $lRoot = "/data/json/";
-            $lPath = GGlobal::Instance()->getPath($lRoot);
-            $lHandle = opendir($lPath);
-            if($lHandle == true) { 
-                while(1) {
-                    $lDoc = readdir($lHandle);
-                    if($lDoc == false) break;
-                    if($lDoc == "." || $lDoc == "..") continue;
-                    $lExt = pathinfo($lDoc, PATHINFO_EXTENSION);
-                    if($lExt != "json") continue; 
-                    $lPath = $lRoot.$lDoc;
-                    $lData = GJson::Instance()->getData($lPath);
-                    if(isset($lData["sitemap"])) {
-                        if($lData["sitemap"] == "yes") {
-                            $this->getData($lData);
-                        }
-                    }
-                }
-            }
-			$lUrlCol = array();
-			foreach ($this->urlMap as $lKey => $lRow) {
-			    $lUrlCol[$lKey]  = $lRow['link'];
-			}
-			array_multisort($lUrlCol, SORT_ASC, $this->urlMap);
-        }
-        //===============================================
-        public function getUrls2() {
-            $m_root = "/data/json/";
-            $m_path = GGlobal::Instance()->getPath($m_root);
-            $m_handle = opendir($m_path);
-            if($m_handle == true) { 
-                while(1) {
-                    $m_doc = readdir($m_handle);
-                    if($m_doc == false) break;
-                    if($m_doc == "." || $m_doc == "..") continue;
-                    $m_ext = pathinfo($m_doc, PATHINFO_EXTENSION);
-                    if($m_ext != "json") continue; 
-                    $m_path = $m_root.$m_doc;
-                    $m_data = GJson::Instance()->getData($m_path);
-                    if(isset($m_data["sitemap"])) {
-                        if($m_data["sitemap"] == "yes") {
-                            $this->getData($m_data);
-                        }
-                    }
-                }
-            }
-        }
-        //===============================================
-        public function getData($data) {
-            if(is_array($data)) {
-                foreach($data as $key => $value) {
-                    if(is_array($value)) {
-                        $this->getData($value);
-                    }
-                    else {
-                        if(!is_numeric($key) && $key == "follow") {
-                            if($value == "yes") {
-								$m_search = GGlobal::Instance()->searchData($this->urlMap, "link", $data["link"]);
-								if(empty($m_search)) {
-									$m_isCompiler = preg_match("#.*/NMake/.*#", $value);
-									if($m_isCompiler == true) {
-										foreach($this->compiler as $m_item) {
-											$m_result = str_replace("/NMake/", $m_item, $value);
-											$data["link"] = $m_result;
-											$this->urlMap[] = $data;
-										}
-									}
-									else {
-										$this->urlMap[] = $data;
-									}
-								}
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        //===============================================
-        public function getData2($data) {
-            if(is_array($data)) {
-                foreach($data as $key => $value) {
-                    if(is_array($value)) {
-                        $this->getData($value);
-                    }
-                    else {
-                        if(!is_numeric($key) && $key == "link") {
-                            if($value != "") {
-                                if($value[0] != "#") {
-                                    $m_search = GGlobal::Instance()->search($this->urlMap, "link", $value);
-                                    if(empty($m_search)) {
-                                        $m_isCompiler = preg_match("#.*/NMake/.*#", $value);
-                                        if($m_isCompiler == true) {
-                                            foreach($this->compiler as $m_item) {
-                                                $m_result = str_replace("/NMake/", $m_item, $value);
-                                                $data["link"] = $m_result;
-                                                $this->urlMap[] = $data;
-                                            }
-                                        }
-                                        else {
-                                            $this->urlMap[] = $data;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        //===============================================
-        public function addUrls() {
-            foreach($this->urlMap as $lLink) {
-                $lUrl = array();
-                if(isset($lLink["link"])) $lUrl["loc"] = GGlobal::Instance()->getUrl($lLink["link"]);
-                if(isset($lLink["link"])) $lUrl["lastmod"] = GFile::Instance()->getDateTime($lLink["link"]);
-                $lUrl["changefreq"] = "weekly";
-                if(isset($lLink["freq"])) $lUrl["changefreq"] = $lLink["freq"];
-                $lUrl["priority"] = "0.8";
-                if(isset($lLink["prio"])) $lUrl["priority"] = $lLink["prio"];
-                $this->urls[] = $lUrl;
-            }
-        }
-        //===============================================
-        public function openXml($openId = 0) {
-            $this->xml = new xmlwriter();
-            $this->xml->openMemory();
-            $this->xml->setIndent(TRUE);
-            $this->xml->setIndentString('    ');
-            $this->xml->startDocument('1.0', 'UTF-8');
+            $lDom = new GXml();
+            $lDom->createDoc();
+            $lDom->createXPath();     
             
-            if($openId == 0) {
-                $m_index = $this->urlCount / self::URL_MAX;
-                $m_index = ($m_index == 0) ? "" : ($m_index + 1);
-                $m_path = "data/sitemaps/sitemap".$m_index.".xml";
-                $this->sitemaps[] = GGlobal::Instance()->getUrl($m_path);
-                $this->xml->startElement("urlset");
-            }
-            else if($openId == 1) {
-                $m_path = "data/sitemaps/sitemaps.xml";
-                $this->xml->startElement("sitemapindex");
+            $lDom->createXAttribute("/sitemapindex", "xmlns", $lXmlns);
+            $lDom->createXAttribute("/sitemapindex", "xmlns:xsi", $lXsi);
+            $lDom->createXAttribute("/sitemapindex", "xsi:schemaLocation", $lSchema);
+            
+            $lUrlCount = $this->countItem("sitemap/urls");
+            $lIndexCount = ceil($lUrlCount/$lUrlMax);
+            
+            for($i = 0; $i < $lIndexCount; $i++) {
+                $lLoc = sprintf("%s/%s_%02d.%s", $lPath, $lFile, $i + 1, $lExt);
+                $lLoc = $lPathObj->getUrl($lLoc);
+                $lLastmod = date("Y-m-d");
+                
+                $lDom->saveNode();
+                $lDom->createNode("sitemap");
+                $lDom->createRNode("loc", $lLoc);
+                $lDom->createRNode("lastmod", $lLastmod);
+                $lDom->restoreNode();
             }
             
-            $this->filename = GGlobal::Instance()->getPath2($m_path);
-            $this->file = fopen($this->filename, "w");
+            $lDom->saveXml($lFilename);
+        }
+        //===============================================
+        public function generateItem() {
+            $lLog = GLog::Instance();
+            $lPathObj = new GPath();            
+            $lPath = $this->getItem("sitemap/configs", "path");
+            $lFile = $this->getItem("sitemap/configs", "file");
+            $lExt = $this->getItem("sitemap/configs", "ext");
+            $lXmlns = $this->getItem("sitemap/configs", "xmlns");
+            $lXsi = $this->getItem("sitemap/configs", "xsi");
+            $lSchema = $this->getItem("sitemap/configs", "schema");
+            $lUrlMax = $this->getItem("sitemap/configs", "url_max");
             
-            $this->xml->writeAttribute("xmlns", 
-            "http://www.sitemaps.org/schemas/sitemap/0.9");
-            $this->xml->writeAttribute("xmlns:xsi", 
-            "http://www.w3.org/2001/XMLSchema-instance");
-            $this->xml->writeAttribute("xsi:schemaLocation", 
-            "http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd");
-        }
-        //===============================================
-        public function closeXml() {
-            if(is_null($this->xml)) return;
-            $this->xml->endElement();
-            fwrite($this->file, $this->xml->flush());
-            fclose($this->file);
-        }
-        //===============================================
-        public function deleteXml() {
-            $m_root = "/data/sitemaps/";
-            $m_path = GGlobal::Instance()->getPath($m_root);
-            $m_handle = opendir($m_path);
-            if($m_handle == true) {
-                while(1) {
-                    $m_doc = readdir($m_handle);
-                    if($m_doc == false) break;
-                    if($m_doc == "." || $m_doc == ".." || $m_doc == "index.php") continue;
-                    $m_fullname = $m_path."/".$m_doc;
-                    $m_fullname = realpath($m_fullname);
-                    unlink($m_fullname);
-                }
+            $lUrlCount = $this->countItem("sitemap/urls");
+            $lIndexCount = ceil($lUrlCount/$lUrlMax);
+            
+            $k = 0;
+            
+            for($i = 0; $i < $lIndexCount; $i++) {
+                $lFilename = sprintf("%s/%s_%02d.%s", $lPath, $lFile, $i + 1, $lExt);
+                $lFilename = $lPathObj->getPath($lFilename);
+                
+                $lDom = new GXml();
+                $lDom->createDoc();
+                $lDom->createXPath();
+                
+                $lDom->createXAttribute("/urlset", "xmlns", $lXmlns);
+                $lDom->createXAttribute("/urlset", "xmlns:xsi", $lXsi);
+                $lDom->createXAttribute("/urlset", "xsi:schemaLocation", $lSchema);                
+                                
+                for($j = 0; $j < $lUrlMax; $j++) {
+                    if($k == $lUrlCount) break;
+                    $lLoc = $this->getItem3("sitemap/urls", "loc", $k);
+                    $lLastmod = $this->getItem3("sitemap/urls", "lastmod", $k);
+                    $lChangefreq = $this->getItem3("sitemap/urls", "changefreq", $k);
+                    $lPriority = $this->getItem3("sitemap/urls", "priority", $k);
+                    
+                    $lLoc = $lPathObj->getUrl($lLoc);
+                    
+                    $lDom->saveNode();
+                    $lDom->createNode("url");
+                    $lDom->createRNode("loc", $lLoc);
+                    $lDom->createRNode("lastmod", $lLastmod);
+                    $lDom->createRNode("changefreq", $lChangefreq);
+                    $lDom->createRNode("priority", $lPriority);
+                    $lDom->restoreNode();
+                    
+                    $k++;
+                }            
+                
+                $lDom->saveXml($lFilename);
             }
         }
         //===============================================
-        public function sitemap() {
-            $this->openXml(1);
-            foreach($this->sitemaps as $lSitemap) {
-                $this->xml->startElement("sitemap");
-                $this->xml->writeElement("loc", $lSitemap);
-                $this->xml->writeElement("lastmod", date("Y-m-d"));
-                $this->xml->endElement();
-            }
-            $this->closeXml();
-        }
-        //===============================================
-        public function getInfos() {
-            $this->getUrls();
-            $this->urlCount = count($this->urlMap);
-            $this->sitemapCount = ceil($this->urlCount / 50000);
+        public function getEnum() {
+            $lCount = $this->countItem("sitemap/urls");
+            $this->urlCount = $lCount;
+            $this->sitemapCount = ceil($this->urlCount / $this->urlMax);
         }
         //===============================================
         public function getList() {
-            $lData = array_column($this->urlMap, "link");
+            $lCount = $this->countItem("sitemap/urls");
+            
             $lDataVal = "";
             $lDataVal .= "<ol class='List3'>";
-            for($i = 0; $i < count($lData); $i++) {
-                $lDataVal .= "<li>".$lData[$i]."</li>";
+            for($i = 0; $i < $lCount; $i++) {
+                $lUrl = $this->getItem3("sitemap/urls", "loc", $i);
+                $lDataVal .= "<li>".$lUrl."</li>";
             }
             $lDataVal .= "</ol>";
             $this->urlList = $lDataVal;
@@ -579,7 +469,7 @@
                 $lData = $lFileObj->getData($lFile);
                 $lDataVal = '';
                 $lDataVal .= '<pre>';
-                $lDataVal .= '<xmp class="Code prettyprint linenums">';
+                $lDataVal .= '<xmp class="Code">';
                 $lDataVal .= $lData;
                 $lDataVal .= '</xmp>';
                 $lDataVal .= '</pre>';

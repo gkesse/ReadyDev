@@ -48,8 +48,18 @@ class GCode extends GXml {
     //===============================================
     getItem3(code, key, index) {
         this.getNode(sprintf("/rdv/datas/data[code='%s']/map/data[position()=%d]/%s", code, index + 1, key));
-        lData = this.getNodeValue();
+        var lData = this.getNodeValue();
         return lData;
+    }
+    //===============================================
+    getList(code) {
+		var lDatas = [];
+		var lCount = this.countItem(code);
+		for(var i = 0; i < lCount; i++) {
+			var lData = this.getItem2(code, i);
+			lDatas.push(lData);
+		}
+        return lDatas;
     }
     //===============================================
     hasCode(code) {

@@ -29,6 +29,9 @@ class GServer extends GObject {
 		else if(module == "sitemap") {
 			this.onSitemap(method, obj, data);
 		}
+		else if(module == "log") {
+			this.onLog(method, obj, data);
+		}
 	    //===============================================
 		// end
 	    //===============================================
@@ -54,6 +57,11 @@ class GServer extends GObject {
 	onSitemap(method, obj, data) {
 		var lSitemap = new GSitemap();
 		lSitemap.onModule(method, obj, data)
+	}
+    //===============================================
+	onLog(method, obj, data) {
+		var lLog = new GLog();
+		lLog.onModule(method, obj, data)
 	}
     //===============================================
 }

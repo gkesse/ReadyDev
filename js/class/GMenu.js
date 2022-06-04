@@ -22,8 +22,6 @@ class GMenu extends GObject {
 		return true;
 	}
     //===============================================
-    // menu
-    //===============================================
     onOpenMenu() {
 		var lHeaderMenu = document.getElementById("HeaderMenu");
 		var lHeaderMenuBars = document.getElementById("HeaderMenuBars");

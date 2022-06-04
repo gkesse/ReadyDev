@@ -76,6 +76,7 @@
     			<data>/js/class/GSitemap.js</data>
     			<data>/js/class/GUser.js</data>
     			<data>/js/class/GMenu.js</data>
+    			<data>/js/class/GLog.js</data>
     			<data>/js/class/GTest.js</data>
     			<data>/js/class/GServer.js</data>
     			<data>/js/script.js</data>
@@ -503,12 +504,81 @@
     		</map>
      	</data>
         <!-- ============================================ -->
+    	<!-- sitemap/urls -->
+        <!-- ============================================ -->
+    	<data>
+    		<code>sitemap/urls</code>
+    		<map>
+    			<data>
+    				<loc>/</loc>
+    				<lastmod>lastmod</lastmod>
+    				<changefreq>changefreq</changefreq>
+    				<priority>priority</priority>
+    			</data>
+    			<data>
+    				<loc>/home</loc>
+    				<lastmod>lastmod</lastmod>
+    				<changefreq>changefreq</changefreq>
+    				<priority>priority</priority>
+    			</data>
+    			<data>
+    				<loc>/home/cv</loc>
+    				<lastmod>lastmod</lastmod>
+    				<changefreq>changefreq</changefreq>
+    				<priority>priority</priority>
+    			</data>
+    			<data>
+    				<loc>/home/doc</loc>
+    				<lastmod>lastmod</lastmod>
+    				<changefreq>changefreq</changefreq>
+    				<priority>priority</priority>
+    			</data>
+    			<data>
+    				<loc>/home/presentation</loc>
+    				<lastmod>lastmod</lastmod>
+    				<changefreq>changefreq</changefreq>
+    				<priority>priority</priority>
+    			</data>
+    			<data>
+    				<loc>/home/tutoriels</loc>
+    				<lastmod>lastmod</lastmod>
+    				<changefreq>changefreq</changefreq>
+    				<priority>priority</priority>
+    			</data>
+    			<data>
+    				<loc>/home/cours</loc>
+    				<lastmod>lastmod</lastmod>
+    				<changefreq>changefreq</changefreq>
+    				<priority>priority</priority>
+    			</data>
+    			<data>
+    				<loc>/home/contacts</loc>
+    				<lastmod>lastmod</lastmod>
+    				<changefreq>changefreq</changefreq>
+    				<priority>priority</priority>
+    			</data>
+    		</map>
+     	</data>
+        <!-- ============================================ -->
+    	<!-- sitemap/configs -->
+        <!-- ============================================ -->
+    	<data>
+    		<code>sitemap/configs</code>
+    		<path>/</path>
+    		<file>sitemap</file>
+    		<ext>xml</ext>
+    		<xmlns>http://www.sitemaps.org/schemas/sitemap/0.9</xmlns>
+    		<xsi>http://www.w3.org/2001/XMLSchema-instance</xsi>
+    		<schema>http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd</schema>
+    		<url_max>7</url_max>
+     	</data>
+        <!-- ============================================ -->
     	<!-- test -->
         <!-- ============================================ -->
     	<data>
     		<code>test</code>
     		<env>ready</env>
-    		<dev>js</dev>
+    		<dev>xml/sitemap</dev>
     		<js>xml/template</js>
      	</data>
         <!-- ============================================ -->

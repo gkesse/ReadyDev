@@ -1,4 +1,6 @@
 #================================================
+https://www.sitemaps.org/protocol.html
+#================================================
 sudo apt install apache2
 sudo apt install php
 sudo apt install php-dom

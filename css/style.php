@@ -240,15 +240,16 @@ span {
 /* ============================================== */
 
 .error {
-    background-color: #c0932b;
+    background-color: #854069;
+    border: 2px solid #aaaaff;
     position: fixed;
-    top: 50%;
+    top: 20px;
     left: 50%;
     border-radius: 5px;
-    padding: 30px 30px 10px 10px;
-    transform: translate(-50%, -50%);
-    max-height: 500px;
-    overflow: auto;
+    padding: 30px 10px 10px 10px;
+    transform: translate(-50%, 0);
+    min-height: 100px;
+    max-width: 500px;
     z-index: 2;
 }
 
@@ -281,18 +282,20 @@ span {
 
 .error_main {
     background-color: transparent;
+    overflow: auto;
 }
 
 .log {
-    background-color: #366b51;
+    background-color: #359069;
+    border: 2px solid #aaaaff;
     position: fixed;
-    top: 50%;
+    top: 20px;
     left: 50%;
     border-radius: 5px;
-    padding: 30px 30px 10px 10px;
-    transform: translate(-50%, -50%);
-    max-height: 500px;
-    overflow: auto;
+    padding: 30px 10px 10px 10px;
+    transform: translate(-50%, 0);
+    min-height: 100px;
+    max-width: 500px;
     z-index: 2;
 }
 
@@ -325,6 +328,7 @@ span {
 
 .log_main {
     background-color: rgba(0,0,0,0);
+    overflow: auto;
 }
 
 
@@ -546,6 +550,17 @@ span {
     margin: auto;
     padding-top: 250px;
     padding-bottom: 250px;
+}
+
+.box {
+	background-color: #111111;
+	position: fixed;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+    padding: 50px 10px 50px 10px;
+    overflow: auto;
 }
 
 .BoxHide {
@@ -1455,6 +1470,10 @@ span {
     border-radius: 20px;
     text-align: center;
     margin: 5px 5px 0 5px;
+}
+
+.None {
+	display: none;
 }
 
 .Parallax {
