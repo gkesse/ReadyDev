@@ -322,23 +322,18 @@
 		           	]]></intro>
 		     	</data>
 		        <!-- ============================================ -->
-		    	<!-- sitemap/enum -->
+		    	<!-- enum -->
        			<!-- ============================================ -->
-       			<!-- end -->
+       			<data>
+       			   	<category>enum</category>
+    				<title>Énumération</title>
+    				<id>SitemapTab1</id>
+       			</data>
        			<!-- ============================================ -->
-    		</map>
-     	</data>
-        <!-- ============================================ -->
-    	<data>
-    		<code>sitemap/enum</code>
-    		<title>Énumération</title>
-    		<id>SitemapTab1</id>
-    		<map>
-       			<!-- ============================================ -->
-       			<!-- action -->
+       			<!-- enum/action -->
        			<!-- ============================================ -->
     			<data>
-    				<category>action</category>
+    				<category>enum/action</category>
     				<name>Énumérer</name>
     				<picto>list</picto>
     				<tooltip>Énumérer</tooltip>
@@ -346,7 +341,7 @@
     				<method>get_enum</method>
     			</data>
     			<data>
-    				<category>action</category>
+    				<category>enum/action</category>
     				<name>Supprimer</name>
     				<picto>trash</picto>
     				<tooltip>Supprimer</tooltip>
@@ -354,42 +349,37 @@
     				<method>clear_enum</method>
     			</data>
        			<!-- ============================================ -->
-       			<!-- form -->
+       			<!-- enum/form -->
        			<!-- ============================================ -->
     			<data>
-    				<category>form</category>
+    				<category>enum/form</category>
     				<label>URLs du site :</label>
     				<id>SitemapUrlSite</id>
     			</data>
     			<data>
-    				<category>form</category>
+    				<category>enum/form</category>
     				<label>URLs maximal :</label>
     				<id>SitemapUrlMax</id>
     			</data>
     			<data>
-    				<category>form</category>
+    				<category>enum/form</category>
     				<label>Sitemap total :</label>
     				<id>SitemapTotal</id>
     			</data>
        			<!-- ============================================ -->
-       			<!-- end -->
-       			<!-- ============================================ -->
-    		</map>
-     	</data>
-        <!-- ============================================ -->
-    	<!-- sitemap/list -->
-        <!-- ============================================ -->
-    	<data>
-    		<code>sitemap/list</code>
-    		<title>Liste</title>
-    		<id>SitemapTab2</id>
-    		<url>SitemapListUrl</url>
-    		<map>
-       			<!-- ============================================ -->
-       			<!-- action -->
+       			<!-- list -->
        			<!-- ============================================ -->
     			<data>
-    				<category>action</category>
+    				<category>list</category>
+		    		<title>Liste</title>
+		    		<id>SitemapTab2</id>
+		    		<url>SitemapListUrl</url>
+    			</data>
+       			<!-- ============================================ -->
+       			<!-- list/action -->
+       			<!-- ============================================ -->
+    			<data>
+    				<category>list/action</category>
     				<name>Lister</name>
     				<picto>list</picto>
     				<tooltip>Lister</tooltip>
@@ -397,7 +387,7 @@
     				<method>get_list</method>
     			</data>
     			<data>
-    				<category>action</category>
+    				<category>list/action</category>
     				<name>Supprimer</name>
     				<picto>trash</picto>
     				<tooltip>Supprimer</tooltip>
@@ -405,24 +395,19 @@
     				<method>clear_list</method>
     			</data>
        			<!-- ============================================ -->
-       			<!-- end -->
-       			<!-- ============================================ -->
-    		</map>
-     	</data>
-        <!-- ============================================ -->
-    	<!-- sitemap/generate -->
-        <!-- ============================================ -->
-    	<data>
-    		<code>sitemap/generate</code>
-    		<title>Génération</title>
-    		<id>SitemapTab3</id>
-    		<url>SitemapGenerateUrl</url>
-    		<map>
-       			<!-- ============================================ -->
-       			<!-- action -->
+       			<!-- generate -->
        			<!-- ============================================ -->
     			<data>
-    				<category>action</category>
+    				<category>generate</category>
+		    		<title>Génération</title>
+		    		<id>SitemapTab3</id>
+		    		<url>SitemapGenerateUrl</url>
+    			</data>
+       			<!-- ============================================ -->
+       			<!-- generate/action -->
+       			<!-- ============================================ -->
+    			<data>
+    				<category>generate/action</category>
     				<name>Générer</name>
     				<picto>list</picto>
     				<tooltip>Générer</tooltip>
@@ -430,7 +415,7 @@
     				<method>get_generate</method>
     			</data>
     			<data>
-    				<category>action</category>
+    				<category>generate/action</category>
     				<name>Supprimer</name>
     				<picto>trash</picto>
     				<tooltip>Supprimer</tooltip>
@@ -438,24 +423,19 @@
     				<method>clear_generate</method>
     			</data>
        			<!-- ============================================ -->
-       			<!-- end -->
-       			<!-- ============================================ -->
-    		</map>
-     	</data>
-        <!-- ============================================ -->
-    	<!-- sitemap/visualize -->
-        <!-- ============================================ -->
-    	<data>
-    		<code>sitemap/visualize</code>
-    		<title>Visualisation</title>
-    		<id>SitemapTab4</id>
-    		<url>SitemapGenerateUrl</url>
-    		<map>
-       			<!-- ============================================ -->
-       			<!-- action -->
+       			<!-- visualize -->
        			<!-- ============================================ -->
     			<data>
-    				<category>action</category>
+    				<category>visualize</category>
+		    		<title>Visualisation</title>
+		    		<id>SitemapTab4</id>
+		    		<url>SitemapGenerateUrl</url>
+    			</data>
+       			<!-- ============================================ -->
+       			<!-- visualize/action -->
+       			<!-- ============================================ -->
+    			<data>
+    				<category>visualize/action</category>
     				<name>Visualiser</name>
     				<picto>list</picto>
     				<tooltip>Visualiser</tooltip>
@@ -463,7 +443,7 @@
     				<method>get_visualize</method>
     			</data>
     			<data>
-    				<category>action</category>
+    				<category>visualize/action</category>
     				<name>Supprimer</name>
     				<picto>trash</picto>
     				<tooltip>Supprimer</tooltip>
@@ -471,10 +451,10 @@
     				<method>clear_visualize</method>
     			</data>
        			<!-- ============================================ -->
-       			<!-- sitemap -->
+       			<!-- visualize/sitemap -->
        			<!-- ============================================ -->
     			<data>
-    				<category>sitemap</category>
+    				<category>visualize/sitemap</category>
     				<name>sitemaps.xml</name>
     				<picto>list</picto>
     				<tooltip>sitemaps.xml</tooltip>
@@ -484,7 +464,7 @@
     				<id>SitemapFileTab0</id>
     			</data>
     			<data>
-    				<category>sitemap</category>
+    				<category>visualize/sitemap</category>
     				<name>sitemap.xml</name>
     				<picto>list</picto>
     				<tooltip>sitemap.xml</tooltip>
@@ -493,20 +473,33 @@
     				<id>SitemapFileTab1</id>
     			</data>
        			<!-- ============================================ -->
-       			<!-- content -->
+       			<!-- visualize/content -->
        			<!-- ============================================ -->
     			<data>
-    				<category>content</category>
+    				<category>visualize/content</category>
     				<id>SitemapFileTab0</id>
     				<title>sitemaps.xml :</title>
     				<content>SitemapVisualizeSite</content>
     			</data>
     			<data>
-    				<category>content</category>
+    				<category>visualize/content</category>
     				<id>SitemapFileTab1</id>
     				<title>sitemap.xml :</title>
     				<content>SitemapVisualizeUrl</content>
     			</data>
+		        <!-- ============================================ -->
+		    	<!-- configs -->
+		        <!-- ============================================ -->
+		    	<data>
+		    		<category>configs</category>
+		    		<path></path>
+		    		<file>sitemap</file>
+		    		<ext>xml</ext>
+		    		<xmlns>http://www.sitemaps.org/schemas/sitemap/0.9</xmlns>
+		    		<xsi>http://www.w3.org/2001/XMLSchema-instance</xsi>
+		    		<schema>http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd</schema>
+		    		<url_max>50000</url_max>
+		     	</data>
        			<!-- ============================================ -->
        			<!-- end -->
        			<!-- ============================================ -->
@@ -567,19 +560,6 @@
     				<priority>priority</priority>
     			</data>
     		</map>
-     	</data>
-        <!-- ============================================ -->
-    	<!-- sitemap/configs -->
-        <!-- ============================================ -->
-    	<data>
-    		<code>sitemap/configs</code>
-    		<path></path>
-    		<file>sitemap</file>
-    		<ext>xml</ext>
-    		<xmlns>http://www.sitemaps.org/schemas/sitemap/0.9</xmlns>
-    		<xsi>http://www.w3.org/2001/XMLSchema-instance</xsi>
-    		<schema>http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd</schema>
-    		<url_max>50000</url_max>
      	</data>
         <!-- ============================================ -->
     	<!-- sitemap/changefreq -->

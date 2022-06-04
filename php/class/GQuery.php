@@ -71,6 +71,7 @@
             
             $this->onHeader();            
             $this->onHome();
+            $this->onEnum();
             
             echo sprintf("</div>\n");
             echo sprintf("</div>\n");
@@ -119,7 +120,7 @@
             $lTitle = $this->getItem("sitemap/enum", "title");
             $lCount = $this->countItem("sitemap/enum");
             
-            echo sprintf("<div class='Row Left SitemapTabCtn' id='%s'\n", $lId);
+            echo sprintf("<div class='Row Left QueryTabCtn' id='%s'\n", $lId);
             echo sprintf("onkeypress='saveFileKey(event);'>\n");
             echo sprintf("<h2 class='Title4'>%s</h2>\n", $lTitle);
             echo sprintf("<div class='Body13 Center'>\n");
