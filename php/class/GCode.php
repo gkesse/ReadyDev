@@ -39,7 +39,7 @@ class GCode extends GXml {
         $this->addList($code, $data, $category, true);
     }
     //===============================================
-    public function countCode($code) {
+    public function countItem($code) {
         $this->queryXPath(sprintf("/rdv/datas/data[code='%s']/map/data", $code));
         return $this->countXPath();
     }
@@ -66,21 +66,87 @@ class GCode extends GXml {
         $this->getXPath(sprintf("/rdv/datas/data[code='%s']", $code));
     }
     //===============================================
-    public function getItem($code, $key) {
-        $this->getXPath(sprintf("/rdv/datas/data[code='%s']/%s", $code, $key));
-        $lData = $this->getNodeValue();
-        return $lData;
-    }
-    //===============================================
-    public function getItem2($code, $index) {
+    public function getCode2($code, $index) {
         $this->getXPath(sprintf("/rdv/datas/data[code='%s']/map/data[position()=%d]", $code, $index + 1));
-        $lData = $this->getNodeValue();
+    }
+    //===============================================
+    public function getItem($code, $key, $isCData = false) {
+        $this->getXPath(sprintf("/rdv/datas/data[code='%s']/%s", $code, $key));
+        $lData = $this->getNodeValue($isCData);
         return $lData;
     }
     //===============================================
-    public function getItem3($code, $key, $index) {
+    public function getItem2($code, $index, $isCData = false) {
+        $this->getXPath(sprintf("/rdv/datas/data[code='%s']/map/data[position()=%d]", $code, $index + 1));
+        $lData = $this->getNodeValue($isCData);
+        return $lData;
+    }
+    //===============================================
+    public function getItem3($code, $key, $index, $isCData = false) {
         $this->getXPath(sprintf("/rdv/datas/data[code='%s']/map/data[position()=%d]/%s", $code, $index + 1, $key));
-        $lData = $this->getNodeValue();
+        $lData = $this->getNodeValue($isCData);
+        return $lData;
+    }
+    //===============================================
+    public function getItemC($code, $category, $key, $isCData = false) {
+        $lCount = $this->countItem($code);
+        for($i = 0; $i < $lCount; $i++) {
+            $lCategory = $this->getItem3($code, "category", $i);
+            $lData = $this->getItem3($code, $key, $i, $isCData);
+            if($lCategory == $category) {
+                return $lData;
+            }
+        }
+        return "";
+    }
+    //===============================================
+    public function getList($code, $isCData = false) {
+        $lDatas = array();
+        $lCount = $this->countItem($code);
+        for($i = 0; $i < $lCount; $i++) {
+            $lData = $this->getItem2($code, $i, $isCData);
+            $lDatas[] = $lData;
+        }
+        return $lDatas;
+    }
+    //===============================================
+    public function getListC($code, $category, $key, $isCData = false) {
+        $lDatas = array();
+        $lCount = $this->countItem($code);
+        for($i = 0; $i < $lCount; $i++) {
+            $lCategory = $this->getItem3($code, "category", $i);
+            $lData = $this->getItem3($code, $key, $i);
+            if($lCategory == $category) {
+                $lDatas[] = $lData;
+            }
+        }
+        return $lDatas;
+    }
+    //===============================================
+    public function getMap($code, $obj) {
+        $lObjs = array(); 
+        
+        $lCount = $this->countItem($code);
+        
+        for($i = 0; $i < $lCount; $i++) {
+            $lData = $this->loadItem(code, $i);
+            $lObj = $obj->createObj();
+            $lObj->deserialize($lData, "sitemap");
+            $lObjs[] = $lObj;
+        }
+        
+        return $lObjs;
+    }
+    //===============================================
+    public function loadItem($code, $index) {
+        $this->getCode2($code, $index);
+        $lData = $this->toStringNode();
+        $lReq = new GCode();
+        $lReq->createDoc();
+        $lReq->createCode($code);
+        $lReq->getCode($code);
+        $lReq->loadNode($lData, false);
+        $lData = $lReq->toString();
         return $lData;
     }
     //===============================================

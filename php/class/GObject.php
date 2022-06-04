@@ -8,35 +8,40 @@
         }
         //===============================================
         public function createDoms() {
-            $this->dom = new GXml();
+            $this->dom = new GCode();
             $this->dom->createDocFile("data/xml", "app.xml");
         }
         //===============================================
-        public function getItem($code, $key) {
-            $this->dom->queryXPath(sprintf("/rdv/datas/data[code='%s']/%s", $code, $key));
-            $this->dom->getNodeIndex(0);
-            $lData = $this->dom->getNodeValue();
-            return $lData;
+        public function createObj() {
+            return new GObject();
         }
         //===============================================
-        public function getItem2($code, $index) {
-            $this->dom->queryXPath(sprintf("/rdv/datas/data[code='%s']/map/data[position()=%d]", $code, $index + 1));
-            $this->dom->getNodeIndex(0);
-            $lData = $this->dom->getNodeValue();
-            return $lData;
+        public function getItem($code, $key, $isCData = false) {
+            return $this->dom->getItem($code, $key, $isCData);
         }
         //===============================================
-        public function getItem3($code, $key, $index) {
-            $this->dom->queryXPath(sprintf("/rdv/datas/data[code='%s']/map/data[position()=%d]/%s", $code, $index + 1, $key));
-            $this->dom->getNodeIndex(0);
-            $lData = $this->dom->getNodeValue();
-            return $lData;
+        public function getItem2($code, $index, $isCData = false) {
+            return $this->dom->getItem2($code, $index, $isCData);            
+        }
+        //===============================================
+        public function getItem3($code, $key, $index, $isCData = false) {
+            return $this->dom->getItem3($code, $key, $index, $isCData);
+        }
+        //===============================================
+        public function getItemC($code, $category, $key, $isCData = false) {
+            return $this->dom->getItemC($code, $category, $key, $isCData);
+        }
+        //===============================================
+        public function getList($code, $isCData = false) {
+            return $this->dom->getList($code, $isCData);
+        }
+        //===============================================
+        public function getListC($code, $category, $key, $isCData = false) {
+            return $this->dom->getListC($code, $category, $key, $isCData);
         }
         //===============================================
         public function countItem($code) {
-            $this->dom->queryXPath(sprintf("/rdv/datas/data[code='%s']/map/data", $code));
-            $lData = $this->dom->countXPath();
-            return $lData;
+            return $this->dom->countItem($code);
         }
         //===============================================
     }

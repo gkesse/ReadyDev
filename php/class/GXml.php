@@ -34,12 +34,13 @@ class GXml extends GObject {
         return true;
     }
     //===============================================
-    public function loadNode($data) {
+    public function loadNode($data, $isRoot = true) {
         if(!$this->doc) return $this;
         $lDom = new DOMDocument();
         $lDom->preserveWhiteSpace = false;
         $lDom->formatOutput = true;
-        $lDom->loadXML(sprintf("<rdv>%s</rdv>", $data));
+        if($isRoot) $data = sprintf("<rdv>%s</rdv>", $data);
+        $lDom->loadXML($data);
         $lChild = $lDom->documentElement->firstChild;
         while($lChild) {
             $lNode = $this->doc->importNode($lChild, true);
@@ -164,15 +165,14 @@ class GXml extends GObject {
         return true;
     }
     //===============================================
-    public function getNodeValue() {
+    public function getNodeValue($isCData = false) {
         if(!$this->node) return "";
-        $lValue = $this->node->nodeValue;
-        return $lValue;
-    }
-    //===============================================
-    public function getNodeCData() {
-        if(!$this->node) return "";
-        $lValue = $this->node->textContent;
+        if(!$isCData) {
+            $lValue = $this->node->nodeValue;
+        }
+        else {
+            $lValue = $this->node->textContent;            
+        }
         return $lValue;
     }
     //===============================================

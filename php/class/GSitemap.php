@@ -82,6 +82,8 @@
             echo sprintf("<div class='Row10'>\n");
             
             $lCount = $this->countItem("sitemap");
+            $lModule = $this->getItemC("sitemap", "header/link", "module");
+            $lMethod = $this->getItemC("sitemap", "header/link", "method");
             
             for($i = 0; $i < $lCount; $i++) {
                 $lCategory = $this->getItem3("sitemap", "category", $i);
@@ -92,7 +94,7 @@
                 if($lCategory == "header") {
                     echo sprintf("<div class='Col'>\n");
                     echo sprintf("<button class='Button2 SitemapTab' title=\"%s\"\n", $lToolTip);
-                    echo sprintf("onclick='server_call(\"sitemap\", \"open_header\", this, \"%s\");'>%s</button>\n", $lId, $lName);
+                    echo sprintf("onclick='server_call(\"%s\", \"%s\", this, \"%s\");'>%s</button>\n", $lModule, $lMethod, $lId, $lName);
                     echo sprintf("</div>\n");
                 }
             }
@@ -101,9 +103,10 @@
         }
         //===============================================
         public function onHome() {
-            $lId = $this->getItem("sitemap/home", "id");
-            $lTitle = $this->getItem("sitemap/home", "title");
-            $lIntro = $this->getItem("sitemap/home", "intro");
+            $lId = $this->getItemC("sitemap", "home", "id");
+            $lTitle = $this->getItemC("sitemap", "home", "title");
+            $lIntro = $this->getItemC("sitemap", "home", "intro");
+            
             echo sprintf("<div class='Row Left SitemapTabCtn' id='%s'>\n", $lId);
             echo sprintf("<h2 class='Title4'>%s</h2>\n", $lTitle);
             echo sprintf("<div class='Body6'>\n");
@@ -231,7 +234,7 @@
         //===============================================
         public function onGetList($server) {
             $this->getEnum();
-            $this->getList();
+            $this->getListUrl();
             $lData = $this->serialize();
             $server->addResponse($lData);
         }
@@ -412,7 +415,7 @@
             $this->sitemapCount = ceil($this->urlCount / $this->urlMax);
         }
         //===============================================
-        public function getList() {
+        public function getListUrl() {
             $lCount = $this->countItem("sitemap/urls");
             
             $lDataVal = "";

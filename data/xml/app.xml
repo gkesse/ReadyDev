@@ -75,6 +75,7 @@
     			<data>/js/class/GXml.js</data>
     			<data>/js/class/GCode.js</data>
     			<data>/js/class/GAjax.js</data>
+    			<data>/js/class/GQuery.js</data>
     			<data>/js/class/GSitemap.js</data>
     			<data>/js/class/GUser.js</data>
     			<data>/js/class/GMenu.js</data>
@@ -238,6 +239,11 @@
        			<!-- ============================================ -->
     			<data>
     				<category>intro/link</category>
+    				<name>Gestionnaire de requêtes</name>
+    				<link>#Gestionnaire_Requete</link>
+    			</data>
+    			<data>
+    				<category>intro/link</category>
     				<name>Éditeur de Sitemap</name>
     				<link>#Editeur_Sitemap</link>
     			</data>
@@ -258,11 +264,6 @@
     		<code>sitemap</code>
     		<title>Éditeur de Sitemap</title>
     		<id>Editeur_Sitemap</id>
-    		<intro><![CDATA[
-		        <b>ReadyAdmin</b> est l'interface d'administration du site <b>ReadyDev</b>.<br/>
-		        Il vous permet d'ajouter et de modifier le contenu du site <b>ReadyDev</b>.<br/>
-		        Produit par <b>Gérard KESSE</b>.
-    		]]></intro>
     		<map>
        			<!-- ============================================ -->
        			<!-- header -->
@@ -298,28 +299,35 @@
     				<name>Visualisation</name>
     			</data>
        			<!-- ============================================ -->
+       			<!-- header/link -->
+       			<!-- ============================================ -->
+    			<data>
+    				<category>header/link</category>
+    				<module>sitemap</module>
+    				<method>open_header</method>
+    			</data>
+		        <!-- ============================================ -->
+		    	<!-- home -->
+		        <!-- ============================================ -->
+		    	<data>
+		    		<category>home</category>
+					<title>ReadySitemap</title>
+					<id>SitemapTab0</id>
+					<intro><![CDATA[
+		                <b>ReadySitemap</b> est un générateur de sitemap.
+		                Il permet de générer automatiquement le sitemap d'un siteweb.
+						Les urls utilisées doivent être listées dans une source de données.
+						Pareil pour le cas des dates de dernières modification et des fréquences de changement du siteweb.
+		                <br>Produit par <b>Gérard KESSE</b>.
+		           	]]></intro>
+		     	</data>
+		        <!-- ============================================ -->
+		    	<!-- sitemap/enum -->
+       			<!-- ============================================ -->
        			<!-- end -->
        			<!-- ============================================ -->
     		</map>
      	</data>
-        <!-- ============================================ -->
-    	<!-- sitemap/home -->
-        <!-- ============================================ -->
-    	<data>
-    		<code>sitemap/home</code>
-			<title>ReadySitemap</title>
-			<id>SitemapTab0</id>
-			<intro><![CDATA[
-                <b>ReadySitemap</b> est un éditeur de sitemap.
-                Il vous permet d'énumérer et de lister les URLs du siteweb à indexer, 
-                Et ensuite de générer et de visualiser le sitemap correspondant au siteweb.
-                C'est une interface développée en <b>PHP</b>
-                et maintenue par <b>Gérard KESSE</b>, concepteur du site <b>ReadyDev</b>,
-                la Plateforme de Développement Continu.
-           	]]></intro>
-     	</data>
-        <!-- ============================================ -->
-    	<!-- sitemap/enum -->
         <!-- ============================================ -->
     	<data>
     		<code>sitemap/enum</code>
@@ -589,12 +597,81 @@
     		</map>
      	</data>
         <!-- ============================================ -->
+    	<!-- query -->
+        <!-- ============================================ -->
+    	<data>
+    		<code>query</code>
+    		<title>Gestionnaire de requêtes</title>
+    		<id>Gestionnaire_Requete</id>
+    		<map>
+       			<!-- ============================================ -->
+       			<!-- header -->
+       			<!-- ============================================ -->
+    			<data>
+    				<category>header</category>
+    				<tooltip>Accueil</tooltip>
+    				<id>QueryTab0</id>
+    				<name><![CDATA[<i class='fa fa-home'></i>]]></name>
+    			</data>
+    			<data>
+    				<category>header</category>
+    				<tooltip>Enumération</tooltip>
+    				<id>QueryTab1</id>
+    				<name>Enumération</name>
+    			</data>
+    			<data>
+    				<category>header</category>
+    				<tooltip>Liste</tooltip>
+    				<id>QueryTab2</id>
+    				<name>Liste</name>
+    			</data>
+    			<data>
+    				<category>header</category>
+    				<tooltip>Génération</tooltip>
+    				<id>QueryTab3</id>
+    				<name>Génération</name>
+    			</data>
+    			<data>
+    				<category>header</category>
+    				<tooltip>Visualisation</tooltip>
+    				<id>QueryTab4</id>
+    				<name>Visualisation</name>
+    			</data>
+       			<!-- ============================================ -->
+       			<!-- header/link -->
+       			<!-- ============================================ -->
+    			<data>
+    				<category>header/link</category>
+    				<module>query</module>
+    				<method>open_header</method>
+    			</data>
+		        <!-- ============================================ -->
+		    	<!-- home -->
+		        <!-- ============================================ -->
+		    	<data>
+		    		<category>home</category>
+					<title>ReadyQuery</title>
+					<id>QueryTab0</id>
+					<intro><![CDATA[
+		                <b>ReadyQuery</b> est un gestionnaire de requêtes.
+		                Il permet d'envoyer des requêtes à un serveur de données.
+						Les requêtes peuvent être de différentes natures.
+						Le protocole utilisé doit être supporté par l'application.
+		                <br>Produit par <b>Gérard KESSE</b>.
+		           	]]></intro>
+		     	</data>
+       			<!-- ============================================ -->
+       			<!-- end -->
+       			<!-- ============================================ -->
+    		</map>
+    	</data>
+        <!-- ============================================ -->
     	<!-- test -->
         <!-- ============================================ -->
     	<data>
     		<code>test</code>
     		<env>ready</env>
-    		<dev>file/unlink</dev>
+    		<dev>xml/map</dev>
     		<js>xml/template</js>
      	</data>
         <!-- ============================================ -->

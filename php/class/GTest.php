@@ -46,6 +46,9 @@
             else if($lKey == "xml/sitemap") {
                 $this->runXmlSitemap();
             }
+            else if($lKey == "xml/map") {
+                $this->runXmlMap();
+            }
             //===============================================
             // js
             //===============================================
@@ -145,6 +148,22 @@
             $lData = $lSitemap->generateRoot();
             $this->printData($lData);
             $lData = $lSitemap->generateItem();
+            $this->printData($lData);
+        }
+        //===============================================
+        public function runXmlMap() {
+            $lCode = new GCode();
+            $lCode->createDocFile("data/xml", "app.xml");
+            $lCount = $lCode->countItem("sitemap");
+            $lObjs = array();
+            
+            for($i = 0; $i < $lCount; $i++) {
+                $lData = $lCode->loadItem("sitemap", $i);                
+                $lObj = new GSitemap();
+                $lObj->deserialize($lData, "sitemap");
+                $lObjs[] = $lObj;
+            }
+
             $this->printData($lData);
         }
         //===============================================

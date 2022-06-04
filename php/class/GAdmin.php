@@ -19,6 +19,7 @@ class GAdmin extends GObject {
     public function run() {
         $this->onIntro();
         echo sprintf("<div class='Content2'>\n");
+        $this->onQuery();
         $this->onSitemap();
         $this->onEditor();
         echo sprintf("</div>\n");
@@ -57,6 +58,11 @@ class GAdmin extends GObject {
         echo sprintf("</div><br/>\n");
         echo sprintf("</div>\n");
         echo sprintf("</div>\n");
+    }
+    //===============================================
+    public function onQuery() {
+        $lQuery = new GQuery();
+        $lQuery->run();
     }
     //===============================================
     public function onSitemap() {

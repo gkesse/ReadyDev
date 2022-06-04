@@ -35,6 +35,9 @@ class GServer extends GObject {
 		else if(module == "page") {
 			this.onPage(method, obj, data);
 		}
+		else if(module == "query") {
+			this.onQuery(method, obj, data);
+		}
 	    //===============================================
 		// end
 	    //===============================================
@@ -70,6 +73,11 @@ class GServer extends GObject {
 	onPage (method, obj, data) {
 		var lPage = new GPage();
 		lPage.onModule(method, obj, data)
+	}
+    //===============================================
+	onQuery (method, obj, data) {
+		var lQuery = new GQuery();
+		lQuery.onModule(method, obj, data)
 	}
     //===============================================
 }
