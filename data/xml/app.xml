@@ -70,13 +70,14 @@
     		<map>
     			<data>/js/functions.js</data>
     			<data>/js/class/GObject.js</data>
+    			<data>/js/class/GLog.js</data>
+    			<data>/js/class/GPage.js</data>
     			<data>/js/class/GXml.js</data>
     			<data>/js/class/GCode.js</data>
     			<data>/js/class/GAjax.js</data>
     			<data>/js/class/GSitemap.js</data>
     			<data>/js/class/GUser.js</data>
     			<data>/js/class/GMenu.js</data>
-    			<data>/js/class/GLog.js</data>
     			<data>/js/class/GTest.js</data>
     			<data>/js/class/GServer.js</data>
     			<data>/js/script.js</data>
@@ -564,13 +565,28 @@
         <!-- ============================================ -->
     	<data>
     		<code>sitemap/configs</code>
-    		<path>/</path>
+    		<path></path>
     		<file>sitemap</file>
     		<ext>xml</ext>
     		<xmlns>http://www.sitemaps.org/schemas/sitemap/0.9</xmlns>
     		<xsi>http://www.w3.org/2001/XMLSchema-instance</xsi>
     		<schema>http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd</schema>
-    		<url_max>7</url_max>
+    		<url_max>50000</url_max>
+     	</data>
+        <!-- ============================================ -->
+    	<!-- sitemap/changefreq -->
+        <!-- ============================================ -->
+    	<data>
+    		<code>sitemap/changefreq</code>
+    		<map>
+    			<data>always</data>
+    			<data>hourly</data>
+    			<data>daily</data>
+    			<data>weekly</data>
+    			<data>monthly</data>
+    			<data>yearly</data>
+    			<data>never</data>
+    		</map>
      	</data>
         <!-- ============================================ -->
     	<!-- test -->
@@ -578,7 +594,7 @@
     	<data>
     		<code>test</code>
     		<env>ready</env>
-    		<dev>xml/sitemap</dev>
+    		<dev>file/unlink</dev>
     		<js>xml/template</js>
      	</data>
         <!-- ============================================ -->

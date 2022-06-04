@@ -13,7 +13,7 @@ class GCode extends GXml {
         $this->createXNode($key, $value, $isCData);
     }
     //===============================================
-    public function addList($code, $data) {
+    public function addList($code, $data, $category = "", $isCData = false) {
         if(empty($data)) return;
         $this->createCode($code);
         $this->getCode($code);
@@ -21,9 +21,22 @@ class GCode extends GXml {
         for($i = 0; $i < count($data); $i++) {
             $lData = $data[$i];
             $this->saveNode();
-            $this->createRNode("data", $lData);
+            if($category == "") {
+                $this->createRNode("data", $lData, $isCData);
+            }
+            else {
+                $this->createXNode("data");
+                $this->saveNode();
+                $this->createRNode("category", $category);
+                $this->createRNode("data", $lData, $isCData);                
+                $this->restoreNode();
+            }
             $this->restoreNode();
         }
+    }
+    //===============================================
+    public function addListCD($code, $data, $category = "") {
+        $this->addList($code, $data, $category, true);
     }
     //===============================================
     public function countCode($code) {

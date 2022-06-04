@@ -1,52 +1,16 @@
 <?php   
     class GSitemap extends GModule {
         //===============================================
-        private $change = array();
-        private $xml = null;
-        private $filename;
-        private $file;
-        private $urls = array();
-        private $urlMap = array();
-        private $compiler = array();
-        private $sitemaps = array();
         private $urlCount = 0;
-        private $urlMax = 50000;
+        private $urlMax = 0;
         private $urlList = "";
         private $sitemapCount = 0;
-        private $sitemapsXml = "";
-        private $sitemapXml = "";
+        private $sitemapXml = array();
         private $msg = "";
-        //===============================================
-        const URL_MAX = 50000;
         //===============================================
         public function __construct() {
             parent::__construct();
             $this->createDoms();
-            
-            $this->change = array(
-                'always', 
-                'hourly', 
-                'daily', 
-                'weekly', 
-                'monthly', 
-                'yearly', 
-                'never'                
-            );
-            
-            $this->compiler = array(
-                "/NMake/", 
-                "/MinGW/", 
-                "/Cygwin/", 
-                "/Make/", 
-                "/CMake/NMake/", 
-                "/QMake/NMake/"               
-            );
-            
-            $this->urlMap[] = array(
-                "link" => "/",
-                "freq" => "daily",
-                "prio" => "1.0"                
-            );
         }
         //===============================================
         public function serialize($code = "sitemap") {
@@ -56,10 +20,9 @@
             $lData->addData($code, "url_max", $this->urlMax);
             $lData->addData($code, "url_list", $this->urlList, true);
             $lData->addData($code, "sitemap_count", $this->sitemapCount);
-            $lData->addData($code, "sitemaps_xml", $this->sitemapsXml, true);
-            $lData->addData($code, "sitemap_xml", $this->sitemapXml, true);
             $lData->addData($code, "msg", $this->msg);
-            return $lData->toStringCode($code);
+            $lData->addListCD($code, $this->sitemapXml, "xml");
+            return $lData->toStringData();
         }
         //===============================================
         public function deserialize($data, $code = "sitemap") {
@@ -345,6 +308,7 @@
         }
         //===============================================
         public function generate() {
+            $this->deleteXml();
             $this->generateRoot();
             $this->generateItem();
             $this->msg = "SUCCES: La génération du Sitemap a réussie...";
@@ -390,7 +354,6 @@
         }
         //===============================================
         public function generateItem() {
-            $lLog = GLog::Instance();
             $lPathObj = new GPath();            
             $lPath = $this->getItem("sitemap/configs", "path");
             $lFile = $this->getItem("sitemap/configs", "file");
@@ -442,8 +405,10 @@
         }
         //===============================================
         public function getEnum() {
-            $lCount = $this->countItem("sitemap/urls");
-            $this->urlCount = $lCount;
+            $lUrlCount = $this->countItem("sitemap/urls");
+            $lUrlMax = $this->getItem("sitemap/configs", "url_max");
+            $this->urlCount = $lUrlCount;
+            $this->urlMax = $lUrlMax;
             $this->sitemapCount = ceil($this->urlCount / $this->urlMax);
         }
         //===============================================
@@ -461,22 +426,34 @@
         }
         //===============================================
         public function getVisualize() {
-            $lFileObj = new GFile();
-            $lFileArr = array("sitemaps", "sitemap");
-            $lDataArr = array();
-            for($i = 0; $i < count($lFileArr); $i++) {
-                $lFile = "/data/sitemaps/".$lFileArr[$i].".xml";
-                $lData = $lFileObj->getData($lFile);
-                $lDataVal = '';
-                $lDataVal .= '<pre>';
-                $lDataVal .= '<xmp class="Code">';
-                $lDataVal .= $lData;
-                $lDataVal .= '</xmp>';
-                $lDataVal .= '</pre>';
-                $lDataArr[$lFileArr[$i]] = $lDataVal;
+            $lPathObj = new GPath();
+            $lPath = $this->getItem("sitemap/configs", "path");
+            $lFile = $this->getItem("sitemap/configs", "file");
+            $lExt = $this->getItem("sitemap/configs", "ext");
+            
+            $this->getEnum();
+            
+            for($i = 0; $i <= $this->sitemapCount; $i++) {
+                $lFilename = $lPathObj->getPath($lPath, $lFile);                
+                $lFilename = sprintf("%s_%02d.%s", $lFilename, $i, $lExt);
+                $lData = file_get_contents($lFilename);
+                $lData = sprintf("<xmp class='Code'>%s</xmp>", $lData);
+                $this->sitemapXml[] = $lData;
             }
-            $this->sitemapsXml = $lDataArr["sitemaps"];
-            $this->sitemapXml = $lDataArr["sitemap"];
+        }
+        //===============================================
+        public function deleteXml() {
+            $lPathObj = new GPath();
+            $lPath = $this->getItem("sitemap/configs", "path");
+            $lFile = $this->getItem("sitemap/configs", "file");
+            $lPath = $lPathObj->getPath($lPath, $lFile);
+            $lPattern = sprintf("%s*", $lPath);
+            $lFiles = glob($lPattern);
+            
+            for($i = 0; $i < count($lFiles); $i++) {
+                $lFile = $lFiles[$i];
+                unlink($lFile);
+            }
         }
         //===============================================
     }

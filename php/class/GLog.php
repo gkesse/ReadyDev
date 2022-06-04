@@ -63,7 +63,7 @@ class GLog extends GObject {
         if($lError != "") $lClass = "error";
         echo sprintf("<div id='error_box' class='error %s'>\n", $lClass);
         echo sprintf("<div class='error_close' onclick='server_call(\"log\", \"close_error\", this);'><i class='error_close_fa fa fa-times'></i></div>\n");
-        echo sprintf("<div><xmp id='error_msg' class='error_main Code3'>%s</xmp></div>\n", $lError);
+        echo sprintf("<xmp id='error_msg' class='error_main Code3'>%s</xmp>\n", $lError);
         echo sprintf("</div>\n");
     }
     //===============================================

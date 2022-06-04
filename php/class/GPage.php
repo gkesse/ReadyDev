@@ -47,5 +47,14 @@ class GPage extends GObject {
         $this->redirectUrl($lHomePage);
     }
     //===============================================
+    public function notFound() {
+        $lMsg = "<i class='fa fa-exclamation-triangle'></i> PAGE NON TROUVEE";
+        $lPageId = $this->getPageId();
+        echo sprintf("<div id='notfound_box' class='error'>\n");
+        echo sprintf("<div class='error_close' onclick='server_call(\"page\", \"close_notfound\", this);'><i class='error_close_fa fa fa-times'></i></div>\n");
+        echo sprintf("<div class='error_main'>%s<br>%s</div>\n", $lMsg, $lPageId);
+        echo sprintf("</div>\n");        
+    }
+    //===============================================
 }
 ?>

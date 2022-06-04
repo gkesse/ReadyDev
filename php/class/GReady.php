@@ -44,9 +44,7 @@
         public function onError() {
             if($this->foundOn) return;
             $lPageObj = new GPage();
-            $lPage = $lPageObj->getPageId();
-            GLog::Instance()->addError(sprintf(
-                "<i class='fa fa-exclamation-triangle'></i> PAGE NON TROUVEE", $lPage));
+            $lPageObj->notFound();
         }
         //===============================================
     }

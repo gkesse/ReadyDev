@@ -7,8 +7,7 @@ class GSitemap extends GObject {
 		this.urlMax = 0;
 		this.urlList = "";
 		this.sitemapCount = 0;
-		this.sitemapsXml = "";
-		this.sitemapXml = "";
+		this.sitemapXml = [];
 		this.msg = "";
     }
     //===============================================
@@ -20,7 +19,7 @@ class GSitemap extends GObject {
 		this.urlList = lData.getItem(code, "url_list", true);
 		this.sitemapCount = lData.getItem(code, "sitemap_count");
 		this.sitemapsXml = lData.getItem(code, "sitemaps_xml", true);
-		this.sitemapXml = lData.getItem(code, "sitemap_xml", true);
+		this.sitemapXml = lData.getListCD(code, "xml");
 		this.msg = lData.getItem(code, "msg");
 	}
     //===============================================
@@ -159,9 +158,8 @@ class GSitemap extends GObject {
         var lVisualizeUrl = document.getElementById("SitemapVisualizeUrl");
 		var lSitemap = new GSitemap();
 		lSitemap.deserialize(data);
-        lVisualizeSite.innerHTML = lSitemap.sitemapsXml;
-        lVisualizeUrl.innerHTML = lSitemap.sitemapXml;
-        //PR.prettyPrint();
+        lVisualizeSite.innerHTML = lSitemap.sitemapXml[0];
+        lVisualizeUrl.innerHTML = lSitemap.sitemapXml[1];
     }
     //===============================================
     onClearEnum() {

@@ -32,6 +32,9 @@ class GServer extends GObject {
 		else if(module == "log") {
 			this.onLog(method, obj, data);
 		}
+		else if(module == "page") {
+			this.onPage(method, obj, data);
+		}
 	    //===============================================
 		// end
 	    //===============================================
@@ -62,6 +65,11 @@ class GServer extends GObject {
 	onLog(method, obj, data) {
 		var lLog = new GLog();
 		lLog.onModule(method, obj, data)
+	}
+    //===============================================
+	onPage (method, obj, data) {
+		var lPage = new GPage();
+		lPage.onModule(method, obj, data)
 	}
     //===============================================
 }

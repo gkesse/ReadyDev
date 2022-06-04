@@ -26,6 +26,15 @@
                 $this->runTest();
             }
             //===============================================
+            // file
+            //===============================================
+            else if($lKey == "file/glob") {
+                $this->runFileGlob();
+            }
+            else if($lKey == "file/unlink") {
+                $this->runFileUnlink();
+            }
+            //===============================================
             // xml
             //===============================================
             else if($lKey == "xml/code") {
@@ -88,6 +97,18 @@
         //===============================================
         public function runJs() {
             echo sprintf("<xmp class='Code3' id='test_js_output'></xmp>\n");
+        }
+        //===============================================
+        public function runFileGlob() {
+            $lDatas = glob("sitemap*");
+            for($i = 0; $i < count($lDatas); $i++) {
+                $lData = $lDatas[$i];
+                $this->printData($lData);
+            }
+        }
+        //===============================================
+        public function runFileUnlink() {
+            @unlink("sitemap_00.xml");
         }
         //===============================================
         public function runXmlCode() {

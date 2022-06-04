@@ -246,10 +246,10 @@ span {
     top: 20px;
     left: 50%;
     border-radius: 5px;
-    padding: 30px 10px 10px 10px;
+    padding: 40px 10px 10px 10px;
     transform: translate(-50%, 0);
     min-height: 100px;
-    max-width: 500px;
+    width: 500px;
     z-index: 2;
 }
 
