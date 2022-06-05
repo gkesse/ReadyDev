@@ -59,10 +59,51 @@ input {
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus {
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
     -webkit-text-fill-color: white ;
     -webkit-box-shadow: 0 0 0 30px #051039 inset !important;
     transition: background-color 5000s ease-in-out 0s;
+}
+
+* {
+	scrollbar-color: #aaaaff #111111;
+	scrollbar-width: thin;
+}
+
+*::-webkit-scrollbar {
+  	width: 5px;
+  	height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  	background: transparent; 
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+  	background: #aaaaff; 
+	border-left: 2px solid #111111;
+	border-right: 2px solid #111111;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+  	background: #aaaaff; 
+	border-top: 2px solid #111111;
+	border-bottom: 2px solid #111111;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  	background: #aaaaff; 
+}
+
+::-webkit-scrollbar-button:horizontal {
+	background: #aaaaff;
+	width: 5px;
+}
+
+::-webkit-scrollbar-button:vertical {
+	background: #aaaaff;
+	height: 5px;
 }
 
 select {
@@ -552,15 +593,8 @@ span {
     padding-bottom: 250px;
 }
 
-.box {
-	background-color: #111111;
-	position: fixed;
-	top: 0px;
-	bottom: 0px;
-	left: 0px;
-	right: 0px;
-    padding: 50px 10px 50px 10px;
-    overflow: auto;
+.Border {
+    border: 2px solid #2f3959;
 }
 
 .BoxHide {
@@ -1470,10 +1504,6 @@ span {
     border-radius: 20px;
     text-align: center;
     margin: 5px 5px 0 5px;
-}
-
-.None {
-	display: none;
 }
 
 .Parallax {

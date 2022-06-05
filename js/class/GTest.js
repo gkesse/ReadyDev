@@ -28,6 +28,18 @@ class GTest extends GObject {
 			this.runArray();
 		}
     	//===============================================
+		// date
+    	//===============================================
+		else if(key == "date/format") {
+			this.runDateFormat();
+		}
+    	//===============================================
+		// log
+    	//===============================================
+		else if(key == "log/caller") {
+			this.runLogCaller();
+		}
+    	//===============================================
 		// string
     	//===============================================
 		else if(key == "string/format") {
@@ -97,6 +109,27 @@ class GTest extends GObject {
 		}
 
 		this.output.innerHTML = lData;
+	}
+    //===============================================
+    // date
+    //===============================================
+	runDateFormat() {
+		var lDateObj = new GDate();
+		var lDate = lDateObj.getDate();
+		this.printData(lDate);
+	}
+    //===============================================
+    // log
+    //===============================================
+	runLogCaller() {
+		var lDateObj = new GDate();
+		var lError = new Error();
+		var lStack = lError.stack.toString().split(/\r\n|\n/);
+		var lTrace = lStack[2].trim();
+		var lDate = lDateObj.getDate();
+		var lLog = "Bonjour tout le monde";
+		var lMsg = sprintf("%s %s :\n%s", lDate, lTrace, lLog);
+		this.printData(lMsg);
 	}
     //===============================================
 	// string

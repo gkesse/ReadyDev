@@ -80,5 +80,11 @@ class GServer extends GObject {
 		lQuery.onModule(method, obj, data)
 	}
     //===============================================
+	showErrors() {
+		var lLog = GLog.Instance();
+		lLog.showErrors();
+		lLog.showLogs();
+	}
+    //===============================================
 }
 //===============================================

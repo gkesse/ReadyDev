@@ -70,6 +70,7 @@
     		<map>
     			<data>/js/functions.js</data>
     			<data>/js/class/GObject.js</data>
+    			<data>/js/class/GDate.js</data>
     			<data>/js/class/GLog.js</data>
     			<data>/js/class/GPage.js</data>
     			<data>/js/class/GXml.js</data>
@@ -595,27 +596,9 @@
     			</data>
     			<data>
     				<category>header</category>
-    				<tooltip>Enumération</tooltip>
+    				<tooltip>Émission</tooltip>
     				<id>QueryTab1</id>
-    				<name>Enumération</name>
-    			</data>
-    			<data>
-    				<category>header</category>
-    				<tooltip>Liste</tooltip>
-    				<id>QueryTab2</id>
-    				<name>Liste</name>
-    			</data>
-    			<data>
-    				<category>header</category>
-    				<tooltip>Génération</tooltip>
-    				<id>QueryTab3</id>
-    				<name>Génération</name>
-    			</data>
-    			<data>
-    				<category>header</category>
-    				<tooltip>Visualisation</tooltip>
-    				<id>QueryTab4</id>
-    				<name>Visualisation</name>
+    				<name>Émission</name>
     			</data>
        			<!-- ============================================ -->
        			<!-- header/link -->
@@ -640,6 +623,35 @@
 		                <br>Produit par <b>Gérard KESSE</b>.
 		           	]]></intro>
 		     	</data>
+		        <!-- ============================================ -->
+		    	<!-- emission -->
+		        <!-- ============================================ -->
+		    	<data>
+		    		<category>emission</category>
+					<title>Émission</title>
+					<id>QueryTab1</id>
+		     	</data>
+		        <!-- ============================================ -->
+		    	<!-- emission/text -->
+		        <!-- ============================================ -->
+		    	<data>
+		    		<category>emission/text</category>
+		    		<id>QueryEmissionText</id>
+		    		<name>QueryEmissionText</name>
+		    		<rows>18</rows>
+		    		<cols>10</cols>
+		    		<placeholder>Saisir une requête...</placeholder>
+		     	</data>
+		        <!-- ============================================ -->
+		    	<!-- emission/button -->
+		        <!-- ============================================ -->
+		    	<data>
+		    		<category>emission/button</category>
+		    		<module>query</module>
+		    		<method>send_query</method>
+		    		<name>Envoyer</name>
+		    		<tooltip>Envoyer la requête</tooltip>
+		     	</data>
        			<!-- ============================================ -->
        			<!-- end -->
        			<!-- ============================================ -->
@@ -651,8 +663,8 @@
     	<data>
     		<code>test</code>
     		<env>ready</env>
-    		<dev>xml/map</dev>
-    		<js>xml/template</js>
+    		<dev>js</dev>
+    		<js>log/caller</js>
      	</data>
         <!-- ============================================ -->
     	<!-- style -->

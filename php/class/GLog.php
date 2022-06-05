@@ -55,7 +55,7 @@ class GLog extends GObject {
     }
     //===============================================
     public function showErrors() {
-        $lClass = "None";
+        $lClass = "BoxHide";
         $lError = "";
         foreach($this->errors as $error) {
             $lError .= sprintf("%s<br>", $error);
@@ -68,7 +68,7 @@ class GLog extends GObject {
     }
     //===============================================
     public function showLogs() {
-        $lClass = "None";
+        $lClass = "BoxHide";
         $lLog = "";
         foreach($this->logs as $log) {
             $lLog .= sprintf("%s<br>", $log);

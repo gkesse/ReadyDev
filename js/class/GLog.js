@@ -1,11 +1,20 @@
 //===============================================
 class GLog extends GObject {
     //===============================================
+	static m_instance = null;
+    //===============================================
     constructor() {
 		super();
 		this.errors = [];
 		this.logs = [];
     }
+    //===============================================
+	static Instance() {
+		if(this.m_instance == null) {
+			this.m_instance = new GLog();
+		}
+		return this.m_instance;
+	}	
     //===============================================
     deserialize(data, errors = "errors", logs = "logs") {
 		var lData = new GCode();
@@ -56,6 +65,7 @@ class GLog extends GObject {
 	    var lErrorMsg = document.getElementById("error_msg");
 	    lErrorBox.style.display = "block";
  		lErrorMsg.innerHTML = lErrors;
+		this.errors = [];
     }
     //===============================================
     showLogs() {
@@ -70,7 +80,28 @@ class GLog extends GObject {
 	    var lLogMsg = document.getElementById("log_msg");
 	    lLogBox.style.display = "block";
  		lLogMsg.innerHTML = lLogs;
+		this.logs = [];
     }
+    //===============================================
+	addError(error) {
+		var lDateObj = new GDate();
+		var lError = new Error();
+		var lStack = lError.stack.toString().split(/\r\n|\n/);
+		var lTrace = lStack[2].trim();
+		var lDate = lDateObj.getDate();
+		var lMsg = sprintf("%s %s :\n%s", lDate, lTrace, error);
+		this.errors.push(lMsg);
+	}
+    //===============================================
+	addLog(log) {
+		var lDateObj = new GDate();
+		var lError = new Error();
+		var lStack = lError.stack.toString().split(/\r\n|\n/);
+		var lTrace = lStack[2].trim();
+		var lDate = lDateObj.getDate();
+		var lMsg = sprintf("%s %s :\n%s", lDate, lTrace, log);
+		this.logs.push(lMsg);
+	}
     //===============================================
 }
 //===============================================

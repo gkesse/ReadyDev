@@ -70,42 +70,10 @@ class GSitemap extends GObject {
     init() {
         var lTabCtn = document.getElementsByClassName("SitemapTab");
         var lObj = lTabCtn[0];
-        this.openSitemapTab(lObj, "SitemapTab0");
+        this.onOpenHeader(lObj, "SitemapTab0");
         lTabCtn = document.getElementsByClassName("SitemapFileTab");
         lObj = lTabCtn[0];
-        this.openSitemapFileTab(lObj, "SitemapFileTab0");
-    }
-    //===============================================
-    openSitemapTab(obj, name) {
-        var lTab = document.getElementsByClassName("SitemapTab");
-        for(var i = 0; i < lTab.length; i++) {
-            var lTabId = lTab[i];
-            lTabId.className = lTabId.className.replace(" Active", "");
-        }
-        obj.className += " Active";
-        var lTabCtn = document.getElementsByClassName("SitemapTabCtn");
-        for(var i = 0; i < lTabCtn.length; i++) {
-            var lTabCtnId = lTabCtn[i];
-            lTabCtnId.style.display = "none";
-        }
-        var lTabId = document.getElementById(name);
-        lTabId.style.display = "block";
-    }
-    //===============================================
-    openSitemapFileTab(obj, name) {
-        var lTab = document.getElementsByClassName("SitemapFileTab");
-        for(var i = 0; i < lTab.length; i++) {
-            var lTabId = lTab[i];
-            lTabId.className = lTabId.className.replace(" Active", "");
-        }
-        obj.className += " Active";
-        var lTabCtn = document.getElementsByClassName("SitemapFileTabCtn");
-        for(var i = 0; i < lTabCtn.length; i++) {
-            var lTabCtnId = lTabCtn[i];
-            lTabCtnId.style.display = "none";
-        }
-        var lTabId = document.getElementById(name);
-        lTabId.style.display = "block";
+        this.onOpenSitemap(lObj, "SitemapFileTab0");
     }
     //===============================================
     onGetEnum() {
@@ -188,14 +156,38 @@ class GSitemap extends GObject {
         lVisualizeUrl.innerHTML = "";
     }
     //===============================================
-    onOpenHeader(obj, data) {
-		var lSitemap = new GSitemap();
-		lSitemap.openSitemapTab(obj, data);
+    onOpenHeader(obj, name) {
+		if(obj === undefined) return;
+        var lTab = document.getElementsByClassName("SitemapTab");
+        for(var i = 0; i < lTab.length; i++) {
+            var lTabId = lTab[i];
+            lTabId.className = lTabId.className.replace(" Active", "");
+        }
+        obj.className += " Active";
+        var lTabCtn = document.getElementsByClassName("SitemapTabCtn");
+        for(var i = 0; i < lTabCtn.length; i++) {
+            var lTabCtnId = lTabCtn[i];
+            lTabCtnId.style.display = "none";
+        }
+        var lTabId = document.getElementById(name);
+        lTabId.style.display = "block";
 	}
     //===============================================
-    onOpenSitemap(obj, data) {
-		var lSitemap = new GSitemap();
-		lSitemap.openSitemapFileTab(obj, data);
+    onOpenSitemap(obj, name) {
+		if(obj === undefined) return;
+        var lTab = document.getElementsByClassName("SitemapFileTab");
+        for(var i = 0; i < lTab.length; i++) {
+            var lTabId = lTab[i];
+            lTabId.className = lTabId.className.replace(" Active", "");
+        }
+        obj.className += " Active";
+        var lTabCtn = document.getElementsByClassName("SitemapFileTabCtn");
+        for(var i = 0; i < lTabCtn.length; i++) {
+            var lTabCtnId = lTabCtn[i];
+            lTabCtnId.style.display = "none";
+        }
+        var lTabId = document.getElementById(name);
+        lTabId.style.display = "block";
 	}
     //===============================================
 }

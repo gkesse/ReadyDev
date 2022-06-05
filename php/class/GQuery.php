@@ -116,44 +116,41 @@
         }
         //===============================================
         public function onEnum() {
-            $lId = $this->getItem("sitemap/enum", "id");
-            $lTitle = $this->getItem("sitemap/enum", "title");
-            $lCount = $this->countItem("sitemap/enum");
+            $lId = $this->getItemC("query", "emission", "id");
+            $lTitle = $this->getItemC("query", "emission", "title");
+            $lCount = $this->countItem("query");
             
-            echo sprintf("<div class='Row Left QueryTabCtn' id='%s'\n", $lId);
-            echo sprintf("onkeypress='saveFileKey(event);'>\n");
+            echo sprintf("<div class='Row Left QueryTabCtn' id='%s'>\n", $lId);
             echo sprintf("<h2 class='Title4'>%s</h2>\n", $lTitle);
-            echo sprintf("<div class='Body13 Center'>\n");
-            
-            for($i = 0; $i < $lCount; $i++) {
-                $lCategory = $this->getItem3("sitemap/enum", "category", $i);
-                $lName = $this->getItem3("sitemap/enum", "name", $i);
-                $lPicto = $this->getItem3("sitemap/enum", "picto", $i);
-                $lToolTip = $this->getItem3("sitemap/enum", "tooltip", $i);
-                $lModule = $this->getItem3("sitemap/enum", "module", $i);
-                $lMethod = $this->getItem3("sitemap/enum", "method", $i);
-                
-                if($lCategory == "action") {
-                    echo sprintf("<button class='Button7' type='button' title=\"%s\"\n", $lToolTip);
-                    echo sprintf("onclick='server_call(\"%s\", \"%s\");'><i class='fa fa-%s'></i> %s</button>\n", $lModule, $lMethod, $lPicto, $lName);
-                }
-            }
-            
-            echo sprintf("</div>\n");
+
             echo sprintf("<div class='Body14'>\n");
             echo sprintf("<div class='Content9'>\n");
             
             for($i = 0; $i < $lCount; $i++) {
-                $lCategory = $this->getItem3("sitemap/enum", "category", $i);
-                $lLabel = $this->getItem3("sitemap/enum", "label", $i);
-                $lId = $this->getItem3("sitemap/enum", "id", $i);
-                if($lCategory == "form") {
-                    echo sprintf("<div class='Row9'>\n");
-                    echo sprintf("<span class='Label4'>%s</span>\n", $lLabel);
-                    echo sprintf("<span class='Field5' id='%s'></span>\n", $lId);
-                    echo sprintf("</div>\n");
+                $lCategory = $this->getItem3("query", "category", $i);
+                $lId = $this->getItem3("query", "id", $i);
+                $lName = $this->getItem3("query", "name", $i);
+                $lRows = $this->getItem3("query", "rows", $i);
+                $lCols = $this->getItem3("query", "cols", $i);
+                $lPlaceholder = $this->getItem3("query", "placeholder", $i);
+                
+                if($lCategory == "emission/text") {
+                    echo sprintf("<textarea class='Border Code3' id='%s' name='%s' rows='%s' cols='%s' placeholder='%s'></textarea>\n"
+                        , $lId, $lName, $lRows, $lCols, $lPlaceholder);
                 }
-            }          
+            }
+            for($i = 0; $i < $lCount; $i++) {
+                $lCategory = $this->getItem3("query", "category", $i);
+                $lName = $this->getItem3("query", "name", $i);
+                $lModule = $this->getItem3("query", "module", $i);
+                $lMethod = $this->getItem3("query", "method", $i);
+                $lTooltip = $this->getItem3("query", "tooltip", $i);
+                
+                if($lCategory == "emission/button") {
+                    echo sprintf("<button class='Button2' onclick='server_call(\"%s\", \"%s\");' title='%s'>%s</button>"
+                        , $lModule, $lMethod, $lTooltip, $lName);
+                }
+            }
             
             echo sprintf("</div>\n");
             echo sprintf("</div>\n");
