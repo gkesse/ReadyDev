@@ -53,7 +53,7 @@ class GQuery extends GObject {
         var lEmissionTextObj = document.getElementById("QueryEmissionText");
 		var lEmissionText = lEmissionTextObj.innerHTML;
 		if(lEmissionText == "") {
-			lLog.addError(sprintf("Erreur le text est vide."));
+			lLog.addLog(sprintf("Erreur le text est vide."));
 			return;
 		}
 	}

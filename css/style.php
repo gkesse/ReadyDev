@@ -280,7 +280,7 @@ span {
 /* special */
 /* ============================================== */
 
-.error {
+.Errors {
     background-color: #854069;
     border: 2px solid #aaaaff;
     position: fixed;
@@ -294,7 +294,7 @@ span {
     z-index: 2;
 }
 
-.error_close  {
+.ErrorsClose  {
     background-color: rgba(0,0,0,0.4);
     position: absolute;
     top: 5px;
@@ -305,15 +305,15 @@ span {
     cursor: pointer;
 }
 
-.error_close:hover  {
+.ErrorsClose:hover  {
     background-color: rgba(0,0,0,0.2);
 }
 
-.error_close:active  {
+.ErrorsClose:active  {
     background-color: rgba(0,0,0,0.4);
 }
 
-.error_close_fa {
+.ErrorsCloseFa {
     background-color: transparent;
     position: absolute;
     top: 50%;
@@ -321,12 +321,12 @@ span {
     transform: translate(-50%, -55%);
 }
 
-.error_main {
+.ErrorsMain {
     background-color: transparent;
     overflow: auto;
 }
 
-.log {
+.Logs {
     background-color: #359069;
     border: 2px solid #aaaaff;
     position: fixed;
@@ -340,7 +340,7 @@ span {
     z-index: 2;
 }
 
-.log_close  {
+.LogsClose  {
     background-color: rgba(0,0,0,0.4);
     position: absolute;
     top: 5px;
@@ -351,15 +351,15 @@ span {
     cursor: pointer;
 }
 
-.log_close:hover  {
+.LogsClose:hover  {
     background-color: rgba(0,0,0,0.2);
 }
 
-.log_close:active  {
+.LogsClose:active  {
     background-color: rgba(0,0,0,0.4);
 }
 
-.log_close_fa {
+.LogsCloseFa {
     background-color: transparent;
     position: absolute;
     top: 50%;
@@ -367,18 +367,9 @@ span {
     transform: translate(-50%, -55%);
 }
 
-.log_main {
+.LogsMain {
     background-color: rgba(0,0,0,0);
     overflow: auto;
-}
-
-
-.banner_url {
-    position: absolute;
-    top: 110px;
-    left: 0px;
-    right: 0px;
-    z-index: 1;
 }
 
 /* ============================================== */

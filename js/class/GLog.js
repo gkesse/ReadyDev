@@ -44,12 +44,12 @@ class GLog extends GObject {
 	}
     //===============================================
     onCloseError() {
-	    var lErrorBox = document.getElementById("error_box");
+	    var lErrorBox = document.getElementById("ErrorsBox");
 	    lErrorBox.style.display = "none"; 
     }
     //===============================================
     onCloseLog() {
-	    var lLog = document.getElementById("log_box");
+	    var lLog = document.getElementById("LogsBox");
 	    lLog.style.display = "none"; 
     }
     //===============================================
@@ -61,10 +61,10 @@ class GLog extends GObject {
 			lErrors += "> " + lError;
 		}
 		if(lErrors == "") return;
-	    var lErrorBox = document.getElementById("error_box");
-	    var lErrorMsg = document.getElementById("error_msg");
-	    lErrorBox.style.display = "block";
- 		lErrorMsg.innerHTML = lErrors;
+	    var lErrorsBox = document.getElementById("ErrorsBox");
+	    var lErrorsMsg = document.getElementById("ErrorsMsg");
+	    lErrorsBox.style.display = "block";
+ 		lErrorsMsg.innerHTML = lErrors;
 		this.errors = [];
     }
     //===============================================
@@ -76,10 +76,10 @@ class GLog extends GObject {
 			lLogs += "> " + lLog;
 		}
 		if(lLogs == "") return;
-	    var lLogBox = document.getElementById("log_box");
-	    var lLogMsg = document.getElementById("log_msg");
-	    lLogBox.style.display = "block";
- 		lLogMsg.innerHTML = lLogs;
+	    var lLogsBox = document.getElementById("LogsBox");
+	    var lLogsMsg = document.getElementById("LogsMsg");
+	    lLogsBox.style.display = "block";
+ 		lLogsMsg.innerHTML = lLogs;
 		this.logs = [];
     }
     //===============================================

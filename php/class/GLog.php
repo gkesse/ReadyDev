@@ -55,28 +55,28 @@ class GLog extends GObject {
     }
     //===============================================
     public function showErrors() {
-        $lClass = "BoxHide";
-        $lError = "";
+        $lClass = "";
+        $lErrors = "";
         foreach($this->errors as $error) {
-            $lError .= sprintf("%s<br>", $error);
+            $lErrors .= sprintf("%s<br>", $error);
         }
-        if($lError != "") $lClass = "error";
-        echo sprintf("<div id='error_box' class='error %s'>\n", $lClass);
-        echo sprintf("<div class='error_close' onclick='server_call(\"log\", \"close_error\", this);'><i class='error_close_fa fa fa-times'></i></div>\n");
-        echo sprintf("<xmp id='error_msg' class='error_main Code3'>%s</xmp>\n", $lError);
+        if($lErrors == "") $lClass = "BoxHide";
+        echo sprintf("<div id='ErrorsBox' class='Errors %s'>\n", $lClass);
+        echo sprintf("<div class='ErrorsClose' onclick='server_call(\"log\", \"close_error\", this);'><i class='ErrorsCloseFa fa fa-times'></i></div>\n");
+        echo sprintf("<xmp id='ErrorsMsg' class='ErrorsMain Code3'>%s</xmp>\n", $lErrors);
         echo sprintf("</div>\n");
     }
     //===============================================
     public function showLogs() {
-        $lClass = "BoxHide";
-        $lLog = "";
+        $lClass = "";
+        $lLogs = "";
         foreach($this->logs as $log) {
-            $lLog .= sprintf("%s<br>", $log);
+            $lLogs .= sprintf("%s<br>", $log);
         }
-        if($lLog != "") $lClass = "error";
-        echo sprintf("<div id='log_box' class='log %s'>\n", $lClass);
-        echo sprintf("<div class='log_close' onclick='server_call(\"log\", \"close_log\", this);'><i class='error_close_fa fa fa-times'></i></div>\n");
-        echo sprintf("<xmp id='log_msg' class='log_main Code3'>%s</xmp>\n", $lLog);
+        if($lLogs == "") $lClass = "BoxHide";
+        echo sprintf("<div id='LogsBox' class='Logs %s'>\n", $lClass);
+        echo sprintf("<div class='LogsClose' onclick='server_call(\"log\", \"close_log\", this);'><i class='LogsCloseFa fa fa-times'></i></div>\n");
+        echo sprintf("<xmp id='LogsMsg' class='LogsMain Code3'>%s</xmp>\n", $lLogs);
         echo sprintf("</div>\n");
     }
     //===============================================
