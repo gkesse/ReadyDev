@@ -52,6 +52,9 @@ class GServer extends GModule {
         else if($lModule == "sitemap") {
             $this->onSitemap($data, $this);
         }
+        else if($lModule == "query") {
+            $this->onQuery($data, $this);
+        }
         //===============================================
         // end
         //===============================================
@@ -67,6 +70,11 @@ class GServer extends GModule {
     public function onSitemap($data, $server) {
         $lSitemap = new GSitemap();
         $lSitemap->onModule($data, $server);
+    }
+    //===============================================
+    public function onQuery($data, $server) {
+        $lQuery = new GQuery();
+        $lQuery->onModule($data, $server);
     }
     //===============================================
     public function sendResponse() {

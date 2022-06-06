@@ -5,13 +5,13 @@ class GCode extends GXml {
 		super();
     }
     //===============================================
-    addData(code, key, value) {
+    addData(code, key, value, isCData = false) {
         if(code == "") return false;
         if(key == "") return false;
         if(value == "") return false;
         this.createCode(code);
         this.getCode(code);
-        this.createNode(key, value);
+        this.createNode(key, value, isCData);
 		return true;        
     }
     //===============================================

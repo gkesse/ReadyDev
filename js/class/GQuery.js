@@ -3,7 +3,15 @@ class GQuery extends GObject {
     //===============================================
     constructor() {
 		super();
+		this.msg = "";
     }
+    //===============================================
+	serialize(code = "query") {
+		var lData = new GCode();
+		lData.createDoc();
+		lData.addData(code, "msg", this.msg, true);
+		return lData.toStringCode(code);
+	}
     //===============================================
     onModule(method, obj, data) {
 		if(method == "") {
@@ -16,7 +24,7 @@ class GQuery extends GObject {
 			this.onOpenHeader(obj, data);
 		}
 		else if(method == "send_query") {
-			this.onSendQuery(obj, data);
+			this.onSendQuery();
 		}
     	//===============================================
 		// end
@@ -48,16 +56,26 @@ class GQuery extends GObject {
         lTabId.style.display = "block";
     }
     //===============================================
-    onSendQuery(obj = null, data = null) {
+    onSendQuery() {
 		var lLog = GLog.Instance();
         var lEmissionTextObj = document.getElementById("QueryEmissionText");
-		var lEmissionText = lEmissionTextObj.innerHTML;
-		if(lEmissionText == "") {
-			lLog.addError(sprintf("Erreur le text est vide."));
+		this.msg = lEmissionTextObj.value;
+		if(this.msg == "") {
 			lLog.addError(sprintf("Erreur le text est vide."));
 			return;
-		}
+		}	
+		this.onSendQueryCall();	
 	}
+    //===============================================
+    onSendQueryCall() {
+		var lAjax = new GAjax();
+		var lData = this.serialize();
+		lAjax.call("query", "send_query", lData, this.onSendQueryCB);		
+    }
+    //===============================================
+    onSendQueryCB(data) {
+
+    }
     //===============================================
 }
 //===============================================

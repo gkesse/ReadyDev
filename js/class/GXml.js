@@ -54,7 +54,7 @@ class GXml extends GObject {
 		this.doc = lParser.parseFromString(lRoot, "text/xml"); 
 	}
     //===============================================
-    createNode(path, value = "") {
+    createNode(path, value = "", isCData = false) {
         path = path.trim();
         var lFirst = path.substr(0, 1);
 		var lRootOn = (lFirst == "/");
@@ -82,7 +82,7 @@ class GXml extends GObject {
             }
         }
         if(value != "") {
-            this.setNodeValue(value);
+            this.setNodeValue(value, isCData);
         }        
     }
     //===============================================

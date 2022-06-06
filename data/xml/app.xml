@@ -663,7 +663,7 @@
         <!-- ============================================ -->
     	<data>
     		<code>test</code>
-    		<env>dev</env>
+    		<env>prod</env>
     		<dev>js</dev>
     		<js>env/type</js>
      	</data>

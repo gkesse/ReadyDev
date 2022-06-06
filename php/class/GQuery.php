@@ -1,11 +1,6 @@
 <?php   
     class GQuery extends GModule {
         //===============================================
-        private $urlCount = 0;
-        private $urlMax = 0;
-        private $urlList = "";
-        private $sitemapCount = 0;
-        private $sitemapXml = array();
         private $msg = "";
         //===============================================
         public function __construct() {
@@ -13,20 +8,18 @@
             $this->createDoms();
         }
         //===============================================
-        public function serialize($code = "sitemap") {
+        public function serialize($code = "query") {
             $lData = new GCode();
             $lData->createDoc();
-            $lData->addData($code, "url_count", $this->urlCount);
-            $lData->addData($code, "url_max", $this->urlMax);
-            $lData->addData($code, "url_list", $this->urlList, true);
-            $lData->addData($code, "sitemap_count", $this->sitemapCount);
-            $lData->addData($code, "msg", $this->msg);
-            $lData->addListCD($code, $this->sitemapXml, "xml");
+            $lData->addData($code, "msg", $this->msg, true);
             return $lData->toStringData();
         }
         //===============================================
-        public function deserialize($data, $code = "sitemap") {
+        public function deserialize($data, $code = "query") {
             parent::deserialize($data);
+            $lData = new GCode();
+            $lData->loadXmlData($data);
+            $this->msg = $lData->getItem($code, "msg", true);
         }
         //===============================================
         public function onModule($data, $server) {
@@ -39,23 +32,21 @@
             //===============================================
             // method
             //===============================================
-            else if($lMethod == "get_enum") {
-                $this->onGetEnum($server);
-            }
-            else if($lMethod == "get_list") {
-                $this->onGetList($server);
-            }
-            else if($lMethod == "get_generate") {
-                $this->onGetGenerate($server);
-            }
-            else if($lMethod == "get_visualize") {
-                $this->onGetVisualize($server);
+            else if($lMethod == "send_query") {
+                $this->onSendQuery($server);
             }
             //===============================================
             // end
             //===============================================
             else return false;
             return true;
+        }
+        //===============================================
+        public function onSendQuery($server) {
+            $lLog = GLog::Instance();
+            $lData = $this->serialize();
+            //$server->addResponse($lData);
+            $lLog->addError($lData);
         }
         //===============================================
         public function run() {
@@ -71,7 +62,7 @@
             
             $this->onHeader();            
             $this->onHome();
-            $this->onEnum();
+            $this->onEmission();
             
             echo sprintf("</div>\n");
             echo sprintf("</div>\n");
@@ -115,7 +106,7 @@
             echo sprintf("</div>\n");            
         }
         //===============================================
-        public function onEnum() {
+        public function onEmission() {
             $lId = $this->getItemC("query", "emission", "id");
             $lTitle = $this->getItemC("query", "emission", "title");
             $lCount = $this->countItem("query");
