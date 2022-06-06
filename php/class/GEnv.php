@@ -16,6 +16,11 @@ class GEnv extends GObject {
         return !$this->isProdEnv();
     }
     //===============================================
+    public function getEnvType() {
+        if($this->isTestEnv()) return "TEST";
+        return "PROD";
+    }
+    //===============================================
     public function getEnv($key, $defaultValue = "") {
         $lEnv = getenv($key);
         if($lEnv == false) return $defaultValue;

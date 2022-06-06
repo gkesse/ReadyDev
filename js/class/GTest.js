@@ -34,6 +34,12 @@ class GTest extends GObject {
 			this.runDateFormat();
 		}
     	//===============================================
+		// env
+    	//===============================================
+		else if(key == "env/type") {
+			this.runEnvType();
+		}
+    	//===============================================
 		// log
     	//===============================================
 		else if(key == "log/caller") {
@@ -117,6 +123,14 @@ class GTest extends GObject {
 		var lDateObj = new GDate();
 		var lDate = lDateObj.getDate();
 		this.printData(lDate);
+	}
+    //===============================================
+    // env
+    //===============================================
+	runEnvType() {
+		var lEnvObj = new GEnv();
+		var lEnv = lEnvObj.getEnv();
+		this.printData(lEnv);
 	}
     //===============================================
     // log

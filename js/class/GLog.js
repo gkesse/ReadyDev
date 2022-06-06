@@ -7,6 +7,7 @@ class GLog extends GObject {
 		super();
 		this.errors = [];
 		this.logs = [];
+		this.env = "";
     }
     //===============================================
 	static Instance() {
@@ -54,11 +55,16 @@ class GLog extends GObject {
     }
     //===============================================
     showErrors() {
+		var lEnvObj = new GEnv();
 		var lErrors = "";
 		for(var i = 0; i < this.errors.length; i++) {
 			var lError = this.errors[i];
-			if(i != 0) lErrors += "\n";
-			lErrors += "> " + lError;
+			var lBr = "<br>";
+			if(lEnvObj.isTestEnv()) lBr = "\n";
+			if(i != 0) lErrors += lBr;
+			var lMsg = sprintf("<i class='fa fa-chevron-right'></i> %s", lError);
+			if(lEnvObj.isTestEnv()) lMsg = sprintf("> %s", lError);
+			lErrors += lMsg;
 		}
 		if(lErrors == "") return;
 	    var lErrorsBox = document.getElementById("ErrorsBox");
@@ -69,11 +75,16 @@ class GLog extends GObject {
     }
     //===============================================
     showLogs() {
+		var lEnvObj = new GEnv();
 		var lLogs = "";
 		for(var i = 0; i < this.logs.length; i++) {
 			var lLog = this.logs[i];
-			if(i != 0) lLogs += "\n";
-			lLogs += "> " + lLog;
+			var lBr = "<br>";
+			if(lEnvObj.isTestEnv()) lBr = "\n";
+			if(i != 0) lLogs += lBr;
+			var lMsg = sprintf("<i class='fa fa-chevron-right'></i> %s", lLog);
+			if(lEnvObj.isTestEnv()) lMsg = sprintf("> %s", lLog);
+			lLogs += lMsg;
 		}
 		if(lLogs == "") return;
 	    var lLogsBox = document.getElementById("LogsBox");
@@ -84,22 +95,26 @@ class GLog extends GObject {
     }
     //===============================================
 	addError(error) {
+		var lEnvObj = new GEnv();
 		var lDateObj = new GDate();
 		var lError = new Error();
 		var lStack = lError.stack.toString().split(/\r\n|\n/);
 		var lTrace = lStack[2].trim();
 		var lDate = lDateObj.getDate();
-		var lMsg = sprintf("%s %s :\n%s", lDate, lTrace, error);
+		var lMsg = error;
+		if(lEnvObj.isTestEnv()) lMsg = sprintf("%s %s :\n%s", lDate, lTrace, error);
 		this.errors.push(lMsg);
 	}
     //===============================================
 	addLog(log) {
+		var lEnvObj = new GEnv();
 		var lDateObj = new GDate();
 		var lError = new Error();
 		var lStack = lError.stack.toString().split(/\r\n|\n/);
 		var lTrace = lStack[2].trim();
 		var lDate = lDateObj.getDate();
-		var lMsg = sprintf("%s %s :\n%s", lDate, lTrace, log);
+		var lMsg = log;		
+		if(lEnvObj.isTestEnv()) lMsg = sprintf("%s %s :\n%s", lDate, lTrace, log);
 		this.logs.push(lMsg);
 	}
     //===============================================

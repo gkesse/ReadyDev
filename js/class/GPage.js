@@ -23,7 +23,7 @@ class GPage extends GObject {
 	}
     //===============================================
     onCloseNotFound() {
-	    var lNotFound = document.getElementById("notfound_box");
+	    var lNotFound = document.getElementById("NotFoundBox");
 	    lNotFound.style.display = "none"; 
     }
     //===============================================

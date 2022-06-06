@@ -42,17 +42,12 @@ class GPage extends GObject {
         }
     }
     //===============================================
-    public function homePage() {
-        $lHomePage = $this->getItem("home", "page");
-        $this->redirectUrl($lHomePage);
-    }
-    //===============================================
     public function notFound() {
-        $lMsg = "<i class='fa fa-exclamation-triangle'></i> PAGE NON TROUVEE";
+        $lMsg = "<i class='NotFoundPicto fa fa-exclamation-triangle'></i> PAGE NON TROUVEE";
         $lPageId = $this->getPageId();
-        echo sprintf("<div id='notfound_box' class='error'>\n");
-        echo sprintf("<div class='error_close' onclick='server_call(\"page\", \"close_notfound\", this);'><i class='error_close_fa fa fa-times'></i></div>\n");
-        echo sprintf("<div class='error_main'>%s<br>%s</div>\n", $lMsg, $lPageId);
+        echo sprintf("<div id='NotFoundBox' class='NotFound'>\n");
+        echo sprintf("<div class='ErrorsClose' onclick='server_call(\"page\", \"close_notfound\", this);'><i class='ErrorsCloseFa fa fa-times'></i></div>\n");
+        echo sprintf("<div class='NotFoundMain'>%s<br>%s</div>\n", $lMsg, $lPageId);
         echo sprintf("</div>\n");        
     }
     //===============================================

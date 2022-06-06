@@ -72,8 +72,8 @@ input:-webkit-autofill:active {
 }
 
 *::-webkit-scrollbar {
-  	width: 5px;
-  	height: 5px;
+  	width: 10px;
+  	height: 10px;
 }
 
 ::-webkit-scrollbar-track {
@@ -124,6 +124,7 @@ textarea {
     color: white;
     width: 100%;
     resize: none;
+  	cursor: auto;
 }
 
 textarea:-webkit-autofill,
@@ -281,7 +282,7 @@ span {
 /* ============================================== */
 
 .Errors {
-    background-color: #854069;
+    background-color: purple;
     border: 2px solid #aaaaff;
     position: fixed;
     top: 20px;
@@ -324,10 +325,11 @@ span {
 .ErrorsMain {
     background-color: transparent;
     overflow: auto;
+    text-align: left;
 }
 
 .Logs {
-    background-color: #359069;
+    background-color: teal;
     border: 2px solid #aaaaff;
     position: fixed;
     top: 20px;
@@ -336,7 +338,7 @@ span {
     padding: 30px 10px 10px 10px;
     transform: translate(-50%, 0);
     min-height: 100px;
-    max-width: 500px;
+    width: 500px;
     z-index: 2;
 }
 
@@ -370,6 +372,31 @@ span {
 .LogsMain {
     background-color: rgba(0,0,0,0);
     overflow: auto;
+    text-align: left;
+}
+
+.NotFound {
+    background-color: #354069;
+    border: 2px solid #aaaaff;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    border-radius: 5px;
+    padding: 40px 10px 10px 10px;
+    transform: translate(-50%, 0);
+    min-height: 100px;
+    width: 500px;
+    z-index: 2;
+}
+
+.NotFoundMain {
+    background-color: transparent;
+    overflow: auto;
+    color: white;
+}
+
+.NotFoundPicto {
+    color: white;
 }
 
 /* ============================================== */

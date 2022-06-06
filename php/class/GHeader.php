@@ -8,6 +8,8 @@ class GHeader extends GModule {
     }
     //===============================================
     public function run() {
+        $lEnvObj = new GEnv();
+        $lEnv = $lEnvObj->getEnvType();
         $lLang = $this->getItem("header", "lang");
         $lTitle = $this->getItem("header", "title");
         $lLogo = $this->getItem("header", "logo");
@@ -23,6 +25,7 @@ class GHeader extends GModule {
         $this->onFonts();
         echo sprintf("</head>\n");
         echo sprintf("<body>\n");
+        echo sprintf("<div id='EnvType' hidden>%s</div>\n", $lEnv);
         echo sprintf("<div class='HtmlPage'>\n");
         $this->onBackground();
         $this->onConnection();

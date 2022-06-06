@@ -22,9 +22,6 @@ class GProcess extends GObject {
         if($lEnv == "prod") {
             $this->runProd();
         }
-        else if($lEnv == "ready") {
-            $this->runReady();
-        }
         else if($lEnv == "dev") {
             $this->runDev();
         }
@@ -35,14 +32,9 @@ class GProcess extends GObject {
         $lTestObj->run();
     }
     //===============================================
-    public function runReady() {
+    public function runProd() {
         $lReadyObj = new GReady();
         $lReadyObj->run();
-    }
-    //===============================================
-    public function runProd() {
-        $lPageObj = new GPage();
-        $lPageObj->homePage();
     }
     //===============================================
  }

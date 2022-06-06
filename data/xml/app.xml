@@ -72,6 +72,7 @@
     			<data>/js/class/GObject.js</data>
     			<data>/js/class/GDate.js</data>
     			<data>/js/class/GLog.js</data>
+    			<data>/js/class/GEnv.js</data>
     			<data>/js/class/GPage.js</data>
     			<data>/js/class/GXml.js</data>
     			<data>/js/class/GCode.js</data>
@@ -662,9 +663,9 @@
         <!-- ============================================ -->
     	<data>
     		<code>test</code>
-    		<env>ready</env>
+    		<env>dev</env>
     		<dev>js</dev>
-    		<js>log/caller</js>
+    		<js>env/type</js>
      	</data>
         <!-- ============================================ -->
     	<!-- style -->

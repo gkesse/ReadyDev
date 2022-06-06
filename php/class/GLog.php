@@ -55,29 +55,47 @@ class GLog extends GObject {
     }
     //===============================================
     public function showErrors() {
+        $lEnvObj = new GEnv();
         $lClass = "";
         $lErrors = "";
         foreach($this->errors as $error) {
             $lErrors .= sprintf("%s<br>", $error);
         }
         if($lErrors == "") $lClass = "BoxHide";
-        echo sprintf("<div id='ErrorsBox' class='Errors %s'>\n", $lClass);
-        echo sprintf("<div class='ErrorsClose' onclick='server_call(\"log\", \"close_error\", this);'><i class='ErrorsCloseFa fa fa-times'></i></div>\n");
-        echo sprintf("<xmp id='ErrorsMsg' class='ErrorsMain Code3'>%s</xmp>\n", $lErrors);
-        echo sprintf("</div>\n");
+        if($lEnvObj->isTestEnv()) {
+            echo sprintf("<div id='ErrorsBox' class='Errors %s'>\n", $lClass);
+            echo sprintf("<div class='ErrorsClose' onclick='server_call(\"log\", \"close_error\", this);'><i class='ErrorsCloseFa fa fa-times'></i></div>\n");
+            echo sprintf("<xmp id='ErrorsMsg' class='ErrorsMain Code3'>%s</xmp>\n", $lErrors);
+            echo sprintf("</div>\n");
+        }
+        else {
+            echo sprintf("<div id='ErrorsBox' class='Errors %s'>\n", $lClass);
+            echo sprintf("<div class='ErrorsClose' onclick='server_call(\"log\", \"close_error\", this);'><i class='ErrorsCloseFa fa fa-times'></i></div>\n");
+            echo sprintf("<div id='ErrorsMsg' class='ErrorsMain'>%s</div>\n", $lErrors);
+            echo sprintf("</div>\n");
+        }
     }
     //===============================================
     public function showLogs() {
+        $lEnvObj = new GEnv();
         $lClass = "";
         $lLogs = "";
         foreach($this->logs as $log) {
             $lLogs .= sprintf("%s<br>", $log);
         }
         if($lLogs == "") $lClass = "BoxHide";
-        echo sprintf("<div id='LogsBox' class='Logs %s'>\n", $lClass);
-        echo sprintf("<div class='LogsClose' onclick='server_call(\"log\", \"close_log\", this);'><i class='LogsCloseFa fa fa-times'></i></div>\n");
-        echo sprintf("<xmp id='LogsMsg' class='LogsMain Code3'>%s</xmp>\n", $lLogs);
-        echo sprintf("</div>\n");
+        if($lEnvObj->isTestEnv()) {
+            echo sprintf("<div id='LogsBox' class='Logs %s'>\n", $lClass);
+            echo sprintf("<div class='LogsClose' onclick='server_call(\"log\", \"close_log\", this);'><i class='LogsCloseFa fa fa-times'></i></div>\n");
+            echo sprintf("<xmp id='LogsMsg' class='LogsMain Code3'>%s</xmp>\n", $lLogs);
+            echo sprintf("</div>\n");
+        }
+        else {
+            echo sprintf("<div id='LogsBox' class='Logs %s'>\n", $lClass);
+            echo sprintf("<div class='LogsClose' onclick='server_call(\"log\", \"close_log\", this);'><i class='LogsCloseFa fa fa-times'></i></div>\n");
+            echo sprintf("<div id='LogsMsg' class='LogsMain'>%s</div>\n", $lLogs);
+            echo sprintf("</div>\n");
+        }
     }
     //===============================================
 }

@@ -64,6 +64,9 @@
         }
         //===============================================
         public function onHeader($key) {
+            $lEnvObj = new GEnv();
+            $lEnv = $lEnvObj->getEnvType();
+            
             $lLang = $this->getItem("header", "lang");
             $lTitle = $this->getItem("header", "title");
             $lLogo = $this->getItem("header", "logo");
@@ -81,6 +84,7 @@
             $lHeader->onFonts();
             echo sprintf("</head>\n");
             echo sprintf("<body onload='server_call(\"test\", \"%s\")'>\n", $key);            
+            echo sprintf("<div id='EnvType' hidden>%s</div>\n", $lEnv);
         }
         //===============================================
         public function onFooter() {

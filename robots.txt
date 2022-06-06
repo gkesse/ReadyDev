@@ -1,5 +1,5 @@
 # Sitemaps
-Sitemap: https://readydev.ovh/data/sitemaps/sitemaps.xml
+Sitemap: https://readydev.ovh/sitemap_00.xml
 
 # Allow All
 User-agent: *
