@@ -1,9 +1,10 @@
 //===============================================
-class GQuery extends GObject {
+class GQuery extends GModule {
     //===============================================
     constructor() {
 		super();
 		this.msg = "";
+		this.lastMsg = "";
     }
     //===============================================
 	serialize(code = "query") {
@@ -11,6 +12,11 @@ class GQuery extends GObject {
 		lData.createDoc();
 		lData.addData(code, "msg", this.msg, true);
 		return lData.toStringCode(code);
+	}
+    //===============================================
+	deserialize(data) {
+		super.deserialize(data, "request");
+		this.msg = data;
 	}
     //===============================================
     onModule(method, obj, data) {
@@ -26,6 +32,9 @@ class GQuery extends GObject {
 		else if(method == "send_query") {
 			this.onSendQuery();
 		}
+		else if(method == "save_query") {
+			this.onSaveQuery();
+		}
     	//===============================================
 		// end
     	//===============================================
@@ -33,10 +42,11 @@ class GQuery extends GObject {
 		return true;
 	}
     //===============================================
-    init() {
+    init(id) {
         var lTabCtn = document.getElementsByClassName("QueryTab");
-        var lObj = lTabCtn[0];
-        this.onOpenHeader(lObj, "QueryTab0");
+        var lObj = lTabCtn[id];
+		var lName = sprintf("QueryTab%s", id);
+        this.onOpenHeader(lObj, lName);
     }
     //===============================================
     onOpenHeader(obj, name) {
@@ -54,31 +64,79 @@ class GQuery extends GObject {
         }
         var lTabId = document.getElementById(name);
         lTabId.style.display = "block";
+		this.onHeader(name);
     }
+    //===============================================
+    onHeader(name) {
+		if(name == "QueryTab1") {
+			this.onEmission();
+		}
+	}
+    //===============================================
+    onEmission() {
+		this.restoreEmissionText();
+	}
     //===============================================
     onSendQuery() {
 		var lLog = GLog.Instance();
         var lEmissionTextObj = document.getElementById("QueryEmissionText");
-		this.msg = lEmissionTextObj.value;
-		if(this.msg == "") {
-			lLog.addError(sprintf("Erreur le text est vide."));
+		var lMsg = lEmissionTextObj.value;
+		if(lMsg == "") {
+			lLog.addError(sprintf("Erreur le texte est vide."));
 			return;
-		}	
+		}
+		this.deserialize(lMsg);	
 		this.onSendQueryCall();	
+	}
+    //===============================================
+    onSaveQuery() {
+		this.saveEmissionText();	
 	}
     //===============================================
     onSendQueryCall() {
 		var lAjax = new GAjax();
-		var lData = this.serialize();
-		lAjax.call("query", "send_query", lData, this.onSendQueryCB);		
+		lAjax.call(this.module, this.method, this.msg, this.onSendQueryCB);		
     }
     //===============================================
     onSendQueryCB(data) {
-
+		var lQuery = new GQuery();
+		lQuery.saveEmissionText();
+		lQuery.setReceptionText(data);
+		lQuery.init(2);
+    }
+    //===============================================
+    saveEmissionText() {
+        var lEmissionTextObj = document.getElementById("QueryEmissionText");
+		var lMsg = lEmissionTextObj.value;
+		if(lMsg != "") {
+			if(this.lastMsg != lMsg) {
+				var lStore = new GStore();
+				lStore.setLocalData("query/msg", lMsg);
+				this.lastMsg = lMsg;
+			}
+		}
+    }
+    //===============================================
+    restoreEmissionText() {
+        var lEmissionTextObj = document.getElementById("QueryEmissionText");
+		var lMsg = lEmissionTextObj.value;
+		if(lMsg == "") {
+			var lStore = new GStore();
+			lMsg = lStore.getLocalData("query/msg");
+			if(lMsg) {
+				lEmissionTextObj.value = lMsg;
+			}
+		}
+    }
+    //===============================================
+    setReceptionText(data) {
+		data = data.trim();
+        var lReceptionTextObj = document.getElementById("QueryReceptionText");
+		lReceptionTextObj.value = data;
     }
     //===============================================
 }
 //===============================================
 var lQuery = new GQuery();
-lQuery.init();
+lQuery.init(0);
 //===============================================

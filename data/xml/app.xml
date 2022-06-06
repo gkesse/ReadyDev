@@ -70,10 +70,12 @@
     		<map>
     			<data>/js/functions.js</data>
     			<data>/js/class/GObject.js</data>
+    			<data>/js/class/GModule.js</data>
     			<data>/js/class/GDate.js</data>
     			<data>/js/class/GLog.js</data>
     			<data>/js/class/GEnv.js</data>
     			<data>/js/class/GPage.js</data>
+    			<data>/js/class/GStore.js</data>
     			<data>/js/class/GXml.js</data>
     			<data>/js/class/GCode.js</data>
     			<data>/js/class/GAjax.js</data>
@@ -597,9 +599,15 @@
     			</data>
     			<data>
     				<category>header</category>
-    				<tooltip>Émission</tooltip>
+    				<tooltip>Émission de la requête</tooltip>
     				<id>QueryTab1</id>
     				<name>Émission</name>
+    			</data>
+    			<data>
+    				<category>header</category>
+    				<tooltip>Réception du résultat de la requête</tooltip>
+    				<id>QueryTab2</id>
+    				<name>Réception</name>
     			</data>
        			<!-- ============================================ -->
        			<!-- header/link -->
@@ -652,6 +660,42 @@
 		    		<method>send_query</method>
 		    		<name>Envoyer</name>
 		    		<tooltip>Envoyer la requête</tooltip>
+		     	</data>
+		    	<data>
+		    		<category>emission/button</category>
+		    		<module>query</module>
+		    		<method>save_query</method>
+		    		<name>Enregistrer</name>
+		    		<tooltip>Enregsitrer la requête</tooltip>
+		     	</data>
+		        <!-- ============================================ -->
+		    	<!-- reception -->
+		        <!-- ============================================ -->
+		    	<data>
+		    		<category>reception</category>
+					<title>Réception</title>
+					<id>QueryTab2</id>
+		     	</data>
+		        <!-- ============================================ -->
+		    	<!-- reception/text -->
+		        <!-- ============================================ -->
+		    	<data>
+		    		<category>reception/text</category>
+		    		<id>QueryReceptionText</id>
+		    		<name>QueryReceptionText</name>
+		    		<rows>18</rows>
+		    		<cols>10</cols>
+		    		<readonly>readonly</readonly>
+		     	</data>
+		        <!-- ============================================ -->
+		    	<!-- reception/button -->
+		        <!-- ============================================ -->
+		    	<data>
+		    		<category>reception/button</category>
+		    		<module>query</module>
+		    		<method>copy_query</method>
+		    		<name>Copier</name>
+		    		<tooltip>Copier la requête</tooltip>
 		     	</data>
        			<!-- ============================================ -->
        			<!-- end -->
