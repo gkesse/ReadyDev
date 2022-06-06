@@ -24,10 +24,6 @@ class GServer extends GModule {
         $this->addResponse($lError);
     }
     //===============================================
-    public function addLog() {
-
-    }
-    //===============================================
     public function getResponse() {
         return $this->res->toString();
     }
@@ -51,9 +47,6 @@ class GServer extends GModule {
         }
         else if($lModule == "sitemap") {
             $this->onSitemap($data, $this);
-        }
-        else if($lModule == "query") {
-            $this->onQuery($data, $this);
         }
         //===============================================
         // end

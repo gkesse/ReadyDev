@@ -1,52 +1,9 @@
 <?php   
     class GQuery extends GModule {
         //===============================================
-        private $msg = "";
-        //===============================================
         public function __construct() {
             parent::__construct();
             $this->createDoms();
-        }
-        //===============================================
-        public function serialize($code = "query") {
-            $lData = new GCode();
-            $lData->createDoc();
-            $lData->addData($code, "msg", $this->msg, true);
-            return $lData->toStringData();
-        }
-        //===============================================
-        public function deserialize($data, $code = "query") {
-            parent::deserialize($data);
-            $lData = new GCode();
-            $lData->loadXmlData($data);
-            $this->msg = $lData->getItem($code, "msg", true);
-        }
-        //===============================================
-        public function onModule($data, $server) {
-            $this->deserialize($data);
-            $lMethod = $this->method;
-            //===============================================
-            if($lMethod == "") {
-                return false;
-            }
-            //===============================================
-            // method
-            //===============================================
-            else if($lMethod == "send_query") {
-                $this->onSendQuery($server);
-            }
-            //===============================================
-            // end
-            //===============================================
-            else return false;
-            return true;
-        }
-        //===============================================
-        public function onSendQuery($server) {
-            $lLog = GLog::Instance();
-            $lData = $this->serialize();
-            //$server->addResponse($lData);
-            $lLog->addError($lData);
         }
         //===============================================
         public function run() {

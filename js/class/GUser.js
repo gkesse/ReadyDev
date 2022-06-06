@@ -16,7 +16,7 @@ class GUser extends GObject {
 		lData.addData(code, "email", this.email);
 		lData.addData(code, "password", this.password);
 		lData.addData(code, "status", this.status);
-		return lData.toStringCode(code);
+		return lData.toStringData();
 	}
     //===============================================
 	deserialize(data, code = "user") {

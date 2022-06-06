@@ -10,8 +10,8 @@ class GXml extends GObject {
     }
     //===============================================
 	appendNode(name, value = "", get = false) {
-		if(this.doc == null) return;
-		if(this.node == null) return;
+		if(!this.doc) return;
+		if(!this.node) return;
 		var lNode = this.doc.createElement(name);
 		if(value != "") lNode.innerHTML = value;
 		this.node.appendChild(lNode);
@@ -19,7 +19,7 @@ class GXml extends GObject {
 	}
     //===============================================
    countNode(name) {
-        if(this.node == null) return 0;
+        if(!this.node) return 0;
         var lCount = 0;
         var lNodes = this.node.childNodes;
         for(var i = 0; i < lNodes.length; i++) {
@@ -31,20 +31,9 @@ class GXml extends GObject {
     }
     //===============================================
 	countXPath() {
-		var lCount = 0;
-		if(this.doc == null) return 0;
-    	if (this.doc.evaluate) {
-        	if(this.nodes == null) return 0;
-			var lNode = this.nodes.iterateNext();
-			while(lNode) {
-				lCount++;
-				lNode = this.nodes.iterateNext();
-			}
-        } 
-    	else if(window.ActiveXObject || xhttp.responseType == "msxml-document") {
-        	if(this.nodes == null) return 0;
-			lCount = this.nodes.length;
-        }
+		if(!this.doc) return 0;
+    	if(!this.nodes) return 0;
+		var lCount = this.nodes.length;
 		return lCount;
 	}
     //===============================================
@@ -88,19 +77,19 @@ class GXml extends GObject {
     //===============================================
 	getNode(path) {
 		if(path == "") return;
-		if(this.doc == null) return;
+		if(!this.doc) return;
 		this.queryXPath(path)
 		this.getNodeXPath();
 	}
 	//===============================================
 	getNodeName() {
-		if(this.node == null) return "";
+		if(!this.node) return "";
 		var lData = this.node.nodeName;
 		return lData;
 	}
     //===============================================
 	getNodeValue(isCData = false) {
-		if(this.node == null) return "";
+		if(!this.node) return "";
 		var lData = "";
 		if(!isCData) {
 			lData = this.node.innerHTML;
@@ -112,21 +101,19 @@ class GXml extends GObject {
 	}
     //===============================================
 	getNodeXPath() {
-		if(this.doc == null) return;
-    	if (this.doc.evaluate) {
-        	if(this.nodes == null) return;
-			this.node = this.nodes.iterateNext();
-        } 
-    	else if(window.ActiveXObject || xhttp.responseType == "msxml-document") {
-        	if(this.nodes == null) return;
-        	this.node = this.nodes[0];
-        }
+		this.getNodeIndex(0);
+	}
+    //===============================================
+	getNodeIndex(index) {
+		if(!this.doc) return;
+    	if(!this.nodes) return; 
+    	this.node = this.nodes[index];
 	}
     //===============================================
 	getRoot(name) {
 		name = name.trim();
 		if(name == "") return false;
-		if(this.doc == null) return false;
+		if(!this.doc) return false;
 		this.queryXPath(sprintf("/%s", name))
 		this.getNodeXPath();
 		if(this.getNodeName() != name) this.node = null;
@@ -134,15 +121,15 @@ class GXml extends GObject {
 	}
     //===============================================
 	isNodeNull() {
-		if(this.node == null) return true;
+		if(!this.node) return true;
 		return false;
 	}
     //===============================================
     loadNode(data) {
 		data = data.trim();
         if(data == "") return false;
-        if(this.doc == null) return false;
-        if(this.node == null) return false;
+        if(!this.doc) return false;
+        if(!this.node) return false;
         var lDom = this.doc.createElement("template");
         lDom.innerHTML = data;
 		var lNodes = lDom.childNodes;
@@ -171,14 +158,19 @@ class GXml extends GObject {
 	queryXPath(path) {
 		path = path.trim();
 		if(path == "") return;
-		if(this.doc == null) return;
+		if(!this.doc) return;
     	if (this.doc.evaluate) {
 	        path = path.trim();
         	var lFirst = path.substr(0, 1);
         	var lNode = this.node;
         	if(lFirst == "/") lNode = this.doc;
 			if(lNode == null) return;
-        	this.nodes = this.doc.evaluate(path, lNode, null, XPathResult.ANY_TYPE, null);
+        	this.nodes = [];
+			var lNodeI = null;
+			var lNodes = this.doc.evaluate(path, lNode, null, XPathResult.ANY_TYPE, null);
+			while(lNodeI = lNodes.iterateNext()) {
+			  	this.nodes.push(lNodeI);
+			}
         } 
     	else if(window.ActiveXObject || xhttp.responseType == "msxml-document") {
         	this.doc.setProperty("SelectionLanguage", "XPath");
@@ -199,7 +191,7 @@ class GXml extends GObject {
     }
     //===============================================
     setNodeValue(value, isCData = false) {
-		if(this.node == null) return;
+		if(!this.node) return;
 		if(!isCData) {
 			this.node.innerHTML = value;
 		}
@@ -210,13 +202,13 @@ class GXml extends GObject {
     }
     //===============================================
 	toString() {
-		if(this.doc == null) return "";
+		if(!this.doc) return "";
 		var lData = this.doc.documentElement.outerHTML;
 		return lData;
 	}
     //===============================================
 	toStringNode() {
-		if(this.node == null) return "";
+		if(!this.node) return "";
 		var lData = this.node.outerHTML;
 		return lData;
 	}

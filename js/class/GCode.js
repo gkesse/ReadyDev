@@ -94,5 +94,16 @@ class GCode extends GXml {
         return lData;
     }
     //===============================================
+    toStringData() {
+        this.queryXPath(sprintf("/rdv/datas/data"));
+        var lCount = this.countXPath();
+        var lData = "";
+        for(var i = 0; i < lCount; i++) {
+            this.getNodeIndex(i);
+            lData += this.toStringNode();
+        }
+        return lData;
+    }
+    //===============================================
 }
 //===============================================
