@@ -321,7 +321,7 @@
 		                <b>ReadySitemap</b> est un générateur de sitemap.
 		                Il permet de générer automatiquement le sitemap d'un siteweb.
 						Les urls utilisées doivent être listées dans une source de données.
-						Pareil pour le cas des dates de dernières modification et des fréquences de changement du siteweb.
+						Pareil pour les dates de dernières modification et les fréquences de changement du siteweb.
 		                <br>Produit par <b>Gérard KESSE</b>.
 		           	]]></intro>
 		     	</data>
@@ -331,8 +331,8 @@
        			<data>
        			   	<category>enum</category>
     				<title>Énumération</title>
-    				<id>SitemapTab1</id>
-       			</data>
+    				
+       			<id>SitemapTab1</id></data>
        			<!-- ============================================ -->
        			<!-- enum/action -->
        			<!-- ============================================ -->

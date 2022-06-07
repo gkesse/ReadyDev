@@ -11,7 +11,7 @@ class GQuery extends GModule {
 		var lData = new GCode();
 		lData.createDoc();
 		lData.addData(code, "msg", this.msg, true);
-		return lData.toStringCode(code);
+		return lData.toStringData();
 	}
     //===============================================
 	deserialize(data) {
@@ -34,6 +34,9 @@ class GQuery extends GModule {
 		}
 		else if(method == "save_query") {
 			this.onSaveQuery();
+		}
+		else if(method == "copy_query") {
+			this.onCopyQuery();
 		}
     	//===============================================
 		// end
@@ -93,6 +96,10 @@ class GQuery extends GModule {
 		this.saveEmissionText();	
 	}
     //===============================================
+    onCopyQuery() {
+		this.copyReceptionText();	
+	}
+    //===============================================
     onSendQueryCall() {
 		var lAjax = new GAjax();
 		lAjax.call(this.module, this.method, this.msg, this.onSendQueryCB);		
@@ -133,6 +140,12 @@ class GQuery extends GModule {
 		data = data.trim();
         var lReceptionTextObj = document.getElementById("QueryReceptionText");
 		lReceptionTextObj.value = data;
+    }
+    //===============================================
+    copyReceptionText() {
+	    var lReceptionTextObj = document.getElementById("QueryReceptionText");
+		lReceptionTextObj.select();
+		document.execCommand("copy");
     }
     //===============================================
 }
