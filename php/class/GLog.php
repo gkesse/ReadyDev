@@ -26,6 +26,13 @@ class GLog extends GObject {
         return $lData->toStringData();
     }
     //===============================================
+    public function deserialize($data, $errors = "errors", $logs = "logs") {
+        $lData = new GCode();
+        $lData->loadXmlData($data);
+        $this->errors = $lData->getList($errors);
+        $this->logs = $lData->getList($logs);
+    }
+    //===============================================
     public function addError($error) {
         $lDateObj = new GDate();
         $lBacktrace = debug_backtrace();

@@ -155,6 +155,7 @@ class GSocket extends GObject {
     }
     //===============================================
     public function callServerTcp($dataIn) {
+        $lLog = GLog::Instance();        
         $lDomain = $this->loadDomain();
         $lType = $this->loadType();
         $lProtocol = $this->loadProtocol();
@@ -165,7 +166,8 @@ class GSocket extends GObject {
         $this->connectSocket($lAddress, $lPort);
                 
         $this->writeData($dataIn);
-        $lDataOut = $this->readData();       
+        $lDataOut = $this->readData();
+        $lLog->deserialize($lDataOut);       
         $this->closeSocket();        
         return $lDataOut;
     }
