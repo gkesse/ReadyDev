@@ -20,8 +20,8 @@ class GLog extends GObject {
     deserialize(data, errors = "errors", logs = "logs") {
 		var lData = new GCode();
 		lData.loadXml(data);
-		this.errors = lData.getList(errors);
-		this.logs = lData.getList(logs);
+		lData.getList(errors, this.errors);
+		lData.getList(logs, this.logs);
 	}
     //===============================================
     onModule(method, obj, data) {
@@ -60,10 +60,10 @@ class GLog extends GObject {
 		for(var i = 0; i < this.errors.length; i++) {
 			var lError = this.errors[i];
 			var lBr = "<br>";
-			if(lEnvObj.isTestEnv()) lBr = "\n";
+			if(lEnvObj.isTestEnv() && !lEnvObj.isProdOn()) lBr = "\n";
 			if(i != 0) lErrors += lBr;
 			var lMsg = sprintf("<i class='fa fa-chevron-right'></i> %s", lError);
-			if(lEnvObj.isTestEnv()) lMsg = sprintf("> %s", lError);
+			if(lEnvObj.isTestEnv() && !lEnvObj.isProdOn()) lMsg = sprintf("> %s", lError);
 			lErrors += lMsg;
 		}
 		if(lErrors == "") return;
@@ -80,10 +80,10 @@ class GLog extends GObject {
 		for(var i = 0; i < this.logs.length; i++) {
 			var lLog = this.logs[i];
 			var lBr = "<br>";
-			if(lEnvObj.isTestEnv()) lBr = "\n";
+			if(lEnvObj.isTestEnv() && !lEnvObj.isProdOn()) lBr = "\n";
 			if(i != 0) lLogs += lBr;
 			var lMsg = sprintf("<i class='fa fa-chevron-right'></i> %s", lLog);
-			if(lEnvObj.isTestEnv()) lMsg = sprintf("> %s", lLog);
+			if(lEnvObj.isTestEnv() && !lEnvObj.isProdOn()) lMsg = sprintf("> %s", lLog);
 			lLogs += lMsg;
 		}
 		if(lLogs == "") return;
@@ -102,7 +102,7 @@ class GLog extends GObject {
 		var lTrace = lStack[2].trim();
 		var lDate = lDateObj.getDate();
 		var lMsg = error;
-		if(lEnvObj.isTestEnv()) lMsg = sprintf("%s %s :\n%s", lDate, lTrace, error);
+		if(lEnvObj.isTestEnv() && !lEnvObj.isProdOn()) lMsg = sprintf("%s %s :\n%s", lDate, lTrace, error);
 		this.errors.push(lMsg);
 	}
     //===============================================
@@ -114,8 +114,21 @@ class GLog extends GObject {
 		var lTrace = lStack[2].trim();
 		var lDate = lDateObj.getDate();
 		var lMsg = log;		
-		if(lEnvObj.isTestEnv()) lMsg = sprintf("%s %s :\n%s", lDate, lTrace, log);
+		if(lEnvObj.isTestEnv() && !lEnvObj.isProdOn()) lMsg = sprintf("%s %s :\n%s", lDate, lTrace, log);
 		this.logs.push(lMsg);
+	}
+    //===============================================
+	hasErrors() {
+		var lData = (this.errors.length > 0);
+		return lData;
+	}
+    //===============================================
+	clearErrors() {
+		this.errors = [];
+	}
+    //===============================================
+	clearLogs() {
+		this.logs = [];
 	}
     //===============================================
 }

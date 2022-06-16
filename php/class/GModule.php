@@ -20,7 +20,7 @@ class GModule extends GSession {
     public function deserialize($data, $code = "request") {
         parent::deserialize($data);
         $lData = new GCode();
-        $lData->loadXmlData($data);
+        $lData->loadXml($data);
         $this->module = $lData->getItem($code, "module");
         $this->method = $lData->getItem($code, "method");
     }

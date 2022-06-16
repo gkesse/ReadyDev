@@ -9,6 +9,7 @@ class GLog extends GObject {
     //===============================================
     public function __construct() {
         parent::__construct();
+        $this->createDoms();
     }
     //===============================================
     public static function Instance() {
@@ -28,32 +29,42 @@ class GLog extends GObject {
     //===============================================
     public function deserialize($data, $errors = "errors", $logs = "logs") {
         $lData = new GCode();
-        $lData->loadXmlData($data);
-        $this->errors = $lData->getList($errors);
-        $this->logs = $lData->getList($logs);
+        $lData->loadXml($data);
+        $lData->getList($errors, $this->errors);
+        $lData->getList($logs, $this->logs);
     }
     //===============================================
     public function addError($error) {
         $lDateObj = new GDate();
+        $lEnvObj = new GEnv();
+        $lProdOn = ($this->getItem("test", "prod_on") == "1");
         $lBacktrace = debug_backtrace();
         $lCaller = array_shift($lBacktrace);
         $lDate = $lDateObj->getDateTime();
         $lFile = $lCaller['file'];
         $lLine = $lCaller['line'];
         $lFunc = debug_backtrace()[1]['function'];
-        $lData = sprintf("%s : %s : [%d] : %s :\n%s", $lDate, $lFile, $lLine, $lFunc, $error);
+        $lData = $error;
+        if($lEnvObj->isTestEnv() && !$lProdOn) {
+            $lData = sprintf("%s : %s : [%d] : %s :\n%s", $lDate, $lFile, $lLine, $lFunc, $error);
+        }
         $this->errors[] = $lData;
     }
     //===============================================
     public function addLog($log) {
         $lDateObj = new GDate();
+        $lEnvObj = new GEnv();
+        $lProdOn = ($this->getItem("test", "prod_on") == "1");
         $lBacktrace = debug_backtrace();
         $lCaller = array_shift($lBacktrace);
         $lDate = $lDateObj->getDateTime();
         $lFile = $lCaller['file'];
         $lLine = $lCaller['line'];
         $lFunc = debug_backtrace()[1]['function'];
-        $lData = sprintf("%s : %s : [%d] : %s :\n%s", $lDate, $lFile, $lLine, $lFunc, $log);
+        $lData = $log;
+        if($lEnvObj->isTestEnv() && !$lProdOn) {
+            $lData = sprintf("%s : %s : [%d] : %s :\n%s", $lDate, $lFile, $lLine, $lFunc, $log);
+        }
         $this->logs[] = $lData;
     }
     //===============================================
@@ -63,13 +74,14 @@ class GLog extends GObject {
     //===============================================
     public function showErrors() {
         $lEnvObj = new GEnv();
+        $lProdOn = ($this->getItem("test", "prod_on") == "1");
         $lClass = "";
         $lErrors = "";
         foreach($this->errors as $error) {
             $lErrors .= sprintf("%s<br>", $error);
         }
         if($lErrors == "") $lClass = "BoxHide";
-        if($lEnvObj->isTestEnv()) {
+        if($lEnvObj->isTestEnv() && !$lProdOn) {
             echo sprintf("<div id='ErrorsBox' class='Errors %s'>\n", $lClass);
             echo sprintf("<div class='ErrorsClose' onclick='server_call(\"log\", \"close_error\", this);'><i class='ErrorsCloseFa fa fa-times'></i></div>\n");
             echo sprintf("<xmp id='ErrorsMsg' class='ErrorsMain Code3'>%s</xmp>\n", $lErrors);
@@ -85,13 +97,14 @@ class GLog extends GObject {
     //===============================================
     public function showLogs() {
         $lEnvObj = new GEnv();
+        $lProdOn = ($this->getItem("test", "prod_on") == "1");
         $lClass = "";
         $lLogs = "";
         foreach($this->logs as $log) {
             $lLogs .= sprintf("%s<br>", $log);
         }
         if($lLogs == "") $lClass = "BoxHide";
-        if($lEnvObj->isTestEnv()) {
+        if($lEnvObj->isTestEnv() && !$lProdOn) {
             echo sprintf("<div id='LogsBox' class='Logs %s'>\n", $lClass);
             echo sprintf("<div class='LogsClose' onclick='server_call(\"log\", \"close_log\", this);'><i class='LogsCloseFa fa fa-times'></i></div>\n");
             echo sprintf("<xmp id='LogsMsg' class='LogsMain Code3'>%s</xmp>\n", $lLogs);

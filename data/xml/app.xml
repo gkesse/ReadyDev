@@ -243,6 +243,11 @@
        			<!-- ============================================ -->
     			<data>
     				<category>intro/link</category>
+    				<name>Manager de données</name>
+    				<link>#Manager_Donnees</link>
+    			</data>
+    			<data>
+    				<category>intro/link</category>
     				<name>Gestionnaire de requêtes</name>
     				<link>#Gestionnaire_Requete</link>
     			</data>
@@ -581,6 +586,34 @@
     		</map>
      	</data>
         <!-- ============================================ -->
+    	<!-- manager -->
+        <!-- ============================================ -->
+    	<data>
+    		<code>manager</code>
+    		<title>Manager de données</title>
+    		<id>Manager_Donnees</id>
+    		<map>
+       			<!-- ============================================ -->
+       			<!-- header -->
+       			<!-- ============================================ -->
+    			<data>
+    				<category>header</category>
+    				<tooltip>Accueil</tooltip>
+    				<id>ManagerTab0</id>
+    				<name><![CDATA[<i class='fa fa-home'></i>]]></name>
+    			<data>
+    				<category>header</category>
+    				<tooltip>Général</tooltip>
+    				<id>ManagerTab1</id>
+    				<name>Général</name>
+    			</data>
+       			<!-- ============================================ -->
+       			<!-- end -->
+       			<!-- ============================================ -->
+    			</data>
+    		</map>
+    	</data>
+        <!-- ============================================ -->
     	<!-- query -->
         <!-- ============================================ -->
     	<data>
@@ -647,9 +680,19 @@
 		    		<category>emission/text</category>
 		    		<id>QueryEmissionText</id>
 		    		<name>QueryEmissionText</name>
-		    		<rows>18</rows>
+		    		<rows>17</rows>
 		    		<cols>10</cols>
 		    		<placeholder>Saisir une requête...</placeholder>
+		     	</data>
+		        <!-- ============================================ -->
+		    	<!-- emission/check -->
+		        <!-- ============================================ -->
+		    	<data>
+		    		<category>emission/check</category>
+		    		<id>QueryEmissionServer</id>
+		    		<text>Serveur</text>
+		    		<checked_on>1</checked_on>
+		    		<tooltip>Envoyer directement au serveur</tooltip>
 		     	</data>
 		        <!-- ============================================ -->
 		    	<!-- emission/button -->
@@ -708,8 +751,9 @@
     	<data>
     		<code>test</code>
     		<env>prod</env>
-    		<dev>js</dev>
+    		<dev>socket</dev>
     		<js>env/type</js>
+    		<prod_on>1</prod_on>
      	</data>
         <!-- ============================================ -->
     	<!-- style -->

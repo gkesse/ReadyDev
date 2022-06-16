@@ -34,10 +34,12 @@ class GAjax extends GObject {
         this.xhttp.onreadystatechange = function() {
             if(this.readyState == 4 && this.status == 200) {
                 var lData = this.responseText;
+				var lLog = GLog.Instance();
+				lLog.deserialize(lData);
                 callback(lData);
-				var lAjax = new GAjax();
-				lAjax.showErrors(lData);
-            }
+				lLog.showErrors();
+				lLog.showLogs();
+			}
         }
         this.xhttp.open(this.method, this.url, this.async, this.user, this.password);
        	for(var lHeader in this.headers) {
@@ -49,13 +51,6 @@ class GAjax extends GObject {
         this.xhttp.send(lReq);
 		return true;
     }
-    //===============================================
-    showErrors(data) {
-		var lLog = GLog.Instance();
-		lLog.deserialize(data);
-		lLog.showErrors();
-		lLog.showLogs();
-	}
     //===============================================
 }
 //===============================================

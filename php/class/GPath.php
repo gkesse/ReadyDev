@@ -5,15 +5,15 @@ class GPath extends GObject {
         parent::__construct();
     }
     //===============================================
-    public function getPath($path, $filename = "") {
+    public function getPath($path, $file = "") {
         $lPath = $_SERVER["DOCUMENT_ROOT"];
         if($path != "") {
             if($lPath == "") $lPath = $path;
             else $lPath = sprintf("%s/%s", $lPath, $path);
         }
-        if($filename != "") {
-            if($lPath == "") $lPath = $filename;
-            else $lPath = sprintf("%s/%s", $lPath, $filename);
+        if($file != "") {
+            if($lPath == "") $lPath = $file;
+            else $lPath = sprintf("%s/%s", $lPath, $file);
         }
         return $lPath;
     }

@@ -100,14 +100,12 @@ class GCode extends GXml {
         return "";
     }
     //===============================================
-    public function getList($code, $isCData = false) {
-        $lDatas = array();
+    public function getList($code, &$obj, $isCData = false) {
         $lCount = $this->countItem($code);
         for($i = 0; $i < $lCount; $i++) {
             $lData = $this->getItem2($code, $i, $isCData);
-            $lDatas[] = $lData;
+            $obj[] = $lData;
         }
-        return $lDatas;
     }
     //===============================================
     public function getListC($code, $category, $key, $isCData = false) {
@@ -150,6 +148,12 @@ class GCode extends GXml {
         return $lData;
     }
     //===============================================
+    public function hasData() {
+        $this->queryXPath(sprintf("/rdv/datas/data[code]"));
+        $lCount = $this->countXPath();
+        return ($lCount != 0);
+    }
+    //===============================================
     public function hasCode($code) {
         $this->getXPath(sprintf("/rdv/datas/data[code='%s']", $code));
         $lData = $this->countXPath();
@@ -163,13 +167,6 @@ class GCode extends GXml {
         return $this;
     }
     //===============================================
-    public function loadXmlData($xml) {
-        if($xml == "") return;
-        $this->createDoc();
-        parent::loadXmlData($xml);
-        $this->createXPath();
-    }
-    //===============================================
     public function toStringCode($code) {
         $this->getXPath(sprintf("/rdv/datas/data[code='%s']", $code));
         $lData = $this->toStringNode();
@@ -177,12 +174,14 @@ class GCode extends GXml {
     }
     //===============================================
     public function toStringData() {
-        $this->getXPath(sprintf("/rdv/datas/data"));
-        $lCount = $this->countXPath();
         $lData = "";
-        for($i = 0; $i < $lCount; $i++) {
-            $this->getNodeIndex($i);
-            $lData .= $this->toStringNode();
+        if($this->hasData()) {
+            $this->getXPath(sprintf("/rdv/datas/data"));
+            $lCount = $this->countXPath();
+            for($i = 0; $i < $lCount; $i++) {
+                $this->getNodeIndex($i);
+                $lData .= $this->toStringNode();
+            }
         }
         return $lData;
     }

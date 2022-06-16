@@ -54,7 +54,6 @@ input {
     padding: 5px 10px 5px 10px;
     font-size: 16px;
     color: white;
-    width: 100%;
 }
 
 input:-webkit-autofill,
@@ -815,6 +814,10 @@ span {
     height: 40px;
     margin-top: -20px; 
     opacity: 0.8;
+}
+
+.Checkbox {
+	padding: 2px;
 }
 
 .Code {
@@ -1778,6 +1781,10 @@ span {
     border-bottom: 5px solid #051039;
     text-align: center;
     font-size: 0px;
+}
+
+.Row33 {
+    padding: 0px 5px;
 }
 
 .Shift1 {

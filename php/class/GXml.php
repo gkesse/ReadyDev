@@ -18,19 +18,21 @@ class GXml extends GObject {
         if(!$this->doc) return false;
         $this->doc->preserveWhiteSpace = false;
         $this->doc->formatOutput = true;
+        if(!$this->xpath) return false;
         return true;
     }
     //===============================================
-    public function createDocFile($res, $file) {
+    public function loadFile($path, $file, $version = "1.0", $encoding = "UTF-8") {        
+        if($path == "" && $file == "") return false;
         $lPathObj = new GPath();
-        $this->createDoc();
-        $this->loadXmlFile($lPathObj->getPath($res, $file));
-        $this->createXPath();
-    }
-    //===============================================
-    public function loadXmlFile($file) {
+        $lFile = $lPathObj->getPath($path, $file);
+        $this->doc = new DOMDocument($version, $encoding);
         if(!$this->doc) return false;
-        $this->doc->load($file);
+        $this->doc->preserveWhiteSpace = false;
+        $this->doc->formatOutput = true;
+        $this->doc->load($lFile);
+        $this->xpath = new DOMXpath($this->doc);
+        if(!$this->xpath) return false;
         return true;
     }
     //===============================================
@@ -50,10 +52,15 @@ class GXml extends GObject {
         return $this;
     }
     //===============================================
-    public function loadXmlData($xml) {
-        if($xml == "") return false;
+    public function loadXml($data, $version = "1.0", $encoding = "UTF-8") {
+        if($data == "") return false;
+        $this->doc = new DOMDocument($version, $encoding);
         if(!$this->doc) return false;
-        $this->doc->loadXml($xml);
+        $this->doc->preserveWhiteSpace = false;
+        $this->doc->formatOutput = true;
+        $this->doc->loadXml($data);
+        $this->xpath = new DOMXpath($this->doc);
+        if(!$this->xpath) return false;
         return true;
     }
     //===============================================
@@ -64,15 +71,6 @@ class GXml extends GObject {
         $lOk = $this->doc->save($file);
         if(!$lOk) $lLog->addError(sprintf("Erreur lors de la sauvegarde du fichier."));
         return $lLog->hasErrors();
-    }
-    //===============================================
-    public function saveXmlFile($file) {
-        $lOk = true;
-        $lPath = $this->getXmlPath($file);
-        if($lPath == "") return false;
-        if(!$this->doc) return false;
-        $lOk &= ($this->doc->save($lPath));
-        return $lOk;
     }
     //===============================================
     public function createXPath() {

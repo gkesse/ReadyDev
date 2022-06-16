@@ -4,6 +4,7 @@ class GQuery extends GModule {
     constructor() {
 		super();
 		this.msg = "";
+		this.res = "";
 		this.lastMsg = "";
     }
     //===============================================
@@ -11,12 +12,16 @@ class GQuery extends GModule {
 		var lData = new GCode();
 		lData.createDoc();
 		lData.addData(code, "msg", this.msg, true);
+		lData.addData(code, "res", this.res, true);
 		return lData.toStringData();
 	}
     //===============================================
-	deserialize(data) {
-		super.deserialize(data, "request");
-		this.msg = data;
+	deserialize(data, code = "query") {
+		super.deserialize(data);
+		var lData = new GCode();
+		lData.loadXml(data);
+		this.msg = lData.getItem(code, "msg", true);
+		this.res = lData.getItem(code, "res", true);
 	}
     //===============================================
     onModule(method, obj, data) {
@@ -83,13 +88,15 @@ class GQuery extends GModule {
     onSendQuery() {
 		var lLog = GLog.Instance();
         var lEmissionTextObj = document.getElementById("QueryEmissionText");
+        var lEmissionServerObj = document.getElementById("QueryEmissionServer");
+		var lServerOn = lEmissionServerObj.checked;
 		var lMsg = lEmissionTextObj.value;
 		if(lMsg == "") {
 			lLog.addError(sprintf("Erreur le texte est vide."));
 			return;
 		}
-		this.deserialize(lMsg);	
-		this.onSendQueryCall();	
+		this.msg = lMsg;	
+		this.onSendQueryCall(lServerOn);	
 	}
     //===============================================
     onSaveQuery() {
@@ -100,15 +107,22 @@ class GQuery extends GModule {
 		this.copyReceptionText();	
 	}
     //===============================================
-    onSendQueryCall() {
+    onSendQueryCall(serverOn = false) {
 		var lAjax = new GAjax();
-		lAjax.call(this.module, this.method, this.msg, this.onSendQueryCB);		
+		if(!serverOn) {
+			lAjax.call(this.module, this.method, this.msg, this.onSendQueryCB);					
+		}
+		else {
+			var lData = this.serialize();
+			lAjax.call("query", "send_query", lData, this.onSendQueryCB);		
+		}
     }
     //===============================================
     onSendQueryCB(data) {
 		var lQuery = new GQuery();
+		lQuery.deserialize(data);
 		lQuery.saveEmissionText();
-		lQuery.setReceptionText(data);
+		lQuery.setReceptionText(lQuery.res);
 		lQuery.init(2);
     }
     //===============================================

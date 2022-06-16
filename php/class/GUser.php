@@ -2,11 +2,11 @@
 //===============================================
 class GUser extends GModule {
     //===============================================
-    private $msg = "";
+    private $mode = "1";
     private $email = "";
     private $password = "";
-    private $status = false;
-    private $group = "2";
+    private $group = "0";
+    private $active = "0";
     //===============================================
     public function __construct() {
         parent::__construct();
@@ -15,23 +15,23 @@ class GUser extends GModule {
     public function serialize($code = "user") {
         $lData = new GCode();
         $lData->createDoc();
-        $lData->addData($code, "msg", $this->msg);
+        $lData->addData($code, "mode", $this->mode);
         $lData->addData($code, "email", $this->email);
         $lData->addData($code, "password", $this->password);
-        $lData->addData($code, "status", $this->status);
         $lData->addData($code, "group", $this->group);
-        return $lData->toStringCode($code);
+        $lData->addData($code, "active", $this->active);
+        return $lData->toStringData();
     }
     //===============================================
     public function deserialize($data, $code = "user") {
         parent::deserialize($data);
         $lData = new GCode();
-        $lData->loadXmlData($data);
-        $this->msg = $lData->getItem($code, "msg");
+        $lData->loadXml($data);
+        $this->mode = $lData->getItem($code, "mode");
         $this->email = $lData->getItem($code, "email");
         $this->password = $lData->getItem($code, "password");
-        $this->status = $lData->getItem($code, "status");
         $this->group = $lData->getItem($code, "group");
+        $this->active = $lData->getItem($code, "active");
     }
     //===============================================
     public function onModule($data, $server) {
@@ -71,7 +71,6 @@ class GUser extends GModule {
     //===============================================
     public function runConnection() {
         $lClient = new GSocket();
-        $this->onPassword();
         $lData = $this->serialize();
         $lData = $lClient->callServer($this->module, $this->method, $lData);
         $this->deserialize($lData);
@@ -79,23 +78,22 @@ class GUser extends GModule {
     }
     //===============================================
     public function runDisconnection() {
-        if(isset($_SESSION["login"])) {
-            unset($_SESSION["login"]);
-            $this->msg = "Bonne Déconnexion";
-        }
-    }
-    //===============================================
-    public function onPassword() {
-        $this->password = md5($this->email."|".$this->password);
+        $lLog = GLog::Instance();
+        $lSession = new GSession();
+        $lLoginOn = $lSession->issetSession("user/login");        
+        if(!$lLoginOn) {$lLog->addError(sprintf("Erreur lors de la déconnexion.")); return false;}
+        $lSession->unsetSession("user/login");
+        $lSession->unsetSession("user/group");
+        return true;
     }
     //===============================================
     public function onConnection() {        
-        if($this->status) {
-            $_SESSION["login"] = array(
-                "email" => $this->email,
-                "group" => $this->group
-            );
-        }
+        $lLog = GLog::Instance();
+        $lSession = new GSession();
+        if($lLog->hasErrors()) return false;
+        $lSession->setSession("user/login", true);
+        $lSession->setSession("user/group", $this->group);
+        return true;
     }
     //===============================================
 }

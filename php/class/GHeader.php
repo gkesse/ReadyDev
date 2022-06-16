@@ -10,6 +10,7 @@ class GHeader extends GModule {
     public function run() {
         $lEnvObj = new GEnv();
         $lEnv = $lEnvObj->getEnvType();
+        $lProdOn = $this->getItem("test", "prod_on");
         $lLang = $this->getItem("header", "lang");
         $lTitle = $this->getItem("header", "title");
         $lLogo = $this->getItem("header", "logo");
@@ -26,6 +27,7 @@ class GHeader extends GModule {
         echo sprintf("</head>\n");
         echo sprintf("<body>\n");
         echo sprintf("<div id='EnvType' hidden>%s</div>\n", $lEnv);
+        echo sprintf("<div id='ProdOn' hidden>%s</div>\n", $lProdOn);
         echo sprintf("<div class='HtmlPage'>\n");
         $this->onBackground();
         $this->onConnection();
@@ -105,7 +107,7 @@ class GHeader extends GModule {
         
         $lCount = $this->countItem("menu");        
         $lPage = $lPageObj->getPageId();
-        $lLoginOn = $lSessionObj->issetSession("login");
+        $lLoginOn = $lSessionObj->issetSession("user/login");
         
         for($i = 0; $i < $lCount; $i++) {
             $lType = $this->getItem3("menu", "type", $i);

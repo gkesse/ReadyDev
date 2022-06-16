@@ -17,7 +17,7 @@ class GSession extends GObject {
     //===============================================
     public function deserialize($data, $code = "session") {
         $lData = new GCode();
-        $lData->loadXmlData($data);
+        $lData->loadXml($data);
         $this->userId = $lData->getItem($code, "user_id");
     }
     //===============================================

@@ -9,7 +9,7 @@
         //===============================================
         public function createDoms() {
             $this->dom = new GCode();
-            $this->dom->createDocFile("data/xml", "app.xml");
+            $this->dom->loadFile("data/xml", "app.xml");
         }
         //===============================================
         public function createObj() {
@@ -32,8 +32,8 @@
             return $this->dom->getItemC($code, $category, $key, $isCData);
         }
         //===============================================
-        public function getList($code, $isCData = false) {
-            return $this->dom->getList($code, $isCData);
+        public function getList($code, &$obj, $isCData = false) {
+            $this->dom->getList($code, $obj, $isCData);
         }
         //===============================================
         public function getListC($code, $category, $key, $isCData = false) {

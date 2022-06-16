@@ -52,27 +52,32 @@ class GCode extends GXml {
         return lData;
     }
     //===============================================
-    getList(code, category = "", isCData = false) {
-		var lDatas = [];
+    getList(code, obj, category = "", isCData = false) {
 		var lCount = this.countItem(code);
 		for(var i = 0; i < lCount; i++) {
 			if(category == "") {
 				var lData = this.getItem2(code, i, isCData);
-				lDatas.push(lData);				
+				obj.push(lData);				
 			}
 			else {
 				var lCategory = this.getItem3(code, "category", i);
 				var lData = this.getItem3(code, "data", i, isCData);
 				if(lCategory == category) {
-					lDatas.push(lData);				
+					obj.push(lData);				
 				}
 			}
 		}
-        return lDatas;
+        return true;
     }
     //===============================================
     getListCD(code, category = "") {
 		return this.getList(code, category, true);
+	}
+	//===============================================
+	hasData() {
+	    this.queryXPath(sprintf("/rdv/datas/data[code]"));
+	    var lCount = this.countXPath();
+	    return (lCount != 0);
 	}
     //===============================================
     hasCode(code) {
@@ -95,13 +100,15 @@ class GCode extends GXml {
     }
     //===============================================
     toStringData() {
-        this.queryXPath(sprintf("/rdv/datas/data"));
-        var lCount = this.countXPath();
         var lData = "";
-        for(var i = 0; i < lCount; i++) {
-            this.getNodeIndex(i);
-            lData += this.toStringNode();
-        }
+		if(this.hasData()) {
+	        this.queryXPath(sprintf("/rdv/datas/data"));
+	        var lCount = this.countXPath();
+	        for(var i = 0; i < lCount; i++) {
+	            this.getNodeIndex(i);
+	            lData += this.toStringNode();
+	        }			
+		}
         return lData;
     }
     //===============================================

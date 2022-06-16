@@ -52,6 +52,12 @@
             //===============================================
             // js
             //===============================================
+            else if($lKey == "socket") {
+                $this->runSocket();
+            }
+            //===============================================
+            // js
+            //===============================================
             else if($lKey == "js") {
                 $this->runJs();
             }
@@ -157,17 +163,28 @@
         //===============================================
         public function runXmlMap() {
             $lCode = new GCode();
-            $lCode->createDocFile("data/xml", "app.xml");
+            $lCode->loadFile("data/xml", "app.xml");
             $lCount = $lCode->countItem("sitemap");
             $lObjs = array();
             
             for($i = 0; $i < $lCount; $i++) {
-                $lData = $lCode->loadItem("sitemap", $i);                
+                $lData = $lCode->loadItem("sitemap", $i);
                 $lObj = new GSitemap();
                 $lObj->deserialize($lData, "sitemap");
                 $lObjs[] = $lObj;
             }
-
+            
+            $this->printData(count($lObjs));
+            $this->printData($lData);
+        }
+        //===============================================
+        public function runSocket() {
+            $lLog = GLog::Instance();
+            $lSocket = new GSocket();
+            $lData = "Bonjour tout le monde";
+            $lData = $lSocket->callServerTcp($lData);
+            $this->printData($lLog->serialize());
+            $this->printData($lLog->serialize());
             $this->printData($lData);
         }
         //===============================================

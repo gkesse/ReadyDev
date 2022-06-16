@@ -29,7 +29,7 @@ class GServer extends GModule {
     }
     //===============================================
     public function run($data) {
-        $this->deserialize($data, "server");
+        $this->deserialize($data);
         $lModule = $this->module;
         $lMethod = $this->method;
         //===============================================
@@ -47,6 +47,9 @@ class GServer extends GModule {
         }
         else if($lModule == "sitemap") {
             $this->onSitemap($data, $this);
+        }
+        else if($lModule == "query") {
+            $this->onQuery($data, $this);
         }
         //===============================================
         // end

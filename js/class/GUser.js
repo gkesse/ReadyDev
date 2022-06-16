@@ -3,29 +3,32 @@ class GUser extends GObject {
     //===============================================
     constructor() {
 		super();
-		this.msg = "";
+		this.mode = "1";
 		this.email = "";
 		this.password = "";
-		this.status = false;
+		this.group = "0";
+		this.active = "0";
     }
     //===============================================
 	serialize(code = "user") {
 		var lData = new GCode();
 		lData.createDoc();
-		lData.addData(code, "msg", this.msg);
+		lData.addData(code, "mode", this.mode);
 		lData.addData(code, "email", this.email);
 		lData.addData(code, "password", this.password);
-		lData.addData(code, "status", this.status);
+		lData.addData(code, "group", this.group);
+		lData.addData(code, "active", this.active);
 		return lData.toStringData();
 	}
     //===============================================
 	deserialize(data, code = "user") {
 		var lData = new GCode();
 		lData.loadXml(data);
-		this.msg = lData.getItem(code, "msg");
+		this.mode = lData.getItem(code, "mode");
 		this.email = lData.getItem(code, "email");
 		this.password = lData.getItem(code, "password");
-		this.status = lData.getItem(code, "status");
+		this.group = lData.getItem(code, "group");
+		this.active = lData.getItem(code, "active");
 	}
     //===============================================
     onModule(method, obj, data) {
@@ -135,21 +138,22 @@ class GUser extends GObject {
     }
     //===============================================
     onRunConnectionCB(data) {
+		var lLog = GLog.Instance();
         var lConnectionMsg = document.getElementById("ConnectionMsg");
         var lConnectionForm = document.getElementById("ConnectionForm");
         lConnectionMsg.style.display = "none";
         var lUser = new GUser();
 		lUser.deserialize(data);
-        if(!lUser.status) {
+        if(lLog.hasErrors()) {
             var lHtml = "<i style='color:#ff9933' class='fa fa-exclamation-triangle'></i> "; 
-            lHtml += lUser.msg; 
+            lHtml += "La connexion a échoué."; 
             lConnectionMsg.innerHTML = lHtml;
             lConnectionMsg.style.color = "#ff9933";
             lConnectionMsg.style.display = "block";
         }
         else {
             var lHtml = "<i style='color:#339933' class='fa fa-paper-plane-o'></i> "; 
-            lHtml += lUser.msg; 
+            lHtml += "La connexion a réussi."; 
             lConnectionMsg.innerHTML = lHtml;
             lConnectionMsg.style.color = "#339933";
             lConnectionMsg.style.display = "block";
@@ -191,7 +195,7 @@ class GUser extends GObject {
 		var lUser = new GUser();
 		lUser.deserialize(data);
         var lHtml = "<i style='color:#339933' class='fa fa-power-off'></i> "; 
-        lHtml += lUser.msg; 
+        lHtml += "La déconnexion a réussi."; 
         lDisconnectionMsg.innerHTML = lHtml;
         lDisconnectionMsg.style.color = "#339933";
         lDisconnectionMsg.style.display = "block";

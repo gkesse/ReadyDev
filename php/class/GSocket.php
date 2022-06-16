@@ -76,8 +76,9 @@ class GSocket extends GObject {
     }
     //===============================================
     public function connectSocket($address, $port) {
-        $lRes = socket_connect($this->socket, $address, $port);
-        if($lRes === false) return false;
+        $lLog = GLog::Instance();
+        $lRes = @socket_connect($this->socket, $address, $port);
+        if($lRes == false) {$lLog->addError(sprintf("Erreur lors de la connexion au serveur.")); return false;}
         return true;
     }
     //===============================================
@@ -87,6 +88,8 @@ class GSocket extends GObject {
     }
     //===============================================
     public function writeData($data) {
+        $lLog = GLog::Instance();
+        if($lLog->hasErrors()) return 0;
         $lSize = strlen($data);
         $lKey = $this->getItem("socket", "api_key");
         $lBuffer = sprintf("%s;%d", $lKey, $lSize);
@@ -116,6 +119,8 @@ class GSocket extends GObject {
     }
     //===============================================
     public function readData() {
+        $lLog = GLog::Instance();
+        if($lLog->hasErrors()) return "";
         $lBuffer = $this->recvData(self::BUFFER_NDATA_SIZE);
         $lSize = strlen($lBuffer);
         if($lSize != self::BUFFER_NDATA_SIZE) return "";
