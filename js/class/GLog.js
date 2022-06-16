@@ -118,6 +118,18 @@ class GLog extends GObject {
 		this.logs.push(lMsg);
 	}
     //===============================================
+	getError() {
+		if(this.errors.length == 0) return "";
+		var lData = this.errors[0];
+		return lData;
+	}
+    //===============================================
+	getLog() {
+		if(this.logs.length == 0) return "";
+		var lData = this.logs[0];
+		return lData;
+	}
+    //===============================================
 	hasErrors() {
 		var lData = (this.errors.length > 0);
 		return lData;

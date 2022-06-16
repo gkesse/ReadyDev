@@ -146,10 +146,11 @@ class GUser extends GObject {
 		lUser.deserialize(data);
         if(lLog.hasErrors()) {
             var lHtml = "<i style='color:#ff9933' class='fa fa-exclamation-triangle'></i> "; 
-            lHtml += "La connexion a échoué."; 
+            lHtml += lLog.getError(); 
             lConnectionMsg.innerHTML = lHtml;
             lConnectionMsg.style.color = "#ff9933";
             lConnectionMsg.style.display = "block";
+			lLog.clearErrors();
         }
         else {
             var lHtml = "<i style='color:#339933' class='fa fa-paper-plane-o'></i> "; 
