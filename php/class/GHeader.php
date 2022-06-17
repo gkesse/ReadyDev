@@ -60,43 +60,13 @@ class GHeader extends GModule {
     }
     //===============================================
     public function onConnection() {
-        echo sprintf("<div class='Modal Connection' id='ModalConnection' onkeypress='server_call(\"user\", \"key_press\", this, event);'>\n");
-        echo sprintf("<div class='Content10' id='ConnectionBody'>\n");
-        echo sprintf("<div class='Button3 Close' onclick='server_call(\"user\", \"close_connection\");'><i class='fa fa-close'></i></div>\n");
-        echo sprintf("<div class='Title5'>Connexion</div>\n");
-        echo sprintf("<form class='Body4' id='ConnectionForm' method='post'>\n");
-        echo sprintf("<div class='Row11'>Entrez vos identifiants de connexion.</div>\n");
-        echo sprintf("<div class='Row12'>\n");
-        echo sprintf("<div class='Label3'>Email :</div>\n");
-        echo sprintf("<div class='Field3'><input id='ConnectionEmail' class='Input2' type='text' name='Email'/></div>\n");
-        echo sprintf("</div>\n");
-        echo sprintf("<div class='Row12'>\n");
-        echo sprintf("<div class='Label3'>Mot de passe :</div>\n");
-        echo sprintf("<div class='Field3'><input class='Input2' type='password' name='Password'/></div>\n");
-        echo sprintf("</div>\n");
-        echo sprintf("<div class='Row13'>\n");
-        echo sprintf("<div id='ConnectionButton' class='Button4' onclick='server_call(\"user\", \"run_connection\");'><i class='fa fa-paper-plane-o'></i> Se Connecter</div>\n");
-        echo sprintf("</div>\n");
-        echo sprintf("</form>\n");
-        echo sprintf("<div class='Row14' id='ConnectionMsg'></div>\n");
-        echo sprintf("</div>\n");
-        echo sprintf("</div>\n");
+        $lUser = new GUser();
+        $lUser->onConnectionUi();
     }
     //===============================================
     public function onDisconnection() {
-        echo sprintf("<div class='Modal Disconnection' id='ModalDisconnection'>\n");
-        echo sprintf("<div class='Content10' id='DisconnectionBody'>\n");
-        echo sprintf("<div class='Button3 Close' onclick='server_call(\"user\", \"close_disconnection\")'><i class='fa fa-close'></i></div>\n");
-        echo sprintf("<div class='Title5'>Déconnexion</div>\n");
-        echo sprintf("<div class='Body4' id='DisconnectionForm'>\n");
-        echo sprintf("<div class='Row11'>Êtes-vous sûr de vous déconnecter ?</div>\n");
-        echo sprintf("<div class='Row13'>\n");
-        echo sprintf("<div class='Button4' onclick='server_call(\"user\", \"run_disconnection\")'><i class='fa fa-power-off'></i> Se Déconnecter</div>\n");
-        echo sprintf("</div>\n");
-        echo sprintf("</div>\n");
-        echo sprintf("<div class='Row14' id='DisconnectionMsg'></div>\n");
-        echo sprintf("</div>\n");
-        echo sprintf("</div>\n");
+        $lUser = new GUser();
+        $lUser->onDisconnectionUi();
     }
     //===============================================
     public function onMenu() {        
@@ -108,6 +78,8 @@ class GHeader extends GModule {
         $lCount = $this->countItem("menu");        
         $lPage = $lPageObj->getPageId();
         $lLoginOn = $lSessionObj->issetSession("user/login");
+        $lGroup = $lSessionObj->getSession("user/group");
+        $lRootOn = ($lGroup == G_USER_GROUP_ROOT);
         
         for($i = 0; $i < $lCount; $i++) {
             $lType = $this->getItem3("menu", "type", $i);
@@ -134,6 +106,7 @@ class GHeader extends GModule {
             }
             else if($lType == "link/admin") {
                 if(!$lLoginOn) continue;
+                if(!$lRootOn) continue;
                 echo sprintf("<li class='Item'>\n");
                 echo sprintf("<a class='Link%s' href='%s'>\n", $lActive, $lLink);
                 echo sprintf("%s\n", $lName);
@@ -143,27 +116,11 @@ class GHeader extends GModule {
             else if($lType == "link/login") {
                 if($lLoginOn) continue;
                 echo sprintf("<li class='Item'>\n");
-                echo sprintf("<a class='Link%s' href='%s'>\n", $lActive, $lLink);
-                echo sprintf("%s\n", $lName);
-                echo sprintf("</a>\n");
-                echo sprintf("</li>\n");
-            }
-            else if($lType == "link/login/js") {
-                if($lLoginOn) continue;
-                echo sprintf("<li class='Item'>\n");
                 echo sprintf("<span class='Link' onclick='server_call(\"%s\", \"%s\");'>%s</span>\n"
                     , $lModule, $lMethod, $lName);
                 echo sprintf("</li>\n");
             }
             else if($lType == "link/logout") {
-                if(!$lLoginOn) continue;
-                echo sprintf("<li class='Item'>\n");
-                echo sprintf("<a class='Link%s' href='%s'>\n", $lActive, $lLink);
-                echo sprintf("%s\n", $lName);
-                echo sprintf("</a>\n");
-                echo sprintf("</li>\n");
-            }
-            else if($lType == "link/logout/js") {
                 if(!$lLoginOn) continue;
                 echo sprintf("<li class='Item'>\n");
                 echo sprintf("<span class='Link' onclick='server_call(\"%s\", \"%s\");'>%s</span>\n"

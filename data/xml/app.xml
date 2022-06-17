@@ -136,13 +136,13 @@
     				<link>/home/doc</link>
     			</data>
     			<data>
-    				<type>link/login/js</type>
+    				<type>link/login</type>
     				<name>Connexion</name>
     				<module>user</module>
     				<method>open_connection</method>
     			</data>
     			<data>
-    				<type>link/logout/js</type>
+    				<type>link/logout</type>
     				<name>Déconnexion</name>
     				<module>user</module>
     				<method>open_disconnection</method>
@@ -740,6 +740,67 @@
 		    		<name>Copier</name>
 		    		<tooltip>Copier la requête</tooltip>
 		     	</data>
+       			<!-- ============================================ -->
+       			<!-- end -->
+       			<!-- ============================================ -->
+    		</map>
+    	</data>
+        <!-- ============================================ -->
+    	<!-- user -->
+        <!-- ============================================ -->
+    	<data>
+    		<code>user</code>
+    		<map>
+       			<!-- ============================================ -->
+       			<!-- connection -->
+       			<!-- ============================================ -->
+    			<data>
+    				<category>connection</category>
+    				<title>Connexion</title>
+    				<intro>Entrez vos identifiants de connexion.</intro>
+    				<modal_id>ModalConnection</modal_id>
+    				<body_id>ConnectionBody</body_id>
+    				<form_id>ConnectionForm</form_id>
+    				<module>user</module>
+    				<keypress_cb>key_press</keypress_cb>
+    				<close_cb>close_connection</close_cb>
+    			</data>
+       			<!-- ============================================ -->
+       			<!-- connection/body -->
+       			<!-- ============================================ -->
+    			<data>
+    				<category>connection/body</category>
+    				<label>Nom d'utilisateur :</label>
+    				<id>ConnectionPseudo</id>
+    				<type>text</type>
+    				<name>pseudo</name>
+    			</data>
+    			<data>
+    				<category>connection/body</category>
+    				<label>Mot de passe :</label>
+    				<id>ConnectionPassword</id>
+    				<type>password</type>
+    				<name>password</name>
+    			</data>
+       			<!-- ============================================ -->
+       			<!-- connection/button -->
+       			<!-- ============================================ -->
+    			<data>
+    				<category>connection/button</category>
+    				<type>text/link</type>
+   					<module>user</module>
+    				<callback>create_account</callback>
+    				<text><![CDATA[<span class='Text11'>Envie de nous rejoindre ? <span class='Text12' onclick='server_call("%s", "%s");'>Créez un compte</span></span>]]></text>
+    			</data>
+    			<data>
+    				<category>connection/button</category>
+    				<type>button</type>
+    				<id>ConnectionButton</id>
+    				<module>user</module>
+    				<callback>run_connection</callback>
+    				<picto>paper-plane-o</picto>
+    				<text><![CDATA[Se Connecter]]></text>
+    			</data>
        			<!-- ============================================ -->
        			<!-- end -->
        			<!-- ============================================ -->

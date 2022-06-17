@@ -47,6 +47,13 @@ button {
     cursor: pointer;
 }
 
+button:disabled,
+button:disabled:hover {
+  	border: 1px solid #aaaaaa;
+  	background-color: transparent;
+  	cursor: not-allowed;
+}
+
 input {
     background-color: transparent;
     border: none;
@@ -1880,6 +1887,22 @@ span {
 }
 
 .Text10:hover {
+    text-decoration: underline;
+}
+
+.Text11 {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 16px;
+    margin: 5px;
+}
+
+.Text12 {
+    cursor: pointer;
+    color: cyan;
+}
+
+.Text12:hover {
     text-decoration: underline;
 }
 

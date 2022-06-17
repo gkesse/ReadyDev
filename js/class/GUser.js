@@ -3,32 +3,23 @@ class GUser extends GObject {
     //===============================================
     constructor() {
 		super();
-		this.mode = "1";
-		this.email = "";
+		this.pseudo = "";
 		this.password = "";
-		this.group = "0";
-		this.active = "0";
     }
     //===============================================
 	serialize(code = "user") {
 		var lData = new GCode();
 		lData.createDoc();
-		lData.addData(code, "mode", this.mode);
-		lData.addData(code, "email", this.email);
+		lData.addData(code, "pseudo", this.pseudo);
 		lData.addData(code, "password", this.password);
-		lData.addData(code, "group", this.group);
-		lData.addData(code, "active", this.active);
 		return lData.toStringData();
 	}
     //===============================================
 	deserialize(data, code = "user") {
 		var lData = new GCode();
 		lData.loadXml(data);
-		this.mode = lData.getItem(code, "mode");
-		this.email = lData.getItem(code, "email");
+		this.pseudo = lData.getItem(code, "pseudo");
 		this.password = lData.getItem(code, "password");
-		this.group = lData.getItem(code, "group");
-		this.active = lData.getItem(code, "active");
 	}
     //===============================================
     onModule(method, obj, data) {
@@ -78,14 +69,14 @@ class GUser extends GObject {
         var lModalConnection = document.getElementById("ModalConnection");
         var lConnectionBody = document.getElementById("ConnectionBody");
         var lConnectionMsg = document.getElementById("ConnectionMsg");
-        var lConnectionEmail = document.getElementById("ConnectionEmail");
+        var lConnectionPseudo = document.getElementById("ConnectionPseudo");
 		var lClassName = lConnectionBody.className;
         lConnectionMsg.style.display = "none";
         lConnectionBody.className = lClassName.replace(" AnimateShow", "");
         lConnectionBody.className = lClassName.replace(" AnimateHide", "");
         lConnectionBody.className += " AnimateShow";
         lModalConnection.style.display = "block";
-		lConnectionEmail.focus();
+		lConnectionPseudo.focus();
     }
     //===============================================
     onCloseConnection() {
@@ -101,20 +92,20 @@ class GUser extends GObject {
     }
     //===============================================
     onRunConnection() {
-        var lEmail = document.getElementsByName("Email")[0];
-        var lPassword = document.getElementsByName("Password")[0];
+        var lPseudo = document.getElementById("ConnectionPseudo");
+        var lPassword = document.getElementById("ConnectionPassword");
         var lConnectionMsg = document.getElementById("ConnectionMsg");
-        var lRegExp = /\S+@\S+\.\S+/;
+        var lConnectionButton = document.getElementById("ConnectionButton");
         var lMessage = "";
 
-        if(!lEmail.value.length) {
-            lMessage = "Email est obligatoire";
-        }
-        else if(!lRegExp.test(lEmail.value)) {
-            lMessage = "Email est incorrect";
+		lConnectionButton.disabled = true;
+            lConnectionMsg.style.display = "none";
+
+        if(!lPseudo.value.length) {
+            lMessage = "Le nom d'utilisateur' est obligatoire.";
         }
         else if(!lPassword.value.length) {
-            lMessage = "Mot de passe est obligatoire";
+            lMessage = "Le mot de passe est obligatoire.";
         }
         
         if(lMessage.length) {
@@ -123,9 +114,10 @@ class GUser extends GObject {
             lConnectionMsg.innerHTML = lHtml;
             lConnectionMsg.style.display = "block";
             lConnectionMsg.style.color = "#ff9933";
+			lConnectionButton.disabled = false;
         }
         else {
-			this.email =lEmail.value;
+			this.pseudo =lPseudo.value;
 			this.password = lPassword.value;
             this.onRunConnectionCall();
         }
@@ -141,9 +133,13 @@ class GUser extends GObject {
 		var lLog = GLog.Instance();
         var lConnectionMsg = document.getElementById("ConnectionMsg");
         var lConnectionForm = document.getElementById("ConnectionForm");
+        var lConnectionButton = document.getElementById("ConnectionButton");
+
         lConnectionMsg.style.display = "none";
+
         var lUser = new GUser();
 		lUser.deserialize(data);
+		
         if(lLog.hasErrors()) {
             var lHtml = "<i style='color:#ff9933' class='fa fa-exclamation-triangle'></i> "; 
             lHtml += lLog.getError(); 
@@ -160,6 +156,7 @@ class GUser extends GObject {
             lConnectionMsg.style.display = "block";
             lConnectionForm.submit();
         }
+		lConnectionButton.disabled = false;
     }
     //===============================================
     // disconnection
