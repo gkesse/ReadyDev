@@ -757,12 +757,13 @@
     			<data>
     				<category>connection</category>
     				<title>Connexion</title>
-    				<intro>Entrez vos identifiants de connexion.</intro>
+    				<intro>Connectez-vous pour utiliser les applications.</intro>
     				<modal_id>ModalConnection</modal_id>
     				<body_id>ConnectionBody</body_id>
     				<form_id>ConnectionForm</form_id>
+    				<msg_id>ConnectionMsg</msg_id>
     				<module>user</module>
-    				<keypress_cb>key_press</keypress_cb>
+    				<keypress_cb>keypress_connection</keypress_cb>
     				<close_cb>close_connection</close_cb>
     			</data>
        			<!-- ============================================ -->
@@ -789,7 +790,7 @@
     				<category>connection/button</category>
     				<type>text/link</type>
    					<module>user</module>
-    				<callback>create_account</callback>
+    				<callback>open_account</callback>
     				<text><![CDATA[<span class='Text11'>Envie de nous rejoindre ? <span class='Text12' onclick='server_call("%s", "%s");'>Créez un compte</span></span>]]></text>
     			</data>
     			<data>
@@ -800,6 +801,57 @@
     				<callback>run_connection</callback>
     				<picto>paper-plane-o</picto>
     				<text><![CDATA[Se Connecter]]></text>
+    			</data>
+       			<!-- ============================================ -->
+       			<!-- account -->
+       			<!-- ============================================ -->
+    			<data>
+    				<category>account</category>
+    				<title>Compte</title>
+    				<intro>Créez un compte pour mieux utiliser les applications.</intro>
+    				<modal_id>ModalAccount</modal_id>
+    				<body_id>AccountBody</body_id>
+    				<form_id>AccountForm</form_id>
+    				<msg_id>AccountMsg</msg_id>
+    				<module>user</module>
+    				<keypress_cb>keypress_account</keypress_cb>
+    				<close_cb>close_account</close_cb>
+    			</data>
+       			<!-- ============================================ -->
+       			<!-- account/body -->
+       			<!-- ============================================ -->
+    			<data>
+    				<category>account/body</category>
+    				<label>Nom d'utilisateur :</label>
+    				<id>AccountPseudo</id>
+    				<type>text</type>
+    				<name>pseudo</name>
+    			</data>
+    			<data>
+    				<category>account/body</category>
+    				<label>Mot de passe :</label>
+    				<id>AccountPassword</id>
+    				<type>password</type>
+    				<name>password</name>
+    			</data>
+    			<data>
+    				<category>account/body</category>
+    				<label>Confirmation :</label>
+    				<id>AccountConfirm</id>
+    				<type>password</type>
+    				<name>password</name>
+    			</data>
+       			<!-- ============================================ -->
+       			<!-- account/button -->
+       			<!-- ============================================ -->
+    			<data>
+    				<category>account/button</category>
+    				<type>button</type>
+    				<id>AccountButton</id>
+    				<module>user</module>
+    				<callback>create_account</callback>
+    				<picto>paper-plane-o</picto>
+    				<text><![CDATA[Créer]]></text>
     			</data>
        			<!-- ============================================ -->
        			<!-- end -->

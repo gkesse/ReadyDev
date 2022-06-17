@@ -29,9 +29,12 @@ class GHeader extends GModule {
         echo sprintf("<div id='EnvType' hidden>%s</div>\n", $lEnv);
         echo sprintf("<div id='ProdOn' hidden>%s</div>\n", $lProdOn);
         echo sprintf("<div class='HtmlPage'>\n");
+        
         $this->onBackground();
         $this->onConnection();
+        $this->onAccountUi();
         $this->onDisconnection();
+        
         echo sprintf("<div class='BodyPage'>\n");
         echo sprintf("<div class='MainPage'>\n");
         $this->onHeader();
@@ -62,6 +65,11 @@ class GHeader extends GModule {
     public function onConnection() {
         $lUser = new GUser();
         $lUser->onConnectionUi();
+    }
+    //===============================================
+    public function onAccountUi() {
+        $lUser = new GUser();
+        $lUser->onAccountUi();
     }
     //===============================================
     public function onDisconnection() {

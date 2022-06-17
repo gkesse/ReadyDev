@@ -39,6 +39,10 @@ class GUser extends GObject {
 			this.onRunConnection();
 		}
     	//===============================================
+		else if(method == "keypress_connection") {
+			this.onKeyPressConnection(obj, data);
+		}
+    	//===============================================
 		// disconnection
     	//===============================================
 		else if(method == "open_disconnection") {
@@ -51,10 +55,20 @@ class GUser extends GObject {
 			this.onRunDisconnection();
 		}
     	//===============================================
-		// event
+		// account
     	//===============================================
-		else if(method == "key_press") {
-			this.onKeyPress(obj, data);
+		else if(method == "open_account") {
+			this.onOpenCreateAccount();
+		}
+		else if(method == "close_account") {
+			this.onCloseAccount();
+		}
+		else if(method == "create_account") {
+			this.onCreateAccount();
+		}
+    	//===============================================
+		else if(method == "keypress_account") {
+			this.onKeyPressAccount(obj, data);
 		}
     	//===============================================
 		// end
@@ -159,6 +173,13 @@ class GUser extends GObject {
 		lConnectionButton.disabled = false;
     }
     //===============================================
+    onKeyPressConnection(obj, event) {
+		var lConnectionButton = document.getElementById("ConnectionButton");
+		if(event.key == "Enter") {
+			lConnectionButton.click();
+		}
+    }
+    //===============================================
     // disconnection
     //===============================================
     onOpenDisconnection() {
@@ -200,10 +221,113 @@ class GUser extends GObject {
         location.reload();
     }
     //===============================================
-    onKeyPress(obj, event) {
-		var lConnectionButton = document.getElementById("ConnectionButton");
+    // account
+    //===============================================
+    onOpenCreateAccount() {
+        var lModalAccount = document.getElementById("ModalAccount");
+        var lAccountBody = document.getElementById("AccountBody");
+        var lAccountMsg = document.getElementById("AccountMsg");
+        //var lAccountPseudo = document.getElementById("AccountPseudo");
+		var lClassName = lAccountBody.className;
+        lAccountMsg.style.display = "none";
+        lAccountBody.className = lClassName.replace(" AnimateShow", "");
+        lAccountBody.className = lClassName.replace(" AnimateHide", "");
+        lAccountBody.className += " AnimateShow";
+        lModalAccount.style.display = "block";
+		//lAccountPseudo.focus();
+    }    
+    //===============================================
+    onCloseAccount() {
+        var lModalAccount = document.getElementById("ModalAccount");
+        var lAccountBody = document.getElementById("AccountBody");
+        var lClassName = lAccountBody.className;
+        lAccountBody.className = lClassName.replace(" AnimateShow", "");
+        lAccountBody.className = lClassName.replace(" AnimateHide", "");
+        lAccountBody.className += " AnimateHide";
+        setTimeout(function() {
+            lModalAccount.style.display = "none";
+        }, 400);
+    }
+    //===============================================
+    onCreateAccount() {
+        var lPseudo = document.getElementById("AccountPseudo");
+        var lPassword = document.getElementById("AccountPassword");
+        var lConfirm = document.getElementById("AccountConfirm");
+        var lAccountMsg = document.getElementById("AccountMsg");
+        var lAccountButton = document.getElementById("AccountButton");
+        var lMessage = "";
+
+		lAccountButton.disabled = true;
+            lAccountMsg.style.display = "none";
+
+        if(!lPseudo.value.length) {
+            lMessage = "Le nom d'utilisateur' est obligatoire.";
+        }
+        else if(!lPassword.value.length) {
+            lMessage = "Le mot de passe est obligatoire.";
+        }
+        else if(!lConfirm.value.length) {
+            lMessage = "La confirmation du mot de passe est obligatoire.";
+        }
+        else if(lPassword.value != lConfirm.value) {
+            lMessage = "Les mots de passe sont différents.";
+        }
+        
+        if(lMessage.length) {
+            var lHtml = "<i style='color:#ff9933' class='fa fa-exclamation-triangle'></i> "; 
+            lHtml += lMessage; 
+            lAccountMsg.innerHTML = lHtml;
+            lAccountMsg.style.display = "block";
+            lAccountMsg.style.color = "#ff9933";
+			lAccountButton.disabled = false;
+        }
+        else {
+			this.pseudo =lPseudo.value;
+			this.password = lPassword.value;
+            this.onRunAccountCall();
+        }
+    }
+    //===============================================
+    onRunAccountCall() {
+		var lAjax = new GAjax();
+		var lData = this.serialize();
+		lAjax.call("user", "run_connection", lData, this.onRunAccountCB);		
+    }
+    //===============================================
+    onRunAccountCB(data) {
+		var lLog = GLog.Instance();
+        var lAccountMsg = document.getElementById("AccountMsg");
+        var lAccountForm = document.getElementById("AccountForm");
+        var lAccountButton = document.getElementById("AccountButton");
+
+        lAccountMsg.style.display = "none";
+
+        var lUser = new GUser();
+		lUser.deserialize(data);
+		
+        if(lLog.hasErrors()) {
+            var lHtml = "<i style='color:#ff9933' class='fa fa-exclamation-triangle'></i> "; 
+            lHtml += lLog.getError(); 
+            lAccountMsg.innerHTML = lHtml;
+            lAccountMsg.style.color = "#ff9933";
+            lAccountMsg.style.display = "block";
+			lLog.clearErrors();
+        }
+        else {
+            var lHtml = "<i style='color:#339933' class='fa fa-paper-plane-o'></i> "; 
+            lHtml += "La connexion a réussi."; 
+            lAccountMsg.innerHTML = lHtml;
+            lAccountMsg.style.color = "#339933";
+            lAccountMsg.style.display = "block";
+            lAccountForm.submit();
+        }
+		lAccountButton.disabled = false;
+    }
+	//===============================================
+    onKeyPressAccount(obj, event) {
+		var lAccountButton = document.getElementById("AccountButton");
 		if(event.key == "Enter") {
-			lConnectionButton.click();
+			lAccountButton.click();
 		}
     }
     //===============================================
