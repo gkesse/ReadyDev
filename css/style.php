@@ -973,6 +973,11 @@ span {
     padding: 20px 0px;
 }
 
+.Content14 {
+    height: 350px;
+    padding: 10px;
+}
+
 .Data {
     background-color: rgba(0,0,0,0.2);
     border: 1px solid rgba(0,0,0,0.2);
@@ -1792,6 +1797,12 @@ span {
 
 .Row33 {
     padding: 0px 5px;
+}
+
+.Row34 {
+    text-align: left;
+    font-size: 0px;
+    padding-top: 10px;
 }
 
 .Shift1 {

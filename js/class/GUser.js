@@ -261,10 +261,22 @@ class GUser extends GObject {
             lAccountMsg.style.display = "none";
 
         if(!lPseudo.value.length) {
-            lMessage = "Le nom d'utilisateur' est obligatoire.";
+            lMessage = "Le nom d'utilisateur est obligatoire.";
+        }
+        else if(lPseudo.value.length < 8) {
+            lMessage = "Le nom d'utilisateur doit faire au minimum 8 caractères.";
+        }
+        else if(lPseudo.value.length > 50) {
+            lMessage = "Le nom d'utilisateur doit faire au maximum 50 caractères.";
         }
         else if(!lPassword.value.length) {
             lMessage = "Le mot de passe est obligatoire.";
+        }
+        else if(lPassword.value.length < 8) {
+            lMessage = "Le mot de passe doit faire au minimum 8 caractères.";
+        }
+        else if(lPassword.value.length > 50) {
+            lMessage = "Le mot de passe doit faire au maximum 50 caractères.";
         }
         else if(!lConfirm.value.length) {
             lMessage = "La confirmation du mot de passe est obligatoire.";
@@ -284,17 +296,17 @@ class GUser extends GObject {
         else {
 			this.pseudo =lPseudo.value;
 			this.password = lPassword.value;
-            this.onRunAccountCall();
+            this.onCreateAccountCall();
         }
     }
     //===============================================
-    onRunAccountCall() {
+    onCreateAccountCall() {
 		var lAjax = new GAjax();
 		var lData = this.serialize();
-		lAjax.call("user", "run_connection", lData, this.onRunAccountCB);		
+		lAjax.call("user", "create_account", lData, this.onCreateAccountCB);		
     }
     //===============================================
-    onRunAccountCB(data) {
+    onCreateAccountCB(data) {
 		var lLog = GLog.Instance();
         var lAccountMsg = document.getElementById("AccountMsg");
         var lAccountForm = document.getElementById("AccountForm");
@@ -315,11 +327,11 @@ class GUser extends GObject {
         }
         else {
             var lHtml = "<i style='color:#339933' class='fa fa-paper-plane-o'></i> "; 
-            lHtml += "La connexion a réussi."; 
+            lHtml += "La création du compte a réussi."; 
             lAccountMsg.innerHTML = lHtml;
             lAccountMsg.style.color = "#339933";
             lAccountMsg.style.display = "block";
-            lAccountForm.submit();
+            //lAccountForm.submit();
         }
 		lAccountButton.disabled = false;
     }

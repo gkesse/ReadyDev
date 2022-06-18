@@ -51,6 +51,9 @@ class GUser extends GModule {
         else if($lMethod == "run_disconnection") {
             $this->onRunDisconnection($server);
         }
+        else if($lMethod == "create_account") {
+            $this->onCreateAccount($server);
+        }
         //===============================================
         // end
         //===============================================
@@ -212,6 +215,12 @@ class GUser extends GModule {
         $server->addResponse($lData);
     }
     //===============================================
+    public function onCreateAccount($server) {
+        $this->createAccount();
+        $lData = $this->serialize();
+        $server->addResponse($lData);
+    }
+    //===============================================
     public function runConnection() {
         $lClient = new GSocket();
         $lData = $this->serialize();
@@ -223,11 +232,18 @@ class GUser extends GModule {
     public function runDisconnection() {
         $lLog = GLog::Instance();
         $lSession = new GSession();
-        $lLoginOn = $lSession->issetSession("user/login");        
+        $lLoginOn = $lSession->issetSession("user/login");
         if(!$lLoginOn) {$lLog->addError(sprintf("Erreur lors de la déconnexion.")); return false;}
         $lSession->unsetSession("user/login");
         $lSession->unsetSession("user/group");
         return true;
+    }
+    //===============================================
+    public function createAccount() {
+        $lClient = new GSocket();
+        $lData = $this->serialize();
+        $lData = $lClient->callServer($this->module, $this->method, $lData);
+        $this->deserialize($lData);
     }
     //===============================================
     public function onConnection() {        

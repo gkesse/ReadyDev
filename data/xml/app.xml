@@ -79,6 +79,7 @@
     			<data>/js/class/GXml.js</data>
     			<data>/js/class/GCode.js</data>
     			<data>/js/class/GAjax.js</data>
+    			<data>/js/class/GManager.js</data>
     			<data>/js/class/GQuery.js</data>
     			<data>/js/class/GSitemap.js</data>
     			<data>/js/class/GUser.js</data>
@@ -601,16 +602,74 @@
     				<tooltip>Accueil</tooltip>
     				<id>ManagerTab0</id>
     				<name><![CDATA[<i class='fa fa-home'></i>]]></name>
+    			</data>
     			<data>
     				<category>header</category>
-    				<tooltip>Général</tooltip>
+    				<tooltip>Code</tooltip>
     				<id>ManagerTab1</id>
-    				<name>Général</name>
+    				<name>Code</name>
+    			</data>
+       			<!-- ============================================ -->
+       			<!-- header/link -->
+       			<!-- ============================================ -->
+    			<data>
+    				<category>header/link</category>
+    				<module>manager</module>
+    				<method>open_header</method>
+    			</data>
+		        <!-- ============================================ -->
+		    	<!-- home -->
+		        <!-- ============================================ -->
+		    	<data>
+		    		<category>home</category>
+					<title>ReadyManager</title>
+					<id>ManagerTab0</id>
+					<intro><![CDATA[
+		                <b>ReadyManager</b> est un manager de données.
+		                Il permet de générer les données d'une application à structure dynamique.
+						Il utilise un modèle de données à structure extensible.
+		                <br>Produit par <b>Gérard KESSE</b>.
+		           	]]></intro>
+		     	</data>
+		        <!-- ============================================ -->
+		    	<!-- code -->
+		        <!-- ============================================ -->
+		    	<data>
+		    		<category>code</category>
+					<title>Code</title>
+					<id>ManagerTab1</id>
+		     	</data>
+       			<!-- ============================================ -->
+       			<!-- code/body -->
+       			<!-- ============================================ -->
+    			<data>
+    				<category>code/body</category>
+    				<label>Code :</label>
+    				<id>ManagerCodeCode</id>
+    				<type>text</type>
+    				<name>code</name>
+    			</data>
+    			<data>
+    				<category>code/body</category>
+    				<label>Libellé :</label>
+    				<id>ManagerCodeLabel</id>
+    				<type>text</type>
+    				<name>label</name>
+    			</data>
+       			<!-- ============================================ -->
+       			<!-- code/button -->
+       			<!-- ============================================ -->
+    			<data>
+    				<category>code/button</category>
+    				<id>ManagerCodeCreate</id>
+    				<module>manager</module>
+    				<callback>create_code</callback>
+    				<picto>plus</picto>
+    				<text><![CDATA[Créer]]></text>
     			</data>
        			<!-- ============================================ -->
        			<!-- end -->
        			<!-- ============================================ -->
-    			</data>
     		</map>
     	</data>
         <!-- ============================================ -->

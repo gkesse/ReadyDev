@@ -65,17 +65,16 @@
             echo sprintf("</h1>\n");
             echo sprintf("<div class='Body'>\n");
             
-            $this->onHeader();            
-            /*$this->onHome();
-            $this->onEmission();
-            $this->onReception();*/
+            $this->onHeaderUi();            
+            $this->onHomeUi();
+            $this->onCodeUi();
             
             echo sprintf("</div>\n");
             echo sprintf("</div>\n");
             echo sprintf("</div>\n");
         }
         //===============================================
-        public function onHeader() {
+        public function onHeaderUi() {
             echo sprintf("<div class='Row10'>\n");
             
             $lCount = $this->countItem("manager");
@@ -99,7 +98,7 @@
             echo sprintf("</div>\n");
         }
         //===============================================
-        public function onHome() {
+        public function onHomeUi() {
             $lId = $this->getItemC("manager", "home", "id");
             $lTitle = $this->getItemC("manager", "home", "title");
             $lIntro = $this->getItemC("manager", "home", "intro");
@@ -112,104 +111,53 @@
             echo sprintf("</div>\n");            
         }
         //===============================================
-        public function onEmission() {
-            $lId = $this->getItemC("manager", "emission", "id");
-            $lTitle = $this->getItemC("manager", "emission", "title");
+        public function onCodeUi() {
             $lCount = $this->countItem("manager");
+            $lId = $this->getItemC("manager", "code", "id");
+            $lTitle = $this->getItemC("manager", "code", "title");
             
             echo sprintf("<div class='Row Left ManagerTabCtn' id='%s'>\n", $lId);
             echo sprintf("<h2 class='Title4'>%s</h2>\n", $lTitle);
             
             echo sprintf("<div class='Body14'>\n");
             echo sprintf("<div class='Content9'>\n");
+                   
+            echo sprintf("<div class='Border Content14'>\n");
             
             for($i = 0; $i < $lCount; $i++) {
                 $lCategory = $this->getItem3("manager", "category", $i);
+                $lLabel = $this->getItem3("manager", "label", $i);
                 $lId = $this->getItem3("manager", "id", $i);
+                $lType = $this->getItem3("manager", "type", $i);
                 $lName = $this->getItem3("manager", "name", $i);
-                $lRows = $this->getItem3("manager", "rows", $i);
-                $lCols = $this->getItem3("manager", "cols", $i);
-                $lPlaceholder = $this->getItem3("manager", "placeholder", $i);
                 
-                if($lCategory == "emission/text") {
-                    echo sprintf("<textarea class='Border Code3' id='%s' name='%s' rows='%s' cols='%s' placeholder='%s'></textarea>\n"
-                        , $lId, $lName, $lRows, $lCols, $lPlaceholder);
-                }
-            }
-            
-            echo sprintf("<div class='Row33'>\n");
-            for($i = 0; $i < $lCount; $i++) {
-                $lCategory = $this->getItem3("manager", "category", $i);
-                $lId = $this->getItem3("manager", "id", $i);
-                $lText = $this->getItem3("manager", "text", $i);
-                $lCheckedOn = ($this->getItem3("manager", "checked_on", $i) == "1");
-                $lTooltip = $this->getItem3("manager", "tooltip", $i);
-                
-                if($lCategory == "emission/check") {
-                    echo sprintf("<input class='Col' type='checkbox' id='%s' name='%s' value='%s' title='%s' checked='%s'><label class='Col' for='%s'> %s</label>"
-                        , $lId, $lId, $lId, $lTooltip, $lCheckedOn, $lId, $lText);
-                }
-            }
-            echo sprintf("</div>\n");
-            
-            for($i = 0; $i < $lCount; $i++) {
-                $lCategory = $this->getItem3("manager", "category", $i);
-                $lName = $this->getItem3("manager", "name", $i);
-                $lModule = $this->getItem3("manager", "module", $i);
-                $lMethod = $this->getItem3("manager", "method", $i);
-                $lTooltip = $this->getItem3("manager", "tooltip", $i);
-                
-                if($lCategory == "emission/button") {
-                    echo sprintf("<div class='Col'>\n");
-                    echo sprintf("<button class='Button2' onclick='server_call(\"%s\", \"%s\");' title='%s'>%s</button>"
-                        , $lModule, $lMethod, $lTooltip, $lName);
+                if($lCategory == "code/body") {
+                    echo sprintf("<div class='Row12'>\n");
+                    echo sprintf("<label class='Label3' for='%s'>%s</label>\n", $lName, $lLabel);
+                    echo sprintf("<div class='Field3'><input id='%s' class='Input2' type='%s' name='%s'/></div>\n", $lId, $lType, $lName);
                     echo sprintf("</div>\n");
                 }
             }
             
             echo sprintf("</div>\n");
-            echo sprintf("</div>\n");
-            echo sprintf("</div>\n");
-        }
-        //===============================================
-        public function onReception() {
-            $lId = $this->getItemC("manager", "reception", "id");
-            $lTitle = $this->getItemC("manager", "reception", "title");
-            $lCount = $this->countItem("manager");
-            
-            echo sprintf("<div class='Row Left ManagerTabCtn' id='%s'>\n", $lId);
-            echo sprintf("<h2 class='Title4'>%s</h2>\n", $lTitle);
-            
-            echo sprintf("<div class='Body14'>\n");
-            echo sprintf("<div class='Content9'>\n");
+            echo sprintf("<div class='Row34'>\n");
             
             for($i = 0; $i < $lCount; $i++) {
                 $lCategory = $this->getItem3("manager", "category", $i);
                 $lId = $this->getItem3("manager", "id", $i);
-                $lName = $this->getItem3("manager", "name", $i);
-                $lRows = $this->getItem3("manager", "rows", $i);
-                $lCols = $this->getItem3("manager", "cols", $i);
-                $lReadOnly = $this->getItem3("manager", "readonly", $i);
-                
-                if($lCategory == "reception/text") {
-                    echo sprintf("<textarea class='Border Code3' id='%s' name='%s' rows='%s' cols='%s' %s></textarea>\n"
-                        , $lId, $lName, $lRows, $lCols, $lReadOnly);
-                }
-            }
-            for($i = 0; $i < $lCount; $i++) {
-                $lCategory = $this->getItem3("manager", "category", $i);
-                $lName = $this->getItem3("manager", "name", $i);
                 $lModule = $this->getItem3("manager", "module", $i);
-                $lMethod = $this->getItem3("manager", "method", $i);
-                $lTooltip = $this->getItem3("manager", "tooltip", $i);
+                $lCallback = $this->getItem3("manager", "callback", $i);
+                $lPicto = $this->getItem3("manager", "picto", $i);
+                $lText = $this->getItem3("manager", "text", $i, true);
                 
-                if($lCategory == "reception/button") {
-                    echo sprintf("<div class='Col'>\n");
-                    echo sprintf("<button class='Button2' onclick='server_call(\"%s\", \"%s\");' title='%s'>%s</button>"
-                        , $lModule, $lMethod, $lTooltip, $lName);
-                    echo sprintf("</div>\n");
+                if($lCategory == "code/button") {
+                    echo sprintf("<button type='button' id='%s' class='Button4' onclick='server_call(\"%s\", \"%s\");'><i class='fa fa-%s'></i> %s</button>\n"
+                        , $lId, $lModule, $lCallback, $lPicto, $lText);
                 }
             }
+            
+            echo sprintf("</div>\n");
+            
             
             echo sprintf("</div>\n");
             echo sprintf("</div>\n");

@@ -65,7 +65,7 @@
             echo sprintf("</h1>\n");
             echo sprintf("<div class='Body'>\n");
             
-            $this->onHeader();            
+            $this->onHeaderUi();            
             $this->onHome();
             $this->onEmission();
             $this->onReception();
@@ -75,7 +75,7 @@
             echo sprintf("</div>\n");
         }
         //===============================================
-        public function onHeader() {
+        public function onHeaderUi() {
             echo sprintf("<div class='Row10'>\n");
             
             $lCount = $this->countItem("query");
