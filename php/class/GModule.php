@@ -25,6 +25,26 @@ class GModule extends GSession {
         $this->method = $lData->getItem($code, "method");
     }
     //===============================================
+    public function onModuleNone() {
+        $lLog = GLog::Instance();
+        $lLog->addError(sprintf("Le module est obligatoire."));
+    }
+    //===============================================
+    public function onModuleUnknown() {
+        $lLog = GLog::Instance();
+        $lLog->addError(sprintf("Le module n'existe pas."));
+    }
+    //===============================================
+    public function onMethodNone() {
+        $lLog = GLog::Instance();
+        $lLog->addError(sprintf("Le méthode est obligatoire."));
+    }
+    //===============================================
+    public function onMethodUnknown() {
+        $lLog = GLog::Instance();
+        $lLog->addError(sprintf("Le méthode n'existe pas."));
+    }
+    //===============================================
  }
 //===============================================
 ?>

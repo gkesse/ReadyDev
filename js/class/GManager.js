@@ -3,13 +3,15 @@ class GManager extends GModule {
     //===============================================
     constructor() {
 		super();
-		this.msg = "";
+		this.code = "";
+		this.label = "";
     }
     //===============================================
 	serialize(code = "manager") {
 		var lData = new GCode();
 		lData.createDoc();
-		lData.addData(code, "msg", this.msg, true);
+		lData.addData(code, "code", this.code);
+		lData.addData(code, "label", this.label);
 		return lData.toStringData();
 	}
     //===============================================
@@ -17,7 +19,8 @@ class GManager extends GModule {
 		super.deserialize(data);
 		var lData = new GCode();
 		lData.loadXml(data);
-		this.msg = lData.getItem(code, "msg", true);
+		this.code = lData.getItem(code, "code");
+		this.label = lData.getItem(code, "label");
 	}
     //===============================================
     onModule(method, obj, data) {
@@ -29,6 +32,9 @@ class GManager extends GModule {
     	//===============================================
 		else if(method == "open_header") {
 			this.onOpenHeader(obj, data);
+		}
+		else if(method == "create_code") {
+			this.onCreateCode(obj, data);
 		}
     	//===============================================
 		// end
@@ -60,7 +66,61 @@ class GManager extends GModule {
         var lTabId = document.getElementById(name);
         lTabId.style.display = "block";
     }
+    //===============================================
+    onCreateCode(obj, name) {
+		var lLog = GLog.Instance();
+        var lCode = document.getElementById("ManagerCodeCode");
+        var lLabel = document.getElementById("ManagerCodeLabel");
+        var lCreateButton = document.getElementById("ManagerCodeCreate");
+        var lMessage = "";
 
+		lCreateButton.disabled = true;
+
+        if(!lCode.value.length) {
+            lMessage = "Le code est obligatoire.";
+        }
+        else if(lCode.value.length < 3) {
+            lMessage = "Le code doit faire au minimum 8 caractères.";
+        }
+        else if(lCode.value.length > 50) {
+            lMessage = "Le code doit faire au maximum 50 caractères.";
+        }
+        else if(lLabel.value.length > 50) {
+            lMessage = "Le libellé doit faire au maximum 50 caractères.";
+        }
+        
+        if(lMessage.length) {
+            lLog.addError(sprintf("%s", lMessage));
+			lCreateButton.disabled = false;
+        }
+        else {
+			this.code = lCode.value;
+			this.label = lLabel.value;
+            this.onCreateCodeCall();
+        }
+    }
+    //===============================================
+    onCreateCodeCall() {
+		var lAjax = new GAjax();
+		var lData = this.serialize();
+		lAjax.call("manager", "create_code", lData, this.onCreateCodeCB);		
+    }
+    //===============================================
+    onCreateCodeCB(data) {
+		var lLog = GLog.Instance();
+        var lCreateButton = document.getElementById("ManagerCodeCreate");
+
+        var lUser = new GUser();
+		lUser.deserialize(data);
+		
+        if(lLog.hasErrors()) {
+            lLog.showErrors();
+        }
+        else {
+            lLog.addLog(sprintf("%s", "La création du code a réussi."));
+        }
+		lCreateButton.disabled = false;
+    }
     //===============================================
 }
 //===============================================

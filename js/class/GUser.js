@@ -38,7 +38,6 @@ class GUser extends GObject {
 		else if(method == "run_connection") {
 			this.onRunConnection();
 		}
-    	//===============================================
 		else if(method == "keypress_connection") {
 			this.onKeyPressConnection(obj, data);
 		}
@@ -66,7 +65,6 @@ class GUser extends GObject {
 		else if(method == "create_account") {
 			this.onCreateAccount();
 		}
-    	//===============================================
 		else if(method == "keypress_account") {
 			this.onKeyPressAccount(obj, data);
 		}
@@ -258,7 +256,7 @@ class GUser extends GObject {
         var lMessage = "";
 
 		lAccountButton.disabled = true;
-            lAccountMsg.style.display = "none";
+        lAccountMsg.style.display = "none";
 
         if(!lPseudo.value.length) {
             lMessage = "Le nom d'utilisateur est obligatoire.";

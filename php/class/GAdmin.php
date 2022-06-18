@@ -65,7 +65,7 @@ class GAdmin extends GObject {
     //===============================================
     public function onManager() {
         $lManager = new GManager();
-        $lManager->run();
+        $lManager->runUi();
     }
     //===============================================
     public function onQuery() {

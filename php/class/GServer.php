@@ -34,9 +34,11 @@ class GServer extends GModule {
         $lMethod = $this->method;
         //===============================================
         if($lModule == "") {
+            $this->onModuleNone();
             return false;
         }
         else if($lMethod == "") {
+            $this->onMethodNone();
             return false;
         }
         //===============================================
@@ -51,10 +53,17 @@ class GServer extends GModule {
         else if($lModule == "query") {
             $this->onQuery($data, $this);
         }
+        else if($lModule == "manager") {
+            $this->onManager($data, $this);
+        }
         //===============================================
         // end
         //===============================================
-        else return false;
+        else {
+            $this->onModuleUnknown();
+            return false;
+        }
+        //===============================================
         return true;
     }
     //===============================================
@@ -71,6 +80,11 @@ class GServer extends GModule {
     public function onQuery($data, $server) {
         $lQuery = new GQuery();
         $lQuery->onModule($data, $server);
+    }
+    //===============================================
+    public function onManager($data, $server) {
+        $lManager = new GManager();
+        $lManager->onModule($data, $server);
     }
     //===============================================
     public function sendResponse() {

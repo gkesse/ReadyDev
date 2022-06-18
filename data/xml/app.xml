@@ -69,6 +69,7 @@
     		<code>scripts</code>
     		<map>
     			<data>/js/functions.js</data>
+    			<data>/js/class/GDefine.js</data>
     			<data>/js/class/GObject.js</data>
     			<data>/js/class/GModule.js</data>
     			<data>/js/class/GDate.js</data>
@@ -625,9 +626,9 @@
 					<title>ReadyManager</title>
 					<id>ManagerTab0</id>
 					<intro><![CDATA[
-		                <b>ReadyManager</b> est un manager de données.
-		                Il permet de générer les données d'une application à structure dynamique.
-						Il utilise un modèle de données à structure extensible.
+		                <b>ReadyManager</b> est un manager de données à structure dynamique.
+		                Il permet de générer les données d'une application
+						en utilisant un modèle de données à structure extensible.
 		                <br>Produit par <b>Gérard KESSE</b>.
 		           	]]></intro>
 		     	</data>
@@ -648,6 +649,7 @@
     				<id>ManagerCodeCode</id>
     				<type>text</type>
     				<name>code</name>
+    				<lower_on>1</lower_on>
     			</data>
     			<data>
     				<category>code/body</category>

@@ -1286,6 +1286,14 @@ span {
     padding: 5px 10px;
 }
 
+.Input3 {
+    border: 1px solid #3A405B;
+    height: 100%;   
+    width: 100%;
+    padding: 5px 10px;
+    text-transform: lowercase;
+}
+
 .Item {
     display: inline-block;
     vertical-align: middle;

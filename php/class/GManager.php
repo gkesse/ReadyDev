@@ -1,8 +1,8 @@
 <?php   
     class GManager extends GModule {
         //===============================================
-        private $msg = "";
-        private $res = "";
+        private $code = "";
+        private $label = "";
         //===============================================
         public function __construct() {
             parent::__construct();
@@ -12,8 +12,8 @@
         public function serialize($code = "manager") {
             $lData = new GCode();
             $lData->createDoc();
-            $lData->addData($code, "msg", $this->msg, true);
-            $lData->addData($code, "res", $this->res, true);
+            $lData->addData($code, "code", $this->code);
+            $lData->addData($code, "label", $this->label);
             return $lData->toStringData();
         }
         //===============================================
@@ -21,8 +21,8 @@
             parent::deserialize($data);
             $lData = new GCode();
             $lData->loadXml($data);
-            $this->msg = $lData->getItem($code, "msg", true);
-            $this->res = $lData->getItem($code, "res", true);
+            $this->code = $lData->getItem($code, "code");
+            $this->label = $lData->getItem($code, "label");
         }
         //===============================================
         public function onModule($data, $server) {
@@ -30,31 +30,40 @@
             $lMethod = $this->method;
             //===============================================
             if($lMethod == "") {
+                $this->onMethodNone();
                 return false;
             }
             //===============================================
             // method
             //===============================================
-            else if($lMethod == "send_manager") {
-                $this->onSendQuery($server);
+            else if($lMethod == "create_code") {
+                $this->onCreateCode($server);
             }
             //===============================================
             // end
             //===============================================
-            else return false;
+            else {
+                $this->onMethodUnknown();
+                return false;
+            }
+            //===============================================
             return true;
         }
         //===============================================
-        public function onSendQuery($server) {
-            $lClient = new GSocket();
-            $lData = $this->msg;
-            $lData = $lClient->callServerTcp($lData);
-            $this->res = $lData;
+        public function onCreateCode($server) {
+            $this->createCode();
             $lData = $this->serialize();
             $server->addResponse($lData);
         }
         //===============================================
-        public function run() {
+        public function createCode() {
+            $lClient = new GSocket();
+            $lData = $this->serialize();
+            $lData = $lClient->callServer($this->module, $this->method, $lData);
+            $this->deserialize($lData);
+        }
+        //===============================================
+        public function runUi() {
             $lId = $this->getItem("manager", "id");
             $lTitle = $this->getItem("manager", "title");
             
@@ -130,11 +139,15 @@
                 $lId = $this->getItem3("manager", "id", $i);
                 $lType = $this->getItem3("manager", "type", $i);
                 $lName = $this->getItem3("manager", "name", $i);
+                $lLowerOn = ($this->getItem3("manager", "lower_on", $i) == "1");
+                
+                $lClass = "Input2";
+                if($lLowerOn) $lClass = "Input3";
                 
                 if($lCategory == "code/body") {
                     echo sprintf("<div class='Row12'>\n");
                     echo sprintf("<label class='Label3' for='%s'>%s</label>\n", $lName, $lLabel);
-                    echo sprintf("<div class='Field3'><input id='%s' class='Input2' type='%s' name='%s'/></div>\n", $lId, $lType, $lName);
+                    echo sprintf("<div class='Field3'><input id='%s' class='%s' type='%s' name='%s'/></div>\n", $lId, $lClass, $lType, $lName);
                     echo sprintf("</div>\n");
                 }
             }
