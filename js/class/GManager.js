@@ -3,6 +3,7 @@ class GManager extends GModule {
     //===============================================
     constructor() {
 		super();
+		this.id = "0";
 		this.code = "";
 		this.label = "";
     }
@@ -10,7 +11,8 @@ class GManager extends GModule {
 	serialize(code = "manager") {
 		var lData = new GCode();
 		lData.createDoc();
-		lData.addData(code, "code", this.code);
+		lData.addData(code, "id", this.id);
+		lData.addData(code, "code_id", this.code);
 		lData.addData(code, "label", this.label);
 		return lData.toStringData();
 	}
@@ -19,12 +21,14 @@ class GManager extends GModule {
 		super.deserialize(data);
 		var lData = new GCode();
 		lData.loadXml(data);
-		this.code = lData.getItem(code, "code");
+		this.id = lData.getItem(code, "id");
+		this.code = lData.getItem(code, "code_id");
 		this.label = lData.getItem(code, "label");
 	}
     //===============================================
     onModule(method, obj, data) {
 		if(method == "") {
+			this.onMethodNone();
 			return false;
 		}
     	//===============================================
@@ -36,10 +40,22 @@ class GManager extends GModule {
 		else if(method == "create_code") {
 			this.onCreateCode(obj, data);
 		}
+		else if(method == "search_code") {
+			this.onSearchCode(obj, data);
+		}
+		else if(method == "update_code") {
+			this.onUpdateCode(obj, data);
+		}
+		else if(method == "delete_code") {
+			this.onDeleteCode(obj, data);
+		}
     	//===============================================
 		// end
     	//===============================================
-		else return false;
+		else {
+			this.onMethodUnknown();
+			return false;	
+		}
 		return true;
 	}
     //===============================================
@@ -69,34 +85,112 @@ class GManager extends GModule {
     //===============================================
     onCreateCode(obj, name) {
 		var lLog = GLog.Instance();
-        var lCode = document.getElementById("ManagerCodeCode");
-        var lLabel = document.getElementById("ManagerCodeLabel");
-        var lCreateButton = document.getElementById("ManagerCodeCreate");
         var lMessage = "";
 
-		lCreateButton.disabled = true;
+		this.onReadUi();
+		this.onButtonOff();
 
-        if(!lCode.value.length) {
+        if(this.id != "0") {
+            lMessage = "Le code existe déjà.";
+        }
+        else if(!this.code.length) {
             lMessage = "Le code est obligatoire.";
         }
-        else if(lCode.value.length < 3) {
+        else if(this.code.length < 3) {
             lMessage = "Le code doit faire au minimum 8 caractères.";
         }
-        else if(lCode.value.length > 50) {
+        else if(this.code.length > 50) {
             lMessage = "Le code doit faire au maximum 50 caractères.";
         }
-        else if(lLabel.value.length > 50) {
+        else if(this.label.length > 50) {
             lMessage = "Le libellé doit faire au maximum 50 caractères.";
         }
+		else {
+			// confirmer ici
+		}
         
         if(lMessage.length) {
             lLog.addError(sprintf("%s", lMessage));
-			lCreateButton.disabled = false;
+			this.onButtonOn();
         }
         else {
-			this.code = lCode.value;
-			this.label = lLabel.value;
             this.onCreateCodeCall();
+        }
+    }
+    //===============================================
+    onSearchCode(obj, name) {
+		var lLog = GLog.Instance();
+		var lMessage = "";
+		
+		this.onReadUi();
+		this.onButtonOff();
+
+        // confirmer ici
+        
+        if(lMessage.length) {
+            lLog.addError(sprintf("%s", lMessage));
+			this.onButtonOn();
+        }
+		else {
+	        this.onSearchCodeCall();	
+		}		
+    }
+    //===============================================
+    onUpdateCode(obj, name) {
+		var lLog = GLog.Instance();
+        var lMessage = "";
+
+		this.onReadUi();
+		this.onButtonOff();
+
+        if(this.id == "0") {
+            lMessage = "Le code n'existe pas.";
+        }
+        else if(!this.code.length) {
+            lMessage = "Le code est obligatoire.";
+        }
+        else if(this.code.length < 3) {
+            lMessage = "Le code doit faire au minimum 8 caractères.";
+        }
+        else if(this.code.length > 50) {
+            lMessage = "Le code doit faire au maximum 50 caractères.";
+        }
+        else if(this.label.length > 50) {
+            lMessage = "Le libellé doit faire au maximum 50 caractères.";
+        }
+		else {
+			
+		}
+        
+        if(lMessage.length) {
+            lLog.addError(sprintf("%s", lMessage));
+			this.onButtonOn();
+        }
+        else {
+            this.onUpdateCodeCall();
+        }
+    }
+    //===============================================
+    onDeleteCode(obj, name) {
+		var lLog = GLog.Instance();
+        var lMessage = "";
+
+		this.onReadUi();
+		this.onButtonOff();
+
+        if(this.id == "0") {
+            lMessage = "Le code n'existe pas.";
+        }
+		else {
+			// confirmer ici
+		}
+        
+        if(lMessage.length) {
+            lLog.addError(sprintf("%s", lMessage));
+			this.onButtonOn();
+        }
+        else {;
+            this.onDeleteCodeCall();
         }
     }
     //===============================================
@@ -106,20 +200,125 @@ class GManager extends GModule {
 		lAjax.call("manager", "create_code", lData, this.onCreateCodeCB);		
     }
     //===============================================
+    onSearchCodeCall() {
+		var lAjax = new GAjax();
+		var lData = this.serialize();
+		lAjax.call("manager", "search_code", lData, this.onSearchCodeCB);		
+    }
+    //===============================================
+    onUpdateCodeCall() {
+		var lAjax = new GAjax();
+		var lData = this.serialize();
+		lAjax.call("manager", "update_code", lData, this.onUpdateCodeCB);		
+    }
+    //===============================================
+    onDeleteCodeCall() {
+		var lAjax = new GAjax();
+		var lData = this.serialize();
+		lAjax.call("manager", "delete_code", lData, this.onDeleteCodeCB);		
+    }
+    //===============================================
     onCreateCodeCB(data) {
 		var lLog = GLog.Instance();
-        var lCreateButton = document.getElementById("ManagerCodeCreate");
+		var lManager = new GManager();
 
-        var lUser = new GUser();
-		lUser.deserialize(data);
+        if(lLog.hasErrors()) {
+            lLog.showErrors();
+        }
+        else {
+			lManager.deserialize(data);
+			lManager.onWriteUi();
+            lLog.addLog(sprintf("%s", "La création du code a réussi."));
+        }
+		lManager.onButtonOn();
+    }
+    //===============================================
+    onSearchCodeCB(data) {
+		var lLog = GLog.Instance();
+        var lManager = new GManager();
 		
         if(lLog.hasErrors()) {
             lLog.showErrors();
         }
         else {
-            lLog.addLog(sprintf("%s", "La création du code a réussi."));
+			lManager.deserialize(data);
+			lManager.onWriteUi();
+            lLog.addLog(sprintf("%s", "La recherche du code a réussi."));
         }
-		lCreateButton.disabled = false;
+		lManager.onButtonOn();
+    }
+    //===============================================
+    onUpdateCodeCB(data) {
+		var lLog = GLog.Instance();
+        var lManager = new GManager();
+		
+        if(lLog.hasErrors()) {
+            lLog.showErrors();
+        }
+        else {
+			lManager.deserialize(data);
+			lManager.onWriteUi();
+            lLog.addLog(sprintf("%s", "La mise à jour du code a réussi."));
+        }
+		lManager.onButtonOn();
+    }
+    //===============================================
+    onDeleteCodeCB(data) {
+		var lLog = GLog.Instance();
+		var lManager = new GManager();
+		
+        if(lLog.hasErrors()) {
+            lLog.showErrors();
+        }
+        else {
+			lManager.onWriteUi();
+            lLog.addLog(sprintf("%s", "La suppression du code a réussi."));
+        }
+		lManager.onButtonOn();
+    }
+    //===============================================
+    onWriteUi() {
+        var lId = document.getElementById("ManagerCodeId");
+        var lCode = document.getElementById("ManagerCodeCode");
+        var lLabel = document.getElementById("ManagerCodeLabel");
+		//
+		lId.value = this.id;
+		lCode.value = this.code;
+		lLabel.value = this.label;
+    }
+    //===============================================
+    onReadUi() {
+        var lId = document.getElementById("ManagerCodeId");
+        var lCode = document.getElementById("ManagerCodeCode");
+        var lLabel = document.getElementById("ManagerCodeLabel");
+		//
+		this.id = lId.value;
+		this.code = lCode.value;
+		this.label = lLabel.value;
+    }
+    //===============================================
+    onButtonOn() {
+        var lCreate = document.getElementById("ManagerCodeCreate");
+        var lSearch = document.getElementById("ManagerCodeSearch");
+        var lUpdate = document.getElementById("ManagerCodeUpdate");
+        var lDelete = document.getElementById("ManagerCodeDelete");
+		//
+		lCreate.disabled = false;
+		lSearch.disabled = false;
+		lUpdate.disabled = false;
+		lDelete.disabled = false;
+    }
+    //===============================================
+    onButtonOff() {
+        var lCreate = document.getElementById("ManagerCodeCreate");
+        var lSearch = document.getElementById("ManagerCodeSearch");
+        var lUpdate = document.getElementById("ManagerCodeUpdate");
+        var lDelete = document.getElementById("ManagerCodeDelete");
+		//
+		lCreate.disabled = true;
+		lSearch.disabled = true;
+		lUpdate.disabled = true;
+		lDelete.disabled = true;
     }
     //===============================================
 }

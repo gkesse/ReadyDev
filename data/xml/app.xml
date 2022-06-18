@@ -645,6 +645,13 @@
        			<!-- ============================================ -->
     			<data>
     				<category>code/body</category>
+    				<model>hidden</model>
+    				<id>ManagerCodeId</id>
+    				<value>0</value>
+    			</data>
+    			<data>
+    				<category>code/body</category>
+    				<model>label/edit</model>
     				<label>Code :</label>
     				<id>ManagerCodeCode</id>
     				<type>text</type>
@@ -653,6 +660,7 @@
     			</data>
     			<data>
     				<category>code/body</category>
+    				<model>label/edit</model>
     				<label>Libellé :</label>
     				<id>ManagerCodeLabel</id>
     				<type>text</type>
@@ -667,7 +675,31 @@
     				<module>manager</module>
     				<callback>create_code</callback>
     				<picto>plus</picto>
-    				<text><![CDATA[Créer]]></text>
+    				<text>Créer</text>
+    			</data>
+    			<data>
+    				<category>code/button</category>
+    				<id>ManagerCodeSearch</id>
+    				<module>manager</module>
+    				<callback>search_code</callback>
+    				<picto>search</picto>
+    				<text>Rechercher</text>
+    			</data>
+    			<data>
+    				<category>code/button</category>
+    				<id>ManagerCodeUpdate</id>
+    				<module>manager</module>
+    				<callback>update_code</callback>
+    				<picto>upload</picto>
+    				<text>Modifier</text>
+    			</data>
+    			<data>
+    				<category>code/button</category>
+    				<id>ManagerCodeDelete</id>
+    				<module>manager</module>
+    				<callback>delete_code</callback>
+    				<picto>trash</picto>
+    				<text>Supprimer</text>
     			</data>
        			<!-- ============================================ -->
        			<!-- end -->

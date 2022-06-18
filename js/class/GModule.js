@@ -14,5 +14,25 @@ class GModule extends GObject {
 		this.method = lData.getItem(code, "method");
 	}
     //===============================================
+	onModuleNone() {
+		var lLog = GLog.Instance();
+		lLog.addError(sprintf("Le module est obligatoire."))
+	}
+    //===============================================
+	onMethodNone() {
+		var lLog = GLog.Instance();
+		lLog.addError(sprintf("La méthode est obligatoire."))
+	}
+    //===============================================
+	onModuleUnknown() {
+		var lLog = GLog.Instance();
+		lLog.addError(sprintf("Le module n'existe pas."))
+	}
+    //===============================================
+	onMethodUnknown() {
+		var lLog = GLog.Instance();
+		lLog.addError(sprintf("Le méthode n'existe pas."))
+	}
+    //===============================================
 }
 //===============================================

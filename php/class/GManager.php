@@ -135,20 +135,27 @@
             
             for($i = 0; $i < $lCount; $i++) {
                 $lCategory = $this->getItem3("manager", "category", $i);
+                $lModel = $this->getItem3("manager", "model", $i);
                 $lLabel = $this->getItem3("manager", "label", $i);
                 $lId = $this->getItem3("manager", "id", $i);
                 $lType = $this->getItem3("manager", "type", $i);
                 $lName = $this->getItem3("manager", "name", $i);
+                $lValue = $this->getItem3("manager", "value", $i);
                 $lLowerOn = ($this->getItem3("manager", "lower_on", $i) == "1");
                 
                 $lClass = "Input2";
                 if($lLowerOn) $lClass = "Input3";
                 
                 if($lCategory == "code/body") {
-                    echo sprintf("<div class='Row12'>\n");
-                    echo sprintf("<label class='Label3' for='%s'>%s</label>\n", $lName, $lLabel);
-                    echo sprintf("<div class='Field3'><input id='%s' class='%s' type='%s' name='%s'/></div>\n", $lId, $lClass, $lType, $lName);
-                    echo sprintf("</div>\n");
+                    if($lModel == "label/edit") {
+                        echo sprintf("<div class='Row12'>\n");
+                        echo sprintf("<label class='Label3' for='%s'>%s</label>\n", $lName, $lLabel);
+                        echo sprintf("<div class='Field3'><input id='%s' class='%s' type='%s' name='%s'/></div>\n", $lId, $lClass, $lType, $lName);
+                        echo sprintf("</div>\n");
+                    }
+                    else if($lModel == "hidden") {
+                        echo sprintf("<input id='%s' type='hidden' value='%s'/>\n", $lId, $lValue);                        
+                    }
                 }
             }
             
@@ -161,7 +168,7 @@
                 $lModule = $this->getItem3("manager", "module", $i);
                 $lCallback = $this->getItem3("manager", "callback", $i);
                 $lPicto = $this->getItem3("manager", "picto", $i);
-                $lText = $this->getItem3("manager", "text", $i, true);
+                $lText = $this->getItem3("manager", "text", $i);
                 
                 if($lCategory == "code/button") {
                     echo sprintf("<button type='button' id='%s' class='Button4' onclick='server_call(\"%s\", \"%s\");'><i class='fa fa-%s'></i> %s</button>\n"

@@ -9,9 +9,11 @@ class GServer extends GObject {
     //===============================================
 	run(module, method, obj, data) {
 		if(module == "") {
+			this.onModuleNone();
 			return false;
 		}
 		else if(method == "") {
+			this.onMethodNone();
 			return false;
 		}
 	    //===============================================
@@ -44,7 +46,11 @@ class GServer extends GObject {
 	    //===============================================
 		// end
 	    //===============================================
-		else return false;
+		else {
+			this.onModuleUnknown();
+			return false;	
+		}
+	    //===============================================
 		return true;
 	}
     //===============================================
