@@ -12,7 +12,7 @@
         public function serialize($code = "manager") {
             $lData = new GCode();
             $lData->createDoc();
-            $lData->addData($code, "code", $this->code);
+            $lData->addData($code, "code_id", $this->code);
             $lData->addData($code, "label", $this->label);
             return $lData->toStringData();
         }
@@ -21,7 +21,7 @@
             parent::deserialize($data);
             $lData = new GCode();
             $lData->loadXml($data);
-            $this->code = $lData->getItem($code, "code");
+            $this->code = $lData->getItem($code, "code_id");
             $this->label = $lData->getItem($code, "label");
         }
         //===============================================
