@@ -333,7 +333,6 @@
             
             $lDom = new GXml();
             $lDom->createDoc();
-            $lDom->createXPath();     
             
             $lDom->createXAttribute("/sitemapindex", "xmlns", $lXmlns);
             $lDom->createXAttribute("/sitemapindex", "xmlns:xsi", $lXsi);
@@ -378,7 +377,6 @@
                 
                 $lDom = new GXml();
                 $lDom->createDoc();
-                $lDom->createXPath();
                 
                 $lDom->createXAttribute("/urlset", "xmlns", $lXmlns);
                 $lDom->createXAttribute("/urlset", "xmlns:xsi", $lXsi);

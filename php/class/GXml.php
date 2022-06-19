@@ -5,6 +5,7 @@ class GXml extends GObject {
     private $doc = null;
     private $node = null;
     private $nodeCopy = null;
+    private $nodeQuery = null;
     private $nodes = null;
     private $xpath = null;
     //===============================================
@@ -18,6 +19,7 @@ class GXml extends GObject {
         if(!$this->doc) return false;
         $this->doc->preserveWhiteSpace = false;
         $this->doc->formatOutput = true;
+        $this->xpath = new DOMXpath($this->doc);
         if(!$this->xpath) return false;
         return true;
     }
@@ -53,6 +55,7 @@ class GXml extends GObject {
     }
     //===============================================
     public function loadXml($data, $version = "1.0", $encoding = "UTF-8") {
+        $data = trim($data);
         if($data == "") return false;
         $this->doc = new DOMDocument($version, $encoding);
         if(!$this->doc) return false;
@@ -73,15 +76,14 @@ class GXml extends GObject {
         return $lLog->hasErrors();
     }
     //===============================================
-    public function createXPath() {
-        if(!$this->doc) return false;
-        $this->xpath = new DOMXpath($this->doc);
-        return true;
-    }
-    //===============================================
-    public function queryXPath($query, $node = null) {
+    public function queryXPath($query) {
+        if($query == "") return false;
         if($this->xpath == null) return false;
-        $this->nodes = $this->xpath->query($query, $node);
+        $lFirst = substr($query, 0, 1);
+        $lRootOn = ($lFirst == "/");
+        $lNode = null;
+        if(!$lRootOn) $lNode = $this->nodeQuery;
+        $this->nodes = $this->xpath->query($query, $lNode);
         return true;
     }
     //===============================================
@@ -113,6 +115,7 @@ class GXml extends GObject {
         $lPath = "";
         
         if(!$isGet) $this->saveNode();
+        $this->nodeQuery = $this->node;
         
         for($i = 0; $i < count($lMap); $i++) {
             $lItem = $lMap[$i];
@@ -120,16 +123,17 @@ class GXml extends GObject {
             if($lItem == "") continue;
             if($lPath != "" || $lRootOn) $lPath .= "/";
             $lPath .= $lItem;
-            $this->getXPath($lPath);
+            $this->getXPath($lPath, $lRootOn);
             if($this->countXPath() == 0) {
                 $this->createNode($lItem);
             }
         }
-        if($value) {
+        if($value != "") {
             $this->setNodeValue($value, $isCData);
         }
         
         if(!$isGet) $this->restoreNode();
+        $this->nodeQuery = null;
     }
     //===============================================
     public function createRNode($path, $value = null, $isCData = false) {
@@ -164,7 +168,8 @@ class GXml extends GObject {
     }
     //===============================================
     public function getNodeValue($isCData = false) {
-        if(!$this->node) return "";
+        if(!$this->nodes) return "";
+        if(!$this->nodes->length) return "";
         if(!$isCData) {
             $lValue = $this->node->nodeValue;
         }

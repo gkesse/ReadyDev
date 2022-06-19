@@ -75,7 +75,7 @@ class GTest extends GObject {
 	}
     //===============================================
 	printData(data) {
-		this.output.innerHTML += data;		
+		this.output.innerHTML += data;
 	}
     //===============================================
 	runTest() {

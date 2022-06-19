@@ -10,19 +10,36 @@ class GModule extends GSession {
     }
     //===============================================
     public function serialize($code = "request") {
-        $lData = new GCode();
-        $lData->createDoc();
-        $lData->addData($code, "module", $this->module);
-        $lData->addData($code, "method", $this->method);
-        return $lData->toStringCode($code);
+        $lDom = new GCode();
+        $lDom->createDoc();
+        $lDom->addData($code, "module", $this->module);
+        $lDom->addData($code, "method", $this->method);
+        return $lDom->toStringData();
     }
     //===============================================
     public function deserialize($data, $code = "request") {
         parent::deserialize($data);
-        $lData = new GCode();
-        $lData->loadXml($data);
-        $this->module = $lData->getItem($code, "module");
-        $this->method = $lData->getItem($code, "method");
+        $lDom = new GCode();
+        $lDom->loadXml($data);
+        $this->module = $lDom->getItem($code, "module");
+        $this->method = $lDom->getItem($code, "method");
+    }
+    //===============================================
+    public function callProxy($server) {
+        $lClient = new GSocket();
+        $lData = $this->serialize();
+        $lData = $lClient->callServer($this->module, $this->method, $lData);
+        $this->deserialize($lData);
+        $lData = $this->serialize();
+        $server->addResponse($lData);
+    }
+    //===============================================
+    public function callProxyTcp($data, $server) {
+        $lClient = new GSocket();
+        $lData = $lClient->callServerTcp($data);
+        $this->deserialize($lData);
+        $lData = $this->serialize();
+        $server->addResponse($lData);
     }
     //===============================================
     public function onModuleNone() {

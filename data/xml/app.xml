@@ -957,7 +957,7 @@
     	<data>
     		<code>test</code>
     		<env>prod</env>
-    		<dev>socket</dev>
+    		<dev>xml/code</dev>
     		<js>env/type</js>
     		<prod_on>1</prod_on>
      	</data>

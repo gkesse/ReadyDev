@@ -11,13 +11,12 @@
         }
         //===============================================
         public function run() {
-            $lKey = $this->getItem("test", "js");
-            $this->onHeader($lKey);
-            $this->onBody();
-            $this->onFooter();
+            $this->onHeaderUi();
+            $this->onBodyUi();
+            $this->onFooterUi();
         }
         //===============================================
-        public function onBody() {
+        public function onBodyUi() {
             $lKey = $this->getItem("test", "dev");
             //===============================================
             // test
@@ -49,6 +48,12 @@
             else if($lKey == "xml/map") {
                 $this->runXmlMap();
             }
+            else if($lKey == "xml/data") {
+                $this->runXmlData();
+            }
+            else if($lKey == "xml/manager") {
+                $this->runXmlManager();
+            }
             //===============================================
             // js
             //===============================================
@@ -69,13 +74,16 @@
             }
         }
         //===============================================
-        public function onHeader($key) {
+        public function onHeaderUi() {
             $lEnvObj = new GEnv();
             $lEnv = $lEnvObj->getEnvType();
             
             $lLang = $this->getItem("header", "lang");
             $lTitle = $this->getItem("header", "title");
             $lLogo = $this->getItem("header", "logo");
+            
+            $lJsOn = ($this->getItem("test", "dev") == "js");
+            $lJsCB = $this->getItem("test", "js");
             
             $lHeader = new GHeader();
             
@@ -89,11 +97,12 @@
             echo sprintf("<meta name='viewport' content='width=device-width, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1.0, user-scalable=no'/>\n");
             $lHeader->onFonts();
             echo sprintf("</head>\n");
-            echo sprintf("<body onload='server_call(\"test\", \"%s\")'>\n", $key);            
+            if($lJsOn) {echo sprintf("<body onload='server_call(\"test\", \"%s\")'>\n", $lJsCB);}
+            else {echo sprintf("<body>\n");}
             echo sprintf("<div id='EnvType' hidden>%s</div>\n", $lEnv);
         }
         //===============================================
-        public function onFooter() {
+        public function onFooterUi() {
             $lFooter = new GFooter();
             $lFooter->loadScripts();
             echo sprintf("</body>\n");
@@ -143,7 +152,6 @@
         public function runXmlNode() {
             $lDom = new GXml();
             $lDom->createDoc();
-            $lDom->createXPath();
             $lDom->createXNode("/un/deux/trois", "ooooooo");
             $lDom->createXNode("/un/deux/quatre", "ooooooo");
             $lDom->createXAttribute("", "doto", "ooooooo");
@@ -175,6 +183,38 @@
             }
             
             $this->printData(count($lObjs));
+            $this->printData($lData);
+        }
+        //===============================================
+        public function runXmlData() {
+            $lDom = new GCode();
+            $lDom->createDoc();
+            $lDom->addData("manager", "id", 200);
+            $lDom->addData("manager", "num", "100");
+            $lDom->addData("manager", "side", "client");
+            $lDom->addData("manager", "msg", "Erreur lors de la connexion");
+            $lDom->addData("manager", "module", "");
+            $lData = $lDom->toStringData();
+            $this->printData($lData);
+            
+            $lData = $lDom->getItem("manager", "id");
+            $this->printData($lData);
+            $lData = $lDom->getItem("manager", "num");
+            $this->printData($lData);
+            $lData = $lDom->getItem("manager", "side");
+            $this->printData($lData);
+            $lData = $lDom->getItem("manager", "msg");
+            $this->printData($lData);
+            $lData = $lDom->getItem("manager", "module");
+            $this->printData($lData);
+        }
+        //===============================================
+        public function runXmlManager() {
+            $lDom = new GCode();
+            $lDom->createDoc();
+            $lDom->createXNode("/rdv/datas");
+            $lDom->createXNode("/rdv/datas");
+            $lData = $lDom->toString();
             $this->printData($lData);
         }
         //===============================================

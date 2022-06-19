@@ -1,6 +1,7 @@
 <?php   
     class GManager extends GModule {
         //===============================================
+        private $id = 0;
         private $code = "";
         private $label = "";
         //===============================================
@@ -10,19 +11,21 @@
         }
         //===============================================
         public function serialize($code = "manager") {
-            $lData = new GCode();
-            $lData->createDoc();
-            $lData->addData($code, "code_id", $this->code);
-            $lData->addData($code, "label", $this->label);
-            return $lData->toStringData();
+            $lDom = new GCode();
+            $lDom->createDoc();
+            $lDom->addData($code, "id", $this->id);
+            $lDom->addData($code, "code_id", $this->code);
+            $lDom->addData($code, "label", $this->label);
+            return $lDom->toStringData();
         }
         //===============================================
         public function deserialize($data, $code = "manager") {
             parent::deserialize($data);
-            $lData = new GCode();
-            $lData->loadXml($data);
-            $this->code = $lData->getItem($code, "code_id");
-            $this->label = $lData->getItem($code, "label");
+            $lDom = new GCode();
+            $lDom->loadXml($data);
+            $this->id = $lDom->getItem($code, "id");
+            $this->code = $lDom->getItem($code, "code_id");
+            $this->label = $lDom->getItem($code, "label");
         }
         //===============================================
         public function onModule($data, $server) {
@@ -37,7 +40,16 @@
             // method
             //===============================================
             else if($lMethod == "create_code") {
-                $this->onCreateCode($server);
+                $this->onCreateCode($data, $server);
+            }
+            else if($lMethod == "search_code") {
+                $this->onSearchCode($data, $server);
+            }
+            else if($lMethod == "update_code") {
+                $this->onUpdateCode($data, $server);
+            }
+            else if($lMethod == "delete_code") {
+                $this->onDeleteCode($data, $server);
             }
             //===============================================
             // end
@@ -50,17 +62,35 @@
             return true;
         }
         //===============================================
-        public function onCreateCode($server) {
-            $this->createCode();
+        public function onCreateCode($data, $server) {
+            $this->callProxy($server);
+        }
+        //===============================================
+        public function onSearchCode($data, $server) {
+            $lClient = new GSocket();
+            $lData = $this->serialize();
+            $lData = $lClient->callServer($this->method, $this->module, $lData);
+            $this->deserialize($lData);
             $lData = $this->serialize();
             $server->addResponse($lData);
         }
         //===============================================
-        public function createCode() {
+        public function onUpdateCode($data, $server) {
             $lClient = new GSocket();
             $lData = $this->serialize();
-            $lData = $lClient->callServer($this->module, $this->method, $lData);
+            $lData = $lClient->callServer($this->method, $this->module, $lData);
             $this->deserialize($lData);
+            $lData = $this->serialize();
+            $server->addResponse($lData);
+        }
+        //===============================================
+        public function onDeleteCode($data, $server) {
+            $lClient = new GSocket();
+            $lData = $this->serialize();
+            $lData = $lClient->callServer($this->method, $this->module, $lData);
+            $this->deserialize($lData);
+            $lData = $this->serialize();
+            $server->addResponse($lData);
         }
         //===============================================
         public function runUi() {

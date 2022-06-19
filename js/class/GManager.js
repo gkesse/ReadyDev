@@ -89,7 +89,8 @@ class GManager extends GModule {
 
 		this.onReadUi();
 		this.onButtonOff();
-
+		this.id = "0";
+		
         if(this.id != "0") {
             lMessage = "Le code existe déjà.";
         }

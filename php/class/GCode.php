@@ -7,10 +7,11 @@ class GCode extends GXml {
     }
     //===============================================
     public function addData($code, $key, $value, $isCData = false) {
-        if($value == "") return;
+        if($value == "") return false;
         $this->createCode($code);
         $this->getCode($code);
         $this->createXNode($key, $value, $isCData);
+        return true;
     }
     //===============================================
     public function addList($code, $data, $category = "", $isCData = false) {
@@ -50,11 +51,6 @@ class GCode extends GXml {
             $this->createXNode("data");
             $this->createXNode("code", $code);
         }
-    }
-    //===============================================
-    public function createDoc($version = "1.0", $encoding = "UTF-8") {
-        parent::createDoc($version, $encoding);
-        $this->createXPath();
     }
     //===============================================
     public function createRequest($module, $method) {
@@ -155,9 +151,9 @@ class GCode extends GXml {
     }
     //===============================================
     public function hasCode($code) {
-        $this->getXPath(sprintf("/rdv/datas/data[code='%s']", $code));
-        $lData = $this->countXPath();
-        return ($lData != 0);
+        $this->queryXPath(sprintf("/rdv/datas/data[code='%s']", $code));
+        $lCount = $this->countXPath();
+        return ($lCount != 0);
     }
     //===============================================
     public function loadCode($data) {
@@ -176,7 +172,7 @@ class GCode extends GXml {
     public function toStringData() {
         $lData = "";
         if($this->hasData()) {
-            $this->getXPath(sprintf("/rdv/datas/data"));
+            $this->queryXPath(sprintf("/rdv/datas/data"));
             $lCount = $this->countXPath();
             for($i = 0; $i < $lCount; $i++) {
                 $this->getNodeIndex($i);

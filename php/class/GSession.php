@@ -9,16 +9,16 @@ class GSession extends GObject {
     }
     //===============================================
     public function serialize($code = "session") {
-        $lData = new GCode();
-        $lData->createDoc();
-        $lData->addData($code, "user_id", $this->userId);
-        return $lData->toStringCode($code);
+        $lDom = new GCode();
+        $lDom->createDoc();
+        $lDom->addData($code, "user_id", $this->userId);
+        return $lDom->toStringCode($code);
     }
     //===============================================
     public function deserialize($data, $code = "session") {
-        $lData = new GCode();
-        $lData->loadXml($data);
-        $this->userId = $lData->getItem($code, "user_id");
+        $lDom = new GCode();
+        $lDom->loadXml($data);
+        $this->userId = $lDom->getItem($code, "user_id");
     }
     //===============================================
     public function setSession($key, $value) {
