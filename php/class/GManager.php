@@ -67,30 +67,15 @@
         }
         //===============================================
         public function onSearchCode($data, $server) {
-            $lClient = new GSocket();
-            $lData = $this->serialize();
-            $lData = $lClient->callServer($this->method, $this->module, $lData);
-            $this->deserialize($lData);
-            $lData = $this->serialize();
-            $server->addResponse($lData);
+            $this->callProxy($server);
         }
         //===============================================
         public function onUpdateCode($data, $server) {
-            $lClient = new GSocket();
-            $lData = $this->serialize();
-            $lData = $lClient->callServer($this->method, $this->module, $lData);
-            $this->deserialize($lData);
-            $lData = $this->serialize();
-            $server->addResponse($lData);
+            $this->callProxy($server);            
         }
         //===============================================
         public function onDeleteCode($data, $server) {
-            $lClient = new GSocket();
-            $lData = $this->serialize();
-            $lData = $lClient->callServer($this->method, $this->module, $lData);
-            $this->deserialize($lData);
-            $lData = $this->serialize();
-            $server->addResponse($lData);
+            $this->callProxy($server);           
         }
         //===============================================
         public function runUi() {
