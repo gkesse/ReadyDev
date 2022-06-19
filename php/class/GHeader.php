@@ -7,7 +7,7 @@ class GHeader extends GModule {
         $this->createDoms();
     }
     //===============================================
-    public function run() {
+    public function runUi() {
         $lEnvObj = new GEnv();
         $lEnv = $lEnvObj->getEnvType();
         $lProdOn = $this->getItem("test", "prod_on");
@@ -23,32 +23,32 @@ class GHeader extends GModule {
         echo sprintf("<link rel='shortcut icon' type='image/png' href='%s'/>\n", $lLogo);
         echo sprintf("<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'/>\n");
         echo sprintf("<meta name='viewport' content='width=device-width, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1.0, user-scalable=no'/>\n");
-        $this->onFonts();
+        $this->onFontsUi();
         echo sprintf("</head>\n");
         echo sprintf("<body>\n");
         echo sprintf("<div id='EnvType' hidden>%s</div>\n", $lEnv);
         echo sprintf("<div id='ProdOn' hidden>%s</div>\n", $lProdOn);
         echo sprintf("<div class='HtmlPage'>\n");
         
-        $this->onBackground();
-        $this->onConnection();
+        $this->onBackgroundUi();
+        $this->onConnectionUi();
         $this->onAccountUi();
-        $this->onDisconnection();
+        $this->onDisconnectionUi();
         
         echo sprintf("<div class='BodyPage'>\n");
         echo sprintf("<div class='MainPage'>\n");
-        $this->onHeader();
+        $this->onHeaderUi();
     }
     //===============================================
-    public function onHeader() {
+    public function onHeaderUi() {
         echo sprintf("<header class='Header'>\n");
-        $this->onMenu();
-        $this->onTitle();
-        $this->onLink();
+        $this->onMenuUi();
+        $this->onTitleUi();
+        $this->onLinkUi();
         echo sprintf("</header>\n");        
     }
     //===============================================
-    public function onFonts() {
+    public function onFontsUi() {
         $lCount = $this->countItem("fonts");
         for($i = 0; $i < $lCount; $i++) {
             $lFont = $this->getItem2("fonts", $i);
@@ -56,13 +56,13 @@ class GHeader extends GModule {
         }
     }
     //===============================================
-    public function onBackground() {
+    public function onBackgroundUi() {
         echo sprintf("<div class='Background Top'></div>\n");
         echo sprintf("<div class='Background Middle'></div>\n");
         echo sprintf("<div class='Background Bottom'></div>\n");
     }
     //===============================================
-    public function onConnection() {
+    public function onConnectionUi() {
         $lUser = new GUser();
         $lUser->onConnectionUi();
     }
@@ -72,12 +72,12 @@ class GHeader extends GModule {
         $lUser->onAccountUi();
     }
     //===============================================
-    public function onDisconnection() {
+    public function onDisconnectionUi() {
         $lUser = new GUser();
         $lUser->onDisconnectionUi();
     }
     //===============================================
-    public function onMenu() {        
+    public function onMenuUi() {        
         echo sprintf("<ul class='Menu' id='HeaderMenu'>\n");
              
         $lPageObj = new GPage();
@@ -148,18 +148,18 @@ class GHeader extends GModule {
         echo sprintf("</ul>\n");
     }
     //===============================================
-    public function onTitle() {
+    public function onTitleUi() {
         echo sprintf("<div class='MainBlock'>\n");
         echo sprintf("<div class='Content'>\n");
         echo sprintf("<h1 class='Title2'>%s</h1>\n", "Title");
         echo sprintf("<div class='Body'>\n");
-        $this->onSite();
+        $this->onSiteUi();
         echo sprintf("</div>\n");
         echo sprintf("</div>\n");
         echo sprintf("</div>\n");
     }
     //===============================================
-    public function onSite() {
+    public function onSiteUi() {
         echo sprintf("<div class='Row'>\n");
         
         $lCount = $this->countItem("header");
@@ -176,12 +176,12 @@ class GHeader extends GModule {
             echo sprintf("<a href='%s'><div class='%s'><i class='fa fa-%s'></i> %s</div></a>\n"
                 , $lLink, $lClass, $lPicto, $lTitle);
         }
-        $this->onView();        
+        $this->onViewUi();        
         echo sprintf("</div>\n");
-        $this->onNetworks();        
+        $this->onNetworksUi();        
     }
     //===============================================
-    public function onView() {
+    public function onViewUi() {
         $lViewCount = 30;
         
         echo sprintf("<div class='Form'>\n");
@@ -195,7 +195,7 @@ class GHeader extends GModule {
         echo sprintf("</div>\n");
     }
     //===============================================
-    public function onLink() {
+    public function onLinkUi() {
         echo sprintf("<div class='MainBlock0'>");
         echo sprintf("<div class='Content11'>");
         echo sprintf("<div class='Row22'>");
@@ -216,7 +216,7 @@ class GHeader extends GModule {
         echo sprintf("</div>\n");        
     }
     //===============================================
-    public function onNetworks() {
+    public function onNetworksUi() {
         $lUrl = $this->getUrl();
         
         echo sprintf("<div class='Row22'>\n");

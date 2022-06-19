@@ -8,22 +8,34 @@ class GManager extends GModule {
 		this.label = "";
     }
     //===============================================
+    clone() {
+		return new GManager();
+    }
+    //===============================================
+    copy(obj) {
+		this.id = obj.id;
+		this.code = obj.code;
+		this.label = obj.label;
+    }
+    //===============================================
 	serialize(code = "manager") {
-		var lData = new GCode();
-		lData.createDoc();
-		lData.addData(code, "id", this.id);
-		lData.addData(code, "code_id", this.code);
-		lData.addData(code, "label", this.label);
-		return lData.toStringData();
+		var lDom = new GCode();
+		lDom.createDoc();
+		lDom.addData(code, "id", this.id);
+		lDom.addData(code, "code_id", this.code);
+		lDom.addData(code, "label", this.label);
+		lDom.addMap(code, this.map, this);
+		return lDom.toStringData();
 	}
     //===============================================
 	deserialize(data, code = "manager") {
 		super.deserialize(data);
-		var lData = new GCode();
-		lData.loadXml(data);
-		this.id = lData.getItem(code, "id");
-		this.code = lData.getItem(code, "code_id");
-		this.label = lData.getItem(code, "label");
+		var lDom = new GCode();
+		lDom.loadXml(data);
+		this.id = lDom.getItem(code, "id");
+		this.code = lDom.getItem(code, "code_id");
+		this.label = lDom.getItem(code, "label");
+		lDom.getMap(code, this.map, this);
 	}
     //===============================================
     onModule(method, obj, data) {
@@ -125,7 +137,8 @@ class GManager extends GModule {
 		
 		this.onReadUi();
 		this.onButtonOff();
-
+		this.id = "0";
+		
         // confirmer ici
         
         if(lMessage.length) {
@@ -243,6 +256,7 @@ class GManager extends GModule {
         }
         else {
 			lManager.deserialize(data);
+			lManager.onLoadOne();
 			lManager.onWriteUi();
             lLog.addLog(sprintf("%s", "La recherche du code a réussi."));
         }
@@ -277,6 +291,12 @@ class GManager extends GModule {
         }
 		lManager.onButtonOn();
     }
+    //===============================================
+    onLoadOne() {
+		if(!this.map.length) return false;
+		this.copy(this.map[0]);
+		
+	}
     //===============================================
     onWriteUi() {
         var lId = document.getElementById("ManagerCodeId");

@@ -2,6 +2,7 @@
     class GObject {
         //===============================================
         protected $dom = null;
+        protected $map = array();
         //===============================================
         public function __construct() {
 
@@ -12,8 +13,13 @@
             $this->dom->loadFile("data/xml", "app.xml");
         }
         //===============================================
-        public function createObj() {
+        public function clone() {
             return new GObject();
+        }
+        //===============================================
+        public function clearMap(&$map) {
+            $map = array();
+            return true;
         }
         //===============================================
         public function getItem($code, $key, $isCData = false) {

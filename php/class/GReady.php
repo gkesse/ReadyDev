@@ -17,7 +17,7 @@
         //===============================================
         public function onHeader() {
             $lHeaderObj = new GHeader();
-            $lHeaderObj->run();
+            $lHeaderObj->runUi();
         }
         //===============================================
         public function onFooter() {

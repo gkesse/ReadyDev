@@ -10,12 +10,17 @@
             $this->createDoms();
         }
         //===============================================
+        public function clone() {
+            return new GManager();
+        }
+        //===============================================
         public function serialize($code = "manager") {
             $lDom = new GCode();
             $lDom->createDoc();
             $lDom->addData($code, "id", $this->id);
             $lDom->addData($code, "code_id", $this->code);
             $lDom->addData($code, "label", $this->label);
+            $lDom->addMap($code, $this->map);
             return $lDom->toStringData();
         }
         //===============================================
@@ -26,6 +31,7 @@
             $this->id = $lDom->getItem($code, "id");
             $this->code = $lDom->getItem($code, "code_id");
             $this->label = $lDom->getItem($code, "label");
+            $lDom->getMap($code, $this->map, $this);
         }
         //===============================================
         public function onModule($data, $server) {

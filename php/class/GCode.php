@@ -40,6 +40,42 @@ class GCode extends GXml {
         $this->addList($code, $data, $category, true);
     }
     //===============================================
+    public function addMap($code, &$datas) {
+        if(!count($datas)) return false;
+        $this->createCode($code);
+        $this->getCode($code);
+        $this->createXNode("map");
+        for($i = 0; $i < count($datas); $i++) {
+            $lObj = $datas[$i];
+            $lData = $lObj->serialize($code);
+            $this->loadNode($lData);
+        }
+        $this->clearMap($datas);
+        return true;
+    }
+    //===============================================
+    public function getMap($code, &$datas, $obj) {
+        $lCount = $this->countItem($code);
+        
+        for($i = 0; $i < $lCount; $i++) {
+            $lData = $this->getMapItem($code, $i);
+            $lObj = $obj->clone();
+            $lObj->deserialize($lData, $code);
+            $datas[] = $lObj;
+        }
+        return true;
+    }
+    //===============================================
+    public function getMapItem($code, $index) {
+        $this->getXPath(sprintf("/rdv/datas/data[code='%s']/map/data[position()=%d]", $code, $index + 1));
+        $lData = $this->toStringNode();
+        $lDom = new GCode();
+        $lDom->createDoc();
+        $lDom->createXNode("/rdv/datas");
+        $lDom->loadNode($lData);
+        return $lDom->toString();
+    }
+    //===============================================
     public function countItem($code) {
         $this->queryXPath(sprintf("/rdv/datas/data[code='%s']/map/data", $code));
         return $this->countXPath();
@@ -115,33 +151,6 @@ class GCode extends GXml {
             }
         }
         return $lDatas;
-    }
-    //===============================================
-    public function getMap($code, $obj) {
-        $lObjs = array(); 
-        
-        $lCount = $this->countItem($code);
-        
-        for($i = 0; $i < $lCount; $i++) {
-            $lData = $this->loadItem(code, $i);
-            $lObj = $obj->createObj();
-            $lObj->deserialize($lData, "sitemap");
-            $lObjs[] = $lObj;
-        }
-        
-        return $lObjs;
-    }
-    //===============================================
-    public function loadItem($code, $index) {
-        $this->getCode2($code, $index);
-        $lData = $this->toStringNode();
-        $lReq = new GCode();
-        $lReq->createDoc();
-        $lReq->createCode($code);
-        $lReq->getCode($code);
-        $lReq->loadNode($lData, false);
-        $lData = $lReq->toString();
-        return $lData;
     }
     //===============================================
     public function hasData() {

@@ -73,7 +73,7 @@ class GUser extends GModule {
         $lKeypressCB = $this->getItemC("user", "connection", "keypress_cb");
         $lCloseCB = $this->getItemC("user", "connection", "close_cb");
         //
-        echo sprintf("<div class='Modal Connection' id='%s' onkeypress='server_call(\"%s\", \"%s\", this, event);'>\n", $lModalId, $lModule, $lKeypressCB);
+        echo sprintf("<div class='Modal' id='%s' onkeypress='server_call(\"%s\", \"%s\", this, event);'>\n", $lModalId, $lModule, $lKeypressCB);
         echo sprintf("<div class='Content10' id='%s'>\n", $lBodyId);
         echo sprintf("<div class='Button3 Close' onclick='server_call(\"%s\", \"%s\");'><i class='fa fa-close'></i></div>\n", $lModule, $lCloseCB);
         echo sprintf("<div class='Title5'>%s</div>\n", $lTitle);
@@ -188,17 +188,29 @@ class GUser extends GModule {
     }
     //===============================================
     public function onDisconnectionUi() {
-        echo sprintf("<div class='Modal Disconnection' id='ModalDisconnection'>\n");
-        echo sprintf("<div class='Content10' id='DisconnectionBody'>\n");
-        echo sprintf("<div class='Button3 Close' onclick='server_call(\"user\", \"close_disconnection\")'><i class='fa fa-close'></i></div>\n");
-        echo sprintf("<div class='Title5'>Déconnexion</div>\n");
-        echo sprintf("<div class='Body4' id='DisconnectionForm'>\n");
-        echo sprintf("<div class='Row11'>Êtes-vous sûr de vous déconnecter ?</div>\n");
+        $lTitle = $this->getItemC("user", "disconnection", "title");
+        $lIntro = $this->getItemC("user", "disconnection", "intro");
+        $lModalId = $this->getItemC("user", "disconnection", "modal_id");
+        $lBodyId = $this->getItemC("user", "disconnection", "body_id");
+        $lFormId = $this->getItemC("user", "disconnection", "form_id");
+        $lMsgId = $this->getItemC("user", "disconnection", "msg_id");
+        $lModule = $this->getItemC("user", "disconnection", "module");
+        $lKeypressCB = $this->getItemC("user", "disconnection", "keypress_cb");
+        $lCloseCB = $this->getItemC("user", "disconnection", "close_cb");
+        $lDisconnectCB = $this->getItemC("user", "disconnection", "disconnect_cb");
+        $lDisconnectBtn = $this->getItemC("user", "disconnection", "disconnect_btn");
+        //
+        echo sprintf("<div class='Modal' id='%s' onkeypress='server_call(\"%s\", \"%s\", this, event);'>\n", $lModalId, $lModule, $lKeypressCB);
+        echo sprintf("<div class='Content10' id='%s'>\n", $lBodyId);
+        echo sprintf("<div class='Button3 Close' onclick='server_call(\"%s\", \"%s\")'><i class='fa fa-close'></i></div>\n", $lModule, $lCloseCB);
+        echo sprintf("<div class='Title5'>%s</div>\n", $lTitle);
+        echo sprintf("<div class='Body4' id='%s'>\n", $lFormId);
+        echo sprintf("<div class='Row11'>%s</div>\n", $lIntro);
         echo sprintf("<div class='Row13'>\n");
-        echo sprintf("<div class='Button4' onclick='server_call(\"user\", \"run_disconnection\")'><i class='fa fa-power-off'></i> Se Déconnecter</div>\n");
+        echo sprintf("<div class='Button4' onclick='server_call(\"%s\", \"%s\")'><i class='fa fa-power-off'></i> %s</div>\n", $lModule, $lDisconnectCB, $lDisconnectBtn);
         echo sprintf("</div>\n");
         echo sprintf("</div>\n");
-        echo sprintf("<div class='Row14' id='DisconnectionMsg'></div>\n");
+        echo sprintf("<div class='Row14' id='%s'></div>\n", $lMsgId);
         echo sprintf("</div>\n");
         echo sprintf("</div>\n");
     }
