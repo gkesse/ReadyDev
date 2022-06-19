@@ -1,5 +1,5 @@
 //===============================================
-class GLog extends GObject {
+class GLog extends GModule {
     //===============================================
 	static m_instance = null;
     //===============================================
@@ -26,6 +26,7 @@ class GLog extends GObject {
     //===============================================
     onModule(method, obj, data) {
 		if(method == "") {
+			this.onMethodNone();
 			return false;
 		}
     	//===============================================
@@ -37,10 +38,20 @@ class GLog extends GObject {
 		else if(method == "close_log") {
 			this.onCloseLog();
 		}
+		else if(method == "close_error_ui") {
+			this.onCloseErrorUi();
+		}
+		else if(method == "close_log_ui") {
+			this.onCloseLogUi();
+		}
     	//===============================================
 		// end
     	//===============================================
-		else return false;
+		else {
+			this.onMethodUnknown();
+			return false;
+		}
+    	//===============================================
 		return true;
 	}
     //===============================================
@@ -52,6 +63,30 @@ class GLog extends GObject {
     onCloseLog() {
 	    var lLog = document.getElementById("LogsBox");
 	    lLog.style.display = "none"; 
+    }
+    //===============================================
+    onCloseErrorUi() {
+        var lModalErrors = document.getElementById("ModalErrors");
+        var lErrorsBody = document.getElementById("ErrorsBody");
+        var lClassName = lErrorsBody.className;
+        lErrorsBody.className = lClassName.replace(" AnimateShow", "");
+        lErrorsBody.className = lClassName.replace(" AnimateHide", "");
+        lErrorsBody.className += " AnimateHide";
+        setTimeout(function() {
+            lModalErrors.style.display = "none";
+        }, 400);
+    }
+    //===============================================
+    onCloseLogUi() {
+        var lModalLogs = document.getElementById("ModalLogs");
+        var lLogsBody = document.getElementById("LogsBody");
+        var lClassName = lLogsBody.className;
+        lLogsBody.className = lClassName.replace(" AnimateShow", "");
+        lLogsBody.className = lClassName.replace(" AnimateHide", "");
+        lLogsBody.className += " AnimateHide";
+        setTimeout(function() {
+            lModalLogs.style.display = "none";
+        }, 400);
     }
     //===============================================
     showErrors() {

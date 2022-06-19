@@ -1,5 +1,5 @@
 //===============================================
-class GServer extends GObject {
+class GServer extends GModule {
     //===============================================
     constructor() {
 		super();

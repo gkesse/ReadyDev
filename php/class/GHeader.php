@@ -34,6 +34,8 @@ class GHeader extends GModule {
         $this->onConnectionUi();
         $this->onAccountUi();
         $this->onDisconnectionUi();
+        $this->onErrorUi();
+        $this->onLogUi();
         
         echo sprintf("<div class='BodyPage'>\n");
         echo sprintf("<div class='MainPage'>\n");
@@ -75,6 +77,16 @@ class GHeader extends GModule {
     public function onDisconnectionUi() {
         $lUser = new GUser();
         $lUser->onDisconnectionUi();
+    }
+    //===============================================
+    public function onErrorUi() {
+        $lLog = new GLog();
+        $lLog->onErrorUi();
+    }
+    //===============================================
+    public function onLogUi() {
+        $lLog = new GLog();
+        $lLog->onLogUi();
     }
     //===============================================
     public function onMenuUi() {        

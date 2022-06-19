@@ -49,9 +49,9 @@ button {
 
 button:disabled,
 button:disabled:hover {
-  	border: 1px solid #aaaaaa;
-  	background-color: transparent;
-  	cursor: not-allowed;
+      border: 1px solid #aaaaaa;
+      background-color: transparent;
+      cursor: not-allowed;
 }
 
 input {
@@ -73,43 +73,43 @@ input:-webkit-autofill:active {
 }
 
 * {
-	scrollbar-color: #aaaaff #111111;
-	scrollbar-width: thin;
+    scrollbar-color: #aaaaff #111111;
+    scrollbar-width: thin;
 }
 
 *::-webkit-scrollbar {
-  	width: 10px;
-  	height: 10px;
+      width: 10px;
+      height: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  	background: transparent; 
+      background: transparent; 
 }
 
 ::-webkit-scrollbar-thumb:horizontal {
-  	background: #aaaaff; 
-	border-left: 2px solid #111111;
-	border-right: 2px solid #111111;
+      background: #aaaaff; 
+    border-left: 2px solid #111111;
+    border-right: 2px solid #111111;
 }
 
 ::-webkit-scrollbar-thumb:vertical {
-  	background: #aaaaff; 
-	border-top: 2px solid #111111;
-	border-bottom: 2px solid #111111;
+      background: #aaaaff; 
+    border-top: 2px solid #111111;
+    border-bottom: 2px solid #111111;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  	background: #aaaaff; 
+      background: #aaaaff; 
 }
 
 ::-webkit-scrollbar-button:horizontal {
-	background: #aaaaff;
-	width: 5px;
+    background: #aaaaff;
+    width: 5px;
 }
 
 ::-webkit-scrollbar-button:vertical {
-	background: #aaaaff;
-	height: 5px;
+    background: #aaaaff;
+    height: 5px;
 }
 
 select {
@@ -130,7 +130,7 @@ textarea {
     color: white;
     width: 100%;
     resize: none;
-  	cursor: auto;
+      cursor: auto;
 }
 
 textarea:-webkit-autofill,
@@ -151,7 +151,7 @@ b {
 hr {
     background-color: #051039; 
     border: none;
-	height: 3px; 
+    height: 3px; 
     width: 100%; 
     margin: auto;
     margin-top: 20px;
@@ -161,7 +161,7 @@ hr {
 hr:after {
     content: "\f164";
     font-family: FontAwesome;
-	font-size: 20px;
+    font-size: 20px;
     background-color: #051039;
     color: white; 
     display: inline-block;
@@ -272,7 +272,7 @@ span {
 }
 
 .LineThrough {
-	text-decoration: line-through;
+    text-decoration: line-through;
 }
 
 .Right {
@@ -824,7 +824,7 @@ span {
 }
 
 .Checkbox {
-	padding: 2px;
+    padding: 2px;
 }
 
 .Code {
@@ -841,7 +841,7 @@ span {
 }
 
 .Code3 {
-	text-align: left;
+    text-align: left;
     font-family: 'courier new';
     padding: 10px;
 }
@@ -1523,6 +1523,22 @@ span {
 
 .Modal {
     display: none;
+    position: fixed;
+    z-index: 2;
+    padding: 10px;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.4);
+    overflow: auto;
+    scrollbar-color: #5f6681 #051039;
+    scrollbar-width: auto;
+    text-align: left;
+}
+
+.Modal2 {
+    display: block;
     position: fixed;
     z-index: 2;
     padding: 10px;
