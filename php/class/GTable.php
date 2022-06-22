@@ -68,6 +68,7 @@ class GTable extends GModule {
             $lCategory = $this->getItem3("table", "category", $i);
             $lModel = $this->getItem3("table", "model", $i);
             $lId = $this->getItem3("table", "id", $i);
+            $lValue = $this->getItem3("table", "value", $i);
             
             if($lCategory == "table/body") {
                 if($lModel == "table") {
@@ -75,7 +76,7 @@ class GTable extends GModule {
                     echo sprintf("</table>\n");
                 }
                 else if($lModel == "hidden") {
-                    echo sprintf("<input type='hidden' id='%s' value='0'/>", $lId);
+                    echo sprintf("<input type='hidden' id='%s' value='%s'/>", $lId, $lValue);
                 }
             }
         }

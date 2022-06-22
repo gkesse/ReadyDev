@@ -9,15 +9,18 @@ class GTable extends GModule {
 		this.cols = "0";
 		this.value = "";
 		//
+		this.currentData = "";
+		this.selectModule = "";
+		this.selectMethod = "";
+		//
 		this.row = null;
 		this.col = null;
-		//
 		this.rowH = null;
 		this.colH = null;
 		//
-        this.table = document.getElementById("TableId");
-		this.header = this.table.createTHead();
-		this.body = this.table.createTBody();
+		var lTable = document.getElementById("TableId");
+		this.header = lTable.createTHead();
+		this.body = lTable.createTBody();
     }
     //===============================================
 	serialize(isDom = false, code = "table") {
@@ -75,6 +78,18 @@ class GTable extends GModule {
 		return true;
 	}
     //===============================================
+    showData() {
+        var lModalTable = document.getElementById("ModalTable");
+        var lTableBody = document.getElementById("TableBody");
+        var lTableMsg = document.getElementById("TableMsg");
+		var lClassName = lTableBody.className;
+        lTableMsg.style.display = "none";
+        lTableBody.className = lClassName.replace(" AnimateShow", "");
+        lTableBody.className = lClassName.replace(" AnimateHide", "");
+        lTableBody.className += " AnimateShow";
+        lModalTable.style.display = "block";
+    }
+    //===============================================
     onCloseTable() {
         var lModalTable = document.getElementById("ModalTable");
         var lTableBody = document.getElementById("TableBody");
@@ -89,14 +104,39 @@ class GTable extends GModule {
     }
     //===============================================
     onCurrentData(obj, data) {
-		var lTableCurrentData = document.getElementById("TableCurrentData");
-		lTableCurrentData.value = data;
+		var lCurrentData = document.getElementById("TableCurrentData");
+		lCurrentData.value = data;
     }
     //===============================================
     onSelectData() {
-        var lTableCurrentData = document.getElementById("TableCurrentData");
-		var lData = lTableCurrentData.value;
-		server_call("manager", "select_data", this, lData);
+		var lCurrentData = document.getElementById("TableCurrentData");
+		var lSelectModule = document.getElementById("TableSelectModule");
+		var lSelectMethod = document.getElementById("TableSelectMethod");
+		//
+		var lModule = lSelectModule.value;
+		var lMethod = lSelectMethod.value;
+		var lData = lCurrentData.value;
+		//
+		if(lModule == "") return false;
+		if(lMethod == "") return false;
+		if(lData == "") return false;
+		server_call(lModule, lMethod, this, lData);
+		return true;
+    }
+    //===============================================
+    setCallback(key, module, method) {
+		var lSelectModule = document.getElementById("TableSelectModule");
+		var lSelectMethod = document.getElementById("TableSelectMethod");
+		//
+		if(key == "") return false;
+		if(module == "") return false;
+		if(method == "") return false;
+		//
+		if(key == "select") {
+			lSelectModule.value = module;
+			lSelectMethod.value = method;
+		}
+		return true;
     }
     //===============================================
     onInsertData() {
@@ -114,20 +154,9 @@ class GTable extends GModule {
 		}
     }
     //===============================================
-    showData() {
-        var lModalTable = document.getElementById("ModalTable");
-        var lTableBody = document.getElementById("TableBody");
-        var lTableMsg = document.getElementById("TableMsg");
-		var lClassName = lTableBody.className;
-        lTableMsg.style.display = "none";
-        lTableBody.className = lClassName.replace(" AnimateShow", "");
-        lTableBody.className = lClassName.replace(" AnimateHide", "");
-        lTableBody.className += " AnimateShow";
-        lModalTable.style.display = "block";
-    }
-    //===============================================
     clear() {
-		this.table.innerHTML = "";
+		var lTable = document.getElementById("TableId");
+		lTable.innerHTML = "";
     }
     //===============================================
     pushRowH() {
@@ -182,6 +211,16 @@ class GTable extends GModule {
 			var lRow = lRows[i];
 			lRow.classList.remove(active);
 		}
+	}
+    //===============================================
+    writeUi() {
+		var lCurrentData = document.getElementById("TableCurrentData");
+		var lSelectModule = document.getElementById("TableSelectModule");
+		var lSelectMethod = document.getElementById("TableSelectMethod");
+		//
+		lCurrentData.value = this.currentData;
+		lSelectModule.value = this.selectModule;
+		lSelectMethod.value = this.selectMethod;
 	}
     //===============================================
 }

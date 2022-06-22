@@ -1002,6 +1002,16 @@
                 </data>
                 <data>
                     <category>table/body</category>
+                    <model>hidden</model>
+                    <id>TableSelectModule</id>
+                </data>
+                <data>
+                    <category>table/body</category>
+                    <model>hidden</model>
+                    <id>TableSelectMethod</id>
+                </data>
+                <data>
+                    <category>table/body</category>
                     <model>table</model>
                     <id>TableId</id>
                 </data>

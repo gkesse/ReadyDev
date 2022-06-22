@@ -224,7 +224,7 @@ class GManager extends GModule {
 		var lData = lTable.data;
 		this.deserialize(lData);
 		this.onWriteUi();
-		server_call("table", "close_table");
+		lTable.onCloseTable();
 	}
     //===============================================
     onCreateCodeCall() {
@@ -322,6 +322,7 @@ class GManager extends GModule {
     //===============================================
 	showList() {
 		var lTable = new GTable();
+		lTable.setCallback("select", "manager", "select_data")
 		//
 		lTable.pushRowH();
 		lTable.pushColH(0, "code");
@@ -336,10 +337,6 @@ class GManager extends GModule {
 		}
 		//
 		lTable.showData();
-	}
-    //===============================================
-	selectDataCB(data) {
-		alert("manager");
 	}
     //===============================================
     onWriteUi() {
