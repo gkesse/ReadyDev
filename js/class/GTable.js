@@ -104,8 +104,11 @@ class GTable extends GModule {
     }
     //===============================================
     onCurrentData(obj, data) {
+		this.deserialize(data);
+		if(this.type == "0") return false;
 		var lCurrentData = document.getElementById("TableCurrentData");
 		lCurrentData.value = data;
+		return true;
     }
     //===============================================
     onSelectData() {
