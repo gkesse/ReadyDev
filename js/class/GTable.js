@@ -120,6 +120,7 @@ class GTable extends GModule {
 		if(lModule == "") return false;
 		if(lMethod == "") return false;
 		if(lData == "") return false;
+		//
 		server_call(lModule, lMethod, this, lData);
 		return true;
     }
@@ -156,7 +157,9 @@ class GTable extends GModule {
     //===============================================
     clear() {
 		var lTable = document.getElementById("TableId");
+		var lCurrentData = document.getElementById("TableCurrentData");
 		lTable.innerHTML = "";
+		lCurrentData.value = "";
     }
     //===============================================
     pushRowH() {
@@ -168,6 +171,7 @@ class GTable extends GModule {
 		this.colH.innerHTML = value;
 		var lRows = this.rowH.rowIndex;
 		var lCols = this.colH.cellIndex;
+		//
 		this.colH.addEventListener("click", function(e) {
 			var lTable = new GTable();
 			lTable.data = data;
@@ -177,6 +181,17 @@ class GTable extends GModule {
 			lTable.value = value;
 			var lData = lTable.serialize(true);
 			server_call("table", "current_data", this, lData);
+		});
+		//
+		this.colH.addEventListener("dblclick", function(e) {
+			var lTable = new GTable();
+			lTable.data = data;
+			lTable.type = "0";
+			lTable.rows = ""+lRows;
+			lTable.cols = ""+lCols;
+			lTable.value = value;
+			var lData = lTable.serialize(true);
+			server_call("table", "select_data", this, lData);
 		});
     }
     //===============================================
@@ -190,6 +205,7 @@ class GTable extends GModule {
 		var lRows = this.row.rowIndex;
 		var lCols = this.col.cellIndex;
 		this.row.classList.add("Table");
+		//
 		this.col.addEventListener("click", function(e) {
 			var lRow = this.parentNode;
 			var lTable = new GTable();
@@ -203,6 +219,17 @@ class GTable extends GModule {
 			var lData = lTable.serialize(true);
 			server_call("table", "current_data", this, lData);
 		});
+		//
+		this.col.addEventListener("dblclick", function(e) {
+			var lTable = new GTable();
+			lTable.data = data;
+			lTable.type = "0";
+			lTable.rows = ""+lRows;
+			lTable.cols = ""+lCols;
+			lTable.value = value;
+			var lData = lTable.serialize(true);
+			server_call("table", "select_data", this, lData);
+		});
     }
     //===============================================
     deselectAll(tag, active) {
@@ -211,16 +238,6 @@ class GTable extends GModule {
 			var lRow = lRows[i];
 			lRow.classList.remove(active);
 		}
-	}
-    //===============================================
-    writeUi() {
-		var lCurrentData = document.getElementById("TableCurrentData");
-		var lSelectModule = document.getElementById("TableSelectModule");
-		var lSelectMethod = document.getElementById("TableSelectMethod");
-		//
-		lCurrentData.value = this.currentData;
-		lSelectModule.value = this.selectModule;
-		lSelectMethod.value = this.selectMethod;
 	}
     //===============================================
 }
