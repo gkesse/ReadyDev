@@ -72,6 +72,7 @@
                 <data>/js/class/GDefine.js</data>
                 <data>/js/class/GObject.js</data>
                 <data>/js/class/GModule.js</data>
+                <data>/js/class/GTable.js</data>
                 <data>/js/class/GDate.js</data>
                 <data>/js/class/GLog.js</data>
                 <data>/js/class/GEnv.js</data>
@@ -701,9 +702,17 @@
                     <picto>trash</picto>
                     <text>Supprimer</text>
                 </data>
-                   <!-- ============================================ -->
-                   <!-- end -->
-                   <!-- ============================================ -->
+                <data>
+                    <category>code/button</category>
+                    <id>ManagerCodeNew</id>
+                    <module>manager</module>
+                    <callback>new_code</callback>
+                    <picto>file-o</picto>
+                    <text>Nouveau</text>
+                </data>
+                <!-- ============================================ -->
+                <!-- end -->
+                <!-- ============================================ -->
             </map>
         </data>
         <!-- ============================================ -->
@@ -969,29 +978,89 @@
             </map>
         </data>
         <!-- ============================================ -->
+        <!-- table -->
+        <!-- ============================================ -->
+        <data>
+            <code>table</code>
+            <title>Liste des données</title>
+            <intro>Consultez la liste des données.</intro>
+            <modal_id>ModalTable</modal_id>
+            <body_id>TableBody</body_id>
+            <form_id>TableForm</form_id>
+            <msg_id>TableMsg</msg_id>
+            <module>table</module>
+            <keypress_cb>keypress_table</keypress_cb>
+            <close_cb>close_table</close_cb>
+            <map>
+                <!-- ============================================ -->
+                <!-- table/body -->
+                <!-- ============================================ -->
+                <data>
+                    <category>table/body</category>
+                    <model>hidden</model>
+                    <id>TableCurrentData</id>
+                </data>
+                <data>
+                    <category>table/body</category>
+                    <model>table</model>
+                    <id>TableId</id>
+                </data>
+                <!-- ============================================ -->
+                <!-- table/button -->
+                <!-- ============================================ -->
+                <data>
+                    <category>table/button</category>
+                    <model>button</model>
+                    <module>table</module>
+                    <callback>select_data</callback>
+                    <picto>check</picto>
+                    <text>Sélectionner</text>
+                </data>
+                <data>
+                    <category>table/button</category>
+                    <model>button</model>
+                    <module>table</module>
+                    <callback>insert_data</callback>
+                    <picto>plus</picto>
+                    <text>Insérer</text>
+                    <off>1</off>
+                </data>
+                <!-- ============================================ -->
+                <!-- end -->
+                <!-- ============================================ -->            
+            </map>
+         </data>
+        <!-- ============================================ -->
         <!-- logs -->
         <!-- ============================================ -->
         <data>
             <code>logs</code>
             <title>Logs</title>
-            <intro>Consultez les logs de l'application.</intro>
+            <intro>Consultez les logs de traitements.</intro>
             <modal_id>ModalLogs</modal_id>
             <body_id>LogsBody</body_id>
             <form_id>LogsForm</form_id>
             <msg_id>LogsMsg</msg_id>
             <module>log</module>
-            <keypress_cb>keypress_log_ui</keypress_cb>
-            <close_cb>close_log_ui</close_cb>
+            <keypress_cb>keypress_log</keypress_cb>
+            <close_cb>close_log</close_cb>
             <map>
+                <!-- ============================================ -->
+                <!-- logs/body -->
+                <!-- ============================================ -->
+                <data>
+                    <category>logs/body</category>
+                    <model>label</model>
+                    <id>LogsLabel</id>
+                </data>
                 <!-- ============================================ -->
                 <!-- logs/button -->
                 <!-- ============================================ -->
                 <data>
                     <category>logs/button</category>
                     <type>button</type>
-                    <id>LogsOk</id>
                     <module>log</module>
-                    <callback>close_log_ui</callback>
+                    <callback>close_log</callback>
                     <picto>check</picto>
                     <text>OK</text>
                 </data>
@@ -1006,15 +1075,23 @@
         <data>
             <code>errors</code>
             <title>Erreurs</title>
-            <intro>Consultez les erreurs de l'application.</intro>
+            <intro>Consultez les erreurs de traitements.</intro>
             <modal_id>ModalErrors</modal_id>
             <body_id>ErrorsBody</body_id>
             <form_id>ErrorsForm</form_id>
             <msg_id>ErrorsMsg</msg_id>
             <module>log</module>
-            <keypress_cb>keypress_error_ui</keypress_cb>
-            <close_cb>close_error_ui</close_cb>
+            <keypress_cb>keypress_error</keypress_cb>
+            <close_cb>close_error</close_cb>
             <map>
+                <!-- ============================================ -->
+                <!-- errors/body -->
+                <!-- ============================================ -->
+                <data>
+                    <category>errors/body</category>
+                    <model>label</model>
+                    <id>ErrorsLabel</id>
+                </data>
                 <!-- ============================================ -->
                 <!-- errors/button -->
                 <!-- ============================================ -->
@@ -1023,7 +1100,7 @@
                     <type>button</type>
                     <id>LogsOk</id>
                     <module>log</module>
-                    <callback>close_error_ui</callback>
+                    <callback>close_error</callback>
                     <picto>exclamation-triangle</picto>
                     <text>OK</text>
                 </data>

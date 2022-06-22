@@ -124,7 +124,8 @@ class GCode extends GXml {
     //===============================================
     loadCode(data) {
         if(data == "") return false;
-        this.getNode(sprintf("/rdv/datas"));
+        this.createNode(sprintf("/rdv/datas"));
+        this.createNode(sprintf("/rdv/datas"));
         this.loadNode(data);
         return true;
     }

@@ -18,14 +18,16 @@ class GManager extends GModule {
 		this.label = obj.label;
     }
     //===============================================
-	serialize(code = "manager") {
+	serialize(isDom = false, code = "manager") {
 		var lDom = new GCode();
 		lDom.createDoc();
 		lDom.addData(code, "id", this.id);
 		lDom.addData(code, "code_id", this.code);
 		lDom.addData(code, "label", this.label);
 		lDom.addMap(code, this.map, this);
-		return lDom.toStringData();
+		var lData = lDom.toStringData();
+		if(isDom) lData = lDom.toString();
+		return lData;
 	}
     //===============================================
 	deserialize(data, code = "manager") {
@@ -60,6 +62,12 @@ class GManager extends GModule {
 		}
 		else if(method == "delete_code") {
 			this.onDeleteCode(obj, data);
+		}
+		else if(method == "new_code") {
+			this.onNewCode(obj, data);
+		}
+		else if(method == "select_data") {
+			this.onSelectData(obj, data);
 		}
     	//===============================================
 		// end
@@ -101,7 +109,6 @@ class GManager extends GModule {
 
 		this.onReadUi();
 		this.onButtonOff();
-		this.id = "0";
 		
         if(this.id != "0") {
             lMessage = "Le code existe déjà.";
@@ -137,7 +144,6 @@ class GManager extends GModule {
 		
 		this.onReadUi();
 		this.onButtonOff();
-		this.id = "0";
 		
         // confirmer ici
         
@@ -208,6 +214,19 @@ class GManager extends GModule {
         }
     }
     //===============================================
+    onNewCode(obj, name) {
+		this.onWriteUi();
+    }
+    //===============================================
+    onSelectData(obj, data) {
+		var lTable = new GTable();
+		lTable.deserialize(data);
+		var lData = lTable.data;
+		this.deserialize(lData);
+		this.onWriteUi();
+		server_call("table", "close_table");
+	}
+    //===============================================
     onCreateCodeCall() {
 		var lAjax = new GAjax();
 		var lData = this.serialize();
@@ -251,14 +270,10 @@ class GManager extends GModule {
 		var lLog = GLog.Instance();
         var lManager = new GManager();
 		
-        if(lLog.hasErrors()) {
-            lLog.showErrors();
-        }
-        else {
+        if(!lLog.hasErrors()) {
 			lManager.deserialize(data);
-			lManager.onLoadOne();
+			lManager.showData();
 			lManager.onWriteUi();
-            lLog.addLog(sprintf("%s", "La recherche du code a réussi."));
         }
 		lManager.onButtonOn();
     }
@@ -292,10 +307,39 @@ class GManager extends GModule {
 		lManager.onButtonOn();
     }
     //===============================================
-    onLoadOne() {
-		if(!this.map.length) return false;
-		this.copy(this.map[0]);
-		
+    showData() {
+		var lLog = GLog.Instance();
+		if(this.map.length == 0) {
+			lLog.addLog(sprintf("Auncun résultat n'a été trouvé."))
+		}
+		else if(this.map.length == 1) {
+			this.copy(this.map[0]);		
+		}
+		else {
+			this.showList();
+		}
+	}
+    //===============================================
+	showList() {
+		var lTable = new GTable();
+		//
+		lTable.pushRowH();
+		lTable.pushColH(0, "code");
+		lTable.pushColH(0, "description");
+		//
+		for(var i = 0; i < this.map.length; i++) {
+			var lManager = this.map[i];
+			var lData = lManager.serialize(true);
+			lTable.pushRow();
+			lTable.pushCol(lData, lManager.code);
+			lTable.pushCol(lData, lManager.label);
+		}
+		//
+		lTable.showData();
+	}
+    //===============================================
+	selectDataCB(data) {
+		alert("manager");
 	}
     //===============================================
     onWriteUi() {

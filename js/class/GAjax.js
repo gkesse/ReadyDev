@@ -18,12 +18,12 @@ class GAjax extends GObject {
 		if(module == "") return false;
 		if(method == "") return false;
 		if(callback == null) return false;
-		var lReq = new GCode();
-		lReq.createDoc();
-		lReq.addData("request", "module", module);
-		lReq.addData("request", "method", method);
-		lReq.loadCode(params);
-		var lData = lReq.toString();
+		var lDom = new GCode();
+		lDom.createDoc();
+		lDom.addData("request", "module", module);
+		lDom.addData("request", "method", method);
+		lDom.loadCode(params);
+		var lData = lDom.toString();
 		this.callServer(lData, callback);
 		return true;
 	}

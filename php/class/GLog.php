@@ -84,28 +84,27 @@ class GLog extends GObject {
         $lKeypressCB = $this->getItem("logs", "keypress_cb");
         $lCloseCB = $this->getItem("logs", "close_cb");
         //
-        echo sprintf("<div class='Modal2' id='%s' onkeypress='server_call(\"%s\", \"%s\", this, event);'>\n", $lModalId, $lModule, $lKeypressCB);
+        echo sprintf("<div class='Modal' id='%s' onkeypress='server_call(\"%s\", \"%s\", this, event);'>\n", $lModalId, $lModule, $lKeypressCB);
         echo sprintf("<div class='Content10' id='%s'>\n", $lBodyId);
         echo sprintf("<div class='Button3 Close' onclick='server_call(\"%s\", \"%s\");'><i class='fa fa-close'></i></div>\n", $lModule, $lCloseCB);
         echo sprintf("<div class='Title5'>%s</div>\n", $lTitle);
         echo sprintf("<form class='Body4' id='%s' method='post'>\n", $lFormId);        
         echo sprintf("<div class='Row11'>%s</div>\n", $lIntro);
+        echo sprintf("<div class='Content15'>");
         
         for($i = 0; $i < $lCount; $i++) {
             $lCategory = $this->getItem3("logs", "category", $i);
-            $lLabel = $this->getItem3("logs", "label", $i);
+            $lModel = $this->getItem3("logs", "model", $i);
             $lId = $this->getItem3("logs", "id", $i);
-            $lType = $this->getItem3("logs", "type", $i);
-            $lName = $this->getItem3("logs", "name", $i);
             
-            if($lCategory == "connection/body") {
-                echo sprintf("<div class='Row12'>\n");
-                echo sprintf("<label class='Label3' for='%s'>%s</label>\n", $lName, $lLabel);
-                echo sprintf("<div class='Field3'><input id='%s' class='Input2' type='%s' name='%s'/></div>\n", $lId, $lType, $lName);
-                echo sprintf("</div>\n");
+            if($lCategory == "logs/body") {
+                if($lModel == "label") {
+                    echo sprintf("<div id='%s'></div>\n", $lId);
+                }
             }
         }
         
+        echo sprintf("</div>");        
         echo sprintf("<div class='Row13'>\n");
         
         for($i = 0; $i < $lCount; $i++) {
@@ -144,28 +143,27 @@ class GLog extends GObject {
         $lKeypressCB = $this->getItem("errors", "keypress_cb");
         $lCloseCB = $this->getItem("errors", "close_cb");
         //
-        echo sprintf("<div class='Modal2' id='%s' onkeypress='server_call(\"%s\", \"%s\", this, event);'>\n", $lModalId, $lModule, $lKeypressCB);
+        echo sprintf("<div class='Modal' id='%s' onkeypress='server_call(\"%s\", \"%s\", this, event);'>\n", $lModalId, $lModule, $lKeypressCB);
         echo sprintf("<div class='Content10' id='%s'>\n", $lBodyId);
         echo sprintf("<div class='Button3 Close' onclick='server_call(\"%s\", \"%s\");'><i class='fa fa-close'></i></div>\n", $lModule, $lCloseCB);
         echo sprintf("<div class='Title5'>%s</div>\n", $lTitle);
         echo sprintf("<form class='Body4' id='%s' method='post'>\n", $lFormId);        
         echo sprintf("<div class='Row11'>%s</div>\n", $lIntro);
+        echo sprintf("<div class='Content15'>");
         
         for($i = 0; $i < $lCount; $i++) {
             $lCategory = $this->getItem3("errors", "category", $i);
-            $lLabel = $this->getItem3("errors", "label", $i);
+            $lModel = $this->getItem3("errors", "model", $i);
             $lId = $this->getItem3("errors", "id", $i);
-            $lType = $this->getItem3("errors", "type", $i);
-            $lName = $this->getItem3("errors", "name", $i);
             
             if($lCategory == "errors/body") {
-                echo sprintf("<div class='Row12'>\n");
-                echo sprintf("<label class='Label3' for='%s'>%s</label>\n", $lName, $lLabel);
-                echo sprintf("<div class='Field3'><input id='%s' class='Input2' type='%s' name='%s'/></div>\n", $lId, $lType, $lName);
-                echo sprintf("</div>\n");
+                if($lModel == "label") {
+                    echo sprintf("<div id='%s'></div>\n", $lId);
+                }
             }
         }
         
+        echo sprintf("</div>\n");
         echo sprintf("<div class='Row13'>\n");
         
         for($i = 0; $i < $lCount; $i++) {
@@ -190,52 +188,6 @@ class GLog extends GObject {
         echo sprintf("<div class='Row14' id='%s'></div>\n", $lMsgId);
         echo sprintf("</div>\n");
         echo sprintf("</div>\n");
-    }
-    //===============================================
-    public function showErrors() {
-        $lEnvObj = new GEnv();
-        $lProdOn = ($this->getItem("test", "prod_on") == "1");
-        $lClass = "";
-        $lErrors = "";
-        foreach($this->errors as $error) {
-            $lErrors .= sprintf("%s<br>", $error);
-        }
-        if($lErrors == "") $lClass = "BoxHide";
-        if($lEnvObj->isTestEnv() && !$lProdOn) {
-            echo sprintf("<div id='ErrorsBox' class='Errors %s'>\n", $lClass);
-            echo sprintf("<div class='ErrorsClose' onclick='server_call(\"log\", \"close_error\", this);'><i class='ErrorsCloseFa fa fa-times'></i></div>\n");
-            echo sprintf("<xmp id='ErrorsMsg' class='ErrorsMain Code3'>%s</xmp>\n", $lErrors);
-            echo sprintf("</div>\n");
-        }
-        else {
-            echo sprintf("<div id='ErrorsBox' class='Errors %s'>\n", $lClass);
-            echo sprintf("<div class='ErrorsClose' onclick='server_call(\"log\", \"close_error\", this);'><i class='ErrorsCloseFa fa fa-times'></i></div>\n");
-            echo sprintf("<div id='ErrorsMsg' class='ErrorsMain'>%s</div>\n", $lErrors);
-            echo sprintf("</div>\n");
-        }
-    }
-    //===============================================
-    public function showLogs() {
-        $lEnvObj = new GEnv();
-        $lProdOn = ($this->getItem("test", "prod_on") == "1");
-        $lClass = "";
-        $lLogs = "";
-        foreach($this->logs as $log) {
-            $lLogs .= sprintf("%s<br>", $log);
-        }
-        if($lLogs == "") $lClass = "BoxHide";
-        if($lEnvObj->isTestEnv() && !$lProdOn) {
-            echo sprintf("<div id='LogsBox' class='Logs %s'>\n", $lClass);
-            echo sprintf("<div class='LogsClose' onclick='server_call(\"log\", \"close_log\", this);'><i class='LogsCloseFa fa fa-times'></i></div>\n");
-            echo sprintf("<xmp id='LogsMsg' class='LogsMain Code3'>%s</xmp>\n", $lLogs);
-            echo sprintf("</div>\n");
-        }
-        else {
-            echo sprintf("<div id='LogsBox' class='Logs %s'>\n", $lClass);
-            echo sprintf("<div class='LogsClose' onclick='server_call(\"log\", \"close_log\", this);'><i class='LogsCloseFa fa fa-times'></i></div>\n");
-            echo sprintf("<div id='LogsMsg' class='LogsMain'>%s</div>\n", $lLogs);
-            echo sprintf("</div>\n");
-        }
     }
     //===============================================
 }

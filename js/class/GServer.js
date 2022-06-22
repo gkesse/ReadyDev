@@ -43,6 +43,9 @@ class GServer extends GModule {
 		else if(module == "query") {
 			this.onQuery(method, obj, data);
 		}
+		else if(module == "table") {
+			this.onTable(method, obj, data);
+		}
 	    //===============================================
 		// end
 	    //===============================================
@@ -84,14 +87,19 @@ class GServer extends GModule {
 		lLog.onModule(method, obj, data)
 	}
     //===============================================
-	onPage (method, obj, data) {
+	onPage(method, obj, data) {
 		var lPage = new GPage();
 		lPage.onModule(method, obj, data)
 	}
     //===============================================
-	onQuery (method, obj, data) {
+	onQuery(method, obj, data) {
 		var lQuery = new GQuery();
 		lQuery.onModule(method, obj, data)
+	}
+    //===============================================
+	onTable(method, obj, data) {
+		var lTable = new GTable();
+		lTable.onModule(method, obj, data)
 	}
     //===============================================
 	showErrors() {

@@ -34,6 +34,7 @@ class GHeader extends GModule {
         $this->onConnectionUi();
         $this->onAccountUi();
         $this->onDisconnectionUi();
+        $this->onTableUi();
         $this->onErrorUi();
         $this->onLogUi();
         
@@ -87,6 +88,11 @@ class GHeader extends GModule {
     public function onLogUi() {
         $lLog = new GLog();
         $lLog->onLogUi();
+    }
+    //===============================================
+    public function onTableUi() {
+        $lTable = new GTable();
+        $lTable->onTableUi();
     }
     //===============================================
     public function onMenuUi() {        

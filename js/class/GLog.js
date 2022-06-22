@@ -38,12 +38,6 @@ class GLog extends GModule {
 		else if(method == "close_log") {
 			this.onCloseLog();
 		}
-		else if(method == "close_error_ui") {
-			this.onCloseErrorUi();
-		}
-		else if(method == "close_log_ui") {
-			this.onCloseLogUi();
-		}
     	//===============================================
 		// end
     	//===============================================
@@ -56,16 +50,6 @@ class GLog extends GModule {
 	}
     //===============================================
     onCloseError() {
-	    var lErrorBox = document.getElementById("ErrorsBox");
-	    lErrorBox.style.display = "none"; 
-    }
-    //===============================================
-    onCloseLog() {
-	    var lLog = document.getElementById("LogsBox");
-	    lLog.style.display = "none"; 
-    }
-    //===============================================
-    onCloseErrorUi() {
         var lModalErrors = document.getElementById("ModalErrors");
         var lErrorsBody = document.getElementById("ErrorsBody");
         var lClassName = lErrorsBody.className;
@@ -77,7 +61,7 @@ class GLog extends GModule {
         }, 400);
     }
     //===============================================
-    onCloseLogUi() {
+    onCloseLog() {
         var lModalLogs = document.getElementById("ModalLogs");
         var lLogsBody = document.getElementById("LogsBody");
         var lClassName = lLogsBody.className;
@@ -89,7 +73,7 @@ class GLog extends GModule {
         }, 400);
     }
     //===============================================
-    showErrors() {
+    getErrors() {
 		var lEnvObj = new GEnv();
 		var lErrors = "";
 		for(var i = 0; i < this.errors.length; i++) {
@@ -101,15 +85,10 @@ class GLog extends GModule {
 			if(lEnvObj.isTestEnv() && !lEnvObj.isProdOn()) lMsg = sprintf("> %s", lError);
 			lErrors += lMsg;
 		}
-		if(lErrors == "") return;
-	    var lErrorsBox = document.getElementById("ErrorsBox");
-	    var lErrorsMsg = document.getElementById("ErrorsMsg");
-	    lErrorsBox.style.display = "block";
- 		lErrorsMsg.innerHTML = lErrors;
-		this.errors = [];
+		return lErrors;
     }
     //===============================================
-    showLogs() {
+    getLogs() {
 		var lEnvObj = new GEnv();
 		var lLogs = "";
 		for(var i = 0; i < this.logs.length; i++) {
@@ -121,12 +100,45 @@ class GLog extends GModule {
 			if(lEnvObj.isTestEnv() && !lEnvObj.isProdOn()) lMsg = sprintf("> %s", lLog);
 			lLogs += lMsg;
 		}
-		if(lLogs == "") return;
-	    var lLogsBox = document.getElementById("LogsBox");
-	    var lLogsMsg = document.getElementById("LogsMsg");
-	    lLogsBox.style.display = "block";
- 		lLogsMsg.innerHTML = lLogs;
+		return lLogs;
+    }
+    //===============================================
+    showErrors() {
+		var lErrors = this.getErrors();
+		if(lErrors == "") return false;
+		//
+        var lModalErrors = document.getElementById("ModalErrors");
+        var lErrorsBody = document.getElementById("ErrorsBody");
+        var lErrorsLabel = document.getElementById("ErrorsLabel");
+		var lClassName = lErrorsBody.className;
+        lErrorsBody.className = lClassName.replace(" AnimateShow", "");
+        lErrorsBody.className = lClassName.replace(" AnimateHide", "");
+        lErrorsBody.className += " AnimateShow";
+        lModalErrors.style.display = "block";
+		lErrorsLabel.innerHTML = lErrors;
+		//
+		this.errors = [];
+		return true;
+    }
+    //===============================================
+    showLogs() {
+		var lEnvObj = new GEnv();
+		var lLogs = this.getLogs();
+		if(lLogs == "") return false;
+		if(lEnvObj.isTestEnv() && !lEnvObj.isProdOn()) lLogs = sprintf("<xmp>%s</xmp>", lLogs);
+		//
+        var lModalLogs = document.getElementById("ModalLogs");
+        var lLogsBody = document.getElementById("LogsBody");
+        var lLogsLabel = document.getElementById("LogsLabel");
+		var lClassName = lLogsBody.className;
+        lLogsBody.className = lClassName.replace(" AnimateShow", "");
+        lLogsBody.className = lClassName.replace(" AnimateHide", "");
+        lLogsBody.className += " AnimateShow";
+        lModalLogs.style.display = "block";
+		lLogsLabel.innerHTML = lLogs;
+		//
 		this.logs = [];
+		return true;
     }
     //===============================================
 	addError(error) {

@@ -177,6 +177,31 @@ span {
     word-break: break-all;
 }
 
+table, th, td {
+  	border: 2px solid #2f3959;
+}
+
+table {
+  	width: 100%;
+  	border-collapse: collapse;
+}
+
+th, td {
+  	padding: 5px 10px;
+}
+
+tr {
+	cursor: pointer;
+}
+
+tr:hover {
+  	background-color: #512731;
+}
+
+thead tr:first-child {
+  	background-color: #2f3959;
+}
+
 /* ============================================== */
 /* Prettify */ 
 /* ============================================== */
@@ -287,100 +312,6 @@ span {
 /* special */
 /* ============================================== */
 
-.Errors {
-    background-color: purple;
-    border: 2px solid #aaaaff;
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    border-radius: 5px;
-    padding: 40px 10px 10px 10px;
-    transform: translate(-50%, 0);
-    min-height: 100px;
-    width: 500px;
-    z-index: 2;
-}
-
-.ErrorsClose  {
-    background-color: rgba(0,0,0,0.4);
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    border-radius: 50%;
-    width: 25px;
-    height: 25px;
-    cursor: pointer;
-}
-
-.ErrorsClose:hover  {
-    background-color: rgba(0,0,0,0.2);
-}
-
-.ErrorsClose:active  {
-    background-color: rgba(0,0,0,0.4);
-}
-
-.ErrorsCloseFa {
-    background-color: transparent;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -55%);
-}
-
-.ErrorsMain {
-    background-color: transparent;
-    overflow: auto;
-    text-align: left;
-}
-
-.Logs {
-    background-color: teal;
-    border: 2px solid #aaaaff;
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    border-radius: 5px;
-    padding: 30px 10px 10px 10px;
-    transform: translate(-50%, 0);
-    min-height: 100px;
-    width: 500px;
-    z-index: 2;
-}
-
-.LogsClose  {
-    background-color: rgba(0,0,0,0.4);
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    border-radius: 50%;
-    width: 25px;
-    height: 25px;
-    cursor: pointer;
-}
-
-.LogsClose:hover  {
-    background-color: rgba(0,0,0,0.2);
-}
-
-.LogsClose:active  {
-    background-color: rgba(0,0,0,0.4);
-}
-
-.LogsCloseFa {
-    background-color: transparent;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -55%);
-}
-
-.LogsMain {
-    background-color: rgba(0,0,0,0);
-    overflow: auto;
-    text-align: left;
-}
-
 .NotFound {
     background-color: #354069;
     border: 2px solid #aaaaff;
@@ -474,6 +405,10 @@ span {
     top: 0;
     right: 0;
     cursor: pointer;
+}
+
+.BgColor {
+	background-color: rgba(255, 255, 255, 0.2);
 }
 
 .Body {
@@ -976,6 +911,11 @@ span {
 .Content14 {
     height: 350px;
     padding: 10px;
+}
+
+.Content15 {
+    overflow: auto;
+    padding: 10px 0px;
 }
 
 .Data {
@@ -1829,6 +1769,12 @@ span {
     padding-top: 10px;
 }
 
+.Row35 {
+    text-align: center;
+    font-size: 0px;
+    padding-top: 10px;
+}
+
 .Shift1 {
     padding-left: 10px;
 }
@@ -1850,6 +1796,14 @@ span {
     color: #89a830;
     padding: 10px;
     text-align: left;
+}
+
+.Table {
+  	background-color: transparent;
+}
+
+.Table.Active {
+  	background-color: teal;
 }
 
 .Text {
