@@ -6,14 +6,14 @@ class GEnv extends GObject {
     }
     //===============================================
 	getEnv() {
-		var lObj = document.getElementById("EnvType");
-		var lEnv = lObj.innerHTML;
+		var lEnvId = document.getElementById("EnvType");
+		var lEnv = lEnvId.value;
 		return lEnv;				
 	}
     //===============================================
 	getProdOn() {
-		var lObj = document.getElementById("ProdOn");
-		var lProdOn = lObj.innerHTML;
+		var lProdOnId = document.getElementById("EnvProdOn");
+		var lProdOn = (lProdOnId.value == "1");
 		return lProdOn;				
 	}
     //===============================================

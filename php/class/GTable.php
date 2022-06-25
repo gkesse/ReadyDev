@@ -68,15 +68,14 @@ class GTable extends GModule {
             $lCategory = $this->getItem3("table", "category", $i);
             $lModel = $this->getItem3("table", "model", $i);
             $lId = $this->getItem3("table", "id", $i);
-            $lValue = $this->getItem3("table", "value", $i);
+            $lPageId = $this->getItem3("table", "page_id", $i);
             
             if($lCategory == "table/body") {
                 if($lModel == "table") {
+                    echo sprintf("<div class='Modal3' id='%s'>\n", $lPageId);
                     echo sprintf("<table id='%s'>\n", $lId);
                     echo sprintf("</table>\n");
-                }
-                else if($lModel == "hidden") {
-                    echo sprintf("<input type='hidden' id='%s' value='%s'/>", $lId, $lValue);
+                    echo sprintf("</div>\n");
                 }
             }
         }
@@ -99,6 +98,10 @@ class GTable extends GModule {
                 if($lModel == "button") {
                     echo sprintf("<button type='button' id='%s' class='Button4' onclick='server_call(\"%s\", \"%s\");'><i class='fa fa-%s'></i> %s</button>\n"
                         , $lId, $lModule, $lCallback, $lPicto, $lText);
+                }
+                if($lModel == "button/icon") {
+                    echo sprintf("<button type='button' id='%s' class='Button4' onclick='server_call(\"%s\", \"%s\");'>%s <i class='fa fa-%s'></i></button>\n"
+                        , $lId, $lModule, $lCallback, $lText, $lPicto);
                 }
             }
         }

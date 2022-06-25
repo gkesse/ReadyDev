@@ -1493,6 +1493,12 @@ thead tr:first-child {
     text-align: left;
 }
 
+.Modal3 {
+	height: 300px;
+	overflow: auto;
+	padding: 0px 10px 10px 0px;
+}
+
 .Network {
     background-color: rgba(255, 255, 255, 0.2);
     width: 40px;

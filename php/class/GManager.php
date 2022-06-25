@@ -1,5 +1,5 @@
 <?php   
-    class GManager extends GModule {
+    class GManager extends GSearch {
         //===============================================
         private $id = 0;
         private $code = "";
@@ -17,10 +17,11 @@
         public function serialize($code = "manager") {
             $lDom = new GCode();
             $lDom->createDoc();
-            $lDom->addData($code, "id", $this->id);
+            $lDom->addData($code, "id", "".$this->id);
             $lDom->addData($code, "code_id", $this->code);
             $lDom->addData($code, "label", $this->label);
             $lDom->addMap($code, $this->map);
+            $lDom->loadCode(parent::serialize());
             return $lDom->toStringData();
         }
         //===============================================
@@ -51,6 +52,12 @@
             else if($lMethod == "search_code") {
                 $this->onSearchCode($data, $server);
             }
+            else if($lMethod == "next_code") {
+                $this->onNextCode($data, $server);
+            }
+            else if($lMethod == "previous_code") {
+                $this->onPreviousCode($data, $server);
+            }
             else if($lMethod == "update_code") {
                 $this->onUpdateCode($data, $server);
             }
@@ -73,6 +80,14 @@
         }
         //===============================================
         public function onSearchCode($data, $server) {
+            $this->callProxy($server);
+        }
+        //===============================================
+        public function onNextCode($data, $server) {
+            $this->callProxy($server);
+        }
+        //===============================================
+        public function onPreviousCode($data, $server) {
             $this->callProxy($server);
         }
         //===============================================

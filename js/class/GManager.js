@@ -1,9 +1,9 @@
 //===============================================
-class GManager extends GModule {
+class GManager extends GSearch {
     //===============================================
     constructor() {
 		super();
-		this.id = "0";
+		this.id = 0;
 		this.code = "";
 		this.label = "";
     }
@@ -21,10 +21,11 @@ class GManager extends GModule {
 	serialize(isDom = false, code = "manager") {
 		var lDom = new GCode();
 		lDom.createDoc();
-		lDom.addData(code, "id", this.id);
+		lDom.addData(code, "id", ""+this.id);
 		lDom.addData(code, "code_id", this.code);
 		lDom.addData(code, "label", this.label);
 		lDom.addMap(code, this.map, this);
+		lDom.loadCode(super.serialize());
 		var lData = lDom.toStringData();
 		if(isDom) lData = lDom.toString();
 		return lData;
@@ -69,6 +70,9 @@ class GManager extends GModule {
 		else if(method == "select_data") {
 			this.onSelectData(obj, data);
 		}
+		else if(method == "next_data") {
+			this.onNextData();
+		}
     	//===============================================
 		// end
     	//===============================================
@@ -104,11 +108,11 @@ class GManager extends GModule {
     }
     //===============================================
     onCreateCode(obj, name) {
+		this.readUi();
 		var lLog = GLog.Instance();
         var lMessage = "";
 
-		this.onReadUi();
-		this.onButtonOff();
+		this.buttonOff();
 		
         if(this.id != "0") {
             lMessage = "Le code existe déjà.";
@@ -131,37 +135,39 @@ class GManager extends GModule {
         
         if(lMessage.length) {
             lLog.addError(sprintf("%s", lMessage));
-			this.onButtonOn();
+			this.buttonOn();
         }
         else {
             this.onCreateCodeCall();
         }
+		this.writeUi();
     }
     //===============================================
     onSearchCode(obj, name) {
+		this.readUi();
 		var lLog = GLog.Instance();
 		var lMessage = "";
 		
-		this.onReadUi();
-		this.onButtonOff();
+		this.buttonOff();
 		
         // confirmer ici
         
         if(lMessage.length) {
             lLog.addError(sprintf("%s", lMessage));
-			this.onButtonOn();
+			this.buttonOn();
         }
 		else {
 	        this.onSearchCodeCall();	
 		}		
+		this.writeUi();
     }
     //===============================================
     onUpdateCode(obj, name) {
+		this.readUi();
 		var lLog = GLog.Instance();
         var lMessage = "";
 
-		this.onReadUi();
-		this.onButtonOff();
+		this.buttonOff();
 
         if(this.id == "0") {
             lMessage = "Le code n'existe pas.";
@@ -184,19 +190,20 @@ class GManager extends GModule {
         
         if(lMessage.length) {
             lLog.addError(sprintf("%s", lMessage));
-			this.onButtonOn();
+			this.buttonOn();
         }
         else {
             this.onUpdateCodeCall();
         }
+		this.writeUi();
     }
     //===============================================
     onDeleteCode(obj, name) {
+		this.readUi();
 		var lLog = GLog.Instance();
         var lMessage = "";
 
-		this.onReadUi();
-		this.onButtonOff();
+		this.buttonOff();
 
         if(this.id == "0") {
             lMessage = "Le code n'existe pas.";
@@ -207,78 +214,124 @@ class GManager extends GModule {
         
         if(lMessage.length) {
             lLog.addError(sprintf("%s", lMessage));
-			this.onButtonOn();
+			this.buttonOn();
         }
         else {;
             this.onDeleteCodeCall();
         }
+		this.writeUi();
     }
     //===============================================
     onNewCode(obj, name) {
-		this.onWriteUi();
+		this.writeUi();
     }
     //===============================================
     onSelectData(obj, data) {
+		this.readUi();
 		var lTable = new GTable();
 		lTable.deserialize(data);
 		var lData = lTable.data;
 		this.deserialize(lData);
-		this.onWriteUi();
 		lTable.onCloseTable();
+		this.writeUi();
 	}
     //===============================================
+    onNextData() {
+		this.readUi();
+		var lOffset = this.dataOffset + this.dataSize;
+		if(lOffset < this.dataCount) {
+			this.dataOffset = lOffset;
+			this.onNextDataCall();
+		}
+		this.writeUi();
+	}
+    //===============================================
+    onNextDataCall() {
+		this.readUi();
+		var lAjax = new GAjax();
+		var lData = this.serialize();
+		lAjax.call("manager", "next_code", lData, this.onNextDataCB);		
+		this.writeUi();
+    }
+    //===============================================
+    onNextDataCB(data) {
+		var lLog = GLog.Instance();
+        var lManager = new GManager();
+		lManager.readUi();
+		
+        if(!lLog.hasErrors()) {
+			lManager.deserialize(data);
+			lManager.writeUi();
+			lManager.showList();
+        }
+		lManager.buttonOn();
+		lManager.writeUi();
+    }
+    //===============================================
     onCreateCodeCall() {
+		this.readUi();
 		var lAjax = new GAjax();
 		var lData = this.serialize();
 		lAjax.call("manager", "create_code", lData, this.onCreateCodeCB);		
+		this.writeUi();
     }
     //===============================================
     onSearchCodeCall() {
+		this.readUi();
 		var lAjax = new GAjax();
+		this.readUi();
 		var lData = this.serialize();
 		lAjax.call("manager", "search_code", lData, this.onSearchCodeCB);		
+		this.writeUi();
     }
     //===============================================
     onUpdateCodeCall() {
+		this.readUi();
 		var lAjax = new GAjax();
 		var lData = this.serialize();
 		lAjax.call("manager", "update_code", lData, this.onUpdateCodeCB);		
+		this.writeUi();
     }
     //===============================================
     onDeleteCodeCall() {
+		this.readUi();
 		var lAjax = new GAjax();
 		var lData = this.serialize();
 		lAjax.call("manager", "delete_code", lData, this.onDeleteCodeCB);		
+		this.writeUi();
     }
     //===============================================
     onCreateCodeCB(data) {
 		var lLog = GLog.Instance();
-		var lManager = new GManager();
+        var lManager = new GManager();
+		lManager.readUi();
 
         if(lLog.hasErrors()) {
             lLog.showErrors();
         }
         else {
 			lManager.deserialize(data);
-			lManager.onWriteUi();
             lLog.addLog(sprintf("%s", "La création du code a réussi."));
         }
-		lManager.onButtonOn();
+		lManager.buttonOn();
+		lManager.writeUi();
     }
     //===============================================
     onSearchCodeCB(data) {
 		var lLog = GLog.Instance();
         var lManager = new GManager();
+		lManager.readUi();
 		
         if(!lLog.hasErrors()) {
 			lManager.deserialize(data);
 			lManager.showData();
-			lManager.onWriteUi();
         }
-		lManager.onButtonOn();
+		lManager.buttonOn();
+		lManager.writeUi();
     }
     //===============================================
     onUpdateCodeCB(data) {
+		this.readUi();
 		var lLog = GLog.Instance();
         var lManager = new GManager();
 		
@@ -287,13 +340,15 @@ class GManager extends GModule {
         }
         else {
 			lManager.deserialize(data);
-			lManager.onWriteUi();
+			lManager.writeUi();
             lLog.addLog(sprintf("%s", "La mise à jour du code a réussi."));
         }
-		lManager.onButtonOn();
+		lManager.buttonOn();
+		this.writeUi();
     }
     //===============================================
     onDeleteCodeCB(data) {
+		this.readUi();
 		var lLog = GLog.Instance();
 		var lManager = new GManager();
 		
@@ -301,13 +356,14 @@ class GManager extends GModule {
             lLog.showErrors();
         }
         else {
-			lManager.onWriteUi();
             lLog.addLog(sprintf("%s", "La suppression du code a réussi."));
         }
-		lManager.onButtonOn();
+		lManager.buttonOn();
+		this.writeUi();
     }
     //===============================================
     showData() {
+		this.readUi();
 		var lLog = GLog.Instance();
 		if(this.map.length == 0) {
 			lLog.addLog(sprintf("Auncun résultat n'a été trouvé."))
@@ -318,15 +374,19 @@ class GManager extends GModule {
 		else {
 			this.showList();
 		}
+		this.writeUi();
 	}
     //===============================================
 	showList() {
+		this.readUi();
 		var lTable = new GTable();
 		lTable.setCallback("select", "manager", "select_data")
+		lTable.setCallback("next", "manager", "next_data")
 		//
 		lTable.pushRowH();
 		lTable.pushColH(0, "code");
 		lTable.pushColH(0, "description");
+		lTable.setHeaderVisible(true);
 		//
 		for(var i = 0; i < this.map.length; i++) {
 			var lManager = this.map[i];
@@ -337,9 +397,22 @@ class GManager extends GModule {
 		}
 		//
 		lTable.showData();
+		lTable.scrollBottom();
+		this.writeUi();
 	}
     //===============================================
-    onWriteUi() {
+    readUi() {
+        var lId = document.getElementById("ManagerCodeId");
+        var lCode = document.getElementById("ManagerCodeCode");
+        var lLabel = document.getElementById("ManagerCodeLabel");
+		//
+		this.id = +lId.value;
+		this.code = lCode.value;
+		this.label = lLabel.value;
+		super.readUi();
+    }
+    //===============================================
+    writeUi() {
         var lId = document.getElementById("ManagerCodeId");
         var lCode = document.getElementById("ManagerCodeCode");
         var lLabel = document.getElementById("ManagerCodeLabel");
@@ -347,19 +420,10 @@ class GManager extends GModule {
 		lId.value = this.id;
 		lCode.value = this.code;
 		lLabel.value = this.label;
+		super.writeUi();
     }
     //===============================================
-    onReadUi() {
-        var lId = document.getElementById("ManagerCodeId");
-        var lCode = document.getElementById("ManagerCodeCode");
-        var lLabel = document.getElementById("ManagerCodeLabel");
-		//
-		this.id = lId.value;
-		this.code = lCode.value;
-		this.label = lLabel.value;
-    }
-    //===============================================
-    onButtonOn() {
+    buttonOn() {
         var lCreate = document.getElementById("ManagerCodeCreate");
         var lSearch = document.getElementById("ManagerCodeSearch");
         var lUpdate = document.getElementById("ManagerCodeUpdate");
@@ -371,7 +435,7 @@ class GManager extends GModule {
 		lDelete.disabled = false;
     }
     //===============================================
-    onButtonOff() {
+    buttonOff() {
         var lCreate = document.getElementById("ManagerCodeCreate");
         var lSearch = document.getElementById("ManagerCodeSearch");
         var lUpdate = document.getElementById("ManagerCodeUpdate");

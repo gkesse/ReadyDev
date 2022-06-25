@@ -72,6 +72,7 @@
                 <data>/js/class/GDefine.js</data>
                 <data>/js/class/GObject.js</data>
                 <data>/js/class/GModule.js</data>
+                <data>/js/class/GSearch.js</data>
                 <data>/js/class/GTable.js</data>
                 <data>/js/class/GDate.js</data>
                 <data>/js/class/GLog.js</data>
@@ -97,6 +98,9 @@
         <data>
             <code>menu</code>
             <map>
+		        <!-- ============================================ -->
+		        <!-- menu -->
+		        <!-- ============================================ -->
                 <data>
                     <type>link/image</type>
                     <name>ReadyDev</name>
@@ -157,6 +161,9 @@
                     <module>menu</module>
                     <method>open_menu</method>
                 </data>
+		        <!-- ============================================ -->
+		        <!-- end -->
+		        <!-- ============================================ -->
             </map>
          </data>
         <!-- ============================================ -->
@@ -165,6 +172,9 @@
         <data>
             <code>networks</code>
             <map>
+		        <!-- ============================================ -->
+		        <!-- networks -->
+		        <!-- ============================================ -->
                 <data>
                     <name>Facebook</name>
                     <icon>fa fa-facebook</icon>
@@ -185,6 +195,9 @@
                     <icon>fa fa-linkedin</icon>
                     <link>https://www.linkedin.com/in/tia-gerard-kesse/</link>
                 </data>
+		        <!-- ============================================ -->
+		        <!-- end -->
+		        <!-- ============================================ -->
             </map>
          </data>
         <!-- ============================================ -->
@@ -277,9 +290,9 @@
             <title>Éditeur de Sitemap</title>
             <id>Editeur_Sitemap</id>
             <map>
-                   <!-- ============================================ -->
-                   <!-- header -->
-                   <!-- ============================================ -->
+                <!-- ============================================ -->
+                <!-- header -->
+                <!-- ============================================ -->
                 <data>
                     <category>header</category>
                     <tooltip>Accueil</tooltip>
@@ -997,23 +1010,9 @@
                 <!-- ============================================ -->
                 <data>
                     <category>table/body</category>
-                    <model>hidden</model>
-                    <id>TableCurrentData</id>
-                </data>
-                <data>
-                    <category>table/body</category>
-                    <model>hidden</model>
-                    <id>TableSelectModule</id>
-                </data>
-                <data>
-                    <category>table/body</category>
-                    <model>hidden</model>
-                    <id>TableSelectMethod</id>
-                </data>
-                <data>
-                    <category>table/body</category>
                     <model>table</model>
                     <id>TableId</id>
+                    <page_id>TablePage</page_id>
                 </data>
                 <!-- ============================================ -->
                 <!-- table/button -->
@@ -1021,6 +1020,7 @@
                 <data>
                     <category>table/button</category>
                     <model>button</model>
+                    <id>TableSelectData</id>
                     <module>table</module>
                     <callback>select_data</callback>
                     <picto>check</picto>
@@ -1028,12 +1028,12 @@
                 </data>
                 <data>
                     <category>table/button</category>
-                    <model>button</model>
+                    <model>button/icon</model>
+                    <id>TableNextData</id>
                     <module>table</module>
-                    <callback>insert_data</callback>
-                    <picto>plus</picto>
-                    <text>Insérer</text>
-                    <off>1</off>
+                    <callback>next_data</callback>
+                    <picto>chevron-right</picto>
+                    <text>Suivant</text>
                 </data>
                 <!-- ============================================ -->
                 <!-- end -->
@@ -1125,10 +1125,82 @@
         <data>
             <code>test</code>
             <env>prod</env>
-            <dev>xml/code</dev>
+            <dev>xml/parent</dev>
             <js>env/type</js>
-            <prod_on>1</prod_on>
-         </data>
+        </data>
+        <!-- ============================================ -->
+        <!-- env -->
+        <!-- ============================================ -->
+        <data>
+            <code>env</code>
+            <map>
+                <!-- ============================================ -->
+                <!-- env -->
+                <!-- ============================================ -->
+                <data>
+                	<model>normal</model>
+                    <id>EnvProdOn</id>
+                    <value>1</value>
+                </data>
+                <data>
+                    <model>env/type</model>
+                    <id>EnvType</id>
+                </data>
+                <!-- ============================================ -->
+                <!-- search -->
+                <!-- ============================================ -->
+                <data>
+                    <model>normal</model>
+                    <id>SearchDataSize</id>
+                    <value>8</value>
+                </data>
+                <data>
+                    <model>normal</model>
+                    <id>SearchDataCount</id>
+                    <value>0</value>
+                </data>
+                <data>
+                    <model>normal</model>
+                    <id>SearchDataOffset</id>
+                    <value>0</value>
+                </data>
+                <data>
+                    <model>normal</model>
+                    <id>SearchLastId</id>
+                    <value>0</value>
+                </data>
+                <!-- ============================================ -->
+                <!-- table -->
+                <!-- ============================================ -->
+                <data>
+                    <model>normal</model>
+                    <id>TableCurrentData</id>
+                </data>
+                <data>
+                    <model>normal</model>
+                    <id>TableHeaderVisible</id>
+                </data>
+                <data>
+                    <model>normal</model>
+                    <id>TableSelectModule</id>
+                </data>
+                <data>
+                    <model>normal</model>
+                    <id>TableSelectMethod</id>
+                </data>
+                <data>
+                    <model>normal</model>
+                    <id>TableNextModule</id>
+                </data>
+                <data>
+                    <model>normal</model>
+                    <id>TableNextMethod</id>
+                </data>
+                <!-- ============================================ -->
+                <!-- end -->
+                <!-- ============================================ -->
+            </map>
+        </data>
         <!-- ============================================ -->
         <!-- style -->
         <!-- ============================================ -->

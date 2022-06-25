@@ -12,11 +12,16 @@ class GTable extends GModule {
 		this.currentData = "";
 		this.selectModule = "";
 		this.selectMethod = "";
+		this.headerVisible = 0;
 		//
 		this.row = null;
 		this.col = null;
 		this.rowH = null;
 		this.colH = null;
+		//
+		this.tablePage = null;
+		this.nextData = null;
+		this.selectData = null;
 		//
 		var lTable = document.getElementById("TableId");
 		this.header = lTable.createTHead();
@@ -64,8 +69,8 @@ class GTable extends GModule {
 		else if(method == "select_data") {
 			this.onSelectData();
 		}
-		else if(method == "insert_data") {
-			this.onInsertData();
+		else if(method == "next_data") {
+			this.onNextData();
 		}
     	//===============================================
 		// end
@@ -104,58 +109,49 @@ class GTable extends GModule {
     }
     //===============================================
     onCurrentData(obj, data) {
+		this.readUi();
 		this.deserialize(data);
 		if(this.type == "0") return false;
-		var lCurrentData = document.getElementById("TableCurrentData");
-		lCurrentData.value = data;
+		this.currentData = data;
+		this.writeUi();
 		return true;
     }
     //===============================================
     onSelectData() {
-		var lCurrentData = document.getElementById("TableCurrentData");
-		var lSelectModule = document.getElementById("TableSelectModule");
-		var lSelectMethod = document.getElementById("TableSelectMethod");
-		//
-		var lModule = lSelectModule.value;
-		var lMethod = lSelectMethod.value;
-		var lData = lCurrentData.value;
-		//
-		if(lModule == "") return false;
-		if(lMethod == "") return false;
-		if(lData == "") return false;
-		//
-		server_call(lModule, lMethod, this, lData);
+		this.readUi();
+		if(this.currentData == "") return false;
+		if(this.selectModule == "") return false;
+		if(this.selectMethod == "") return false;
+		server_call(this.selectModule, this.selectMethod, this, this.currentData);
+		this.writeUi();
 		return true;
     }
     //===============================================
+    onNextData() {
+		this.readUi();
+		if(this.nextModule == "") return false;
+		if(this.nextMethod == "") return false;
+		server_call(this.nextModule, this.nextMethod);
+		this.writeUi();
+		return true;
+	}
+    //===============================================
     setCallback(key, module, method) {
-		var lSelectModule = document.getElementById("TableSelectModule");
-		var lSelectMethod = document.getElementById("TableSelectMethod");
-		//
+		this.readUi();
 		if(key == "") return false;
 		if(module == "") return false;
 		if(method == "") return false;
 		//
 		if(key == "select") {
-			lSelectModule.value = module;
-			lSelectMethod.value = method;
+			this.selectModule = module;
+			this.selectMethod = method;
 		}
+		else if(key == "next") {
+			this.nextModule = module;
+			this.nextMethod = method;
+		}
+		this.writeUi();
 		return true;
-    }
-    //===============================================
-    onInsertData() {
-		this.pushRowH();
-		for(var j = 0; j < 3; j++) {
-			var lData = sprintf("<strong>Head[%s]</strong>", j);
-			this.pushColH(lData, this.onTableCB);
-		}
-		for(var i = 0; i < 5; i++) {
-			this.pushRow();
-			for(var j = 0; j < 3; j++) {
-				var lData = sprintf("Data[%s ; %s]", i, j);
-				this.pushCol(lData, this.onTableCB);
-			}
-		}
     }
     //===============================================
     clear() {
@@ -166,10 +162,16 @@ class GTable extends GModule {
     }
     //===============================================
     pushRowH() {
+		this.readUi();
+		if(this.headerVisible) return false;
 		this.rowH = this.header.insertRow();
+		this.writeUi();
+		return true;
     }
     //===============================================
     pushColH(data, value) {
+		this.readUi();
+		if(this.headerVisible) return false;
 		this.colH = this.rowH.insertCell();
 		this.colH.innerHTML = value;
 		var lRows = this.rowH.rowIndex;
@@ -196,6 +198,7 @@ class GTable extends GModule {
 			var lData = lTable.serialize(true);
 			server_call("table", "select_data", this, lData);
 		});
+		this.writeUi();
     }
     //===============================================
     pushRow() {
@@ -242,6 +245,103 @@ class GTable extends GModule {
 			lRow.classList.remove(active);
 		}
 	}
+    //===============================================
+	scrollBottom() {
+		this.readUi();
+		this.tablePage.scrollTop = this.tablePage.scrollHeight;
+		this.writeUi();
+	}
+    //===============================================
+	setHeaderVisible(isVisible) {
+		this.readUi();
+		this.headerVisible = isVisible;
+		this.writeUi();
+	}
+    //===============================================
+	getHeaderVisible() {
+		this.readUi();
+		return this.headerVisible;
+	}
+    //===============================================
+	readUi() {
+		var lHeaderVisible = document.getElementById("TableHeaderVisible");
+		var lSelectModule = document.getElementById("TableSelectModule");
+		var lSelectMethod = document.getElementById("TableSelectMethod");
+		var lNextModule = document.getElementById("TableNextModule");
+		var lNextMethod = document.getElementById("TableNextMethod");
+		//
+		var lTableId = document.getElementById("TableId");
+		var lTablePage = document.getElementById("TablePage");
+        var lNextData = document.getElementById("TableNextData");
+        var lSelectData = document.getElementById("TableSelectData");
+		//
+		this.headerVisible = +lHeaderVisible.value;
+		this.selectModule = lSelectModule.value;
+		this.selectMethod = lSelectMethod.value;
+		this.nextModule = lNextModule.value;
+		this.nextMethod = lNextMethod.value;
+		//
+		this.tableId = lTableId;
+		this.tablePage = lTablePage;
+		this.nextData = lNextData;
+		this.selectData = lSelectData;
+	}
+    //===============================================
+	writeUi() {
+		var lHeaderVisible = document.getElementById("TableHeaderVisible");
+		var lSelectModule = document.getElementById("TableSelectModule");
+		var lSelectMethod = document.getElementById("TableSelectMethod");
+		var lNextModule = document.getElementById("TableNextModule");
+		var lNextMethod = document.getElementById("TableNextMethod");
+		//
+		lHeaderVisible.value = this.headerVisible;
+		lSelectModule.value = this.selectModule;
+		lSelectMethod.value = this.selectMethod;
+		lNextModule.value = this.nextModule;
+		lNextMethod.value = this.nextMethod;
+	}
+    //===============================================
+    buttonOn() {
+        var lPrevious = document.getElementById("TablePreviousData");
+        var lSelect = document.getElementById("TableSelectData");
+        var lNext = document.getElementById("TableNextData");
+		//
+		lPrevious.disabled = false;
+		lSelect.disabled = false;
+		lNext.disabled = false;
+    }
+    //===============================================
+    buttonOff() {
+        var lPrevious = document.getElementById("TablePreviousData");
+        var lSelect = document.getElementById("TableSelectData");
+        var lNext = document.getElementById("TableNextData");
+		//
+		lPrevious.disabled = true;
+		lSelect.disabled = true;
+		lNext.disabled = true;
+    }
+    //===============================================
+    updateButton() {
+		//
+		var lSearch = new Gsearch();
+		lSearch.onReadUi();
+		var lOffsetNext = lSearch.dataOffset + lSearch.dataSize;
+		var lOffsetPrev = lSearch.dataOffset - lSearch.dataSize;
+		
+		if(lOffsetNext >= lSearch.dataCount) {
+			lNext.disabled = true;			
+		}
+		else {
+			lNext.disabled = false;			
+		}
+		//
+		if(lOffsetPrev < 0) {
+			lPrevious.disabled = true;			
+		}
+		else {
+			lPrevious.disabled = false;			
+		}
+    }
     //===============================================
 }
 //===============================================

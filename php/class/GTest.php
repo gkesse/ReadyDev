@@ -54,6 +54,9 @@
             else if($lKey == "xml/manager") {
                 $this->runXmlManager();
             }
+            else if($lKey == "xml/parent") {
+                $this->runXmlParent();
+            }
             //===============================================
             // js
             //===============================================
@@ -95,7 +98,7 @@
             echo sprintf("<link rel='shortcut icon' type='image/png' href='%s'/>\n", $lLogo);
             echo sprintf("<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'/>\n");
             echo sprintf("<meta name='viewport' content='width=device-width, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1.0, user-scalable=no'/>\n");
-            $lHeader->onFonts();
+            $lHeader->onFontsUi();
             echo sprintf("</head>\n");
             if($lJsOn) {echo sprintf("<body onload='server_call(\"test\", \"%s\")'>\n", $lJsCB);}
             else {echo sprintf("<body>\n");}
@@ -215,6 +218,18 @@
             $lDom->createXNode("/rdv/datas");
             $lDom->createXNode("/rdv/datas");
             $lData = $lDom->toString();
+            $this->printData($lData);
+        }
+        //===============================================
+        public function runXmlParent() {
+            $lManager = new GManager();
+            $lServer = new GServer();
+            $lClient = new GSocket();
+            $lData = $lManager->serialize();
+            $lData = $lClient->callServer("manager", "search_code", $lData);
+            $lManager->deserialize($lData);
+            $lData = $lManager->serialize();
+            $lServer->addResponse($lData);
             $this->printData($lData);
         }
         //===============================================

@@ -8,9 +8,6 @@ class GHeader extends GModule {
     }
     //===============================================
     public function runUi() {
-        $lEnvObj = new GEnv();
-        $lEnv = $lEnvObj->getEnvType();
-        $lProdOn = $this->getItem("test", "prod_on");
         $lLang = $this->getItem("header", "lang");
         $lTitle = $this->getItem("header", "title");
         $lLogo = $this->getItem("header", "logo");
@@ -26,10 +23,9 @@ class GHeader extends GModule {
         $this->onFontsUi();
         echo sprintf("</head>\n");
         echo sprintf("<body>\n");
-        echo sprintf("<div id='EnvType' hidden>%s</div>\n", $lEnv);
-        echo sprintf("<div id='ProdOn' hidden>%s</div>\n", $lProdOn);
         echo sprintf("<div class='HtmlPage'>\n");
         
+        $this->onEnvui();
         $this->onBackgroundUi();
         $this->onConnectionUi();
         $this->onAccountUi();
@@ -57,6 +53,11 @@ class GHeader extends GModule {
             $lFont = $this->getItem2("fonts", $i);
             echo sprintf("<link rel='stylesheet' href='%s'/>\n", $lFont);
         }
+    }
+    //===============================================
+    public function onEnvUi() {
+        $lEnv = new GEnv();
+        $lEnv->onEnvUi();
     }
     //===============================================
     public function onBackgroundUi() {

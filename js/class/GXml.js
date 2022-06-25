@@ -133,9 +133,8 @@ class GXml extends GObject {
         var lDom = this.doc.createElement("template");
         lDom.innerHTML = data;
 		var lNodes = lDom.childNodes;
-        for(var i = 0; i < lNodes.length; i++) {
-            var lNode = lNodes[i];
-            this.node.appendChild(lNode);
+        while(lNodes[0]) {
+            this.node.appendChild(lNodes[0]);
         }
         return true;
     }
