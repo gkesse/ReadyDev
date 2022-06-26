@@ -254,7 +254,7 @@ class GTable extends GModule {
     //===============================================
 	setHeaderVisible(isVisible) {
 		this.readUi();
-		this.headerVisible = isVisible;
+		this.headerVisible = +isVisible;
 		this.writeUi();
 	}
     //===============================================
@@ -263,12 +263,18 @@ class GTable extends GModule {
 		return this.headerVisible;
 	}
     //===============================================
+	setNextEnable(isEnable) {
+		this.readUi();
+		this.nextData.disabled = !isEnable;
+	}
+    //===============================================
 	readUi() {
 		var lHeaderVisible = document.getElementById("TableHeaderVisible");
 		var lSelectModule = document.getElementById("TableSelectModule");
 		var lSelectMethod = document.getElementById("TableSelectMethod");
 		var lNextModule = document.getElementById("TableNextModule");
 		var lNextMethod = document.getElementById("TableNextMethod");
+        var lCurrentData = document.getElementById("TableCurrentData");
 		//
 		var lTableId = document.getElementById("TableId");
 		var lTablePage = document.getElementById("TablePage");
@@ -280,6 +286,7 @@ class GTable extends GModule {
 		this.selectMethod = lSelectMethod.value;
 		this.nextModule = lNextModule.value;
 		this.nextMethod = lNextMethod.value;
+		this.currentData = lCurrentData.value;
 		//
 		this.tableId = lTableId;
 		this.tablePage = lTablePage;
@@ -293,54 +300,30 @@ class GTable extends GModule {
 		var lSelectMethod = document.getElementById("TableSelectMethod");
 		var lNextModule = document.getElementById("TableNextModule");
 		var lNextMethod = document.getElementById("TableNextMethod");
+		var lCurrentData = document.getElementById("TableCurrentData");
 		//
 		lHeaderVisible.value = this.headerVisible;
 		lSelectModule.value = this.selectModule;
 		lSelectMethod.value = this.selectMethod;
 		lNextModule.value = this.nextModule;
 		lNextMethod.value = this.nextMethod;
+		lCurrentData.value = this.currentData;
 	}
     //===============================================
     buttonOn() {
-        var lPrevious = document.getElementById("TablePreviousData");
         var lSelect = document.getElementById("TableSelectData");
         var lNext = document.getElementById("TableNextData");
 		//
-		lPrevious.disabled = false;
 		lSelect.disabled = false;
 		lNext.disabled = false;
     }
     //===============================================
     buttonOff() {
-        var lPrevious = document.getElementById("TablePreviousData");
         var lSelect = document.getElementById("TableSelectData");
         var lNext = document.getElementById("TableNextData");
 		//
-		lPrevious.disabled = true;
 		lSelect.disabled = true;
 		lNext.disabled = true;
-    }
-    //===============================================
-    updateButton() {
-		//
-		var lSearch = new Gsearch();
-		lSearch.onReadUi();
-		var lOffsetNext = lSearch.dataOffset + lSearch.dataSize;
-		var lOffsetPrev = lSearch.dataOffset - lSearch.dataSize;
-		
-		if(lOffsetNext >= lSearch.dataCount) {
-			lNext.disabled = true;			
-		}
-		else {
-			lNext.disabled = false;			
-		}
-		//
-		if(lOffsetPrev < 0) {
-			lPrevious.disabled = true;			
-		}
-		else {
-			lPrevious.disabled = false;			
-		}
     }
     //===============================================
 }

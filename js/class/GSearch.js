@@ -31,6 +31,15 @@ class GSearch extends GModule {
 		this.dataOffset = lDom.getItem(code, "data_offset");
 	}
     //===============================================
+	initSearch() {
+		this.readUi();
+		this.dataCount = 0;
+		this.dataOffset = 0;
+		this.lastId = -1;
+		this.dataSize = 8;
+		this.writeUi();
+	}
+    //===============================================
     readUi() {
         var lDataSize = document.getElementById("SearchDataSize");
         var lDataCount = document.getElementById("SearchDataCount");

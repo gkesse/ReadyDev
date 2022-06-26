@@ -55,9 +55,6 @@
             else if($lMethod == "next_code") {
                 $this->onNextCode($data, $server);
             }
-            else if($lMethod == "previous_code") {
-                $this->onPreviousCode($data, $server);
-            }
             else if($lMethod == "update_code") {
                 $this->onUpdateCode($data, $server);
             }
@@ -84,10 +81,6 @@
         }
         //===============================================
         public function onNextCode($data, $server) {
-            $this->callProxy($server);
-        }
-        //===============================================
-        public function onPreviousCode($data, $server) {
             $this->callProxy($server);
         }
         //===============================================

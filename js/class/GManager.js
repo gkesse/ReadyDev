@@ -83,7 +83,7 @@ class GManager extends GSearch {
 		return true;
 	}
     //===============================================
-    init(id) {
+    initTab(id) {
         var lTabCtn = document.getElementsByClassName("ManagerTab");
         var lObj = lTabCtn[id];
 		var lName = sprintf("ManagerTab%s", id);
@@ -143,24 +143,97 @@ class GManager extends GSearch {
 		this.writeUi();
     }
     //===============================================
+    onCreateCodeCall() {
+		var lAjax = new GAjax();
+		this.readUi();
+		var lData = this.serialize();
+		lAjax.call("manager", "create_code", lData, this.onCreateCodeCB);		
+    }
+    //===============================================
+    onCreateCodeCB(data) {
+		var lLog = GLog.Instance();
+        var lManager = new GManager();
+
+        if(lLog.hasErrors()) {
+            lLog.showErrors();
+        }
+        else {
+			lManager.deserialize(data);
+			lManager.readUi();
+            lLog.addLog(sprintf("%s", "La création du code a réussi."));
+        }
+		lManager.buttonOn();
+    }
+    //===============================================
     onSearchCode(obj, name) {
+		this.buttonOff();
+		this.initSearch();
+	   	this.onSearchCodeCall();	
+    }
+    //===============================================
+    onSearchCodeCall() {
+		var lAjax = new GAjax();
+		this.readUi();
+		var lData = this.serialize();
+		lAjax.call("manager", "search_code", lData, this.onSearchCodeCB);		
+    }
+    //===============================================
+    onSearchCodeCB(data) {
+		var lLog = GLog.Instance();
+        var lManager = new GManager();
+		
+        if(!lLog.hasErrors()) {
+			lManager.deserialize(data);
+			lManager.writeUi();
+			var lTable = new GTable();
+			lTable.setHeaderVisible(false);
+			lManager.showData();
+        }
+		lManager.buttonOn();
+    }
+    //===============================================
+    showData() {
 		this.readUi();
 		var lLog = GLog.Instance();
-		var lMessage = "";
-		
-		this.buttonOff();
-		
-        // confirmer ici
-        
-        if(lMessage.length) {
-            lLog.addError(sprintf("%s", lMessage));
-			this.buttonOn();
-        }
+		if(this.map.length == 0) {
+			lLog.addLog(sprintf("Auncun résultat n'a été trouvé."))
+		}
+		else if(this.map.length == 1) {
+			this.copy(this.map[0]);		
+		}
 		else {
-	        this.onSearchCodeCall();	
-		}		
+			this.showList();
+		}
 		this.writeUi();
-    }
+	}
+    //===============================================
+	showList() {
+		this.readUi();
+		var lTable = new GTable();
+		lTable.setCallback("select", "manager", "select_data")
+		lTable.setCallback("next", "manager", "next_data")
+		lTable.setNextEnable(true);
+		//
+		lTable.pushRowH();
+		lTable.pushColH(0, "code");
+		lTable.pushColH(0, "description");
+		lTable.setHeaderVisible(true);
+		//
+		for(var i = 0; i < this.map.length; i++) {
+			var lManager = this.map[i];
+			var lData = lManager.serialize(true);
+			lTable.pushRow();
+			lTable.pushCol(lData, lManager.code);
+			lTable.pushCol(lData, lManager.label);
+		}
+		//
+		lTable.showData();
+		lTable.scrollBottom();
+		this.writeUi();
+		if(this.dataOffset >= this.dataCount) {
+			lTable.setNextEnable(false);			
+		}
+	}
     //===============================================
     onUpdateCode(obj, name) {
 		this.readUi();
@@ -198,6 +271,28 @@ class GManager extends GSearch {
 		this.writeUi();
     }
     //===============================================
+    onUpdateCodeCall() {
+		var lAjax = new GAjax();
+		this.readUi();
+		var lData = this.serialize();
+		lAjax.call("manager", "update_code", lData, this.onUpdateCodeCB);		
+    }
+    //===============================================
+    onUpdateCodeCB(data) {
+		var lLog = GLog.Instance();
+        var lManager = new GManager();
+		
+        if(lLog.hasErrors()) {
+            lLog.showErrors();
+        }
+        else {
+			lManager.deserialize(data);
+			lManager.writeUi();
+            lLog.addLog(sprintf("%s", "La mise à jour du code a réussi."));
+        }
+		lManager.buttonOn();
+    }
+    //===============================================
     onDeleteCode(obj, name) {
 		this.readUi();
 		var lLog = GLog.Instance();
@@ -222,133 +317,14 @@ class GManager extends GSearch {
 		this.writeUi();
     }
     //===============================================
-    onNewCode(obj, name) {
-		this.writeUi();
-    }
-    //===============================================
-    onSelectData(obj, data) {
-		this.readUi();
-		var lTable = new GTable();
-		lTable.deserialize(data);
-		var lData = lTable.data;
-		this.deserialize(lData);
-		lTable.onCloseTable();
-		this.writeUi();
-	}
-    //===============================================
-    onNextData() {
-		this.readUi();
-		var lOffset = this.dataOffset + this.dataSize;
-		if(lOffset < this.dataCount) {
-			this.dataOffset = lOffset;
-			this.onNextDataCall();
-		}
-		this.writeUi();
-	}
-    //===============================================
-    onNextDataCall() {
-		this.readUi();
-		var lAjax = new GAjax();
-		var lData = this.serialize();
-		lAjax.call("manager", "next_code", lData, this.onNextDataCB);		
-		this.writeUi();
-    }
-    //===============================================
-    onNextDataCB(data) {
-		var lLog = GLog.Instance();
-        var lManager = new GManager();
-		lManager.readUi();
-		
-        if(!lLog.hasErrors()) {
-			lManager.deserialize(data);
-			lManager.writeUi();
-			lManager.showList();
-        }
-		lManager.buttonOn();
-		lManager.writeUi();
-    }
-    //===============================================
-    onCreateCodeCall() {
-		this.readUi();
-		var lAjax = new GAjax();
-		var lData = this.serialize();
-		lAjax.call("manager", "create_code", lData, this.onCreateCodeCB);		
-		this.writeUi();
-    }
-    //===============================================
-    onSearchCodeCall() {
-		this.readUi();
-		var lAjax = new GAjax();
-		this.readUi();
-		var lData = this.serialize();
-		lAjax.call("manager", "search_code", lData, this.onSearchCodeCB);		
-		this.writeUi();
-    }
-    //===============================================
-    onUpdateCodeCall() {
-		this.readUi();
-		var lAjax = new GAjax();
-		var lData = this.serialize();
-		lAjax.call("manager", "update_code", lData, this.onUpdateCodeCB);		
-		this.writeUi();
-    }
-    //===============================================
     onDeleteCodeCall() {
-		this.readUi();
 		var lAjax = new GAjax();
+		this.readUi();
 		var lData = this.serialize();
 		lAjax.call("manager", "delete_code", lData, this.onDeleteCodeCB);		
-		this.writeUi();
-    }
-    //===============================================
-    onCreateCodeCB(data) {
-		var lLog = GLog.Instance();
-        var lManager = new GManager();
-		lManager.readUi();
-
-        if(lLog.hasErrors()) {
-            lLog.showErrors();
-        }
-        else {
-			lManager.deserialize(data);
-            lLog.addLog(sprintf("%s", "La création du code a réussi."));
-        }
-		lManager.buttonOn();
-		lManager.writeUi();
-    }
-    //===============================================
-    onSearchCodeCB(data) {
-		var lLog = GLog.Instance();
-        var lManager = new GManager();
-		lManager.readUi();
-		
-        if(!lLog.hasErrors()) {
-			lManager.deserialize(data);
-			lManager.showData();
-        }
-		lManager.buttonOn();
-		lManager.writeUi();
-    }
-    //===============================================
-    onUpdateCodeCB(data) {
-		this.readUi();
-		var lLog = GLog.Instance();
-        var lManager = new GManager();
-		
-        if(lLog.hasErrors()) {
-            lLog.showErrors();
-        }
-        else {
-			lManager.deserialize(data);
-			lManager.writeUi();
-            lLog.addLog(sprintf("%s", "La mise à jour du code a réussi."));
-        }
-		lManager.buttonOn();
-		this.writeUi();
     }
     //===============================================
     onDeleteCodeCB(data) {
-		this.readUi();
 		var lLog = GLog.Instance();
 		var lManager = new GManager();
 		
@@ -359,47 +335,57 @@ class GManager extends GSearch {
             lLog.addLog(sprintf("%s", "La suppression du code a réussi."));
         }
 		lManager.buttonOn();
+    }
+    //===============================================
+    onNewCode(obj, name) {
+		var lTable = new GTable();
+		lTable.clear();
 		this.writeUi();
     }
     //===============================================
-    showData() {
-		this.readUi();
-		var lLog = GLog.Instance();
-		if(this.map.length == 0) {
-			lLog.addLog(sprintf("Auncun résultat n'a été trouvé."))
-		}
-		else if(this.map.length == 1) {
-			this.copy(this.map[0]);		
-		}
-		else {
-			this.showList();
-		}
+    onSelectData(obj, data) {
+		var lTable = new GTable();
+		lTable.deserialize(data);
+		lTable.writeUi();
+		var lData = lTable.data;
+		this.deserialize(lData);
 		this.writeUi();
+		lTable.onCloseTable();
+		lTable.clear();
 	}
     //===============================================
-	showList() {
+    onNextData() {
 		this.readUi();
 		var lTable = new GTable();
-		lTable.setCallback("select", "manager", "select_data")
-		lTable.setCallback("next", "manager", "next_data")
-		//
-		lTable.pushRowH();
-		lTable.pushColH(0, "code");
-		lTable.pushColH(0, "description");
-		lTable.setHeaderVisible(true);
-		//
-		for(var i = 0; i < this.map.length; i++) {
-			var lManager = this.map[i];
-			var lData = lManager.serialize(true);
-			lTable.pushRow();
-			lTable.pushCol(lData, lManager.code);
-			lTable.pushCol(lData, lManager.label);
+		if(this.dataOffset < this.dataCount) {
+			lTable.buttonOff();
+			this.onNextDataCall();
 		}
-		//
-		lTable.showData();
-		lTable.scrollBottom();
-		this.writeUi();
 	}
+    //===============================================
+    onNextDataCall() {
+		var lAjax = new GAjax();
+		this.readUi();
+		var lData = this.serialize();
+		lAjax.call("manager", "next_code", lData, this.onNextDataCB);		
+    }
+    //===============================================
+    onNextDataCB(data) {
+		var lLog = GLog.Instance();
+        var lManager = new GManager();
+		var lTable = new GTable();
+
+        if(!lLog.hasErrors()) {
+			lManager.deserialize(data);
+			lManager.writeUi();
+			lManager.showList();
+        }
+		lManager.buttonOn();
+		lTable.buttonOn();
+		if(lManager.dataOffset >= lManager.dataCount) {
+			lTable.setNextEnable(false);			
+		}
+    }
     //===============================================
     readUi() {
         var lId = document.getElementById("ManagerCodeId");
@@ -428,11 +414,13 @@ class GManager extends GSearch {
         var lSearch = document.getElementById("ManagerCodeSearch");
         var lUpdate = document.getElementById("ManagerCodeUpdate");
         var lDelete = document.getElementById("ManagerCodeDelete");
+        var lNew = document.getElementById("ManagerCodeNew");
 		//
 		lCreate.disabled = false;
 		lSearch.disabled = false;
 		lUpdate.disabled = false;
 		lDelete.disabled = false;
+		lNew.disabled = false;
     }
     //===============================================
     buttonOff() {
@@ -440,15 +428,17 @@ class GManager extends GSearch {
         var lSearch = document.getElementById("ManagerCodeSearch");
         var lUpdate = document.getElementById("ManagerCodeUpdate");
         var lDelete = document.getElementById("ManagerCodeDelete");
+        var lNew = document.getElementById("ManagerCodeNew");
 		//
 		lCreate.disabled = true;
 		lSearch.disabled = true;
 		lUpdate.disabled = true;
 		lDelete.disabled = true;
+		lNew.disabled = true;
     }
     //===============================================
 }
 //===============================================
 var lManager = new GManager();
-lManager.init(0);
+lManager.initTab(0);
 //===============================================

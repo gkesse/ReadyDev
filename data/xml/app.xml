@@ -1167,7 +1167,7 @@
                 <data>
                     <model>normal</model>
                     <id>SearchLastId</id>
-                    <value>0</value>
+                    <value>-1</value>
                 </data>
                 <!-- ============================================ -->
                 <!-- table -->
