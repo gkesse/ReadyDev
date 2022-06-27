@@ -126,8 +126,8 @@ class GManager extends GSearch {
         var lMessage = "";
 		this.buttonOff();
 		
-        if(this.id != "0") {
-            lMessage = "Le code existe déjà.";
+        if(this.id != 0) {
+            lMessage = "L'identifiant existe déjà.";
         }
         else if(!this.code.length) {
             lMessage = "Le code est obligatoire.";
@@ -171,7 +171,7 @@ class GManager extends GSearch {
         }
         else {
 			lManager.deserialize(data);
-			lManager.readUi();
+			lManager.writeUi();
             lLog.addLog(sprintf("%s", "La création du code a réussi."));
 			lConfirm.onCloseConfirm();
         }
@@ -256,8 +256,8 @@ class GManager extends GSearch {
 
 		this.buttonOff();
 
-        if(this.id == "0") {
-            lMessage = "Le code n'existe pas.";
+        if(this.id == 0) {
+            lMessage = "L'identifiant n'existe pas.";
         }
         else if(!this.code.length) {
             lMessage = "Le code est obligatoire.";
@@ -314,8 +314,8 @@ class GManager extends GSearch {
 
 		this.buttonOff();
 
-        if(this.id == "0") {
-            lMessage = "Le code n'existe pas.";
+        if(this.id == 0) {
+            lMessage = "L'identifiant n'existe pas.";
         }
 		else {
 			// confirmer ici
