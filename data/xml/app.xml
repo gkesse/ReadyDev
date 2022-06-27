@@ -72,6 +72,7 @@
                 <data>/js/class/GDefine.js</data>
                 <data>/js/class/GObject.js</data>
                 <data>/js/class/GModule.js</data>
+                <data>/js/class/GConfirm.js</data>
                 <data>/js/class/GSearch.js</data>
                 <data>/js/class/GTable.js</data>
                 <data>/js/class/GDate.js</data>
@@ -1041,6 +1042,47 @@
             </map>
          </data>
         <!-- ============================================ -->
+        <!-- confirm -->
+        <!-- ============================================ -->
+        <data>
+            <code>confirm</code>
+            <title>Confirmation</title>
+            <intro>Voulez-vous continuer l'opération ?</intro>
+            <modal_id>ModalConfirm</modal_id>
+            <body_id>ConfirmBody</body_id>
+            <form_id>ConfirmForm</form_id>
+            <msg_id>ConfirmMsg</msg_id>
+            <module>confirm</module>
+            <keypress_cb>keypress_confirm</keypress_cb>
+            <close_cb>close_confirm</close_cb>
+			<map>
+                <!-- ============================================ -->
+                <!-- confirm/button -->
+                <!-- ============================================ -->
+                <data>
+                    <category>confirm/button</category>
+                    <model>button</model>
+                    <id>ConfirmOk</id>
+                    <module>confirm</module>
+                    <callback>ok_confirm</callback>
+                    <picto>check</picto>
+                    <text>OK</text>
+                </data>
+                <data>
+                    <category>confirm/button</category>
+                    <model>button</model>
+                    <id>ConfirmCancel</id>
+                    <module>confirm</module>
+                    <callback>close_confirm</callback>
+                    <picto>times</picto>
+                    <text>Annuler</text>
+                </data>
+                <!-- ============================================ -->
+                <!-- end -->
+                <!-- ============================================ -->
+			</map>        
+        </data>
+        <!-- ============================================ -->
         <!-- logs -->
         <!-- ============================================ -->
         <data>
@@ -1068,7 +1110,7 @@
                 <!-- ============================================ -->
                 <data>
                     <category>logs/button</category>
-                    <type>button</type>
+                    <model>button</model>
                     <module>log</module>
                     <callback>close_log</callback>
                     <picto>check</picto>
@@ -1107,7 +1149,7 @@
                 <!-- ============================================ -->
                 <data>
                     <category>errors/button</category>
-                    <type>button</type>
+                    <model>button</model>
                     <id>LogsOk</id>
                     <module>log</module>
                     <callback>close_error</callback>
@@ -1138,6 +1180,7 @@
                 <!-- env -->
                 <!-- ============================================ -->
                 <data>
+                	<category>prod</category>
                 	<model>normal</model>
                     <id>EnvProdOn</id>
                     <value>1</value>
@@ -1168,6 +1211,21 @@
                     <model>normal</model>
                     <id>SearchLastId</id>
                     <value>-1</value>
+                </data>
+                <!-- ============================================ -->
+                <!-- table -->
+                <!-- ============================================ -->
+                <data>
+                    <model>normal</model>
+                    <id>ConfirmModule</id>
+                </data>
+                <data>
+                    <model>normal</model>
+                    <id>ConfirmMethod</id>
+                </data>
+                <data>
+                    <model>normal</model>
+                    <id>ConfirmAction</id>
                 </data>
                 <!-- ============================================ -->
                 <!-- table -->

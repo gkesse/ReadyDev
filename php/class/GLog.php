@@ -36,8 +36,8 @@ class GLog extends GObject {
     //===============================================
     public function addError($error) {
         $lDateObj = new GDate();
-        $lEnvObj = new GEnv();
-        $lProdOn = ($this->getItem("test", "prod_on") == "1");
+        $lEnv = new GEnv();
+        $lProdOn = ($this->getItemC("env", "prod", "value") == "1");
         $lBacktrace = debug_backtrace();
         $lCaller = array_shift($lBacktrace);
         $lDate = $lDateObj->getDateTime();
@@ -45,7 +45,7 @@ class GLog extends GObject {
         $lLine = $lCaller['line'];
         $lFunc = debug_backtrace()[1]['function'];
         $lData = $error;
-        if($lEnvObj->isTestEnv() && !$lProdOn) {
+        if($lEnv->isTestEnv() && !$lProdOn) {
             $lData = sprintf("%s : %s : [%d] : %s :\n%s", $lDate, $lFile, $lLine, $lFunc, $error);
         }
         $this->errors[] = $lData;
@@ -53,8 +53,8 @@ class GLog extends GObject {
     //===============================================
     public function addLog($log) {
         $lDateObj = new GDate();
-        $lEnvObj = new GEnv();
-        $lProdOn = ($this->getItem("test", "prod_on") == "1");
+        $lEnv = new GEnv();
+        $lProdOn = ($this->getItemC("env", "prod", "value") == "1");
         $lBacktrace = debug_backtrace();
         $lCaller = array_shift($lBacktrace);
         $lDate = $lDateObj->getDateTime();
@@ -62,7 +62,7 @@ class GLog extends GObject {
         $lLine = $lCaller['line'];
         $lFunc = debug_backtrace()[1]['function'];
         $lData = $log;
-        if($lEnvObj->isTestEnv() && !$lProdOn) {
+        if($lEnv->isTestEnv() && !$lProdOn) {
             $lData = sprintf("%s : %s : [%d] : %s :\n%s", $lDate, $lFile, $lLine, $lFunc, $log);
         }
         $this->logs[] = $lData;
@@ -109,7 +109,7 @@ class GLog extends GObject {
         
         for($i = 0; $i < $lCount; $i++) {
             $lCategory = $this->getItem3("logs", "category", $i);
-            $lType = $this->getItem3("logs", "type", $i);
+            $lModel = $this->getItem3("logs", "model", $i);
             $lId = $this->getItem3("logs", "id", $i);
             $lModule = $this->getItem3("logs", "module", $i);
             $lCallback = $this->getItem3("logs", "callback", $i);
@@ -117,7 +117,7 @@ class GLog extends GObject {
             $lText = $this->getItem3("logs", "text", $i);
             
             if($lCategory == "logs/button") {
-                if($lType == "button") {
+                if($lModel == "button") {
                     echo sprintf("<button type='button' id='%s' class='Button4' onclick='server_call(\"%s\", \"%s\");'><i class='fa fa-%s'></i> %s</button>\n"
                         , $lId, $lModule, $lCallback, $lPicto, $lText);
                 }
@@ -168,7 +168,7 @@ class GLog extends GObject {
         
         for($i = 0; $i < $lCount; $i++) {
             $lCategory = $this->getItem3("errors", "category", $i);
-            $lType = $this->getItem3("errors", "type", $i);
+            $lModel = $this->getItem3("errors", "model", $i);
             $lId = $this->getItem3("errors", "id", $i);
             $lModule = $this->getItem3("errors", "module", $i);
             $lCallback = $this->getItem3("errors", "callback", $i);
@@ -176,7 +176,7 @@ class GLog extends GObject {
             $lText = $this->getItem3("errors", "text", $i);
             
             if($lCategory == "errors/button") {
-                if($lType == "button") {
+                if($lModel == "button") {
                     echo sprintf("<button type='button' id='%s' class='Button4' onclick='server_call(\"%s\", \"%s\");'><i class='fa fa-%s'></i> %s</button>\n"
                         , $lId, $lModule, $lCallback, $lPicto, $lText);
                 }

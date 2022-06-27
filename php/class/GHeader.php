@@ -31,6 +31,7 @@ class GHeader extends GModule {
         $this->onAccountUi();
         $this->onDisconnectionUi();
         $this->onTableUi();
+        $this->onConfirmUi();
         $this->onErrorUi();
         $this->onLogUi();
         
@@ -41,9 +42,11 @@ class GHeader extends GModule {
     //===============================================
     public function onHeaderUi() {
         echo sprintf("<header class='Header'>\n");
+        
         $this->onMenuUi();
         $this->onTitleUi();
         $this->onLinkUi();
+        
         echo sprintf("</header>\n");        
     }
     //===============================================
@@ -94,6 +97,11 @@ class GHeader extends GModule {
     public function onTableUi() {
         $lTable = new GTable();
         $lTable->onTableUi();
+    }
+    //===============================================
+    public function onConfirmUi() {
+        $lConfirm = new GConfirm();
+        $lConfirm->onConfirmUi();
     }
     //===============================================
     public function onMenuUi() {        

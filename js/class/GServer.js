@@ -46,6 +46,9 @@ class GServer extends GModule {
 		else if(module == "table") {
 			this.onTable(method, obj, data);
 		}
+		else if(module == "confirm") {
+			this.onConfirm(method, obj, data);
+		}
 	    //===============================================
 		// end
 	    //===============================================
@@ -100,6 +103,11 @@ class GServer extends GModule {
 	onTable(method, obj, data) {
 		var lTable = new GTable();
 		lTable.onModule(method, obj, data)
+	}
+    //===============================================
+	onConfirm(method, obj, data) {
+		var lConfirm = new GConfirm();
+		lConfirm.onModule(method, obj, data)
 	}
     //===============================================
 	showErrors() {

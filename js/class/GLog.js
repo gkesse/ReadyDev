@@ -74,30 +74,30 @@ class GLog extends GModule {
     }
     //===============================================
     getErrors() {
-		var lEnvObj = new GEnv();
+		var lEnv = new GEnv();
 		var lErrors = "";
 		for(var i = 0; i < this.errors.length; i++) {
 			var lError = this.errors[i];
 			var lBr = "<br>";
-			if(lEnvObj.isTestEnv() && !lEnvObj.isProdOn()) lBr = "\n";
+			if(lEnv.isTestEnv() && !lEnv.isProdOn()) lBr = "\n";
 			if(i != 0) lErrors += lBr;
 			var lMsg = sprintf("<i class='fa fa-chevron-right'></i> %s", lError);
-			if(lEnvObj.isTestEnv() && !lEnvObj.isProdOn()) lMsg = sprintf("> %s", lError);
+			if(lEnv.isTestEnv() && !lEnv.isProdOn()) lMsg = sprintf("> %s", lError);
 			lErrors += lMsg;
 		}
 		return lErrors;
     }
     //===============================================
     getLogs() {
-		var lEnvObj = new GEnv();
+		var lEnv = new GEnv();
 		var lLogs = "";
 		for(var i = 0; i < this.logs.length; i++) {
 			var lLog = this.logs[i];
 			var lBr = "<br>";
-			if(lEnvObj.isTestEnv() && !lEnvObj.isProdOn()) lBr = "\n";
+			if(lEnv.isTestEnv() && !lEnv.isProdOn()) lBr = "\n";
 			if(i != 0) lLogs += lBr;
 			var lMsg = sprintf("<i class='fa fa-chevron-right'></i> %s", lLog);
-			if(lEnvObj.isTestEnv() && !lEnvObj.isProdOn()) lMsg = sprintf("> %s", lLog);
+			if(lEnv.isTestEnv() && !lEnv.isProdOn()) lMsg = sprintf("> %s", lLog);
 			lLogs += lMsg;
 		}
 		return lLogs;
@@ -122,10 +122,10 @@ class GLog extends GModule {
     }
     //===============================================
     showLogs() {
-		var lEnvObj = new GEnv();
+		var lEnv = new GEnv();
 		var lLogs = this.getLogs();
 		if(lLogs == "") return false;
-		if(lEnvObj.isTestEnv() && !lEnvObj.isProdOn()) lLogs = sprintf("<xmp>%s</xmp>", lLogs);
+		if(lEnv.isTestEnv() && !lEnv.isProdOn()) lLogs = sprintf("<xmp>%s</xmp>", lLogs);
 		//
         var lModalLogs = document.getElementById("ModalLogs");
         var lLogsBody = document.getElementById("LogsBody");
@@ -142,26 +142,26 @@ class GLog extends GModule {
     }
     //===============================================
 	addError(error) {
-		var lEnvObj = new GEnv();
+		var lEnv = new GEnv();
 		var lDateObj = new GDate();
 		var lError = new Error();
 		var lStack = lError.stack.toString().split(/\r\n|\n/);
 		var lTrace = lStack[2].trim();
 		var lDate = lDateObj.getDate();
 		var lMsg = error;
-		if(lEnvObj.isTestEnv() && !lEnvObj.isProdOn()) lMsg = sprintf("%s %s :\n%s", lDate, lTrace, error);
+		if(lEnv.isTestEnv() && !lEnv.isProdOn()) lMsg = sprintf("%s %s :\n%s", lDate, lTrace, error);
 		this.errors.push(lMsg);
 	}
     //===============================================
 	addLog(log) {
-		var lEnvObj = new GEnv();
+		var lEnv = new GEnv();
 		var lDateObj = new GDate();
 		var lError = new Error();
 		var lStack = lError.stack.toString().split(/\r\n|\n/);
 		var lTrace = lStack[2].trim();
 		var lDate = lDateObj.getDate();
 		var lMsg = log;		
-		if(lEnvObj.isTestEnv() && !lEnvObj.isProdOn()) lMsg = sprintf("%s %s :\n%s", lDate, lTrace, log);
+		if(lEnv.isTestEnv() && !lEnv.isProdOn()) lMsg = sprintf("%s %s :\n%s", lDate, lTrace, log);
 		this.logs.push(lMsg);
 	}
     //===============================================

@@ -65,13 +65,16 @@ class GManager extends GSearch {
 			this.onDeleteCode(obj, data);
 		}
 		else if(method == "new_code") {
-			this.onNewCode(obj, data);
+			this.onNewCode();
 		}
 		else if(method == "select_data") {
 			this.onSelectData(obj, data);
 		}
 		else if(method == "next_data") {
 			this.onNextData();
+		}
+		else if(method == "confirm") {
+			this.onConfirm(obj, data);
 		}
     	//===============================================
 		// end
@@ -82,6 +85,16 @@ class GManager extends GSearch {
 		}
 		return true;
 	}
+    //===============================================
+    onConfirm(obj, data) {
+		var lConfirm = new GConfirm();
+		lConfirm.deserialize(data);
+		var lAction = lConfirm.action;
+		//
+		if(lAction == "create_code") {
+			this.onCreateCodeCall();
+		}
+    }
     //===============================================
     initTab(id) {
         var lTabCtn = document.getElementsByClassName("ManagerTab");
@@ -111,7 +124,6 @@ class GManager extends GSearch {
 		this.readUi();
 		var lLog = GLog.Instance();
         var lMessage = "";
-
 		this.buttonOff();
 		
         if(this.id != "0") {
@@ -129,16 +141,15 @@ class GManager extends GSearch {
         else if(this.label.length > 50) {
             lMessage = "Le libellé doit faire au maximum 50 caractères.";
         }
-		else {
-			// confirmer ici
-		}
         
         if(lMessage.length) {
             lLog.addError(sprintf("%s", lMessage));
 			this.buttonOn();
         }
         else {
-            this.onCreateCodeCall();
+			var lConfirm = new GConfirm();
+			lConfirm.setCallback("manager", "confirm", "create_code");
+			lConfirm.onOpenConfirm();
         }
 		this.writeUi();
     }
@@ -153,6 +164,7 @@ class GManager extends GSearch {
     onCreateCodeCB(data) {
 		var lLog = GLog.Instance();
         var lManager = new GManager();
+		var lConfirm = new GConfirm();
 
         if(lLog.hasErrors()) {
             lLog.showErrors();
@@ -161,8 +173,10 @@ class GManager extends GSearch {
 			lManager.deserialize(data);
 			lManager.readUi();
             lLog.addLog(sprintf("%s", "La création du code a réussi."));
+			lConfirm.onCloseConfirm();
         }
 		lManager.buttonOn();
+		lConfirm.buttonOn();
     }
     //===============================================
     onSearchCode(obj, name) {
@@ -333,11 +347,12 @@ class GManager extends GSearch {
         }
         else {
             lLog.addLog(sprintf("%s", "La suppression du code a réussi."));
+			lManager.onNewCode();
         }
 		lManager.buttonOn();
     }
     //===============================================
-    onNewCode(obj, name) {
+    onNewCode() {
 		var lTable = new GTable();
 		lTable.clear();
 		this.writeUi();

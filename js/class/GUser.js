@@ -24,6 +24,7 @@ class GUser extends GObject {
     //===============================================
     onModule(method, obj, data) {
 		if(method == "") {
+			this.onMethodNone();
 			return false;
 		}
     	//===============================================
@@ -71,7 +72,11 @@ class GUser extends GObject {
     	//===============================================
 		// end
     	//===============================================
-		else return false;
+		else {
+			this.onMethodUnknown();
+			return false;		
+		}
+    	//===============================================
 		return true;
 	}
     //===============================================
