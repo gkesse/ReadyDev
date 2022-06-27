@@ -94,6 +94,9 @@ class GManager extends GSearch {
 		if(lAction == "create_code") {
 			this.onCreateCodeCall();
 		}
+		else if(lAction == "cancel") {
+			this.buttonOn();
+		}
     }
     //===============================================
     initTab(id) {

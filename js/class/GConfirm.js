@@ -72,6 +72,7 @@ class GConfirm extends GModule {
         setTimeout(function() {
             lModalConfirm.style.display = "none";
         }, 400);
+		this.cancel();
     }
     //===============================================
     onOkConfirm() {
@@ -93,6 +94,17 @@ class GConfirm extends GModule {
 		this.module = module;
 		this.method = method;
 		this.action = action;
+		this.writeUi();
+		return true;
+    }
+    //===============================================
+    cancel() {
+		this.readUi();
+		if(this.module == "") return false;
+		if(this.method == "") return false;
+		this.action = "cancel";
+		var lData = this.serialize(true);
+		server_call(this.module, this.method, this, lData);
 		this.writeUi();
 		return true;
     }
