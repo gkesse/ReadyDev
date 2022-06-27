@@ -94,6 +94,12 @@ class GManager extends GSearch {
 		if(lAction == "create_code") {
 			this.onCreateCodeCall();
 		}
+		else if(lAction == "update_code") {
+            this.onUpdateCodeCall();
+		}
+		else if(lAction == "delete_code") {
+            this.onDeleteCodeCall();
+		}
 		else if(lAction == "cancel") {
 			this.buttonOn();
 		}
@@ -274,16 +280,15 @@ class GManager extends GSearch {
         else if(this.label.length > 50) {
             lMessage = "Le libellé doit faire au maximum 50 caractères.";
         }
-		else {
-			
-		}
         
         if(lMessage.length) {
             lLog.addError(sprintf("%s", lMessage));
 			this.buttonOn();
         }
         else {
-            this.onUpdateCodeCall();
+			var lConfirm = new GConfirm();
+			lConfirm.setCallback("manager", "confirm", "update_code");
+			lConfirm.onOpenConfirm();
         }
 		this.writeUi();
     }
@@ -298,6 +303,7 @@ class GManager extends GSearch {
     onUpdateCodeCB(data) {
 		var lLog = GLog.Instance();
         var lManager = new GManager();
+		var lConfirm = new GConfirm();
 		
         if(lLog.hasErrors()) {
             lLog.showErrors();
@@ -306,8 +312,10 @@ class GManager extends GSearch {
 			lManager.deserialize(data);
 			lManager.writeUi();
             lLog.addLog(sprintf("%s", "La mise à jour du code a réussi."));
-        }
+        	lConfirm.onCloseConfirm();
+		}
 		lManager.buttonOn();
+		lConfirm.buttonOn();
     }
     //===============================================
     onDeleteCode(obj, name) {
@@ -320,16 +328,15 @@ class GManager extends GSearch {
         if(this.id == 0) {
             lMessage = "L'identifiant n'existe pas.";
         }
-		else {
-			// confirmer ici
-		}
         
         if(lMessage.length) {
             lLog.addError(sprintf("%s", lMessage));
 			this.buttonOn();
         }
         else {;
-            this.onDeleteCodeCall();
+			var lConfirm = new GConfirm();
+			lConfirm.setCallback("manager", "confirm", "delete_code");
+			lConfirm.onOpenConfirm();
         }
 		this.writeUi();
     }
@@ -344,6 +351,7 @@ class GManager extends GSearch {
     onDeleteCodeCB(data) {
 		var lLog = GLog.Instance();
 		var lManager = new GManager();
+		var lConfirm = new GConfirm();
 		
         if(lLog.hasErrors()) {
             lLog.showErrors();
@@ -351,8 +359,10 @@ class GManager extends GSearch {
         else {
             lLog.addLog(sprintf("%s", "La suppression du code a réussi."));
 			lManager.onNewCode();
+			lConfirm.onCloseConfirm();
         }
 		lManager.buttonOn();
+		lConfirm.buttonOn();
     }
     //===============================================
     onNewCode() {
