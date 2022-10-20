@@ -28,55 +28,5 @@ RewriteRule ^Connexion/(.*)$ Connexion/?action=$1 [L,QSA]
 #================================================
 </IfModule>
 #================================================
-php_value memory_limit 30M
-php_value upload_max_filesize 20M
-php_value post_max_size 20M
-php_value max_execution_time 200
-php_value max_input_time 200
-#================================================
 # Redirection
-#================================================
-# C0
-RedirectPermanent /Tutoriels/C0/ /Tutoriels/Software_Development/C0/
-RedirectPermanent /Tutoriels/C0/Cours/State_Machine/ /Tutoriels/Software_Development/C0/
-RedirectPermanent /Tutoriels/Software_Development/C0/Cours/State_Machine/ /Tutoriels/Software_Development/C0/
-RedirectPermanent /Tutoriels/C0/Condition/ /Tutoriels/Software_Development/C0/
-RedirectPermanent /Tutoriels/C0/Struct/ /Tutoriels/Software_Development/C0/
-RedirectPermanent /Tutoriels/C0/Project/ /Tutoriels/Software_Development/C0/
-RedirectPermanent /Tutoriels/C0/Process/ /Tutoriels/Software_Development/C0/
-RedirectPermanent /Tutoriels/C0/Avance/Debug0/ /Tutoriels/Software_Development/C0/
-RedirectPermanent /Tutoriels/Design_Patterns/C0/ /Tutoriels/Software_Development/C0/
-RedirectPermanent /Tutoriels/Cpp/C0/OpenCV/ /Tutoriels/Software_Development/C0/
-RedirectPermanent /Tutoriels/Cpp/C0/OpenGL/ /Tutoriels/Software_Development/C0/
-RedirectPermanent /Tutoriels/C0/Struct/ /Tutoriels/Software_Development/C0/
-# Cpp
-RedirectPermanent /Tutoriels/Cpp/CGI/Project/ /Tutoriels/Software_Development/Cpp/
-RedirectPermanent /Tutoriels/Code_Route/ /Tutoriels/Software_Development/Cpp/
-RedirectPermanent /Tutoriels/OpenCV/Cpp/ /Tutoriels/Software_Development/Cpp/
-RedirectPermanent /Tutoriels/Cpp/OpenCV/ /Tutoriels/Software_Development/Cpp/
-RedirectPermanent /Tutoriels/Cpp/Qt/OpenCV/ /Tutoriels/Software_Development/Cpp/
-RedirectPermanent /Tutoriels/Software_Development/Cpp/OpenCV/Project/ /Tutoriels/Software_Development/Cpp/
-RedirectPermanent /Tutoriels/Software_Development/Cpp/Cours/Cross_Plateform/ /Tutoriels/Software_Development/Cpp/
-RedirectPermanent /Tutoriels/Software_Development/Cpp/SQLite/Show_Query/ /Tutoriels/Software_Development/Cpp/
-RedirectPermanent /Tutoriels/Software_Development/Cpp/Qt/Style/ /Tutoriels/Software_Development/Cpp/
-RedirectPermanent /Tutoriels/Software_Development/Cpp/Cours/Config/ /Tutoriels/Software_Development/Cpp/
-# CSharp
-RedirectPermanent /Tutoriels/CSharp/ /Tutoriels/Software_Development/CSharp/
-# Java
-RedirectPermanent /Tutoriels/Java/JNI/Project/ /Tutoriels/Software_Development/Java/
-# Go
-RedirectPermanent /Tutoriels/Software_Development/Go/Qt/Window/ /Tutoriels/Software_Development/Go/
-# PHP
-RedirectPermanent /Tutoriels/PHP/Cours/Admin_System/ /Tutoriels/Web/PHP/
-# Android
-RedirectPermanent /Tutoriels/Android/Cours/Admin_System/ /Tutoriels/Mobile/Android/
-RedirectPermanent /Tutoriels/Mobile/Android/Cours/Fragment_Replace/ /Tutoriels/Mobile/Android/
-RedirectPermanent /Tutoriels/Mobile/Android/Cours/RecyclerView/ /Tutoriels/Mobile/Android/
-# RaspberryPi
-RedirectPermanent /Resources/ /Tutoriels/Embedded_System/RaspberryPi/
-# 8051
-RedirectPermanent /Tutoriels/8051/ /Tutoriels/Embedded_System/8051/
-# Git
-RedirectPermanent /Tutoriels/GitHub/ /Tutoriels/Version_Control/Git/
-RedirectPermanent /Tutoriels/Git/ /Tutoriels/Version_Control/Git/
 #================================================
