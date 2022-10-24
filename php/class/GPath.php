@@ -5,15 +5,15 @@
             parent::__construct();            
         }
         //===============================================
-        public function getResourcePath($resource, $filename) {
+        public function getPath($_resource, $_filename) {
             $lPath = $_SERVER["DOCUMENT_ROOT"];
-            if($resource != "") {
-                if($lPath == "") $lPath = $resource;
-                else $lPath = sprintf("%s/%s", $lPath, $resource);
+            if($_resource != "") {
+                if($lPath == "") $lPath = $_resource;
+                else $lPath = sprintf("%s/%s", $lPath, $_resource);
             }
-            if($filename != "") {
-                if($lPath == "") $lPath = $filename;
-                else $lPath = sprintf("%s/%s", $lPath, $filename);
+            if($_filename != "") {
+                if($lPath == "") $lPath = $_filename;
+                else $lPath = sprintf("%s/%s", $lPath, $_filename);
             }
             return $lPath;
         }

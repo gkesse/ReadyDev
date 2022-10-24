@@ -17,8 +17,8 @@ class GInfos extends GObject {
     }
     //===============================================
     public function createDom() {
-        $this->dom = new GXml();
-        $this->dom->createDocFile("app_infos.xml");
+        $this->m_dom = new GXml();
+        $this->m_dom->createDocFile("app_infos.xml");
         //
         $this->domData = new GXml();
         $this->domData->createDocFile("app_data.xml");
@@ -42,20 +42,20 @@ class GInfos extends GObject {
     }
     //===============================================
     public function countInfos() {
-        $this->dom->queryXPath(sprintf("/rdv/infos/info"));
-        $lData = $this->dom->countXPath();
+        $this->m_dom->queryXPath(sprintf("/rdv/infos/info"));
+        $lData = $this->m_dom->countXPath();
         return $lData;
     }
     //===============================================
     public function getType($index) {
-        $this->dom->queryXPathEmpty(sprintf("/rdv/infos/info[position()=%d]/type", $index + 1));
-        $lData = $this->dom->getNodeIndex(0)->getNodeValue();
+        $this->m_dom->queryXPathEmpty(sprintf("/rdv/infos/info[position()=%d]/type", $index + 1));
+        $lData = $this->m_dom->getNodeIndex(0)->getNodeValue();
         return $lData;
     }
     //===============================================
     public function getActive($index) {
-        $this->dom->queryXPathEmpty(sprintf("/rdv/infos/info[position()=%d]/active", $index + 1));
-        $lData = ($this->dom->getNodeIndex(0)->getNodeValue() == "1");
+        $this->m_dom->queryXPathEmpty(sprintf("/rdv/infos/info[position()=%d]/active", $index + 1));
+        $lData = ($this->m_dom->getNodeIndex(0)->getNodeValue() == "1");
         return $lData;
     }
     //===============================================
@@ -74,20 +74,20 @@ class GInfos extends GObject {
     }
     //===============================================
     public function getProfilImg($index) {
-        $this->dom->queryXPath(sprintf("/rdv/infos/info[position()=%d]/img", $index + 1));
-        $lData = $this->dom->getNodeIndex(0)->getNodeValue();
+        $this->m_dom->queryXPath(sprintf("/rdv/infos/info[position()=%d]/img", $index + 1));
+        $lData = $this->m_dom->getNodeIndex(0)->getNodeValue();
         return $lData;
     }
     //===============================================
     public function getProfilFa($index) {
-        $this->dom->queryXPath(sprintf("/rdv/infos/info[position()=%d]/fa", $index + 1));
-        $lData = $this->dom->getNodeIndex(0)->getNodeValue();
+        $this->m_dom->queryXPath(sprintf("/rdv/infos/info[position()=%d]/fa", $index + 1));
+        $lData = $this->m_dom->getNodeIndex(0)->getNodeValue();
         return $lData;
     }
     //===============================================
     public function getProfilFaOn($index) {
-        $this->dom->queryXPath(sprintf("/rdv/infos/info[position()=%d]/faon", $index + 1));
-        $lData = ($this->dom->getNodeIndex(0)->getNodeValue() == "1");
+        $this->m_dom->queryXPath(sprintf("/rdv/infos/info[position()=%d]/faon", $index + 1));
+        $lData = ($this->m_dom->getNodeIndex(0)->getNodeValue() == "1");
         return $lData;
     }
     //===============================================
@@ -102,14 +102,14 @@ class GInfos extends GObject {
     }
     //===============================================
     public function getKey($index) {
-        $this->dom->queryXPath(sprintf("/rdv/infos/info[position()=%d]/key", $index + 1));
-        $lData = $this->dom->getNodeIndex(0)->getNodeValue();
+        $this->m_dom->queryXPath(sprintf("/rdv/infos/info[position()=%d]/key", $index + 1));
+        $lData = $this->m_dom->getNodeIndex(0)->getNodeValue();
         return $lData;
     }
     //===============================================
     public function getValue($index) {
-        $this->dom->queryXPath(sprintf("/rdv/infos/info[position()=%d]/value", $index + 1));
-        $lData = $this->dom->getNodeIndex(0)->getNodeValue();
+        $this->m_dom->queryXPath(sprintf("/rdv/infos/info[position()=%d]/value", $index + 1));
+        $lData = $this->m_dom->getNodeIndex(0)->getNodeValue();
         return $lData;
     }
     //===============================================

@@ -15,8 +15,8 @@ class GMail extends GObject {
     }
     //===============================================
     public function createDom() {
-        $this->dom = new GXml();
-        $this->dom->createDocFile("pad.xml");
+        $this->m_dom = new GXml();
+        $this->m_dom->createDocFile("pad.xml");
     }
     //===============================================
     public function configMail() {        

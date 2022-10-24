@@ -8,8 +8,8 @@ class GPage extends GObject {
     }
     //===============================================
     public function createDoms() {
-        $this->dom = new GXml();
-        $this->dom->createDocFile("pad.xml");
+        $this->m_dom = new GXml();
+        $this->m_dom->createDocFile("pad.xml");
     }
     //===============================================
     public function getPageId() {
@@ -28,8 +28,8 @@ class GPage extends GObject {
     }
     //===============================================
     public function hasPage($page) {
-        $this->dom->queryXPath(sprintf("/rdv/datas/data[code='page']/map/data[.='%s']", $page));
-        $lData = $this->dom->countXPath();
+        $this->m_dom->queryXPath(sprintf("/rdv/datas/data[code='page']/map/data[.='%s']", $page));
+        $lData = $this->m_dom->countXPath();
         return $lData;
     }
     //===============================================
