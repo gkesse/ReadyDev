@@ -1,13 +1,30 @@
 <?php   
     class GMessage {
         //===============================================
-        private static $m_instance = null;
+        private $m_moduleName;
+        private $m_methodName;
         //===============================================
-        private function __construct() {
+        public function __construct() {
             
         }
         //===============================================
-        public static function Instance() {
+        public function serialize($_code = "manager") {
+            $lDom = new GCode();
+            $lDom->createDoc();
+            $lDom->addData($_code, "module", $this->m_moduleName);
+            $lDom->addData($_code, "method", $this->m_methodName);
+            return $lDom->toString();
+        }
+        //===============================================
+        public function deserialize($_data, $_code = "manager") {
+            $lDom = new GCode();
+            $lDom->createDoc();
+            $lDom->loadXml($_data);
+            $this->m_moduleName = $lDom->getData($_code, "module");
+            $this->m_methodName = $lDom->getData($_code, "method");
+        }
+        //===============================================
+        public function Instance() {
             if(is_null(self::$m_instance)) {
                 self::$m_instance = new GMessage();  
             }

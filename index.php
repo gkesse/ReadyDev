@@ -2,10 +2,12 @@
 // ===============================================
 require $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoloadRegister.php";
 // ===============================================
-$lPageObj = new GPage();
-$lPageObj->redirectPost();
-$lProcessObj = new GProcess();
-$lProcessObj->run2();
-GLog::Instance()->showError();
+$lPage = new GPage();
+$lProcess = new GProcess();
+$lLog = GLog::Instance();
+// ===============================================
+$lPage->redirectPost();
+$lProcess->run();
+$lLog->showErrors();
 // ===============================================
 ?>

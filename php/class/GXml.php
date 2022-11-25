@@ -21,10 +21,11 @@ class GXml extends GObject {
         $lLog = GLog::Instance();
         $this->m_doc = new DOMDocument($this->m_version, $this->m_encoding);
         if(!$this->m_doc) {$lLog->addError(sprintf("La création du document a échoué.")); return false;}
-        $this->m_doc->preserveWhiteSpace = true;
+        $this->m_doc->preserveWhiteSpace = false;
         $this->m_doc->formatOutput = true;
         $this->m_xpath = new DOMXpath($this->m_doc);
-        return false;
+        if(!$this->m_xpath) {$lLog->addError(sprintf("La création du module xpath a échoué.")); return false;}
+        return true;
     }
     //===============================================
     public function createNode($_name) {
@@ -57,28 +58,58 @@ class GXml extends GObject {
         return true;
     }
     //===============================================
+    public function countNode($_xpath) {
+        $lLog = GLog::Instance();
+        if(!$this->m_xpath) {$lLog->addError(sprintf("Le module xpath doit être créé.")); return false;}
+        $this->m_nodes = $this->m_xpath->query($_xpath);
+        return $this->m_nodes->length;
+    }
+    //===============================================
     public function loadFile($_filename) {
         $lLog = GLog::Instance();
-        if(trim($_filename) == "") return false;
+        $_filename = trim($_filename);
+        if($_filename == "") return false;
         $this->m_doc = new DOMDocument();
         if(!$this->m_doc) {$lLog->addError(sprintf("La création du document a échoué.")); return false;}
         if(!file_exists($_filename)) {$lLog->addError(sprintf("Le fichier n'existe pas.")); return false;}
         $this->m_doc->load($_filename);
         if(!$this->m_doc) {$lLog->addError(sprintf("Le chargement du fichier a échoué.")); return false;}
-        $this->m_doc->preserveWhiteSpace = true;
+        $this->m_doc->preserveWhiteSpace = false;
         $this->m_doc->formatOutput = true;
         $this->m_xpath = new DOMXpath($this->m_doc);
-        if(!$this->m_doc) {$lLog->addError(sprintf("La création du module xpath a échoué.")); return false;}
+        if(!$this->m_xpath) {$lLog->addError(sprintf("La création du module xpath a échoué.")); return false;}
         return true;
     }
     //===============================================
     public function loadXml($_data) {
         $lLog = GLog::Instance();
-        if(trim($_data) == "") {$lLog->addError(sprintf("Le source xml est vide.")); return false;}
+        $_data = trim($_data);
+        if($_data == "") return false;
         $this->m_doc = new DOMDocument();
         if(!$this->m_doc) {$lLog->addError(sprintf("La création du document a échoué.")); return false;}
         $this->m_doc->loadXml($_data);
-        return $this;
+        $this->m_doc->preserveWhiteSpace = false;
+        $this->m_doc->formatOutput = true;
+        $this->m_xpath = new DOMXpath($this->m_doc);
+        if(!$this->m_xpath) {$lLog->addError(sprintf("La création du module xpath a échoué.")); return false;}
+        return true;
+    }
+    //===============================================
+    public function loadNode($_data) {
+        $_data = trim($_data);
+        if($_data == "") return false;
+        if(!$this->m_doc) return false;
+        $lDom = new DOMDocument();
+        $lDom->preserveWhiteSpace = false;
+        $lDom->formatOutput = true;
+        $lDom->loadXML($_data);
+        $lChild = $lDom->documentElement->firstChild;
+        while($lChild) {
+            $lNode = $this->m_doc->importNode($lChild, true);
+            $this->m_node->appendChild($lNode);
+            $lChild = $lChild->nextSibling;
+        }
+        return true;
     }
     //===============================================
     public function saveFile($_filename) {
@@ -108,35 +139,25 @@ class GXml extends GObject {
         return true;
     }
     //===============================================
-    public function getNode($_path) {
+    public function getNode($_xpath) {
         $lLog = GLog::Instance();
         if(!$this->m_xpath) {$lLog->addError(sprintf("Le module xpath doit être créé.")); return false;}
-        $this->m_nodes = $this->m_xpath->query($_path);
+        $this->m_nodes = $this->m_xpath->query($_xpath);
         if(!$this->m_nodes->length) return false;
         $this->m_node = $this->m_nodes->item(0);
         return true;
     }
     //===============================================
-    public function countNode($name) {
-        if(!$this->m_node) {
-            GLog::Instance()->addError(sprintf("Erreur la méthode (countNode) a échoué ".
-                    "sur le noeud (%s).", $name));
-            return 0;
-        }
-        $lCount = 0;
-        $lNodes = $this->m_node->childNodes;
-        foreach($lNodes as $lNode) {
-            $lNodeName = $lNode->nodeName;
-            if($lNodeName == $name) {
-                $lCount++;
-            }
-        }
-        return $lCount;
+    public function getValue() {
+        if(!$this->m_node) return "";
+        $lData = $this->m_node->nodeValue;
+        return $lData;
     }
     //===============================================
-    public function convertEncode($content, $toEncoding = 'HTML-ENTITIES', $fromEncoding = 'UTF-8') {
-        $lContent = mb_convert_encoding($content, $toEncoding, $fromEncoding);
-        return $lContent;
+    public function toNode() {
+        if(!$this->m_doc) return "";
+        if(!$this->m_node) return "";
+        return $this->m_doc->saveXML($this->m_node);
     }
     //===============================================
     public function toString() {

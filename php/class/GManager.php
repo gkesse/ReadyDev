@@ -1,99 +1,28 @@
-<?php   
-//===============================================
-class GManager {
+<?php
+class GManager extends GObject {
     //===============================================
-    private static $m_instance = null;
+    private $m_moduleName;
+    private $m_methodName;
     //===============================================
-    private $mgr;
-    //===============================================
-    private function __construct() {
-        // manager
-        $this->mgr = new sGManager();
-        // app
-        $this->mgr->app = new sGApp();
-        $this->mgr->app->app_name = "ReadyDev";
-        $this->mgr->app->lang = "fr";
-        $this->mgr->app->title = $this->mgr->app->app_name;
-        $this->mgr->app->sqlite_db_path = "/data/sqlite/database.dat";
-        $this->mgr->app->view_offset = 250;
-        $this->mgr->app->cv_path = "https://raw.githubusercontent.com/gkesse/ReadyDev/master";    
-        $this->mgr->app->img_path = "/data/img/defaults";
-        $this->mgr->app->img_map = array();
+    public function __construct() {
+        
     }
     //===============================================
-    public static function Instance() {
-        if(is_null(self::$m_instance)) {
-            self::$m_instance = new GManager();  
-        }
-        return self::$m_instance;
+    public function serialize($_code = "manager") {
+        $lDom = new GCode();
+        $lDom->createDoc();
+        $lDom->addData($_code, "module", $this->m_moduleName);
+        $lDom->addData($_code, "method", $this->m_methodName);
+        return $lDom->toString();
     }
     //===============================================
-    // data
-    //===============================================
-    public function getData() {
-        return $this->mgr;
-    }
-    //===============================================
-    // url
-    //===============================================
-    public function getUrl($url) {
-        $lUrl = $url;
-        $lUrl = Normalizer::normalize($lUrl , Normalizer::FORM_D);
-        $lUrl = preg_replace('/[\x{0300}-\x{036f}]/u', "", $lUrl);
-        $lUrl = preg_replace('/\s/u', "-", $lUrl);
-        $lUrl = str_replace("'", "-", $lUrl);
-        $lUrl = str_replace('"', "-", $lUrl);
-        return $lUrl;
-    }
-    //===============================================
-    // img
-    //===============================================
-    public function loadImg() {
-        $lApp = $this->mgr->app;
-        $lFullPath = $_SERVER["DOCUMENT_ROOT"]."/".$lApp->img_path;
-        $lDir = opendir($lFullPath);
-        if($lDir) {
-            while(1) {
-                $lFile = readdir($lDir);
-                if(!$lFile) {break;}
-                if(is_dir($lFile)) {continue;}
-                $lPath = $lApp->img_path ."/".$lFile;
-                $lApp->img_map[$lFile] = $lPath;
-            }
-            closedir($lDir);
-        }
-    }
-    //===============================================
-    public function getImg($img) {
-        $lApp = $this->mgr->app;
-        $lPath = $lApp->img_path ."/".$img;
-        return $lPath;
+    public function deserialize($_data, $_code = "manager") {
+        $lDom = new GCode();
+        $lDom->createDoc();
+        $lDom->loadXml($_data);
+        $this->m_moduleName = $lDom->getData($_code, "module");
+        $this->m_methodName = $lDom->getData($_code, "method");
     }
     //===============================================
 }
-//===============================================
-// struct
-//===============================================
-class sGManager {
-    public $app;
-}
-//===============================================
-class sGApp {
-    // app
-    public $app_name;
-    // lang
-    public $lang;
-    // title
-    public $title;
-    // sqlite
-    public $sqlite_db_path;
-    // view
-    public $view_offset;
-    // cv
-    public $cv_path;
-    // img
-    public $img_map;
-    public $img_path;
-}
-//===============================================
 ?>

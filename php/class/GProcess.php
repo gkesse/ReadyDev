@@ -8,18 +8,8 @@ class GProcess extends GObject {
     }
     //===============================================
     public function run() {
-        $lEnvObj = new GEnv();
-        if($lEnvObj->isProdEnv()) {
-            $this->runProd();
-        }
-        else {
-            $this->runTest();
-        }
-    }
-    //===============================================
-    public function run2() {
-        $lEnvObj = new GEnv();
-        if($lEnvObj->isProdEnv()) {
+        $lEnv = new GEnv();
+        if($lEnv->isProdEnv()) {
             $this->runProd();
         }
         else {
@@ -28,31 +18,8 @@ class GProcess extends GObject {
     }
     //===============================================
     public function runProdTest() {
-        $lPageUi = new GPageUi();
-        $lPageUi->run();
-    }
-    //===============================================
-    public function runTest() {
-        $lEnv = $this->getItem("test", "env");
-        if($lEnv == "prod") {
-            $this->runProd();
-        }
-        else if($lEnv == "ready") {
-            $this->runReady();
-        }
-        else if($lEnv == "dev") {
-            $this->runTestDev();
-        }
-    }
-    //===============================================
-    public function runTestDev() {
-        $lTestObj = new GTest();
-        $lTestObj->run();
-    }
-    //===============================================
-    public function runReady() {
-        $lReadyObj = new GReady();
-        $lReadyObj->run();
+        $lFont = new GFont();
+        $lFont->loadFont();
     }
     //===============================================
     public function runProd() {
