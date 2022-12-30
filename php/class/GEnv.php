@@ -2,40 +2,28 @@
 //===============================================
 class GEnv extends GObject {
     //===============================================
+    protected $m_envType;
+    protected $m_isTestEnv;
+    protected $m_isProdEnv;
+    //===============================================
     public function __construct() {
         parent::__construct();
-        $this->createDoms();
-    }
-    //===============================================
-    public function onEnvUi() {
-        $lCount = $this->countItem("env");        
-
-        for($i = 0; $i < $lCount; $i++) {
-            $lModel = $this->getItem3("env", "model", $i);
-            $lId = $this->getItem3("env", "id", $i);
-            $lValue = $this->getItem3("env", "value", $i);
-            //
-            if($lModel == "env/type") {
-                $lValue = $this->getEnvType();
-            }
-            //
-            echo sprintf("<input type='hidden' id='%s' value='%s'/>\n", $lId, $lValue);
-        }
+        $this->m_envType    = $this->getEnv("GPROJECT_ENV");
+        $this->m_isTestEnv  = ($this->m_envType == "TEST");
+        $this->m_isProdEnv  = !$this->m_isTestEnv;
+        $this->m_envType    = ($this->m_isTestEnv ? "TEST" : "PROD");
     }
     //===============================================
     public function isProdEnv() {
-        $lEnvType = $this->getEnv("GPROJECT_ENV");
-        if($lEnvType != "TEST") return true;
-        return false;
+        return $this->m_isProdEnv;
     }
     //===============================================
     public function isTestEnv() {
-        return !$this->isProdEnv();
+        return $this->m_isTestEnv;
     }
     //===============================================
     public function getEnvType() {
-        if($this->isTestEnv()) return "TEST";
-        return "PROD";
+        return $this->m_envType;
     }
     //===============================================
     public function getEnv($key, $defaultValue = "") {

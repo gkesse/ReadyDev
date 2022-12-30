@@ -13,7 +13,7 @@
             $this->m_headerUi   = new GHeaderUi();
             $this->m_footerUi   = new GFooterUi();
             $this->m_adminUi    = new GAdminUi();
-            $this->m_pageUi     = new GPage();
+            $this->m_pageUi     = new GPageUi();
             $this->m_page       = new GPage();
             $this->m_isFound    = false;
         }

@@ -3,8 +3,7 @@
 header('content-type: text/css');
 require $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoloadRegister.php";
 //===============================================
-$lObj = new GObject();
-$lObj->createDoms();
+$lApp = GApp::Instance();
 //===============================================
 ?>
 /* ============================================== */
@@ -348,8 +347,8 @@ thead tr:first-child {
 }
 
 .Background.Top {
-    background-image: url("<?php echo $lObj->getItem("style", "bg_img_top"); ?>"), 
-    url("<?php echo $lObj->getItem("style", "bg_img_top_bg"); ?>");
+    background-image: url("<?php echo $lApp->getItem("style", "bg_img_top"); ?>"), 
+    url("<?php echo $lApp->getItem("style", "bg_img_top_bg"); ?>");
     background-position: center top, left top;
     background-repeat: no-repeat, no-repeat;    
     background-size: auto 85%, 100% 100%;    
@@ -358,10 +357,10 @@ thead tr:first-child {
     right: 0px;
     z-index: -1;
     border: 10px solid transparent;
-    border-image: url("<?php echo $lObj->getItem("style", "border_img"); ?>") 30 round;
-    -webkit-border-image: url("<?php echo $lObj->getItem("style", "border_img"); ?>") 30 round; 
-    -moz-border-image: url("<?php echo $lObj->getItem("style", "border_img"); ?>") 30 round; 
-    -o-border-image: url("<?php echo $lObj->getItem("style", "border_img"); ?>") 30 round;
+    border-image: url("<?php echo $lApp->getItem("style", "border_img"); ?>") 30 round;
+    -webkit-border-image: url("<?php echo $lApp->getItem("style", "border_img"); ?>") 30 round; 
+    -moz-border-image: url("<?php echo $lApp->getItem("style", "border_img"); ?>") 30 round; 
+    -o-border-image: url("<?php echo $lApp->getItem("style", "border_img"); ?>") 30 round;
 }
 
 .Background.Middle {
@@ -370,7 +369,7 @@ thead tr:first-child {
     left: 0px;
     right: 0px;
     z-index: -1;
-    background-image: url("<?php echo $lObj->getItem("style", "bg_img_middle"); ?>");
+    background-image: url("<?php echo $lApp->getItem("style", "bg_img_middle"); ?>");
     background-position: center center;
     background-repeat: repeat;    
     background-size: auto;    
@@ -381,15 +380,15 @@ thead tr:first-child {
     left: 0px;
     right: 0px;
     z-index: -1;
-    background-image: url("<?php echo $lObj->getItem("style", "bg_img_bottom"); ?>");
+    background-image: url("<?php echo $lApp->getItem("style", "bg_img_bottom"); ?>");
     background-position: left top;
     background-repeat: no-repeat;    
     background-size: 100% 100%;    
     border: 10px solid transparent;
-    border-image: url("<?php echo $lObj->getItem("style", "border_img"); ?>") 30 round;
-    -webkit-border-image: url("<?php echo $lObj->getItem("style", "border_img"); ?>") 30 round; 
-    -moz-border-image: url("<?php echo $lObj->getItem("style", "border_img"); ?>") 30 round; 
-    -o-border-image: url("<?php echo $lObj->getItem("style", "border_img"); ?>") 30 round;
+    border-image: url("<?php echo $lApp->getItem("style", "border_img"); ?>") 30 round;
+    -webkit-border-image: url("<?php echo $lApp->getItem("style", "border_img"); ?>") 30 round; 
+    -moz-border-image: url("<?php echo $lApp->getItem("style", "border_img"); ?>") 30 round; 
+    -o-border-image: url("<?php echo $lApp->getItem("style", "border_img"); ?>") 30 round;
 }
 
 .Bars {
@@ -1059,10 +1058,10 @@ thead tr:first-child {
     width: 300px;
     margin-left: -150px;
     border: 10px solid transparent;
-    border-image: url("<?php echo $lObj->getItem("style", "border_img"); ?>") 30 round;
-    -webkit-border-image: url("<?php echo $lObj->getItem("style", "border_img"); ?>") 30 round; 
-    -moz-border-image: url("<?php echo $lObj->getItem("style", "border_img"); ?>") 30 round; 
-    -o-border-image: url("<?php echo $lObj->getItem("style", "border_img"); ?>") 30 round;
+    border-image: url("<?php echo $lApp->getItem("style", "border_img"); ?>") 30 round;
+    -webkit-border-image: url("<?php echo $lApp->getItem("style", "border_img"); ?>") 30 round; 
+    -moz-border-image: url("<?php echo $lApp->getItem("style", "border_img"); ?>") 30 round; 
+    -o-border-image: url("<?php echo $lApp->getItem("style", "border_img"); ?>") 30 round;
 }
 
 .HtmlPage {
@@ -1145,7 +1144,7 @@ thead tr:first-child {
 }
 
 .Img {
-    background-image: url("<?php echo $lObj->getItem("style", "img_wave"); ?>");
+    background-image: url("<?php echo $lApp->getItem("style", "img_wave"); ?>");
     min-height: 500px;
     position: relative;
     opacity: 0.65;
@@ -1159,35 +1158,35 @@ thead tr:first-child {
 }
 
 .Img.Wave {
-    background-image: url("<?php echo $lObj->getItem("style", "img_wave"); ?>");
+    background-image: url("<?php echo $lApp->getItem("style", "img_wave"); ?>");
 }
 
 .Img.Binary {
-    background-image: url("<?php echo $lObj->getItem("style", "img_binary"); ?>");
+    background-image: url("<?php echo $lApp->getItem("style", "img_binary"); ?>");
 }
 
 .Img.Signal {
-    background-image: url("<?php echo $lObj->getItem("style", "img_signal"); ?>");
+    background-image: url("<?php echo $lApp->getItem("style", "img_signal"); ?>");
 }
 
 .Img.Chip {
-    background-image: url("<?php echo $lObj->getItem("style", "img_chip"); ?>");
+    background-image: url("<?php echo $lApp->getItem("style", "img_chip"); ?>");
 }
 
 .Img.Developer {
-    background-image: url("<?php echo $lObj->getItem("style", "img_developer"); ?>");
+    background-image: url("<?php echo $lApp->getItem("style", "img_developer"); ?>");
 }
 
 .Img.Grid {
-    background-image: url("<?php echo $lObj->getItem("style", "img_grid"); ?>");
+    background-image: url("<?php echo $lApp->getItem("style", "img_grid"); ?>");
 }
 
 .Img.Dashboard {
-    background-image: url("<?php echo $lObj->getItem("style", "img_dashboard"); ?>");
+    background-image: url("<?php echo $lApp->getItem("style", "img_dashboard"); ?>");
 }
 
 .Img.Contact {
-    background-image: url("<?php echo $lObj->getItem("style", "img_contact"); ?>");
+    background-image: url("<?php echo $lApp->getItem("style", "img_contact"); ?>");
 }
 
 .Img2 {
@@ -1445,10 +1444,10 @@ thead tr:first-child {
 .MainPage {
     background-color: #051039;
     border: 10px solid transparent;
-    border-image: url("<?php echo $lObj->getItem("style", "border_img"); ?>") 30 round;
-    -webkit-border-image: url("<?php echo $lObj->getItem("style", "border_img"); ?>") 30 round; 
-    -moz-border-image: url("<?php echo $lObj->getItem("style", "border_img"); ?>") 30 round; 
-    -o-border-image: url("<?php echo $lObj->getItem("style", "border_img"); ?>") 30 round;
+    border-image: url("<?php echo $lApp->getItem("style", "border_img"); ?>") 30 round;
+    -webkit-border-image: url("<?php echo $lApp->getItem("style", "border_img"); ?>") 30 round; 
+    -moz-border-image: url("<?php echo $lApp->getItem("style", "border_img"); ?>") 30 round; 
+    -o-border-image: url("<?php echo $lApp->getItem("style", "border_img"); ?>") 30 round;
     padding-bottom: 0px;
 }
 

@@ -1166,9 +1166,8 @@
         <!-- ============================================ -->
         <data>
             <code>test</code>
-            <env>prod</env>
-            <dev>xml/parent</dev>
-            <js>env/type</js>
+            <module>prod</module>
+            <method></method>
         </data>
         <!-- ============================================ -->
         <!-- env -->

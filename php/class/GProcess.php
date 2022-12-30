@@ -1,15 +1,33 @@
 <?php   
 //===============================================
-class GProcess extends GObject {
+class GProcess extends GObjectUi {
     //===============================================
-    public function __construct() {
+    private static $m_instance = null;
+    //===============================================
+    protected $m_page;
+    protected $m_env;
+    //===============================================
+    private function __construct() {
         parent::__construct();
-        $this->createDoms();
+        $this->m_page   = new GPage();
+        $this->m_env    = new GEnv();
+    }
+    //===============================================
+    public static function Instance() {
+        if(self::$m_instance == null) {
+            self::$m_instance = new GProcess();
+        }
+        return self::$m_instance;
+    }
+    //===============================================
+    public function main() {
+        $lPageObj = new GPage();
+        $lPageObj->redirectPost();
+        $this->run();
     }
     //===============================================
     public function run() {
-        $lEnvObj = new GEnv();
-        if($lEnvObj->isProdEnv()) {
+        if($this->m_env->isProdEnv()) {
             $this->runProd();
         }
         else {
@@ -18,23 +36,13 @@ class GProcess extends GObject {
     }
     //===============================================
     public function runTest() {
-        $lEnv = $this->getItem("test", "env");
-        if($lEnv == "prod") {
-            $this->runProd();
-        }
-        else if($lEnv == "dev") {
-            $this->runDev();
-        }
-    }
-    //===============================================
-    public function runDev() {
-        $lTestObj = new GTest();
-        $lTestObj->run();
+        $lTestUi = new GTestUi();
+        $lTestUi->run();
     }
     //===============================================
     public function runProd() {
-        $lReadyObj = new GReadyUi();
-        $lReadyObj->run();
+        $lReadyUi = new GReadyUi();
+        $lReadyUi->run();
     }
     //===============================================
  }

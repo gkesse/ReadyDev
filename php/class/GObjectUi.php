@@ -16,5 +16,12 @@
             return $lUrl;
         }
         //===============================================
+        public function printData($data) {
+            echo sprintf("<xmp style='
+                font-family: courier;
+                font-size: 12pt;
+            '>%s</xmp>\n", $data);
+        }
+        //===============================================
     }
 ?>
