@@ -6,6 +6,9 @@ class GHeaderUi extends GObjectUi {
     protected $m_connectUi;
     protected $m_accountUi;
     protected $m_disconnectUi;
+    protected $m_confirmUi;
+    protected $m_tableUi;
+    protected $m_menuUi;
     protected $m_errorUi;
     protected $m_logUi;
     //===============================================
@@ -15,8 +18,9 @@ class GHeaderUi extends GObjectUi {
         $this->m_connectUi      = new GConnectUi();
         $this->m_disconnectUi   = new GDisconnectUi();
         $this->m_accountUi      = new GAccountUi();
-        $this->m_tableUi        = new GTableUi();
         $this->m_confirmUi      = new GConfirmUi();
+        $this->m_tableUi        = new GTableUi();
+        $this->m_menuUi         = new GMenuUi();
         $this->m_errorUi        = new GErrorUi();
         $this->m_logUi          = new GLogUi();
     }
@@ -51,15 +55,15 @@ class GHeaderUi extends GObjectUi {
         
         echo sprintf("<div class='BodyPage'>\n");
         echo sprintf("<div class='MainPage'>\n");
-        $this->onHeaderUi();
+        $this->onHeader();
     }
     //===============================================
-    public function onHeaderUi() {
+    public function onHeader() {
         echo sprintf("<header class='Header'>\n");
         
-        $this->onMenuUi();
-        $this->onTitleUi();
-        $this->onLinkUi();
+        $this->m_menuUi->run();
+        $this->onTitle();
+        $this->onLink();
         
         echo sprintf("</header>\n");        
     }
@@ -78,89 +82,18 @@ class GHeaderUi extends GObjectUi {
         echo sprintf("<div class='Background Bottom'></div>\n");
     }
     //===============================================
-    public function onMenuUi() {        
-        echo sprintf("<ul class='Menu' id='HeaderMenu'>\n");
-             
-        $lPageObj = new GPage();
-        $lSessionObj = new GSession();
-        
-        $lCount = $this->m_app->countItem("menu");        
-        $lPage = $lPageObj->getPageId();
-        $lLoginOn = $lSessionObj->issetSession("user/login");
-        $lGroup = $lSessionObj->getSession("user/group");
-        $lRootOn = ($lGroup == G_USER_GROUP_ROOT);
-        
-        for($i = 0; $i < $lCount; $i++) {
-            $lType = $this->m_app->getItem3("menu", "type", $i);
-            $lName = $this->m_app->getItem3("menu", "name", $i);
-            $lImg = $this->m_app->getItem3("menu", "img", $i);
-            $lLink = $this->m_app->getItem3("menu", "link", $i);
-            $lModule = $this->m_app->getItem3("menu", "module", $i);
-            $lMethod = $this->m_app->getItem3("menu", "method", $i);
-            
-            $lActive = "";
-            if($lLink == $lPage) $lActive = " Active";
-            
-            if($lType == "link") {
-                echo sprintf("<li class='Item'>\n");
-                echo sprintf("<a class='Link%s' href='%s'>\n", $lActive, $lLink);
-                echo sprintf("%s\n", $lName);
-                echo sprintf("</a>\n");
-                echo sprintf("</li>\n");
-            }
-            else if($lType == "link/menu") {
-                echo sprintf("<li id='HeaderMenuBars' class='Bars' onclick='server_call(\"%s\", \"%s\");'>\n", $lModule, $lMethod);
-                echo sprintf("%s\n", $lName);
-                echo sprintf("</li>\n");
-            }
-            else if($lType == "link/admin") {
-                if(!$lLoginOn) continue;
-                if(!$lRootOn) continue;
-                echo sprintf("<li class='Item'>\n");
-                echo sprintf("<a class='Link%s' href='%s'>\n", $lActive, $lLink);
-                echo sprintf("%s\n", $lName);
-                echo sprintf("</a>\n");
-                echo sprintf("</li>\n");
-            }
-            else if($lType == "link/login") {
-                if($lLoginOn) continue;
-                echo sprintf("<li class='Item'>\n");
-                echo sprintf("<span class='Link' onclick='server_call(\"%s\", \"%s\");'>%s</span>\n"
-                    , $lModule, $lMethod, $lName);
-                echo sprintf("</li>\n");
-            }
-            else if($lType == "link/logout") {
-                if(!$lLoginOn) continue;
-                echo sprintf("<li class='Item'>\n");
-                echo sprintf("<span class='Link' onclick='server_call(\"%s\", \"%s\");'>%s</span>\n"
-                    , $lModule, $lMethod, $lName);
-                echo sprintf("</li>\n");
-            }
-            else if($lType == "link/image") {
-                echo sprintf("<li class='Item'>\n");
-                echo sprintf("<a class='Title' href='%s'>\n", $lLink);
-                echo sprintf("<img class='Img4' src='%s' alt='%s'/>\n", $lImg, $lImg);
-                echo sprintf("<span class='Title11'>%s</span>\n", $lName);
-                echo sprintf("</a>\n");
-                echo sprintf("</li>\n");
-            }
-        }
-        
-        echo sprintf("</ul>\n");
-    }
-    //===============================================
-    public function onTitleUi() {
+    public function onTitle() {
         echo sprintf("<div class='MainBlock'>\n");
         echo sprintf("<div class='Content'>\n");
         echo sprintf("<h1 class='Title2'>%s</h1>\n", "Title");
         echo sprintf("<div class='Body'>\n");
-        $this->onSiteUi();
+        $this->onSite();
         echo sprintf("</div>\n");
         echo sprintf("</div>\n");
         echo sprintf("</div>\n");
     }
     //===============================================
-    public function onSiteUi() {
+    public function onSite() {
         echo sprintf("<div class='Row'>\n");
         
         $lCount = $this->m_app->countItem("header");
@@ -177,12 +110,12 @@ class GHeaderUi extends GObjectUi {
             echo sprintf("<a href='%s'><div class='%s'><i class='fa fa-%s'></i> %s</div></a>\n"
                 , $lLink, $lClass, $lPicto, $lTitle);
         }
-        $this->onViewUi();        
+        $this->onView();        
         echo sprintf("</div>\n");
-        $this->onNetworksUi();        
+        $this->onNetworks();        
     }
     //===============================================
-    public function onViewUi() {
+    public function onView() {
         $lViewCount = 30;
         
         echo sprintf("<div class='Form'>\n");
@@ -196,7 +129,7 @@ class GHeaderUi extends GObjectUi {
         echo sprintf("</div>\n");
     }
     //===============================================
-    public function onLinkUi() {
+    public function onLink() {
         echo sprintf("<div class='MainBlock0'>");
         echo sprintf("<div class='Content11'>");
         echo sprintf("<div class='Row22'>");
@@ -217,7 +150,7 @@ class GHeaderUi extends GObjectUi {
         echo sprintf("</div>\n");        
     }
     //===============================================
-    public function onNetworksUi() {
+    public function onNetworks() {
         $lUrl = $this->getUrl();
         
         echo sprintf("<div class='Row22'>\n");
@@ -225,10 +158,10 @@ class GHeaderUi extends GObjectUi {
         $lCount = $this->m_app->countItem("header");
         
         for($i = 0; $i < $lCount; $i++) {
-            $lCategory = $this->m_app->getItem3("header", "category", $i);
-            $lLink = $this->m_app->getItem3("header", "link", $i);
-            $lClass = $this->m_app->getItem3("header", "class", $i);
-            $lPicto = $this->m_app->getItem3("header", "picto", $i);
+            $lCategory  = $this->m_app->getItem3("header", "category", $i);
+            $lLink      = $this->m_app->getItem3("header", "link", $i);
+            $lClass     = $this->m_app->getItem3("header", "class", $i);
+            $lPicto     = $this->m_app->getItem3("header", "picto", $i);
             
             if($lCategory != "networks") continue;
                 
@@ -249,17 +182,9 @@ class GHeaderUi extends GObjectUi {
     //===============================================
     public function getHappyYear() {
         $lHappy = $this->m_app->getItem("happyyear", "msg");
-        $lYear = date("Y");
-        $lData = sprintf("%s %s", $lHappy, $lYear);
+        $lYear  = date("Y");
+        $lData  = sprintf("%s %s", $lHappy, $lYear);
         return $lData;
-    }
-    //===============================================
-    public function getUrl() {
-        $lUrl = "";
-        $lUrl .= "http://";
-        $lUrl .= $_SERVER['HTTP_HOST'];
-        $lUrl .=  $_SERVER['REQUEST_URI'];    
-        return $lUrl;
     }
     //===============================================
 }

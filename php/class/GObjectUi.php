@@ -8,5 +8,13 @@
             $this->m_app = GApp::Instance();
         }
         //===============================================
+        public function getUrl() {
+            $lUrl = "";
+            $lUrl .= "http://";
+            $lUrl .= $_SERVER['HTTP_HOST'];
+            $lUrl .=  $_SERVER['REQUEST_URI'];
+            return $lUrl;
+        }
+        //===============================================
     }
 ?>
