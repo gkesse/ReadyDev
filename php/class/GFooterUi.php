@@ -1,5 +1,5 @@
 <?php   
-    class GFooter extends GObject {
+    class GFooterUi extends GObjectUi {
         //===============================================
         public function __construct() {
             parent::__construct();

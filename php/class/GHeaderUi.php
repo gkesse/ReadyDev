@@ -1,16 +1,15 @@
 <?php   
 //===============================================
-class GHeader extends GModule {
+class GHeaderUi extends GObjectUi {
     //===============================================
     public function __construct() {
         parent::__construct();
-        $this->createDoms();
     }
     //===============================================
-    public function runUi() {
-        $lLang = $this->getItem("header", "lang");
-        $lTitle = $this->getItem("header", "title");
-        $lLogo = $this->getItem("header", "logo");
+    public function run() {
+        $lLang = $this->m_app->getItem("header", "lang");
+        $lTitle = $this->m_app->getItem("header", "title");
+        $lLogo = $this->m_app->getItem("header", "logo");
         
         echo sprintf("<!DOCTYPE html>\n");
         echo sprintf("<html lang='%s'>\n", $lLang);
@@ -51,9 +50,9 @@ class GHeader extends GModule {
     }
     //===============================================
     public function onFontsUi() {
-        $lCount = $this->countItem("fonts");
+        $lCount = $this->m_app->countItem("fonts");
         for($i = 0; $i < $lCount; $i++) {
-            $lFont = $this->getItem2("fonts", $i);
+            $lFont = $this->m_app->getItem2("fonts", $i);
             echo sprintf("<link rel='stylesheet' href='%s'/>\n", $lFont);
         }
     }
@@ -110,19 +109,19 @@ class GHeader extends GModule {
         $lPageObj = new GPage();
         $lSessionObj = new GSession();
         
-        $lCount = $this->countItem("menu");        
+        $lCount = $this->m_app->countItem("menu");        
         $lPage = $lPageObj->getPageId();
         $lLoginOn = $lSessionObj->issetSession("user/login");
         $lGroup = $lSessionObj->getSession("user/group");
         $lRootOn = ($lGroup == G_USER_GROUP_ROOT);
         
         for($i = 0; $i < $lCount; $i++) {
-            $lType = $this->getItem3("menu", "type", $i);
-            $lName = $this->getItem3("menu", "name", $i);
-            $lImg = $this->getItem3("menu", "img", $i);
-            $lLink = $this->getItem3("menu", "link", $i);
-            $lModule = $this->getItem3("menu", "module", $i);
-            $lMethod = $this->getItem3("menu", "method", $i);
+            $lType = $this->m_app->getItem3("menu", "type", $i);
+            $lName = $this->m_app->getItem3("menu", "name", $i);
+            $lImg = $this->m_app->getItem3("menu", "img", $i);
+            $lLink = $this->m_app->getItem3("menu", "link", $i);
+            $lModule = $this->m_app->getItem3("menu", "module", $i);
+            $lMethod = $this->m_app->getItem3("menu", "method", $i);
             
             $lActive = "";
             if($lLink == $lPage) $lActive = " Active";
@@ -189,14 +188,14 @@ class GHeader extends GModule {
     public function onSiteUi() {
         echo sprintf("<div class='Row'>\n");
         
-        $lCount = $this->countItem("header");
+        $lCount = $this->m_app->countItem("header");
         
         for($i = 0; $i < $lCount; $i++) {
-            $lCategory = $this->getItem3("header", "category", $i);
-            $lLink = $this->getItem3("header", "link", $i);
-            $lClass = $this->getItem3("header", "class", $i);
-            $lTitle = $this->getItem3("header", "title", $i);
-            $lPicto = $this->getItem3("header", "picto", $i);
+            $lCategory = $this->m_app->getItem3("header", "category", $i);
+            $lLink = $this->m_app->getItem3("header", "link", $i);
+            $lClass = $this->m_app->getItem3("header", "class", $i);
+            $lTitle = $this->m_app->getItem3("header", "title", $i);
+            $lPicto = $this->m_app->getItem3("header", "picto", $i);
             
             if($lCategory != "site") continue;
             
@@ -248,13 +247,13 @@ class GHeader extends GModule {
         
         echo sprintf("<div class='Row22'>\n");
         
-        $lCount = $this->countItem("header");
+        $lCount = $this->m_app->countItem("header");
         
         for($i = 0; $i < $lCount; $i++) {
-            $lCategory = $this->getItem3("header", "category", $i);
-            $lLink = $this->getItem3("header", "link", $i);
-            $lClass = $this->getItem3("header", "class", $i);
-            $lPicto = $this->getItem3("header", "picto", $i);
+            $lCategory = $this->m_app->getItem3("header", "category", $i);
+            $lLink = $this->m_app->getItem3("header", "link", $i);
+            $lClass = $this->m_app->getItem3("header", "class", $i);
+            $lPicto = $this->m_app->getItem3("header", "picto", $i);
             
             if($lCategory != "networks") continue;
                 
@@ -274,7 +273,7 @@ class GHeader extends GModule {
     }
     //===============================================
     public function getHappyYear() {
-        $lHappy = $this->getItem("happyyear", "msg");
+        $lHappy = $this->m_app->getItem("happyyear", "msg");
         $lYear = date("Y");
         $lData = sprintf("%s %s", $lHappy, $lYear);
         return $lData;

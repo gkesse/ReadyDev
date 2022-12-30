@@ -33,7 +33,7 @@ class GProcess extends GObject {
     }
     //===============================================
     public function runProd() {
-        $lReadyObj = new GReady();
+        $lReadyObj = new GReadyUi();
         $lReadyObj->run();
     }
     //===============================================

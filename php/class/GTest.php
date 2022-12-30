@@ -106,7 +106,7 @@
         }
         //===============================================
         public function onFooterUi() {
-            $lFooter = new GFooter();
+            $lFooter = new GFooterUi();
             $lFooter->loadScripts();
             echo sprintf("</body>\n");
             echo sprintf("</html>\n");
