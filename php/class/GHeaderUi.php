@@ -2,14 +2,29 @@
 //===============================================
 class GHeaderUi extends GObjectUi {
     //===============================================
+    protected $m_envUi;
+    protected $m_connectUi;
+    protected $m_accountUi;
+    protected $m_disconnectUi;
+    protected $m_errorUi;
+    protected $m_logUi;
+    //===============================================
     public function __construct() {
         parent::__construct();
+        $this->m_envUi          = new GEnvUi();
+        $this->m_connectUi      = new GConnectUi();
+        $this->m_disconnectUi   = new GDisconnectUi();
+        $this->m_accountUi      = new GAccountUi();
+        $this->m_tableUi        = new GTableUi();
+        $this->m_confirmUi      = new GConfirmUi();
+        $this->m_errorUi        = new GErrorUi();
+        $this->m_logUi          = new GLogUi();
     }
     //===============================================
     public function run() {
-        $lLang = $this->m_app->getItem("header", "lang");
+        $lLang  = $this->m_app->getItem("header", "lang");
         $lTitle = $this->m_app->getItem("header", "title");
-        $lLogo = $this->m_app->getItem("header", "logo");
+        $lLogo  = $this->m_app->getItem("header", "logo");
         
         echo sprintf("<!DOCTYPE html>\n");
         echo sprintf("<html lang='%s'>\n", $lLang);
@@ -24,15 +39,15 @@ class GHeaderUi extends GObjectUi {
         echo sprintf("<body>\n");
         echo sprintf("<div class='HtmlPage'>\n");
         
-        $this->onEnvui();
+        $this->m_envUi->run();
         $this->onBackgroundUi();
-        $this->onConnectionUi();
-        $this->onAccountUi();
-        $this->onDisconnectionUi();
-        $this->onTableUi();
-        $this->onConfirmUi();
-        $this->onErrorUi();
-        $this->onLogUi();
+        $this->m_connectUi->run();
+        $this->m_accountUi->run();
+        $this->m_disconnectUi->run();
+        $this->m_tableUi->run();
+        $this->m_confirmUi->run();
+        $this->m_errorUi->run();
+        $this->m_logUi->run();
         
         echo sprintf("<div class='BodyPage'>\n");
         echo sprintf("<div class='MainPage'>\n");
@@ -57,50 +72,10 @@ class GHeaderUi extends GObjectUi {
         }
     }
     //===============================================
-    public function onEnvUi() {
-        $lEnv = new GEnv();
-        $lEnv->onEnvUi();
-    }
-    //===============================================
     public function onBackgroundUi() {
         echo sprintf("<div class='Background Top'></div>\n");
         echo sprintf("<div class='Background Middle'></div>\n");
         echo sprintf("<div class='Background Bottom'></div>\n");
-    }
-    //===============================================
-    public function onConnectionUi() {
-        $lUser = new GUser();
-        $lUser->onConnectionUi();
-    }
-    //===============================================
-    public function onAccountUi() {
-        $lUser = new GUser();
-        $lUser->onAccountUi();
-    }
-    //===============================================
-    public function onDisconnectionUi() {
-        $lUser = new GUser();
-        $lUser->onDisconnectionUi();
-    }
-    //===============================================
-    public function onErrorUi() {
-        $lLog = new GLog();
-        $lLog->onErrorUi();
-    }
-    //===============================================
-    public function onLogUi() {
-        $lLog = new GLog();
-        $lLog->onLogUi();
-    }
-    //===============================================
-    public function onTableUi() {
-        $lTable = new GTable();
-        $lTable->onTableUi();
-    }
-    //===============================================
-    public function onConfirmUi() {
-        $lConfirm = new GConfirm();
-        $lConfirm->onConfirmUi();
     }
     //===============================================
     public function onMenuUi() {        

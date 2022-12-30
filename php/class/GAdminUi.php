@@ -1,6 +1,6 @@
 <?php
 //===============================================
-class GAdmin extends GObject {
+class GAdminUi extends GObject {
     //===============================================
     private static $m_instance = null;
     //===============================================
@@ -11,7 +11,7 @@ class GAdmin extends GObject {
     //===============================================
     public static function Instance() {
         if(is_null(self::$m_instance)) {
-            self::$m_instance = new GAdmin();
+            self::$m_instance = new GAdminUi();
         }
         return self::$m_instance;
     }

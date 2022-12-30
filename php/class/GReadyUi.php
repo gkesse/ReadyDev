@@ -4,11 +4,17 @@
         protected $m_isFound;
         protected $m_headerUi;
         protected $m_footerUi;
+        protected $m_adminUi;
+        protected $m_pageUi;
+        protected $m_page;
         //===============================================
         public function __construct() {
             parent::__construct();
             $this->m_headerUi   = new GHeaderUi();
             $this->m_footerUi   = new GFooterUi();
+            $this->m_adminUi    = new GAdminUi();
+            $this->m_pageUi     = new GPage();
+            $this->m_page       = new GPage();
             $this->m_isFound    = false;
         }
         //===============================================
@@ -26,18 +32,15 @@
         }
         //===============================================
         public function onAdmin() {
-            $lPageObj = new GPage();
-            $lPage = $lPageObj->getPageId();
+            $lPage = $this->m_page->getPageId();
             if($lPage != "/home/admin") return;
             $this->m_isFound = true;
-            $lAdminObj = new GAdmin();
-            $lAdminObj->run();
+            $this->m_adminUi->run();
         }
         //===============================================
         public function onError() {
             if($this->m_isFound) return;
-            $lPageObj = new GPage();
-            $lPageObj->notFound();
+            $this->m_pageUi->notFound();
         }
         //===============================================
     }

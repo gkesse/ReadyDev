@@ -1,23 +1,22 @@
 <?php   
 //===============================================
-class GConfirm extends GObject {
+class GLogUi extends GObjectUi {
     //===============================================
     public function __construct() {
         parent::__construct();
-        $this->createDoms();
     }
     //===============================================
-    public function onConfirmUi() {
-        $lCount = $this->countItem("confirm");
-        $lTitle = $this->getItem("confirm", "title");
-        $lIntro = $this->getItem("confirm", "intro");
-        $lModalId = $this->getItem("confirm", "modal_id");
-        $lBodyId = $this->getItem("confirm", "body_id");
-        $lFormId = $this->getItem("confirm", "form_id");
-        $lMsgId = $this->getItem("confirm", "msg_id");
-        $lModule = $this->getItem("confirm", "module");
-        $lKeypressCB = $this->getItem("confirm", "keypress_cb");
-        $lCloseCB = $this->getItem("confirm", "close_cb");
+    public function run() {
+        $lCount         = $this->m_app->countItem("logs");
+        $lTitle         = $this->m_app->getItem("logs", "title");
+        $lIntro         = $this->m_app->getItem("logs", "intro");
+        $lModalId       = $this->m_app->getItem("logs", "modal_id");
+        $lBodyId        = $this->m_app->getItem("logs", "body_id");
+        $lFormId        = $this->m_app->getItem("logs", "form_id");
+        $lMsgId         = $this->m_app->getItem("logs", "msg_id");
+        $lModule        = $this->m_app->getItem("logs", "module");
+        $lKeypressCB    = $this->m_app->getItem("logs", "keypress_cb");
+        $lCloseCB       = $this->m_app->getItem("logs", "close_cb");
         //
         echo sprintf("<div class='Modal' id='%s' onkeypress='server_call(\"%s\", \"%s\", this, event);'>\n", $lModalId, $lModule, $lKeypressCB);
         echo sprintf("<div class='Content10' id='%s'>\n", $lBodyId);
@@ -28,11 +27,11 @@ class GConfirm extends GObject {
         echo sprintf("<div class='Content15'>");
         
         for($i = 0; $i < $lCount; $i++) {
-            $lCategory = $this->getItem3("confirm", "category", $i);
-            $lModel = $this->getItem3("confirm", "model", $i);
-            $lId = $this->getItem3("confirm", "id", $i);
+            $lCategory  = $this->m_app->getItem3("logs", "category", $i);
+            $lModel     = $this->m_app->getItem3("logs", "model", $i);
+            $lId        = $this->m_app->getItem3("logs", "id", $i);
             
-            if($lCategory == "confirm/body") {
+            if($lCategory == "logs/body") {
                 if($lModel == "label") {
                     echo sprintf("<div id='%s'></div>\n", $lId);
                 }
@@ -43,15 +42,15 @@ class GConfirm extends GObject {
         echo sprintf("<div class='Row13'>\n");
         
         for($i = 0; $i < $lCount; $i++) {
-            $lCategory = $this->getItem3("confirm", "category", $i);
-            $lModel = $this->getItem3("confirm", "model", $i);
-            $lId = $this->getItem3("confirm", "id", $i);
-            $lModule = $this->getItem3("confirm", "module", $i);
-            $lCallback = $this->getItem3("confirm", "callback", $i);
-            $lPicto = $this->getItem3("confirm", "picto", $i);
-            $lText = $this->getItem3("confirm", "text", $i);
+            $lCategory  = $this->m_app->getItem3("logs", "category", $i);
+            $lModel     = $this->m_app->getItem3("logs", "model", $i);
+            $lId        = $this->m_app->getItem3("logs", "id", $i);
+            $lModule    = $this->m_app->getItem3("logs", "module", $i);
+            $lCallback  = $this->m_app->getItem3("logs", "callback", $i);
+            $lPicto     = $this->m_app->getItem3("logs", "picto", $i);
+            $lText      = $this->m_app->getItem3("logs", "text", $i);
             
-            if($lCategory == "confirm/button") {
+            if($lCategory == "logs/button") {
                 if($lModel == "button") {
                     echo sprintf("<button type='button' id='%s' class='Button4' onclick='server_call(\"%s\", \"%s\");'><i class='fa fa-%s'></i> %s</button>\n"
                         , $lId, $lModule, $lCallback, $lPicto, $lText);
