@@ -18,7 +18,7 @@ class GTable extends GModule {
         parent::deserialize($data);
         $lData = new GCode();
         $lData->loadXml($data);
-        $this->pseudo = $lData->getItem($code, "pseudo");
+        $this->pseudo = $lData->getData($code, "pseudo");
     }
     //===============================================
     public function onModule($data, $server) {
@@ -47,15 +47,15 @@ class GTable extends GModule {
     //===============================================
     public function onTableUi() {
         $lCount = $this->countItem("table");
-        $lTitle = $this->getItem("table", "title");
-        $lIntro = $this->getItem("table", "intro");
-        $lModalId = $this->getItem("table", "modal_id");
-        $lBodyId = $this->getItem("table", "body_id");
-        $lFormId = $this->getItem("table", "form_id");
-        $lMsgId = $this->getItem("table", "msg_id");
-        $lModule = $this->getItem("table", "module");
-        $lKeypressCB = $this->getItem("table", "keypress_cb");
-        $lCloseCB = $this->getItem("table", "close_cb");
+        $lTitle = $this->getData("table", "title");
+        $lIntro = $this->getData("table", "intro");
+        $lModalId = $this->getData("table", "modal_id");
+        $lBodyId = $this->getData("table", "body_id");
+        $lFormId = $this->getData("table", "form_id");
+        $lMsgId = $this->getData("table", "msg_id");
+        $lModule = $this->getData("table", "module");
+        $lKeypressCB = $this->getData("table", "keypress_cb");
+        $lCloseCB = $this->getData("table", "close_cb");
         //
         echo sprintf("<div class='Modal' id='%s' onkeypress='server_call(\"%s\", \"%s\", this, event);'>\n", $lModalId, $lModule, $lKeypressCB);
         echo sprintf("<div class='Content10' id='%s'>\n", $lBodyId);
@@ -65,10 +65,10 @@ class GTable extends GModule {
         echo sprintf("<div class='Row11'>%s</div>\n", $lIntro);
         
         for($i = 0; $i < $lCount; $i++) {
-            $lCategory = $this->getItem3("table", "category", $i);
-            $lModel = $this->getItem3("table", "model", $i);
-            $lId = $this->getItem3("table", "id", $i);
-            $lPageId = $this->getItem3("table", "page_id", $i);
+            $lCategory = $this->getData3("table", "category", $i);
+            $lModel = $this->getData3("table", "model", $i);
+            $lId = $this->getData3("table", "id", $i);
+            $lPageId = $this->getData3("table", "page_id", $i);
             
             if($lCategory == "table/body") {
                 if($lModel == "table") {
@@ -83,14 +83,14 @@ class GTable extends GModule {
         echo sprintf("<div class='Row35'>\n");
         
         for($i = 0; $i < $lCount; $i++) {
-            $lCategory = $this->getItem3("table", "category", $i);
-            $lModel = $this->getItem3("table", "model", $i);
-            $lId = $this->getItem3("table", "id", $i);
-            $lModule = $this->getItem3("table", "module", $i);
-            $lCallback = $this->getItem3("table", "callback", $i);
-            $lPicto = $this->getItem3("table", "picto", $i);
-            $lText = $this->getItem3("table", "text", $i, true);
-            $lOff = ($this->getItem3("table", "off", $i) == "1");
+            $lCategory = $this->getData3("table", "category", $i);
+            $lModel = $this->getData3("table", "model", $i);
+            $lId = $this->getData3("table", "id", $i);
+            $lModule = $this->getData3("table", "module", $i);
+            $lCallback = $this->getData3("table", "callback", $i);
+            $lPicto = $this->getData3("table", "picto", $i);
+            $lText = $this->getData3("table", "text", $i, true);
+            $lOff = ($this->getData3("table", "off", $i) == "1");
             
             if($lOff) continue;
             

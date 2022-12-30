@@ -21,8 +21,8 @@
             parent::deserialize($data);
             $lData = new GCode();
             $lData->loadXml($data);
-            $this->msg = $lData->getItem($code, "msg", true);
-            $this->res = $lData->getItem($code, "res", true);
+            $this->msg = $lData->getData($code, "msg", true);
+            $this->res = $lData->getData($code, "res", true);
         }
         //===============================================
         public function onModule($data, $server) {
@@ -55,8 +55,8 @@
         }
         //===============================================
         public function run() {
-            $lId = $this->getItem("query", "id");
-            $lTitle = $this->getItem("query", "title");
+            $lId = $this->getData("query", "id");
+            $lTitle = $this->getData("query", "title");
             
             echo sprintf("<div class='MainBlock'>\n");
             echo sprintf("<div class='Content'>\n");
@@ -83,10 +83,10 @@
             $lMethod = $this->getItemC("query", "header/link", "method");
             
             for($i = 0; $i < $lCount; $i++) {
-                $lCategory = $this->getItem3("query", "category", $i);
-                $lToolTip = $this->getItem3("query", "tooltip", $i);
-                $lId = $this->getItem3("query", "id", $i);
-                $lName = $this->getItem3("query", "name", $i);
+                $lCategory = $this->getData3("query", "category", $i);
+                $lToolTip = $this->getData3("query", "tooltip", $i);
+                $lId = $this->getData3("query", "id", $i);
+                $lName = $this->getData3("query", "name", $i);
                 
                 if($lCategory == "header") {
                     echo sprintf("<div class='Col'>\n");
@@ -124,12 +124,12 @@
             echo sprintf("<div class='Content9'>\n");
             
             for($i = 0; $i < $lCount; $i++) {
-                $lCategory = $this->getItem3("query", "category", $i);
-                $lId = $this->getItem3("query", "id", $i);
-                $lName = $this->getItem3("query", "name", $i);
-                $lRows = $this->getItem3("query", "rows", $i);
-                $lCols = $this->getItem3("query", "cols", $i);
-                $lPlaceholder = $this->getItem3("query", "placeholder", $i);
+                $lCategory = $this->getData3("query", "category", $i);
+                $lId = $this->getData3("query", "id", $i);
+                $lName = $this->getData3("query", "name", $i);
+                $lRows = $this->getData3("query", "rows", $i);
+                $lCols = $this->getData3("query", "cols", $i);
+                $lPlaceholder = $this->getData3("query", "placeholder", $i);
                 
                 if($lCategory == "emission/text") {
                     echo sprintf("<textarea class='Border Code3' id='%s' name='%s' rows='%s' cols='%s' placeholder='%s'></textarea>\n"
@@ -139,11 +139,11 @@
             
             echo sprintf("<div class='Row33'>\n");
             for($i = 0; $i < $lCount; $i++) {
-                $lCategory = $this->getItem3("query", "category", $i);
-                $lId = $this->getItem3("query", "id", $i);
-                $lText = $this->getItem3("query", "text", $i);
-                $lCheckedOn = ($this->getItem3("query", "checked_on", $i) == "1");
-                $lTooltip = $this->getItem3("query", "tooltip", $i);
+                $lCategory = $this->getData3("query", "category", $i);
+                $lId = $this->getData3("query", "id", $i);
+                $lText = $this->getData3("query", "text", $i);
+                $lCheckedOn = ($this->getData3("query", "checked_on", $i) == "1");
+                $lTooltip = $this->getData3("query", "tooltip", $i);
                 
                 if($lCategory == "emission/check") {
                     echo sprintf("<input class='Col' type='checkbox' id='%s' name='%s' value='%s' title='%s' checked='%s'><label class='Col' for='%s'> %s</label>"
@@ -153,11 +153,11 @@
             echo sprintf("</div>\n");
             
             for($i = 0; $i < $lCount; $i++) {
-                $lCategory = $this->getItem3("query", "category", $i);
-                $lName = $this->getItem3("query", "name", $i);
-                $lModule = $this->getItem3("query", "module", $i);
-                $lMethod = $this->getItem3("query", "method", $i);
-                $lTooltip = $this->getItem3("query", "tooltip", $i);
+                $lCategory = $this->getData3("query", "category", $i);
+                $lName = $this->getData3("query", "name", $i);
+                $lModule = $this->getData3("query", "module", $i);
+                $lMethod = $this->getData3("query", "method", $i);
+                $lTooltip = $this->getData3("query", "tooltip", $i);
                 
                 if($lCategory == "emission/button") {
                     echo sprintf("<div class='Col'>\n");
@@ -184,12 +184,12 @@
             echo sprintf("<div class='Content9'>\n");
             
             for($i = 0; $i < $lCount; $i++) {
-                $lCategory = $this->getItem3("query", "category", $i);
-                $lId = $this->getItem3("query", "id", $i);
-                $lName = $this->getItem3("query", "name", $i);
-                $lRows = $this->getItem3("query", "rows", $i);
-                $lCols = $this->getItem3("query", "cols", $i);
-                $lReadOnly = $this->getItem3("query", "readonly", $i);
+                $lCategory = $this->getData3("query", "category", $i);
+                $lId = $this->getData3("query", "id", $i);
+                $lName = $this->getData3("query", "name", $i);
+                $lRows = $this->getData3("query", "rows", $i);
+                $lCols = $this->getData3("query", "cols", $i);
+                $lReadOnly = $this->getData3("query", "readonly", $i);
                 
                 if($lCategory == "reception/text") {
                     echo sprintf("<textarea class='Border Code3' id='%s' name='%s' rows='%s' cols='%s' %s></textarea>\n"
@@ -197,11 +197,11 @@
                 }
             }
             for($i = 0; $i < $lCount; $i++) {
-                $lCategory = $this->getItem3("query", "category", $i);
-                $lName = $this->getItem3("query", "name", $i);
-                $lModule = $this->getItem3("query", "module", $i);
-                $lMethod = $this->getItem3("query", "method", $i);
-                $lTooltip = $this->getItem3("query", "tooltip", $i);
+                $lCategory = $this->getData3("query", "category", $i);
+                $lName = $this->getData3("query", "name", $i);
+                $lModule = $this->getData3("query", "module", $i);
+                $lMethod = $this->getData3("query", "method", $i);
+                $lTooltip = $this->getData3("query", "tooltip", $i);
                 
                 if($lCategory == "reception/button") {
                     echo sprintf("<div class='Col'>\n");

@@ -2,14 +2,20 @@
 //===============================================
 class GProcess extends GObject {
     //===============================================
+    protected $m_isTestEnv;
+    //===============================================
     public function __construct() {
         parent::__construct();
-        $this->createDoms();
+        $this->initProcess();
+    }
+    //===============================================
+    public function initProcess() {
+        $lEnv = new GEnv();       
+        $this->m_isTestEnv  = $lEnv->isTestEnv();
     }
     //===============================================
     public function run() {
-        $lEnvObj = new GEnv();
-        if($lEnvObj->isProdEnv()) {
+        if(!$this->m_isTestEnv) {
             $this->runProd();
         }
         else {
@@ -18,23 +24,13 @@ class GProcess extends GObject {
     }
     //===============================================
     public function runTest() {
-        $lEnv = $this->getItem("test", "env");
-        if($lEnv == "prod") {
-            $this->runProd();
-        }
-        else if($lEnv == "dev") {
-            $this->runDev();
-        }
-    }
-    //===============================================
-    public function runDev() {
-        $lTestObj = new GTest();
-        $lTestObj->run();
+        $lTest = new GTest();
+        $lTest->run();
     }
     //===============================================
     public function runProd() {
-        $lReadyObj = new GReady();
-        $lReadyObj->run();
+        $lReadyUi = new GReadyUi();
+        $lReadyUi->run();
     }
     //===============================================
  }

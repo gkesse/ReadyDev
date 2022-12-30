@@ -8,11 +8,6 @@
 
         }
         //===============================================
-        public function createDoms() {
-            $this->dom = new GCode();
-            $this->dom->loadFile("data/xml", "app.xml");
-        }
-        //===============================================
         public function clone() {
             return new GObject();
         }
@@ -22,16 +17,16 @@
             return true;
         }
         //===============================================
-        public function getItem($code, $key, $isCData = false) {
-            return $this->dom->getItem($code, $key, $isCData);
+        public function getData($code, $key, $isCData = false) {
+            return $this->dom->getData($code, $key, $isCData);
         }
         //===============================================
-        public function getItem2($code, $index, $isCData = false) {
+        public function getData2($code, $index, $isCData = false) {
             return $this->dom->getItem2($code, $index, $isCData);            
         }
         //===============================================
-        public function getItem3($code, $key, $index, $isCData = false) {
-            return $this->dom->getItem3($code, $key, $index, $isCData);
+        public function getData3($code, $key, $index, $isCData = false) {
+            return $this->dom->getData3($code, $key, $index, $isCData);
         }
         //===============================================
         public function getItemC($code, $category, $key, $isCData = false) {
@@ -48,6 +43,13 @@
         //===============================================
         public function countItem($code) {
             return $this->dom->countItem($code);
+        }
+        //===============================================
+        public function printData($data) {
+            echo sprintf("<xmp style='
+                font-family: courier;
+                font-size: 12pt;
+            '>%s</xmp>\n", $data);
         }
         //===============================================
     }

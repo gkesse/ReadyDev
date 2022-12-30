@@ -1,28 +1,32 @@
 <?php
 class GPage extends GObject {
     //===============================================
+    protected $m_pageId;
+    //===============================================
     public function __construct() {
         parent::__construct();
-        $this->createDoms();
+        $this->initPage();
+    }
+    //===============================================
+    public function initPage() {
+        $lGet = new GGet();
+        $this->m_pageId = $lGet->getGet("pageid");
+        $this->m_pageId = sprintf("/home/%s", $this->m_pageId);
+        if(substr($this->m_pageId, -1) == '/') {
+            $this->m_pageId = substr($this->m_pageId, 0, -1);
+        }
     }
     //===============================================
     public function getPageId() {
-        $lGetObj = new GGet();
-        $lPageId = $lGetObj->getGet("pageid");
-        $lPageId = sprintf("/home/%s", $lPageId);
-        if(substr($lPageId, -1) == '/') {
-            $lPageId = substr($lPageId, 0, -1);
-        }
-        return $lPageId;
+        return $this->m_pageId;
     }
     //===============================================
-    public function isPage($page) {
-        $lPageId = $this->getPageId();
-        return ($lPageId == $page);
+    public function isPage($_page) {
+        return ($this->m_pageId == $_page);
     }
     //===============================================
-    public function redirectUrl($url) {
-        $lLocation = sprintf("Location: %s", $url);
+    public function redirectUrl($_url) {
+        $lLocation = sprintf("Location: %s", $_url);
         header($lLocation);
         exit;
     }
@@ -40,15 +44,6 @@ class GPage extends GObject {
             $_FILES = $_SESSION["_SAVE_FILES_"];
             unset($_SESSION["_SAVE_POST_"], $_SESSION["_SAVE_FILES_"]);
         }
-    }
-    //===============================================
-    public function notFound() {
-        $lMsg = "<i class='NotFoundPicto fa fa-exclamation-triangle'></i> PAGE NON TROUVEE";
-        $lPageId = $this->getPageId();
-        echo sprintf("<div id='NotFoundBox' class='NotFound'>\n");
-        echo sprintf("<div class='ErrorsClose' onclick='server_call(\"page\", \"close_notfound\", this);'><i class='ErrorsCloseFa fa fa-times'></i></div>\n");
-        echo sprintf("<div class='NotFoundMain'>%s<br>%s</div>\n", $lMsg, $lPageId);
-        echo sprintf("</div>\n");        
     }
     //===============================================
 }

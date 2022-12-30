@@ -14,7 +14,7 @@ class GSocket extends GObject {
     //===============================================
     public function loadDomain() {
         $lDomain = AF_INET;
-        $lName = $this->getItem("socket", "domain");
+        $lName = $this->getData("socket", "domain");
         if($lName == "AF_INET") {
             $lDomain = AF_INET;
         }
@@ -23,7 +23,7 @@ class GSocket extends GObject {
     //===============================================
     public function loadType() {
         $lType = SOCK_STREAM;
-        $lName = $this->getItem("socket", "type");
+        $lName = $this->getData("socket", "type");
         if($lName == "SOCK_STREAM") {
             $lType = SOCK_STREAM;
         }
@@ -32,7 +32,7 @@ class GSocket extends GObject {
     //===============================================
     public function loadProtocol() {
         $lProtocol = SOL_TCP;
-        $lName = $this->getItem("socket", "protocol");
+        $lName = $this->getData("socket", "protocol");
         if($lName == "SOL_TCP") {
             $lProtocol = SOL_TCP;
         }
@@ -46,8 +46,8 @@ class GSocket extends GObject {
     }
     //===============================================
     public function loadPortEnv($isTestEnv) {
-        $lPort = intval($this->getItem("socket", "prod_port"));
-        if($isTestEnv) $lPort = intval($this->getItem("socket", "test_port"));
+        $lPort = intval($this->getData("socket", "prod_port"));
+        if($isTestEnv) $lPort = intval($this->getData("socket", "test_port"));
         return $lPort;
     }
     //===============================================
@@ -91,7 +91,7 @@ class GSocket extends GObject {
         $lLog = GLog::Instance();
         if($lLog->hasErrors()) return 0;
         $lSize = strlen($data);
-        $lKey = $this->getItem("socket", "api_key");
+        $lKey = $this->getData("socket", "api_key");
         $lBuffer = sprintf("%s;%d", $lKey, $lSize);
         $lBuffer = str_pad($lBuffer, self::BUFFER_NDATA_SIZE, " ", STR_PAD_RIGHT);
         $this->sendData($lBuffer);
@@ -128,7 +128,7 @@ class GSocket extends GObject {
         $lMap = explode(";", $lBuffer);
         if(count($lMap) != 2) return "";
         $lBuffer = $lMap[0];
-        $lKey = $this->getItem("socket", "api_key");
+        $lKey = $this->getData("socket", "api_key");
         if($lBuffer != $lKey) return "";
         $lBuffer = $lMap[1];
         $lSize = intval($lBuffer);
@@ -164,7 +164,7 @@ class GSocket extends GObject {
         $lDomain = $this->loadDomain();
         $lType = $this->loadType();
         $lProtocol = $this->loadProtocol();
-        $lAddress = gethostbyname($this->getItem("socket", "server_ip"));
+        $lAddress = gethostbyname($this->getData("socket", "server_ip"));
         $lPort = $this->loadPort();
         
         $this->createSocket($lDomain, $lType, $lProtocol);

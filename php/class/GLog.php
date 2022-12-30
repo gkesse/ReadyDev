@@ -74,15 +74,15 @@ class GLog extends GObject {
     //===============================================
     public function onLogUi() {
         $lCount = $this->countItem("logs");
-        $lTitle = $this->getItem("logs", "title");
-        $lIntro = $this->getItem("logs", "intro");
-        $lModalId = $this->getItem("logs", "modal_id");
-        $lBodyId = $this->getItem("logs", "body_id");
-        $lFormId = $this->getItem("logs", "form_id");
-        $lMsgId = $this->getItem("logs", "msg_id");
-        $lModule = $this->getItem("logs", "module");
-        $lKeypressCB = $this->getItem("logs", "keypress_cb");
-        $lCloseCB = $this->getItem("logs", "close_cb");
+        $lTitle = $this->getData("logs", "title");
+        $lIntro = $this->getData("logs", "intro");
+        $lModalId = $this->getData("logs", "modal_id");
+        $lBodyId = $this->getData("logs", "body_id");
+        $lFormId = $this->getData("logs", "form_id");
+        $lMsgId = $this->getData("logs", "msg_id");
+        $lModule = $this->getData("logs", "module");
+        $lKeypressCB = $this->getData("logs", "keypress_cb");
+        $lCloseCB = $this->getData("logs", "close_cb");
         //
         echo sprintf("<div class='Modal' id='%s' onkeypress='server_call(\"%s\", \"%s\", this, event);'>\n", $lModalId, $lModule, $lKeypressCB);
         echo sprintf("<div class='Content10' id='%s'>\n", $lBodyId);
@@ -93,9 +93,9 @@ class GLog extends GObject {
         echo sprintf("<div class='Content15'>");
         
         for($i = 0; $i < $lCount; $i++) {
-            $lCategory = $this->getItem3("logs", "category", $i);
-            $lModel = $this->getItem3("logs", "model", $i);
-            $lId = $this->getItem3("logs", "id", $i);
+            $lCategory = $this->getData3("logs", "category", $i);
+            $lModel = $this->getData3("logs", "model", $i);
+            $lId = $this->getData3("logs", "id", $i);
             
             if($lCategory == "logs/body") {
                 if($lModel == "label") {
@@ -108,13 +108,13 @@ class GLog extends GObject {
         echo sprintf("<div class='Row13'>\n");
         
         for($i = 0; $i < $lCount; $i++) {
-            $lCategory = $this->getItem3("logs", "category", $i);
-            $lModel = $this->getItem3("logs", "model", $i);
-            $lId = $this->getItem3("logs", "id", $i);
-            $lModule = $this->getItem3("logs", "module", $i);
-            $lCallback = $this->getItem3("logs", "callback", $i);
-            $lPicto = $this->getItem3("logs", "picto", $i);
-            $lText = $this->getItem3("logs", "text", $i);
+            $lCategory = $this->getData3("logs", "category", $i);
+            $lModel = $this->getData3("logs", "model", $i);
+            $lId = $this->getData3("logs", "id", $i);
+            $lModule = $this->getData3("logs", "module", $i);
+            $lCallback = $this->getData3("logs", "callback", $i);
+            $lPicto = $this->getData3("logs", "picto", $i);
+            $lText = $this->getData3("logs", "text", $i);
             
             if($lCategory == "logs/button") {
                 if($lModel == "button") {
@@ -133,15 +133,15 @@ class GLog extends GObject {
     //===============================================
     public function onErrorUi() {
         $lCount = $this->countItem("errors");
-        $lTitle = $this->getItem("errors", "title");
-        $lIntro = $this->getItem("errors", "intro");
-        $lModalId = $this->getItem("errors", "modal_id");
-        $lBodyId = $this->getItem("errors", "body_id");
-        $lFormId = $this->getItem("errors", "form_id");
-        $lMsgId = $this->getItem("errors", "msg_id");
-        $lModule = $this->getItem("errors", "module");
-        $lKeypressCB = $this->getItem("errors", "keypress_cb");
-        $lCloseCB = $this->getItem("errors", "close_cb");
+        $lTitle = $this->getData("errors", "title");
+        $lIntro = $this->getData("errors", "intro");
+        $lModalId = $this->getData("errors", "modal_id");
+        $lBodyId = $this->getData("errors", "body_id");
+        $lFormId = $this->getData("errors", "form_id");
+        $lMsgId = $this->getData("errors", "msg_id");
+        $lModule = $this->getData("errors", "module");
+        $lKeypressCB = $this->getData("errors", "keypress_cb");
+        $lCloseCB = $this->getData("errors", "close_cb");
         //
         echo sprintf("<div class='Modal' id='%s' onkeypress='server_call(\"%s\", \"%s\", this, event);'>\n", $lModalId, $lModule, $lKeypressCB);
         echo sprintf("<div class='Content10' id='%s'>\n", $lBodyId);
@@ -152,9 +152,9 @@ class GLog extends GObject {
         echo sprintf("<div class='Content15'>");
         
         for($i = 0; $i < $lCount; $i++) {
-            $lCategory = $this->getItem3("errors", "category", $i);
-            $lModel = $this->getItem3("errors", "model", $i);
-            $lId = $this->getItem3("errors", "id", $i);
+            $lCategory = $this->getData3("errors", "category", $i);
+            $lModel = $this->getData3("errors", "model", $i);
+            $lId = $this->getData3("errors", "id", $i);
             
             if($lCategory == "errors/body") {
                 if($lModel == "label") {
@@ -167,13 +167,13 @@ class GLog extends GObject {
         echo sprintf("<div class='Row13'>\n");
         
         for($i = 0; $i < $lCount; $i++) {
-            $lCategory = $this->getItem3("errors", "category", $i);
-            $lModel = $this->getItem3("errors", "model", $i);
-            $lId = $this->getItem3("errors", "id", $i);
-            $lModule = $this->getItem3("errors", "module", $i);
-            $lCallback = $this->getItem3("errors", "callback", $i);
-            $lPicto = $this->getItem3("errors", "picto", $i);
-            $lText = $this->getItem3("errors", "text", $i);
+            $lCategory = $this->getData3("errors", "category", $i);
+            $lModel = $this->getData3("errors", "model", $i);
+            $lId = $this->getData3("errors", "id", $i);
+            $lModule = $this->getData3("errors", "module", $i);
+            $lCallback = $this->getData3("errors", "callback", $i);
+            $lPicto = $this->getData3("errors", "picto", $i);
+            $lText = $this->getData3("errors", "text", $i);
             
             if($lCategory == "errors/button") {
                 if($lModel == "button") {

@@ -1,1297 +1,1263 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rdv>
-    <datas>
-        <!-- ============================================ -->
-        <!-- header -->
-        <!-- ============================================ -->
-        <data>
-            <code>header</code>
-            <lang>fr</lang>
-            <title>ReadyDev</title>
-            <logo>/data/img/defaults/readydev.png</logo>
-            <map>
-                <!-- ============================================ -->
-                <!-- site -->
-                <!-- ============================================ -->
-                <data>
-                    <category>site</category>
-                    <title>ReadyPad</title>
-                    <link>/readypad</link>
-                    <class>ReadyPHP</class>
-                    <picto>sign-in</picto>
-                </data>
-                <data>
-                    <category>site</category>
-                    <title>ReadyCGI</title>
-                    <link>http://readycgi.freeddns.org:8833</link>
-                    <class>ReadyCGI</class>
-                    <picto>sign-in</picto>
-                </data>
-                <!-- ============================================ -->
-                <!-- networks -->
-                <!-- ============================================ -->
-                <data>
-                    <category>networks</category>
-                    <link><![CDATA[http://www.facebook.com/sharer.php?u={url}]]></link>
-                    <class>Facebook</class>
-                    <picto>facebook</picto>
-                </data>
-                <data>
-                    <category>networks</category>
-                    <link><![CDATA[https://www.linkedin.com/shareArticle?mini=true&url={url}&title={title}&summary={summary}]]></link>
-                    <class>Twitter</class>
-                    <picto>linkedin</picto>
-                </data>
-                <!-- ============================================ -->
-                <!-- end -->
-                <!-- ============================================ -->
-            </map>
-         </data>
-        <!-- ============================================ -->
-        <!-- fonts -->
-        <!-- ============================================ -->
-        <data>
-            <code>fonts</code>
-            <map>
-                <data>/libs/google_fonts/Aclonica/css.css</data>
-                <data>/libs/google_fonts/Akronim/css.css</data>
-                <data>/libs/google_fonts/Allan/css.css</data>
-                <data>/libs/google_fonts/Archivo_Narrow/css.css</data>
-                <data>/libs/google_fonts/Anton/css.css</data>
-                <data>/libs/font_awesome/css/font-awesome.min.css</data>
-                <data>/css/style.php</data>
-            </map>
-         </data>
-        <!-- ============================================ -->
-        <!-- scripts -->
-        <!-- ============================================ -->
-        <data>
-            <code>scripts</code>
-            <map>
-                <data>/js/functions.js</data>
-                <data>/js/class/GDefine.js</data>
-                <data>/js/class/GObject.js</data>
-                <data>/js/class/GModule.js</data>
-                <data>/js/class/GConfirm.js</data>
-                <data>/js/class/GSearch.js</data>
-                <data>/js/class/GTable.js</data>
-                <data>/js/class/GDate.js</data>
-                <data>/js/class/GLog.js</data>
-                <data>/js/class/GEnv.js</data>
-                <data>/js/class/GPage.js</data>
-                <data>/js/class/GStore.js</data>
-                <data>/js/class/GXml.js</data>
-                <data>/js/class/GCode.js</data>
-                <data>/js/class/GAjax.js</data>
-                <data>/js/class/GManager.js</data>
-                <data>/js/class/GQuery.js</data>
-                <data>/js/class/GSitemap.js</data>
-                <data>/js/class/GUser.js</data>
-                <data>/js/class/GMenu.js</data>
-                <data>/js/class/GTest.js</data>
-                <data>/js/class/GServer.js</data>
-                <data>/js/script.js</data>
-            </map>
-         </data>
-        <!-- ============================================ -->
-        <!-- menu -->
-        <!-- ============================================ -->
-        <data>
-            <code>menu</code>
-            <map>
-		        <!-- ============================================ -->
-		        <!-- menu -->
-		        <!-- ============================================ -->
-                <data>
-                    <type>link/image</type>
-                    <name>ReadyDev</name>
-                    <img>/data/img/defaults/readydev.png</img>
-                    <link>/home</link>
-                </data>
-                <data>
-                    <type>link</type>
-                    <name>CV</name>
-                    <link>/home/cv</link>
-                </data>
-                <data>
-                    <type>link</type>
-                    <name>Présentation</name>
-                    <link>/home/presentation</link>
-                </data>
-                <data>
-                    <type>link</type>
-                    <name>Tutoriels</name>
-                    <link>/home/tutoriels</link>
-                </data>
-                <data>
-                    <type>link</type>
-                    <name>Cours</name>
-                    <link>/home/cours</link>
-                </data>
-                <data>
-                    <type>link</type>
-                    <name>Contacts</name>
-                    <link>/home/contacts</link>
-                </data>
-                <data>
-                    <type>link/admin</type>
-                    <name>Admin</name>
-                    <link>/home/admin</link>
-                </data>
-                <data>
-                    <type>link/admin</type>
-                    <name>Doc</name>
-                    <link>/home/doc</link>
-                </data>
-                <data>
-                    <type>link/login</type>
-                    <name>Connexion</name>
-                    <module>user</module>
-                    <method>open_connection</method>
-                </data>
-                <data>
-                    <type>link/logout</type>
-                    <name>Déconnexion</name>
-                    <module>user</module>
-                    <method>open_disconnection</method>
-                </data>
-                <data>
-                    <type>link/menu</type>
-                    <id>HeaderMenu</id>
-                    <name><![CDATA[<i class='fa fa-bars'></i>]]></name>
-                    <module>menu</module>
-                    <method>open_menu</method>
-                </data>
-		        <!-- ============================================ -->
-		        <!-- end -->
-		        <!-- ============================================ -->
-            </map>
-         </data>
-        <!-- ============================================ -->
-        <!-- networks -->
-        <!-- ============================================ -->
-        <data>
-            <code>networks</code>
-            <map>
-		        <!-- ============================================ -->
-		        <!-- networks -->
-		        <!-- ============================================ -->
-                <data>
-                    <name>Facebook</name>
-                    <icon>fa fa-facebook</icon>
-                    <link>#</link>
-                </data>
-                <data>
-                    <name>Skype</name>
-                    <icon>fa fa-skype</icon>
-                    <link>#</link>
-                </data>
-                <data>
-                    <name>GitHub</name>
-                    <icon>fa fa-github</icon>
-                    <link>https://github.com/gkesse/</link>
-                </data>
-                <data>
-                    <name>LinkedIn</name>
-                    <icon>fa fa-linkedin</icon>
-                    <link>https://www.linkedin.com/in/tia-gerard-kesse/</link>
-                </data>
-		        <!-- ============================================ -->
-		        <!-- end -->
-		        <!-- ============================================ -->
-            </map>
-         </data>
-        <!-- ============================================ -->
-        <!-- copyright -->
-        <!-- ============================================ -->
-        <data>
-            <code>copyright</code>
-            <date>2017</date>
-            <title>ReadyDev</title>
-            <text><![CDATA[
+	<datas>
+		<!-- ============================================ -->
+		<!-- header -->
+		<!-- ============================================ -->
+		<data>
+			<code>header</code>
+			<lang>fr</lang>
+			<title>ReadyDev</title>
+			<logo>/data/img/defaults/readydev.png</logo>
+			<map>
+				<!-- ============================================ -->
+				<!-- site -->
+				<!-- ============================================ -->
+				<data>
+					<category>site</category>
+					<title>ReadyPad</title>
+					<link>/readypad</link>
+					<class>ReadyPHP</class>
+					<picto>sign-in</picto>
+				</data>
+				<data>
+					<category>site</category>
+					<title>ReadyCGI</title>
+					<link>http://readycgi.freeddns.org:8833</link>
+					<class>ReadyCGI</class>
+					<picto>sign-in</picto>
+				</data>
+				<!-- ============================================ -->
+				<!-- networks -->
+				<!-- ============================================ -->
+				<data>
+					<category>networks</category>
+					<link><![CDATA[http://www.facebook.com/sharer.php?u={url}]]></link>
+					<class>Facebook</class>
+					<picto>facebook</picto>
+				</data>
+				<data>
+					<category>networks</category>
+					<link><![CDATA[https://www.linkedin.com/shareArticle?mini=true&url={url}&title={title}&summary={summary}]]></link>
+					<class>Twitter</class>
+					<picto>linkedin</picto>
+				</data>
+				<!-- ============================================ -->
+				<!-- end -->
+				<!-- ============================================ -->
+			</map>
+		</data>
+		<!-- ============================================ -->
+		<!-- fonts -->
+		<!-- ============================================ -->
+		<data>
+			<code>fonts</code>
+			<map>
+				<data>/libs/google_fonts/Aclonica/css.css</data>
+				<data>/libs/google_fonts/Akronim/css.css</data>
+				<data>/libs/google_fonts/Allan/css.css</data>
+				<data>/libs/google_fonts/Archivo_Narrow/css.css</data>
+				<data>/libs/google_fonts/Anton/css.css</data>
+				<data>/libs/font_awesome/css/font-awesome.min.css</data>
+				<data>/css/style.php</data>
+			</map>
+		</data>
+		<!-- ============================================ -->
+		<!-- scripts -->
+		<!-- ============================================ -->
+		<data>
+			<code>scripts</code>
+			<map>
+				<data>/js/functions.js</data>
+				<data>/js/class/GDefine.js</data>
+				<data>/js/class/GObject.js</data>
+				<data>/js/class/GModule.js</data>
+				<data>/js/class/GConfirm.js</data>
+				<data>/js/class/GSearch.js</data>
+				<data>/js/class/GTable.js</data>
+				<data>/js/class/GDate.js</data>
+				<data>/js/class/GLog.js</data>
+				<data>/js/class/GEnv.js</data>
+				<data>/js/class/GPage.js</data>
+				<data>/js/class/GStore.js</data>
+				<data>/js/class/GXml.js</data>
+				<data>/js/class/GCode.js</data>
+				<data>/js/class/GAjax.js</data>
+				<data>/js/class/GManager.js</data>
+				<data>/js/class/GQuery.js</data>
+				<data>/js/class/GSitemap.js</data>
+				<data>/js/class/GUser.js</data>
+				<data>/js/class/GMenu.js</data>
+				<data>/js/class/GTest.js</data>
+				<data>/js/class/GServer.js</data>
+				<data>/js/script.js</data>
+			</map>
+		</data>
+		<!-- ============================================ -->
+		<!-- menu -->
+		<!-- ============================================ -->
+		<data>
+			<code>menu</code>
+			<map>
+				<!-- ============================================ -->
+				<!-- menu -->
+				<!-- ============================================ -->
+				<data>
+					<type>link_image</type>
+					<name>ReadyDev</name>
+					<img>/data/img/defaults/readydev.png</img>
+					<link>/home</link>
+				</data>
+				<data>
+					<type>link</type>
+					<name>CV</name>
+					<link>/home/cv</link>
+				</data>
+				<data>
+					<type>link</type>
+					<name>Présentation</name>
+					<link>/home/presentation</link>
+				</data>
+				<data>
+					<type>link</type>
+					<name>Tutoriels</name>
+					<link>/home/tutoriels</link>
+				</data>
+				<data>
+					<type>link</type>
+					<name>Cours</name>
+					<link>/home/cours</link>
+				</data>
+				<data>
+					<type>link</type>
+					<name>Contacts</name>
+					<link>/home/contacts</link>
+				</data>
+				<data>
+					<type>link_admin</type>
+					<name>Admin</name>
+					<link>/home/admin</link>
+				</data>
+				<data>
+					<type>link_admin</type>
+					<name>Doc</name>
+					<link>/home/doc</link>
+				</data>
+				<data>
+					<type>link_login</type>
+					<name>Connexion</name>
+					<module>user</module>
+					<method>open_connection</method>
+				</data>
+				<data>
+					<type>link_logout</type>
+					<name>Déconnexion</name>
+					<module>user</module>
+					<method>open_disconnection</method>
+				</data>
+				<data>
+					<type>link_menu</type>
+					<id>HeaderMenu</id>
+					<name><![CDATA[<i class='fa fa-bars'></i>]]></name>
+					<module>menu</module>
+					<method>open_menu</method>
+				</data>
+				<!-- ============================================ -->
+				<!-- end -->
+				<!-- ============================================ -->
+			</map>
+		</data>
+		<!-- ============================================ -->
+		<!-- networks -->
+		<!-- ============================================ -->
+		<data>
+			<code>networks</code>
+			<map>
+				<!-- ============================================ -->
+				<!-- networks -->
+				<!-- ============================================ -->
+				<data>
+					<name>Facebook</name>
+					<icon>fa fa-facebook</icon>
+					<link>#</link>
+				</data>
+				<data>
+					<name>Skype</name>
+					<icon>fa fa-skype</icon>
+					<link>#</link>
+				</data>
+				<data>
+					<name>GitHub</name>
+					<icon>fa fa-github</icon>
+					<link>https://github.com/gkesse/</link>
+				</data>
+				<data>
+					<name>LinkedIn</name>
+					<icon>fa fa-linkedin</icon>
+					<link>https://www.linkedin.com/in/tia-gerard-kesse/</link>
+				</data>
+				<!-- ============================================ -->
+				<!-- end -->
+				<!-- ============================================ -->
+			</map>
+		</data>
+		<!-- ============================================ -->
+		<!-- copyright -->
+		<!-- ============================================ -->
+		<data>
+			<code>copyright</code>
+			<date>2017</date>
+			<title>ReadyDev</title>
+			<text><![CDATA[
                 Plateforme de Développement Continu<br/>
                 Produit par <b>Gérard KESSE</b><br/>
                 Polytech'Montpellier<br/>
             ]]></text>
-         </data>
-        <!-- ============================================ -->
-        <!-- socket -->
-        <!-- ============================================ -->
-           <data>
-            <code>socket</code>
-            <domain>AF_INET</domain>
-            <type>SOCK_STREAM</type>
-            <protocol>SOL_TCP</protocol>
-            <server_ip>readydev.ovh</server_ip>
-            <client_ip>0.0.0.0</client_ip>
-            <prod_port>9090</prod_port>
-            <test_port>9091</test_port>
-            <backlog>5</backlog>
-            <api_key>16ac9e66cde8bd80d6141dadb74b5083</api_key>
-        </data>
-        <!-- ============================================ -->
-        <!-- home -->
-        <!-- ============================================ -->
-        <data>
-            <code>home</code>
-            <page>/Accueil/</page>
-         </data>
-        <!-- ============================================ -->
-        <!-- happyyear -->
-        <!-- ============================================ -->
-        <data>
-            <code>happyyear</code>
-            <msg>Bonne et Heureuse Année</msg>
-         </data>
-        <!-- ============================================ -->
-        <!-- admin -->
-        <!-- ============================================ -->
-        <data>
-            <code>admin</code>
-            <title>Administration</title>
-            <intro><![CDATA[
+		</data>
+		<!-- ============================================ -->
+		<!-- socket -->
+		<!-- ============================================ -->
+		<data>
+			<code>socket</code>
+			<domain>AF_INET</domain>
+			<type>SOCK_STREAM</type>
+			<protocol>SOL_TCP</protocol>
+			<server_ip>readydev.ovh</server_ip>
+			<client_ip>0.0.0.0</client_ip>
+			<prod_port>9090</prod_port>
+			<test_port>9091</test_port>
+			<backlog>5</backlog>
+			<api_key>16ac9e66cde8bd80d6141dadb74b5083</api_key>
+		</data>
+		<!-- ============================================ -->
+		<!-- home -->
+		<!-- ============================================ -->
+		<data>
+			<code>home</code>
+			<page>/Accueil/</page>
+		</data>
+		<!-- ============================================ -->
+		<!-- happyyear -->
+		<!-- ============================================ -->
+		<data>
+			<code>happyyear</code>
+			<msg>Bonne et Heureuse Année</msg>
+		</data>
+		<!-- ============================================ -->
+		<!-- admin -->
+		<!-- ============================================ -->
+		<data>
+			<code>admin</code>
+			<title>Administration</title>
+			<intro><![CDATA[
                 <b>ReadyAdmin</b> est l'interface d'administration du site <b>ReadyDev</b>.<br/>
                 Il vous permet d'ajouter et de modifier le contenu du site <b>ReadyDev</b>.<br/>
                 Produit par <b>Gérard KESSE</b>.
             ]]></intro>
-            <map>
-                   <!-- ============================================ -->
-                   <!-- intro/link -->
-                   <!-- ============================================ -->
-                <data>
-                    <category>intro/link</category>
-                    <name>Manager de données</name>
-                    <link>#Manager_Donnees</link>
-                </data>
-                <data>
-                    <category>intro/link</category>
-                    <name>Gestionnaire de requêtes</name>
-                    <link>#Gestionnaire_Requete</link>
-                </data>
-                <data>
-                    <category>intro/link</category>
-                    <name>Éditeur de Sitemap</name>
-                    <link>#Editeur_Sitemap</link>
-                </data>
-                <data>
-                    <category>intro/link</category>
-                    <name>Éditeur de Page HTML</name>
-                    <link>#Editeur_Page_HTML</link>
-                </data>
-                   <!-- ============================================ -->
-                   <!-- end -->
-                   <!-- ============================================ -->
-            </map>
-         </data>
-        <!-- ============================================ -->
-        <!-- sitemap -->
-        <!-- ============================================ -->
-        <data>
-            <code>sitemap</code>
-            <title>Éditeur de Sitemap</title>
-            <id>Editeur_Sitemap</id>
-            <map>
-                <!-- ============================================ -->
-                <!-- header -->
-                <!-- ============================================ -->
-                <data>
-                    <category>header</category>
-                    <tooltip>Accueil</tooltip>
-                    <id>SitemapTab0</id>
-                    <name><![CDATA[<i class='fa fa-home'></i>]]></name>
-                </data>
-                <data>
-                    <category>header</category>
-                    <tooltip>Enumération</tooltip>
-                    <id>SitemapTab1</id>
-                    <name>Enumération</name>
-                </data>
-                <data>
-                    <category>header</category>
-                    <tooltip>Liste</tooltip>
-                    <id>SitemapTab2</id>
-                    <name>Liste</name>
-                </data>
-                <data>
-                    <category>header</category>
-                    <tooltip>Génération</tooltip>
-                    <id>SitemapTab3</id>
-                    <name>Génération</name>
-                </data>
-                <data>
-                    <category>header</category>
-                    <tooltip>Visualisation</tooltip>
-                    <id>SitemapTab4</id>
-                    <name>Visualisation</name>
-                </data>
-                   <!-- ============================================ -->
-                   <!-- header/link -->
-                   <!-- ============================================ -->
-                <data>
-                    <category>header/link</category>
-                    <module>sitemap</module>
-                    <method>open_header</method>
-                </data>
-                <!-- ============================================ -->
-                <!-- home -->
-                <!-- ============================================ -->
-                <data>
-                    <category>home</category>
-                    <title>ReadySitemap</title>
-                    <id>SitemapTab0</id>
-                    <intro><![CDATA[
+			<map>
+				<!-- ============================================ -->
+				<!-- intro/link -->
+				<!-- ============================================ -->
+				<data>
+					<category>intro/link</category>
+					<name>Manager de données</name>
+					<link>#Manager_Donnees</link>
+				</data>
+				<data>
+					<category>intro/link</category>
+					<name>Gestionnaire de requêtes</name>
+					<link>#Gestionnaire_Requete</link>
+				</data>
+				<data>
+					<category>intro/link</category>
+					<name>Éditeur de Sitemap</name>
+					<link>#Editeur_Sitemap</link>
+				</data>
+				<data>
+					<category>intro/link</category>
+					<name>Éditeur de Page HTML</name>
+					<link>#Editeur_Page_HTML</link>
+				</data>
+				<!-- ============================================ -->
+				<!-- end -->
+				<!-- ============================================ -->
+			</map>
+		</data>
+		<!-- ============================================ -->
+		<!-- sitemap -->
+		<!-- ============================================ -->
+		<data>
+			<code>sitemap</code>
+			<title>Éditeur de Sitemap</title>
+			<id>Editeur_Sitemap</id>
+			<map>
+				<!-- ============================================ -->
+				<!-- header -->
+				<!-- ============================================ -->
+				<data>
+					<category>header</category>
+					<tooltip>Accueil</tooltip>
+					<id>SitemapTab0</id>
+					<name><![CDATA[<i class='fa fa-home'></i>]]></name>
+				</data>
+				<data>
+					<category>header</category>
+					<tooltip>Enumération</tooltip>
+					<id>SitemapTab1</id>
+					<name>Enumération</name>
+				</data>
+				<data>
+					<category>header</category>
+					<tooltip>Liste</tooltip>
+					<id>SitemapTab2</id>
+					<name>Liste</name>
+				</data>
+				<data>
+					<category>header</category>
+					<tooltip>Génération</tooltip>
+					<id>SitemapTab3</id>
+					<name>Génération</name>
+				</data>
+				<data>
+					<category>header</category>
+					<tooltip>Visualisation</tooltip>
+					<id>SitemapTab4</id>
+					<name>Visualisation</name>
+				</data>
+				<!-- ============================================ -->
+				<!-- header/link -->
+				<!-- ============================================ -->
+				<data>
+					<category>header/link</category>
+					<module>sitemap</module>
+					<method>open_header</method>
+				</data>
+				<!-- ============================================ -->
+				<!-- home -->
+				<!-- ============================================ -->
+				<data>
+					<category>home</category>
+					<title>ReadySitemap</title>
+					<id>SitemapTab0</id>
+					<intro><![CDATA[
                         <b>ReadySitemap</b> est un générateur de sitemap.
                         Il permet de générer automatiquement le sitemap d'un siteweb.
                         Les urls utilisées doivent être listées dans une source de données.
                         Pareil pour les dates de dernières modification et les fréquences de changement du siteweb.
                         <br>Produit par <b>Gérard KESSE</b>.
                        ]]></intro>
-                 </data>
-                <!-- ============================================ -->
-                <!-- enum -->
-                   <!-- ============================================ -->
-                   <data>
-                          <category>enum</category>
-                    <title>Énumération</title>
-                    
-                   <id>SitemapTab1</id></data>
-                   <!-- ============================================ -->
-                   <!-- enum/action -->
-                   <!-- ============================================ -->
-                <data>
-                    <category>enum/action</category>
-                    <name>Énumérer</name>
-                    <picto>list</picto>
-                    <tooltip>Énumérer</tooltip>
-                    <module>sitemap</module>
-                    <method>get_enum</method>
-                </data>
-                <data>
-                    <category>enum/action</category>
-                    <name>Supprimer</name>
-                    <picto>trash</picto>
-                    <tooltip>Supprimer</tooltip>
-                    <module>sitemap</module>
-                    <method>clear_enum</method>
-                </data>
-                   <!-- ============================================ -->
-                   <!-- enum/form -->
-                   <!-- ============================================ -->
-                <data>
-                    <category>enum/form</category>
-                    <label>URLs du site :</label>
-                    <id>SitemapUrlSite</id>
-                </data>
-                <data>
-                    <category>enum/form</category>
-                    <label>URLs maximal :</label>
-                    <id>SitemapUrlMax</id>
-                </data>
-                <data>
-                    <category>enum/form</category>
-                    <label>Sitemap total :</label>
-                    <id>SitemapTotal</id>
-                </data>
-                   <!-- ============================================ -->
-                   <!-- list -->
-                   <!-- ============================================ -->
-                <data>
-                    <category>list</category>
-                    <title>Liste</title>
-                    <id>SitemapTab2</id>
-                    <url>SitemapListUrl</url>
-                </data>
-                   <!-- ============================================ -->
-                   <!-- list/action -->
-                   <!-- ============================================ -->
-                <data>
-                    <category>list/action</category>
-                    <name>Lister</name>
-                    <picto>list</picto>
-                    <tooltip>Lister</tooltip>
-                    <module>sitemap</module>
-                    <method>get_list</method>
-                </data>
-                <data>
-                    <category>list/action</category>
-                    <name>Supprimer</name>
-                    <picto>trash</picto>
-                    <tooltip>Supprimer</tooltip>
-                    <module>sitemap</module>
-                    <method>clear_list</method>
-                </data>
-                   <!-- ============================================ -->
-                   <!-- generate -->
-                   <!-- ============================================ -->
-                <data>
-                    <category>generate</category>
-                    <title>Génération</title>
-                    <id>SitemapTab3</id>
-                    <url>SitemapGenerateUrl</url>
-                </data>
-                   <!-- ============================================ -->
-                   <!-- generate/action -->
-                   <!-- ============================================ -->
-                <data>
-                    <category>generate/action</category>
-                    <name>Générer</name>
-                    <picto>list</picto>
-                    <tooltip>Générer</tooltip>
-                    <module>sitemap</module>
-                    <method>get_generate</method>
-                </data>
-                <data>
-                    <category>generate/action</category>
-                    <name>Supprimer</name>
-                    <picto>trash</picto>
-                    <tooltip>Supprimer</tooltip>
-                    <module>sitemap</module>
-                    <method>clear_generate</method>
-                </data>
-                   <!-- ============================================ -->
-                   <!-- visualize -->
-                   <!-- ============================================ -->
-                <data>
-                    <category>visualize</category>
-                    <title>Visualisation</title>
-                    <id>SitemapTab4</id>
-                    <url>SitemapGenerateUrl</url>
-                </data>
-                   <!-- ============================================ -->
-                   <!-- visualize/action -->
-                   <!-- ============================================ -->
-                <data>
-                    <category>visualize/action</category>
-                    <name>Visualiser</name>
-                    <picto>list</picto>
-                    <tooltip>Visualiser</tooltip>
-                    <module>sitemap</module>
-                    <method>get_visualize</method>
-                </data>
-                <data>
-                    <category>visualize/action</category>
-                    <name>Supprimer</name>
-                    <picto>trash</picto>
-                    <tooltip>Supprimer</tooltip>
-                    <module>sitemap</module>
-                    <method>clear_visualize</method>
-                </data>
-                   <!-- ============================================ -->
-                   <!-- visualize/sitemap -->
-                   <!-- ============================================ -->
-                <data>
-                    <category>visualize/sitemap</category>
-                    <name>sitemaps.xml</name>
-                    <picto>list</picto>
-                    <tooltip>sitemaps.xml</tooltip>
-                    <onclick>SitemapFileTab0</onclick>
-                    <module>sitemap</module>
-                    <method>open_sitemap</method>
-                    <id>SitemapFileTab0</id>
-                </data>
-                <data>
-                    <category>visualize/sitemap</category>
-                    <name>sitemap.xml</name>
-                    <picto>list</picto>
-                    <tooltip>sitemap.xml</tooltip>
-                    <module>sitemap</module>
-                    <method>open_sitemap</method>
-                    <id>SitemapFileTab1</id>
-                </data>
-                   <!-- ============================================ -->
-                   <!-- visualize/content -->
-                   <!-- ============================================ -->
-                <data>
-                    <category>visualize/content</category>
-                    <id>SitemapFileTab0</id>
-                    <title>sitemaps.xml :</title>
-                    <content>SitemapVisualizeSite</content>
-                </data>
-                <data>
-                    <category>visualize/content</category>
-                    <id>SitemapFileTab1</id>
-                    <title>sitemap.xml :</title>
-                    <content>SitemapVisualizeUrl</content>
-                </data>
-                <!-- ============================================ -->
-                <!-- configs -->
-                <!-- ============================================ -->
-                <data>
-                    <category>configs</category>
-                    <path></path>
-                    <file>sitemap</file>
-                    <ext>xml</ext>
-                    <xmlns>http://www.sitemaps.org/schemas/sitemap/0.9</xmlns>
-                    <xsi>http://www.w3.org/2001/XMLSchema-instance</xsi>
-                    <schema>http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd</schema>
-                    <url_max>50000</url_max>
-                 </data>
-                   <!-- ============================================ -->
-                   <!-- end -->
-                   <!-- ============================================ -->
-            </map>
-         </data>
-        <!-- ============================================ -->
-        <!-- sitemap/urls -->
-        <!-- ============================================ -->
-        <data>
-            <code>sitemap/urls</code>
-            <map>
-                <data>
-                    <loc>/</loc>
-                    <lastmod>lastmod</lastmod>
-                    <changefreq>changefreq</changefreq>
-                    <priority>priority</priority>
-                </data>
-                <data>
-                    <loc>/home</loc>
-                    <lastmod>lastmod</lastmod>
-                    <changefreq>changefreq</changefreq>
-                    <priority>priority</priority>
-                </data>
-                <data>
-                    <loc>/home/cv</loc>
-                    <lastmod>lastmod</lastmod>
-                    <changefreq>changefreq</changefreq>
-                    <priority>priority</priority>
-                </data>
-                <data>
-                    <loc>/home/doc</loc>
-                    <lastmod>lastmod</lastmod>
-                    <changefreq>changefreq</changefreq>
-                    <priority>priority</priority>
-                </data>
-                <data>
-                    <loc>/home/presentation</loc>
-                    <lastmod>lastmod</lastmod>
-                    <changefreq>changefreq</changefreq>
-                    <priority>priority</priority>
-                </data>
-                <data>
-                    <loc>/home/tutoriels</loc>
-                    <lastmod>lastmod</lastmod>
-                    <changefreq>changefreq</changefreq>
-                    <priority>priority</priority>
-                </data>
-                <data>
-                    <loc>/home/cours</loc>
-                    <lastmod>lastmod</lastmod>
-                    <changefreq>changefreq</changefreq>
-                    <priority>priority</priority>
-                </data>
-                <data>
-                    <loc>/home/contacts</loc>
-                    <lastmod>lastmod</lastmod>
-                    <changefreq>changefreq</changefreq>
-                    <priority>priority</priority>
-                </data>
-            </map>
-         </data>
-        <!-- ============================================ -->
-        <!-- sitemap/changefreq -->
-        <!-- ============================================ -->
-        <data>
-            <code>sitemap/changefreq</code>
-            <map>
-                <data>always</data>
-                <data>hourly</data>
-                <data>daily</data>
-                <data>weekly</data>
-                <data>monthly</data>
-                <data>yearly</data>
-                <data>never</data>
-            </map>
-         </data>
-        <!-- ============================================ -->
-        <!-- manager -->
-        <!-- ============================================ -->
-        <data>
-            <code>manager</code>
-            <title>Manager de données</title>
-            <id>Manager_Donnees</id>
-            <map>
-                   <!-- ============================================ -->
-                   <!-- header -->
-                   <!-- ============================================ -->
-                <data>
-                    <category>header</category>
-                    <tooltip>Accueil</tooltip>
-                    <id>ManagerTab0</id>
-                    <name><![CDATA[<i class='fa fa-home'></i>]]></name>
-                </data>
-                <data>
-                    <category>header</category>
-                    <tooltip>Code</tooltip>
-                    <id>ManagerTab1</id>
-                    <name>Code</name>
-                </data>
-                   <!-- ============================================ -->
-                   <!-- header/link -->
-                   <!-- ============================================ -->
-                <data>
-                    <category>header/link</category>
-                    <module>manager</module>
-                    <method>open_header</method>
-                </data>
-                <!-- ============================================ -->
-                <!-- home -->
-                <!-- ============================================ -->
-                <data>
-                    <category>home</category>
-                    <title>ReadyManager</title>
-                    <id>ManagerTab0</id>
-                    <intro><![CDATA[
+				</data>
+				<!-- ============================================ -->
+				<!-- enum -->
+				<!-- ============================================ -->
+				<data>
+					<category>enum</category>
+					<title>Énumération</title>
+
+					<id>SitemapTab1</id>
+				</data>
+				<!-- ============================================ -->
+				<!-- enum/action -->
+				<!-- ============================================ -->
+				<data>
+					<category>enum/action</category>
+					<name>Énumérer</name>
+					<picto>list</picto>
+					<tooltip>Énumérer</tooltip>
+					<module>sitemap</module>
+					<method>get_enum</method>
+				</data>
+				<data>
+					<category>enum/action</category>
+					<name>Supprimer</name>
+					<picto>trash</picto>
+					<tooltip>Supprimer</tooltip>
+					<module>sitemap</module>
+					<method>clear_enum</method>
+				</data>
+				<!-- ============================================ -->
+				<!-- enum/form -->
+				<!-- ============================================ -->
+				<data>
+					<category>enum/form</category>
+					<label>URLs du site :</label>
+					<id>SitemapUrlSite</id>
+				</data>
+				<data>
+					<category>enum/form</category>
+					<label>URLs maximal :</label>
+					<id>SitemapUrlMax</id>
+				</data>
+				<data>
+					<category>enum/form</category>
+					<label>Sitemap total :</label>
+					<id>SitemapTotal</id>
+				</data>
+				<!-- ============================================ -->
+				<!-- list -->
+				<!-- ============================================ -->
+				<data>
+					<category>list</category>
+					<title>Liste</title>
+					<id>SitemapTab2</id>
+					<url>SitemapListUrl</url>
+				</data>
+				<!-- ============================================ -->
+				<!-- list/action -->
+				<!-- ============================================ -->
+				<data>
+					<category>list/action</category>
+					<name>Lister</name>
+					<picto>list</picto>
+					<tooltip>Lister</tooltip>
+					<module>sitemap</module>
+					<method>get_list</method>
+				</data>
+				<data>
+					<category>list/action</category>
+					<name>Supprimer</name>
+					<picto>trash</picto>
+					<tooltip>Supprimer</tooltip>
+					<module>sitemap</module>
+					<method>clear_list</method>
+				</data>
+				<!-- ============================================ -->
+				<!-- generate -->
+				<!-- ============================================ -->
+				<data>
+					<category>generate</category>
+					<title>Génération</title>
+					<id>SitemapTab3</id>
+					<url>SitemapGenerateUrl</url>
+				</data>
+				<!-- ============================================ -->
+				<!-- generate/action -->
+				<!-- ============================================ -->
+				<data>
+					<category>generate/action</category>
+					<name>Générer</name>
+					<picto>list</picto>
+					<tooltip>Générer</tooltip>
+					<module>sitemap</module>
+					<method>get_generate</method>
+				</data>
+				<data>
+					<category>generate/action</category>
+					<name>Supprimer</name>
+					<picto>trash</picto>
+					<tooltip>Supprimer</tooltip>
+					<module>sitemap</module>
+					<method>clear_generate</method>
+				</data>
+				<!-- ============================================ -->
+				<!-- visualize -->
+				<!-- ============================================ -->
+				<data>
+					<category>visualize</category>
+					<title>Visualisation</title>
+					<id>SitemapTab4</id>
+					<url>SitemapGenerateUrl</url>
+				</data>
+				<!-- ============================================ -->
+				<!-- visualize/action -->
+				<!-- ============================================ -->
+				<data>
+					<category>visualize/action</category>
+					<name>Visualiser</name>
+					<picto>list</picto>
+					<tooltip>Visualiser</tooltip>
+					<module>sitemap</module>
+					<method>get_visualize</method>
+				</data>
+				<data>
+					<category>visualize/action</category>
+					<name>Supprimer</name>
+					<picto>trash</picto>
+					<tooltip>Supprimer</tooltip>
+					<module>sitemap</module>
+					<method>clear_visualize</method>
+				</data>
+				<!-- ============================================ -->
+				<!-- visualize/sitemap -->
+				<!-- ============================================ -->
+				<data>
+					<category>visualize/sitemap</category>
+					<name>sitemaps.xml</name>
+					<picto>list</picto>
+					<tooltip>sitemaps.xml</tooltip>
+					<onclick>SitemapFileTab0</onclick>
+					<module>sitemap</module>
+					<method>open_sitemap</method>
+					<id>SitemapFileTab0</id>
+				</data>
+				<data>
+					<category>visualize/sitemap</category>
+					<name>sitemap.xml</name>
+					<picto>list</picto>
+					<tooltip>sitemap.xml</tooltip>
+					<module>sitemap</module>
+					<method>open_sitemap</method>
+					<id>SitemapFileTab1</id>
+				</data>
+				<!-- ============================================ -->
+				<!-- visualize/content -->
+				<!-- ============================================ -->
+				<data>
+					<category>visualize/content</category>
+					<id>SitemapFileTab0</id>
+					<title>sitemaps.xml :</title>
+					<content>SitemapVisualizeSite</content>
+				</data>
+				<data>
+					<category>visualize/content</category>
+					<id>SitemapFileTab1</id>
+					<title>sitemap.xml :</title>
+					<content>SitemapVisualizeUrl</content>
+				</data>
+				<!-- ============================================ -->
+				<!-- configs -->
+				<!-- ============================================ -->
+				<data>
+					<category>configs</category>
+					<path></path>
+					<file>sitemap</file>
+					<ext>xml</ext>
+					<xmlns>http://www.sitemaps.org/schemas/sitemap/0.9</xmlns>
+					<xsi>http://www.w3.org/2001/XMLSchema-instance</xsi>
+					<schema>http://www.sitemaps.org/schemas/sitemap/0.9
+						http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd</schema>
+					<url_max>50000</url_max>
+				</data>
+				<!-- ============================================ -->
+				<!-- end -->
+				<!-- ============================================ -->
+			</map>
+		</data>
+		<!-- ============================================ -->
+		<!-- sitemap/urls -->
+		<!-- ============================================ -->
+		<data>
+			<code>sitemap/urls</code>
+			<map>
+				<data>
+					<loc>/</loc>
+					<lastmod>lastmod</lastmod>
+					<changefreq>changefreq</changefreq>
+					<priority>priority</priority>
+				</data>
+				<data>
+					<loc>/home</loc>
+					<lastmod>lastmod</lastmod>
+					<changefreq>changefreq</changefreq>
+					<priority>priority</priority>
+				</data>
+				<data>
+					<loc>/home/cv</loc>
+					<lastmod>lastmod</lastmod>
+					<changefreq>changefreq</changefreq>
+					<priority>priority</priority>
+				</data>
+				<data>
+					<loc>/home/doc</loc>
+					<lastmod>lastmod</lastmod>
+					<changefreq>changefreq</changefreq>
+					<priority>priority</priority>
+				</data>
+				<data>
+					<loc>/home/presentation</loc>
+					<lastmod>lastmod</lastmod>
+					<changefreq>changefreq</changefreq>
+					<priority>priority</priority>
+				</data>
+				<data>
+					<loc>/home/tutoriels</loc>
+					<lastmod>lastmod</lastmod>
+					<changefreq>changefreq</changefreq>
+					<priority>priority</priority>
+				</data>
+				<data>
+					<loc>/home/cours</loc>
+					<lastmod>lastmod</lastmod>
+					<changefreq>changefreq</changefreq>
+					<priority>priority</priority>
+				</data>
+				<data>
+					<loc>/home/contacts</loc>
+					<lastmod>lastmod</lastmod>
+					<changefreq>changefreq</changefreq>
+					<priority>priority</priority>
+				</data>
+			</map>
+		</data>
+		<!-- ============================================ -->
+		<!-- sitemap/changefreq -->
+		<!-- ============================================ -->
+		<data>
+			<code>sitemap/changefreq</code>
+			<map>
+				<data>always</data>
+				<data>hourly</data>
+				<data>daily</data>
+				<data>weekly</data>
+				<data>monthly</data>
+				<data>yearly</data>
+				<data>never</data>
+			</map>
+		</data>
+		<!-- ============================================ -->
+		<!-- manager -->
+		<!-- ============================================ -->
+		<data>
+			<code>manager</code>
+			<title>Manager de données</title>
+			<id>Manager_Donnees</id>
+			<map>
+				<!-- ============================================ -->
+				<!-- header -->
+				<!-- ============================================ -->
+				<data>
+					<category>header</category>
+					<tooltip>Accueil</tooltip>
+					<id>ManagerTab0</id>
+					<name><![CDATA[<i class='fa fa-home'></i>]]></name>
+				</data>
+				<data>
+					<category>header</category>
+					<tooltip>Code</tooltip>
+					<id>ManagerTab1</id>
+					<name>Code</name>
+				</data>
+				<!-- ============================================ -->
+				<!-- header/link -->
+				<!-- ============================================ -->
+				<data>
+					<category>header/link</category>
+					<module>manager</module>
+					<method>open_header</method>
+				</data>
+				<!-- ============================================ -->
+				<!-- home -->
+				<!-- ============================================ -->
+				<data>
+					<category>home</category>
+					<title>ReadyManager</title>
+					<id>ManagerTab0</id>
+					<intro><![CDATA[
                         <b>ReadyManager</b> est un manager de données à structure dynamique.
                         Il permet de générer les données d'une application
                         en utilisant un modèle de données à structure extensible.
                         <br>Produit par <b>Gérard KESSE</b>.
                        ]]></intro>
-                 </data>
-                <!-- ============================================ -->
-                <!-- code -->
-                <!-- ============================================ -->
-                <data>
-                    <category>code</category>
-                    <title>Code</title>
-                    <id>ManagerTab1</id>
-                 </data>
-                   <!-- ============================================ -->
-                   <!-- code/body -->
-                   <!-- ============================================ -->
-                <data>
-                    <category>code/body</category>
-                    <model>hidden</model>
-                    <id>ManagerCodeId</id>
-                    <value>0</value>
-                </data>
-                <data>
-                    <category>code/body</category>
-                    <model>label/edit</model>
-                    <label>Code :</label>
-                    <id>ManagerCodeCode</id>
-                    <type>text</type>
-                    <name>code</name>
-                    <lower_on>1</lower_on>
-                </data>
-                <data>
-                    <category>code/body</category>
-                    <model>label/edit</model>
-                    <label>Libellé :</label>
-                    <id>ManagerCodeLabel</id>
-                    <type>text</type>
-                    <name>label</name>
-                </data>
-                   <!-- ============================================ -->
-                   <!-- code/button -->
-                   <!-- ============================================ -->
-                <data>
-                    <category>code/button</category>
-                    <id>ManagerCodeCreate</id>
-                    <module>manager</module>
-                    <callback>create_code</callback>
-                    <picto>plus</picto>
-                    <text>Créer</text>
-                </data>
-                <data>
-                    <category>code/button</category>
-                    <id>ManagerCodeSearch</id>
-                    <module>manager</module>
-                    <callback>search_code</callback>
-                    <picto>search</picto>
-                    <text>Rechercher</text>
-                </data>
-                <data>
-                    <category>code/button</category>
-                    <id>ManagerCodeUpdate</id>
-                    <module>manager</module>
-                    <callback>update_code</callback>
-                    <picto>upload</picto>
-                    <text>Modifier</text>
-                </data>
-                <data>
-                    <category>code/button</category>
-                    <id>ManagerCodeDelete</id>
-                    <module>manager</module>
-                    <callback>delete_code</callback>
-                    <picto>trash</picto>
-                    <text>Supprimer</text>
-                </data>
-                <data>
-                    <category>code/button</category>
-                    <id>ManagerCodeNew</id>
-                    <module>manager</module>
-                    <callback>new_code</callback>
-                    <picto>file-o</picto>
-                    <text>Nouveau</text>
-                </data>
-                <!-- ============================================ -->
-                <!-- end -->
-                <!-- ============================================ -->
-            </map>
-        </data>
-        <!-- ============================================ -->
-        <!-- query -->
-        <!-- ============================================ -->
-        <data>
-            <code>query</code>
-            <title>Gestionnaire de requêtes</title>
-            <id>Gestionnaire_Requete</id>
-            <map>
-                   <!-- ============================================ -->
-                   <!-- header -->
-                   <!-- ============================================ -->
-                <data>
-                    <category>header</category>
-                    <tooltip>Accueil</tooltip>
-                    <id>QueryTab0</id>
-                    <name><![CDATA[<i class='fa fa-home'></i>]]></name>
-                </data>
-                <data>
-                    <category>header</category>
-                    <tooltip>Émission de la requête</tooltip>
-                    <id>QueryTab1</id>
-                    <name>Émission</name>
-                </data>
-                <data>
-                    <category>header</category>
-                    <tooltip>Réception du résultat de la requête</tooltip>
-                    <id>QueryTab2</id>
-                    <name>Réception</name>
-                </data>
-                   <!-- ============================================ -->
-                   <!-- header/link -->
-                   <!-- ============================================ -->
-                <data>
-                    <category>header/link</category>
-                    <module>query</module>
-                    <method>open_header</method>
-                </data>
-                <!-- ============================================ -->
-                <!-- home -->
-                <!-- ============================================ -->
-                <data>
-                    <category>home</category>
-                    <title>ReadyQuery</title>
-                    <id>QueryTab0</id>
-                    <intro><![CDATA[
+				</data>
+				<!-- ============================================ -->
+				<!-- code -->
+				<!-- ============================================ -->
+				<data>
+					<category>code</category>
+					<title>Code</title>
+					<id>ManagerTab1</id>
+				</data>
+				<!-- ============================================ -->
+				<!-- code/body -->
+				<!-- ============================================ -->
+				<data>
+					<category>code/body</category>
+					<model>hidden</model>
+					<id>ManagerCodeId</id>
+					<value>0</value>
+				</data>
+				<data>
+					<category>code/body</category>
+					<model>label/edit</model>
+					<label>Code :</label>
+					<id>ManagerCodeCode</id>
+					<type>text</type>
+					<name>code</name>
+					<lower_on>1</lower_on>
+				</data>
+				<data>
+					<category>code/body</category>
+					<model>label/edit</model>
+					<label>Libellé :</label>
+					<id>ManagerCodeLabel</id>
+					<type>text</type>
+					<name>label</name>
+				</data>
+				<!-- ============================================ -->
+				<!-- code/button -->
+				<!-- ============================================ -->
+				<data>
+					<category>code/button</category>
+					<id>ManagerCodeCreate</id>
+					<module>manager</module>
+					<callback>create_code</callback>
+					<picto>plus</picto>
+					<text>Créer</text>
+				</data>
+				<data>
+					<category>code/button</category>
+					<id>ManagerCodeSearch</id>
+					<module>manager</module>
+					<callback>search_code</callback>
+					<picto>search</picto>
+					<text>Rechercher</text>
+				</data>
+				<data>
+					<category>code/button</category>
+					<id>ManagerCodeUpdate</id>
+					<module>manager</module>
+					<callback>update_code</callback>
+					<picto>upload</picto>
+					<text>Modifier</text>
+				</data>
+				<data>
+					<category>code/button</category>
+					<id>ManagerCodeDelete</id>
+					<module>manager</module>
+					<callback>delete_code</callback>
+					<picto>trash</picto>
+					<text>Supprimer</text>
+				</data>
+				<data>
+					<category>code/button</category>
+					<id>ManagerCodeNew</id>
+					<module>manager</module>
+					<callback>new_code</callback>
+					<picto>file-o</picto>
+					<text>Nouveau</text>
+				</data>
+				<!-- ============================================ -->
+				<!-- end -->
+				<!-- ============================================ -->
+			</map>
+		</data>
+		<!-- ============================================ -->
+		<!-- query -->
+		<!-- ============================================ -->
+		<data>
+			<code>query</code>
+			<title>Gestionnaire de requêtes</title>
+			<id>Gestionnaire_Requete</id>
+			<map>
+				<!-- ============================================ -->
+				<!-- header -->
+				<!-- ============================================ -->
+				<data>
+					<category>header</category>
+					<tooltip>Accueil</tooltip>
+					<id>QueryTab0</id>
+					<name><![CDATA[<i class='fa fa-home'></i>]]></name>
+				</data>
+				<data>
+					<category>header</category>
+					<tooltip>Émission de la requête</tooltip>
+					<id>QueryTab1</id>
+					<name>Émission</name>
+				</data>
+				<data>
+					<category>header</category>
+					<tooltip>Réception du résultat de la requête</tooltip>
+					<id>QueryTab2</id>
+					<name>Réception</name>
+				</data>
+				<!-- ============================================ -->
+				<!-- header/link -->
+				<!-- ============================================ -->
+				<data>
+					<category>header/link</category>
+					<module>query</module>
+					<method>open_header</method>
+				</data>
+				<!-- ============================================ -->
+				<!-- home -->
+				<!-- ============================================ -->
+				<data>
+					<category>home</category>
+					<title>ReadyQuery</title>
+					<id>QueryTab0</id>
+					<intro><![CDATA[
                         <b>ReadyQuery</b> est un gestionnaire de requêtes.
                         Il permet d'envoyer des requêtes à un serveur de données.
                         Les requêtes peuvent être de différentes natures.
                         Le protocole utilisé doit être supporté par l'application.
                         <br>Produit par <b>Gérard KESSE</b>.
                        ]]></intro>
-                 </data>
-                <!-- ============================================ -->
-                <!-- emission -->
-                <!-- ============================================ -->
-                <data>
-                    <category>emission</category>
-                    <title>Émission</title>
-                    <id>QueryTab1</id>
-                 </data>
-                <!-- ============================================ -->
-                <!-- emission/text -->
-                <!-- ============================================ -->
-                <data>
-                    <category>emission/text</category>
-                    <id>QueryEmissionText</id>
-                    <name>QueryEmissionText</name>
-                    <rows>17</rows>
-                    <cols>10</cols>
-                    <placeholder>Saisir une requête...</placeholder>
-                 </data>
-                <!-- ============================================ -->
-                <!-- emission/check -->
-                <!-- ============================================ -->
-                <data>
-                    <category>emission/check</category>
-                    <id>QueryEmissionServer</id>
-                    <text>Serveur</text>
-                    <checked_on>1</checked_on>
-                    <tooltip>Envoyer directement au serveur</tooltip>
-                 </data>
-                <!-- ============================================ -->
-                <!-- emission/button -->
-                <!-- ============================================ -->
-                <data>
-                    <category>emission/button</category>
-                    <module>query</module>
-                    <method>send_query</method>
-                    <name>Envoyer</name>
-                    <tooltip>Envoyer la requête</tooltip>
-                 </data>
-                <data>
-                    <category>emission/button</category>
-                    <module>query</module>
-                    <method>save_query</method>
-                    <name>Enregistrer</name>
-                    <tooltip>Enregsitrer la requête</tooltip>
-                 </data>
-                <!-- ============================================ -->
-                <!-- reception -->
-                <!-- ============================================ -->
-                <data>
-                    <category>reception</category>
-                    <title>Réception</title>
-                    <id>QueryTab2</id>
-                 </data>
-                <!-- ============================================ -->
-                <!-- reception/text -->
-                <!-- ============================================ -->
-                <data>
-                    <category>reception/text</category>
-                    <id>QueryReceptionText</id>
-                    <name>QueryReceptionText</name>
-                    <rows>18</rows>
-                    <cols>10</cols>
-                    <readonly>readonly</readonly>
-                 </data>
-                <!-- ============================================ -->
-                <!-- reception/button -->
-                <!-- ============================================ -->
-                <data>
-                    <category>reception/button</category>
-                    <module>query</module>
-                    <method>copy_query</method>
-                    <name>Copier</name>
-                    <tooltip>Copier la requête</tooltip>
-                 </data>
-                   <!-- ============================================ -->
-                   <!-- end -->
-                   <!-- ============================================ -->
-            </map>
-        </data>
-        <!-- ============================================ -->
-        <!-- user -->
-        <!-- ============================================ -->
-        <data>
-            <code>user</code>
-            <map>
-                   <!-- ============================================ -->
-                   <!-- connection -->
-                   <!-- ============================================ -->
-                <data>
-                    <category>connection</category>
-                    <title>Connexion</title>
-                    <intro>Connectez-vous pour utiliser les applications.</intro>
-                    <modal_id>ModalConnection</modal_id>
-                    <body_id>ConnectionBody</body_id>
-                    <form_id>ConnectionForm</form_id>
-                    <msg_id>ConnectionMsg</msg_id>
-                    <module>user</module>
-                    <keypress_cb>keypress_connection</keypress_cb>
-                    <close_cb>close_connection</close_cb>
-                </data>
-                   <!-- ============================================ -->
-                   <!-- connection/body -->
-                   <!-- ============================================ -->
-                <data>
-                    <category>connection/body</category>
-                    <label>Nom d'utilisateur :</label>
-                    <id>ConnectionPseudo</id>
-                    <type>text</type>
-                    <name>pseudo</name>
-                </data>
-                <data>
-                    <category>connection/body</category>
-                    <label>Mot de passe :</label>
-                    <id>ConnectionPassword</id>
-                    <type>password</type>
-                    <name>password</name>
-                </data>
-                   <!-- ============================================ -->
-                   <!-- connection/button -->
-                   <!-- ============================================ -->
-                <data>
-                    <category>connection/button</category>
-                    <type>text/link</type>
-                       <module>user</module>
-                    <callback>open_account</callback>
-                    <text><![CDATA[<span class='Text11'>Envie de nous rejoindre ? <span class='Text12' onclick='server_call("%s", "%s");'>Créez un compte</span></span>]]></text>
-                </data>
-                <data>
-                    <category>connection/button</category>
-                    <type>button</type>
-                    <id>ConnectionButton</id>
-                    <module>user</module>
-                    <callback>run_connection</callback>
-                    <picto>paper-plane-o</picto>
-                    <text><![CDATA[Se Connecter]]></text>
-                </data>
-                   <!-- ============================================ -->
-                   <!-- disconnection -->
-                   <!-- ============================================ -->
-                <data>
-                    <category>disconnection</category>
-                    <title>Déconnexion</title>
-                    <intro>Êtes-vous sûr de vous déconnecter ?</intro>
-                    <modal_id>ModalDisconnection</modal_id>
-                    <body_id>DisconnectionBody</body_id>
-                    <form_id>DisconnectionForm</form_id>
-                    <msg_id>DisconnectionMsg</msg_id>
-                    <module>user</module>
-                    <keypress_cb>keypress_disconnection</keypress_cb>
-                    <close_cb>close_disconnection</close_cb>
-                    <disconnect_cb>run_disconnection</disconnect_cb>
-                    <disconnect_btn>Se Déconnecter</disconnect_btn>
-                </data>
-                   <!-- ============================================ -->
-                   <!-- account -->
-                   <!-- ============================================ -->
-                <data>
-                    <category>account</category>
-                    <title>Compte</title>
-                    <intro>Créez un compte pour mieux utiliser les applications.</intro>
-                    <modal_id>ModalAccount</modal_id>
-                    <body_id>AccountBody</body_id>
-                    <form_id>AccountForm</form_id>
-                    <msg_id>AccountMsg</msg_id>
-                    <module>user</module>
-                    <keypress_cb>keypress_account</keypress_cb>
-                    <close_cb>close_account</close_cb>
-                </data>
-                   <!-- ============================================ -->
-                   <!-- account/body -->
-                   <!-- ============================================ -->
-                <data>
-                    <category>account/body</category>
-                    <label>Nom d'utilisateur :</label>
-                    <id>AccountPseudo</id>
-                    <type>text</type>
-                    <name>pseudo</name>
-                </data>
-                <data>
-                    <category>account/body</category>
-                    <label>Mot de passe :</label>
-                    <id>AccountPassword</id>
-                    <type>password</type>
-                    <name>password</name>
-                </data>
-                <data>
-                    <category>account/body</category>
-                    <label>Confirmation :</label>
-                    <id>AccountConfirm</id>
-                    <type>password</type>
-                    <name>password</name>
-                </data>
-                   <!-- ============================================ -->
-                   <!-- account/button -->
-                   <!-- ============================================ -->
-                <data>
-                    <category>account/button</category>
-                    <type>button</type>
-                    <id>AccountButton</id>
-                    <module>user</module>
-                    <callback>create_account</callback>
-                    <picto>paper-plane-o</picto>
-                    <text><![CDATA[Créer]]></text>
-                </data>
-                   <!-- ============================================ -->
-                   <!-- end -->
-                   <!-- ============================================ -->
-            </map>
-        </data>
-        <!-- ============================================ -->
-        <!-- table -->
-        <!-- ============================================ -->
-        <data>
-            <code>table</code>
-            <title>Liste des données</title>
-            <intro>Consultez la liste des données.</intro>
-            <modal_id>ModalTable</modal_id>
-            <body_id>TableBody</body_id>
-            <form_id>TableForm</form_id>
-            <msg_id>TableMsg</msg_id>
-            <module>table</module>
-            <keypress_cb>keypress_table</keypress_cb>
-            <close_cb>close_table</close_cb>
-            <map>
-                <!-- ============================================ -->
-                <!-- table/body -->
-                <!-- ============================================ -->
-                <data>
-                    <category>table/body</category>
-                    <model>table</model>
-                    <id>TableId</id>
-                    <page_id>TablePage</page_id>
-                </data>
-                <!-- ============================================ -->
-                <!-- table/button -->
-                <!-- ============================================ -->
-                <data>
-                    <category>table/button</category>
-                    <model>button</model>
-                    <id>TableSelectData</id>
-                    <module>table</module>
-                    <callback>select_data</callback>
-                    <picto>check</picto>
-                    <text>Sélectionner</text>
-                </data>
-                <data>
-                    <category>table/button</category>
-                    <model>button/icon</model>
-                    <id>TableNextData</id>
-                    <module>table</module>
-                    <callback>next_data</callback>
-                    <picto>chevron-right</picto>
-                    <text>Suivant</text>
-                </data>
-                <!-- ============================================ -->
-                <!-- end -->
-                <!-- ============================================ -->            
-            </map>
-         </data>
-        <!-- ============================================ -->
-        <!-- confirm -->
-        <!-- ============================================ -->
-        <data>
-            <code>confirm</code>
-            <title>Confirmation</title>
-            <intro>Voulez-vous continuer l'opération ?</intro>
-            <modal_id>ModalConfirm</modal_id>
-            <body_id>ConfirmBody</body_id>
-            <form_id>ConfirmForm</form_id>
-            <msg_id>ConfirmMsg</msg_id>
-            <module>confirm</module>
-            <keypress_cb>keypress_confirm</keypress_cb>
-            <close_cb>close_confirm</close_cb>
+				</data>
+				<!-- ============================================ -->
+				<!-- emission -->
+				<!-- ============================================ -->
+				<data>
+					<category>emission</category>
+					<title>Émission</title>
+					<id>QueryTab1</id>
+				</data>
+				<!-- ============================================ -->
+				<!-- emission/text -->
+				<!-- ============================================ -->
+				<data>
+					<category>emission/text</category>
+					<id>QueryEmissionText</id>
+					<name>QueryEmissionText</name>
+					<rows>17</rows>
+					<cols>10</cols>
+					<placeholder>Saisir une requête...</placeholder>
+				</data>
+				<!-- ============================================ -->
+				<!-- emission/check -->
+				<!-- ============================================ -->
+				<data>
+					<category>emission/check</category>
+					<id>QueryEmissionServer</id>
+					<text>Serveur</text>
+					<checked_on>1</checked_on>
+					<tooltip>Envoyer directement au serveur</tooltip>
+				</data>
+				<!-- ============================================ -->
+				<!-- emission/button -->
+				<!-- ============================================ -->
+				<data>
+					<category>emission/button</category>
+					<module>query</module>
+					<method>send_query</method>
+					<name>Envoyer</name>
+					<tooltip>Envoyer la requête</tooltip>
+				</data>
+				<data>
+					<category>emission/button</category>
+					<module>query</module>
+					<method>save_query</method>
+					<name>Enregistrer</name>
+					<tooltip>Enregsitrer la requête</tooltip>
+				</data>
+				<!-- ============================================ -->
+				<!-- reception -->
+				<!-- ============================================ -->
+				<data>
+					<category>reception</category>
+					<title>Réception</title>
+					<id>QueryTab2</id>
+				</data>
+				<!-- ============================================ -->
+				<!-- reception/text -->
+				<!-- ============================================ -->
+				<data>
+					<category>reception/text</category>
+					<id>QueryReceptionText</id>
+					<name>QueryReceptionText</name>
+					<rows>18</rows>
+					<cols>10</cols>
+					<readonly>readonly</readonly>
+				</data>
+				<!-- ============================================ -->
+				<!-- reception/button -->
+				<!-- ============================================ -->
+				<data>
+					<category>reception/button</category>
+					<module>query</module>
+					<method>copy_query</method>
+					<name>Copier</name>
+					<tooltip>Copier la requête</tooltip>
+				</data>
+				<!-- ============================================ -->
+				<!-- end -->
+				<!-- ============================================ -->
+			</map>
+		</data>
+		<!-- ============================================ -->
+		<!-- user -->
+		<!-- ============================================ -->
+		<data>
+			<code>user</code>
 			<map>
-                <!-- ============================================ -->
-                <!-- confirm/button -->
-                <!-- ============================================ -->
-                <data>
-                    <category>confirm/button</category>
-                    <model>button</model>
-                    <id>ConfirmOk</id>
-                    <module>confirm</module>
-                    <callback>ok_confirm</callback>
-                    <picto>check</picto>
-                    <text>OK</text>
-                </data>
-                <data>
-                    <category>confirm/button</category>
-                    <model>button</model>
-                    <id>ConfirmCancel</id>
-                    <module>confirm</module>
-                    <callback>close_confirm</callback>
-                    <picto>times</picto>
-                    <text>Annuler</text>
-                </data>
-                <!-- ============================================ -->
-                <!-- end -->
-                <!-- ============================================ -->
-			</map>        
-        </data>
-        <!-- ============================================ -->
-        <!-- logs -->
-        <!-- ============================================ -->
-        <data>
-            <code>logs</code>
-            <title>Logs</title>
-            <intro>Consultez les logs de traitements.</intro>
-            <modal_id>ModalLogs</modal_id>
-            <body_id>LogsBody</body_id>
-            <form_id>LogsForm</form_id>
-            <msg_id>LogsMsg</msg_id>
-            <module>log</module>
-            <keypress_cb>keypress_log</keypress_cb>
-            <close_cb>close_log</close_cb>
-            <map>
-                <!-- ============================================ -->
-                <!-- logs/body -->
-                <!-- ============================================ -->
-                <data>
-                    <category>logs/body</category>
-                    <model>label</model>
-                    <id>LogsLabel</id>
-                </data>
-                <!-- ============================================ -->
-                <!-- logs/button -->
-                <!-- ============================================ -->
-                <data>
-                    <category>logs/button</category>
-                    <model>button</model>
-                    <module>log</module>
-                    <callback>close_log</callback>
-                    <picto>check</picto>
-                    <text>OK</text>
-                </data>
-                <!-- ============================================ -->
-                <!-- end -->
-                <!-- ============================================ -->            
-            </map>
-         </data>
-        <!-- ============================================ -->
-        <!-- errors -->
-        <!-- ============================================ -->
-        <data>
-            <code>errors</code>
-            <title>Erreurs</title>
-            <intro>Consultez les erreurs de traitements.</intro>
-            <modal_id>ModalErrors</modal_id>
-            <body_id>ErrorsBody</body_id>
-            <form_id>ErrorsForm</form_id>
-            <msg_id>ErrorsMsg</msg_id>
-            <module>log</module>
-            <keypress_cb>keypress_error</keypress_cb>
-            <close_cb>close_error</close_cb>
-            <map>
-                <!-- ============================================ -->
-                <!-- errors/body -->
-                <!-- ============================================ -->
-                <data>
-                    <category>errors/body</category>
-                    <model>label</model>
-                    <id>ErrorsLabel</id>
-                </data>
-                <!-- ============================================ -->
-                <!-- errors/button -->
-                <!-- ============================================ -->
-                <data>
-                    <category>errors/button</category>
-                    <model>button</model>
-                    <id>LogsOk</id>
-                    <module>log</module>
-                    <callback>close_error</callback>
-                    <picto>exclamation-triangle</picto>
-                    <text>OK</text>
-                </data>
-                <!-- ============================================ -->
-                <!-- end -->
-                <!-- ============================================ -->            
-            </map>
-         </data>
-        <!-- ============================================ -->
-        <!-- test -->
-        <!-- ============================================ -->
-        <data>
-            <code>test</code>
-            <env>prod</env>
-            <dev>xml/parent</dev>
-            <js>env/type</js>
-        </data>
-        <!-- ============================================ -->
-        <!-- env -->
-        <!-- ============================================ -->
-        <data>
-            <code>env</code>
-            <map>
-                <!-- ============================================ -->
-                <!-- env -->
-                <!-- ============================================ -->
-                <data>
-                	<category>prod</category>
-                	<model>normal</model>
-                    <id>EnvProdOn</id>
-                    <value>1</value>
-                </data>
-                <data>
-                    <model>env/type</model>
-                    <id>EnvType</id>
-                </data>
-                <!-- ============================================ -->
-                <!-- search -->
-                <!-- ============================================ -->
-                <data>
-                    <model>normal</model>
-                    <id>SearchDataSize</id>
-                    <value>8</value>
-                </data>
-                <data>
-                    <model>normal</model>
-                    <id>SearchDataCount</id>
-                    <value>0</value>
-                </data>
-                <data>
-                    <model>normal</model>
-                    <id>SearchDataOffset</id>
-                    <value>0</value>
-                </data>
-                <data>
-                    <model>normal</model>
-                    <id>SearchLastId</id>
-                    <value>-1</value>
-                </data>
-                <!-- ============================================ -->
-                <!-- table -->
-                <!-- ============================================ -->
-                <data>
-                    <model>normal</model>
-                    <id>ConfirmModule</id>
-                </data>
-                <data>
-                    <model>normal</model>
-                    <id>ConfirmMethod</id>
-                </data>
-                <data>
-                    <model>normal</model>
-                    <id>ConfirmAction</id>
-                </data>
-                <!-- ============================================ -->
-                <!-- table -->
-                <!-- ============================================ -->
-                <data>
-                    <model>normal</model>
-                    <id>TableCurrentData</id>
-                </data>
-                <data>
-                    <model>normal</model>
-                    <id>TableHeaderVisible</id>
-                </data>
-                <data>
-                    <model>normal</model>
-                    <id>TableSelectModule</id>
-                </data>
-                <data>
-                    <model>normal</model>
-                    <id>TableSelectMethod</id>
-                </data>
-                <data>
-                    <model>normal</model>
-                    <id>TableNextModule</id>
-                </data>
-                <data>
-                    <model>normal</model>
-                    <id>TableNextMethod</id>
-                </data>
-                <!-- ============================================ -->
-                <!-- end -->
-                <!-- ============================================ -->
-            </map>
-        </data>
-        <!-- ============================================ -->
-        <!-- style -->
-        <!-- ============================================ -->
-        <data>
-            <code>style</code>
-            <!-- ============================================ -->
-            <!-- background -->            
-            <!-- ============================================ -->
-            <bg_img_top>/data/img/defaults/top_masque.png</bg_img_top>
-            <bg_img_top_bg>/data/img/defaults/fond.jpg</bg_img_top_bg>
-            <bg_img_middle>/data/img/defaults/middle.gif</bg_img_middle>
-            <bg_img_bottom>/data/img/defaults/footer.jpg</bg_img_bottom>
-            <!-- ============================================ -->
-            <!-- border -->            
-            <!-- ============================================ -->
-            <border_img>/data/img/defaults/border.png</border_img>
-            <!-- ============================================ -->
-            <!-- image -->            
-            <!-- ============================================ -->
-            <img_wave>/data/img/defaults/wave.png</img_wave>
-            <img_binary>/data/img/defaults/binary.png</img_binary>
-            <img_signal>/data/img/defaults/signal.jpg</img_signal>
-            <img_chip>/data/img/defaults/chip.jpg</img_chip>
-            <img_developer>/data/img/defaults/developer.jpg</img_developer>
-            <img_grid>/data/img/defaults/grid.jpg</img_grid>
-            <img_dashboard>/data/img/defaults/dashboard.jpg</img_dashboard>
-            <img_contact>/data/img/defaults/contact.jpg</img_contact>
-            <!-- ============================================ -->
-            <!-- end -->            
-            <!-- ============================================ -->
-         </data>
-        <!-- ============================================ -->
-        <!-- end -->
-        <!-- ============================================ -->
-    </datas>
+				<!-- ============================================ -->
+				<!-- connection -->
+				<!-- ============================================ -->
+				<data>
+					<category>connection</category>
+					<title>Connexion</title>
+					<intro>Connectez-vous pour utiliser les applications.</intro>
+					<modal_id>ModalConnection</modal_id>
+					<body_id>ConnectionBody</body_id>
+					<form_id>ConnectionForm</form_id>
+					<msg_id>ConnectionMsg</msg_id>
+					<module>user</module>
+					<keypress_cb>keypress_connection</keypress_cb>
+					<close_cb>close_connection</close_cb>
+				</data>
+				<!-- ============================================ -->
+				<!-- connection_body -->
+				<!-- ============================================ -->
+				<data>
+					<category>connection_body</category>
+					<label>Nom d'utilisateur :</label>
+					<id>ConnectionPseudo</id>
+					<type>text</type>
+					<name>pseudo</name>
+				</data>
+				<data>
+					<category>connection_body</category>
+					<label>Mot de passe :</label>
+					<id>ConnectionPassword</id>
+					<type>password</type>
+					<name>password</name>
+				</data>
+				<!-- ============================================ -->
+				<!-- connection_button -->
+				<!-- ============================================ -->
+				<data>
+					<category>connection_button</category>
+					<type>text/link</type>
+					<module>user</module>
+					<callback>open_account</callback>
+					<text><![CDATA[<span class='Text11'>Envie de nous rejoindre ? <span class='Text12' onclick='server_call("%s", "%s");'>Créez un compte</span></span>]]></text>
+				</data>
+				<data>
+					<category>connection_button</category>
+					<type>button</type>
+					<id>ConnectionButton</id>
+					<module>user</module>
+					<callback>run_connection</callback>
+					<picto>paper-plane-o</picto>
+					<text><![CDATA[Se Connecter]]></text>
+				</data>
+				<!-- ============================================ -->
+				<!-- disconnection -->
+				<!-- ============================================ -->
+				<data>
+					<category>disconnection</category>
+					<title>Déconnexion</title>
+					<intro>Êtes-vous sûr de vous déconnecter ?</intro>
+					<modal_id>ModalDisconnection</modal_id>
+					<body_id>DisconnectionBody</body_id>
+					<form_id>DisconnectionForm</form_id>
+					<msg_id>DisconnectionMsg</msg_id>
+					<module>user</module>
+					<keypress_cb>keypress_disconnection</keypress_cb>
+					<close_cb>close_disconnection</close_cb>
+					<disconnect_cb>run_disconnection</disconnect_cb>
+					<disconnect_btn>Se Déconnecter</disconnect_btn>
+				</data>
+				<!-- ============================================ -->
+				<!-- account -->
+				<!-- ============================================ -->
+				<data>
+					<category>account</category>
+					<title>Compte</title>
+					<intro>Créez un compte pour mieux utiliser les applications.
+					</intro>
+					<modal_id>ModalAccount</modal_id>
+					<body_id>AccountBody</body_id>
+					<form_id>AccountForm</form_id>
+					<msg_id>AccountMsg</msg_id>
+					<module>user</module>
+					<keypress_cb>keypress_account</keypress_cb>
+					<close_cb>close_account</close_cb>
+				</data>
+				<!-- ============================================ -->
+				<!-- account_body -->
+				<!-- ============================================ -->
+				<data>
+					<category>account_body</category>
+					<label>Nom d'utilisateur :</label>
+					<id>AccountPseudo</id>
+					<type>text</type>
+					<name>pseudo</name>
+				</data>
+				<data>
+					<category>account_body</category>
+					<label>Mot de passe :</label>
+					<id>AccountPassword</id>
+					<type>password</type>
+					<name>password</name>
+				</data>
+				<data>
+					<category>account_body</category>
+					<label>Confirmation :</label>
+					<id>AccountConfirm</id>
+					<type>password</type>
+					<name>password</name>
+				</data>
+				<!-- ============================================ -->
+				<!-- account_button -->
+				<!-- ============================================ -->
+				<data>
+					<category>account_button</category>
+					<type>button</type>
+					<id>AccountButton</id>
+					<module>user</module>
+					<callback>create_account</callback>
+					<picto>paper-plane-o</picto>
+					<text><![CDATA[Créer]]></text>
+				</data>
+				<!-- ============================================ -->
+				<!-- end -->
+				<!-- ============================================ -->
+			</map>
+		</data>
+		<!-- ============================================ -->
+		<!-- table -->
+		<!-- ============================================ -->
+		<data>
+			<code>table</code>
+			<title>Liste des données</title>
+			<intro>Consultez la liste des données.</intro>
+			<modal_id>ModalTable</modal_id>
+			<body_id>TableBody</body_id>
+			<form_id>TableForm</form_id>
+			<msg_id>TableMsg</msg_id>
+			<module>table</module>
+			<keypress_cb>keypress_table</keypress_cb>
+			<close_cb>close_table</close_cb>
+			<map>
+				<!-- ============================================ -->
+				<!-- table/body -->
+				<!-- ============================================ -->
+				<data>
+					<category>table/body</category>
+					<model>table</model>
+					<id>TableId</id>
+					<page_id>TablePage</page_id>
+				</data>
+				<!-- ============================================ -->
+				<!-- table/button -->
+				<!-- ============================================ -->
+				<data>
+					<category>table/button</category>
+					<model>button</model>
+					<id>TableSelectData</id>
+					<module>table</module>
+					<callback>select_data</callback>
+					<picto>check</picto>
+					<text>Sélectionner</text>
+				</data>
+				<data>
+					<category>table/button</category>
+					<model>button/icon</model>
+					<id>TableNextData</id>
+					<module>table</module>
+					<callback>next_data</callback>
+					<picto>chevron-right</picto>
+					<text>Suivant</text>
+				</data>
+				<!-- ============================================ -->
+				<!-- end -->
+				<!-- ============================================ -->
+			</map>
+		</data>
+		<!-- ============================================ -->
+		<!-- confirm -->
+		<!-- ============================================ -->
+		<data>
+			<code>confirm</code>
+			<title>Confirmation</title>
+			<intro>Voulez-vous continuer l'opération ?</intro>
+			<modal_id>ModalConfirm</modal_id>
+			<body_id>ConfirmBody</body_id>
+			<form_id>ConfirmForm</form_id>
+			<msg_id>ConfirmMsg</msg_id>
+			<module>confirm</module>
+			<keypress_cb>keypress_confirm</keypress_cb>
+			<close_cb>close_confirm</close_cb>
+			<map>
+				<!-- ============================================ -->
+				<!-- confirm_button -->
+				<!-- ============================================ -->
+				<data>
+					<category>confirm_button</category>
+					<model>button</model>
+					<id>confirm_ok</id>
+					<module>confirm</module>
+					<callback>confirm_ok</callback>
+					<picto>check</picto>
+					<text>OK</text>
+				</data>
+				<data>
+					<category>confirm_button</category>
+					<model>button</model>
+					<id>confirm_cancel</id>
+					<module>confirm</module>
+					<callback>confirm_close</callback>
+					<picto>times</picto>
+					<text>Annuler</text>
+				</data>
+				<!-- ============================================ -->
+				<!-- end -->
+				<!-- ============================================ -->
+			</map>
+		</data>
+		<!-- ============================================ -->
+		<!-- logs -->
+		<!-- ============================================ -->
+		<data>
+			<code>logs</code>
+			<title>Logs</title>
+			<intro>Consultez les logs de traitements.</intro>
+			<modal_id>ModalLogs</modal_id>
+			<body_id>LogsBody</body_id>
+			<form_id>LogsForm</form_id>
+			<msg_id>LogsMsg</msg_id>
+			<module>log</module>
+			<keypress_cb>keypress_log</keypress_cb>
+			<close_cb>close_log</close_cb>
+			<map>
+				<!-- ============================================ -->
+				<!-- logs_body -->
+				<!-- ============================================ -->
+				<data>
+					<category>logs_body</category>
+					<model>label</model>
+					<id>LogsLabel</id>
+				</data>
+				<!-- ============================================ -->
+				<!-- logs_button -->
+				<!-- ============================================ -->
+				<data>
+					<category>logs_button</category>
+					<model>button</model>
+					<module>log</module>
+					<callback>close_log</callback>
+					<picto>check</picto>
+					<text>OK</text>
+				</data>
+				<!-- ============================================ -->
+				<!-- end -->
+				<!-- ============================================ -->
+			</map>
+		</data>
+		<!-- ============================================ -->
+		<!-- errors -->
+		<!-- ============================================ -->
+		<data>
+			<code>errors</code>
+			<title>Erreurs</title>
+			<intro>Consultez les erreurs de traitements.</intro>
+			<modal_id>ModalErrors</modal_id>
+			<body_id>ErrorsBody</body_id>
+			<form_id>ErrorsForm</form_id>
+			<msg_id>ErrorsMsg</msg_id>
+			<module>log</module>
+			<keypress_cb>keypress_error</keypress_cb>
+			<close_cb>close_error</close_cb>
+			<map>
+				<!-- ============================================ -->
+				<!-- errors_body -->
+				<!-- ============================================ -->
+				<data>
+					<category>errors_body</category>
+					<model>label</model>
+					<id>ErrorsLabel</id>
+				</data>
+				<!-- ============================================ -->
+				<!-- errors/button -->
+				<!-- ============================================ -->
+				<data>
+					<category>errors_button</category>
+					<model>button</model>
+					<id>LogsOk</id>
+					<module>log</module>
+					<callback>close_error</callback>
+					<picto>exclamation-triangle</picto>
+					<text>OK</text>
+				</data>
+				<!-- ============================================ -->
+				<!-- end -->
+				<!-- ============================================ -->
+			</map>
+		</data>
+		<!-- ============================================ -->
+		<!-- test -->
+		<!-- ============================================ -->
+		<data>
+			<code>test</code>
+			<module>prod</module>
+			<method>test</method>
+		</data>
+		<!-- ============================================ -->
+		<!-- env -->
+		<!-- ============================================ -->
+		<data>
+			<code>env</code>
+			<map>
+				<!-- ============================================ -->
+				<!-- table -->
+				<!-- ============================================ -->
+				<data>
+					<model>normal</model>
+					<id>ConfirmModule</id>
+				</data>
+				<data>
+					<model>normal</model>
+					<id>ConfirmMethod</id>
+				</data>
+				<data>
+					<model>normal</model>
+					<id>ConfirmAction</id>
+				</data>
+				<!-- ============================================ -->
+				<!-- table -->
+				<!-- ============================================ -->
+				<data>
+					<model>normal</model>
+					<id>TableCurrentData</id>
+				</data>
+				<data>
+					<model>normal</model>
+					<id>TableHeaderVisible</id>
+				</data>
+				<data>
+					<model>normal</model>
+					<id>TableSelectModule</id>
+				</data>
+				<data>
+					<model>normal</model>
+					<id>TableSelectMethod</id>
+				</data>
+				<data>
+					<model>normal</model>
+					<id>TableNextModule</id>
+				</data>
+				<data>
+					<model>normal</model>
+					<id>TableNextMethod</id>
+				</data>
+				<!-- ============================================ -->
+				<!-- end -->
+				<!-- ============================================ -->
+			</map>
+		</data>
+		<!-- ============================================ -->
+		<!-- style -->
+		<!-- ============================================ -->
+		<data>
+			<code>style</code>
+			<!-- ============================================ -->
+			<!-- background -->
+			<!-- ============================================ -->
+			<bg_img_top>/data/img/defaults/top_masque.png</bg_img_top>
+			<bg_img_top_bg>/data/img/defaults/fond.jpg</bg_img_top_bg>
+			<bg_img_middle>/data/img/defaults/middle.gif</bg_img_middle>
+			<bg_img_bottom>/data/img/defaults/footer.jpg</bg_img_bottom>
+			<!-- ============================================ -->
+			<!-- border -->
+			<!-- ============================================ -->
+			<border_img>/data/img/defaults/border.png</border_img>
+			<!-- ============================================ -->
+			<!-- image -->
+			<!-- ============================================ -->
+			<img_wave>/data/img/defaults/wave.png</img_wave>
+			<img_binary>/data/img/defaults/binary.png</img_binary>
+			<img_signal>/data/img/defaults/signal.jpg</img_signal>
+			<img_chip>/data/img/defaults/chip.jpg</img_chip>
+			<img_developer>/data/img/defaults/developer.jpg</img_developer>
+			<img_grid>/data/img/defaults/grid.jpg</img_grid>
+			<img_dashboard>/data/img/defaults/dashboard.jpg</img_dashboard>
+			<img_contact>/data/img/defaults/contact.jpg</img_contact>
+			<!-- ============================================ -->
+			<!-- end -->
+			<!-- ============================================ -->
+		</data>
+		<!-- ============================================ -->
+		<!-- end -->
+		<!-- ============================================ -->
+	</datas>
 </rdv>

@@ -1,16 +1,11 @@
 <?php   
-    class GFooter extends GObject {
+    class GFooterUi extends GObjectUi {
         //===============================================
         public function __construct() {
             parent::__construct();
-            $this->createDoms();
         }
         //===============================================
         public function run() {
-            $this->onFooter();
-        }
-        //===============================================
-        public function onFooter() {
             echo sprintf("</div>\n");
             $this->onNetwork();
             echo sprintf("</div>\n");
@@ -25,15 +20,15 @@
             echo sprintf("<div class='Row2'>\n");
             echo sprintf("<div>Réseaux Sociaux - Réjoignez-nous</div>\n");            
             
-            $lCount = $this->countItem("networks");
-            $lCopyright = $this->getItem("copyright", "text");
-            $lStartDate = $this->getItem("copyright", "date");
-            $lTitle = $this->getItem("copyright", "title");
-            $lCurrentDate = date("Y");
+            $lCount         = $this->m_app->countItem("networks");
+            $lCopyright     = $this->m_app->getData("copyright", "text");
+            $lStartDate     = $this->m_app->getData("copyright", "date");
+            $lTitle         = $this->m_app->getData("copyright", "title");
+            $lCurrentDate   = date("Y");
             
             for($i = 0; $i < $lCount; $i++) {
-                $lIcon = $this->getItem3("networks", "icon", $i);
-                $lLink = $this->getItem3("networks", "link", $i);
+                $lIcon = $this->m_app->getData3("networks", "icon", $i);
+                $lLink = $this->m_app->getData3("networks", "link", $i);
                 
                 echo sprintf("<a href='%s'>\n", $lLink);
                 echo sprintf("<i class='Network %s'></i>\n", $lIcon);
@@ -52,9 +47,9 @@
         }
         //===============================================
         public function loadScripts() {
-            $lCount = $this->countItem("scripts");
+            $lCount = $this->m_app->countItem("scripts");
             for($i = 0; $i < $lCount; $i++) {
-                $lScript = $this->getItem2("scripts", $i);
+                $lScript = $this->m_app->getData2("scripts", $i);
                 echo sprintf("<script src='%s'></script>\n", $lScript);
             }
         }

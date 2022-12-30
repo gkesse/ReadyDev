@@ -25,10 +25,10 @@
             parent::deserialize($data);
             $lDom = new GCode();
             $lDom->loadXml($data);
-            $this->lastId = $lDom->getItem($code, "last_id");
-            $this->dataCount = $lDom->getItem($code, "data_count");
-            $this->dataSize = $lDom->getItem($code, "data_size");
-            $this->dataOffset = $lDom->getItem($code, "data_offset");
+            $this->lastId = $lDom->getData($code, "last_id");
+            $this->dataCount = $lDom->getData($code, "data_count");
+            $this->dataSize = $lDom->getData($code, "data_size");
+            $this->dataOffset = $lDom->getData($code, "data_offset");
         }
         //===============================================
     }

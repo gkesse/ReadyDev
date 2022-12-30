@@ -1,19 +1,9 @@
 <?php
 //===============================================
-class GAdmin extends GObject {
-    //===============================================
-    private static $m_instance = null;
+class GAdminUi extends GObjectUi {
     //===============================================
     public function __construct() {
         parent::__construct();
-        $this->createDoms();        
-    }
-    //===============================================
-    public static function Instance() {
-        if(is_null(self::$m_instance)) {
-            self::$m_instance = new GAdmin();
-        }
-        return self::$m_instance;
     }
     //===============================================
     public function run() {
@@ -29,9 +19,9 @@ class GAdmin extends GObject {
     }
     //===============================================
     public function onIntro() {
-        $lTitle = $this->getItem("admin", "title");
-        $lIntro = $this->getItem("admin", "intro");
-        $lCount = $this->countItem("admin");
+        $lTitle = $this->m_app->getData("admin", "title");
+        $lIntro = $this->m_app->getData("admin", "intro");
+        $lCount = $this->m_app->countItem("admin");
         
         echo sprintf("<div class='Parallax'>\n");
         echo sprintf("<div class='Img Binary'>\n");
@@ -47,9 +37,9 @@ class GAdmin extends GObject {
         echo sprintf("<ul class='fa-ul'>\n");        
         
         for($i = 0; $i < $lCount; $i++) {
-            $lCategory = $this->getItem3("admin", "category", $i);
-            $lLink = $this->getItem3("admin", "link", $i);
-            $lName = $this->getItem3("admin", "name", $i);
+            $lCategory = $this->m_app->getData3("admin", "category", $i);
+            $lLink = $this->m_app->getData3("admin", "link", $i);
+            $lName = $this->m_app->getData3("admin", "name", $i);
             if($lCategory != "intro/link") continue;
             echo sprintf("<li>\n");
             echo sprintf("<i class='Icon2 fa-li fa fa-book'></i>\n");

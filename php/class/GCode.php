@@ -102,19 +102,19 @@ class GCode extends GXml {
         $this->getXPath(sprintf("/rdv/datas/data[code='%s']/map/data[position()=%d]", $code, $index + 1));
     }
     //===============================================
-    public function getItem($code, $key, $isCData = false) {
+    public function getData($code, $key, $isCData = false) {
         $this->getXPath(sprintf("/rdv/datas/data[code='%s']/%s", $code, $key));
         $lData = $this->getNodeValue($isCData);
         return $lData;
     }
     //===============================================
-    public function getItem2($code, $index, $isCData = false) {
+    public function getData2($code, $index, $isCData = false) {
         $this->getXPath(sprintf("/rdv/datas/data[code='%s']/map/data[position()=%d]", $code, $index + 1));
         $lData = $this->getNodeValue($isCData);
         return $lData;
     }
     //===============================================
-    public function getItem3($code, $key, $index, $isCData = false) {
+    public function getData3($code, $key, $index, $isCData = false) {
         $this->getXPath(sprintf("/rdv/datas/data[code='%s']/map/data[position()=%d]/%s", $code, $index + 1, $key));
         $lData = $this->getNodeValue($isCData);
         return $lData;
@@ -123,8 +123,8 @@ class GCode extends GXml {
     public function getItemC($code, $category, $key, $isCData = false) {
         $lCount = $this->countItem($code);
         for($i = 0; $i < $lCount; $i++) {
-            $lCategory = $this->getItem3($code, "category", $i);
-            $lData = $this->getItem3($code, $key, $i, $isCData);
+            $lCategory = $this->getData3($code, "category", $i);
+            $lData = $this->getData3($code, $key, $i, $isCData);
             if($lCategory == $category) {
                 return $lData;
             }
@@ -135,7 +135,7 @@ class GCode extends GXml {
     public function getList($code, &$obj, $isCData = false) {
         $lCount = $this->countItem($code);
         for($i = 0; $i < $lCount; $i++) {
-            $lData = $this->getItem2($code, $i, $isCData);
+            $lData = $this->getData2($code, $i, $isCData);
             $obj[] = $lData;
         }
     }
@@ -144,8 +144,8 @@ class GCode extends GXml {
         $lDatas = array();
         $lCount = $this->countItem($code);
         for($i = 0; $i < $lCount; $i++) {
-            $lCategory = $this->getItem3($code, "category", $i);
-            $lData = $this->getItem3($code, $key, $i);
+            $lCategory = $this->getData3($code, "category", $i);
+            $lData = $this->getData3($code, $key, $i);
             if($lCategory == $category) {
                 $lDatas[] = $lData;
             }

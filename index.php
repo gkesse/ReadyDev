@@ -3,10 +3,10 @@
 require $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoloadRegister.php";
 require $_SERVER["DOCUMENT_ROOT"]."/php/class/GDefine.php";
 // ===============================================
-$lPageObj = new GPage();
-$lProcessObj = new GProcess();
+$lPage = new GPage();
+$lProcess = new GProcess();
 //===============================================
-$lPageObj->redirectPost();
-$lProcessObj->run();
+$lPage->redirectPost();
+$lProcess->run();
 //===============================================
 ?>

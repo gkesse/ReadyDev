@@ -28,11 +28,11 @@ class GUser extends GModule {
         parent::deserialize($data);
         $lData = new GCode();
         $lData->loadXml($data);
-        $this->pseudo = $lData->getItem($code, "pseudo");
-        $this->email = $lData->getItem($code, "email");
-        $this->password = $lData->getItem($code, "password");
-        $this->group = $lData->getItem($code, "group");
-        $this->active = $lData->getItem($code, "active");
+        $this->pseudo = $lData->getData($code, "pseudo");
+        $this->email = $lData->getData($code, "email");
+        $this->password = $lData->getData($code, "password");
+        $this->group = $lData->getData($code, "group");
+        $this->active = $lData->getData($code, "active");
     }
     //===============================================
     public function onModule($data, $server) {
@@ -81,13 +81,13 @@ class GUser extends GModule {
         echo sprintf("<div class='Row11'>%s</div>\n", $lIntro);
         
         for($i = 0; $i < $lCount; $i++) {
-            $lCategory = $this->getItem3("user", "category", $i);
-            $lLabel = $this->getItem3("user", "label", $i);
-            $lId = $this->getItem3("user", "id", $i);
-            $lType = $this->getItem3("user", "type", $i);
-            $lName = $this->getItem3("user", "name", $i);
+            $lCategory = $this->getData3("user", "category", $i);
+            $lLabel = $this->getData3("user", "label", $i);
+            $lId = $this->getData3("user", "id", $i);
+            $lType = $this->getData3("user", "type", $i);
+            $lName = $this->getData3("user", "name", $i);
             
-            if($lCategory == "connection/body") {
+            if($lCategory == "connection_body") {
                 echo sprintf("<div class='Row12'>\n");
                 echo sprintf("<label class='Label3' for='%s'>%s</label>\n", $lName, $lLabel);
                 echo sprintf("<div class='Field3'><input id='%s' class='Input2' type='%s' name='%s'/></div>\n", $lId, $lType, $lName);
@@ -98,15 +98,15 @@ class GUser extends GModule {
         echo sprintf("<div class='Row13'>\n");
         
         for($i = 0; $i < $lCount; $i++) {
-            $lCategory = $this->getItem3("user", "category", $i);
-            $lType = $this->getItem3("user", "type", $i);
-            $lId = $this->getItem3("user", "id", $i);
-            $lModule = $this->getItem3("user", "module", $i);
-            $lCallback = $this->getItem3("user", "callback", $i);
-            $lPicto = $this->getItem3("user", "picto", $i);
-            $lText = $this->getItem3("user", "text", $i, true);
+            $lCategory = $this->getData3("user", "category", $i);
+            $lType = $this->getData3("user", "type", $i);
+            $lId = $this->getData3("user", "id", $i);
+            $lModule = $this->getData3("user", "module", $i);
+            $lCallback = $this->getData3("user", "callback", $i);
+            $lPicto = $this->getData3("user", "picto", $i);
+            $lText = $this->getData3("user", "text", $i, true);
             
-            if($lCategory == "connection/button") {
+            if($lCategory == "connection_button") {
                 if($lType == "button") {
                     echo sprintf("<button type='button' id='%s' class='Button4' onclick='server_call(\"%s\", \"%s\");'><i class='fa fa-%s'></i> %s</button>\n"
                         , $lId, $lModule, $lCallback, $lPicto, $lText);
@@ -144,13 +144,13 @@ class GUser extends GModule {
         echo sprintf("<div class='Row11'>%s</div>\n", $lIntro);
         
         for($i = 0; $i < $lCount; $i++) {
-            $lCategory = $this->getItem3("user", "category", $i);
-            $lLabel = $this->getItem3("user", "label", $i);
-            $lId = $this->getItem3("user", "id", $i);
-            $lType = $this->getItem3("user", "type", $i);
-            $lName = $this->getItem3("user", "name", $i);
+            $lCategory = $this->getData3("user", "category", $i);
+            $lLabel = $this->getData3("user", "label", $i);
+            $lId = $this->getData3("user", "id", $i);
+            $lType = $this->getData3("user", "type", $i);
+            $lName = $this->getData3("user", "name", $i);
             
-            if($lCategory == "account/body") {
+            if($lCategory == "account_body") {
                 echo sprintf("<div class='Row12'>\n");
                 echo sprintf("<label class='Label3' for='%s'>%s</label>\n", $lName, $lLabel);
                 echo sprintf("<div class='Field3'><input id='%s' class='Input2' type='%s' name='%s'/></div>\n", $lId, $lType, $lName);
@@ -161,15 +161,15 @@ class GUser extends GModule {
         echo sprintf("<div class='Row13'>\n");
         
         for($i = 0; $i < $lCount; $i++) {
-            $lCategory = $this->getItem3("user", "category", $i);
-            $lType = $this->getItem3("user", "type", $i);
-            $lId = $this->getItem3("user", "id", $i);
-            $lModule = $this->getItem3("user", "module", $i);
-            $lCallback = $this->getItem3("user", "callback", $i);
-            $lPicto = $this->getItem3("user", "picto", $i);
-            $lText = $this->getItem3("user", "text", $i, true);
+            $lCategory = $this->getData3("user", "category", $i);
+            $lType = $this->getData3("user", "type", $i);
+            $lId = $this->getData3("user", "id", $i);
+            $lModule = $this->getData3("user", "module", $i);
+            $lCallback = $this->getData3("user", "callback", $i);
+            $lPicto = $this->getData3("user", "picto", $i);
+            $lText = $this->getData3("user", "text", $i, true);
             
-            if($lCategory == "account/button") {
+            if($lCategory == "account_button") {
                 if($lType == "button") {
                     echo sprintf("<button type='button' id='%s' class='Button4' onclick='server_call(\"%s\", \"%s\");'><i class='fa fa-%s'></i> %s</button>\n"
                         , $lId, $lModule, $lCallback, $lPicto, $lText);

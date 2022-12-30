@@ -1,28 +1,29 @@
 <?php   
-    class GReady extends GObject {
+    class GReadyUi extends GObjectUi {
         //===============================================
-        private $foundOn;
+        protected  $m_isFound;
+        //===============================================
+        protected  $m_headerUi;
+        protected  $m_footerUi;
+        protected  $m_adminUi;
+        protected  $m_pageUi;
+        protected  $m_page;
         //===============================================
         public function __construct() {
             parent::__construct();
-            $this->createDoms();
-            $this->foundOn = false;
+            $this->m_headerUi   = new GHeaderUi();
+            $this->m_footerUi   = new GFooterUi();
+            $this->m_adminUi    = new GAdminUi();
+            $this->m_pageUi     = new GPageUi();
+            $this->m_page       = new GPage();
+            
+            $this->m_isFound    = false;
         }
         //===============================================
         public function run() {
-            $this->onHeader();
+            $this->m_headerUi->run();
             $this->onBody();
-            $this->onFooter();
-        }
-        //===============================================
-        public function onHeader() {
-            $lHeaderObj = new GHeader();
-            $lHeaderObj->runUi();
-        }
-        //===============================================
-        public function onFooter() {
-            $lFooterObj = new GFooter();
-            $lFooterObj->run();
+            $this->m_footerUi->run();
         }
         //===============================================
         public function onBody() {
@@ -33,18 +34,15 @@
         }
         //===============================================
         public function onAdmin() {
-            $lPageObj = new GPage();
-            $lPage = $lPageObj->getPageId();
+            $lPage = $this->m_page->getPageId();
             if($lPage != "/home/admin") return;
-            $this->foundOn = true;
-            $lAdminObj = new GAdmin();
-            $lAdminObj->run();
+            $this->m_isFound = true;
+            $this->m_adminUi->run();
         }
         //===============================================
         public function onError() {
-            if($this->foundOn) return;
-            $lPageObj = new GPage();
-            $lPageObj->notFound();
+            if($this->m_isFound) return;
+            $this->m_pageUi->notFound();
         }
         //===============================================
     }

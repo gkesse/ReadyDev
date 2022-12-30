@@ -29,9 +29,9 @@
             parent::deserialize($data);
             $lDom = new GCode();
             $lDom->loadXml($data);
-            $this->id = $lDom->getItem($code, "id");
-            $this->code = $lDom->getItem($code, "code_id");
-            $this->label = $lDom->getItem($code, "label");
+            $this->id = $lDom->getData($code, "id");
+            $this->code = $lDom->getData($code, "code_id");
+            $this->label = $lDom->getData($code, "label");
             $lDom->getMap($code, $this->map, $this);
         }
         //===============================================
@@ -93,8 +93,8 @@
         }
         //===============================================
         public function runUi() {
-            $lId = $this->getItem("manager", "id");
-            $lTitle = $this->getItem("manager", "title");
+            $lId = $this->getData("manager", "id");
+            $lTitle = $this->getData("manager", "title");
             
             echo sprintf("<div class='MainBlock'>\n");
             echo sprintf("<div class='Content'>\n");
@@ -120,10 +120,10 @@
             $lMethod = $this->getItemC("manager", "header/link", "method");
             
             for($i = 0; $i < $lCount; $i++) {
-                $lCategory = $this->getItem3("manager", "category", $i);
-                $lToolTip = $this->getItem3("manager", "tooltip", $i);
-                $lId = $this->getItem3("manager", "id", $i);
-                $lName = $this->getItem3("manager", "name", $i);
+                $lCategory = $this->getData3("manager", "category", $i);
+                $lToolTip = $this->getData3("manager", "tooltip", $i);
+                $lId = $this->getData3("manager", "id", $i);
+                $lName = $this->getData3("manager", "name", $i);
                 
                 if($lCategory == "header") {
                     echo sprintf("<div class='Col'>\n");
@@ -163,14 +163,14 @@
             echo sprintf("<div class='Border Content14'>\n");
             
             for($i = 0; $i < $lCount; $i++) {
-                $lCategory = $this->getItem3("manager", "category", $i);
-                $lModel = $this->getItem3("manager", "model", $i);
-                $lLabel = $this->getItem3("manager", "label", $i);
-                $lId = $this->getItem3("manager", "id", $i);
-                $lType = $this->getItem3("manager", "type", $i);
-                $lName = $this->getItem3("manager", "name", $i);
-                $lValue = $this->getItem3("manager", "value", $i);
-                $lLowerOn = ($this->getItem3("manager", "lower_on", $i) == "1");
+                $lCategory = $this->getData3("manager", "category", $i);
+                $lModel = $this->getData3("manager", "model", $i);
+                $lLabel = $this->getData3("manager", "label", $i);
+                $lId = $this->getData3("manager", "id", $i);
+                $lType = $this->getData3("manager", "type", $i);
+                $lName = $this->getData3("manager", "name", $i);
+                $lValue = $this->getData3("manager", "value", $i);
+                $lLowerOn = ($this->getData3("manager", "lower_on", $i) == "1");
                 
                 $lClass = "Input2";
                 if($lLowerOn) $lClass = "Input3";
@@ -192,12 +192,12 @@
             echo sprintf("<div class='Row34'>\n");
             
             for($i = 0; $i < $lCount; $i++) {
-                $lCategory = $this->getItem3("manager", "category", $i);
-                $lId = $this->getItem3("manager", "id", $i);
-                $lModule = $this->getItem3("manager", "module", $i);
-                $lCallback = $this->getItem3("manager", "callback", $i);
-                $lPicto = $this->getItem3("manager", "picto", $i);
-                $lText = $this->getItem3("manager", "text", $i);
+                $lCategory = $this->getData3("manager", "category", $i);
+                $lId = $this->getData3("manager", "id", $i);
+                $lModule = $this->getData3("manager", "module", $i);
+                $lCallback = $this->getData3("manager", "callback", $i);
+                $lPicto = $this->getData3("manager", "picto", $i);
+                $lText = $this->getData3("manager", "text", $i);
                 
                 if($lCategory == "code/button") {
                     echo sprintf("<button type='button' id='%s' class='Button4' onclick='server_call(\"%s\", \"%s\");'><i class='fa fa-%s'></i> %s</button>\n"

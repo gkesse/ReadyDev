@@ -21,8 +21,8 @@ class GModule extends GSession {
         parent::deserialize($data);
         $lDom = new GCode();
         $lDom->loadXml($data);
-        $this->module = $lDom->getItem($code, "module");
-        $this->method = $lDom->getItem($code, "method");
+        $this->module = $lDom->getData($code, "module");
+        $this->method = $lDom->getData($code, "method");
     }
     //===============================================
     public function callProxy($server) {
