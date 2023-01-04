@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rdv>
-	<datas>
-		<!-- ============================================ -->
-		<!-- admin -->
-		<!-- ============================================ -->
-		<data>
-			<code>admin</code>
-			<title>Administration</title>
-			<intro><![CDATA[
+    <datas>
+        <!-- ============================================ -->
+        <!-- admin -->
+        <!-- ============================================ -->
+        <data>
+            <code>admin</code>
+            <title>Administration</title>
+            <intro><![CDATA[
                 <b>ReadyAdmin</b> est une interface d'administration.<br/>
                 Il vous permet de modifier facilement le contenu du site 
                 et d'y ajouter de nouvelles fonctionnalités
@@ -16,37 +16,37 @@
                 manuellemet le contenu du site.
                 <br/>Produit par <b>Gérard KESSE</b>.
             ]]></intro>
-			<map>
-				<!-- ============================================ -->
-				<!-- intro_link -->
-				<!-- ============================================ -->
-				<data>
-					<category>intro_link</category>
-					<name>Manager de données</name>
-					<link>#manager_donnees</link>
-				</data>
-				<data>
-					<category>intro_link</category>
-					<name>Gestionnaire de requêtes</name>
-					<link>#gestionnaire_requetes</link>
-				</data>
-				<data>
-					<category>intro_link</category>
-					<name>Éditeur de Sitemap</name>
-					<link>#editeur_sitemap</link>
-				</data>
-				<data>
-					<category>intro_link</category>
-					<name>Éditeur de Page HTML</name>
-					<link>#editeur_pages_html</link>
-				</data>
-				<!-- ============================================ -->
-				<!-- end -->
-				<!-- ============================================ -->
-			</map>
-		</data>
-		<!-- ============================================ -->
-		<!-- end -->
-		<!-- ============================================ -->
-	</datas>
+            <map>
+                <!-- ============================================ -->
+                <!-- intro_link -->
+                <!-- ============================================ -->
+                <data>
+                    <category>intro_link</category>
+                    <name>Manager de données</name>
+                    <link>#manager_donnees</link>
+                </data>
+                <data>
+                    <category>intro_link</category>
+                    <name>Gestionnaire de requêtes</name>
+                    <link>#gestionnaire_requetes</link>
+                </data>
+                <data>
+                    <category>intro_link</category>
+                    <name>Éditeur de Sitemap</name>
+                    <link>#editeur_sitemap</link>
+                </data>
+                <data>
+                    <category>intro_link</category>
+                    <name>Éditeur de Page HTML</name>
+                    <link>#editeur_pages_html</link>
+                </data>
+                <!-- ============================================ -->
+                <!-- end -->
+                <!-- ============================================ -->
+            </map>
+        </data>
+        <!-- ============================================ -->
+        <!-- end -->
+        <!-- ============================================ -->
+    </datas>
 </rdv>

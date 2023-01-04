@@ -2,29 +2,29 @@
 class GPage extends GObject {
     //===============================================
     constructor() {
-		super();
-	}
+        super();
+    }
     //===============================================
     onModule(method, obj, data) {
-		if(method == "") {
-			return false;
-		}
-    	//===============================================
-		// connection
-    	//===============================================
-		else if(method == "close_notfound") {
-			this.onCloseNotFound();
-		}
-    	//===============================================
-		// end
-    	//===============================================
-		else return false;
-		return true;
-	}
+        if(method == "") {
+            return false;
+        }
+        //===============================================
+        // connection
+        //===============================================
+        else if(method == "close_notfound") {
+            this.onCloseNotFound();
+        }
+        //===============================================
+        // end
+        //===============================================
+        else return false;
+        return true;
+    }
     //===============================================
     onCloseNotFound() {
-	    var lNotFound = document.getElementById("NotFoundBox");
-	    lNotFound.style.display = "none"; 
+        var lNotFound = document.getElementById("NotFoundBox");
+        lNotFound.style.display = "none"; 
     }
     //===============================================
 }

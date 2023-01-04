@@ -2,28 +2,28 @@
 class GEditorUi extends GObjectUi {
     //===============================================
     constructor() {
-		super();
+        super();
     }
     //===============================================
     onModule(method, obj, data) {
-		if(method == "") {
-			return false;
-		}
-    	//===============================================
-		// method
-    	//===============================================
-		else if(method == "open_header") {
-			this.onOpenHeader(obj, data);
-		}
-		else if(method == "open_editor") {
-			this.onOpenEditor(obj, data);
-		}
-    	//===============================================
-    	// end
-    	//===============================================
-		else return false;
-		return true;
-	}
+        if(method == "") {
+            return false;
+        }
+        //===============================================
+        // method
+        //===============================================
+        else if(method == "open_header") {
+            this.onOpenHeader(obj, data);
+        }
+        else if(method == "open_editor") {
+            this.onOpenEditor(obj, data);
+        }
+        //===============================================
+        // end
+        //===============================================
+        else return false;
+        return true;
+    }
     //===============================================
     init() {
         var lTabCtn = document.getElementsByClassName("EditorTab");
@@ -35,7 +35,7 @@ class GEditorUi extends GObjectUi {
     }
     //===============================================
     onOpenHeader(obj, name) {
-		if(obj === undefined) return;
+        if(obj === undefined) return;
         var lTab = document.getElementsByClassName("EditorTab");
         for(var i = 0; i < lTab.length; i++) {
             var lTabId = lTab[i];
@@ -49,10 +49,10 @@ class GEditorUi extends GObjectUi {
         }
         var lTabId = document.getElementById(name);
         lTabId.style.display = "block";
-	}
+    }
     //===============================================
     onOpenEditor(obj, name) {
-		if(obj === undefined) return;
+        if(obj === undefined) return;
         var lTab = document.getElementsByClassName("EditorFileTab");
         for(var i = 0; i < lTab.length; i++) {
             var lTabId = lTab[i];
@@ -66,7 +66,7 @@ class GEditorUi extends GObjectUi {
         }
         var lTabId = document.getElementById(name);
         lTabId.style.display = "block";
-	}
+    }
     //===============================================
 }
 //===============================================

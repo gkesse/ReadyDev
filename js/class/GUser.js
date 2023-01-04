@@ -2,83 +2,83 @@
 class GUser extends GObject {
     //===============================================
     constructor() {
-		super();
-		this.pseudo = "";
-		this.password = "";
+        super();
+        this.pseudo = "";
+        this.password = "";
     }
     //===============================================
-	serialize(code = "user") {
-		var lData = new GCode();
-		lData.createDoc();
-		lData.addData(code, "pseudo", this.pseudo);
-		lData.addData(code, "password", this.password);
-		return lData.toStringData();
-	}
+    serialize(code = "user") {
+        var lData = new GCode();
+        lData.createDoc();
+        lData.addData(code, "pseudo", this.pseudo);
+        lData.addData(code, "password", this.password);
+        return lData.toStringData();
+    }
     //===============================================
-	deserialize(data, code = "user") {
-		var lData = new GCode();
-		lData.loadXml(data);
-		this.pseudo = lData.getItem(code, "pseudo");
-		this.password = lData.getItem(code, "password");
-	}
+    deserialize(data, code = "user") {
+        var lData = new GCode();
+        lData.loadXml(data);
+        this.pseudo = lData.getItem(code, "pseudo");
+        this.password = lData.getItem(code, "password");
+    }
     //===============================================
     onModule(method, obj, data) {
-		if(method == "") {
-			this.onMethodNone();
-			return false;
-		}
-    	//===============================================
-		// connection
-    	//===============================================
-		else if(method == "open_connection") {
-			this.onOpenConnection();
-		}
-		else if(method == "close_connection") {
-			this.onCloseConnection();
-		}
-		else if(method == "run_connection") {
-			this.onRunConnection();
-		}
-		else if(method == "keypress_connection") {
-			this.onKeyPressConnection(obj, data);
-		}
-    	//===============================================
-		// disconnection
-    	//===============================================
-		else if(method == "open_disconnection") {
-			this.onOpenDisconnection();
-		}
-		else if(method == "close_disconnection") {
-			this.onCloseDisconnection();
-		}
-		else if(method == "run_disconnection") {
-			this.onRunDisconnection();
-		}
-    	//===============================================
-		// account
-    	//===============================================
-		else if(method == "open_account") {
-			this.onOpenCreateAccount();
-		}
-		else if(method == "close_account") {
-			this.onCloseAccount();
-		}
-		else if(method == "create_account") {
-			this.onCreateAccount();
-		}
-		else if(method == "keypress_account") {
-			this.onKeyPressAccount(obj, data);
-		}
-    	//===============================================
-		// end
-    	//===============================================
-		else {
-			this.onMethodUnknown();
-			return false;		
-		}
-    	//===============================================
-		return true;
-	}
+        if(method == "") {
+            this.onMethodNone();
+            return false;
+        }
+        //===============================================
+        // connection
+        //===============================================
+        else if(method == "open_connection") {
+            this.onOpenConnection();
+        }
+        else if(method == "close_connection") {
+            this.onCloseConnection();
+        }
+        else if(method == "run_connection") {
+            this.onRunConnection();
+        }
+        else if(method == "keypress_connection") {
+            this.onKeyPressConnection(obj, data);
+        }
+        //===============================================
+        // disconnection
+        //===============================================
+        else if(method == "open_disconnection") {
+            this.onOpenDisconnection();
+        }
+        else if(method == "close_disconnection") {
+            this.onCloseDisconnection();
+        }
+        else if(method == "run_disconnection") {
+            this.onRunDisconnection();
+        }
+        //===============================================
+        // account
+        //===============================================
+        else if(method == "open_account") {
+            this.onOpenCreateAccount();
+        }
+        else if(method == "close_account") {
+            this.onCloseAccount();
+        }
+        else if(method == "create_account") {
+            this.onCreateAccount();
+        }
+        else if(method == "keypress_account") {
+            this.onKeyPressAccount(obj, data);
+        }
+        //===============================================
+        // end
+        //===============================================
+        else {
+            this.onMethodUnknown();
+            return false;        
+        }
+        //===============================================
+        return true;
+    }
     //===============================================
     // connection
     //===============================================
@@ -87,13 +87,13 @@ class GUser extends GObject {
         var lConnectionBody = document.getElementById("ConnectionBody");
         var lConnectionMsg = document.getElementById("ConnectionMsg");
         var lConnectionPseudo = document.getElementById("ConnectionPseudo");
-		var lClassName = lConnectionBody.className;
+        var lClassName = lConnectionBody.className;
         lConnectionMsg.style.display = "none";
         lConnectionBody.className = lClassName.replace(" AnimateShow", "");
         lConnectionBody.className = lClassName.replace(" AnimateHide", "");
         lConnectionBody.className += " AnimateShow";
         lModalConnection.style.display = "block";
-		lConnectionPseudo.focus();
+        lConnectionPseudo.focus();
     }
     //===============================================
     onCloseConnection() {
@@ -115,7 +115,7 @@ class GUser extends GObject {
         var lConnectionButton = document.getElementById("ConnectionButton");
         var lMessage = "";
 
-		lConnectionButton.disabled = true;
+        lConnectionButton.disabled = true;
             lConnectionMsg.style.display = "none";
 
         if(!lPseudo.value.length) {
@@ -131,23 +131,23 @@ class GUser extends GObject {
             lConnectionMsg.innerHTML = lHtml;
             lConnectionMsg.style.display = "block";
             lConnectionMsg.style.color = "#ff9933";
-			lConnectionButton.disabled = false;
+            lConnectionButton.disabled = false;
         }
         else {
-			this.pseudo =lPseudo.value;
-			this.password = lPassword.value;
+            this.pseudo =lPseudo.value;
+            this.password = lPassword.value;
             this.onRunConnectionCall();
         }
     }
     //===============================================
     onRunConnectionCall() {
-		var lAjax = new GAjax();
-		var lData = this.serialize();
-		lAjax.call("user", "run_connection", lData, this.onRunConnectionCB);		
+        var lAjax = new GAjax();
+        var lData = this.serialize();
+        lAjax.call("user", "run_connection", lData, this.onRunConnectionCB);        
     }
     //===============================================
     onRunConnectionCB(data) {
-		var lLog = GLog.Instance();
+        var lLog = GLog.Instance();
         var lConnectionMsg = document.getElementById("ConnectionMsg");
         var lConnectionForm = document.getElementById("ConnectionForm");
         var lConnectionButton = document.getElementById("ConnectionButton");
@@ -155,15 +155,15 @@ class GUser extends GObject {
         lConnectionMsg.style.display = "none";
 
         var lUser = new GUser();
-		lUser.deserialize(data);
-		
+        lUser.deserialize(data);
+        
         if(lLog.hasErrors()) {
             var lHtml = "<i style='color:#ff9933' class='fa fa-exclamation-triangle'></i> "; 
             lHtml += lLog.getError(); 
             lConnectionMsg.innerHTML = lHtml;
             lConnectionMsg.style.color = "#ff9933";
             lConnectionMsg.style.display = "block";
-			lLog.clearErrors();
+            lLog.clearErrors();
         }
         else {
             var lHtml = "<i style='color:#339933' class='fa fa-paper-plane-o'></i> "; 
@@ -173,14 +173,14 @@ class GUser extends GObject {
             lConnectionMsg.style.display = "block";
             lConnectionForm.submit();
         }
-		lConnectionButton.disabled = false;
+        lConnectionButton.disabled = false;
     }
     //===============================================
     onKeyPressConnection(obj, event) {
-		var lConnectionButton = document.getElementById("ConnectionButton");
-		if(event.key == "Enter") {
-			lConnectionButton.click();
-		}
+        var lConnectionButton = document.getElementById("ConnectionButton");
+        if(event.key == "Enter") {
+            lConnectionButton.click();
+        }
     }
     //===============================================
     // disconnection
@@ -208,14 +208,14 @@ class GUser extends GObject {
     }
     //===============================================
     onRunDisconnection() {
-		var lAjax = new GAjax();
-		lAjax.call("user", "run_disconnection", "", this.onRunDisconnectionCB);		
+        var lAjax = new GAjax();
+        lAjax.call("user", "run_disconnection", "", this.onRunDisconnectionCB);        
     }
     //===============================================
     onRunDisconnectionCB(data) {
         var lDisconnectionMsg = document.getElementById("DisconnectionMsg");
-		var lUser = new GUser();
-		lUser.deserialize(data);
+        var lUser = new GUser();
+        lUser.deserialize(data);
         var lHtml = "<i style='color:#339933' class='fa fa-power-off'></i> "; 
         lHtml += "La déconnexion a réussi."; 
         lDisconnectionMsg.innerHTML = lHtml;
@@ -231,13 +231,13 @@ class GUser extends GObject {
         var lAccountBody = document.getElementById("AccountBody");
         var lAccountMsg = document.getElementById("AccountMsg");
         //var lAccountPseudo = document.getElementById("AccountPseudo");
-		var lClassName = lAccountBody.className;
+        var lClassName = lAccountBody.className;
         lAccountMsg.style.display = "none";
         lAccountBody.className = lClassName.replace(" AnimateShow", "");
         lAccountBody.className = lClassName.replace(" AnimateHide", "");
         lAccountBody.className += " AnimateShow";
         lModalAccount.style.display = "block";
-		//lAccountPseudo.focus();
+        //lAccountPseudo.focus();
     }    
     //===============================================
     onCloseAccount() {
@@ -260,7 +260,7 @@ class GUser extends GObject {
         var lAccountButton = document.getElementById("AccountButton");
         var lMessage = "";
 
-		lAccountButton.disabled = true;
+        lAccountButton.disabled = true;
         lAccountMsg.style.display = "none";
 
         if(!lPseudo.value.length) {
@@ -294,23 +294,23 @@ class GUser extends GObject {
             lAccountMsg.innerHTML = lHtml;
             lAccountMsg.style.display = "block";
             lAccountMsg.style.color = "#ff9933";
-			lAccountButton.disabled = false;
+            lAccountButton.disabled = false;
         }
         else {
-			this.pseudo =lPseudo.value;
-			this.password = lPassword.value;
+            this.pseudo =lPseudo.value;
+            this.password = lPassword.value;
             this.onCreateAccountCall();
         }
     }
     //===============================================
     onCreateAccountCall() {
-		var lAjax = new GAjax();
-		var lData = this.serialize();
-		lAjax.call("user", "create_account", lData, this.onCreateAccountCB);		
+        var lAjax = new GAjax();
+        var lData = this.serialize();
+        lAjax.call("user", "create_account", lData, this.onCreateAccountCB);        
     }
     //===============================================
     onCreateAccountCB(data) {
-		var lLog = GLog.Instance();
+        var lLog = GLog.Instance();
         var lAccountMsg = document.getElementById("AccountMsg");
         var lAccountForm = document.getElementById("AccountForm");
         var lAccountButton = document.getElementById("AccountButton");
@@ -318,15 +318,15 @@ class GUser extends GObject {
         lAccountMsg.style.display = "none";
 
         var lUser = new GUser();
-		lUser.deserialize(data);
-		
+        lUser.deserialize(data);
+        
         if(lLog.hasErrors()) {
             var lHtml = "<i style='color:#ff9933' class='fa fa-exclamation-triangle'></i> "; 
             lHtml += lLog.getError(); 
             lAccountMsg.innerHTML = lHtml;
             lAccountMsg.style.color = "#ff9933";
             lAccountMsg.style.display = "block";
-			lLog.clearErrors();
+            lLog.clearErrors();
         }
         else {
             var lHtml = "<i style='color:#339933' class='fa fa-paper-plane-o'></i> "; 
@@ -336,14 +336,14 @@ class GUser extends GObject {
             lAccountMsg.style.display = "block";
             //lAccountForm.submit();
         }
-		lAccountButton.disabled = false;
+        lAccountButton.disabled = false;
     }
-	//===============================================
+    //===============================================
     onKeyPressAccount(obj, event) {
-		var lAccountButton = document.getElementById("AccountButton");
-		if(event.key == "Enter") {
-			lAccountButton.click();
-		}
+        var lAccountButton = document.getElementById("AccountButton");
+        if(event.key == "Enter") {
+            lAccountButton.click();
+        }
     }
     //===============================================
 }

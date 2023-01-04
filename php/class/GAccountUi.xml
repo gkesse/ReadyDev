@@ -1,64 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rdv>
-	<datas>
-		<!-- ============================================ -->
-		<!-- account -->
-		<!-- ============================================ -->
-		<data>
-			<code>account</code>
-			<title>Connexion</title>
-			<intro>Connectez-vous pour utiliser les applications.</intro>
-			<modal_id>ModalConnection</modal_id>
-			<body_id>ConnectionBody</body_id>
-			<form_id>ConnectionForm</form_id>
-			<msg_id>ConnectionMsg</msg_id>
-			<module>user</module>
-			<keypress_cb>keypress_connection</keypress_cb>
-			<close_cb>close_connection</close_cb>
-			<map>
-				<!-- ============================================ -->
-				<!-- body -->
-				<!-- ============================================ -->
-				<data>
-					<category>body</category>
-					<label>Nom d'utilisateur :</label>
-					<id>AccountPseudo</id>
-					<type>text</type>
-					<name>pseudo</name>
-				</data>
-				<data>
-					<category>body</category>
-					<label>Mot de passe :</label>
-					<id>AccountPassword</id>
-					<type>password</type>
-					<name>password</name>
-				</data>
-				<data>
-					<category>body</category>
-					<label>Confirmation :</label>
-					<id>AccountConfirm</id>
-					<type>password</type>
-					<name>password</name>
-				</data>
-				<!-- ============================================ -->
-				<!-- button -->
-				<!-- ============================================ -->
-				<data>
-					<category>button</category>
-					<type>button</type>
-					<id>AccountButton</id>
-					<module>user</module>
-					<callback>create_account</callback>
-					<picto>paper-plane-o</picto>
-					<text><![CDATA[Créer]]></text>
-				</data>
-				<!-- ============================================ -->
-				<!-- end -->
-				<!-- ============================================ -->
-			</map>
-		</data>
-		<!-- ============================================ -->
-		<!-- end -->
-		<!-- ============================================ -->
-	</datas>
+    <datas>
+        <!-- ============================================ -->
+        <!-- account -->
+        <!-- ============================================ -->
+        <data>
+            <code>account</code>
+            <title>Connexion</title>
+            <intro>Connectez-vous pour utiliser les applications.</intro>
+            <modal_id>ModalConnection</modal_id>
+            <body_id>ConnectionBody</body_id>
+            <form_id>ConnectionForm</form_id>
+            <msg_id>ConnectionMsg</msg_id>
+            <module>user</module>
+            <keypress_cb>keypress_connection</keypress_cb>
+            <close_cb>close_connection</close_cb>
+            <map>
+                <!-- ============================================ -->
+                <!-- body -->
+                <!-- ============================================ -->
+                <data>
+                    <category>body</category>
+                    <label>Nom d'utilisateur :</label>
+                    <id>AccountPseudo</id>
+                    <type>text</type>
+                    <name>pseudo</name>
+                </data>
+                <data>
+                    <category>body</category>
+                    <label>Mot de passe :</label>
+                    <id>AccountPassword</id>
+                    <type>password</type>
+                    <name>password</name>
+                </data>
+                <data>
+                    <category>body</category>
+                    <label>Confirmation :</label>
+                    <id>AccountConfirm</id>
+                    <type>password</type>
+                    <name>password</name>
+                </data>
+                <!-- ============================================ -->
+                <!-- button -->
+                <!-- ============================================ -->
+                <data>
+                    <category>button</category>
+                    <type>button</type>
+                    <id>AccountButton</id>
+                    <module>user</module>
+                    <callback>create_account</callback>
+                    <picto>paper-plane-o</picto>
+                    <text><![CDATA[Créer]]></text>
+                </data>
+                <!-- ============================================ -->
+                <!-- end -->
+                <!-- ============================================ -->
+            </map>
+        </data>
+        <!-- ============================================ -->
+        <!-- end -->
+        <!-- ============================================ -->
+    </datas>
 </rdv>

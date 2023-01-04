@@ -2,19 +2,19 @@
 class GDomTest extends GTest {
     //===============================================
     constructor() {
-		super();
+        super();
     }
     //===============================================
-	onModule() {
-		if(this.m_method == "test") {
+    onModule() {
+        if(this.m_method == "test") {
             this.runTest();
         }
-		else {
-			this.runDefault();
-		}
-	}
+        else {
+            this.runDefault();
+        }
+    }
     //===============================================
-	runTest() {
+    runTest() {
         var lLog = new GLog();
         lLog.addLog("Erreur lors de l'émission.");
         lLog.addLog("La donnée a bien été enregistrée.");
@@ -31,7 +31,7 @@ class GDomTest extends GTest {
         //this.printXml(lLog3.serialize());
         
         this.printData(sprintf("hasErrors : %s", lLog.hasErrors()));
-	}
+    }
     //===============================================
 }
 //===============================================

@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rdv>
-	<datas>
-		<!-- ============================================ -->
-		<!-- disconnection -->
-		<!-- ============================================ -->
-		<data>
-			<code>disconnection</code>
-			<title>Déconnexion</title>
-			<intro>Êtes-vous sûr de vous déconnecter ?</intro>
-			<modal_id>ModalDisconnection</modal_id>
-			<body_id>DisconnectionBody</body_id>
-			<form_id>DisconnectionForm</form_id>
-			<msg_id>DisconnectionMsg</msg_id>
-			<module>user</module>
-			<keypress_cb>keypress_disconnection</keypress_cb>
-			<close_cb>close_disconnection</close_cb>
-			<disconnect_cb>run_disconnection</disconnect_cb>
-			<disconnect_btn>Se Déconnecter</disconnect_btn>
-		</data>
-		<!-- ============================================ -->
-		<!-- end -->
-		<!-- ============================================ -->
-	</datas>
+    <datas>
+        <!-- ============================================ -->
+        <!-- disconnection -->
+        <!-- ============================================ -->
+        <data>
+            <code>disconnection</code>
+            <title>Déconnexion</title>
+            <intro>Êtes-vous sûr de vous déconnecter ?</intro>
+            <modal_id>ModalDisconnection</modal_id>
+            <body_id>DisconnectionBody</body_id>
+            <form_id>DisconnectionForm</form_id>
+            <msg_id>DisconnectionMsg</msg_id>
+            <module>user</module>
+            <keypress_cb>keypress_disconnection</keypress_cb>
+            <close_cb>close_disconnection</close_cb>
+            <disconnect_cb>run_disconnection</disconnect_cb>
+            <disconnect_btn>Se Déconnecter</disconnect_btn>
+        </data>
+        <!-- ============================================ -->
+        <!-- end -->
+        <!-- ============================================ -->
+    </datas>
 </rdv>

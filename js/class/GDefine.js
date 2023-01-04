@@ -1,7 +1,7 @@
 //===============================================
 // user
 //===============================================
-const G_USER_GROUP_USER			= "0";
-const G_USER_GROUP_ADMIN		= "1";
-const G_USER_GROUP_ROOT			= "2";
+const G_USER_GROUP_USER            = "0";
+const G_USER_GROUP_ADMIN        = "1";
+const G_USER_GROUP_ROOT            = "2";
 //===============================================

@@ -1,48 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rdv>
-	<datas>
-		<!-- ============================================ -->
-		<!-- home -->
-		<!-- ============================================ -->
-		<data>
-			<code>home</code>
-			<title>Accueil</title>
-			<intro><![CDATA[
+    <datas>
+        <!-- ============================================ -->
+        <!-- home -->
+        <!-- ============================================ -->
+        <data>
+            <code>home</code>
+            <title>Accueil</title>
+            <intro><![CDATA[
                 <b>ReadyDev</b> est une Plateforme de Développement Continu.<br>
-				C'est un site web développé en <b>PHP</b> et maintenu par <b>Gérard KESSE</b>.<br>
-				Vous trouverez sur ce site des <b>cours</b> et des tutoriels adaptés aux <b>sciences de l'ingénieur</b>.
+                C'est un site web développé en <b>PHP</b> et maintenu par <b>Gérard KESSE</b>.<br>
+                Vous trouverez sur ce site des <b>cours</b> et des tutoriels adaptés aux <b>sciences de l'ingénieur</b>.
             ]]></intro>
-			<map>
-				<!-- ============================================ -->
-				<!-- intro_link -->
-				<!-- ============================================ -->
-				<data>
-					<category>intro_link</category>
-					<name>Manager de données</name>
-					<link>#manager_donnees</link>
-				</data>
-				<data>
-					<category>intro_link</category>
-					<name>Gestionnaire de requêtes</name>
-					<link>#gestionnaire_requetes</link>
-				</data>
-				<data>
-					<category>intro_link</category>
-					<name>Éditeur de Sitemap</name>
-					<link>#editeur_sitemap</link>
-				</data>
-				<data>
-					<category>intro_link</category>
-					<name>Éditeur de Page HTML</name>
-					<link>#editeur_pages_html</link>
-				</data>
-				<!-- ============================================ -->
-				<!-- end -->
-				<!-- ============================================ -->
-			</map>
-		</data>
-		<!-- ============================================ -->
-		<!-- end -->
-		<!-- ============================================ -->
-	</datas>
+            <map>
+                <!-- ============================================ -->
+                <!-- intro_link -->
+                <!-- ============================================ -->
+                <data>
+                    <category>intro_link</category>
+                    <name>Manager de données</name>
+                    <link>#manager_donnees</link>
+                </data>
+                <data>
+                    <category>intro_link</category>
+                    <name>Gestionnaire de requêtes</name>
+                    <link>#gestionnaire_requetes</link>
+                </data>
+                <data>
+                    <category>intro_link</category>
+                    <name>Éditeur de Sitemap</name>
+                    <link>#editeur_sitemap</link>
+                </data>
+                <data>
+                    <category>intro_link</category>
+                    <name>Éditeur de Page HTML</name>
+                    <link>#editeur_pages_html</link>
+                </data>
+                <!-- ============================================ -->
+                <!-- end -->
+                <!-- ============================================ -->
+            </map>
+        </data>
+        <!-- ============================================ -->
+        <!-- end -->
+        <!-- ============================================ -->
+    </datas>
 </rdv>

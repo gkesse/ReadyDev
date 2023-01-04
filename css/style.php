@@ -177,28 +177,28 @@ span {
 }
 
 table, th, td {
-  	border: 2px solid #2f3959;
+      border: 2px solid #2f3959;
 }
 
 table {
-  	width: 100%;
-  	border-collapse: collapse;
+      width: 100%;
+      border-collapse: collapse;
 }
 
 th, td {
-  	padding: 5px 10px;
+      padding: 5px 10px;
 }
 
 tr {
-	cursor: pointer;
+    cursor: pointer;
 }
 
 tr:hover {
-  	background-color: #512731;
+      background-color: #512731;
 }
 
 thead tr:first-child {
-  	background-color: #2f3959;
+      background-color: #2f3959;
 }
 
 /* ============================================== */
@@ -407,7 +407,7 @@ thead tr:first-child {
 }
 
 .BgColor {
-	background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 .Body {
@@ -1493,9 +1493,9 @@ thead tr:first-child {
 }
 
 .Modal3 {
-	height: 300px;
-	overflow: auto;
-	padding: 0px 10px 10px 0px;
+    height: 300px;
+    overflow: auto;
+    padding: 0px 10px 10px 0px;
 }
 
 .Network {
@@ -1804,11 +1804,11 @@ thead tr:first-child {
 }
 
 .Table {
-  	background-color: transparent;
+      background-color: transparent;
 }
 
 .Table.Active {
-  	background-color: teal;
+      background-color: teal;
 }
 
 .Text {

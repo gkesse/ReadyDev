@@ -2,7 +2,7 @@
 class GCode extends GXml {
     //===============================================
     constructor() {
-		super();
+        super();
     }
     //===============================================
     addData(code, key, value, isCData = false) {
@@ -36,12 +36,12 @@ class GCode extends GXml {
         if(code == "") return 0;
         this.queryXPath(sprintf("/rdv/datas/data[code='%s']/map/data", code));
         var lCount = this.countXPath();
-		return lCount;
+        return lCount;
     }
     //===============================================
     createCode(code) {
         if(!this.hasCode(code)) {
-        	this.createNode("/rdv/datas");
+            this.createNode("/rdv/datas");
             this.appendNode("data", "", true);
             this.appendNode("code", code);
         }
@@ -70,26 +70,26 @@ class GCode extends GXml {
     }
     //===============================================
     getList(code, obj, category = "", isCData = false) {
-		var lCount = this.countItem(code);
-		for(var i = 0; i < lCount; i++) {
-			if(category == "") {
-				var lData = this.getItem2(code, i, isCData);
-				obj.push(lData);				
-			}
-			else {
-				var lCategory = this.getItem3(code, "category", i);
-				var lData = this.getItem3(code, "data", i, isCData);
-				if(lCategory == category) {
-					obj.push(lData);				
-				}
-			}
-		}
+        var lCount = this.countItem(code);
+        for(var i = 0; i < lCount; i++) {
+            if(category == "") {
+                var lData = this.getItem2(code, i, isCData);
+                obj.push(lData);                
+            }
+            else {
+                var lCategory = this.getItem3(code, "category", i);
+                var lData = this.getItem3(code, "data", i, isCData);
+                if(lCategory == category) {
+                    obj.push(lData);                
+                }
+            }
+        }
         return true;
     }
     //===============================================
     getListCD(code, category = "") {
-		return this.getList(code, category, true);
-	}
+        return this.getList(code, category, true);
+    }
     //===============================================
     getMap(_code, _map, _obj) {
         var lCount = this.countItem(_code);
@@ -112,12 +112,12 @@ class GCode extends GXml {
         lDom.loadNode(lData);
         return lDom.toString();
     }
-	//===============================================
-	hasData() {
-	    this.queryXPath(sprintf("/rdv/datas/data[code]"));
-	    var lCount = this.countXPath();
-	    return (lCount != 0);
-	}
+    //===============================================
+    hasData() {
+        this.queryXPath(sprintf("/rdv/datas/data[code]"));
+        var lCount = this.countXPath();
+        return (lCount != 0);
+    }
     //===============================================
     hasCode(code) {
         this.queryXPath(sprintf("/rdv/datas/data[code='%s']", code));
@@ -141,14 +141,14 @@ class GCode extends GXml {
     //===============================================
     toStringData() {
         var lData = "";
-		if(this.hasData()) {
-	        this.queryXPath(sprintf("/rdv/datas/data"));
-	        var lCount = this.countXPath();
-	        for(var i = 0; i < lCount; i++) {
-	            this.getNodeIndex(i);
-	            lData += this.toStringNode();
-	        }			
-		}
+        if(this.hasData()) {
+            this.queryXPath(sprintf("/rdv/datas/data"));
+            var lCount = this.countXPath();
+            for(var i = 0; i < lCount; i++) {
+                this.getNodeIndex(i);
+                lData += this.toStringNode();
+            }            
+        }
         return lData;
     }
     //===============================================
