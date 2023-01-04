@@ -7,7 +7,6 @@
         //===============================================
         public function __construct() {
             parent::__construct();
-            $this->createDoms();
         }
         //===============================================
         public function clone() {
@@ -29,9 +28,9 @@
             parent::deserialize($data);
             $lDom = new GCode();
             $lDom->loadXml($data);
-            $this->id = $lDom->getItem($code, "id");
-            $this->code = $lDom->getItem($code, "code_id");
-            $this->label = $lDom->getItem($code, "label");
+            $this->id = $lDom->getData($code, "id");
+            $this->code = $lDom->getData($code, "code_id");
+            $this->label = $lDom->getData($code, "label");
             $lDom->getMap($code, $this->map, $this);
         }
         //===============================================
@@ -92,7 +91,7 @@
             $this->callProxy($server);           
         }
         //===============================================
-        public function runUi() {
+        public function run() {
             $lId = $this->getItem("manager", "id");
             $lTitle = $this->getItem("manager", "title");
             
@@ -103,16 +102,16 @@
             echo sprintf("</h1>\n");
             echo sprintf("<div class='Body'>\n");
             
-            $this->onHeaderUi();            
-            $this->onHomeUi();
-            $this->onCodeUi();
+            $this->onHeader();            
+            $this->onHome();
+            $this->onCode();
             
             echo sprintf("</div>\n");
             echo sprintf("</div>\n");
             echo sprintf("</div>\n");
         }
         //===============================================
-        public function onHeaderUi() {
+        public function onHeader() {
             echo sprintf("<div class='Row10'>\n");
             
             $lCount = $this->countItem("manager");
@@ -127,8 +126,8 @@
                 
                 if($lCategory == "header") {
                     echo sprintf("<div class='Col'>\n");
-                    echo sprintf("<button class='Button2 ManagerTab' title=\"%s\"\n", $lToolTip);
-                    echo sprintf("onclick='server_call(\"%s\", \"%s\", this, \"%s\");'>%s</button>\n", $lModule, $lMethod, $lId, $lName);
+                    echo sprintf("<button class='Button2 manager_tab' title=\"%s\"\n", $lToolTip);
+                    echo sprintf("onclick='call_server(\"%s\", \"%s\", this, \"%s\");'>%s</button>\n", $lModule, $lMethod, $lId, $lName);
                     echo sprintf("</div>\n");
                 }
             }
@@ -136,7 +135,7 @@
             echo sprintf("</div>\n");
         }
         //===============================================
-        public function onHomeUi() {
+        public function onHome() {
             $lId = $this->getItemC("manager", "home", "id");
             $lTitle = $this->getItemC("manager", "home", "title");
             $lIntro = $this->getItemC("manager", "home", "intro");
@@ -149,7 +148,7 @@
             echo sprintf("</div>\n");            
         }
         //===============================================
-        public function onCodeUi() {
+        public function onCode() {
             $lCount = $this->countItem("manager");
             $lId = $this->getItemC("manager", "code", "id");
             $lTitle = $this->getItemC("manager", "code", "title");
@@ -200,7 +199,7 @@
                 $lText = $this->getItem3("manager", "text", $i);
                 
                 if($lCategory == "code/button") {
-                    echo sprintf("<button type='button' id='%s' class='Button4' onclick='server_call(\"%s\", \"%s\");'><i class='fa fa-%s'></i> %s</button>\n"
+                    echo sprintf("<button type='button' id='%s' class='Button4' onclick='call_server(\"%s\", \"%s\");'><i class='fa fa-%s'></i> %s</button>\n"
                         , $lId, $lModule, $lCallback, $lPicto, $lText);
                 }
             }

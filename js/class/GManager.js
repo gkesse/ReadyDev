@@ -106,7 +106,7 @@ class GManager extends GSearch {
     }
     //===============================================
     initTab(id) {
-        var lTabCtn = document.getElementsByClassName("ManagerTab");
+        var lTabCtn = document.getElementsByClassName("manager_tab");
         var lObj = lTabCtn[id];
 		var lName = sprintf("ManagerTab%s", id);
         this.onOpenHeader(lObj, lName);
@@ -114,7 +114,7 @@ class GManager extends GSearch {
     //===============================================
     onOpenHeader(obj, name) {
 		if(obj === undefined) return;
-        var lTab = document.getElementsByClassName("ManagerTab");
+        var lTab = document.getElementsByClassName("manager_tab");
         for(var i = 0; i < lTab.length; i++) {
             var lTabId = lTab[i];
             lTabId.className = lTabId.className.replace(" Active", "");

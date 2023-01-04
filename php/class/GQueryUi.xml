@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdv>
+	<datas>
+		<!-- ============================================ -->
+		<!-- query -->
+		<!-- ============================================ -->
+		<data>
+			<code>query</code>
+			<title>Gestionnaire de requêtes</title>
+			<id>gestionnaire_requetes</id>
+			<map>
+				<!-- ============================================ -->
+				<!-- header -->
+				<!-- ============================================ -->
+				<data>
+					<category>header</category>
+					<tooltip>Accueil</tooltip>
+					<id>query_tab_0</id>
+					<name><![CDATA[<i class='fa fa-home'></i>]]></name>
+				</data>
+				<data>
+					<category>header</category>
+					<tooltip>Émission de la requête</tooltip>
+					<id>query_tab_1</id>
+					<name>Émission</name>
+				</data>
+				<data>
+					<category>header</category>
+					<tooltip>Réception du résultat de la requête</tooltip>
+					<id>query_tab_2</id>
+					<name>Réception</name>
+				</data>
+				<!-- ============================================ -->
+				<!-- header/link -->
+				<!-- ============================================ -->
+				<data>
+					<category>header/link</category>
+					<module>query</module>
+					<method>open_header</method>
+				</data>
+				<!-- ============================================ -->
+				<!-- home -->
+				<!-- ============================================ -->
+				<data>
+					<category>home</category>
+					<title>ReadyQuery</title>
+					<id>query_tab_0</id>
+					<intro><![CDATA[
+                        <b>ReadyQuery</b> est un gestionnaire de requêtes.<br>
+                        Il permet d'envoyer des requêtes à un serveur de données
+                        et d'afficher la réponse retourné par le serveur.
+                        Cela vous permet de réaliser rapidement le code relatif
+                        au comportement côté serveur face à une requête donnée côté client
+                        bien avant de vous soucier de l'interface utilisateur correspondant.
+                        <br>Produit par <b>Gérard KESSE</b>.<br>
+                       ]]></intro>
+				</data>
+				<!-- ============================================ -->
+				<!-- emission -->
+				<!-- ============================================ -->
+				<data>
+					<category>emission</category>
+					<title>Émission</title>
+					<id>query_tab_1</id>
+				</data>
+				<!-- ============================================ -->
+				<!-- emission_text -->
+				<!-- ============================================ -->
+				<data>
+					<category>emission_text</category>
+					<id>query_emission_text</id>
+					<name>query_emission_text</name>
+					<rows>17</rows>
+					<cols>10</cols>
+					<placeholder>Saisir une requête...</placeholder>
+				</data>
+				<!-- ============================================ -->
+				<!-- emission_check -->
+				<!-- ============================================ -->
+				<data>
+					<category>emission_check</category>
+					<id>query_emission_server</id>
+					<text>Serveur</text>
+					<checked_on>1</checked_on>
+					<tooltip>Envoyer directement au serveur</tooltip>
+				</data>
+				<!-- ============================================ -->
+				<!-- emission_button -->
+				<!-- ============================================ -->
+				<data>
+					<category>emission_button</category>
+					<module>query</module>
+					<method>send_query</method>
+					<name>Envoyer</name>
+					<tooltip>Envoyer la requête</tooltip>
+				</data>
+				<data>
+					<category>emission_button</category>
+					<module>query</module>
+					<method>save_query</method>
+					<name>Enregistrer</name>
+					<tooltip>Enregsitrer la requête</tooltip>
+				</data>
+				<!-- ============================================ -->
+				<!-- reception -->
+				<!-- ============================================ -->
+				<data>
+					<category>reception</category>
+					<title>Réception</title>
+					<id>query_tab_2</id>
+				</data>
+				<!-- ============================================ -->
+				<!-- reception_text -->
+				<!-- ============================================ -->
+				<data>
+					<category>reception_text</category>
+					<id>query_reception_text</id>
+					<name>query_reception_text</name>
+					<rows>18</rows>
+					<cols>10</cols>
+					<readonly>readonly</readonly>
+				</data>
+				<!-- ============================================ -->
+				<!-- reception_button -->
+				<!-- ============================================ -->
+				<data>
+					<category>reception_button</category>
+					<module>query</module>
+					<method>copy_query</method>
+					<name>Copier</name>
+					<tooltip>Copier la requête</tooltip>
+				</data>
+				<!-- ============================================ -->
+				<!-- end -->
+				<!-- ============================================ -->
+			</map>
+		</data>
+		<!-- ============================================ -->
+		<!-- end -->
+		<!-- ============================================ -->
+	</datas>
+</rdv>

@@ -1,21 +1,24 @@
 <?php   
     class GFooterUi extends GObjectUi {
         //===============================================
-        public function __construct() {
-            parent::__construct();
+        protected $m_scriptUi;
+        //===============================================
+        public function __construct($_codeName = "footer") {
+            parent::__construct($_codeName);
+            $this->m_scriptUi   = new GScriptUi();
         }
         //===============================================
         public function run() {
             echo sprintf("</div>\n");
-            $this->onNetwork();
+            $this->onNetworks();
             echo sprintf("</div>\n");
             echo sprintf("</div>\n");
-            $this->loadScripts();
+            $this->m_scriptUi->run();
             echo sprintf("</body>\n");
             echo sprintf("</html>\n");
         }
         //===============================================
-        public function onNetwork() {            
+        public function onNetworks() {            
             echo sprintf("<footer class='Footer'>\n");
             echo sprintf("<div class='Row2'>\n");
             echo sprintf("<div>Réseaux Sociaux - Réjoignez-nous</div>\n");            
@@ -44,14 +47,6 @@
             echo sprintf("<div>%s</div>\n", $lCopyright);
             echo sprintf("</div>\n");
             echo sprintf("</footer>\n");
-        }
-        //===============================================
-        public function loadScripts() {
-            $lCount = $this->m_app->countItem("scripts");
-            for($i = 0; $i < $lCount; $i++) {
-                $lScript = $this->m_app->getItem2("scripts", $i);
-                echo sprintf("<script src='%s'></script>\n", $lScript);
-            }
         }
         //===============================================
     }

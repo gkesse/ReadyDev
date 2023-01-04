@@ -12,20 +12,23 @@ class GCode extends GXml {
         this.createCode(code);
         this.getCode(code);
         this.createNode(key, value, isCData);
-		return true;        
+        return true;
     }
     //===============================================
-    addMap(code, datas, obj) {
-        if(!datas.length) return false;
-        this.createCode(code);
-        this.getCode(code);
+    addMap(_code, _map, _obj) {
+        if(!_map.length) return false;
+        this.createCode(_code);
+        this.getCode(_code);
         this.createNode("map");
-        for(var i = 0; i < datas.length; i++) {
-            var lObj = datas[i];
-            var lData = lObj.serialize(code);
+        for(var i = 0; i < _map.length; i++) {
+            var lObj = _map[i];
+            var lData = lObj.serialize(_code);
+            var lDom = new GCode();
+            lDom.loadXml(lData);
+            lData = lDom.toStringData();
             this.loadNode(lData);
         }
-        obj.clearMap();
+        _obj.m_map = [];
         return true;
     }
     //===============================================
@@ -88,14 +91,14 @@ class GCode extends GXml {
 		return this.getList(code, category, true);
 	}
     //===============================================
-    getMap(code, datas, obj) {
-        var lCount = this.countItem(code);
+    getMap(_code, _map, _obj) {
+        var lCount = this.countItem(_code);
         
         for(var i = 0; i < lCount; i++) {
-            var lData = this.getMapItem(code, i);
-            var lObj = obj.clone();
-            lObj.deserialize(lData, code);
-            datas.push(lObj);
+            var lData = this.getMapItem(_code, i);
+            var lObj = _obj.clone();
+            lObj.deserialize(lData, _code);
+            _map.push(lObj);
         }
         return true;
     }

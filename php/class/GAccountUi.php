@@ -18,9 +18,9 @@ class GAccountUi extends GObjectUi {
         $lKeypressCB    = $this->m_app->getItemC("user", "account", "keypress_cb");
         $lCloseCB       = $this->m_app->getItemC("user", "account", "close_cb");
         //
-        echo sprintf("<div class='Modal Connection' id='%s' onkeypress='server_call(\"%s\", \"%s\", this, event);'>\n", $lModalId, $lModule, $lKeypressCB);
+        echo sprintf("<div class='Modal Connection' id='%s' onkeypress='call_server(\"%s\", \"%s\", this, event);'>\n", $lModalId, $lModule, $lKeypressCB);
         echo sprintf("<div class='Content10' id='%s'>\n", $lBodyId);
-        echo sprintf("<div class='Button3 Close' onclick='server_call(\"%s\", \"%s\");'><i class='fa fa-close'></i></div>\n", $lModule, $lCloseCB);
+        echo sprintf("<div class='Button3 Close' onclick='call_server(\"%s\", \"%s\");'><i class='fa fa-close'></i></div>\n", $lModule, $lCloseCB);
         echo sprintf("<div class='Title5'>%s</div>\n", $lTitle);
         echo sprintf("<form class='Body4' id='%s' method='post'>\n", $lFormId);
         echo sprintf("<div class='Row11'>%s</div>\n", $lIntro);
@@ -53,7 +53,7 @@ class GAccountUi extends GObjectUi {
             
             if($lCategory == "account/button") {
                 if($lType == "button") {
-                    echo sprintf("<button type='button' id='%s' class='Button4' onclick='server_call(\"%s\", \"%s\");'><i class='fa fa-%s'></i> %s</button>\n"
+                    echo sprintf("<button type='button' id='%s' class='Button4' onclick='call_server(\"%s\", \"%s\");'><i class='fa fa-%s'></i> %s</button>\n"
                         , $lId, $lModule, $lCallback, $lPicto, $lText);
                 }
                 else if($lType == "text/link") {

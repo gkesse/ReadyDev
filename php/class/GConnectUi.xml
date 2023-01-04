@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdv>
+	<datas>
+		<!-- ============================================ -->
+		<!-- connection -->
+		<!-- ============================================ -->
+		<data>
+			<code>connection</code>
+			<title>Connexion</title>
+			<intro>Connectez-vous pour utiliser les applications.</intro>
+			<modal_id>ModalConnection</modal_id>
+			<body_id>ConnectionBody</body_id>
+			<form_id>ConnectionForm</form_id>
+			<msg_id>ConnectionMsg</msg_id>
+			<module>user</module>
+			<keypress_cb>keypress_connection</keypress_cb>
+			<close_cb>close_connection</close_cb>
+			<map>
+				<!-- ============================================ -->
+				<!-- body -->
+				<!-- ============================================ -->
+				<data>
+					<category>body</category>
+					<label>Nom d'utilisateur :</label>
+					<id>ConnectionPseudo</id>
+					<type>text</type>
+					<name>pseudo</name>
+				</data>
+				<data>
+					<category>body</category>
+					<label>Mot de passe :</label>
+					<id>ConnectionPassword</id>
+					<type>password</type>
+					<name>password</name>
+				</data>
+				<!-- ============================================ -->
+				<!-- button -->
+				<!-- ============================================ -->
+				<data>
+					<category>button</category>
+					<type>text/link</type>
+					<module>user</module>
+					<callback>open_account</callback>
+					<text><![CDATA[<span class='Text11'>Envie de nous rejoindre ? <span class='Text12' onclick='call_server("%s", "%s");'>Créez un compte</span></span>]]></text>
+				</data>
+				<data>
+					<category>button</category>
+					<type>button</type>
+					<id>ConnectionButton</id>
+					<module>user</module>
+					<callback>run_connection</callback>
+					<picto>paper-plane-o</picto>
+					<text><![CDATA[Se Connecter]]></text>
+				</data>
+				<!-- ============================================ -->
+				<!-- end -->
+				<!-- ============================================ -->
+			</map>
+		</data>
+		<!-- ============================================ -->
+		<!-- end -->
+		<!-- ============================================ -->
+	</datas>
+</rdv>

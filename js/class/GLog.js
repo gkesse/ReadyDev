@@ -1,193 +1,74 @@
 //===============================================
-class GLog extends GModule {
+class GLog extends GObject {
     //===============================================
-	static m_instance = null;
-    //===============================================
-    constructor() {
-		super();
-		this.errors = [];
-		this.logs = [];
-		this.env = "";
+    constructor(_codeName = "logs") {
+		super(_codeName);
+		this.m_type = "type";
+		this.m_side = "side";
+		this.m_msg = "msg";
+        this.m_map = [];
     }
     //===============================================
-	static Instance() {
-		if(this.m_instance == null) {
-			this.m_instance = new GLog();
-		}
-		return this.m_instance;
-	}	
+	clone() {
+        var lObj = new GLog();
+        lObj.setLog(this);
+        return lObj;
+    }
     //===============================================
-    deserialize(data, errors = "errors", logs = "logs") {
-		var lData = new GCode();
-		lData.loadXml(data);
-		lData.getList(errors, this.errors);
-		lData.getList(logs, this.logs);
+	serialize(_code = "logs") {
+		var lDom = new GCode();
+		lDom.createDoc();
+		lDom.addData(_code, "type", this.m_type);
+		lDom.addData(_code, "side", this.m_side);
+		lDom.addData(_code, "msg", this.m_msg);
+		lDom.addMap(_code, this.m_map, this);
+		return lDom.toString();
 	}
     //===============================================
-    onModule(method, obj, data) {
-		if(method == "") {
-			this.onMethodNone();
-			return false;
-		}
-    	//===============================================
-		// method
-    	//===============================================
-		else if(method == "close_error") {
-			this.onCloseError();
-		}
-		else if(method == "close_log") {
-			this.onCloseLog();
-		}
-    	//===============================================
-		// end
-    	//===============================================
-		else {
-			this.onMethodUnknown();
-			return false;
-		}
-    	//===============================================
-		return true;
+	deserialize(_data, _code = "logs") {
+		var lDom = new GCode();
+		lDom.loadXml(_data);
+		this.m_type = lDom.getItem(_code, "type");
+		this.m_side = lDom.getItem(_code, "side");
+		this.m_msg = lDom.getItem(_code, "msg");
+        lDom.getMap(_code, this.m_map, this);
 	}
     //===============================================
-    onCloseError() {
-        var lModalErrors = document.getElementById("ModalErrors");
-        var lErrorsBody = document.getElementById("ErrorsBody");
-        var lClassName = lErrorsBody.className;
-        lErrorsBody.className = lClassName.replace(" AnimateShow", "");
-        lErrorsBody.className = lClassName.replace(" AnimateHide", "");
-        lErrorsBody.className += " AnimateHide";
-        setTimeout(function() {
-            lModalErrors.style.display = "none";
-        }, 400);
+	setLog(_obj) {
+		this.m_type = _obj.m_type;
+		this.m_side = _obj.m_side;
+		this.m_msg = _obj.m_msg;
     }
     //===============================================
-    onCloseLog() {
-        var lModalLogs = document.getElementById("ModalLogs");
-        var lLogsBody = document.getElementById("LogsBody");
-        var lClassName = lLogsBody.className;
-        lLogsBody.className = lClassName.replace(" AnimateShow", "");
-        lLogsBody.className = lClassName.replace(" AnimateHide", "");
-        lLogsBody.className += " AnimateHide";
-        setTimeout(function() {
-            lModalLogs.style.display = "none";
-        }, 400);
-    }
+	addError(_msg) {
+        var lObj = new GLog
+		lObj.m_type = "error";
+		lObj.m_side = "client";
+		lObj.m_msg = _msg;
+        this.m_map.push(lObj);
+	}
     //===============================================
-    getErrors() {
-		var lEnv = new GEnv();
-		var lErrors = "";
-		for(var i = 0; i < this.errors.length; i++) {
-			var lError = this.errors[i];
-			var lBr = "<br>";
-			if(lEnv.isTestEnv() && !lEnv.isProdOn()) lBr = "\n";
-			if(i != 0) lErrors += lBr;
-			var lMsg = sprintf("<i class='fa fa-chevron-right'></i> %s", lError);
-			if(lEnv.isTestEnv() && !lEnv.isProdOn()) lMsg = sprintf("> %s", lError);
-			lErrors += lMsg;
+	addLog(_msg) {
+        var lObj = new GLog
+		lObj.m_type = "log";
+		lObj.m_side = "client";
+		lObj.m_msg = _msg;
+        this.m_map.push(lObj);
+	}
+    //===============================================
+	addLogs(_logs) {
+		for(var i = 0; i < _logs.m_map.length; i++) {
+			var lLog = _logs.m_map[i];
+            this.m_map.push(lLog);
 		}
-		return lErrors;
-    }
-    //===============================================
-    getLogs() {
-		var lEnv = new GEnv();
-		var lLogs = "";
-		for(var i = 0; i < this.logs.length; i++) {
-			var lLog = this.logs[i];
-			var lBr = "<br>";
-			if(lEnv.isTestEnv() && !lEnv.isProdOn()) lBr = "\n";
-			if(i != 0) lLogs += lBr;
-			var lMsg = sprintf("<i class='fa fa-chevron-right'></i> %s", lLog);
-			if(lEnv.isTestEnv() && !lEnv.isProdOn()) lMsg = sprintf("> %s", lLog);
-			lLogs += lMsg;
-		}
-		return lLogs;
-    }
-    //===============================================
-    showErrors() {
-		var lErrors = this.getErrors();
-		if(lErrors == "") return false;
-		//
-        var lModalErrors = document.getElementById("ModalErrors");
-        var lErrorsBody = document.getElementById("ErrorsBody");
-        var lErrorsLabel = document.getElementById("ErrorsLabel");
-		var lClassName = lErrorsBody.className;
-        lErrorsBody.className = lClassName.replace(" AnimateShow", "");
-        lErrorsBody.className = lClassName.replace(" AnimateHide", "");
-        lErrorsBody.className += " AnimateShow";
-        lModalErrors.style.display = "block";
-		lErrorsLabel.innerHTML = lErrors;
-		//
-		this.errors = [];
-		return true;
-    }
-    //===============================================
-    showLogs() {
-		var lEnv = new GEnv();
-		var lLogs = this.getLogs();
-		if(lLogs == "") return false;
-		if(lEnv.isTestEnv() && !lEnv.isProdOn()) lLogs = sprintf("<xmp>%s</xmp>", lLogs);
-		//
-        var lModalLogs = document.getElementById("ModalLogs");
-        var lLogsBody = document.getElementById("LogsBody");
-        var lLogsLabel = document.getElementById("LogsLabel");
-		var lClassName = lLogsBody.className;
-        lLogsBody.className = lClassName.replace(" AnimateShow", "");
-        lLogsBody.className = lClassName.replace(" AnimateHide", "");
-        lLogsBody.className += " AnimateShow";
-        lModalLogs.style.display = "block";
-		lLogsLabel.innerHTML = lLogs;
-		//
-		this.logs = [];
-		return true;
-    }
-    //===============================================
-	addError(error) {
-		var lEnv = new GEnv();
-		var lDateObj = new GDate();
-		var lError = new Error();
-		var lStack = lError.stack.toString().split(/\r\n|\n/);
-		var lTrace = lStack[2].trim();
-		var lDate = lDateObj.getDate();
-		var lMsg = error;
-		if(lEnv.isTestEnv() && !lEnv.isProdOn()) lMsg = sprintf("%s %s :\n%s", lDate, lTrace, error);
-		this.errors.push(lMsg);
-	}
-    //===============================================
-	addLog(log) {
-		var lEnv = new GEnv();
-		var lDateObj = new GDate();
-		var lError = new Error();
-		var lStack = lError.stack.toString().split(/\r\n|\n/);
-		var lTrace = lStack[2].trim();
-		var lDate = lDateObj.getDate();
-		var lMsg = log;		
-		if(lEnv.isTestEnv() && !lEnv.isProdOn()) lMsg = sprintf("%s %s :\n%s", lDate, lTrace, log);
-		this.logs.push(lMsg);
-	}
-    //===============================================
-	getError() {
-		if(this.errors.length == 0) return "";
-		var lData = this.errors[0];
-		return lData;
-	}
-    //===============================================
-	getLog() {
-		if(this.logs.length == 0) return "";
-		var lData = this.logs[0];
-		return lData;
 	}
     //===============================================
 	hasErrors() {
-		var lData = (this.errors.length > 0);
-		return lData;
-	}
-    //===============================================
-	clearErrors() {
-		this.errors = [];
-	}
-    //===============================================
-	clearLogs() {
-		this.logs = [];
+		for(var i = 0; i < this.m_map.length; i++) {
+			var lLog = this.m_map[i];
+            if(lLog.m_type == "error") return true;
+		}
+        return false;
 	}
     //===============================================
 }

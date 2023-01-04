@@ -122,7 +122,7 @@ class GTable extends GModule {
 		if(this.currentData == "") return false;
 		if(this.selectModule == "") return false;
 		if(this.selectMethod == "") return false;
-		server_call(this.selectModule, this.selectMethod, this, this.currentData);
+		call_server(this.selectModule, this.selectMethod, this, this.currentData);
 		this.writeUi();
 		return true;
     }
@@ -131,7 +131,7 @@ class GTable extends GModule {
 		this.readUi();
 		if(this.nextModule == "") return false;
 		if(this.nextMethod == "") return false;
-		server_call(this.nextModule, this.nextMethod);
+		call_server(this.nextModule, this.nextMethod);
 		this.writeUi();
 		return true;
 	}
@@ -185,7 +185,7 @@ class GTable extends GModule {
 			lTable.cols = ""+lCols;
 			lTable.value = value;
 			var lData = lTable.serialize(true);
-			server_call("table", "current_data", this, lData);
+			call_server("table", "current_data", this, lData);
 		});
 		//
 		this.colH.addEventListener("dblclick", function(e) {
@@ -196,7 +196,7 @@ class GTable extends GModule {
 			lTable.cols = ""+lCols;
 			lTable.value = value;
 			var lData = lTable.serialize(true);
-			server_call("table", "select_data", this, lData);
+			call_server("table", "select_data", this, lData);
 		});
 		this.writeUi();
     }
@@ -223,7 +223,7 @@ class GTable extends GModule {
 			lTable.cols = ""+lCols;
 			lTable.value = value;
 			var lData = lTable.serialize(true);
-			server_call("table", "current_data", this, lData);
+			call_server("table", "current_data", this, lData);
 		});
 		//
 		this.col.addEventListener("dblclick", function(e) {
@@ -234,7 +234,7 @@ class GTable extends GModule {
 			lTable.cols = ""+lCols;
 			lTable.value = value;
 			var lData = lTable.serialize(true);
-			server_call("table", "select_data", this, lData);
+			call_server("table", "select_data", this, lData);
 		});
     }
     //===============================================

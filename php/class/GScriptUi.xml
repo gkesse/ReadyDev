@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdv>
+	<datas>
+		<!-- ============================================ -->
+		<!-- scripts -->
+		<!-- ============================================ -->
+		<data>
+			<code>scripts</code>
+			<map>
+				<data>/js/functions.js</data>
+				<data>/js/class/GDefine.js</data>
+				<data>/js/class/GObject.js</data>
+				<data>/js/class/GObjectUi.js</data>
+				<data>/js/class/GModule.js</data>
+				<data>/js/class/GConfirm.js</data>
+				<data>/js/class/GSearch.js</data>
+				<data>/js/class/GTable.js</data>
+				<data>/js/class/GDate.js</data>
+				<data>/js/class/GLog.js</data>
+				<data>/js/class/GEnv.js</data>
+				<data>/js/class/GPage.js</data>
+				<data>/js/class/GStore.js</data>
+				<data>/js/class/GXml.js</data>
+				<data>/js/class/GCode.js</data>
+				<data>/js/class/GAjax.js</data>
+				<data>/js/class/GManager.js</data>
+				<data>/js/class/GQuery.js</data>
+				<data>/js/class/GEditorUi.js</data>
+				<data>/js/class/GSitemap.js</data>
+				<data>/js/class/GUser.js</data>
+				<data>/js/class/GMenu.js</data>
+				<data>/js/class/GTest.js</data>
+				<data>/js/class/GDomTest.js</data>
+				<data>/js/class/GTestUi.js</data>
+				<data>/js/class/GServer.js</data>
+				<data>/js/script.js</data>
+			</map>
+		</data>
+		<!-- ============================================ -->
+		<!-- end -->
+		<!-- ============================================ -->
+	</datas>
+</rdv>

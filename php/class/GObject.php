@@ -1,17 +1,10 @@
 <?php   
     class GObject {
         //===============================================
-        public function __construct() {
-
-        }
+        protected $m_codeName;
         //===============================================
-        public function clone() {
-            return new GObject();
-        }
-        //===============================================
-        public function clearMap(&$map) {
-            $map = array();
-            return true;
+        public function __construct($_codeName = "object") {
+            $this->m_codeName = $_codeName;
         }
         //===============================================
     }

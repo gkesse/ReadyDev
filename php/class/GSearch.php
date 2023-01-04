@@ -8,7 +8,6 @@
         //===============================================
         public function __construct() {
             parent::__construct();
-            $this->createDoms();
         }
         //===============================================
         public function serialize($code = "search") {
@@ -25,10 +24,10 @@
             parent::deserialize($data);
             $lDom = new GCode();
             $lDom->loadXml($data);
-            $this->lastId = $lDom->getItem($code, "last_id");
-            $this->dataCount = $lDom->getItem($code, "data_count");
-            $this->dataSize = $lDom->getItem($code, "data_size");
-            $this->dataOffset = $lDom->getItem($code, "data_offset");
+            $this->lastId       = $lDom->getItem($code, "last_id");
+            $this->dataCount    = $lDom->getItem($code, "data_count");
+            $this->dataSize     = $lDom->getItem($code, "data_size");
+            $this->dataOffset   = $lDom->getItem($code, "data_offset");
         }
         //===============================================
     }

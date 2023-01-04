@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdv>
+	<datas>
+		<!-- ============================================ -->
+		<!-- sitemap -->
+		<!-- ============================================ -->
+		<data>
+			<code>sitemap</code>
+			<title>Éditeur de Sitemap</title>
+			<id>editeur_sitemap</id>
+			<map>
+				<!-- ============================================ -->
+				<!-- header -->
+				<!-- ============================================ -->
+				<data>
+					<category>header</category>
+					<tooltip>Accueil</tooltip>
+					<id>sitemap_tab_0</id>
+					<name><![CDATA[<i class='fa fa-home'></i>]]></name>
+				</data>
+				<data>
+					<category>header</category>
+					<tooltip>Enumération</tooltip>
+					<id>sitemap_tab_1</id>
+					<name>Enumération</name>
+				</data>
+				<data>
+					<category>header</category>
+					<tooltip>Liste</tooltip>
+					<id>sitemap_tab_2</id>
+					<name>Liste</name>
+				</data>
+				<data>
+					<category>header</category>
+					<tooltip>Génération</tooltip>
+					<id>sitemap_tab_3</id>
+					<name>Génération</name>
+				</data>
+				<data>
+					<category>header</category>
+					<tooltip>Visualisation</tooltip>
+					<id>sitemap_tab_4</id>
+					<name>Visualisation</name>
+				</data>
+				<!-- ============================================ -->
+				<!-- header/link -->
+				<!-- ============================================ -->
+				<data>
+					<category>header/link</category>
+					<module>sitemap</module>
+					<method>open_header</method>
+				</data>
+				<!-- ============================================ -->
+				<!-- home -->
+				<!-- ============================================ -->
+				<data>
+					<category>home</category>
+					<title>ReadySitemap</title>
+					<id>sitemap_tab_0</id>
+					<intro><![CDATA[
+                        <b>ReadySitemap</b> est un générateur de sitemap.
+                        Il permet de générer automatiquement le sitemap d'un siteweb.
+                        Les urls utilisées doivent être listées dans une source de données.
+                        Pareil pour les dates de dernières modification et les fréquences de changement du siteweb.
+                        <br>Produit par <b>Gérard KESSE</b>.
+                       ]]></intro>
+				</data>
+				<!-- ============================================ -->
+				<!-- enum -->
+				<!-- ============================================ -->
+				<data>
+					<category>enum</category>
+					<title>Énumération</title>
+					<id>sitemap_tab_1</id>
+				</data>
+				<!-- ============================================ -->
+				<!-- enum_action -->
+				<!-- ============================================ -->
+				<data>
+					<category>enum_action</category>
+					<name>Énumérer</name>
+					<picto>list</picto>
+					<tooltip>Énumérer</tooltip>
+					<module>sitemap</module>
+					<method>get_enum</method>
+				</data>
+				<data>
+					<category>enum_action</category>
+					<name>Supprimer</name>
+					<picto>trash</picto>
+					<tooltip>Supprimer</tooltip>
+					<module>sitemap</module>
+					<method>clear_enum</method>
+				</data>
+				<!-- ============================================ -->
+				<!-- enum_form -->
+				<!-- ============================================ -->
+				<data>
+					<category>enum_form</category>
+					<label>URLs du site :</label>
+					<id>sitemap_url_site</id>
+				</data>
+				<data>
+					<category>enum_form</category>
+					<label>URLs maximal :</label>
+					<id>sitemap_url_max</id>
+				</data>
+				<data>
+					<category>enum_form</category>
+					<label>Sitemap total :</label>
+					<id>sitemap_total</id>
+				</data>
+				<!-- ============================================ -->
+				<!-- list -->
+				<!-- ============================================ -->
+				<data>
+					<category>list</category>
+					<title>Liste</title>
+					<id>sitemap_tab_2</id>
+					<url>sitemap_list_url</url>
+				</data>
+				<!-- ============================================ -->
+				<!-- list_action -->
+				<!-- ============================================ -->
+				<data>
+					<category>list_action</category>
+					<name>Lister</name>
+					<picto>list</picto>
+					<tooltip>Lister</tooltip>
+					<module>sitemap</module>
+					<method>get_list</method>
+				</data>
+				<data>
+					<category>list_action</category>
+					<name>Supprimer</name>
+					<picto>trash</picto>
+					<tooltip>Supprimer</tooltip>
+					<module>sitemap</module>
+					<method>clear_list</method>
+				</data>
+				<!-- ============================================ -->
+				<!-- generate -->
+				<!-- ============================================ -->
+				<data>
+					<category>generate</category>
+					<title>Génération</title>
+					<id>sitemap_tab_3</id>
+					<url>SitemapGenerateUrl</url>
+				</data>
+				<!-- ============================================ -->
+				<!-- generate_action -->
+				<!-- ============================================ -->
+				<data>
+					<category>generate_action</category>
+					<name>Générer</name>
+					<picto>list</picto>
+					<tooltip>Générer</tooltip>
+					<module>sitemap</module>
+					<method>get_generate</method>
+				</data>
+				<data>
+					<category>generate_action</category>
+					<name>Supprimer</name>
+					<picto>trash</picto>
+					<tooltip>Supprimer</tooltip>
+					<module>sitemap</module>
+					<method>clear_generate</method>
+				</data>
+				<!-- ============================================ -->
+				<!-- visualize -->
+				<!-- ============================================ -->
+				<data>
+					<category>visualize</category>
+					<title>Visualisation</title>
+					<id>sitemap_tab_4</id>
+					<url>SitemapGenerateUrl</url>
+				</data>
+				<!-- ============================================ -->
+				<!-- visualize_action -->
+				<!-- ============================================ -->
+				<data>
+					<category>visualize_action</category>
+					<name>Visualiser</name>
+					<picto>list</picto>
+					<tooltip>Visualiser</tooltip>
+					<module>sitemap</module>
+					<method>get_visualize</method>
+				</data>
+				<data>
+					<category>visualize_action</category>
+					<name>Supprimer</name>
+					<picto>trash</picto>
+					<tooltip>Supprimer</tooltip>
+					<module>sitemap</module>
+					<method>clear_visualize</method>
+				</data>
+				<!-- ============================================ -->
+				<!-- visualize_sitemap -->
+				<!-- ============================================ -->
+				<data>
+					<category>visualize_sitemap</category>
+					<name>sitemaps.xml</name>
+					<picto>list</picto>
+					<tooltip>sitemaps.xml</tooltip>
+					<onclick>sitemap_file_tab0</onclick>
+					<module>sitemap</module>
+					<method>open_sitemap</method>
+					<id>sitemap_file_tab0</id>
+				</data>
+				<data>
+					<category>visualize_sitemap</category>
+					<name>sitemap.xml</name>
+					<picto>list</picto>
+					<tooltip>sitemap.xml</tooltip>
+					<module>sitemap</module>
+					<method>open_sitemap</method>
+					<id>sitemap_file_tab1</id>
+				</data>
+				<!-- ============================================ -->
+				<!-- visualize_content -->
+				<!-- ============================================ -->
+				<data>
+					<category>visualize_content</category>
+					<id>sitemap_file_tab0</id>
+					<title>sitemaps.xml :</title>
+					<content>SitemapVisualizeSite</content>
+				</data>
+				<data>
+					<category>visualize_content</category>
+					<id>sitemap_file_tab1</id>
+					<title>sitemap.xml :</title>
+					<content>SitemapVisualizeUrl</content>
+				</data>
+				<!-- ============================================ -->
+				<!-- configs -->
+				<!-- ============================================ -->
+				<data>
+					<category>configs</category>
+					<path></path>
+					<file>sitemap</file>
+					<ext>xml</ext>
+					<xmlns>http://www.sitemaps.org/schemas/sitemap/0.9</xmlns>
+					<xsi>http://www.w3.org/2001/XMLSchema-instance</xsi>
+					<schema>http://www.sitemaps.org/schemas/sitemap/0.9
+						http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd</schema>
+					<url_max>50000</url_max>
+				</data>
+				<!-- ============================================ -->
+				<!-- end -->
+				<!-- ============================================ -->
+			</map>
+		</data>
+		<!-- ============================================ -->
+		<!-- sitemap_urls -->
+		<!-- ============================================ -->
+		<data>
+			<code>sitemap_urls</code>
+			<map>
+				<data>
+					<loc>/</loc>
+					<lastmod>lastmod</lastmod>
+					<changefreq>changefreq</changefreq>
+					<priority>priority</priority>
+				</data>
+				<data>
+					<loc>/home</loc>
+					<lastmod>lastmod</lastmod>
+					<changefreq>changefreq</changefreq>
+					<priority>priority</priority>
+				</data>
+				<data>
+					<loc>/home/cv</loc>
+					<lastmod>lastmod</lastmod>
+					<changefreq>changefreq</changefreq>
+					<priority>priority</priority>
+				</data>
+				<data>
+					<loc>/home/doc</loc>
+					<lastmod>lastmod</lastmod>
+					<changefreq>changefreq</changefreq>
+					<priority>priority</priority>
+				</data>
+				<data>
+					<loc>/home/presentation</loc>
+					<lastmod>lastmod</lastmod>
+					<changefreq>changefreq</changefreq>
+					<priority>priority</priority>
+				</data>
+				<data>
+					<loc>/home/tutoriels</loc>
+					<lastmod>lastmod</lastmod>
+					<changefreq>changefreq</changefreq>
+					<priority>priority</priority>
+				</data>
+				<data>
+					<loc>/home/cours</loc>
+					<lastmod>lastmod</lastmod>
+					<changefreq>changefreq</changefreq>
+					<priority>priority</priority>
+				</data>
+				<data>
+					<loc>/home/contacts</loc>
+					<lastmod>lastmod</lastmod>
+					<changefreq>changefreq</changefreq>
+					<priority>priority</priority>
+				</data>
+			</map>
+		</data>
+		<!-- ============================================ -->
+		<!-- sitemap_changefreq -->
+		<!-- ============================================ -->
+		<data>
+			<code>sitemap_changefreq</code>
+			<map>
+				<data>always</data>
+				<data>hourly</data>
+				<data>daily</data>
+				<data>weekly</data>
+				<data>monthly</data>
+				<data>yearly</data>
+				<data>never</data>
+			</map>
+		</data>
+		<!-- ============================================ -->
+		<!-- end -->
+		<!-- ============================================ -->
+	</datas>
+</rdv>

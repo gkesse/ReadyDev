@@ -3,8 +3,6 @@ class GServer extends GModule {
     //===============================================
     constructor() {
 		super();
-		this.module = "";
-		this.method = "";
     }
     //===============================================
 	run(module, method, obj, data) {
@@ -43,6 +41,9 @@ class GServer extends GModule {
 		else if(module == "query") {
 			this.onQuery(method, obj, data);
 		}
+		else if(module == "editor") {
+			this.onEditor(method, obj, data);
+		}
 		else if(module == "table") {
 			this.onTable(method, obj, data);
 		}
@@ -61,8 +62,9 @@ class GServer extends GModule {
 	}
     //===============================================
 	onTest(method, obj, data) {
-		var lTest = new GTest();
-		lTest.onModule(method, obj, data)
+		var lTestUi = new GTestUi();
+        lTestUi.loadData();
+		lTestUi.onModule()
 	}
     //===============================================
 	onMenu(method, obj, data) {
@@ -100,6 +102,11 @@ class GServer extends GModule {
 		lQuery.onModule(method, obj, data)
 	}
     //===============================================
+	onEditor(method, obj, data) {
+		var lEditorUi = new GEditorUi();
+		lEditorUi.onModule(method, obj, data)
+	}
+    //===============================================
 	onTable(method, obj, data) {
 		var lTable = new GTable();
 		lTable.onModule(method, obj, data)
@@ -111,9 +118,9 @@ class GServer extends GModule {
 	}
     //===============================================
 	showErrors() {
-		var lLog = GLog.Instance();
-		lLog.showErrors();
-		lLog.showLogs();
+		//var lLog = GLog.Instance();
+		//lLog.showErrors();
+		//lLog.showLogs();
 	}
     //===============================================
 }

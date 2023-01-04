@@ -68,12 +68,12 @@ class GSitemap extends GObject {
 	}
     //===============================================
     init() {
-        var lTabCtn = document.getElementsByClassName("SitemapTab");
+        var lTabCtn = document.getElementsByClassName("sitemap_tab");
         var lObj = lTabCtn[0];
-        this.onOpenHeader(lObj, "SitemapTab0");
-        lTabCtn = document.getElementsByClassName("SitemapFileTab");
+        this.onOpenHeader(lObj, "sitemap_tab_0");
+        lTabCtn = document.getElementsByClassName("sitemap_file_tab");
         lObj = lTabCtn[0];
-        this.onOpenSitemap(lObj, "SitemapFileTab0");
+        this.onOpenSitemap(lObj, "sitemap_file_tab0");
     }
     //===============================================
     onGetEnum() {
@@ -97,18 +97,18 @@ class GSitemap extends GObject {
     }
     //===============================================
     onGetEnumCB(data) {
-	    var lUrlSite = document.getElementById("SitemapUrlSite");
-        var lUrlMax = document.getElementById("SitemapUrlMax");
-        var lSitemapTotal = document.getElementById("SitemapTotal");
+	    var lUrlSite = document.getElementById("sitemap_url_site");
+        var lUrlMax = document.getElementById("sitemap_url_max");
+        var lsitemap_total = document.getElementById("sitemap_total");
 		var lSitemap = new GSitemap();
 		lSitemap.deserialize(data);
         lUrlSite.innerHTML = String(lSitemap.urlCount);
         lUrlMax.innerHTML = String(lSitemap.urlMax);
-        lSitemapTotal.innerHTML = String(lSitemap.sitemapCount);
+        lsitemap_total.innerHTML = String(lSitemap.sitemapCount);
     }
     //===============================================
     onGetListCB(data) {
-        var lListUrl = document.getElementById("SitemapListUrl");
+        var lListUrl = document.getElementById("sitemap_list_url");
 		var lSitemap = new GSitemap();
 		lSitemap.deserialize(data);
         lListUrl.innerHTML = lSitemap.urlList;
@@ -131,16 +131,16 @@ class GSitemap extends GObject {
     }
     //===============================================
     onClearEnum() {
-        var lUrlSite = document.getElementById("SitemapUrlSite");
-        var lUrlMax = document.getElementById("SitemapUrlMax");
-        var lSitemapTotal = document.getElementById("SitemapTotal");
+        var lUrlSite = document.getElementById("sitemap_url_site");
+        var lUrlMax = document.getElementById("sitemap_url_max");
+        var lsitemap_total = document.getElementById("sitemap_total");
         lUrlSite.innerHTML = "";
         lUrlMax.innerHTML = "";
-        lSitemapTotal.innerHTML = "";
+        lsitemap_total.innerHTML = "";
     }
     //===============================================
     onClearList() {
-        var lListUrl = document.getElementById("SitemapListUrl");
+        var lListUrl = document.getElementById("sitemap_list_url");
         lListUrl.innerHTML = "";
     }
     //===============================================
@@ -158,13 +158,13 @@ class GSitemap extends GObject {
     //===============================================
     onOpenHeader(obj, name) {
 		if(obj === undefined) return;
-        var lTab = document.getElementsByClassName("SitemapTab");
+        var lTab = document.getElementsByClassName("sitemap_tab_");
         for(var i = 0; i < lTab.length; i++) {
             var lTabId = lTab[i];
             lTabId.className = lTabId.className.replace(" Active", "");
         }
         obj.className += " Active";
-        var lTabCtn = document.getElementsByClassName("SitemapTabCtn");
+        var lTabCtn = document.getElementsByClassName("sitemap_tab_ctn");
         for(var i = 0; i < lTabCtn.length; i++) {
             var lTabCtnId = lTabCtn[i];
             lTabCtnId.style.display = "none";
@@ -175,13 +175,13 @@ class GSitemap extends GObject {
     //===============================================
     onOpenSitemap(obj, name) {
 		if(obj === undefined) return;
-        var lTab = document.getElementsByClassName("SitemapFileTab");
+        var lTab = document.getElementsByClassName("sitemap_file_tab");
         for(var i = 0; i < lTab.length; i++) {
             var lTabId = lTab[i];
             lTabId.className = lTabId.className.replace(" Active", "");
         }
         obj.className += " Active";
-        var lTabCtn = document.getElementsByClassName("SitemapFileTabCtn");
+        var lTabCtn = document.getElementsByClassName("sitemap_file_tabCtn");
         for(var i = 0; i < lTabCtn.length; i++) {
             var lTabCtnId = lTabCtn[i];
             lTabCtnId.style.display = "none";

@@ -93,8 +93,8 @@
                 
                 if($lCategory == "header") {
                     echo sprintf("<div class='Col'>\n");
-                    echo sprintf("<button class='Button2 SitemapTab' title=\"%s\"\n", $lToolTip);
-                    echo sprintf("onclick='server_call(\"%s\", \"%s\", this, \"%s\");'>%s</button>\n", $lModule, $lMethod, $lId, $lName);
+                    echo sprintf("<button class='Button2 sitemap_tab_' title=\"%s\"\n", $lToolTip);
+                    echo sprintf("onclick='call_server(\"%s\", \"%s\", this, \"%s\");'>%s</button>\n", $lModule, $lMethod, $lId, $lName);
                     echo sprintf("</div>\n");
                 }
             }
@@ -107,7 +107,7 @@
             $lTitle = $this->getItemC("sitemap", "home", "title");
             $lIntro = $this->getItemC("sitemap", "home", "intro");
             
-            echo sprintf("<div class='Row Left SitemapTabCtn' id='%s'>\n", $lId);
+            echo sprintf("<div class='Row Left sitemap_tab_ctn' id='%s'>\n", $lId);
             echo sprintf("<h2 class='Title4'>%s</h2>\n", $lTitle);
             echo sprintf("<div class='Body6'>\n");
             echo sprintf("<div class='Content9'>%s</div>\n", $lIntro);
@@ -120,7 +120,7 @@
             $lTitle = $this->getItemC("sitemap", "enum", "title");
             $lCount = $this->countItem("sitemap");
             
-            echo sprintf("<div class='Row Left SitemapTabCtn' id='%s'\n", $lId);
+            echo sprintf("<div class='Row Left sitemap_tab_ctn' id='%s'\n", $lId);
             echo sprintf("onkeypress='saveFileKey(event);'>\n");
             echo sprintf("<h2 class='Title4'>%s</h2>\n", $lTitle);
             echo sprintf("<div class='Body13 Center'>\n");
@@ -133,9 +133,9 @@
                 $lModule = $this->getItem3("sitemap", "module", $i);
                 $lMethod = $this->getItem3("sitemap", "method", $i);
                 
-                if($lCategory == "enum/action") {
+                if($lCategory == "enum_action") {
                     echo sprintf("<button class='Button7' type='button' title=\"%s\"\n", $lToolTip);
-                    echo sprintf("onclick='server_call(\"%s\", \"%s\");'><i class='fa fa-%s'></i> %s</button>\n", $lModule, $lMethod, $lPicto, $lName);
+                    echo sprintf("onclick='call_server(\"%s\", \"%s\");'><i class='fa fa-%s'></i> %s</button>\n", $lModule, $lMethod, $lPicto, $lName);
                 }
             }
             
@@ -148,7 +148,7 @@
                 $lLabel = $this->getItem3("sitemap", "label", $i);
                 $lId = $this->getItem3("sitemap", "id", $i);
                 
-                if($lCategory == "enum/form") {
+                if($lCategory == "enum_form") {
                     echo sprintf("<div class='Row9'>\n");
                     echo sprintf("<span class='Label4'>%s</span>\n", $lLabel);
                     echo sprintf("<span class='Field5' id='%s'></span>\n", $lId);
@@ -167,7 +167,7 @@
             $lTitle = $this->getItemC("sitemap", "list", "title");
             $lCount = $this->countItem("sitemap");
             
-            echo sprintf("<div class='Row Left SitemapTabCtn' id='%s'>\n", $lId);
+            echo sprintf("<div class='Row Left sitemap_tab_ctn' id='%s'>\n", $lId);
             echo sprintf("<h2 class='Title4'>%s</h2>\n", $lTitle);
             echo sprintf("<div class='Body13 Center'>\n");
             
@@ -179,9 +179,9 @@
                 $lModule = $this->getItem3("sitemap", "module", $i);
                 $lMethod = $this->getItem3("sitemap", "method", $i);
                 
-                if($lCategory == "list/action") {
+                if($lCategory == "list_action") {
                     echo sprintf("<button class='Button7' type='button' title=\"%s\"\n", $lToolTip);
-                    echo sprintf("onclick='server_call(\"%s\", \"%s\");'><i class='fa fa-%s'></i> %s</button>\n", $lModule, $lMethod, $lPicto, $lName);
+                    echo sprintf("onclick='call_server(\"%s\", \"%s\");'><i class='fa fa-%s'></i> %s</button>\n", $lModule, $lMethod, $lPicto, $lName);
                 }
             }
             
@@ -200,7 +200,7 @@
             $lTitle = $this->getItemC("sitemap", "generate", "title");
             $lCount = $this->countItem("sitemap");
             
-            echo sprintf("<div class='Row Left SitemapTabCtn' id='%s'>\n", $lId);
+            echo sprintf("<div class='Row Left sitemap_tab_ctn' id='%s'>\n", $lId);
             echo sprintf("<h2 class='Title4'>%s</h2>\n", $lTitle);
             echo sprintf("<div class='Body13 Center'>\n");
             
@@ -212,9 +212,9 @@
                 $lModule = $this->getItem3("sitemap", "module", $i);
                 $lMethod = $this->getItem3("sitemap", "method", $i);
                 
-                if($lCategory == "generate/action") {
+                if($lCategory == "generate_action") {
                     echo sprintf("<button class='Button7' type='button' title=\"%s\"\n", $lToolTip);
-                    echo sprintf("onclick='server_call(\"%s\", \"%s\");'><i class='fa fa-%s'></i> %s</button>\n", $lModule, $lMethod, $lPicto, $lName);
+                    echo sprintf("onclick='call_server(\"%s\", \"%s\");'><i class='fa fa-%s'></i> %s</button>\n", $lModule, $lMethod, $lPicto, $lName);
                 }
             }
             
@@ -258,7 +258,7 @@
             $lTitle = $this->getItemC("sitemap", "visualize", "title");
             $lCount = $this->countItem("sitemap");
             
-            echo sprintf("<div class='Row Left SitemapTabCtn' id='%s'>\n", $lId);
+            echo sprintf("<div class='Row Left sitemap_tab_ctn' id='%s'>\n", $lId);
             echo sprintf("<h2 class='Title4'>%s</h2>\n", $lTitle);
             
             echo sprintf("<div class='Body7 Center'>\n");            
@@ -270,9 +270,9 @@
                 $lModule = $this->getItem3("sitemap", "module", $i);
                 $lMethod = $this->getItem3("sitemap", "method", $i);
                 
-                if($lCategory == "visualize/action") {
+                if($lCategory == "visualize_action") {
                     echo sprintf("<button class='Button7' type='button' title=\"%s\"\n", $lToolTip);
-                    echo sprintf("onclick='server_call(\"%s\", \"%s\");'><i class='fa fa-%s'></i> %s</button>\n", $lModule, $lMethod, $lPicto, $lName);
+                    echo sprintf("onclick='call_server(\"%s\", \"%s\");'><i class='fa fa-%s'></i> %s</button>\n", $lModule, $lMethod, $lPicto, $lName);
                 }
             }           
             echo sprintf("</div>\n");
@@ -287,9 +287,9 @@
                 $lMethod = $this->getItem3("sitemap", "method", $i);
                 $lId = $this->getItem3("sitemap", "id", $i);
                 
-                if($lCategory == "visualize/sitemap") {
-                    echo sprintf("<button class='Button8 SitemapFileTab' type='button' title=\"%s\"\n", $lToolTip);
-                    echo sprintf("onclick='server_call(\"%s\", \"%s\", this, \"%s\");'><i class='fa fa-%s'></i> %s</button>\n", $lModule, $lMethod, $lId, $lPicto, $lName);
+                if($lCategory == "visualize_sitemap") {
+                    echo sprintf("<button class='Button8 sitemap_file_tab' type='button' title=\"%s\"\n", $lToolTip);
+                    echo sprintf("onclick='call_server(\"%s\", \"%s\", this, \"%s\");'><i class='fa fa-%s'></i> %s</button>\n", $lModule, $lMethod, $lId, $lPicto, $lName);
                 }
             }
             echo sprintf("</div>\n");            
@@ -301,8 +301,8 @@
                 $lTitle = $this->getItem3("sitemap", "title", $i);
                 $lContent = $this->getItem3("sitemap", "content", $i);
                 
-                if($lCategory == "visualize/content") {
-                    echo sprintf("<div class='SitemapFileTabCtn' id='%s'>\n", $lId);
+                if($lCategory == "visualize_content") {
+                    echo sprintf("<div class='sitemap_file_tabCtn' id='%s'>\n", $lId);
                     echo sprintf("<h3 class='Title6'>%s</h3>\n", $lTitle);
                     echo sprintf("<div class='Content9' id='%s'></div>\n", $lContent);
                     echo sprintf("</div>\n");
@@ -338,7 +338,7 @@
             $lDom->createXAttribute("/sitemapindex", "xmlns:xsi", $lXsi);
             $lDom->createXAttribute("/sitemapindex", "xsi:schemaLocation", $lSchema);
             
-            $lUrlCount = $this->countItem("sitemap/urls");
+            $lUrlCount = $this->countItem("sitemap_urls");
             $lIndexCount = ceil($lUrlCount/$lUrlMax);
             
             for($i = 0; $i < $lIndexCount; $i++) {
@@ -366,7 +366,7 @@
             $lSchema = $this->getItemC("sitemap", "configs", "schema");
             $lUrlMax = $this->getItemC("sitemap", "configs", "url_max");
             
-            $lUrlCount = $this->countItem("sitemap/urls");
+            $lUrlCount = $this->countItem("sitemap_urls");
             $lIndexCount = ceil($lUrlCount/$lUrlMax);
             
             $k = 0;
@@ -384,10 +384,10 @@
                                 
                 for($j = 0; $j < $lUrlMax; $j++) {
                     if($k == $lUrlCount) break;
-                    $lLoc = $this->getItem3("sitemap/urls", "loc", $k);
-                    $lLastmod = $this->getItem3("sitemap/urls", "lastmod", $k);
-                    $lChangefreq = $this->getItem3("sitemap/urls", "changefreq", $k);
-                    $lPriority = $this->getItem3("sitemap/urls", "priority", $k);
+                    $lLoc = $this->getItem3("sitemap_urls", "loc", $k);
+                    $lLastmod = $this->getItem3("sitemap_urls", "lastmod", $k);
+                    $lChangefreq = $this->getItem3("sitemap_urls", "changefreq", $k);
+                    $lPriority = $this->getItem3("sitemap_urls", "priority", $k);
                     
                     $lLoc = $lPathObj->getUrl($lLoc);
                     
@@ -407,7 +407,7 @@
         }
         //===============================================
         public function getEnum() {
-            $lUrlCount = $this->countItem("sitemap/urls");
+            $lUrlCount = $this->countItem("sitemap_urls");
             $lUrlMax = $this->getItemC("sitemap", "configs", "url_max");
             $this->urlCount = $lUrlCount;
             $this->urlMax = $lUrlMax;
@@ -415,12 +415,12 @@
         }
         //===============================================
         public function getListUrl() {
-            $lCount = $this->countItem("sitemap/urls");
+            $lCount = $this->countItem("sitemap_urls");
             
             $lDataVal = "";
             $lDataVal .= "<ol class='List3'>";
             for($i = 0; $i < $lCount; $i++) {
-                $lUrl = $this->getItem3("sitemap/urls", "loc", $i);
+                $lUrl = $this->getItem3("sitemap_urls", "loc", $i);
                 $lDataVal .= "<li>".$lUrl."</li>";
             }
             $lDataVal .= "</ol>";

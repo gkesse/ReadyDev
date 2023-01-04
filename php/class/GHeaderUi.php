@@ -38,13 +38,13 @@ class GHeaderUi extends GObjectUi {
         echo sprintf("<link rel='shortcut icon' type='image/png' href='%s'/>\n", $lLogo);
         echo sprintf("<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'/>\n");
         echo sprintf("<meta name='viewport' content='width=device-width, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1.0, user-scalable=no'/>\n");
-        $this->onFontsUi();
+        $this->onFonts();
         echo sprintf("</head>\n");
         echo sprintf("<body>\n");
         echo sprintf("<div class='HtmlPage'>\n");
         
         $this->m_envUi->run();
-        $this->onBackgroundUi();
+        $this->onBackground();
         $this->m_connectUi->run();
         $this->m_accountUi->run();
         $this->m_disconnectUi->run();
@@ -68,7 +68,7 @@ class GHeaderUi extends GObjectUi {
         echo sprintf("</header>\n");        
     }
     //===============================================
-    public function onFontsUi() {
+    public function onFonts() {
         $lCount = $this->m_app->countItem("fonts");
         for($i = 0; $i < $lCount; $i++) {
             $lFont = $this->m_app->getItem2("fonts", $i);
@@ -76,7 +76,7 @@ class GHeaderUi extends GObjectUi {
         }
     }
     //===============================================
-    public function onBackgroundUi() {
+    public function onBackground() {
         echo sprintf("<div class='Background Top'></div>\n");
         echo sprintf("<div class='Background Middle'></div>\n");
         echo sprintf("<div class='Background Bottom'></div>\n");

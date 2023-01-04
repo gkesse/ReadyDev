@@ -5,8 +5,9 @@ class GMenuUi extends GObjectUi {
     protected $m_page;
     protected $m_session;
     //===============================================
-    public function __construct() {
-        parent::__construct();
+    public function __construct($_codeName = "menu") {
+        parent::__construct($_codeName);
+        $this->loadDom(__CLASS__);
         $this->m_page           = new GPage();
         $this->m_session        = new GSession();
     }
@@ -14,19 +15,19 @@ class GMenuUi extends GObjectUi {
     public function run() {
         echo sprintf("<ul class='Menu' id='HeaderMenu'>\n");
         
-        $lCount     = $this->m_app->countItem("menu");
+        $lCount     = $this->m_dom->countItem($this->m_codeName);
         $lPage      = $this->m_page->getPageId();
         $lLoginOn   = $this->m_session->issetSession("user/login");
         $lGroup     = $this->m_session->getSession("user/group");
         $lRootOn    = ($lGroup == G_USER_GROUP_ROOT);
         
         for($i = 0; $i < $lCount; $i++) {
-            $lType      = $this->m_app->getItem3("menu", "type", $i);
-            $lName      = $this->m_app->getItem3("menu", "name", $i);
-            $lImg       = $this->m_app->getItem3("menu", "img", $i);
-            $lLink      = $this->m_app->getItem3("menu", "link", $i);
-            $lModule    = $this->m_app->getItem3("menu", "module", $i);
-            $lMethod    = $this->m_app->getItem3("menu", "method", $i);
+            $lType      = $this->m_dom->getItem3($this->m_codeName, "type", $i);
+            $lName      = $this->m_dom->getItem3($this->m_codeName, "name", $i);
+            $lImg       = $this->m_dom->getItem3($this->m_codeName, "img", $i);
+            $lLink      = $this->m_dom->getItem3($this->m_codeName, "link", $i);
+            $lModule    = $this->m_dom->getItem3($this->m_codeName, "module", $i);
+            $lMethod    = $this->m_dom->getItem3($this->m_codeName, "method", $i);
             
             $lActive = "";
             if($lLink == $lPage) $lActive = " Active";
@@ -38,12 +39,12 @@ class GMenuUi extends GObjectUi {
                 echo sprintf("</a>\n");
                 echo sprintf("</li>\n");
             }
-            else if($lType == "link/menu") {
-                echo sprintf("<li id='HeaderMenuBars' class='Bars' onclick='server_call(\"%s\", \"%s\");'>\n", $lModule, $lMethod);
+            else if($lType == "link_menu") {
+                echo sprintf("<li id='HeaderMenuBars' class='Bars' onclick='call_server(\"%s\", \"%s\");'>\n", $lModule, $lMethod);
                 echo sprintf("%s\n", $lName);
                 echo sprintf("</li>\n");
             }
-            else if($lType == "link/admin") {
+            else if($lType == "link_admin") {
                 if(!$lLoginOn) continue;
                 if(!$lRootOn) continue;
                 echo sprintf("<li class='Item'>\n");
@@ -52,21 +53,21 @@ class GMenuUi extends GObjectUi {
                 echo sprintf("</a>\n");
                 echo sprintf("</li>\n");
             }
-            else if($lType == "link/login") {
+            else if($lType == "link_login") {
                 if($lLoginOn) continue;
                 echo sprintf("<li class='Item'>\n");
-                echo sprintf("<span class='Link' onclick='server_call(\"%s\", \"%s\");'>%s</span>\n"
+                echo sprintf("<span class='Link' onclick='call_server(\"%s\", \"%s\");'>%s</span>\n"
                     , $lModule, $lMethod, $lName);
                 echo sprintf("</li>\n");
             }
-            else if($lType == "link/logout") {
+            else if($lType == "link_logout") {
                 if(!$lLoginOn) continue;
                 echo sprintf("<li class='Item'>\n");
-                echo sprintf("<span class='Link' onclick='server_call(\"%s\", \"%s\");'>%s</span>\n"
+                echo sprintf("<span class='Link' onclick='call_server(\"%s\", \"%s\");'>%s</span>\n"
                     , $lModule, $lMethod, $lName);
                 echo sprintf("</li>\n");
             }
-            else if($lType == "link/image") {
+            else if($lType == "link_image") {
                 echo sprintf("<li class='Item'>\n");
                 echo sprintf("<a class='Title' href='%s'>\n", $lLink);
                 echo sprintf("<img class='Img4' src='%s' alt='%s'/>\n", $lImg, $lImg);

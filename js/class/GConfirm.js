@@ -82,7 +82,7 @@ class GConfirm extends GModule {
 		if(this.action == "") return false;
 		var lData = this.serialize(true);
 		this.buttonOff();
-		server_call(this.module, this.method, this, lData);
+		call_server(this.module, this.method, this, lData);
 		return true;
 	}
     //===============================================
@@ -104,7 +104,7 @@ class GConfirm extends GModule {
 		if(this.method == "") return false;
 		this.action = "cancel";
 		var lData = this.serialize(true);
-		server_call(this.module, this.method, this, lData);
+		call_server(this.module, this.method, this, lData);
 		this.writeUi();
 		return true;
     }

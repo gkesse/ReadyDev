@@ -21,8 +21,8 @@
             parent::deserialize($data);
             $lData = new GCode();
             $lData->loadXml($data);
-            $this->msg = $lData->getItem($code, "msg", true);
-            $this->res = $lData->getItem($code, "res", true);
+            $this->msg = $lData->getData($code, "msg", true);
+            $this->res = $lData->getData($code, "res", true);
         }
         //===============================================
         public function onModule($data, $server) {
@@ -90,8 +90,8 @@
                 
                 if($lCategory == "header") {
                     echo sprintf("<div class='Col'>\n");
-                    echo sprintf("<button class='Button2 QueryTab' title=\"%s\"\n", $lToolTip);
-                    echo sprintf("onclick='server_call(\"%s\", \"%s\", this, \"%s\");'>%s</button>\n", $lModule, $lMethod, $lId, $lName);
+                    echo sprintf("<button class='Button2 query_tab' title=\"%s\"\n", $lToolTip);
+                    echo sprintf("onclick='call_server(\"%s\", \"%s\", this, \"%s\");'>%s</button>\n", $lModule, $lMethod, $lId, $lName);
                     echo sprintf("</div>\n");
                 }
             }
@@ -104,7 +104,7 @@
             $lTitle = $this->getItemC("query", "home", "title");
             $lIntro = $this->getItemC("query", "home", "intro");
             
-            echo sprintf("<div class='Row Left QueryTabCtn' id='%s'>\n", $lId);
+            echo sprintf("<div class='Row Left query_tab_ctn' id='%s'>\n", $lId);
             echo sprintf("<h2 class='Title4'>%s</h2>\n", $lTitle);
             echo sprintf("<div class='Body6'>\n");
             echo sprintf("<div class='Content9'>%s</div>\n", $lIntro);
@@ -117,7 +117,7 @@
             $lTitle = $this->getItemC("query", "emission", "title");
             $lCount = $this->countItem("query");
             
-            echo sprintf("<div class='Row Left QueryTabCtn' id='%s'>\n", $lId);
+            echo sprintf("<div class='Row Left query_tab_ctn' id='%s'>\n", $lId);
             echo sprintf("<h2 class='Title4'>%s</h2>\n", $lTitle);
             
             echo sprintf("<div class='Body14'>\n");
@@ -131,7 +131,7 @@
                 $lCols = $this->getItem3("query", "cols", $i);
                 $lPlaceholder = $this->getItem3("query", "placeholder", $i);
                 
-                if($lCategory == "emission/text") {
+                if($lCategory == "emission_text") {
                     echo sprintf("<textarea class='Border Code3' id='%s' name='%s' rows='%s' cols='%s' placeholder='%s'></textarea>\n"
                         , $lId, $lName, $lRows, $lCols, $lPlaceholder);
                 }
@@ -145,7 +145,7 @@
                 $lCheckedOn = ($this->getItem3("query", "checked_on", $i) == "1");
                 $lTooltip = $this->getItem3("query", "tooltip", $i);
                 
-                if($lCategory == "emission/check") {
+                if($lCategory == "emission_check") {
                     echo sprintf("<input class='Col' type='checkbox' id='%s' name='%s' value='%s' title='%s' checked='%s'><label class='Col' for='%s'> %s</label>"
                         , $lId, $lId, $lId, $lTooltip, $lCheckedOn, $lId, $lText);
                 }
@@ -159,9 +159,9 @@
                 $lMethod = $this->getItem3("query", "method", $i);
                 $lTooltip = $this->getItem3("query", "tooltip", $i);
                 
-                if($lCategory == "emission/button") {
+                if($lCategory == "emission_button") {
                     echo sprintf("<div class='Col'>\n");
-                    echo sprintf("<button class='Button2' onclick='server_call(\"%s\", \"%s\");' title='%s'>%s</button>"
+                    echo sprintf("<button class='Button2' onclick='call_server(\"%s\", \"%s\");' title='%s'>%s</button>"
                         , $lModule, $lMethod, $lTooltip, $lName);
                     echo sprintf("</div>\n");
                 }
@@ -177,7 +177,7 @@
             $lTitle = $this->getItemC("query", "reception", "title");
             $lCount = $this->countItem("query");
             
-            echo sprintf("<div class='Row Left QueryTabCtn' id='%s'>\n", $lId);
+            echo sprintf("<div class='Row Left query_tab_ctn' id='%s'>\n", $lId);
             echo sprintf("<h2 class='Title4'>%s</h2>\n", $lTitle);
             
             echo sprintf("<div class='Body14'>\n");
@@ -191,7 +191,7 @@
                 $lCols = $this->getItem3("query", "cols", $i);
                 $lReadOnly = $this->getItem3("query", "readonly", $i);
                 
-                if($lCategory == "reception/text") {
+                if($lCategory == "reception_text") {
                     echo sprintf("<textarea class='Border Code3' id='%s' name='%s' rows='%s' cols='%s' %s></textarea>\n"
                         , $lId, $lName, $lRows, $lCols, $lReadOnly);
                 }
@@ -203,9 +203,9 @@
                 $lMethod = $this->getItem3("query", "method", $i);
                 $lTooltip = $this->getItem3("query", "tooltip", $i);
                 
-                if($lCategory == "reception/button") {
+                if($lCategory == "reception_button") {
                     echo sprintf("<div class='Col'>\n");
-                    echo sprintf("<button class='Button2' onclick='server_call(\"%s\", \"%s\");' title='%s'>%s</button>"
+                    echo sprintf("<button class='Button2' onclick='call_server(\"%s\", \"%s\");' title='%s'>%s</button>"
                         , $lModule, $lMethod, $lTooltip, $lName);
                     echo sprintf("</div>\n");
                 }

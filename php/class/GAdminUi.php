@@ -2,35 +2,36 @@
 //===============================================
 class GAdminUi extends GObjectUi {
     //===============================================
-    private static $m_instance = null;
+    protected $m_managerUi;
+    protected $m_queryUi;
+    protected $m_sitemapUi;
+    protected $m_editorUi;
     //===============================================
     public function __construct() {
         parent::__construct();
-    }
-    //===============================================
-    public static function Instance() {
-        if(is_null(self::$m_instance)) {
-            self::$m_instance = new GAdminUi();
-        }
-        return self::$m_instance;
+        $this->loadDom(__CLASS__);
+        $this->m_managerUi  = new GManagerUi();
+        $this->m_queryUi    = new GQueryUi();
+        $this->m_sitemapUi  = new GSitemapUi();
+        $this->m_editorUi   = new GEditorUi();
     }
     //===============================================
     public function run() {
         $this->onIntro();
         echo sprintf("<div class='Content2'>\n");
         
-        $this->onManager();
-        $this->onQuery();
-        $this->onSitemap();
-        $this->onEditor();
+        $this->m_managerUi->run();
+        $this->m_queryUi->run();
+        $this->m_sitemapUi->run();
+        $this->m_editorUi->run();
         
         echo sprintf("</div>\n");
     }
     //===============================================
     public function onIntro() {
-        $lTitle = $this->m_app->getItem("admin", "title");
-        $lIntro = $this->m_app->getItem("admin", "intro");
-        $lCount = $this->m_app->countItem("admin");
+        $lTitle = $this->m_dom->getItem("admin", "title");
+        $lIntro = $this->m_dom->getItem("admin", "intro");
+        $lCount = $this->m_dom->countItem("admin");
         
         echo sprintf("<div class='Parallax'>\n");
         echo sprintf("<div class='Img Binary'>\n");
@@ -46,10 +47,10 @@ class GAdminUi extends GObjectUi {
         echo sprintf("<ul class='fa-ul'>\n");        
         
         for($i = 0; $i < $lCount; $i++) {
-            $lCategory = $this->m_app->getItem3("admin", "category", $i);
-            $lLink = $this->m_app->getItem3("admin", "link", $i);
-            $lName = $this->m_app->getItem3("admin", "name", $i);
-            if($lCategory != "intro/link") continue;
+            $lCategory = $this->m_dom->getItem3("admin", "category", $i);
+            $lLink = $this->m_dom->getItem3("admin", "link", $i);
+            $lName = $this->m_dom->getItem3("admin", "name", $i);
+            if($lCategory != "intro_link") continue;
             echo sprintf("<li>\n");
             echo sprintf("<i class='Icon2 fa-li fa fa-book'></i>\n");
             echo sprintf("<a class='Link4' href='%s'>%s</a>\n", $lLink, $lName);
@@ -62,33 +63,8 @@ class GAdminUi extends GObjectUi {
         echo sprintf("</div>\n");
     }
     //===============================================
-    public function onManager() {
-        $lManager = new GManager();
-        $lManager->runUi();
-    }
-    //===============================================
-    public function onQuery() {
-        $lQuery = new GQuery();
-        $lQuery->run();
-    }
-    //===============================================
-    public function onSitemap() {
-        $lSitemapObj = new GSitemap();
-        $lSitemapObj->run();
-    }
-    //===============================================
     public function onEditor() {
         
-    }
-    //===============================================
-    public function validate() {
-        $lValidate = true;
-        if(!isset($_SESSION["login"])) $lValidate = false;
-        else if($_SESSION["login"]["group"] != "admin") $lValidate = false;
-        
-        if(!$lValidate) {
-            header("Location: ".$_SESSION["lasturl"]);
-        }
     }
     //===============================================
 }

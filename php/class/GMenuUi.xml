@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdv>
+	<datas>
+		<!-- ============================================ -->
+		<!-- menu -->
+		<!-- ============================================ -->
+		<data>
+			<code>menu</code>
+			<map>
+				<!-- ============================================ -->
+				<!-- menu -->
+				<!-- ============================================ -->
+				<data>
+					<type>link_image</type>
+					<name>ReadyDev</name>
+					<img>/data/img/defaults/readydev.png</img>
+					<link>/</link>
+				</data>
+				<data>
+					<type>link</type>
+					<name>CV</name>
+					<link>/home/cv</link>
+				</data>
+				<data>
+					<type>link</type>
+					<name>Présentation</name>
+					<link>/home/presentation</link>
+				</data>
+				<data>
+					<type>link</type>
+					<name>Tutoriels</name>
+					<link>/home/tutoriels</link>
+				</data>
+				<data>
+					<type>link</type>
+					<name>Cours</name>
+					<link>/home/cours</link>
+				</data>
+				<data>
+					<type>link</type>
+					<name>Contacts</name>
+					<link>/home/contacts</link>
+				</data>
+				<data>
+					<type>link</type>
+					<name>Admin</name>
+					<link>/home/admin</link>
+				</data>
+				<data>
+					<type>link_admin</type>
+					<name>Doc</name>
+					<link>/home/doc</link>
+				</data>
+				<data>
+					<type>link_login</type>
+					<name>Connexion</name>
+					<module>user</module>
+					<method>open_connection</method>
+				</data>
+				<data>
+					<type>link_logout</type>
+					<name>Déconnexion</name>
+					<module>user</module>
+					<method>open_disconnection</method>
+				</data>
+				<data>
+					<type>link_menu</type>
+					<id>HeaderMenu</id>
+					<name><![CDATA[<i class='fa fa-bars'></i>]]></name>
+					<module>menu</module>
+					<method>open_menu</method>
+				</data>
+				<!-- ============================================ -->
+				<!-- end -->
+				<!-- ============================================ -->
+			</map>
+		</data>
+		<!-- ============================================ -->
+		<!-- end -->
+		<!-- ============================================ -->
+	</datas>
+</rdv>

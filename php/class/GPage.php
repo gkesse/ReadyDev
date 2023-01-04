@@ -7,16 +7,7 @@ class GPage extends GObject {
     public function __construct() {
         parent::__construct();
         $this->m_get    = new GGet();
-        $this->m_pageId = $this->_getPageId();
-    }
-    //===============================================
-    private function _getPageId() {
-        $lPageId = $this->m_get->getGet("pageid");
-        $lPageId = sprintf("/home/%s", $lPageId);
-        if(substr($lPageId, -1) == '/') {
-            $lPageId = substr($lPageId, 0, -1);
-        }
-        return $lPageId;
+        $this->m_pageId = $this->m_get->getGet("pageid");
     }
     //===============================================
     public function getPageId() {

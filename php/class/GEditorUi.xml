@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdv>
+	<datas>
+		<!-- ============================================ -->
+		<!-- editor -->
+		<!-- ============================================ -->
+		<data>
+			<code>editor</code>
+			<title>Éditeur de pages HTML</title>
+			<id>editeur_pages_html</id>
+			<map>
+				<!-- ============================================ -->
+				<!-- header -->
+				<!-- ============================================ -->
+				<data>
+					<category>header</category>
+					<tooltip>Accueil</tooltip>
+					<id>EditorTab0</id>
+					<name><![CDATA[<i class='fa fa-home'></i>]]></name>
+				</data>
+				<data>
+					<category>header</category>
+					<tooltip>Gérer une page</tooltip>
+					<id>EditorTab1</id>
+					<name>Page</name>
+				</data>
+				<!-- ============================================ -->
+				<!-- header/link -->
+				<!-- ============================================ -->
+				<data>
+					<category>header/link</category>
+					<module>editor</module>
+					<method>open_header</method>
+				</data>
+				<!-- ============================================ -->
+				<!-- home -->
+				<!-- ============================================ -->
+				<data>
+					<category>home</category>
+					<title>ReadyEditor</title>
+					<id>EditorTab0</id>
+					<intro><![CDATA[
+                        <b>ReadyEditor</b> est un éditeur de pages HTML.<br>
+                        Il permet d'éditer les pages HTML du siteweb.
+                        Cela accélère l'ajout de nouveaux contenus
+                        et évite de passer du temps inutilement à écrire du code
+                        dans le but d'ajouter de nouveaux contenus.
+                        <br>Produit par <b>Gérard KESSE</b>.
+                       ]]></intro>
+				</data>
+				<!-- ============================================ -->
+				<!-- page -->
+				<!-- ============================================ -->
+				<data>
+					<category>page</category>
+					<title>Page</title>
+					<id>EditorTab1</id>
+				</data>
+				<data>
+					<category>page/body</category>
+					<model>label/edit</model>
+					<label>Nom :</label>
+					<id>EditorPageName</id>
+					<type>text</type>
+					<name>name</name>
+					<lower_on>1</lower_on>
+				</data>
+				<!-- ============================================ -->
+				<!-- end -->
+				<!-- ============================================ -->
+			</map>
+		</data>
+		<!-- ============================================ -->
+		<!-- end -->
+		<!-- ============================================ -->
+	</datas>
+</rdv>

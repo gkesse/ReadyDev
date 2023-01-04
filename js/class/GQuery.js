@@ -51,21 +51,21 @@ class GQuery extends GModule {
 	}
     //===============================================
     init(id) {
-        var lTabCtn = document.getElementsByClassName("QueryTab");
+        var lTabCtn = document.getElementsByClassName("query_tab");
         var lObj = lTabCtn[id];
-		var lName = sprintf("QueryTab%s", id);
+		var lName = sprintf("query_tab_%s", id);
         this.onOpenHeader(lObj, lName);
     }
     //===============================================
     onOpenHeader(obj, name) {
 		if(obj === undefined) return;
-        var lTab = document.getElementsByClassName("QueryTab");
+        var lTab = document.getElementsByClassName("query_tab");
         for(var i = 0; i < lTab.length; i++) {
             var lTabId = lTab[i];
             lTabId.className = lTabId.className.replace(" Active", "");
         }
         obj.className += " Active";
-        var lTabCtn = document.getElementsByClassName("QueryTabCtn");
+        var lTabCtn = document.getElementsByClassName("query_tab_ctn");
         for(var i = 0; i < lTabCtn.length; i++) {
             var lTabCtnId = lTabCtn[i];
             lTabCtnId.style.display = "none";
@@ -76,7 +76,7 @@ class GQuery extends GModule {
     }
     //===============================================
     onHeader(name) {
-		if(name == "QueryTab1") {
+		if(name == "query_tab_1") {
 			this.onEmission();
 		}
 	}
@@ -87,8 +87,8 @@ class GQuery extends GModule {
     //===============================================
     onSendQuery() {
 		var lLog = GLog.Instance();
-        var lEmissionTextObj = document.getElementById("QueryEmissionText");
-        var lEmissionServerObj = document.getElementById("QueryEmissionServer");
+        var lEmissionTextObj = document.getElementById("query_emission_text");
+        var lEmissionServerObj = document.getElementById("query_emission_server");
 		var lServerOn = lEmissionServerObj.checked;
 		var lMsg = lEmissionTextObj.value;
 		if(lMsg == "") {
@@ -127,7 +127,7 @@ class GQuery extends GModule {
     }
     //===============================================
     saveEmissionText() {
-        var lEmissionTextObj = document.getElementById("QueryEmissionText");
+        var lEmissionTextObj = document.getElementById("query_emission_text");
 		var lMsg = lEmissionTextObj.value;
 		if(lMsg != "") {
 			if(this.lastMsg != lMsg) {
@@ -139,7 +139,7 @@ class GQuery extends GModule {
     }
     //===============================================
     restoreEmissionText() {
-        var lEmissionTextObj = document.getElementById("QueryEmissionText");
+        var lEmissionTextObj = document.getElementById("query_emission_text");
 		var lMsg = lEmissionTextObj.value;
 		if(lMsg == "") {
 			var lStore = new GStore();
@@ -152,12 +152,12 @@ class GQuery extends GModule {
     //===============================================
     setReceptionText(data) {
 		data = data.trim();
-        var lReceptionTextObj = document.getElementById("QueryReceptionText");
+        var lReceptionTextObj = document.getElementById("query_reception_text");
 		lReceptionTextObj.value = data;
     }
     //===============================================
     copyReceptionText() {
-	    var lReceptionTextObj = document.getElementById("QueryReceptionText");
+	    var lReceptionTextObj = document.getElementById("query_reception_text");
 		lReceptionTextObj.select();
 		document.execCommand("copy");
     }

@@ -6,11 +6,13 @@ class GProcess extends GObjectUi {
     //===============================================
     protected $m_page;
     protected $m_env;
+    protected $m_indexUi;
     //===============================================
     private function __construct() {
         parent::__construct();
-        $this->m_page   = new GPage();
-        $this->m_env    = new GEnv();
+        $this->m_page       = new GPage();
+        $this->m_env        = new GEnv();
+        $this->m_indexUi    = new GIndexUi();
     }
     //===============================================
     public static function Instance() {
@@ -21,8 +23,8 @@ class GProcess extends GObjectUi {
     }
     //===============================================
     public function main() {
-        $lPageObj = new GPage();
-        $lPageObj->redirectPost();
+        $this->m_indexUi->run();
+        $this->m_page->redirectPost();
         $this->run();
     }
     //===============================================
