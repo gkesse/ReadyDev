@@ -1,5 +1,5 @@
 //===============================================
-class GManagerUi extends GObjectUi {
+class GManagerUi extends GObject {
     //===============================================
     constructor() {
         super();

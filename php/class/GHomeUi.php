@@ -1,6 +1,6 @@
 <?php
 //===============================================
-class GHomeUi extends GObjectUi {
+class GHomeUi extends GObject {
     //===============================================
     protected $m_parallaxUi;
     //===============================================

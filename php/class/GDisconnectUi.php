@@ -1,23 +1,24 @@
 <?php   
 //===============================================
-class GDisconnectUi extends GObjectUi {
+class GDisconnectUi extends GObject {
     //===============================================
-    public function __construct() {
-        parent::__construct();
+    public function __construct($_codeName = "disconnection") {
+        parent::__construct($_codeName);
+        $this->loadDom(__CLASS__);
     }
     //===============================================
     public function run() {
-        $lTitle         = $this->m_app->getItemC("user", "disconnection", "title");
-        $lIntro         = $this->m_app->getItemC("user", "disconnection", "intro");
-        $lModalId       = $this->m_app->getItemC("user", "disconnection", "modal_id");
-        $lBodyId        = $this->m_app->getItemC("user", "disconnection", "body_id");
-        $lFormId        = $this->m_app->getItemC("user", "disconnection", "form_id");
-        $lMsgId         = $this->m_app->getItemC("user", "disconnection", "msg_id");
-        $lModule        = $this->m_app->getItemC("user", "disconnection", "module");
-        $lKeypressCB    = $this->m_app->getItemC("user", "disconnection", "keypress_cb");
-        $lCloseCB       = $this->m_app->getItemC("user", "disconnection", "close_cb");
-        $lDisconnectCB  = $this->m_app->getItemC("user", "disconnection", "disconnect_cb");
-        $lDisconnectBtn = $this->m_app->getItemC("user", "disconnection", "disconnect_btn");
+        $lTitle         = $this->m_dom->getItemC("user", "disconnection", "title");
+        $lIntro         = $this->m_dom->getItemC("user", "disconnection", "intro");
+        $lModalId       = $this->m_dom->getItemC("user", "disconnection", "modal_id");
+        $lBodyId        = $this->m_dom->getItemC("user", "disconnection", "body_id");
+        $lFormId        = $this->m_dom->getItemC("user", "disconnection", "form_id");
+        $lMsgId         = $this->m_dom->getItemC("user", "disconnection", "msg_id");
+        $lModule        = $this->m_dom->getItemC("user", "disconnection", "module");
+        $lKeypressCB    = $this->m_dom->getItemC("user", "disconnection", "keypress_cb");
+        $lCloseCB       = $this->m_dom->getItemC("user", "disconnection", "close_cb");
+        $lDisconnectCB  = $this->m_dom->getItemC("user", "disconnection", "disconnect_cb");
+        $lDisconnectBtn = $this->m_dom->getItemC("user", "disconnection", "disconnect_btn");
         //
         echo sprintf("<div class='Modal' id='%s' onkeypress='call_server(\"%s\", \"%s\", this, event);'>\n", $lModalId, $lModule, $lKeypressCB);
         echo sprintf("<div class='Content10' id='%s'>\n", $lBodyId);

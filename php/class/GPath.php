@@ -1,8 +1,8 @@
 <?php
-class GPath extends GObject {
+class GPath {
     //===============================================
     public function __construct() {
-        parent::__construct();
+
     }
     //===============================================
     public function getPath($path, $file = "") {

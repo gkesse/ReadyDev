@@ -1,5 +1,5 @@
 <?php
-class GTest extends GObjectUi {
+class GTest extends GObject {
     //===============================================
     protected $m_lang;
     protected $m_module;

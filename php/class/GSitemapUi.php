@@ -1,5 +1,5 @@
 <?php   
-    class GSitemapUi extends GObjectUi {
+    class GSitemapUi extends GObject {
         //===============================================
         public function __construct($_codeName = "sitemap") {
             parent::__construct($_codeName);

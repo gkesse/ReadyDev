@@ -28,7 +28,6 @@ class GCode extends GXml {
             lData = lDom.toStringData();
             this.loadNode(lData);
         }
-        _obj.m_map = [];
         return true;
     }
     //===============================================

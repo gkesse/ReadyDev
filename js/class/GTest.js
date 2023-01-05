@@ -1,5 +1,5 @@
 //===============================================
-class GTest extends GObjectUi {
+class GTest extends GObject {
     //===============================================
     constructor() {
         super();

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdv>
+	<datas>
+		<!-- ============================================ -->
+		<!-- confirm -->
+		<!-- ============================================ -->
+		<data>
+			<code>confirm</code>
+			<title>Confirmation</title>
+			<intro>Voulez-vous continuer l'opération ?</intro>
+			<modal_id>ModalConfirm</modal_id>
+			<body_id>ConfirmBody</body_id>
+			<form_id>ConfirmForm</form_id>
+			<msg_id>ConfirmMsg</msg_id>
+			<module>confirm</module>
+			<keypress_cb>keypress_confirm</keypress_cb>
+			<close_cb>close_confirm</close_cb>
+			<map>
+				<!-- ============================================ -->
+				<!-- confirm/button -->
+				<!-- ============================================ -->
+				<data>
+					<category>confirm/button</category>
+					<model>button</model>
+					<id>ConfirmOk</id>
+					<module>confirm</module>
+					<callback>ok_confirm</callback>
+					<picto>check</picto>
+					<text>OK</text>
+				</data>
+				<data>
+					<category>confirm/button</category>
+					<model>button</model>
+					<id>ConfirmCancel</id>
+					<module>confirm</module>
+					<callback>close_confirm</callback>
+					<picto>times</picto>
+					<text>Annuler</text>
+				</data>
+				<!-- ============================================ -->
+				<!-- end -->
+				<!-- ============================================ -->
+			</map>
+		</data>
+		<!-- ============================================ -->
+		<!-- end -->
+		<!-- ============================================ -->
+	</datas>
+</rdv>

@@ -9,14 +9,14 @@
             <map>
                 <data>/js/functions.js</data>
                 <data>/js/class/GDefine.js</data>
+                <data>/js/class/GLog.js</data>
                 <data>/js/class/GObject.js</data>
-                <data>/js/class/GObjectUi.js</data>
+                <data>/js/class/GLogUi.js</data>
                 <data>/js/class/GModule.js</data>
                 <data>/js/class/GConfirm.js</data>
                 <data>/js/class/GSearch.js</data>
                 <data>/js/class/GTable.js</data>
                 <data>/js/class/GDate.js</data>
-                <data>/js/class/GLog.js</data>
                 <data>/js/class/GEnv.js</data>
                 <data>/js/class/GPage.js</data>
                 <data>/js/class/GStore.js</data>

@@ -1,6 +1,6 @@
 <?php   
 //===============================================
-class GXml extends GObject {
+class GXml {
     //===============================================
     private $doc = null;
     private $node = null;
@@ -10,7 +10,6 @@ class GXml extends GObject {
     private $xpath = null;
     //===============================================
     public function __construct() {
-        parent::__construct();
         $this->nodeCopy = array();
     }
     //===============================================

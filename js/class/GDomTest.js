@@ -2,36 +2,52 @@
 class GDomTest extends GTest {
     //===============================================
     constructor() {
-        super();
+		super();
     }
     //===============================================
-    onModule() {
-        if(this.m_method == "test") {
+	onModule() {
+		if(this.m_method == "test") {
             this.runTest();
         }
-        else {
-            this.runDefault();
+		else if(this.m_method == "show_logs") {
+            this.runShowLogs();
         }
-    }
+		else if(this.m_method == "logs") {
+            this.runLogs();
+        }
+		else {
+			this.runDefault();
+		}
+	}
     //===============================================
-    runTest() {
+	runTest() {
+        this.addError("Erreur lors de l'émission.");
+        this.addLog("La donnée a bien été enregistrée.");
+	}
+    //===============================================
+	runShowLogs() {
+        this.addError("Erreur lors de l'émission.");
+        this.addLog("La donnée a bien été enregistrée.");
+	}
+    //===============================================
+	runLogs() {
         var lLog = new GLog();
         lLog.addLog("Erreur lors de l'émission.");
         lLog.addLog("La donnée a bien été enregistrée.");
-        //this.printXml(lLog.serialize());
+        this.addData(prettifyXml(lLog.serialize()))
 
         var lLog2 = new GLog();
         lLog2.addError("Erreur lors de l'émission (2).");
         lLog2.addLog("La donnée a bien été enregistrée (2).");
         lLog2.addLogs(lLog);
-        //this.printXml(lLog2.serialize());
+        this.addData(prettifyXml(lLog2.serialize()))
 
         var lLog3 = new GLog();
         lLog3.deserialize(lLog2.serialize());        
-        //this.printXml(lLog3.serialize());
+        this.addData(prettifyXml(lLog3.serialize()))
         
-        this.printData(sprintf("hasErrors : %s", lLog.hasErrors()));
-    }
+        this.addData(sprintf("hasErrors : %s", lLog.hasErrors()));
+	}
     //===============================================
 }
 //===============================================

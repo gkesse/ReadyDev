@@ -56,6 +56,9 @@
                     <title>Page</title>
                     <id>EditorTab1</id>
                 </data>
+                <!-- ============================================ -->
+                <!-- page/body -->
+                <!-- ============================================ -->
                 <data>
                     <category>page/body</category>
                     <model>label/edit</model>
@@ -64,6 +67,41 @@
                     <type>text</type>
                     <name>name</name>
                     <lower_on>1</lower_on>
+                </data>
+                <!-- ============================================ -->
+                <!-- page/button -->
+                <!-- ============================================ -->
+                <data>
+                    <category>page/button</category>
+                    <id>EditorPageSave</id>
+                    <module>editor</module>
+                    <callback>save_page</callback>
+                    <picto>save</picto>
+                    <text>Enregistrer</text>
+                </data>
+                <data>
+                    <category>page/button</category>
+                    <id>EditorPageSearch</id>
+                    <module>editor</module>
+                    <callback>search_page</callback>
+                    <picto>search</picto>
+                    <text>Rechercher</text>
+                </data>
+                <data>
+                    <category>page/button</category>
+                    <id>EditorPageDelete</id>
+                    <module>editor</module>
+                    <callback>delete_page</callback>
+                    <picto>trash</picto>
+                    <text>Supprimer</text>
+                </data>
+                <data>
+                    <category>page/button</category>
+                    <id>EditorPageNew</id>
+                    <module>editor</module>
+                    <callback>new_page</callback>
+                    <picto>file</picto>
+                    <text>Nouveau</text>
                 </data>
                 <!-- ============================================ -->
                 <!-- end -->

@@ -1,5 +1,5 @@
 //===============================================
-class GQueryUi extends GObjectUi {
+class GQueryUi extends GObject {
     //===============================================
     constructor() {
         super();

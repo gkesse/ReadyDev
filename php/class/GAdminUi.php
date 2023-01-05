@@ -1,14 +1,14 @@
 <?php
 //===============================================
-class GAdminUi extends GObjectUi {
+class GAdminUi extends GObject {
     //===============================================
     protected $m_managerUi;
     protected $m_queryUi;
     protected $m_sitemapUi;
     protected $m_editorUi;
     //===============================================
-    public function __construct() {
-        parent::__construct();
+    public function __construct($_codeName = "editor") {
+        parent::__construct($_codeName);
         $this->loadDom(__CLASS__);
         $this->m_managerUi  = new GManagerUi();
         $this->m_queryUi    = new GQueryUi();

@@ -6,12 +6,9 @@
         }
         //===============================================
         public function run() {
-            echo sprintf("<xmp style='
-                font-family: courier;
-                font-size: 12pt;
-            ' id='JsConsole'></xmp>\n");
-            echo sprintf("<input type='hidden' id='JsData' value='%s'/>\n", $this->serialize());
-            echo sprintf("<script>call_server('test');</script>\n");
+            echo sprintf("<button class='Button4' type='button' title=\"Exécuter le test\"\n");
+            echo sprintf("onclick='call_server(\"test\");'><i class='fa fa-home'></i> Run Test</button>\n");
+            echo sprintf("<input type='hidden' id='PhpJsData' value='%s'/>\n", $this->serialize());
         }
         //===============================================
     }

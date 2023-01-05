@@ -1,5 +1,5 @@
 <?php   
-    class GReadyUi extends GObjectUi {
+    class GReadyUi extends GObject {
         //===============================================
         protected $m_isFound;
         protected $m_headerUi;

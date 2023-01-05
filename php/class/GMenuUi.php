@@ -1,6 +1,6 @@
 <?php
 //===============================================
-class GMenuUi extends GObjectUi {
+class GMenuUi extends GObject {
     //===============================================
     protected $m_page;
     protected $m_session;

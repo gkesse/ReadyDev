@@ -1,10 +1,11 @@
 <?php   
-    class GFooterUi extends GObjectUi {
+    class GFooterUi extends GObject {
         //===============================================
         protected $m_scriptUi;
         //===============================================
         public function __construct($_codeName = "footer") {
             parent::__construct($_codeName);
+            $this->loadDom(__CLASS__);
             $this->m_scriptUi   = new GScriptUi();
         }
         //===============================================
@@ -23,15 +24,15 @@
             echo sprintf("<div class='Row2'>\n");
             echo sprintf("<div>Réseaux Sociaux - Réjoignez-nous</div>\n");            
             
-            $lCount         = $this->m_app->countItem("networks");
-            $lCopyright     = $this->m_app->getItem("copyright", "text");
-            $lStartDate     = $this->m_app->getItem("copyright", "date");
-            $lTitle         = $this->m_app->getItem("copyright", "title");
+            $lCount         = $this->m_dom->countItem("networks");
+            $lCopyright     = $this->m_dom->getItem("copyright", "text");
+            $lStartDate     = $this->m_dom->getItem("copyright", "date");
+            $lTitle         = $this->m_dom->getItem("copyright", "title");
             $lCurrentDate   = date("Y");
             
             for($i = 0; $i < $lCount; $i++) {
-                $lIcon = $this->m_app->getItem3("networks", "icon", $i);
-                $lLink = $this->m_app->getItem3("networks", "link", $i);
+                $lIcon = $this->m_dom->getItem3("networks", "icon", $i);
+                $lLink = $this->m_dom->getItem3("networks", "link", $i);
                 
                 echo sprintf("<a href='%s'>\n", $lLink);
                 echo sprintf("<i class='Network %s'></i>\n", $lIcon);

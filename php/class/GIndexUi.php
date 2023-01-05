@@ -1,6 +1,6 @@
 <?php
 //===============================================
-class GIndexUi extends GObjectUi {
+class GIndexUi extends GObject {
     //===============================================
     protected $m_page;
     //===============================================

@@ -1,6 +1,6 @@
 <?php   
 //===============================================
-class GHeaderUi extends GObjectUi {
+class GHeaderUi extends GObject {
     //===============================================
     protected $m_envUi;
     protected $m_connectUi;
@@ -12,8 +12,9 @@ class GHeaderUi extends GObjectUi {
     protected $m_errorUi;
     protected $m_logUi;
     //===============================================
-    public function __construct() {
-        parent::__construct();
+    public function __construct($_codeName = "header") {
+        parent::__construct($_codeName);
+        $this->loadDom(__CLASS__);
         $this->m_envUi          = new GEnvUi();
         $this->m_connectUi      = new GConnectUi();
         $this->m_disconnectUi   = new GDisconnectUi();
@@ -26,9 +27,9 @@ class GHeaderUi extends GObjectUi {
     }
     //===============================================
     public function run() {
-        $lLang  = $this->m_app->getItem("header", "lang");
-        $lTitle = $this->m_app->getItem("header", "title");
-        $lLogo  = $this->m_app->getItem("header", "logo");
+        $lLang  = $this->m_dom->getItem("header", "lang");
+        $lTitle = $this->m_dom->getItem("header", "title");
+        $lLogo  = $this->m_dom->getItem("header", "logo");
         
         echo sprintf("<!DOCTYPE html>\n");
         echo sprintf("<html lang='%s'>\n", $lLang);
@@ -69,9 +70,9 @@ class GHeaderUi extends GObjectUi {
     }
     //===============================================
     public function onFonts() {
-        $lCount = $this->m_app->countItem("fonts");
+        $lCount = $this->m_dom->countItem("fonts");
         for($i = 0; $i < $lCount; $i++) {
-            $lFont = $this->m_app->getItem2("fonts", $i);
+            $lFont = $this->m_dom->getItem2("fonts", $i);
             echo sprintf("<link rel='stylesheet' href='%s'/>\n", $lFont);
         }
     }
@@ -96,14 +97,14 @@ class GHeaderUi extends GObjectUi {
     public function onSite() {
         echo sprintf("<div class='Row'>\n");
         
-        $lCount = $this->m_app->countItem("header");
+        $lCount = $this->m_dom->countItem("header");
         
         for($i = 0; $i < $lCount; $i++) {
-            $lCategory = $this->m_app->getItem3("header", "category", $i);
-            $lLink = $this->m_app->getItem3("header", "link", $i);
-            $lClass = $this->m_app->getItem3("header", "class", $i);
-            $lTitle = $this->m_app->getItem3("header", "title", $i);
-            $lPicto = $this->m_app->getItem3("header", "picto", $i);
+            $lCategory = $this->m_dom->getItem3("header", "category", $i);
+            $lLink = $this->m_dom->getItem3("header", "link", $i);
+            $lClass = $this->m_dom->getItem3("header", "class", $i);
+            $lTitle = $this->m_dom->getItem3("header", "title", $i);
+            $lPicto = $this->m_dom->getItem3("header", "picto", $i);
             
             if($lCategory != "site") continue;
             
@@ -155,13 +156,13 @@ class GHeaderUi extends GObjectUi {
         
         echo sprintf("<div class='Row22'>\n");
         
-        $lCount = $this->m_app->countItem("header");
+        $lCount = $this->m_dom->countItem("header");
         
         for($i = 0; $i < $lCount; $i++) {
-            $lCategory  = $this->m_app->getItem3("header", "category", $i);
-            $lLink      = $this->m_app->getItem3("header", "link", $i);
-            $lClass     = $this->m_app->getItem3("header", "class", $i);
-            $lPicto     = $this->m_app->getItem3("header", "picto", $i);
+            $lCategory  = $this->m_dom->getItem3("header", "category", $i);
+            $lLink      = $this->m_dom->getItem3("header", "link", $i);
+            $lClass     = $this->m_dom->getItem3("header", "class", $i);
+            $lPicto     = $this->m_dom->getItem3("header", "picto", $i);
             
             if($lCategory != "networks") continue;
                 
@@ -181,7 +182,7 @@ class GHeaderUi extends GObjectUi {
     }
     //===============================================
     public function getHappyYear() {
-        $lHappy = $this->m_app->getItem("happyyear", "msg");
+        $lHappy = $this->m_dom->getItem("happyyear", "msg");
         $lYear  = date("Y");
         $lData  = sprintf("%s %s", $lHappy, $lYear);
         return $lData;

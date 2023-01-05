@@ -1,5 +1,5 @@
 <?php
-class GEditorUi extends GObjectUi {
+class GEditorUi extends GObject {
     //===============================================
     public function __construct($_codeName = "editor") {
         parent::__construct($_codeName);
@@ -116,7 +116,7 @@ class GEditorUi extends GObjectUi {
             $lPicto     = $this->m_dom->getItem3("editor", "picto", $i);
             $lText      = $this->m_dom->getItem3("editor", "text", $i);
             
-            if($lCategory == "code/button") {
+            if($lCategory == "page/button") {
                 echo sprintf("<button type='button' id='%s' class='Button4' onclick='call_server(\"%s\", \"%s\");'><i class='fa fa-%s'></i> %s</button>\n"
                     , $lId, $lModule, $lCallback, $lPicto, $lText);
             }

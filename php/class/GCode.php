@@ -40,27 +40,41 @@ class GCode extends GXml {
         $this->addList($code, $data, $category, true);
     }
     //===============================================
-    public function addMap($code, &$datas) {
-        if(!count($datas)) return false;
-        $this->createCode($code);
-        $this->getCode($code);
+    public function addMap($_code, $_map) {
+        if(!count($_map)) return false;
+        $this->createCode($_code);
+        $this->getCode($_code);
         $this->createXNode("map");
-        for($i = 0; $i < count($datas); $i++) {
-            $lObj = $datas[$i];
-            $lData = $lObj->serialize($code);
+        for($i = 0; $i < count($_map); $i++) {
+            $lObj = $_map[$i];
+            $lData = $lObj->serialize($_code);
+            $lDom = new GCode();
+            $lDom->loadXml($lData);
+            $lData = $lDom->toStringData();            
             $this->loadNode($lData);
         }
-        $this->clearMap($datas);
         return true;
     }
     //===============================================
-    public function getMap($code, &$datas, $obj) {
-        $lCount = $this->countItem($code);
+    public function getMap($_code, &$_map, $_obj) {
+        $lCount = $this->countItem($_code);
         
         for($i = 0; $i < $lCount; $i++) {
-            $lData = $this->getMapItem($code, $i);
+            $lData = $this->getMapItem($_code, $i);
+            $lObj = $_obj->clone();
+            $lObj->deserialize($lData, $_code);
+            $_map[] = $lObj;
+        }
+        return true;
+    }
+    //===============================================
+    public function getMap2($_code, &$datas, $obj) {
+        $lCount = $this->countItem($_code);
+        
+        for($i = 0; $i < $lCount; $i++) {
+            $lData = $this->getMapItem($_code, $i);
             $lObj = $obj->clone();
-            $lObj->deserialize($lData, $code);
+            $lObj->deserialize($lData, $_code);
             $datas[] = $lObj;
         }
         return true;

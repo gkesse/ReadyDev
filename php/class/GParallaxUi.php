@@ -1,6 +1,6 @@
 <?php
 //===============================================
-class GParallaxUi extends GObjectUi {
+class GParallaxUi extends GObject {
     //===============================================
     protected $m_title;
     protected $m_body;

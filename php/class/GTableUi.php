@@ -1,22 +1,23 @@
 <?php   
 //===============================================
-class GTableUi extends GObjectUi {
+class GTableUi extends GObject {
     //===============================================
-    public function __construct() {
-        parent::__construct();
+    public function __construct($_codeName = "table") {
+        parent::__construct($_codeName);
+        $this->loadDom(__CLASS__);
     }
     //===============================================
     public function run() {
-        $lCount         = $this->m_app->countItem("table");
-        $lTitle         = $this->m_app->getItem("table", "title");
-        $lIntro         = $this->m_app->getItem("table", "intro");
-        $lModalId       = $this->m_app->getItem("table", "modal_id");
-        $lBodyId        = $this->m_app->getItem("table", "body_id");
-        $lFormId        = $this->m_app->getItem("table", "form_id");
-        $lMsgId         = $this->m_app->getItem("table", "msg_id");
-        $lModule        = $this->m_app->getItem("table", "module");
-        $lKeypressCB    = $this->m_app->getItem("table", "keypress_cb");
-        $lCloseCB       = $this->m_app->getItem("table", "close_cb");
+        $lCount         = $this->m_dom->countItem("table");
+        $lTitle         = $this->m_dom->getItem("table", "title");
+        $lIntro         = $this->m_dom->getItem("table", "intro");
+        $lModalId       = $this->m_dom->getItem("table", "modal_id");
+        $lBodyId        = $this->m_dom->getItem("table", "body_id");
+        $lFormId        = $this->m_dom->getItem("table", "form_id");
+        $lMsgId         = $this->m_dom->getItem("table", "msg_id");
+        $lModule        = $this->m_dom->getItem("table", "module");
+        $lKeypressCB    = $this->m_dom->getItem("table", "keypress_cb");
+        $lCloseCB       = $this->m_dom->getItem("table", "close_cb");
         //
         echo sprintf("<div class='Modal' id='%s' onkeypress='call_server(\"%s\", \"%s\", this, event);'>\n", $lModalId, $lModule, $lKeypressCB);
         echo sprintf("<div class='Content10' id='%s'>\n", $lBodyId);
@@ -26,10 +27,10 @@ class GTableUi extends GObjectUi {
         echo sprintf("<div class='Row11'>%s</div>\n", $lIntro);
         
         for($i = 0; $i < $lCount; $i++) {
-            $lCategory = $this->m_app->getItem3("table", "category", $i);
-            $lModel = $this->m_app->getItem3("table", "model", $i);
-            $lId = $this->m_app->getItem3("table", "id", $i);
-            $lPageId = $this->m_app->getItem3("table", "page_id", $i);
+            $lCategory = $this->m_dom->getItem3("table", "category", $i);
+            $lModel = $this->m_dom->getItem3("table", "model", $i);
+            $lId = $this->m_dom->getItem3("table", "id", $i);
+            $lPageId = $this->m_dom->getItem3("table", "page_id", $i);
             
             if($lCategory == "table/body") {
                 if($lModel == "table") {
@@ -44,14 +45,14 @@ class GTableUi extends GObjectUi {
         echo sprintf("<div class='Row35'>\n");
         
         for($i = 0; $i < $lCount; $i++) {
-            $lCategory  = $this->m_app->getItem3("table", "category", $i);
-            $lModel     = $this->m_app->getItem3("table", "model", $i);
-            $lId        = $this->m_app->getItem3("table", "id", $i);
-            $lModule    = $this->m_app->getItem3("table", "module", $i);
-            $lCallback  = $this->m_app->getItem3("table", "callback", $i);
-            $lPicto     = $this->m_app->getItem3("table", "picto", $i);
-            $lText      = $this->m_app->getItem3("table", "text", $i, true);
-            $lOff       = ($this->m_app->getItem3("table", "off", $i) == "1");
+            $lCategory  = $this->m_dom->getItem3("table", "category", $i);
+            $lModel     = $this->m_dom->getItem3("table", "model", $i);
+            $lId        = $this->m_dom->getItem3("table", "id", $i);
+            $lModule    = $this->m_dom->getItem3("table", "module", $i);
+            $lCallback  = $this->m_dom->getItem3("table", "callback", $i);
+            $lPicto     = $this->m_dom->getItem3("table", "picto", $i);
+            $lText      = $this->m_dom->getItem3("table", "text", $i, true);
+            $lOff       = ($this->m_dom->getItem3("table", "off", $i) == "1");
             
             if($lOff) continue;
             

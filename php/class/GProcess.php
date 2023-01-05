@@ -1,6 +1,6 @@
 <?php   
 //===============================================
-class GProcess extends GObjectUi {
+class GProcess extends GObject {
     //===============================================
     private static $m_instance = null;
     //===============================================
@@ -8,8 +8,8 @@ class GProcess extends GObjectUi {
     protected $m_env;
     protected $m_indexUi;
     //===============================================
-    private function __construct() {
-        parent::__construct();
+    private function __construct($_codeName = "process") {
+        parent::__construct($_codeName);
         $this->m_page       = new GPage();
         $this->m_env        = new GEnv();
         $this->m_indexUi    = new GIndexUi();
@@ -26,6 +26,7 @@ class GProcess extends GObjectUi {
         $this->m_indexUi->run();
         $this->m_page->redirectPost();
         $this->run();
+        $this->showLogs();
     }
     //===============================================
     public function run() {
@@ -40,11 +41,13 @@ class GProcess extends GObjectUi {
     public function runTest() {
         $lTestUi = new GTestUi();
         $lTestUi->run();
+        $this->addLogs($lTestUi->getLogs());
     }
     //===============================================
     public function runProd() {
         $lReadyUi = new GReadyUi();
         $lReadyUi->run();
+        $this->addLogs($lReadyUi->getLogs());
     }
     //===============================================
  }

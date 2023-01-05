@@ -1,5 +1,5 @@
 <?php   
-    class GScriptUi extends GObjectUi {
+    class GScriptUi extends GObject {
         //===============================================
         public function __construct($_codeName = "script") {
             parent::__construct($_codeName);

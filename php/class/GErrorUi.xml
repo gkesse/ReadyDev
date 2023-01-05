@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdv>
+	<datas>
+		<!-- ============================================ -->
+		<!-- errors -->
+		<!-- ============================================ -->
+		<data>
+			<code>errors</code>
+			<title>Erreurs</title>
+			<intro>Consultez les erreurs de traitements.</intro>
+			<modal_id>ModalErrors</modal_id>
+			<body_id>ErrorsBody</body_id>
+			<title_id>ErrorsTitle</title_id>
+			<form_id>ErrorsForm</form_id>
+			<msg_id>ErrorsMsg</msg_id>
+			<module>logs</module>
+			<keypress_cb>keypress_error</keypress_cb>
+			<close_cb>close_error</close_cb>
+			<map>
+				<!-- ============================================ -->
+				<!-- errors/body -->
+				<!-- ============================================ -->
+				<data>
+					<category>errors/body</category>
+					<model>label</model>
+					<id>ErrorsLabel</id>
+				</data>
+				<!-- ============================================ -->
+				<!-- errors/button -->
+				<!-- ============================================ -->
+				<data>
+					<category>errors/button</category>
+					<model>button</model>
+					<id>LogsOk</id>
+					<module>logs</module>
+					<callback>close_error</callback>
+					<picto>exclamation-triangle</picto>
+					<text>OK</text>
+				</data>
+				<!-- ============================================ -->
+				<!-- end -->
+				<!-- ============================================ -->
+			</map>
+		</data>
+		<!-- ============================================ -->
+		<!-- end -->
+		<!-- ============================================ -->
+	</datas>
+</rdv>

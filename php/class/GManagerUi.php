@@ -1,5 +1,5 @@
 <?php   
-    class GManagerUi extends GObjectUi {
+    class GManagerUi extends GObject {
         //===============================================
         public function __construct() {
             parent::__construct();

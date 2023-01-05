@@ -1,5 +1,5 @@
 <?php   
-    class GQueryUi extends GObjectUi {
+    class GQueryUi extends GObject {
         //===============================================
         public function __construct() {
             parent::__construct();
