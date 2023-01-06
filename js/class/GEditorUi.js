@@ -3,6 +3,7 @@ class GEditorUi extends GObject {
     //===============================================
     constructor(_codeName = "editor") {
         super(_codeName);
+        this.m_page = new GPage();
     }
     //===============================================
     onModule(_method, _obj, _data) {
@@ -53,19 +54,23 @@ class GEditorUi extends GObject {
     }
     //===============================================
     onSavePage(_obj, _name) {
-        this.addLog("La donnée a bien été enregistrée.");
+        this.m_page.savePage();
+        this.addLogs(this.m_page.getLogs());
     }
     //===============================================
     onSearchPage(_obj, _name) {
-        this.addLog("onSearchPage");
+        this.m_page.searchPage();
+        this.addLogs(this.m_page.getLogs());
     }
     //===============================================
     onDeletePage(_obj, _name) {
-        this.addLog("onDeletePage");
+        this.m_page.deletePage();
+        this.addLogs(this.m_page.getLogs());
     }
     //===============================================
     onNewPage(_obj, _name) {
-        this.addLog("onNewPage");
+        this.m_page.newPage();
+        this.addLogs(this.m_page.getLogs());
     }
     //===============================================
 }

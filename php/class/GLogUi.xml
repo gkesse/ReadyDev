@@ -10,6 +10,7 @@
 			<intro>Consultez les logs de traitements.</intro>
 			<modal_id>ModalLogs</modal_id>
 			<body_id>LogsBody</body_id>
+			<title_id>LogsTitle</title_id>
 			<form_id>LogsForm</form_id>
 			<msg_id>LogsMsg</msg_id>
 			<module>logs</module>

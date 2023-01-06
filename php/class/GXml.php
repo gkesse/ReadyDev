@@ -38,7 +38,10 @@ class GXml {
     }
     //===============================================
     public function loadNode($data, $isRoot = true) {
-        if(!$this->doc) return $this;
+        $data = trim($data);
+        if($data == "") return false;
+        if(!$this->doc) return false;
+        if(!$this->node) return false;
         $lDom = new DOMDocument();
         $lDom->preserveWhiteSpace = false;
         $lDom->formatOutput = true;
@@ -50,7 +53,7 @@ class GXml {
             $this->node->appendChild($lNode);
             $lChild = $lChild->nextSibling;
         }
-        return $this;
+        return true;
     }
     //===============================================
     public function loadXml($data, $version = "1.0", $encoding = "UTF-8") {
@@ -206,6 +209,8 @@ class GXml {
     }
     //===============================================
     public function toString() {
+        if(!$this->doc) return "";
+        if(!$this->node) return "";
         return $this->doc->saveXML();
     }
     //===============================================

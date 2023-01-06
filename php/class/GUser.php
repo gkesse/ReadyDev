@@ -37,7 +37,7 @@ class GUser extends GModule {
     //===============================================
     public function onModule($data, $server) {
         $this->deserialize($data);
-        $lMethod = $this->method;
+        $lMethod = $this->m_method;
         //===============================================
         if($lMethod == "") {
             return false;
@@ -236,7 +236,7 @@ class GUser extends GModule {
     public function runConnection() {
         $lClient = new GSocket();
         $lData = $this->serialize();
-        $lData = $lClient->callServer($this->module, $this->method, $lData);
+        $lData = $lClient->callServer($this->m_module, $this->m_method, $lData);
         $this->deserialize($lData);
         $this->onConnection();
     }
@@ -254,7 +254,7 @@ class GUser extends GModule {
     public function createAccount() {
         $lClient = new GSocket();
         $lData = $this->serialize();
-        $lData = $lClient->callServer($this->module, $this->method, $lData);
+        $lData = $lClient->callServer($this->m_module, $this->m_method, $lData);
         $this->deserialize($lData);
     }
     //===============================================

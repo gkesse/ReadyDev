@@ -23,7 +23,7 @@ class GTable extends GModule {
     //===============================================
     public function onModule($data, $server) {
         $this->deserialize($data);
-        $lMethod = $this->method;
+        $lMethod = $this->m_method;
         //===============================================
         if($lMethod == "") {
             $this->onMethodNone();

@@ -25,10 +25,10 @@
                 <data>/js/class/GAjax.js</data>
                 <data>/js/class/GManager.js</data>
                 <data>/js/class/GQuery.js</data>
-                <data>/js/class/GEditorUi.js</data>
                 <data>/js/class/GSitemap.js</data>
                 <data>/js/class/GUser.js</data>
                 <data>/js/class/GMenu.js</data>
+                <data>/js/class/GEditorUi.js</data>
                 <data>/js/class/GTest.js</data>
                 <data>/js/class/GDomTest.js</data>
                 <data>/js/class/GTestUi.js</data>

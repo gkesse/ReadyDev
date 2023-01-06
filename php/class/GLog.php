@@ -58,6 +58,14 @@ class GLog {
         $this->m_map[] = $lObj;
     }
     //===============================================
+    public function addData($_msg) {
+        $lObj = new GLog();
+        $lObj->m_type = "data";
+        $lObj->m_side = "server";
+        $lObj->m_msg = base64_encode($_msg);
+        $this->m_map[] = $lObj;
+    }
+    //===============================================
     public function addLogs($_logs) {
         for($i = 0; $i < count($_logs->m_map); $i++) {
             $lObj = $_logs->m_map[$i];

@@ -51,7 +51,7 @@ class GCode extends GXml {
             $lDom = new GCode();
             $lDom->loadXml($lData);
             $lData = $lDom->toStringData();            
-            $this->loadNode($lData);
+            $this->loadNode($lData, false);
         }
         return true;
     }
@@ -101,6 +101,10 @@ class GCode extends GXml {
             $this->createXNode("data");
             $this->createXNode("code", $code);
         }
+    }
+    //===============================================
+    public function createDatas() {
+        $this->createXNode("/rdv/datas");        
     }
     //===============================================
     public function createRequest($module, $method) {
@@ -179,11 +183,29 @@ class GCode extends GXml {
         return ($lCount != 0);
     }
     //===============================================
-    public function loadCode($data) {
-        if($data == "") return $this;
+    public function hasDatas() {
+        $this->queryXPath(sprintf("/rdv/datas"));
+        $lCount = $this->countXPath();
+        return ($lCount != 0);
+    }
+    //===============================================
+    public function loadCode($_data) {
+        $_data = trim($_data);
+        if($_data == "") return false;
         $this->createXNode("/rdv/datas");
-        $this->loadNode($data);
-        return $this;
+        $this->loadNode($_data);
+        return true;
+    }
+    //===============================================
+    public function loadData($_data) {
+        $_data = trim($_data);
+        if($_data == "") return false;
+        $lDom = new GCode();
+        $lDom->loadXml($_data);
+        $lData = $lDom->toStringData();
+        $this->createDatas();
+        $this->loadNode($lData, false);
+        return true;
     }
     //===============================================
     public function toStringCode($code) {
@@ -194,13 +216,9 @@ class GCode extends GXml {
     //===============================================
     public function toStringData() {
         $lData = "";
-        if($this->hasData()) {
-            $this->queryXPath(sprintf("/rdv/datas/data"));
-            $lCount = $this->countXPath();
-            for($i = 0; $i < $lCount; $i++) {
-                $this->getNodeIndex($i);
-                $lData .= $this->toStringNode();
-            }
+        if($this->hasDatas()) {
+            $this->getXPath(sprintf("/rdv/datas"));
+            $lData = $this->toStringNode();
         }
         return $lData;
     }

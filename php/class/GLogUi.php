@@ -13,6 +13,7 @@ class GLogUi extends GObject {
         $lIntro         = $this->m_dom->getItem("logs", "intro");
         $lModalId       = $this->m_dom->getItem("logs", "modal_id");
         $lBodyId        = $this->m_dom->getItem("logs", "body_id");
+        $lTitleId        = $this->m_dom->getItem("logs", "title_id");
         $lFormId        = $this->m_dom->getItem("logs", "form_id");
         $lMsgId         = $this->m_dom->getItem("logs", "msg_id");
         $lModule        = $this->m_dom->getItem("logs", "module");
@@ -22,7 +23,7 @@ class GLogUi extends GObject {
         echo sprintf("<div class='Modal' id='%s' onkeypress='call_server(\"%s\", \"%s\", this, event);'>\n", $lModalId, $lModule, $lKeypressCB);
         echo sprintf("<div class='Content10' id='%s'>\n", $lBodyId);
         echo sprintf("<div class='Button3 Close' onclick='call_server(\"%s\", \"%s\");'><i class='fa fa-close'></i></div>\n", $lModule, $lCloseCB);
-        echo sprintf("<div class='Title5'>%s</div>\n", $lTitle);
+        echo sprintf("<div class='Title5' id='%s'>%s</div>\n", $lTitleId, $lTitle);
         echo sprintf("<form class='Body4' id='%s' method='post'>\n", $lFormId);        
         echo sprintf("<div class='Row11'>%s</div>\n", $lIntro);
         echo sprintf("<div class='Content15'>");

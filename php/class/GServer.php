@@ -2,69 +2,56 @@
 //===============================================
 class GServer extends GModule {
     //===============================================
-    private $res = null;
+    protected $m_responseXml;
     //===============================================
     public function __construct() {
         parent::__construct();
-        $this->res = new GCode();
-        $this->res->createDoc();
+        $this->m_responseXml = new GCode();
+        $this->m_responseXml->createDoc();
     }
     //===============================================
-    public function deserialize($data, $code = "server") {
-        parent::deserialize($data);
+    public function addResponse($_data) {
+        $this->m_responseXml->loadData($_data);
     }
     //===============================================
-    public function addResponse($res) {
-        $this->res->loadCode($res);
+    public function readErrors() {
+        $this->addResponse($this->loadErrors());
     }
     //===============================================
-    public function addError() {
-        $lLog = GLog::Instance();
-        $lError = $lLog->serialize();
-        $this->addResponse($lError);
+    public function sendResponse() {
+        echo $this->m_responseXml->toString();
     }
     //===============================================
-    public function getResponse() {
-        return $this->res->toString();
-    }
-    //===============================================
-    public function run($data) {
-        $this->deserialize($data);
-        $lModule = $this->module;
-        $lMethod = $this->method;
-        //===============================================
-        if($lModule == "") {
-            $this->onModuleNone();
-            return false;
+    public function run($_data) {
+        parent::deserialize($_data);
+        if($this->m_module == "") {
+            $this->addError("Erreur le module est obligatoire.");
         }
-        else if($lMethod == "") {
-            $this->onMethodNone();
-            return false;
+        else if($this->m_module == "page") {
+            $this->onPage($_data);
         }
-        //===============================================
-        // module
-        //===============================================
-        else if($lModule == "user") {
-            $this->onUser($data, $this);
+        else if($this->m_module == "user") {
+            $this->onUser($_data, $this);
         }
-        else if($lModule == "sitemap") {
-            $this->onSitemap($data, $this);
+        else if($this->m_module == "sitemap") {
+            $this->onSitemap($_data, $this);
         }
-        else if($lModule == "query") {
-            $this->onQuery($data, $this);
+        else if($this->m_module == "query") {
+            $this->onQuery($_data, $this);
         }
-        else if($lModule == "manager") {
-            $this->onManager($data, $this);
+        else if($this->m_module == "manager") {
+            $this->onManager($_data, $this);
         }
-        //===============================================
-        // end
-        //===============================================
         else {
-            $this->onModuleUnknown();
-            return false;
+            $this->addError("Erreur le module est inconnu.");
         }
-        //===============================================
-        return true;
+    }
+    //===============================================
+    public function onPage($_data) {
+        $lPageFac = new GPageFac();
+        $lPageFac->onModule($_data);
+        $this->addLogs($lPageFac->getLogs());
+        $this->addResponse($lPageFac->serialize());
     }
     //===============================================
     public function onUser($data, $server) {
@@ -85,10 +72,6 @@ class GServer extends GModule {
     public function onManager($data, $server) {
         $lManager = new GManager();
         $lManager->onModule($data, $server);
-    }
-    //===============================================
-    public function sendResponse() {
-        echo $this->res->toString();
     }
     //===============================================
  }

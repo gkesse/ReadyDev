@@ -133,7 +133,7 @@ class GLog {
 		for(var i = 0; i < this.m_map.length; i++) {
 			var lObj = this.m_map[i];
             if(lObj.m_type != "data") continue;
-			var lData = lObj.m_msg;
+			var lData = atob(lObj.m_msg);
 			if(i != 0) lDatas += "<br>";
 			lData = sprintf("<xmp>%s</xmp>", lData);
 			lDatas += lData;
@@ -167,8 +167,12 @@ class GLog {
         if(this.hasErrors()) return;
         if(!this.hasLogs()) return;
         
+        var lTitleColor = "#ffffff";
+        if(this.hasServer()) lTitleColor = "#bf8e3a";
+
         var lModalLogs = document.getElementById("ModalLogs");
         var lLogsBody = document.getElementById("LogsBody");
+        var lLogsTitle = document.getElementById("LogsTitle");
         var lLogsLabel = document.getElementById("LogsLabel");
 		var lClassName = lLogsBody.className;
         
@@ -177,13 +181,19 @@ class GLog {
         lLogsBody.className += " AnimateShow";
         lModalLogs.style.display = "block";
 		lLogsLabel.innerHTML = this.getLogs();
+        lLogsTitle.style.color = lTitleColor;
+        lLogsTitle.innerHTML = "Logs";
     }
     //===============================================
     showDatas() {
         if(!this.hasDatas()) return;
         
+        var lTitleColor = "#ffffff";        
+        if(this.hasServer()) lTitleColor = "#bf8e3a";
+
         var lModalLogs = document.getElementById("ModalLogs");
         var lLogsBody = document.getElementById("LogsBody");
+        var lLogsTitle = document.getElementById("LogsTitle");
         var lLogsLabel = document.getElementById("LogsLabel");
 		var lClassName = lLogsBody.className;
         
@@ -192,6 +202,8 @@ class GLog {
         lLogsBody.className += " AnimateShow";
         lModalLogs.style.display = "block";
 		lLogsLabel.innerHTML = this.getDatas();
+        lLogsTitle.style.color = lTitleColor;
+        lLogsTitle.innerHTML = "Datas";
     }
     //===============================================
 }

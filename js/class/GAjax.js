@@ -3,52 +3,53 @@ class GAjax extends GObject {
     //===============================================
     constructor() {
         super();
-        this.xhttp = new XMLHttpRequest();
-        this.method = "POST";
-        this.url = "/php/req/server.php";
-        this.async = true;
-        this.user = null;
-        this.password = null;
-        this.headers = {
+        this.m_xhttp = new XMLHttpRequest();
+        this.m_method = "POST";
+        this.m_url = "/php/req/server.php";
+        this.m_async = true;
+        this.m_user = null;
+        this.m_password = null;
+        this.m_headers = {
             "Content-Type" : "application/x-www-form-urlencoded"
         };
     }
     //===============================================
-    call(module, method, params, callback) {
-        if(module == "") return false;
-        if(method == "") return false;
-        if(callback == null) return false;
+    call(_module, _method, _params, _callback) {
+        if(_module == "") return false;
+        if(_method == "") return false;
+        if(_callback == null) return false;
         var lDom = new GCode();
         lDom.createDoc();
-        lDom.addData("request", "module", module);
-        lDom.addData("request", "method", method);
-        lDom.loadCode(params);
+        lDom.addData("request", "module", _module);
+        lDom.addData("request", "method", _method);
+        lDom.loadCode(_params);
         var lData = lDom.toString();
-        this.callServer(lData, callback);
+        this.callServer(lData, _callback);
         return true;
     }
     //===============================================
-    callServer(data, callback) {
-        if(data == "") return false;
-        if(callback == null) return false;
-        this.xhttp.onreadystatechange = function() {
+    callServer(_data, _callback) {
+        if(_data == "") return false;
+        if(_callback == null) return false;
+        this.m_xhttp.onreadystatechange = function() {
             if(this.readyState == 4 && this.status == 200) {
                 var lData = this.responseText;
-                var lLog = GLog.Instance();
+                var lLog = new GLog();
                 lLog.deserialize(lData);
-                callback(lData);
+                _callback(lData);
+                lLog.showDatas();
                 lLog.showErrors();
                 lLog.showLogs();
             }
         }
-        this.xhttp.open(this.method, this.url, this.async, this.user, this.password);
-           for(var lHeader in this.headers) {
-            var lValue = this.headers[lHeader];
-            this.xhttp.setRequestHeader(lHeader, lValue);
+        this.m_xhttp.open(this.m_method, this.m_url, this.m_async, this.m_user, this.m_password);
+           for(var lHeader in this.m_headers) {
+            var lValue = this.m_headers[lHeader];
+            this.m_xhttp.setRequestHeader(lHeader, lValue);
         }
         var lReq = "";
-        lReq += sprintf("req=%s", data);
-        this.xhttp.send(lReq);
+        lReq += sprintf("req=%s", _data);
+        this.m_xhttp.send(lReq);
         return true;
     }
     //===============================================

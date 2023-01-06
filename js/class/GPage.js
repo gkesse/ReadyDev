@@ -1,30 +1,33 @@
 //===============================================
 class GPage extends GObject {
     //===============================================
-    constructor() {
-        super();
+    constructor(_codeName = "page") {
+        super(_codeName);
+        this.m_ajax = new GAjax();
     }
     //===============================================
-    onModule(method, obj, data) {
-        if(method == "") {
-            return false;
-        }
-        //===============================================
-        // connection
-        //===============================================
-        else if(method == "close_notfound") {
-            this.onCloseNotFound();
-        }
-        //===============================================
-        // end
-        //===============================================
-        else return false;
-        return true;
+    savePage() {
+        var lData = this.serialize();
+        this.m_ajax.call("page", "save_page", lData, this.onPage);        
     }
     //===============================================
-    onCloseNotFound() {
-        var lNotFound = document.getElementById("NotFoundBox");
-        lNotFound.style.display = "none"; 
+    searchPage() {
+        var lData = this.serialize();
+        this.m_ajax.call("page", "search_page", lData, this.onPage);        
+    }
+    //===============================================
+    deletePage() {
+        var lData = this.serialize();
+        this.m_ajax.call("page", "delete_page", lData, this.onPage);        
+    }
+    //===============================================
+    newPage() {
+        this.addLog("newPage");
+    }
+    //===============================================
+    onPage(_data) {
+        var lPage = new GPage();
+        lPage.deserialize(_data);
     }
     //===============================================
 }

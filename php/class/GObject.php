@@ -16,6 +16,42 @@
             $this->m_dom->loadFile("php/class", "$_className.xml");
         }
         //===============================================
+        public function addError($_msg) {
+            $this->m_logs->addError($_msg);
+        }
+        //===============================================
+        public function addLog($_msg) {
+            $this->m_logs->addLog($_msg);
+        }
+        //===============================================
+        public function addData($_msg) {
+            $this->m_logs->addData($_msg);
+        }
+        //===============================================
+        public function addLogs($_logs) {
+            $this->m_logs->addLogs($_logs);
+        }
+        //===============================================
+        public function getLogs() {
+            return $this->m_logs;
+        }
+        //===============================================
+        public function loadErrors() {
+            return $this->m_logs->serialize();
+        }
+        //===============================================
+        public function hasErrors() {
+            return $this->m_logs->hasErrors();
+        }
+        //===============================================
+        public function hasLogs() {
+            return $this->m_logs->hasLogs();
+        }
+        //===============================================
+        public function showLogs() {
+            return $this->m_logs->showLogs();
+        }
+        //===============================================
         public function getUrl() {
             $lUrl = "";
             $lUrl .= "http://";
@@ -32,34 +68,6 @@
             if(!$lValidate) {
                 header("Location: ".$_SESSION["lasturl"]);
             }
-        }
-        //===============================================
-        public function addError($_msg) {
-            $this->m_logs->addError($_msg);
-        }
-        //===============================================
-        public function addLog($_msg) {
-            $this->m_logs->addLog($_msg);
-        }
-        //===============================================
-        public function addLogs($_logs) {
-            $this->m_logs->addLogs($_logs);
-        }
-        //===============================================
-        public function hasErrors() {
-            return $this->m_logs->hasErrors();
-        }
-        //===============================================
-        public function hasLogs() {
-            return $this->m_logs->hasLogs();
-        }
-        //===============================================
-        public function getLogs() {
-            return $this->m_logs;
-        }
-        //===============================================
-        public function showLogs() {
-            return $this->m_logs->showLogs();
         }
         //===============================================
     }
