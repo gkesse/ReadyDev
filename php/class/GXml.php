@@ -2,222 +2,226 @@
 //===============================================
 class GXml {
     //===============================================
-    private $doc = null;
-    private $node = null;
-    private $nodeCopy = null;
-    private $nodeQuery = null;
-    private $nodes = null;
-    private $xpath = null;
+    private $m_doc = null;
+    private $m_node = null;
+    private $m_nodes = null;
+    private $m_xpath = null;
+    private $m_next = null;
+    private $m_stack = null;
     //===============================================
     public function __construct() {
-        $this->nodeCopy = array();
+
     }
     //===============================================
-    public function createDoc($version = "1.0", $encoding = "UTF-8") {
-        $this->doc = new DOMDocument($version, $encoding);
-        if(!$this->doc) return false;
-        $this->doc->preserveWhiteSpace = false;
-        $this->doc->formatOutput = true;
-        $this->xpath = new DOMXpath($this->doc);
-        if(!$this->xpath) return false;
+    public function createDoc($_version = "1.0", $_encoding = "UTF-8") {
+        $this->m_doc = new DOMDocument($_version, $_encoding);
+        if(!$this->m_doc) return false;
+        $this->m_doc->preserveWhiteSpace = false;
+        $this->m_doc->formatOutput = true;
+        $this->m_xpath = new DOMXpath($this->m_doc);
+        if(!$this->m_xpath) return false;
         return true;
     }
     //===============================================
-    public function loadFile($path, $file, $version = "1.0", $encoding = "UTF-8") {        
-        if($path == "" && $file == "") return false;
+    public function loadFile($_path, $_file, $_version = "1.0", $_encoding = "UTF-8") {        
+        if($_path == "" && $_file == "") return false;
         $lPathObj = new GPath();
-        $lFile = $lPathObj->getPath($path, $file);
-        $this->doc = new DOMDocument($version, $encoding);
-        if(!$this->doc) return false;
-        $this->doc->preserveWhiteSpace = false;
-        $this->doc->formatOutput = true;
-        $this->doc->load($lFile);
-        $this->xpath = new DOMXpath($this->doc);
-        if(!$this->xpath) return false;
+        $lFile = $lPathObj->getPath($_path, $_file);
+        $this->m_doc = new DOMDocument($_version, $_encoding);
+        if(!$this->m_doc) return false;
+        $this->m_doc->preserveWhiteSpace = false;
+        $this->m_doc->formatOutput = true;
+        $this->m_doc->load($lFile);
+        $this->m_xpath = new DOMXpath($this->m_doc);
+        if(!$this->m_xpath) return false;
         return true;
     }
     //===============================================
-    public function loadNode($data, $isRoot = true) {
-        $data = trim($data);
-        if($data == "") return false;
-        if(!$this->doc) return false;
-        if(!$this->node) return false;
+    public function loadNode($_data) {
+        $_data = trim($_data);
+        if($_data == "") return false;
+        if(!$this->m_doc) return false;
+        if(!$this->m_node) return false;
         $lDom = new DOMDocument();
         $lDom->preserveWhiteSpace = false;
         $lDom->formatOutput = true;
-        if($isRoot) $data = sprintf("<rdv>%s</rdv>", $data);
-        $lDom->loadXML($data);
+        $lDom->loadXML($_data);
         $lChild = $lDom->documentElement->firstChild;
         while($lChild) {
-            $lNode = $this->doc->importNode($lChild, true);
-            $this->node->appendChild($lNode);
+            $lNode = $this->m_doc->importNode($lChild, true);
+            $this->m_node->appendChild($lNode);
             $lChild = $lChild->nextSibling;
         }
         return true;
     }
     //===============================================
-    public function loadXml($data, $version = "1.0", $encoding = "UTF-8") {
-        $data = trim($data);
-        if($data == "") return false;
-        $this->doc = new DOMDocument($version, $encoding);
-        if(!$this->doc) return false;
-        $this->doc->preserveWhiteSpace = false;
-        $this->doc->formatOutput = true;
-        $this->doc->loadXml($data);
-        $this->xpath = new DOMXpath($this->doc);
-        if(!$this->xpath) return false;
+    public function loadXml($_data, $_version = "1.0", $_encoding = "UTF-8") {
+        $_data = trim($_data);
+        if($_data == "") return false;
+        $this->m_doc = new DOMDocument($_version, $_encoding);
+        if(!$this->m_doc) return false;
+        $this->m_doc->preserveWhiteSpace = false;
+        $this->m_doc->formatOutput = true;
+        $this->m_doc->loadXml($_data);
+        $this->m_xpath = new DOMXpath($this->m_doc);
+        if(!$this->m_xpath) return false;
         return true;
     }
     //===============================================
-    public function saveXml($file) {
+    public function saveXml($_file) {
         $lLog = GLog::Instance();
-        if($file == "") return false;
-        if(!$this->doc) return false;
-        $lOk = $this->doc->save($file);
+        if($_file == "") return false;
+        if(!$this->m_doc) return false;
+        $lOk = $this->m_doc->save($_file);
         if(!$lOk) $lLog->addError(sprintf("Erreur lors de la sauvegarde du fichier."));
         return $lLog->hasErrors();
     }
     //===============================================
-    public function queryXPath($query) {
-        if($query == "") return false;
-        if($this->xpath == null) return false;
-        $lFirst = substr($query, 0, 1);
-        $lRootOn = ($lFirst == "/");
+    public function queryXPath($_path) {
+        $_path = trim($_path);
+        if($_path == "") return false;
+        if($this->m_xpath == null) return false;
+        $lFirst = substr($_path, 0, 1);
         $lNode = null;
-        if(!$lRootOn) $lNode = $this->nodeQuery;
-        $this->nodes = $this->xpath->query($query, $lNode);
+        if($lFirst != "/") $lNode = $this->m_node;
+        $this->m_nodes = $this->m_xpath->query($_path, $lNode);
         return true;
     }
     //===============================================
     public function countXPath() {
-        if($this->nodes == false) return 0;
-        $lCount = $this->nodes->length;
+        if($this->m_nodes == false) return 0;
+        $lCount = $this->m_nodes->length;
         return $lCount;
     }
     //===============================================
-    public function createNode($name) {
-        if(!$this->doc) return false;
-        $lNode = $this->doc->createElement($name);
-        if(!$this->node) {
-            $this->doc->appendChild($lNode);
+    public function createNode($_name) {
+        if(!$this->m_doc) {
+            $this->createDoc();
+            $this->m_node = $this->m_doc->createElement($_name);
+            $this->m_doc->appendChild($this->m_node);
+        }
+        else if(!$this->m_node) {
+            $this->m_node = $this->m_doc->createElement($_name);
+            $this->m_doc->appendChild($this->m_node);
         }
         else {
-            $this->node->appendChild($lNode);            
+            $this->m_next = $this->m_doc->createElement($_name);
+            $this->m_node->appendChild($this->m_next);
         }
-        $this->node = $lNode;
+    }
+    //===============================================
+    public function createVNode($_name, $_value, $_isCData = false) {
+        $this->pushNode();
+        $this->createNode($_name);
+        $this->next();
+        $this->setValue($_value, $_isCData);
+        $this->popNode();
+    }
+    //===============================================
+    public function createXNode($_path, $_value = null, $_isCData = false, $isGet = true) {
+        $_path = trim($_path);
+        if($_path == "") return false;
+        $lPaths = explode("/", $_path);
+        $lFirst = substr($_path, 0, 1);        
+        $lPath = ($lFirst == "/" ? $lFirst : "");
+        for($i = 0, $j = 0; $i < count($lPaths); $i++) {
+            $lItem = trim($lPaths[$i]);
+            if($lItem == "") continue;
+            if($j++ != 0) $lPath .= "/";
+            $lPath .= $lItem;
+            if(!$this->getXNode($lPath)) {
+                $this->createNode($lItem);
+                $this->next();
+            }
+        }
         return true;
     }
     //===============================================
-    public function createXNode($path, $value = null, $isCData = false, $isGet = true) {
-        $path = trim($path);
-        if($path == "") return false;
-        $lFirst = substr($path, 0, 1);
-        $lRootOn = ($lFirst == "/");
-        $lMap = explode("/", $path);
-        $lPath = "";
-        
-        if(!$isGet) $this->saveNode();
-        $this->nodeQuery = $this->node;
-        
-        for($i = 0; $i < count($lMap); $i++) {
-            $lItem = $lMap[$i];
-            $lItem = trim($lItem);
-            if($lItem == "") continue;
-            if($lPath != "" || $lRootOn) $lPath .= "/";
-            $lPath .= $lItem;
-            $this->getXPath($lPath, $lRootOn);
-            if($this->countXPath() == 0) {
-                $this->createNode($lItem);
-            }
-        }
-        if($value != "") {
-            $this->setNodeValue($value, $isCData);
-        }
-        
-        if(!$isGet) $this->restoreNode();
-        $this->nodeQuery = null;
+    public function next() {
+        if(!$this->m_next) return;
+        $this->m_node = $this->m_next;
     }
     //===============================================
-    public function createRNode($path, $value = null, $isCData = false) {
-        $this->createXNode($path, $value, $isCData, false);
+    public function createRNode($_path, $_value = null, $_isCData = false) {
+        $this->createXNode($_path, $_value, $_isCData, false);
     }
     //===============================================
-    public function createXAttribute($path, $name, $value) {
-        $this->createXNode($path);
-        $this->setAttribute($name, $value);
+    public function createXAttribute($_path, $_name, $_value) {
+        $this->createXNode($_path);
+        $this->setAttribute($_name, $_value);
     }
     //===============================================
-    public function getNodeIndex($index) {
-        if($this->nodes == false) return false;
-        if($this->nodes->length == 0) return false;
+    public function getNodeIndex($_index) {
+        if($this->m_nodes == false) return false;
+        if($this->m_nodes->length == 0) return false;
         $lCount = 0;
-        foreach($this->nodes as $lNode) {
-            if($lCount == $index) {
-                $this->node = $lNode;
-                return true;
+        foreach($this->m_nodes as $lNode) {
+            if($lCount == $_index) {
+                $this->m_node = $lNode;
+                break;
             }
             $lCount++;
         }
-        return false;
-    }
-    //===============================================
-    public function getXPath($path) {            
-        $path = trim($path);
-        if($path == "") return false;
-        $this->queryXPath($path);
-        $this->getNodeIndex(0);
         return true;
     }
     //===============================================
-    public function getNodeValue($isCData = false) {
-        if(!$this->nodes) return "";
-        if(!$this->nodes->length) return "";
-        if(!$isCData) {
-            $lValue = $this->node->nodeValue;
+    public function getXNode($_path) {            
+        $_path = trim($_path);
+        if($_path == "") return false;
+        if(!$this->queryXPath($_path)) return false;
+        if(!$this->getNodeIndex(0)) return false;
+        return true;
+    }
+    //===============================================
+    public function getNodeValue($_isCData = false) {
+        if(!$this->m_nodes) return "";
+        if(!$this->m_nodes->length) return "";
+        if(!$_isCData) {
+            $lValue = $this->m_node->nodeValue;
         }
         else {
-            $lValue = $this->node->textContent;            
+            $lValue = $this->m_node->textContent;            
         }
         return $lValue;
     }
     //===============================================
-    public function setAttribute($name, $value) {
-        if(!$this->node) return false;
-        $this->node->setAttribute($name, $value);
+    public function setAttribute($_name, $_value) {
+        if(!$this->m_node) return false;
+        $this->m_node->setAttribute($_name, $_value);
         return true;
     }
     //===============================================
-    public function setNodeValue($value, $isCData = false) {
-        if(!$this->doc) return false;
-        if(!$this->node) return false;
-        if(!$isCData) {
-            $this->node->nodeValue = $value;
+    public function setValue($_value, $_isCData = false) {
+        if(!$this->m_doc) return false;
+        if(!$this->m_node) return false;
+        if(!$_isCData) {
+            $this->m_node->nodeValue = $_value;
         }
         else {
-            $lCData = $this->doc->createCDATASection($value);
-            $this->node->appendChild($lCData);
+            $lCData = $this->m_doc->createCDATASection($_value);
+            $this->m_node->appendChild($lCData);
         }
         return true;
     }
     //===============================================
-    public function restoreNode() {
-        $this->node = array_pop($this->nodeCopy);
+    public function pushNode() {
+        $this->m_stack[] = $this->m_node;
     }
     //===============================================
-    public function saveNode() {
-        $this->nodeCopy[] = $this->node;
+    public function popNode() {
+        $this->m_node = array_pop($this->m_stack);
     }
     //===============================================
     public function toString() {
-        if(!$this->doc) return "";
-        if(!$this->node) return "";
-        return $this->doc->saveXML();
+        if(!$this->m_doc) return "";
+        if(!$this->m_node) return "";
+        return $this->m_doc->saveXML();
     }
     //===============================================
     public function toStringNode() {
-        if(!$this->doc) return "";
-        if(!$this->node) return "";
-        return $this->doc->saveXML($this->node);
+        if(!$this->m_doc) return "";
+        if(!$this->m_node) return "";
+        return $this->m_doc->saveXML($this->m_node);
     }
     //===============================================
 }
