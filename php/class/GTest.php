@@ -5,8 +5,8 @@ class GTest extends GObject {
     protected $m_module;
     protected $m_method;
     //===============================================
-    public function __construct($_codeName = "test") {
-        parent::__construct($_codeName);
+    public function __construct() {
+        parent::__construct();
     }
     //===============================================
     public function serialize($code = "test") {

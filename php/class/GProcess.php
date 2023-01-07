@@ -8,8 +8,8 @@ class GProcess extends GObject {
     protected $m_env;
     protected $m_indexUi;
     //===============================================
-    private function __construct($_codeName = "process") {
-        parent::__construct($_codeName);
+    private function __construct() {
+        parent::__construct();
         $this->m_page       = new GPage();
         $this->m_env        = new GEnv();
         $this->m_indexUi    = new GIndexUi();

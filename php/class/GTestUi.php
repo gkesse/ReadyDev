@@ -36,25 +36,9 @@
         }
         //===============================================
         public function runPhp() {
-            if($this->m_module == "") {
-                $this->m_headerUi->run();
-                $this->addError("Erreur le module est obligatoire.");
-                $this->m_footerUi->run();
-            }
-            else if($this->m_module == "prod") {
-                $this->runProd();
-            }
-            else {
-                $this->m_headerUi->run();
-                $this->addError("Erreur le module est inconnu.");
-                $this->m_footerUi->run();
-            }
-        }
-        //===============================================
-        public function runProd() {
-            $lReadyUi = new GReadyUi();
-            $lReadyUi->run();
-            $this->addLogs($lReadyUi->getLogs());
+            $lPhpTest = new GPhpTest();
+            $lPhpTest->run();
+            $this->addLogs($lPhpTest->getLogs());
         }
         //===============================================
         public function runJs() {
