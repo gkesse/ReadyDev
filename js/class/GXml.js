@@ -1,141 +1,103 @@
 //===============================================
-class GXml extends GObject {
+class GXml {
     //===============================================
     constructor() {
-        super();
-        this.doc = null;
-        this.nodes = null;
-        this.node = null;
-        this.nodeCopy = null;
+        this.m_doc = null;
+        this.m_node = null;
+        this.m_next = null;
+        this.m_stack = [];
+        this.m_nodes = null;
     }
     //===============================================
-    appendNode(name, value = "", get = false) {
-        if(!this.doc) return;
-        if(!this.node) return;
-        var lNode = this.doc.createElement(name);
-        if(value != "") lNode.innerHTML = value;
-        this.node.appendChild(lNode);
-        if(get) this.node = lNode;
-    }
-    //===============================================
-   countNode(name) {
-        if(!this.node) return 0;
-        var lCount = 0;
-        var lNodes = this.node.childNodes;
-        for(var i = 0; i < lNodes.length; i++) {
-            var lNode = lNodes[i];
-            var lNodeName = lNode.nodeName;
-            if(lNodeName == name) lCount++;
-        }
-        return lCount;
-    }
-    //===============================================
-    countXPath() {
-        if(!this.doc) return 0;
-        if(!this.nodes) return 0;
-        var lCount = this.nodes.length;
-        return lCount;
-    }
-    //===============================================
-    createDoc() {
-        var lRoot = "<?xml version='1.0' encoding='UTF-8'?><rdv></rdv>";
+    createDoc(_name = "rdv", _version = "1.0", _encoding = "UTF-8") {
+        var lRoot = sprintf("<?xml version='%s' encoding='%s'?><%s></%s>", _version, _encoding, _name, _name);
         var lParser = new DOMParser();
-        this.doc = lParser.parseFromString(lRoot, "text/xml"); 
+        this.m_doc = lParser.parseFromString(lRoot, "text/xml");
+        this.m_node = this.m_doc.firstChild;
     }
     //===============================================
-    createNode(path, value = "", isCData = false) {
-        path = path.trim();
-        var lFirst = path.substr(0, 1);
-        var lRootOn = (lFirst == "/");
-        var lMap = path.split("/");
-        var lPath = "";        
-
-        this.saveNode();
-                
-        for(var i = 0; i < lMap.length; i++) {
-            var lItem = lMap[i];
-            lItem = lItem.trim();
-            if(lItem == "") continue;
-            var lLastPath = lPath;
-            if(lPath != "" || lRootOn) lPath += "/";
-            lPath += lItem;
-            this.restoreNode();
-            this.getNode(lPath);
-            
-            if(this.isNodeNull()) {
-                this.restoreNode();
-                this.getNode(lLastPath);
-                this.appendNode(lItem);
-                this.restoreNode();
-                this.getNode(lPath);
-            }
-        }
-        if(value != "") {
-            this.setNodeValue(value, isCData);
-        }        
-    }
-    //===============================================
-    getNode(path) {
-        if(path == "") return;
-        if(!this.doc) return;
-        this.queryXPath(path)
-        this.getNodeXPath();
-    }
-    //===============================================
-    getNodeName() {
-        if(!this.node) return "";
-        var lData = this.node.nodeName;
-        return lData;
-    }
-    //===============================================
-    getNodeValue(isCData = false) {
-        if(!this.node) return "";
-        var lData = "";
-        if(!isCData) {
-            lData = this.node.innerHTML;
+    createNode(_name) {
+        if(!this.m_node) {
+            this.createDoc(_name);
         }
         else {
-            lData = this.node.firstChild.nodeValue;
+            this.m_next = this.m_doc.createElement(_name);
+            this.m_node.appendChild(this.m_next);
+        }
+        return true;
+    }    
+    //===============================================
+    createVNode(_name, _value, _isCData = false) {
+        this.pushNode();
+        this.createNode(_name);
+        this.next();
+        this.setValue(_value, _isCData);
+        this.popNode();
+    }    
+    //===============================================
+    createXNode(_path) {
+        var lPaths = _path.trim().split("/");
+        var lFirst = _path.substr(0, 1);
+        var lPath = lFirst;
+        for(var i = 0, j = 0; i < lPaths.length; i++) {
+            var lItem = lPaths[i].trim();
+            if(lItem == "") continue;
+            if(j++ != 0) lPath += "/";
+            lPath += lItem;
+            if(!this.getXNode(lPath)) {
+                this.createNode(lItem);
+                this.next();
+            }
+        }
+    }    
+    //===============================================
+    pushNode() {
+        if(!this.m_node) return false;
+        this.m_stack.push(this.m_node);
+        return true;
+    }    
+    //===============================================
+    popNode() {
+        if(!this.m_stack.length) return false;
+        this.m_node = this.m_stack.pop();
+        return true;
+    }    
+    //===============================================
+    next() {
+        if(!this.m_next) return false;
+        this.m_node = this.m_next;
+        return true;
+    }
+    //===============================================
+    getXNode(path) {
+        if(path == "") return false;
+        if(!this.m_doc) return false;
+        if(!this.queryXPath(path)) return false;
+        if(!this.getNodeXPath()) return false;
+        return true;
+    }
+    //===============================================
+    getValue(isCData = false) {
+        if(!this.m_node) return "";
+        var lData = "";
+        if(!isCData) {
+            lData = this.m_node.innerHTML;
+        }
+        else {
+            lData = this.m_node.firstChild.nodeValue;
         }
         return lData;
     }
     //===============================================
     getNodeXPath() {
-        this.getNodeIndex(0);
+        return this.getNodeIndex(0);
     }
     //===============================================
     getNodeIndex(index) {
-        if(!this.doc) return;
-        if(!this.nodes) return; 
-        this.node = this.nodes[index];
-    }
-    //===============================================
-    getRoot(name) {
-        name = name.trim();
-        if(name == "") return false;
-        if(!this.doc) return false;
-        this.queryXPath(sprintf("/%s", name))
-        this.getNodeXPath();
-        if(this.getNodeName() != name) this.node = null;
-        return true;
-    }
-    //===============================================
-    isNodeNull() {
-        if(!this.node) return true;
-        return false;
-    }
-    //===============================================
-    loadNode(data) {
-        data = data.trim();
-        if(data == "") return false;
-        if(!this.doc) return false;
-        if(!this.node) return false;
-        var lDom = this.doc.createElement("template");
-        lDom.innerHTML = data;
-        var lNodes = lDom.childNodes;
-        while(lNodes[0]) {
-            this.node.appendChild(lNodes[0]);
-        }
+        if(!this.m_doc) return false;
+        if(!this.m_nodes) return false; 
+        if(!this.m_nodes.length) return false;
+        this.m_node = this.m_nodes[index];
         return true;
     }
     //===============================================
@@ -144,71 +106,80 @@ class GXml extends GObject {
         if(data == "") return false;
         if(window.DOMParser) {
             var lParser = new DOMParser();
-            this.doc = lParser.parseFromString(data, "text/xml");            
+            this.m_doc = lParser.parseFromString(data, "text/xml");            
         }
         else {
-            this.doc = new ActiveXObject("Microsoft.XMLDOM");
-            this.doc.async = false;
-            this.doc.loadXML(data);
+            this.m_doc = new ActiveXObject("Microsoft.XMLDOM");
+            this.m_doc.async = false;
+            this.m_doc.loadXML(data);
+        }
+        return true;
+    }
+    //===============================================
+    loadNode(data) {
+        data = data.trim();
+        if(data == "") return false;
+        if(!this.m_doc) return false;
+        if(!this.m_node) return false;
+        var lDom = this.m_doc.createElement("template");
+        lDom.innerHTML = data;
+        var lNodes = lDom.childNodes;
+        while(lNodes[0]) {
+            this.m_node.appendChild(lNodes[0]);
         }
         return true;
     }
     //===============================================
     queryXPath(path) {
         path = path.trim();
-        if(path == "") return;
-        if(!this.doc) return;
-        if (this.doc.evaluate) {
-            path = path.trim();
+        if(path == "") return false;
+        if(!this.m_doc) return false;
+        if (this.m_doc.evaluate) {
             var lFirst = path.substr(0, 1);
-            var lNode = this.node;
-            if(lFirst == "/") lNode = this.doc;
-            if(lNode == null) return;
-            this.nodes = [];
+            var lNode = this.m_node;
+            if(lFirst == "/") lNode = this.m_doc;
+            if(lNode == null) return false;
+            this.m_nodes = [];
             var lNodeI = null;
-            var lNodes = this.doc.evaluate(path, lNode, null, XPathResult.ANY_TYPE, null);
+            var lNodes = this.m_doc.evaluate(path, lNode, null, XPathResult.ANY_TYPE, null);
             while(lNodeI = lNodes.iterateNext()) {
-                  this.nodes.push(lNodeI);
+                  this.m_nodes.push(lNodeI);
             }
         } 
         else if(window.ActiveXObject || xhttp.responseType == "msxml-document") {
-            this.doc.setProperty("SelectionLanguage", "XPath");
-            this.nodes = this.doc.selectNodes(path);
+            this.m_doc.setProperty("SelectionLanguage", "XPath");
+            this.m_nodes = this.m_doc.selectNodes(path);
         }
+        return true;
     }
     //===============================================
-    restoreNode() {
-        this.node = this.nodeCopy;
+    countXPath() {
+        if(!this.m_doc) return 0;
+        if(!this.m_nodes) return 0;
+        var lCount = this.m_nodes.length;
+        return lCount;
     }
     //===============================================
-    saveNode() {
-        this.nodeCopy = this.node;
-    }
-    //===============================================
-    setDoc(doc) {
-        this.doc = doc;
-    }
-    //===============================================
-    setNodeValue(value, isCData = false) {
-        if(!this.node) return;
+    setValue(value, isCData = false) {
+        if(!this.m_node) return;
         if(!isCData) {
-            this.node.innerHTML = value;
+            this.m_node.innerHTML = value;
         }
         else {
-            var lCData = this.doc.createCDATASection(value);
-            this.node.appendChild(lCData);
+            var lCData = this.m_doc.createCDATASection(value);
+            this.m_node.appendChild(lCData);
         }
     }
     //===============================================
     toString() {
-        if(!this.doc) return "";
-        var lData = this.doc.documentElement.outerHTML;
+        if(!this.m_doc) return "";
+        var lData = this.m_doc.documentElement.outerHTML;
         return lData;
     }
     //===============================================
     toStringNode() {
-        if(!this.node) return "";
-        var lData = this.node.outerHTML;
+        if(!this.m_node) return "";
+        var lData = this.m_node.outerHTML;
         return lData;
     }
     //===============================================

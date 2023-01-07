@@ -59,7 +59,15 @@ class GLog {
         var lObj = new GLog
 		lObj.m_type = "data";
 		lObj.m_side = "client";
-		lObj.m_msg = _msg;
+		lObj.m_msg =  btoa(_msg);
+        this.m_map.push(lObj);
+	}
+    //===============================================
+	addXml(_msg) {
+        var lObj = new GLog
+		lObj.m_type = "data";
+		lObj.m_side = "client";
+		lObj.m_msg =  btoa(sprintfXml(_msg));
         this.m_map.push(lObj);
 	}
     //===============================================

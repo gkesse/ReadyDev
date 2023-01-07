@@ -3,6 +3,7 @@
 class GServer extends GModule {
     //===============================================
     protected $m_responseXml;
+    protected $m_type;
     //===============================================
     public function __construct() {
         parent::__construct();
@@ -22,8 +23,22 @@ class GServer extends GModule {
         echo $this->m_responseXml->toString();
     }
     //===============================================
-    public function run($_data) {
+    public function serialize($_code = "server") {
+        $lDom = new GCode();
+        $lDom->createDoc();
+        $lDom->addData($_code, "type", $this->m_type);
+        return $lDom->toString();
+    }
+    //===============================================
+    public function deserialize($_data, $_code = "server") {
         parent::deserialize($_data);
+        $lDom = new GCode();
+        $lDom->loadXml($_data);
+        $this->m_type = $lDom->getItem($_code, "type");
+    }
+    //===============================================
+    public function run($_data) {
+        $this->deserialize($_data);
         if($this->m_module == "") {
             $this->addError("Erreur le module est obligatoire.");
         }

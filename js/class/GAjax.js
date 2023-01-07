@@ -14,7 +14,7 @@ class GAjax extends GObject {
         };
     }
     //===============================================
-    call(_module, _method, _params, _callback) {
+    call(_module, _method, _params, _callback, _type) {
         if(_module == "") return false;
         if(_method == "") return false;
         if(_callback == null) return false;
@@ -22,9 +22,20 @@ class GAjax extends GObject {
         lDom.createDoc();
         lDom.addData("request", "module", _module);
         lDom.addData("request", "method", _method);
-        lDom.loadCode(_params);
+        lDom.addData("server", "type", _type);
+        lDom.loadData(_params);
         var lData = lDom.toString();
         this.callServer(lData, _callback);
+        return true;
+    }
+    //===============================================
+    callLocal(_module, _method, _params, _callback) {
+        this.call(_module, _method, _params, _callback, "local");
+        return true;
+    }
+    //===============================================
+    callRemote(_module, _method, _params, _callback) {
+        this.call(_module, _method, _params, _callback, "remote");
         return true;
     }
     //===============================================

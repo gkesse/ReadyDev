@@ -34,17 +34,17 @@ class GDomTest extends GTest {
         var lLog = new GLog();
         lLog.addLog("Erreur lors de l'émission.");
         lLog.addLog("La donnée a bien été enregistrée.");
-        this.addData(prettifyXml(lLog.serialize()))
+        this.addData(sprintfXml(lLog.serialize()))
 
         var lLog2 = new GLog();
         lLog2.addError("Erreur lors de l'émission (2).");
         lLog2.addLog("La donnée a bien été enregistrée (2).");
         lLog2.addLogs(lLog);
-        this.addData(prettifyXml(lLog2.serialize()))
+        this.addData(sprintfXml(lLog2.serialize()))
 
         var lLog3 = new GLog();
         lLog3.deserialize(lLog2.serialize());        
-        this.addData(prettifyXml(lLog3.serialize()))
+        this.addData(sprintfXml(lLog3.serialize()))
         
         this.addData(sprintf("hasErrors : %s", lLog.hasErrors()));
 	}

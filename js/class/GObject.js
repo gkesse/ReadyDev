@@ -18,6 +18,10 @@ class GObject {
         this.m_logs.addData(_data);
     }
     //===============================================
+    addXml(_data) {
+        this.m_logs.addXml(_data);
+    }
+    //===============================================
     addLogs(_logs) {
         this.m_logs.addLogs(_logs);
     }

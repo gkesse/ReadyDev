@@ -18,6 +18,9 @@ class GTestUi extends GTest {
         else if(this.m_module == "dom") {
             this.runDom();
         }
+        else if(this.m_module == "xml") {
+            this.runXml();
+        }
         else {
             this.m_logs.addError("Erreur le module est inconnu.");
         }
@@ -28,6 +31,13 @@ class GTestUi extends GTest {
         lDomTest.setTest(this);
         lDomTest.onModule();
         this.addLogs(lDomTest.getLogs());
+	}
+    //===============================================
+	runXml() {
+        var lXmlTest = new GXmlTest();
+        lXmlTest.setTest(this);
+        lXmlTest.onModule();
+        this.addLogs(lXmlTest.getLogs());
 	}
     //===============================================
 }

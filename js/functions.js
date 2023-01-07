@@ -25,7 +25,7 @@ function sprintf() {
     });
 }
 //===============================================
-function prettifyXml(sourceXml) {
+function sprintfXml(sourceXml) {
     var xmlDoc = new DOMParser().parseFromString(sourceXml, 'application/xml');
     var xsltDoc = new DOMParser().parseFromString([
         // describes how we want to modify the XML - indent everything

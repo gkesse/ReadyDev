@@ -6,9 +6,9 @@
 		<!-- ============================================ -->
 		<data>
 			<code>test</code>
-			<lang>php</lang>
-			<module>prod</module>
-			<method>logs</method>
+			<lang>js</lang>
+			<module>xml</module>
+			<method>test</method>
 		</data>
 		<!-- ============================================ -->
 		<!-- end -->
