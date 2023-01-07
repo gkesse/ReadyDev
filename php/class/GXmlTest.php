@@ -27,12 +27,21 @@
             else if($this->m_method == "code") {
                 $this->runCode();
             }
+            else if($this->m_method == "serialize") {
+                $this->runCode();
+            }
             else {
                 $this->addError("Erreur la méthode est inconnue.");
             }
         }
         //===============================================
         public function runTest() {
+            $lPage = new GPageFac();
+            $lPage->searchPage();
+            $this->addData($lPage->serialize());
+        }
+        //===============================================
+        public function runSerialize() {
             $lPage = new GPageFac();
             $lPage->searchPage();
             $this->addData($lPage->serialize());

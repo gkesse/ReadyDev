@@ -38,6 +38,21 @@ class GServer extends GModule {
     }
     //===============================================
     public function run($_data) {
+        if($this->m_type == "") {
+            $this->addError("Erreur le type du traitement est obligatoire.");
+        }
+        else if($this->m_type == "local") {
+            $this->runLocal($_data);
+        }
+        else if($this->m_type == "remote") {
+            $this->runRemote($_data);
+        }
+        else {
+            $this->addError("Erreur le type du traitement est inconnu.");
+        }
+    }
+    //===============================================
+    public function runLocal($_data) {
         $this->deserialize($_data);
         if($this->m_module == "") {
             $this->addError("Erreur le module est obligatoire.");
@@ -62,11 +77,15 @@ class GServer extends GModule {
         }
     }
     //===============================================
+    public function runRemote($_data) {
+        
+    }
+    //===============================================
     public function onPage($_data) {
-        $lPageFac = new GPageFac();
-        $lPageFac->onModule($_data);
-        $this->addLogs($lPageFac->getLogs());
-        $this->addResponse($lPageFac->serialize());
+        $lPage = new GPageFac();
+        $lPage->onModule($_data);
+        $this->addLogs($lPage->getLogs());
+        $this->addResponse($lPage->serialize());
     }
     //===============================================
     public function onUser($data, $server) {

@@ -17,6 +17,9 @@
             else if($this->m_module == "xml") {
                 $this->runXml();
             }
+            else if($this->m_module == "curl") {
+                $this->runCurl();
+            }
             else {
                 $this->m_headerUi->run();
                 $this->addError("Erreur le module est inconnu.");
@@ -34,6 +37,12 @@
             $lXmlTest = new GXmlTest();
             $lXmlTest->run();
             $this->addLogs($lXmlTest->getLogs());
+        }
+        //===============================================
+        public function runCurl() {
+            $CurlTest = new GCurlTest();
+            $CurlTest->run();
+            $this->addLogs($CurlTest->getLogs());
         }
         //===============================================
     }
