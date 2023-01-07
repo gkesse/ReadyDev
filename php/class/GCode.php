@@ -9,8 +9,7 @@ class GCode extends GXml {
     public function addData($code, $key, $value, $isCData = false) {
         if($value == "") return false;
         $this->createCode($code);
-        $this->getCode($code);
-        $this->createXNode($key, $value, $isCData);
+        $this->createVNode($key, $value, $isCData);
         return true;
     }
     //===============================================
@@ -96,10 +95,11 @@ class GCode extends GXml {
     }
     //===============================================
     public function createCode($code) {
-        if(!$this->hasCode($code)) {
+        if(!$this->getCode($code)) {
             $this->createXNode("/rdv/datas");
-            $this->createXNode("data");
-            $this->createXNode("code", $code);
+            $this->createNode("data");
+            $this->next();
+            $this->createVNode("code", $code);
         }
     }
     //===============================================
@@ -113,28 +113,28 @@ class GCode extends GXml {
     }
     //===============================================
     public function getCode($code) {
-        $this->getXNode(sprintf("/rdv/datas/data[code='%s']", $code));
+        return $this->getXNode(sprintf("/rdv/datas/data[code='%s']", $code));
     }
     //===============================================
     public function getCode2($code, $index) {
-        $this->getXNode(sprintf("/rdv/datas/data[code='%s']/map/data[position()=%d]", $code, $index + 1));
+        return $this->getXNode(sprintf("/rdv/datas/data[code='%s']/map/data[position()=%d]", $code, $index + 1));
     }
     //===============================================
     public function getItem($code, $key, $isCData = false) {
         $this->getXNode(sprintf("/rdv/datas/data[code='%s']/%s", $code, $key));
-        $lData = $this->getNodeValue($isCData);
+        $lData = $this->getValue($isCData);
         return $lData;
     }
     //===============================================
     public function getItem2($code, $index, $isCData = false) {
         $this->getXNode(sprintf("/rdv/datas/data[code='%s']/map/data[position()=%d]", $code, $index + 1));
-        $lData = $this->getNodeValue($isCData);
+        $lData = $this->getValue($isCData);
         return $lData;
     }
     //===============================================
     public function getItem3($code, $key, $index, $isCData = false) {
         $this->getXNode(sprintf("/rdv/datas/data[code='%s']/map/data[position()=%d]/%s", $code, $index + 1, $key));
-        $lData = $this->getNodeValue($isCData);
+        $lData = $this->getValue($isCData);
         return $lData;
     }
     //===============================================

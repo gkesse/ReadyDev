@@ -152,8 +152,8 @@ class GXml {
     }
     //===============================================
     public function getNodeIndex($_index) {
-        if($this->m_nodes == false) return false;
-        if($this->m_nodes->length == 0) return false;
+        if(!$this->m_nodes) return false;
+        if(!$this->m_nodes->length) return false;
         $lCount = 0;
         foreach($this->m_nodes as $lNode) {
             if($lCount == $_index) {
@@ -173,7 +173,7 @@ class GXml {
         return true;
     }
     //===============================================
-    public function getNodeValue($_isCData = false) {
+    public function getValue($_isCData = false) {
         if(!$this->m_nodes) return "";
         if(!$this->m_nodes->length) return "";
         if(!$_isCData) {

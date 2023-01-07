@@ -79,6 +79,8 @@ class GXml {
     //===============================================
     getValue(isCData = false) {
         if(!this.m_node) return "";
+        if(!this.m_nodes) return "";
+        if(!this.m_nodes.length) return "";
         var lData = "";
         if(!isCData) {
             lData = this.m_node.innerHTML;

@@ -21,15 +21,48 @@
             else if($this->m_method == "node") {
                 $this->runNode();
             }
+            else if($this->m_method == "xnode") {
+                $this->runXNode();
+            }
+            else if($this->m_method == "code") {
+                $this->runCode();
+            }
             else {
                 $this->addError("Erreur la méthode est inconnue.");
             }
         }
         //===============================================
         public function runTest() {
+            $lPage = new GPageFac();
+            $lPage->searchPage();
+            $this->addData($lPage->serialize());
+        }
+        //===============================================
+        public function runCode() {
+            $lCode = new GCode();
+            $lCode->createDoc();
+            
+            $lCode->addData("page", "name", "admin");
+            $lCode->addData("page", "title", "Administration");
+            $lCode->addData("page", "url", "home/admin");
+            $lCode->addData("page", "path", "/path/home/admin.php");
+            
+            $lName = $lCode->getItem("page", "name");
+            $lTitle = $lCode->getItem("page", "title");
+            $lUrl = $lCode->getItem("page", "url");
+            $lPath = $lCode->getItem("page", "path");
+            
+            $lCode->addData("editor", "name", $lName);
+            $lCode->addData("editor", "title", $lTitle);
+            $lCode->addData("editor", "url", $lUrl);
+            $lCode->addData("editor", "path", $lPath);
+            
+            $this->addData($lCode->toString());
+        }
+        //===============================================
+        public function runXNode() {
             $lXml = new GXml();
             
-            $lXml->createXNode("/rdv/datas/data");
             $lXml->createXNode("/rdv/datas/data");
             
             $lXml->createVNode("code", "page");
@@ -37,6 +70,39 @@
             $lXml->createVNode("title", "Administration");
             $lXml->createVNode("url", "home/admin");
             $lXml->createVNode("path", "/path/home/admin.php");
+            
+            $lXml->createNode("map");
+            $lXml->next();
+            
+            $lXml->pushNode();
+            $lXml->createNode("data");
+            $lXml->next();
+            $lXml->createVNode("code", "page");
+            $lXml->createVNode("name", "admin");
+            $lXml->createVNode("title", "Administration");
+            $lXml->createVNode("url", "home/admin");
+            $lXml->createVNode("path", "/path/home/admin.php");
+            $lXml->popNode();
+            
+            $lXml->pushNode();
+            $lXml->createNode("data");
+            $lXml->next();
+            $lXml->createVNode("code", "page");
+            $lXml->createVNode("name", "admin");
+            $lXml->createVNode("title", "Administration");
+            $lXml->createVNode("url", "home/admin");
+            $lXml->createVNode("path", "/path/home/admin.php");
+            $lXml->popNode();
+            
+            $lXml->pushNode();
+            $lXml->createNode("data");
+            $lXml->next();
+            $lXml->createVNode("code", "page");
+            $lXml->createVNode("name", "admin");
+            $lXml->createVNode("title", "Administration");
+            $lXml->createVNode("url", "home/admin");
+            $lXml->createVNode("path", "/path/home/admin.php");
+            $lXml->popNode();
             
             $this->addData($lXml->toString());
         }
