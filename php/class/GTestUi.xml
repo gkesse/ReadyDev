@@ -6,8 +6,8 @@
 		<!-- ============================================ -->
 		<data>
 			<code>test</code>
-			<lang>js</lang>
-			<module>xml</module>
+			<lang>php</lang>
+			<module>prod</module>
 			<method>test</method>
 		</data>
 		<!-- ============================================ -->

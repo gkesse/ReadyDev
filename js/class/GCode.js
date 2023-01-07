@@ -47,7 +47,7 @@ class GCode extends GXml {
     }
     //===============================================
     createDatas() {
-        if(!this.hasDatas()) {
+        if(!this.getDatas()) {
             this.createXNode("/rdv/datas");
         }
     }
@@ -155,7 +155,7 @@ class GCode extends GXml {
         lDom.loadXml(_data);
         var lData = lDom.toStringData();
         this.createDatas();
-        this.loadNode(lData, false);
+        this.loadNode(lData);
         return true;
     }
     //===============================================

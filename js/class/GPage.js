@@ -45,22 +45,21 @@ class GPage extends GAjax {
     }
     //===============================================
     savePage() {
+        var lAjax = new GAjax();
         var lData = this.serialize();
-        this.callLocal("page", "save_page", lData, this.onPage);        
+        lAjax.callLocal("page", "save_page", lData, this.onPage);        
     }
     //===============================================
     searchPage() {
-        for(var i = 0; i < 3; i++) {
-            var lObj = this.clone();
-            this.m_map.push(lObj);
-        }
-        //var lData = this.serialize();
-        //this.callLocal("page", "search_page", lData, this.onPage);        
+        var lAjax = new GAjax();
+        var lData = this.serialize();
+        lAjax.callLocal("page", "search_page", lData, this.onPage);        
     }
     //===============================================
     deletePage() {
+        var lAjax = new GAjax();
         var lData = this.serialize();
-        this.callLocal("page", "delete_page", lData, this.onPage);        
+        lAjax.callLocal("page", "delete_page", lData, this.onPage);        
     }
     //===============================================
     newPage() {
