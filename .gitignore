@@ -13,7 +13,7 @@
 /**/*.bak
 /**/logs
 /sitemap*.xml
-/examples/
+/tmp/
 
 #================================================
 # Directory

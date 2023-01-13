@@ -2,10 +2,14 @@
 //===============================================
 class GCurl extends GObject {
     //===============================================
-    private $m_url = "http://www.example.com/";
-    private $m_filename = "example_homepage.txt";
-    private $m_action = "load_file";
+    private $m_url = "";
+    private $m_filename = "";
+    private $m_action = "";
     private $m_httpCode = 0;
+    private $m_responseText = 0;
+    private $m_timeout = 0;
+    private $m_hasUserAgent = false;
+    private $m_userAgent = "";
     //===============================================
     public function __construct() {
         parent::__construct();
@@ -23,8 +27,24 @@ class GCurl extends GObject {
         $this->m_action = $_action;
     }
     //===============================================
+    public function setTimeout($_timeout) {
+        $this->m_timeout = $_timeout;
+    }
+    //===============================================
+    public function setHasUserAgent($_hasUserAgent) {
+        $this->m_hasUserAgent = $_hasUserAgent;
+    }
+    //===============================================
+    public function setUserAgent($_userAgent) {
+        $this->m_userAgent = $_userAgent;
+    }
+    //===============================================
     public function getHttpCode() {
         return $this->m_httpCode;
+    }
+    //===============================================
+    public function getResponseText() {
+        return $this->m_responseText;
     }
     //===============================================
     public function createPath() {
@@ -36,18 +56,34 @@ class GCurl extends GObject {
     }
     //===============================================
     public function run() {
-        $lCurl = curl_init($this->m_url);
+        $lCurl = curl_init();
+        
+        curl_setopt($lCurl, CURLOPT_URL, $this->m_url);
+        
+        if($this->m_timeout) {
+            curl_setopt($lCurl, CURLOPT_TIMEOUT, $this->m_timeout);
+        }
+        
         $lFile = null;
         
         if($this->m_action == "load_file") {
             $this->createPath();
             $lFile = fopen($this->m_filename, "w");
+            curl_setopt($lCurl, CURLOPT_HEADER, 0);
             curl_setopt($lCurl, CURLOPT_FILE, $lFile);            
         }
+        else if($this->m_action == "http_get") {
+            if($this->m_hasUserAgent) {
+                curl_setopt($lCurl, CURLOPT_USERAGENT, $this->m_userAgent);
+            }
+            curl_setopt($lCurl, CURLOPT_RETURNTRANSFER, true);
+        }
+        else if($this->m_action == "https_get") {
+            curl_setopt($lCurl, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($lCurl, CURLOPT_RETURNTRANSFER, true);
+        }
         
-        curl_setopt($lCurl, CURLOPT_HEADER, 0);
-        
-        curl_exec($lCurl);
+        $this->m_responseText = utf8_decode(curl_exec($lCurl));
         
         if(curl_error($lCurl)) {
             $this->addError(sprintf("Erreur lors de la connexion au serveur.<br>%s", curl_error($lCurl)));

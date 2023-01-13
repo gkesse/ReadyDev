@@ -40,9 +40,9 @@
         }
         //===============================================
         public function runCurl() {
-            $CurlTest = new GCurlTest();
-            $CurlTest->run();
-            $this->addLogs($CurlTest->getLogs());
+            $lCurlTest = new GCurlTest();
+            $lCurlTest->run();
+            $this->addLogs($lCurlTest->getLogs());
         }
         //===============================================
     }
