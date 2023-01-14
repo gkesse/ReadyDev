@@ -9,7 +9,12 @@ class GCurl extends GObject {
     private $m_responseText = 0;
     private $m_timeout = 0;
     private $m_hasUserAgent = false;
+    private $m_hasUserPass = false;
     private $m_userAgent = "";
+    private $m_username = "";
+    private $m_password = "";
+    private $m_contentType = "";
+    private $m_headers = array();
     //===============================================
     public function __construct() {
         parent::__construct();
@@ -39,6 +44,22 @@ class GCurl extends GObject {
         $this->m_userAgent = $_userAgent;
     }
     //===============================================
+    public function setHasUserPass($_hasUserPass) {
+        $this->m_hasUserPass = $_hasUserPass;
+    }
+    //===============================================
+    public function setUsername($_username) {
+        $this->m_username = $_username;
+    }
+    //===============================================
+    public function setPassword($_password) {
+        $this->m_password = $_password;
+    }
+    //===============================================
+    public function setContentType($_contentType) {
+        $this->m_contentType = $_contentType;
+    }
+    //===============================================
     public function getHttpCode() {
         return $this->m_httpCode;
     }
@@ -56,15 +77,29 @@ class GCurl extends GObject {
     }
     //===============================================
     public function run() {
+        $lFile = null;
+        
         $lCurl = curl_init();
         
         curl_setopt($lCurl, CURLOPT_URL, $this->m_url);
         
-        if($this->m_timeout) {
+        if($this->m_timeout > 0) {
             curl_setopt($lCurl, CURLOPT_TIMEOUT, $this->m_timeout);
         }
+        if($this->m_contentType != "") {
+            $lContentType = sprintf("Content-Type: %s", $this->m_contentType);
+            $this->m_headers[] = $lContentType;
+        }
         
-        $lFile = null;
+        if(!empty($this->m_headers)) {
+            curl_setopt($lCurl, CURLOPT_HTTPHEADER, $this->m_headers);
+        }
+        
+        if($this->m_hasUserPass) {
+            $lUserPass = sprintf("%s:%s", $this->m_username, $this->m_password);
+            curl_setopt($lCurl, CURLOPT_USERPWD, $lUserPass);
+            curl_setopt($lCurl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+        }
         
         if($this->m_action == "load_file") {
             $this->createPath();

@@ -36,9 +36,13 @@
             $lCurl = new GCurl();
             $lCurl->setAction("http_get");
             $lCurl->setUrl("http://192.168.1.45:9071/readyapi-1.0/deux/trois");
-            $lCurl->setHasUserAgent(true);
             $lCurl->setUserAgent("rdvapp/1.0");
+            $lCurl->setUsername("admin");
+            $lCurl->setPassword("adminpass");
+            $lCurl->setContentType("application/xml");
             $lCurl->setTimeout(3);
+            $lCurl->setHasUserAgent(true);
+            $lCurl->setHasUserPass(true);
             $lCurl->run();
             $this->addData($lCurl->getHttpCode());
             $this->addData($lCurl->getResponseText());
@@ -58,7 +62,14 @@
         public function runHttpGet() {
             $lCurl = new GCurl();
             $lCurl->setAction("http_get");
-            $lCurl->setUrl("http://readydev.ovh:9071/home/admin");
+            $lCurl->setUrl("http://192.168.1.45:9071/readyapi-1.0/deux/trois");
+            $lCurl->setUserAgent("rdvapp/1.0");
+            $lCurl->setUsername("admin");
+            $lCurl->setPassword("adminpass");
+            $lCurl->setContentType("application/xml");
+            $lCurl->setTimeout(3);
+            $lCurl->setHasUserAgent(true);
+            $lCurl->setHasUserPass(true);
             $lCurl->run();
             $this->addData($lCurl->getHttpCode());
             $this->addData($lCurl->getResponseText());
