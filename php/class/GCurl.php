@@ -13,6 +13,7 @@ class GCurl extends GObject {
     private $m_userAgent = "";
     private $m_username = "";
     private $m_password = "";
+    private $m_content = "";
     private $m_contentType = "";
     private $m_headers = array();
     //===============================================
@@ -54,6 +55,10 @@ class GCurl extends GObject {
     //===============================================
     public function setPassword($_password) {
         $this->m_password = $_password;
+    }
+    //===============================================
+    public function setContent($_content) {
+        $this->m_content = $_content;
     }
     //===============================================
     public function setContentType($_contentType) {
@@ -111,11 +116,37 @@ class GCurl extends GObject {
             if($this->m_hasUserAgent) {
                 curl_setopt($lCurl, CURLOPT_USERAGENT, $this->m_userAgent);
             }
+            curl_setopt($lCurl, CURLOPT_HTTPGET, 1);
             curl_setopt($lCurl, CURLOPT_RETURNTRANSFER, true);
         }
-        else if($this->m_action == "https_get") {
-            curl_setopt($lCurl, CURLOPT_SSL_VERIFYPEER, false);
+        else if($this->m_action == "http_post") {
+            if($this->m_content == "") $this->m_content = "<msg>no_data</msg>";
+            if($this->m_hasUserAgent) {
+                curl_setopt($lCurl, CURLOPT_USERAGENT, $this->m_userAgent);
+            }
+            curl_setopt($lCurl, CURLOPT_POST, 1);            
             curl_setopt($lCurl, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($lCurl, CURLOPT_POSTFIELDS, $this->m_content);
+        }
+        else if($this->m_action == "https_get") {
+            if($this->m_hasUserAgent) {
+                curl_setopt($lCurl, CURLOPT_USERAGENT, $this->m_userAgent);
+            }
+            curl_setopt($lCurl, CURLOPT_HTTPGET, 1);
+            curl_setopt($lCurl, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($lCurl, CURLOPT_SSL_VERIFYHOST, false);
+            curl_setopt($lCurl, CURLOPT_SSL_VERIFYPEER, false);
+        }
+        else if($this->m_action == "https_post") {
+            if($this->m_content == "") $this->m_content = "<msg>no_data</msg>";
+            if($this->m_hasUserAgent) {
+                curl_setopt($lCurl, CURLOPT_USERAGENT, $this->m_userAgent);
+            }
+            curl_setopt($lCurl, CURLOPT_POST, 1);
+            curl_setopt($lCurl, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($lCurl, CURLOPT_SSL_VERIFYHOST, false);
+            curl_setopt($lCurl, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($lCurl, CURLOPT_POSTFIELDS, $this->m_content);
         }
         
         $this->m_responseText = utf8_decode(curl_exec($lCurl));

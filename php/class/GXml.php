@@ -142,10 +142,6 @@ class GXml {
         $this->m_node = $this->m_next;
     }
     //===============================================
-    public function createRNode($_path, $_value = null, $_isCData = false) {
-        $this->createXNode($_path, $_value, $_isCData, false);
-    }
-    //===============================================
     public function createXAttribute($_path, $_name, $_value) {
         $this->createXNode($_path);
         $this->setAttribute($_name, $_value);

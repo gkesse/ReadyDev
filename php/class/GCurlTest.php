@@ -24,8 +24,14 @@
             else if($this->m_method == "http_get") {
                 $this->runHttpGet();
             }
+            else if($this->m_method == "http_post") {
+                $this->runHttpPost();
+            }
             else if($this->m_method == "https_get") {
                 $this->runHttpsGet();
+            }
+            else if($this->m_method == "https_post") {
+                $this->runHttpsPost();
             }
             else {
                 $this->addError("Erreur la méthode est inconnue.");
@@ -34,12 +40,33 @@
         //===============================================
         public function runTest() {
             $lCurl = new GCurl();
-            $lCurl->setAction("http_get");
-            $lCurl->setUrl("http://192.168.1.45:9071/readyapi-1.0/deux/trois");
+            $lCurl->setAction("https_get");
+            $lCurl->setUrl("https://192.168.1.45:9071/readyapi-1.0/un/deux");
             $lCurl->setUserAgent("rdvapp/1.0");
             $lCurl->setUsername("admin");
             $lCurl->setPassword("adminpass");
             $lCurl->setContentType("application/xml");
+            $lCurl->setTimeout(3);
+            $lCurl->setHasUserAgent(true);
+            $lCurl->setHasUserPass(true);
+            $lCurl->run();
+            $this->addData($lCurl->getHttpCode());
+            $this->addData($lCurl->getResponseText());
+            $this->addLogs($lCurl->getLogs());
+        }
+        //===============================================
+        public function runHttpsPost() {
+            $lDom = new GCode();
+            $lDom->createRequest("page", "load_page");
+            
+            $lCurl = new GCurl();
+            $lCurl->setAction("https_post");
+            $lCurl->setUrl("https://192.168.1.45:9071/readyapi-1.0");
+            $lCurl->setUserAgent("rdvapp/1.0");
+            $lCurl->setUsername("admin");
+            $lCurl->setPassword("adminpass");
+            $lCurl->setContentType("application/xml");
+            $lCurl->setContent($lDom->toString());
             $lCurl->setTimeout(3);
             $lCurl->setHasUserAgent(true);
             $lCurl->setHasUserPass(true);
@@ -59,10 +86,30 @@
             $this->addLogs($lCurl->getLogs());
         }
         //===============================================
+        public function runHttpPost() {
+            $lDom = new GCode();
+            $lDom->createRequest("page", "load_page");
+            
+            $lCurl = new GCurl();
+            $lCurl->setAction("http_post");
+            $lCurl->setUrl("http://192.168.1.45:9071/readyapi-1.0");           $lCurl->setUserAgent("rdvapp/1.0");
+            $lCurl->setUsername("admin");
+            $lCurl->setPassword("adminpass");
+            $lCurl->setContentType("application/xml");
+            $lCurl->setContent($lDom->toString());
+            $lCurl->setTimeout(3);
+            $lCurl->setHasUserAgent(true);
+            $lCurl->setHasUserPass(true);
+            $lCurl->run();
+            $this->addData($lCurl->getHttpCode());
+            $this->addData($lCurl->getResponseText());
+            $this->addLogs($lCurl->getLogs());            
+        }
+        //===============================================
         public function runHttpGet() {
             $lCurl = new GCurl();
             $lCurl->setAction("http_get");
-            $lCurl->setUrl("http://192.168.1.45:9071/readyapi-1.0/deux/trois");
+            $lCurl->setUrl("http://192.168.1.45:9071/readyapi-1.0/un/deux");
             $lCurl->setUserAgent("rdvapp/1.0");
             $lCurl->setUsername("admin");
             $lCurl->setPassword("adminpass");
