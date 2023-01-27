@@ -1,8 +1,8 @@
 //===============================================
 class GServer extends GObject {
     //===============================================
-    constructor(_codeName = "server") {
-		super(_codeName);
+    constructor() {
+		super();
     }
     //===============================================
 	run(_module, _method, _obj, _data) {
@@ -11,6 +11,15 @@ class GServer extends GObject {
 		}
 		else if(_module == "test") {
 			this.onTest(_method, _obj, _data);
+		}
+		else if(_module == "logs") {
+			this.onLog(_method, _obj, _data);
+		}
+		else if(_module == "editor") {
+			this.onEditor(_method, _obj, _data);
+		}
+		else if(_module == "page") {
+			this.onPage(_method, _obj, _data);
 		}
 		else if(_module == "menu") {
 			this.onMenu(_method, _obj, _data);
@@ -24,17 +33,8 @@ class GServer extends GObject {
 		else if(_module == "manager") {
 			this.onManager(_method, _obj, _data);
 		}
-		else if(_module == "logs") {
-			this.onLog(_method, _obj, _data);
-		}
-		else if(_module == "page") {
-			this.onPage(_method, _obj, _data);
-		}
 		else if(_module == "query") {
 			this.onQuery(_method, _obj, _data);
-		}
-		else if(_module == "editor") {
-			this.onEditor(_method, _obj, _data);
 		}
 		else if(_module == "table") {
 			this.onTable(_method, _obj, _data);
@@ -52,6 +52,24 @@ class GServer extends GObject {
         lTestUi.loadData();
 		lTestUi.onModule()
         this.addLogs(lTestUi.getLogs());
+	}
+    //===============================================
+	onLog(_method, _obj, _data) {
+		var lLogUi = new GLogUi();
+		lLogUi.onModule(_method, _obj, _data)
+        this.addLogs(lLogUi.getLogs());
+	}
+    //===============================================
+	onEditor(_method, _obj, _data) {
+		var lEditorUi = new GEditorUi();
+		lEditorUi.onModule(_method, _obj, _data)
+        this.addLogs(lEditorUi.getLogs());
+	}
+    //===============================================
+	onPage(_method, _obj, _data) {
+		var lPage = new GPage();
+		lPage.onModule(_method, _obj, _data)
+        this.addLogs(lPage.getLogs());
 	}
     //===============================================
 	onMenu(_method, _obj, _data) {
@@ -78,28 +96,10 @@ class GServer extends GObject {
         this.addLogs(lManager.getLogs());
 	}
     //===============================================
-	onLog(_method, _obj, _data) {
-		var lLogUi = new GLogUi();
-		lLogUi.onModule(_method, _obj, _data)
-        this.addLogs(lLogUi.getLogs());
-	}
-    //===============================================
-	onPage(_method, _obj, _data) {
-		var lPage = new GPage();
-		lPage.onModule(_method, _obj, _data)
-        this.addLogs(lPage.getLogs());
-	}
-    //===============================================
 	onQuery(_method, _obj, _data) {
 		var lQuery = new GQuery();
 		lQuery.onModule(_method, _obj, _data)
         this.addLogs(lQuery.getLogs());
-	}
-    //===============================================
-	onEditor(_method, _obj, _data) {
-		var lEditorUi = new GEditorUi();
-		lEditorUi.onModule(_method, _obj, _data)
-        this.addLogs(lEditorUi.getLogs());
 	}
     //===============================================
 	onTable(_method, _obj, _data) {

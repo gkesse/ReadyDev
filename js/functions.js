@@ -48,3 +48,7 @@ function sprintfXml(sourceXml) {
     return resultXml;
 }
 //===============================================
+function stob(_data) {
+    return (_data.toLowerCase() === "true");
+}
+//===============================================

@@ -1125,6 +1125,13 @@ thead tr:first-child {
     color: cyan;
 }
 
+.Icon11 {
+	display: inline-block;
+    font-size: 12px;
+    color: cyan;
+    margin: 0px 5px;
+}
+
 .IFrame {
     background-color: rgba(255, 255, 255, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -1393,6 +1400,13 @@ thead tr:first-child {
     font-size: 18px;
     color: #BF8E3A;
     padding: 10px;
+}
+
+.Link10 {
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    font-size: 16px;
 }
 
 .List {
@@ -1770,6 +1784,13 @@ thead tr:first-child {
     text-align: center;
     font-size: 0px;
     padding-top: 10px;
+}
+
+.Row36 {
+    border: transparent;
+    margin: 5px 0px;
+    position: relative;
+    margin-bottom: 15px;
 }
 
 .Shift1 {

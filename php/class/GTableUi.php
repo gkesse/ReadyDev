@@ -32,7 +32,7 @@ class GTableUi extends GObject {
             $lId = $this->m_dom->getItem3("table", "id", $i);
             $lPageId = $this->m_dom->getItem3("table", "page_id", $i);
             
-            if($lCategory == "table/body") {
+            if($lCategory == "body") {
                 if($lModel == "table") {
                     echo sprintf("<div class='Modal3' id='%s'>\n", $lPageId);
                     echo sprintf("<table id='%s'>\n", $lId);
@@ -56,7 +56,7 @@ class GTableUi extends GObject {
             
             if($lOff) continue;
             
-            if($lCategory == "table/button") {
+            if($lCategory == "button") {
                 if($lModel == "button") {
                     echo sprintf("<button type='button' id='%s' class='Button4' onclick='call_server(\"%s\", \"%s\");'><i class='fa fa-%s'></i> %s</button>\n"
                         , $lId, $lModule, $lCallback, $lPicto, $lText);
@@ -73,6 +73,20 @@ class GTableUi extends GObject {
         echo sprintf("<div class='Row14' id='%s'></div>\n", $lMsgId);
         echo sprintf("</div>\n");
         echo sprintf("</div>\n");
+    }
+    //===============================================
+    public function runEnv() {
+        $lCount = $this->m_dom->countItem("table");
+        
+        for($i = 0; $i < $lCount; $i++) {
+            $lCategory  = $this->m_dom->getItem3("table", "category", $i);
+            $lId        = $this->m_dom->getItem3("table", "id", $i);
+            $lValue     = $this->m_dom->getItem3("table", "value", $i);
+            
+            if($lCategory == "env") {
+                echo sprintf("<input type='hidden' id='%s' value='%s'/>\n", $lId, $lValue);               
+            }
+        }
     }
     //===============================================
 }

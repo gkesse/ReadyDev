@@ -1,14 +1,14 @@
 <?php   
     class GSitemapUi extends GObject {
         //===============================================
-        public function __construct($_codeName = "sitemap") {
-            parent::__construct($_codeName);
+        public function __construct() {
+            parent::__construct();
             $this->loadDom(__CLASS__);
         }
         //===============================================
         public function run() {
-            $lId = $this->m_dom->getItem($this->m_codeName, "id");
-            $lTitle = $this->m_dom->getItem($this->m_codeName, "title");
+            $lId = $this->m_dom->getItem("sitemap", "id");
+            $lTitle = $this->m_dom->getItem("sitemap", "title");
             echo sprintf("<div class='MainBlock'>\n");
             echo sprintf("<div class='Content'>\n");
             echo sprintf("<h1 class='Title2' id='%s'>\n", $lId);
@@ -31,15 +31,15 @@
         public function onHeader() {
             echo sprintf("<div class='Row10'>\n");
             
-            $lCount = $this->m_dom->countItem($this->m_codeName);
-            $lModule = $this->m_dom->getItemC($this->m_codeName, "header/link", "module");
-            $lMethod = $this->m_dom->getItemC($this->m_codeName, "header/link", "method");
+            $lCount = $this->m_dom->countItem("sitemap");
+            $lModule = $this->m_dom->getItemC("sitemap", "header/link", "module");
+            $lMethod = $this->m_dom->getItemC("sitemap", "header/link", "method");
             
             for($i = 0; $i < $lCount; $i++) {
-                $lCategory = $this->m_dom->getItem3($this->m_codeName, "category", $i);
-                $lToolTip = $this->m_dom->getItem3($this->m_codeName, "tooltip", $i);
-                $lId = $this->m_dom->getItem3($this->m_codeName, "id", $i);
-                $lName = $this->m_dom->getItem3($this->m_codeName, "name", $i);
+                $lCategory = $this->m_dom->getItem3("sitemap", "category", $i);
+                $lToolTip = $this->m_dom->getItem3("sitemap", "tooltip", $i);
+                $lId = $this->m_dom->getItem3("sitemap", "id", $i);
+                $lName = $this->m_dom->getItem3("sitemap", "name", $i);
                 
                 if($lCategory == "header") {
                     echo sprintf("<div class='Col'>\n");
@@ -53,9 +53,9 @@
         }
         //===============================================
         public function onHome() {
-            $lId = $this->m_dom->getItemC($this->m_codeName, "home", "id");
-            $lTitle = $this->m_dom->getItemC($this->m_codeName, "home", "title");
-            $lIntro = $this->m_dom->getItemC($this->m_codeName, "home", "intro");
+            $lId = $this->m_dom->getItemC("sitemap", "home", "id");
+            $lTitle = $this->m_dom->getItemC("sitemap", "home", "title");
+            $lIntro = $this->m_dom->getItemC("sitemap", "home", "intro");
             
             echo sprintf("<div class='Row Left sitemap_tab_ctn' id='%s'>\n", $lId);
             echo sprintf("<h2 class='Title4'>%s</h2>\n", $lTitle);
@@ -66,9 +66,9 @@
         }
         //===============================================
         public function onEnum() {
-            $lId = $this->m_dom->getItemC($this->m_codeName, "enum", "id");
-            $lTitle = $this->m_dom->getItemC($this->m_codeName, "enum", "title");
-            $lCount = $this->m_dom->countItem($this->m_codeName);
+            $lId = $this->m_dom->getItemC("sitemap", "enum", "id");
+            $lTitle = $this->m_dom->getItemC("sitemap", "enum", "title");
+            $lCount = $this->m_dom->countItem("sitemap");
             
             echo sprintf("<div class='Row Left sitemap_tab_ctn' id='%s'\n", $lId);
             echo sprintf("onkeypress='saveFileKey(event);'>\n");
@@ -76,12 +76,12 @@
             echo sprintf("<div class='Body13 Center'>\n");
             
             for($i = 0; $i < $lCount; $i++) {
-                $lCategory = $this->m_dom->getItem3($this->m_codeName, "category", $i);
-                $lName = $this->m_dom->getItem3($this->m_codeName, "name", $i);
-                $lPicto = $this->m_dom->getItem3($this->m_codeName, "picto", $i);
-                $lToolTip = $this->m_dom->getItem3($this->m_codeName, "tooltip", $i);
-                $lModule = $this->m_dom->getItem3($this->m_codeName, "module", $i);
-                $lMethod = $this->m_dom->getItem3($this->m_codeName, "method", $i);
+                $lCategory = $this->m_dom->getItem3("sitemap", "category", $i);
+                $lName = $this->m_dom->getItem3("sitemap", "name", $i);
+                $lPicto = $this->m_dom->getItem3("sitemap", "picto", $i);
+                $lToolTip = $this->m_dom->getItem3("sitemap", "tooltip", $i);
+                $lModule = $this->m_dom->getItem3("sitemap", "module", $i);
+                $lMethod = $this->m_dom->getItem3("sitemap", "method", $i);
                 
                 if($lCategory == "enum_action") {
                     echo sprintf("<button class='Button7' type='button' title=\"%s\"\n", $lToolTip);
@@ -94,9 +94,9 @@
             echo sprintf("<div class='Content9'>\n");
             
             for($i = 0; $i < $lCount; $i++) {
-                $lCategory = $this->m_dom->getItem3($this->m_codeName, "category", $i);
-                $lLabel = $this->m_dom->getItem3($this->m_codeName, "label", $i);
-                $lId = $this->m_dom->getItem3($this->m_codeName, "id", $i);
+                $lCategory = $this->m_dom->getItem3("sitemap", "category", $i);
+                $lLabel = $this->m_dom->getItem3("sitemap", "label", $i);
+                $lId = $this->m_dom->getItem3("sitemap", "id", $i);
                 
                 if($lCategory == "enum_form") {
                     echo sprintf("<div class='Row9'>\n");
@@ -112,22 +112,22 @@
         }
         //===============================================
         public function onList() {
-            $lId = $this->m_dom->getItemC($this->m_codeName, "list", "id");
-            $lUrl = $this->m_dom->getItemC($this->m_codeName, "list", "url");
-            $lTitle = $this->m_dom->getItemC($this->m_codeName, "list", "title");
-            $lCount = $this->m_dom->countItem($this->m_codeName);
+            $lId = $this->m_dom->getItemC("sitemap", "list", "id");
+            $lUrl = $this->m_dom->getItemC("sitemap", "list", "url");
+            $lTitle = $this->m_dom->getItemC("sitemap", "list", "title");
+            $lCount = $this->m_dom->countItem("sitemap");
             
             echo sprintf("<div class='Row Left sitemap_tab_ctn' id='%s'>\n", $lId);
             echo sprintf("<h2 class='Title4'>%s</h2>\n", $lTitle);
             echo sprintf("<div class='Body13 Center'>\n");
             
             for($i = 0; $i < $lCount; $i++) {
-                $lCategory = $this->m_dom->getItem3($this->m_codeName, "category", $i);
-                $lName = $this->m_dom->getItem3($this->m_codeName, "name", $i);
-                $lPicto = $this->m_dom->getItem3($this->m_codeName, "picto", $i);
-                $lToolTip = $this->m_dom->getItem3($this->m_codeName, "tooltip", $i);
-                $lModule = $this->m_dom->getItem3($this->m_codeName, "module", $i);
-                $lMethod = $this->m_dom->getItem3($this->m_codeName, "method", $i);
+                $lCategory = $this->m_dom->getItem3("sitemap", "category", $i);
+                $lName = $this->m_dom->getItem3("sitemap", "name", $i);
+                $lPicto = $this->m_dom->getItem3("sitemap", "picto", $i);
+                $lToolTip = $this->m_dom->getItem3("sitemap", "tooltip", $i);
+                $lModule = $this->m_dom->getItem3("sitemap", "module", $i);
+                $lMethod = $this->m_dom->getItem3("sitemap", "method", $i);
                 
                 if($lCategory == "list_action") {
                     echo sprintf("<button class='Button7' type='button' title=\"%s\"\n", $lToolTip);
@@ -145,22 +145,22 @@
         }
         //===============================================
         public function onGenerate() {
-            $lId = $this->m_dom->getItemC($this->m_codeName, "generate", "id");
-            $lUrl = $this->m_dom->getItemC($this->m_codeName, "generate", "url");
-            $lTitle = $this->m_dom->getItemC($this->m_codeName, "generate", "title");
-            $lCount = $this->m_dom->countItem($this->m_codeName);
+            $lId = $this->m_dom->getItemC("sitemap", "generate", "id");
+            $lUrl = $this->m_dom->getItemC("sitemap", "generate", "url");
+            $lTitle = $this->m_dom->getItemC("sitemap", "generate", "title");
+            $lCount = $this->m_dom->countItem("sitemap");
             
             echo sprintf("<div class='Row Left sitemap_tab_ctn' id='%s'>\n", $lId);
             echo sprintf("<h2 class='Title4'>%s</h2>\n", $lTitle);
             echo sprintf("<div class='Body13 Center'>\n");
             
             for($i = 0; $i < $lCount; $i++) {
-                $lCategory = $this->m_dom->getItem3($this->m_codeName, "category", $i);
-                $lName = $this->m_dom->getItem3($this->m_codeName, "name", $i);
-                $lPicto = $this->m_dom->getItem3($this->m_codeName, "picto", $i);
-                $lToolTip = $this->m_dom->getItem3($this->m_codeName, "tooltip", $i);
-                $lModule = $this->m_dom->getItem3($this->m_codeName, "module", $i);
-                $lMethod = $this->m_dom->getItem3($this->m_codeName, "method", $i);
+                $lCategory = $this->m_dom->getItem3("sitemap", "category", $i);
+                $lName = $this->m_dom->getItem3("sitemap", "name", $i);
+                $lPicto = $this->m_dom->getItem3("sitemap", "picto", $i);
+                $lToolTip = $this->m_dom->getItem3("sitemap", "tooltip", $i);
+                $lModule = $this->m_dom->getItem3("sitemap", "module", $i);
+                $lMethod = $this->m_dom->getItem3("sitemap", "method", $i);
                 
                 if($lCategory == "generate_action") {
                     echo sprintf("<button class='Button7' type='button' title=\"%s\"\n", $lToolTip);
@@ -178,21 +178,21 @@
         }
         //===============================================
         public function onVisualize() {
-            $lId    = $this->m_dom->getItemC($this->m_codeName, "visualize", "id");
-            $lTitle = $this->m_dom->getItemC($this->m_codeName, "visualize", "title");
-            $lCount = $this->m_dom->countItem($this->m_codeName);
+            $lId    = $this->m_dom->getItemC("sitemap", "visualize", "id");
+            $lTitle = $this->m_dom->getItemC("sitemap", "visualize", "title");
+            $lCount = $this->m_dom->countItem("sitemap");
             
             echo sprintf("<div class='Row Left sitemap_tab_ctn' id='%s'>\n", $lId);
             echo sprintf("<h2 class='Title4'>%s</h2>\n", $lTitle);
             
             echo sprintf("<div class='Body7 Center'>\n");            
             for($i = 0; $i < $lCount; $i++) {
-                $lCategory  = $this->m_dom->getItem3($this->m_codeName, "category", $i);
-                $lName      = $this->m_dom->getItem3($this->m_codeName, "name", $i);
-                $lPicto     = $this->m_dom->getItem3($this->m_codeName, "picto", $i);
-                $lToolTip   = $this->m_dom->getItem3($this->m_codeName, "tooltip", $i);
-                $lModule    = $this->m_dom->getItem3($this->m_codeName, "module", $i);
-                $lMethod    = $this->m_dom->getItem3($this->m_codeName, "method", $i);
+                $lCategory  = $this->m_dom->getItem3("sitemap", "category", $i);
+                $lName      = $this->m_dom->getItem3("sitemap", "name", $i);
+                $lPicto     = $this->m_dom->getItem3("sitemap", "picto", $i);
+                $lToolTip   = $this->m_dom->getItem3("sitemap", "tooltip", $i);
+                $lModule    = $this->m_dom->getItem3("sitemap", "module", $i);
+                $lMethod    = $this->m_dom->getItem3("sitemap", "method", $i);
                 
                 if($lCategory == "visualize_action") {
                     echo sprintf("<button class='Button7' type='button' title=\"%s\"\n", $lToolTip);
@@ -203,13 +203,13 @@
             
             echo sprintf("<div class='Body0 Center'>\n");
             for($i = 0; $i < $lCount; $i++) {
-                $lCategory  = $this->m_dom->getItem3($this->m_codeName, "category", $i);
-                $lName      = $this->m_dom->getItem3($this->m_codeName, "name", $i);
-                $lPicto     = $this->m_dom->getItem3($this->m_codeName, "picto", $i);
-                $lToolTip   = $this->m_dom->getItem3($this->m_codeName, "tooltip", $i);
-                $lModule    = $this->m_dom->getItem3($this->m_codeName, "module", $i);
-                $lMethod    = $this->m_dom->getItem3($this->m_codeName, "method", $i);
-                $lId        = $this->m_dom->getItem3($this->m_codeName, "id", $i);
+                $lCategory  = $this->m_dom->getItem3("sitemap", "category", $i);
+                $lName      = $this->m_dom->getItem3("sitemap", "name", $i);
+                $lPicto     = $this->m_dom->getItem3("sitemap", "picto", $i);
+                $lToolTip   = $this->m_dom->getItem3("sitemap", "tooltip", $i);
+                $lModule    = $this->m_dom->getItem3("sitemap", "module", $i);
+                $lMethod    = $this->m_dom->getItem3("sitemap", "method", $i);
+                $lId        = $this->m_dom->getItem3("sitemap", "id", $i);
                 
                 if($lCategory == "visualize_sitemap") {
                     echo sprintf("<button class='Button8 sitemap_file_tab' type='button' title=\"%s\"\n", $lToolTip);
@@ -220,10 +220,10 @@
             
             echo sprintf("<div class='Body14'>\n");
             for($i = 0; $i < $lCount; $i++) {
-                $lCategory  = $this->m_dom->getItem3($this->m_codeName, "category", $i);
-                $lId        = $this->m_dom->getItem3($this->m_codeName, "id", $i);
-                $lTitle     = $this->m_dom->getItem3($this->m_codeName, "title", $i);
-                $lContent   = $this->m_dom->getItem3($this->m_codeName, "content", $i);
+                $lCategory  = $this->m_dom->getItem3("sitemap", "category", $i);
+                $lId        = $this->m_dom->getItem3("sitemap", "id", $i);
+                $lTitle     = $this->m_dom->getItem3("sitemap", "title", $i);
+                $lContent   = $this->m_dom->getItem3("sitemap", "content", $i);
                 
                 if($lCategory == "visualize_content") {
                     echo sprintf("<div class='sitemap_file_tabCtn' id='%s'>\n", $lId);

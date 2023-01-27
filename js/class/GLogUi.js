@@ -49,7 +49,7 @@ class GLogUi extends GObject {
     //===============================================
 	onShowPhpLogs() {
         var lLogsPhpData = document.getElementById("LogsPhpData");
-        var lData = lLogsPhpData.value;
+        var lData = lLogsPhpData.innerHTML;
         this.loadLogs(lData);
 	}
     //===============================================

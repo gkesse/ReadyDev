@@ -3,35 +3,23 @@ class GModule extends GObject {
     //===============================================
     constructor() {
         super();
-        this.module = "";
-        this.method = "";
+        this.m_module = "";
+        this.m_method = "";
     }
     //===============================================
-    deserialize(data, code = "request") {
+    serialize(_code = "request") {
+        var lDom = new GCode();
+        lDom.createDoc();
+        lDom.addData(_code, "module", this.m_module);
+        lDom.addData(_code, "method", this.m_method);
+        return lDom.toString();
+    }
+    //===============================================
+    deserialize(_data, _code = "request") {
         var lData = new GCode();
-        lData.loadXml(data);
-        this.module = lData.getItem(code, "module");
-        this.method = lData.getItem(code, "method");
-    }
-    //===============================================
-    onModuleNone() {
-        var lLog = GLog.Instance();
-        lLog.addError(sprintf("Le module est obligatoire."))
-    }
-    //===============================================
-    onMethodNone() {
-        var lLog = GLog.Instance();
-        lLog.addError(sprintf("La méthode est obligatoire."))
-    }
-    //===============================================
-    onModuleUnknown() {
-        var lLog = GLog.Instance();
-        lLog.addError(sprintf("Le module n'existe pas."))
-    }
-    //===============================================
-    onMethodUnknown() {
-        var lLog = GLog.Instance();
-        lLog.addError(sprintf("Le méthode n'existe pas."))
+        lData.loadXml(_data);
+        this.m_module = lData.getItem(_code, "module");
+        this.m_method = lData.getItem(_code, "method");
     }
     //===============================================
 }

@@ -20,6 +20,9 @@
             else if($this->m_module == "curl") {
                 $this->runCurl();
             }
+            else if($this->m_module == "sqlite") {
+                $this->runSQLite();
+            }
             else {
                 $this->m_headerUi->run();
                 $this->addError("Erreur le module est inconnu.");
@@ -43,6 +46,12 @@
             $lCurlTest = new GCurlTest();
             $lCurlTest->run();
             $this->addLogs($lCurlTest->getLogs());
+        }
+        //===============================================
+        public function runSQLite() {
+            $lTest = new GSQLiteTest();
+            $lTest->run();
+            $this->addLogs($lTest->getLogs());
         }
         //===============================================
     }

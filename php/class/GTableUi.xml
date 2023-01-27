@@ -16,20 +16,47 @@
 			<keypress_cb>keypress_table</keypress_cb>
 			<close_cb>close_table</close_cb>
 			<map>
+                <!-- ============================================ -->
+                <!-- env -->
+                <!-- ============================================ -->
+                <data>
+					<category>env</category>
+                    <id>TableCurrentData</id>
+                </data>
+                <data>
+					<category>env</category>
+                    <id>TableHeaderVisible</id>
+                </data>
+                <data>
+					<category>env</category>
+                    <id>TableSelectModule</id>
+                </data>
+                <data>
+					<category>env</category>
+                    <id>TableSelectMethod</id>
+                </data>
+                <data>
+					<category>env</category>
+                    <id>TableNextModule</id>
+                </data>
+                <data>
+					<category>env</category>
+                    <id>TableNextMethod</id>
+                </data>
 				<!-- ============================================ -->
-				<!-- table/body -->
+				<!-- body -->
 				<!-- ============================================ -->
 				<data>
-					<category>table/body</category>
+					<category>body</category>
 					<model>table</model>
 					<id>TableId</id>
 					<page_id>TablePage</page_id>
 				</data>
 				<!-- ============================================ -->
-				<!-- table/button -->
+				<!-- button -->
 				<!-- ============================================ -->
 				<data>
-					<category>table/button</category>
+					<category>button</category>
 					<model>button</model>
 					<id>TableSelectData</id>
 					<module>table</module>
@@ -38,7 +65,7 @@
 					<text>Sélectionner</text>
 				</data>
 				<data>
-					<category>table/button</category>
+					<category>button</category>
 					<model>button/icon</model>
 					<id>TableNextData</id>
 					<module>table</module>

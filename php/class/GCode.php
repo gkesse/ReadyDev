@@ -15,23 +15,24 @@ class GCode extends GXml {
     //===============================================
     public function addMap($_code, $_map) {
         if(!count($_map)) return false;
-        $this->createCode($_code);
-        $this->getCode($_code);
-        $this->createXNode("map");
+        if(!$this->getXNode(sprintf("/rdv/datas/data[code='%s']/map", $_code))) {
+            $this->createCode($_code);            
+            $this->getCode($_code);
+            $this->createXNode("map");
+        }
         for($i = 0; $i < count($_map); $i++) {
             $lObj = $_map[$i];
             $lData = $lObj->serialize($_code);
             $lDom = new GCode();
             $lDom->loadXml($lData);
             $lData = $lDom->toStringData();            
-            $this->loadNode($lData, false);
+            $this->loadNode($lData);
         }
         return true;
     }
     //===============================================
     public function getMap($_code, &$_map, $_obj) {
-        $lCount = $this->countItem($_code);
-        
+        $lCount = $this->countItem($_code);       
         for($i = 0; $i < $lCount; $i++) {
             $lData = $this->getMapItem($_code, $i);
             $lObj = $_obj->clone();
@@ -41,23 +42,11 @@ class GCode extends GXml {
         return true;
     }
     //===============================================
-    public function getMap2($_code, &$datas, $obj) {
-        $lCount = $this->countItem($_code);
-        
-        for($i = 0; $i < $lCount; $i++) {
-            $lData = $this->getMapItem($_code, $i);
-            $lObj = $obj->clone();
-            $lObj->deserialize($lData, $_code);
-            $datas[] = $lObj;
-        }
-        return true;
-    }
-    //===============================================
     public function getMapItem($code, $index) {
         $this->getXNode(sprintf("/rdv/datas/data[code='%s']/map/data[position()=%d]", $code, $index + 1));
         $lData = $this->toStringNode();
+        $lData = sprintf("<rdv>%s</rdv>", $lData);
         $lDom = new GCode();
-        $lDom->createDoc();
         $lDom->createXNode("/rdv/datas");
         $lDom->loadNode($lData);
         return $lDom->toString();
@@ -157,12 +146,6 @@ class GCode extends GXml {
         return ($lCount != 0);
     }
     //===============================================
-    public function hasDatas() {
-        $this->queryXPath(sprintf("/rdv/datas"));
-        $lCount = $this->countXPath();
-        return ($lCount != 0);
-    }
-    //===============================================
     public function loadCode($_data) {
         $_data = trim($_data);
         if($_data == "") return false;
@@ -178,7 +161,7 @@ class GCode extends GXml {
         $lDom->loadXml($_data);
         $lData = $lDom->toStringData();
         $this->createDatas();
-        $this->loadNode($lData, false);
+        $this->loadNode($lData);
         return true;
     }
     //===============================================
@@ -190,8 +173,7 @@ class GCode extends GXml {
     //===============================================
     public function toStringData() {
         $lData = "";
-        if($this->hasDatas()) {
-            $this->getXNode(sprintf("/rdv/datas"));
+        if($this->getXNode(sprintf("/rdv/datas"))) {
             $lData = $this->toStringNode();
         }
         return $lData;

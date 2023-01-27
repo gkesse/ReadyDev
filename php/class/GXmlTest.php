@@ -36,14 +36,63 @@
         }
         //===============================================
         public function runTest() {
-            $lPage = new GPageFac();
-            $lPage->searchPage();
-            $this->addData($lPage->serialize());
+            $lCode = new GCode();            
+            $lCode->addData("page", "name", "admin");
+            $lCode->addData("page", "title", "Administration");
+            $lCode->addData("page", "url", "home/admin");
+            $lCode->addData("page", "path", "/path/home/admin.php");
+            
+            $lCode->createXNode("map");
+            
+            for($i = 0; $i < 2; $i++) {
+                $lCode->pushNode();
+                $lCode->createNode("data");
+                $lCode->next();
+                $lCode->createVNode("code", "page");
+                $lCode->createVNode("id", $i + 1);
+                $lCode->createVNode("name", "admin");
+                $lCode->createVNode("title", "Administration");
+                $lCode->createVNode("url", "home/admin");
+                $lCode->createVNode("path", "/path/home/admin.php");                
+                $lCode->popNode();
+            }
+            
+            $lDom = new GCode();
+            $lDom->addData("logs", "type", "error");
+            $lDom->addData("logs", "side", "server");
+            $lDom->addData("logs", "msg", "Erreur lors de la lecture de l'ID.");
+            
+            $lCode->loadData($lDom->toString());
+            
+            $this->addData($lCode->toString());
         }
         //===============================================
         public function runSerialize() {
+            $lCode = new GCode();
+            $lCode->createDoc();
+            
+            $lCode->addData("page", "name", "admin");
+            $lCode->addData("page", "title", "Administration");
+            $lCode->addData("page", "url", "home/admin");
+            $lCode->addData("page", "path", "/path/home/admin.php");
+            
+            $lCode->createXNode("map");
+            
+            for($i = 0; $i < 2; $i++) {
+                $lCode->pushNode();
+                $lCode->createNode("data");
+                $lCode->next();
+                $lCode->createVNode("code", "page");
+                $lCode->createVNode("id", $i + 1);
+                $lCode->createVNode("name", "admin");
+                $lCode->createVNode("title", "Administration");
+                $lCode->createVNode("url", "home/admin");
+                $lCode->createVNode("path", "/path/home/admin.php");
+                $lCode->popNode();
+            }
+            
             $lPage = new GPageFac();
-            $lPage->searchPage();
+            $lPage->deserialize($lCode->toString());
             $this->addData($lPage->serialize());
         }
         //===============================================

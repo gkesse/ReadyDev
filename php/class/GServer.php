@@ -2,25 +2,15 @@
 //===============================================
 class GServer extends GModule {
     //===============================================
-    protected $m_responseXml;
     protected $m_type;
     //===============================================
     public function __construct() {
         parent::__construct();
-        $this->m_responseXml = new GCode();
-        $this->m_responseXml->createDoc();
-    }
-    //===============================================
-    public function addResponse($_data) {
-        $this->m_responseXml->loadData($_data);
-    }
-    //===============================================
-    public function readErrors() {
-        $this->addResponse($this->loadErrors());
     }
     //===============================================
     public function sendResponse() {
-        echo $this->m_responseXml->toString();
+        $this->addResponse($this->loadLogs());
+        echo $this->toResponse();
     }
     //===============================================
     public function serialize($_code = "server") {
@@ -38,6 +28,7 @@ class GServer extends GModule {
     }
     //===============================================
     public function run($_data) {
+        $this->deserialize($_data);
         if($this->m_type == "") {
             $this->addError("Erreur le type du traitement est obligatoire.");
         }
@@ -53,24 +44,11 @@ class GServer extends GModule {
     }
     //===============================================
     public function runLocal($_data) {
-        $this->deserialize($_data);
         if($this->m_module == "") {
             $this->addError("Erreur le module est obligatoire.");
         }
         else if($this->m_module == "page") {
             $this->onPage($_data);
-        }
-        else if($this->m_module == "user") {
-            $this->onUser($_data, $this);
-        }
-        else if($this->m_module == "sitemap") {
-            $this->onSitemap($_data, $this);
-        }
-        else if($this->m_module == "query") {
-            $this->onQuery($_data, $this);
-        }
-        else if($this->m_module == "manager") {
-            $this->onManager($_data, $this);
         }
         else {
             $this->addError("Erreur le module est inconnu.");
@@ -78,7 +56,10 @@ class GServer extends GModule {
     }
     //===============================================
     public function runRemote($_data) {
-        
+        $lCurl = new GCurl();
+        $lCurl->callProxy($_data);
+        $this->addLogs($lCurl->getLogs());
+        $this->addResponse($lCurl->getResponseText());
     }
     //===============================================
     public function onPage($_data) {
@@ -86,26 +67,6 @@ class GServer extends GModule {
         $lPage->onModule($_data);
         $this->addLogs($lPage->getLogs());
         $this->addResponse($lPage->serialize());
-    }
-    //===============================================
-    public function onUser($data, $server) {
-        $lUser = new GUser();
-        $lUser->onModule($data, $server);
-    }
-    //===============================================
-    public function onSitemap($data, $server) {
-        $lSitemap = new GSitemap();
-        $lSitemap->onModule($data, $server);
-    }
-    //===============================================
-    public function onQuery($data, $server) {
-        $lQuery = new GQuery();
-        $lQuery->onModule($data, $server);
-    }
-    //===============================================
-    public function onManager($data, $server) {
-        $lManager = new GManager();
-        $lManager->onModule($data, $server);
     }
     //===============================================
  }

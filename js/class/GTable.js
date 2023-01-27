@@ -3,84 +3,81 @@ class GTable extends GModule {
     //===============================================
     constructor() {
         super();
-        this.data = "";
-        this.type = "0";
-        this.rows = "0";
-        this.cols = "0";
-        this.value = "";
-        //
-        this.currentData = "";
-        this.selectModule = "";
-        this.selectMethod = "";
-        this.headerVisible = 0;
-        //
-        this.row = null;
-        this.col = null;
-        this.rowH = null;
-        this.colH = null;
-        //
-        this.tablePage = null;
-        this.nextData = null;
-        this.selectData = null;
-        //
+        this.m_data = "";
+        this.m_type = "header";
+        this.m_row = 0;
+        this.m_col = 0;
+        this.m_value = "";
+
+        this.m_currentData = "";
+        this.m_selectModule = "";
+        this.m_selectMethod = "";
+        this.m_headerVisible = false;
+
+        this.m_rowB = null;
+        this.m_colB = null;
+        this.m_rowH = null;
+        this.m_colH = null;
+
+        this.m_tablePage = null;
+        this.m_nextData = null;
+        this.m_selectData = null;
+
         var lTable = document.getElementById("TableId");
-        this.header = lTable.createTHead();
-        this.body = lTable.createTBody();
+        this.m_header = lTable.createTHead();
+        this.m_body = lTable.createTBody();
     }
     //===============================================
-    serialize(isDom = false, code = "table") {
+    serialize(_code = "table") {
         var lDom = new GCode();
         lDom.createDoc();
-        lDom.addData(code, "data", this.data, true);
-        lDom.addData(code, "type", this.type);
-        lDom.addData(code, "rows", this.rows);
-        lDom.addData(code, "cols", this.cols);
-        lDom.addData(code, "value", this.value, true);
-        var lData = lDom.toStringData();
-        if(isDom) lData = lDom.toString();
-        return lData;
+        lDom.addData(_code, "data", this.m_data, true);
+        lDom.addData(_code, "type", this.m_type);
+        lDom.addData(_code, "row", ""+this.m_row);
+        lDom.addData(_code, "col", ""+this.m_col);
+        lDom.addData(_code, "value", this.m_value, true);
+        return lDom.toString();
     }
     //===============================================
-    deserialize(data, code = "table") {
-        super.deserialize(data);
+    deserialize(_data, _code = "table") {
+        super.deserialize(_data);
         var lDom = new GCode();
-        lDom.loadXml(data);
-        this.data = lDom.getItem(code, "data", true);
-        this.type = lDom.getItem(code, "type");
-        this.rows = lDom.getItem(code, "rows");
-        this.cols = lDom.getItem(code, "cols");
-        this.value = lDom.getItem(code, "value", true);
+        lDom.loadXml(_data);
+        this.m_data = lDom.getItem(_code, "data", true);
+        this.m_type = lDom.getItem(_code, "type");
+        this.m_row = +lDom.getItem(_code, "row");
+        this.m_col = +lDom.getItem(_code, "col");
+        this.m_value = lDom.getItem(_code, "value", true);
     }
     //===============================================
-    onModule(method, obj, data) {
-        if(method == "") {
-            this.onMethodNone();
-            return false;
+    getRow() {
+        return this.m_row;
+    }
+    //===============================================
+    getCol() {
+        return this.m_col;
+    }
+    //===============================================
+    onModule(_method, _obj, _data) {
+        if(_method == "") {
+            this.addError("Erreur la méthode est obligatoire.");
         }
-        //===============================================
-        // method
-        //===============================================
-        else if(method == "close_table") {
-            this.onCloseTable();
+        else if(_method == "close_table") {
+            this.onCloseTable(_method, _obj, _data);
         }
-        else if(method == "current_data") {
-            this.onCurrentData(obj, data);
+        else if(_method == "current_data") {
+            this.onCurrentData(_method, _obj, _data);
         }
-        else if(method == "select_data") {
-            this.onSelectData();
+        else if(_method == "select_data") {
+            this.onSelectData(_method, _obj, _data);
         }
-        else if(method == "next_data") {
-            this.onNextData();
+        else if(_method == "next_data") {
+            this.onNextData(_method, _obj, _data);
         }
-        //===============================================
-        // end
-        //===============================================
         else {
-            this.onMethodUnknown();
-            return false;
+            this.addError("Erreur la méthode est inconnue.");
         }
-        //===============================================
-        return true;
+        return !this.hasErrors();
     }
     //===============================================
     showData() {
@@ -95,7 +92,7 @@ class GTable extends GModule {
         lModalTable.style.display = "block";
     }
     //===============================================
-    onCloseTable() {
+    onCloseTable(_method, _obj, _data) {
         var lModalTable = document.getElementById("ModalTable");
         var lTableBody = document.getElementById("TableBody");
         var lClassName = lTableBody.className;
@@ -108,50 +105,74 @@ class GTable extends GModule {
         this.clear();
     }
     //===============================================
-    onCurrentData(obj, data) {
+    onCurrentData(_method, _obj, _data) {
         this.readUi();
-        this.deserialize(data);
-        if(this.type == "0") return false;
-        this.currentData = data;
+        this.deserialize(_data);
+        if(this.m_type == "header") return false;
+        this.m_currentData = _data;
         this.writeUi();
         return true;
     }
     //===============================================
-    onSelectData() {
+    onSelectData(_method, _obj, _data) {
         this.readUi();
-        if(this.currentData == "") return false;
-        if(this.selectModule == "") return false;
-        if(this.selectMethod == "") return false;
-        call_server(this.selectModule, this.selectMethod, this, this.currentData);
+        if(this.m_currentData == "") {
+            this.addError("La donnée courante est obligatoire.");
+            return false;
+        }
+        if(this.m_selectModule == "") {
+            this.addError("Le module courant est obligatoire.");
+            return false;
+        }
+        if(this.m_selectMethod == "") {
+            this.addError("La méthode courant est obligatoire.");
+            return false;
+        }
+        call_server(this.m_selectModule, this.m_selectMethod, this, this.m_currentData);
         this.writeUi();
-        return true;
+        return !this.hasErrors();
     }
     //===============================================
-    onNextData() {
+    onNextData(_method, _obj, _data) {
         this.readUi();
-        if(this.nextModule == "") return false;
-        if(this.nextMethod == "") return false;
+        if(this.nextModule == "") {
+            this.addError("Le module suivant est obligatoire.");
+            return false;
+        }
+        if(this.nextMethod == "") {
+            this.addError("La méthode suivante est obligatoire.");
+            return false;
+        }
         call_server(this.nextModule, this.nextMethod);
         this.writeUi();
         return true;
     }
     //===============================================
-    setCallback(key, module, method) {
+    setCallback(_key, module, method) {
         this.readUi();
-        if(key == "") return false;
-        if(module == "") return false;
-        if(method == "") return false;
-        //
-        if(key == "select") {
-            this.selectModule = module;
-            this.selectMethod = method;
+        if(_key == "") {
+            this.addError("La clé est obligatoire.");
+            return false;
         }
-        else if(key == "next") {
+        if(module == "") {
+            this.addError("Le module est obligatoire.");
+            return false;
+        }
+        if(method == "") {
+            this.addError("La méthode est obligatoire.");
+            return false;
+        }
+
+        if(_key == "select") {
+            this.m_selectModule = module;
+            this.m_selectMethod = method;
+        }
+        else if(_key == "next") {
             this.nextModule = module;
             this.nextMethod = method;
         }
         this.writeUi();
-        return true;
+        return !this.hasErrors();
     }
     //===============================================
     clear() {
@@ -163,77 +184,79 @@ class GTable extends GModule {
     //===============================================
     pushRowH() {
         this.readUi();
-        if(this.headerVisible) return false;
-        this.rowH = this.header.insertRow();
+        if(!this.m_headerVisible) return false;
+        this.m_rowH = this.m_header.insertRow();
         this.writeUi();
-        return true;
+        return !this.hasErrors();
     }
     //===============================================
     pushColH(data, value) {
         this.readUi();
-        if(this.headerVisible) return false;
-        this.colH = this.rowH.insertCell();
-        this.colH.innerHTML = value;
-        var lRows = this.rowH.rowIndex;
-        var lCols = this.colH.cellIndex;
+        if(!this.m_headerVisible) return false;
+        this.m_colH = this.m_rowH.insertCell();
+        this.m_colH.innerHTML = value;
+        var lRow = this.m_rowH.rowIndex;
+        var lCol = this.m_colH.cellIndex;
         //
-        this.colH.addEventListener("click", function(e) {
+        this.m_colH.addEventListener("click", function(e) {
             var lTable = new GTable();
-            lTable.data = data;
-            lTable.type = "0";
-            lTable.rows = ""+lRows;
-            lTable.cols = ""+lCols;
-            lTable.value = value;
-            var lData = lTable.serialize(true);
+            lTable.m_data = data;
+            lTable.m_type = "header";
+            lTable.m_row = lRow;
+            lTable.m_col = lCol;
+            lTable.m_value = value;
+            var lData = lTable.serialize();
             call_server("table", "current_data", this, lData);
         });
         //
-        this.colH.addEventListener("dblclick", function(e) {
+        this.m_colH.addEventListener("dblclick", function(e) {
             var lTable = new GTable();
-            lTable.data = data;
-            lTable.type = "0";
-            lTable.rows = ""+lRows;
-            lTable.cols = ""+lCols;
-            lTable.value = value;
-            var lData = lTable.serialize(true);
+            lTable.m_data = data;
+            lTable.m_type = "header";
+            lTable.m_row = lRow;
+            lTable.m_col = lCol;
+            lTable.m_value = value;
+            var lData = lTable.serialize();
             call_server("table", "select_data", this, lData);
         });
         this.writeUi();
     }
     //===============================================
     pushRow() {
-        this.row = this.body.insertRow();
+        this.m_rowB = this.m_body.insertRow();
     }
     //===============================================
     pushCol(data, value) {
-        this.col = this.row.insertCell();
-        this.col.innerHTML = value;        
-        var lRows = this.row.rowIndex;
-        var lCols = this.col.cellIndex;
-        this.row.classList.add("Table");
-        //
-        this.col.addEventListener("click", function(e) {
-            var lRow = this.parentNode;
+        this.m_colB = this.m_rowB.insertCell();
+        this.m_colB.innerHTML = value;        
+        var lRow = this.m_rowB.rowIndex;
+        var lCol = this.m_colB.cellIndex;
+        this.m_rowB.classList.add("Table");
+        
+        if(this.m_headerVisible) lRow--;
+
+        this.m_colB.addEventListener("click", function(e) {
+            var lRowP = this.parentNode;
             var lTable = new GTable();
             lTable.deselectAll("Table", "Active");
-            lRow.classList.add("Active");
-            lTable.data = data;
-            lTable.type = "1";
-            lTable.rows = ""+lRows;
-            lTable.cols = ""+lCols;
-            lTable.value = value;
-            var lData = lTable.serialize(true);
+            lRowP.classList.add("Active");
+            lTable.m_data = data;
+            lTable.m_type = "cell";
+            lTable.m_row = lRow;
+            lTable.m_col = lCol;
+            lTable.m_value = value;
+            var lData = lTable.serialize();
             call_server("table", "current_data", this, lData);
         });
-        //
-        this.col.addEventListener("dblclick", function(e) {
+
+        this.m_colB.addEventListener("dblclick", function(e) {
             var lTable = new GTable();
-            lTable.data = data;
-            lTable.type = "0";
-            lTable.rows = ""+lRows;
-            lTable.cols = ""+lCols;
-            lTable.value = value;
-            var lData = lTable.serialize(true);
+            lTable.m_data = data;
+            lTable.m_type = "header";
+            lTable.m_row = lRow;
+            lTable.m_col = lCol;
+            lTable.m_value = value;
+            var lData = lTable.serialize();
             call_server("table", "select_data", this, lData);
         });
     }
@@ -248,24 +271,23 @@ class GTable extends GModule {
     //===============================================
     scrollBottom() {
         this.readUi();
-        this.tablePage.scrollTop = this.tablePage.scrollHeight;
+        this.m_tablePage.scrollTop = this.m_tablePage.scrollHeight;
         this.writeUi();
     }
     //===============================================
-    setHeaderVisible(isVisible) {
-        this.readUi();
-        this.headerVisible = +isVisible;
+    setHeaderVisible(_isVisible) {
+        this.m_headerVisible = _isVisible;
         this.writeUi();
     }
     //===============================================
     getHeaderVisible() {
         this.readUi();
-        return this.headerVisible;
+        return this.m_headerVisible;
     }
     //===============================================
-    setNextEnable(isEnable) {
+    setNextEnable(_isEnable) {
         this.readUi();
-        this.nextData.disabled = !isEnable;
+        this.m_nextData.disabled = !_isEnable;
     }
     //===============================================
     readUi() {
@@ -275,23 +297,23 @@ class GTable extends GModule {
         var lNextModule = document.getElementById("TableNextModule");
         var lNextMethod = document.getElementById("TableNextMethod");
         var lCurrentData = document.getElementById("TableCurrentData");
-        //
+
         var lTableId = document.getElementById("TableId");
         var lTablePage = document.getElementById("TablePage");
         var lNextData = document.getElementById("TableNextData");
         var lSelectData = document.getElementById("TableSelectData");
-        //
-        this.headerVisible = +lHeaderVisible.value;
-        this.selectModule = lSelectModule.value;
-        this.selectMethod = lSelectMethod.value;
+
+        this.m_headerVisible = stob(lHeaderVisible.value);
+        this.m_selectModule = lSelectModule.value;
+        this.m_selectMethod = lSelectMethod.value;
         this.nextModule = lNextModule.value;
         this.nextMethod = lNextMethod.value;
-        this.currentData = lCurrentData.value;
-        //
+        this.m_currentData = lCurrentData.value;
+
         this.tableId = lTableId;
-        this.tablePage = lTablePage;
-        this.nextData = lNextData;
-        this.selectData = lSelectData;
+        this.m_tablePage = lTablePage;
+        this.m_nextData = lNextData;
+        this.m_selectData = lSelectData;
     }
     //===============================================
     writeUi() {
@@ -301,19 +323,19 @@ class GTable extends GModule {
         var lNextModule = document.getElementById("TableNextModule");
         var lNextMethod = document.getElementById("TableNextMethod");
         var lCurrentData = document.getElementById("TableCurrentData");
-        //
-        lHeaderVisible.value = this.headerVisible;
-        lSelectModule.value = this.selectModule;
-        lSelectMethod.value = this.selectMethod;
+
+        lHeaderVisible.value = this.m_headerVisible;
+        lSelectModule.value = this.m_selectModule;
+        lSelectMethod.value = this.m_selectMethod;
         lNextModule.value = this.nextModule;
         lNextMethod.value = this.nextMethod;
-        lCurrentData.value = this.currentData;
+        lCurrentData.value = this.m_currentData;
     }
     //===============================================
     buttonOn() {
         var lSelect = document.getElementById("TableSelectData");
         var lNext = document.getElementById("TableNextData");
-        //
+
         lSelect.disabled = false;
         lNext.disabled = false;
     }
@@ -321,7 +343,7 @@ class GTable extends GModule {
     buttonOff() {
         var lSelect = document.getElementById("TableSelectData");
         var lNext = document.getElementById("TableNextData");
-        //
+
         lSelect.disabled = true;
         lNext.disabled = true;
     }

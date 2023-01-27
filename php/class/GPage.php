@@ -6,7 +6,7 @@ class GPage extends GObject {
     //===============================================
     public function __construct() {
         parent::__construct();
-        $this->m_get    = new GGet();
+        $this->m_get = new GGet();
         $this->m_pageId = $this->m_get->getGet("pageid");
     }
     //===============================================

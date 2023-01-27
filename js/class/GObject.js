@@ -1,9 +1,13 @@
 //===============================================
 class GObject {
     //===============================================
-    constructor(_codeName = "object") {
-        this.m_codeName = _codeName;
+    constructor() {
         this.m_logs = new GLog();
+        this.m_map = [];
+    }
+    //===============================================
+    clearMap() {
+        this.m_map = [];
     }
     //===============================================
     addError(_error) {

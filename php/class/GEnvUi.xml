@@ -59,33 +59,6 @@
                     <id>ConfirmAction</id>
                 </data>
                 <!-- ============================================ -->
-                <!-- table -->
-                <!-- ============================================ -->
-                <data>
-                    <model>normal</model>
-                    <id>TableCurrentData</id>
-                </data>
-                <data>
-                    <model>normal</model>
-                    <id>TableHeaderVisible</id>
-                </data>
-                <data>
-                    <model>normal</model>
-                    <id>TableSelectModule</id>
-                </data>
-                <data>
-                    <model>normal</model>
-                    <id>TableSelectMethod</id>
-                </data>
-                <data>
-                    <model>normal</model>
-                    <id>TableNextModule</id>
-                </data>
-                <data>
-                    <model>normal</model>
-                    <id>TableNextMethod</id>
-                </data>
-                <!-- ============================================ -->
                 <!-- end -->
                 <!-- ============================================ -->
             </map>

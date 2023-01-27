@@ -30,7 +30,7 @@ class GCurl extends GObject {
     }
     //===============================================
     public function setAction($_action) {
-        $this->m_action = $_action;
+        $this->m_action = $_action; 
     }
     //===============================================
     public function setTimeout($_timeout) {
@@ -110,7 +110,7 @@ class GCurl extends GObject {
             $this->createPath();
             $lFile = fopen($this->m_filename, "w");
             curl_setopt($lCurl, CURLOPT_HEADER, 0);
-            curl_setopt($lCurl, CURLOPT_FILE, $lFile);            
+            curl_setopt($lCurl, CURLOPT_FILE, $lFile);
         }
         else if($this->m_action == "http_get") {
             if($this->m_hasUserAgent) {
@@ -124,7 +124,7 @@ class GCurl extends GObject {
             if($this->m_hasUserAgent) {
                 curl_setopt($lCurl, CURLOPT_USERAGENT, $this->m_userAgent);
             }
-            curl_setopt($lCurl, CURLOPT_POST, 1);            
+            curl_setopt($lCurl, CURLOPT_POST, 1);
             curl_setopt($lCurl, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($lCurl, CURLOPT_POSTFIELDS, $this->m_content);
         }
@@ -149,10 +149,15 @@ class GCurl extends GObject {
             curl_setopt($lCurl, CURLOPT_POSTFIELDS, $this->m_content);
         }
         
-        $this->m_responseText = utf8_decode(curl_exec($lCurl));
-        
+        $this->m_responseText = utf8_decode(curl_exec($lCurl));        
         if(curl_error($lCurl)) {
-            $this->addError(sprintf("Erreur lors de la connexion au serveur.<br>%s", curl_error($lCurl)));
+            $this->m_responseText = utf8_decode(curl_exec($lCurl));            
+            if(curl_error($lCurl)) {
+                $this->m_responseText = utf8_decode(curl_exec($lCurl));
+                if(curl_error($lCurl)) {
+                    $this->addError(sprintf("Erreur lors de la connexion au serveur.<br>%s", curl_error($lCurl)));
+                }
+            }
         }
         
         $this->m_httpCode = curl_getinfo($lCurl, CURLINFO_HTTP_CODE);
@@ -164,6 +169,45 @@ class GCurl extends GObject {
         }
         
         return $this->m_httpCode;
+    }
+    //===============================================
+    public function callServer($_module, $_method, $_data) {
+        $lDom = new GCode();
+        $lDom->createRequest($_module, $_method);
+        $lDom->loadData($_data);
+        $this->callPostHttp($lDom->toString());
+    }
+    //===============================================
+    public function callProxy($_data) {
+        $this->callPostHttp($_data);
+    }
+    //===============================================
+    public function callPostHttp($_data) {
+        $this->setAction("https_post");
+        $this->setUrl("https://readydev.ovh:9081/readyapi 1.0");
+        $this->setUserAgent("rdvapp/1.0");
+        $this->setUsername("admin");
+        $this->setPassword("adminpass");
+        $this->setContentType("application/xml");
+        $this->setContent($_data);
+        $this->setTimeout(3);
+        $this->setHasUserAgent(true);
+        $this->setHasUserPass(true);
+        $this->run();
+    }
+    //===============================================
+    public function callPostHttps($_data) {
+        $this->setAction("https_post");
+        $this->setUrl("https://readydev.ovh:9071/readyapi-1.0");
+        $this->setUserAgent("rdvapp/1.0");
+        $this->setUsername("admin");
+        $this->setPassword("adminpass");
+        $this->setContentType("application/xml");
+        $this->setContent($_data);
+        $this->setTimeout(3);
+        $this->setHasUserAgent(true);
+        $this->setHasUserPass(true);
+        $this->run();
     }
     //===============================================
 }

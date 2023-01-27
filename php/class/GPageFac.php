@@ -1,11 +1,11 @@
 <?php
 class GPageFac extends GModule {
     //===============================================
-    private $m_id = 1;
-    private $m_name = "name";
-    private $m_title = "title";
-    private $m_url = "url";
-    private $m_path = "path";
+    private $m_id = 0;
+    private $m_name = "";
+    private $m_title = "";
+    private $m_url = "";
+    private $m_path = "";
     private $m_map = array();
     //===============================================
     public function __construct() {
@@ -70,7 +70,7 @@ class GPageFac extends GModule {
     }
     //===============================================
     public function onSavePage() {
-        $this->addData($this->serialize());
+        $this->addData("serialize()");
     }
     //===============================================
     public function onSearchPage() {
@@ -82,9 +82,7 @@ class GPageFac extends GModule {
     }
     //===============================================
     public function searchPage() {
-        for($i = 0; $i < 3; $i++) {
-            $this->m_map[] = $this->clone();
-        }
+        $this->addLog("searchPage");
     }
     //===============================================
 }

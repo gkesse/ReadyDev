@@ -7,7 +7,7 @@
 		<data>
 			<code>test</code>
 			<lang>php</lang>
-			<module>curl</module>
+			<module>prod</module>
 			<method>test</method>
 		</data>
 		<!-- ============================================ -->

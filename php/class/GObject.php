@@ -3,11 +3,9 @@
         //===============================================
         protected $m_app;
         protected $m_dom;
-        protected $m_codeName;
         protected $m_logs;
         //===============================================
-        public function __construct($_codeName = "object") {
-            $this->m_codeName = $_codeName;
+        public function __construct() {
             $this->m_logs = new GLog();
         }
         //===============================================
@@ -36,7 +34,7 @@
             return $this->m_logs;
         }
         //===============================================
-        public function loadErrors() {
+        public function loadLogs() {
             return $this->m_logs->serialize();
         }
         //===============================================

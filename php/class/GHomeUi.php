@@ -4,8 +4,8 @@ class GHomeUi extends GObject {
     //===============================================
     protected $m_parallaxUi;
     //===============================================
-    public function __construct($_codeName = "home") {
-        parent::__construct($_codeName);
+    public function __construct() {
+        parent::__construct();
         $this->loadDom(__CLASS__);
         $this->m_parallaxUi  = new GParallaxUi();
     }
@@ -16,8 +16,8 @@ class GHomeUi extends GObject {
     }
     //===============================================
     public function onIntro() {
-        $lTitle = $this->m_dom->getItem($this->m_codeName, "title");
-        $lIntro = $this->m_dom->getItem($this->m_codeName, "intro");
+        $lTitle = $this->m_dom->getItem("home", "title");
+        $lIntro = $this->m_dom->getItem("home", "intro");
         $lBody = sprintf("<br>%s<br><br>%s<br>\n", $lIntro, $this->onLink());
         $this->m_parallaxUi->setTitle($lTitle);
         $this->m_parallaxUi->setBody($lBody);
@@ -25,15 +25,15 @@ class GHomeUi extends GObject {
     }
     //===============================================
     public function onLink() {
-        $lCount = $this->m_dom->countItem($this->m_codeName);
+        $lCount = $this->m_dom->countItem("home");
         $lData = "";
         $lData .= sprintf("<div class='Row0'>\n");
         $lData .= sprintf("<ul class='fa-ul'>\n");
         
         for($i = 0; $i < $lCount; $i++) {
-            $lCategory = $this->m_dom->getItem3($this->m_codeName, "category", $i);
-            $lLink = $this->m_dom->getItem3($this->m_codeName, "link", $i);
-            $lName = $this->m_dom->getItem3($this->m_codeName, "name", $i);
+            $lCategory = $this->m_dom->getItem3("home", "category", $i);
+            $lLink = $this->m_dom->getItem3("home", "link", $i);
+            $lName = $this->m_dom->getItem3("home", "name", $i);
             if($lCategory != "intro_link") continue;
             $lData .= sprintf("<li>\n");
             $lData .= sprintf("<i class='Icon2 fa-li fa fa-book'></i>\n");

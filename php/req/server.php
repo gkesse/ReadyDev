@@ -5,7 +5,6 @@
     //===============================================
     $lServer = new GServer();
     $lServer->run($lReq);
-    $lServer->readErrors();
     $lServer->sendResponse();
     //===============================================
 ?>

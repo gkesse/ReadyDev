@@ -20,8 +20,8 @@ class GAjax extends GObject {
         if(_callback == null) return false;
         var lDom = new GCode();
         lDom.createDoc();
-        lDom.addData("request", "module", _module);
-        lDom.addData("request", "method", _method);
+        lDom.addData("manager", "module", _module);
+        lDom.addData("manager", "method", _method);
         lDom.addData("server", "type", _type);
         lDom.loadData(_params);
         var lData = lDom.toString();

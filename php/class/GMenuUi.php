@@ -5,29 +5,29 @@ class GMenuUi extends GObject {
     protected $m_page;
     protected $m_session;
     //===============================================
-    public function __construct($_codeName = "menu") {
-        parent::__construct($_codeName);
+    public function __construct() {
+        parent::__construct();
         $this->loadDom(__CLASS__);
-        $this->m_page           = new GPage();
-        $this->m_session        = new GSession();
+        $this->m_page = new GPage();
+        $this->m_session = new GSession();
     }
     //===============================================
     public function run() {
         echo sprintf("<ul class='Menu' id='HeaderMenu'>\n");
         
-        $lCount     = $this->m_dom->countItem($this->m_codeName);
+        $lCount     = $this->m_dom->countItem("menu");
         $lPage      = $this->m_page->getPageId();
         $lLoginOn   = $this->m_session->issetSession("user/login");
         $lGroup     = $this->m_session->getSession("user/group");
         $lRootOn    = ($lGroup == G_USER_GROUP_ROOT);
         
         for($i = 0; $i < $lCount; $i++) {
-            $lType      = $this->m_dom->getItem3($this->m_codeName, "type", $i);
-            $lName      = $this->m_dom->getItem3($this->m_codeName, "name", $i);
-            $lImg       = $this->m_dom->getItem3($this->m_codeName, "img", $i);
-            $lLink      = $this->m_dom->getItem3($this->m_codeName, "link", $i);
-            $lModule    = $this->m_dom->getItem3($this->m_codeName, "module", $i);
-            $lMethod    = $this->m_dom->getItem3($this->m_codeName, "method", $i);
+            $lType      = $this->m_dom->getItem3("menu", "type", $i);
+            $lName      = $this->m_dom->getItem3("menu", "name", $i);
+            $lImg       = $this->m_dom->getItem3("menu", "img", $i);
+            $lLink      = $this->m_dom->getItem3("menu", "link", $i);
+            $lModule    = $this->m_dom->getItem3("menu", "module", $i);
+            $lMethod    = $this->m_dom->getItem3("menu", "method", $i);
             
             $lActive = "";
             if($lLink == $lPage) $lActive = " Active";

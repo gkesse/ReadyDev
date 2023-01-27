@@ -44,7 +44,7 @@ class GHeaderUi extends GObject {
         echo sprintf("<body>\n");
         echo sprintf("<div class='HtmlPage'>\n");
         
-        $this->m_envUi->run();
+        $this->onEnv();
         $this->onBackground();
         $this->m_connectUi->run();
         $this->m_accountUi->run();
@@ -57,6 +57,11 @@ class GHeaderUi extends GObject {
         echo sprintf("<div class='BodyPage'>\n");
         echo sprintf("<div class='MainPage'>\n");
         $this->onHeader();
+    }
+    //===============================================
+    public function onEnv() {
+        $this->m_envUi->run();
+        $this->m_tableUi->runEnv();
     }
     //===============================================
     public function onHeader() {

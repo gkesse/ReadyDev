@@ -1,8 +1,8 @@
 //===============================================
 class GEditorUi extends GObject {
     //===============================================
-    constructor(_codeName = "editor") {
-        super(_codeName);
+    constructor() {
+        super();
     }
     //===============================================
     onModule(_method, _obj, _data) {
@@ -23,6 +23,9 @@ class GEditorUi extends GObject {
         }
         else if(_method == "new_page") {
             this.onNewPage(_obj, _data);
+        }
+        else if(_method == "load_pages") {
+            this.onLoadPages(_obj, _data);
         }
         else {
             this.addError("Erreur la méthode est obligatoire.");            
@@ -59,6 +62,7 @@ class GEditorUi extends GObject {
     }
     //===============================================
     onSearchPage(_obj, _name) {
+        var lPage = new GPage();
         lPage.searchPage();
         this.addLogs(lPage.getLogs());
     }
@@ -72,6 +76,12 @@ class GEditorUi extends GObject {
     onNewPage(_obj, _name) {
         var lPage = new GPage();
         lPage.newPage();
+        this.addLogs(lPage.getLogs());
+    }
+    //===============================================
+    onLoadPages(_obj, _name) {
+        var lPage = new GPage();
+        lPage.loadPages();
         this.addLogs(lPage.getLogs());
     }
     //===============================================

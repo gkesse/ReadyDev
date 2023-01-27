@@ -40,16 +40,7 @@
         //===============================================
         public function runTest() {
             $lCurl = new GCurl();
-            $lCurl->setAction("https_get");
-            $lCurl->setUrl("https://192.168.1.45:9071/readyapi-1.0/un/deux");
-            $lCurl->setUserAgent("rdvapp/1.0");
-            $lCurl->setUsername("admin");
-            $lCurl->setPassword("adminpass");
-            $lCurl->setContentType("application/xml");
-            $lCurl->setTimeout(3);
-            $lCurl->setHasUserAgent(true);
-            $lCurl->setHasUserPass(true);
-            $lCurl->run();
+            $lCurl->callServer("page", "load_page");
             $this->addData($lCurl->getHttpCode());
             $this->addData($lCurl->getResponseText());
             $this->addLogs($lCurl->getLogs());
@@ -61,13 +52,13 @@
             
             $lCurl = new GCurl();
             $lCurl->setAction("https_post");
-            $lCurl->setUrl("https://192.168.1.45:9071/readyapi-1.0");
+            $lCurl->setUrl("https://readydev.ovh:9071/readyapi-1.0");
             $lCurl->setUserAgent("rdvapp/1.0");
             $lCurl->setUsername("admin");
             $lCurl->setPassword("adminpass");
             $lCurl->setContentType("application/xml");
             $lCurl->setContent($lDom->toString());
-            $lCurl->setTimeout(3);
+            $lCurl->setTimeout(10);
             $lCurl->setHasUserAgent(true);
             $lCurl->setHasUserPass(true);
             $lCurl->run();
@@ -79,7 +70,14 @@
         public function runHttpsGet() {
             $lCurl = new GCurl();
             $lCurl->setAction("https_get");
-            $lCurl->setUrl("https://readydev.ovh:9071/");
+            $lCurl->setUrl("https://192.168.1.45:9071/readyapi-1.0/un/deux");
+            $lCurl->setUserAgent("rdvapp/1.0");
+            $lCurl->setUsername("admin");
+            $lCurl->setPassword("adminpass");
+            $lCurl->setContentType("application/xml");
+            $lCurl->setTimeout(3);
+            $lCurl->setHasUserAgent(true);
+            $lCurl->setHasUserPass(true);
             $lCurl->run();
             $this->addData($lCurl->getHttpCode());
             $this->addData($lCurl->getResponseText());
