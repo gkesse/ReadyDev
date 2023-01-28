@@ -160,8 +160,9 @@ class GPage extends GObject {
             lPage.showTable();
         }
         else {
-            var lInfo = new GInformation();
-            lInfo.onOpenInformation();
+            var lLog = new GLog();
+            lLog.addLog("Le résultat est vide.");
+            lLog.showLogs();
         }
     }
     //===============================================

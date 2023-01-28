@@ -7,6 +7,7 @@
 		<data>
 			<code>information</code>
 			<title>Information</title>
+			<intro>Le résultat est vide.</intro>
 			<InformationIntro>La résultat est vide.</InformationIntro>
 			<modal_id>ModalInformation</modal_id>
 			<body_id>InformationBody</body_id>
