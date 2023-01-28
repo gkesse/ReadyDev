@@ -103,7 +103,7 @@ class GEditorUi extends GObject {
                 else if($lModel == "addressbar") {
                     echo sprintf("<div class='Row36' id='%s'>\n", $lId);
                     echo sprintf("<i class='Link10 fa fa-folder %s' onclick='call_server(\"%s\", \"%s\", this);'></i>\n", $lId, $lModule, $lMethod);
-                    echo sprintf("<div hidden='true'></div>\n");
+                    echo sprintf("<span hidden='true'></span>\n");
                     echo sprintf("</div>\n");
                 }
                 else if($lModel == "hidden") {

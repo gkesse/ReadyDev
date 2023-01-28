@@ -179,7 +179,6 @@ class GPage extends GObject {
         var lTable = new GTable();
         lTable.deserialize(_data);
         lPage.loadData(lTable.getRow());
-        lPage.cleanAddressBar();
         lPage.updateAddressBar();
         lTable.onCloseTable();
     }
@@ -196,26 +195,37 @@ class GPage extends GObject {
         lPage.m_parentId = this.m_id;
         var lData = lPage.serialize();
         
-        var lAddress = "";
+        var lAddress = this.getPreviousAddressBar();
         lAddress += sprintf("<i class='Icon11 fa fa-chevron-right'></i>\n");
         lAddress += sprintf("<span class='Link10 EditorPageAddress' onclick='call_server(\"page\", \"load_pages\", this);'>%s</span>\n", this.m_name);
-        lAddress += sprintf("<div hidden='true'>%s</div>\n", lData);
+        lAddress += sprintf("<span hidden='true'>%s</span>\n", lData);
 
         lEditorPageParentId.value = this.m_id;
-        lEditorPageAddress.innerHTML += lAddress;
+        lEditorPageAddress.innerHTML = lAddress;
     }
     //===============================================
-    cleanAddressBar() {
-        var lEditorPageAddressActive = document.getElementsByClassName("EditorPageAddress Active")[0];
-        var lNode = lEditorPageAddressActive.nextSibling.nextSibling;
+    getPreviousAddressBar() {
+        var lEditorPageAddress = document.getElementById("EditorPageAddress");
+        var lNode = lEditorPageAddress.firstChild;
+        var lHtml = "";
         while(1) {
-            if(!lNode) break;
+            if(lNode.nodeType == 1) {
+                if(lNode.classList.contains("Active")) {
+                    lHtml += lNode.outerHTML + "\n";
+                    while(1) {
+                        lNode = lNode.nextSibling;
+                        if(lNode.nodeType == 1) {
+                            lHtml += lNode.outerHTML + "\n";
+                            break;
+                        }
+                    }
+                    break;
+                }
+                lHtml += lNode.outerHTML + "\n";
+            }
             lNode = lNode.nextSibling;
-            if(!lNode) break;
-            var lNext = lNode.nextSibling;
-            lNode.remove();
-            lNode = lNext;
         }
+        return lHtml;
     }
     //===============================================
     activeAddressBar(_obj) {
