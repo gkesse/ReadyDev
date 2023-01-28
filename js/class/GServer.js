@@ -42,6 +42,9 @@ class GServer extends GObject {
 		else if(_module == "confirm") {
 			this.onConfirm(_method, _obj, _data);
 		}
+		else if(_module == "information") {
+			this.onInformation(_method, _obj, _data);
+		}
 		else {
 			this.addError("Erreur le module est inconnu.");
 		}
@@ -112,6 +115,12 @@ class GServer extends GObject {
 		var lConfirm = new GConfirm();
 		lConfirm.onModule(_method, _obj, _data)
         this.addLogs(lConfirm.getLogs());
+	}
+    //===============================================
+	onInformation(_method, _obj, _data) {
+		var lInformation = new GInformation();
+		lInformation.onModule(_method, _obj, _data)
+        this.addLogs(lInformation.getLogs());
 	}
     //===============================================
 }

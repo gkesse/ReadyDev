@@ -1,23 +1,23 @@
 <?php   
 //===============================================
-class GConfirmUi extends GObject {
+class GInformationUi extends GObject {
     //===============================================
-    public function __construct($_codeName = "confirm") {
-        parent::__construct($_codeName);
+    public function __construct() {
+        parent::__construct();
         $this->loadDom(__CLASS__);
     }
     //===============================================
     public function run() {
-        $lCount         = $this->m_dom->countItem("confirm");
-        $lTitle         = $this->m_dom->getItem("confirm", "title");
-        $lIntro         = $this->m_dom->getItem("confirm", "intro");
-        $lModalId       = $this->m_dom->getItem("confirm", "modal_id");
-        $lBodyId        = $this->m_dom->getItem("confirm", "body_id");
-        $lFormId        = $this->m_dom->getItem("confirm", "form_id");
-        $lMsgId         = $this->m_dom->getItem("confirm", "msg_id");
-        $lModule        = $this->m_dom->getItem("confirm", "module");
-        $lKeypressCB    = $this->m_dom->getItem("confirm", "keypress_cb");
-        $lCloseCB       = $this->m_dom->getItem("confirm", "close_cb");
+        $lCount         = $this->m_dom->countItem("information");
+        $lTitle         = $this->m_dom->getItem("information", "title");
+        $lIntro         = $this->m_dom->getItem("information", "intro");
+        $lModalId       = $this->m_dom->getItem("information", "modal_id");
+        $lBodyId        = $this->m_dom->getItem("information", "body_id");
+        $lFormId        = $this->m_dom->getItem("information", "form_id");
+        $lMsgId         = $this->m_dom->getItem("information", "msg_id");
+        $lModule        = $this->m_dom->getItem("information", "module");
+        $lKeypressCB    = $this->m_dom->getItem("information", "keypress_cb");
+        $lCloseCB       = $this->m_dom->getItem("information", "close_cb");
         //
         echo sprintf("<div class='Modal' id='%s' onkeypress='call_server(\"%s\", \"%s\", this, event);'>\n", $lModalId, $lModule, $lKeypressCB);
         echo sprintf("<div class='Content10' id='%s'>\n", $lBodyId);
@@ -28,9 +28,9 @@ class GConfirmUi extends GObject {
         echo sprintf("<div class='Content15'>");
         
         for($i = 0; $i < $lCount; $i++) {
-            $lCategory = $this->m_dom->getItem3("confirm", "category", $i);
-            $lModel = $this->m_dom->getItem3("confirm", "model", $i);
-            $lId = $this->m_dom->getItem3("confirm", "id", $i);
+            $lCategory  = $this->m_dom->getItem3("information", "category", $i);
+            $lModel     = $this->m_dom->getItem3("information", "model", $i);
+            $lId        = $this->m_dom->getItem3("information", "id", $i);
             
             if($lCategory == "confirm/body") {
                 if($lModel == "label") {
@@ -43,15 +43,15 @@ class GConfirmUi extends GObject {
         echo sprintf("<div class='Row13'>\n");
         
         for($i = 0; $i < $lCount; $i++) {
-            $lCategory  = $this->m_dom->getItem3("confirm", "category", $i);
-            $lModel     = $this->m_dom->getItem3("confirm", "model", $i);
-            $lId        = $this->m_dom->getItem3("confirm", "id", $i);
-            $lModule    = $this->m_dom->getItem3("confirm", "module", $i);
-            $lMethod  = $this->m_dom->getItem3("confirm", "method", $i);
-            $lPicto     = $this->m_dom->getItem3("confirm", "picto", $i);
-            $lText      = $this->m_dom->getItem3("confirm", "text", $i);
+            $lCategory  = $this->m_dom->getItem3("information", "category", $i);
+            $lModel     = $this->m_dom->getItem3("information", "model", $i);
+            $lId        = $this->m_dom->getItem3("information", "id", $i);
+            $lModule    = $this->m_dom->getItem3("information", "module", $i);
+            $lMethod  = $this->m_dom->getItem3("information", "method", $i);
+            $lPicto     = $this->m_dom->getItem3("information", "picto", $i);
+            $lText      = $this->m_dom->getItem3("information", "text", $i);
             
-            if($lCategory == "confirm/button") {
+            if($lCategory == "button") {
                 if($lModel == "button") {
                     echo sprintf("<button type='button' id='%s' class='Button4' onclick='call_server(\"%s\", \"%s\");'><i class='fa fa-%s'></i> %s</button>\n"
                         , $lId, $lModule, $lMethod, $lPicto, $lText);

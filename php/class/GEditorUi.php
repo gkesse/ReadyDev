@@ -102,20 +102,8 @@ class GEditorUi extends GObject {
                 }
                 else if($lModel == "addressbar") {
                     echo sprintf("<div class='Row36' id='%s'>\n", $lId);
-                    echo sprintf("<i class='Link10 fa fa-folder' onclick='call_server(\"%s\", \"%s\");'></i>\n", $lModule, $lMethod);
-                    if(0) {
-                        for($j = 0; $j < 20; $j++) {
-                            if($j != 0) {
-                                echo sprintf("<i class='Icon11 fa fa-chevron-right'></i>\n");
-                            }
-                            if($j == 0) {
-                                echo sprintf("<i class='Link10 fa fa-folder'></i>\n");
-                            }
-                            else {
-                                echo sprintf("<span class='Link10'>Nom</span>\n");
-                            }                        }
-                        
-                    }
+                    echo sprintf("<i class='Link10 fa fa-folder' onclick='call_server(\"%s\", \"%s\", this);'></i>\n", $lModule, $lMethod);
+                    echo sprintf("<div hidden='true'></div>\n");
                     echo sprintf("</div>\n");
                 }
                 else if($lModel == "hidden") {
@@ -131,7 +119,7 @@ class GEditorUi extends GObject {
             $lCategory  = $this->m_dom->getItem3("editor", "category", $i);
             $lId        = $this->m_dom->getItem3("editor", "id", $i);
             $lModule    = $this->m_dom->getItem3("editor", "module", $i);
-            $lMethod    = $this->m_dom->getItem3("editor", "callback", $i);
+            $lMethod    = $this->m_dom->getItem3("editor", "method", $i);
             $lPicto     = $this->m_dom->getItem3("editor", "picto", $i);
             $lText      = $this->m_dom->getItem3("editor", "text", $i);
             

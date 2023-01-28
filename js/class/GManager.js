@@ -333,7 +333,7 @@ class GManager extends GSearch {
             lLog.addError(sprintf("%s", lMessage));
             this.buttonOn();
         }
-        else {;
+        else {
             var lConfirm = new GConfirm();
             lConfirm.setCallback("manager", "confirm", "delete_code");
             lConfirm.onOpenConfirm();

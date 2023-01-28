@@ -17,6 +17,7 @@
                 <data>/js/class/GLogUi.js</data>
                 <data>/js/class/GModule.js</data>
                 <data>/js/class/GConfirm.js</data>
+                <data>/js/class/GInformation.js</data>
                 <data>/js/class/GSearch.js</data>
                 <data>/js/class/GTable.js</data>
                 <data>/js/class/GDate.js</data>

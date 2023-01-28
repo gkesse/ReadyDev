@@ -77,7 +77,7 @@
                     <category>page/body</category>
                     <model>addressbar</model>
                     <id>EditorPageAddress</id>
-                    <module>editor</module>
+                    <module>page</module>
                     <method>load_pages</method>
                 </data>
                 <data>
@@ -94,7 +94,7 @@
                 <data>
                     <category>page/button</category>
                     <id>EditorPageSave</id>
-                    <module>editor</module>
+                    <module>page</module>
                     <method>save_page</method>
                     <picto>save</picto>
                     <text>Enregistrer</text>
@@ -102,7 +102,7 @@
                 <data>
                     <category>page/button</category>
                     <id>EditorPageSearch</id>
-                    <module>editor</module>
+                    <module>page</module>
                     <method>search_page</method>
                     <picto>search</picto>
                     <text>Rechercher</text>
@@ -110,7 +110,7 @@
                 <data>
                     <category>page/button</category>
                     <id>EditorPageDelete</id>
-                    <module>editor</module>
+                    <module>page</module>
                     <method>delete_page</method>
                     <picto>trash</picto>
                     <text>Supprimer</text>
@@ -118,7 +118,7 @@
                 <data>
                     <category>page/button</category>
                     <id>EditorPageNew</id>
-                    <module>editor</module>
+                    <module>page</module>
                     <method>new_page</method>
                     <picto>file</picto>
                     <text>Nouveau</text>
