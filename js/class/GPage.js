@@ -117,6 +117,7 @@ class GPage extends GObject {
         else {
             this.addError("Erreur la méthode est obligatoire.");            
         }
+        return !this.hasErrors();
     }
     //===============================================
     onSavePage(_obj, _data) {
@@ -146,6 +147,7 @@ class GPage extends GObject {
     }
     //===============================================
     onLoadPages(_obj, _data) {
+        this.activeAddressBar(_obj);
         var lData = _obj.nextSibling.nextSibling.innerHTML;
         var lPage = new GPage();
         var lAjax = new GAjax();
@@ -177,6 +179,7 @@ class GPage extends GObject {
         var lTable = new GTable();
         lTable.deserialize(_data);
         lPage.loadData(lTable.getRow());
+        lPage.cleanAddressBar();
         lPage.updateAddressBar();
         lTable.onCloseTable();
     }
@@ -188,18 +191,40 @@ class GPage extends GObject {
     updateAddressBar() {
         var lEditorPageAddress = document.getElementById("EditorPageAddress");
         var lEditorPageParentId = document.getElementById("EditorPageParentId");
-        
+
         var lPage = new GPage();
         lPage.m_parentId = this.m_id;
         var lData = lPage.serialize();
         
         var lAddress = "";
         lAddress += sprintf("<i class='Icon11 fa fa-chevron-right'></i>\n");
-        lAddress += sprintf("<span class='Link10' onclick='call_server(\"page\", \"load_pages\", this);'>%s</span>\n", this.m_name);
+        lAddress += sprintf("<span class='Link10 EditorPageAddress' onclick='call_server(\"page\", \"load_pages\", this);'>%s</span>\n", this.m_name);
         lAddress += sprintf("<div hidden='true'>%s</div>\n", lData);
 
         lEditorPageParentId.value = this.m_id;
         lEditorPageAddress.innerHTML += lAddress;
+    }
+    //===============================================
+    cleanAddressBar() {
+        var lEditorPageAddressActive = document.getElementsByClassName("EditorPageAddress Active")[0];
+        var lNode = lEditorPageAddressActive.nextSibling.nextSibling;
+        while(1) {
+            if(!lNode) break;
+            lNode = lNode.nextSibling;
+            if(!lNode) break;
+            var lNext = lNode.nextSibling;
+            lNode.remove();
+            lNode = lNext;
+        }
+    }
+    //===============================================
+    activeAddressBar(_obj) {
+        var lLinks = document.getElementsByClassName("EditorPageAddress");
+        for(var i = 0; i < lLinks.length; i++) {
+            var lLink = lLinks[i];
+            lLink.className = lLink.className.replace(" Active", "");
+        }
+        _obj.className += " Active";
     }
     //===============================================
     showTable() {

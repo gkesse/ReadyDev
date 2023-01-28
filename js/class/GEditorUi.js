@@ -15,6 +15,7 @@ class GEditorUi extends GObject {
         else {
             this.addError("Erreur la méthode est obligatoire.");            
         }
+        return !this.hasErrors();
     }
     //===============================================
     init(_id) {

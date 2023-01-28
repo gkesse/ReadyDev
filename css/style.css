@@ -1824,6 +1824,10 @@ thead tr:first-child {
       background-color: teal;
 }
 
+.EditorPageAddress.Active {
+      background-color: teal;
+}
+
 .Text {
     background-color: #111;
     color: #fff;
