@@ -7,7 +7,8 @@ class GEditorUi extends GObject {
     }
     //===============================================
     public function run() {
-        $lId = $this->m_dom->getItem("editor", "id");
+        $this->runEnv();
+        $lId    = $this->m_dom->getItem("editor", "id");
         $lTitle = $this->m_dom->getItem("editor", "title");
         echo sprintf("<div class='MainBlock'>\n");
         echo sprintf("<div class='Content'>\n");
@@ -19,14 +20,26 @@ class GEditorUi extends GObject {
         $this->onHeader();
         $this->onHome();
         $this->onPage();
-        //$this->onEnum();
-        //$this->onList();
-        //$this->onGenerate();
-        //$this->onVisualize();
         
         echo sprintf("</div>\n");
         echo sprintf("</div>\n");
         echo sprintf("</div>\n");
+    }
+    //===============================================
+    public function runEnv() {
+        $lCount = $this->m_dom->countItem("editor");
+        
+        for($i = 0; $i < $lCount; $i++) {
+            $lCategory  = $this->m_dom->getItem3("editor", "category", $i);
+            $lModel     = $this->m_dom->getItem3("editor", "model", $i);
+            $lId        = $this->m_dom->getItem3("editor", "id", $i);
+            
+            if($lCategory == "env") {
+                if($lModel == "data") {
+                    echo sprintf("<div hidden='true' id='%s'></div>\n", $lId);
+                }
+            }
+        }
     }
     //===============================================
     public function onHeader() {

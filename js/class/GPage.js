@@ -53,6 +53,7 @@ class GPage extends GObject {
     //===============================================
     setPage(_obj) {
 		this.m_id = _obj.m_id;
+		this.m_parentId = _obj.m_parentId;
 		this.m_name = _obj.m_name;
 		this.m_url = _obj.m_url;
 		this.m_title = _obj.m_title;
@@ -108,6 +109,9 @@ class GPage extends GObject {
         else if(_method == "load_pages") {
             this.onLoadPages(_obj, _data);
         }
+        else if(_method == "select_address") {
+            this.onSelectAddress(_obj, _data);
+        }
         else if(_method == "select_page_table") {
             this.onSelectPageTable(_obj, _data);
         }
@@ -149,9 +153,13 @@ class GPage extends GObject {
     onLoadPages(_obj, _data) {
         this.activeAddressBar(_obj);
         var lData = _obj.nextSibling.nextSibling.innerHTML;
-        var lPage = new GPage();
+        this.updateAddressParent(lData);
         var lAjax = new GAjax();
         lAjax.callRemote("page", "load_pages", lData, this.onLoadPagesCB);        
+    }
+    //===============================================
+    onSelectAddress(_obj, _data) {
+        var lData = _obj.nextSibling.nextSibling.innerHTML;
     }
     //===============================================
     onLoadPagesCB(_data) {
@@ -178,9 +186,15 @@ class GPage extends GObject {
         var lPage = GPage.Instance();
         var lTable = new GTable();
         lTable.deserialize(_data);
-        lPage.loadData(lTable.getRow());
-        lPage.updateAddressBar();
-        lTable.onCloseTable();
+        if(lTable.getType() == "cell") {
+            lPage.loadData(lTable.getRow());
+            lPage.updateAddressBar();
+            lTable.onCloseTable();
+        }
+        else if(lTable.getType() == "header") {
+            this.loadAddressParent();
+            lTable.onCloseTable();
+        }
     }
     //===============================================
     onNextPageTable(_obj, _data) {
@@ -197,11 +211,39 @@ class GPage extends GObject {
         
         var lAddress = this.getPreviousAddressBar();
         lAddress += sprintf("<i class='Icon11 fa fa-chevron-right'></i>\n");
-        lAddress += sprintf("<span class='Link10 EditorPageAddress' onclick='call_server(\"page\", \"load_pages\", this);'>%s</span>\n", this.m_name);
+        lAddress += sprintf("<span class='Link10 EditorPageAddress' \
+        onclick='call_server(\"page\", \"load_pages\", this);' \
+        ondbclick='call_server(\"page\", \"select_addressbar\", this);' \
+        >%s</span>\n", this.m_name);
         lAddress += sprintf("<span hidden='true'>%s</span>\n", lData);
 
         lEditorPageParentId.value = this.m_id;
         lEditorPageAddress.innerHTML = lAddress;
+    }
+    //===============================================
+    updateAddressParent(_data) {
+        var lEditorPageAddressParent = document.getElementById("EditorPageAddressParent");
+        lEditorPageAddressParent.innerHTML = _data;
+    }
+    //===============================================
+    loadAddressParent() {
+        var lEditorPageAddress = document.getElementById("EditorPageAddress");
+        var lEditorPageAddressActive = document.getElementsByClassName("EditorPageAddress Active")[0];
+        var lNode = lEditorPageAddressActive;
+        var lData = "";
+        while(1) {
+            lNode = lNode.nextSibling
+            if(!lNode) break;
+            if(lNode.nodeType == 1) {
+                lData = lNode.innerHTML;
+                break;
+            }
+        }
+        var lAddress = this.getPreviousAddressBar();
+        lEditorPageAddress.innerHTML = lAddress;
+        var lPage = new GPage();
+        lPage.deserialize(lData);
+        lPage.writeUi();
     }
     //===============================================
     getPreviousAddressBar() {

@@ -58,6 +58,10 @@ class GTable extends GModule {
         return this.m_col;
     }
     //===============================================
+    getType() {
+        return this.m_type;
+    }
+    //===============================================
     onModule(_method, _obj, _data) {
         if(_method == "") {
             this.addError("Erreur la méthode est obligatoire.");
@@ -108,7 +112,6 @@ class GTable extends GModule {
     onCurrentData(_method, _obj, _data) {
         this.readUi();
         this.deserialize(_data);
-        if(this.m_type == "header") return false;
         this.m_currentData = _data;
         this.writeUi();
         return true;
@@ -190,32 +193,36 @@ class GTable extends GModule {
         return !this.hasErrors();
     }
     //===============================================
-    pushColH(data, value) {
+    pushColH(_data, _value, _icon = "folder") {
+        var lValue = _value;
+        if(_icon != "") {
+            lValue = sprintf("<i class='fa fa-%s'></i> %s\n", _icon, lValue);
+        }
         this.readUi();
         if(!this.m_headerVisible) return false;
         this.m_colH = this.m_rowH.insertCell();
-        this.m_colH.innerHTML = value;
+        this.m_colH.innerHTML = lValue;
         var lRow = this.m_rowH.rowIndex;
         var lCol = this.m_colH.cellIndex;
         //
         this.m_colH.addEventListener("click", function(e) {
             var lTable = new GTable();
-            lTable.m_data = data;
+            lTable.m_data = _data;
             lTable.m_type = "header";
             lTable.m_row = lRow;
             lTable.m_col = lCol;
-            lTable.m_value = value;
+            lTable.m_value = _value;
             var lData = lTable.serialize();
             call_server("table", "current_data", this, lData);
         });
         //
         this.m_colH.addEventListener("dblclick", function(e) {
             var lTable = new GTable();
-            lTable.m_data = data;
+            lTable.m_data = _data;
             lTable.m_type = "header";
             lTable.m_row = lRow;
             lTable.m_col = lCol;
-            lTable.m_value = value;
+            lTable.m_value = _value;
             var lData = lTable.serialize();
             call_server("table", "select_data", this, lData);
         });
@@ -226,9 +233,13 @@ class GTable extends GModule {
         this.m_rowB = this.m_body.insertRow();
     }
     //===============================================
-    pushCol(data, value) {
+    pushCol(_data, _value, _icon = "file-o") {
+        var lValue = _value;
+        if(_icon != "") {
+            lValue = sprintf("<i class='fa fa-%s'></i> %s\n", _icon, lValue);
+        }
         this.m_colB = this.m_rowB.insertCell();
-        this.m_colB.innerHTML = value;        
+        this.m_colB.innerHTML = lValue;        
         var lRow = this.m_rowB.rowIndex;
         var lCol = this.m_colB.cellIndex;
         this.m_rowB.classList.add("Table");
@@ -240,22 +251,22 @@ class GTable extends GModule {
             var lTable = new GTable();
             lTable.deselectAll("Table", "Active");
             lRowP.classList.add("Active");
-            lTable.m_data = data;
+            lTable.m_data = _data;
             lTable.m_type = "cell";
             lTable.m_row = lRow;
             lTable.m_col = lCol;
-            lTable.m_value = value;
+            lTable.m_value = _value;
             var lData = lTable.serialize();
             call_server("table", "current_data", this, lData);
         });
 
         this.m_colB.addEventListener("dblclick", function(e) {
             var lTable = new GTable();
-            lTable.m_data = data;
-            lTable.m_type = "header";
+            lTable.m_data = _data;
+            lTable.m_type = "cell";
             lTable.m_row = lRow;
             lTable.m_col = lCol;
-            lTable.m_value = value;
+            lTable.m_value = _value;
             var lData = lTable.serialize();
             call_server("table", "select_data", this, lData);
         });
