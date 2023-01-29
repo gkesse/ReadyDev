@@ -146,7 +146,9 @@ class GPage extends GObject {
     }
     //===============================================
     onNewPage(_obj, _data) {
+        this.readUi();
         var lPage = new GPage();
+        lPage.m_parentId = this.m_parentId;
         lPage.writeUi();
     }
     //===============================================
