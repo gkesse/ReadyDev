@@ -48,7 +48,7 @@
                     <type>button</type>
                     <id>AccountButton</id>
                     <module>user</module>
-                    <callback>create_account</callback>
+                    <method>create_account</method>
                     <picto>paper-plane-o</picto>
                     <text><![CDATA[Créer]]></text>
                 </data>

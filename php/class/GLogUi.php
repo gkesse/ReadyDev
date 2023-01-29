@@ -48,14 +48,14 @@ class GLogUi extends GObject {
             $lModel     = $this->m_dom->getItem3("logs", "model", $i);
             $lId        = $this->m_dom->getItem3("logs", "id", $i);
             $lModule    = $this->m_dom->getItem3("logs", "module", $i);
-            $lCallback  = $this->m_dom->getItem3("logs", "callback", $i);
+            $lMethod    = $this->m_dom->getItem3("logs", "method", $i);
             $lPicto     = $this->m_dom->getItem3("logs", "picto", $i);
             $lText      = $this->m_dom->getItem3("logs", "text", $i);
             
             if($lCategory == "logs/button") {
                 if($lModel == "button") {
                     echo sprintf("<button type='button' id='%s' class='Button4' onclick='call_server(\"%s\", \"%s\");'><i class='fa fa-%s'></i> %s</button>\n"
-                        , $lId, $lModule, $lCallback, $lPicto, $lText);
+                        , $lId, $lModule, $lMethod, $lPicto, $lText);
                 }
             }
         }

@@ -60,7 +60,7 @@
 					<model>button</model>
 					<id>TableSelectData</id>
 					<module>table</module>
-					<callback>select_data</callback>
+					<method>select_data</method>
 					<picto>check</picto>
 					<text>Sélectionner</text>
 				</data>
@@ -69,7 +69,7 @@
 					<model>button/icon</model>
 					<id>TableNextData</id>
 					<module>table</module>
-					<callback>next_data</callback>
+					<method>next_data</method>
 					<picto>chevron-right</picto>
 					<text>Suivant</text>
 				</data>

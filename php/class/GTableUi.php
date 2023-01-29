@@ -49,7 +49,7 @@ class GTableUi extends GObject {
             $lModel     = $this->m_dom->getItem3("table", "model", $i);
             $lId        = $this->m_dom->getItem3("table", "id", $i);
             $lModule    = $this->m_dom->getItem3("table", "module", $i);
-            $lCallback  = $this->m_dom->getItem3("table", "callback", $i);
+            $lMethod    = $this->m_dom->getItem3("table", "method", $i);
             $lPicto     = $this->m_dom->getItem3("table", "picto", $i);
             $lText      = $this->m_dom->getItem3("table", "text", $i, true);
             $lOff       = ($this->m_dom->getItem3("table", "off", $i) == "1");
@@ -59,11 +59,11 @@ class GTableUi extends GObject {
             if($lCategory == "button") {
                 if($lModel == "button") {
                     echo sprintf("<button type='button' id='%s' class='Button4' onclick='call_server(\"%s\", \"%s\");'><i class='fa fa-%s'></i> %s</button>\n"
-                        , $lId, $lModule, $lCallback, $lPicto, $lText);
+                        , $lId, $lModule, $lMethod, $lPicto, $lText);
                 }
                 if($lModel == "button/icon") {
                     echo sprintf("<button type='button' id='%s' class='Button4' onclick='call_server(\"%s\", \"%s\");'>%s <i class='fa fa-%s'></i></button>\n"
-                        , $lId, $lModule, $lCallback, $lText, $lPicto);
+                        , $lId, $lModule, $lMethod, $lText, $lPicto);
                 }
             }
         }

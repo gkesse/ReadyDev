@@ -40,7 +40,7 @@
                     <category>button</category>
                     <type>text/link</type>
                     <module>user</module>
-                    <callback>open_account</callback>
+                    <method>open_account</method>
                     <text><![CDATA[<span class='Text11'>Envie de nous rejoindre ? <span class='Text12' onclick='call_server("%s", "%s");'>Créez un compte</span></span>]]></text>
                 </data>
                 <data>
@@ -48,7 +48,7 @@
                     <type>button</type>
                     <id>ConnectionButton</id>
                     <module>user</module>
-                    <callback>run_connection</callback>
+                    <method>run_connection</method>
                     <picto>paper-plane-o</picto>
                     <text><![CDATA[Se Connecter]]></text>
                 </data>

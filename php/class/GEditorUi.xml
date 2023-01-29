@@ -96,6 +96,12 @@
                     <type>text</type>
                     <lower_on>1</lower_on>
                 </data>
+                <data>
+                    <category>page/body</category>
+                    <model>combobox</model>
+                    <label>Type :</label>
+                    <id>EditorPageType</id>
+                </data>
                 <!-- ============================================ -->
                 <!-- page/button -->
                 <!-- ============================================ -->

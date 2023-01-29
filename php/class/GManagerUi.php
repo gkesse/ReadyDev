@@ -109,13 +109,13 @@
                 $lCategory  = $this->m_dom->getItem3("manager", "category", $i);
                 $lId        = $this->m_dom->getItem3("manager", "id", $i);
                 $lModule    = $this->m_dom->getItem3("manager", "module", $i);
-                $lCallback  = $this->m_dom->getItem3("manager", "callback", $i);
+                $lMethod    = $this->m_dom->getItem3("manager", "method", $i);
                 $lPicto     = $this->m_dom->getItem3("manager", "picto", $i);
                 $lText      = $this->m_dom->getItem3("manager", "text", $i);
                 
                 if($lCategory == "code/button") {
                     echo sprintf("<button type='button' id='%s' class='Button4' onclick='call_server(\"%s\", \"%s\");'><i class='fa fa-%s'></i> %s</button>\n"
-                        , $lId, $lModule, $lCallback, $lPicto, $lText);
+                        , $lId, $lModule, $lMethod, $lPicto, $lText);
                 }
             }
             

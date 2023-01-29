@@ -47,7 +47,7 @@ class GInformationUi extends GObject {
             $lModel     = $this->m_dom->getItem3("information", "model", $i);
             $lId        = $this->m_dom->getItem3("information", "id", $i);
             $lModule    = $this->m_dom->getItem3("information", "module", $i);
-            $lMethod  = $this->m_dom->getItem3("information", "method", $i);
+            $lMethod    = $this->m_dom->getItem3("information", "method", $i);
             $lPicto     = $this->m_dom->getItem3("information", "picto", $i);
             $lText      = $this->m_dom->getItem3("information", "text", $i);
             

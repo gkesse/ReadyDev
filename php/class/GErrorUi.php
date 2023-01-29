@@ -48,14 +48,14 @@ class GErrorUi extends GObject {
             $lModel     = $this->m_dom->getItem3("errors", "model", $i);
             $lId        = $this->m_dom->getItem3("errors", "id", $i);
             $lModule    = $this->m_dom->getItem3("errors", "module", $i);
-            $lCallback  = $this->m_dom->getItem3("errors", "callback", $i);
+            $lMethod    = $this->m_dom->getItem3("errors", "method", $i);
             $lPicto     = $this->m_dom->getItem3("errors", "picto", $i);
             $lText      = $this->m_dom->getItem3("errors", "text", $i);
             
             if($lCategory == "errors/button") {
                 if($lModel == "button") {
                     echo sprintf("<button type='button' id='%s' class='Button4' onclick='call_server(\"%s\", \"%s\");'><i class='fa fa-%s'></i> %s</button>\n"
-                        , $lId, $lModule, $lCallback, $lPicto, $lText);
+                        , $lId, $lModule, $lMethod, $lPicto, $lText);
                 }
             }
         }

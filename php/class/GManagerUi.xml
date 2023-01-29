@@ -88,7 +88,7 @@
                     <category>code/button</category>
                     <id>ManagerCodeCreate</id>
                     <module>manager</module>
-                    <callback>create_code</callback>
+                    <method>create_code</method>
                     <picto>plus</picto>
                     <text>Créer</text>
                 </data>
@@ -96,7 +96,7 @@
                     <category>code/button</category>
                     <id>ManagerCodeSearch</id>
                     <module>manager</module>
-                    <callback>search_code</callback>
+                    <method>search_code</method>
                     <picto>search</picto>
                     <text>Rechercher</text>
                 </data>
@@ -104,7 +104,7 @@
                     <category>code/button</category>
                     <id>ManagerCodeUpdate</id>
                     <module>manager</module>
-                    <callback>update_code</callback>
+                    <method>update_code</method>
                     <picto>upload</picto>
                     <text>Modifier</text>
                 </data>
@@ -112,7 +112,7 @@
                     <category>code/button</category>
                     <id>ManagerCodeDelete</id>
                     <module>manager</module>
-                    <callback>delete_code</callback>
+                    <method>delete_code</method>
                     <picto>trash</picto>
                     <text>Supprimer</text>
                 </data>
@@ -120,7 +120,7 @@
                     <category>code/button</category>
                     <id>ManagerCodeNew</id>
                     <module>manager</module>
-                    <callback>new_code</callback>
+                    <method>new_code</method>
                     <picto>file-o</picto>
                     <text>Nouveau</text>
                 </data>

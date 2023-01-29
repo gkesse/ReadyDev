@@ -32,7 +32,7 @@
 					<category>logs/button</category>
 					<model>button</model>
 					<module>logs</module>
-					<callback>close_log</callback>
+					<method>close_log</method>
 					<picto>check</picto>
 					<text>OK</text>
 				</data>

@@ -24,7 +24,7 @@
 					<model>button</model>
 					<id>ConfirmOk</id>
 					<module>confirm</module>
-					<callback>ok_confirm</callback>
+					<method>ok_confirm</method>
 					<picto>check</picto>
 					<text>OK</text>
 				</data>
@@ -33,7 +33,7 @@
 					<model>button</model>
 					<id>ConfirmCancel</id>
 					<module>confirm</module>
-					<callback>close_confirm</callback>
+					<method>close_confirm</method>
 					<picto>times</picto>
 					<text>Annuler</text>
 				</data>

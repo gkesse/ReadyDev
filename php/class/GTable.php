@@ -87,7 +87,7 @@ class GTable extends GModule {
             $lModel = $this->getItem3("table", "model", $i);
             $lId = $this->getItem3("table", "id", $i);
             $lModule = $this->getItem3("table", "module", $i);
-            $lCallback = $this->getItem3("table", "callback", $i);
+            $lMethod = $this->getItem3("table", "method", $i);
             $lPicto = $this->getItem3("table", "picto", $i);
             $lText = $this->getItem3("table", "text", $i, true);
             $lOff = ($this->getItem3("table", "off", $i) == "1");
@@ -97,11 +97,11 @@ class GTable extends GModule {
             if($lCategory == "table/button") {
                 if($lModel == "button") {
                     echo sprintf("<button type='button' id='%s' class='Button4' onclick='call_server(\"%s\", \"%s\");'><i class='fa fa-%s'></i> %s</button>\n"
-                        , $lId, $lModule, $lCallback, $lPicto, $lText);
+                        , $lId, $lModule, $lMethod, $lPicto, $lText);
                 }
                 if($lModel == "button/icon") {
                     echo sprintf("<button type='button' id='%s' class='Button4' onclick='call_server(\"%s\", \"%s\");'>%s <i class='fa fa-%s'></i></button>\n"
-                        , $lId, $lModule, $lCallback, $lText, $lPicto);
+                        , $lId, $lModule, $lMethod, $lText, $lPicto);
                 }
             }
         }

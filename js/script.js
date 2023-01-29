@@ -9,3 +9,8 @@ function call_server(_module, _method, _obj = null, _data = null) {
     lServer.showLogs();
 }
 //===============================================
+// initialization
+//===============================================
+call_server("combobox", "fill_box");
+//===============================================
+

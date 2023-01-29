@@ -47,7 +47,7 @@ class GConfirmUi extends GObject {
             $lModel     = $this->m_dom->getItem3("confirm", "model", $i);
             $lId        = $this->m_dom->getItem3("confirm", "id", $i);
             $lModule    = $this->m_dom->getItem3("confirm", "module", $i);
-            $lMethod  = $this->m_dom->getItem3("confirm", "method", $i);
+            $lMethod    = $this->m_dom->getItem3("confirm", "method", $i);
             $lPicto     = $this->m_dom->getItem3("confirm", "picto", $i);
             $lText      = $this->m_dom->getItem3("confirm", "text", $i);
             

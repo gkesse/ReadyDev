@@ -48,17 +48,17 @@ class GAccountUi extends GObject {
             $lType      = $this->m_dom->getItem3("user", "type", $i);
             $lId        = $this->m_dom->getItem3("user", "id", $i);
             $lModule    = $this->m_dom->getItem3("user", "module", $i);
-            $lCallback  = $this->m_dom->getItem3("user", "callback", $i);
+            $lMethod    = $this->m_dom->getItem3("user", "method", $i);
             $lPicto     = $this->m_dom->getItem3("user", "picto", $i);
             $lText      = $this->m_dom->getItem3("user", "text", $i, true);
             
             if($lCategory == "account/button") {
                 if($lType == "button") {
                     echo sprintf("<button type='button' id='%s' class='Button4' onclick='call_server(\"%s\", \"%s\");'><i class='fa fa-%s'></i> %s</button>\n"
-                        , $lId, $lModule, $lCallback, $lPicto, $lText);
+                        , $lId, $lModule, $lMethod, $lPicto, $lText);
                 }
                 else if($lType == "text/link") {
-                    echo sprintf($lText, $lModule, $lCallback);
+                    echo sprintf($lText, $lModule, $lMethod);
                 }
             }
         }

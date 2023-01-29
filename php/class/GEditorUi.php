@@ -113,6 +113,20 @@ class GEditorUi extends GObject {
                     echo sprintf("<div class='Field3'><input id='%s' class='%s' type='%s' name='%s'/></div>\n", $lId, $lClass, $lType, $lId);
                     echo sprintf("</div>\n");
                 }
+                else if($lModel == "combobox") {
+                    echo sprintf("<div class='Row12'>\n");
+                    echo sprintf("<label class='Label3' for='%s'>%s</label>\n", $lId, $lLabel);
+                    echo sprintf("<div class='Field3'>\n");
+                    echo sprintf("<div class='ComboBox' data-run='false'>\n");
+                    echo sprintf("<select onchange='call_server(\"combobox\", \"select_data\", this);' data-module='%s' data-method='%s'>\n", $lModule, $lMethod);
+                    echo sprintf("<option value='0'>Sélectionner un type...</option>\n");
+                    echo sprintf("<option value='1'>Fichier</option>\n");
+                    echo sprintf("<option value='2'>Répertoire</option>\n");
+                    echo sprintf("</select>\n");
+                    echo sprintf("</div>\n");
+                    echo sprintf("</div>\n");
+                    echo sprintf("</div>\n");
+                }
                 else if($lModel == "addressbar") {
                     echo sprintf("<div class='Row36' id='%s'>\n", $lId);
                     echo sprintf("<i class='Link10 fa fa-folder %s' onclick='call_server(\"%s\", \"%s\", this);'></i>\n", $lId, $lModule, $lMethod);

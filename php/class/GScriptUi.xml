@@ -15,6 +15,7 @@
                 <data>/js/class/GObject.js</data>
                 <data>/js/class/GAjax.js</data>
                 <data>/js/class/GLogUi.js</data>
+                <data>/js/class/GComboBox.js</data>
                 <data>/js/class/GModule.js</data>
                 <data>/js/class/GConfirm.js</data>
                 <data>/js/class/GInformation.js</data>

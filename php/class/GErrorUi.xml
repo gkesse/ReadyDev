@@ -33,7 +33,7 @@
 					<model>button</model>
 					<id>LogsOk</id>
 					<module>logs</module>
-					<callback>close_error</callback>
+					<method>close_error</method>
 					<picto>exclamation-triangle</picto>
 					<text>OK</text>
 				</data>

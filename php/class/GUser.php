@@ -102,17 +102,17 @@ class GUser extends GModule {
             $lType = $this->getItem3("user", "type", $i);
             $lId = $this->getItem3("user", "id", $i);
             $lModule = $this->getItem3("user", "module", $i);
-            $lCallback = $this->getItem3("user", "callback", $i);
+            $lMethod = $this->getItem3("user", "method", $i);
             $lPicto = $this->getItem3("user", "picto", $i);
             $lText = $this->getItem3("user", "text", $i, true);
             
             if($lCategory == "connection/button") {
                 if($lType == "button") {
                     echo sprintf("<button type='button' id='%s' class='Button4' onclick='call_server(\"%s\", \"%s\");'><i class='fa fa-%s'></i> %s</button>\n"
-                        , $lId, $lModule, $lCallback, $lPicto, $lText);
+                        , $lId, $lModule, $lMethod, $lPicto, $lText);
                 }
                 else if($lType == "text/link") {
-                    echo sprintf($lText, $lModule, $lCallback);
+                    echo sprintf($lText, $lModule, $lMethod);
                 }
             }
         }
@@ -165,17 +165,17 @@ class GUser extends GModule {
             $lType = $this->getItem3("user", "type", $i);
             $lId = $this->getItem3("user", "id", $i);
             $lModule = $this->getItem3("user", "module", $i);
-            $lCallback = $this->getItem3("user", "callback", $i);
+            $lMethod = $this->getItem3("user", "method", $i);
             $lPicto = $this->getItem3("user", "picto", $i);
             $lText = $this->getItem3("user", "text", $i, true);
             
             if($lCategory == "account/button") {
                 if($lType == "button") {
                     echo sprintf("<button type='button' id='%s' class='Button4' onclick='call_server(\"%s\", \"%s\");'><i class='fa fa-%s'></i> %s</button>\n"
-                        , $lId, $lModule, $lCallback, $lPicto, $lText);
+                        , $lId, $lModule, $lMethod, $lPicto, $lText);
                 }
                 else if($lType == "text/link") {
-                    echo sprintf($lText, $lModule, $lCallback);
+                    echo sprintf($lText, $lModule, $lMethod);
                 }
             }
         }
