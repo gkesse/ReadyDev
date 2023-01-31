@@ -100,7 +100,7 @@
                     <category>page/body</category>
                     <model>combobox</model>
                     <label>Type :</label>
-                    <id>EditorPageType</id>
+                    <id>EditorPageTypeId</id>
                 </data>
                 <!-- ============================================ -->
                 <!-- page/button -->

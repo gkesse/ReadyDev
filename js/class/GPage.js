@@ -7,7 +7,9 @@ class GPage extends GObject {
         super();
         this.m_id = 0;
         this.m_parentId = 0;
+        this.m_typeId = 0;
         this.m_name = ""
+        this.m_typeName = ""
         this.m_url = "";
         this.m_title = "";
         this.m_path = "";
@@ -25,7 +27,9 @@ class GPage extends GObject {
 		lDom.createDoc();
 		lDom.addData(_code, "id", ""+this.m_id);
 		lDom.addData(_code, "parent_id", ""+this.m_parentId);
+		lDom.addData(_code, "type_id", ""+this.m_typeId);
 		lDom.addData(_code, "name", this.m_name);
+		lDom.addData(_code, "type_name", this.m_typeName);
 		lDom.addData(_code, "url", this.m_url);
 		lDom.addData(_code, "title", this.m_title);
 		lDom.addData(_code, "path", this.m_path);
@@ -38,7 +42,9 @@ class GPage extends GObject {
 		lDom.loadXml(_data);
 		this.m_id = +lDom.getItem(_code, "id");
 		this.m_parentId = +lDom.getItem(_code, "parent_id");
+		this.m_typeId = +lDom.getItem(_code, "type_id");
 		this.m_name = lDom.getItem(_code, "name");
+		this.m_typeName = lDom.getItem(_code, "type_name");
 		this.m_url = lDom.getItem(_code, "url");
 		this.m_title = lDom.getItem(_code, "title");
 		this.m_path = lDom.getItem(_code, "path");
@@ -54,7 +60,9 @@ class GPage extends GObject {
     setPage(_obj) {
 		this.m_id = _obj.m_id;
 		this.m_parentId = _obj.m_parentId;
+		this.m_typeId = _obj.m_typeId;
 		this.m_name = _obj.m_name;
+		this.m_typeName = _obj.m_typeName;
 		this.m_url = _obj.m_url;
 		this.m_title = _obj.m_title;
 		this.m_path = _obj.m_path;
@@ -74,20 +82,27 @@ class GPage extends GObject {
         var lEditorPageId = document.getElementById("EditorPageId");
         var lEditorPageParentId = document.getElementById("EditorPageParentId");
         var lEditorPageName = document.getElementById("EditorPageName");
+        var lEditorPageTypeId = document.getElementById("EditorPageTypeId");
         //
-		this.m_id = lEditorPageId.value;
-		this.m_parentId = lEditorPageParentId.value;
+		this.m_id = +lEditorPageId.value;
+		this.m_parentId = +lEditorPageParentId.value;
 		this.m_name = lEditorPageName.value;
+		this.m_typeId = +lEditorPageTypeId.value;
     }
     //===============================================
     writeUi() {
         var lEditorPageId = document.getElementById("EditorPageId");
         var lEditorPageParentId = document.getElementById("EditorPageParentId");
         var lEditorPageName = document.getElementById("EditorPageName");
+        var lEditorPageTypeId = document.getElementById("EditorPageTypeId");
         //
 		lEditorPageId.value = +this.m_id;
 		lEditorPageParentId.value = +this.m_parentId;
 		lEditorPageName.value = this.m_name;
+		lEditorPageTypeId.value = this.m_typeId;
+        
+        var lCombo = GComboBox.Instance();
+        lCombo.initCombo(lEditorPageTypeId);
     }
     //===============================================
     onModule(_method, _obj, _data) {
@@ -293,8 +308,9 @@ class GPage extends GObject {
         //
         for(var i = 0; i < this.m_map.length; i++) {
             var lObj = this.m_map[i]
+            var lIcon = (lObj.m_typeName == "file" ? "file-o" : "folder");
             lTable.pushRow();
-            lTable.pushCol(0, lObj.m_name);
+            lTable.pushCol(0, lObj.m_name, lIcon);
         }
         //
         lTable.showData();

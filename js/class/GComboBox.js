@@ -1,8 +1,22 @@
 //===============================================
 class GComboBox extends GObject {
     //===============================================
+	static m_instance = null;
+    //===============================================
     constructor() {
         super();
+    }
+    //===============================================
+	static Instance() {
+		if(this.m_instance == null) {
+			this.m_instance = new GComboBox();
+		}
+		return this.m_instance;
+	}	
+    //===============================================
+    initCombo(_obj) {
+        var lBoxView = _obj.nextSibling.nextSibling;
+        lBoxView.innerHTML = _obj.options[_obj.selectedIndex].innerHTML;
     }
     //===============================================
     onModule(_method, _obj, _data) {
@@ -82,20 +96,20 @@ class GComboBox extends GObject {
                 
                 lBoxSelect.appendChild(lBoxOption);
             }
+            
+            lComboBox.appendChild(lBoxSelect);
+            
+            lBoxView.addEventListener("click", function(e){
+                e.stopPropagation();
+                this.nextSibling.classList.toggle("BoxHide");
+                this.classList.toggle("BoxActive");
+                call_server("combobox", "close_box", this);
+            });
+            
+            lBoxView.addEventListener("mouseover", function(e){
+                //GSelection.Instance().save();        
+            });            
         }
-        lComboBox.appendChild(lBoxSelect);
-        
-        lBoxView.addEventListener("click", function(e){
-            e.stopPropagation();
-            //GComboBox.Instance().closeBox(this);
-            this.nextSibling.classList.toggle("BoxHide");
-            this.classList.toggle("BoxActive");
-            call_server("combobox", "close_box", this);
-        });
-        
-        lBoxView.addEventListener("mouseover", function(e){
-            //GSelection.Instance().save();        
-        });
         
         document.addEventListener("click", this.onCloseBox);
     }

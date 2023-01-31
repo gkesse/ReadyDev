@@ -193,7 +193,7 @@ class GTable extends GModule {
         return !this.hasErrors();
     }
     //===============================================
-    pushColH(_data, _value, _icon = "folder") {
+    pushColH(_data, _value, _icon = "") {
         var lValue = _value;
         if(_icon != "") {
             lValue = sprintf("<i class='fa fa-%s'></i> %s\n", _icon, lValue);
@@ -233,7 +233,7 @@ class GTable extends GModule {
         this.m_rowB = this.m_body.insertRow();
     }
     //===============================================
-    pushCol(_data, _value, _icon = "file-o") {
+    pushCol(_data, _value, _icon = "") {
         var lValue = _value;
         if(_icon != "") {
             lValue = sprintf("<i class='fa fa-%s'></i> %s\n", _icon, lValue);

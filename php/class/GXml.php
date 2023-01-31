@@ -32,6 +32,7 @@ class GXml {
         $this->m_doc->preserveWhiteSpace = false;
         $this->m_doc->formatOutput = true;
         $this->m_doc->load($lFile);
+        $this->m_node = $this->m_doc->documentElement;
         $this->m_xpath = new DOMXpath($this->m_doc);
         if(!$this->m_xpath) return false;
         return true;
@@ -55,15 +56,20 @@ class GXml {
         return true;
     }
     //===============================================
-    public function loadXml($_data, $_version = "1.0", $_encoding = "UTF-8") {
+    public function loadXml($_data, $_version = '1.0', $_encoding = 'UTF-8') {
         $_data = trim($_data);
         if($_data == "") return false;
         $_data = utf8_encode($_data);
         $this->m_doc = new DOMDocument($_version, $_encoding);
         if(!$this->m_doc) return false;
+        $lXml = "<?xml";
+        if(substr($_data, 0, strlen($lXml)) != $lXml) {
+            $_data = sprintf("<?xml version='%s' encoding='%s'?>\n%s", $_version, $_encoding, $_data);
+        }
         $this->m_doc->preserveWhiteSpace = false;
         $this->m_doc->formatOutput = true;
         $this->m_doc->loadXml($_data);
+        $this->m_node = $this->m_doc->documentElement;
         $this->m_xpath = new DOMXpath($this->m_doc);
         if(!$this->m_xpath) return false;
         return true;

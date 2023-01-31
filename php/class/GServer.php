@@ -57,7 +57,9 @@ class GServer extends GModule {
     //===============================================
     public function runRemote($_data) {
         $lCurl = new GCurl();
-        $lCurl->callProxy($_data);
+        $lDom = new GXml();
+        $lDom->loadXml($_data);
+        $lCurl->callProxy($lDom->toString());
         $this->addLogs($lCurl->getLogs());
         $this->addResponse($lCurl->getResponseText());
     }
