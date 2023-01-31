@@ -160,6 +160,12 @@ class GPage extends GObject {
         lAjax.callRemote("page", "delete_page", lData, this.onPageCB);        
     }
     //===============================================
+    onPageCB(_data) {
+        var lPage = new GPage();
+        lPage.deserialize(_data);
+        lPage.writeUi();
+    }
+    //===============================================
     onNewPage(_obj, _data) {
         this.readUi();
         var lPage = new GPage();
@@ -173,10 +179,6 @@ class GPage extends GObject {
         this.updateAddressParent(lData);
         var lAjax = new GAjax();
         lAjax.callRemote("page", "load_pages", lData, this.onLoadPagesCB);        
-    }
-    //===============================================
-    onSelectAddress(_obj, _data) {
-        var lData = _obj.nextSibling.nextSibling.innerHTML;
     }
     //===============================================
     onLoadPagesCB(_data) {
@@ -193,10 +195,8 @@ class GPage extends GObject {
         }
     }
     //===============================================
-    onPageCB(_data) {
-        var lPage = new GPage();
-        lPage.deserialize(_data);
-        lPage.writeUi();
+    onSelectAddress(_obj, _data) {
+        var lData = _obj.nextSibling.nextSibling.innerHTML;
     }
     //===============================================
     onSelectPageTable(_obj, _data) {
@@ -211,7 +211,9 @@ class GPage extends GObject {
         else if(lTable.getType() == "header") {
             this.loadAddressParent();
             lTable.onCloseTable();
+            this.onNewPage();
         }
+        this.onNewPage();
     }
     //===============================================
     onNextPageTable(_obj, _data) {
