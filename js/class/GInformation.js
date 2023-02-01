@@ -7,7 +7,7 @@ class GInformation extends GModule {
     //===============================================
     onModule(_method, _obj, _data) {
         if(_method == "") {
-            this.addError("Erreur la méthode est obligatoire.");
+            this.addError("La méthode est obligatoire.");
         }
         else if(_method == "open_information") {
             this.onOpenInformation(_obj, _data);
@@ -16,7 +16,7 @@ class GInformation extends GModule {
             this.onCloseInformation(_obj, _data);
         }
         else {
-            this.addError("Erreur la méthode est inconnue.");
+            this.addError("La méthode est inconnue.");
         }
         return !this.hasErrors();
     }

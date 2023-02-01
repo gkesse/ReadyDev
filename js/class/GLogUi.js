@@ -7,7 +7,7 @@ class GLogUi extends GObject {
     //===============================================
     onModule(_method, _obj, _data) {
         if(_method == "") {
-            this.addError("Erreur la méthode est obligatoire.");
+            this.addError("La méthode est obligatoire.");
         }
         else if(_method == "close_error") {
             this.onCloseError();
@@ -19,7 +19,7 @@ class GLogUi extends GObject {
             this.onShowPhpLogs();
         }
         else {
-            this.addError("Erreur la méthode est inconnue.");
+            this.addError("La méthode est inconnue.");
         }
     }
     //===============================================

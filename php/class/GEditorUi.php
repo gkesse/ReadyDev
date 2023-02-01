@@ -20,6 +20,7 @@ class GEditorUi extends GObject {
         $this->onHeader();
         $this->onHome();
         $this->onPage();
+        $this->onEdition();
         
         echo sprintf("</div>\n");
         echo sprintf("</div>\n");
@@ -158,10 +159,39 @@ class GEditorUi extends GObject {
         
         echo sprintf("</div>\n");
         
+        echo sprintf("</div>\n");
+        echo sprintf("</div>\n");
+        echo sprintf("</div>\n");
+    }
+    //===============================================
+    public function onEdition() {
+        $lCount = $this->m_dom->countItem("editor");
+        $lId    = $this->m_dom->getItemC("editor", "edition", "id");
+        $lTitle = $this->m_dom->getItemC("editor", "edition", "title");
         
-        echo sprintf("</div>\n");
-        echo sprintf("</div>\n");
-        echo sprintf("</div>\n");
+        echo sprintf("<div class='Row Left EditorTabCtn' id='%s'>\n", $lId); // start : row_1
+        echo sprintf("<h2 class='Title4'>%s</h2>\n", $lTitle);
+        echo sprintf("<div class='Body14'>\n"); // start : body_1
+        echo sprintf("<div class='Content9'>\n"); // start : content_1
+        echo sprintf("<div class='GEndEditor'>\n"); // start : border_1
+        echo sprintf("<div class='Row9'>\n"); // start : dropdown
+        echo sprintf("<div class='DropDown'>\n"); // start : dropdown
+        echo sprintf("<button class='Button9 DropDownButton' onclick='call_server(\"dropdown\", \"toggle_menu\", this);'>Menu</button>\n");
+        echo sprintf("<div class='DropDownContent'>\n"); // start : dropdown
+        echo sprintf("<div class='DropDownLine'>Un</div>\n");
+        echo sprintf("<div class='DropDownLine'>Un</div>\n");
+        echo sprintf("<div class='DropDownLine'>Un</div>\n");
+        echo sprintf("<div class='DropDownLine'>Un</div>\n");
+        echo sprintf("<div class='DropDownLine'>Un</div>\n");
+        echo sprintf("</div>\n"); // end : dropdown
+        echo sprintf("</div>\n"); // end : dropdown
+        echo sprintf("</div>\n"); // end : dropdown
+        echo sprintf("<div class='Border Content14 GEndEditor' contentEditable='true'>\n"); // start : border_1
+        echo sprintf("</div>\n"); // end : border_1
+        echo sprintf("</div>\n"); // end : border_1
+        echo sprintf("</div>\n"); // end : content_1
+        echo sprintf("</div>\n"); // end : body_1
+        echo sprintf("</div>\n"); // end : row_1
     }
     //===============================================
 }

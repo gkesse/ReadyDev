@@ -24,6 +24,9 @@ class GServer extends GObject {
 		else if(_module == "combobox") {
 			this.onComboBox(_method, _obj, _data);
 		}
+		else if(_module == "dropdown") {
+			this.onDropDown(_method, _obj, _data);
+		}
 		else if(_module == "menu") {
 			this.onMenu(_method, _obj, _data);
 		}
@@ -82,6 +85,12 @@ class GServer extends GObject {
 		var lComboBox = new GComboBox();
 		lComboBox.onModule(_method, _obj, _data)
         this.addLogs(lComboBox.getLogs());
+	}
+    //===============================================
+	onDropDown(_method, _obj, _data) {
+		var lDropDown = new GDropDown();
+		lDropDown.onModule(_method, _obj, _data)
+        this.addLogs(lDropDown.getLogs());
 	}
     //===============================================
 	onMenu(_method, _obj, _data) {

@@ -13,13 +13,13 @@
         //===============================================
         public function runMain() {
             if($this->m_method == "") {
-                $this->addError("Erreur la méthode est obligatoire.");
+                $this->addError("La méthode est obligatoire.");
             }
             else if($this->m_method == "test") {
                 $this->runTest();
             }
             else {
-                $this->addError("Erreur la méthode est inconnue.");
+                $this->addError("La méthode est inconnue.");
             }
         }
         //===============================================

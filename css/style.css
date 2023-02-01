@@ -734,6 +734,23 @@ thead tr:first-child {
     vertical-align: top;
 }
 
+.Button9 {
+    display: inline-block;
+    vertical-align: middle;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.Button9:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.Button9:active {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
 .Button8.Active {
     background-color: #051039;
 }
@@ -928,6 +945,40 @@ thead tr:first-child {
     overflow: auto;
     scrollbar-color: #5f6681 #051039;
     scrollbar-width: auto;
+}
+
+.DropDown {
+  	position: relative;
+  	display: inline-block;
+}
+
+.DropDownContent {
+  	display: none;
+  	position: absolute;
+    border: 2px solid #2f3959;
+  	background-color: #051039;
+  	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  	min-width: 160px;
+  	overflow: auto;
+  	right: 0;
+  	z-index: 2;
+}
+
+.DropDownLine {
+  	color: #eeeeee;
+  	padding: 5px;
+  	display: block;
+    border-bottom: 1px solid #2f3959;
+    cursor: pointer;
+    text-align: left;
+}
+
+.DropDownShow {
+    display: block;
+}
+
+.DropDownLine:hover {
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 .Error {
@@ -1516,6 +1567,10 @@ thead tr:first-child {
     margin: 5px 5px 0 5px;
 }
 
+.Padding {
+    padding: 10px;
+}
+
 .Parallax {
     position: relative;
     text-align: center;
@@ -1614,6 +1669,7 @@ thead tr:first-child {
 
 .Row9 {
     padding: 5px 0px;
+    text-align: right;
 }
 
 .Row10 {

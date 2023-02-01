@@ -28,9 +28,15 @@
                 </data>
                 <data>
                     <category>header</category>
-                    <tooltip>Gérer une page</tooltip>
+                    <tooltip>Gestion d'une page</tooltip>
                     <id>EditorTab1</id>
                     <name>Page</name>
+                </data>
+                <data>
+                    <category>header</category>
+                    <tooltip>Edition d'une page</tooltip>
+                    <id>EditorTab2</id>
+                    <name>Edition</name>
                 </data>
                 <!-- ============================================ -->
                 <!-- header/link -->
@@ -86,7 +92,7 @@
                     <model>addressbar</model>
                     <id>EditorPageAddress</id>
                     <module>page</module>
-                    <method>load_pages</method>
+                    <method>load_page</method>
                 </data>
                 <data>
                     <category>page/body</category>
@@ -136,6 +142,14 @@
                     <method>new_page</method>
                     <picto>file</picto>
                     <text>Nouveau</text>
+                </data>
+                <!-- ============================================ -->
+                <!-- edition -->
+                <!-- ============================================ -->
+                <data>
+                    <category>edition</category>
+                    <title>Edition</title>
+                    <id>EditorTab2</id>
                 </data>
                 <!-- ============================================ -->
                 <!-- end -->

@@ -53,7 +53,7 @@ class GPageFac extends GModule {
     public function onModule($_data) {
         $this->deserialize($_data);
         if($this->m_method == "") {
-            $this->addError("Erreur la méthode est obligatoire.");
+            $this->addError("La méthode est obligatoire.");
         }
         else if($this->m_method == "save_page") {
             $this->onSavePage();
@@ -65,7 +65,7 @@ class GPageFac extends GModule {
             $this->onDeletePage();
         }
         else {
-            $this->addError("Erreur la méthode est inconnue.");
+            $this->addError("La méthode est inconnue.");
         }
     }
     //===============================================

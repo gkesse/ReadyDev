@@ -44,5 +44,5 @@ class GEditorUi extends GObject {
 }
 //===============================================
 var lEditorUi = new GEditorUi();
-lEditorUi.init(1);
+lEditorUi.init(2);
 //===============================================
