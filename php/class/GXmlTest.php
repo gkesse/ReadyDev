@@ -30,13 +30,63 @@
             else if($this->m_method == "serialize") {
                 $this->runCode();
             }
+            else if($this->m_method == "load_data") {
+                $this->runLoadData();
+            }
+            else if($this->m_method == "loop_node") {
+                $this->runLoopNode();
+            }
             else {
                 $this->addError("La méthode est inconnue.");
             }
         }
         //===============================================
         public function runTest() {
-            $lCode = new GCode();            
+            $lDom = new GCode();
+            $lDom->loadFile("php/class", "GEditorUi.xml");
+            $lDom->getCode("edition_command");
+            $lCountI = $lDom->countXNode("map/data");
+            $lDom->getXNode("map/data");
+            for($i = 0; $i < $lCountI; $i++) {
+                $lLabel = $lDom->getXValue("label");
+                $this->addData($lLabel);
+                if($lDom->hasNode("map")) {
+                    $lDom->pushNode();
+                    $lCountJ = $lDom->countXNode("map/data");
+                    $lDom->getXNode("map/data");
+                    for($j = 0; $j < $lCountJ; $j++) {
+                        $lLabel = $lDom->getXValue("label");
+                        $this->addData($lLabel);
+                        $lDom->nextSiblingElement();
+                    }
+                    $lDom->popNode();
+                }
+                $lDom->nextSiblingElement();
+            }
+        }
+        //===============================================
+        public function runLoopNode() {
+            $lDom = new GCode();
+            $lDom->loadFile("php/class", "GEditorUi.xml");
+            $lDom->getCode("edition_command");
+            $lDom->getXNode("map");
+            $lCountI = $lDom->countChild();
+            $lDom->firstChildElement();
+            for($i = 0; $i < $lCountI; $i++) {
+                $lDom->pushNode();
+                $lCountJ = $lDom->countChild();
+                $lDom->firstChildElement();
+                for($j = 0; $j < $lCountJ; $j++) {
+                    $this->addData($lDom->toStringNode());
+                    $lDom->nextSiblingElement();
+                }
+                $lDom->popNode();
+                $lDom->nextSiblingElement();
+            }
+        }
+        //===============================================
+        public function runLoadData() {
+            $lCode = new GCode();
             $lCode->addData("page", "name", "admin");
             $lCode->addData("page", "title", "Administration");
             $lCode->addData("page", "url", "home/admin");
@@ -53,7 +103,7 @@
                 $lCode->createVNode("name", "admin");
                 $lCode->createVNode("title", "Administration");
                 $lCode->createVNode("url", "home/admin");
-                $lCode->createVNode("path", "/path/home/admin.php");                
+                $lCode->createVNode("path", "/path/home/admin.php");
                 $lCode->popNode();
             }
             
@@ -63,7 +113,6 @@
             $lDom->addData("logs", "msg", "Erreur lors de la lecture de l'ID.");
             
             $lCode->loadData($lDom->toString());
-            
             $this->addData($lCode->toString());
         }
         //===============================================

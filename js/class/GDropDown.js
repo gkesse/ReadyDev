@@ -18,19 +18,71 @@ class GDropDown extends GObject {
         var lDropDownLines = document.getElementsByClassName("DropDownLine");
         for(var i = 0; i < lDropDownLines.length; i++) {
             var lDropDownLine = lDropDownLines[i];
-            lDropDownLine.addEventListener("click", function(e){
-                e.stopPropagation();
+            lDropDownLine.addEventListener("click", function(e) {
                 this.parentNode.classList.toggle("DropDownShow");
+            });
+            lDropDownLine.addEventListener("mousedown", function(e) {
+                e.preventDefault();
             });
         }
         
-        document.addEventListener("click", function(e){
-            e.stopPropagation();
-            if (!e.target.matches('.DropDownButton')) {
+        var lDropDownButtons = document.getElementsByClassName("DropDownButton");
+        for(var i = 0; i < lDropDownButtons.length; i++) {
+            var lDropDownButton = lDropDownButtons[i];
+            lDropDownButton.addEventListener("click", function(e) {
+                this.nextElementSibling.classList.toggle("DropDownShow");
+                var lDropDownSubs = document.getElementsByClassName("DropDownSub");
+                for(var i = 0; i < lDropDownSubs.length; i++) {
+                    var lDropDownSub = lDropDownSubs[i];
+                    lDropDownSub.classList.remove("DropDownActive");
+                    var lDropDownContainer = lDropDownSub.nextElementSibling;
+                    lDropDownContainer.classList.remove("DropDownShow");
+                }
+            });
+        }
+        
+        var lDropDownSubs = document.getElementsByClassName("DropDownSub");
+        for(var i = 0; i < lDropDownSubs.length; i++) {
+            var lDropDownSub = lDropDownSubs[i];
+            lDropDownSub.addEventListener("click", function(e) {
+                var lDropDownSubs = document.getElementsByClassName("DropDownSub");
+                for(var i = 0; i < lDropDownSubs.length; i++) {
+                    var lDropDownSub = lDropDownSubs[i];
+                    if(lDropDownSub == this) continue;
+                    if(lDropDownSub.matches(".DropDownActive")) {
+                        var lDropDownContainer = lDropDownSub.nextElementSibling;
+                        var lSubs = lDropDownContainer.getElementsByClassName("DropDownSub");
+                        if(lSubs.length) continue;
+                    }
+                    lDropDownSub.classList.remove("DropDownActive");
+                    var lDropDownContainer = lDropDownSub.nextElementSibling;
+                    lDropDownContainer.classList.remove("DropDownShow");
+                }
+                this.classList.toggle("DropDownActive");
+                var lDropDownContainer = this.nextElementSibling;
+                lDropDownContainer.classList.toggle("DropDownShow");
+            });
+            lDropDownSub.addEventListener("mousedown", function(e) {
+                e.preventDefault();
+            });
+        }
+        
+        document.addEventListener("click", function(e) {
+            var lHideOk = !e.target.matches(".DropDownButton")
+                       && !e.target.matches(".DropDownSub")
+                       && !e.target.matches(".DropDownCaret");
+            if (lHideOk) {
                 var lDropDownContents = document.getElementsByClassName("DropDownContent");
                 for(var i = 0; i < lDropDownContents.length; i++) {
                     var lDropDownContent = lDropDownContents[i];
                     lDropDownContent.classList.remove("DropDownShow");
+                }
+                var lDropDownSubs = document.getElementsByClassName("DropDownSub");
+                for(var i = 0; i < lDropDownSubs.length; i++) {
+                    var lDropDownSub = lDropDownSubs[i];
+                    lDropDownSub.classList.remove("DropDownActive");
+                    var lDropDownContainer = lDropDownSub.nextElementSibling;
+                    lDropDownContainer.classList.remove("DropDownShow");
                 }
             }
         });
@@ -50,7 +102,7 @@ class GDropDown extends GObject {
     }
     //===============================================
     onToggleMenu(_obj, _data) {
-        var lDropDownContent = _obj.nextSibling.nextSibling;
+        var lDropDownContent = _obj.nextElementSibling;
         lDropDownContent.classList.toggle("DropDownShow");
     }
     //===============================================

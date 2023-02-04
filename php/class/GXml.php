@@ -95,6 +95,11 @@ class GXml {
         return true;
     }
     //===============================================
+    public function countXNode($_path) {
+        $this->queryXPath($_path);
+        return $this->countXPath();
+    }
+    //===============================================
     public function countXPath() {
         if($this->m_nodes == false) return 0;
         $lCount = $this->m_nodes->length;
@@ -144,6 +149,11 @@ class GXml {
         return true;
     }
     //===============================================
+    public function countChild() {
+        if(!$this->m_node) return 0;
+        return $this->m_node->childNodes->length;
+    }
+    //===============================================
     public function next() {
         if(!$this->m_next) return;
         $this->m_node = $this->m_next;
@@ -168,12 +178,20 @@ class GXml {
         return true;
     }
     //===============================================
-    public function getXNode($_path) {            
+    public function getXNode($_path) {
         $_path = trim($_path);
         if($_path == "") return false;
         if(!$this->queryXPath($_path)) return false;
         if(!$this->getNodeIndex(0)) return false;
         return true;
+    }
+    //===============================================
+    public function hasNode($_path) {
+        if(!$this->m_node) return false;
+        $this->pushNode();
+        $lHasNode = $this->getXNode($_path);
+        $this->popNode();
+        return $lHasNode;
     }
     //===============================================
     public function getValue($_isCData = false) {
@@ -183,8 +201,17 @@ class GXml {
             $lValue = $this->m_node->nodeValue;
         }
         else {
-            $lValue = $this->m_node->textContent;            
+            $lValue = $this->m_node->textContent;
         }
+        return $lValue;
+    }
+    //===============================================
+    public function getXValue($_path, $_isCData = false) {
+        if(!$this->m_node) return "";
+        $this->pushNode();
+        $this->getXNode($_path);
+        $lValue = $this->getValue($_isCData);
+        $this->popNode();
         return $lValue;
     }
     //===============================================
@@ -225,6 +252,50 @@ class GXml {
         if(!$this->m_doc) return "";
         if(!$this->m_node) return "";
         return $this->m_doc->saveXML($this->m_node);
+    }
+    //===============================================
+    public function nextSibling() {
+        if(!$this->m_node) return false;
+        $this->m_node = $this->m_node->nextSibling;
+        return true;
+    }
+    //===============================================
+    public function nextSiblingElement() {
+        if(!$this->m_node) return false;
+        while($this->m_node) {
+            $this->m_node = $this->m_node->nextSibling;
+            if(!$this->m_node) return false;
+            if($this->m_node->nodeType == XML_ELEMENT_NODE) return false;
+        }
+        return true;
+    }
+    //===============================================
+    public function firstChild() {
+        if(!$this->m_node) return false;
+        $this->m_node = $this->m_node->firstChild;
+        return true;
+    }
+    //===============================================
+    public function firstChildElement() {
+        if(!$this->m_node) return false;
+        $this->m_node = $this->m_node->firstChild;
+        if($this->m_node->nodeType == XML_ELEMENT_NODE) return false;
+        while($this->m_node) {
+            $this->m_node = $this->m_node->nextSibling;
+            if(!$this->m_node) return false;
+            if($this->m_node->nodeType == XML_ELEMENT_NODE) return false;
+        }
+        return true;
+    }
+    //===============================================
+    public function nodeName() {
+        if(!$this->m_node) return "";
+        return $this->m_node->nodeName;
+    }
+    //===============================================
+    public function nodeValue() {
+        if(!$this->m_node) return "";
+        return $this->m_node->nodeValue;
     }
     //===============================================
 }

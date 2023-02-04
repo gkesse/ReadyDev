@@ -165,33 +165,94 @@ class GEditorUi extends GObject {
     }
     //===============================================
     public function onEdition() {
-        $lCount = $this->m_dom->countItem("editor");
         $lId    = $this->m_dom->getItemC("editor", "edition", "id");
         $lTitle = $this->m_dom->getItemC("editor", "edition", "title");
-        
-        echo sprintf("<div class='Row Left EditorTabCtn' id='%s'>\n", $lId); // start : row_1
+        echo sprintf("<div class='Row Left EditorTabCtn' id='%s'>\n", $lId); // start_row_1
         echo sprintf("<h2 class='Title4'>%s</h2>\n", $lTitle);
-        echo sprintf("<div class='Body14'>\n"); // start : body_1
-        echo sprintf("<div class='Content9'>\n"); // start : content_1
-        echo sprintf("<div class='GEndEditor'>\n"); // start : border_1
-        echo sprintf("<div class='Row9'>\n"); // start : dropdown
-        echo sprintf("<div class='DropDown'>\n"); // start : dropdown
-        echo sprintf("<button class='Button9 DropDownButton' onclick='call_server(\"dropdown\", \"toggle_menu\", this);'>Menu</button>\n");
-        echo sprintf("<div class='DropDownContent'>\n"); // start : dropdown
-        echo sprintf("<div class='DropDownLine'>Un</div>\n");
-        echo sprintf("<div class='DropDownLine'>Un</div>\n");
-        echo sprintf("<div class='DropDownLine'>Un</div>\n");
-        echo sprintf("<div class='DropDownLine'>Un</div>\n");
-        echo sprintf("<div class='DropDownLine'>Un</div>\n");
-        echo sprintf("</div>\n"); // end : dropdown
-        echo sprintf("</div>\n"); // end : dropdown
-        echo sprintf("</div>\n"); // end : dropdown
-        echo sprintf("<div class='Border Content14 GEndEditor' contentEditable='true'>\n"); // start : border_1
-        echo sprintf("</div>\n"); // end : border_1
-        echo sprintf("</div>\n"); // end : border_1
-        echo sprintf("</div>\n"); // end : content_1
-        echo sprintf("</div>\n"); // end : body_1
-        echo sprintf("</div>\n"); // end : row_1
+        
+        echo sprintf("<div class='Body14'>\n");     // start_body_1
+        echo sprintf("<div class='Content9'>\n");   // start_content_1
+        
+        $this->m_dom->getCode("edition_command");
+        $lCountI = $this->m_dom->countXNode("map/data");
+        $this->m_dom->getXNode("map/data");
+            
+        echo sprintf("<div class='Row9'>\n");       // start_dropdown
+        echo sprintf("<div class='DropDown'>\n");   // start_dropdown
+        echo sprintf("<button class='Button9 DropDownButton'>Menu</button>\n");
+        echo sprintf("<div class='DropDownContent'>\n"); // start_dropdown
+        for($i = 0; $i < $lCountI; $i++) {
+            $lCategory  = $this->m_dom->getXValue("category");
+            $lModule    = $this->m_dom->getXValue("module");
+            $lMethod    = $this->m_dom->getXValue("method");
+            $lKey       = $this->m_dom->getXValue("key");
+            $lLabel     = $this->m_dom->getXValue("label");
+            $lMapOk     = $this->m_dom->hasNode("map");
+            
+            if($lMapOk) {
+                $this->m_dom->pushNode();
+                $lCountJ = $this->m_dom->countXNode("map/data");
+                $this->m_dom->getXNode("map/data");
+                echo sprintf("<div class='DropDownSub'>%s <i class='DropDownCaret fa fa-caret-down'></i></div>\n", $lLabel);
+                echo sprintf("<div class='DropDownContainer'>\n");
+                for($j = 0; $j < $lCountJ; $j++) {
+                    $lCategory  = $this->m_dom->getXValue("category");
+                    $lModule    = $this->m_dom->getXValue("module");
+                    $lMethod    = $this->m_dom->getXValue("method");
+                    $lKey       = $this->m_dom->getXValue("key");
+                    $lLabel     = $this->m_dom->getXValue("label");
+                    $lMapOk     = $this->m_dom->hasNode("map");
+                    
+                    if($lMapOk) {
+                        $this->m_dom->pushNode();
+                        $lCountK = $this->m_dom->countXNode("map/data");
+                        $this->m_dom->getXNode("map/data");
+                        echo sprintf("<div class='DropDownSub'>%s <i class='DropDownCaret fa fa-caret-down'></i></div>\n", $lLabel);
+                        echo sprintf("<div class='DropDownContainer'>\n");
+                        for($k = 0; $k < $lCountK; $k++) {
+                            $lCategory  = $this->m_dom->getXValue("category");
+                            $lModule    = $this->m_dom->getXValue("module");
+                            $lMethod    = $this->m_dom->getXValue("method");
+                            $lKey       = $this->m_dom->getXValue("key");
+                            $lLabel     = $this->m_dom->getXValue("label");
+                            $lMapOk     = $this->m_dom->hasNode("map");
+                            
+                            if($lCategory == "text") {
+                                echo sprintf("<div class='DropDownLine' onclick='call_server(\"%s\", \"%s\", this, \"%s\");'>%s</div>\n", $lModule, $lMethod, $lKey, $lLabel);
+                            }
+                            
+                            $this->m_dom->nextSiblingElement();
+                        }
+                        echo sprintf("</div>\n");
+                        $this->m_dom->popNode();
+                    }
+                    else if($lCategory == "text") {
+                        echo sprintf("<div class='DropDownLine' onclick='call_server(\"%s\", \"%s\", this, \"%s\");'>%s</div>\n", $lModule, $lMethod, $lKey, $lLabel);
+                    }
+                    
+                    $this->m_dom->nextSiblingElement();
+                }
+                echo sprintf("</div>\n");
+                $this->m_dom->popNode();
+            }
+            else if($lCategory == "text") {
+                echo sprintf("<div class='DropDownLine' onclick='call_server(\"%s\", \"%s\", this, \"%s\");'>%s</div>\n", $lModule, $lMethod, $lKey, $lLabel);
+            }
+            
+            $this->m_dom->nextSiblingElement();
+        }
+        
+        echo sprintf("</div>\n"); // end_dropdown        
+        echo sprintf("</div>\n"); // end_dropdown
+        echo sprintf("</div>\n"); // end_dropdown
+        
+        echo sprintf("<div class='GEndEditor'>\n"); // start_editor
+        echo sprintf("<div class='Border Content14 GEndEditor' contentEditable='true'></div>\n");
+        echo sprintf("</div>\n"); // end_editor
+        
+        echo sprintf("</div>\n"); // end_content_1
+        echo sprintf("</div>\n"); // end_body_1
+        echo sprintf("</div>\n"); // end_row_1
     }
     //===============================================
 }

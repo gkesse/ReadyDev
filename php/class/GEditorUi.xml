@@ -157,6 +157,118 @@
             </map>
         </data>
         <!-- ============================================ -->
+        <!-- edition_button -->
+        <!-- ============================================ -->
+        <data>
+        	<code>edition_button</code>
+        	<map>
+                <data>
+                    <category>button_icon</category>
+                    <id>EditorEditionSave</id>
+                    <module>editor</module>
+                    <method>save_editor</method>
+                    <picto>save</picto>
+                    <text>Sauvegarder</text>
+                </data>
+        	</map>
+        </data>
+        <!-- ============================================ -->
+        <!-- edition_command -->
+        <!-- ============================================ -->
+        <data>
+        	<code>edition_command</code>
+        	<map>
+        		<!-- backColor -->
+        		<data>
+        			<category>text</category>
+        			<module>edition_command</module>
+        			<method>back_color</method>
+        			<key>backColor</key>
+        			<label>Couleur d'arrière-plan</label>
+        		</data>
+        		<!-- bold -->
+        		<data>
+        			<category>text</category>
+        			<module>edition_command</module>
+        			<method>selection</method>
+        			<key>bold</key>
+        			<label>Texte en gras</label>
+        		</data>
+        		<!-- bold -->
+        		<data>
+        			<category>text</category>
+        			<module>edition_command</module>
+        			<method>selection</method>
+        			<key>bold</key>
+        			<label>Texte en gras</label>
+        		</data>
+        		<!-- Styles personnalisés -->
+        		<data>
+        			<category>text</category>
+        			<module>edition_command</module>
+        			<method>selection</method>
+        			<label>Styles personnalisés</label>
+        			<map>
+        				<!-- Titres -->
+        				<data>
+		        			<category>text</category>
+		        			<module>edition_command</module>
+		        			<method>selection</method>
+		        			<label>Titres</label>
+		        			<map>
+		        				<data>
+				        			<category>text</category>
+				        			<module>edition_command</module>
+				        			<method>selection</method>
+				        			<label>Titre 1</label>
+		        				</data>
+		        				<data>
+				        			<category>text</category>
+				        			<module>edition_command</module>
+				        			<method>selection</method>
+				        			<label>Titre 2</label>
+		        				</data>
+		        				<data>
+				        			<category>text</category>
+				        			<module>edition_command</module>
+				        			<method>selection</method>
+				        			<label>Titre 3</label>
+		        				</data>
+		        			</map>
+        				</data>
+        				<!-- Parallax -->
+        				<data>
+		        			<category>text</category>
+		        			<module>edition_command</module>
+		        			<method>selection</method>
+		        			<label>Parallax</label>
+		        			<map>
+		        				<data>
+				        			<category>text</category>
+				        			<module>edition_command</module>
+				        			<method>selection</method>
+				        			<label>Parallax 1</label>
+		        				</data>
+		        				<data>
+				        			<category>text</category>
+				        			<module>edition_command</module>
+				        			<method>selection</method>
+				        			<label>Parallax 2</label>
+		        				</data>
+		        				<data>
+				        			<category>text</category>
+				        			<module>edition_command</module>
+				        			<method>selection</method>
+				        			<label>Parallax 3</label>
+		        				</data>
+		        			</map>
+        				</data>
+        			</map>
+        		</data>
+        		<!-- end -->
+        	</map>
+        </data>
+        <!-- ============================================ -->
         <!-- end -->
         <!-- ============================================ -->
     </datas>

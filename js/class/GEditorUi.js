@@ -1,8 +1,23 @@
 //===============================================
 class GEditorUi extends GObject {
     //===============================================
+	static m_instance = null;
+    //===============================================
     constructor() {
         super();
+    }
+    //===============================================
+	static Instance() {
+		if(this.m_instance == null) {
+			this.m_instance = new GEditorUi();
+		}
+		return this.m_instance;
+	}
+    //===============================================
+    init(_id) {
+        var lTabCtn = document.getElementsByClassName("EditorTab");
+        var lObj = lTabCtn[_id];
+        this.onOpenHeader(lObj, "EditorTab" + _id);
     }
     //===============================================
     onModule(_method, _obj, _data) {
@@ -16,12 +31,6 @@ class GEditorUi extends GObject {
             this.addError("Erreur la méthode est obligatoire.");            
         }
         return !this.hasErrors();
-    }
-    //===============================================
-    init(_id) {
-        var lTabCtn = document.getElementsByClassName("EditorTab");
-        var lObj = lTabCtn[_id];
-        this.onOpenHeader(lObj, "EditorTab" + _id);
     }
     //===============================================
     onOpenHeader(_obj, _name) {
@@ -43,6 +52,5 @@ class GEditorUi extends GObject {
     //===============================================
 }
 //===============================================
-var lEditorUi = new GEditorUi();
-lEditorUi.init(2);
+GEditorUi.Instance().init(2);
 //===============================================
