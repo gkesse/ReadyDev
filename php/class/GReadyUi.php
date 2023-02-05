@@ -56,6 +56,7 @@
             if($lPage != "home/admin") return;
             $this->m_isFound = true;
             $this->m_adminUi->run();
+            $this->addLogs($this->m_adminUi->getLogs());
         }
         //===============================================
         public function onError() {

@@ -38,12 +38,12 @@ class GXml {
         return true;
     }
     //===============================================
-    public function loadNode($_data) {
+    public function loadNode($_data, $_version = "1.0", $_encoding = "UTF-8") {
         $_data = trim($_data);
         if($_data == "") return false;
         if(!$this->m_doc) return false;
         if(!$this->m_node) return false;
-        $lDom = new DOMDocument();
+        $lDom = new DOMDocument($_version, $_encoding);
         $lDom->preserveWhiteSpace = false;
         $lDom->formatOutput = true;
         $lDom->loadXML($_data);
@@ -56,10 +56,13 @@ class GXml {
         return true;
     }
     //===============================================
-    public function loadXml($_data, $_version = '1.0', $_encoding = 'UTF-8') {
+    public function loadXml($_data, $_version = "1.0", $_encoding = "UTF-8") {
         $_data = trim($_data);
         if($_data == "") return false;
-        $_data = utf8_encode($_data);
+        $lEncoding = mb_detect_encoding($_data);
+        if($lEncoding != "UTF-8") {
+            $_data = utf8_encode($_data);
+        }
         $this->m_doc = new DOMDocument($_version, $_encoding);
         if(!$this->m_doc) return false;
         $lXml = "<?xml";
@@ -245,13 +248,15 @@ class GXml {
     public function toString() {
         if(!$this->m_doc) return "";
         if(!$this->m_node) return "";
-        return $this->m_doc->saveXML();
+        $lData = $this->m_doc->saveXML();
+        return $lData;
     }
     //===============================================
     public function toStringNode() {
         if(!$this->m_doc) return "";
         if(!$this->m_node) return "";
-        return $this->m_doc->saveXML($this->m_node);
+        $lData = $this->m_doc->saveXML($this->m_node);
+        return $lData;
     }
     //===============================================
     public function nextSibling() {

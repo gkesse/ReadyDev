@@ -9,6 +9,7 @@ class GModule extends GSession {
     public function __construct() {
         parent::__construct();
         $this->m_responseXml = new GCode();
+        $this->m_responseXml->createDoc();
     }
     //===============================================
     public function serialize($_code = "manager") {

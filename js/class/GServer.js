@@ -7,7 +7,7 @@ class GServer extends GObject {
     //===============================================
 	run(_module, _method, _obj, _data) {
 		if(_module == "") {
-			this.addError("Erreur le module est obligatoire.");
+			this.addError("Le module est obligatoire.");
 		}
 		else if(_module == "test") {
 			this.onTest(_method, _obj, _data);
@@ -55,7 +55,7 @@ class GServer extends GObject {
 			this.onInformation(_method, _obj, _data);
 		}
 		else {
-			this.addError("Erreur le module est inconnu.");
+			this.addError("Le module est inconnu.");
 		}
 	}
     //===============================================

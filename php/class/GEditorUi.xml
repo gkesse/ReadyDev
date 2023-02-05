@@ -157,50 +157,46 @@
             </map>
         </data>
         <!-- ============================================ -->
-        <!-- edition_button -->
-        <!-- ============================================ -->
-        <data>
-        	<code>edition_button</code>
-        	<map>
-                <data>
-                    <category>button_icon</category>
-                    <id>EditorEditionSave</id>
-                    <module>editor</module>
-                    <method>save_editor</method>
-                    <picto>save</picto>
-                    <text>Sauvegarder</text>
-                </data>
-        	</map>
-        </data>
-        <!-- ============================================ -->
         <!-- edition_command -->
         <!-- ============================================ -->
         <data>
         	<code>edition_command</code>
+           	<id>EditorEditionContent</id>
         	<map>
-        		<!-- backColor -->
+        		<!-- Textes -->
         		<data>
         			<category>text</category>
-        			<module>edition_command</module>
-        			<method>back_color</method>
-        			<key>backColor</key>
-        			<label>Couleur d'arrière-plan</label>
+        			<label>Textes</label>
+        			<map>
+		        		<data>
+		        			<category>text</category>
+		        			<module>edition_command</module>
+		        			<method>selection</method>
+		        			<key>bold</key>
+		        			<label>Texte en gras</label>
+		        		</data>
+        			</map>
         		</data>
-        		<!-- bold -->
+        		<!-- Couleurs -->
         		<data>
         			<category>text</category>
-        			<module>edition_command</module>
-        			<method>selection</method>
-        			<key>bold</key>
-        			<label>Texte en gras</label>
-        		</data>
-        		<!-- bold -->
-        		<data>
-        			<category>text</category>
-        			<module>edition_command</module>
-        			<method>selection</method>
-        			<key>bold</key>
-        			<label>Texte en gras</label>
+        			<label>Couleurs</label>
+        			<map>
+		        		<data>
+		        			<category>text</category>
+		        			<module>edition_command</module>
+		        			<method>selection</method>
+		        			<key>bold</key>
+		        			<label>Avant-plan</label>
+		        		</data>
+		        		<data>
+		        			<category>text</category>
+		        			<module>edition_command</module>
+		        			<method>selection</method>
+		        			<key>bold</key>
+		        			<label>Arrière-plan</label>
+		        		</data>
+        			</map>
         		</data>
         		<!-- Styles personnalisés -->
         		<data>
@@ -262,6 +258,25 @@
 				        			<label>Parallax 3</label>
 		        				</data>
 		        			</map>
+        				</data>
+        			</map>
+        		</data>
+        		<!-- Actions -->
+        		<data>
+        			<category>text</category>
+        			<label>Actions</label>
+        			<map>
+        				<data>
+        					<category>text</category>
+        					<module>edition_command</module>
+        					<method>store_page</method>
+        					<label>Sauvegarder</label>
+        				</data>
+        				<data>
+        					<category>text</category>
+        					<module>edition_command</module>
+        					<method>load_page</method>
+        					<label>Charger</label>
         				</data>
         			</map>
         		</data>

@@ -8,7 +8,7 @@
         public function run() {
             if($this->m_module == "") {
                 $this->m_headerUi->run();
-                $this->addError("Erreur le module est obligatoire.");
+                $this->addError("Le module est obligatoire.");
                 $this->m_footerUi->run();
             }
             else if($this->m_module == "prod") {
@@ -25,7 +25,7 @@
             }
             else {
                 $this->m_headerUi->run();
-                $this->addError("Erreur le module est inconnu.");
+                $this->addError("Le module est inconnu.");
                 $this->m_footerUi->run();
             }
         }

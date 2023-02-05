@@ -4,6 +4,7 @@
         protected $m_app;
         protected $m_dom;
         protected $m_logs;
+        protected $m_map = array();
         //===============================================
         public function __construct() {
             $this->m_logs = new GLog();

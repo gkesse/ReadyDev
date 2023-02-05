@@ -25,6 +25,8 @@ class GAdminUi extends GObject {
         $this->m_sitemapUi->run();
         $this->m_editorUi->run();
         
+        $this->addLogs($this->m_editorUi->getLogs());
+        
         echo sprintf("</div>\n");
     }
     //===============================================

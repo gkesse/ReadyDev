@@ -10,7 +10,8 @@ class GServer extends GModule {
     //===============================================
     public function sendResponse() {
         $this->addResponse($this->loadLogs());
-        echo $this->toResponse();
+        $lData = $this->toResponse();
+        echo $lData;
     }
     //===============================================
     public function serialize($_code = "server") {
@@ -30,7 +31,7 @@ class GServer extends GModule {
     public function run($_data) {
         $this->deserialize($_data);
         if($this->m_type == "") {
-            $this->addError("Erreur le type du traitement est obligatoire.");
+            $this->addError("Le type du traitement est obligatoire.");
         }
         else if($this->m_type == "local") {
             $this->runLocal($_data);
@@ -39,20 +40,15 @@ class GServer extends GModule {
             $this->runRemote($_data);
         }
         else {
-            $this->addError("Erreur le type du traitement est inconnu.");
+            $this->addError("Le type du traitement est inconnu.");
         }
     }
     //===============================================
     public function runLocal($_data) {
-        if($this->m_module == "") {
-            $this->addError("Erreur le module est obligatoire.");
-        }
-        else if($this->m_module == "page") {
-            $this->onPage($_data);
-        }
-        else {
-            $this->addError("Erreur le module est inconnu.");
-        }
+        $lLocal = new GLocal();
+        $lLocal->run($_data);
+        $this->addLogs($lLocal->getLogs());
+        $this->addResponse($lLocal->toResponse());
     }
     //===============================================
     public function runRemote($_data) {
@@ -62,13 +58,6 @@ class GServer extends GModule {
         $lCurl->callProxy($lDom->toString());
         $this->addLogs($lCurl->getLogs());
         $this->addResponse($lCurl->getResponseText());
-    }
-    //===============================================
-    public function onPage($_data) {
-        $lPage = new GPageFac();
-        $lPage->onModule($_data);
-        $this->addLogs($lPage->getLogs());
-        $this->addResponse($lPage->serialize());
     }
     //===============================================
  }

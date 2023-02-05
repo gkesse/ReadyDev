@@ -13,7 +13,7 @@ class GTestUi extends GTest {
     //===============================================
 	onModule() {
         if(this.m_module == "") {
-            this.m_logs.addError("Erreur le module est obligatoire.");
+            this.m_logs.addError("Le module est obligatoire.");
         }
         else if(this.m_module == "dom") {
             this.runDom();
@@ -22,7 +22,7 @@ class GTestUi extends GTest {
             this.runXml();
         }
         else {
-            this.m_logs.addError("Erreur le module est inconnu.");
+            this.m_logs.addError("Le module est inconnu.");
         }
 	}
     //===============================================
