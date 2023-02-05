@@ -24,7 +24,7 @@ class GCommand extends GObject {
 		var lDom = new GCode();
 		lDom.createDoc();
 		lDom.addData(_code, "id", ""+this.m_id);
-		lDom.addData(_code, "data", btoa(this.m_data));
+		lDom.addData(_code, "data", this.m_data, true);
 		lDom.addMap(_code, this.m_map);
 		return lDom.toString();
 	}
@@ -33,7 +33,7 @@ class GCommand extends GObject {
 		var lDom = new GCode();
 		lDom.loadXml(_data);
 		this.m_id = +lDom.getItem(_code, "id");
-		this.m_data = atob(lDom.getItem(_code, "data"));
+		this.m_data = lDom.getItem(_code, "data", true);
         lDom.getMap(_code, this.m_map, this);
 	}
     //===============================================
@@ -57,11 +57,11 @@ class GCommand extends GObject {
         else if(_method == "back_color") {
             this.onBackColor(_obj, _data);
         }
-        else if(_method == "store_page") {
-            this.onStorePage(_obj, _data);
+        else if(_method == "store_page_file") {
+            this.onStorePageFile(_obj, _data);
         }
-        else if(_method == "load_page") {
-            this.onLoadPage(_obj, _data);
+        else if(_method == "load_page_file") {
+            this.onLoadPageFile(_obj, _data);
         }
         else {
             this.addError("La méthode est inconnue.");
@@ -77,19 +77,28 @@ class GCommand extends GObject {
         document.execCommand(_data, false, "#ffaaaa");
     }
     //===============================================
-    onStorePage(_obj, _data) {
+    onStorePageFile(_obj, _data) {
         this.readUi();
         var lAjax = new GAjax();
         var lData = this.serialize();
-        lAjax.callLocal("command", "store_page", lData, this.onStorePageCB);        
+        lAjax.callLocal("command", "store_page_file", lData, this.onStorePageFileCB);        
     }
     //===============================================
-    onStorePageCB(_data) {
+    onStorePageFileCB(_data) {
 
     }
     //===============================================
-    onLoadPage(_obj, _data) {
-        this.addData("onLoadPage");
+    onLoadPageFile(_obj, _data) {
+        this.readUi();
+        var lAjax = new GAjax();
+        var lData = this.serialize();
+        lAjax.callLocal("command", "load_page_file", lData, this.onLoadPageFileCB);        
+    }
+    //===============================================
+    onLoadPageFileCB(_data) {
+        var lCommand = new GCommand();
+        lCommand.deserialize(_data);
+        lCommand.writeUi();
     }
     //===============================================
 }

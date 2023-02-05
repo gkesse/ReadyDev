@@ -5,28 +5,34 @@ class GPath {
 
     }
     //===============================================
-    public function getPath($path, $file = "") {
+    public static function create($_path, $_file = "") {
+        $lPath = new GPath();
+        $lFile = $lPath->getPath($_path, $_file);
+        return $lFile;
+    }
+    //===============================================
+    public function getPath($_path, $_file = "") {
         $lPath = $_SERVER["DOCUMENT_ROOT"];
-        if($path != "") {
-            if($lPath == "") $lPath = $path;
-            else $lPath = sprintf("%s/%s", $lPath, $path);
+        if($_path != "") {
+            if($lPath == "") $lPath = $_path;
+            else $lPath = sprintf("%s/%s", $lPath, $_path);
         }
-        if($file != "") {
-            if($lPath == "") $lPath = $file;
-            else $lPath = sprintf("%s/%s", $lPath, $file);
+        if($_file != "") {
+            if($lPath == "") $lPath = $_file;
+            else $lPath = sprintf("%s/%s", $lPath, $_file);
         }
         return $lPath;
     }
     //===============================================
-    public function getUrl($data) {
-        if($data != "") {
-            if($data[0] != "/") {
-                $data = "/".$data;
+    public function getUrl($_data) {
+        if($_data != "") {
+            if($_data[0] != "/") {
+                $_data = "/".$_data;
             }
         }
         $lUrl = "https://";
         $lUrl .= $_SERVER['HTTP_HOST'];
-        $lUrl .= $data;
+        $lUrl .= $_data;
         return $lUrl;
     }//===============================================
 }

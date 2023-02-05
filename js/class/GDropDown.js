@@ -44,24 +44,30 @@ class GDropDown extends GObject {
         var lDropDownSubs = document.getElementsByClassName("DropDownSub");
         for(var i = 0; i < lDropDownSubs.length; i++) {
             var lDropDownSub = lDropDownSubs[i];
+            
             lDropDownSub.addEventListener("click", function(e) {
                 var lDropDownSubs = document.getElementsByClassName("DropDownSub");
                 for(var i = 0; i < lDropDownSubs.length; i++) {
                     var lDropDownSub = lDropDownSubs[i];
                     if(lDropDownSub == this) continue;
-                    if(lDropDownSub.matches(".DropDownActive")) {
-                        var lDropDownContainer = lDropDownSub.nextElementSibling;
-                        var lSubs = lDropDownContainer.getElementsByClassName("DropDownSub");
-                        if(lSubs.length) continue;
-                    }
                     lDropDownSub.classList.remove("DropDownActive");
                     var lDropDownContainer = lDropDownSub.nextElementSibling;
                     lDropDownContainer.classList.remove("DropDownShow");
+                }
+                lParentNode = this;
+                while(1) {
+                    var lParentNode = lParentNode.parentNode;
+                    if(lParentNode.matches(".DropDownContent")) break;
+                    var lDropDownContainer = lParentNode;
+                    var lDropDownSub = lDropDownContainer.previousElementSibling;
+                    lDropDownSub.classList.toggle("DropDownActive");
+                    lDropDownContainer.classList.toggle("DropDownShow");
                 }
                 this.classList.toggle("DropDownActive");
                 var lDropDownContainer = this.nextElementSibling;
                 lDropDownContainer.classList.toggle("DropDownShow");
             });
+
             lDropDownSub.addEventListener("mousedown", function(e) {
                 e.preventDefault();
             });

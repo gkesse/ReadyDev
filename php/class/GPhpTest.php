@@ -23,6 +23,9 @@
             else if($this->m_module == "sqlite") {
                 $this->runSQLite();
             }
+            else if($this->m_module == "file") {
+                $this->runFile();
+            }
             else {
                 $this->m_headerUi->run();
                 $this->addError("Le module est inconnu.");
@@ -50,6 +53,12 @@
         //===============================================
         public function runSQLite() {
             $lTest = new GSQLiteTest();
+            $lTest->run();
+            $this->addLogs($lTest->getLogs());
+        }
+        //===============================================
+        public function runFile() {
+            $lTest = new GFileTest();
             $lTest->run();
             $this->addLogs($lTest->getLogs());
         }

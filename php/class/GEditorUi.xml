@@ -269,13 +269,13 @@
         				<data>
         					<category>text</category>
         					<module>edition_command</module>
-        					<method>store_page</method>
+        					<method>store_page_file</method>
         					<label>Sauvegarder</label>
         				</data>
         				<data>
         					<category>text</category>
         					<module>edition_command</module>
-        					<method>load_page</method>
+        					<method>load_page_file</method>
         					<label>Charger</label>
         				</data>
         			</map>
