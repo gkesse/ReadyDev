@@ -52,3 +52,11 @@ function stob(_data) {
     return (_data.toLowerCase() === "true");
 }
 //===============================================
+function utf8_to_b64(_data) {
+    return window.btoa(unescape(encodeURIComponent(_data)));
+}
+//===============================================
+function b64_to_utf8(_data) {
+    return decodeURIComponent(escape(window.atob(_data)));
+}
+//===============================================

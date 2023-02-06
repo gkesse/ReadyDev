@@ -40,7 +40,7 @@ class GFile extends GObject {
         if($this->m_action == "") {
             $this->addError("L'action est obligatoire.");
         }
-        if($this->m_action == "load_data_file") {
+        else if($this->m_action == "load_data_file") {
             $this->runLoadDataFile();
         }
         else if($this->m_action == "save_data_file") {
@@ -61,7 +61,7 @@ class GFile extends GObject {
             return false;
         }
         $this->m_data = file_get_contents($this->m_filename);
-        if($this->m_data == false) {
+        if($this->m_data === false) {
             $this->addError("La lecture du fichier a échoué.");
         }
         return !$this->hasErrors();

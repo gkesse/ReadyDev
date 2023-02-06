@@ -1107,6 +1107,10 @@ thead tr:first-child {
     right: 0px;
 }
 
+.GEndEditor {
+	overflow: auto;
+}
+
 .HappyDay {
     background-color: #010101;
     font-family: Allan;

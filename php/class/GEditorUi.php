@@ -247,9 +247,7 @@ class GEditorUi extends GObject {
         echo sprintf("</div>\n"); // end_dropdown
         echo sprintf("</div>\n"); // end_dropdown
         
-        echo sprintf("<div class='GEndEditor'>\n"); // start_editor
         echo sprintf("<div id='%s' class='Border Content14 GEndEditor' contentEditable='true'></div>\n", $lId);
-        echo sprintf("</div>\n"); // end_editor
         
         echo sprintf("</div>\n"); // end_content_1
         echo sprintf("</div>\n"); // end_body_1
