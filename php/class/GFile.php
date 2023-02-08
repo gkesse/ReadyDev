@@ -28,6 +28,13 @@ class GFile extends GObject {
         return $this->m_data;
     }
     //===============================================
+    public function loadBin($_path, $_filename = "") {
+        $this->setAction("load_bin_file");
+        $this->setFilename(GPath::create($_path, $_filename));
+        $this->run();
+        return $this->m_data;
+    }
+    //===============================================
     public function saveData($_path, $_filename = "", $_data) {
         $this->setAction("save_data_file");
         $this->setFilename(GPath::create($_path, $_filename));
@@ -43,8 +50,14 @@ class GFile extends GObject {
         else if($this->m_action == "load_data_file") {
             $this->runLoadDataFile();
         }
+        else if($this->m_action == "load_bin_file") {
+            $this->runLoadBinFile();
+        }
         else if($this->m_action == "save_data_file") {
             $this->runSaveDataFile();
+        }
+        else if($this->m_action == "save_bin_file") {
+            $this->runSaveBinFile();
         }
         else if($this->m_action == "create_path_file") {
             $this->runCreateFilePath();
@@ -67,6 +80,21 @@ class GFile extends GObject {
         return !$this->hasErrors();
     }
     //===============================================
+    public function runLoadBinFile() {
+        if($this->m_filename == "") {
+            $this->addError("Le chemin du fichier est obligatoire.");
+            return false;
+        }
+        $lFilesize = filesize($this->m_filename);
+        $lFile = fopen($this->m_filename, 'rb');
+        $this->m_data = fread($lFile, $lFilesize);
+        fclose($lFile);
+        if($this->m_data === false) {
+            $this->addError("La lecture du fichier a échoué.");
+        }
+        return !$this->hasErrors();
+    }
+    //===============================================
     public function runSaveDataFile() {
         if($this->m_filename == "") {
             $this->addError("Le chemin du fichier est obligatoire.");
@@ -74,6 +102,21 @@ class GFile extends GObject {
         }
         if(!$this->runCreateFilePath()) return false;
         $lOk = file_put_contents($this->m_filename, $this->m_data);
+        if($lOk == false) {
+            $this->addError("L'enregistrement du fichier a échoué.");
+        }
+        return !$this->hasErrors();
+    }
+    //===============================================
+    public function runSaveBinFile() {
+        if($this->m_filename == "") {
+            $this->addError("Le chemin du fichier est obligatoire.");
+            return false;
+        }
+        if(!$this->runCreateFilePath()) return false;
+        $lFile = fopen($this->m_filename, 'wb');
+        $lOk = fwrite($lFile, $this->m_data);
+        fclose($lFile);
         if($lOk == false) {
             $this->addError("L'enregistrement du fichier a échoué.");
         }

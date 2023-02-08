@@ -12,7 +12,7 @@ class GCommand extends GModule {
         $lDom = new GCode();
         $lDom->createDoc();
         $lDom->addData($_code, "id", $this->m_id);
-        $lDom->addData($_code, "data", $this->m_data, true);
+        $lDom->addData($_code, "data", base64_encode($this->m_data), true);
         $lDom->addMap($_code, $this->m_map);
         return $lDom->toString();
     }
@@ -22,7 +22,7 @@ class GCommand extends GModule {
         $lDom = new GCode();
         $lDom->loadXml($_data);
         $this->m_id = $lDom->getItem($_code, "id");
-        $this->m_data = $lDom->getItem($_code, "data", true);
+        $this->m_data = base64_decode($lDom->getItem($_code, "data", true));
         $lDom->getMap($_code, $this->m_map, $this);
     }
     //===============================================
@@ -45,8 +45,14 @@ class GCommand extends GModule {
         else if($this->m_method == "store_page_file") {
             $this->onStorePageFile();
         }
+        else if($this->m_method == "store_bin_file") {
+            $this->onStoreBinFile();
+        }
         else if($this->m_method == "load_page_file") {
             $this->onLoadPageFile();
+        }
+        else if($this->m_method == "load_bin_file") {
+            $this->onLoadBinFile();
         }
         else {
             $this->addError("La méthode est inconnue.");
@@ -62,9 +68,24 @@ class GCommand extends GModule {
         }
     }
     //===============================================
+    public function onStoreBinFile() {
+        $lFile = new GFile();
+        $lFile->saveData("data/editor/html", "editor.php", $this->m_data);
+        $this->addLogs($lFile->getLogs());
+        if(!$this->hasErrors()) {
+            $this->addLog("Le fichier a été bien enregistrée.");
+        }
+    }
+    //===============================================
     public function onLoadPageFile() {
         $lFile = new GFile();
         $this->m_data = $lFile->loadData("data/editor/html", "editor.php");
+        $this->addLogs($lFile->getLogs());
+    }
+    //===============================================
+    public function onLoadBinFile() {
+        $lFile = new GFile();
+        $this->m_data = $lFile->loadBin("data/editor/html", "editor.php");
         $this->addLogs($lFile->getLogs());
     }
     //===============================================

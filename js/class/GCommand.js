@@ -24,7 +24,7 @@ class GCommand extends GObject {
 		var lDom = new GCode();
 		lDom.createDoc();
 		lDom.addData(_code, "id", ""+this.m_id);
-		lDom.addData(_code, "data", this.m_data, true);
+		lDom.addData(_code, "data", utf8_to_b64(this.m_data), true);
 		lDom.addMap(_code, this.m_map);
 		return lDom.toString();
 	}
@@ -33,7 +33,7 @@ class GCommand extends GObject {
 		var lDom = new GCode();
 		lDom.loadXml(_data);
 		this.m_id = +lDom.getItem(_code, "id");
-		this.m_data = lDom.getItem(_code, "data", true);
+		this.m_data = b64_to_utf8(lDom.getItem(_code, "data", true));
         lDom.getMap(_code, this.m_map, this);
 	}
     //===============================================
