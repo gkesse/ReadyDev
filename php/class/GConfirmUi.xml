@@ -9,6 +9,7 @@
 			<title>Confirmation</title>
 			<intro>Voulez-vous continuer l'opération ?</intro>
 			<modal_id>ModalConfirm</modal_id>
+			<intro_id>ConfirmIntro</intro_id>
 			<body_id>ConfirmBody</body_id>
 			<form_id>ConfirmForm</form_id>
 			<msg_id>ConfirmMsg</msg_id>
@@ -26,7 +27,7 @@
 					<module>confirm</module>
 					<method>ok_confirm</method>
 					<picto>check</picto>
-					<text>OK</text>
+					<text>Oui</text>
 				</data>
 				<data>
 					<category>button</category>
@@ -35,7 +36,7 @@
 					<module>confirm</module>
 					<method>close_confirm</method>
 					<picto>times</picto>
-					<text>Annuler</text>
+					<text>Non</text>
 				</data>
 				<!-- ============================================ -->
 				<!-- end -->

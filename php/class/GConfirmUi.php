@@ -14,6 +14,7 @@ class GConfirmUi extends GObject {
         $lTitle         = $this->m_dom->getItem("confirm", "title");
         $lIntro         = $this->m_dom->getItem("confirm", "intro");
         $lModalId       = $this->m_dom->getItem("confirm", "modal_id");
+        $lIntroId       = $this->m_dom->getItem("confirm", "intro_id");
         $lBodyId        = $this->m_dom->getItem("confirm", "body_id");
         $lFormId        = $this->m_dom->getItem("confirm", "form_id");
         $lMsgId         = $this->m_dom->getItem("confirm", "msg_id");
@@ -26,7 +27,7 @@ class GConfirmUi extends GObject {
         echo sprintf("<div class='Button3 Close' onclick='call_server(\"%s\", \"%s\");'><i class='fa fa-close'></i></div>\n", $lModule, $lCloseCB);
         echo sprintf("<div class='Title5'>%s</div>\n", $lTitle);
         echo sprintf("<form class='Body4' id='%s' method='post'>\n", $lFormId);        
-        echo sprintf("<div class='Row11'>%s</div>\n", $lIntro);
+        echo sprintf("<div id='%s' class='Row11'>%s</div>\n", $lIntroId, $lIntro);
         echo sprintf("<div class='Content15'>");        
         echo sprintf("</div>");        
         echo sprintf("<div class='Row13'>\n");

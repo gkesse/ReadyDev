@@ -3,6 +3,12 @@ class GConfirm extends GModule {
     //===============================================
     constructor() {
         super();
+        this.m_intro = "";
+    }
+    //===============================================
+    setIntro(_intro) {
+        this.m_intro = _intro;
+        this.writeUi();
     }
     //===============================================
     setCallback(_module, _method) {
@@ -12,19 +18,23 @@ class GConfirm extends GModule {
     }
     //===============================================
     readUi() {
-        var lModule = document.getElementById("ConfirmModule");
-        var lMethod = document.getElementById("ConfirmMethod");
+        var lConfirmIntro = document.getElementById("ConfirmIntro");
+        var lConfirmModule = document.getElementById("ConfirmModule");
+        var lConfirmMethod = document.getElementById("ConfirmMethod");
         
-        this.m_module = lModule.value;
-        this.m_method = lMethod.value;
+        this.m_intro = lConfirmIntro.innerHTML;
+        this.m_module = lConfirmModule.value;
+        this.m_method = lConfirmMethod.value;
     }
     //===============================================
     writeUi() {
-        var lModule = document.getElementById("ConfirmModule");
-        var lMethod = document.getElementById("ConfirmMethod");
+        var lConfirmIntro = document.getElementById("ConfirmIntro");
+        var lConfirmModule = document.getElementById("ConfirmModule");
+        var lConfirmMethod = document.getElementById("ConfirmMethod");
 
-        lModule.value = this.m_module;
-        lMethod.value = this.m_method;
+        lConfirmIntro.innerHTML = this.m_intro;
+        lConfirmModule.value = this.m_module;
+        lConfirmMethod.value = this.m_method;
     }
     //===============================================
     buttonOn() {
