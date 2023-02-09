@@ -49,8 +49,14 @@ class GAjax extends GObject {
     }
     //===============================================
     callServer(_data, _callback) {
-        if(_data == "") return false;
-        if(_callback == null) return false;
+        if(_data == "") {
+            this.addError("La donnée est obligatoire.");            
+            return false;
+        }
+        if(_callback == null) {
+            this.addError("La fonction de rappel est obligatoire.");            
+            return false;
+        }
         this.m_xhttp.onreadystatechange = function() {
             if(this.readyState == 4 && this.status == 200) {
                 var lData = this.responseText;
@@ -63,12 +69,51 @@ class GAjax extends GObject {
             }
         }
         this.m_xhttp.open(this.m_method, this.m_url, this.m_async, this.m_user, this.m_password);
-           for(var lHeader in this.m_headers) {
+        for(var lHeader in this.m_headers) {
             var lValue = this.m_headers[lHeader];
             this.m_xhttp.setRequestHeader(lHeader, lValue);
         }
         var lReq = "";
-        lReq += sprintf("req=%s", _data);
+        lReq += sprintf("com=req");
+        lReq += sprintf("&req=%s", _data);
+        this.m_xhttp.send(lReq);
+        return true;
+    }
+    //===============================================
+    callProxy(_module, _method, _data, _callback) {
+        if(_module == "") {
+            this.addError("Le module est obligatoire.");            
+            return false;
+        }
+        if(_method == "") {
+            this.addError("La méthode est obligatoire.");            
+            return false;
+        }
+        if(_callback == null) {
+            this.addError("La fonction de rappel est obligatoire.");            
+            return false;
+        }
+        this.m_xhttp.onreadystatechange = function() {
+            if(this.readyState == 4 && this.status == 200) {
+                var lData = this.responseText;
+                var lLog = new GLog();
+                lLog.deserialize(lData);
+                if(_callback) _callback(lData);
+                lLog.showDatas();
+                lLog.showErrors();
+                lLog.showLogs();
+            }
+        }
+        this.m_xhttp.open(this.m_method, this.m_url, this.m_async, this.m_user, this.m_password);
+        for(var lHeader in this.m_headers) {
+            var lValue = this.m_headers[lHeader];
+            this.m_xhttp.setRequestHeader(lHeader, lValue);
+        }
+        var lReq = "";
+        lReq += sprintf("com=data");
+        lReq += sprintf("&module=%s", _module);
+        lReq += sprintf("&method=%s", _method);
+        lReq += sprintf("&data=%s", _data);
         this.m_xhttp.send(lReq);
         return true;
     }

@@ -6,12 +6,8 @@ class GLocal extends GModule {
     }
     //===============================================
     public function run($_data) {
-        parent::deserialize($_data);
         if($this->m_module == "") {
             $this->addError("Le module est obligatoire.");
-        }
-        else if($this->m_module == "page") {
-            $this->onPage($_data);
         }
         else if($this->m_module == "command") {
             $this->onCommand($_data);
@@ -21,18 +17,12 @@ class GLocal extends GModule {
         }
     }
     //===============================================
-    public function onPage($_data) {
-        $lPage = new GPageFac();
-        $lPage->onModule($_data);
-        $this->addLogs($lPage->getLogs());
-        $this->addResponse($lPage->serialize());
-    }
-    //===============================================
     public function onCommand($_data) {
         $lCommand = new GCommand();
+        $lCommand->setModule($this->m_module);
+        $lCommand->setMethod($this->m_method);
         $lCommand->run($_data);
         $this->addLogs($lCommand->getLogs());
-        $this->addResponse($lCommand->serialize());
     }
     //===============================================
 }

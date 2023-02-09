@@ -2,10 +2,14 @@
 //===============================================
 class GServer extends GModule {
     //===============================================
-    protected $m_type;
+    private $m_type;
     //===============================================
     public function __construct() {
         parent::__construct();
+    }
+    //===============================================
+    public function setType($_type) {
+        $this->m_type = $_type;
     }
     //===============================================
     public function sendResponse() {
@@ -29,7 +33,6 @@ class GServer extends GModule {
     }
     //===============================================
     public function run($_data) {
-        $this->deserialize($_data);
         if($this->m_type == "") {
             $this->addError("Le type du traitement est obligatoire.");
         }
@@ -46,6 +49,8 @@ class GServer extends GModule {
     //===============================================
     public function runLocal($_data) {
         $lLocal = new GLocal();
+        $lLocal->setModule($this->m_module);
+        $lLocal->setMethod($this->m_method);
         $lLocal->run($_data);
         $this->addLogs($lLocal->getLogs());
         $this->addResponse($lLocal->toResponse());

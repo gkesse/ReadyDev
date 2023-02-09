@@ -80,8 +80,8 @@ class GCommand extends GObject {
     onStorePageFile(_obj, _data) {
         this.readUi();
         var lAjax = new GAjax();
-        var lData = this.serialize();
-        lAjax.callLocal("command", "store_page_file", lData, this.onStorePageFileCB);        
+        var lData = encodeURIComponent(this.m_data);
+        lAjax.callProxy("command", "store_page_file", lData, this.onStorePageFileCB);        
     }
     //===============================================
     onStorePageFileCB(_data) {
@@ -89,15 +89,13 @@ class GCommand extends GObject {
     }
     //===============================================
     onLoadPageFile(_obj, _data) {
-        this.readUi();
         var lAjax = new GAjax();
-        var lData = this.serialize();
-        lAjax.callLocal("command", "load_page_file", lData, this.onLoadPageFileCB);        
+        lAjax.callProxy("command", "load_page_file", "", this.onLoadPageFileCB);        
     }
     //===============================================
     onLoadPageFileCB(_data) {
         var lCommand = new GCommand();
-        lCommand.deserialize(_data);
+        lCommand.m_data = _data;
         lCommand.writeUi();
     }
     //===============================================
