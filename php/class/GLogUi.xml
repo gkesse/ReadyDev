@@ -6,7 +6,7 @@
 		<!-- ============================================ -->
 		<data>
 			<code>logs</code>
-			<title>Logs</title>
+			<title>Informations</title>
 			<intro>Consultez les logs de traitements.</intro>
 			<modal_id>ModalLogs</modal_id>
 			<body_id>LogsBody</body_id>

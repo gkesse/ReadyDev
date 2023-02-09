@@ -44,21 +44,6 @@
                     <value>-1</value>
                 </data>
                 <!-- ============================================ -->
-                <!-- table -->
-                <!-- ============================================ -->
-                <data>
-                    <model>normal</model>
-                    <id>ConfirmModule</id>
-                </data>
-                <data>
-                    <model>normal</model>
-                    <id>ConfirmMethod</id>
-                </data>
-                <data>
-                    <model>normal</model>
-                    <id>ConfirmAction</id>
-                </data>
-                <!-- ============================================ -->
                 <!-- end -->
                 <!-- ============================================ -->
             </map>

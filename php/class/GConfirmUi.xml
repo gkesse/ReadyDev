@@ -17,10 +17,10 @@
 			<close_cb>close_confirm</close_cb>
 			<map>
 				<!-- ============================================ -->
-				<!-- confirm/button -->
+				<!-- button -->
 				<!-- ============================================ -->
 				<data>
-					<category>confirm/button</category>
+					<category>button</category>
 					<model>button</model>
 					<id>ConfirmOk</id>
 					<module>confirm</module>
@@ -29,7 +29,7 @@
 					<text>OK</text>
 				</data>
 				<data>
-					<category>confirm/button</category>
+					<category>button</category>
 					<model>button</model>
 					<id>ConfirmCancel</id>
 					<module>confirm</module>
@@ -41,6 +41,22 @@
 				<!-- end -->
 				<!-- ============================================ -->
 			</map>
+		</data>
+		<!-- ============================================ -->
+		<!-- env -->
+		<!-- ============================================ -->
+		<data>
+			<code>env</code>
+			<map>
+                <data>
+                    <model>normal</model>
+                    <id>ConfirmModule</id>
+                </data>
+                <data>
+                    <model>normal</model>
+                    <id>ConfirmMethod</id>
+                </data>
+        	</map>
 		</data>
 		<!-- ============================================ -->
 		<!-- end -->

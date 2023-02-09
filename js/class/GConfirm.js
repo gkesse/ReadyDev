@@ -3,9 +3,48 @@ class GConfirm extends GModule {
     //===============================================
     constructor() {
         super();
-        this.m_module = "";
-        this.m_method = "";
-        this.m_action = "";
+    }
+    //===============================================
+    setCallback(_module, _method) {
+        this.m_module = _module;
+        this.m_method = _method;
+        this.writeUi();
+    }
+    //===============================================
+    readUi() {
+        var lModule = document.getElementById("ConfirmModule");
+        var lMethod = document.getElementById("ConfirmMethod");
+        
+        this.m_module = lModule.value;
+        this.m_method = lMethod.value;
+    }
+    //===============================================
+    writeUi() {
+        var lModule = document.getElementById("ConfirmModule");
+        var lMethod = document.getElementById("ConfirmMethod");
+
+        lModule.value = this.m_module;
+        lMethod.value = this.m_method;
+    }
+    //===============================================
+    buttonOn() {
+        var lConfirmOk = document.getElementById("ConfirmOk");
+        var lConfirmCancel = document.getElementById("ConfirmCancel");
+
+        lConfirmOk.disabled = false;
+        lConfirmCancel.disabled = false;
+    }
+    //===============================================
+    buttonOff() {
+        var lConfirmOk = document.getElementById("ConfirmOk");
+        var lConfirmCancel = document.getElementById("ConfirmCancel");
+
+        lConfirmOk.disabled = true;
+        lConfirmCancel.disabled = true;
+    }
+    //===============================================
+    showConfirm() {
+        this.onOpenConfirm();
     }
     //===============================================
     onModule(_method, _obj, _data) {
@@ -27,117 +66,38 @@ class GConfirm extends GModule {
         return !this.hasErrors();
     }
     //===============================================
-    serialize(_code = "confirm") {
-        var lDom = new GCode();
-        lDom.createDoc();
-        lDom.addData(_code, "action", this.m_action);
-        return lDom.toString();
-    }
-    //===============================================
-    deserialize(_data, _code = "confirm") {
-        super.deserialize(_data);
-        var lDom = new GCode();
-        lDom.loadXml(_data);
-        this.m_action = lDom.getItem(_code, "action");
-    }
-    //===============================================
-    onOpenConfirm() {
+    onOpenConfirm(_obj, _data) {
         var lModalConfirm = document.getElementById("ModalConfirm");
         var lConfirmBody = document.getElementById("ConfirmBody");
         var lConfirmMsg = document.getElementById("ConfirmMsg");
         var lClassName = lConfirmBody.className;
         
         lConfirmMsg.style.display = "none";
-        lConfirmBody.className = lClassName.replace(" AnimateShow", "");
-        lConfirmBody.className = lClassName.replace(" AnimateHide", "");
-        lConfirmBody.className += " AnimateShow";
+        lConfirmBody.classList.remove("AnimateHide");
+        lConfirmBody.classList.add("AnimateShow");
         lModalConfirm.style.display = "block";
     }
     //===============================================
-    onCloseConfirm() {
+    onCloseConfirm(_obj, _data) {
         var lModalConfirm = document.getElementById("ModalConfirm");
         var lConfirmBody = document.getElementById("ConfirmBody");
         var lClassName = lConfirmBody.className;
         
-        lConfirmBody.className = lClassName.replace(" AnimateShow", "");
-        lConfirmBody.className = lClassName.replace(" AnimateHide", "");
-        lConfirmBody.className += " AnimateHide";
+        lConfirmBody.classList.add("AnimateShow");
+        lConfirmBody.classList.add("AnimateHide");
         
         setTimeout(function() {
             lModalConfirm.style.display = "none";
         }, 400);
-        
-        this.cancel();
     }
     //===============================================
-    onOkConfirm() {
+    onOkConfirm(_obj, _data) {
         this.readUi();
         if(this.m_module == "") return false;
         if(this.m_method == "") return false;
-        if(this.m_action == "") return false;
-        var lData = this.serialize();
-        this.buttonOff();
-        call_server(this.m_module, this.m_method, this, lData);
+        this.onCloseConfirm();
+        call_server(this.m_module, this.m_method, this);
         return !this.hasErrors();
-    }
-    //===============================================
-    setCallback(_module, _method, _action) {
-        this.readUi();
-        if(this.m_module == "") return false;
-        if(this.m_method == "") return false;
-        if(this.m_action == "") return false;
-        this.m_module = _module;
-        this.m_method = _method;
-        this.m_action = _action;
-        this.writeUi();
-        return !this.hasErrors();
-    }
-    //===============================================
-    cancel() {
-        this.readUi();
-        if(this.m_module == "") return false;
-        if(this.m_method == "") return false;
-        this.m_action = "cancel";
-        var lData = this.serialize();
-        call_server(this.m_module, this.m_method, this, lData);
-        this.writeUi();
-        return !this.hasErrors();
-    }
-    //===============================================
-    readUi() {
-        var lModule = document.getElementById("ConfirmModule");
-        var lMethod = document.getElementById("ConfirmMethod");
-        var lAction = document.getElementById("ConfirmAction");
-
-        this.m_module = lModule.value;
-        this.m_method = lMethod.value;
-        this.m_action = lAction.value;
-    }
-    //===============================================
-    writeUi() {
-        var lModule = document.getElementById("ConfirmModule");
-        var lMethod = document.getElementById("ConfirmMethod");
-        var lAction = document.getElementById("ConfirmAction");
-
-        lModule.value = this.m_module;
-        lMethod.value = this.m_method;
-        lAction.value = this.m_action;
-    }
-    //===============================================
-    buttonOn() {
-        var lOk = document.getElementById("ConfirmOk");
-        var lCancel = document.getElementById("ConfirmCancel");
-
-        lOk.disabled = false;
-        lCancel.disabled = false;
-    }
-    //===============================================
-    buttonOff() {
-        var lOk = document.getElementById("ConfirmOk");
-        var lCancel = document.getElementById("ConfirmCancel");
-
-        lOk.disabled = true;
-        lCancel.disabled = true;
     }
     //===============================================
 }

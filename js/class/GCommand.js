@@ -63,6 +63,9 @@ class GCommand extends GObject {
         else if(_method == "load_page_file") {
             this.onLoadPageFile(_obj, _data);
         }
+        else if(_method == "load_page_file_run") {
+            this.onLoadPageFileRun(_obj, _data);
+        }
         else {
             this.addError("La méthode est inconnue.");
         }
@@ -90,6 +93,12 @@ class GCommand extends GObject {
     }
     //===============================================
     onLoadPageFile(_obj, _data) {
+        var lConfirm = new GConfirm();
+        lConfirm.setCallback("edition_command", "load_page_file_run");
+        lConfirm.showConfirm();
+    }
+    //===============================================
+    onLoadPageFileRun(_obj, _data) {
         this.readUi();
         var lAjax = new GAjax();
         var lData = this.serialize();

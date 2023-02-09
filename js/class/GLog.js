@@ -190,7 +190,7 @@ class GLog {
         lModalLogs.style.display = "block";
 		lLogsLabel.innerHTML = this.getLogs();
         lLogsTitle.style.color = lTitleColor;
-        lLogsTitle.innerHTML = "Logs";
+        lLogsTitle.innerHTML = "Informations";
     }
     //===============================================
     showDatas() {
