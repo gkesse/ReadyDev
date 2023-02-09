@@ -53,10 +53,10 @@ function stob(_data) {
 }
 //===============================================
 function utf8_to_b64(_data) {
-    return window.btoa(unescape(encodeURIComponent(_data)));
+    return encodeURIComponent(btoa(_data));
 }
 //===============================================
 function b64_to_utf8(_data) {
-    return decodeURIComponent(escape(window.atob(_data)));
+    return atob(decodeURIComponent(_data));
 }
 //===============================================

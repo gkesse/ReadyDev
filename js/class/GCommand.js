@@ -24,7 +24,7 @@ class GCommand extends GObject {
 		var lDom = new GCode();
 		lDom.createDoc();
 		lDom.addData(_code, "id", ""+this.m_id);
-		lDom.addData(_code, "data", utf8_to_b64(this.m_data), true);
+		lDom.addData(_code, "data", utf8_to_b64(this.m_data));
 		lDom.addMap(_code, this.m_map);
 		return lDom.toString();
 	}
@@ -33,7 +33,7 @@ class GCommand extends GObject {
 		var lDom = new GCode();
 		lDom.loadXml(_data);
 		this.m_id = +lDom.getItem(_code, "id");
-		this.m_data = b64_to_utf8(lDom.getItem(_code, "data", true));
+		this.m_data = b64_to_utf8(lDom.getItem(_code, "data"));
         lDom.getMap(_code, this.m_map, this);
 	}
     //===============================================
@@ -80,8 +80,9 @@ class GCommand extends GObject {
     onStorePageFile(_obj, _data) {
         this.readUi();
         var lAjax = new GAjax();
-        var lData = encodeURIComponent(this.m_data);
-        lAjax.callProxy("command", "store_page_file", lData, this.onStorePageFileCB);        
+        var lData = this.serialize();
+        lAjax.callLocal("command", "store_page_file", lData, this.onStorePageFileCB);
+        this.addLogs(lAjax.getLogs());
     }
     //===============================================
     onStorePageFileCB(_data) {
@@ -89,13 +90,16 @@ class GCommand extends GObject {
     }
     //===============================================
     onLoadPageFile(_obj, _data) {
+        this.readUi();
         var lAjax = new GAjax();
-        lAjax.callProxy("command", "load_page_file", "", this.onLoadPageFileCB);        
+        var lData = this.serialize();
+        lAjax.callLocal("command", "load_page_file", lData, this.onLoadPageFileCB);        
+        this.addLogs(lAjax.getLogs());
     }
     //===============================================
     onLoadPageFileCB(_data) {
         var lCommand = new GCommand();
-        lCommand.m_data = _data;
+        lCommand.deserialize(_data);
         lCommand.writeUi();
     }
     //===============================================

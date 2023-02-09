@@ -6,6 +6,7 @@ class GLocal extends GModule {
     }
     //===============================================
     public function run($_data) {
+        parent::deserialize($_data);
         if($this->m_module == "") {
             $this->addError("Le module est obligatoire.");
         }
@@ -19,10 +20,9 @@ class GLocal extends GModule {
     //===============================================
     public function onCommand($_data) {
         $lCommand = new GCommand();
-        $lCommand->setModule($this->m_module);
-        $lCommand->setMethod($this->m_method);
         $lCommand->run($_data);
         $this->addLogs($lCommand->getLogs());
+        $this->addResponse($lCommand->serialize());
     }
     //===============================================
 }
