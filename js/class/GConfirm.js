@@ -3,7 +3,7 @@ class GConfirm extends GModule {
     //===============================================
     constructor() {
         super();
-        this.m_intro = "";
+        this.readUi();
     }
     //===============================================
     setIntro(_intro) {

@@ -1,18 +1,18 @@
 //===============================================
 class GComboBox extends GObject {
     //===============================================
-	static m_instance = null;
+    static m_instance = null;
     //===============================================
     constructor() {
         super();
     }
     //===============================================
-	static Instance() {
-		if(this.m_instance == null) {
-			this.m_instance = new GComboBox();
-		}
-		return this.m_instance;
-	}	
+    static Instance() {
+        if(this.m_instance == null) {
+            this.m_instance = new GComboBox();
+        }
+        return this.m_instance;
+    }    
     //===============================================
     initCombo(_obj) {
         var lBoxView = _obj.nextSibling.nextSibling;

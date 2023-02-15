@@ -1,48 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rdv>
-	<datas>
-		<!-- ============================================ -->
-		<!-- logs -->
-		<!-- ============================================ -->
-		<data>
-			<code>logs</code>
-			<title>Informations</title>
-			<intro>Consultez les logs de traitements.</intro>
-			<modal_id>ModalLogs</modal_id>
-			<body_id>LogsBody</body_id>
-			<title_id>LogsTitle</title_id>
-			<form_id>LogsForm</form_id>
-			<msg_id>LogsMsg</msg_id>
-			<module>logs</module>
-			<keypress_cb>keypress_log</keypress_cb>
-			<close_cb>close_log</close_cb>
-			<map>
-				<!-- ============================================ -->
-				<!-- logs/body -->
-				<!-- ============================================ -->
-				<data>
-					<category>logs/body</category>
-					<model>label</model>
-					<id>LogsLabel</id>
-				</data>
-				<!-- ============================================ -->
-				<!-- logs/button -->
-				<!-- ============================================ -->
-				<data>
-					<category>logs/button</category>
-					<model>button</model>
-					<module>logs</module>
-					<method>close_log</method>
-					<picto>check</picto>
-					<text>OK</text>
-				</data>
-				<!-- ============================================ -->
-				<!-- end -->
-				<!-- ============================================ -->
-			</map>
-		</data>
-		<!-- ============================================ -->
-		<!-- end -->
-		<!-- ============================================ -->
-	</datas>
+    <datas>
+        <!-- ============================================ -->
+        <!-- logs -->
+        <!-- ============================================ -->
+        <data>
+            <code>logs</code>
+            <title>Informations</title>
+            <intro>Consultez les logs de traitements.</intro>
+            <modal_id>ModalLogs</modal_id>
+            <body_id>LogsBody</body_id>
+            <title_id>LogsTitle</title_id>
+            <form_id>LogsForm</form_id>
+            <msg_id>LogsMsg</msg_id>
+            <module>logs</module>
+            <keypress_cb>keypress_log</keypress_cb>
+            <close_cb>close_log</close_cb>
+            <map>
+                <!-- ============================================ -->
+                <!-- logs/body -->
+                <!-- ============================================ -->
+                <data>
+                    <category>logs/body</category>
+                    <model>label</model>
+                    <id>LogsLabel</id>
+                </data>
+                <!-- ============================================ -->
+                <!-- logs/button -->
+                <!-- ============================================ -->
+                <data>
+                    <category>logs/button</category>
+                    <model>button</model>
+                    <module>logs</module>
+                    <method>close_log</method>
+                    <picto>check</picto>
+                    <text>OK</text>
+                </data>
+                <!-- ============================================ -->
+                <!-- end -->
+                <!-- ============================================ -->
+            </map>
+        </data>
+        <!-- ============================================ -->
+        <!-- end -->
+        <!-- ============================================ -->
+    </datas>
 </rdv>

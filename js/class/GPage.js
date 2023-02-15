@@ -1,7 +1,7 @@
 //===============================================
 class GPage extends GObject {
     //===============================================
-	static m_instance = null;
+    static m_instance = null;
     //===============================================
     constructor() {
         super();
@@ -15,41 +15,41 @@ class GPage extends GObject {
         this.m_path = "";
     }
     //===============================================
-	static Instance() {
-		if(this.m_instance == null) {
-			this.m_instance = new GPage();
-		}
-		return this.m_instance;
-	}	
+    static Instance() {
+        if(this.m_instance == null) {
+            this.m_instance = new GPage();
+        }
+        return this.m_instance;
+    }    
     //===============================================
-	serialize(_code = "page") {
-		var lDom = new GCode();
-		lDom.createDoc();
-		lDom.addData(_code, "id", ""+this.m_id);
-		lDom.addData(_code, "parent_id", ""+this.m_parentId);
-		lDom.addData(_code, "type_id", ""+this.m_typeId);
-		lDom.addData(_code, "name", this.m_name);
-		lDom.addData(_code, "type_name", this.m_typeName);
-		lDom.addData(_code, "url", this.m_url);
-		lDom.addData(_code, "title", this.m_title);
-		lDom.addData(_code, "path", this.m_path);
-		lDom.addMap(_code, this.m_map);
-		return lDom.toString();
-	}
+    serialize(_code = "page") {
+        var lDom = new GCode();
+        lDom.createDoc();
+        lDom.addData(_code, "id", ""+this.m_id);
+        lDom.addData(_code, "parent_id", ""+this.m_parentId);
+        lDom.addData(_code, "type_id", ""+this.m_typeId);
+        lDom.addData(_code, "name", this.m_name);
+        lDom.addData(_code, "type_name", this.m_typeName);
+        lDom.addData(_code, "url", this.m_url);
+        lDom.addData(_code, "title", this.m_title);
+        lDom.addData(_code, "path", this.m_path);
+        lDom.addMap(_code, this.m_map);
+        return lDom.toString();
+    }
     //===============================================
-	deserialize(_data, _code = "page") {
-		var lDom = new GCode();
-		lDom.loadXml(_data);
-		this.m_id = +lDom.getItem(_code, "id");
-		this.m_parentId = +lDom.getItem(_code, "parent_id");
-		this.m_typeId = +lDom.getItem(_code, "type_id");
-		this.m_name = lDom.getItem(_code, "name");
-		this.m_typeName = lDom.getItem(_code, "type_name");
-		this.m_url = lDom.getItem(_code, "url");
-		this.m_title = lDom.getItem(_code, "title");
-		this.m_path = lDom.getItem(_code, "path");
+    deserialize(_data, _code = "page") {
+        var lDom = new GCode();
+        lDom.loadXml(_data);
+        this.m_id = +lDom.getItem(_code, "id");
+        this.m_parentId = +lDom.getItem(_code, "parent_id");
+        this.m_typeId = +lDom.getItem(_code, "type_id");
+        this.m_name = lDom.getItem(_code, "name");
+        this.m_typeName = lDom.getItem(_code, "type_name");
+        this.m_url = lDom.getItem(_code, "url");
+        this.m_title = lDom.getItem(_code, "title");
+        this.m_path = lDom.getItem(_code, "path");
         lDom.getMap(_code, this.m_map, this);
-	}
+    }
     //===============================================
     clone() {
         var lObj = new GPage;
@@ -58,18 +58,18 @@ class GPage extends GObject {
     }
     //===============================================
     setPage(_obj) {
-		this.m_id = _obj.m_id;
-		this.m_parentId = _obj.m_parentId;
-		this.m_typeId = _obj.m_typeId;
-		this.m_name = _obj.m_name;
-		this.m_typeName = _obj.m_typeName;
-		this.m_url = _obj.m_url;
-		this.m_title = _obj.m_title;
-		this.m_path = _obj.m_path;
+        this.m_id = _obj.m_id;
+        this.m_parentId = _obj.m_parentId;
+        this.m_typeId = _obj.m_typeId;
+        this.m_name = _obj.m_name;
+        this.m_typeName = _obj.m_typeName;
+        this.m_url = _obj.m_url;
+        this.m_title = _obj.m_title;
+        this.m_path = _obj.m_path;
     }
     //===============================================
     readMap(_index) {
-		if(_index < 0 || _index >= this.m_map.length) {
+        if(_index < 0 || _index >= this.m_map.length) {
             this.addError("L'index de la donnée est incorrect.");
             return false;
         }
@@ -84,10 +84,10 @@ class GPage extends GObject {
         var lEditorPageName = document.getElementById("EditorPageName");
         var lEditorPageTypeId = document.getElementById("EditorPageTypeId");
         //
-		this.m_id = +lEditorPageId.value;
-		this.m_parentId = +lEditorPageParentId.value;
-		this.m_name = lEditorPageName.value;
-		this.m_typeId = +lEditorPageTypeId.value;
+        this.m_id = +lEditorPageId.value;
+        this.m_parentId = +lEditorPageParentId.value;
+        this.m_name = lEditorPageName.value;
+        this.m_typeId = +lEditorPageTypeId.value;
     }
     //===============================================
     writeUi() {
@@ -96,10 +96,10 @@ class GPage extends GObject {
         var lEditorPageName = document.getElementById("EditorPageName");
         var lEditorPageTypeId = document.getElementById("EditorPageTypeId");
         //
-		lEditorPageId.value = +this.m_id;
-		lEditorPageParentId.value = +this.m_parentId;
-		lEditorPageName.value = this.m_name;
-		lEditorPageTypeId.value = this.m_typeId;
+        lEditorPageId.value = +this.m_id;
+        lEditorPageParentId.value = +this.m_parentId;
+        lEditorPageName.value = this.m_name;
+        lEditorPageTypeId.value = this.m_typeId;
         
         var lCombo = GComboBox.Instance();
         lCombo.initCombo(lEditorPageTypeId);

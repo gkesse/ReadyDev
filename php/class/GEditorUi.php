@@ -8,8 +8,10 @@ class GEditorUi extends GObject {
     //===============================================
     public function run() {
         $this->runEnv();
+        
         $lId    = $this->m_dom->getItem("editor", "id");
         $lTitle = $this->m_dom->getItem("editor", "title");
+        
         echo sprintf("<div class='MainBlock'>\n");
         echo sprintf("<div class='Content'>\n");
         echo sprintf("<h1 class='Title2' id='%s'>\n", $lId);
@@ -28,17 +30,15 @@ class GEditorUi extends GObject {
     }
     //===============================================
     public function runEnv() {
-        $lCount = $this->m_dom->countItem("editor");
+        $lCount = $this->m_dom->countItem("env");
         
         for($i = 0; $i < $lCount; $i++) {
-            $lCategory  = $this->m_dom->getItem3("editor", "category", $i);
-            $lModel     = $this->m_dom->getItem3("editor", "model", $i);
-            $lId        = $this->m_dom->getItem3("editor", "id", $i);
+            $lCategory  = $this->m_dom->getItem3("env", "category", $i);
+            $lId        = $this->m_dom->getItem3("env", "id", $i);
+            $lValue     = $this->m_dom->getItem3("env", "value", $i);
             
-            if($lCategory == "env") {
-                if($lModel == "data") {
-                    echo sprintf("<div hidden='true' id='%s'></div>\n", $lId);
-                }
+            if($lCategory == "normal") {
+                echo sprintf("<div hidden='true' id='%s'>%s</div>\n", $lId, $lValue);
             }
         }
     }
@@ -46,20 +46,26 @@ class GEditorUi extends GObject {
     public function onHeader() {
         echo sprintf("<div class='Row10'>\n");
         
-        $lCount = $this->m_dom->countItem("editor");
-        $lModule = $this->m_dom->getItemC("editor", "header/link", "module");
-        $lMethod = $this->m_dom->getItemC("editor", "header/link", "method");
+        $lCount = $this->m_dom->countItem("header");
+        $lModule = $this->m_dom->getItem("header", "module");
+        $lMethod = $this->m_dom->getItem("header", "method");
         
         for($i = 0; $i < $lCount; $i++) {
-            $lCategory = $this->m_dom->getItem3("editor", "category", $i);
-            $lToolTip = $this->m_dom->getItem3("editor", "tooltip", $i);
-            $lId = $this->m_dom->getItem3("editor", "id", $i);
-            $lName = $this->m_dom->getItem3("editor", "name", $i);
+            $lCategory  = $this->m_dom->getItem3("header", "category", $i);
+            $lToolTip   = $this->m_dom->getItem3("header", "tooltip", $i);
+            $lId        = $this->m_dom->getItem3("header", "id", $i);
+            $lName      = $this->m_dom->getItem3("header", "name", $i);
             
-            if($lCategory == "header") {
+            if($lCategory == "text") {
                 echo sprintf("<div class='Col'>\n");
                 echo sprintf("<button class='Button2 EditorTab' title=\"%s\"\n", $lToolTip);
                 echo sprintf("onclick='call_server(\"%s\", \"%s\", this, \"%s\");'>%s</button>\n", $lModule, $lMethod, $lId, $lName);
+                echo sprintf("</div>\n");
+            }
+            else if($lCategory == "icon") {
+                echo sprintf("<div class='Col'>\n");
+                echo sprintf("<button class='Button2 EditorTab' title=\"%s\"\n", $lToolTip);
+                echo sprintf("onclick='call_server(\"%s\", \"%s\", this, \"%s\");'><i class='fa fa-%s'></i></button>\n", $lModule, $lMethod, $lId, $lName);
                 echo sprintf("</div>\n");
             }
         }
@@ -68,9 +74,9 @@ class GEditorUi extends GObject {
     }
     //===============================================
     public function onHome() {
-        $lId = $this->m_dom->getItemC("editor", "home", "id");
-        $lTitle = $this->m_dom->getItemC("editor", "home", "title");
-        $lIntro = $this->m_dom->getItemC("editor", "home", "intro");
+        $lId = $this->m_dom->getItem("home", "id");
+        $lTitle = $this->m_dom->getItem("home", "title");
+        $lIntro = $this->m_dom->getItem("home", "intro");
         
         echo sprintf("<div class='Row Left EditorTabCtn' id='%s'>\n", $lId);
         echo sprintf("<h2 class='Title4'>%s</h2>\n", $lTitle);
@@ -81,9 +87,9 @@ class GEditorUi extends GObject {
     }
     //===============================================
     public function onPage() {
-        $lCount = $this->m_dom->countItem("editor");
-        $lId    = $this->m_dom->getItemC("editor", "page", "id");
-        $lTitle = $this->m_dom->getItemC("editor", "page", "title");
+        $lCount = $this->m_dom->countItem("page");
+        $lId    = $this->m_dom->getItem("page", "id");
+        $lTitle = $this->m_dom->getItem("page", "title");
         
         echo sprintf("<div class='Row Left EditorTabCtn' id='%s'>\n", $lId);
         echo sprintf("<h2 class='Title4'>%s</h2>\n", $lTitle);
@@ -94,20 +100,20 @@ class GEditorUi extends GObject {
         echo sprintf("<div class='Border Content14'>\n");
         
         for($i = 0; $i < $lCount; $i++) {
-            $lCategory  = $this->m_dom->getItem3("editor", "category", $i);
-            $lModel     = $this->m_dom->getItem3("editor", "model", $i);
-            $lLabel     = $this->m_dom->getItem3("editor", "label", $i);
-            $lId        = $this->m_dom->getItem3("editor", "id", $i);
-            $lType      = $this->m_dom->getItem3("editor", "type", $i);
-            $lValue     = $this->m_dom->getItem3("editor", "value", $i);
-            $lModule    = $this->m_dom->getItem3("editor", "module", $i);
-            $lMethod    = $this->m_dom->getItem3("editor", "method", $i);
-            $lLowerOn   = ($this->m_dom->getItem3("editor", "lower_on", $i) == "1");
+            $lCategory  = $this->m_dom->getItem3("page", "category", $i);
+            $lModel     = $this->m_dom->getItem3("page", "model", $i);
+            $lLabel     = $this->m_dom->getItem3("page", "label", $i);
+            $lId        = $this->m_dom->getItem3("page", "id", $i);
+            $lType      = $this->m_dom->getItem3("page", "type", $i);
+            $lValue     = $this->m_dom->getItem3("page", "value", $i);
+            $lModule    = $this->m_dom->getItem3("page", "module", $i);
+            $lMethod    = $this->m_dom->getItem3("page", "method", $i);
+            $lLowerOn   = ($this->m_dom->getItem3("page", "lower_on", $i) == "1");
             
             $lClass = "Input2";
             if($lLowerOn) $lClass = "Input3";
             
-            if($lCategory == "page/body") {
+            if($lCategory == "body") {
                 if($lModel == "label/edit") {
                     echo sprintf("<div class='Row12'>\n");
                     echo sprintf("<label class='Label3' for='%s'>%s</label>\n", $lId, $lLabel);
@@ -144,14 +150,14 @@ class GEditorUi extends GObject {
         echo sprintf("<div class='Row34'>\n");
         
         for($i = 0; $i < $lCount; $i++) {
-            $lCategory  = $this->m_dom->getItem3("editor", "category", $i);
-            $lId        = $this->m_dom->getItem3("editor", "id", $i);
-            $lModule    = $this->m_dom->getItem3("editor", "module", $i);
-            $lMethod    = $this->m_dom->getItem3("editor", "method", $i);
-            $lPicto     = $this->m_dom->getItem3("editor", "picto", $i);
-            $lText      = $this->m_dom->getItem3("editor", "text", $i);
+            $lCategory  = $this->m_dom->getItem3("page", "category", $i);
+            $lId        = $this->m_dom->getItem3("page", "id", $i);
+            $lModule    = $this->m_dom->getItem3("page", "module", $i);
+            $lMethod    = $this->m_dom->getItem3("page", "method", $i);
+            $lPicto     = $this->m_dom->getItem3("page", "picto", $i);
+            $lText      = $this->m_dom->getItem3("page", "text", $i);
             
-            if($lCategory == "page/button") {
+            if($lCategory == "button") {
                 echo sprintf("<button type='button' id='%s' class='Button4' onclick='call_server(\"%s\", \"%s\");'><i class='fa fa-%s'></i> %s</button>\n"
                     , $lId, $lModule, $lMethod, $lPicto, $lText);
             }
@@ -165,8 +171,9 @@ class GEditorUi extends GObject {
     }
     //===============================================
     public function onEdition() {
-        $lId    = $this->m_dom->getItemC("editor", "edition", "id");
-        $lTitle = $this->m_dom->getItemC("editor", "edition", "title");
+        $lId    = $this->m_dom->getItem("edition", "id");
+        $lTitle = $this->m_dom->getItem("edition", "title");
+        
         echo sprintf("<div class='Row Left EditorTabCtn' id='%s'>\n", $lId); // start_row_1
         echo sprintf("<h2 class='Title4'>%s</h2>\n", $lTitle);
         
@@ -182,6 +189,7 @@ class GEditorUi extends GObject {
         echo sprintf("<div class='DropDown'>\n");   // start_dropdown
         echo sprintf("<button class='Button9 DropDownButton'>Menu</button>\n");
         echo sprintf("<div class='DropDownContent'>\n"); // start_dropdown
+        
         for($i = 0; $i < $lCountI; $i++) {
             $lCategory  = $this->m_dom->getXValue("category");
             $lModule    = $this->m_dom->getXValue("module");
@@ -194,8 +202,10 @@ class GEditorUi extends GObject {
                 $this->m_dom->pushNode();
                 $lCountJ = $this->m_dom->countXNode("map/data");
                 $this->m_dom->getXNode("map/data");
+                
                 echo sprintf("<div class='DropDownSub'>%s <i class='DropDownCaret fa fa-caret-down'></i></div>\n", $lLabel);
                 echo sprintf("<div class='DropDownContainer'>\n");
+                
                 for($j = 0; $j < $lCountJ; $j++) {
                     $lCategory  = $this->m_dom->getXValue("category");
                     $lModule    = $this->m_dom->getXValue("module");
@@ -208,8 +218,10 @@ class GEditorUi extends GObject {
                         $this->m_dom->pushNode();
                         $lCountK = $this->m_dom->countXNode("map/data");
                         $this->m_dom->getXNode("map/data");
+                        
                         echo sprintf("<div class='DropDownSub'>%s <i class='DropDownCaret fa fa-caret-down'></i></div>\n", $lLabel);
                         echo sprintf("<div class='DropDownContainer'>\n");
+                        
                         for($k = 0; $k < $lCountK; $k++) {
                             $lCategory  = $this->m_dom->getXValue("category");
                             $lModule    = $this->m_dom->getXValue("module");
@@ -247,7 +259,9 @@ class GEditorUi extends GObject {
         echo sprintf("</div>\n"); // end_dropdown
         echo sprintf("</div>\n"); // end_dropdown
         
+        echo sprintf("<div class='GEndEditor'>\n");
         echo sprintf("<div id='%s' class='Border Content14 GEndEditor' contentEditable='true'></div>\n", $lId);
+        echo sprintf("</div>\n");
         
         echo sprintf("</div>\n"); // end_content_1
         echo sprintf("</div>\n"); // end_body_1

@@ -2,7 +2,7 @@
 //===============================================
 class GHomeUi extends GObject {
     //===============================================
-    protected $m_parallaxUi;
+    private $m_parallaxUi;
     //===============================================
     public function __construct() {
         parent::__construct();
@@ -12,7 +12,7 @@ class GHomeUi extends GObject {
     //===============================================
     public function run() {
         $this->onIntro();
-        $this->onIntro();
+        return !$this->hasErrors();
     }
     //===============================================
     public function onIntro() {
@@ -22,6 +22,8 @@ class GHomeUi extends GObject {
         $this->m_parallaxUi->setTitle($lTitle);
         $this->m_parallaxUi->setBody($lBody);
         $this->m_parallaxUi->run();        
+        $this->addLogs($this->m_parallaxUi->getLogs());
+        return !$this->hasErrors();
     }
     //===============================================
     public function onLink() {

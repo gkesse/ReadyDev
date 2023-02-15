@@ -8,94 +8,100 @@
             <code>editor</code>
             <title>Éditeur de pages HTML</title>
             <id>editeur_pages_html</id>
+        </data>
+        <!-- ============================================ -->
+        <!-- env -->
+        <!-- ============================================ -->
+        <data>
+            <code>env</code>
             <map>
-                <!-- ============================================ -->
-                <!-- env -->
-                <!-- ============================================ -->
                 <data>
-                    <category>env</category>
-                    <model>data</model>
+                    <category>normal</category>
                     <id>EditorPageAddressParent</id>
-                </data>
-                <!-- ============================================ -->
-                <!-- header -->
-                <!-- ============================================ -->
+                </data>            
                 <data>
-                    <category>header</category>
+                    <category>normal</category>
+                    <id>EditorTabDefault</id>
+                    <value>2</value>
+                </data>            
+            </map>
+        </data>
+        <!-- ============================================ -->
+        <!-- header -->
+        <!-- ============================================ -->
+        <data>
+            <code>header</code>
+            <module>editor</module>
+            <method>open_header</method>
+            <map>
+                <data>
+                    <category>icon</category>
                     <tooltip>Accueil</tooltip>
                     <id>EditorTab0</id>
-                    <name><![CDATA[<i class='fa fa-home'></i>]]></name>
+                    <name>home</name>
                 </data>
                 <data>
-                    <category>header</category>
+                    <category>text</category>
                     <tooltip>Gestion d'une page</tooltip>
                     <id>EditorTab1</id>
                     <name>Page</name>
                 </data>
                 <data>
-                    <category>header</category>
+                    <category>text</category>
                     <tooltip>Edition d'une page</tooltip>
                     <id>EditorTab2</id>
                     <name>Edition</name>
                 </data>
-                <!-- ============================================ -->
-                <!-- header/link -->
-                <!-- ============================================ -->
+            </map>
+        </data>
+        <!-- ============================================ -->
+        <!-- home -->
+        <!-- ============================================ -->
+        <data>
+            <code>home</code>
+            <title>ReadyEditor</title>
+            <id>EditorTab0</id>
+            <intro><![CDATA[
+                <b>ReadyEditor</b> est un éditeur de pages HTML.<br>
+                Il permet d'éditer les pages HTML du siteweb.
+                Cela accélère l'ajout de nouveaux contenus
+                et évite de passer du temps inutilement à écrire du code
+                dans le but d'ajouter de nouveaux contenus.
+                <br>Produit par <b>Gérard KESSE</b>.
+               ]]></intro>
+        </data>
+        <!-- ============================================ -->
+        <!-- page -->
+        <!-- ============================================ -->
+        <data>
+            <code>page</code>
+            <title>Page</title>
+            <id>EditorTab1</id>                
+            <map>
+                <!-- body -->
                 <data>
-                    <category>header/link</category>
-                    <module>editor</module>
-                    <method>open_header</method>
-                </data>
-                <!-- ============================================ -->
-                <!-- home -->
-                <!-- ============================================ -->
-                <data>
-                    <category>home</category>
-                    <title>ReadyEditor</title>
-                    <id>EditorTab0</id>
-                    <intro><![CDATA[
-                        <b>ReadyEditor</b> est un éditeur de pages HTML.<br>
-                        Il permet d'éditer les pages HTML du siteweb.
-                        Cela accélère l'ajout de nouveaux contenus
-                        et évite de passer du temps inutilement à écrire du code
-                        dans le but d'ajouter de nouveaux contenus.
-                        <br>Produit par <b>Gérard KESSE</b>.
-                       ]]></intro>
-                </data>
-                <!-- ============================================ -->
-                <!-- page -->
-                <!-- ============================================ -->
-                <data>
-                    <category>page</category>
-                    <title>Page</title>
-                    <id>EditorTab1</id>
-                </data>
-                <!-- ============================================ -->
-                <!-- page/body -->
-                <!-- ============================================ -->
-                <data>
-                    <category>page/body</category>
+                    <category>body</category>
                     <model>hidden</model>
                     <label>Id :</label>
                     <id>EditorPageId</id>
                     <type>number</type>
                 </data>
                 <data>
-                    <category>page/body</category>
+                    <category>body</category>
                     <model>hidden</model>
                     <label>Id parent :</label>
                     <id>EditorPageParentId</id>
                     <type>number</type>
                 </data>
                 <data>
-                    <category>page/body</category>
+                    <category>body</category>
                     <model>addressbar</model>
                     <id>EditorPageAddress</id>
                     <module>page</module>
                     <method>load_page</method>
                 </data>
                 <data>
-                    <category>page/body</category>
+                    <category>body</category>
                     <model>label/edit</model>
                     <label>Nom :</label>
                     <id>EditorPageName</id>
@@ -103,16 +109,14 @@
                     <lower_on>1</lower_on>
                 </data>
                 <data>
-                    <category>page/body</category>
+                    <category>body</category>
                     <model>combobox</model>
                     <label>Type :</label>
                     <id>EditorPageTypeId</id>
                 </data>
-                <!-- ============================================ -->
-                <!-- page/button -->
-                <!-- ============================================ -->
+                <!-- button -->
                 <data>
-                    <category>page/button</category>
+                    <category>button</category>
                     <id>EditorPageSave</id>
                     <module>page</module>
                     <method>save_page</method>
@@ -120,7 +124,7 @@
                     <text>Enregistrer</text>
                 </data>
                 <data>
-                    <category>page/button</category>
+                    <category>button</category>
                     <id>EditorPageSearch</id>
                     <module>page</module>
                     <method>search_page</method>
@@ -128,7 +132,7 @@
                     <text>Rechercher</text>
                 </data>
                 <data>
-                    <category>page/button</category>
+                    <category>button</category>
                     <id>EditorPageDelete</id>
                     <module>page</module>
                     <method>delete_page</method>
@@ -136,152 +140,150 @@
                     <text>Supprimer</text>
                 </data>
                 <data>
-                    <category>page/button</category>
+                    <category>button</category>
                     <id>EditorPageNew</id>
                     <module>page</module>
                     <method>new_page</method>
                     <picto>file</picto>
                     <text>Nouveau</text>
                 </data>
-                <!-- ============================================ -->
-                <!-- edition -->
-                <!-- ============================================ -->
-                <data>
-                    <category>edition</category>
-                    <title>Edition</title>
-                    <id>EditorTab2</id>
-                </data>
-                <!-- ============================================ -->
                 <!-- end -->
-                <!-- ============================================ -->
             </map>
+        </data>
+        <!-- ============================================ -->
+        <!-- edition -->
+        <!-- ============================================ -->
+        <data>
+            <code>edition</code>
+            <title>Edition</title>
+            <id>EditorTab2</id>
         </data>
         <!-- ============================================ -->
         <!-- edition_command -->
         <!-- ============================================ -->
         <data>
-        	<code>edition_command</code>
-           	<id>EditorEditionContent</id>
-        	<map>
-        		<!-- Textes -->
-        		<data>
-        			<category>text</category>
-        			<label>Textes</label>
-        			<map>
-		        		<data>
-		        			<category>text</category>
-		        			<module>edition_command</module>
-		        			<method>selection</method>
-		        			<key>bold</key>
-		        			<label>Texte en gras</label>
-		        		</data>
-        			</map>
-        		</data>
-        		<!-- Couleurs -->
-        		<data>
-        			<category>text</category>
-        			<label>Couleurs</label>
-        			<map>
-		        		<data>
-		        			<category>text</category>
-		        			<module>edition_command</module>
-		        			<method>selection</method>
-		        			<key>bold</key>
-		        			<label>Avant-plan</label>
-		        		</data>
-		        		<data>
-		        			<category>text</category>
-		        			<module>edition_command</module>
-		        			<method>selection</method>
-		        			<key>bold</key>
-		        			<label>Arrière-plan</label>
-		        		</data>
-        			</map>
-        		</data>
-        		<!-- Styles personnalisés -->
-        		<data>
-        			<category>text</category>
-        			<module>edition_command</module>
-        			<method>selection</method>
-        			<label>Styles personnalisés</label>
-        			<map>
-        				<!-- Titres -->
-        				<data>
-		        			<category>text</category>
-		        			<module>edition_command</module>
-		        			<method>selection</method>
-		        			<label>Titres</label>
-		        			<map>
-		        				<data>
-				        			<category>text</category>
-				        			<module>edition_command</module>
-				        			<method>selection</method>
-				        			<label>Titre 1</label>
-		        				</data>
-		        				<data>
-				        			<category>text</category>
-				        			<module>edition_command</module>
-				        			<method>selection</method>
-				        			<label>Titre 2</label>
-		        				</data>
-		        				<data>
-				        			<category>text</category>
-				        			<module>edition_command</module>
-				        			<method>selection</method>
-				        			<label>Titre 3</label>
-		        				</data>
-		        			</map>
-        				</data>
-        				<!-- Parallax -->
-        				<data>
-		        			<category>text</category>
-		        			<module>edition_command</module>
-		        			<method>selection</method>
-		        			<label>Parallax</label>
-		        			<map>
-		        				<data>
-				        			<category>text</category>
-				        			<module>edition_command</module>
-				        			<method>selection</method>
-				        			<label>Parallax 1</label>
-		        				</data>
-		        				<data>
-				        			<category>text</category>
-				        			<module>edition_command</module>
-				        			<method>selection</method>
-				        			<label>Parallax 2</label>
-		        				</data>
-		        				<data>
-				        			<category>text</category>
-				        			<module>edition_command</module>
-				        			<method>selection</method>
-				        			<label>Parallax 3</label>
-		        				</data>
-		        			</map>
-        				</data>
-        			</map>
-        		</data>
-        		<!-- Actions -->
-        		<data>
-        			<category>text</category>
-        			<label>Actions</label>
-        			<map>
-        				<data>
-        					<category>text</category>
-        					<module>edition_command</module>
-        					<method>store_page_file</method>
-        					<label>Sauvegarder</label>
-        				</data>
-        				<data>
-        					<category>text</category>
-        					<module>edition_command</module>
-        					<method>load_page_file</method>
-        					<label>Charger</label>
-        				</data>
-        			</map>
-        		</data>
-        		<!-- end -->
-        	</map>
+            <code>edition_command</code>
+          	<id>EditorEditionContent</id>
+            <map>
+                <!-- Textes -->
+                <data>
+                    <category>text</category>
+                    <label>Textes</label>
+                    <map>
+                        <data>
+                            <category>text</category>
+                            <module>edition_command</module>
+                            <method>selection</method>
+                            <key>bold</key>
+                            <label>Texte en gras</label>
+                        </data>
+                    </map>
+                </data>
+                <!-- Couleurs -->
+                <data>
+                    <category>text</category>
+                    <label>Couleurs</label>
+                    <map>
+                        <data>
+                            <category>text</category>
+                            <module>edition_command</module>
+                            <method>selection</method>
+                            <key>bold</key>
+                            <label>Avant-plan</label>
+                        </data>
+                        <data>
+                            <category>text</category>
+                            <module>edition_command</module>
+                            <method>selection</method>
+                            <key>bold</key>
+                            <label>Arrière-plan</label>
+                        </data>
+                    </map>
+                </data>
+                <!-- Styles personnalisés -->
+                <data>
+                    <category>text</category>
+                    <module>edition_command</module>
+                    <method>selection</method>
+                    <label>Styles personnalisés</label>
+                    <map>
+                        <!-- Titres -->
+                        <data>
+                            <category>text</category>
+                            <module>edition_command</module>
+                            <method>selection</method>
+                            <label>Titres</label>
+                            <map>
+                                <data>
+                                    <category>text</category>
+                                    <module>edition_command</module>
+                                    <method>selection</method>
+                                    <label>Titre 1</label>
+                                </data>
+                                <data>
+                                    <category>text</category>
+                                    <module>edition_command</module>
+                                    <method>selection</method>
+                                    <label>Titre 2</label>
+                                </data>
+                                <data>
+                                    <category>text</category>
+                                    <module>edition_command</module>
+                                    <method>selection</method>
+                                    <label>Titre 3</label>
+                                </data>
+                            </map>
+                        </data>
+                        <!-- Parallax -->
+                        <data>
+                            <category>text</category>
+                            <module>edition_command</module>
+                            <method>selection</method>
+                            <label>Parallax</label>
+                            <map>
+                                <data>
+                                    <category>text</category>
+                                    <module>edition_command</module>
+                                    <method>parallax</method>
+                                    <label>Parallax</label>
+                                </data>
+                            </map>
+                        </data>
+                    </map>
+                </data>
+                <!-- Actions -->
+                <data>
+                    <category>text</category>
+                    <label>Actions</label>
+                    <map>
+                        <data>
+                            <category>text</category>
+                            <module>edition_command</module>
+                            <method>store_page_file</method>
+                            <label>Sauvegarder</label>
+                        </data>
+                        <data>
+                            <category>text</category>
+                            <module>edition_command</module>
+                            <method>load_page_file</method>
+                            <label>Charger</label>
+                        </data>
+                        <data>
+                            <category>text</category>
+                            <module>edition_command</module>
+                            <method>new_page</method>
+                            <label>Nouveau</label>
+                        </data>
+                        <data>
+                            <category>text</category>
+                            <module>edition_command</module>
+                            <method>show_html</method>
+                            <label>Afficher HTML</label>
+                        </data>
+                    </map>
+                </data>
+                <!-- end -->
+            </map>
         </data>
         <!-- ============================================ -->
         <!-- end -->

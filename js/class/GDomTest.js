@@ -2,35 +2,35 @@
 class GDomTest extends GTest {
     //===============================================
     constructor() {
-		super();
+        super();
     }
     //===============================================
-	onModule() {
-		if(this.m_method == "test") {
+    onModule() {
+        if(this.m_method == "test") {
             this.runTest();
         }
-		else if(this.m_method == "show_logs") {
+        else if(this.m_method == "show_logs") {
             this.runShowLogs();
         }
-		else if(this.m_method == "logs") {
+        else if(this.m_method == "logs") {
             this.runLogs();
         }
-		else {
-			this.runDefault();
-		}
-	}
+        else {
+            this.runDefault();
+        }
+    }
     //===============================================
-	runTest() {
+    runTest() {
         this.addError("Erreur lors de l'émission.");
         this.addLog("La donnée a bien été enregistrée.");
-	}
+    }
     //===============================================
-	runShowLogs() {
+    runShowLogs() {
         this.addError("Erreur lors de l'émission.");
         this.addLog("La donnée a bien été enregistrée.");
-	}
+    }
     //===============================================
-	runLogs() {
+    runLogs() {
         var lLog = new GLog();
         lLog.addLog("Erreur lors de l'émission.");
         lLog.addLog("La donnée a bien été enregistrée.");
@@ -47,7 +47,7 @@ class GDomTest extends GTest {
         this.addData(sprintfXml(lLog3.serialize()))
         
         this.addData(sprintf("hasErrors : %s", lLog.hasErrors()));
-	}
+    }
     //===============================================
 }
 //===============================================

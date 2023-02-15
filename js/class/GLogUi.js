@@ -23,7 +23,7 @@ class GLogUi extends GObject {
         }
     }
     //===============================================
-	onCloseError() {
+    onCloseError() {
         var lModalErrors = document.getElementById("ModalErrors");
         var lErrorsBody = document.getElementById("ErrorsBody");
         var lClassName = lErrorsBody.className;
@@ -33,9 +33,9 @@ class GLogUi extends GObject {
         setTimeout(function() {
             lModalErrors.style.display = "none";
         }, 400);
-	}
+    }
     //===============================================
-	onCloseLog() {
+    onCloseLog() {
         var lModalLogs = document.getElementById("ModalLogs");
         var lLogsBody = document.getElementById("LogsBody");
         var lClassName = lLogsBody.className;
@@ -45,13 +45,13 @@ class GLogUi extends GObject {
         setTimeout(function() {
             lModalLogs.style.display = "none";
         }, 400);
-	}
+    }
     //===============================================
-	onShowPhpLogs() {
+    onShowPhpLogs() {
         var lLogsPhpData = document.getElementById("LogsPhpData");
         var lData = lLogsPhpData.innerHTML;
         this.loadLogs(lData);
-	}
+    }
     //===============================================
 }
 //===============================================

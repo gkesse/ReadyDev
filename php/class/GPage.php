@@ -1,8 +1,8 @@
 <?php
 class GPage extends GObject {
     //===============================================
-    protected $m_get;
-    protected $m_pageId;
+    private $m_get;
+    private $m_pageId;
     //===============================================
     public function __construct() {
         parent::__construct();
@@ -12,10 +12,6 @@ class GPage extends GObject {
     //===============================================
     public function getPageId() {
         return $this->m_pageId;
-    }
-    //===============================================
-    public function isPage($_page) {
-        return ($this->m_pageId == $_page);
     }
     //===============================================
     public function redirectUrl($_url) {

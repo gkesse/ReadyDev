@@ -1,41 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rdv>
-	<datas>
-		<!-- ============================================ -->
-		<!-- information -->
-		<!-- ============================================ -->
-		<data>
-			<code>information</code>
-			<title>Information</title>
-			<intro>Le résultat est vide.</intro>
-			<InformationIntro>La résultat est vide.</InformationIntro>
-			<modal_id>ModalInformation</modal_id>
-			<body_id>InformationBody</body_id>
-			<form_id>InformationForm</form_id>
-			<msg_id>InformationMsg</msg_id>
-			<module>information</module>
-			<keypress_cb>keypress_information</keypress_cb>
-			<close_cb>close_information</close_cb>
-			<map>
-				<!-- ============================================ -->
-				<!-- button -->
-				<!-- ============================================ -->
-				<data>
-					<category>button</category>
-					<model>button</model>
-					<id>InformationOk</id>
-					<module>information</module>
-					<method>close_information</method>
-					<picto>check</picto>
-					<text>OK</text>
-				</data>
-				<!-- ============================================ -->
-				<!-- end -->
-				<!-- ============================================ -->
-			</map>
-		</data>
-		<!-- ============================================ -->
-		<!-- end -->
-		<!-- ============================================ -->
-	</datas>
+    <datas>
+        <!-- ============================================ -->
+        <!-- information -->
+        <!-- ============================================ -->
+        <data>
+            <code>information</code>
+            <title>Information</title>
+            <intro>Le résultat est vide.</intro>
+            <InformationIntro>La résultat est vide.</InformationIntro>
+            <modal_id>ModalInformation</modal_id>
+            <body_id>InformationBody</body_id>
+            <form_id>InformationForm</form_id>
+            <msg_id>InformationMsg</msg_id>
+            <module>information</module>
+            <keypress_cb>keypress_information</keypress_cb>
+            <close_cb>close_information</close_cb>
+            <map>
+                <!-- ============================================ -->
+                <!-- button -->
+                <!-- ============================================ -->
+                <data>
+                    <category>button</category>
+                    <model>button</model>
+                    <id>InformationOk</id>
+                    <module>information</module>
+                    <method>close_information</method>
+                    <picto>check</picto>
+                    <text>OK</text>
+                </data>
+                <!-- ============================================ -->
+                <!-- end -->
+                <!-- ============================================ -->
+            </map>
+        </data>
+        <!-- ============================================ -->
+        <!-- end -->
+        <!-- ============================================ -->
+    </datas>
 </rdv>

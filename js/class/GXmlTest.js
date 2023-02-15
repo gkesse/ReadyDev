@@ -2,60 +2,60 @@
 class GXmlTest extends GTest {
     //===============================================
     constructor() {
-		super();
+        super();
     }
     //===============================================
-	onModule() {
-		if(this.m_method == "") {
-			this.addError("La méthode est obligatoire.");
+    onModule() {
+        if(this.m_method == "") {
+            this.addError("La méthode est obligatoire.");
         }
-		else if(this.m_method == "test") {
+        else if(this.m_method == "test") {
             this.runTest();
         }
-		else if(this.m_method == "node") {
+        else if(this.m_method == "node") {
             this.runNode();
         }
-		else if(this.m_method == "xnode") {
+        else if(this.m_method == "xnode") {
             this.runXNode();
         }
-		else if(this.m_method == "serialize") {
+        else if(this.m_method == "serialize") {
             this.runSerialize();
         }
-		else if(this.m_method == "data") {
+        else if(this.m_method == "data") {
             this.runData();
         }
-		else {
-			this.addError("La méthode est inconnue.");
-		}
-	}
+        else {
+            this.addError("La méthode est inconnue.");
+        }
+    }
     //===============================================
-	runTest() {
+    runTest() {
         var lPage = new GPage(); 
         lPage.searchPage();
         var lDom = new GCode(); 
         lDom.createDoc();
         lDom.loadData(lPage.serialize())
         this.addXml(lDom.toString());
-	}
+    }
     //===============================================
-	runData() {
+    runData() {
         var lPage = new GPage(); 
         lPage.searchPage();
         var lDom = new GCode(); 
         lDom.createDoc();
         lDom.loadData(lPage.serialize())
         this.addXml(lDom.toString());
-	}
+    }
     //===============================================
-	runSerialize() {
+    runSerialize() {
         var lPage = new GPage(); 
         lPage.searchPage();
         var lHome = new GPage();
         lHome.deserialize(lPage.serialize());
         this.addXml(lHome.serialize());
-	}
+    }
     //===============================================
-	runXNode() {
+    runXNode() {
         var lXml = new GXml();
         lXml.createXNode("/rdv/datas/data");
         lXml.createVNode("code", "page");
@@ -85,9 +85,9 @@ class GXmlTest extends GTest {
         lXml.popNode();
         
         this.addXml(lXml.toString());
-	}
+    }
     //===============================================
-	runNode() {
+    runNode() {
         var lXml = new GXml();
         lXml.createNode("rdv");
         lXml.next();
@@ -121,7 +121,7 @@ class GXmlTest extends GTest {
         lXml.popNode();
         
         this.addXml(lXml.toString());
-	}
+    }
     //===============================================
 }
 //===============================================

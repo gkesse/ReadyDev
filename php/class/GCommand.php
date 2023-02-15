@@ -54,21 +54,19 @@ class GCommand extends GModule {
     }
     //===============================================
     public function onStorePageFile() {
+        if($this->m_data == "") {
+            $this->addError("La page est vide.");
+            return false;
+        }
         $lFile = new GFile();
         $lFile->saveData("data/editor/html", "editor.php", $this->m_data);
         $this->addLogs($lFile->getLogs());
-        if(!$this->hasErrors()) {
-            $this->addLog("Le fichier a été bien enregistrée.");
-        }
     }
     //===============================================
     public function onLoadPageFile() {
         $lFile = new GFile();
         $this->m_data = $lFile->loadData("data/editor/html", "editor.php");
         $this->addLogs($lFile->getLogs());
-        if(!$this->hasErrors()) {
-            $this->addLog("Le fichier a été bien chargé.");
-        }
     }
     //===============================================
 }

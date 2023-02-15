@@ -1,18 +1,18 @@
 //===============================================
 class GDropDown extends GObject {
     //===============================================
-	static m_instance = null;
+    static m_instance = null;
     //===============================================
     constructor() {
         super();
     }
     //===============================================
-	static Instance() {
-		if(this.m_instance == null) {
-			this.m_instance = new GDropDown();
-		}
-		return this.m_instance;
-	}	
+    static Instance() {
+        if(this.m_instance == null) {
+            this.m_instance = new GDropDown();
+        }
+        return this.m_instance;
+    }    
     //===============================================
     init() {
         var lDropDownLines = document.getElementsByClassName("DropDownLine");

@@ -1,23 +1,25 @@
 //===============================================
 class GEditorUi extends GObject {
     //===============================================
-	static m_instance = null;
+    static m_instance = null;
     //===============================================
     constructor() {
         super();
     }
     //===============================================
-	static Instance() {
-		if(this.m_instance == null) {
-			this.m_instance = new GEditorUi();
-		}
-		return this.m_instance;
-	}
+    static Instance() {
+        if(this.m_instance == null) {
+            this.m_instance = new GEditorUi();
+        }
+        return this.m_instance;
+    }
     //===============================================
-    init(_id) {
-        var lTabCtn = document.getElementsByClassName("EditorTab");
-        var lObj = lTabCtn[_id];
-        this.onOpenHeader(lObj, "EditorTab" + _id);
+    init() {
+        var lEditorTabs = document.getElementsByClassName("EditorTab");
+        var lEditorTabDefault = document.getElementById("EditorTabDefault");
+        var lDefaultId = lEditorTabDefault.innerHTML;
+        var lEditorTab = lEditorTabs[lDefaultId];
+        this.onOpenHeader(lEditorTab, "EditorTab" + lDefaultId);
     }
     //===============================================
     onModule(_method, _obj, _data) {
@@ -52,5 +54,5 @@ class GEditorUi extends GObject {
     //===============================================
 }
 //===============================================
-GEditorUi.Instance().init(2);
+GEditorUi.Instance().init();
 //===============================================
