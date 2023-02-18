@@ -59,10 +59,14 @@ class GXml {
     public function loadXml($_data, $_version = "1.0", $_encoding = "UTF-8") {
         $_data = trim($_data);
         if($_data == "") return false;
-        $lEncoding = mb_detect_encoding($_data);
+        /*$lEncoding = mb_detect_encoding($_data);
         if($lEncoding != "UTF-8") {
             $_data = utf8_encode($_data);
         }
+        else {
+            $_data = utf8_encode($_data);
+        }*/
+        $_data = iconv('UTF-8', 'UTF-8//IGNORE', $_data);
         $this->m_doc = new DOMDocument($_version, $_encoding);
         if(!$this->m_doc) return false;
         $lXml = "<?xml";

@@ -149,11 +149,11 @@ class GCurl extends GObject {
             curl_setopt($lCurl, CURLOPT_POSTFIELDS, $this->m_content);
         }
         
-        $this->m_responseText = utf8_decode(curl_exec($lCurl));        
+        $this->m_responseText = curl_exec($lCurl);        
         if(curl_error($lCurl)) {
-            $this->m_responseText = utf8_decode(curl_exec($lCurl));            
+            $this->m_responseText = curl_exec($lCurl);            
             if(curl_error($lCurl)) {
-                $this->m_responseText = utf8_decode(curl_exec($lCurl));
+                $this->m_responseText = curl_exec($lCurl);
                 if(curl_error($lCurl)) {
                     $this->addError(sprintf("Erreur lors de la connexion au serveur."));
                     //$this->addError(sprintf("Erreur lors de la connexion au serveur.<br>%s", curl_error($lCurl)));

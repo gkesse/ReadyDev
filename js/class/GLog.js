@@ -14,6 +14,10 @@ class GLog {
         return lObj;
     }
     //===============================================
+    clearLogs() {
+        this.m_map = [];
+    }
+    //===============================================
     serialize(_code = "logs") {
         var lDom = new GCode();
         lDom.createDoc();

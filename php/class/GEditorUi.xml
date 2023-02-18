@@ -22,7 +22,7 @@
                 <data>
                     <category>normal</category>
                     <id>EditorTabDefault</id>
-                    <value>2</value>
+                    <value>1</value>
                 </data>            
             </map>
         </data>
@@ -102,7 +102,7 @@
                 </data>
                 <data>
                     <category>body</category>
-                    <model>label/edit</model>
+                    <model>label_edit</model>
                     <label>Nom :</label>
                     <id>EditorPageName</id>
                     <type>text</type>
@@ -110,9 +110,42 @@
                 </data>
                 <data>
                     <category>body</category>
-                    <model>combobox</model>
+                    <model>label_combobox</model>
                     <label>Type :</label>
                     <id>EditorPageTypeId</id>
+                    <map>
+                    	<data>
+                    		<key>0</key>
+                    		<value>Sélectionner un type...</value>
+                    	</data>
+                    	<data>
+                    		<key>1</key>
+                    		<value>Fichier</value>
+                    	</data>
+                    	<data>
+                    		<key>2</key>
+                    		<value>Répertoire</value>
+                    	</data>
+                    </map>
+                </data>
+                <data>
+                    <category>body</category>
+                    <model>label_radiobutton</model>
+                    <label>Par défaut :</label>
+                    <id>EditorPageDefault</id>
+                    <default>0</default>
+                    <map>
+                    	<data>
+                    		<id>EditorPageDefaultYes</id>
+                    		<value>1</value>
+                    		<label>Oui</label>
+                    	</data>
+                    	<data>
+                    		<id>EditorPageDefaultNo</id>
+                    		<value>0</value>
+                    		<label>Non</label>
+                    	</data>
+                    </map>
                 </data>
                 <!-- button -->
                 <data>

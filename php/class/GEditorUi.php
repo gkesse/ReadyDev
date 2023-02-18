@@ -108,29 +108,65 @@ class GEditorUi extends GObject {
             $lValue     = $this->m_dom->getItem3("page", "value", $i);
             $lModule    = $this->m_dom->getItem3("page", "module", $i);
             $lMethod    = $this->m_dom->getItem3("page", "method", $i);
+            $lDefault   = $this->m_dom->getItem3("page", "default", $i);
             $lLowerOn   = ($this->m_dom->getItem3("page", "lower_on", $i) == "1");
             
             $lClass = "Input2";
             if($lLowerOn) $lClass = "Input3";
             
             if($lCategory == "body") {
-                if($lModel == "label/edit") {
+                if($lModel == "label_edit") {
                     echo sprintf("<div class='Row12'>\n");
                     echo sprintf("<label class='Label3' for='%s'>%s</label>\n", $lId, $lLabel);
                     echo sprintf("<div class='Field3'><input id='%s' class='%s' type='%s' name='%s'/></div>\n", $lId, $lClass, $lType, $lId);
                     echo sprintf("</div>\n");
                 }
-                else if($lModel == "combobox") {
+                else if($lModel == "label_combobox") {
                     echo sprintf("<div class='Row12'>\n");
                     echo sprintf("<label class='Label3' for='%s'>%s</label>\n", $lId, $lLabel);
                     echo sprintf("<div class='Field3'>\n");
                     echo sprintf("<div class='ComboBox'>\n");
                     echo sprintf("<select id='%s' onchange='call_server(\"combobox\", \"select_data\", this);' data-module='%s' data-method='%s'>\n", $lId, $lModule, $lMethod);
-                    echo sprintf("<option value='0'>Sélectionner un type...</option>\n");
-                    echo sprintf("<option value='1'>Fichier</option>\n");
-                    echo sprintf("<option value='2'>Répertoire</option>\n");
+                    
+                    $lCountJ = $this->m_dom->countNItem3("page", "map/data", $i);
+                    $this->m_dom->getNItem3("page", "map/data", $i);
+                    
+                    for($j = 0; $j < $lCountJ; $j++) {
+                        $lKey       = $this->m_dom->getXValue("key");
+                        $lValue     = $this->m_dom->getXValue("value");
+                        echo sprintf("<option value='%s'>%s</option>\n", $lKey, $lValue);
+                        $this->m_dom->nextSiblingElement();
+                    }
+                    
                     echo sprintf("</select>\n");
                     echo sprintf("</div>\n");
+                    echo sprintf("</div>\n");
+                    echo sprintf("</div>\n");
+                }
+                else if($lModel == "label_radiobutton") {
+                    echo sprintf("<div class='Row12'>\n");
+                    echo sprintf("<label class='Label3' for='%s'>%s</label>\n", $lId, $lLabel);
+                    echo sprintf("<div class='Field3' id='%s' data-value='%s'>\n", $lId, $lDefault);
+                    
+                    $lCountJ = $this->m_dom->countNItem3("page", "map/data", $i);
+                    $this->m_dom->getNItem3("page", "map/data", $i);
+                    $lName = $lId;
+                    
+                    for($j = 0; $j < $lCountJ; $j++) {
+                        $lId        = $this->m_dom->getXValue("id");
+                        $lValue     = $this->m_dom->getXValue("value");
+                        $lLabel     = $this->m_dom->getXValue("label");
+                        
+                        $lChecked = ($lValue == $lDefault ? "checked" : "");
+                        
+                        echo sprintf("<div class='RadioButton'>\n");
+                        echo sprintf("<input class='RadioButtonInput' type='radio' name='%s' id='%s' value='%s' %s/>\n", $lName, $lId, $lValue, $lChecked);
+                        echo sprintf("<label class='RadioButtonLabel' for='%s'>%s</label>", $lId, $lLabel);
+                        echo sprintf("<div class='RadioButtonCheck'></div>");
+                        echo sprintf("</div>\n");
+                        $this->m_dom->nextSiblingElement();
+                    }
+                    
                     echo sprintf("</div>\n");
                     echo sprintf("</div>\n");
                 }

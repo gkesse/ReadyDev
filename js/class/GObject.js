@@ -8,6 +8,11 @@ class GObject {
     //===============================================
     clearMap() {
         this.m_map = [];
+        this.m_logs.clearLogs();
+    }
+    //===============================================
+    clearLogs() {
+        this.m_logs.clearLogs();
     }
     //===============================================
     addError(_error) {

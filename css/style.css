@@ -2070,6 +2070,75 @@ thead tr:first-child {
 }
 
 /* ============================================== */
+/* RadioButton */ 
+/* ============================================== */
+
+.RadioButton {
+	position: relative;
+  	display: inline-block;
+	margin-top: 5px;
+	margin-left: 5px;
+  	cursor: pointer;
+  	-webkit-user-select: none;
+  	-moz-user-select: none;
+  	-ms-user-select: none;
+  	user-select: none;
+}
+
+.RadioButton:hover .RadioButtonCheck {
+  	background-color: #ccc;
+}
+
+.RadioButtonInput {
+  	position: absolute;
+  	opacity: 0;
+	cursor: pointer;
+	top: 50%;
+	left: 0px;
+	width: 14px;
+	height: 14px;
+    transform: translate(0, -50%);
+  	z-index: 2;
+}
+
+.RadioButtonInput:checked ~ .RadioButtonCheck {
+  	background-color: #2196F3;
+}
+
+.RadioButtonInput:checked ~ .RadioButtonCheck:after {
+  	display: block;
+}
+
+.RadioButtonCheck {
+	position: absolute;
+	top: 2px;
+	left: 0px;
+  	height: 12px;
+  	width: 12px;
+  	background-color: #eee;
+  	border-radius: 50%;
+  	z-index: 1;
+}
+
+.RadioButtonCheck:after {
+	display: none;
+	position: absolute;
+	content: "";
+	top: 50%;
+	left: 50%;
+    transform: translate(-50%, -50%);
+	width: 6px;
+	height: 6px;
+	border-radius: 50%;
+	background: white;
+}
+
+.RadioButtonLabel {
+	padding-left: 16px;
+	cursor: pointer;
+}
+
+/* ============================================== */
 /* Responsive Web Design */ 
 /* ============================================== */
 

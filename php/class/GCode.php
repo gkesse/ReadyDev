@@ -101,6 +101,14 @@ class GCode extends GXml {
         return $lData;
     }
     //===============================================
+    public function getNItem3($code, $key, $index) {
+        return $this->getXNode(sprintf("/rdv/datas/data[code='%s']/map/data[position()=%d]/%s", $code, $index + 1, $key));
+    }
+    //===============================================
+    public function countNItem3($code, $key, $index) {
+        return $this->countXNode(sprintf("/rdv/datas/data[code='%s']/map/data[position()=%d]/%s", $code, $index + 1, $key));
+    }
+    //===============================================
     public function getItemC($code, $category, $key, $isCData = false) {
         $lCount = $this->countItem($code);
         for($i = 0; $i < $lCount; $i++) {
