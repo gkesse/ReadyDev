@@ -14,31 +14,16 @@ class GComboBox extends GObject {
         return this.m_instance;
     }    
     //===============================================
+    init() {
+        this.fillBox();
+    }
+    //===============================================
     initCombo(_obj) {
         var lBoxView = _obj.nextSibling.nextSibling;
         lBoxView.innerHTML = _obj.options[_obj.selectedIndex].innerHTML;
     }
     //===============================================
-    onModule(_method, _obj, _data) {
-        if(_method == "") {
-            this.addError("La méthode est obligatoire.");
-        }
-        else if(_method == "fill_box") {
-            this.onFillBox(_obj, _data);
-        }
-        else if(_method == "close_box") {
-            this.onCloseBox(_obj, _data);
-        }
-        else if(_method == "select_data") {
-            this.onSelectData(_obj, _data);
-        }
-        else {
-            this.addError("La méthode est inconnue.");
-        }
-        return !this.hasErrors();
-    }
-    //===============================================
-    onFillBox(_obj, _data) {
+    fillBox() {
         var lComboBoxMap = document.getElementsByClassName("ComboBox");
         var lLength = lComboBoxMap.length;
         
@@ -114,6 +99,22 @@ class GComboBox extends GObject {
         document.addEventListener("click", this.onCloseBox);
     }
     //===============================================
+    onModule(_method, _obj, _data) {
+        if(_method == "") {
+            this.addError("La méthode est obligatoire.");
+        }
+        else if(_method == "close_box") {
+            this.onCloseBox(_obj, _data);
+        }
+        else if(_method == "select_data") {
+            this.onSelectData(_obj, _data);
+        }
+        else {
+            this.addError("La méthode est inconnue.");
+        }
+        return !this.hasErrors();
+    }
+    //===============================================
     onCloseBox(_obj, _data) {
         var lBoxViewMap = document.getElementsByClassName("BoxView");
         var lBoxSelectMap = document.getElementsByClassName("BoxSelect");
@@ -150,4 +151,6 @@ class GComboBox extends GObject {
     }
     //===============================================
 }
+//===============================================
+GComboBox.Instance().init();
 //===============================================

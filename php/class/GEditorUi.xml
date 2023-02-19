@@ -313,6 +313,18 @@
                             <method>show_html</method>
                             <label>Afficher HTML</label>
                         </data>
+                        <data>
+                            <category>text</category>
+                            <module>page</module>
+                            <method>load_page_tree</method>
+                            <label>Charger l'arborescence</label>
+                        </data>
+                        <data>
+                            <category>text</category>
+                            <module>page</module>
+                            <method>create_page_tree</method>
+                            <label>Créer l'arborescence</label>
+                        </data>
                     </map>
                 </data>
                 <!-- end -->

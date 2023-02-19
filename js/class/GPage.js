@@ -14,6 +14,7 @@ class GPage extends GObject {
         this.m_url = "";
         this.m_title = "";
         this.m_path = "";
+        this.m_tree = "";
     }
     //===============================================
     static Instance() {
@@ -35,6 +36,7 @@ class GPage extends GObject {
         lDom.addData(_code, "url", this.m_url);
         lDom.addData(_code, "title", this.m_title);
         lDom.addData(_code, "path", this.m_path);
+        lDom.addData(_code, "tree", utf8_to_b64(this.m_tree));
         lDom.addMap(_code, this.m_map);
         return lDom.toString();
     }
@@ -51,6 +53,7 @@ class GPage extends GObject {
         this.m_url = lDom.getItem(_code, "url");
         this.m_title = lDom.getItem(_code, "title");
         this.m_path = lDom.getItem(_code, "path");
+        this.m_tree = b64_to_utf8(lDom.getItem(_code, "tree"));
         lDom.getMap(_code, this.m_map, this);
         this.loadLogs(_data);
     }
@@ -154,6 +157,12 @@ class GPage extends GObject {
         else if(_method == "load_page_next") {
             this.onLoadPageNext(_obj, _data);
         }
+        else if(_method == "load_page_tree") {
+            this.onLoadPageTree(_obj, _data);
+        }
+        else if(_method == "create_page_tree") {
+            this.onCreatePageTree(_obj, _data);
+        }
         else if(_method == "select_address") {
             this.onSelectAddress(_obj, _data);
         }
@@ -203,7 +212,7 @@ class GPage extends GObject {
             }
             else {
                 lPage.addLog("Le résultat est vide.");
-                lPage.showLogs();
+                lPage.showLogsX();
             }
         }
     }
@@ -257,18 +266,16 @@ class GPage extends GObject {
     }
     //===============================================
     onLoadPageCB(_data) {
-        var lLog = new GLog();
         var lPage = GPage.Instance();
         lPage.clearMap();
         lPage.deserialize(_data);
-        lLog.deserialize(_data);
-        if(!lLog.hasErrors()) {
+        if(!lPage.hasErrors()) {
             if(lPage.m_map.length) {
                 lPage.showTable("load_page_select", "load_page_next");
             }
             else {
-                lLog.addLog("Le résultat est vide.");
-                lLog.showLogs();
+                lPage.addLog("Le résultat est vide.");
+                lPage.showLogsX();
             }
         }
     }
@@ -291,6 +298,31 @@ class GPage extends GObject {
     }
     //===============================================
     onLoadPageNext(_obj, _data) {
+
+    }
+    //===============================================
+    onLoadPageTree(_obj, _data) {
+        this.readUi();
+        var lAjax = new GAjax();
+        var lData = this.serialize();
+        lAjax.callRemote("page", "load_page_tree", lData, this.onLoadPageTreeCB);        
+    }
+    //===============================================
+    onLoadPageTreeCB(_data) {
+        var lPage = new GPage();
+        lPage.deserialize(_data);
+        lPage.addData(lPage.m_tree);
+        lPage.showLogsX();
+    }
+    //===============================================
+    onCreatePageTree(_obj, _data) {
+        this.readUi();
+        var lAjax = new GAjax();
+        var lData = this.serialize();
+        lAjax.callLocal("page", "create_page_tree", lData, this.onCreatePageTreeCB);        
+    }
+    //===============================================
+    onCreatePageTreeCB(_data) {
 
     }
     //===============================================

@@ -55,6 +55,10 @@ class GObject {
         this.m_logs.showLogs();
     }
     //===============================================
+    showLogsX() {
+        this.m_logs.showLogsX();
+    }
+    //===============================================
     showDatas() {
         this.m_logs.showDatas();
     }

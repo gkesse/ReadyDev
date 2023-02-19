@@ -5,10 +5,26 @@ class GModule extends GSession {
     protected $m_module = "";
     protected $m_method = "";
     protected $m_responseXml = null;
+    protected $m_curl;
     //===============================================
     public function __construct() {
         parent::__construct();
         $this->m_responseXml = new GCode();
+        $this->m_curl = new GCurl();
+    }
+    //===============================================
+    public function callServer($_module, $_method, $_data = "") {
+        $this->m_curl->callServer($_module, $_method, $_data);
+        $this->addLogs($this->m_curl->getLogs());
+        $this->loadLogs($this->m_curl->getResponseText());
+        $this->deserialize($this->m_curl->getResponseText());
+    }
+    //===============================================
+    public function callProxy($_data) {
+        $this->m_curl->callProxy($_data);
+        $this->addLogs($this->m_curl->getLogs());
+        $this->loadLogs($this->m_curl->getResponseText());
+        $this->deserialize($this->m_curl->getResponseText());
     }
     //===============================================
     public function serialize($_code = "manager") {

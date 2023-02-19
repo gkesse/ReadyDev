@@ -9,7 +9,7 @@ class GServer extends GModule {
     }
     //===============================================
     public function sendResponse() {
-        $this->addResponse($this->loadLogs());
+        $this->addResponse($this->toLogs());
         $lData = $this->toResponse();
         echo $lData;
     }

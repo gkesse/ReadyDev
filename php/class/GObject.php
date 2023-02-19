@@ -35,7 +35,11 @@
             return $this->m_logs;
         }
         //===============================================
-        public function loadLogs() {
+        public function loadLogs($_data) {
+            return $this->m_logs->deserialize($_data);
+        }
+        //===============================================
+        public function toLogs() {
             return $this->m_logs->serialize();
         }
         //===============================================

@@ -13,16 +13,26 @@ class GLocal extends GModule {
         else if($this->m_module == "command") {
             $this->onCommand($_data);
         }
+        else if($this->m_module == "page") {
+            $this->onPage($_data);
+        }
         else {
             $this->addError("Le module est inconnu.");
         }
     }
     //===============================================
     public function onCommand($_data) {
-        $lCommand = new GCommand();
-        $lCommand->run($_data);
-        $this->addLogs($lCommand->getLogs());
-        $this->addResponse($lCommand->serialize());
+        $lObj = new GCommand();
+        $lObj->run($_data);
+        $this->addLogs($lObj->getLogs());
+        $this->addResponse($lObj->serialize());
+    }
+    //===============================================
+    public function onPage($_data) {
+        $lObj = new GPageFac();
+        $lObj->run($_data);
+        $this->addLogs($lObj->getLogs());
+        $this->addResponse($lObj->serialize());
     }
     //===============================================
 }

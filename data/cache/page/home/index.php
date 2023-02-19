@@ -1,1 +1,0 @@
-<div class="Parallax GParallax1"><div class="Img Binary"><div class="Caption"><a href="#"><div class="Text">Ajouter un titre...</div></a></div></div><div class="Body2 Orange">Ajouter un texte...</div></div>
