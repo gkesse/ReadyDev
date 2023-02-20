@@ -57,6 +57,7 @@ class GAjax extends GObject {
             this.addError("La fonction de rappel est obligatoire.");            
             return false;
         }
+        var lLoader = new GLoader();
         this.m_xhttp.onreadystatechange = function() {
             if(this.readyState == 4 && this.status == 200) {
                 var lData = this.responseText;
@@ -64,6 +65,7 @@ class GAjax extends GObject {
                 lLog.deserialize(lData);
                 if(_callback) _callback(lData);
                 lLog.showLogsX();
+                lLoader.closeLoader();
             }
         }
         this.m_xhttp.open(this.m_method, this.m_url, this.m_async, this.m_user, this.m_password);
@@ -74,6 +76,7 @@ class GAjax extends GObject {
         var lReq = "";
         lReq += sprintf("req=%s", _data);
         this.m_xhttp.send(lReq);
+        lLoader.showLoader();
         return !this.hasErrors();
     }
     //===============================================

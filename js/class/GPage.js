@@ -305,7 +305,7 @@ class GPage extends GObject {
         this.readUi();
         var lAjax = new GAjax();
         var lData = this.serialize();
-        lAjax.callRemote("page", "load_page_tree", lData, this.onLoadPageTreeCB);        
+        lAjax.callRemote("page", "load_page_tree", lData, this.onLoadPageTreeCB);
     }
     //===============================================
     onLoadPageTreeCB(_data) {
