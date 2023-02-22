@@ -33,9 +33,6 @@ class GServer extends GObject {
         else if(_module == "menu") {
             this.onMenu(_method, _obj, _data);
         }
-        else if(_module == "user") {
-            this.onUser(_method, _obj, _data);
-        }
         else if(_module == "sitemap") {
             this.onSitemap(_method, _obj, _data);
         }
@@ -50,6 +47,9 @@ class GServer extends GObject {
         }
         else if(_module == "confirm") {
             this.onConfirm(_method, _obj, _data);
+        }
+        else if(_module == "form") {
+            this.onForm(_method, _obj, _data);
         }
         else if(_module == "loader") {
             this.onLoader(_method, _obj, _data);
@@ -108,12 +108,6 @@ class GServer extends GObject {
         this.addLogs(lObj.getLogs());
     }
     //===============================================
-    onUser(_method, _obj, _data) {
-        var lObj = new GUser();
-        lObj.onModule(_method, _obj, _data)
-        this.addLogs(lObj.getLogs());
-    }
-    //===============================================
     onSitemap(_method, _obj, _data) {
         var lObj = new GSitemap();
         lObj.onModule(_method, _obj, _data)
@@ -140,6 +134,12 @@ class GServer extends GObject {
     //===============================================
     onConfirm(_method, _obj, _data) {
         var lObj = new GConfirm();
+        lObj.onModule(_method, _obj, _data)
+        this.addLogs(lObj.getLogs());
+    }
+    //===============================================
+    onForm(_method, _obj, _data) {
+        var lObj = new GForm();
         lObj.onModule(_method, _obj, _data)
         this.addLogs(lObj.getLogs());
     }

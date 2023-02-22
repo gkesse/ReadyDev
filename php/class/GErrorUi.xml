@@ -14,7 +14,6 @@
             <form_id>ErrorsForm</form_id>
             <msg_id>ErrorsMsg</msg_id>
             <module>logs</module>
-            <keypress_cb>keypress_error</keypress_cb>
             <close_cb>close_error</close_cb>
             <map>
                 <!-- ============================================ -->

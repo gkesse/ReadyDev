@@ -8,6 +8,7 @@ class GHeaderUi extends GObject {
     protected $m_disconnectUi;
     protected $m_confirmUi;
     protected $m_loaderUi;
+    protected $m_formUi;
     protected $m_tableUi;
     protected $m_menuUi;
     protected $m_errorUi;
@@ -22,6 +23,7 @@ class GHeaderUi extends GObject {
         $this->m_accountUi      = new GAccountUi();
         $this->m_confirmUi      = new GConfirmUi();
         $this->m_loaderUi       = new GLoaderUi();
+        $this->m_formUi         = new GFormUi();
         $this->m_tableUi        = new GTableUi();
         $this->m_menuUi         = new GMenuUi();
         $this->m_errorUi        = new GErrorUi();
@@ -54,6 +56,7 @@ class GHeaderUi extends GObject {
         $this->m_tableUi->run();
         $this->m_confirmUi->run();
         $this->m_loaderUi->run();
+        $this->m_formUi->run();
         $this->m_errorUi->run();
         $this->m_logUi->run();
         

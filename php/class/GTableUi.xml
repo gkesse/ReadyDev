@@ -13,7 +13,6 @@
             <form_id>TableForm</form_id>
             <msg_id>TableMsg</msg_id>
             <module>table</module>
-            <keypress_cb>keypress_table</keypress_cb>
             <close_cb>close_table</close_cb>
             <map>
                 <!-- ============================================ -->

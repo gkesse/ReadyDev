@@ -44,7 +44,7 @@ class GLog {
     }
     //===============================================
     addError(_msg) {
-        var lObj = new GLog
+        var lObj = new GLog();
         lObj.m_type = "error";
         lObj.m_side = "client";
         lObj.m_msg = _msg;
@@ -52,7 +52,7 @@ class GLog {
     }
     //===============================================
     addLog(_msg) {
-        var lObj = new GLog
+        var lObj = new GLog();
         lObj.m_type = "log";
         lObj.m_side = "client";
         lObj.m_msg = _msg;
@@ -60,7 +60,7 @@ class GLog {
     }
     //===============================================
     addData(_msg) {
-        var lObj = new GLog
+        var lObj = new GLog();
         lObj.m_type = "data";
         lObj.m_side = "client";
         lObj.m_msg =  btoa(_msg);
@@ -68,7 +68,7 @@ class GLog {
     }
     //===============================================
     addXml(_msg) {
-        var lObj = new GLog
+        var lObj = new GLog();
         lObj.m_type = "data";
         lObj.m_side = "client";
         lObj.m_msg =  btoa(sprintfXml(_msg));

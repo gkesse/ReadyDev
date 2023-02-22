@@ -17,10 +17,9 @@ class GLogUi extends GObject {
         $lFormId        = $this->m_dom->getItem("logs", "form_id");
         $lMsgId         = $this->m_dom->getItem("logs", "msg_id");
         $lModule        = $this->m_dom->getItem("logs", "module");
-        $lKeypressCB    = $this->m_dom->getItem("logs", "keypress_cb");
         $lCloseCB       = $this->m_dom->getItem("logs", "close_cb");
         //
-        echo sprintf("<div class='Modal' id='%s' onkeypress='call_server(\"%s\", \"%s\", this, event);'>\n", $lModalId, $lModule, $lKeypressCB);
+        echo sprintf("<div class='Modal' id='%s'>\n", $lModalId);
         echo sprintf("<div class='Content10' id='%s'>\n", $lBodyId);
         echo sprintf("<div class='Button3 Close' onclick='call_server(\"%s\", \"%s\");'><i class='fa fa-close'></i></div>\n", $lModule, $lCloseCB);
         echo sprintf("<div class='Title5' id='%s'>%s</div>\n", $lTitleId, $lTitle);

@@ -15,12 +15,11 @@ class GDisconnectUi extends GObject {
         $lFormId        = $this->m_dom->getItemC("user", "disconnection", "form_id");
         $lMsgId         = $this->m_dom->getItemC("user", "disconnection", "msg_id");
         $lModule        = $this->m_dom->getItemC("user", "disconnection", "module");
-        $lKeypressCB    = $this->m_dom->getItemC("user", "disconnection", "keypress_cb");
         $lCloseCB       = $this->m_dom->getItemC("user", "disconnection", "close_cb");
         $lDisconnectCB  = $this->m_dom->getItemC("user", "disconnection", "disconnect_cb");
         $lDisconnectBtn = $this->m_dom->getItemC("user", "disconnection", "disconnect_btn");
         //
-        echo sprintf("<div class='Modal' id='%s' onkeypress='call_server(\"%s\", \"%s\", this, event);'>\n", $lModalId, $lModule, $lKeypressCB);
+        echo sprintf("<div class='Modal' id='%s'>\n", $lModalId);
         echo sprintf("<div class='Content10' id='%s'>\n", $lBodyId);
         echo sprintf("<div class='Button3 Close' onclick='call_server(\"%s\", \"%s\")'><i class='fa fa-close'></i></div>\n", $lModule, $lCloseCB);
         echo sprintf("<div class='Title5'>%s</div>\n", $lTitle);

@@ -70,10 +70,9 @@ class GUser extends GModule {
         $lFormId = $this->getItemC("user", "connection", "form_id");
         $lMsgId = $this->getItemC("user", "connection", "msg_id");
         $lModule = $this->getItemC("user", "connection", "module");
-        $lKeypressCB = $this->getItemC("user", "connection", "keypress_cb");
         $lCloseCB = $this->getItemC("user", "connection", "close_cb");
         //
-        echo sprintf("<div class='Modal' id='%s' onkeypress='call_server(\"%s\", \"%s\", this, event);'>\n", $lModalId, $lModule, $lKeypressCB);
+        echo sprintf("<div class='Modal' id='%s'>\n", $lModalId);
         echo sprintf("<div class='Content10' id='%s'>\n", $lBodyId);
         echo sprintf("<div class='Button3 Close' onclick='call_server(\"%s\", \"%s\");'><i class='fa fa-close'></i></div>\n", $lModule, $lCloseCB);
         echo sprintf("<div class='Title5'>%s</div>\n", $lTitle);
@@ -133,10 +132,9 @@ class GUser extends GModule {
         $lFormId = $this->getItemC("user", "account", "form_id");
         $lMsgId = $this->getItemC("user", "account", "msg_id");
         $lModule = $this->getItemC("user", "account", "module");
-        $lKeypressCB = $this->getItemC("user", "account", "keypress_cb");
         $lCloseCB = $this->getItemC("user", "account", "close_cb");
         //
-        echo sprintf("<div class='Modal Connection' id='%s' onkeypress='call_server(\"%s\", \"%s\", this, event);'>\n", $lModalId, $lModule, $lKeypressCB);
+        echo sprintf("<div class='Modal Connection' id='%s'>\n", $lModalId);
         echo sprintf("<div class='Content10' id='%s'>\n", $lBodyId);
         echo sprintf("<div class='Button3 Close' onclick='call_server(\"%s\", \"%s\");'><i class='fa fa-close'></i></div>\n", $lModule, $lCloseCB);
         echo sprintf("<div class='Title5'>%s</div>\n", $lTitle);
@@ -195,12 +193,11 @@ class GUser extends GModule {
         $lFormId = $this->getItemC("user", "disconnection", "form_id");
         $lMsgId = $this->getItemC("user", "disconnection", "msg_id");
         $lModule = $this->getItemC("user", "disconnection", "module");
-        $lKeypressCB = $this->getItemC("user", "disconnection", "keypress_cb");
         $lCloseCB = $this->getItemC("user", "disconnection", "close_cb");
         $lDisconnectCB = $this->getItemC("user", "disconnection", "disconnect_cb");
         $lDisconnectBtn = $this->getItemC("user", "disconnection", "disconnect_btn");
         //
-        echo sprintf("<div class='Modal' id='%s' onkeypress='call_server(\"%s\", \"%s\", this, event);'>\n", $lModalId, $lModule, $lKeypressCB);
+        echo sprintf("<div class='Modal' id='%s'>\n", $lModalId);
         echo sprintf("<div class='Content10' id='%s'>\n", $lBodyId);
         echo sprintf("<div class='Button3 Close' onclick='call_server(\"%s\", \"%s\")'><i class='fa fa-close'></i></div>\n", $lModule, $lCloseCB);
         echo sprintf("<div class='Title5'>%s</div>\n", $lTitle);

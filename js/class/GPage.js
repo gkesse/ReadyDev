@@ -24,42 +24,8 @@ class GPage extends GObject {
         return this.m_instance;
     }    
     //===============================================
-    serialize(_code = "page") {
-        var lDom = new GCode();
-        lDom.createDoc();
-        lDom.addData(_code, "id", ""+this.m_id);
-        lDom.addData(_code, "parent_id", ""+this.m_parentId);
-        lDom.addData(_code, "type_id", ""+this.m_typeId);
-        lDom.addData(_code, "default", ""+this.m_default);
-        lDom.addData(_code, "name", this.m_name);
-        lDom.addData(_code, "type_name", this.m_typeName);
-        lDom.addData(_code, "url", this.m_url);
-        lDom.addData(_code, "title", this.m_title);
-        lDom.addData(_code, "path", this.m_path);
-        lDom.addData(_code, "tree", utf8_to_b64(this.m_tree));
-        lDom.addMap(_code, this.m_map);
-        return lDom.toString();
-    }
-    //===============================================
-    deserialize(_data, _code = "page") {
-        var lDom = new GCode();
-        lDom.loadXml(_data);
-        this.m_id = +lDom.getItem(_code, "id");
-        this.m_parentId = +lDom.getItem(_code, "parent_id");
-        this.m_typeId = +lDom.getItem(_code, "type_id");
-        this.m_default = +lDom.getItem(_code, "default");
-        this.m_name = lDom.getItem(_code, "name");
-        this.m_typeName = lDom.getItem(_code, "type_name");
-        this.m_url = lDom.getItem(_code, "url");
-        this.m_title = lDom.getItem(_code, "title");
-        this.m_path = lDom.getItem(_code, "path");
-        this.m_tree = b64_to_utf8(lDom.getItem(_code, "tree"));
-        lDom.getMap(_code, this.m_map, this);
-        this.loadLogs(_data);
-    }
-    //===============================================
     clone() {
-        var lObj = new GPage;
+        var lObj = new GPage();
         lObj.setPage(this);
         return lObj;
     }
@@ -120,6 +86,40 @@ class GPage extends GObject {
         lRadio.initRadio(lEditorPageDefault);
     }
     //===============================================
+    serialize(_code = "page") {
+        var lDom = new GCode();
+        lDom.createDoc();
+        lDom.addData(_code, "id", ""+this.m_id);
+        lDom.addData(_code, "parent_id", ""+this.m_parentId);
+        lDom.addData(_code, "type_id", ""+this.m_typeId);
+        lDom.addData(_code, "default", ""+this.m_default);
+        lDom.addData(_code, "name", this.m_name);
+        lDom.addData(_code, "type_name", this.m_typeName);
+        lDom.addData(_code, "url", this.m_url);
+        lDom.addData(_code, "title", this.m_title);
+        lDom.addData(_code, "path", this.m_path);
+        lDom.addData(_code, "tree", utf8_to_b64(this.m_tree));
+        lDom.addMap(_code, this.m_map);
+        return lDom.toString();
+    }
+    //===============================================
+    deserialize(_data, _code = "page") {
+        var lDom = new GCode();
+        lDom.loadXml(_data);
+        this.m_id = +lDom.getItem(_code, "id");
+        this.m_parentId = +lDom.getItem(_code, "parent_id");
+        this.m_typeId = +lDom.getItem(_code, "type_id");
+        this.m_default = +lDom.getItem(_code, "default");
+        this.m_name = lDom.getItem(_code, "name");
+        this.m_typeName = lDom.getItem(_code, "type_name");
+        this.m_url = lDom.getItem(_code, "url");
+        this.m_title = lDom.getItem(_code, "title");
+        this.m_path = lDom.getItem(_code, "path");
+        this.m_tree = b64_to_utf8(lDom.getItem(_code, "tree"));
+        lDom.getMap(_code, this.m_map, this);
+        this.loadLogs(_data);
+    }
+    //===============================================
     onModule(_method, _obj, _data) {
         if(_method == "") {
             this.addError("La méthode est obligatoire.");
@@ -163,8 +163,8 @@ class GPage extends GObject {
         else if(_method == "create_page_tree") {
             this.onCreatePageTree(_obj, _data);
         }
-        else if(_method == "select_address") {
-            this.onSelectAddress(_obj, _data);
+        else if(_method == "create_page_tree") {
+            this.onCreatePageTree(_obj, _data);
         }
         else {
             this.addError("Erreur la méthode est inconnue.");            

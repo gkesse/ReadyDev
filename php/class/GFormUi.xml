@@ -2,19 +2,22 @@
 <rdv>
     <datas>
         <!-- ============================================ -->
-        <!-- confirm -->
+        <!-- form -->
         <!-- ============================================ -->
         <data>
-            <code>confirm</code>
-            <title>Confirmation</title>
-            <intro>Voulez-vous continuer l'opération ?</intro>
-            <modal_id>ModalConfirm</modal_id>
-            <intro_id>ConfirmIntro</intro_id>
-            <body_id>ConfirmBody</body_id>
-            <form_id>ConfirmForm</form_id>
-            <msg_id>ConfirmMsg</msg_id>
-            <module>confirm</module>
-            <close_cb>close_confirm</close_cb>
+            <code>form</code>
+            <title>Formulaire</title>
+            <intro>Saisissez vos données.</intro>
+            <modal_id>ModalForm</modal_id>
+            <data_id>FormData</data_id>
+            <title_id>FormTitle</title_id>
+            <intro_id>FormIntro</intro_id>
+            <body_id>FormBody</body_id>
+            <form_id>FormForm</form_id>
+            <content_id>FormContent</content_id>
+            <msg_id>FormMsg</msg_id>
+            <module>form</module>
+            <close_cb>close_form</close_cb>
             <map>
                 <!-- ============================================ -->
                 <!-- button -->
@@ -22,20 +25,20 @@
                 <data>
                     <category>button</category>
                     <model>button</model>
-                    <id>ConfirmOk</id>
-                    <module>confirm</module>
-                    <method>ok_confirm</method>
+                    <id>FormOk</id>
+                    <module>form</module>
+                    <method>ok_form</method>
                     <picto>check</picto>
-                    <text>Oui</text>
+                    <text>Enregistrer</text>
                 </data>
                 <data>
                     <category>button</category>
                     <model>button</model>
-                    <id>ConfirmCancel</id>
-                    <module>confirm</module>
-                    <method>close_confirm</method>
+                    <id>FormCancel</id>
+                    <module>form</module>
+                    <method>close_form</method>
                     <picto>times</picto>
-                    <text>Non</text>
+                    <text>Annuler</text>
                 </data>
                 <!-- ============================================ -->
                 <!-- end -->
@@ -50,11 +53,11 @@
             <map>
                 <data>
                     <model>normal</model>
-                    <id>ConfirmModule</id>
+                    <id>FormModule</id>
                 </data>
                 <data>
                     <model>normal</model>
-                    <id>ConfirmMethod</id>
+                    <id>FormMethod</id>
                 </data>
             </map>
         </data>

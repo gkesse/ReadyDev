@@ -20,6 +20,7 @@
                 <data>/js/class/GRadioButton.js</data>
                 <data>/js/class/GModule.js</data>
                 <data>/js/class/GConfirm.js</data>
+                <data>/js/class/GForm.js</data>
                 <data>/js/class/GLoader.js</data>
                 <data>/js/class/GSearch.js</data>
                 <data>/js/class/GTable.js</data>
@@ -31,7 +32,6 @@
                 <data>/js/class/GManager.js</data>
                 <data>/js/class/GQuery.js</data>
                 <data>/js/class/GSitemap.js</data>
-                <data>/js/class/GUser.js</data>
                 <data>/js/class/GMenu.js</data>
                 <data>/js/class/GEditorUi.js</data>
                 <data>/js/class/GTest.js</data>

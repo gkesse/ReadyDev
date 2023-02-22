@@ -13,7 +13,6 @@
             <form_id>ConnectionForm</form_id>
             <msg_id>ConnectionMsg</msg_id>
             <module>user</module>
-            <keypress_cb>keypress_connection</keypress_cb>
             <close_cb>close_connection</close_cb>
             <map>
                 <!-- ============================================ -->

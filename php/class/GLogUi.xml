@@ -14,7 +14,6 @@
             <form_id>LogsForm</form_id>
             <msg_id>LogsMsg</msg_id>
             <module>logs</module>
-            <keypress_cb>keypress_log</keypress_cb>
             <close_cb>close_log</close_cb>
             <map>
                 <!-- ============================================ -->

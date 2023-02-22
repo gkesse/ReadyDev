@@ -13,7 +13,6 @@
             <form_id>DisconnectionForm</form_id>
             <msg_id>DisconnectionMsg</msg_id>
             <module>user</module>
-            <keypress_cb>keypress_disconnection</keypress_cb>
             <close_cb>close_disconnection</close_cb>
             <disconnect_cb>run_disconnection</disconnect_cb>
             <disconnect_btn>Se Déconnecter</disconnect_btn>

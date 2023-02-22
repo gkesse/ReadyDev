@@ -70,8 +70,7 @@
             $lTitle = $this->m_dom->getItemC("sitemap", "enum", "title");
             $lCount = $this->m_dom->countItem("sitemap");
             
-            echo sprintf("<div class='Row Left sitemap_tab_ctn' id='%s'\n", $lId);
-            echo sprintf("onkeypress='saveFileKey(event);'>\n");
+            echo sprintf("<div class='Row Left sitemap_tab_ctn' id='%s'>\n", $lId);
             echo sprintf("<h2 class='Title4'>%s</h2>\n", $lTitle);
             echo sprintf("<div class='Body13 Center'>\n");
             
