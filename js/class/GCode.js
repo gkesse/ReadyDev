@@ -9,6 +9,7 @@ class GCode extends GXml {
         if(code == "") return false;
         if(key == "") return false;
         if(value == "") return false;
+        if(value == "0") return false;
         this.createCode(code);
         this.createVNode(key, value, isCData);
         return true;

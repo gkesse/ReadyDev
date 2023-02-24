@@ -2,7 +2,7 @@
 //===============================================
 class GEnvUi extends GObject {
     //===============================================
-    protected $m_env;
+    private $m_env;
     //===============================================
     public function __construct($_codeName = "env") {
         parent::__construct($_codeName);

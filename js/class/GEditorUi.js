@@ -17,9 +17,11 @@ class GEditorUi extends GObject {
     init() {
         var lEditorTabs = document.getElementsByClassName("EditorTab");
         var lEditorTabDefault = document.getElementById("EditorTabDefault");
-        var lDefaultId = lEditorTabDefault.innerHTML;
-        var lEditorTab = lEditorTabs[lDefaultId];
-        this.onOpenHeader(lEditorTab, "EditorTab" + lDefaultId);
+        if(lEditorTabs.length) {
+            var lDefaultId = lEditorTabDefault.innerHTML;
+            var lEditorTab = lEditorTabs[lDefaultId];
+            this.onOpenHeader(lEditorTab, "EditorTab" + lDefaultId);
+        }
     }
     //===============================================
     onModule(_method, _obj, _data) {

@@ -130,6 +130,12 @@ class GPage extends GObject {
         else if(_method == "save_page_run") {
             this.onSavePageRun(_obj, _data);
         }
+        else if(_method == "save_page_file") {
+            this.onSavePageFile(_obj, _data);
+        }
+        else if(_method == "save_page_file_run") {
+            this.onSavePageFileRun(_obj, _data);
+        }
         else if(_method == "search_page") {
             this.onSearchPage(_obj, _data);
         }
@@ -138,6 +144,12 @@ class GPage extends GObject {
         }
         else if(_method == "search_page_next") {
             this.onSearchPageNext(_obj, _data);
+        }
+        else if(_method == "search_page_file") {
+            this.onSearchPageFile(_obj, _data);
+        }
+        else if(_method == "search_page_file_run") {
+            this.onSearchPageFileRun(_obj, _data);
         }
         else if(_method == "delete_page") {
             this.onDeletePage(_obj, _data);
@@ -182,13 +194,30 @@ class GPage extends GObject {
         this.readUi();
         var lAjax = new GAjax();
         var lData = this.serialize();
-        lAjax.callRemote("page", "save_page", lData, this.onSavePageCB);        
+        lAjax.callLocal("page", "save_page", lData, this.onSavePageCB);        
     }
     //===============================================
     onSavePageCB(_data) {
         var lPage = new GPage();
         lPage.deserialize(_data);
         lPage.writeUi();
+    }
+    //===============================================
+    onSavePageFile(_obj, _data) {
+        var lConfirm = new GConfirm();
+        lConfirm.setCallback("page", "save_page_file_run");
+        lConfirm.showConfirm();
+    }
+    //===============================================
+    onSavePageFileRun(_obj, _data) {
+        this.readUi();
+        var lAjax = new GAjax();
+        var lData = this.serialize();
+        lAjax.callLocal("page", "save_page_file", lData, this.onSavePageFileCB);        
+    }
+    //===============================================
+    onSavePageFileCB(_data) {
+
     }
     //===============================================
     onSearchPage(_obj, _data) {

@@ -13,7 +13,7 @@ class GXml {
         var lRoot = sprintf("<?xml version='%s' encoding='%s'?><%s></%s>", _version, _encoding, _name, _name);
         var lParser = new DOMParser();
         this.m_doc = lParser.parseFromString(lRoot, "text/xml");
-        this.m_node = this.m_doc.firstChild;
+        this.m_node = this.m_doc.firstElementChild;
     }
     //===============================================
     createNode(_name) {
@@ -175,6 +175,8 @@ class GXml {
     //===============================================
     toString() {
         if(!this.m_doc) return "";
+        if(!this.m_node) return "";
+        if(!this.m_node.firstElementChild) return "";
         var lData = this.m_doc.documentElement.outerHTML;
         return lData;
     }

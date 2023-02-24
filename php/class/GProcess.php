@@ -4,9 +4,9 @@ class GProcess extends GObject {
     //===============================================
     private static $m_instance = null;
     //===============================================
-    protected $m_page;
-    protected $m_env;
-    protected $m_indexUi;
+    private $m_page;
+    private $m_env;
+    private $m_indexUi;
     //===============================================
     private function __construct() {
         parent::__construct();
@@ -39,15 +39,15 @@ class GProcess extends GObject {
     }
     //===============================================
     public function runTest() {
-        $lTestUi = new GTestUi();
-        $lTestUi->run();
-        $this->addLogs($lTestUi->getLogs());
+        $lObj = new GTestUi();
+        $lObj->run();
+        $this->addLogs($lObj->getLogs());
     }
     //===============================================
     public function runProd() {
-        $lReadyUi = new GReadyUi();
-        $lReadyUi->run();
-        $this->addLogs($lReadyUi->getLogs());
+        $lObj = new GReadyUi();
+        $lObj->run();
+        $this->addLogs($lObj->getLogs());
     }
     //===============================================
  }

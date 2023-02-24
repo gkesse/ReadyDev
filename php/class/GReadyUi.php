@@ -61,11 +61,12 @@
         }
         //===============================================
         public function onPage() {
-            if($this->m_pageId != "home") return;
-            $this->m_isFound = true;
             $lPage = sprintf("%s/%s", $this->m_pageCache, $this->m_pageId);
-            $lPage = GPath::create($lPage, "index.php");
-            require $lPage;
+            $lPage = GPath::create($lPage, "main.php");
+            if(file_exists($lPage)) {
+                $this->m_isFound = true;
+                require $lPage;
+            }
         }
         //===============================================
         public function onError() {

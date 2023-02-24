@@ -7,7 +7,7 @@
         <data>
             <code>errors</code>
             <title>Erreurs</title>
-            <intro>Des erreurs ont été rencontrées.</intro>
+            <intro>Des erreurs ont été rencontrées lors de l'opération.</intro>
             <modal_id>ModalErrors</modal_id>
             <body_id>ErrorsBody</body_id>
             <title_id>ErrorsTitle</title_id>
