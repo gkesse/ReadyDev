@@ -8,6 +8,7 @@ class GPageFac extends GModule {
     private $m_name = "";
     private $m_path = "";
     private $m_tree = "";
+    private $m_content = "";
     private $m_cachePage = "data/cache/page";
     //===============================================
     public function __construct() {
@@ -24,6 +25,7 @@ class GPageFac extends GModule {
         $lDom->addData($_code, "name", $this->m_name);
         $lDom->addData($_code, "path", $this->m_path);
         $lDom->addData($_code, "tree", base64_encode($this->m_tree));
+        $lDom->addData($_code, "content", base64_encode($this->m_content));
         $lDom->addMap($_code, $this->m_map);
         return $lDom->toString();
     }
@@ -39,6 +41,7 @@ class GPageFac extends GModule {
         $this->m_name = $lDom->getItem($_code, "name");
         $this->m_path = $lDom->getItem($_code, "path");
         $this->m_tree = base64_decode($lDom->getItem($_code, "tree"));
+        $this->m_content = base64_decode($lDom->getItem($_code, "content"));
         $lDom->getMap($_code, $this->m_map, $this);
     }
     //===============================================
@@ -56,6 +59,7 @@ class GPageFac extends GModule {
         $this->m_name = $_obj->m_name;
         $this->m_path = $_obj->m_path;
         $this->m_tree = $_obj->m_tree;
+        $this->m_content = $_obj->m_content;
     }
     //===============================================
     public function isFile() {
@@ -73,6 +77,9 @@ class GPageFac extends GModule {
         }
         else if($this->m_method == "save_page") {
             $this->onSavePage($_data);
+        }
+        else if($this->m_method == "save_page_file") {
+            $this->onSavePageFile($_data);
         }
         else if($this->m_method == "create_page_tree") {
             $this->onCreatePageTree($_data);
@@ -100,6 +107,22 @@ class GPageFac extends GModule {
         if(!$this->hasErrors()) {
             $lPath = GPath::create($this->m_cachePage);
             $this->createPage($lPath);
+        }
+    }
+    //===============================================
+    public function onSavePageFile(string $_data) {
+        $this->callProxy($_data);
+        if(!$this->hasErrors()) {
+            if($this->m_content == "") {
+                $this->addError("La contenu de la page est vide.");
+                return false;
+            }
+            $lFile = new GFile();
+            $lFile->saveData($this->m_cachePage, $this->m_path, $this->m_content);
+            $this->addLogs($lFile->getLogs());
+            if(!$this->hasErrors()) {
+                $this->addLog("La donnée a bien été enregistrée.");
+            }
         }
     }
     //===============================================

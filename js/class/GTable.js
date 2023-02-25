@@ -28,28 +28,6 @@ class GTable extends GModule {
         this.m_body = lTable.createTBody();
     }
     //===============================================
-    serialize(_code = "table") {
-        var lDom = new GCode();
-        lDom.createDoc();
-        lDom.addData(_code, "data", this.m_data, true);
-        lDom.addData(_code, "type", this.m_type);
-        lDom.addData(_code, "row", ""+this.m_row);
-        lDom.addData(_code, "col", ""+this.m_col);
-        lDom.addData(_code, "value", this.m_value, true);
-        return lDom.toString();
-    }
-    //===============================================
-    deserialize(_data, _code = "table") {
-        super.deserialize(_data);
-        var lDom = new GCode();
-        lDom.loadXml(_data);
-        this.m_data = lDom.getItem(_code, "data", true);
-        this.m_type = lDom.getItem(_code, "type");
-        this.m_row = +lDom.getItem(_code, "row");
-        this.m_col = +lDom.getItem(_code, "col");
-        this.m_value = lDom.getItem(_code, "value", true);
-    }
-    //===============================================
     getRow() {
         return this.m_row;
     }
@@ -60,6 +38,28 @@ class GTable extends GModule {
     //===============================================
     getType() {
         return this.m_type;
+    }
+    //===============================================
+    serialize(_code = "table") {
+        var lDom = new GCode();
+        lDom.createDoc();
+        lDom.addData(_code, "data", utf8_to_b64(this.m_data));
+        lDom.addData(_code, "type", this.m_type);
+        lDom.addData(_code, "row", ""+this.m_row);
+        lDom.addData(_code, "col", ""+this.m_col);
+        lDom.addData(_code, "value", this.m_value);
+        return lDom.toString();
+    }
+    //===============================================
+    deserialize(_data, _code = "table") {
+        super.deserialize(_data);
+        var lDom = new GCode();
+        lDom.loadXml(_data);
+        this.m_data = b64_to_utf8(lDom.getItem(_code, "data"));
+        this.m_type = lDom.getItem(_code, "type");
+        this.m_row = +lDom.getItem(_code, "row");
+        this.m_col = +lDom.getItem(_code, "col");
+        this.m_value = lDom.getItem(_code, "value");
     }
     //===============================================
     onModule(_method, _obj, _data) {
@@ -119,10 +119,6 @@ class GTable extends GModule {
     //===============================================
     onSelectData(_method, _obj, _data) {
         this.readUi();
-        if(this.m_currentData == "") {
-            this.addError("La donnée courante est obligatoire.");
-            return false;
-        }
         if(this.m_selectModule == "") {
             this.addError("Le module courant est obligatoire.");
             return false;
@@ -341,22 +337,6 @@ class GTable extends GModule {
         lNextModule.value = this.nextModule;
         lNextMethod.value = this.nextMethod;
         lCurrentData.value = this.m_currentData;
-    }
-    //===============================================
-    buttonOn() {
-        var lSelect = document.getElementById("TableSelectData");
-        var lNext = document.getElementById("TableNextData");
-
-        lSelect.disabled = false;
-        lNext.disabled = false;
-    }
-    //===============================================
-    buttonOff() {
-        var lSelect = document.getElementById("TableSelectData");
-        var lNext = document.getElementById("TableNextData");
-
-        lSelect.disabled = true;
-        lNext.disabled = true;
     }
     //===============================================
 }

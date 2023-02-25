@@ -2,10 +2,10 @@
 //===============================================
 class GLog {
     //===============================================
-    protected $m_type = "";
-    protected $m_side = "";
-    protected $m_msg = "";
-    protected $m_map = array();
+    private $m_type = "";
+    private $m_side = "";
+    private $m_msg = "";
+    private $m_map = array();
     //===============================================
     public function __construct() {
         
@@ -45,7 +45,7 @@ class GLog {
     public function addError($_msg) {
         $lObj = new GLog();
         $lObj->m_type = "error";
-        $lObj->m_side = "server";
+        $lObj->m_side = "server_php";
         $lObj->m_msg = $_msg;
         $this->m_map[] = $lObj;
     }
@@ -53,7 +53,7 @@ class GLog {
     public function addLog($_msg) {
         $lObj = new GLog();
         $lObj->m_type = "log";
-        $lObj->m_side = "server";
+        $lObj->m_side = "server_php";
         $lObj->m_msg = $_msg;
         $this->m_map[] = $lObj;
     }
@@ -61,7 +61,7 @@ class GLog {
     public function addData($_msg) {
         $lObj = new GLog();
         $lObj->m_type = "data";
-        $lObj->m_side = "server";
+        $lObj->m_side = "server_php";
         $lObj->m_msg = base64_encode($_msg);
         $this->m_map[] = $lObj;
     }

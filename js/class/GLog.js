@@ -6,6 +6,10 @@ class GLog {
         this.m_side = "side";
         this.m_msg = "msg";
         this.m_map = [];
+        
+        this.m_clientColor = "#aaaafa";
+        this.m_serverColor = "#faaaaa";
+        this.m_serverPhpColor = "#aafaaa";
     }
     //===============================================
     clone() {
@@ -114,6 +118,14 @@ class GLog {
         return false;
     }
     //===============================================
+    hasServerPhp() {
+        for(var i = 0; i < this.m_map.length; i++) {
+            var lObj = this.m_map[i];
+            if(lObj.m_side == "server_php") return true;
+        }
+        return false;
+    }
+    //===============================================
     getErrors() {
         var lErrors = "";
         for(var i = 0; i < this.m_map.length; i++) {
@@ -157,8 +169,9 @@ class GLog {
         if(this.hasDatas()) return;
         if(!this.hasErrors()) return;
         
-        var lTitleColor = "#ffffff";
-        if(this.hasServer()) lTitleColor = "#bf8e3a";
+        var lTitleColor = this.m_clientColor;
+        if(this.hasServer()) lTitleColor = this.m_serverColor;
+        else if(this.hasServerPhp()) lTitleColor = this.m_serverPhpColor;
         
         var lModalErrors = document.getElementById("ModalErrors");
         var lErrorsBody = document.getElementById("ErrorsBody");
@@ -179,8 +192,9 @@ class GLog {
         if(this.hasErrors()) return;
         if(!this.hasLogs()) return;
         
-        var lTitleColor = "#ffffff";
-        if(this.hasServer()) lTitleColor = "#bf8e3a";
+        var lTitleColor = this.m_clientColor;
+        if(this.hasServer()) lTitleColor = this.m_serverColor;
+        else if(this.hasServerPhp()) lTitleColor = this.m_serverPhpColor;
 
         var lModalLogs = document.getElementById("ModalLogs");
         var lLogsBody = document.getElementById("LogsBody");
@@ -200,8 +214,9 @@ class GLog {
     showDatas() {
         if(!this.hasDatas()) return;
         
-        var lTitleColor = "#ffffff";        
-        if(this.hasServer()) lTitleColor = "#bf8e3a";
+        var lTitleColor = this.m_clientColor;        
+        if(this.hasServer()) lTitleColor = this.m_serverColor;
+        else if(this.hasServerPhp()) lTitleColor = this.m_serverPhpColor;
 
         var lModalLogs = document.getElementById("ModalLogs");
         var lLogsBody = document.getElementById("LogsBody");

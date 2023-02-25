@@ -95,6 +95,20 @@
                 </data>
                 <data>
                     <category>body</category>
+                    <model>hidden</model>
+                    <label>Path :</label>
+                    <id>EditorPagePath</id>
+                    <type>text</type>
+                </data>
+                <data>
+                    <category>body</category>
+                    <model>hidden</model>
+                    <label>Id Path :</label>
+                    <id>EditorPageIdPath</id>
+                    <type>text</type>
+                </data>
+                <data>
+                    <category>body</category>
                     <model>addressbar</model>
                     <id>EditorPageAddress</id>
                     <module>page</module>

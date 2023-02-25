@@ -11,10 +11,10 @@ class GPage extends GObject {
         this.m_default = 0;
         this.m_name = ""
         this.m_typeName = ""
-        this.m_url = "";
-        this.m_title = "";
         this.m_path = "";
+        this.m_idPath = "";
         this.m_tree = "";
+        this.m_content = "";
     }
     //===============================================
     static Instance() {
@@ -22,6 +22,10 @@ class GPage extends GObject {
             this.m_instance = new GPage();
         }
         return this.m_instance;
+    }    
+    //===============================================
+    init() {
+        this.updateAddress();
     }    
     //===============================================
     clone() {
@@ -37,12 +41,61 @@ class GPage extends GObject {
         this.m_default = _obj.m_default;
         this.m_name = _obj.m_name;
         this.m_typeName = _obj.m_typeName;
-        this.m_url = _obj.m_url;
-        this.m_title = _obj.m_title;
         this.m_path = _obj.m_path;
+        this.m_idPath = _obj.m_idPath;
+        this.m_tree = _obj.m_tree;
+        this.m_content = _obj.m_content;
     }
     //===============================================
-    readMap(_index) {
+    setParentId(_parentId) {
+        var lEditorPageParentId = document.getElementById("EditorPageParentId");
+        lEditorPageParentId.value = _parentId;
+    }
+    //===============================================
+    setAddress(_address) {
+        var lEditorPageAddress = document.getElementById("EditorPageAddress");
+        lEditorPageAddress.innerHTML = _address;
+    }
+    //===============================================
+    getAddressActive() {
+        var lEditorPageAddressActive = document.getElementsByClassName("EditorPageAddress Active")[0];
+        var lData = lEditorPageAddressActive.nextElementSibling.innerHTML;
+        return lData;
+    }
+    //===============================================
+    activeAddress(_obj) {
+        var lEditorPageAddresses = document.getElementsByClassName("EditorPageAddress");
+        for(var i = 0; i < lEditorPageAddresses.length; i++) {
+            var lEditorPageAddress = lEditorPageAddresses[i];
+            lEditorPageAddress.classList.remove("Active");
+        }
+        _obj.classList.add("Active");
+    }
+    //===============================================
+    getPreviousAddress() {
+        var lEditorPageAddress = document.getElementById("EditorPageAddress");
+        var lNode = lEditorPageAddress.firstElementChild;
+        var lHtml = "";
+        while(1) {
+            if(lNode.classList.contains("Active")) {
+                lHtml += lNode.outerHTML + "\n";
+                lNode = lNode.nextElementSibling;
+                lHtml += lNode.outerHTML + "\n";
+                break;
+            }
+            lHtml += lNode.outerHTML + "\n";
+            lNode = lNode.nextElementSibling;
+        }
+        return lHtml;
+    }
+    //===============================================
+    getContent() {
+        var lEditorEditionContent = document.getElementById("EditorEditionContent");
+        var lData = lEditorEditionContent.innerHTML;
+        return lData;
+    }
+    //===============================================
+    loadFromMap(_index) {
         if(_index < 0 || _index >= this.m_map.length) {
             this.addError("L'index de la donnée est incorrect.");
             return false;
@@ -52,15 +105,29 @@ class GPage extends GObject {
         return !this.hasErrors();
     }
     //===============================================
+    loadToMap(_index) {
+        if(_index < 0 || _index >= this.m_map.length) {
+            this.addError("L'index de la donnée est incorrect.");
+            return false;
+        }
+        var lObj = this.m_map[_index];
+        lObj.setPage(this);
+        return !this.hasErrors();
+    }
+    //===============================================
     readUi() {
         var lEditorPageId = document.getElementById("EditorPageId");
         var lEditorPageParentId = document.getElementById("EditorPageParentId");
+        var lEditorPagePath = document.getElementById("EditorPagePath");
+        var lEditorPageIdPath = document.getElementById("EditorPageIdPath");
         var lEditorPageName = document.getElementById("EditorPageName");
         var lEditorPageTypeId = document.getElementById("EditorPageTypeId");
         var lEditorPageDefault = document.getElementById("EditorPageDefault");
         //
         this.m_id = +lEditorPageId.value;
         this.m_parentId = +lEditorPageParentId.value;
+        this.m_path = lEditorPagePath.value;
+        this.m_idPath = lEditorPageIdPath.value;
         this.m_name = lEditorPageName.value;
         this.m_typeId = +lEditorPageTypeId.value;
         this.m_default = +lEditorPageDefault.dataset.value;
@@ -70,12 +137,16 @@ class GPage extends GObject {
         if(this.hasErrors()) return;
         var lEditorPageId = document.getElementById("EditorPageId");
         var lEditorPageParentId = document.getElementById("EditorPageParentId");
+        var lEditorPagePath = document.getElementById("EditorPagePath");
+        var lEditorPageIdPath = document.getElementById("EditorPageIdPath");
         var lEditorPageName = document.getElementById("EditorPageName");
         var lEditorPageTypeId = document.getElementById("EditorPageTypeId");
         var lEditorPageDefault = document.getElementById("EditorPageDefault");
         //
         lEditorPageId.value = +this.m_id;
         lEditorPageParentId.value = +this.m_parentId;
+        lEditorPagePath.value = this.m_path;
+        lEditorPageIdPath.value = this.m_idPath;
         lEditorPageName.value = this.m_name;
         lEditorPageTypeId.value = this.m_typeId;
         lEditorPageDefault.dataset.value = this.m_default;
@@ -95,10 +166,10 @@ class GPage extends GObject {
         lDom.addData(_code, "default", ""+this.m_default);
         lDom.addData(_code, "name", this.m_name);
         lDom.addData(_code, "type_name", this.m_typeName);
-        lDom.addData(_code, "url", this.m_url);
-        lDom.addData(_code, "title", this.m_title);
         lDom.addData(_code, "path", this.m_path);
+        lDom.addData(_code, "id_path", this.m_idPath);
         lDom.addData(_code, "tree", utf8_to_b64(this.m_tree));
+        lDom.addData(_code, "content", utf8_to_b64(this.m_content));
         lDom.addMap(_code, this.m_map);
         return lDom.toString();
     }
@@ -112,10 +183,10 @@ class GPage extends GObject {
         this.m_default = +lDom.getItem(_code, "default");
         this.m_name = lDom.getItem(_code, "name");
         this.m_typeName = lDom.getItem(_code, "type_name");
-        this.m_url = lDom.getItem(_code, "url");
-        this.m_title = lDom.getItem(_code, "title");
         this.m_path = lDom.getItem(_code, "path");
+        this.m_idPath = lDom.getItem(_code, "id_path");
         this.m_tree = b64_to_utf8(lDom.getItem(_code, "tree"));
+        this.m_content = b64_to_utf8(lDom.getItem(_code, "content"));
         lDom.getMap(_code, this.m_map, this);
         this.loadLogs(_data);
     }
@@ -211,6 +282,7 @@ class GPage extends GObject {
     //===============================================
     onSavePageFileRun(_obj, _data) {
         this.readUi();
+        this.m_content = this.getContent();
         var lAjax = new GAjax();
         var lData = this.serialize();
         lAjax.callLocal("page", "save_page_file", lData, this.onSavePageFileCB);        
@@ -233,7 +305,7 @@ class GPage extends GObject {
         lPage.deserialize(_data);
         if(!lPage.hasErrors()) {
             if(lPage.m_map.length == 1) {
-                lPage.readMap(0);
+                lPage.loadFromMap(0);
                 lPage.writeUi();
             }
             else if(lPage.m_map.length) {
@@ -251,7 +323,7 @@ class GPage extends GObject {
         var lTable = new GTable();
         lTable.deserialize(_data);
         if(lTable.getType() == "cell") {
-            lPage.readMap(lTable.getRow());
+            lPage.loadFromMap(lTable.getRow());
             lPage.writeUi();
             lTable.onCloseTable();
        }
@@ -287,9 +359,8 @@ class GPage extends GObject {
     }
     //===============================================
     onLoadPage(_obj, _data) {
-        this.activeAddressBar(_obj);
-        var lData = _obj.nextSibling.nextSibling.innerHTML;
-        this.updateAddressParent(lData);
+        this.activeAddress(_obj);
+        var lData = _obj.nextElementSibling.innerHTML;
         var lAjax = new GAjax();
         lAjax.callRemote("page", "load_page", lData, this.onLoadPageCB);        
     }
@@ -314,12 +385,12 @@ class GPage extends GObject {
         var lTable = new GTable();
         lTable.deserialize(_data);
         if(lTable.getType() == "cell") {
-            lPage.readMap(lTable.getRow());
-            lPage.updateAddressBar();
+            lPage.loadFromMap(lTable.getRow());
+            lPage.updateAddress();
             lTable.onCloseTable();
         }
         else if(lTable.getType() == "header") {
-            this.loadAddressParent();
+            this.loadActiveAddress();
             lTable.onCloseTable();
             this.onNewPage();
         }
@@ -356,85 +427,52 @@ class GPage extends GObject {
     }
     //===============================================
     onSelectAddress(_obj, _data) {
-        var lData = _obj.nextSibling.nextSibling.innerHTML;
+        var lData = _obj.nextElementSibling.nextElementSibling.innerHTML;
     }
     //===============================================
-    updateAddressBar() {
-        var lEditorPageAddress = document.getElementById("EditorPageAddress");
-        var lEditorPageParentId = document.getElementById("EditorPageParentId");
-
-        var lPage = new GPage();
-        lPage.m_parentId = this.m_id;
-        var lData = lPage.serialize();
+    updateAddress() {
+        var lAddress = "";
+        var lPaths = this.m_path.split("/");
+        var lIdPaths = this.m_idPath.split("/");
+        var lPathI = "";
+        var lIdPathI = "";
         
-        var lAddress = this.getPreviousAddressBar();
-        lAddress += sprintf("<i class='Icon11 fa fa-chevron-right'></i>\n");
-        lAddress += sprintf("<span class='Link10 EditorPageAddress' \
-        onclick='call_server(\"page\", \"load_page\", this);' \
-        ondbclick='call_server(\"page\", \"select_addressbar\", this);' \
-        >%s</span>\n", this.m_name);
-        lAddress += sprintf("<span hidden='true'>%s</span>\n", lData);
+        for(var i = 0; i < lPaths.length; i++) {
+            var lPath = lPaths[i];
+            var lIdPath = lIdPaths[i];
+            
+            if(i != 0) lPathI += "/";
+            if(i != 0) lIdPathI += "/";
+            
+            lPathI += lPath;
+            lIdPathI += lIdPath;
+            
+            if(i != 0) lAddress += sprintf("<i class='Icon11 fa fa-chevron-right'></i>\n");
+            if(i == 0) lPath = "<i class='fa fa-folder'></i>";
+            lAddress += sprintf("<span class='Link10 EditorPageAddress' \
+            onclick='call_server(\"page\", \"load_page\", this);' \
+            ondbclick='call_server(\"page\", \"select_addressbar\", this);' \
+            >%s</span>\n", lPath);
+            
+            var lPage = new GPage();
+            lPage.m_id = lIdPath;
+            lPage.m_parentId = lIdPath;
+            lPage.m_path = lPathI;
+            lPage.m_idPath = lIdPathI;
+            var lData = lPage.serialize();
 
-        lEditorPageParentId.value = this.m_id;
-        lEditorPageAddress.innerHTML = lAddress;
-    }
-    //===============================================
-    updateAddressParent(_data) {
-        var lEditorPageAddressParent = document.getElementById("EditorPageAddressParent");
-        lEditorPageAddressParent.innerHTML = _data;
-    }
-    //===============================================
-    loadAddressParent() {
-        var lEditorPageAddress = document.getElementById("EditorPageAddress");
-        var lEditorPageAddressActive = document.getElementsByClassName("EditorPageAddress Active")[0];
-        var lNode = lEditorPageAddressActive;
-        var lData = "";
-        while(1) {
-            lNode = lNode.nextSibling
-            if(!lNode) break;
-            if(lNode.nodeType == 1) {
-                lData = lNode.innerHTML;
-                break;
-            }
+            lAddress += sprintf("<span hidden='true'>%s</span>\n", lData);
         }
-        var lAddress = this.getPreviousAddressBar();
-        lEditorPageAddress.innerHTML = lAddress;
+
+        this.setParentId(this.m_id);
+        this.setAddress(lAddress);
+    }
+    //===============================================
+    loadActiveAddress() {
+        var lData = this.getAddressActive();
         var lPage = new GPage();
         lPage.deserialize(lData);
-        lPage.writeUi();
-    }
-    //===============================================
-    getPreviousAddressBar() {
-        var lEditorPageAddress = document.getElementById("EditorPageAddress");
-        var lNode = lEditorPageAddress.firstChild;
-        var lHtml = "";
-        while(1) {
-            if(lNode.nodeType == 1) {
-                if(lNode.classList.contains("Active")) {
-                    lHtml += lNode.outerHTML + "\n";
-                    while(1) {
-                        lNode = lNode.nextSibling;
-                        if(lNode.nodeType == 1) {
-                            lHtml += lNode.outerHTML + "\n";
-                            break;
-                        }
-                    }
-                    break;
-                }
-                lHtml += lNode.outerHTML + "\n";
-            }
-            lNode = lNode.nextSibling;
-        }
-        return lHtml;
-    }
-    //===============================================
-    activeAddressBar(_obj) {
-        var lLinks = document.getElementsByClassName("EditorPageAddress");
-        for(var i = 0; i < lLinks.length; i++) {
-            var lLink = lLinks[i];
-            lLink.className = lLink.className.replace(" Active", "");
-        }
-        _obj.className += " Active";
+        lPage.updateAddress();
     }
     //===============================================
     showTable(_selectCB, _nextCB) {
@@ -445,13 +483,13 @@ class GPage extends GObject {
         lTable.setNextEnable(true);
         //
         lTable.pushRowH();
-        lTable.pushColH(0, "répertoire");
+        lTable.pushColH("", "répertoire");
         //
         for(var i = 0; i < this.m_map.length; i++) {
             var lObj = this.m_map[i]
             var lIcon = (lObj.m_typeName == "file" ? "file-o" : "folder");
             lTable.pushRow();
-            lTable.pushCol(0, lObj.m_name, lIcon);
+            lTable.pushCol("", lObj.m_name, lIcon);
         }
         //
         lTable.showData();
@@ -459,4 +497,6 @@ class GPage extends GObject {
     }
     //===============================================
 }
+//===============================================
+GPage.Instance().init();
 //===============================================
