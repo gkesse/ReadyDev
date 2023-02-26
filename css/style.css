@@ -835,6 +835,10 @@ thead tr:first-child {
     position: relative;
 }
 
+/* ============================================== */
+/* ComboBox */
+/* ============================================== */
+
 .ComboBox {
     position: relative;
     display: inline-block;
@@ -851,6 +855,12 @@ thead tr:first-child {
 .ComboBox select {
     display: none;
 }
+
+.ComboBox select:disabled ~ .BoxView {
+    color: #808080;
+}
+
+/* ============================================== */
 
 .Content {
     background-color: rgba(35, 47, 87, 0.9);

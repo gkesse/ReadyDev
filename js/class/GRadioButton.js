@@ -31,9 +31,9 @@ class GRadioButton extends GObject {
         var lValue = _obj.dataset.value;
         for(var i = 0; i < lRadioButtons.length; i++) {
             var lRadioButton = lRadioButtons[i];
+            lRadioButton.checked = false;
             if(lRadioButton.value == _obj.dataset.value) {
                 lRadioButton.checked = true;
-                break;
             }
         }
     }

@@ -19,7 +19,7 @@ class GComboBox extends GObject {
     }
     //===============================================
     initCombo(_obj) {
-        var lBoxView = _obj.nextSibling.nextSibling;
+        var lBoxView = _obj.nextElementSibling;
         lBoxView.innerHTML = _obj.options[_obj.selectedIndex].innerHTML;
     }
     //===============================================
@@ -48,9 +48,9 @@ class GComboBox extends GObject {
                 var lBoxOption = document.createElement("DIV");
                 lBoxOption.innerHTML = lHtml2;
                 
-                lBoxOption.addEventListener("click", function(e){
-                    var lBoxSelect = this.parentNode.parentNode.getElementsByTagName("select")[0];
-                    var lBoxView = this.parentNode.previousSibling;
+                lBoxOption.addEventListener("click", function(e) {
+                    var lBoxSelect = this.parentNode.previousElementSibling.previousElementSibling;
+                    var lBoxView = this.parentNode.previousElementSibling;
                     var lLength = lBoxSelect.length;
                     
                     for(var i = 0; i < lLength; i++) {
@@ -84,9 +84,11 @@ class GComboBox extends GObject {
             
             lComboBox.appendChild(lBoxSelect);
             
-            lBoxView.addEventListener("click", function(e){
+            lBoxView.addEventListener("click", function(e) {
+                var lSelect = this.previousElementSibling;
+                if(lSelect.disabled) return;
                 e.stopPropagation();
-                this.nextSibling.classList.toggle("BoxHide");
+                this.nextElementSibling.classList.toggle("BoxHide");
                 this.classList.toggle("BoxActive");
                 call_server("combobox", "close_box", this);
             });

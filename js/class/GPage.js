@@ -26,6 +26,7 @@ class GPage extends GObject {
     //===============================================
     init() {
         this.updateAddress();
+        this.initType();
     }    
     //===============================================
     clone() {
@@ -55,6 +56,21 @@ class GPage extends GObject {
     setAddress(_address) {
         var lEditorPageAddress = document.getElementById("EditorPageAddress");
         lEditorPageAddress.innerHTML = _address;
+    }
+    //===============================================
+    initType() {
+        if(!this.m_parentId) {
+            this.setType(2);
+            this.setDefault(0);
+            this.setEnableType(false);
+            this.setEnableDefault(false);
+        }
+        else {
+            this.setType(0);
+            this.setDefault(0);
+            this.setEnableType(true);
+            this.setEnableDefault(true);
+        }
     }
     //===============================================
     getAddressActive() {
@@ -103,16 +119,31 @@ class GPage extends GObject {
         return (this.m_typeId == 2);
     }
     //===============================================
+    setType(_type) {
+        var lEditorPageTypeId = document.getElementById("EditorPageTypeId");
+        lEditorPageTypeId.value = _type;
+        var lCombo = GComboBox.Instance();
+        lCombo.initCombo(lEditorPageTypeId);
+    }
+    //===============================================
     setDefault(_isDefault) {
-        var lValue = (_isDefault ? "1" : "0");
+        var lEditorPageDefault = document.getElementById("EditorPageDefault");
+        lEditorPageDefault.dataset.value = _isDefault;       
+        var lRadio = GRadioButton.Instance();
+        lRadio.initRadio(lEditorPageDefault);
+    }
+    //===============================================
+    setEnableType(_isEnable) {
+        var lEditorPageTypeId = document.getElementById("EditorPageTypeId");
+        lEditorPageTypeId.disabled = !_isEnable;
+    }
+    //===============================================
+    setEnableDefault(_isEnable) {
         var lEditorPageDefault = document.getElementById("EditorPageDefault");
         var lRadioButtonInputs = lEditorPageDefault.getElementsByClassName("RadioButtonInput");
         for(var i = 0; i < lRadioButtonInputs.length; i++) {
             var lRadioButtonInput = lRadioButtonInputs[i];
-            lRadioButtonInput.checked = false;
-            if(lRadioButtonInput.value == lValue) {
-                lRadioButtonInput.checked = true;
-            }
+            lRadioButtonInput.disabled = !_isEnable;
         }
     }
     //===============================================
@@ -134,24 +165,6 @@ class GPage extends GObject {
         var lObj = this.m_map[_index];
         lObj.setPage(this);
         return !this.hasErrors();
-    }
-    //===============================================
-    enableType() {
-        var lEditorPageDefault = document.getElementById("EditorPageDefault");
-        var lRadioButtonInputs = lEditorPageDefault.getElementsByClassName("RadioButtonInput");
-        for(var i = 0; i < lRadioButtonInputs.length; i++) {
-            var lRadioButtonInput = lRadioButtonInputs[i];
-            lRadioButtonInput.disabled = false;
-        }
-    }
-    //===============================================
-    disableType() {
-        var lEditorPageDefault = document.getElementById("EditorPageDefault");
-        var lRadioButtonInputs = lEditorPageDefault.getElementsByClassName("RadioButtonInput");
-        for(var i = 0; i < lRadioButtonInputs.length; i++) {
-            var lRadioButtonInput = lRadioButtonInputs[i];
-            lRadioButtonInput.disabled = true;
-        }
     }
     //===============================================
     readUi() {
@@ -300,12 +313,12 @@ class GPage extends GObject {
     onSelectPageType(_obj, _data) {
         this.readUi();
         if(this.isDir()) {
-            this.disableType();
-            this.setDefault(false);
+            this.setDefault(0);
+            this.setEnableDefault(false);
         } 
         else {
-            this.enableType();
-            this.setDefault(true);
+            this.setDefault(1);
+            this.setEnableDefault(true);
         } 
     }
     //===============================================
@@ -409,6 +422,7 @@ class GPage extends GObject {
         this.readUi();
         var lPage = new GPage();
         lPage.m_parentId = this.m_parentId;
+        lPage.m_typeId = this.m_typeId;
         lPage.writeUi();
     }
     //===============================================
@@ -520,6 +534,7 @@ class GPage extends GObject {
 
         this.setParentId(this.m_id);
         this.setAddress(lAddress);
+        this.initType();
     }
     //===============================================
     loadActiveAddress() {
