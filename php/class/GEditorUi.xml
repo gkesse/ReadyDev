@@ -127,6 +127,8 @@
                     <model>label_combobox</model>
                     <label>Type :</label>
                     <id>EditorPageTypeId</id>
+                    <module>page</module>
+                    <method>select_page_type</method>
                     <map>
                     	<data>
                     		<key>0</key>

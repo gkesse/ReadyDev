@@ -2176,6 +2176,18 @@ thead tr:first-child {
   	display: block;
 }
 
+.RadioButtonInput[disabled] ~ .RadioButtonCheck {
+    background-color: #808080;
+}
+
+.RadioButtonInput[disabled] ~ .RadioButtonLabel {
+  	color: #808080;
+}
+
+.RadioButtonInput[disabled] ~ .RadioButtonCheck:after {
+  	background-color: #fafafa;
+}
+
 .RadioButtonCheck {
 	position: absolute;
 	top: 2px;
@@ -2197,7 +2209,7 @@ thead tr:first-child {
 	width: 6px;
 	height: 6px;
 	border-radius: 50%;
-	background: white;
+	background-color: white;
 }
 
 .RadioButtonLabel {

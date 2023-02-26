@@ -95,6 +95,27 @@ class GPage extends GObject {
         return lData;
     }
     //===============================================
+    isFile() {
+        return (this.m_typeId == 1);
+    }
+    //===============================================
+    isDir() {
+        return (this.m_typeId == 2);
+    }
+    //===============================================
+    setDefault(_isDefault) {
+        var lValue = (_isDefault ? "1" : "0");
+        var lEditorPageDefault = document.getElementById("EditorPageDefault");
+        var lRadioButtonInputs = lEditorPageDefault.getElementsByClassName("RadioButtonInput");
+        for(var i = 0; i < lRadioButtonInputs.length; i++) {
+            var lRadioButtonInput = lRadioButtonInputs[i];
+            lRadioButtonInput.checked = false;
+            if(lRadioButtonInput.value == lValue) {
+                lRadioButtonInput.checked = true;
+            }
+        }
+    }
+    //===============================================
     loadFromMap(_index) {
         if(_index < 0 || _index >= this.m_map.length) {
             this.addError("L'index de la donnée est incorrect.");
@@ -113,6 +134,24 @@ class GPage extends GObject {
         var lObj = this.m_map[_index];
         lObj.setPage(this);
         return !this.hasErrors();
+    }
+    //===============================================
+    enableType() {
+        var lEditorPageDefault = document.getElementById("EditorPageDefault");
+        var lRadioButtonInputs = lEditorPageDefault.getElementsByClassName("RadioButtonInput");
+        for(var i = 0; i < lRadioButtonInputs.length; i++) {
+            var lRadioButtonInput = lRadioButtonInputs[i];
+            lRadioButtonInput.disabled = false;
+        }
+    }
+    //===============================================
+    disableType() {
+        var lEditorPageDefault = document.getElementById("EditorPageDefault");
+        var lRadioButtonInputs = lEditorPageDefault.getElementsByClassName("RadioButtonInput");
+        for(var i = 0; i < lRadioButtonInputs.length; i++) {
+            var lRadioButtonInput = lRadioButtonInputs[i];
+            lRadioButtonInput.disabled = true;
+        }
     }
     //===============================================
     readUi() {
@@ -195,6 +234,9 @@ class GPage extends GObject {
         if(_method == "") {
             this.addError("La méthode est obligatoire.");
         }
+        else if(_method == "select_page_type") {
+            this.onSelectPageType(_obj, _data);
+        }
         else if(_method == "save_page") {
             this.onSavePage(_obj, _data);
         }
@@ -253,6 +295,18 @@ class GPage extends GObject {
             this.addError("Erreur la méthode est inconnue.");            
         }
         return !this.hasErrors();
+    }
+    //===============================================
+    onSelectPageType(_obj, _data) {
+        this.readUi();
+        if(this.isDir()) {
+            this.disableType();
+            this.setDefault(false);
+        } 
+        else {
+            this.enableType();
+            this.setDefault(true);
+        } 
     }
     //===============================================
     onSavePage(_obj, _data) {
