@@ -9,7 +9,11 @@ class GPageFac extends GModule {
     private $m_path = "";
     private $m_tree = "";
     private $m_content = "";
-    private $m_cachePage = "data/cache/page";
+    private $m_defaultAddress = "";
+    private $m_defaultPage = "";
+    //===============================================
+    private $m_cachePagePath = "data/cache/page";
+    private $m_defaultPagePath = "data/xml/default_page.xml";
     //===============================================
     public function __construct() {
         parent::__construct();
@@ -26,6 +30,8 @@ class GPageFac extends GModule {
         $lDom->addData($_code, "path", $this->m_path);
         $lDom->addData($_code, "tree", base64_encode($this->m_tree));
         $lDom->addData($_code, "content", base64_encode($this->m_content));
+        $lDom->addData($_code, "default_address", base64_encode($this->m_defaultAddress));
+        $lDom->addData($_code, "default_page", base64_encode($this->m_defaultPage));
         $lDom->addMap($_code, $this->m_map);
         return $lDom->toString();
     }
@@ -42,6 +48,8 @@ class GPageFac extends GModule {
         $this->m_path = $lDom->getItem($_code, "path");
         $this->m_tree = base64_decode($lDom->getItem($_code, "tree"));
         $this->m_content = base64_decode($lDom->getItem($_code, "content"));
+        $this->m_defaultAddress = base64_decode($lDom->getItem($_code, "default_address"));
+        $this->m_defaultPage = base64_decode($lDom->getItem($_code, "default_page"));
         $lDom->getMap($_code, $this->m_map, $this);
     }
     //===============================================
@@ -81,19 +89,28 @@ class GPageFac extends GModule {
         else if($this->m_method == "save_page_file") {
             $this->onSavePageFile($_data);
         }
+        else if($this->m_method == "search_page_file") {
+            $this->onSearchPageFile($_data);
+        }
         else if($this->m_method == "create_page_tree") {
             $this->onCreatePageTree($_data);
+        }
+        else if($this->m_method == "store_default_page") {
+            $this->onStoreDefaultPage($_data);
+        }
+        else if($this->m_method == "load_default_page") {
+            $this->onLoadDefaultPage($_data);
         }
         else {
             $this->addError("La méthode est inconnue.");
         }
     }
     //===============================================
-    public function onCreatePageTree(string $_data) {
+    public function onCreatePageTree($_data) {
         $lPage = new GPageFac();
         $lPage->callServer("page", "load_page_tree");
         if(!$lPage->hasErrors()) {
-            $lPath = GPath::create($this->m_cachePage);
+            $lPath = GPath::create($this->m_cachePagePath);
             $lPage->createPageTree($lPath);
         }
         $this->addLogs($lPage->getLogs());
@@ -102,15 +119,36 @@ class GPageFac extends GModule {
         }
     }
     //===============================================
-    public function onSavePage(string $_data) {
+    public function onStoreDefaultPage($_data) {
+        if($this->m_defaultPage == "") {
+            $this->addError("Les données de la page par défaut sont vides.");
+            return  false;
+        }
+        $lData = $this->serialize();
+        $lFile = new GFile();
+        $lFile->saveData($this->m_cachePagePath, $this->m_defaultPagePath, $lData);
+        $this->addLogs($lFile->getLogs());
+        return !$this->hasErrors();
+    }
+    //===============================================
+    public function onLoadDefaultPage($_data) {
+        $lFile = new GFile();
+        $lData = $lFile->loadData($this->m_cachePagePath, $this->m_defaultPagePath);
+        if(!$lFile->hasErrors()) {
+            $this->deserialize($lData);
+        }
+        return !$this->hasErrors();
+    }
+    //===============================================
+    public function onSavePage($_data) {
         $this->callProxy($_data);
         if(!$this->hasErrors()) {
-            $lPath = GPath::create($this->m_cachePage);
+            $lPath = GPath::create($this->m_cachePagePath);
             $this->createPage($lPath);
         }
     }
     //===============================================
-    public function onSavePageFile(string $_data) {
+    public function onSavePageFile($_data) {
         $this->callProxy($_data);
         if(!$this->hasErrors()) {
             if($this->m_content == "") {
@@ -118,7 +156,7 @@ class GPageFac extends GModule {
                 return false;
             }
             $lFile = new GFile();
-            $lFile->saveData($this->m_cachePage, $this->m_path, $this->m_content);
+            $lFile->saveData($this->m_cachePagePath, $this->m_path, $this->m_content);
             $this->addLogs($lFile->getLogs());
             if(!$this->hasErrors()) {
                 $this->addLog("La donnée a bien été enregistrée.");
@@ -126,7 +164,16 @@ class GPageFac extends GModule {
         }
     }
     //===============================================
-    public function createPage(string $_parent) {
+    public function onSearchPageFile($_data) {
+        $this->callProxy($_data);
+        if(!$this->hasErrors()) {
+            $lFile = new GFile();
+            $this->m_content = $lFile->loadData($this->m_cachePagePath, $this->m_path);
+            $this->addLogs($lFile->getLogs());
+        }
+    }
+    //===============================================
+    public function createPage($_parent) {
         $lPath = sprintf("%s%s", $_parent, $this->m_path);
         if($this->isFile()) {
             if(!file_exists($lPath)) {
@@ -152,7 +199,7 @@ class GPageFac extends GModule {
         }
     }
     //===============================================
-    public function createPageTree(string $_parent) {
+    public function createPageTree($_parent) {
         $lDom = new GCode();
         $lDom->loadXml($this->m_tree);
         $lDom->getCode("page");
@@ -175,7 +222,7 @@ class GPageFac extends GModule {
         }
     }
     //===============================================
-    public function createPageTreeI(GCode $_dom, string $_parent) {
+    public function createPageTreeI(GCode $_dom, $_parent) {
         $_dom->pushNode();
         $lCountI = $_dom->countXNode("map/data");
         $_dom->getXNode("map/data");
@@ -194,7 +241,7 @@ class GPageFac extends GModule {
         $_dom->popNode();
     }
     //===============================================
-    public function createFile(string $_filename) {
+    public function createFile($_filename) {
         if(!file_exists($_filename)) {
             $lFile = fopen($_filename, "w");
             if(!$lFile) {
@@ -206,7 +253,7 @@ class GPageFac extends GModule {
         return !$this->hasErrors();
     }
     //===============================================
-    public function createIndexFile(string $_parent) {
+    public function createIndexFile($_parent) {
         $lPath = "index.php";
         $lPath = sprintf("%s/%s", $_parent, $lPath);
         if(!file_exists($lPath)) {

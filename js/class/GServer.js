@@ -21,7 +21,7 @@ class GServer extends GObject {
         else if(_module == "page") {
             this.onPage(_method, _obj, _data);
         }
-        else if(_module == "edition_command") {
+        else if(_module == "command") {
             this.onCommand(_method, _obj, _data);
         }
         else if(_module == "combobox") {

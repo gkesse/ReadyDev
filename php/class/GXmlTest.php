@@ -44,7 +44,7 @@
         public function runTest() {
             $lDom = new GCode();
             $lDom->loadFile("php/class", "GEditorUi.xml");
-            $lDom->getCode("edition_command");
+            $lDom->getCode("command");
             $lCountI = $lDom->countXNode("map/data");
             $lDom->getXNode("map/data");
             for($i = 0; $i < $lCountI; $i++) {
@@ -68,7 +68,7 @@
         public function runLoopNode() {
             $lDom = new GCode();
             $lDom->loadFile("php/class", "GEditorUi.xml");
-            $lDom->getCode("edition_command");
+            $lDom->getCode("command");
             $lDom->getXNode("map");
             $lCountI = $lDom->countChild();
             $lDom->firstChildElement();

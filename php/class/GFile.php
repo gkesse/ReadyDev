@@ -73,6 +73,10 @@ class GFile extends GObject {
             $this->addError("Le chemin du fichier est obligatoire.");
             return false;
         }
+        if(!file_exists($this->m_filename)) {
+            $this->addError("Le chemin du fichier n'existe pas.");
+            return false;
+        }
         $this->m_data = file_get_contents($this->m_filename);
         if($this->m_data === false) {
             $this->addError("La lecture du fichier a échoué.");

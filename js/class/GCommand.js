@@ -119,6 +119,9 @@ class GCommand extends GObject {
         if(_method == "") {
             this.addError("La méthode est obligatoire.");
         }
+        else if(_method == "key_down") {
+            this.onKeyDown(_obj, _data);
+        }
         else if(_method == "selection") {
             this.onSelection(_obj, _data);
         }
@@ -153,6 +156,15 @@ class GCommand extends GObject {
             this.addError("La méthode est inconnue.");
         }
         return !this.hasErrors();
+    }
+    //===============================================
+    onKeyDown(_obj, _data) {
+        var lEvent = _obj || window.event;
+        var lKeyCode = lEvent.charCode || lEvent.keyCode;
+        if(lKeyCode == 13) {
+            document.execCommand("insertLineBreak")
+            lEvent.preventDefault();
+        }
     }
     //===============================================
     onSelection(_obj, _data) {

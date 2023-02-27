@@ -15,6 +15,9 @@ class GPage extends GObject {
         this.m_idPath = "";
         this.m_tree = "";
         this.m_content = "";
+        this.m_defaultAddress = "";
+        this.m_defaultPage = "";
+        this.m_activeAddress = "";
     }
     //===============================================
     static Instance() {
@@ -27,6 +30,7 @@ class GPage extends GObject {
     init() {
         this.updateAddress();
         this.initType();
+        this.loadDefaultPageRun();
     }    
     //===============================================
     clone() {
@@ -46,6 +50,9 @@ class GPage extends GObject {
         this.m_idPath = _obj.m_idPath;
         this.m_tree = _obj.m_tree;
         this.m_content = _obj.m_content;
+        this.m_defaultAddress = _obj.m_defaultAddress;
+        this.m_defaultPage = _obj.m_defaultPage;
+        this.m_activeAddress = _obj.m_activeAddress;
     }
     //===============================================
     setParentId(_parentId) {
@@ -56,67 +63,6 @@ class GPage extends GObject {
     setAddress(_address) {
         var lEditorPageAddress = document.getElementById("EditorPageAddress");
         lEditorPageAddress.innerHTML = _address;
-    }
-    //===============================================
-    initType() {
-        if(!this.m_parentId) {
-            this.setType(2);
-            this.setDefault(0);
-            this.setEnableType(false);
-            this.setEnableDefault(false);
-        }
-        else {
-            this.setType(0);
-            this.setDefault(0);
-            this.setEnableType(true);
-            this.setEnableDefault(true);
-        }
-    }
-    //===============================================
-    getAddressActive() {
-        var lEditorPageAddressActive = document.getElementsByClassName("EditorPageAddress Active")[0];
-        var lData = lEditorPageAddressActive.nextElementSibling.innerHTML;
-        return lData;
-    }
-    //===============================================
-    activeAddress(_obj) {
-        var lEditorPageAddresses = document.getElementsByClassName("EditorPageAddress");
-        for(var i = 0; i < lEditorPageAddresses.length; i++) {
-            var lEditorPageAddress = lEditorPageAddresses[i];
-            lEditorPageAddress.classList.remove("Active");
-        }
-        _obj.classList.add("Active");
-    }
-    //===============================================
-    getPreviousAddress() {
-        var lEditorPageAddress = document.getElementById("EditorPageAddress");
-        var lNode = lEditorPageAddress.firstElementChild;
-        var lHtml = "";
-        while(1) {
-            if(lNode.classList.contains("Active")) {
-                lHtml += lNode.outerHTML + "\n";
-                lNode = lNode.nextElementSibling;
-                lHtml += lNode.outerHTML + "\n";
-                break;
-            }
-            lHtml += lNode.outerHTML + "\n";
-            lNode = lNode.nextElementSibling;
-        }
-        return lHtml;
-    }
-    //===============================================
-    getContent() {
-        var lEditorEditionContent = document.getElementById("EditorEditionContent");
-        var lData = lEditorEditionContent.innerHTML;
-        return lData;
-    }
-    //===============================================
-    isFile() {
-        return (this.m_typeId == 1);
-    }
-    //===============================================
-    isDir() {
-        return (this.m_typeId == 2);
     }
     //===============================================
     setType(_type) {
@@ -147,6 +93,66 @@ class GPage extends GObject {
         }
     }
     //===============================================
+    initType() {
+        if(!this.m_parentId) {
+            this.setType(2);
+            this.setDefault(0);
+            this.setEnableType(false);
+            this.setEnableDefault(false);
+        }
+        else {
+            this.setType(0);
+            this.setDefault(0);
+            this.setEnableType(true);
+            this.setEnableDefault(true);
+        }
+    }
+    //===============================================
+    initContent() {
+        var lEditorEditionContent = document.getElementById("EditorEditionContent");
+        lEditorEditionContent.innerHTML = this.m_content;
+    }
+    //===============================================
+    initDefaultAddress() {
+        var lEditorPageDefaultAddress = document.getElementById("EditorPageDefaultAddress");
+        var lPage = this.clone();
+        lEditorPageDefaultAddress.innerHTML = lPage.serialize();
+    }
+    //===============================================
+    initDefaultPage() {
+        var lEditorPageDefaultPage = document.getElementById("EditorPageDefaultPage");
+        var lPage = this.clone();
+        lEditorPageDefaultPage.innerHTML = lPage.serialize();
+    }
+    //===============================================
+    isFile() {
+        return (this.m_typeId == 1);
+    }
+    //===============================================
+    isDir() {
+        return (this.m_typeId == 2);
+    }
+    //===============================================
+    readActiveAddress() {
+        var lEditorPageAddressActive = document.getElementsByClassName("EditorPageAddress Active")[0];
+        this.m_activeAddress = lEditorPageAddressActive.nextElementSibling.innerHTML;
+    }
+    //===============================================
+    readContent() {
+        var lEditorEditionContent = document.getElementById("EditorEditionContent");
+        this.m_content = lEditorEditionContent.innerHTML;
+    }
+    //===============================================
+    readDefaultAddress() {
+        var lEditorPageDefaultAddress = document.getElementById("EditorPageDefaultAddress");
+        this.m_defaultAddress = lEditorPageDefaultAddress.innerHTML;
+    }
+    //===============================================
+    readDefaultPage() {
+        var lEditorPageDefaultPage = document.getElementById("EditorPageDefaultPage");
+        this.m_defaultPage = lEditorPageDefaultPage.innerHTML;
+    }
+    //===============================================
     loadFromMap(_index) {
         if(_index < 0 || _index >= this.m_map.length) {
             this.addError("L'index de la donnée est incorrect.");
@@ -165,6 +171,105 @@ class GPage extends GObject {
         var lObj = this.m_map[_index];
         lObj.setPage(this);
         return !this.hasErrors();
+    }
+    //===============================================
+    activeAddress(_obj) {
+        var lEditorPageAddresses = document.getElementsByClassName("EditorPageAddress");
+        for(var i = 0; i < lEditorPageAddresses.length; i++) {
+            var lEditorPageAddress = lEditorPageAddresses[i];
+            lEditorPageAddress.classList.remove("Active");
+        }
+        _obj.classList.add("Active");
+    }
+    //===============================================
+    storeDefaultPage() {
+        call_server("page", "store_default_page", this);
+    }
+    //===============================================
+    loadDefaultPageRun() {
+        call_server("page", "load_default_page", this);
+    }
+    //===============================================
+    loadDefaultPage() {
+        if(this.m_defaultAddress != "") {
+            var lPage = new GPage();
+            lPage.deserialize(this.m_defaultAddress);
+            lPage.initDefaultAddress();
+            lPage.updateAddress();
+        }
+        if(this.m_defaultPage != "") {
+            var lPage = new GPage();
+            lPage.deserialize(this.m_defaultPage);
+            lPage.initDefaultPage();
+            lPage.writeUi();
+        }
+    }
+    //===============================================
+    updateAddress() {
+        var lAddress = "";
+        var lPaths = this.m_path.split("/");
+        var lIdPaths = this.m_idPath.split("/");
+        var lPathI = "";
+        var lIdPathI = "";
+        
+        for(var i = 0; i < lPaths.length; i++) {
+            var lPath = lPaths[i];
+            var lIdPath = lIdPaths[i];
+            
+            if(i != 0) lPathI += "/";
+            if(i != 0) lIdPathI += "/";
+            
+            lPathI += lPath;
+            lIdPathI += lIdPath;
+            
+            if(i != 0) lAddress += sprintf("<i class='Icon11 fa fa-chevron-right'></i>\n");
+            if(i == 0) lPath = "<i class='fa fa-folder'></i>";
+            lAddress += sprintf("<span class='Link10 EditorPageAddress' \
+            onclick='call_server(\"page\", \"load_page\", this);' \
+            ondbclick='call_server(\"page\", \"select_addressbar\", this);' \
+            >%s</span>\n", lPath);
+            
+            var lPage = new GPage();
+            lPage.m_id = lIdPath;
+            lPage.m_parentId = lIdPath;
+            lPage.m_path = lPathI;
+            lPage.m_idPath = lIdPathI;
+            var lData = lPage.serialize();
+
+            lAddress += sprintf("<span hidden='true'>%s</span>\n", lData);
+        }
+
+        this.setParentId(this.m_id);
+        this.setAddress(lAddress);
+        this.initType();
+    }
+    //===============================================
+    loadActiveAddress() {
+        var lPage = new GPage();
+        lPage.deserialize(this.m_activeAddress);
+        lPage.initDefaultAddress();
+        lPage.updateAddress();
+    }
+    //===============================================
+    showTable(_selectCB, _nextCB) {
+        var lTable = new GTable();
+        lTable.setCallback("select", "page", _selectCB)
+        lTable.setCallback("next", "page", _nextCB)
+        lTable.setHeaderVisible(true);
+        lTable.setNextEnable(true);
+        
+        lTable.pushRowH();
+        lTable.pushColH("", "répertoire");
+        
+        for(var i = 0; i < this.m_map.length; i++) {
+            var lObj = this.m_map[i]
+            var lIcon = (lObj.m_typeName == "file" ? "file-o" : "folder");
+            lTable.pushRow();
+            lTable.pushCol("", lObj.m_name, lIcon);
+        }
+        
+        lTable.showData();
+        lTable.scrollBottom();
     }
     //===============================================
     readUi() {
@@ -222,6 +327,8 @@ class GPage extends GObject {
         lDom.addData(_code, "id_path", this.m_idPath);
         lDom.addData(_code, "tree", utf8_to_b64(this.m_tree));
         lDom.addData(_code, "content", utf8_to_b64(this.m_content));
+        lDom.addData(_code, "default_address", utf8_to_b64(this.m_defaultAddress));
+        lDom.addData(_code, "default_page", utf8_to_b64(this.m_defaultPage));
         lDom.addMap(_code, this.m_map);
         return lDom.toString();
     }
@@ -239,8 +346,9 @@ class GPage extends GObject {
         this.m_idPath = lDom.getItem(_code, "id_path");
         this.m_tree = b64_to_utf8(lDom.getItem(_code, "tree"));
         this.m_content = b64_to_utf8(lDom.getItem(_code, "content"));
+        this.m_defaultAddress = b64_to_utf8(lDom.getItem(_code, "default_address"));
+        this.m_defaultPage = b64_to_utf8(lDom.getItem(_code, "default_page"));
         lDom.getMap(_code, this.m_map, this);
-        this.loadLogs(_data);
     }
     //===============================================
     onModule(_method, _obj, _data) {
@@ -304,6 +412,12 @@ class GPage extends GObject {
         else if(_method == "create_page_tree") {
             this.onCreatePageTree(_obj, _data);
         }
+        else if(_method == "store_default_page") {
+            this.onStoreDefaultPage(_obj, _data);
+        }
+        else if(_method == "load_default_page") {
+            this.onloadDefaultPageRun(_obj, _data);
+        }
         else {
             this.addError("Erreur la méthode est inconnue.");            
         }
@@ -335,10 +449,12 @@ class GPage extends GObject {
         lAjax.callLocal("page", "save_page", lData, this.onSavePageCB);        
     }
     //===============================================
-    onSavePageCB(_data) {
-        var lPage = new GPage();
-        lPage.deserialize(_data);
-        lPage.writeUi();
+    onSavePageCB(_data, _isOk) {
+        if(_isOk) {
+            var lPage = new GPage();
+            lPage.deserialize(_data);
+            lPage.writeUi();
+        }
     }
     //===============================================
     onSavePageFile(_obj, _data) {
@@ -349,7 +465,7 @@ class GPage extends GObject {
     //===============================================
     onSavePageFileRun(_obj, _data) {
         this.readUi();
-        this.m_content = this.getContent();
+        this.readContent();
         var lAjax = new GAjax();
         var lData = this.serialize();
         lAjax.callLocal("page", "save_page_file", lData, this.onSavePageFileCB);        
@@ -366,14 +482,16 @@ class GPage extends GObject {
         lAjax.callRemote("page", "search_page", lData, this.onSearchPageCB);        
     }
     //===============================================
-    onSearchPageCB(_data) {
+    onSearchPageCB(_data, _isOk) {
         var lPage = GPage.Instance();
         lPage.clearMap();
         lPage.deserialize(_data);
-        if(!lPage.hasErrors()) {
+        if(_isOk) {
             if(lPage.m_map.length == 1) {
                 lPage.loadFromMap(0);
                 lPage.writeUi();
+                lPage.initDefaultPage();
+                lPage.storeDefaultPage();
             }
             else if(lPage.m_map.length) {
                 lPage.showTable("search_page_select", "search_page_next");
@@ -390,10 +508,27 @@ class GPage extends GObject {
         var lTable = new GTable();
         lTable.deserialize(_data);
         if(lTable.getType() == "cell") {
+            lTable.onCloseTable();
             lPage.loadFromMap(lTable.getRow());
             lPage.writeUi();
-            lTable.onCloseTable();
+            lPage.initDefaultPage();
+            lPage.storeDefaultPage();
        }
+    }
+    //===============================================
+    onSearchPageFile(_obj, _data) {
+        this.readUi();
+        var lAjax = new GAjax();
+        var lData = this.serialize();
+        lAjax.callLocal("page", "search_page_file", lData, this.onSearchPageFileCB);        
+    }
+    //===============================================
+    onSearchPageFileCB(_data, _isOk) {
+        if(_isOk) {
+            var lPage = new GPage();
+            lPage.deserialize(_data);
+            lPage.initContent();
+        }
     }
     //===============================================
     onDeletePage(_obj, _data) {
@@ -409,10 +544,8 @@ class GPage extends GObject {
         lAjax.callRemote("page", "delete_page", lData, this.onDeletePageCB);        
     }
     //===============================================
-    onDeletePageCB(_data) {
-        var lLog = new GLog();
-        lLog.deserialize(_data);
-        if(!lLog.hasErrors()) {
+    onDeletePageCB(_data, _isOk) {
+        if(_isOk) {
             var lPage = new GPage();
             lPage.onNewPage();
         }
@@ -433,11 +566,11 @@ class GPage extends GObject {
         lAjax.callRemote("page", "load_page", lData, this.onLoadPageCB);        
     }
     //===============================================
-    onLoadPageCB(_data) {
+    onLoadPageCB(_data, _isOk) {
         var lPage = GPage.Instance();
         lPage.clearMap();
         lPage.deserialize(_data);
-        if(!lPage.hasErrors()) {
+        if(_isOk) {
             if(lPage.m_map.length) {
                 lPage.showTable("load_page_select", "load_page_next");
             }
@@ -454,10 +587,12 @@ class GPage extends GObject {
         lTable.deserialize(_data);
         if(lTable.getType() == "cell") {
             lPage.loadFromMap(lTable.getRow());
+            lPage.initDefaultAddress();
             lPage.updateAddress();
             lTable.onCloseTable();
         }
         else if(lTable.getType() == "header") {
+            this.readActiveAddress(); 
             this.loadActiveAddress();
             lTable.onCloseTable();
             this.onNewPage();
@@ -476,11 +611,13 @@ class GPage extends GObject {
         lAjax.callRemote("page", "load_page_tree", lData, this.onLoadPageTreeCB);
     }
     //===============================================
-    onLoadPageTreeCB(_data) {
-        var lPage = new GPage();
-        lPage.deserialize(_data);
-        lPage.addData(lPage.m_tree);
-        lPage.showLogsX();
+    onLoadPageTreeCB(_data, _isOk) {
+        if(_isOk) {
+            var lPage = new GPage();
+            lPage.deserialize(_data);
+            lPage.addData(lPage.m_tree);
+            lPage.showLogsX();
+        }
     }
     //===============================================
     onCreatePageTree(_obj, _data) {
@@ -494,75 +631,28 @@ class GPage extends GObject {
 
     }
     //===============================================
-    onSelectAddress(_obj, _data) {
-        var lData = _obj.nextElementSibling.nextElementSibling.innerHTML;
-    }
-    //===============================================
-    updateAddress() {
-        var lAddress = "";
-        var lPaths = this.m_path.split("/");
-        var lIdPaths = this.m_idPath.split("/");
-        var lPathI = "";
-        var lIdPathI = "";
-        
-        for(var i = 0; i < lPaths.length; i++) {
-            var lPath = lPaths[i];
-            var lIdPath = lIdPaths[i];
-            
-            if(i != 0) lPathI += "/";
-            if(i != 0) lIdPathI += "/";
-            
-            lPathI += lPath;
-            lIdPathI += lIdPath;
-            
-            if(i != 0) lAddress += sprintf("<i class='Icon11 fa fa-chevron-right'></i>\n");
-            if(i == 0) lPath = "<i class='fa fa-folder'></i>";
-            lAddress += sprintf("<span class='Link10 EditorPageAddress' \
-            onclick='call_server(\"page\", \"load_page\", this);' \
-            ondbclick='call_server(\"page\", \"select_addressbar\", this);' \
-            >%s</span>\n", lPath);
-            
-            var lPage = new GPage();
-            lPage.m_id = lIdPath;
-            lPage.m_parentId = lIdPath;
-            lPage.m_path = lPathI;
-            lPage.m_idPath = lIdPathI;
-            var lData = lPage.serialize();
-
-            lAddress += sprintf("<span hidden='true'>%s</span>\n", lData);
-        }
-
-        this.setParentId(this.m_id);
-        this.setAddress(lAddress);
-        this.initType();
-    }
-    //===============================================
-    loadActiveAddress() {
-        var lData = this.getAddressActive();
+    onStoreDefaultPage(_obj, _data) {
         var lPage = new GPage();
-        lPage.deserialize(lData);
-        lPage.updateAddress();
+        lPage.readDefaultAddress();
+        lPage.readDefaultPage();
+        var lAjax = new GAjax();
+        var lData = lPage.serialize();
+        lAjax.callLocal("page", "store_default_page", lData, this.onStoreDefaultPageCB);        
     }
     //===============================================
-    showTable(_selectCB, _nextCB) {
-        var lTable = new GTable();
-        lTable.setCallback("select", "page", _selectCB)
-        lTable.setCallback("next", "page", _nextCB)
-        lTable.setHeaderVisible(true);
-        lTable.setNextEnable(true);
-        //
-        lTable.pushRowH();
-        lTable.pushColH("", "répertoire");
-        //
-        for(var i = 0; i < this.m_map.length; i++) {
-            var lObj = this.m_map[i]
-            var lIcon = (lObj.m_typeName == "file" ? "file-o" : "folder");
-            lTable.pushRow();
-            lTable.pushCol("", lObj.m_name, lIcon);
-        }
-        //
-        lTable.showData();
-        lTable.scrollBottom();
+    onStoreDefaultPageCB(_data, _isOk) {
+
+    }
+    //===============================================
+    onloadDefaultPageRun(_obj, _data) {
+        var lAjax = new GAjax();
+        lAjax.callLocal("page", "load_default_page", "", this.onloadDefaultPageRunCB);        
+    }
+    //===============================================
+    onloadDefaultPageRunCB(_data, _isOk) {
+        var lPage = new GPage();
+        lPage.deserialize(_data);
+        lPage.loadDefaultPage();
     }
     //===============================================
 }

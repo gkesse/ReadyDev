@@ -176,6 +176,9 @@ class GEditorUi extends GObject {
                 else if($lModel == "hidden") {
                     echo sprintf("<input id='%s' type='hidden' value='%s'/>\n", $lId, $lValue);
                 }
+                else if($lModel == "hidden_div") {
+                    echo sprintf("<div hidden='true' id='%s'></div>\n", $lId);
+                }
             }
         }
         
@@ -213,8 +216,8 @@ class GEditorUi extends GObject {
         echo sprintf("<div class='Body14'>\n");     // start_body_1
         echo sprintf("<div class='Content9'>\n");   // start_content_1
         
-        $lId = $this->m_dom->getItem("edition_command", "id");
-        $this->m_dom->getCode("edition_command");
+        $lId = $this->m_dom->getItem("command", "id");
+        $this->m_dom->getCode("command");
         $lCountI = $this->m_dom->countXNode("map/data");
         $this->m_dom->getXNode("map/data");
             
@@ -293,7 +296,8 @@ class GEditorUi extends GObject {
         echo sprintf("</div>\n"); // end_dropdown
         
         echo sprintf("<div class='GEndEditor'>\n");
-        echo sprintf("<div id='%s' class='Border Content14 GEndEditor' contentEditable='true'></div>\n", $lId);
+        echo sprintf("<div id='%s' class='Border Content14 GEndEditor' contentEditable='true'
+        onkeydown='call_server(\"command\", \"key_down\", event)'></div>\n", $lId);
         echo sprintf("</div>\n");
         
         echo sprintf("</div>\n"); // end_content_1

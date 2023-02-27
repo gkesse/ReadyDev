@@ -63,7 +63,7 @@ class GAjax extends GObject {
                 var lData = this.responseText;
                 var lLog = new GLog();
                 lLog.deserialize(lData);
-                if(_callback) _callback(lData);
+                if(_callback) _callback(lData, !lLog.hasErrors());
                 lLog.showLogsX();
                 lLoader.closeLoader();
             }
