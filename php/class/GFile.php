@@ -77,7 +77,7 @@ class GFile extends GObject {
             $this->addError("Le chemin du fichier n'existe pas.");
             return false;
         }
-        $this->m_data = file_get_contents($this->m_filename);
+        $this->m_data = utf8_decode(file_get_contents($this->m_filename));
         if($this->m_data === false) {
             $this->addError("La lecture du fichier a échoué.");
         }
@@ -105,7 +105,7 @@ class GFile extends GObject {
             return false;
         }
         if(!$this->runCreateFilePath()) return false;
-        $lOk = file_put_contents($this->m_filename, $this->m_data);
+        $lOk = file_put_contents($this->m_filename, utf8_encode($this->m_data));
         if($lOk == false) {
             $this->addError("L'enregistrement du fichier a échoué.");
         }
