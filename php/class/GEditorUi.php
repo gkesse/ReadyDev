@@ -23,6 +23,7 @@ class GEditorUi extends GObject {
         $this->onHome();
         $this->onPage();
         $this->onEdition();
+        $this->onCode();
         
         echo sprintf("</div>\n");
         echo sprintf("</div>\n");
@@ -216,11 +217,15 @@ class GEditorUi extends GObject {
         echo sprintf("<div class='Body14'>\n");     // start_body_1
         echo sprintf("<div class='Content9'>\n");   // start_content_1
         
-        $lId = $this->m_dom->getItem("command", "id");
-        $this->m_dom->getCode("command");
+        $lId = $this->m_dom->getItem("edition_menu", "id");
+        $this->m_dom->getCode("edition_menu");
         $lCountI = $this->m_dom->countXNode("map/data");
         $this->m_dom->getXNode("map/data");
-            
+        
+        //===============================================
+        // menu
+        //===============================================
+        
         echo sprintf("<div class='Row9'>\n");       // start_dropdown
         echo sprintf("<div class='DropDown'>\n");   // start_dropdown
         echo sprintf("<button class='Button9 DropDownButton'>Menu</button>\n");
@@ -291,18 +296,167 @@ class GEditorUi extends GObject {
             $this->m_dom->nextSiblingElement();
         }
         
-        echo sprintf("</div>\n"); // end_dropdown        
+        echo sprintf("</div>\n"); // end_dropdown
         echo sprintf("</div>\n"); // end_dropdown
         echo sprintf("</div>\n"); // end_dropdown
         
-        echo sprintf("<div class='GEndEditor'>\n");
-        echo sprintf("<div id='%s' class='Border Content14 GEndEditor' contentEditable='true'
-        onkeydown='call_server(\"command\", \"key_down\", event)'></div>\n", $lId);
+        //===============================================
+        // body
+        //===============================================
+        
+        echo sprintf("<div>\n");
+        
+        $lCount = $this->m_dom->countItem("edition");
+        
+        for($i = 0; $i < $lCount; $i++) {
+            $lCategory      = $this->m_dom->getItem3("edition", "category", $i);
+            $lModel         = $this->m_dom->getItem3("edition", "model", $i);
+            $lId            = $this->m_dom->getItem3("edition", "id", $i);
+            $lClass         = $this->m_dom->getItem3("edition", "class", $i);
+            $lModule         = $this->m_dom->getItem3("edition", "module", $i);
+            $lMethodKeyDown = $this->m_dom->getItem3("edition", "method_keydown", $i);
+            
+            if($lCategory == "body") {
+                if($lModel == "contenteditable") {
+                    echo sprintf("<div class='%s'>\n", $lClass);
+                    echo sprintf("<div id='%s' class='Border Content14 %s' contentEditable='true'
+                    onkeydown='call_server(\"%s\", \"%s\", event)'></div>\n", $lId, $lClass, $lModule, $lMethodKeyDown);
+                    echo sprintf("</div>\n");
+                }
+            }
+        }
+        
         echo sprintf("</div>\n");
+                
+        //===============================================
         
         echo sprintf("</div>\n"); // end_content_1
         echo sprintf("</div>\n"); // end_body_1
-        echo sprintf("</div>\n"); // end_row_1        
+        echo sprintf("</div>\n"); // end_row_1
+    }
+    //===============================================
+    public function onCode() {
+        $lId    = $this->m_dom->getItem("code", "id");
+        $lTitle = $this->m_dom->getItem("code", "title");
+        
+        echo sprintf("<div class='Row Left EditorTabCtn' id='%s'>\n", $lId);
+        echo sprintf("<h2 class='Title4'>%s</h2>\n", $lTitle);
+        
+        echo sprintf("<div class='Body14'>\n");
+        echo sprintf("<div class='Content9'>\n");
+        
+        //===============================================
+        // menu
+        //===============================================
+        
+        $lId = $this->m_dom->getItem("code_menu", "id");
+        $this->m_dom->getCode("code_menu");
+        $lCountI = $this->m_dom->countXNode("map/data");
+        $this->m_dom->getXNode("map/data");
+        
+        echo sprintf("<div class='Row9'>\n");
+        echo sprintf("<div class='DropDown'>\n");
+        echo sprintf("<button class='Button9 DropDownButton'>Menu</button>\n");
+        echo sprintf("<div class='DropDownContent'>\n");
+        
+        for($i = 0; $i < $lCountI; $i++) {
+            $lCategory  = $this->m_dom->getXValue("category");
+            $lModule    = $this->m_dom->getXValue("module");
+            $lMethod    = $this->m_dom->getXValue("method");
+            $lKey       = $this->m_dom->getXValue("key");
+            $lLabel     = $this->m_dom->getXValue("label");
+            $lMapOk     = $this->m_dom->hasNode("map");
+            
+            if($lMapOk) {
+                $this->m_dom->pushNode();
+                $lCountJ = $this->m_dom->countXNode("map/data");
+                $this->m_dom->getXNode("map/data");
+                
+                echo sprintf("<div class='DropDownSub'>%s <i class='DropDownCaret fa fa-caret-down'></i></div>\n", $lLabel);
+                echo sprintf("<div class='DropDownContainer'>\n");
+                
+                for($j = 0; $j < $lCountJ; $j++) {
+                    $lCategory  = $this->m_dom->getXValue("category");
+                    $lModule    = $this->m_dom->getXValue("module");
+                    $lMethod    = $this->m_dom->getXValue("method");
+                    $lKey       = $this->m_dom->getXValue("key");
+                    $lLabel     = $this->m_dom->getXValue("label");
+                    $lMapOk     = $this->m_dom->hasNode("map");
+                    
+                    if($lMapOk) {
+                        $this->m_dom->pushNode();
+                        $lCountK = $this->m_dom->countXNode("map/data");
+                        $this->m_dom->getXNode("map/data");
+                        
+                        echo sprintf("<div class='DropDownSub'>%s <i class='DropDownCaret fa fa-caret-down'></i></div>\n", $lLabel);
+                        echo sprintf("<div class='DropDownContainer'>\n");
+                        
+                        for($k = 0; $k < $lCountK; $k++) {
+                            $lCategory  = $this->m_dom->getXValue("category");
+                            $lModule    = $this->m_dom->getXValue("module");
+                            $lMethod    = $this->m_dom->getXValue("method");
+                            $lKey       = $this->m_dom->getXValue("key");
+                            $lLabel     = $this->m_dom->getXValue("label");
+                            $lMapOk     = $this->m_dom->hasNode("map");
+                            
+                            if($lCategory == "text") {
+                                echo sprintf("<div class='DropDownLine' onclick='call_server(\"%s\", \"%s\", this, \"%s\");'>%s</div>\n", $lModule, $lMethod, $lKey, $lLabel);
+                            }
+                            
+                            $this->m_dom->nextSiblingElement();
+                        }
+                        echo sprintf("</div>\n");
+                        $this->m_dom->popNode();
+                    }
+                    else if($lCategory == "text") {
+                        echo sprintf("<div class='DropDownLine' onclick='call_server(\"%s\", \"%s\", this, \"%s\");'>%s</div>\n", $lModule, $lMethod, $lKey, $lLabel);
+                    }
+                    
+                    $this->m_dom->nextSiblingElement();
+                }
+                echo sprintf("</div>\n");
+                $this->m_dom->popNode();
+            }
+            else if($lCategory == "text") {
+                echo sprintf("<div class='DropDownLine' onclick='call_server(\"%s\", \"%s\", this, \"%s\");'>%s</div>\n", $lModule, $lMethod, $lKey, $lLabel);
+            }
+            
+            $this->m_dom->nextSiblingElement();
+        }
+        
+        echo sprintf("</div>\n");
+        echo sprintf("</div>\n");
+        echo sprintf("</div>\n");
+        
+        //===============================================
+        // corps
+        //===============================================
+        
+        echo sprintf("<div>\n");
+        
+        $lCount = $this->m_dom->countItem("code");
+        
+        for($i = 0; $i < $lCount; $i++) {
+            $lCategory  = $this->m_dom->getItem3("code", "category", $i);
+            $lModel     = $this->m_dom->getItem3("code", "model", $i);
+            $lId        = $this->m_dom->getItem3("code", "id", $i);
+            $lPlaceholder       = $this->m_dom->getItem3("code", "placeholder", $i);
+            
+            if($lCategory == "body") {
+                if($lModel == "textarea") {
+                    echo sprintf("<textarea id='%s' class='Border Content14' onkeydown='call_server(\"page\", \"key_down_code\", event)'
+                    placeholder='%s'></textarea>\n", $lId, $lPlaceholder);
+                }
+            }
+        }
+                
+        echo sprintf("</div>\n");
+        
+        //===============================================
+        
+        echo sprintf("</div>\n");
+        echo sprintf("</div>\n");
+        echo sprintf("</div>\n");
     }
     //===============================================
 }

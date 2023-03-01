@@ -22,7 +22,7 @@
                 <data>
                     <category>normal</category>
                     <id>EditorTabDefault</id>
-                    <value>2</value>
+                    <value>3</value>
                 </data>            
             </map>
         </data>
@@ -51,6 +51,12 @@
                     <tooltip>Edition d'une page</tooltip>
                     <id>EditorTab2</id>
                     <name>Edition</name>
+                </data>
+                <data>
+                    <category>text</category>
+                    <tooltip>Code d'une page</tooltip>
+                    <id>EditorTab3</id>
+                    <name>Code</name>
                 </data>
             </map>
         </data>
@@ -221,13 +227,22 @@
             <code>edition</code>
             <title>Edition</title>
             <id>EditorTab2</id>
+            <map>
+            	<data>
+            		<category>body</category>
+            		<model>contenteditable</model>
+          			<id>EditorEditionContent</id>
+          			<class>GEndEditor</class>
+          			<module>page</module>
+          			<method_keydown>key_down_edition</method_keydown>
+            	</data>
+            </map>
         </data>
         <!-- ============================================ -->
-        <!-- command -->
+        <!-- edition_menu -->
         <!-- ============================================ -->
         <data>
-            <code>command</code>
-          	<id>EditorEditionContent</id>
+            <code>edition_menu</code>
             <map>
                 <!-- Textes -->
                 <data>
@@ -386,6 +401,49 @@
                 <!-- end -->
             </map>
         </data>
+        <!-- ============================================ -->
+        <!-- code -->
+        <!-- ============================================ -->
+        <data>
+            <code>code</code>
+            <title>Code</title>
+            <id>EditorTab3</id>
+            <map>
+            	<data>
+            		<category>body</category>
+            		<model>textarea</model>
+          			<id>EditorCodeText</id>
+          			<placeholder>Code source de la page...</placeholder>
+            	</data>
+            </map>
+        </data>
+        <!-- ============================================ -->
+        <!-- code_menu -->
+        <!-- ============================================ -->
+        <data>
+            <code>code_menu</code>
+            <map>
+                <!-- Actions -->
+                <data>
+                    <category>text</category>
+                    <label>Actions</label>
+                    <map>
+                        <data>
+                            <category>text</category>
+                            <module>page</module>
+                            <method>save_code_file</method>
+                            <label>Enregistrer</label>
+                        </data>
+                        <data>
+                            <category>text</category>
+                            <module>page</module>
+                            <method>search_code_file</method>
+                            <label>Rechercher</label>
+                        </data>
+            		</map>
+             	</data>
+            </map>
+    	</data>
         <!-- ============================================ -->
         <!-- end -->
         <!-- ============================================ -->

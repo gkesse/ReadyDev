@@ -33,6 +33,43 @@ class GPage extends GObject {
         this.loadDefaultPageRun();
     }    
     //===============================================
+    initType() {
+        if(!this.m_parentId) {
+            this.setType(2);
+            this.setDefault(0);
+            this.setEnableType(false);
+            this.setEnableDefault(false);
+        }
+        else {
+            this.setType(0);
+            this.setDefault(0);
+            this.setEnableType(true);
+            this.setEnableDefault(true);
+        }
+    }
+    //===============================================
+    initContent() {
+        var lEditorEditionContent = document.getElementById("EditorEditionContent");
+        lEditorEditionContent.innerHTML = this.m_content;
+    }
+    //===============================================
+    initCodeText() {
+        var lEditorCodeText = document.getElementById("EditorCodeText");
+        lEditorCodeText.value = this.m_content;
+    }
+    //===============================================
+    initDefaultAddress() {
+        var lEditorPageDefaultAddress = document.getElementById("EditorPageDefaultAddress");
+        var lPage = this.clone();
+        lEditorPageDefaultAddress.innerHTML = lPage.serialize();
+    }
+    //===============================================
+    initDefaultPage() {
+        var lEditorPageDefaultPage = document.getElementById("EditorPageDefaultPage");
+        var lPage = this.clone();
+        lEditorPageDefaultPage.innerHTML = lPage.serialize();
+    }
+    //===============================================
     clone() {
         var lObj = new GPage();
         lObj.setPage(this);
@@ -93,36 +130,9 @@ class GPage extends GObject {
         }
     }
     //===============================================
-    initType() {
-        if(!this.m_parentId) {
-            this.setType(2);
-            this.setDefault(0);
-            this.setEnableType(false);
-            this.setEnableDefault(false);
-        }
-        else {
-            this.setType(0);
-            this.setDefault(0);
-            this.setEnableType(true);
-            this.setEnableDefault(true);
-        }
-    }
-    //===============================================
-    initContent() {
-        var lEditorEditionContent = document.getElementById("EditorEditionContent");
-        lEditorEditionContent.innerHTML = this.m_content;
-    }
-    //===============================================
-    initDefaultAddress() {
-        var lEditorPageDefaultAddress = document.getElementById("EditorPageDefaultAddress");
-        var lPage = this.clone();
-        lEditorPageDefaultAddress.innerHTML = lPage.serialize();
-    }
-    //===============================================
-    initDefaultPage() {
-        var lEditorPageDefaultPage = document.getElementById("EditorPageDefaultPage");
-        var lPage = this.clone();
-        lEditorPageDefaultPage.innerHTML = lPage.serialize();
+    setCodeText(_codeText) {
+        var lEditorCodeText = document.getElementById("EditorCodeText");
+        lEditorCodeText.value = _codeText;
     }
     //===============================================
     isFile() {
@@ -141,6 +151,11 @@ class GPage extends GObject {
     readContent() {
         var lEditorEditionContent = document.getElementById("EditorEditionContent");
         this.m_content = lEditorEditionContent.innerHTML;
+    }
+    //===============================================
+    readCodeText() {
+        var lEditorCodeText = document.getElementById("EditorCodeText");
+        this.m_content = lEditorCodeText.value;
     }
     //===============================================
     readDefaultAddress() {
@@ -188,6 +203,14 @@ class GPage extends GObject {
     //===============================================
     loadDefaultPageRun() {
         call_server("page", "load_default_page", this);
+    }
+    //===============================================
+    searchPageFile() {
+        call_server("page", "search_page_file", this);
+    }
+    //===============================================
+    searchCodeFile() {
+        call_server("page", "search_code_file", this);
     }
     //===============================================
     loadDefaultPage() {
@@ -355,6 +378,12 @@ class GPage extends GObject {
         if(_method == "") {
             this.addError("La méthode est obligatoire.");
         }
+        else if(_method == "key_down_edition") {
+            this.onKeyDownEdition(_obj, _data);
+        }
+        else if(_method == "key_down_code") {
+            this.onKeyDownCode(_obj, _data);
+        }
         else if(_method == "select_page_type") {
             this.onSelectPageType(_obj, _data);
         }
@@ -370,6 +399,12 @@ class GPage extends GObject {
         else if(_method == "save_page_file_run") {
             this.onSavePageFileRun(_obj, _data);
         }
+        else if(_method == "save_code_file") {
+            this.onSaveCodeFile(_obj, _data);
+        }
+        else if(_method == "save_code_file_run") {
+            this.onSaveCodeFileRun(_obj, _data);
+        }
         else if(_method == "search_page") {
             this.onSearchPage(_obj, _data);
         }
@@ -382,8 +417,8 @@ class GPage extends GObject {
         else if(_method == "search_page_file") {
             this.onSearchPageFile(_obj, _data);
         }
-        else if(_method == "search_page_file_run") {
-            this.onSearchPageFileRun(_obj, _data);
+        else if(_method == "search_code_file") {
+            this.onSearchCodeFile(_obj, _data);
         }
         else if(_method == "delete_page") {
             this.onDeletePage(_obj, _data);
@@ -422,6 +457,23 @@ class GPage extends GObject {
             this.addError("Erreur la méthode est inconnue.");            
         }
         return !this.hasErrors();
+    }
+    //===============================================
+    onKeyDownEdition(_obj, _data) {
+        var lEvent = _obj || window.event;
+        var lKeyCode = lEvent.charCode || lEvent.keyCode;
+        if(lKeyCode == 13) {
+            document.execCommand("insertLineBreak")
+            lEvent.preventDefault();
+        }
+    }
+    //===============================================
+    onKeyDownCode(_obj, _data) {
+        var lEvent = _obj || window.event;
+        var lKeyCode = lEvent.charCode || lEvent.keyCode;
+        if(lKeyCode == 13) {
+            lEvent.preventDefault();
+        }
     }
     //===============================================
     onSelectPageType(_obj, _data) {
@@ -529,6 +581,22 @@ class GPage extends GObject {
             lPage.deserialize(_data);
             lPage.initContent();
         }
+    }
+    //===============================================
+    onSearchCodeFile(_obj, _data) {
+        this.readContent();
+        this.initCodeText();        
+    }
+    //===============================================
+    onSaveCodeFile(_obj, _data) {
+        var lConfirm = new GConfirm();
+        lConfirm.setCallback("page", "save_code_file_run");
+        lConfirm.showConfirm();
+    }
+    //===============================================
+    onSaveCodeFileRun(_obj, _data) {
+        this.readCodeText();
+        this.initContent();
     }
     //===============================================
     onDeletePage(_obj, _data) {
@@ -653,6 +721,7 @@ class GPage extends GObject {
         var lPage = new GPage();
         lPage.deserialize(_data);
         lPage.loadDefaultPage();
+        lPage.searchPageFile();
     }
     //===============================================
 }
