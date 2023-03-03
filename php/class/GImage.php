@@ -7,6 +7,9 @@ class GImage extends GModule {
     //===============================================
     private $m_imgPath = "data/img/defaults";
     private $m_imgWidth = 256;
+    private $m_imageCachePng = "data/cache/data/cache_image_png.xml";
+    private $m_imageCacheJpg = "data/cache/data/cache_image_jpg.xml";
+    private $m_imageCacheGif = "data/cache/data/cache_image_gif.xml";
     //===============================================
     public function __construct() {
         parent::__construct();
@@ -21,43 +24,132 @@ class GImage extends GModule {
     public function setObj($_obj) {
         $this->m_mimeType = $_obj->m_mimeType;
         $this->m_path = $_obj->m_path;
-        $this->m_img = $_obj->m_tree;
+        $this->m_img = $_obj->m_img;
+    }
+    //===============================================
+    public function countImageCachePng() {
+        $lFile = new GFile();
+        $lData = $lFile->loadData($this->m_imageCachePng);
+        $lImage = new GImage();
+        $lImage->deserialize($lData);
+        $lCount = count($lImage->m_map);
+        return $lCount;
+    }
+    //===============================================
+    public function countImageCacheJpg() {
+        $lFile = new GFile();
+        $lData = $lFile->loadData($this->m_imageCacheJpg);
+        $lImage = new GImage();
+        $lImage->deserialize($lData);
+        $lCount = count($lImage->m_map);
+        return $lCount;
+    }
+    //===============================================
+    public function countImageCacheGif() {
+        $lFile = new GFile();
+        $lData = $lFile->loadData($this->m_imageCacheGif);
+        $lImage = new GImage();
+        $lImage->deserialize($lData);
+        $lCount = count($lImage->m_map);
+        return $lCount;
+    }
+    //===============================================
+    public function countImagePng() {
+        $lPath = GPath::create($this->m_imgPath);
+        $lCount = count(glob($lPath . "/*.png"));
+        return $lCount;
+    }
+    //===============================================
+    public function countImageJpg() {
+        $lPath = GPath::create($this->m_imgPath);
+        $lCount = count(glob($lPath . "/*.jpg"));
+        return $lCount;
+    }
+    //===============================================
+    public function countImageGif() {
+        $lPath = GPath::create($this->m_imgPath);
+        $lCount = count(glob($lPath . "/*.gif"));
+        return $lCount;
+    }
+    //===============================================
+    public function isLoadImagePng() {
+        $lFilename = GPath::create($this->m_imageCachePng);
+        if(file_exists($lFilename)) {
+            $lCountI = $this->countImageCachePng();
+            $lCountJ = $this->countImagePng();
+            if($lCountI == $lCountJ) return false;
+        }
+        return true;
+    }
+    //===============================================
+    public function isLoadImageJpg() {
+        $lFilename = GPath::create($this->m_imageCacheJpg);
+        if(file_exists($lFilename)) {
+            $lCountI = $this->countImageCacheJpg();
+            $lCountJ = $this->countImageJpg();
+            if($lCountI == $lCountJ) return false;
+        }
+        return true;
+    }
+    //===============================================
+    public function isLoadImageGif() {
+        $lFilename = GPath::create($this->m_imageCacheGif);
+        if(file_exists($lFilename)) {
+            $lCountI = $this->countImageCacheGif();
+            $lCountJ = $this->countImageGif();
+            if($lCountI == $lCountJ) return false;
+        }
+        return true;
+    }
+    //===============================================
+    public function storeImagePng() {
+        $lData = $this->serialize();
+        $lFile = new GFile();
+        $lFile->saveData($this->m_imageCachePng, "", $lData);
     }
     //===============================================
     public function loadImagePng() {
-        $lPath = GPath::create($this->m_imgPath);
-        foreach(glob($lPath . "/*.png") as $lFilename) {
-            $lMimeType = mime_content_type($lFilename);
-            
-            $lSize = getimagesize($lFilename);
-            $lWidthSrc = $lSize[0];
-            $lHeightSrc = $lSize[1];
-            $lRatio = $lWidthSrc / $lHeightSrc;
-            
-            $lWidthDst = $this->m_imgWidth;
-            $lHeightDst = $lWidthDst / $lRatio;
-            
-            
-            $lImgSrc = @imagecreatefrompng($lFilename);
-            $lImgDst = imagecreatetruecolor($lWidthDst, $lHeightDst);
-            imagecopyresized($lImgDst, $lImgSrc, 0, 0, 0, 0, $lWidthDst, $lHeightDst, $lWidthSrc, $lHeightSrc);
-            
-            ob_start();
-            imagepng($lImgDst);
-            $lImgData = ob_get_contents();
-            ob_end_clean ();
-            $lImgData64 = base64_encode($lImgData);
-            
-            $lFile = substr($lFilename, strlen($lPath) + 1);
-            
-            $lObj = new GImage();
-            $lObj->m_mimeType = $lMimeType;
-            $lObj->m_path = $lFile;
-            $lObj->m_img = $lImgData64;
-            array_push($this->m_map, $lObj);
-            
-            imagedestroy($lImgSrc);
-            imagedestroy($lImgDst);
+        if($this->isLoadImagePng()) {
+            $lPath = GPath::create($this->m_imgPath);
+            foreach(glob($lPath . "/*.png") as $lFilename) {
+                $lMimeType = mime_content_type($lFilename);
+                
+                $lSize = getimagesize($lFilename);
+                $lWidthSrc = $lSize[0];
+                $lHeightSrc = $lSize[1];
+                $lRatio = $lWidthSrc / $lHeightSrc;
+                
+                $lWidthDst = $this->m_imgWidth;
+                $lHeightDst = $lWidthDst / $lRatio;
+                
+                
+                $lImgSrc = @imagecreatefrompng($lFilename);
+                $lImgDst = imagecreatetruecolor($lWidthDst, $lHeightDst);
+                imagecopyresized($lImgDst, $lImgSrc, 0, 0, 0, 0, $lWidthDst, $lHeightDst, $lWidthSrc, $lHeightSrc);
+                
+                ob_start();
+                imagepng($lImgDst);
+                $lImgData = ob_get_contents();
+                ob_end_clean ();
+                $lImgData64 = base64_encode($lImgData);
+                
+                $lFile = substr($lFilename, strlen($lPath) + 1);
+                
+                $lObj = new GImage();
+                $lObj->m_mimeType = $lMimeType;
+                $lObj->m_path = $lFile;
+                $lObj->m_img = $lImgData64;
+                array_push($this->m_map, $lObj);
+                
+                imagedestroy($lImgSrc);
+                imagedestroy($lImgDst);
+            }
+            $this->storeImagePng();
+        }
+        else {
+            $lFile = new GFile();
+            $lData = $lFile->loadData($this->m_imageCachePng);
+            $this->deserialize($lData);
         }
     }
     //===============================================
@@ -170,8 +262,8 @@ class GImage extends GModule {
     //===============================================
     public function onLoadImage($_data) {
         $this->loadImagePng();
-        $this->loadImageJpg();
-        $this->loadImageGif();
+        //$this->loadImageJpg();
+        //$this->loadImageGif();
     }
     //===============================================
 }

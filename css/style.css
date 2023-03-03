@@ -1779,11 +1779,21 @@ thead tr:first-child {
 	right: 0px;
     background-color: #051039;
     border: 1px solid rgba(255, 255, 255, 0.2);
-    max-height: 250px;
-    overflow: auto;
     padding: 0px;
 }
-	
+
+.Menu2Page {
+    position: relative;
+}
+
+.Menu2Body {
+
+}
+
+.Menu2LineAbs {
+
+}
+
 .Menu2Line {
 	position: relative;
 	line-height: 30px;
@@ -1805,6 +1815,23 @@ thead tr:first-child {
 	height: 25px;
 	border-radius: 50%;
 	background-size: cover;
+	z-index: 1;
+}
+
+.Menu2Zoom {
+  	display: none;
+}
+
+.Menu2Img:hover ~ .Menu2Zoom {
+  	display: block;
+	position: absolute;
+	top: 100%;
+	left: 100%;
+    transform: translate(-50%, 0);
+	border-radius: 5px;
+	background-size: cover;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: 2;
 }
 
 /* ============================================== */
@@ -1861,6 +1888,14 @@ thead tr:first-child {
     border-radius: 20px;
     text-align: center;
     margin: 5px 5px 0 5px;
+}
+
+/* ============================================== */
+/* Overflow */
+/* ============================================== */
+
+.Overflow {
+    overflow: auto;
 }
 
 /* ============================================== */

@@ -184,12 +184,18 @@ class GForm extends GObject {
                 lContent += sprintf("<input type='text' class='Input4 Menu2Button' id='%s' readonly/>\n", lId);
                 lContent += sprintf("<i class='Menu2Caret fa fa-caret-down'></i>\n");
                 lContent += sprintf("<div class='Menu2Content'>\n");
+                lContent += sprintf("<div class='Menu2Page'>\n");
+                lContent += sprintf("<div class='Menu2Body'>\n");
                 
                 for(var j = 0; j < lImage.m_map.length; j++) {
                     lImage.loadFromMap(j);
-                    lContent += sprintf("<div class='Menu2Line' data-index='%s' data-key='%s'>%s <img class='Menu2Img' src='%s' alt='%s'/></div>\n", j, lImage.m_path, lImage.m_path, lImage.getImageData(), lImage.m_path);
+                    lContent += sprintf("<div class='Menu2Line'>\n");
+                    lContent += sprintf("<div class='Menu2LineAbs' data-index='%s' data-key='%s'>%s <img class='Menu2Img' src='%s' alt='%s'/> <img class='Menu2Zoom' src='%s' alt='%s'/></div>\n", j, lImage.m_path, lImage.m_path, lImage.getImageData(), lImage.m_path, lImage.getImageData(), lImage.m_path);
+                    lContent += sprintf("</div>\n");
                 }
                 
+                lContent += sprintf("</div>\n");
+                lContent += sprintf("</div>\n");
                 lContent += sprintf("</div>\n");
                 lContent += sprintf("</div>\n");
                 lContent += sprintf("</div>\n");
