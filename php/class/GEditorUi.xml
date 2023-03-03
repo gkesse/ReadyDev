@@ -22,7 +22,7 @@
                 <data>
                     <category>normal</category>
                     <id>EditorTabDefault</id>
-                    <value>3</value>
+                    <value>2</value>
                 </data>            
             </map>
         </data>
@@ -395,6 +395,12 @@
                             <module>form</module>
                             <method>test_form</method>
                             <label>Tester le formulaire</label>
+                        </data>
+                        <data>
+                            <category>text</category>
+                            <module>image</module>
+                            <method>test</method>
+                            <label>Charger des images</label>
                         </data>
                     </map>
                 </data>

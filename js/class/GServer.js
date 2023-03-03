@@ -30,6 +30,9 @@ class GServer extends GObject {
         else if(_module == "dropdown") {
             this.onDropDown(_method, _obj, _data);
         }
+        else if(_module == "image") {
+            this.onImage(_method, _obj, _data);
+        }
         else if(_module == "menu") {
             this.onMenu(_method, _obj, _data);
         }
@@ -98,6 +101,12 @@ class GServer extends GObject {
     //===============================================
     onDropDown(_method, _obj, _data) {
         var lObj = new GDropDown();
+        lObj.onModule(_method, _obj, _data)
+        this.addLogs(lObj.getLogs());
+    }
+    //===============================================
+    onImage(_method, _obj, _data) {
+        var lObj = new GImage();
         lObj.onModule(_method, _obj, _data)
         this.addLogs(lObj.getLogs());
     }

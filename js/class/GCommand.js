@@ -219,7 +219,7 @@ class GCommand extends GObject {
         this.addLogs(lAjax.getLogs());
     }
     //===============================================
-    onStorePageFileCB(_data) {
+    onStorePageFileCB(_data, _isOk) {
 
     }
     //===============================================
@@ -234,13 +234,14 @@ class GCommand extends GObject {
         var lAjax = new GAjax();
         var lData = this.serialize();
         lAjax.callLocal("command", "load_page_file", lData, this.onLoadPageFileCB);        
-        this.addLogs(lAjax.getLogs());
     }
     //===============================================
-    onLoadPageFileCB(_data) {
-        var lCommand = new GCommand();
-        lCommand.deserialize(_data);
-        lCommand.writeUi();
+    onLoadPageFileCB(_data, _isOk) {
+        if(_isOk) {
+            var lCommand = new GCommand();
+            lCommand.deserialize(_data);
+            lCommand.writeUi();
+        }
     }
     //===============================================
     onNewPage(_obj, _data) {

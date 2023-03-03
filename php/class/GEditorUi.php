@@ -127,7 +127,7 @@ class GEditorUi extends GObject {
                     echo sprintf("<label class='Label3' for='%s'>%s</label>\n", $lId, $lLabel);
                     echo sprintf("<div class='Field3'>\n");
                     echo sprintf("<div class='ComboBox'>\n");
-                    echo sprintf("<select id='%s' onchange='call_server(\"combobox\", \"select_data\", this);' data-module='%s' data-method='%s'>\n", $lId, $lModule, $lMethod);
+                    echo sprintf("<select id='%s' class='ComboBoxSelect' onchange='call_server(\"combobox\", \"select_data\", this);' data-module='%s' data-method='%s'>\n", $lId, $lModule, $lMethod);
                     
                     $lCountJ = $this->m_dom->countNItem3("page", "map/data", $i);
                     $this->m_dom->getNItem3("page", "map/data", $i);

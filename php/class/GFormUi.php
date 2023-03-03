@@ -31,7 +31,7 @@ class GFormUi extends GObject {
         echo sprintf("<div class='Title5' id='%s'>%s</div>\n", $lTitleId, $lTitle);
         echo sprintf("<form class='Body4' id='%s' method='post'>\n", $lFormId);        
         echo sprintf("<div class='Row11' id='%s'>%s</div>\n", $lIntroId, $lIntro);
-        echo sprintf("<div class='Content15' id='%s'></div>", $lContentId);        
+        echo sprintf("<div class='Content16' id='%s'></div>", $lContentId);        
         echo sprintf("<div class='Row13'>\n");
         
         for($i = 0; $i < $lCount; $i++) {

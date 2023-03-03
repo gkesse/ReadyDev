@@ -6,6 +6,26 @@ class GObject {
         this.m_map = [];
     }
     //===============================================
+    loadFromMap(_index) {
+        if(_index < 0 || _index >= this.m_map.length) {
+            this.addError("L'index de la donnée est incorrect.");
+            return false;
+        }
+        var lObj = this.m_map[_index];
+        this.setObj(lObj);
+        return !this.hasErrors();
+    }
+    //===============================================
+    loadToMap(_index) {
+        if(_index < 0 || _index >= this.m_map.length) {
+            this.addError("L'index de la donnée est incorrect.");
+            return false;
+        }
+        var lObj = this.m_map[_index];
+        lObj.setObj(this);
+        return !this.hasErrors();
+    }
+    //===============================================
     clearMap() {
         this.m_map = [];
         this.m_logs.clearLogs();
@@ -66,6 +86,8 @@ class GObject {
     clone() {return new GObject();}
     serialize(_code = "object") {return "";}
     deserialize(_data, _code = "object") {}
+    //===============================================
+    setObj(_obj) {}
     //===============================================
 }
 //===============================================

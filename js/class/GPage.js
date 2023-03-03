@@ -72,11 +72,11 @@ class GPage extends GObject {
     //===============================================
     clone() {
         var lObj = new GPage();
-        lObj.setPage(this);
+        lObj.setObj(this);
         return lObj;
     }
     //===============================================
-    setPage(_obj) {
+    setObj(_obj) {
         this.m_id = _obj.m_id;
         this.m_parentId = _obj.m_parentId;
         this.m_typeId = _obj.m_typeId;
@@ -166,26 +166,6 @@ class GPage extends GObject {
     readDefaultPage() {
         var lEditorPageDefaultPage = document.getElementById("EditorPageDefaultPage");
         this.m_defaultPage = lEditorPageDefaultPage.innerHTML;
-    }
-    //===============================================
-    loadFromMap(_index) {
-        if(_index < 0 || _index >= this.m_map.length) {
-            this.addError("L'index de la donnée est incorrect.");
-            return false;
-        }
-        var lObj = this.m_map[_index];
-        this.setPage(lObj);
-        return !this.hasErrors();
-    }
-    //===============================================
-    loadToMap(_index) {
-        if(_index < 0 || _index >= this.m_map.length) {
-            this.addError("L'index de la donnée est incorrect.");
-            return false;
-        }
-        var lObj = this.m_map[_index];
-        lObj.setPage(this);
-        return !this.hasErrors();
     }
     //===============================================
     activeAddress(_obj) {

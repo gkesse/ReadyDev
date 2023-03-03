@@ -36,11 +36,11 @@ class GComboBox extends GObject {
             var lHtml = lSelect.options[lSelect.selectedIndex].innerHTML;
             
             var lBoxView = document.createElement("DIV");
-            lBoxView.setAttribute("class", "BoxView");
+            lBoxView.setAttribute("class", "ComboBoxView");
             lBoxView.innerHTML = lHtml;
             lComboBox.appendChild(lBoxView);
             var lBoxSelect = document.createElement("DIV");
-            lBoxSelect.setAttribute("class", "BoxSelect BoxHide");
+            lBoxSelect.setAttribute("class", "ComboBoxSelectDiv ComboBoxHide");
             var lLength2 = lSelect.length;
             
             for(var j = 0; j < lLength2; j++) {
@@ -63,7 +63,7 @@ class GComboBox extends GObject {
                             lBoxSelect.dispatchEvent(lEvent);
 
                             lBoxView.innerHTML = this.innerHTML;
-                            var lBoxSelectAsMap = this.parentNode.getElementsByClassName("BoxSelectAs");
+                            var lBoxSelectAsMap = this.parentNode.getElementsByClassName("ComboBoxSelectAs");
                             var lLength2 = lBoxSelectAsMap.length;
                             
                             for(var j = 0; j < lLength2; j++) {
@@ -71,7 +71,7 @@ class GComboBox extends GObject {
                                 lBoxSelectAs.removeAttribute("class");
                             }
                             
-                            //this.setAttribute("class", "BoxSelectAs");
+                            //this.setAttribute("class", "ComboBoxSelectAs");
                             break;
                         }
                     }
@@ -88,7 +88,7 @@ class GComboBox extends GObject {
                 var lSelect = this.previousElementSibling;
                 if(lSelect.disabled) return;
                 e.stopPropagation();
-                this.nextElementSibling.classList.toggle("BoxHide");
+                this.nextElementSibling.classList.toggle("ComboBoxHide");
                 this.classList.toggle("BoxActive");
                 call_server("combobox", "close_box", this);
             });
@@ -118,8 +118,8 @@ class GComboBox extends GObject {
     }
     //===============================================
     onCloseBox(_obj, _data) {
-        var lBoxViewMap = document.getElementsByClassName("BoxView");
-        var lBoxSelectMap = document.getElementsByClassName("BoxSelect");
+        var lBoxViewMap = document.getElementsByClassName("ComboBoxView");
+        var lBoxSelectMap = document.getElementsByClassName("ComboBoxSelectDiv");
         var lLength = lBoxViewMap.length;
         var lIndexMap = [];
         
@@ -129,7 +129,7 @@ class GComboBox extends GObject {
                 lIndexMap.push(i);
             }
             else {
-                lBoxView.classList.remove("BoxActive");
+                lBoxView.classList.remove("ComboBoxActive");
             }
         }
         
@@ -139,7 +139,7 @@ class GComboBox extends GObject {
             var lBoxSelect = lBoxSelectMap[i];
             var lIndexOf = lIndexMap.indexOf(i);
             if(lIndexOf) {
-                lBoxSelect.classList.add("BoxHide");
+                lBoxSelect.classList.add("ComboBoxHide");
             }
         }
     }

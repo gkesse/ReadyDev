@@ -63,6 +63,10 @@ input:-webkit-autofill:active {
     transition: background-color 5000s ease-in-out 0s;
 }
 
+input[readonly] {
+	cursor: pointer;
+}
+
 * {
     scrollbar-color: #aaaaff #111111;
     scrollbar-width: thin;
@@ -202,7 +206,7 @@ thead tr:first-child {
 }
 
 /* ============================================== */
-/* Animation */
+/* Animate */
 /* ============================================== */
 
 .AnimateShow {
@@ -300,7 +304,7 @@ thead tr:first-child {
 }
 
 /* ============================================== */
-/* special */
+/* NotFound */
 /* ============================================== */
 
 .NotFound {
@@ -328,7 +332,7 @@ thead tr:first-child {
 }
 
 /* ============================================== */
-/* Custom */
+/* Background */
 /* ============================================== */
 
 .Background {
@@ -339,8 +343,8 @@ thead tr:first-child {
 }
 
 .Background.Top {
-    background-image: url("<?php echo $lApp->getItem("style", "bg_img_top"); ?>"), 
-    url("<?php echo $lApp->getItem("style", "bg_img_top_bg"); ?>");
+    background-image: url("/data/img/defaults/top_masque.png"), 
+    url("/data/img/defaults/fond.jpg");
     background-position: center top, left top;
     background-repeat: no-repeat, no-repeat;    
     background-size: auto 85%, 100% 100%;    
@@ -349,10 +353,10 @@ thead tr:first-child {
     right: 0px;
     z-index: -1;
     border: 10px solid transparent;
-    border-image: url("<?php echo $lApp->getItem("style", "border_img"); ?>") 30 round;
-    -webkit-border-image: url("<?php echo $lApp->getItem("style", "border_img"); ?>") 30 round; 
-    -moz-border-image: url("<?php echo $lApp->getItem("style", "border_img"); ?>") 30 round; 
-    -o-border-image: url("<?php echo $lApp->getItem("style", "border_img"); ?>") 30 round;
+    border-image: url("/data/img/defaults/border.png") 30 round;
+    -webkit-border-image: url("/data/img/defaults/border.png") 30 round; 
+    -moz-border-image: url("/data/img/defaults/border.png") 30 round; 
+    -o-border-image: url("/data/img/defaults/border.png") 30 round;
 }
 
 .Background.Middle {
@@ -361,7 +365,7 @@ thead tr:first-child {
     left: 0px;
     right: 0px;
     z-index: -1;
-    background-image: url("<?php echo $lApp->getItem("style", "bg_img_middle"); ?>");
+    background-image: url("/data/img/defaults/middle.gif");
     background-position: center center;
     background-repeat: repeat;    
     background-size: auto;    
@@ -372,16 +376,20 @@ thead tr:first-child {
     left: 0px;
     right: 0px;
     z-index: -1;
-    background-image: url("<?php echo $lApp->getItem("style", "bg_img_bottom"); ?>");
+    background-image: url("/data/img/defaults/footer.jpg");
     background-position: left top;
     background-repeat: no-repeat;    
     background-size: 100% 100%;    
     border: 10px solid transparent;
-    border-image: url("<?php echo $lApp->getItem("style", "border_img"); ?>") 30 round;
-    -webkit-border-image: url("<?php echo $lApp->getItem("style", "border_img"); ?>") 30 round; 
-    -moz-border-image: url("<?php echo $lApp->getItem("style", "border_img"); ?>") 30 round; 
-    -o-border-image: url("<?php echo $lApp->getItem("style", "border_img"); ?>") 30 round;
+    border-image: url("/data/img/defaults/border.png") 30 round;
+    -webkit-border-image: url("/data/img/defaults/border.png") 30 round; 
+    -moz-border-image: url("/data/img/defaults/border.png") 30 round; 
+    -o-border-image: url("/data/img/defaults/border.png") 30 round;
 }
+
+/* ============================================== */
+/* Bars */
+/* ============================================== */
 
 .Bars {
     border-top: 5px solid transparent;
@@ -398,9 +406,17 @@ thead tr:first-child {
     cursor: pointer;
 }
 
+/* ============================================== */
+/* BgColor */
+/* ============================================== */
+
 .BgColor {
     background-color: rgba(255, 255, 255, 0.2);
 }
+
+/* ============================================== */
+/* Body */
+/* ============================================== */
 
 .Body {
     padding: 5px;
@@ -543,68 +559,17 @@ thead tr:first-child {
     padding-bottom: 250px;
 }
 
+/* ============================================== */
+/* Border */
+/* ============================================== */
+
 .Border {
     border: 2px solid #2f3959;
 }
 
-.BoxHide {
-    display: none;
-}
-
-.BoxSelect {
-    position: absolute;
-    background-color: #051039;
-    top: 100%;
-    left: 0;
-    right: 0;
-    z-index: 99;
-    max-height: 400px;
-    overflow: auto;
-    scrollbar-color: #5f6681 #051039;
-    scrollbar-width: thin;
-    border: 1px solid #5f6681;
-}
-
-.BoxSelect div {
-    color: #ffffff;
-    padding: 5px 5px;
-    border: 1px solid transparent;
-    border-color: transparent transparent rgba(255, 255, 255, 0.2); transparent;
-    cursor: pointer;
-}
-
-.BoxSelect div:hover {
-    background-color: rgba(255, 255, 255, 0.4);
-}
-
-.BoxSelectAs {
-    background-color: rgba(255, 255, 255, 0.4);
-}
-
-.BoxView {
-    background-color: #051039;
-    color: #ffffff;
-    padding: 2px 5px;
-    border: 1px solid transparent;
-    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
-    cursor: pointer;
-}
-
-.BoxView:after {
-    position: absolute;
-    content: "";
-    top: 14px;
-    right: 5px;
-    width: 0;
-    height: 0;
-    border: 6px solid transparent;
-    border-color: #fff transparent transparent transparent;
-}
-
-.BoxView.BoxActive:after {
-    border-color: transparent transparent #fff transparent;
-    top: 7px;
-}
+/* ============================================== */
+/* Button */
+/* ============================================== */
 
 .Button {
     background-color: rgba(255, 255, 255, 0.2);
@@ -755,6 +720,10 @@ thead tr:first-child {
     background-color: #051039;
 }
 
+/* ============================================== */
+/* Caption */
+/* ============================================== */
+
 .Caption {
     background-color: #051039;
     position: absolute;
@@ -766,9 +735,9 @@ thead tr:first-child {
     opacity: 0.8;
 }
 
-.Checkbox {
-    padding: 2px;
-}
+/* ============================================== */
+/* Code */
+/* ============================================== */
 
 .Code {
     overflow: auto;
@@ -788,6 +757,10 @@ thead tr:first-child {
     font-family: 'courier new';
     padding: 10px;
 }
+
+/* ============================================== */
+/* Col */
+/* ============================================== */
 
 .Col {
     display: inline-block;
@@ -852,14 +825,75 @@ thead tr:first-child {
     height: 100%;
 }
 
-.ComboBox select {
+.ComboBoxSelect {
     display: none;
 }
 
-.ComboBox select:disabled ~ .BoxView {
+.ComboBoxSelect:disabled ~ .ComboBoxView {
     color: #808080;
 }
 
+.ComboBoxHide {
+    display: none;
+}
+
+.ComboBoxSelectDiv {
+    position: absolute;
+    background-color: #051039;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    max-height: 400px;
+    overflow: auto;
+    scrollbar-color: #5f6681 #051039;
+    scrollbar-width: thin;
+    border: 1px solid #5f6681;
+}
+
+.ComboBoxSelectDiv div {
+    color: #ffffff;
+    padding: 5px 5px;
+    border: 1px solid transparent;
+    border-color: transparent transparent rgba(255, 255, 255, 0.2); transparent;
+    cursor: pointer;
+}
+
+.ComboBoxSelectDiv div:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.ComboBoxSelectAs {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.ComboBoxView {
+    background-color: #051039;
+    color: #ffffff;
+    padding: 2px 5px;
+    border: 1px solid transparent;
+    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+    cursor: pointer;
+}
+
+.ComboBoxView:after {
+    position: absolute;
+    content: "";
+    top: 14px;
+    right: 5px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-color: #fff transparent transparent transparent;
+}
+
+.ComboBoxActive:after {
+    border-color: transparent transparent #fff transparent;
+    top: 7px;
+}
+
+/* ============================================== */
+/* Content */
 /* ============================================== */
 
 .Content {
@@ -938,6 +972,14 @@ thead tr:first-child {
     padding: 10px 0px;
 }
 
+.Content16 {
+    padding: 10px 0px;
+}
+
+/* ============================================== */
+/* Data */
+/* ============================================== */
+
 .Data {
     background-color: rgba(0,0,0,0.2);
     border: 1px solid rgba(0,0,0,0.2);
@@ -962,119 +1004,58 @@ thead tr:first-child {
 /* ============================================== */
 
 .DropDown {
-      position: relative;
-      display: inline-block;
+	position: relative;
+	display: inline-block;
 }
 
 .DropDownContent {
-      display: none;
-      position: absolute;
-    border: 2px solid #2f3959;
-      background-color: #051039;
-      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-      min-width: 250px;
-      max-height: 300px;
-      overflow: auto;
-      right: 0;
-      z-index: 2;
+	display: none;
+	position: absolute;
+	border: 2px solid #2f3959;
+	background-color: #051039;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	min-width: 250px;
+	max-height: 300px;
+	overflow: auto;
+	right: 0;
+	z-index: 2;
 }
 
 .DropDownLine,
 .DropDownSub {
-      color: #eeeeee;
-      padding: 5px;
-      display: block;
-    border-bottom: 1px solid #2f3959;
-    cursor: pointer;
-    text-align: left;
+	color: #eeeeee;
+	padding: 5px;
+	display: block;
+	border-bottom: 1px solid #2f3959;
+	cursor: pointer;
+	text-align: left;
 }
 
-.DropDownLine:hover,
-.DropDownSub:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+.DropDownLine:hover, .DropDownSub:hover {
+	background-color: rgba(255, 255, 255, 0.2);
 }
 
 .DropDownCaret {
-  float: right;
-  padding-right: 5px;
+	float: right;
+	padding-right: 5px;
 }
 
 .DropDownContainer {
-    display: none;
-    background-color: #051039;
-    padding-left: 20px;
+	display: none;
+	background-color: #051039;
+	padding-left: 20px;
 }
 
-.DropDownActive,
-.DropDownActive:hover {
-    background-color: #2f5959;
+.DropDownActive, .DropDownActive:hover {
+	background-color: #2f5959;
 }
 
 .DropDownShow {
-    display: block;
+	display: block;
 }
 
 /* ============================================== */
-/* Loader */
-/* ============================================== */
-
-.Loader {
-  	text-align: center;
-  	padding: 20px;
-}
-
-.LoaderBody {
-  	display: inline-block;
-}
-
-.LoaderRing {
-  	position: absolute;
-  	width: 120px;
-  	height: 120px;
-  	border-radius: 50%;
-  	animation: LoaderRing 2s linear infinite;
-}
-@keyframes LoaderRing {
-  	0%{
-    	transform: rotate(0deg);
-    	box-shadow: 1px 5px 2px #e65c00;
-  	}
-  	50%{
-    	transform: rotate(180deg);
-    	box-shadow: 1px 5px 2px #18b201;
-  	}
-  	100%{
-    	transform: rotate(360deg);
-    	box-shadow: 1px 5px 2px #0456c8;
-  	}
-}
-
-.LoaderRing:before {
-  	position: absolute;
-  	content: '';
-  	left: 0;
-  	top: 0;
-  	height: 100%;
-  	width: 100%;
-  	border-radius: 50%;
-  	box-shadow: 0 0 5px rgba(255,255,255,.3);
-}
-
-.LoaderMsg {
-  color: #f0f0f0;
-  font-size: 18px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  line-height: 120px;
-  text-align: center;
-  animation: LoaderMsg 3s ease-in-out infinite;
-}
-@keyframes LoaderMsg {
-  	50%{
-    	color: #5f5f5f;
-  	}
-}
-
+/* Error */
 /* ============================================== */
 
 .Error {
@@ -1088,6 +1069,18 @@ thead tr:first-child {
     padding: 10px;
     text-align: left;
 }
+
+/* ============================================== */
+/* EndEditor */
+/* ============================================== */
+
+.GEndEditor {
+    overflow: auto;
+}
+
+/* ============================================== */
+/* Field */
+/* ============================================== */
 
 .Field {
     display: inline-block;
@@ -1136,12 +1129,20 @@ thead tr:first-child {
     border: 1px solid rgba(0,0,0,0.2);
 }
 
+/* ============================================== */
+/* Form */
+/* ============================================== */
+
 .Form {
     background-color: #3f4969;
     display: inline-block;
     vertical-align: top;
     font-size: 0px;
 }
+
+/* ============================================== */
+/* Formula */
+/* ============================================== */
 
 .Formula {
     overflow: auto;
@@ -1176,6 +1177,10 @@ thead tr:first-child {
     margin: 5px 0px;
 }
 
+/* ============================================== */
+/* Footer */
+/* ============================================== */
+
 .Footer {
     background-color: rgba(255, 255, 255, 0.0);
     position: absolute;
@@ -1184,9 +1189,9 @@ thead tr:first-child {
     right: 0px;
 }
 
-.GEndEditor {
-    overflow: auto;
-}
+/* ============================================== */
+/* HappyDay */
+/* ============================================== */
 
 .HappyDay {
     background-color: #010101;
@@ -1203,15 +1208,23 @@ thead tr:first-child {
     width: 300px;
     margin-left: -150px;
     border: 10px solid transparent;
-    border-image: url("<?php echo $lApp->getItem("style", "border_img"); ?>") 30 round;
-    -webkit-border-image: url("<?php echo $lApp->getItem("style", "border_img"); ?>") 30 round; 
-    -moz-border-image: url("<?php echo $lApp->getItem("style", "border_img"); ?>") 30 round; 
-    -o-border-image: url("<?php echo $lApp->getItem("style", "border_img"); ?>") 30 round;
+    border-image: url("/data/img/defaults/border.png") 30 round;
+    -webkit-border-image: url("/data/img/defaults/border.png") 30 round; 
+    -moz-border-image: url("/data/img/defaults/border.png") 30 round; 
+    -o-border-image: url("/data/img/defaults/border.png") 30 round;
 }
+
+/* ============================================== */
+/* HtmlPage */
+/* ============================================== */
 
 .HtmlPage {
     position: relative;
 }
+
+/* ============================================== */
+/* Icon */
+/* ============================================== */
 
 .Icon {
     font-size: 16px;
@@ -1285,6 +1298,10 @@ thead tr:first-child {
     margin: 0px 5px;
 }
 
+/* ============================================== */
+/* IFrame */
+/* ============================================== */
+
 .IFrame {
     background-color: rgba(255, 255, 255, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -1294,6 +1311,10 @@ thead tr:first-child {
     padding: 0;
     width: 100%;
 }
+
+/* ============================================== */
+/* Img */
+/* ============================================== */
 
 .Img {
     background-image: url("<?php echo $lApp->getItem("style", "img_wave"); ?>");
@@ -1314,7 +1335,7 @@ thead tr:first-child {
 }
 
 .Img.Binary {
-    background-image: url("<?php echo $lApp->getItem("style", "img_binary"); ?>");
+    background-image: url("/data/img/defaults/binary.png");
 }
 
 .Img.Signal {
@@ -1366,6 +1387,10 @@ thead tr:first-child {
     padding: 3px;
 }
 
+/* ============================================== */
+/* Input */
+/* ============================================== */
+
 .Input {
     margin-left: 30px;
 }
@@ -1385,6 +1410,18 @@ thead tr:first-child {
     text-transform: lowercase;
 }
 
+.Input4 {
+    border: 1px solid #3A405B;
+    height: 100%;   
+    width: 100%;
+    padding: 5px 10px;
+    padding-right: 20px;
+}
+
+/* ============================================== */
+/* Item */
+/* ============================================== */
+
 .Item {
     display: inline-block;
     vertical-align: middle;
@@ -1401,6 +1438,10 @@ thead tr:first-child {
 .Item4 {
     padding-left: 20px;
 }
+
+/* ============================================== */
+/* Label */
+/* ============================================== */
 
 .Label {
     background-color: #2f3959; /* L3 */
@@ -1449,6 +1490,17 @@ thead tr:first-child {
     background-color: rgba(255, 255, 255, 0.2);
     padding: 5px 10px;
 }
+
+.Label7 {
+    background-color: rgba(255, 255, 255, 0.2);
+    min-width: 150px; 
+    line-height: 30px;   
+    padding: 0px 10px;
+}
+
+/* ============================================== */
+/* Link */
+/* ============================================== */
 
 .Link {
     border-top: 5px solid transparent;
@@ -1579,7 +1631,72 @@ thead tr:first-child {
     display: inline-block;
     vertical-align: middle;
 }
- 
+
+/* ============================================== */
+/* Loader */
+/* ============================================== */
+
+.Loader {
+  	text-align: center;
+  	padding: 20px;
+}
+
+.LoaderBody {
+  	display: inline-block;
+}
+
+.LoaderRing {
+  	position: absolute;
+  	width: 120px;
+  	height: 120px;
+  	border-radius: 50%;
+  	animation: LoaderRing 2s linear infinite;
+}
+@keyframes LoaderRing {
+  	0%{
+    	transform: rotate(0deg);
+    	box-shadow: 1px 5px 2px #e65c00;
+  	}
+  	50%{
+    	transform: rotate(180deg);
+    	box-shadow: 1px 5px 2px #18b201;
+  	}
+  	100%{
+    	transform: rotate(360deg);
+    	box-shadow: 1px 5px 2px #0456c8;
+  	}
+}
+
+.LoaderRing:before {
+  	position: absolute;
+  	content: '';
+  	left: 0;
+  	top: 0;
+  	height: 100%;
+  	width: 100%;
+  	border-radius: 50%;
+  	box-shadow: 0 0 5px rgba(255,255,255,.3);
+}
+
+.LoaderMsg {
+  color: #f0f0f0;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 120px;
+  text-align: center;
+  animation: LoaderMsg 3s ease-in-out infinite;
+}
+@keyframes LoaderMsg {
+  	50%{
+    	color: #5f5f5f;
+  	}
+}
+
+/* ============================================== */
+/* MainBody */
+/* ============================================== */
+
 .MainBody {
 
 }
@@ -1592,6 +1709,10 @@ thead tr:first-child {
     max-width: 1000px;
 }
 
+/* ============================================== */
+/* MainBlock */
+/* ============================================== */
+
 .MainBlock {
     padding: 10px;
 }
@@ -1600,24 +1721,95 @@ thead tr:first-child {
     padding: 0px 10px;
 }
 
+/* ============================================== */
+/* MainPage */
+/* ============================================== */
+
 .MainPage {
     background-color: #051039;
     border: 10px solid transparent;
-    border-image: url("<?php echo $lApp->getItem("style", "border_img"); ?>") 30 round;
-    -webkit-border-image: url("<?php echo $lApp->getItem("style", "border_img"); ?>") 30 round; 
-    -moz-border-image: url("<?php echo $lApp->getItem("style", "border_img"); ?>") 30 round; 
-    -o-border-image: url("<?php echo $lApp->getItem("style", "border_img"); ?>") 30 round;
+    border-image: url("/data/img/defaults/border.png") 30 round;
+    -webkit-border-image: url("/data/img/defaults/border.png") 30 round; 
+    -moz-border-image: url("/data/img/defaults/border.png") 30 round; 
+    -o-border-image: url("/data/img/defaults/border.png") 30 round;
     padding-bottom: 0px;
 }
 
+/* ============================================== */
+/* Menu */
+/* ============================================== */
+
 .Menu {
-    background-color: rgba(255, 255, 255, 0.2);
+	background-color: rgba(255, 255, 255, 0.2);
     text-align: left;
     font-size: 0px;
     line-height: 40px;
     position: relative;
     padding-right: 10px;
 }
+
+.Menu2 {
+	position: relative;
+	padding: 0px;
+}
+
+.Menu2Button {
+	line-height: 30px;
+    padding-left: 10px;
+    cursor: pointer;
+}
+
+.Menu2Caret {
+	position: absolute;
+    transform: translate(0, -50%);
+  	top: 50%;
+  	right: 5px;
+    cursor: pointer;
+}
+
+.Menu2Content {
+    display: none;
+}
+
+.Menu2Content.Show {
+    display: block;
+	position: absolute;
+	top: 20px;
+	left: 0px;
+	right: 0px;
+    background-color: #051039;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    max-height: 250px;
+    overflow: auto;
+    padding: 0px;
+}
+	
+.Menu2Line {
+	position: relative;
+	line-height: 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    padding-left: 10px;
+}
+
+.Menu2Line:hover {
+	background-color: rgba(255, 255, 255, 0.2);
+}
+
+.Menu2Img {
+	position: absolute;
+	top: 50%;
+	right: 5px;
+    transform: translate(0, -50%);
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+	background-size: cover;
+}
+
+/* ============================================== */
+/* Modal */
+/* ============================================== */
 
 .Modal {
     display: none;
@@ -1657,6 +1849,10 @@ thead tr:first-child {
     padding: 0px 10px 10px 0px;
 }
 
+/* ============================================== */
+/* Network */
+/* ============================================== */
+
 .Network {
     background-color: rgba(255, 255, 255, 0.2);
     width: 40px;
@@ -1667,9 +1863,17 @@ thead tr:first-child {
     margin: 5px 5px 0 5px;
 }
 
+/* ============================================== */
+/* Padding */
+/* ============================================== */
+
 .Padding {
     padding: 10px;
 }
+
+/* ============================================== */
+/* Parallax */
+/* ============================================== */
 
 .Parallax {
     position: relative;
@@ -1680,31 +1884,90 @@ thead tr:first-child {
     background-attachment: scroll;
 }
 
-.ReadyPHP {
-    background-color: #ff0000;
-    display: inline-block;
-    vertical-align: middle;
-    padding: 5px;
-    border-radius: 5px;
-    font-family: Allan;
-    font-size: 18px;
-    position: absolute;
-    top: 5px;
-    left: 5px;
+/* ============================================== */
+/* RadioButton */ 
+/* ============================================== */
+
+.RadioButton {
+	position: relative;
+  	display: inline-block;
+	margin-top: 5px;
+	margin-left: 5px;
+  	cursor: pointer;
+  	-webkit-user-select: none;
+  	-moz-user-select: none;
+  	-ms-user-select: none;
+  	user-select: none;
 }
 
-.ReadyPad {
-    background-color: #ff0000;
-    display: inline-block;
-    vertical-align: middle;
-    padding: 5px;
-    border-radius: 5px;
-    font-family: Allan;
-    font-size: 18px;
-    position: absolute;
-    top: 50px;
-    left: 5px;
+.RadioButton:hover .RadioButtonCheck {
+  	background-color: #ccc;
 }
+
+.RadioButtonInput {
+  	position: absolute;
+  	opacity: 0;
+	cursor: pointer;
+	top: 50%;
+	left: 0px;
+	width: 14px;
+	height: 14px;
+    transform: translate(0, -50%);
+  	z-index: 2;
+}
+
+.RadioButtonInput:checked ~ .RadioButtonCheck {
+  	background-color: #2196F3;
+}
+
+.RadioButtonInput:checked ~ .RadioButtonCheck:after {
+  	display: block;
+}
+
+.RadioButtonInput[disabled] ~ .RadioButtonCheck {
+    background-color: #808080;
+}
+
+.RadioButtonInput[disabled] ~ .RadioButtonLabel {
+  	color: #808080;
+}
+
+.RadioButtonInput[disabled] ~ .RadioButtonCheck:after {
+  	background-color: #fafafa;
+}
+
+.RadioButtonCheck {
+	position: absolute;
+	top: 2px;
+	left: 0px;
+  	height: 12px;
+  	width: 12px;
+  	background-color: #eee;
+  	border-radius: 50%;
+  	z-index: 1;
+}
+
+.RadioButtonCheck:after {
+	display: none;
+	position: absolute;
+	content: "";
+	top: 50%;
+	left: 50%;
+    transform: translate(-50%, -50%);
+	width: 6px;
+	height: 6px;
+	border-radius: 50%;
+	background-color: white;
+}
+
+.RadioButtonLabel {
+	padding-left: 16px;
+	cursor: pointer;
+}
+
+/* ============================================== */
+/* ReadyCGI */
+/* ============================================== */
 
 .ReadyCGI {
     background-color: #ff0000;
@@ -1719,10 +1982,52 @@ thead tr:first-child {
     right: 5px;
 }
 
+/* ============================================== */
+/* ReadyPad */
+/* ============================================== */
+
+.ReadyPad {
+    background-color: #ff0000;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 5px;
+    border-radius: 5px;
+    font-family: Allan;
+    font-size: 18px;
+    position: absolute;
+    top: 50px;
+    left: 5px;
+}
+
+/* ============================================== */
+/* ReadyPHP */
+/* ============================================== */
+
+.ReadyPHP {
+    background-color: #ff0000;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 5px;
+    border-radius: 5px;
+    font-family: Allan;
+    font-size: 18px;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+
+/* ============================================== */
+/* Result */
+/* ============================================== */
+
 .Result {
     background-color: #051039;
     padding: 10px;
 }
+
+/* ============================================== */
+/* Row */
+/* ============================================== */
 
 .Row {
     position: relative;
@@ -1951,9 +2256,17 @@ thead tr:first-child {
     margin-bottom: 15px;
 }
 
-.Shift1 {
+/* ============================================== */
+/* Shift */
+/* ============================================== */
+
+.Shift {
     padding-left: 10px;
 }
+
+/* ============================================== */
+/* Show */
+/* ============================================== */
 
 .Show {
     background-color: rgba(255, 255, 255, 0.2);
@@ -1966,6 +2279,10 @@ thead tr:first-child {
     scrollbar-width: auto;
 }
 
+/* ============================================== */
+/* Succes */
+/* ============================================== */
+
 .Succes {
     background-color: rgba(255, 255, 255, 0.2);
     border-radius: 5px;
@@ -1974,6 +2291,10 @@ thead tr:first-child {
     text-align: left;
 }
 
+/* ============================================== */
+/* Table */
+/* ============================================== */
+
 .Table {
       background-color: transparent;
 }
@@ -1981,6 +2302,10 @@ thead tr:first-child {
 .Table.Active {
       background-color: teal;
 }
+
+/* ============================================== */
+/* Text */
+/* ============================================== */
 
 .Text {
     background-color: #111;
@@ -2071,10 +2396,18 @@ thead tr:first-child {
     text-decoration: underline;
 }
 
+/* ============================================== */
+/* TextArea */
+/* ============================================== */
+
 .TextArea {
     padding: 10px;
     height: 400px;
 }
+
+/* ============================================== */
+/* Title */
+/* ============================================== */
 
 .Title {
     border-top: 5px solid transparent;
@@ -2144,87 +2477,6 @@ thead tr:first-child {
     vertical-align: middle;
     color: cyan;
     font-size: 25px;
-}
-
-/* ============================================== */
-/* RadioButton */ 
-/* ============================================== */
-
-.RadioButton {
-	position: relative;
-  	display: inline-block;
-	margin-top: 5px;
-	margin-left: 5px;
-  	cursor: pointer;
-  	-webkit-user-select: none;
-  	-moz-user-select: none;
-  	-ms-user-select: none;
-  	user-select: none;
-}
-
-.RadioButton:hover .RadioButtonCheck {
-  	background-color: #ccc;
-}
-
-.RadioButtonInput {
-  	position: absolute;
-  	opacity: 0;
-	cursor: pointer;
-	top: 50%;
-	left: 0px;
-	width: 14px;
-	height: 14px;
-    transform: translate(0, -50%);
-  	z-index: 2;
-}
-
-.RadioButtonInput:checked ~ .RadioButtonCheck {
-  	background-color: #2196F3;
-}
-
-.RadioButtonInput:checked ~ .RadioButtonCheck:after {
-  	display: block;
-}
-
-.RadioButtonInput[disabled] ~ .RadioButtonCheck {
-    background-color: #808080;
-}
-
-.RadioButtonInput[disabled] ~ .RadioButtonLabel {
-  	color: #808080;
-}
-
-.RadioButtonInput[disabled] ~ .RadioButtonCheck:after {
-  	background-color: #fafafa;
-}
-
-.RadioButtonCheck {
-	position: absolute;
-	top: 2px;
-	left: 0px;
-  	height: 12px;
-  	width: 12px;
-  	background-color: #eee;
-  	border-radius: 50%;
-  	z-index: 1;
-}
-
-.RadioButtonCheck:after {
-	display: none;
-	position: absolute;
-	content: "";
-	top: 50%;
-	left: 50%;
-    transform: translate(-50%, -50%);
-	width: 6px;
-	height: 6px;
-	border-radius: 50%;
-	background-color: white;
-}
-
-.RadioButtonLabel {
-	padding-left: 16px;
-	cursor: pointer;
 }
 
 /* ============================================== */
