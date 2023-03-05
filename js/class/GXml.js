@@ -103,17 +103,17 @@ class GXml {
         return true;
     }
     //===============================================
-    loadXml(data) {
-        data = data.trim();
-        if(data == "") return false;
+    loadXml(_data) {
+        _data = _data.trim();
+        if(_data == "") return false;
         if(window.DOMParser) {
             var lParser = new DOMParser();
-            this.m_doc = lParser.parseFromString(data, "text/xml");            
+            this.m_doc = lParser.parseFromString(_data, "text/xml");            
         }
         else {
             this.m_doc = new ActiveXObject("Microsoft.XMLDOM");
             this.m_doc.async = false;
-            this.m_doc.loadXML(data);
+            this.m_doc.loadXML(_data);
         }
         return true;
     }

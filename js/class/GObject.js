@@ -13,7 +13,7 @@ class GObject {
         }
         var lObj = this.m_map[_index];
         this.setObj(lObj);
-        return !this.hasErrors();
+        return this;
     }
     //===============================================
     loadToMap(_index) {
@@ -23,7 +23,7 @@ class GObject {
         }
         var lObj = this.m_map[_index];
         lObj.setObj(this);
-        return !this.hasErrors();
+        return this;
     }
     //===============================================
     clearMap() {

@@ -1,5 +1,5 @@
 //===============================================
-class GLoader extends GModule {
+class GLoader extends GObject {
     //===============================================
     constructor() {
         super();

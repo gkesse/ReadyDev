@@ -1740,7 +1740,6 @@ thead tr:first-child {
 /* ============================================== */
 
 .Menu {
-	background-color: rgba(255, 255, 255, 0.2);
     text-align: left;
     font-size: 0px;
     line-height: 40px;
@@ -1750,19 +1749,17 @@ thead tr:first-child {
 
 .Menu2 {
 	position: relative;
-	padding: 0px;
 }
 
-.Menu2Button {
-	line-height: 30px;
+.Menu2Input {
     padding-left: 10px;
     cursor: pointer;
 }
 
 .Menu2Caret {
 	position: absolute;
-    transform: translate(0, -50%);
   	top: 50%;
+    transform: translate(0, -50%);
   	right: 5px;
     cursor: pointer;
 }
@@ -1772,26 +1769,15 @@ thead tr:first-child {
 }
 
 .Menu2Content.Show {
-    display: block;
+	display: block;
 	position: absolute;
-	top: 20px;
+	top: 100%;
 	left: 0px;
 	right: 0px;
-    background-color: #051039;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 0px;
-}
-
-.Menu2Page {
-    position: relative;
-}
-
-.Menu2Body {
-
-}
-
-.Menu2LineAbs {
-
+	background-color: #051039;
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	max-height: 250px;
+	overflow: auto;
 }
 
 .Menu2Line {
@@ -1822,14 +1808,17 @@ thead tr:first-child {
   	display: none;
 }
 
-.Menu2Img:hover ~ .Menu2Zoom {
+.Menu2Zoom.Show {
   	display: block;
 	position: absolute;
-	top: 100%;
+	top: 50%;
 	left: 100%;
-    transform: translate(-50%, 0);
+	margin-left: 5px;
+    transform: translate(0, -50%);
 	border-radius: 5px;
 	background-size: cover;
+	width: 100px;
+	height: auto;
     border: 1px solid rgba(255, 255, 255, 0.2);
     z-index: 2;
 }
@@ -2289,29 +2278,6 @@ thead tr:first-child {
     margin: 5px 0px;
     position: relative;
     margin-bottom: 15px;
-}
-
-/* ============================================== */
-/* Shift */
-/* ============================================== */
-
-.Shift {
-    padding-left: 10px;
-}
-
-/* ============================================== */
-/* Show */
-/* ============================================== */
-
-.Show {
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 5px;
-    padding: 10px;
-    margin-top: 10px;
-    max-height: 400px;
-    overflow: auto;
-    scrollbar-color: #5f6681 #051039;
-    scrollbar-width: auto;
 }
 
 /* ============================================== */

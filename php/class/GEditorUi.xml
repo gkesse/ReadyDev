@@ -282,15 +282,11 @@
                 <!-- Styles personnalisés -->
                 <data>
                     <category>text</category>
-                    <module>command</module>
-                    <method>selection</method>
                     <label>Styles personnalisés</label>
                     <map>
                         <!-- Titres -->
                         <data>
                             <category>text</category>
-                            <module>command</module>
-                            <method>selection</method>
                             <label>Titres</label>
                             <map>
                                 <data>
@@ -316,15 +312,19 @@
                         <!-- Parallax -->
                         <data>
                             <category>text</category>
-                            <module>command</module>
-                            <method>selection</method>
                             <label>Parallax</label>
                             <map>
                                 <data>
                                     <category>text</category>
-                                    <module>command</module>
-                                    <method>parallax</method>
-                                    <label>Parallax</label>
+                                    <module>editor</module>
+                                    <method>add_parallax</method>
+                                    <label>Ajouter un effet parallax</label>
+                                </data>
+                                <data>
+                                    <category>text</category>
+                                    <module>editor</module>
+                                    <method>add_parallax</method>
+                                    <label>Supprimer un effet parallax</label>
                                 </data>
                             </map>
                         </data>

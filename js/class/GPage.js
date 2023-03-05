@@ -294,7 +294,6 @@ class GPage extends GObject {
     }
     //===============================================
     writeUi() {
-        if(this.hasErrors()) return;
         var lEditorPageId = document.getElementById("EditorPageId");
         var lEditorPageParentId = document.getElementById("EditorPageParentId");
         var lEditorPagePath = document.getElementById("EditorPagePath");

@@ -76,7 +76,7 @@ class GServer extends GObject {
     }
     //===============================================
     onEditor(_method, _obj, _data) {
-        var lObj = new GEditorUi();
+        var lObj = new GEditor();
         lObj.onModule(_method, _obj, _data)
         this.addLogs(lObj.getLogs());
     }

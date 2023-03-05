@@ -17,12 +17,16 @@ class GEnvUi extends GObject {
             $lModel = $this->m_dom->getItem3("env", "model", $i);
             $lId = $this->m_dom->getItem3("env", "id", $i);
             $lValue = $this->m_dom->getItem3("env", "value", $i);
-            //
-            if($lModel == "env/type") {
-                $lValue = $this->m_env->getEnvType();
+
+            if($lModel == "input") {
+                if($lId == "EnvType") {
+                    $lValue = $this->m_env->getEnvType();
+                }
+                echo sprintf("<input type='hidden' id='%s' value='%s'/>\n", $lId, $lValue);
             }
-            //
-            echo sprintf("<input type='hidden' id='%s' value='%s'/>\n", $lId, $lValue);
+            else if($lModel == "div") {
+                echo sprintf("<div id='%s' hidden></div>", $lId);
+            }
         }
     }
     //===============================================

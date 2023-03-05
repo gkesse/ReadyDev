@@ -20,6 +20,82 @@ class GForm extends GObject {
         this.initUi();
     }
     //===============================================
+    init() {
+        var lInputs = document.getElementsByClassName("Menu2Input");
+        
+        for(var i = 0; i < lInputs.length; i++) {
+            var lInput = lInputs[i];
+            var lParent = lInput.parentNode;
+            var lCaret = lParent.getElementsByClassName("Menu2Caret")[0];
+            var lContent = lParent.getElementsByClassName("Menu2Content")[0];
+            var lLines = lContent.getElementsByClassName("Menu2Line");
+            
+            lInput.addEventListener("click", function(e) {
+                var lParent = this.parentNode;
+                var lContent = lParent.getElementsByClassName("Menu2Content")[0];
+                lContent.classList.toggle("Show");
+            });
+                        
+            lCaret.addEventListener("click", function(e) {
+                var lParent = this.parentNode;
+                var lContent = lParent.getElementsByClassName("Menu2Content")[0];
+                lContent.classList.toggle("Show");
+            });
+            
+            for(var j = 0; j < lLines.length; j++) {
+                var lLine = lLines[j];
+                
+                lLine.addEventListener("click", function(e) {
+                    var lParent = this.parentNode.parentNode;
+                    var lContent = lParent.getElementsByClassName("Menu2Content")[0];
+                    var lInput = lParent.getElementsByClassName("Menu2Input")[0];
+                    lInput.value = this.dataset.value;
+                    lInput.dataset.index = this.dataset.index;
+                    lContent.classList.toggle("Show");
+                });
+
+                lLine.addEventListener("mouseover", function(e) {
+                    var lParent = this.parentNode.parentNode;
+                    var lZoom = lParent.getElementsByClassName("Menu2Zoom")[0];
+                    var lImg = this.getElementsByClassName("Menu2Img")[0];
+                    lZoom.classList.remove("Show");
+                    lZoom.classList.add("Show");
+                    lZoom.src = lImg.src;
+                    lZoom.alt = lImg.alt;
+                });
+                
+                lLine.addEventListener("mouseout", function(e) {
+                    var lParent = this.parentNode.parentNode;
+                    var lZoom = lParent.getElementsByClassName("Menu2Zoom")[0];
+                    lZoom.classList.remove("Show");
+                });
+            }
+        }
+        
+        document.addEventListener("click", function(e) {
+            var lHideOk = !e.target.matches(".Menu2Input")
+                       && !e.target.matches(".Menu2Caret");
+                       
+            if(lHideOk) {
+                var lInputs = document.getElementsByClassName("Menu2Input");
+                
+                for(var i = 0; i < lInputs.length; i++) {
+                    var lInput = lInputs[i];
+                    var lParent = lInput.parentNode;
+                    var lContent = lParent.getElementsByClassName("Menu2Content")[0];
+                    lContent.classList.remove("Show");
+                }
+            }
+        });
+    }
+    //===============================================
+    initUi(_intro) {
+        var lFormTitle = document.getElementById("FormTitle");
+        var lFormIntro = document.getElementById("FormIntro");
+        this.m_title = lFormTitle.innerHTML;
+        this.m_intro = lFormIntro.innerHTML;
+    }
+    //===============================================
     clone() {
         var lObj = new GForm();
         lObj.setObj(this);
@@ -32,61 +108,6 @@ class GForm extends GObject {
         this.m_id = _obj.m_id;
         this.m_value = _obj.m_value;
         this.m_index = _obj.m_index;
-    }
-    //===============================================
-    init() {
-        var lInputs = document.getElementsByClassName("Menu2Button");
-        
-        for(var i = 0; i < lInputs.length; i++) {
-            var lInput = lInputs[i];
-            var lCaret = lInput.nextElementSibling;
-            var lContent = lCaret.nextElementSibling;
-            var lLines = lContent.getElementsByClassName("Menu2Line");
-            
-            lInput.addEventListener("click", function(e) {
-                var lContent = this.nextElementSibling.nextElementSibling;
-                lContent.classList.toggle("Show");
-            });
-            
-            lCaret.addEventListener("click", function(e) {
-                var lContent = this.nextElementSibling;
-                lContent.classList.toggle("Show");
-            });
-            
-            for(var j = 0; j < lLines.length; j++) {
-                var lLine = lLines[j];
-                
-                lLine.addEventListener("click", function(e) {
-                    var lContent = this.parentNode;
-                    var lInput = lContent.previousElementSibling.previousElementSibling;
-                    lInput.value = this.dataset.key;
-                    lInput.dataset.index = this.dataset.index;
-                    lContent.classList.toggle("Show");
-                });
-            }
-        }
-        
-        document.addEventListener("click", function(e) {
-            var lHideOk = !e.target.matches(".Menu2Button")
-                       && !e.target.matches(".Menu2Caret");
-                       
-            if(lHideOk) {
-                var lInputs = document.getElementsByClassName("Menu2Button");
-                
-                for(var i = 0; i < lInputs.length; i++) {
-                    var lInput = lInputs[i];
-                    var lContent = lInput.nextElementSibling.nextElementSibling;
-                    lContent.classList.remove("Show");
-                }
-            }
-        });
-    }
-    //===============================================
-    initUi(_intro) {
-        var lFormTitle = document.getElementById("FormTitle");
-        var lFormIntro = document.getElementById("FormIntro");
-        this.m_title = lFormTitle.innerHTML;
-        this.m_intro = lFormIntro.innerHTML;
     }
     //===============================================
     setTitle(_title) {
@@ -130,26 +151,12 @@ class GForm extends GObject {
         this.m_map.push(lObj);
     }
     //===============================================
-    getData(_id) {
-        var lData = "";
-        for(var i = 0; i < this.m_map.length; i++) {
-            var lObj = this.m_map[i];
-            if(lObj.m_id == _id) {
-                lData = lObj.m_value;
-            }
-        }
-        return lData;
+    getValue() {
+        return this.m_value;
     }
     //===============================================
-    getIndex(_id) {
-        var lData = "";
-        for(var i = 0; i < this.m_map.length; i++) {
-            var lObj = this.m_map[i];
-            if(lObj.m_id == _id) {
-                lData = lObj.m_index;
-            }
-        }
-        return lData;
+    getIndex() {
+        return this.m_index;
     }
     //===============================================
     writeContent() {
@@ -161,6 +168,19 @@ class GForm extends GObject {
             var lLabel = lObj.m_label;
             var lId = lObj.m_id;
             var lCData = lObj.m_cdata;
+
+            if(!lModel) {
+                this.addError("Le modèle est obligatoire.");
+                continue;
+            }
+            if(!lLabel) {
+                this.addError("Le libellé est obligatoire.");
+                continue;
+            }
+            if(!lId) {
+                this.addError("L'identifiant est obligatoire.");
+                continue;
+            }
 
             if(lModel == "label_edit") {
                 lContent += sprintf("<div class='Row12'>\n");
@@ -175,27 +195,27 @@ class GForm extends GObject {
                 lContent += sprintf("</div>\n");
             }
             else if(lModel == "label_image") {
+                if(!lCData) {
+                    this.addError("La donnée est obligatoire.");
+                    continue;
+                }
+                
                 var lImage = new GImage();
                 lImage.deserialize(lCData);
                 
                 lContent += sprintf("<div class='Row12'>\n");
                 lContent += sprintf("<label class='Label3' for='%s'>%s</label>\n", lId, lLabel);
                 lContent += sprintf("<div class='Field3 Menu2'>");
-                lContent += sprintf("<input type='text' class='Input4 Menu2Button' id='%s' readonly/>\n", lId);
+                lContent += sprintf("<input type='text' class='Input4 Menu2Input' id='%s' readonly/>\n", lId);
                 lContent += sprintf("<i class='Menu2Caret fa fa-caret-down'></i>\n");
+                lContent += sprintf("<img class='Menu2Zoom'/>\n");
                 lContent += sprintf("<div class='Menu2Content'>\n");
-                lContent += sprintf("<div class='Menu2Page'>\n");
-                lContent += sprintf("<div class='Menu2Body'>\n");
                 
                 for(var j = 0; j < lImage.m_map.length; j++) {
                     lImage.loadFromMap(j);
-                    lContent += sprintf("<div class='Menu2Line'>\n");
-                    lContent += sprintf("<div class='Menu2LineAbs' data-index='%s' data-key='%s'>%s <img class='Menu2Img' src='%s' alt='%s'/> <img class='Menu2Zoom' src='%s' alt='%s'/></div>\n", j, lImage.m_path, lImage.m_path, lImage.getImageData(), lImage.m_path, lImage.getImageData(), lImage.m_path);
-                    lContent += sprintf("</div>\n");
+                    lContent += sprintf("<div class='Menu2Line' data-index='%s' data-key='%s' data-value='%s'>%s <img class='Menu2Img' src='%s' alt='%s'/></div>\n", j, lImage.m_path, lImage.m_name, lImage.m_name, lImage.getImageData(), lImage.m_name);
                 }
                 
-                lContent += sprintf("</div>\n");
-                lContent += sprintf("</div>\n");
                 lContent += sprintf("</div>\n");
                 lContent += sprintf("</div>\n");
                 lContent += sprintf("</div>\n");
@@ -210,7 +230,7 @@ class GForm extends GObject {
     //===============================================
     readContent() {        
         for(var i = 0; i < this.m_map.length; i++) {
-            var lObj = this.m_map[i];
+            var lObj = this.m_map[i];            
             var lInput = document.getElementById(lObj.m_id);
             lObj.m_value = lInput.value;
             lObj.m_index = lInput.dataset.index;
@@ -276,7 +296,7 @@ class GForm extends GObject {
         this.m_label = lDom.getItem(_code, "label");
         this.m_id = lDom.getItem(_code, "id");
         this.m_value = b64_to_utf8(lDom.getItem(_code, "value"));
-        this.m_value = lDom.getItem(_code, "index");
+        this.m_index = lDom.getItem(_code, "index");
         lDom.getMap(_code, this.m_map, this);
     }
     //===============================================
@@ -352,11 +372,9 @@ class GForm extends GObject {
     onTestFormRun(_obj, _data) {
         var lForm = new GForm();
         lForm.deserialize(_data);
-        var lName = lForm.getData("ColorName");
-        var lPicker = lForm.getData("ColorPicker");
+        var lName = lForm.loadFromMap(0).getValue();
+        var lPicker = lForm.loadFromMap(1).getValue();
     }
     //===============================================
 }
-//===============================================
-
 //===============================================

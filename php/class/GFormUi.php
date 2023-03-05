@@ -65,7 +65,8 @@ class GFormUi extends GObject {
             $lModel = $this->m_dom->getItem3("env", "model", $i);
             $lId    = $this->m_dom->getItem3("env", "id", $i);
             $lValue = $this->m_dom->getItem3("env", "value", $i);
-            if($lModel == "normal") {
+            
+            if($lModel == "input") {
                 echo sprintf("<input type='hidden' id='%s' value='%s'/>\n", $lId, $lValue);
             }
         }

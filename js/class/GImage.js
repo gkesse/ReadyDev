@@ -1,11 +1,26 @@
 //===============================================
 class GImage extends GObject {
     //===============================================
+    static m_instance = null;
+    //===============================================
     constructor() {
         super();
         this.m_mimeType = "";
+        this.m_name = "";
         this.m_path = "";
         this.m_img = "";
+        this.m_data = "";
+    }
+    //===============================================
+    static Instance() {
+        if(this.m_instance == null) {
+            this.m_instance = new GImage();
+        }
+        return this.m_instance;
+    }    
+    //===============================================
+    init() {
+        this.loadImage();
     }
     //===============================================
     clone() {
@@ -16,8 +31,13 @@ class GImage extends GObject {
     //===============================================
     setObj(_obj) {
         this.m_mimeType = _obj.m_mimeType;
+        this.m_name = _obj.m_name;
         this.m_path = _obj.m_path;
         this.m_img = _obj.m_img;
+    }
+    //===============================================
+    getData() {
+        return this.m_data;
     }
     //===============================================
     getImageData() {
@@ -29,26 +49,26 @@ class GImage extends GObject {
         call_server("image", "load_image", this);
     }
     //===============================================
-    showImage() {
-        var lData = this.serialize();
-        var lForm = new GForm();
-        lForm.addLabelEdit("un", "Un :");
-        lForm.addLabelImage("deux", "Deux :", lData);
-        lForm.showForm();
+    loadData() {
+        this.readData();
+        this.deserialize(this.m_data);
     }
     //===============================================
-    readUi() {
-
+    readData() {
+        var lImageData = document.getElementById("ImageData");
+        this.m_data = b64_to_utf8(lImageData.innerHTML);
     }
     //===============================================
-    writeUi() {
-
+    writeData() {
+        var lImageData = document.getElementById("ImageData");
+        lImageData.innerHTML = utf8_to_b64(this.serialize());
     }
     //===============================================
     serialize(_code = "image") {
         var lDom = new GCode();
         lDom.createDoc();
         lDom.addData(_code, "mime_type", this.m_mimeType);
+        lDom.addData(_code, "name", this.m_name);
         lDom.addData(_code, "path", this.m_path);
         lDom.addData(_code, "img", utf8_to_b64(this.m_img));
         lDom.addMap(_code, this.m_map);
@@ -59,6 +79,7 @@ class GImage extends GObject {
         var lDom = new GCode();
         lDom.loadXml(_data);
         this.m_mimeType = lDom.getItem(_code, "mime_type");
+        this.m_name = lDom.getItem(_code, "name");
         this.m_path = lDom.getItem(_code, "path");
         this.m_img = b64_to_utf8(lDom.getItem(_code, "img"));
         lDom.getMap(_code, this.m_map, this);
@@ -67,9 +88,6 @@ class GImage extends GObject {
     onModule(_method, _obj, _data) {
         if(_method == "") {
             this.addError("La méthode est obligatoire.");
-        }
-        else if(_method == "test") {
-            this.onTest(_obj, _data);
         }
         else if(_method == "load_image") {
             this.onLoadImage(_obj, _data);
@@ -80,13 +98,7 @@ class GImage extends GObject {
         return !this.hasErrors();
     }
     //===============================================
-    onTest(_obj, _data) {
-        var lImage = new GImage();
-        lImage.loadImage();
-    }
-    //===============================================
     onLoadImage(_obj, _data) {
-        this.readUi();
         var lAjax = new GAjax();
         var lData = this.serialize();
         lAjax.callLocal("image", "load_image", lData, this.onLoadImageCB);
@@ -96,10 +108,11 @@ class GImage extends GObject {
         if(_isOk) {
             var lImage = new GImage();
             lImage.deserialize(_data);
-            lImage.loadFromMap(0);
-            lImage.showImage();
+            lImage.writeData();
         }
     }
     //===============================================
 }
+//===============================================
+GImage.Instance().init();
 //===============================================

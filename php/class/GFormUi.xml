@@ -52,11 +52,11 @@
             <code>env</code>
             <map>
                 <data>
-                    <model>normal</model>
+                    <model>input</model>
                     <id>FormModule</id>
                 </data>
                 <data>
-                    <model>normal</model>
+                    <model>input</model>
                     <id>FormMethod</id>
                 </data>
             </map>
