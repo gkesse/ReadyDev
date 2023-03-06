@@ -19,10 +19,6 @@ class GImage extends GObject {
         return this.m_instance;
     }    
     //===============================================
-    init() {
-        this.loadImage();
-    }
-    //===============================================
     clone() {
         var lObj = new GImage();
         lObj.setObj(this);
@@ -34,10 +30,6 @@ class GImage extends GObject {
         this.m_name = _obj.m_name;
         this.m_path = _obj.m_path;
         this.m_img = _obj.m_img;
-    }
-    //===============================================
-    getData() {
-        return this.m_data;
     }
     //===============================================
     getImageData() {
@@ -113,6 +105,4 @@ class GImage extends GObject {
     }
     //===============================================
 }
-//===============================================
-GImage.Instance().init();
 //===============================================

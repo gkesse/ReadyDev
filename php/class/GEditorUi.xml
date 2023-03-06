@@ -323,12 +323,70 @@
                                 <data>
                                     <category>text</category>
                                     <module>editor</module>
-                                    <method>add_parallax</method>
+                                    <method>update_bg_image_parallax</method>
+                                    <label>Modifier l'image de fond</label>
+                                </data>
+                                <data>
+                                    <category>text</category>
+                                    <module>editor</module>
+                                    <method>update_bg_color_parallax</method>
+                                    <label>Modifier la couleur de fond</label>
+                                </data>
+                                <data>
+                                    <category>text</category>
+                                    <module>editor</module>
+                                    <method>delete_parallax</method>
                                     <label>Supprimer un effet parallax</label>
                                 </data>
                             </map>
                         </data>
+                        <!-- Formations -->
+                        <data>
+                            <category>text</category>
+                            <label>Formations</label>
+                            <map>
+                                <data>
+                                    <category>text</category>
+                                    <module>editor</module>
+                                    <method>add_graduation</method>
+                                    <label>Ajouter une formation</label>
+                                </data>
+                                <data>
+                                    <category>text</category>
+                                    <module>editor</module>
+                                    <method>delete_graduation</method>
+                                    <label>Supprimer une formation</label>
+                                </data>
+                            </map>
+                        </data>
+                        <!-- Textes -->
+                        <data>
+                            <category>text</category>
+                            <label>Textes</label>
+                            <map>
+                                <data>
+                                    <category>text</category>
+                                    <module>editor</module>
+                                    <method>add_text_image_left</method>
+                                    <label>Ajouter un texte image gauche</label>
+                                </data>
+                            </map>
+                        </data>
+                        <!-- end -->
                     </map>
+                </data>
+                <!-- Images -->
+                <data>
+                	<category>text</category>
+                    <label>Images</label>
+                    <map>
+                        <data>
+                            <category>text</category>
+                            <module>image</module>
+                            <method>load_image</method>
+                            <label>Charger les images</label>
+                        </data>
+                  	</map>
                 </data>
                 <!-- Actions -->
                 <data>

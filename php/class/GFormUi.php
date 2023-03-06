@@ -24,7 +24,7 @@ class GFormUi extends GObject {
         $lModule        = $this->m_dom->getItem("form", "module");
         $lCloseCB       = $this->m_dom->getItem("form", "close_cb");
         
-        echo sprintf("<div class='Modal' id='%s'>\n", $lModalId);
+        echo sprintf("<div class='Modal %s' id='%s'>\n", $lModalId, $lModalId);
         echo sprintf("<div id='%s' hidden='true'></div>\n", $lDataId);
         echo sprintf("<div class='Content10' id='%s'>\n", $lBodyId);
         echo sprintf("<div class='Button3 Close' onclick='call_server(\"%s\", \"%s\");'><i class='fa fa-close'></i></div>\n", $lModule, $lCloseCB);

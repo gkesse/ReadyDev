@@ -159,7 +159,7 @@ class GPageFac extends GModule {
             $lFile->saveData($this->m_cachePagePath, $this->m_path, $this->m_content);
             $this->addLogs($lFile->getLogs());
             if(!$this->hasErrors()) {
-                $this->addLog("La donnée a bien été enregistrée.");
+                // $this->addLog("La donnée a bien été enregistrée.");
             }
         }
     }

@@ -15,7 +15,7 @@ class GForm extends GObject {
         this.m_value = "";
         this.m_data = "";
         this.m_cdata = "";
-        this.m_index = 0;
+        this.m_index = -1;
                 
         this.initUi();
     }
@@ -30,7 +30,10 @@ class GForm extends GObject {
             var lContent = lParent.getElementsByClassName("Menu2Content")[0];
             var lLines = lContent.getElementsByClassName("Menu2Line");
             
-            lInput.addEventListener("click", function(e) {
+            lInput.dataset.index = -1;
+            
+            lInput.addEventListener("mousedown", function(e) {
+                e.preventDefault();
                 var lParent = this.parentNode;
                 var lContent = lParent.getElementsByClassName("Menu2Content")[0];
                 lContent.classList.toggle("Show");
@@ -45,7 +48,8 @@ class GForm extends GObject {
             for(var j = 0; j < lLines.length; j++) {
                 var lLine = lLines[j];
                 
-                lLine.addEventListener("click", function(e) {
+                lLine.addEventListener("mousedown", function(e) {
+                    e.preventDefault();
                     var lParent = this.parentNode.parentNode;
                     var lContent = lParent.getElementsByClassName("Menu2Content")[0];
                     var lInput = lParent.getElementsByClassName("Menu2Input")[0];
@@ -72,11 +76,13 @@ class GForm extends GObject {
             }
         }
         
-        document.addEventListener("click", function(e) {
-            var lHideOk = !e.target.matches(".Menu2Input")
-                       && !e.target.matches(".Menu2Caret");
+        document.addEventListener("mousedown", function(e) {
+            var lHideOk = e.target.matches(".ModalForm")
+                       && !e.target.matches(".Menu2Caret")
+                       && !e.target.matches(".Menu2Input");
                        
             if(lHideOk) {
+                e.preventDefault();
                 var lInputs = document.getElementsByClassName("Menu2Input");
                 
                 for(var i = 0; i < lInputs.length; i++) {
@@ -296,7 +302,7 @@ class GForm extends GObject {
         this.m_label = lDom.getItem(_code, "label");
         this.m_id = lDom.getItem(_code, "id");
         this.m_value = b64_to_utf8(lDom.getItem(_code, "value"));
-        this.m_index = lDom.getItem(_code, "index");
+        this.m_index = +lDom.getItem(_code, "index");
         lDom.getMap(_code, this.m_map, this);
     }
     //===============================================
