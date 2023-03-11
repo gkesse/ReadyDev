@@ -291,21 +291,21 @@
                             <map>
                                 <data>
                                     <category>text</category>
-                                    <module>command</module>
-                                    <method>selection</method>
-                                    <label>Titre 1</label>
+                                    <module>editor</module>
+                                    <method>add_title_1</method>
+                                    <label>Ajouter un titre 1</label>
                                 </data>
                                 <data>
                                     <category>text</category>
-                                    <module>command</module>
-                                    <method>selection</method>
-                                    <label>Titre 2</label>
+                                    <module>editor</module>
+                                    <method>add_title_2</method>
+                                    <label>Ajouter un titre 2</label>
                                 </data>
                                 <data>
                                     <category>text</category>
-                                    <module>command</module>
-                                    <method>selection</method>
-                                    <label>Titre 3</label>
+                                    <module>editor</module>
+                                    <method>add_title_3</method>
+                                    <label>Ajouter un titre 3</label>
                                 </data>
                             </map>
                         </data>
@@ -370,6 +370,12 @@
                                     <method>add_text_image_left</method>
                                     <label>Ajouter un texte image gauche</label>
                                 </data>
+                                <data>
+                                    <category>text</category>
+                                    <module>editor</module>
+                                    <method>delete_text_image_left</method>
+                                    <label>Supprimer un texte image gauche</label>
+                                </data>
                             </map>
                         </data>
                         <!-- end -->
@@ -407,9 +413,15 @@
                         </data>
                         <data>
                             <category>text</category>
-                            <module>command</module>
-                            <method>store_page_file</method>
-                            <label>Sauvegarder</label>
+                            <module>page</module>
+                            <method>search_page_file</method>
+                            <label>Rechercher</label>
+                        </data>
+                        <data>
+                            <category>text</category>
+                            <module>editor</module>
+                            <method>show_code_page</method>
+                            <label>Voir le code de la page</label>
                         </data>
                         <data>
                             <category>text</category>
@@ -503,6 +515,12 @@
                             <module>page</module>
                             <method>search_code_file</method>
                             <label>Rechercher</label>
+                        </data>
+                        <data>
+                            <category>text</category>
+                            <module>editor</module>
+                            <method>show_edition_page</method>
+                            <label>Voir l'édition de la page</label>
                         </data>
             		</map>
              	</data>

@@ -717,6 +717,21 @@ thead tr:first-child {
 }
 
 /* ============================================== */
+/* Caption */
+/* ============================================== */
+
+.Caption {
+    background-color: #051039;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 40px;
+    margin-top: -20px; 
+    opacity: 0.8;
+}
+
+/* ============================================== */
 /* Code */
 /* ============================================== */
 
@@ -991,6 +1006,10 @@ thead tr:first-child {
 
 .DropDownContent {
 	display: none;
+}
+
+.DropDownContent.Show {
+	display: block;
 	position: absolute;
 	border: 2px solid #2f3959;
 	background-color: #051039;
@@ -1012,7 +1031,8 @@ thead tr:first-child {
 	text-align: left;
 }
 
-.DropDownLine:hover, .DropDownSub:hover {
+.DropDownLine:hover,
+.DropDownSub:hover {
 	background-color: rgba(255, 255, 255, 0.2);
 }
 
@@ -1023,16 +1043,17 @@ thead tr:first-child {
 
 .DropDownContainer {
 	display: none;
+}
+
+.DropDownContainer.Show {
+	display: block;
 	background-color: #051039;
 	padding-left: 20px;
 }
 
-.DropDownActive, .DropDownActive:hover {
+.DropDownSub.Active,
+.DropDownSub.Active:hover {
 	background-color: #2f5959;
-}
-
-.DropDownShow {
-	display: block;
 }
 
 /* ============================================== */
@@ -1168,33 +1189,6 @@ thead tr:first-child {
 
 .GEndEditor {
     overflow: auto;
-}
-
-/* ============================================== */
-/* Graduation */
-/* ============================================== */
-
-.Graduation {
-    padding: 10px 0px;
-}
-
-.GraduationContent {
-    float: left;
-    text-align: center;
-}
-
-.GraduationIcon {
-    background-color: rgba(255, 255, 255, 0.2);
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    font-size: 20px;
-    border-radius: 20px;
-    text-align: center;
-}
-
-.GraduationText {
-    margin-left: 50px;
 }
 
 /* ============================================== */
@@ -1361,6 +1355,13 @@ thead tr:first-child {
     height: 30px;
     border-radius: 50%;
     padding: 3px;
+}
+
+.Img5 {
+    float: left;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
 }
 
 /* ============================================== */
@@ -2427,22 +2428,6 @@ thead tr:first-child {
 }
 
 /* ============================================== */
-/* TextImage */
-/* ============================================== */
-
-.TextImgLeft {
-    float: left;
-    border-radius: 20px;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-}
-
-.TextImgLeftText {
-    margin-left: 50px;
-}
-
-/* ============================================== */
 /* Title */
 /* ============================================== */
 
@@ -2457,7 +2442,7 @@ thead tr:first-child {
     vertical-align: middle;
 }
 
-.Title2{
+.Title2 {
     background-color: #2f3959; /* L2  5f6681*/
     color: #BF8E3A;
     padding: 20px 10px;

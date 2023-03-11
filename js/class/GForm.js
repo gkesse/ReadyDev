@@ -77,7 +77,9 @@ class GForm extends GObject {
         }
         
         document.addEventListener("mousedown", function(e) {
-            var lHideOk = e.target.matches(".ModalForm")
+            var lForm = document.getElementById("ModalForm");
+            var lFormOk = (lForm.style.display != "none");
+            var lHideOk = lFormOk 
                        && !e.target.matches(".Menu2Caret")
                        && !e.target.matches(".Menu2Input");
                        

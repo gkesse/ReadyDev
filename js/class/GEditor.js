@@ -28,6 +28,14 @@ class GEditor extends GObject {
         }
     }
     //===============================================
+    initTab(_index) {
+        var lEditorTabs = document.getElementsByClassName("EditorTab");
+        if(lEditorTabs.length) {
+            var lEditorTab = lEditorTabs[_index];
+            this.onOpenHeader(lEditorTab, "EditorTab" + _index);
+        }
+    }
+    //===============================================
     createNode(_data) {
         var lParent = document.createElement('div');
         lParent.innerHTML = _data.trim();
@@ -81,6 +89,27 @@ class GEditor extends GObject {
             this.onOpenHeader(_obj, _data);
         }
         //===============================================
+        // page
+        //===============================================
+        else if(_method == "show_code_page") {
+            this.onShowCodePage(_obj, _data);
+        }
+        else if(_method == "show_edition_page") {
+            this.onShowEditionPage(_obj, _data);
+        }
+        //===============================================
+        // titres
+        //===============================================
+        else if(_method == "add_title_1") {
+            this.onAddTitle1(_obj, _data);
+        }
+        else if(_method == "delete_title_1") {
+            this.onDeleteTitle1(_obj, _data);
+        }
+        else if(_method == "delete_title_1_confirm") {
+            this.onDeleteTitle1Confirm(_obj, _data);
+        }
+        //===============================================
         // parallax
         //===============================================
         else if(_method == "add_parallax") {
@@ -122,6 +151,12 @@ class GEditor extends GObject {
         else if(_method == "add_text_image_left") {
             this.onAddTextImageLeft(_obj, _data);
         }
+        else if(_method == "delete_text_image_left") {
+            this.onDeleteTextImageLeft(_obj, _data);
+        }
+        else if(_method == "delete_text_image_left_confirm") {
+            this.onDeleteTextImageLeftConfirm(_obj, _data);
+        }
         //===============================================
         // end
         //===============================================
@@ -132,7 +167,7 @@ class GEditor extends GObject {
     }
     //===============================================
     onOpenHeader(_obj, _data) {
-        if(_obj === undefined) return;
+        if(!_obj) return;
         var lTabs = document.getElementsByClassName("EditorTab");
         for(var i = 0; i < lTabs.length; i++) {
             var lTab = lTabs[i];
@@ -146,6 +181,73 @@ class GEditor extends GObject {
         }
         var lTab = document.getElementById(_data);
         lTab.style.display = "block";
+    }
+    //===============================================
+    onShowCodePage(_obj, _data) {
+        this.initTab(3);
+    }
+    //===============================================
+    onShowEditionPage(_obj, _data) {
+        this.initTab(2);
+    }
+    //===============================================
+    onAddTitle1(_obj, _data) {
+        if(!this.readSelection()) return false;
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(this.hasParent("GTitle1")) {
+            this.addError("Vous êtes dans un titre 1.");
+            return false;
+        }
+        if(!this.isLine()) {
+            this.addError("Vous êtes sur une ligne.");
+            return false;
+        }
+
+        var lHtml = "";
+        lHtml += "<div class='GTitle1 Content2'>";
+        lHtml += "<div class='MainBlock2'>";
+        lHtml += "<div class='Content'>";
+        lHtml += "<h1 class='Title2 Center'>";
+        lHtml += "<a class='Link3' href='#'>";
+        lHtml += "Ajouter un titre...";
+        lHtml += "</a>";
+        lHtml += "</h1>";
+        lHtml += "<div class='Body3'>";
+        lHtml += "Ajouter un texte ici...";
+        lHtml += "</div>";
+        lHtml += "</div>";
+        lHtml += "</div>";
+        lHtml += "</div>";
+
+        document.execCommand("insertHTML", false, lHtml);
+    }
+    //===============================================
+    onDeleteTitle1(_obj, _data) {
+        if(!this.readSelection()) return false;
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GTitle1")) {
+            this.addError("Vous n'êtes pas dans un titre 1.");
+            return false;
+        }
+        
+        var lConfirm = new GConfirm();
+        lConfirm.setCallback("editor", "delete_title_1_confirm");
+        lConfirm.showConfirm();
+    }
+    //===============================================
+    onDeleteTitle1Confirm(_obj, _data) {
+        if(!this.readSelection()) return false;
+        if(!this.hasParent("GTitle1")) {
+            this.addError("Vous n'êtes pas dans un titre 1.");
+            return false;
+        }
+        this.removeNode();
     }
     //===============================================
     onAddParallax(_obj, _data) {
@@ -165,12 +267,12 @@ class GEditor extends GObject {
 
         var lHtml = "";
         lHtml += "<div class='GParallax1 Parallax'>\n";
-        lHtml += "<div class='ParallaxImg'>\n";
-        lHtml += "<div class='ParallaxCaption'>\n";
-        lHtml += "<a href='#'><div class='ParallaxTitle'>Ajouter un titre...</div></a>\n";
+        lHtml += "<div class='Img'>\n";
+        lHtml += "<div class='Caption'>\n";
+        lHtml += "<a href='#'><div class='Text'>Ajouter un titre...</div></a>\n";
         lHtml += "</div>\n";
         lHtml += "</div>\n";
-        lHtml += "<div class='ParallaxBody'>\n";
+        lHtml += "<div class='Body2'>\n";
         lHtml += "Ajouter un texte...\n";
         lHtml += "</div>\n";
         lHtml += "</div>\n";
@@ -245,7 +347,7 @@ class GEditor extends GObject {
         }
 
         var lNode = this.m_node;
-        var lBgImgId = lNode.getElementsByClassName("ParallaxImg")[0];
+        var lBgImgId = lNode.firstElementChild;
         lBgImgId.style.backgroundImage = sprintf("url('%s')", lBgImg);
     }
     //===============================================
@@ -286,7 +388,7 @@ class GEditor extends GObject {
         }
 
         var lNode = this.m_node;
-        var lBgColorId = lNode.getElementsByClassName("ParallaxBody")[0];
+        var lBgColorId = lNode.firstElementChild.nextElementSibling;
         lBgColorId.style.backgroundColor = lBgColor;
     }
     //===============================================
@@ -306,14 +408,14 @@ class GEditor extends GObject {
         }
 
         var lHtml = "";
-        lHtml += "<div class='GGraduation1 Graduation'>\n";
-        lHtml += "<div class='GraduationContent'>\n";
-        lHtml += "<i class='GraduationIcon fa fa-graduation-cap'></i>\n";
+        lHtml += "<div class='GGraduation1 Row3'>\n";
+        lHtml += "<div class='Content3'>\n";
+        lHtml += "<i class='Icon4 fa fa-graduation-cap'></i>\n";
         lHtml += "</div>\n";
-        lHtml += "<div class='GraduationText'>\n";
-        lHtml += "<b class='GraduationDate'>2006 - 2009</b><br>\n";
-        lHtml += "<span class='GraduationDiploma'>DUT Electronique Industrielle,</span><br>\n";
-        lHtml += "<span class='GraduationSchool'>Faculté des Sciences de Bizerte, Tunisie.</span>\n";
+        lHtml += "<div class='Text3'>\n";
+        lHtml += "<b>2006 - 2009</b><br>\n";
+        lHtml += "DUT Electronique Industrielle,<br>\n";
+        lHtml += "Faculté des Sciences de Bizerte, Tunisie.\n";
         lHtml += "</div>\n";
         lHtml += "</div>\n";
 
@@ -362,11 +464,35 @@ class GEditor extends GObject {
 
         var lHtml = "";
         lHtml += "<div class='GTextImage1'>\n";
-        lHtml += "<img class='TextImgLeft' src='/data/img/defaults/img_avatar.png' alt='img_avatar.png'/>\n";
-        lHtml += "<div class='TextImgLeftText'>Ajouter un texte...</div>\n";
+        lHtml += "<img class='Img5' src='/data/img/defaults/img_avatar.png' alt='img_avatar.png'/>\n";
+        lHtml += "<div class='Text3'>Ajouter un texte...</div>\n";
         lHtml += "</div>\n";
 
         document.execCommand("insertHTML", false, lHtml);
+    }
+    //===============================================
+    onDeleteTextImageLeft(_obj, _data) {
+        if(!this.readSelection()) return false;
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GTextImage1")) {
+            this.addError("Vous n'êtes pas dans un texte image");
+            return false;
+        }
+        var lConfirm = new GConfirm();
+        lConfirm.setCallback("editor", "delete_text_image_left_confirm");
+        lConfirm.showConfirm();
+    }
+    //===============================================
+    onDeleteTextImageLeftConfirm(_obj, _data) {
+        if(!this.readSelection()) return false;
+        if(!this.hasParent("GTextImage1")) {
+            this.addError("Vous n'êtes pas dans un texte image");
+            return false;
+        }
+        this.removeNode();
     }
     //===============================================
 }

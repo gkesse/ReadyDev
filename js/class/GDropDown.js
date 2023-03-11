@@ -19,7 +19,7 @@ class GDropDown extends GObject {
         for(var i = 0; i < lDropDownLines.length; i++) {
             var lDropDownLine = lDropDownLines[i];
             lDropDownLine.addEventListener("click", function(e) {
-                this.parentNode.classList.toggle("DropDownShow");
+                this.parentNode.classList.toggle("Show");
             });
             lDropDownLine.addEventListener("mousedown", function(e) {
                 e.preventDefault();
@@ -30,13 +30,13 @@ class GDropDown extends GObject {
         for(var i = 0; i < lDropDownButtons.length; i++) {
             var lDropDownButton = lDropDownButtons[i];
             lDropDownButton.addEventListener("click", function(e) {
-                this.nextElementSibling.classList.toggle("DropDownShow");
+                this.nextElementSibling.classList.toggle("Show");
                 var lDropDownSubs = document.getElementsByClassName("DropDownSub");
                 for(var i = 0; i < lDropDownSubs.length; i++) {
                     var lDropDownSub = lDropDownSubs[i];
-                    lDropDownSub.classList.remove("DropDownActive");
+                    lDropDownSub.classList.remove("Active");
                     var lDropDownContainer = lDropDownSub.nextElementSibling;
-                    lDropDownContainer.classList.remove("DropDownShow");
+                    lDropDownContainer.classList.remove("Show");
                 }
             });
         }
@@ -50,9 +50,9 @@ class GDropDown extends GObject {
                 for(var i = 0; i < lDropDownSubs.length; i++) {
                     var lDropDownSub = lDropDownSubs[i];
                     if(lDropDownSub == this) continue;
-                    lDropDownSub.classList.remove("DropDownActive");
+                    lDropDownSub.classList.remove("Active");
                     var lDropDownContainer = lDropDownSub.nextElementSibling;
-                    lDropDownContainer.classList.remove("DropDownShow");
+                    lDropDownContainer.classList.remove("Show");
                 }
                 lParentNode = this;
                 while(1) {
@@ -60,12 +60,12 @@ class GDropDown extends GObject {
                     if(lParentNode.matches(".DropDownContent")) break;
                     var lDropDownContainer = lParentNode;
                     var lDropDownSub = lDropDownContainer.previousElementSibling;
-                    lDropDownSub.classList.toggle("DropDownActive");
-                    lDropDownContainer.classList.toggle("DropDownShow");
+                    lDropDownSub.classList.toggle("Active");
+                    lDropDownContainer.classList.toggle("Show");
                 }
-                this.classList.toggle("DropDownActive");
+                this.classList.toggle("Active");
                 var lDropDownContainer = this.nextElementSibling;
-                lDropDownContainer.classList.toggle("DropDownShow");
+                lDropDownContainer.classList.toggle("Show");
             });
 
             lDropDownSub.addEventListener("mousedown", function(e) {
@@ -81,14 +81,14 @@ class GDropDown extends GObject {
                 var lDropDownContents = document.getElementsByClassName("DropDownContent");
                 for(var i = 0; i < lDropDownContents.length; i++) {
                     var lDropDownContent = lDropDownContents[i];
-                    lDropDownContent.classList.remove("DropDownShow");
+                    lDropDownContent.classList.remove("Show");
                 }
                 var lDropDownSubs = document.getElementsByClassName("DropDownSub");
                 for(var i = 0; i < lDropDownSubs.length; i++) {
                     var lDropDownSub = lDropDownSubs[i];
-                    lDropDownSub.classList.remove("DropDownActive");
+                    lDropDownSub.classList.remove("Active");
                     var lDropDownContainer = lDropDownSub.nextElementSibling;
-                    lDropDownContainer.classList.remove("DropDownShow");
+                    lDropDownContainer.classList.remove("Show");
                 }
             }
         });
@@ -109,7 +109,7 @@ class GDropDown extends GObject {
     //===============================================
     onToggleMenu(_obj, _data) {
         var lDropDownContent = _obj.nextElementSibling;
-        lDropDownContent.classList.toggle("DropDownShow");
+        lDropDownContent.classList.toggle("Show");
     }
     //===============================================
 }
