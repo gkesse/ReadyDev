@@ -21,8 +21,8 @@ class GServer extends GObject {
         else if(_module == "page") {
             this.onPage(_method, _obj, _data);
         }
-        else if(_module == "command") {
-            this.onCommand(_method, _obj, _data);
+        else if(_module == "site") {
+            this.onSite(_method, _obj, _data);
         }
         else if(_module == "combobox") {
             this.onComboBox(_method, _obj, _data);
@@ -87,8 +87,8 @@ class GServer extends GObject {
         this.addLogs(lObj.getLogs());
     }
     //===============================================
-    onCommand(_method, _obj, _data) {
-        var lObj = new GCommand();
+    onSite(_method, _obj, _data) {
+        var lObj = new GSite();
         lObj.onModule(_method, _obj, _data)
         this.addLogs(lObj.getLogs());
     }

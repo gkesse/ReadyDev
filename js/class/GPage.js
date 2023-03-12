@@ -7,6 +7,7 @@ class GPage extends GObject {
         super();
         this.m_id = 0;
         this.m_parentId = 0;
+        this.m_siteId = 0;
         this.m_typeId = 0;
         this.m_default = 0;
         this.m_name = ""
@@ -26,6 +27,29 @@ class GPage extends GObject {
         }
         return this.m_instance;
     }    
+    //===============================================
+    clone() {
+        var lObj = new GPage();
+        lObj.setObj(this);
+        return lObj;
+    }
+    //===============================================
+    setObj(_obj) {
+        this.m_id = _obj.m_id;
+        this.m_parentId = _obj.m_parentId;
+        this.m_siteId = _obj.m_siteId;
+        this.m_typeId = _obj.m_typeId;
+        this.m_default = _obj.m_default;
+        this.m_name = _obj.m_name;
+        this.m_typeName = _obj.m_typeName;
+        this.m_path = _obj.m_path;
+        this.m_idPath = _obj.m_idPath;
+        this.m_tree = _obj.m_tree;
+        this.m_content = _obj.m_content;
+        this.m_defaultAddress = _obj.m_defaultAddress;
+        this.m_defaultPage = _obj.m_defaultPage;
+        this.m_activeAddress = _obj.m_activeAddress;
+    }
     //===============================================
     init() {
         this.updateAddress();
@@ -68,28 +92,6 @@ class GPage extends GObject {
         var lEditorPageDefaultPage = document.getElementById("EditorPageDefaultPage");
         var lPage = this.clone();
         lEditorPageDefaultPage.innerHTML = lPage.serialize();
-    }
-    //===============================================
-    clone() {
-        var lObj = new GPage();
-        lObj.setObj(this);
-        return lObj;
-    }
-    //===============================================
-    setObj(_obj) {
-        this.m_id = _obj.m_id;
-        this.m_parentId = _obj.m_parentId;
-        this.m_typeId = _obj.m_typeId;
-        this.m_default = _obj.m_default;
-        this.m_name = _obj.m_name;
-        this.m_typeName = _obj.m_typeName;
-        this.m_path = _obj.m_path;
-        this.m_idPath = _obj.m_idPath;
-        this.m_tree = _obj.m_tree;
-        this.m_content = _obj.m_content;
-        this.m_defaultAddress = _obj.m_defaultAddress;
-        this.m_defaultPage = _obj.m_defaultPage;
-        this.m_activeAddress = _obj.m_activeAddress;
     }
     //===============================================
     setParentId(_parentId) {
@@ -477,7 +479,7 @@ class GPage extends GObject {
         this.readUi();
         var lAjax = new GAjax();
         var lData = this.serialize();
-        lAjax.callLocal("page", "save_page", lData, this.onSavePageCB);        
+        lAjax.callRemote("page", "save_page", lData, this.onSavePageCB);        
     }
     //===============================================
     onSavePageCB(_data, _isOk) {
@@ -514,10 +516,10 @@ class GPage extends GObject {
     }
     //===============================================
     onSearchPageCB(_data, _isOk) {
-        var lPage = GPage.Instance();
-        lPage.clearMap();
-        lPage.deserialize(_data);
         if(_isOk) {
+            var lPage = GPage.Instance();
+            lPage.clearMap();
+            lPage.deserialize(_data);
             if(lPage.m_map.length == 1) {
                 lPage.loadFromMap(0);
                 lPage.writeUi();

@@ -180,6 +180,7 @@ class GEditor extends GObject {
             lContent.style.display = "none";
         }
         var lTab = document.getElementById(_data);
+        if(!lTab) return;
         lTab.style.display = "block";
     }
     //===============================================

@@ -22,7 +22,7 @@
                 <data>
                     <category>normal</category>
                     <id>EditorTabDefault</id>
-                    <value>2</value>
+                    <value>1</value>
                 </data>            
             </map>
         </data>
@@ -42,20 +42,26 @@
                 </data>
                 <data>
                     <category>text</category>
-                    <tooltip>Gestion d'une page</tooltip>
+                    <tooltip>Site d'une page</tooltip>
                     <id>EditorTab1</id>
+                    <name>Site</name>
+                </data>
+                <data>
+                    <category>text</category>
+                    <tooltip>Gestion d'une page</tooltip>
+                    <id>EditorTab2</id>
                     <name>Page</name>
                 </data>
                 <data>
                     <category>text</category>
                     <tooltip>Edition d'une page</tooltip>
-                    <id>EditorTab2</id>
+                    <id>EditorTab3</id>
                     <name>Edition</name>
                 </data>
                 <data>
                     <category>text</category>
                     <tooltip>Code d'une page</tooltip>
-                    <id>EditorTab3</id>
+                    <id>EditorTab4</id>
                     <name>Code</name>
                 </data>
             </map>
@@ -77,12 +83,86 @@
                ]]></intro>
         </data>
         <!-- ============================================ -->
+        <!-- site -->
+        <!-- ============================================ -->
+        <data>
+            <code>site</code>
+            <title>Site</title>
+            <id>EditorTab1</id>
+            <map>
+                <!-- body : hidden -->
+                <data>
+                    <category>body</category>
+                    <model>hidden</model>
+                    <id>EditorSiteId</id>
+                </data>
+                <data>
+                    <category>body</category>
+                    <model>hidden_div</model>
+                    <id>EditorSiteDefaultSite</id>
+                </data>
+                <!-- body : visible-->
+                <data>
+                    <category>body</category>
+                    <model>label_edit_lower</model>
+                    <label>Nom :</label>
+                    <id>EditorSiteName</id>
+                </data>
+                <data>
+                    <category>body</category>
+                    <model>label_edit</model>
+                    <label>Titre :</label>
+                    <id>EditorSiteTitle</id>
+                </data>
+                <data>
+                    <category>body</category>
+                    <model>label_edit</model>
+                    <label>Libellé :</label>
+                    <id>EditorSiteLabel</id>
+                </data>
+                <!-- button -->
+                <data>
+                    <category>button</category>
+                    <id>EditorSiteSave</id>
+                    <module>site</module>
+                    <method>save_site</method>
+                    <picto>save</picto>
+                    <text>Enregistrer</text>
+                </data>
+                <data>
+                    <category>button</category>
+                    <id>EditorSiteSearch</id>
+                    <module>site</module>
+                    <method>search_site</method>
+                    <picto>search</picto>
+                    <text>Rechercher</text>
+                </data>
+                <data>
+                    <category>button</category>
+                    <id>EditorSiteDelete</id>
+                    <module>site</module>
+                    <method>delete_site</method>
+                    <picto>trash</picto>
+                    <text>Supprimer</text>
+                </data>
+                <data>
+                    <category>button</category>
+                    <id>EditorPageNew</id>
+                    <module>site</module>
+                    <method>new_site</method>
+                    <picto>file</picto>
+                    <text>Nouveau</text>
+                </data>
+                <!-- end -->
+            </map>
+       	</data>                
+        <!-- ============================================ -->
         <!-- page -->
         <!-- ============================================ -->
         <data>
             <code>page</code>
             <title>Page</title>
-            <id>EditorTab1</id>                
+            <id>EditorTab2</id>                
             <map>
                 <!-- body : hidden -->
                 <data>
@@ -226,7 +306,7 @@
         <data>
             <code>edition</code>
             <title>Edition</title>
-            <id>EditorTab2</id>
+            <id>EditorTab3</id>
             <map>
             	<data>
             		<category>body</category>
@@ -483,7 +563,7 @@
         <data>
             <code>code</code>
             <title>Code</title>
-            <id>EditorTab3</id>
+            <id>EditorTab4</id>
             <map>
             	<data>
             		<category>body</category>

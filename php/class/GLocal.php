@@ -10,11 +10,11 @@ class GLocal extends GModule {
         if($this->m_module == "") {
             $this->addError("Le module est obligatoire.");
         }
-        else if($this->m_module == "command") {
-            $this->onCommand($_data);
-        }
         else if($this->m_module == "page") {
             $this->onPage($_data);
+        }
+        else if($this->m_module == "site") {
+            $this->onSite($_data);
         }
         else if($this->m_module == "image") {
             $this->onImage($_data);
@@ -24,15 +24,15 @@ class GLocal extends GModule {
         }
     }
     //===============================================
-    public function onCommand($_data) {
-        $lObj = new GCommand();
+    public function onPage($_data) {
+        $lObj = new GPageFac();
         $lObj->run($_data);
         $this->addLogs($lObj->getLogs());
         $this->addResponse($lObj->serialize());
     }
     //===============================================
-    public function onPage($_data) {
-        $lObj = new GPageFac();
+    public function onSite($_data) {
+        $lObj = new GSite();
         $lObj->run($_data);
         $this->addLogs($lObj->getLogs());
         $this->addResponse($lObj->serialize());

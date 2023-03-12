@@ -21,6 +21,7 @@ class GEditorUi extends GObject {
         
         $this->onHeader();
         $this->onHome();
+        $this->onSite();
         $this->onPage();
         $this->onEdition();
         $this->onCode();
@@ -83,6 +84,73 @@ class GEditorUi extends GObject {
         echo sprintf("<h2 class='Title4'>%s</h2>\n", $lTitle);
         echo sprintf("<div class='Body6'>\n");
         echo sprintf("<div class='Content9'>%s</div>\n", $lIntro);
+        echo sprintf("</div>\n");
+        echo sprintf("</div>\n");
+    }
+    //===============================================
+    public function onSite() {
+        $lCount = $this->m_dom->countItem("site");
+        $lId    = $this->m_dom->getItem("site", "id");
+        $lTitle = $this->m_dom->getItem("site", "title");
+        
+        echo sprintf("<div class='Row Left EditorTabCtn' id='%s'>\n", $lId);
+        echo sprintf("<h2 class='Title4'>%s</h2>\n", $lTitle);
+        echo sprintf("<div class='Body14'>\n");
+        
+        echo sprintf("<div class='Content9'>\n");
+        echo sprintf("<div class='Border Content14'>\n");
+        
+        for($i = 0; $i < $lCount; $i++) {
+            $lCategory  = $this->m_dom->getItem3("site", "category", $i);
+            $lModel     = $this->m_dom->getItem3("site", "model", $i);
+            $lLabel     = $this->m_dom->getItem3("site", "label", $i);
+            $lId        = $this->m_dom->getItem3("site", "id", $i);
+            $lValue     = $this->m_dom->getItem3("site", "value", $i);
+            $lModule    = $this->m_dom->getItem3("site", "module", $i);
+            $lMethod    = $this->m_dom->getItem3("site", "method", $i);
+                        
+            if($lCategory == "body") {
+                if($lModel == "label_edit") {
+                    echo sprintf("<div class='Row12'>\n");
+                    echo sprintf("<label class='Label3' for='%s'>%s</label>\n", $lId, $lLabel);
+                    echo sprintf("<div class='Field3'><input id='%s' class='Input2' type='text' name='%s'/></div>\n", $lId, $lId);
+                    echo sprintf("</div>\n");
+                }
+                else if($lModel == "label_edit_lower") {
+                    echo sprintf("<div class='Row12'>\n");
+                    echo sprintf("<label class='Label3' for='%s'>%s</label>\n", $lId, $lLabel);
+                    echo sprintf("<div class='Field3'><input id='%s' class='Input3' type='text' name='%s'/></div>\n", $lId, $lId);
+                    echo sprintf("</div>\n");
+                }
+                else if($lModel == "hidden") {
+                    echo sprintf("<input id='%s' type='hidden' value='%s'/>\n", $lId, $lValue);
+                }
+                else if($lModel == "hidden_div") {
+                    echo sprintf("<div id='%s' hidden></div>\n", $lId);
+                }
+            }
+        }
+        
+        echo sprintf("</div>\n");
+        echo sprintf("<div class='Row34'>\n");
+        
+        for($i = 0; $i < $lCount; $i++) {
+            $lCategory  = $this->m_dom->getItem3("site", "category", $i);
+            $lId        = $this->m_dom->getItem3("site", "id", $i);
+            $lModule    = $this->m_dom->getItem3("site", "module", $i);
+            $lMethod    = $this->m_dom->getItem3("site", "method", $i);
+            $lPicto     = $this->m_dom->getItem3("site", "picto", $i);
+            $lText      = $this->m_dom->getItem3("site", "text", $i);
+            
+            if($lCategory == "button") {
+                echo sprintf("<button type='button' id='%s' class='Button4' onclick='call_server(\"%s\", \"%s\");'><i class='fa fa-%s'></i> %s</button>\n"
+                    , $lId, $lModule, $lMethod, $lPicto, $lText);
+            }
+        }
+        
+        echo sprintf("</div>\n");
+        
+        echo sprintf("</div>\n");
         echo sprintf("</div>\n");
         echo sprintf("</div>\n");
     }
