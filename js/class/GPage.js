@@ -276,32 +276,6 @@ class GPage extends GObject {
         lPage.updateAddress();
     }
     //===============================================
-    encodeHtml(_data, _lang) {
-        var lEntityMap = {
-            '<': '&lt;|html;ace',
-            '>': '&gt;|html;ace',
-            '\n': '<br>|html',
-            '<br>': '\n|txt',
-            '&lt;': '<|txt',
-            '&gt;': '>|txt',
-            '&amp;': '&|tex;txt'
-        };
-        for(var lKey in lEntityMap) {
-            var lVal = lEntityMap[lKey];
-            var lSplit = lVal.split("|");
-            var lVal2 = lSplit[0];
-            if(lSplit.length > 1) {
-                var lVal3 = lSplit[1];
-                var lSplit2 = lVal3.split(";");
-                var lIncludes = lSplit2.includes(_lang);
-                if(!lIncludes) continue;
-            }
-            var lReg = new RegExp(lKey, 'g');
-            _data = _data.replace(lReg, lVal2);
-        }
-        return _data;
-    }    
-    //===============================================
     showTable(_selectCB, _nextCB) {
         var lTable = new GTable();
         lTable.setCallback("select", "page", _selectCB)
@@ -417,9 +391,6 @@ class GPage extends GObject {
         else if(_method == "key_down_code") {
             this.onKeyDownCode(_obj, _data);
         }
-        else if(_method == "paste_text_edition") {
-            this.onPasteTextEdition(_obj, _data);
-        }
         else if(_method == "select_page_type") {
             this.onSelectPageType(_obj, _data);
         }
@@ -509,22 +480,6 @@ class GPage extends GObject {
         var lKeyCode = lEvent.charCode || lEvent.keyCode;
         if(lKeyCode == 13) {
             lEvent.preventDefault();
-        }
-    }
-    //===============================================
-    onPasteTextEdition(_obj, _data) {
-        var lEvent = _obj || window.event;
-        lEvent.preventDefault();
-        var lClipboardData = lEvent.clipboardData || window.clipboardData;
-        var lData = lClipboardData.getData("text");
-        // text
-        if(lData != "") {
-            lData = this.encodeHtml(lData, "html");
-            document.execCommand("insertHTML", false, lData);
-        }
-        // image
-        else {
-            this.pasteImage(e, this.pasteImageCB);
         }
     }
     //===============================================

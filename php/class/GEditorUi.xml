@@ -16,13 +16,18 @@
             <code>env</code>
             <map>
                 <data>
-                    <category>normal</category>
-                    <id>EditorPageAddressParent</id>
-                </data>            
-                <data>
-                    <category>normal</category>
+                    <category>hidden</category>
                     <id>EditorTabDefault</id>
                     <value>1</value>
+                </data>            
+                <data>
+                    <category>hidden</category>
+                    <id>EditorClipboardFilter</id>
+                    <value>filter_text</value>
+                </data>            
+                <data>
+                    <category>hidden_div</category>
+                    <id>EditorPageAddressParent</id>
                 </data>            
             </map>
         </data>
@@ -452,6 +457,25 @@
                                     <module>editor</module>
                                     <method>delete_text_image_left</method>
                                     <label>Supprimer un texte image gauche</label>
+                                </data>
+                            </map>
+                        </data>
+                        <!-- Presse-papiers -->
+                        <data>
+                            <category>text</category>
+                            <label>Presse-papiers</label>
+                            <map>
+                                <data>
+                                    <category>text</category>
+                                    <module>keyevent</module>
+                                    <method>filter_clipboard_text</method>
+                                    <label>Ajouter le filtre de textes</label>
+                                </data>
+                                <data>
+                                    <category>text</category>
+                                    <module>keyevent</module>
+                                    <method>no_filter_clipboard_text</method>
+                                    <label>Supprimer le filtre de textes</label>
                                 </data>
                             </map>
                         </data>

@@ -39,8 +39,11 @@ class GEditorUi extends GObject {
             $lId        = $this->m_dom->getItem3("env", "id", $i);
             $lValue     = $this->m_dom->getItem3("env", "value", $i);
             
-            if($lCategory == "normal") {
-                echo sprintf("<div hidden='true' id='%s'>%s</div>\n", $lId, $lValue);
+            if($lCategory == "hidden") {
+                echo sprintf("<input id='%s' type='hidden' value='%s'/>\n", $lId, $lValue);
+            }
+            else if($lCategory == "hidden_div") {
+                echo sprintf("<div id='%s' hidden>%s</div>\n", $lId, $lValue);
             }
         }
     }
@@ -126,7 +129,7 @@ class GEditorUi extends GObject {
                     echo sprintf("<input id='%s' type='hidden' value='%s'/>\n", $lId, $lValue);
                 }
                 else if($lModel == "hidden_div") {
-                    echo sprintf("<div id='%s' hidden></div>\n", $lId);
+                    echo sprintf("<div id='%s' hidden>%s</div>\n", $lId, $lValue);
                 }
             }
         }
@@ -387,7 +390,7 @@ class GEditorUi extends GObject {
                     echo sprintf("<div class='GEndEditor'>\n");
                     echo sprintf("<div id='%s' class='Border Content14 GEndEditor' contentEditable='true'
                     onkeydown='call_server(\"page\", \"key_down_edition\", event)'
-                    onpaste='call_server(\"page\", \"paste_text_edition\", event)'></div>\n", $lId);
+                    onpaste='call_server(\"keyevent\", \"paste_text_edition\", event)'></div>\n", $lId);
                     echo sprintf("</div>\n");
                 }
             }

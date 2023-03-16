@@ -22,7 +22,7 @@ class GEditor extends GObject {
         var lEditorTabs = document.getElementsByClassName("EditorTab");
         var lEditorTabDefault = document.getElementById("EditorTabDefault");
         if(lEditorTabs.length) {
-            var lDefaultId = lEditorTabDefault.innerHTML;
+            var lDefaultId = +lEditorTabDefault.value;
             var lEditorTab = lEditorTabs[lDefaultId];
             this.onOpenHeader(lEditorTab, "EditorTab" + lDefaultId);
         }

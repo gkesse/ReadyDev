@@ -33,6 +33,9 @@ class GServer extends GObject {
         else if(_module == "image") {
             this.onImage(_method, _obj, _data);
         }
+        else if(_module == "keyevent") {
+            this.onKeyEvent(_method, _obj, _data);
+        }
         else if(_module == "menu") {
             this.onMenu(_method, _obj, _data);
         }
@@ -107,6 +110,12 @@ class GServer extends GObject {
     //===============================================
     onImage(_method, _obj, _data) {
         var lObj = new GImage();
+        lObj.onModule(_method, _obj, _data)
+        this.addLogs(lObj.getLogs());
+    }
+    //===============================================
+    onKeyEvent(_method, _obj, _data) {
+        var lObj = new GKeyEvent();
         lObj.onModule(_method, _obj, _data)
         this.addLogs(lObj.getLogs());
     }
