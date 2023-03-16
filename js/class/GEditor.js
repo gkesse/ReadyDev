@@ -185,11 +185,13 @@ class GEditor extends GObject {
     }
     //===============================================
     onShowCodePage(_obj, _data) {
-        this.initTab(3);
+        this.initTab(4);
+        var lPage = new GPage();
+        lPage.searchCodeFile();
     }
     //===============================================
     onShowEditionPage(_obj, _data) {
-        this.initTab(2);
+        this.initTab(3);
     }
     //===============================================
     onAddTitle1(_obj, _data) {

@@ -312,9 +312,6 @@
             		<category>body</category>
             		<model>contenteditable</model>
           			<id>EditorEditionContent</id>
-          			<class>GEndEditor</class>
-          			<module>page</module>
-          			<method_keydown>key_down_edition</method_keydown>
             	</data>
             </map>
         </data>
@@ -484,12 +481,6 @@
                             <module>page</module>
                             <method>save_page_file</method>
                             <label>Enregistrer</label>
-                        </data>
-                        <data>
-                            <category>text</category>
-                            <module>page</module>
-                            <method>search_page_file</method>
-                            <label>Rechercher</label>
                         </data>
                         <data>
                             <category>text</category>

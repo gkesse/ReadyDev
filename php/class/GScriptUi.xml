@@ -29,8 +29,8 @@
                 <data>/js/class/GTable.js</data>
                 <data>/js/class/GDate.js</data>
                 <data>/js/class/GEnv.js</data>
-                <data>/js/class/GPage.js</data>
                 <data>/js/class/GSite.js</data>
+                <data>/js/class/GPage.js</data>
                 <data>/js/class/GStore.js</data>
                 <data>/js/class/GManager.js</data>
                 <data>/js/class/GQuery.js</data>

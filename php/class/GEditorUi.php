@@ -173,21 +173,22 @@ class GEditorUi extends GObject {
             $lModel     = $this->m_dom->getItem3("page", "model", $i);
             $lLabel     = $this->m_dom->getItem3("page", "label", $i);
             $lId        = $this->m_dom->getItem3("page", "id", $i);
-            $lType      = $this->m_dom->getItem3("page", "type", $i);
             $lValue     = $this->m_dom->getItem3("page", "value", $i);
             $lModule    = $this->m_dom->getItem3("page", "module", $i);
             $lMethod    = $this->m_dom->getItem3("page", "method", $i);
             $lDefault   = $this->m_dom->getItem3("page", "default", $i);
-            $lLowerOn   = ($this->m_dom->getItem3("page", "lower_on", $i) == "1");
-            
-            $lClass = "Input2";
-            if($lLowerOn) $lClass = "Input3";
-            
+                        
             if($lCategory == "body") {
                 if($lModel == "label_edit") {
                     echo sprintf("<div class='Row12'>\n");
                     echo sprintf("<label class='Label3' for='%s'>%s</label>\n", $lId, $lLabel);
-                    echo sprintf("<div class='Field3'><input id='%s' class='%s' type='%s' name='%s'/></div>\n", $lId, $lClass, $lType, $lId);
+                    echo sprintf("<div class='Field3'><input id='%s' class='Input2' type='text' name='%s'/></div>\n", $lId, $lId);
+                    echo sprintf("</div>\n");
+                }
+                else if($lModel == "label_edit_lower") {
+                    echo sprintf("<div class='Row12'>\n");
+                    echo sprintf("<label class='Label3' for='%s'>%s</label>\n", $lId, $lLabel);
+                    echo sprintf("<div class='Field3'><input id='%s' class='Input3' type='text' name='%s'/></div>\n", $lId, $lId);
                     echo sprintf("</div>\n");
                 }
                 else if($lModel == "label_combobox") {
@@ -243,10 +244,10 @@ class GEditorUi extends GObject {
                     echo sprintf("<div class='Row36' id='%s'></div>\n", $lId);
                 }
                 else if($lModel == "hidden") {
-                    echo sprintf("<input id='%s' type='hidden' value='%s'/>\n", $lId, $lValue);
+                    echo sprintf("<input id='%s' value='%s' hidden/>\n", $lId, $lValue);
                 }
                 else if($lModel == "hidden_div") {
-                    echo sprintf("<div hidden='true' id='%s'></div>\n", $lId);
+                    echo sprintf("<div id='%s' hidden></div>\n", $lId);
                 }
             }
         }
@@ -377,18 +378,16 @@ class GEditorUi extends GObject {
         $lCount = $this->m_dom->countItem("edition");
         
         for($i = 0; $i < $lCount; $i++) {
-            $lCategory      = $this->m_dom->getItem3("edition", "category", $i);
-            $lModel         = $this->m_dom->getItem3("edition", "model", $i);
-            $lId            = $this->m_dom->getItem3("edition", "id", $i);
-            $lClass         = $this->m_dom->getItem3("edition", "class", $i);
-            $lModule         = $this->m_dom->getItem3("edition", "module", $i);
-            $lMethodKeyDown = $this->m_dom->getItem3("edition", "method_keydown", $i);
+            $lCategory          = $this->m_dom->getItem3("edition", "category", $i);
+            $lModel             = $this->m_dom->getItem3("edition", "model", $i);
+            $lId                = $this->m_dom->getItem3("edition", "id", $i);
             
             if($lCategory == "body") {
                 if($lModel == "contenteditable") {
-                    echo sprintf("<div class='%s'>\n", $lClass);
-                    echo sprintf("<div id='%s' class='Border Content14 %s' contentEditable='true'
-                    onkeydown='call_server(\"%s\", \"%s\", event)'></div>\n", $lId, $lClass, $lModule, $lMethodKeyDown);
+                    echo sprintf("<div class='GEndEditor'>\n");
+                    echo sprintf("<div id='%s' class='Border Content14 GEndEditor' contentEditable='true'
+                    onkeydown='call_server(\"page\", \"key_down_edition\", event)'
+                    onpaste='call_server(\"page\", \"paste_text_edition\", event)'></div>\n", $lId);
                     echo sprintf("</div>\n");
                 }
             }

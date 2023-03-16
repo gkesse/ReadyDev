@@ -33,8 +33,16 @@ class GSite extends GObject {
     }
     //===============================================
     init() {
-        this.loadDefaultSiteRun();
+        if(this.isInit()) {
+            this.loadDefaultSiteRun();
+        }
     }
+    //===============================================
+    isInit() {
+        var lObj = document.getElementById("EditorSiteDefaultSite");
+        if(!lObj) return false;
+        return true;
+    }    
     //===============================================
     initDefaultSite() {
         var lEditorSiteDefaultSite = document.getElementById("EditorSiteDefaultSite");

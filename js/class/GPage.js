@@ -9,9 +9,10 @@ class GPage extends GObject {
         this.m_parentId = 0;
         this.m_siteId = 0;
         this.m_typeId = 0;
-        this.m_default = 0;
+        this.m_isDefault = 0;
         this.m_name = ""
         this.m_typeName = ""
+        this.m_siteName = ""
         this.m_path = "";
         this.m_idPath = "";
         this.m_tree = "";
@@ -39,7 +40,7 @@ class GPage extends GObject {
         this.m_parentId = _obj.m_parentId;
         this.m_siteId = _obj.m_siteId;
         this.m_typeId = _obj.m_typeId;
-        this.m_default = _obj.m_default;
+        this.m_isDefault = _obj.m_isDefault;
         this.m_name = _obj.m_name;
         this.m_typeName = _obj.m_typeName;
         this.m_path = _obj.m_path;
@@ -52,9 +53,17 @@ class GPage extends GObject {
     }
     //===============================================
     init() {
-        this.updateAddress();
-        this.initType();
-        this.loadDefaultPageRun();
+        if(this.isInit()) {
+            this.updateAddress();
+            this.initType();
+            this.loadDefaultPageRun();
+        }
+    }    
+    //===============================================
+    isInit() {
+        var lObj = document.getElementById("EditorPageParentId");
+        if(!lObj) return false;
+        return true;
     }    
     //===============================================
     initType() {
@@ -170,6 +179,14 @@ class GPage extends GObject {
         this.m_defaultPage = lEditorPageDefaultPage.innerHTML;
     }
     //===============================================
+    readSite() {
+        var lEditorSiteId = document.getElementById("EditorSiteId");
+        var lEditorSiteName = document.getElementById("EditorSiteName");
+        
+        this.m_siteId = +lEditorSiteId.value;
+        this.m_siteName = lEditorSiteName.value;
+    }
+    //===============================================
     activeAddress(_obj) {
         var lEditorPageAddresses = document.getElementsByClassName("EditorPageAddress");
         for(var i = 0; i < lEditorPageAddresses.length; i++) {
@@ -207,6 +224,9 @@ class GPage extends GObject {
             lPage.deserialize(this.m_defaultPage);
             lPage.initDefaultPage();
             lPage.writeUi();
+            if(lPage.m_id) {
+                lPage.searchPageFile();
+            }
         }
     }
     //===============================================
@@ -256,6 +276,32 @@ class GPage extends GObject {
         lPage.updateAddress();
     }
     //===============================================
+    encodeHtml(_data, _lang) {
+        var lEntityMap = {
+            '<': '&lt;|html;ace',
+            '>': '&gt;|html;ace',
+            '\n': '<br>|html',
+            '<br>': '\n|txt',
+            '&lt;': '<|txt',
+            '&gt;': '>|txt',
+            '&amp;': '&|tex;txt'
+        };
+        for(var lKey in lEntityMap) {
+            var lVal = lEntityMap[lKey];
+            var lSplit = lVal.split("|");
+            var lVal2 = lSplit[0];
+            if(lSplit.length > 1) {
+                var lVal3 = lSplit[1];
+                var lSplit2 = lVal3.split(";");
+                var lIncludes = lSplit2.includes(_lang);
+                if(!lIncludes) continue;
+            }
+            var lReg = new RegExp(lKey, 'g');
+            _data = _data.replace(lReg, lVal2);
+        }
+        return _data;
+    }    
+    //===============================================
     showTable(_selectCB, _nextCB) {
         var lTable = new GTable();
         lTable.setCallback("select", "page", _selectCB)
@@ -285,14 +331,16 @@ class GPage extends GObject {
         var lEditorPageName = document.getElementById("EditorPageName");
         var lEditorPageTypeId = document.getElementById("EditorPageTypeId");
         var lEditorPageDefault = document.getElementById("EditorPageDefault");
-        //
+
         this.m_id = +lEditorPageId.value;
         this.m_parentId = +lEditorPageParentId.value;
         this.m_path = lEditorPagePath.value;
         this.m_idPath = lEditorPageIdPath.value;
         this.m_name = lEditorPageName.value;
         this.m_typeId = +lEditorPageTypeId.value;
-        this.m_default = +lEditorPageDefault.dataset.value;
+        this.m_isDefault = +lEditorPageDefault.dataset.value;
+        
+        this.readSite();
     }
     //===============================================
     writeUi() {
@@ -303,14 +351,14 @@ class GPage extends GObject {
         var lEditorPageName = document.getElementById("EditorPageName");
         var lEditorPageTypeId = document.getElementById("EditorPageTypeId");
         var lEditorPageDefault = document.getElementById("EditorPageDefault");
-        //
+
         lEditorPageId.value = +this.m_id;
         lEditorPageParentId.value = +this.m_parentId;
         lEditorPagePath.value = this.m_path;
         lEditorPageIdPath.value = this.m_idPath;
         lEditorPageName.value = this.m_name;
-        lEditorPageTypeId.value = this.m_typeId;
-        lEditorPageDefault.dataset.value = this.m_default;
+        lEditorPageTypeId.value = +this.m_typeId;
+        lEditorPageDefault.dataset.value = +this.m_isDefault;
         
         var lCombo = GComboBox.Instance();
         var lRadio = GRadioButton.Instance();
@@ -324,9 +372,11 @@ class GPage extends GObject {
         lDom.addData(_code, "id", ""+this.m_id);
         lDom.addData(_code, "parent_id", ""+this.m_parentId);
         lDom.addData(_code, "type_id", ""+this.m_typeId);
-        lDom.addData(_code, "default", ""+this.m_default);
-        lDom.addData(_code, "name", this.m_name);
         lDom.addData(_code, "type_name", this.m_typeName);
+        lDom.addData(_code, "site_id", ""+this.m_siteId);
+        lDom.addData(_code, "site_name", this.m_siteName);
+        lDom.addData(_code, "is_default", ""+this.m_isDefault);
+        lDom.addData(_code, "name", this.m_name);
         lDom.addData(_code, "path", this.m_path);
         lDom.addData(_code, "id_path", this.m_idPath);
         lDom.addData(_code, "tree", utf8_to_b64(this.m_tree));
@@ -343,9 +393,11 @@ class GPage extends GObject {
         this.m_id = +lDom.getItem(_code, "id");
         this.m_parentId = +lDom.getItem(_code, "parent_id");
         this.m_typeId = +lDom.getItem(_code, "type_id");
-        this.m_default = +lDom.getItem(_code, "default");
-        this.m_name = lDom.getItem(_code, "name");
         this.m_typeName = lDom.getItem(_code, "type_name");
+        this.m_siteId = +lDom.getItem(_code, "site_id");
+        this.m_siteName = lDom.getItem(_code, "site_name");
+        this.m_isDefault = +lDom.getItem(_code, "is_default");
+        this.m_name = lDom.getItem(_code, "name");
         this.m_path = lDom.getItem(_code, "path");
         this.m_idPath = lDom.getItem(_code, "id_path");
         this.m_tree = b64_to_utf8(lDom.getItem(_code, "tree"));
@@ -364,6 +416,9 @@ class GPage extends GObject {
         }
         else if(_method == "key_down_code") {
             this.onKeyDownCode(_obj, _data);
+        }
+        else if(_method == "paste_text_edition") {
+            this.onPasteTextEdition(_obj, _data);
         }
         else if(_method == "select_page_type") {
             this.onSelectPageType(_obj, _data);
@@ -432,7 +487,7 @@ class GPage extends GObject {
             this.onStoreDefaultPage(_obj, _data);
         }
         else if(_method == "load_default_page") {
-            this.onloadDefaultPageRun(_obj, _data);
+            this.onLoadDefaultPageRun(_obj, _data);
         }
         else {
             this.addError("Erreur la méthode est inconnue.");            
@@ -454,6 +509,22 @@ class GPage extends GObject {
         var lKeyCode = lEvent.charCode || lEvent.keyCode;
         if(lKeyCode == 13) {
             lEvent.preventDefault();
+        }
+    }
+    //===============================================
+    onPasteTextEdition(_obj, _data) {
+        var lEvent = _obj || window.event;
+        lEvent.preventDefault();
+        var lClipboardData = lEvent.clipboardData || window.clipboardData;
+        var lData = lClipboardData.getData("text");
+        // text
+        if(lData != "") {
+            lData = this.encodeHtml(lData, "html");
+            document.execCommand("insertHTML", false, lData);
+        }
+        // image
+        else {
+            this.pasteImage(e, this.pasteImageCB);
         }
     }
     //===============================================
@@ -479,7 +550,7 @@ class GPage extends GObject {
         this.readUi();
         var lAjax = new GAjax();
         var lData = this.serialize();
-        lAjax.callRemote("page", "save_page", lData, this.onSavePageCB);        
+        lAjax.callLocal("page", "save_page", lData, this.onSavePageCB);        
     }
     //===============================================
     onSavePageCB(_data, _isOk) {
@@ -525,6 +596,8 @@ class GPage extends GObject {
                 lPage.writeUi();
                 lPage.initDefaultPage();
                 lPage.storeDefaultPage();
+                lPage.initContent();
+                lPage.searchPageFile();
             }
             else if(lPage.m_map.length) {
                 lPage.showTable("search_page_select", "search_page_next");
@@ -546,6 +619,8 @@ class GPage extends GObject {
             lPage.writeUi();
             lPage.initDefaultPage();
             lPage.storeDefaultPage();
+            lPage.initContent();
+            lPage.searchPageFile();
        }
     }
     //===============================================
@@ -604,13 +679,17 @@ class GPage extends GObject {
         this.readUi();
         var lPage = new GPage();
         lPage.m_parentId = this.m_parentId;
-        lPage.m_typeId = this.m_typeId;
         lPage.writeUi();
+        lPage.initContent();
     }
     //===============================================
     onLoadPage(_obj, _data) {
-        this.activeAddress(_obj);
+        var lPage = new GPage();
+        lPage.activeAddress(_obj);
         var lData = _obj.nextElementSibling.innerHTML;
+        lPage.deserialize(lData);
+        lPage.readSite();
+        lData = lPage.serialize();
         var lAjax = new GAjax();
         lAjax.callRemote("page", "load_page", lData, this.onLoadPageCB);        
     }
@@ -693,16 +772,15 @@ class GPage extends GObject {
 
     }
     //===============================================
-    onloadDefaultPageRun(_obj, _data) {
+    onLoadDefaultPageRun(_obj, _data) {
         var lAjax = new GAjax();
-        lAjax.callLocal("page", "load_default_page", "", this.onloadDefaultPageRunCB);        
+        lAjax.callLocal("page", "load_default_page", "", this.onLoadDefaultPageRunCB);        
     }
     //===============================================
-    onloadDefaultPageRunCB(_data, _isOk) {
+    onLoadDefaultPageRunCB(_data, _isOk) {
         var lPage = new GPage();
         lPage.deserialize(_data);
         lPage.loadDefaultPage();
-        lPage.searchPageFile();
     }
     //===============================================
 }

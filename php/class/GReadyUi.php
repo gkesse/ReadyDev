@@ -8,8 +8,10 @@
         private $m_adminUi;
         private $m_page;
         private $m_pageId;
-        private $m_pageCache = "data/cache/page";
         private $m_isFound = false;
+        //===============================================
+        private $m_siteName = "readydev";
+        private $m_cachePagePath = "data/cache/page";
         //===============================================
         public function __construct() {
             parent::__construct();
@@ -61,7 +63,7 @@
         }
         //===============================================
         public function onPage() {
-            $lPage = sprintf("%s/%s", $this->m_pageCache, $this->m_pageId);
+            $lPage = sprintf("%s/%s/%s", $this->m_cachePagePath, $this->m_siteName, $this->m_pageId);
             $lPage = GPath::create($lPage, "main.php");
             if(file_exists($lPage)) {
                 $this->m_isFound = true;
