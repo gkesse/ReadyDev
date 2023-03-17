@@ -333,8 +333,8 @@
                     <map>
                         <data>
                             <category>text</category>
-                            <module>command</module>
-                            <method>selection</method>
+                            <module>editor</module>
+                            <method>command_no_argument</method>
                             <key>bold</key>
                             <label>Texte en gras</label>
                         </data>
@@ -366,62 +366,6 @@
                     <category>text</category>
                     <label>Styles personnalisés</label>
                     <map>
-                        <!-- Titres -->
-                        <data>
-                            <category>text</category>
-                            <label>Titres</label>
-                            <map>
-                                <data>
-                                    <category>text</category>
-                                    <module>editor</module>
-                                    <method>add_title_1</method>
-                                    <label>Ajouter un titre 1</label>
-                                </data>
-                                <data>
-                                    <category>text</category>
-                                    <module>editor</module>
-                                    <method>add_title_2</method>
-                                    <label>Ajouter un titre 2</label>
-                                </data>
-                                <data>
-                                    <category>text</category>
-                                    <module>editor</module>
-                                    <method>add_title_3</method>
-                                    <label>Ajouter un titre 3</label>
-                                </data>
-                            </map>
-                        </data>
-                        <!-- Parallax -->
-                        <data>
-                            <category>text</category>
-                            <label>Parallax</label>
-                            <map>
-                                <data>
-                                    <category>text</category>
-                                    <module>editor</module>
-                                    <method>add_parallax</method>
-                                    <label>Ajouter un effet parallax</label>
-                                </data>
-                                <data>
-                                    <category>text</category>
-                                    <module>editor</module>
-                                    <method>update_bg_image_parallax</method>
-                                    <label>Modifier l'image de fond</label>
-                                </data>
-                                <data>
-                                    <category>text</category>
-                                    <module>editor</module>
-                                    <method>update_bg_color_parallax</method>
-                                    <label>Modifier la couleur de fond</label>
-                                </data>
-                                <data>
-                                    <category>text</category>
-                                    <module>editor</module>
-                                    <method>delete_parallax</method>
-                                    <label>Supprimer un effet parallax</label>
-                                </data>
-                            </map>
-                        </data>
                         <!-- Formations -->
                         <data>
                             <category>text</category>
@@ -441,22 +385,59 @@
                                 </data>
                             </map>
                         </data>
-                        <!-- Textes -->
+                        <!-- Liens -->
                         <data>
                             <category>text</category>
-                            <label>Textes</label>
+                            <label>Liens</label>
                             <map>
                                 <data>
                                     <category>text</category>
                                     <module>editor</module>
-                                    <method>add_text_image_left</method>
-                                    <label>Ajouter un texte image gauche</label>
+                                    <method>add_link_icon</method>
+                                    <label>Ajouter lien icon</label>
                                 </data>
                                 <data>
                                     <category>text</category>
                                     <module>editor</module>
-                                    <method>delete_text_image_left</method>
-                                    <label>Supprimer un texte image gauche</label>
+                                    <method>update_link_icon</method>
+                                    <label>Modifier lien icon</label>
+                                </data>
+                                <data>
+                                    <category>text</category>
+                                    <module>editor</module>
+                                    <method>delete_link_icon</method>
+                                    <label>Supprimer lien icon</label>
+                                </data>
+                            </map>
+                        </data>
+                        <!-- Parallax -->
+                        <data>
+                            <category>text</category>
+                            <label>Parallax</label>
+                            <map>
+                                <data>
+                                    <category>text</category>
+                                    <module>editor</module>
+                                    <method>add_parallax</method>
+                                    <label>Ajouter effet parallax</label>
+                                </data>
+                                <data>
+                                    <category>text</category>
+                                    <module>editor</module>
+                                    <method>update_bg_image_parallax</method>
+                                    <label>Modifier image de fond</label>
+                                </data>
+                                <data>
+                                    <category>text</category>
+                                    <module>editor</module>
+                                    <method>update_bg_color_parallax</method>
+                                    <label>Modifier couleur de fond</label>
+                                </data>
+                                <data>
+                                    <category>text</category>
+                                    <module>editor</module>
+                                    <method>delete_parallax</method>
+                                    <label>Supprimer effet parallax</label>
                                 </data>
                             </map>
                         </data>
@@ -469,13 +450,51 @@
                                     <category>text</category>
                                     <module>keyevent</module>
                                     <method>filter_clipboard_text</method>
-                                    <label>Ajouter le filtre de textes</label>
+                                    <label>Ajouter filtre texte</label>
                                 </data>
                                 <data>
                                     <category>text</category>
                                     <module>keyevent</module>
                                     <method>no_filter_clipboard_text</method>
-                                    <label>Supprimer le filtre de textes</label>
+                                    <label>Supprimer filtre texte</label>
+                                </data>
+                            </map>
+                        </data>
+                        <!-- Textes -->
+                        <data>
+                            <category>text</category>
+                            <label>Textes</label>
+                            <map>
+                                <data>
+                                    <category>text</category>
+                                    <module>editor</module>
+                                    <method>add_text_image_left</method>
+                                    <label>Ajouter texte image gauche</label>
+                                </data>
+                                <data>
+                                    <category>text</category>
+                                    <module>editor</module>
+                                    <method>delete_text_image_left</method>
+                                    <label>Supprimer texte image gauche</label>
+                                </data>
+                            </map>
+                        </data>
+                        <!-- Titres -->
+                        <data>
+                            <category>text</category>
+                            <label>Titres</label>
+                            <map>
+                                <data>
+                                    <category>text</category>
+                                    <module>editor</module>
+                                    <method>add_title_section</method>
+                                    <label>Ajouter titre section</label>
+                                </data>
+                                <data>
+                                    <category>text</category>
+                                    <module>editor</module>
+                                    <method>delete_title_section</method>
+                                    <label>Supprimer titre section</label>
                                 </data>
                             </map>
                         </data>

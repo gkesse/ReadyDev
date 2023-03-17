@@ -20,6 +20,20 @@ class GForm extends GObject {
         this.initUi();
     }
     //===============================================
+    clone() {
+        var lObj = new GForm();
+        lObj.setObj(this);
+        return lObj;
+    }
+    //===============================================
+    setObj(_obj) {
+        this.m_model = _obj.m_model;
+        this.m_label = _obj.m_label;
+        this.m_id = _obj.m_id;
+        this.m_value = _obj.m_value;
+        this.m_index = _obj.m_index;
+    }
+    //===============================================
     init() {
         var lInputs = document.getElementsByClassName("Menu2Input");
         
@@ -81,7 +95,8 @@ class GForm extends GObject {
             var lFormOk = (lForm.style.display != "none");
             var lHideOk = lFormOk 
                        && !e.target.matches(".Menu2Caret")
-                       && !e.target.matches(".Menu2Input");
+                       && !e.target.matches(".Menu2Input")
+                       && !e.target.matches(".FormEdit");
                        
             if(lHideOk) {
                 e.preventDefault();
@@ -104,20 +119,6 @@ class GForm extends GObject {
         this.m_intro = lFormIntro.innerHTML;
     }
     //===============================================
-    clone() {
-        var lObj = new GForm();
-        lObj.setObj(this);
-        return lObj;
-    }
-    //===============================================
-    setObj(_obj) {
-        this.m_model = _obj.m_model;
-        this.m_label = _obj.m_label;
-        this.m_id = _obj.m_id;
-        this.m_value = _obj.m_value;
-        this.m_index = _obj.m_index;
-    }
-    //===============================================
     setTitle(_title) {
         this.m_title = _title;
         this.writeUi();
@@ -134,19 +135,21 @@ class GForm extends GObject {
         this.writeUi();
     }
     //===============================================
-    addLabelEdit(_id, _label) {
+    addLabelEdit(_id, _label, _value = "") {
         var lObj = new GForm();
         lObj.m_model = "label_edit";
         lObj.m_id = _id;
         lObj.m_label = _label;
+        lObj.m_value = _value;
         this.m_map.push(lObj);
     }
     //===============================================
-    addLabelColor(_id, _label) {
+    addLabelColor(_id, _label, _value = "#000000") {
         var lObj = new GForm();
         lObj.m_model = "label_color";
         lObj.m_id = _id;
         lObj.m_label = _label;
+        lObj.m_value = _value;
         this.m_map.push(lObj);
     }
     //===============================================
@@ -175,6 +178,7 @@ class GForm extends GObject {
             var lModel = lObj.m_model;
             var lLabel = lObj.m_label;
             var lId = lObj.m_id;
+            var lValue = lObj.m_value;
             var lCData = lObj.m_cdata;
 
             if(!lModel) {
@@ -193,13 +197,13 @@ class GForm extends GObject {
             if(lModel == "label_edit") {
                 lContent += sprintf("<div class='Row12'>\n");
                 lContent += sprintf("<label class='Label3' for='%s'>%s</label>\n", lId, lLabel);
-                lContent += sprintf("<div class='Field3'><input type='text' class='Input2' id='%s' name='%s'/></div>\n", lId, lId);
+                lContent += sprintf("<div class='Field3'><input type='text' class='FormEdit Input2' id='%s' name='%s' value='%s'/></div>\n", lId, lId, lValue);
                 lContent += sprintf("</div>\n");
             }
             else if(lModel == "label_color") {
                 lContent += sprintf("<div class='Row12'>\n");
                 lContent += sprintf("<label class='Label3' for='%s'>%s</label>\n", lId, lLabel);
-                lContent += sprintf("<div class='Field3'><input type='color' class='Input2' id='%s' name='%s'/></div>\n", lId, lId);
+                lContent += sprintf("<div class='Field3'><input type='color' class='FormEdit Input2' id='%s' name='%s' value='%s'/></div>\n", lId, lId, lValue);
                 lContent += sprintf("</div>\n");
             }
             else if(lModel == "label_image") {
