@@ -1752,7 +1752,7 @@ thead tr:first-child {
 	left: 0px;
 	right: 0px;
 	background-color: #051039;
-	border: 1px solid rgba(255, 255, 255, 0.2);
+	border: 1px solid rgba(255, 255, 255, 0.4);
 	max-height: 250px;
 	overflow: auto;
 	z-index: 1;

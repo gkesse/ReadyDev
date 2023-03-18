@@ -32,6 +32,12 @@ class GImage extends GObject {
         this.m_img = _obj.m_img;
     }
     //===============================================
+    isEqual(_obj) {
+        var lEqualOk = true;
+        lEqualOk &= (this.m_path == _obj.m_path);
+        return lEqualOk;
+    }
+    //===============================================
     getImageData() {
         var lData = sprintf("data:%s;base64,%s", this.m_mimeType, this.m_img);
         return lData;
@@ -44,6 +50,19 @@ class GImage extends GObject {
     loadData() {
         this.readData();
         this.deserialize(this.m_data);
+    }
+    //===============================================
+    toForm() {
+        var lForm = new GForm();
+        for(var i = 0; i < this.m_map.length; i++) {
+            var lImg = this.m_map[i];
+            var lObj = new GForm();
+            lObj.m_value = lImg.m_name;
+            lObj.m_img = lImg.getImageData();
+            lForm.m_map.push(lObj);
+        }
+        var lData = lForm.serialize();
+        return lData;
     }
     //===============================================
     readData() {
@@ -98,9 +117,8 @@ class GImage extends GObject {
     //===============================================
     onLoadImageCB(_data, _isOk) {
         if(_isOk) {
-            var lImage = new GImage();
+            var lImage = GImage.Instance();
             lImage.deserialize(_data);
-            lImage.writeData();
         }
     }
     //===============================================

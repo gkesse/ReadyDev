@@ -18,7 +18,7 @@
                 <data>
                     <category>hidden</category>
                     <id>EditorTabDefault</id>
-                    <value>1</value>
+                    <value>3</value>
                 </data>            
                 <data>
                     <category>hidden</category>
@@ -394,19 +394,37 @@
                                     <category>text</category>
                                     <module>editor</module>
                                     <method>add_link_icon</method>
-                                    <label>Ajouter lien icon</label>
+                                    <label>Ajouter lien icône</label>
                                 </data>
                                 <data>
                                     <category>text</category>
                                     <module>editor</module>
                                     <method>update_link_icon</method>
-                                    <label>Modifier lien icon</label>
+                                    <label>Modifier lien icône</label>
                                 </data>
                                 <data>
                                     <category>text</category>
                                     <module>editor</module>
                                     <method>delete_link_icon</method>
-                                    <label>Supprimer lien icon</label>
+                                    <label>Supprimer lien icône</label>
+                                </data>
+                                <data>
+                                    <category>text</category>
+                                    <module>editor</module>
+                                    <method>add_link_title</method>
+                                    <label>Ajouter lien titre</label>
+                                </data>
+                                <data>
+                                    <category>text</category>
+                                    <module>editor</module>
+                                    <method>update_link_title</method>
+                                    <label>Modifier lien titre</label>
+                                </data>
+                                <data>
+                                    <category>text</category>
+                                    <module>editor</module>
+                                    <method>delete_link_title</method>
+                                    <label>Supprimer lien titre</label>
                                 </data>
                             </map>
                         </data>
@@ -489,6 +507,12 @@
                                     <module>editor</module>
                                     <method>add_title_section</method>
                                     <label>Ajouter titre section</label>
+                                </data>
+                                <data>
+                                    <category>text</category>
+                                    <module>editor</module>
+                                    <method>update_title_section</method>
+                                    <label>Modifier titre section</label>
                                 </data>
                                 <data>
                                     <category>text</category>

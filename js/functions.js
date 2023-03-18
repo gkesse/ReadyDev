@@ -60,3 +60,38 @@ function b64_to_utf8(_data) {
     return atob(decodeURIComponent(_data));
 }
 //===============================================
+function componentToHex(c) {
+    var hex = c.toString(16);
+    return hex.length == 1 ? "0" + hex : hex;
+}
+//===============================================
+function rgbToHex(r, g, b) {
+    return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+}
+//===============================================
+String.prototype.removeCharAt = function(i) {
+    var tmp = this.split(''); // convert to an array
+    tmp.splice(i , 1); // remove 1 element from the array (adjusting for non-zero-indexed counts)
+    return tmp.join(''); // reconstruct the string
+}
+//===============================================
+String.prototype.getPathFromUrl = function() {
+    var lData = this.replace(/url\("(.*?)"\)/g, "$1");
+    return lData;
+}
+//===============================================
+String.prototype.getHexFromRgb = function() {
+    var lRed = +this.replace(/rgb\((.*?), (.*?), (.*?)\)/g, "$1");
+    var lGreen = +this.replace(/rgb\((.*?), (.*?), (.*?)\)/g, "$2");
+    var lBlue = +this.replace(/rgb\((.*?), (.*?), (.*?)\)/g, "$3");
+    var lData = rgbToHex(lRed, lGreen, lBlue);
+    return lData;
+}
+//===============================================
+String.prototype.getNormalize = function() {
+    var lData = this.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    lData = lData.replace(/\W/g, '-');
+    lData = lData.toLowerCase()
+    return lData;
+}
+//===============================================

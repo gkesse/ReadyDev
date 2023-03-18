@@ -9,14 +9,16 @@ class GForm extends GObject {
         this.m_method = "";
         this.m_module = "";
         this.m_content = "";
+        this.m_data = "";
+        this.m_combo = "";
+
         this.m_model = "";
         this.m_label = "";
         this.m_id = "";
         this.m_value = "";
-        this.m_data = "";
-        this.m_cdata = "";
+        this.m_img = "";
         this.m_index = -1;
-                
+  
         this.initUi();
     }
     //===============================================
@@ -31,6 +33,7 @@ class GForm extends GObject {
         this.m_label = _obj.m_label;
         this.m_id = _obj.m_id;
         this.m_value = _obj.m_value;
+        this.m_img = _obj.m_img;
         this.m_index = _obj.m_index;
     }
     //===============================================
@@ -39,73 +42,116 @@ class GForm extends GObject {
         
         for(var i = 0; i < lInputs.length; i++) {
             var lInput = lInputs[i];
-            var lParent = lInput.parentNode;
-            var lCaret = lParent.getElementsByClassName("Menu2Caret")[0];
-            var lContent = lParent.getElementsByClassName("Menu2Content")[0];
-            var lLines = lContent.getElementsByClassName("Menu2Line");
-            
-            lInput.dataset.index = -1;
-            
-            lInput.addEventListener("mousedown", function(e) {
-                e.preventDefault();
-                var lParent = this.parentNode;
-                var lContent = lParent.getElementsByClassName("Menu2Content")[0];
+
+            lInput.addEventListener("click", function(e) {
+                var lType = this.dataset.type;
+                var lContent = null;
+                if(lType == "combo") {
+                    lContent = this.nextElementSibling.nextElementSibling;
+                }
+                else if(lType == "image") {
+                    lContent = this.nextElementSibling.nextElementSibling.nextElementSibling;
+                }
                 lContent.classList.toggle("Show");
+                call_server("form", "change_input_form", this);
             });
-                        
+
+            var lCaret = lInput.nextElementSibling;
+            
             lCaret.addEventListener("click", function(e) {
-                var lParent = this.parentNode;
-                var lContent = lParent.getElementsByClassName("Menu2Content")[0];
+                var lType = this.dataset.type;
+                var lContent = null;
+                if(lType == "combo") {
+                    lContent = this.nextElementSibling;
+                }
+                else if(lType == "image") {
+                    lContent = this.nextElementSibling.nextElementSibling;
+                }
                 lContent.classList.toggle("Show");
             });
+
+            var lType = lInput.dataset.type;
+            var lContent = null;
             
+            if(lType == "combo") {
+                lContent = lInput.nextElementSibling.nextElementSibling;
+            }
+            else if(lType == "image") {
+                lContent = lInput.nextElementSibling.nextElementSibling.nextElementSibling;
+            }
+            
+            var lLines = lContent.getElementsByClassName("Menu2Line");
+                                                            
             for(var j = 0; j < lLines.length; j++) {
                 var lLine = lLines[j];
                 
-                lLine.addEventListener("mousedown", function(e) {
-                    e.preventDefault();
-                    var lParent = this.parentNode.parentNode;
-                    var lContent = lParent.getElementsByClassName("Menu2Content")[0];
-                    var lInput = lParent.getElementsByClassName("Menu2Input")[0];
+                lLine.addEventListener("click", function(e) {
+                    var lType = this.dataset.type;
+                    var lContent = this.parentNode;
+                    var lInput = null;
+                    if(lType == "combo") {
+                        lInput = this.parentNode.previousElementSibling.previousElementSibling;
+                    }
+                    else if(lType == "image") {
+                        lInput = this.parentNode.previousElementSibling.previousElementSibling.previousElementSibling;
+                    }
                     lInput.value = this.dataset.value;
                     lInput.dataset.index = this.dataset.index;
                     lContent.classList.toggle("Show");
+                    call_server("form", "change_line_form", this);
                 });
 
                 lLine.addEventListener("mouseover", function(e) {
-                    var lParent = this.parentNode.parentNode;
-                    var lZoom = lParent.getElementsByClassName("Menu2Zoom")[0];
-                    var lImg = this.getElementsByClassName("Menu2Img")[0];
-                    lZoom.classList.remove("Show");
-                    lZoom.classList.add("Show");
-                    lZoom.src = lImg.src;
-                    lZoom.alt = lImg.alt;
+                    var lType = this.dataset.type;
+                    if(lType == "image") {
+                        var lZoom = this.parentNode.previousElementSibling;
+                        var lImg = this.firstElementChild;
+                        lZoom.classList.remove("Show");
+                        lZoom.classList.add("Show");
+                        lZoom.src = lImg.src;
+                        lZoom.alt = lImg.alt;
+                    }
                 });
                 
                 lLine.addEventListener("mouseout", function(e) {
-                    var lParent = this.parentNode.parentNode;
-                    var lZoom = lParent.getElementsByClassName("Menu2Zoom")[0];
-                    lZoom.classList.remove("Show");
+                    var lType = this.dataset.type;
+                    if(lType == "image") {
+                        var lZoom = this.parentNode.previousElementSibling;
+                        lZoom.classList.remove("Show");
+                    }
                 });
             }
         }
         
-        document.addEventListener("mousedown", function(e) {
+        var lEdits = document.getElementsByClassName("FormEdit");
+        
+        for(var i = 0; i < lEdits.length; i++) {
+            var lEdit = lEdits[i];
+            lEdit.addEventListener("input", function(e) {
+                call_server("form", "change_edit_form", this, e);
+            });
+        }
+        
+        document.addEventListener("click", function(e) {
             var lForm = document.getElementById("ModalForm");
             var lFormOk = (lForm.style.display != "none");
             var lHideOk = lFormOk 
                        && !e.target.matches(".Menu2Caret")
                        && !e.target.matches(".Menu2Input")
-                       && !e.target.matches(".FormEdit");
                        
             if(lHideOk) {
-                e.preventDefault();
                 var lInputs = document.getElementsByClassName("Menu2Input");
                 
                 for(var i = 0; i < lInputs.length; i++) {
                     var lInput = lInputs[i];
-                    var lParent = lInput.parentNode;
-                    var lContent = lParent.getElementsByClassName("Menu2Content")[0];
+                    var lType = lInput.dataset.type;
+                    var lContent = null;
+                    if(lType == "combo") {
+                        lContent = lInput.nextElementSibling.nextElementSibling;
+                    }
+                    else if(lType == "image") {
+                        lContent = lInput.nextElementSibling.nextElementSibling.nextElementSibling;
+                    }
                     lContent.classList.remove("Show");
                 }
             }
@@ -144,7 +190,16 @@ class GForm extends GObject {
         this.m_map.push(lObj);
     }
     //===============================================
-    addLabelColor(_id, _label, _value = "#000000") {
+    addLabelText(_id, _label, _value = "") {
+        var lObj = new GForm();
+        lObj.m_model = "label_text";
+        lObj.m_id = _id;
+        lObj.m_label = _label;
+        lObj.m_value = _value;
+        this.m_map.push(lObj);
+    }
+    //===============================================
+    addLabelColor(_id, _label, _value = "#800000") {
         var lObj = new GForm();
         lObj.m_model = "label_color";
         lObj.m_id = _id;
@@ -153,21 +208,24 @@ class GForm extends GObject {
         this.m_map.push(lObj);
     }
     //===============================================
-    addLabelImage(_id, _label, _cdata) {
+    addLabelCombo(_id, _label, _combo, _index = -1) {
+        var lObj = new GForm();
+        lObj.m_model = "label_combo";
+        lObj.m_id = _id;
+        lObj.m_label = _label;
+        lObj.m_index = _index;
+        lObj.m_combo = _combo;
+        this.m_map.push(lObj);
+    }
+    //===============================================
+    addLabelImage(_id, _label, _combo, _index = -1) {
         var lObj = new GForm();
         lObj.m_model = "label_image";
         lObj.m_id = _id;
         lObj.m_label = _label;
-        lObj.m_cdata = _cdata;
+        lObj.m_index = _index;
+        lObj.m_combo = _combo;
         this.m_map.push(lObj);
-    }
-    //===============================================
-    getValue() {
-        return this.m_value;
-    }
-    //===============================================
-    getIndex() {
-        return this.m_index;
     }
     //===============================================
     writeContent() {
@@ -175,57 +233,85 @@ class GForm extends GObject {
         
         for(var i = 0; i < this.m_map.length; i++) {
             var lObj = this.m_map[i];
-            var lModel = lObj.m_model;
-            var lLabel = lObj.m_label;
-            var lId = lObj.m_id;
-            var lValue = lObj.m_value;
-            var lCData = lObj.m_cdata;
 
-            if(!lModel) {
+            if(!lObj.m_model) {
                 this.addError("Le modèle est obligatoire.");
                 continue;
             }
-            if(!lLabel) {
+            if(!lObj.m_label) {
                 this.addError("Le libellé est obligatoire.");
                 continue;
             }
-            if(!lId) {
+            if(!lObj.m_id) {
                 this.addError("L'identifiant est obligatoire.");
                 continue;
             }
 
-            if(lModel == "label_edit") {
+            if(lObj.m_model == "label_edit") {
                 lContent += sprintf("<div class='Row12'>\n");
-                lContent += sprintf("<label class='Label3' for='%s'>%s</label>\n", lId, lLabel);
-                lContent += sprintf("<div class='Field3'><input type='text' class='FormEdit Input2' id='%s' name='%s' value='%s'/></div>\n", lId, lId, lValue);
+                lContent += sprintf("<label class='Label3' for='%s'>%s</label>\n", lObj.m_id, lObj.m_label);
+                lContent += sprintf("<div class='Field3'><input type='text' class='FormEdit Input2' id='%s' value='%s'/></div>\n", lObj.m_id, lObj.m_value);
                 lContent += sprintf("</div>\n");
             }
-            else if(lModel == "label_color") {
+            else if(lObj.m_model == "label_text") {
                 lContent += sprintf("<div class='Row12'>\n");
-                lContent += sprintf("<label class='Label3' for='%s'>%s</label>\n", lId, lLabel);
-                lContent += sprintf("<div class='Field3'><input type='color' class='FormEdit Input2' id='%s' name='%s' value='%s'/></div>\n", lId, lId, lValue);
+                lContent += sprintf("<label class='Label3' for='%s'>%s</label>\n", lObj.m_id, lObj.m_label);
+                lContent += sprintf("<div class='Field3'><input type='text' class='FormReadOnly Input2' id='%s' value='%s' readonly/></div>\n", lObj.m_id, lObj.m_value);
                 lContent += sprintf("</div>\n");
             }
-            else if(lModel == "label_image") {
-                if(!lCData) {
+            else if(lObj.m_model == "label_color") {
+                lContent += sprintf("<div class='Row12'>\n");
+                lContent += sprintf("<label class='Label3' for='%s'>%s</label>\n", lObj.m_id, lObj.m_label);
+                lContent += sprintf("<div class='Field3'><input type='color' class='FormColor Input2' id='%s' value='%s'/></div>\n", lObj.m_id, lObj.m_value);
+                lContent += sprintf("</div>\n");
+            }
+            else if(lObj.m_model == "label_image") {
+                var lForm = new GForm();
+                lForm.deserialize(lObj.m_combo);
+                lForm.loadFromMap(lObj.m_index);
+                
+                if(!lForm.m_map.length) {
                     this.addError("La donnée est obligatoire.");
                     continue;
                 }
-                
-                var lImage = new GImage();
-                lImage.deserialize(lCData);
-                
+
                 lContent += sprintf("<div class='Row12'>\n");
-                lContent += sprintf("<label class='Label3' for='%s'>%s</label>\n", lId, lLabel);
+                lContent += sprintf("<label class='Label3' for='%s'>%s</label>\n", lObj.m_id, lObj.m_label);
                 lContent += sprintf("<div class='Field3 Menu2'>");
-                lContent += sprintf("<input type='text' class='Input4 Menu2Input' id='%s' readonly/>\n", lId);
-                lContent += sprintf("<i class='Menu2Caret fa fa-caret-down'></i>\n");
+                lContent += sprintf("<input type='text' data-type='image' class='Input4 Menu2Input' id='%s' value='%s' readonly/>\n", lObj.m_id, lForm.m_value);
+                lContent += sprintf("<i data-type='image' class='Menu2Caret fa fa-caret-down'></i>\n");
                 lContent += sprintf("<img class='Menu2Zoom'/>\n");
                 lContent += sprintf("<div class='Menu2Content'>\n");
                 
-                for(var j = 0; j < lImage.m_map.length; j++) {
-                    lImage.loadFromMap(j);
-                    lContent += sprintf("<div class='Menu2Line' data-index='%s' data-key='%s' data-value='%s'>%s <img class='Menu2Img' src='%s' alt='%s'/></div>\n", j, lImage.m_path, lImage.m_name, lImage.m_name, lImage.getImageData(), lImage.m_name);
+                for(var j = 0; j < lForm.m_map.length; j++) {
+                    lForm.loadFromMap(j);
+                    lContent += sprintf("<div class='Menu2Line' data-type='image' data-index='%s' data-value='%s'>%s <img class='Menu2Img' src='%s' alt='%s'/></div>\n", j, lForm.m_value, lForm.m_value, lForm.m_img, lForm.m_value);
+                }
+                
+                lContent += sprintf("</div>\n");
+                lContent += sprintf("</div>\n");
+                lContent += sprintf("</div>\n");
+            }
+            else if(lObj.m_model == "label_combo") {
+                var lForm = new GForm();
+                lForm.deserialize(lObj.m_combo);
+                lForm.loadFromMap(lObj.m_index);
+                
+                if(!lForm.m_map.length) {
+                    this.addError("La donnée est obligatoire.");
+                    continue;
+                }
+                                
+                lContent += sprintf("<div class='Row12'>\n");
+                lContent += sprintf("<label class='Label3' for='%s'>%s</label>\n", lObj.m_id, lObj.m_label);
+                lContent += sprintf("<div class='Field3 Menu2'>");
+                lContent += sprintf("<input type='text' data-type='combo' class='Input4 Menu2Input' id='%s' value='%s' readonly/>\n", lObj.m_id, lForm.m_value);
+                lContent += sprintf("<i data-type='combo' class='Menu2Caret fa fa-caret-down'></i>\n");
+                lContent += sprintf("<div class='Menu2Content'>\n");
+                
+                for(var j = 0; j < lForm.m_map.length; j++) {
+                    lForm.loadFromMap(j);
+                    lContent += sprintf("<div class='Menu2Line' data-type='combo' data-index='%s' data-value='%s'>%s</div>\n", j, lForm.m_value, lForm.m_value);
                 }
                 
                 lContent += sprintf("</div>\n");
@@ -295,7 +381,8 @@ class GForm extends GObject {
         lDom.addData(_code, "model", this.m_model);
         lDom.addData(_code, "label", this.m_label);
         lDom.addData(_code, "id", this.m_id);
-        lDom.addData(_code, "value", utf8_to_b64(this.m_value));
+        lDom.addData(_code, "img", this.m_img);
+        lDom.addData(_code, "value", this.m_value);
         lDom.addData(_code, "index", ""+this.m_index);
         lDom.addMap(_code, this.m_map);
         return lDom.toString();
@@ -307,7 +394,8 @@ class GForm extends GObject {
         this.m_model = lDom.getItem(_code, "model");
         this.m_label = lDom.getItem(_code, "label");
         this.m_id = lDom.getItem(_code, "id");
-        this.m_value = b64_to_utf8(lDom.getItem(_code, "value"));
+        this.m_img = lDom.getItem(_code, "img");
+        this.m_value = lDom.getItem(_code, "value");
         this.m_index = +lDom.getItem(_code, "index");
         lDom.getMap(_code, this.m_map, this);
     }
@@ -316,6 +404,9 @@ class GForm extends GObject {
         if(_method == "") {
             this.addError("La méthode est obligatoire.");
         }
+        //===============================================
+        // form
+        //===============================================
         else if(_method == "open_form") {
             this.onOpenForm(_obj, _data);
         }
@@ -325,6 +416,18 @@ class GForm extends GObject {
         else if(_method == "ok_form") {
             this.onOkForm(_obj, _data);
         }
+        else if(_method == "change_input_form") {
+            this.onChangeInputForm(_obj, _data);
+        }
+        else if(_method == "change_line_form") {
+            this.onChangeLineForm(_obj, _data);
+        }
+        else if(_method == "change_edit_form") {
+            this.onChangeEditForm(_obj, _data);
+        }
+        //===============================================
+        // test
+        //===============================================
         else if(_method == "test_form") {
             this.onTestForm(_obj, _data);
         }
@@ -336,6 +439,8 @@ class GForm extends GObject {
         }
         return !this.hasErrors();
     }
+    //===============================================
+    // form
     //===============================================
     onOpenForm(_obj, _data) {
         var lModalForm = document.getElementById("ModalForm");
@@ -369,9 +474,29 @@ class GForm extends GObject {
         this.onCloseForm();
         this.deserialize(this.m_data);
         this.readContent();
-        call_server(this.m_module, this.m_method, this, this.m_data);
+        call_server(this.m_module, this.m_method, _obj, this.m_data);
         return !this.hasErrors();
     }
+    //===============================================
+    onChangeInputForm(_obj, _data) {
+        return !this.hasErrors();
+    }
+    //===============================================
+    onChangeLineForm(_obj, _data) {
+        var lObj = new GForm();
+        var lLine = _obj;
+        lObj.m_index = lLine.dataset.index;
+        lObj.m_value = lLine.dataset.value;
+        var lData = lObj.serialize();
+        call_server("editor", "update_link_title_form_line", _obj, lData);
+        return !this.hasErrors();
+    }
+    //===============================================
+    onChangeEditForm(_obj, _data) {
+        return !this.hasErrors();
+    }
+    //===============================================
+    // test
     //===============================================
     onTestForm(_obj, _data) {
         var lForm = new GForm();

@@ -85,7 +85,6 @@ class GEditor extends GObject {
     //===============================================
     readSelection() {
         var lSelection = document.getSelection();
-        this.m_range = lSelection.getRangeAt(0);;
         this.m_selection = lSelection.anchorNode;
         if(!this.m_selection) {
             this.addError("Aucune donnée n'a été sélectionné.");
@@ -94,6 +93,7 @@ class GEditor extends GObject {
         this.m_node = this.m_selection;
         this.m_line = this.m_selection.data;
         this.m_text = lSelection.toString();
+        this.m_range = lSelection.getRangeAt(0);
         return !this.hasErrors();
     }
     //===============================================
@@ -124,7 +124,16 @@ class GEditor extends GObject {
             this.onCommandNoArgument(_obj, _data);
         }
         //===============================================
-        // links
+        // page
+        //===============================================
+        else if(_method == "show_code_page") {
+            this.onShowCodePage(_obj, _data);
+        }
+        else if(_method == "show_edition_page") {
+            this.onShowEditionPage(_obj, _data);
+        }
+        //===============================================
+        // link_icon
         //===============================================
         else if(_method == "add_link_icon") {
             this.onAddLinkIcon(_obj, _data);
@@ -138,20 +147,41 @@ class GEditor extends GObject {
         else if(_method == "delete_link_icon") {
             this.onDeleteLinkIcon(_obj, _data);
         }
-        //===============================================
-        // page
-        //===============================================
-        else if(_method == "show_code_page") {
-            this.onShowCodePage(_obj, _data);
-        }
-        else if(_method == "show_edition_page") {
-            this.onShowEditionPage(_obj, _data);
+        else if(_method == "delete_link_icon_confirm") {
+            this.onDeleteLinkIconConfirm(_obj, _data);
         }
         //===============================================
-        // titres
+        // link_title
+        //===============================================
+        else if(_method == "add_link_title") {
+            this.onAddLinkTitle(_obj, _data);
+        }
+        else if(_method == "update_link_title") {
+            this.onUpdateLinkTitle(_obj, _data);
+        }
+        else if(_method == "update_link_title_form") {
+            this.onUpdateLinkTitleForm(_obj, _data);
+        }
+        else if(_method == "update_link_title_form_line") {
+            this.onUpdateLinkTitleFormLine(_obj, _data);
+        }
+        else if(_method == "delete_link_title") {
+            this.onDeleteLinkTitle(_obj, _data);
+        }
+        else if(_method == "delete_link_title_confirm") {
+            this.onDeleteLinkTitleConfirm(_obj, _data);
+        }
+        //===============================================
+        // title_section
         //===============================================
         else if(_method == "add_title_section") {
             this.onAddTitleSection(_obj, _data);
+        }
+        else if(_method == "update_title_section") {
+            this.onUpdateTitleSection(_obj, _data);
+        }
+        else if(_method == "update_title_section_form") {
+            this.onUpdateTitleSectionForm(_obj, _data);
         }
         else if(_method == "delete_title_section") {
             this.onDeleteTitleSection(_obj, _data);
@@ -196,7 +226,7 @@ class GEditor extends GObject {
             this.onDeleteGraduationConfirm(_obj, _data);
         }
         //===============================================
-        // textes
+        // text
         //===============================================
         else if(_method == "add_text_image_left") {
             this.onAddTextImageLeft(_obj, _data);
@@ -240,7 +270,19 @@ class GEditor extends GObject {
         document.execCommand(_data, false, null);
     }
     //===============================================
-    // links
+    // page
+    //===============================================
+    onShowCodePage(_obj, _data) {
+        this.initTab(4);
+        var lPage = new GPage();
+        lPage.searchCodeFile();
+    }
+    //===============================================
+    onShowEditionPage(_obj, _data) {
+        this.initTab(3);
+    }
+    //===============================================
+    // link_icon
     //===============================================
     onAddLinkIcon(_obj, _data) {
         if(!this.readSelection()) return false;
@@ -278,7 +320,7 @@ class GEditor extends GObject {
 
         var lNode = this.m_node;
         var lLink = lNode.firstElementChild.nextElementSibling;
-        var lHref = lLink.href;
+        var lHref = lLink.getAttribute("href");
         
         var lForm = new GForm();
         lForm.setCallback("editor", "update_link_icon_form");
@@ -302,9 +344,7 @@ class GEditor extends GObject {
         
         var lForm = new GForm();
         lForm.deserialize(_data);
-        
-        lForm.loadFromMap(0);
-        var lHref = lForm.m_value;
+        var lHref = lForm.loadFromMap(0).m_value;
         
         var lNode = this.m_node;
         var lLink = lNode.firstElementChild.nextElementSibling;
@@ -317,17 +357,44 @@ class GEditor extends GObject {
             this.addError("La sélection est hors du cadre.");
             return false;
         }
-        if(this.hasParent("GLink1")) {
-            this.addError("Vous êtes dans un lien icône.");
+        if(!this.hasParent("GLink1")) {
+            this.addError("Vous n'êtes pas dans un lien icône.");
             return false;
         }
-        if(!this.isLine()) {
-            this.addError("Vous êtes sur une ligne.");
+
+        var lConfirm = new GConfirm();
+        lConfirm.setCallback("editor", "delete_link_icon_confirm");
+        lConfirm.showConfirm();
+    }
+    //===============================================
+    onDeleteLinkIconConfirm(_obj, _data) {
+        if(!this.readSelection()) return false;
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GLink1")) {
+            this.addError("Vous n'êtes pas dans un lien icône.");
+            return false;
+        }
+        this.removeNode();
+    }
+    //===============================================
+    // link_title
+    //===============================================
+    onAddLinkTitle(_obj, _data) {
+        if(!this.readSelection()) return false;
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(this.hasParent("GLink2")) {
+            this.addError("Vous êtes dans un lien titre.");
             return false;
         }
 
         var lHtml = "";
-        lHtml += "<div class='GLink1 Item4'>";
+        lHtml += "<div class='GLink2 Item4'>";
         lHtml += "<i class='Icon10 fa fa-book'></i>";
         lHtml += "<a class='Link4' href='#'>Ajouter un lien...</a>";
         lHtml += "</div>";
@@ -335,17 +402,101 @@ class GEditor extends GObject {
         document.execCommand("insertHTML", false, lHtml);
     }
     //===============================================
-    // others
-    //===============================================
-    onShowCodePage(_obj, _data) {
-        this.initTab(4);
-        var lPage = new GPage();
-        lPage.searchCodeFile();
+    onUpdateLinkTitle(_obj, _data) {
+        if(!this.readSelection()) return false;
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GLink2")) {
+            this.addError("Vous n'êtes pas dans un lien titre.");
+            return false;
+        }
+
+        var lEditor = GEditor.Instance();
+        lEditor.setObj(this);
+
+        var lObj = new GTitle();
+        var lNode = this.m_node;
+        var lLink = lNode.firstElementChild.nextElementSibling;
+        lObj.m_title = lLink.innerHTML;
+        lObj.m_link = lLink.getAttribute("href").removeCharAt(0);
+        
+        var lTitle = GTitle.Instance();
+        lTitle.loadTitle();
+        var lIndex = lTitle.findObj(lObj);
+        
+        var lForm = new GForm();
+        lForm.setCallback("editor", "update_link_title_form");
+        lForm.addLabelCombo("EditorTitleName", "Titre :", lTitle.toForm(), lIndex);
+        lForm.addLabelText("EditorTitleId", "Identifiant :", lObj.m_link);
+        lForm.addLabelEdit("EditorTitleCode", "Code :", lObj.m_link);
+        lForm.showForm();
+        this.addLogs(lForm.getLogs());
     }
     //===============================================
-    onShowEditionPage(_obj, _data) {
-        this.initTab(3);
+    onUpdateLinkTitleForm(_obj, _data) {
+        var lEditor = GEditor.Instance();
+        this.setObj(lEditor);
+        this.restoreRange();
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GLink2")) {
+            this.addError("Vous n'êtes pas dans un lien titre.");
+            return false;
+        }
+        
+        var lTitle = GTitle.Instance();
+        var lForm = new GForm();
+        lForm.deserialize(_data);
+        lTitle.loadFromMap(lForm.loadFromMap(0).m_index);
+        
+        var lNode = this.m_node;
+        var lLink = lNode.firstElementChild.nextElementSibling;
+        lLink.innerHTML = lTitle.m_title;
+        lLink.href = sprintf("#%s", lTitle.m_link);
     }
+    //===============================================
+    onUpdateLinkTitleFormLine(_obj, _data) {
+        var lForm = new GForm();
+        lForm.deserialize(_data);
+        var lTitle = GTitle.Instance();
+        lTitle.loadFromMap(lForm.m_index);
+        return !this.hasErrors();
+    }
+    //===============================================
+    onDeleteLinkTitle(_obj, _data) {
+        if(!this.readSelection()) return false;
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GLink2")) {
+            this.addError("Vous n'êtes pas dans un lien titre.");
+            return false;
+        }
+        
+        var lConfirm = new GConfirm();
+        lConfirm.setCallback("editor", "delete_link_title_confirm");
+        lConfirm.showConfirm();
+    }
+    //===============================================
+    onDeleteLinkTitleConfirm(_obj, _data) {
+        if(!this.readSelection()) return false;
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GLink2")) {
+            this.addError("Vous n'êtes pas dans un lien titre.");
+            return false;
+        }
+        this.removeNode();
+    }
+    //===============================================
+    // title_section
     //===============================================
     onAddTitleSection(_obj, _data) {
         if(!this.readSelection()) return false;
@@ -381,6 +532,57 @@ class GEditor extends GObject {
         document.execCommand("insertHTML", false, lHtml);
     }
     //===============================================
+    onUpdateTitleSection(_obj, _data) {
+        if(!this.readSelection()) return false;
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GTitle1")) {
+            this.addError("Vous n'êtes pas dans un titre section.");
+            return false;
+        }
+
+        var lEditor = GEditor.Instance();
+        lEditor.setObj(this);
+
+        var lNode = this.m_node;
+        var lTitle = lNode.firstElementChild.firstElementChild.firstElementChild.firstElementChild;
+        var lText = lTitle.innerHTML;
+        var lId = lTitle.id;
+        
+        var lForm = new GForm();
+        lForm.setCallback("editor", "update_title_section_form");
+        lForm.addLabelEdit("EditorTitleName", "Titre :", lText);
+        lForm.addLabelText("EditorTitleId", "Identifiant :", lId);
+        lForm.showForm();
+        this.addLogs(lForm.getLogs());
+    }
+    //===============================================
+    onUpdateTitleSectionForm(_obj, _data) {
+        var lEditor = GEditor.Instance();
+        this.setObj(lEditor);
+        this.restoreRange();
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GTitle1")) {
+            this.addError("Vous n'êtes pas dans un titre section.");
+            return false;
+        }
+        
+        var lForm = new GForm();
+        lForm.deserialize(_data);
+        var lText = lForm.loadFromMap(0).m_value;
+        var lId = lText.getNormalize();
+        
+        var lNode = this.m_node;
+        var lTitle = lNode.firstElementChild.firstElementChild.firstElementChild.firstElementChild;
+        lTitle.innerHTML = lText;
+        lTitle.id = lId;
+    }
+    //===============================================
     onDeleteTitleSection(_obj, _data) {
         if(!this.readSelection()) return false;
         if(!this.isEditor()) {
@@ -405,6 +607,8 @@ class GEditor extends GObject {
         }
         this.removeNode();
     }
+    //===============================================
+    // parallax
     //===============================================
     onAddParallax(_obj, _data) {
         if(!this.readSelection()) return false;
@@ -472,33 +676,46 @@ class GEditor extends GObject {
             return false;
         }
         
+        var lEditor = GEditor.Instance();
+        lEditor.setObj(this);
+
+        var lObj = new GImage
+        var lNode = this.m_node;
+        var lBody = lNode.firstElementChild;
+        lObj.m_path = lBody.style.backgroundImage.getPathFromUrl();
+        
         var lImage = GImage.Instance();
-        lImage.readData();
+        var lIndex = lImage.findObj(lObj);
+        
         var lForm = new GForm();
         lForm.setCallback("editor", "update_bg_image_parallax_form");
-        lForm.addLabelImage("EditorParallaxImage", "Image :", lImage.m_data);
+        lForm.addLabelImage("EditorParallaxImage", "Image :", lImage.toForm(), lIndex);
         lForm.showForm();
         this.addLogs(lForm.getLogs());
     }
     //===============================================
     onUpdateBgImageParallaxForm(_obj, _data) {
-        if(!this.readSelection()) return false;
-        var lImage = GImage.Instance();
-        lImage.loadData();
-        var lForm = new GForm();
-        lForm.deserialize(_data);
-        
-        lForm.loadFromMap(0);
-        lImage.loadFromMap(lForm.m_index);
-        var lBgImg = lImage.m_path;
-        
-        if(lBgImg == "") {
-            this.addError("L'image de fond est obligatoire.");
+        var lEditor = GEditor.Instance();
+        this.setObj(lEditor);
+        this.restoreRange();
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GParallax1")) {
+            this.addError("Vous n'êtes pas dans un effet parallax.");
             return false;
         }
 
-        if(!this.hasParent("GParallax1")) {
-            this.addError("Vous n'êtes pas dans un effet parallax.");
+        var lImage = GImage.Instance();
+        lImage.loadData();
+        
+        var lForm = new GForm();
+        lForm.deserialize(_data);
+        var lBgImg = lImage.loadFromMap(lForm.loadFromMap(0).m_index).m_path;
+                
+        if(lBgImg == "") {
+            this.addError("L'image de fond est obligatoire.");
             return false;
         }
 
@@ -518,36 +735,50 @@ class GEditor extends GObject {
             return false;
         }
 
+        var lEditor = GEditor.Instance();
+        lEditor.setObj(this);
+
+        var lNode = this.m_node;
+        var lBody = lNode.firstElementChild.nextElementSibling;
+        var lBgColor = lBody.style.backgroundColor.getHexFromRgb();
+        
+        if(lBody.style.backgroundColor == "") lBgColor = "#803300";
+        
         var lForm = new GForm();
         lForm.setCallback("editor", "update_bg_color_parallax_form");
-        lForm.addLabelColor("EditorParallaxColor", "Couleur :");
+        lForm.addLabelColor("EditorParallaxColor", "Couleur :", lBgColor);
         lForm.showForm();
         this.addLogs(lForm.getLogs());
     }
     //===============================================
     onUpdateBgColorParallaxForm(_obj, _data) {
-        if(!this.readSelection()) return false;
-        
+        var lEditor = GEditor.Instance();
+        this.setObj(lEditor);
+        this.restoreRange();
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GParallax1")) {
+            this.addError("Vous n'êtes pas dans un effet parallax.");
+            return false;
+        }
+
         var lForm = new GForm();
         lForm.deserialize(_data);
-        
-        lForm.loadFromMap(0);
-        var lBgColor = lForm.m_value;
+        var lBgColor = lForm.loadFromMap(0).m_value;
         
         if(lBgColor == "") {
             this.addError("La couleur de fond est obligatoire.");
             return false;
         }
 
-        if(!this.hasParent("GParallax1")) {
-            this.addError("Vous n'êtes pas dans un effet parallax.");
-            return false;
-        }
-
         var lNode = this.m_node;
-        var lBgColorId = lNode.firstElementChild.nextElementSibling;
-        lBgColorId.style.backgroundColor = lBgColor;
+        var lBody = lNode.firstElementChild.nextElementSibling;
+        lBody.style.backgroundColor = lBgColor;
     }
+    //===============================================
+    // graduation
     //===============================================
     onAddGraduation(_obj, _data) {
         if(!this.readSelection()) return false;
