@@ -31,7 +31,6 @@ class GPage extends GObject {
     //===============================================
     clone() {
         var lObj = new GPage();
-        lObj.setObj(this);
         return lObj;
     }
     //===============================================

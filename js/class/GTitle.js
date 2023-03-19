@@ -18,11 +18,11 @@ class GTitle extends GObject {
     //===============================================
     clone() {
         var lObj = new GTitle();
-        lObj.setObj(this);
         return lObj;
     }
     //===============================================
     setObj(_obj) {
+        if(!_obj) return;
         this.m_title = _obj.m_title;
         this.m_link = _obj.m_link;
     }

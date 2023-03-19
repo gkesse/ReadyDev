@@ -21,7 +21,6 @@ class GImage extends GObject {
     //===============================================
     clone() {
         var lObj = new GImage();
-        lObj.setObj(this);
         return lObj;
     }
     //===============================================

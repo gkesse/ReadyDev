@@ -21,7 +21,6 @@ class GSite extends GObject {
     //===============================================
     clone() {
         var lObj = new GSite();
-        lObj.setObj(this);
         return lObj;
     }
     //===============================================

@@ -1,6 +1,8 @@
 //===============================================
 class GForm extends GObject {
     //===============================================
+    static m_instance = null;
+    //===============================================
     constructor() {
         super();
         
@@ -22,9 +24,15 @@ class GForm extends GObject {
         this.initUi();
     }
     //===============================================
+    static Instance() {
+        if(this.m_instance == null) {
+            this.m_instance = new GForm();
+        }
+        return this.m_instance;
+    }    
+    //===============================================
     clone() {
         var lObj = new GForm();
-        lObj.setObj(this);
         return lObj;
     }
     //===============================================
@@ -250,19 +258,19 @@ class GForm extends GObject {
             if(lObj.m_model == "label_edit") {
                 lContent += sprintf("<div class='Row12'>\n");
                 lContent += sprintf("<label class='Label3' for='%s'>%s</label>\n", lObj.m_id, lObj.m_label);
-                lContent += sprintf("<div class='Field3'><input type='text' class='FormEdit Input2' id='%s' value='%s'/></div>\n", lObj.m_id, lObj.m_value);
+                lContent += sprintf("<div class='Field3'><input type='text' class='FormEdit Input2' id='%s' value='%s' data-index='%s'/></div>\n", lObj.m_id, lObj.m_value, lObj.m_index);
                 lContent += sprintf("</div>\n");
             }
             else if(lObj.m_model == "label_text") {
                 lContent += sprintf("<div class='Row12'>\n");
                 lContent += sprintf("<label class='Label3' for='%s'>%s</label>\n", lObj.m_id, lObj.m_label);
-                lContent += sprintf("<div class='Field3'><input type='text' class='FormReadOnly Input2' id='%s' value='%s' readonly/></div>\n", lObj.m_id, lObj.m_value);
+                lContent += sprintf("<div class='Field3'><input type='text' class='FormReadOnly Input2' id='%s' value='%s' data-index='%s' readonly/></div>\n", lObj.m_id, lObj.m_value, lObj.m_index);
                 lContent += sprintf("</div>\n");
             }
             else if(lObj.m_model == "label_color") {
                 lContent += sprintf("<div class='Row12'>\n");
                 lContent += sprintf("<label class='Label3' for='%s'>%s</label>\n", lObj.m_id, lObj.m_label);
-                lContent += sprintf("<div class='Field3'><input type='color' class='FormColor Input2' id='%s' value='%s'/></div>\n", lObj.m_id, lObj.m_value);
+                lContent += sprintf("<div class='Field3'><input type='color' class='FormColor Input2' id='%s' value='%s' data-index='%s' /></div>\n", lObj.m_id, lObj.m_value, lObj.m_index);
                 lContent += sprintf("</div>\n");
             }
             else if(lObj.m_model == "label_image") {
@@ -278,7 +286,7 @@ class GForm extends GObject {
                 lContent += sprintf("<div class='Row12'>\n");
                 lContent += sprintf("<label class='Label3' for='%s'>%s</label>\n", lObj.m_id, lObj.m_label);
                 lContent += sprintf("<div class='Field3 Menu2'>");
-                lContent += sprintf("<input type='text' data-type='image' class='Input4 Menu2Input' id='%s' value='%s' readonly/>\n", lObj.m_id, lForm.m_value);
+                lContent += sprintf("<input type='text' data-type='image' class='Input4 Menu2Input' id='%s' value='%s' data-index='%s' readonly/>\n", lObj.m_id, lForm.m_value, lObj.m_index);
                 lContent += sprintf("<i data-type='image' class='Menu2Caret fa fa-caret-down'></i>\n");
                 lContent += sprintf("<img class='Menu2Zoom'/>\n");
                 lContent += sprintf("<div class='Menu2Content'>\n");
@@ -305,7 +313,7 @@ class GForm extends GObject {
                 lContent += sprintf("<div class='Row12'>\n");
                 lContent += sprintf("<label class='Label3' for='%s'>%s</label>\n", lObj.m_id, lObj.m_label);
                 lContent += sprintf("<div class='Field3 Menu2'>");
-                lContent += sprintf("<input type='text' data-type='combo' class='Input4 Menu2Input' id='%s' value='%s' readonly/>\n", lObj.m_id, lForm.m_value);
+                lContent += sprintf("<input type='text' data-type='combo' class='Input4 Menu2Input' id='%s' value='%s' data-index='%s' readonly/>\n", lObj.m_id, lForm.m_value, lObj.m_index);
                 lContent += sprintf("<i data-type='combo' class='Menu2Caret fa fa-caret-down'></i>\n");
                 lContent += sprintf("<div class='Menu2Content'>\n");
                 
@@ -324,6 +332,24 @@ class GForm extends GObject {
         this.m_data = this.serialize();
         this.writeUi();
         this.init();
+    }
+    //===============================================
+    updateForm() {
+        for(var i = 0; i < this.m_map.length; i++) {
+            var lObj = this.m_map[i];            
+            var lInput = document.getElementById(lObj.m_id);
+            lInput.value = lObj.m_value;
+            lInput.dataset.index = lObj.m_index;
+        }
+    }
+    //===============================================
+    readForm() {
+        for(var i = 0; i < this.m_map.length; i++) {
+            var lObj = this.m_map[i];            
+            var lInput = document.getElementById(lObj.m_id);
+            lObj.m_value = lInput.value;
+            lObj.m_index = lInput.dataset.index;
+        }
     }
     //===============================================
     readContent() {        

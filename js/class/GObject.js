@@ -35,6 +35,10 @@ class GObject {
         return -1;
     }
     //===============================================
+    isNull() {
+        return this.isEqual(this.clone());
+    }
+    //===============================================
     clearMap() {
         this.m_map = [];
         this.m_logs.clearLogs();
@@ -93,12 +97,10 @@ class GObject {
     }
     //===============================================
     clone() {return new GObject();}
-    serialize(_code = "object") {return "";}
-    deserialize(_data, _code = "object") {}
-    //===============================================
-    clone() {return new GObject();}
     setObj(_obj) {}
     isEqual(_obj) {return false;}
+    serialize(_code = "object") {return "";}
+    deserialize(_data, _code = "object") {}
     //===============================================
 }
 //===============================================

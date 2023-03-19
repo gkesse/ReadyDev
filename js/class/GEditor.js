@@ -21,7 +21,6 @@ class GEditor extends GObject {
     //===============================================
     clone() {
         var lObj = new GEditor();
-        lObj.setObj(this);
         return lObj;
     }
     //===============================================
@@ -426,11 +425,11 @@ class GEditor extends GObject {
         lTitle.loadTitle();
         var lIndex = lTitle.findObj(lObj);
         
-        var lForm = new GForm();
+        var lForm = GForm.Instance();
+        lForm.clearMap();
         lForm.setCallback("editor", "update_link_title_form");
         lForm.addLabelCombo("EditorTitleName", "Titre :", lTitle.toForm(), lIndex);
         lForm.addLabelText("EditorTitleId", "Identifiant :", lObj.m_link);
-        lForm.addLabelEdit("EditorTitleCode", "Code :", lObj.m_link);
         lForm.showForm();
         this.addLogs(lForm.getLogs());
     }
@@ -449,9 +448,14 @@ class GEditor extends GObject {
         }
         
         var lTitle = GTitle.Instance();
-        var lForm = new GForm();
-        lForm.deserialize(_data);
+        var lForm = GForm.Instance();
+        lForm.readForm();
         lTitle.loadFromMap(lForm.loadFromMap(0).m_index);
+        
+        if(lTitle.isNull()) {
+            this.addError("Les données sont vides.");
+            return false;
+        }
         
         var lNode = this.m_node;
         var lLink = lNode.firstElementChild.nextElementSibling;
@@ -460,10 +464,16 @@ class GEditor extends GObject {
     }
     //===============================================
     onUpdateLinkTitleFormLine(_obj, _data) {
-        var lForm = new GForm();
-        lForm.deserialize(_data);
+        var lData = new GForm();
+        lData.deserialize(_data);
         var lTitle = GTitle.Instance();
-        lTitle.loadFromMap(lForm.m_index);
+        lTitle.loadFromMap(lData.m_index);
+        var lForm = GForm.Instance();
+        lForm.readForm();
+        lForm.loadFromMap(1);
+        lForm.m_value = lTitle.m_link;
+        lForm.loadToMap(1);
+        lForm.updateForm();
         return !this.hasErrors();
     }
     //===============================================
