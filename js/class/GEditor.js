@@ -132,6 +132,33 @@ class GEditor extends GObject {
             this.onShowEditionPage(_obj, _data);
         }
         //===============================================
+        // bullet
+        //===============================================
+        else if(_method == "add_bullet") {
+            this.onAddBullet(_obj, _data);
+        }
+        else if(_method == "update_bullet") {
+            this.onUpdateBullet(_obj, _data);
+        }
+        else if(_method == "delete_bullet") {
+            this.onDeleteBullet(_obj, _data);
+        }
+        else if(_method == "delete_bullet_confirm") {
+            this.onDeleteBulletConfirm(_obj, _data);
+        }
+        //===============================================
+        // graduation
+        //===============================================
+        else if(_method == "add_graduation") {
+            this.onAddGraduation(_obj, _data);
+        }
+        else if(_method == "delete_graduation") {
+            this.onDeleteGraduation(_obj, _data);
+        }
+        else if(_method == "delete_graduation_confirm") {
+            this.onDeleteGraduationConfirm(_obj, _data);
+        }
+        //===============================================
         // link_icon
         //===============================================
         else if(_method == "add_link_icon") {
@@ -225,18 +252,6 @@ class GEditor extends GObject {
             this.onUpdateBgColorParallaxForm(_obj, _data);
         }
         //===============================================
-        // graduation
-        //===============================================
-        else if(_method == "add_graduation") {
-            this.onAddGraduation(_obj, _data);
-        }
-        else if(_method == "delete_graduation") {
-            this.onDeleteGraduation(_obj, _data);
-        }
-        else if(_method == "delete_graduation_confirm") {
-            this.onDeleteGraduationConfirm(_obj, _data);
-        }
-        //===============================================
         // text
         //===============================================
         else if(_method == "add_text_image_left") {
@@ -291,6 +306,61 @@ class GEditor extends GObject {
     //===============================================
     onShowEditionPage(_obj, _data) {
         this.initTab(3);
+    }
+    //===============================================
+    // bullet
+    //===============================================
+    onAddBullet(_obj, _data) {
+        if(!this.readSelection()) return false;
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(this.hasParent("GBullet1")) {
+            this.addError("Vous êtes dans une puce");
+            return false;
+        }
+        if(!this.isLine()) {
+            this.addError("Vous êtes sur une ligne.");
+            return false;
+        }
+        
+        var lBullet = new GBullet();
+        lBullet.m_icon = "check";
+        lBullet.m_text = "Ajouter un texte...";
+        document.execCommand("insertHTML", false, lBullet.toBullet());
+    }
+    //===============================================
+    // graduation
+    //===============================================
+    onAddGraduation(_obj, _data) {
+        if(!this.readSelection()) return false;
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(this.hasParent("GGraduation1")) {
+            this.addError("Vous êtes dans une formation");
+            return false;
+        }
+        if(!this.isLine()) {
+            this.addError("Vous êtes sur une ligne.");
+            return false;
+        }
+
+        var lHtml = "";
+        lHtml += "<div class='GGraduation1 Row3'>\n";
+        lHtml += "<div class='Content3'>\n";
+        lHtml += "<i class='Icon4 fa fa-graduation-cap'></i>\n";
+        lHtml += "</div>\n";
+        lHtml += "<div class='Text3'>\n";
+        lHtml += "<b>2006 - 2009</b><br>\n";
+        lHtml += "DUT Electronique Industrielle,<br>\n";
+        lHtml += "Faculté des Sciences de Bizerte, Tunisie.\n";
+        lHtml += "</div>\n";
+        lHtml += "</div>\n";
+
+        document.execCommand("insertHTML", false, lHtml);
     }
     //===============================================
     // link_icon
@@ -850,38 +920,6 @@ class GEditor extends GObject {
         lBody.style.backgroundColor = lBgColor;
     }
     //===============================================
-    // graduation
-    //===============================================
-    onAddGraduation(_obj, _data) {
-        if(!this.readSelection()) return false;
-        if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
-            return false;
-        }
-        if(this.hasParent("GGraduation1")) {
-            this.addError("Vous êtes dans une formation");
-            return false;
-        }
-        if(!this.isLine()) {
-            this.addError("Vous êtes sur une ligne.");
-            return false;
-        }
-
-        var lHtml = "";
-        lHtml += "<div class='GGraduation1 Row3'>\n";
-        lHtml += "<div class='Content3'>\n";
-        lHtml += "<i class='Icon4 fa fa-graduation-cap'></i>\n";
-        lHtml += "</div>\n";
-        lHtml += "<div class='Text3'>\n";
-        lHtml += "<b>2006 - 2009</b><br>\n";
-        lHtml += "DUT Electronique Industrielle,<br>\n";
-        lHtml += "Faculté des Sciences de Bizerte, Tunisie.\n";
-        lHtml += "</div>\n";
-        lHtml += "</div>\n";
-
-        document.execCommand("insertHTML", false, lHtml);
-    }
-    //===============================================
     onDeleteGraduation(_obj, _data) {
         if(!this.readSelection()) return false;
         if(!this.isEditor()) {
@@ -906,6 +944,8 @@ class GEditor extends GObject {
         }
         this.removeNode();
     }
+    //===============================================
+    // text
     //===============================================
     onAddTextImageLeft(_obj, _data) {
         if(!this.readSelection()) return false;
