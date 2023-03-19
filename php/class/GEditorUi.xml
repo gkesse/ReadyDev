@@ -426,6 +426,18 @@
                                     <method>delete_link_title</method>
                                     <label>Supprimer lien titre</label>
                                 </data>
+                                <data>
+                                    <category>text</category>
+                                    <module>editor</module>
+                                    <method>add_link_title_group</method>
+                                    <label>Ajouter lien titre groupe</label>
+                                </data>
+                                <data>
+                                    <category>text</category>
+                                    <module>editor</module>
+                                    <method>delete_link_title_group</method>
+                                    <label>Supprimer lien titre groupe</label>
+                                </data>
                             </map>
                         </data>
                         <!-- Parallax -->
@@ -475,6 +487,31 @@
                                     <module>keyevent</module>
                                     <method>no_filter_clipboard_text</method>
                                     <label>Supprimer filtre texte</label>
+                                </data>
+                            </map>
+                        </data>
+                        <!-- Puces -->
+                        <data>
+                            <category>text</category>
+                            <label>Puces</label>
+                            <map>
+                                <data>
+                                    <category>text</category>
+                                    <module>editor</module>
+                                    <method>add_bullet</method>
+                                    <label>Ajouter puce</label>
+                                </data>
+                                <data>
+                                    <category>text</category>
+                                    <module>editor</module>
+                                    <method>update_bullet</method>
+                                    <label>Modifier puce</label>
+                                </data>
+                                <data>
+                                    <category>text</category>
+                                    <module>editor</module>
+                                    <method>delete_bullet</method>
+                                    <label>Suuprimer puce</label>
                                 </data>
                             </map>
                         </data>

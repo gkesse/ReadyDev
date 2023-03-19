@@ -35,6 +35,12 @@ class GObject {
         return -1;
     }
     //===============================================
+    addObj(_obj) {
+        var lObj = this.clone();
+        lObj.setObj(_obj);
+        this.m_map.push(lObj);
+    }
+    //===============================================
     isNull() {
         return this.isEqual(this.clone());
     }

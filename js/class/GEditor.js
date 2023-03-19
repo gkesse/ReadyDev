@@ -171,6 +171,18 @@ class GEditor extends GObject {
             this.onDeleteLinkTitleConfirm(_obj, _data);
         }
         //===============================================
+        // link_title_group
+        //===============================================
+        else if(_method == "add_link_title_group") {
+            this.onAddLinkTitleGroup(_obj, _data);
+        }
+        else if(_method == "delete_link_title_group") {
+            this.onDeleteLinkTitleGroup(_obj, _data);
+        }
+        else if(_method == "delete_link_title_group_confirm") {
+            this.onDeleteLinkTitleGroupConfirm(_obj, _data);
+        }
+        //===============================================
         // title_section
         //===============================================
         else if(_method == "add_title_section") {
@@ -392,13 +404,9 @@ class GEditor extends GObject {
             return false;
         }
 
-        var lHtml = "";
-        lHtml += "<div class='GLink2 Item4'>";
-        lHtml += "<i class='Icon10 fa fa-book'></i>";
-        lHtml += "<a class='Link4' href='#'>Ajouter un lien...</a>";
-        lHtml += "</div>";
-
-        document.execCommand("insertHTML", false, lHtml);
+        var lTitle = new GTitle();
+        lTitle.m_title = "Ajouter un lien...";     
+        document.execCommand("insertHTML", false, lTitle.toLinkTitle());
     }
     //===============================================
     onUpdateLinkTitle(_obj, _data) {
@@ -415,21 +423,20 @@ class GEditor extends GObject {
         var lEditor = GEditor.Instance();
         lEditor.setObj(this);
 
-        var lObj = new GTitle();
-        var lNode = this.m_node;
-        var lLink = lNode.firstElementChild.nextElementSibling;
-        lObj.m_title = lLink.innerHTML;
-        lObj.m_link = lLink.getAttribute("href").removeCharAt(0);
-        
         var lTitle = GTitle.Instance();
         lTitle.loadTitle();
-        var lIndex = lTitle.findObj(lObj);
-        
+
+        var lNode = this.m_node;
+        var lLink = lNode.firstElementChild.nextElementSibling;
+        lTitle.m_title = lLink.innerHTML;
+        lTitle.m_link = lLink.getAttribute("href").removeCharAt(0);
+        var lIndex = lTitle.findObj(lTitle);
+
         var lForm = GForm.Instance();
         lForm.clearMap();
         lForm.setCallback("editor", "update_link_title_form");
         lForm.addLabelCombo("EditorTitleName", "Titre :", lTitle.toForm(), lIndex);
-        lForm.addLabelText("EditorTitleId", "Identifiant :", lObj.m_link);
+        lForm.addLabelText("EditorTitleId", "Identifiant :", lTitle.m_link);
         lForm.showForm();
         this.addLogs(lForm.getLogs());
     }
@@ -501,6 +508,61 @@ class GEditor extends GObject {
         }
         if(!this.hasParent("GLink2")) {
             this.addError("Vous n'êtes pas dans un lien titre.");
+            return false;
+        }
+        this.removeNode();
+    }
+    //===============================================
+    // link_title_group
+    //===============================================
+    onAddLinkTitleGroup(_obj, _data) {
+        if(!this.readSelection()) return false;
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(this.hasParent("GLink3")) {
+            this.addError("Vous êtes dans un lien titre groupe.");
+            return false;
+        }
+        
+        var lTitle = new GTitle();
+        var lTitles = document.getElementsByClassName("GTitle1");
+        
+        for(var i = 0; i < lTitles.length; i++) {
+            var lNode = lTitles[i];
+            var lLink = lNode.firstElementChild.firstElementChild.firstElementChild.firstElementChild;
+            lTitle.m_title = lLink.innerHTML;
+            lTitle.m_link = lLink.innerHTML.getNormalize();
+            lTitle.addObj(lTitle);
+        }
+
+        document.execCommand("insertHTML", false, lTitle.toLinkTitleGroup());
+    }
+    //===============================================
+    onDeleteLinkTitleGroup(_obj, _data) {
+        if(!this.readSelection()) return false;
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GLink3")) {
+            this.addError("Vous n'êtes pas dans un lien titre groupe.");
+            return false;
+        }
+        var lConfirm = new GConfirm();
+        lConfirm.setCallback("editor", "delete_link_title_group_confirm");
+        lConfirm.showConfirm();
+    }
+    //===============================================
+    onDeleteLinkTitleGroupConfirm(_obj, _data) {
+        if(!this.readSelection()) return false;
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GLink3")) {
+            this.addError("Vous n'êtes pas dans un lien titre groupe.");
             return false;
         }
         this.removeNode();

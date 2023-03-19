@@ -62,6 +62,26 @@ class GTitle extends GObject {
         return lData;
     }
     //===============================================
+    toLinkTitle() {
+        var lHtml = "";
+        lHtml += sprintf("<div class='GLink2 Item4'>");
+        lHtml += sprintf("<i class='Icon10 fa fa-book'></i>");
+        lHtml += sprintf("<a class='Link4' href='#%s'>%s</a>", this.m_link, this.m_title);
+        lHtml += sprintf("</div>");
+        return lHtml;
+    }
+    //===============================================
+    toLinkTitleGroup() {
+        var lHtml = "";
+        lHtml += sprintf("<div class='GLink3'>");
+        for(var i = 0; i < this.m_map.length; i++) {
+            var lObj = this.m_map[i];
+            lHtml += lObj.toLinkTitle();
+        }
+        lHtml += sprintf("</div>");
+        return lHtml;
+    }
+    //===============================================
     serialize(_code = "title") {
         var lDom = new GCode();
         lDom.createDoc();
