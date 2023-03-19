@@ -9,7 +9,6 @@
             <title>Formulaire</title>
             <intro>Saisissez vos données.</intro>
             <modal_id>ModalForm</modal_id>
-            <data_id>FormData</data_id>
             <title_id>FormTitle</title_id>
             <intro_id>FormIntro</intro_id>
             <body_id>FormBody</body_id>

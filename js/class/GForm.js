@@ -11,9 +11,9 @@ class GForm extends GObject {
         this.m_method = "";
         this.m_module = "";
         this.m_content = "";
-        this.m_data = "";
         this.m_combo = "";
 
+        this.m_position = -1;
         this.m_model = "";
         this.m_label = "";
         this.m_id = "";
@@ -37,6 +37,7 @@ class GForm extends GObject {
     }
     //===============================================
     setObj(_obj) {
+        this.m_position = _obj.m_position;
         this.m_model = _obj.m_model;
         this.m_label = _obj.m_label;
         this.m_id = _obj.m_id;
@@ -191,6 +192,7 @@ class GForm extends GObject {
     //===============================================
     addLabelEdit(_id, _label, _value = "") {
         var lObj = new GForm();
+        lObj.m_position = this.m_map.length;
         lObj.m_model = "label_edit";
         lObj.m_id = _id;
         lObj.m_label = _label;
@@ -200,6 +202,7 @@ class GForm extends GObject {
     //===============================================
     addLabelText(_id, _label, _value = "") {
         var lObj = new GForm();
+        lObj.m_position = this.m_map.length;
         lObj.m_model = "label_text";
         lObj.m_id = _id;
         lObj.m_label = _label;
@@ -209,6 +212,7 @@ class GForm extends GObject {
     //===============================================
     addLabelColor(_id, _label, _value = "#800000") {
         var lObj = new GForm();
+        lObj.m_position = this.m_map.length;
         lObj.m_model = "label_color";
         lObj.m_id = _id;
         lObj.m_label = _label;
@@ -218,6 +222,7 @@ class GForm extends GObject {
     //===============================================
     addLabelCombo(_id, _label, _combo, _index = -1) {
         var lObj = new GForm();
+        lObj.m_position = this.m_map.length;
         lObj.m_model = "label_combo";
         lObj.m_id = _id;
         lObj.m_label = _label;
@@ -228,6 +233,7 @@ class GForm extends GObject {
     //===============================================
     addLabelImage(_id, _label, _combo, _index = -1) {
         var lObj = new GForm();
+        lObj.m_position = this.m_map.length;
         lObj.m_model = "label_image";
         lObj.m_id = _id;
         lObj.m_label = _label;
@@ -258,19 +264,19 @@ class GForm extends GObject {
             if(lObj.m_model == "label_edit") {
                 lContent += sprintf("<div class='Row12'>\n");
                 lContent += sprintf("<label class='Label3' for='%s'>%s</label>\n", lObj.m_id, lObj.m_label);
-                lContent += sprintf("<div class='Field3'><input type='text' class='FormEdit Input2' id='%s' value='%s' data-index='%s'/></div>\n", lObj.m_id, lObj.m_value, lObj.m_index);
+                lContent += sprintf("<div class='Field3'><input type='text' class='FormEdit Input2' id='%s' value='%s' data-index='%s' data-position='%s'/></div>\n", lObj.m_id, lObj.m_value, lObj.m_index, lObj.m_position);
                 lContent += sprintf("</div>\n");
             }
             else if(lObj.m_model == "label_text") {
                 lContent += sprintf("<div class='Row12'>\n");
                 lContent += sprintf("<label class='Label3' for='%s'>%s</label>\n", lObj.m_id, lObj.m_label);
-                lContent += sprintf("<div class='Field3'><input type='text' class='FormReadOnly Input2' id='%s' value='%s' data-index='%s' readonly/></div>\n", lObj.m_id, lObj.m_value, lObj.m_index);
+                lContent += sprintf("<div class='Field3'><input type='text' class='FormReadOnly Input2' id='%s' value='%s' data-index='%s' data-position='%s' readonly/></div>\n", lObj.m_id, lObj.m_value, lObj.m_index, lObj.m_position);
                 lContent += sprintf("</div>\n");
             }
             else if(lObj.m_model == "label_color") {
                 lContent += sprintf("<div class='Row12'>\n");
                 lContent += sprintf("<label class='Label3' for='%s'>%s</label>\n", lObj.m_id, lObj.m_label);
-                lContent += sprintf("<div class='Field3'><input type='color' class='FormColor Input2' id='%s' value='%s' data-index='%s' /></div>\n", lObj.m_id, lObj.m_value, lObj.m_index);
+                lContent += sprintf("<div class='Field3'><input type='color' class='FormColor Input2' id='%s' value='%s' data-index='%s' data-position='%s'/></div>\n", lObj.m_id, lObj.m_value, lObj.m_index, lObj.m_position);
                 lContent += sprintf("</div>\n");
             }
             else if(lObj.m_model == "label_image") {
@@ -286,14 +292,14 @@ class GForm extends GObject {
                 lContent += sprintf("<div class='Row12'>\n");
                 lContent += sprintf("<label class='Label3' for='%s'>%s</label>\n", lObj.m_id, lObj.m_label);
                 lContent += sprintf("<div class='Field3 Menu2'>");
-                lContent += sprintf("<input type='text' data-type='image' class='Input4 Menu2Input' id='%s' value='%s' data-index='%s' readonly/>\n", lObj.m_id, lForm.m_value, lObj.m_index);
+                lContent += sprintf("<input type='text' data-type='image' class='Input4 Menu2Input' id='%s' value='%s' data-index='%s' data-position='%s' readonly/>\n", lObj.m_id, lForm.m_value, lObj.m_index, lObj.m_position);
                 lContent += sprintf("<i data-type='image' class='Menu2Caret fa fa-caret-down'></i>\n");
                 lContent += sprintf("<img class='Menu2Zoom'/>\n");
                 lContent += sprintf("<div class='Menu2Content'>\n");
                 
                 for(var j = 0; j < lForm.m_map.length; j++) {
                     lForm.loadFromMap(j);
-                    lContent += sprintf("<div class='Menu2Line' data-type='image' data-index='%s' data-value='%s'>%s <img class='Menu2Img' src='%s' alt='%s'/></div>\n", j, lForm.m_value, lForm.m_value, lForm.m_img, lForm.m_value);
+                    lContent += sprintf("<div class='Menu2Line' data-type='image' data-index='%s' data-position='%s' data-value='%s'>%s <img class='Menu2Img' src='%s' alt='%s'/></div>\n", j, lObj.m_position, lForm.m_value, lForm.m_value, lForm.m_img, lForm.m_value);
                 }
                 
                 lContent += sprintf("</div>\n");
@@ -313,13 +319,13 @@ class GForm extends GObject {
                 lContent += sprintf("<div class='Row12'>\n");
                 lContent += sprintf("<label class='Label3' for='%s'>%s</label>\n", lObj.m_id, lObj.m_label);
                 lContent += sprintf("<div class='Field3 Menu2'>");
-                lContent += sprintf("<input type='text' data-type='combo' class='Input4 Menu2Input' id='%s' value='%s' data-index='%s' readonly/>\n", lObj.m_id, lForm.m_value, lObj.m_index);
+                lContent += sprintf("<input type='text' data-type='combo' class='Input4 Menu2Input' id='%s' value='%s' data-index='%s' data-position='%s' readonly/>\n", lObj.m_id, lForm.m_value, lObj.m_index, lObj.m_position);
                 lContent += sprintf("<i data-type='combo' class='Menu2Caret fa fa-caret-down'></i>\n");
                 lContent += sprintf("<div class='Menu2Content'>\n");
                 
                 for(var j = 0; j < lForm.m_map.length; j++) {
                     lForm.loadFromMap(j);
-                    lContent += sprintf("<div class='Menu2Line' data-type='combo' data-index='%s' data-value='%s'>%s</div>\n", j, lForm.m_value, lForm.m_value);
+                    lContent += sprintf("<div class='Menu2Line' data-type='combo' data-index='%s' data-position='%s' data-value='%s'>%s</div>\n", j, lObj.m_position, lForm.m_value, lForm.m_value);
                 }
                 
                 lContent += sprintf("</div>\n");
@@ -329,7 +335,6 @@ class GForm extends GObject {
         }
         
         this.m_content = lContent;
-        this.m_data = this.serialize();
         this.writeUi();
         this.init();
     }
@@ -340,6 +345,7 @@ class GForm extends GObject {
             var lInput = document.getElementById(lObj.m_id);
             lInput.value = lObj.m_value;
             lInput.dataset.index = lObj.m_index;
+            lInput.dataset.position = lObj.m_position;
         }
     }
     //===============================================
@@ -349,19 +355,8 @@ class GForm extends GObject {
             var lInput = document.getElementById(lObj.m_id);
             lObj.m_value = lInput.value;
             lObj.m_index = lInput.dataset.index;
+            lObj.m_position = lInput.dataset.position;
         }
-    }
-    //===============================================
-    readContent() {        
-        for(var i = 0; i < this.m_map.length; i++) {
-            var lObj = this.m_map[i];            
-            var lInput = document.getElementById(lObj.m_id);
-            lObj.m_value = lInput.value;
-            lObj.m_index = lInput.dataset.index;
-        }
-        
-        this.m_data = this.serialize();
-        this.writeUi();
     }
     //===============================================
     readUi() {
@@ -370,14 +365,12 @@ class GForm extends GObject {
         var lFormModule = document.getElementById("FormModule");
         var lFormMethod = document.getElementById("FormMethod");
         var lFormContent = document.getElementById("FormContent");
-        var lFormData = document.getElementById("FormData");
         
         this.m_title = lFormTitle.innerHTML;
         this.m_intro = lFormIntro.innerHTML;
         this.m_module = lFormModule.value;
         this.m_method = lFormMethod.value;
         this.m_content = lFormContent.innerHTML;
-        this.m_data = lFormData.innerHTML;
     }
     //===============================================
     writeUi() {
@@ -386,14 +379,12 @@ class GForm extends GObject {
         var lFormModule = document.getElementById("FormModule");
         var lFormMethod = document.getElementById("FormMethod");
         var lFormContent = document.getElementById("FormContent");
-        var lFormData = document.getElementById("FormData");
 
         lFormTitle.innerHTML = this.m_title;
         lFormIntro.innerHTML = this.m_intro;
         lFormModule.value = this.m_module;
         lFormMethod.value = this.m_method;
         lFormContent.innerHTML = this.m_content;
-        lFormData.innerHTML = this.m_data;
     }
     //===============================================
     showForm() {
@@ -404,6 +395,7 @@ class GForm extends GObject {
     serialize(_code = "form") {
         var lDom = new GCode();
         lDom.createDoc();
+        lDom.addData(_code, "position", ""+this.m_position);
         lDom.addData(_code, "model", this.m_model);
         lDom.addData(_code, "label", this.m_label);
         lDom.addData(_code, "id", this.m_id);
@@ -417,6 +409,7 @@ class GForm extends GObject {
     deserialize(_data, _code = "form") {
         var lDom = new GCode();
         lDom.loadXml(_data);
+        this.m_position = +lDom.getItem(_code, "position");
         this.m_model = lDom.getItem(_code, "model");
         this.m_label = lDom.getItem(_code, "label");
         this.m_id = lDom.getItem(_code, "id");
@@ -498,9 +491,7 @@ class GForm extends GObject {
         if(this.m_module == "") return false;
         if(this.m_method == "") return false;
         this.onCloseForm();
-        this.deserialize(this.m_data);
-        this.readContent();
-        call_server(this.m_module, this.m_method, _obj, this.m_data);
+        call_server(this.m_module, this.m_method, _obj);
         return !this.hasErrors();
     }
     //===============================================
@@ -511,6 +502,7 @@ class GForm extends GObject {
     onChangeLineForm(_obj, _data) {
         var lObj = new GForm();
         var lLine = _obj;
+        lObj.m_position = lLine.dataset.position;
         lObj.m_index = lLine.dataset.index;
         lObj.m_value = lLine.dataset.value;
         var lData = lObj.serialize();
