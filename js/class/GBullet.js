@@ -36,10 +36,10 @@ class GBullet extends GObject {
     //===============================================
     toBullet() {
         var lHtml = "";
-        lHtml += sprintf("<div class='GBullet1'>");
-        lHtml += sprintf("<div class='Bullet1'>");
-        lHtml += sprintf("<i class='Bullet2 fa fa-%s'></i>", this.m_icon);
-        lHtml += sprintf("<div class='Bullet3'>%s</div>", this.m_text);
+        lHtml += sprintf("<div class=\"GBullet1\">");
+        lHtml += sprintf("<div class=\"Bullet1\">");
+        lHtml += sprintf("<i class=\"Bullet2 fa fa-%s\"></i>", this.m_icon);
+        lHtml += sprintf("<div class=\"Bullet3\">%s</div>", this.m_text);
         lHtml += sprintf("</div>");
         lHtml += sprintf("</div>");
         return lHtml;

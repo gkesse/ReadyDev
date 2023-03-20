@@ -79,7 +79,7 @@ class GEditor extends GObject {
     }
     //===============================================
     isLine() {
-        return (!this.m_line);
+        return (this.m_line);
     }
     //===============================================
     readSelection() {
@@ -93,6 +93,18 @@ class GEditor extends GObject {
         this.m_line = this.m_selection.data;
         this.m_text = lSelection.toString();
         this.m_range = lSelection.getRangeAt(0);
+        return !this.hasErrors();
+    }
+    //===============================================
+    selectLine() {
+        var lSelection = document.getSelection();
+        var lNode = lSelection.anchorNode;
+        var lLength = lNode.data.length;
+        var lRange = document.createRange();
+        lRange.setStart(lNode, 0);
+        lRange.setEnd(lNode, lLength);
+        lSelection.removeAllRanges();
+        lSelection.addRange(lRange);
         return !this.hasErrors();
     }
     //===============================================
@@ -145,6 +157,21 @@ class GEditor extends GObject {
         }
         else if(_method == "delete_bullet_confirm") {
             this.onDeleteBulletConfirm(_obj, _data);
+        }
+        //===============================================
+        // bullet_text
+        //===============================================
+        else if(_method == "add_bullet_text") {
+            this.onAddBulletText(_obj, _data);
+        }
+        else if(_method == "update_bullet_text") {
+            this.onUpdateBulletText(_obj, _data);
+        }
+        else if(_method == "delete_bullet_text") {
+            this.onDeleteBulletText(_obj, _data);
+        }
+        else if(_method == "delete_bullet_text_confirm") {
+            this.onDeleteBulletTextConfirm(_obj, _data);
         }
         //===============================================
         // graduation
@@ -320,7 +347,7 @@ class GEditor extends GObject {
             this.addError("Vous êtes dans une puce");
             return false;
         }
-        if(!this.isLine()) {
+        if(this.isLine()) {
             this.addError("Vous êtes sur une ligne.");
             return false;
         }
@@ -328,6 +355,58 @@ class GEditor extends GObject {
         var lBullet = new GBullet();
         lBullet.m_icon = "check";
         lBullet.m_text = "Ajouter un texte...";
+        document.execCommand("insertHTML", false, lBullet.toBullet());
+    }
+    //===============================================
+    onDeleteBullet(_obj, _data) {
+        if(!this.readSelection()) return false;
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GBullet1")) {
+            this.addError("Vous n'êtes pas dans une puce");
+            return false;
+        }
+        var lConfirm = new GConfirm();
+        lConfirm.setCallback("editor", "delete_bullet_confirm");
+        lConfirm.showConfirm();
+    }
+    //===============================================
+    onDeleteBulletConfirm(_obj, _data) {
+        if(!this.readSelection()) return false;
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GBullet1")) {
+            this.addError("Vous n'êtes pas dans une puce");
+            return false;
+        }
+        this.removeNode();
+    }
+    //===============================================
+    // bullet_text
+    //===============================================
+    onAddBulletText(_obj, _data) {
+        if(!this.readSelection()) return false;
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(this.hasParent("GBullet2")) {
+            this.addError("Vous êtes dans une puce texte");
+            return false;
+        }
+        if(!this.isLine()) {
+            this.addError("Vous n'êtes pas sur une ligne.");
+            return false;
+        }
+        this.selectLine();
+        
+        var lBullet = new GBullet();
+        lBullet.m_icon = "check";
+        lBullet.m_text = this.m_line;
         document.execCommand("insertHTML", false, lBullet.toBullet());
     }
     //===============================================
@@ -343,7 +422,7 @@ class GEditor extends GObject {
             this.addError("Vous êtes dans une formation");
             return false;
         }
-        if(!this.isLine()) {
+        if(this.isLine()) {
             this.addError("Vous êtes sur une ligne.");
             return false;
         }
@@ -361,6 +440,31 @@ class GEditor extends GObject {
         lHtml += "</div>\n";
 
         document.execCommand("insertHTML", false, lHtml);
+    }
+    //===============================================
+    onDeleteGraduation(_obj, _data) {
+        if(!this.readSelection()) return false;
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GGraduation1")) {
+            this.addError("Vous n'êtes pas dans une formation");
+            return false;
+        }
+        
+        var lConfirm = new GConfirm();
+        lConfirm.setCallback("editor", "delete_graduation_confirm");
+        lConfirm.showConfirm();
+    }
+    //===============================================
+    onDeleteGraduationConfirm(_obj, _data) {
+        if(!this.readSelection()) return false;
+        if(!this.hasParent("GGraduation1")) {
+            this.addError("Vous n'êtes pas dans une formation");
+            return false;
+        }
+        this.removeNode();
     }
     //===============================================
     // link_icon
@@ -442,7 +546,6 @@ class GEditor extends GObject {
             this.addError("Vous n'êtes pas dans un lien icône.");
             return false;
         }
-
         var lConfirm = new GConfirm();
         lConfirm.setCallback("editor", "delete_link_icon_confirm");
         lConfirm.showConfirm();
@@ -650,7 +753,7 @@ class GEditor extends GObject {
             this.addError("Vous êtes dans un titre section.");
             return false;
         }
-        if(!this.isLine()) {
+        if(this.isLine()) {
             this.addError("Vous êtes sur une ligne.");
             return false;
         }
@@ -762,7 +865,7 @@ class GEditor extends GObject {
             this.addError("Vous êtes dans un effet parallax.");
             return false;
         }
-        if(!this.isLine()) {
+        if(this.isLine()) {
             this.addError("Vous êtes sur une ligne.");
             return false;
         }
@@ -920,31 +1023,6 @@ class GEditor extends GObject {
         lBody.style.backgroundColor = lBgColor;
     }
     //===============================================
-    onDeleteGraduation(_obj, _data) {
-        if(!this.readSelection()) return false;
-        if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
-            return false;
-        }
-        if(!this.hasParent("GGraduation1")) {
-            this.addError("Vous n'êtes pas dans une formation");
-            return false;
-        }
-        
-        var lConfirm = new GConfirm();
-        lConfirm.setCallback("editor", "delete_graduation_confirm");
-        lConfirm.showConfirm();
-    }
-    //===============================================
-    onDeleteGraduationConfirm(_obj, _data) {
-        if(!this.readSelection()) return false;
-        if(!this.hasParent("GGraduation1")) {
-            this.addError("Vous n'êtes pas dans une formation");
-            return false;
-        }
-        this.removeNode();
-    }
-    //===============================================
     // text
     //===============================================
     onAddTextImageLeft(_obj, _data) {
@@ -957,7 +1035,7 @@ class GEditor extends GObject {
             this.addError("Vous êtes dans un texte image");
             return false;
         }
-        if(!this.isLine()) {
+        if(this.isLine()) {
             this.addError("Vous êtes sur une ligne.");
             return false;
         }

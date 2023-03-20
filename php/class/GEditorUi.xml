@@ -513,6 +513,12 @@
                                     <method>delete_bullet</method>
                                     <label>Suuprimer puce</label>
                                 </data>
+                                <data>
+                                    <category>text</category>
+                                    <module>editor</module>
+                                    <method>add_bullet_text</method>
+                                    <label>Ajouter puce texte</label>
+                                </data>
                             </map>
                         </data>
                         <!-- Textes -->

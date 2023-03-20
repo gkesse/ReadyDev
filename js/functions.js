@@ -97,3 +97,13 @@ String.prototype.getNormalize = function() {
     return lData;
 }
 //===============================================
+// node
+//===============================================
+Element.prototype.appendBefore = function(_node) {
+    _node.parentNode.insertBefore(this, _node);
+}
+//===============================================
+Element.prototype.appendAfter = function(_node) {
+    _node.parentNode.insertBefore(this, _node.nextSibling);
+}
+//===============================================
