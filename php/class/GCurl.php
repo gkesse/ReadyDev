@@ -16,6 +16,7 @@ class GCurl extends GObject {
     private $m_content = "";
     private $m_contentType = "";
     private $m_headers = array();
+    private $m_hasError = true;
     //===============================================
     public function __construct() {
         parent::__construct();
@@ -154,9 +155,14 @@ class GCurl extends GObject {
             $this->m_responseText = curl_exec($lCurl);            
             if(curl_error($lCurl)) {
                 $this->m_responseText = curl_exec($lCurl);
-                if(curl_error($lCurl)) {
-                    $this->addError(sprintf("Erreur lors de la connexion au serveur."));
-                    //$this->addError(sprintf("Erreur lors de la connexion au serveur.<br>%s", curl_error($lCurl)));
+                $lError = curl_error($lCurl);
+                if($lError) {
+                    if(!$this->m_hasError) {
+                        $this->addError(sprintf("Erreur lors de la connexion au serveur."));
+                    }
+                    else {
+                        $this->addError(sprintf("Erreur lors de la connexion au serveur.\n%s", $lError));
+                    }
                 }
             }
         }
@@ -191,7 +197,7 @@ class GCurl extends GObject {
         $this->setPassword("adminpass");
         $this->setContentType("application/xml");
         $this->setContent($_data);
-        $this->setTimeout(3);
+        $this->setTimeout(10);
         $this->setHasUserAgent(true);
         $this->setHasUserPass(true);
         $this->run();
