@@ -366,6 +366,38 @@
                     <category>text</category>
                     <label>Styles personnalisés</label>
                     <map>
+                        <!-- Compétences -->
+                        <data>
+                        	<category>text</category>
+                        	<label>Compétences</label>
+                        	<map>
+                                <data>
+                                    <category>text</category>
+                                    <module>editor</module>
+                                    <method>add_skill</method>
+                                    <label>Ajouter compétence</label>
+                                </data>
+                                <data>
+                                    <category>text</category>
+                                    <module>editor</module>
+                                    <method>delete_skill</method>
+                                    <label>Supprimer compétence</label>
+                                </data>
+                        	</map>
+                        </data>
+                        <!-- Font Awesome -->
+                        <data>
+                            <category>text</category>
+                            <label>Font Awesome</label>
+                            <map>
+                                <data>
+                                    <category>text</category>
+                                    <module>editor</module>
+                                    <method>load_font_awesome</method>
+                                    <label>Charger font awesome</label>
+                                </data>                            
+                            </map>
+                        </data>
                         <!-- Formations -->
                         <data>
                             <category>text</category>
@@ -375,15 +407,34 @@
                                     <category>text</category>
                                     <module>editor</module>
                                     <method>add_graduation</method>
-                                    <label>Ajouter une formation</label>
+                                    <label>Ajouter formation</label>
                                 </data>
                                 <data>
                                     <category>text</category>
                                     <module>editor</module>
                                     <method>delete_graduation</method>
-                                    <label>Supprimer une formation</label>
+                                    <label>Supprimer formation</label>
                                 </data>
                             </map>
+                        </data>
+                        <!-- Lignes -->
+                        <data>
+                        	<category>text</category>
+                        	<label>Lignes</label>
+                        	<map>
+                                <data>
+                                    <category>text</category>
+                                    <module>editor</module>
+                                    <method>add_line_icon</method>
+                                    <label>Ajouter ligne icône</label>
+                                </data>
+                                <data>
+                                    <category>text</category>
+                                    <module>editor</module>
+                                    <method>delete_line_icon</method>
+                                    <label>Supprimer ligne icône</label>
+                                </data>
+                        	</map>
                         </data>
                         <!-- Liens -->
                         <data>
@@ -606,24 +657,6 @@
                         </data>
                         <data>
                             <category>text</category>
-                            <module>command</module>
-                            <method>load_page_file</method>
-                            <label>Charger</label>
-                        </data>
-                        <data>
-                            <category>text</category>
-                            <module>command</module>
-                            <method>new_page</method>
-                            <label>Nouveau</label>
-                        </data>
-                        <data>
-                            <category>text</category>
-                            <module>command</module>
-                            <method>show_html</method>
-                            <label>Afficher HTML</label>
-                        </data>
-                        <data>
-                            <category>text</category>
                             <module>page</module>
                             <method>load_page_tree</method>
                             <label>Charger l'arborescence</label>
@@ -633,25 +666,6 @@
                             <module>page</module>
                             <method>create_page_tree</method>
                             <label>Créer l'arborescence</label>
-                        </data>
-                    </map>
-                </data>
-                <!-- Tests -->
-                <data>
-                    <category>text</category>
-                    <label>Tests</label>
-                    <map>
-                        <data>
-                            <category>text</category>
-                            <module>form</module>
-                            <method>test_form</method>
-                            <label>Tester le formulaire</label>
-                        </data>
-                        <data>
-                            <category>text</category>
-                            <module>image</module>
-                            <method>test</method>
-                            <label>Charger des images</label>
                         </data>
                     </map>
                 </data>

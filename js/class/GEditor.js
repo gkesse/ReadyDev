@@ -186,6 +186,18 @@ class GEditor extends GObject {
             this.onDeleteGraduationConfirm(_obj, _data);
         }
         //===============================================
+        // line_icon
+        //===============================================
+        else if(_method == "add_line_icon") {
+            this.onAddLineIcon(_obj, _data);
+        }
+        else if(_method == "delete_line_icon") {
+            this.onDeleteLineIcon(_obj, _data);
+        }
+        else if(_method == "delete_line_icon_confirm") {
+            this.onDeleteLineIconConfirm(_obj, _data);
+        }
+        //===============================================
         // link_icon
         //===============================================
         else if(_method == "add_link_icon") {
@@ -277,6 +289,18 @@ class GEditor extends GObject {
         }
         else if(_method == "update_bg_color_parallax_form") {
             this.onUpdateBgColorParallaxForm(_obj, _data);
+        }
+        //===============================================
+        // skill
+        //===============================================
+        else if(_method == "add_skill") {
+            this.onAddSkill(_obj, _data);
+        }
+        else if(_method == "delete_skill") {
+            this.onDeleteSkill(_obj, _data);
+        }
+        else if(_method == "delete_skill_confirm") {
+            this.onDeleteSkillConfirm(_obj, _data);
         }
         //===============================================
         // text
@@ -467,6 +491,59 @@ class GEditor extends GObject {
         this.removeNode();
     }
     //===============================================
+    // line_icon
+    //===============================================
+    onAddLineIcon(_obj, _data) {
+        if(!this.readSelection()) return false;
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(this.hasParent("GLine1")) {
+            this.addError("Vous êtes dans une ligne icône");
+            return false;
+        }
+        if(this.isLine()) {
+            this.addError("Vous êtes sur une ligne.");
+            return false;
+        }
+        
+        var lLine = new GLine();
+        lLine.m_icon = "thumbs-up";
+        
+        document.execCommand("insertHTML", false, lLine.toLine());
+    }
+    //===============================================
+    onDeleteLineIcon(_obj, _data) {
+        if(!this.readSelection()) return false;
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GLine1")) {
+            this.addError("Vous n'êtes pas dans une ligne icône");
+            return false;
+        }
+        
+        var lConfirm = new GConfirm();
+        lConfirm.setCallback("editor", "delete_line_icon_confirm");
+        lConfirm.showConfirm();
+    }
+    //===============================================
+    onDeleteLineIconConfirm(_obj, _data) {
+        if(!this.readSelection()) return false;
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GLine1")) {
+            this.addError("Vous êtes dans une ligne icône");
+            return false;
+        }
+        
+        this.removeNode();
+    }
+    //===============================================
     // link_icon
     //===============================================
     onAddLinkIcon(_obj, _data) {
@@ -546,6 +623,7 @@ class GEditor extends GObject {
             this.addError("Vous n'êtes pas dans un lien icône.");
             return false;
         }
+        
         var lConfirm = new GConfirm();
         lConfirm.setCallback("editor", "delete_link_icon_confirm");
         lConfirm.showConfirm();
@@ -561,6 +639,7 @@ class GEditor extends GObject {
             this.addError("Vous n'êtes pas dans un lien icône.");
             return false;
         }
+        
         this.removeNode();
     }
     //===============================================
@@ -1021,6 +1100,27 @@ class GEditor extends GObject {
         var lNode = this.m_node;
         var lBody = lNode.firstElementChild.nextElementSibling;
         lBody.style.backgroundColor = lBgColor;
+    }
+    //===============================================
+    // skill
+    //===============================================
+    onAddSkill(_obj, _data) {
+        if(!this.readSelection()) return false;
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(this.hasParent("GSkill1")) {
+            this.addError("Vous êtes dans une compétence.");
+            return false;
+        }
+        if(this.isLine()) {
+            this.addError("Vous êtes sur une ligne.");
+            return false;
+        }
+        
+        var lSkill = new GSkill();
+        document.execCommand("insertHTML", false, lSkill.toSkill());
     }
     //===============================================
     // text

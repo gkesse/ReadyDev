@@ -182,16 +182,16 @@ class GCurl extends GObject {
         $lDom = new GCode();
         $lDom->createRequest($_module, $_method);
         $lDom->loadData($_data);
-        $this->callPostHttp($lDom->toString());
+        $this->callPostHttps($lDom->toString());
     }
     //===============================================
     public function callProxy($_data) {
-        $this->callPostHttp($_data);
+        $this->callPostHttps($_data);
     }
     //===============================================
     public function callPostHttp($_data) {
-        $this->setAction("https_post");
-        $this->setUrl("https://readydev.ovh:9081/readyapi 1.0");
+        $this->setAction("http_post");
+        $this->setUrl("http://readydev.ovh:9081/readyapi 1.0");
         $this->setUserAgent("rdvapp/1.0");
         $this->setUsername("admin");
         $this->setPassword("adminpass");
@@ -205,13 +205,13 @@ class GCurl extends GObject {
     //===============================================
     public function callPostHttps($_data) {
         $this->setAction("https_post");
-        $this->setUrl("https://readydev.ovh:9071/readyapi-1.0");
+        $this->setUrl("https://readydev.ovh:9081/readyapi-1.0");
         $this->setUserAgent("rdvapp/1.0");
         $this->setUsername("admin");
         $this->setPassword("adminpass");
         $this->setContentType("application/xml");
         $this->setContent($_data);
-        $this->setTimeout(3);
+        $this->setTimeout(0);
         $this->setHasUserAgent(true);
         $this->setHasUserPass(true);
         $this->run();

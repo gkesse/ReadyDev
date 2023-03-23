@@ -21,6 +21,8 @@
                 <data>/js/class/GKeyEvent.js</data>
                 <data>/js/class/GTitle.js</data>
                 <data>/js/class/GBullet.js</data>
+                <data>/js/class/GSkill.js</data>
+                <data>/js/class/GLine.js</data>
                 <data>/js/class/GImage.js</data>
                 <data>/js/class/GComboBox.js</data>
                 <data>/js/class/GDropDown.js</data>

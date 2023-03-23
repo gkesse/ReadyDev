@@ -423,9 +423,6 @@ class GForm extends GObject {
         if(_method == "") {
             this.addError("La méthode est obligatoire.");
         }
-        //===============================================
-        // form
-        //===============================================
         else if(_method == "open_form") {
             this.onOpenForm(_obj, _data);
         }
@@ -443,15 +440,6 @@ class GForm extends GObject {
         }
         else if(_method == "change_edit_form") {
             this.onChangeEditForm(_obj, _data);
-        }
-        //===============================================
-        // test
-        //===============================================
-        else if(_method == "test_form") {
-            this.onTestForm(_obj, _data);
-        }
-        else if(_method == "test_form_run") {
-            this.onTestFormRun(_obj, _data);
         }
         else {
             this.addError("La méthode est inconnue.");
@@ -512,23 +500,6 @@ class GForm extends GObject {
     //===============================================
     onChangeEditForm(_obj, _data) {
         return !this.hasErrors();
-    }
-    //===============================================
-    // test
-    //===============================================
-    onTestForm(_obj, _data) {
-        var lForm = new GForm();
-        lForm.addLabelEdit("ColorName", "Couleur");
-        lForm.addLabelColor("ColorPicker", "Couleur");
-        lForm.setCallback("form", "test_form_run");
-        lForm.showForm();
-    }
-    //===============================================
-    onTestFormRun(_obj, _data) {
-        var lForm = new GForm();
-        lForm.deserialize(_data);
-        var lName = lForm.loadFromMap(0).getValue();
-        var lPicker = lForm.loadFromMap(1).getValue();
     }
     //===============================================
 }

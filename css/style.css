@@ -143,31 +143,6 @@ b {
     word-break: break-word;
 }
 
-hr {
-    background-color: #051039; 
-    border: none;
-    height: 3px; 
-    width: 100%; 
-    margin: auto;
-    margin-top: 20px;
-    text-align: center;
-}
-
-hr:after {
-    content: "\f164";
-    font-family: FontAwesome;
-    font-size: 20px;
-    background-color: #051039;
-    color: white; 
-    display: inline-block;
-    position: relative;
-    top: -20px;
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    border-radius: 20px;
-}
-
 span {
     word-break: break-all;
 }
@@ -1495,6 +1470,45 @@ thead tr:first-child {
 }
 
 /* ============================================== */
+/* Line */
+/* ============================================== */
+
+.Line1 {
+	text-align: center;
+	position: relative;
+	font-size: 0px;
+}
+
+.Line2 {
+    background-color: #051039; 
+	height: 5px;
+	position: absolute;
+	top: 50%;
+	left: 0px;
+	right: 0px;
+	transform: translate(0, -50%);
+	border: none;
+}
+
+.Line3 {
+    background-color: #051039; 
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	position: relative;
+}
+
+.Line4 {
+	display: inline-block;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 20px;
+}
+
+/* ============================================== */
 /* Link */
 /* ============================================== */
 
@@ -2318,6 +2332,48 @@ thead tr:first-child {
     margin: 5px 0px;
     position: relative;
     margin-bottom: 15px;
+}
+
+/* ============================================== */
+/* Skill */
+/* ============================================== */
+
+.Skill1 {
+    position: relative;
+}
+
+.Skill2 {
+    background-color: rgba(255, 255, 255, 0.2);
+	display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.Skill3 {
+    display: inline-block;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+}
+
+.Skill4 {
+    display: inline-block;
+    font-size: 14px;
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    transform: translate(-50%, 0);
+    font-weight: bold;
+}
+
+.Skill5 {
+    margin-left: 50px;
 }
 
 /* ============================================== */

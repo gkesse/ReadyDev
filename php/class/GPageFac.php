@@ -8,6 +8,7 @@ class GPageFac extends GModule {
     private $m_isDefault = false;
     private $m_name = "";
     private $m_path = "";
+    private $m_idPath = "";
     private $m_siteName = "";
     private $m_tree = "";
     private $m_content = "";
@@ -37,6 +38,7 @@ class GPageFac extends GModule {
         $this->m_isDefault = $_obj->m_isDefault;
         $this->m_name = $_obj->m_name;
         $this->m_path = $_obj->m_path;
+        $this->m_idPath = $_obj->m_idPath;
         $this->m_tree = $_obj->m_tree;
         $this->m_content = $_obj->m_content;
     }
@@ -177,6 +179,7 @@ class GPageFac extends GModule {
         $lDom->addData($_code, "default", $this->m_isDefault);
         $lDom->addData($_code, "name", $this->m_name);
         $lDom->addData($_code, "path", $this->m_path);
+        $lDom->addData($_code, "id_path", $this->m_idPath);
         $lDom->addData($_code, "tree", base64_encode($this->m_tree));
         $lDom->addData($_code, "content", base64_encode($this->m_content));
         $lDom->addData($_code, "default_address", base64_encode($this->m_defaultAddress));
@@ -197,6 +200,7 @@ class GPageFac extends GModule {
         $this->m_isDefault = $lDom->getItem($_code, "default");
         $this->m_name = $lDom->getItem($_code, "name");
         $this->m_path = $lDom->getItem($_code, "path");
+        $this->m_idPath = $lDom->getItem($_code, "id_path");
         $this->m_tree = base64_decode($lDom->getItem($_code, "tree"));
         $this->m_content = base64_decode($lDom->getItem($_code, "content"));
         $this->m_defaultAddress = base64_decode($lDom->getItem($_code, "default_address"));
@@ -279,7 +283,10 @@ class GPageFac extends GModule {
     }
     //===============================================
     public function onSavePageFile($_data) {
-        $this->callProxy($_data);
+        $lContent = $this->m_content;
+        $this->m_content = "";
+        $this->callServer("page", "save_page_file", $this->serialize());
+        $this->m_content = $lContent;
         if(!$this->hasErrors()) {
             if($this->m_content == "") {
                 $this->addError("La contenu de la page est vide.");
