@@ -1131,7 +1131,7 @@ class GEditor extends GObject {
             this.addError("La sélection est hors du cadre.");
             return false;
         }
-        if(this.hasParent("GTextImage1")) {
+        if(this.hasParent("GText1")) {
             this.addError("Vous êtes dans un texte image");
             return false;
         }
@@ -1140,13 +1140,12 @@ class GEditor extends GObject {
             return false;
         }
 
-        var lHtml = "";
-        lHtml += "<div class='GTextImage1'>\n";
-        lHtml += "<img class='Img5' src='/data/img/defaults/img_avatar.png' alt='img_avatar.png'/>\n";
-        lHtml += "<div class='Text3'>Ajouter un texte...</div>\n";
-        lHtml += "</div>\n";
+        var lText = new GText();
+        lText.m_img = "/data/img/defaults/img_avatar.png";
+        lText.m_name = "img_avatar.png";
+        lText.m_text = "Ajouter un texte...";
 
-        document.execCommand("insertHTML", false, lHtml);
+        document.execCommand("insertHTML", false, lText.toTextImageLeft());
     }
     //===============================================
     onDeleteTextImageLeft(_obj, _data) {
@@ -1155,7 +1154,7 @@ class GEditor extends GObject {
             this.addError("La sélection est hors du cadre.");
             return false;
         }
-        if(!this.hasParent("GTextImage1")) {
+        if(!this.hasParent("GText1")) {
             this.addError("Vous n'êtes pas dans un texte image");
             return false;
         }
@@ -1166,7 +1165,7 @@ class GEditor extends GObject {
     //===============================================
     onDeleteTextImageLeftConfirm(_obj, _data) {
         if(!this.readSelection()) return false;
-        if(!this.hasParent("GTextImage1")) {
+        if(!this.hasParent("GText1")) {
             this.addError("Vous n'êtes pas dans un texte image");
             return false;
         }

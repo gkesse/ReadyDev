@@ -2493,6 +2493,25 @@ thead tr:first-child {
     text-decoration: underline;
 }
 
+.Text13 {
+	font-size: 0px;
+	position: relative;
+}
+
+.Text14 {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+.Text15 {
+	font-size: 20px;
+	margin-left: 50px;
+}
+
 /* ============================================== */
 /* TextArea */
 /* ============================================== */
