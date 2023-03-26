@@ -54,11 +54,15 @@ class GEditor extends GObject {
         var lParent = document.createElement('div');
         lParent.innerHTML = _data.trim();
         return lParent.firstElementChild;
-    }    
+    }
+    //===============================================
+    appendNode(_data) {
+        this.m_node.appendChild(this.createNode(_data));
+    }
     //===============================================
     removeNode() {
         this.m_node.remove()
-        document.execCommand("insertLineBreak")
+        //document.execCommand("insertLineBreak");
         return !this.hasErrors();
     }
     //===============================================
@@ -186,6 +190,12 @@ class GEditor extends GObject {
             this.onDeleteGraduationConfirm(_obj, _data);
         }
         //===============================================
+        // header
+        //===============================================
+        else if(_method == "add_header") {
+            this.onAddHeader(_obj, _data);
+        }
+        //===============================================
         // line_icon
         //===============================================
         else if(_method == "add_line_icon") {
@@ -289,6 +299,36 @@ class GEditor extends GObject {
         }
         else if(_method == "update_bg_color_parallax_form") {
             this.onUpdateBgColorParallaxForm(_obj, _data);
+        }
+        //===============================================
+        // path
+        //===============================================
+        else if(_method == "add_path") {
+            this.onAddPath(_obj, _data);
+        }
+        else if(_method == "delete_path") {
+            this.onDeletePath(_obj, _data);
+        }
+        else if(_method == "delete_path_confirm") {
+            this.onDeletePathConfirm(_obj, _data);
+        }
+        //===============================================
+        // path_link
+        //===============================================
+        else if(_method == "add_path_link") {
+            this.onAddPathLink(_obj, _data);
+        }
+        else if(_method == "update_path_link") {
+            this.onUpdatePathLink(_obj, _data);
+        }
+        else if(_method == "update_path_link_form") {
+            this.onUpdatePathLinkForm(_obj, _data);
+        }
+        else if(_method == "delete_path_link") {
+            this.onDeletePathLink(_obj, _data);
+        }
+        else if(_method == "delete_path_link_confirm") {
+            this.onDeletePathLinkConfirm(_obj, _data);
         }
         //===============================================
         // skill
@@ -451,19 +491,11 @@ class GEditor extends GObject {
             return false;
         }
 
-        var lHtml = "";
-        lHtml += "<div class='GGraduation1 Row3'>\n";
-        lHtml += "<div class='Content3'>\n";
-        lHtml += "<i class='Icon4 fa fa-graduation-cap'></i>\n";
-        lHtml += "</div>\n";
-        lHtml += "<div class='Text3'>\n";
-        lHtml += "<b>2006 - 2009</b><br>\n";
-        lHtml += "DUT Electronique Industrielle,<br>\n";
-        lHtml += "Faculté des Sciences de Bizerte, Tunisie.\n";
-        lHtml += "</div>\n";
-        lHtml += "</div>\n";
+        var lGrade = new GGraduation();
+        lGrade.m_icon = "graduation-cap";
+        lGrade.m_text = lGrade.getTextGraduation();
 
-        document.execCommand("insertHTML", false, lHtml);
+        document.execCommand("insertHTML", false, lGrade.toGraduation());
     }
     //===============================================
     onDeleteGraduation(_obj, _data) {
@@ -489,6 +521,32 @@ class GEditor extends GObject {
             return false;
         }
         this.removeNode();
+    }
+    //===============================================
+    // header
+    //===============================================
+    onAddHeader(_obj, _data) {
+        if(!this.readSelection()) return false;
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(this.hasParent("GHeader1")) {
+            this.addError("Vous êtes dans une entête.");
+            return false;
+        }
+        if(this.isLine()) {
+            this.addError("Vous êtes sur une ligne.");
+            return false;
+        }
+
+        var lHeader = new GHeader();
+        lHeader.m_title = "Titre";
+        lHeader.m_views = 123456;
+        lHeader.m_facebookUrl = "#";
+        lHeader.m_linkedinUrl = "#";
+        
+        document.execCommand("insertHTML", false, lHeader.toHeader());
     }
     //===============================================
     // line_icon
@@ -657,7 +715,9 @@ class GEditor extends GObject {
         }
 
         var lTitle = new GTitle();
-        lTitle.m_title = "Ajouter un lien...";     
+        lTitle.m_icon = "book";
+        lTitle.m_title = "Ajouter un lien..."; 
+        
         document.execCommand("insertHTML", false, lTitle.toLinkTitle());
     }
     //===============================================
@@ -1102,6 +1162,159 @@ class GEditor extends GObject {
         lBody.style.backgroundColor = lBgColor;
     }
     //===============================================
+    // path
+    //===============================================
+    onAddPath(_obj, _data) {
+        if(!this.readSelection()) return false;
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(this.hasParent("GPath1")) {
+            this.addError("Vous êtes dans un chemin.");
+            return false;
+        }
+        if(this.isLine()) {
+            this.addError("Vous êtes sur une ligne.");
+            return false;
+        }
+
+        var lPath = new GPath();
+        lPath.m_name = "home";
+        lPath.m_link = "#";
+        
+        document.execCommand("insertHTML", false, lPath.toPath());
+    }
+    //===============================================
+    onDeletePath(_obj, _data) {
+        if(!this.readSelection()) return false;
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GPath1")) {
+            this.addError("Vous n'êtes pas dans un chemin.");
+            return false;
+        }
+        var lConfirm = new GConfirm();
+        lConfirm.setCallback("editor", "delete_path_c");
+        lConfirm.showConfirm();
+    }
+    //===============================================
+    onDeletePathConfirm(_obj, _data) {
+        if(!this.readSelection()) return false;
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GPath1")) {
+            this.addError("Vous n'êtes pas dans un chemin.");
+            return false;
+        }
+        this.removeNode();
+    }
+    //===============================================
+    // path_link
+    //===============================================
+    onAddPathLink(_obj, _data) {
+        if(!this.readSelection()) return false;
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GPath1")) {
+            this.addError("Vous n'êtes pas dans un chemin.");
+            return false;
+        }
+
+        var lPath = new GPath();
+        lPath.m_name = "home";
+        lPath.m_link = "#";
+        lPath.m_arrow = "chevron-right";
+        
+        this.appendNode(lPath.toArrow());
+        this.appendNode(lPath.toLink());
+    }
+    //===============================================
+    onUpdatePathLink(_obj, _data) {
+        if(!this.readSelection()) return false;
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GPath2")) {
+            this.addError("Vous n'êtes pas dans un chemin lien.");
+            return false;
+        }
+
+        var lEditor = GEditor.Instance();
+        lEditor.setObj(this);
+
+        var lNode = this.m_node;
+        var lPath = new GPath();
+        lPath.m_name = lNode.innerHTML;
+        lPath.m_link = lNode.getAttribute("href");
+        
+        var lForm = GForm.Instance();
+        lForm.clearMap();
+        lForm.setCallback("editor", "update_path_link_form");
+        lForm.addLabelEdit("m_name", "Nom :", lPath.m_name);
+        lForm.addLabelEdit("m_link", "Lien :", lPath.m_link);
+        lForm.showForm();
+        this.addLogs(lForm.getLogs());
+    }
+    //===============================================
+    onUpdatePathLinkForm(_obj, _data) {
+        var lEditor = GEditor.Instance();
+        this.setObj(lEditor);
+        this.restoreRange();
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GPath2")) {
+            this.addError("Vous n'êtes pas dans un chemin lien.");
+            return false;
+        }
+
+        var lForm = GForm.Instance();
+        lForm.readForm();
+        var lPath = new GPath();
+        lPath.m_name = lForm.loadFromMap(0).m_value;
+        lPath.m_link = lForm.loadFromMap(1).m_value;
+        lPath.writeNode(this.m_node);
+    }
+    //===============================================
+    onDeletePathLink(_obj, _data) {
+        if(!this.readSelection()) return false;
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GPath2")) {
+            this.addError("Vous n'êtes pas dans un chemin lien.");
+            return false;
+        }
+        var lConfirm = new GConfirm();
+        lConfirm.setCallback("editor", "delete_path_link_confirm");
+        lConfirm.showConfirm();
+    }
+    //===============================================
+    onDeletePathLinkConfirm(_obj, _data) {
+        if(!this.readSelection()) return false;
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GPath2")) {
+            this.addError("Vous n'êtes pas dans un chemin lien.");
+            return false;
+        }
+        var lNode = this.m_node.previousElementSibling;
+        this.removeNode();
+        if(lNode) lNode.remove();
+    }
+    //===============================================
     // skill
     //===============================================
     onAddSkill(_obj, _data) {
@@ -1120,6 +1333,10 @@ class GEditor extends GObject {
         }
         
         var lSkill = new GSkill();
+        lSkill.m_icon = "building-o";
+        lSkill.m_text = "Ajouter un texte...";
+        lSkill.m_number = "1/7";
+        
         document.execCommand("insertHTML", false, lSkill.toSkill());
     }
     //===============================================

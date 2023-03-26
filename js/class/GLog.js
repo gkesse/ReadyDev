@@ -41,6 +41,7 @@ class GLog {
     }
     //===============================================
     setObj(_obj) {
+        if(!_obj) return;
         this.m_type = _obj.m_type;
         this.m_side = _obj.m_side;
         this.m_msg = _obj.m_msg;

@@ -1,5 +1,5 @@
 //===============================================
-class GBullet extends GObject {
+class GGraduation extends GObject {
     //===============================================
     static m_instance = null;
     //===============================================
@@ -11,13 +11,13 @@ class GBullet extends GObject {
     //===============================================
     static Instance() {
         if(this.m_instance == null) {
-            this.m_instance = new GBullet();
+            this.m_instance = new GGraduation();
         }
         return this.m_instance;
     }    
     //===============================================
     clone() {
-        var lObj = new GBullet();
+        var lObj = new GGraduation();
         return lObj;
     }
     //===============================================
@@ -33,18 +33,24 @@ class GBullet extends GObject {
         return lEqualOk;
     }
     //===============================================
-    toBullet() {
+    getTextGraduation() {
         var lHtml = "";
-        lHtml += sprintf("<div class='GBullet1'>\n");
-        lHtml += sprintf("<div class='Bullet1'>\n");
-        lHtml += sprintf("<i class='Bullet2 fa fa-%s'></i>\n", this.m_icon);
-        lHtml += sprintf("<div class='Bullet3'>%s</div>\n", this.m_text);
-        lHtml += sprintf("</div>\n");
+        lHtml += sprintf("<b>2006 - 2009</b><br>\n");
+        lHtml += sprintf("DUT Electronique Industrielle,<br>\n");
+        lHtml += sprintf("Faculté des Sciences de Bizerte, Tunisie.\n");
+        return lHtml;
+    }
+    //===============================================
+    toGraduation() {
+        var lHtml = "";
+        lHtml += sprintf("<div class='GGraduation1 Graduation1'>\n");
+        lHtml += sprintf("<i class='Graduation2 fa fa-%s'></i>\n", this.m_icon);
+        lHtml += sprintf("<div class='Graduation3'>%s</div>\n", this.m_text);
         lHtml += sprintf("</div>\n");
         return lHtml;
     }
     //===============================================
-    serialize(_code = "bullet") {
+    serialize(_code = "graduation") {
         var lDom = new GCode();
         lDom.createDoc();
         lDom.addData(_code, "icon", this.m_icon);
@@ -53,7 +59,7 @@ class GBullet extends GObject {
         return lDom.toString();
     }
     //===============================================
-    deserialize(_data, _code = "bullet") {
+    deserialize(_data, _code = "graduation") {
         var lDom = new GCode();
         lDom.loadXml(_data);
         this.m_icon = lDom.getItem(_code, "icon");

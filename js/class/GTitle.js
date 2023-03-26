@@ -5,6 +5,7 @@ class GTitle extends GObject {
     //===============================================
     constructor() {
         super();
+        this.m_icon = "";
         this.m_title = "";
         this.m_link = "";
     }
@@ -22,13 +23,14 @@ class GTitle extends GObject {
     }
     //===============================================
     setObj(_obj) {
-        if(!_obj) return;
+        this.m_icon = _obj.m_icon;
         this.m_title = _obj.m_title;
         this.m_link = _obj.m_link;
     }
     //===============================================
     isEqual(_obj) {
         var lEqualOk = true;
+        lEqualOk &= (this.m_icon == _obj.m_icon);
         lEqualOk &= (this.m_title == _obj.m_title);
         lEqualOk &= (this.m_link == _obj.m_link);
         return lEqualOk;
@@ -64,27 +66,28 @@ class GTitle extends GObject {
     //===============================================
     toLinkTitle() {
         var lHtml = "";
-        lHtml += sprintf("<div class='GLink2 Item4'>");
-        lHtml += sprintf("<i class='Icon10 fa fa-book'></i>");
-        lHtml += sprintf("<a class='Link4' href='#%s'>%s</a>", this.m_link, this.m_title);
-        lHtml += sprintf("</div>");
+        lHtml += sprintf("<div class='GLink2 Item4'>\n");
+        lHtml += sprintf("<i class='Icon10 fa fa-%s'></i>\n", this.m_icon);
+        lHtml += sprintf("<a class='Link4' href='#%s'>%s</a>\n", this.m_link, this.m_title);
+        lHtml += sprintf("</div>\n");
         return lHtml;
     }
     //===============================================
     toLinkTitleGroup() {
         var lHtml = "";
-        lHtml += sprintf("<div class='GLink3'>");
+        lHtml += sprintf("<div class='GLink3'>\n");
         for(var i = 0; i < this.m_map.length; i++) {
             var lObj = this.m_map[i];
-            lHtml += lObj.toLinkTitle();
+            lHtml += sprintf("%s\n", lObj.toLinkTitle());
         }
-        lHtml += sprintf("</div>");
+        lHtml += sprintf("</div>\n");
         return lHtml;
     }
     //===============================================
     serialize(_code = "title") {
         var lDom = new GCode();
         lDom.createDoc();
+        lDom.addData(_code, "icon", this.m_icon);
         lDom.addData(_code, "title", this.m_title);
         lDom.addData(_code, "link", this.m_link);
         lDom.addMap(_code, this.m_map);
@@ -94,6 +97,7 @@ class GTitle extends GObject {
     deserialize(_data, _code = "title") {
         var lDom = new GCode();
         lDom.loadXml(_data);
+        this.m_icon = lDom.getItem(_code, "icon");
         this.m_title = lDom.getItem(_code, "title");
         this.m_link = lDom.getItem(_code, "link");
         lDom.getMap(_code, this.m_map, this);

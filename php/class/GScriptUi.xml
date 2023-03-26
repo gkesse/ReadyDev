@@ -24,6 +24,9 @@
                 <data>/js/class/GSkill.js</data>
                 <data>/js/class/GLine.js</data>
                 <data>/js/class/GText.js</data>
+                <data>/js/class/GGraduation.js</data>
+                <data>/js/class/GHeader.js</data>
+                <data>/js/class/GPath.js</data>
                 <data>/js/class/GImage.js</data>
                 <data>/js/class/GComboBox.js</data>
                 <data>/js/class/GDropDown.js</data>

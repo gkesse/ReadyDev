@@ -2,17 +2,17 @@
 //===============================================
 class GHeaderUi extends GObject {
     //===============================================
-    protected $m_envUi;
-    protected $m_connectUi;
-    protected $m_accountUi;
-    protected $m_disconnectUi;
-    protected $m_confirmUi;
-    protected $m_loaderUi;
-    protected $m_formUi;
-    protected $m_tableUi;
-    protected $m_menuUi;
-    protected $m_errorUi;
-    protected $m_logUi;
+    private $m_envUi;
+    private $m_connectUi;
+    private $m_accountUi;
+    private $m_disconnectUi;
+    private $m_confirmUi;
+    private $m_loaderUi;
+    private $m_formUi;
+    private $m_tableUi;
+    private $m_menuUi;
+    private $m_errorUi;
+    private $m_logUi;
     //===============================================
     public function __construct($_codeName = "header") {
         parent::__construct($_codeName);

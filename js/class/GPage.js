@@ -92,13 +92,15 @@ class GPage extends GObject {
     //===============================================
     initDefaultAddress() {
         var lEditorPageDefaultAddress = document.getElementById("EditorPageDefaultAddress");
-        var lPage = this.clone();
+        var lPage = new GPage();
+        lPage.setObj(this);
         lEditorPageDefaultAddress.innerHTML = lPage.serialize();
     }
     //===============================================
     initDefaultPage() {
         var lEditorPageDefaultPage = document.getElementById("EditorPageDefaultPage");
-        var lPage = this.clone();
+        var lPage = new GPage();
+        lPage.setObj(this);
         lEditorPageDefaultPage.innerHTML = lPage.serialize();
     }
     //===============================================
@@ -247,7 +249,7 @@ class GPage extends GObject {
             lIdPathI += lIdPath;
             
             if(i != 0) lAddress += sprintf("<i class='Icon11 fa fa-chevron-right'></i>\n");
-            if(i == 0) lPath = "<i class='fa fa-folder'></i>";
+            if(i == 0) lPath = sprintf("<i class='fa fa-folder'></i>\n");
             lAddress += sprintf("<span class='Link10 EditorPageAddress' \
             onclick='call_server(\"page\", \"load_page\", this);' \
             ondbclick='call_server(\"page\", \"select_addressbar\", this);' \

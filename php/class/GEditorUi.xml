@@ -366,6 +366,43 @@
                     <category>text</category>
                     <label>Styles personnalisés</label>
                     <map>
+                        <!-- Chemins -->
+                        <data>
+                        	<category>text</category>
+                        	<label>Chemins</label>
+                        	<map>
+                                <data>
+                                    <category>text</category>
+                                    <module>editor</module>
+                                    <method>add_path</method>
+                                    <label>Ajouter chemin</label>
+                                </data>
+                                <data>
+                                    <category>text</category>
+                                    <module>editor</module>
+                                    <method>delete_path</method>
+                                    <label>Supprimer chemin</label>
+                                </data>
+                                <data>
+                                    <category>text</category>
+                                    <module>editor</module>
+                                    <method>add_path_link</method>
+                                    <label>Ajouter chemin lien</label>
+                                </data>
+                                <data>
+                                    <category>text</category>
+                                    <module>editor</module>
+                                    <method>update_path_link</method>
+                                    <label>Modifier chemin lien</label>
+                                </data>
+                                <data>
+                                    <category>text</category>
+                                    <module>editor</module>
+                                    <method>delete_path_link</method>
+                                    <label>Supprimer chemin lien</label>
+                                </data>
+                        	</map>
+                        </data>
                         <!-- Compétences -->
                         <data>
                         	<category>text</category>
@@ -385,6 +422,19 @@
                                 </data>
                         	</map>
                         </data>
+                        <!-- Entêtes -->
+                        <data>
+                            <category>text</category>
+                            <label>Entêtes</label>
+                            <map>
+                                <data>
+                                    <category>text</category>
+                                    <module>editor</module>
+                                    <method>add_header</method>
+                                    <label>Ajouter entête</label>
+                                </data>                            
+                            </map>
+                      	</data>
                         <!-- Font Awesome -->
                         <data>
                             <category>text</category>

@@ -5,35 +5,27 @@ class GMenu extends GObject {
         super();
     }
     //===============================================
-    onModule(method, obj, data) {
-        if(method == "") {
-            return false;
+    onModule(_method, _obj, _data) {
+        if(_method == "") {
+            this.addError("La méthode est obligatoire.");
         }
-        //===============================================
-        // method
-        //===============================================
-        else if(method == "open_menu") {
-            this.onOpenMenu();
+        else if(_method == "open_menu") {
+            this.onOpenMenu(_obj, _data);
         }
-        //===============================================
-        // end
-        //===============================================
-        else return false;
+        else {
+            this.addError("La méthode est inconnue.");
+        }
         return true;
     }
     //===============================================
-    onOpenMenu() {
+    onOpenMenu(_obj, _data) {
         var lHeaderMenu = document.getElementById("HeaderMenu");
         var lHeaderMenuBars = document.getElementById("HeaderMenuBars");
         var lBars = '<i class="fa fa-bars"></i>';
-        if(lBars == lHeaderMenuBars.innerHTML.trim()) {
+        if(!lHeaderMenu.classList.contains("RWD")) {
             lBars = '<i class="fa fa-close"></i>';
-            lHeaderMenu.className += " RWD";
         }
-        else {
-            var lClassName = lHeaderMenu.className;
-            lHeaderMenu.className = lClassName.replace(" RWD", "");
-        }
+        lHeaderMenu.classList.toggle("RWD");
         lHeaderMenuBars.innerHTML = lBars;    
     }
     //===============================================

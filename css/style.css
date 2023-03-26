@@ -1186,6 +1186,32 @@ thead tr:first-child {
 }
 
 /* ============================================== */
+/* Graduation */
+/* ============================================== */
+
+.Graduation1 {
+    position: relative;
+    font-size: 0px;
+}
+
+.Graduation2 {
+    background-color: rgba(255, 255, 255, 0.2);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    font-size: 20px;
+    text-align: center;
+}
+
+.Graduation3 {
+    margin-left: 50px;
+    font-size: 18px;
+}
+
+/* ============================================== */
 /* HappyDay */
 /* ============================================== */
 
@@ -1208,6 +1234,65 @@ thead tr:first-child {
     -webkit-border-image: url("/data/img/defaults/border.png") 30 round; 
     -moz-border-image: url("/data/img/defaults/border.png") 30 round; 
     -o-border-image: url("/data/img/defaults/border.png") 30 round;
+}
+
+/* ============================================== */
+/* Header */
+/* ============================================== */
+
+.Header1 {
+	text-align: center;
+    background-color: rgba(35, 47, 87, 0.9);
+}
+
+.Header2 {
+    background-color: #2f3959; /* L2  5f6681*/
+    color: #bf8e3a;
+    padding: 20px 10px;
+}
+
+.Header3 {
+	padding: 5px;
+	font-size: 0px;
+}
+
+.Header4 {
+	display: inline-block;
+	margin: 5px;
+	font-size: 0px;
+}
+
+.Header5 {
+	display: inline-block;
+	margin: 5px;
+	font-size: 20px;
+    width: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+}
+
+.Header5.Facebook {
+    background-color: #3b5998;
+}
+
+.Header5.Linkedin {
+    background-color: #0e76a8;
+}
+
+.Header6 {
+	background-color: #2f3959;
+	display: inline-block;
+	font-size: 14px;
+	padding: 0px 10px;
+	line-height: 25px;
+}
+
+.Header7 {
+	background-color: #3f4969;
+	display: inline-block;
+	font-size: 14px;
+	padding: 0px 10px;
+	line-height: 25px;
 }
 
 /* ============================================== */
@@ -1750,7 +1835,8 @@ thead tr:first-child {
 /* ============================================== */
 
 .Menu {
-    text-align: left;
+    background-color: rgba(255, 255, 255, 0.2);
+	text-align: left;
     font-size: 0px;
     line-height: 40px;
     position: relative;
@@ -1960,6 +2046,35 @@ thead tr:first-child {
     padding: 10px;
     font-family: Archivo Narrow;
     text-align: left;
+}
+
+/* ============================================== */
+/* Path */
+/* ============================================== */
+
+.Path1 {
+    padding: 5px;
+    font-size: 0px;
+    text-align: center;
+    padding: 5px;
+}
+
+.Path2 {
+	vertical-align: middle;
+	background-color: rgba(255, 255, 255, 0.2);
+    display: inline-block;
+    font-family: Aclonica;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 5px 10px;
+    margin: 5px;
+}
+
+.Path3 {
+	vertical-align: middle;
+    display: inline-block;
+    font-size: 16px;
+    margin: 5px;
 }
 
 /* ============================================== */
@@ -2340,40 +2455,34 @@ thead tr:first-child {
 
 .Skill1 {
     position: relative;
+	font-size: 0px;
 }
 
 .Skill2 {
     background-color: rgba(255, 255, 255, 0.2);
-	display: inline-block;
     width: 40px;
-    height: 40px;
+    line-height: 40px;
     border-radius: 50%;
     position: absolute;
     top: 0px;
     left: 0px;
+    text-align: center;
+	font-size: 20px;
 }
 
 .Skill3 {
     display: inline-block;
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    transform: translate(-50%, -50%);
-    font-size: 20px;
-}
-
-.Skill4 {
-    display: inline-block;
     font-size: 14px;
     position: absolute;
-    top: 40px;
+    top: 45px;
     left: 20px;
     transform: translate(-50%, 0);
     font-weight: bold;
 }
 
-.Skill5 {
+.Skill4 {
     margin-left: 50px;
+	font-size: 16px;
 }
 
 /* ============================================== */

@@ -45,7 +45,8 @@ class GSite extends GObject {
     //===============================================
     initDefaultSite() {
         var lEditorSiteDefaultSite = document.getElementById("EditorSiteDefaultSite");
-        var lSite = this.clone();
+        var lSite = new GSite();
+        lSite.setObj(this);
         lEditorSiteDefaultSite.innerHTML = lSite.serialize();
     }
     //===============================================

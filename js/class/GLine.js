@@ -21,7 +21,6 @@ class GLine extends GObject {
     }
     //===============================================
     setObj(_obj) {
-        if(!_obj) return;
         this.m_icon = _obj.m_icon;
     }
     //===============================================
@@ -33,12 +32,12 @@ class GLine extends GObject {
     //===============================================
     toLine() {
         var lHtml = "";
-        lHtml += sprintf("<div class='GLine1 Line1'>");
-        lHtml += sprintf("<hr class='Line2'/>");
-        lHtml += sprintf("<div class='Line3'>");
-        lHtml += sprintf("<i class='Line4 fa fa-%s'></i>", this.m_icon);
-        lHtml += sprintf("</div>");
-        lHtml += sprintf("</div>");
+        lHtml += sprintf("<div class='GLine1 Line1'>\n");
+        lHtml += sprintf("<hr class='Line2'/>\n");
+        lHtml += sprintf("<div class='Line3'>\n");
+        lHtml += sprintf("<i class='Line4 fa fa-%s'></i>\n", this.m_icon);
+        lHtml += sprintf("</div>\n");
+        lHtml += sprintf("</div>\n");
         return lHtml;
     }
     //===============================================
