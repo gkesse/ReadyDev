@@ -541,6 +541,25 @@
                                 </data>
                             </map>
                         </data>
+                        <!-- Navigation -->
+                        <data>
+                            <category>text</category>
+                            <label>Navigation</label>
+                            <map>
+                                <data>
+                                    <category>text</category>
+                                    <module>editor</module>
+                                    <method>add_navigation</method>
+                                    <label>Ajouter navigation</label>
+                                </data>
+                                <data>
+                                    <category>text</category>
+                                    <module>editor</module>
+                                    <method>delete_navigation</method>
+                                    <label>Supprimer navigation</label>
+                                </data>
+                            </map>
+                       	</data>
                         <!-- Parallax -->
                         <data>
                             <category>text</category>

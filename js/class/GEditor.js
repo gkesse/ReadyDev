@@ -277,6 +277,20 @@ class GEditor extends GObject {
             this.onDeleteTitleSectionConfirm(_obj, _data);
         }
         //===============================================
+        // menu
+        //===============================================
+        else if(_method == "add_navigation") {
+            this.onAddNavigation(_obj, _data);
+        }
+        //===============================================
+        else if(_method == "delete_navigation") {
+            this.onDeleteNavigation(_obj, _data);
+        }
+        //===============================================
+        else if(_method == "delete_navigation_confirm") {
+            this.onDeleteNavigationConfirm(_obj, _data);
+        }
+        //===============================================
         // parallax
         //===============================================
         else if(_method == "add_parallax") {
@@ -987,6 +1001,53 @@ class GEditor extends GObject {
         if(!this.readSelection()) return false;
         if(!this.hasParent("GTitle1")) {
             this.addError("Vous n'êtes pas dans un titre section.");
+            return false;
+        }
+        this.removeNode();
+    }
+    //===============================================
+    // menu
+    //===============================================
+    onAddNavigation(_obj, _data) {
+        if(!this.readSelection()) return false;
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(this.hasParent("GNavigation1")) {
+            this.addError("Vous êtes dans une navigation.");
+            return false;
+        }
+        if(this.isLine()) {
+            this.addError("Vous êtes sur une ligne.");
+            return false;
+        }
+
+        var lNav = new GNavigation();
+
+        document.execCommand("insertHTML", false, lNav.toNavigation());
+    }
+    //===============================================
+    onDeleteNavigation(_obj, _data) {
+        if(!this.readSelection()) return false;
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GNavigation1")) {
+            this.addError("Vous n'êtes pas dans une navigation.");
+            return false;
+        }
+        
+        var lConfirm = new GConfirm();
+        lConfirm.setCallback("editor", "delete_navigation_confirm");
+        lConfirm.showConfirm();
+    }
+    //===============================================
+    onDeleteNavigationConfirm(_obj, _data) {
+        if(!this.readSelection()) return false;
+        if(!this.hasParent("GNavigation1")) {
+            this.addError("Vous n'êtes pas dans une navigation.");
             return false;
         }
         this.removeNode();

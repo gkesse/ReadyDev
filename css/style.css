@@ -1963,6 +1963,58 @@ thead tr:first-child {
 }
 
 /* ============================================== */
+/* Navigation */
+/* ============================================== */
+
+.Navigation1 {
+    background-color: rgba(255, 255, 255, 0.2);
+	border: 1px solid blue;
+	font-size: 0px;
+	text-align: left;
+}
+
+.Navigation2,
+.Navigation3 {
+	border: 1px solid blue;
+	border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+	display: inline-block;
+	padding: 0px 10px;
+	line-height: 40px;
+    vertical-align: middle;
+    font-size: 18px;
+    font-family: Aclonica;
+    cursor: pointer;
+}
+
+.Navigation3:hover {
+    border-bottom: 5px solid #89a830;
+}
+
+.Navigation3.Active {
+    border-bottom: 5px solid #f67b20;
+}
+
+.Navigation4 {
+    background-color: cyan;
+    display: inline-block;
+    vertical-align: middle;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    padding: 3px;
+}
+
+.Navigation5  {
+    display: inline-block;
+    vertical-align: middle;
+    color: cyan;
+    font-size: 25px;
+    font-family: Akronim;
+    color: cyan;
+}
+
+/* ============================================== */
 /* Network */
 /* ============================================== */
 
