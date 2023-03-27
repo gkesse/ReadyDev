@@ -57,7 +57,7 @@ class GFormUi extends GObject {
     }
     //===============================================
     public function runEnv() {
-        $lCount = $this->m_dom->countItem("form");
+        $lCount = $this->m_dom->countItem("env");
         
         for($i = 0; $i < $lCount; $i++) {
             $lModel = $this->m_dom->getItem3("env", "model", $i);

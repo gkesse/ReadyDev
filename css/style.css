@@ -2048,13 +2048,13 @@ thead tr:first-child {
 /* Parallax */
 /* ============================================== */
 
-.Parallax {
+.Parallax1 {
     position: relative;
     text-align: center;
 }
 
-.ParallaxImg {
-    background-image: url("/data/img/defaults/binary.png");
+.Parallax2 {
+    /* background-image: url("/data/img/defaults/binary.png"); */
     min-height: 500px;
     position: relative;
     opacity: 0.65;
@@ -2067,7 +2067,7 @@ thead tr:first-child {
     -o-background-size: cover; 
 }
 
-.ParallaxCaption {
+.Parallax3 {
     background-color: #051039;
     position: absolute;
     top: 50%;
@@ -2078,7 +2078,7 @@ thead tr:first-child {
     opacity: 0.8;
 }
 
-.ParallaxTitle {
+.Parallax4 {
     background-color: #111;
     color: #fff;
     padding: 18px 10px;
@@ -2089,10 +2089,10 @@ thead tr:first-child {
     margin-top: -20px; 
 }
 
-.ParallaxBody {
-    position: relative;
+.Parallax5 {
+    /* background-color: #803300; */
+	position: relative;
     min-height: 50px;
-    background-color: #803300;
     font-size: 20px;
     color: white;
     padding: 10px;

@@ -5,6 +5,7 @@ class GNavigation extends GObject {
     //===============================================
     constructor() {
         super();
+        this.m_homeUrl = "/home";
         this.m_siteName = "ReadyDev";
         this.m_logoPath = "/data/img/defaults/readydev.png";
         this.m_logoName = "readydev.png";
@@ -39,10 +40,10 @@ class GNavigation extends GObject {
     toNavigation() {
         var lHtml = "";
         lHtml += sprintf("<div class='GNavigation1 Navigation1'>\n");
-        lHtml += sprintf("<div class='Navigation2'>\n");
+        lHtml += sprintf("<a class='Navigation2' href='%s'>\n", this.m_homeUrl);
         lHtml += sprintf("<img class='Navigation4' src='%s' alt='%s'/>\n", this.m_logoPath, this.m_logoName);
         lHtml += sprintf("<span class='Navigation5'>%s</span>\n", this.m_siteName);
-        lHtml += sprintf("</div>\n");
+        lHtml += sprintf("</a>\n");
         lHtml += sprintf("<div class='Navigation3'>A</div>\n");
         lHtml += sprintf("<div class='Navigation3'>B</div>\n");
         lHtml += sprintf("<div class='Navigation3'>C</div>\n");

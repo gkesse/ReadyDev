@@ -102,6 +102,12 @@ class GObject {
         this.m_logs.showDatas();
     }
     //===============================================
+    createNode(_data) {
+        var lParent = document.createElement('div');
+        lParent.innerHTML = _data.trim();
+        return lParent.firstElementChild;
+    }
+    //===============================================
     clone() {return new GObject();}
     setObj(_obj) {}
     isEqual(_obj) {return false;}

@@ -42,6 +42,13 @@ class GImage extends GObject {
         return lData;
     }
     //===============================================
+    findImg(_imgPath) {
+        var lObj = new GImage
+        lObj.m_path = _imgPath;
+        var lIndex = this.findObj(lObj);
+        return lIndex;
+    }
+    //===============================================
     loadImage() {
         call_server("image", "load_image", this);
     }

@@ -58,6 +58,14 @@
                     <model>input</model>
                     <id>FormMethod</id>
                 </data>
+                <data>
+                    <model>input</model>
+                    <id>FormModuleLine</id>
+                </data>
+                <data>
+                    <model>input</model>
+                    <id>FormMethodLine</id>
+                </data>
             </map>
         </data>
         <!-- ============================================ -->

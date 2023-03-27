@@ -574,6 +574,12 @@
                                 <data>
                                     <category>text</category>
                                     <module>editor</module>
+                                    <method>update_parallax</method>
+                                    <label>Modifier effet parallax</label>
+                                </data>
+                                <data>
+                                    <category>text</category>
+                                    <module>editor</module>
                                     <method>update_bg_image_parallax</method>
                                     <label>Modifier image de fond</label>
                                 </data>

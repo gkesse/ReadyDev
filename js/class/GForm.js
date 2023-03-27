@@ -8,8 +8,10 @@ class GForm extends GObject {
         
         this.m_title = "";
         this.m_intro = "";
-        this.m_method = "";
         this.m_module = "";
+        this.m_method = "";
+        this.m_moduleLine = "";
+        this.m_methodLine = "";
         this.m_content = "";
         this.m_combo = "";
 
@@ -106,7 +108,9 @@ class GForm extends GObject {
                     }
                     lInput.value = this.dataset.value;
                     lInput.dataset.index = this.dataset.index;
-                    lContent.classList.toggle("Show");
+                    if(lContent) {
+                        lContent.classList.toggle("Show");
+                    }
                     call_server("form", "change_line_form", this);
                 });
 
@@ -187,6 +191,12 @@ class GForm extends GObject {
     setCallback(_module, _method) {
         this.m_module = _module;
         this.m_method = _method;
+        this.writeUi();
+    }
+    //===============================================
+    setCallbackLine(_module, _method) {
+        this.m_moduleLine = _module;
+        this.m_methodLine = _method;
         this.writeUi();
     }
     //===============================================
@@ -364,12 +374,16 @@ class GForm extends GObject {
         var lFormIntro = document.getElementById("FormIntro");
         var lFormModule = document.getElementById("FormModule");
         var lFormMethod = document.getElementById("FormMethod");
+        var lFormModuleLine = document.getElementById("FormModuleLine");
+        var lFormMethodLine = document.getElementById("FormMethodLine");
         var lFormContent = document.getElementById("FormContent");
         
         this.m_title = lFormTitle.innerHTML;
         this.m_intro = lFormIntro.innerHTML;
         this.m_module = lFormModule.value;
         this.m_method = lFormMethod.value;
+        this.m_moduleLine = lFormModuleLine.value;
+        this.m_methodLine = lFormMethodLine.value;
         this.m_content = lFormContent.innerHTML;
     }
     //===============================================
@@ -378,12 +392,16 @@ class GForm extends GObject {
         var lFormIntro = document.getElementById("FormIntro");
         var lFormModule = document.getElementById("FormModule");
         var lFormMethod = document.getElementById("FormMethod");
+        var lFormModuleLine = document.getElementById("FormModuleLine");
+        var lFormMethodLine = document.getElementById("FormMethodLine");
         var lFormContent = document.getElementById("FormContent");
 
         lFormTitle.innerHTML = this.m_title;
         lFormIntro.innerHTML = this.m_intro;
         lFormModule.value = this.m_module;
         lFormMethod.value = this.m_method;
+        lFormModuleLine.value = this.m_moduleLine;
+        lFormMethodLine.value = this.m_methodLine;
         lFormContent.innerHTML = this.m_content;
     }
     //===============================================
@@ -488,13 +506,15 @@ class GForm extends GObject {
     }
     //===============================================
     onChangeLineForm(_obj, _data) {
+        if(this.m_moduleLine == "") return;
+        if(this.m_methodLine == "") return;
         var lObj = new GForm();
         var lLine = _obj;
         lObj.m_position = lLine.dataset.position;
         lObj.m_index = lLine.dataset.index;
         lObj.m_value = lLine.dataset.value;
         var lData = lObj.serialize();
-        call_server("editor", "update_link_title_form_line", _obj, lData);
+        call_server(this.m_moduleLine, this.m_methodLine, _obj, lData);
         return !this.hasErrors();
     }
     //===============================================

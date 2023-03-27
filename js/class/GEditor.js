@@ -50,12 +50,6 @@ class GEditor extends GObject {
         }
     }
     //===============================================
-    createNode(_data) {
-        var lParent = document.createElement('div');
-        lParent.innerHTML = _data.trim();
-        return lParent.firstElementChild;
-    }
-    //===============================================
     appendNode(_data) {
         this.m_node.appendChild(this.createNode(_data));
     }
@@ -301,6 +295,12 @@ class GEditor extends GObject {
         }
         else if(_method == "delete_parallax_confirm") {
             this.onDeleteParallaxConfirm(_obj, _data);
+        }
+        else if(_method == "update_parallax") {
+            this.onUpdateParallax(_obj, _data);
+        }
+        else if(_method == "update_parallax_form") {
+            this.onUpdateParallaxForm(_obj, _data);
         }
         else if(_method == "update_bg_image_parallax") {
             this.onUpdateBgImageParallax(_obj, _data);
@@ -761,6 +761,7 @@ class GEditor extends GObject {
         var lForm = GForm.Instance();
         lForm.clearMap();
         lForm.setCallback("editor", "update_link_title_form");
+        lForm.setCallbackLine("editor", "update_link_title_form_line");
         lForm.addLabelCombo("EditorTitleName", "Titre :", lTitle.toForm(), lIndex);
         lForm.addLabelText("EditorTitleId", "Identifiant :", lTitle.m_link);
         lForm.showForm();
@@ -1070,19 +1071,9 @@ class GEditor extends GObject {
             return false;
         }
 
-        var lHtml = "";
-        lHtml += "<div class='GParallax1 Parallax'>\n";
-        lHtml += "<div class='Img'>\n";
-        lHtml += "<div class='Caption'>\n";
-        lHtml += "<a href='#'><div class='Text'>Ajouter un titre...</div></a>\n";
-        lHtml += "</div>\n";
-        lHtml += "</div>\n";
-        lHtml += "<div class='Body2'>\n";
-        lHtml += "Ajouter un texte...\n";
-        lHtml += "</div>\n";
-        lHtml += "</div>\n";
+        var lParallax = new GParallax();
 
-        document.execCommand("insertHTML", false, lHtml);
+        document.execCommand("insertHTML", false, lParallax.toParallax());
     }
     //===============================================
     onDeleteParallax(_obj, _data) {
@@ -1110,7 +1101,7 @@ class GEditor extends GObject {
         this.removeNode();
     }
     //===============================================
-    onUpdateBgImageParallax(_obj, _data) {
+    onUpdateParallax(_obj, _data) {
         if(!this.readSelection()) return false;
         if(!this.isEditor()) {
             this.addError("La sélection est hors du cadre.");
@@ -1124,22 +1115,29 @@ class GEditor extends GObject {
         var lEditor = GEditor.Instance();
         lEditor.setObj(this);
 
-        var lObj = new GImage
+        var lParallax = new GParallax();
         var lNode = this.m_node;
-        var lBody = lNode.firstElementChild;
-        lObj.m_path = lBody.style.backgroundImage.getPathFromUrl();
-        
+        var lImg = lNode.firstElementChild;
+        var lBody = lNode.firstElementChild.nextElementSibling;
+        var lTitle = lNode.firstElementChild.firstElementChild.firstElementChild;
+        lParallax.m_title = lTitle.innerHTML;
+        lParallax.m_bgImg = lImg.style.backgroundImage.getPathFromUrl();
+        lParallax.m_bgColor = lBody.style.backgroundColor.getHexFromRgb();
+
         var lImage = GImage.Instance();
-        var lIndex = lImage.findObj(lObj);
+        var lIndex = lImage.findImg(lParallax.m_bgImg);
         
-        var lForm = new GForm();
-        lForm.setCallback("editor", "update_bg_image_parallax_form");
-        lForm.addLabelImage("EditorParallaxImage", "Image :", lImage.toForm(), lIndex);
+        var lForm = GForm.Instance();
+        lForm.clearMap();
+        lForm.setCallback("editor", "update_parallax_form");
+        lForm.addLabelEdit("m_title", "Titre :", lParallax.m_title);
+        lForm.addLabelImage("m_bgImg", "Image :", lImage.toForm(), lIndex);
+        lForm.addLabelColor("m_bgColor", "Couleur :", lParallax.m_bgColor);
         lForm.showForm();
         this.addLogs(lForm.getLogs());
     }
     //===============================================
-    onUpdateBgImageParallaxForm(_obj, _data) {
+    onUpdateParallaxForm(_obj, _data) {
         var lEditor = GEditor.Instance();
         this.setObj(lEditor);
         this.restoreRange();
@@ -1153,20 +1151,34 @@ class GEditor extends GObject {
         }
 
         var lImage = GImage.Instance();
-        lImage.loadData();
-        
-        var lForm = new GForm();
-        lForm.deserialize(_data);
-        var lBgImg = lImage.loadFromMap(lForm.loadFromMap(0).m_index).m_path;
+        var lForm = GForm.Instance();
+        lForm.readForm();
+
+        var lParallax = new GParallax();
+        lParallax.m_title = lForm.loadFromMap(0).m_value;
+        lParallax.m_bgImg = lImage.loadFromMap(lForm.loadFromMap(1).m_index).m_path;
+        lParallax.m_bgColor = lForm.loadFromMap(2).m_value;
                 
-        if(lBgImg == "") {
+        if(lParallax.m_title == "") {
+            this.addError("Le titre est obligatoire.");
+            return false;
+        }
+        if(lParallax.m_bgImg == "") {
             this.addError("L'image de fond est obligatoire.");
+            return false;
+        }
+        if(lParallax.m_bgColor == "") {
+            this.addError("La couleur de fond est obligatoire.");
             return false;
         }
 
         var lNode = this.m_node;
-        var lBgImgId = lNode.firstElementChild;
-        lBgImgId.style.backgroundImage = sprintf("url('%s')", lBgImg);
+        var lImg = lNode.firstElementChild;
+        var lBody = lNode.firstElementChild.nextElementSibling;
+        var lTitle = lNode.firstElementChild.firstElementChild.firstElementChild;
+        lTitle.innerHTML = lParallax.m_title;
+        lImg.style.backgroundImage = sprintf("url('%s')", lParallax.m_bgImg);
+        lBody.style.backgroundColor = lParallax.m_bgColor;
     }
     //===============================================
     onUpdateBgColorParallax(_obj, _data) {
