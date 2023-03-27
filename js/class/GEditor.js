@@ -302,18 +302,6 @@ class GEditor extends GObject {
         else if(_method == "update_parallax_form") {
             this.onUpdateParallaxForm(_obj, _data);
         }
-        else if(_method == "update_bg_image_parallax") {
-            this.onUpdateBgImageParallax(_obj, _data);
-        }
-        else if(_method == "update_bg_image_parallax_form") {
-            this.onUpdateBgImageParallaxForm(_obj, _data);
-        }
-        else if(_method == "update_bg_color_parallax") {
-            this.onUpdateBgColorParallax(_obj, _data);
-        }
-        else if(_method == "update_bg_color_parallax_form") {
-            this.onUpdateBgColorParallaxForm(_obj, _data);
-        }
         //===============================================
         // path
         //===============================================
@@ -1179,60 +1167,6 @@ class GEditor extends GObject {
         lTitle.innerHTML = lParallax.m_title;
         lImg.style.backgroundImage = sprintf("url('%s')", lParallax.m_bgImg);
         lBody.style.backgroundColor = lParallax.m_bgColor;
-    }
-    //===============================================
-    onUpdateBgColorParallax(_obj, _data) {
-        if(!this.readSelection()) return false;
-        if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
-            return false;
-        }
-        if(!this.hasParent("GParallax1")) {
-            this.addError("Vous n'êtes pas dans un effet parallax.");
-            return false;
-        }
-
-        var lEditor = GEditor.Instance();
-        lEditor.setObj(this);
-
-        var lNode = this.m_node;
-        var lBody = lNode.firstElementChild.nextElementSibling;
-        var lBgColor = lBody.style.backgroundColor.getHexFromRgb();
-        
-        if(lBody.style.backgroundColor == "") lBgColor = "#803300";
-        
-        var lForm = new GForm();
-        lForm.setCallback("editor", "update_bg_color_parallax_form");
-        lForm.addLabelColor("EditorParallaxColor", "Couleur :", lBgColor);
-        lForm.showForm();
-        this.addLogs(lForm.getLogs());
-    }
-    //===============================================
-    onUpdateBgColorParallaxForm(_obj, _data) {
-        var lEditor = GEditor.Instance();
-        this.setObj(lEditor);
-        this.restoreRange();
-        if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
-            return false;
-        }
-        if(!this.hasParent("GParallax1")) {
-            this.addError("Vous n'êtes pas dans un effet parallax.");
-            return false;
-        }
-
-        var lForm = new GForm();
-        lForm.deserialize(_data);
-        var lBgColor = lForm.loadFromMap(0).m_value;
-        
-        if(lBgColor == "") {
-            this.addError("La couleur de fond est obligatoire.");
-            return false;
-        }
-
-        var lNode = this.m_node;
-        var lBody = lNode.firstElementChild.nextElementSibling;
-        lBody.style.backgroundColor = lBgColor;
     }
     //===============================================
     // path

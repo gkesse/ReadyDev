@@ -580,18 +580,6 @@
                                 <data>
                                     <category>text</category>
                                     <module>editor</module>
-                                    <method>update_bg_image_parallax</method>
-                                    <label>Modifier image de fond</label>
-                                </data>
-                                <data>
-                                    <category>text</category>
-                                    <module>editor</module>
-                                    <method>update_bg_color_parallax</method>
-                                    <label>Modifier couleur de fond</label>
-                                </data>
-                                <data>
-                                    <category>text</category>
-                                    <module>editor</module>
                                     <method>delete_parallax</method>
                                     <label>Supprimer effet parallax</label>
                                 </data>
