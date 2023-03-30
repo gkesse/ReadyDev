@@ -4,6 +4,7 @@ class GFile extends GObject {
     private $m_action = "";
     private $m_filename = "";
     private $m_data = "";
+    private $m_isFound = true;
     //===============================================
     public function __construct() {
         parent::__construct();
@@ -19,6 +20,10 @@ class GFile extends GObject {
     //===============================================
     public function setData($_data) {
         $this->m_data = $_data;
+    }
+    //===============================================
+    public function isFound() {
+        return $this->m_isFound;
     }
     //===============================================
     public function loadData($_path, $_filename = "") {
@@ -74,7 +79,7 @@ class GFile extends GObject {
             return false;
         }
         if(!file_exists($this->m_filename)) {
-            $this->addError("Le chemin du fichier n'existe pas.");
+            $this->m_isFound = false;
             return false;
         }
         $this->m_data = utf8_decode(file_get_contents($this->m_filename));

@@ -682,6 +682,19 @@
                         <!-- end -->
                     </map>
                 </data>
+                <!-- Formulaires -->
+                <data>
+                	<category>text</category>
+                    <label>Formulaires</label>
+                    <map>
+                        <data>
+                            <category>text</category>
+                            <module>editor</module>
+                            <method>create_menu_form</method>
+                            <label>Saisir un menu</label>
+                        </data>
+                    </map>                
+                </data>
                 <!-- Images -->
                 <data>
                 	<category>text</category>

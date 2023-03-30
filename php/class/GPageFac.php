@@ -14,6 +14,7 @@ class GPageFac extends GModule {
     private $m_content = "";
     private $m_defaultAddress = "";
     private $m_defaultPage = "";
+    private $m_isFound = true;
     //===============================================
     private $m_cachePagePath = "data/cache/page";
     private $m_cacheDataPath = "data/cache/data";
@@ -176,7 +177,8 @@ class GPageFac extends GModule {
         $lDom->addData($_code, "type_id", $this->m_typeId);
         $lDom->addData($_code, "site_id", $this->m_siteId);
         $lDom->addData($_code, "site_name", $this->m_siteName);
-        $lDom->addData($_code, "default", $this->m_isDefault);
+        $lDom->addData($_code, "is_default", $this->m_isDefault);
+        $lDom->addData($_code, "is_found", $this->m_isFound);
         $lDom->addData($_code, "name", $this->m_name);
         $lDom->addData($_code, "path", $this->m_path);
         $lDom->addData($_code, "id_path", $this->m_idPath);
@@ -197,7 +199,8 @@ class GPageFac extends GModule {
         $this->m_typeId = $lDom->getItem($_code, "type_id");
         $this->m_siteId = $lDom->getItem($_code, "site_id");
         $this->m_siteName = $lDom->getItem($_code, "site_name");
-        $this->m_isDefault = $lDom->getItem($_code, "default");
+        $this->m_isDefault = $lDom->getItem($_code, "is_default");
+        $this->m_isFound = $lDom->getItem($_code, "is_found");
         $this->m_name = $lDom->getItem($_code, "name");
         $this->m_path = $lDom->getItem($_code, "path");
         $this->m_idPath = $lDom->getItem($_code, "id_path");
@@ -314,6 +317,7 @@ class GPageFac extends GModule {
             $lPath = sprintf("%s%s", $this->m_siteName, $this->m_path);
             $lFile = new GFile();
             $this->m_content = $lFile->loadData($this->m_cachePagePath, $lPath);
+            $this->m_isFound = $lFile->isFound();
             $this->addLogs($lFile->getLogs());
         }
         return !$this->hasErrors();

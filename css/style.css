@@ -2562,6 +2562,68 @@ thead tr:first-child {
 }
 
 /* ============================================== */
+/* Template */
+/* ============================================== */
+
+.Template1 {
+    border: 1px solid blue;
+    position: relative;
+}
+
+.Template2 {
+    border: 1px solid blue;
+	height: 350px;
+    padding: 5px;
+    margin-bottom: 50px;
+}
+
+.Template3 {
+    border: 1px solid blue;
+    position: absolute;
+	height: 50px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;	
+    padding: 5px;
+}
+
+.Template4 {
+    display: inline-block;
+    vertical-align: middle;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 0px 10px;
+    line-height: 30px; 
+    font-size: 16px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.Template5 {
+    margin: 5px;
+    position: relative;
+}
+
+.Template6 {
+    background-color: rgba(255, 255, 255, 0.2);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    width: 200px;
+    line-height: 30px;
+    padding-left: 10px;
+}
+
+.Template7 {
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    margin-left: 200px;
+}
+
+.Template8 {
+    width: 100%;
+}
+
+/* ============================================== */
 /* Text */
 /* ============================================== */
 

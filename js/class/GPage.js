@@ -9,7 +9,8 @@ class GPage extends GObject {
         this.m_parentId = 0;
         this.m_siteId = 0;
         this.m_typeId = 0;
-        this.m_isDefault = 0;
+        this.m_isDefault = false;
+        this.m_isFound = true;
         this.m_name = ""
         this.m_typeName = ""
         this.m_siteName = ""
@@ -351,6 +352,7 @@ class GPage extends GObject {
         lDom.addData(_code, "site_id", ""+this.m_siteId);
         lDom.addData(_code, "site_name", this.m_siteName);
         lDom.addData(_code, "is_default", ""+this.m_isDefault);
+        lDom.addData(_code, "is_found", ""+this.m_isFound);
         lDom.addData(_code, "name", this.m_name);
         lDom.addData(_code, "path", this.m_path);
         lDom.addData(_code, "id_path", this.m_idPath);
@@ -372,6 +374,7 @@ class GPage extends GObject {
         this.m_siteId = +lDom.getItem(_code, "site_id");
         this.m_siteName = lDom.getItem(_code, "site_name");
         this.m_isDefault = +lDom.getItem(_code, "is_default");
+        this.m_isFound = +lDom.getItem(_code, "is_found");
         this.m_name = lDom.getItem(_code, "name");
         this.m_path = lDom.getItem(_code, "path");
         this.m_idPath = lDom.getItem(_code, "id_path");
@@ -591,7 +594,14 @@ class GPage extends GObject {
         if(_isOk) {
             var lPage = new GPage();
             lPage.deserialize(_data);
-            lPage.initContent();
+            if(lPage.m_isFound) {
+                lPage.initContent();
+            }
+            else {
+                var lPage = new GPage();
+                lPage.loadActiveAddress();
+                lPage.onNewPage();
+            }
         }
     }
     //===============================================
@@ -635,6 +645,7 @@ class GPage extends GObject {
         this.readUi();
         var lPage = new GPage();
         lPage.m_parentId = this.m_parentId;
+        lPage.m_typeId = this.m_typeId;
         lPage.writeUi();
         lPage.initContent();
     }

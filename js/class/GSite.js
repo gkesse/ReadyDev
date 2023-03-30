@@ -33,7 +33,7 @@ class GSite extends GObject {
     //===============================================
     init() {
         if(this.isInit()) {
-            this.loadDefaultSiteRun();
+            call_server("site", "load_default_site", this);
         }
     }
     //===============================================
@@ -55,10 +55,6 @@ class GSite extends GObject {
         this.m_defaultSite = lEditorSiteDefaultSite.innerHTML;
     }
     //===============================================
-    storeDefaultSite() {
-        call_server("site", "store_default_site", this);
-    }
-    //===============================================
     loadDefaultSite() {
         if(this.m_defaultSite != "") {
             var lSite = new GSite();
@@ -66,10 +62,6 @@ class GSite extends GObject {
             lSite.initDefaultSite();
             lSite.writeUi();
         }
-    }
-    //===============================================
-    loadDefaultSiteRun() {
-        call_server("site", "load_default_site", this);
     }
     //===============================================
     showTable(_selectCB, _nextCB) {
@@ -172,7 +164,7 @@ class GSite extends GObject {
             this.onStoreDefaultSite(_obj, _data);
         }
         else if(_method == "load_default_site") {
-            this.onLoadDefaultSiteRun(_obj, _data);
+            this.onLoadDefaultSite(_obj, _data);
         }
         else {
             this.addError("La méthode est inconnue.");
@@ -215,7 +207,7 @@ class GSite extends GObject {
                 lSite.loadFromMap(0);
                 lSite.writeUi();
                 lSite.initDefaultSite();
-                lSite.storeDefaultSite();
+                call_server("site", "store_default_site", this);
             }
             else if(lSite.m_map.length) {
                 lSite.showTable("search_site_select", "search_site_next");
@@ -236,7 +228,7 @@ class GSite extends GObject {
             lSite.loadFromMap(lTable.getRow());
             lSite.writeUi();
             lSite.initDefaultSite();
-            lSite.storeDefaultSite();
+            call_server("site", "store_default_site", this);
        }
     }
     //===============================================
@@ -262,15 +254,17 @@ class GSite extends GObject {
     }
     //===============================================
     onStoreDefaultSiteCB(_data, _isOk) {
-        
+        if(_isOk) {
+            call_server("page", "load_default_page", this);
+        }
     }
     //===============================================
-    onLoadDefaultSiteRun(_obj, _data) {
+    onLoadDefaultSite(_obj, _data) {
         var lAjax = new GAjax();
-        lAjax.callLocal("site", "load_default_site", "", this.onLoadDefaultSiteRunCB);        
+        lAjax.callLocal("site", "load_default_site", "", this.onLoadDefaultSiteCB);        
     }
     //===============================================
-    onLoadDefaultSiteRunCB(_data, _isOk) {
+    onLoadDefaultSiteCB(_data, _isOk) {
         var lSite = new GSite();
         lSite.deserialize(_data);
         lSite.loadDefaultSite();

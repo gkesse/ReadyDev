@@ -253,25 +253,7 @@ class GEditor extends GObject {
             this.onDeleteLinkTitleGroupConfirm(_obj, _data);
         }
         //===============================================
-        // title_section
-        //===============================================
-        else if(_method == "add_title_section") {
-            this.onAddTitleSection(_obj, _data);
-        }
-        else if(_method == "update_title_section") {
-            this.onUpdateTitleSection(_obj, _data);
-        }
-        else if(_method == "update_title_section_form") {
-            this.onUpdateTitleSectionForm(_obj, _data);
-        }
-        else if(_method == "delete_title_section") {
-            this.onDeleteTitleSection(_obj, _data);
-        }
-        else if(_method == "delete_title_section_confirm") {
-            this.onDeleteTitleSectionConfirm(_obj, _data);
-        }
-        //===============================================
-        // menu
+        // navigation
         //===============================================
         else if(_method == "add_navigation") {
             this.onAddNavigation(_obj, _data);
@@ -355,6 +337,30 @@ class GEditor extends GObject {
         }
         else if(_method == "delete_text_image_left_confirm") {
             this.onDeleteTextImageLeftConfirm(_obj, _data);
+        }
+        //===============================================
+        // template
+        //===============================================
+        else if(_method == "create_menu_form") {
+            this.onCreateMenuForm(_obj, _data);
+        }
+        //===============================================
+        // title_section
+        //===============================================
+        else if(_method == "add_title_section") {
+            this.onAddTitleSection(_obj, _data);
+        }
+        else if(_method == "update_title_section") {
+            this.onUpdateTitleSection(_obj, _data);
+        }
+        else if(_method == "update_title_section_form") {
+            this.onUpdateTitleSectionForm(_obj, _data);
+        }
+        else if(_method == "delete_title_section") {
+            this.onDeleteTitleSection(_obj, _data);
+        }
+        else if(_method == "delete_title_section_confirm") {
+            this.onDeleteTitleSectionConfirm(_obj, _data);
         }
         //===============================================
         // end
@@ -883,119 +889,7 @@ class GEditor extends GObject {
         this.removeNode();
     }
     //===============================================
-    // title_section
-    //===============================================
-    onAddTitleSection(_obj, _data) {
-        if(!this.readSelection()) return false;
-        if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
-            return false;
-        }
-        if(this.hasParent("GTitle1")) {
-            this.addError("Vous êtes dans un titre section.");
-            return false;
-        }
-        if(this.isLine()) {
-            this.addError("Vous êtes sur une ligne.");
-            return false;
-        }
-
-        var lHtml = "";
-        lHtml += "<div class='GTitle1 Content2'>";
-        lHtml += "<div class='MainBlock2'>";
-        lHtml += "<div class='Content'>";
-        lHtml += "<h1 class='Title2 Center'>";
-        lHtml += "<a class='Link3' href='#'>";
-        lHtml += "Ajouter un titre...";
-        lHtml += "</a>";
-        lHtml += "</h1>";
-        lHtml += "<div class='Body3'>";
-        lHtml += "Ajouter un texte ici...";
-        lHtml += "</div>";
-        lHtml += "</div>";
-        lHtml += "</div>";
-        lHtml += "</div>";
-
-        document.execCommand("insertHTML", false, lHtml);
-    }
-    //===============================================
-    onUpdateTitleSection(_obj, _data) {
-        if(!this.readSelection()) return false;
-        if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
-            return false;
-        }
-        if(!this.hasParent("GTitle1")) {
-            this.addError("Vous n'êtes pas dans un titre section.");
-            return false;
-        }
-
-        var lEditor = GEditor.Instance();
-        lEditor.setObj(this);
-
-        var lNode = this.m_node;
-        var lTitle = lNode.firstElementChild.firstElementChild.firstElementChild.firstElementChild;
-        var lText = lTitle.innerHTML;
-        var lId = lTitle.id;
-        
-        var lForm = new GForm();
-        lForm.setCallback("editor", "update_title_section_form");
-        lForm.addLabelEdit("EditorTitleName", "Titre :", lText);
-        lForm.addLabelText("EditorTitleId", "Identifiant :", lId);
-        lForm.showForm();
-        this.addLogs(lForm.getLogs());
-    }
-    //===============================================
-    onUpdateTitleSectionForm(_obj, _data) {
-        var lEditor = GEditor.Instance();
-        this.setObj(lEditor);
-        this.restoreRange();
-        if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
-            return false;
-        }
-        if(!this.hasParent("GTitle1")) {
-            this.addError("Vous n'êtes pas dans un titre section.");
-            return false;
-        }
-        
-        var lForm = new GForm();
-        lForm.deserialize(_data);
-        var lText = lForm.loadFromMap(0).m_value;
-        var lId = lText.getNormalize();
-        
-        var lNode = this.m_node;
-        var lTitle = lNode.firstElementChild.firstElementChild.firstElementChild.firstElementChild;
-        lTitle.innerHTML = lText;
-        lTitle.id = lId;
-    }
-    //===============================================
-    onDeleteTitleSection(_obj, _data) {
-        if(!this.readSelection()) return false;
-        if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
-            return false;
-        }
-        if(!this.hasParent("GTitle1")) {
-            this.addError("Vous n'êtes pas dans un titre section.");
-            return false;
-        }
-        
-        var lConfirm = new GConfirm();
-        lConfirm.setCallback("editor", "delete_title_section_confirm");
-        lConfirm.showConfirm();
-    }
-    //===============================================
-    onDeleteTitleSectionConfirm(_obj, _data) {
-        if(!this.readSelection()) return false;
-        if(!this.hasParent("GTitle1")) {
-            this.addError("Vous n'êtes pas dans un titre section.");
-            return false;
-        }
-        this.removeNode();
-    }
-    //===============================================
-    // menu
+    // navigation
     //===============================================
     onAddNavigation(_obj, _data) {
         if(!this.readSelection()) return false;
@@ -1391,6 +1285,147 @@ class GEditor extends GObject {
         if(!this.readSelection()) return false;
         if(!this.hasParent("GText1")) {
             this.addError("Vous n'êtes pas dans un texte image");
+            return false;
+        }
+        this.removeNode();
+    }
+    //===============================================
+    // template
+    //===============================================
+    onCreateMenuForm(_obj, _data) {
+        if(!this.readSelection()) return false;
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(this.hasParent("GTemplate1")) {
+            this.addError("Vous êtes dans un template.");
+            return false;
+        }
+        if(this.isLine()) {
+            this.addError("Vous êtes sur une ligne.");
+            return false;
+        }
+        
+        var lTemplate = new GTemplate();
+        lTemplate.addLabelEdit("EditorMenuId", "Id :");
+        lTemplate.addLabelEdit("EditorMenuName", "Nom :");
+        lTemplate.addLabelEdit("EditorMenuLink", "Lien :", "/home/cv");
+        lTemplate.addButton("editor", "save_menu_site", "save", "Enregistrer");
+        lTemplate.addButton("editor", "search_menu_site", "search", "Rechercher");
+        lTemplate.addButton("editor", "delete_menu_site", "trash", "Supprimer");
+        lTemplate.addButton("editor", "new_menu_site", "file", "Nouveau");
+        
+        document.execCommand("insertHTML", false, lTemplate.toHtml());
+    }
+    //===============================================
+    // title_section
+    //===============================================
+    onAddTitleSection(_obj, _data) {
+        if(!this.readSelection()) return false;
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(this.hasParent("GTitle1")) {
+            this.addError("Vous êtes dans un titre section.");
+            return false;
+        }
+        if(this.isLine()) {
+            this.addError("Vous êtes sur une ligne.");
+            return false;
+        }
+
+        var lHtml = "";
+        lHtml += "<div class='GTitle1 Content2'>";
+        lHtml += "<div class='MainBlock2'>";
+        lHtml += "<div class='Content'>";
+        lHtml += "<h1 class='Title2 Center'>";
+        lHtml += "<a class='Link3' href='#'>";
+        lHtml += "Ajouter un titre...";
+        lHtml += "</a>";
+        lHtml += "</h1>";
+        lHtml += "<div class='Body3'>";
+        lHtml += "Ajouter un texte ici...";
+        lHtml += "</div>";
+        lHtml += "</div>";
+        lHtml += "</div>";
+        lHtml += "</div>";
+
+        document.execCommand("insertHTML", false, lHtml);
+    }
+    //===============================================
+    onUpdateTitleSection(_obj, _data) {
+        if(!this.readSelection()) return false;
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GTitle1")) {
+            this.addError("Vous n'êtes pas dans un titre section.");
+            return false;
+        }
+
+        var lEditor = GEditor.Instance();
+        lEditor.setObj(this);
+
+        var lNode = this.m_node;
+        var lTitle = lNode.firstElementChild.firstElementChild.firstElementChild.firstElementChild;
+        var lText = lTitle.innerHTML;
+        var lId = lTitle.id;
+        
+        var lForm = new GForm();
+        lForm.setCallback("editor", "update_title_section_form");
+        lForm.addLabelEdit("EditorTitleName", "Titre :", lText);
+        lForm.addLabelText("EditorTitleId", "Identifiant :", lId);
+        lForm.showForm();
+        this.addLogs(lForm.getLogs());
+    }
+    //===============================================
+    onUpdateTitleSectionForm(_obj, _data) {
+        var lEditor = GEditor.Instance();
+        this.setObj(lEditor);
+        this.restoreRange();
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GTitle1")) {
+            this.addError("Vous n'êtes pas dans un titre section.");
+            return false;
+        }
+        
+        var lForm = new GForm();
+        lForm.deserialize(_data);
+        var lText = lForm.loadFromMap(0).m_value;
+        var lId = lText.getNormalize();
+        
+        var lNode = this.m_node;
+        var lTitle = lNode.firstElementChild.firstElementChild.firstElementChild.firstElementChild;
+        lTitle.innerHTML = lText;
+        lTitle.id = lId;
+    }
+    //===============================================
+    onDeleteTitleSection(_obj, _data) {
+        if(!this.readSelection()) return false;
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GTitle1")) {
+            this.addError("Vous n'êtes pas dans un titre section.");
+            return false;
+        }
+        
+        var lConfirm = new GConfirm();
+        lConfirm.setCallback("editor", "delete_title_section_confirm");
+        lConfirm.showConfirm();
+    }
+    //===============================================
+    onDeleteTitleSectionConfirm(_obj, _data) {
+        if(!this.readSelection()) return false;
+        if(!this.hasParent("GTitle1")) {
+            this.addError("Vous n'êtes pas dans un titre section.");
             return false;
         }
         this.removeNode();

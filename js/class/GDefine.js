@@ -1,7 +1,4 @@
 //===============================================
-// user
-//===============================================
-const G_USER_GROUP_USER            = "0";
-const G_USER_GROUP_ADMIN        = "1";
-const G_USER_GROUP_ROOT            = "2";
+const PAGE_TYPE_FILE            = "file";
+const PAGE_TYPE_DIR             = "dir";
 //===============================================
