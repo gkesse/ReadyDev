@@ -241,9 +241,12 @@ class GReady extends GObject {
                         echo sprintf("<div class='%s'><a class='%s %s' href='%s'>%s</a></div>\n", $_classB, $_classA, $lActive,  $lObj->m_link, $lObj->m_data);
                     }
                     else {
+                        $lBorder = "Menu7";
+                        if(!$lObj->m_parentObj) $lBorder = "Menu11";
+                            
                         echo sprintf("<div class='Menu6'>");
                         echo sprintf("<div class='%s'><a class='%s %s' href='%s'>%s</a></div>\n", _classB, $_classA, $lActive,  $lObj->m_link, $lObj->m_data);
-                        echo sprintf("<div class='Menu7'>");
+                        echo sprintf("<div class='%s'>", $lBorder);
                         $this->writeMenu($lObj, "Menu2", "Menu10");
                         echo sprintf("</div>");
                         echo sprintf("</div>");

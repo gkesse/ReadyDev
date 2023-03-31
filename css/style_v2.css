@@ -260,7 +260,7 @@ thead tr:first-child {
 /* ============================================== */
 
 .Menu1 {
-	border: 1px solid blue;
+	background-color: rgba(255, 255, 255, 0.2);
 	text-align: left;
 	font-size: 0px;
 }
@@ -268,7 +268,6 @@ thead tr:first-child {
 .Menu2,
 .Menu3,
 .Menu8 {
-	border: 1px solid blue;
 	border-top: 5px solid transparent;
     border-bottom: 5px solid transparent;
 	display: inline-block;
@@ -313,10 +312,15 @@ thead tr:first-child {
 	display: inline-block;
 }
 
-.Menu7 {
-	position: absolute;	
+.Menu6:hover .Menu7,
+.Menu6:hover .Menu11 {
+	display: block;	
+}
+
+.Menu7,
+.Menu11 {
+	display: none;	
 	min-width: 300px;
-    border: 2px solid rgba(255, 255, 255, 0.2);
     background-color: #051039;
 }
 
@@ -330,6 +334,11 @@ thead tr:first-child {
 
 .Menu10 {
 	display: block;
+}
+
+.Menu11 {
+	position: absolute;	
+	border: 3px solid rgba(255, 255, 255, 0.2);
 }
 
 /* ============================================== */
