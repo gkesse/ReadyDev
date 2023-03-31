@@ -1,35 +1,11 @@
 //===============================================
 class GMenu extends GObject {
     //===============================================
-    static m_instance = null;
-    //===============================================
     constructor() {
         super();
     }
     //===============================================
-    static Instance() {
-        if(this.m_instance == null) {
-            this.m_instance = new GMenu();
-        }
-        return this.m_instance;
-    }    
-    //===============================================
-    init() {
-        var lMenus = document.getElementsByClassName("Menu2");
-        for(var i = 0; i < lMenus.length; i++) {
-            var lMenu = lMenus[i];
-            lMenu.addEventListener("click", function(e) {
-                var lMenus = this.parentNode.getElementsByClassName("Menu2");
-                for(var i = 0; i < lMenus.length; i++) {
-                    var lMenu = lMenus[i];
-                    lMenu.classList.remove("Active");
-                }
-                this.classList.add("Active");
-            });
-        }
-    }
-    //===============================================
-    run(_method, _obj, _data) {
+    onModule(_method, _obj, _data) {
         if(_method == "") {
             this.addError("La méthode est obligatoire.");
         }
@@ -54,6 +30,4 @@ class GMenu extends GObject {
     }
     //===============================================
 }
-//===============================================
-GMenu.Instance().init();
 //===============================================

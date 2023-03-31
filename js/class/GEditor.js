@@ -341,6 +341,9 @@ class GEditor extends GObject {
         //===============================================
         // template
         //===============================================
+        else if(_method == "create_main_form") {
+            this.onCreateMainForm(_obj, _data);
+        }
         else if(_method == "create_menu_form") {
             this.onCreateMenuForm(_obj, _data);
         }
@@ -1291,6 +1294,25 @@ class GEditor extends GObject {
     }
     //===============================================
     // template
+    //===============================================
+    onCreateMainForm(_obj, _data) {
+        if(!this.readSelection()) return false;
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(this.hasParent("GMain1")) {
+            this.addError("Vous êtes dans un template.");
+            return false;
+        }
+        if(this.isLine()) {
+            this.addError("Vous êtes sur une ligne.");
+            return false;
+        }
+        
+        var lTemplate = new GTemplate();
+        document.execCommand("insertHTML", false, lTemplate.toMain());
+    }
     //===============================================
     onCreateMenuForm(_obj, _data) {
         if(!this.readSelection()) return false;

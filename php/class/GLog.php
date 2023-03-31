@@ -13,8 +13,13 @@ class GLog {
     //===============================================
     public function clone() {
         $lObj = new GLog();
-        $lObj->setLog($this);
         return $lObj;
+    }
+    //===============================================
+    public function setLog($_obj) {
+        $this->m_type = $_obj->m_type;
+        $this->m_side = $_obj->m_side;
+        $this->m_msg = $_obj->m_msg;
     }
     //===============================================
     public function serialize($_code = "logs") {
@@ -22,7 +27,7 @@ class GLog {
         $lDom->createDoc();
         $lDom->addData($_code, "type", $this->m_type);
         $lDom->addData($_code, "side", $this->m_side);
-        $lDom->addData($_code, "msg", $this->m_msg);
+        $lDom->addData($_code, "msg", base64_encode($this->m_msg));
         $lDom->addMap($_code, $this->m_map);
         return $lDom->toString();
     }
@@ -32,14 +37,8 @@ class GLog {
         $lDom->loadXml($_data);
         $this->m_type = $lDom->getItem($_code, "type");
         $this->m_side = $lDom->getItem($_code, "side");
-        $this->m_msg = $lDom->getItem($_code, "msg");
+        $this->m_msg = base64_decode($lDom->getItem($_code, "msg"));
         $lDom->getMap($_code, $this->m_map, $this);
-    }
-    //===============================================
-    public function setLog($_obj) {
-        $this->m_type = $_obj->m_type;
-        $this->m_side = $_obj->m_side;
-        $this->m_msg = $_obj->m_msg;       
     }
     //===============================================
     public function addError($_msg) {
@@ -62,7 +61,7 @@ class GLog {
         $lObj = new GLog();
         $lObj->m_type = "data";
         $lObj->m_side = "server_php";
-        $lObj->m_msg = base64_encode($_msg);
+        $lObj->m_msg = $_msg;
         $this->m_map[] = $lObj;
     }
     //===============================================
@@ -93,6 +92,13 @@ class GLog {
         if(!count($this->m_map)) return;
         echo sprintf("<div hidden='true' id='LogsPhpData'>%s</div>\n", $this->serialize());
         echo sprintf("<script>call_server('logs', 'show_php_logs');</script>\n");
+    }
+    //===============================================
+    public function printLogs() {
+        for ($i = 0; $i < count($this->m_map); $i++) {
+            $lObj = $this->m_map[$i];
+            echo sprintf("<xmp style='text-align: left;'>[%s] :\n%s</xmp>\n", $lObj->m_type, $lObj->m_msg);
+        }
     }
     //===============================================
 }

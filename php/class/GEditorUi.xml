@@ -690,8 +690,14 @@
                         <data>
                             <category>text</category>
                             <module>editor</module>
+                            <method>create_main_form</method>
+                            <label>Créer main form</label>
+                        </data>
+                        <data>
+                            <category>text</category>
+                            <module>editor</module>
                             <method>create_menu_form</method>
-                            <label>Saisir un menu</label>
+                            <label>Créer menu form</label>
                         </data>
                     </map>                
                 </data>

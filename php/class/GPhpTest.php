@@ -1,5 +1,5 @@
 <?php   
-    class GPhpTest extends GTestUi {
+    class GPhpTest extends GTest {
         //===============================================
         public function __construct() {
             parent::__construct();
@@ -7,9 +7,7 @@
         //===============================================
         public function run() {
             if($this->m_module == "") {
-                $this->m_headerUi->run();
                 $this->addError("Le module est obligatoire.");
-                $this->m_footerUi->run();
             }
             else if($this->m_module == "prod") {
                 $this->runProd();
@@ -27,40 +25,38 @@
                 $this->runFile();
             }
             else {
-                $this->m_headerUi->run();
                 $this->addError("Le module est inconnu.");
-                $this->m_footerUi->run();
             }
         }
         //===============================================
         public function runProd() {
-            $lReadyUi = new GReadyUi();
-            $lReadyUi->run();
-            $this->addLogs($lReadyUi->getLogs());
+            $lObj = new GReady();
+            $lObj->run();
+            $this->addLogs($lObj->getLogs());
         }
         //===============================================
         public function runXml() {
-            $lXmlTest = new GXmlTest();
-            $lXmlTest->run();
-            $this->addLogs($lXmlTest->getLogs());
+            $lObj = new GXmlTest();
+            $lObj->run();
+            $this->addLogs($lObj->getLogs());
         }
         //===============================================
         public function runCurl() {
-            $lCurlTest = new GCurlTest();
-            $lCurlTest->run();
-            $this->addLogs($lCurlTest->getLogs());
+            $lObj = new GCurlTest();
+            $lObj->run();
+            $this->addLogs($lObj->getLogs());
         }
         //===============================================
         public function runSQLite() {
-            $lTest = new GSQLiteTest();
-            $lTest->run();
-            $this->addLogs($lTest->getLogs());
+            $lObj = new GSQLiteTest();
+            $lObj->run();
+            $this->addLogs($lObj->getLogs());
         }
         //===============================================
         public function runFile() {
-            $lTest = new GFileTest();
-            $lTest->run();
-            $this->addLogs($lTest->getLogs());
+            $lObj = new GFileTest();
+            $lObj->run();
+            $this->addLogs($lObj->getLogs());
         }
         //===============================================
     }

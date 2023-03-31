@@ -7,7 +7,7 @@ class GXml {
     private $m_nodes = null;
     private $m_xpath = null;
     private $m_next = null;
-    private $m_stack = null;
+    private $m_stack = array();
     //===============================================
     public function __construct() {
 

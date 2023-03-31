@@ -1,5 +1,5 @@
 <?php   
-    class GJsTest extends GTestUi {
+    class GJsTest extends GTest {
         //===============================================
         public function __construct() {
             parent::__construct();

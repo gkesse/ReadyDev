@@ -1,0 +1,336 @@
+/* ============================================== */
+/* Global */ 
+/* ============================================== */
+
+* {
+    color: white;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*:focus { 
+    border: none;
+    outline: none;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    overflow: auto;
+    scrollbar-color: #5f6681 #051039;
+    scrollbar-width: auto;
+}
+
+body {
+    background-color: #051039;
+    font-family: arial;
+    font-size: 16px;
+    text-align: center;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    padding: 5px 10px 5px 5px;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+}
+
+button:disabled,
+button:disabled:hover {
+      border: 1px solid #aaaaaa;
+      background-color: transparent;
+      cursor: not-allowed;
+}
+
+input {
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 5px 10px 5px 10px;
+    font-size: 16px;
+    color: white;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+    -webkit-text-fill-color: white ;
+    -webkit-box-shadow: 0 0 0 30px #051039 inset !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+input[readonly] {
+	cursor: pointer;
+}
+
+* {
+    scrollbar-color: #aaaaff #111111;
+    scrollbar-width: thin;
+}
+
+*::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+}
+
+::-webkit-scrollbar-track {
+      background: transparent; 
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+      background: #aaaaff; 
+    border-left: 2px solid #111111;
+    border-right: 2px solid #111111;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+      background: #aaaaff; 
+    border-top: 2px solid #111111;
+    border-bottom: 2px solid #111111;
+}
+
+::-webkit-scrollbar-thumb:hover {
+      background: #aaaaff; 
+}
+
+::-webkit-scrollbar-button:horizontal {
+    background: #aaaaff;
+    width: 5px;
+}
+
+::-webkit-scrollbar-button:vertical {
+    background: #aaaaff;
+    height: 5px;
+}
+
+select {
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+}
+
+textarea {
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 5px 10px 5px 10px;
+    font-family: arial;
+    font-size: 16px;
+    color: white;
+    width: 100%;
+    resize: none;
+  	cursor: auto;
+}
+
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+a {
+    text-decoration: none;
+}
+
+b {
+    color: cyan;
+    word-break: break-word;
+}
+
+span {
+    word-break: break-all;
+}
+
+table, th, td {
+	border: 2px solid #2f3959;
+}
+
+table {
+	width: 100%;
+  	border-collapse: collapse;
+}
+
+th, td {
+	padding: 5px 10px;
+}
+
+tr {
+    cursor: pointer;
+}
+
+tr:hover {
+	background-color: #512731;
+}
+
+thead tr:first-child {
+	background-color: #2f3959;
+}
+
+/* ============================================== */
+/* Background */ 
+/* ============================================== */
+
+.Background1 {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    min-height: 300px;
+    z-index: -1;
+        
+    background-image: url("/data/img/defaults/top_masque.png"),
+	url("/data/img/defaults/fond.jpg");
+    background-position: center top, left top;
+    background-repeat: no-repeat, no-repeat;    
+    background-size: auto 85%, 100% 100%;    
+    
+    border: 10px solid transparent;
+    border-image: url("/data/img/defaults/border.png") 30 round;
+    -webkit-border-image: url("/data/img/defaults/border.png") 30 round; 
+    -moz-border-image: url("/data/img/defaults/border.png") 30 round; 
+    -o-border-image: url("/data/img/defaults/border.png") 30 round;
+}
+
+.Background2 {
+	position: absolute;
+    top: 300px;
+    bottom: 300px;
+    left: 0px;
+    right: 0px;
+	z-index: -1;
+    
+    background-image: url("/data/img/defaults/middle.gif");
+    background-position: center center;
+    background-repeat: repeat;    
+    background-size: auto;
+}
+
+.Background3 {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    min-height: 300px;
+    z-index: -1;
+
+  	background-image: url("/data/img/defaults/footer.jpg");
+    background-position: left top;
+    background-repeat: no-repeat;    
+    background-size: 100% 100%;    
+    
+    border: 10px solid transparent;
+    border-image: url("/data/img/defaults/border.png") 30 round;
+    -webkit-border-image: url("/data/img/defaults/border.png") 30 round; 
+    -moz-border-image: url("/data/img/defaults/border.png") 30 round; 
+    -o-border-image: url("/data/img/defaults/border.png") 30 round;
+}
+
+/* ============================================== */
+/* Html */ 
+/* ============================================== */
+
+.Html1 {
+	border: 1px solid transparent;
+	position: relative;
+}
+
+.Html2 {
+    background-color: #051039;
+    max-width: 1000px;
+    margin: auto;
+    margin-top: 250px;
+    margin-bottom: 250px;
+    min-height: 150px;
+    
+	border: 10px solid transparent;
+    border-image: url("/data/img/defaults/border.png") 30 round;
+    -webkit-border-image: url("/data/img/defaults/border.png") 30 round; 
+    -moz-border-image: url("/data/img/defaults/border.png") 30 round; 
+    -o-border-image: url("/data/img/defaults/border.png") 30 round;
+}
+
+/* ============================================== */
+/* Menu */ 
+/* ============================================== */
+
+.Menu1 {
+	border: 1px solid blue;
+	text-align: left;
+	font-size: 0px;
+}
+
+.Menu2,
+.Menu3,
+.Menu8 {
+	border: 1px solid blue;
+	border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+	display: inline-block;
+	padding: 0px 10px;
+	line-height: 40px;
+    vertical-align: middle;
+    font-size: 18px;
+    font-family: Aclonica;
+}
+
+.Menu2:hover,
+.Menu8:hover {
+    border-bottom: 5px solid #89a830;
+}
+
+.Menu2.Active,
+.Menu8.Active {
+    border-bottom: 5px solid #f67b20;
+}
+
+.Menu4 {
+    background-color: cyan;
+    display: inline-block;
+    vertical-align: middle;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    padding: 3px;
+}
+
+.Menu5  {
+    display: inline-block;
+    vertical-align: middle;
+    color: cyan;
+    font-size: 25px;
+    font-family: Akronim;
+    color: cyan;
+}
+
+.Menu6 {
+	position: relative;
+	display: inline-block;
+}
+
+.Menu7 {
+	position: absolute;	
+	min-width: 300px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    background-color: #051039;
+}
+
+.Menu8 {
+	display: block;
+}
+
+.Menu9 {
+	display: inline-block;
+}
+
+.Menu10 {
+	display: block;
+}
+
+/* ============================================== */
+

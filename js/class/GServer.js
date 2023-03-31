@@ -9,56 +9,8 @@ class GServer extends GObject {
         if(_module == "") {
             this.addError("Le module est obligatoire.");
         }
-        else if(_module == "test") {
-            this.onTest(_method, _obj, _data);
-        }
-        else if(_module == "logs") {
-            this.onLog(_method, _obj, _data);
-        }
-        else if(_module == "editor") {
-            this.onEditor(_method, _obj, _data);
-        }
-        else if(_module == "page") {
-            this.onPage(_method, _obj, _data);
-        }
-        else if(_module == "site") {
-            this.onSite(_method, _obj, _data);
-        }
-        else if(_module == "combobox") {
-            this.onComboBox(_method, _obj, _data);
-        }
-        else if(_module == "dropdown") {
-            this.onDropDown(_method, _obj, _data);
-        }
-        else if(_module == "image") {
-            this.onImage(_method, _obj, _data);
-        }
-        else if(_module == "keyevent") {
-            this.onKeyEvent(_method, _obj, _data);
-        }
         else if(_module == "menu") {
             this.onMenu(_method, _obj, _data);
-        }
-        else if(_module == "sitemap") {
-            this.onSitemap(_method, _obj, _data);
-        }
-        else if(_module == "manager") {
-            this.onManager(_method, _obj, _data);
-        }
-        else if(_module == "query") {
-            this.onQuery(_method, _obj, _data);
-        }
-        else if(_module == "table") {
-            this.onTable(_method, _obj, _data);
-        }
-        else if(_module == "confirm") {
-            this.onConfirm(_method, _obj, _data);
-        }
-        else if(_module == "form") {
-            this.onForm(_method, _obj, _data);
-        }
-        else if(_module == "loader") {
-            this.onLoader(_method, _obj, _data);
         }
         else {
             this.addError("Le module est inconnu.");
@@ -66,105 +18,9 @@ class GServer extends GObject {
     }
     //===============================================
     onTest(_method, _obj, _data) {
-        var lObj = new GTestUi();
+        var lObj = new GTest();
         lObj.loadData();
-        lObj.onModule()
-        this.addLogs(lObj.getLogs());
-    }
-    //===============================================
-    onLog(_method, _obj, _data) {
-        var lObj = new GLogUi();
-        lObj.onModule(_method, _obj, _data)
-        this.addLogs(lObj.getLogs());
-    }
-    //===============================================
-    onEditor(_method, _obj, _data) {
-        var lObj = new GEditor();
-        lObj.onModule(_method, _obj, _data)
-        this.addLogs(lObj.getLogs());
-    }
-    //===============================================
-    onPage(_method, _obj, _data) {
-        var lObj = new GPage();
-        lObj.onModule(_method, _obj, _data)
-        this.addLogs(lObj.getLogs());
-    }
-    //===============================================
-    onSite(_method, _obj, _data) {
-        var lObj = new GSite();
-        lObj.onModule(_method, _obj, _data)
-        this.addLogs(lObj.getLogs());
-    }
-    //===============================================
-    onComboBox(_method, _obj, _data) {
-        var lObj = new GComboBox();
-        lObj.onModule(_method, _obj, _data)
-        this.addLogs(lObj.getLogs());
-    }
-    //===============================================
-    onDropDown(_method, _obj, _data) {
-        var lObj = new GDropDown();
-        lObj.onModule(_method, _obj, _data)
-        this.addLogs(lObj.getLogs());
-    }
-    //===============================================
-    onImage(_method, _obj, _data) {
-        var lObj = new GImage();
-        lObj.onModule(_method, _obj, _data)
-        this.addLogs(lObj.getLogs());
-    }
-    //===============================================
-    onKeyEvent(_method, _obj, _data) {
-        var lObj = new GKeyEvent();
-        lObj.onModule(_method, _obj, _data)
-        this.addLogs(lObj.getLogs());
-    }
-    //===============================================
-    onMenu(_method, _obj, _data) {
-        var lObj = new GMenu();
-        lObj.onModule(_method, _obj, _data)
-        this.addLogs(lObj.getLogs());
-    }
-    //===============================================
-    onSitemap(_method, _obj, _data) {
-        var lObj = new GSitemap();
-        lObj.onModule(_method, _obj, _data)
-        this.addLogs(lObj.getLogs());
-    }
-    //===============================================
-    onManager(_method, _obj, _data) {
-        var lObj = new GManager();
-        lObj.onModule(_method, _obj, _data)
-        this.addLogs(lObj.getLogs());
-    }
-    //===============================================
-    onQuery(_method, _obj, _data) {
-        var lObj = new GQuery();
-        lObj.onModule(_method, _obj, _data)
-        this.addLogs(lObj.getLogs());
-    }
-    //===============================================
-    onTable(_method, _obj, _data) {
-        var lObj = new GTable();
-        lObj.onModule(_method, _obj, _data)
-        this.addLogs(lObj.getLogs());
-    }
-    //===============================================
-    onConfirm(_method, _obj, _data) {
-        var lObj = new GConfirm();
-        lObj.onModule(_method, _obj, _data)
-        this.addLogs(lObj.getLogs());
-    }
-    //===============================================
-    onForm(_method, _obj, _data) {
-        var lObj = new GForm();
-        lObj.onModule(_method, _obj, _data)
-        this.addLogs(lObj.getLogs());
-    }
-    //===============================================
-    onLoader(_method, _obj, _data) {
-        var lObj = new GLoader();
-        lObj.onModule(_method, _obj, _data)
+        lObj.run()
         this.addLogs(lObj.getLogs());
     }
     //===============================================

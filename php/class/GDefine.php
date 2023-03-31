@@ -1,9 +1,14 @@
 <?php   
 //===============================================
-// user
+// Les types d'environnements
 //===============================================
-const G_USER_GROUP_USER         = "0";
-const G_USER_GROUP_ADMIN        = "1";
-const G_USER_GROUP_ROOT         = "2";
+const G_ENV_TYPE_PROD           = "PROD";
+const G_ENV_TYPE_TEST           = "TEST";
+//===============================================
+// Les types de logs
+//===============================================
+const G_LOG_TYPE_LOG            = "log";
+const G_LOG_TYPE_ERROR          = "error";
+const G_LOG_TYPE_DATA           = "data";
 //===============================================
 ?>
