@@ -232,6 +232,164 @@ thead tr:first-child {
 }
 
 /* ============================================== */
+/* Block */ 
+/* ============================================== */
+
+.Block1 {
+	padding: 10px;
+}
+
+.Block2 {
+	background-color: rgba(35, 47, 87, 0.9);
+}
+
+.Block3 {
+    background-color: #2f3959;
+    color: #bf8e3a;
+    padding: 20px 10px;
+}
+
+.Block4 {
+    color: #89a830;
+    word-break: break-word;
+}
+
+.Block5 {
+    padding: 5px;
+}
+
+.Block6 {
+    text-align: left;
+    font-size: 0px;
+}
+
+.Block7 {
+	display: inline-block;
+    vertical-align: middle;
+    font-size: 14px;
+    padding: 5px;
+}
+
+.Block8 {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 5px 10px;
+}
+
+.Block8:hover {
+    text-decoration: underline;
+}
+
+.Block8.Active {
+    background-color: #051039;
+}
+
+.Block9 {
+    padding: 5px;
+    text-align: left;
+}
+
+.Block10 {
+	border-bottom: 5px solid #051039;
+    color: #f67b20;
+    padding-bottom: 5px;
+}
+
+.Block11 {
+	padding: 10px 0px;
+    overflow: auto;
+    scrollbar-color: #5f6681 #051039;
+    scrollbar-width: auto;
+}
+
+.Block12 {
+	height: 400px;
+}
+
+.Block13 {
+	background-color: #051039;
+    padding: 10px;
+    overflow: auto;
+    scrollbar-color: #5f6681 #051039;
+    scrollbar-width: auto;
+}
+
+.Block14 {
+    border: 2px solid #2f3959;
+    height: 400px;
+    padding: 10px;
+}
+
+.Block15 {
+    max-width: 800px;
+    margin: auto;
+}
+
+.Block16 {
+    position: relative;
+}
+
+.Block17 {
+    border: 1px solid cyan;
+	position: absolute;
+	top: 0px;
+	right: 10px;
+}
+
+.Block18 {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.Block18:hover {
+    text-decoration: underline;
+}
+
+.Block19 {
+	display: none;
+}
+
+.Block19.Show {
+	display: block;
+    border: 1px solid cyan;
+	position: absolute;
+	top: 100%;
+	right: 0px;
+	width: 300px;
+    background-color: #051039;
+}
+
+.Block20 {
+	color: #eeeeee;
+	padding: 5px;
+	display: block;
+	border-bottom: 1px solid #2f3959;
+	cursor: pointer;
+	text-align: left;
+}
+
+.Block20:hover {
+	background-color: rgba(255, 255, 255, 0.2);
+}
+
+.Block21 {
+	border: 1px solid red;
+}
+
+.Block22 {
+	display: none;
+}
+
+.Block22.Show {
+	border: 1px solid red;
+	display: block;
+}
+
+.Block23 {
+    height: 350px;
+}
+
+/* ============================================== */
 /* Html */ 
 /* ============================================== */
 
@@ -339,6 +497,8 @@ thead tr:first-child {
 .Menu11 {
 	position: absolute;	
 	border: 2px solid rgba(255, 255, 255, 0.2);
+	top: 100%;
+	left: 0px;
 }
 
 /* ============================================== */

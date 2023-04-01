@@ -1,21 +1,46 @@
 <?php   
     class GObject {
         //===============================================
+        protected $m_isTestEnv = false;
         protected $m_homePage = "";
         protected $m_pageId = "";
-        protected $m_logs = null;
+        //===============================================
+        protected $m_category = "";
+        protected $m_model = "";
+        //===============================================
         protected $m_map = array();
+        protected $m_parentMap = array();
+        //===============================================
+        protected $m_logs = null;
+        protected $m_parentObj = null;
+        protected $m_currentObj = null;
         //===============================================
         public function __construct() {
             $this->m_logs = new GLog();
+        }
+        //===============================================
+        public function initTestEnv() {
+            $this->m_isTestEnv = ($this->getEnv("GPROJECT_ENV") == "TEST");
+        }
+        //===============================================
+        public function initHomePage() {
+            $this->setHomePage("/home");
+        }
+        //===============================================
+        public function initParent() {
+            $this->m_parentObj = $this->m_currentObj;
         }
         //===============================================
         public function setHomePage($_homePage) {
             $this->m_homePage = $_homePage;
         }
         //===============================================
-        public function initHomePage() {
-            $this->setHomePage("/home");
+        public function pushParent() {
+            $this->m_parentMap[] = $this->m_parentObj;
+        }
+        //===============================================
+        public function popParent() {
+            $this->m_parentObj = array_pop($this->m_parentMap);
         }
         //===============================================
         public function findObj($_obj) {
@@ -27,6 +52,21 @@
                 }
             }
             return false;
+        }
+        //===============================================
+        public function findObjMapCM($_category, $_model, $_parent = null) {
+            $lMap = $this->clone();
+            for($i = 0; $i < count($this->m_map); $i++) {
+                $lObj = $this->m_map[$i];
+                if($lObj->m_category == $_category) {
+                    if($lObj->m_model == $_model) {
+                        if($lObj->m_parentObj == $_parent) {
+                            $lMap->m_map[] = $lObj;
+                        }
+                    }
+                }
+            }
+            return $lMap;
         }
         //===============================================
         public function isEmpty() {

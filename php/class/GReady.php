@@ -6,18 +6,13 @@ class GReady extends GObject {
     private $m_title = "";
     private $m_logo = "";
     //===============================================
-    private $m_category = "";
-    private $m_model = "";
     private $m_id = "";
     private $m_data = "";
     private $m_menu = "";
     private $m_link = "";
+    private $m_isActive = false;
     //===============================================
-    private $m_parentObj = null;
-    private $m_currentObj = null;
-    private $m_currentMenu = null;
-    //===============================================
-    private $m_parentMap = array();
+    private $m_admin = null;
     //===============================================
     public function __construct() {
         parent::__construct();
@@ -34,6 +29,7 @@ class GReady extends GObject {
         $this->m_data = $_obj->m_data;
         $this->m_link = $_obj->m_link;
         $this->m_menu = $_obj->m_menu;
+        $this->m_isActive = $_obj->m_isActive;
     }
     //===============================================
     public function isEqual($_obj) {
@@ -44,6 +40,7 @@ class GReady extends GObject {
         $lEqualOk &= ($this->m_data == $_obj->m_data);
         $lEqualOk &= ($this->m_link == $_obj->m_link);
         $lEqualOk &= ($this->m_menu == $_obj->m_menu);
+        $lEqualOk &= ($this->m_isActive == $_obj->m_isActive);
         return $lEqualOk;
     }
     //===============================================
@@ -93,13 +90,14 @@ class GReady extends GObject {
         $this->m_map[] = $lObj;
     }
     //===============================================
-    public function addMenu($_menu, $_data, $_link = "#") {
+    public function addMenu($_menu, $_data, $_link = "#", $_active = true) {
         $lObj = new GReady();
         $lObj->m_category = "menu";
         $lObj->m_model = "menu";
         $lObj->m_menu = $_menu;
         $lObj->m_data = $_data;
         $lObj->m_link = $_link;
+        $lObj->m_isActive = $_active;
         $lObj->m_parentObj = $this->m_parentObj;
         $this->m_map[] = $lObj;
         $this->m_currentObj = $lObj;
@@ -107,18 +105,7 @@ class GReady extends GObject {
     //===============================================
     public function initObj() {
         $this->m_currentMenu = new GReady();
-    }
-    //===============================================
-    public function initParent() {
-        $this->m_parentObj = $this->m_currentObj;
-    }
-    //===============================================
-    public function pushParent() {
-        $this->m_parentMap[] = $this->m_parentObj;
-    }
-    //===============================================
-    public function popParent() {
-        $this->m_parentObj = array_pop($this->m_parentMap);
+        $this->m_admin = new GAdmin();
     }
     //===============================================
     public function initHeader() {
@@ -143,11 +130,11 @@ class GReady extends GObject {
         $this->addScriptJs("/js/class/GObject.js");
         $this->addScriptJs("/js/class/GServer.js");
         $this->addScriptJs("/js/script.js");
+        $this->addScriptJs("/js/class/GAdmin.js");
     }
     //===============================================
     public function initEnv() {
-        $this->addEnvInput("EnvProdOn", "1");
-        $this->addEnvInput("EnvType");
+        $this->addEnvInput("TestEnv", $this->m_isTestEnv);
         
         $this->addEnvInput("SearchDataSize", "8");
         $this->addEnvInput("SearchDataCount", "0");
@@ -165,7 +152,9 @@ class GReady extends GObject {
     }
     //===============================================
     public function initMenu() {
+        $this->addMenu("home", "Accueil", "/home", false);
         $this->addMenu("cv", "CV", "/home/cv");
+        
         $this->pushParent();
         $this->initParent();
         $this->addMenu("cv", "CV Simplifié", "/home/cv/simple");
@@ -190,6 +179,9 @@ class GReady extends GObject {
         $this->addMenu("cours", "Chmie", "/home/cours/chimistry");
         $this->addMenu("cours", "Technologie", "/home/cours/technology");
         $this->popParent();
+        
+        $this->addMenu("admin", "Admin", "/home/admin");
+        $this->addMenu("connection", "Connexion", "/home/connexion");
     }
     //===============================================
     public function initCurrentMenu() {
@@ -207,18 +199,7 @@ class GReady extends GObject {
     }
     //===============================================
     public function findMenuMap($_parent = null) {
-        $lMenu = new GReady();
-        for($i = 0; $i < count($this->m_map); $i++) {
-            $lObj = $this->m_map[$i];
-            if($lObj->m_category == "menu") {
-                if($lObj->m_model == "menu") {
-                    if($lObj->m_parentObj == $_parent) {
-                        $lMenu->m_map[] = $lObj;
-                    }
-                }
-            }
-        }
-        return $lMenu;
+        return $this->findObjMapCM("menu", "menu", $_parent);
     }
     //===============================================
     public function writeMenu($_parent = null, $_classA = "Menu2", $_classB = "Menu9") {
@@ -227,29 +208,31 @@ class GReady extends GObject {
             $lObj = $lMenuI->m_map[$i];
             if($lObj->m_category == "menu") {
                 if($lObj->m_model == "menu") {
-                    $lMenuJ = $this->findMenuMap($lObj);
-                    
-                    $lActive = "";
-                    
-                    $lActiveOk = false;
-                    $lActiveOk |= $lObj->isEqual($this->m_currentMenu);
-                    $lActiveOk |= ($lObj->m_menu == $this->m_currentMenu->m_menu && !$lObj->m_parentObj);
-                    
-                    if($lActiveOk) $lActive = "Active";
-                    
-                    if(empty($lMenuJ->m_map)) {                        
-                        echo sprintf("<div class='%s'><a class='%s %s' href='%s'>%s</a></div>\n", $_classB, $_classA, $lActive,  $lObj->m_link, $lObj->m_data);
-                    }
-                    else {
-                        $lBorder = "Menu7";
-                        if(!$lObj->m_parentObj) $lBorder = "Menu11";
+                    if($lObj->m_isActive) {
+                        $lMenuJ = $this->findMenuMap($lObj);
+                        
+                        $lActive = "";
+                        
+                        $lActiveOk = false;
+                        $lActiveOk |= $lObj->isEqual($this->m_currentMenu);
+                        $lActiveOk |= ($lObj->m_menu == $this->m_currentMenu->m_menu && !$lObj->m_parentObj);
+                        
+                        if($lActiveOk) $lActive = "Active";
+                        
+                        if(empty($lMenuJ->m_map)) {
+                            echo sprintf("<div class='%s'><a class='%s %s' href='%s'>%s</a></div>\n", $_classB, $_classA, $lActive,  $lObj->m_link, $lObj->m_data);
+                        }
+                        else {
+                            $lBorder = "Menu7";
+                            if(!$lObj->m_parentObj) $lBorder = "Menu11";
                             
-                        echo sprintf("<div class='Menu6'>");
-                        echo sprintf("<div class='%s'><a class='%s %s' href='%s'>%s</a></div>\n", _classB, $_classA, $lActive,  $lObj->m_link, $lObj->m_data);
-                        echo sprintf("<div class='%s'>", $lBorder);
-                        $this->writeMenu($lObj, "Menu2", "Menu10");
-                        echo sprintf("</div>");
-                        echo sprintf("</div>");
+                            echo sprintf("<div class='Menu6'>\n");
+                            echo sprintf("<div class='%s'><a class='%s %s' href='%s'>%s</a></div>\n", $_classB, $_classA, $lActive,  $lObj->m_link, $lObj->m_data);
+                            echo sprintf("<div class='%s'>\n", $lBorder);
+                            $this->writeMenu($lObj, "Menu2", "Menu10");
+                            echo sprintf("</div>\n");
+                            echo sprintf("</div>\n");
+                        }                        
                     }
                 }
             }
@@ -267,6 +250,7 @@ class GReady extends GObject {
         $lDom->addData($_code, "id", $this->m_id);
         $lDom->addData($_code, "data", $this->m_data);
         $lDom->addData($_code, "link", $this->m_link);
+        $lDom->addData($_code, "active", $this->m_isActive);
         $lDom->addData($_code, "m_menu", $this->m_menu);
         $lDom->addMap($_code, $this->m_map);
         return $lDom->toString();
@@ -283,6 +267,7 @@ class GReady extends GObject {
         $this->m_id = $lDom->getItem($_code, "id");
         $this->m_data = $lDom->getItem($_code, "data");
         $this->m_link = $lDom->getItem($_code, "link");
+        $this->m_isActive = $lDom->getItem($_code, "active");
         $this->m_menu = $lDom->getItem($_code, "menu");
         $lDom->getMap($_code, $this->m_map, $this);
     }
@@ -291,8 +276,10 @@ class GReady extends GObject {
         //===============================================
         // [info] : on initialise les données
         //===============================================
+        
         $this->initObj();
         $this->initPageId();
+        $this->initTestEnv();
         $this->initHeader();
         $this->initFontCss();
         $this->initScriptJs();
@@ -301,11 +288,10 @@ class GReady extends GObject {
         $this->initCurrentMenu();
         $this->initHomePage();
         
-        $this->addData($this->serialize());
-        
         //===============================================
         // [info] : on initialise la page
         //===============================================
+        
         echo sprintf("<!DOCTYPE html>\n");
         echo sprintf("<html lang='%s'>\n", $this->m_lang);
         echo sprintf("<head>\n");
@@ -318,6 +304,7 @@ class GReady extends GObject {
         //===============================================
         // [info] : on initialise les feuilles de style css
         //===============================================
+        
         for($i = 0; $i < count($this->m_map); $i++) {
             $lObj = $this->m_map[$i];
             if($lObj->m_category == "font") {
@@ -327,6 +314,8 @@ class GReady extends GObject {
             }
         }
         
+        //===============================================
+        
         echo sprintf("</head>\n");
         echo sprintf("<body>\n");
         echo sprintf("<div class='Html1'>\n");
@@ -334,6 +323,7 @@ class GReady extends GObject {
         //===============================================
         // [info] : on initialise les variables globales
         //===============================================
+        
         for($i = 0; $i < count($this->m_map); $i++) {
             $lObj = $this->m_map[$i];
             if($lObj->m_category == "env") {
@@ -349,15 +339,19 @@ class GReady extends GObject {
         //===============================================
         // [info] : on initialise les fonds d'écran
         //===============================================
+        
         echo sprintf("<div class='Background1'></div>\n");
         echo sprintf("<div class='Background2'></div>\n");
         echo sprintf("<div class='Background3'></div>\n");
+        
+        //===============================================
         
         echo sprintf("<div class='Html2'>\n");
         
         //===============================================
         // [info] : on crée le menu de navigation
         //===============================================
+        
         echo sprintf("<div class='Menu1'>\n");
         echo sprintf("<a class='Menu3' href='%s'>\n", $this->m_homePage);
         echo sprintf("<img class='Menu4' src='%s' alt='logo.png'/>\n", $this->m_logo);
@@ -366,12 +360,22 @@ class GReady extends GObject {
         $this->writeMenu();
         echo sprintf("</div>\n");
         
+        //===============================================
+        // [info] : initialise le corps de la page
+        //===============================================
+        
+        $this->m_admin->run();
+        $this->addLogs($this->m_admin->getLogs());
+        
+        //===============================================
+        
         echo sprintf("</div>\n");
         echo sprintf("</div>\n");
         
         //===============================================
         // [info] : on initialise les scripts js
         //===============================================
+        
         for($i = 0; $i < count($this->m_map); $i++) {
             $lObj = $this->m_map[$i];
             if($lObj->m_category == "script") {
@@ -380,6 +384,8 @@ class GReady extends GObject {
                 }
             }
         }
+        
+        //===============================================
         
         echo sprintf("</body>\n");
         echo sprintf("</html>\n");

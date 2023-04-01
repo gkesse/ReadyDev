@@ -17,34 +17,15 @@ class GLog {
         return lObj;
     }
     //===============================================
-    clearLogs() {
-        this.m_map = [];
-    }
-    //===============================================
-    serialize(_code = "logs") {
-        var lDom = new GCode();
-        lDom.createDoc();
-        lDom.addData(_code, "type", this.m_type);
-        lDom.addData(_code, "side", this.m_side);
-        lDom.addData(_code, "msg", this.m_msg);
-        lDom.addMap(_code, this.m_map);
-        return lDom.toString();
-    }
-    //===============================================
-    deserialize(_data, _code = "logs") {
-        var lDom = new GCode();
-        lDom.loadXml(_data);
-        this.m_type = lDom.getItem(_code, "type");
-        this.m_side = lDom.getItem(_code, "side");
-        this.m_msg = lDom.getItem(_code, "msg");
-        lDom.getMap(_code, this.m_map, this);
-    }
-    //===============================================
     setObj(_obj) {
         if(!_obj) return;
         this.m_type = _obj.m_type;
         this.m_side = _obj.m_side;
         this.m_msg = _obj.m_msg;
+    }
+    //===============================================
+    clearLogs() {
+        this.m_map = [];
     }
     //===============================================
     addError(_msg) {
@@ -165,6 +146,25 @@ class GLog {
         return lDatas;
     }
     //===============================================
+    serialize(_code = "logs") {
+        var lDom = new GCode();
+        lDom.createDoc();
+        lDom.addData(_code, "type", this.m_type);
+        lDom.addData(_code, "side", this.m_side);
+        lDom.addData(_code, "msg", this.m_msg);
+        lDom.addMap(_code, this.m_map);
+        return lDom.toString();
+    }
+    //===============================================
+    deserialize(_data, _code = "logs") {
+        var lDom = new GCode();
+        lDom.loadXml(_data);
+        this.m_type = lDom.getItem(_code, "type");
+        this.m_side = lDom.getItem(_code, "side");
+        this.m_msg = lDom.getItem(_code, "msg");
+        lDom.getMap(_code, this.m_map, this);
+    }
+    //===============================================
     showErrors() {
         if(this.hasDatas()) return;
         if(!this.hasErrors()) return;
@@ -177,6 +177,7 @@ class GLog {
         var lErrorsBody = document.getElementById("ErrorsBody");
         var lErrorsTitle = document.getElementById("ErrorsTitle");
         var lErrorsLabel = document.getElementById("ErrorsLabel");
+        if(!lErrorsBody) return;
         var lClassName = lErrorsBody.className;
         
         lErrorsBody.className = lClassName.replace(" AnimateShow", "");

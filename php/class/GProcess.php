@@ -2,14 +2,8 @@
 //===============================================
 class GProcess extends GObject {
     //===============================================
-    private $m_isTestEnv = false;
-    //===============================================
     public function __construct() {
         parent::__construct();
-    }
-    //===============================================
-    public function initTestEnv() {
-        $this->m_isTestEnv = ($this->getEnv("GPROJECT_ENV") == "TEST");
     }
     //===============================================
     public function redirectHomePage() {
@@ -41,7 +35,7 @@ class GProcess extends GObject {
     }
     //===============================================
     public function runProd() {
-        $lObj = new GReadyUi();
+        $lObj = new GReady();
         $lObj->run();
         $this->addLogs($lObj->getLogs());
     }
