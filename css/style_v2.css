@@ -329,7 +329,6 @@ thead tr:first-child {
 }
 
 .Block17 {
-    border: 1px solid cyan;
 	position: absolute;
 	top: 0px;
 	right: 10px;
@@ -351,7 +350,7 @@ thead tr:first-child {
 
 .Block19.Show {
 	display: block;
-    border: 1px solid cyan;
+    border: 1px solid #4f5979;
 	position: absolute;
 	top: 100%;
 	right: 0px;
@@ -361,7 +360,7 @@ thead tr:first-child {
 
 .Block20 {
 	color: #eeeeee;
-	padding: 5px;
+	padding: 5px 10px;
 	display: block;
 	border-bottom: 1px solid #2f3959;
 	cursor: pointer;
@@ -372,8 +371,13 @@ thead tr:first-child {
 	background-color: rgba(255, 255, 255, 0.2);
 }
 
+.Block20.Active,
+.Block20.Active:hover {
+	background-color: #2f5959;
+}
+
 .Block21 {
-	border: 1px solid red;
+
 }
 
 .Block22 {
@@ -381,8 +385,8 @@ thead tr:first-child {
 }
 
 .Block22.Show {
-	border: 1px solid red;
 	display: block;
+	padding-left: 20px;
 }
 
 .Block23 {

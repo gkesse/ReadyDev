@@ -30,25 +30,97 @@ class GAdmin extends GObject {
     }
     //===============================================
     initMenu() {
-        var lMenus = document.getElementsByClassName("Block18");
-        for(var i = 0; i < lMenus.length; i++) {
-            var lMenu = lMenus[i];
-            lMenu.addEventListener("click", function(e) {
+        var lButtons = document.getElementsByClassName("Block18");
+        for(var i = 0; i < lButtons.length; i++) {
+            var lButton = lButtons[i];
+            lButton.addEventListener("click", function(e) {
                 var lContent = this.nextElementSibling;
                 if(!lContent) return;
                 lContent.classList.toggle("Show");
+                
+                var lContents = document.getElementsByClassName("Block22");
+                for(var i = 0; i < lContents.length; i++) {
+                    var lContent = lContents[i];
+                    var lLine = lContent.parentNode.firstElementChild;
+                    lLine.classList.remove("Active");
+                    lContent.classList.remove("Show");
+                }
+            });
+            lButton.addEventListener("mousedown", function(e) {
+                e.preventDefault();
             });
         }
         
-        var lMenus = document.getElementsByClassName("Block20");
-        for(var i = 0; i < lMenus.length; i++) {
-            var lMenu = lMenus[i];
-            lMenu.addEventListener("click", function(e) {
-                var lContent = this.nextElementSibling;
-                if(!lContent) return;
+        var lLines = document.getElementsByClassName("Block20");
+        for(var i = 0; i < lLines.length; i++) {
+            var lLine = lLines[i];
+            lLine.addEventListener("click", function(e) {
+                var lLines = document.getElementsByClassName("Block20");
+                for(var i = 0; i < lLines.length; i++) {
+                    var lLine = lLines[i];
+                    var lContent = lLine.nextElementSibling;
+                    if(!lContent) continue;
+                    var lSub = lContent.firstElementChild;
+                    if(!lSub) continue;
+                    if(lLine == this) continue;
+                    lContent.classList.remove("Show");
+                    lLine.classList.remove("Active");
+                }
+                
+                var lContent = null;
+                var lSub = null;
+                
+                lContent = this.nextElementSibling;
+                if(lContent) lSub = lContent.firstElementChild;
+                
+                var lParentNode = this;
+
+                if(!lContent || !lSub) {
+                    while(1) {
+                        var lParentNode = lParentNode.parentNode;
+                        if(lParentNode.matches(".Block19")) {
+                            lParentNode.classList.remove("Show");
+                            return;
+                        }
+                    }
+                }
+                
                 lContent.classList.toggle("Show");
+                this.classList.toggle("Active");
+                                
+                while(1) {
+                    var lParentNode = lParentNode.parentNode;
+                    if(lParentNode.matches(".Block19")) break;
+                    if(lParentNode.matches(".Block21")) continue;
+                    var lContent = lParentNode;
+                    var lLine = lContent.previousElementSibling;
+                    lLine.classList.toggle("Active");
+                    lContent.classList.toggle("Show");
+                }
+            });
+            lLine.addEventListener("mousedown", function(e) {
+                e.preventDefault();
             });
         }
+        
+        document.addEventListener("click", function(e) {
+            var lHideOk = true;
+            lHideOk &&= !e.target.matches(".Block18");
+            lHideOk &&= !e.target.matches(".Block20");
+            
+            if (lHideOk) {
+                var lContents = document.getElementsByClassName("Block19");
+                for(var i = 0; i < lContents.length; i++) {
+                    var lContent = lContents[i];
+                    lContent.classList.remove("Show");
+                }
+                var lContents = document.getElementsByClassName("Block22");
+                for(var i = 0; i < lContents.length; i++) {
+                    var lContent = lContents[i];
+                    lContent.classList.remove("Show");
+                }
+            }
+        });
     }
     //===============================================
     run(_method, _obj, _data) {

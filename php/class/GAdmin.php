@@ -178,13 +178,12 @@ class GAdmin extends GObject {
                     $lMenuJ = $this->findObjMapCM($_category, $_model, $lObj);
 
                     if(empty($lMenuJ->m_map)) {
-                        $lMenu .= sprintf("<div class='Block20' onclick='call_server(\"%s\", \"%s\", this, \"%s\");'>%s</div>\n",
+                        $lMenu .= sprintf("<div class='Block20' onclick='call_server(\"%s\", \"%s\", this, \"%s\")'>%s</div>\n",
                             $lObj->m_module, $lObj->m_method, $lObj->m_key, $lObj->m_data);
                     }
                     else {
                         $lMenu .= sprintf("<div class='Block21'>\n");
-                        $lMenu .= sprintf("<div class='Block20' onclick='call_server(\"%s\", \"%s\", this, \"%s\");'>%s</div>\n",
-                            $lObj->m_module, $lObj->m_method, $lObj->m_key, $lObj->m_data);
+                        $lMenu .= sprintf("<div class='Block20'>%s</div>\n", $lObj->m_data);
                         $lMenu .= sprintf("<div class='Block22'>\n");
                         $lMenu .= $this->writeMenu($_category, $_model, $lObj);
                         $lMenu .= sprintf("</div>\n");
@@ -243,7 +242,7 @@ class GAdmin extends GObject {
         $this->addHeaderButton("Code");
         
         //===============================================
-        // [info] : on initialise les menus des onglets
+        // [info] : on initialise le menu projet
         //===============================================
         
         $this->addMenuProject("admin", "save_project", "Enregistrer");
@@ -251,14 +250,34 @@ class GAdmin extends GObject {
         $this->addMenuProject("admin", "delete_project", "Supprimer");
         $this->addMenuProject("admin", "new_project", "Nouveau");
         
-        $this->addMenuEdition("", "", "Actions");
+        //===============================================
+        // [info] : on initialise le menu edition
+        //===============================================
+        
+        $this->addMenuEdition("", "", "Styles personnalisées");
         $this->pushParent();
         $this->initParent();
+        $this->addMenuEdition("", "", "Parallax");
+        $this->pushParent();
+        $this->initParent();
+        $this->addMenuEdition("admin", "add_parallax", "Ajouter effet parallax");
+        $this->addMenuEdition("admin", "update_parallax", "Modifier effet parallax");
+        $this->addMenuEdition("admin", "delete_parallax", "Modifier effet parallax");
+        $this->popParent();
+        $this->popParent();
+        
+        $this->addMenuEdition("", "", "Actions");
+        
+        $this->pushParent();
+        $this->initParent();
+        
         $this->addMenuEdition("admin", "save_edition", "Enregistrer");
         $this->addMenuEdition("admin", "search_edition", "Rechercher");
         $this->addMenuEdition("admin", "delete_edition", "Supprimer");
         $this->addMenuEdition("admin", "new_edition", "Nouveau");
+        
         $this->popParent();
+        
         
         //===============================================
         
