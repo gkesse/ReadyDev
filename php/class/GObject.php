@@ -15,6 +15,22 @@
         protected $m_parentObj = null;
         protected $m_currentObj = null;
         //===============================================
+        public function clone() {
+            return new GObject();
+        }
+        //===============================================
+        public function setObj($_obj) {
+            $this->m_category = $_obj->m_category;
+            $this->m_model = $_obj->m_model;
+        }
+        //===============================================
+        public function isEqual($_obj) {
+            $lEqualOk = true;
+            $lEqualOk &= ($this->m_category == $_obj->m_category);
+            $lEqualOk &= ($this->m_model == $_obj->m_model);
+            return $lEqualOk;
+        }
+        //===============================================
         public function __construct() {
             $this->m_logs = new GLog();
         }
@@ -41,6 +57,20 @@
         //===============================================
         public function popParent() {
             $this->m_parentObj = array_pop($this->m_parentMap);
+        }
+        //===============================================
+        public function loadFromMap($_index) {
+            if($_index >= 0 && $_index < count($this->m_map)) {
+                $lObj = $this->m_map[$_index];
+                $this->setObj($lObj);
+            }
+        }
+        //===============================================
+        public function loadToMap($_index) {
+            if($_index >= 0 && $_index < count($this->m_map)) {
+                $lObj = $this->m_map[$_index];
+                $lObj->setObj($this);
+            }
         }
         //===============================================
         public function findObj($_obj) {
@@ -182,9 +212,6 @@
             echo sprintf("<xmp style='text-align: left;'>%s</xmp>\n", $this->serialize());
         }
         //===============================================
-        public function clone() {return new GObject();}
-        public function setObj($_obj) {}
-        public function isEqual($_obj) {return false;}
         public function serialize($_code = "object") {return "";}
         public function deserialize($_data, $_code = "object") {}
         //===============================================

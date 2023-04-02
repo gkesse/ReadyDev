@@ -5,6 +5,7 @@ class GAdmin extends GObject {
     //===============================================
     constructor() {
         super();
+        this.m_codeSource = "";
     }
     //===============================================
     static Instance() {
@@ -21,11 +22,15 @@ class GAdmin extends GObject {
     //===============================================
     initTab() {
         var lEditorTabId = document.getElementById("EditorTab");
+        var lIndex = +lEditorTabId.dataset.defaultId;
+        this.initTabIndex(lIndex);
+    }
+    //===============================================
+    initTabIndex(_index) {
         var lEditorTabs = document.getElementsByClassName("EditorTab");
-        if(lEditorTabs.length) {
-            var lDefaultId = +lEditorTabId.dataset.defaultId;
-            var lEditorTab = lEditorTabs[lDefaultId];
-            this.onOpenEditorTab(lEditorTab, "EditorTab" + lDefaultId);
+        if(_index >= 0 && _index < lEditorTabs.length) {
+            var lEditorTab = lEditorTabs[_index];
+            this.onOpenEditorTab(lEditorTab, "EditorTab" + _index);
         }
     }
     //===============================================
@@ -69,13 +74,15 @@ class GAdmin extends GObject {
                 
                 var lContent = null;
                 var lSub = null;
+                var lContentOk = false;
                 
                 lContent = this.nextElementSibling;
                 if(lContent) lSub = lContent.firstElementChild;
+                if(lContent) lContentOk = lContent.matches(".Block22");
                 
                 var lParentNode = this;
 
-                if(!lContent || !lSub) {
+                if(!lContent || !lSub || !lContentOk) {
                     while(1) {
                         var lParentNode = lParentNode.parentNode;
                         if(lParentNode.matches(".Block19")) {
@@ -107,6 +114,7 @@ class GAdmin extends GObject {
             var lHideOk = true;
             lHideOk &&= !e.target.matches(".Block18");
             lHideOk &&= !e.target.matches(".Block20");
+            lHideOk &&= !e.target.matches(".Block24");
             
             if (lHideOk) {
                 var lContents = document.getElementsByClassName("Block19");
@@ -123,13 +131,62 @@ class GAdmin extends GObject {
         });
     }
     //===============================================
+    readCodeEdition() {
+        var lEditor = document.getElementById("GEndEditor");
+        this.m_codeSource = lEditor.innerHTML;
+    }
+    //===============================================
+    writeCodeEdition() {
+        var lEditor = document.getElementById("GEndEditor");
+        lEditor.innerHTML = this.m_codeSource;
+    }
+    //===============================================
+    readCodeSource() {
+        var lEditorCodeSource = document.getElementById("EditorCodeSource");
+        this.m_codeSource = lEditorCodeSource.innerHTML;
+    }
+    //===============================================
+    writeCodeSource() {
+        var lEditorCodeSource = document.getElementById("EditorCodeSource");
+        lEditorCodeSource.innerHTML = this.m_codeSource;
+    }
+    //===============================================
+    serialize(_code = "admin") {
+        var lDom = new GCode();
+        lDom.createDoc();
+        lDom.addData(_code, "code_source", utf8_to_b64(this.m_codeSource));
+        lDom.addMap(_code, this.m_map);
+        return lDom.toString();
+    }
+    //===============================================
+    deserialize(_data, _code = "admin") {
+        var lDom = new GCode();
+        lDom.loadXml(_data);
+        this.m_codeSource = b64_to_utf8(lDom.getItem(_code, "code_source"));
+        lDom.getMap(_code, this.m_map, this);
+    }
+    //===============================================
     run(_method, _obj, _data) {
         if(_method == "") {
             this.addError("La méthode est obligatoire.");
         }
         //===============================================
+        // tabs
+        //===============================================
         else if(_method == "open_editor_tab") {
             this.onOpenEditorTab(_obj, _data);
+        }
+        //===============================================
+        // actions
+        //===============================================
+        else if(_method == "go_to_code") {
+            this.onGoToCode(_obj, _data);
+        }
+        //===============================================
+        // edition
+        //===============================================
+        else if(_method == "store_edition") {
+            this.onStoreEdition(_obj, _data);
         }
         //===============================================
         // project
@@ -152,6 +209,8 @@ class GAdmin extends GObject {
         }
     }
     //===============================================
+    // tabs
+    //===============================================
     onOpenEditorTab(_obj, _data) {
         if(!_obj) return;
         var lTabs = document.getElementsByClassName("EditorTab");
@@ -170,25 +229,28 @@ class GAdmin extends GObject {
         lTab.style.display = "block";
     }
     //===============================================
+    // actions
+    //===============================================
+    onGoToCode(_obj, _data) {
+        this.readCodeEdition();
+        this.writeCodeSource();
+        this.initTabIndex(4);
+    }
+    //===============================================
+    // edition
+    //===============================================
+    onStoreEdition(_obj, _data) {
+        this.readCodeEdition();
+        var lAjax = new GAjax();
+        var lData = this.serialize();
+        lAjax.callRemote("admin", "store_edition", lData, this.onStoreEditionCB);        
+    }
+    //===============================================
+    onStoreEditionCB(_data, _isOk) {
+
+    }
+    //===============================================
     // project
-    //===============================================
-    onSaveProject(_obj, _data) {
-        
-    }
-    //===============================================
-    onSearchProject(_obj, _data) {
-        
-    }
-    //===============================================
-    onDeleteProject(_obj, _data) {
-        
-    }
-    //===============================================
-    onNewProject(_obj, _data) {
-        
-    }
-    //===============================================
-    // pa
     //===============================================
     onSaveProject(_obj, _data) {
         

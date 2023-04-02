@@ -127,9 +127,13 @@ class GReady extends GObject {
     public function initScriptJs() {
         $this->addScriptJs("/js/functions.js");
         $this->addScriptJs("/js/class/GLog.js");
+        $this->addScriptJs("/js/class/GXml.js");
+        $this->addScriptJs("/js/class/GCode.js");
         $this->addScriptJs("/js/class/GObject.js");
         $this->addScriptJs("/js/class/GServer.js");
         $this->addScriptJs("/js/script.js");
+        $this->addScriptJs("/js/class/GLoader.js");
+        $this->addScriptJs("/js/class/GAjax.js");
         $this->addScriptJs("/js/class/GAdmin.js");
     }
     //===============================================

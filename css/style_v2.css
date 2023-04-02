@@ -308,15 +308,11 @@ thead tr:first-child {
 .Block13 {
 	background-color: #051039;
     padding: 10px;
-    overflow: auto;
-    scrollbar-color: #5f6681 #051039;
-    scrollbar-width: auto;
 }
 
 .Block14 {
     border: 2px solid #2f3959;
     height: 400px;
-    padding: 10px;
 }
 
 .Block15 {
@@ -365,6 +361,7 @@ thead tr:first-child {
 	border-bottom: 1px solid #2f3959;
 	cursor: pointer;
 	text-align: left;
+	position: relative;
 }
 
 .Block20:hover {
@@ -390,7 +387,16 @@ thead tr:first-child {
 }
 
 .Block23 {
-    height: 350px;
+    height: 395px;
+    padding: 10px;
+    overflow: auto;
+}
+
+.Block24 {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translate(0, -50%);
 }
 
 /* ============================================== */
